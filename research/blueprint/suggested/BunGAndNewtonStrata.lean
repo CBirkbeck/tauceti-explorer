@@ -8,10 +8,13 @@ Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 Individual Mathlib and TauCeti modules are imported at the recorded pins.
 The algebraic interfaces use native affine Hopf points, a twisted-conjugacy
 representative groupoid, the centralizer functor on coefficient E-algebras,
-Witt-unit rank-one classes and the diagonalizable rational slope protorus.
+Witt-unit rank-one classes, the diagonalizable rational slope protorus, and
+Frobenius tensor families on the actual finite rational comodule fibre functor.
 The numerical cores retain the finite twisted product, affine difference fibre
-and rational GL_n slope data. Represented reductive descent, tensor-isocrystal
-reconstruction and relative analytic geometry remain separate obligations.
+and rational GL_n slope data. The trivialized tensor family reconstructs a
+point through native Tannaka duality. Untrivialized exact tensor-isocrystal
+comparison, represented reductive descent and relative analytic geometry
+remain separate obligations.
 The exact-name register at
 this file's end identifies unavailable supplier carriers under gap G08.
 The native exact tensor interface below checks categorical data and coherence
@@ -31,6 +34,7 @@ import Mathlib.CategoryTheory.Monoidal.Braided.Basic
 import Mathlib.CategoryTheory.Monoidal.NaturalTransformation
 import TauCeti.CategoryTheory.Exact.Functor
 import TauCeti.Algebra.AlgebraicGroup.Representation.Comodule.Monoidal
+import TauCeti.Algebra.AlgebraicGroup.Representation.Tannaka.Equivalence
 import Mathlib.RingTheory.WittVector.Isocrystal
 import Mathlib.CategoryTheory.Groupoid.Basic
 import Mathlib.CategoryTheory.Endomorphism
@@ -812,6 +816,260 @@ example (n : ℤ) :
 end SlopeProtorus
 end TauCeti.BunG
 
+noncomputable section
+open CategoryTheory WithConv
+open scoped TensorProduct
+namespace TauCeti.BunG.RepresentativeTensor
+universe u
+variable (E H L : Type u) [Field E] [CommRing H] [HopfAlgebra E H]
+  [Field L] [Algebra E L]
+variable (sigma : L ≃ₐ[E] L)
+
+instance sigmaInvPair : RingHomInvPair sigma.toRingEquiv.toRingHom
+    sigma.symm.toRingEquiv.toRingHom := RingHomInvPair.of_ringEquiv sigma.toRingEquiv
+instance sigmaInvPairSymm : RingHomInvPair sigma.symm.toRingEquiv.toRingHom
+    sigma.toRingEquiv.toRingHom := RingHomInvPair.of_ringEquiv sigma.symm.toRingEquiv
+
+abbrev Value (M : FGComoduleCat.{u,u,u} E H) := L ⊗[E] M
+
+/-- Coefficient Frobenius on the native scalar extension, fixing the representation factor. -/
+def coefficientSigma (M : FGComoduleCat.{u,u,u} E H) :
+    Value E H L M ≃ₛₗ[sigma.toRingEquiv.toRingHom] Value E H L M where
+  toFun := TensorProduct.map sigma.toLinearMap LinearMap.id
+  invFun := TensorProduct.map sigma.symm.toLinearMap LinearMap.id
+  map_add' := by sorry
+  map_smul' := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+
+theorem coefficientSigma_tmul (M : FGComoduleCat.{u,u,u} E H) (a : L) (m : M) :
+    coefficientSigma E H L sigma M (a ⊗ₜ[E] m) = sigma a ⊗ₜ[E] m := by sorry
+
+/-- The actual Frobenius rho(b) sigma on each finite rational representation. -/
+def frobenius (b : WithConv (H →ₐ[E] L)) (M : FGComoduleCat.{u,u,u} E H) :
+    Value E H L M ≃ₛₗ[sigma.toRingEquiv.toRingHom] Value E H L M :=
+  (coefficientSigma E H L sigma M).trans (Comodule.pointsAction M b)
+
+theorem frobenius_apply (b : WithConv (H →ₐ[E] L))
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    frobenius E H L sigma b M x =
+      Comodule.pointsAction M b (coefficientSigma E H L sigma M x) := by sorry
+
+def tensorCombine (M N : FGComoduleCat.{u,u,u} E H)
+    (x : Value E H L M) (y : Value E H L N) :
+    Value E H L (FGComoduleCat.tensor E H M N) :=
+  (TensorProduct.AlgebraTensorModule.distribBaseChange E L M N).symm (x ⊗ₜ[L] y)
+
+/-- Frobenius descent data on the fixed native scalar-extension fibre functor.
+All fields are explicit semilinearity, naturality and tensor equations.
+This is the trivialized presentation, not the untrivialized isocrystal category. -/
+structure Data where
+  component : ∀ M : FGComoduleCat.{u,u,u} E H,
+    Value E H L M ≃ₛₗ[sigma.toRingEquiv.toRingHom] Value E H L M
+  naturality : ∀ {M N : FGComoduleCat.{u,u,u} E H} (f : M ⟶ N) (x : Value E H L M),
+    component N (f.hom.toLinearMap.baseChange L x) =
+      f.hom.toLinearMap.baseChange L (component M x)
+  unit : ∀ a : L, component (FGComoduleCat.tensorUnit E H) (a ⊗ₜ[E] (1 : E)) =
+    sigma a ⊗ₜ[E] (1 : E)
+  tensor : ∀ (M N : FGComoduleCat.{u,u,u} E H) (x : Value E H L M)
+      (y : Value E H L N),
+    component (FGComoduleCat.tensor E H M N) (tensorCombine E H L M N x y) =
+      tensorCombine E H L M N (component M x) (component N y)
+
+def ofRepresentative (b : WithConv (H →ₐ[E] L)) : Data E H L sigma where
+  component := frobenius E H L sigma b
+  naturality := by sorry
+  unit := by sorry
+  tensor := by sorry
+
+/-- Linearize a semilinear tensor family by composing with inverse coefficient Frobenius. -/
+def linearized (F : Data E H L sigma) :
+    Aut (FGComoduleCat.scalarExtensionMonoidalFunctor E H L) := by sorry
+
+theorem linearized_component (F : Data E H L sigma)
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    Tannaka.scalarExtensionComponent E H L (linearized E H L sigma F) M x =
+      F.component M ((coefficientSigma E H L sigma M).symm x) := by sorry
+
+/-- Tannakian reconstruction now gives a point without defining another linear category. -/
+def reconstructedPoint (F : Data E H L sigma) : WithConv (H →ₐ[E] L) :=
+  (Tannaka.fgPointTensorIsoEquiv E H L).symm (linearized E H L sigma F)
+
+def equivalence : WithConv (H →ₐ[E] L) ≃ Data E H L sigma where
+  toFun := ofRepresentative E H L sigma
+  invFun := reconstructedPoint E H L sigma
+  left_inv := by sorry
+  right_inv := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testSemilinearity
+-- Semilinearity is an equation with sigma, rather than ordinary L-linearity.
+example (b : WithConv (H →ₐ[E] L)) (M : FGComoduleCat.{u,u,u} E H)
+    (a : L) (x : Value E H L M) :
+    (ofRepresentative E H L sigma b).component M (a • x) =
+      sigma a • (ofRepresentative E H L sigma b).component M x := by sorry
+-- TauCeti.BunG.RepresentativeTensor.testCoefficientUnit
+-- The unit representative has actual coefficient Frobenius.
+example (M : FGComoduleCat.{u,u,u} E H) (a : L) (m : M) :
+    (ofRepresentative E H L sigma 1).component M (a ⊗ₜ[E] m) =
+      sigma a ⊗ₜ[E] m := by sorry
+-- TauCeti.BunG.RepresentativeTensor.testTensorFamily
+-- The tensor equation tests a cross-representation constraint.
+example (F : Data E H L sigma) (M N : FGComoduleCat.{u,u,u} E H)
+    (x : Value E H L M) (y : Value E H L N) :
+    F.component (FGComoduleCat.tensor E H M N) (tensorCombine E H L M N x y) =
+      tensorCombine E H L M N (F.component M x) (F.component N y) := by sorry
+
+/-- Arrows are genuine tensor automorphisms of the fixed fibre functor,
+with the explicit Frobenius intertwining equation. -/
+structure Iso (F G : Data E H L sigma) where
+  tensorIso : Aut (FGComoduleCat.scalarExtensionMonoidalFunctor E H L)
+  intertwines : ∀ (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M),
+    Tannaka.scalarExtensionComponent E H L tensorIso M (F.component M x) =
+      G.component M (Tannaka.scalarExtensionComponent E H L tensorIso M x)
+
+/-- Every Frobenius-compatible tensor arrow reconstructs the actual conjugator. -/
+def conjugatorEquiv (b c : WithConv (H →ₐ[E] L)) :
+    {g : WithConv (H →ₐ[E] L) //
+      c = g * b * (TauCeti.AlgHom.mapValue sigma.toAlgHom g)⁻¹} ≃
+      Iso E H L sigma (ofRepresentative E H L sigma b) (ofRepresentative E H L sigma c) where
+  toFun g := ⟨Tannaka.fgPointTensorIsoEquiv E H L g.val, by sorry⟩
+  invFun eta := ⟨(Tannaka.fgPointTensorIsoEquiv E H L).symm eta.tensorIso, by sorry⟩
+  left_inv := by sorry
+  right_inv := by sorry
+
+def changeTrivialization (b g : WithConv (H →ₐ[E] L)) :
+    Iso E H L sigma (ofRepresentative E H L sigma b)
+      (ofRepresentative E H L sigma
+        (g * b * (TauCeti.AlgHom.mapValue sigma.toAlgHom g)⁻¹)) :=
+  conjugatorEquiv E H L sigma b _ ⟨g, rfl⟩
+
+theorem changeTrivialization_component (b g : WithConv (H →ₐ[E] L))
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    Tannaka.scalarExtensionComponent E H L
+      (changeTrivialization E H L sigma b g).tensorIso M x =
+        Comodule.pointsAction M g x := by sorry
+
+/-- The categorical composition order agrees with h*g on conjugators. -/
+def isoComp {F G K : Data E H L sigma}
+    (f : Iso E H L sigma F G) (g : Iso E H L sigma G K) :
+    Iso E H L sigma F K where
+  tensorIso := g.tensorIso * f.tensorIso
+  intertwines := by sorry
+
+def isoRefl (F : Data E H L sigma) : Iso E H L sigma F F :=
+  ⟨1, by sorry⟩
+
+def isoInv {F G : Data E H L sigma} (f : Iso E H L sigma F G) :
+    Iso E H L sigma G F := ⟨f.tensorIso⁻¹, by sorry⟩
+
+instance dataGroupoid : Groupoid (Data E H L sigma) where
+  Hom := Iso E H L sigma
+  id := isoRefl E H L sigma
+  comp := isoComp E H L sigma
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+  inv := isoInv E H L sigma
+  inv_comp := by sorry
+  comp_inv := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testNotLinear
+-- Nontrivial coefficient Frobenius cannot be replaced by an L-linear map,
+-- already on the actual tensor-unit representation.
+example (F : Data E H L sigma) (a : L) (ha : sigma a ≠ a) :
+    ¬ ∃ f : Value E H L (FGComoduleCat.tensorUnit E H) →ₗ[L]
+      Value E H L (FGComoduleCat.tensorUnit E H),
+      ∀ x, f x = F.component (FGComoduleCat.tensorUnit E H) x := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testIntertwiner
+-- A twisted conjugator produces the actual tensor intertwiner, not just
+-- an equality of quotient classes.
+example (b g : WithConv (H →ₐ[E] L)) (M : FGComoduleCat.{u,u,u} E H)
+    (x : Value E H L M) :
+    Comodule.pointsAction M g ((ofRepresentative E H L sigma b).component M x) =
+      (ofRepresentative E H L sigma
+        (g * b * (TauCeti.AlgHom.mapValue sigma.toAlgHom g)⁻¹)).component M
+          (Comodule.pointsAction M g x) := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testArrowComposition
+-- Composition acts on every representation as h after g.
+example {b c d : WithConv (H →ₐ[E] L)}
+    (g : {g : WithConv (H →ₐ[E] L) //
+      c = g * b * (TauCeti.AlgHom.mapValue sigma.toAlgHom g)⁻¹})
+    (h : {h : WithConv (H →ₐ[E] L) //
+      d = h * c * (TauCeti.AlgHom.mapValue sigma.toAlgHom h)⁻¹})
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    Tannaka.scalarExtensionComponent E H L
+      (isoComp E H L sigma (conjugatorEquiv E H L sigma b c g)
+        (conjugatorEquiv E H L sigma c d h)).tensorIso M x =
+      Comodule.pointsAction M (h.val * g.val) x := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testReconstruction
+-- The inverse of reconstruction recovers every component of the whole
+-- semilinear family, including its tensor coherence data.
+example (F : Data E H L sigma) :
+    ofRepresentative E H L sigma (reconstructedPoint E H L sigma F) = F := by sorry
+
+/-- Send each representative and its actual twisted conjugator to tensor descent data. -/
+def representativeFunctor :
+    SigmaClass.Representative (pointsFrobenius E H L sigma) ⥤ Data E H L sigma where
+  obj b := ofRepresentative E H L sigma b.point
+  map {b c} g := conjugatorEquiv E H L sigma b.point c.point g
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- Reconstruct both the coefficient point and each Frobenius-compatible tensor arrow. -/
+def reconstructionFunctor :
+    Data E H L sigma ⥤ SigmaClass.Representative (pointsFrobenius E H L sigma) where
+  obj F := ⟨reconstructedPoint E H L sigma F⟩
+  map := by sorry
+  map_id := by sorry
+  map_comp := by sorry
+
+def categoryEquivalence :
+    SigmaClass.Representative (pointsFrobenius E H L sigma) ≌ Data E H L sigma where
+  functor := representativeFunctor E H L sigma
+  inverse := reconstructionFunctor E H L sigma
+  unitIso := by sorry
+  counitIso := by sorry
+  functor_unitIso_comp := by sorry
+
+/-- Tensor automorphisms of rho(b)sigma retain the full sigma-stabilizer group. -/
+def tensorAut (b : WithConv (H →ₐ[E] L)) :
+    Aut (ofRepresentative E H L sigma b) ≃*
+      SigmaCentralizer.points (pointsFrobenius E H L sigma) b where
+  toFun eta := ⟨(Tannaka.fgPointTensorIsoEquiv E H L).symm eta.hom.tensorIso, by sorry⟩
+  invFun := by sorry
+  left_inv := by sorry
+  right_inv := by sorry
+  map_mul' := by sorry
+
+theorem tensorAut_component (b : WithConv (H →ₐ[E] L))
+    (eta : Aut (ofRepresentative E H L sigma b))
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    Tannaka.scalarExtensionComponent E H L eta.hom.tensorIso M x =
+      Comodule.pointsAction M (tensorAut E H L sigma b eta).val x := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testRepresentativeFamily
+-- Native representative comparison retains the full tensor family on objects.
+example (b : SigmaClass.Representative (pointsFrobenius E H L sigma))
+    (M : FGComoduleCat.{u,u,u} E H) (x : Value E H L M) :
+    ((categoryEquivalence E H L sigma).functor.obj b).component M x =
+      Comodule.pointsAction M b.point (coefficientSigma E H L sigma M x) := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testTensorStabilizer
+-- An automorphism reconstructs an element of the actual fixed-point equation.
+example (b : WithConv (H →ₐ[E] L)) (eta : Aut (ofRepresentative E H L sigma b)) :
+    (tensorAut E H L sigma b eta).val * b =
+      b * pointsFrobenius E H L sigma (tensorAut E H L sigma b eta).val := by sorry
+
+-- TauCeti.BunG.RepresentativeTensor.testTensorIdentitySigma
+-- Identity Frobenius at the unit keeps every tensor automorphism of the fibre functor.
+example : Nonempty (Aut (ofRepresentative E H L (AlgEquiv.refl) 1) ≃*
+    WithConv (H →ₐ[E] L)) := by sorry
+
+end TauCeti.BunG.RepresentativeTensor
+
 /-
 Exact-name contract and omission register (G08). These are comment contracts,
 not Lean declarations. A typed prototype covers only the scope its note states;
@@ -821,7 +1079,7 @@ BunGAndNewtonStrata:BG0/g-bundle
 TauCeti.BunG.GBundle
 Full definition contract: For a sousperfectoid E-space X and connected reductive G/E, a G-bundle is an exact E-linear tensor functor from finite rational representations Rep_E(G) to finite locally free bundles on X. Arrows are tensor natural isomorphisms. Exactness means preservation of bundle short exact sequences, not an arbitrary functor or abstract action of G(E).
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-category-interface. Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced.
+Formulation: typed-native-trivialized-frobenius-family. Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled.
 TauCeti.BunG.GBundle.trivial — constructor: The standard fibre functor V↦V⊗_E O_X defines the trivial G-bundle.
 TauCeti.BunG.GBundle.evaluate — projection: For each rational representation V, evaluate a G-bundle to a bundle of rank dim_E V; tensor and dual comparisons are natural.
 TauCeti.BunG.GBundle.tensorIso — characterisation: An isomorphism consists of invertible natural maps preserving the unit and tensor constraints.
@@ -856,11 +1114,37 @@ TauCeti.BunG.GIsocrystal.testGLn — example contract (compatibility): For GL_n 
 TauCeti.BunG.GIsocrystal.testUnit — example contract (degenerate): b=1 gives standard Frobenius on each representation.
 TauCeti.BunG.GIsocrystal.testTensorSlope — example contract (computation): For G_m representatives π^a and π^b, tensoring has slope a+b and duality has slope −a.
 
+TauCeti.BunG.RepresentativeTensor.coefficientSigma — constructor: For fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, coefficient Frobenius on L⊗_E M is the invertible σ-semilinear map σ⊗id_M, for every native finite rational H-comodule M.
+TauCeti.BunG.RepresentativeTensor.coefficientSigma_tmul — characterisation: Coefficient Frobenius sends a⊗m to σ(a)⊗m; the representation factor remains fixed.
+TauCeti.BunG.RepresentativeTensor.frobenius — constructor: For a native convolution point b:H→L, compose σ⊗id_M with Tau Ceti’s native point action ρ_M(b), obtaining an invertible σ-semilinear map on L⊗_E M.
+TauCeti.BunG.RepresentativeTensor.frobenius_apply — characterisation: The component formula is Φ_b,M(x)=ρ_M(b)((σ⊗id_M)(x)), with coefficient Frobenius applied first.
+TauCeti.BunG.RepresentativeTensor.tensorCombine — compatibility: Combine x∈L⊗_E M and y∈L⊗_E N using the inverse native base-change distribution isomorphism on x⊗_L y. The result lies in L⊗_E(M⊗_E N).
+TauCeti.BunG.RepresentativeTensor.Data — constructor: Trivialized Frobenius data on the fixed native scalar-extension fibre functor consist of invertible σ-semilinear components on every finite rational comodule, natural for comodule maps, taking a⊗1 in the tensor unit to σ(a)⊗1 and preserving tensorCombine. These are explicit equations; this presentation is not the untrivialized exact G-isocrystal definition.
+TauCeti.BunG.RepresentativeTensor.ofRepresentative — constructor: The family Φ_b,M=ρ_M(b)(σ⊗id_M) satisfies the naturality, unit and tensor equations of Data. Its underlying L-fibre functor is the native finite-comodule scalar-extension functor.
+TauCeti.BunG.RepresentativeTensor.linearized — constructor: Compose every component of Data with inverse coefficient Frobenius to obtain a native tensor automorphism of finite-comodule scalar extension.
+TauCeti.BunG.RepresentativeTensor.linearized_component — characterisation: The transported component of the linearized tensor automorphism at M sends x to Φ_M((σ⊗id_M)⁻¹x).
+TauCeti.BunG.RepresentativeTensor.reconstructedPoint — compatibility: Apply the inverse of Tau Ceti’s native field-valued Tannakian point/tensor-automorphism equivalence to the linearized family, reconstructing a genuine E-algebra point H→L.
+TauCeti.BunG.RepresentativeTensor.equivalence — equivalence: Representative points and trivialized Frobenius families are equivalent, with inverse reconstructedPoint. The inverse laws recover the point and the entire family, rather than only one faithful representation.
+TauCeti.BunG.RepresentativeTensor.Iso — constructor: An arrow between two trivialized families is a native tensor automorphism η of scalar extension satisfying η_MΦ_M=Ψ_Mη_M on every finite rational comodule.
+TauCeti.BunG.RepresentativeTensor.conjugatorEquiv — equivalence: All points g with c=g b σ(g)⁻¹ are equivalent to the Frobenius-compatible tensor arrows from ofRepresentative b to ofRepresentative c. The forward arrow is native Tannakian action by g; the inverse reconstructs g from the tensor arrow.
+TauCeti.BunG.RepresentativeTensor.changeTrivialization — equivalence: For b,g, the native tensor action by g gives a Frobenius-compatible arrow from the family of b to the family of g b σ(g)⁻¹.
+TauCeti.BunG.RepresentativeTensor.changeTrivialization_component — characterisation: The component of that arrow on L⊗_E M is exactly the native point action ρ_M(g), without an extra coefficient Frobenius.
+TauCeti.BunG.RepresentativeTensor.isoComp — functoriality: Compose a tensor arrow f:F→G with g:G→K by multiplying their native tensor automorphisms as g·f. This corresponds to the later conjugator on the left.
+TauCeti.BunG.RepresentativeTensor.isoRefl — constructor: The identity native tensor automorphism is the identity arrow on each trivialized Frobenius family.
+TauCeti.BunG.RepresentativeTensor.isoInv — constructor: The inverse native tensor automorphism reverses a Frobenius-compatible arrow. Together with isoComp and isoRefl these give a native Groupoid on Data.
+TauCeti.BunG.RepresentativeTensor.testSemilinearity — example contract (compatibility): For every representation M and a∈L, Φ_b,M(a x)=σ(a)Φ_b,M(x), rather than aΦ_b,M(x).
+TauCeti.BunG.RepresentativeTensor.testCoefficientUnit — example contract (degenerate): For b=1 and every native finite rational comodule, Φ_1,M(a⊗m)=σ(a)⊗m.
+TauCeti.BunG.RepresentativeTensor.testTensorFamily — example contract (compatibility): The component on M⊗N sends tensorCombine(x,y) to tensorCombine(Φ_M(x),Φ_N(y)) for arbitrary M,N.
+TauCeti.BunG.RepresentativeTensor.testNotLinear — example contract (non-example): If σ(a)≠a for some a∈L, no L-linear map on the scalar-extended tensor-unit representation agrees everywhere with its Frobenius component.
+TauCeti.BunG.RepresentativeTensor.testIntertwiner — example contract (compatibility): For b′=g b σ(g)⁻¹, the point action ρ_M(g) intertwines Φ_b,M and Φ_b′,M on every M.
+TauCeti.BunG.RepresentativeTensor.testArrowComposition — example contract (compatibility): For conjugators g:b→c and h:c→d, the composite tensor arrow acts as ρ_M(h g) on every representation; reversing the point multiplication order fails in noncommutative cases.
+TauCeti.BunG.RepresentativeTensor.testReconstruction — example contract (compatibility): Reconstructing a point from an arbitrary Data family and applying ofRepresentative recovers that entire family, including its coherence fields.
+
 BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient
 TauCeti.BunG.SigmaClass
 Full definition contract: B(G)=G(L)/~ where b~bprime iff bprime=g b σ(g)^−1 for some g∈G(L). Here σ is arithmetic q-Frobenius fixing E and its uniformizer. This orbit quotient is the set of isomorphism classes of G-isocrystals; the groupoid itself retains automorphisms.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-affine-point-and-groupoid-interface. The quotient is instantiated at native Hopf-algebra points and at the native Witt unit group, with a genuine representative groupoid and stabilizer automorphism equivalence. The G_m comparison uses Tau Ceti’s Laurent-polynomial points equivalence; the Witt slope equivalence has the explicit p-typical hypotheses. The remaining G08 obligation is its comparison with the concrete exact tensor G-isocrystal category and the general local coefficient/Frobenius instantiation. These are algebraic interfaces, not analytic bundle or v-stack signatures.
+Formulation: typed-affine-point-and-tensor-groupoid-interface. The native Hopf-point quotient and representative groupoid now compare by an actual category-equivalence signature with the whole trivialized Frobenius tensor family on finite rational comodules. Its arrows reconstruct the actual conjugator by native Tannaka duality. G_m and Witt-unit controls remain concrete. The untrivialized exact tensor G-isocrystal comparison and actual general local coefficient/Frobenius instantiation remain G08; this does not supply analytic bundle or v-stack signatures.
 TauCeti.BunG.SigmaClass.mk — constructor: Send b∈G(L) to its sigma class.
 TauCeti.BunG.SigmaClass.mk_eq_iff — characterisation: Two representative classes are equal precisely when a sigma conjugator exists.
 TauCeti.BunG.SigmaClass.map — functoriality: A σ-compatible group homomorphism gives B(G)→B(H), with identity and composition laws.
@@ -884,11 +1168,16 @@ TauCeti.BunG.SigmaClass.testWittGL1 — example contract (computation): For the 
 TauCeti.BunG.SigmaClass.testWittGL1Unit — example contract (degenerate): The class of 1 in the Witt units quotient has slope zero.
 TauCeti.BunG.SigmaClass.testWittGL1Distinct — example contract (non-example): The classes of 1 and p in the Witt units quotient differ; replacing Frobenius or dropping the valuation normalization would miss this control.
 
+TauCeti.BunG.RepresentativeTensor.representativeFunctor — functoriality: Send each native twisted-conjugacy representative b to its whole Frobenius tensor family and every conjugator g to its native Tannakian tensor action.
+TauCeti.BunG.RepresentativeTensor.reconstructionFunctor — functoriality: Reconstruct both the native coefficient point and the actual conjugator of each Frobenius-compatible tensor arrow. Identity and composition agree with the representative groupoid.
+TauCeti.BunG.RepresentativeTensor.categoryEquivalence — equivalence: The native representative groupoid is equivalent to the Groupoid of trivialized Frobenius families on finite rational comodules. Comparison with untrivialized exact G-isocrystals still requires VB0’s structured category and Steinberg triviality.
+TauCeti.BunG.RepresentativeTensor.testRepresentativeFamily — example contract (compatibility): The forward category equivalence sends b to the family whose component on every native representation is ρ_M(b)(σ⊗id_M).
+
 BunGAndNewtonStrata:BG0/sigma-centralizer-J-b
 TauCeti.BunG.SigmaCentralizer
 Full construction contract: For b∈G(L), J_b is the reductive E-group representing A↦{g∈G(A⊗_E L):g b=b σ(g)}. Its L-base change is the centralizer M_b of ν_b. It is an inner form of the corresponding Levi in the quasi-split inner form G*, and is an inner form of G* precisely when b is basic. Descent uses the semilinear action Ad(b)σ on M_b.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: typed-affine-point-functor. The actual functor on all commutative E-algebras and its natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Its representation by a reductive E-group, Newton-Levi base change and tensor-isocrystal automorphism comparison remain omitted.
+Formulation: typed-affine-point-functor-and-tensor-automorphisms. The actual group-valued functor on all commutative E-algebras and natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Native tensor automorphisms of the trivialized Frobenius family now identify multiplicatively with the point sigma-stabilizer, with component formulas on every representation. Reductive representation of this functor, Newton-Levi base change and untrivialized exact G-isocrystal comparison remain omitted.
 TauCeti.BunG.SigmaCentralizer.points — characterisation: For every E-algebra A, membership is exactly g b=b σ(g).
 TauCeti.BunG.SigmaCentralizer.baseChange — compatibility: J_b⊗_E L≅Z_(G_L)(ν_b), with the descended semilinear datum.
 TauCeti.BunG.SigmaCentralizer.conjugate — equivalence: For bprime=g b σ(g)^−1, h↦g h g^−1 induces J_b≅J_bprime.
@@ -902,6 +1191,11 @@ TauCeti.BunG.SigmaCentralizer.testNonbasic — example contract (non-example): F
 TauCeti.BunG.SigmaCentralizer.testCoefficientNaturality — example contract (compatibility): A coefficient map f:A→B sends an H-point by postcomposition with f⊗id_L, without changing the L factor.
 TauCeti.BunG.SigmaCentralizer.testFixedGroup — example contract (degenerate): For b=1 and every E-algebra A, the centralizer functor is exactly the id_A⊗σ-fixed subgroup of G(A⊗_E L). Arithmetic fixed-field descent to G(A) is a separate theorem.
 TauCeti.BunG.SigmaCentralizer.testIdentityFrobenius — example contract (non-example): If σ is replaced by the identity and b=1, the value at A is the entire coefficient point group. This control must not be mistaken for arithmetic fixed-field descent.
+
+TauCeti.BunG.RepresentativeTensor.tensorAut — compatibility: The native category-theoretic Aut group of ofRepresentative b identifies multiplicatively with the point sigma-stabilizer {g:g b=b σ(g)}. This is the tensor automorphism comparison on the trivialized presentation; reductive representability of J_b and untrivialized comparison remain additional contracts.
+TauCeti.BunG.RepresentativeTensor.tensorAut_component — characterisation: Every tensor automorphism has component equal to the native representation action of its reconstructed stabilizer point, for every finite rational comodule.
+TauCeti.BunG.RepresentativeTensor.testTensorStabilizer — example contract (compatibility): A tensor automorphism reconstructs a point satisfying g b=b σ(g), preserving the correct placement of Frobenius.
+TauCeti.BunG.RepresentativeTensor.testTensorIdentitySigma — example contract (non-example): At identity coefficient Frobenius and b=1, the tensor automorphism group is the entire native point group, rather than a trivial automorphism group of orbit classes.
 
 BunGAndNewtonStrata:BG0/sigma-centralizer-conjugacy
 TauCeti.BunG.SigmaCentralizerConjugacy
