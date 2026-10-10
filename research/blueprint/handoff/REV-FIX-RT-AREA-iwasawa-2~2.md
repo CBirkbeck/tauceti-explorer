@@ -1,7 +1,7 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-ZyjVh0`, 10 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6102646778).
+Codex (GPT-6), session `codex-jIGDIK`, 10 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6102949426).
 
 ## What is done
 
@@ -19,7 +19,7 @@ Installed new top review records in L3 and PMIA, archiving their complete
 predecessors and preserving all earlier histories. Their mathematical/planning
 fields and all suggested files are unchanged. L3-2 and D.1 have accepted bounded
 records prepared below, but their files are byte-identical to the input commit
-`4bc4efffc97159555853652339d435d83c19167c`.
+`49b97fab382ad500ae19cc722171dd6050f79bda`.
 
 All four prepared packets pass check_blueprint.py: zero errors, 26 inherited
 short-API warnings for L3 and none for the other three. Sequential lean-check:
@@ -28,11 +28,10 @@ and PMIA exit 0 with 111, 307 and 1075 sorry warnings only. No Lean process
 remains running. Do not substitute weaker assumptions for L3's owned sibling
 interfaces merely to bypass missing compiled prototype artifacts.
 
-Fresh finite controls passed 2460 admissible Morita congruences and 61
-Ferrero–Greenberg parameter cases, including 19955 unit congruences and
-101442 strict filtration comparisons. These are diagnostics, not proofs.
-All ten fetched public source hashes match the predecessor report. No book
-was used and no source passage was committed.
+Fresh primary-source readings were bounded to the six correction contracts;
+the predecessor's exhaustive audits and finite diagnostics retain their own
+attribution. Public-source PDF hashes are in the report. No book was used and
+no source passage was committed.
 
 ## The sole completion blocker
 
@@ -42,8 +41,8 @@ The queue requires four packet verdicts, including these two paths:
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
 The live issue's file list omits them. WORKERS.md restricts edits to named
-issue files, so explicit authorization was requested after preparing the
-concrete records and validating them. No reply has authorized installation.
+issue files. Explicit authorization for installing the concrete prepared
+records was requested in the current session and remains pending.
 Actual issues.deliverables_complete is False; read-only substitution of both
 records below at their actual paths makes it True. The queue, predicate and
 labels were not edited.
@@ -58,7 +57,7 @@ requests must remain exactly unchanged.
 
 ## Remaining records
 
-The records below were prepared and validated by codex-ZyjVh0. They accept the
+The records below were prepared and validated by codex-jIGDIK. They accept the
 corrections, not closure of the explicitly open supplier obligations.
 
 ### DirichletPadicLFunctions--L3-2
@@ -68,7 +67,7 @@ corrections, not closure of the explicitly open supplier obligations.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Codex session codex-ZyjVh0. Follows independent-review-REV-DirichletPadicLFunctions--L3-2 and the attributed predecessor audits. Bounded finding /2 review following the full 79-node audit archived with its original reviewer. Zhao §1.2 p.461, §4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendices A–B pp.473–474 checked freshly. Primitive odd tame character, compatible embeddings, common logarithm, even chi*omega branch and dyadic omega conductor four are explicit. The derivative uses direct character weights and the correction (1-chi(p))*B1chi*log_p(N); simplification requires chi(p)=1, while nonvanishing is separate. The positive-residue permutation and strict filtration are consistent with the retained E37 endpoint repair. Differentiation retains coefficient convergence and a uniform majorant. Five gaps and eight requests remain explicit. Every previous review and checked array is preserved in reviewHistory; mathematical/planning fields are unchanged. See the independent review report for validation and scope."
+  "notes": "Bounded independent review of finding /2 by Codex session codex-jIGDIK, following independent-review-REV-DirichletPadicLFunctions--L3-2 and its full 79-node audit, archived intact with its original attribution. Read Zhao §1.2 p.461, §4 equations (4.1)–(4.6)/Theorem 4.1 pp.471–473 and Appendix A p.473. Primitive odd tame character, compatible embeddings, the even chi*omega branch including dyadic conductor four, and the common logarithm are explicit. Direct character weights and correction (1-chi(p))*B1chi*log_p(N) agree with the source; simplification requires chi(p)=1 and nonvanishing is separate. Convergence/majorant requirements and the strict endpoint repair remain explicit. Five gaps and eight requests are retained. All mathematical/planning fields and earlier review evidence are preserved. See the report for checks and the limited correction-review scope."
 }
 ```
 
@@ -79,7 +78,7 @@ corrections, not closure of the explicitly open supplier obligations.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Codex session codex-ZyjVh0. Follows independent-review-REV-PadicHodgeRegulators--D.1~2 and the attributed predecessor audits. Bounded finding /3 review following the full 72-node audit archived with its original reviewer. Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 checked freshly. Distinct U and D complexes, lifted Frobenius-divisible ideal, directed omega/tau legs, product behavior and factorial modified twist are retained. Exact divided comparison stops at r<=p-2; undivided comparison remains bounded with the stated root-of-unity dependence. Rational exponential is an isomorphism below i=r and injective at i=r; its inverse transport, p^-r quotient scaling and Bloch–Kato sign do not assert an integral inverse. Proposed CS.0–CS.3 producers, nine gaps and twenty requests remain explicit. Every previous review and checked array is preserved in reviewHistory; mathematical/planning fields are unchanged. See the independent review report for validation and scope."
+  "notes": "Bounded independent review of finding /3 by Codex session codex-jIGDIK, following independent-review-REV-PadicHodgeRegulators--D.1~2 and its full 72-node audit, archived intact with its original attribution. Read Ertl–Niziol v2 §§2.1–2.2 pp.4–8/Theorem 2.2 p.7, Colmez–Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar–Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54. Distinct divided and undivided complexes, lifted divisible ideals, directed omega/tau legs, product behavior, factorial modified twist and exact divided range r<=p-2 are retained. Rational exponential is invertible below i=r and injective at i=r; inverse comparison, p^-r scaling and Bloch–Kato sign assert no integral inverse. Proposed CS.0–CS.3 producer obligations, nine gaps and twenty requests remain explicit. All mathematical/planning fields and earlier review evidence are preserved. See the report for checks and the limited correction-review scope."
 }
 ```
 
