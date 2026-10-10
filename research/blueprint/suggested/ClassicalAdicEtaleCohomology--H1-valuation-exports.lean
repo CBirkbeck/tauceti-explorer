@@ -329,6 +329,8 @@ theorem torsionSheaf_totalCohomology_valuation_invariance
 
 -- Huber 4.2.7(ii), pp. 244–245: this specific adjunction unit is an isomorphism.
 -- On H⁰ it gives F ≅ p_*p*F; on Hⁿ, n>0, it gives Rⁿp_*p*F=0.
+-- The proof sheafifies the chartwise cohomology comparison (Stacks 03Q8);
+-- it does not assert vanishing of positive cohomology on each affine chart.
 theorem torsionSheaf_valuation_adjunction_descent
     (hq : Surjective q) (F : EtaleModules IntegralCoefficients X)
     (hF : ∀ (Ω : Type u) [Field Ω] [IsSepClosed Ω]
