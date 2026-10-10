@@ -15269,8 +15269,8 @@
  "review": {
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-  "date": "2026-10-09",
-  "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Geometric Hodge ownership, C5 versus SF.6 comparison suppliers, typed pair-edge/unit/product laws, tensor period-point witness and explicit Tate rank-one homology input checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
+  "date": "2026-10-10",
+  "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked C5/SF.6 ownership, requested geometric Hodge supplier, typed pullback/connecting-edge/unit/product laws, ProductCompatible period-point witness and explicit Tate rank-one homology. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
  },
  "reviewHistory": [
   {
@@ -16167,6 +16167,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-09",
    "notes": "Bounded independent review of FIX-RT-AREA-algebraicgeometry~2, findings /4 and /31: checked C5 ownership, SF.6 etale–Betti boundary, geometric Hodge owner request and typed comparison laws against public HMS. Added the missing rank-one Tate-pair supplier hypothesis, encoded it in PairHomology and derived singularRep_gm from dual rank. Follows independent-review-REV-FIX-RT-AREA-iwasawa-3~2 and the earlier algebraicgeometry review, preserved in reviewHistory. The comparison laws now exclude the doubled comparison; this does not replace the queued iwasawa-3~3 or geomlanglands~2 reviews. All inherited partial coverage, gaps, source issues and requests remain; the reader is outside this issue and has stale count/review metadata requiring regeneration. Accepted for these area-fix dispositions only, without certifying general proof closure or the other fix rounds."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-09",
+   "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Geometric Hodge ownership, C5 versus SF.6 comparison suppliers, typed pair-edge/unit/product laws, tensor period-point witness and explicit Tate rank-one homology input checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
   }
  ],
  "fixes": {
