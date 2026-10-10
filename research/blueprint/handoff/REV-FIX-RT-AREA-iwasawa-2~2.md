@@ -1,103 +1,103 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked by live issue scope
 
-Codex, session `codex-fQKYCg`, 10 October 2026. Refs #6219.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099949130).
-Branch `codex-fQKYCg-review-iwasawa-6219`.
-This session did none of fixer `claude-6ZAIEy`'s work and claimed one job.
+Codex, session `codex-A8IfeO`, 10 October 2026. Refs #6219.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100114306).
+Branch `codex-A8IfeO-review-iwasawa-6219`. This session did none of fixer
+`claude-6ZAIEy`'s work and claimed only this job.
 
-## Done and sole dispatch blocker
+## Done and sole completion blocker
 
-Fresh bounded source checks for findings /1–/4 support the earlier corrections;
-current LAD/RS-16 routing checks preserve /5 and the rejected /6. The report
-preserves the earlier exhaustive audits and their original attribution.
-Refreshed the issue-named L3 and PMIA review records, retaining accepted and
-needs_changes respectively. Their whole preceding reviews are archived in
-`reviewHistory`; parsed equality checks preserve every mathematical/planning
-field and all earlier history. No Lean file changes.
+Fresh bounded source checks for /1–/4 support the corrections; current LAD
+contracts and RS-16 routing preserve /5 and the rejected /6. See the final
+report section for exact source versions, theorem/section/page locators and
+attribution. Replaced the issue-named L3 and PMIA reviews, retaining accepted
+and needs_changes. Complete preceding reviews and all existing history are
+preserved in `reviewHistory`; parsed equality checks preserve every other
+field. No mathematical node, gap, API, test or Lean source changed.
 
-The queue additionally requires this job's reviewer in two packets missing
-from the live issue's deliverables and files under review:
+The queue additionally requires this job's reviewer in two packets omitted
+from both the live issue's deliverables and files under review:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`;
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`.
 
 WORKERS.md says: “Edit only the files the issue names, plus your own scratch
-space.” Concrete review-only patches were prepared and explicit authorization
-requested from this run's user. No answer has arrived; neither patch was
-installed. The question remains pending. The actual
-`issues.deliverables_complete` function returns **False**; substituting only
-the two scratch candidates via a path adapter returns **True**.
-PMIA's negative verdict completes its review portion and is not this blocker.
-Correct the live issue scope before assigning another unchanged continuation.
+space.” Prepared concrete review-only records and requested explicit user
+authorization. No answer arrived; neither was installed. Actual
+`issues.deliverables_complete` is **False**. A dry run substituting only those
+records through a path adapter is **True**. PMIA's negative verdict completes
+its review portion and is not the blocker. Correct the live issue scope before
+assigning another unchanged continuation. Scratch candidates will be deleted;
+the installation recipe below contains everything needed to reconstruct them.
 
-## Finish once scope is corrected or explicitly authorized
+## Finish after scope correction or explicit authorization
 
-No additional whole-source audit is needed to install the bounded records.
-For each omitted packet, append its entire then-current `review` object to
-`reviewHistory`, retaining all existing history. Replace the top-level review
-with an accepted bounded record naming
-`independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, the installing date/session
-and preceding reviewer. Cite this report's source checks with their original
-attribution; do not claim another worker's exhaustive audit as your own.
+For each omitted packet, append its entire then-current `review` to
+`reviewHistory`, retaining all existing history. Replace only the top-level
+review with status `accepted`, reviewer
+`independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, installing date/session,
+and notes identifying the complete preceding audit and the bounded correction.
+Cite this report's checks with their original attribution. Do not claim
+another worker's exhaustive audit as your own.
 
-**L3-2, finding /2.** Checked Zhao §1.2 p.461, Theorem 4.1 and (4.1)–(4.6)
-pp.471–473, Appendices A–B pp.473–474 against the seven L3 consumers:
+**L3-2, finding /2.** Previous reviewer:
+`independent-review-REV-DirichletPadicLFunctions--L3-2`.
+Archive the full 79-entry audit. Zhao §1.2 p.461, Theorem 4.1 and (4.1)–(4.6)
+pp.471–473, Appendices A–B pp.473–474 were checked against
 `rjw2-fg-gamma-sum`, `rjw2-fg-count`, `rjw2-fg-permutation`,
 `rjw2-fg-log-antidifference`, `rjw2-fg-differentiation`,
 `rjw2-ferrero-greenberg`, `rjw2-fg-exceptional-derivative`.
-Retain primitive odd chi, conductor N>1 prime to p, the chi-omega branch and
-dyadic convention, compatible logarithms/embeddings, literal character
-weights, the general correction term, strict Gamma endpoint and coefficient
-bounds/limits. The shortened formula requires chi(p)=1. Preserve the complete
-79-entry prior audit, five gaps, eight requests and E37. Acceptance concerns
-the correction, not nonvanishing, simple-zero or supplier closure.
+Retain primitive odd chi, conductor N>1 prime to p, compatible embeddings/logs,
+chi-omega branch including p=2, literal character weights, general correction
+term, strict Gamma endpoint and coefficient bounds/limits. Shortening the
+formula requires chi(p)=1. Preserve five gaps, eight requests and E37.
+Acceptance concerns these corrections, not arithmetic nonvanishing, a simple
+zero, supplier closure or a repeated full-packet audit.
 
-**D.1, finding /3.** Checked EN v2 §§2.1–2.2 pp.4–8, CN v4 Corollary 3.16
-p.37/Theorem 5.4 p.54, NN v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54
-against four D.2 consumers: `log-syntomic-complex`,
-`fontaine-messing-kato-period-map`, `small-twist-comparison`,
-`syntomic-exponential`. Retain distinct divided/undivided fibres, omega legs
-(p^r,id), tau legs (id,p^r), scalar composites, factorial-modified twist,
-exact divided range 0≤i≤r≤p−2, bounded undivided comparison and rational
-boundary scaling/sign. CS.0–CS.3 remain external proposed producers and CP.4
-the proper rational anchor. Preserve the complete 72-entry prior audit,
-nine gaps, twenty requests, seventeen source issues and eight planned stages.
-Acceptance certifies the correction contracts, not producer closure.
+**D.1, finding /3.** Previous reviewer:
+`independent-review-REV-PadicHodgeRegulators--D.1~2`.
+Archive the full 72-entry audit. EN v2 §§2.1–2.2 pp.4–8, CN v4 Corollary 3.16
+p.37/Theorem 5.4 p.54, NN v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 were
+checked against `log-syntomic-complex`, `fontaine-messing-kato-period-map`,
+`small-twist-comparison`, `syntomic-exponential`. Retain distinct fibres,
+omega legs (p^r,id), tau legs (id,p^r), scalar composites, factorial-modified
+twist, exact divided range 0≤i≤r≤p−2, bounded undivided comparison and rational
+boundary scaling/sign. CS.0–CS.3 remain external proposed producers; CP.4 is
+the proper rational anchor. Preserve nine gaps, twenty requests, seventeen
+source issues and eight planned stages. Acceptance concerns the correction
+contracts rather than producer closure or a repeated full-packet audit.
 
-For both patches, assert original/patched parsed equality after removing only
-`review` and `reviewHistory`, complete archived-review equality and retention
-of all preceding history. Run the packet checkers and intake file screen.
+Assert parsed original/patched equality after removing only `review` and
+`reviewHistory`, complete archived-review equality and retention of all
+preceding history. Run all four packet checks and intake file screening.
 Import the actual predicate from `research/blueprint/issues.py`, select this
 job from `queue.json`, and require **True** before reporting completion.
-Do not change queue logic, invent authorization, or erase earlier audits.
+Do not change queue logic, invent authorization or erase previous audits.
 
 ## Validation and coherent PMIA revision
 
-All four fresh packet checks have zero errors; L3 retains 26 inherited
-short-API warnings and the others have none. Eight fresh public PDF hashes
-match the report's source-version table. No book or source passage was copied
-into the repository. Fresh finite controls: 204 Gamma recurrences, 60 buffered
-congruences/dyadic counterexample, 22 Ferrero–Greenberg permutations and all
-filtrations, 6,561 right-adjugate preimages including 891 singular submatrices.
-They are falsification controls, not proofs of analytic/arithmetic suppliers.
+All four packet checks report zero errors. L3 has 26 inherited short-API
+warnings; the other three have none. Eight fresh public PDF hashes match the
+source-version table. All four packets have zero `excerpt` fields. Intake
+file screening and diff checks pass. No book or source passage was copied into
+the repository. No fresh Lean compilation or finite falsification run was
+done in this metadata/report continuation. The preceding session's sequential
+Lean checks remain attributed in the report: L3 failed before body elaboration
+at the unresolved shared `research` import; L3-2, D.1 and PMIA passed with 111,
+307 and 1,075 `sorry` warnings respectively and no other diagnostics. No source
+file changed or process remains running.
 
-Fresh sequential whole-file `lean-check`: L3 fails before body elaboration at
-an unresolved shared `research` import; L3-2, D.1 and PMIA pass with respectively
-111, 307 and 1,075 `sorry` warnings and no other diagnostics. Memory was
-sufficient. No source file changed or process remains running. All four
-packets have zero `excerpt` fields. The intake screen and diff checks pass.
-
-Keep PMIA needs_changes. Current Tau Ceti
+Keep PMIA needs_changes. Current Tau Ceti commit
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` supplies `TauCeti.fittingIdeal`,
 `fittingIdeal_eq_minorsIdeal_ker`, `fittingIdeal_baseChange` and
-`AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`. Replace generic
-plans in `higher-fitting-ideal`, `relation-minors-add-generator`,
+`AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`.
+Migrate `higher-fitting-ideal`, `relation-minors-add-generator`,
 `higher-fitting-independence`, `higher-fitting-base-change` and
-`transpose-stable-equivalence` with imports/necessary adapters. Synchronize
-consumers, both StableReduction requests, L4, reader and suggested interfaces
-in the coherent next revision. Preserve non-generating-family/deficient-relation
-controls, order calculations, opposite/contragredient transport and nonflat
-tests. The native kernel theorem needs a surjection onto the intended module.
-The newer modules are absent from programme pin f790474 and must not be
-attributed to it. The current roadmap commit remains
+`transpose-stable-equivalence` to native imports/necessary adapters.
+Synchronize consumers, both StableReduction requests, L4, reader and suggested
+interfaces in one coherent revision. Preserve non-generating-family and
+deficient-relation controls, order calculations, opposite/contragredient
+transport and nonflat tests. The native kernel theorem requires a surjection
+onto the intended module. Newer modules must not be attributed to programme
+pin f790474. Current roadmap commit remains
 `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.

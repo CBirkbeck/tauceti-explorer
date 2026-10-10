@@ -1,14 +1,14 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-fQKYCg`, 10 October 2026.
-Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099949130).
-Fresh source checks support the bounded corrections; PMIA still needs native
-library reuse. The two issue-named packet reviews are refreshed, preserving
-prior reviews whole. The queue also requires two packets omitted from the
-live issue. Explicit scope authorization for their prepared review-only
-records remains pending, so this is a blocked checkpoint. The final section
-and handoff give the exact remaining action; older audits keep their original
-attribution.
+Latest continuation: Codex, session `codex-A8IfeO`, 10 October 2026.
+Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100114306).
+Fresh bounded source checks support the corrections, and current-library
+declarations sustain PMIA's needs_changes verdict. The two issue-named
+reviews are replaced, preserving their whole predecessors. The completion
+check also requires reviews in two packets omitted from the live issue.
+Explicit authorization for those prepared records has not arrived: this is
+a blocked checkpoint. The final section and handoff give the exact remaining
+action. Earlier audits and compilation results keep their original attribution.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -726,3 +726,77 @@ library build/update/cache fetch or language server was started, or process
 left running. All four packets contain zero `excerpt` fields. The final intake
 file screen and diff checks cover only the two allowed packets, report and
 handoff. This submission is a blocked checkpoint pending scope authorization.
+
+
+## Continuation by codex-A8IfeO: bounded source checks and scope checkpoint
+
+This session did none of fixer `claude-6ZAIEy`'s work. No issue in the
+manager's priority list was available. Claimed the eligible top review #6219,
+waited for the bot's confirmation, and reread the whole live issue. Its scope
+is still unchanged. Read the six findings, verification, round-2 fixes,
+earlier report and handoff, applicable protocols, reviewed library coverage,
+queue outputs and actual completion function. This continues the existing
+independent audits; it does not claim to repeat every node audit.
+
+The eight freshly obtained public PDFs match the earlier source-version
+table's SHA-256 hashes. Access date: 10 October 2026. Sources were read only
+in scratch; no book copy was used or source passage added to the repository.
+
+| Finding | Fresh checks and verdict |
+| --- | --- |
+| /1 | Read Morita §1, Lemma 1/Theorem 1 pp.255–256; Gross–Koblitz §1, (1.2), (1.5), (1.6), Theorem 1.7 pp.570–571; Robert Theorem 4 and estimates pp.167–168, inspecting the scanned formulas. Checked the selected finite-product, unit-valued extension and integral-root contracts. Retain both recurrence branches, buffered dyadic precision, negative Gauss sign and original odd-prime/nonzero range. Robert's all-prime comparison still needs the explicit RD.6 bounds and splitting identity. L3's bounded correction is accepted. |
+| /2 | Read Zhao §1.2 p.461, Theorem 4.1 and (4.1)–(4.6) pp.471–473, Appendices A–B pp.473–474 against the seven Ferrero–Greenberg consumers. Retain primitive odd chi, conductor N>1 prime to p, compatible embeddings/logarithms and chi-omega branch including p=2. The general derivative keeps its correction term; chi(p)=1 is required to remove it. The Gamma endpoint is strict, preserving E37. Coefficient bounds/limits precede differentiation. The prepared L3-2 record accepts these bounded corrections and preserves five gaps/eight requests. |
+| /3 | Read EN v2 §§2.1–2.2 pp.4–8, CN v4 Corollary 3.16 p.37/Theorem 5.4 p.54, NN v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 against the four D.2 consumers. Preserve distinct fibres, omega legs (p^r,id), tau legs (id,p^r), scalar composites, factorial-modified twist, exact divided range 0≤i≤r≤p−2, bounded undivided comparison and rational boundary scaling/sign. The prepared D.1 record accepts these bounded corrections, leaving external producers and all nine gaps/twenty requests/seventeen source issues/eight planned stages intact. |
+| /4 | Read DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40, Appendix B.2 pp.93–94. The character-image order, inverse-character target, square positive-size and determinant-regularity hypotheses and right-adjugate preimage remain supported. Current Tau Ceti supplies generic Fitting and stable-transpose results, so PMIA needs_changes for the coherent native migration already specified. |
+| /5 | Read the current LAD finite-window perfectness, strict equivariant homotopy comparison, derived base-change and classical/solid comparison contracts and the two named gaps. They preserve the distinction between chosen representative products, cohomological support and full analytic solid localization. Flatness or vanishing Tor remains required for underived cohomology base change. Retain the earlier BCGP source audit and bounded routing verdict; no fresh BCGP source audit or LAD edit is claimed. |
+| /6 | Reread accepted RS-16's I.5 decision. Its historical Hecke/congruence route is intentionally independent of the cyclotomic Euler-system route. Preserve the verifier's rejected finding and shared-carrier imports. |
+
+Direct readings of current `TauCeti.fittingIdeal`,
+`fittingIdeal_eq_minorsIdeal_ker`, `fittingIdeal_baseChange` and
+`AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` confirm the
+native-reuse requirement. The native Fitting carrier assumes finite modules,
+the kernel comparison needs a surjection onto the intended module, base change
+does not assume flatness, and the stable-transpose theorem accepts arbitrary
+projective presentations over a ring with opposite-ring targets. PMIA still
+needs the non-generating-family adapter and scalar/factor-order transports.
+Current library commit: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`;
+roadmap commit: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
+These are current-library readings, not claims about the old programme pin.
+
+### Changes, checks and sole completion blocker
+
+Replaced only `review` and `reviewHistory` in the issue-named L3 and PMIA
+packets, retaining accepted and needs_changes respectively. Whole-object
+assertions preserve every mathematical/planning field, all earlier history
+and each complete preceding review. No Lean source changed.
+
+Prepared bounded review-only records for L3-2 and D.1. Each archives its whole
+preceding independent audit, including 79 and 72 checked entries respectively.
+Parsed equality checks preserve every other field and all existing history.
+The live issue omits both packets, while queue outputs require their records.
+WORKERS.md says: “Edit only the files the issue names, plus your own scratch
+space.” Explicit authorization was requested for those two concrete records;
+no answer has arrived, and neither file was edited. Elapsed time is not
+authorization. The exact safe installation is recorded in the handoff.
+
+The actual `issues.deliverables_complete` returns **False**. Substituting only
+the two prepared records through a path adapter returns **True**; every
+other output is read from its actual repository path. PMIA's negative verdict
+completes its review portion and is not this blocker. No queue, predicate or
+review identity was changed to bypass the scope restriction. Correct the
+live issue scope before dispatching another unchanged continuation.
+
+All four packet checks report zero errors. L3 retains 26 inherited short-API
+warnings; L3-2, D.1 and PMIA have none. All four packets have zero `excerpt`
+fields. The intake file screen and `git diff --check` pass for the two allowed
+packets, report and handoff. No new Lean compilation or finite falsification
+run is claimed. The preceding session's results remain attributed above:
+L3 stopped at its unresolved shared `research` import, whereas L3-2, D.1 and
+PMIA elaborated with only `sorry` warnings. This metadata/report change does
+not affect those unchanged signatures. No process is left running.
+
+This is a blocked checkpoint. Completion requires a corrected live issue
+scope or explicit authorization, installation of the two bounded records
+with complete prior audits preserved, passing packet/intake checks and a
+**True** result from the actual completion predicate. Another full source
+audit is unnecessary for that dispatch repair.
