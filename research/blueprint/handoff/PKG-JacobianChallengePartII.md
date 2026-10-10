@@ -1,4 +1,101 @@
-# PKG-JacobianChallengePartII — supplier-blocked continuation
+# PKG-JacobianChallengePartII — current dependency checkpoint
+
+Refs #7593. Worker: Codex (GPT-6), session `codex-jlD13i`,
+10 October 2026. Branch: `codex-jlD13i-jacobian-package`.
+The bot confirmed [claim comment 6100285260](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100285260)
+in [comment 6100286444](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100286444).
+This is the only job claimed in this run.
+
+## Current result
+
+**Checkpoint: required supplier packages are still absent.** The existing
+README and Suggested.lean remain unchanged; this submission updates only the
+handoff. All previous source-reading limits and resumption instructions are
+retained below. This run does not certify source proofs or omitted geometric
+signatures.
+
+The manager's entire priority list was checked on GitHub: no issue in it was
+`state:available`. The fallback package was available and its claim was
+confirmed before work began. Fresh checks of the local package directories
+and GitHub's default-branch package directory give these results:
+
+| Input | Fresh state | Required next action |
+| --- | --- | --- |
+| `AbelianSchemesAndArithmeticModuli:A1–A3` | The parent plan is accepted, dated 2026-10-09, with 89 nodes. The parent has no package directory. | Package the parent's arbitrary-base abelian schemes, rigidity, dual/Poincaré/polarization and nonzero finite locally free multiplication interfaces; then reconcile these exact contracts with JC1–JC5 and JC7. |
+| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The plan remains `needs_changes`, dated 2026-10-05, and has no package directory. Revision [#6378](https://github.com/CBirkbeck/tauceti-explorer/issues/6378) is now **claimed**, rather than available as in the preceding handoff; review [#6395](https://github.com/CBirkbeck/tauceti-explorer/issues/6395) remains blocked. | Complete the revision, obtain independent acceptance and package MC.4's fixed symplectic component and universal smooth curve. |
+
+The existing `AbelianSchemesAndArithmeticModuliPartII` package does **not**
+replace its parent: its scope explicitly imports A1–A3 and excludes a second
+abelian scheme, Picard functor, dual, polarization or quotient construction.
+Its Betti branch also imports this roadmap's JC2 and JC7. Using it to supply
+the missing parent would misstate ownership and introduce a circular
+dependency. `AlgebraicModuliForArithmeticGeometry` and
+`NeronModelsAndSemistableAbelianVarieties` have package directories; they do
+not discharge these two missing contracts.
+
+WORKERS.md's “Upstream tiers” restricts a package's citations to libraries,
+existing Tau Ceti roadmaps, its own/bundled layers and lower-tier packages.
+This issue permits edits only to this package and its handoff. Building or
+repairing either missing supplier therefore lies outside the authorized
+files. JC7 cannot be reduced to a characteristic-zero moduli application:
+its retained target is the integral fixed symplectic component over
+Z[1/ℓ,ζ_ℓ], g≥2 and ℓ≥3 invertible. MC.4's actual full-level node imports
+JC1's Jacobian, base change and principal polarization, so MC.4 must remain
+an input to JC7 alone.
+
+## Fresh upstream and library checks
+
+Read the current upstream JacobianChallenge and AlgebraicVectorBundles
+READMEs in full and inspected their Suggested.lean files. The upstream
+checkout is `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`; it contains neither
+missing supplier. The parent's field/pointed construction and the general
+finite locally free dual/determinant theory remain imports.
+
+Current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Its actual `AbelianVariety` structure still takes a field. A name search in
+its algebraic-geometry sources found no `AbelianScheme`, `RelativePicard`,
+`PicardScheme`, `DualAbelian` or `PoincareBundle` declaration. The reviewed
+JacobianChallenge library-audit entries were consulted. These are boundary
+checks, not a new complete library audit; no new baseline assertion is added
+to the package. Both upstream trees were used read-only, without Lake.
+
+## Fresh validation and receipts
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
+  **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
+  14 gaps, 13 requests; eight stages planned and zero closed.
+- Exact-string correspondence with the accepted plan: README contains all
+  48 target statements, 60 API names and 52 test names. Suggested.lean has
+  47 geometric comment records plus the native triangular-coordinate target.
+- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
+  **exit 0, no errors, nine warnings, all `declaration uses sorry`**.
+  Available memory was 103 GB before the single check. It checks JC5.5,
+  five API lemmas and three examples; it does not elaborate the 47 geometric
+  comment records. No language server, project, build, update or cache
+  download was started.
+- `python3 research/blueprint/intake.py check-files` on README,
+  Suggested.lean and this handoff: **three files, zero problems**.
+- `git diff --check`: clean; the only changed path is this authorized handoff.
+
+The parent and StableReductionPartII packet Git blob ids match GitHub's
+default-branch content listing, respectively
+`84b26b1831f0e62fdceb7d84a771862c2e1bd63b` and
+`dc59ea91e4a1ead87604f769da45f613a7774858`. Their SHA-256 receipts, the
+Jacobian packet receipt and the unchanged package receipts match those in
+the preceding checkpoint below.
+
+Resume only when the supplier boundary changes. Reconcile the exact layer
+contracts, preserve all 48 targets and their hypotheses, complete any
+expressible geometric signatures/APIs/examples, and repeat the packet,
+correspondence and Lean checks. Add `metadata.toml` with
+`topic = "math.AG"` when the package is complete. Its current absence
+continues to distinguish this checkpoint from a finished package.
+
+The maintainer should gate #7593 on these dependencies to avoid further
+unchanged blocking continuations. No issue label, queue entry or supplier
+file was changed. No subsequent worker needs this run's disposable scratch.
+
+## Previous continuation (codex-7MbcTo)
 
 Refs #7593. Worker: Codex (GPT-6), session `codex-7MbcTo`,
 10 October 2026. Branch: `codex-7MbcTo-jacobian-package`.
