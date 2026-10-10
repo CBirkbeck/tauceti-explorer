@@ -1306,13 +1306,37 @@ distinction; it cannot replace O[Jⁿ]^H. The rational-point fixture
 common trivial projection, distinct H-conjugacy classes, equal evaluations of
 whole-J invariant functions in every tuple arity, and an H-invariant coordinate
 whose generator values differ. The elementary
-`projected_identity_component_shadow` calculation is also proved. These checks
-do not construct the quotient stack, geometric invariant algebra or
-pseudocharacter carrier, or establish the reconstruction theorem.
+`projected_identity_component_shadow` calculation is also proved.
+
+The regular-coordinate fixture `IdentityComponentCoordinateChecks` uses
+A=R[x,x⁻¹]×R[x,x⁻¹] for O[J] and
+B=R[h,h⁻¹,x,x⁻¹]×R[h,h⁻¹,x,x⁻¹] for O[H×J], over any commutative ring R.
+Writing C₂ additively, conjugation by h∈H fixes (x,0) and sends (x,1)
+to (h²x,1). Its coordinate
+pullback δ and the projection pullback ι are actual R-algebra homomorphisms:
+on the two components they send xⁿ respectively to xⁿ and h²ⁿxⁿ, while ι
+sends xⁿ to xⁿ on both. Conjugation by the component switch pulls xⁿ back to
+x⁻ⁿ on both components. The invariants are checked in Mathlib's
+`AlgHom.equalizer`, using regular functions rather than only R-valued points.
+
+- `coordinate_h_invariant` puts f=(x,0) in the equalizer of δ and ι;
+  `coordinate_not_switch_invariant` excludes f from the switch invariants
+  whenever R is nonzero. This distinction persists over fields of
+  characteristic two: Laurent exponents 1 and −1 remain distinct.
+- `other_component_not_h_invariant` excludes (0,x) from the H-invariants for
+  nonzero R, detecting an action that incorrectly fixes the second component.
+- The component idempotent e=(1,0) is fixed by both actions. Over ℚ, evaluation
+  on the identity component sends e to 1 at both x=2 and x=1/2, but sends f
+  to 2 and 1/2 respectively. The component condition cannot recover f after
+  whole-J invariants have discarded it.
+
+All these fixture proofs are complete. They check this explicit coordinate
+algebra, without supplying the general invariant-coordinate or pseudocharacter
+carrier, the quotient stack, or semisimple reconstruction.
 
 **Needs:** [LP2e.11](#lp2e11-the-universal-excursion-relations); **ReductiveGroupsPartII, RG2.5**; `RingHom` (Mathlib); **IntegralHeckeAndGaloisDeterminants, IHG.0/reductive-pseudocharacter**.
 
-**Source:** [Quast][Quast-pseudocharacters], Definition 3.1 and Lemma 3.5, pp.11–13. [Fargues–Scholze][FS-geometrization], VIII.3.7–VIII.3.8, pp.289–290.
+**Source:** [Quast][Quast-pseudocharacters], Definition 3.1 and Lemma 3.5, pp.11–13. [Fargues–Scholze][FS-geometrization], VIII.3.7–VIII.3.8, pp.288–290.
 
 ### LP2c.2 Reconstruction with prescribed finite projection
 
