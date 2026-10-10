@@ -149,6 +149,15 @@ TauCeti.CoveringSpace.monodromyEquivalence classifies Type-valued covers under
 path-connectedness, local path-connectedness and semilocal simple connectedness;
 it does not identify arithmetic sheaf descent with linear local coefficients.
 TopPair.singularChainComplexFunctor supplies relative chains.
+For cochains, reuse TopCat.singularCochainComplex,
+TauCeti.LocalCoefficientSystem.twistedCochainComplex and
+TopPair.twistedCochainComplex, together with their coefficient and space maps
+and TopPair.twistedCohomologyδ. The twisted construction applies Hom into a
+chosen coefficient module to chains with a local system, so its coefficient
+variance must be matched to the arithmetic system; it is not a covariant
+cochain construction in that chain coefficient system. Its relative exact
+sequence is reused after the arithmetic associated system and supported
+sheaf comparison have been constructed.
 HeckeCosetModule.instRingHeckeRing supplies convolution. The dynamic parabolic
 TauCeti.Cocharacter.parabolic and leviDecompositionMulEquiv supply their
 algebraic subgroup constructions, rather than arbitrary Lie subgroups.
@@ -201,7 +210,7 @@ twisted central torus is a separate condition.
 only one.
 - `not_cartanInvolution_id_GL2` (non-example): The identity of GL_2 is not a Cartan involution: its twisted form is GL_2(ℝ), which is not compact.
 
-**Prerequisites.** `mathlib:Matrix.GeneralLinearGroup`; [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
+**Prerequisites.** `mathlib:Matrix.GeneralLinearGroup`; [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
 
 **Sources.** [[milne]](#source-milne), §1, Cartan involutions, definition (9), p. 15; [[milne]](#source-milne), §1, Theorem 1.16, p. 15.
 
@@ -222,7 +231,7 @@ diffeomorphism.
 - GL_n(ℝ): K_∞ = O(n) meets both components; polar decomposition GL_n(ℝ) = O(n)·exp(Sym_n).
 - GL_n(ℂ): K_∞ = U(n), connected.
 
-**Prerequisites.** [Cartan involutions of real reductive groups](#cartan-involution); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
+**Prerequisites.** [Cartan involutions of real reductive groups](#cartan-involution); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
 
 **Sources.** [[milne]](#source-milne), §1, Example 1.17(d), p. 15; [[nt16]](#source-nt16), §3.1, after Definition 3.1, p. 40; [[bs73]](#source-bs73), §§1.4, 1.6–1.7, pp. 440–443.
 
@@ -289,7 +298,7 @@ alone do not imply this projected discreteness.
 - dim X^G = d_G and X^G is homeomorphic to ℝ^{d_G}; GL_2/ℚ gives ℍ ≅ ℝ².
 - SL_2(ℤ) acts properly discontinuously on ℍ with stabilizer of i of order 4 (order 2 modulo ±1).
 
-**Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); [Maximal compact subgroups from Cartan involutions](#maximal-compact-subgroup); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions); `mathlib:ContractibleSpace`; `mathlib:ProperlyDiscontinuousSMul`.
+**Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); [Maximal compact subgroups from Cartan involutions](#maximal-compact-subgroup); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions); `mathlib:ContractibleSpace`; `mathlib:ProperlyDiscontinuousSMul`.
 
 **Sources.** [[nt16]](#source-nt16), §3.1, after Definition 3.1, p. 40; [[acc23]](#source-acc23), §2.1.1, p. 910; [[bs73]](#source-bs73), §2.4, pp. 444–447.
 
@@ -662,7 +671,7 @@ SL_2(ℤ), H^2(X_K, ℤ) = ℤ/12 while H^2(SL_2(ℤ)\ℍ, ℤ) = 0.
 
 **Prerequisites.** [Arithmetic local systems from coefficient modules](#arithmetic-local-system); `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`; `mathlib:DerivedCategory`; `mathlib:CategoryTheory.Sheaf.H`; [Proper discontinuity and finite stabilizers at arbitrary level](#proper-action-stabilizers); [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); `SchemeAndStackFoundations:SF.2/linearized-sheaf`; `SchemeAndStackFoundations:SF.2/enough-injectives`; `SchemeAndStackFoundations:SF.2/invariants-acyclic`; `SchemeAndStackFoundations:SF.2/support`; `SchemeAndStackFoundations:SF.2/localization`.
 
-**Sources.** [[acc23]](#source-acc23), §2.1.2, p. 911; [[nt16]](#source-nt16), §3.1, Corollary 3.3, p. 42; [[acc23]](#source-acc23), §2.1.2, p. 911; [[cn23]](#source-cn23), §2.1.2, after Proposition 2.1.3, p. 11.
+**Sources.** [[acc23]](#source-acc23), §2.1.2, p. 911; [[nt16]](#source-nt16), §3.1, Corollary 3.3, p. 42; [[cn23]](#source-cn23), §2.1.2, after Proposition 2.1.3, p. 11.
 
 <a id="sheaf-singular-comparison"></a>
 
@@ -803,7 +812,7 @@ nonzero cokernel (the genus grows).
 
 **Prerequisites.** [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [The arithmetic locally symmetric space X_K](#locally-symmetric-space); [AlgebraicTopology, stage 2 relative singular chains and homology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-2-relative-singular-chains-and-homology); `tauceti:TauCeti.LocalCoefficientSystem.pullback`.
 
-**Sources.** [[nt16]](#source-nt16), §2.3, after Proposition 2.18, p. 27; [[acc23]](#source-acc23), §2.1.2, p. 911.
+**Sources.** [[nt16]](#source-nt16), §2.3, after Proposition 2.18, p. 24 (published); [[acc23]](#source-acc23), §2.1.2, p. 911.
 
 ## ALS.2: Borel–Serre corners and boundary strata
 
@@ -849,7 +858,7 @@ whereas the geodesic action moves every point vertically.
 
 **Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); [Cartan involutions of real reductive groups](#cartan-involution); `AdelicAlgebraicGroups:AA.3/horospherical-decomposition`; `AdelicAlgebraicGroups:AA.3/minimal-parabolic-data`; `tauceti:TauCeti.Cocharacter.parabolic`; `tauceti:TauCeti.Cocharacter.leviDecompositionMulEquiv`.
 
-**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[nt16]](#source-nt16), §3.1, p. 41; [[jm02]](#source-jm02), §7.3, p. 483; [[bs73]](#source-bs73), §§3.2–3.9, pp. 448–452.
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[jm02]](#source-jm02), §7.3, p. 483; [[bs73]](#source-bs73), §§3.2–3.9, pp. 448–452.
 
 <a id="borel-serre-bordification"></a>
 
@@ -1004,7 +1013,7 @@ M ⋉ N.
 - For SL_{2,ℚ} and P = B, M = T is a torus with X_M a point and the stratum is the circle Γ_N\N(ℝ).
 - For GL_3 and the Borel, fibres are Heisenberg nilmanifolds of dimension 3 over a point.
 
-**Prerequisites.** [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Geodesic action and the boundary face e(P)](#geodesic-action-boundary-face); [Arithmetic nilmanifold fibres](#stratum-nilmanifold-fibration); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `AdelicAlgebraicGroups:AA.3/unipotent-class-number-one`.
+**Prerequisites.** [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Geodesic action and the boundary face e(P)](#geodesic-action-boundary-face); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `AdelicAlgebraicGroups:AA.3/unipotent-class-number-one`.
 
 **Sources.** [[nt16]](#source-nt16), §3.1, p. 43; [[hr]](#source-hr), §4.2.1, p.25, before (4.2) (arXiv:1405.6513v2).
 
@@ -1372,7 +1381,7 @@ ideal; nontrivial ψ alone does not prove that every such ideal moves.
 
 **Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); `tauceti:HeckeCosetModule.instRingHeckeRing`.
 
-**Sources.** [[acc23]](#source-acc23), §2.2.20, p. 933; [[acc23]](#source-acc23), §2.2.20, p. 933.
+**Sources.** [[acc23]](#source-acc23), §2.2.20, p. 933.
 
 <a id="twisting-isomorphism"></a>
 
@@ -1424,7 +1433,7 @@ forms plus new forms.
 
 **Prerequisites.** [Trace along level maps and the groupoid correction](#level-trace); [Hecke operators as correspondences: representative independence](#hecke-operator-formula); [Composition of Hecke correspondences, coherence and change of level](#hecke-composition); [Standard level subgroups: Iwahori, Γ0, Γ1, Γp and Taylor–Wiles levels](#standard-level-subgroups).
 
-**Sources.** [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination); [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination).
+**Sources.** [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination).
 
 ## ALS.4: Boundary complexes and Eisenstein localization
 
@@ -1452,7 +1461,7 @@ V) given by the homotopy equivalence j_K.
 
 **Prerequisites.** [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); [Hecke compatibility with supports, boundary, coefficients and cup products](#hecke-support-boundary-compatibility); [Trace along level maps and the groupoid correction](#level-trace); [Derived coefficient change and the universal-coefficient spectral sequence](#coefficient-change); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `EnhancedDerivedSheaves:E1`.
 
-**Sources.** [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55; [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55.
+**Sources.** [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55.
 
 <a id="parabolic-hecke-maps"></a>
 
@@ -1518,7 +1527,9 @@ components use the transported levels and corresponding coefficient actions. Con
 stratum formulas must be summed/induced across g, and the split Levi summand has Hecke action
 through S=r_M∘r_P.
 
-**Hypotheses.** K neat and decomposed with respect to P = M ⋉ N; P maximal for p
+**Hypotheses.** K good and neat; each used transported P-level decomposed with respect to P=M⋉N.
+P is maximal for the extension-by-zero assertion. The distinguished-component identification
+requires G^S=P^SK^S; the split Levi map requires the stated coefficient direct summand.
 
 **Discriminating checks.**
 
@@ -1556,7 +1567,7 @@ one-dimensional abelian 𝔫.
 - N = 𝔾_a and V = Sym^k(E²) restricted to the upper unipotent: H^0(𝔫, V) and H^1(𝔫, V) are
 one-dimensional (highest and lowest weight lines).
 
-**Prerequisites.** [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); [Arithmetic nilmanifold fibres](#stratum-nilmanifold-fibration); `AutomorphicFormsOnReductiveGroups:AF.1a`; `mathlib:groupCohomology`.
+**Prerequisites.** [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); `AutomorphicFormsOnReductiveGroups:AF.1a`; `mathlib:groupCohomology`.
 
 **Sources.** [[hr]](#source-hr), §4.2.1, pp.25–26 (arXiv:1405.6513v2).
 
@@ -1694,7 +1705,7 @@ relative ring action alone does not provide this lift.
 
 **Prerequisites.** [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); `IntegralHeckeAndGaloisDeterminants:IHG.2` (derived images, ghosts, local factors and localization); `mathlib:CategoryTheory.IsIdempotentComplete`; `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`.
 
-**Sources.** [[nt16]](#source-nt16), §3.2, p. 52; [[nt16]](#source-nt16), §3.2, p. 52.
+**Sources.** [[nt16]](#source-nt16), §3.2, p. 52.
 
 <a id="eisenstein-maximal-ideal"></a>
 
@@ -2116,7 +2127,7 @@ constant ℂ coefficients, both degree-one images have dimension 2g.
 cuspidal cohomology as all ordinary cohomology. No strict interior-inclusion claim is made using
 Saito–Kurokawa lifts, which are cuspidal CAP forms.
 
-**Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); [Franke comparison and cuspidal support](#automorphic-comparison); `AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex`; `AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete`.
+**Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); `AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex`; `AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete`.
 
 **Sources.** [[acc23]](#source-acc23), §2.4.9, proof of Theorem 2.4.10, p. 949; [[franke]](#source-franke), §7.4, after Theorem 18, pp. 255–256.
 
@@ -2142,7 +2153,7 @@ archimedean components, π′ ⊗ (η∘det) occurs in H^i(X_K, M_{ξ,K}) ⊗ �
 
 **Prerequisites.** [Cuspidal cohomology](#cuspidal-cohomology); [Franke's comparison with automorphic forms](#automorphic-comparison); `AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight`; `AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic`; `AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation`; [The symmetric space of G with the split-centre correction](#symmetric-space).
 
-**Sources.** [[sch15]](#source-sch15), §V.4, proof of Corollary V.4.2 (Annals Corollary 5.4.2); [[sch15]](#source-sch15), §V.4, proof of Corollary V.4.2.
+**Sources.** [[sch15]](#source-sch15), §V.4, proof of Corollary V.4.2, pp.102–103 (arXiv:1306.2070v2; Annals Corollary 5.4.2).
 
 <a id="non-eisenstein-degree-range"></a>
 
@@ -2166,7 +2177,7 @@ algebraic π of weight ιλ, with r_ι(π) residually ≅ ρ̄_𝔪.
 
 **Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); [Cuspidal cohomology](#cuspidal-cohomology); [Galois type, Eisenstein and non-Eisenstein maximal ideals](#eisenstein-maximal-ideal); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Characteristic-zero Galois comparisons](#characteristic-zero-galois-comparisons); `AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight`; `AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic`; `AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation`; `AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range`.
 
-**Sources.** [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.10(2), p. 948; [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.10(2), p. 948.
+**Sources.** [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.10(2), p. 948.
 
 <a id="unitary-middle-degree"></a>
 
@@ -2368,7 +2379,7 @@ and the proofs of Theorems 2.4.10–2.4.11, pp.949–953.
 
 <a id="source-nt16"></a>
 
-**[nt16]** J. Newton, J. A. Thorne. *Torsion Galois representations over CM fields and Hecke algebras in the derived category*. Forum of Mathematics, Sigma 4 (2016), e21. Locators carrying published pp.40–58 refer to the journal version. [Source](https://doi.org/10.1017/fms.2016.16).
+**[nt16]** J. Newton, J. A. Thorne. *Torsion Galois representations over CM fields and Hecke algebras in the derived category*. Forum of Mathematics, Sigma 4 (2016), e21. Unqualified page locators refer to the published version; arXiv:1511.04913v1 locators are marked explicitly. [Source](https://doi.org/10.1017/fms.2016.16).
 
 <a id="source-jm02"></a>
 
@@ -2388,7 +2399,7 @@ and the proofs of Theorems 2.4.10–2.4.11, pp.949–953.
 
 <a id="source-sch15"></a>
 
-**[sch15]** P. Scholze. *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066; arXiv:1306.2070 uses Corollary V.4.2 for published Corollary 5.4.2. [Source](https://arxiv.org/abs/1306.2070).
+**[sch15]** P. Scholze. *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066; arXiv:1306.2070v2 uses Corollary V.4.2, pp.102–103, for published Corollary 5.4.2. [Source](https://arxiv.org/abs/1306.2070).
 
 <a id="source-milne"></a>
 

@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticLocallySymmetricSpaces",
+    "date": "2026-10-10",
+    "notes": "Completed independent review by Codex (GPT-6), session codex-jDhOOy, of all 66 targets, 132 API items and 88 named tests. Corrected LieGroups links, a self-prerequisite, duplicate references, the boundary-stratum hypothesis line, NT16 and Scholze locators, and the native Hecke-invariants carrier and restricted maps; recorded current native twisted-cochain reuse and marked the GL1 specialization as an adapter test. lean-check exited 0 with 63 declaration-uses-sorry warnings and no errors or other warnings. README is 181646 bytes and has no programme process; metadata is topic math.NT. Needs changes: 114 API signatures, 80 full test statements and all 44 theorem-target signatures remain unstated comments, and the typed arithmetic/supported interfaces and downward Franke/characteristic-zero Galois proof chains remain incomplete. Compilation does not discharge those gaps. Full target audit, source/version checks and repair requirements are in research/blueprint/reviews/REV-PKG-ArithmeticLocallySymmetricSpaces.md. This is a finished negative review, not a review checkpoint."
+  }
+}
