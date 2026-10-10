@@ -12,7 +12,7 @@
     "QSeriesPartitionsAndMockModularForms:QM.6"
   ],
   "status": "complete",
-  "summary": "Complete budget-limited planning pass under current PROTOCOL section 0; mathematical closure is open. Preserve all 536 whole inherited nodes: 113 definitions, 250 lemmas, 153 theorems, 17 constructions and three comparisons, with 766 API items, 511 definition/construction tests, 42 planets and 417 pinned baseline declarations. No nodes are added because the incoming packet already exceeds the 300-node planning budget. Retain 53 sources, 65 source findings, 14 gaps, 24 requests, source-version records and prior continuation evidence. QM.0 and QM.3 are partial under the newly routed Yu/Liu and vector-valued/weight-2 targets; QM.4 remains target-planned with its explicit prerequisite gaps. QM.1, QM.2, QM.5 and QM.6 retain precise open proof and ownership obligations. Amend the unaccepted Jacobi ownership proposal to follow the confirmed verifier boundary: reusable Jacobi theory belongs to MetaplecticAutomorphicForms, with q-series applications here and the GSp4 cover there. That migration is applied for RT-AREA-automorphic-1/20: seven classical Jacobi nodes import the Jacobi theory of MetaplecticAutomorphicForms through one request to MP.6, and one comparison node, QM.1/jacobi-rank-one-specialisation, states the scalar-index dictionary, so that the packet has 537 nodes, four comparisons, 54 sources and 25 requests; all inherited declarations are preserved. Quantum-modular definitions and q-series examples remain QM.5 service targets. Independent review assesses the inherited mathematics and frontier before stage follow-ups and assembly.",
+  "summary": "Complete revision of the budgeted planning pass under PROTOCOL section 0. All 537 inherited node ids are retained, with no added nodes: 113 definitions, 17 constructions, 250 lemmas, 153 theorems and four comparisons. The packet has 790 API items (772 on definitions/constructions), 527 tests (514 on definitions/constructions), 42 planets, 418 pinned declarations, 54 sources, 86 source findings, 39 gaps and 25 supplier requests. One newer upstream IntegralLattices import supplies the Leech reference lattice. Physical Lie and Monster Lie signatures now require the concrete symmetric identity-invariant form; the twisted algebra retains its cocycle. Both fifth-order vectors and their generator matrices are explicit, and the index-13 example has native generator, integral and shadow contracts. The reader is synchronized with all node statements, APIs and tests. Existing independent review objects are preserved for the next reviewer. QM.4 is planned with proof gaps; QM.0, QM.1, QM.2, QM.3, QM.5 and QM.6 remain partial with exact remaining targets. No layer is mathematically closed. Every original unverifiable review row has a recorded revision disposition and affected-node comparison route. Reusable Jacobi theory remains owned by MP.6, scalar quantum period theory and q-series examples by QM.5, and matrix-valued knot cocycles by the requested Part II service.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16102,7 +16102,7 @@
         "Pointwise: g·\\overline{ξ_kf}·v^κ = g·L_kf (since \\overline{ξ_kf} = v^{k−2}L_kf), and d(g f dτ) = ∂̄(gf)dτ̄∧dτ = −g L_k f dμ (g holomorphic).",
         "For each coset q apply QM.3/truncated-fundamental-domain-stokes to G_q = (g|q^{−1})(f|q^{−1}) on F_T; the integral over F converges and is the limit T → ∞.",
         "Sum over q ∈ SL₂(ℤ)/Γ̃: the two vertical sides cancel after reindexing q ↦ T^{−1}q (the form G_q dτ has weight 2), the arc cancels after q ↦ S^{−1}q.",
-        "Top edges: the cosets in one orbit of q ↦ Tq correspond to a cusp c and there are w_c of them (Γ̃ counts ±); the sum of their top integrals is (w_c/h_c)∫_0^{h_c}(g|σ_c)(f|σ_c)(u + iT)du = w_c·(constant term) = h_c Σ_{n≤0}a⁺_c(n)b_c(−n) + (terms Γ(1−k, 4π|n|T/h_c)·b_c(−n) → 0).",
+        "Top edges: the cosets in one orbit of q ↦ Tq correspond to a cusp c and there are w_c of them (Γ̃ counts ±); the sum of their top integrals is (w_c/h_c)∫_0^{h_c}(g|σ_c)(f|σ_c)(u + iT)du = w_c·(constant term) = w_c Σ_{n≤0}a⁺_c(n)b_c(−n) + (terms Γ(1−k, 4π|n|T/h_c)·b_c(−n) → 0).",
         "Let T → ∞."
       ],
       "acceptance": [
@@ -18002,7 +18002,7 @@
         "QM.3 totalizes upperIncompleteGamma(s,0) to 0. Thus the identity with upperIncompleteGamma is restricted to x>0; β(0)=1 uses the complete Gamma value or erfc(0), not that totalized value."
       ],
       "proofSteps": [
-        "β(x) = π^{−1/2}Γ(1/2, πx) by the substitution t = πu; = erfc(√(πx)) by upperIncompleteGamma_half_sq.",
+        "For x>0, substitute t=πu to obtain β(x)=π^{−1/2}Γ(1/2,πx)=erfc(√(πx)) by upperIncompleteGamma_half_sq. At x=0 use the complete Gamma or erfc value separately, since the roadmap’s totalized upper incomplete Gamma is zero there.",
         "0 ≤ β(x) ≤ e^{−πx}: β(x) = ∫_0^∞ (x + t)^{−1/2}e^{−π(x+t)}dt ≤ e^{−πx}∫_0^∞ t^{−1/2}e^{−πt}dt = e^{−πx}.",
         "β(0) = π^{−1/2}Γ(1/2) = 1 (Mathlib Real.Gamma_one_half_eq)."
       ],
@@ -29101,7 +29101,7 @@
         {
           "name": "EvenLattice.TwistedGroupAlgebra",
           "role": "data",
-          "statement": "k_ε[L] with basis e^α and e^α e^β = ε(α,β)e^{α+β}."
+          "statement": "k_ε[L] is a cocycle-indexed type whose coefficients are finitely supported on L, with e^αe^β=ε(α,β)e^(α+β). The type retains ε: different cocycles cannot silently select the same untwisted multiplication instance."
         },
         {
           "name": "EvenLattice.TwistedGroupAlgebra.single_mul_single",
@@ -29348,7 +29348,14 @@
         "module": "TauCeti/Algebra/Vertex/Lattice",
         "namespace": "TauCeti.QSeries"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "noGhostForm_invariant",
+          "role": "compatibility",
+          "statement": "For an identity-invariant symmetric B on V, B⊗II11Form is identity-invariant and symmetric for the tensor conformal vector on V⊗V_{II₁,₁}, with the lattice form normalized at the vacuum to −1. This transfers the concrete form predicate, not a physical-quotient Lie instance for arbitrary forms."
+        }
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.6/lorentzian-lattice-II11",
@@ -29631,7 +29638,7 @@
         {
           "name": "VertexAlgebra.physicalLieAlgebra",
           "role": "structure",
-          "statement": "g(V) = P^1 ⧸ N with its LieRing and LieAlgebra k instances."
+          "statement": "For a symmetric identity-invariant form B, g(V)=P¹/N with its LieRing and LieAlgebra k instances. The suggested signatures carry Fact(IsInvariantForm ω id B); IsInvariantForm explicitly includes symmetry and locally nilpotent L₁. Arbitrary B gives only a module quotient, not these Lie instances."
         },
         {
           "name": "VertexAlgebra.physicalLieAlgebra.bracket_mk",
@@ -29641,12 +29648,12 @@
         {
           "name": "VertexAlgebra.physicalLieAlgebra.form",
           "role": "data",
-          "statement": "The induced nondegenerate symmetric invariant form."
+          "statement": "For the same symmetric identity-invariant B, the quotient form is nondegenerate, symmetric and invariant; symmetry is needed to descend in both arguments."
         },
         {
           "name": "VertexAlgebra.physicalLieAlgebra.form_lie",
           "role": "relation",
-          "statement": "form ⁅x, y⁆ z = −form y ⁅x, z⁆."
+          "statement": "Under the same form hypothesis as the Lie instances, form([x,y],z)=−form(y,[x,z])."
         },
         {
           "name": "VertexAlgebra.physicalLieAlgebra.involution",
@@ -30155,7 +30162,7 @@
         {
           "name": "monsterLieAlgebra",
           "role": "structure",
-          "statement": "m(V) with its LieRing and LieAlgebra ℝ instances."
+          "statement": "m(V)=g(V⊗V_{II₁,₁}). Its carrier and Lie instances require the symmetric identity-invariant form on V; noGhostForm_invariant transfers that hypothesis to the product form. A moonshine-module witness supplies it."
         },
         {
           "name": "monsterLieAlgebra.rootSpace",
@@ -30772,7 +30779,7 @@
         "The radical of the form on m is zero by construction; apply the nondegenerate case of the characterisation theorem."
       ],
       "acceptance": [
-        "Borcherds 1992 Theorem 6.2: 'The monster Lie algebra M is a generalized Kac-Moody algebra.'"
+        "Borcherds 1992 Theorem 6.2, p.22: the physical-state Monster Lie algebra satisfies the generalized Kac–Moody characterization."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra",
@@ -32415,7 +32422,10 @@
         "module": "TauCeti/NumberTheory/Moonshine/Theorem",
         "namespace": "TauCeti.QSeries"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/IntegralLattices#layer-6-unimodular-lattices-in-low-rank"
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem",
@@ -32478,7 +32488,10 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Monstrous moonshine theorem"
-      }
+      },
+      "upstreamPrerequisites": [
+        "tauceti:TauCetiRoadmap/IntegralLattices#layer-6-unimodular-lattices-in-low-rank"
+      ]
     },
     {
       "id": "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-mock-theta-functions",
@@ -32505,7 +32518,8 @@
         "All eight double sums are written with their exact exponents and ranges.",
         "The correction to Andrews' third and eighth identities is recorded, with the attribution to Zwegers.",
         "The vector F_{5,1} is assembled with its six prefactors.",
-        "The scope, eight of ten, is stated."
+        "The scope, eight of ten, is stated.",
+        "The two fifth-order functions outside this eight-function scope are excluded from this contract. This is documentation, not a mathematical non-example. The corrections record andrews_corrections is documentary metadata; the actual corrected formulas and normalization test above are the mathematical contracts."
       ],
       "prerequisites": [
         "mathlib:ModularForm.eta",
@@ -32569,11 +32583,6 @@
           "statement": "F_{5,1}, the vector of the first six with their q-power prefactors."
         },
         {
-          "name": "andrews_corrections",
-          "role": "other",
-          "statement": "The record of which two printed identities are corrected and how."
-        },
-        {
           "name": "fifthOrderF1",
           "role": "data",
           "statement": "f1 through its exact double sum in the statement."
@@ -32598,7 +32607,7 @@
         {
           "name": "fifthOrder_f0_coeff_test",
           "kind": "computation",
-          "statement": "The coefficients of f0 through q⁴ are 1,1,-1,1,0. The n=1 Eulerian term is q/(1+q) and the n=2 term first contributes q⁴; equivalently truncate the defining double sum and A⁻¹ to degree four."
+          "statement": "The coefficients of f0 through q⁴ are 1,1,-1,1,0: f0(τ)−(1+q−q²+q³)=O(q⁵) as Im τ tends to infinity. Truncate the defining double sum and A⁻¹ to degree four. Agreement with the Eulerian series is a separate proof gap."
         },
         {
           "name": "fifthOrder_prefactor_test",
@@ -32606,14 +32615,9 @@
           "statement": "The prefactors of F_{5,1} are q^{-1/60}, q^{11/60}, q^{-1/240}, q^{71/240}, q^{-1/240}, q^{71/240}; a wrong prefactor breaks the T-transformation of the next node."
         },
         {
-          "name": "fifthOrder_two_missing_test",
-          "kind": "non-example",
-          "statement": "The two remaining fifth-order functions of Ramanujan's list are not among these eight and are not planned here."
-        },
-        {
           "name": "fifthOrder_andrews_error_test",
           "kind": "non-example",
-          "statement": "Andrews' printed third and eighth identities do not define the same functions as the corrected ones; using them as printed would make the following lemma false."
+          "statement": "As q tends to zero, ψ0 tends to 0 and the corrected third right-hand side 1+2ψ0 tends to 1. Using that right-hand side itself as ψ0 fails this constant-term test. The printed-error comparison is a source acceptance check, not an opaque Lean proposition."
         }
       ]
     },
@@ -32685,7 +32689,7 @@
       ],
       "title": "The completion H_{5,1} and the correction G_{5,1} for the first six",
       "kind": "construction",
-      "statement": "Define H_{5,1} to be one over twice the eta function times the vector of the six indefinite theta functions with characteristics as in the previous lemma, the last two multiplied by a primitive eighth root of unity. Define G_{5,1} to be one half times the vector whose six entries are the explicitly listed combinations of the unary real-analytic theta functions R with the stated rational indices and second parameters, all evaluated at thirty times tau: the first two entries are combinations of two R's with twelfth roots of unity as coefficients, the third and fourth are alternating sums of four R's with second parameter zero, and the last two are combinations of four R's with twenty-fourth roots of unity and second parameter five halves. The construction mirrors the seventh-order one exactly, with the level 30 in place of 21 and six components in place of three.",
+      "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. H₁=(2η(τ))⁻¹(Θ[(1/10,0);(0,1/4)], Θ[(3/10,0);(0,1/4)], Θ[(1/5,1/4);(1/2,1)], Θ[(2/5,1/4);(1/2,2)], ζ₈Θ[(1/5,1/4);(0,1/4)], ζ₈Θ[(2/5,1/4);(0,1/4)]). Put R_a^b=unaryR(a,b;30τ). Then G₁=(1/2)(2ζ₁₂R_(1/30)^(5/2)+2ζ₁₂⁻¹R_(11/30)^(5/2), 2ζ₁₂R_(13/30)^(5/2)+2ζ₁₂⁻¹R_(23/30)^(5/2), −R_(19/60)^0−R_(29/60)^0+R_(49/60)^0+R_(59/60)^0, −R_(13/60)^0−R_(23/60)^0+R_(43/60)^0+R_(53/60)^0, ζ₂₄^(−5)R_(19/60)^(5/2)+ζ₂₄^5R_(29/60)^(5/2)+ζ₂₄R_(49/60)^(5/2)+ζ₂₄⁻¹R_(59/60)^(5/2), ζ₂₄R_(13/60)^(5/2)+ζ₂₄⁻¹R_(23/60)^(5/2)+ζ₂₄^(−5)R_(43/60)^(5/2)+ζ₂₄^5R_(53/60)^(5/2)). Set s=sin(π/5), t=sin(2π/5), and a=√2. The rows of M₅ are (0,0,as,at,0,0), (0,0,at,−as,0,0), (s/a,t/a,0,0,0,0), (t/a,−s/a,0,0,0,0), (0,0,0,0,t,s), (0,0,0,0,s,−t). For v∈ℂ⁶, T₅v=(ζ₆₀⁻¹v₀, ζ₆₀¹¹v₁, ζ₂₄₀⁻¹v₄, ζ₂₄₀⁷¹v₅, ζ₂₄₀⁻¹v₂, ζ₂₄₀⁷¹v₃); every matrix entry not specified by this action is zero.",
       "hypotheses": [
         "The indefinite theta functions are those of the previous lemma, so their characteristics and their cone data are fixed there.",
         "The unary R functions are the ones of the unary real-analytic theta node, evaluated at thirty tau.",
@@ -32698,9 +32702,9 @@
         "Record that the entries of G are the beta-parts of the sign-difference sums, which is what the following theorem uses."
       ],
       "acceptance": [
-        "Both vectors are written out entry by entry with their roots of unity.",
-        "The argument thirty tau of the R functions is recorded.",
-        "The parallel with the seventh-order construction is stated, with the two differences."
+        "Check all six characteristics and all unary indices, coefficients and signs against Zwegers §4.4, pp.75–76.",
+        "Translation exchanges coordinates 2↔4 and 3↔5 with 240th-root phases; its action is not diagonal.",
+        "All unary terms use 30τ; the seventh-order construction uses 21τ."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-first-six",
@@ -32712,7 +32716,7 @@
       "sources": [
         {
           "sourceId": "zwegers-thesis",
-          "locator": "§4.4, the displays defining H_{5,1} and G_{5,1} (printed pp. 74-75)",
+          "locator": "§4.4, definitions of H_{5,1}, G_{5,1}, T-matrix and Proposition 4.10, printed pp.75–76",
           "match": "The two vectors, entry by entry."
         }
       ],
@@ -32735,22 +32739,27 @@
         {
           "name": "fifthOrderH",
           "role": "data",
-          "statement": "H_{5,1}, as one over twice eta times the six indefinite theta functions."
+          "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. H₁=(2η(τ))⁻¹(Θ[(1/10,0);(0,1/4)], Θ[(3/10,0);(0,1/4)], Θ[(1/5,1/4);(1/2,1)], Θ[(2/5,1/4);(1/2,2)], ζ₈Θ[(1/5,1/4);(0,1/4)], ζ₈Θ[(2/5,1/4);(0,1/4)])."
         },
         {
           "name": "fifthOrderG",
           "role": "data",
-          "statement": "G_{5,1}, as one half times the listed combinations of unary R at thirty tau."
+          "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. Put R_a^b=unaryR(a,b;30τ). Then G₁=(1/2)(2ζ₁₂R_(1/30)^(5/2)+2ζ₁₂⁻¹R_(11/30)^(5/2), 2ζ₁₂R_(13/30)^(5/2)+2ζ₁₂⁻¹R_(23/30)^(5/2), −R_(19/60)^0−R_(29/60)^0+R_(49/60)^0+R_(59/60)^0, −R_(13/60)^0−R_(23/60)^0+R_(43/60)^0+R_(53/60)^0, ζ₂₄^(−5)R_(19/60)^(5/2)+ζ₂₄^5R_(29/60)^(5/2)+ζ₂₄R_(49/60)^(5/2)+ζ₂₄⁻¹R_(59/60)^(5/2), ζ₂₄R_(13/60)^(5/2)+ζ₂₄⁻¹R_(23/60)^(5/2)+ζ₂₄^(−5)R_(43/60)^(5/2)+ζ₂₄^5R_(53/60)^(5/2))."
         },
         {
           "name": "fifthOrderM",
           "role": "data",
-          "statement": "The six by six matrix M_5, whose entries are sines of pi over five and twice pi over five with the stated normalisations."
+          "statement": "Set s=sin(π/5), t=sin(2π/5), and a=√2. The rows of M₅ are (0,0,as,at,0,0), (0,0,at,−as,0,0), (s/a,t/a,0,0,0,0), (t/a,−s/a,0,0,0,0), (0,0,0,0,t,s), (0,0,0,0,s,−t)."
         },
         {
           "name": "fifthOrderLevel",
           "role": "other",
           "statement": "The level thirty at which the unary R functions are evaluated."
+        },
+        {
+          "name": "fifthOrderT",
+          "role": "data",
+          "statement": "For v∈ℂ⁶, T₅v=(ζ₆₀⁻¹v₀, ζ₆₀¹¹v₁, ζ₂₄₀⁻¹v₄, ζ₂₄₀⁷¹v₅, ζ₂₄₀⁻¹v₂, ζ₂₄₀⁷¹v₃); every matrix entry not specified by this action is zero."
         }
       ],
       "tests": [
@@ -32773,6 +32782,11 @@
           "name": "fifthOrderM_block_test",
           "kind": "degenerate",
           "statement": "M_5 is block structured: it exchanges the first two components with the third and fourth and acts on the last two by a two by two block."
+        },
+        {
+          "name": "fifthOrderT_half_argument_test",
+          "kind": "non-example",
+          "statement": "T₅[2,4]=ζ₂₄₀⁻¹ and T₅[2,2]=0. A diagonal translation matrix fails this test."
         }
       ]
     },
@@ -32784,14 +32798,14 @@
       ],
       "title": "F_{5,1} = H_{5,1} + G_{5,1}, and the modularity of the completion (Zwegers Prop. 4.10)",
       "kind": "theorem",
-      "statement": "The vector F_{5,1} of the first six fifth-order mock theta functions equals H_{5,1} plus G_{5,1}, and moreover: H_{5,1} is a vector-valued real-analytic modular form of weight one half, with H_{5,1} at tau plus one equal to the displayed diagonal-and-permutation matrix, whose entries are a primitive sixtieth root of unity to the powers minus one and eleven in the first two places and a primitive two hundred and fortieth root of unity to the powers minus one and seventy-one in the four remaining places, times H_{5,1} at tau; and H_{5,1} at minus one over tau equal to the square root of minus i tau times two over the square root of five times the matrix M_5 times H_{5,1} at tau, where M_5 is the displayed six by six matrix of sines. H_{5,1} is an eigenfunction of the weight one half Casimir operator with eigenvalue three sixteenths. And G_{5,1} is bounded as tau tends to any rational point from above.",
+      "statement": "For τ∈ℍ, F₁(τ)=H₁(τ)+G₁(τ), where F₁ is fifthOrderVectorOne and H₁,G₁,M₅,T₅ have the preceding exact coordinates. H₁(τ+1)=T₅H₁(τ) and H₁(−1/τ)=√(−iτ)(2/√5)M₅H₁(τ), using the principal square root. Each coordinate is real-analytic and Δ_(1/2)H₁=0, equivalently Ω_(1/2)H₁=(3/16)H₁ under Ω_(1/2)=Δ_(1/2)+3/16. For each ξ∈ℚ and coordinate i there exist C,δ>0 such that |G₁(ξ+iy)_i|≤C for 0<y<δ. The Eulerian-series comparison is a separate prerequisite gap; these statements use the corrected double-sum definitions.",
       "hypotheses": [
         "The vectors are those of the previous node; the characteristics and the cone data come from the lemma.",
         "The T-matrix is not diagonal: it permutes the third and fifth and the fourth and sixth components, because the two half-argument variants are exchanged.",
         "The boundedness of G is towards rationals from above and is what makes the radial-limit statements of the consuming layer possible."
       ],
       "proofSteps": [
-        "Compute the T-transformation of the vector of six indefinite theta functions from the characteristic transformation rules, obtaining the displayed matrix with the fortieth and eightieth roots of unity.",
+        "Apply the characteristic translation rules to the six theta components and divide by the eta translation law. The result is exactly T₅, including both exchanged pairs and their phases.",
         "Use the element of the orthogonal group of the form that negates the first coordinate: it exchanges c1 and c2, so the indefinite theta function with characteristics transformed by it is the negative of the original, which is what produces the sign pattern in M_5.",
         "Combine with the S-transformation of the theta functions with characteristics to get the S-transformation of the vector, then divide by the eta transformations to get those of H_{5,1}.",
         "Prove the decomposition by splitting each sign-difference sum into its three parts and applying the splitting proposition, obtaining for each component the identity between the indefinite theta function and twice eta times the mock theta function minus the corresponding unary R combination.",
@@ -32839,6 +32853,33 @@
         {
           "where": "QM.4/seventh-order-non-modularity",
           "how": "the same argument gives the non-modularity of F_{5,1} as a period integral, which Zwegers states is omitted"
+        }
+      ],
+      "api": [
+        {
+          "name": "fifthOrderVectorOne_eq",
+          "role": "relation",
+          "statement": "For τ∈ℍ, F₁=H₁+G₁."
+        },
+        {
+          "name": "fifthOrderH_T",
+          "role": "relation",
+          "statement": "For τ∈ℍ, H₁(τ+1)=T₅H₁(τ)."
+        },
+        {
+          "name": "fifthOrderH_S",
+          "role": "relation",
+          "statement": "For τ∈ℍ, H₁(−1/τ)=√(−iτ)(2/√5)M₅H₁(τ)."
+        },
+        {
+          "name": "fifthOrderH_harmonic",
+          "role": "relation",
+          "statement": "For every coordinate i, H₁(τ)_i is real analytic on ℍ and Δ_(1/2)(τ↦H₁(τ)_i)=0; Ω eigenvalue is 3/16."
+        },
+        {
+          "name": "fifthOrderG_bounded",
+          "role": "other",
+          "statement": "For ξ∈ℚ and i, there exist C,δ>0 with |G₁(ξ+iy)_i|≤C for 0<y<δ."
         }
       ]
     },
@@ -32900,19 +32941,19 @@
       ],
       "title": "F_{5,2} = H_{5,2} + G_{5,2}, and the holomorphic sum F_5 (Zwegers Props. 4.13 and 4.14)",
       "kind": "theorem",
-      "statement": "The four remaining functions are collected into a second vector F_{5,2} of six components, built from psi0, psi1 and the two phi functions at both square roots of q. It decomposes as H_{5,2} plus G_{5,2}, where H_{5,2} is one over twice the relevant eta quotient times the vector of the four indefinite theta functions of the previous lemma with their characteristics, and G_{5,2} is the corresponding combination of unary real-analytic theta functions. H_{5,2} is a vector-valued real-analytic modular form of weight one half with exactly the same T-matrix and the same S-matrix M_5 as H_{5,1}, and with the same Casimir eigenvalue three sixteenths; and G_{5,2} is bounded as tau tends to a rational point from above. The point of the section is the consequence: G_{5,2} equals minus G_{5,1}, so the two corrections cancel and the holomorphic sum F_5 := F_{5,1} + F_{5,2} equals H_{5,1} + H_{5,2} and is therefore a genuine vector-valued modular form of weight one half, with the same two matrices. Concretely, each of the six explicit combinations - f0 plus twice psi0, f1 plus twice psi1, the F0 and phi0 combination at the square root of q, the F1 minus phi1 combination, and the two variants at minus the square root of q - is a modular form on a suitable congruence subgroup. The first four of these six identities were already known to Watson.",
+      "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. F₂=(2q^(−1/60)ψ₀(q), 2q^(11/60)ψ₁(q), q^(−1/240)φ₀(−q^(1/2)), −q^(−49/240)φ₁(−q^(1/2)), q^(−1/240)φ₀(q^(1/2)), q^(−49/240)φ₁(q^(1/2))), with q^(1/2)=exp(πiτ). H₂=(2η(τ)²)⁻¹(2ζ₁₂η(2τ)Θ[(1/10,1/6);(0,1/6)], 2ζ₁₂η(2τ)Θ[(3/10,1/6);(0,1/6)], ζ₆₀⁻¹η(τ/2)Θ[(1/5,1/6);(1/10,1/6)], ζ₆₀^(−7)η(τ/2)Θ[(2/5,1/6);(1/10,1/6)], ζ₁₆η((τ+1)/2)Θ[(1/5,1/6);(0,1/6)], ζ₁₆η((τ+1)/2)Θ[(2/5,1/6);(0,1/6)]). Define G₂=−G₁ coordinatewise. For τ∈ℍ, F₂=H₂+G₂, H₂(τ+1)=T₅H₂(τ), and H₂(−1/τ)=√(−iτ)(2/√5)M₅H₂(τ). Each coordinate of H₂ is real-analytic, Δ_(1/2)H₂=0, and its Ω_(1/2) eigenvalue is 3/16. Each coordinate of G₂ is bounded on ξ+iy for ξ∈ℚ and sufficiently small positive y. Consequently F₅=F₁+F₂=H₁+H₂ is holomorphic and has those same T and S laws. Its coordinates are the six coordinatewise sums of the explicitly specified F₁ and F₂, including q^(71/240)F₁(q^(1/2))−q^(−49/240)φ₁(−q^(1/2)) in position 3. This specifies the generator laws; no unnamed congruence subgroup or congruence-kernel theorem is asserted. Comparison with the classical Eulerian functions still needs the recorded Andrews prerequisite.",
       "hypotheses": [
         "The four functions and their identities are those of the previous lemma; the second vector has six components, built from the four functions at both square roots of q.",
         "The cancellation G_{5,2} = -G_{5,1} is what makes the sum holomorphic; it is a computation with the unary R functions and is not a formal consequence of the two decompositions.",
         "The resulting modularity is on a congruence subgroup, which is not named explicitly in the source."
       ],
       "proofSteps": [
-        "Assemble F_{5,2}, H_{5,2} and G_{5,2} from the identities of the previous lemma.",
+        "Assemble the six explicitly specified F₂ and H₂ coordinates from Lemma 4.11; set the unary correction to the coordinatewise negative of G₁, as checked from the display on p.80.",
         "Prove the transformation laws of H_{5,2} exactly as for H_{5,1}, obtaining the same T-matrix and the same S-matrix M_5, and the same Casimir eigenvalue.",
         "Prove the boundedness of G_{5,2} towards the rationals from the corresponding property of the unary R functions.",
         "Compute that G_{5,2} equals minus G_{5,1}.",
         "Deduce that F_5 = H_{5,1} + H_{5,2} is holomorphic and read off its transformation laws from those of the two completions.",
-        "Write out the six explicit combinations of the eight mock theta functions that the six components of F_5 are, and record that the first four were already given in terms of theta functions by Watson."
+        "The six component sums follow by adding the exact F₁ and F₂ coordinates. Watson supplies expressions for the first four (Zwegers p.83, citing Watson pp.299); the other two follow by changing q^(1/2) to −q^(1/2). A congruence-kernel proof is not supplied by the two generator laws alone."
       ],
       "acceptance": [
         "The transformation matrices of H_{5,2} are stated and are recorded as the same as those of H_{5,1}.",
@@ -32929,12 +32970,12 @@
       "sources": [
         {
           "sourceId": "zwegers-thesis",
-          "locator": "§4.4, Proposition 4.13 (printed pp. 79-81)",
+          "locator": "§4.4, definitions of F_{5,2}, H_{5,2}, G_{5,2}, Proposition 4.13 and proof, printed pp.79–82",
           "match": "The decomposition and modularity of the second vector, with the observation that the matrices are the same."
         },
         {
           "sourceId": "zwegers-thesis",
-          "locator": "§4.4, Proposition 4.14 with its proof and the paragraph after it (printed pp. 81-82)",
+          "locator": "§4.4, Proposition 4.14, proof and six component formulas, printed pp.82–83",
           "match": "The holomorphic sum, the cancellation that produces it, and the six explicit combinations with their attribution."
         }
       ],
@@ -32952,6 +32993,85 @@
           "where": "QM.4/fifth-order-decomposition-and-transformation-first-six",
           "how": "the cancellation G_{5,2} = -G_{5,1} ties the two vectors together"
         }
+      ],
+      "api": [
+        {
+          "name": "fifthOrderVectorTwo",
+          "role": "data",
+          "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. F₂=(2q^(−1/60)ψ₀(q), 2q^(11/60)ψ₁(q), q^(−1/240)φ₀(−q^(1/2)), −q^(−49/240)φ₁(−q^(1/2)), q^(−1/240)φ₀(q^(1/2)), q^(−49/240)φ₁(q^(1/2))), with q^(1/2)=exp(πiτ)."
+        },
+        {
+          "name": "fifthOrderHtwo",
+          "role": "data",
+          "statement": "Throughout the fifth-order contracts, q^r means exp(2πirτ), ζ_d means exp(2πi/d), and Θ[a;b] means the indefinite theta function for A=diag(5,−2), c₁=(2,5), c₂=(−2,5), with characteristics a,b. The six coordinates are indexed 0 through 5. H₂=(2η(τ)²)⁻¹(2ζ₁₂η(2τ)Θ[(1/10,1/6);(0,1/6)], 2ζ₁₂η(2τ)Θ[(3/10,1/6);(0,1/6)], ζ₆₀⁻¹η(τ/2)Θ[(1/5,1/6);(1/10,1/6)], ζ₆₀^(−7)η(τ/2)Θ[(2/5,1/6);(1/10,1/6)], ζ₁₆η((τ+1)/2)Θ[(1/5,1/6);(0,1/6)], ζ₁₆η((τ+1)/2)Θ[(2/5,1/6);(0,1/6)])."
+        },
+        {
+          "name": "fifthOrderGtwo",
+          "role": "data",
+          "statement": "G₂(τ)=−G₁(τ) for the preceding explicit unary vector."
+        },
+        {
+          "name": "fifthOrderSum",
+          "role": "data",
+          "statement": "F₅(τ)=F₁(τ)+F₂(τ), with the six coordinatewise sums fixed above."
+        },
+        {
+          "name": "fifthOrderVectorTwo_eq",
+          "role": "relation",
+          "statement": "For τ∈ℍ, F₂=H₂+G₂."
+        },
+        {
+          "name": "fifthOrderHtwo_T",
+          "role": "relation",
+          "statement": "For τ∈ℍ, H₂(τ+1)=T₅H₂(τ)."
+        },
+        {
+          "name": "fifthOrderHtwo_S",
+          "role": "relation",
+          "statement": "For τ∈ℍ, H₂(−1/τ)=√(−iτ)(2/√5)M₅H₂(τ)."
+        },
+        {
+          "name": "fifthOrderHtwo_harmonic",
+          "role": "relation",
+          "statement": "For every coordinate i, H₂(τ)_i is real analytic on ℍ and Δ_(1/2)(τ↦H₂(τ)_i)=0; Ω eigenvalue is 3/16."
+        },
+        {
+          "name": "fifthOrderGtwo_bounded",
+          "role": "other",
+          "statement": "For ξ∈ℚ and i, there exist C,δ>0 with |G₂(ξ+iy)_i|≤C for 0<y<δ."
+        },
+        {
+          "name": "fifthOrderG_two_eq_neg",
+          "role": "simp",
+          "statement": "For every τ, G₂(τ)=−G₁(τ)."
+        },
+        {
+          "name": "fifthOrderSum_eq",
+          "role": "relation",
+          "statement": "For τ∈ℍ, F₅=H₁+H₂ by cancellation of the corrections."
+        },
+        {
+          "name": "fifthOrderSum_modular",
+          "role": "other",
+          "statement": "Each coordinate of F₅ is holomorphic on ℍ; F₅(τ+1)=T₅F₅(τ) and F₅(−1/τ)=√(−iτ)(2/√5)M₅F₅(τ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "fifthOrderVectorTwo_sign_test",
+          "kind": "non-example",
+          "statement": "Coordinate 3 of F₂ is −q^(−49/240)φ₁(−q^(1/2)); replacing that minus sign by plus fails."
+        },
+        {
+          "name": "fifthOrderHtwo_eta_test",
+          "kind": "computation",
+          "statement": "Coordinate 0 of H₂ equals ζ₁₂η(2τ)Θ[(1/10,1/6);(0,1/6)]/η(τ)², not Θ/(2η)."
+        },
+        {
+          "name": "fifthOrderG_cancellation_test",
+          "kind": "degenerate",
+          "statement": "G₁(τ)+G₂(τ)=0 in every coordinate; the individual G₁ is not identically zero."
+        }
       ]
     },
     {
@@ -32962,7 +33082,7 @@
       ],
       "title": "The index-13 weight-1 meromorphic Jacobi form and its vector-valued completion (Zwegers Prop. 3.12)",
       "kind": "construction",
-      "statement": "Let phi be the quotient whose numerator is the ninth power of the product of the three even theta functions of characteristics (0,0), (0,1/2) and (1/2,0), and whose denominator is the discriminant function times the odd theta function of characteristic (1/2,1/2). Then phi transforms like a Jacobi form of weight one and index thirteen on the full modular group; it is meromorphic in the elliptic variable with simple poles exactly on the lattice; and with the base point taken to be minus half tau minus one half the singular set reduces to the single point zero. The residue at zero is computed by Jacobi's derivative formula to be minus one hundred and twenty eight over pi, a constant. Applying the corollary on meromorphic Jacobi forms with simple poles gives the decomposition of phi as the sum over the twenty six residue classes of a coefficient function times the index-thirteen theta function, plus five hundred and twelve i times the completed level-thirteen Appell function; the coefficient functions are given by the explicit integral over a period plus two hundred and fifty six i times the level-thirteen R at zero. The twenty six coefficient functions form a vector-valued real-analytic modular form of weight one half, with the displayed T and S transformations, and they are eigenfunctions of the weight one half Casimir operator with eigenvalue three sixteenths; their tau-bar derivative is the stated multiple of the complex conjugate of a weight three halves theta function.",
+      "statement": "Define θ[a,b](z,τ)=Σ_{n∈ℤ} exp(πi(n+a)²τ+2πi(n+a)(z+b)) and φ=(θ[0,0]θ[0,1/2]θ[1/2,0])⁹/(Δθ[1/2,1/2]). For Im τ>0, φ obeys the weight-one index-thirteen elliptic and full-group generator laws stated in the API. It has simple lattice poles and residue −128/π at zero. With p=−τ/2−1/2, its coefficient functions are h_l=exp(−πil²τ/26)∫₀¹φ(p+t,τ)exp(−2πil(p+t))dt+256iR_{13,l}(0;τ), for 0≤l≤25. Away from the poles, φ(z,τ)=Σ_{l=0}^{25}h_l(τ)θ_{13,l}(z,τ)+512i f̃₀(z,τ). The h_l obey the explicit T/S laws and unary-theta shadow in the API and are weight-1/2 harmonic functions (Casimir eigenvalue 3/16). Constancy of the residue supplies this last step; the general meromorphic Jacobi decomposition does not assert harmonic coefficient functions.",
       "hypotheses": [
         "The quotient is meromorphic in the elliptic variable with simple poles on the lattice; the base point must be chosen so that the singular set is a single point, and the choice minus half tau minus one half does that.",
         "The residue is constant in tau, and that is special to this example.",
@@ -32981,7 +33101,8 @@
         "The function is written out and its weight and index are stated with the source of the transformation law.",
         "The residue computation is carried out and its constancy in tau is recorded.",
         "Both transformation laws and the Casimir eigenvalue are stated.",
-        "The misprint in the classical table is recorded, with the correction."
+        "The misprint in the classical table is recorded, with the correction.",
+        "For the E₄φ non-example, use the displayed shadow of h₁ and the product rule for Δ_{9/2}; its leading unary-theta term and E₄=1+O(q) show a nonzero value for sufficiently large imaginary τ."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.4/meromorphic-jacobi-simple-poles",
@@ -33022,12 +33143,12 @@
         {
           "name": "indexThirteenPhi",
           "role": "data",
-          "statement": "The quotient defining phi."
+          "statement": "With θ[a,b](z,τ)=Σ_{n∈ℤ} exp(πi(n+a)²τ+2πi(n+a)(z+b)), define φ(z,τ)=(θ[0,0](z,τ) θ[0,1/2](z,τ) θ[1/2,0](z,τ))⁹/(Δ(τ) θ[1/2,1/2](z,τ))."
         },
         {
           "name": "indexThirteenPhi_jacobi",
           "role": "characterisation",
-          "statement": "phi transforms like a Jacobi form of weight one and index thirteen on the full modular group."
+          "statement": "For Im τ>0, z outside ℤτ+ℤ and λ,μ∈ℤ: φ(z+λτ+μ,τ)=exp(−2πi·13(λ²τ+2λz))φ(z,τ); φ(z,τ+1)=φ(z,τ); φ(z/τ,−1/τ)=τ exp(2πi·13z²/τ)φ(z,τ). These are the elliptic and full-group generator laws, without a cusp-growth assertion."
         },
         {
           "name": "indexThirteenPhi_residue",
@@ -33037,17 +33158,17 @@
         {
           "name": "indexThirteenCoefficients",
           "role": "data",
-          "statement": "The twenty six coefficient functions, by the displayed integral plus the multiple of the level thirteen R at zero."
+          "statement": "For 0≤l≤25 and p=−τ/2−1/2, h_l(τ)=exp(−πil²τ/26) ∫₀¹ φ(p+t,τ)exp(−2πil(p+t))dt +256i R_{13,l}(0;τ). The integral runs along the horizontal period segment, avoiding the lattice poles."
         },
         {
           "name": "indexThirteenCoefficients_modular",
           "role": "characterisation",
-          "statement": "They form a vector-valued real-analytic modular form of weight one half with Casimir eigenvalue three sixteenths."
+          "statement": "For Im τ>0 and 0≤l≤25, h_l(τ+1)=exp(−πil²/26)h_l(τ), and h_l(−1/τ)=i√(−iτ)/√26 ·Σ_{ν=0}^{25} exp(πilν/13)h_ν(τ), with principal square root. Each h_l is real analytic on ℍ and satisfies Δ_{1/2}h_l=0, equivalently Ω_{1/2}h_l=(3/16)h_l in Zwegers’s Casimir convention."
         },
         {
           "name": "indexThirteenCoefficients_shadow",
           "role": "other",
-          "statement": "Their tau-bar derivative, as the stated multiple of the conjugate of a weight three halves theta function."
+          "statement": "For Im τ=y>0 and 0≤l≤25, ∂_{τ̄}h_l(τ)=256√13/√y ·Σ_{n∈ℤ}(n+l/26) exp(−26πi(n+l/26)² τ̄). This is the complex conjugate of the explicitly normalized weight-3/2 unary theta series."
         }
       ],
       "tests": [
@@ -33069,7 +33190,7 @@
         {
           "name": "indexThirteen_not_generic_test",
           "kind": "non-example",
-          "statement": "The coefficient functions are Casimir eigenfunctions only because the residues are constant; for a general meromorphic Jacobi form they are not, and one does not obtain a real-analytic modular form at all."
+          "statement": "Multiplication by E₄ gives the weight-five index-thirteen meromorphic Jacobi form E₄φ and coefficient E₄h₁. There exists τ∈ℍ with Δ_{9/2}(E₄h₁)(τ)≠0. Thus the generic coefficient decomposition does not imply the corresponding harmonic/Casimir condition when the residue is nonconstant."
         }
       ]
     },
@@ -33081,17 +33202,17 @@
       ],
       "title": "Why the index-13 example is special, and what the general case does not give",
       "kind": "comparison",
-      "statement": "The index-thirteen example is constructed so that the residues of the meromorphic Jacobi form are constant as functions of tau. That is what makes the level-thirteen correction terms Casimir eigenfunctions, and hence makes the vector of coefficient functions a real-analytic modular form. In general the residues are not constant, the coefficient functions are not eigenfunctions of a Casimir operator, and one does not end up with a real-analytic modular form at all: the general statement is the corollary on meromorphic Jacobi forms with simple poles, which gives a decomposition and the modularity of the residue functions, and nothing more. This node records that boundary, so that the worked example is not quoted as a general theorem about meromorphic Jacobi forms.",
+      "statement": "The constant residue of this index-thirteen quotient is a sufficient condition for its completed coefficient functions to have Casimir eigenvalue 3/16. The simple-pole decomposition and residue modularity theorem, without that special condition, do not imply any Casimir eigenfunction property. For example, multiplying by E₄ gives a weight-five index-thirteen form whose coefficient E₄h₁ is not annihilated by Δ_{9/2}. The generic decomposition is retained without an unsupported harmonic conclusion.",
       "hypotheses": [
         "The general statement available is the corollary on simple poles together with the modularity of the residue functions.",
         "The constancy of the residues is a property of this particular quotient and is proved by Jacobi's derivative formula.",
-        "This node records a boundary and proves nothing."
+        "The generic theorem is a decomposition and residue-modularity statement; the explicit E₄φ non-example is specified and tested at the construction node."
       ],
       "proofSteps": [
         "Record what makes the example special: the constancy of the residues.",
         "Record what that buys: the Casimir eigenvalue and hence a real-analytic modular form.",
         "Record what the general case gives instead: the decomposition and the modularity of the residue functions, with no eigenfunction property.",
-        "Record that no node of this packet quotes the example as a general theorem."
+        "Use the explicit shadow and Laplacian product rule for the E₄φ non-example; ensure no other node applies the special harmonic conclusion to arbitrary meromorphic Jacobi forms."
       ],
       "acceptance": [
         "The special hypothesis is named and its consequence identified.",
@@ -35835,7 +35956,8 @@
         "PAPER-YU-23/044, /086, /087 and /090: supply plethystic Adams operations (raising every variable, including the series variable, to its k-th power), the Möbius-weighted plethystic logarithm, restricted cycle partitions and the cycle-index/generalized-binomial composition identities. Work coefficientwise over characteristic-zero coefficient rings with the necessary rational scalars and integral-subring comparison; no analytic convergence assumption. A cycle-type permutation count is distinct from an unordered partition count and needs the fixed-point adapter to the existing Mathlib cycleType convention.",
         "PAPER-YU-23/094, /102, /106 and /107: reconcile the finite Möbius selector, independent-monomial coefficient/sign formula and valuation/integrality inputs with their foundational arithmetic owner. Preserve the reviewed correction that the sign in /102 is the unweighted sum of all exponents, the nonzero hypotheses of /106, and evenness plus zero/negative reductions in /107. Read the corrected exact source passages and source findings before creating declaration-sized leaves; the existing partition/q-binomial nodes do not establish these inputs.",
         "PAPER-LIU-ETAL-22/notation-1-3-1 and /B01: reuse QM.0/q-binomial-coefficient as a polynomial, with denominator-free specialization at roots of unity and the signed-index zero adapter. The printed q-integer value at zero is a misprint: QM.0/q-integer has value zero, while the zero q-factorial is one. The additional d_{r,q} and d•_{r,q} are not target nodes here; preserve d₀=1, d•₀=0, d₁=1−q−2q² and d•₁=−q as exact interface tests.",
-        "PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation."
+        "PAPER-LIU-ETAL-22/gauss-polynomial-identity, /B02, /B04 and /B03: the Gauss alternating Gaussian-polynomial identity and Lemmas B.2.7, B.2.8 and B.3.3 need distinct target contracts or an exact existing supplier match. The finite q-binomial theorem alone is not a recorded proof of every specialization; retain polynomial reciprocity, signed summation ranges and k=0 cases, without rational evaluation before cancellation.",
+        "Complete the theorem/section/page and supplier comparisons in: Finite-product and Rogers–Ramanujan secondary source comparisons; Andrews Bailey-chain proof comparison. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35848,7 +35970,8 @@
         "DMZ §4.4: V_(k,t), its modified Möbius combination, W_(m₁) for exact divisors, the lowering operators u_t and projections U_t, their composition laws and primitive decomposition (4.37)–(4.46). Distinguish the lower-case index-raising U_s of (4.36), now covered, from the capitalized projection notation. Prove separately which operators preserve each growth condition; the source says W_(m₁) and u_t need not preserve weakness.",
         "Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.",
         "The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.",
-        "RT-AREA-automorphic-1/20, after the migration. The supplier is addressed as the stage MetaplecticAutomorphicForms:MP.6: the Jacobi sub-stage proposed for it is not yet an atlas stage. Since 7 October 2026 the packet MetaplecticAutomorphicForms--MP.0 (review needs_changes) plans the nodes MetaplecticAutomorphicForms:MP.6/jacobi-group, MP.6/jacobi-spaces, MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface, in adelic form and for integral central index; they do not yet supply items (a)–(e) of the request to MP.6, which says what is missing. When the supplier's nodes supply them, replace the stage prerequisite of the seven importing nodes and of QM.1/jacobi-rank-one-specialisation by their ids, and check the dictionary against the supplier's conventions: the cocycle of the Heisenberg group and its central character in index m, row or column vectors, the treatment of half-integral scalar index (centre, or z ↦ 2z), and the form of the cusp condition for forms with multiplier."
+        "RT-AREA-automorphic-1/20, after the migration. The supplier is addressed as the stage MetaplecticAutomorphicForms:MP.6: the Jacobi sub-stage proposed for it is not yet an atlas stage. Since 7 October 2026 the packet MetaplecticAutomorphicForms--MP.0 (review needs_changes) plans the nodes MetaplecticAutomorphicForms:MP.6/jacobi-group, MP.6/jacobi-spaces, MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface, in adelic form and for integral central index; they do not yet supply items (a)–(e) of the request to MP.6, which says what is missing. When the supplier's nodes supply them, replace the stage prerequisite of the seven importing nodes and of QM.1/jacobi-rank-one-specialisation by their ids, and check the dictionary against the supplier's conventions: the cocycle of the Heisenberg group and its central character in index m, row or column vectors, the treatment of half-integral scalar index (centre, or z ↦ 2z), and the form of the cusp condition for forms with multiplier.",
+        "Complete the theorem/section/page and supplier comparisons in: Savitt Appendix A theta-multiplier comparison; Finite Weil, Kohnen and multivariate Poisson supplier comparisons. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35858,7 +35981,8 @@
       "remaining": [
         "Close the gap 'Jacobi-symbol closed form of exp(πi s(h, k))': decompose a public proof of the Dedekind-sum congruences 12hk·s(h, k) ≡ h² + 1 (mod gcd(3, k)·k) and 12k·s(h, k) ≡ k + 1 − 2(h | k) (mod 8) (k odd) with the even-k case, or import the Petersson–Rademacher Jacobi-symbol form of the eta multiplier once QM.1 plans it.",
         "Complete the prime-power evaluations: the singular p>3 cases and the mod-p nonsquare obstruction now have separate nodes, but the unit-square two-root/lifting argument, exceptional p=2,3 formulas, shifted CRT factorization and the bound |A_k(n)| < 2^{ω(k)}√k for k>1 remain. Preserve A₁(n)=1 as the equality exception. Lehmer 1938 §§3–4 and Lehmer 1939 §§2–4 still need line-by-line decomposition for the sharper remainder; the attempted AMS 1938 PDF download in this continuation returned 403.",
-        "Close the remaining Selberg–Whiteman bridge at rademacher-selberg-formula. Do not redo the finite S-to-B phase conversion or Fischer (3.1)–(3.34), which now have nodes. Next isolate the general Gauss evaluations (including phase and composite moduli) needed for Fischer’s later formulas, then decompose Whiteman §§2–4 and the Dedekind-to-Jacobi multiplier identification. Fischer’s complete extracted text was read, but only p.87 and pp.89–92 were visually inspected; his later formulas are not claimed fully collated or decomposed. When treating Whiteman Theorems 5–7 use actual CRT root sets, not the false fixed root count on p.172, and Johansson’s author-corrected λ=1 and k₁=4 minus sign."
+        "Close the remaining Selberg–Whiteman bridge at rademacher-selberg-formula. Do not redo the finite S-to-B phase conversion or Fischer (3.1)–(3.34), which now have nodes. Next isolate the general Gauss evaluations (including phase and composite moduli) needed for Fischer’s later formulas, then decompose Whiteman §§2–4 and the Dedekind-to-Jacobi multiplier identification. Fischer’s complete extracted text was read, but only p.87 and pp.89–92 were visually inspected; his later formulas are not claimed fully collated or decomposed. When treating Whiteman Theorems 5–7 use actual CRT root sets, not the false fixed root count on p.172, and Johansson’s author-corrected λ=1 and k₁=4 minus sign.",
+        "Complete the theorem/section/page and supplier comparisons in: Historical circle-method source comparisons; Lehmer exponent and multiplication proofs; Whiteman Dedekind-to-root-sum proof comparison. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35869,7 +35993,8 @@
         "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/maass-xi (§4.7, (4.7.3)): supply the vector-valued H_k(ω_L) → S_{2−k}(bar ω_L) exact sequence, with weakly holomorphic kernel, cusp-form image/surjectivity, k=1−n/2, metaplectic action and explicit conjugation/dual-representation conventions. The current harmonic-maass-form, xi-map and xi-surjective nodes are scalar and integral-weight; they do not provide this generality.",
         "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/30 (§3.1): construct H_{2−k}(ρ_L^∨) and the Hejhal–Poincaré F_{β,m}, β in L^∨/L and m>0 in Z+Q(β), with the stated spectral normalization. Compare the exact finite Weil-representation supplier and Bruinier/Hejhal seed conventions. The current scalar Maass–Poincaré node has even k≥4 and integer m, so does not cover this instance.",
         "PAPER-GROSS-ZAGIER-86/262 (IV §6, p.296): the weight-two Hecke-trick family P_{m,s}, Re(s)>0, its all-cusp majorant, unfolding with dx, continuation to s=0 and holomorphic cusp-form limit are missing. The existing holomorphic Poincaré node requires even k≥4. Preserve 0<Re(s)<ε and the conjugation of s in the pairing.",
-        "PAPER-GROSS-ZAGIER-86/264 (IV §6, pp.296–297): the family E_{2,s}, continuation at zero, derivative F=∂_sE_{2,s}|₀ and cusp-form orthogonality need exact targets. QM.3/nonholomorphic-eisenstein-series-e2-star supplies only E₂−3/(π Im τ), not the family, derivative or continuation proof; retain the reviewed convergence correction Re(s)>0 and the log-growth normalization."
+        "PAPER-GROSS-ZAGIER-86/264 (IV §6, pp.296–297): the family E_{2,s}, continuation at zero, derivative F=∂_sE_{2,s}|₀ and cusp-form orthogonality need exact targets. QM.3/nonholomorphic-eisenstein-series-e2-star supplies only E₂−3/(π Im τ), not the family, derivative or continuation proof; retain the reviewed convergence correction Re(s)>0 and the log-growth normalization.",
+        "Complete the theorem/section/page and supplier comparisons in: Bruinier–Ono–Rhoades and Lewis–Zagier operator comparisons. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35879,7 +36004,8 @@
       "remaining": [
         "The selected seventh-order completion nodes use indefinite double sums; the recorded Hickerson gap is still required to identify them with Ramanujan’s Eulerian series. Do not infer that identity from the bounded coefficient check.",
         "The recorded torsion-specialization gap still requires Jacobi transformation laws without a growth condition, on the precise finite-index subgroup. Resolve the canonical Jacobi supplier/import comparison before closing residue-function-modularity; the local QM.1 interface is not newly verified in this pass.",
-        "Review refinement: write all coordinates and transformation matrices for the fifth-order aggregates, plan the Andrews Eulerian/double-sum identifications with convergence and interchange, and reconcile the first and second vectors with the suggested file. The recorded fifth-order gap identifies the affected targets. QM.4 remains planned under section0: targets have nodes and routes may end in recorded gaps; this is not a claim of closure or full contract verification."
+        "Fifth-order: prove the Andrews Eulerian/double-sum identifications with convergence, denominator nonvanishing and interchange. The coordinates of H₁,G₁,H₂,G₂,F₂ and the S/T matrices are now specified in the existing nodes and native signatures. No congruence kernel or classical Eulerian identity follows merely from those signatures. QM.4 is planned with the stated proof gaps, not closed.",
+        "Complete the theorem/section/page and supplier comparisons in: Finite Weil, Kohnen and multivariate Poisson supplier comparisons. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35898,7 +36024,8 @@
         "The character and multiplier-system versions of the Bringmann–Rolen theorem used for Kontsevich's φ and the Poincaré sphere (gap), and the special-function identities of incomplete-gamma-mellin-poles (gap).",
         "Partition congruences beyond the Ramanujan triple (Watson's and Atkin's congruences for powers of 5, 7, 11; Ono's congruences for all primes ≥ 5; the Bringmann–Ono rank congruences via harmonic Maass forms) are outside the chosen sources and need their own source acquisition.",
         "RT-AREA-topology/13: retain QM.5/quantum-modular-form and the Kontsevich/Lawrence–Zagier q-series examples as QM.5 services, with QT.7 retaining knot-specific statements and conjectures. The existing proposal for QM.5→QT.7 needs owner/consumer statement comparison and accepted application; this pass makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.",
-        "ArithmeticQuantumTopology's open request for QT.7/denominator-volume-cocycle, QT.7/knot-matrix-cocycle and QT.7/cocycle-analytic-extension is assigned by its explicit route to QSeriesPartitionsAndMockModularForms, Part II where this general interface is absent. It asks for generic matrix-valued multiplicative cocycles on common pole-free domains, branch-aware weights and smooth or holomorphic extension criteria. This base QM.5 packet supplies only the scalar additive period cocycle; it claims no matrix interface or knot comparison. Retain the open supplier gap and this owner split when planning Part II, without a QT.7 prerequisite in base QM.5."
+        "ArithmeticQuantumTopology's open request for QT.7/denominator-volume-cocycle, QT.7/knot-matrix-cocycle and QT.7/cocycle-analytic-extension is assigned by its explicit route to QSeriesPartitionsAndMockModularForms, Part II where this general interface is absent. It asks for generic matrix-valued multiplicative cocycles on common pole-free domains, branch-aware weights and smooth or holomorphic extension criteria. This base QM.5 packet supplies only the scalar additive period cocycle; it claims no matrix interface or knot comparison. Retain the open supplier gap and this owner split when planning Part II, without a QT.7 prerequisite in base QM.5.",
+        "Complete the theorem/section/page and supplier comparisons in: Finite Weil, Kohnen and multivariate Poisson supplier comparisons; Zagier and Lawrence–Zagier asymptotic source comparisons; Poincaré-sphere WRT closed-form supplier comparison; Andrews–Garvan and Garvan rank/crank proof comparisons; Folsom–Ono–Rhoades and Bringmann–Rolen radial proof comparisons. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     },
     {
@@ -35906,15 +36033,15 @@
       "status": "partial",
       "note": "Borcherds' proof chain is decomposed through the free-Lie-algebra route of Jurisich (1998) and Jurisich–Lepowsky–Wilson (1995), which replaces the general Weyl–Kac–Borcherds character formula and the Garland–Lepowsky homology computation of Borcherds 1992 §§4, 8 (both rest on Kac's book, not public). Fully planned from public sources: vertex algebras and vertex operator algebras, lattice vertex algebras, the physical Lie algebra, the no-ghost theorem (Jurisich 1998 Appendix A), Borcherds algebras and their characterisation, free subalgebras and Witt's formula, the Monster Lie algebra with its simple roots and free decomposition, the product formula for j (Borcherds Lemma 7.1, via weight-zero Hecke operators and M^!_0 = ℂ[j]), the twisted denominator identity, complete replicability and the recursion (9.1) for every moonshine module, Hauptmoduln and genus zero, and the proven examples g = 1 (SL₂(ℤ)) and the Γ₀(2) Hauptmodul. The Monster-specific final step rests on the recorded gaps. Borcherds 1992 §§10–14 (monstrous Lie superalgebras, fake Monster Lie algebra) and generalized moonshine are not targets of this stage.",
       "remaining": [
-        "Decompose a public construction of the moonshine module V♮ (for example Dong–Griess–Höhn, arXiv:q-alg/9707008, framed vertex operator algebras) together with the Leech lattice (requested from a roadmap owning explicit rank-24 lattice constructions; none exists in the atlas), the twisted module of V_Λ and the Monster action, so that the gap 'FLM moonshine module' becomes nodes.",
+        "Construct the FLM moonshine module and Monster action from public proofs of the framed/lattice-VOA construction. Import the explicit rootless rank-24 even unimodular Leech lattice from TauCetiRoadmap/IntegralLattices Layer 6E; do not reconstruct that lattice or a rank-24 classification here. The twisted V_Λ-module, fixed-point algebra and orbifold extension still need their own proof plan.",
         "Identify Aut(V♮) with TauCeti.SporadicName.Group M (gap 'Identification of the Monster'): needs Ivanov 1999 and the uniqueness of the Monster.",
         "Supply the Monster character-table data (gap 'Character table data'), the Conway–Norton Table 2 groups Γ_g with the verification that each t_g is a normalized Hauptmodul, and Koike's replicability theorem (gap 'Conway–Norton functions').",
         "Replace the Dong/FHL input of lattice-vertex-algebra-invariant-form by a decomposed propagation lemma for the adjoint formula (gap 'Invariant form on lattice vertex algebras').",
-        "ACT-R06 (AlgebraicCodingTheory link request): obtain a reviewed owner for the positive-definite rank-24 even unimodular rootless Leech lattice and its rational-to-real comparison. Plain Construction A on a binary code contains 2e_i of norm two and is not the Leech construction. The Golay/code carriers, lattice VOA, twisted module and Monster identification have different contracts; no unresolved input is supplied merely by renaming a lattice.",
+        "ACT-R06: use IntegralLattices Layer 6E for the rootless rank-24 even unimodular Leech reference lattice. Check the rational-to-real form dictionary required by its lattice-VOA application and any coding-theory comparison. Plain binary Construction A contains norm-two vectors and does not supply this model. The twisted module and Monster automorphism identification remain QM.6 obligations.",
         "The accepted RS-06 links into QM.6 remain binding, including their restricted comparison/application contracts. The inherited proposal suggesting different analytic inputs is unaccepted and cannot by itself remove the accepted R12.3/R13.3/R13.4a/ModularCurves links. Establish exact input sufficiency/non-use and obtain reviewed restructuring before changing those edges. Accepted RS-10 retains QT.4 and HC.3/HC.4 exports into QM.5; no completion or theorem-existence claim follows from those structural links.",
         "Review refinement: repair no-ghost-transverse-generation without inferring an orthogonal direct sum from ambient nondegeneracy; prove restricted nondegeneracy or a triangular generation statement. Propagate the recorded dependency through the no-ghost and Monster chains.",
         "Review refinement: justify the general Serre/radical presentation in borcherds-algebra-triangular-decomposition at its stated matrix generality; the restricted Corollary5.3 cannot discharge it.",
-        "Review refinement: propagate symmetric invariant-form hypotheses through physicalLie LieRing/LieAlgebra instances and bracket_mk. The current suggested signatures still allow arbitrary forms; audit TwistedGroupAlgebra instance selection and all downstream signatures in an existing pinned build."
+        "Complete the theorem/section/page and supplier comparisons in: Matsuo–Nagatomo and Bakalov–Kac vertex source comparisons; Borcherds and Gannon physical-space source comparisons; No-ghost generation and its downstream proof comparisons; General Borcherds and Monster source comparisons; Milne modular-function and all-index Hecke comparisons; Monster data and arithmetic Fuchsian supplier comparisons. Each gap gives the affected node ids and their exact source/supplier worklist."
       ]
     }
   ],
@@ -35990,7 +36117,7 @@
         "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
         "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem"
       ],
-      "detail": "Needed statement: there is a real vertex operator algebra V♮ satisfying QM.6/moonshine-module-axioms (central charge 24, positive definite invariant form with trivial involution, q^{−1}·graded dimension = J, hence V♮_0 = ℝ1 and V♮_1 = 0) together with a finite group 𝕄_FLM ≤ Aut(V♮, ω, (·,·)) acting faithfully; moreover (FLM trace formula, Borcherds (9.2)) for g in the centralizer 2^{1+24}.Co₁ of a 2B element acting on the Leech lattice Λ by an odd-order fixed-point-free automorphism with eigenvalues ε_1, …, ε_24, 2Σ_n tr(g|V♮_{n+1})qⁿ = 1/η_g(q) + η_g(q)/η_g(q²) + η_g(q)/η_g(q^{1/2}) + η_g(q)/η_g(−q^{1/2}) with η_g(q) = Π_i η(ε_i q), and T_{2B} = q^{−1}Π(1 − q^{2n−1})^{24} + 24. Source: Frenkel–Lepowsky–Meurman, Vertex Operator Algebras and the Monster (Academic Press 1988), Theorem 12.3.1 and Corollary 12.5.4 (not public; the announcement PNAS 81 (1984) 3256–3260, PMC345262, is public but has no proofs). The construction needs the Leech lattice (no roadmap of the atlas constructs it; AlgebraicCodingTheory Layers 5–6 supply the Golay code and Construction A), its lattice vertex algebra V_Λ (node lattice-vertex-algebra), the ±1-twisted V_Λ-module, the fixed-point subalgebra V_Λ⁺ and the vertex algebra structure on V_Λ⁺ ⊕ (V_Λ^T)⁺, and the Griess algebra V♮_2. Public alternative constructions: Dong–Griess–Höhn, arXiv:q-alg/9707008 (framed vertex operator algebras); not decomposed here."
+      "detail": "Needed statement: there is a real vertex operator algebra V♮ satisfying QM.6/moonshine-module-axioms (central charge 24, positive definite invariant form with trivial involution, q^{−1}·graded dimension = J, hence V♮_0 = ℝ1 and V♮_1 = 0) together with a finite group 𝕄_FLM ≤ Aut(V♮, ω, (·,·)) acting faithfully; moreover (FLM trace formula, Borcherds (9.2)) for g in the centralizer 2^{1+24}.Co₁ of a 2B element acting on the Leech lattice Λ by an odd-order fixed-point-free automorphism with eigenvalues ε_1, …, ε_24, 2Σ_n tr(g|V♮_{n+1})qⁿ = 1/η_g(q) + η_g(q)/η_g(q²) + η_g(q)/η_g(q^{1/2}) + η_g(q)/η_g(−q^{1/2}) with η_g(q) = Π_i η(ε_i q), and T_{2B} = q^{−1}Π(1 − q^{2n−1})^{24} + 24. Source: Frenkel–Lepowsky–Meurman, Vertex Operator Algebras and the Monster (Academic Press 1988), Theorem 12.3.1 and Corollary 12.5.4 (not public; the announcement PNAS 81 (1984) 3256–3260, PMC345262, is public but has no proofs). The construction needs the Leech lattice supplied by TauCetiRoadmap/IntegralLattices Layer 6E (the explicit rootless rank-24 even unimodular reference lattice; no classification theorem is needed here), its lattice vertex algebra V_Λ (node lattice-vertex-algebra), the ±1-twisted V_Λ-module, the fixed-point subalgebra V_Λ⁺ and the vertex algebra structure on V_Λ⁺ ⊕ (V_Λ^T)⁺, and the Griess algebra V♮_2. Public alternative constructions: Dong–Griess–Höhn, arXiv:q-alg/9707008 (framed vertex operator algebras); not decomposed here."
     },
     {
       "title": "Identification of the automorphism group of V♮ with the presented Monster",
@@ -36079,21 +36206,274 @@
       "detail": "The general root-pairing claim requires equality of the Serre ideal with the maximal graded ideal avoiding the Cartan. Jurisich1998 pp.6–7 cites nontrivial external results for arbitrary matrices; its Corollary5.3 proves a restricted case. The inherited outline does not provide the general theorem. Retain the general target and record this dependency rather than applying that corollary outside its hypotheses."
     },
     {
-      "title": "Invariant-form hypotheses in the suggested physical Lie algebra API",
-      "neededBy": [
-        "QSeriesPartitionsAndMockModularForms:QM.6/physical-lie-algebra"
-      ],
-      "detail": "The packet requires a symmetric invariant form, but the suggested LieRing/LieAlgebra instances and bracket_mk quantify over arbitrary bilinear forms. The radical need not be a bracket ideal under those weaker assumptions. Propagate the invariant-form proof through instance selection and consumers; also audit the quotient form for symmetry. The involution and no-ghost group-action signatures now explicitly require form preservation. Without a complete existing pinned build the remaining signature migration is not certified."
-    },
-    {
-      "title": "Fifth-order Eulerian identification and explicit transformation API",
+      "title": "Fifth-order Eulerian-series identification",
       "neededBy": [
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-mock-theta-functions",
+        "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-first-six",
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-first-six",
         "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-decomposition-and-transformation-first-six",
-        "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-last-four"
+        "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-last-four",
+        "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-and-transformation-last-four"
       ],
-      "detail": "The eight double sums are now explicit and their small coefficients are corrected, but the identification with the classical Eulerian series still cites Andrews identities without their direct prerequisite plan. The aggregate packet statements for G5, H5, M5, T5 and the second vector do not spell out all coordinates and matrices. The first vector is written in the suggested file and checked against Zwegers pp.76–80; the second-vector refinement remains open. Supply these contracts and the convergence/interchange argument rather than treating a reference to an exact listed vector as the vector itself."
+      "detail": "The eight corrected double sums and both six-component completions, unary corrections and S/T matrices are explicit. Identifying these definitions with Ramanujan’s classical Eulerian fifth-order series requires the Andrews identities cited by Zwegers §4.4 pp.71–73, together with absolute convergence, denominator nonvanishing and the justified double-sum interchanges. The Andrews primary proof has not been collated or decomposed here; source identities with the third/eighth corrections are not certified by small coefficients. No congruence kernel is inferred from the generator matrices alone."
+    },
+    {
+      "title": "Finite-product and Rogers–Ramanujan secondary source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/euler-first-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.0/euler-second-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.0/universal-jacobi-triple-product",
+        "QSeriesPartitionsAndMockModularForms:QM.0/jacobi-triple-product",
+        "QSeriesPartitionsAndMockModularForms:QM.0/rogers-ramanujan-first",
+        "QSeriesPartitionsAndMockModularForms:QM.0/evaluation-of-formal-products"
+      ],
+      "detail": "The secondary Andrews/Zhu/Rosengren theorem/section/page collation was not completed; the primary finite-product route alone does not certify every cited passage. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Andrews Bailey-chain proof comparison",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-kernel-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma",
+        "QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs",
+        "QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit",
+        "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities",
+        "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-nahm-form"
+      ],
+      "detail": "The Warnaar passage and local contracts were inspected, but the cited Andrews1984 passages were acquired without completing their theorem/section/page collation. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Savitt Appendix A theta-multiplier comparison",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/theta-eta-multiplier-matches-shimura"
+      ],
+      "detail": "The exact Savitt AppendixA comparator was not read; AAW and the first nine Savitt pages do not certify that additional locator. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Finite Weil, Kohnen and multivariate Poisson supplier comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-weil-representation",
+        "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-s-transformation",
+        "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-characteristics-s",
+        "QSeriesPartitionsAndMockModularForms:QM.4/residue-function-modularity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/modular-diagonal-log-derivative",
+        "QSeriesPartitionsAndMockModularForms:QM.5/trace-first-recursion",
+        "QSeriesPartitionsAndMockModularForms:QM.5/weight-two-trace-proposition",
+        "QSeriesPartitionsAndMockModularForms:QM.5/trace-second-recursion",
+        "QSeriesPartitionsAndMockModularForms:QM.5/zagier-traces-theorem"
+      ],
+      "detail": "The exact MP.7 finite-Weil/Kohnen/Jacobi or AL.0 multivariate Poisson supplier statement is not yet present in the inspected supplier material. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Historical circle-method source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function",
+        "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function-eq-eta",
+        "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function-transformation",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-path",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-trivial-bound",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-term",
+        "QSeriesPartitionsAndMockModularForms:QM.2/partition-number-path-integral",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-exact-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-series-absolutely-convergent",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-remainder-bound",
+        "QSeriesPartitionsAndMockModularForms:QM.2/partition-number-nearest-integer",
+        "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-asymptotic",
+        "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-truncation-bound",
+        "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-truncated-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-nearest-integer"
+      ],
+      "detail": "The primary Kong–Teo/Pribitkin contracts were inspected, but at least one historical Hardy–Ramanujan/Rademacher/Lehmer locator was not fully collated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Lehmer exponent and multiplication proofs",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-form",
+        "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-congruences",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-odd",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-two-power",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-double-odd"
+      ],
+      "detail": "Lehmer1938 exponent/multiplication proof passages were acquired but not read at the cited locators. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Bruinier–Ono–Rhoades and Lewis–Zagier operator comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.3/wirtinger-derivatives",
+        "QSeriesPartitionsAndMockModularForms:QM.3/maass-raising-operator",
+        "QSeriesPartitionsAndMockModularForms:QM.3/laplacian-raising-lowering-factorisation",
+        "QSeriesPartitionsAndMockModularForms:QM.3/raising-lowering-eigenvalue-shift",
+        "QSeriesPartitionsAndMockModularForms:QM.3/raising-lowering-slash-equivariance",
+        "QSeriesPartitionsAndMockModularForms:QM.3/iterated-raising-operator",
+        "QSeriesPartitionsAndMockModularForms:QM.3/bol-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.3/xi-fourier-expansion",
+        "QSeriesPartitionsAndMockModularForms:QM.3/flipping-derivative-theorem"
+      ],
+      "detail": "At least one cited BOR pp.7–8 or later proof/Lewis–Zagier operator passage was not collated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Zagier and Lawrence–Zagier asymptotic source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/periodic-l-value-bernoulli",
+        "QSeriesPartitionsAndMockModularForms:QM.5/periodic-exponential-sum-asymptotic",
+        "QSeriesPartitionsAndMockModularForms:QM.5/periodic-gaussian-sum-asymptotic",
+        "QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-form",
+        "QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-cocycle",
+        "QSeriesPartitionsAndMockModularForms:QM.5/eichler-integral",
+        "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
+        "QSeriesPartitionsAndMockModularForms:QM.5/sum-of-tails-series",
+        "QSeriesPartitionsAndMockModularForms:QM.5/sum-of-tails-agreement",
+        "QSeriesPartitionsAndMockModularForms:QM.5/andrews-exercise-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/zagier-sum-of-tails-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/strange-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-value-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-quantum-modular",
+        "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-character",
+        "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-series",
+        "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-theta-transformation",
+        "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-quantum-modular"
+      ],
+      "detail": "Some cited Zagier strange/QMF or Lawrence theorem/section/page comparisons remain incomplete. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Poincaré-sphere WRT closed-form supplier comparison",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-radial-limit",
+        "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-ohtsuki-expansion",
+        "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
+      ],
+      "detail": "QT.4 supplies general invariant/evaluation/Ohtsuki contracts, not the displayed Poincare-sphere closed formulas. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Andrews–Garvan and Garvan rank/crank proof comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/partition-crank",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-count",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-generating-function",
+        "QSeriesPartitionsAndMockModularForms:QM.5/equal-classes-from-root-of-unity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-five",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-seven",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-eleven",
+        "QSeriesPartitionsAndMockModularForms:QM.5/ramanujan-congruence-mod-eleven",
+        "QSeriesPartitionsAndMockModularForms:QM.5/dyson-rank",
+        "QSeriesPartitionsAndMockModularForms:QM.5/rank-generating-function",
+        "QSeriesPartitionsAndMockModularForms:QM.5/atkin-swinnerton-dyer-theorem"
+      ],
+      "detail": "The Andrews–Garvan scans/Garvan Urbana source passages were acquired without completing theorem/section/page and proof collation. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Folsom–Ono–Rhoades and Bringmann–Rolen radial proof comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/unimodal-rank-series",
+        "QSeriesPartitionsAndMockModularForms:QM.5/choi-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.5/rank-mixed-mock-asymptotic",
+        "QSeriesPartitionsAndMockModularForms:QM.5/crank-radial-asymptotic",
+        "QSeriesPartitionsAndMockModularForms:QM.5/rank-crank-radial-limit",
+        "QSeriesPartitionsAndMockModularForms:QM.5/ramanujan-radial-limit-claim"
+      ],
+      "detail": "Folsom–Ono–Rhoades was only partially collated and the cited BR radial paper was not collated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Matsuo–Nagatomo and Bakalov–Kac vertex source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-vacuum-translation",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-commutator-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-skew-symmetry",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-lie-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-automorphism",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-existence-theorem",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-tensor-product",
+        "QSeriesPartitionsAndMockModularForms:QM.6/virasoro-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/conformal-vector",
+        "QSeriesPartitionsAndMockModularForms:QM.6/conformal-vector-virasoro-representation",
+        "QSeriesPartitionsAndMockModularForms:QM.6/vertex-operator-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/invariant-bilinear-form",
+        "QSeriesPartitionsAndMockModularForms:QM.6/tensor-product-conformal-structure",
+        "QSeriesPartitionsAndMockModularForms:QM.6/graded-trace",
+        "QSeriesPartitionsAndMockModularForms:QM.6/mckay-thompson-series",
+        "QSeriesPartitionsAndMockModularForms:QM.6/even-lattice-double-cover",
+        "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra"
+      ],
+      "detail": "The selected Borcherds/Jurisich lattice passages and native contracts were inspected, but the Matsuo/Bakalov and other cited vertex-source locators were not fully collated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Borcherds and Gannon physical-space source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/lorentzian-lattice-II11",
+        "QSeriesPartitionsAndMockModularForms:QM.6/physical-space",
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-operator-adjoints"
+      ],
+      "detail": "An additional Borcherds/Gannon physical-space locator remains uncollated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "No-ghost generation and its downstream proof comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-transverse-generation",
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-transverse-space",
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-spurious-states",
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-physical-decomposition",
+        "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-theorem"
+      ],
+      "detail": "The no-ghost chain still uses the unresolved transverse-generation gap: ambient nondegeneracy does not imply M plus its perpendicular is the ambient space. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "General Borcherds and Monster source comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-axioms",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-triangular-decomposition",
+        "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-central-extension",
+        "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-characterisation-theorem",
+        "QSeriesPartitionsAndMockModularForms:QM.6/lazard-elimination",
+        "QSeriesPartitionsAndMockModularForms:QM.6/graded-trace-exterior-symmetric-power",
+        "QSeriesPartitionsAndMockModularForms:QM.6/free-lie-algebra-character-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-free-subalgebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-is-borcherds-algebra",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-simple-roots",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-free-decomposition",
+        "QSeriesPartitionsAndMockModularForms:QM.6/twisted-denominator-identity",
+        "QSeriesPartitionsAndMockModularForms:QM.6/completely-replicable-function",
+        "QSeriesPartitionsAndMockModularForms:QM.6/replication-recursion",
+        "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-complete-replicability"
+      ],
+      "detail": "The general Serre/radical presentation and downstream Monster/replicability inputs remain conditional; cited Jurisich2009/JLW and additional Borcherds passages are not fully collated. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Milne modular-function and all-index Hecke comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/j-laurent-series",
+        "QSeriesPartitionsAndMockModularForms:QM.6/laurent-q-expansion",
+        "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-modular-function",
+        "QSeriesPartitionsAndMockModularForms:QM.6/modular-function-polynomial-in-j",
+        "QSeriesPartitionsAndMockModularForms:QM.6/formal-hecke-operator",
+        "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-hecke-operator",
+        "QSeriesPartitionsAndMockModularForms:QM.6/hecke-transform-of-j"
+      ],
+      "detail": "Milne source passages were acquired without theorem/section/page collation; exact analytic JInputs and all-n weight-zero Hecke comparisons remain requests. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Monster data and arithmetic Fuchsian supplier comparisons",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/j-product-formula",
+        "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-type-modular-group",
+        "QSeriesPartitionsAndMockModularForms:QM.6/hauptmodul-genus-zero",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem"
+      ],
+      "detail": "The additional source/character-table or precise arithmetic Fuchsian comparison was not established. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
+    },
+    {
+      "title": "Whiteman Dedekind-to-root-sum proof comparison",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+        "QSeriesPartitionsAndMockModularForms:QM.2/selberg-rademacher-sum",
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula"
+      ],
+      "detail": "The cited Whiteman §§1–4 source-proof comparison is incomplete. The exact unestablished comparisons are the source locators and supplier statements attached to these node ids; collate those passages and check all displayed hypotheses, proof inputs and conventions before declaring these nodes verified. The retained corrected statements and signatures do not establish those comparisons."
     }
   ],
   "sourceIssues": [
@@ -36142,7 +36522,7 @@
       "source": "alladi-berkovich-2002",
       "kind": "misprint",
       "locator": "§1, equation (1.8), p. 2 (arXiv:math/0203094v1)",
-      "printed": "∑_{j=−∞}^{∞} z^j q^{j²} [2L L + j]_{q²} = (−qz, qz^{−1}; q²)_L,",
+      "printed": "The finite product display assigns the positive sign to the second Pochhammer argument.",
       "correction": "(−qz, −qz^{−1}; q²)_L, that is ∏_{i=1}^{L}(1 + zq^{2i−1})(1 + z^{−1}q^{2i−1}).",
       "reason": "For L = 1 the left side is z^{−1}q + (1 + q²) + zq, which is (1 + qz)(1 + qz^{−1}); the printed (−qz, qz^{−1}; q²)_1 = (1 + qz)(1 − qz^{−1}) has −qz^{−1} − q². The limit L → ∞, which the paper says reduces (1.8) to (1.7), also requires −qz^{−1}, as in (1.7).",
       "affects": "nothing",
@@ -36162,7 +36542,7 @@
       "source": "ramanujan-pn-1919",
       "kind": "misprint",
       "locator": "§3, p. 267 of the re-typeset online edition of the Collected Papers (Paper 25); the 1919 printing was not consulted",
-      "printed": "16 + 4µ(µ + 1) + 4ν(ν + 1) ≡ (mod 7),",
+      "printed": "The final modulus-seven congruence omits its zero right-hand side.",
       "correction": "16 + 4µ(µ + 1) + 4ν(ν + 1) ≡ 0 (mod 7).",
       "reason": "The line is 8 times the preceding congruence 2 + ½µ(µ + 1) + ½ν(ν + 1) ≡ 0 (mod 7), and the next line, (2µ + 1)² + (2ν + 1)² ≡ 0, follows from it by subtracting 14; the right-hand side 0 has been dropped.",
       "affects": "nothing",
@@ -36181,7 +36561,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E201",
       "source": "kong-teo-eta",
       "locator": "§1, equation (1.3), printed p. 2, arXiv v1",
-      "printed": "η(−1/τ) = (−iτ)^{−1/2}η(τ). (1.3)",
+      "printed": "The displayed eta inversion law uses the reciprocal of the required square-root factor.",
       "kind": "misprint",
       "correction": "η(−1/τ) = (−iτ)^{1/2}η(τ), as (1.2) gives for a = d = 0, c = 1 and as Theorem 5.2 states.",
       "reason": "At τ=i the formula is consistent and is not a distinguishing test. At τ=2i it gives η(i/2)=2^(−1/2)η(2i), whereas Theorem5.2 gives 2^(1/2)η(2i). The nonzero eta product distinguishes the exponents.",
@@ -36239,7 +36619,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E204",
       "source": "kong-teo-eta",
       "locator": "§5, end of the proof of Theorem 5.2, printed p. 11",
-      "printed": "η(1/τ) = (−iτ)^{1/2}η(τ).",
+      "printed": "The eta inversion argument omits the minus sign in the transformed argument.",
       "kind": "misprint",
       "correction": "η(−1/τ) = (−iτ)^{1/2}η(τ).",
       "reason": "The left side of (5.4) was identified with η(−1/τ) earlier on the same page; η(1/τ) is not even defined for τ ∈ ℍ (1/τ lies in the lower half-plane).",
@@ -36277,7 +36657,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E206",
       "source": "kong-teo-eta",
       "locator": "§6, proof of Lemma 6.2, printed p. 14",
-      "printed": "−hr/k − ⌊−hr/r⌋ = (k − r′)/k = 1 − r′/k.",
+      "printed": "The floor term uses the numerator variable as its divisor rather than the denominator of the fraction.",
       "kind": "misprint",
       "correction": "−hr/k − ⌊−hr/k⌋ = 1 − r′/k.",
       "reason": "The floor must be of the same number −hr/k (the next display writes ⌊−hr/k⌋).",
@@ -36316,7 +36696,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E301",
       "source": "kong-teo-rademacher-2023",
       "locator": "§2.1, display (2.2), printed p. 3 (arXiv v1)",
-      "printed": "η(τ) = e^{πiτ/12}F(e^{2πiτ}).",
+      "printed": "The eta-to-partition-product conversion puts the Euler product in the numerator.",
       "kind": "misprint",
       "correction": "η(τ) = e^{πiτ/12} F(e^{2πiτ})⁻¹, i.e. F(e^{2πiτ}) = e^{πiτ/12}/η(τ).",
       "reason": "By (2.1) and (1.1), η(τ) = e^{πiτ/12}∏(1 − qⁿ) = e^{πiτ/12}/F(q); the proof of Theorem 3.3 on p. 21 uses the corrected form.",
@@ -36374,7 +36754,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E304",
       "source": "kong-teo-rademacher-2023",
       "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
-      "printed": "Σ_{m≥1} p(m) exp(−2π[m − 1/24] Re{1/z}) = Σ_{m≥1} p(24m − 1) exp(−(πx/12)(24m − 1))",
+      "printed": "The reindexed estimate equates two partition coefficients of different indices instead of bounding the original by the larger one.",
       "kind": "misprint",
       "correction": "≤ in place of =, using p(m) ≤ p(24m − 1).",
       "reason": "The exponentials agree term by term (2π(m − 1/24)x = πx(24m − 1)/12) but p(m) ≠ p(24m − 1) in general (m = 1: 1 ≠ 1255).",
@@ -36393,7 +36773,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E305",
       "source": "kong-teo-rademacher-2023",
       "locator": "proof of Theorem 3.1, printed p. 24 (arXiv v1)",
-      "printed": "|exp(π/(12z) + 2πnz/k − πz/(12k²))|",
+      "printed": "The middle exponent term in the absolute-value estimate has only one power of the cusp denominator instead of two.",
       "kind": "misprint",
       "correction": "The middle term of the exponent is 2πnz/k², as in (3.10).",
       "reason": "The integrand (3.10) has exp(π/(12z) + 2πnz/k² − πz/(12k²)); the subsequent bound Re(2πnz/k²) ≤ 2πn still holds.",
@@ -36431,7 +36811,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E307",
       "source": "hardy-ramanujan-1918",
       "locator": "§1.7, table of the terms for n = 200, Collected Papers p. 350 (retypeset edition)",
-      "printed": "3,972,998,993,185.896 +36,282.978 −87.555 +5.147 +1.424 +0.071 +0.000 +0.043 3,972,999,029,388.004",
+      "printed": "The displayed decimal sum of the retained Rademacher contributions has incorrect trailing digits.",
       "kind": "error",
       "correction": "The third term is A_3(200)φ_3(200) = −87.584 and the sum is 3,972,999,029,387.976.",
       "reason": "The retypeset p.350 table prints−87.555. An independent70-digit evaluation of the finite Dedekind sum and exact derivative term gives−87.5839128707 and first-eight total3972999029387.975671. This check is scoped to this retypeset table. The eighth computed term is0.0435686879, so the inherited assertion that every other term agrees after rounding has been removed.",
@@ -36472,7 +36852,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E401",
       "source": "bruinier-funke-2004",
       "locator": "Lemma 3.1, p. 10 (arXiv v4)",
-      "printed": "L_kf = L_kf^− = −2v^{2−k}Σ_h((k − 1)a^−(h, 0) + Σ_{n≠0}a^−(h, n)(−4πn)^{1−k}e(nτ̄))e_h",
+      "printed": "The Fourier lowering-operator formula has an extra factor of two multiplying its entire nonholomorphic contribution.",
       "kind": "misprint",
       "correction": "The factor is −v^{2−k}, not −2v^{2−k}: L_kf = −v^{2−k}Σ_h((k − 1)a^−(h, 0) + Σ_{n≠0}a^−(h, n)(−4πn)^{1−k}e(nτ̄))e_h; the same factor 2 appears in (3.7).",
       "reason": "Direct computation with L_k = −2iv²∂/∂τ̄: L_k(v^{1−k}) = −(k − 1)v^{2−k}, and for w = 2πnv < 0, L_k(H(w)e(nu)) = −v^{2−k}(−4πn)^{1−k}e(nτ̄) (H′(w) = −H(w) + 2e^{w}(−2w)^{−k}). BOR (1.3) has the corrected constant.",
@@ -36556,7 +36936,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E405",
       "source": "bruinier-ono-rhoades-2008",
       "locator": "§1, p. 3 (arXiv v3), the example Q(−1, 12, 1)",
-      "printed": "Q^+(−1, 12, 1; z) ∼ q^{−1} − 0.04629 − 1842.89472q − 23274.07545q² − 225028.75877q³ − · · ·",
+      "printed": "The numerical expansion of the normalized weight-minus-ten Maass–Poincaré series gives the wrong constant term; its other listed coefficients are correct.",
       "kind": "misprint",
       "correction": "The constant term is −65520/691 = −94.81910…, not −0.04629 (which is −94.8191/2^{11}); the other listed coefficients are correct.",
       "reason": "BOR's own Prop. 6.2 gives b(−1, 12, 1; 0) = −(2π)^{12}/(11!·ζ(12)) = −65520/691 (Σ_c μ(c)c^{−12} = 1/ζ(12)); evaluated numerically together with b(1), b(2), b(3), which reproduce −1842.89472, −23274.07545, −225028.75877. Independently, {E₁₂, Q(−1, 12, 1)} = 0 (Bruinier–Funke Prop. 3.5 and E₁₂ ⊥ S₁₂) forces a^+(0) + 65520/691 = 0.",
@@ -36620,7 +37000,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E408",
       "source": "bruinier-ono-rhoades-2008",
       "locator": "Theorem 4.1, p. 9, and its proof, p. 10 (arXiv v3)",
-      "printed": "(g, R^{k−1}_{2−k}f)^{reg} = (−1)^k/[Γ(1) : Γ] Σ_{κ∈Γ\\P¹(Q)} w_κ · c_g(0, κ)\\overline{c^+_f(0, κ)}",
+      "printed": "The cusp-constant formula for the regularized Petersson pairing omits the factorial arising from repeated raising of the constant term.",
       "kind": "error",
       "correction": "The right-hand side needs the factor (k − 2)!: (g, R^{k−1}_{2−k}f)^{reg} = ((−1)^k(k − 2)!/[Γ(1) : Γ])Σ_κ w_κc_g(0, κ)\\overline{c^+_f(0, κ)}. Corollaries 4.2 and 4.3 (vanishing statements) are unaffected.",
       "reason": "The constant term of H = y^{k−2}\\overline{R^{k−2}_{2−k}f} is, by BOR's own expansion of H, (−1)^k\\overline{c^+_f(0)}Γ(k − 1, 0) = (−1)^k(k − 2)!\\overline{c^+_f(0)}; directly, R^j_{2−k}(1) = (2−k)(3−k)⋯(1−k+j)y^{−j}, so R^{k−2}_{2−k}(1) = (−1)^k(k − 2)!y^{2−k}. The printed statement is right only for k = 2 or 3.",
@@ -36661,7 +37041,7 @@
       "id": "QSeriesPartitionsAndMockModularForms/E502",
       "source": "zwegers-thesis",
       "locator": "proof of Theorem 3.9, pp. 58–59 (arXiv v1)",
-      "printed": "ϕ(v/(cτ + d); (aτ + d)/(cτ + d))",
+      "printed": "The modular transformation argument uses the lower-right entry in the numerator where the upper-right entry is required.",
       "kind": "misprint",
       "correction": "(aτ + b)/(cτ + d) in place of (aτ + d)/(cτ + d) throughout this display and the next.",
       "reason": "γτ = (aτ + b)/(cτ + d); the first line of the same computation has aτ + b.",
@@ -36762,7 +37142,7 @@
       "source": "zagier-strange",
       "kind": "misprint",
       "locator": "§5, Theorem 6, eq. (32), printed p. 956",
-      "printed": "1/(1 − e^{−Nt}) Σ_{m=1}^{N} χ(m)ξ^{(m²−1)/24}e^{−mt} ∼ 2 Σ_{n≥0} ((−1)ⁿ/n!) c_n(ξ) t^{2n+1}",
+      "printed": "The generating expression for the scaled Glaisher coefficients has the wrong normalization of its odd powers.",
       "correction": "The factorial is (2n + 1)!: the right side is 2Σ_{n≥0}(−1)ⁿc_n(ξ)t^{2n+1}/(2n + 1)!.",
       "reason": "At ξ = 1, N = 12 the left side is sinh 2t/cosh 3t = 2t − (23/3)t³ + ⋯; with n! the t³ coefficient would be −2c₁ = −46, with (2n+1)! it is −23/3 = −2·23/6, matching c₁ = T₁ = 23 of Theorem 3 and the generating function (5) sin 2x/(2 cos 3x) = Σ T_n x^{2n+1}/(2n+1)!. The Bernoulli formula printed after the proof is consistent only with (2n + 1)!.",
       "affects": "nothing",
@@ -36801,7 +37181,7 @@
       "source": "zagier-strange",
       "kind": "misprint",
       "locator": "§6, discussion after the Theorem, printed p. 959",
-      "printed": "The source gives degree≥k−2 as the degree bound for g, the period polynomial associated with f.",
+      "printed": "The period-polynomial degree inequality is reversed.",
       "correction": "degree ≤ k − 2.",
       "reason": "The period polynomial is c_k∫_0^∞ f(z)(z − x)^{k−2}dz, a polynomial in x of degree at most k − 2.",
       "affects": "nothing",
@@ -36840,7 +37220,7 @@
       "source": "zagier-qmf",
       "kind": "error",
       "locator": "Example 3, eq. (26), printed p. 10",
-      "printed": "φ(x+1) = e^{2πi/24}φ(x), φ(x) ∓ i^{1/2}|x|^{3/2}φ(−1/x) = g(x) (x ∈ Q, ±x > 0)",
+      "printed": "The half-integral inversion relation leaves its two sign cases ambiguous unless the square-root branch is fixed.",
       "correction": "φ(x) + (ix)^{−3/2}φ(−1/x) = g(x) with the principal branch, i.e. φ(x) − e^{πi/4}x^{−3/2}φ(−1/x) = g(x) for x > 0 and φ(x) + e^{3πi/4}|x|^{−3/2}φ(−1/x) = g(x) for x < 0 (Zagier, Topology 40, eq. (39)).",
       "reason": "At x = 1/n, (25) gives φ(1/n) ∼ n^{3/2}e^{2πi(3−n)/24}, which requires the exponent −3/2 on |x|; and φ(−x) is the complex conjugate of φ(x) (F has integer coefficients), which forces the factor e^{3πi/4}, not i^{1/2}, for x < 0.",
       "affects": "a stated result",
@@ -36860,7 +37240,7 @@
       "source": "zagier-qmf",
       "kind": "misprint",
       "locator": "Example 3, printed p. 10",
-      "printed": "The source attributes η(z)=Σ_{n=0}^∞n(12/n)q^{n²/24} to Euler’s identity.",
+      "printed": "The attributed unary eta expansion has an extra factor of the summation index and therefore represents the wrong weight.",
       "correction": "η(z) = Σ_{n≥1}(12/n)q^{n²/24}; the factor n belongs to η̃ in (27).",
       "reason": "Euler's pentagonal number theorem: q^{1/24}∏(1 − qⁿ) = Σ χ₁₂(n)q^{n²/24} (Topology 40, eq. (19)).",
       "affects": "nothing",
@@ -36879,7 +37259,7 @@
       "source": "zagier-qmf",
       "kind": "misprint",
       "locator": "Example 1, after the Lemma, printed p. 5",
-      "printed": "σ(1) = −σ(1) = 2",
+      "printed": "The stated value of the two Cohen functions at one misidentifies the second function by repeating the first with a minus sign.",
       "correction": "σ(1) = −σ*(1) = 2.",
       "reason": "σ*(1) = −2 from (8) (only the n = 0 term survives), and the Lemma at q = 1 reads σ(1) = −σ*(1).",
       "affects": "nothing",
@@ -36898,7 +37278,7 @@
       "source": "zagier-mellin",
       "kind": "misprint",
       "locator": "§4, extension 1, eq. (44), printed p. 13",
-      "printed": "Σ_{m≥0} f((m + a)t) ∼ I_f/t + Σ_{n≥0} b_n (B_{n+1}(a)/(n + 1)) tⁿ",
+      "printed": "The Euler–Maclaurin coefficient terms are displayed with the opposite Bernoulli sign.",
       "correction": "Σ_{m≥0} f((m + a)t) ∼ I_f/t − Σ_{n≥0} b_n (B_{n+1}(a)/(n + 1)) tⁿ, i.e. I_f/t + Σ b_nζ(−n, a)tⁿ with ζ(−n, a) = −B_{n+1}(a)/(n + 1).",
       "reason": "For f(x) = e^{−x}: Σ_{m≥0}e^{−(m+a)t} = e^{−at}/(1 − e^{−t}) = 1/t + Σ_n (−1)^{n+1}B_{n+1}(a)tⁿ/(n + 1)!, while the printed formula gives (−1)ⁿ; the corrected formula also reduces to Proposition 3 at a = 1.",
       "affects": "nothing",
@@ -36918,7 +37298,7 @@
       "source": "lawrence-zagier",
       "kind": "misprint",
       "locator": "§4, transformation formula for (Θ_χ, Θ_χ̄) under z ↦ z + 1, printed p. 102",
-      "printed": "(Θχ(z + 1), Θχ̄(z + 1)) = ζ^{25}(cos 2π/5, −i sin 2π/5; −i sin 2π/5, cos 2π/5)(Θχ(z), Θχ(z))",
+      "printed": "The theta translation relation misprints the second coordinate of the vector on its right-hand side.",
       "correction": "The column vector on the right is (Θχ(z), Θχ̄(z)).",
       "reason": "The formula is the change of basis of Θ±(z + 1) = diag(ζ, ζ^{49})Θ±(z), which involves both Θχ and Θχ̄.",
       "affects": "nothing",
@@ -37092,7 +37472,7 @@
       "source": "zagier-traces",
       "kind": "gap",
       "locator": "§3, end, printed p. 4",
-      "printed": "The source asserts Σ_{|r|<2√n}t(4n−r²)=Σ_{|r|<2}t(4−r²)=−4.",
+      "printed": "The class-number comparison is asserted uniformly for square and nonsquare indices, although the square-index calculation needs an extra elliptic correction.",
       "correction": "For square n the same comparison also gives the class number relation (7), with the extra 1/6 = H(4) + 2H(3) − 1 coming from the omitted factor; the source states (7) for all n but derives it only for non-square n.",
       "reason": "Only (5) is derived in the square case.",
       "affects": "the proof",
@@ -37130,7 +37510,7 @@
       "source": "gannon2004",
       "kind": "misprint",
       "locator": "§2, equation (2.7), p. 4 of arXiv:math/0402345v2",
-      "printed": "JSL2(Z)(τ) = J(τ) = q−1 + 196884 q + 214 93760 q2 + 8642 909970 q3 + · · · .",
+      "printed": "The displayed normalized modular-invariant coefficient in degree three contains an extra decimal digit.",
       "correction": "The coefficient of q³ is 864299970 (8642 99970 in the paper's digit grouping), as printed correctly in (3.1b) of the same paper.",
       "reason": "Direct computation of E₄³/Δ − 744 gives c(3) = 864299970; Gannon's own (3.1b) reads 8642 99970 = 8426 09326 + 212 96876 + 2·196883 + 2; the printed 8642909970 has an extra digit.",
       "affects": "nothing",
@@ -37151,7 +37531,7 @@
       "source": "gannon2004",
       "kind": "misprint",
       "locator": "§3.3, text between (3.7a) and (3.7b), p. 8 of arXiv:math/0402345v2",
-      "printed": "The source gives a₄(g)=a₂(g)+(a₁(g)²−a₁(g²))/2 as one of the recurrences obtained.",
+      "printed": "The fourth-coefficient replication recurrence uses the second coefficient where the third coefficient is required.",
       "correction": "a4(g) = a3(g) + (a1(g)² − a1(g²))/2.",
       "reason": "For g = 1 the printed formula gives a4 = a2 + (a1² − a1)/2 = 19403050046, contradicting the recursion a4 = a3 + (a1² − a1)/2 printed a few lines earlier and the value 20245856256; Borcherds (9.1) with k = 1 gives a3; checked for the 2B series (−49152 = 11202 + (276² − 196884)/2).",
       "affects": "nothing",
@@ -37172,7 +37552,7 @@
       "source": "borcherds1992",
       "kind": "misprint",
       "locator": "§1, p. 3 of the author's copy (Invent. Math. 109, p. 407)",
-      "printed": "The source presents T_{2^-}(q)=24+q⁻¹∏_{n>0}(1−q^{2n+1})^{24}=q⁻¹+276q−2048q²+⋯ as the normalized Hauptmodul.",
+      "printed": "The Hauptmodul product uses the odd indices starting at three instead of starting at one.",
       "correction": "T_{2−}(q) = 24 + q^{−1}Π_{n≥0}(1 − q^{2n+1})^{24} = 24 + q^{−1}Π_{n>0}(1 − q^{2n−1})^{24}.",
       "reason": "With n > 0 the factor (1 − q)^{24} is missing and the product would give q^{−1} + 24 − 24q² + ⋯ instead of q^{−1} + 276q − 2048q² + ⋯; with n ≥ 0 the displayed expansion is obtained (computed to order q^{40}).",
       "affects": "nothing",
@@ -37294,7 +37674,7 @@
       "source": "whiteman-1956-pjm",
       "kind": "error",
       "locator": "Published Pacific J. Math. 6 (1956), p.172, proof of Theorem 5, paragraph between (6.6) and (6.7)",
-      "printed": "2^s",
+      "printed": "The odd-modulus multiplication proof assigns a fixed power-of-two cardinality to the root set, even when the discriminant is singular modulo a prime factor.",
       "correction": "The number of roots is not always 2^s for odd k when D=1−24n shares factors with k. Use the CRT bijection between the actual local root sets, not a fixed cardinality. The multiplicative identity is not disproved by this finding.",
       "reason": "Take n=24, k=25: d=gcd(24,k)=1, D=−575, and (24m)^2≡D (mod25) has the five roots 0,5,10,15,20, rather than 2. To have two nontrivial coprime factors in the theorem take k=325=25·13 with the same n: D≡10 mod13 is a nonzero square and the root set has 10 elements, not 2^2=4. Both counts were checked by exact enumeration and independently by closed finite Lean examples.",
       "affects": "the proof",
@@ -37315,7 +37695,7 @@
       "source": "whiteman-1956-pjm",
       "kind": "gap",
       "locator": "Published Pacific J. Math. 6 (1956), pp.168–169, proof of the fourth branch of Corollary 1 (5.4)",
-      "printed": "0<μ<λ",
+      "printed": "The displayed range for the auxiliary root parameter excludes the endpoint required in the singular case.",
       "correction": "The valuation parametrization v=p^μb with 0<μ<λ and p∤b omits v≡0 modulo p^λ. Here the source's v denotes 1−24n. Add this case or use translation of all roots by p^(λ−1), which gives cancellation uniformly for λ≥2.",
       "reason": "For p=5, λ=2, n=24, the discriminant is −575 and is divisible by25, so the displayed range for μ cannot apply. The conclusion is nonetheless true: translation by5 permutes the five roots and multiplies each character value by the same nontrivial fifth root of unity. The new singular-cancellation node gives the uniform repair.",
       "affects": "the proof",
@@ -37335,7 +37715,7 @@
       "source": "johansson-2012-lms",
       "kind": "misprint",
       "locator": "Published LMS J. Comput. Math. 15 (2012), p.344, equation (2.6), second branch; also arXiv:1205.5991v2 p.4",
-      "printed": "λ = 0",
+      "printed": "The text includes the zero value of the auxiliary valuation parameter in the exceptional case without the needed separate reduction.",
       "correction": "Replace λ=0 by λ=1 in the branch for p>3 and p | 1−24n.",
       "reason": "This is the first-prime singular branch of Whiteman (5.4); the author confirms the correction, crediting Hugo M. Spinelli. For p=5,n=4 the value is −√5. λ=0 would instead set k=1, whose value is 1.",
       "affects": "nothing",
@@ -37355,7 +37735,7 @@
       "source": "johansson-2012-lms",
       "kind": "misprint",
       "locator": "Published LMS J. Comput. Math. 15 (2012), pp.344–345, factorization preceding (2.7), case (2.8), and Algorithm 2; also arXiv:1205.5991v2 pp.4–5",
-      "printed": "s ← s × Aₖ₁(n₁)",
+      "printed": "The algorithm multiplies the accumulator by the exceptional local factor without the extra sign required by the author’s correction.",
       "correction": "When k₁=4, negate the accumulator as well: the corresponding factorization has a minus sign. The shifted arguments in (2.8) are unchanged.",
       "reason": "The author's errata page explicitly supplies the missing negation, crediting Hugo M. Spinelli. Whiteman Theorem 6 has the minus sign. For k=20,n=0 the shifts in Johansson (2.8) give n₁=3 mod4 and n₂=0 mod5. Direct finite sums give A₂₀(0)≈2.76912333046 and A₄(3)A₅(0)≈−2.76912333046; the numerical check is diagnostic, while the cited exact theorem and author correction fix the sign.",
       "affects": "nothing",
@@ -37397,7 +37777,7 @@
       "source": "matsuda-theta-group",
       "kind": "misprint",
       "locator": "arXiv:2602.22471v1 p.1, multiplier definition",
-      "printed": "(cτ+b)^r",
+      "printed": "The half-integral automorphy factor uses the upper-right entry in its linear expression instead of the lower-right entry.",
       "correction": "Read(cτ+d)^r.",
       "reason": "Identity has b=c=0,d=1; the printed weight factor would force a nonzero form to vanish. The corrected definition and subsequent transformation calculations use d.",
       "affects": "nothing",
@@ -37416,7 +37796,7 @@
       "source": "kong-teo-rademacher-2023",
       "kind": "misprint",
       "locator": "arXiv:2302.03835v1 p.2,(1.2)",
-      "printed": "ω2(k)≤n",
+      "printed": "The pentagonal recurrence stops at the second pentagonal exponent rather than the first and so omits necessary summands.",
       "correction": "Cut off atω1(k)≤n, with p(t)=0 for t<0.",
       "reason": "Exact independent recurrence checks give printed values0 at n=1 and8 at n=5 versus p(1)=1,p(5)=7. The intended pentagonal recurrence is correct.",
       "affects": "nothing",
@@ -37454,7 +37834,7 @@
       "source": "kong-teo-rademacher-2023",
       "kind": "misprint",
       "locator": "arXiv:2302.03835v1 p.15, translated Ford arc",
-      "printed": "|z−1−i|=1/2",
+      "printed": "The displayed circle centre places its imaginary coordinate at one instead of one half.",
       "correction": "Use|z−1−i/2|=1/2.",
       "reason": "For N=1 the displayed endpoint(1+i)/2 lies on the corrected circle and not on the printed one. The neighboring drawing and coordinate translation fix the intended center.",
       "affects": "nothing",
@@ -37511,7 +37891,7 @@
       "source": "bruinier-funke-2004",
       "kind": "misprint",
       "locator": "arXiv:math/0212286v4 p.14, Serre-duality display",
-      "printed": "Lκ,L−⊗O−nD",
+      "printed": "The vanishing line-bundle expression has an exponent off by one in its cusp divisor.",
       "correction": "Use Lκ,L−⊗O−(n+1)D for the holomorphic-at-cusps extension.",
       "reason": "Ω=L2⊗O(−D) supplies the extra cusp divisor. The large-n vanishing conclusion is unaffected by this shift.",
       "affects": "nothing",
@@ -37625,7 +38005,7 @@
       "source": "zagier-strange",
       "kind": "misprint",
       "locator": "Topology40(2001) p.959, physical p.15, eta Eichler discussion",
-      "printed": "k−1=1/2",
+      "printed": "The shifted Eichler weight is written with the subtraction reversed.",
       "correction": "Read1−k=1/2.",
       "reason": "The eta weight is k=1/2 and its Eichler coefficients are multiplied by n^(1−k). The immediately discussed coefficient factor is n^1/2. Rendered page checked.",
       "affects": "nothing",
@@ -37644,7 +38024,7 @@
       "source": "bringmann-rolen-eichler",
       "kind": "misprint",
       "locator": "arXiv:1409.3781v4 p.7, Mellin convergence remark after Lemma3.1",
-      "printed": "−α≤Re(s)≤−β",
+      "printed": "The stated Mellin convergence strip includes endpoints where the growth assumptions alone permit logarithmic divergence.",
       "correction": "The growth hypotheses guarantee convergence on the open strip−α<Re(s)<−β; endpoints need separate estimates.",
       "reason": "For F(x)=1/(1+x), α=0 and β=−1. The Mellin integral diverges logarithmically at s=0 and s=1 although the displayed growth hypotheses hold.",
       "affects": "nothing",
@@ -37663,7 +38043,7 @@
       "source": "jurisich1998",
       "kind": "gap",
       "locator": "arXiv:1311.3258v1 p.36, LemmaA.3 proof",
-      "printed": "Hi=U(A)Ti⊕(U(A)T)⊥i",
+      "printed": "The transverse-generation proof asserts an orthogonal direct sum from ambient nondegeneracy alone.",
       "correction": "Prove nondegeneracy of the form restricted to U(A)T, or provide an independent triangular generation argument.",
       "reason": "Ambient nondegeneracy does not imply this splitting: in the nondegenerate hyperbolic plane the span of(1,0) equals its orthogonal complement. The theorem is not disproved, but this inference alone is inadequate.",
       "affects": "the proof",
@@ -37701,7 +38081,7 @@
       "source": "zwegers-thesis",
       "kind": "misprint",
       "locator": "arXiv:0807.4834v1 printed p.41, physical p.45, Lemma2.8 proof, generic-c derivative display",
-      "printed": "Q(c₁)",
+      "printed": "The generic-vector specialization retains the subscript of the first cone vector in the quadratic-form value.",
       "correction": "Use Q(c) in the E′ argument denominator.",
       "reason": "The display quantifies over c and is applied separately to c₁ and c₂. Its preceding Gaussian integral and following derivative both use Q(c). The isolated c₁ subscript is a slip; the intended Fourier identity is unchanged.",
       "affects": "nothing",
@@ -37721,7 +38101,7 @@
       "source": "zwegers-thesis",
       "kind": "misprint",
       "locator": "arXiv:0807.4834v1 printed pp.40–41, physical pp.44–45, Lemma2.8 Gaussian change of variables",
-      "printed": "det(c C)",
+      "printed": "The Gaussian change-of-variables factor uses a signed determinant where an absolute Jacobian is needed.",
       "correction": "Use |det(c C)| as the Lebesgue Jacobian, or explicitly choose det(c C)>0.",
       "reason": "C is introduced as an arbitrary basis of c-perp. Reversing one column changes the printed determinant sign while leaving the Gaussian integral unchanged. The determinant-squared identity does not supply the missing orientation. The routine absolute-Jacobian correction gives the intended positive square root.",
       "affects": "nothing",
@@ -38337,6 +38717,14 @@
       "read": "2026-10-06",
       "sha256": "a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0",
       "citation": "Skoruppa, Jacobi forms of critical weight and Weil representations, arXiv:0707.0718v1. Pages 4–6 and 10–13 read; pages 4, 5, 11 and 13 also checked on the rendered page images. E210, E211 and E212 are scoped to this text; the published version was not obtained."
+    },
+    {
+      "sourceId": "zwegers-thesis",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0807.4834v1",
+      "read": "2026-10-10",
+      "sha256": "ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d",
+      "citation": "Zwegers, Mock Theta Functions, arXiv:0807.4834v1. This revision read §3.5, printed pp.60–62, and the fifth-order coordinate/generator displays in §4.4, printed pp.74–83 (including the second completion on p.80). This is a scoped contract collation, not a complete thesis or Andrews-proof audit."
     }
   ],
   "continuationAudit": {
@@ -38659,19 +39047,19 @@
     }
   },
   "planningPass": {
-    "by": "Codex — codex-5ebb6f",
-    "date": "2026-10-04",
+    "by": "Codex — codex-jFRXmX",
+    "date": "2026-10-10",
     "protocolSection": "0",
     "status": "complete",
-    "incomingNodes": 536,
+    "incomingNodes": 537,
     "nodeBudget": 300,
     "newNodes": 0,
     "mathematicalClosure": false,
-    "reason": "Stop at the protocol planning budget and submit honest stage coverage for independent review, follow-up packets and assembly.",
-    "readingScope": "Fresh reviewed seven-stage audit, current atlas targets/edges and touching links/accepted restructuring slices, two upstream style documents, current handoff prefix, all eighteen issue-routed extraction items, both confirmed red-team findings and selected exact inherited node statements. Not a fresh full reading of all predecessor sources, 536 nodes, reader or baseline declarations.",
-    "baselineAudit": "Inherited 417 baseline records retained unchanged; no new full baseline audit claimed.",
-    "sourceVersions": "Historical six version records and 65 source findings retained unchanged; no new source-file reading or published collation claimed.",
-    "LeanCheck": "Full Mathlib-only suggested file elaborated freshly at exact Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Lean v4.34.0-rc2: exit 0, 1467 admission warnings and no other diagnostics; signature check only."
+    "reason": "Finish the revision of the budgeted planning pass with exact signature/coordinate repairs, synchronized reader contracts and explicit source/supplier proof boundaries; no node refinement above the budget.",
+    "readingScope": "Original independent report and all per-node verdicts; every retained correction group; current packet contracts for repaired nodes and source/supplier gap routes; current upstream Fuchsian and operator roadmaps, IntegralLattices ownership and current lattice carrier. This is not a fresh reading of all 54 sources or independent verification of all 537 nodes.",
+    "baselineAudit": "Pinned 418 declaration records retained. Checker uses the declaration index at the recorded pins. Repaired native signatures elaborate at the Mathlib pin; no blanket new source-statement audit claimed.",
+    "sourceVersions": "Fresh Zwegers arXiv:0807.4834v1 PDF matches the recorded hash. Fifth-order coordinates and matrices checked at printed pp.74–83; the index-13 quotient, coefficient integral, generator laws and shadow checked at §3.5, pp.60–62. Historical version/collation receipts retained.",
+    "LeanCheck": "Full suggested file elaborated at Lean v4.34.0-rc2 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174: invariant-form and cocycle-indexed signatures, both fifth-order vectors, and index-13 generator/shadow/test contracts. Signature check only: proposed proofs remain admitted."
   },
   "review": {
     "status": "needs_changes",
@@ -41508,6 +41896,293 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex, session codex-zoCY4t, following checkpoint PR #8516; the preceding review is archived. Rechecked finding /13 against Zagier Quantum modular forms, p. 2 and Examples 3-5, pp. 10-13, and Lawrence-Zagier section 3, Theorems 1-2, p. 98. QM.5 owns scalar real-analytic discrepancies and additive cocycles; discontinuous knot matrix laws need the QT.7 extension. Four reader errors remain: missing ninth additive-cocycle export, eta instead of inverse eta on the lower branch, scaled c_n confused with Taylor coefficients, and obsolete no-nodes QT.7 status. Their exact corrections are in the report; the reader is outside issue and queue scope. Fresh packet checks report zero errors/warnings; the three issue-listed suggested files elaborate at the pinned Mathlib with only admitted-proof warnings. No mathematical contracts or gaps were changed. This verdict concerns the assigned fix, not the full blueprint; earlier full reviews remain in history. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    }
+  ],
+  "revisionDisposition": {
+    "issue": 6517,
+    "by": "Codex — codex-jFRXmX",
+    "date": "2026-10-10",
+    "originalReview": "REV-QSeriesPartitionsAndMockModularForms",
+    "retainedNodes": 537,
+    "newNodes": 0,
+    "independentReviewPreserved": true,
+    "unresolvedNodeComparisons": [
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.0/euler-first-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.0/euler-second-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.0/universal-jacobi-triple-product",
+          "QSeriesPartitionsAndMockModularForms:QM.0/jacobi-triple-product",
+          "QSeriesPartitionsAndMockModularForms:QM.0/rogers-ramanujan-first",
+          "QSeriesPartitionsAndMockModularForms:QM.0/evaluation-of-formal-products"
+        ],
+        "disposition": "recorded gap: Finite-product and Rogers–Ramanujan secondary source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.0/bailey-pair",
+          "QSeriesPartitionsAndMockModularForms:QM.0/bailey-kernel-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.0/bailey-lemma",
+          "QSeriesPartitionsAndMockModularForms:QM.0/unit-bailey-pairs",
+          "QSeriesPartitionsAndMockModularForms:QM.0/bailey-chain-limit",
+          "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-identities",
+          "QSeriesPartitionsAndMockModularForms:QM.0/andrews-gordon-nahm-form"
+        ],
+        "disposition": "recorded gap: Andrews Bailey-chain proof comparison"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.1/theta-eta-multiplier-matches-shimura"
+        ],
+        "disposition": "recorded gap: Savitt Appendix A theta-multiplier comparison"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-weil-representation",
+          "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-s-transformation",
+          "QSeriesPartitionsAndMockModularForms:QM.4/indefinite-theta-characteristics-s",
+          "QSeriesPartitionsAndMockModularForms:QM.4/residue-function-modularity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/modular-diagonal-log-derivative",
+          "QSeriesPartitionsAndMockModularForms:QM.5/trace-first-recursion",
+          "QSeriesPartitionsAndMockModularForms:QM.5/weight-two-trace-proposition",
+          "QSeriesPartitionsAndMockModularForms:QM.5/trace-second-recursion",
+          "QSeriesPartitionsAndMockModularForms:QM.5/zagier-traces-theorem"
+        ],
+        "disposition": "recorded gap: Finite Weil, Kohnen and multivariate Poisson supplier comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function",
+          "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function-eq-eta",
+          "QSeriesPartitionsAndMockModularForms:QM.2/partition-generating-function-transformation",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-path",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-trivial-bound",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-term",
+          "QSeriesPartitionsAndMockModularForms:QM.2/partition-number-path-integral",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-exact-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-series-absolutely-convergent",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-remainder-bound",
+          "QSeriesPartitionsAndMockModularForms:QM.2/partition-number-nearest-integer",
+          "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-asymptotic",
+          "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-truncation-bound",
+          "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-truncated-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.2/hardy-ramanujan-nearest-integer"
+        ],
+        "disposition": "recorded gap: Historical circle-method source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-form",
+          "QSeriesPartitionsAndMockModularForms:QM.2/lehmer-exponent-congruences",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-odd",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-mul-two-power",
+          "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-double-odd"
+        ],
+        "disposition": "recorded gap: Lehmer exponent and multiplication proofs"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.3/wirtinger-derivatives",
+          "QSeriesPartitionsAndMockModularForms:QM.3/maass-raising-operator",
+          "QSeriesPartitionsAndMockModularForms:QM.3/laplacian-raising-lowering-factorisation",
+          "QSeriesPartitionsAndMockModularForms:QM.3/raising-lowering-eigenvalue-shift",
+          "QSeriesPartitionsAndMockModularForms:QM.3/raising-lowering-slash-equivariance",
+          "QSeriesPartitionsAndMockModularForms:QM.3/iterated-raising-operator",
+          "QSeriesPartitionsAndMockModularForms:QM.3/bol-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.3/xi-fourier-expansion",
+          "QSeriesPartitionsAndMockModularForms:QM.3/flipping-derivative-theorem"
+        ],
+        "disposition": "recorded gap: Bruinier–Ono–Rhoades and Lewis–Zagier operator comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.5/periodic-l-value-bernoulli",
+          "QSeriesPartitionsAndMockModularForms:QM.5/periodic-exponential-sum-asymptotic",
+          "QSeriesPartitionsAndMockModularForms:QM.5/periodic-gaussian-sum-asymptotic",
+          "QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-form",
+          "QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-cocycle",
+          "QSeriesPartitionsAndMockModularForms:QM.5/eichler-integral",
+          "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-strange-series",
+          "QSeriesPartitionsAndMockModularForms:QM.5/sum-of-tails-series",
+          "QSeriesPartitionsAndMockModularForms:QM.5/sum-of-tails-agreement",
+          "QSeriesPartitionsAndMockModularForms:QM.5/andrews-exercise-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/zagier-sum-of-tails-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/strange-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-value-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-quantum-modular",
+          "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-character",
+          "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-series",
+          "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-theta-transformation",
+          "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-quantum-modular"
+        ],
+        "disposition": "recorded gap: Zagier and Lawrence–Zagier asymptotic source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-radial-limit",
+          "QSeriesPartitionsAndMockModularForms:QM.5/lawrence-zagier-ohtsuki-expansion",
+          "QSeriesPartitionsAndMockModularForms:QM.5/poincare-sphere-unified-invariant-radial-limit"
+        ],
+        "disposition": "recorded gap: Poincaré-sphere WRT closed-form supplier comparison"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.5/partition-crank",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-count",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-generating-function",
+          "QSeriesPartitionsAndMockModularForms:QM.5/equal-classes-from-root-of-unity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-five",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-seven",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-mod-eleven",
+          "QSeriesPartitionsAndMockModularForms:QM.5/ramanujan-congruence-mod-eleven",
+          "QSeriesPartitionsAndMockModularForms:QM.5/dyson-rank",
+          "QSeriesPartitionsAndMockModularForms:QM.5/rank-generating-function",
+          "QSeriesPartitionsAndMockModularForms:QM.5/atkin-swinnerton-dyer-theorem"
+        ],
+        "disposition": "recorded gap: Andrews–Garvan and Garvan rank/crank proof comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.5/unimodal-rank-series",
+          "QSeriesPartitionsAndMockModularForms:QM.5/choi-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.5/rank-mixed-mock-asymptotic",
+          "QSeriesPartitionsAndMockModularForms:QM.5/crank-radial-asymptotic",
+          "QSeriesPartitionsAndMockModularForms:QM.5/rank-crank-radial-limit",
+          "QSeriesPartitionsAndMockModularForms:QM.5/ramanujan-radial-limit-claim"
+        ],
+        "disposition": "recorded gap: Folsom–Ono–Rhoades and Bringmann–Rolen radial proof comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-vacuum-translation",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-commutator-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-skew-symmetry",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-lie-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-automorphism",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-existence-theorem",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-algebra-tensor-product",
+          "QSeriesPartitionsAndMockModularForms:QM.6/virasoro-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/conformal-vector",
+          "QSeriesPartitionsAndMockModularForms:QM.6/conformal-vector-virasoro-representation",
+          "QSeriesPartitionsAndMockModularForms:QM.6/vertex-operator-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/invariant-bilinear-form",
+          "QSeriesPartitionsAndMockModularForms:QM.6/tensor-product-conformal-structure",
+          "QSeriesPartitionsAndMockModularForms:QM.6/graded-trace",
+          "QSeriesPartitionsAndMockModularForms:QM.6/mckay-thompson-series",
+          "QSeriesPartitionsAndMockModularForms:QM.6/even-lattice-double-cover",
+          "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra"
+        ],
+        "disposition": "recorded gap: Matsuo–Nagatomo and Bakalov–Kac vertex source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/lorentzian-lattice-II11",
+          "QSeriesPartitionsAndMockModularForms:QM.6/physical-space",
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-operator-adjoints"
+        ],
+        "disposition": "recorded gap: Borcherds and Gannon physical-space source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/physical-lie-algebra"
+        ],
+        "disposition": "signature repaired; symmetry is included in the concrete invariant predicate; full file elaborated"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-transverse-generation",
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-transverse-space",
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-spurious-states",
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-physical-decomposition",
+          "QSeriesPartitionsAndMockModularForms:QM.6/no-ghost-theorem"
+        ],
+        "disposition": "recorded gap: No-ghost generation and its downstream proof comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-axioms",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-triangular-decomposition",
+          "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-central-extension",
+          "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-characterisation-theorem",
+          "QSeriesPartitionsAndMockModularForms:QM.6/lazard-elimination",
+          "QSeriesPartitionsAndMockModularForms:QM.6/graded-trace-exterior-symmetric-power",
+          "QSeriesPartitionsAndMockModularForms:QM.6/free-lie-algebra-character-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.6/borcherds-algebra-free-subalgebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-is-borcherds-algebra",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-simple-roots",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monster-lie-algebra-free-decomposition",
+          "QSeriesPartitionsAndMockModularForms:QM.6/twisted-denominator-identity",
+          "QSeriesPartitionsAndMockModularForms:QM.6/completely-replicable-function",
+          "QSeriesPartitionsAndMockModularForms:QM.6/replication-recursion",
+          "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-module-complete-replicability"
+        ],
+        "disposition": "recorded gap: General Borcherds and Monster source comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/j-laurent-series",
+          "QSeriesPartitionsAndMockModularForms:QM.6/laurent-q-expansion",
+          "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-modular-function",
+          "QSeriesPartitionsAndMockModularForms:QM.6/modular-function-polynomial-in-j",
+          "QSeriesPartitionsAndMockModularForms:QM.6/formal-hecke-operator",
+          "QSeriesPartitionsAndMockModularForms:QM.6/weakly-holomorphic-hecke-operator",
+          "QSeriesPartitionsAndMockModularForms:QM.6/hecke-transform-of-j"
+        ],
+        "disposition": "recorded gap: Milne modular-function and all-index Hecke comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.6/j-product-formula",
+          "QSeriesPartitionsAndMockModularForms:QM.6/moonshine-type-modular-group",
+          "QSeriesPartitionsAndMockModularForms:QM.6/hauptmodul-genus-zero",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
+          "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem"
+        ],
+        "disposition": "recorded gap: Monster data and arithmetic Fuchsian supplier comparisons"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-mock-theta-functions",
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-first-six",
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-first-six",
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-decomposition-and-transformation-first-six",
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-indefinite-theta-identities-last-four",
+          "QSeriesPartitionsAndMockModularForms:QM.4/fifth-order-completion-and-transformation-last-four",
+          "QSeriesPartitionsAndMockModularForms:QM.4/index-thirteen-weight-one-meromorphic-jacobi-example"
+        ],
+        "disposition": "coordinate/matrix and native contracts repaired; Eulerian proof identification remains the precise fifth-order gap"
+      },
+      {
+        "nodes": [
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+          "QSeriesPartitionsAndMockModularForms:QM.2/selberg-rademacher-sum",
+          "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula"
+        ],
+        "disposition": "recorded gap: Whiteman Dedekind-to-root-sum proof comparison"
+      }
+    ],
+    "upstreamOwnership": {
+      "TauCetiRoadmapCommit": "81207c7f16d5abf770f13a7d2bdcdb465c030787",
+      "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "Leech": "IntegralLattices Layer 6E owns the explicit reference lattice. QM.6 owns its vertex-algebra application; the automorphism identification remains a separate gap."
+    }
+  },
+  "upstreamImports": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/IntegralLattices#layer-6-unimodular-lattices-in-low-rank",
+      "need": "Layer 6E’s explicitly constructed rootless rank-24 even unimodular integral lattice, with its rational ambient carrier, integral form, evenness, unimodularity, rank and empty root system. QM.6 uses this Leech reference lattice in the FLM/lattice-VOA construction; it requires no rank-24 completeness or automorphism-group classification.",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters"
+      ],
+      "commit": "81207c7f16d5abf770f13a7d2bdcdb465c030787",
+      "locator": "IntegralLattices README Layer 6E, pp. not applicable; Suggested.lean introduction pins the shared IntegralLattice carrier",
+      "registryStatus": "Current upstream contract; this newer roadmap has no stage id in the atlas snapshot. The FLM construction gap records the import boundary; no new atlas id or pinned declaration is invented."
     }
   ]
 }
