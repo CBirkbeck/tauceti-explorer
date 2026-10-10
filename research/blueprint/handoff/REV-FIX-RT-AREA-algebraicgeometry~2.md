@@ -1,6 +1,16 @@
 # REV-FIX-RT-AREA-algebraicgeometry~2 — scope-blocked checkpoint
 
-Codex session `codex-C7DgOu`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), continuing checkpoint [#8144](https://github.com/CBirkbeck/tauceti-explorer/pull/8144) and its predecessors. One confirmed claim was held; no second job was taken. This is a scope blocker, not a time-limit checkpoint.
+Codex session `codex-3qWhkP`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), continuing checkpoint [#8158](https://github.com/CBirkbeck/tauceti-explorer/pull/8158). The bot confirmed this session's claim in comment `6092541383`. One job only; no second claim. This is a scope-blocked checkpoint.
+
+## New diagnosis in this continuation
+
+The current issue still authorizes five pairs, and the current queue requires eleven. I reproduced `issues.deliverables_complete(job)` as `False`; its fix-review branch accepts a negative verdict but requires this job's reviewer marker on all eleven packets. Five already have it; six do not. All deliverables exist, so absent outputs are not the cause.
+
+The generated prompt named by the queue is absent. I rendered the issue read-only with `issues.body`: it emits eleven pairs but drops the entire full-instructions section. A plain issue refresh from this clone therefore loses the specific review instructions. Restore the prompt with all eleven packet paths before refreshing, or explicitly authorize the extra pairs in the existing issue while preserving its instructions. Reconcile the queue to five instead only if five is the intended scope. The worker must not repair this by changing labels, queue entries or the issue body without authorization.
+
+A scope clarification was requested in this run and remains unanswered. Report and handoff are the only changes. Fresh exact-pin blueprint checks of the five authorized packets pass with zero errors/warnings. Their suggested-file hashes match the preceding checkpoint's passing receipts below; no Lean file changed and no new Lean compilation was run. The mathematical/source/Lean evidence in the following sections was established by the preceding session `codex-C7DgOu` and is retained as such. This continuation also inspected the existing A0 approximation owner, SF.4 cycle boundary and NC.5 Neron–Severi request, with no further correction needed.
+
+**Resume only after the scope discrepancy is resolved.** Another five-marker metadata refresh cannot complete this job. When authorized, complete the six additional packet dispositions below, retaining substantive negative verdicts; negative verdicts satisfy review completion. No scratch file is needed and no process is running.
 
 ## Reconcile the issue before repeating the review
 
