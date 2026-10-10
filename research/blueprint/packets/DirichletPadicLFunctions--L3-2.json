@@ -16,182 +16,203 @@
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
         "provides": "Native continuous dual C(X,R)→L[R]E; no native measure norm is assumed.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PadicInt.addChar_of_value_at_one",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
         "provides": "Existing Mahler AddChar Z_p K for topologically nilpotent r, value at1=1+r.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PadicInt.continuous_addChar_of_value_at_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
         "provides": "Continuity of the actual native Mahler additive character.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PadicInt.addChar_of_value_at_one_def",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/AddChar.lean",
         "provides": "Value of the existing additive character at1 is1+r.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:NormedSpace.exp",
         "kind": "def",
         "module": "Mathlib/Analysis/Normed/Algebra/Exponential.lean",
         "provides": "Native exponential as expSeries sum, requiring separate convergence/analytic inputs in the p-adic setting.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:FormalMultilinearSeries.ofScalarsSum",
         "kind": "def",
         "module": "Mathlib/Analysis/Analytic/OfScalars.lean",
         "provides": "Native analytic scalar-series evaluation and its literal tsum form.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:AnalyticAt.div",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Constructions.lean",
         "provides": "Analytic quotient of two analytic germs when the denominator value is nonzero.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:AnalyticAt.analyticOrderAt_eq_natCast",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Analytic/Order.lean",
         "provides": "Native analytic order-n normal form with a nonzero analytic factor.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:MeromorphicAt.div",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Meromorphic/Basic.lean",
         "provides": "Native meromorphic quotient, including zeros in the denominator.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:meromorphicOrderAt_eq_int_iff",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Meromorphic/Order.lean",
         "provides": "Native integer order equals the exponent in a punctured-neighborhood normal form.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:HasDerivAt",
         "kind": "def",
         "module": "Mathlib/Analysis/Calculus/Deriv/Basic.lean",
         "provides": "Native derivative at a point over a nontrivially normed field.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:DirichletCharacter.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "Existing primitivity predicate: actual conductor equals the level.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:Ideal.span",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "Native ideal generated by a set, used in the integral root congruence.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PadicInt.toZMod",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
         "provides": "Native first residue digit map as a ring homomorphism to ZMod p.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PadicInt.denseRange_natCast",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
         "provides": "Density of natural-number casts in the native p-adic integers.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:Equiv",
         "kind": "structure",
         "module": "Mathlib/Logic/Equiv/Defs.lean",
         "provides": "Native equivalence with a two-sided inverse; used for the finite permutation.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:Nat.Coprime.dvd_mul_right",
         "kind": "theorem",
         "module": "Mathlib/Data/Nat/GCD/Basic.lean",
         "provides": "Coprime k n implies k divides m*n exactly when k divides m.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "Sum of a nontrivial finite multiplicative character into a domain is0.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PowerSeries.coeff",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Native coefficient linear map of an existing scalar formal power series.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PowerSeries.C",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "Native constant power-series ring homomorphism; coefficient field is implicit.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:PowerSeries.log",
         "kind": "def",
         "module": "Mathlib/RingTheory/PowerSeries/Log.lean",
         "provides": "Existing formal log(1+X) with coefficient0=0 and coefficient_n=(-1)^(n+1)/n for n>0.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:IsPrimitiveRoot",
         "kind": "structure",
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "Native root predicate: root^N=1 and N divides every exponent giving1.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:FormalMultilinearSeries.ofScalars",
         "kind": "def",
         "module": "Mathlib/Analysis/Analytic/OfScalars.lean",
         "provides": "Existing native scalar formal multilinear series with coefficients c_n.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:HasFPowerSeriesAt",
         "kind": "def",
         "module": "Mathlib/Analysis/Analytic/Basic.lean",
         "provides": "Native positive-radius power-series expansion germ at the specified point.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:IsLocalRing.isUnit_one_sub_self_of_mem_nonunits",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/LocalRing/Basic.lean",
         "provides": "In a local ring, a nonunit a gives the unit1−a; apply to−ta for the root ideal bridge.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
       },
       {
         "ref": "mathlib:AbstractMeasure.dirac_apply",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
         "provides": "The existing Dirac measure evaluates a native continuous test at its support point.",
-        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file."
+        "checked": "Actual statement read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on2026-10-05; native use checked by the suggested file. Independently re-read at the same pin on 2026-10-10 by REV-DirichletPadicLFunctions--L3-2; hypotheses and native conventions confirmed."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.primitiveCharacter",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing primitive inducing character at the actual conductor.",
+        "checked": "Independent review read the actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 307, on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Changing the primitive character back to the original level recovers the original character.",
+        "checked": "Independent review read the actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 310, on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction_changeLevel",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "Conductor-change Euler product for complex L-values, with χ≠1 or s≠1; here s=1−k≠1.",
+        "checked": "Independent review read the actual declaration at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 150, on 2026-10-10."
       }
     ]
   },
@@ -200,12 +221,12 @@
       "id": "RJW",
       "title": "An introduction to p-adic L-functions",
       "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
-      "edition": "Essential Number Theory4(1),2025,99–158",
+      "edition": "Essential Number Theory 4(1), 2025, 101–216, DOI 10.2140/ent.2025.4.101",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
       "read": "2026-10-05",
       "readSections": [
-        "§5.3 printed145–148: definitions, conventions and interpolation; §§6–7 printed149–158: value at one and pole, full selected sections; source images148–149 inspected."
+        "§5.3 printed146–148: definitions, conventions and interpolation; §§6–7 printed148–158: value at one and pole, full selected sections; source images148–149 inspected."
       ]
     },
     {
@@ -287,7 +308,12 @@
         "Cambridge published article page and DOI metadata opened2026-10-05; no associated correction found.",
         "Official arXiv2201.08870 version history opened2026-10-05: onlyv1 dated21January2022; AppendixB.2 contains the same endpoint.",
         "Author article list https://luochenzhao.github.io/ inspected2026-10-05; no correction to this paper found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected published p.474 and arXiv v1 Appendix B.2 (both recorded hashes match). The normalized recurrence forces the strict natural sum and log_p Γ_p(x), whereas the displayed inclusive endpoint gives log_p Γ_p(x+1). At p=5,x=2 their difference is nonzero log_5(2). Publisher/search metadata, sole arXiv v1 and author page were checked again on 2026-10-10 without finding a correction.",
+        "by": "REV-DirichletPadicLFunctions--L3-2"
+      }
     }
   ],
   "nodes": [
@@ -316,7 +342,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -400,7 +426,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -436,7 +462,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -472,7 +498,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -510,7 +536,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -586,7 +612,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -622,7 +648,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -658,7 +684,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -698,7 +724,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -774,7 +800,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -810,7 +836,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -846,7 +872,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -892,7 +918,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -973,7 +999,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1009,7 +1035,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1045,7 +1071,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1083,7 +1109,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1164,7 +1190,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1200,7 +1226,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1236,7 +1262,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1274,7 +1300,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1355,7 +1381,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1391,7 +1417,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1427,7 +1453,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1456,7 +1482,7 @@
       ],
       "proofSteps": [
         "Expand u=omega(u)angle(u), use commutativity and the integer exponent laws.",
-        "Use x μ_eta=ζ_eta from L2 to move the unit x factor. The source integral missing omega^(-1) is E14, already independently confirmed; the displayed equality preceding it is correct."
+        "Use ζ_eta=x^(-1) Res_U μ_eta from L2 (RJW Definition5.13), equivalently x ζ_eta=Res_U μ_eta, to move the inverse unit weight. The source integral missing omega^(-1) is E14, already independently confirmed; the displayed equality preceding it is correct."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L3/rjw2-rjw-test",
@@ -1466,7 +1492,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1507,7 +1533,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1549,7 +1575,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1587,7 +1613,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1609,31 +1635,36 @@
       ],
       "title": "Interpolation in the RJW convention",
       "kind": "theorem",
-      "statement": "For a primitive nontrivial θ=χ eta, conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used.",
+      "statement": "For a primitive θ (including conductor-one θ=1)=χ eta, conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used.",
       "hypotheses": [
         "p is prime; U is the existing topological unit group of Z_p. K is a complete ultrametric finite extension of Q_p with compatible native scalar maps. Measures are native AbstractMeasure U K K, not real-valued measures.",
         "The standard chart has torsion factor omega_p and angular coordinate gamma^h(u), with gamma=1+p for odd p, and sign omega_2 of conductor4 and gamma=5 for p=2. Its continuous additive coordinate h:U→Z_p is imported from PMIA L0a. A supplied arbitrary h gives only the displayed adapter, not the arithmetic branch."
       ],
       "proofSteps": [
-        "The test at1−k is exactly the algebraic-character test with inverse omega^k after the unit shift.",
-        "Apply the two existing L2 common-value comparisons to the actual numerator or tame measure.",
-        "If twisting changes the conductor, use its primitive inducer and its genuine evaluation at p for the Euler factor; do not retain a level-inflated zero value."
+        "The test at1−k is exactly the algebraic-character test with inverse omega^k after the unit shift. Since k≥1, its angular exponent k is nonzero, so there is an admissible clearing unit even when the finite component is principal.",
+        "For a nontrivial primitive p-part, apply L2 pseudomeasure-common-character-value to that primitive arithmetic character; for a nontrivial tame part, apply L2 intrinsic-tame-common-character-value at its displayed level. If the twisted character has conductor one, use L1 arithmetic-positive-bernoulli instead: the primitive-only L2 pseudomeasure comparison does not cover this case.",
+        "Use the native primitiveCharacter and changeLevel_primitiveCharacter to identify the finite character on units. Apply LFunction_changeLevel at1−k≠1 to remove the inflated p-level. The tame conductor is unchanged by a p-power twist, so the only deleted prime is p; use the primitive inducer ψ(p), rather than the inflated character’s zero at p. Transport the resulting algebraic Bernoulli equality through the two embeddings.",
+        "When the primitive p-part comparison needs a chosen additive root, enlarge the finite coefficient field to contain it and its nonzero primitive Gauss sum, then descend the equality through the injective coefficient embedding. Keep the compatible admissible evaluator request explicit."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L3/rjw2-integral-character-integers",
         "DirichletPadicLFunctions:L3/rjw2-arithmetic-evaluation",
         "DirichletPadicLFunctions:L2/pseudomeasure-common-character-value",
-        "DirichletPadicLFunctions:L2/intrinsic-tame-common-character-value"
+        "DirichletPadicLFunctions:L2/intrinsic-tame-common-character-value",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.LFunction_changeLevel"
       ],
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
       "acceptance": [
-        "For a primitive nontrivial θ=χ eta, conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used."
+        "For a primitive θ (including conductor-one θ=1)=χ eta, conductor Dp^n, and k≥1, the actual branch obeys L_p(θ,1−k)=(1−ψ(p)p^(k−1)) L(ψ,1−k), where ψ is the primitive inducer of θ omega^(-k). Interpret the complex value through its common algebraic generalized-Bernoulli value, with specified embeddings; no map C→K is used."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/DirichletL/Branches",
@@ -1669,7 +1700,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1711,7 +1742,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed145–148; Theorem5.20 integral corrected by inherited E14.",
+          "locator": "§5.3, Definitions5.16/5.18 and Theorems5.17/5.20, printed146–148; Theorem5.20 integral corrected by inherited E14.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1757,7 +1788,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1799,7 +1830,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1837,7 +1868,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1876,7 +1907,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1919,7 +1950,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1960,7 +1991,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -1998,7 +2029,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2042,7 +2073,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2085,7 +2116,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2125,7 +2156,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed145–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
+          "locator": "§7, Theorem7.1, Lemma7.5 and the residue calculation, printed154–158; §5.3 integral family, printed146–148. Analytic factorization is a worker refinement using the explicit native analytic prerequisites.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2174,7 +2205,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2221,7 +2252,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2262,7 +2293,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2305,7 +2336,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2348,7 +2379,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2398,7 +2429,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2443,7 +2474,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -2659,6 +2690,11 @@
           "name": "DirichletL3Tests.fg_gamma_sum_zero_log",
           "kind": "non-example",
           "statement": "A zero supplied logarithm makes the Gamma sum0, so nonvanishing cannot follow from a finite sum signature alone."
+        },
+        {
+          "name": "DirichletL3Tests.fg_gamma_sum_quartic",
+          "kind": "computation",
+          "statement": "For the formal finite adapter at level5, take χ(1)=1, χ(2)=i, χ(3)=−i, χ(4)=−1 with i²=−1. Its value is A(1)+i A(2)−i A(3)−A(4), where A(a)=ι(log(Γ(a*u_N^(-1)))). An inverse-character, missing-character or 1/N-normalized sum fails this polynomial identity; this is an adapter test, not a claim about arithmetic log values."
         }
       ]
     },
@@ -3250,18 +3286,21 @@
       "proofSteps": [
         "The two Morita recurrences and log_p(−1)=0 give the two difference equations; Γ_p(0)=1 gives normalization.",
         "The common logarithm is continuous on the unit group, so composing with the native continuous Gamma gives continuity.",
-        "Use the requested normalized Mahler-antidifference uniqueness (or dense natural interpolation). The source AppendixB.2 upper endpoint n and Γ_p(x+1) are corrected to m<n and Γ_p(x), recorded as E37."
+        "The inherited natural-values and natural-log-sum results give Γ_p(0)=1 and the strict finite sum. Any other continuous normalized solution agrees at naturals by induction and hence everywhere by denseRange_natCast. The source AppendixB.2 upper endpoint n and Γ_p(x+1) are corrected to m<n and Γ_p(x), recorded as E37. Generic antidifference existence for log powers remains a LAD request."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L3/morita-gamma-functional-equation",
         "DirichletPadicLFunctions:L3/morita-gamma-unique",
         "ColemanIntegration:L0/iwasawa-logarithm",
-        "LocallyAnalyticDistributions:L1"
+        "LocallyAnalyticDistributions:L1",
+        "DirichletPadicLFunctions:L3/morita-gamma-natural-values",
+        "DirichletPadicLFunctions:L3/morita-gamma-natural-log-sum",
+        "mathlib:PadicInt.denseRange_natCast"
       ],
       "sources": [
         {
           "sourceId": "Zhao",
-          "locator": "AppendixB, ExampleB.2, printed474, corrected by E34; §4, equation(4.4)",
+          "locator": "AppendixB, ExampleB.2, printed474, corrected by E37; §4, equation(4.4)",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -3467,7 +3506,7 @@
         "u_N is the native unit of Z_p whose scalar is N. B_(1,χ)=Σ_(1≤a<N)χ(a)a/N is the existing algebraic special-value datum L(χ,0)=−B_(1,χ). Gamma arguments a/N mean a*u_N^(-1) in native Z_p."
       ],
       "proofSteps": [
-        "Write the native residue digit of a/N−1 as(−(N−a)+ph)/N. The exact carry h is the positive residue of−a/p modulo N.",
+        "Write the native residue digit of a/N−1 as(−(N−a)+ph)/N. The exact carry h is the flat residue in[0,N) of−a/p modulo N.",
         "Substitution into V gives V(a/N−1)=−(−a/p)_N^flat/N.",
         "Reindex a↦−pa among units modulo N. Oddness χ(−1)=−1 reverses the sign, leaving χ(p)B1. The constant−1 contribution cancels because χ≠1. This is Zhao Lemma4.2, not an imported nonvanishing theorem."
       ],
@@ -3780,7 +3819,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -3822,7 +3861,7 @@
       "sources": [
         {
           "sourceId": "RJW",
-          "locator": "§6.2, Lemmas6.3–6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §6.3, printed154–155. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
+          "locator": "§6.2, Remark6.3, Lemmas6.4–6.5, Remark6.6 and proof of Theorem6.1(ii), printed150–153; independent smoothed k=1 primitive in §7, Lemmas7.3–7.5, printed156–158. Corrected pure-power route is worker decomposition from the cited existing Coleman inputs.",
           "match": "Worker decomposition of this precise arithmetic specialization; auxiliary inputs are listed separately. See the reader document for conventions and supplier boundaries."
         }
       ],
@@ -3840,7 +3879,7 @@
   "requests": [
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L0a",
-      "need": "On the native topological unit group U=Z_p^×, export the standard continuous isomorphism U≃Δ_p×Z_p, torsion projection omega and continuous additive coordinate h with h(uv)=h(u)+h(v), h(torsion)=0, and gamma^h(u)=angle(u). For odd p use gamma=1+p and Δ=μ_(p−1); for p=2 use sign modulo4, Δ={±1}, angle in1+4Z_2 and gamma=5. Include coefficient extension of finite characters, bundling the native Mahler κ_s as a continuous multiplicative character, and a unit/integer separating every nontrivial finite component. No arbitrary chart is accepted as the standard arithmetic chart.",
+      "need": "On the native topological unit group U=Z_p^×, export the standard continuous isomorphism U≃Δ_p×Z_p, torsion projection omega and continuous additive coordinate h with h(uv)=h(u)+h(v), h(torsion)=0, and gamma^h(u)=angle(u). For odd p use gamma=1+p and Δ=μ_(p−1); for p=2 use sign modulo4, Δ={±1}, angle in1+4Z_2 and gamma=5. Include coefficient extension of finite characters, bundling the native Mahler κ_s as a continuous multiplicative character, and a unit/integer separating every nontrivial finite component. No arbitrary chart is accepted as the standard arithmetic chart. Reuse current Tau Ceti’s padicIntUnitsEquivProd and its component formulas for the prime-to-p splitting, neg_mem_unitsPrincipal_two_two_iff for the dyadic sign dichotomy, and topologicalClosure_zpowers_eq_unitsPrincipal for generation. These are already implemented at current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, but not part of the pinned prototype imports. The request is for the remaining bundled chart/additive coordinate and comparisons, not for another Teichmüller splitting or generation theorem.",
       "neededBy": [
         "DirichletPadicLFunctions:L3/rjw2-rjw-test",
         "DirichletPadicLFunctions:L3/rjw2-arithmetic-evaluation",
@@ -3964,7 +4003,12 @@
       "detail": "The accepted L3 packet keeps exact RD.6 coefficient bound and chosen-additive-root splitting-value requests, including2. Its Morita Gamma ownership and Robert comparison are imported intact. Those requests, its16 recorded gaps and its Kubert strand remain open; this follow-up does not close or repeat their1663 nodes. Complete the inherited Kubert target ledger and source-specific Fourier/distribution refinements in a follow-up after the arithmetic comparisons."
     }
   ],
-  "upstreamNotes": [],
+  "upstreamNotes": [
+    {
+      "title": "Current Tau Ceti chart inputs postdate the prototype pin",
+      "detail": "At current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, NumberTheory/Padics/UnitsDecomposition.lean supplies TauCeti.padicIntUnitsEquivProd and its fst/snd/residue formulas. NumberTheory/Padics/PrincipalUnits.lean supplies TauCeti.neg_mem_unitsPrincipal_two_two_iff and TauCeti.topologicalClosure_zpowers_eq_unitsPrincipal. Reuse them when PMIA L0a packages the standard chart. UnitsDecomposition.lean is absent at f790474, so these current-library observations are not pinned baseline claims. Current ProfiniteArithmetic supplies generic profinite/p-adic powering; do not construct another powering carrier."
+    }
+  ],
   "restructure": [],
   "worker": {
     "agent": "Codex",
@@ -3975,7 +4019,410 @@
   "provenance": {
     "predecessor": "DirichletPadicLFunctions--L3.json; accepted REV-DirichletPadicLFunctions--L3 (#5876). No predecessor node is copied or edited.",
     "audit": "Reviewed AUDIT-24 library-coverage verdict for L3: not built. Searched pinned Mathlib/Tau Ceti source; native p-adic Gamma/Gross–Koblitz/actual Dirichlet branch not present.",
-    "suggestedScope": "Native adapter definitions, their full API/tests, and conditional scalar/analytic probes. Missing actual supplier carriers and arithmetic hypotheses are commented at their boundary; there are no replacement Prop fields or duplicate logarithm/measure/character carriers.",
+    "suggestedScope": "Native adapter definitions, their full API/tests, and conditional scalar/analytic probes. Missing actual supplier carriers and arithmetic hypotheses are commented at their boundary; there are no replacement Prop fields or duplicate logarithm/measure/character carriers. Independent review strengthened the normalized Gamma-antidifference and coefficient-limit probes; the latter concludes, rather than assumes, its native expansion. All placeholders remain unchecked.",
     "baselineCheck": "No pinned declarations.tsv index found. Packet checker performs baseline reference-form checks; every listed declaration statement was read from the pinned Mathlib source. Suggested file elaboration gives additional native type checks, not proofs."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DirichletPadicLFunctions--L3-2",
+    "date": "2026-10-10",
+    "notes": "Independent review of all 79 nodes, all 29 final baseline declarations at Mathlib 082e2d3, nine APIs/32 tests, five planets, eight supplier requests, five recorded gaps and source finding E37. Corrected the inverse measure shift, principal/conductor interpolation, source metadata/locators and two native Lean probes; added one quartic finite-sum test. Fresh public PDF hashes match. Current Tau Ceti splitting/generation is reused through a narrowed request, without claiming availability at the old pin. Accepted as a complete target-level planning pass with L3 planned, not closed; generic interfaces, arithmetic nonvanishing and inherited GK/Kubert frontier remain open. Lean elaborates with 111 placeholder warnings and no other diagnostics. Reader synchronization outside this review’s allowlist is specified in the report/handoff.",
+    "checked": [
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-test",
+        "verdict": "corrected",
+        "note": "Native Mahler character and continuous pullback; arithmetic chart remains a precise PMIA request. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-test-apply",
+        "verdict": "corrected",
+        "note": "Literal continuous-map product/composition equation. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-test-one",
+        "verdict": "corrected",
+        "note": "AddChar at zero is one. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-test-mul",
+        "verdict": "corrected",
+        "note": "Additivity of h and AddChar multiplication give the stated multiplicativity. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-numerator",
+        "verdict": "corrected",
+        "note": "Evaluation of the existing AbstractMeasure on the actual native test. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-numerator-apply",
+        "verdict": "corrected",
+        "note": "Literal continuous-dual evaluation. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-numerator-one",
+        "verdict": "corrected",
+        "note": "Weight-one test specializes to ν. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-numerator-add",
+        "verdict": "corrected",
+        "note": "Linearity of the existing continuous dual. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-cleared",
+        "verdict": "corrected",
+        "note": "Scalar quotient restricted to admissible characters; zero-denominator totalization is explicitly excluded. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-cleared-apply",
+        "verdict": "corrected",
+        "note": "Literal quotient formula. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-cleared-one",
+        "verdict": "corrected",
+        "note": "The central denominator is ν(a)−1. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-cleared-cancel",
+        "verdict": "corrected",
+        "note": "Cancellation requires the displayed nonzero clearing factor. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-numerator",
+        "verdict": "corrected",
+        "note": "Native scalar-series evaluation at exp((1−s)L)−1; analyticity awaits the named radius inputs. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-numerator-apply",
+        "verdict": "corrected",
+        "note": "Literal native series adapter. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-numerator-one",
+        "verdict": "corrected",
+        "note": "exp(0)=1 and evaluation at zero select coeff0. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-numerator-zero",
+        "verdict": "corrected",
+        "note": "Zero scalar series evaluates to zero. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-denominator",
+        "verdict": "corrected",
+        "note": "Native exp denominator fixes the sign of the s-coordinate. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-denominator-apply",
+        "verdict": "corrected",
+        "note": "Literal denominator formula. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-denominator-one",
+        "verdict": "corrected",
+        "note": "exp(0)=1 gives c−1. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-denominator-zero-log",
+        "verdict": "corrected",
+        "note": "Zero logarithmic slope gives the constant denominator. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-branch",
+        "verdict": "corrected",
+        "note": "Native numerator/denominator quotient on its admissible locus; no meromorphic value assigned to junk. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-branch-apply",
+        "verdict": "corrected",
+        "note": "Literal quotient formula. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-branch-one",
+        "verdict": "corrected",
+        "note": "Central value uses c≠1. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-rjw-analytic-branch-cancel",
+        "verdict": "corrected",
+        "note": "Cancellation requires nonzero denominator. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-inverse-teichmuller",
+        "verdict": "corrected",
+        "note": "Corrected reversed shift: ζ_eta=x^(-1)Res μ_eta, so xζ_eta=Res μ_eta; inverse omega identity matches RJW Remark5.19 and inherited E14."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-integral-character-integers",
+        "verdict": "corrected",
+        "note": "Integer Mahler exponents and the inverse unit weight give exactly omega^(-k). Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-arithmetic-evaluation",
+        "verdict": "corrected",
+        "note": "Actual admissible pseudomeasure evaluation, conditional on the explicitly requested finite-extension interface; no whole-fraction-ring evaluator. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-clearing-independence",
+        "verdict": "corrected",
+        "note": "Double clearing gives cross-multiplication on both admissible loci. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-branch-interpolation",
+        "verdict": "corrected",
+        "note": "Included θ=1; added native primitive-character/conductor-change citations, conductor-one Bernoulli route and explicit scalar-extension descent. Primitive-only L2 hypotheses are retained on their applicable case."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-zeta-congruence",
+        "verdict": "corrected",
+        "note": "Conductor-one ψ has ψ(p)=1; corrected interpolation now covers i=0. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-dyadic-branches",
+        "verdict": "corrected",
+        "note": "Sign mod4 and γ=5 are distinct from the mod(p−1) chart; evenness kills the odd component by cancellation in Q2. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-analytic-coordinate-agreement",
+        "verdict": "corrected",
+        "note": "Exp/Mahler agreement is an explicit LAD/PMIA input; quotient agreement is only on the admissible locus. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-analytic-numerator-convergence",
+        "verdict": "corrected",
+        "note": "LAD component coefficient bound and open-disc adapter supply numerator convergence; exp composition requires the recorded radius request. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-denominator-derivative",
+        "verdict": "corrected",
+        "note": "Chain rule gives d′(1)=−cA, with exp germ input. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-principal-denominator-simple-zero",
+        "verdict": "corrected",
+        "note": "Analytic order-one factorization needs nonzero slope; native order normal form is cited. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-nonprincipal-analytic",
+        "verdict": "corrected",
+        "note": "A finite nonprincipal component admits a separating unit, making the central denominator nonzero; primitive and odd cases remain distinguished. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-principal-numerator-value",
+        "verdict": "corrected",
+        "note": "Inherited actual numerator mass equals −(1−p^(-1))log(p+1); dyadic norm is handled separately. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-principal-log-nonzero",
+        "verdict": "corrected",
+        "note": "Inherited logarithmic series norm gives nonzero log, including norm1/4 at2. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-principal-pole",
+        "verdict": "corrected",
+        "note": "Nonzero numerator and denominator order one give meromorphic order−1; zero totalized quotient is not a pole value. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-principal-residue",
+        "verdict": "corrected",
+        "note": "The signs cancel to give residue1−p^(-1) in the RJW s-coordinate. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-residue-coordinate-change",
+        "verdict": "corrected",
+        "note": "A coordinate derivative rescales the residue; both scalar normalizations are explicit. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-tame-trace-euler",
+        "verdict": "corrected",
+        "note": "Finite root product and multiplication by p yield the inverse-character Euler factor with exactly one p^(-1). Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-tame-value-one",
+        "verdict": "corrected",
+        "note": "Full primitive, including its nonzero logarithmic constant, is required for the unit-restricted value at one. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-power-smoothed-log-sum",
+        "verdict": "corrected",
+        "note": "The independent k=1 smoothed primitive, not the positive-polylog L-value theorem, gives factor1−χ(a); corrected §7 locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-power-trace-zero",
+        "verdict": "corrected",
+        "note": "Primitive character fiber sums kill the trace, including the n=1 fiber over zero; Φ is arbitrary on the root orbit. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-power-value-one",
+        "verdict": "corrected",
+        "note": "Admissible smoothing cancels χ(a)−1; actual all-prime rotated-smoothed comparison remains recorded. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-mixed-value-one",
+        "verdict": "corrected",
+        "note": "Finite Gauss twist plus trace-zero gives the mixed primitive constant; CRT transport is explicit. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-leopoldt",
+        "verdict": "corrected",
+        "note": "Tame, pure-power and mixed cases give the precise Gauss/inverse-character normalization; independent dyadic interfaces remain open. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-gk-root-ideals",
+        "verdict": "verified",
+        "note": "A local nonunit t makes1+ta a unit, so π and t generate the same ideal."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-gk-root-congruence",
+        "verdict": "verified",
+        "note": "Equal principal ideals transfer t²-divisibility to π²-divisibility, preserving the chosen additive-root convention."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-gk-dyadic-root",
+        "verdict": "verified",
+        "note": "Dyadic ζ=−1,π=−2 is a direct calculation; GK1979 assumes odd p and the endpoint q−1 is not smuggled into Robert’s range."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum",
+        "verdict": "corrected",
+        "note": "Finite Gamma-log sum uses χ, not χ^(-1), and no1/N; added a quartic level5 test to distinguish these alternatives."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum-apply",
+        "verdict": "verified",
+        "note": "Literal finite sum on native Gamma, character and denominator-unit data."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum-zero-log",
+        "verdict": "verified",
+        "note": "The zero supplied logarithm gives zero."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-gamma-sum-congr",
+        "verdict": "verified",
+        "note": "Pointwise agreement at the displayed Gamma values gives equality of sums."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-count",
+        "verdict": "verified",
+        "note": "Residue digit gives a continuous scalar count, including C(0)=0; no additional Witt carrier."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-count-apply",
+        "verdict": "verified",
+        "note": "Literal native reduction-digit formula."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-count-nat",
+        "verdict": "verified",
+        "note": "Strict natural endpoint gives n−1−floor((n−1)/p)."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-count-step",
+        "verdict": "verified",
+        "note": "Residue-digit change gives the unit indicator recurrence."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation",
+        "verdict": "verified",
+        "note": "Native finite equivalence from range and injectivity; sharp residue handles multiples of N."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation-apply",
+        "verdict": "verified",
+        "note": "Integer quotient formula agrees with Zhao AppendixA."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation-congruence",
+        "verdict": "verified",
+        "note": "Multiplication by N gives congruence modB."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation-filtration",
+        "verdict": "verified",
+        "note": "Sharp-residue filtration is the strict inequality in Zhao AppendixA."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation-range",
+        "verdict": "verified",
+        "note": "Range and unit preservation follow from B≡1 modN and p∤N."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-permutation-injective",
+        "verdict": "verified",
+        "note": "Congruent representatives in[0,B) coincide, giving finite injectivity."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference",
+        "verdict": "corrected",
+        "note": "Added inherited natural values/log sums and density; Lean now states normalization, recurrence, strict natural sums and uniqueness. Fixed E34→E37."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-tame-period",
+        "verdict": "verified",
+        "note": "Zhao Theorem3.3 has the stated periods; native kernel/sign identification is honestly requested rather than reconstructed."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-sum-expression",
+        "verdict": "verified",
+        "note": "Corollary3.4 finite projections and complete-interval antidifferences give −Lp(χω,−s); sharp/flat conversion uses Σχ=0."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-log-reindex-limit",
+        "verdict": "verified",
+        "note": "Moving endpoint tends to a/N; uniform logarithmic error and continuity give the Gamma-plus-count limit."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-differentiation",
+        "verdict": "corrected",
+        "note": "Strengthened Lean to derive HasFPowerSeriesAt from coefficient bounds/limits and the pointwise identification; no final expansion is assumed. Factorial/geometric and log-power antidifference inputs remain precise LAD requests."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-count-character-sum",
+        "verdict": "corrected",
+        "note": "Corrected carry to flat residue in[0,N); oddness and finite reindexing give χ(p)B1. Checked exact rational examples including2."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-ferrero-greenberg",
+        "verdict": "verified",
+        "note": "Zhao equation(4.5) has χ (not its inverse), θ=χω and +(1−χ(p))B1 logN; both differentiation signs cancel."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-exceptional-zero",
+        "verdict": "verified",
+        "note": "Interpolation at k=1 yields the Euler-factor zero when χ(p)=1."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-exceptional-derivative",
+        "verdict": "verified",
+        "note": "The explicit correction vanishes when χ(p)=1; this does not prove nonvanishing."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-gauss-log-projection",
+        "verdict": "verified",
+        "note": "Gamma orbit product accounts for the entire orbit: no1/f. Chosen π has common log zero and negative-Gauss sign is harmless under log."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-nonvanishing",
+        "verdict": "verified",
+        "note": "Gross–Dasgupta cite Brumer; the missing nonzero arithmetic projection/basis argument is a named gap, not a claimed completed proof."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-fg-simple-zero",
+        "verdict": "verified",
+        "note": "Actual analytic branch, zero value and nonzero derivative imply order one; depends on the separately recorded projection gap."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-tame-log-realization",
+        "verdict": "corrected",
+        "note": "Full primitive constant and local common-log series law realize the tame logarithm on ||T||<1; no missing constant is hidden. Corrected the printed-page/section locator."
+      },
+      {
+        "nodeId": "DirichletPadicLFunctions:L3/rjw2-mixed-log-constant",
+        "verdict": "corrected",
+        "note": "Product root εqεD and native CRT factorization give positive Gauss-twist coefficient; no extra CRT scalar or sign. Corrected the printed-page/section locator."
+      }
+    ]
   }
 }
