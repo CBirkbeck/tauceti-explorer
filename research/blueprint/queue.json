@@ -33997,7 +33997,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6276"
   },
   {
    "id": "BP-HabiroCyclotomicCompletions--HC.4",
@@ -36678,7 +36679,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6298"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
@@ -37157,8 +37159,9 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6352"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6352",
+   "finishedAt": "2026-10-10T20:37:26Z"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.0",
@@ -43671,7 +43674,8 @@
     "BP-QSeriesPartitionsAndMockModularForms~2"
    ],
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6469"
   },
   {
    "kind": "blueprint",
@@ -49246,8 +49250,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80213,8 +80217,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81523,8 +81527,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84614,8 +84618,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
