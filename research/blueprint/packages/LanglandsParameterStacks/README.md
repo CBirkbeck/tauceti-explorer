@@ -273,6 +273,48 @@ In the complex classical-group setting of KSS, a wild inertial parameter is a ho
 
 **Build.** Restrict an admissible parameter to P_F; require extendibility as part of the definition, not a theorem that arbitrary wild homomorphisms extend.
 
+The underlying group interface must retain the projection before imposing the
+analytic and algebraic admissibility conditions. For a group projection
+π:L→W and a homomorphism i:P→W, take the subtype of homomorphisms ρ:P→L for
+which there exists φ:W→L satisfying both π∘φ=id_W and φ∘i=ρ. The existence
+proof is part of the subtype condition; an extending φ is not chosen data.
+`WildInertialParameter.projection` and `.projection_apply` give π∘ρ=i and
+π(ρ(p))=i(p). `ofLanglands` requires the section equation, and
+`.ofLanglands_val` identifies its underlying map with φ∘i. Arbitrary
+extendibility without the section equation admits the constant homomorphism
+when the wild inclusion is nontrivial, which is the wrong restriction.
+
+Conjugation acts through ker π. If g∈ker π, the extending section becomes
+w↦gφ(w)g⁻¹ and still projects to w; expose this as
+`.conjugate_extension_projection`. The wild restriction transforms by
+ρ(p)↦gρ(p)g⁻¹. Its `.conjugate_val`, `.conjugate_one`, `.conjugate_mul` and
+`.conjugate_inverse` equations give a group action, and
+`.ofLanglands_conjugate` expresses the commutation of conjugation with
+restriction. For L=H⋊_αW, identify ker π with the image of the existing
+Mathlib inclusion H→H⋊_αW. The map `.dualElement` sends h to (h,1);
+`.dualElement_val` fixes that inclusion. The first component of the
+conjugated wild lift is
+
+\[
+h\,\rho(p)_{H}\,\alpha(i(p))(h)^{-1},
+\]
+
+as recorded by `.conjugate_left`. Thus the restriction agrees with the gauge
+action on crossed cocycles in LP0.1. When the wild action on H is trivial,
+this component is ordinary H-conjugation. Allowing every element of L to
+conjugate while keeping the same source inclusion changes the projection in
+general. Even in the group example L=W=S₃ with π=i=id, conjugation by
+g=(01) sends w=(12) to (02), so g w g⁻¹ has a different prescribed value
+from w. The kernel restriction prevents this error.
+
+For the complex classical-group specialization, the admissible extending
+parameter also includes continuity, finite inertia image, Frobenius
+semisimplicity and an algebraic SL₂(C)-factor, with the exact dual group and
+action. The ordinary section subtype supplies the projection and conjugation
+comparisons to that carrier; it does not impose those further conditions.
+The comparison sends an admissible parameter to its Weil section and then to
+its wild restriction, and preserves underlying maps and dual conjugation.
+
 The API should provide:
 
 - `WildInertialParameter`: A wild homomorphism together with existence of an admissible extension.
@@ -290,6 +332,12 @@ Unit tests:
 - `wild_inertial_conjugate`: Restriction of hφh⁻¹ equals hρh⁻¹.
 
 - `wild_inertial_extension_not_data`: Two admissible extensions with the same ρ define the same WildInertialParameter.
+
+At the ordinary group interface, also exclude a constant restriction when
+i is injective and P is nontrivial. Check the framed lift p↦(1,p) under
+the standard section of H⋊W, check the displayed gauge formula, and check
+the S₃ nonkernel conjugation above. These tests exercise the prescribed
+projection independently of the additional admissibility conditions.
 
 **Needs:** [LP0.2](#lp02-condensed-l-parameters); **ReductiveGroupsPartII, RG2.5**; [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification).
 
