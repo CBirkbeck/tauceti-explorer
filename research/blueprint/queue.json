@@ -46810,8 +46810,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47504,7 +47504,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ConformalMappingPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7537"
   },
   {
    "id": "REV-PKG-ConformalMappingPartII",
@@ -48171,7 +48172,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ErdosProgressionPowers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7538"
   },
   {
    "id": "REV-PKG-ErdosProgressionPowers",
@@ -48352,7 +48354,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GenericDoublePointInterpolation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7539"
   },
   {
    "id": "REV-PKG-GenericDoublePointInterpolation",
@@ -48920,8 +48923,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7491",
+   "finishedAt": "2026-10-10T14:03:02Z"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49062,8 +49066,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49243,8 +49247,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80116,8 +80120,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81426,8 +81430,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84514,8 +84518,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
