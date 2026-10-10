@@ -1,5 +1,177 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-kHrRyw`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-kHrRyw-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096741686).
+Status: **partial; blocked by the accepted plan's unresolved supplier contracts**.
+Only this job was claimed. None of the manager's priority issues was available;
+this available focus package followed the WORKERS.md fallback order.
+
+## This continuation: proved oddness comparison and a primary lifting proof
+
+The package now contains two proved algebraic API lemmas for
+`R17.5/odd-residual-lift`, with three proved boundary examples. A newly read
+primary paper supplies the Brauer-character lifting proof missing from the
+preceding continuation's source receipts. Source access is no longer the
+unverified part of that proposed route. Its supplier interfaces and arithmetic
+specialization still need reconciliation with the accepted plan.
+
+README target headings and anchors are preserved. The source's Galois lifting
+target and its projective proof route are retained; the alternative linear-image
+route below is a repair proposal. The README adds the determinant API and its
+tests, and compresses the introduction to remain within 200 KB. Suggested.lean
+adds the corresponding genuine matrix statements and proofs. Existing full
+target omissions remain explicit. No packet or other job's file changed.
+
+### Proved determinant API
+
+`TauCeti.GL2Transfer.involution_det_eq_neg_one_of_reduction` takes a commutative
+ring R without zero divisors, a field k, a ring homomorphism f : R → k with
+2 ≠ 0 in k, and A : GL₂(R). If A² = 1 and det(map f A) = −1, it proves
+det A = −1. Applying determinant gives (det A)² = 1. The existing
+`sq_eq_one_iff` gives the two signs; `Matrix.GeneralLinearGroup.map_det`
+excludes +1 after reduction. `involution_odd_of_reduction` applies this to
+ρ(c) for a group homomorphism ρ and c² = 1.
+
+The proof uses actual Mathlib matrix units, determinant and coefficient maps.
+It neither constructs a stable lattice nor supplies its reduction comparison.
+For a semisimplified comparison, additionally use determinant's invariance
+under semisimplification. Those are still inputs of the full arithmetic target.
+
+The three elaborated examples distinguish the hypotheses:
+
+- diag(1, −1) over ℤ reduces to determinant −1 modulo 3 and satisfies A² = 1;
+  the positive example invokes the new theorem.
+- The rank-two scalar −I reduces to determinant +1 modulo 3.
+- The identity over ℤ reduces to determinant −1 modulo 2 but its integral
+  determinant is +1, so omitting 2 ≠ 0 gives a false sign comparison.
+
+Both new lemmas and all three examples have proofs without `sorry`.
+A separate axiom inspection of the two lemmas reported only `propext`,
+`Classical.choice` and `Quot.sound`; it reported no `sorryAx`.
+
+### Proposed linear-image lifting route: precise remaining contracts
+
+I. M. Isaacs, *Lifting Brauer characters of p-solvable groups*, Pacific
+J. Math. **53** (1974), 171–188, Theorem 1.2, p. 171, gives a p-rational
+irreducible ordinary character restricting to a chosen irreducible Brauer
+character when p ≠ 2. Its proof is in §6, pp. 180–181; existence invokes
+Theorem 5.4 and its proof, pp. 179–180. The latter inducts on group order,
+using inertia-group induction when restriction has a suitable orbit and
+normal p/p′ quotient steps otherwise. Required inputs include Brauer Clifford
+correspondence (Lemma 5.1), the p′ restriction comparison (Theorem 3.1), and
+the extension/induction steps (Lemma 4.1 and Theorem 4.2). These are finite-group
+character arguments; the paper's automorphism-equivariance condition is not
+automorphy of a Galois representation.
+
+The needed arithmetic output is still an actual lattice, not just equality
+of characters. The following route makes its comparison obligation explicit:
+
+1. Let Γ be the finite **linear** image of r̄. A finite coefficient field and
+   a splitting field in characteristic p give its simple rank-two module V.
+   Solvability implies p-solvability.
+2. Choose a splitting number field E, a place λ above p and R = (𝓞_E)λ,
+   with residue field containing a splitting coefficient field for V. Webb's
+   proved Theorem 9.2.6, p. 143, supplies finite splitting fields. Specify the
+   residue embedding and compatible lifts of prime-to-p roots of unity. Apply
+   Isaacs to the resulting Brauer character and realize its ordinary lift over
+   E. Lemma 9.4.6 and Corollary 9.4.7, pp. 152–153, construct a full Γ-stable
+   R-lattice from the R-span of the finite orbit of a basis. This avoids
+   assuming an arbitrary completed lift descends to a number field.
+3. Webb, Proposition 10.1.3(6), pp. 170–171, identifies the Brauer character
+   of the lattice reduction with the ordinary character on p-regular elements.
+   Corollary 10.2.3(3), p. 177, with its proof using Theorem 10.2.2,
+   pp. 176–177, identifies composition factors. Since V is simple and has
+   dimension two, the reduction itself is isomorphic to V. This obtains an
+   equivariant reduction isomorphism, rather than only a virtual-class equality.
+4. Inflate along G_F → Γ. Its open kernel gives continuity and its image is
+   finite. Over a splitting E the chosen ordinary representation is absolutely
+   irreducible. At each real-place conjugation c, apply the new determinant
+   lemma to the stable integral action and its specified reduction. This gives
+   total oddness without a projective section or an unspecified scalar twist.
+
+The exact supplier must expose the splitting-system/residue embedding,
+Brauer-character comparison and full lattice isomorphism of steps 1–3.
+This proof route can replace the reduction-compatible projective-lift input;
+it is not an additional consequence of Tate vanishing. The current upstream
+RepresentationTheory/ModularInduction roadmap explicitly excludes Brauer
+characters and the decomposition map. Its exact G₀ induction theorem does
+not supply the simple lattice lift. Reuse the existing representation,
+induction and lattice carriers when specifying a single permitted owner for
+the missing interfaces. A projective cover is not a substitute for this
+rank-two lattice, as the GL₂(𝔽₃) example at p = 3 demonstrates.
+
+### Blocker and resumption gate
+
+The binding issue says: **“Change no packet; if the plan has a mistake,
+describe it in the handoff note.”** WORKERS.md already permits required
+higher-tier results to move into this package. No further permission is needed
+for such a move. The remaining problem is the mathematical proof chain and
+the missing exact supplier contracts, not waiting for implementation or time.
+
+The current statement checks reproduce the two decisive inherited problems:
+
+- `R17.5/finite-hecke-extension` is on torsion ideles. Its consumers need full
+  local multiplicative groups, including uniformizers. The higher
+  `R23.1/cht-character-extension` needs the Chevalley S-unit congruence theorem,
+  finite-quotient extension and CM infinity-type inputs, and remains an open
+  request. The five current Hecke/ray-class statements recorded in the
+  preserved continuation factor existing characters or start with a modulus;
+  they do not construct the requested simultaneous local prescription.
+- Four upward R19 prerequisites remain in the accepted GL2 plan. The three
+  proposed local classical attachment/conductor targets require the
+  eigenprojector realization, coefficient descent and ramified local comparison
+  proof chains. Naming these targets does not supply those chains.
+
+The preserved Chevalley and classical-attachment repair proposals below give
+the precise affected contracts and consumers. Reconcile their single owners
+and proof inputs first, including the corrected cyclotomic descent argument.
+For residual lifting, the primary proof receipt above supersedes the previous
+“proof not read” boundary; install the genuine modular-character/lattice
+interfaces before treating that alternative route as closed. Then complete
+the omitted full signatures and source-level tests and add metadata.
+
+### Validation and receipts for codex-kHrRyw
+
+- `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
+  exits 0: no errors; 144 warnings, all `declaration uses sorry`. The new
+  determinant lemmas and examples add none of those warnings. Available
+  memory was 105 GB; the shared checker used Mathlib `082e2d3` and Tau Ceti
+  `f790474`. No Lake command ran in either read-only current tree.
+- Both accepted GL2 packets pass `scripts/check_blueprint.py` with zero
+  errors and warnings. Their fingerprints below are unchanged. Across the
+  two packets, all twelve stages are planned, none closed.
+- Current read-only revisions: TauCetiRoadmap
+  `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Current GlobalNumberFields and
+  RepresentationTheory/ModularInduction READMEs were read in full; the twelve
+  historical AUDIT-14 GL2 entries and the five current character statements
+  were checked separately from the pinned build.
+- New primary receipt, read 2026-10-10: [Isaacs publisher PDF](https://msp.org/pjm/1974/53-1/pjm-v53-n1-p15-s.pdf),
+  §§2–6, printed pp. 172–182, including Theorem 5.4's proof and Theorem 1.2's
+  proof. SHA-256:
+  `413add693a05e715bbe9dd480feab658ebd2ff180fce71dbd73d099fec8bdc29`.
+- Webb's [author manuscript](https://www-users.cse.umn.edu/~webb/RepBook/RepBookLatex.pdf),
+  dated 23 February 2016, was reread at the precise statements/proofs above,
+  including the lattice construction and character-to-composition-factor
+  comparison. SHA-256:
+  `3053d04310d379844d0ccac2ae078124492730a116e63343014d276169fb4c24`.
+  Its unproved Theorem 9.4.12 is not used as the proof receipt.
+- README is 199,968 bytes. All previous target headings and anchors remain.
+  Only this job's README, Suggested.lean and handoff change. The scoped intake
+  checks and `git diff --check` pass. No source file, source passage or local
+  filesystem path is committed.
+- `metadata.toml` remains absent and `issues.deliverables_complete` is false.
+  This submission is a blocked checkpoint, not a completed package. Adding
+  metadata would incorrectly trigger the intake's existence-based completion.
+
+## Preserved continuation: codex-j31rIK
+
+Everything below is historical. Its mathematical repair proposals and source
+receipts are preserved; its session-specific status and validation apply to
+that earlier submission. The primary-proof and determinant work above
+supersedes its unverified Fong–Swan source-access boundary.
+
 Worker: Codex (GPT-6), session `codex-j31rIK`. Issue: #7901.
 Date: 2026-10-10. Branch: `codex-j31rIK-gl2-package`.
 Status: **partial; blocked by unresolved mathematical supplier contracts in the accepted plan**.
