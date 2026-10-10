@@ -16,357 +16,378 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The quotient R[X]/(f); the carrier of F[X]/(h) and of the Stepanov and function-field constructions.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:AdjoinRoot.mk",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The quotient map F[X] → F[X]/(g).",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:AdjoinRoot.modByMonicHom",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "For monic g, the linear map F[X]/(g) → F[X] to the representative of degree < deg g (Shoup's rep).",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Algebra.trace",
         "kind": "def",
         "module": "Mathlib/RingTheory/Trace/Defs.lean",
         "provides": "The trace S →ₗ[R] R of a finite free algebra.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Algebra.trace_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Trace/Basic.lean",
         "provides": "The trace of a finite separable field extension is surjective.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Algebra.trace_trace",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Trace/Defs.lean",
         "provides": "Transitivity of the trace in a tower R ⊆ S ⊆ T.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:FiniteField.algebraMap_trace_eq_sum_pow",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/Trace.lean",
-        "provides": "Tr_{L/K}(x) = Σ_{i < [L:K]} x^(q^i).",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "For finite fields E/F, the image in E of the native F-valued trace of x equals Σ_{i<[E:F]} x^(card(F)^i).",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Polynomial.degreeLTEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
         "provides": "The linear equivalence between polynomials of degree < n and coefficient vectors Fin n → R.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Submodule.comap",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
-        "provides": "The pullback of a submodule `p ⊆ M₂` along `f : M → M₂`",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The inverse image of a submodule under a linear map.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Submodule.span",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
         "provides": "The span of a set.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:hammingNorm",
         "kind": "def",
         "module": "Mathlib/InformationTheory/Hamming.lean",
         "provides": "The Hamming weight function to the naturals.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:traceForm_nondegenerate",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Trace/Basic.lean",
-        "provides": "Let $L/K$ be a finite extension of fields. If $L/K$ is separable, then `traceForm` is nondegenerate.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The trace pairing of a finite separable field extension is nondegenerate; finite fields satisfy these hypotheses.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Divisor",
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
-        "provides": "A divisor of `F / k` is a finite formal integer combination of its normalized places.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "Integer-valued finitely supported coefficients indexed by native places of the extension.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
-        "provides": "The degree of a function-field divisor, weighted by the degrees of its residue fields.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "Sum of divisor coefficients weighted by the corresponding residue-field degrees.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.dim",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
-        "provides": "`ℓ(D) = dim_k L(D)` (Stichtenoth, Definition 1.4.10).  Its finiteness, which guards the junk value of `Module.finrank`, is `TauCeti.finiteDimensional_riemannRochSpace`.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "Native ℓ(D) is the finrank of riemannRochSpace D; function-field hypotheses ensure finite dimensionality.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.LinearCode",
         "kind": "abbrev",
         "module": "TauCeti/InformationTheory/Coding/Basic.lean",
-        "provides": "A linear code over `F` with coordinate set `ι` is a linear subspace of the word space `ι → F`.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "An abbreviation for Submodule F (ι→F), retaining the existing word space and scalar operations.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place",
         "kind": "structure",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
-        "provides": "A **place** of the field extension `F/k` is a normalized discrete valuation of `F` that is trivial on the constants: a `ℤᵐ⁰`-valued valuation which is surjective — so that its value group is exactly `ℤ` — and which takes the value `1` on every nonzero element of `k`.  Normalization removes the need to quotient by valuation equivalence: two places are equal as soon as their valuations are equivalen",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "A surjective discrete valuation F→ℤᵐ⁰, trivial on the constant field k. Equal normalized valuations give equal places.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place.ResidueField",
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
-        "provides": "The residue field `F_P = 𝒪_P / 𝔪_P` of a place (Stichtenoth, Definition 1.1.14). The evaluation map `f ↦ f(P)` is `IsLocalRing.residue P.integers`.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The local residue field of P.integers; evaluation uses the native local-ring residue homomorphism.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place.degree",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
-        "provides": "The **degree** `deg P = [F_P : k]` of a place (Stichtenoth, Definition 1.1.14). Its finiteness, which guards the junk value of `Module.finrank`, holds whenever `F/k` is a function field: see `TauCeti.Place.finiteDimensional_residueField` (Stichtenoth, Proposition 1.1.15).",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The finrank over k of P.ResidueField; this dimension is finite for function fields.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place.integers",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
-        "provides": "The valuation ring `𝒪_P = {f : F | v_P f ≤ 1}` of a place (Stichtenoth, Definition 1.1.4).",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The valuation subring consisting of f with P.valuation f≤1.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place.residueFieldEquivOfDegreeEqOne",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
-        "provides": "**A rational place has residue field `k`**: at a place of degree one the constants map isomorphically onto the residue field, so `f(P)` really is an element of `k`.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "If P.degree=1, a k-algebra equivalence k≃ₐ[k]P.ResidueField; its inverse supplies k-valued evaluation.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.riemannRochSpace",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
-        "provides": "The **Riemann–Roch space** `L(D)` of a divisor `D` of `F / k` (Stichtenoth, Definition 1.4.4): the `k`-subspace of functions whose poles are bounded by `D`, that is `div f + D ≥ 0`.  The membership condition is stated multiplicatively as `v_P f ≤ exp (D P)`.  This is junk-free at `f = 0`, where the valuation is `0` and the condition holds at every place, so no separate `∪ {0}` clause is needed; th",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "The native k-submodule defined by P.valuation f≤exp(D.coeff P) at every place P; zero satisfies the multiplicative inequalities.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.weilDifferentialFiltration",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Differential/Weil.lean",
-        "provides": "The space `Ω_F(D)` of **Weil differentials bounded by `D`** (Stichtenoth, Definition 1.5.6): the `k`-linear forms on the repartition space that vanish on `A_F(D) + F`.",
-        "checked": "Statement reread at the pinned commit, 2026-10-05; this is an existing interface, not a new declaration."
+        "provides": "Native repartition-dual submodule of forms annihilating the bounded repartitions for D and the diagonal copy of the function field.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:CommGroup.equiv_prod_multiplicative_zmod_of_finite",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/FiniteAbelian/Basic.lean",
         "provides": "A finite commutative group is a product of Multiplicative (ZMod n_i), with n_i > 1; torsion kernel counts determine the 2-primary exponents.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:SkewPolynomial",
         "kind": "def",
         "module": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
         "provides": "Native skew-polynomial ring for an action of Multiplicative naturals; the action may be a noninvertible endomorphism.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:SkewPolynomial.monomial_mul_monomial",
         "kind": "theorem",
         "module": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
         "provides": "monomial n r times monomial m s = monomial (n+m) (r * (φ^[n]) s).",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:dualTensorHomEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "For finite projective M, Dual R M tensor N is linearly equivalent to Hom R M N.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:dualTensorHomEquiv_tmul",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "The pure tensor f tensor n sends m to f(m) scalar-multiplied by n.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:comp_dualTensorHom",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "Composition of rank-one tensor maps contracts the middle dual/vector pair; multiplication order is fixed.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Module.Basis.traceDual",
         "kind": "def",
         "module": "Mathlib/RingTheory/Trace/Basic.lean",
         "provides": "The trace-dual basis of a finite separable field extension.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:IsGalois.normalBasis",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Galois/NormalBasis.lean",
         "provides": "A basis indexed by the actual Galois group; reindexing by powers of Frobenius is needed.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Matrix.det_vandermonde_ne_zero_iff",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
         "provides": "The determinant of the square Vandermonde matrix is nonzero iff its entries are pairwise distinct.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:AddChar.expect_eq_ite",
         "kind": "theorem",
         "module": "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
         "provides": "Normalized character sum is 1 for the trivial additive character (written 0), and 0 otherwise.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:TwoSidedIdeal",
         "kind": "def",
         "module": "Mathlib/RingTheory/TwoSidedIdeal/Basic.lean",
         "provides": "Native two-sided ideals for a possibly noncommutative ring; no ordinary commutative Ideal is used for the Ore quotient.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:FiniteField.frobeniusAlgHom",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Finite/Basic.lean",
         "provides": "For any commutative F-algebra R with F finite, the F-algebra endomorphism a↦a^(card F).",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:Module.card_eq_pow_finrank",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finiteness.lean",
         "provides": "The cardinality of a finite-dimensional vector space over a finite field is card(F)^finrank.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:FiniteField.algebraMap_norm_eq_pow",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
         "provides": "For finite E/F, the norm mapped into E is x^((card E−1)/(card F−1)).",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:FiniteField.unitsMap_norm_surjective",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
-        "provides": "The norm homomorphism E×→F× is surjective; its kernel has cardinality (card E−1)/(card F−1).",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "provides": "For finite fields E/F, the units norm E×→F× is surjective. The displayed norm-one kernel size is then a consequence of the finite-group fibre formula, not part of this declaration.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:FiniteField.norm_surjective",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
         "provides": "The native norm E→F is surjective for finite field extensions.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:isCyclic_of_injective_ringHom",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/IntegralDomain.lean",
         "provides": "A finite group injecting multiplicatively into an integral domain is cyclic; the native instance gives IsCyclic E×.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:IntermediateField.fixedField",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Galois/Basic.lean",
         "provides": "The actual intermediate field fixed by a subgroup of Gal(E/F).",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:IntermediateField.finrank_fixedField_eq_card",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Galois/Basic.lean",
         "provides": "finrank(fixedField H,E)=card H; combined with cyclic relative Frobenius and the tower law, the field fixed by φ^m has F-degree m when m divides n.",
-        "checked": "Statement read in the exact Mathlib source at 082e2d3, 2026-10-05."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.finsum_repartitionDualComponent_eq_zero",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.lean",
-        "provides": "**The abstract residue theorem** (Stichtenoth, (1.45)): the local components of a Weil differential sum to zero on every function of `F`.  The constant repartition of `x` lies in the diagonal copy of `F` inside `A_F`, on which every Weil differential vanishes, and its entry at every place is `x`.  Stichtenoth states the case `x = 1`; no hypothesis on the constant field `k` is needed, and no residu",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "For a native Weil differential and any function-field element x, the finsum of its local components applied to x is zero.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.repartitionDualComponent",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.lean",
-        "provides": "The **local component** `ω_P` at a place `P` of a `k`-linear form `ω` on the repartition space (Stichtenoth, Definition 1.7.1): the `k`-linear form `x ↦ ω (ι_P x)` on `F`.",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "The native k-linear local component obtained by composing a repartition-space functional with the single-place embedding.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.mem_riemannRochSpace_iff",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
-        "provides": "Membership in `L(D)`, unfolded: the poles of `f` are bounded by `D` at every place.",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "Membership in the native Riemann–Roch submodule is equivalent to all placewise valuation bounds.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.mem_weilDifferentialFiltration_iff_repartitionDualComponent_eq_zero",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Differential/LocalComponent.lean",
-        "provides": "**A Weil differential is bounded by `D` exactly when its local components are**: the pole order of `ω` at each place is a local condition, read off from `ω_P` alone.  This is the half of Stichtenoth, Proposition 1.7.3(a) that does not mention the divisor `(ω)`: the bound at `P` restricts `ω_P` to vanish on the functions whose pole at `P` is bounded by `D`, and conversely those vanishings force `ω`",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "Membership in the native differential filtration is equivalent to each local component vanishing on the placewise bounded functions.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.riemannRochSpace_eq_bot_of_degree_neg",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
-        "provides": "A divisor of negative degree has no nonzero functions in its Riemann–Roch space (Stichtenoth, Corollary 1.4.12(b)).",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "For a function field with the declaration’s constant-field hypotheses, negative divisor degree forces its native Riemann–Roch space to be zero.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "tauceti:TauCeti.Place.infty",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
-        "provides": "The **place at infinity** of the rational function field: the normalized valuation with `v_∞ f = exp (f.intDegree)` for `f ≠ 0`, for which `x⁻¹` is a prime element (Stichtenoth, Proposition 1.2.1(c)).",
-        "checked": "Statement reread at Tau Ceti f790474, 2026-10-05; used by the native AG assembly bindings, not replanned."
+        "provides": "Actual RatFunc place defined by the native infinity valuation; for f≠0 its value is exp(f.intDegree), so the order is −f.intDegree.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:RingQuot",
         "kind": "def",
         "module": "Mathlib/Algebra/RingQuot.lean",
         "provides": "Native quotient of a possibly noncommutative ring by a generating relation; its algebra instance descends central scalars.",
-        "checked": "Statement read at Mathlib 082e2d3, 2026-10-05; no replacement planned."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:dotProductBilin",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
         "provides": "Native finite-coordinate dot product as a bilinear form.",
-        "checked": "Statement read at Mathlib 082e2d3, 2026-10-05; no replacement planned."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       },
       {
         "ref": "mathlib:LinearMap.BilinForm.finrank_orthogonal",
         "kind": "lemma",
         "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
         "provides": "For a nondegenerate bilinear form on a finite-dimensional space, finrank of the orthogonal submodule is ambient finrank minus submodule finrank.",
-        "checked": "Statement read at Mathlib 082e2d3, 2026-10-05; no replacement planned."
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
+      },
+      {
+        "ref": "tauceti:TauCeti.Place.ratFuncDegreeOneEquiv",
+        "kind": "def",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+        "provides": "For a field k, Option k is equivalent to the degree-one places of RatFunc k; none is infinity and some a is the place of X−a.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
+      },
+      {
+        "ref": "tauceti:TauCeti.Place.adicOfIrreducible_X_sub_C_injective",
+        "kind": "theorem",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
+        "provides": "For a field k, the map sending a to the actual RatFunc place of X−a is injective.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
+      },
+      {
+        "ref": "mathlib:Polynomial.card_roots'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+        "provides": "Over a commutative integral domain, the multiset of roots of P has cardinality at most P.natDegree. In the evaluation-injectivity argument P is nonzero before every field element is counted as a root.",
+        "checked": "Independently read the declaration and enclosing hypotheses at the full pinned commit, 2026-10-10, REV-FiniteFieldsAndCharacterSums--FF.4. Existence and the stated interface confirmed; routine consequences are distinguished in provides."
       }
     ]
   },
@@ -378,10 +399,16 @@
       "edition": "arXiv:1211.5475v2, January 1, 2013; publication metadata points to Finite Fields and Their Applications 22 (2013), 16–34, DOI 10.1016/j.ffa.2013.03.003. The text read is v2, not a publisher copy.",
       "url": "https://arxiv.org/pdf/1211.5475v2",
       "readSections": [
-        "§3, pp. 8–10: composition algebra; §5, pp. 17–26: Theorem 5.1 and Proposition 5.5; §6, pp. 26–30: coefficient subalgebras, Theorems 6.1–6.4."
+        "§2.1, pp. 5–6; §3, pp. 8–9; Theorem 5.1, p. 18 and §5.1 proof, pp. 19–21; Proposition 5.5(1), p. 25; §6, Theorems 6.1–6.3 and Corollary 6.4, pp. 26–28."
       ],
       "accessed": "2026-10-05",
-      "sha256": "d12dc047c1dd936a5453a07089c3a7e4d1d485e522ac3dae95772a1bffd626b2"
+      "sha256": "d12dc047c1dd936a5453a07089c3a7e4d1d485e522ac3dae95772a1bffd626b2",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "d12dc047c1dd936a5453a07089c3a7e4d1d485e522ac3dae95772a1bffd626b2",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "GK09",
@@ -390,10 +417,16 @@
       "edition": "October 14, 2009 public draft; distinct from the 2012 Cambridge book.",
       "url": "https://www.cs.uky.edu/~klapper/pdf/algebraic.pdf",
       "readSections": [
-        "§4.5, pp. 108–110 (Galois-ring units); §§13.3–13.4, pp. 315–317; §§14.1–14.7, pp. 321–339, including exercises proving d-form correlation."
+        "§4.5, pp. 109–110; Lemma 3.2.12, p. 68 and quadratic forms §3.3, pp. 79–80; §§13.3–13.4, pp. 314–317; §§14.1–14.7, pp. 329–338 and §14.11 Exercise 1, p. 345."
       ],
       "accessed": "2026-10-05",
-      "sha256": "95da92a94ea7f39ab3c743437bd72e7013eaf5508be42541073b4151fa7db3ce"
+      "sha256": "95da92a94ea7f39ab3c743437bd72e7013eaf5508be42541073b4151fa7db3ce",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "95da92a94ea7f39ab3c743437bd72e7013eaf5508be42541073b4151fa7db3ce",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "GK11",
@@ -402,10 +435,16 @@
       "edition": "April 2, 2011 public draft; chapter numbers differ from the 2009 draft.",
       "url": "https://www.math.ias.edu/~goresky/pdf/algebraic0.pdf",
       "readSections": [
-        "Corresponding interleaving, Fourier/bent and correlation-family passages, Chapters 10–11, pp. 216–242; d-form statement and hypotheses. Quoted errors remain scoped to the 2009 text unless the collation below explicitly says otherwise."
+        "§10.5, pp. 216–218 and §§11.2–11.7, pp. 232–240, collating the specific 2009 findings. No version-of-record collation is claimed."
       ],
       "accessed": "2026-10-05",
-      "sha256": "2f130ecff3ffaeabd5d66f7402a30880c817640745d3d692599f32e6d7923019"
+      "sha256": "2f130ecff3ffaeabd5d66f7402a30880c817640745d3d692599f32e6d7923019",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "2f130ecff3ffaeabd5d66f7402a30880c817640745d3d692599f32e6d7923019",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "KATZ93",
@@ -417,19 +456,31 @@
         "Theorem 1, pp. 143–144, and its proof, pp. 145–149 (especially n=2, torus parametrisation, punctures and geometric triviality)."
       ],
       "accessed": "2026-10-05",
-      "sha256": "95baed6d51008a201eea0aff81566dd8dd2543d4ff1433347699ba70ca3e01fb"
+      "sha256": "95baed6d51008a201eea0aff81566dd8dd2543d4ff1433347699ba70ca3e01fb",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "95baed6d51008a201eea0aff81566dd8dd2543d4ff1433347699ba70ca3e01fb",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "KUANG94",
-      "title": "Eigenfunctions of the Laplacian on finite upper half planes",
-      "authors": "Jingshi Kuang",
+      "title": "Eigenfunctions on the Finite Poincaré Plane",
+      "authors": "Jinghua Kuang",
       "edition": "arXiv:math/9411217; five-page preprint.",
       "url": "https://arxiv.org/pdf/math/9411217",
       "readSections": [
         "Entire paper: spherical functions, eigenvalue formula, Theorem 4 proof and §8 Ramanujan graphs. Normalizations are audited rather than copied."
       ],
       "accessed": "2026-10-05",
-      "sha256": "71d4aa35c771bb951bd5ac45b4d63dbebb28626bcf094d33c7a184c312526e3a"
+      "sha256": "71d4aa35c771bb951bd5ac45b4d63dbebb28626bcf094d33c7a184c312526e3a",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "71d4aa35c771bb951bd5ac45b4d63dbebb28626bcf094d33c7a184c312526e3a",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "KLAPPER-TN",
@@ -441,7 +492,13 @@
         "§§1–2, pp. 1–5: Definition 1.1 and Theorem 2.1 with proof; both coprimality assumptions."
       ],
       "accessed": "2026-10-05",
-      "sha256": "3b20b283688f21f1742717330a7e9ee69dd69c9aac041546af28cfcf33c73b45"
+      "sha256": "3b20b283688f21f1742717330a7e9ee69dd69c9aac041546af28cfcf33c73b45",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "3b20b283688f21f1742717330a7e9ee69dd69c9aac041546af28cfcf33c73b45",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "ECT25",
@@ -453,7 +510,13 @@
         "Exercise 5.23, Hermitian curve and monomial evaluation construction; dimensional and distance claims checked with their parameter ranges."
       ],
       "accessed": "2026-10-05",
-      "sha256": "4777d44223362430b0e2c0097633158879875c47928b40d764cab0daf1e1904c"
+      "sha256": "4777d44223362430b0e2c0097633158879875c47928b40d764cab0daf1e1904c",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "4777d44223362430b0e2c0097633158879875c47928b40d764cab0daf1e1904c",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "SZONYI",
@@ -465,7 +528,13 @@
         "All four pages; ideal correspondence, generator/check polynomials, dimension, reciprocal dual and BCH bound. Normalize the reciprocal to make it monic."
       ],
       "accessed": "2026-10-05",
-      "sha256": "6485648be4871f07a31f4482fcb40b325f3feae93c80915dfdaf4ba0ae25581c"
+      "sha256": "6485648be4871f07a31f4482fcb40b325f3feae93c80915dfdaf4ba0ae25581c",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "6485648be4871f07a31f4482fcb40b325f3feae93c80915dfdaf4ba0ae25581c",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "BAZLOV23",
@@ -474,10 +543,16 @@
       "edition": "Public University of Manchester course notes, version November 12, 2023.",
       "url": "https://personalpages.manchester.ac.uk/staff/yuri.bazlov/code/notes/ch9.pdf",
       "readSections": [
-        "Entire week: definitions, Lemma 9.2, Theorems 9.3–9.4, Corollary 9.5 and all binary length-three examples."
+        "Week 9, printed pp. 98–105 (PDF pp. 1–8): Lemma 9.2, Theorems 9.3–9.4, Corollary 9.5 and binary length-three examples."
       ],
       "accessed": "2026-10-05",
-      "sha256": "c802bada8f693b6d57a241a926b0e2038d0f556e6f23c720e79c109355ef5181"
+      "sha256": "c802bada8f693b6d57a241a926b0e2038d0f556e6f23c720e79c109355ef5181",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "c802bada8f693b6d57a241a926b0e2038d0f556e6f23c720e79c109355ef5181",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     },
     {
       "id": "ECT26",
@@ -489,7 +564,13 @@
         "Title/version page and Exercise 5.23(1)–(6), pp. 109–110. The unguarded dimension expression in item (4) persists."
       ],
       "accessed": "2026-10-05",
-      "sha256": "7251cb8e4bc5048cfd6ad113f14bc6d6d3c5a079e5dc33430b1cf36df5c21005"
+      "sha256": "7251cb8e4bc5048cfd6ad113f14bc6d6d3c5a079e5dc33430b1cf36df5c21005",
+      "independentReview": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "sha256": "7251cb8e4bc5048cfd6ad113f14bc6d6d3c5a079e5dc33430b1cf36df5c21005",
+        "note": "Fresh public file hash matches the recorded version; target passages and source-finding locators independently read."
+      }
     }
   ],
   "nodes": [
@@ -560,12 +641,13 @@
         "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial",
         "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp",
         "mathlib:SkewPolynomial",
-        "mathlib:SkewPolynomial.monomial_mul_monomial"
+        "mathlib:SkewPolynomial.monomial_mul_monomial",
+        "mathlib:FiniteField.frobeniusAlgHom"
       ],
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§2.1, equations (1)–(3), and §3",
+          "locator": "§2.1, equations (1)–(3), Theorems 2.1–2.2, pp. 5–6; §3, Theorem 3.1, pp. 8–9. The commutative-algebra generalization is derived from the native Frobenius endomorphism.",
           "match": "The source’s skew-polynomial model, generalized from fields to commutative F-algebras using the native noninvertible Frobenius action."
         }
       ],
@@ -600,6 +682,11 @@
           "name": "oreToLinearized_natural",
           "role": "functoriality",
           "statement": "An F-algebra map R→S commutes with Θ and the induced coefficient map."
+        },
+        {
+          "name": "frobeniusAction_smul",
+          "role": "compatibility",
+          "statement": "Under the native Multiplicative ℕ action, ofAdd(k) acts on a as a^(q^k); k=0 is the identity. No inverse Frobenius is required."
         }
       ],
       "tests": [
@@ -656,7 +743,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§2.1 and §3, pp. 4–10",
+          "locator": "§2.1, pp. 5–6; §3, Theorem 3.1 and finite composition algebra, pp. 8–9",
           "match": "The finite composition algebra, with explicit multiplication and reduction convention."
         }
       ],
@@ -739,12 +826,14 @@
       ],
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/reduced-linearized-algebra",
-        "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear"
+        "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear",
+        "mathlib:Polynomial.card_roots'",
+        "mathlib:Module.card_eq_pow_finrank"
       ],
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§3, Theorem 3.1 with the evaluation identification preceding it",
+          "locator": "§3, Theorem 3.1 and preceding evaluation identification, pp. 8–9",
           "match": "Uses actual F-linear endomorphisms, not an abstract supplied multiplication table."
         }
       ],
@@ -831,7 +920,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§3, Theorem 3.1, and §5.1",
+          "locator": "§3, Theorem 3.1, pp. 8–9; §5.1, proof of Theorem 5.1, pp. 19–21",
           "match": "Finite-field coordinates for the generic tensor–Hom equivalence already in Mathlib."
         }
       ],
@@ -870,7 +959,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§5, Theorem 5.1(1)–(2), pp. 17–18 and §5.1 proof",
+          "locator": "§5, Theorem 5.1(1)–(2), p. 18; §5.1 proof, pp. 19–21",
           "match": "The basis-dependent trace formulas and their rank statements, using the native trace-dual basis."
         }
       ],
@@ -908,7 +997,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "Theorem 5.1(3) and §5.1 proof, pp. 18–20",
+          "locator": "Theorem 5.1(3), p. 18; §5.1 proof, pp. 19–21",
           "match": "The minimal number of pure trace tensors equals map rank."
         }
       ],
@@ -945,7 +1034,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§5.3, Proposition 5.5(1), p. 26",
+          "locator": "§5.3, Proposition 5.5(1), p. 25",
           "match": "The inverse expression with both trace-dual bases and its orientation fixed."
         }
       ],
@@ -1064,7 +1153,8 @@
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/intermediate-coefficient-subalgebra",
         "FiniteFieldsAndCharacterSums:FF.4/frobenius-ore-polynomial-comparison",
-        "mathlib:TwoSidedIdeal"
+        "mathlib:TwoSidedIdeal",
+        "mathlib:RingQuot"
       ],
       "sources": [
         {
@@ -1186,7 +1276,7 @@
       "sources": [
         {
           "sourceId": "WU12",
-          "locator": "§6, passage before and statement of Corollary 6.4, pp. 27–28",
+          "locator": "§6, paragraph preceding Corollary 6.4 and the corollary, p. 28",
           "match": "The corollary has exponent t; the preceding sentence’s exponent n is corrected."
         }
       ],
@@ -1221,12 +1311,13 @@
         "FiniteFieldsAndCharacterSums:FF.4/m-sequence",
         "FiniteFieldsAndCharacterSums:FF.4/m-sequence-state-cycle",
         "mathlib:Algebra.trace_trace",
-        "mathlib:Algebra.trace_surjective"
+        "mathlib:Algebra.trace_surjective",
+        "mathlib:Module.card_eq_pow_finrank"
       ],
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§13.3, pp. 315–316",
+          "locator": "§13.3, Proposition 13.3.1 and its proof, pp. 314–315",
           "match": "The matrix layout and corrected zero-column count; inherited E512 already records the denominator correction."
         }
       ],
@@ -1264,7 +1355,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§13.4, pp. 316–317",
+          "locator": "§13.4, transform definition and Proposition 13.4.1, pp. 315–316; Corollary 13.4.2, p. 316",
           "match": "The finite trace-frequency Fourier transform, with its normalization pinned."
         }
       ],
@@ -1355,7 +1446,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§13.4, p. 317",
+          "locator": "§13.4, Definition 13.4.3, p. 317",
           "match": "Correctly requires the magnitude of the Fourier coefficients, rather than equality of complex numbers to a positive real."
         }
       ],
@@ -1419,7 +1510,7 @@
       ],
       "title": "Walsh coefficients and periodic correlation",
       "kind": "theorem",
-      "statement": "Let α generate E×, N=|E|−1, b_i=B(α^i), a_i=Tr(α^i), and Cψ(b,a;t)=Σ_{i mod N}ψ(b_i) overline(ψ(a_{i+t})). Then Cψ(b,a;t)+ψ(B(0))=Wψ(B,α^t). Consequently Σ_t |Cψ(b,a;t)+ψ(B(0))|²=|E|²−|Wψ(B,0)|². If B is ψ-bent, every shifted correlation magnitude is √|E|.",
+      "statement": "Let α generate E×, N=|E|−1, b_i=B(α^i), a_i=Tr(α^i), and Cψ(b,a;t)=Σ_{i mod N}ψ(b_i) overline(ψ(a_{i+t})). Then Cψ(b,a;t)+ψ(B(0))=Wψ(B,α^t). Consequently Σ_t |Cψ(b,a;t)+ψ(B(0))|²=|E|²−|Wψ(B,0)|². If B is ψ-bent, every zero-corrected shifted magnitude |Cψ(b,a;t)+ψ(B(0))| is √|E|.",
       "hypotheses": [
         "α primitive; B arbitrary; ψ nontrivial; periodic sequences indexed modulo N."
       ],
@@ -1440,7 +1531,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§13.4, p. 317",
+          "locator": "§13.4, Proposition 13.4.1, pp. 315–316; Corollary 13.4.2, p. 316; erroneous bent-correlation paragraph, p. 317",
           "match": "The all-elements versus nonzero-elements correction and Parseval restriction."
         }
       ],
@@ -1477,7 +1568,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§13.4, p. 317",
+          "locator": "§13.4, Proposition 13.4.4, p. 317, using §3.2, Lemma 3.2.12, p. 68",
           "match": "The dependence-on-character warning and prime-field exception."
         }
       ],
@@ -1552,7 +1643,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§14.2, (14.1), pp. 330–331",
+          "locator": "§14.2, equation (14.1), p. 330; second trace exponent and degree/primitivity assertion corrected",
           "match": "The two-parameter family; no false equivalence between full minimal-polynomial degree and a primitive element is assumed."
         }
       ],
@@ -1675,7 +1766,7 @@
       "sources": [
         {
           "sourceId": "GK09",
-          "locator": "§3.3 on quadratic forms, as used in §14.3 (14.4) and Table 14.1",
+          "locator": "§3.3, Theorem 3.3.2, Proposition 3.3.3 and Theorem 3.3.4, pp. 79–80; applied in §14.3, equation (14.4), p. 332 and Table 14.1, p. 333. The packet derives its magnitude statement directly by orthogonality.",
           "match": "A direct character-orthogonality proof avoids relying on the misprinted table of magnitudes."
         }
       ],
@@ -1791,7 +1882,9 @@
       ],
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/trace-decimation-family",
-        "mathlib:Algebra.trace_trace"
+        "mathlib:Algebra.trace_trace",
+        "mathlib:FiniteField.algebraMap_norm_eq_pow",
+        "mathlib:Algebra.trace_surjective"
       ],
       "sources": [
         {
@@ -1998,7 +2091,8 @@
       ],
       "prerequisites": [
         "mathlib:traceForm_nondegenerate",
-        "mathlib:Algebra.trace_surjective"
+        "mathlib:Algebra.trace_surjective",
+        "mathlib:Module.card_eq_pow_finrank"
       ],
       "sources": [
         {
@@ -2188,7 +2282,7 @@
       "kind": "theorem",
       "statement": "For 1≤j≤m=[K:L], any length-j word w over F_p occurs p^(em−j)−1 times if w is all zero, and p^(em−j) times otherwise, in one GMW period, where |L|=p^e.",
       "hypotheses": [
-        "The admissible GMW data; 1≤j≤m, not arbitrary j≤em."
+        "Admissible GMW data include a primitive α∈K× with order |K|−1, h≥1 and gcd(h,|L|−1)=1; 1≤j≤m, not arbitrary j≤em."
       ],
       "proofSteps": [
         "The consecutive L-valued trace state of length m is the parent m-sequence state bijection K×→L^m\\{0}. Its first j coordinates therefore have q^(m−j) fibres, minus one for zero.",
@@ -2201,7 +2295,8 @@
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/gmw-feed-sequence",
         "FiniteFieldsAndCharacterSums:FF.4/m-sequence-state-cycle",
-        "mathlib:Algebra.trace_surjective"
+        "mathlib:Algebra.trace_surjective",
+        "mathlib:Module.card_eq_pow_finrank"
       ],
       "sources": [
         {
@@ -2281,7 +2376,7 @@
       "sources": [
         {
           "sourceId": "KLAPPER-TN",
-          "locator": "§1, Definition 1.1, pp. 2–3",
+          "locator": "§1, Definition 1.1, p. 3",
           "match": "Original d-form convention and the coprimality data needed by the correlation theorem."
         },
         {
@@ -2376,12 +2471,13 @@
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/homogeneous-d-form",
         "FiniteFieldsAndCharacterSums:FF.4/periodic-correlation",
-        "mathlib:AddChar.expect_eq_ite"
+        "mathlib:AddChar.expect_eq_ite",
+        "mathlib:isCyclic_of_injective_ringHom"
       ],
       "sources": [
         {
           "sourceId": "KLAPPER-TN",
-          "locator": "Theorem 2.1 with proof, pp. 3–5",
+          "locator": "§2, Theorem 2.1 with proof, pp. 4–5",
           "match": "Uses the original paper’s hypotheses absent from the GK09 statement."
         },
         {
@@ -2425,7 +2521,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Week 9, Vectors as polynomials and proof of Theorem 9.3, pp. 1–5",
+          "locator": "Week 9, vector/polynomial convention, printed p. 99; proof of Theorem 9.3, printed pp. 101–102 (PDF pp. 2,4–5)",
           "match": "The word–polynomial conversion, strengthened to the native quotient linear equivalence."
         }
       ],
@@ -2517,7 +2613,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Week 9, opening Definition and E3 example, pp. 1–2",
+          "locator": "Week 9, opening cyclic-code definition and E3 example, printed pp. 98–99 (PDF pp. 1–2)",
           "match": "A predicate on existing linear codes, with the source’s right-shift convention."
         }
       ],
@@ -2690,7 +2786,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Lemma 9.2 and Theorem 9.3, pp. 3–5",
+          "locator": "Lemma 9.2 and Theorem 9.3 with proof, printed pp. 100–102 (PDF pp. 3–5)",
           "match": "The null-code convention is explicit; no least-degree nonzero-word choice is attempted there."
         }
       ],
@@ -2783,7 +2879,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Definition: check polynomial and Theorem 9.4, pp. 5–7",
+          "locator": "Check-polynomial definition, printed p. 102; Theorem 9.4 and proof, printed pp. 103–104 (PDF pp. 5–7)",
           "match": "The annihilator test is an actual quotient-ring condition, with nonzero constants explicit."
         }
       ],
@@ -2876,7 +2972,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Theorem 9.3 and generator matrix in Theorem 9.4, pp. 4–7",
+          "locator": "Theorem 9.3, printed pp. 101–102; Theorem 9.4, printed pp. 103–104 (PDF pp. 4–7)",
           "match": "The basis proof and dimension n−deg g, with zero-code boundary."
         }
       ],
@@ -2916,7 +3012,7 @@
       "sources": [
         {
           "sourceId": "BAZLOV23",
-          "locator": "Theorem 9.4 and Corollary 9.5, pp. 6–7",
+          "locator": "Theorem 9.4 and Corollary 9.5, printed pp. 103–104 (PDF pp. 6–7)",
           "match": "The source explicitly requires monic normalization; the unscaled version in SZONYI is interpreted only as an ideal generator."
         }
       ],
@@ -2999,8 +3095,8 @@
         },
         {
           "sourceId": "ECT26",
-          "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
+          "locator": "Exercise 5.23(1),(4),(5), p. 110; exercise begins on p. 109",
+          "match": "Corresponding items independently checked in the 2026 accessibility revision; the small-degree correction applies to item (4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3093,7 +3189,8 @@
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.4/hermitian-monomial-code",
         "mathlib:Algebra.trace_surjective",
-        "mathlib:FiniteField.algebraMap_norm_eq_pow"
+        "mathlib:FiniteField.algebraMap_norm_eq_pow",
+        "mathlib:Module.card_eq_pow_finrank"
       ],
       "sources": [
         {
@@ -3103,8 +3200,8 @@
         },
         {
           "sourceId": "ECT26",
-          "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
+          "locator": "Exercise 5.23(1), p. 110; exercise begins on p. 109",
+          "match": "Corresponding items independently checked in the 2026 accessibility revision; the small-degree correction applies to item (4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3146,8 +3243,8 @@
         },
         {
           "sourceId": "ECT26",
-          "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
+          "locator": "Exercise 5.23(4), p. 110; exercise begins on p. 109",
+          "match": "Corresponding items independently checked in the 2026 accessibility revision; the small-degree correction applies to item (4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3192,8 +3289,8 @@
         },
         {
           "sourceId": "ECT26",
-          "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
+          "locator": "Exercise 5.23(2)–(6), p. 110; exercise begins on p. 109",
+          "match": "Corresponding items independently checked in the 2026 accessibility revision; the small-degree correction applies to item (4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3239,8 +3336,8 @@
         },
         {
           "sourceId": "ECT26",
-          "locator": "Exercise 5.23, pp. 109–110, corresponding item(s) in the recorded 2025 locator",
-          "match": "The corresponding 2026 accessibility revision was collated; the dimension formula still needs the corrected lower-range guard."
+          "locator": "Exercise 5.23(5)–(6), p. 110; exercise begins on p. 109",
+          "match": "Corresponding items independently checked in the 2026 accessibility revision; the small-degree correction applies to item (4)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3358,7 +3455,7 @@
         "Compactify the norm-one torus to a genus-zero curve; over the algebraic closure the coordinate z gives Tr(u)=z+z⁻¹. Remove the zeros of z²+tz+1. There are two distinct roots unless t=±2, when there is one double root.",
         "Use the FF.1 Lang-torsor character sheaf for ω and the FF.2 Kummer sheaf for ε composed with trace+t. These have rank one, finite monodromy, weight zero and tame ramification. Their Frobenius trace is the summand, including its zero extension on removed points.",
         "Geometric triviality occurs exactly in the two excluded cases: for a simple root ε is visible in inertia; for a double root the conditions are ε²=1 and the remaining torus monodromy compatible with ε. Nontriviality kills H²_c; nonproperness kills H⁰_c.",
-        "The genus-zero tame Euler characteristic is −2 or −1, so dim H¹_c is two or one. Transfer the parent compact-support trace formula to the Lang character sheaf and use DWP.7’s weight ≤1 bound. Each Frobenius eigenvalue has complex norm≤√q. Sum them. The supplier contracts and their still-open Euler-characteristic/weight gaps are explicitly retained."
+        "The genus-zero tame Euler characteristic is −2 or −1, so dim H¹_c is two or one. Transfer the parent compact-support trace formula to the Lang character sheaf. The accepted DWP.7/cohomological-bounds-3-3-2-3-3-6, clause (i) (or fixed-embedding clause (iv)), applies to the weight-zero sheaf and gives weights ≤1 on H¹_c. Each eigenvalue has complex norm ≤√q; sum them. Construction/trace-formula and Euler-characteristic inputs remain explicitly open; the weight theorem itself is supplied."
       ],
       "acceptance": [
         "q=3, ε quadratic and ω of order four, t=0 gives |S|=2≤2√3.",
@@ -3370,7 +3467,7 @@
         "FiniteFieldsAndCharacterSums:FF.2/kummer-sheaf",
         "FiniteFieldsAndCharacterSums:FF.2/lisse-sheaf-extremal-cohomology-on-curve",
         "FiniteFieldsAndCharacterSums:FF.2/h1c-conductor-bound",
-        "DeligneWeightsAndPurity:DWP.7",
+        "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
         "EtaleDualityAndPerverseSheaves:EDC.2"
       ],
       "sources": [
@@ -3448,14 +3545,6 @@
       ]
     },
     {
-      "supplier": "DeligneWeightsAndPurity:DWP.7",
-      "need": "For a geometrically nontrivial, finite-monodromy, tame rank-one sheaf of weight zero on the punctured quadratic norm torus, supply the Frobenius weights ≤1 on H¹_c (mixed compact-support form). Identify any duality/affine bridge from the weight statement actually supplied. A pure weight-one assertion is not assumed. The exceptional t=±2 has one-dimensional H¹_c; otherwise it has dimension two.",
-      "neededBy": [
-        "FiniteFieldsAndCharacterSums:FF.4/katz-quadratic-torus-estimate",
-        "FiniteFieldsAndCharacterSums:FF.4/terras-spectral-character-transfer"
-      ]
-    },
-    {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.2",
       "need": "Owner decision required for the genus-zero tame Euler–Poincaré formula χ_c(U,L)=rank(L)(2−#punctures), and H⁰_c=H²_c=0 for a nonproper geometrically connected U and geometrically nontrivial rank-one L. EDC.2 is a proposed route inherited from the parent gap, not a claim that this theorem is already in its stated scope. For the quadratic norm torus the punctures over the algebraic closure are 0,∞ and two roots of z²+tz+1, or one double root at t=±2.",
       "neededBy": [
@@ -3468,10 +3557,10 @@
       "stageId": "FiniteFieldsAndCharacterSums:FF.4",
       "status": "planned",
       "remaining": [
-        "Resolve the recorded Lang-sheaf, Euler-characteristic, weight and odd-q spherical-transfer gaps through the named suppliers.",
+        "Resolve the recorded norm-one Lang-sheaf/trace-formula, genus-zero tame Euler-characteristic and odd-q spherical-transfer gaps through the named suppliers; the H¹_c weight bound is imported from the accepted DWP.7 cohomological-bounds node.",
         "Export the native Hermitian model requested from AlgebraicCurves, including its exact-constant, place and coordinate-ring contracts.",
         "Collate quoted draft errors with versions of record; the 2026 ECT accessibility revision has been collated.",
-        "Elaborate the suggested signatures in an existing build at both pinned commits and assemble the parent native AG replacements."
+        "Assemble the parent native AG replacements and prove the suggested signatures; the continuation suggested file elaborates at the pinned baseline with proof-placeholder warnings only."
       ],
       "note": "The target-level continuation pass is complete. The parent’s 91 FF.4 nodes remain imported and unchanged; 51 fresh nodes cover every remaining mathematical target. Planned does not mean closed or implemented."
     }
@@ -3485,8 +3574,8 @@
       ]
     },
     {
-      "title": "Euler characteristic owner and compact-support weights",
-      "detail": "The precise EDC.2 and DWP.7 requests above remain open. Resolve the EXT-08 reviewer’s Euler–Poincaré owner and weight-input questions before claiming the Katz estimate closed. The theorem node decomposes the published proof; no absent cohomology theorem is declared proved.",
+      "title": "Genus-zero tame Euler characteristic and extremal cohomology",
+      "detail": "The EDC.2 request remains an owner decision for the exact genus-zero tame Euler characteristic and H⁰_c/H²_c vanishing contract. The accepted DWP.7/cohomological-bounds-3-3-2-3-3-6 supplies weights ≤1 on H¹_c once the finite-monodromy weight-zero Lang/Kummer sheaf has been constructed; a separate DWP request and a pure weight-one assertion are unnecessary. Resolve the EXT-08 Euler–Poincaré owner before declaring the Katz estimate closed.",
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.4/katz-quadratic-torus-estimate",
         "FiniteFieldsAndCharacterSums:FF.4/terras-spectral-character-transfer"
@@ -3509,7 +3598,7 @@
     },
     {
       "title": "Bent-character cyclotomic transport",
-      "detail": "For a prime output field, export the native cyclotomic automorphism sending ζ_p to ζ_p^a, prove that it commutes with complex conjugation on character sums, and transports an integral squared norm. This is the exact use of GK09 Lemma 3.2.12. The suggested prime-character signature is stated; a compiled transport API was not established. No claim is made for an arbitrary extension output field.",
+      "detail": "For a prime output field, export the native cyclotomic automorphism sending ζ_p to ζ_p^a, prove that it commutes with complex conjugation on character sums, and transports an integral squared norm. This is the exact use of GK09 Lemma 3.2.12. The suggested prime-character signature is stated; a proved transport API was not established. No claim is made for an arbitrary extension output field.",
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.4/bent-prime-character-independence"
       ]
@@ -3539,25 +3628,35 @@
       "known": "new",
       "searched": [
         "arXiv:1211.5475 submission history (opened 2026-10-05): v1 and latest v2 only.",
-        "Theorem 6.2 / equation (15) and Theorem 6.4 in the downloaded v2.",
+        "Theorem 6.2 / equation (15) and Corollary 6.4 in the downloaded v2.",
         "DOI 10.1016/j.ffa.2013.03.003 publisher route attempted; full text not served; no corrigendum located in the bounded search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at equation (15): there are m entries per Frobenius block, so the last entry in block t−1 comes from initial coefficient m−1. The subsequent result is Corollary 6.4, not Theorem 6.4.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E802",
       "source": "WU12",
       "kind": "misprint",
-      "locator": "arXiv v2, paragraph immediately before Theorem 6.4, p. 28",
+      "locator": "arXiv v2, paragraph immediately before Corollary 6.4, p. 28",
       "printed": "x^n−1",
       "correction": "The matrix-polynomial quotient is F_q[x]/(x^t−1), t=n/m.",
-      "reason": "There are t block coefficients and t cyclic blocks; Matrix_m(F_q[x]/(x^t−1)) has F_q-dimension m²t=nm. Using exponent n would give m²n, wrong for m>1. Theorem 6.4 itself uses the intended t.",
+      "reason": "There are t block coefficients and t cyclic blocks; Matrix_m(F_q[x]/(x^t−1)) has F_q-dimension m²t=nm. Using exponent n would give m²n, wrong for m>1. Corollary 6.4 itself uses the intended t.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv:1211.5475 submission history (opened 2026-10-05): v1 and latest v2 only.",
-        "Theorem 6.2 / equation (15) and Theorem 6.4 in the downloaded v2.",
+        "Theorem 6.2 / equation (15) and Corollary 6.4 in the downloaded v2.",
         "DOI 10.1016/j.ffa.2013.03.003 publisher route attempted; full text not served; no corrigendum located in the bounded search."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the paragraph preceding Corollary 6.4 on p. 28. The block algebra has dimension m²t=nm and the corollary uses t; exponent n would have the wrong dimension for m>1.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E803",
@@ -3573,13 +3672,18 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both drafts. Directly computing the four Walsh values of x₀x₁ gives 2,2,2,−2; at the negative value C=−3. The zero-corrected magnitude is fixed, but its phase is not.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E804",
       "source": "GK09",
       "kind": "error",
-      "locator": "2009 draft §14.2, p. 322; persists in GK11 §11.2, p. 232",
+      "locator": "2009 draft §14.2, p. 330; persists in GK11 §11.2, p. 232",
       "printed": "r=n ⇔ gcd(d,q^n−1)=1",
       "correction": "Coprime decimation implies degree n; the converse is false. Degree r is the Frobenius orbit size of α^d, and primitivity is a separate property.",
       "reason": "For F_2⊂F_16 and d=3, α^3 has order 5, hence degree 4 (the order of 2 mod 5), while gcd(3,15)=3. An exhaustive finite-field check reproduced this counterexample.",
@@ -3589,7 +3693,12 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 330 and the 2011 p. 232. A generator α of F₁₆× has α³ of order five, whose Frobenius orbit has length four because 2 has order four modulo five; gcd(3,15) is three.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E805",
@@ -3605,13 +3714,18 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both tables. The orthogonality computation gives |sum|²=q^(2n−r) when its radical phase is trivial; r=n−2g gives magnitude q^(n/2+g). For F₈₁/F₃, s=1,H=1, the radical equation x⁹=−x has nine solutions and zero linear phase is trivial there.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E806",
       "source": "GK09",
       "kind": "misprint",
-      "locator": "2009 draft §14.4 opening paragraph, p. 333; corresponding GK11 §11.4",
+      "locator": "2009 draft §14.4 opening, p. 332; persists in GK11 §11.4 opening, p. 234",
       "printed": "α∈F",
       "correction": "The primitive element belongs to the largest field L=F_(q^(2m)), not to F.",
       "reason": "The construction immediately takes Tr_{L/E}(α^i) and requires period |L|−1; a primitive element of F cannot supply that period.",
@@ -3621,7 +3735,12 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the 2009 opening on p. 332 and the 2011 p. 234. To enumerate L× and form the trace from L, α must generate L×, not F×.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E807",
@@ -3637,13 +3756,18 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 333 and the 2011 p. 235. The coefficient multiplying the norm must lie in E; its trace lift is an element of L. The lemma itself uses E.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E808",
       "source": "GK09",
       "kind": "misprint",
-      "locator": "2009 draft §14.5 opening paragraph, p. 335; persists GK11 §11.5, p. 236",
+      "locator": "2009 draft §14.5 opening, p. 334; persists in GK11 §11.5, p. 236",
       "printed": "f:L→K",
       "correction": "The feed codomain is F=F_p.",
       "reason": "The output correlation uses an additive character of F on f(u), and the next GMW section writes f:L→F.",
@@ -3653,13 +3777,18 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the 2009 opening on p. 334 and the 2011 p. 236. The replacement for Tr_{L/F} takes values in the prime alphabet F, consistent with the figure and additive character.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E809",
       "source": "GK09",
       "kind": "misprint",
-      "locator": "2009 draft §14.5 definition of feed correlation and proof endpoint, pp. 335–336",
+      "locator": "2009 draft §14.5 feed-correlation definition and proof endpoint, pp. 334–336; corresponding GK11 pp. 236–238",
       "printed": "A∈F; r^(m−1)",
       "correction": "The feed correlation parameter is A∈L× and the fibre factor is q^(m−1), where |L|=q.",
       "reason": "The inside-L branch of the theorem applies to any A∈L×, and a nonzero L-linear trace fibre has q^(m−1) elements. No r is defined in that proof.",
@@ -3669,7 +3798,12 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the displayed feed sum and last proof line. Multiplication by A acts on L, so A∈L×; a surjective L-linear functional on K has fibres of cardinality q^(m−1).",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E810",
@@ -3685,7 +3819,12 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on the 2009 p. 335. The correlation uses χ(g(u)) conjugate(χ(f(Au))); its omitted u=0 term has that order. Reversing it fails for unequal odd-characteristic feeds.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E811",
@@ -3701,13 +3840,18 @@
         "The authors’ book page https://www.cs.engr.uky.edu/~klapper/algebraic.html (opened 2026-10-05): publisher link and table of contents, no correction list supplied.",
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 337 and the 2011 pp. 238–239. The feed is Tr(u^h), not Tr(u). The bijection v=u^h changes the scalar to A^h before the trace hyperplane argument; coprimality preserves A≠1.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E812",
       "source": "GK09",
       "kind": "error",
-      "locator": "2009 draft §14.7, Proposition 14.7.1, p. 338; corresponding GK11 §11.7",
+      "locator": "2009 draft §14.7, Theorem 14.7.1, p. 338; corresponding GK11 §11.7",
       "printed": "C=(qz−T)/(q−1)",
       "correction": "Require d,k≥1 and gcd(d,q−1)=gcd(k,q−1)=1.",
       "reason": "The line-orbit proof sums the phase over a^(dk); only a permutation power supplies −1 on a nonzero line. For q=4,m=1,d=3,k=1,H1(x)=1 for x≠0,H2=0, the binary trace of 1 is zero, so C=3 and z=0, while the unguarded formula gives −1. A k=3,d=1 example similarly fails.",
@@ -3718,7 +3862,12 @@
         "GK11 corresponding Chapters 10–11 passages, fresh PDF read and hashed.",
         "Cambridge version-of-record access page attempted; full book text unavailable. No published erratum located in the bounded author/publisher search; new means unlocated in that search, pending publication collation.",
         "Original author copy KLAPPER-TN §§1–2 read; hypotheses already stated there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Theorem 14.7.1, not a proposition, and the 2011 Theorem 11.7.1. The nonzero scalar-line phase involves a^(dk). Both power maps must be permutations; Klapper Definition 1.1 p. 3 and Theorem 2.1 pp. 4–5 explicitly impose the two coprimalities.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     },
     {
       "id": "FiniteFieldsAndCharacterSums/E813",
@@ -3733,7 +3882,32 @@
       "searched": [
         "ECT authors’ book version page opened 2026-10-05, with 2025 draft and April 19, 2026 accessibility revision.",
         "The April 19, 2026 accessibility revision, Exercise 5.23(4), was downloaded and read on 2026-10-05. The same unguarded dimension formula persists; no correction is listed on the authors’ version page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both Exercise 5.23(4) versions. Counting the distinct formal monomials gives Σ_{i=0}^{min(p,l)}(l−i+1). At p=5,l=1 this is three, whereas the unguarded rectangular expression is negative.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
+    },
+    {
+      "id": "FiniteFieldsAndCharacterSums/E814",
+      "source": "GK09",
+      "kind": "misprint",
+      "locator": "2009 draft §14.2, equation (14.1), p. 330; GK11 equation (11.1), p. 232 has the intended exponent",
+      "printed": "The final separated trace in (14.1) uses α^i in its second summand.",
+      "correction": "The second summand is Tr_{E/F}(Bα^(di)), matching the combined trace and the d-decimated sequence.",
+      "reason": "Trace additivity separates Aα^i+Bα^(di) without changing either exponent. The displayed decimated sequence and the 2011 equation both use di.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Public GK09 equation (14.1) and GK11 equation (11.1) independently collated on 2026-10-10.",
+        "Bounded search of the authors’ book page https://www.cs.uky.edu/~klapper/algebraic.html and author-domain errata queries on 2026-10-10 found no correction list for this draft. No statement about the Cambridge version of record."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent trace-additivity check and collation show that only the final exponent in the 2009 equality is wrong; the packet and 2011 equation already use di.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4"
+      }
     }
   ],
   "sourceVersions": [
@@ -3745,7 +3919,12 @@
       "read": "2026-10-05",
       "sha256": "d12dc047c1dd936a5453a07089c3a7e4d1d485e522ac3dae95772a1bffd626b2",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "GK09",
@@ -3755,7 +3934,12 @@
       "read": "2026-10-05",
       "sha256": "95da92a94ea7f39ab3c743437bd72e7013eaf5508be42541073b4151fa7db3ce",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "GK11",
@@ -3765,7 +3949,12 @@
       "read": "2026-10-05",
       "sha256": "2f130ecff3ffaeabd5d66f7402a30880c817640745d3d692599f32e6d7923019",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "KATZ93",
@@ -3775,17 +3964,27 @@
       "read": "2026-10-05",
       "sha256": "95baed6d51008a201eea0aff81566dd8dd2543d4ff1433347699ba70ca3e01fb",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "KUANG94",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/9411217",
-      "citation": "Eigenfunctions of the Laplacian on finite upper half planes; arXiv:math/9411217; five-page preprint.",
+      "citation": "Eigenfunctions on the Finite Poincaré Plane, Jinghua Kuang; arXiv:math/9411217; five-page preprint.",
       "read": "2026-10-05",
       "sha256": "71d4aa35c771bb951bd5ac45b4d63dbebb28626bcf094d33c7a184c312526e3a",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "KLAPPER-TN",
@@ -3795,7 +3994,12 @@
       "read": "2026-10-05",
       "sha256": "3b20b283688f21f1742717330a7e9ee69dd69c9aac041546af28cfcf33c73b45",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "ECT25",
@@ -3805,7 +4009,12 @@
       "read": "2026-10-05",
       "sha256": "4777d44223362430b0e2c0097633158879875c47928b40d764cab0daf1e1904c",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "SZONYI",
@@ -3815,7 +4024,12 @@
       "read": "2026-10-05",
       "sha256": "6485648be4871f07a31f4482fcb40b325f3feae93c80915dfdaf4ba0ae25581c",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "BAZLOV23",
@@ -3825,7 +4039,12 @@
       "read": "2026-10-05",
       "sha256": "c802bada8f693b6d57a241a926b0e2038d0f556e6f23c720e79c109355ef5181",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Fresh file obtained and the recorded target passages read in this run."
+      "provenance": "Fresh file obtained and the recorded target passages read in this run.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     },
     {
       "sourceId": "GK12-UNSERVED",
@@ -3851,7 +4070,12 @@
       "read": "2026-10-05",
       "sha256": "7251cb8e4bc5048cfd6ad113f14bc6d6d3c5a079e5dc33430b1cf36df5c21005",
       "readBy": "Codex — codex-DgY8WF",
-      "provenance": "Browser size limit bypassed by downloading the public author file; title/version and Exercise 5.23 read, with item (4) collated against the 2025 draft."
+      "provenance": "Browser size limit bypassed by downloading the public author file; title/version and Exercise 5.23 read, with item (4) collated against the 2025 draft.",
+      "independentlyRead": {
+        "date": "2026-10-10",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.4",
+        "note": "Recorded file hash and target passages independently checked; original author provenance retained."
+      }
     }
   ],
   "sameRoadmapNeeds": [
@@ -4187,7 +4411,7 @@
         "FiniteFieldsAndCharacterSums"
       ],
       "detail": "The accepted EXT-08 Euler–Poincaré owner question was never delivered; EDC.2 is a candidate rather than a resolved owner.",
-      "proposal": "Maintainer decides the owner of genus-zero tame Euler characteristics and promotes the accepted EXT-08 FF/ExponentialSums packets with their corrections; set integrated_partial and copy REVIEW-EXT-08-EXT-16 §§7–8 to DECISIONS. FF.3 versus CN.1 factorization placement and the FF.2 weight input remain explicit decisions."
+      "proposal": "Maintainer decides the owner of genus-zero tame Euler characteristics and promotes the accepted EXT-08 FF/ExponentialSums packets with their corrections; set integrated_partial and copy REVIEW-EXT-08-EXT-16 §§7–8 to DECISIONS. FF.3 versus CN.1 factorization placement and the FF.2 Lang trace-formula extension remain explicit decisions; DWP.7 supplies the compact-support weight bound at its exact cohomological-bounds node."
     },
     {
       "action": "rescope",
@@ -4373,5 +4597,268 @@
       ],
       "characteristic_polynomial": "X^3 (X-4) (X+2)^2"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.4",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 51 nodes, 54 pinned baseline declarations, source locators/versions, 14 source findings, supplier statements, ownership, APIs/tests, six planets and red-team findings 1/10/13/14/17. Corrected references, the zero-corrected bent-correlation wording, direct proof prerequisites, exact DWP weight supplier and suggested-file elaboration; no target nodes added or baseline declarations removed. All 51 signatures are represented; Lean elaborates with proof-placeholder warnings only. Accepted as a complete planning pass with FF.4 planned, not closed; six explicit gaps and two requests remain. Reader synchronization and parent/native AG assembly are recorded in the handoff.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/principal-two-unit-torsion-count",
+        "verdict": "verified",
+        "note": "Torsion valuation and two simple Hensel lifts give the stated counts, including n=3 and r=1 boundaries; finite abelian classification is native."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/frobenius-ore-polynomial-comparison",
+        "verdict": "corrected",
+        "note": "The native noninvertible Frobenius endomorphism suffices over a commutative F-algebra. Added the direct baseline dependency and action formula API; corrected Lean action inference."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/reduced-linearized-algebra",
+        "verdict": "corrected",
+        "note": "Twisted cyclic convolution has the correct unit and degree guard. Lean ring/algebra structures now use the same n=finrank witness without ambiguous global instances; source pages corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/reduced-evaluation-equivalence",
+        "verdict": "corrected",
+        "note": "Root-count injectivity and equal finite cardinalities give surjectivity. Added explicit native root/count prerequisites and precise Theorem 3.1 locator; Lean equivalence inference repaired."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/trace-tensor-coordinate-formula",
+        "verdict": "corrected",
+        "note": "Trace expansion gives β α^(q^i). Contraction order matches native comp_dualTensorHom; added its missing suggested signature and precise pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/basis-trace-representations",
+        "verdict": "corrected",
+        "note": "Both trace-dual expansions and span ranks are correct. Added the missing unique output-basis expansion/rank signature; corrected Theorem 5.1 pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/minimal-trace-rank-decomposition",
+        "verdict": "corrected",
+        "note": "Independent image coordinates and trace nondegeneracy prove the rank-k factorization, including k=0. Corrected theorem/proof pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/trace-basis-inverse",
+        "verdict": "corrected",
+        "note": "The map takes b* to a, so the stated dual-basis inverse has the correct order. Corrected Proposition 5.5 page and explicit Lean scalars."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/intermediate-coefficient-subalgebra",
+        "verdict": "corrected",
+        "note": "Centralizing φ^m is equivalent to fixed coefficients. The intermediate fixed-field degree uses native fixedField, cyclic Frobenius and the tower law; Lean scalars repaired."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/coefficient-skew-quotient",
+        "verdict": "corrected",
+        "note": "The Ore quotient uses a two-sided ideal and central τ^n−1. Added native RingQuot as a direct dependency; no commutative-ideal substitution."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/normal-trace-coefficient-pattern",
+        "verdict": "corrected",
+        "note": "Trace-dual normal-basis coefficients repeat in m-sized Frobenius blocks; equation (15) final index correction is valid."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/block-circulant-coefficient-algebra",
+        "verdict": "corrected",
+        "note": "The first block row and B_{j−i} convention give the right algebra. Native basis reindexing and finite block multiplication suffice."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/matrix-polynomial-coefficient-algebra",
+        "verdict": "corrected",
+        "note": "The matrix-polynomial quotient has exponent t=n/m and dimension nm; corrected the Corollary 6.4 locator to p. 28."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/m-sequence-interleaving",
+        "verdict": "corrected",
+        "note": "Tower trace gives the interleaved columns; nonzero exponent orbits divide the zero trace fibre by q^m−1. Added native cardinality prerequisite and corrected pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/trace-walsh-transform",
+        "verdict": "corrected",
+        "note": "Unnormalized transform, negative trace phase and Parseval scaling agree. Nontrivial characters of any finite output field work using trace-pairing orthogonality; locators corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/trace-bent-function",
+        "verdict": "corrected",
+        "note": "Bentness includes frequency zero and fixes magnitudes, preserving complex phases. Correct definition and three tests; locator sharpened."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/correlation-walsh-identity",
+        "verdict": "corrected",
+        "note": "The missing x=0 summand and zero frequency subtraction are correct. Clarified the statement to bound |C+ψ(B(0))| and corrected source locators."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/bent-prime-character-independence",
+        "verdict": "corrected",
+        "note": "Prime-output restriction is essential; cyclotomic transport of the integral squared norm proves independence. Its exact unproved transport API remains an honest gap; locator sharpened."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/welch-signal-bound",
+        "verdict": "verified",
+        "note": "Unit diagonal Gram terms, Parseval and square-sum inequality give the Welch bound. N≥2,T>0 guards and arbitrary complex unit entries agree with the suggested signature."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/trace-decimation-family",
+        "verdict": "corrected",
+        "note": "The shift multiplies the parameters by α^t and α^(dt). The degree/primitivity equivalence is not assumed; added the overlooked equation (14.1) misprint and sharpened locator."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gold-polar-radical",
+        "verdict": "verified",
+        "note": "The polar adjoint is Hx^(q^s)+(Hx)^(q^(n−s)); raising to q^s gives the stated radical criterion. Cyclic-group root counting handles H=0 separately."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/quadratic-character-sum-magnitude",
+        "verdict": "corrected",
+        "note": "Orthogonality on the polar radical gives zero or q^(2n−r) for the squared norm, also in characteristic two. The scalar phase is restricted as stated; source theorem/page numbers added."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gold-shift-classes",
+        "verdict": "verified",
+        "note": "Separating linear and quadratic parts with 0<s<n and 2s≠n gives |E|+1 distinct shift classes. Only the additional gcd guard gives full period for the last representative."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gold-binary-three-correlation-values",
+        "verdict": "verified",
+        "note": "Odd binary n and coprime s give radical dimension one and corrected-correlation values 0,±2^((n+1)/2). Peak N occurs only in the excluded diagonal shift."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/small-kasami-family",
+        "verdict": "corrected",
+        "note": "Native norm lies in E and trace lifting lies in L. Added direct norm-power and trace-surjectivity imports; explicit Lean F scalars repaired."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/kasami-quadratic-correlation",
+        "verdict": "verified",
+        "note": "The nonzero trace–norm quadratic has nondegenerate polar form and magnitude q^m; H=0 branches retain peak/−1. This avoids the faulty odd-q table."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/geometric-feed-sequence",
+        "verdict": "corrected",
+        "note": "Feed has the prime-field codomain and uses the native trace. Arbitrary feeds need not have full period; the three tests detect zero/constant/trace substitutions."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/geometric-trace-pair-fibres",
+        "verdict": "corrected",
+        "note": "Trace-pair rank is two exactly outside L; inside L the pair lies on v=Cu. Native vector-space cardinality added for exact fibre counts."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/geometric-correlation-formula",
+        "verdict": "verified",
+        "note": "Multiplying the exact trace-pair fibres by the feed phases gives both branches, including the oriented x=0 correction. No outside-L branch occurs when m=1."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gmw-feed-sequence",
+        "verdict": "corrected",
+        "note": "Admissible h-power followed by prime trace gives the GMW feed; zero is fixed and only the stated coprimality is needed. Lean unused proof binders corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gmw-period-autocorrelation",
+        "verdict": "verified",
+        "note": "The power permutation, trace-surjectivity and geometric formula give peak N and −1 elsewhere, hence exact period and symbol counts."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gmw-block-distribution",
+        "verdict": "corrected",
+        "note": "Trace-state bijection and j independent feed coordinates give p^(em−j) fibres minus the excluded zero state. Made the primitive α already present in the suggested theorem explicit in the packet hypotheses; native count import added."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/gmw-frobenius-feed-comparison",
+        "verdict": "corrected",
+        "note": "Prime Frobenius leaves the prime-field trace unchanged, yielding equality to the exponent-one feed by trace transitivity. This reuses parent shift/add ownership."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/homogeneous-d-form",
+        "verdict": "corrected",
+        "note": "Homogeneity for every scalar includes the zero condition. Corrected original Definition 1.1 locator to p. 3; API/tests retain the native linear-map example."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/d-form-correlation-zero-count",
+        "verdict": "corrected",
+        "note": "Nonzero scalar-line orbits and the two coprime powers give (qz−N)/(q−1). Added cyclic units import and corrected original Theorem 2.1 pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-word-quotient-equivalence",
+        "verdict": "corrected",
+        "note": "Monic quotient representatives and degreeLTEquiv give the native word equivalence, including repeated roots. Corrected printed/PDF page convention and Lean Fin/scalar inference."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-code-predicate",
+        "verdict": "corrected",
+        "note": "Right shift is multiplication by X modulo X^n−1. The existing LinearCode submodule is retained; closure under inf/sup and n=1 tests agree. Printed pages corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-code-ideal-correspondence",
+        "verdict": "corrected",
+        "note": "Stability under X implies stability under every polynomial; conversely ideals are X-stable. This correspondence does not require coprime characteristic; Lean membership inference repaired."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-generator-polynomial",
+        "verdict": "corrected",
+        "note": "The inverse ideal is principal with a unique monic divisor. Zero code uses X^n−1, full code uses 1; corrected printed pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-check-polynomial",
+        "verdict": "corrected",
+        "note": "The monic quotient h=(X^n−1)/g has gh=X^n−1 and quotient annihilator membership, with both constant coefficients nonzero. Printed pages corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-code-dimension",
+        "verdict": "corrected",
+        "note": "The shifted multiples of g form the stated basis and give n−degree g, including the zero code; corrected printed pages."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/cyclic-dual-generator",
+        "verdict": "corrected",
+        "note": "Dimension and orthogonality identify the dual generator as h(0)⁻¹ reverse(h). Generic duality remains imported from AlgebraicCodingTheory Layer 2; only cyclic compatibility is owned here. Printed pages corrected."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/general-cyclic-bch-bound",
+        "verdict": "verified",
+        "note": "Distinct consecutive root powers and the Vandermonde determinant force the BCH weight bound. Exact order and nonzero-code guards avoid separability and zero-distance errors."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/hermitian-monomial-code",
+        "verdict": "corrected",
+        "note": "The code is the image of evaluation on the formal monomial span with i≤p and i+j≤l. Repaired Lean finite point enumeration and sharpened ECT26 locator."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/hermitian-affine-point-count",
+        "verdict": "corrected",
+        "note": "Surjective trace K→F_p gives p y-values for each x; p² x-values give p³ points. Added explicit cardinality prerequisite and sharpened ECT26 locator."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/hermitian-message-dimension",
+        "verdict": "corrected",
+        "note": "Distinct formal monomials give the sum formula; the rectangular simplification requires l≥p−1. Both drafts still have the unguarded expression; locator sharpened."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/hermitian-riemann-roch-comparison",
+        "verdict": "corrected",
+        "note": "Distinct pole weights and the requested coordinate-ring basis identify the weighted monomials with L(l(p+1)P∞). Native Hermitian geometric exports remain requested, not asserted available; locator sharpened."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/hermitian-code-parameters",
+        "verdict": "corrected",
+        "note": "Once the explicit native model is supplied, the guarded Goppa route gives length, corrected dimension and positive designed distance. The p=2,l=3 kernel test prevents an injectivity overclaim; locator sharpened."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/soto-andrade-norm-one-sum",
+        "verdict": "verified",
+        "note": "Actual norm-kernel units and zero extension (also for the trivial character) match Katz. Native norm surjectivity supplies cardinality by finite fibres."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/katz-quadratic-torus-estimate",
+        "verdict": "corrected",
+        "note": "Katz’s published theorem and n=2 proof support both exact-order exceptions and the stronger double-root bound. Replaced broad DWP request with the accepted compact-support weight node; Lang/trace/Euler inputs remain honest gaps."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.4/terras-spectral-character-transfer",
+        "verdict": "corrected",
+        "note": "Verified the bounded open target and its normalization contract against the parent graph and primary preprint; an exhaustive spherical transfer is not certified by Kuang. This node remains explicitly gap-backed, not proved or closed."
+      }
+    ]
+  }
 }

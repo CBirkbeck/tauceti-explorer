@@ -1,11 +1,10 @@
-/-!
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
 signatures. Every body is a planning placeholder, not an implementation claim.
 
 FF.4 continuation, issue #6351. Mathlib 082e2d3; Tau Ceti f790474.
-Not compiled: no existing build at both pinned commits was found. Do not interpret the
-suggestions as an elaboration certificate. Parent-owned objects are referenced through
+Parent-owned objects are referenced through
 native carriers or small transparent notation helpers; they retain their parent IDs.
 The sheaf-theoretic proof conditions without a supplied native sheaf type are omitted,
 with exact contracts in the packet. They are not replaced by proposition-valued fields.
@@ -59,8 +58,10 @@ end PrincipalUnits
 section Ore
 variable {F R : Type*} [Field F] [Fintype F] [CommRing R] [Algebra F R]
 -- Actual native action; no automorphism or inverse Frobenius is required.
-def frobeniusAction : MulSemiringAction (Multiplicative ℕ) R := by sorry
-local instance : MulSemiringAction (Multiplicative ℕ) R := frobeniusAction (F := F)
+abbrev frobeniusAction (F : Type*) [Field F] [Fintype F] [Algebra F R] : MulSemiringAction (Multiplicative ℕ) R := by sorry
+lemma frobeniusAction_smul (k : ℕ) (a : R) :
+    letI := frobeniusAction (F := F) (R := R)
+    (Multiplicative.ofAdd k) • a = a ^ (Fintype.card F ^ k) := by sorry
 -- The subtype condition is exactly the parent Polynomial.IsLinearized support predicate.
 def linearizedAddGroup : AddSubgroup R[X] :=
   { carrier := {P | ∀ j ∈ P.support, ∃ i, j = Fintype.card F ^ i}
@@ -72,6 +73,7 @@ lemma oreToLinearized_monomial (i : ℕ) (a : R) :
     (oreToLinearized (F := F) (SkewPolynomial.monomial i a)).val =
       C a * X ^ (Fintype.card F ^ i) := by sorry
 lemma oreToLinearized_mul (A B : SkewPolynomial R) :
+    letI := frobeniusAction (F := F) (R := R)
     (oreToLinearized (F := F) (A * B)).val =
       (oreToLinearized (F := F) A).val.comp (oreToLinearized (F := F) B).val := by sorry
 lemma oreToLinearized_one :
@@ -109,9 +111,9 @@ variable {n : ℕ}
 instance : AddCommGroup (ReducedLinearized F E n) := by sorry
 instance : Module F (ReducedLinearized F E n) := by sorry
 -- These structures are for n = finrank(F,E)>0; arbitrary n has no claimed ring structure.
-instance reducedRing (hn : n = Module.finrank F E) :
+abbrev reducedRing (hn : n = Module.finrank F E) :
     Ring (ReducedLinearized F E n) := by sorry
-instance reducedAlgebra (hn : n = Module.finrank F E) :
+abbrev reducedAlgebra (hn : n = Module.finrank F E) :
     @Algebra F (ReducedLinearized F E n) _ (reducedRing hn).toSemiring := by sorry
 namespace ReducedLinearized
 lemma ext (a b : ReducedLinearized F E n) (h : ∀ i, a.coeff i = b.coeff i) : a = b := by sorry
@@ -124,16 +126,16 @@ lemma coeff_mul (hn : n = Module.finrank F E) (a b : ReducedLinearized F E n) (k
       if ((i : ℕ) + (j : ℕ)) % n = (k : ℕ) then
         a.coeff i * b.coeff j ^ (Fintype.card F ^ (i : ℕ)) else 0 := by sorry
 end ReducedLinearized
-variable (hn : n = Module.finrank F E)
-local instance : Ring (ReducedLinearized F E n) := reducedRing hn
-local instance : Algebra F (ReducedLinearized F E n) := reducedAlgebra hn
+variable [hnFact : Fact (n = Module.finrank F E)]
+local instance : Ring (ReducedLinearized F E n) := reducedRing hnFact.out
+local instance : Algebra F (ReducedLinearized F E n) := reducedAlgebra hnFact.out
 -- The constructor and API use the same name for the equivalence.
 def reducedEvalEquiv : ReducedLinearized F E n ≃ₐ[F] Module.End F E := by sorry
 lemma reducedEvalEquiv_apply (a : ReducedLinearized F E n) (x : E) :
-    reducedEvalEquiv hn a x = ∑ i : Fin n, a.coeff i * x ^ (Fintype.card F ^ (i : ℕ)) := by sorry
+    reducedEvalEquiv (F := F) (E := E) (n := n) a x = ∑ i : Fin n, a.coeff i * x ^ (Fintype.card F ^ (i : ℕ)) := by sorry
 lemma reducedEvalEquiv_mul (a b : ReducedLinearized F E n) :
-    reducedEvalEquiv hn (a * b) = (reducedEvalEquiv hn a).comp (reducedEvalEquiv hn b) := by sorry
-lemma reducedEvalEquiv_surjective : Function.Surjective (reducedEvalEquiv hn) := by sorry
+    reducedEvalEquiv (F := F) (E := E) (n := n) (a * b) = (reducedEvalEquiv (F := F) (E := E) (n := n) a).comp (reducedEvalEquiv (F := F) (E := E) (n := n) b) := by sorry
+lemma reducedEvalEquiv_surjective : Function.Surjective (reducedEvalEquiv (F := F) (E := E) (n := n)) := by sorry
 -- Unit test reduced_zero_coeff.
 example (i : Fin n) : (0 : ReducedLinearized F E n).coeff i = 0 := by sorry
 -- Unit test reduced_unit.
@@ -142,19 +144,22 @@ example (i : Fin n) : (1 : ReducedLinearized F E n).coeff i = if (i : ℕ) = 0 t
 example (hn1 : 1 < n) : (ReducedLinearized.single ⟨1, hn1⟩ (1 : E) :
     ReducedLinearized F E n) ^ n = 1 := by sorry
 -- Unit test eval_zero.
-example : reducedEvalEquiv hn (0 : ReducedLinearized F E n) = 0 := by sorry
+example : reducedEvalEquiv (F := F) (E := E) (n := n) (0 : ReducedLinearized F E n) = 0 := by sorry
 -- Unit test eval_one.
-example : reducedEvalEquiv hn (1 : ReducedLinearized F E n) = LinearMap.id := by sorry
+example : reducedEvalEquiv (F := F) (E := E) (n := n) (1 : ReducedLinearized F E n) = (LinearMap.id : E →ₗ[F] E) := by sorry
 -- Unit test eval_single.
-example (i : Fin n) (a x : E) : reducedEvalEquiv hn (ReducedLinearized.single i a) x =
+example (i : Fin n) (a x : E) : reducedEvalEquiv (F := F) (E := E) (n := n) (ReducedLinearized.single i a) x =
     a * x ^ (Fintype.card F ^ (i : ℕ)) := by sorry
 
 -- Native trace tensor coordinates, not a redeclaration of generic tensor–Hom equivalence.
 def traceRankOne (α β : E) : E →ₗ[F] E := by sorry
 lemma traceRankOne_apply (α β x : E) :
-    traceRankOne α β x = Algebra.trace F E (α * x) • β := by sorry
+    traceRankOne (F := F) α β x = Algebra.trace F E (α * x) • β := by sorry
+lemma traceRankOne_comp (α β γ δ : E) :
+    (traceRankOne (F := F) γ δ).comp (traceRankOne (F := F) α β) =
+      Algebra.trace F E (γ * β) • traceRankOne (F := F) α δ := by sorry
 theorem traceTensor_coeff (α β : E) (i : Fin n) :
-    ((reducedEvalEquiv hn).symm (traceRankOne α β)).coeff i =
+    ((reducedEvalEquiv (F := F) (E := E) (n := n)).symm (traceRankOne (F := F) α β)).coeff i =
       β * α ^ (Fintype.card F ^ (i : ℕ)) := by sorry
 
 theorem linearMap_trace_basis (b : Module.Basis (Fin n) F E) (L : E →ₗ[F] E) (x : E) :
@@ -162,6 +167,11 @@ theorem linearMap_trace_basis (b : Module.Basis (Fin n) F E) (L : E →ₗ[F] E)
 lemma linearMap_trace_basis_rank (b : Module.Basis (Fin n) F E) (L : E →ₗ[F] E) :
     Module.finrank F (LinearMap.range L) =
       Module.finrank F (Submodule.span F (Set.range fun i => L (b.traceDual i))) := by sorry
+theorem linearMap_trace_output_basis (b : Module.Basis (Fin n) F E) (L : E →ₗ[F] E) :
+    ∃! c : Fin n → E,
+      (∀ x, L x = ∑ i : Fin n, Algebra.trace F E (c i * x) • b i) ∧
+      Module.finrank F (LinearMap.range L) =
+        Module.finrank F (Submodule.span F (Set.range c)) := by sorry
 
 theorem linearMap_rank_iff_trace_sum (L : E →ₗ[F] E) (k : ℕ) :
     Module.finrank F (LinearMap.range L) = k ↔
@@ -181,21 +191,21 @@ def coeffSubalgebra (m : ℕ) : Subalgebra F (ReducedLinearized F E n) :=
     add_mem' := by sorry
     algebraMap_mem' := by sorry }
 lemma mem_coeffSubalgebra (m : ℕ) (a : ReducedLinearized F E n) :
-    a ∈ coeffSubalgebra hn m ↔ ∀ i, a.coeff i ^ (Fintype.card F ^ m) = a.coeff i := by sorry
+    a ∈ coeffSubalgebra (F := F) (E := E) (n := n) m ↔ ∀ i, a.coeff i ^ (Fintype.card F ^ m) = a.coeff i := by sorry
 lemma coeffSubalgebra_centralizer (m : ℕ) (a : ReducedLinearized F E n) :
-    a ∈ coeffSubalgebra hn m ↔ ∀ x,
-      reducedEvalEquiv hn a (x ^ (Fintype.card F ^ m)) =
-        (reducedEvalEquiv hn a x) ^ (Fintype.card F ^ m) := by sorry
+    a ∈ coeffSubalgebra (F := F) (E := E) (n := n) m ↔ ∀ x,
+      reducedEvalEquiv (F := F) (E := E) (n := n) a (x ^ (Fintype.card F ^ m)) =
+        (reducedEvalEquiv (F := F) (E := E) (n := n) a x) ^ (Fintype.card F ^ m) := by sorry
 lemma coeffSubalgebra_finrank (m : ℕ) (hm : 0 < m) (hmn : m ∣ n) :
-    Module.finrank F (coeffSubalgebra hn m) = n * m := by sorry
+    Module.finrank F (coeffSubalgebra (F := F) (E := E) (n := n) m) = n * m := by sorry
 -- Unit test coeff_subalgebra_full.
-example : coeffSubalgebra hn n = ⊤ := by sorry
+example : coeffSubalgebra (F := F) (E := E) (n := n) n = ⊤ := by sorry
 -- Unit test coeff_subalgebra_base.
-example (a : ReducedLinearized F E n) : a ∈ coeffSubalgebra hn 1 ↔
+example (a : ReducedLinearized F E n) : a ∈ coeffSubalgebra (F := F) (E := E) (n := n) 1 ↔
     ∀ i, ∃ c : F, algebraMap F E c = a.coeff i := by sorry
 -- Unit test coeff_subalgebra_wrong_scalar.
 example (m : ℕ) (a : E) (ha : a ^ (Fintype.card F ^ m) ≠ a) (hn0 : 0 < n) :
-    ReducedLinearized.single ⟨0, hn0⟩ a ∉ coeffSubalgebra hn m := by sorry
+    ReducedLinearized.single ⟨0, hn0⟩ a ∉ coeffSubalgebra (F := F) (E := E) (n := n) m := by sorry
 
 -- The fixed intermediate field is a native IntermediateField; the criterion fixes its carrier.
 def fixedFrobeniusField (m : ℕ) : IntermediateField F E := by sorry
@@ -210,12 +220,12 @@ def cyclicOreQuotient (m : ℕ) : Type _ :=
 instance (m : ℕ) : Ring (cyclicOreQuotient (F := F) (E := E) (n := n) m) := by sorry
 instance (m : ℕ) : Algebra F (cyclicOreQuotient (F := F) (E := E) (n := n) m) := by sorry
 theorem coeffSubalgebra_skewQuotient (m : ℕ) (hm : 0 < m) (hmn : m ∣ n) :
-    Nonempty (coeffSubalgebra hn m ≃ₐ[F] cyclicOreQuotient (F := F) (E := E) (n := n) m) := by sorry
+    Nonempty (coeffSubalgebra (F := F) (E := E) (n := n) m ≃ₐ[F] cyclicOreQuotient (F := F) (E := E) (n := n) m) := by sorry
 
 theorem normalTrace_coeff_pattern (m t : ℕ) (hm : 0 < m) (hnt : n = m * t)
     (β : E) (b : Module.Basis (Fin n) F E)
     (hb : ∀ i, b i = β ^ (Fintype.card F ^ (i : ℕ))) (L : E →ₗ[F] E) :
-    (reducedEvalEquiv hn).symm L ∈ coeffSubalgebra hn m ↔
+    (reducedEvalEquiv (F := F) (E := E) (n := n)).symm L ∈ coeffSubalgebra (F := F) (E := E) (n := n) m ↔
       ∀ (j : Fin t) (k : Fin m),
         L (b.traceDual ⟨(j : ℕ) * m + (k : ℕ), by sorry⟩) =
           (L (b.traceDual ⟨(k : ℕ), by sorry⟩)) ^ (Fintype.card F ^ ((j : ℕ) * m)) := by sorry
@@ -230,10 +240,10 @@ def blockCirculantAlgebra (m t : ℕ) : Subalgebra F
 theorem coeffSubalgebra_blockCirculant (m t : ℕ) (hm : 0 < m) (ht : 0 < t)
     (hnt : n = m * t) (b : Module.Basis (Fin n) F E) (β : E)
     (hb : ∀ i, b i = β ^ (Fintype.card F ^ (i : ℕ))) :
-    Nonempty (coeffSubalgebra hn m ≃ₐ[F] blockCirculantAlgebra (F := F) m t) := by sorry
+    Nonempty (coeffSubalgebra (F := F) (E := E) (n := n) m ≃ₐ[F] blockCirculantAlgebra (F := F) m t) := by sorry
 theorem coeffSubalgebra_matrixQuotient (m t : ℕ) (hm : 0 < m) (ht : 0 < t)
     (hnt : n = m * t) :
-    Nonempty (coeffSubalgebra hn m ≃ₐ[F]
+    Nonempty (coeffSubalgebra (F := F) (E := E) (n := n) m ≃ₐ[F]
       Matrix (Fin m) (Fin m) (AdjoinRoot ((X : F[X]) ^ t - 1))) := by sorry
 end Reduced
 
@@ -417,7 +427,7 @@ def kasamiSequence (α : Lˣ) (A : E) : ZMod N → F :=
 lemma kasamiSequence_apply (α : Lˣ) (A : E) (i : ZMod N) :
     kasamiSequence (F := F) α A i = Algebra.trace F L ((α : L) ^ i.val) +
       Algebra.trace F E (A * Algebra.norm E ((α : L) ^ i.val)) := by sorry
-lemma kasamiSequence_zero (α : Lˣ) : kasamiSequence (F := F) (E := E) α 0 = traceWord α 1 := by sorry
+lemma kasamiSequence_zero (α : Lˣ) : kasamiSequence (F := F) (E := E) α 0 = traceWord (F := F) α 1 := by sorry
 lemma kasamiSequence_traceLift (α : Lˣ) (h2 : Module.finrank E L = 2)
     (A : E) (Â : L) (hÂ : Algebra.trace E L Â = A) :
     kasamiSequence (F := F) α A = traceDecimation (F := F) α (1 + Fintype.card E) 1 Â := by sorry
@@ -425,10 +435,10 @@ lemma kasamiSequence_traceLift (α : Lˣ) (h2 : Module.finrank E L = 2)
 example (α : Lˣ) (i : ZMod N) :
     kasamiSequence (F := F) (E := E) α 0 i = Algebra.trace F L ((α : L) ^ i.val) := by sorry
 -- Unit test kasami_lift_independent.
-example (α : Lˣ) (h2 : Module.finrank E L = 2) (Â B̂ : L)
-    (h : Algebra.trace E L Â = Algebra.trace E L B̂) :
+example (α : Lˣ) (h2 : Module.finrank E L = 2) (Â Btilde : L)
+    (h : Algebra.trace E L Â = Algebra.trace E L Btilde) :
     traceDecimation (F := F) α (1 + Fintype.card E) 1 Â =
-      traceDecimation (F := F) α (1 + Fintype.card E) 1 B̂ := by sorry
+      traceDecimation (F := F) α (1 + Fintype.card E) 1 Btilde := by sorry
 -- Unit test kasami_parameter_domain: the elementary case has two parameters, not four.
 example (hF : Fintype.card F = 2) (h1 : Module.finrank F E = 1)
     (h2 : Module.finrank E L = 2) : Fintype.card E = 2 ∧ Fintype.card L = 4 := by sorry
@@ -466,7 +476,7 @@ lemma geometricSequence_frobeniusDecimation (α : Kˣ) (f : L → ZMod p) (s : �
 -- Unit test geometric_zero.
 example (α : Kˣ) : geometricSequence α (fun _ : L => (0 : ZMod p)) = 0 := by sorry
 -- Unit test geometric_trace.
-example (α : Kˣ) : geometricSequence α (Algebra.trace (ZMod p) L) = traceWord α 1 := by sorry
+example (α : Kˣ) : geometricSequence α (Algebra.trace (ZMod p) L) = traceWord (F := ZMod p) α 1 := by sorry
 -- Unit test geometric_constant: shift one is a period; it is proper if N>1.
 example (α : Kˣ) (c : ZMod p) :
     geometricSequence α (fun _ : L => c) = (fun _ => c) ∧
@@ -492,8 +502,8 @@ theorem geometric_corr (α : Kˣ) (hα : orderOf α = N)
       else (Fintype.card L : ℂ) ^ (Module.finrank L K - 2) *
         feedImbalance ψ g * star (feedImbalance ψ f) - c₀ := by sorry
 
-def gmwSequence (α : Kˣ) (h : ℕ) (hh : 1 ≤ h)
-    (hcop : Nat.Coprime h (Fintype.card L - 1)) : ZMod N → ZMod p :=
+def gmwSequence (α : Kˣ) (h : ℕ) (_hh : 1 ≤ h)
+    (_hcop : Nat.Coprime h (Fintype.card L - 1)) : ZMod N → ZMod p :=
   geometricSequence α (fun u : L => Algebra.trace (ZMod p) L (u^h))
 lemma gmwSequence_apply (α : Kˣ) (h : ℕ) (hh : 1 ≤ h)
     (hcop : Nat.Coprime h (Fintype.card L - 1)) (i : ZMod N) :
@@ -506,7 +516,7 @@ lemma gmwFeed_zero (h : ℕ) (hh : 1 ≤ h) :
     Algebra.trace (ZMod p) L ((0 : L)^h) = 0 := by sorry
 -- Unit test gmw_exponent_one.
 example (α : Kˣ) (hcop : Nat.Coprime 1 (Fintype.card L - 1)) :
-    gmwSequence α 1 (by sorry) hcop = traceWord (F := ZMod p) α 1 := by sorry
+    gmwSequence (p := p) α 1 (by sorry) hcop = traceWord (F := ZMod p) α 1 := by sorry
 -- Unit test gmw_feed_zero.
 example (h : ℕ) (hh : 1 ≤ h) : Algebra.trace (ZMod p) L ((0 : L)^h) = 0 := by sorry
 
@@ -517,7 +527,7 @@ theorem gmw_autocorrelation (α : Kˣ) (hα : orderOf α = N) (h : ℕ) (hh : 1 
       if t = 0 then (N : ℂ) else -1 := by sorry
 lemma gmw_exact_period (α : Kˣ) (hα : orderOf α = N) (h : ℕ) (hh : 1 ≤ h)
     (hcop : Nat.Coprime h (Fintype.card L - 1)) (t : ZMod N) :
-    shiftWord t (gmwSequence α h hh hcop) = gmwSequence α h hh hcop ↔ t = 0 := by sorry
+    shiftWord t (gmwSequence (p := p) α h hh hcop) = gmwSequence (p := p) α h hh hcop ↔ t = 0 := by sorry
 lemma gmw_symbol_count (α : Kˣ) (hα : orderOf α = N) (h : ℕ) (hh : 1 ≤ h)
     (hcop : Nat.Coprime h (Fintype.card L - 1)) (a : ZMod p) :
     Nat.card {i : ZMod N // gmwSequence α h hh hcop i = a} =
@@ -598,11 +608,11 @@ lemma cyclicWordEquiv_const (i : Fin n) :
 -- Unit test cyclic_word_zero.
 example : cyclicWordEquiv (0 : Fin n → F) = 0 := by sorry
 -- Unit test cyclic_word_wrap.
-example (hn : 1 ≤ n) : cyclicWordEquiv (rightShift (Pi.single ⟨n-1, by sorry⟩ (1 : F))) = 1 := by sorry
+example (hn : 1 ≤ n) : cyclicWordEquiv (F:=F) (n:=n) (rightShift (Pi.single ⟨n-1, by sorry⟩ (1 : F))) = 1 := by sorry
 -- Unit test cyclic_word_n_one.
 example (c : Fin 1 → F) :
-    cyclicWordEquiv c = algebraMap F (AdjoinRoot ((X : F[X])-1)) (c 0) ∧
-      Nonempty (AdjoinRoot ((X : F[X])-1) ≃ₐ[F] F) := by sorry
+    cyclicWordEquiv c = algebraMap F (AdjoinRoot ((X : F[X])^1-1)) (c 0) ∧
+      Nonempty (AdjoinRoot ((X : F[X])^1-1) ≃ₐ[F] F) := by sorry
 -- Unit test cyclic_word_repeated_root.
 example : let z := AdjoinRoot.mk ((X : (ZMod 2)[X])^2 - 1) (X+1)
     z ≠ 0 ∧ z^2 = 0 := by sorry
@@ -619,7 +629,7 @@ example : IsCyclicCode (⊥ : TauCeti.LinearCode F (Fin n)) := by sorry
 -- Unit test cyclic_whole_code.
 example : IsCyclicCode (⊤ : TauCeti.LinearCode F (Fin n)) := by sorry
 -- Unit test cyclic_coordinate_nonexample.
-example : ¬ IsCyclicCode (Submodule.span (ZMod 2)
+example : ¬ IsCyclicCode (n := 3) (Submodule.span (ZMod 2)
     {Pi.single (0 : Fin 3) (1 : ZMod 2)}) := by sorry
 
 def parityMap : (Fin n → F) →ₗ[F] F :=
@@ -635,24 +645,24 @@ def zeroCyclicCode : CyclicCode F n := ⟨⊥, by sorry⟩
 def fullCyclicCode : CyclicCode F n := ⟨⊤, by sorry⟩
 def cyclicIdealEquiv : CyclicCode F n ≃o Ideal (AdjoinRoot ((X : F[X])^n-1)) := by sorry
 lemma cyclicIdealEquiv_mem (C : CyclicCode F n) (c : Fin n → F) :
-    cyclicWordEquiv c ∈ cyclicIdealEquiv C ↔ c ∈ C.val := by sorry
+    cyclicWordEquiv (F := F) (n := n) c ∈ cyclicIdealEquiv C ↔ c ∈ C.val := by sorry
 lemma cyclicIdealEquiv_inf (C D : CyclicCode F n) :
-    cyclicIdealEquiv ⟨C.val ⊓ D.val, C.property.inf D.property⟩ =
+    cyclicIdealEquiv ⟨C.val ⊓ D.val, IsCyclicCode.inf (n := n) C.property D.property⟩ =
       cyclicIdealEquiv C ⊓ cyclicIdealEquiv D := by sorry
 lemma cyclicIdealEquiv_sup (C D : CyclicCode F n) :
-    cyclicIdealEquiv ⟨C.val ⊔ D.val, C.property.sup D.property⟩ =
+    cyclicIdealEquiv ⟨C.val ⊔ D.val, IsCyclicCode.sup (n := n) C.property D.property⟩ =
       cyclicIdealEquiv C ⊔ cyclicIdealEquiv D := by sorry
 -- Unit test cyclic_ideal_zero.
 example : cyclicIdealEquiv (zeroCyclicCode (F := F) (n := n)) = ⊥ := by sorry
 -- Unit test cyclic_ideal_top.
 example : cyclicIdealEquiv (fullCyclicCode (F := F) (n := n)) = ⊤ := by sorry
 
-def evenThree : CyclicCode (ZMod 2) 3 := ⟨LinearMap.ker parityMap, by sorry⟩
+def evenThree : CyclicCode (ZMod 2) 3 := ⟨LinearMap.ker (parityMap (F := ZMod 2) (n := 3)), by sorry⟩
 def constantWord : F →ₗ[F] (Fin n → F) :=
   { toFun := fun a _ => a
     map_add' := by sorry
     map_smul' := by sorry }
-def repetitionThree : CyclicCode (ZMod 2) 3 := ⟨LinearMap.range constantWord, by sorry⟩
+def repetitionThree : CyclicCode (ZMod 2) 3 := ⟨LinearMap.range (constantWord (F := ZMod 2) (n := 3)), by sorry⟩
 -- Unit test cyclic_ideal_even_three.
 example : cyclicIdealEquiv evenThree =
     Ideal.span {AdjoinRoot.mk ((X : (ZMod 2)[X])^3-1) (X+1)} := by sorry
@@ -699,6 +709,8 @@ lemma cyclicCode_polynomial_basis (C : CyclicCode F n) :
         (X^(i : ℕ) * generatorPolynomial C) := by sorry
 
 -- Native bilinear orthogonal; Mathlib already supplies its finite-dimensional rank formula.
+-- Generic duality is imported from AlgebraicCodingTheory Layer 2; this is its native
+-- dot-product binding for the cyclic comparison, with no new ownership node.
 def euclideanDual (C : TauCeti.LinearCode F (Fin n)) : TauCeti.LinearCode F (Fin n) :=
   LinearMap.BilinForm.orthogonal (dotProductBilin F F) C
 lemma cyclicCode_dual_cyclic (C : CyclicCode F n) : IsCyclicCode (euclideanDual C.val) := by sorry
@@ -785,7 +797,7 @@ end NativeAG
 section Hermitian
 variable (p : ℕ) (K : Type*) [Field K]
 def HermitianPoints : Type _ := {z : K × K // z.2^p + z.2 = z.1^(p+1)}
-instance [Fintype K] : Fintype (HermitianPoints p K) := by infer_instance
+instance [Fintype K] : Fintype (HermitianPoints p K) := Fintype.ofEquiv {z : K × K // z.2^p + z.2 = z.1^(p+1)} (Equiv.refl _)
 def hermitianMessageSpace (l : ℕ) : Submodule K (MvPolynomial (Fin 2) K) :=
   Submodule.span K {f | ∃ i j : ℕ, i ≤ p ∧ i+j ≤ l ∧
     f = (MvPolynomial.X (0 : Fin 2))^i * (MvPolynomial.X (1 : Fin 2))^j}
@@ -816,8 +828,8 @@ lemma hermitianMessage_finrank_large (p : ℕ) (K : Type*) [Field K] (l : ℕ) (
 
 -- The native supplier's affine regular functions, not a fake curve carrier.
 def regularAwayFrom {K H : Type*} [Field K] [Field H] [Algebra K H]
-    (P∞ : TauCeti.Place K H) : Submodule K H :=
-  { carrier := {f | ∀ P : TauCeti.Place K H, P ≠ P∞ → f ∈ P.integers}
+    (Pinf : TauCeti.Place K H) : Submodule K H :=
+  { carrier := {f | ∀ P : TauCeti.Place K H, P ≠ Pinf → f ∈ P.integers}
     zero_mem' := by sorry
     add_mem' := by sorry
     smul_mem' := by sorry }
@@ -827,17 +839,17 @@ theorem hermitianCode_eq_agCode (p : ℕ) [Fact p.Prime]
     {K H : Type*} [Field K] [Fintype K] [CharP K p] [Field H] [Algebra K H]
     (hK : Fintype.card K = p^2) (hH : TauCeti.IsFunctionField K H)
     (hex : IsIntegrallyClosedIn K H) (x y : H) (hxy : y^p+y=x^(p+1))
-    (P∞ : TauCeti.Place K H) (h∞ : P∞.degree = 1)
-    (hx : P∞.ord x = -(p : ℤ)) (hy : P∞.ord y = -((p+1 : ℕ) : ℤ))
-    (b : Module.Basis (Fin (p+1) × ℕ) K (regularAwayFrom P∞))
+    (Pinf : TauCeti.Place K H) (hinfty : Pinf.degree = 1)
+    (hx : Pinf.ord x = -(p : ℤ)) (hy : Pinf.ord y = -((p+1 : ℕ) : ℤ))
+    (b : Module.Basis (Fin (p+1) × ℕ) K (regularAwayFrom Pinf))
     (hb : ∀ i, (b i).val = x^(i.1 : ℕ) * y^i.2)
     (P : HermitianPoints p K → TauCeti.Place K H)
-    (hinj : Function.Injective P) (hP : ∀ z, (P z).degree = 1) (hP∞ : ∀ z, P z ≠ P∞)
+    (hinj : Function.Injective P) (hP : ∀ z, (P z).degree = 1) (hPinf : ∀ z, P z ≠ Pinf)
     (hxint : ∀ z, x ∈ (P z).integers) (hyint : ∀ z, y ∈ (P z).integers)
     (hxev : ∀ z, NativeAG.rationalEval (P z) (hP z) ⟨x,hxint z⟩ = z.val.1)
     (hyev : ∀ z, NativeAG.rationalEval (P z) (hP z) ⟨y,hyint z⟩ = z.val.2) (l : ℕ) :
     hermitianCode p K l = NativeAG.evaluationCode P hP
-      ((l*(p+1) : ℕ) • AlgebraicGeometry.WeilDivisor.ofPoint P∞) (by sorry) := by sorry
+      ((l*(p+1) : ℕ) • AlgebraicGeometry.WeilDivisor.ofPoint Pinf) (by sorry) := by sorry
 
 -- Proof uses the native Hermitian model above; the numerical statement itself has real types.
 theorem hermitianCode_parameters (p : ℕ) [Fact p.Prime] (K : Type*) [Field K] [Fintype K]
@@ -929,13 +941,13 @@ def principalSeriesSum (ε₂ χ : Fˣ →* ℂˣ) (δ a : F) : ℂ :=
 theorem terras_eigenvalue_character_sum (h2 : Module.finrank F K = 2)
     (hodd : Odd (Fintype.card F)) (δ a : F) (hδ : ¬ IsSquare δ)
     (ha0 : a ≠ 0) (ha4 : a ≠ 4*δ) (ε₂ : Fˣ →* ℂˣ) (hε₂ : orderOf ε₂ = 2)
-    (λ : ℂ) (v : UpperHalfPlane F → ℂ) (hv : v ≠ 0) (hmean : ∑ z, v z = 0)
-    (heig : terrasAdjacency δ a v = λ • v) :
+    (eigenvalue : ℂ) (v : UpperHalfPlane F → ℂ) (hv : v ≠ 0) (hmean : ∑ z, v z = 0)
+    (heig : terrasAdjacency δ a v = eigenvalue • v) :
     (∃ s : ℂ, (s = 1 ∨ s = -1) ∧
-      ((∃ χ : Fˣ →* ℂˣ, χ ≠ 1 ∧ λ = s * principalSeriesSum ε₂ χ δ a) ∨
+      ((∃ χ : Fˣ →* ℂˣ, χ ≠ 1 ∧ eigenvalue = s * principalSeriesSum ε₂ χ δ a) ∨
         (∃ ω : NormOneUnits F K →* ℂˣ, ω ≠ 1 ∧
-          λ = s * sotoAndradeSum ε₂ ω (a/δ-2)))) ∧
-      ‖λ‖ ≤ 2 * Real.sqrt (Fintype.card F) := by sorry
+          eigenvalue = s * sotoAndradeSum ε₂ ω (a/δ-2)))) ∧
+      ‖eigenvalue‖ ≤ 2 * Real.sqrt (Fintype.card F) := by sorry
 end Terras
 
 end TauCeti.FF4
