@@ -844,6 +844,17 @@
         "§5 (compatible systems, Weil–Deligne parameters, Theorem 5.1)",
         "§9 (Hypothesis (H) and the Remark on Breuil and Kisin)"
       ]
+    },
+    {
+      "id": "bhatt-morrow-scholze",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "B. Bhatt, M. Morrow and P. Scholze",
+      "edition": "arXiv:1602.03148v3",
+      "url": "https://arxiv.org/pdf/1602.03148v3",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+      "readSections": [
+        "§3, Example 3.16, pp. 25–26: cyclotomic elements and their factorization"
+      ]
     }
   ],
   "nodes": [
@@ -1457,12 +1468,12 @@
       ],
       "proofSteps": [
         "θ(ξ) = (p^♭)^♯ − p = 0. Since O_C has no p-torsion, ker θ ∩ p^n A_inf = p^n ker θ, and A_inf is p-adically complete, so it suffices that ker θ ⊆ (ξ, p) = ([p^♭], p): for w ∈ ker θ, v^♭(r_0) = v_p(r_0^♯) ≥ 1 = v^♭(p^♭) (B-C Proposition 4.4.3(1)). This special case is also given by PerfectoidSpaces:P1/fontaine-theta-and-primitive-kernel.",
-        "Generator: by the criterion imported from AI.0:integral it suffices that the first Witt coordinate of [p^♭] − p is a unit; it is −1 (ghost component w_1 = (p^♭)^p − p; B-C Proposition 4.4.3(2) makes the same computation). Since ξ and ξ_ε both generate the principal ideal ker θ of the domain A_inf, they differ by a unit.",
+        "Apply AI.0:integral's imported criterion to the Witt coordinate r_1 (index 1) of [p^♭] − p; this coordinate equals −1. Thus [p^♭] − p generates ker θ. Since it and ξ_ε generate the same nonzero principal ideal in the domain A_inf, they differ by a unit. Here r_1 is a Witt coordinate, not a ghost component (B-C Proposition 4.4.3(2), pp. 58–59).",
         "Openness and W(k̄)-linearity: B-C Proposition 4.4.2 (images of basic open ideals are open; θ([j(c)]) = h([c]) on Teichmüller digits). Equivariance: R06.1/galois-action-on-cp.",
-        "(3): A_inf/ker θ = O_C is p-torsion free, which gives A_inf ∩ ξA_inf[1/p] = ξA_inf and by induction the j-th powers; an element of ⋂(ker θ)^j has first Witt coordinate divisible by all powers of p^♭, hence 0, so it lies in ⋂ p^n A_inf = 0 (B-C Corollary 4.4.5)."
+        "(3): A_inf/ker θ = O_C is p-torsion free, which gives A_inf ∩ ξA_inf[1/p] = ξA_inf and by induction the j-th powers; an element of ⋂(ker θ)^j has zeroth Witt coordinate r_0 divisible by all powers of p^♭, hence 0, so it lies in ⋂ p^n A_inf = 0 (B-C Corollary 4.4.5)."
       ],
       "acceptance": [
-        "[ε] − 1 ∈ ker θ; it generates ker θ when p = 2 and does not when p > 2, since v^♭(ε − 1) = p/(p − 1) (B-C Example 4.4.4 with the criterion (1)).",
+        "For every prime p, μ = [ε] − 1 lies in ker θ but does not generate it: μ = ξ_ε·φ^{−1}(μ), and the multiplier is a nonunit since its reduction ε^{1/p} − 1 has positive tilt valuation 1/(p−1). This includes p = 2. B-C Example 4.4.4, p. 59, gives a conflicting p = 2 claim; the factorization and valuation distinguish the correct assertion.",
         "The element μ/φ^{-1}(μ) with μ = [ε] − 1 (AInfCohomology AI.0's ξ) satisfies the criterion (1), so it generates ker θ as well."
       ],
       "prerequisites": [
@@ -1491,6 +1502,11 @@
           "sourceId": "fontaine-ouyang",
           "locator": "Proposition 5.12, p. 92",
           "match": "F-O's version with ξ = [ϖ] + p, ϖ^{(0)} = −p (a different but equivalent generator)."
+        },
+        {
+          "sourceId": "bhatt-morrow-scholze",
+          "locator": "§3, Example 3.16, pp. 25–26",
+          "match": "The cyclotomic factorization μ = ξ_ε φ^{−1}(μ); used for the non-generator acceptance case for every prime."
         }
       ],
       "implementationStatus": "unchecked"
@@ -18419,7 +18435,7 @@
     },
     {
       "supplier": "AInfCohomology:AI.0:integral",
-      "need": "For O_C = 𝓞_ℂ_[p] and A_inf = W(O_C^♭): the element ε ∈ O_C^♭ attached to a compatible system of primitive p-power roots of unity and its change under a change of system (ε ↦ ε^a, a ∈ Z_p^×); μ = [ε] − 1 and ξ_ε = μ/φ^{−1}(μ) = Σ_{i<p} [ε^{1/p}]^i with μ = ξ_ε·φ^{−1}(μ); the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (w ∈ ker θ generates ker θ if and only if its first Witt coordinate is a unit, and a generator is not a zero-divisor); and the theorem that ξ_ε generates ker θ. RS-01's owner record (FIX-RT-RS-01) makes AI.0:integral their single owner; R06.1 adds only p^♭, [p^♭] − p and the Galois action. The AInfCohomology packet plans the first items as AInfCohomology:AI.0/cyclotomic-coefficients.",
+      "need": "For O_C = 𝓞_ℂ_[p] and A_inf = W(O_C^♭): the element ε ∈ O_C^♭ attached to a compatible system of primitive p-power roots of unity and its change under a change of system (ε ↦ ε^a, a ∈ Z_p^×); μ = [ε] − 1 and ξ_ε = μ/φ^{−1}(μ) = Σ_{i<p} [ε^{1/p}]^i with μ = ξ_ε·φ^{−1}(μ); the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (w ∈ ker θ generates ker θ if and only if its Witt coordinate r_1 (index 1) is a unit, and a generator is not a zero-divisor); and the theorem that ξ_ε generates ker θ. RS-01's owner record (FIX-RT-RS-01) makes AI.0:integral their single owner; R06.1 adds only p^♭, [p^♭] − p and the Galois action. The AInfCohomology packet plans the first items as AInfCohomology:AI.0/cyclotomic-coefficients.",
       "neededBy": [
         "PadicHodgeTheory:R06.1/tilt-of-cp-and-special-elements",
         "PadicHodgeTheory:R06.1/explicit-generator-of-ker-theta",
@@ -18480,7 +18496,7 @@
       ],
       "title": "Owner of Scholze's primitive comparison theorem (Sch13 §5)",
       "detail": "Sch13 Theorem 5.1 and Corollary 5.11 are the inputs of Theorems 8.4 (i) and 8.8 (i) (P8) and, through BMS1, of the μ-inverted étale comparison (AI.4) and of CP.2-CP.3. No stage names them; the CohomologyComparisons packet records the same absence ('decide whether CP.3 absorbs [58, §8] … or a separate upstream owner is created').",
-      "proposal": "Assign Sch13 §5 (Theorem 5.1 with Lemmas 2.12, 4.12, 5.3-5.8, Corollary 5.11) to a new early CohomologyComparisons sub-stage 'CP.3:primitive' requiring AInfCohomology AI.3, AdicEtaleGeometry A1-A2 and ClassicalAdicEtaleCohomology H0-H3, with consumers CP.3, AI.4 and PadicHodgeTheory P8; Sch13 Lemma 5.2 (toric charts) stays in P8:local-rational, which already plans it. If a new sub-stage is not wanted, CP.3 absorbs §5 and P8 keeps its request to CP.3. Superseded by FIX-RT-RS-01 (RT-RS-01/13): RS-01's revised owner record gives Sch13 §5, Theorem 4.9, Lemma 4.12, Theorem 1.1 and the almost A_inf and B_dR^+ forms to P8:local-rational's early cut, which the substage P8:primitive proposed by FIX-RT-AREA-padic-1 would take over; CP.3:primitive is not adopted, and P8 no longer requests the theorem from CP.3."
+      "proposal": "Assign Scholze Theorem 5.1 and Corollary 5.11, with Theorem 4.9, Lemma 4.12, Lemmas 5.3–5.8, Theorem 1.1 and the initial almost A_inf/B_dR^+ comparison of Theorem 8.4, to the early P8:local-rational package as specified by RS-01 (FIX-RT-RS-01, finding /13). It imports AI.3, PerfectoidSpaces P0/P3/P7, AdicEtaleGeometry A1–A2 and ClassicalAdicEtaleCohomology H0; Lemma 5.2 remains in P8:local-rational. CP.3 and AI.5 import the primitive comparison from this early package. Move P8/affinoid-k-pi-one-for-p-torsion into the early package and write the missing §5 nodes during the P7 continuation. If P8:primitive is introduced after P8:local-rational, it takes this ownership record and its consumer links. The former proposal for CP.3:primitive is withdrawn."
     },
     {
       "kind": "ownership",
@@ -18523,7 +18539,7 @@
       ],
       "title": "Prove the Colmez–Fontaine theorem in R06.3 (or a sub-stage after P7), keeping its statement in R06.2",
       "detail": "R06.2's stage text asks for 'weak admissibility versus admissibility'. Admissible ⇒ weakly admissible and the reduction of the converse to the bigness of V_st(D) are proved in R06.2. The converse (Colmez–Fontaine) is proved publicly by Berger 2008 (Théorème V.2.1) and needs: the (φ, Γ)-module M(D) over B†_rig,K (P7:annulus-foundations), Kedlaya's slope filtration (PadicDifferentialEquationsAndRigidCohomology:RD.1/harder-narasimhan-filtration-exists and RD.1/frobenius-slopes), Berger's Corollaire III.2.5 which uses Théorème III.2.4 and hence the local monodromy theorem for differential equations (RD.2), the étale (φ, Γ)-module equivalence with overconvergence (PhiGammaModulesAndIwasawaCohomology PG.1–PG.2) and Berger 2002 Théorème 3.6 (D_st through the Robba ring). Since the stage graph has R06.2 → P7 and R06.2 → R06.3, these inputs are unavailable in R06.2. Note: contrary to the job text, Berger 2008 does not use R06.3's de Rham ⇒ potentially semistable theorem; its Remarque V.2.2 says so, although its Proposition IV.2.2 does route through the Crew/André–Kedlaya–Mebkhout monodromy theorem for differential equations (source issue PadicHodgeTheory/E32).",
-      "proposal": "Keep PadicHodgeTheory:R06.2/colmez-fontaine-theorem as the definition of the propositions ColmezFontaine(K) and ColmezFontainePst(K) with their equivalent forms (proved in R06.2). Add to R06.3 (part D) the proof nodes: R06.3/berger-filtered-module-to-phi-gamma-module (Berger 2008 §II: lattices M_n(D) = Fil^0(K_n((t)) ⊗ D_K) glued into M(D) over B†_rig,K; Théorème II.2.6, exact ⊗-functor, rank = dim D), R06.3/berger-connection-locally-trivial (Proposition III.1.5), R06.3/berger-essential-image (Théorème III.2.3–III.2.4, uses RD.2's monodromy theorem), R06.3/berger-subobjects (Corollaire III.2.5), R06.3/berger-slope-of-determinant (Théorème IV.2.1: slope of det M(D) = t_N(D) − t_H(D)), R06.3/berger-admissible-iff-etale (Proposition IV.2.2, uses RD.1's slope filtration), and R06.3/colmez-fontaine-proof (Théorème V.2.1: M(D) étale ⇒ D = D_{st,L}(V) via PG.2 and Berger 2002 Théorème 3.6), proving R06.2's propositions. Consumers that need weakly admissible ⇒ admissible (LocalGaloisDeformationRings L7 and R08.3, PotentialModularityAndCompatibleSystems R24.5) already depend on R06.3. Alternative route to record in part D: Colmez 2002 §11.6 via Banach–Colmez spaces (VectorBundlesAndIsocrystals VB3)."
+      "proposal": "Keep PadicHodgeTheory:R06.2/colmez-fontaine-theorem as the definition of the propositions ColmezFontaine(K) and ColmezFontainePst(K) with their equivalent forms (proved in R06.2). Add to R06.3 (part D) the proof nodes: R06.3/berger-filtered-module-to-phi-gamma-module (Berger 2008 §II: lattices M_n(D) = Fil^0(K_n((t)) ⊗ D_K) glued into M(D) over B†_rig,K; Théorème II.2.6, exact ⊗-functor, rank = dim D), R06.3/berger-connection-locally-trivial (Proposition III.1.5), R06.3/berger-essential-image (Théorème III.2.3–III.2.4, uses RD.2's monodromy theorem), R06.3/berger-subobjects (Corollaire III.2.5), R06.3/berger-slope-of-determinant (Théorème IV.2.1: slope of det M(D) = t_N(D) − t_H(D)), R06.3/berger-admissible-iff-etale (Proposition IV.2.2, uses RD.1's slope filtration), and R06.3/colmez-fontaine-proof (Théorème V.2.1: M(D) étale ⇒ D = D_{st,L}(V) via PG.2 and Berger 2002 Théorème 3.6), proving R06.2's propositions. Consumers that need weakly admissible ⇒ admissible (LocalGaloisDeformationRings L7 and R08.3, PotentialModularityAndCompatibleSystems R24.5) already depend on R06.3. Alternative route to record in part D: Colmez 2002 §11.6 via Banach–Colmez spaces (VectorBundlesAndIsocrystals VB3). RT-RS-01/30 also refers the duplicate general implication in R07.4/semistable-finite-height to the R07 restructuring: R07.4 retains its specific Kisin finite-height comparison, importing the general implication through its settled R06 interface. This is not permission to prove the general theorem a second time."
     },
     {
       "kind": "request-redirect",
@@ -18567,9 +18583,9 @@
         "PadicHodgeTheory",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
       ],
-      "title": "Fontaine–Laffaille Theorem 8.4 belongs to R06.4, the integral theory to R07.3",
+      "title": "Unresolved Fontaine–Laffaille ownership across R07.3 and R06.4",
       "detail": "R06.4's stage text names 'rational admissibility at filtration length < p' as its content, while R07.3's asks only to 'distinguish' it from the torsion theory; the unreviewed EXT-07 draft nevertheless plans Theorem 8.4(i) and 8.4(ii) as R07.3 nodes. Since the stage edge runs R07.3 → R06.4, R07.3 cannot import R06.4.",
-      "proposal": "R06.4 owns Theorem 8.4 (i) (PadicHodgeTheory:R06.4/small-weight-admissibility), 8.4 (ii) (…/fontaine-laffaille-crystalline-comparison) and the lattice consequences (…/fontaine-laffaille-rational-consequences). R07.3 owns MF_tor, U_S, U_{S_K} as functors to Galois representations, strongly divisible lattices and FL Propositions 7.8, 7.15, 7.17, Theorems 3.3, 5.3, 6.1 and §9, stated without the identification U_{S_K} = V_cris^*. The R07.3 blueprint should drop its drafted Theorem 8.4 nodes. Ordering constraint (RT-RS-01/30, as its verifier corrected it): R07.3/fl-lattice-correspondence requires fl-admissibility and R07.3 → R06.4 is an edge, so moving Theorem 8.4 to R06.4 and importing it back into an unsplit R07.3 would be cyclic. Either R07.3 keeps the proof with R06.4 as its interface, or R07.3 is split and its lattice-correspondence suffix placed after R06.4; the owner decision belongs to the R07 family restructuring."
+      "proposal": "RT-RS-01/30 remains an external ownership decision for the R07 family. Both overlaps are referred there: (i) Fontaine–Laffaille Theorem 8.4, planned at R07.3/fl-admissibility and R06.4; and (ii) the general Colmez–Fontaine implication, planned at R07.4/semistable-finite-height and the R06.2 interface. For (i), R07.3/fl-lattice-correspondence needs fl-admissibility and R07.3 → R06.4 already holds, so either retain the proof at early R07.3 and make R06.4 an import interface, or split R07.3 and move its dependent suffix after R06.4. For (ii), R07.4 must import the general theorem and retain only its Kisin finite-height construction/comparison; distinguish the R06.2 statement interface from the R06.3 proof placement proposed in the P7 packet. No owner reversal or proof import is installed until those interfaces are settled. This referral records outstanding work, not a resolution of either duplicate."
     },
     {
       "kind": "ownership",
@@ -19177,6 +19193,21 @@
       "searched": [
         "Berger 2008 Appendice B"
       ]
+    },
+    {
+      "id": "PadicHodgeTheory/E40",
+      "source": "brinon-conrad",
+      "kind": "error",
+      "locator": "Example 4.4.4, p. 59, author PDF dated 24 June 2009",
+      "printed": "The example asserts that the cyclotomic element μ generates the theta kernel at p = 2. This description is a paraphrase.",
+      "correction": "μ does not generate ker θ for any prime, including p = 2.",
+      "reason": "BMS1 Example 3.16 gives μ = ξ_ε φ⁻¹(μ), with ξ_ε a nonzero generator. The multiplier reduces modulo p to ε^(1/p) − 1, whose tilt valuation is 1/(p−1) > 0. It is a nonunit, so cancellation rules out μ being a generator.",
+      "affects": "a stated result",
+      "known": "Verified here from the cyclotomic factorization; no assertion is made about publication of an erratum.",
+      "searched": [
+        "Brinon–Conrad author notes, Proposition 4.4.3 and Example 4.4.4, pp. 58–59",
+        "BMS1 arXiv:1602.03148v3, Example 3.16, pp. 25–26"
+      ]
     }
   ],
   "sourceVersions": [
@@ -19298,6 +19329,18 @@
       "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
       "read": "2026-09-25",
       "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1602.03148v3",
+      "read": "2026-10-10",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a"
     }
-  ]
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-RS-01",
+    "date": "2026-10-10",
+    "notes": "Independent review of FIX-RT-RS-01 following REV-RS-01 and the verification REV-RT-RS-01. Checked all 32 findings, public sources, pinned declarations and dependency graphs. Corrected the index-1 Witt criterion, μ non-generator test, rational-freeness hypotheses, classical versus derived A_inf sheaves, coefficient primitive comparison, quotient-unit logarithm and Hodge–Tate-compatible uniqueness. Finding /30 remains unresolved: neither Fontaine–Laffaille proof ownership across R07.3/R06.4 nor the general Colmez–Fontaine supplier for R07.4 is settled. Both are now explicitly referred to the R07 family without the contradictory unconditional R06.4 assignment. See REV-FIX-RT-RS-01.md for the exact remaining decisions. This review does not certify completion of the partial P7 blueprint."
+  }
 }

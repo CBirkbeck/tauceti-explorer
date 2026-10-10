@@ -1,0 +1,11 @@
+# REV-FIX-RT-RS-01 handoff
+
+Codex `codex-onjkce`, 10 October 2026, issue #5706. The independent review is complete, with **needs_changes** in both permitted JSON files. This is not a checkpoint of an unfinished review.
+
+All 32 findings were assessed in `research/blueprint/reviews/REV-FIX-RT-RS-01.md`. Clear errors were corrected in place: the index-1 Witt criterion and μ non-generator test, exact rational-freeness hypotheses, distinction between classical and derived-p-completed A_inf sheaves, coefficient primitive-comparison inputs, quotient-unit logarithm, and Hodge–Tate-compatible uniqueness. The obsolete primitive-comparison owner proposal was removed. Both parts of /30 are now recorded without an unconditional cyclic Fontaine–Laffaille assignment.
+
+Resume the fix at RT-RS-01/30. Settle one Fontaine–Laffaille proof owner across R07.3/R06.4, preserving the R07.3 lattice consumer's order; either keep the early R07.3 proof and import it into R06.4, or split the dependent R07.3 suffix. Settle the general Colmez–Fontaine theorem's R06.2 interface/R06.3 proof supplier before routing R07.4's import; keep its Kisin finite-height comparison. Update RS-01's PadicHodgeTheory reason and P7 restructure entries 8/12 to reflect that decision. The report gives the exact unresolved node ids. R07 files were outside this review's edit scope.
+
+The existing P7 continuation also needs to write the early primitive-comparison nodes, relocate the K(π,1) node, and synchronize the reader and suggested file with the packet. API names and definition unit tests were unchanged here; the corrected theorem acceptance case must reach the reader. Keep the specialized ε construction separate from the current upstream LocalGaloisGroups cyclotomic character and retain the upstream AdicSpaces generic coefficient imports.
+
+Checks passed: proposal checker; packet checker (zero errors/warnings); intake file check; whitespace check. The independent assembly and projected-draft dependency checks are described with current counts and limitations in the report. No Lean file changed or was compiled. The review follows REV-RS-01 and REV-RT-RS-01; earlier review history is preserved. Public source URLs and pinned/current library commits are in the report, so no scratch file is needed by the next worker.

@@ -19,7 +19,7 @@
     },
     "PadicHodgeTheory": {
       "action": "keep",
-      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. R06.1 imports the O_C special elements and the kernel-generator criterion from AI.0:integral and the PD structure from CR.0. P8:local-rational imports the integral pro-étale sheaves from AI.3 and is the early owner of Scholze's primitive comparison theorem. P8 imports the constant-coefficient de Rham comparison from CP.3 and owns its extension to de Rham lisse sheaves and families. All ten stages remain."
+      "reason": "Keep period rings, period functors/admissibility, monodromy and analytic foundations, early relative period sheaves and later geometric/arithmetic applications. Import the CP comparison maps, without feeding those later theorems into their early sheaf constructions. R06.1 imports the O_C special elements and the kernel-generator criterion from AI.0:integral and the PD structure from CR.0. P8:local-rational imports the integral pro-étale sheaves from AI.3 and is the early owner of Scholze's primitive comparison theorem. P8 imports the constant-coefficient de Rham comparison from CP.3 and owns its extension to de Rham lisse sheaves and families. All ten stages remain. RT-RS-01/30 remains an external ownership decision for the R07 family. Both overlaps are referred there: (i) Fontaine–Laffaille Theorem 8.4, planned at R07.3/fl-admissibility and R06.4; and (ii) the general Colmez–Fontaine implication, planned at R07.4/semistable-finite-height and the R06.2 interface. For (i), R07.3/fl-lattice-correspondence needs fl-admissibility and R07.3 → R06.4 already holds, so either retain the proof at early R07.3 and make R06.4 an import interface, or split R07.3 and move its dependent suffix after R06.4. For (ii), R07.4 must import the general theorem and retain only its Kisin finite-height construction/comparison; distinguish the R06.2 statement interface from the R06.3 proof placement proposed in the P7 packet. No owner reversal or proof import is installed until those interfaces are settled. This referral records outstanding work, not a resolution of either duplicate."
     },
     "PerfectoidQuotients": {
       "action": "keep",
@@ -37,7 +37,7 @@
     },
     "AInfCohomology:AI.0:integral": {
       "action": "keep",
-      "reason": "Own the O_C-specialized integral coefficient structures and their structural proofs, using the generic Q0:integral-algebra/library carriers and the CR.0 PD envelope: the choice of ε and its change, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ) and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its first Witt coordinate is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope (A_crys is the p-adic completion of A_inf[ξ^m/m!], p-torsion-free, and its ordinary and derived p-completions agree); and the Breuil–Kisin twists. R06.1 imports these and does not plan them again. Do not reconstruct rational period rings here or give this early stage its late period-comparison return as an input."
+      "reason": "Own the O_C-specialized integral coefficient structures and their structural proofs, using the generic Q0:integral-algebra/library carriers and the CR.0 PD envelope: the choice of ε and its change, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ) and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its Witt coordinate r_1 (index 1, with r_0 the zeroth coordinate) is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope (A_crys is the p-adic completion of A_inf[ξ^m/m!], p-torsion-free, and its ordinary and derived p-completions agree); and the Breuil–Kisin twists. R06.1 imports these and does not plan them again. Do not reconstruct rational period rings here or give this early stage its late period-comparison return as an input."
     },
     "AInfCohomology:AI.0:period-comparison": {
       "action": "keep",
@@ -49,7 +49,7 @@
     },
     "AInfCohomology:AI.3": {
       "action": "keep",
-      "reason": "Own the integral pro-étale package for every locally noetherian adic space X over Spa(Q_p, Z_p), not only for generic fibres of smooth formal schemes: O_X^+, Ô_X^+, Ô^+_{X♭}, A_inf,X = W(Ô^+_{X♭}) with θ, the affinoid perfectoid basis, and the almost acyclicity of Ô_X^+ and Ô^+_{X♭} on affinoid perfectoids, on the corrected pro-étale site (Scholze 2013 Definition 4.1, Lemma 4.2, Definition 4.3 to Proposition 4.8, Lemma 4.10, Definition 5.9 and Lemma 5.10, Theorem 6.5 for A_inf; BMS1 Definition 5.4 for the derived A_inf,X). The rational sheaves and their comparison with these integral ones are constructed in P8:local-rational, which imports AI.3. The AΩ construction on smooth formal schemes is unchanged."
+      "reason": "Own the integral pro-étale package for every locally noetherian adic space X over Spa(Q_p, Z_p), not only for generic fibres of smooth formal schemes: O_X^+, Ô_X^+, Ô^+_{X♭}, the classical A_inf,X^cl = W(Ô^+_{X♭}) and its derived p-completion, with θ, the affinoid perfectoid basis, and the almost acyclicity of Ô_X^+ and Ô^+_{X♭} on affinoid perfectoids, on the corrected pro-étale site (Scholze 2013 Definition 4.1, Lemma 4.2, Definition 4.3 to Proposition 4.8, Lemma 4.10, Definition 5.9 and Lemma 5.10, Theorem 6.5 for A_inf; BMS1 Definition 5.4 for the derived A_inf,X). The rational sheaves and their comparison with these integral ones are constructed in P8:local-rational, which imports AI.3. The AΩ construction on smooth formal schemes is unchanged. The classical sheaf of Scholze Definition 6.1 and the derived-p-completed sheaf of BMS1 Definition 5.4 are separate constructions; their agreement requires its own completion argument."
     },
     "AInfCohomology:AI.5": {
       "action": "keep",
@@ -118,7 +118,7 @@
     },
     "PrismaticCohomology:PR.4": {
       "action": "keep",
-      "reason": "Keep the étale comparison and the p-adic Tate twists. PR.4 also owns the prismatic logarithm log_Δ: T_p(A^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, §2, Construction 2.7.4) and the prismatic, crystalline, syntomic and étale first Chern classes of line bundles (ibid. §7 and §8.2), which its cited sources (Bhatt–Lurie §§7–8) cover but its text names only through 'arithmetic Chern/regulator consumers'. CP.6 imports them; PR.4 → CP.6 is added."
+      "reason": "Keep the étale comparison and the p-adic Tate twists. PR.4 also owns the prismatic logarithm log_Δ: T_p((A/I)^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, §2, Construction 2.7.4) and the prismatic, crystalline, syntomic and étale first Chern classes of line bundles (ibid. §7 and §8.2), which its cited sources (Bhatt–Lurie §§7–8) cover but its text names only through 'arithmetic Chern/regulator consumers'. CP.6 imports them; PR.4 → CP.6 is added."
     },
     "PrismaticCohomology:PR.8": {
       "action": "keep",
@@ -127,6 +127,10 @@
     "PerfectoidQuotients:Q0:integral-algebra": {
       "action": "keep",
       "reason": "Keep the integral perfectoid rings in BS22's scope, the necessary A_inf/θ descriptions, the completion distinctions and the comparison lemmas needed when passing from a semiperfectoid quotient to a Tate ring. Import the general comparison between integral perfectoid rings and perfectoid Tate rings (BMS1 Lemma 3.20, with the ring of integral elements bounded in the converse, and Lemma 3.21, with π a nonzerodivisor) from PerfectoidSpaces P1, which plans them and is upstream (owner record)."
+    },
+    "CohomologyComparisons:CP.1": {
+      "action": "keep",
+      "reason": "Retain the O_C comparison agreement owned by CP.1. Application of BS22 Theorem 18.2 requires the symmetric monoidal functor and Hodge–Tate structure-map compatibility of Notation 18.1."
     }
   },
   "links": [
@@ -288,7 +292,7 @@
   ],
   "owners": [
     {
-      "target": "The O_C-specialized integral A_inf coefficients and their structural proofs: ε and the change of ε, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ), θ and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its first Witt coordinate is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope; and the Breuil–Kisin twist structures. Generic perfectoid/Witt carriers remain imported.",
+      "target": "The O_C-specialized integral A_inf coefficients and their structural proofs: ε and the change of ε, μ = [ε] − 1, ξ = μ/φ^{−1}(μ), ξ̃ = φ(ξ), θ and θ̃ = θ∘φ^{−1}; the O_C instance of PerfectoidSpaces P1's primitive-kernel theorem (an element of ker θ generates it if and only if its Witt coordinate r_1 (index 1, with r_0 the zeroth coordinate) is a unit, and generators are nonzerodivisors) and the theorem that ξ generates ker θ; the normalization of the Witt reduction (CR.0's map A_inf → W(k) kills μ and sends ξ and ξ̃ to p); the O_C instance of CR.0's regular-principal envelope; and the Breuil–Kisin twist structures. Generic perfectoid/Witt carriers remain imported.",
       "owner": "AInfCohomology:AI.0:integral",
       "formerly": [
         "CohomologyComparisons:CP.0",
@@ -338,7 +342,7 @@
       ]
     },
     {
-      "target": "The complex-level specialization lemmas of BMS1 §4.2, with their exact hypotheses: Lemma 4.14 and Corollary 4.15 (length inequality between the W(k)- and W(K♭)-specializations of finitely presented W_n(O♭)- and A_inf-modules, for any perfectoid field K); Lemma 4.16 (for C ∈ D(A_inf) with every H^j(C)[1/p] free, no perfectness: H^i(C) ⊗ W(k) → H^i(C ⊗^L W(k)) is injective and bijective after inverting p, and bijective if H^{i+1}(C) has no x-torsion); Corollary 4.17 (C perfect: every H^j(C) is finitely presented; H^i(C) is finite free if H^i(C ⊗^L W(k)) is p-torsion-free; degreewise equality only if also H^{i+1}(C) ⊗ W(k) is p-torsion-free); Lemma 4.18 with Remark 4.21, Lemma 4.19 and Corollary 4.20 (K of characteristic 0 containing all p-power roots of unity). The reviewed nodes CP.5/specialization-length-inequality, CP.5/witt-versus-tilt-specialization-inequality, CP.5/derived-to-degreewise-witt-specialization, CP.5/finite-presentation-and-freeness-criterion, CP.5/mu-inverted-freeness-criterion and the generic half of CP.5/crystalline-de-rham-torsionfreeness-equivalence become aliases of the AI.5 nodes. This excludes AI.2's module structure theory and BKF/Fargues classification, and CP.5's geometric §14 applications, including the geometric form of Lemma 4.18 (Remarks 14.4 and 14.7) and the length monotonicity in the proof of Theorem 14.5(ii).",
+      "target": "The complex-level specialization lemmas of BMS1 §4.2 for A_inf = W(O_K♭), retaining their hypotheses. Lemma 4.14 concerns finitely presented W_n(O_K♭)-modules. Corollary 4.15 concerns finitely presented A_inf-modules M with M[1/p] free: the two Witt specializations have equal rank and length((M ⊗ W(k))/p^n) ≥ length((M ⊗ W(K♭))/p^n) for every n ≥ 1. Lemma 4.16 concerns C ∈ D(A_inf) with every H^j(C)[1/p] free, without requiring C perfect: H^i(C) ⊗ W(k) → H^i(C ⊗^L W(k)) is injective and becomes bijective after inverting p; absence of x-torsion in H^{i+1}(C) gives an integral bijection. Corollary 4.17 requires C perfect AND every H^j(C)[1/p] free: all cohomology is finitely presented; p-torsion-freeness of H^i(C ⊗^L W(k)) gives finite freeness of H^i(C); integral degreewise base change additionally requires H^{i+1}(C) ⊗ W(k) p-torsion-free. These statements hold for any perfectoid field K. Lemmas 4.18–4.19 and Corollary 4.20 additionally require characteristic 0 and all p-power roots of unity. Lemma 4.18 requires C perfect with all H^j(C)[1/p] free and equates p-torsion-freeness of the two derived specializations in the fixed degree. Lemma 4.19 requires M finitely presented, M[1/(pμ)] finite projective and M ⊗ B_crys^+ finite projective, and concludes M[1/p] finite free. Corollary 4.20 requires C perfect, all H^j(C)[1/(pμ)] free and all H^j(C ⊗^L B_crys^+) free; it gives finite presentation and rational freeness, with the same degree-i freeness and additional degree-(i+1) base-change conditions as Corollary 4.17. Remark 4.21 permits the corresponding de Rham torsion-freeness tests. The reviewed nodes CP.5/specialization-length-inequality, CP.5/witt-versus-tilt-specialization-inequality, CP.5/derived-to-degreewise-witt-specialization, CP.5/finite-presentation-and-freeness-criterion, CP.5/mu-inverted-freeness-criterion and the generic half of CP.5/crystalline-de-rham-torsionfreeness-equivalence become aliases of AI.5 nodes. AI.2 retains the module structure theory and BKF/Fargues classification. CP.5 retains the geometric §14 applications, including Remarks 14.4 and 14.7 and the length monotonicity in the proof of Theorem 14.5(ii).",
       "owner": "AInfCohomology:AI.5",
       "formerly": [
         "CohomologyComparisons:CP.5"
@@ -359,7 +363,7 @@
       ]
     },
     {
-      "target": "Integral pro-étale sheaves O_X^+, Ô_X^+, Ô^+_{X♭}, A_inf,X = W(Ô^+_{X♭}) and θ on X_proét for every locally noetherian adic space X over Spa(Q_p, Z_p), with the corrected covers, the affinoid perfectoid basis and the almost acyclicity of Ô_X^+ and Ô^+_{X♭} on affinoid perfectoids (Scholze 2013 Definition 4.1, Lemma 4.2, Definition 4.3 to Proposition 4.8, Lemma 4.10, Definition 5.9 and Lemma 5.10, Theorem 6.5 for A_inf; BMS1 Definition 5.4 for the derived A_inf,X). The rational sheaves are P8:local-rational's, which imports these.",
+      "target": "Integral pro-étale sheaves O_X^+, Ô_X^+, Ô^+_{X♭} and θ for every locally noetherian adic space X over Spa(Q_p, Z_p), using the corrected covers and affinoid perfectoid basis. Scholze 2013 Definitions 4.1 and 4.3, Lemmas 4.2 and 4.10, Proposition 4.8, Definition 5.9 and Lemma 5.10 supply the completed integral structure sheaf, tilt and their almost acyclicity. Distinguish Scholze's classical Witt sheaf A_inf,X^cl = W(Ô^+_{X♭}) (Definition 6.1, Theorem 6.5) from BMS1's A_inf,X = derived p-completion of that Witt sheaf (Definition 5.4); do not identify these globally without proving a completion comparison. AI.3 owns both integral constructions and their affinoid-perfectoid evaluations. P8:local-rational owns the rational period sheaves and imports this integral package.",
       "owner": "AInfCohomology:AI.3",
       "formerly": [
         "PadicHodgeTheory:P8:local-rational"
@@ -373,7 +377,7 @@
       ]
     },
     {
-      "target": "Scholze's primitive comparison theorem and its integral consequences, in the numbering of the version on Scholze's web page: Theorem 4.9 (connected affinoid noetherian adic spaces are K(π,1) for p-torsion coefficients), Lemma 4.12, Lemmas 5.3–5.8 and Theorem 5.1 (for X proper smooth over Spa(K, K^+) with K algebraically closed and L an F_p-local system: H^i(X_ét, L) is finite, H^i(X_ét, L) ⊗ K^{+a}/p ≅ H^i(X_ét, L ⊗ O_X^{+a}/p), and H^i(X_ét, L) = 0 for i > 2 dim X), the relative form Corollary 5.11, the finiteness of H^i_ét(X_C, Z_p) for proper smooth rigid X over a discretely valued field (Theorem 1.1, recalled as BMS1's Theorem 5.1), and the almost A_inf and B_dR^+ forms RΓ_ét(X, Z_p) ⊗ A_inf^a ≅ RΓ(X_proét, A_inf,X^a) and RΓ_ét(X, Z_p) ⊗ B_dR^+ ≅ RΓ_proét(X, B_dR,X^+) from the first steps of the proof of Theorem 8.4. Its inputs are Lemma 2.12 (PerfectoidSpaces P0), Lemma 5.2 (already in P8:local-rational), Definition 5.9 and Lemma 5.10 (AI.3), almost purity and tilde-limits (PerfectoidSpaces P3 and P7), AdicEtaleGeometry A1–A2 and ClassicalAdicEtaleCohomology H0, all ancestors of P8:local-rational. BMS1 Theorem 5.7 (the cone killed by W(m♭), with the derived A_inf,X) is proved where AI.5's global μ-inverted comparison uses it, importing this; CP.3 and P8 import it too. When the early substage P8:primitive proposed by FIX-RT-AREA-padic-1 exists, it takes this record unchanged.",
+      "target": "Scholze's primitive comparison theorem and its integral consequences, in the numbering of the version on Scholze's web page: Theorem 4.9 (connected affinoid noetherian adic spaces over Spa(Q_p, Z_p) are K(π,1) for p-torsion coefficients), Lemma 4.12, Lemmas 5.3–5.8 and Theorem 5.1 (for X proper smooth over Spa(K, K^+) with K an algebraically closed complete extension of Q_p, K^+ an open bounded valuation subring, and L an F_p-local system: H^i(X_ét, L) is finite, H^i(X_ét, L) ⊗ K^{+a}/p ≅ H^i(X_ét, L ⊗ O_X^{+a}/p), and H^i(X_ét, L) = 0 for i > 2 dim X), the relative form Corollary 5.11, the finiteness of H^i_ét(X_C, Z_p) for proper smooth rigid X over a discretely valued field (Theorem 1.1, recalled as BMS1's Theorem 5.1), and the almost A_inf and B_dR^+ forms RΓ_ét(X, Z_p) ⊗ A_inf^a ≅ RΓ(X_proét, A_inf,X^a) and RΓ_ét(X, Z_p) ⊗ B_dR^+ ≅ RΓ_proét(X, B_dR,X^+) from the first steps of the proof of Theorem 8.4. Its inputs are Lemma 2.12 (PerfectoidSpaces P0), Lemma 5.2 (already in P8:local-rational), Definition 5.9 and Lemma 5.10 (AI.3), almost purity and tilde-limits (PerfectoidSpaces P3 and P7), AdicEtaleGeometry A1–A2 and ClassicalAdicEtaleCohomology H0, all ancestors of P8:local-rational. BMS1 Theorem 5.7 (the cone killed by W(m♭), with the derived A_inf,X) is proved where AI.5's global μ-inverted comparison uses it, importing this; CP.3 and P8 import it too. When the early substage P8:primitive proposed by FIX-RT-AREA-padic-1 exists, it takes this record unchanged. For finite free lisse Z_p-sheaves, the coefficient version of the first comparison in Theorem 8.4, pp. 48–49, is also part of this early package: establish the mod-p^n comparisons and the inverse-limit conditions of Lemma 3.18 before taking the almost A_inf and B_dR^+ limits. The constant-coefficient derived formulation above does not by itself prove this coefficient extension.",
       "owner": "PadicHodgeTheory:P8:local-rational",
       "formerly": [
         "PadicHodgeTheory:P8"
@@ -408,7 +412,7 @@
       ]
     },
     {
-      "target": "The prismatic logarithm log_Δ: T_p(A^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, Construction 2.7.4) and the prismatic, crystalline, syntomic and étale first Chern classes of line bundles (ibid. §7 and §8.2), which CP.6 compares.",
+      "target": "For a prism (A, I), with quotient R = A/I, the prismatic logarithm log_Δ: T_p(R^×) → A{1} (Bhatt–Lurie, Absolute prismatic cohomology, Construction 2.7.4, pp. 34–35), together with the prismatic line-bundle class (§7.3), the syntomic first Chern class (Construction 7.5.1, pp. 181–182), its crystalline specialization over F_p (Construction 7.5.3), its étale generic-fibre specialization after inverting p (Construction 7.5.4), and their compatibility (Remark 7.5.5). These are the classes CP.6 compares; §8.2 supplies the more general characteristic-class context.",
       "owner": "PrismaticCohomology:PR.4",
       "formerly": [
         "CohomologyComparisons:CP.6"
@@ -422,7 +426,7 @@
       ]
     },
     {
-      "target": "Agreement of the A_inf specialization maps over O_C with the prismatic comparisons, through the uniqueness theorem BS22 Theorem 18.2 (the prismatic cohomology functor on p-completely smooth algebras over a perfect prism has no nontrivial endomorphisms) and the polynomial/torus tests; PR.6 keeps the generic uniqueness theorem, and AI.7 proves only the agreement of its own S-valued Breuil–Kisin specializations.",
+      "target": "Agreement of the A_inf specialization maps over O_C with the prismatic comparisons, using BS22 Notation 18.1 and Theorem 18.2, pp. 122–124. The uniqueness concerns endomorphisms of the prismatic cohomology functor, regarded as a symmetric monoidal functor on p-completely smooth R-algebras over a perfect prism (A, I), R = A/I, equipped with and compatible with its natural Hodge–Tate structure map; it is not unrestricted uniqueness of arbitrary comparison maps. CP.1 must verify these structures for its O_C comparison before applying the theorem, with polynomial/torus tests. PR.6 owns this generic uniqueness theorem. AI.7 retains only agreement of its S-valued Breuil–Kisin specializations and cannot apply this perfect-prism theorem to a nonperfect S-prism without another argument.",
       "owner": "CohomologyComparisons:CP.1",
       "formerly": [
         "AInfCohomology:AI.7"
@@ -437,9 +441,10 @@
     }
   ],
   "review": {
-    "status": "pending",
-    "date": "2026-10-07",
-    "notes": "FIX-RT-RS-01 by Claude, session claude-jBSCUj, for issue #5705, applying the confirmed findings of RT-RS-01. The accepted REV-RS-01 review of the first revision is preserved verbatim in reviewHistory; three of its claims are corrected by this revision (RT-RS-01/8, /21, /24): forwarding was complete at stage level only, the narrowed CP.0 and CP.5 were not the only stages that re-planned other owners' targets, and CP.3 → CP.2 is the only new direct dependency but adds four reachable pairs. REV-FIX-RT-RS-01 must independently adjudicate this revision; the fixer does not accept its own work."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-RS-01",
+    "date": "2026-10-10",
+    "notes": "Independent review of FIX-RT-RS-01 following REV-RS-01 and the verification REV-RT-RS-01. Checked all 32 findings, public sources, pinned declarations and dependency graphs. Corrected the index-1 Witt criterion, μ non-generator test, rational-freeness hypotheses, classical versus derived A_inf sheaves, coefficient primitive comparison, quotient-unit logarithm and Hodge–Tate-compatible uniqueness. Finding /30 remains unresolved: neither Fontaine–Laffaille proof ownership across R07.3/R06.4 nor the general Colmez–Fontaine supplier for R07.4 is settled. Both are now explicitly referred to the R07 family without the contradictory unconditional R06.4 assignment. See REV-FIX-RT-RS-01.md for the exact remaining decisions. This review does not certify completion of the partial P7 blueprint."
   },
   "reviewHistory": [
     {
