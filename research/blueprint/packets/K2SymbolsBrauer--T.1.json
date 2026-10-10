@@ -4706,9 +4706,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-    "date": "2026-09-30",
-    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-mcmkKW; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30). Checked /19–20: the number-field and positive-characteristic global Milnor contracts already have their single owner in T.2:symbols, while the graded Milnor-to-Quillen product map stays in T.2:graded-map. No duplicate T.4 proof is added. The earlier area-1 rejection remains: G-Hopf and G-natural-Hopf still require the discrete Hochschild–Serre low-degree sequence and map-level comparison for RT-AREA-ktheory-1/30. Successful Lean elaboration (only placeholder-proof warnings) does not close that mathematical gap. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
   },
   "reviewHistory": [
     {
@@ -4943,6 +4943,12 @@
           "note": "Separated stable perfectness from finite perfectness; generator commutators pass through the colimit (III.5.1 relations/5.5)."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+      "date": "2026-09-30",
+      "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
     }
   ]
 }

@@ -4433,14 +4433,17 @@
     "R is a smooth affine curve ring over a finite field; integral Steinberg coefficients, every projective Q and every i are required."
    ],
    "proofSteps": [
-    "Use finiteness of the Jacobian’s finite-field points and quotient Pic of the proper curve by the nonempty boundary to obtain finite Pic(R).",
+    "Import finite degree-zero divisor class group and the affine class-group finiteness bridge from AlgebraicCurves layer 5, with its nonempty finite boundary and full finite constant field hypotheses. Use ClassGroup.equivPic for the Dedekind coordinate ring. This supplier already owns the Riemann–Roch/counting argument; no new Jacobian construction or class-number proof is planned here.",
     "Import the affine-curve Steinberg-homology theorem cited by Weibel as [GQ82]. Its original proof is not inspected: this is an explicit source/proof gap, not a deduction from the number-field theorem."
    ],
    "acceptance": [
     "Do not substitute number-field units or real embeddings into the function-field input.",
     "For F_q[t], Pic=0; the homology hypothesis still requires the function-field theorem."
    ],
-   "prerequisites": [],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+    "mathlib:ClassGroup.equivPic"
+   ],
    "sources": [
     {
      "sourceId": "Kbook.IV.chapter",
@@ -4963,6 +4966,13 @@
    "need": "Kummer exact sequence for cyclotomic S-integers, functorial with Galois action and twist. Preserve unit classes, H¹ and Pic[p^m] as separate terms.",
    "neededBy": [
     "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-5-consequences-of-riemannroch-and-local-components",
+   "need": "Import the finite full-constant-field degree-zero divisor class group and affine class-group finiteness bridge for a smooth geometrically integral affine curve with nonempty finite complement. This existing Riemann–Roch consequence supplies Pic(R) finiteness after ClassGroup.equivPic; keep all boundary/divisor comparison hypotheses explicit. Do not rebuild the class-number argument in N.3.",
+   "neededBy": [
+    "ArithmeticKTheory:N.3:finite-generation/function-field-steinberg-finiteness"
    ]
   }
  ],
@@ -5518,10 +5528,10 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.1. Scoped review of /1, /3, /7–/10: number-field rank-filtration/building and nonfree-projective contracts, S-integer rank ranges, order certificates and supplier ownership are correct after correcting m≥1 and Q₀≃terminal. Named unresolved suppliers and later area-2 work are preserved; this is not a full reaudit of the latter or closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-mcmkKW; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30). Checked /1, /4, /14 and /42 against Weibel IV.6.9/VI.6.1 and CGZ v3 Lemma 3.5. Added the existing AlgebraicCurves layer-5 Picard-finiteness import instead of replanning the finite-field class-number argument. The proper-curve localization passage and S.3 ownership are correct. /1 still lacks the original GQ82 integral Steinberg-homology proof; /14 still lacks Keune exact-hypothesis/proof and finite-module comparison closure. These named source gates are retained, not accepted as complete proofs. Suggested Lean elaborates with only placeholder-proof warnings. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
  },
  "reviewHistory": [
   {
@@ -5751,6 +5761,12 @@
      "note": "Weibel 2006 Theorem A: index at most two, with the special-field exception that the K-book omits."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.1. Scoped review of /1, /3, /7–/10: number-field rank-filtration/building and nonfree-projective contracts, S-integer rank ranges, order certificates and supplier ownership are correct after correcting m≥1 and Q₀≃terminal. Named unresolved suppliers and later area-2 work are preserved; this is not a full reaudit of the latter or closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }

@@ -1190,28 +1190,29 @@ variable [Algebra R A] [hLoc : IsLocalization.AtPrime A v.asIdeal]
 variable [Algebra A (FractionRing R)] [IsFractionRing A (FractionRing R)]
 variable [hTower : IsScalarTower R A (FractionRing R)]
 
-include M v hLoc hTower
-
 /-- API toLocalModel: scalar extension to the specified local DVR and forgetting
 properness and regularity to the actual pinned TauCeti.Model. -/
-def toLocalModel : TauCeti.Model A (FractionRing R) E toGen := by
+def toLocalModel (M : RegularProperModel R E toGen)
+    (v : IsDedekindDomain.HeightOneSpectrum R)
+    [IsLocalization.AtPrime A v.asIdeal] :
+    TauCeti.Model A (FractionRing R) E toGen := by
   sorry
 
 /-- API toLocalModel_totalIso: comparison over the local base, so this is stronger
 than an unmarked isomorphism of total schemes. The constructed toLocalModel also
 uses the original marking via iterated scalar extension. -/
 def toLocalModel_totalIso :
-    { e : Over.mk (toLocalModel M v A).toBase ≅ TauCeti.genericFiber R A M.toBase //
+    { e : Over.mk (toLocalModel (A := A) M v).toBase ≅ TauCeti.genericFiber R A M.toBase //
       ((Over.pullback (Spec.map (CommRingCat.ofHom
         (algebraMap A (FractionRing R))))).mapIso e).hom.left ≫
           (TauCeti.genericFiberTowerIso R A (FractionRing R) M.toBase).hom ≫
-            M.genericFibre.hom = (toLocalModel M v A).genericFiberIso.hom.left } := by
+            M.genericFibre.hom = (toLocalModel (A := A) M v).genericFiberIso.hom.left } := by
   sorry
 
 /-- API toLocalModelHom: scalar extension of a marked model map, using the
 same inherited generic-fibre tower comparison as toLocalModel_totalIso. -/
 def toLocalModelHom {N : RegularProperModel R E toGen} (f : Hom M N) :
-    TauCeti.Model.Hom (toLocalModel M v A) (toLocalModel N v A) := by
+    TauCeti.Model.Hom (toLocalModel (A := A) M v) (toLocalModel (A := A) N v) := by
   sorry
 
 -- The local regularity/minimality assertions are not stated; they need the
