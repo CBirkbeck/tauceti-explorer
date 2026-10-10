@@ -1232,6 +1232,44 @@ example :
 
 end TauCeti.BunG.KottwitzDescent
 
+namespace TauCeti.BunG.FamilyDescentControls
+
+-- Restricted controls for HK22 v5 Lemma2.9/Theorem2.11, proof pp.8–9.
+-- Native submodules and coordinate functions are used here. They are not
+-- replacements for coefficient-DVR families or the geometric orbit map.
+variable {R K : Type u} [CommRing R] [Field K] [Algebra R K]
+
+/-- A stable over-lattice of the standard rank-two lattice contains the
+    off-diagonal Frobenius coefficient. -/
+theorem shear_forces_coefficient (σ : K ≃+* K) (a : K)
+    (M : Submodule R (Fin 2 → K))
+    (he₂ : ![0, 1] ∈ M)
+    (hstable : ∀ x ∈ M, ![σ (x 0) + a * σ (x 1), σ (x 1)] ∈ M) :
+    ![a, 0] ∈ M := by sorry
+
+/-- If the proposed scaled lattice bound makes the shear coefficient
+    nonintegral, no stable over-lattice with that bound exists. The general
+    coefficient map is explicit; no valuation conclusion is assumed proved. -/
+theorem shear_violates_bound (σ : K ≃+* K) (a scale : K)
+    (hnonintegral : scale * a ∉ Set.range (algebraMap R K)) :
+    ¬ ∃ M : Submodule R (Fin 2 → K),
+      ![0, 1] ∈ M ∧
+      (∀ x ∈ M, ![σ (x 0) + a * σ (x 1), σ (x 1)] ∈ M) ∧
+      (∀ x ∈ M, scale * x 0 ∈ Set.range (algebraMap R K)) := by sorry
+
+/-- The displayed ambient map has inverse (x,y) ↦ (x/2,x/4+y)
+    and sends (1,1) to (2,1/2), but is not diag(t,t⁻¹) for any t.
+    This detects group membership; it is not a counterexample to the
+    existence of a smaller-group lift or to the source theorem. -/
+theorem ambient_lift_not_tensor_lift :
+    (fun x : Fin 2 → ℚ => ![2 * x 0, -(x 0) / 2 + x 1]) ![1, 1] = ![2, 1 / 2] ∧
+    Function.Bijective (fun x : Fin 2 → ℚ => ![2 * x 0, -(x 0) / 2 + x 1]) ∧
+    ∀ t : ℚˣ,
+      (fun x : Fin 2 → ℚ => ![2 * x 0, -(x 0) / 2 + x 1]) ≠
+      (fun x : Fin 2 → ℚ => ![(t : ℚ) * x 0, ((t⁻¹ : ℚˣ) : ℚ) * x 1]) := by sorry
+
+end TauCeti.BunG.FamilyDescentControls
+
 /-
 Exact-name contract and omission register (G08). These are comment contracts,
 not Lean declarations. A typed prototype covers only the scope its note states;
@@ -1524,7 +1562,9 @@ BunGAndNewtonStrata:BG0/isocrystal-family-v-descent
 TauCeti.BunG.IsocrystalFamilyVDescent
 Full theorem contract: The G-isocrystal family prestack is a v-stack on perfect F_q-schemes. It has locally closed geometric-class strata indexed by B(G), each equivalent to [*/J_b(E)] for the locally profinite rational-point group. This is the family stack statement of FS I.2.1; the algebraic classifying stack [*/J_b] and the bundle stratum with its full automorphisms are different objects.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
-Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
+Formulation: full-signature-omitted. The full family v-stack signature remains omitted under G08. Three elaborated native Submodule/field-vector controls check E08/E09 only: stable over-lattices contain the shear coefficient, a nonintegral scaled coefficient violates a proposed bound, and an ambient invertible lift need not lie in the smaller tensor stabilizer. No analytic geometry or actual orbit-lifting theorem is supplied.
+
+Proof controls: E08 requires an initial Frobenius denominator d; the field-level rank-h bound is d(h−1). E09 requires lifting through the actual tensor automorphism orbit, not an ambient GL(H) section. These controls do not establish either full supplier theorem.
 
 BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy
 TauCeti.BunG.FamilyKottwitzLocalConstancy
