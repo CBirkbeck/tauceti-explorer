@@ -1,21 +1,23 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
-Codex (GPT-6), session `codex-zSS4E1`, 10 October 2026; issue
+Codex (GPT-6), session `codex-nadu6T`, 10 October 2026; issue
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6093342990).
-Input atlas commit `b6ce57e677e6304cd146c629bc47d984ccc15f92`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6093576332).
+Input atlas commit `1c5f084ae62c50addb554f8aa720851da151f19a`.
 This session wrote none of the fixes under review and took one job.
 
 **L3 is accepted within the fix scope. PMIA needs coordinated reuse of
 current Tau Ceti. The live issue's two-packet review is complete; the queue
 requires two further packet receipts outside the issue's authorized scope.**
 
-This pass follows codex-oYbkOx. Its two receipts are archived in
+This pass follows codex-zSS4E1. Its two receipts are archived in
 `reviewHistory`. Fresh checks cover all six verified finding dispositions,
 the selected Gamma/Gross–Koblitz foundations, DK's character-ring algebra,
-current native Fitting/transpose interfaces, all 57 named L6 tests, and
-pinned elaboration. The inherited 50-node L6 ledger below remains credited
-to codex-KQjyXV. This is a review of the fixes, not a new full audit of all
+current native Fitting/transpose interfaces, all 50 L6 statements and
+57 named tests, and pinned elaboration. The critical Gamma, adjugate and
+projective-lifting baseline statements were read at the recorded pins;
+the inherited ledger is not a claim of a new exhaustive baseline audit.
+The inherited 50-node L6 ledger below remains credited to codex-KQjyXV. This is a review of the fixes, not a new full audit of all
 1,663 L3 nodes or 487 PMIA nodes. Source-issue reviews and external gaps are
 preserved.
 
@@ -39,7 +41,8 @@ the handoff. Acceptance does not close inherited producer gaps.
 
 ## Fresh source evidence
 
-The following public PDFs were downloaded and the selected locations read.
+The following public PDFs were downloaded on 10 October 2026 and the selected
+locations read.
 Scanned Morita, Robert and GK pages were inspected visually. No restricted
 book was used. All mathematical descriptions here are in the reviewer's own
 words; no source passage is deposited in the repository.
@@ -47,7 +50,7 @@ words; no source passage is deposited in the repository.
 | Source | Locators checked | PDF SHA-256 |
 |---|---|---|
 | [Morita (1975)](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | §1, Lemma 1, Theorem 1 and recurrence, printed pp.255–256 | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
-| [Robert (2001)](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | Theorem 2 and §4, coefficient recurrence, Theorems 3–4 and decay, printed pp.163–168 | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| [Robert (2001)](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | Theorem 2 and §4, coefficient recurrence, Theorems 3–4 and decay, printed pp.162–168 | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
 | [Gross–Koblitz (1979)](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf) | Introduction and §1, (1.2), (1.5), Theorem 1.7, printed pp.569–571 | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
 | [Dasgupta–Kakde, v3](https://arxiv.org/pdf/2010.00657v3) | §§2.2–2.3 pp.15–18; Lemma 3.9 pp.25–26; §6.1 p.40; Appendix B.2 pp.93–94 | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 
@@ -65,6 +68,27 @@ identity alone would require an additional invariant-image hypothesis.
 The finite-ideal reduction in `quadratic-cardinality` keeps the source's
 finite-field factors. The transpose of the identity presentation of zero
 vanishes, while adding a zero relation contributes a free dual summand.
+
+Additional direct checks of the supplied algebraic proofs support the fixes:
+
+- For arbitrary projective presentations, use the common surjection
+  P₀⊕Q₀→M. The relation maps from F₁=P₁⊕Q₀ and F₂=Q₁⊕P₀ have the same
+  image. Projectivity gives the lifts needed for shears of F₁⊕F₂; each
+  combined presentation is a zero-relation enlargement of the other.
+  Dualizing yields tr(f)⊕F₂*≃tr(g)⊕F₁*, with the summands in the packet's
+  order. Minimal-presentation uniqueness is not used.
+- Finite-index cokernel descent needs the determinant to be a nonzerodivisor
+  in the overring, as the corrected contract states. In the graph subring
+  B={(a,a mod p)} of B′=ℤ×𝔽_p, (p,0) is a nonzerodivisor of B, while the
+  two quotient cardinalities are p and p². This checks the necessity of
+  the stronger hypothesis, already recorded in E18. For a finite ideal K,
+  a nonzerodivisor determinant acts bijectively on K; the adjugate then
+  makes the matrix bijective on K^m, which justifies the quotient step.
+- The extension relation matrix has blocks (Ψ,−X;0,φ_C). Since φ_C is
+  square, nonzero maximal minors must select all its columns. Each is
+  det(φ_C) times a maximal minor of Ψ, giving the asserted equality of
+  Fitting ideals even when Ψ is rectangular. This argument needs no
+  injectivity of the relation map and uses no uncleared Northcott book.
 
 ## Current library reuse required by PMIA
 
@@ -145,15 +169,15 @@ remain open.
 
 ## Validation
 
-| Check | Fresh result |
+| Check | Result and provenance |
 |---|---|
 | L3 packet checker after receipt update | Exit 0; 0 errors, 26 inherited short-API warnings. |
 | PMIA packet checker after receipt update | Exit 0; 0 errors/warnings. |
 | Full PMIA suggested file | Exit 0; 1,075 `sorry` warnings only. |
 | Standalone L3 suggested file | Exit 1 at unresolved repository-local `research` imports; its body is not processed. |
-| Entire L3 body with documented scratch supplier corrections | Exit 0; 7,177 `sorry` warnings only. |
-| Read-only L3-2 packet/suggested-file preflight | Checker: 0 errors/warnings. Standalone Lean: exit 0, 110 `sorry` warnings only. |
-| Read-only D.1 packet/suggested-file preflight | Checker: 0 errors/warnings. Standalone Lean: exit 0, 307 `sorry` warnings only. |
+| Entire L3 body with documented scratch supplier corrections | Fresh exit 0; 7,177 `sorry` warnings only. |
+| Read-only L3-2 packet/suggested-file preflight | Fresh checker: 0 errors/warnings. The preceding session reported standalone Lean exit 0, 110 `sorry` warnings only; not rerun in this session. |
+| Read-only D.1 packet/suggested-file preflight | Fresh checker: 0 errors/warnings. The preceding session reported standalone Lean exit 0, 307 `sorry` warnings only; not rerun in this session. |
 | Completion predicate | True for the live five-file outputs, False for the nine-file queue outputs. |
 
 The complete L3 diagnostic concatenates suggested bodies PMIA, L0, L1, L2,
@@ -170,12 +194,14 @@ review's supplier corrections in scratch:
 - L2 lines 3854 and 3856: remove the unused `d` notation referring to
   undefined `eisensteinTwistedDenominator` and its unused `S` notation.
 
-The PMIA/L3 bodies are unchanged. This conditionally verifies prototype
-elaboration, not original standalone compilation or supplier closure.
+The PMIA/L3 signatures are unchanged in the diagnostic. This conditionally
+verifies prototype elaboration, not original standalone compilation or
+supplier closure.
 The preceding report retains the unmodified assembly's supplier diagnostics;
-this session reproduced the corrected assembly, not every intermediate run.
+this session reproduced the corrected assembly, not every preceding
+intermediate run.
 Diagnostic input SHA-256:
-`e9e24fa015e103eb82756442fc59a25fd4da3dc76f501b9ca8b0c850aceca774`.
+`530c0ec443f5e7be2ebaca238c024b271f0b0156b6fb3b3a42e7f2f6b9049da5`.
 
 | Original suggested module | SHA-256 |
 |---|---|
@@ -189,9 +215,13 @@ L3-2 input SHA-256 is
 `d076a92eb2d65a233b4fb86001f6ddc0ebd9c2b5c429c9c33ef1801252e244d3`;
 D.1 is `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8`.
 All Lean runs were sequential through `lean-check` at Mathlib 082e2d3/Tau
-Ceti f790474, with at least 108 GB available at launch. No language server,
+Ceti f790474, with at least 90 GB available at launch. No language server,
 Lake project/build/update/cache operation or current-main build was started.
-No compiler remains running at submission.
+No compiler remains running at submission. The four changed files pass
+`intake.py check-files` with 0 problems and `git diff --check` with no
+whitespace errors. Parsed comparison against the input commit confirms that
+only the two packets' review/history objects changed: all 19 L3 and 20 PMIA
+source findings, their verdicts and all other mathematical data are identical.
 
 ## Scope blocker
 
