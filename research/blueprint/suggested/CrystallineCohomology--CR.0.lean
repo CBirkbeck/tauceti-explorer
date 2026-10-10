@@ -23,6 +23,7 @@ import Mathlib.Algebra.MvPolynomial.Basic
 import Mathlib.RingTheory.Flat.EquationalCriterion
 import Mathlib.RingTheory.Flat.Localization
 import Mathlib.Algebra.Homology.HomologicalComplex
+import Mathlib.Algebra.Category.Ring.Colimits
 import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.Algebra.Polynomial.Derivative
@@ -3194,7 +3195,9 @@ def PDRing.ofHom {A B : Type u} [CommRing A] [CommRing B] {I : Ideal A} {J : Ide
     {γ : DividedPowers I} {δ : DividedPowers J} (f : A →+* B) (hf : γ.IsDPMorphism δ f) :
     PDRing.of γ ⟶ PDRing.of δ := PDRing.Hom.mk f hf
 
-/- First sentence of CR.0/pd-ring-pushout (Stacks, Divided Power Algebra, Lemma 23.3.4). -/
+/- The ring colimit exists in the pinned library; PD colimits additionally impose
+compatibility relations through PDEnvelope and a PD-stable quotient. -/
+#check CommRingCat.Colimits.hasColimits_commRingCat
 lemma PDRing.hasColimits : Limits.HasColimits PDRing.{u} := by sorry
 
 variable {A B B' B'' : Type u} [CommRing A] [CommRing B] [CommRing B'] [CommRing B'']
@@ -5322,6 +5325,9 @@ For P¹ over k: Tr(h)=1 for h=c₁(O(1))∈H²_crys(P¹/W(k)).
 test TauCeti.Crystalline.test_crysTrace_finite_extension
 For X=Spec k′ with k′/k a finite extension (d=0): Tr_X:W(k′)→W(k) is the trace of the finite étale W(k)-algebra W(k′).
 
+api TauCeti.Crystalline.crysTrace_product
+For proper smooth X,Y of pure dimensions d,e over k, under derived Künneth K(X×Y)≅K(X)⊗^L_W K(Y), Tr_(X×Y)=Tr_X⊗^L Tr_Y as morphisms to W[−2(d+e)], with the canonical shift and Koszul symmetry identifications. This holds at finite W_n levels and commutes with reduction. In particular Tr_(X×Y)(pr₁^*x∪pr₂^*y)=Tr_X(x)Tr_Y(y) for x,y of top degree.
+
 CrystallineCohomology:CR.3:duality/poincare-pairing
 
 declaration TauCeti.Crystalline.crysPoincareDuality
@@ -5336,7 +5342,7 @@ api TauCeti.Crystalline.crysGysin_comp
 (g∘f)_*=g_*∘f_* with the corresponding summed dimension shifts.
 
 api TauCeti.Crystalline.crysGysin_projection
-f_*(x·f^*y)=f_*x·y.
+As morphisms K(X)⊗^L_W K(Y)→K(Y)[2(d_Y−d_X)], f_*∘μ_X∘(id⊗f^*)=μ_Y∘(f_*⊗id), using the even dimension shift. Hence f_*(x·f^*y)=f_*x·y on cohomology; no torsion-free hypothesis is imposed.
 
 api TauCeti.Crystalline.crysGysin_trace
 For the structural map X→Spec k, f_*=Tr_X.
@@ -5436,7 +5442,7 @@ At r=1 it is the degreewise p-completed ordinary relative de Rham complex.
 CrystallineCohomology:CR.4/torus-integral-part
 
 declaration TauCeti.Crystalline.wittTorusIntegral
-For S=A[T₁^±1,…,T_d^±1], the basic Witt expansion extends to all weights a∈p^(−r)Z^d, ordered by v_p(a_i), including v_p(0)=∞. Partition all coordinate indices into ordered blocks I₀,…,I_q, with I₀ possibly empty and the others nonempty. Nonintegral blocks use V and dV; integral nonzero blocks use F^v d of the corresponding divided-weight Teichmüller monomial; zero blocks use dlog of the product of their coordinates, as in the three cases of BMS1 10.12. The coefficient module for weight a is V^u(a)W_(r−u(a))(A), u(a)=max(−min_i v_p(a_i),0). The map τ:Ω^*_(W_r(A)[U^±1]/W_r(A))→W_rΩ^*_(S/A), U_i↦[T_i], is injective and a quasi-isomorphism. Its image is exactly the integral-weight subcomplex; the fractional-weight complement is acyclic. The image depends on these coordinates.
+For S=A[T₁^±1,…,T_d^±1], the basic Witt expansion extends to all weights a∈p^(−r)Z^d, with a fixed total order ≼_a on the coordinate indices refining the nondecreasing valuations v_p(a_i), including v_p(0)=∞, and resolving every tie. Partition the ordered indices into consecutive intervals I₀,…,I_q, with I₀ possibly empty and the others nonempty. Nonintegral blocks use V and dV; integral nonzero blocks use F^v d of the corresponding divided-weight Teichmüller monomial; zero blocks use dlog of the product of their coordinates, as in the three cases of BMS1 10.12. The coefficient module for weight a is V^u(a)W_(r−u(a))(A), u(a)=max(−min_i v_p(a_i),0). The map τ:Ω^*_(W_r(A)[U^±1]/W_r(A))→W_rΩ^*_(S/A), U_i↦[T_i], is injective and a quasi-isomorphism. Its image is exactly the integral-weight subcomplex; the fractional-weight complement is acyclic. The image depends on these coordinates.
 
 CrystallineCohomology:CR.4/perfectoid-base-change
 
@@ -5816,5 +5822,5 @@ Let k be a perfect field of characteristic p and V a finite-dimensional Mathlib 
 CrystallineCohomology:CR.4/perfectoid-witt-base-change-input
 
 declaration TauCeti.Crystalline.perfectoid_witt_base_change_input
-Let S→S′ be a map of integral perfectoid rings in the lower-tier PerfectoidSpaces P1 sense (BMS1 Definition 3.5). For 1≤j≤r the canonical maps W_j(S)⊗^L_(A_inf(S))A_inf(S′)→W_j(S′) and W_j(S)⊗^L_(W_r(S))W_r(S′)→W_j(S′) are isomorphisms, using either restriction or Frobenius for the W_r-module structure. For 1≤j<r, Ann_(W_r(S))(V^j(1))=ker(F^j:W_r(S)→W_(r−j)(S)), V^j(1)W_r(S)=V^jW_(r−j)(S), and F^j and multiplication by V^j(1) identify W_r(S)/Ann(V^j(1)) with W_(r−j)(S) and V^jW_(r−j)(S), respectively.
+Let S→S′ be a map of integral perfectoid rings in the sense of BMS1 Definition 3.5. For 1≤j≤r the canonical maps W_j(S)⊗^L_(A_inf(S))A_inf(S′)→W_j(S′) and W_j(S)⊗^L_(W_r(S))W_r(S′)→W_j(S′) are isomorphisms, using either restriction or Frobenius for the W_r-module structure. For 1≤j<r, Ann_(W_r(S))(V^j(1))=ker(F^j:W_r(S)→W_(r−j)(S)), V^j(1)W_r(S)=V^jW_(r−j)(S), and F^j and multiplication by V^j(1) identify W_r(S)/Ann(V^j(1)) with W_(r−j)(S) and V^jW_(r−j)(S), respectively.
 END EXACT PROTOTYPE OMISSION REGISTER -/
