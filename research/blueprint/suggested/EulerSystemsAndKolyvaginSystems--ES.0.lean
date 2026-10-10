@@ -1,196 +1,925 @@
-import Mathlib.Algebra.MonoidAlgebra.Basic
-import Mathlib.Algebra.Polynomial.Div
-import Mathlib.Combinatorics.SimpleGraph.Basic
-import Mathlib.GroupTheory.OrderOfElement
-import Mathlib.LinearAlgebra.Charpoly.Basic
-import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Topology.Algebra.InfiniteSum.Real
+import TauCeti.FieldTheory.Galois.AbsoluteGaloisGroup
+import TauCeti.RepresentationTheory.Homological.ContCohomology.Functoriality
+import TauCeti.RepresentationTheory.Homological.ContCohomology.Corestriction
+import Mathlib.NumberTheory.NumberField.InfinitePlace.Basic
+import Mathlib.NumberTheory.NumberField.Ideal.Basic
+import Mathlib.FieldTheory.Galois.Infinite
+import Mathlib.RingTheory.DedekindDomain.Ideal.Lemmas
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.Length
 import Mathlib.LinearAlgebra.ExteriorPower.Basis
 import Mathlib.LinearAlgebra.ExteriorPower.Pairing
 import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.RepresentationTheory.Basic
-import Mathlib.RingTheory.Ideal.Operations
-import Mathlib.RingTheory.Length
+import Mathlib.LinearAlgebra.Charpoly.Basic
+import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.Algebra.Polynomial.Div
+import Mathlib.Combinatorics.SimpleGraph.Basic
+import Mathlib.Algebra.Group.End
+import Mathlib.GroupTheory.OrderOfElement
+import Mathlib.GroupTheory.Torsion
+import Mathlib.LinearAlgebra.PiTensorProduct.Basic
+import Mathlib.Topology.Instances.ZMod
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.Algebra.Module.Torsion.Free
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.LocalRing.ResidueField.Basic
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.ClassNumber.Finite
+import Mathlib.Algebra.DirectSum.Module
+import Mathlib.LinearAlgebra.DFinsupp
+import Mathlib.NumberTheory.NumberField.Discriminant.Defs
+import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
+import Mathlib.Algebra.Homology.DerivedCategory.Ext.Basic
+import TauCeti.AlgebraicGeometry.AbelianVariety.Basic
 
 /-!
-# Suggested declarations: Euler systems, Kolyvagin systems and higher-rank descent, layers ES.0–ES.7
-
-This file is a prototype in the form of upstream's `Suggested.lean`. It is not the roadmap and is
-not exhaustive: the roadmap document and the blueprint packet are definitive, and the statements
-below only suggest Lean forms, so that contributors and reviewers converge on names and
-signatures. Every proof is `sorry`.
-
-**What is typed.** Algebraic prototypes, which the pinned Mathlib can already state:
-
-* ES.0: Selmer triples over abstract cohomology modules (global module, local modules,
-  localisation maps, local conditions, a set of primes), their conductors `N(P)`, the cartesian
-  square of a local condition, and the scalar morphisms of the category `Quot_R(T)`;
-* ES.1: the quotient polynomial `Q` with `(X - 1) * Q = P` behind the finite–singular comparison,
-  and the exponent and order functions of the error-tolerant theory;
-* ES.2: Euler polynomials of an endomorphism in the two conventions, and the module of Euler
-  systems of an abstract norm-compatible tower, as an equaliser;
-* ES.3: the norm element and the Kolyvagin derivative operator in a group ring, with the
-  telescoping identity;
-* ES.4: sheaves of modules on a graph, their global sections, locally cyclic sheaves, hubs and
-  primitive sections;
-* ES.6: the exterior bidual, the canonical map from the exterior power and functoriality, and
-  Stark systems as the inverse limit of an abstract inverse system.
-
-**What is recorded as comments.** The arithmetic statements are about continuous Galois
-cohomology of `p`-adic representations with local conditions, Selmer structures and their duals.
-Those carriers are planned in `SelmerIwasawaCohomology` L1–L3 and `ArithmeticGaloisDuality`
-R02.1–R02.5 and are not in the pinned libraries, so the corresponding definitions, API items and
-unit tests of the packet are listed by name with their statements in the last section of this
-file, under the names the packet gives them. They are not replaced by `Prop`-valued fields or by
-opaque stand-ins. Tau Ceti's corestriction `TauCeti.ContCohomology.explicitCor1` (for discrete
-coefficients) is the map the Euler system relation uses; the abstract tower below takes the
-corestriction maps as data.
-
-Independent review: these prototypes do not instantiate the arithmetic carriers. The comment
-inventory does not meet PROTOCOL §13's requirement for actual signatures, API lemmas, named
-theorems and examples. Items marked `[prototype above]` may cover only an algebraic part of the
-packet statement; the mark is not a claim that the arithmetic statement has been typed.
+Suggested declarations for ES.0–ES.7. This file is not the roadmap.
+This is a prototype, not an implementation.
+The packet and reader document give the definitive mathematical statements.
+The file is not exhaustive: its statements suggest Lean forms so that contributors
+and reviewers converge on names and signatures. Proofs and imported constructions use `sorry`. Supplier adapters below
+use Mathlib's continuous cohomology and actual absolute Galois subgroups; their
+comparison equations specify the imported interfaces, without adding roadmap
+ownership of those interfaces. General exterior-bidual algebra belongs to L6.
+Unavailable geometric and archimedean conditions are omitted explicitly under
+PROTOCOL §13, with their full statements retained in the packet and exact
+supplier requests. See the Nekovář, elliptic, local-torsion and Rubin–Stark
+scope notes below; the displayed data alone do not imply those source theorems.
 -/
-
 noncomputable section
+open CategoryTheory Polynomial
+open scoped TensorProduct
+attribute [local instance] Classical.propDecidable
+attribute [local instance] Classical.decEq
+-- DVR and local-ring interfaces both depend on Nontrivial; the overlapping-instance linter
+-- reports their necessary dependent parameters at this Mathlib pin.
+set_option linter.overlappingInstances false
+set_option linter.unusedVariables false
+set_option maxHeartbeats 1000000
+universe u
+namespace TauCeti.KolyvaginSystems
+variable (K R : Type) [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+abbrev GK := TauCeti.AbsoluteGaloisGroup K
+abbrev Prime := IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers K)
+abbrev Place := NumberField.InfinitePlace K ⊕ Prime K
+abbrev Rep := TopRep.{0} R (GK K)
+abbrev H (T : Rep K R) (n : ℕ) := continuousCohomology n T
+/-- Chosen decomposition and inertia subgroups supplied by LocalGaloisGroups. -/
+def decomposition (v : Place K) : Subgroup (GK K) := sorry
+def inertia (v : Place K) : Subgroup (decomposition K v) := sorry
+abbrev localRep (T : Rep K R) (v : Place K) : TopRep R (decomposition K v) :=
+  TopRep.res (decomposition K v).subtype T
+abbrev LocalH (T : Rep K R) (v : Place K) (n : ℕ) :=
+  continuousCohomology n (localRep K R T v)
+def loc (T : Rep K R) (v : Place K) : H K R T 1 →ₗ[R] LocalH K R T v 1 :=
+  (TauCeti.ContinuousCohomology.res (decomposition K v) T 1).hom.toLinearMap
+def unramified (T : Rep K R) (v : Place K) : Submodule R (LocalH K R T v 1) :=
+  LinearMap.ker (TauCeti.ContinuousCohomology.res (inertia K v) (localRep K R T v) 1).hom.toLinearMap
+def IsContinuous (T : Rep K R) : Prop :=
+  Continuous (fun gt : GK K × T => T.ρ gt.1 gt.2)
+def IsUnramified (T : Rep K R) (v : Place K) : Prop :=
+  ∀ g : inertia K v, ∀ t : T, T.ρ (g.val.val) t = t
+/-- Arithmetic Selmer carrier imported from L2, instantiated on canonical H¹. -/
+structure SelmerStructure (T : Rep K R) where
+  sigma : Finset (Place K)
+  condition : (v : Place K) → Submodule R (LocalH K R T v 1)
+  off_sigma : ∀ v ∉ sigma, condition v = unramified K R T v
+  ramification : ∀ v ∉ sigma, IsUnramified K R T v
+variable {K R}
+def SelmerStructure.selmer {T : Rep K R} (F : SelmerStructure K R T) : Submodule R (H K R T 1) :=
+  ⨅ v, (F.condition v).comap (loc K R T v)
+variable (K R) in
+structure SelmerTriple (T : Rep K R) where
+  free : Module.Free R T
+  finite : Module.Finite R T
+  continuous : IsContinuous K R T
+  F : SelmerStructure K R T
+  primes : Set (Prime K)
+  disjoint : ∀ q ∈ primes, Sum.inr q ∉ F.sigma
+abbrev Conductor (K : Type) [Field K] [NumberField K] := Finset (Prime K)
+def SelmerTriple.conductors {T : Rep K R} (S : SelmerTriple K R T) : Set (Conductor K) :=
+  {n | ∀ q ∈ n, q ∈ S.primes}
+lemma SelmerTriple.one_mem_conductors {T : Rep K R} (S : SelmerTriple K R T) :
+  ∅ ∈ S.conductors := sorry
+lemma SelmerTriple.conductors_dvd_closed {T : Rep K R} (S : SelmerTriple K R T)
+    {m n : Conductor K} (hn : n ∈ S.conductors) (hmn : m ⊆ n) : m ∈ S.conductors := sorry
+def SelmerTriple.restrictPrimes {T : Rep K R} (S : SelmerTriple K R T)
+    (P : Set (Prime K)) (hP : P ⊆ S.primes) : SelmerTriple K R T := sorry
+lemma restrictPrimes_conductors {T : Rep K R} (S : SelmerTriple K R T)
+    (P : Set (Prime K)) (hP : P ⊆ S.primes) :
+    (S.restrictPrimes P hP).conductors ⊆ S.conductors := sorry
+-- Tests are statements against these arithmetic carriers, not a parallel Selmer model.
+-- Unit test: SelmerTriple.conductors_empty
+example {T : Rep K R} (S : SelmerTriple K R T) (h : S.primes = ∅) :
+    S.conductors = {∅} := sorry
+-- Unit test: SelmerTriple.card_conductors_of_finite
+example {T : Rep K R} (S : SelmerTriple K R T) (q₁ q₂ : Prime K) (h : q₁ ≠ q₂)
+    (hP : S.primes = {q₁, q₂}) :
+    S.conductors = {∅, {q₁}, {q₂}, {q₁, q₂}} := sorry
+-- Unit test: SelmerTriple.disjoint_sigma
+example {T : Rep K R} (S : SelmerTriple K R T) (n : Conductor K)
+    (hn : n ∈ S.conductors) (q : Prime K) (hq : Sum.inr q ∈ S.F.sigma) : q ∉ n := sorry
+/-- The ideal product records squarefreeness; repeated prime powers are excluded. -/
+def conductorProduct (n : Conductor K) : Ideal (NumberField.RingOfIntegers K) :=
+  n.prod (fun q => q.asIdeal)
+-- Unit test: SelmerTriple.not_mem_conductors_of_sq
+example (q : Prime K) : ∀ n : Conductor K, conductorProduct n ≠ q.asIdeal ^ 2 := sorry
 
-open Polynomial
+/-- Quotient-representation adapter from L2 with an explicit quotient dictionary. -/
+def quotientRep (T : Rep K R) (I : Ideal R) : Rep K R := sorry
+def quotientEquiv (T : Rep K R) (I : Ideal R) :
+    quotientRep T I ≃ₗ[R] (T ⧸ (I • (⊤ : Submodule R T))) := sorry
+def quotientMap (T : Rep K R) (I : Ideal R) : T ⟶ quotientRep T I := sorry
+lemma quotientMap_apply (T : Rep K R) (I : Ideal R) (t : T) :
+    quotientEquiv T I ((quotientMap T I).hom t) = Submodule.Quotient.mk t := sorry
+lemma quotient_ρ (T : Rep K R) (I : Ideal R) (g : GK K) (t : T) :
+    (quotientRep T I).ρ g ((quotientMap T I).hom t) = (quotientMap T I).hom (T.ρ g t) := sorry
+def coeff (T T' : Rep K R) (f : T ⟶ T') (n : ℕ) : H K R T n →ₗ[R] H K R T' n :=
+  (TauCeti.ContinuousCohomology.coeffMap f n).hom.toLinearMap
+structure QuotCat (T : Rep K R) where
+  ideal : Ideal R
+/-- Morphisms are the actual quotient maps induced by scalars. -/
+def QuotCat.scalarHom (T : Rep K R) (I J : Ideal R) (r : R)
+    (hr : ∀ a ∈ I, r * a ∈ J) : quotientRep T I ⟶ quotientRep T J := sorry
+lemma QuotCat.scalarHom_apply (T : Rep K R) (I J : Ideal R) (r : R)
+    (hr : ∀ a ∈ I, r * a ∈ J) (t : T) :
+    (QuotCat.scalarHom T I J r hr).hom ((quotientMap T I).hom t) =
+      (quotientMap T J).hom (r • t) := sorry
+lemma QuotCat.scalarHom_comp (T : Rep K R) (I J L : Ideal R) (r s : R)
+    (hr : ∀ a ∈ I, r * a ∈ J) (hs : ∀ a ∈ J, s * a ∈ L)
+    (hsr : ∀ a ∈ I, (s*r)*a ∈ L) :
+    QuotCat.scalarHom T I J r hr ≫ QuotCat.scalarHom T J L s hs =
+      QuotCat.scalarHom T I L (s*r) hsr := sorry
+lemma QuotCat.scalarHom_injective_iff (T : Rep K R) [Module.Free R T]
+    [Module.Finite R T] [Nontrivial T] (I J : Ideal R) (r : R)
+    (hr : ∀ a ∈ I, r * a ∈ J) :
+    Function.Injective (QuotCat.scalarHom T I J r hr).hom ↔
+      ∀ a : R, r * a ∈ J ↔ a ∈ I := sorry
+def propagated (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1))
+    (I : Ideal R) : Submodule R (LocalH K R (quotientRep T I) v 1) :=
+  L.map (TauCeti.ContinuousCohomology.coeffMap
+    (TopRep.resFunctor (decomposition K v).subtype |>.map (quotientMap T I)) 1).hom.toLinearMap
+lemma QuotCat.propagate_functorial (T : Rep K R) (v : Place K)
+    (L : Submodule R (LocalH K R T v 1)) (I J : Ideal R) (r : R)
+    (hr : ∀ a ∈ I, r * a ∈ J) :
+    (propagated T v L I).map (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor (decomposition K v).subtype |>.map (QuotCat.scalarHom T I J r hr)) 1).hom.toLinearMap
+      ≤ propagated T v L J := sorry
+-- Unit test: QuotCat.quotient_zero
+example (T : Rep K R) (I : Ideal R) :
+    quotientEquiv T I ((quotientMap T I).hom 0) = 0 := sorry
+-- Unit test: QuotCat.zmod_sq_mul_p_injective
+example (p : ℕ) [Fact p.Prime] :
+    ∀ a : ZMod (p^2), (p : ZMod (p^2))*a = 0 ↔ a ∈ Ideal.span {(p : ZMod (p^2))} := sorry
+-- Unit test: QuotCat.not_hom_of_not_le
+example (p : ℕ) [Fact p.Prime] :
+    ¬ (∀ a ∈ Ideal.span {(p : ZMod (p^2))}, (1 : ZMod (p^2))*a ∈ (⊥ : Ideal (ZMod (p^2)))) := sorry
 
-universe u v w
+def IsCartesian (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1)) : Prop :=
+  ∀ (I J : Ideal R) (r : R) (hr : ∀ a ∈ I, r*a ∈ J),
+    Function.Injective (QuotCat.scalarHom T I J r hr).hom →
+    propagated T v L I = (propagated T v L J).comap
+      (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor (decomposition K v).subtype |>.map (QuotCat.scalarHom T I J r hr)) 1).hom.toLinearMap
+lemma isCartesian_of_field (T : Rep K R) (hR : IsField R) (v : Place K)
+    (L : Submodule R (LocalH K R T v 1)) : IsCartesian T v L := sorry
+lemma isCartesian_unramified (T : Rep K R) (v : Place K)
+    (h : IsUnramified K R T v) : IsCartesian T v (unramified K R T v) := sorry
+lemma IsCartesian.quotient (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1))
+    (h : IsCartesian T v L) (I : Ideal R) :
+    IsCartesian (quotientRep T I) v (propagated T v L I) := sorry
+-- Unit test: isCartesian_strict_and_relaxed_field
+example (T : Rep K R) (hR : IsField R) (v : Place K) :
+    IsCartesian T v ⊥ ∧ IsCartesian T v ⊤ := sorry
+-- Unit test: isCartesian_unramified
+example (T : Rep K R) (v : Place K) (h : IsUnramified K R T v) :
+    IsCartesian T v (unramified K R T v) := sorry
+-- The non-cartesian example uses the actual local cohomology and a nonzero character.
+-- Unit test: not_isCartesian_torsion_condition
+example (p : ℕ) [Fact p.Prime] (T : Rep K (ZMod (p^2)))
+    (v : Place K) (hT : ∀ g : GK K, ∀ t : T, T.ρ g t = t)
+    (e : T ≃ₗ[ZMod (p^2)] ZMod (p^2))
+    (hne : Nontrivial (LocalH K (ZMod (p^2)) (quotientRep T (Ideal.span {(p : ZMod (p^2))})) v 1)) :
+    ¬ IsCartesian T v (LinearMap.ker ((p : ZMod (p^2)) • (LinearMap.id :
+      LocalH K (ZMod (p^2)) T v 1 →ₗ[ZMod (p^2)] LocalH K (ZMod (p^2)) T v 1))) := sorry
+
+/-- Quotient scalar maps are identified when they have the same action on T/IT. -/
+instance quotientCategory (T : Rep K R) : Category (QuotCat T) where
+  Hom I J := {f : quotientRep T I.ideal ⟶ quotientRep T J.ideal //
+    ∃ (r : R) (hr : ∀ a ∈ I.ideal, r*a ∈ J.ideal), f = QuotCat.scalarHom T I.ideal J.ideal r hr}
+  id := sorry
+  comp := sorry
+  id_comp := sorry
+  comp_id := sorry
+  assoc := sorry
+
+abbrev QZ := AddCircle (1 : ℚ)
+local instance qzTopology : TopologicalSpace QZ := ⊥
+local instance qzDiscrete : DiscreteTopology QZ := ⟨rfl⟩
+/-- Cyclotomic action on torsion roots, transported to ℚ/ℤ. -/
+def cyclotomicAction (K : Type) [Field K] [NumberField K] : GK K → AddAut QZ := sorry
+/-- L1/L2 Cartier dual, with the actual Hom and Galois-action dictionary. -/
+def dualRep (T : Rep K R) : Rep K R := sorry
+def dualEquiv (T : Rep K R) : dualRep T ≃+ ContinuousAddMonoidHom T QZ := sorry
+lemma dual_smul (T : Rep K R) (r : R) (f : dualRep T) (t : T) :
+    dualEquiv T (r • f) t = dualEquiv T f (r • t) := sorry
+lemma dual_ρ (T : Rep K R) (g : GK K) (f : dualRep T) (t : T) :
+    dualEquiv T ((dualRep T).ρ g f) t =
+      cyclotomicAction K g (dualEquiv T f (T.ρ g⁻¹ t)) := sorry
+def localPairing (T : Rep K R) (v : Place K) :
+    LocalH K R T v 1 →+ LocalH K R (dualRep T) v 1 →+ QZ := sorry
+lemma localPairing_balanced (T : Rep K R) (v : Place K) (r : R)
+    (x : LocalH K R T v 1) (y : LocalH K R (dualRep T) v 1) :
+    localPairing T v (r • x) y = localPairing T v x (r • y) := sorry
+def orthogonal (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1)) :
+    Submodule R (LocalH K R (dualRep T) v 1) := sorry
+lemma mem_orthogonal (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1))
+    (y : LocalH K R (dualRep T) v 1) : y ∈ orthogonal T v L ↔
+      ∀ x ∈ L, localPairing T v x y = 0 := sorry
+def dualStructure (T : Rep K R) (F : SelmerStructure K R T) :
+    SelmerStructure K R (dualRep T) := sorry
+lemma dualStructure_condition (T : Rep K R) (F : SelmerStructure K R T) (v : Place K) :
+    (dualStructure T F).condition v = orthogonal T v (F.condition v) := sorry
+/-- The Cartier-dual data have no lattice freeness field. -/
+structure CartierSelmerData (T : Rep K R) where
+  F : SelmerStructure K R (dualRep T)
+  primes : Set (Prime K)
+  disjoint : ∀ q ∈ primes, Sum.inr q ∉ F.sigma
+def SelmerTriple.dual {T : Rep K R} (S : SelmerTriple K R T) : CartierSelmerData T := sorry
+lemma SelmerTriple.dual_sigma {T : Rep K R} (S : SelmerTriple K R T) :
+    S.dual.F.sigma = S.F.sigma := sorry
+
+def IsCartesianStructure (T : Rep K R) (F : SelmerStructure K R T) : Prop :=
+  ∀ v ∈ F.sigma, IsCartesian T v (F.condition v)
+def propagatedStructure (T : Rep K R) (F : SelmerStructure K R T) (I : Ideal R) :
+    SelmerStructure K R (quotientRep T I) := sorry
+lemma propagatedStructure_condition (T : Rep K R) (F : SelmerStructure K R T)
+    (I : Ideal R) (v : Place K) : (propagatedStructure T F I).condition v =
+      propagated T v (F.condition v) I := sorry
+abbrev len (R : Type) [CommRing R] (M : Type) [AddCommGroup M] [Module R M] : ℕ :=
+  (Module.length R M).toNat
+/-- Finite-length hypothesis prevents the `.toNat` convention from hiding infinity. -/
+def FiniteSelmerLengths (T : Rep K R) (F : SelmerStructure K R T) : Prop :=
+  Module.length R F.selmer ≠ ⊤ ∧ Module.length R (dualStructure T F).selmer ≠ ⊤
+def NoResidualInvariants (T : Rep K R) (m : Ideal R) : Prop :=
+  Subsingleton (H K R (quotientRep T m) 0) ∧
+  Subsingleton (H K R (dualRep (quotientRep T m)) 0)
+def coreRankInt (T : Rep K R) (F : SelmerStructure K R T) : ℤ :=
+  ((len R F.selmer : ℤ) - len R (dualStructure T F).selmer) / len R R
+def coreRank (T : Rep K R) (F : SelmerStructure K R T) : ℕ := (coreRankInt T F).toNat
+lemma coreRank_mul_length (T : Rep K R) (F : SelmerStructure K R T)
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    [Module.Free R T] [Module.Finite R T] (hc : IsCartesianStructure T F)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (hf : FiniteSelmerLengths T F) :
+    (len R F.selmer : ℤ) - len R (dualStructure T F).selmer =
+      coreRankInt T F * len R R := sorry
+lemma coreRank_eq_zero_or_dual (T : Rep K R) (F : SelmerStructure K R T)
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    [Module.Free R T] [Module.Finite R T] (hc : IsCartesianStructure T F)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (hf : FiniteSelmerLengths T F) :
+    coreRank T F = 0 ∨ coreRank (dualRep T) (dualStructure T F) = 0 := sorry
+lemma selmer_equiv_dual_prod_free (T : Rep K R) (F : SelmerStructure K R T)
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    [Module.Free R T] [Module.Finite R T] (hc : IsCartesianStructure T F)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (hf : FiniteSelmerLengths T F)
+    (hr : 0 ≤ coreRankInt T F) :
+    Nonempty (F.selmer ≃ₗ[R] ((dualStructure T F).selmer × (Fin (coreRank T F) → R))) := sorry
+lemma coreRank_field (T : Rep K R) (F : SelmerStructure K R T) (hR : IsField R)
+    (hf : FiniteSelmerLengths T F) : coreRankInt T F =
+    (Module.finrank R F.selmer : ℤ) - Module.finrank R (dualStructure T F).selmer := sorry
+/-- MR04 Theorem 2.3.3, including ordinary archimedean H⁰. -/
+theorem selmer_length_difference (T : Rep K R) (F : SelmerStructure K R T)
+    [IsArtinianRing R] [IsLocalRing R] [Module.Finite R T] [Finite T]
+    (hf : FiniteSelmerLengths T F) :
+    (len R F.selmer : ℤ) - len R (dualStructure T F).selmer =
+      (len R (H K R T 0) : ℤ) - len R (H K R (dualRep T) 0) -
+        ∑ v ∈ F.sigma, ((len R (LocalH K R T v 0) : ℤ) - len R (F.condition v)) := sorry
+
+def rationalRep (T : Rep K R) [IsDomain R] : Rep K R := sorry
+def rationalMap (T : Rep K R) [IsDomain R] : T ⟶ rationalRep T := sorry
+/-- The rational carrier is Frac(R) ⊗ T, supplied by lattice passage in L2. -/
+def rationalEquiv (T : Rep K R) [IsDomain R] :
+    rationalRep T ≃ₗ[R] (FractionRing R ⊗[R] T) := sorry
+def finiteLatticeCondition (T : Rep K R) [IsDomain R] (v : Place K) :
+    Submodule R (LocalH K R T v 1) :=
+  (unramified K R (rationalRep T) v).comap
+    (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor (decomposition K v).subtype |>.map (rationalMap T)) 1).hom.toLinearMap
+/-- Σ, including p and infinity, comes from the imported arithmetic support data. -/
+def canonicalStructure (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (atP : Set (Place K)) (hbad : ∀ v ∉ sigma, IsUnramified K R T v)
+    (hP : atP ⊆ (sigma : Set (Place K))) : SelmerStructure K R T := sorry
+lemma canonicalStructure_condition (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (atP : Set (Place K)) (hbad : ∀ v ∉ sigma, IsUnramified K R T v)
+    (hP : atP ⊆ (sigma : Set (Place K))) (v : Place K) :
+    (canonicalStructure T sigma atP hbad hP).condition v =
+      if v ∈ atP then ⊤ else finiteLatticeCondition T v := sorry
+lemma canonicalStructure_torsionFree (T : Rep K R) [IsDomain R] [IsDiscreteValuationRing R]
+    (v : Place K) : Module.IsTorsionFree R (LocalH K R T v 1 ⧸ finiteLatticeCondition T v) := sorry
+lemma canonicalStructure_dual_at_p (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (atP : Set (Place K)) (hbad : ∀ v ∉ sigma, IsUnramified K R T v)
+    (hP : atP ⊆ (sigma : Set (Place K))) (v : Place K) (hv : v ∈ atP) :
+    (dualStructure T (canonicalStructure T sigma atP hbad hP)).condition v = ⊥ := sorry
+end TauCeti.KolyvaginSystems
 
 namespace TauCeti.KolyvaginSystems
+variable (K R : Type) [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Finite Galois subextensions of Kˢ, using the infinite Galois dictionary. -/
+structure Layer where
+  group : Subgroup (GK K)
+  normal : group.Normal
+  open_group : IsOpen (group : Set (GK K))
+  finiteIndex : group.FiniteIndex
+attribute [instance] Layer.normal Layer.finiteIndex
+abbrev Layer.Gal (F : Layer K) := GK K ⧸ F.group
+instance Layer.galFintype (F : Layer K) : Fintype (Layer.Gal K F) := sorry
+def Layer.field (F : Layer K) : IntermediateField K (SeparableClosure K) :=
+  IntermediateField.fixedField F.group
+variable {K}
+/-- Canonical finite-Galois field action, imported from ProfiniteArithmetic. -/
+def layerFieldAction (F : Layer K) : Layer.Gal K F ≃* (F.field ≃ₐ[K] F.field) := sorry
+lemma layerFieldAction_mk (F : Layer K) (g : GK K) (x : F.field) :
+    (layerFieldAction F (QuotientGroup.mk g) x : SeparableClosure K) = g x.val := sorry
+variable (K)
+abbrev HAt (T : Rep K R) (F : Layer K) (n : ℕ) :=
+  continuousCohomology n (TopRep.res F.group.subtype T)
+variable {K R}
+def resAt (T : Rep K R) (F F' : Layer K) (h : F'.group ≤ F.group) :
+    HAt K R T F 1 →ₗ[R] HAt K R T F' 1 := sorry
+/-- ProfiniteCohomology/ArithmeticGaloisDuality supplies this canonical adapter. -/
+def corAt (T : Rep K R) (F F' : Layer K) (h : F'.group ≤ F.group) :
+    HAt K R T F' 1 →ₗ[R] HAt K R T F 1 := sorry
+lemma corAt_resAt (T : Rep K R) (hT : IsContinuous K R T)
+    (F F' : Layer K) (h : F'.group ≤ F.group) (x : HAt K R T F 1) :
+    corAt T F F' h (resAt T F F' h x) = (F'.group.relIndex F.group : R) • x := sorry
+lemma corAt_trans (T : Rep K R) (hT : IsContinuous K R T) (F₁ F₂ F₃ : Layer K)
+    (h12 : F₂.group ≤ F₁.group) (h23 : F₃.group ≤ F₂.group) (h13 : F₃.group ≤ F₁.group) :
+    (corAt T F₁ F₂ h12).comp (corAt T F₂ F₃ h23) = corAt T F₁ F₃ h13 := sorry
+/-- The conjugation action on canonical H¹, trivial on G_F. -/
+def cohomologyAction (T : Rep K R) (F : Layer K) :
+    Representation R (Layer.Gal K F) (HAt K R T F 1) := sorry
+/-- K(n) is the compositum of the single-prime maximal p-ray extensions over K(1). -/
+def rayPExtension (K : Type) [Field K] [NumberField K] (p : ℕ)
+    (n : Conductor K) : IntermediateField K (SeparableClosure K) := sorry
+def rayLayer (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) : Layer K := sorry
+lemma rayLayer_field (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+    (rayLayer K p n).field = rayPExtension K p n := sorry
+-- Γ_n is the actual relative subgroup Gal(K(n)/K(1)).
+def gammaConductor (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+    Subgroup (Layer.Gal K (rayLayer K p n)) := sorry
+abbrev gammaPrime (K : Type) [Field K] [NumberField K] (p : ℕ) (q : Prime K) :=
+  gammaConductor K p {q}
+instance gammaFinite (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+    Fintype (gammaConductor K p n) := sorry
+instance gammaComm (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+    CommGroup (gammaConductor K p n) := sorry
+/-- Residue units modulo the image of global units, then maximal p-primary quotient. -/
+def residueUnits (K : Type) [Field K] [NumberField K] (q : Prime K) : Subgroup ((NumberField.RingOfIntegers K ⧸ q.asIdeal)ˣ) :=
+  (Units.map (Ideal.Quotient.mk q.asIdeal).toMonoidHom).range
+abbrev residueUnitQuotient (K : Type) [Field K] [NumberField K] (p : ℕ) (q : Prime K) :=
+  CommGroup.primaryComponent (((NumberField.RingOfIntegers K ⧸ q.asIdeal)ˣ) ⧸ residueUnits K q) p
+def gammaPrime_equiv (K : Type) [Field K] [NumberField K] (p : ℕ) (q : Prime K) :
+    gammaPrime K p q ≃* residueUnitQuotient K p q := sorry
+def gammaConductor_equiv_pi (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+    gammaConductor K p n ≃* (∀ q : n, gammaPrime K p q) := sorry
+def primeNorm (K : Type) [Field K] [NumberField K] (q : Prime K) : ℕ :=
+  Nat.card (NumberField.RingOfIntegers K ⧸ q.asIdeal)
+lemma card_gammaPrime_dvd (K : Type) [Field K] [NumberField K] (p : ℕ) [Fact p.Prime]
+    (q : Prime K) : Fintype.card (gammaPrime K p q) ∣ primeNorm K q - 1 := sorry
+-- Arithmetic Frobenius, chosen in the decomposition subgroup at q.
+def frobenius (K : Type) [Field K] [NumberField K] (q : Prime K) : decomposition K (Sum.inr q) := sorry
+abbrev frobEnd (T : Rep K R) (q : Prime K) : Module.End R T :=
+  (T.ρ (frobenius K q).val).toLinearMap
+abbrev frobInvEnd (T : Rep K R) (q : Prime K) : Module.End R T :=
+  (T.ρ (frobenius K q).val⁻¹).toLinearMap
+/-- The MR04 local conductor ideal over ℚ. The general-number-field definition is separate. -/
+def conductorIdeal04 (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (q : Prime K) : Ideal R :=
+  Ideal.span {(primeNorm K q - 1 : ℕ) |> Nat.cast,
+    ((frobEnd T q).charpoly.reverse).eval 1}
+/-- MR16 ideal: the greatest admissible power of m; unit ideal for nonprincipal q. -/
+def primeConductorIdeal (T : Rep K R) (p : ℕ) (q : Prime K) : Ideal R := sorry
+lemma primeConductorIdeal_spec (T : Rep K R) (p : ℕ) (q : Prime K)
+    [IsLocalRing R] [IsPrincipalIdealRing R] :
+    q.asIdeal.IsPrincipal → ∃ k : ℕ,
+      primeConductorIdeal T p q = IsLocalRing.maximalIdeal R ^ k ∧
+      (Fintype.card (gammaPrime K p q) : R) ∈ primeConductorIdeal T p q ∧
+      Nonempty ((T ⧸ (LinearMap.range (frobEnd T q - LinearMap.id) ⊔
+        (primeConductorIdeal T p q • (⊤ : Submodule R T)))) ≃ₗ[R]
+        (R ⧸ primeConductorIdeal T p q)) := sorry
+/-- Maximality is ordered by reverse inclusion of powers, including the zero
+ideal at a finite coefficient level. This rules out choosing the unit ideal always. -/
+lemma primeConductorIdeal_maximal (T : Rep K R) (p : ℕ) (q : Prime K)
+    [IsLocalRing R] [IsPrincipalIdealRing R] (hq : q.asIdeal.IsPrincipal)
+    (hu : IsUnramified K R T (Sum.inr q)) (j : ℕ)
+    (hc : (Fintype.card (gammaPrime K p q) : R) ∈ IsLocalRing.maximalIdeal R ^ j)
+    (hr : Nonempty ((T ⧸ (LinearMap.range (frobEnd T q - LinearMap.id) ⊔
+        (IsLocalRing.maximalIdeal R ^ j • (⊤ : Submodule R T)))) ≃ₗ[R]
+        (R ⧸ IsLocalRing.maximalIdeal R ^ j))) :
+    primeConductorIdeal T p q ≤ IsLocalRing.maximalIdeal R ^ j := sorry
+-- I_n is a sum, not the intersection/product of I_q.
+def conductorIdeal (T : Rep K R) (p : ℕ) (n : Conductor K) : Ideal R :=
+  ⨆ q ∈ n, primeConductorIdeal T p q
+lemma conductorIdeal_one (T : Rep K R) (p : ℕ) : conductorIdeal T p ∅ = ⊥ := sorry
+lemma conductorIdeal_mono (T : Rep K R) (p : ℕ) {m n : Conductor K} (h : m ⊆ n) :
+    conductorIdeal T p m ≤ conductorIdeal T p n := sorry
+/-- Additive tame groups and their tensor products retain the generator-independent factor. -/
+abbrev tamePrime (K : Type) [Field K] [NumberField K] (p : ℕ) (q : Prime K) :=
+  Additive (gammaPrime K p q)
+abbrev tameGroup (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :=
+  PiTensorProduct ℤ (fun q : n => tamePrime K p q)
+-- The defining tensor dictionary, including degree zero, comes from the ray tower.
+def tameGroup_one (K : Type) [Field K] [NumberField K] (p : ℕ) :
+    tameGroup K p ∅ ≃+ ℤ := sorry
+def tameGroup_insert (K : Type) [Field K] [NumberField K] (p : ℕ)
+    (q : Prime K) (n : Conductor K) (hq : q ∉ n) :
+    tameGroup K p (insert q n) ≃+ (tamePrime K p q ⊗[ℤ] tameGroup K p n) := sorry
+-- R-module structure comes from the cohomology factor in ⊗_ℤ.
+def kolyvaginPrimes (T : Rep K R) (S : SelmerTriple K R T) (p k : ℕ)
+    [IsLocalRing R] : Set (Prime K) :=
+  {q | q ∈ S.primes ∧ primeConductorIdeal T p q ≤ IsLocalRing.maximalIdeal R ^ k}
+lemma kolyvaginPrimes_antitone (T : Rep K R) (S : SelmerTriple K R T) (p k : ℕ)
+    [IsLocalRing R] : kolyvaginPrimes T S p (k+1) ⊆ kolyvaginPrimes T S p k := sorry
+def IsUnramifiedLayer (L : Layer K) (q : Prime K) : Prop :=
+  ∀ g : inertia K (Sum.inr q), g.val.val ∈ L.group
+/-- Frobenius condition on an actual finite quotient of G_K; exclude Σ. -/
+def frobeniusPrimes (T : Rep K R) (S : SelmerTriple K R T) (L : Layer K) (τ : GK K) :
+    Set (Prime K) := {q | Sum.inr q ∉ S.F.sigma ∧
+      IsUnramifiedLayer L q ∧
+      IsConj (QuotientGroup.mk (frobenius K q).val : Layer.Gal K L)
+        (QuotientGroup.mk τ : Layer.Gal K L)}
+-- Chebotarev input is about L, not ramification of T.
+lemma kolyvaginPrimes_infinite (T : Rep K R) (S : SelmerTriple K R T) (p k : ℕ)
+    [IsLocalRing R] (L : Layer K) (τ : GK K)
+    (hcontain : frobeniusPrimes T S L τ ⊆ kolyvaginPrimes T S p k) :
+    (kolyvaginPrimes T S p k).Infinite := sorry
+-- Unit test: gammaConductor_one
+example (K : Type) [Field K] [NumberField K] (p : ℕ) :
+    Fintype.card (gammaConductor K p ∅) = 1 := sorry
+-- Unit test: gammaPrime_trivial_of_not_dvd
+example (K : Type) [Field K] [NumberField K] (p : ℕ) [Fact p.Prime] (q : Prime K)
+    (h : ¬ p ∣ primeNorm K q - 1) : Fintype.card (gammaPrime K p q) = 1 := sorry
+-- Unit test: conductorIdeal_two_primes
+example (T : Rep K R) (p : ℕ) (q₁ q₂ : Prime K) :
+    conductorIdeal T p {q₁,q₂} = primeConductorIdeal T p q₁ ⊔ primeConductorIdeal T p q₂ := sorry
+end TauCeti.KolyvaginSystems
 
-/-! ## ES.0: Selmer triples, conductors, cartesian conditions, the category of quotients -/
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- The local extension is the completion of the specified ray p-extension. -/
+structure LocalTameData (T : Rep K R) (p : ℕ) (q : Prime K) where
+  away : (p : NumberField.RingOfIntegers K) ∉ q.asIdeal
+  extension : Subgroup (decomposition K (Sum.inr q))
+  open_extension : IsOpen (extension : Set (decomposition K (Sum.inr q)))
+  finiteIndex : extension.FiniteIndex
+  normal : extension.Normal
+  unramified : IsUnramified K R T (Sum.inr q)
+  killed : ∀ t : T, (Fintype.card (gammaPrime K p q) : R) • t = 0
+  total_ramification : ∀ g : decomposition K (Sum.inr q),
+    ∃ i : inertia K (Sum.inr q), ∃ h : extension, g = i.val * h.val
+  tame_dictionary : Nonempty ((decomposition K (Sum.inr q) ⧸ extension) ≃* gammaPrime K p q)
+attribute [instance] LocalTameData.finiteIndex LocalTameData.normal
+abbrev singular (T : Rep K R) (q : Prime K) :=
+  LocalH K R T (Sum.inr q) 1 ⧸ unramified K R T (Sum.inr q)
+def singularMap (T : Rep K R) (q : Prime K) :
+    LocalH K R T (Sum.inr q) 1 →ₗ[R] singular T q :=
+  (unramified K R T (Sum.inr q)).mkQ
+/-- The transverse condition is a kernel of restriction, not a selected complement. -/
+def transverse (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q) :
+    Submodule R (LocalH K R T (Sum.inr q) 1) :=
+  LinearMap.ker (TauCeti.ContinuousCohomology.res D.extension (localRep K R T (Sum.inr q)) 1).hom.toLinearMap
+lemma transverse_isCompl_finite (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T) :
+    IsCompl (unramified K R T (Sum.inr q)) (transverse T D) := sorry
+def transverse_equiv_singular (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T) :
+    transverse T D ≃ₗ[R] singular T q := sorry
+lemma transverse_equiv_singular_apply (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T)
+    (x : transverse T D) : transverse_equiv_singular T D hT x = singularMap T q x := sorry
+def finitePart (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T) :
+    LocalH K R T (Sum.inr q) 1 →ₗ[R] unramified K R T (Sum.inr q) := sorry
+lemma finitePart_spec (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T)
+    (x : LocalH K R T (Sum.inr q) 1) : x - finitePart T D hT x ∈ transverse T D := sorry
+lemma transverse_map (T T' : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) (D' : LocalTameData T' p q) (he : D.extension = D'.extension)
+    (f : T ⟶ T') :
+    (transverse T D).map (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor (decomposition K (Sum.inr q)).subtype |>.map f) 1).hom.toLinearMap
+      ≤ transverse T' D' := sorry
+lemma transverse_eq_bot_iff (T : Rep K R) {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) [Module.Finite R T] (hT : IsContinuous K R T) :
+    transverse T D = ⊥ ↔ LinearMap.ker (frobEnd T q - LinearMap.id) = ⊥ := sorry
+-- Tests: restriction kernel, zero fixed part, and the field/ray-extension complement.
+-- Unit test: transverse_restriction_kernel
+example (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    (x : LocalH K R T (Sum.inr q) 1) : x ∈ transverse T D ↔
+    (TauCeti.ContinuousCohomology.res D.extension (localRep K R T (Sum.inr q)) 1).hom x = 0 := sorry
+-- Unit test: transverse_trivial
+example (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    [Module.Finite R T] (hT : IsContinuous K R T) (h : LinearMap.ker (frobEnd T q - LinearMap.id) = ⊥) :
+    transverse T D = ⊥ := sorry
+-- Unit test: transverse_finite_projection
+example (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    [Module.Finite R T] (hT : IsContinuous K R T) (x : transverse T D) :
+    finitePart T D hT x = 0 := sorry
 
-section SelmerTriple
+def fsQuotientPoly (P : R[X]) (hP : P.eval 1 = 0) : R[X] := P /ₘ (X - 1)
+lemma fsQuotientPoly_spec (P : R[X]) (hP : P.eval 1 = 0) :
+    (X - 1) * fsQuotientPoly P hP = P ∧
+      ∀ Q : R[X], (X - 1)*Q = P → Q = fsQuotientPoly P hP := sorry
+-- Frobenius and tame-inertia evaluation are the local reciprocity adapters of L2/CFT.
+def finiteEvaluation (T : Rep K R) (q : Prime K) (hu : IsUnramified K R T (Sum.inr q)) :
+    unramified K R T (Sum.inr q) ≃ₗ[R] (T ⧸ LinearMap.range (frobEnd T q - LinearMap.id)) := sorry
+def singularEvaluation (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    [Module.Finite R T] (hT : IsContinuous K R T) :
+    (singular T q ⊗[ℤ] tamePrime K p q) ≃ₗ[R] LinearMap.ker (frobEnd T q - LinearMap.id) := sorry
+/-- Q(Fr⁻¹) between the actual finite and singular local carriers. -/
+def finiteSingular (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    {p : ℕ} {q : Prime K} (D : LocalTameData T p q) (hT : IsContinuous K R T)
+    (hP : ((frobEnd T q).charpoly.reverse).eval 1 = 0) :
+    unramified K R T (Sum.inr q) →ₗ[R] (singular T q ⊗[ℤ] tamePrime K p q) := sorry
+lemma finiteSingular_formula (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    {p : ℕ} {q : Prime K} (D : LocalTameData T p q) (hT : IsContinuous K R T)
+    (hP : ((frobEnd T q).charpoly.reverse).eval 1 = 0)
+    (x : unramified K R T (Sum.inr q)) (t : T)
+    (ht : finiteEvaluation T q D.unramified x = Submodule.Quotient.mk t) :
+    (singularEvaluation T D hT (finiteSingular T D hT hP x)).val =
+      aeval (frobInvEnd T q) (fsQuotientPoly ((frobEnd T q).charpoly.reverse) hP) t := sorry
+lemma finiteSingular_bijective (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    (hT : IsContinuous K R T) (hP : ((frobEnd T q).charpoly.reverse).eval 1 = 0)
+    (h1 : Nonempty ((T ⧸ LinearMap.range (frobEnd T q - LinearMap.id)) ≃ₗ[R] R)) :
+    Function.Bijective (finiteSingular T D hT hP) := sorry
+-- Unit test: finiteSingular_cyclotomic
+example (P : R[X]) (h : P = 1-X) (hP : P.eval 1 = 0) : fsQuotientPoly P hP = -1 := sorry
+-- Unit test: finiteSingular_rank_two
+example (a : R) (P : R[X]) (h : P = (1-X)*(1-C a*X)) (hP : P.eval 1 = 0) :
+    fsQuotientPoly P hP = -(1-C a*X) := sorry
+-- Unit test: finiteSingular_not_iso
+example (P : R[X]) (h : P = (1-X)^2) (hP : P.eval 1 = 0) :
+    (fsQuotientPoly P hP).eval 1 = 0 := sorry
+-- Unit test: finiteSingular_not_natural_inclusion
+example : (-((1 : ZMod 5)-(2 : ZMod 5))) ≠ (-1 : ZMod 5) := sorry
 
-/-- **`ES.0/selmer-triple`**: a Selmer triple over abstract cohomology modules: a global module,
-local modules with localisation maps and local conditions, the finite set `Σ(F)`, and a set `P` of
-primes disjoint from it. For `(T, F, P)`: `glob = H¹(K_{Σ}/K, T)`, `loc v = H¹(K_v, T)`. -/
-structure SelmerTriple (R : Type u) [CommRing R] (Pl : Type v) where
-  /-- The global cohomology module. -/
-  glob : Type w
-  [addCommGroupGlob : AddCommGroup glob]
-  [moduleGlob : Module R glob]
-  /-- The local cohomology modules. -/
-  loc : Pl → Type w
-  [addCommGroupLoc : ∀ q, AddCommGroup (loc q)]
-  [moduleLoc : ∀ q, Module R (loc q)]
-  /-- Localisation. -/
-  res : ∀ q, glob →ₗ[R] loc q
-  /-- The local conditions `H¹_F(K_q, T)`. -/
-  cond : ∀ q, Submodule R (loc q)
-  /-- The finite set `Σ(F)`. -/
-  sigma : Finset Pl
-  /-- The set `P` of primes. -/
-  primes : Set Pl
-  /-- `P` is disjoint from `Σ(F)`. -/
-  disjoint : ∀ q ∈ primes, q ∉ sigma
+/-- Arithmetic modification on one fixed coefficient representation. -/
+def SelmerTriple.modify {T : Rep K R} (S : SelmerTriple K R T) (a b c : Conductor K)
+    (hab : Disjoint a b) (hac : Disjoint a c) (hbc : Disjoint b c)
+    (hc : c ∈ S.conductors) (p : ℕ) (D : ∀ q : c, LocalTameData T p q) :
+    SelmerStructure K R T := sorry
+lemma modify_condition {T : Rep K R} (S : SelmerTriple K R T) (a b c : Conductor K)
+    (hab : Disjoint a b) (hac : Disjoint a c) (hbc : Disjoint b c)
+    (hc : c ∈ S.conductors) (p : ℕ) (D : ∀ q : c, LocalTameData T p q) (q : Prime K) :
+    (S.modify a b c hab hac hbc hc p D).condition (Sum.inr q) =
+      if q ∈ a then ⊥ else if q ∈ b then ⊤ else
+        if hq : q ∈ c then transverse T (D ⟨q,hq⟩) else S.F.condition (Sum.inr q) := sorry
+/-- Strict and relaxed modifications need no tame extension. -/
+def strict (T : Rep K R) (F : SelmerStructure K R T) (n : Conductor K) :
+    SelmerStructure K R T := sorry
+def relaxed (T : Rep K R) (F : SelmerStructure K R T) (n : Conductor K) :
+    SelmerStructure K R T := sorry
+lemma strict_condition (T : Rep K R) (F : SelmerStructure K R T) (n : Conductor K) (q : Prime K) :
+    (strict T F n).condition (Sum.inr q) = if q ∈ n then ⊥ else F.condition (Sum.inr q) := sorry
+lemma relaxed_condition (T : Rep K R) (F : SelmerStructure K R T) (n : Conductor K) (q : Prime K) :
+    (relaxed T F n).condition (Sum.inr q) = if q ∈ n then ⊤ else F.condition (Sum.inr q) := sorry
+lemma SelmerTriple.modify_le {T : Rep K R} (S : SelmerTriple K R T) (n : Conductor K) :
+    (strict T S.F n).selmer ≤ S.F.selmer ∧ S.F.selmer ≤ (relaxed T S.F n).selmer := sorry
+lemma SelmerTriple.selmer_strict_eq_inf {T : Rep K R} (S : SelmerTriple K R T)
+    (n : Conductor K) : (strict T S.F n).selmer = S.F.selmer ⊓
+      ⨅ q ∈ n, LinearMap.ker (loc K R T (Sum.inr q)) := sorry
+-- Unit test: modify_one
+example (T : Rep K R) (F : SelmerStructure K R T) :
+    strict T F ∅ = F ∧ relaxed T F ∅ = F := sorry
+-- Unit test: modify_strict_one_prime
+example (T : Rep K R) (F : SelmerStructure K R T) (q : Prime K) :
+    (strict T F {q}).condition (Sum.inr q) = ⊥ := sorry
+-- Unit test: modify_relaxed_one_prime
+example (T : Rep K R) (F : SelmerStructure K R T) (q : Prime K) :
+    (relaxed T F {q}).condition (Sum.inr q) = ⊤ := sorry
+end TauCeti.KolyvaginSystems
 
-attribute [instance] SelmerTriple.addCommGroupGlob SelmerTriple.moduleGlob
-  SelmerTriple.addCommGroupLoc SelmerTriple.moduleLoc
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+instance layerNumberField (F : Layer K) : NumberField F.field := sorry
+/-- ProfiniteArithmetic's absolute-Galois subgroup dictionary. -/
+def layerGalois (F : Layer K) : GK F.field →* GK K := sorry
+lemma layerGalois_range (F : Layer K) : (layerGalois F).range = F.group := sorry
+abbrev layerRep (T : Rep K R) (F : Layer K) : Rep F.field R := TopRep.res (layerGalois F) T
+def layerCohomology (T : Rep K R) (F : Layer K) (i : ℕ) :
+    HAt K R T F i ≃ₗ[R] H F.field R (layerRep T F) i := sorry
+def locAt (T : Rep K R) (F : Layer K) (v : Place F.field) :
+    HAt K R T F 1 →ₗ[R] LocalH F.field R (layerRep T F) v 1 :=
+  (loc F.field R (layerRep T F) v).comp (layerCohomology T F 1).toLinearMap
+def primesAbove (F : Layer K) (q : Prime K) : Set (Prime F.field) := sorry
+lemma primesAbove_spec (F : Layer K) (q : Prime K) (w : Prime F.field) :
+    w ∈ primesAbove F q ↔ w.asIdeal.comap
+      (NumberField.RingOfIntegers.mapRingHom (algebraMap K F.field)) = q.asIdeal := sorry
+def isAboveP (p : ℕ) (q : Prime K) : Prop := (p : NumberField.RingOfIntegers K) ∈ q.asIdeal
+def pInfinity (p : ℕ) : Set (Place K) := {v | ∀ q, v = Sum.inr q → isAboveP p q}
+end TauCeti.KolyvaginSystems
 
-namespace SelmerTriple
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+def eulerPolyMR (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (q : TauCeti.KolyvaginSystems.Prime K) : R[X] :=
+  (frobEnd T q).charpoly.reverse
+/-- N(q) is a unit away from p; the Tate-dual convention scales Frobenius. -/
+def eulerPoly (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (q : TauCeti.KolyvaginSystems.Prime K)
+    (u : Rˣ) (hu : (u : R) = primeNorm K q) : R[X] :=
+  ((↑u⁻¹ : R) • frobEnd T q).charpoly.reverse
+lemma eulerPoly_eq_det_twist (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    (q : TauCeti.KolyvaginSystems.Prime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) :
+    eulerPoly T q u hu = (eulerPolyMR T q).comp (C (↑u⁻¹ : R) * X) := sorry
+lemma eulerPoly_coeff (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    (q : TauCeti.KolyvaginSystems.Prime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) (i : ℕ) :
+    (eulerPoly T q u hu).coeff i * (primeNorm K q : R)^i = (eulerPolyMR T q).coeff i := sorry
+lemma eulerPoly_congr (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    (q : TauCeti.KolyvaginSystems.Prime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) (I : Ideal R)
+    (hI : (primeNorm K q : R)-1 ∈ I) :
+    (eulerPoly T q u hu).map (Ideal.Quotient.mk I) =
+      (eulerPolyMR T q).map (Ideal.Quotient.mk I) := sorry
+lemma eulerPoly_aeval_annihilates (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    (q : TauCeti.KolyvaginSystems.Prime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) :
+    aeval ((primeNorm K q : R) • frobInvEnd T q) (eulerPoly T q u hu) = 0 := sorry
+-- These examples compute the polynomial of the actual arithmetic Frobenius endomorphism.
+-- Unit test: eulerPoly_zp_one
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (q : TauCeti.KolyvaginSystems.Prime K)
+    (e : T ≃ₗ[R] R) (u : Rˣ) (hu : (u : R) = primeNorm K q)
+    (h : ∀ t, e (frobEnd T q t) = (primeNorm K q : R)*e t) :
+    eulerPoly T q u hu = 1-X ∧ eulerPolyMR T q = 1-C (primeNorm K q : R)*X := sorry
+-- Unit test: eulerPoly_elliptic
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (q : TauCeti.KolyvaginSystems.Prime K)
+    (u : Rˣ) (hu : (u : R) = primeNorm K q) (a : R)
+    (h : eulerPolyMR T q = 1-C a*X+C (primeNorm K q : R)*X^2) :
+    eulerPoly T q u hu = 1-C (a*(↑u⁻¹ : R))*X+C (↑u⁻¹ : R)*X^2 := sorry
+-- Unit test: eulerPoly_rank_zero
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] [Subsingleton T]
+    (q : TauCeti.KolyvaginSystems.Prime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) :
+    eulerPoly T q u hu = 1 ∧ eulerPolyMR T q = 1 := sorry
 
-variable {R : Type u} [CommRing R] {Pl : Type v} (D : SelmerTriple.{u, v, w} R Pl)
+/-- An abelian extension in Kˢ and its bad support, rather than an abstract index set. -/
+structure Tower (T : TauCeti.KolyvaginSystems.Rep K R) where
+  subgroup : Subgroup (GK K)
+  normal : subgroup.Normal
+  closed : IsClosed (subgroup : Set (GK K))
+  abelian : ∀ g h : GK K, g*h*g⁻¹*h⁻¹ ∈ subgroup
+  p : ℕ
+  p_prime : p.Prime
+  bad : Finset (Place K)
+  contains_p_infinity : pInfinity p ⊆ (bad : Set (Place K))
+  unramified : ∀ v ∉ bad, IsUnramified K R T v
+attribute [instance] Tower.normal
+abbrev FiniteLayer {T : TauCeti.KolyvaginSystems.Rep K R} (A : Tower T) := {F : Layer K // A.subgroup ≤ F.group}
+def baseLayer (K : Type) [Field K] [NumberField K] : Layer K := sorry
+lemma baseLayer_group (K : Type) [Field K] [NumberField K] : (baseLayer K).group = ⊤ := sorry
+def Tower.base {T : TauCeti.KolyvaginSystems.Rep K R} (A : Tower T) : FiniteLayer A := sorry
+lemma Tower.base_val {T : TauCeti.KolyvaginSystems.Rep K R} (A : Tower T) : A.base.val = baseLayer K := sorry
+def baseEquiv (T : TauCeti.KolyvaginSystems.Rep K R) : HAt K R T (baseLayer K) 1 ≃ₗ[R] H K R T 1 := sorry
+def ramifiedDifference {T : TauCeti.KolyvaginSystems.Rep K R} (A : Tower T) (F F' : FiniteLayer A) : Finset (TauCeti.KolyvaginSystems.Prime K) := sorry
+lemma ramifiedDifference_spec {T : TauCeti.KolyvaginSystems.Rep K R} (A : Tower T) (F F' : FiniteLayer A)
+    (q : TauCeti.KolyvaginSystems.Prime K) : q ∈ ramifiedDifference A F F' ↔
+    Sum.inr q ∉ A.bad ∧ IsUnramifiedLayer F.val q ∧ ¬ IsUnramifiedLayer F'.val q := sorry
+/-- Unit data are determined by the coefficient ring and the primes outside the support. -/
+inductive EulerNormalization | rubin | mazurRubin
+structure EulerFactors (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (A : Tower T) where
+  normalization : EulerNormalization
+  normUnit : (q : TauCeti.KolyvaginSystems.Prime K) → Sum.inr q ∉ A.bad → Rˣ
+  normUnit_spec : ∀ q hq, (normUnit q hq : R) = primeNorm K q
+def EulerFactors.poly (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (q : TauCeti.KolyvaginSystems.Prime K) (hq : Sum.inr q ∉ A.bad) : R[X] :=
+  match E.normalization with
+  | .rubin => eulerPoly T q (E.normUnit q hq) (E.normUnit_spec q hq)
+  | .mazurRubin => eulerPolyMR T q
+def factorOperator (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (F F' : FiniteLayer A) :
+    Module.End R (HAt K R T F.val 1) := sorry
+lemma factorOperator_formula (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (F F' : FiniteLayer A) :
+    factorOperator T E F F' =
+      ((ramifiedDifference A F F').attach.toList.map (fun q =>
+        aeval ((cohomologyAction T F.val) (QuotientGroup.mk (frobenius K q.val).val⁻¹))
+          (E.poly T q.val (by sorry)))).prod := sorry
+def EulerSystem (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) : Submodule R (∀ F : FiniteLayer A, HAt K R T F.val 1) where
+  carrier := {c | ∀ (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group),
+    corAt T F.val F'.val h (c F') = factorOperator T E F F' (c F)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+def EulerSystem.eval (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (F : FiniteLayer A) :
+    EulerSystem T E →ₗ[R] HAt K R T F.val 1 := sorry
+lemma EulerSystem.eval_apply (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (c : EulerSystem T E) (F : FiniteLayer A) :
+    EulerSystem.eval T E F c = c.val F := sorry
+lemma EulerSystem.cor_eval (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (c : EulerSystem T E)
+    (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group) :
+    corAt T F.val F'.val h (c.val F') = factorOperator T E F F' (c.val F) := sorry
+lemma EulerSystem.cor_eval_of_ramified_eq (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (c : EulerSystem T E)
+    (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group)
+    (he : ramifiedDifference A F F' = ∅) : corAt T F.val F'.val h (c.val F') = c.val F := sorry
+lemma EulerSystem.ext (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (c d : EulerSystem T E)
+    (h : ∀ F, c.val F = d.val F) : c = d := sorry
+def EulerSystem.lift (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) {X : Type} [AddCommGroup X] [Module R X]
+    (f : ∀ F : FiniteLayer A, X →ₗ[R] HAt K R T F.val 1)
+    (hf : ∀ F F' h x, corAt T F.val F'.val h (f F' x) = factorOperator T E F F' (f F x)) :
+    X →ₗ[R] EulerSystem T E := sorry
+-- Zero, a genuine corestriction equation, and failure of restriction families.
+-- Unit test: EulerSystem.zero_mem
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] {A : Tower T}
+    (E : EulerFactors T A) : (fun _ => 0) ∈ EulerSystem T E := sorry
+-- Unit test: EulerSystem.universal_norm
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] {A : Tower T}
+    (E : EulerFactors T A) (c : EulerSystem T E) (F F' : FiniteLayer A)
+    (h : F'.val.group ≤ F.val.group) (he : ramifiedDifference A F F' = ∅) :
+    c.val F ∈ LinearMap.range (corAt T F.val F'.val h) := sorry
+-- Unit test: EulerSystem.not_restriction
+example (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T] (hT : IsContinuous K R T)
+    {A : Tower T} (E : EulerFactors T A) (c : ∀ F : FiniteLayer A, HAt K R T F.val 1)
+    (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group)
+    (he : ramifiedDifference A F F' = ∅) (hc : c F' = resAt T F.val F'.val h (c F))
+    (hne : ((F'.val.group.relIndex F.val.group : R)-1) • c F ≠ 0) :
+    c ∉ EulerSystem T E := sorry
 
-/-- The Selmer module of the triple. -/
-def selmer : Submodule R D.glob := ⨅ q, (D.cond q).comap (D.res q)
+end TauCeti.EulerSystems
 
-/-- API: `N(P)`, the squarefree products of primes of `P`, as finite subsets of `P`. -/
-def conductors : Set (Finset Pl) := {n | (n : Set Pl) ⊆ D.primes}
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Arithmetic supplier adapters all carry equations identifying their carriers. -/
+def representationKernel (T : Rep K R) : Subgroup (GK K) := sorry
+lemma mem_representationKernel (T : Rep K R) (g : GK K) :
+    g ∈ representationKernel T ↔ ∀ t : T, T.ρ g t = t := sorry
+instance representationKernel_normal (T : Rep K R) : (representationKernel T).Normal := sorry
+def rootsGroup (p : ℕ) (depth : Option ℕ) : Subgroup (GK K) := sorry
+lemma mem_rootsGroup (p : ℕ) (depth : Option ℕ) (g : GK K) :
+    g ∈ rootsGroup (K := K) p depth ↔ ∀ m : ℕ, (∀ d, depth = some d → m ≤ d) →
+      ∀ x : SeparableClosure K, x^(p^m) = 1 → g x = x := sorry
+instance rootsGroup_normal (p : ℕ) (depth : Option ℕ) : (rootsGroup (K := K) p depth).Normal := sorry
+def unitsRootsGroup (p : ℕ) (depth : Option ℕ) : Subgroup (GK K) := sorry
+lemma mem_unitsRootsGroup (p : ℕ) (depth : Option ℕ) (g : GK K) :
+    g ∈ unitsRootsGroup (K := K) p depth ↔ ∀ m : ℕ, (∀ d, depth = some d → m ≤ d) →
+      ∀ (u : (NumberField.RingOfIntegers K)ˣ) (x : SeparableClosure K),
+        x^(p^m) = algebraMap K (SeparableClosure K) (u.val : K) → g x = x := sorry
+instance unitsRootsGroup_normal (p : ℕ) (depth : Option ℕ) :
+    (unitsRootsGroup (K := K) p depth).Normal := sorry
+def hilbertClassField (K : Type) [Field K] [NumberField K] : IntermediateField K (SeparableClosure K) := sorry
+def hilbertGroup (K : Type) [Field K] [NumberField K] : Subgroup (GK K) := sorry
+lemma mem_hilbertGroup (K : Type) [Field K] [NumberField K] (g : GK K) :
+    g ∈ hilbertGroup K ↔ ∀ x : hilbertClassField K, g x.val = x.val := sorry
+instance hilbertGroup_normal (K : Type) [Field K] [NumberField K] : (hilbertGroup K).Normal := sorry
+def HMGroup (p : ℕ) (depth : Option ℕ) : Subgroup (GK K) :=
+  hilbertGroup K ⊓ rootsGroup p depth ⊓ unitsRootsGroup p depth
+instance hmGroup_normal (p : ℕ) (depth : Option ℕ) : (HMGroup (K := K) p depth).Normal := sorry
+def descentRep (T : Rep K R) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel T) : TopRep.{0} R (GK K ⧸ U) := sorry
+def descentRepEquiv (T : Rep K R) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel T) : descentRep T U hU ≃ₗ[R] T := sorry
+lemma descentRep_action (T : Rep K R) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel T) (g : GK K) (t : descentRep T U hU) :
+    descentRepEquiv T U hU ((descentRep T U hU).ρ (QuotientGroup.mk g) t) =
+      T.ρ g (descentRepEquiv T U hU t) := sorry
+def inflation (T : Rep K R) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel T) : continuousCohomology 1 (descentRep T U hU) →ₗ[R] H K R T 1 := sorry
 
-/-- API: `1 ∈ N(P)`. -/
-theorem one_mem_conductors : (∅ : Finset Pl) ∈ D.conductors := sorry
+variable [IsLocalRing R]
+abbrev Residue := IsLocalRing.ResidueField R
+local instance residueTopology : TopologicalSpace (Residue (R := R)) := ⊥
+def residualRep (T : Rep K R) : TopRep.{0} (Residue (R := R)) (GK K) := sorry
+instance residualRep_module (T : Rep K R) : Module R (residualRep T) :=
+  Module.compHom (residualRep T) (IsLocalRing.residue R)
+def residualEquiv (T : Rep K R) :
+    residualRep T ≃ₗ[R] quotientRep T (IsLocalRing.maximalIdeal R) := sorry
+lemma residual_action (T : Rep K R) (g : GK K) (t : residualRep T) :
+    residualEquiv T ((residualRep T).ρ g t) =
+      (quotientRep T (IsLocalRing.maximalIdeal R)).ρ g (residualEquiv T t) := sorry
+def ResiduallyIrreducible (T : Rep K R) : Prop :=
+  Nontrivial (residualRep T) ∧ ∀ W : Submodule (Residue (R := R)) (residualRep T),
+    (∀ g : GK K, ∀ x ∈ W, (residualRep T).ρ g x ∈ W) → W = ⊥ ∨ W = ⊤
+def ResiduallyAbsolutelyIrreducible (T : Rep K R) : Prop :=
+  Nontrivial (residualRep T) ∧ ∀ (k' : Type) [Field k'] [Algebra (Residue (R := R)) k'],
+    ∀ W : Submodule k' (k' ⊗[Residue (R := R)] residualRep T),
+      (∀ g : GK K, ∀ x ∈ W, TensorProduct.map LinearMap.id
+        ((residualRep T).ρ g).toLinearMap x ∈ W) → W = ⊥ ∨ W = ⊤
+def RankOneCoinvariants (T : Rep K R) (τ : GK K) : Prop :=
+  Nonempty ((T ⧸ LinearMap.range ((T.ρ τ).toLinearMap - LinearMap.id)) ≃ₗ[R] R)
+def ResidualHomVanishing (T : Rep K R) : Prop :=
+  ∀ f : quotientRep T (IsLocalRing.maximalIdeal R) ⟶
+      dualRep (quotientRep T (IsLocalRing.maximalIdeal R)), f = 0
+def NotResidualSelfDual (T : Rep K R) : Prop :=
+  ¬ Nonempty (quotientRep T (IsLocalRing.maximalIdeal R) ≅
+      dualRep (quotientRep T (IsLocalRing.maximalIdeal R)))
+def H1ImageVanishing (T : Rep K R) (U : Subgroup (GK K)) [U.Normal]
+    (hT : U ≤ representationKernel (quotientRep T (IsLocalRing.maximalIdeal R)))
+    (hD : U ≤ representationKernel (dualRep (quotientRep T (IsLocalRing.maximalIdeal R)))) : Prop :=
+  Subsingleton (continuousCohomology 1 (descentRep (quotientRep T (IsLocalRing.maximalIdeal R)) U hT)) ∧
+  Subsingleton (continuousCohomology 1 (descentRep (dualRep (quotientRep T (IsLocalRing.maximalIdeal R))) U hD))
+def MR04SplittingGroup (T : Rep K R) (p : ℕ) : Subgroup (GK K) :=
+  representationKernel T ⊓ rootsGroup p none
+instance mr04Splitting_normal (T : Rep K R) (p : ℕ) : (MR04SplittingGroup T p).Normal := sorry
+def MR16SplittingGroup (T : Rep K R) (p : ℕ) (depth : Option ℕ) : Subgroup (GK K) :=
+  representationKernel T ⊓ HMGroup p depth
+instance mr16Splitting_normal (T : Rep K R) (p : ℕ) (depth : Option ℕ) :
+    (MR16SplittingGroup T p depth).Normal := sorry
+lemma splitting_le_residual (T : Rep K R) (p : ℕ) :
+    MR04SplittingGroup T p ≤ representationKernel (quotientRep T (IsLocalRing.maximalIdeal R)) := sorry
+lemma splitting_le_residual_dual (T : Rep K R) (p : ℕ) :
+    MR04SplittingGroup T p ≤ representationKernel (dualRep (quotientRep T (IsLocalRing.maximalIdeal R))) := sorry
+lemma hmSplitting_le_residual (T : Rep K R) (p : ℕ) (d : Option ℕ) :
+    MR16SplittingGroup T p d ≤ representationKernel (quotientRep T (IsLocalRing.maximalIdeal R)) := sorry
+lemma hmSplitting_le_residual_dual (T : Rep K R) (p : ℕ) (d : Option ℕ) :
+    MR16SplittingGroup T p d ≤ representationKernel (dualRep (quotientRep T (IsLocalRing.maximalIdeal R))) := sorry
+/-- Positive and signed ranks over a DVR are defined at the residue modulus. -/
+def latticeCoreRankInt (T : Rep K R) (F : SelmerStructure K R T) : ℤ :=
+  coreRankInt (quotientRep T (IsLocalRing.maximalIdeal R))
+    (propagatedStructure T F (IsLocalRing.maximalIdeal R))
+def latticeCoreRank (T : Rep K R) (F : SelmerStructure K R T) : ℕ := (latticeCoreRankInt T F).toNat
 
-/-- API: `N(P)` is closed under divisors. -/
-theorem conductors_dvd_closed {m n : Finset Pl} (hn : n ∈ D.conductors) (hmn : m ⊆ n) :
-    m ∈ D.conductors := sorry
+structure MR04Hypotheses (T : Rep K R) (S : SelmerTriple K R T) (p : ℕ) where
+  baseIsRational : Nonempty (K ≃+* ℚ)
+  prime : p.Prime
+  residueChar : CharP (Residue (R := R)) p
+  residueFinite : Finite (Residue (R := R))
+  noetherian : IsNoetherianRing R
+  complete : IsAdicComplete (IsLocalRing.maximalIdeal R) R
+  free : Module.Free R T
+  finite : Module.Finite R T
+  continuous : IsContinuous K R T
+  irreducible : ResiduallyAbsolutelyIrreducible T
+  tau : GK K
+  tauCyclotomic : tau ∈ rootsGroup p none
+  tauCoinvariants : RankOneCoinvariants T tau
+  h1Vanishing : H1ImageVanishing T (MR04SplittingGroup T p)
+    (splitting_le_residual T p) (splitting_le_residual_dual T p)
+  homVanishingOrLarge : ResidualHomVanishing T ∨ 4 < p
+  primes : ∃ t, 0 < t ∧
+    {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R ^ t} ⊆ S.primes ∧
+      S.primes ⊆ {q | conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R}
+  cartesian : IsCartesianStructure T S.F
 
-/-- API: restriction of the prime set. -/
-def restrictPrimes (P' : Set Pl) (h : P' ⊆ D.primes) : SelmerTriple.{u, v, w} R Pl :=
-  { D with primes := P', disjoint := fun q hq => D.disjoint q (h hq) }
+structure MR16Hypotheses (T : Rep K R) (S : SelmerTriple K R T) (p r : ℕ) where
+  prime : p.Prime
+  residueChar : CharP (Residue (R := R)) p
+  residueFinite : Finite (Residue (R := R))
+  free : Module.Free R T
+  finite : Module.Finite R T
+  continuous : IsContinuous K R T
+  coefficient : IsArtinianRing R ∨ ∃ (_ : IsDomain R), IsDiscreteValuationRing R
+  depth : Option ℕ
+  depthSpec : ∀ d, depth = some d → (p^d : R) = 0 ∧ ∀ e < d, (p^e : R) ≠ 0
+  infiniteDepth : depth = none → ∃ (_ : IsDomain R), IsDiscreteValuationRing R
+  invariants : NoResidualInvariants T (IsLocalRing.maximalIdeal R)
+  irreducible : ResiduallyAbsolutelyIrreducible T
+  tau : GK K
+  tauHM : tau ∈ HMGroup p depth
+  tauCoinvariants : RankOneCoinvariants T tau
+  L : Layer K
+  L_in_HM : HMGroup p depth ≤ L.group
+  primeContainment : frobeniusPrimes T S L tau ⊆ S.primes
+  h1Vanishing : H1ImageVanishing T (MR16SplittingGroup T p depth)
+    (hmSplitting_le_residual T p depth) (hmSplitting_le_residual_dual T p depth)
+  notSelfDualOrLarge : NotResidualSelfDual T ∨ 3 < p
+  cartesian : IsCartesianStructure T S.F
+  positive : 0 < r
+  coreRank : latticeCoreRankInt T S.F = r
+def MR16Hypotheses.IsArtinianAdmissible {T : Rep K R} {S : SelmerTriple K R T}
+    {p r : ℕ} (h : MR16Hypotheses T S p r) : Prop := ∀ q ∈ S.primes, primeConductorIdeal T p q = ⊥
+lemma MR04Hypotheses.invariants_eq_bot {T : Rep K R} {S : SelmerTriple K R T}
+    {p : ℕ} (h : MR04Hypotheses T S p) : NoResidualInvariants T (IsLocalRing.maximalIdeal R) := sorry
+lemma MR16Hypotheses.artinianAdmissible_of_frobenius {T : Rep K R} {S : SelmerTriple K R T}
+    {p r : ℕ} (h : MR16Hypotheses T S p r) [IsArtinianRing R]
+    (hP : S.primes ⊆ frobeniusPrimes T S h.L h.tau)
+    (hfield : h.L.group ≤ HMGroup p h.depth) : h.IsArtinianAdmissible := sorry
+-- Three tests for each record: dual-invariant exclusion, τ=1 in rank one,
+-- and a restricted prime set which must contain a genuine Frobenius set.
+-- Unit test: MR04Hypotheses.residual_invariants_zero
+example {T : Rep K R} {S : SelmerTriple K R T} {p : ℕ} (h : MR04Hypotheses T S p) :
+    Subsingleton (H K R (quotientRep T (IsLocalRing.maximalIdeal R)) 0) := sorry
+-- Unit test: MR04Hypotheses.rank_one_coinvariants
+example (T : Rep K R) (e : T ≃ₗ[R] R) : RankOneCoinvariants T 1 := sorry
+-- Unit test: MR04Hypotheses.not_dual_invariants
+example {T : Rep K R} {S : SelmerTriple K R T} {p : ℕ} (h : MR04Hypotheses T S p)
+    (hne : Nontrivial (H K R (dualRep (quotientRep T (IsLocalRing.maximalIdeal R))) 0)) : False := sorry
+-- Unit test: MR16Hypotheses.positive_rank
+example {T : Rep K R} {S : SelmerTriple K R T} {p r : ℕ} (h : MR16Hypotheses T S p r) : 0 < r := sorry
+-- Unit test: MR16Hypotheses.infinite_primes
+example {T : Rep K R} {S : SelmerTriple K R T} {p r : ℕ} (h : MR16Hypotheses T S p r) : S.primes.Infinite := sorry
+-- Unit test: MR16Hypotheses.not_empty_primes
+example (T : Rep K R) (S : SelmerTriple K R T) (p r : ℕ) (h : S.primes = ∅) :
+    IsEmpty (MR16Hypotheses T S p r) := sorry
+end TauCeti.KolyvaginSystems
 
-/-- Test `SelmerTriple.conductors_empty`: for `P = ∅`, `N(P) = {1}`. -/
-example (h : D.primes = ∅) : D.conductors = {∅} := sorry
-
-/-- Test `SelmerTriple.disjoint_sigma`: no prime of `Σ(F)` divides an element of `N(P)`. -/
-example {n : Finset Pl} (hn : n ∈ D.conductors) {q : Pl} (hq : q ∈ n) : q ∉ D.sigma := sorry
-
-end SelmerTriple
-
-end SelmerTriple
-
-section Cartesian
-
-variable {R : Type*} [CommRing R]
-
-/-- **`ES.0/cartesian-condition`**: the cartesian square for one morphism `α_* : H¹(K_v, T₁) →
-H¹(K_v, T₂)`: the condition on `T₁` is the inverse image of the condition on `T₂`. A local
-condition is cartesian on `Quot_R(T)` when this holds for every injective morphism of that
-category. -/
-def IsCartesian {H₁ H₂ : Type*} [AddCommGroup H₁] [Module R H₁] [AddCommGroup H₂] [Module R H₂]
-    (α : H₁ →ₗ[R] H₂) (L₁ : Submodule R H₁) (L₂ : Submodule R H₂) : Prop :=
-  L₁ = L₂.comap α
-
-/-- Test `isCartesian_strict_and_relaxed_field` (relaxed half): the relaxed conditions form a
-cartesian square for every map. -/
-example {H₁ H₂ : Type*} [AddCommGroup H₁] [Module R H₁] [AddCommGroup H₂] [Module R H₂]
-    (α : H₁ →ₗ[R] H₂) : IsCartesian α ⊤ ⊤ := sorry
-
-/-- The strict conditions form a cartesian square exactly for injective maps. -/
-example {H₁ H₂ : Type*} [AddCommGroup H₁] [Module R H₁] [AddCommGroup H₂] [Module R H₂]
-    (α : H₁ →ₗ[R] H₂) : IsCartesian α ⊥ ⊥ ↔ Function.Injective α := sorry
-
-variable (T : Type*) [AddCommGroup T] [Module R T]
-
-/-- **`ES.0/quotient-category`**, API `QuotCat.scalarHom`: for `r` with `r I ⊆ J`, multiplication
-by `r` as a map `T/IT → T/JT`. -/
-def QuotCat.scalarHom (I J : Ideal R) (r : R) (h : ∀ x ∈ I, r * x ∈ J) :
-    (T ⧸ (I • (⊤ : Submodule R T))) →ₗ[R] (T ⧸ (J • (⊤ : Submodule R T))) :=
-  Submodule.mapQ _ _ (r • LinearMap.id) sorry
-
-/-- API `QuotCat.scalarHom_comp`. -/
-theorem QuotCat.scalarHom_comp (I J L : Ideal R) (r s : R) (h : ∀ x ∈ I, r * x ∈ J)
-    (h' : ∀ x ∈ J, s * x ∈ L) :
-    (QuotCat.scalarHom T J L s h').comp (QuotCat.scalarHom T I J r h) =
-      QuotCat.scalarHom T I L (s * r) sorry := sorry
-
-end Cartesian
-
-/-! ## ES.1: the quotient polynomial of the finite–singular comparison -/
-
-section FiniteSingular
-
-variable {R : Type*} [CommRing R]
-
-/-- **`ES.1/finite-singular-comparison`**, API `fsQuotientPoly`: the polynomial `Q` with
-`(X - 1) * Q = P`, for `P` with `P(1) = 0`; here `P = det(1 - Fr · X | T)`. -/
-def fsQuotientPoly (P : R[X]) : R[X] := P /ₘ (X - C 1)
-
-/-- API `fsQuotientPoly_spec`. -/
-theorem fsQuotientPoly_spec (P : R[X]) (h : P.eval 1 = 0) : (X - 1) * fsQuotientPoly P = P :=
-  sorry
-
-/-- Uniqueness in `fsQuotientPoly_spec`. -/
-theorem fsQuotientPoly_unique (P Q : R[X]) (h : (X - 1) * Q = P) : Q = fsQuotientPoly P := sorry
-
-/-- Test `finiteSingular_cyclotomic`: for `P = 1 - X`, `Q = -1`. -/
-example : fsQuotientPoly (1 - X : ℤ[X]) = -1 := sorry
-
-/-- Test `finiteSingular_rank_two`: for `P = (1 - X)(1 - aX)`, `Q = -(1 - aX)`. -/
-example (a : R) : fsQuotientPoly ((1 - X) * (1 - C a * X) : R[X]) = -(1 - C a * X) := sorry
-
-/-- Algebraic part of test `finiteSingular_not_natural_inclusion`: the quotient polynomials
-on a rank-one fixed line and on the fixed line in `diag(1,2)` have different values. The actual
-finite–singular maps still require the arithmetic coefficient and local-cohomology carriers. -/
-example :
-    (fsQuotientPoly (1 - X : (ZMod 5)[X])).eval 1 = 4 ∧
-    (fsQuotientPoly ((1 - X) * (1 - C 2 * X) : (ZMod 5)[X])).eval 1 = 1 := sorry
-
-end FiniteSingular
-
-/-! ## ES.3: the norm element and the Kolyvagin derivative operator -/
-
+namespace TauCeti.KolyvaginSystems
+universe v w
 section Derivative
 
 variable {Γ : Type*} [Group Γ]
@@ -231,24 +960,25 @@ theorem normElement_eq_representation_norm [Fintype Γ] {V : Type*} [AddCommGrou
     MonoidAlgebra.lift ℤ (Module.End ℤ V) Γ ρ (normElement Γ) = ρ.norm := sorry
 
 /-- Test `kolyvaginDerivative_order_two`: for `σ` of order two, `D_σ = σ`. -/
+-- Unit test: kolyvaginDerivative_order_two
 example (σ : Γ) (h : orderOf σ = 2) : kolyvaginDerivative σ = MonoidAlgebra.of ℤ Γ σ := sorry
 
 /-- Test `kolyvaginDerivative_order_three`: for `σ` of order three, `D_σ = σ + 2σ²`. -/
+-- Unit test: kolyvaginDerivative_order_three
 example (σ : Γ) (h : orderOf σ = 3) :
     kolyvaginDerivative σ = MonoidAlgebra.of ℤ Γ σ + 2 * MonoidAlgebra.of ℤ Γ (σ ^ 2) := sorry
 
 /-- Test `kolyvaginDerivative_trivial`: for the trivial element, `D = 0`. -/
+-- Unit test: kolyvaginDerivative_trivial
 example : kolyvaginDerivative (1 : Γ) = 0 := sorry
 
 /-- Test `kolyvaginDerivative_not_norm_multiple`: `(σ - 1) D_σ ≠ 0` for a generator of a group of
 order at least two. -/
+-- Unit test: kolyvaginDerivative_not_norm_multiple
 example [Fintype Γ] (σ : Γ) (hσ : ∀ g : Γ, g ∈ Subgroup.zpowers σ) (h : 2 ≤ Fintype.card Γ) :
     (MonoidAlgebra.of ℤ Γ σ - 1) * kolyvaginDerivative σ ≠ 0 := sorry
 
 end Derivative
-
-/-! ## ES.4: sheaves on graphs -/
-
 section GraphSheaf
 
 /-- **`ES.4/selmer-sheaf`**, API `GraphSheaf`: a sheaf of `R`-modules on a simple graph: vertex
@@ -319,3671 +1049,4218 @@ substalks. -/
 def Subsheaf.sections (S' : S.Subsheaf) : Submodule R (∀ x, S.stalk x) :=
   S.sections ⊓ Submodule.pi Set.univ S'.stalk
 
+/-- A surjective path retains the edge witnesses needed to compute its transport. -/
+inductive SurjPath : V → V → Type (max u v w) where
+  | nil (x : V) : SurjPath x x
+  | cons {x y z : V} (e : X.edgeSet) (hx : x ∈ (e : Sym2 V))
+      (hy : y ∈ (e : Sym2 V)) (hne : x ≠ y)
+      (hyIso : Function.Bijective (S.toEdge e y hy)) (tail : SurjPath y z) : SurjPath x z
+def pathMap {x y : V} (P : S.SurjPath x y) : S.stalk x →ₗ[R] S.stalk y := sorry
+lemma pathMap_nil (x : V) : S.pathMap (.nil x) = LinearMap.id := sorry
+lemma pathMap_cons {x y z : V} (e : X.edgeSet) (hx : x ∈ (e : Sym2 V))
+    (hy : y ∈ (e : Sym2 V)) (hne : x ≠ y)
+    (hyIso : Function.Bijective (S.toEdge e y hy)) (P : S.SurjPath y z) :
+    S.pathMap (.cons e hx hy hne hyIso P) = (S.pathMap P).comp
+      ((LinearEquiv.ofBijective (S.toEdge e y hy) hyIso).symm.toLinearMap.comp (S.toEdge e x hx)) := sorry
+/-- MR04 Definition 3.4.2 includes compatibility across the final edge as well
+as independence of parallel paths; loops alone are insufficient for cyclic stalks. -/
+def HasTrivialMonodromy : Prop :=
+  S.IsLocallyCyclic ∧ (∀ x y (P Q : S.SurjPath x y), S.pathMap P = S.pathMap Q) ∧
+    ∀ x y z (P : S.SurjPath x y) (Q : S.SurjPath x z) (e : X.edgeSet)
+      (hy : y ∈ (e : Sym2 V)) (hz : z ∈ (e : Sym2 V)),
+      (S.toEdge e y hy).comp (S.pathMap P) = (S.toEdge e z hz).comp (S.pathMap Q)
+def eval (x : V) : S.sections →ₗ[R] S.stalk x := sorry
+lemma eval_apply (x : V) (κ : S.sections) : S.eval x κ = κ.val x := sorry
+lemma eval_surjective_iff (hc : S.IsLocallyCyclic) (x : V) (hx : S.IsHub x) :
+    Function.Surjective (S.eval x) ↔ S.HasTrivialMonodromy := sorry
+lemma generates_of_generates (hc : S.IsLocallyCyclic) (x : V) (hx : S.IsHub x)
+    (κ : S.sections) (I : Ideal R) (hgen : Submodule.span R {κ.val x} = I • (⊤ : Submodule R (S.stalk x))) :
+    ∀ y, Submodule.span R {κ.val y} = I • (⊤ : Submodule R (S.stalk y)) := sorry
+lemma sections_equiv_ideal_of_free_hub (hc : S.IsLocallyCyclic) (x : V) (hx : S.IsHub x)
+    (e : S.stalk x ≃ₗ[R] R) : ∃ I : Ideal R, Nonempty (S.sections ≃ₗ[R] I) := sorry
+/-- A subsheaf has its own actual vertex and edge modules and induced maps. -/
+def Subsheaf.asSheaf (S' : S.Subsheaf) : GraphSheaf.{u,v,w} R X :=
+  {stalk := fun x => S'.stalk x, addCommGroupStalk := inferInstance, moduleStalk := inferInstance,
+   edge := fun e => S'.edge e, addCommGroupEdge := inferInstance, moduleEdge := inferInstance,
+   toEdge := fun e x hx => (S.toEdge e x hx).restrict (by intro z hz; exact S'.map_le e x hx ⟨z,hz,rfl⟩)}
+def Subsheaf.sectionsEquiv (S' : S.Subsheaf) : S'.asSheaf.sections ≃ₗ[R] S'.sections := sorry
+lemma primitive_iff_generator_at_hub (hc : S.IsLocallyCyclic) (x : V) (hx : S.IsHub x) (κ : S.sections) :
+    S.IsPrimitive κ ↔ Submodule.span R {κ.val x} = ⊤ := sorry
+-- Unit test: monodromy_trivial_loop
+example (x : V) (P : S.SurjPath x x) (hm : S.HasTrivialMonodromy) : S.pathMap P = LinearMap.id := sorry
+-- Unit test: sections_zero_hub
+example (hc : S.IsLocallyCyclic) (x : V) (hx : S.IsHub x)
+    (κ : S.sections) (h : κ.val x=0) : κ=0 := sorry
+example (x : V) (e : S.stalk x ≃ₗ[R] R) (h : Subsingleton (S.stalk x)) : Subsingleton R := sorry
+
 /-- Test `isPrimitive_zero_module`: if all stalks are zero, the zero section is primitive. -/
+-- Unit test: isPrimitive_zero_module
 example (h : ∀ x, Subsingleton (S.stalk x)) : S.IsPrimitive 0 := sorry
 
 end GraphSheaf
 
-/-- API `conductorGraph`: the graph `X(P)` on finite sets of primes, `n` adjacent to `n ∪ {q}`. -/
-def conductorGraph (Pl : Type v) [DecidableEq Pl] : SimpleGraph (Finset Pl) where
-  Adj n m := ∃ q, (q ∉ n ∧ m = insert q n) ∨ (q ∉ m ∧ n = insert q m)
+end GraphSheaf
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+instance quotientRep_finite (T : Rep K R) [Module.Finite R T] (I : Ideal R) :
+    Module.Finite R (quotientRep T I) := sorry
+lemma quotientRep_continuous (T : Rep K R) (hT : IsContinuous K R T) (I : Ideal R) :
+    IsContinuous K R (quotientRep T I) := sorry
+/-- The reduced coefficient ring is retained when taking characteristic polynomials. -/
+def reducedRep (T : Rep K R) (I : Ideal R) : TopRep.{0} (R ⧸ I) (GK K) := sorry
+instance reducedRep_module (T : Rep K R) (I : Ideal R) : Module R (reducedRep T I) :=
+  Module.compHom (reducedRep T I) (Ideal.Quotient.mk I)
+def reducedEquiv (T : Rep K R) (I : Ideal R) : reducedRep T I ≃ₗ[R] quotientRep T I := sorry
+instance reducedRep_free (T : Rep K R) [Module.Free R T] (I : Ideal R) : Module.Free (R ⧸ I) (reducedRep T I) := sorry
+instance reducedRep_finite (T : Rep K R) [Module.Finite R T] (I : Ideal R) : Module.Finite (R ⧸ I) (reducedRep T I) := sorry
+lemma reduced_charpoly (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (I : Ideal R) (q : Prime K) :
+    (frobEnd (reducedRep T I) q).charpoly = (frobEnd T q).charpoly.map (Ideal.Quotient.mk I) := sorry
+/-- Quotient local comparison is formed from the reduced polynomial of the same lattice. -/
+def finiteSingularMod (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (I : Ideal R) {p : ℕ} {q : Prime K} (D : LocalTameData (quotientRep T I) p q)
+    (hT : IsContinuous K R T) (hP : ((frobEnd T q).charpoly.reverse).eval 1 ∈ I) :
+    unramified K R (quotientRep T I) (Sum.inr q) →ₗ[R]
+      (singular (quotientRep T I) q ⊗[ℤ] tamePrime K p q) := sorry
+lemma finiteSingularMod_formula (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (I : Ideal R) {p : ℕ} {q : Prime K} (D : LocalTameData (quotientRep T I) p q)
+    (hT : IsContinuous K R T) (hP : ((frobEnd T q).charpoly.reverse).eval 1 ∈ I)
+    (x : unramified K R (quotientRep T I) (Sum.inr q)) (t : quotientRep T I)
+    (ht : finiteEvaluation (quotientRep T I) q D.unramified x = Submodule.Quotient.mk t) :
+    (singularEvaluation (quotientRep T I) D (quotientRep_continuous T hT I)
+      (finiteSingularMod T I D hT hP x)).val =
+      aeval (frobInvEnd (quotientRep T I) q) (((frobEnd T q).charpoly.reverse) /ₘ (X-1)) t := sorry
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] (S : SelmerTriple K R T) (p : ℕ)
+abbrev Vertices := {n : Conductor K // n ∈ S.conductors}
+def vertexInsert (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) : Vertices S := sorry
+lemma vertexInsert_val (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) :
+    (vertexInsert S n q hq).val = insert q n.val := sorry
+def conductorGraph : SimpleGraph (Vertices S) where
+  Adj n m := ∃ q : Prime K, q ∈ S.primes ∧
+    ((q ∉ n.val ∧ m.val = insert q n.val) ∨ (q ∉ m.val ∧ n.val = insert q m.val))
   symm := sorry
   loopless := sorry
+structure KolyvaginData (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple K R T) (p : ℕ) where
+  tame : ∀ (n : Vertices S) (q : n.val), LocalTameData (quotientRep T (conductorIdeal T p n.val)) p q
+  polynomial : ∀ (n : Vertices S) (q : n.val), ((frobEnd T q).charpoly.reverse).eval 1 ∈ conductorIdeal T p n.val
+variable {S p}
+def modified {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (n : Vertices S) :
+    SelmerStructure K R (quotientRep T (conductorIdeal T p n.val)) := sorry
+lemma modified_condition {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K) :
+    (modified D n).condition (Sum.inr q) = if hq : q ∈ n.val then
+      transverse (quotientRep T (conductorIdeal T p n.val)) (D.tame n ⟨q,hq⟩)
+    else (propagatedStructure T S.F (conductorIdeal T p n.val)).condition (Sum.inr q) := sorry
+abbrev KolyvaginData.Stalk {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (n : Vertices S) :=
+  (modified D n).selmer ⊗[ℤ] tameGroup K p n.val
+abbrev KolyvaginData.EdgeStalk {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) :=
+  singular (quotientRep T (conductorIdeal T p (insert q n.val))) q ⊗[ℤ] tameGroup K p (insert q n.val)
+def edgeUpper {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    D.Stalk (vertexInsert S n q hq) →ₗ[R] D.EdgeStalk n q hq := sorry
+lemma edgeUpper_pure {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (x : (modified D (vertexInsert S n q hq)).selmer)
+    (g : tameGroup K p (vertexInsert S n q hq).val) :
+    edgeUpper D n q hq hqn (x ⊗ₜ[ℤ] g) =
+      (by
+        change singular (quotientRep T (conductorIdeal T p (insert q n.val))) q ⊗[ℤ] tameGroup K p (insert q n.val)
+        rw [← vertexInsert_val S n q hq]
+        exact (singularMap (quotientRep T (conductorIdeal T p (vertexInsert S n q hq).val)) q
+            (loc K R _ (Sum.inr q) x.val) ⊗ₜ[ℤ] g)) := sorry
+def edgeLower {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    D.Stalk n →ₗ[R] D.EdgeStalk n q hq := sorry
+/-- The lower map reduces coefficients, localizes in H¹_ur, applies φ_fs, then tensors.
+This equation pins down the supplier transport rather than choosing an edge map. -/
+def lowerLocalFinite {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    (modified D n).selmer →ₗ[R] unramified K R
+      (quotientRep T (conductorIdeal T p (insert q n.val))) (Sum.inr q) := sorry
+lemma lowerLocalFinite_val {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (x : (modified D n).selmer) :
+    (lowerLocalFinite D n q hq hqn x).val = loc K R _ (Sum.inr q)
+      (coeff _ _ (QuotCat.scalarHom T (conductorIdeal T p n.val)
+        (conductorIdeal T p (insert q n.val)) 1 (by sorry)) 1 x.val) := sorry
+def edgeLowerTensor {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    ((singular (quotientRep T (conductorIdeal T p (insert q n.val))) q ⊗[ℤ] tamePrime K p q)
+      ⊗[ℤ] tameGroup K p n.val) ≃ₗ[R] D.EdgeStalk n q hq := sorry
+lemma edgeLower_pure {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (x : (modified D n).selmer) (g : tameGroup K p n.val) :
+    edgeLower D n q hq hqn (x ⊗ₜ[ℤ] g) = edgeLowerTensor D n q hq hqn
+      (finiteSingularMod T (conductorIdeal T p (insert q n.val))
+        (by simpa only [vertexInsert_val] using D.tame (vertexInsert S n q hq) ⟨q,by sorry⟩)
+        S.continuous (by sorry) (lowerLocalFinite D n q hq hqn x) ⊗ₜ[ℤ] g) := sorry
+def KolyvaginSystem {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) : Submodule R (∀ n : Vertices S, D.Stalk n) where
+  carrier := {κ | ∀ n q hq hqn, edgeLower D n q hq hqn (κ n) =
+    edgeUpper D n q hq hqn (κ (vertexInsert S n q hq))}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+def KolyvaginSystem.eval {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (n : Vertices S) :
+    KolyvaginSystem D →ₗ[R] D.Stalk n := sorry
+lemma KolyvaginSystem.singular_eq_finiteSingular {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (κ : KolyvaginSystem D)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    edgeUpper D n q hq hqn (κ.val (vertexInsert S n q hq)) = edgeLower D n q hq hqn (κ.val n) := sorry
+lemma KolyvaginSystem.ext {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (κ κ' : KolyvaginSystem D)
+    (h : ∀ n, κ.val n = κ'.val n) : κ = κ' := sorry
+def KolyvaginSystem.ord {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (κ : KolyvaginSystem D) : ℕ∞ :=
+  ⨅ n ∈ {n : Vertices S | κ.val n ≠ 0}, (n.val.card : ℕ∞)
+structure OrientedEdge {T : Rep K R} (S : SelmerTriple K R T) (e : (conductorGraph S).edgeSet) where
+  n : Vertices S
+  q : Prime K
+  inP : q ∈ S.primes
+  notIn : q ∉ n.val
+  edge_eq : e.val = Sym2.mk n (vertexInsert S n q inP)
+def orientEdge {T : Rep K R} (S : SelmerTriple K R T) (e : (conductorGraph S).edgeSet) : OrientedEdge S e := sorry
+def selmerSheaf {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) : GraphSheaf.{0,0,0} R (conductorGraph S) :=
+  { stalk := D.Stalk, addCommGroupStalk := inferInstance, moduleStalk := inferInstance,
+    edge := fun e => D.EdgeStalk (orientEdge S e).n (orientEdge S e).q (orientEdge S e).inP,
+    addCommGroupEdge := inferInstance, moduleEdge := inferInstance, toEdge := sorry }
+def selmerSheaf_edge_equiv {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (e : (conductorGraph S).edgeSet)
+    (he : e.val = Sym2.mk n (vertexInsert S n q hq)) :
+    (selmerSheaf D).edge e ≃ₗ[R] D.EdgeStalk n q hq := sorry
+lemma sections_selmerSheaf {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) :
+    (selmerSheaf D).sections = KolyvaginSystem D := sorry
+-- Arithmetic tests for the graph, stalks, and equations.
+-- Unit test: conductorGraph_two_prime_nonedge
+example {T : Rep K R} (S : SelmerTriple K R T) (q₁ q₂ : Prime K)
+    (h : q₁ ≠ q₂) (h₁ : q₁ ∈ S.primes) (h₂ : q₂ ∈ S.primes) :
+    ¬ (conductorGraph S).Adj ⟨∅,S.one_mem_conductors⟩ ⟨{q₁,q₂},by sorry⟩ := sorry
+-- Unit test: KolyvaginSystem.zero_mem
+example {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) : KolyvaginSystem.ord D 0 = ⊤ := sorry
+def stalkOne {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) :
+    D.Stalk ⟨∅,S.one_mem_conductors⟩ ≃ₗ[R] S.F.selmer := sorry
+-- Unit test: KolyvaginSystem.empty_primes
+example {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p) (h : S.primes = ∅) :
+    Nonempty (KolyvaginSystem D ≃ₗ[R] S.F.selmer) := sorry
+-- Unit test: KolyvaginSystem.not_product
+example {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+    {S : SelmerTriple K R T} {p : ℕ} (D : KolyvaginData T S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (κ : ∀ n : Vertices S, D.Stalk n) (hlo : edgeLower D n q hq hqn (κ n) ≠ 0)
+    (hup : κ (vertexInsert S n q hq) = 0) : κ ∉ KolyvaginSystem D := sorry
+end TauCeti.KolyvaginSystems
 
-/-- Test `conductorGraph_two_primes` (one edge): `1` is adjacent to `q`. -/
-example (Pl : Type v) [DecidableEq Pl] (q : Pl) : (conductorGraph Pl).Adj ∅ {q} := sorry
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+abbrev GaloisRep := TauCeti.KolyvaginSystems.Rep
+abbrev FinitePrime := TauCeti.KolyvaginSystems.Prime
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Rubin's Z_p^d direction, including the non-splitting condition at every finite prime. -/
+structure InfiniteDirection (T : GaloisRep K R) (A : Tower T) where
+  subgroup : Subgroup (GK K)
+  normal : subgroup.Normal
+  closed : IsClosed (subgroup : Set (GK K))
+  containsTower : A.subgroup ≤ subgroup
+  d : ℕ
+  positive : 0 < d
+  prime : Fact A.p.Prime
+  galois : (GK K ⧸ subgroup) ≃* Multiplicative (Fin d → PadicInt A.p)
+  continuous : Continuous galois
+  inverseContinuous : Continuous galois.symm
+  noSplitting : ∀ q : FinitePrime K, ¬ decomposition K (Sum.inr q) ≤ subgroup
+attribute [instance] InfiniteDirection.normal
+structure IsAdmissibleTower (T : GaloisRep K R) (A : Tower T) where
+  ray : ∀ q : FinitePrime K, Sum.inr q ∉ A.bad → A.subgroup ≤ (rayLayer K A.p {q}).group
+  direction : InfiniteDirection T A
+def InInfiniteDirection {T : GaloisRep K R} {A : Tower T} (Z : InfiniteDirection T A)
+    (F F' : FiniteLayer A) : Prop := F.val.group ⊓ Z.subgroup ≤ F'.val.group
+lemma universal_norm {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (c : EulerSystem T E) (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group)
+    (hz : InInfiniteDirection hA.direction F F') :
+    corAt T F.val F'.val h (c.val F') = c.val F := sorry
+theorem classes_unramified_outside_p {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (hA : IsAdmissibleTower T A) [Fact A.p.Prime]
+    [Algebra (PadicInt A.p) R] [Module.Finite (PadicInt A.p) R]
+    (c : EulerSystem T E) (F : FiniteLayer A) (q : FinitePrime F.val.field)
+    (hq : ¬ isAboveP A.p q) :
+    locAt T F.val (Sum.inr q) (c.val F) ∈
+      unramified F.val.field R (layerRep T F.val) (Sum.inr q) := sorry
 
-/-- `1` is not adjacent to a product of two distinct primes. -/
-example (Pl : Type v) [DecidableEq Pl] (q₁ q₂ : Pl) (h : q₁ ≠ q₂) :
-    ¬ (conductorGraph Pl).Adj ∅ {q₁, q₂} := sorry
+structure CharacterData {T : GaloisRep K R} (A : Tower T) where
+  character : GK K →* Rˣ
+  continuous : Continuous character
+  finite : (Set.range character).Finite
+  field : FiniteLayer A
+  field_dictionary : field.val.group = character.ker
+def twistRep (T : GaloisRep K R) (χ : GK K →* Rˣ) : GaloisRep K R := sorry
+def twistEquiv (T : GaloisRep K R) (χ : GK K →* Rˣ) : twistRep T χ ≃ₗ[R] T := sorry
+lemma twist_action (T : GaloisRep K R) (χ : GK K →* Rˣ) (g : GK K) (t : twistRep T χ) :
+    twistEquiv T χ ((twistRep T χ).ρ g t) = (χ g : R) • T.ρ g (twistEquiv T χ t) := sorry
+instance twistRep_free (T : GaloisRep K R) [Module.Free R T] (χ : GK K →* Rˣ) :
+    Module.Free R (twistRep T χ) := sorry
+instance twistRep_finite (T : GaloisRep K R) [Module.Finite R T] (χ : GK K →* Rˣ) :
+    Module.Finite R (twistRep T χ) := sorry
+lemma eulerPoly_twist (T : GaloisRep K R) [Module.Free R T] [Module.Finite R T]
+    (χ : GK K →* Rˣ) (q : FinitePrime K) (u : Rˣ) (hu : (u : R) = primeNorm K q) :
+    eulerPoly (twistRep T χ) q u hu =
+      (eulerPoly T q u hu).comp (C (χ (frobenius K q).val : R)*X) := sorry
+def twistTower {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) : Tower (twistRep T χ.character) := sorry
+lemma twistTower_subgroup {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) :
+    (twistTower χ).subgroup = A.subgroup := sorry
+lemma twistTower_bad {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (v : Place K) :
+    v ∈ (twistTower χ).bad ↔ v ∈ A.bad ∨
+      ∃ q : FinitePrime K, v = Sum.inr q ∧ ¬ IsUnramifiedLayer χ.field.val q := sorry
+def twistFactors {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) :
+    EulerFactors (twistRep T χ.character) (twistTower χ) := sorry
+def compositum (F F' : Layer K) : Layer K :=
+  { group := F.group ⊓ F'.group, normal := inferInstance, open_group := sorry, finiteIndex := inferInstance }
+def compositumLayer {T : GaloisRep K R} {A : Tower T} (F F' : FiniteLayer A) : FiniteLayer A := sorry
+lemma compositumLayer_group {T : GaloisRep K R} {A : Tower T} (F F' : FiniteLayer A) :
+    (compositumLayer F F').val.group = F.val.group ⊓ F'.val.group := sorry
+def twistFiniteLayer {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A) :
+    FiniteLayer (twistTower χ) := sorry
+lemma twistFiniteLayer_val {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A) :
+    (twistFiniteLayer χ F).val = F.val := sorry
+def tensorCharacterAt {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A) :
+    HAt K R T (compositumLayer F χ.field).val 1 ≃ₗ[R]
+      HAt K R (twistRep T χ.character) (compositumLayer F χ.field).val 1 := sorry
+def EulerSystem.twist {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) :
+    EulerSystem T E →ₗ[R] EulerSystem (twistRep T χ.character) (twistFactors E χ) := sorry
+def EulerSystem.twistValue {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) (c : EulerSystem T E) (F : FiniteLayer A) :
+    HAt K R (twistRep T χ.character) F.val 1 := by
+  rw [← twistFiniteLayer_val χ F]
+  exact (EulerSystem.twist E χ c).val (twistFiniteLayer χ F)
+lemma EulerSystem.twist_eval {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) (c : EulerSystem T E) (F : FiniteLayer A) :
+    EulerSystem.twistValue E χ c F =
+      corAt (twistRep T χ.character) F.val (compositumLayer F χ.field).val (by sorry)
+        (tensorCharacterAt χ F (c.val (compositumLayer F χ.field))) := sorry
+def trivialTwistCohomology (T : GaloisRep K R) (F : Layer K) :
+    HAt K R (twistRep T 1) F 1 ≃ₗ[R] HAt K R T F 1 := sorry
+lemma EulerSystem.twist_one {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A)
+    (hχ : χ.character = 1) (c : EulerSystem T E) (F : FiniteLayer A) :
+    trivialTwistCohomology T F.val
+      (by simpa only [hχ] using EulerSystem.twistValue E χ c F) = c.val F := sorry
+-- Character-weighted trace: the χ^{-1} isotypic component, without a degree factor.
+def characterTrace {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A) :
+    Module.End R (HAt K R T (compositumLayer F χ.field).val 1) := sorry
+lemma characterTrace_formula {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A)
+    (g : GK K) (hg : g ∈ F.val.group) (x : HAt K R T (compositumLayer F χ.field).val 1) :
+    cohomologyAction T (compositumLayer F χ.field).val (QuotientGroup.mk g)
+      (characterTrace χ F x) = (χ.character g⁻¹ : R) • characterTrace χ F x := sorry
+lemma EulerSystem.res_twist {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) (c : EulerSystem T E) (F : FiniteLayer A) :
+    (tensorCharacterAt χ F).symm
+      (resAt (twistRep T χ.character) F.val (compositumLayer F χ.field).val (by sorry)
+        (EulerSystem.twistValue E χ c F)) =
+      characterTrace χ F (c.val (compositumLayer F χ.field)) := sorry
+-- Unit test: EulerSystem.twist_zero
+example {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) : EulerSystem.twist E χ 0 = 0 := sorry
+-- Unit test: EulerSystem.twist_conductor
+example {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) (q : FinitePrime K)
+    (hq : ¬ IsUnramifiedLayer χ.field.val q) : Sum.inr q ∈ (twistTower χ).bad := sorry
+-- Unit test: EulerSystem.twist_inverse_norm
+example {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (χ : CharacterData A) (c : EulerSystem T E) (F : FiniteLayer A)
+    (he : ramifiedDifference A F (compositumLayer F χ.field) = ∅) :
+    corAt T F.val (compositumLayer F χ.field).val (by sorry)
+      (c.val (compositumLayer F χ.field)) = c.val F := sorry
 
-end GraphSheaf
+def EulerSystem.IsTrivialAt {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (c : EulerSystem T E) (SigmaBad : Finset (FinitePrime K)) : Prop :=
+  ∀ F : FiniteLayer A, ∀ q ∈ SigmaBad, ∀ w ∈ primesAbove F.val q, locAt T F.val (Sum.inr w) (c.val F) = 0
+def FiniteDepthEulerSystem {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R) :
+    Submodule R (∀ F : FiniteLayer A, HAt K R (quotientRep T M) F.val 1) := sorry
+def finiteDepthFactorOperator {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R) (F F' : FiniteLayer A) :
+    Module.End R (HAt K R (quotientRep T M) F.val 1) := sorry
+lemma finiteDepthFactorOperator_formula {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R) (F F' : FiniteLayer A) :
+    finiteDepthFactorOperator E M F F' =
+      ((ramifiedDifference A F F').attach.toList.map (fun q =>
+        aeval (cohomologyAction (quotientRep T M) F.val
+          (QuotientGroup.mk (frobenius K q.val).val⁻¹)) (E.poly T q.val (by sorry)))).prod := sorry
+lemma mem_finiteDepthEulerSystem {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R)
+    (c : ∀ F : FiniteLayer A, HAt K R (quotientRep T M) F.val 1) :
+    c ∈ FiniteDepthEulerSystem E M ↔ ∀ (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group),
+      corAt (quotientRep T M) F.val F'.val h (c F') =
+        finiteDepthFactorOperator E M F F' (c F) := sorry
+def EulerSystem.toFiniteDepth {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R) :
+    EulerSystem T E →ₗ[R] FiniteDepthEulerSystem E M := sorry
+lemma EulerSystem.toFiniteDepth_eval {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T]
+    {A : Tower T} (E : EulerFactors T A) (M : Ideal R) (c : EulerSystem T E) (F : FiniteLayer A) :
+    (EulerSystem.toFiniteDepth E M c).val F =
+      (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor F.val.group.subtype |>.map (quotientMap T M)) 1).hom (c.val F) := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsLocalRing R] {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ}
+/-- Finite-level coefficient hypotheses, separately from the Galois hypotheses. -/
+structure PrincipalArtinian : Prop where
+  artinian : IsArtinianRing R
+  principal : IsPrincipalIdealRing R
+  nontrivial : Nontrivial R
+  finiteResidue : Finite (IsLocalRing.ResidueField R)
+def selmerLength (D : KolyvaginData T S p) (n : Vertices S) : ℕ := len R (modified D n).selmer
+def dualSelmerLength (D : KolyvaginData T S p) (n : Vertices S) : ℕ :=
+  len R (dualStructure (quotientRep T (conductorIdeal T p n.val)) (modified D n)).selmer
+def IsCoreVertex (D : KolyvaginData T S p) (n : Vertices S) : Prop :=
+  selmerLength D n = 0 ∨ dualSelmerLength D n = 0
+def IsCoreVertex16 (D : KolyvaginData T S p) (n : Vertices S) : Prop := dualSelmerLength D n = 0
+def IsLeadingVertex (D : KolyvaginData T S p) (n : Vertices S) : Prop :=
+  IsCoreVertex D n ∧ n.val.card =
+    len R (dualStructure (quotientRep T (IsLocalRing.maximalIdeal R))
+      (propagatedStructure T S.F (IsLocalRing.maximalIdeal R))).selmer
+/-- Specialization at a level where every conductor ideal is zero. -/
+def AtLevel (S : SelmerTriple K R T) (p : ℕ) : Prop :=
+  ∀ q ∈ S.primes, primeConductorIdeal T p q = ⊥
+theorem isCoreVertex_iff_residual (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (n : Vertices S) : IsCoreVertex D n ↔
+    Subsingleton ((propagatedStructure (quotientRep T (conductorIdeal T p n.val))
+      (modified D n) (IsLocalRing.maximalIdeal R)).selmer) ∨
+    Subsingleton ((propagatedStructure (dualRep (quotientRep T (conductorIdeal T p n.val)))
+      (dualStructure (quotientRep T (conductorIdeal T p n.val)) (modified D n))
+      (IsLocalRing.maximalIdeal R)).selmer) := sorry
+theorem free_of_isCoreVertex (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (n : Vertices S) (hn : IsCoreVertex D n) :
+    Module.Free R (modified D n).selmer ∧
+      Module.finrank R (modified D n).selmer = latticeCoreRank T S.F := sorry
+theorem exists_isCoreVertex_dvd (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (m : Vertices S) : ∃ n : Vertices S, m.val ⊆ n.val ∧ IsCoreVertex D n := sorry
+theorem selmerLength_sub (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (n : Vertices S) : (selmerLength D n : ℤ) - dualSelmerLength D n =
+      len R R * latticeCoreRankInt T S.F := sorry
+/-- The four cyclic quotients of the Selmer diamond, not an arbitrary numerical diamond. -/
+def vertexStepLengths (D : KolyvaginData T S p) (n : Vertices S)
+    (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) : Fin 4 → ℕ := sorry
+theorem vertex_step (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    let l := vertexStepLengths D n q hq hqn
+    l 0 + l 2 = l 1 + l 3 ∧ l 3 ≤ l 0 ∧ l 2 ≤ l 1 ∧ ∀ i, l i ≤ len R R := sorry
+def stubSheaf (D : KolyvaginData T S p) : (selmerSheaf D).Subsheaf := sorry
+lemma stubSheaf_stalk (D : KolyvaginData T S p) (n : Vertices S) :
+    (stubSheaf D).stalk n = IsLocalRing.maximalIdeal R ^ dualSelmerLength D n •
+      (⊤ : Submodule R (D.Stalk n)) := sorry
+theorem stubSheaf_stalk_eq_bot (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (hr : 0 < latticeCoreRank T S.F) (n : Vertices S) :
+    (stubSheaf D).stalk n = ⊥ ↔ len R R ≤ dualSelmerLength D n := sorry
+theorem stubSheaf_isLocallyCyclic (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (hr : latticeCoreRank T S.F = 1) :
+    (stubSheaf D).asSheaf.IsLocallyCyclic := sorry
+/-- The arithmetic extra condition of MR04 H.4a and the coefficient image condition. -/
+def CoefficientsFromGalois (T : Rep K R) (p : ℕ) : Prop :=
+  ∃ hp : p.Prime, letI : Fact p.Prime := ⟨hp⟩;
+    ∃ φ : PadicInt p →+* R, Continuous φ ∧ ∀ r : R,
+      ∃ (n : ℕ) (a : Fin n → PadicInt p) (g : Fin n → GK K),
+        ∑ i : Fin n, φ (a i) • (T.ρ (g i)).toLinearMap = r • LinearMap.id
+theorem sections_stubSheaf_eq (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (hextra : latticeCoreRank T S.F = 1 ∨ IsField R ∨
+      (ResidualHomVanishing T ∧ CoefficientsFromGalois T p)) :
+    (stubSheaf D).sections = (selmerSheaf D).sections := sorry
+theorem kolyvaginSystem_eq_bot_of_coreRank_zero (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (hr : latticeCoreRank T S.F = 0) : KolyvaginSystem D = ⊥ := sorry
+-- Unit test: stubSheaf_core_vertex
+example (D : KolyvaginData T S p) (n : Vertices S) (hn : dualSelmerLength D n = 0) :
+    (stubSheaf D).stalk n = ⊤ := sorry
+-- Unit test: stubSheaf_zero_of_large
+example (D : KolyvaginData T S p) (hR : PrincipalArtinian (R := R))
+    (h : MR04Hypotheses T S p) (hP : AtLevel S p) (hr : latticeCoreRank T S.F = 1)
+    (n : Vertices S) (hn : len R R ≤ dualSelmerLength D n) : (stubSheaf D).stalk n = ⊥ := sorry
+-- Unit test: stubSheaf_field
+example (D : KolyvaginData T S p) (hR : IsField R)
+    (h : MR04Hypotheses T S p) (hP : AtLevel S p) (n : Vertices S)
+    (hLength : dualSelmerLength D n > 0) : (stubSheaf D).stalk n = ⊥ := sorry
+/-- The divisibility index is infinite at zero; it is not the length of a cyclic image. -/
+def divisibilityIndex {M : Type} [AddCommGroup M] [Module R M] (x : M) : ℕ∞ :=
+  ⨆ (j : ℕ) (_ : x ∈ IsLocalRing.maximalIdeal R ^ j • (⊤ : Submodule R M)), (j : ℕ∞)
+def initialVertex (S : SelmerTriple K R T) : Vertices S := ⟨∅,S.one_mem_conductors⟩
+def partialInvariant (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ) : ℕ∞ :=
+  ⨅ (n : Vertices S) (_ : n.val.card = i), divisibilityIndex (R := R) (κ.val n)
+def partialInfinity (D : KolyvaginData T S p) (κ : KolyvaginSystem D) : ℕ∞ :=
+  ⨅ i, partialInvariant D κ i
+def IsPrimitive (D : KolyvaginData T S p) (κ : KolyvaginSystem D) : Prop :=
+  ∃ n : Vertices S, κ.val n ∉ IsLocalRing.maximalIdeal R • (⊤ : Submodule R (D.Stalk n))
+lemma partialInvariant_zero (D : KolyvaginData T S p) (i : ℕ) : partialInvariant D 0 i = ⊤ := sorry
+lemma partialInvariant_smul (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) (κ : KolyvaginSystem D)
+    (i : ℕ) (hfree : ∀ n : Vertices S, n.val.card=i → Module.IsTorsionFree R (D.Stalk n)) :
+    partialInvariant D (π • κ) i = partialInvariant D κ i + 1 := sorry
+lemma isPrimitive_iff_partialInfinity (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1) (κ : KolyvaginSystem D) :
+    IsPrimitive D κ ↔ partialInfinity D κ = 0 := sorry
+example (D : KolyvaginData T S p) (i : ℕ) : partialInvariant D 0 i = ⊤ := sorry
+example (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) (κ : KolyvaginSystem D)
+    (i : ℕ) (hfree : ∀ n : Vertices S, n.val.card=i → Module.IsTorsionFree R (D.Stalk n))
+    (hκ : partialInvariant D κ i ≠ ⊤) :
+    partialInvariant D (π • κ) i > partialInvariant D κ i := sorry
+example (D : KolyvaginData T S p) (κ : KolyvaginSystem D)
+    (hκ : κ.val (initialVertex S) = 0) : partialInvariant D κ 0 = ⊤ := sorry
+/-- Finite-level divisibility uses the cyclic image, including the zero value k. -/
+def artinianPartialInvariant (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ) : ℕ∞ :=
+  ⨅ (n : Vertices S) (_ : n.val.card=i), ((len R R-len R (Submodule.span R {κ.val n})) : ℕ∞)
+/-- Finite-level bound. The length of the whole Cartier-dual Selmer group occurs. -/
+theorem kolyvagin_bound_artinian (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p)
+    (hr : latticeCoreRank T S.F = 1) (κ : KolyvaginSystem D) :
+    Module.length R (dualStructure T S.F).selmer ≤ artinianPartialInvariant D κ 0 := sorry
+theorem kolyvagin_bound (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R})
+    (κ : KolyvaginSystem D) :
+    Module.length R (dualStructure T S.F).selmer ≤ partialInvariant D κ 0 := sorry
+theorem rank_one_module (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R}) :
+    Nonempty (KolyvaginSystem D ≃ₗ[R] R) := sorry
+/-- Divisible part of the discrete Selmer group; imported from L2. -/
+def divisiblePart (A : Rep K R) (F : SelmerStructure K R A) : Submodule R F.selmer := sorry
+lemma mem_divisiblePart (A : Rep K R) (F : SelmerStructure K R A) (x : F.selmer) :
+    x ∈ divisiblePart A F ↔ ∀ a : R, a ≠ 0 → ∃ y : F.selmer, a • y = x := sorry
+-- The discrete corank is the rank of the Pontryagin dual, not the algebraic R-linear dual.
+abbrev pontryaginDual (M : Type) [AddCommGroup M] [Module R M] : Type := M →+ QZ
+instance pdAdd (M : Type) [AddCommGroup M] [Module R M] : AddCommGroup (pontryaginDual (R := R) M) := inferInstance
+instance pdModule (M : Type) [AddCommGroup M] [Module R M] : Module R (pontryaginDual (R := R) M) := sorry
+lemma pontryaginDual_smul (M : Type) [AddCommGroup M] [Module R M] (r : R)
+    (f : pontryaginDual (R := R) M) (x : M) : (r • f) x = f (r • x) := sorry
+theorem structure_corank (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R})
+    (κ : KolyvaginSystem D) (hκ : κ ≠ 0) :
+    Module.rank R (pontryaginDual (R := R) (dualStructure T S.F).selmer) =
+      ((KolyvaginSystem.ord D κ).toNat : Cardinal) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.StarkSystems
+open TauCeti.KolyvaginSystems
+abbrev SelmerRep := TauCeti.KolyvaginSystems.Rep
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : SelmerRep K R} [Module.Free R T] [Module.Finite R T]
+/-- These are applications of L6's exterior-bidual API, on actual Selmer modules. -/
+abbrev selmerBidual (F : SelmerStructure K R T) (r : ℕ) :=
+  Module.Dual R (⋀[R]^r (Module.Dual R F.selmer))
+def selmerToBidual (F : SelmerStructure K R T) (r : ℕ) :
+    (⋀[R]^r F.selmer) →ₗ[R] selmerBidual F r := sorry
+lemma selmerToBidual_det (F : SelmerStructure K R T) (r : ℕ)
+    (x : Fin r → F.selmer) (f : Fin r → Module.Dual R F.selmer) :
+    selmerToBidual F r (exteriorPower.ιMulti R r x) (exteriorPower.ιMulti R r f) =
+      Matrix.det (fun i j => f i (x j)) := sorry
+lemma selmerToBidual_bijective (F : SelmerStructure K R T) (r : ℕ)
+    [Module.Free R F.selmer] [Module.Finite R F.selmer] :
+    Function.Bijective (selmerToBidual F r) := sorry
+-- Unit test: TauCeti.StarkSystems.selmerBidual_free_three
+example (F : SelmerStructure K R T) (e : F.selmer ≃ₗ[R] (Fin 3 → R)) :
+    Module.finrank R (selmerBidual F 2) = 3 := sorry
+-- Unit test: TauCeti.StarkSystems.selmerBidual_zero_degree
+example (F : SelmerStructure K R T) : Nonempty (selmerBidual F 0 ≃ₗ[R] R) := sorry
+-- Unit test: TauCeti.StarkSystems.selmerBidual_torsion
+example (F : SelmerStructure K R T) [IsDomain R] (p : R) (hp : p ≠ 0)
+    (e : F.selmer ≃ₗ[R] (R × (R ⧸ Ideal.span {p}))) (ht : Nontrivial (R ⧸ Ideal.span {p})) :
+    ¬ Function.Injective (selmerToBidual F 1) := sorry
+
+def relaxed (S : SelmerTriple K R T) (n : Vertices S) : SelmerStructure K R T := sorry
+lemma relaxed_condition (S : SelmerTriple K R T) (n : Vertices S) (v : Place K) :
+    (relaxed S n).condition v = if ∃ q ∈ n.val, v = Sum.inr q then ⊤ else S.F.condition v := sorry
+def strictDual (S : SelmerTriple K R T) (n : Vertices S) : SelmerStructure K R (dualRep T) := sorry
+lemma strictDual_condition (S : SelmerTriple K R T) (n : Vertices S) (v : Place K) :
+    (strictDual S n).condition v = if ∃ q ∈ n.val, v = Sum.inr q then ⊥ else S.dual.F.condition v := sorry
+/-- Local comparison data, supplied by the chosen ray-class tower. -/
+structure ComparisonData (S : SelmerTriple K R T) (p : ℕ) where
+  tame : ∀ q ∈ S.primes, LocalTameData T p q
+  polynomial : ∀ q ∈ S.primes, ((frobEnd T q).charpoly.reverse).eval 1 = 0
+  rankOne : ∀ q ∈ S.primes, Nonempty ((T ⧸ LinearMap.range ((frobEnd T q)-LinearMap.id)) ≃ₗ[R] R)
+variable {S : SelmerTriple K R T} {p : ℕ}
+abbrev Wtr (D : ComparisonData S p) (n : Vertices S) :=
+  (q : n.val) → Module.Dual R (transverse T (D.tame q.val (n.property q.val q.property)))
+abbrev Wsing (n : Vertices S) := (q : n.val) → Module.Dual R (singular T q)
+abbrev stalk (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :=
+  (⋀[R]^(r+n.val.card) (relaxed S n).selmer) ⊗[R] (⋀[R]^n.val.card (Wtr D n))
+abbrev bidualStalk (r : ℕ) (n : Vertices S) :=
+  selmerBidual (relaxed S n) (r+n.val.card) ⊗[R] (⋀[R]^n.val.card (Wsing (T := T) n))
+/-- Ordered contraction of the transverse localizations; the determinant factor cancels reordering. -/
+def transition (D : ComparisonData S p) (r : ℕ) (m n : Vertices S) (h : m.val ⊆ n.val) :
+    stalk D r n →ₗ[R] stalk D r m := sorry
+def bidualTransition (D : ComparisonData S p) (r : ℕ) (m n : Vertices S) (h : m.val ⊆ n.val) :
+    bidualStalk (T := T) r n →ₗ[R] bidualStalk (T := T) r m := sorry
+lemma transition_comp (D : ComparisonData S p) (r : ℕ) (l m n : Vertices S)
+    (hlm : l.val ⊆ m.val) (hmn : m.val ⊆ n.val) :
+    (transition D r l m hlm).comp (transition D r m n hmn) =
+      transition D r l n (hlm.trans hmn) := sorry
+lemma transition_self (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :
+    transition D r n n (by rfl) = LinearMap.id := sorry
+lemma bidualTransition_comp (D : ComparisonData S p) (r : ℕ) (l m n : Vertices S)
+    (hlm : l.val ⊆ m.val) (hmn : m.val ⊆ n.val) :
+    (bidualTransition D r l m hlm).comp (bidualTransition D r m n hmn) =
+      bidualTransition D r l n (hlm.trans hmn) := sorry
+/-- MR inverse limit, with no untyped inverse-system placeholder. -/
+def StarkSystem (D : ComparisonData S p) (r : ℕ) : Submodule R (∀ n : Vertices S, stalk D r n) :=
+  { carrier := {ε | ∀ m n h, transition D r m n h (ε n) = ε m},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def BidualStarkSystem (D : ComparisonData S p) (r : ℕ) :
+    Submodule R (∀ n : Vertices S, bidualStalk (T := T) r n) :=
+  { carrier := {ε | ∀ m n h, bidualTransition D r m n h (ε n) = ε m},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def StarkSystem.eval (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :
+    StarkSystem D r →ₗ[R] stalk D r n := sorry
+def StarkSystem.eval_one (D : ComparisonData S p) (r : ℕ) :
+    StarkSystem D r →ₗ[R] (⋀[R]^r S.F.selmer) := sorry
+lemma StarkSystem.eval_one_dictionary (D : ComparisonData S p) (r : ℕ) :
+    ∃ e : stalk D r (initialVertex S) ≃ₗ[R] (⋀[R]^r S.F.selmer),
+      StarkSystem.eval_one D r = e.toLinearMap.comp (StarkSystem.eval D r (initialVertex S)) := sorry
+-- Unit test: TauCeti.StarkSystems.stalk_one
+example (D : ComparisonData S p) (r : ℕ) : Nonempty (stalk D r (initialVertex S) ≃ₗ[R] (⋀[R]^r S.F.selmer)) := sorry
+-- Unit test: TauCeti.StarkSystems.rank_one_free_stalk
+example (D : ComparisonData S p) (r : ℕ) (n : Vertices S)
+    (e : (relaxed S n).selmer ≃ₗ[R] (Fin (r+n.val.card) → R)) :
+    Nonempty (stalk D r n ≃ₗ[R] R) := sorry
+-- Unit test: TauCeti.StarkSystems.not_product
+example (D : ComparisonData S p) (r : ℕ) (q : Prime K) (hq : q ∈ S.primes)
+    (ε : ∀ n : Vertices S, stalk D r n) (h0 : ε (initialVertex S) ≠ 0)
+    (hq0 : ε (vertexInsert S (initialVertex S) q hq) = 0) : ε ∉ StarkSystem D r := sorry
+/-- Sakamoto Proposition 4.14: transport the determinant of the transverse dual to the singular dual. -/
+def transverseSingularDual (D : ComparisonData S p) (n : Vertices S) : Wtr D n ≃ₗ[R] Wsing (T := T) n := sorry
+lemma transverseSingularDual_apply (D : ComparisonData S p) (n : Vertices S)
+    (f : Wtr D n) (q : n.val) (x : transverse T (D.tame q.val (n.property q.val q.property))) :
+    transverseSingularDual D n f q (singularMap T q x.val) = f q x := sorry
+def comparisonComponent (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :
+    stalk D r n →ₗ[R] bidualStalk (T := T) r n :=
+  TensorProduct.map (selmerToBidual (relaxed S n) (r+n.val.card))
+    (exteriorPower.map n.val.card (transverseSingularDual D n).toLinearMap)
+lemma comparison_transition (D : ComparisonData S p) (r : ℕ) (m n : Vertices S) (h : m.val ⊆ n.val) :
+    (comparisonComponent D r m).comp (transition D r m n h) =
+      (bidualTransition D r m n h).comp (comparisonComponent D r n) := sorry
+/-- Core-vertex cofinality is stated on the actual Selmer modules. -/
+def CofinalFreeCoreVertices (S : SelmerTriple K R T) (r : ℕ) : Prop :=
+  ∀ m : Vertices S, ∃ n : Vertices S, m.val ⊆ n.val ∧
+    Subsingleton (strictDual S n).selmer ∧
+      Nonempty ((relaxed S n).selmer ≃ₗ[R] (Fin (r+n.val.card) → R))
+def starkComparison (D : ComparisonData S p) (r : ℕ) [IsLocalRing R]
+    (hR : PrincipalArtinian (R := R)) (hc : IsCartesianStructure T S.F)
+    (hQ : S.primes.Infinite) (hcore : CofinalFreeCoreVertices S r) :
+    StarkSystem D r ≃ₗ[R] BidualStarkSystem D r := sorry
+lemma starkComparison_eval (D : ComparisonData S p) (r : ℕ) [IsLocalRing R]
+    (hR : PrincipalArtinian (R := R)) (hc : IsCartesianStructure T S.F)
+    (hQ : S.primes.Infinite) (hcore : CofinalFreeCoreVertices S r) (ε : StarkSystem D r) (n : Vertices S) :
+    (starkComparison D r hR hc hQ hcore ε).val n = comparisonComponent D r n (ε.val n) := sorry
+example (D : ComparisonData S p) (r : ℕ) (n : Vertices S)
+    [Module.Free R (relaxed S n).selmer] [Module.Finite R (relaxed S n).selmer] :
+    Function.Bijective (comparisonComponent D r n) := sorry
+example (D : ComparisonData S p) (r : ℕ) (m n : Vertices S) (h : m.val ⊆ n.val) :
+    comparisonComponent D r m (transition D r m n h 0) = bidualTransition D r m n h (comparisonComponent D r n 0) := sorry
+example (D : ComparisonData S p) (r : ℕ) [IsLocalRing R]
+    (hR : PrincipalArtinian (R := R)) (hc : IsCartesianStructure T S.F)
+    (hQ : S.primes.Infinite) (hcore : CofinalFreeCoreVertices S r) :
+    starkComparison D r hR hc hQ hcore 0 = 0 := sorry
+
+variable [IsLocalRing R]
+structure BSSHypothesis32 (T : SelmerRep K R) (p : ℕ) where
+  irreducible : ResiduallyIrreducible T
+  exponent : ℕ
+  exponentSpec : (p^exponent : R) = 0 ∧ ∀ e < exponent, (p^e : R) ≠ 0
+  tau : GK K
+  tauHM : tau ∈ HMGroup p (some exponent)
+  tauCoinvariants : RankOneCoinvariants T tau
+  primalFix : MR16SplittingGroup T p (some exponent) ≤ representationKernel T
+  dualFix : MR16SplittingGroup T p (some exponent) ≤ representationKernel (dualRep T)
+  h1Primal : Subsingleton (continuousCohomology 1 (descentRep T
+    (MR16SplittingGroup T p (some exponent)) primalFix))
+  h1Dual : Subsingleton (continuousCohomology 1 (descentRep (dualRep T)
+    (MR16SplittingGroup T p (some exponent)) dualFix))
+def BSSHypothesis33 (T : SelmerRep K R) : Prop := NoResidualInvariants T (IsLocalRing.maximalIdeal R)
+structure BSSHypothesis42 (S : SelmerTriple K R T) (r : ℕ) where
+  vertex : Vertices S
+  strictDualZero : Subsingleton (strictDual S vertex).selmer
+  expectedRank : Nonempty ((relaxed S vertex).selmer ≃ₗ[R] (Fin (r+vertex.val.card) → R))
+structure BSSHypothesis47 (T : SelmerRep K R) (p : ℕ) where
+  irreducible : ResiduallyIrreducible T
+  tau : GK K
+  tauHM : tau ∈ HMGroup p none
+  tauCoinvariants : RankOneCoinvariants T tau
+  h1Vanishing : H1ImageVanishing T (MR16SplittingGroup T p none)
+    (hmSplitting_le_residual T p none) (hmSplitting_le_residual_dual T p none)
+/-- A Gorenstein order has self-injective quotients at every positive p-power level. -/
+structure GorensteinOrderData (p : ℕ) where
+  prime : p.Prime
+  O : Type
+  [ringO : CommRing O]
+  [domainO : IsDomain O]
+  [dvrO : IsDiscreteValuationRing O]
+  [algebra : Algebra O R]
+  finite : Module.Finite O R
+  free : Module.Free O R
+  characteristicZero : CharZero O
+  completeO : IsAdicComplete (IsLocalRing.maximalIdeal O) O
+  reduced : IsReduced R
+  [dualModule : Module R (R →ₗ[O] O)]
+  selfDual : Nonempty ((R →ₗ[O] O) ≃ₗ[R] R)
+  residueChar : CharP (IsLocalRing.ResidueField R) p
+  residueFinite : Finite (IsLocalRing.ResidueField R)
+attribute [instance] GorensteinOrderData.ringO GorensteinOrderData.domainO GorensteinOrderData.dvrO
+attribute [instance] GorensteinOrderData.algebra GorensteinOrderData.dualModule
+lemma BSSHypothesis42.free_of_core (D : ComparisonData S p) (r : ℕ)
+    (h : BSSHypothesis42 S r) [IsNoetherianRing R] [Module.Injective R R]
+    (n : Vertices S) (hn : Subsingleton (strictDual S n).selmer) :
+    Nonempty ((relaxed S n).selmer ≃ₗ[R] (Fin (r+n.val.card) → R)) := sorry
+lemma BSSHypothesis47.toFiniteLevel (T : SelmerRep K R) [Module.Free R T] [Module.Finite R T]
+    (hO : GorensteinOrderData (R := R) p) (h : BSSHypothesis47 T p) (m : ℕ) (hm : 0 < m)
+    [IsLocalRing (R ⧸ Ideal.span {(p^m : R)})] :
+    Nonempty (BSSHypothesis32 (reducedRep T (Ideal.span {(p^m : R)})) p) ∧
+      BSSHypothesis33 (reducedRep T (Ideal.span {(p^m : R)})) := sorry
+-- Unit test: TauCeti.StarkSystems.not_bss33_trivial
+example (T : SelmerRep K R) (p : ℕ) (hT : ∀ g : GK K, ∀ x : T, T.ρ g x = x)
+    (e : T ≃ₗ[R] R)  : ¬ BSSHypothesis33 T := sorry
+-- Unit test: TauCeti.StarkSystems.bss_rank_one_coinvariants
+example (T : SelmerRep K R) (e : T ≃ₗ[R] R) : RankOneCoinvariants T 1 := sorry
+-- Unit test: TauCeti.StarkSystems.bss42_strict_dual_zero
+example (D : ComparisonData S p) (r : ℕ) (h : BSSHypothesis42 S r) :
+    Subsingleton (strictDual S h.vertex).selmer := h.strictDualZero
+/-- Finite BSS hypotheses, including the actual admissible Frobenius prime set. -/
+structure BSSFiniteData (S : SelmerTriple K R T) (p r : ℕ) where
+  prime : p.Prime
+  characteristic : CharP (IsLocalRing.ResidueField R) p
+  finiteResidue : Finite (IsLocalRing.ResidueField R)
+  noetherian : IsNoetherianRing R
+  selfInjective : Module.Injective R R
+  artinian : IsArtinianRing R
+  h32 : BSSHypothesis32 T p
+  h33 : BSSHypothesis33 T
+  h42 : BSSHypothesis42 S r
+  splitting : Layer K
+  splittingSpec : splitting.group = MR16SplittingGroup T p (some h32.exponent)
+  primesSpec : S.primes = frobeniusPrimes T S splitting h32.tau
+  coordinates : ∀ q ∈ S.primes, singular T q ≃ₗ[R] R
+/-- Normalized BSS components: the determinant of local duals has been trivialized. -/
+def normalizeStalk (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r) (n : Vertices S) :
+    bidualStalk (T := T) r n ≃ₗ[R] selmerBidual (relaxed S n) (r+n.val.card) := sorry
+def bssTransition (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r)
+    (m n : Vertices S) (hmn : m.val ⊆ n.val) :
+    selmerBidual (relaxed S n) (r+n.val.card) →ₗ[R] selmerBidual (relaxed S m) (r+m.val.card) :=
+  (normalizeStalk D r h m).toLinearMap.comp
+    ((bidualTransition D r m n hmn).comp (normalizeStalk D r h n).symm.toLinearMap)
+def BSSStarkSystem (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r) :
+    Submodule R (∀ n : Vertices S, selmerBidual (relaxed S n) (r+n.val.card)) :=
+  { carrier := {ε | ∀ (m n : Vertices S) (hmn : m.val ⊆ n.val),
+      bssTransition D r h m n hmn (ε n) = ε m},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def StarkSystem.ideal (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) (i : ℕ) : Ideal R :=
+  ⨆ (n : Vertices S) (_ : n.val.card = i), LinearMap.range (ε.val n)
+def StarkSystem.idealInfinity (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) : Ideal R := ⨆ i, StarkSystem.ideal D r h ε i
+/-- Actual finite Selmer module dual in the Fitting formulas. -/
+abbrev finiteDualSelmer (S : SelmerTriple K R T) := Module.Dual R S.dual.F.selmer
+/-- Import adapter for L6/the current Tau Ceti FittingIdeal API, which postdates the pin.
+The source-presentation equation below fixes its meaning; this is not an ES-owned construction. -/
+def fittingIdeal (M : Type) [AddCommGroup M] [Module R M] (i : ℕ) : Ideal R := sorry
+/-- A matrix presentation of M, including its cokernel dictionary. -/
+structure MatrixPresentation (M : Type) [AddCommGroup M] [Module R M] where
+  s : ℕ
+  t : ℕ
+  relation : (Fin t → R) →ₗ[R] (Fin s → R)
+  quotient : ((Fin s → R) ⧸ LinearMap.range relation) ≃ₗ[R] M
+def presentationMinorIdeal {M : Type} [AddCommGroup M] [Module R M]
+    (P : MatrixPresentation (R := R) M) (i : ℕ) : Ideal R :=
+  Ideal.span {a | ∃ (rows : Fin (P.s-i) → Fin P.s) (cols : Fin (P.s-i) → Fin P.t),
+    Function.Injective rows ∧ Function.Injective cols ∧
+    a = Matrix.det (fun j k => P.relation (Pi.single (cols k) 1) (rows j))}
+lemma fittingIdeal_presentation {M : Type} [AddCommGroup M] [Module R M]
+    (P : MatrixPresentation (R := R) M) (i : ℕ) : fittingIdeal (R := R) M i = presentationMinorIdeal P i := sorry
+lemma fittingIdeal_quotient (I : Ideal R) : fittingIdeal (R ⧸ I) 0 = I := sorry
+/-- All-principal-artinian MR Stark structure. -/
+theorem stark_structure_mr (D : ComparisonData S p) (r : ℕ)
+    (h : MR16Hypotheses T S p r) (hR : PrincipalArtinian (R := R))
+    (h7 : h.IsArtinianAdmissible) : Nonempty (StarkSystem D r ≃ₗ[R] R) := sorry
+/-- BSS Theorem 4.6; Stark systems do not require p>3. -/
+theorem stark_structure (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r) :
+    Nonempty (BSSStarkSystem D r h ≃ₗ[R] R) ∧
+      ∀ (ε : BSSStarkSystem D r h) (i : ℕ),
+        StarkSystem.ideal D r h ε i = StarkSystem.idealInfinity D r h ε * fittingIdeal (finiteDualSelmer S) i := sorry
+lemma StarkSystem.ideal_mono (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) : Monotone (StarkSystem.ideal D r h ε) := sorry
+lemma StarkSystem.idealInfinity_eq_top_iff (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) : StarkSystem.idealInfinity D r h ε = ⊤ ↔
+      Submodule.span R {ε} = (⊤ : Submodule R (BSSStarkSystem D r h)) := sorry
+
+/-- Modified F(n), with the original coefficient A; admissibility here has I_q=0. -/
+def rankModified (D : ComparisonData S p) (n : Vertices S) : SelmerStructure K R T := sorry
+lemma rankModified_condition (D : ComparisonData S p) (n : Vertices S) (q : Prime K) :
+    (rankModified D n).condition (Sum.inr q) = if hq : q ∈ n.val then
+      transverse T (D.tame q (n.property q hq)) else S.F.condition (Sum.inr q) := sorry
+lemma rankModified_infinite (D : ComparisonData S p) (n : Vertices S) (v : NumberField.InfinitePlace K) :
+    (rankModified D n).condition (Sum.inl v) = S.F.condition (Sum.inl v) := sorry
+def rankStrict (D : ComparisonData S p) (n : Vertices S) (q : Prime K) : SelmerStructure K R T := sorry
+lemma rankStrict_condition (D : ComparisonData S p) (n : Vertices S) (q : Prime K) (v : Place K) :
+    (rankStrict D n q).condition v = if v = Sum.inr q then ⊥ else (rankModified D n).condition v := sorry
+abbrev rankStalk (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :=
+  selmerBidual (rankModified D n) r ⊗[ℤ] tameGroup K p n.val
+abbrev rankExteriorStalk (D : ComparisonData S p) (r : ℕ) (n : Vertices S) :=
+  (⋀[R]^r (rankModified D n).selmer) ⊗[ℤ] tameGroup K p n.val
+abbrev rankEdge (D : ComparisonData S p) (r : ℕ) (n : Vertices S) (q : Prime K) :=
+  (singular T q ⊗[R] selmerBidual (rankStrict D n q) (r-1)) ⊗[ℤ] tameGroup K p (insert q n.val)
+def rankUpper (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    rankStalk D r (vertexInsert S n q hq) →ₗ[R] rankEdge D r n q := sorry
+def rankLower (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    rankStalk D r n →ₗ[R] rankEdge D r n q := sorry
+/-- Edge maps are the Selmer contraction maps against transverse/finite-singular localization. -/
+def KolyvaginSystemRank (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) :
+    Submodule R (∀ n : Vertices S, rankStalk D r n) :=
+  { carrier := {κ | ∀ n q hq hqn, rankUpper D r hr n q hq hqn (κ (vertexInsert S n q hq)) =
+      rankLower D r hr n q hq hqn (κ n)}, zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def KolyvaginSystemRank.eval (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (n : Vertices S) :
+    KolyvaginSystemRank D r hr →ₗ[R] rankStalk D r n := sorry
+/-- The MR rank-r sheaf uses exterior powers. The bidual version is kept separate. -/
+def rankSelmerSheaf (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) : GraphSheaf.{0,0,0} R (conductorGraph S) :=
+  { stalk := rankExteriorStalk D r, addCommGroupStalk := inferInstance, moduleStalk := inferInstance,
+    edge := fun e =>
+      let o := orientEdge S e
+      ((transverse T (D.tame o.q o.inP)) ⊗[R] (⋀[R]^(r-1) (rankStrict D o.n o.q).selmer)) ⊗[ℤ]
+        tameGroup K p (insert o.q o.n.val),
+    addCommGroupEdge := fun e => inferInstance, moduleEdge := fun e => inferInstance,
+    toEdge := sorry }
+def MRKolyvaginSystemRank (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) :=
+  (rankSelmerSheaf D r hr).sections
+/-- Same exterior rank throughout the stub inclusion. -/
+def KolyvaginSystemRank.stub (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) :
+    Submodule R (MRKolyvaginSystemRank D r hr) :=
+  { carrier := {κ | ∀ n : Vertices S, κ.val n ∈
+      IsLocalRing.maximalIdeal R ^ len R (dualStructure T (rankModified D n)).selmer •
+        (⊤ : Submodule R (rankExteriorStalk D r n))},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+/-- Choose compatible cyclic tame generators. Their unit rescaling changes each
+normalized value by a unit and hence leaves its evaluation ideal unchanged. -/
+def normalizeRankStalk (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (n : Vertices S) :
+    rankStalk D r n ≃ₗ[R] selmerBidual (rankModified D n) r := sorry
+def tameScalar (D : ComparisonData S p) (r : ℕ) (h : BSSFiniteData S p r) (n : Vertices S) :
+    tameGroup K p n.val →ₗ[ℤ] R := sorry
+lemma normalizeRankStalk_pure (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (n : Vertices S) (x : selmerBidual (rankModified D n) r)
+    (g : tameGroup K p n.val) : normalizeRankStalk D r hr h n (x ⊗ₜ[ℤ] g) = tameScalar D r h n g • x := sorry
+def KolyvaginSystemRank.ideal (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (κ : KolyvaginSystemRank D r hr) (i : ℕ) : Ideal R :=
+  ⨆ (n : Vertices S) (_ : n.val.card=i), LinearMap.range (normalizeRankStalk D r hr h n (κ.val n))
+lemma KolyvaginSystemRank.ideal_formula (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (κ : KolyvaginSystemRank D r hr) (i : ℕ) :
+    KolyvaginSystemRank.ideal D r hr h κ i =
+      ⨆ (n : Vertices S) (_ : n.val.card=i), LinearMap.range (normalizeRankStalk D r hr h n (κ.val n)) := sorry
+def regulator (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (h : BSSFiniteData S p r) :
+    BSSStarkSystem D r h →ₗ[R] KolyvaginSystemRank D r hr := sorry
+def regulatorComponent (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (n : Vertices S) :
+    selmerBidual (relaxed S n) (r+n.val.card) →ₗ[R] rankStalk D r n := sorry
+lemma regulator_eval (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) (n : Vertices S) :
+    (regulator D r hr h ε).val n = regulatorComponent D r hr n (ε.val n) := sorry
+lemma regulator_eval_one (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (h : BSSFiniteData S p r)
+    (ε : BSSStarkSystem D r h) :
+    ∃ e : rankStalk D r (initialVertex S) ≃ₗ[R] selmerBidual S.F r,
+      ∃ e' : selmerBidual (relaxed S (initialVertex S)) r ≃ₗ[R] selmerBidual S.F r,
+        e ((regulator D r hr h ε).val (initialVertex S)) = e' (by simpa [initialVertex] using ε.val (initialVertex S)) := sorry
+/-- BSS II Theorem 5.2, with the prime restriction. -/
+theorem regulator_isomorphism (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (hp : 3 < p) : Function.Bijective (regulator D r hr h) := sorry
+theorem regulator_fitting_bound (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (hp : 3 < p) (κ : KolyvaginSystemRank D r hr) (i : ℕ) :
+    KolyvaginSystemRank.ideal D r hr h κ i ≤ fittingIdeal (finiteDualSelmer S) i := sorry
+theorem regulator_fitting_equality_zero (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (hp : 3 < p) (κ : KolyvaginSystemRank D r hr)
+    (hκ : Submodule.span R {κ} = (⊤ : Submodule R (KolyvaginSystemRank D r hr))) :
+    KolyvaginSystemRank.ideal D r hr h κ 0 = fittingIdeal (finiteDualSelmer S) 0 := sorry
+theorem regulator_fitting_equality (D : ComparisonData S p) (r : ℕ) (hr : 0 < r)
+    (h : BSSFiniteData S p r) (hp : 3 < p) [IsPrincipalIdealRing R]
+    (κ : KolyvaginSystemRank D r hr)
+    (hκ : Submodule.span R {κ} = (⊤ : Submodule R (KolyvaginSystemRank D r hr))) (i : ℕ) :
+    KolyvaginSystemRank.ideal D r hr h κ i = fittingIdeal (finiteDualSelmer S) i := sorry
+-- Unit test: TauCeti.StarkSystems.regulator_zero
+example (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (h : BSSFiniteData S p r) : regulator D r hr h 0 = 0 := sorry
+-- Unit test: TauCeti.StarkSystems.rank_system_not_product
+example (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (κ : ∀ n : Vertices S, rankStalk D r n)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (hu : rankUpper D r hr n q hq hqn (κ (vertexInsert S n q hq)) = 0)
+    (hl : rankLower D r hr n q hq hqn (κ n) ≠ 0) : κ ∉ KolyvaginSystemRank D r hr := sorry
+-- A same-rank stalk witness: over a field a positive dual length kills the stub.
+-- Unit test: TauCeti.StarkSystems.stub_stalk_zero_field
+example (D : ComparisonData S p) (r : ℕ) (hr : 0 < r) (n : Vertices S) (hR : IsField R)
+    (hLength : 0 < len R (dualStructure T (rankModified D n)).selmer)
+    (hne : Nontrivial (rankExteriorStalk D r n)) :
+    IsLocalRing.maximalIdeal R ^ len R (dualStructure T (rankModified D n)).selmer •
+      (⊤ : Submodule R (rankExteriorStalk D r n)) = ⊥ ∧
+      (⊤ : Submodule R (rankExteriorStalk D r n)) ≠ ⊥ := sorry
+end TauCeti.StarkSystems
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+abbrev FiniteGalois := TauCeti.KolyvaginSystems.Layer.Gal
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+/-- The compositum F K(n), not the maximal ray class field of the product modulus. -/
+def auxiliaryLayer (F : FiniteLayer A) (n : Conductor K) : Layer K := compositum F.val (rayLayer K A.p n)
+def auxiliaryFiniteLayer (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (n : Conductor K) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) : FiniteLayer A := sorry
+lemma auxiliaryFiniteLayer_val (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (n : Conductor K) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) :
+    (auxiliaryFiniteLayer hA F n hn).val = auxiliaryLayer F n := sorry
+abbrev Divisors (n : Conductor K) := {s : Conductor K // s ⊆ n}
+def relativeGal (F F' : Layer K) (h : F'.group ≤ F.group) : Subgroup (FiniteGalois K F') := sorry
+lemma mem_relativeGal (F F' : Layer K) (h : F'.group ≤ F.group) (g : GK K) :
+    QuotientGroup.mk g ∈ relativeGal F F' h ↔ g ∈ F.group := sorry
+instance relativeGal_finite (F F' : Layer K) (h : F'.group ≤ F.group) : Fintype (relativeGal F F' h) := sorry
+def relativeCharacter {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A) :
+    relativeGal F.val (compositumLayer F χ.field).val (by sorry) →* Rˣ := sorry
+lemma relativeCharacter_mk {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A)
+    (g : F.val.group) : relativeCharacter χ F
+      ⟨QuotientGroup.mk g.val, by sorry⟩ = χ.character g.val := sorry
+lemma characterTrace_sum {T : GaloisRep K R} {A : Tower T} (χ : CharacterData A) (F : FiniteLayer A)
+    (x : HAt K R T (compositumLayer F χ.field).val 1) : characterTrace χ F x =
+      ∑ g : relativeGal F.val (compositumLayer F χ.field).val (by sorry),
+        (relativeCharacter χ F g : R) • cohomologyAction T (compositumLayer F χ.field).val g.val x := sorry
+namespace Universal
+variable (F : FiniteLayer A) (n : Conductor K)
+abbrev GroupRing := MonoidAlgebra R (FiniteGalois K (auxiliaryLayer F n))
+abbrev Y := Divisors n →₀ GroupRing (R := R) F n
+def freeGen (s : Divisors n) : Y (R := R) F n := Finsupp.single s 1
+def subgroupNorm (U : Subgroup (FiniteGalois K (auxiliaryLayer F n))) [Fintype U] : GroupRing (R := R) F n :=
+  ∑ g : U, MonoidAlgebra.of R (FiniteGalois K (auxiliaryLayer F n)) g.val
+def factorAt (E : EulerFactors T A) (q : FinitePrime K) (hq : Sum.inr q ∉ A.bad) : GroupRing (R := R) F n :=
+  Polynomial.eval₂ (algebraMap R (GroupRing (R := R) F n))
+    (MonoidAlgebra.of R (FiniteGalois K (auxiliaryLayer F n)) (QuotientGroup.mk (frobenius K q).val⁻¹))
+    (E.poly T q hq)
+def relations (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) :
+    Submodule (GroupRing (R := R) F n) (Y (R := R) F n) :=
+  Submodule.span (GroupRing (R := R) F n) {y |
+    (∃ (s : Divisors n) (g : relativeGal (auxiliaryLayer F s.val) (auxiliaryLayer F n) (by sorry)),
+      y = MonoidAlgebra.of R (FiniteGalois K (auxiliaryLayer F n)) g.val • freeGen (R := R) F n s - freeGen (R := R) F n s) ∨
+    (∃ (s : Divisors n) (q : FinitePrime K) (hq : q ∈ n) (hqs : q ∉ s.val)
+      (hins : insert q s.val ⊆ n), Fintype.card (gammaPrime K A.p q) ≠ 1 ∧
+      y = subgroupNorm (R := R) F n
+        (relativeGal (auxiliaryLayer F (n.erase q)) (auxiliaryLayer F n) (by sorry)) •
+          freeGen (R := R) F n ⟨insert q s.val,hins⟩ - factorAt F n E q (hn q hq) • freeGen (R := R) F n s) ∨
+    (∃ (s : Divisors n) (q : FinitePrime K) (hq : q ∈ n) (hqs : q ∉ s.val)
+      (hins : insert q s.val ⊆ n), Fintype.card (gammaPrime K A.p q) = 1 ∧
+      y = freeGen (R := R) F n ⟨insert q s.val,hins⟩ - freeGen (R := R) F n s)}
+abbrev X (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) :=
+  Y (R := R) F n ⧸ relations F n E hn
+instance xRModule (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) : Module R (X F n E hn) := sorry
+lemma xR_smul (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (r : R) (x : X F n E hn) :
+    r • x = (algebraMap R (GroupRing (R := R) F n) r) • x := sorry
+def gen (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (s : Divisors n) : X F n E hn :=
+  Submodule.Quotient.mk (freeGen (R := R) F n s)
+lemma fixed_gen (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad)
+    (s : Divisors n) (g : relativeGal (auxiliaryLayer F s.val) (auxiliaryLayer F n) (by sorry)) :
+    MonoidAlgebra.of R (FiniteGalois K (auxiliaryLayer F n)) g.val • gen F n E hn s = gen F n E hn s := sorry
+lemma norm_gen_trivial (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad)
+    (s : Divisors n) (q : FinitePrime K) (hq : q ∈ n) (hins : insert q s.val ⊆ n)
+    (htr : Fintype.card (gammaPrime K A.p q) = 1) :
+    gen F n E hn ⟨insert q s.val,hins⟩ = gen F n E hn s := sorry
+lemma norm_gen (E : EulerFactors T A) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad)
+    (s : Divisors n) (q : FinitePrime K) (hq : q ∈ n) (hqs : q ∉ s.val)
+    (hins : insert q s.val ⊆ n) (htr : Fintype.card (gammaPrime K A.p q) ≠ 1) :
+    subgroupNorm F n (relativeGal (auxiliaryLayer F (n.erase q)) (auxiliaryLayer F n) (by sorry)) •
+      gen F n E hn ⟨insert q s.val,hins⟩ = factorAt F n E q (hn q hq) • gen F n E hn s := sorry
+def lift (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (c : EulerSystem T E) :
+    X F n E hn →ₗ[R] HAt K R T (auxiliaryLayer F n) 1 := sorry
+lemma lift_gen (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (c : EulerSystem T E) (s : Divisors n) :
+    lift F n E hA hn c (gen F n E hn s) =
+      resAt T (auxiliaryLayer F s.val) (auxiliaryLayer F n) (by sorry)
+        (by rw [← auxiliaryFiniteLayer_val hA F s.val (by sorry)];
+            exact c.val (auxiliaryFiniteLayer hA F s.val (by sorry))) := sorry
+lemma lift_equivariant (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (c : EulerSystem T E)
+    (g : FiniteGalois K (auxiliaryLayer F n)) (x : X F n E hn) :
+    lift F n E hA hn c (MonoidAlgebra.of R (FiniteGalois K (auxiliaryLayer F n)) g • x) =
+      cohomologyAction T (auxiliaryLayer F n) g (lift F n E hA hn c x) := sorry
+theorem free (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (hF : F.val.group ≥ hA.direction.subgroup) :
+    Module.Free R (X F n E hn) ∧ Module.Finite R (X F n E hn) ∧
+      Module.finrank R (X F n E hn) = Fintype.card (FiniteGalois K (auxiliaryLayer F n)) := sorry
+-- Unit test: Universal.X_one
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hF : F.val.group = ⊤) (h1 : (rayLayer K A.p ∅).group = ⊤) :
+    Nonempty (X F ∅ E (by simp) ≃ₗ[R] R) := sorry
+-- Unit test: Universal.rank_one_prime
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (q : FinitePrime K)
+    (hq : Sum.inr q ∉ A.bad) (hF : F.val.group = ⊤)
+    (h1 : (rayLayer K A.p ∅).group = ⊤) :
+    Module.finrank R (X F {q} E (by simpa)) = Fintype.card (gammaPrime K A.p q) := sorry
+-- Unit test: Universal.zero_lift
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (s : Divisors n) : lift F n E hA hn 0 (gen F n E hn s) = 0 := sorry
+end Universal
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Continuous crossed homomorphisms, with the canonical H¹ class adapter from L1. -/
+structure Cocycle (T : Rep K R) (U : Subgroup (GK K)) where
+  val : U → T
+  continuous : Continuous val
+  crossed : ∀ g h, val (g*h) = val g + T.ρ g.val (val h)
+def cocycleClass (T : Rep K R) (F : Layer K) : Cocycle T F.group → HAt K R T F 1 := sorry
+lemma cocycleClass_eq_zero (T : Rep K R) (F : Layer K) (z : Cocycle T F.group) :
+    cocycleClass T F z = 0 ↔ ∃ t : T, ∀ g, z.val g = T.ρ g.val t - t := sorry
+/-- The coinduced carrier is continuous maps, with right translation. -/
+def coinduced (T : Rep K R) : Rep K R := sorry
+def coinducedEquiv (T : Rep K R) : coinduced T ≃ₗ[R] C(GK K,T) := sorry
+lemma coinduced_action (T : Rep K R) (g : GK K) (f : coinduced T) (h : GK K) :
+    coinducedEquiv T ((coinduced T).ρ g f) h = coinducedEquiv T f (h*g) := sorry
+def coinducedEmbedding (T : Rep K R) (hT : IsContinuous K R T) : T ⟶ coinduced T := sorry
+lemma coinducedEmbedding_apply (T : Rep K R) (hT : IsContinuous K R T) (t : T) (g : GK K) :
+    coinducedEquiv T ((coinducedEmbedding T hT).hom t) g = T.ρ g t := sorry
+def coinducedQuotient (T : Rep K R) (hT : IsContinuous K R T) : Rep K R := sorry
+def coinducedQuotientEquiv (T : Rep K R) (hT : IsContinuous K R T) :
+    coinducedQuotient T hT ≃ₗ[R] (coinduced T ⧸ LinearMap.range (coinducedEmbedding T hT).hom.toLinearMap) := sorry
+def inducedProjection (T : Rep K R) (hT : IsContinuous K R T) : coinduced T ⟶ coinducedQuotient T hT := sorry
+lemma inducedProjection_apply (T : Rep K R) (hT : IsContinuous K R T) (f : coinduced T) :
+    coinducedQuotientEquiv T hT ((inducedProjection T hT).hom f) = Submodule.Quotient.mk f := sorry
+def fixed (T : Rep K R) (U : Subgroup (GK K)) : Submodule R T :=
+  { carrier := {t | ∀ g : U, T.ρ g.val t = t}, zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def delta (T : Rep K R) (hT : IsContinuous K R T) (F : Layer K) :
+    fixed (coinducedQuotient T hT) F.group →ₗ[R] HAt K R T F 1 := sorry
+lemma delta_surjective (T : Rep K R) [Finite T] (hT : IsContinuous K R T) (F : Layer K) :
+    Function.Surjective (delta T hT F) := sorry
+lemma delta_kernel (T : Rep K R) [Finite T] (hT : IsContinuous K R T) (F : Layer K)
+    (x : fixed (coinducedQuotient T hT) F.group) : delta T hT F x = 0 ↔
+    ∃ f : fixed (coinduced T) F.group, (inducedProjection T hT).hom f = x.val := sorry
+lemma delta_cocycle (T : Rep K R) (hT : IsContinuous K R T) (F : Layer K)
+    (x : fixed (coinducedQuotient T hT) F.group) (f : coinduced T)
+    (hf : (inducedProjection T hT).hom f = x.val) (z : Cocycle T F.group)
+    (hz : ∀ g, (coinducedEmbedding T hT).hom (z.val g) = (coinduced T).ρ g.val f - f) :
+    delta T hT F x = cocycleClass T F z := sorry
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] [Fact (IsContinuous K R T)] {A : Tower T}
+/-- Rubin's conductor condition includes complete splitting in F(1). -/
+def DerivativeAdmissible (E : EulerFactors T A) (F : FiniteLayer A) (M : R) (n : Conductor K) : Prop :=
+  M ≠ 0 ∧ ∀ q ∈ n, Sum.inr q ∉ A.bad ∧
+    (Fintype.card (gammaPrime K A.p q) : R) ∈ Ideal.span {M} ∧
+    (E.poly T q (by sorry)).eval 1 ∈ Ideal.span {M} ∧
+    (frobenius K q).val ∈ (auxiliaryLayer F ∅).group
+/-- D_{n,F}=N_{F(1)/F}∏D_q acting on the universal module. -/
+def universalDerivative (E : EulerFactors T A) (F : FiniteLayer A) (n : Conductor K)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad)
+    (σ : ∀ q : n, gammaPrime K A.p q) : Module.End R (Universal.X F n E hn) := sorry
+lemma universalDerivative_one (E : EulerFactors T A) (F : FiniteLayer A) :
+    universalDerivative E F ∅ (fun q hq => False.elim (Finset.notMem_empty q hq)) (by sorry) =
+      (by exact { toFun := fun x => (Universal.subgroupNorm F ∅ (relativeGal F.val (auxiliaryLayer F ∅) (by sorry))) • x, map_add' := sorry, map_smul' := sorry } : Module.End R (Universal.X F ∅ E (fun q hq => False.elim (Finset.notMem_empty q hq)))) := sorry
+lemma derivative_invariance (E : EulerFactors T A) (F : FiniteLayer A) (M : R) (n : Conductor K)
+    (h : DerivativeAdmissible E F M n) (σ : ∀ q : n, gammaPrime K A.p q)
+    (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (g : relativeGal F.val (auxiliaryLayer F n) (by sorry)) :
+    let x := universalDerivative E F n (fun q hq => (h.2 q hq).1) σ
+      (Universal.gen F n E (fun q hq => (h.2 q hq).1) ⟨n,Finset.Subset.refl n⟩)
+    MonoidAlgebra.of R (Layer.Gal K (auxiliaryLayer F n)) g.val • x - x ∈
+      Ideal.span {M} • (⊤ : Submodule R (Universal.X F n E (fun q hq => (h.2 q hq).1))) := sorry
+/-- Lifting theorem: the map is into actual quotient invariants and has δ equal to the
+reduced universal Euler-system evaluation. This is not an arbitrary lift hypothesis. -/
+def inducedLift (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (n : Conductor K) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (M : R) (hM : M ≠ 0)
+    (c : EulerSystem T E) : Universal.X F n E hn →ₗ[R]
+      fixed (coinducedQuotient (quotientRep T (Ideal.span {M}))
+        (quotientRep_continuous T Fact.out (Ideal.span {M}))) (auxiliaryLayer F n).group := sorry
+lemma inducedLift_delta (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (n : Conductor K) (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (M : R) (hM : M ≠ 0)
+    (c : EulerSystem T E) (x : Universal.X F n E hn) :
+    delta _ _ (auxiliaryLayer F n) (inducedLift E hA F n hn M hM c x) =
+      (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor (auxiliaryLayer F n).group.subtype |>.map (quotientMap T (Ideal.span {M}))) 1).hom
+        (Universal.lift F n E hA hn c x) := sorry
+/-- The element obtained by differentiating the induced lift is fixed by G_F. -/
+def differentiatedLift (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (c : EulerSystem T E) :
+    fixed (coinducedQuotient (quotientRep T (Ideal.span {M}))
+      (quotientRep_continuous T Fact.out (Ideal.span {M}))) F.val.group := sorry
+lemma differentiatedLift_value (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (c : EulerSystem T E) :
+    (differentiatedLift E hA F M n h σ hσ c).val =
+      (inducedLift E hA F n (fun q hq => (h.2 q hq).1) M h.1 c
+        (universalDerivative E F n (fun q hq => (h.2 q hq).1) σ
+          (Universal.gen F n E (fun q hq => (h.2 q hq).1) ⟨n,Finset.Subset.refl n⟩))).val := sorry
+def derivativeClass (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    EulerSystem T E →ₗ[R] HAt K R (quotientRep T (Ideal.span {M})) F.val 1 := sorry
+lemma derivativeClass_delta (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) (c : EulerSystem T E) :
+    derivativeClass E hA F M n h σ hσ c = delta _ _ F.val (differentiatedLift E hA F M n h σ hσ c) := sorry
+lemma derivativeClass_one (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (hM : M ≠ 0) (c : EulerSystem T E) :
+    derivativeClass E hA F M ∅ ⟨hM,by simp⟩ (by sorry) (by simp) c =
+      (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor F.val.group.subtype |>.map (quotientMap T (Ideal.span {M}))) 1).hom (c.val F) := sorry
+def derivativeAt (E : EulerFactors T A) (F : FiniteLayer A) (M : R) (n : Conductor K)
+    (σ : ∀ q : n, gammaPrime K A.p q) : Module.End R (HAt K R (quotientRep T (Ideal.span {M})) (auxiliaryLayer F n) 1) := sorry
+lemma res_derivativeClass (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) (c : EulerSystem T E) :
+    resAt _ F.val (auxiliaryLayer F n) (by sorry) (derivativeClass E hA F M n h σ hσ c) =
+      derivativeAt E F M n σ
+        ((TauCeti.ContinuousCohomology.coeffMap
+          (TopRep.resFunctor (auxiliaryLayer F n).group.subtype |>.map (quotientMap T (Ideal.span {M}))) 1).hom
+          (Universal.lift F n E hA (fun q hq => (h.2 q hq).1) c
+            (Universal.gen F n E (fun q hq => (h.2 q hq).1) ⟨n,Finset.Subset.refl n⟩))) := sorry
+lemma derivativeClass_reduction (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M M' : R) (d : R) (hd : M'=M*d) (n : Conductor K)
+    (h : DerivativeAdmissible E F M n) (h' : DerivativeAdmissible E F M' n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) (c : EulerSystem T E) :
+    (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor F.val.group.subtype |>.map (QuotCat.scalarHom T (Ideal.span {M'}) (Ideal.span {M}) 1 (by sorry))) 1).hom
+      (derivativeClass E hA F M' n h' σ hσ c) = derivativeClass E hA F M n h σ hσ c ∧
+    (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor F.val.group.subtype |>.map (QuotCat.scalarHom T (Ideal.span {M}) (Ideal.span {M'}) d (by sorry))) 1).hom
+      (derivativeClass E hA F M n h σ hσ c) = d • derivativeClass E hA F M' n h' σ hσ c := sorry
+lemma derivativeClass_cocycle (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (c : EulerSystem T E) (f : coinduced (quotientRep T (Ideal.span {M})))
+    (hf : (inducedProjection (quotientRep T (Ideal.span {M})) (by sorry)).hom f = (differentiatedLift E hA F M n h σ hσ c).val)
+    (z : Cocycle (quotientRep T (Ideal.span {M})) F.val.group)
+    (hz : ∀ g, (coinducedEmbedding (quotientRep T (Ideal.span {M})) (by sorry)).hom (z.val g) = (coinduced _).ρ g.val f - f) :
+    derivativeClass E hA F M n h σ hσ c = cocycleClass _ F.val z := sorry
+lemma derivativeClass_linear (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (c c' : EulerSystem T E) (a : R) :
+    derivativeClass E hA F M n h σ hσ (a • c + c') =
+      a • derivativeClass E hA F M n h σ hσ c + derivativeClass E hA F M n h σ hσ c' := sorry
+-- Three defining tests: conductor one, zero, and the restriction formula above.
+-- Unit test: derivativeClass_zero
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q) (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    derivativeClass E hA F M n h σ hσ 0 = 0 := sorry
+-- Unit test: derivativeClass_delta_lift
+example (T : Rep K R) (hT : IsContinuous K R T) (F : Layer K)
+    (f : fixed (coinduced T) F.group) (x : fixed (coinducedQuotient T hT) F.group)
+    (hx : x.val = (inducedProjection T hT).hom f.val) : delta T hT F x = 0 := sorry
+-- Unit test: derivativeClass_conductor_one_nonzero
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (F : FiniteLayer A)
+    (M : R) (hM : M ≠ 0) (c : EulerSystem T E) (hc : c.val F ≠ 0)
+    (hinj : Function.Injective (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor F.val.group.subtype |>.map (quotientMap T (Ideal.span {M}))) 1).hom) :
+    derivativeClass E hA F M ∅ ⟨hM,by simp⟩ (by sorry) (by simp) c ≠ 0 := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.ErrorTolerant
+open TauCeti.KolyvaginSystems
+abbrev ErrorRep := TauCeti.KolyvaginSystems.Rep
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+variable (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+def expAt {M : Type} [AddCommGroup M] [Module O M] (x : M) : ℕ∞ :=
+  ⨅ (d : ℕ) (_ : π^d • x = 0), (d : ℕ∞)
+def ordAt {M : Type} [AddCommGroup M] [Module O M] (x : M) : ℕ∞ :=
+  ⨆ (d : ℕ) (_ : x ∈ Ideal.span {π^d} • (⊤ : Submodule O M)), (d : ℕ∞)
+/-- Use truncated order at a torsion level: zero has order n. -/
+def truncatedOrdAt {M : Type} [AddCommGroup M] [Module O M] (n : ℕ) (x : M) : ℕ∞ :=
+  min n (ordAt π x)
+theorem expAt_add_ordAt_le {M : Type} [AddCommGroup M] [Module O M]
+    (n r : ℕ) (e : M ≃ₗ[O] (Fin r → O ⧸ Ideal.span {π^n})) (x : M) :
+    expAt π x + truncatedOrdAt π n x = n := sorry
+variable {π hπ}
+def equivariantEnd (T : ErrorRep K O) : Submodule O (Module.End O T) :=
+  {carrier := {f | ∀ g, f.comp (T.ρ g).toLinearMap = (T.ρ g).toLinearMap.comp f},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def scalarEnd (T : ErrorRep K O) : Submodule O (equivariantEnd T) :=
+  Submodule.span O {f | ∃ a : O, f.val = a • LinearMap.id}
+def Stable (T : ErrorRep K O) (W : Submodule O T) : Prop :=
+  ∀ g : GK K, ∀ x ∈ W, T.ρ g x ∈ W
+def DepthBound (T : ErrorRep K O) (π : O) (d : ℕ) : Prop :=
+  (∀ W : Submodule O T, Stable T W → ¬ W ≤ Ideal.span {π} • (⊤ : Submodule O T) →
+    Ideal.span {π^d} • (⊤ : Submodule O T) ≤ W) ∧
+  ∀ m : ℕ, 0 < m → ∀ f : equivariantEnd (quotientRep T (Ideal.span {π^m})),
+    π^d • f ∈ scalarEnd (quotientRep T (Ideal.span {π^m}))
+def reducibilityDepth (T : ErrorRep K O) (π : O) : ℕ∞ :=
+  ⨅ (d : ℕ) (_ : DepthBound T π d), (d : ℕ∞)
+theorem reducibilityDepth_eq_zero (T : ErrorRep K O) [Module.Finite O T]
+    (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+    (h : ResiduallyAbsolutelyIrreducible T) : reducibilityDepth T π = 0 := sorry
+/-- Rational absolute irreducibility is a statement about invariant subspaces after
+extending Frac(O), not residual irreducibility. -/
+def RationalAbsolutelyIrreducible (T : ErrorRep K O) : Prop :=
+  Nontrivial T ∧ ∀ (E : Type) [Field E] [Algebra (FractionRing O) E] [Algebra O E]
+    [IsScalarTower O (FractionRing O) E],
+    ∀ W : Submodule E (E ⊗[O] T),
+    (∀ g : GK K, ∀ x ∈ W, TensorProduct.map LinearMap.id (T.ρ g).toLinearMap x ∈ W) → W = ⊥ ∨ W = ⊤
+theorem reducibilityDepth_bounded (T : ErrorRep K O) [Module.Free O T] [Module.Finite O T]
+    (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+    (h : RationalAbsolutelyIrreducible T) :
+    ∃ d : ℕ, ∀ m : ℕ, reducibilityDepth (quotientRep T (Ideal.span {π^m})) π ≤ d := sorry
+-- Unit test: expAt_zero
+example (π : O) : expAt π (0 : O) = 0 := sorry
+-- Unit test: expAt_uniformizer_quotient
+example (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π}) (n d : ℕ)
+    (hd : d < n) : expAt π (Ideal.Quotient.mk (Ideal.span {π^n}) (π^d)) = n-d := sorry
+-- Unit test: reducibilityDepth_stable_counterexample
+example (T : ErrorRep K O) (π : O) (d : ℕ) (W : Submodule O T) (hW : Stable T W)
+    (hprim : ¬ W ≤ Ideal.span {π} • (⊤ : Submodule O T))
+    (hmiss : ¬ Ideal.span {π^d} • (⊤ : Submodule O T) ≤ W) : ¬ DepthBound T π d := sorry
+/-- Restriction to the field cut out by the representation evaluates cocycles at its
+absolute Galois group. Independence of the representative uses trivial action there. -/
+def restrictionPairing (T : ErrorRep K O) : H K O T 1 →ₗ[O] ((representationKernel T) → T) := sorry
+def globalCocycleClass (T : ErrorRep K O) : Cocycle T (⊤ : Subgroup (GK K)) → H K O T 1 := sorry
+lemma restrictionPairing_cocycle (T : ErrorRep K O) (z : Cocycle T (⊤ : Subgroup (GK K)))
+    (g : representationKernel T) : restrictionPairing T (globalCocycleClass T z) g =
+      z.val ⟨g.val,by simp⟩ := sorry
+/-- The Selmer-field subgroup is precisely the common kernel of the evaluations. -/
+def selmerFieldGroup (T : ErrorRep K O) (S : Submodule O (H K O T 1)) : Subgroup (representationKernel T) := sorry
+lemma mem_selmerFieldGroup (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (g : representationKernel T) :
+    g ∈ selmerFieldGroup T S ↔ ∀ s ∈ S, restrictionPairing T s g = 0 := sorry
+instance selmerFieldNormal (T : ErrorRep K O) (S : Submodule O (H K O T 1)) : (selmerFieldGroup T S).Normal := sorry
+abbrev SelmerGalois (T : ErrorRep K O) (S : Submodule O (H K O T 1)) :=
+  representationKernel T ⧸ selmerFieldGroup T S
+def theta (T : ErrorRep K O) (S : Submodule O (H K O T 1)) : SelmerGalois T S → (S →ₗ[O] T) := sorry
+lemma theta_eval (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (g : representationKernel T) (s : S) : theta T S (QuotientGroup.mk g) s = restrictionPairing T s.val g := sorry
+lemma theta_injective (T : ErrorRep K O) (S : Submodule O (H K O T 1)) : Function.Injective (theta T S) := sorry
+def saturationLoss : ℕ → ℕ
+  | 0 => 1 | 1 => 1 | 2 => 4 | n+3 => 2 * (saturationLoss (n+2)+1)
+theorem selmer_field_saturation (T : ErrorRep K O) (π : O) (m r rT d : ℕ)
+    (eT : T ≃ₗ[O] (Fin rT → O ⧸ Ideal.span {π^m}))
+    (S : Submodule O (H K O T 1)) (eS : S ≃ₗ[O] (Fin r → O ⧸ Ideal.span {π^m}))
+    (hinj : Function.Injective (restrictionPairing T)) (hDepth : DepthBound T π d) :
+    Ideal.span {π^(saturationLoss r*d)} • (⊤ : Submodule O (S →ₗ[O] T)) ≤
+      Submodule.span O (Set.range (theta T S)) := sorry
+/-- The group N lies OVER the field cut out by T, not over K itself. -/
+def normalKernel (T : ErrorRep K O) (E : Layer K) : Subgroup (Layer.Gal K E) :=
+  (representationKernel T).map (QuotientGroup.mk' E.group)
+/-- Arithmetic normal-closure input for LTXZZ §2.6. All dictionaries refer to
+field actions or cocycle evaluations; no abundance conclusion is a field. -/
+structure AbundanceData (T : ErrorRep K O) (S : Submodule O (H K O T 1)) where
+  Fplus : Type
+  [fieldPlus : Field Fplus]
+  [numberFieldPlus : NumberField Fplus]
+  [extension : Algebra Fplus K]
+  [galoisBase : IsGalois Fplus K]
+  degree : Module.finrank Fplus K = 1 ∨ Module.finrank Fplus K = 2
+  plusLayer : Layer Fplus
+  normalClosure : Layer K
+  containsRepresentation : normalClosure.group ≤ representationKernel T
+  containsSelmer : ∀ g : representationKernel T, g.val ∈ normalClosure.group → g ∈ selmerFieldGroup T S
+  [normalAlgebra : Algebra Fplus normalClosure.field]
+  [normalTower : IsScalarTower Fplus K normalClosure.field]
+  [normalGalois : IsGalois Fplus normalClosure.field]
+  normalOverPlus : Layer Fplus
+  normalOverPlusEquiv : normalOverPlus.field ≃ₐ[Fplus] normalClosure.field
+  alpha : MulAut (normalKernel T normalClosure)
+  restriction : normalKernel T normalClosure →* SelmerGalois T S
+  restriction_mk : ∀ g : representationKernel T,
+    restriction ⟨QuotientGroup.mk g.val,by sorry⟩ = QuotientGroup.mk g
+  h : GK K
+  ell : ℕ
+  prime : ell.Prime
+  residueChar : CharP (IsLocalRing.ResidueField O) ell
+  torsion : ∃ m rT, Nonempty (T ≃ₗ[O] (Fin rT → O ⧸ IsLocalRing.maximalIdeal O^m))
+  gamma : Layer.Gal Fplus plusLayer
+  primeOrder : Nat.Coprime (orderOf gamma) ell
+  fieldEmbedding : plusLayer.field →ₐ[Fplus] normalClosure.field
+  lift : normalClosure.field ≃ₐ[Fplus] normalClosure.field
+  lift_restrict : ∀ x, lift (fieldEmbedding x) = fieldEmbedding (layerFieldAction plusLayer gamma x)
+  conjugation : ∀ g, (layerFieldAction normalClosure (alpha g).val).restrictScalars Fplus =
+    lift * (layerFieldAction normalClosure g.val).restrictScalars Fplus * lift⁻¹
+  evaluation_action : ∀ g s, theta T S (restriction (alpha g)) s = T.ρ h (theta T S (restriction g) s)
+attribute [instance] AbundanceData.fieldPlus AbundanceData.numberFieldPlus AbundanceData.extension
+attribute [instance] AbundanceData.galoisBase AbundanceData.normalAlgebra AbundanceData.normalTower AbundanceData.normalGalois
+def primeIdealAboveEmbedding {E E' : Type} [Field E] [NumberField E] [Field E'] [NumberField E']
+    {F : Type} [Field F] [Algebra F E] [Algebra F E'] (i : E →ₐ[F] E') (w : Prime E) (v : Prime E') : Prop :=
+  ∀ x : NumberField.RingOfIntegers E, x ∈ w.asIdeal ↔ ∀ y : NumberField.RingOfIntegers E',
+    (y.val : E') = i x.val → y ∈ v.asIdeal
+def IsUnramifiedSelmerField (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (E : Layer K) (v : Prime E.field) : Prop :=
+  (inertia E.field (Sum.inr v)).map ((layerGalois E).comp (decomposition E.field (Sum.inr v)).subtype) ≤
+    (selmerFieldGroup T S).map (representationKernel T).subtype
+/-- Frobenius in the Selmer field, supplied by restriction of the actual arithmetic
+Frobenius of the chosen place; changing the prime gives conjugation. -/
+def selmerFrobenius (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) (w : Prime D.plusLayer.field) : SelmerGalois T S := sorry
+def gammaAssociated (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) (w : Prime D.plusLayer.field) : Prop :=
+  ¬ isAboveP D.ell w ∧ ∀ q : Prime D.Fplus, w ∈ primesAbove D.plusLayer q →
+    IsUnramifiedLayer D.normalOverPlus q ∧ IsUnramifiedLayer D.plusLayer q ∧
+      QuotientGroup.mk (frobenius D.Fplus q).val = D.gamma
+def frobeniusSet (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (D : AbundanceData T S) :
+    Set (SelmerGalois T S) := {g | ∃ w : Prime D.plusLayer.field, gammaAssociated T S D w ∧ selmerFrobenius T S D w = g}
+lemma frobeniusSet_eq_image (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (D : AbundanceData T S) :
+    frobeniusSet T S D = D.restriction '' {g | D.alpha g = g} := sorry
+lemma frobeniusSet_subset_fixed (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (D : AbundanceData T S)
+    (g : SelmerGalois T S) (hg : g ∈ frobeniusSet T S D) :
+    ∀ s : S, T.ρ D.h (theta T S g s) = theta T S g s := sorry
+/-- Abundance is an image containment, not a basis or a determinant being a unit. -/
+def abundanceMap (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    {r : ℕ} (Ψ : Fin r → SelmerGalois T S) : S →ₗ[O] (Fin r → T) :=
+  LinearMap.pi (fun i => theta T S (Ψ i))
+def fixedAbundanceMap (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) {r : ℕ} (Ψ : Fin r → SelmerGalois T S)
+    (hΨ : ∀ i, Ψ i ∈ frobeniusSet T S D) : S →ₗ[O] (Fin r → fixed T (Subgroup.zpowers D.h)) := sorry
+lemma fixedAbundanceMap_apply (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) {r : ℕ} (Ψ : Fin r → SelmerGalois T S)
+    (hΨ : ∀ i, Ψ i ∈ frobeniusSet T S D) (s : S) (i : Fin r) :
+    (fixedAbundanceMap T S D Ψ hΨ s i).val = theta T S (Ψ i) s := sorry
+def IsAbundant (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (D : AbundanceData T S)
+    (π : O) (m₀ r rT d : ℕ) (Ψ : Fin r → SelmerGalois T S) : Prop :=
+  ∃ hΨ : ∀ i, Ψ i ∈ frobeniusSet T S D,
+    Ideal.span {π^(m₀+saturationLoss r*d)} •
+      (⊤ : Submodule O (Fin r → fixed T (Subgroup.zpowers D.h))) ≤
+        LinearMap.range (fixedAbundanceMap T S D Ψ hΨ)
+theorem exists_isAbundant (T : ErrorRep K O) (S : Submodule O (H K O T 1)) (D : AbundanceData T S)
+    (π : O) (m m₀ r rT d : ℕ)
+    (hS : Nonempty (S ≃ₗ[O] (Fin r → O ⧸ Ideal.span {π^(m-m₀)})))
+    (hRes : Function.Injective (restrictionPairing T)) (hDepth : DepthBound T π d)
+    (hFixed : Nonempty (fixed T (Subgroup.zpowers D.h) ≃ₗ[O] O ⧸ Ideal.span {π^m}))
+    (hsurj : ∀ g : SelmerGalois T S, (∀ s : S, T.ρ D.h (theta T S g s) = theta T S g s) →
+      ∃ a : normalKernel T D.normalClosure, D.alpha a = a ∧ D.restriction a = g) :
+    ∃ Ψ : Fin r → SelmerGalois T S, IsAbundant T S D π m₀ r rT d Ψ := sorry
+/-- The finite-ring inverse is scaled. A unit inverse is unavailable at positive loss. -/
+theorem scaled_inverse (π : O) (n r c : ℕ) (A : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n}))
+    (h : Ideal.span {(Ideal.Quotient.mk (Ideal.span {π^n}) π)^c} • (⊤ : Submodule (O ⧸ Ideal.span {π^n}) (Fin r → O ⧸ Ideal.span {π^n})) ≤
+      LinearMap.range A.mulVecLin) :
+    ∃ C : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n}),
+      A*C = ((Ideal.Quotient.mk (Ideal.span {π^n}) π)^c) • (1 : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n})) ∧
+      C*A = ((Ideal.Quotient.mk (Ideal.span {π^n}) π)^c) • (1 : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n})) ∧
+      Ideal.span {(Ideal.Quotient.mk (Ideal.span {π^n}) π)^c} • (⊤ : Submodule (O ⧸ Ideal.span {π^n}) (Fin r → O ⧸ Ideal.span {π^n})) ≤ LinearMap.range C.mulVecLin := sorry
+example (π : O) (n r c : ℕ) (hcn : n ≤ c) :
+    (0 : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n})) * 0 =
+      (Ideal.Quotient.mk (Ideal.span {π^n}) π)^c • (1 : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n})) := sorry
+example : ¬ Function.Bijective ((fun x : ZMod 25 => (5 : ZMod 25)*x)) := sorry
+example (π : O) (n r : ℕ) (A : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^n}))
+    (h : LinearMap.range A.mulVecLin = ⊤) : IsUnit A.det := sorry
+end TauCeti.ErrorTolerant
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+lemma isCartesian_iff_comap (T : Rep K R) (v : Place K) (L : Submodule R (LocalH K R T v 1)) :
+    IsCartesian T v L ↔ ∀ (I J : Ideal R) (r : R) (hr : ∀ a ∈ I, r*a ∈ J),
+      Function.Injective (QuotCat.scalarHom T I J r hr).hom →
+      propagated T v L I = (propagated T v L J).comap
+        (TauCeti.ContinuousCohomology.coeffMap
+          (TopRep.resFunctor (decomposition K v).subtype |>.map (QuotCat.scalarHom T I J r hr)) 1).hom.toLinearMap := sorry
+lemma isCartesian_of_torsionFree_quotient (T : Rep K R) [IsDomain R] [IsDiscreteValuationRing R]
+    (v : Place K) (L : Submodule R (LocalH K R T v 1))
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R))
+    (h : Module.IsTorsionFree R (LocalH K R T v 1 ⧸ L)) : IsCartesian T v L := sorry
+/-- I-torsion is an actual submodule, available for finite and discrete duals alike. -/
+def torsionBy (I : Ideal R) (M : Type) [AddCommGroup M] [Module R M] : Submodule R M :=
+  { carrier := {x | ∀ a ∈ I, a • x = 0}, zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def dualQuotientEquiv (T : Rep K R) (I : Ideal R) :
+    dualRep (quotientRep T I) ≃ₗ[R] torsionBy I (dualRep T) := sorry
+/-- Precomposition by T→T/IT is the actual Cartier-dual injection. -/
+def dualQuotientInjection (T : Rep K R) (I : Ideal R) : dualRep (quotientRep T I) ⟶ dualRep T := sorry
+lemma dualQuotientInjection_apply (T : Rep K R) (I : Ideal R)
+    (φ : dualRep (quotientRep T I)) (t : T) :
+    dualEquiv T ((dualQuotientInjection T I).hom φ) t =
+      dualEquiv (quotientRep T I) φ ((quotientMap T I).hom t) := sorry
+lemma quotient_dual_propagation (T : Rep K R) (v : Place K)
+    (L : Submodule R (LocalH K R T v 1)) (I : Ideal R) :
+    orthogonal (quotientRep T I) v (propagated T v L I) =
+      (orthogonal T v L).comap
+        (TauCeti.ContinuousCohomology.coeffMap
+          (TopRep.resFunctor (decomposition K v).subtype |>.map (dualQuotientInjection T I)) 1).hom.toLinearMap := sorry
+def dualSelmerTorsionEquiv (T : Rep K R) (F : SelmerStructure K R T) (I : Ideal R) [IsLocalRing R]
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) :
+    (dualStructure (quotientRep T I) (propagatedStructure T F I)).selmer ≃ₗ[R]
+      torsionBy I (dualStructure T F).selmer := sorry
+/-- MR04 Lemma 2.2.5: local lengths are linear in the quotient length. -/
+theorem cartesian_length_linearity (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    (v : Place K) (L : Submodule R (LocalH K R T v 1)) (hL : IsCartesian T v L) :
+    ∃ a : ℤ, ∀ i : ℕ, 0 < i → i ≤ len R R →
+      (len R (LocalH K R (quotientRep T (IsLocalRing.maximalIdeal R ^ i)) v 0) : ℤ) -
+        len R (propagated T v L (IsLocalRing.maximalIdeal R ^ i)) = a*i := sorry
+theorem selmer_torsion_identification (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    (F : SelmerStructure K R T) (hF : IsCartesianStructure T F)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (i : ℕ)
+    (hi : 0 < i) (hik : i ≤ len R R) :
+    Nonempty ((propagatedStructure T F (IsLocalRing.maximalIdeal R ^ i)).selmer ≃ₗ[R]
+      torsionBy (IsLocalRing.maximalIdeal R ^ i) F.selmer) := sorry
+/-- The quotient is considered over its reduced ring, never asserted R-free. -/
+def reducedStructure (T : Rep K R) (F : SelmerStructure K R T) (I : Ideal R)
+    : SelmerStructure K (R ⧸ I) (reducedRep T I) := sorry
+theorem coreRank_independence_of_modulus (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    (F : SelmerStructure K R T) (hF : IsCartesianStructure T F)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (i : ℕ)
+    (hi : 0 < i) (hik : i ≤ len R R)
+    :
+    coreRankInt (reducedRep T (IsLocalRing.maximalIdeal R ^ i))
+      (reducedStructure T F _) = coreRankInt T F := sorry
+/-- Unramified rational local conditions are pulled back to the lattice at every place. -/
+def unramifiedStructure (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) : SelmerStructure K R T := sorry
+lemma unramifiedStructure_condition (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (v : Place K) :
+    (unramifiedStructure T sigma hbad).condition v = finiteLatticeCondition T v := sorry
+lemma unramifiedStructure_eq_canonical_empty (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) :
+    unramifiedStructure T sigma hbad = canonicalStructure T sigma ∅ hbad (by simp) := sorry
+/-- MR16 §3: equality with the relaxed p-adic canonical condition needs
+vanishing of rational dual H⁰ at the relaxed places. Finite lattice-dual invariants
+imply this vanishing; mere unramifiedness does not. -/
+lemma unramifiedStructure_eq_canonical (T : Rep K R) [IsDomain R]
+    [IsDiscreteValuationRing R] [Module.Free R T] [Module.Finite R T]
+    (sigma : Finset (Place K)) (atP : Set (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (hP : atP ⊆ (sigma : Set (Place K)))
+    (hdual : ∀ v ∈ atP, Finite (LocalH K R (dualRep T) v 0)) :
+    unramifiedStructure T sigma hbad = canonicalStructure T sigma atP hbad hP := sorry
+lemma canonicalStructure_quotient_at_p (T : Rep K R) [IsDomain R]
+    (sigma : Finset (Place K)) (atP : Set (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (hP : atP ⊆ (sigma : Set (Place K)))
+    (I : Ideal R) (v : Place K) (hv : v ∈ atP) :
+    (propagatedStructure T (canonicalStructure T sigma atP hbad hP) I).condition v =
+      LinearMap.range (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor (decomposition K v).subtype |>.map (quotientMap T I)) 1).hom.toLinearMap := sorry
+-- Unit test: canonicalStructure_unramified_place
+example (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (q : Prime K) (hq : Sum.inr q ∉ sigma) :
+    (unramifiedStructure T sigma hbad).condition (Sum.inr q) = unramified K R T (Sum.inr q) := sorry
+-- Unit test: canonicalStructure_relaxed_lattice
+example (T : Rep K R) [IsDomain R] (sigma : Finset (Place K)) (atP : Set (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (hP : atP ⊆ (sigma : Set (Place K)))
+    (v : Place K) (hv : v ∈ atP) : (canonicalStructure T sigma atP hbad hP).condition v = ⊤ := sorry
+-- Unit test: canonicalStructure_quotient_ne_relaxed
+example (T : Rep K R) [IsDomain R] (sigma : Finset (Place K)) (atP : Set (Place K))
+    (hbad : ∀ v ∉ sigma, IsUnramified K R T v) (hP : atP ⊆ (sigma : Set (Place K)))
+    (I : Ideal R) (v : Place K) (hv : v ∈ atP)
+    (hproper : ¬ Function.Surjective (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor (decomposition K v).subtype |>.map (quotientMap T I)) 1).hom) :
+    (propagatedStructure T (canonicalStructure T sigma atP hbad hP) I).condition v ≠ ⊤ := sorry
+-- Core-rank tests distinguish the signed rank from its nonnegative part.
+-- Unit test: coreRank_negative_signed
+example (T : Rep K R) (F : SelmerStructure K R T) (h : coreRankInt T F = -2) : coreRank T F = 0 := sorry
+-- Unit test: coreRank_positive_signed
+example (T : Rep K R) (F : SelmerStructure K R T) (h : coreRankInt T F = 3) : coreRank T F = 3 := sorry
+-- Unit test: coreRank_length_quotient
+example (T : Rep K R) (F : SelmerStructure K R T) [IsLocalRing R]
+    (hT : NoResidualInvariants T (IsLocalRing.maximalIdeal R))
+    (hs : len R F.selmer = 5) (hd : len R (dualStructure T F).selmer = 3) (hR : len R R = 2) :
+    coreRankInt T F = 1 := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems.SelfDual
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R] [IsLocalRing R]
+/-- The quadratic field and complex conjugation are arithmetic input from LocalGaloisGroups. -/
+structure ImaginaryQuadraticData (K : Type) [Field K] [NumberField K] where
+  rational : Algebra ℚ K
+  degree : letI := rational; Module.finrank ℚ K = 2
+  imaginary : ∀ v : NumberField.InfinitePlace K, ¬ v.IsReal
+  restriction : GK K →* GK ℚ
+  conjugation : MulAut (GK K)
+  involution : ∀ g, conjugation (conjugation g) = g
+  conjugatePlace : Place K → Place K
+  place_involution : ∀ v, conjugatePlace (conjugatePlace v) = v
+/-- Pairing data are actual bilinear maps with symmetry, perfectness and the conjugate
+Galois-equivariance formula. The Tate twist on the target is supplied as a character. -/
+structure PairingData (T : Rep K R) (F : SelmerStructure K R T) (D : ImaginaryQuadraticData K) where
+  cyclotomic : GK K →* Rˣ
+  pairing : T →ₗ[R] T →ₗ[R] R
+  symmetric : ∀ s t, pairing s t = pairing t s
+  perfect : Function.Bijective pairing
+  equivariant : ∀ g s t, pairing (T.ρ g s) (T.ρ (D.conjugation g) t) = (cyclotomic g : R) * pairing s t
+  localPairing : ∀ v, LocalH K R T v 1 →ₗ[R] LocalH K R T (D.conjugatePlace v) 1 →ₗ[R] R
+  orthogonal : ∀ v, F.condition v =
+    { carrier := {x | ∀ y ∈ F.condition (D.conjugatePlace v), localPairing v x y = 0},
+      zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+local instance residueTopologySD : TopologicalSpace (IsLocalRing.ResidueField R) := ⊥
+/-- Howard H.0–H.5. The splitting field and residual extension are actual representations. -/
+structure Hypotheses (T : Rep K R) (S : SelmerTriple K R T) (p : ℕ) where
+  quadratic : ImaginaryQuadraticData K
+  prime : p.Prime
+  odd : 2 < p
+  residueChar : CharP (IsLocalRing.ResidueField R) p
+  residueFinite : Finite (IsLocalRing.ResidueField R)
+  noetherian : IsNoetherianRing R
+  complete : IsAdicComplete (IsLocalRing.maximalIdeal R) R
+  rankTwo : Nonempty (T ≃ₗ[R] (Fin 2 → R))
+  irreducible : ResiduallyAbsolutelyIrreducible T
+  splitting : Subgroup (GK K)
+  normal : splitting.Normal
+  trivialAction : splitting ≤ representationKernel T
+  noH1 : Subsingleton (continuousCohomology 1 (descentRep
+    (quotientRep T (IsLocalRing.maximalIdeal R)) (splitting ⊓ rootsGroup p none) (by let _ := normal; sorry)))
+  cartesian : IsCartesianStructure T S.F
+  pairing : PairingData T S.F quadratic
+  residualOverQ : TopRep.{0} (IsLocalRing.ResidueField R) (GK ℚ)
+  restrictionEquiv : residualRep T ≃ₗ[IsLocalRing.ResidueField R] residualOverQ
+  restriction_action : ∀ g t, restrictionEquiv ((residualRep T).ρ g t) =
+    residualOverQ.ρ (quadratic.restriction g) (restrictionEquiv t)
+  tau : GK ℚ
+  tauSquare : tau^2 = 1
+  eigenspaces : ∀ a : IsLocalRing.ResidueField R, a=1 ∨ a=-1 →
+    Module.finrank (IsLocalRing.ResidueField R)
+      (LinearMap.ker ((residualOverQ.ρ tau).toLinearMap - a • LinearMap.id)) = 1
+  conjugateLocal : ∀ v, LocalH K R (quotientRep T (IsLocalRing.maximalIdeal R)) v 1 ≃ₗ[R]
+    LocalH K R (quotientRep T (IsLocalRing.maximalIdeal R)) (quadratic.conjugatePlace v) 1
+  residualStable : ∀ v, ((propagatedStructure T S.F (IsLocalRing.maximalIdeal R)).condition v).map
+    (conjugateLocal v).toLinearMap =
+      (propagatedStructure T S.F (IsLocalRing.maximalIdeal R)).condition (quadratic.conjugatePlace v)
+-- Inert prime conditions use ell+1 and Frob at the prime above ell, not ell-1.
+def IsInertPrime (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K) : Prop :=
+  ell.Prime ∧ primeNorm K q = ell^2 ∧ ∀ x : ℤ, x ∈ q.asIdeal.comap (algebraMap ℤ (NumberField.RingOfIntegers K)) ↔ (ell : ℤ) ∣ x
+
+def inertIdeal (T : Rep K R) (ell : ℕ) (q : Prime K) : Ideal R :=
+  Ideal.span {(ell+1 : R)} ⊔ ⨅ (I : Ideal R) (_ : LinearMap.range (frobEnd T q - LinearMap.id) ≤ I • (⊤ : Submodule R T)), I
+def inertPrimes (T : Rep K R) (S : SelmerTriple K R T) (D : ImaginaryQuadraticData K) (p k : ℕ) : Set (Prime K) :=
+  {q | Sum.inr q ∉ S.F.sigma ∧ ∃ ell : ℕ, IsInertPrime D ell q ∧ ell ≠ p ∧
+    inertIdeal T ell q ≤ Ideal.span {(p : R)^k}}
+lemma inertIdeal_contains (T : Rep K R) (ell : ℕ) (q : Prime K) : (ell+1 : R) ∈ inertIdeal T ell q := sorry
+lemma inertPrimes_antitone (T : Rep K R) (S : SelmerTriple K R T) (D : ImaginaryQuadraticData K)
+    (p k j : ℕ) (h : k ≤ j) : inertPrimes T S D p j ⊆ inertPrimes T S D p k := sorry
+/-- Howard's tame group is kλ×/kℓ×. This is a different carrier and comparison
+from the rank-one-coinvariant Mazur–Rubin polynomial construction. -/
+def rationalResidueMap (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) : ZMod ell →+* (NumberField.RingOfIntegers K ⧸ q.asIdeal) := sorry
+lemma rationalResidueMap_int (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) (a : ℤ) : rationalResidueMap D ell q h a =
+      Ideal.Quotient.mk q.asIdeal (algebraMap ℤ (NumberField.RingOfIntegers K) a) := sorry
+def InertResidueGroup (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) :=
+  ((NumberField.RingOfIntegers K ⧸ q.asIdeal)ˣ) ⧸
+    (Units.map (rationalResidueMap D ell q h).toMonoidHom).range
+instance inertResidueGroup (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) : Group (InertResidueGroup D ell q h) :=
+  inferInstanceAs (Group (((NumberField.RingOfIntegers K ⧸ q.asIdeal)ˣ) ⧸
+    (Units.map (rationalResidueMap D ell q h).toMonoidHom).range))
+instance inertResidueComm (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) : CommGroup (InertResidueGroup D ell q h) :=
+  {__ := inertResidueGroup D ell q h, mul_comm := sorry}
+instance inertResidueFinite (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) : Fintype (InertResidueGroup D ell q h) := sorry
+lemma inertResidue_card (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K)
+    (h : IsInertPrime D ell q) : Fintype.card (InertResidueGroup D ell q h) = ell+1 := sorry
+structure InertPrimeData (T : Rep K R) (D : ImaginaryQuadraticData K) (p : ℕ) (q : Prime K) where
+  ell : ℕ
+  inert : IsInertPrime D ell q
+  notP : ell ≠ p
+  unramified : IsUnramified K R T (Sum.inr q)
+abbrev InertPrimeData.tame {T : Rep K R} {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    (U : InertPrimeData T D p q) := Additive (InertResidueGroup D U.ell q U.inert)
+/-- The maximal p-subextension of the local ring-class field, supplied by HE.0/ring-class-tower-quotients and CFT Layer 13.
+Its local extension is retained, so the transverse condition is a restriction kernel. -/
+structure InertLocalData (T : Rep K R) (D : ImaginaryQuadraticData K) (p : ℕ) (q : Prime K)
+    (U : InertPrimeData T D p q) where
+  extension : Subgroup (decomposition K (Sum.inr q))
+  normal : extension.Normal
+  finiteIndex : extension.FiniteIndex
+  open_extension : IsOpen (extension : Set (decomposition K (Sum.inr q)))
+  localTrivial : ∀ g : decomposition K (Sum.inr q), ∀ t : T, T.ρ g.val t = t
+  killed : ∀ t : T, (U.ell+1 : R) • t = 0
+  totalRamification : ∀ g : decomposition K (Sum.inr q), ∃ i : inertia K (Sum.inr q),
+    ∃ h : extension, g = i.val*h.val
+  reciprocity : Nonempty ((decomposition K (Sum.inr q) ⧸ extension) ≃*
+    CommGroup.primaryComponent (InertResidueGroup D U.ell q U.inert) p)
+attribute [instance] InertLocalData.normal InertLocalData.finiteIndex
+def inertTransverse (T : Rep K R) {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    {U : InertPrimeData T D p q} (L : InertLocalData T D p q U) :
+    Submodule R (LocalH K R T (Sum.inr q) 1) :=
+  LinearMap.ker (TauCeti.ContinuousCohomology.res L.extension (localRep K R T (Sum.inr q)) 1).hom.toLinearMap
+/-- Howard Definition 1.1.8: evaluation at Frobenius and the Artin symbol identifies
+both local sides with T, even when T has rank two. No Q(Fr⁻¹) factor is used. -/
+def inertFiniteSingular (T : Rep K R) {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    {U : InertPrimeData T D p q} (L : InertLocalData T D p q U) :
+    unramified K R T (Sum.inr q) ≃ₗ[R] (singular T q ⊗[ℤ] U.tame) := sorry
+def inertFiniteEvaluation (T : Rep K R) {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    {U : InertPrimeData T D p q} (L : InertLocalData T D p q U) :
+    unramified K R T (Sum.inr q) ≃ₗ[R] T := sorry
+def inertSingularEvaluation (T : Rep K R) {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    {U : InertPrimeData T D p q} (L : InertLocalData T D p q U) :
+    (singular T q ⊗[ℤ] U.tame) ≃ₗ[R] T := sorry
+lemma inertFiniteSingular_evaluation (T : Rep K R) {D : ImaginaryQuadraticData K} {p : ℕ} {q : Prime K}
+    {U : InertPrimeData T D p q} (L : InertLocalData T D p q U)
+    (x : unramified K R T (Sum.inr q)) :
+    inertSingularEvaluation T L (inertFiniteSingular T L x) = inertFiniteEvaluation T L x := sorry
+structure InertData (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple K R T) (p : ℕ) where
+  quadratic : ImaginaryQuadraticData K
+  primes : ∀ q : S.primes, InertPrimeData T quadratic p q.val
+  locals : ∀ (n : Vertices S) (q : n.val),
+    let U := primes ⟨q.val,n.property q.val q.property⟩
+    InertLocalData (quotientRep T (⨆ q' ∈ n.val,
+      inertIdeal T (primes ⟨q',n.property q' (by assumption)⟩).ell q')) quadratic p q.val
+      {ell := U.ell, inert := U.inert, notP := U.notP, unramified := sorry}
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] {S : SelmerTriple K R T} {p : ℕ}
+def inertConductorIdeal (D : InertData T S p) (n : Vertices S) : Ideal R :=
+  ⨆ (q : Prime K) (hq : q ∈ n.val), inertIdeal T (D.primes ⟨q,n.property q hq⟩).ell q
+abbrev InertTameGroup (D : InertData T S p) (n : Vertices S) :=
+  PiTensorProduct ℤ (fun q : n.val => (D.primes ⟨q.val,n.property q.val q.property⟩).tame)
+def modified (D : InertData T S p) (n : Vertices S) :
+    SelmerStructure K R (quotientRep T (inertConductorIdeal D n)) := sorry
+lemma modified_condition (D : InertData T S p) (n : Vertices S) (q : Prime K) :
+    (modified D n).condition (Sum.inr q) = if hq : q ∈ n.val then
+      inertTransverse _ (D.locals n ⟨q,hq⟩)
+    else (propagatedStructure T S.F (inertConductorIdeal D n)).condition (Sum.inr q) := sorry
+abbrev InertStalk (D : InertData T S p) (n : Vertices S) := (modified D n).selmer ⊗[ℤ] InertTameGroup D n
+abbrev InertEdge (D : InertData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) :=
+  singular (quotientRep T (inertConductorIdeal D (vertexInsert S n q hq))) q ⊗[ℤ]
+    InertTameGroup D (vertexInsert S n q hq)
+def inertUpper (D : InertData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    InertStalk D (vertexInsert S n q hq) →ₗ[R] InertEdge D n q hq := sorry
+def inertLower (D : InertData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val) :
+    InertStalk D n →ₗ[R] InertEdge D n q hq := sorry
+/-- The lower map is coefficient reduction, finite localization and the evaluation
+comparison above. The upper map is singular localization; both retain the tame tensor. -/
+def KolyvaginSystem (D : InertData T S p) : Submodule R (∀ n : Vertices S, InertStalk D n) :=
+  {carrier := {κ | ∀ n q hq hqn, inertUpper D n q hq hqn (κ (vertexInsert S n q hq)) =
+      inertLower D n q hq hqn (κ n)}, zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def stalkOne (D : InertData T S p) : InertStalk D (initialVertex S) ≃ₗ[R] S.F.selmer := sorry
+def AtLevel (D : InertData T S p) : Prop := ∀ n : Vertices S, inertConductorIdeal D n = ⊥
+-- Unit test: SelfDual.conductorIdeal_one
+example (D : InertData T S p) : inertConductorIdeal D (initialVertex S) = ⊥ := sorry
+-- Unit test: SelfDual.tame_group_inert
+example (D : ImaginaryQuadraticData K) (ell : ℕ) (q : Prime K) (h : IsInertPrime D ell q) :
+    Fintype.card (InertResidueGroup D ell q h) = ell+1 := sorry
+example (D : InertData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (κ : ∀ n : Vertices S, InertStalk D n)
+    (hu : inertUpper D n q hq hqn (κ (vertexInsert S n q hq)) = 0)
+    (hl : inertLower D n q hq hqn (κ n) ≠ 0) : κ ∉ KolyvaginSystem D := sorry
+
+/-- Weak Cassels hypotheses omit residual irreducibility and the H.2 splitting condition. -/
+structure WeakHypotheses (T : Rep K R) (F : SelmerStructure K R T) where
+  quadratic : ImaginaryQuadraticData K
+  rankTwo : Nonempty (T ≃ₗ[R] (Fin 2 → R))
+  cartesian : IsCartesianStructure T F
+  invariants : NoResidualInvariants T (IsLocalRing.maximalIdeal R)
+  pairing : PairingData T F quadratic
+/-- The finite module M is explicitly finite-length. ε is zero or one. -/
+theorem weak_cassels_structure (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsPrincipalIdealRing R] (F : SelmerStructure K R T)
+    (h : WeakHypotheses T F) (h2 : IsUnit (2 : R)) :
+    ∃ (ε : ℕ) (_ : ε ≤ 1) (M : Type) (_ : AddCommGroup M) (_ : Module R M),
+      Module.length R M ≠ ⊤ ∧ Nonempty (F.selmer ≃ₗ[R] ((Fin ε → R) × M × M)) := sorry
+theorem cassels_structure (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsPrincipalIdealRing R] (S : SelmerTriple K R T) (p : ℕ)
+    (h : Hypotheses T S p) :
+    ∃ (ε : ℕ) (_ : ε ≤ 1) (M : Type) (_ : AddCommGroup M) (_ : Module R M),
+      Module.length R M ≠ ⊤ ∧ Nonempty (S.F.selmer ≃ₗ[R] ((Fin ε → R) × M × M)) := sorry
+/-- Howard's self-dual stub uses one half of the torsion, not the full dual length. -/
+def howardStub (T : Rep K R) (F : SelmerStructure K R T) (M : Type) [AddCommGroup M] [Module R M] : Submodule R F.selmer :=
+  IsLocalRing.maximalIdeal R ^ len R M • (⊤ : Submodule R F.selmer)
+theorem howard_stub_propagation (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsArtinianRing R] [IsPrincipalIdealRing R] {S : SelmerTriple K R T} {p : ℕ}
+    (h : Hypotheses T S p) (D : InertData T S p) (hP : AtLevel D)
+    (n : Vertices S) (q : Prime K) (hq : q ∈ S.primes) (hqn : q ∉ n.val)
+    (M N : Type) [AddCommGroup M] [Module R M] [AddCommGroup N] [Module R N]
+    (e : (modified D n).selmer ≃ₗ[R] (R × M × M))
+    (e' : (modified D (vertexInsert S n q hq)).selmer ≃ₗ[R] (R × N × N))
+    (hloc : ∀ x ∈ howardStub _ (modified D n) M, loc K R _ (Sum.inr q) x.val = 0) :
+    ∀ x ∈ howardStub _ (modified D (vertexInsert S n q hq)) N,
+      loc K R _ (Sum.inr q) x.val = 0 := sorry
+-- L2 lattice-to-discrete adapter: V/T with its inherited Galois action.
+def discreteRep (T : Rep K R) [IsDomain R] : Rep K R := sorry
+def discreteEquiv (T : Rep K R) [IsDomain R] : discreteRep T ≃ₗ[R]
+    (rationalRep T ⧸ LinearMap.range (rationalMap T).hom.toLinearMap) := sorry
+def discreteStructure (T : Rep K R) [IsDomain R] (F : SelmerStructure K R T) :
+    SelmerStructure K R (discreteRep T) := sorry
+theorem howard_dvr_theorem (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    [IsDomain R] [IsDiscreteValuationRing R] {S : SelmerTriple K R T} {p : ℕ}
+    (h : Hypotheses T S p) (D : InertData T S p)
+    (hP : ∃ s, inertPrimes T S h.quadratic p s ⊆ S.primes)
+    (κ : KolyvaginSystem D) (hκ : κ.val (initialVertex S) ≠ 0) :
+    Module.Free R S.F.selmer ∧ Module.finrank R S.F.selmer = 1 ∧
+    ∃ (M : Type) (_ : AddCommGroup M) (_ : Module R M), Module.length R M ≠ ⊤ ∧
+      Nonempty ((discreteStructure T S.F).selmer ≃ₗ[R]
+        ((FractionRing R ⧸ LinearMap.range (Algebra.linearMap R (FractionRing R))) × M × M)) ∧
+      Module.length R M ≤ Module.length R (S.F.selmer ⧸ Submodule.span R {(stalkOne D) (κ.val (initialVertex S))}) := sorry
+example (T : Rep K R) (S : SelmerTriple K R T) (p : ℕ) (h : Hypotheses T S p) : 2 < p := sorry
+example (T : Rep K R) (F : SelmerStructure K R T) (h : WeakHypotheses T F)
+    (hnonzero : Nontrivial (H K R (quotientRep T (IsLocalRing.maximalIdeal R)) 0)) : False := sorry
+-- Unit test: SelfDual.conductorIdeal_inert
+example (T : Rep K R) (S : SelmerTriple K R T) (D : ImaginaryQuadraticData K) (p k : ℕ)
+    (q : Prime K) (ell : ℕ) (h : q ∈ inertPrimes T S D p k)
+    (hq : IsInertPrime D ell q) : (ell+1 : R) ∈ Ideal.span {(p : R)^k} := sorry
+end TauCeti.KolyvaginSystems.SelfDual
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+variable {T : GaloisRep K O} [Module.Free O T] [Module.Finite O T] {A : Tower T}
+def pHilbertGroup (p : ℕ) : Subgroup (GK K) := (rayLayer K p ∅).group
+def rubinHM (p : ℕ) : Subgroup (GK K) := pHilbertGroup p ⊓ rootsGroup p none ⊓ unitsRootsGroup p none
+instance rubinHM_normal (p : ℕ) : (rubinHM (K := K) p).Normal := sorry
+structure HypKT (T : GaloisRep K O) (p : ℕ) where
+  continuous : IsContinuous K O T
+  tau : GK K
+  tauFixed : tau ∈ rubinHM p
+  rankOne : RankOneCoinvariants T tau
+  irreducible : ResiduallyIrreducible T
+/-- Rational irreducibility and rational coinvariant rank are distinct from their
+integral/residual versions. No absolute irreducibility is silently added. -/
+def RationalIrreducible (T : GaloisRep K O) : Prop :=
+  Nontrivial T ∧ ∀ W : Submodule (FractionRing O) (FractionRing O ⊗[O] T),
+    (∀ g : GK K, ∀ x ∈ W, TensorProduct.map LinearMap.id (T.ρ g).toLinearMap x ∈ W) → W = ⊥ ∨ W = ⊤
+structure HypKV (T : GaloisRep K O) (p : ℕ) where
+  continuous : IsContinuous K O T
+  tau : GK K
+  tauFixed : tau ∈ rubinHM p
+  rankOne : Module.finrank (FractionRing O)
+    (FractionRing O ⊗[O] (T ⧸ LinearMap.range ((T.ρ tau).toLinearMap - LinearMap.id))) = 1
+  irreducible : RationalIrreducible T
+def HypKT.toHypKV (T : GaloisRep K O) [Module.Free O T] [Module.Finite O T]
+    (p : ℕ) (h : HypKT T p) : HypKV T p := sorry
+/-- Arithmetic H¹ torsion, rather than zero, is factored out in Rubin's index. -/
+def h1Torsion (T : GaloisRep K O) : Submodule O (H K O T 1) :=
+  {carrier := {x | ∃ a : O, a ≠ 0 ∧ a • x = 0}, zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def baseClass (E : EulerFactors T A) (c : EulerSystem T E) : H K O T 1 :=
+  baseEquiv T (by rw [← Tower.base_val A]; exact c.val A.base)
+def indexOfDivisibility (E : EulerFactors T A) (c : EulerSystem T E) : ℕ∞ :=
+  ⨆ (i : ℕ) (_ : baseClass E c ∈ IsLocalRing.maximalIdeal O^i • (⊤ : Submodule O (H K O T 1)) + h1Torsion T), (i : ℕ∞)
+lemma indexOfDivisibility_eq_top_iff (E : EulerFactors T A) (hDVR : IsDiscreteValuationRing O)
+    [Module.Finite O (H K O T 1)] (c : EulerSystem T E) :
+    indexOfDivisibility E c = ⊤ ↔ baseClass E c ∈ h1Torsion T := sorry
+lemma indexOfDivisibility_smul (E : EulerFactors T A) (hDVR : IsDiscreteValuationRing O)
+    [Module.Finite O (H K O T 1)] (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+    (c : EulerSystem T E) : indexOfDivisibility E (π • c) = indexOfDivisibility E c + 1 := sorry
+abbrev Discrete (T : GaloisRep K O) := SelfDual.discreteRep T
+def omegaGroup (T : GaloisRep K O) (p : ℕ) : Subgroup (GK K) :=
+  rubinHM p ⊓ representationKernel (Discrete T)
+instance omegaGroup_normal (T : GaloisRep K O) (p : ℕ) : (omegaGroup T p).Normal := sorry
+def inflationRange (W : GaloisRep K O) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel W) : Submodule O (H K O W 1) :=
+  LinearMap.range (inflation W U hU)
+def errorTerm (W : GaloisRep K O) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel W) (F : SelmerStructure K O W) : ℕ∞ :=
+  Module.length O ↥((inflationRange W U hU : Submodule O (H K O W 1)) ⊓ F.selmer)
+lemma errorTerm_zero (W : GaloisRep K O) (U : Subgroup (GK K)) [U.Normal]
+    (hU : U ≤ representationKernel W) (F : SelmerStructure K O W)
+    (h : Subsingleton (continuousCohomology 1 (descentRep W U hU))) : errorTerm W U hU F = 0 := sorry
+/-- The public-source Rubin bound: no MR04 H.3 hypothesis is imposed. -/
+theorem rubin_bound (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hE : E.normalization = .rubin) (h : HypKT T A.p) (hodd : 2 < A.p)
+    (F : SelmerStructure K O T) (hF : F = unramifiedStructure T A.bad A.unramified) (FW : SelmerStructure K O (Discrete T))
+    (pPrimes : Conductor K) (hp : ∀ q, q ∈ pPrimes ↔ isAboveP A.p q)
+    (hFW : FW = SelfDual.discreteStructure T F) (c : EulerSystem T E)
+    (hDual : omegaGroup T A.p ≤ representationKernel (dualRep T)) :
+    Module.length O (strict (dualRep T) (dualStructure T F) pPrimes).selmer ≤
+      indexOfDivisibility E c +
+        errorTerm (Discrete T) (omegaGroup T A.p) (by exact inf_le_right) (relaxed _ FW pPrimes) +
+        errorTerm (dualRep T) (omegaGroup T A.p) hDual (strict _ (dualStructure T F) pPrimes) := sorry
+/-- The any-prime result is finiteness; it does not assert the odd-prime length bound. -/
+theorem rubin_bound_rational (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hE : E.normalization = .rubin) (h : HypKV T A.p)
+    (htriv : ¬ (Module.finrank O T = 1 ∧ ∀ g : GK K, ∀ t : T, T.ρ g t = t))
+    (F : SelmerStructure K O T) (hF : F = unramifiedStructure T A.bad A.unramified) (pPrimes : Conductor K) (hp : ∀ q, q ∈ pPrimes ↔ isAboveP A.p q)
+    (c : EulerSystem T E) (hc : baseClass E c ∉ h1Torsion T) :
+    Module.length O (strict (dualRep T) (dualStructure T F) pPrimes).selmer ≠ ⊤ := sorry
+/-- Finite-depth descent bounds an exponent, retaining the local denominator loss. -/
+theorem finite_depth_bound (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hE : E.normalization = .rubin) (h : HypKT T A.p) (M a : O) (hM : M ≠ 0)
+    (c : FiniteDepthEulerSystem E (Ideal.span {M}))
+    (F : SelmerStructure K O T) (hF : F = unramifiedStructure T A.bad A.unramified) (pPrimes : Conductor K) (hp : ∀ q, q ∈ pPrimes ↔ isAboveP A.p q)
+    (h0 : Subsingleton (H K O (quotientRep T (Ideal.span {M})) 0))
+    (hErr : ∀ W : GaloisRep K O, W = Discrete T ∨ W = dualRep T →
+      Subsingleton (continuousCohomology 1 (descentRep W (omegaGroup T A.p) (by sorry))))
+    (hden : ∀ q : FinitePrime K, ¬ isAboveP A.p q →
+      ∀ x : LocalH K O (Discrete T) (Sum.inr q) 1, a • x ∈ unramified K O (Discrete T) (Sum.inr q)) :
+    ∀ b : O, b • (a • baseEquiv _ (by rw [← Tower.base_val A]; exact c.val A.base)) = 0 →
+      ∀ s : (strict (dualRep (quotientRep T (Ideal.span {M})))
+        (dualStructure _ (propagatedStructure T F (Ideal.span {M}))) pPrimes).selmer, b • s = 0 := sorry
+-- Unit test: indexOfDivisibility_zero_system
+example (E : EulerFactors T A) : indexOfDivisibility E 0 = ⊤ := sorry
+example (E : EulerFactors T A) (c : EulerSystem T E) (hc : baseClass E c ∈ h1Torsion T) :
+    indexOfDivisibility E c = ⊤ := sorry
+-- Unit test: HypKT.p_hilbert
+example (T : GaloisRep K O) (p : ℕ) (h : HypKT T p) : h.tau ∈ pHilbertGroup p := sorry
+-- Unit test: HypKT.roots_and_units
+example (T : GaloisRep K O) (p : ℕ) (h : HypKT T p) :
+    h.tau ∈ rootsGroup p none ∧ h.tau ∈ unitsRootsGroup p none := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] {S : SelmerTriple K R T} {p : ℕ}
+abbrev WeakStalk (D : KolyvaginData T S p) (n : Vertices S) :=
+  (relaxed _ (propagatedStructure T S.F (conductorIdeal T p n.val)) n.val).selmer ⊗[ℤ] tameGroup K p n.val
+def weakUpper (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K)
+    (hq : q ∈ S.primes) (hqn : q ∉ n.val) : WeakStalk D (vertexInsert S n q hq) →ₗ[R] D.EdgeStalk n q hq := sorry
+def weakLower (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K)
+    (hq : q ∈ S.primes) (hqn : q ∉ n.val) : WeakStalk D n →ₗ[R] D.EdgeStalk n q hq := sorry
+def WeakKolyvaginSystem (D : KolyvaginData T S p) : Submodule R (∀ n : Vertices S, WeakStalk D n) :=
+  {carrier := {κ | ∀ n q hq hqn, weakLower D n q hq hqn (κ n) = weakUpper D n q hq hqn (κ (vertexInsert S n q hq))},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def KolyvaginSystem.toWeak (D : KolyvaginData T S p) : KolyvaginSystem D →ₗ[R] WeakKolyvaginSystem D := sorry
+lemma KolyvaginSystem.toWeak_injective (D : KolyvaginData T S p) : Function.Injective (KolyvaginSystem.toWeak D) := sorry
+/-- The ambient intrinsic class module; no Selmer membership is assumed here. -/
+abbrev RawStalk (T : Rep K R) (p : ℕ) (n : Conductor K) :=
+  H K R (quotientRep T (conductorIdeal T p n)) 1 ⊗[ℤ] tameGroup K p n
+def fixedPart (n : Conductor K) (π : Equiv.Perm n) : Conductor K :=
+  n.filter (fun q => ∀ hq : q ∈ n, (π ⟨q,hq⟩).val = q)
+def augmentationIdeal (R : Type) [CommRing R] (Γ : Type) [Group Γ] : Ideal (MonoidAlgebra R Γ) :=
+  RingHom.ker (MonoidAlgebra.lift R R Γ 1).toRingHom
+def augmentationSquare (R : Type) [CommRing R] (Γ : Type) [Group Γ] :
+    Submodule R (augmentationIdeal R Γ) :=
+  ((augmentationIdeal R Γ)^2).restrictScalars R |>.comap ((augmentationIdeal R Γ).subtype.restrictScalars R)
+abbrev AugmentationGraded (R : Type) [CommRing R] (Γ : Type) [Group Γ] :=
+  augmentationIdeal R Γ ⧸ augmentationSquare R Γ
+/-- I/I² sends σ−1 to the tame generator tensor 1. -/
+def rhoAug (q : Prime K) (I : Ideal R) :
+    AugmentationGraded (R ⧸ I) (gammaPrime K p q) ≃ₗ[R ⧸ I]
+      ((R ⧸ I) ⊗[ℤ] tamePrime K p q) := sorry
+/-- Evaluation of P_q(Fr_l⁻¹) in the augmentation quotient. All Frobenius restrictions
+are those of the chosen ray compositum; q,l are auxiliary split primes. -/
+def rhoEuler {A : Tower T} (E : EulerFactors T A) (q l : Prime K) (I : Ideal R)
+    (hq : Sum.inr q ∉ A.bad) (haug : (E.poly T q hq).eval 1 ∈ I) :
+    tamePrime K p q ⊗[ℤ] (R ⧸ I) := sorry
+/-- Reduce κ_d to I_n and tensor the rhoEuler factors for the non-fixed primes. -/
+def correctionTensor {A : Tower T} (E : EulerFactors T A) (n : Vertices S) (π : Equiv.Perm n.val)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad) :
+    RawStalk T p (fixedPart n.val π) →ₗ[R] RawStalk T p n.val := sorry
+lemma fixedPart_identity (n : Conductor K) : fixedPart n (Equiv.refl _) = n := sorry
+lemma fixedPart_swap (n : Conductor K) (π : Equiv.Perm n) (h : ∀ x, (π x).val ≠ x.val) : fixedPart n π = ∅ := sorry
+lemma correctionTensor_identity {A : Tower T} (E : EulerFactors T A) (n : Vertices S)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad) (x : RawStalk T p n.val) :
+    correctionTensor E n (Equiv.refl _) hP (by rw [fixedPart_identity]; exact x) = x := sorry
+def correctedClass {A : Tower T} (E : EulerFactors T A)
+    (raw : ∀ n : Conductor K, RawStalk T p n) (n : Vertices S)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad) : RawStalk T p n.val :=
+  ∑ π : Equiv.Perm n.val, (Equiv.Perm.sign π : ℤ) • correctionTensor E n π hP (raw (fixedPart n.val π))
+lemma correctedClass_one {A : Tower T} (E : EulerFactors T A)
+    (raw : ∀ n : Conductor K, RawStalk T p n)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad) :
+    correctedClass E raw (initialVertex S) hP = raw ∅ := sorry
+lemma correctedClass_prime {A : Tower T} (E : EulerFactors T A)
+    (raw : ∀ n : Conductor K, RawStalk T p n) (q : Prime K) (hq : q ∈ S.primes)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad) :
+    correctedClass E raw ⟨{q},by sorry⟩ hP = raw {q} := sorry
+/-- The transposition term in conductor q*l has a minus sign. -/
+lemma correctedClass_two_primes {A : Tower T} (E : EulerFactors T A)
+    (raw : ∀ n : Conductor K, RawStalk T p n) (q l : Prime K)
+    (hne : q ≠ l) (hq : q ∈ S.primes) (hl : l ∈ S.primes)
+    (hP : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad)
+    (swap : Equiv.Perm ({q,l} : Conductor K)) (hswap : ∀ x, (swap x).val ≠ x.val) :
+    correctedClass E raw ⟨{q,l},by sorry⟩ hP = raw {q,l} -
+      correctionTensor E ⟨{q,l},by sorry⟩ swap hP (by rw [fixedPart_swap _ _ hswap]; exact raw ∅) := sorry
+/-- Coefficient reduction on ambient intrinsic classes. -/
+def rawReduction [IsLocalRing R] (k : ℕ) (n : Conductor K) :
+    (H K R (quotientRep T (IsLocalRing.maximalIdeal R^(k+1))) 1 ⊗[ℤ] tameGroup K p n) →ₗ[R]
+      (H K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) 1 ⊗[ℤ] tameGroup K p n) := sorry
+/-- The quotient module at a fixed coefficient level, independent of n. -/
+abbrev FixedLevelStalk [IsLocalRing R] (k : ℕ) (n : Conductor K) :=
+  H K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) 1 ⊗[ℤ] tameGroup K p n
+def levelLocalTame [IsLocalRing R] (k j : ℕ) (q : Prime K)
+    (hq : q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j) :
+    LocalTameData (quotientRep T (IsLocalRing.maximalIdeal R^k)) p q := sorry
+/-- Off the admissible prime set the map is zero; finite-level relations use it only on that set. -/
+def finiteLevelUpper [IsLocalRing R] (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple K R T) (p k j : ℕ) (n : Conductor K) (q : Prime K) :
+    FixedLevelStalk (T := T) (p := p) k (insert q n) →ₗ[R]
+      (singular (quotientRep T (IsLocalRing.maximalIdeal R^k)) q ⊗[ℤ] tameGroup K p (insert q n)) :=
+  sorry
+def finiteLevelLower [IsLocalRing R] (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple K R T) (p k j : ℕ) (n : Conductor K) (q : Prime K) :
+    FixedLevelStalk (T := T) (p := p) k n →ₗ[R]
+      (singular (quotientRep T (IsLocalRing.maximalIdeal R^k)) q ⊗[ℤ] tameGroup K p (insert q n)) := sorry
+lemma finiteLevelLower_pure [IsLocalRing R] (k j : ℕ) (n : Conductor K) (q : Prime K)
+    (hq : q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j) (hqn : q ∉ n)
+    (x : H K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) 1) (g : tameGroup K p n)
+    (merge : ((singular (quotientRep T (IsLocalRing.maximalIdeal R^k)) q ⊗[ℤ] tamePrime K p q)
+      ⊗[ℤ] tameGroup K p n) ≃ₗ[R]
+      (singular (quotientRep T (IsLocalRing.maximalIdeal R^k)) q ⊗[ℤ] tameGroup K p (insert q n))) :
+    finiteLevelLower T S p k j n q (x ⊗ₜ[ℤ] g) = merge
+      (finiteSingularMod T (IsLocalRing.maximalIdeal R^k) (levelLocalTame k j q hq hkj)
+        S.continuous (by sorry)
+        (finitePart _ (levelLocalTame k j q hq hkj)
+          (quotientRep_continuous T S.continuous _) (loc K R _ (Sum.inr q) x)) ⊗ₜ[ℤ] g) := sorry
+def levelModified [IsLocalRing R] (k j : ℕ) (n : Conductor K)
+    (hn : ∀ q ∈ n, q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j) :
+    SelmerStructure K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) := sorry
+lemma levelModified_condition [IsLocalRing R] (k j : ℕ) (n : Conductor K)
+    (hn : ∀ q ∈ n, q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j) (q : Prime K) :
+    (levelModified k j n hn hkj).condition (Sum.inr q) = if hq : q ∈ n then
+      transverse _ (levelLocalTame k j q (hn q hq) hkj)
+    else (propagatedStructure T S.F (IsLocalRing.maximalIdeal R^k)).condition (Sum.inr q) := sorry
+/-- Canonical inclusion of the actual modified Selmer module into arithmetic H¹. -/
+def levelSelmerInclusion [IsLocalRing R] (k j : ℕ) (n : Conductor K)
+    (hn : ∀ q ∈ n, q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j) :
+    ((levelModified k j n hn hkj).selmer ⊗[ℤ] tameGroup K p n) →ₗ[R]
+      FixedLevelStalk (T := T) (p := p) k n := sorry
+lemma levelSelmerInclusion_pure [IsLocalRing R] (k j : ℕ) (n : Conductor K)
+    (hn : ∀ q ∈ n, q ∈ kolyvaginPrimes T S p j) (hkj : k ≤ j)
+    (x : (levelModified k j n hn hkj).selmer) (g : tameGroup K p n) :
+    levelSelmerInclusion k j n hn hkj (x ⊗ₜ[ℤ] g) = x.val ⊗ₜ[ℤ] g := sorry
+def finiteLevelSelmer [IsLocalRing R] (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple K R T) (p k j : ℕ) (n : Conductor K)
+    (x : FixedLevelStalk (T := T) (p := p) k n) : Prop :=
+  ∃ (hkj : k ≤ j) (hn : ∀ q ∈ n, q ∈ kolyvaginPrimes T S p j),
+    x ∈ LinearMap.range (levelSelmerInclusion k j n hn hkj)
+def weakFinitePart (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val) :
+    WeakStalk D n →ₗ[R]
+      (unramified K R (quotientRep T (conductorIdeal T p n.val)) (Sum.inr q) ⊗[ℤ] tameGroup K p n.val) :=
+  sorry
+/-- The literal finite-level KS relations on sufficiently deep conductors. These use
+strict/transverse local kernels and the reduced polynomial finite-singular map. -/
+def FiniteLevelKS [IsLocalRing R] (k j : ℕ) (κ : ∀ n : Conductor K,
+    H K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) 1 ⊗[ℤ] tameGroup K p n) : Prop :=
+  k ≤ j ∧ ∀ n : Conductor K, (∀ q ∈ n, q ∈ S.primes ∩ kolyvaginPrimes T S p j) →
+    (∀ q ∉ n, q ∈ S.primes ∩ kolyvaginPrimes T S p j →
+      finiteLevelLower T S p k j n q (κ n) = finiteLevelUpper T S p k j n q (κ (insert q n))) ∧
+    finiteLevelSelmer T S p k j n (κ n)
+/-- Germs modulo restriction to a deeper prime set give the filtered colimit in j. -/
+def eventuallyCompatible [IsLocalRing R] (k : ℕ) : Submodule R (∀ n : Conductor K,
+    H K R (quotientRep T (IsLocalRing.maximalIdeal R^k)) 1 ⊗[ℤ] tameGroup K p n) :=
+  {carrier := {κ | ∃ j, k ≤ j ∧ FiniteLevelKS (T := T) (S := S) (p := p) k j κ},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def eventuallyZero [IsLocalRing R] (k : ℕ) : Submodule R (eventuallyCompatible (T := T) (S := S) (p := p) k) :=
+  {carrier := {κ | ∃ j, k ≤ j ∧ ∀ n : Conductor K,
+      (∀ q ∈ n, q ∈ S.primes ∩ kolyvaginPrimes T S p j) → κ.val n = 0},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+abbrev GeneralizedLevel [IsLocalRing R] (k : ℕ) :=
+  eventuallyCompatible (T := T) (S := S) (p := p) k ⧸ eventuallyZero (T := T) (S := S) (p := p) k
+def generalizedReduction [IsLocalRing R] (k : ℕ) :
+    GeneralizedLevel (T := T) (S := S) (p := p) (k+1) →ₗ[R] GeneralizedLevel (T := T) (S := S) (p := p) k := sorry
+def GeneralizedKolyvaginSystem [IsLocalRing R] : Submodule R (∀ k : ℕ, GeneralizedLevel (T := T) (S := S) (p := p) k) :=
+  {carrier := {κ | ∀ k, generalizedReduction (T := T) (S := S) (p := p) k (κ (k+1)) = κ k},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def toGeneralized [IsLocalRing R] (D : KolyvaginData T S p) :
+    KolyvaginSystem D →ₗ[R] GeneralizedKolyvaginSystem (T := T) (S := S) (p := p) := sorry
+def generalizedOne [IsLocalRing R] (hcomplete : IsAdicComplete (IsLocalRing.maximalIdeal R) R)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) :
+    GeneralizedKolyvaginSystem (T := T) (S := S) (p := p) →ₗ[R] S.F.selmer := sorry
+/-- Maximal abelian pro-p extension unramified outside the given support. -/
+def maximalAbelianPGroup (K : Type) [Field K] [NumberField K] (p : ℕ) (bad : Set (Place K)) : Subgroup (GK K) :=
+  ⨅ (F : Layer K) (_ : ∃ a : ℕ, Fintype.card (Layer.Gal K F)=p^a)
+    (_ : IsMulCommutative (Layer.Gal K F)) (_ : ∀ q : Prime K, Sum.inr q ∉ bad → IsUnramifiedLayer F q), F.group
+structure EulerKolyvaginHypotheses [IsDomain R] {A : Tower T} (E : EulerFactors T A) (S : SelmerTriple K R T) where
+  rational : Nonempty (K ≃+* ℚ)
+  dvr : IsDiscreteValuationRing R
+  normalization : E.normalization = .mazurRubin
+  continuous : IsContinuous K R T
+  canonical : S.F = canonicalStructure T A.bad (pInfinity A.p) A.unramified A.contains_p_infinity
+  support : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad
+  cyclic : ∀ q ∈ S.primes, (⊤ : Submodule R (T ⧸ LinearMap.range (frobEnd T q - LinearMap.id))).IsPrincipal
+  frobeniusInjective : ∀ q ∈ S.primes, ∀ k : ℕ, Function.Injective ((frobEnd T q)^(A.p^k) - (LinearMap.id : Module.End R T))
+  towerContains : A.subgroup ≤ maximalAbelianPGroup K A.p (pInfinity A.p ∪ Sum.inr '' S.primes)
+def eulerToKolyvagin [IsDomain R] [IsDiscreteValuationRing R] {A : Tower T}
+    (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : EulerKolyvaginHypotheses E S) :
+    EulerSystem T E →ₗ[R] GeneralizedKolyvaginSystem (T := T) (S := S) (p := A.p) := sorry
+lemma eulerToKolyvagin_one [IsDomain R] [IsDiscreteValuationRing R] {A : Tower T}
+    (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : EulerKolyvaginHypotheses E S)
+    (hcomplete : IsAdicComplete (IsLocalRing.maximalIdeal R) R)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) (c : EulerSystem T E) :
+    (generalizedOne hcomplete h0 (eulerToKolyvagin E hA h c)).val = baseClass E c := sorry
+/-- Divisibility of the local discrete invariants is the extra ordinary-output hypothesis. -/
+def pDualInvariantsDivisible (T : Rep K R) (p : ℕ) : Prop :=
+  ∀ q : Prime K, isAboveP p q → ∀ x : LocalH K R (dualRep T) (Sum.inr q) 0,
+    ∀ a : R, a ≠ 0 → ∃ y, a • y = x
+def eulerToKolyvaginOrdinary [IsDomain R] [IsDiscreteValuationRing R] {A : Tower T}
+    (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : EulerKolyvaginHypotheses E S)
+    (D : KolyvaginData T S A.p) (hdiv : pDualInvariantsDivisible T A.p) :
+    EulerSystem T E →ₗ[R] KolyvaginSystem D := sorry
+lemma eulerToKolyvagin_ordinary [IsDomain R] [IsDiscreteValuationRing R] {A : Tower T}
+    (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : EulerKolyvaginHypotheses E S)
+    (D : KolyvaginData T S A.p) (hdiv : pDualInvariantsDivisible T A.p) :
+    (toGeneralized D).comp (eulerToKolyvaginOrdinary E hA h D hdiv) = eulerToKolyvagin E hA h := sorry
+-- Unit test: eulerToKolyvagin_zero
+example [IsDomain R] [IsDiscreteValuationRing R] {A : Tower T}
+    (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : EulerKolyvaginHypotheses E S) : eulerToKolyvagin E hA h 0 = 0 := sorry
+example (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val)
+    (κ : WeakKolyvaginSystem D) (hfinite : weakFinitePart D n q hq (κ.val n) ≠ 0) :
+    κ ∉ LinearMap.range (KolyvaginSystem.toWeak D) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+abbrev HigherRep := TauCeti.KolyvaginSystems.Rep
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : HigherRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+def LayerAbelianGal (A : Tower T) (F : FiniteLayer A) := Layer.Gal K F.val
+instance layerAbelianGroup (A : Tower T) (F : FiniteLayer A) : Group (LayerAbelianGal A F) :=
+  inferInstanceAs (Group (Layer.Gal K F.val))
+instance layerAbelianComm (A : Tower T) (F : FiniteLayer A) : CommGroup (LayerAbelianGal A F) :=
+  {__ := layerAbelianGroup A F, mul_comm := sorry}
+instance layerAbelianFinite (A : Tower T) (F : FiniteLayer A) : Fintype (LayerAbelianGal A F) :=
+  inferInstanceAs (Fintype (Layer.Gal K F.val))
+def layerAbelianEquiv (A : Tower T) (F : FiniteLayer A) : LayerAbelianGal A F ≃* Layer.Gal K F.val := MulEquiv.refl _
+abbrev LayerRing (A : Tower T) (F : FiniteLayer A) := MonoidAlgebra R (LayerAbelianGal A F)
+def layerCohomAction (A : Tower T) (F : FiniteLayer A) :
+    Representation R (LayerAbelianGal A F) (HAt K R T F.val 1) :=
+  (cohomologyAction T F.val).comp (layerAbelianEquiv A F).toMonoidHom
+abbrev LayerCohomModule (A : Tower T) (F : FiniteLayer A) := (layerCohomAction A F).asModule
+/-- Restricted ramification is an intersection of actual inertia kernels at the primes over K. -/
+def ramifiedCohom (A : Tower T) (F : FiniteLayer A) (support : Set (Prime K)) :
+    Submodule (LayerRing A F) (LayerCohomModule A F) :=
+  {carrier := {x | ∀ q : Prime K, q ∉ support → ∀ w ∈ primesAbove F.val q,
+      locAt T F.val (Sum.inr w) ((layerCohomAction A F).asModuleEquiv x) ∈
+        unramified F.val.field R (layerRep T F.val) (Sum.inr w)},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def layerSupport (A : Tower T) (F : FiniteLayer A) : Set (Prime K) :=
+  {q | Sum.inr q ∈ A.bad ∨ ¬ IsUnramifiedLayer F.val q}
+abbrev HigherStalk (A : Tower T) (r : ℕ) (F : FiniteLayer A) :=
+  Module.Dual (LayerRing A F) (⋀[LayerRing A F]^r
+    (Module.Dual (LayerRing A F) (ramifiedCohom A F (layerSupport A F))))
+instance higherStalkR (A : Tower T) (r : ℕ) (F : FiniteLayer A) : Module R (HigherStalk A r F) :=
+  Module.compHom _ (algebraMap R (LayerRing A F))
+abbrev ExpandedStalk (A : Tower T) (r : ℕ) (F F' : FiniteLayer A) :=
+  Module.Dual (LayerRing A F) (⋀[LayerRing A F]^r
+    (Module.Dual (LayerRing A F) (ramifiedCohom A F (layerSupport A F'))))
+instance expandedStalkR (A : Tower T) (r : ℕ) (F F' : FiniteLayer A) : Module R (ExpandedStalk A r F F') :=
+  Module.compHom _ (algebraMap R (LayerRing A F))
+/-- L6's group-ring transfer, normalized by Sano14 Proposition 2.4. It is not an exterior norm
+with a missing power of the extension degree. The cohomological map is corAt. -/
+def higherCorestriction (A : Tower T) (r : ℕ) (F F' : FiniteLayer A)
+    (h : F'.val.group ≤ F.val.group) : HigherStalk A r F' →ₗ[R] ExpandedStalk A r F F' := sorry
+def expandBidual (A : Tower T) (r : ℕ) (F F' : FiniteLayer A)
+    (h : F'.val.group ≤ F.val.group) : HigherStalk A r F →ₗ[R] ExpandedStalk A r F F' := sorry
+def higherFactor (E : EulerFactors T A) (r : ℕ) (F F' : FiniteLayer A) :
+    Module.End R (ExpandedStalk A r F F') := sorry
+lemma higherFactor_formula (E : EulerFactors T A) (r : ℕ) (F F' : FiniteLayer A)
+    (x : ExpandedStalk A r F F') : higherFactor E r F F' x =
+      ((ramifiedDifference A F F').attach.toList.map (fun q =>
+        aeval (MonoidAlgebra.of R (LayerAbelianGal A F) ((layerAbelianEquiv A F).symm (QuotientGroup.mk (frobenius K q.val).val⁻¹)))
+          (E.poly T q.val (by sorry)))).prod • x := sorry
+/-- A genuine inverse system of group-ring exterior biduals of arithmetic cohomology. -/
+def HigherEulerSystem (E : EulerFactors T A) (r : ℕ) : Submodule R (∀ F : FiniteLayer A, HigherStalk A r F) :=
+  {carrier := {c | ∀ F F' h, higherCorestriction A r F F' h (c F') =
+      higherFactor E r F F' (expandBidual A r F F' h (c F))},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def HigherEulerSystem.eval (E : EulerFactors T A) (r : ℕ) (F : FiniteLayer A) :
+    HigherEulerSystem E r →ₗ[R] HigherStalk A r F := sorry
+lemma HigherEulerSystem.cor_eval (E : EulerFactors T A) (r : ℕ) (c : HigherEulerSystem E r)
+    (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group) :
+    higherCorestriction A r F F' h (c.val F') = higherFactor E r F F' (expandBidual A r F F' h (c.val F)) := sorry
+/-- Reflexivity is the evaluation into the double dual, not freeness of the original
+cohomology over a possibly non-principal group ring. -/
+def BSSHypothesis61 (A : Tower T) : Prop :=
+  ∀ F : FiniteLayer A, Function.Bijective
+    (Module.Dual.eval (LayerRing A F) (ramifiedCohom A F (layerSupport A F))) ∧
+      Subsingleton (HAt K R T F.val 0)
+lemma BSSHypothesis61.iff_free [IsLocalRing R] (hO : TauCeti.StarkSystems.GorensteinOrderData (R := R) A.p)
+    [∀ F : FiniteLayer A, Module hO.O (ramifiedCohom A F (layerSupport A F))]
+    [∀ F : FiniteLayer A, IsScalarTower hO.O (LayerRing A F) (ramifiedCohom A F (layerSupport A F))] :
+    BSSHypothesis61 A ↔ ∀ F : FiniteLayer A,
+      Module.Free hO.O (ramifiedCohom A F (layerSupport A F)) ∧ Subsingleton (HAt K R T F.val 0) := sorry
+def HigherEulerSystem.rank_one_equiv (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : BSSHypothesis61 A) (hT : IsContinuous K R T) : HigherEulerSystem E 1 ≃ₗ[R] EulerSystem T E := sorry
+/-- Rank-one evaluation includes the canonical identification ∧¹ M* ≃ M*. -/
+def oneBidualEvaluation (F : FiniteLayer A) :
+    ramifiedCohom A F (layerSupport A F) →ₗ[LayerRing A F] HigherStalk A 1 F := sorry
+lemma oneBidualEvaluation_apply (F : FiniteLayer A)
+    (x : ramifiedCohom A F (layerSupport A F))
+    (φ : Module.Dual (LayerRing A F) (ramifiedCohom A F (layerSupport A F))) :
+    oneBidualEvaluation F x (exteriorPower.ιMulti _ 1 (fun _ => φ)) = φ x := sorry
+lemma rank_one_equiv_eval (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : BSSHypothesis61 A) (hT : IsContinuous K R T) (c : HigherEulerSystem E 1) (F : FiniteLayer A) :
+    ∃ x : ramifiedCohom A F (layerSupport A F), oneBidualEvaluation F x = c.val F ∧
+      (HigherEulerSystem.rank_one_equiv E hA h hT c).val F = (layerCohomAction A F).asModuleEquiv x.val := sorry
+-- Unit test: TauCeti.EulerSystems.HigherEulerSystem.zero_mem
+example (E : EulerFactors T A) (r : ℕ) : (0 : ∀ F, HigherStalk A r F) ∈ HigherEulerSystem E r := sorry
+-- Unit test: TauCeti.EulerSystems.HigherEulerSystem.rank_one_zero
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A) (h : BSSHypothesis61 A)
+    (hT : IsContinuous K R T) : HigherEulerSystem.rank_one_equiv E hA h hT 0 = 0 := sorry
+-- Unit test: TauCeti.EulerSystems.not_BSSHypothesis61_torsion
+example (F : FiniteLayer A) (p : R) (hp : p ≠ 0)
+    (h : ∃ x : ramifiedCohom A F (layerSupport A F), x ≠ 0 ∧ p • x = 0)
+    [IsDomain R] (hfree : Module.IsTorsionFree R (ramifiedCohom A F (layerSupport A F))) : False := sorry
+/-- The local injectivity hypothesis is stated on the integral T. -/
+def BSSHypothesis611 (T : HigherRep K R) (p : ℕ) (P : Set (Prime K)) : Prop :=
+  ∀ q ∈ P, ∀ k : ℕ, Function.Injective ((frobEnd T q)^(p^k)-(LinearMap.id : Module.End R T))
+/-- E(n) is a compositum. No direct-product decomposition of Gal(E(n)/K) is assumed. -/
+def auxiliaryCompositum (F : Layer K) (p : ℕ) (n : Conductor K) : Layer K := sorry
+lemma auxiliaryCompositum_group (F : Layer K) (p : ℕ) (n : Conductor K) :
+    (auxiliaryCompositum F p n).group = F.group ⊓ (rayLayer K p n).group := sorry
+instance relativeAuxNormal (F : Layer K) (p : ℕ) (n : Conductor K) :
+    ((auxiliaryCompositum F p n).group.subgroupOf F.group).Normal := sorry
+abbrev RelativeAuxGroup (F : Layer K) (p : ℕ) (n : Conductor K) :=
+  F.group ⧸ (auxiliaryCompositum F p n).group.subgroupOf F.group
+/-- Shapiro induction is supplied by ProfiniteCohomology. Its underlying module consists
+of continuous equivariant functions GK→T/MT, with left translation. -/
+def inducedAt (T : HigherRep K R) (F : Layer K) (M : R) : HigherRep K R := sorry
+def inducedFunctionModule (T : HigherRep K R) (F : Layer K) (M : R) :
+    Submodule R C(GK K, quotientRep T (Ideal.span {M})) :=
+  {carrier := {f | ∀ (g : GK K) (h : F.group), f (h.val*g) =
+      (quotientRep T (Ideal.span {M})).ρ h.val (f g)},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def inducedAtEquiv (T : HigherRep K R) (F : Layer K) (M : R) :
+    inducedAt T F M ≃ₗ[R] inducedFunctionModule T F M := sorry
+/-- Ambient reduced bidual over the FULL Gal(E(n)/K), with the uninduced T/MT. -/
+def reducedCohomAction (A : Tower T) (F : FiniteLayer A) (M : R) :
+    Representation (R ⧸ Ideal.span {M}) (LayerAbelianGal A F)
+      (HAt K (R ⧸ Ideal.span {M}) (reducedRep T (Ideal.span {M})) F.val 1) :=
+  (cohomologyAction (reducedRep T (Ideal.span {M})) F.val).comp (layerAbelianEquiv A F).toMonoidHom
+abbrev FullReducedBidual (A : Tower T) (F : FiniteLayer A) (M : R) (r : ℕ) :=
+  Module.Dual (MonoidAlgebra (R ⧸ Ideal.span {M}) (LayerAbelianGal A F))
+    (⋀[MonoidAlgebra (R ⧸ Ideal.span {M}) (LayerAbelianGal A F)]^r
+      (Module.Dual (MonoidAlgebra (R ⧸ Ideal.span {M}) (LayerAbelianGal A F))
+        (reducedCohomAction A F M).asModule))
+/-- Source map (9): reduce coefficient functionals before dualizing. -/
+def reduceHigher (E : EulerFactors T A) (r : ℕ) (F : FiniteLayer A) (M : R)
+    (h : BSSHypothesis61 A) : HigherStalk A r F →ₗ[R] FullReducedBidual A F M r := sorry
+/-- Determinant correction in an arbitrary commutative target of augmentation factors. -/
+def deltaCorrection {B : Type} [CommRing B] (n : ℕ) (P : Fin n → Fin n → B) : B :=
+  Matrix.det (fun i j => if i=j then 0 else P i j)
+-- Unit test: TauCeti.EulerSystems.higherCorrection_empty
+example {B : Type} [CommRing B] (P : Fin 0 → Fin 0 → B) : deltaCorrection 0 P = 1 := sorry
+-- Unit test: TauCeti.EulerSystems.higherCorrection_one_prime
+example {B : Type} [CommRing B] (P : Fin 1 → Fin 1 → B) : deltaCorrection 1 P = 0 := sorry
+-- Unit test: TauCeti.EulerSystems.higherDerivative_two_primes
+example {B : Type} [CommRing B] (P : Fin 2 → Fin 2 → B) : deltaCorrection 2 P = -(P 0 1 * P 1 0) := sorry
+/-- Integral finite condition over a reduced Gorenstein order: rationalize at all
+non-zero-divisors, not at the zero ring obtained from a finite coefficient ring. -/
+def orderRationalRep (U : HigherRep K R) : HigherRep K R := sorry
+def orderRationalEquiv (U : HigherRep K R) : orderRationalRep U ≃ₗ[R]
+    (Localization (nonZeroDivisors R) ⊗[R] U) := sorry
+def orderRationalMap (U : HigherRep K R) : U ⟶ orderRationalRep U := sorry
+def orderFiniteCondition (U : HigherRep K R) (v : Place K) : Submodule R (LocalH K R U v 1) :=
+  (TauCeti.KolyvaginSystems.unramified K R (orderRationalRep U) v).comap
+    (TauCeti.ContinuousCohomology.coeffMap
+      (TopRep.resFunctor (decomposition K v).subtype |>.map (orderRationalMap U)) 1).hom.toLinearMap
+/-- Canonical local coefficient reduction plus the induction/Shapiro dictionary.
+The integral source is induced T, represented as inducedAt T E 0. -/
+def inducedIntegralLocal {C : Type} [CommRing C] [TopologicalSpace C] [Algebra R C]
+    (T : HigherRep K R) (F : Layer K) (M : R) (B : TopRep.{0} C (GK K))
+    [Module R B] [IsScalarTower R C B] (i : B ≃ₗ[R] inducedAt T F M) (v : Place K) :
+    LocalH K R (inducedAt T F 0) v 1 → LocalH K C B v 1 := sorry
+/-- The propagated canonical condition. The displayed image, rather than full
+finite-level H¹ at p, retains the local H² obstruction to surjectivity. -/
+def inducedCanonicalCondition {C : Type} [CommRing C] [TopologicalSpace C] [Algebra R C]
+    (T : HigherRep K R) (F : Layer K) (p : ℕ) (M : R) (B : TopRep.{0} C (GK K))
+    [Module R B] [IsScalarTower R C B] (i : B ≃ₗ[R] inducedAt T F M) (v : Place K) :
+    Submodule C (LocalH K C B v 1) :=
+  {carrier := {x | ∃ y : LocalH K R (inducedAt T F 0) v 1,
+      (v ∈ pInfinity p ∨ y ∈ orderFiniteCondition (inducedAt T F 0) v) ∧
+        inducedIntegralLocal T F M B i v y=x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+lemma inducedCanonicalCondition_at_p {C : Type} [CommRing C] [TopologicalSpace C] [Algebra R C]
+    (T : HigherRep K R) (F : Layer K) (p : ℕ) (M : R) (B : TopRep.{0} C (GK K))
+    [Module R B] [IsScalarTower R C B] (i : B ≃ₗ[R] inducedAt T F M) (v : Place K)
+    (hv : v ∈ pInfinity p) (x : LocalH K C B v 1) :
+    x ∈ inducedCanonicalCondition T F p M B i v ↔ ∃ y, inducedIntegralLocal T F M B i v y=x := sorry
+
+/-- Arithmetic data connecting the integral tower to a finite induced coefficient module.
+The equalities are supplier dictionaries, not an assumption that the derivative satisfies KS relations. -/
+structure HigherDerivativeData (E : EulerFactors T A) (M : R) (r : ℕ) where
+  field : FiniteLayer A
+  includesHilbert : field.val.group ≤ (rayLayer K A.p ∅).group
+  unramified : ∀ q : Prime K, Sum.inr q ∉ A.bad → IsUnramifiedLayer field.val q
+  power : ∃ k : ℕ, M = (A.p^k : R) ∧ 0 < k
+  C : Type
+  [ringC : CommRing C]
+  [spaceC : TopologicalSpace C]
+  [algebraC : Algebra R C]
+  [localC : IsLocalRing C]
+  coefficient : C ≃+* MonoidAlgebra (R ⧸ Ideal.span {M}) (LayerAbelianGal A field)
+  coefficientScalar : ∀ a : R, coefficient (algebraMap R C a) =
+    MonoidAlgebra.single 1 (Ideal.Quotient.mk (Ideal.span {M}) a)
+  B : TopRep.{0} C (GK K)
+  [freeB : Module.Free C B]
+  [finiteB : Module.Finite C B]
+  [moduleR : Module R B]
+  [towerR : IsScalarTower R C B]
+  inducedEquiv : B ≃ₗ[R] inducedAt T field.val M
+  inducedAction : ∀ g x, inducedEquiv (B.ρ g x) = (inducedAt T field.val M).ρ g (inducedEquiv x)
+  S : SelmerTriple K C B
+  comparison : TauCeti.StarkSystems.ComparisonData S A.p
+  hypotheses61 : BSSHypothesis61 A
+  admissible : IsAdmissibleTower T A
+  auxiliaryPrimes : ∀ q ∈ S.primes, Sum.inr q ∉ A.bad ∧
+    (frobenius K q).val ∈ field.val.group ∧
+    (Fintype.card (gammaPrime K A.p q) : R) ∈ Ideal.span {M} ∧
+    (E.poly T q (by sorry)).eval 1 ∈ Ideal.span {M}
+  polynomial : E.normalization = .rubin
+  canonical : ∀ v : Place K, S.F.condition v =
+    inducedCanonicalCondition T field.val A.p M B inducedEquiv v
+attribute [instance] HigherDerivativeData.ringC HigherDerivativeData.spaceC HigherDerivativeData.algebraC
+attribute [instance] HigherDerivativeData.localC HigherDerivativeData.freeB HigherDerivativeData.finiteB
+attribute [instance] HigherDerivativeData.moduleR HigherDerivativeData.towerR
+abbrev RawHigherStalk {E : EulerFactors T A} {M : R} {r : ℕ} (h : HigherDerivativeData E M r) :=
+  Module.Dual h.C (⋀[h.C]^r (Module.Dual h.C (H K h.C h.B 1)))
+instance rawHigherModule {E : EulerFactors T A} {M : R} {r : ℕ} (h : HigherDerivativeData E M r) :
+    Module R (RawHigherStalk h) := Module.compHom _ (algebraMap R h.C)
+abbrev HigherKS {E : EulerFactors T A} {M : R} {r : ℕ} (h : HigherDerivativeData E M r) (hr : 0 < r) :=
+  TauCeti.StarkSystems.KolyvaginSystemRank h.comparison r hr
+instance higherKSModule {E : EulerFactors T A} {M : R} {r : ℕ} (h : HigherDerivativeData E M r) (hr : 0 < r) :
+    Module R (HigherKS h hr) := Module.compHom _ (algebraMap R h.C)
+/-- Raw derivative before correcting the transverse local condition. -/
+def rawHigherDerivative (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r) (n : Vertices h.S) : RawHigherStalk h := sorry
+/-- The relative group is a product over auxiliary primes; the full group over K
+remains an extension, as BSS II §6.3 requires. -/
+def derivativeAuxiliary (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) : FiniteLayer A := sorry
+lemma derivativeAuxiliary_group (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :
+    (derivativeAuxiliary E M r h n).val.group = h.field.val.group ⊓ (rayLayer K A.p n.val).group := sorry
+def derivativeRelativeProduct (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :
+    RelativeAuxGroup h.field.val A.p n.val ≃* (∀ q : n.val, gammaPrime K A.p q) := sorry
+/-- Canonical embedding of one cyclic factor in the full auxiliary Galois group. -/
+def derivativeGenerator (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) (q : n.val) :
+    gammaPrime K A.p q →* LayerAbelianGal A (derivativeAuxiliary E M r h n) := sorry
+/-- The literal product of cyclic group-ring derivatives. -/
+def higherDerivativeOperator (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) (σ : ∀ q : n.val, gammaPrime K A.p q) :
+    MonoidAlgebra (R ⧸ Ideal.span {M}) (LayerAbelianGal A (derivativeAuxiliary E M r h n)) :=
+  ∏ q : n.val, ∑ i ∈ Finset.range (Fintype.card (gammaPrime K A.p q)),
+    MonoidAlgebra.single (derivativeGenerator E M r h n q (σ q)^i) (i : R ⧸ Ideal.span {M})
+/-- Normalized bidual restriction, including Shapiro. Its transfer uses
+Sano's i(N_H^{∧r}x)=N_H x, with compatible lifts of coefficient functionals. -/
+def higherRestriction (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :
+    RawHigherStalk h →ₗ[R] FullReducedBidual A (derivativeAuxiliary E M r h n) M r := sorry
+/-- The generator-dependent raw derivative, before the determinant correction. -/
+def rawHigherWithGenerators (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (σ : ∀ q : n.val, gammaPrime K A.p q)
+    (hσ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) : RawHigherStalk h := sorry
+lemma rawHigherWithGenerators_formula (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (σ : ∀ q : n.val, gammaPrime K A.p q)
+    (hσ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    higherRestriction E M r h n (rawHigherWithGenerators E M r h c n σ hσ) =
+      higherDerivativeOperator E M r h n σ •
+        reduceHigher E r (derivativeAuxiliary E M r h n) M h.hypotheses61
+          (c.val (derivativeAuxiliary E M r h n)) := sorry
+abbrev AmbientHigherStalk {E : EulerFactors T A} {M : R} {r : ℕ}
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :=
+  RawHigherStalk h ⊗[ℤ] tameGroup K A.p n.val
+/-- The image of P_q(Fr_l⁻¹) in the q-augmentation quotient. The coefficient
+identification h.coefficient is applied to its Gal(E/K) component. -/
+def higherRhoEuler (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (q l : Prime K) (hq : q ∈ h.S.primes) :
+    h.C ⊗[ℤ] tamePrime K A.p q := sorry
+/-- Multiply scalar factors and concatenate the tame factors; the formula on pure
+tensors fixes both the factor order and the normalization. -/
+def higherTensorFactors (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :
+    RawHigherStalk h → (∀ q : n.val, h.C ⊗[ℤ] tamePrime K A.p q) → AmbientHigherStalk h n := sorry
+lemma higherTensorFactors_pure (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) (x : RawHigherStalk h)
+    (a : n.val → h.C) (g : ∀ q : n.val, tamePrime K A.p q) :
+    higherTensorFactors E M r h n x (fun q => a q ⊗ₜ[ℤ] g q) =
+      ((∏ q, a q) • x) ⊗ₜ[ℤ] PiTensorProduct.tprod ℤ g := sorry
+/-- Bidual covariance of the actual Selmer inclusion. -/
+def higherSelmerInclusion (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (n : Vertices h.S) :
+    TauCeti.StarkSystems.rankStalk h.comparison r n →ₗ[R] AmbientHigherStalk h n := sorry
+/-- The permutation expression for the zero-diagonal determinant correction.
+Fixed factors contribute σ_q−1; non-fixed factors contribute P_q(Fr_{π(q)}⁻¹). -/
+def correctedHigherAmbient (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (σ : ∀ q : n.val, gammaPrime K A.p q)
+    (hσ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) : AmbientHigherStalk h n :=
+  ∑ π : Equiv.Perm n.val, (Equiv.Perm.sign π : ℤ) •
+    higherTensorFactors E M r h n
+      (rawHigherWithGenerators E M r h c ⟨fixedPart n.val π,by sorry⟩
+        (fun q => σ ⟨q.val,by sorry⟩) (by sorry))
+      (fun q => if (π q).val = q.val then 1 ⊗ₜ[ℤ] Additive.ofMul (σ q)
+        else higherRhoEuler E M r h q.val (π q).val (n.prop q.val q.prop))
+lemma correctedHigherAmbient_one (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r)
+    (σ : ∀ q : (initialVertex h.S).val, gammaPrime K A.p q)
+    (hσ : ∀ (q : (initialVertex h.S).val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    correctedHigherAmbient E M r h c (initialVertex h.S) σ hσ =
+      rawHigherWithGenerators E M r h c (initialVertex h.S) σ hσ ⊗ₜ[ℤ]
+        PiTensorProduct.tprod ℤ (fun q => Additive.ofMul (σ q)) := sorry
+
+/-- The actual local-condition equalizer is the target, over the reduced induced group ring. -/
+def higherDerivative (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r)
+    (h611 : BSSHypothesis611 T A.p h.S.primes) : HigherEulerSystem E r →ₗ[R] HigherKS h hr := sorry
+lemma higherDerivative_singular (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r) (h611 : BSSHypothesis611 T A.p h.S.primes)
+    (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (q : Prime K) (hq : q ∈ h.S.primes) (hqn : q ∉ n.val) :
+    TauCeti.StarkSystems.rankUpper h.comparison r hr n q hq hqn
+      ((higherDerivative E M r hr h h611 c).val (vertexInsert h.S n q hq)) =
+    TauCeti.StarkSystems.rankLower h.comparison r hr n q hq hqn ((higherDerivative E M r hr h h611 c).val n) := sorry
+-- Unit test: TauCeti.EulerSystems.higherDerivative_zero
+example (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r) (h : HigherDerivativeData E M r)
+    (h611 : BSSHypothesis611 T A.p h.S.primes) :
+    higherDerivative E M r hr h h611 0 = 0 := sorry
+-- Unit test: TauCeti.EulerSystems.higherDerivative_needs_611
+example (T : HigherRep K R) (e : T ≃ₗ[R] R) [Nontrivial R]
+    (h : ∀ g x, T.ρ g x = x) (p : ℕ) (q : Prime K) : ¬ BSSHypothesis611 T p {q} := sorry
+lemma higherDerivative_eval (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r) (h611 : BSSHypothesis611 T A.p h.S.primes)
+    (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (σ : ∀ q : n.val, gammaPrime K A.p q)
+    (hσ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    higherSelmerInclusion E M r h n ((higherDerivative E M r hr h h611 c).val n) =
+      correctedHigherAmbient E M r h c n σ hσ := sorry
+lemma higherDerivative_indep (E : EulerFactors T A) (M : R) (r : ℕ)
+    (h : HigherDerivativeData E M r) (c : HigherEulerSystem E r) (n : Vertices h.S)
+    (σ τ : ∀ q : n.val, gammaPrime K A.p q)
+    (hσ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (hτ : ∀ (q : n.val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (τ q)) :
+    correctedHigherAmbient E M r h c n σ hσ = correctedHigherAmbient E M r h c n τ hτ := sorry
+example (E : EulerFactors T A) (M : R) (r : ℕ) (h : HigherDerivativeData E M r)
+    (σ : ∀ q : (initialVertex h.S).val, gammaPrime K A.p q) :
+    higherDerivativeOperator E M r h (initialVertex h.S) σ = 1 := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.RubinStark
+open TauCeti.KolyvaginSystems
+variable {K : Type} [Field K] [NumberField K]
+/-- A named abelian Galois carrier preserves the underlying canonical quotient group. -/
+def AbelianGal (F : Layer K) := Layer.Gal K F
+instance abelianGroup (F : Layer K) : Group (AbelianGal F) :=
+  inferInstanceAs (Group (Layer.Gal K F))
+instance abelianComm (F : Layer K) [IsMulCommutative (Layer.Gal K F)] : CommGroup (AbelianGal F) :=
+  {__ := abelianGroup F, mul_comm := sorry}
+instance abelianFinite (F : Layer K) : Fintype (AbelianGal F) :=
+  inferInstanceAs (Fintype (Layer.Gal K F))
+/-- Valuation dictionary from Mathlib's Dedekind-domain adic valuation; ord is additive. -/
+def placeOrder {L : Type} [Field L] [NumberField L] (w : Prime L) : Lˣ →* Multiplicative ℤ := sorry
+lemma placeOrder_valuation {L : Type} [Field L] [NumberField L] (w : Prime L) (u : Lˣ) :
+    w.valuation L u.val = WithZero.coe (placeOrder w u)⁻¹ := sorry
+/-- S and T here are FINITE primes. S is the set of designated split primes, whereas
+S0 in the Stickelberger input also contains ramification and infinite places. -/
+def modifiedUnits (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) : Subgroup F.fieldˣ :=
+  {carrier := {u | (∀ w : Prime F.field, (∀ q ∈ S, w ∉ primesAbove F q) → placeOrder w u = 1) ∧
+      ∀ q ∈ T, ∀ w ∈ primesAbove F q, w.valuation F.field (u.val-1) < 1},
+    one_mem' := sorry, mul_mem' := sorry, inv_mem' := sorry}
+/-- Arithmetic field action, imported through the infinite Galois dictionary. -/
+def fieldAction (F : Layer K) [IsMulCommutative (Layer.Gal K F)] : AbelianGal F →* (F.field ≃ₐ[K] F.field) := sorry
+def unitRepresentation (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) :
+    Representation ℤ (AbelianGal F) (Additive (modifiedUnits F S T)) := sorry
+lemma unitRepresentation_apply (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) (g : AbelianGal F)
+    (u : Additive (modifiedUnits F S T)) :
+    ((unitRepresentation F S T g u).toMul.val : F.field) = fieldAction F g u.toMul.val.val := sorry
+abbrev UnitModule (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) := (unitRepresentation F S T).asModule
+/-- Rationalization retains the FULL unit module before taking the minus part. -/
+def rationalUnitRepresentation (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) :
+    Representation ℚ (AbelianGal F) (ℚ ⊗[ℤ] Additive (modifiedUnits F S T)) := sorry
+lemma rationalUnitRepresentation_pure (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) (g : AbelianGal F)
+    (a : ℚ) (u : Additive (modifiedUnits F S T)) :
+    rationalUnitRepresentation F S T g (a ⊗ₜ[ℤ] u) = a ⊗ₜ[ℤ] (unitRepresentation F S T g u) := sorry
+abbrev RationalUnits (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) := (rationalUnitRepresentation F S T).asModule
+/-- The CM extension, its actual conjugation, and the selected split primes. -/
+structure Data (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) (r : ℕ) where
+  positiveRank : 0 < r
+  totallyReal : ∀ v : NumberField.InfinitePlace K, v.IsReal
+  totallyImaginary : ∀ w : NumberField.InfinitePlace F.field, ¬ w.IsReal
+  c : AbelianGal F
+  conjugation : ∀ (w : F.field →+* ℂ) (x : F.field), w (fieldAction F c x) = star (w x)
+  square : c^2 = 1
+  nontrivial : c ≠ 1
+  disjoint : Disjoint S T
+  torsionFree : Module.IsTorsionFree ℤ (UnitModule F S T)
+  v : Fin r → Prime K
+  inS : ∀ i, v i ∈ S
+  enumerates : Function.Bijective (fun i => (⟨v i,inS i⟩ : S))
+  split : ∀ i, IsUnramifiedLayer F (v i) ∧ (frobenius K (v i)).val ∈ F.group
+  w : Fin r → Prime F.field
+  above : ∀ i, w i ∈ primesAbove F (v i)
+variable {F : Layer K} [IsMulCommutative (Layer.Gal K F)] {S T : Finset (Prime K)} {r : ℕ}
+abbrev RationalExterior (F : Layer K) [IsMulCommutative (Layer.Gal K F)] (S T : Finset (Prime K)) (r : ℕ) :=
+  ⋀[MonoidAlgebra ℚ (AbelianGal F)]^r (RationalUnits F S T)
+def minusExterior (D : Data F S T r) : Submodule (MonoidAlgebra ℚ (AbelianGal F)) (RationalExterior F S T r) :=
+  LinearMap.ker ((MonoidAlgebra.of ℚ _ D.c) • LinearMap.id + LinearMap.id)
+def minusGroupRing (D : Data F S T r) : Submodule (MonoidAlgebra ℚ (AbelianGal F)) (MonoidAlgebra ℚ (AbelianGal F)) :=
+  LinearMap.ker ((MonoidAlgebra.of ℚ _ D.c) • LinearMap.id + LinearMap.id)
+def rationalUnit (u : UnitModule F S T) : RationalUnits F S T :=
+  (rationalUnitRepresentation F S T).asModuleEquiv.symm
+    (1 ⊗ₜ[ℤ] (unitRepresentation F S T).asModuleEquiv u)
+def equivariantOrder (D : Data F S T r) (j : Fin r) :
+    RationalUnits F S T →ₗ[MonoidAlgebra ℚ (AbelianGal F)] MonoidAlgebra ℚ (AbelianGal F) := sorry
+def actedUnit (g : AbelianGal F) (u : UnitModule F S T) : F.fieldˣ :=
+  Units.map (fieldAction F g).toRingHom.toMonoidHom
+    ((unitRepresentation F S T).asModuleEquiv u).toMul.val
+lemma equivariantOrder_unit (D : Data F S T r) (j : Fin r) (u : UnitModule F S T) :
+    equivariantOrder D j (rationalUnit u) = ∑ σ : AbelianGal F,
+      MonoidAlgebra.single σ⁻¹ ((placeOrder (D.w j) (actedUnit σ u)).toAdd : ℚ) := sorry
+def ordG (D : Data F S T r) : minusExterior D →ₗ[MonoidAlgebra ℚ (AbelianGal F)] minusGroupRing D := sorry
+lemma ordG_ιMulti (D : Data F S T r) (u : Fin r → RationalUnits F S T)
+    (hminus : exteriorPower.ιMulti _ r u ∈ minusExterior D) :
+    (ordG D ⟨exteriorPower.ιMulti _ r u,hminus⟩).val = Matrix.det (fun i j => equivariantOrder D j (u i)) := sorry
+lemma ordG_bijective (D : Data F S T r) : Function.Bijective (ordG D) := sorry
+/-- Every integral group-ring functional is extended to rational scalars. -/
+def rationalFunctional (φ : UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F)) :
+    RationalUnits F S T →ₗ[MonoidAlgebra ℚ (AbelianGal F)] MonoidAlgebra ℚ (AbelianGal F) := sorry
+lemma rationalFunctional_unit (φ : UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F))
+    (u : UnitModule F S T) (g : AbelianGal F) : (rationalFunctional φ (rationalUnit u)).coeff g = ((φ u).coeff g : ℚ) := sorry
+def determinantFunctional
+    (φ : Fin r → (UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F))) :
+    RationalExterior F S T r →ₗ[MonoidAlgebra ℚ (AbelianGal F)] MonoidAlgebra ℚ (AbelianGal F) := sorry
+lemma determinantFunctional_pure
+    (φ : Fin r → (UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F)))
+    (u : Fin r → RationalUnits F S T) :
+    determinantFunctional φ (exteriorPower.ιMulti _ r u) = Matrix.det (fun i j => rationalFunctional (φ i) (u j)) := sorry
+/-- Integral bidual lattice, tested against the FULL integral unit dual. -/
+def rubinLattice (D : Data F S T r) : Submodule ℤ (minusExterior D) :=
+  {carrier := {x | ∀ φ : Fin r → (UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F)),
+      ∀ g, ∃ a : ℤ, (determinantFunctional φ x.val).coeff g = a},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+/-- Θ is imported from IntegralIwasawaTheory I.7, including its partial-zeta definition.
+It is a concrete minus group-ring element, not a presumed integral unit. -/
+def rubinBrumerStark (D : Data F S T r) (Θ : minusGroupRing D) : minusExterior D :=
+  (LinearEquiv.ofBijective (ordG D) (ordG_bijective D)).symm Θ
+lemma ordG_rubinBrumerStark (D : Data F S T r) (Θ : minusGroupRing D) : ordG D (rubinBrumerStark D Θ) = Θ := sorry
+def RubinConjecture (D : Data F S T r) (Θ : minusGroupRing D) : Prop := rubinBrumerStark D Θ ∈ rubinLattice D
+lemma rubinBrumerStark_change_w (D D' : Data F S T r) (h : D.c = D'.c) (hv : D.v = D'.v)
+    (Θ : minusGroupRing D) (Θ' : minusGroupRing D') (hΘ : Θ.val = Θ'.val) :
+    ∃ g : AbelianGal F, (rubinBrumerStark D' Θ').val = MonoidAlgebra.of ℚ _ g • (rubinBrumerStark D Θ).val := sorry
+lemma rubinConjecture_indep (D D' : Data F S T r) (hc : D.c = D'.c)
+    (Θ : minusGroupRing D) (Θ' : minusGroupRing D') (hΘ : Θ.val = Θ'.val) :
+    RubinConjecture D Θ ↔ RubinConjecture D' Θ' := sorry
+-- Unit test: TauCeti.RubinStark.rubinBrumerStark_zero
+example (D : Data F S T r) : rubinBrumerStark D 0 = 0 ∧ RubinConjecture D 0 := sorry
+-- Unit test: TauCeti.RubinStark.rubinBrumerStark_unique
+example (D : Data F S T r) (Θ : minusGroupRing D) (x : minusExterior D) (hx : ordG D x = Θ) :
+    x = rubinBrumerStark D Θ := sorry
+-- Unit test: TauCeti.RubinStark.rubinLattice_nonintegral_functional
+example (D : Data F S T r) (x : minusExterior D)
+    (φ : Fin r → (UnitModule F S T →ₗ[MonoidAlgebra ℤ (AbelianGal F)] MonoidAlgebra ℤ (AbelianGal F)))
+    (g : AbelianGal F) (h : ∀ a : ℤ, (determinantFunctional φ x.val).coeff g ≠ a) : x ∉ rubinLattice D := sorry
+-- Unit test: TauCeti.RubinStark.modifiedUnits_T_condition
+example (D : Data F S T r) (u : F.fieldˣ) (q : Prime K) (hq : q ∈ T)
+    (w : Prime F.field) (hw : w ∈ primesAbove F q) (h : 1 ≤ w.valuation F.field (u.val-1)) : u ∉ modifiedUnits F S T := sorry
+example (u : F.fieldˣ) (h : ∀ w : Prime F.field, placeOrder w u = 1)
+    (hT : ∀ q ∈ T, ∀ w ∈ primesAbove F q, w.valuation F.field (u.val-1)<1) : u ∈ modifiedUnits F ∅ T := sorry
+example (u : F.fieldˣ) (w : Prime F.field) (hout : ∀ q ∈ S, w ∉ primesAbove F q)
+    (h : placeOrder w u ≠ 1) : u ∉ modifiedUnits F S T := sorry
+/-- Algebraic minus-lattice test: half of a determinant of two anti-invariant functionals
+is integral over Z[C2], although a projector (1-c)/2 is not integral. -/
+def c2 : Multiplicative (ZMod 2) := Multiplicative.ofAdd 1
+-- Unit test: TauCeti.RubinStark.rubinLattice_half_determinant
+example : ((1/2 : ℚ) • ((1-MonoidAlgebra.of ℚ _ c2)^2) :
+    MonoidAlgebra ℚ (Multiplicative (ZMod 2))) = 1-MonoidAlgebra.of ℚ _ c2 := sorry
+/-- Degree-one integral reflexivity of the full unit lattice, followed by the minus kernel. -/
+lemma rubinLattice_rank_one (D : Data F S T 1) (x : minusExterior D) :
+    x ∈ rubinLattice D ↔ ∃ u : UnitModule F S T,
+      x.val = exteriorPower.ιMulti _ 1 (fun _ => rationalUnit u) := sorry
+-- Unit test: TauCeti.RubinStark.rubinConjecture_not_projector
+example : ¬ ∃ z : MonoidAlgebra ℤ (Multiplicative (ZMod 2)),
+    ∀ g, ((z.coeff g : ℚ)) = ((1/2 : ℚ) • (1-MonoidAlgebra.of ℚ _ c2) : MonoidAlgebra ℚ (Multiplicative (ZMod 2))).coeff g := sorry
+end TauCeti.RubinStark
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+/-- Rubin IV.8.1: the difference polynomial is integral because |G_q| divides Nq-1. -/
+def congruencePolynomial (E : EulerFactors T A) (q : Prime K) (hq : Sum.inr q ∉ A.bad) : R[X] := sorry
+lemma congruencePolynomial_mul (E : EulerFactors T A) (q : Prime K) (hq : Sum.inr q ∉ A.bad) :
+    C (Fintype.card (gammaPrime K A.p q) : R) * congruencePolynomial E q hq =
+      E.poly T q hq - (E.poly T q hq).comp (C (primeNorm K q : R)*X) := sorry
+/-- Classes on the ray-class layers are unramified away from p. -/
+def RayFamilyUnramified (E : EulerFactors T A) (c : EulerSystem T E) (N : Conductor K) : Prop :=
+  ∀ (n : Conductor K) (_ : Disjoint n N) (F : FiniteLayer A),
+    F.val.group = (rayLayer K A.p n).group → ∀ w : Prime F.val.field,
+      ¬ isAboveP A.p w → locAt T F.val (Sum.inr w) (c.val F) ∈
+        unramified F.val.field R (layerRep T F.val) (Sum.inr w)
+def RayFamilyCongruent (E : EulerFactors T A) (c : EulerSystem T E) (N : Conductor K) : Prop :=
+  ∀ (n : Conductor K) (q : Prime K) (hq : q ∉ N) (_ : q ∉ n)
+    (F F' : FiniteLayer A) (_ : F.val.group = (rayLayer K A.p n).group)
+    (_ : F'.val.group = (rayLayer K A.p (insert q n)).group)
+    (h : F'.val.group ≤ F.val.group) (w : Prime F'.val.field) (_ : w ∈ primesAbove F'.val q)
+    (hbad : Sum.inr q ∉ A.bad),
+    locAt T F'.val (Sum.inr w) (c.val F') = locAt T F'.val (Sum.inr w)
+      (resAt T F.val F'.val h
+        (aeval (cohomologyAction T F.val (QuotientGroup.mk (frobenius K q).val⁻¹))
+          (congruencePolynomial E q hbad) (c.val F)))
+/-- Rubin IX.1, pp.133–135: rigidity is a condition on a family, with three alternatives. -/
+def IsRigid (E : EulerFactors T A) (c : EulerSystem T E) (N : Conductor K) : Prop :=
+  Nonempty (InfiniteDirection T A) ∨
+    (RayFamilyUnramified E c N ∧ ∃ γ : GK K, γ ∈ rubinHM A.p ∧
+      Function.Injective ((T.ρ γ).toLinearMap-(LinearMap.id : Module.End R T))) ∨
+    (RayFamilyUnramified E c N ∧
+      (∀ q : Prime K, q ∉ N → ∀ k : ℕ,
+        Function.Injective ((frobEnd T q)^(A.p^k)-(LinearMap.id : Module.End R T))) ∧ RayFamilyCongruent E c N)
+-- Unit test: IsRigid.of_admissible
+example (E : EulerFactors T A) (h : IsAdmissibleTower T A) (c : EulerSystem T E) (N : Conductor K) : IsRigid E c N := sorry
+-- Unit test: not_isRigid_failed_unramified
+example (E : EulerFactors T A) (c : EulerSystem T E) (N : Conductor K)
+    (ha : IsEmpty (InfiniteDirection T A)) (hu : ¬ RayFamilyUnramified E c N) : ¬ IsRigid E c N := sorry
+-- Unit test: IsRigid.of_injective_direction
+example (E : EulerFactors T A) (c : EulerSystem T E) (N : Conductor K)
+    (hu : RayFamilyUnramified E c N) (γ : GK K) (hγ : γ ∈ rubinHM A.p)
+    (hi : Function.Injective ((T.ρ γ).toLinearMap-(LinearMap.id : Module.End R T))) : IsRigid E c N := sorry
+
+/-- General cyclic character data for Rubin IX.4; no imaginary-quadratic specialization. -/
+structure AnticyclotomicData (T : GaloisRep K R) (p : ℕ) [Fact p.Prime] where
+  chi : GK K →* (PadicInt p)ˣ
+  continuous : Continuous chi
+  d : ℕ
+  positive : 0 < d
+  divides : d ∣ p-1
+  order : orderOf chi = d
+  base : Layer K
+  baseSpec : base.group = chi.ker
+  tower : Subgroup (GK K)
+  normal : tower.Normal
+  closed : IsClosed (tower : Set (GK K))
+  overBase : tower ≤ base.group
+  abelianOverBase : ∀ g h : base.group, g.val*h.val*g.val⁻¹*h.val⁻¹ ∈ tower
+  proP : ∀ (F : Layer K) (_ : tower ≤ F.group) (h : F.group ≤ base.group),
+    ∃ k, Fintype.card (relativeGal base F h) = p^k
+  bad : Conductor K
+  atP : ∀ q, isAboveP p q → q ∈ bad
+  ramified : ∀ q, ¬ IsUnramified K R T (Sum.inr q) → q ∈ bad
+  chiRamified : ∀ q, ¬ IsUnramifiedLayer base q → q ∈ bad
+attribute [instance] AnticyclotomicData.normal
+abbrev AntiLayer {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) :=
+  {F : Layer K // D.tower ≤ F.group ∧ F.group ≤ D.base.group}
+/-- χ acts by p-adic powering on the abelian pro-p relative Galois group. -/
+def relativePadicPower {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p)
+    (g : D.base.group) (a : PadicInt p) : D.base.group ⧸ D.tower.subgroupOf D.base.group := sorry
+lemma relativePadicPower_nat {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p)
+    (g : D.base.group) (n : ℕ) : relativePadicPower D g n = (QuotientGroup.mk g)^n := sorry
+/-- The tower action is conjugation by GK, identified with multiplication by χ. -/
+def HasChiAction {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) : Prop :=
+  ∀ (σ : GK K) (g : D.base.group) (h : σ*g.val*σ⁻¹ ∈ D.base.group),
+    QuotientGroup.mk (⟨σ*g.val*σ⁻¹,h⟩ : D.base.group) = relativePadicPower D g (D.chi σ : PadicInt p)
+/-- Character part of ray extensions over K', with modulus formed from primes of K. -/
+def antiRayLayer {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) (n : Conductor K) : Layer K := sorry
+def AntiRayContract {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) : Prop :=
+  HasChiAction D ∧ ∀ q ∉ D.bad, D.tower ≤ (antiRayLayer D {q}).group
+/-- The norm family is based at K', but Euler factors are attached to primes of K. -/
+def antiFactor {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (F F' : AntiLayer D) : Module.End R (HAt K R T F.val 1) := sorry
+lemma antiFactor_formula {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (F F' : AntiLayer D) (m : ℕ) (q : Fin m → Prime K)
+    (hq : Function.Injective q)
+    (enumerates : ∀ v, v ∈ Set.range q ↔ v ∉ D.bad ∧ IsUnramifiedLayer F.val v ∧ ¬ IsUnramifiedLayer F'.val v)
+    (u : Fin m → Rˣ) (hu : ∀ i, (u i : R) = primeNorm K (q i)) :
+    antiFactor D F F' = (List.ofFn (fun i : Fin m =>
+      Polynomial.eval₂ (algebraMap R (Module.End R (HAt K R T F.val 1)))
+        (cohomologyAction T F.val (QuotientGroup.mk (frobenius K (q i)).val⁻¹))
+        (eulerPoly T (q i) (u i) (hu i)))).prod := sorry
+def AnticyclotomicNormFamily {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) : Submodule R (∀ F : AntiLayer D, HAt K R T F.val 1) :=
+  {carrier := {c | ∀ (F F' : AntiLayer D) (h : F'.val.group ≤ F.val.group), corAt T F.val F'.val h (c F') = antiFactor D F F' (c F)},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+/-- The rigidity alternatives use the norm family itself. Their χ-adapted arithmetic
+maps are the base-changed IV.8.1 congruence and K'(1)_χ root/unit fixed group. -/
+def AntiUnramified {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (c : AnticyclotomicNormFamily D) : Prop :=
+  ∀ (n : Conductor K) (F : AntiLayer D), F.val.group = (antiRayLayer D n).group → ∀ w : Prime F.val.field,
+    ¬ isAboveP p w → locAt T F.val (Sum.inr w) (c.val F) ∈
+      unramified F.val.field R (layerRep T F.val) (Sum.inr w)
+def antiHM {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) : Subgroup (GK K) := sorry
+lemma antiHM_spec {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) (g : GK K) :
+    g ∈ antiHM D ↔ g ∈ (antiRayLayer D ∅).group ∧
+      ∀ h : GK D.base.field, layerGalois D.base h = g → h ∈
+        rootsGroup p none ⊓ unitsRootsGroup p none := sorry
+/-- Cyclotomic character from the roots-of-unity action, imported from ProfiniteArithmetic. -/
+def cyclotomicCharacter (K : Type) [Field K] [NumberField K] (p : ℕ) [Fact p.Prime] : GK K →* (PadicInt p)ˣ := sorry
+structure AntiDirection {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) where
+  group : Subgroup (GK K)
+  normal : group.Normal
+  closed : IsClosed (group : Set (GK K))
+  between : D.tower ≤ group ∧ group ≤ D.base.group
+  d : ℕ
+  positive : 0 < d
+  quotient : (D.base.group ⧸ group.subgroupOf D.base.group) ≃* Multiplicative (Fin d → PadicInt p)
+  continuous : Continuous quotient
+  inverseContinuous : Continuous quotient.symm
+  nonsplit : ∀ w : Prime D.base.field, ¬ ((layerGalois D.base).comp
+    (decomposition D.base.field (Sum.inr w)).subtype).range ≤ group
+-- The congruence operator is the χ-ray version of congruencePolynomial and uses
+-- (P_q(X)-P_q(Nq X))/[K'(q)_χ:K'(1)_χ], without division in the coefficient field.
+def antiCongruenceOperator {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (F : AntiLayer D) (q : Prime K) : Module.End R (HAt K R T F.val 1) := sorry
+def AntiCongruent {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (c : AnticyclotomicNormFamily D) : Prop :=
+  ∀ (n : Conductor K) (q : Prime K) (F F' : AntiLayer D) (h : F'.val.group ≤ F.val.group), q ∉ D.bad → q ∉ n →
+    F.val.group = (antiRayLayer D n).group → F'.val.group = (antiRayLayer D (insert q n)).group →
+    ∀ w ∈ primesAbove F'.val q, locAt T F'.val (Sum.inr w) (c.val F') =
+      locAt T F'.val (Sum.inr w) (resAt T F.val F'.val h (antiCongruenceOperator D F q (c.val F)))
+def AntiRigid {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (c : AnticyclotomicNormFamily D) : Prop :=
+  Nonempty (AntiDirection D) ∨ (AntiUnramified D c ∧ ∃ γ : GK K,
+    cyclotomicCharacter K p γ = D.chi γ ∧ γ^D.d ∈ antiHM D ∧
+    Function.Injective ((T.ρ γ).toLinearMap-(LinearMap.id : Module.End R T))) ∨
+    (AntiUnramified D c ∧ (∀ q ∉ D.bad, ∀ k : ℕ,
+      Function.Injective ((frobEnd T q)^(p^k)-(LinearMap.id : Module.End R T))) ∧ AntiCongruent D c)
+/-- Rigidity is not a linear property: this type is a norm family with a proof. -/
+def AnticyclotomicEulerSystem {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) := {c : AnticyclotomicNormFamily D // AntiRigid D c}
+def AnticyclotomicEulerSystem.of_trivial {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+    (D : AnticyclotomicData T p) (hd : D.d = 1) (hD : AntiRayContract D)
+    (E : EulerFactors T A) (hE : E.normalization = .rubin)
+    (hbase : D.base = baseLayer K) (htower : D.tower = A.subgroup)
+    (hbad : ∀ q, q ∈ D.bad ↔ Sum.inr q ∈ A.bad)
+    (c : EulerSystem T E) (hc : IsRigid E c D.bad) : AnticyclotomicEulerSystem D := sorry
+example {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p) (h : D.d = 1) : D.chi = 1 := sorry
+example {p : ℕ} [Fact p.Prime] (D : AnticyclotomicData T p)
+    (h : D.d = 2) (σ : GK K) : (D.chi σ)^2 = 1 := sorry
+example {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R] (D : AnticyclotomicData T p)
+    (c : AnticyclotomicNormFamily D) (h : AntiRigid D c) : Nonempty (AnticyclotomicEulerSystem D) := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] {S : SelmerTriple K R T} {p : ℕ}
+namespace KolyvaginSystem
+variable [IsLocalRing R]
+abbrev divIndex (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ) := partialInvariant D κ i
+lemma divIndex_zero (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    [Module.Finite R S.F.selmer] (h : Module.IsTorsionFree R S.F.selmer) (κ : KolyvaginSystem D) :
+    divIndex D κ 0 = ⊤ ↔ κ.val (initialVertex S) = 0 := sorry
+abbrev divIndexInfty (D : KolyvaginData T S p) (κ : KolyvaginSystem D) := partialInfinity D κ
+abbrev IsPrimitive (D : KolyvaginData T S p) (κ : KolyvaginSystem D) := TauCeti.KolyvaginSystems.IsPrimitive D κ
+/-- Infinite minus infinite is not an elementary divisor; restrict to i≥ord κ. -/
+def elementaryDivisor (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ)
+    (hi : KolyvaginSystem.ord D κ ≤ i) : ℕ∞ := divIndex D κ i - divIndex D κ (i+1)
+lemma divIndex_smul [IsDomain R] [IsDiscreteValuationRing R] (D : KolyvaginData T S p)
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) (κ : KolyvaginSystem D) (i : ℕ)
+    (hfree : ∀ n : Vertices S, n.val.card=i → Module.IsTorsionFree R (D.Stalk n)) :
+    divIndex D (π • κ) i = divIndex D κ i + 1 := sorry
+lemma not_isPrimitive_smul [IsDomain R] [IsDiscreteValuationRing R] (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1)
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) (κ : KolyvaginSystem D) :
+    ¬ IsPrimitive D (π • κ) := sorry
+/-- The source's artinian convention uses the length of the cyclic span, not an
+ambient m-adic divisibility of an element of a nonfree stalk. -/
+def artinianDivIndex (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ) : ℕ∞ :=
+  artinianPartialInvariant D κ i
+lemma artinianDivIndex_zero [IsArtinianRing R] (D : KolyvaginData T S p) (i : ℕ)
+    (hexists : ∃ n : Vertices S, n.val.card=i) : artinianDivIndex D 0 i = len R R := sorry
+lemma ord_eq (D : KolyvaginData T S p) [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hr : latticeCoreRank T S.F = 1) (κ : KolyvaginSystem D) :
+    KolyvaginSystem.ord D κ = ⨅ i ∈ {i : ℕ | divIndex D κ i < ⊤}, (i : ℕ∞) := sorry
+lemma ord_eq_artinian (D : KolyvaginData T S p) [IsArtinianRing R] [IsPrincipalIdealRing R]
+    (κ : KolyvaginSystem D) :
+    KolyvaginSystem.ord D κ = ⨅ i ∈ {i : ℕ | artinianDivIndex D κ i < len R R}, (i : ℕ∞) := sorry
+-- Unit test: divIndex_zero_order
+example (D : KolyvaginData T S p) : KolyvaginSystem.ord D 0 = ⊤ := sorry
+-- Unit test: divIndex_zero_artinian
+example (D : KolyvaginData T S p) [IsArtinianRing R] (i : ℕ)
+    (hi : ∃ n : Vertices S, n.val.card=i) : artinianDivIndex D 0 i = len R R := sorry
+-- Unit test: divIndex_scaling
+example [IsDomain R] [IsDiscreteValuationRing R] (D : KolyvaginData T S p)
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) (κ : KolyvaginSystem D)
+    (hfree : ∀ n : Vertices S, n.val.card=0 → Module.IsTorsionFree R (D.Stalk n))
+    (hκ : divIndex D κ 0 = 3) : divIndex D (π^2 • κ) 0 = 5 := sorry
+end KolyvaginSystem
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T] {S : SelmerTriple K R T} {p : ℕ}
+/-- Normalize the tame factors, retaining their generators and actual edge maps. -/
+structure DualEdgeDictionary (D : KolyvaginData T S p) where
+  level : AtLevel S p
+  tameGenerator : ∀ q : S.primes, tamePrime K p q.val
+  generates : ∀ (q : S.primes) (g : tamePrime K p q.val),
+    g ∈ AddSubgroup.zmultiples (tameGenerator q)
+  edgeEquiv : ∀ n q hq, D.EdgeStalk n q hq ≃ₗ[R] singular T q
+  value : ∀ (n : Vertices S) (q : S.primes), q.val ∈ n.val → D.Stalk n →ₗ[R] singular T q.val
+  upper : ∀ n q hq hqn (x : D.Stalk (vertexInsert S n q hq)),
+    value (vertexInsert S n q hq) ⟨q,hq⟩ (by sorry) x =
+      edgeEquiv n q hq (edgeUpper D n q hq hqn x)
+abbrev FiniteEdgeValues (n : Vertices S) := ∀ q : {q : S.primes // q.val ∈ n.val}, singular T q.val.val
+/-- ψ_d includes edge values in the larger sum by zero outside d. -/
+def edgeRelationMap (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (d n : Vertices S) (h : d.val ⊆ n.val) : D.Stalk d →ₗ[R] FiniteEdgeValues (T := T) n :=
+  {toFun := fun x q => if hq : q.val.val ∈ d.val then E.value d q.val hq x else 0,
+    map_add' := sorry, map_smul' := sorry}
+def finiteEdgeRelations (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) (n : Vertices S) : Submodule R (FiniteEdgeValues (T := T) n) :=
+  ⨆ (d : Vertices S) (h : d.val ⊆ n.val),
+    Submodule.span R {edgeRelationMap D E d n h (κ.val d)}
+abbrev finiteKolyvaginDualSelmer (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) (n : Vertices S) := FiniteEdgeValues (T := T) n ⧸ finiteEdgeRelations D E κ n
+def edgeExtension (m n : Vertices S) (h : m.val ⊆ n.val) :
+    FiniteEdgeValues (T := T) m →ₗ[R] FiniteEdgeValues (T := T) n := sorry
+lemma edgeExtension_apply (m n : Vertices S) (h : m.val ⊆ n.val)
+    (x : FiniteEdgeValues (T := T) m) (q : {q : S.primes // q.val ∈ n.val}) :
+    edgeExtension m n h x q = if hq : q.val.val ∈ m.val then x ⟨q.val,hq⟩ else 0 := sorry
+def kolyvaginDualSelmer_map (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) (m n : Vertices S) (h : m.val ⊆ n.val) :
+    finiteKolyvaginDualSelmer D E κ m →ₗ[R] finiteKolyvaginDualSelmer D E κ n := sorry
+lemma kolyvaginDualSelmer_map_mk (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) (m n : Vertices S) (h : m.val ⊆ n.val)
+    (x : FiniteEdgeValues (T := T) m) : kolyvaginDualSelmer_map D E κ m n h (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk (edgeExtension m n h x) := sorry
+/-- Direct sum presentation of the filtered colimit: all local edges, modulo the
+images ψ_d(Rκ_d). This is not a union of torsion submodules of a Selmer group. -/
+abbrev GlobalEdgeValues (S : SelmerTriple K R T) := Π₀ q : S.primes, singular T q.val
+def globalEdgeExtension (n : Vertices S) : FiniteEdgeValues (T := T) n →ₗ[R] GlobalEdgeValues (T := T) S := sorry
+lemma globalEdgeExtension_apply (n : Vertices S) (x : FiniteEdgeValues (T := T) n) (q : S.primes) :
+    globalEdgeExtension n x q = if hq : q.val ∈ n.val then x ⟨q,hq⟩ else 0 := sorry
+def globalEdgeRelations (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) : Submodule R (GlobalEdgeValues (T := T) S) :=
+  ⨆ d : Vertices S, Submodule.span R {globalEdgeExtension d
+    (edgeRelationMap D E d d (Finset.Subset.refl _) (κ.val d))}
+abbrev kolyvaginDualSelmer (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) := GlobalEdgeValues (T := T) S ⧸ globalEdgeRelations D E κ
+def finiteToGlobalDualSelmer (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) (n : Vertices S) :
+    finiteKolyvaginDualSelmer D E κ n →ₗ[R] kolyvaginDualSelmer D E κ := sorry
+/-- Universal property of the colimit, with its actual transition maps. -/
+theorem kolyvaginDualSelmer_colimit (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) {M : Type} [AddCommGroup M] [Module R M]
+    (f : ∀ n, finiteKolyvaginDualSelmer D E κ n →ₗ[R] M)
+    (hf : ∀ m n h, (f n).comp (kolyvaginDualSelmer_map D E κ m n h) = f m) :
+    ∃! g : kolyvaginDualSelmer D E κ →ₗ[R] M, ∀ n, g.comp (finiteToGlobalDualSelmer D E κ n) = f n := sorry
+/-- The discrete character dual is imported from L2, with scalar action by precomposition. -/
+abbrev CharacterDual (M : Type) [AddCommGroup M] := M →+ QZ
+instance characterDualModule (M : Type) [AddCommGroup M] [Module R M] : Module R (CharacterDual M) := sorry
+lemma characterDual_smul (M : Type) [AddCommGroup M] [Module R M]
+    (a : R) (φ : CharacterDual M) (x : M) : (a • φ) x = φ (a • x) := sorry
+/-- The canonical global-duality map has kernel the classes strict at every prime in P. -/
+def dualSelmerToKolyvaginDual (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) :
+    (dualStructure T S.F).selmer →ₗ[R] CharacterDual (kolyvaginDualSelmer D E κ) := sorry
+lemma ker_dualSelmerToKolyvaginDual (D : KolyvaginData T S p) (E : DualEdgeDictionary D)
+    (κ : KolyvaginSystem D) :
+    LinearMap.ker (dualSelmerToKolyvaginDual D E κ) =
+      ⨅ q : S.primes, LinearMap.ker
+        ((loc K R (dualRep T) (Sum.inr q.val)).comp (dualStructure T S.F).selmer.subtype) := sorry
+lemma dualSelmerToKolyvaginDual_bijective [IsLocalRing R]
+    (D : KolyvaginData T S p) (E : DualEdgeDictionary D) (κ : KolyvaginSystem D)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R))
+    (hr : latticeCoreRank T S.F = 1) (h4a : ResidualHomVanishing T)
+    (hcoeff : CoefficientsFromGalois T p) (hκ : IsPrimitive D κ) :
+    Function.Bijective (dualSelmerToKolyvaginDual D E κ) := sorry
+-- Unit test: kolyvaginDualSelmer_one
+example (D : KolyvaginData T S p) (E : DualEdgeDictionary D) (κ : KolyvaginSystem D) :
+    Subsingleton (finiteKolyvaginDualSelmer D E κ (initialVertex S)) := sorry
+-- Unit test: kolyvaginDualSelmer_zero_system
+example (D : KolyvaginData T S p) (E : DualEdgeDictionary D) (n : Vertices S) :
+    Nonempty (finiteKolyvaginDualSelmer D E 0 n ≃ₗ[R] FiniteEdgeValues (T := T) n) := sorry
+/-- At one edge, multiplying a generator by π leaves the quotient R/(π), even when
+an arithmetic dual Selmer group is zero; nonprimitivity prevents surjectivity. -/
+-- Unit test: kolyvaginDualSelmer_scaled_edge
+example [IsDomain R] [IsDiscreteValuationRing R] (π : R)
+    (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) :
+    Nontrivial (R ⧸ Submodule.span R {π}) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems.CGLS
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsDomain R] [IsDiscreteValuationRing R] {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) R]
+variable (E : WeierstrassCurve ℚ) [E.IsElliptic]
+abbrev Points (L : Type) [Field L] [Algebra ℚ L] := (E.baseChange L).toAffine.Point
+/-- The integral Tate carrier is an inverse system of actual p^n-torsion points. -/
+def TateCarrier : Submodule ℤ (∀ n : ℕ, Points E (SeparableClosure ℚ)) :=
+  {carrier := {x | (∀ n, (p^n : ℕ) • x n = 0) ∧ ∀ n, p • x (n+1) = x n},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def tateRep (E : WeierstrassCurve ℚ) [E.IsElliptic] : Rep ℚ (PadicInt p) := sorry
+def tateCarrierEquiv : tateRep (p := p) E ≃ₗ[ℤ] TateCarrier (p := p) E := sorry
+/-- Scalar action and Galois action are pinned by the inverse system, not by an
+uninterpreted module named T_p E. The point-map adapter comes from Mathlib. -/
+def pointAction (g : GK ℚ) : Points E (SeparableClosure ℚ) →+ Points E (SeparableClosure ℚ) := sorry
+lemma tateRep_action (g : GK ℚ) (x : tateRep (p := p) E) (n : ℕ) :
+    (tateCarrierEquiv E ((tateRep E).ρ g x)).val n = pointAction E g ((tateCarrierEquiv E x).val n) := sorry
+instance tateRep_free : Module.Free (PadicInt p) (tateRep (p := p) E) := sorry
+instance tateRep_finite : Module.Finite (PadicInt p) (tateRep (p := p) E) := sorry
+/- Imported elliptic-curve predicates use the curve itself; their model/reduction
+constructions are supplied by HE.7, not new ES-owned elliptic geometry. -/
+/-- HE.7's elliptic conductor, transported from the Artin conductor of T_l E.
+This numeric import is used only through its source-defined conductor dictionary. -/
+def ellipticConductor (E : WeierstrassCurve ℚ) [E.IsElliptic] : ℕ := sorry
+def HasConductor (E : WeierstrassCurve ℚ) [E.IsElliptic] (N : ℕ) : Prop := ellipticConductor E=N
+def GoodOrdinaryReduction (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : Prop :=
+  ∃ (W : WeierstrassCurve ℤ) (C : WeierstrassCurve.VariableChange ℚ),
+    E = C • W.baseChange ℚ ∧ (W.baseChange (ZMod p)).Δ ≠ 0 ∧
+      ¬ (p : ℤ) ∣ ((p+1 : ℤ)-(Nat.card (W.baseChange (ZMod p)).toAffine.Point : ℤ))
+/-- Γ is the actual anticyclotomic Z_p quotient of GK. -/
+structure Parameters where
+  quadratic : SelfDual.ImaginaryQuadraticData K
+  N : ℕ
+  conductor : HasConductor E N
+  positiveN : 0 < N
+  primeTo : Nat.Coprime p (2*N)
+  ordinary : GoodOrdinaryReduction E p
+  discriminantPrimeTo : Nat.Coprime (Int.natAbs (NumberField.discr K)) (N*p)
+  noPTorsion : ∀ x : Points E K, p • x = 0 → x = 0
+  rankR : Module.Finite (PadicInt p) R
+  freeR : Module.Free (PadicInt p) R
+  gamma : GK K →* Multiplicative (PadicInt p)
+  gammaSurj : Function.Surjective gamma
+  gammaContinuous : Continuous gamma
+  conjugate : ∀ g, gamma (quadratic.conjugation g) = (gamma g)⁻¹
+  alpha : Multiplicative (PadicInt p) →* Rˣ
+  continuousAlpha : Continuous alpha
+  residualOne : ∀ g, (alpha g : R)-1 ∈ IsLocalRing.maximalIdeal R
+  nontrivialAlpha : alpha ≠ 1
+  generator : Multiplicative (PadicInt p)
+  topGenerator : Dense (Subgroup.zpowers generator : Set (Multiplicative (PadicInt p)))
+/-- Tα is the restriction of T_pE tensored with R and twisted by α∘γ. -/
+def twistedTate (D : Parameters (K := K) (R := R) (p := p) E) : Rep K R := sorry
+def twistedTateEquiv (D : Parameters (K := K) (R := R) (p := p) E) :
+    twistedTate E D ≃ₗ[R] (R ⊗[PadicInt p] tateRep (p := p) E) := sorry
+lemma twistedTate_action (D : Parameters (K := K) (R := R) (p := p) E) (g : GK K) (x : twistedTate E D) :
+    twistedTateEquiv E D ((twistedTate E D).ρ g x) = (D.alpha (D.gamma g) : R) •
+      TensorProduct.map LinearMap.id ((tateRep E).ρ (D.quadratic.restriction g)).toLinearMap
+        (twistedTateEquiv E D x) := sorry
+instance twistedTate_free (D : Parameters (K := K) (R := R) (p := p) E) : Module.Free R (twistedTate E D) := sorry
+instance twistedTate_finite (D : Parameters (K := K) (R := R) (p := p) E) : Module.Finite R (twistedTate E D) := sorry
+/-- Ordinary filtration is ker(T_pE→T_pẼ), imported from the good reduction input. -/
+def ordinaryFiltration (D : Parameters (K := K) (R := R) (p := p) E)
+    (q : Prime K) (hq : isAboveP p q) : TopRep R (decomposition K (Sum.inr q)) := sorry
+def filtrationInclusion (D : Parameters (K := K) (R := R) (p := p) E)
+    (q : Prime K) (hq : isAboveP p q) : ordinaryFiltration E D q hq ⟶
+      localRep K R (rationalRep (twistedTate E D)) (Sum.inr q) := sorry
+def ordinaryStructure (D : Parameters (K := K) (R := R) (p := p) E) : SelmerStructure K R (twistedTate E D) := sorry
+lemma ordinaryStructure_condition (D : Parameters (K := K) (R := R) (p := p) E) (q : Prime K) :
+    (ordinaryStructure E D).condition (Sum.inr q) = if hq : isAboveP p q then
+      (LinearMap.range ((TauCeti.ContinuousCohomology.coeffMap (filtrationInclusion E D q hq) 1).hom.toLinearMap)).comap
+        (TauCeti.ContinuousCohomology.coeffMap
+          (TopRep.resFunctor (decomposition K (Sum.inr q)).subtype |>.map (rationalMap (twistedTate E D))) 1).hom.toLinearMap
+    else finiteLatticeCondition (twistedTate E D) (Sum.inr q) := sorry
+/-- Rational Frobenius trace controls the inert-prime set aℓ=ℓ+1=0 mod p. -/
+def frobeniusTrace (E : WeierstrassCurve ℚ) [E.IsElliptic] (ell : ℕ) : ℤ := sorry
+def errorPrimes (D : Parameters (K := K) (R := R) (p := p) E) : Set (Prime K) :=
+  {q | ∃ ell : ℕ, SelfDual.IsInertPrime D.quadratic ell q ∧ ell ≠ p ∧
+      p ∣ ell+1 ∧ (p : ℤ) ∣ frobeniusTrace E ell ∧ ¬ ((ell : ℤ) ∣ (D.N : ℤ))}
+/-- C1 measures scalar homotheties on GK∞; C2 the integral endomorphism image.
+The ideal minima below do not impose residual irreducibility. -/
+def scalarHomothety (D : Parameters (K := K) (R := R) (p := p) E) (u : (PadicInt p)ˣ) : Prop :=
+  ∃ g : GK K, D.gamma g=1 ∧ ∀ x : tateRep (p := p) E,
+    (tateRep E).ρ (D.quadratic.restriction g) x = (u : PadicInt p) • x
+def integralImage : Submodule (PadicInt p) (Module.End (PadicInt p) (tateRep (p := p) E)) :=
+  Submodule.span (PadicInt p) {f | ∃ g : GK ℚ, f = ((tateRep E).ρ g).toLinearMap}
+def scalarValuation (u : (PadicInt p)ˣ) : ℕ∞ := sorry
+lemma scalarValuation_spec (u : (PadicInt p)ˣ) (j : ℕ) :
+    j ≤ scalarValuation (p := p) u ↔ (u : PadicInt p)-1 ∈ Ideal.span {(p : PadicInt p)^j} := sorry
+def C1 (D : Parameters (K := K) (R := R) (p := p) E) : ℕ := sorry
+def C2 (D : Parameters (K := K) (R := R) (p := p) E) : ℕ := sorry
+lemma C1_minimum (D : Parameters (K := K) (R := R) (p := p) E) :
+    (C1 E D : ℕ∞) = ⨅ (u : (PadicInt p)ˣ) (_ : scalarHomothety E D u), scalarValuation (p := p) u := sorry
+lemma C2_minimum (D : Parameters (K := K) (R := R) (p := p) E) :
+    C2 E D = sInf {m : ℕ | Ideal.span {(p : PadicInt p)^m} •
+      (⊤ : Submodule (PadicInt p) (Module.End (PadicInt p) (tateRep (p := p) E))) ≤ integralImage (p := p) E} := sorry
+def pValuation (p : ℕ) (x : R) : ℚ := sorry
+def CAlpha (D : Parameters (K := K) (R := R) (p := p) E) : ℚ :=
+  if D.alpha = D.alpha⁻¹ then 0 else pValuation p ((D.alpha D.generator : R)-(D.alpha D.generator⁻¹ : R))
+def descentError (D : Parameters (K := K) (R := R) (p := p) E) : ℕ := sorry
+/-- CGLS Theorem 3.2.1, p.17. Nonzero leading class gives rank one and a length
+bound with a constant fixed by the curve, coefficient degree and α. -/
+theorem howard_descent_with_errors (D : Parameters (K := K) (R := R) (p := p) E)
+    (S : SelmerTriple K R (twistedTate E D)) (hF : S.F = ordinaryStructure E D)
+    (hP : S.primes = errorPrimes E D) (KS : SelfDual.InertData (twistedTate E D) S p)
+    (κ : SelfDual.KolyvaginSystem KS) (hκ : κ.val (initialVertex S) ≠ 0) :
+    Module.Free R S.F.selmer ∧ Module.finrank R S.F.selmer = 1 ∧
+      ∃ (M : Type) (_ : AddCommGroup M) (_ : Module R M), Module.length R M ≠ ⊤ ∧
+        Nonempty ((SelfDual.discreteStructure _ S.F).selmer ≃ₗ[R]
+          ((FractionRing R ⧸ LinearMap.range (Algebra.linearMap R (FractionRing R))) × M × M)) ∧
+        Module.length R M ≤ Module.length R (S.F.selmer ⧸ Submodule.span R {(SelfDual.stalkOne KS) (κ.val (initialVertex S))}) + descentError E D := sorry
+/-- CGLS Proposition 3.3.2 gives a common parity on all n and all finite levels. -/
+theorem weak_cassels_uniform (D : Parameters (K := K) (R := R) (p := p) E)
+    (S : SelmerTriple K R (twistedTate E D)) (hF : S.F = ordinaryStructure E D)
+    (hP : S.primes = errorPrimes E D) (KS : SelfDual.InertData (twistedTate E D) S p) :
+    ∃ ε : ℕ, ε ≤ 1 ∧ ∀ k : ℕ, 0 < k → ∀ n : Vertices S,
+      SelfDual.inertConductorIdeal KS n ≤ IsLocalRing.maximalIdeal R^k → ∃ (M : Type) (_ : AddCommGroup M) (_ : Module R M),
+        Module.length R M ≠ ⊤ ∧ Nonempty
+          ((propagatedStructure (quotientRep _ (SelfDual.inertConductorIdeal KS n)) (SelfDual.modified KS n)
+            (IsLocalRing.maximalIdeal R^k)).selmer ≃ₗ[R]
+              ((Fin ε → R ⧸ IsLocalRing.maximalIdeal R^k) × M × M)) := sorry
+example (D : Parameters (K := K) (R := R) (p := p) E) (x : Points E K) (hx : p • x = 0) : x = 0 := sorry
+example (D : Parameters (K := K) (R := R) (p := p) E) (g : Multiplicative (PadicInt p)) :
+    IsLocalRing.residue R (D.alpha g : R) = 1 := sorry
+example (D : Parameters (K := K) (R := R) (p := p) E) : 2 < p := sorry
+end TauCeti.KolyvaginSystems.CGLS
+
+namespace TauCeti.KolyvaginSystems.Nekovar
+open _root_.AlgebraicGeometry
+variable {F K H L O : Type} [Field F] [NumberField F] [Field K] [NumberField K]
+variable [Field H] [NumberField H] [Field L] [NumberField L]
+variable [Algebra F K] [Algebra K H] [Algebra F H] [IsScalarTower F K H] [IsGalois K H]
+variable [CommRing O] [TopologicalSpace O] [IsDomain O] [IsDiscreteValuationRing O]
+/-- Rational points of the existing abelian variety, represented by actual sections. -/
+abbrev Points (A : TauCeti.AlgebraicGeometry.AbelianVariety H) :=
+  Over.mk (𝟙 (Spec (.of H))) ⟶ A.toOver
+instance pointsAddComm (A : TauCeti.AlgebraicGeometry.AbelianVariety H) : AddCommGroup (Points A) := sorry
+/-- The HE.7 geometry predicates of Nekovář §3.1, the §5.19 isogeny and condition (*)
+are stated in the packet. Their supplier carrier is not yet expressible in this
+pin and is omitted here, as PROTOCOL §13 requires. No opaque Prop replaces it.
+`all_prime_error_descent` below prototypes the arithmetic output once that exact
+HE.7 setting is supplied; its displayed parameters alone are not sufficient
+hypotheses for the mathematical theorem. -/
+structure Parameters where
+  Aj : TauCeti.AlgebraicGeometry.AbelianVariety F
+  A : TauCeti.AlgebraicGeometry.AbelianVariety H
+  y : Points A
+  beta : (H ≃ₐ[K] H) →* (NumberField.RingOfIntegers L)ˣ
+  faithful : Function.Injective beta
+  totallyReal : ∀ v : NumberField.InfinitePlace F, v.IsReal
+  imaginary : ∀ v : NumberField.InfinitePlace K, ¬ v.IsReal
+  quadratic : Module.finrank F K = 2
+  prime : Prime L
+  coefficientMap : (NumberField.RingOfIntegers L) →+* O
+  localMap : ∀ a : NumberField.RingOfIntegers L,
+    coefficientMap a ∈ IsLocalRing.maximalIdeal O ↔ a ∈ prime.asIdeal
+  coefficientCompletion : Nonempty (O ≃+* AdicCompletion prime.asIdeal (NumberField.RingOfIntegers L))
+  uniformizer : O
+  uniformizerSpec : IsLocalRing.maximalIdeal O = Ideal.span {uniformizer}
+/- Integral group action, Kummer maps and coefficients are HE.7/L2 suppliers. -/
+variable (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O))
+def pointModule : Type := O ⊗[ℤ] Points D.A
+instance pointModuleAddComm : AddCommGroup (pointModule D) := inferInstanceAs (AddCommGroup (O ⊗[ℤ] Points D.A))
+instance pointModuleModule : Module O (pointModule D) := inferInstanceAs (Module O (O ⊗[ℤ] Points D.A))
+def pointAction : Representation O (H ≃ₐ[K] H) (pointModule D) := sorry
+def betaPart : Submodule O (pointModule D) :=
+  {carrier := {x | ∀ g, pointAction D g x = D.coefficientMap (D.beta g : NumberField.RingOfIntegers L) • x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def betaPoint : betaPart D := sorry
+/-- The source uses the integral sum eβ=Σ β(σ)⁻¹σ, without division by the group order. C5 accounts for its square eβ²=[H:K]eβ. -/
+lemma betaPoint_formula : (betaPoint D).val = ∑ g : H ≃ₐ[K] H,
+    D.coefficientMap (D.beta g⁻¹ : NumberField.RingOfIntegers L) • pointAction D g (1 ⊗ₜ[ℤ] D.y) := sorry
+def NonTorsionBetaPoint : Prop := ∀ a : O, a ≠ 0 → a • betaPoint D ≠ 0
+/-- Actual π^M-torsion points inside A(Hbar), via the O_L action supplied by §5.19. -/
+abbrev geometricPoints := Points (D.A.baseChange (SeparableClosure H))
+instance geometricOLModule : Module (NumberField.RingOfIntegers L) (geometricPoints D) := sorry
+def torsionPoints (M : ℕ) : Submodule (NumberField.RingOfIntegers L) (geometricPoints D) :=
+  {carrier := {x | ∀ a ∈ D.prime.asIdeal^M, a • x=0},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+instance torsionPointsO (M : ℕ) : Module O (torsionPoints D M) := sorry
+lemma torsionPoints_scalar (M : ℕ) (a : NumberField.RingOfIntegers L) (x : torsionPoints D M) :
+    ((D.coefficientMap a) • x).val = a • x.val := sorry
+def geometricAction (g : GK H) : geometricPoints D →+ geometricPoints D := sorry
+def torsionRep (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) (M : ℕ) : Rep H O := sorry
+def torsionRepEquiv (M : ℕ) : torsionRep D M ≃ₗ[O] torsionPoints D M := sorry
+lemma torsionRep_action (M : ℕ) (g : GK H) (x : torsionRep D M) :
+    (torsionRepEquiv D M ((torsionRep D M).ρ g x)).val =
+      geometricAction D g (torsionRepEquiv D M x).val := sorry
+example (x : torsionPoints D 0) : x=0 := sorry
+example (M : ℕ) (x : torsionPoints D M) (a : NumberField.RingOfIntegers L)
+    (ha : a ∈ D.prime.asIdeal^M) : a • x.val=0 := sorry
+def classicalSelmer (M : ℕ) : SelmerStructure H O (torsionRep D M) := sorry
+def cohomologyAction (M : ℕ) : Representation O (H ≃ₐ[K] H) (classicalSelmer D M).selmer := sorry
+def betaSelmer (M : ℕ) : Submodule O (classicalSelmer D M).selmer :=
+  {carrier := {x | ∀ g, cohomologyAction D M g x = D.coefficientMap (D.beta g : NumberField.RingOfIntegers L) • x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def kummer (M : ℕ) : betaPart D →ₗ[O] betaSelmer D M := sorry
+/-- Fixed error constants. C0: point divisibility; C1: local components; C2:
+restriction kernel; C3: image/order conductor; C4: β/β⁻¹ overlap; C5: ord𝔭[H:K];
+C6: ord𝔭degϕ. They are defined by those arithmetic data, independent of M. -/
+def C0 (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def C1 (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def C2 (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def C3 (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def C4 (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def valuation (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) (a : O) : ℕ := sorry
+def C5 : ℕ := valuation D (Module.finrank K H : O)
+def isogenyDegree (D : Parameters (F := F) (K := K) (H := H) (L := L) (O := O)) : ℕ := sorry
+def C6 : ℕ := valuation D (isogenyDegree D : O)
+def errorConstant : ℕ :=
+  if D.beta^2=1 then 2*C0 D+2*C1 D+4*C2 D+4*C3 D+C5 D+C6 D+21*valuation D 2
+  else 4*C0 D+4*C1 D+7*C2 D+7*C3 D+5*C4 D+2*C5 D+2*C6 D+38*valuation D 2
+def leadingClass (M : ℕ) : betaSelmer D M := D.uniformizer^(C1 D) • kummer D M (betaPoint D)
+/-- Conditional arithmetic descent: the geometry and noncommutative pairing inputs
+are supplied by HE.7 and CA.7; ES.4 proves the two-prime descent. -/
+theorem all_prime_error_descent (hy : NonTorsionBetaPoint D) :
+    ∃ M0 : ℕ, ∀ M ≥ M0, ∀ x : betaSelmer D M,
+      D.uniformizer^(errorConstant D) • x ∈ Submodule.span O {leadingClass D M} := sorry
+/-- Finiteness for α/α⁻¹ and full Sha is the HE.7 application of this theorem.
+The ES interface above deliberately returns a uniform annihilator bound. -/
+lemma errorConstant_quadratic (h : D.beta^2=1) :
+    errorConstant D = 2*C0 D+2*C1 D+4*C2 D+4*C3 D+C5 D+C6 D+21*valuation D 2 := sorry
+lemma errorConstant_nonquadratic (h : D.beta^2≠1) :
+    errorConstant D = 4*C0 D+4*C1 D+7*C2 D+7*C3 D+5*C4 D+2*C5 D+2*C6 D+38*valuation D 2 := sorry
+example (h0 : C0 D=0) (h1 : C1 D=0) (h2 : C2 D=0) (h3 : C3 D=0)
+    (h4 : C4 D=0) (h5 : C5 D=0) (h6 : C6 D=0) (hdyadic : valuation D 2=0) : errorConstant D=0 := sorry
+example (hβ : D.beta^2=1) (h2 : valuation D 2=1) : 21 ≤ errorConstant D := sorry
+example (hβ : D.beta^2≠1) (h2 : valuation D 2=1) : 38 ≤ errorConstant D := sorry
+end TauCeti.KolyvaginSystems.Nekovar
+
+namespace TauCeti.RubinStark.ClassGroups
+open TauCeti.KolyvaginSystems TauCeti.EulerSystems TauCeti.StarkSystems
+open scoped DirectSum
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsDomain O] [IsDiscreteValuationRing O] {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) O]
+/-- BSS II §7 data: the character is faithful on its defining finite abelian field,
+prime to p, with coefficient order generated by its values. The cyclotomic and
+Teichmüller characters below are the arithmetic characters supplied by CFT/L6. -/
+structure CharacterData where
+  L : Layer K
+  abelian : IsMulCommutative (Layer.Gal K L)
+  chi : Layer.Gal K L →* Oˣ
+  faithful : Function.Injective chi
+  primeTo : Nat.Coprime (Fintype.card (Layer.Gal K L)) p
+  finiteO : Module.Finite (PadicInt p) O
+  freeO : Module.Free (PadicInt p) O
+  generated : Algebra.adjoin (PadicInt p) (Set.range (fun g => (chi g : O))) = ⊤
+  archSplit : ∀ v : NumberField.InfinitePlace K, decomposition K (Sum.inl v) ≤ L.group
+  nontrivial : chi ≠ 1
+  S : Finset (Place K)
+  infinity : ∀ v : NumberField.InfinitePlace K, Sum.inl v ∈ S
+  ramification : ∀ q : Prime K, ¬ IsUnramifiedLayer L q → Sum.inr q ∈ S
+  extraPlace : Fintype.card (NumberField.InfinitePlace K) < S.card
+  pNonSplit : ∀ q : Prime K, isAboveP p q → ¬ decomposition K (Sum.inr q) ≤ L.group
+variable (D : CharacterData (K := K) (O := O) (p := p))
+def absoluteCharacter : GK K →* Oˣ := D.chi.comp (QuotientGroup.mk' D.L.group)
+def cyclotomicCharacter : GK K →* (PadicInt p)ˣ := sorry
+/-- Its reduction is the Teichmüller lift of the mod-p cyclotomic character. -/
+def teichmullerCharacter (p : ℕ) [Fact p.Prime] : GK K →* Oˣ := sorry
+lemma teichmullerCharacter_residue (g : GK K) :
+    IsLocalRing.residue O (teichmullerCharacter (K := K) (O := O) p g : O) =
+      IsLocalRing.residue O (algebraMap (PadicInt p) O (TauCeti.RubinStark.ClassGroups.cyclotomicCharacter (K := K) (p := p) g : PadicInt p)) := sorry
+/-- Tχ=O(1)⊗χ⁻¹, with its actual one-dimensional carrier and Galois formula. -/
+def characterRep (D : CharacterData (K := K) (O := O) (p := p)) : TauCeti.KolyvaginSystems.Rep K O := sorry
+def characterRepEquiv : characterRep D ≃ₗ[O] O := sorry
+lemma characterRep_action (g : GK K) (x : characterRep D) :
+    characterRepEquiv D ((characterRep D).ρ g x) =
+      algebraMap (PadicInt p) O (TauCeti.RubinStark.ClassGroups.cyclotomicCharacter (K := K) (p := p) g : PadicInt p) *
+        ((absoluteCharacter D g)⁻¹).val * characterRepEquiv D x := sorry
+instance characterRep_free : Module.Free O (characterRep D) := sorry
+instance characterRep_finite : Module.Finite O (characterRep D) := sorry
+/-- The ideal class group is Mathlib's actual fractional-ideal quotient. -/
+abbrev IntegralClassGroup := Additive (ClassGroup (NumberField.RingOfIntegers D.L.field))
+abbrev ClassModule := O ⊗[ℤ] IntegralClassGroup D
+def classAction : Representation O (Layer.Gal K D.L) (ClassModule D) := sorry
+/-- Transport of ideals by the field automorphism supplies this action; no Selmer
+bound occurs in its definition. -/
+def classTransport (g : Layer.Gal K D.L) : IntegralClassGroup D →+ IntegralClassGroup D := sorry
+lemma classAction_pure (g : Layer.Gal K D.L) (a : O) (x : IntegralClassGroup D) :
+    classAction D g (a ⊗ₜ[ℤ] x) = a ⊗ₜ[ℤ] classTransport D g x := sorry
+/-- χ-part over the full integral class group, before comparison with p-integers. -/
+def chiClassGroup : Submodule O (ClassModule D) :=
+  {carrier := {x | ∀ g, classAction D g x = (D.chi g : O) • x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def primeClass (q : Prime D.L.field) : IntegralClassGroup D :=
+  Additive.ofMul (ClassGroup.mk0 ⟨q.asIdeal,by sorry⟩)
+def pPrimeClasses : Submodule O (ClassModule D) :=
+  Submodule.span O {x | ∃ q : Prime D.L.field, isAboveP p q ∧ x = 1 ⊗ₜ[ℤ] primeClass D q}
+/-- The p-integer class group is the quotient by the classes of primes over p. -/
+def pIntegerClassModule := ClassModule D ⧸ pPrimeClasses D
+instance pIntegerAdd : AddCommGroup (pIntegerClassModule D) := inferInstanceAs (AddCommGroup (ClassModule D ⧸ pPrimeClasses D))
+instance pIntegerModule : Module O (pIntegerClassModule D) := inferInstanceAs (Module O (ClassModule D ⧸ pPrimeClasses D))
+def pIntegerAction : Representation O (Layer.Gal K D.L) (pIntegerClassModule D) := sorry
+def chiPIntegerClassGroup : Submodule O (pIntegerClassModule D) :=
+  {carrier := {x | ∀ g, pIntegerAction D g x = (D.chi g : O) • x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def classGroupProjection : chiClassGroup D →ₗ[O] chiPIntegerClassGroup D := sorry
+lemma classGroupProjection_apply (x : chiClassGroup D) :
+    (classGroupProjection D x).val = Submodule.Quotient.mk x.val := sorry
+lemma classGroupProjection_bijective : Function.Bijective (classGroupProjection D) := sorry
+/-- §7, equation (14): the canonical dual Selmer character dual is the p-integer
+class module. The p-nonsplitting hypothesis then restores the full class group. -/
+def canonical (D : CharacterData (K := K) (O := O) (p := p)) : SelmerStructure K O (characterRep D) := sorry
+lemma canonical_condition (v : Place K) : (canonical D).condition v =
+    if (∃ q : Prime K, v = Sum.inr q ∧ isAboveP p q) then ⊤ else finiteLatticeCondition (characterRep D) v := sorry
+def dualSelmerClassEquiv : CharacterDual (dualStructure (characterRep D) (canonical D)).selmer ≃ₗ[O]
+    chiPIntegerClassGroup D := sorry
+/-- The admitted tower is the sufficiently large abelian pro-p extension of §6.7. -/
+structure ApplicationData where
+  tower : Tower (characterRep D)
+  admissible : IsAdmissibleTower (characterRep D) tower
+  factors : EulerFactors (characterRep D) tower
+  rubinNormalization : factors.normalization = .rubin
+  notTeich : absoluteCharacter D ≠ teichmullerCharacter (K := K) (O := O) p
+  smallPrime : 3 < p ∨ (absoluteCharacter D)^2 ≠ teichmullerCharacter (K := K) (O := O) p
+  h61 : BSSHypothesis61 tower
+  h611 : BSSHypothesis611 (characterRep D) p {q | Sum.inr q ∉ D.S}
+variable (A : ApplicationData D)
+abbrev archRank := Fintype.card (NumberField.InfinitePlace K)
+/-- Component ideals of the higher Kolyvagin derivative, in the inverse limit over
+all positive moduli. The L6 limit/Fitting dictionary is part of the supplier contract. -/
+def componentIdeal (D : CharacterData (K := K) (O := O) (p := p)) (A : ApplicationData D) (c : HigherEulerSystem A.factors (archRank (K := K))) (i : ℕ) : Ideal O := sorry
+def allEulerIdeal (i : ℕ) : Ideal O := ⨆ c : HigherEulerSystem A.factors (archRank (K := K)), componentIdeal D A c i
+/-- BSS II Theorem 7.1(i), without a Rubin–Stark or Leopoldt assumption. -/
+theorem class_group_fitting_bound (i : ℕ) : allEulerIdeal D A i ≤ fittingIdeal (chiClassGroup D) i := sorry
+/-- Additional finite-place nonsplitting hypothesis of Theorem 7.1(ii). -/
+def NoFiniteSplit : Prop := ∀ q : Prime K, Sum.inr q ∈ D.S → ¬ decomposition K (Sum.inr q) ≤ D.L.group
+theorem class_group_fitting_equality (hS : NoFiniteSplit D) (i : ℕ) :
+    allEulerIdeal D A i = fittingIdeal (chiClassGroup D) i := sorry
+lemma allEulerIdeal_mono (hS : NoFiniteSplit D) : Monotone (allEulerIdeal D A) := sorry
+/-- The successive quotient is I_(i+1)/I_i, retaining that direction. -/
+def idealSuccessor (hS : NoFiniteSplit D) (i : ℕ) : Submodule O (allEulerIdeal D A (i+1)) :=
+  {carrier := {x | x.val ∈ allEulerIdeal D A i},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+theorem class_group_structure (hS : NoFiniteSplit D) : Nonempty
+    (chiClassGroup D ≃ₗ[O] (⨁ i : ℕ, ((allEulerIdeal D A (i+1)) ⧸ idealSuccessor D A hS i))) := sorry
+/-- Rational scalar extension of the three L6 integral transfer maps. -/
+def rationalCorestriction (F F' : FiniteLayer A.tower)
+    (h : F'.val.group ≤ F.val.group) :
+    FractionRing O ⊗[O] HigherStalk A.tower (archRank (K := K)) F' →ₗ[O]
+      FractionRing O ⊗[O] ExpandedStalk A.tower (archRank (K := K)) F F' :=
+  TensorProduct.map (LinearMap.id : Module.End O (FractionRing O))
+    (higherCorestriction A.tower (archRank (K := K)) F F' h)
+def rationalExpansion (F F' : FiniteLayer A.tower)
+    (h : F'.val.group ≤ F.val.group) :
+    FractionRing O ⊗[O] HigherStalk A.tower (archRank (K := K)) F →ₗ[O]
+      FractionRing O ⊗[O] ExpandedStalk A.tower (archRank (K := K)) F F' :=
+  TensorProduct.map (LinearMap.id : Module.End O (FractionRing O))
+    (expandBidual A.tower (archRank (K := K)) F F' h)
+def rationalFactor (F F' : FiniteLayer A.tower) :
+    Module.End O (FractionRing O ⊗[O] ExpandedStalk A.tower (archRank (K := K)) F F') :=
+  TensorProduct.map (LinearMap.id : Module.End O (FractionRing O))
+    (higherFactor A.factors (archRank (K := K)) F F')
+/- I.7 Part II supplies rationality, the ordered archimedean regulator identity
+and unit/Kummer transports. The regulator condition cannot yet be stated in this
+pin and is omitted, as PROTOCOL §13 requires. These elements are input data;
+there is no unconditional function turning complex L-values into p-adic classes. -/
+set_option maxHeartbeats 4000000 in
+structure RationalRubinStarkData where
+  element : ∀ F : FiniteLayer A.tower, FractionRing O ⊗[O]
+    HigherStalk A.tower (archRank (K := K)) F
+  norm : ∀ (F F' : FiniteLayer A.tower) (h : F'.val.group ≤ F.val.group),
+    rationalCorestriction D A F F' h (element F') =
+      rationalFactor D A F F' (rationalExpansion D A F F' h (element F))
+variable (η : RationalRubinStarkData D A)
+def analyticElement (F : FiniteLayer A.tower) := η.element F
+/-- This finite-level integrality predicate is the arithmetic consequence of
+Conjecture B′ at every LF/K, for the analytic family supplied above. -/
+def RubinStarkFamily : Prop := ∀ F : FiniteLayer A.tower,
+    analyticElement D A η F ∈ LinearMap.range
+      (TensorProduct.mk O (FractionRing O) (HigherStalk A.tower (archRank (K := K)) F) 1)
+def rubinStarkEulerSystem (hRS : RubinStarkFamily D A η) : HigherEulerSystem A.factors (archRank (K := K)) := sorry
+lemma rubinStarkEulerSystem_eval (hRS : RubinStarkFamily D A η) (F : FiniteLayer A.tower) :
+    1 ⊗ₜ[O] (rubinStarkEulerSystem D A η hRS).val F = analyticElement D A η F := sorry
+/-- ηχ's image ideal is computed after the L6 rank-r integral bidual dictionary. -/
+def initialRubinStarkImage (hRS : RubinStarkFamily D A η) : Ideal O := sorry
+lemma initialRubinStarkImage_formula (hRS : RubinStarkFamily D A η) :
+    initialRubinStarkImage D A η hRS = componentIdeal D A (rubinStarkEulerSystem D A η hRS) 0 := sorry
+theorem rubin_stark_class_group_bound (hRS : RubinStarkFamily D A η) :
+    initialRubinStarkImage D A η hRS ≤ fittingIdeal (chiClassGroup D) 0 := sorry
+example (x : ClassModule D) (g : Layer.Gal K D.L)
+    (h : classAction D g x ≠ (D.chi g : O) • x) : x ∉ chiClassGroup D := sorry
+example (x : chiClassGroup D) (hx : classGroupProjection D x = 0) : x = 0 := sorry
+example (i : ℕ) (hS : NoFiniteSplit D) :
+    allEulerIdeal D A i ≤ allEulerIdeal D A (i+1) := sorry
+end TauCeti.RubinStark.ClassGroups
+
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ}
+
+/-- The representation hypotheses H.0–H.4, separated from the prime-set and
+local-condition hypotheses which do not pass to arbitrary quotients unchanged. -/
+structure MR04BasicHypotheses (T : Rep K R) (p : ℕ) [IsLocalRing R] where
+  rational : Nonempty (K ≃+* ℚ)
+  prime : p.Prime
+  residueChar : CharP (IsLocalRing.ResidueField R) p
+  finiteResidue : Finite (IsLocalRing.ResidueField R)
+  noetherian : IsNoetherianRing R
+  complete : IsAdicComplete (IsLocalRing.maximalIdeal R) R
+  free : Module.Free R T
+  finite : Module.Finite R T
+  continuous : IsContinuous K R T
+  irreducible : ResiduallyAbsolutelyIrreducible T
+  tau : GK K
+  fixesRoots : tau ∈ rootsGroup p none
+  coinvariants : RankOneCoinvariants T tau
+  h1 : H1ImageVanishing T (MR04SplittingGroup T p)
+    (splitting_le_residual T p) (splitting_le_residual_dual T p)
+  homOrLarge : ResidualHomVanishing T ∨ 4 < p
+
+def reducedTriple (S : SelmerTriple K R T) (I : Ideal R) :
+    SelmerTriple K (R ⧸ I) (reducedRep T I) := sorry
+lemma reducedTriple_primes (I : Ideal R) : (reducedTriple S I).primes = S.primes := sorry
+lemma reducedTriple_condition (I : Ideal R) (v : Place K) :
+    (reducedTriple S I).F.condition v = (reducedStructure T S.F I).condition v := sorry
+
+/-- Finite principal-artinian duality makes the Cartier dual a lattice over the
+same coefficient ring. No such triple is constructed for the discrete DVR dual. -/
+def finiteDualTriple [IsLocalRing R] [IsArtinianRing R] [IsPrincipalIdealRing R]
+    (S : SelmerTriple K R T) : SelmerTriple K R (dualRep T) := sorry
+lemma finiteDualTriple_condition [IsLocalRing R] [IsArtinianRing R] [IsPrincipalIdealRing R]
+    (v : Place K) : (finiteDualTriple S).F.condition v = orthogonal T v (S.F.condition v) := sorry
+def MR04Hypotheses.dual [IsLocalRing R] [IsArtinianRing R] [IsPrincipalIdealRing R]
+    (h : MR04Hypotheses T S p) : MR04Hypotheses (dualRep T) (finiteDualTriple S) p := sorry
+def MR04Hypotheses.quotient [IsLocalRing R] (h : MR04Hypotheses T S p)
+    (I : Ideal R) [IsLocalRing (R ⧸ I)] :
+    MR04BasicHypotheses (reducedRep T I) p := sorry
+lemma MR04Hypotheses.quotient_cartesian [IsLocalRing R] [IsArtinianRing R]
+    [IsPrincipalIdealRing R] (h : MR04Hypotheses T S p) (i : ℕ) (hi : 0 < i) :
+    IsCartesianStructure (reducedRep T (IsLocalRing.maximalIdeal R^i))
+      (reducedTriple S (IsLocalRing.maximalIdeal R^i)).F := sorry
+lemma MR04Hypotheses.of_rank_one [IsLocalRing R] (e : T ≃ₗ[R] R) :
+    ResiduallyAbsolutelyIrreducible T ∧ RankOneCoinvariants T 1 := sorry
+
+/-- Positive quotients retain H.1–H.6; H.7 is still a separate admissibility condition. -/
+def MR16Hypotheses.quotient [IsLocalRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    {r : ℕ} (h : MR16Hypotheses T S p r) (i : ℕ) (hi : 0 < i)
+    [IsLocalRing (R ⧸ IsLocalRing.maximalIdeal R^i)] :
+    MR16Hypotheses (reducedRep T (IsLocalRing.maximalIdeal R^i))
+      (reducedTriple S (IsLocalRing.maximalIdeal R^i)) p r := sorry
+def MR16Hypotheses.of_mr04 [IsLocalRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    (h : MR04Hypotheses T S p) (hp : 2 < p) (r : ℕ)
+    (hr : latticeCoreRankInt T S.F = r) (hpos : 0 < r)
+    (L : Layer K) (hL : HMGroup p none ≤ L.group)
+    (hP : frobeniusPrimes T S L h.tau ⊆ S.primes) : MR16Hypotheses T S p r := sorry
+
+/-- The ramification statement compares inertia in K(q) with the relative group
+over K(1); K(1) itself need not be trivial. -/
+lemma rayPExtension_ramification (p : ℕ) [Fact p.Prime] (q : Prime K)
+    (hq : ¬ isAboveP p q) :
+    (∀ l : Prime K, l ≠ q → IsUnramifiedLayer (rayLayer K p {q}) l) ∧
+    (∀ g : GK K, g ∈ (rayLayer K p ∅).group →
+      ∃ i : inertia K (Sum.inr q), QuotientGroup.mk g =
+        (QuotientGroup.mk i.val.val : Layer.Gal K (rayLayer K p {q}))) := sorry
+lemma tameGroup_tensor_free [IsLocalRing R] [IsPrincipalIdealRing R]
+    (n : Vertices S) :
+    Module.Free (R ⧸ conductorIdeal T p n.val)
+      ((R ⧸ conductorIdeal T p n.val) ⊗[ℤ] tameGroup K p n.val) ∧
+    Module.finrank (R ⧸ conductorIdeal T p n.val)
+      ((R ⧸ conductorIdeal T p n.val) ⊗[ℤ] tameGroup K p n.val) =
+        if conductorIdeal T p n.val = ⊤ then 0 else 1 := sorry
+lemma conductorIdeal_rat [IsLocalRing R] [IsPrincipalIdealRing R]
+    (hK : Nonempty (K ≃+* ℚ)) (q : Prime K) (j : ℕ)
+    (hcoin : Nonempty ((T ⧸ (LinearMap.range (frobEnd T q-LinearMap.id) ⊔
+      (IsLocalRing.maximalIdeal R^j • (⊤ : Submodule R T)))) ≃ₗ[R]
+        (R ⧸ IsLocalRing.maximalIdeal R^j))) :
+    primeConductorIdeal T p q ≤ IsLocalRing.maximalIdeal R^j ↔
+      conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R^j := sorry
+lemma mem_kolyvaginPrimes_of_frobenius [IsLocalRing R]
+    (L : Layer K) (τ : GK K) (k : ℕ)
+    (hP : frobeniusPrimes T S L τ ⊆ S.primes)
+    (hI : ∀ q ∈ frobeniusPrimes T S L τ,
+      primeConductorIdeal T p q ≤ IsLocalRing.maximalIdeal R^k)
+    (q : Prime K) (hq : q ∈ frobeniusPrimes T S L τ) :
+    q ∈ kolyvaginPrimes T S p k := sorry
+
+/-- Rubin's set imposes principal splitting, divisibility of the tame degree,
+and annihilation of the Euler polynomial at 1. -/
+def rubinPrimes {A : Tower T} (E : EulerFactors T A) (F : FiniteLayer A) (M : R) : Set (Prime K) :=
+  {q | ∃ hq : Sum.inr q ∉ A.bad,
+    (frobenius K q).val ∈ (auxiliaryLayer F ∅).group ∧
+    (Fintype.card (gammaPrime K A.p q) : R) ∈ Ideal.span {M} ∧
+    (E.poly T q hq).eval 1 ∈ Ideal.span {M}}
+lemma mem_rubinPrimes_of_frobenius {A : Tower T} (E : EulerFactors T A)
+    (F : FiniteLayer A) (M : R) (L : Layer K) (τ : GK K) (k : ℕ)
+    (hL : L.group ≤ (auxiliaryLayer F ∅).group ⊓
+      rootsGroup A.p (some k) ⊓ unitsRootsGroup A.p (some k) ⊓
+      representationKernel (quotientRep T (Ideal.span {M})))
+    (hτ : τ ∈ (auxiliaryLayer F ∅).group ⊓ rootsGroup A.p none ⊓ unitsRootsGroup A.p none)
+    (hcoin : Nontrivial (T ⧸ (LinearMap.range ((T.ρ τ).toLinearMap-LinearMap.id) ⊔
+      (Ideal.span {M} • (⊤ : Submodule R T)))))
+    (hE : E.normalization = .rubin) (hM : M=(A.p^k : R))
+    (q : Prime K) (hq : q ∈ frobeniusPrimes T S L τ) : q ∈ rubinPrimes E F M := sorry
+
+/-- Scalar trivialization of a cyclic tame factor. It is chosen by a generator,
+not used in the intrinsic tensor-valued comparison. -/
+def tameGeneratorEquiv [IsLocalRing R] {q : Prime K} (I : Ideal R)
+    (σ : gammaPrime K p q) (hσ : ∀ g, g ∈ Subgroup.zpowers σ)
+    (hkill : (Fintype.card (gammaPrime K p q) : R) ∈ I) :
+    ((R ⧸ I) ⊗[ℤ] tamePrime K p q) ≃ₗ[R ⧸ I] R ⧸ I := sorry
+lemma tameGeneratorEquiv_pure [IsLocalRing R] {q : Prime K} (I : Ideal R)
+    (σ : gammaPrime K p q) (hσ : ∀ g, g ∈ Subgroup.zpowers σ)
+    (hkill : (Fintype.card (gammaPrime K p q) : R) ∈ I) (a : R ⧸ I) :
+    tameGeneratorEquiv I σ hσ hkill (a ⊗ₜ[ℤ] Additive.ofMul σ) = a := sorry
+
+/-- Stub freeness is over the smaller quotient, not over the original artinian R. -/
+lemma stubSheaf_stalk_free [IsLocalRing R] (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R))
+    (hP : AtLevel S p) (hr : 0 < latticeCoreRank T S.F) (n : Vertices S)
+    (hn : dualSelmerLength D n < len R R) :
+    Nonempty ((stubSheaf D).stalk n ≃ₗ[R]
+      (Fin (latticeCoreRank T S.F) → R ⧸
+        IsLocalRing.maximalIdeal R^(len R R-dualSelmerLength D n))) := sorry
+
+/-- Reindexing respects squarefree conductors and insertion of primes. -/
+def stalkReindex {T' : Rep K R} [Module.Free R T'] [Module.Finite R T']
+    {S' : SelmerTriple K R T'} {D' : KolyvaginData T' S' p}
+    {n m : Vertices S'} (h : n = m) : D'.Stalk n ≃ₗ[R] D'.Stalk m := by
+  subst m
+  exact LinearEquiv.refl _ _
+structure SystemMorphism {T' : Rep K R} [Module.Free R T'] [Module.Finite R T']
+    {S' : SelmerTriple K R T'} (D : KolyvaginData T S p) (D' : KolyvaginData T' S' p) where
+  primes : S.primes = S'.primes
+  vertices : Vertices S ≃ Vertices S'
+  conductor : ∀ n, (vertices n).val = n.val
+  insertEq : ∀ n q hq, vertices (vertexInsert S n q hq) =
+    vertexInsert S' (vertices n) q (primes ▸ hq)
+  stalk : ∀ n, D.Stalk n →ₗ[R] D'.Stalk (vertices n)
+  edge : ∀ n q hq, D.EdgeStalk n q hq →ₗ[R]
+    D'.EdgeStalk (vertices n) q (primes ▸ hq)
+  upper : ∀ n q hq hqn x, edge n q hq (edgeUpper D n q hq hqn x) =
+    edgeUpper D' (vertices n) q (primes ▸ hq) (by simpa only [conductor] using hqn)
+      (stalkReindex (insertEq n q hq) (stalk (vertexInsert S n q hq) x))
+  lower : ∀ n q hq hqn x, edge n q hq (edgeLower D n q hq hqn x) =
+    edgeLower D' (vertices n) q (primes ▸ hq) (by simpa only [conductor] using hqn)
+      (stalk n x)
+def KolyvaginSystem.map {T' : Rep K R} [Module.Free R T'] [Module.Finite R T']
+    {S' : SelmerTriple K R T'} {D : KolyvaginData T S p} {D' : KolyvaginData T' S' p}
+    (f : SystemMorphism D D') : KolyvaginSystem D →ₗ[R] KolyvaginSystem D' := sorry
+lemma KolyvaginSystem.map_eval {T' : Rep K R} [Module.Free R T'] [Module.Finite R T']
+    {S' : SelmerTriple K R T'} {D : KolyvaginData T S p} {D' : KolyvaginData T' S' p}
+    (f : SystemMorphism D D') (κ : KolyvaginSystem D) (n : Vertices S) :
+    (KolyvaginSystem.map f κ).val (f.vertices n) = f.stalk n (κ.val n) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Maps are induced by the same coefficient morphism on local continuous H¹. -/
+def localFiniteMap (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (q : Prime K) :
+    unramified K R T (Sum.inr q) →ₗ[R] unramified K R T' (Sum.inr q) := sorry
+lemma localFiniteMap_val (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (q : Prime K)
+    (x : unramified K R T (Sum.inr q)) : (localFiniteMap T T' f q x).val =
+      (TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor (decomposition K (Sum.inr q)).subtype |>.map f) 1).hom x.val := sorry
+def localSingularMap (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (q : Prime K) :
+    singular T q →ₗ[R] singular T' q := sorry
+lemma localSingularMap_mk (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (q : Prime K)
+    (x : LocalH K R T (Sum.inr q) 1) : localSingularMap T T' f q (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk ((TauCeti.ContinuousCohomology.coeffMap
+        (TopRep.resFunctor (decomposition K (Sum.inr q)).subtype |>.map f) 1).hom x) := sorry
+def localSingularTensorMap (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (p : ℕ) (q : Prime K) :
+    (singular T q ⊗[ℤ] tamePrime K p q) →ₗ[R] (singular T' q ⊗[ℤ] tamePrime K p q) := sorry
+lemma localSingularTensorMap_pure (T T' : TauCeti.KolyvaginSystems.Rep K R) (f : T ⟶ T') (p : ℕ) (q : Prime K)
+    (x : singular T q) (g : tamePrime K p q) : localSingularTensorMap T T' f p q (x ⊗ₜ[ℤ] g) =
+      localSingularMap T T' f q x ⊗ₜ[ℤ] g := sorry
+lemma finiteSingular_map (T T' : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    [Module.Free R T'] [Module.Finite R T'] {p : ℕ} {q : Prime K}
+    (D : LocalTameData T p q) (D' : LocalTameData T' p q) (f : T ⟶ T')
+    (hT : IsContinuous K R T) (hT' : IsContinuous K R T')
+    (hP : ((frobEnd T q).charpoly.reverse).eval 1 = 0)
+    (hP' : ((frobEnd T' q).charpoly.reverse).eval 1 = 0)
+    (hpoly : (frobEnd T q).charpoly = (frobEnd T' q).charpoly) :
+    (localSingularTensorMap T T' f p q).comp
+      (finiteSingular T D hT hP) = (finiteSingular T' D' hT' hP').comp (localFiniteMap T T' f q) := sorry
+/-- A generator identifies the intrinsic tensor target with the scalar singular side. -/
+def singularGeneratorEquiv (T : TauCeti.KolyvaginSystems.Rep K R) {p : ℕ} {q : Prime K}
+    (σ : gammaPrime K p q) (hσ : ∀ g, g ∈ Subgroup.zpowers σ)
+    (hkill : (Fintype.card (gammaPrime K p q) : R)=0) :
+    (singular T q ⊗[ℤ] tamePrime K p q) ≃ₗ[R] singular T q := sorry
+lemma singularGeneratorEquiv_pure (T : TauCeti.KolyvaginSystems.Rep K R) {p : ℕ} {q : Prime K}
+    (σ : gammaPrime K p q) (hσ : ∀ g, g ∈ Subgroup.zpowers σ)
+    (hkill : (Fintype.card (gammaPrime K p q) : R)=0) (x : singular T q) :
+    singularGeneratorEquiv T σ hσ hkill (x ⊗ₜ[ℤ] Additive.ofMul σ) = x := sorry
+def finiteSingular_generator (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] [Module.Finite R T]
+    {p : ℕ} {q : Prime K} (D : LocalTameData T p q) (hT : IsContinuous K R T)
+    (hP : ((frobEnd T q).charpoly.reverse).eval 1 = 0)
+    (σ : gammaPrime K p q) (hσ : ∀ g, g ∈ Subgroup.zpowers σ)
+    (hkill : (Fintype.card (gammaPrime K p q) : R)=0) :
+    unramified K R T (Sum.inr q) →ₗ[R] singular T q :=
+  (singularGeneratorEquiv T σ hσ hkill).toLinearMap.comp (finiteSingular T D hT hP)
+lemma SelmerTriple.dual_modify [IsLocalRing R] [IsArtinianRing R] [IsPrincipalIdealRing R]
+    {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T] (S : SelmerTriple K R T)
+    (a b c : Conductor K) (hab : Disjoint a b) (hac : Disjoint a c) (hbc : Disjoint b c)
+    (hc : c ∈ S.conductors) (p : ℕ) (D : ∀ q : c, LocalTameData T p q)
+    (D' : ∀ q : c, LocalTameData (dualRep T) p q)
+    (he : ∀ q, (D q).extension = (D' q).extension) :
+    dualStructure T (S.modify a b c hab hac hbc hc p D) =
+      (finiteDualTriple S).modify b a c hab.symm hbc hac (by sorry) p D' := sorry
+lemma SelmerTriple.modify_isCartesian [IsLocalRing R] [IsArtinianRing R] [IsPrincipalIdealRing R]
+    {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T] (S : SelmerTriple K R T)
+    (a b c : Conductor K) (hab : Disjoint a b) (hac : Disjoint a c) (hbc : Disjoint b c)
+    (ha : a ∈ S.conductors) (hb : b ∈ S.conductors) (hc : c ∈ S.conductors)
+    (p : ℕ) (D : ∀ q : c, LocalTameData T p q) (hF : IsCartesianStructure T S.F)
+    (h1 : ∀ q ∈ a ∪ b ∪ c,
+      Nonempty ((T ⧸ LinearMap.range (frobEnd T q-LinearMap.id)) ≃ₗ[R] R)) :
+    IsCartesianStructure T (S.modify a b c hab hac hbc hc p D) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+/-- Restriction to a smaller abelian extension uses the same bad support and polynomials. -/
+structure TowerRestriction (A B : Tower T) where
+  subgroup : A.subgroup ≤ B.subgroup
+  bad : A.bad=B.bad
+  prime : A.p=B.p
+def restrictFactors (E : EulerFactors T A) {B : Tower T} (h : TowerRestriction A B) : EulerFactors T B := sorry
+def includedLayer {B : Tower T} (h : TowerRestriction A B) (F : FiniteLayer B) : FiniteLayer A := ⟨F.val,h.subgroup.trans F.property⟩
+def EulerSystem.restrictTower (E : EulerFactors T A) {B : Tower T} (h : TowerRestriction A B) :
+    EulerSystem T E →ₗ[R] EulerSystem T (restrictFactors E h) := sorry
+lemma EulerSystem.restrictTower_eval (E : EulerFactors T A) {B : Tower T}
+    (h : TowerRestriction A B) (c : EulerSystem T E) (F : FiniteLayer B) :
+    (EulerSystem.restrictTower E h c).val F = c.val (includedLayer h F) := sorry
+variable (R' : Type) [CommRing R'] [TopologicalSpace R'] [Algebra R R']
+def scalarRep (T : TauCeti.KolyvaginSystems.Rep K R) : TauCeti.KolyvaginSystems.Rep K R' := sorry
+def scalarRepEquiv (T : TauCeti.KolyvaginSystems.Rep K R) : scalarRep R' T ≃ₗ[R'] (R' ⊗[R] T) := sorry
+lemma scalarRep_action (T : TauCeti.KolyvaginSystems.Rep K R) (g : GK K) (t : scalarRep R' T) :
+    scalarRepEquiv R' T ((scalarRep R' T).ρ g t) =
+      TensorProduct.map LinearMap.id (T.ρ g).toLinearMap (scalarRepEquiv R' T t) := sorry
+instance scalarRep_free (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Free R T] : Module.Free R' (scalarRep R' T) := sorry
+instance scalarRep_finite (T : TauCeti.KolyvaginSystems.Rep K R) [Module.Finite R T] : Module.Finite R' (scalarRep R' T) := sorry
+def scalarTower (A : Tower T) : Tower (scalarRep R' T) := sorry
+lemma scalarTower_group (A : Tower T) : (scalarTower R' A).subgroup=A.subgroup := sorry
+lemma scalarTower_bad (A : Tower T) : (scalarTower R' A).bad=A.bad := sorry
+def scalarFactors (E : EulerFactors T A) : EulerFactors (scalarRep R' T) (scalarTower R' A) := sorry
+lemma scalarFactors_poly (E : EulerFactors T A) (q : Prime K) (hq : Sum.inr q ∉ A.bad) :
+    (scalarFactors R' E).poly _ q (by simpa only [scalarTower_bad] using hq) =
+      (E.poly T q hq).map (algebraMap R R') := sorry
+def scalarLayer (F : FiniteLayer A) : FiniteLayer (scalarTower R' A) := sorry
+lemma scalarLayer_val (F : FiniteLayer A) : (scalarLayer R' F).val=F.val := sorry
+instance scalarEulerModule (E : EulerFactors T A) : Module R
+    (EulerSystem (scalarRep R' T) (scalarFactors R' E)) :=
+  Module.compHom _ (algebraMap R R')
+instance scalarHModule (F : FiniteLayer A) : Module R
+    (HAt K R' (scalarRep R' T) (scalarLayer R' F).val 1) :=
+  Module.compHom _ (algebraMap R R')
+def scalarCohom (F : FiniteLayer A) : HAt K R T F.val 1 →ₗ[R]
+    HAt K R' (scalarRep R' T) (scalarLayer R' F).val 1 := sorry
+def EulerSystem.baseChange (E : EulerFactors T A) : EulerSystem T E →ₗ[R]
+    EulerSystem (scalarRep R' T) (scalarFactors R' E) := sorry
+lemma EulerSystem.baseChange_eval (E : EulerFactors T A) (c : EulerSystem T E) (F : FiniteLayer A) :
+    (EulerSystem.baseChange R' E c).val (scalarLayer R' F) = scalarCohom R' F (c.val F) := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems.SelfDual
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R] [IsLocalRing R]
+variable {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ}
+/-- Howard modification at I_n=0 keeps the same coefficient representation. -/
+def sameCoefficientModified (D : InertData T S p) (n : Vertices S)
+    (hn : inertConductorIdeal D n = ⊥) : SelmerTriple K R T := sorry
+lemma sameCoefficientModified_primes (D : InertData T S p) (n : Vertices S)
+    (hn : inertConductorIdeal D n = ⊥) :
+    (sameCoefficientModified D n hn).primes = S.primes \ (n.val : Set (Prime K)) := sorry
+lemma sameCoefficientModified_condition (D : InertData T S p) (n : Vertices S)
+    (hn : inertConductorIdeal D n = ⊥) (q : Prime K) :
+    (sameCoefficientModified D n hn).F.condition (Sum.inr q) = if hq : q ∈ n.val then
+      (inertTransverse _ (D.locals n ⟨q,hq⟩)).comap
+        (TauCeti.ContinuousCohomology.coeffMap
+          (TopRep.resFunctor (decomposition K (Sum.inr q)).subtype |>.map
+            (quotientMap T (inertConductorIdeal D n))) 1).hom.toLinearMap
+    else S.F.condition (Sum.inr q) := sorry
+def Hypotheses.modify (h : Hypotheses T S p) (D : InertData T S p)
+    (hD : D.quadratic=h.quadratic) (n : Vertices S) (hn : inertConductorIdeal D n = ⊥) :
+    Hypotheses T (sameCoefficientModified D n hn) p := sorry
+def Hypotheses.baseChange (h : Hypotheses T S p) (I : Ideal R) [IsLocalRing (R ⧸ I)] :
+    Hypotheses (reducedRep T I) (reducedTriple S I) p := sorry
+/-- Alternating Tate pairing and actual conjugation on T. The twist converts it
+into the symmetric conjugate-equivariant pairing of Howard H.4. -/
+structure WeilPairingInput (T : TauCeti.KolyvaginSystems.Rep K R) (D : ImaginaryQuadraticData K) where
+  cyclotomic : GK K →* Rˣ
+  weil : T →ₗ[R] T →ₗ[R] R
+  alternating : ∀ x, weil x x=0
+  perfect : Function.Bijective weil
+  conjugation : T ≃ₗ[R] T
+  involution : ∀ x, conjugation (conjugation x)=x
+  antiSymplectic : ∀ x y, weil (conjugation x) (conjugation y) = -weil x y
+  action : ∀ g x, conjugation (T.ρ g x)=T.ρ (D.conjugation g) (conjugation x)
+  equivariant : ∀ g x y, weil (T.ρ g x) (T.ρ g y) = (cyclotomic g : R)*weil x y
+def conjugateWeilLocal {D : ImaginaryQuadraticData K} (W : WeilPairingInput T D)
+    (v : Place K) : LocalH K R T v 1 →ₗ[R] LocalH K R T (D.conjugatePlace v) 1 →ₗ[R] R := sorry
+def weilOrthogonal {D : ImaginaryQuadraticData K} (W : WeilPairingInput T D)
+    (F : SelmerStructure K R T) (v : Place K) : Submodule R (LocalH K R T v 1) :=
+  { carrier := {x | ∀ y ∈ F.condition (D.conjugatePlace v), conjugateWeilLocal W v x y = 0},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry }
+def Hypotheses.ofWeilPairing (D : ImaginaryQuadraticData K) (W : WeilPairingInput T D)
+    (F : SelmerStructure K R T)
+    (hF : ∀ v, F.condition v = weilOrthogonal W F v) :
+    PairingData T F D := sorry
+lemma ofWeilPairing_formula (D : ImaginaryQuadraticData K) (W : WeilPairingInput T D)
+    (F : SelmerStructure K R T)
+    (hF : ∀ v, F.condition v = weilOrthogonal W F v)
+    (x y : T) : (Hypotheses.ofWeilPairing D W F hF).pairing x y = W.weil x (W.conjugation y) := sorry
+end TauCeti.KolyvaginSystems.SelfDual
+
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+/-- Product derivative on a product of cyclic tame groups. -/
+def kolyvaginDerivative_prod {ι : Type} [Fintype ι] [DecidableEq ι]
+    (Γ : ι → Type) [∀ i, CommGroup (Γ i)] (σ : ∀ i, Γ i) :
+    MonoidAlgebra ℤ (∀ i, Γ i) :=
+  ∏ i, ∑ j ∈ Finset.range (orderOf (σ i)),
+    MonoidAlgebra.single (fun k => if h : k=i then h.symm ▸ (σ i)^j else 1) (j : ℤ)
+lemma kolyvaginDerivative_prod_empty {ι : Type} [Fintype ι] [DecidableEq ι] [IsEmpty ι]
+    (Γ : ι → Type) [∀ i, CommGroup (Γ i)] (σ : ∀ i, Γ i) : kolyvaginDerivative_prod Γ σ=1 := sorry
+variable {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T]
+variable [Fact (IsContinuous K R T)] {A : Tower T}
+/-- Changing one cyclic generator by a unit multiplies the scalar derivative by
+its inverse mod M. Tensoring with the same generator makes the class intrinsic. -/
+lemma derivativeClass_generator (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ σ' : ∀ q : n, gammaPrime K A.p q)
+    (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (hσ' : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ' q))
+    (c : EulerSystem T E) :
+    derivativeClass E hA F M n h σ hσ c ⊗ₜ[ℤ] PiTensorProduct.tprod ℤ (fun q => Additive.ofMul (σ q)) =
+      derivativeClass E hA F M n h σ' hσ' c ⊗ₜ[ℤ] PiTensorProduct.tprod ℤ (fun q => Additive.ofMul (σ' q)) := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.EulerSystems.Universal
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+/-- Rubin IV Theorem 4.2: Ext¹ vanishes into a finite free group-ring module,
+although the universal module need not be free over that group ring. -/
+theorem ext_eq_zero [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
+    (F : FiniteLayer A) (n : Conductor K) (E : EulerFactors T A)
+    (hn : ∀ q ∈ n, Sum.inr q ∉ A.bad) (k : ℕ)
+    [CategoryTheory.HasExt (ModuleCat (GroupRing (R := R) F n))] :
+    Subsingleton (CategoryTheory.Abelian.Ext
+      (ModuleCat.of (GroupRing (R := R) F n) (X F n E hn))
+      (ModuleCat.of (GroupRing (R := R) F n) (Fin k → GroupRing (R := R) F n)) 1) := sorry
+end TauCeti.EulerSystems.Universal
+
+namespace TauCeti.StarkSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R] [IsLocalRing R]
+variable {T : SelmerRep K R} [Module.Free R T] [Module.Finite R T] {S : SelmerTriple K R T} {p : ℕ}
+def ComparisonData.kolyvaginData (C : ComparisonData S p)
+    (hI : ∀ q ∈ S.primes, primeConductorIdeal T p q=⊥) : KolyvaginData T S p := sorry
+/-- At a fixed coefficient level, I_q=0 prevents a second coefficient reduction.
+The bidual comparison additionally uses actual evaluation reflexivity. -/
+def KolyvaginSystemRank.rank_one_equiv (C : ComparisonData S p)
+    (hI : ∀ q ∈ S.primes, primeConductorIdeal T p q=⊥)
+    (hRef : ∀ n : Vertices S, Function.Bijective (Module.Dual.eval R (rankModified C n).selmer)) :
+    KolyvaginSystemRank C 1 (by decide) ≃ₗ[R] KolyvaginSystem (C.kolyvaginData hI) := sorry
+/-- The exterior-power MR version needs no reflexivity assumption in degree one. -/
+def MRKolyvaginSystemRank.rank_one_equiv (C : ComparisonData S p)
+    (hI : ∀ q ∈ S.primes, primeConductorIdeal T p q=⊥) :
+    MRKolyvaginSystemRank C 1 (by decide) ≃ₗ[R] KolyvaginSystem (C.kolyvaginData hI) := sorry
+end TauCeti.StarkSystems
+
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : HigherRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+instance reductionCohomR (T : HigherRep K R) (F : Layer K) (M : R) :
+    Module R (HAt K (R ⧸ Ideal.span {M}) (reducedRep T (Ideal.span {M})) F 1) :=
+  Module.compHom _ (Ideal.Quotient.mk (Ideal.span {M}))
+def coefficientReductionAt (T : HigherRep K R) (F : Layer K) (M : R) :
+    HAt K R T F 1 →ₗ[R] HAt K (R ⧸ Ideal.span {M}) (reducedRep T (Ideal.span {M})) F 1 := sorry
+/-- The rank-one Shapiro and evaluation map, not an equality between different carriers. -/
+def higherRankOneEvaluation (E : EulerFactors T A) (M : R)
+    (h : HigherDerivativeData E M 1) :
+    HAt K (R ⧸ Ideal.span {M}) (reducedRep T (Ideal.span {M})) h.field.val 1 →ₗ[R]
+      RawHigherStalk h := sorry
+lemma higherDerivative_one (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r) (h611 : BSSHypothesis611 T A.p h.S.primes)
+    (c : HigherEulerSystem E r)
+    (σ : ∀ q : (initialVertex h.S).val, gammaPrime K A.p q)
+    (hσ : ∀ (q : (initialVertex h.S).val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    higherSelmerInclusion E M r h (initialVertex h.S)
+      ((higherDerivative E M r hr h h611 c).val (initialVertex h.S)) =
+        rawHigherWithGenerators E M r h c (initialVertex h.S) σ hσ ⊗ₜ[ℤ]
+          PiTensorProduct.tprod ℤ (fun q => Additive.ofMul (σ q)) := sorry
+/-- This is the raw rank-one comparison. The corrected MR comparison also needs
+its polynomial-change map and finite-level Selmer/augmentation transports. -/
+lemma higherDerivative_rank_one (E : EulerFactors T A) (M : R) (h : HigherDerivativeData E M 1)
+    (hT : IsContinuous K R T) (c : HigherEulerSystem E 1)
+    (σ : ∀ q : (initialVertex h.S).val, gammaPrime K A.p q)
+    (hσ : ∀ (q : (initialVertex h.S).val) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q)) :
+    rawHigherWithGenerators E M 1 h c (initialVertex h.S) σ hσ =
+      higherRankOneEvaluation E M h
+        (coefficientReductionAt T h.field.val M
+          ((HigherEulerSystem.rank_one_equiv E h.admissible h.hypotheses61 hT c).val h.field)) := sorry
+end TauCeti.EulerSystems
+
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsDomain R] [IsDiscreteValuationRing R]
+variable {T : TauCeti.KolyvaginSystems.Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {A : Tower T}
+/-- The corrected weak family from the MR norm-compatible derivative construction.
+A general weak family is not asserted to have vanishing finite parts. -/
+def eulerToWeakKolyvagin (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p) :
+    EulerSystem T E →ₗ[R] WeakKolyvaginSystem D := sorry
+lemma correctedClass_finite_eq_zero (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (c : EulerSystem T E) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val) :
+    weakFinitePart D n q hq ((eulerToWeakKolyvagin E hA h D c).val n) = 0 := sorry
+/-- Twisting comparison at conductor one. Full finite-level naturality requires
+the same polynomial normalization and its quotient/augmentation dictionaries. -/
+lemma eulerToKolyvagin_twist (E : EulerFactors T A) (χ : CharacterData A)
+    (S' : SelmerTriple K R (twistRep T χ.character))
+    (hA' : IsAdmissibleTower (twistRep T χ.character) (twistTower χ))
+    (h' : EulerKolyvaginHypotheses (twistFactors E χ) S')
+    (hcomplete : IsAdicComplete (IsLocalRing.maximalIdeal R) R)
+    (h0 : NoResidualInvariants (twistRep T χ.character) (IsLocalRing.maximalIdeal R))
+    (c : EulerSystem T E) :
+    (generalizedOne hcomplete h0
+      (eulerToKolyvagin (twistFactors E χ) hA' h' (EulerSystem.twist E χ c))).val =
+        baseClass (twistFactors E χ) (EulerSystem.twist E χ c) := sorry
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p) :
+    eulerToWeakKolyvagin E hA h D 0 = 0 := sorry
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ}
+
+-- Unit test: gammaConductor_product
+example (K : Type) [Field K] [NumberField K] (p : ℕ) (n : Conductor K) :
+  Nonempty (gammaConductor K p n ≃* (∀ q : n, gammaPrime K p q)) := sorry
+
+-- Unit test: conductorIdeal_one
+example (T : Rep K R) (p : ℕ) : conductorIdeal T p ∅ = ⊥ := sorry
+
+-- Unit test: tameGroup_one
+example (K : Type) [Field K] [NumberField K] (p : ℕ) :
+  Nonempty (tameGroup K p ∅ ≃+ ℤ) := sorry
+
+-- Unit test: kolyvaginPrimes_not_outside
+example [IsLocalRing R] (T : Rep K R) (S : SelmerTriple K R T) (p k : ℕ)
+    (q : Prime K) (h : q ∉ S.primes) : q ∉ kolyvaginPrimes T S p k := sorry
+
+-- Unit test: kolyvaginPrimes_unit_ideal
+example [IsLocalRing R] (T : Rep K R) (S : SelmerTriple K R T) (p k : ℕ)
+    (q : Prime K) (hI : primeConductorIdeal T p q = ⊤)
+    (hproper : IsLocalRing.maximalIdeal R^k ≠ ⊤) : q ∉ kolyvaginPrimes T S p k := sorry
+
+-- Unit test: kolyvaginPrimes_level_zero
+example [IsLocalRing R] (T : Rep K R) (S : SelmerTriple K R T) (p : ℕ) :
+  kolyvaginPrimes T S p 0 = S.primes := sorry
+
+-- Unit test: sections_one_vertex
+example (G : SimpleGraph Unit) (D : GraphSheaf R G) :
+  Nonempty (D.sections ≃ₗ[R] D.stalk ()) := sorry
+
+-- Unit test: sections_ne_product
+example {V : Type} (G : SimpleGraph V) (D : GraphSheaf R G)
+    (e : G.edgeSet) (x y : V) (hx : x ∈ e.val) (hy : y ∈ e.val)
+    (a : ∀ v, D.stalk v) (h : D.toEdge e x hx (a x) ≠ D.toEdge e y hy (a y)) :
+  a ∉ D.sections := sorry
+
+-- Unit test: isCoreVertex_dual_zero
+example [IsLocalRing R] (D : KolyvaginData T S p) (n : Vertices S)
+    (h : dualSelmerLength D n = 0) : IsCoreVertex D n := sorry
+
+-- Unit test: not_isCoreVertex_both_positive
+example [IsLocalRing R] (D : KolyvaginData T S p) (n : Vertices S)
+    (h : 0 < selmerLength D n) (hd : 0 < dualSelmerLength D n) : ¬ IsCoreVertex D n := sorry
+
+-- Unit test: isCoreVertex_free_rank
+example [IsLocalRing R] (D : KolyvaginData T S p) (h : MR04Hypotheses T S p)
+    (hR : PrincipalArtinian (R := R)) (hP : AtLevel S p) (n : Vertices S)
+    (hn : IsCoreVertex D n) (hr : latticeCoreRank T S.F = 1) :
+  Module.Free R (modified D n).selmer ∧ Module.finrank R (modified D n).selmer = 1 := sorry
 
 end TauCeti.KolyvaginSystems
 
-/-! ## ES.1 (error-tolerant inputs): exponents and orders -/
-
 namespace TauCeti.ErrorTolerant
+open TauCeti.KolyvaginSystems
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsLocalRing O] [IsDomain O] [IsDiscreteValuationRing O]
 
-variable {O : Type*} [CommRing O] (ϖ : O) {M : Type*} [AddCommGroup M] [Module O M]
+-- Unit test: frobeniusSet_proper
+example (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) (g : SelmerGalois T S)
+    (h : ∀ a : normalKernel T D.normalClosure, D.alpha a = a → D.restriction a ≠ g) :
+  g ∉ frobeniusSet T S D := sorry
 
-/-- **`ES.1/reducibility-depth`**, API `expAt`: `exp_λ(x, M) = min{d : λ^d x = 0}`. -/
-def expAt (x : M) : ℕ∞ := ⨅ d ∈ {d : ℕ | ϖ ^ d • x = 0}, (d : ℕ∞)
+-- Unit test: frobeniusSet_fixed_evaluation
+example (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) (g : SelmerGalois T S) (hg : g ∈ frobeniusSet T S D)
+    (x : S) : T.ρ D.h (theta T S g x) = theta T S g x := sorry
 
-/-- API `ordAt`: `ord_λ(x, M) = sup{d : x ∈ λ^d M}`. -/
-def ordAt (x : M) : ℕ∞ :=
-  ⨆ d ∈ {d : ℕ | x ∈ (Ideal.span {ϖ} ^ d) • (⊤ : Submodule O M)}, (d : ℕ∞)
-
-/-- Test `expAt_zmod`: in `ℤ/p³`, `exp_p(p) = 2` (here `p = 3`). -/
-example : expAt (3 : ℤ) (3 : ZMod 27) = 2 := sorry
-
-/-- Test `expAt_zmod`, second half: `ord_p(p) = 1`. -/
-example : ordAt (3 : ℤ) (3 : ZMod 27) = 1 := sorry
-
-/-- Test `ordAt_top_iff`. -/
-example (x : M) : ordAt ϖ x = ⊤ ↔ ∀ d : ℕ, x ∈ (Ideal.span {ϖ} ^ d) • (⊤ : Submodule O M) := sorry
+-- Unit test: isAbundant_zero_loss
+example (T : ErrorRep K O) (S : Submodule O (H K O T 1))
+    (D : AbundanceData T S) (π : O) (r rT : ℕ) (Ψ : Fin r → SelmerGalois T S) :
+  IsAbundant T S D π 0 r rT 0 Ψ ↔ ∃ hΨ : ∀ i, Ψ i ∈ frobeniusSet T S D,
+    Function.Surjective (fixedAbundanceMap T S D Ψ hΨ) := sorry
 
 end TauCeti.ErrorTolerant
 
-/-! ## ES.2: the module of Euler systems of an abstract tower -/
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsDomain R] [IsDiscreteValuationRing R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ} {A : Tower T}
+
+-- Unit test: correctedClass_finite_vanishes
+example (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (c : EulerSystem T E) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val) :
+  weakFinitePart D n q hq ((eulerToWeakKolyvagin E hA h D c).val n) = 0 := sorry
+
+-- Unit test: WeakKolyvaginSystem.not_kolyvagin
+example (D : KolyvaginData T S p) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val)
+    (κ : WeakKolyvaginSystem D) (hf : weakFinitePart D n q hq (κ.val n) ≠ 0) :
+  κ ∉ LinearMap.range (KolyvaginSystem.toWeak D) := sorry
+
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition
+/-- MR04 Lemma 1.2.1; the reciprocity adapters above give these canonical maps. -/
+theorem finite_singular_decomposition (T : Rep K R) [Module.Finite R T]
+    {p : ℕ} {q : Prime K} (D : LocalTameData T p q) (hT : IsContinuous K R T) :
+    Nonempty (unramified K R T (Sum.inr q) ≃ₗ[R]
+      (T ⧸ LinearMap.range (frobEnd T q - LinearMap.id))) ∧
+    Nonempty ((singular T q ⊗[ℤ] tamePrime K p q) ≃ₗ[R]
+      LinearMap.ker (frobEnd T q - LinearMap.id)) := sorry
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality
+/-- MR04 Proposition 1.3.2, with the same local extension for both coefficients. -/
+theorem transverse_duality (T : Rep K R) [Module.Finite R T] [Finite T]
+    {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
+    (Ddual : LocalTameData (dualRep T) p q) (hD : D.extension = Ddual.extension) :
+    orthogonal T (Sum.inr q) (transverse T D) = transverse (dualRep T) Ddual ∧
+    orthogonal T (Sum.inr q) (unramified K R T (Sum.inr q)) =
+      unramified K R (dualRep T) (Sum.inr q) := sorry
+
+/-- Dirichlet density is a limit of the prime-ideal series as s decreases to 1.
+This consumer definition does not supply the Chebotarev theorem. -/
+def HasPositiveDirichletDensity (Q : Set (Prime K)) : Prop :=
+  ∃ δ : ℝ, 0 < δ ∧ Filter.Tendsto
+    (fun s : ℝ => (∑' q : Prime K, if q ∈ Q then (primeNorm K q : ℝ) ^ (-s) else 0) /
+      Real.log (1 / (s-1))) (nhdsWithin 1 (Set.Ioi 1)) (nhds δ)
+
+def mr04PrimesAt (T : Rep K R) (S : SelmerTriple K R T) [Module.Free R T] [Module.Finite R T] [IsLocalRing R] (k : ℕ) :
+    Set (Prime K) := {q | q ∈ S.primes ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R^k}
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-nonvanishing
+/-- MR04 Proposition 3.6.1 uses four classes and the full MR04 hypotheses. -/
+theorem chebotarev_nonvanishing [IsLocalRing R] [IsArtinianRing R]
+    [IsPrincipalIdealRing R] [Finite R]
+    (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple ℚ R T) (p : ℕ) (h : MR04Hypotheses T S p)
+    (c : Fin 2 → H ℚ R T 1) (cdual : Fin 2 → H ℚ R (dualRep T) 1)
+    (hc : ∀ i, c i ≠ 0) (hd : ∀ i, cdual i ≠ 0) (k : ℕ) (hk : 0 < k) :
+    ∃ Q : Set (Prime ℚ), Q ⊆ mr04PrimesAt T S k ∧ HasPositiveDirichletDensity Q ∧
+      ∀ q ∈ Q, (∀ i, loc ℚ R T (Sum.inr q) (c i) ≠ 0) ∧
+        ∀ i, loc ℚ R (dualRep T) (Sum.inr q) (cdual i) ≠ 0 := sorry
+
+def restrictedLocalization (T : Rep K R) (C : Submodule R (H K R T 1)) (q : Prime K) :
+    C →ₗ[R] LocalH K R T (Sum.inr q) 1 := (loc K R T (Sum.inr q)).comp C.subtype
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-prescribed-kernels
+/-- MR04 Proposition 3.6.2(i). The two-coefficient form also assumes H.4a. -/
+theorem chebotarev_prescribed_kernels [IsLocalRing R] [IsArtinianRing R]
+    [IsPrincipalIdealRing R] [Finite R]
+    (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple ℚ R T) (p : ℕ) (h : MR04Hypotheses T S p)
+    (hcoeff : CoefficientsFromGalois T p) (C : Submodule R (H ℚ R T 1)) [Finite C]
+    (φ : C →ₗ[R] R) (k : ℕ) (hk : 0 < k) :
+    ∃ Q : Set (Prime ℚ), Q ⊆ mr04PrimesAt T S k ∧ HasPositiveDirichletDensity Q ∧
+      ∀ q ∈ Q, LinearMap.ker (restrictedLocalization T C q) = LinearMap.ker φ := sorry
+
+theorem chebotarev_prescribed_dual_kernels [IsLocalRing R] [IsArtinianRing R]
+    [IsPrincipalIdealRing R] [Finite R]
+    (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple ℚ R T) (p : ℕ) (h : MR04Hypotheses T S p)
+    (hcoeff : CoefficientsFromGalois T p) (h4a : ResidualHomVanishing T)
+    (C : Submodule R (H ℚ R T 1)) [Finite C] (φ : C →ₗ[R] R)
+    (Cdual : Submodule R (H ℚ R (dualRep T) 1)) [Finite Cdual] (ψ : Cdual →ₗ[R] R)
+    (k : ℕ) (hk : 0 < k) :
+    ∃ Q : Set (Prime ℚ), Q ⊆ mr04PrimesAt T S k ∧ HasPositiveDirichletDensity Q ∧
+      ∀ q ∈ Q, LinearMap.ker (restrictedLocalization T C q) = LinearMap.ker φ ∧
+        LinearMap.ker (restrictedLocalization (dualRep T) Cdual q) = LinearMap.ker ψ := sorry
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula
+/-- The corank is the rank of the character dual of the discrete H⁰ carrier. -/
+def localDualCorank (T : Rep K R) (v : Place K) : ℕ :=
+  Module.finrank R (pontryaginDual (R := R) (LocalH K R (dualRep T) v 0))
+def minusLattice (T : Rep K R) (c : GK K) : Submodule R T :=
+  LinearMap.ker ((T.ρ c).toLinearMap + LinearMap.id)
+
+theorem canonical_core_rank_formula [IsLocalRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
+    (p : ℕ) (S : SelmerTriple ℚ R T) (h : MR04Hypotheses T S p)
+    (q : Prime ℚ) (hq : isAboveP p q)
+    (hF : S.F = canonicalStructure T S.F.sigma (pInfinity (K := ℚ) p)
+      S.F.ramification (by sorry))
+    (v : NumberField.InfinitePlace ℚ) (c : GK ℚ)
+    (hc : decomposition ℚ (Sum.inl v) = Subgroup.zpowers c) (hc2 : orderOf c = 2) :
+    latticeCoreRank T S.F = Module.finrank R (minusLattice T c) + localDualCorank T (Sum.inr q) := sorry
+
+theorem unramified_core_rank_formula [IsLocalRing R] [IsDomain R] [IsDiscreteValuationRing R]
+    (T : Rep K R) [Module.Free R T] [Module.Finite R T]
+    (sigma : Finset (Place K)) (hu : ∀ v ∉ sigma, IsUnramified K R T v)
+    (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) :
+    latticeCoreRank T (unramifiedStructure T sigma hu) =
+      ∑ v : NumberField.InfinitePlace K, localDualCorank T (Sum.inl v) := sorry
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.4/leading-vertices
+/-- MR04 Theorem 4.1.15. The containment compares actual H¹ submodules. -/
+theorem leading_vertices_through_submodule [IsLocalRing R] [IsArtinianRing R]
+    [IsPrincipalIdealRing R] (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
+    (S : SelmerTriple ℚ R T) (p : ℕ) (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hP : AtLevel S p)
+    (h4a : ResidualHomVanishing T) (hcoeff : CoefficientsFromGalois T p)
+    (hr : 0 < latticeCoreRank T S.F) (h1 : ¬ IsCoreVertex D (initialVertex S))
+    (L : Submodule R (H ℚ R T 1)) (hL : L ≤ S.F.selmer)
+    (hdim : len R (torsionBy (IsLocalRing.maximalIdeal R) L) = latticeCoreRank T S.F) :
+    {n : Vertices S | IsLeadingVertex D n ∧
+      L.map (TauCeti.ContinuousCohomology.coeffMap (quotientMap T (conductorIdeal T p n.val)) 1).hom.toLinearMap
+        ≤ (modified D n).selmer}.Infinite := sorry
+end TauCeti.KolyvaginSystems
 
 namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
 
-section EulerPoly
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation
+/-- The cofinal ray-product presentation, Rubin II Remark 1.4. -/
+abbrev RayProductIndex (hA : IsAdmissibleTower T A) :=
+  (F : {F : FiniteLayer A // hA.direction.subgroup ≤ F.val.group}) ×
+    {n : Conductor K // ∀ q ∈ n, Sum.inr q ∉ A.bad}
+def rayProductLayer (hA : IsAdmissibleTower T A) (i : RayProductIndex hA) : FiniteLayer A :=
+  auxiliaryFiniteLayer hA i.1.val i.2.val i.2.property
 
-variable {R : Type*} [CommRing R] {T : Type*} [AddCommGroup T] [Module R T] [Module.Free R T]
-  [Module.Finite R T]
+def ConductorNormFamily (E : EulerFactors T A) (hA : IsAdmissibleTower T A) :
+    Submodule R (∀ i : RayProductIndex hA, HAt K R T (rayProductLayer hA i).val 1) :=
+  {carrier := {c | ∀ (i j : RayProductIndex hA)
+      (h : (rayProductLayer hA j).val.group ≤ (rayProductLayer hA i).val.group),
+      corAt T (rayProductLayer hA i).val (rayProductLayer hA j).val h (c j) =
+        factorOperator T E (rayProductLayer hA i) (rayProductLayer hA j) (c i)},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+/-- The minimal tower condition is cofinality of actual auxiliary fields. -/
+def MinimalRayTower (hA : IsAdmissibleTower T A) : Prop :=
+  ∀ L : FiniteLayer A, ∃ i : RayProductIndex hA, (rayProductLayer hA i).val.group ≤ L.val.group
 
-/-- **`ES.2/euler-polynomial`**, API `eulerPolyMR`: `det(1 - φ X | T)`, the reversal of the
-characteristic polynomial; for `φ = Fr_q` this is the Mazur–Rubin Euler polynomial. -/
-def eulerPolyMR (φ : T →ₗ[R] T) : R[X] := (LinearMap.charpoly φ).reverse
+def conductorPresentation (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hmin : MinimalRayTower hA) : EulerSystem T E ≃ₗ[R] ConductorNormFamily E hA := sorry
+lemma conductorPresentation_eval (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hmin : MinimalRayTower hA) (c : EulerSystem T E) (i : RayProductIndex hA) :
+    (conductorPresentation E hA hmin c).val i = c.val (rayProductLayer hA i) := sorry
 
-/-- API `eulerPoly`: Rubin's polynomial `det(1 - Fr_q⁻¹ X | Hom(T, O(1))) = det(1 - N⁻¹ φ X | T)`,
-for `φ = Fr_q` and `N = N(q)` a unit of the coefficient ring. -/
-def eulerPoly (φ : T →ₗ[R] T) (N : Rˣ) : R[X] := eulerPolyMR ((↑N⁻¹ : R) • φ)
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.2/euler-factor-change
+/-- Rubin IX Lemma 6.1 applies to arbitrary congruent factor families, rather than
+asserting equality of the two Euler-system conventions. -/
+abbrev FactorFamily (A : Tower T) := (q : Prime K) → Sum.inr q ∉ A.bad → R[X]
+def polynomialFactor (f : FactorFamily A) (F F' : FiniteLayer A) :
+    Module.End R (HAt K R T F.val 1) := sorry
+lemma polynomialFactor_formula (f : FactorFamily A) (F F' : FiniteLayer A) :
+    polynomialFactor f F F' =
+      ((ramifiedDifference A F F').attach.toList.map (fun q =>
+        aeval (cohomologyAction T F.val (QuotientGroup.mk (frobenius K q.val).val⁻¹))
+          (f q.val (by sorry)))).prod := sorry
 
-/-- API `eulerPoly_coeff`. -/
-theorem eulerPoly_coeff (φ : T →ₗ[R] T) (N : Rˣ) (i : ℕ) :
-    (eulerPoly φ N).coeff i * (N : R) ^ i = (eulerPolyMR φ).coeff i := sorry
+def PolynomialNormFamily (f : FactorFamily A) : Submodule R (∀ F : FiniteLayer A, HAt K R T F.val 1) :=
+  {carrier := {c | ∀ (F F' : FiniteLayer A) (h : F'.val.group ≤ F.val.group),
+      corAt T F.val F'.val h (c F') = polynomialFactor f F F' (c F)},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def changeEulerFactors (hA : IsAdmissibleTower T A) (f g : FactorFamily A)
+    (hfg : ∀ q hq, (f q hq - g q hq).map
+      (Ideal.Quotient.mk (Ideal.span {(primeNorm K q : R)-1})) = 0) :
+    PolynomialNormFamily f →ₗ[R] PolynomialNormFamily g := sorry
+lemma changeEulerFactors_unramified (hA : IsAdmissibleTower T A) (f g : FactorFamily A)
+    (hfg : ∀ q hq, (f q hq - g q hq).map
+      (Ideal.Quotient.mk (Ideal.span {(primeNorm K q : R)-1})) = 0)
+    (c : PolynomialNormFamily f) (F : FiniteLayer A)
+    (hu : ∀ q : Prime K, Sum.inr q ∉ A.bad → IsUnramifiedLayer F.val q) :
+    (changeEulerFactors hA f g hfg c).val F = c.val F := sorry
 
-/-- API `eulerPoly_congr`: the two polynomials agree modulo `N - 1`. -/
-theorem eulerPoly_congr (φ : T →ₗ[R] T) (N : Rˣ) (i : ℕ) :
-    (eulerPoly φ N).coeff i - (eulerPolyMR φ).coeff i ∈ Ideal.span {(N : R) - 1} := sorry
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.3/congruence
+/-- Rubin IV Corollary 8.1. At a nonsplit p-adic direction this is a consequence
+of norm compatibility, while the rigid finite-direction carrier assumes it. -/
+theorem kolyvagin_congruence (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (hE : E.normalization = .rubin) (c : EulerSystem T E) (N : Conductor K)
+    (hN : ∀ q, q ∈ N ↔ Sum.inr q ∈ A.bad) : RayFamilyCongruent E c N := sorry
 
-/-- Test `eulerPoly_zp_one`: on `ℤ_p(1)` Frobenius acts by `N`; the Mazur–Rubin polynomial is
-`1 - N X`. -/
-example (N : Rˣ) : eulerPolyMR ((N : R) • (LinearMap.id : R →ₗ[R] R)) = 1 - C (N : R) * X := sorry
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties
+variable [Fact (IsContinuous K R T)]
+theorem derivative_local_unramified (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (F : FiniteLayer A) (M : R) (n : Conductor K) (h : DerivativeAdmissible E F M n)
+    (σ : ∀ q : n, gammaPrime K A.p q)
+    (hσ : ∀ (q : n) (g : gammaPrime K A.p q), g ∈ Subgroup.zpowers (σ q))
+    (c : EulerSystem T E) (q : Prime K) (hq : q ∉ n) (hp : ¬ isAboveP A.p q)
+    (w : Prime F.val.field) (hw : w ∈ primesAbove F.val q) :
+    locAt (quotientRep T (Ideal.span {M})) F.val (Sum.inr w)
+      (derivativeClass E hA F M n h σ hσ c) ∈
+        unramified F.val.field R (layerRep (quotientRep T (Ideal.span {M})) F.val) (Sum.inr w) := sorry
 
-/-- Test `eulerPoly_zp_one`, second half: Rubin's polynomial is `1 - X`. -/
-example (N : Rˣ) : eulerPoly ((N : R) • (LinearMap.id : R →ₗ[R] R)) N = 1 - X := sorry
-
-/-- Test `eulerPoly_rank_zero`: for the zero endomorphism the polynomial is `1`. -/
-example : eulerPolyMR (0 : T →ₗ[R] T) = 1 := sorry
-
-end EulerPoly
-
-/-- An abstract norm-compatible tower: modules `H F` (for `H¹(F, T)`) indexed by a preorder of
-fields, corestriction maps and Euler-factor operators `∏_{q ∈ Σ(F'/F)} P(Fr_q⁻¹ | T^*; Fr_q⁻¹)`. -/
-structure Tower (O : Type u) [CommRing O] (ι : Type v) [Preorder ι] where
-  /-- The cohomology module at a field. -/
-  H : ι → Type w
-  [addCommGroupH : ∀ F, AddCommGroup (H F)]
-  [moduleH : ∀ F, Module O (H F)]
-  /-- Corestriction. -/
-  cor : ∀ {F F' : ι}, F ≤ F' → H F' →ₗ[O] H F
-  /-- The Euler factor attached to `F ≤ F'`. -/
-  factor : ∀ {F F' : ι}, F ≤ F' → H F →ₗ[O] H F
-
-attribute [instance] Tower.addCommGroupH Tower.moduleH
-
-variable {O : Type u} [CommRing O] {ι : Type v} [Preorder ι] (𝒯 : Tower.{u, v, w} O ι)
-
-/-- **`ES.2/euler-system-module`**, API `EulerSystem`: the submodule of `∏_F H¹(F, T)` cut out by
-the corestriction relations. -/
-def EulerSystem : Submodule O (∀ F, 𝒯.H F) :=
-  ⨅ (F : ι) (F' : ι) (h : F ≤ F'),
-    LinearMap.eqLocus ((𝒯.cor h).comp (LinearMap.proj F')) ((𝒯.factor h).comp (LinearMap.proj F))
-
-/-- API `EulerSystem.eval`. -/
-def EulerSystem.eval (F : ι) : EulerSystem 𝒯 →ₗ[O] 𝒯.H F :=
-  (LinearMap.proj F).comp (EulerSystem 𝒯).subtype
-
-/-- API `EulerSystem.cor_eval`. -/
-theorem EulerSystem.cor_eval (c : EulerSystem 𝒯) {F F' : ι} (h : F ≤ F') :
-    𝒯.cor h (EulerSystem.eval 𝒯 F' c) = 𝒯.factor h (EulerSystem.eval 𝒯 F c) := sorry
-
-/-- API `EulerSystem.ext`. -/
-theorem EulerSystem.ext (c c' : EulerSystem 𝒯)
-    (h : ∀ F, EulerSystem.eval 𝒯 F c = EulerSystem.eval 𝒯 F c') : c = c' := sorry
-
-/-- API `EulerSystem.lift`: the universal property of the equaliser. -/
-def EulerSystem.lift {X : Type*} [AddCommGroup X] [Module O X] (f : ∀ F, X →ₗ[O] 𝒯.H F)
-    (hf : ∀ {F F' : ι} (h : F ≤ F'), (𝒯.cor h).comp (f F') = (𝒯.factor h).comp (f F)) :
-    X →ₗ[O] EulerSystem 𝒯 :=
-  LinearMap.codRestrict _ (LinearMap.pi f) sorry
-
-/-- Test `EulerSystem.zero_mem`. -/
-example : (0 : ∀ F, 𝒯.H F) ∈ EulerSystem 𝒯 := Submodule.zero_mem _
-
-/-- Test `EulerSystem.universal_norm` (abstract form): where the Euler factor is the identity,
-classes are norm-compatible. -/
-example (c : EulerSystem 𝒯) {F F' : ι} (h : F ≤ F') (hf : 𝒯.factor h = LinearMap.id) :
-    𝒯.cor h (EulerSystem.eval 𝒯 F' c) = EulerSystem.eval 𝒯 F c := sorry
-
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection
+/-- Rubin V Lemma 2.3(a): evaluation modulo τ−1 dominates the order after
+restriction. Both primal and dual classes are selected with one γ. -/
+theorem rubin_prime_evaluation_selection [IsDomain R] [IsDiscreteValuationRing R]
+    (p : ℕ) (hp : 2 < p) (h : HypKT T p) (M π : R) (hM : M ≠ 0)
+    (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π})
+    (L : Layer K) (hL : L.group ≤ representationKernel (quotientRep T (Ideal.span {M})))
+    (hLd : L.group ≤ representationKernel (dualRep (quotientRep T (Ideal.span {M}))))
+    (z : Cocycle (quotientRep T (Ideal.span {M})) (⊤ : Subgroup (GK K)))
+    (zd : Cocycle (dualRep (quotientRep T (Ideal.span {M}))) (⊤ : Subgroup (GK K))) :
+    ∃ γ : L.group,
+      TauCeti.ErrorTolerant.expAt π (resAt (quotientRep T (Ideal.span {M})) (baseLayer K) L (by sorry)
+        ((baseEquiv _).symm (TauCeti.ErrorTolerant.globalCocycleClass _ z))) ≤
+        TauCeti.ErrorTolerant.expAt π
+          (Submodule.Quotient.mk (z.val ⟨γ.val*h.tau,by simp⟩) :
+            quotientRep T (Ideal.span {M}) ⧸ LinearMap.range
+              (((quotientRep T (Ideal.span {M})).ρ h.tau).toLinearMap-LinearMap.id)) ∧
+      TauCeti.ErrorTolerant.expAt π (resAt (dualRep (quotientRep T (Ideal.span {M}))) (baseLayer K) L (by sorry)
+        ((baseEquiv _).symm (TauCeti.ErrorTolerant.globalCocycleClass _ zd))) ≤
+        TauCeti.ErrorTolerant.expAt π
+          (Submodule.Quotient.mk (zd.val ⟨γ.val*h.tau,by simp⟩) :
+            dualRep (quotientRep T (Ideal.span {M})) ⧸ LinearMap.range
+              (((dualRep (quotientRep T (Ideal.span {M}))).ρ h.tau).toLinearMap-LinearMap.id)) := sorry
 end TauCeti.EulerSystems
 
-/-! ## ES.6: the exterior bidual -/
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsDomain R] [IsDiscreteValuationRing R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {A : Tower T}
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula
+/-- Raw norm-compatible derivatives, before the permutation correction. -/
+def rawEulerDerivative (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (c : EulerSystem T E) (n : Vertices S) :
+    RawStalk T A.p n.val := sorry
+/-- The raw family has relaxed local conditions at its conductor. -/
+def rawEulerToWeak (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (hdiv : pDualInvariantsDivisible T A.p) :
+    EulerSystem T E →ₗ[R] WeakKolyvaginSystem D := sorry
 
-namespace TauCeti.ExteriorBidual
+def weakAmbientInclusion (D : KolyvaginData T S A.p) (n : Vertices S) :
+    WeakStalk D n →ₗ[R] RawStalk T A.p n.val := sorry
+lemma rawEulerToWeak_dictionary (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (hdiv : pDualInvariantsDivisible T A.p) (c : EulerSystem T E) (n : Vertices S) :
+    weakAmbientInclusion D n ((rawEulerToWeak E hA h D hdiv c).val n) =
+      rawEulerDerivative E hA h c n := sorry
 
-variable (R : Type*) [CommRing R] (X : Type*) [AddCommGroup X] [Module R X]
+def rawFinitePart (D : KolyvaginData T S A.p) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val) :
+    RawStalk T A.p n.val →ₗ[R]
+      (unramified K R (quotientRep T (conductorIdeal T A.p n.val)) (Sum.inr q) ⊗[ℤ]
+        tameGroup K A.p n.val) := sorry
+/-- The nonfixed primes form exactly one nonempty permutation orbit. -/
+def SingleMovedOrbit {n : Conductor K} (π : Equiv.Perm n) : Prop :=
+  (∃ x : n, π x ≠ x) ∧ ∀ x y : n, π x ≠ x → π y ≠ y → ∃ a : ℕ, (π^a) x = y
 
-/-- **`ES.6/exterior-bidual`**, API `exteriorBidual`: `⋂^r_R X = Hom_R(⋀^r Hom_R(X, R), R)`. -/
-abbrev exteriorBidual (r : ℕ) : Type _ :=
-  Module.Dual R (⋀[R]^r (Module.Dual R X))
+theorem rawEulerDerivative_finite_part (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (c : EulerSystem T E) (n : Vertices S) (q : Prime K) (hq : q ∈ n.val) :
+    rawFinitePart D n q hq (rawEulerDerivative E hA h c n) =
+      ∑ π ∈ Finset.univ.filter (fun π : Equiv.Perm n.val =>
+        SingleMovedOrbit π ∧ (π ⟨q,hq⟩).val ≠ q),
+        ((-1 : ℤ)^(n.val.card - (fixedPart n.val π).card)) •
+          rawFinitePart D n q hq
+            (correctionTensor E n π h.support
+              (rawEulerDerivative E hA h c ⟨fixedPart n.val π,by sorry⟩)) := sorry
 
-/-- API `toBidual`: the canonical map `ξ^r_X : ⋀^r X → ⋂^r X`. -/
-def toBidual (r : ℕ) : ⋀[R]^r X →ₗ[R] exteriorBidual R X r :=
-  (exteriorPower.pairingDual R (Module.Dual R X) r).comp
-    (exteriorPower.map r (Module.Dual.eval R X))
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.3/two-prime-test
+/-- At one prime there is no moving orbit, so the raw finite part vanishes. -/
+lemma rawEulerDerivative_prime_finite (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (c : EulerSystem T E) (q : Prime K) (hq : q ∈ S.primes) :
+    rawFinitePart D ⟨{q},by sorry⟩ q (by simp)
+      (rawEulerDerivative E hA h c ⟨{q},by sorry⟩) = 0 := sorry
+/-- After subtraction both finite parts vanish. The formula above fixes the
+opposite signs of the raw finite term and the transposition correction. -/
+lemma two_prime_corrected_finite (E : EulerFactors T A) (hA : IsAdmissibleTower T A)
+    (h : EulerKolyvaginHypotheses E S) (D : KolyvaginData T S A.p)
+    (c : EulerSystem T E) (q l : Prime K) (hne : q ≠ l)
+    (hq : q ∈ S.primes) (hl : l ∈ S.primes) :
+    weakFinitePart D ⟨{q,l},by sorry⟩ q (by simp)
+      ((eulerToWeakKolyvagin E hA h D c).val ⟨{q,l},by sorry⟩) = 0 ∧
+    weakFinitePart D ⟨{q,l},by sorry⟩ l (by simp)
+      ((eulerToWeakKolyvagin E hA h D c).val ⟨{q,l},by sorry⟩) = 0 := sorry
+end TauCeti.KolyvaginSystems
 
-/-- API `toBidual_ιMulti_ιMulti`. -/
-theorem toBidual_ιMulti_ιMulti (r : ℕ) (x : Fin r → X) (φ : Fin r → Module.Dual R X) :
-    toBidual R X r (exteriorPower.ιMulti R r x) (exteriorPower.ιMulti R r φ) =
-      Matrix.det (Matrix.of fun i j => φ i (x j)) := sorry
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+variable {T : GaloisRep K O} [Module.Free O T] [Module.Finite O T]
+variable {p : ℕ} [Fact p.Prime] [Algebra (PadicInt p) O]
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.3/anticyclotomic-derivative
+/-- Admissibility uses the χ-ray relative degree, not the cyclotomic ray degree. -/
+def AntiDerivativeAdmissible (D : AnticyclotomicData T p) (M : O) (n : Conductor K) : Prop :=
+  (∃ k : ℕ, 0 < k ∧ M = (p^k : O)) ∧ ∀ q ∈ n, q ∉ D.bad ∧
+    (Fintype.card (relativeGal (antiRayLayer D ∅) (antiRayLayer D {q}) (by sorry)) : O) ∈
+      Ideal.span {M} ∧
+    ∀ (u : Oˣ) (_ : (u : O) = primeNorm K q), (eulerPoly T q u (by assumption)).eval 1 ∈ Ideal.span {M}
+def antiDerivative (D : AnticyclotomicData T p) (hD : AntiRayContract D)
+    (M : O) (n : Conductor K) (hn : AntiDerivativeAdmissible D M n)
+    (c : AnticyclotomicEulerSystem D) : HAt K O (quotientRep T (Ideal.span {M})) D.base 1 := sorry
 
-/-- API `toBidual_bijective`. -/
-theorem toBidual_bijective [Module.Finite R X] [Module.Projective R X] (r : ℕ) :
-    Function.Bijective (toBidual R X r) := sorry
+theorem antiDerivative_unramified (D : AnticyclotomicData T p) (hD : AntiRayContract D)
+    (M : O) (n : Conductor K) (hn : AntiDerivativeAdmissible D M n)
+    (c : AnticyclotomicEulerSystem D) (w : Prime D.base.field)
+    (hp : ¬ isAboveP p w) (hq : ∀ q ∈ n, w ∉ primesAbove D.base q) :
+    locAt _ D.base (Sum.inr w) (antiDerivative D hD M n hn c) ∈
+      unramified D.base.field O (layerRep (quotientRep T (Ideal.span {M})) D.base) (Sum.inr w) := sorry
 
-variable {R X}
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds
+/-- The finite character descends through the field defined by its kernel. -/
+def antiCharacter (D : AnticyclotomicData T p) : Layer.Gal K D.base →* (PadicInt p)ˣ := sorry
+lemma antiCharacter_mk (D : AnticyclotomicData T p) (g : GK K) :
+    antiCharacter D (QuotientGroup.mk g) = D.chi g := sorry
+/-- The eigenpart here is over K'; the exponent bound pairs χ^i with χ^(1-i). -/
+def chiPart (D : AnticyclotomicData T p) (i : ℤ) (V : GaloisRep K O) :
+    Submodule O (HAt K O V D.base 1) :=
+  {carrier := {x | ∀ g : Layer.Gal K D.base,
+      cohomologyAction V D.base g x =
+        (algebraMap (PadicInt p) O (((antiCharacter D g)^i).val)) • x},
+    zero_mem' := sorry, add_mem' := sorry, smul_mem' := sorry}
+def antiBaseLayer (D : AnticyclotomicData T p) : AntiLayer D := ⟨D.base,D.overBase,le_rfl⟩
+/-- For the index, project to χ^i rather than measure distance to that eigenpart. -/
+def chiProject (D : AnticyclotomicData T p) (i : ℤ) (V : GaloisRep K O) :
+    HAt K O V D.base 1 →ₗ[O] HAt K O V D.base 1 := sorry
+lemma chiProject_formula (D : AnticyclotomicData T p) (i : ℤ) (V : GaloisRep K O)
+    (u : Oˣ) (hu : (u : O) = D.d) (x : HAt K O V D.base 1) :
+    chiProject D i V x = (u⁻¹ : Oˣ).val •
+      ∑ g : Layer.Gal K D.base,
+        algebraMap (PadicInt p) O (((antiCharacter D g)^(-i)).val) •
+          cohomologyAction V D.base g x := sorry
 
-/-- API `map`: functoriality of the exterior bidual. -/
-def map {Y : Type*} [AddCommGroup Y] [Module R Y] (f : X →ₗ[R] Y) (r : ℕ) :
-    exteriorBidual R X r →ₗ[R] exteriorBidual R Y r :=
-  Module.Dual.transpose (exteriorPower.map r (Module.Dual.transpose (R := R) f))
+def antiOmega (D : AnticyclotomicData T p) : Subgroup (GK D.base.field) :=
+  (antiHM D ⊓ representationKernel (Discrete T)).comap (layerGalois D.base)
+instance antiOmega_normal (D : AnticyclotomicData T p) : (antiOmega D).Normal := sorry
 
-theorem map_id (r : ℕ) : map (LinearMap.id : X →ₗ[R] X) r = LinearMap.id := sorry
+theorem anticyclotomic_exponent_bound (D : AnticyclotomicData T p) (hD : AntiRayContract D)
+    (c : AnticyclotomicEulerSystem D) (hodd : 2 < p)
+    (hV : ResiduallyIrreducible (layerRep T D.base))
+    (τ : GK K) (hτ : cyclotomicCharacter K p τ = D.chi τ)
+    (hfixed : τ^D.d ∈ antiHM D) (hcoinv : RankOneCoinvariants T τ)
+    (hker : antiOmega D ≤ representationKernel (layerRep (dualRep T) D.base))
+    (hvan : Subsingleton (continuousCohomology 1
+      (descentRep (layerRep (Discrete T) D.base) (antiOmega D) (by sorry))) ∧
+      Subsingleton (continuousCohomology 1
+        (descentRep (layerRep (dualRep T) D.base) (antiOmega D) hker)))
+    (F : SelmerStructure D.base.field O (layerRep T D.base))
+    (hF : ∀ v : Place D.base.field, F.condition v =
+      finiteLatticeCondition (layerRep T D.base) v)
+    (P : Conductor D.base.field) (hP : ∀ w, w ∈ P ↔ isAboveP p w)
+    (dualDictionary : dualRep (layerRep T D.base) ≅ layerRep (dualRep T) D.base)
+    (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π}) (i : ℤ) (j : ℕ)
+    (hj : divisibilityIndex (R := O) (chiProject D i T (c.val.val (antiBaseLayer D))) = j) :
+    ∀ s : (strict (dualRep (layerRep T D.base)) (dualStructure _ F) P).selmer,
+      (TauCeti.ContinuousCohomology.coeffMap dualDictionary.hom 1).hom.toLinearMap s.val ∈
+        LinearMap.range ((layerCohomology (dualRep T) D.base 1).toLinearMap.comp
+          (chiPart D (1-i) (dualRep T)).subtype) → π^j • s = 0 := sorry
+end TauCeti.EulerSystems
 
-theorem map_comp {Y Z : Type*} [AddCommGroup Y] [Module R Y] [AddCommGroup Z] [Module R Z]
-    (g : Y →ₗ[R] Z) (f : X →ₗ[R] Y) (r : ℕ) : map (g.comp f) r = (map g r).comp (map f r) := sorry
+namespace TauCeti.KolyvaginSystems
+open scoped DirectSum
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable [IsLocalRing R]
+variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
+variable {S : SelmerTriple K R T} {p : ℕ}
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem
+/-- MR04 Theorem 5.2.10 at an artinian coefficient level. -/
+theorem rank_one_module_artinian (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R))
+    (hP : AtLevel S p) (hr : latticeCoreRank T S.F = 1) :
+    Nonempty (KolyvaginSystem D ≃ₗ[R] R) := sorry
 
-/-- Compatibility of `map` with `ξ`. -/
-theorem map_toBidual {Y : Type*} [AddCommGroup Y] [Module R Y] (f : X →ₗ[R] Y) (r : ℕ) :
-    (map f r).comp (toBidual R X r) = (toBidual R Y r).comp (exteriorPower.map r f) := sorry
+theorem core_vertex_evaluation_bijective (D : KolyvaginData T S p)
+    (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R))
+    (hP : AtLevel S p) (hr : latticeCoreRank T S.F = 1)
+    (n : Vertices S) (hn : IsCoreVertex D n) :
+    Function.Bijective (KolyvaginSystem.eval D n) := sorry
 
-/-- Test `free_rank`: `⋂²(R³)` has rank three. -/
-example : Module.finrank ℤ (exteriorBidual ℤ (Fin 3 → ℤ) 2) = 3 := sorry
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem
+/-- The elementary exponents are successive differences, not the partial indices. -/
+def elementaryExponent (D : KolyvaginData T S p) (κ : KolyvaginSystem D) (i : ℕ) : ℕ :=
+  (partialInvariant D κ i - partialInvariant D κ (i+1)).toNat
 
-/-- Test `zero_power`: `⋂⁰ X ≅ R`. -/
-example : Nonempty (exteriorBidual R X 0 ≃ₗ[R] R) := sorry
+theorem structure_finite_quotient [IsDomain R] [IsDiscreteValuationRing R]
+    (D : KolyvaginData T S p) (h : MR04Hypotheses T S p)
+    (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R})
+    (κ : KolyvaginSystem D) (hκ : κ ≠ 0) :
+    Nonempty (((dualStructure T S.F).selmer ⧸ divisiblePart (dualRep T) (dualStructure T S.F)) ≃ₗ[R]
+      (⨁ i : ℕ, R ⧸ IsLocalRing.maximalIdeal R^
+        (elementaryExponent D κ (i+(KolyvaginSystem.ord D κ).toNat)))) := sorry
 
-/-- Test `torsion_killed`: for `X = ℤ/2` over `ℤ`, `ξ¹` is zero, hence not injective. -/
-example : toBidual ℤ (ZMod 2) 1 = 0 := sorry
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.5/sharpness-examples
+/-- A nonzero system whose first class is zero has an infinite dual Selmer group. -/
+theorem nonzero_zero_initial_infinite [IsDomain R] [IsDiscreteValuationRing R]
+    (D : KolyvaginData T S p) (h : MR04Hypotheses T S p)
+    (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R})
+    (κ : KolyvaginSystem D) (hκ : κ ≠ 0) (h1 : κ.val (initialVertex S) = 0) :
+    Module.length R (dualStructure T S.F).selmer = ⊤ := sorry
 
-/-- API `one_equiv_bidual`: `⋂¹ X` is the double dual. -/
-theorem one_equiv_bidual :
-    Nonempty (exteriorBidual R X 1 ≃ₗ[R] Module.Dual R (Module.Dual R X)) := sorry
+theorem scaling_strict_bound [IsDomain R] [IsDiscreteValuationRing R]
+    (D : KolyvaginData T S p) (h : MR04Hypotheses T S p)
+    (hr : latticeCoreRank T S.F = 1)
+    (hsat : ∀ v ∈ S.F.sigma, Module.IsTorsionFree R (LocalH K R T v 1 ⧸ S.F.condition v))
+    (hP : S.primes = {q | Sum.inr q ∉ S.F.sigma ∧ conductorIdeal04 T q ≤ IsLocalRing.maximalIdeal R})
+    (κ : KolyvaginSystem D) (hκ : IsPrimitive D κ) (h1 : κ.val (initialVertex S) ≠ 0)
+    (π : R) (hπ : IsLocalRing.maximalIdeal R = Ideal.span {π}) :
+    Module.length R (dualStructure T S.F).selmer = partialInvariant D κ 0 ∧
+    partialInvariant D (π • κ) 0 = partialInvariant D κ 0 + 1 ∧
+    Module.length R (dualStructure T S.F).selmer < partialInvariant D (π • κ) 0 ∧
+    ¬ IsPrimitive D (π • κ) := sorry
+end TauCeti.KolyvaginSystems
 
-end TauCeti.ExteriorBidual
+namespace TauCeti.EulerSystems
+open TauCeti.KolyvaginSystems TauCeti.StarkSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : HigherRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds
+/-- Corollary 6.15 retains the full finite group-ring coefficients h.C. -/
+theorem higherEuler_fitting_bound (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r) (h611 : BSSHypothesis611 T A.p h.S.primes)
+    (hf : BSSFiniteData h.S A.p r) (hp : 3 < A.p) (c : HigherEulerSystem E r) (i : ℕ) :
+    KolyvaginSystemRank.ideal h.comparison r hr hf (higherDerivative E M r hr h h611 c) i ≤
+      fittingIdeal (finiteDualSelmer h.S) i := sorry
 
-/-! ## ES.6: Stark systems as an inverse limit -/
+theorem higherEuler_fitting_equality_zero (E : EulerFactors T A) (M : R) (r : ℕ) (hr : 0 < r)
+    (h : HigherDerivativeData E M r) (h611 : BSSHypothesis611 T A.p h.S.primes)
+    (hf : BSSFiniteData h.S A.p r) (hp : 3 < A.p) (c : HigherEulerSystem E r)
+    (hκ : Submodule.span h.C {higherDerivative E M r hr h h611 c} = ⊤) :
+    KolyvaginSystemRank.ideal h.comparison r hr hf (higherDerivative E M r hr h h611 c) 0 =
+      fittingIdeal (finiteDualSelmer h.S) 0 := sorry
+end TauCeti.EulerSystems
 
 namespace TauCeti.StarkSystems
+open TauCeti.KolyvaginSystems
+variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
+variable {T : SelmerRep K R} [Module.Free R T] [Module.Finite R T]
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality
+/-- The local-condition comparison is a concrete kernel square in arithmetic H¹. -/
+structure LocalConditionSquare (F' F : SelmerStructure K R T) (s : ℕ) where
+  le : ∀ v, F'.condition v ≤ F.condition v
+  localMap : F.selmer →ₗ[R] (Fin s → R)
+  kernel : (LinearMap.ker localMap).map F.selmer.subtype = F'.selmer
 
-/-- The inverse system of a Stark system: modules `Y n` (Mazur–Rubin's `Y_n`, or the exterior
-biduals `⋂^{r+ν(n)} H¹_{F^n}`) indexed by conductors ordered by divisibility, with transition
-maps `Ψ_{n,m}`. -/
-structure InverseSystem (R : Type u) [CommRing R] (ι : Type v) [Preorder ι] where
-  /-- The module at a conductor. -/
-  Y : ι → Type w
-  [addCommGroupY : ∀ n, AddCommGroup (Y n)]
-  [moduleY : ∀ n, Module R (Y n)]
-  /-- The transition map `Ψ_{n,m}` for `m ∣ n`. -/
-  transition : ∀ {m n : ι}, m ≤ n → Y n →ₗ[R] Y m
-  /-- Identity transitions, needed for an inverse system rather than arbitrary compatible maps. -/
-  transition_id : ∀ n : ι, transition (le_refl n) = LinearMap.id
-  transition_comp : ∀ {l m n : ι} (h : l ≤ m) (h' : m ≤ n),
-    (transition h).comp (transition h') = transition (h.trans h')
+def selmerBidualInclusion (F' F : SelmerStructure K R T)
+    (h : ∀ v, F'.condition v ≤ F.condition v) (r : ℕ) :
+    selmerBidual F' r →ₗ[R] selmerBidual F r := sorry
+/-- Ordered contraction lands in the bidual of the smaller Selmer condition. -/
+def contractLocalConditions [IsNoetherianRing R] [Module.Injective R R]
+    (F' F : SelmerStructure K R T) [Module.Finite R F'.selmer] [Module.Finite R F.selmer]
+    (s r : ℕ) (D : LocalConditionSquare F' F s) :
+    selmerBidual F (r+s) →ₗ[R] selmerBidual F' r := sorry
 
-attribute [instance] InverseSystem.addCommGroupY InverseSystem.moduleY
+/-- For one localization, the kernel of contraction is the smaller bidual image. -/
+def contractLocalComponent (F : SelmerStructure K R T) (r : ℕ) (hr : 0 < r)
+    (v : Module.Dual R F.selmer) : selmerBidual F r →ₗ[R] selmerBidual F (r-1) := sorry
 
-variable {R : Type u} [CommRing R] {ι : Type v} [Preorder ι] (𝒴 : InverseSystem.{u, v, w} R ι)
-
-/-- **`ES.6/stark-systems`**, API `StarkSystem`: the inverse limit `lim_n Y_n`. -/
-def StarkSystem : Submodule R (∀ n, 𝒴.Y n) :=
-  ⨅ (m : ι) (n : ι) (h : m ≤ n),
-    LinearMap.eqLocus ((𝒴.transition h).comp (LinearMap.proj n)) (LinearMap.proj m)
-
-/-- Membership in the module of Stark systems. -/
-theorem mem_starkSystem (ε : ∀ n, 𝒴.Y n) :
-    ε ∈ StarkSystem 𝒴 ↔ ∀ (m n : ι) (h : m ≤ n), 𝒴.transition h (ε n) = ε m := sorry
-
-/-- Basic equaliser check: the zero family is compatible. This does not test the arithmetic
-identity for the conductor-one stalk requested by `stalk_one`. -/
-example : (0 : ∀ n, 𝒴.Y n) ∈ StarkSystem 𝒴 := Submodule.zero_mem _
-
+theorem bidual_local_kernel [IsNoetherianRing R] [Module.Injective R R]
+    (F' F : SelmerStructure K R T) [Module.Finite R F'.selmer] [Module.Finite R F.selmer]
+    (r : ℕ) (hr : 0 < r) (D : LocalConditionSquare F' F 1) :
+    LinearMap.range (selmerBidualInclusion F' F D.le r) =
+      LinearMap.ker (contractLocalComponent F r hr (LinearMap.proj 0 |>.comp D.localMap)) := sorry
 end TauCeti.StarkSystems
 
-end
-
-
-/-! ## The declarations of the packet, by layer
-
-The inventory below mirrors the reviewed mathematical statements and proposed names. It remains
-comments, not Lean declarations. `[prototype above]` points to an algebraic prototype that may
-cover only part of the item, without the arithmetic Galois/Selmer carrier or specialization map.
-All remaining signatures, API lemmas, named theorems and examples are a recorded gap; compilation
-of this file does not discharge that gap or certify any arithmetic theorem.
--/
-
-
-/-! ### Layer ES.0 -/
-
-
-/-
-
-**`ES.0/selmer-triple`** (definition): Selmer triples and squarefree conductors.
-
-  Statement. Fix a number field K, a prime p and a coefficient ring R: a complete noetherian local
-    ring with maximal ideal m and finite residue field k = R/m of characteristic p. A Selmer triple
-    (T, F, P) consists of a free R-module T of finite rank with a continuous R-linear action of G_K
-    unramified outside finitely many primes, a Selmer structure F on T (a finite set Σ(F) of places
-    containing the archimedean places, the places above p and the primes where T is ramified, with
-    an R-submodule H¹_F(K_v, T) ⊆ H¹(K_v, T) for v ∈ Σ(F), and the unramified condition elsewhere),
-    and a set P of primes of K disjoint from Σ(F). N(P) is the set of squarefree products of primes
-    of P, with 1 ∈ N(P), and ν(n) is the number of prime factors of n. Selmer data (T, F, P, r) add
-    an integer r ≥ 1. The dual is T^* = Hom(T, μ_{p^∞}) with the dual structure F^*.
-
-  Hypothesis. R is complete noetherian local with finite residue field of characteristic p
-
-  Hypothesis. T is free of finite rank over R
-
-  Hypothesis. P ∩ Σ(F) = ∅
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple` (structure) [prototype above]: The triple (T, F, P): a
-    Selmer structure F on T together with a set P of primes disjoint from Σ(F).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.conductors` (data) [prototype above]: N(P): the
-    squarefree products of primes of P, as finite subsets of P.
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.one_mem_conductors` (simp) [prototype above]: 1 ∈ N(P).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.conductors_dvd_closed` (characterisation) [prototype
-    above]: If n ∈ N(P) and m | n then m ∈ N(P).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.restrictPrimes` (functoriality) [prototype above]: For P′
-    ⊆ P, (T, F, P′) is a Selmer triple and N(P′) ⊆ N(P).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.dual` (constructor): The Cartier dual data (T^*, F^*, P)
-    use the imported discrete Selmer carrier, with Σ(F^*) = Σ(F). For a DVR lattice T, T^* = Hom(T,
-    μ_{p^∞}) is discrete torsion, not a finite free lattice and hence not an object of the same
-    lattice-triple type. Over a principal artinian ring, the finite Cartier dual is free of the same
-    rank after the coefficient duality identification.
-
-  * test `SelmerTriple.conductors_empty` (degenerate) [prototype above]: For P = ∅, N(P) = {1}.
-
-  * test `SelmerTriple.card_conductors_of_finite` (computation): If P has exactly two primes q₁, q₂
-    then N(P) = {1, q₁, q₂, q₁q₂} has four elements, and ν takes the values 0, 1, 1, 2.
-
-  * test `SelmerTriple.not_mem_conductors_of_sq` (non-example): For q ∈ P the ideal q² is not in
-    N(P).
-
-  * test `SelmerTriple.disjoint_sigma` (characterisation) [prototype above]: No prime of Σ(F)
-    divides any n ∈ N(P); in particular T is unramified at every prime dividing n and no such prime
-    lies above p.
-
-  Acceptance. For P = ∅ one has N(P) = {1} and a Selmer triple is a Selmer structure.
-
-  Acceptance. N(P) is closed under taking divisors, and n, nq ∈ N(P) with q prime implies q ∈ P and
-    q ∤ n.
-
--/
-
-
-/-
-
-**`ES.0/quotient-category`** (definition): The category of quotients of T.
-
-  Statement. Quot_R(T) is the category whose objects are the quotients T/IT for all ideals I of R,
-    and whose morphisms from T/IT to T/JT are the scalar multiplications by elements r ∈ R with rI ⊆
-    J. A local condition propagated from T to all quotients (images under T → T/IT) is functorial
-    over Quot_R(T). For R principal artinian of length k with uniformiser π, the objects are T/m^iT
-    for 0 ≤ i ≤ k, and multiplication by π^{j−i} is an injective morphism T/m^iT → T/m^jT for i ≤ j.
-
-  Hypothesis. R as in selmer-triple; T an R[[G_K]]-module
-
-  * `TauCeti.KolyvaginSystems.QuotCat` (structure): The category Quot_R(T): objects the ideals I of
-    R (standing for T/IT), morphisms I → J the scalars r with rI ⊆ J acting T/IT → T/JT.
-
-  * `TauCeti.KolyvaginSystems.QuotCat.scalarHom` (constructor) [prototype above]: For r ∈ R with r·I
-    ≤ J, the G_K-equivariant R-linear map T/IT → T/JT induced by multiplication by r.
-
-  * `TauCeti.KolyvaginSystems.QuotCat.scalarHom_comp` (functoriality) [prototype above]: scalarHom s
-    ∘ scalarHom r = scalarHom (sr), and scalarHom 1 is the identity of T/IT.
-
-  * `TauCeti.KolyvaginSystems.QuotCat.scalarHom_injective_iff` (characterisation): For T free and
-    nonzero, multiplication by r : T/IT → T/JT is injective if and only if (J : r) = I.
-
-  * `TauCeti.KolyvaginSystems.QuotCat.propagate_functorial` (compatibility): A local condition
-    propagated to quotients is a subfunctor of H¹(K_v, −) on Quot_R(T).
-
-  * test `QuotCat.field_objects` (degenerate): If R is a field, the objects of Quot_R(T) are T/0 = T
-    and T/R·T = 0.
-
-  * test `QuotCat.zmod_sq_mul_p_injective` (computation): For R = ℤ/p² and T = R, multiplication by
-    p is a morphism T/pT → T and is injective with image pT.
-
-  * test `QuotCat.not_hom_of_not_le` (non-example): For R = ℤ/p² the scalar 1 is not a morphism from
-    T/pT to T, because 1·(p) ⊄ (0).
-
-  Acceptance. Over a field R = k the category has the two objects 0 and T.
-
-  Acceptance. For R = ℤ/p², the map p : T/pT → T is a morphism and is injective when T is free.
-
--/
-
-
-/-
-
-**`ES.0/cartesian-condition`** (definition): Cartesian local conditions.
-
-  Statement. A local condition F at a place v, functorial over a category 𝒯 of R[[G_{K_v}]]-modules,
-    is cartesian on 𝒯 if for every injective morphism α : T₁ → T₂ of 𝒯 the square formed by
-    H¹_F(K_v, T₁) ⊆ H¹(K_v, T₁) and H¹_F(K_v, T₂) ⊆ H¹(K_v, T₂) is cartesian: H¹_F(K_v, T₁) is the
-    inverse image of H¹_F(K_v, T₂) under α_*. A Selmer structure F on T is cartesian if for every q
-    ∈ Σ(F) the condition at q, propagated to quotients, is cartesian on Quot_R(T).
-
-  Hypothesis. F is functorial over 𝒯
-
-  * `TauCeti.KolyvaginSystems.IsCartesian` (structure) [prototype above]: The predicate: for every
-    injective morphism α of Quot_R(T), H¹_F(K_v, T₁) = α_*⁻¹(H¹_F(K_v, T₂)).
-
-  * `TauCeti.KolyvaginSystems.isCartesian_iff_comap` (characterisation): F is cartesian iff for all
-    i ≤ j the condition on T/m^iT is the inverse image of the condition on T/m^jT under π^{j−i} (R
-    principal artinian).
-
-  * `TauCeti.KolyvaginSystems.isCartesian_unramified` (example): The finite condition is cartesian
-    on any category of unramified modules.
-
-  * `TauCeti.KolyvaginSystems.isCartesian_of_field` (example): If R is a field every local condition
-    on T is cartesian on Quot_R(T).
-
-  * `TauCeti.KolyvaginSystems.isCartesian_of_torsionFree_quotient` (compatibility): R a discrete
-    valuation ring and H¹(K_q, T)/H¹_F(K_q, T) torsion-free imply that the induced condition on
-    T/m^kT is cartesian on Quot(T/m^kT) for every k.
-
-  * `TauCeti.KolyvaginSystems.IsCartesian.quotient` (functoriality): If F is cartesian on Quot_R(T)
-    then the induced condition is cartesian on Quot_{R/m^j}(T/m^jT).
-
-  * test `isCartesian_strict_and_relaxed_field` (degenerate) [prototype above]: For R = 𝔽_p and T =
-    𝔽_p the strict and the relaxed conditions are both cartesian.
-
-  * test `isCartesian_unramified_zmod` (compatibility): For K_v = ℚ_ℓ, ℓ ≠ p, R = ℤ/p^k and T = R
-    with trivial action, the unramified condition Hom(G_{𝔽_ℓ}, T/p^iT) is cartesian: a homomorphism
-    to ℤ/p^i whose composite with p^{j−i} : ℤ/p^i → ℤ/p^j is unramified is unramified.
-
-  * test `not_isCartesian_torsion_condition` (non-example): For R = ℤ/p², T = R with trivial action
-    and H¹_F(K_v, T) = H¹(K_v, T)[p], the propagated condition on T/pT is 0 (a homomorphism killed
-    by p has values in pT), while the inverse image of H¹_F(K_v, T) under p : T/pT → T is all of
-    H¹(K_v, T/pT) = Hom(G_{K_v}, 𝔽_p) ≠ 0. So F is not cartesian.
-
-  * test `isCartesian_iff_torsionFree_example` (characterisation): For R = ℤ_p and T = ℤ_p(1) over
-    ℚ_ℓ, ℓ ≠ p, the condition ker(H¹(ℚ_ℓ, T) → H¹(ℚ_ℓ^{ur}, T ⊗ ℚ_p)) has torsion-free quotient, and
-    its propagation to T/p^k is cartesian.
-
-  Acceptance. The unramified condition on unramified modules is cartesian; over a field every
-    condition is cartesian.
-
-  Acceptance. A condition defined by an extension L/K_v need not be cartesian (Mazur–Rubin 2004,
-    Remark 1.1.8); the non-example test below exhibits a failure.
-
--/
-
-
-/-
-
-**`ES.0/cartesian-length-linearity`** (lemma): Lengths of cartesian conditions grow linearly.
-
-  Statement. Let R be principal artinian of length k and F a local condition on T at v, cartesian on
-    Quot_R(T). Then there is an integer r such that length H⁰(K_v, T/m^iT) − length H¹_F(K_v,
-    T/m^iT) = r·i for 0 < i ≤ k.
-
-  Hypothesis. R principal artinian of length k
-
-  Hypothesis. F cartesian on Quot_R(T)
-
-  Hypothesis. T free of finite rank
-
-  Acceptance. For the unramified condition on an unramified T one gets r = 0, since H¹_f(K_v, T) ≅
-    T/(Fr − 1)T has the length of T^{Fr=1}.
-
--/
-
-
-/-
-
-**`ES.0/quotient-dual-propagation`** (lemma): Propagation commutes with local duality.
-
-  Statement. Let F be a local condition on T at v and I an ideal of R. The two local conditions
-    induced on T^*[I] = (T/IT)^* agree: the orthogonal complement of the condition propagated to the
-    quotient T/IT, and the condition propagated to the submodule T^*[I] from the orthogonal
-    complement F^* on T^*. Consequently, for a Selmer structure F, (F on T/IT)^* = (F^* on T^*[I]),
-    and the same holds for the passages T → V and V → V/T of a lattice in its rational
-    representation.
-
-  Hypothesis. Local Tate duality for T and T^* = Hom(T, μ_{p^∞}) at v
-
-  Acceptance. For F relaxed on T both constructions give the strict condition on T^*[I]; for F
-    strict both give the relaxed condition.
-
-  Acceptance. The condition on a quotient remembers T: H¹_{F_can}(ℚ_p, T/IT) is the image of H¹(ℚ_p,
-    T), which can be smaller than H¹(ℚ_p, T/IT) (Mazur–Rubin 2004, Definition 3.2.1 and Lemma A.1).
-
--/
-
-
-/-
-
-**`ES.0/selmer-torsion-identification`** (lemma): Selmer modules of quotients and torsion submodules.
-
-  Statement. Assume T̄^{G_K} = (T̄^*)^{G_K} = 0 for T̄ = T/mT (which follows from (H.1) and (H.3) of
-    Mazur–Rubin 2004). (a) For every ideal I of R, T^*[I] → T^* induces an isomorphism H¹_{F^*}(K,
-    T^*[I]) ≅ H¹_{F^*}(K, T^*)[I]. (b) If R is principal artinian of length k and F is cartesian,
-    then for 0 < i ≤ k the injection π^{k−i} : T/m^iT → T induces isomorphisms H¹(K, T/m^iT) ≅ H¹(K,
-    T)[m^i] and H¹_F(K, T/m^iT) ≅ H¹_F(K, T)[m^i], and H¹_F(K, T)[m^i] is the kernel of H¹_F(K, T) →
-    H¹_F(K, T/m^{k−i}T).
-
-  Hypothesis. (T/mT)^{G_K} = (T^*[m])^{G_K} = 0
-
-  Hypothesis. for (b): R principal artinian, F cartesian on Quot_R(T)
-
-  Acceptance. For T = μ_{p^k} ⊗ ρ^{-1} with ρ ≠ 1, ω, both identifications hold (Mazur–Rubin 2004,
-    Lemma 6.1.5).
-
-  Acceptance. Without the invariants hypothesis the statement fails: for T = ℤ/p² with G_K acting
-    through a nontrivial character χ ≡ 1 (mod p), the connecting map (T/pT)^{G_K} → H¹(K, T/pT) is
-    nonzero, so H¹(K, T/pT) → H¹(K, T)[p] is not injective.
-
--/
-
-
-/-
-
-**`ES.0/selmer-length-difference`** (theorem): The Euler characteristic formula for Selmer modules.
-
-  Statement. Let T be a finite R[[G_K]]-module and F a Selmer structure on T. Then length H¹_F(K, T)
-    − length H¹_{F^*}(K, T^*) = length H⁰(K, T) − length H⁰(K, T^*) − Σ_{v ∈ Σ(F)} (length H⁰(K_v,
-    T) − length H¹_F(K_v, T)), all lengths over R.
-
-  Hypothesis. T finite
-
-  Hypothesis. lengths taken over R (for R = ℤ/p^k these are p-adic valuations of orders)
-
-  Acceptance. For K = ℚ, R = 𝔽_p, T = μ_p with the relaxed condition at p and strict at ∞ (p odd),
-    the left side is dim (ℤ[1/p]^×/p) − dim H¹_{F^*}(ℚ, ℤ/p) = 1 − 0 and the right side is 0 − 1 −
-    ((0 − 2) + (0 − 0)) = 1: the term at p is length H⁰(ℚ_p, μ_p) − length H¹(ℚ_p, μ_p) = 0 − 2 and
-    the term at ∞ is 0 − 0.
-
--/
-
-
-/-
-
-**`ES.0/core-rank`** (definition): The core rank of a cartesian Selmer structure.
-
-  Statement. Let R be principal artinian of length k, F a cartesian Selmer structure on T, and
-    T^{G_K} = (T^*)^{G_K} = 0. There is a unique integer r such that H¹_F(K, T) ≅ H¹_{F^*}(K, T^*) ⊕
-    R^r if r ≥ 0 and H¹_F(K, T) ⊕ R^{−r} ≅ H¹_{F^*}(K, T^*) if r ≤ 0 (noncanonically). Mazur–Rubin
-    2016 Definition 3.4 calls the signed integer r the core rank. In the convention of Mazur–Rubin
-    2004 Definition 4.1.11, the nonnegative core ranks are χ(T, F) = max(r, 0) and χ(T^*, F^*) =
-    max(−r, 0); one of these is zero. Higher-rank systems use the signed r and require r ≥ 1. For R
-    a discrete valuation ring and F cartesian, χ(T, F) is the common value of χ(T/m^kT, F) for k ≥
-    1.
-
-  Hypothesis. R principal artinian (or a discrete valuation ring)
-
-  Hypothesis. F cartesian
-
-  Hypothesis. (T/mT)^{G_K} = (T^*[m])^{G_K} = 0
-
-  * `TauCeti.KolyvaginSystems.coreRankInt` (data): The integer r with length H¹_F(K, T) − length
-    H¹_{F^*}(K, T^*) = r·k.
-
-  * `TauCeti.KolyvaginSystems.coreRank` (data): χ(T, F) = max(r, 0) as a natural number; χ(T^*, F^*)
-    = max(−r, 0).
-
-  * `TauCeti.KolyvaginSystems.coreRank_mul_length` (characterisation): If χ(T) > 0 then length
-    H¹_F(K, T) − length H¹_{F^*}(K, T^*) = k·χ(T); if χ(T) = 0 the difference is −k·χ(T^*).
-
-  * `TauCeti.KolyvaginSystems.coreRank_eq_zero_or_dual` (relation): χ(T, F) = 0 or χ(T^*, F^*) = 0.
-
-  * `TauCeti.KolyvaginSystems.selmer_equiv_dual_prod_free` (equivalence): If coreRankInt(T,F) = r ≥
-    0, there is a noncanonical R-linear isomorphism H¹_F(K,T) ≃ H¹_{F^*}(K,T^*) × R^r. For r ≤ 0 the
-    free factor occurs on the other side.
-
-  * `TauCeti.KolyvaginSystems.coreRank_field` (example): For R = k a field, χ(T) − χ(T^*) = dim_k
-    H¹_F(K, T) − dim_k H¹_{F^*}(K, T^*).
-
-  * test `coreRank_cyclotomic_even` (computation): For K = ℚ, R = ℤ/p^k, ρ an even nontrivial
-    character of order prime to p and T = μ_{p^k} ⊗ ρ^{-1} with the structure F of Mazur–Rubin 2004
-    Definition 6.1.1, χ(T, F) = 1; for ρ odd with ρ ≠ ω, χ(T, F) = 0.
-
-  * test `coreRank_elliptic_classical` (computation): For E/ℚ and p ≥ 5 with surjective mod-p
-    representation, T = E[p^k] has rank two, χ(T,F) = 0 for the classical Kummer structure, and
-    χ(T,F_can) = 1 for the structure propagated from T_pE.
-
-  * test `coreRank_field_strict_relaxed` (degenerate): Over R = k, replacing F by the structure
-    relaxed at one prime q ∈ P_1 (so that H¹_s(K_q, T) is one-dimensional) raises r by exactly 1.
-
-  * test `coreRank_ne_rank` (non-example): For E/ℚ and p ≥ 5 with surjective mod-p representation, T
-    = E[p^k] has rank two, χ(T,F) = 0 for the classical Kummer structure, and χ(T,F_can) = 1 for the
-    structure propagated from T_pE.
-
-  Acceptance. χ(T, F) = 1 for T = μ_{p^k} ⊗ ρ^{-1} with ρ even and nontrivial and F the unit-root
-    structure of Mazur–Rubin 2004 §6.1; χ = 0 for ρ odd, ρ ≠ ω.
-
-  Acceptance. The core rank is not the R-rank of T: Under the hypotheses of example-elliptic, for T
-    = E[p^k], a module of rank 2, χ(T, F_can) = 1 and χ(T, F) = 0 for the classical Selmer
-    structure.
-
--/
-
-
-/-
-
-**`ES.0/core-rank-independence-of-modulus`** (theorem): The core rank is independent of the modulus.
-
-  Statement. Let R be principal artinian of length k and F cartesian with the invariants hypothesis
-    of core-rank. Then for 0 < i ≤ k the Selmer triple (T/m^iT, F, P) over R/m^i has χ(T/m^iT) =
-    χ(T) and χ(T^*[m^i]) = χ(T^*), and H¹_F(K, T/m^iT) ≅ (R/m^i)^{χ(T)} ⊕ H¹_{F^*}(K, T^*[m^i]) when
-    χ(T) > 0. If R is a discrete valuation ring and H¹(K_q, T)/H¹_F(K_q, T) is torsion-free for q ∈
-    Σ(F), then rank_R H¹_F(K, T) − corank_R H¹_{F^*}(K, T^*) = χ(T) − χ(T^*).
-
-  Hypothesis. as in core-rank
-
-  Acceptance. For T = T_pE and F_can, rank H¹_{F_can}(ℚ, T) − corank H¹_{F_can^*}(ℚ, E[p^∞]) = 1.
-
--/
-
-
-/-
-
-**`ES.0/canonical-selmer-structure`** (definition): The canonical and the unramified Selmer structures.
-
-  Statement. Let R be the ring of integers of a finite extension of ℚ_p (or a discrete valuation
-    ring as in Mazur–Rubin 2016). The canonical Selmer structure F_can on T has Σ(F_can) = {q : T
-    ramified at q} ∪ {v | p} ∪ {v | ∞}; H¹_{F_can}(K_q, T) = ker(H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p))
-    for q ∈ Σ(F_can), q ∤ p∞; and H¹_{F_can}(K_v, T) = H¹(K_v, T) for v | p∞. On T/IT it is the
-    structure induced from T, which depends on T and not only on T/IT. The unramified structure F_ur
-    of Mazur–Rubin 2016 has the same conditions away from p and, at 𝔭 | p, the saturation of the
-    universal norm subgroup ∩_L Cor_{L/K_𝔭} H¹(L, T) over finite unramified L/K_𝔭.
-
-  Hypothesis. R a discrete valuation ring, finite over ℤ_p for F_can
-
-  * `TauCeti.KolyvaginSystems.canonicalStructure` (constructor): F_can: relaxed at v | p∞, and at
-    ramified q ∤ p the kernel of H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p).
-
-  * `TauCeti.KolyvaginSystems.canonicalStructure_torsionFree` (characterisation): H¹(K_q,
-    T)/H¹_{F_can}(K_q, T) is torsion-free for every q, so F_can is cartesian on quotients.
-
-  * `TauCeti.KolyvaginSystems.canonicalStructure_dual_at_p` (compatibility): The dual structure
-    F_can^* is strict at every v | p and equals the dual of the unramified-saturated condition
-    elsewhere.
-
-  * `TauCeti.KolyvaginSystems.canonicalStructure_quotient_at_p` (relation): H¹_{F_can}(K_𝔭, T/IT) is
-    the image of H¹(K_𝔭, T); it equals H¹(K_𝔭, T/IT) if H⁰(K_𝔭, T^*) is divisible.
-
-  * `TauCeti.KolyvaginSystems.unramifiedStructure` (constructor): F_ur of Mazur–Rubin 2016,
-    Definition 5.1.
-
-  * `TauCeti.KolyvaginSystems.unramifiedStructure_eq_canonical` (compatibility): If H⁰(K_𝔭, T^*) has
-    finite length for every 𝔭 | p then F_ur = F_can.
-
-  * test `canonicalStructure_unramified_place` (compatibility): At a prime q ∤ p where T is
-    unramified, ker(H¹(K_q, T) → H¹(K_q^{ur}, T ⊗ ℚ_p)) = H¹_ur(K_q, T), so adding q to Σ(F_can)
-    does not change the structure.
-
-  * test `canonicalStructure_zp_one` (computation): For K = ℚ, T = ℤ_p(1), p odd: H¹_{F_can}(ℚ, T)
-    is the p-adic completion of ℤ[1/p]^×, free of rank one over ℤ_p, generated by the class of p.
-
-  * test `canonicalStructure_quotient_ne_relaxed` (non-example): Local counterexample: p odd, T =
-    ℤ_p(1) ⊗ ψ^{-1}, with ψ unramified at p and ψ(Fr_p) = 1+p. Then H⁰(ℚ_p,T^*) ≅ ℤ/p is finite
-    nondivisible, H²(ℚ_p,T)[p] ≠ 0, and the image of H¹(ℚ_p,T) in H¹(ℚ_p,T/pT) is proper. This is a
-    local continuous character, not a finite-order character with ρ(p)=1.
-
-  * test `canonicalStructure_elliptic` (computation): For T=T_pE over ℚ and p odd, F_can is the
-    classical lattice Kummer structure relaxed at p, with F_can^* ≤ F ≤ F_can under the Weil-pairing
-    dictionary. On E[p^k] use the image of H¹(ℚ_p,T_pE); it is the full local group when
-    E(ℚ_p)[p^∞]=0 and may be proper otherwise.
-
-  * test `canonicalStructure_quotient_finite_order_trivial_local` (computation): For T = ℤ_p(1) ⊗
-    ρ^{-1} with ρ finite order prime to p, unramified at p, and ρ(p)=1, T^* is locally ℚ_p/ℤ_p. Its
-    invariants are divisible, so the propagated canonical condition on T/p^kT is all H¹(ℚ_p,T/p^kT).
-    The unit condition on the lattice remains proper.
-
-  Acceptance. For T = ℤ_p(1) ⊗ ρ^{-1} with ρ(p) ≠ 1, F_can equals the unit structure F of
-    Mazur–Rubin 2004 §6.1 (Lemma 6.1.2).
-
-  Acceptance. H¹_{F_can}(ℚ_p, T/IT) = H¹(ℚ_p, T/IT) when H⁰(ℚ_p, T^*) is divisible (Lemma A.1) and
-    can be smaller otherwise.
-
--/
-
-
-/-
-
-**`ES.0/core-rank-formula`** (theorem): Core rank of the canonical and unramified structures.
-
-  Statement. (a) (K = ℚ) For R the ring of integers of a finite extension of ℚ_p and T satisfying
-    (H.0)–(H.3), χ(T^*, F_can^*) = 0 and χ(T, F_can) = rank_R T^− + corank_R H⁰(ℚ_p, T^*), where T^−
-    is the minus part for a complex conjugation. (b) (K a number field, R a discrete valuation ring)
-    χ(T, F_ur) = Σ_{v | ∞} corank_R H⁰(K_v, T^*).
-
-  Hypothesis. the invariants hypothesis of core-rank
-
-  Hypothesis. for (a): K = ℚ and the hypotheses of Mazur–Rubin 2004 §5.2
-
-  Acceptance. T = ℤ_p(1) ⊗ ρ^{-1}: χ(T, F_can) = 1 if ρ is even with ρ(p) ≠ 1; T = T_pE: χ(T, F_can)
-    = 1.
-
-  Acceptance. For an abelian variety A of dimension d over K with large image, χ(T_pA, F) = d[K : ℚ]
-    (Mazur–Rubin 2016, Proposition 5.9): the core rank is not the analytic rank.
-
--/
-
-
-/-
-
-**`ES.0/hypotheses-mr2004`** (definition): The Mazur–Rubin 2004 hypotheses (H.0)–(H.6) over ℚ.
-
-  Statement. For a Selmer triple (T, F, P) over K = ℚ: (H.0) T is free of finite rank over R. (H.1)
-    T/mT is an absolutely irreducible k[G_ℚ]-representation. (H.2) There is τ ∈ G_ℚ with τ = 1 on
-    μ_{p^∞} and T/(τ − 1)T free of rank one over R. (H.3) H¹(ℚ(T, μ_{p^∞})/ℚ, T/mT) = H¹(ℚ(T,
-    μ_{p^∞})/ℚ, T^*[m]) = 0. (H.4) Either (H.4a) Hom_{𝔽_p[[G_ℚ]]}(T/mT, T^*[m]) = 0, or (H.4b) p >
-    4. (H.5) P_t ⊆ P ⊆ P_1 for some t ≥ 1, with P_k the Kolyvagin primes of level k. (H.6) For every
-    ℓ ∈ Σ(F) the local condition at ℓ is cartesian on Quot_R(T). Each is a separate proposition; the
-    record has one field for each.
-
-  Hypothesis. K = ℚ
-
-  * `TauCeti.KolyvaginSystems.MR04Hypotheses` (structure): The record with fields irreducible (H.1),
-    tau (H.2: an element τ with its two properties), h1Vanishing (H.3), homVanishingOrLarge (H.4),
-    primes (H.5), cartesian (H.6).
-
-  * `TauCeti.KolyvaginSystems.MR04Hypotheses.invariants_eq_bot` (characterisation): (H.3) implies
-    S^{G_ℚ} = 0 for every subquotient S of T and of T^*.
-
-  * `TauCeti.KolyvaginSystems.MR04Hypotheses.dual` (functoriality): If T satisfies (H.0)–(H.5) then
-    so does T^* (for R principal artinian).
-
-  * `TauCeti.KolyvaginSystems.MR04Hypotheses.quotient` (functoriality): (H.0)–(H.4) pass to T ⊗_R R′
-    for surjective R → R′; (H.6) passes to T/m^jT for R principal artinian.
-
-  * `TauCeti.KolyvaginSystems.MR04Hypotheses.of_rank_one` (example): If rank_R T = 1 then (H.1)
-    holds and (H.2) holds with τ = 1.
-
-  * test `MR04Hypotheses.cyclotomic_twist` (computation): For p odd, ρ : G_ℚ → ℤ_p^× of finite order
-    prime to p with ρ ≠ 1 and ρ ≠ ω, T = ℤ_p(1) ⊗ ρ^{-1} satisfies (H.0), (H.1), (H.2) with τ = 1,
-    (H.3) and (H.4a).
-
-  * test `MR04Hypotheses.elliptic` (computation): For E/ℚ with G_ℚ → Aut(E[p]) surjective and p ≥ 5,
-    T = T_pE satisfies (H.0)–(H.3) and (H.4b).
-
-  * test `MR04Hypotheses.not_trivial_character` (non-example): T = ℤ_p(1) (ρ = 1) does not satisfy
-    (H.3): T^*[m] = Hom(μ_p, μ_p) is the trivial module 𝔽_p, so (T^*[m])^{G_ℚ} ≠ 0, contradicting
-    the consequence S^{G_ℚ} = 0 of (H.3). Likewise ρ = ω fails because T/mT is trivial.
-
-  * test `MR04Hypotheses.field_cartesian` (degenerate): If R is a field, (H.6) holds for every
-    Selmer structure.
-
-  Acceptance. The record is satisfied by T = ℤ_p(1) ⊗ ρ^{-1}, ρ ≠ 1, ω of order prime to p, with
-    (H.4a); and by T = T_pE with surjective mod-p representation and p ≥ 5, with (H.4b).
-
-  Acceptance. It is not satisfied by T = ℤ_p(1): (H.3) fails.
-
--/
-
-
-/-
-
-**`ES.0/hypotheses-mr2016`** (definition): The Mazur–Rubin 2016 hypotheses (H.1)–(H.7) over a number field.
-
-  Statement. For Selmer data (T, F, P, r) over a number field K, let M be the smallest power of p
-    with MR = 0 if R is artinian and M = p^∞ if R is a discrete valuation ring, H the Hilbert class
-    field of K and H_M = H(μ_M, (O_K^×)^{1/M}). (H.1) T̄^{G_K} = (T̄^*)^{G_K} = 0 and T̄ is an
-    absolutely irreducible k[[G_K]]-module. (H.2) There are τ ∈ Gal(K̄/H_M) and a finite Galois
-    extension L of K in H_M such that T/(τ − 1)T is free of rank one over R and P(L, τ) ⊆ P, where
-    P(L, τ) is the set of primes q ∉ Σ(F) unramified in L with Fr_q conjugate to τ in Gal(L/K).
-    (H.3) H¹(H_M(T)/K, T/mT) = H¹(H_M(T)/K, T^*[m]) = 0. (H.4) Either T̄ ≇ T̄^* as k[[G_K]]-modules,
-    or p > 3. (H.5) F is cartesian. (H.6) r = χ(T) > 0. For R artinian only: (H.7) I_q = 0 for every
-    q ∈ P.
-
-  Hypothesis. K a number field
-
-  Hypothesis. R principal artinian or a discrete valuation ring
-
-  * `TauCeti.KolyvaginSystems.MR16Hypotheses` (structure): The record with fields
-    invariantsAndIrreducible (H.1), tau (H.2: τ, L and the inclusion P(L, τ) ⊆ P), h1Vanishing
-    (H.3), notSelfDualOrLarge (H.4), cartesian (H.5), coreRank (H.6).
-
-  * `TauCeti.KolyvaginSystems.MR16Hypotheses.IsArtinianAdmissible` (structure): (H.7): I_q = 0 for
-    all q ∈ P, for R artinian.
-
-  * `TauCeti.KolyvaginSystems.MR16Hypotheses.quotient` (functoriality): The record for (T, F, P, r)
-    gives the record for (T/m^kT, F, P, r) over R/m^k.
-
-  * `TauCeti.KolyvaginSystems.MR16Hypotheses.artinianAdmissible_of_frobenius` (characterisation): If
-    R is artinian and q ∈ P(H_M, τ) then I_q = 0; so (H.7) holds for P(H_M, τ).
-
-  * `TauCeti.KolyvaginSystems.MR16Hypotheses.of_mr04` (compatibility): For K = ℚ and p odd, a triple
-    satisfying (H.0)–(H.4), (H.6) of 2004 with χ(T) = r > 0 and P ⊇ P(L, τ) for some finite L ⊆
-    ℚ(μ_M) satisfies the 2016 record; here 2004 (H.4a) gives the first alternative of 2016 (H.4) and
-    p > 4 is p > 3.
-
-  * test `MR16Hypotheses.abelian_variety` (computation): For an abelian variety A of dimension d
-    over K with image of G_K in Aut(A[p]) containing GSp_{2d}(𝔽_p) and p > 3, T = T_pA with the
-    structure of Mazur–Rubin 2016 §5 satisfies (H.1)–(H.6) with r = d[K : ℚ].
-
-  * test `MR16Hypotheses.not_coreRank_zero` (non-example): T = E[p^k] with the classical Selmer
-    structure has χ = 0, so (H.6) fails for every r ≥ 1 although (H.1)–(H.5) can hold.
-
-  * test `MR16Hypotheses.q_eq_HM` (degenerate): For K = ℚ and p odd, H_M = ℚ(μ_M), so (H.2) asks for
-    τ trivial on μ_M, as in 2004 (H.2).
-
-  * test `MR16Hypotheses.h4_prime_three` (non-example): For p = 3 and T̄ ≅ T̄^* (for example T̄ =
-    E[3]) hypothesis (H.4) fails; p = 3 is allowed only when T̄ is not self-dual.
-
-  Acceptance. Satisfied by T = T_pA for an abelian variety with large image and p > 3, with r = d[K
-    : ℚ] (Mazur–Rubin 2016, §5).
-
-  Acceptance. (H.6) excludes core rank zero: it is a hypothesis on (T, F), not a consequence of the
-    others.
-
--/
-
-
-/-
-
-**`ES.0/hypotheses-implications`** (lemma): Implications between the hypothesis records.
-
-  Statement. (a) (H.0)–(H.4) of 2004 are stable under R → R′ surjective, and (H.6) under T → T/m^jT.
-    (b) For R a discrete valuation ring, torsion-freeness of H¹(K_q, T)/H¹_F(K_q, T) for q ∈ Σ(F)
-    implies (H.6)/(H.5) for every T/m^kT. (c) 2004 (H.3) implies T̄^{G_ℚ} = (T̄^*)^{G_ℚ} = 0, hence
-    2016 (H.1) given (H.1) of 2004; 2004 (H.3) implies 2016 (H.3) for K = ℚ, because ℚ(T, μ_M) ⊆
-    ℚ(T, μ_{p^∞}) and inflation is injective on H¹. (d) 2016 (H.1)–(H.6) for artinian R give (H.7)
-    for the prime set P(H_M, τ). (e) Rubin's Hyp(K, T) (ES.4/rubin-hypotheses) gives residual
-    irreducibility and a rank-one τ fixing the maximal p-Hilbert class extension K(1), cyclotomic
-    p-power roots and p-power roots of units. It gives the τ of 2016 (H.2) only with the additional
-    condition that this τ fixes the full Hilbert class field H (and the specified finite extension
-    L); absolute residual irreducibility in 2016 (H.1) is also an additional condition; it does not
-    give (H.3), whose failure is measured by Rubin's error terms n_W and n_W^*.
-
-  Hypothesis. as in the two records
-
-  Acceptance. For a rank-one twist the rank-one coinvariant condition alone holds with τ=1 in all
-    three records. This checks that condition only; vanishing, absolute irreducibility and prime-set
-    hypotheses still require their own verifications.
-
--/
-
-
-/-
-
-**`ES.0/example-cyclotomic-twist`** (application): Worked example: twists of ℤ_p(1) by characters of finite order.
-
-  Statement. Let p be odd, ρ : G_ℚ → ℤ_p^× a character of finite order prime to p, L its field, R =
-    ℤ/p^k (or ℤ_p) and T = μ_{p^k} ⊗ ρ^{-1} (or ℤ_p(1) ⊗ ρ^{-1}). With H¹(ℚ, T) =
-    (L^×/(L^×)^{p^k})^ρ, let F be the structure with H¹_F(ℚ_ℓ, T) = (O_{L,ℓ}^×/(O_{L,ℓ}^×)^{p^k})^ρ
-    for all ℓ. Then: if ρ ≠ 1, ω, T satisfies (H.0)–(H.3), (H.4a), and F, F_can satisfy (H.6); χ(T,
-    F) = 1 if ρ is even and ρ ≠ 1, and χ(T, F) = 0 if ρ is odd and ρ ≠ ω; F = F_can if ρ(p) ≠ 1; and
-    there are exact sequences 0 → (O_L^×/(O_L^×)^{p^k})^ρ → H¹_F(ℚ, T) → Cl(L)[p^k]^ρ → 0 with
-    H¹_{F^*}(ℚ, T^*) ≅ Hom(Cl(L), ℤ/p^k)^{ρ^{-1}}.
-
-  Hypothesis. p odd
-
-  Hypothesis. ρ of order prime to p
-
-  Acceptance. The computed core rank matches core-rank-formula: rank T^− + corank H⁰(ℚ_p, T^*) for
-    F_can.
-
-  Acceptance. For finite-order ρ unramified at p with ρ(p)=1, the propagated condition at p for
-    F_can on T/p^k is all H¹(ℚ_p,T/p^k), since the dual invariants on the lattice are divisible
-    (Lemma A.1). It differs from the unit structure F.
-
--/
-
-
-/-
-
-**`ES.0/example-elliptic`** (application): Worked example: the Tate module of an elliptic curve.
-
-  Statement. Let E/ℚ be an elliptic curve and p ≥ 5 a prime with G_ℚ → Aut(E[p]) surjective, T =
-    E[p^k] or T_pE, and F the classical Selmer structure (images of the local Kummer maps at the bad
-    primes, p and ∞). Then F^* = F under the Weil pairing, H¹_F(ℚ, E[p^k]) is the p^k-Selmer group,
-    T satisfies (H.0)–(H.4), F and F_can satisfy (H.6), χ(T, F) = 0 and χ(T, F_can) = 1, where on
-    T_pE, F_can is F relaxed at p and F_can^* ≤ F ≤ F_can. On E[p^k], F_can is propagated from T_pE;
-    its local condition at p is the image of H¹(ℚ_p,T_pE), which may be proper if E(ℚ_p)[p^∞] ≠ 0.
-
-  Hypothesis. p ≥ 5
-
-  Hypothesis. surjective mod-p representation
-
-  Acceptance. Both structures on the same T have different core ranks, 0 and 1: the core rank
-    depends on F.
-
-  Acceptance. The analytic rank of E plays no role in either value.
-
--/
-
-
-/-
-
-**`ES.0/non-example-inadmissible`** (application): Worked non-example: the trivial and Teichmüller characters.
-
-  Statement. For ρ = 1 the module T = ℤ_p(1) does not satisfy (H.3) of Mazur–Rubin 2004: T^*[m] =
-    Hom(μ_p, μ_p) = 𝔽_p with trivial action, so (T^*[m])^{G_ℚ} ≠ 0 and H¹(ℚ(μ_{p^∞})/ℚ, 𝔽_p) =
-    Hom(Gal(ℚ(μ_{p^∞})/ℚ), 𝔽_p) ≠ 0. For ρ = ω, T/mT = μ_p ⊗ ω^{-1} is trivial and (H.3) fails for
-    the same reason. In both cases Lemma 3.5.2 (no invariants in subquotients), on which the
-    definition of the core rank rests, is false, and no instance of the hypothesis record exists.
-    Rubin's error-tolerant theorem still applies to T = ℤ_p(1) through Hyp(K, V), with the
-    finiteness of S_{Σ_p}(K, W^*) equivalent to Leopoldt's conjecture for T = O.
-
-  Hypothesis. p odd
-
-  Acceptance. The record MR04Hypotheses has no term for T = ℤ_p(1): the field h1Vanishing is
-    refutable.
-
-  Acceptance. The failure is of (H.3), not of (H.1) or (H.2), which both hold for rank one.
-
--/
-
-
-/-! ### Layer ES.1 -/
-
-
-/-
-
-**`ES.1/ray-class-tower`** (construction): The fields K(q), K(r) and their Galois groups.
-
-  Statement. For a prime q of K not dividing p, K(q) is the maximal p-extension of K inside the ray
-    class field of K modulo q, and K(1) is the maximal p-extension of K inside the Hilbert class
-    field. K(q)/K(1) is unramified outside q, totally ramified above q and cyclic, with Γ_q =
-    Gal(K(q)/K(1)) the maximal p-quotient of (O_K/q)^×/(O_K^× mod q). For a squarefree product r =
-    q₁⋯q_k, K(r) = K(q₁)⋯K(q_k), Γ_r = Gal(K(r)/K(1)) ≅ ∏_{q | r} Γ_q with Γ_q the inertia group of
-    q in Γ_r; for s | r, Γ_s is both a subgroup and a quotient of Γ_r. For K ⊆ F ⊆ K_∞ finite over
-    K, F(r) = F·K(r) and Gal(F(r)/K(1)) ≅ Gal(F(1)/K(1)) × Γ_r when K_∞/K is unramified outside p.
-
-  Hypothesis. q ∤ p
-
-  Hypothesis. r squarefree and prime to p
-
-  * `TauCeti.KolyvaginSystems.rayPExtension` (constructor): K(q) as an intermediate field of K̄/K,
-    for q ∤ p; K(1) for the trivial modulus.
-
-  * `TauCeti.KolyvaginSystems.gammaPrime` (data): Γ_q = Gal(K(q)/K(1)), a finite cyclic p-group.
-
-  * `TauCeti.KolyvaginSystems.gammaPrime_equiv` (equivalence): Γ_q is the maximal p-quotient of
-    (O_K/q)^×/(O_K^× mod q).
-
-  * `TauCeti.KolyvaginSystems.gammaConductor_equiv_pi` (equivalence): Γ_r ≅ ∏_{q | r} Γ_q,
-    compatibly with the inclusions and projections for s | r.
-
-  * `TauCeti.KolyvaginSystems.card_gammaPrime_dvd` (relation): #Γ_q divides N(q) − 1.
-
-  * `TauCeti.KolyvaginSystems.rayPExtension_ramification` (characterisation): K(q)/K(1) is
-    unramified outside q and totally ramified at the primes above q.
-
-  * test `gammaPrime_rat` (computation): For K = ℚ and p = 3, Γ_7 is cyclic of order 3 and Γ_5 is
-    trivial; for p = 2, Γ_7 has order 1 because 6 = 2·3 and (ℤ/7)^×/{±1} has order 3.
-
-  * test `gammaPrime_trivial_of_not_dvd` (degenerate): If p ∤ #((O_K/q)^×/im O_K^×) then K(q) = K(1)
-    and Γ_q = 1.
-
-  * test `gammaConductor_two_primes` (compatibility): For K = ℚ, p = 3: Γ_{7·13} ≅ ℤ/3 × ℤ/3, and
-    the maximal 3-extension of ℚ of conductor 91 has this Galois group.
-
-  * test `rayPExtension_ne_rayClassField` (non-example): For K = ℚ, p = 3, q = 13: the ray class
-    field modulo 13 is ℚ(μ_13)^+, of degree 6, and ℚ(13) is its cubic subfield, a proper subfield.
-
-  Acceptance. [K(q) : K(1)] divides N(q) − 1.
-
-  Acceptance. K(r) is contained in, and in general not equal to, the maximal p-extension of K in the
-    ray class field modulo r.
-
--/
-
-
-/-
-
-**`ES.1/conductor-ideal`** (definition): The ideals I_q, I_n and the groups G_q, G_n.
-
-  Statement. Let (T, F, P) be a Selmer triple and q a prime with q ∤ p∞ and T unramified at q. G_q =
-    Gal(K(q)_q/K_q), the Galois group of the completion of K(q) at q (for K = ℚ and in Mazur–Rubin
-    2004: G_ℓ = 𝔽_ℓ^× = Gal(ℚ(μ_ℓ)/ℚ)). Over ℚ, I_ℓ is the ideal of R generated by ℓ − 1 and P_ℓ(1),
-    where P_ℓ(x) = det(1 − Fr_ℓ x | T). Over K (R principal): I_q = R if q is not principal, and
-    otherwise I_q is the largest power of m with [K(q)_q : K_q]R ⊆ I_q and T/((Fr_q − 1)T + I_qT)
-    free of rank one over R/I_q. For n ∈ N(P): I_n = Σ_{q | n} I_q (I_1 = 0) and G_n = ⊗_{q | n} G_q
-    (G_1 = ℤ). Then G_n ⊗ R/I_n is free of rank one over R/I_n, and I_q annihilates |𝔽_q^×|-torsion
-    requirements for the finite–singular map on T/I_nT.
-
-  Hypothesis. T free over R, unramified at q, q ∤ p∞
-
-  * `TauCeti.KolyvaginSystems.conductorIdeal` (data): I_q ⊆ R for a prime q, and I_n = ⨆_{q | n} I_q
-    for squarefree n.
-
-  * `TauCeti.KolyvaginSystems.conductorIdeal_one` (simp): I_1 = ⊥.
-
-  * `TauCeti.KolyvaginSystems.conductorIdeal_mono` (relation): m | n implies I_m ≤ I_n.
-
-  * `TauCeti.KolyvaginSystems.tameGroup` (data): G_q = Gal(K(q)_q/K_q) and G_n = ⊗_{q | n} G_q, with
-    G_1 = ℤ.
-
-  * `TauCeti.KolyvaginSystems.tameGroup_tensor_free` (characterisation): G_n ⊗_ℤ R/I_n is a free
-    R/I_n-module of rank one.
-
-  * `TauCeti.KolyvaginSystems.conductorIdeal_rat` (compatibility): For K = ℚ and R principal, the
-    2016 ideal I_ℓ is the largest power of m containing the 2004 ideal (ℓ − 1, P_ℓ(1)) for which the
-    coinvariants are free of rank one.
-
-  * test `conductorIdeal_zp_one` (computation): For K = ℚ, R = ℤ_p, T = ℤ_p(1): I_ℓ = (ℓ − 1)ℤ_p, so
-    ℓ ∈ P_k iff ℓ ≡ 1 (mod p^k).
-
-  * test `tameGroup_one` (degenerate): G_1 ⊗ R/I_1 = ℤ ⊗ R = R.
-
-  * test `conductorIdeal_elliptic` (computation): For T = T_pE over ℚ: P_ℓ(1) = 1 − a_ℓ + ℓ and I_ℓ
-    = (ℓ − 1, a_ℓ − 2).
-
-  * test `conductorIdeal_not_only_norm` (non-example): Two primes ℓ, ℓ′ with ℓ ≡ ℓ′ ≡ 1 (mod p^k)
-    can have I_ℓ ≠ I_ℓ′ for T = T_pE, since a_ℓ ≢ a_ℓ′ in general: I_ℓ is not a function of ℓ − 1
-    alone.
-
-  Acceptance. For T = ℤ_p(1) over ℚ: P_ℓ(x) = 1 − ℓx and I_ℓ = (ℓ − 1).
-
-  Acceptance. I_n depends on Frobenius and on |G_q|, not only on n.
-
--/
-
-
-/-
-
-**`ES.1/kolyvagin-primes`** (definition): Kolyvagin primes: P_k, P(L, τ) and R_{F,M}.
-
-  Statement. (a) Over ℚ: P_k is the set of primes ℓ ∉ Σ(F) with T/(m^kT + (Fr_ℓ − 1)T) free of rank
-    one over R/m^k and I_ℓ ⊆ m^k; P_1 ⊇ P_2 ⊇ ⋯ and N_k = N(P_k). (b) Over K: P_k = {q ∈ P : I_q ⊆
-    m^k}; for a finite Galois L/K and τ ∈ G_K, P(L, τ) is the set of primes q ∉ Σ(F) unramified in L
-    with Fr_q conjugate to τ in Gal(L/K). (c) Rubin: for K ⊆ F ⊆ K_∞ finite and 0 ≠ M ∈ O, R_{F,M}
-    is the set of r ∈ R(N) such that every prime q | r satisfies M | [K(q) : K(1)], M | P(Fr_q^{-1}
-    | T^*; 1), and q splits completely in F(1)/K.
-
-  Hypothesis. a Selmer triple; for (c) an ideal N divisible by p and the ramified primes
-
-  * `TauCeti.KolyvaginSystems.kolyvaginPrimes` (data): P_k ⊆ P for k ≥ 1.
-
-  * `TauCeti.KolyvaginSystems.kolyvaginPrimes_antitone` (relation): P_{k+1} ⊆ P_k.
-
-  * `TauCeti.KolyvaginSystems.frobeniusPrimes` (data): P(L, τ), as Tau Ceti's frobeniusPrimeSet of
-    the class of τ minus Σ(F).
-
-  * `TauCeti.KolyvaginSystems.mem_kolyvaginPrimes_of_frobenius` (characterisation): If Fr_ℓ is
-    conjugate to τ in Gal(ℚ(T/m^kT, μ_{p^d})/ℚ) and τ satisfies (H.2), then ℓ ∈ P_k.
-
-  * `TauCeti.KolyvaginSystems.rubinPrimes` (data): R_{F,M} ⊆ R(N).
-
-  * `TauCeti.KolyvaginSystems.mem_rubinPrimes_of_frobenius` (characterisation): Rubin's Lemma
-    IV.1.3: Fr_q conjugate to τ on F(1)(μ_M̄, (O_K^×)^{1/M̄}, W_M) with T^{τ=1} ≠ 0 implies q ∈
-    R_{F,M}.
-
-  * `TauCeti.KolyvaginSystems.kolyvaginPrimes_infinite` (other): For the unrestricted 2004 P_k,
-    (H.2) implies positive density and infinitude after removing a finite set. For the definition
-    restricted to P, also require P to contain that Frobenius subset, as ensured by the stated
-    (H.5)/(H.7) bounds.
-
-  * test `kolyvaginPrimes_zp_one` (computation): For T = ℤ_p(1) over ℚ with Σ(F) = {p, ∞}: P_k = {ℓ
-    ≠ p : ℓ ≡ 1 (mod p^k)}.
-
-  * test `kolyvaginPrimes_inter` (degenerate): For R = ℤ_p and T = ℤ_p(1), ∩_k P_k = ∅: no prime is
-    ≡ 1 modulo every power of p.
-
-  * test `rubinPrimes_rat` (compatibility): For K = ℚ, F = ℚ, T = ℤ_p(1) and M = p^k, a prime ℓ ∤ N
-    lies in R_{ℚ,M} iff ℓ ≡ 1 (mod p^k), since P(Fr_ℓ^{-1} | T^*; 1) = 1 − Fr_ℓ^{-1} acting on T^* =
-    ℤ_p is 0 and [ℚ(ℓ) : ℚ] is the p-part of ℓ − 1.
-
-  * test `not_mem_kolyvaginPrimes` (non-example): For T = T_pE and ℓ ≡ 1 (mod p) with a_ℓ ≢ 2 (mod
-    p), ℓ ∉ P_1: I_ℓ = R.
-
-  Acceptance. For ℓ ∈ P_k with R principal artinian of length k: H¹_f(ℚ_ℓ, T), H¹_s(ℚ_ℓ, T) and
-    their duals are free of rank one and φ^fs_ℓ is an isomorphism (Lemma 3.5.6(ii)).
-
-  Acceptance. All chosen primes avoid Σ(F) and any prescribed finite set.
-
--/
-
-
-/-
-
-**`ES.1/finite-singular-decomposition`** (lemma): Finite and singular parts at an unramified prime.
-
-  Statement. Let K_v be nonarchimedean of residue characteristic ≠ p with residue field 𝔽, T a
-    finitely generated R-module with unramified G_{K_v}-action and |𝔽^×|·T = 0. There are canonical
-    functorial isomorphisms H¹_f(K_v, T) ≅ T/(Fr − 1)T (evaluate cocycles at Frobenius), H¹_s(K_v,
-    T) := H¹(K_v, T)/H¹_f(K_v, T) ≅ Hom(I, T^{Fr=1}), and H¹_s(K_v, T) ⊗ 𝔽^× ≅ T^{Fr=1}.
-
-  Hypothesis. T unramified, of finite type
-
-  Hypothesis. |𝔽^×|·T = 0
-
-  Acceptance. For T = ℤ/p^k with trivial action and p^k | #𝔽^×: H¹_f ≅ ℤ/p^k and H¹_s ≅ Hom(𝔽^×,
-    ℤ/p^k).
-
-  Acceptance. The isomorphisms commute with maps T → T′ of such modules.
-
--/
-
-
-/-
-
-**`ES.1/transverse-condition`** (definition): The transverse local condition.
-
-  Statement. In the situation of finite-singular-decomposition, fix a maximal totally tamely
-    ramified abelian extension L/K_v (so Gal(L/K_v) ≅ 𝔽^×; for K_v = ℚ_ℓ take L = ℚ_ℓ(μ_ℓ); globally
-    L is the completion of K(q) at q, of degree |G_q|, with T killed by |G_q|). The L-transverse
-    condition is H¹_tr(K_v, T) = ker(H¹(K_v, T) → H¹(L, T)) = H¹(L/K_v, T^{G_L}). It projects
-    isomorphically onto H¹_s(K_v, T), so H¹(K_v, T) = H¹_f(K_v, T) ⊕ H¹_tr(K_v, T), functorially in
-    T. It is defined by restriction to the specified extension L, not by a choice of complement.
-
-  Hypothesis. T unramified with |𝔽^×|·T = 0 (or |Gal(L/K_v)|·T = 0 for the p-part)
-
-  Hypothesis. L/K_v totally tamely ramified abelian of maximal degree
-
-  * `TauCeti.KolyvaginSystems.transverse` (constructor): H¹_tr(K_v, T) = ker(res : H¹(K_v, T) →
-    H¹(L, T)).
-
-  * `TauCeti.KolyvaginSystems.transverse_isCompl_finite` (characterisation): H¹_f(K_v, T) and
-    H¹_tr(K_v, T) are complementary submodules of H¹(K_v, T).
-
-  * `TauCeti.KolyvaginSystems.transverse_equiv_singular` (equivalence): The projection H¹_tr(K_v, T)
-    → H¹_s(K_v, T) is an isomorphism.
-
-  * `TauCeti.KolyvaginSystems.transverse_map` (functoriality): A map T → T′ of unramified modules
-    killed by |𝔽^×| carries H¹_tr to H¹_tr.
-
-  * `TauCeti.KolyvaginSystems.finitePart` (projection): c ↦ c_f and c ↦ c_tr, the two projections of
-    the decomposition.
-
-  * `TauCeti.KolyvaginSystems.transverse_eq_bot_iff` (simp): H¹_tr(K_v, T) = 0 iff T^{Fr=1} = 0.
-
-  * test `transverse_zmod` (computation): For K_v = ℚ_ℓ, ℓ ≡ 1 (mod p^k), T = ℤ/p^k: H¹(ℚ_ℓ, T) =
-    Hom(ℚ_ℓ^×, ℤ/p^k) ≅ (ℤ/p^k)², H¹_f is the homomorphisms trivial on ℤ_ℓ^×, and H¹_tr is the
-    homomorphisms trivial on the norm group ⟨ℓ⟩ × (1 + ℓℤ_ℓ) of ℚ_ℓ(μ_ℓ), that is, those with f(ℓ) =
-    0.
-
-  * test `transverse_trivial` (degenerate): If T^{Fr=1} = 0 then H¹_s = 0 = H¹_tr and H¹ = H¹_f.
-
-  * test `transverse_ne_arbitrary_complement` (non-example): In the example above, {f : f(ℓu) = 0},
-    for a unit u ∈ ℤ_ℓ^× that is not a p-th power modulo ℓ, is another complement of H¹_f = {f :
-    f(ℤ_ℓ^×) = 0}, and it is not H¹_tr = {f : f(ℓ) = 0}: the transverse condition is determined by L
-    = ℚ_ℓ(μ_ℓ).
-
-  * test `transverse_dual` (compatibility): H¹_tr(K_v, T) and H¹_tr(K_v, T^*) are exact orthogonal
-    complements under the local Tate pairing.
-
-  Acceptance. Different choices of L give different complements; all are transverse to H¹_f.
-
-  Acceptance. The transverse condition does not in general propagate to subquotients as the
-    transverse condition (Remark 1.1.8), but F(n) stays cartesian on quotients (Lemma 3.7.4).
-
--/
-
-
-/-
-
-**`ES.1/finite-singular-comparison`** (construction): The finite–singular comparison map.
-
-  Statement. Let T be free of finite rank over R, unramified at v, with |𝔽^×|·T = 0 and det(1 − Fr |
-    T) = 0. Put P(x) = det(1 − Fr x | T) and let Q(x) ∈ R[x] be the unique polynomial with (x −
-    1)Q(x) = P(x). By Cayley–Hamilton Q(Fr^{-1})T ⊆ T^{Fr=1}, and φ^fs : H¹_f(K_v, T) ≅ T/(Fr − 1)T
-    → T^{Fr=1} ≅ H¹_s(K_v, T) ⊗ 𝔽^× is induced by Q(Fr^{-1}). If R is artinian, |𝔽^×|R = 0 and T/(Fr
-    − 1)T is free of rank one, then det(1 − Fr | T) = 0 automatically and Q(Fr^{-1}) and φ^fs are
-    isomorphisms, so H¹_f and H¹_s are free of rank one. With the tensor factor 𝔽^× (globally G_q)
-    retained the map involves no choice. A generator σ of the tame quotient gives Rubin's map
-    φ^fs_{q,σ} = α_q^{-1} ∘ Q_q(Fr_q^{-1}) ∘ β_q : H¹_f → H¹_s (α_q evaluation at σ, β_q evaluation
-    at Frobenius), and φ^fs(c) = φ^fs_{q,σ}(c) ⊗ σ; for another generator σ^a one has φ^fs_{q,σ^a} =
-    a^{-1}·φ^fs_{q,σ}, so the tensor-valued map is independent of the generator.
-
-  Hypothesis. T free of finite rank, unramified
-
-  Hypothesis. |𝔽^×|·T = 0
-
-  Hypothesis. det(1 − Fr | T) = 0
-
-  * `TauCeti.KolyvaginSystems.fsQuotientPoly` (data) [prototype above]: Q(x) with (x − 1)·Q(x) =
-    det(1 − Fr·x | T), defined when det(1 − Fr | T) = 0.
-
-  * `TauCeti.KolyvaginSystems.fsQuotientPoly_spec` (characterisation) [prototype above]: (X − 1) * Q
-    = P and Q is unique.
-
-  * `TauCeti.KolyvaginSystems.finiteSingular` (constructor): φ^fs : H¹_f(K_v, T) → H¹_s(K_v, T) ⊗
-    𝔽^×, induced by Q(Fr^{-1}) : T/(Fr − 1)T → T^{Fr=1}.
-
-  * `TauCeti.KolyvaginSystems.finiteSingular_bijective` (characterisation): If R is artinian, |𝔽^×|R
-    = 0 and T/(Fr − 1)T is free of rank one, φ^fs is bijective and H¹_f, H¹_s are free of rank one.
-
-  * `TauCeti.KolyvaginSystems.finiteSingular_map` (functoriality): The comparison is natural under
-    equivariant maps compatible with the chosen quotient polynomials: f ∘ Q_T(Fr_T^{-1}) =
-    Q_T′(Fr_T′^{-1}) ∘ f. In particular, for reductions of one fixed finite free lattice under R/I →
-    R/J, characteristic and quotient polynomials reduce together, so φ^fs commutes with the
-    coefficient-reduction maps. Arbitrary equivariant maps between representations with different
-    characteristic polynomials need not commute.
-
-  * `TauCeti.KolyvaginSystems.finiteSingular_generator` (compatibility): For a generator σ of the
-    tame quotient, φ^fs(c) = φ^fs_{q,σ}(c) ⊗ σ with φ^fs_{q,σ} = α_q^{-1} ∘ Q_q(Fr_q^{-1}) ∘ β_q
-    Rubin's map; φ^fs_{q,σ^a} = a^{-1}·φ^fs_{q,σ}, so the tensor-valued map does not depend on σ.
-
-  * test `finiteSingular_cyclotomic` (computation) [prototype above]: R = ℤ/p^k, T = μ_{p^k}, ℓ ≡ 1
-    (mod p^k): Fr = 1 on T, P(x) = 1 − x, Q(x) = −1, and φ^fs = −1 under H¹_f ≅ T, H¹_s ⊗ 𝔽_ℓ^× ≅ T.
-
-  * test `finiteSingular_rank_two` (computation) [prototype above]: R = 𝔽_p, T with Fr = diag(1, a),
-    a ≠ 1: P(x) = (1 − x)(1 − ax), Q(x) = −(1 − ax), Q(Fr^{-1}) = −diag(1 − a, 0), which maps T/(Fr
-    − 1)T = 𝔽_p e₁ isomorphically onto T^{Fr=1} = 𝔽_p e₁.
-
-  * test `finiteSingular_not_iso` (non-example): R = 𝔽_p, T = 𝔽_p² with Fr = 1: T/(Fr − 1)T has rank
-    two, P(x) = (1 − x)², Q(x) = −(1 − x), and Q(Fr^{-1}) = 0: φ^fs is zero, not an isomorphism. The
-    rank-one hypothesis is needed.
-
-  * test `finiteSingular_quotient` (compatibility): For R=ℤ/p² and T=R with Fr=1, compare the
-    finite–singular maps for T over R and T/pT over R/p: both quotient polynomials are Q=−1, and the
-    maps on finite and singular terms commute with reduction.
-
-  * test `finiteSingular_not_natural_inclusion` (non-example) [prototype above]: Over 𝔽₅ include the
-    rank-one representation with Fr=1 into the first summand of Fr=diag(1,2). On the fixed line the
-    source Q(1)=−1=4, whereas the target Q(1)=−(1−2)=1. Thus the induced inclusion does not commute
-    with φ^fs; equivariance alone is insufficient.
-
-  Acceptance. φ^fs commutes with the quotient maps T/I_nT → T/JT: both identifications and
-    Q(Fr^{-1}) are functorial.
-
-  Acceptance. For T = ℤ/p^k(1) and ℓ ≡ 1 (mod p^k): P(x) = 1 − ℓx ≡ 1 − x, Q = −1, and φ^fs is −1
-    times the tautological identification of T/(Fr − 1)T = T with T^{Fr=1} = T.
-
--/
-
-
-/-
-
-**`ES.1/modified-selmer-structures`** (definition): The Selmer structures F_a^b(c).
-
-  Statement. For a Selmer structure F and pairwise coprime a, b, c with c ∈ N(P) (and I_cT = 0 when
-    needed for the transverse condition; in general one works on T/I_cT), F_a^b(c) has Σ = Σ(F) ∪ {q
-    : q | abc} and local conditions: H¹_F(K_q, T) for q ∈ Σ(F), q ∤ ab; 0 for q | a (strict);
-    H¹(K_q, T) for q | b (relaxed); H¹_tr(K_q, T) for q | c (transverse). One writes F(n) =
-    F^1_1(n), F^n, F_n. Then F_n ≤ F ≤ F^n and F_n ≤ F(n) ≤ F^n, and the dual is (F_a^b(c))^* =
-    (F^*)_b^a(c).
-
-  Hypothesis. a, b, c pairwise coprime; c ∈ N(P); T killed by I_c for the transverse places
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.modify` (constructor): F_a^b(c): strict at a, relaxed at
-    b, transverse at c.
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.modify_le` (relation): If a′ | a, b | b′ and c = c′ then
-    F_a^b(c) ≤ F_{a′}^{b′}(c′); in particular F_n ≤ F ≤ F^n and F_n ≤ F(n) ≤ F^n.
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.dual_modify` (compatibility): (F_a^b(c))^* =
-    (F^*)_b^a(c).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.selmer_strict_eq_inf` (characterisation): H¹_{F_n}(K, T)
-    = H¹_F(K, T) ⊓ H¹_{F(n)}(K, T).
-
-  * `TauCeti.KolyvaginSystems.SelmerTriple.modify_isCartesian` (other): Under (H.2), R principal
-    artinian of length k and n ∈ N_k, F cartesian implies F(n) cartesian.
-
-  * test `modify_one` (degenerate): F_1^1(1) = F.
-
-  * test `dual_modify_strict_relaxed` (compatibility): (F^n)^* = (F^*)_n and (F_n)^* = (F^*)^n.
-
-  * test `modify_sandwich` (characterisation): F_n ≤ F(n) ≤ F^n, and the quotient H¹_{F^n}/H¹_{F_n}
-    injects into ⊕_{q | n} H¹(K_q, T).
-
-  * test `modify_transverse_ne_finite` (non-example): For q ∈ P_1 with H¹_s(K_q, T) ≠ 0, F(q) ≠ F
-    and neither F(q) ≤ F nor F ≤ F(q).
-
-  Acceptance. H¹_{F_n}(K, T) = H¹_F(K, T) ∩ H¹_{F(n)}(K, T).
-
-  Acceptance. The dual of F(n) is F^*(n): the transverse condition is not replaced by its naive
-    complement.
-
--/
-
-
-/-
-
-**`ES.1/transverse-duality`** (theorem): The transverse condition is self-dual.
-
-  Statement. Let K_v be nonarchimedean of residue characteristic ≠ p, T unramified with |𝔽^×|·T = 0,
-    and L/K_v totally ramified abelian of degree |𝔽^×|. Then H¹_tr(K_v, T) and H¹_tr(K_v, T^*) are
-    exact orthogonal complements under the local Tate pairing H¹(K_v, T) × H¹(K_v, T^*) → ℚ_p/ℤ_p,
-    as are H¹_f(K_v, T) and H¹_f(K_v, T^*).
-
-  Hypothesis. v ∤ p
-
-  Hypothesis. T unramified
-
-  Hypothesis. |𝔽^×|·T = 0
-
-  Acceptance. Local orthogonality for the strict, relaxed and transverse modifications: (F_a^b(c))^*
-    = (F^*)_b^a(c).
-
-  Acceptance. For T = ℤ/p^k the pairing of a transverse character with a transverse Kummer class is
-    0.
-
--/
-
-
-/-
-
-**`ES.1/chebotarev-nonvanishing`** (theorem): Simultaneous nonvanishing of localisations.
-
-  Statement. Let R be principal artinian and (T, F, P) satisfy (H.0)–(H.5) of Mazur–Rubin 2004. If
-    c₁, c₂ ∈ H¹(ℚ, T) and c₃, c₄ ∈ H¹(ℚ, T^*) are all nonzero, then for every k ≥ 1 there is a set S
-    ⊆ P_k of positive density such that for every ℓ ∈ S the four localisations (c_i)_ℓ are nonzero.
-    Over a number field with self-injective coefficients (Burns–Sakamoto–Sano II, Lemma 3.9, under
-    Hypothesis 3.2): for nonzero c₁, …, c_s ∈ H¹(K, A) and c₁^*, …, c_t^* ∈ H¹(K, A^*(1)) with s + t
-    < p, there is a set of primes q ∈ P of positive density with all localisations nonzero.
-
-  Hypothesis. (H.0)–(H.5); this is the only place (H.4) is used
-
-  Hypothesis. for the second form: Hypothesis 3.2 of Burns–Sakamoto–Sano II
-
-  Acceptance. A single prime with Frobenius τ on ℚ(T, μ_{p^k}) does not suffice: the condition is on
-    the larger field cut out by the classes.
-
-  Acceptance. The primes may be chosen outside any finite set, in particular prime to Σ(F) and to a
-    given n ∈ N.
-
--/
-
-
-/-
-
-**`ES.1/chebotarev-prescribed-kernels`** (theorem): Primes with prescribed localisation kernels.
-
-  Statement. In the setting of chebotarev-nonvanishing, suppose the image of R → End(T) is contained
-    in the image of ℤ_p[[G_ℚ]] → End(T). Fix a finite R-submodule C ⊆ H¹(ℚ, T), a homomorphism φ : C
-    → R and k ≥ 1. (i) There is a set S ⊆ P_k of positive density with ker(loc_ℓ : C → H¹(ℚ_ℓ, T)) =
-    ker φ for all ℓ ∈ S. (ii) If also (H.4a) holds, D ⊆ H¹(ℚ, T^*) is a finite submodule and ψ : D →
-    R a homomorphism, then S can be chosen with in addition ker(loc_ℓ on D) = ker ψ.
-
-  Hypothesis. (H.0)–(H.5)
-
-  Hypothesis. image of R in End(T) inside the image of ℤ_p[[G_ℚ]]
-
-  Hypothesis. (H.4a) for (ii)
-
-  Acceptance. Used with C = H¹_F(ℚ, T) and ker φ_i cutting out a submodule L to find leading
-    vertices through L (ES.4/leading-vertices).
-
-  Acceptance. Fails without the End(T) hypothesis: only 𝔽_p-rational subspaces occur when T = T₀ ⊗ k
-    (Remark 4.1.17).
-
--/
-
-
-/-
-
-**`ES.1/rubin-prime-selection`** (theorem): Rubin's selection of primes with large localisation.
-
-  Statement. Let p > 2, let T satisfy Hyp(K, T) with its element τ, fix a power M of p, and let L/K
-    be Galois with G_L acting trivially on W_M and W_M^*. (a) For κ ∈ H¹(K, W_M) and η ∈ H¹(K,
-    W_M^*) there is γ ∈ G_L with order(κ(γτ), W_M/(τ − 1)W_M) ≥ order((κ)_L, H¹(L, W_M)) and the
-    same for η. (b) For an Euler system c with derivative classes κ_{r,M} = κ_{K,r,M} and a finite
-    subset C ⊆ H¹(K, W_M^*) with k = |C|, there are primes q₁, …, q_k of K such that, with r_i =
-    q₁⋯q_i: q_i ∈ R_{K,M}; Fr_{q_i} is in the class of τ in Gal(K(W_M)/K);
-    order((κ_{r_{i−1},M})_{q_i}, H¹_f(K_{q_i}, W_M)) ≥ order((κ_{r_{i−1},M})_Ω, H¹(Ω, W_M)); and
-    every η ∈ C vanishing at all q_i lies in H¹(Ω/K, W_M^*). Under Hyp(K, V) alone the same holds
-    with both orders lowered by a + 1 for a constant a (Lemma V.3.1).
-
-  Hypothesis. Hyp(K, T) for (a), (b); Hyp(K, V) for the weakened form
-
-  Hypothesis. Ω = K(1)K(W)K(μ_{p^∞}, (O_K^×)^{1/p^∞})
-
-  Acceptance. With H¹(Ω/K, W) = H¹(Ω/K, W^*) = 0 the selection has no loss, as in
-    chebotarev-nonvanishing.
-
-  Acceptance. The primes avoid N and all earlier q_j.
-
--/
-
-
-/-
-
-**`ES.1/reducibility-depth`** (definition): Exponents, orders and reducibility depth.
-
-  Statement. Let O_λ be a discrete valuation ring with uniformiser λ. For an O_λ-module M and x ∈ M:
-    exp_λ(x, M) = min{d ≥ 0 : λ^d x = 0} ∈ ℤ_{≥0} ∪ {∞} and ord_λ(x, M) = sup{d ≥ 0 : x ∈ λ^d M}.
-    For a profinite group G and a torsion O_λ[G]-module R of finite type, the reducibility depth of
-    R is the smallest integer r_R ≥ 0 such that (1) every G-stable O_λ-submodule R′ ⊆ R not
-    contained in λR contains λ^{r_R}R, and (2) for every m ≥ 1, End_{O_λ[G]}(R̄^{(m)})/O_λ·id is
-    annihilated by λ^{r_R}, where R̄^{(m)} = R/λ^mR. If R/λR is absolutely irreducible then r_R = 0.
-    If R is a lattice with R ⊗ ℚ absolutely irreducible, there is r_R depending only on R bounding
-    the reducibility depth of every R̄^{(m)}.
-
-  Hypothesis. O_λ a discrete valuation ring with finite residue field
-
-  Hypothesis. R of finite type
-
-  * `TauCeti.ErrorTolerant.expAt` (data) [prototype above]: exp_λ(x, M) ∈ ℕ∞.
-
-  * `TauCeti.ErrorTolerant.ordAt` (data) [prototype above]: ord_λ(x, M) ∈ ℕ∞.
-
-  * `TauCeti.ErrorTolerant.expAt_add_ordAt_le` (relation): In a free O_λ/λ^n-module, exp_λ(x) +
-    ord_λ(x) = n for x ≠ 0.
-
-  * `TauCeti.ErrorTolerant.reducibilityDepth` (data): r_R for a torsion O_λ[G]-module R of finite
-    type.
-
-  * `TauCeti.ErrorTolerant.reducibilityDepth_eq_zero` (example): If R/λR is absolutely irreducible
-    then r_R = 0.
-
-  * `TauCeti.ErrorTolerant.reducibilityDepth_bounded` (other): For a lattice R with R_ℚ absolutely
-    irreducible, sup_m r_{R̄^{(m)}} < ∞.
-
-  * test `expAt_zmod` (computation) [prototype above]: In M = ℤ/p³, exp_p(p) = 2 and ord_p(p) = 1.
-
-  * test `reducibilityDepth_irreducible` (degenerate): For R = E[p^m] with E[p] absolutely
-    irreducible, r_R = 0.
-
-  * test `reducibilityDepth_reducible` (non-example): For R = ℤ/p² ⊕ ℤ/p² with G acting through the
-    upper unipotent matrices (1, p·b; 0, 1), b ∈ ℤ/p, the submodule generated by e₁ is G-stable and
-    not contained in pR but does not contain R, so r_R ≥ 1: r_R ≠ 0 although R is free.
-
-  * test `ordAt_top_iff` (characterisation) [prototype above]: ord_λ(x, M) = ∞ iff x ∈ ∩_d λ^d M;
-    for M of finite length this means x = 0.
-
-  Acceptance. r_R measures the failure of residual irreducibility that Mazur–Rubin's (H.1) excludes;
-    with r_R = 0 the error-tolerant statements reduce to the clean ones.
-
-  Acceptance. exp and ord are the 'order' functions of Rubin's Chapter V.
-
--/
-
-
-/-
-
-**`ES.1/selmer-field-saturation`** (theorem): The field cut out by a Selmer module and saturation of θ_S.
-
-  Statement. Fix m ≥ 1 and R free of finite rank over O_λ/λ^m with ρ : Γ_F → GL(R), F_ρ the field
-    fixed by ker ρ and G = Gal(F_ρ/F). Restriction Res_ρ : H¹(F, R) → Hom_G(Γ^{ab}_{F_ρ}, R) gives a
-    pairing [ , ] : H¹(F, R) × Γ^{ab}_{F_ρ} → R. For a finitely generated submodule S ⊆ H¹(F, R),
-    F_S/F_ρ is the finite abelian extension with Gal(F^{ab}_ρ/F_S) = {γ : [s, γ] = 0 ∀ s ∈ S}, and
-    θ_S : Gal(F_S/F_ρ) → Hom_{O_λ}(S, R) is injective and G-equivariant. (a) If Res_ρ is injective
-    and S is free of rank r_S over O_λ/λ^m, the O_λ-span of the image of θ_S contains λ^{𝔣(r_S) r_R}
-    Hom_{O_λ}(S, R), where 𝔣(0) = 𝔣(1) = 1, 𝔣(2) = 4, 𝔣(r + 1) = 2(𝔣(r) + 1) for r ≥ 2. (b) Res_ρ is
-    injective if the image of Γ_F in GL(R̄) contains a nontrivial scalar, or if dim R̄ ≤ min{(ℓ +
-    1)/2, ℓ − 3}, R̄ is semisimple and Hom_{Γ_F}(End(R̄), R̄) = 0.
-
-  Hypothesis. R free over O_λ/λ^m
-
-  Hypothesis. for (a): Res_ρ injective
-
-  Acceptance. With r_R = 0 and r_S = 1 the image of θ_S spans Hom(S, R): the clean Chebotarev input
-    of Mazur–Rubin's Proposition 3.6.1.
-
-  Acceptance. (H.3) of Mazur–Rubin 2004 is the statement that Res is injective for the field ℚ(T,
-    μ_{p^∞}).
-
--/
-
-
-/-
-
-**`ES.1/abundant-tuples`** (definition): γ-associated places and (S, γ)-abundant tuples.
-
-  Statement. Setting of Liu–Tian–Xiao–Zhang–Zhu §2.6: F/F⁺ of degree ≤ 2, R a polarised lattice with
-    reductions ρ̄^{(m)} and their extensions ρ̄₊^{(m)} to Γ_{F⁺}, fields F ⊆ F^{(m)} ⊆ F₊^{(m)}, an
-    element γ in the image of ρ̄₊^{(m)} lying in the nontrivial coset, h_γ the first component of
-    γ^{[F:F⁺]}, and S a finitely generated submodule of the Selmer module in H¹(F, R̄^{(m)}). A
-    place w₊ of F₊^{(m)} is γ-associated if it is not above ∞ or ℓ, is unramified over F⁺, its place
-    of F^{(m)} is unramified in F_S, and its Frobenius in Gal(F₊^{(m)}/F⁺) is γ. G_{S,γ} ⊆
-    Gal(F_S/F^{(m)}) is the set of Frobenius elements Ψ_w of γ-associated places. Corrected Lemma
-    2.6.4: if the order of γ is prime to ℓ then G_{S,γ} ⊆ θ_S^{-1} Hom_{O_λ}(S, (R̄^{(m)})^{h_γ}),
-    with equality when [F : F⁺] = 1; in general G_{S,γ} = q(N^α) for N the Galois group of the
-    normal closure over F₊^{(m)}, α conjugation by a prime-to-ℓ lift of γ and q restriction to F_S.
-    If S is free of rank r_S over O_λ/λ^{m−m₀}, an r_S-tuple (Ψ₁, …, Ψ_{r_S}) ∈ G_{S,γ}^{r_S} is (S,
-    γ)-abundant if the image of S → ((R̄^{(m)})^{h_γ})^{⊕ r_S}, s ↦ (θ_S(Ψ_i)(s))_i, contains λ^{m₀
-    + 𝔣(r_S) r_R}((R̄^{(m)})^{h_γ})^{⊕ r_S}.
-
-  Hypothesis. the setting of §2.6 of the source
-
-  Hypothesis. order of γ prime to ℓ
-
-  * `TauCeti.ErrorTolerant.IsAssociatedPlace` (structure): The four conditions for a place of
-    F₊^{(m)} to be γ-associated.
-
-  * `TauCeti.ErrorTolerant.frobeniusSet` (data): G_{S,γ} ⊆ Gal(F_S/F^{(m)}).
-
-  * `TauCeti.ErrorTolerant.frobeniusSet_subset_fixed` (characterisation): θ_S(G_{S,γ}) ⊆
-    Hom_{O_λ}(S, (R̄^{(m)})^{h_γ}), for γ of order prime to ℓ.
-
-  * `TauCeti.ErrorTolerant.frobeniusSet_eq_image` (characterisation): G_{S,γ} = q(N^α); equality
-    with the full preimage holds iff q : N^α → Gal(F_S/F^{(m)})^{h_γ} is surjective, in particular
-    when [F : F⁺] = 1.
-
-  * `TauCeti.ErrorTolerant.IsAbundant` (structure): The predicate on r_S-tuples of G_{S,γ}.
-
-  * `TauCeti.ErrorTolerant.exists_isAbundant` (other): If Res is injective, R_ℚ is absolutely
-    irreducible, (R̄^{(m)})^{h_γ} is free of rank one and q : N^α → K^{h} is surjective, an abundant
-    r_S-tuple exists (corrected Proposition 2.6.6).
-
-  * test `frobeniusSet_split_case` (compatibility): If F = F⁺ then G_{S,γ} = θ_S^{-1} Hom(S,
-    (R̄^{(m)})^{h_γ}) with h_γ = γ: the printed lemma.
-
-  * test `isAbundant_rank_one_irreducible` (degenerate): For r_S = 1, r_R = 0, m₀ = 0: Ψ is abundant
-    iff θ_S(Ψ) : S → (R̄^{(m)})^{h_γ} is surjective.
-
-  * test `frobeniusSet_proper` (non-example): For [F : F⁺] = 2 there are data with q(N^α) a proper
-    subgroup of the h_γ-fixed part, so the printed equality of Lemma 2.6.4 fails; the corrected
-    statement is the inclusion.
-
-  * test `isAbundant_scaling` (characterisation): If (Ψ_i) is abundant for S free over O_λ/λ^{m−m₀},
-    then it is abundant for λS over O_λ/λ^{m−m₀−1} with m₀ replaced by m₀ + 1.
-
-  Acceptance. For [F : F⁺] = 1 the printed Lemma 2.6.4 holds as stated.
-
-  Acceptance. Abundance is a property of actual Frobenius elements, not of arbitrary elements of
-    Gal(F_S/F^{(m)}).
-
--/
-
-
-/-! ### Layer ES.2 -/
-
-
-/-
-
-**`ES.2/euler-polynomial`** (definition): Euler polynomials and their conventions.
-
-  Statement. Let T be a free module of finite rank over O (the ring of integers of a finite
-    extension Φ of ℚ_p, or a coefficient order), with G_K-action unramified at a prime q ∤ p, Fr_q
-    an arithmetic Frobenius, and T^* = Hom_O(T, O(1)). Rubin's Euler polynomial is P(Fr_q^{-1} |
-    T^*; x) = det(1 − Fr_q^{-1}x | T^*) ∈ O[x]; it equals det(1 − N(q)^{-1}Fr_q x | T). Mazur–Rubin
-    use P_q(x) = det(1 − Fr_q x | T). Burns–Sakamoto–Sano use P_q(x) = det(1 − Fr_q^{-1}x | T^*(1))
-    with T^* = Hom_R(T, R), which is Rubin's polynomial. The operators entering norm relations are
-    obtained by substituting x = Fr_q^{-1} (acting on cohomology through Gal(F/K)): P(Fr_q^{-1} |
-    T^*; Fr_q^{-1}) for Rubin and P_q(Fr_q^{-1}) for Mazur–Rubin. The coefficients satisfy
-    a_i^{Rubin} = N(q)^{-i} a_i^{MR}, so the two polynomials are congruent modulo N(q) − 1, hence
-    modulo M whenever M | [K(q) : K(1)].
-
-  Hypothesis. T unramified at q, q ∤ p
-
-  Hypothesis. Fr_q arithmetic Frobenius; the dual is the Tate dual Hom(T, O(1))
-
-  * `TauCeti.EulerSystems.eulerPoly` (data) [prototype above]: P(Fr_q^{-1} | T^*; x) = det(1 −
-    Fr_q^{-1}·x | T^*) ∈ O[X], for T unramified at q.
-
-  * `TauCeti.EulerSystems.eulerPoly_eq_det_twist` (characterisation): P(Fr_q^{-1} | T^*; x) = det(1
-    − N(q)^{-1}·Fr_q·x | T).
-
-  * `TauCeti.EulerSystems.eulerPolyMR` (data) [prototype above]: P_q(x) = det(1 − Fr_q·x | T), the
-    Mazur–Rubin convention.
-
-  * `TauCeti.EulerSystems.eulerPoly_coeff` (relation) [prototype above]: coeff_i(eulerPoly) · N(q)^i
-    = coeff_i(eulerPolyMR).
-
-  * `TauCeti.EulerSystems.eulerPoly_congr` (relation) [prototype above]: eulerPoly ≡ eulerPolyMR
-    modulo (N(q) − 1)·O[X].
-
-  * `TauCeti.EulerSystems.eulerPoly_aeval_annihilates` (characterisation): P(Fr_q^{-1} | T^*;
-    N(q)Fr_q^{-1}) = 0 on T, and P(Fr_q^{-1} | T^*; Fr_q^{-1}) = 0 on W_M when M | [K(q) : K(1)].
-
-  * `TauCeti.EulerSystems.eulerPoly_twist` (compatibility): For a character χ of finite order
-    unramified at q: P(Fr_q^{-1} | (T ⊗ χ)^*; x) = P(Fr_q^{-1} | T^*; χ(Fr_q)x).
-
-  * test `eulerPoly_zp_one` (computation) [prototype above]: For T = ℤ_p(1): eulerPoly = 1 − X and
-    eulerPolyMR = 1 − N(q)X.
-
-  * test `eulerPoly_elliptic` (computation): For T = T_pE, q = ℓ of good reduction: eulerPolyMR = 1
-    − a_ℓX + ℓX² and eulerPoly = 1 − a_ℓ ℓ^{-1}X + ℓ^{-1}X²; at X = 1 they are (1 − a_ℓ + ℓ) and
-    ℓ^{-1}(ℓ − a_ℓ + 1).
-
-  * test `eulerPoly_ne_eulerPolyMR` (non-example): For T = ℤ_p(1) and N(q) ≠ 1 the two polynomials
-    are different elements of O[X], although congruent modulo N(q) − 1.
-
-  * test `eulerPoly_rank_zero` (degenerate) [prototype above]: For T = 0 both polynomials are 1.
-
-  Acceptance. For T = ℤ_p(1): Rubin's polynomial is 1 − x (T^* = ℤ_p) and Mazur–Rubin's is 1 −
-    N(q)x; they agree modulo N(q) − 1.
-
-  Acceptance. The polynomials differ as elements of O[x]; systems for the two conventions are
-    related by an explicit map, not equal (euler-factor-change).
-
--/
-
-
-/-
-
-**`ES.2/euler-system-module`** (definition): The module of Euler systems.
-
-  Statement. Let 𝒦/K be an abelian extension and N an ideal of K divisible by p and by all primes
-    where T is ramified. Write K ⊂_f F for finite subextensions F of 𝒦/K, and for F ⊆ F′ let Σ(F′/F)
-    be the set of primes of K not dividing N that ramify in F′ but not in F. An Euler system for (T,
-    𝒦, N) is a family c = (c_F)_F with c_F ∈ H¹(F, T) such that for all K ⊂_f F ⊂_f F′ ⊆ 𝒦,
-    Cor_{F′/F}(c_{F′}) = (∏_{q ∈ Σ(F′/F)} P(Fr_q^{-1} | T^*; Fr_q^{-1})) c_F. The set ES(T, 𝒦, N) of
-    such families is the O[[Gal(𝒦/K)]]-submodule of ∏_F H¹(F, T) cut out by these equations (an
-    equaliser). (𝒦, N) is admissible in Rubin's sense if (i) 𝒦 ⊇ K(q) for every q ∤ N and (ii) 𝒦
-    contains a ℤ_p^d-extension K_∞ of K, d ≥ 1, in which no finite prime splits completely. The
-    definition itself does not require (i)–(ii); the theorems do. The zero family is an Euler
-    system.
-
-  Hypothesis. 𝒦/K abelian
-
-  Hypothesis. p | N and N divisible by the primes where T is ramified
-
-  * `TauCeti.EulerSystems.EulerSystem` (structure) [prototype above]: The submodule ES(T, 𝒦, N) ⊆
-    ∏_{K ⊂_f F ⊆ 𝒦} H¹(F, T) of families satisfying the corestriction relations.
-
-  * `TauCeti.EulerSystems.EulerSystem.eval` (projection) [prototype above]: c ↦ c_F, an O-linear map
-    ES(T, 𝒦, N) → H¹(F, T).
-
-  * `TauCeti.EulerSystems.EulerSystem.cor_eval` (relation) [prototype above]: Cor_{F′/F}(c_{F′}) =
-    (∏_{q ∈ Σ(F′/F)} P(Fr_q^{-1} | T^*; Fr_q^{-1}))·c_F.
-
-  * `TauCeti.EulerSystems.EulerSystem.cor_eval_of_ramified_eq` (simp): If Σ(F′/F) = ∅ then
-    Cor_{F′/F}(c_{F′}) = c_F.
-
-  * `TauCeti.EulerSystems.EulerSystem.ext` (extensionality) [prototype above]: Two Euler systems
-    with the same classes c_F for all F are equal.
-
-  * `TauCeti.EulerSystems.EulerSystem.lift` (universal-property) [prototype above]: A family of
-    O-linear maps f_F : X → H¹(F, T) satisfying the relations is the same as an O-linear map X →
-    ES(T, 𝒦, N); it is determined by the f_F.
-
-  * `TauCeti.EulerSystems.EulerSystem.restrictTower` (functoriality): For 𝒦′ ⊆ 𝒦, restriction of the
-    index family is an O-linear map ES(T, 𝒦, N) → ES(T, 𝒦′, N); for an ideal N′ prime to p and 𝒦₀
-    the maximal subextension of 𝒦 unramified at the primes dividing N′, it lands in ES(T, 𝒦₀, NN′).
-
-  * `TauCeti.EulerSystems.IsAdmissibleTower` (structure): Rubin's conditions (i) and (ii) on (𝒦, N,
-    K_∞).
-
-  * test `EulerSystem.zero_mem` (degenerate) [prototype above]: The family c_F = 0 is an Euler
-    system.
-
-  * test `EulerSystem.cyclotomic_units` (computation): For K = ℚ, T = ℤ_p(1) and the Kummer images
-    of the p-extended cyclotomic units c̃_m, the relation for ℚ(μ_m) ⊆ ℚ(μ_{mℓ}), ℓ ∤ mp, is
-    N(c̃_{mℓ}) = c̃_m^{1 − Fr_ℓ^{-1}}: the factor is P(Fr_ℓ^{-1} | ℤ_p; Fr_ℓ^{-1}) = 1 − Fr_ℓ^{-1}.
-
-  * test `EulerSystem.not_restriction` (non-example): A family with res_{F′/F}(c_F) = c_{F′} for all
-    F ⊆ F′ and c_K ≠ 0 non-torsion is not an Euler system for a tower containing K_∞: corestriction
-    would give [F′ : F]c_F = c_F for F′ ⊆ F K_∞.
-
-  * test `EulerSystem.universal_norm` (characterisation) [prototype above]: For an admissible tower
-    and F ⊆ F′ ⊆ F K_∞, c_F = Cor_{F′/F}(c_{F′}); hence c_F ∈ ∩_{F′} Cor_{F′/F} H¹(F′, T).
-
-  Acceptance. ES is the equaliser of two maps ∏_F H¹(F, T) ⇉ ∏_{F ⊆ F′} H¹(F, T), so a morphism into
-    ES is a compatible family of morphisms.
-
-  Acceptance. The norm relation uses corestriction: replacing it by restriction or by equality
-    c_{F′} = c_F gives a different (wrong) object.
-
--/
-
-
-/-
-
-**`ES.2/classes-unramified-outside-p`** (theorem): Euler-system classes are unramified away from p.
-
-  Statement. Let c be an Euler system for an admissible tower (so 𝒦 ⊇ K_∞ with no finite prime
-    splitting completely). Then for every F and every place w ∤ p of F, (c_F)_w ∈ H¹_ur(F_w, T);
-    that is, c_F ∈ S^{Σ_p}(F, T), and c_F ∈ H¹_{F_can}(F, T). Hence c_F lies in H¹(O_{F,S(F)}, T)
-    for S(F) = S ∪ S_ram(F/K), the cohomology of the maximal extension unramified outside S(F).
-
-  Hypothesis. admissible tower
-
-  Hypothesis. T finitely generated over ℤ_p
-
-  Acceptance. Without condition (ii) the statement fails: c_K is then unconstrained
-    (rigidity-variants).
-
--/
-
-
-/-
-
-**`ES.2/conductor-presentation`** (theorem): The conductor-indexed presentations.
-
-  Statement. (a) For an admissible (𝒦, N), an Euler system is equivalent to a family c̃_m ∈ H¹(K[m]
-    ∩ 𝒦, T) indexed by all generalised ideals m (K[m] the ray class field), with
-    Cor_{K[mq]∩𝒦/K[m]∩𝒦}(c̃_{mq}) = P(Fr_q^{-1} | T^*; Fr_q^{-1}) c̃_m if q ∤ mN and = c̃_m if q |
-    mN: put c_F = Cor_{K[m]∩𝒦/F}(c̃_m) for m the conductor of F/K, and conversely c̃_m = ∏_q
-    P(Fr_q^{-1} | T^*; Fr_q^{-1}) c_{K[m]∩𝒦}, the product over primes dividing m, not dividing N,
-    unramified in (K[m] ∩ 𝒦)/K. (b) For 𝒦_min = K_∞·∏_{q ∤ N} K(q), an Euler system is determined
-    by, and equivalent to, a family {c_{F(r)}} over squarefree r prime to N and K ⊂_f F ⊆ K_∞ with
-    Cor_{F(rq)/F(r)}(c_{F(rq)}) = P(Fr_q^{-1} | T^*; Fr_q^{-1}) c_{F(r)} when K(q) ≠ K(1), and
-    Cor_{F′(r)/F(r)}(c_{F′(r)}) = c_{F(r)}; then c_L = Cor_{F(r)/L}(c_{F(r)}) for r, F minimal with
-    L ⊆ F(r).
-
-  Hypothesis. admissible (𝒦, N)
-
-  Acceptance. The archimedean part of a generalised ideal is allowed in (a).
-
-  Acceptance. The equivalence is an isomorphism of modules ES(T, 𝒦_min, N) ≅ {families (c_{F(r)})}.
-
--/
-
-
-/-
-
-**`ES.2/twisting`** (construction): Twisting Euler systems by characters of finite order.
-
-  Statement. Let c be an Euler system for (T, 𝒦, N) and χ : Gal(𝒦/K) → O^× a character of finite
-    order with conductor 𝔣 and field L = 𝒦^{ker χ}; let O_χ be free of rank one with generator ξ_χ
-    and T ⊗ χ = T ⊗ O_χ. Define c^χ_F ∈ H¹(F, T ⊗ χ) as the image of c_{FL} under H¹(FL, T) → H¹(FL,
-    T) ⊗ O_χ ≅ H¹(FL, T ⊗ χ) → H¹(F, T ⊗ χ), the last map being corestriction. Then {c^χ_F} is an
-    Euler system for (T ⊗ χ, 𝒦, 𝔣N). If L ⊆ L′ ⊆ 𝒦 have the same conductor, the image of c^χ_F under
-    Res then ⊗ξ_χ^{-1} in H¹(FL′, T) is Σ_{δ ∈ Gal(FL′/F)} χ(δ)δ c_{FL′}. Coefficient extension
-    along O → O′ finite flat acts on families termwise when H¹(F, T) ⊗ O′ = H¹(F, T ⊗ O′), and is
-    used to adjoin the values of χ.
-
-  Hypothesis. χ of finite order on Gal(𝒦/K)
-
-  Hypothesis. values of χ in O^× (after enlarging O)
-
-  * `TauCeti.EulerSystems.EulerSystem.twist` (constructor): c ↦ c^χ : ES(T, 𝒦, N) → ES(T ⊗ χ, 𝒦,
-    𝔣N), O-linear after fixing ξ_χ.
-
-  * `TauCeti.EulerSystems.EulerSystem.twist_eval` (simp): (c^χ)_F = Cor_{FL/F}(c_{FL} ⊗ ξ_χ).
-
-  * `TauCeti.EulerSystems.EulerSystem.twist_one` (simp): c^1 = c.
-
-  * `TauCeti.EulerSystems.EulerSystem.res_twist` (relation): Res_{FL′/F}(c^χ_F) ⊗ ξ_χ^{-1} = Σ_{δ ∈
-    Gal(FL′/F)} χ(δ)·δ·c_{FL′}.
-
-  * `TauCeti.EulerSystems.EulerSystem.baseChange` (functoriality): For O → O′ finite flat, ES(T, 𝒦,
-    N) ⊗_O O′ → ES(T ⊗ O′, 𝒦, N) is defined termwise and is injective.
-
-  * test `EulerSystem.twist_trivial` (degenerate): For χ = 1, L = K and c^χ_F = c_F.
-
-  * test `EulerSystem.twist_cyclotomic` (computation): For K = ℚ, T = ℤ_p(1), χ of conductor f: the
-    image of c^χ_ℚ in H¹(L, T) is Σ_{δ ∈ Gal(L/ℚ)} χ(δ)δc_L, the χ^{-1}-component of the Kummer
-    class of the cyclotomic unit of L.
-
-  * test `EulerSystem.twist_conductor` (non-example): Twisting changes the defining bad modulus to
-    f_χN. It is not guaranteed to satisfy the relations for N: for χ with a new ramified prime q,
-    the construction proves the relation with that q excluded. The zero system does satisfy both
-    sets of relations, so conductor enlargement is not a nonexistence assertion for every c.
-
-  * test `EulerSystem.twist_inverse_norm` (characterisation): With compatible character generators,
-    (c^χ)^{χ^{-1}}_F=Cor_{FL_χ/F}(c_{FL_χ})=∏_{q∈Σ(FL_χ/F)}P_q(Fr_q^{-1})c_F. This can differ from
-    c_F when f_χ has primes outside N; no extra degree factor occurs.
-
-  Acceptance. Twisting by the trivial character is the identity.
-
-  Acceptance. Twisting is O-linear after choosing compatible generators. For finite-order χ,ψ, the
-    iterated twist is obtained by corestriction from FL_χL_ψ, while the direct χψ-twist uses
-    FL_{χψ}. Comparing these by the Euler relation introduces the Euler factors for primes ramifying
-    in the former and not the latter outside N. In particular (c^χ)^{χ^{-1}}_F =
-    Cor_{FL_χ/F}(c_{FL_χ}), after cancelling generators; this equals the applicable Euler-factor
-    product times c_F and need not equal c_F. Both families are compared in the common conductor f_χ
-    f_ψ N.
-
--/
-
-
-/-
-
-**`ES.2/euler-factor-change`** (theorem): Changing the Euler factors.
-
-  Statement. (a) Let f_q, g_q ∈ O[x] (q ∤ N) with f_q ≡ g_q modulo N(q) − 1, and c̃ a family with
-    Cor_{F′/F}(c̃_{F′}) = (∏_{q ∈ Σ(F′/F)} f_q(Fr_q^{-1})) c̃_F. Then there is a family c with the
-    same relations for g_q, with c_F = c̃_F for every finite abelian F/K unramified outside N, and
-    with Σ_γ χ(γ)γc_F = Σ_γ χ(γ)γc̃_F whenever χ is a character of Gal(F/K) of conductor 𝔣 and every
-    prime ramified in F/K divides N𝔣; the construction is an explicit O-linear map c̃ ↦ c. (b) Units
-    u_q ∈ O^× and a shift x ↦ x^d of the variable can be absorbed similarly. (c) In particular a
-    family satisfying the relations with P(Fr_q^{-1} | T; Fr_q) gives an Euler system in the sense
-    of Definition II.1.1, and the modules of Euler systems for the conventions of Rubin and of
-    Mazur–Rubin are isomorphic. The change of factors is a map of systems, not an equality.
-
-  Hypothesis. f_q ≡ g_q (mod N(q) − 1)
-
-  Acceptance. Rubin's Example IX.6.2: K = ℚ, f_q = 1 − x and g_q = 1 − q^{-1}x.
-
-  Acceptance. The map is the identity on classes over fields unramified outside N.
-
--/
-
-
-/-
-
-**`ES.2/universal-euler-system`** (construction): The universal Euler system.
-
-  Statement. Fix N and K_∞/K as in an admissible tower, R(N) the squarefree products of primes not
-    dividing N. For r ∈ R(N) and K ⊂_f F ⊆ K_∞, X_{F(r)} = Y_{F(r)}/Z_{F(r)}, where Y_{F(r)} is the
-    free O[Gal(F(r)/K)]-module on symbols x_{F(s)}, s | r, and Z_{F(r)} is generated by σx_{F(s)} −
-    x_{F(s)} (σ ∈ Gal(F(r)/F(s))), N_q x_{F(qs)} − P(Fr_q^{-1} | T^*; Fr_q^{-1})x_{F(s)} (qs | r,
-    K(q) ≠ K(1)) and x_{F(qs)} − x_{F(s)} (qs | r, K(q) = K(1)). The universal Euler system is X =
-    colim_{F,r} X_{F(r)}; X_{∞,r} = lim_F X_{F(r)}. Sending x_{F(r)} ↦ c_{F(r)} gives
-    G_K-equivariant maps X_{F(r)} → H¹(F(r), T) for every Euler system c. Structure: X_{F(r)} is a
-    finitely generated free O-module, free over O[Gal(F(r)/K(r))] of rank [K(r) : K], X_{F(r)} ⊗ Φ
-    is free of rank one over Φ[Gal(F(r)/K)], X_{F′(r)} ⊗ O[Gal(F(r)/K)] ≅ X_{F(r)}, X_{F(s)} ≅
-    X_{F′(r)}^{Gal(F′(r)/F(s))}; X_{∞,r} is free of rank [K(r) : K] over O[[Gal(K_∞(r)/K(r))]]; and
-    Ext¹_{(O/M)[G]}(X_{F(r)}/M, (O/M)[G]^k) = 0 for G = Gal(F(r)/K), with the analogue for X_{∞,r}.
-
-  Hypothesis. N, K_∞ as in an admissible tower
-
-  * `TauCeti.EulerSystems.Universal.X` (constructor): X_{F(r)} as a quotient of a free
-    O[Gal(F(r)/K)]-module by the three families of relations.
-
-  * `TauCeti.EulerSystems.Universal.gen` (data): The class x_{F(s)} ∈ X_{F(r)} for s | r.
-
-  * `TauCeti.EulerSystems.Universal.norm_gen` (relation): N_q·x_{F(qs)} = P(Fr_q^{-1} | T^*;
-    Fr_q^{-1})·x_{F(s)} when K(q) ≠ K(1), and x_{F(qs)} = x_{F(s)} otherwise.
-
-  * `TauCeti.EulerSystems.Universal.lift` (universal-property): For an Euler system c, the unique
-    O[G_K]-linear map X_{F(r)} → H¹(F(r), T) with x_{F(s)} ↦ res(c_{F(s)}).
-
-  * `TauCeti.EulerSystems.Universal.free` (instance): X_{F(r)} is free of finite rank over O and
-    free of rank [K(r) : K] over O[Gal(F(r)/K(r))].
-
-  * `TauCeti.EulerSystems.Universal.ext_eq_zero` (other): Ext¹_{(O/M)[G]}(X_{F(r)}/M X_{F(r)},
-    (O/M)[G]^k) = 0 for G = Gal(F(r)/K).
-
-  * test `Universal.X_one` (degenerate): If K(1) = K then X_K is free of rank one over O on x_K.
-
-  * test `Universal.rank_one_prime` (computation): For K = ℚ, F = ℚ, r = ℓ with Γ_ℓ of order n > 1:
-    X_{ℚ(ℓ)} is the quotient of O[Γ_ℓ]x_ℓ ⊕ O[Γ_ℓ]x_1 by (σ − 1)x_1 and N_ℓx_ℓ − P(1)x_1, which is
-    free over O of rank n + 1 − 1 = n; indeed rank_O = [K(r) : K] = n.
-
-  * test `Universal.not_free_group_ring` (non-example): X_{F(r)} is not free over O[Gal(F(r)/K)] in
-    general: only X_{F(r)} ⊗ Φ is free of rank one over Φ[Gal(F(r)/K)].
-
-  Acceptance. For r = 1 and F = K with K(1) = K: X_K = O·x_K.
-
-  Acceptance. Hom_{G_K}(X_{∞,R}, colim_r lim_F H¹(F(r), T)) recovers Euler systems for 𝒦_min (Remark
-    IV.2.4).
-
--/
-
-
-/-
-
-**`ES.2/rigidity-variants`** (definition): Variants: rigidity conditions, finite depth and anticyclotomic systems.
-
-  Statement. (a) Rigidity. Without condition (ii) of an admissible tower the class c_K can be
-    unconstrained: if K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for every q ∤ N and 𝒦 is the
-    maximal abelian extension unramified at every prime dividing N, the only relations involving c_K
-    are Cor_{F/K}c_F = ∏_{q ∈ Σ(F/K)} P(Fr_q^{-1} | T^*; 1)c_K = 0, and the family c_F = 0 (F ≠ K),
-    c_K arbitrary is an Euler system. Condition (ii) is therefore replaced by (ii)′: at least one of
-    (a) 𝒦 contains a ℤ_p^d-extension of K in which no finite prime splits completely; (b) c_{K(r)} ∈
-    S^{Σ_p}(K(r), T) for every r, and there is γ ∈ G_K with γ = 1 on K(1)(μ_{p^∞}, (O_K^×)^{1/p^∞})
-    and γ − 1 injective on T; (c) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, Fr_q^n − 1 is injective
-    on T for every prime q ∤ N and every power n of p, and the family {c_{K(r)}} satisfies the
-    congruence of Corollary IV.8.1. Under (ii)′ and T^{G_{K(1)}} = 0, Theorems II.2.2, II.2.3 and
-    II.2.10 hold as stated. (b) Finite depth. For 0 ≠ M ∈ O an Euler system for W_M (of depth M) is
-    a family as in the definition with c_F ∈ H¹(F, W_M). (c) Anticyclotomic. For a character χ of
-    Gal(K′/K) of order d and an abelian extension 𝒦′/K′ on which Gal(K′/K) acts through χ, a
-    χ-anticyclotomic Euler system for (T, 𝒦′, N) is a family c_F ∈ H¹(F, T), K′ ⊂_f F ⊆ 𝒦′, with the
-    corestriction relations for primes q of K and one of the three rigidity conditions adapted to χ.
-    (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F,
-    T) for all F.
-
-  Hypothesis. as in each variant
-
-  * `TauCeti.EulerSystems.IsRigid` (structure): Condition (ii)′: one of the alternatives (a), (b),
-    (c).
-
-  * `TauCeti.EulerSystems.FiniteDepthEulerSystem` (structure): Euler systems for W_M.
-
-  * `TauCeti.EulerSystems.EulerSystem.toFiniteDepth` (functoriality): ES(T, 𝒦, N) → ES(W_M, 𝒦, N) by
-    reduction modulo M, compatible in M.
-
-  * `TauCeti.EulerSystems.AnticyclotomicEulerSystem` (structure): χ-anticyclotomic Euler systems for
-    (T, 𝒦′, N).
-
-  * `TauCeti.EulerSystems.AnticyclotomicEulerSystem.of_trivial` (compatibility): For d = 1 (χ
-    trivial) a χ-anticyclotomic Euler system is an Euler system.
-
-  * `TauCeti.EulerSystems.EulerSystem.IsTrivialAt` (structure): c_F ∈ S_Σ^{Σ_p}(F, T) for every F.
-
-  * test `IsRigid.of_admissible` (compatibility): An admissible tower satisfies (ii)′(a).
-
-  * test `not_isRigid_isolated_class` (non-example): If K has class number one, P(Fr_q^{-1} | T^*;
-    1) = 0 for all q ∤ N and 𝒦 is the maximal abelian extension of K unramified at every prime
-    dividing N, the family c_K = x, c_F = 0 for F ≠ K is an Euler system for every x ∈ H¹(K, T); for
-    x ∉ S^{Σ_p}(K, T) it satisfies none of (a), (b), (c).
-
-  * test `AnticyclotomicEulerSystem.heegner_shape` (computation): For K = ℚ, χ the quadratic
-    character of an imaginary quadratic field K′: d = 2 and the relation at a prime ℓ inert in K′
-    uses P(Fr_ℓ^{-1} | T^*; Fr_ℓ^{-1}) with Fr_ℓ ∈ G_ℚ, whose square is the Frobenius of the prime
-    of K′ above ℓ.
-
-  Acceptance. A system of infinite depth gives one of depth M for every M.
-
-  Acceptance. The counterexample family (c_K arbitrary, others 0) satisfies none of (a), (b), (c)
-    when c_K ∉ S^{Σ_p}.
-
--/
-
-
-/-! ### Layer ES.3 -/
-
-
-/-
-
-**`ES.3/derivative-operators`** (definition): The norm and Kolyvagin derivative operators.
-
-  Statement. Let Γ be a finite cyclic group of order n with generator σ. In ℤ[Γ] put N_Γ = Σ_{γ ∈ Γ}
-    γ and D_σ = Σ_{i=0}^{n−1} i·σ^i. Then (σ − 1)D_σ = n − N_Γ. For a prime q ∤ p, with Γ_q =
-    Gal(K(q)/K(1)) and the generator σ_q fixed through tame inertia (a generator ξ of lim μ_{p^n}
-    and a prime of K̄ above q), write N_q = N_{Γ_q} and D_q = D_{σ_q}; for squarefree r, N_r = ∏_{q
-    | r} N_q = Σ_{σ ∈ Γ_r} σ and D_r = ∏_{q | r} D_q ∈ ℤ[Γ_r], with N_r = N_sN_{r/s} and D_r =
-    D_sD_{r/s} for s | r. Under the augmentation ε, ε(N_Γ) = n and ε(D_σ) = n(n − 1)/2. For another
-    generator σ^a (a prime to n) and a′a ≡ 1 (mod n), D_{σ^a} − a′D_σ ∈ nℤ[Γ].
-
-  Hypothesis. Γ finite cyclic with a chosen generator
-
-  * `TauCeti.KolyvaginSystems.normElement` (data) [prototype above]: N_Γ = Σ_{γ ∈ Γ} γ ∈ ℤ[Γ] for a
-    finite group Γ.
-
-  * `TauCeti.KolyvaginSystems.kolyvaginDerivative` (data) [prototype above]: D_σ = Σ_{i < n} i·σ^i ∈
-    ℤ[Γ] for σ of order n.
-
-  * `TauCeti.KolyvaginSystems.sub_one_mul_kolyvaginDerivative` (relation) [prototype above]: (σ −
-    1)·D_σ = n − N_Γ when σ generates Γ of order n.
-
-  * `TauCeti.KolyvaginSystems.augmentation_kolyvaginDerivative` (simp) [prototype above]: ε(D_σ) =
-    n(n − 1)/2 and ε(N_Γ) = n.
-
-  * `TauCeti.KolyvaginSystems.kolyvaginDerivative_prod` (relation): For Γ = Γ₁ × Γ₂ and r = st: D_r
-    = D_s·D_t and N_r = N_s·N_t in ℤ[Γ₁ × Γ₂].
-
-  * `TauCeti.KolyvaginSystems.kolyvaginDerivative_generator` (compatibility) [prototype above]: For
-    a·a′ ≡ 1 (mod n): D_{σ^a} − a′·D_σ ∈ n·ℤ[Γ].
-
-  * `TauCeti.KolyvaginSystems.normElement_eq_representation_norm` (compatibility) [prototype above]:
-    For a representation ρ of Γ, the action of N_Γ is Mathlib's Representation.norm ρ.
-
-  * test `kolyvaginDerivative_order_two` (computation) [prototype above]: For Γ = {1, σ}: D_σ = σ,
-    N_Γ = 1 + σ and (σ − 1)σ = 2 − (1 + σ).
-
-  * test `kolyvaginDerivative_order_three` (computation) [prototype above]: For n = 3: D_σ = σ + 2σ²
-    and (σ − 1)(σ + 2σ²) = 3 − (1 + σ + σ²).
-
-  * test `kolyvaginDerivative_trivial` (degenerate) [prototype above]: For Γ = 1: D = 0 and N = 1,
-    and the identity reads 0 = 1 − 1.
-
-  * test `kolyvaginDerivative_not_norm_multiple` (non-example) [prototype above]: D_σ is not
-    annihilated by σ − 1 in ℤ[Γ] for n ≥ 2: (σ − 1)D_σ = n − N_Γ ≠ 0; it is invariant only modulo
-    (n, N_Γ).
-
-  Acceptance. For n = 2: D_σ = σ and (σ − 1)σ = 1 − σ = 2 − (1 + σ).
-
-  Acceptance. The identity is the only property of D_q used in the invariance of derivative classes.
-
--/
-
-
-/-
-
-**`ES.3/derivative-invariance`** (lemma): Invariance of the derivative of the universal class.
-
-  Statement. Let K ⊂_f F ⊆ K_∞, 0 ≠ M ∈ O and r ∈ R_{F,M}. If N_{F(1)/F} ∈ ℤ[Gal(F(r)/F)] restricts
-    to Σ_{γ ∈ Gal(F(1)/F)} γ, then N_{F(1)/F}D_r x_{F(r)} ∈ (X_{F(r)}/M X_{F(r)})^{Gal(F(r)/F)},
-    independently of the choice of N_{F(1)/F}. Consequently for an Euler system c the image of
-    N_{F(1)/F}D_r c_{F(r)} in H¹(F(r), W_M) is fixed by Gal(F(r)/F).
-
-  Hypothesis. r ∈ R_{F,M}
-
-  Acceptance. For r = q: (σ_q − 1)D_q x_{F(q)} = |Γ_q|x_{F(q)} − P(Fr_q^{-1} | T^*; Fr_q^{-1})x_F ∈
-    M X_{F(q)}.
-
--/
-
-
-/-
-
-**`ES.3/lifting-to-induced-module`** (theorem): The induced module, the connecting map and lifts of an Euler system.
-
-  Statement. Let 𝕎_M = Maps_cont(G_K, W_M) with (γf)(g) = f(gγ), containing W_M via t ↦ (g ↦ gt).
-    (a) For K ⊂_f L ⊆ K_∞(r) there is a canonical δ_L : (𝕎_M/W_M)^{G_L} → H¹(L, W_M) with 0 →
-    W_M^{G_L} → 𝕎_M^{G_L} → (𝕎_M/W_M)^{G_L} → H¹(L, W_M) → 0 exact; δ_L(f) is represented by γ ↦ (γ
-    − 1)f̂ for a lift f̂ ∈ 𝕎_M; and δ commutes with restriction and with norm/corestriction. (b) For
-    an Euler system c and r ∈ R there is a family of O[G_K]-maps d_F : X_{F(r)} →
-    (𝕎_M/W_M)^{G_{F(r)}}, K ⊂_f F ⊆ K_∞, with δ_{F(r)} ∘ d_F equal to x_{F(s)} ↦ c_{F(s)} (mod M)
-    and compatible with norms N_{F′(r)/F(r)}; each d_F is unique up to Hom_{O[G_K]}(X_{F(r)}, 𝕎_M).
-
-  Hypothesis. an Euler system for an admissible tower
-
-  Hypothesis. 0 ≠ M ∈ O
-
-  Acceptance. If W^{G_{F(r)}} = 0 the lift is unnecessary: restriction H¹(F, W_M) → H¹(F(r),
-    W_M)^{Gal(F(r)/F)} is an isomorphism.
-
--/
-
-
-/-
-
-**`ES.3/derivative-class`** (construction): Kolyvagin's derivative classes κ_{F,r,M}.
-
-  Statement. For an Euler system c, K ⊂_f F ⊆ K_∞, 0 ≠ M ∈ O and r ∈ R_{F,M}, fix a lift d = d_F and
-    put D_{r,F} = N_{F(1)/F}D_r. Then d(D_{r,F}x_{F(r)}) ∈ (𝕎_M/W_M)^{G_F} and κ_{F,r,M} =
-    δ_F(d(D_{r,F}x_{F(r)})) ∈ H¹(F, W_M). It is independent of the choices of N_{F(1)/F} and d, and
-    is represented by γ ↦ (γ − 1)f for any f ∈ 𝕎_M lifting d(D_{r,F}x_{F(r)}). Properties: (i)
-    κ_{F,1,M} is the image of c_F in H¹(F, W_M); (ii) the restriction of κ_{F,r,M} to F(r) is the
-    image of D_{r,F}c_{F(r)}; (iii) for M | M′ and r ∈ R_{F,M′}, κ_{F,r,M′} ↦ κ_{F,r,M} under H¹(F,
-    W_{M′}) → H¹(F, W_M) and κ_{F,r,M} ↦ (M′/M)κ_{F,r,M′} under H¹(F, W_M) → H¹(F, W_{M′}). The
-    class depends only on the images of c_{F(s)}, s | r, in H¹(F(r), W_M), so the construction
-    applies to Euler systems of finite depth and to χ-anticyclotomic ones.
-
-  Hypothesis. r ∈ R_{F,M}
-
-  Hypothesis. an Euler system (or one of the variants of ES.2/rigidity-variants)
-
-  * `TauCeti.KolyvaginSystems.derivativeClass` (constructor): κ_{F,r,M} ∈ H¹(F, W_M) for r ∈
-    R_{F,M}; in intrinsic form an element of H¹(F, W_M) ⊗ G_r.
-
-  * `TauCeti.KolyvaginSystems.derivativeClass_one` (simp): κ_{F,1,M} = image of c_F.
-
-  * `TauCeti.KolyvaginSystems.res_derivativeClass` (characterisation): res_{F(r)/F}(κ_{F,r,M}) =
-    image of D_{r,F}·c_{F(r)} in H¹(F(r), W_M).
-
-  * `TauCeti.KolyvaginSystems.derivativeClass_reduction` (functoriality): For M | M′: reduction
-    sends κ_{F,r,M′} to κ_{F,r,M}, and multiplication M′/M : W_M → W_{M′} sends κ_{F,r,M} to
-    (M′/M)·κ_{F,r,M′}.
-
-  * `TauCeti.KolyvaginSystems.derivativeClass_cocycle` (characterisation): κ_{F,r,M} is the class of
-    γ ↦ (γ − 1)·f for any lift f of d(D_{r,F}x_{F(r)}).
-
-  * `TauCeti.KolyvaginSystems.derivativeClass_linear` (structure): c ↦ κ_{F,r,M}(c) is O-linear in
-    the Euler system.
-
-  * `TauCeti.KolyvaginSystems.derivativeClass_generator` (compatibility): κ ⊗ (⊗_q σ_q) ∈ H¹(F, W_M)
-    ⊗ G_r does not depend on the generators σ_q.
-
-  * test `derivativeClass_conductor_one` (degenerate): For r = 1 and F = K with K(1) = K, κ_{K,1,M}
-    = c_K mod M.
-
-  * test `derivativeClass_cyclotomic_units` (computation): For K = ℚ, T = ℤ_p(1), M = p^k and ℓ ≡ 1
-    (mod p^k): κ_{ℚ,ℓ,M} ∈ ℚ^×/(ℚ^×)^{p^k} is the unique class whose image in ℚ(ℓ)^×/p^k is D_ℓ
-    applied to the cyclotomic unit of ℚ(ℓ) (here W^{G_{ℚ(ℓ)}} = 0 for p odd).
-
-  * test `derivativeClass_zero` (degenerate): For the zero Euler system every κ_{F,r,M} is 0.
-
-  * test `derivativeClass_not_cor` (non-example): κ_{F,r,M} is not Cor_{F(r)/F}(c_{F(r)}) = N_r c:
-    corestriction gives the Euler-factor multiple of c_F, which is 0 modulo M for r ∈ R_{F,M} with r
-    ≠ 1, while κ_{F,r,M} is in general nonzero.
-
-  Acceptance. When W^{G_{F(r)}} = 0, κ_{F,r,M} is the unique class restricting to D_{r,F}c_{F(r)}.
-
-  Acceptance. Scalar and quotient compatibility: κ(ac) = aκ(c), and (iii).
-
--/
-
-
-/-
-
-**`ES.3/derivative-local-properties`** (theorem): Local behaviour of derivative classes.
-
-  Statement. Let c be an Euler system for T, K ⊂_f F ⊆ K_∞, 0 ≠ M ∈ O. (a) If r ∈ R_{F,M} and w is a
-    place of F not dividing pr, then (κ_{F,r,M})_w ∈ H¹_f(F_w, W_M); equivalently κ_{F,r,M} ∈
-    S^{Σ_{pr}}(F, W_M). (b) If rq ∈ R_{F,M}, then the image of κ_{F,rq,M} in H¹_s(F_Q, W_M) is
-    φ^fs_q of the localisation of κ_{F,r,M}: (κ_{F,rq,M})^s_q = φ^fs_q(κ_{F,r,M}). (c) If W_M/(Fr_q
-    − 1)W_M is free of rank one over O/M, the order of (κ_{K,rq,M})^s_q in H¹_s(K_q, W_M) equals the
-    order of (κ_{K,r,M})_q in H¹_f(K_q, W_M). (d) If c is trivial at a finite set Σ of primes not
-    dividing p, then κ_{F,r,M} ∈ S_Σ^{Σ_{pr}}(F, W_M). For Euler systems of finite depth (b) holds
-    and (a) holds after multiplying by a constant m independent of M.
-
-  Hypothesis. an Euler system for an admissible tower (so the classes are universal norms)
-
-  Hypothesis. r, rq ∈ R_{F,M}
-
-  Acceptance. For r = 1 and q ∈ R_{K,M}: the singular part of κ_{K,q,M} at q is φ^fs_q(c_K mod M).
-
-  Acceptance. Together (a) and (b) say that (κ_{K,r,M} ⊗ generators)_r is a weak Kolyvagin system
-    for F_can relaxed at p.
-
--/
-
-
-/-
-
-**`ES.3/congruence`** (theorem): Kolyvagin's congruence.
-
-  Statement. Let c be an Euler system for T, K ⊂_f F ⊆ K_∞, q ∈ R prime and rq ∈ R. For every prime
-    Q of F(rq) above q, (c_{F(rq)})_Q = ((P_q(Fr_q^{-1}) − P_q(N(q)Fr_q^{-1}))/[K(q) : K(1)])
-    (c_{F(r)})_Q in H¹(F(rq)_Q, T), where P_q(x) = P(Fr_q^{-1} | T^*; x) and (P_q(x) −
-    P_q(N(q)x))/[K(q) : K(1)] ∈ O[x].
-
-  Hypothesis. an Euler system for an admissible tower
-
-  Acceptance. For T = ℤ_p(1) this is the classical congruence between cyclotomic units modulo the
-    primes above q (Example IV.8.2).
-
-  Acceptance. The congruence is a consequence of the definition for towers extending in the
-    p-direction; it is an extra hypothesis in rigidity condition (c).
-
--/
-
-
-/-
-
-**`ES.3/kolyvagin-system-module`** (definition): Kolyvagin systems, weak Kolyvagin systems and their limits.
-
-  Statement. For a Selmer triple (T, F, P): a Kolyvagin system is a family κ = (κ_n)_{n ∈ N(P)} with
-    κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n such that for every prime q with nq ∈ N(P), (κ_{nq})_{q,s} =
-    φ^fs_q(κ_n) in H¹_s(K_q, T/I_{nq}T) ⊗ G_{nq}, where the left side is localisation at q followed
-    by projection to the singular quotient, and the right side is localisation, reduction modulo
-    I_{nq} and φ^fs_q ⊗ 1. KS(T, F, P) is the R-module of Kolyvagin systems. A weak Kolyvagin system
-    has κ_n ∈ H¹_{F^n}(K, T/I_nT) ⊗ G_n with the same relation. The generalised module is K̄S(T, F,
-    P) = lim_k colim_j KS(T/m^kT, F, P ∩ P_j), with a natural map KS → K̄S; every κ̄ ∈ K̄S has a
-    class κ̄_1 ∈ H¹_F(K, T). The order of vanishing of κ ≠ 0 is ord(κ) = min{ν(n) : κ_n ≠ 0}, and
-    L(T) = {κ_1 : κ ∈ KS(T)} ⊆ H¹_F(K, T) is the module of L-values. The blind spot of κ̄ is the set
-    of ideals I with zero image in K̄S(T/I).
-
-  Hypothesis. a Selmer triple; for the relation, T/I_{nq}T satisfies the hypotheses of the
-    finite–singular comparison at q
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem` (structure): The R-submodule KS(T, F, P) of ∏_{n ∈
-    N(P)} H¹_{F(n)}(K, T/I_nT) ⊗ G_n defined by the finite–singular relations.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.eval` (projection): κ ↦ κ_n, R-linear.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.singular_eq_finiteSingular` (relation): (κ_{nq})_{q,s}
-    = φ^fs_q(κ_n) for nq ∈ N(P).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.ext` (extensionality): κ = κ′ iff κ_n = κ′_n for all
-    n.
-
-  * `TauCeti.KolyvaginSystems.WeakKolyvaginSystem` (structure): Families in ∏_n H¹_{F^n}(K, T/I_nT)
-    ⊗ G_n with the same relations; KS ≤ weak KS.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.map` (functoriality): Change of ring, of P, and of F
-    as in Remark 3.1.4, each R-linear and compatible with eval.
-
-  * `TauCeti.KolyvaginSystems.GeneralizedKolyvaginSystem` (constructor): K̄S(T, F, P) = lim_k
-    colim_j KS(T/m^kT, F, P ∩ P_j), with toGeneralized : KS → K̄S and κ̄ ↦ κ̄_1 ∈ H¹_F(K, T).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.ord` (data): ord(κ) = min{ν(n) : κ_n ≠ 0} ∈ ℕ∞, with
-    ord(0) = ⊤.
-
-  * test `KolyvaginSystem.zero_mem` (degenerate): The zero family is a Kolyvagin system, of order ⊤.
-
-  * test `KolyvaginSystem.eval_one` (characterisation): κ_1 ∈ H¹_F(K, T) ⊗ ℤ = H¹_F(K, T): the stalk
-    at 1 has I_1 = 0, G_1 = ℤ and F(1) = F.
-
-  * test `KolyvaginSystem.empty_primes` (degenerate): For P = ∅, KS(T, F, ∅) = H¹_F(K, T) via κ ↦
-    κ_1.
-
-  * test `WeakKolyvaginSystem.not_kolyvagin` (non-example): For T = ℤ_p(1), Σ(F) = {p, ∞} relaxed at
-    p, the raw derivative classes of cyclotomic units form a weak Kolyvagin system whose finite
-    parts (κ_n)_{ℓ,f}, ℓ | n, are not zero in general, so it is not a Kolyvagin system (Example
-    3.1.10).
-
-  Acceptance. The zero family is a Kolyvagin system; a system may have κ_1 = 0.
-
-  Acceptance. For core rank one KS → K̄S is an isomorphism (ES.5); in general it is neither
-    injective nor surjective.
-
--/
-
-
-/-
-
-**`ES.3/finite-part-formula`** (theorem): Derivative classes form a weak Kolyvagin system; their finite parts.
-
-  Statement. Let K = ℚ, R the integers of a finite extension of ℚ_p, F = F_can and P a set of primes
-    ℓ ≠ p, unramified for T, with T/(Fr_ℓ − 1)T cyclic and Fr_ℓ^{p^k} − 1 injective on T for all k ≥
-    0. For an Euler system c for (T, P, 𝒦) with 𝒦 containing the maximal abelian p-extension
-    unramified outside p and P, let κ_n = κ_{[ℚ,n,I_n]} ⊗ (generators) ∈ H¹(ℚ, T/I_nT) ⊗ G_n, κ_1 =
-    c_ℚ. (a) If H⁰(ℚ_p, T^*) is divisible, (κ_n) is a weak Kolyvagin system for (T, F_can, P); in
-    general for each k and all large j the images κ_n^{(k)}, n ∈ N_j, form a weak Kolyvagin system
-    for (T/m^kT, F_can, P_j). (b) For ℓ | n, (κ_n)_{ℓ,f} = Σ_{π ∈ S_1(n), π(ℓ) ≠ ℓ} (−1)^{ν(n/d_π)}
-    (κ_{d_π})_{ℓ,f} ⊗ ⊗_{q | (n/d_π)} ρ_q(P_q(Fr_{π(q)}^{-1})), where S_1(n) is the set of
-    permutations of the primes dividing n whose non-fixed primes form a single orbit, d_π =
-    ∏_{π(ℓ)=ℓ} ℓ, and ρ_q : A_{q,I}/A_{q,I}² ≅ G_q ⊗ R/I is σ − 1 ↦ σ ⊗ 1 on the augmentation ideal
-    A_{q,I} of (R/I)[G_q ⊗ R/I].
-
-  Hypothesis. K = ℚ
-
-  Hypothesis. the two conditions on the primes of P
-
-  Hypothesis. 𝒦 contains the maximal abelian p-extension of ℚ unramified outside p and P
-
-  Acceptance. For n = ℓ: S_1(ℓ) has no π with π(ℓ) ≠ ℓ, so (κ_ℓ)_{ℓ,f} = 0.
-
-  Acceptance. For n = ℓq the only π is the transposition, d_π = 1, and (κ_{ℓq})_{ℓ,f} = (κ_1)_{ℓ,f}
-    ⊗ ρ_ℓ(P_ℓ(Fr_q^{-1})) ⊗ ρ_q(P_q(Fr_ℓ^{-1})).
-
--/
-
-
-/-
-
-**`ES.3/euler-to-kolyvagin`** (construction): The map from Euler systems to Kolyvagin systems.
-
-  Statement. In the setting of finite-part-formula, define for n ∈ N κ′_n = Σ_{π ∈ S(n)} sign(π)
-    κ_{d_π} ⊗ ⊗_{ℓ | (n/d_π)} ρ_ℓ(P_ℓ(Fr_{π(ℓ)}^{-1})) ∈ H¹(ℚ, T/I_nT) ⊗ G_n, the sum over all
-    permutations of the primes dividing n. Then (κ′_n) satisfies the finite–singular relations and
-    (κ′_n)_{ℓ,f} = 0 for ℓ | n. Theorem (Mazur–Rubin 3.2.4): if 𝒦 contains the maximal abelian
-    p-extension of ℚ unramified outside p and P, and (a) T/(Fr_ℓ − 1)T is cyclic and (b) Fr_ℓ^{p^k}
-    − 1 is injective on T for all ℓ ∈ P, k ≥ 0, then c ↦ κ′ is a canonical G_ℚ-equivariant
-    homomorphism ES(T) → K̄S(T, F_can, P) with κ̄_1 = c_ℚ; if moreover H⁰(ℚ_p, T^*) is divisible it
-    is a homomorphism ES(T) → KS(T, F_can, P) with κ_1 = c_ℚ. Variant (3.2.7): if 𝒦 contains the
-    maximal abelian p-extension unramified outside a cofinite set of primes containing P (no
-    p-direction), c_F ∈ H¹_{F_can}(F, T) for all F, and there is γ ∈ G_ℚ with γ − 1 killing μ_{p^∞}
-    and injective on T, the same conclusions hold. The output in K̄S is a generalised Kolyvagin
-    system; the ordinary one needs the local divisibility condition at p. Over a number field K the
-    rank-one case of ES.7/higher-kolyvagin-derivative gives the corresponding map.
-
-  Hypothesis. K = ℚ, R the integers of a finite extension of ℚ_p
-
-  Hypothesis. (a), (b) of Theorem 3.2.4; the Euler factors are P_ℓ(Fr_ℓ^{-1}) with P_ℓ(x) = det(1 −
-    Fr_ℓ x | T)
-
-  * `TauCeti.KolyvaginSystems.correctedClass` (constructor): κ′_n = Σ_{π ∈ Perm(primes of n)}
-    sign(π)·κ_{d_π} ⊗ ⊗_{ℓ | n/d_π} ρ_ℓ(P_ℓ(Fr_{π(ℓ)}^{-1})).
-
-  * `TauCeti.KolyvaginSystems.correctedClass_one` (simp): κ′_1 = c_ℚ, and κ′_ℓ = κ_ℓ for a prime ℓ.
-
-  * `TauCeti.KolyvaginSystems.correctedClass_finite_eq_zero` (characterisation): (κ′_n)_{ℓ,f} = 0
-    for every ℓ | n.
-
-  * `TauCeti.KolyvaginSystems.eulerToKolyvagin` (constructor): The R-linear, G_ℚ-equivariant map
-    ES(T, P, 𝒦) → K̄S(T, F_can, P).
-
-  * `TauCeti.KolyvaginSystems.eulerToKolyvagin_one` (characterisation): (eulerToKolyvagin c)_1 =
-    c_ℚ.
-
-  * `TauCeti.KolyvaginSystems.eulerToKolyvagin_ordinary` (other): If H⁰(ℚ_p, T^*) is divisible, the
-    map factors through KS(T, F_can, P) → K̄S.
-
-  * `TauCeti.KolyvaginSystems.eulerToKolyvagin_twist` (compatibility): For ρ of finite order,
-    eulerToKolyvagin(c^ρ) is the system for T ⊗ ρ, and systems for ρ ≡ ρ′ (mod m^k) agree in
-    K̄S((T/m^k) ⊗ ρ).
-
-  * test `correctedClass_prime` (computation): For n = ℓ: Perm = {id}, κ′_ℓ = κ_ℓ and (κ_ℓ)_{ℓ,f} =
-    0 by the finite-part formula.
-
-  * test `correctedClass_two_primes` (computation): For n = ℓq: κ′_{ℓq} = κ_{ℓq} − κ_1 ⊗
-    ρ_ℓ(P_ℓ(Fr_q^{-1})) ⊗ ρ_q(P_q(Fr_ℓ^{-1})); the sign of the transposition is −1 and d_π = 1.
-
-  * test `eulerToKolyvagin_zero` (degenerate): The zero Euler system maps to the zero Kolyvagin
-    system.
-
-  * test `eulerToKolyvagin_not_ordinary` (non-example): For T with H⁰(ℚ_p, T^*) not divisible,
-    H¹_{F_can}(ℚ_p, T/IT) can be a proper submodule of H¹(ℚ_p, T/IT) (Lemma A.1), the classes κ′_n
-    need not satisfy the condition at p, and the map is defined only into K̄S: the ordinary and the
-    generalised outputs are different statements.
-
-  Acceptance. κ′_1 = κ_1 = c_ℚ and κ′_ℓ = κ_ℓ.
-
-  Acceptance. For n = ℓq: κ′_{ℓq} = κ_{ℓq} − κ_1 ⊗ ρ_ℓ(P_ℓ(Fr_q^{-1})) ⊗ ρ_q(P_q(Fr_ℓ^{-1})).
-
-  Acceptance. Compatibility: with twisting (Remark 3.2.5), with scalars and with T → T/m^k.
-
--/
-
-
-/-
-
-**`ES.3/two-prime-test`** (application): The two-prime check of the correction terms.
-
-  Statement. For distinct ℓ, q ∈ P and n = ℓq: (i) (κ_{ℓq})_{ℓ,s} = φ^fs_ℓ(κ_q) and (κ_{ℓq})_{q,s} =
-    φ^fs_q(κ_ℓ); (ii) (κ_{ℓq})_{ℓ,f} = (κ_1)_{ℓ,f} ⊗ ρ_ℓ(P_ℓ(Fr_q^{-1})) ⊗ ρ_q(P_q(Fr_ℓ^{-1}));
-    (iii) the corrected class κ′_{ℓq} = κ_{ℓq} − κ_1 ⊗ ρ_ℓ(P_ℓ(Fr_q^{-1})) ⊗ ρ_q(P_q(Fr_ℓ^{-1})) has
-    zero finite part at ℓ and at q and the same singular parts as κ_{ℓq} at ℓ and q, because the
-    correction term κ_1 is unramified at ℓ and q; (iv) κ′_{ℓq} is symmetric in ℓ and q. Hence κ′
-    satisfies both edge relations of the square 1 — ℓ — ℓq — q — 1.
-
-  Hypothesis. the setting of euler-to-kolyvagin
-
-  Acceptance. The sign in (iii) is −1 = sign of the transposition, opposite to the sign +1 =
-    (−1)^{ν(ℓq)} in (ii): the two formulas are consistent.
-
-  Acceptance. Omitting the correction leaves (κ_{ℓq})_{ℓ,f} ≠ 0 in general, so κ_{ℓq} ∉ H¹_{F(ℓq)}.
-
--/
-
-
-/-
-
-**`ES.3/anticyclotomic-derivative`** (theorem): Derivative classes of χ-anticyclotomic Euler systems.
-
-  Statement. Let χ : G_K → ℤ_p^× have order d | p − 1, K′ the field cut out by χ, and c a
-    χ-anticyclotomic Euler system for T. For a power M of p let R_{K′,M} be the squarefree ideals of
-    K divisible only by primes q ∤ N with M | [K′(q)_χ : K′(1)_χ] and M | P(Fr_q^{-1} | T^*; 1). The
-    construction of derivative-class gives κ_{K′,r,M} ∈ H¹(K′, W_M) for r ∈ R_{K′,M}, satisfying the
-    analogues of derivative-local-properties (a) and (b): loc^s_q(κ_{K′,rq,M}) = φ^fs_q(κ_{K′,r,M}).
-    The map φ^fs_q : H¹_f(K′_q, W_M) → H¹_s(K′_q, W_M) is not Gal(K′/K)-equivariant: it sends the
-    χ^i-part into the χ^{i−1}-part.
-
-  Hypothesis. d | p − 1
-
-  Hypothesis. one of the rigidity conditions (a), (b), (c) of the anticyclotomic definition
-
-  Acceptance. For d = 2 (Heegner points): the derivative classes for r with an even number of primes
-    lie in the same eigenspace as c_{K′}, and with an odd number in the opposite one.
-
-  Acceptance. The finite–singular relation with the tensor factor G_q retained is equivariant; the
-    shift is the action of Gal(K′/K) on G_q through χ.
-
--/
-
-
-/-! ### Layer ES.4 -/
-
-
-/-
-
-**`ES.4/selmer-sheaf`** (construction): The Selmer graph and the Selmer sheaf.
-
-  Statement. A sheaf S of R-modules on a graph X assigns a module S(v) to each vertex, a module S(e)
-    to each edge and a map ψ_v^e : S(v) → S(e) whenever v is an endpoint of e; a global section is a
-    family (κ_v) with ψ_v^e(κ_v) = ψ_{v′}^e(κ_{v′}) for every edge e = {v, v′}; Γ(S) is the module
-    of global sections. For a Selmer triple (T, F, P), X(P) is the graph with vertex set N(P) and an
-    edge joining n and nq whenever n, nq ∈ N(P) with q prime. The Selmer sheaf ℋ = ℋ_{(T,F,P)} has
-    ℋ(n) = H¹_{F(n)}(K, T/I_nT) ⊗ G_n; for the edge e joining n and nq, ℋ(e) = H¹_s(K_q, T/I_{nq}T)
-    ⊗ G_{nq}; ψ_{nq}^e is localisation at q followed by projection to H¹_s; and ψ_n^e is
-    localisation at q, reduction to T/I_{nq}T and φ^fs_q ⊗ 1. Then KS(T, F, P) = Γ(ℋ). The sheaf ℋ̂
-    with ℋ̂(n) = H¹_{F^n}(K, T/I_nT) ⊗ G_n and the same edges has Γ(ℋ̂) the weak Kolyvagin systems,
-    and ℋ ⊆ ℋ̂.
-
-  Hypothesis. a Selmer triple
-
-  * `TauCeti.KolyvaginSystems.conductorGraph` (constructor) [prototype above]: X(P): the simple
-    graph on N(P) with n adjacent to m iff m = nq or n = mq for a prime q ∈ P.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf` (structure) [prototype above]: Vertex modules, edge
-    modules and vertex-to-edge maps on a simple graph.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.sections` (data) [prototype above]: Γ(S), the submodule of
-    ∏_v S(v) of compatible families.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.mem_sections` (characterisation) [prototype above]: κ ∈
-    Γ(S) iff ψ_v^e(κ_v) = ψ_{v′}^e(κ_{v′}) for every edge e = {v, v′}.
-
-  * `TauCeti.KolyvaginSystems.selmerSheaf` (constructor): ℋ_{(T,F,P)} on X(P).
-
-  * `TauCeti.KolyvaginSystems.sections_selmerSheaf` (equivalence): Γ(ℋ) = KS(T, F, P) as submodules
-    of ∏_n ℋ(n).
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.Subsheaf` (structure) [prototype above]: Subsheaves:
-    submodules of the stalks and edge modules stable under the maps; Γ of a subsheaf is a submodule
-    of Γ.
-
-  * test `conductorGraph_two_primes` (computation) [prototype above]: For P = {q₁, q₂}, X(P) is the
-    4-cycle 1 — q₁ — q₁q₂ — q₂ — 1.
-
-  * test `sections_one_vertex` (degenerate): For P = ∅ the graph has the single vertex 1 and Γ(ℋ) =
-    ℋ(1) = H¹_F(K, T).
-
-  * test `selmerSheaf_stalk_one` (compatibility): ℋ(1) = H¹_F(K, T) and ℋ̂(1) = H¹_F(K, T).
-
-  * test `sections_ne_product` (non-example): For P = {q} with φ^fs_q ≠ 0 on the image of H¹_F(K,
-    T), the pair (κ_1, 0) with φ^fs_q((κ_1)_q) ≠ 0 is not a global section: Γ(ℋ) is a proper
-    submodule of ℋ(1) × ℋ(q).
-
-  Acceptance. For P = {q}: X has two vertices and one edge, and Γ(ℋ) = {(κ_1, κ_q) : (κ_q)_{q,s} =
-    φ^fs_q(κ_1)}.
-
-  Acceptance. X(P) is the 1-skeleton of the cube on P; it is connected.
-
--/
-
-
-/-
-
-**`ES.4/sheaf-monodromy`** (definition): Locally cyclic sheaves, hubs, monodromy and primitive sections.
-
-  Statement. Let S be a sheaf of R-modules on a graph X. S is locally free of rank r if all S(v),
-    S(e) are free of rank r and all ψ_v^e are isomorphisms; locally cyclic if all S(v), S(e) are
-    cyclic and all ψ_v^e are surjective. For S locally cyclic, a surjective path from v to w is a
-    path (v = v₁, …, v_k = w) such that each ψ_{v_{i+1}}^{e_i} is an isomorphism; it induces a
-    surjection ψ_P : S(v) → S(w). A vertex v is a hub if every vertex is reached from v by a
-    surjective path. S has trivial monodromy if for surjective paths P, P′ from v to w, w′ joined by
-    an edge e, ψ_w^e ∘ ψ_P = ψ_{w′}^e ∘ ψ_{P′}. A global section κ is primitive if κ_v generates
-    S(v) for every v. Proposition: if S is locally cyclic and v is a hub, then Γ(S) → S(v), κ ↦ κ_v,
-    is injective, and surjective iff S has trivial monodromy; Γ(S) is isomorphic to a submodule of
-    the cyclic hub stalk S(v). It is isomorphic to an ideal of R if the hub stalk is free of rank
-    one, or if R is principal artinian (every cyclic module is then isomorphic to an ideal). The
-    ideal conclusion is false for a general complete noetherian local R; and if κ_u ≠ 0 generates
-    m^iS(u) for some u then κ_w generates m^iS(w) for every w.
-
-  Hypothesis. R local with maximal ideal m
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.IsLocallyCyclic` (structure) [prototype above]: All stalks
-    and edge modules cyclic, all vertex-to-edge maps surjective.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.IsHub` (structure) [prototype above]: v is a hub: every
-    vertex is the end of a surjective path from v.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.HasTrivialMonodromy` (structure): The compatibility of ψ_P
-    along surjective paths.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.eval_injective_of_isHub` (characterisation) [prototype
-    above]: For S locally cyclic and v a hub, κ ↦ κ_v is injective on Γ(S).
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.eval_surjective_iff` (characterisation): For v a hub, κ ↦
-    κ_v is surjective iff S has trivial monodromy.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.IsPrimitive` (structure) [prototype above]: κ_v generates
-    S(v) for all v.
-
-  * `TauCeti.KolyvaginSystems.GraphSheaf.generates_of_generates` (relation): If κ_u ≠ 0 generates
-    m^i S(u) then κ_w generates m^i S(w) for all w (S locally cyclic with a hub).
-
-  * test `isHub_of_locallyFree_connected` (compatibility): If S is locally free of rank one on a
-    connected graph then every vertex is a hub.
-
-  * test `sections_constant_sheaf` (computation): For the constant sheaf R with identity maps on a
-    connected graph, Γ = R and every nonzero section generating at one vertex is primitive iff it is
-    a unit.
-
-  * test `monodromy_nontrivial_cycle` (non-example): On the triangle graph with all modules R = 𝔽₃
-    and all maps the identity except one vertex-to-edge map equal to −1, the sheaf is locally free
-    of rank one but has nontrivial monodromy, Γ = 0, and evaluation at a hub is not surjective.
-
-  * test `isPrimitive_zero_module` (degenerate) [prototype above]: If all stalks are 0 the zero
-    section is primitive.
-
-  * test `sections_cyclic_not_ideal_dvr` (non-example): On the one-vertex graph, take R=ℤ_p and
-    S(v)=ℤ_p/p. The vertex is a hub and monodromy is trivial, but Γ(S)=ℤ/p cannot be isomorphic to
-    any ideal of the domain ℤ_p. Injectivity into S(v) does not identify S(v) with an ideal.
-
-  Acceptance. A locally free sheaf of rank one on a connected graph is locally cyclic and every
-    vertex is a hub.
-
-  Acceptance. A locally cyclic sheaf with a hub has a primitive section iff it has trivial
-    monodromy.
-
--/
-
-
-/-
-
-**`ES.4/vertex-step`** (lemma): Selmer lengths across an edge.
-
-  Statement. Let R be principal artinian of length k and (T, F, P) satisfy (H.0)–(H.6) with P ⊆ P_k.
-    Put λ(n, T) = length H¹_{F(n)}(ℚ, T) and λ(n, T^*) = length H¹_{F(n)^*}(ℚ, T^*). (a) λ(n, T) −
-    λ(n, T^*) is independent of n ∈ N. (b) For nℓ ∈ N the four inclusions H¹_{F_ℓ(n)} ⊆ H¹_{F(n)},
-    H¹_{F(nℓ)} ⊆ H¹_{F^ℓ(n)} have cyclic cokernels of lengths c, d, a, b with 0 ≤ a, b, c, d ≤ k, a
-    + c = b + d, a ≥ d, b ≥ c, and dually a^* + a = b^* + b = c^* + c = d^* + d = k. (c) |λ(nℓ, T) −
-    λ(n, T)| ≤ k; if H¹_{F(n)}(ℚ, T) → H¹_f(ℚ_ℓ, T) is surjective then H¹_{F(nℓ)^*}(ℚ, T^*) =
-    H¹_{F^ℓ(n)^*}(ℚ, T^*); the images of m^{λ(n,T^*)}H¹_{F(n)} under φ^fs_ℓ ∘ loc_ℓ and of
-    m^{λ(nℓ,T^*)}H¹_{F(nℓ)} under loc_ℓ in H¹_s(ℚ_ℓ, T) are equal; and if both localisations
-    H¹_{F(n)}(ℚ, T)[m] → H¹_f(ℚ_ℓ, T) and H¹_{F(n)^*}(ℚ, T^*)[m] → H¹_f(ℚ_ℓ, T^*) are nonzero then
-    λ(nℓ, T̄) = λ(n, T̄) − 1 and λ(nℓ, T̄^*) = λ(n, T̄^*) − 1.
-
-  Hypothesis. (H.0)–(H.6), R principal artinian of length k, P ⊆ P_k
-
-  Acceptance. For n a core vertex with λ(n, T^*) = 0 and surjective localisation at ℓ, nℓ is again a
-    core vertex.
-
--/
-
-
-/-
-
-**`ES.4/core-vertices`** (definition): Core vertices and leading vertices.
-
-  Statement. In the setting of vertex-step, a vertex n ∈ N is a core vertex if λ(n, T) = 0 or λ(n,
-    T^*) = 0 (equivalently for T̄). Theorem: for every n there is a noncanonical isomorphism
-    H¹_{F(n)}(ℚ, T) ⊕ R^r ≅ H¹_{F(n)^*}(ℚ, T^*) ⊕ R^s with r, s ≥ 0 independent of n and rs = 0; at
-    a core vertex H¹_{F(n)}(ℚ, T) and H¹_{F(n)^*}(ℚ, T^*) are free, of ranks χ(T) and χ(T^*), which
-    are the core ranks of ES.0/core-rank. With r₀ = min{dim H¹_F(ℚ, T̄), dim H¹_{F^*}(ℚ, T̄^*)}:
-    every core vertex has ν(n) ≥ r₀, there are core vertices in N_j with ν(n) = r₀ for every j ≥ k,
-    and every m ∈ N_j divides a core vertex. If χ(T) > 0, a leading vertex is a core vertex with
-    ν(n) = dim_k H¹_{F^*}(ℚ, T̄^*). Over a number field with the 2016 hypotheses a core vertex is an
-    n with λ(n) = length H¹_{F(n)^*}(K, T^*) = 0.
-
-  Hypothesis. (H.0)–(H.6), R principal artinian of length k, P ⊆ P_k
-
-  * `TauCeti.KolyvaginSystems.selmerLength` (data): λ(n, T) and λ(n, T^*) as elements of ℕ.
-
-  * `TauCeti.KolyvaginSystems.IsCoreVertex` (structure): λ(n, T) = 0 or λ(n, T^*) = 0.
-
-  * `TauCeti.KolyvaginSystems.isCoreVertex_iff_residual` (characterisation): n is a core vertex for
-    T iff it is one for T̄ = T/mT.
-
-  * `TauCeti.KolyvaginSystems.free_of_isCoreVertex` (characterisation): At a core vertex,
-    H¹_{F(n)}(ℚ, T) is free of rank χ(T) and H¹_{F(n)^*}(ℚ, T^*) is free of rank χ(T^*).
-
-  * `TauCeti.KolyvaginSystems.exists_isCoreVertex_dvd` (other): Every m ∈ N_j (j ≥ k) divides a core
-    vertex in N_j, and there are core vertices with exactly r₀ prime factors.
-
-  * `TauCeti.KolyvaginSystems.IsLeadingVertex` (structure): Core vertices with ν(n) = dim_k
-    H¹_{F^*}(ℚ, T̄^*), for χ(T) > 0.
-
-  * `TauCeti.KolyvaginSystems.selmerLength_sub` (relation): λ(n, T) − λ(n, T^*) = k·(χ(T) − χ(T^*))
-    for every n.
-
-  * test `isCoreVertex_one_iff` (characterisation): For χ(T) > 0, 1 is a core vertex iff H¹_{F^*}(ℚ,
-    T^*) = 0.
-
-  * test `isCoreVertex_field_coreRank_one` (computation): For R = k and χ(T) = 1, n is a core vertex
-    iff dim H¹_{F(n)}(ℚ, T) = 1 iff H¹_{F(n)^*}(ℚ, T^*) = 0.
-
-  * test `not_isCoreVertex_small` (non-example): If ν(n) < min{dim H¹_F(ℚ, T̄), dim H¹_{F^*}(ℚ,
-    T̄^*)} then n is not a core vertex.
-
-  * test `coreRank_at_core_vertex` (compatibility): rank H¹_{F(n)}(ℚ, T) at a core vertex equals
-    ES.0's χ(T, F), defined from n = 1.
-
-  Acceptance. If H¹_{F^*}(ℚ, T^*) = 0 then 1 is a core vertex and the only leading vertex.
-
-  Acceptance. The core rank computed at any core vertex equals the integer of ES.0/core-rank
-    computed at n = 1.
-
--/
-
-
-/-
-
-**`ES.4/leading-vertices`** (theorem): Leading vertices through a prescribed submodule.
-
-  Statement. In the setting of core-vertices suppose χ(T) > 0, 1 is not a core vertex, (H.4a) holds
-    and the image of R → End(T) is contained in the image of ℤ_p[[G_ℚ]]. If L ⊆ H¹_F(ℚ, T) satisfies
-    dim_k L[m] = χ(T), there are infinitely many leading vertices n with L ⊆ H¹_{F(n)}(ℚ, T). For R
-    = k and χ(T) = 1: for every line L in H¹_F(ℚ, T) there is a leading vertex n with κ_n generating
-    L ⊗ G_n for any nonzero κ ∈ KS(T).
-
-  Hypothesis. (H.0)–(H.6), (H.4a), image of R in End(T) inside that of ℤ_p[[G_ℚ]]
-
-  Acceptance. Fails without the End(T) hypothesis: only 𝔽_p-rational subspaces occur (Remark
-    4.1.17).
-
--/
-
-
-/-
-
-**`ES.4/stub-sheaf`** (definition): The sheaf of stub Selmer modules.
-
-  Statement. In the setting of core-vertices, the stub subsheaf ℋ′ ⊆ ℋ has ℋ′(n) = m^{λ(n,T^*)}ℋ(n)
-    = m^{λ(n,T^*)}H¹_{F(n)}(ℚ, T) ⊗ G_n, ℋ′(e) the image of ℋ′(n) in ℋ(e) for e joining n and nℓ,
-    and the restricted maps, which are surjective. ℋ′(n) = 0 if λ(n, T^*) ≥ k, and otherwise ℋ′(n)
-    is free of rank χ(T) over R/m^{k−λ(n,T^*)}. Theorems: (Howard) Γ(ℋ′) → ℋ′(n) is surjective for
-    every n; if χ(T) = 1, Γ(ℋ′) contains a free R-module of rank one, and if χ(T) > 1 it contains
-    free modules of every rank. If χ(T) = 1, ℋ′ is locally cyclic, the core subgraph X⁰ (vertices
-    the core vertices) is connected, every n with λ(n, T^*) = 0 is a hub, ℋ′ has trivial monodromy
-    and Γ(ℋ′) is free of rank one. If χ(T) = 1, or R is a field, or (H.4a) holds with the End(T)
-    condition, then Γ(ℋ′) = Γ(ℋ): every Kolyvagin system has κ_n ∈ ℋ′(n). If χ(T) = 0 then KS(T) =
-    0.
-
-  Hypothesis. (H.0)–(H.6), R principal artinian of length k, P ⊆ P_k
-
-  * `TauCeti.KolyvaginSystems.stubSheaf` (constructor): ℋ′ as a subsheaf of ℋ, with ℋ′(n) =
-    m^{λ(n,T^*)}·ℋ(n).
-
-  * `TauCeti.KolyvaginSystems.stubSheaf_stalk_eq_bot` (simp): ℋ′(n) = 0 iff λ(n, T^*) ≥ k (for χ(T)
-    > 0).
-
-  * `TauCeti.KolyvaginSystems.stubSheaf_stalk_free` (characterisation): If λ(n, T^*) < k, ℋ′(n) is
-    free of rank χ(T) over R/m^{k − λ(n,T^*)}.
-
-  * `TauCeti.KolyvaginSystems.stubSheaf_isLocallyCyclic` (instance): For χ(T) = 1 the stub sheaf is
-    locally cyclic and every vertex with λ(n, T^*) = 0 is a hub.
-
-  * `TauCeti.KolyvaginSystems.sections_stubSheaf_eq` (equivalence): Γ(ℋ′) = Γ(ℋ) under any of the
-    three conditions of Theorem 4.4.1.
-
-  * `TauCeti.KolyvaginSystems.kolyvaginSystem_eq_bot_of_coreRank_zero` (other): χ(T) = 0 implies
-    KS(T, F, P) = 0.
-
-  * test `stubSheaf_core_vertex` (compatibility): If λ(n, T^*) = 0 then ℋ′(n) = ℋ(n).
-
-  * test `stubSheaf_field` (computation): For R = k and χ(T) = 1: ℋ′(n) = ℋ(n) is one-dimensional if
-    n is a core vertex and ℋ′(n) = 0 otherwise.
-
-  * test `stubSheaf_ne_selmerSheaf` (non-example): If λ(n, T^*) > 0 and χ(T) = 1 then ℋ′(n) ≠ ℋ(n):
-    the stalk ℋ(n) ≅ R ⊕ H¹_{F(n)^*}(ℚ, T^*) is not cyclic.
-
-  * test `stubSheaf_zero_of_large` (degenerate): If λ(n, T^*) ≥ k then ℋ′(n) = 0 and every Kolyvagin
-    system has κ_n = 0 (χ(T) = 1).
-
-  Acceptance. At a core vertex with λ(n, T^*) = 0, ℋ′(n) = ℋ(n).
-
-  Acceptance. For χ(T) > 1 the module KS(T) is not finitely generated (Remark 5.1.2), so the
-    rank-one theory uses ℋ′.
-
--/
-
-
-/-
-
-**`ES.4/kolyvagin-bound`** (theorem): The Kolyvagin system bound.
-
-  Statement. (a) (R principal artinian of length k, (H.0)–(H.6), and one of the conditions of
-    Theorem 4.4.1, or κ sufficiently liftable.) For κ ∈ KS(T): length H¹_{F^*}(ℚ, T^*) ≤ sup{i : κ_1
-    ∈ m^iH¹_F(ℚ, T)} ∈ ℕ∞ (∞ when κ_1=0). (b) (R a discrete valuation ring, (H.0)–(H.5), H¹(ℚ_ℓ,
-    T)/H¹_F(ℚ_ℓ, T) torsion-free for ℓ ∈ Σ(F), P = P_1.) For κ ∈ KS(T) put ∂^{(0)}(κ) = max{j : κ_1
-    ∈ m^jH¹_F(ℚ, T)} ≤ ∞. Then length_R H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ); in particular if κ_1 ≠ 0 then
-    H¹_{F^*}(ℚ, T^*) is finite. The same holds for κ̄ ∈ K̄S(T). The bound concerns the whole dual
-    Selmer group H¹_{F^*}(ℚ, T^*) of the discrete module T^* = Hom(T, μ_{p^∞}), not a cotorsion
-    quotient; for κ_1 = 0 it is vacuous (∂^{(0)} = ∞).
-
-  Hypothesis. as stated in (a), (b)
-
-  Acceptance. Kato's Kolyvagin system gives length Sel(E[p^∞]) ≤ the divisibility of the Kato class,
-    under the hypotheses of §6.2.
-
-  Acceptance. Over a DVR, scaling a nonzero initial class by π raises the bound by one; the zero
-    system gives no information.
-
--/
-
-
-/-
-
-**`ES.4/rubin-hypotheses`** (definition): Rubin's hypotheses, index of divisibility and error terms.
-
-  Statement. Let T be a p-adic representation of G_K over O, V = T ⊗ Φ, W = V/T, W_M = M^{-1}T/T, 𝔭
-    the maximal ideal of O, k = O/𝔭, K(1) the maximal p-extension of K in the Hilbert class field.
-    Hyp(K, T): (i) there is τ ∈ G_K acting trivially on μ_{p^∞}, on (O_K^×)^{1/p^∞} and on K(1),
-    with T/(τ − 1)T free of rank one over O; (ii) T ⊗ k is an irreducible k[G_K]-module. Hyp(K, V):
-    (i) there is such a τ with dim_Φ V/(τ − 1)V = 1; (ii) V is an irreducible Φ[G_K]-module. For an
-    Euler system c, ind_O(c) = sup{n : c_K ∈ 𝔭^nH¹(K, T) + H¹(K, T)_tors} ≤ ∞. Ω =
-    K(1)K(W)K(μ_{p^∞}, (O_K^×)^{1/p^∞}), and the error terms are n_W = ℓ_O(H¹(Ω/K, W) ∩ S^{Σ_p}(K,
-    W)) and n_W^* = ℓ_O(H¹(Ω/K, W^*) ∩ S_{Σ_p}(K, W^*)), where S^{Σ_p} and S_{Σ_p} are the Selmer
-    groups relaxed and strict at the primes above p. H¹(Ω/K, W) and H¹(Ω/K, W^*) are finite if T ≠ O
-    and T ≠ O(1).
-
-  Hypothesis. T a p-adic representation unramified outside finitely many primes
-
-  * `TauCeti.EulerSystems.HypKT` (structure): Hyp(K, T): the element τ with its three triviality
-    conditions and free rank-one coinvariants, and residual irreducibility.
-
-  * `TauCeti.EulerSystems.HypKV` (structure): Hyp(K, V).
-
-  * `TauCeti.EulerSystems.HypKT.toHypKV` (functoriality): Hyp(K, T) implies Hyp(K, V).
-
-  * `TauCeti.EulerSystems.indexOfDivisibility` (data): ind_O(c) ∈ ℕ∞.
-
-  * `TauCeti.EulerSystems.indexOfDivisibility_eq_top_iff` (characterisation): ind_O(c) = ∞ iff c_K ∈
-    H¹(K, T)_tors.
-
-  * `TauCeti.EulerSystems.errorTerm` (data): n_W and n_W^* ∈ ℕ∞, finite when T ≠ O, O(1) and V is
-    irreducible.
-
-  * `TauCeti.EulerSystems.indexOfDivisibility_smul` (relation): ind_O(π·c) = ind_O(c) + 1 for a
-    uniformiser π.
-
-  * test `HypKT.of_rank_one` (computation): If rank_O T = 1 then Hyp(K, T) holds with τ = 1.
-
-  * test `indexOfDivisibility_zero_system` (degenerate): For the zero Euler system ind_O(c) = ∞ and
-    the bounds say nothing.
-
-  * test `errorTerm_infinite_trivial` (non-example): For T = O with trivial action, H¹(Ω/K, W) =
-    Hom(Gal(Ω/K), Φ/O) is infinite: the finiteness statement excludes T = O and T = O(1).
-
-  * test `errorTerm_cyclotomic` (computation): For K = ℚ, T = ℤ_p(1) ⊗ χ^{-1}, χ ≠ 1, ω of order
-    prime to p: H¹(Ω/ℚ, W) = H¹(Ω/ℚ, W^*) = 0, so n_W = n_W^* = 0.
-
-  Acceptance. For T = ℤ_p(1) ⊗ χ^{-1} with χ even nontrivial of order prime to p: n_W = n_W^* = 0.
-
-  Acceptance. The two error terms are distinct; neither is assumed zero.
-
--/
-
-
-/-
-
-**`ES.4/rubin-bound`** (theorem): Rubin's bound with error terms.
-
-  Statement. Let c be an Euler system for T (admissible tower). (a) If p > 2 and T satisfies Hyp(K,
-    T), then ℓ_O(S_{Σ_p}(K, W^*)) ≤ ind_O(c) + n_W + n_W^*. (b) If V satisfies Hyp(K, V), T is not
-    the one-dimensional trivial representation and c_K ∉ H¹(K, T)_tors, then S_{Σ_p}(K, W^*) is
-    finite (any p). (c) Let H¹_f(K_v, V), H¹_f(K_v, V^*) be orthogonal complements for v | p and
-    loc^s_{Σ_p} : S^{Σ_p}(K, T) → H¹_s(K_p, T) = ⊕_{v|p} H¹_s(K_v, T). If loc^s_{Σ_p}(c_K) ≠ 0:
-    under the hypotheses of (b) and [H¹_s(K_p, T) : O·loc^s_{Σ_p}(c_K)] finite, S(K, W^*) is finite;
-    under those of (a), ℓ_O(S(K, W^*)) ≤ ℓ_O(H¹_s(K_p, T)/O·loc^s_{Σ_p}(c_K)) + n_W + n_W^*. (d) If
-    c is trivial at a finite set Σ of primes not above p, then under the hypotheses of (a),
-    ℓ_O(S_{Σ_p}^Σ(K, W^*)) ≤ ind_O(c) + n_W + n_W^* with n_W = ℓ_O(H¹(Ω/K, W) ∩ S_Σ^{Σ_p}(K, W)) and
-    n_W^* as before. The constants n_W, n_W^* are independent of the torsion exponent M, so the
-    finite-level bounds are uniform in M before passing to W^* = colim W_M^*.
-
-  Hypothesis. an Euler system for an admissible tower (or rigidity (ii)′ with T^{G_{K(1)}} = 0)
-
-  Hypothesis. p > 2 and Hyp(K, T) for (a); Hyp(K, V) for (b)
-
-  Acceptance. Cyclotomic units: with n_W = n_W^* = 0 the bound is the class-group divisibility of
-    Rubin's Chapter III.
-
-  Acceptance. Each of ind_O(c), n_W, n_W^* is retained; an application may drop an error term only
-    after proving it vanishes.
-
-  Acceptance. The bound is for S_{Σ_p}(K, W^*), strict at p, not for the Bloch–Kato Selmer group;
-    (c) is the passage to S(K, W^*).
-
--/
-
-
-/-
-
-**`ES.4/variant-bounds`** (theorem): Bounds for the variants: finite depth and anticyclotomic systems.
-
-  Statement. (a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T)
-    holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Let m = sup_{q ∤ p} [W^{I_q} : (W^{I_q})_div] and n
-    the order of m·c_K in H¹(K, W_M). Then n·S_{Σ_p}(K, W_M^*) = 0; in particular if m·c_K ≠ 0 then
-    S_{Σ_p}(K, W^*) is finite for a compatible family. (b) (Anticyclotomic.) Let c be a
-    χ-anticyclotomic Euler system for T with H¹(Ω′/K′, W) = H¹(Ω′/K′, W^*) = 0, T ⊗ k irreducible
-    over G_{K′}, and τ ∈ G_K with ε_cyc(τ) = χ(τ), τ^d the identity on K′(1)_χ(μ_{p^∞},
-    (O_{K′}^×)^{1/p^∞}) and T/(τ − 1)T free of rank one. Then for every i, 𝔭^{ind_O(c, χ^i)}
-    S_{Σ_p}(K′, W^*)^{χ^{1−i}} = 0, where ind_O(c, χ^i) is the index of divisibility of the
-    χ^i-component of c_{K′}. This bounds exponents of eigenspaces, not lengths.
-
-  Hypothesis. as stated
-
-  Acceptance. For d = 1, (b) is the exponent form of rubin-bound with zero error terms.
-
-  Acceptance. For Heegner points (d = 2) the induction to a length bound uses T^* ≅ T and is carried
-    out in ES.5/howard-dvr-theorem.
-
--/
-
-
-/-
-
-**`ES.4/abundant-localization`** (theorem): Localisation at abundant tuples with bounded loss.
-
-  Statement. Setting of ES.1/abundant-tuples. (a) (Uniform annihilation.) Let R be a lattice with
-    R_ℚ^𝔠 ≅ R_ℚ^∨(1), pure of weight −1 at every nonarchimedean place not above ℓ. For every finite
-    set Σ of places there is m_Σ ≥ 1 such that for every saturated free submodule S of the
-    Bloch–Kato Selmer module with images S^{(m)} modulo λ^m and every m > m_Σ, loc_w(λ^{m_Σ}S^{(m)})
-    = 0 for every nonarchimedean w ∈ Σ not above ℓ. (b) (Corrected Proposition 2.6.7.) Let S be free
-    of rank r over O_λ/λ^{m−m₀} and (Ψ₁, …, Ψ_r) an (S, γ)-abundant tuple realised by γ-associated
-    places w_i. Put c = 𝔣(r)r_R and let A be the matrix of s ↦ (θ_S(Ψ_i)(s))_i in a basis e₁, …, e_r
-    of S, after identifying the λ^{m−m₀}-torsion of (R̄^{(m)})^{h_γ} with O_λ/λ^{m−m₀}; abundance
-    says that the image of A contains λ^c(O_λ/λ^{m−m₀})^r. Then there is an integral matrix C with
-    AC = CA = λ^c·I in the finite coefficient ring, and the elements s_j = Ce_j ∈ S satisfy
-    loc_{w_i}(s_j) = 0 for i ≠ j and exp_λ(loc_{w_i}(s_i), H¹_ns(F_{w_i}, R̄^{(m)})) ≥ m − m₀ −
-    𝔣(r)r_R; the s_j span a submodule containing λ^{𝔣(r)r_R}S and form a basis of S when 𝔣(r)r_R =
-    0. For r = 2 and a primitive v ∈ S one can moreover choose a primitive t ∈ S with loc_{w₁}(t) =
-    0 and exp_λ(loc_{w₂}(t)) ≥ m − m₀ − 𝔣(2)r_R after possibly interchanging the two places. The
-    printed statement (a basis for every abundant tuple) is false when the loss is positive.
-
-  Hypothesis. as in ES.1/abundant-tuples
-
-  Hypothesis. for (a): the purity and polarisation hypotheses
-
-  Acceptance. With r_R = 0: a basis of S diagonalising the localisations, with exp ≥ m − m₀: the
-    clean statement.
-
-  Acceptance. The linear-algebra step of the printed form fails when the loss is positive: for A =
-    (λ, 1; 0, λ) over O_λ/λ^n with n ≥ 3, whose image contains λ²(O_λ/λ^n)², there is no basis s₁,
-    s₂ with A(s_j) supported on the j-th coordinate, since that would write A = D·B with D diagonal
-    and B invertible, and the second row (0, λ) forces det B ∈ λO_λ. The corrected statement uses
-    the scaled inverse C = λ²A^{-1} = (λ, −1; 0, λ).
-
--/
-
-
-/-
-
-**`ES.4/howard-descent-with-errors`** (theorem): Self-dual descent with explicit error constants.
-
-  Statement. (Castella–Grossi–Lee–Skinner, Theorem 3.2.1.) Let E/ℚ be an elliptic curve of conductor
-    N, p ∤ 2N a prime of good ordinary reduction, K an imaginary quadratic field of discriminant
-    prime to Np with E(K)[p] = 0, Γ the Galois group of the anticyclotomic ℤ_p-extension, R the
-    integers of a finite extension Φ/ℚ_p, α : Γ → R^× a character with α ≠ 1, T_α = T_pE ⊗ R(α), A_α
-    = T_α ⊗ Φ/R, and F_ord the ordinary Selmer structure. If κ_α ∈ KS(T_α, F_ord, 𝓛_E) has κ_{α,1} ≠
-    0, then H¹_{F_ord}(K, T_α) has rank one and H¹_{F_ord}(K, A_α) ≅ (Φ/R) ⊕ M_α ⊕ M_α with M_α
-    finite and length_R(M_α) ≤ length_R(H¹_{F_ord}(K, T_α)/R·κ_{α,1}) + E_α, where E_α ≥ 0 depends
-    only on C_α, T_pE and rank_{ℤ_p}R. Here C_α = v_p(α(γ) − α^{-1}(γ)) if α ≠ α^{-1} and 0
-    otherwise, C_1 = min{v_p(u − 1) : u ∈ ℤ_p^× ∩ im ρ_E|_{G_{K_∞}}}, C_2 is minimal with
-    p^{C_2}End(T_pE) ⊆ ρ_E(ℤ_p[G_ℚ]), and e = rank_{ℤ_p}(R)(C_1 + C_2 + C_α). Inputs: (i) for c₁,
-    c₂, c₃ ∈ H¹(K, T^{(k)}) with Rc₁ + Rc₂ ⊇ 𝔪^{d₁}R^{(k)} ⊕ 𝔪^{d₂}R^{(k)} there are infinitely many
-    ℓ ∈ 𝓛^{(k)} with ord(loc_ℓ c₃) ≥ ord(c₃) − e and R·loc_ℓc₁ + R·loc_ℓc₂ ⊇ 𝔪^{d₁+d₂+2e}(R^{(k)})²;
-    (ii) if N ⊆ M are finitely generated torsion R-modules then their invariant factors satisfy
-    d_i(N) ≤ d_i(M). When ρ_E|_{G_K} is surjective, E_α = 0 and the statement is
-    ES.5/howard-dvr-theorem. Residual irreducibility is not assumed.
-
-  Hypothesis. as stated; in particular α ≠ 1 and (h1) E(K)[p] = 0
-
-  Acceptance. E_α = 0 when ρ_E is surjective on G_K.
-
-  Acceptance. The bound is uniform in k: the constants C_1, C_2, C_α do not depend on the torsion
-    exponent.
-
--/
-
-
-/-! ### Layer ES.5 -/
-
-
-/-
-
-**`ES.5/divisibility-invariants`** (definition): Divisibility indices, elementary divisors and primitivity.
-
-  Statement. Let (T, F, P) be a Selmer triple and κ ∈ KS(T). (a) R principal artinian of length k:
-    ∂^{(r)}(κ) = min{k − length(Rκ_n) : n ∈ N, ν(n) = r} and e_i(κ) = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for
-    i ≥ 0. (b) R a discrete valuation ring: ∂^{(r)}(κ) = max{j : κ_n ∈ m^j H¹_{F(n)}(K, T/I_nT) ⊗
-    G_n for every n ∈ N with ν(n) = r} ∈ ℕ ∪ {∞}, ∂^{(0)}(κ) = max{j : κ_1 ∈ m^jH¹_F(K, T)}, e_i(κ)
-    = ∂^{(i)}(κ) − ∂^{(i+1)}(κ) for i ≥ ord(κ), and ∂^{(∞)}(κ) = min{∂^{(r)}(κ) : r ≥ 0}. κ is
-    primitive if its image in KS(T/mT) is nonzero. In the DVR case, the index ∂^{(0)}(κ) is ∞ when
-    κ_1=0. In the artinian case use the truncated definition k−length(Rκ_1), which equals k for
-    κ_1=0, not ∞. The two conventions agree through limits for nonzero DVR systems under the
-    rank-one admissibility hypotheses.
-
-  Hypothesis. For the definitions: R principal artinian (length k) or a DVR, with its specified
-    Kolyvagin-system carrier.
-
-  Hypothesis. For monotonicity, scaling, elementary-divisor and order characterisations: the
-    admissibility hypotheses of rank-one-module-theorem and χ(T)=1; use nonzero κ for DVR elementary
-    divisors.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.divIndex` (data): ∂^{(r)}(κ) ∈ ℕ∞ for r ≥ 0.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.divIndex_zero` (characterisation): ∂^{(0)}(κ) = sup{j
-    : κ_1 ∈ m^j H¹_F(K, T)}; it is ⊤ iff κ_1 = 0 (R a discrete valuation ring, H¹_F torsion-free).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.elementaryDivisor` (data): e_i(κ) = ∂^{(i)}(κ) −
-    ∂^{(i+1)}(κ), defined for i ≥ ord(κ).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.divIndexInfty` (data): ∂^{(∞)}(κ) = inf_r ∂^{(r)}(κ).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.IsPrimitive` (structure): The image of κ in KS(T/mT)
-    is nonzero.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.divIndex_smul` (relation): Under the rank-one
-    admissibility hypotheses, over a DVR ∂^{(r)}(πκ)=∂^{(r)}(κ)+1 with ∞+1=∞. Over a principal
-    artinian ring of length k, ∂^{(r)}(πκ)=min(k,∂^{(r)}(κ)+1).
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.not_isPrimitive_smul` (relation): π·κ is not
-    primitive.
-
-  * `TauCeti.KolyvaginSystems.KolyvaginSystem.ord_eq` (characterisation): For nonzero κ under the
-    rank-one admissibility hypotheses: over a DVR ord(κ)=min{r:∂^{(r)}(κ)<∞}; over a principal
-    artinian ring ord(κ)=min{r:∂^{(r)}(κ)<k}. Set ord(0)=∞ in both cases.
-
-  * test `divIndex_zero_system` (degenerate): For κ=0 over a DVR, ∂^{(r)}=∞ for all r; over a
-    principal artinian ring of length k, ∂^{(r)}=k. In both cases ord(κ)=∞ and κ is not primitive.
-
-  * test `divIndex_scaling` (computation): For a DVR rank-one admissible triple and primitive κ with
-    ∂^{(0)}=3, ∂^{(0)}(π²κ)=5. Over an artinian ring of length k the value is min(k,5). If k=4 it
-    equals 4 and (π²κ)_1=0. The scaled system is not primitive.
-
-  * test `isPrimitive_field` (characterisation): For R = k a field, κ is primitive iff κ ≠ 0.
-
-  * test `isPrimitive_ne_nonzero_initial` (non-example): Over a DVR, for primitive κ₀ with (κ₀)_1≠0,
-    πκ₀ has nonzero initial class and is not primitive. In an artinian quotient the initial class
-    can be killed by π, so nonvanishing must be checked separately.
-
-  Acceptance. Over a DVR under rank-one admissibility, ∂^{(r)}(πκ)=∂^{(r)}(κ)+1 and e_i(πκ)=e_i(κ)
-    for their finite range. Over length-k artinian rings the values truncate at k, so elementary
-    divisors need not remain unchanged.
-
-  Acceptance. The order uses threshold ∞ over a DVR and k over an artinian ring.
-
--/
-
-
-/-
-
-**`ES.5/rank-one-module-theorem`** (theorem): Kolyvagin systems in core rank one.
-
-  Statement. Let (T, F, P) satisfy (H.0)–(H.6) with χ(T) = 1. (a) R principal artinian of length k:
-    KS(T) is free of rank one over R; for a core vertex n, κ ↦ κ_n is an isomorphism KS(T) ≅ ℋ(n);
-    if κ_m ≠ 0 generates m^jℋ′(m) then κ_n generates m^jℋ′(n) for every n; for j ≥ k restriction
-    KS(T, P) → KS(T, P ∩ P_j) is an isomorphism; for j ≤ k reduction KS(T) → KS(T/m^jT) is
-    surjective; and KS(T) → K̄S(T) is an isomorphism. (b) R a discrete valuation ring, (H.0)–(H.5),
-    torsion-free local quotients, P = P_1: KS(T) ≅ lim_k KS(T/m^kT, P_k) ≅ K̄S(T), and KS(T) is free
-    of rank one, generated by a primitive κ. If χ(T) = 0 then KS(T) = 0 in both cases; if χ(T) ≥ 2
-    and R is artinian, KS(T) contains free modules of every rank.
-
-  Hypothesis. (H.0)–(H.6) (artinian), or (H.0)–(H.5) with torsion-free local quotients (discrete
-    valuation ring)
-
-  Hypothesis. χ(T) = 1 for the main statements
-
-  Acceptance. For T = ℤ_p(1) ⊗ ρ^{-1}, ρ even nontrivial: KS(T) is free of rank one, generated up to
-    a unit by the cyclotomic-unit system when that system is primitive.
-
-  Acceptance. Reduction surjectivity: every Kolyvagin system modulo m^j lifts.
-
--/
-
-
-/-
-
-**`ES.5/structure-theorem`** (theorem): Structure of the dual Selmer group from a Kolyvagin system.
-
-  Statement. Let χ(T) = 1 and 0 ≠ κ ∈ KS(T). (a) R = k a field: dim KS(T) = 1, κ_n ≠ 0 iff n is a
-    core vertex, and dim_k H¹_{F^*}(ℚ, T^*) = ord(κ). (b) R principal artinian of length k, κ_1 ≠ 0:
-    ∂^{(0)}(κ) ≥ ∂^{(1)}(κ) ≥ ⋯, e_0(κ) ≥ e_1(κ) ≥ ⋯ ≥ 0 and H¹_{F^*}(ℚ, T^*) ≅ ⊕_{i ≥ 0}
-    R/m^{e_i(κ)}; if κ is primitive and κ_1 ≠ 0 then length H¹_{F^*}(ℚ, T^*) = k − length(Rκ_1) =
-    max{i : κ_1 ∈ m^iH¹_F(ℚ, T)}, and if κ_1 = 0 then length H¹_{F^*}(ℚ, T^*) ≥ k. (c) R a discrete
-    valuation ring: ∂^{(s)}(κ) is nonincreasing and finite for s ≥ ord(κ); the e_i(κ) are
-    nonincreasing, nonnegative and independent of κ ≠ 0, as is ord(κ); corank_R H¹_{F^*}(ℚ, T^*) =
-    ord(κ); H¹_{F^*}(ℚ, T^*)/(H¹_{F^*}(ℚ, T^*))_div ≅ ⊕_{i ≥ ord(κ)} R/m^{e_i(κ)}; its length is
-    ∂^{(ord κ)}(κ) − ∂^{(∞)}(κ); and κ is primitive iff ∂^{(∞)}(κ) = 0. Hence: length H¹_{F^*}(ℚ,
-    T^*) is finite iff κ_1 ≠ 0; length H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ) with equality iff κ is
-    primitive; and length H¹_{F^*}(ℚ, T^*) = length(H¹_F(ℚ, T)/L(T)) for the module of L-values
-    L(T).
-
-  Hypothesis. the hypotheses of rank-one-module-theorem in each case
-
-  Hypothesis. χ(T) = 1
-
-  Acceptance. Three separate conclusions: κ_1 ≠ 0 gives finiteness and an upper bound; primitivity
-    gives equality; an analytic formula needs in addition an identification of κ_1 with an L-value.
-
-  Acceptance. The higher e_i give every elementary divisor of the dual Selmer group, not only its
-    exponent or length.
-
--/
-
-
-/-
-
-**`ES.5/kolyvagin-dual-selmer`** (construction): The Kolyvagin-constructed dual Selmer group.
-
-  Statement. Let S be a sheaf on X(P) with isomorphisms S(e_{n,nℓ}) ≅ S(e_ℓ) for all edges (for the
-    Selmer sheaf with I_ℓ = 0 for all ℓ ∈ P, given by generators of the G_ℓ). For a vertex n let ψ_n
-    : S(n) → ⊕_{ℓ | n} S(e_ℓ) be the sum of the vertex-to-edge maps. For a global section κ,
-    Sel^*(κ; n) = (⊕_{ℓ | n} S(e_ℓ))/Σ_{d | n} ψ_d(Rκ_d) and Sel^*(κ) = colim_n Sel^*(κ; n). For the
-    Selmer sheaf there is a canonical map H¹_{F^*}(ℚ, T^*) → Hom(Sel^*(κ), ℚ_p/ℤ_p) with kernel ∩_n
-    H¹_{(F^*)_n}(ℚ, T^*), the classes vanishing at every prime of P. Theorem: if χ(T) = 1, (H.4a)
-    holds, the image of R → End(T) lies in that of ℤ_p[[G_ℚ]] and κ is primitive, this map is an
-    isomorphism. For general (T, F, P), Sel^*_∞(κ) = lim_k Sel^*(κ^{(k)}).
-
-  Hypothesis. I_ℓ = 0 for ℓ ∈ P (after reduction modulo m^k and restriction to P_k)
-
-  * `TauCeti.KolyvaginSystems.kolyvaginDualSelmer` (constructor): Sel^*(κ; n) and Sel^*(κ) = colim_n
-    Sel^*(κ; n).
-
-  * `TauCeti.KolyvaginSystems.kolyvaginDualSelmer_map` (functoriality): For n | m the natural map
-    Sel^*(κ; n) → Sel^*(κ; m).
-
-  * `TauCeti.KolyvaginSystems.dualSelmerToKolyvaginDual` (constructor): The canonical map
-    H¹_{F^*}(ℚ, T^*) → Hom(Sel^*(κ), ℚ_p/ℤ_p).
-
-  * `TauCeti.KolyvaginSystems.ker_dualSelmerToKolyvaginDual` (characterisation): Its kernel is ⨅_n
-    H¹_{(F^*)_n}(ℚ, T^*).
-
-  * `TauCeti.KolyvaginSystems.dualSelmerToKolyvaginDual_bijective` (other): Bijective when χ(T) = 1,
-    (H.4a), the End(T) condition and κ primitive.
-
-  * test `kolyvaginDualSelmer_one` (degenerate): Sel^*(κ; 1) = 0.
-
-  * test `kolyvaginDualSelmer_zero_system` (computation): For κ = 0, Sel^*(κ; n) = ⊕_{ℓ | n} S(e_ℓ),
-    free of rank ν(n) when the edge modules are free of rank one.
-
-  * test `dualSelmerToKolyvaginDual_not_surjective` (non-example): For κ = πκ₀ with κ₀ primitive and
-    H¹_{F^*}(ℚ, T^*) = 0, Sel^*(κ; ℓ) = S(e_ℓ)/πS(e_ℓ) ≠ 0 at a core edge, so the map from 0 is not
-    surjective.
-
-  Acceptance. The construction recovers the Pontryagin dual of the whole dual Selmer group, as a
-    module, from the classes κ_n.
-
-  Acceptance. For a non-primitive κ the map need not be surjective.
-
--/
-
-
-/-
-
-**`ES.5/sharpness-examples`** (application): Scaling, vanishing leading class and a non-primitive arithmetic system.
-
-  Statement. (a) Scaling: for κ primitive with κ_1 ≠ 0 over a discrete valuation ring (χ(T) = 1),
-    length H¹_{F^*}(ℚ, T^*) = ∂^{(0)}(κ); for κ′ = πκ, ∂^{(0)}(κ′) = ∂^{(0)}(κ) + 1 > length
-    H¹_{F^*}(ℚ, T^*), the e_i are unchanged and κ′ is not primitive: the bound for κ′ is true and
-    not sharp. (b) A nonzero Kolyvagin system with κ_1 = 0 is a valid element of KS(T); for it
-    ∂^{(0)} = ∞, the bound is vacuous, and by the structure theorem H¹_{F^*}(ℚ, T^*) is infinite
-    when χ(T) = 1. For κ=0 the bound remains vacuous and gives no finiteness conclusion. (c) Kato's
-    Kolyvagin system for T_pE: if L(E, 1) ≠ 0, p satisfies the hypotheses of Mazur–Rubin 2004
-    Theorem 6.2.4(ii) and p divides a Tamagawa factor c_ℓ for some ℓ ≠ p, then κ^{Kato} is not
-    primitive: it is a Kolyvagin system for the finer structure F_u with unramified conditions away
-    from p, whose dual Selmer group is larger by the Tamagawa defect. The defect is recorded as a
-    length.
-
-  Hypothesis. χ(T) = 1; for (c) the hypotheses of Theorem 6.2.4(ii) of the source
-
-  Acceptance. A nonzero point or class is not automatically primitive.
-
-  Acceptance. Sharpness is a property of the system, checked through reduction modulo m, not of the
-    representation.
-
--/
-
-
-/-
-
-**`ES.5/howard-hypotheses`** (definition): Howard's self-dual Selmer triples and hypotheses H.0–H.5.
-
-  Statement. Let K be an imaginary quadratic field, τ a complex conjugation, R a coefficient ring
-    (complete noetherian local, finite residue field of characteristic p; in §1.5 principal
-    artinian, in §1.6 a discrete valuation ring) and T an R-module with continuous G_K-action. 𝓛₀ is
-    the set of rational primes ℓ inert in K (prime to p and to the ramification of T), λ the prime
-    of K above ℓ; I_ℓ is the smallest ideal of R containing ℓ + 1 for which Fr_λ acts trivially on
-    T/I_ℓT; 𝓛_k = {ℓ ∈ 𝓛₀ : I_ℓ ⊆ p^kR}; G_ℓ = k_λ^×/k_ℓ^×; I_n = Σ_{ℓ | n} I_ℓ and G_n = ⊗_{ℓ | n}
-    G_ℓ. The transverse condition at λ is defined by the maximal p-subextension of K[ℓ]_λ/K_λ, K[ℓ]
-    the ring class field of conductor ℓ. A Selmer triple (T, F, 𝓛) has 𝓛 ⊆ 𝓛₀ disjoint from Σ(F);
-    Kolyvagin systems κ_n ∈ H¹_{F(n)}(K, T/I_nT) ⊗ G_n, n ∈ N(𝓛), satisfy the finite–singular
-    relations at every ℓ with nℓ ∈ N(𝓛). Hypotheses: H.0 T is free of rank two. H.1 T̄ is absolutely
-    irreducible. H.2 there is a Galois extension F/ℚ containing K with G_F acting trivially on T and
-    H¹(F(μ_{p^∞})/K, T̄) = 0. H.3 F is cartesian on Quot(T) at every v ∈ Σ(F). H.4 there is a
-    perfect symmetric R-bilinear pairing ( , ) : T × T → R(1) with (s^σ, t^{τστ^{-1}}) = (s, t)^σ,
-    and F is its own exact orthogonal complement under the induced pairings H¹(K_v, T) × H¹(K_{v̄},
-    T) → R. H.5 (a) the action of G_K on T̄ extends to G_ℚ and τ splits T̄ into one-dimensional
-    eigenspaces T̄^±; (b) F on T̄ is stable under G_ℚ; (c) the residual pairing satisfies (s^τ, t^τ)
-    = (s, t)^τ.
-
-  Hypothesis. K imaginary quadratic
-
-  Hypothesis. p odd
-
-  * `TauCeti.KolyvaginSystems.SelfDual.Hypotheses` (structure): The record H.0–H.5, one field for
-    each hypothesis, with the pairing of H.4 as data.
-
-  * `TauCeti.KolyvaginSystems.SelfDual.inertPrimes` (data): 𝓛_k(T) for k ≥ 0 and the ideals I_ℓ ∋ ℓ
-    + 1.
-
-  * `TauCeti.KolyvaginSystems.SelfDual.Hypotheses.modify` (functoriality): (T, F(n), 𝓛(n)) satisfies
-    H.0–H.5 when (T, F, 𝓛) does.
-
-  * `TauCeti.KolyvaginSystems.SelfDual.Hypotheses.baseChange` (functoriality): H.0–H.5 are stable
-    under R → R′.
-
-  * `TauCeti.KolyvaginSystems.SelfDual.Hypotheses.ofWeilPairing` (example): T_pE over an imaginary
-    quadratic field with the pairing (s, t) = e(s, t^τ) satisfies H.4, given the local conditions of
-    Howard's Theorem 1.6.5.
-
-  * test `SelfDual.conductorIdeal_inert` (computation): For T = T_pE and ℓ inert in K with ℓ ∤ pN:
-    Fr_λ = Fr_ℓ² has characteristic polynomial X² − (a_ℓ² − 2ℓ)X + ℓ², and I_ℓ = (ℓ + 1, a_ℓ).
-
-  * test `SelfDual.rank_two_local` (compatibility): For ℓ ∈ 𝓛_k and R = ℤ/p^k, H¹_f(K_λ, T) and
-    H¹_tr(K_λ, T) are free of rank two, in contrast with rank one at Mazur–Rubin's primes.
-
-  * test `SelfDual.not_mr04` (non-example): An inert prime ℓ ∈ 𝓛_k is not in Mazur–Rubin's P_k for
-    K: T/(Fr_λ − 1)T is free of rank two, not one.
-
-  * test `SelfDual.hypotheses_field` (degenerate): For R a field H.3 is automatic.
-
-  Acceptance. These hypotheses differ from Mazur–Rubin's by the self-duality H.4 and by the absence
-    of an analogue of (H.4a)/(p > 4): they are a separate record.
-
-  Acceptance. With H.4, χ-type invariants are replaced by the parity ε ∈ {0, 1} of
-    ES.5/cassels-structure.
-
--/
-
-
-/-
-
-**`ES.5/cassels-structure`** (theorem): The generalised Cassels pairing and the structure R^ε ⊕ M ⊕ M.
-
-  Statement. Let R be principal artinian of length k and (T, F, 𝓛) satisfy H.1, H.3 and H.4 (with
-    vanishing residual invariants). (a) For positive integers s, t with s + t ≤ k there is a pairing
-    ( , )_{s,t} : H¹_F(K, T/m^sT) × H¹_{F^*}(K, T^*[m^t]) → R whose left and right kernels are the
-    images of H¹_F(K, T/m^{s+t}T) and of π^s : H¹_{F^*}(K, T^*[m^{s+t}]) → H¹_{F^*}(K, T^*[m^t]).
-    (b) There are an R-module M and ε ∈ {0, 1} with H¹_F(K, T) ≅ R^ε ⊕ M ⊕ M. (c) Under H.0–H.5 with
-    𝓛 ⊆ 𝓛_k, for n ∈ N(𝓛) write H¹_{F(n)}(K, T) ≅ R^ε ⊕ M(n) ⊕ M(n); then ε ≡ ρ(n) = ρ(n)^+ + ρ(n)^−
-    (mod 2), where ρ(n)^± = dim H¹_{F(n)}(K, T̄)^±, and ε is independent of n: if loc_ℓ(H̄(n)^±) ≠ 0
-    then ρ(nℓ)^± = ρ(n)^± − 1, and otherwise ρ(nℓ)^± = ρ(n)^± + 1.
-
-  Hypothesis. H.1, H.3, H.4; R principal artinian
-
-  Hypothesis. H.0–H.5 and 𝓛 ⊆ 𝓛_k for (c)
-
-  Acceptance. For T = E[p^k] with the classical structure: Sel_{p^k} ≅ (ℤ/p^k)^ε ⊕ M ⊕ M.
-
-  Acceptance. Self-duality replaces the core rank: ε is a parity, not a rank difference.
-
--/
-
-
-/-
-
-**`ES.5/howard-stub`** (theorem): Stub Selmer modules in the self-dual setting.
-
-  Statement. In the setting of cassels-structure(c) put λ(n) = length M(n) and the stub Selmer
-    module S(n) = m^{λ(n)}H¹_{F(n)}(K, T). Then for nℓ ∈ N(𝓛): loc_ℓ(S(n)) = 0 implies loc_ℓ(S(nℓ))
-    = 0. Moreover, with a, b, δ ≥ 0 the lengths in Howard's Lemma 1.5.8 for the diamond of H_ℓ(n) ⊆
-    H(n), H(nℓ) ⊆ H^ℓ(n), one has λ(nℓ) = λ(n) + k − a − b − δ.
-
-  Hypothesis. H.0–H.5, R principal artinian of length k, 𝓛 ⊆ 𝓛_k
-
-  Acceptance. This is the self-dual replacement for ES.4/vertex-step(c) and Lemma 4.2.1 of
-    Mazur–Rubin.
-
--/
-
-
-/-
-
-**`ES.5/howard-dvr-theorem`** (theorem): Howard's bound for self-dual Kolyvagin systems over a discrete valuation ring.
-
-  Statement. Let R be a discrete valuation ring with fraction field Φ, D = Φ/R, (T, F, 𝓛) a Selmer
-    triple satisfying H.0–H.5 with 𝓛_s(T) ⊆ 𝓛 for s large, and A = T ⊗ D with the propagated
-    structure. If there is a Kolyvagin system κ ∈ KS(T, F, 𝓛) with κ_1 ≠ 0, then H¹_F(K, T) is free
-    of rank one over R and there is a finite R-module M with H¹_F(K, A) ≅ D ⊕ M ⊕ M and length_R(M)
-    ≤ length_R(H¹_F(K, T)/R·κ_1). The conclusion is about the discrete module A: its corank is one
-    and its cotorsion quotient is M ⊕ M, so its length is twice that of M, bounded by twice the
-    index of κ_1. This is the single owner of the self-dual descent used for Heegner points and for
-    generalised Heegner cycles; the Λ-adic version (Howard, Theorem 2.2.10) belongs to layer ES.8.
-
-  Hypothesis. H.0–H.5
-
-  Hypothesis. 𝓛_s(T) ⊆ 𝓛 for s ≫ 0
-
-  Hypothesis. κ_1 ≠ 0
-
-  Acceptance. For T = T_pE and the Heegner point Kolyvagin system: Kolyvagin's theorem, rank one and
-    #Ш[p^∞] dividing the square of the index (Howard, Theorem 1.6.5).
-
-  Acceptance. Distinct from the Mazur–Rubin equality under primitivity: here the bound is an
-    inequality for M with H¹_F(K, A)_{/div} = M ⊕ M, and the factor two comes from self-duality, not
-    from a general principle.
-
--/
-
-
-/-! ### Layer ES.6 -/
-
-
-/-
-
-**`ES.6/exterior-bidual`** (definition): The exterior bidual.
-
-  Statement. For a commutative ring R, an R-module X and r ≥ 0, with X^* = Hom_R(X, R), the r-th
-    exterior bidual is ⋂^r_R X = Hom_R(⋀^r_R(X^*), R). There is a canonical map ξ^r_X : ⋀^r_R X →
-    ⋂^r_R X, x ↦ (Φ ↦ Φ(x)), where Φ ∈ ⋀^r(X^*) acts on ⋀^r X by φ₁ ∧ ⋯ ∧ φ_r ↦ (x₁ ∧ ⋯ ∧ x_r ↦
-    det(φ_i(x_j))). ξ^r_X is neither injective nor surjective in general, and is an isomorphism when
-    X is finitely generated projective. ⋂^1_R X = X^{**}, and ⋂^0_R X = R. For Φ ∈ ⋀^r(X^*) and r ≤
-    s the contraction ⋂^s_R X → ⋂^{s−r}_R X is the R-dual of Ψ ↦ Φ ∧ Ψ, and it is compatible with
-    the contraction ⋀^s X → ⋀^{s−r} X under ξ. For an order R in a semisimple algebra 𝒬 over the
-    fraction field of a Dedekind domain and X finitely generated, ⋂^r_R X is identified with the
-    lattice {a ∈ 𝒬 ⊗_R ⋀^r_R X : Φ(a) ∈ R for all Φ ∈ ⋀^r_R(X^*)} (Rubin's lattice).
-
-  Hypothesis. R commutative
-
-  * `TauCeti.ExteriorBidual.exteriorBidual` (constructor) [prototype above]: ⋂^r_R X := Module.Dual
-    R (⋀[R]^r (Module.Dual R X)).
-
-  * `TauCeti.ExteriorBidual.toBidual` (constructor) [prototype above]: ξ^r_X : ⋀[R]^r X →ₗ[R] ⋂^r_R
-    X.
-
-  * `TauCeti.ExteriorBidual.toBidual_ιMulti_ιMulti` (simp) [prototype above]: ξ(x₁ ∧ ⋯ ∧ x_r)(φ₁ ∧ ⋯
-    ∧ φ_r) = det(φ_i(x_j)).
-
-  * `TauCeti.ExteriorBidual.toBidual_bijective` (characterisation) [prototype above]: ξ^r_X is
-    bijective for X finitely generated projective.
-
-  * `TauCeti.ExteriorBidual.map` (functoriality) [prototype above]: A linear map f : X → Y induces
-    ⋂^r f : ⋂^r X → ⋂^r Y (dual of ⋀^r of the transpose), with map_id and map_comp, compatible with
-    ξ.
-
-  * `TauCeti.ExteriorBidual.contract` (constructor): For Φ ∈ ⋀^r(X^*) and r ≤ s, the map ⋂^s X →
-    ⋂^{s−r} X dual to Ψ ↦ Φ ∧ Ψ.
-
-  * `TauCeti.ExteriorBidual.contract_toBidual` (compatibility): contract Φ ∘ ξ^s = ξ^{s−r} ∘
-    (contraction by Φ on ⋀^s X).
-
-  * `TauCeti.ExteriorBidual.one_equiv_bidual` (equivalence) [prototype above]: ⋂^1_R X ≃ X^{**}; in
-    particular ⋂^1 X ≃ X for X reflexive.
-
-  * `TauCeti.ExteriorBidual.equivLattice` (equivalence): For an order R in a semisimple 𝒬 and X
-    finitely generated: ⋂^r_R X ≃ {a ∈ 𝒬 ⊗ ⋀^r X : Φ(a) ∈ R ∀ Φ}.
-
-  * test `TauCeti.ExteriorBidual.free_rank` (computation) [prototype above]: ⋂^2_R(R³) is free of
-    rank 3, and ξ is an isomorphism.
-
-  * test `TauCeti.ExteriorBidual.trivial_module_group_ring` (computation): R = ℤ[C₂], X = ℤ² with
-    trivial action: X^* ≅ ℤ² generated by e_i ↦ N (N = 1 + σ), ⋀²(X^*) ≅ ℤ, ⋂²X ≅ ℤ generated by Φ ↦
-    N, and ξ(e₁ ∧ e₂) is the functional with value N² = 2N, twice the generator: the image of ξ has
-    index 2.
-
-  * test `TauCeti.ExteriorBidual.zero_power` (degenerate) [prototype above]: ⋂^0_R X = Hom_R(R, R) =
-    R for every X.
-
-  * test `TauCeti.ExteriorBidual.torsion_killed` (non-example) [prototype above]: R = ℤ_p, X = ℤ_p ⊕
-    ℤ/p: ⋂^1 X = X^{**} = ℤ_p while ⋀^1 X = X; ξ is not injective, so the bidual is not the exterior
-    power for modules with torsion.
-
-  * test `TauCeti.ExteriorBidual.not_surjective` (non-example): In the group-ring example ξ is
-    injective and not surjective: replacing ⋂² by ⋀² loses the element ½·e₁ ∧ e₂.
-
-  Acceptance. ⋂^r_R R^n ≅ ⋀^r_R R^n, free of rank (n choose r).
-
-  Acceptance. For R = ℤ[G], G finite, and X = ℤ^r with trivial action (r ≥ 1): ⋂^r_R X =
-    |G|^{-(r−1)}·⋀^r_ℤ X inside ℚ ⊗ ⋀^r X; for r ≥ 2 and G ≠ 1 the exterior power is a proper
-    sublattice of index |G|^{r−1}.
-
--/
-
-
-/-
-
-**`ES.6/bidual-functoriality`** (theorem): Injectivity, rank reduction and base change for exterior biduals.
-
-  Statement. (a) If ι : X → Y is injective and Ext¹_R(coker ι, R) = 0, then ⋂^r X → ⋂^r Y is
-    injective for all r. (b) If Y is free of rank r + s and Y → R^s → Z → 0 is exact with components
-    φ₁, …, φ_s, then Fitt⁰_R(Z) is generated by the images im(F) of the elements F in the image of
-    ⋀_{i} φ_i : ⋂^{r+s} Y → ⋂^r Y. (c) If R is self-injective and 0 → X → Y → R^s is exact with
-    components φ_i, then im(⋀_i φ_i : ⋂^{r+s} Y → ⋂^r Y) ⊆ ⋂^r X, so ⋀φ_i induces ⋂^{r+s} Y → ⋂^r X.
-    (d) (Rank reduction.) If R is self-injective and Y ⊆ X, then ⋂^r Y = {x ∈ ⋂^r X : Φ(x) ∈ ⋂^1 Y =
-    Y for all Φ ∈ ⋀^{r−1}X^*}. (e) If R is self-injective and f : X → R, then ⋂^r ker(f) = ker(f :
-    ⋂^r X → ⋂^{r−1} X). (f) For a surjection R → S of self-injective rings, a free R-module F of
-    finite rank, an R-module X with a map X → F and an S-module Y with an injection Y ↪ F ⊗_R S, in
-    a commutative square with X → Y and the projection π : F → F ⊗_R S, there is a natural map ⋂^r_R
-    X → ⋂^r_S Y for r ≥ 1. Over a self-injective ring Hom_R(−, R) is exact and finitely generated
-    modules are reflexive.
-
-  Hypothesis. R commutative noetherian; all modules in the duality/reflexivity assertions finitely
-    generated.
-
-  Hypothesis. R self-injective (zero-dimensional Gorenstein) for (c)–(f).
-
-  Hypothesis. r≥1 in (d),(e); in (c) r≥0 and s≥1, with contraction from degree r+s to degree r.
-
-  Acceptance. For R = k a field these are standard facts about exterior powers.
-
-  Acceptance. The transition maps of Stark systems are instances of (c).
-
--/
-
-
-/-
-
-**`ES.6/stark-systems`** (definition): Stark systems.
-
-  Statement. (a) (Mazur–Rubin 2016; R principal artinian of length k, Selmer data (T, F, P, r) with
-    I_q = 0 for q ∈ P.) For n ∈ N put W_n = ⊕_{q | n} Hom(H¹_tr(K_q, T), R), free of rank ν(n), and
-    Y_n = ⋀^{r+ν(n)} H¹_{F^n}(K, T) ⊗ ⋀^{ν(n)} W_n. For m | n the square of H¹_{F^m} ⊆ H¹_{F^n} with
-    the transverse localisations is cartesian and induces Ψ_{n,m} : Y_n → Y_m, with Ψ_{n′,n″} ∘
-    Ψ_{n,n′} = Ψ_{n,n″}. SS_r(T) = SS_r(T, F, P) = lim_{n ∈ N} Y_n. For R a discrete valuation ring,
-    SS_r(T) = lim_k SS_r(T/m^kT, P_k). (b) (Burns–Sakamoto–Sano; R self-injective local with finite
-    residue field, A free of finite rank.) SS_r(A, F) = lim_{n ∈ N} ⋂^{r+ν(n)}_R H¹_{F^n}(K, A) with
-    transition maps v_{m,n} = ⋀_{q | m/n} v_q, where v_q : H¹_{F^m}(K, A) → H¹_{/f}(K_q, A) ≅ R,
-    signs chosen so that v_{m′,n} = v_{m,n} ∘ v_{m′,m}. For ε ∈ SS_r(A, F) and i ≥ 0, I_i(ε) =
-    Σ_{ν(n) = i} im(ε_n) ⊆ R, each ε_n being a homomorphism ⋀^{r+ν(n)}H¹_{F^n}(K, A)^* → R. For a
-    local Gorenstein order R and T free over R, SS_r(T, F) = lim_m SS_r(T/p^mT, F) and I_i(ε) =
-    lim_m I_i(ε^{(m)}).
-
-  Hypothesis. as in (a) or (b)
-
-  * `TauCeti.StarkSystems.stalk` (constructor): Y_n = ⋀^{r+ν(n)} H¹_{F^n}(K, T) ⊗ ⋀^{ν(n)} W_n
-    (Mazur–Rubin), and ⋂^{r+ν(n)} H¹_{F^n}(K, A) (Burns–Sakamoto–Sano).
-
-  * `TauCeti.StarkSystems.transition` (constructor): Ψ_{n,m} : Y_n → Y_m for m | n, and v_{m,n} on
-    biduals.
-
-  * `TauCeti.StarkSystems.transition_comp` (functoriality): Ψ_{n′,n″} ∘ Ψ_{n,n′} = Ψ_{n,n″} and
-    Ψ_{n,n} = id.
-
-  * `TauCeti.StarkSystems.StarkSystem` (structure) [prototype above]: SS_r = the submodule of ∏_n
-    Y_n of families with Ψ_{n,m}(ε_n) = ε_m.
-
-  * `TauCeti.StarkSystems.StarkSystem.ideal` (data): I_i(ε) = Σ_{ν(n)=i} im(ε_n), an ideal of R;
-    I_∞(ε) = ⋃_i I_i(ε).
-
-  * `TauCeti.StarkSystems.StarkSystem.eval_one` (projection): ε ↦ ε_1 ∈ ⋀^r H¹_F(K, T) (resp. ⋂^r
-    H¹_F(K, A)).
-
-  * test `TauCeti.StarkSystems.stalk_one` (degenerate): Y_1 = ⋀^r H¹_F(K, T) ⊗ R,
-    and ⋀^0 W_1 = R.
-
-  * test `TauCeti.StarkSystems.rank_one_core_vertex` (computation): If H¹_{(F^*)_n}(K, T^*) = 0 and
-    r = χ(T), then H¹_{F^n}(K, T) is free of rank r + ν(n) and Y_n is free of rank one.
-
-  * test `TauCeti.StarkSystems.transition_one_prime` (computation): For n = q, m = 1, r = 1 and
-    H¹_{F^q} free with basis c₁, c₂: Ψ_{q,1}(c₁ ∧ c₂ ⊗ h) = h(loc^tr_q c₁)c₂ − h(loc^tr_q c₂)c₁ up
-    to the sign convention, an element of H¹_F(K, T).
-
-  * test `TauCeti.StarkSystems.not_product` (non-example): A family (ε_n) with ε_1 ≠ 0 and ε_q = 0
-    for a prime q is not a Stark system unless Ψ_{q,1}(0) = ε_1, i.e. it is not one.
-
-  Acceptance. For n = 1: Y_1 = ⋀^r H¹_F(K, T), and ε_1 is the leading term of the Stark system.
-
-  Acceptance. The zero family is a Stark system.
-
--/
-
-
-/-
-
-**`ES.6/stark-structure`** (theorem): Freeness of Stark systems and control of the dual Selmer group.
-
-  Statement. (a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) SS_r(T) is free of rank one
-    over R, and the image of SS_r(T) → Y_n is Y′_n = m^{length H¹_{(F^*)_n}(K, T^*)} Y_n; for R a
-    discrete valuation ring with (H.1)–(H.6), SS_r(T, P) is free of rank one, generated by ε with
-    nonzero image in SS_r(T/mT), and SS_r(T, P) → SS_r(T/m^k, P_k) is surjective. With φ_ε(n) =
-    max{j : ε_n ∈ m^jY_n}, ∂φ_ε(i) = min{φ_ε(n) : ν(n) = i}, ord(ε) = min{ν(n) : ε_n ≠ 0} and d_ε(i)
-    = ∂φ_ε(i) − ∂φ_ε(i + 1): for R a discrete valuation ring and ε ≠ 0, corank H¹_{F^*}(K, T^*) =
-    ord(ε), H¹_{F^*}(K, T^*)/div ≅ ⊕_{i ≥ ord ε} R/m^{d_ε(i)}, ε is primitive iff ∂φ_ε(∞) = 0, and
-    length H¹_{F^*}(K, T^*) ≤ ∂φ_ε(0) = max{s : ε_1 ∈ m^s ⋀^r H¹_F(K, T)} with equality iff ε is
-    primitive. (b) (Burns–Sakamoto–Sano; Hypothesis 4.2.) For n with H¹_{(F^*)_n}(K, A^*(1)) = 0,
-    SS_r(A, F) → ⋂^{r+ν(n)}H¹_{F^n}(K, A) is bijective, so SS_r(A, F) is free of rank one; for all ε
-    and i: I_i(ε) ⊆ I_{i+1}(ε), I_∞(ε) = R iff ε is a basis, and I_i(ε) =
-    I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, A^*(1))^*). For a local Gorenstein order under Hypothesis 4.7 and
-    Hypothesis 4.2 of fixed rank r for (T/p^mT,F,P_m) at every m≥1, SS_r(T, F) is free of rank one
-    with I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, T^∨(1))^∨). The regulator and the ideals commute with
-    the admissible scalar reductions R → R/(p^m) and R → S of bidual-functoriality(f).
-
-  Hypothesis. (H.1)–(H.7) of ES.0/hypotheses-mr2016 for (a)
-
-  Hypothesis. Hypothesis 4.2 (finite level) and 4.7 plus 4.2 for every T/p^mT with the same r
-    (orders) of ES.6/bss-hypotheses for (b)
-
-  Acceptance. For r = 1 and R a discrete valuation ring this recovers ES.5/structure-theorem through
-    the regulator isomorphism.
-
-  Acceptance. Over a non-domain order the statement is an equality of ideals, not a valuation
-    formula.
-
--/
-
-
-/-
-
-**`ES.6/bss-hypotheses`** (definition): The Burns–Sakamoto–Sano hypotheses.
-
-  Statement. Let (R, 𝔭) be a self-injective local ring with finite residue field k of characteristic
-    p, A a free R-module of finite rank with continuous G_K-action, M = min{p^n : p^nR = 0}, K_M =
-    K(μ_M, (O_K^×)^{1/M})K(1) and K(A)_M = K(A)K_M. Hypothesis 3.2: (i) A ⊗ k is an irreducible
-    k[G_K]-module; (ii) there is τ ∈ G_{K_M} with A/(τ − 1)A ≅ R; (iii) H¹(K(A)_M/K, A) =
-    H¹(K(A)_M/K, A^*(1)) = 0. Hypothesis 3.3: (A ⊗ k)^{G_K} = ((A ⊗ k)^*(1))^{G_K} = 0. The prime
-    set P is the set of q ∉ S with Fr_q conjugate to τ in Gal(K(A)_M/K). Hypothesis 4.2: there is n
-    ∈ N with H¹_{(F^*)_n}(K, A^*(1)) = 0 and H¹_{F^n}(K, A) free of rank r + ν(n). For a local
-    Gorenstein O-order R and T free over R with T̄ = T/𝔭T, Hypothesis 4.7: (i) T̄ is an irreducible
-    (R/𝔭)[G_K]-module; (ii) there is τ ∈ G_{K_{p^∞}}, K_{p^∞} = ⋃_m K_{p^m}, with T/(τ − 1)T ≅ R
-    (the source prints G_{K(T)_{p^∞}}, a misprint recorded as source issue E1); (iii)
-    H¹(K(T)_{p^∞}/K, T̄) = H¹(K(T)_{p^∞}/K, T̄^∨(1)) = 0. Hypothesis 4.7 implies 3.2 and 3.3 for
-    every T/p^mT. These are properties of (T, F), proved in each application; they do not follow
-    from R being Gorenstein. The structure theorems for Kolyvagin systems additionally require p >
-    3.
-
-  Hypothesis. R self-injective local, or a local Gorenstein order
-
-  * `TauCeti.StarkSystems.BSSHypothesis32` (structure): Fields irreducible, tau, h1Vanishing.
-
-  * `TauCeti.StarkSystems.BSSHypothesis33` (structure): Vanishing of the residual invariants of A
-    and A^*(1).
-
-  * `TauCeti.StarkSystems.BSSHypothesis42` (structure): A vertex n with vanishing strict dual Selmer
-    module and H¹_{F^n} free of rank r + ν(n).
-
-  * `TauCeti.StarkSystems.BSSHypothesis47` (structure): The three conditions for a Gorenstein order.
-
-  * `TauCeti.StarkSystems.BSSHypothesis47.toFiniteLevel` (functoriality): Hypothesis 4.7 for T gives
-    3.2 and 3.3 for T/p^mT for every m ≥ 1.
-
-  * `TauCeti.StarkSystems.BSSHypothesis42.free_of_core` (characterisation): Under 4.2, H¹_{F^m}(K,
-    A) is free of rank r + ν(m) whenever H¹_{(F^*)_m}(K, A^*(1)) = 0.
-
-  * test `TauCeti.StarkSystems.bss32_of_mr16` (compatibility): For R principal artinian, (H.1)–(H.3)
-    of ES.0/hypotheses-mr2016 give Hypotheses 3.2 and 3.3 with the same τ.
-
-  * test `TauCeti.StarkSystems.bss42_rank_one_field` (computation): For R = k and χ(A) = r: any core
-    vertex n has dim H¹_{F^n}(K, A) = r + ν(n), so 4.2 holds.
-
-  * test `TauCeti.StarkSystems.not_bss33_trivial` (non-example): A = R with trivial action: (A ⊗
-    k)^{G_K} = k ≠ 0, so Hypothesis 3.3 fails for every self-injective R.
-
-  * test `TauCeti.StarkSystems.bss47_rank_one` (degenerate): If rank_R T = 1 then 4.7(i) holds and
-    4.7(ii) holds with τ = 1.
-
-  Acceptance. Satisfied by A = (ℤ/p^m)(1) ⊗ χ^{-1} ⊗ ℤ_p[Gal(F/K)] under the hypotheses of Theorem
-    7.1.
-
-  Acceptance. Not implied by the ring-theoretic hypotheses: for A with trivial residual
-    representation 3.3 fails over every R.
-
--/
-
-
-/-
-
-**`ES.6/kolyvagin-systems-rank-r`** (definition): Kolyvagin systems of rank r and the regulator map.
-
-  Statement. (a) (Mazur–Rubin 2016.) The rank-r Selmer sheaf on X(P) has stalks S(n) = ⋀^r
-    H¹_{F(n)}(K, T/I_nT) ⊗ G_n, edge modules S(e) = H¹_tr(K_q, T/I_{nq}T) ⊗ ⋀^{r−1}H¹_{F_q(n)}(K,
-    T/I_{nq}T) ⊗ G_{nq} for e = {n, nq}, and vertex-to-edge maps the contractions against loc^f_q
-    (finite projection followed by φ^fs_q) from n and against loc^tr_q from nq. KS_r(T, F, P) =
-    Γ(S); for r = 1 this is ES.3/kolyvagin-system-module. The stub subsheaf has S′(n) =
-    m^{λ(n)}S(n), λ(n) = length H¹_{F(n)^*}(K, T^*), and KS′_r(T) = Γ(S′). (b)
-    (Burns–Sakamoto–Sano.) KS_r(A, F) is the module of families κ_n ∈ ⋂^r_R H¹_{F(n)}(K, A) ⊗ G_n
-    with v_q(κ_n) = φ^fs_q(κ_{n/q}) in ⋂^{r−1}_R H¹_{F_q(n/q)}(K, A) ⊗ G_n for q | n; with
-    generators of the G_q fixed, I_i(κ) = Σ_{ν(n)=i} im(κ_n). For a Gorenstein order, KS_r(T, F) =
-    lim_m KS_r(T/p^mT, F). (c) The regulator: Reg_r : SS_r(A, F) → KS_r(A, F), ε ↦ (⋀_{q | n} φ^fs_q
-    (ε_n))_n; in Mazur–Rubin's setting Π : SS_r(T) → KS′_r(T), ε ↦ ((−1)^{ν(n)}Π_n(ε_n))_n.
-
-  Hypothesis. as in ES.6/stark-systems
-
-  * `TauCeti.StarkSystems.KolyvaginSystemRank` (structure): KS_r(T, F, P) = Γ of the rank-r Selmer
-    sheaf; KS_r(A, F) in biduals.
-
-  * `TauCeti.StarkSystems.KolyvaginSystemRank.rank_one_equiv` (equivalence): KS_1(T, F, P) ≃ KS(T,
-    F, P).
-
-  * `TauCeti.StarkSystems.KolyvaginSystemRank.stub` (constructor): KS′_r(T) ≤ KS_r(T), sections of
-    the stub subsheaf.
-
-  * `TauCeti.StarkSystems.regulator` (constructor): Reg_r : SS_r → KS_r, R-linear.
-
-  * `TauCeti.StarkSystems.regulator_eval_one` (simp): Reg_r(ε)_1 = ε_1.
-
-  * `TauCeti.StarkSystems.KolyvaginSystemRank.ideal` (data): I_i(κ) = Σ_{ν(n)=i} im(κ_n).
-
-  * test `TauCeti.StarkSystems.regulator_zero` (degenerate): Reg_r(0) = 0.
-
-  * test `TauCeti.StarkSystems.kolyvaginSystemRank_one` (compatibility): For r = 1 the edge module
-    is H¹_tr(K_q, T/I_{nq}T) ⊗ G_{nq} ≅ H¹_s ⊗ G_{nq} and the relation is (5) of Mazur–Rubin 2004.
-
-  * test `TauCeti.StarkSystems.regulator_one_prime` (computation): For n = q: Reg_r(ε)_q =
-    φ^fs_q(ε_q) ∈ ⋂^r H¹_{F(q)}(K, A) ⊗ G_q, and v_q(Reg_r(ε)_q) = φ^fs_q(ε_1).
-
-  * test `TauCeti.StarkSystems.stub_ne_all` (non-example): For χ(T)>1 over a field, the rank-one
-    module KS_1(T) is infinite-dimensional whereas the stub module KS′_χ(T)(T) is one-dimensional.
-    They concern different exterior ranks; this is a comparison of two modules, not a claim that the
-    latter is a proper submodule of the former. A same-rank strict-inclusion non-example needs a
-    separate calculation.
-
-  Acceptance. For r = 1: KS_1 = KS and Reg_1(ε)_1 = ε_1.
-
-  Acceptance. Reg_r commutes with R → R/(p^m) and with restriction of P.
-
--/
-
-
-/-
-
-**`ES.6/regulator-isomorphism`** (theorem): The regulator isomorphism and structure of Kolyvagin systems of rank r.
-
-  Statement. (a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) There are core vertices; any
-    two are joined by a path through core vertices along which all vertex-to-edge maps are
-    isomorphisms; S′ is locally cyclic with every core vertex a hub and trivial monodromy; KS′_r(T)
-    is free of rank one and κ ↦ κ_n is an isomorphism onto S′(n) at core vertices; Π : SS_r(T) →
-    KS′_r(T) is an isomorphism. For R a discrete valuation ring ((H.1)–(H.6)), KS′_r(T, P) ≅ lim_k
-    KS′_r(T/m^k, P_k) is free of rank one, and for 0 ≠ κ ∈ KS′_r(T) the conclusions of
-    ES.6/stark-structure(a) hold with ε replaced by κ; in particular length H¹_{F^*}(K, T^*) ≤ max{s
-    : κ_1 ∈ m^s ⋀^r H¹_F(K, T)}, with equality iff κ is primitive. (b) (Burns–Sakamoto–Sano;
-    Hypotheses 3.2, 3.3, 4.2 and p > 3.) Reg_r : SS_r(A, F) → KS_r(A, F) is an isomorphism, so
-    KS_r(A, F) is free of rank one; for κ ∈ KS_r(A, F) and n ∈ N, im(κ_n) ⊆ Fitt⁰_R(H¹_{F(n)^*}(K,
-    A^*(1))^*), with equality if κ is a basis; and I_i(κ) ⊆ Fitt^i_R(H¹_{F^*}(K, A^*(1))^*), with
-    equality if R is a principal ideal ring and κ is a basis. The same holds over a local Gorenstein
-    order under Hypothesis 4.7, Hypothesis 4.2 of fixed rank r for every (T/p^mT,F,P_m), and p > 3
-    for KS_r(T, F) and H¹_{F^*}(K, T^∨(1))^∨. The restriction p > 3 is part of the statements for
-    Kolyvagin systems; it is not needed for Stark systems.
-
-  Hypothesis. as stated; p > 3 in (b)
-
-  Acceptance. For r = 1 over a discrete valuation ring: KS(T) free of rank one, as in
-    ES.5/rank-one-module-theorem.
-
-  Acceptance. Over a non-principal Gorenstein ring only the inclusion I_i(κ) ⊆ Fitt^i is asserted
-    for i > 0.
-
--/
-
-
-/-
-
-**`ES.6/rubin-lattice`** (definition): T-modified S-units, the order map and Rubin's lattice.
-
-  Statement. Let H/F be a finite abelian extension of number fields with group G, S ⊇ S_∞ ∪ S_ram
-    and T finite sets of places with S ∩ T = ∅ and the T-modified units torsion-free, and v₁, …, v_r
-    finite primes of F splitting completely in H with chosen primes w_j of H above v_j. In the
-    normalisation of Dasgupta–Kakde §1.2, U_{S,T} = {u ∈ H_T^* : |u|_w = 1 for all finite primes w
-    not above the v_j}, where H_T^* is the group of elements congruent to 1 modulo every prime above
-    T, and ℚU_{S,T} = U_{S,T} ⊗ ℚ. The order map ord_G : ⋀^r_{ℚ[G]} ℚU_{S,T}^− → ℚ[G]^− is the
-    ℚ[G]-linear map with ord_G(u₁ ∧ ⋯ ∧ u_r) = det(Σ_{σ ∈ G} [σ^{-1}] ord_{w_j}(σ(u_i)))_{i,j}; it
-    is an isomorphism of ℚ[G]-modules. Rubin's lattice is 𝓛 = (⋀^r_{ℚ[G]} ℚU_{S,T}^−) ∩ ⋂^r_{ℤ[G]}
-    U_{S,T}, where ⋂^r_{ℤ[G]} U_{S,T} is the set of u ∈ ⋀^r_{ℚ[G]} ℚU_{S,T} with φ(u) ∈ ℤ[G] for all
-    φ₁, …, φ_r ∈ Hom_{ℤ[G]}(U_{S,T}, ℤ[G]), φ(u₁ ∧ ⋯ ∧ u_r) = det(φ_i(u_j)).
-
-  Hypothesis. H/F abelian with H a CM field and F totally real for the minus parts
-
-  Hypothesis. the v_j split completely in H
-
-  * `TauCeti.RubinStark.modifiedUnits` (constructor): U_{S,T} as a ℤ[G]-module.
-
-  * `TauCeti.RubinStark.ordG` (constructor): ord_G : ⋀^r_{ℚ[G]} ℚU_{S,T}^− → ℚ[G]^−.
-
-  * `TauCeti.RubinStark.ordG_ιMulti` (simp): ord_G(u₁ ∧ ⋯ ∧ u_r) = det(Σ_σ [σ^{-1}]·ord_{w_j}(σ
-    u_i)).
-
-  * `TauCeti.RubinStark.ordG_bijective` (characterisation): ord_G is an isomorphism of ℚ[G]-modules.
-
-  * `TauCeti.RubinStark.rubinLattice` (constructor): 𝓛 = (⋀^r ℚU^−) ⊓ ⋂^r_{ℤ[G]} U_{S,T}.
-
-  * `TauCeti.RubinStark.rubinLattice_rank_one` (example): For r = 1, 𝓛 = U_{S,T}^−.
-
-  * test `TauCeti.RubinStark.ordG_change_w` (characterisation): Replacing w_j by g·w_j multiplies
-    ord_G by [g]^{±1} ∈ G (a unit of ℚ[G]); so 𝓛-membership statements do not depend on the w_j.
-
-  * test `TauCeti.RubinStark.rubinLattice_trivial_group` (degenerate): For G = 1: ⋂^r_ℤ U = ⋀^r_ℤ U
-    for U free, and 𝓛 = ⋀^r_ℤ U^−.
-
-  * test `TauCeti.RubinStark.rubinLattice_ne_exteriorPower` (non-example): Algebraic minus-part
-    test: let G=C₂=⟨σ⟩ act by −1 on X=ℤ². Then Hom_{ℤ[G]}(X,ℤ[G]) has values in ℤ(1−σ), and
-    (1−σ)²=2(1−σ). Thus the determinant-integrality lattice in ⋀²_{ℚ[G]}ℚX is (1/2)⋀²_ℤX, strictly
-    larger than the exterior-power image. This tests the minus-part normalization without claiming X
-    is a specific arithmetic unit lattice.
-
-  Acceptance. For r = 1, 𝓛 = U_{S,T}^− (U_{S,T} is reflexive), and membership of the element is the
-    Brumer–Stark statement.
-
-  Acceptance. For r ≥ 2 the lattice 𝓛 is in general strictly larger than the image of ⋀^r_{ℤ[G]}
-    U_{S,T}^−.
-
--/
-
-
-/-! ### Layer ES.7 -/
-
-
-/-
-
-**`ES.7/higher-rank-euler-systems`** (definition): Euler systems of rank r.
-
-  Statement. Let R be a semilocal Gorenstein O-order in a finite-dimensional semisimple commutative
-    algebra over a finite extension of ℚ_p, T a free R-module of finite rank with continuous
-    R-linear G_K-action, S ⊇ S_∞ ∪ S_p ∪ S_ram(T) finite, P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) for
-    q ∉ S, 𝒦/K an abelian pro-p extension in which all archimedean places split completely, Ω(𝒦/K)
-    the set of finite subextensions, S(F) = S ∪ S_ram(F/K) and 𝒢_F = Gal(F/K). Hypothesis 6.1: (i)
-    H¹(O_{F,S(F)}, T) is a reflexive R[𝒢_F]-module for every F (equivalently free over O); (ii)
-    H⁰(F, T) = 0 for every F. An Euler system of rank r for (T, 𝒦) is a family c_F ∈ ⋂^r_{R[𝒢_F]}
-    H¹(O_{F,S(F)}, T), F ∈ Ω(𝒦/K), with Cor_{F′/F}(c_{F′}) = (∏_{q ∈ S(F′)∖S(F)} P_q(Fr_q^{-1})) c_F
-    in ⋂^r_{R[𝒢_F]} H¹(O_{F,S(F′)}, T) for F ⊆ F′. ES_r(T, 𝒦) is the R[[Gal(𝒦/K)]]-module of such
-    families. Hypothesis 6.7: 𝒦 contains K(q) for every q ∉ S and a ℤ_p^d-extension of K in which no
-    finite place splits completely. For r = 1 on the common towers satisfying Hypothesis 6.7, under
-    Hypothesis 6.1(i) and the universal-norm/unramified comparison, ⋂^1 H¹ = H¹ and ES_1(T, 𝒦) is
-    ES.2/euler-system-module with coefficients R.
-
-  Hypothesis. R a semilocal Gorenstein order
-
-  Hypothesis. Hypothesis 6.1 for the comparison with rank one
-
-  * `TauCeti.EulerSystems.HigherEulerSystem` (structure): ES_r(T, 𝒦) ≤ ∏_F ⋂^r_{R[𝒢_F]}
-    H¹(O_{F,S(F)}, T), cut out by the corestriction relations.
-
-  * `TauCeti.EulerSystems.HigherEulerSystem.eval` (projection): c ↦ c_F.
-
-  * `TauCeti.EulerSystems.HigherEulerSystem.rank_one_equiv` (equivalence): On common towers
-    satisfying 6.7, under 6.1 and the universal-norm/unramified comparison, ES_1(T,𝒦)≃ES(T,𝒦,N),
-    with N containing the finite primes of S. The comparison includes the transport from
-    S(F)-ramified cohomology to global H¹ and the coefficient/Euler-polynomial dictionaries.
-
-  * `TauCeti.EulerSystems.BSSHypothesis61` (structure): Reflexivity of H¹(O_{F,S(F)}, T) over R[𝒢_F]
-    and H⁰(F, T) = 0, for all F.
-
-  * `TauCeti.EulerSystems.BSSHypothesis61.iff_free` (characterisation): 6.1(i) holds iff every
-    H¹(O_{F,S(F)}, T) is free over O.
-
-  * `TauCeti.EulerSystems.HigherEulerSystem.cor_eval` (relation): Cor_{F′/F}(c_{F′}) = (∏_{q ∈
-    S(F′)∖S(F)} P_q(Fr_q^{-1}))·c_F.
-
-  * test `TauCeti.EulerSystems.HigherEulerSystem.zero_mem` (degenerate): The zero family is in
-    ES_r(T, 𝒦).
-
-  * test `TauCeti.EulerSystems.HigherEulerSystem.rank_one` (compatibility): For r = 1, R = O and
-    Hypothesis 6.1: the relation is Rubin's, with P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) =
-    P(Fr_q^{-1} | T^*; x) in Rubin's notation.
-
-  * test `TauCeti.EulerSystems.not_BSSHypothesis61_mu_p` (non-example): For T = ℤ_p(1) and F ⊇ μ_p,
-    H¹(O_{F,S(F)}, T) ⊇ μ_{p^∞}(F) has torsion, so Hypothesis 6.1(i) fails: reflexivity is not
-    automatic.
-
-  Acceptance. For R = O = ℤ_p, T = ℤ_p(1): Hypothesis 6.1(i) says the p-completion of O_{F,S(F)}^×
-    is torsion-free for all F.
-
-  Acceptance. The zero family is an Euler system of rank r.
-
--/
-
-
-/-
-
-**`ES.7/higher-kolyvagin-derivative`** (construction): The higher Kolyvagin derivative.
-
-  Statement. Assume Hypotheses 6.1, 6.7 and 6.11 (Fr_q^{p^k} − 1 is injective on T for every q ∈ P
-    and k ≥ 0). Fix a power M of p, a field E ∈ Ω(𝒦/K) unramified outside S with K(1) ⊆ E, and put
-    R̄ = R/(M), ℛ = R̄[Gal(E/K)], A = Ind_{G_E}^{G_K}(T/MT), a free ℛ-module. For n ∈ N let E(n) =
-    E·K(n), H_n = Gal(E(n)/E), B=T/MT (uninduced), c_n=c_{E(n)}, and c̄_n its image in
-    ⋂^r_{R̄[Gal(E(n)/K)]} H¹(O_{E(n),S_n},B). The reduction is the map (9) of §6.3. The full Galois
-    group ring is used; no splitting Gal(E(n)/K)≃Gal(E/K)×H_n is assumed. H_n-invariant descent
-    identifies the resulting class with ⋂^r_ℛ H¹(O_{E,S_n},B), then with ⋂^r_ℛ H¹(O_{K,S_n},A) by
-    Shapiro. Then D_n·c̄_n is H_n-invariant and defines the Kolyvagin derivative κ′(c_n) = D_n·c̄_n
-    ∈ ⋂^r_ℛ H¹(O_{K,S_n}, A). With 𝓘_n the augmentation ideal of ℤ[H_n] and G_n ≅ ⟨∏_{q | n}(σ_q −
-    1)⟩ ⊆ 𝓘_n^{ν(n)}/𝓘_n^{ν(n)+1}, write P_q^m for the image of P_q(Fr_q^{-1}) in R̄⊗𝓘_m/𝓘_m² when
-    q∤m. For m=q₁⋯q_t define Δ_m=det(B_m), where (B_m)_{ij}=0 if i=j and P_{q_j}^{q_i} otherwise;
-    put Δ_1=1 (empty determinant) and Δ_q=0. Define κ(c)_n=Σ_{d|n}(κ′(c_d)⊗∏_{q|d}(σ_q−1))Δ_{n/d},
-    transporting κ′(c_d) to S_n and multiplying the disjoint augmentation factors. This is the
-    explicit correction formula of §6.4, p.41; and Theorem: κ(c)_n ∈ ⋂^r_ℛ H¹_{F_can(n)}(K, A) ⊗
-    ⟨∏_{q | n}(σ_q − 1)⟩ and v_q(κ(c)_n) = φ^fs_q(κ(c)_{n/q}) for every q | n; so κ(c) ∈ KS_r(A,
-    F_can). For a subfield F of E/K and A_F = Ind_{G_F}^{G_K}(T/MT) this gives the canonical
-    homomorphism D_r = D_r^F : ES_r(T, 𝒦) → KS_r(A_F, F_can), independent of E and of the generators
-    σ_q, with D_r(c)_1 = c_F (mod M).
-
-  Hypothesis. Hypotheses 6.1, 6.7, 6.11
-
-  Hypothesis. M a power of p
-
-  * `TauCeti.EulerSystems.rawHigherDerivative` (constructor): κ′(c_n) = D_n·c̄_n ∈ ⋂^r_ℛ
-    H¹(O_{K,S_n}, A).
-
-  * `TauCeti.EulerSystems.higherDerivative` (constructor): D_r^F : ES_r(T, 𝒦) → KS_r(A_F, F_can).
-
-  * `TauCeti.EulerSystems.higherDerivative_one` (characterisation): D_r(c)_1 = c_F modulo M, under
-    ⋂^r_{R[𝒢_F]} H¹(O_{F,S}, T/M) ≅ ⋂^r_{R̄[𝒢_F]} H¹(O_{K,S}, A_F).
-
-  * `TauCeti.EulerSystems.higherDerivative_singular` (relation): v_q(D_r(c)_n) =
-    φ^fs_q(D_r(c)_{n/q}) for q | n.
-
-  * `TauCeti.EulerSystems.higherDerivative_indep` (compatibility): D_r^F does not depend on the
-    auxiliary field E nor on the generators σ_q.
-
-  * `TauCeti.EulerSystems.higherDerivative_rank_one` (compatibility): For r = 1 and K = ℚ the map
-    agrees with eulerToKolyvagin modulo M after the Euler-factor dictionary.
-
-  * test `TauCeti.EulerSystems.higherDerivative_zero` (degenerate): D_r(0) = 0.
-
-  * test `TauCeti.EulerSystems.rawHigherDerivative_one` (computation): For n = 1: κ′(c_1) = c̄_E,
-    the image of c_E.
-
-  * test `TauCeti.EulerSystems.higherDerivative_needs_611` (non-example): For T=O with trivial
-    action, Fr_q−1=0 is not injective and 6.11 fails (6.1(ii) also fails). The determinant
-    expression still exists as an expression in the raw classes; Theorem 6.12 cannot be invoked to
-    prove the local Kolyvagin relations. In particular its zero expression is well-defined.
-
-  * test `TauCeti.EulerSystems.higherDerivative_one_prime` (computation): For n = q: κ(c)_q =
-    κ′(c_q) ⊗ (σ_q − 1), with singular part φ^fs_q(c_F mod M) at q.
-
-  * test `TauCeti.EulerSystems.higherDerivative_two_primes` (computation): For n=q₁q₂,
-    Δ_n=−P_{q₂}^{q₁}P_{q₁}^{q₂} and Δ_{q_i}=0. Hence
-    κ(c)_n=κ′(c_n)⊗(σ_{q₁}−1)(σ_{q₂}−1)−κ′(c_1)⊗P_{q₂}^{q₁}P_{q₁}^{q₂}. This detects both the sign
-    and the missing rank-r correction.
-
-  Acceptance. For r = 1, K = ℚ, R = O, E = ℚ: D_1 is the map of ES.3/euler-to-kolyvagin reduced
-    modulo M, after the dictionary P_q(Fr_q^{-1}) between the conventions
-    (ES.2/euler-factor-change).
-
-  Acceptance. D_r is R[[Gal(𝒦/K)]]-semilinear through Gal(𝒦/K) → Gal(F/K).
-
--/
-
-
-/-
-
-**`ES.7/fitting-bounds`** (theorem): Fitting-ideal control from higher-rank Euler systems.
-
-  Statement. Let p > 3, r ≥ 1, c ∈ ES_r(T, 𝒦), F = F_can, F a subfield of E/K and A_F =
-    Ind_{G_F}^{G_K}(T/MT). Assume Hypotheses 6.1, 6.7, 6.11 and Hypotheses 3.2, 3.3, 4.2 for A_F and
-    F_can, and let κ(c) = D_r^F(c). Then (i) for n ∈ N, im(κ(c)_n) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F(n)^*}(K,
-    A_F^*(1))^*); in particular im(c_F) ⊆ Fitt⁰_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*); (ii) for every i
-    ≥ 0, I_i(κ(c)) ⊆ Fitt^i_{R̄[𝒢_F]}(H¹_{F^*}(K, A_F^*(1))^*). In (i), equality holds whenever κ(c)
-    is a basis of KS_r, without a principal-ring assumption. For the higher I_i in (ii), equality
-    for a basis is asserted when R̄[𝒢_F] is a principal ideal ring. These are containments of ideals
-    of the group ring R̄[𝒢_F], which is not a domain: they are not valuation formulas and do not
-    reduce to orders of underlying groups.
-
-  Hypothesis. p > 3
-
-  Hypothesis. Hypotheses 6.1, 6.7, 6.11; 3.2, 3.3, 4.2 for A_F
-
-  Acceptance. For the Rubin–Stark setting (Theorem 7.1): im(η^χ_{L/K,S}) ⊆ Fitt⁰_O((ℤ_p ⊗
-    Cl(O_L))^χ), conditionally on the Rubin–Stark conjecture.
-
-  Acceptance. For r = 1 over a discrete valuation ring this is the bound of ES.4/kolyvagin-bound in
-    Fitting-ideal form.
-
--/
-
-
-/-
-
-**`ES.7/rubin-brumer-stark`** (construction): The Rubin–Brumer–Stark element and Rubin's conjecture.
-
-  Statement. In the setting of ES.6/rubin-lattice let Θ_{S,T} ∈ ℚ[G]^− be the Stickelberger element
-    for S ⊇ S_∞ ∪ S_ram and T. The Rubin–Brumer–Stark element is the unique u_RBS ∈ ⋀^r_{ℚ[G]}
-    ℚU_{S,T}^− with ord_G(u_RBS) = Θ_{S,T}. It depends on the choice of the w_j only up to
-    multiplication by an element of G. Rubin's conjecture is the proposition u_RBS ∈ 𝓛; its validity
-    is independent of the w_j. It is stated here as a proposition and is a hypothesis of any
-    application of the higher-rank machinery to these elements: a conjectural Rubin–Stark element is
-    an Euler system of rank r only once its integrality (membership in the bidual lattices) and its
-    norm relations along Ω(𝒦/K) are proved. The prime-to-2 part of the conjecture is a theorem of
-    Dasgupta–Kakde, owned by IntegralIwasawaTheory I.7.
-
-  Hypothesis. as in ES.6/rubin-lattice
-
-  Hypothesis. Θ_{S,T} ∈ ℚ[G]^− defined by the partial zeta values at 0
-
-  * `TauCeti.RubinStark.rubinBrumerStark` (constructor): u_RBS = ord_G⁻¹(Θ_{S,T}).
-
-  * `TauCeti.RubinStark.ordG_rubinBrumerStark` (simp): ord_G(u_RBS) = Θ_{S,T}.
-
-  * `TauCeti.RubinStark.rubinBrumerStark_change_w` (relation): For another choice of the w_j, u_RBS
-    changes by multiplication by an element of G.
-
-  * `TauCeti.RubinStark.RubinConjecture` (structure): The proposition u_RBS ∈ 𝓛, with no instance
-    provided.
-
-  * `TauCeti.RubinStark.rubinConjecture_indep` (characterisation): RubinConjecture does not depend
-    on the choice of the w_j.
-
-  * test `TauCeti.RubinStark.rubinBrumerStark_rank_one` (compatibility): For r = 1, u_RBS is the
-    element of ℚU_{S,T}^− with Σ_σ [σ^{-1}] ord_w(σu) = Θ_{S,T}: the Brumer–Stark unit, and
-    RubinConjecture is u ∈ U_{S,T}.
-
-  * test `TauCeti.RubinStark.rubinBrumerStark_zero` (degenerate): If Θ_{S,T} = 0 then u_RBS = 0 and
-    RubinConjecture holds trivially.
-
-  * test `TauCeti.RubinStark.rubinConjecture_not_exteriorPower` (non-example): RubinConjecture is
-    not the statement u_RBS ∈ image of ⋀^r_{ℤ[G]} U_{S,T}^−: exterior-bidual integrality can be
-    weaker when r≥2. Use the explicit minus-part lattice computation of rubin-lattice as an
-    algebraic witness; strictness is not asserted for every arithmetic unit lattice.
-
-  Acceptance. For r = 1: u_RBS is the Brumer–Stark unit and Rubin's conjecture is the Brumer–Stark
-    conjecture.
-
-  Acceptance. Conditional application: Burns–Sakamoto–Sano II, Theorem 7.1(iii) assumes the
-    Rubin–Stark conjecture for LF/K for each F.
-
--/
-
-
-/-
-
-**`ES.7/rank-one-comparison`** (comparison): Rank-one specialisation of the higher-rank theory.
-
-  Statement. On common admissible towers satisfying 6.7, under Hypothesis 6.1 and the
-    universal-norm/unramified comparison, ES_1(T, 𝒦) is the module of ES.2/euler-system-module with
-    coefficients R, with the dictionary P_q(x) = det(1 − Fr_q^{-1}x | T^*(1)) = Rubin's P(Fr_q^{-1}
-    | T^*; x); KS_1(A, F) is ES.3/kolyvagin-system-module for A; D_1 is the map of
-    ES.3/euler-to-kolyvagin modulo M (over ℚ) and supplies that map over a general number field K
-    under Hypotheses 6.1, 6.7 and 6.11; and for R a discrete valuation ring the bound I_0(κ) ⊆ Fitt⁰
-    is length H¹_{F^*} ≤ ∂^{(0)}(κ) of ES.4/kolyvagin-bound. The conventions differ in two places,
-    both explicit: the Euler factor (ES.2/euler-polynomial) and the identification G_q ≅ ⟨σ_q − 1⟩ ⊆
-    𝓘/𝓘² (Mazur–Rubin's ρ_q).
-
-  Hypothesis. Hypotheses 6.1 and 6.7 on a common tower, plus the cohomology/unramified and
-    coefficient dictionaries.
-
-  Hypothesis. Hypothesis 6.11 for the derivative comparison; rank-one admissibility and a DVR for
-    the length/Fitting comparison.
-
-  Acceptance. For T = ℤ_p(1) ⊗ χ^{-1} over ℚ both constructions give the cyclotomic-unit Kolyvagin
-    system modulo M.
-
--/
+namespace TauCeti.KolyvaginSystems
+open TauCeti.EulerSystems
+variable {p : ℕ} [Fact p.Prime]
+local instance : TopologicalSpace (IsLocalRing.ResidueField (PadicInt p)) := ⊥
+-- Blueprint nodes: EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist
+-- and EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible
+/-- The Tate twist has its cyclotomic action on the actual rank-one p-adic carrier. -/
+def tateOne : Rep ℚ (PadicInt p) := sorry
+def tateOneEquiv : tateOne (p := p) ≃ₗ[PadicInt p] PadicInt p := sorry
+lemma tateOne_action (g : GK ℚ) (x : tateOne (p := p)) :
+    tateOneEquiv ((tateOne (p := p)).ρ g x) =
+      (cyclotomicCharacter ℚ p g : PadicInt p) * tateOneEquiv x := sorry
+instance tateOne_free : Module.Free (PadicInt p) (tateOne (p := p)) := sorry
+instance tateOne_finite : Module.Finite (PadicInt p) (tateOne (p := p)) := sorry
+
+def cyclotomicTwist (χ : GK ℚ →* (PadicInt p)ˣ) : Rep ℚ (PadicInt p) :=
+  twistRep (tateOne (p := p)) χ⁻¹
+
+theorem cyclotomicTwist_basic_hypotheses (hp : 2 < p)
+    (χ : GK ℚ →* (PadicInt p)ˣ) (hχ : Continuous χ)
+    (hf : IsOfFinOrder χ) (hcop : Nat.Coprime (orderOf χ) p) (hne : χ ≠ 1)
+    (hω : χ ≠ TauCeti.RubinStark.ClassGroups.teichmullerCharacter (K := ℚ) (O := PadicInt p) p) :
+    Nonempty (MR04BasicHypotheses (cyclotomicTwist χ) p) ∧
+      ResidualHomVanishing (cyclotomicTwist χ) := sorry
+
+theorem tateOne_dual_residual_invariants (hp : 2 < p) :
+    Nontrivial (H ℚ (PadicInt p)
+      (dualRep (quotientRep (tateOne (p := p)) (IsLocalRing.maximalIdeal (PadicInt p)))) 0) := sorry
+
+theorem tateOne_not_mr04 (hp : 2 < p) (S : SelmerTriple ℚ (PadicInt p) (tateOne (p := p))) :
+    IsEmpty (MR04Hypotheses (tateOne (p := p)) S p) := sorry
+
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic
+/-- The mod-p action is on the residue vector space, so its automorphisms are GL₂(F_p).
+The Tate carrier and point-action dictionary are defined above in CGLS. -/
+theorem elliptic_basic_hypotheses (E : WeierstrassCurve ℚ) [E.IsElliptic] (hp : 5 ≤ p)
+    (hsurj : Function.Surjective (residualRep (CGLS.tateRep (p := p) E)).ρ) :
+    Nonempty (MR04BasicHypotheses (CGLS.tateRep (p := p) E) p) := sorry
+/- HE.7 supplies the local Kummer image and the Weil-pairing comparison needed
+for the classical-structure and core-rank part of this example. Their full
+geometry is stated in the packet; it is deliberately omitted from this prototype
+until the HE.7 local-points dictionaries can be stated at the pinned baseline. -/
+end TauCeti.KolyvaginSystems
+
+namespace TauCeti.ErrorTolerant
+open TauCeti.KolyvaginSystems
+variable {K O : Type} [Field K] [NumberField K] [CommRing O] [TopologicalSpace O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization
+/-- Uniform local loss is independent of the modulus and of the saturated Selmer
+submodule. The source's purity/polarization hypotheses imply the displayed local
+finite-torsion criterion; their geometric realization is a supplier obligation. -/
+theorem uniform_finite_local_annihilation (T : ErrorRep K O) [Module.Free O T] [Module.Finite O T]
+    (hT : IsContinuous K O T) (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π})
+    (F : SelmerStructure K O T) (places : Finset (Prime K)) (ell : ℕ)
+    (hF : ∀ q ∈ places, ¬ isAboveP ell q → F.condition (Sum.inr q) = finiteLatticeCondition T (Sum.inr q))
+    (hfin : ∀ q ∈ places, ¬ isAboveP ell q → Module.Finite O (finiteLatticeCondition T (Sum.inr q)))
+    (htor : ∀ q ∈ places, ¬ isAboveP ell q → ∀ x : finiteLatticeCondition T (Sum.inr q),
+      ∃ a : O, a ≠ 0 ∧ a • x = 0) :
+    ∃ c : ℕ, ∀ (m : ℕ) (_ : c < m) (x : F.selmer) (q : Prime K) (_ : q ∈ places) (_ : ¬ isAboveP ell q),
+      π^c • loc K O (quotientRep T (Ideal.span {π^m})) (Sum.inr q)
+        ((TauCeti.ContinuousCohomology.coeffMap (quotientMap T (Ideal.span {π^m})) 1).hom.toLinearMap x.val) = 0 := sorry
+
+/-- The diagonalization conclusion uses evaluation in an actual arithmetic
+unramified local module. It yields a scaled spanning submodule at positive loss. -/
+theorem abundant_local_diagonalization (T : ErrorRep K O) [Module.Free O T] [Module.Finite O T]
+    (π : O) (hπ : IsLocalRing.maximalIdeal O = Ideal.span {π}) (m c r : ℕ)
+    (S : Submodule O (H K O (quotientRep T (Ideal.span {π^m})) 1))
+    (eS : S ≃ₗ[O] (Fin r → O ⧸ Ideal.span {π^m}))
+    (w : Fin r → Prime K)
+    (unram : ∀ (i : Fin r) (s : S), loc K O _ (Sum.inr (w i)) s.val ∈
+      unramified K O (quotientRep T (Ideal.span {π^m})) (Sum.inr (w i)))
+    (eval : ∀ i, unramified K O (quotientRep T (Ideal.span {π^m})) (Sum.inr (w i)) ≃ₗ[O]
+      O ⧸ Ideal.span {π^m})
+    (A : Matrix (Fin r) (Fin r) (O ⧸ Ideal.span {π^m}))
+    (hA : ∀ (s : S) i, A.mulVec (eS s) i =
+      eval i ⟨loc K O _ (Sum.inr (w i)) s.val,unram i s⟩)
+    (hab : Ideal.span {(Ideal.Quotient.mk (Ideal.span {π^m}) π)^c} •
+      (⊤ : Submodule (O ⧸ Ideal.span {π^m}) (Fin r → O ⧸ Ideal.span {π^m})) ≤
+        LinearMap.range A.mulVecLin) :
+    ∃ s : Fin r → S,
+      (∀ i j, i ≠ j → loc K O _ (Sum.inr (w i)) (s j).val = 0) ∧
+      (∀ i, (m-c : ℕ∞) ≤ expAt π (loc K O _ (Sum.inr (w i)) (s i).val)) ∧
+      Ideal.span {π^c} • (⊤ : Submodule O S) ≤ Submodule.span O (Set.range s) := sorry
+end TauCeti.ErrorTolerant
+
+namespace TauCeti.RubinStark
+open TauCeti.KolyvaginSystems
+variable {K : Type} [Field K] [NumberField K]
+variable {F : Layer K} [IsMulCommutative (Layer.Gal K F)]
+variable {S T : Finset (Prime K)} {r : ℕ}
+-- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-minus-comparison
+/-- A CM minus extension over a totally real base cannot satisfy the archimedean
+splitting hypothesis of the BSS even-character application. -/
+theorem cm_not_archimedean_split (D : Data F S T r) (v : NumberField.InfinitePlace K) :
+    ¬ decomposition K (Sum.inl v) ≤ F.group := sorry
+/-- Even characters kill the minus component after scalar extension with 2 invertible. -/
+theorem even_character_kills_minus (D : Data F S T r)
+    (E : Type) [Field E] [CharZero E] [Algebra ℚ E] (χ : AbelianGal F →* Eˣ)
+    (hχ : χ D.c = 1) (x : minusGroupRing D) :
+    MonoidAlgebra.lift ℚ E (AbelianGal F) ((Units.coeHom E).comp χ) x.val = 0 := sorry
+end TauCeti.RubinStark
