@@ -8,7 +8,7 @@ The layers are arranged by mathematical dependencies. O0 supplies complex differ
 
 Reuse [ConformalMapping](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ConformalMapping) for planar conformal mapping: **L2** (Schwarz lemma, its equality case and disc automorphisms), **L3** (normalized Riemann mapping, logarithm and root branches), and **L4** (analytic continuation, monodromy and Schwarz reflection). Its planar Riemann mapping theorem does not supply uniformization of an abstract analytic universal cover; that extension is a target of U0 here. Boundary correspondence and Schwarz–Christoffel theory remain in ConformalMapping.
 
-Reuse [UniversalCovers](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/UniversalCovers), **Stage 0** (the universal-cover carrier, local sheets and simply connected total space), **Stage 1** (deck transformations and the fundamental-group action), and **Stage 2** (based lifts). The carrier is `TauCeti.UniversalCover a`, with its existing quotient topology and projection. U0 equips that carrier with complex charts rather than constructing another topological cover.
+Reuse [UniversalCovers](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/Completed/UniversalCovers), **Stage 0** (the universal-cover carrier, local sheets and simply connected total space), **Stage 1** (deck transformations and the fundamental-group action), and **Stage 2** (based lifts). The carrier is `TauCeti.UniversalCover a`, with its existing quotient topology and projection. For its complex charts, specialize `TauCeti.Geometry.Manifold.Instances.UniversalCover` to the complex model: `TauCeti.UniversalCover.instChartedSpace`, `instIsManifold` and `isLocalDiffeomorph_proj` already provide the lifted atlas and local holomorphic projection. U0 supplies their planar compatibility statements and examples. General atlas compatibility for covers belongs to [DifferentialGeometry, Layer 2.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DifferentialGeometry/README.md#layer-2-orientations-and-the-orientation-double-cover).
 
 Reuse [FuchsianOrbifolds](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/FuchsianOrbifolds), **Layer 0** (effective projective action, discreteness, stabilizers and free-locus quotients), **Layer 2** (hyperbolic polygons, reflected side pairings, Poincaré's theorem, presentations and area), and **Layer 3** (primitive cusp data, full stabilizers, cusp charts and transport). F0 gives only the symmetric roots-cover instances. For Shimizu's inequality use `Subgroup.inv_le_abs_apply_one_zero_of_upperRightHom_mem` in `TauCeti.Analysis.Complex.Fuchsian.Shimizu`; G0 adds the estimate involving both matrix entries that this particular group needs. Generic orbifold compactification, degree and genus theory belong to FuchsianOrbifolds.
 
@@ -64,7 +64,7 @@ Source: CDT, p.632; 1.1.6. Prerequisites: **O0**, analytic linear initial-value 
 
 Source: CDT, p.632; 1.1.6. Prerequisites: **O0**, continuation of linear ode solutions; **O0**, analytic linear initial-value theorem; [ConformalMapping — milestone l4 / analytic continuation / the reflection principle](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ConformalMapping/README.md#milestone-l4--analytic-continuation--the-reflection-principle).
 
-**Meromorphic trivial local monodromy.** At an isolated singular point α, the meromorphic-basis condition requires that the full n-dimensional local solution space has a basis of single-valued functions meromorphic on a full neighbourhood of α. This includes finite pole orders; it is stronger than identity of the analytic continuation representation alone.
+**Meromorphic trivial local monodromy.** At an isolated singular point α, the equation's domain must contain a deleted neighbourhood of α (`Ω ∈ nhdsWithin α {α}ᶜ`). The meromorphic-basis condition requires that the full n-dimensional local solution space has a basis of single-valued functions meromorphic on a full neighbourhood of α. This includes finite pole orders; it is stronger than identity of the analytic continuation representation alone.
 
 Required API:
 
@@ -86,7 +86,7 @@ Source: CDT, p.636; Corollary 2.0.5. Prerequisites: **O0**, meromorphic trivial 
 
 ## Layer U0: Analytic universal covers and pointed radius
 
-Equip the existing topological cover with complex charts, establish hyperbolic uniformization, and make based covers usable through lifting, uniqueness and extremality. The roots-of-unity family is the distinguished example.
+Specialize the existing lifted manifold charts to complex plane domains, establish hyperbolic uniformization, and make based covers usable through lifting, uniqueness and extremality. The roots-of-unity family is the distinguished example.
 
 **The disc–half-plane coordinate.** Define C(z)=i(1+z)/(1−z) on |z|<1 and C⁻¹(τ)=(τ−i)/(τ+i) on Im τ>0. These are inverse holomorphic maps, C(0)=i, and z→1 corresponds to the cusp at infinity; no value at the boundary point 1 is part of the interior map.
 
@@ -106,7 +106,7 @@ Source: CDT, p.667; Remark 5.0.1. Prerequisites: Tau Ceti `TauCeti.bijOn_I_mul_o
 
 Use the native Cayley bijections and inverse identity in `TauCeti.Analysis.Complex.UpperHalfPlane.Cayley`. A local abbreviation C fixes the direction used here; the coordinate and its holomorphic bijection theory are imported.
 
-**Complex charts on the topological cover.** For a connected open Ω⊆ℂ and a base point a∈Ω, put the unique complex one-dimensional manifold structure on the existing TauCeti.UniversalCover a for which its projection to Ω is a local biholomorphism. Use inverse covering sheets as charts, so transition functions are restrictions of the identity on Ω.
+**Complex charts on the topological cover.** For a connected open Ω⊆ℂ and a base point a∈Ω, use the complex one-dimensional manifold structure on the existing TauCeti.UniversalCover a furnished by `TauCeti.UniversalCover.instChartedSpace` and `instIsManifold`. Its projection to Ω is a local biholomorphism by `TauCeti.UniversalCover.isLocalDiffeomorph_proj` with complex scalars. Inverse covering sheets give charts whose transition functions are restrictions of the identity on Ω. The required uniqueness means compatibility of atlases making this projection locally biholomorphic, rather than literal equality of chosen charted-space records.
 
 Required API:
 
@@ -120,7 +120,7 @@ Examples and distinctions:
 * For a nontrivial annulus the projection is not injective.
 * On an overlap of two lifted plane-coordinate charts, the transition is the identity.
 
-Source: CDT, §5.1, setup preceding Definition 5.1.1, p.667. Prerequisites: Tau Ceti `TauCeti.UniversalCover`; Tau Ceti `TauCeti.UniversalCover.isCoveringMap`; Tau Ceti `TauCeti.UniversalCover.simplyConnectedSpace`; [UniversalCovers — Stage 0: port the foundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/Completed/UniversalCovers/README.md#stage-0-port-the-foundations-into-tauceti).
+Source: CDT, §5.1, setup preceding Definition 5.1.1, p.667. Prerequisites: Tau Ceti `TauCeti.UniversalCover`; `TauCeti.UniversalCover.isCoveringMap`; `TauCeti.UniversalCover.simplyConnectedSpace`; `TauCeti.UniversalCover.instChartedSpace`, `instIsManifold` and `isLocalDiffeomorph_proj` in `TauCeti.Geometry.Manifold.Instances.UniversalCover`; `IsLocalHomeomorph.chartAt_chartedSpaceComap_apply` in `TauCeti.Geometry.Manifold.Instances.Comap`; [UniversalCovers — Stage 0: port the foundations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/Completed/UniversalCovers/README.md#stage-0-port-the-foundations-into-tauceti); [DifferentialGeometry — Layer 2.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/DifferentialGeometry/README.md#layer-2-orientations-and-the-orientation-double-cover).
 
 **Hyperbolic uniformization of the cover.** For a connected open Ω⊆ℂ whose complement has at least two points, its analytic universal cover is biholomorphic to the unit disc. The plane and sphere alternatives of simply connected Riemann-surface uniformization must be excluded; the simply connected planar Riemann mapping theorem alone does not prove this assertion.
 
@@ -330,11 +330,11 @@ Connect the rational Schwarzian equation to the native Gauss series. Distinguish
 
 **The Gauss hypergeometric equation.** For parameters a,b,c with none of a,b,c a nonpositive integer and |x|<1, the native ₂F₁(a,b;c;x) satisfies x(1−x)y″+(c−(a+b+1)x)y′−aby=0. The value and first Taylor coefficient at 0 are 1 and ab/c. Use analytic differentiation of the convergent native series, not its junk values outside radius one.
 
-Source: CDT, proof of Lemma 5.1.16, equation (5.1.19), p.672. Prerequisites: Mathlib `ordinaryHypergeometric`; Mathlib `ordinaryHypergeometric_eq_tsum`; Mathlib `ordinaryHypergeometric_zero`; Mathlib `ordinaryHypergeometricSeries_radius_eq_one`.
+Source: CDT, proof of Lemma 5.1.16, p.672 (verification of the solutions in (5.1.18) using the Gauss equation). Prerequisites: Mathlib `ordinaryHypergeometric`; Mathlib `ordinaryHypergeometric_eq_tsum`; Mathlib `ordinaryHypergeometric_zero`; Mathlib `ordinaryHypergeometricSeries_radius_eq_one`.
 
 **The descended inverse differential equation.** After x=u^N the two solutions η_i(u) of the roots inverse equation give φ_i(x)=η_i(x^(1/N)) on a compatible punctured branch, satisfying x(x−1)²φ″+(1−1/N)(x−1)²φ′+(1/4+(x−1)/(4N²))φ=0.
 
-Source: CDT, proof of Lemma 5.1.16, equation (5.1.19), p.672. Prerequisites: **S0**, the linear equation of the inverse covering.
+Source: CDT, Lemma 5.1.16, equation (5.1.17), p.671; its change-of-variable calculation, p.672. Prerequisites: **S0**, the linear equation of the inverse covering.
 
 **The two hypergeometric solutions.** Let a_±=(N±1)/(2N). On compatible branches near a punctured zero, √(1−x)x^(1/N)₂F₁(a_+,a_+;2a_+;x) and √(1−x)₂F₁(a_−,a_−;2a_−;x) solve the transformed equation. Their leading terms x^(1/N) and 1 match the normalized η₁,η₂ after substituting x=u^N.
 

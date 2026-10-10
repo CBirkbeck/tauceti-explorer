@@ -2,6 +2,8 @@ import TauCeti.Analysis.Complex.Conformal.Moebius
 import TauCeti.Analysis.Complex.UpperHalfPlane.PSLAction
 import Mathlib.GroupTheory.Index
 import TauCeti.Analysis.Complex.Conformal.Continuation.Basic
+import TauCeti.Analysis.Complex.Conformal.RiemannMapping.Normalization
+import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Topology.Covering.Basic
 import Mathlib.FieldTheory.Minpoly.Basic
 import Mathlib.RingTheory.Algebraic.Defs
@@ -278,6 +280,13 @@ lemma LinearEquation.companion_jet {Ω : Set ℂ} {n : ℕ}
     (fun j : Fin n ↦ deriv (fun z ↦ E.initialJet y z j) x) =
       (E.companion x).mulVec (E.initialJet y x) := by sorry
 
+lemma LinearEquation.companion_equiv {Ω : Set ℂ} {n : ℕ}
+    (E : LinearEquation Ω n) (v : ℂ → Fin n → ℂ)
+    (hv : ∀ j, AnalyticOnNhd ℂ (fun x ↦ v x j) Ω) :
+    (∀ x ∈ Ω, (fun j ↦ deriv (fun z ↦ v z j) x) = (E.companion x).mulVec (v x)) ↔
+      E.IsSolution (fun x ↦ v x ⟨0, E.positiveOrder⟩) ∧
+        ∀ x ∈ Ω, E.initialJet (fun z ↦ v z ⟨0, E.positiveOrder⟩) x = v x := by sorry
+
 /-- Local existence and uniqueness up to equality of germs, without a fake germ carrier. -/
 lemma LinearEquation.initial_value {Ω : Set ℂ} {n : ℕ}
     (E : LinearEquation Ω n) {x : ℂ} (hx : x ∈ Ω) (v : Fin n → ℂ) :
@@ -301,12 +310,16 @@ lemma LinearEquation.path_continuation {Ω : Set ℂ} {n : ℕ}
         iteratedDeriv n (family t) z +
           ∑ j, E.coefficient j z * iteratedDeriv j.val (family t) z = 0 := by sorry
 
+-- TauCeti.ConformalPartII.LinearEquation.orderOneZero
 example {Ω : Set ℂ} (E : LinearEquation Ω 1)
     (ha : ∀ x ∈ Ω, E.coefficient 0 x = 0) {y : ℂ → ℂ}
     (hy : E.IsSolution y) : ∃ c, ∀ x ∈ Ω, y x = c := by sorry
+-- TauCeti.ConformalPartII.LinearEquation.secondOrderZero
 example {Ω : Set ℂ} (E : LinearEquation Ω 2)
     (ha : ∀ j x, x ∈ Ω → E.coefficient j x = 0) {y : ℂ → ℂ}
-    (hy : E.IsSolution y) : ∃ a b : ℂ, ∀ x ∈ Ω, y x = a * x + b := by sorry
+    (hy : E.IsSolution y) : ∃ a b : ℂ, ∀ x ∈ Ω,
+      y x = a * x + b ∧ E.initialJet y x 0 = y x ∧ E.initialJet y x 1 = a := by sorry
+-- TauCeti.ConformalPartII.LinearEquation.singularCoefficient
 example : ¬ AnalyticAt ℂ (fun z : ℂ ↦ 1 / z) 0 := by sorry
 
 /-- A scalar holomorphic realization of a based universal cover from the simply connected
@@ -337,6 +350,9 @@ lemma conformalRadius.coverDerivative {Ω : Set ℂ} {a : ℂ}
     conformalRadius Ω a = ‖deriv F.toFun 0‖ := by sorry
 lemma conformalRadius.positive {Ω : Set ℂ} {a : ℂ}
     (F : PointedCover Ω a) (hΩ : IsOpen Ω) : 0 < conformalRadius Ω a := by sorry
+lemma conformalRadius.riemannMap {Ω : Set ℂ} {a : ℂ} {φ : ℂ → ℂ}
+    (hΩ : IsOpen Ω) (hφ : TauCeti.IsNormalizedRiemannMapOn φ Ω a) :
+    conformalRadius Ω a = 1 / ‖deriv φ a‖ := by sorry
 lemma conformalRadius.affineChange {Ω : Set ℂ} {a b c : ℂ}
     (F : PointedCover Ω a) (hΩ : IsOpen Ω) (hb : b ≠ 0) :
     conformalRadius ((fun z : ℂ ↦ b * z + c) '' Ω) (b * a + c) =
@@ -349,8 +365,11 @@ lemma PointedCover.schwarz {Ω : Set ℂ} {a : ℂ}
     (F : PointedCover Ω a) (hΩ : IsOpen Ω) {f : ℂ → ℂ}
     (hf : DifferentiableOn ℂ f (ball 0 1)) (hmaps : MapsTo f (ball 0 1) Ω) (h0 : f 0 = a) :
     ‖deriv f 0‖ ≤ conformalRadius Ω a := by sorry
+-- TauCeti.ConformalPartII.conformalRadius.unitDisc
 example : conformalRadius (ball (0 : ℂ) 1) 0 = 1 := by sorry
+-- TauCeti.ConformalPartII.conformalRadius.radiusTwo
 example : conformalRadius (ball (0 : ℂ) 2) 0 = 2 := by sorry
+-- TauCeti.ConformalPartII.conformalRadius.oncePuncturedPlane
 example : ¬ ∃ a b : ℂ, a ≠ b ∧ a ∉ {z : ℂ | z ≠ 0} ∧ b ∉ {z : ℂ | z ≠ 0} := by sorry
 
 /-- Use the oriented representative for inverse-germ calculations. Cusp coordinates are
@@ -376,10 +395,14 @@ lemma equivariant {N : ℕ} (F : RootsCover N) {ζ z : ℂ}
     (hζ : ζ ^ N = 1) (hz : z ∈ ball (0 : ℂ) 1) :
     F.toFun (ζ * z) = ζ * F.toFun z := by sorry
 lemma exists_cover (N : ℕ) (hN : 2 ≤ N) : Nonempty (RootsCover N) := by sorry
+-- TauCeti.ConformalPartII.RootsCover.twoRoots
 example : {x : ℂ | x ^ 2 ≠ 1} = {x | x ≠ -1 ∧ x ≠ 1} := by sorry
+-- TauCeti.ConformalPartII.RootsCover.zeroNotOmitted
 example {N : ℕ} (F : RootsCover N) : (0 : ℂ) ^ N ≠ 1 ∧ F.toFun 0 = 0 := by sorry
-example {N : ℕ} (F : RootsCover N) {z : ℂ} (hz : z ∈ ball (0 : ℂ) 1) :
-    F.toFun z ≠ 1 := by sorry
+-- TauCeti.ConformalPartII.RootsCover.boundaryLimit
+example {N : ℕ} (F : RootsCover N) :
+    Filter.Tendsto (fun r : ℝ ↦ F.toFun r) (nhdsWithin 1 (Iio 1)) (nhds (1 : ℂ)) ∧
+      ∀ z ∈ ball (0 : ℂ) 1, F.toFun z ≠ 1 := by sorry
 end RootsCover
 
 /-- Root-independent descent; its values outside the disc are immaterial. -/
@@ -395,12 +418,19 @@ lemma derivative {N : ℕ} (F : RootsCover N) :
 lemma rootIndependence {N : ℕ} (F : RootsCover N) {z w : ℂ}
     (hz : ‖z‖ < 1) (hw : ‖w‖ < 1) (hpow : z ^ N = w ^ N) :
     F.toFun z ^ N = F.toFun w ^ N := by sorry
-example {N : ℕ} (F : RootsCover N) : deriv (PowerDescent F) 0 ≠ 0 := by sorry
+-- TauCeti.ConformalPartII.PowerDescent.zero
+example {N : ℕ} (F : RootsCover N) :
+    deriv (PowerDescent F) 0 ≠ 0 ∧ ∃ ψ : ℂ → ℂ, AnalyticAt ℂ ψ 0 ∧ ψ 0 = 0 ∧
+      (PowerDescent F ∘ ψ) =ᶠ[nhds 0] id ∧ (ψ ∘ PowerDescent F) =ᶠ[nhds 0] id := by sorry
+-- TauCeti.ConformalPartII.PowerDescent.negativeRoot
 example (F : RootsCover 2) {z : ℂ} (hz : ‖z‖ < 1) :
     F.toFun z ^ 2 = F.toFun (-z) ^ 2 := by sorry
-example {N : ℕ} (F : RootsCover N) :
-    (fun z ↦ PowerDescent F (z ^ N)) =ᶠ[nhds 0] (fun z ↦ F.toFun z ^ N) ∧
-      deriv (PowerDescent F) 0 = deriv F.toFun 0 ^ N := by sorry
+-- TauCeti.ConformalPartII.PowerDescent.localCoefficient
+example {N : ℕ} (F : RootsCover N) {a : ℂ}
+    (hF : Asymptotics.IsBigO (nhds 0) (fun z : ℂ ↦ F.toFun z - a * z)
+      (fun z ↦ z ^ (N + 1))) :
+    Asymptotics.IsBigO (nhds 0) (fun w : ℂ ↦ PowerDescent F w - a ^ N * w)
+      (fun w ↦ w ^ 2) := by sorry
 end PowerDescent
 
 lemma roots_inverse_schwarzian {N : ℕ} (F : RootsCover N) {w : ℂ → ℂ} {x : ℂ}
@@ -531,9 +561,11 @@ end TauCeti.ConformalPartII
 namespace TauCeti.ConformalPartII
 
 /-- Single-valued solution germs on a punctured neighbourhood, using the native germ quotient.
-Membership explicitly requires a holomorphic representative satisfying the equation there. -/
+The domain must contain a punctured neighbourhood; otherwise this carrier would not even contain
+zero. Membership requires a holomorphic representative satisfying the equation there. -/
 def LinearEquation.puncturedSolutionGerms {Ω : Set ℂ} {n : ℕ}
-    (E : LinearEquation Ω n) (α : ℂ) : Submodule ℂ (Filter.Germ (nhdsWithin α {α}ᶜ) ℂ) where
+    (E : LinearEquation Ω n) (α : ℂ) (_hΩα : Ω ∈ nhdsWithin α {α}ᶜ) :
+    Submodule ℂ (Filter.Germ (nhdsWithin α {α}ᶜ) ℂ) where
   carrier := {f | ∃ y : ℂ → ℂ, Filter.Germ.ofFun y = f ∧
     ∀ᶠ x in nhdsWithin α {α}ᶜ, x ∈ Ω ∧ AnalyticAt ℂ y x ∧
       iteratedDeriv n y x + ∑ j, E.coefficient j x * iteratedDeriv j.val y x = 0}
@@ -545,23 +577,29 @@ def LinearEquation.puncturedSolutionGerms {Ω : Set ℂ} {n : ℕ}
 is weaker because it also permits essential singularities. -/
 structure MeromorphicBasisMonodromy {Ω : Set ℂ} {n : ℕ}
     (E : LinearEquation Ω n) (α : ℂ) where
-  basis : Module.Basis (Fin n) ℂ (E.puncturedSolutionGerms α)
+  puncturedDomain : Ω ∈ nhdsWithin α {α}ᶜ
+  basis : Module.Basis (Fin n) ℂ (E.puncturedSolutionGerms α puncturedDomain)
   meromorphic : ∀ j, ∃ y : ℂ → ℂ, MeromorphicAt y α ∧
     (Filter.Germ.ofFun y : Filter.Germ (nhdsWithin α {α}ᶜ) ℂ) = (basis j).val
 
 lemma MeromorphicBasisMonodromy.finitePoleBound {Ω : Set ℂ} {n : ℕ}
     {E : LinearEquation Ω n} {α : ℂ} (B : MeromorphicBasisMonodromy E α) :
-    ∃ k : ℕ, ∀ f : E.puncturedSolutionGerms α,
+    ∃ k : ℕ, ∀ f : E.puncturedSolutionGerms α B.puncturedDomain,
       ∃ y : ℂ → ℂ, MeromorphicAt y α ∧
         (Filter.Germ.ofFun y : Filter.Germ (nhdsWithin α {α}ᶜ) ℂ) = f.val ∧
         ((-(k : ℤ)) : WithTop ℤ) ≤ meromorphicOrderAt y α := by sorry
 
+-- TauCeti.ConformalPartII.MeromorphicBasisMonodromy.ordinaryPoint
 example {Ω : Set ℂ} {n : ℕ} (E : LinearEquation Ω n) {α : ℂ} (hα : α ∈ Ω) :
-    Nonempty (MeromorphicBasisMonodromy E α) := by sorry
+    ∃ B : MeromorphicBasisMonodromy E α, ∀ j, ∃ y : ℂ → ℂ,
+      AnalyticAt ℂ y α ∧
+        (Filter.Germ.ofFun y : Filter.Germ (nhdsWithin α {α}ᶜ) ℂ) = (B.basis j).val := by sorry
+-- TauCeti.ConformalPartII.MeromorphicBasisMonodromy.regularPole
 example (E : LinearEquation {z : ℂ | z ≠ 0} 1)
     (hE : ∀ z, z ≠ 0 → E.coefficient 0 z = 1 / z) :
     Nonempty (MeromorphicBasisMonodromy E 0) ∧
       meromorphicOrderAt (fun z : ℂ ↦ 1 / z) 0 = ((-1 : ℤ) : WithTop ℤ) := by sorry
+-- TauCeti.ConformalPartII.MeromorphicBasisMonodromy.essentialSingularity
 example (E : LinearEquation {z : ℂ | z ≠ 0} 1)
     (hE : ∀ z, z ≠ 0 → E.coefficient 0 z = 1 / z ^ 2) :
     ¬ Nonempty (MeromorphicBasisMonodromy E 0) ∧
@@ -592,12 +630,20 @@ lemma mem {N : ℕ} (F : RootsCover N) (M : ℝ) (z : ℂ) :
 lemma radiusInvariant {N : ℕ} (F : RootsCover N) {M r : ℝ} {ζ : ℂ} (hζ : ‖ζ‖ = 1)
     (hdisj : Disjoint (ExceptionalCuspSet F M) (closedBall (0 : ℂ) r)) :
     Disjoint ((fun z : ℂ ↦ ζ * z) '' ExceptionalCuspSet F M) (closedBall (0 : ℂ) r) := by sorry
+lemma rotatedLargeValues {N : ℕ} (F : RootsCover N) (M : ℝ) {z : ℂ}
+    (hz : ‖z‖ < 1) (hbig : Real.exp M + 1 < ‖F.toFun z‖) :
+    z ∈ (fun w : ℂ ↦ Complex.exp (Real.pi * I / (N : ℂ)) * w) ''
+      ExceptionalCuspSet F M := by sorry
+-- TauCeti.ConformalPartII.ExceptionalCuspSet.origin
 example {N : ℕ} (F : RootsCover N) {M : ℝ} (hM : 0 < M) :
     (0 : ℂ) ∉ ExceptionalCuspSet F M := by sorry
+-- TauCeti.ConformalPartII.ExceptionalCuspSet.rotationRadius
 example {ζ z : ℂ} (hζ : ‖ζ‖ = 1) : ‖ζ * z‖ = ‖z‖ := by sorry
+-- TauCeti.ConformalPartII.ExceptionalCuspSet.largeValueThreshold
 example {N : ℕ} (F : RootsCover N) {z : ℂ} {M : ℝ}
     (hz : ‖z‖ < 1) (hbig : 1 + Real.exp (M * N) < ‖F.toFun z‖ ^ N) :
-    ‖1 / (1 - F.toFun z ^ N)‖ < Real.exp (-M * N) := by sorry
+    ‖1 - F.toFun (Complex.exp (-Real.pi * I / (N : ℂ)) * z) ^ N‖ <
+      Real.exp (-M * N) := by sorry
 end ExceptionalCuspSet
 
 /-- The half-rotation identity is stated analytically; its projective realization is F0. -/
@@ -688,8 +734,15 @@ lemma invariant {N : ℕ} (F : RootsCover N) (g : PowerStabilizer N) (τ : ℍ) 
 lemma largest {N : ℕ} (F : RootsCover N) {g : PSL(2, ℝ)}
     (hg : ∀ τ : ℍ, F.halfPlane ((g • τ : ℍ) : ℂ) ^ N = F.halfPlane (τ : ℂ) ^ N) :
     g ∈ PowerStabilizer N := by sorry
+-- TauCeti.ConformalPartII.PowerStabilizer.two
 example : (rootsDeckGroup 2).relIndex (PowerStabilizer 2) = 2 := by sorry
+-- TauCeti.ConformalPartII.PowerStabilizer.rotationOrder
+-- Membership of powers states the exact order modulo the deck subgroup.
+example (N : ℕ) (hN : 2 ≤ N) (k : ℕ) :
+    rootsRotation N ^ k ∈ rootsDeckGroup N ↔ N ∣ k := by sorry
+-- The ambient projective rotation has the same order.
 example (N : ℕ) (hN : 2 ≤ N) : orderOf (rootsRotation N) = N := by sorry
+-- TauCeti.ConformalPartII.PowerStabilizer.notDeck
 example (N : ℕ) (hN : 2 ≤ N) : rootsRotation N ∉ rootsDeckGroup N := by sorry
 end PowerStabilizer
 
@@ -703,14 +756,17 @@ lemma containsPower (N : ℕ) : PowerStabilizer N ≤ TriangleSupergroup N := by
 lemma index (N : ℕ) (hN : 2 ≤ N) : (PowerStabilizer N).relIndex (TriangleSupergroup N) = 2 := by sorry
 lemma halfRotation_square (N : ℕ) : rootsHalfRotation N ^ 2 = rootsRotation N := by sorry
 example : (PowerStabilizer 2).relIndex (TriangleSupergroup 2) = 2 := by sorry
+-- TauCeti.ConformalPartII.TriangleSupergroup.halfRotation
 example (N : ℕ) (hN : 2 ≤ N) :
     rootsHalfRotation N ∈ TriangleSupergroup N ∧ rootsHalfRotation N ∉ PowerStabilizer N ∧
       rootsHalfRotation N ^ 2 ∈ PowerStabilizer N := by sorry
 -- Hyperbolic area is the generic FuchsianOrbifolds polygon-area API; the numerical test is
 -- area(Phi_2) = pi and area(Psi_2) = pi/2. No private area carrier is declared here.
 
-/-- The projective action is holomorphic; conjugation is an antiholomorphic reflection. -/
-example : ¬ DifferentiableAt ℂ (starRingEnd ℂ) 0 := by sorry
+-- TauCeti.ConformalPartII.TriangleSupergroup.reflection
+/-- Reflection in the imaginary axis preserves the half-plane and is antiholomorphic. -/
+example : ¬ ∃ g : PSL(2, ℝ), ∀ τ : ℍ,
+    ((g • τ : ℍ) : ℂ) = -(starRingEnd ℂ) (τ : ℂ) := by sorry
 end TriangleSupergroup
 
 lemma roots_shimizu_specialization (N : ℕ) (hN : 2 ≤ N) (g : SL(2, ℝ))
@@ -736,7 +792,7 @@ Define C(z)=i(1+z)/(1−z) on |z|<1 and C⁻¹(τ)=(τ−i)/(τ+i) on Im τ>0. T
 
 /- Specification: U0/cover-complex-structure
 Declaration: Complex charts on the topological cover
-Statement: For a connected open Ω⊆ℂ and a base point a∈Ω, put the unique complex one-dimensional manifold structure on the existing TauCeti.UniversalCover a for which its projection to Ω is a local biholomorphism. Use inverse covering sheets as charts, so transition functions are restrictions of the identity on Ω.
+Statement: Specialize TauCeti.UniversalCover.instChartedSpace, instIsManifold and isLocalDiffeomorph_proj in TauCeti.Geometry.Manifold.Instances.UniversalCover to complex plane domains. The underlying topology is the existing quotient topology. Lifted plane-coordinate transitions are restrictions of the identity. Uniqueness is compatibility of atlases. These current-library suppliers are unavailable at the pinned build; do not duplicate their generic construction here.
 API TauCeti.ConformalPartII.CoverComplexStructure.projection: The projection is the existing TauCeti.UniversalCover.proj.
 API TauCeti.ConformalPartII.CoverComplexStructure.chart: Each covering sheet gives a holomorphic chart by the base plane coordinate.
 API TauCeti.ConformalPartII.CoverComplexStructure.topologyComparison: The manifold topology equals the existing quotient topology of UniversalCover.
