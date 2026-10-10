@@ -1,112 +1,130 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
-## Current run: codex-0eBLPA, 10 October 2026
+## Current run: codex-Vv9CcG, 10 October 2026
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-0eBLPA`.
-Branch: `codex-0eBLPA-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097056546).
+Worker: Codex (GPT-6), session `codex-Vv9CcG`.
+Branch: `codex-Vv9CcG-langlands-parameter-stacks`.
+Claim comment: [6097315128](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097315128).
+The bot confirmed this session's claim before research began. None of the
+manager's priority issues was in the 743-issue available-swarm listing; this
+was the first eligible focus package in WORKERS ordering. No second job was
+claimed.
 
-**Blocked; this is not a completed package.** The manager's priority issues
-were checked individually; none was available. The available-swarm listing
-contained 746 issues, with this package the first eligible focus job in the
-worker ordering. The bot confirmed the claim before research began. No second
-job was claimed.
+**Blocked: the package is incomplete.** Only this handoff is changed. The
+block is a mismatch between required consumer specifications and their
+suppliers, whose files this issue forbids changing. It is independent of
+whether a sufficiently specified prerequisite has been implemented and of
+the time available for this run.
 
-The obstruction is unchanged at the current read-only revisions recorded
-below. The LP packet, IHG packet, E5 suggested input, package README and
-package Suggested.lean have exactly the hashes in the inherited receipt
-table. A successful elaboration cannot discharge the missing signatures or
-correct the supplier's mathematical scope. The issue explicitly restricts
-changes to package outputs and this handoff and says to describe plan mistakes
-here. PROTOCOL sections 3, 13, 15 and 20 require adequate supplier contracts,
-faithful signatures and single ownership. The required owner changes fall
-outside this job. This stopping condition is a specification conflict, not
-missing implementation of a sufficiently specified prerequisite or lack of
-time for a long job.
+### Independently checked obstruction
 
-### Concrete repair contract for the generic invariant supplier
+The accepted LP review expressly accepts a target-level pass with eight
+planned, unclosed stages, retaining G1–G4, G6 and omitted enhanced signatures.
+The packet still has 79 nodes, 140 API items, 90 tests, five gaps and sixteen
+requests. Its acceptance does not assert the stronger completeness assumed
+by this package issue.
 
-The accepted IHG.0 definition uses identity-component invariants for a
-generalized reductive group. In contrast, current upstream IHG README
-section 0.7 explicitly supplies connected reductive applications, and its
-`InvariantCoordinateInput.ring` quantifies the conjugating point over the
-whole represented group. Passing `J = H ⋊ Q` to that definition gives
-`O[J^n]^J`, not the required `O[J^n]^H`. Passing only `H` instead changes the
-tuple space to `H^n` and loses the nonidentity component tuples. Neither
-substitution implements the accepted LP prescribed-projection fibre.
+At current upstream roadmap commit
+`e255659f8eb50cd472809d9d565c8f755acffd84`, IHG README §0.7 explicitly
+specifies connected reductive applications and whole-group invariants.
+`InvariantCoordinateInput.ring`, Suggested.lean lines 795–806, quantifies the
+conjugating point over the same represented Hopf group as the tuple entries.
+For J = H ⋊ Q this gives O[J^n]^J. LP's
+`LP2:semisimple-characters/reductive-pseudocharacters` instead requires
+O[J^n]^H and its Q-component idempotents. Substituting H into the existing
+input gives O[H^n]^H and loses nonidentity-component tuples. Neither
+substitution supplies the required consumer. The atlas IHG accepted packet
+still promises identity-component invariants and reconstruction up to
+identity-component conjugacy; it has not been reconciled with this narrower
+upstream contract. These IHG files and the AlgebraicVectorBundles and
+ReductiveGroups READMEs have no diff from the inherited upstream revision
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
 
-The smallest useful owner repair must separate the represented tuple group
-from the acting identity component. For noetherian coefficient ring O and
-generalized reductive J, supply J's coordinate Hopf algebra, the closed
-subgroup J⁰ and its inclusion, and the subalgebra of `O[J^n]` fixed under
-simultaneous conjugation by J⁰. Define its invariance over every commutative
-O-algebra, retaining nonreduced test points. Supply actual regular-function
-evaluation, coordinate reindexing and ordered multiplication with their
-evaluation equations. For a split finite-Q semidirect product, expose the
-component idempotents and their evaluation at the component projection.
-Then state reconstruction with J⁰-conjugacy and the algebraically closed-field
-hypotheses of Quast Theorem 3.7 (p.13). This is an extension of the generic IHG
-owner; LP should import it and impose its eta-fibre rather than duplicate it.
+Freshly read [Quast's author-hosted v1](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
+Definition 3.1 (p.11), Lemma 3.5 (pp.12–13), Theorem 3.7 and the initial
+reconstruction argument (pp.13–14). They require invariants and conjugacy by
+the identity component. Freshly read
+[Fargues–Scholze's author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+Propositions VIII.3.5–VIII.3.8 (pp.288–290), including the proofs on these
+pages. The parameter presentation uses H-conjugation on (H ⋊ Q)^n and
+retains the prescribed Q-projection; VIII.3.8 separately checks condensed
+continuity. The source files' hashes match the inherited receipts:
+Quast `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`;
+FS `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
 
-Use these three discriminating checks when repairing that supplier:
+The existing rational fixture makes this distinction concrete: with
+J = G_m ⋊ C₂ and inversion action, the two trivial-projection Z-lifts with
+generator values 2 and 1/2 are J-conjugate and not H-conjugate. The regular
+function (x,0) in Q[x,x⁻¹] × Q[x,x⁻¹] is H-invariant and distinguishes
+them; whole-J conjugation changes its restriction on the identity component
+to x⁻¹. The component idempotent (1,0) evaluates to 1 on both. Thus imposing
+the projection after taking whole-J invariants cannot restore the required
+H-conjugacy classification. No new formalized invariant-algebra construction
+is claimed by this run.
 
-1. For connected J, recover the existing whole-group invariant coordinate
-   algebra and the same evaluation, reindexing and multiplication maps.
-2. For `J = G_m ⋊ C₂` with inversion action over ℚ, the regular function
-   `(x,0)` in `ℚ[x,x⁻¹] × ℚ[x,x⁻¹]` belongs to the identity-component
-   invariant algebra but fails whole-J invariance. It evaluates to 2 and 1/2
-   on the two trivial-projection lifts of Z already in the package fixtures.
-3. In that same example, the component idempotent `(1,0)` evaluates to 1 on
-   both lifts. Thus imposing the projection on whole-J invariants cannot
-   recover the lost distinction between their H-conjugacy classes. Keep the
-   existing proof that they are J-conjugate and not H-conjugate.
+The second obstruction is also directly present in the unchanged E5
+suggested input. Lines 77–81 give `SymMonInftyCat` only `True` fibration and
+Segal fields; lines 104 and 199 define `CAlg` and `AnimatedAlg` as `Unit`;
+line 145 makes `IndInfty` a proof of `True`. These do not state the enhanced
+objects needed by LP's derived parameter stack, coherent categorical Hecke
+datum, good-filtration t-structure, induced perfect complexes, mapping
+approximation or universal representation bundle. Re-read all eight LP
+library-audit entries and the exact statements/prerequisites/APIs of those
+consumers. Read the current AlgebraicVectorBundles and ReductiveGroups
+READMEs in full. AlgebraicVectorBundles L0–L2 supply ordinary scheme sheaves
+and total spaces; they do not supply these derived quotient-stack categories.
+A limited current native-library search for `DerivedParameterStack`,
+`ProjectedPseudocharacter`, `SymMonInftyCat`, `AnimatedAlg`, `IndInfty` and
+`InvariantCoordinateInput` found none; this is not a comprehensive audit.
+Native Tau Ceti revision: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Both read-only trees were left untouched.
 
-These tests identify the mathematical distinction; the inherited fixtures
-are unchanged and no new generic implementation is claimed. Quast
-Definition 3.1 (p.11), Lemma 3.5 (pp.12–13) and Theorem 3.7 (p.13) were
-freshly read from the author PDF. Fargues–Scholze Proposition VIII.3.7
-(pp.288–289) uses the same H-conjugation tuple quotient, and Proposition
-VIII.3.8 (p.290) keeps H-conjugacy in its classification. Both fresh downloads
-match the inherited source SHA-256 receipts. The coefficient convention
-preceding Definition VIII.1.1 (p.278) and the matrix description (p.279)
-require finite-type Z_l-module values on inertia as well as continuity; the
-current connected, profinite, rank-one-valued IHG continuity contract does
-not state this finite-Q condensed extension.
+### Required next action and completion gates
 
-The other owner repair remains necessary: E5's `SymMonInftyCat` has `True`
-fibration/Segal conditions, `CAlg` and `AnimatedAlg` are `Unit`, and
-`IndInfty` is `True`. These are insufficient interfaces for the accepted
-derived-stack, coherent Hecke, IndPerf and universal-bundle signatures.
-The current AlgebraicVectorBundles roadmap, read in full with ReductiveGroups,
-develops ordinary scheme sheaves and vector bundles; its L0–L2 do not extend
-those signatures to derived quotient stacks. The retained worklist below
-identifies the exact owners and missing signature families.
+The issue limits edits to the three package files and this handoff, and
+requires plan mistakes to be described here. PROTOCOL §§3, 13, 15 and 20
+require adequate supplier statements, honest signatures and single ownership.
+The next substantive step requires owner-authorized changes:
 
-### Fresh validation in this run
+1. Extend the generic invariant supplier to separate the tuple group J
+   from its acting closed subgroup J⁰. Supply actual coordinate coactions,
+   invariants over every test algebra, regular evaluation, reindexing,
+   ordered multiplication, component idempotents and reconstruction with
+   J⁰-conjugacy. Recover the existing connected case, and retain the
+   inversion example above as a distinguishing test. Reconcile LP's import
+   and IHG's field-GIT edges without introducing a second generic owner.
+2. Replace the E5 placeholder contracts with honest enhanced interfaces,
+   and reconcile their SF.1/S.1 dependencies. The exact missing LP API/test
+   inventory and the remaining finite-Q condensed-continuity and
+   highest-weight needs are retained below. Ordinary categorical substitutes
+   do not discharge these signatures.
+3. Then reconcile all 79 LP targets, 140 APIs and 90 tests, run the full Lean
+   check, keep the README within 200 KB and add `metadata.toml` with
+   `topic = "math.NT"` only when the package is complete.
 
-- Read-only upstream roadmap revision:
-  `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; native Tau Ceti revision:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither tree was changed.
-- Read all eight LP library-audit entries and the exact LP/IHG consumer and
-  supplier statements involved in the obstruction. The LP acceptance text
-  expressly retains G1–G4, G6 and omitted enhanced signatures.
-- Both LP and IHG `check_blueprint.py` checks: exit 0, zero errors and
-  warnings. LP still has 79 targets, 140 API entries, 90 tests, five gaps,
-  sixteen requests and eight planned, unclosed stages.
+The metadata file remains absent: `issues.deliverables_complete` first
+checks existence of every output and has no package-semantic branch, so
+adding the last output would misclassify this checkpoint as complete.
+Maintainer routing of these owner repairs is needed before another package
+attempt can satisfy the current issue. No owner move or repair was made.
+
+### Fresh validation
+
+- LP and IHG `scripts/check_blueprint.py`: both exit 0, zero errors and
+  warnings. Structural validation does not resolve the above contracts.
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
   exit 0, zero errors, 291 warnings, all `declaration uses sorry`.
-  Available memory before elaboration: 105 GB. The check finished; no Lean
-  process was left running. It used the managed Mathlib 082e2d3 baseline.
-- Scoped intake file check: one authorized handoff, zero problems.
-  `git diff --check` passes.
-- No source passage or private source file was copied into the repository.
-  No additional source erratum, ownership move or supplier fix is asserted.
-
-Only this handoff is changed. Metadata remains absent so the incomplete
-package is not misclassified as complete by the existence-based package
-intake. The repair contract above and all inherited resumption information
-are in this file; no scratch artifact is needed by the next worker.
+  Available memory before compilation: 104 GB. The process finished.
+  This is the managed Mathlib 082e2d3 / Tau Ceti f790474 elaboration build,
+  distinct from the current read-only source revisions above.
+- LP packet, IHG packet, E5 input and both package artifacts retain exactly
+  the bytes and SHA-256 values in the inherited table below.
+- Scoped intake file check and `git diff --check`: passed.
+- No source excerpt, private source file, local path, library mutation,
+  language server, Lake build/update/cache command or background compile
+  is part of this submission. All required resumption information is in
+  this handoff; no scratch artifact is needed.
 
 ## Inherited checkpoint and resumption detail
 
