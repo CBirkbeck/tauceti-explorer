@@ -1,14 +1,16 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-A8IfeO`, 10 October 2026.
-Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100114306).
-Fresh bounded source checks support the corrections, and current-library
-declarations sustain PMIA's needs_changes verdict. The two issue-named
-reviews are replaced, preserving their whole predecessors. The completion
-check also requires reviews in two packets omitted from the live issue.
-Explicit authorization for those prepared records has not arrived: this is
-a blocked checkpoint. The final section and handoff give the exact remaining
-action. Earlier audits and compilation results keep their original attribution.
+Latest continuation: Codex, session `codex-9AETdN`, 10 October 2026.
+Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100337611).
+Fresh bounded source and library readings support L3's correction and retain
+PMIA's `needs_changes` verdict. All four packet checks pass. Fresh sequential
+Lean checks pass for L3-2, D.1 and PMIA with only `sorry` warnings; L3 stops
+before body elaboration at the shared build's unresolved `research` import.
+The issue-named reviews preserve their complete predecessors. Completion
+also requires receipts in L3-2 and D.1, omitted from the live issue; explicit
+authorization for those prepared review-only updates has not arrived. This
+is a blocked checkpoint; the last section and handoff give the exact repair.
+Earlier exhaustive audits keep their original attribution.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -800,3 +802,124 @@ scope or explicit authorization, installation of the two bounded records
 with complete prior audits preserved, passing packet/intake checks and a
 **True** result from the actual completion predicate. Another full source
 audit is unnecessary for that dispatch repair.
+
+## Continuation by codex-9AETdN: fresh checks and prepared receipts
+
+I did none of fixer `claude-6ZAIEy`'s work. After the bot confirmed my claim,
+I reread the whole issue and all six findings, verification and round-2 fix
+report. The previous full packet and baseline audits remain attributed to
+those reviewers; this session checks the selected correction contracts and
+newer native-library boundary. It does not claim another exhaustive audit of
+the 1,663-node L3 or 487-node PMIA packets.
+
+**/1 accepted, with its existing supplier limits.** Fresh readings of Morita
+§1, Lemma 1/Theorem 1 pp.255–256, Gross–Koblitz §1 (1.2), (1.5), Theorem 1.7
+pp.570–571, and Robert 2001 Theorem 4 and estimates pp.167–168 support the
+selected contracts. I inspected the formula images. Retain the strict signed
+product, native unit-valued continuous extension, both recurrence branches,
+buffered dyadic precision, negative Gauss convention and integral chosen-root
+normalization. The original odd-prime/nonzero range and the separate all-prime
+Robert route stay distinct; RD.6's coefficient bounds and trace splitting
+remain obligations. At Mathlib `082e2d3`, I read `PadicInt.isUnit_iff`,
+`PadicInt.denseRange_natCast` and `ContinuousMap.unitsOfForallIsUnit`, including
+the latter's complete normed-ring hypotheses. Their selected uses match.
+
+**/2 supported; L3-2 receipt prepared.** Fresh Zhao §1.2 p.461, Theorem 4.1
+and (4.1)–(4.6) pp.471–473, Appendices A–B pp.473–474 readings match the seven
+Ferrero–Greenberg contracts. Preserve primitive odd chi, conductor N>1 prime
+to p, compatible embeddings/logs and the chi-omega branch including p=2.
+Use the actual character weights and retain the general correction term;
+chi(p)=1 is needed to remove it. Strict counts give the unshifted Gamma
+endpoint. Coefficient bounds and limits precede differentiation. E37, five
+gaps and eight requests stay intact. The prepared receipt archives the whole
+preceding 79-entry independent audit and accepts these bounded corrections,
+without certifying nonvanishing, a simple zero or supplier closure.
+
+**/3 supported; D.1 receipt prepared.** Fresh EN v2 §§2.1–2.2 pp.4–8,
+Theorem 2.2 p.7, CN v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and NN v5
+Remark 2.14 p.14/Proposition 4.13 pp.53–54 readings match the four consumer
+contracts listed above. Retain distinct divided and undivided fibres,
+omega's legs (p^r,id), tau's legs (id,p^r), their scalar composites,
+factorial-modified twist, exact divided range 0≤i≤r≤p−2, bounded undivided
+comparison and rational boundary scaling/sign. CS.0–CS.3 remain proposed
+external producers; CP.4 is the proper rational anchor. The prepared receipt
+archives the entire preceding 72-entry independent audit and leaves nine gaps,
+twenty requests, seventeen source issues and eight planned stages unchanged.
+
+**/4 needs_changes for current native reuse.** Fresh DK v3 §§2.2–2.3
+pp.15–18, Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40 and Appendix B.2 pp.93–94
+readings support the image order, inverse-character target, positive square
+size, regular determinant and right-adjugate preimage repair. At the programme
+pins I also read both Mathlib adjugate identities and Tau Ceti's actual
+opposite-module transpose carrier. At current Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, the four declarations in the native
+reuse table above supply generic Fitting ideals, unrestricted commutative base
+change and stable equivalence for projective presentations. The kernel
+comparison requires a surjection onto the intended module; the stable theorem
+requires exactness and both surjections and has opposite-ring targets.
+
+Migrate `higher-fitting-ideal`, `relation-minors-add-generator`,
+`higher-fitting-independence`, `higher-fitting-base-change` and
+`transpose-stable-equivalence` coherently to native imports and necessary
+adapters. Synchronize consumers, both StableReduction requests, L4, reader and
+suggested interfaces. Retain non-generating-family and deficient-relation
+controls, arithmetic order calculations, contragredient scalar/factor-order
+transport and nonflat tests. Newer declarations must not be attributed to the
+old pin. The reader is outside this review's permitted files, so a partial
+migration would leave inconsistent contracts; the required coherent revision
+is specified instead. Current TauCetiRoadmap commit
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`, StableReduction's inventory/progress
+and the QuiverRepresentations roadmap agree with this ownership boundary.
+
+**/5 restricted routing retained; /6 rejection retained.** Read current LAD's
+chosen compact-complex and finite-window perfectness contracts and explicit
+derived-numerical/homotopy comparison and classical/solid gaps. They sustain
+the restricted routing already reviewed; this session makes no fresh BCGP
+source audit claim. RS-16's accepted I.5 decision deliberately retains the
+historical Hecke/congruence route independently of the cyclotomic Euler-system
+route. The verifier's rejection of the duplicate-work allegation remains
+correct. Neither LAD nor RS-16 was edited.
+
+### Fresh validation and scope boundary
+
+The eight public PDFs listed in the source-version table were freshly fetched
+on 10 October 2026 and have exactly the same SHA-256 hashes. All source
+readings were in scratch; no book copy was used. This report states the
+contract consequences in my own words, rather than reproducing source prose.
+All four packets contain zero `excerpt` fields.
+
+Finite controls passed: 260 strict-product recurrence evaluations, 260 strict
+counts, 90 buffered congruence pairs and 81 two-sided 2×2 adjugate controls.
+The dyadic unbuffered congruence, inclusive endpoint and transposed-cofactor
+counterexamples were retained. These checks are finite falsification controls,
+not proofs of the general contracts.
+
+All four packet checkers report zero errors. L3 retains 26 inherited short-API
+warnings; the other three have none. Fresh sequential `lean-check` results:
+
+| Suggested file | Result |
+| --- | --- |
+| L3 | Exit 1 at unknown module prefix `research`, before body elaboration. |
+| L3-2 | Exit 0; 111 `sorry` warnings, no other diagnostics. |
+| D.1 | Exit 0; 307 `sorry` warnings, no other diagnostics. |
+| PMIA | Exit 0; 1,075 `sorry` warnings, no other diagnostics. |
+
+No Lean source changed, library build or language server was started, or
+compilation left running. Whole-object equality checks preserve every field
+except `review`/`reviewHistory`; each replaced review is archived intact,
+including all pre-existing history. L3 and PMIA's permitted records were
+installed. The concrete L3-2 and D.1 records remain uninstalled pending scope
+authorization, with the entire original 79/72-entry audits preserved in the
+prepared patches.
+
+WORKERS.md says: “Edit only the files the issue names, plus your own scratch
+space.” The live issue omits those two packets while `queue.json` and the
+actual `issues.deliverables_complete` require this job's reviewer in both.
+Explicit user authorization was requested and has not arrived; elapsed time
+is not permission. The actual completion predicate returns **False**. A
+read-only path adapter substituting only the two prepared records returns
+**True**; those records also pass their packet checkers in scratch. PMIA's
+negative verdict completes its review portion and is not the dispatch blocker.
+Intake screening reports four files and zero problems; `git diff --check`
+passes. This is a blocked checkpoint. The handoff contains the exact
+reconstruction recipe so scope repair needs no repetition of the source audit.
