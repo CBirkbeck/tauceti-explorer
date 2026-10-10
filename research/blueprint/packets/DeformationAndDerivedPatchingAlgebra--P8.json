@@ -87,6 +87,27 @@
         "module": "Mathlib/RingTheory/Artinian/Ring.lean",
         "provides": "The Jacobson radical of a left Artinian ring is nilpotent. A uniform cardinality bound still needs a finite-code argument; this theorem alone supplies no uniform exponent.",
         "checked": "Actual declaration and ambient hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10. Elaborated against that pinned build; presence alone is not the comparison."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "For any variable type and semiring coefficients, the constant-term ring homomorphism lands in the coefficient ring. No finiteness or Noetherian hypothesis.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent reviewer on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.constantCoeff_C",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The constant coefficient of the constant power series C a is a. In particular augmenting group/framing variables retains every coefficient in Λ; no new P8 theorem is needed.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent reviewer on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:CochainComplex.isKProjective_of_projective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Homology/HomotopyCategory/KProjective.lean",
+        "provides": "For an integer-indexed cochain complex in an abelian category, IsStrictlyLE d and projectivity of every term imply K-projectivity. A bounded finite free ModuleCat complex meets these hypotheses. K-flatness and relative derived tensor are separate supplier contracts.",
+        "checked": "Actual declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by independent reviewer on 2026-10-10."
       }
     ]
   },
@@ -136,7 +157,7 @@
       "sha256": "fe1871f0fbb520d0e42feea515f790812f43c641b5c0f8a9c27ab9e7d58af23a",
       "accessed": "2026-10-10",
       "readSections": [
-        "§2.2, Lemma 2.3 and Proposition 2.4, pp.6–7; Lemma 2.5, p.7; Lemma 2.13 and proof, pp.11–12"
+        "§2.2, Lemma 2.3 and Proposition 2.4, pp.6–7; Lemma 2.5, p.7; Lemma 2.13 and proof, pp.11–12; Lemma 2.14 and proof, p.12"
       ]
     },
     {
@@ -148,7 +169,8 @@
       "accessed": "2026-10-10",
       "readSections": [
         "Complete two-page correction; especially items (1) and (10)."
-      ]
+      ],
+      "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7"
     }
   ],
   "nodes": [
@@ -176,7 +198,7 @@
         {
           "sourceId": "GN",
           "locator": "Definition 2.2.5 and Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Bounded-complexity minimal free representatives and their finite matrix codes motivate this based encoding. The named structure is our native formulation, not a definition named in GN."
         }
       ],
       "library": {
@@ -255,7 +277,7 @@
         {
           "sourceId": "GN",
           "locator": "Definition 2.2.5, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN uses bounded free complexes. This interpretation of their chosen matrices on the existing Mathlib carrier is a formalization interface."
         }
       ],
       "library": {
@@ -296,6 +318,11 @@
           "name": "TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra.P8.presentation_complex_shape",
           "kind": "computation",
           "statement": "The native differential from i to i+2 is zero."
+        },
+        {
+          "name": "TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra.P8.presentation_complex_unit_disk",
+          "kind": "non-example",
+          "statement": "Over F₂, for the two-term rank-one presentation with d₀=1, the native map complex.d 0 1 is nonzero. A constructor that erases every differential fails this test."
         }
       ],
       "uses": [
@@ -335,7 +362,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.3, p.1054; Remark 6.4.6, p.1055",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC reduces minimal free representatives along finite quotient maps; entrywise coefficient change realizes that operation. Its derived interpretation uses the separate P7 contract."
         }
       ],
       "library": {
@@ -417,7 +444,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.2, p.12",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN identifies the localization of a product of finite local rings with the chosen coefficient ring. The finite-value germ formulation works for any finite commutative ring by the fibre-selection proof given here; locality is only needed for localization."
         }
       ],
       "library": {
@@ -497,8 +524,13 @@
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Definition 6.4.7 and Proposition 6.4.10(1), p.1056; GN Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Definition 6.4.7 and Proposition 6.4.10(1), p.1056",
+          "match": "ACC defines the localized-product finite patch and proves it perfect. The matrix construction represents this patch after selecting common based representatives."
+        },
+        {
+          "sourceId": "GN",
+          "locator": "Remark 2.2.8, p.13",
+          "match": "The finite-code stabilization of minimal based representatives supports this entrywise formulation of the localized-product patch."
         }
       ],
       "library": {
@@ -588,7 +620,7 @@
         {
           "sourceId": "ACC",
           "locator": "§6.4.1, pp.1053–1054",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The complete-local rings, framed group coefficients, augmentation maps, nilpotent Hecke errors and paired residual diagrams are the input system of §6.4.1. The typed core omits exactly the interfaces enumerated in prototypeCoverage."
         }
       ],
       "library": {
@@ -668,7 +700,7 @@
         {
           "sourceId": "GN",
           "locator": "Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Finite based matrix codes are used here; equality of the encoding follows by structure extensionality. GN does not state a separate extensionality theorem."
         }
       ],
       "library": {
@@ -701,7 +733,7 @@
         {
           "sourceId": "GN",
           "locator": "Definition 2.2.5, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The representative terms are finite free modules. Chosen coordinate equivalences are the native interface for those representatives."
         }
       ],
       "library": {
@@ -734,7 +766,7 @@
         {
           "sourceId": "GN",
           "locator": "Definition 2.2.5, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Chosen matrices of the finite free representatives yield this matrix-to-native-differential compatibility statement."
         }
       ],
       "library": {
@@ -767,7 +799,7 @@
         {
           "sourceId": "GN",
           "locator": "Definition 2.2.5, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The sources use ordinary cochain complexes with successor differentials; the nonsuccessor zero statement follows from the native CochainComplex.of constructor."
         }
       ],
       "library": {
@@ -800,7 +832,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.3, p.1054",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC uses coefficient reductions of minimal representatives; the entry formula is a consequence of the chosen matrix construction."
         }
       ],
       "library": {
@@ -834,7 +866,7 @@
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.6, p.1055",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Compatibility of reductions is realized by identity coefficient change; this entrywise identity is a consequence of the native encoding."
         }
       ],
       "library": {
@@ -869,7 +901,7 @@
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.6, p.1055",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Compatibility of successive reductions is realized by compositional coefficient change; the proof is entrywise functoriality."
         }
       ],
       "library": {
@@ -902,7 +934,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.2, p.12",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The proof selects a single value on the ultrafilter-large fibre of a finite-valued function."
         }
       ],
       "library": {
@@ -936,7 +968,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.2, p.12",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Mapping the selected finite fibre proves this naturality consequence; it is not a separate numbered theorem in GN."
         }
       ],
       "library": {
@@ -969,7 +1001,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.7, p.1056",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "This is the coordinate formula for our based version of ACC’s localized-product construction."
         }
       ],
       "library": {
@@ -1003,7 +1035,7 @@
         {
           "sourceId": "GN",
           "locator": "Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Finite matrix-code selection fixes a constant family. This is a direct consequence of the based formulation."
         }
       ],
       "library": {
@@ -1038,7 +1070,7 @@
         {
           "sourceId": "GN",
           "locator": "Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The chosen ultrafilter only sees the large-set representative code; eventual equality therefore preserves every patched entry."
         }
       ],
       "library": {
@@ -1074,7 +1106,7 @@
         {
           "sourceId": "GN",
           "locator": "Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN’s finiteness of bounded minimal representatives over a finite coefficient ring is expressed here as finiteness of based square-zero matrix codes."
         }
       ],
       "library": {
@@ -1108,7 +1140,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.6 and Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Uniform degree/rank bounds give finitely many profiles. Selecting one profile is a finite ultrafilter consequence of bounded complexity."
         }
       ],
       "library": {
@@ -1145,7 +1177,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.3, p.1054",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC fixes minimal models whose term ranks are determined by the common residual cohomology; P7 supplies the minimality-to-rank identification."
         }
       ],
       "library": {
@@ -1167,7 +1199,7 @@
       "hypotheses": [],
       "proofSteps": [
         "The standard p^N group quotient has relations (1+z_i)^(p^N)−1; these tend to zero in the (π, coefficient, group, frame)-adic topology.",
-        "The map to Δ_N factors through the standard p^N quotient, so its kernel is contained in that standard kernel.",
+        "The inclusion ker(Z_p^h→Δ_N)⊂p^N Z_p^h gives a quotient map Δ_N→Z_p^h/p^N Z_p^h. The standard coefficient map factors through T[Δ_N], so the Δ_N kernel is contained in the standard kernel.",
         "Use the complete local topology to find a sufficiently small standard kernel inside J; intersect with the fixed cofinite ultrafilter."
       ],
       "acceptance": [
@@ -1181,7 +1213,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.3, p.1054",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The open-level index set in ACC is cofinite because the Δ_N kernel lies inside p^N Z_p^h. The explicit group-quotient estimate belongs to the requested R03.1 interface."
         }
       ],
       "library": {
@@ -1218,7 +1250,7 @@
         {
           "sourceId": "GN",
           "locator": "Remark 2.2.8, p.13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN selects one of finitely many minimal representative types on a large set. Chosen bases refine this to equality of matrix codes."
         }
       ],
       "library": {
@@ -1256,7 +1288,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.2, p.12",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN’s product-localization identification is stated with finite characteristic-p local coefficients. The displayed idempotent/kernel proof extends it to any finite commutative local coefficient ring; this extension is explicit."
         }
       ],
       "library": {
@@ -1292,7 +1324,7 @@
         {
           "sourceId": "GN",
           "locator": "Lemma 2.2.2 and Remark 2.2.8, pp.12–13",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "GN’s localized products of fixed-rank free terms identify with the original free module. Finite coordinate evaluation gives the native linear equivalence."
         }
       ],
       "library": {
@@ -1331,7 +1363,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.10(4), p.1057",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC’s finite patch commutes with coefficient reduction. In fixed based coordinates this follows entrywise from finite-evaluation naturality, without a flatness assumption."
         }
       ],
       "library": {
@@ -1365,7 +1397,7 @@
         {
           "sourceId": "ACC",
           "locator": "Definition 6.4.7, p.1056",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The construction uses a nonprincipal ultrafilter and ignores the finite complement of the cofinite admissible level set. This consequence requires F≤cofinite."
         }
       ],
       "library": {
@@ -1402,8 +1434,13 @@
       "sources": [
         {
           "sourceId": "GN",
-          "locator": "Remark 2.2.8, p.13; ACC Proposition 6.4.10(3), p.1057",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Remark 2.2.8, p.13",
+          "match": "GN’s finite representative selection gives an isomorphism type on a large set. Selection of isomorphism matrices and their inverses makes the based comparison explicit."
+        },
+        {
+          "sourceId": "ACC",
+          "locator": "Proposition 6.4.10(3), p.1057",
+          "match": "Finite augmentation comparisons are an application; the chain-isomorphism selection here follows from the finite matrix codes."
         }
       ],
       "library": {
@@ -1425,7 +1462,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Encode graded chain endomorphisms by the finite product of r_i-square matrices; chain equations restrict that finite set.",
-        "Use P7 bounded-projective K-projectivity and the pinned Qh morphism bijection: every derived endomorphism has a chain representative, modulo homotopy.",
+        "Use the pinned bounded-above termwise-projective K-projectivity theorem and Qh morphism bijection: every derived endomorphism has a chain representative, modulo homotopy.",
         "A quotient of a finite set cannot have larger cardinality."
       ],
       "acceptance": [
@@ -1436,13 +1473,14 @@
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-native-complex",
         "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
         "DeformationAndDerivedPatchingAlgebra:P7",
-        "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image-finite"
+        "IntegralHeckeAndGaloisDeterminants:IHG.2/derived-hecke-image-finite",
+        "mathlib:CochainComplex.isKProjective_of_projective"
       ],
       "sources": [
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.4 and proof of Proposition 6.4.10(2), pp.1055–1057",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC bounds derived endomorphism spaces to control finite deformation quotients. The displayed cardinal bound counts graded matrices and then passes to chain maps modulo homotopy; it is an explicit refinement, not a quoted formula."
         }
       ],
       "library": {
@@ -1479,7 +1517,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.10(2),(5), pp.1056–1057",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC patches the finite Hecke images, nilpotent errors and deformation maps compatibly. Selecting the complete finite decoration code at once makes the compatibility argument explicit."
         }
       ],
       "library": {
@@ -1515,8 +1553,8 @@
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Definition 6.4.3 and Lemma 6.4.8, pp.1054,1056",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Definition 6.4.3 and Remark 6.4.8, pp.1054,1056",
+          "match": "Remark 6.4.8 identifies a common finite deformation source for all levels. Stabilizing its finitely many kernels expresses the localized quotient patch as A/K."
         }
       ],
       "library": {
@@ -1556,7 +1594,7 @@
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.4, p.1055",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Remark 6.4.4 gives a uniform maximal-ideal exponent by coefficient filtration and bounded ghosts. The alternative finite-code proof is supplied explicitly and uses locality and finite cardinality bounds."
         }
       ],
       "library": {
@@ -1593,7 +1631,7 @@
         {
           "sourceId": "CG",
           "locator": "Theorem 6.3 construction proof, PDF pp.91–92",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "CG’s construction chooses compatible finite decorated patch data. The existing cofiltered finite-system theorem is imported only after checking finite nonempty fibres and restrictions."
         }
       ],
       "library": {
@@ -1632,8 +1670,13 @@
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Definition 6.4.11 and Proposition 6.4.12(1), pp.1057–1058; KT Lemma 2.13(1), p.11",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Definition 6.4.11 and Proposition 6.4.12(1), pp.1057–1058",
+          "match": "ACC constructs the bounded free patched representative from its finite reductions. Entrywise adic completeness is the based version of this construction; minimal strictification is an imported contract."
+        },
+        {
+          "sourceId": "KT",
+          "locator": "Lemma 2.13(1), pp.11–12; Lemma 2.14, p.12",
+          "match": "The first result constructs the compatible free limit; the second passes from derived quotient identifications to compatible minimal representatives."
         }
       ],
       "library": {
@@ -1666,7 +1709,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.12(1), p.1058",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Finite generation of each native term follows directly from the standard finite free coordinates of the patched representative."
         }
       ],
       "library": {
@@ -1699,7 +1742,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.12(1), p.1058",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The source’s patched minimal representative has finite free terms over S∞. The assertion does not transfer freeness to R∞."
         }
       ],
       "library": {
@@ -1737,7 +1780,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.12(1), p.1058",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The finite representative support is retained by the patched minimal complex; together with termwise freeness it realizes the imported perfect-object definition."
         }
       ],
       "library": {
@@ -1773,7 +1816,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.12(1), p.1058",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "The source’s bounded finite free S∞ complex has finite cohomology by Noetherian cycles and quotient modules; concentration and faithfulness are later targets."
         }
       ],
       "library": {
@@ -1809,7 +1852,7 @@
         {
           "sourceId": "ACC",
           "locator": "Lemma 6.4.9(1) and Definition 6.4.11, pp.1056–1058",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC keeps the same error exponent at every finite quotient and defines the inverse-limit ideal. Jointly injective coordinate projections preserve the ideal-power equation."
         }
       ],
       "library": {
@@ -1847,8 +1890,13 @@
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Proposition 6.4.12(2), p.1058; KT Lemma 2.13(3), pp.11–12",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Proposition 6.4.12(2), p.1058",
+          "match": "Proposition 6.4.12(2) constructs the injective derived Hecke action using the Hom completion comparison. It is not a chain-level or solely cohomological action."
+        },
+        {
+          "sourceId": "KT",
+          "locator": "Lemma 2.13(3), pp.11–12",
+          "match": "Completion of homotopy morphisms, combined with bounded-projective localization, identifies the inverse-limit derived Hom carrier."
         }
       ],
       "library": {
@@ -1891,7 +1939,7 @@
         {
           "sourceId": "ACC",
           "locator": "Lemma 6.4.9(2) and Proposition 6.4.12(3), pp.1056,1058–1059",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC constructs the continuous deformation surjection onto the nilpotent-error quotient. Finite-system exactness and compactness justify the inverse-limit quotient and surjectivity."
         }
       ],
       "library": {
@@ -1928,7 +1976,7 @@
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.14, p.1059",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Remark 6.4.14 chooses the power-series scalar lift and explains compatible paired lifts through the residual fibre product. Choices and continuity remain explicit supplier conditions."
         }
       ],
       "library": {
@@ -1965,7 +2013,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.12(2),(3), pp.1058–1059",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "ACC provides only the derived Hecke action and deformation map to its error quotient. Composition with a separately supplied lift is our conditional consequence; the source does not provide this lift."
         }
       ],
       "library": {
@@ -1999,13 +2047,15 @@
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
         "DeformationAndDerivedPatchingAlgebra:P8/patched-support",
         "DeformationAndDerivedPatchingAlgebra:P7",
-        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data"
+        "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
+        "mathlib:MvPowerSeries.constantCoeff",
+        "mathlib:MvPowerSeries.constantCoeff_C"
       ],
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Proposition 6.4.10(3) and Lemma 6.4.16, pp.1057,1059–1060",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Proposition 6.4.10(3) and Proposition 6.4.16, pp.1057,1059–1060",
+          "match": "The finite augmentation comparison passes to the completed complex in Proposition 6.4.16. The target retains Λ; group-only augmentation retains framing variables."
         }
       ],
       "library": {
@@ -2017,41 +2067,6 @@
       "planet": {
         "name": "Derived augmentation"
       }
-    },
-    {
-      "id": "DeformationAndDerivedPatchingAlgebra:P8/augmentation-retains-coefficients",
-      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P8",
-      "realises": [
-        "DeformationAndDerivedPatchingAlgebra:P8"
-      ],
-      "title": "Coefficient variables survive augmentation",
-      "kind": "lemma",
-      "statement": "The full group/frame augmentation from Λ[[z_1,…,z_h,x_1,…,x_j]] to Λ sends each constant coefficient c∈Λ to c. If Λ itself has formal variables, they survive. Its target is O only in the specialization Λ=O. The node uses Mathlib constantCoeff rather than defining another augmentation map.",
-      "hypotheses": [],
-      "proofSteps": [
-        "Use the constant-term ring map in the finite-variable native power-series carrier.",
-        "Keep the coefficient ring parameter Λ independent of group and framing indices."
-      ],
-      "acceptance": [
-        "The full hypotheses and the conclusion above must be retained; finite coefficient change must agree with the native derived-category representative."
-      ],
-      "prerequisites": [
-        "mathlib:MvPowerSeries.isNoetherianRing",
-        "DeformationAndDerivedPatchingAlgebra:P8/derived-augmentation"
-      ],
-      "sources": [
-        {
-          "sourceId": "ACC",
-          "locator": "§6.4.1 and Lemma 6.4.16, pp.1053,1059–1060",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
-        }
-      ],
-      "library": {
-        "module": "TauCeti/Algebra/Patching/Complexes",
-        "namespace": "TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra.P8",
-        "declaration": "TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra.P8.augmentation_retains_coefficients"
-      },
-      "implementationStatus": "unchecked"
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra:P8/unframed-deformation-surjective",
@@ -2082,7 +2097,7 @@
         {
           "sourceId": "ACC",
           "locator": "Lemma 6.4.15, p.1059",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Lemma 6.4.15 factors the patched deformation map through the full scalar augmentation ideal and identifies the resulting surjection to R₀."
         }
       ],
       "library": {
@@ -2120,8 +2135,8 @@
       "sources": [
         {
           "sourceId": "ACC",
-          "locator": "Lemma 6.4.16, pp.1059–1060",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "locator": "Proposition 6.4.16, pp.1059–1060",
+          "match": "Proposition 6.4.16 gives augmentation compatibility after I₀ and the image of I∞. Both error quotients must be retained; full surjectivity onto T₀ is not supplied."
         }
       ],
       "library": {
@@ -2158,7 +2173,7 @@
         {
           "sourceId": "ACC",
           "locator": "Remark 6.4.13, p.1059",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Remark 6.4.13 compares choices through their common coherent finite quotient identifications. The Hom completion bijection gives the unique derived comparison, not arbitrary ultrafilter independence."
         }
       ],
       "library": {
@@ -2196,7 +2211,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.17(1), pp.1060–1061",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Proposition 6.4.17(1) compares the two patched residual complexes using their supplied finite residual isomorphisms and the same patching filter."
         }
       ],
       "library": {
@@ -2238,7 +2253,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.17(2), pp.1060–1061",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Proposition 6.4.17(2) identifies the images of the two patched Hecke algebras in the residual derived endomorphism ring."
         }
       ],
       "library": {
@@ -2276,7 +2291,7 @@
         {
           "sourceId": "ACC",
           "locator": "Proposition 6.4.17(3), pp.1060–1061",
-          "match": "The cited construction/proof supplies this patching step; the native-carrier formulation and proof outline are in our own words."
+          "match": "Proposition 6.4.17(3) identifies the residual deformation-induced cohomology actions after quotient by both residual error images. The finite diagrams give the compatible quotient-map formulation here."
         }
       ],
       "library": {
@@ -2325,7 +2340,7 @@
         {
           "sourceId": "CG",
           "locator": "Theorem 6.3 and construction proof, PDF pp.90–93",
-          "match": "The construction in CG Theorem 6.3 proof gives the compatible bounded free complex and cohomology actions. Our statement explicitly requires H finite so the inverse-limit recovery of H is justified; source issue E8 records the missing hypothesis in the checked text. The framed depth correction is recorded in E9 and belongs to the P9 consumer. The finite coefficient and framing quotient conventions are made explicit; E11–E13 record the corrections/additional input needed for the construction proof."
+          "match": "The construction part of Theorem 6.3 is retained, with the hypotheses corrected or strengthened as recorded in E8–E14. Actions at nonflat framing quotients are supplied data. Depth/support conclusions belong to P9."
         },
         {
           "locator": "Items (1),(10), pp.855–856",
@@ -2347,7 +2362,7 @@
   "requests": [
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
-      "need": "Supply exact native signatures for bounded-projective K-projectivity/K-flatness; derived tensor along coefficient maps with comparison to entrywise free representative change; strictification of minimal compatible quotient models; Hom_D and cohomology inverse-limit comparison over complete Noetherian local rings with finite Artinian quotients; exactness/quotient compatibility of finite Mittag–Leffler systems. KT Lemma 2.13(1)–(3), pp.11–12 and ACC Proposition 6.4.12 are the contracts. Existing minimality nodes are imported by id; do not re-plan them.",
+      "need": "Use Mathlib CochainComplex.isKProjective_of_projective for bounded-projective K-projectivity; supply exact native signatures for bounded-projective K-flatness; derived tensor along coefficient maps with comparison to entrywise free representative change; strictification of minimal compatible quotient models; Hom_D and cohomology inverse-limit comparison over complete Noetherian local rings with finite Artinian quotients; exactness/quotient compatibility of finite Mittag–Leffler systems. KT Lemma 2.13(1)–(3) and minimal strictification Lemma 2.14, pp.11–12 and ACC Proposition 6.4.12 are the contracts. Existing minimality nodes are imported by id; do not re-plan them.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P8/presentation-coefficient-change",
         "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
@@ -2437,7 +2452,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed hypotheses do not impose completeness on H. With H=Frac(O) every residual quotient vanishes, yet the asserted finite patched top module cannot equal H. Requiring finite H repairs this construction target.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E9",
@@ -2453,7 +2473,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof applies the depth calculation to the framed complex. The one-degree j=1 example distinguishes depths two and one, under the separate corrected finite-level convention; the missing framing mark is real.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E10",
@@ -2469,7 +2494,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The complete publisher correction restores double brackets in items (1) and (10). Finite-level group rings retain single brackets.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E11",
@@ -2485,7 +2515,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A complex over S_M/π^M cannot be reduced along an ordinary coefficient quotient to S_N/π^n when n>M. The one-degree test at n=N+1 disproves the unrestricted augmentation range. The construction uses the restricted range.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E12",
@@ -2501,7 +2536,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The lower-level datum extracted from D_M uses φ_M. The printed φ_N is undefined at N=0 and has the wrong level for the proof’s construction.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E13",
@@ -2517,7 +2557,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For A=O/π² and I=(z²,πz), the tensor of ker(π) is k[z]/z² with nonzero z action. The kernel after quotient is spanned by π and z with zero z action. Thus even the two modules are not isomorphic; this nonflat cohomology interchange requires extra input.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E14",
@@ -2533,7 +2578,12 @@
         "Author publication page https://math.uchicago.edu/~fcale/research.html, checked 2026-10-10.",
         "Publisher original listing and the complete two-page 2022 correction, DOI 10.1007/s00222-021-01095-5, read 2026-10-10. The correction concerns typesetting of brackets.",
         "arXiv 1207.4224 version metadata, checked 2026-10-10: v2 accepted version dated 16 July 2017. Findings concern the checked author-hosted journal PDF; no claim about an unseen revised original publisher PDF."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The zero input system meets the hypotheses, but its zero top cohomology has no claimed positive finite depth. A nonzero hypothesis is required for P9’s numerical conclusion.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P8"
+      }
     }
   ],
   "upstreamNotes": [
@@ -2559,7 +2609,7 @@
     }
   ],
   "prototypeCoverage": {
-    "native": "All six definition/construction nodes, their API and three tests each appear in the suggested file, together with the named lemma/theorem prototypes. Matrices are native free representatives; every named prototype is admitted. Precise source statements and supplied contracts in this packet remain definitive.",
+    "native": "All six definition/construction nodes, their API and at least three tests each appear in the suggested file, together with the named lemma/theorem prototypes. Matrices are native free representatives; every named prototype is admitted. Precise source statements and supplied contracts in this packet remain definitive.",
     "omissions": [
       {
         "declaration": "TauCetiRoadmap.DeformationAndDerivedPatchingAlgebra.P8.FinitePatchDatum",
@@ -2632,7 +2682,276 @@
       "kind": "published",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01095-5.pdf",
       "citation": "Inventiones mathematicae 227 (2022), 855–856, published 31 December 2021; publisher PDF",
-      "read": "2026-10-10"
+      "read": "2026-10-10",
+      "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P8",
+    "date": "2026-10-10",
+    "notes": "Independently checked every node, all original eleven baseline declarations, three added baseline declarations, source versions, E8–E14, supplier statements, APIs/tests and the current upstream duplication boundary. Corrected cofinality direction and source attributions, removed the already-library coefficient-preservation node, imported existing K-projectivity, and strengthened native differential testing. The complete planning pass is accepted with its two explicit gaps and prototype omissions, not as closed or formalized. See the review report for the exact scope and checks.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/bounded-presentation",
+        "verdict": "verified",
+        "note": "Bounded-complexity minimal free representatives and their finite matrix codes motivate this based encoding. The named structure is our native formulation, not a definition named in GN. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-native-complex",
+        "verdict": "corrected",
+        "note": "Added a nonzero native differential disk test; the original zero/coordinate/shape tests permitted an erased-differential constructor."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-coefficient-change",
+        "verdict": "verified",
+        "note": "ACC reduces minimal free representatives along finite quotient maps; entrywise coefficient change realizes that operation. Its derived interpretation uses the separate P7 contract. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-coefficient-germ",
+        "verdict": "verified",
+        "note": "GN identifies the localization of a product of finite local rings with the chosen coefficient ring. The finite-value germ formulation works for any finite commutative ring by the fibre-selection proof given here; locality is only needed for localization. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatching-of-perfect-complexes",
+        "verdict": "corrected",
+        "note": "Separated ACC and GN locators; matrix patch interpretation depends on chosen common based representatives."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-level-patching-data",
+        "verdict": "verified",
+        "note": "The complete-local rings, framed group coefficients, augmentation maps, nilpotent Hecke errors and paired residual diagrams are the input system of §6.4.1. The typed core omits exactly the interfaces enumerated in prototypeCoverage. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-ext",
+        "verdict": "verified",
+        "note": "Finite based matrix codes are used here; equality of the encoding follows by structure extensionality. GN does not state a separate extensionality theorem. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-coordinates",
+        "verdict": "verified",
+        "note": "The representative terms are finite free modules. Chosen coordinate equivalences are the native interface for those representatives. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-differential",
+        "verdict": "verified",
+        "note": "Chosen matrices of the finite free representatives yield this matrix-to-native-differential compatibility statement. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/presentation-shape",
+        "verdict": "verified",
+        "note": "The sources use ordinary cochain complexes with successor differentials; the nonsuccessor zero statement follows from the native CochainComplex.of constructor. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/coefficient-change-entry",
+        "verdict": "verified",
+        "note": "ACC uses coefficient reductions of minimal representatives; the entry formula is a consequence of the chosen matrix construction. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/coefficient-change-identity",
+        "verdict": "verified",
+        "note": "Compatibility of reductions is realized by identity coefficient change; this entrywise identity is a consequence of the native encoding. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/coefficient-change-composition",
+        "verdict": "verified",
+        "note": "Compatibility of successive reductions is realized by compositional coefficient change; the proof is entrywise functoriality. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-germ-fibre",
+        "verdict": "verified",
+        "note": "The proof selects a single value on the ultrafilter-large fibre of a finite-valued function. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-germ-naturality",
+        "verdict": "verified",
+        "note": "Mapping the selected finite fibre proves this naturality consequence; it is not a separate numbered theorem in GN. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-entry",
+        "verdict": "verified",
+        "note": "This is the coordinate formula for our based version of ACC’s localized-product construction. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-constant",
+        "verdict": "verified",
+        "note": "Finite matrix-code selection fixes a constant family. This is a direct consequence of the based formulation. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-eventual-equality",
+        "verdict": "verified",
+        "note": "The chosen ultrafilter only sees the large-set representative code; eventual equality therefore preserves every patched entry. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/bounded-presentation-finite",
+        "verdict": "verified",
+        "note": "GN’s finiteness of bounded minimal representatives over a finite coefficient ring is expressed here as finiteness of based square-zero matrix codes. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/bounded-rank-pattern",
+        "verdict": "verified",
+        "note": "Uniform degree/rank bounds give finitely many profiles. Selecting one profile is a finite ultrafilter consequence of bounded complexity. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/residual-rank-profile",
+        "verdict": "verified",
+        "note": "ACC fixes minimal models whose term ranks are determined by the common residual cohomology; P7 supplies the minimality-to-rank identification. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/quotient-cofinal",
+        "verdict": "corrected",
+        "note": "Corrected the reversed quotient-map direction: Δ_N maps onto the standard p^N quotient, hence its coefficient kernel is smaller."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/stable-presentation",
+        "verdict": "verified",
+        "note": "GN selects one of finitely many minimal representative types on a large set. Chosen bases refine this to equality of matrix codes. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-product-localization",
+        "verdict": "verified",
+        "note": "GN’s product-localization identification is stated with finite characteristic-p local coefficients. The displayed idempotent/kernel proof extends it to any finite commutative local coefficient ring; this extension is explicit. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-module-coordinates",
+        "verdict": "verified",
+        "note": "GN’s localized products of fixed-rank free terms identify with the original free module. Finite coordinate evaluation gives the native linear equivalence. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-base-change",
+        "verdict": "verified",
+        "note": "ACC’s finite patch commutes with coefficient reduction. In fixed based coordinates this follows entrywise from finite-evaluation naturality, without a flatness assumption. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-cofinite",
+        "verdict": "verified",
+        "note": "The construction uses a nonprincipal ultrafilter and ignores the finite complement of the cofinite admissible level set. This consequence requires F≤cofinite. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultrapatch-eventual-isomorphism",
+        "verdict": "corrected",
+        "note": "Separated GN and ACC locators; finite selection includes both comparison and inverse chain matrices."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/finite-end-cardinal",
+        "verdict": "corrected",
+        "note": "Replaced the requested bounded-projective K-projectivity proof by the pinned Mathlib theorem; the matrix-to-homotopy cardinal argument is sound."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/stable-hecke-decoration",
+        "verdict": "verified",
+        "note": "ACC patches the finite Hecke images, nilpotent errors and deformation maps compatibly. Selecting the complete finite decoration code at once makes the compatibility argument explicit. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/ultra-deformation-quotient",
+        "verdict": "corrected",
+        "note": "Corrected Remark 6.4.8 attribution; finite-source kernel selection, not a varying-type Filter.Product algebra, justifies the node."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/uniform-deformation-exponent",
+        "verdict": "verified",
+        "note": "Remark 6.4.4 gives a uniform maximal-ideal exponent by coefficient filtration and bounded ghosts. The alternative finite-code proof is supplied explicitly and uses locality and finite cardinality bounds. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/compatible-patch-choices",
+        "verdict": "verified",
+        "note": "CG’s construction chooses compatible finite decorated patch data. The existing cofiltered finite-system theorem is imported only after checking finite nonempty fibres and restrictions. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/inverse-limit-presentation",
+        "verdict": "corrected",
+        "note": "Separated KT citation and added Lemma 2.14 for minimal strictification. The entrywise limit only requires coherent based reductions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-terms-finite",
+        "verdict": "verified",
+        "note": "Finite generation of each native term follows directly from the standard finite free coordinates of the patched representative. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-terms-free",
+        "verdict": "verified",
+        "note": "The source’s patched minimal representative has finite free terms over S∞. The assertion does not transfer freeness to R∞. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-support",
+        "verdict": "verified",
+        "note": "The finite representative support is retained by the patched minimal complex; together with termwise freeness it realizes the imported perfect-object definition. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-cohomology-finite",
+        "verdict": "verified",
+        "note": "The source’s bounded finite free S∞ complex has finite cohomology by Noetherian cycles and quotient modules; concentration and faithfulness are later targets. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-error-nilpotent",
+        "verdict": "verified",
+        "note": "ACC keeps the same error exponent at every finite quotient and defines the inverse-limit ideal. Jointly injective coordinate projections preserve the ideal-power equation. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-hecke-injective",
+        "verdict": "corrected",
+        "note": "Separated KT Hom completion attribution; injection is into native derived endomorphisms, not chain endomorphisms."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-deformation-surjective",
+        "verdict": "verified",
+        "note": "ACC constructs the continuous deformation surjection onto the nilpotent-error quotient. Finite-system exactness and compactness justify the inverse-limit quotient and surjectivity. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-scalar-lift",
+        "verdict": "verified",
+        "note": "Remark 6.4.14 chooses the power-series scalar lift and explains compatible paired lifts through the residual fibre product. Choices and continuity remain explicit supplier conditions. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/deformation-derived-action-of-lift",
+        "verdict": "verified",
+        "note": "ACC provides only the derived Hecke action and deformation map to its error quotient. Composition with a separately supplied lift is our conditional consequence; the source does not provide this lift. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/derived-augmentation",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 6.4.16 attribution and cited existing constantCoeff/constantCoeff_C for coefficient preservation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/unframed-deformation-surjective",
+        "verdict": "verified",
+        "note": "Lemma 6.4.15 factors the patched deformation map through the full scalar augmentation ideal and identifies the resulting surjection to R₀. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/augmentation-hecke-error",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 6.4.16 attribution and verified that both error images are retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/transition-choices-comparison",
+        "verdict": "verified",
+        "note": "Remark 6.4.13 compares choices through their common coherent finite quotient identifications. The Hom completion bijection gives the unique derived comparison, not arbitrary ultrafilter independence. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/residual-complex-comparison",
+        "verdict": "verified",
+        "note": "Proposition 6.4.17(1) compares the two patched residual complexes using their supplied finite residual isomorphisms and the same patching filter. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/residual-hecke-images",
+        "verdict": "verified",
+        "note": "Proposition 6.4.17(2) identifies the images of the two patched Hecke algebras in the residual derived endomorphism ring. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/residual-quotient-actions",
+        "verdict": "verified",
+        "note": "Proposition 6.4.17(3) identifies the residual deformation-induced cohomology actions after quotient by both residual error images. The finite diagrams give the compatible quotient-map formulation here. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/patched-perfect-complexes-in-a-range-of-degrees",
+        "verdict": "verified",
+        "note": "The construction part of Theorem 6.3 is retained, with the hypotheses corrected or strengthened as recorded in E8–E14. Actions at nonflat framing quotients are supplied data. Depth/support conclusions belong to P9. The prerequisites/proof sketch and native prototype were checked; any interface limitation is retained in prototypeCoverage."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P8/augmentation-retains-coefficients",
+        "verdict": "corrected",
+        "note": "Removed this duplicate planning node. Its entire assertion is already MvPowerSeries.constantCoeff_C; the baseline citation and augmentation prerequisite replace it. The suggested file now uses an example of the existing theorem."
+      }
+    ]
+  }
 }

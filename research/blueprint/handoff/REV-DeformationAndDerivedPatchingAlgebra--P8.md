@@ -1,0 +1,15 @@
+# REV-DeformationAndDerivedPatchingAlgebra--P8
+
+Codex session `codex-JQhY6E`, issue #6270, 2026-10-10. Independent review of the P8 pass authored by session `codex-akHcd3` (#6318). Completed review, not a checkpoint. The bot confirmed the claim before work began. One job was taken.
+
+Accepted the complete planning pass with its two explicit gaps and nine precise prototype omissions. P8 remains planned, not closed; implementation statuses remain unchecked. The review report gives the checks and exact corrections; the packet has an individual disposition for all original nodes and confirmed reviews of E8–E14.
+
+The corrected packet has 51 nodes, 14 baseline declarations, 18 API entries, 19 tests and six planets. Removed the duplicate coefficient-preservation node in favor of Mathlib constantCoeff_C. Imported Mathlib's bounded-projective K-projectivity theorem rather than requesting it again. Corrected the cofinality quotient-map direction, numbered and mixed-paper attributions, and added a test detecting a native constructor that erases successor differentials. No nodes were added.
+
+The packet, suggested file, independent review and this handoff are the only changed files. The reader was read but is outside this review's deliverables. Assembly must reconcile its old coefficient-preservation node, cofinality proof, source locators, K-projectivity supplier wording and native-complex tests with the corrected packet and suggested file. Do not restore the removed library target.
+
+Resume from the two recorded gaps: reconcile the inherited unconditional derived deformation action with the actual quotient map or supply an extra continuous lift; finish the exact native P7/R03.1/R03.5 supplier interfaces and replace the enumerated prototype omissions. The scalar map S∞ → R∞ does not supply a lift R∞ → T∞. Retain both augmentation and residual error quotients, supplied framing-quotient cohomology actions, the finite-H hypothesis and the finite reduction ranges. P9 owns depth/support conclusions, with framed nonzero top cohomology for a finite numerical depth statement.
+
+Sources independently read were the exact public CG, ACC, GN and KT PDFs and complete published CG bracket correction, with section/theorem/page locators and verified hashes in the packet. Findings are scoped to the checked author-hosted journal text, not an unseen publisher replacement. No restricted source was needed; no source passages or files are committed. The library audit, pinned actual declarations, relevant supplier statements, current upstream IHG Layer 2 and current read-only roadmap/library ownership screen were checked. No upward dependency or duplicate upstream patch construction was introduced.
+
+Validation: packet checker zero errors and zero warnings; source-issue and source-version checks pass; suggested Lean file elaborated with lean-check in the shared pinned Mathlib build with only admitted-proof warnings and no errors; intake file and whitespace checks pass. No theorem implementation is claimed. All working source files and logs were disposable scratch; this note does not require them for continuation.

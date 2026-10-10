@@ -69,11 +69,15 @@ theorem complex_d (P : PatchPresentation R r) (i : ℤ) :
 theorem complex_shape (P : PatchPresentation R r) (i j : ℤ) (h : i + 1 ≠ j) :
     P.complex.d i j = 0 := by sorry
 
--- Tests presentation_complex_zero, presentation_complex_scalar, presentation_complex_shape.
+-- Tests presentation_complex_zero, presentation_complex_scalar, presentation_complex_shape,
+-- presentation_complex_unit_disk. The last test detects erasing successor differentials.
 example (P : PatchPresentation R (fun _ => 0)) (i : ℤ) : Subsingleton (P.complex.X i) := by sorry
 example (P : PatchPresentation R r) (i : ℤ) :
     Nonempty ((P.complex.X i) ≃ₗ[R] (Fin (r i) → R)) := by sorry
 example (P : PatchPresentation R r) (i : ℤ) : P.complex.d i (i + 2) = 0 := by sorry
+example (P : PatchPresentation (ZMod 2) (fun i => (max 0 (min (i + 1) (2 - i))).toNat))
+    (h : P.differential 0 ⟨0, by norm_num⟩ ⟨0, by norm_num⟩ = 1) :
+    P.complex.d 0 1 ≠ 0 := by sorry
 
 theorem ext (P Q : PatchPresentation R r)
     (h : ∀ i, P.differential i = Q.differential i) : P = Q := by sorry
@@ -138,7 +142,7 @@ example (F : Ultrafilter ℕ) (hF : (F : Filter ℕ) ≤ cofinite)
       finiteGermEquiv F (ZMod 2) (Filter.Germ.ofFun g) := by sorry
 
 -- Node: ultrapatching-of-perfect-complexes. The common rank profile is the
--- minimal residual-rank profile in ACC Lemma 6.4.3, supplied by P7.
+-- minimal residual-rank profile in ACC Definition 6.4.3, supplied by P7.
 def ultrapatch (F : Ultrafilter ℕ) {B : Type u} [CommRing B] [Finite B]
     {r : ℤ → ℕ} (P : ℕ → PatchPresentation B r) : PatchPresentation B r := by sorry
 
@@ -321,9 +325,10 @@ theorem derived_augmentation {S Λ : Type u} [CommRing S] [CommRing Λ] {r : ℤ
 
 -- Framing/group variables are distinct and augmentation lands in Λ, not its residue
 -- or O unless Λ=O. MvPowerSeries is the baseline carrier, not a new definition.
-theorem augmentation_retains_coefficients {Λ : Type u} [CommRing Λ] (q j : ℕ) (x : Λ) :
+-- Baseline example: MvPowerSeries.constantCoeff_C already proves coefficient preservation.
+example {Λ : Type u} [CommRing Λ] (q j : ℕ) (x : Λ) :
     MvPowerSeries.constantCoeff (σ := Fin q ⊕ Fin j) (R := Λ) (MvPowerSeries.C (σ := Fin q ⊕ Fin j) x) = x := by
-  sorry
+  exact MvPowerSeries.constantCoeff_C x
 
 -- Further lemma-sized targets, with native coefficient and derived-category carriers.
 
