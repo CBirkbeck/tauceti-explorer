@@ -35397,8 +35397,9 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H1-valuation-exports",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7033"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7033",
+   "finishedAt": "2026-10-10T03:39:47Z"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
@@ -39535,7 +39536,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7962"
   },
   {
    "priority": 2,
@@ -46721,8 +46723,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -80022,8 +80024,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81331,8 +81333,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
