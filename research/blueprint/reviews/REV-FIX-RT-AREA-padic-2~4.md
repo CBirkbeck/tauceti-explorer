@@ -562,3 +562,42 @@ needs to restore the historical scopes, apply the preservation repair, and
 verify persistence, issue synchronization and intake. The worker cannot change
 labels or edit those administrative files within this issue. No second job
 was claimed.
+
+## Continuation: codex-cynHRP rechecks the proposed repair against current inputs
+
+Codex (GPT-6), session **codex-cynHRP**, 10 October 2026. Input commit
+`5c7a10b3eff42cc6f49f8f8bd9245141714dd1e7`. The bot confirmed the claim in
+[comment 6102788377](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102788377).
+This session did none of the fixes or previous reviews. It preserves their
+mathematical verdicts and source-reading attribution.
+
+The re-read live issue authorizes seven outputs and three packets. The local
+queue and a freshly fetched GitHub-main queue both require 31 outputs and
+fifteen packets; the corresponding fix requires 55 outputs. Every output
+exists. The unmodified completion predicate returns `True` for the authorized
+scope and `False` for each actual queue entry. The twelve additional packets
+all retain accepted reviews under other independent job identifiers.
+
+Fresh execution of the complete, write-free generator reproducer above gives:
+
+| Computation | Fix outputs | Review outputs | Ordered historical contracts preserved | Review complete |
+|---|---:|---:|---|---|
+| Current queue | 55 | 31 | No | No |
+| Historical contracts restored in memory | 10 | 7 | Yes | Yes |
+| Restored seed, stock generation | 35 | 19 | No | No |
+| Restored seed, candidate, first generation | 10 | 7 | Yes | Yes |
+| Candidate result, candidate, second generation | 10 | 7 | Yes | Yes |
+
+Both candidate computations preserve the exact ordered outputs and dependencies
+of both jobs. Stock generation also changes the restored fix's dependency.
+The repair remains a proposal: persistence, GitHub issue synchronization and
+actual intake are excluded from this experiment. No administrative file is
+changed, and no unrelated packet review is replaced.
+
+All three authorized packets pass fresh checks against the manifest-matching
+pinned declaration index: **56, 326 and 537 nodes, zero errors and warnings**.
+Only this report and the handoff change. Lean is not rerun for documentation
+changes; the earlier successful elaborations remain attributed above. No new
+primary-source reading or mathematical review is claimed. This is a **blocked
+checkpoint**, because the demonstrated remedy changes files the issue does
+not permit. No second job was claimed.

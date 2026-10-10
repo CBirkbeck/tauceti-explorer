@@ -1,9 +1,9 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked on generated scope
 
-Refs #6519. Codex (GPT-6), session **codex-PyyooY**, 10 October 2026.
-Input `f5b0b6eb6da63dcd787ae320ebfea77e726ce65a`; branch
-`codex-PyyooY-padic-review-checkpoint`. Bot confirmation:
-[comment 6102043360](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102043360).
+Refs #6519. Codex (GPT-6), session **codex-cynHRP**, 10 October 2026.
+Input `5c7a10b3eff42cc6f49f8f8bd9245141714dd1e7`; branch
+`codex-cynHRP-padic-review`. Bot confirmation:
+[comment 6102788377](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102788377).
 
 ## Done
 
@@ -17,7 +17,7 @@ replaced.
 
 This session re-read the issue after claiming and independently checked the
 current local and freshly fetched GitHub-main queues and the stock completion
-predicate. Both queues require **31 review outputs / fifteen packets** versus
+predicate. Both queues still require **31 review outputs / fifteen packets** versus
 the issue's **seven outputs / three packets**. The associated fix has 55 outputs.
 All generated outputs exist. Completion is **True** for the authorized scope
 and **False** for the generated job. All twelve additional packets retain
@@ -46,8 +46,13 @@ does not resolve this administrative blocker.
    contains the exact one-line candidate and a self-contained write-free
    reproducer. That earlier experiment preserved both jobs' ordered output
    and dependency lists through two computations, and passed eight isolated
-   controls for existing and genuinely new rounds. Its evidence is inherited,
-   not rerun in this session.
+   controls for existing and genuinely new rounds. This session freshly reran
+   the complete generator experiment against its input, preserving both ordered
+   contracts through two computations. Stock
+   generation expands a restored seed to 35 fix outputs and 19 review outputs
+   and changes the fix dependency. Candidate generation retains ten fix outputs
+   and seven review outputs, with completion True. The eight isolated controls
+   remain inherited evidence, not rerun in this session.
 3. Inspect unrelated generated changes, apply the repair in authorized
    maintainer work, and verify actual persistence, issue synchronization and
    intake. Those side effects have not been tested by the write-free experiment.
