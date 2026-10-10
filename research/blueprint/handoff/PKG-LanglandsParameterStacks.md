@@ -1,6 +1,148 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Worker: Codex (GPT-6), session `codex-Q1VNFq`, 10 October 2026.
+Branch: `codex-Q1VNFq-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6096750399).
+
+**Incomplete. The supplier contracts required by the accepted plan still do
+not supply the package's mathematical types and reconstruction theorem.**
+This checkpoint changes only the handoff, adding fresh contract comparisons
+and the complete absent-test-name worklist. The inherited README and suggested
+file remain unchanged. No second job was claimed.
+
+## Decision and current evidence
+
+No issue in the manager's ordered list was in the full available-swarm listing.
+This focus package was selected under WORKERS' permitted fallback order.
+The previous checkpoint identified a real specification obstruction; checking
+current owners confirms it persists. Completion cannot be achieved by another
+ordinary shadow of an enhanced construction, or by writing the missing shared
+foundations inside this consumer package.
+
+Read current TauCetiRoadmap at
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688` and searched current Tau Ceti at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are distinct from the
+atlas's pinned elaboration baseline. Read AlgebraicVectorBundles and
+ReductiveGroups READMEs in full, the relevant IHG README §0.7 and suggested
+interfaces, the E5 suggested interface, the eight LP library-audit records,
+the accepted LP review and its five gaps, and the specific consumer nodes
+listed below. The native-tree name search is limited to the named enhanced
+and pseudocharacter interfaces; it is not a new comprehensive library audit.
+
+| Required consumer | Current supplier statement and mismatch | Required owner correction |
+| --- | --- | --- |
+| LP1 derived parameter stack; LP2 categorical Hecke datum; LP3 mapping approximation; LP4 universal representation bundles | EnhancedDerivedSheaves E5 suggested file, lines 76–115 and 141–176, uses `True` for monoidal/stable/coherent-action conditions, `Unit` for `CAlg`, and `True` for `IndInfty`. `AnimatedAlg` at line 199 is also `Unit`. These signatures cannot express the coherent monoidal and category-valued contracts required by the accepted LP nodes. | E0/E5 must supply actual enhanced monoidal, stable, animation and Ind types and coherence; SF.1/S.1 must supply the derived-stack and quotient-stack QCoh/Perf interfaces. LP instantiates them. |
+| LP2c.1 prescribed-projection pseudocharacters; LP2c.2 reconstruction | Current IHG README §0.7 explicitly restricts its reductive applications to connected groups. `InvariantCoordinateInput.ring`, Suggested.lean lines 795–804, quantifies over every conjugating point of the whole represented group. For J=H⋊Q it therefore supplies O[Jⁿ]^J, whereas the LP consumer requires O[Jⁿ]^H and reconstruction up to H-conjugacy. | Add the identity-component invariant tuple algebra and its regular evaluation, reindexing, multiplication and reconstruction contracts at the generic owner, then reconcile the LP supplier edges. Adding projection-idempotent conditions to whole-J invariants does not recover the lost functions. |
+| LP2c.3 characteristic-zero relatively discrete continuity | Current IHG `IsContinuous`, `continuous_ofRepresentation` and `continuous_dense_ext`, Suggested.lean lines 948–965, define coordinate continuity, assume continuity of the representation in the constructor, and prove uniqueness from a dense restriction. None supplies continuity of an algebraically reconstructed representation, nor finite-type Z_l coefficient bounds on compact inertia. The accepted IHG continuity node remains connected/profinite/rank-one-valued. | Supply the finite-Q reconstruction-to-continuity theorem with the relatively discrete coefficient condition at IHG; keep algebraic reconstruction separate from good-prime generation. |
+
+Read Quast, *Deformations of G-valued pseudocharacters*, Definition 3.1,
+printed p.11, Lemmas 3.4–3.5, pp.12–13, and the surrounding reconstruction
+setup from the [author PDF](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf).
+Its tuple invariants are taken under the identity component. Closed full-group
+and identity-component orbits obey the same closedness criterion, but their
+conjugacy classes need not coincide; Lemma 3.5 retains the latter classes.
+This distinguishes a wrong whole-group adapter even if both are reductive.
+
+Read Fargues–Scholze, *Geometrization of the local Langlands correspondence*,
+Definition VIII.1.1 and the coefficient discussion on pp.278–279, Proposition
+VIII.2.1 on p.281, and Propositions VIII.3.7–VIII.3.8 on pp.288–290 from the
+[author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf).
+The coefficient convention requires continuous inertia coordinates inside
+finite-type Z_l-submodules. The excursion reconstruction is up to H-conjugacy
+in H⋊Q and its continuity step uses finite anchor tuples. Ordinary dense
+extensionality cannot supply that step. The tangent calculation uses derived
+Weil cochains; it does not replace the derived parameter stack.
+These are fresh targeted readings, not a fresh audit of all auxiliary source
+proofs. No new source erratum is asserted.
+
+The inherited `IdentityComponentChecks` provides two lifts of the same trivial
+component projection with H=G_m and J=G_m⋊C₂ (inversion action). Their generator
+values 2 and 1/2 are not H-conjugate, but whole-J invariant tuple functions
+identify them. `IdentityComponentCoordinateChecks` gives the actual two-factor
+Laurent coordinate algebra witness. Both are unchanged; their existing Lean
+proofs remain part of the compiled file.
+
+The issue allows only the three package artifacts and this handoff, and says
+“Change no packet; if the plan has a mistake, describe it in the handoff note.”
+PROTOCOL §§3, 13, 15 and 20 require faithful supplier contracts, shared ownership
+and agreement of the package with its plan. Resolving these mismatches requires
+owner/plan changes outside those paths. The stopping condition is therefore a
+specification obstruction, independent of the eight-hour limit. No ownership
+move, library construction, packet edit or read-only-tree edit was made.
+
+## Absent test identifiers: resumption worklist
+
+The accepted LP plan still has 79 nodes, 140 API items, 90 tests, eight planned
+stages, zero closed stages, five gaps and sixteen requests. Its accepted
+`complete` target-level pass does not assert closure.
+
+A fresh screen of all 90 test identifiers against the whole package suggested
+file, including its comments, found the following 43 identifiers absent.
+This is an absence worklist, not a signature-coverage certificate: some tests
+whose names do occur are expressly ordinary shadows or are only comments.
+Each row must be checked against the exact mathematical statement in the
+accepted node. Renaming a shadow does not discharge it.
+
+| Target suffix after `LanglandsParameterStacks:` | Test identifiers absent from the package |
+| --- | --- |
+| `LP0/condensed-cocycles-and-L-parameters` | `parameter_char_l`, `parameter_not_discrete_Ql` |
+| `LP0/extended-wild-parameters` | `extended_wild_unramified`, `extended_wild_conjugacy`, `extended_wild_forget` |
+| `LP1/finite-presentation-over-Z-invert-p` | `scheme_l_adic` |
+| `LP1/derived-parameter-stack` | `derived_stack_trivial_group`, `derived_stack_free_group`, `derived_stack_gauge` |
+| `LP1/singularities-and-singular-support` | `singularities_smooth`, `singularities_torus_Ql`, `singularities_torus_mod_l`, `singularities_dual` |
+| `LP2:excursion-presentation/coarse-quotient` | `coarse_torus`, `coarse_not_orbit_set` |
+| `LP2:excursion-presentation/complete-reducibility` | `cr_torus`, `cr_unipotent`, `cr_GL` |
+| `LP2:semisimple-characters/semisimple-parameters-and-closed-orbits` | `semisimple_split_GL`, `semisimple_unipotent` |
+| `LP2:excursion-presentation/categorical-hecke-datum` | `hecke_empty_set`, `hecke_fold`, `hecke_zero_category` |
+| `LP2:excursion-presentation/excursion-datum` | `datum_zero_alpha`, `datum_tensor_operator` |
+| `LP2:excursion-presentation/invariant-function-and-independence` | `coefficient_product` |
+| `LP2:semisimple-characters/reductive-pseudocharacters` | `projected_rank_one`, `projected_conjugate`, `projected_unipotent` |
+| `LP3/good-filtration-t-structure` | `good_torus`, `good_zero`, `good_induced`, `good_shift_sign` |
+| `LP3/induced-perfect-complexes` | `induced_point`, `induced_trivial_group`, `induced_retract`, `induced_not_all_bad_prime` |
+| `LP3/mapping-approximation` | `approx_point`, `approx_coproduct`, `approx_bad_prime` |
+| `LP4/rep-action-on-perf` | `rep_bundle_unit`, `rep_bundle_at_parameter`, `rep_bundle_tensor` |
+
+The seven enhanced/admissible families tabulated in the inherited worklist
+below remain missing at least 35 API items and 23 tests. The fresh 43-name
+screen also exposes condensed coefficients, singularities, semisimplicity,
+complete reducibility and additional ordinary/regularity comparisons.
+After owner repairs, reconcile these tests and all 140 API items, then check
+all 79 targets and the README's dependency order. Do not use name occurrence
+alone as evidence that a construction has the right hypotheses or carrier.
+
+## Checks in this session
+
+- Both `check_blueprint.py` runs exit 0 with zero errors and warnings: LP and
+  IHG. They validate packet structure, not the semantic supplier mismatches.
+- Package elaboration: exit 0, zero errors, 291 warnings, all `declaration uses sorry`,
+  no other warnings. Available memory before the final
+  check: 103 GB. The managed build advertises Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+- The README is 190005 bytes and the suggested file 120143 bytes, unchanged.
+- Unchanged LP packet SHA-256:
+  `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
+- Unchanged IHG packet SHA-256:
+  `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`.
+- Unchanged E5 input SHA-256:
+  `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c`.
+- Scoped intake file check and whitespace check: one authorized handoff file, zero intake problems; `git diff --check` passes.
+
+The absent metadata still prevents `issues.deliverables_complete` from marking
+this package finished. Its content is to be `topic = "math.NT"` when the package
+is genuinely complete. No scratch file is needed for resumption.
+
+## Inherited implementation receipts and mathematical worklist
+
+The material below is the preceding checkpoint's record, retained so its
+proved adapters, boundary checks and source receipts are not lost. Its worker,
+branch and verification statements refer to that preceding session; the fresh
+scope and checks are above.
+
+# PKG-LanglandsParameterStacks — blocked checkpoint
+
+Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
 Worker: Codex (GPT-6), session `codex-CFZU3T`, 10 October 2026.
 Branch: `codex-CFZU3T-LanglandsParameterStacks`.
 [Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6096279559).
