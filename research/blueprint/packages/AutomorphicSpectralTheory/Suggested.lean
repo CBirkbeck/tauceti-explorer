@@ -5283,8 +5283,9 @@ relate an independently chosen scalar to arbitrary functions. The full signature
 is omitted. gm_family.rank_one_product proves the two-chamber product calculation;
 it supplies no general-Levi descent carrier. -/
 
-/-- The quotient, discriminant and imported ET orbital carrier are arguments. Connected
-centralizer equality is required for this integral; singular induction uses a separate limit. -/
+/-- Numerical quotient-integral adapter. It does not construct a centralizer quotient,
+its Haar measure, or a discriminant. The source-level orbital integral additionally needs
+connected-centralizer equality, convergence and the separate singular-extension contract. -/
 def weighted_orbital_integral {X : Type u} [MeasurableSpace X] (μ : Measure X)
     (discriminant : ℝ) (test weight : X → ℂ) : ℂ :=
   (Real.sqrt |discriminant| : ℂ) * ∫ x, test x * weight x ∂μ
@@ -5676,6 +5677,54 @@ example  :
       (cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 0) = 1 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 1) = 1 := by sorry
+
+namespace SimultaneousTraceChecks
+
+/-- Two individually invertible traces on one common scalar test space. -/
+def traceAt (b : Bool) : ℂ ≃ₗ[ℂ] ℂ :=
+  if b then LinearEquiv.neg ℂ else LinearEquiv.refl ℂ ℂ
+
+/-- The joint trace map retains the relation between the two traces. -/
+def traces : ℂ →ₗ[ℂ] (Bool → ℂ) :=
+  LinearMap.pi fun b => (traceAt b).toLinearMap
+
+theorem image_iff (values : Bool → ℂ) :
+    (∃ z : ℂ, traces z = values) ↔ values true = -values false := by
+  constructor
+  · rintro ⟨z, rfl⟩
+    simp [traces, traceAt]
+  · intro h
+    refine ⟨values false, ?_⟩
+    funext b
+    cases b
+    · simp [traces, traceAt]
+    · simpa [traces, traceAt] using h.symm
+
+/-- Surjectivity of each coordinate does not give simultaneous realization. -/
+theorem incompatible_values : ¬ ∃ z : ℂ, traces z = fun _ => 1 := by
+  rw [image_iff]
+  norm_num
+
+/-- The same joint map does realize a compatible nonzero pair. -/
+theorem compatible_values :
+    traces 1 = fun b => if b then (-1 : ℂ) else 1 := by
+  funext b
+  cases b <;> simp [traces, traceAt]
+
+/-- Independent inverses choose different test elements. -/
+theorem separate_inverses :
+    (traceAt false).symm 1 = 1 ∧ (traceAt true).symm 1 = -1 := by
+  simp [traceAt]
+
+example : ¬ ∃ z : ℂ, traces z = fun _ => 1 := incompatible_values
+
+example : traces 1 = fun b => if b then (-1 : ℂ) else 1 := compatible_values
+
+example : (traceAt false).symm 1 ≠ (traceAt true).symm 1 := by
+  rw [separate_inverses.1, separate_inverses.2]
+  norm_num
+
+end SimultaneousTraceChecks
 
 end general_euler_poincare
 
