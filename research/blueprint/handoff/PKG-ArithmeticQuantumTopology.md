@@ -1,49 +1,149 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-jiwjSa`, issue #7889, 2026-10-10.
-Continues `codex-URPtqo` (PR #8259), following PRs #8245, #8235, #8222,
-#8210, #8192 and #8154. Claim confirmed in issue comment 6094334480.
+Worker: Codex (GPT-6), session `codex-eGMIqk`, issue #7889, 2026-10-10.
+Continues `codex-jiwjSa` (PR #8267), following PRs #8259, #8245, #8235,
+#8222, #8210, #8192 and #8154. Claim confirmed in issue comment 6094539329.
 
-This is **partial**, not a completed package. This run adds the QT.5 Rogers
-regulator on the existing logarithmic cover and relation quotient, with an
-explicit Polylogarithms function/branch-law boundary, exact cut-period proofs,
-and signatures/tests for the complex-period and imaginary comparisons. The
-inherited native additions remain intact. Missing supplier carriers prevent the
-full signatures required by PROTOCOL §20. No packet, review verdict or supplier
-file was changed. This is a dependency checkpoint, not a time-limit checkpoint.
+This is **partial**, not a completed package. This run supplies QT.1's
+rank-one quantum algebra, integral forms, completed tensors, Hopf/ribbon
+operators, adjoint transmutation and finite free module category as concrete
+native carriers and typed signatures. The inherited additions remain intact.
+Missing framed-link, surgery, cusped geometry and analytic supplier interfaces
+still prevent the full package required by PROTOCOL §20. Other QT-owned
+prototypes also remain, as the table below records. No packet, review verdict
+or supplier file was changed. This is a dependency checkpoint, not a time-limit
+checkpoint.
 
 ## What is saved
 
-- `research/blueprint/packages/ArithmeticQuantumTopology/README.md`: all 106
-  accepted targets, grouped by their actual parent QT.0–QT.7. It retains the
-  mathematical hypotheses, every inherited API entry and named test, plus the
-  Rogers cut, period, chart and imaginary-comparison APIs and six additional
-  named tests. Source locators are retained,
-  with the §4.5 correction described below. The procedural application
-  paragraph is replaced by its mathematical comparison boundary. It omits process
-  narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,380 bytes, below the 200 KB ceiling. Repeated source links
-  use Markdown references with the same URLs and
-  individual locators; this run converts six more repeated destinations to
-  references to make room for the explicit regulator boundary and tests.
-  The QT.6 additions give logarithmic/exponential coefficient, prefactor and
-  parity APIs and discriminating tests. Comparison obligations
-  and conjectures remain visibly distinct from established source results.
-- `Suggested.lean`: the input's concrete native interfaces, without the long
-  commented inventory masquerading as signatures, plus genuine meromorphic
-  Faddeev, extended Bloch, formal finite-color and completed color-algebra
-  interfaces, plus six genuine polynomial-vertex/integrand definitions and the
-  Rogers
-  period quotient, cut descent and additive regulator/restriction definitions.
-  The QT.7 composition obligations now have proofs, with native identity,
-  noncommutative-order and singular-matrix tests for conditional transport.
-  The README retains the omitted mathematical specifications;
-  this handoff identifies where native signatures still have to be supplied.
-- `metadata.toml` is deliberately **not submitted**. The intake's
-  `issues.deliverables_complete` treats a package as complete whenever its three
-  files exist, without reading a partial handoff. Leaving this new file absent
-  preserves checkpoint routing. Once the signatures are complete, create it
-  with exactly `topic = "math.GT"` and a newline.
+- `research/blueprint/packages/ArithmeticQuantumTopology/README.md` retains
+  the same ordered 106 targets and eight QT.0–QT.7 layer anchors, every
+  inherited API/test name and source destination. The first three QT.1
+  targets now specify the native quotient/inverse-limit carriers, integral
+  image completions, tensor filtration, continuous ribbon module category
+  and transmutation maps and laws. Their tests distinguish the parameter,
+  q/v factorials, tensor filtration, R order, framing and native duality.
+  Repeated links use references with the same destinations; several long
+  cross-reference labels are shortened to fit the **199,906-byte** document
+  under the 200,000-byte ceiling. Mathematical target headings are unchanged.
+- `Suggested.lean` retains every inherited declaration verbatim, modulo
+  whitespace, and adds 1,277 lines of rank-one quantum interfaces in
+  `TauCeti.QuantumTopology.QuantumEnveloping`, plus individual imports.
+  It has 3,698 lines and elaborates with only `sorry` warnings. Definitions
+  use native algebras, ideals, quotient congruences, modules and categories;
+  typed proof/construction obligations remain admitted. This is a prototype,
+  not a formalization of the source theorems.
+- `metadata.toml` remains **absent**. The intake's
+  `issues.deliverables_complete` treats a package as complete when all three
+  files exist, without reading a partial handoff. Adding it now would route
+  an incomplete package to review. Once all signatures are complete, write
+  exactly `topic = "math.GT"` and a newline.
+
+## Native QT.1 quantum addition in this checkpoint
+
+Read Habiro, arXiv:math/0605314v1, §§2.1–2.6 (printed pp. 7–11),
+§§3.1–3.3 (pp. 11–14), including Lemma 2.1, Proposition 2.2,
+equations (3.1)–(3.12), Theorem 3.1 and Proposition 3.3; also §5.1
+and the module/duality conventions in §5.2 (pp. 18–19), and the trace
+formula in §5.3 (p. 20). Public PDF:
+https://arxiv.org/pdf/math/0605314v1, accessed 2026-10-10, SHA-256
+`5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc`.
+Only the own-word mathematical constructions and exact locators are retained.
+No restricted source was used.
+
+1. `Words` is `FreeAlgebra ℚ (Fin 3)` and `Presentation` is its polynomial
+   algebra with central h. `Truncation p` is `RingQuot` by h^p and the three
+   commutator relations. The Cartan series cancels the common h before
+   inversion; its h² coefficient is (H³−H)/24. `Uh` is the actual compatible
+   subalgebra of the product of these quotients. Central formal scalars,
+   finite projections, precision maps, density, completeness and separation
+   have concrete signatures. PBW coordinates are linear/topological
+   equivalences, not a commutative replacement product. The classical
+   quotient is the existing `UniversalEnvelopingAlgebra` of native sl₂.
+2. Cartan units, e and q-divided powers are defined in that algebra.
+   `integralForm` is `Algebra.adjoin` over `LaurentPolynomial ℤ`, with the
+   Laurent variable sent to exp(h). Its two PBW bases and unique parity
+   decomposition use integer Cartan exponents. The e-power ideals are native
+   `TwoSidedIdeal`s and the quotients use `RingCon`. `integralToUh` is the
+   coordinatewise canonical map, and `completion` is its image. No
+   injectivity of the integral inverse limit is asserted; Habiro records
+   this as conjectural in §2.5.
+3. `CompletedTensor n` is a compatible quotient limit built from native
+   `PiTensorProduct` of the free-algebra factors, with one shared h.
+   The 0-fold and 1-fold equivalences, ordinary tensor comparison, density
+   and leg insertions are typed. `IntegralTensor` tensors the actual integral
+   forms over ℤ[q±1]. Its filtration is generated by e^p in any one factor,
+   rather than total e degree; the 0-fold case is F₀=ℤ[q±1], F_p=0 for p>0.
+   The integral completed tensors are images in the ambient completed
+   tensor algebras, without an injectivity assumption.
+4. The continuous coproduct, counit and opposite-algebra antipode have
+   generator values, coassociativity, both counit and both antipode laws.
+   `universalR` and `ribbonElement` are genuine unit-valued compatible
+   finite sums, with the source's ordered inverses. R's first correction is
+   h(H⊗H/4+F⊗E). Positive framing uses r⁻¹ and gives exp(n(n+2)h/4).
+   The existing finite-color matrices extend to continuous algebra maps;
+   tensor-color action is characterized by native Kronecker products.
+5. `FiniteQuantumModule` is an `ObjectProperty.FullSubcategory` of native
+   `ModuleCat Uh`, finite free after `ModuleCat.restrictScalars`.
+   `Module.finBasis` transports the uniformity, with a theorem identifying
+   the native (h)-adic module topology. Tensor objects use the ordinary
+   scalar tensor with the coproduct action; braiding is flip after R.
+   Dual carriers are native `Module.Dual`. Mathlib's right dual evaluates
+   dual⊗V and uses S; its left dual evaluates V⊗dual and uses S⁻¹.
+   Evaluation, dual-basis coevaluation and triangle identities assemble
+   explicit `ExactPairing`/`HasRightDual`/`HasLeftDual` instances into the
+   native rigid category. The ribbon twist is r⁻¹; finite colors identify
+   the existing matrix carrier with its module object.
+6. The adjoint action is the contraction axS(b) after Δ. Transmutation uses
+   the source's three contractions, with continuous inverse braiding and
+   inverse antipode. `braidedMultiply_pure` retains the middle crossing;
+   Δ̲ is multiplicative into this braided product, with explicit leg maps,
+   coassociativity, counit and antipode laws. Integral preservation and
+   image-filtration theorems retain ψ±¹/S̲±¹(F_p)⊂F_p and
+   Δ̲(F_p)⊂F_⌊(p+1)/2⌋. These image filtrations come from the integral
+   quotient kernels; ambient h-adic continuity does not assert that an
+   integral image is h-adically closed or complete. The general odd-form
+   and graded refinements of Remark 3.4 remain to be prototyped.
+
+Pinned declarations read before use include `FreeAlgebra.ι`,
+`RingQuot.mkAlgHom/liftAlgHom`, `RingCon.mkₐ/factorₐ/lift`,
+`TwoSidedIdeal.span/ringCon_le_iff`, `PiTensorProduct.singleAlgHom/tprod`,
+`PowerSeries.invOfUnit` and its discrete-coefficient `WithPiTopology`,
+`ModuleCat.restrictScalars`, `ObjectProperty.FullSubcategory`,
+`Module.finBasis`, `Basis.dualBasis`, `Module.Dual`,
+`Ideal.adicModuleTopology`, and native monoidal, braided, exact-pairing
+and rigid category structures. The full upstream examples read this run
+were SemisimpleAlgebras and OperatorTheory/OrthogonalGeometry.
+
+Validation in this run:
+
+- Accepted input checker: **0 errors, 0 warnings**, unchanged packet.
+- Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 544 warnings**, all `declaration uses sorry`.
+  Available memory was 105 GB before the final check. Shared build:
+  Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`. No build, update, cache
+  download or language server was run.
+- **287 exact finite checks** passed using Python `Fraction` in ℚ[h]/h⁵.
+  V₀ through V₆ check the three commutators, K inversion, both ribbon
+  scalars, F̃⁰/F̃¹, and F̃ᵃF̃ᵇ=q⁻ᵃᵇ Gaussian(a+b,a)_q F̃ᵃ⁺ᵇ
+  for 0≤a,b≤3. All 16 color pairs V_m⊗V_n, 0≤m,n≤3, check R inversion,
+  agreement of both balanced and integral R formulas, and quasitriangularity
+  for H,E,F,K. Seven controls distinguish the F weight sign, q versus v,
+  factorial convention, framing sign, nonidentity R, the V₁ exponent and
+  the Cartan numerator coefficient. These are formula checks, not proofs
+  of any remaining Lean obligation.
+- The tensor-filtration test has an exact specialization witness on V₁⊗V₁:
+  at v=i, q=−1, the e matrix has sole nonzero entry −2. Thus e²=0, while
+  e⊗e has a nonzero entry 4. Every single-factor e² ideal generator
+  vanishes, so the total-degree filtration would give the wrong result.
+- README audit: identical ordered 106 target and eight layer anchors,
+  all inherited API/test names and link destinations retained, and all
+  reference links resolve; **199,906 bytes**. Every inherited Lean
+  declaration is preserved verbatim modulo whitespace.
+- Intake `check-files`: **3 files, 0 problems**; `git diff --check` and the
+  exact issue-output scope pass. Metadata is absent to preserve checkpoint
+  routing. Scratch source texts and checks are deleted after submission.
 
 ## Why the complete job is blocked
 
@@ -59,7 +159,7 @@ WORKERS forbids replanning another owner. This issue permits editing neither
 GeometricTopology nor the other supplier plans.
 
 The read-only current upstream was checked at TauCetiRoadmap
-`0a56d1b5303c26887a4042db834f46d9079ac593` and Tau Ceti
+`cd03e06852a13216ad246d0623492c4beac39af2` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`:
 
 1. `TauCetiRoadmap/GeometricTopology/Suggested.lean` contains schematic comments,
@@ -98,11 +198,13 @@ The read-only current upstream was checked at TauCetiRoadmap
    In particular the integral NZ/HB.9 bridge cannot erase faithful coefficient
    transfer, signed Kummer orientation or full quadratic finite étale descent.
 
-No messages or new issues were sent to suppliers; the existing requests remain
+This run's final upstream recheck saw only SmoothRepresentationsOfLocalGroups
+advance from `0a56d1b` to `cd03e06`; no inspected geometric, spectral or
+quantum boundary changed. No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native QT.5 regulator addition in this checkpoint
+## Native QT.5 regulator addition inherited from PR #8267
 
 Neumann arXiv:math/0307092v2 was read at Definition 2.2, Lemma 2.3,
 Definition 2.4 and Proposition 2.5 with its proof, §2, pp. 417–420
@@ -510,7 +612,7 @@ This implements definition/signature plans with `sorry` proof obligations;
 none of the mathematical results is claimed formalized. It does not supply
 strong flattenings, Pachner geometry, geometric Bloch classes, or the ordinary
 K₃ comparison. These remain in the README and the remaining-work table below.
-The conditional Rogers interface is added in this run, above. No supplier plan was copied or redefined.
+The conditional Rogers interface was added in PR #8267, above. No supplier plan was copied or redefined.
 
 Pinned declarations read before use: `FreeAbelianGroup.of/lift`,
 `Relation.EqvGen.setoid`, quotient topology, `Joined/JoinedIn`,
@@ -553,19 +655,20 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | Layer | Native pieces saved | Full signatures still required |
 | --- | --- | --- |
 | QT.0 | Algebraically split/admissible matrix conditions, integral matrix cokernel and handle-slide congruence, discriminating small matrices | Framed-link linking matrix and tests; actual surgery/H₁ comparison; ordinary Kirby import; admissible band-slide, Hoste and presentation-existence refinements on those carriers |
-| QT.1 | Mathlib-backed ribbon twist/trace interface; concrete finite-color generator relations | Topological quantum algebra and completed tensor multiplication; integral PBW/even forms, ribbon/core/twist data and extension of finite matrices to continuous U_h-modules (QT-owned work); supplier framed tangles, RT functor and universal bottom-tangle invariant |
-| QT.2 | Formal finite free colors/basis and explicit actions; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; scalar Kashaev kernel | Continuous quantum-module and ribbon comparisons, link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
+| QT.1 | Native compatible-quotient U_h, PBW/classical comparison, integral forms and image completions, completed ordinary/integral tensors; continuous Hopf/R/ribbon and color actions; native finite free ribbon module category; adjoint/transmutation maps, laws and even image-filtration interfaces | Odd/graded transmutation refinements; general Lie-type core/twist data (QT-owned work); supplier framed tangles, RT functor and universal bottom-tangle invariant |
+| QT.2 | Formal finite free colors/basis and explicit actions, continuous U_h-module and ribbon comparisons; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; scalar Kashaev kernel | Integral center/Casimir comparison; link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
 | QT.3 | Actual completed twist elements, prime/tilde coefficient comparison, nonfinite support, inverse relation and even-color characters | Geometric Hopf pairing comparison and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
 | QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square; conditional complex-period Rogers regulator and cut/sign/imaginary comparisons | Instantiate ordinary pre-Bloch and Polylogarithms suppliers and their convention/branch laws; actual strong/geometric flattening and Pachner interface; number-field Bloch and K₃ torsion comparison |
 | QT.6 | Linear NZ/Hessian formulas, full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum, formal Gaussian vertex series and move invariance; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
 | QT.7 | Finite figure-eight root sums/descendants, denominator cocycle and pole-free action API, explicit scalar/diagonal/GL automorphy factors with composition and sign APIs, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
 
-These are not all external tasks. Quantum completed tensors/PBW/cores and
-the knot-specific series are this roadmap's own work. Their native prototypes
-remain to be written; independent pieces can proceed while supplier boundaries
-are resolved. The compiled elementary components do not discharge a whole geometric
-or quantum target merely by sharing an API name.
+These are not all external tasks. General Lie-type cores/root data, odd
+transmutation refinements, center comparisons and knot-specific series remain
+this roadmap's work. The rank-one PBW/tensor/module foundations now have native
+prototypes; extend them without replacing the actual quotient products or
+asserting the conjectural injectivity of integral completion. Their elaboration
+does not discharge the remaining geometric or quantum targets.
 
 Resume first at `QT.0/framed-link-and-linking-matrix`: obtain the owner’s actual
 carrier and invariant linking-number/framing API, then the integral surgery
