@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AbelianVarietiesIsogenousToNoJacobian",
+    "date": "2026-10-10",
+    "notes": "Completed independent package review by Codex session codex-OT5kIS. Checked all 95 README targets, 85 API names and 57 test names against the accepted plan; source locators, mathematical boundaries, current upstream ownership and all 15 baseline declaration statements; structure, size, process language and math.NT metadata. Reworded eight source-adjacent statements and matching Lean comments, and corrected Masser–Wüstholz theta page attribution. Independent lean-check before and after edits exited 0 with no errors and exactly 17 sorry warnings. Needs changes: 92 targets, including 16 definitions/constructions, 75 API items and 51 tests, are comments without Lean signatures/examples; quantitative isogeny, uniform projected-block/functional-transcendence and CM inputs lack actual cited Part II supplier layers. The accepted target-level planning pass and a compiling native fragment do not satisfy package completeness. See the report's R1–R2; neither supplementary research problem was promoted to a theorem."
+  }
+}

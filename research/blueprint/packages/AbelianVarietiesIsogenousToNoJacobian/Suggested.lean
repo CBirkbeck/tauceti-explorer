@@ -239,7 +239,7 @@ Prerequisites: 1B
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:E1/iterated-elimination (2A)
 The modular-polynomial and uniform projected-block interfaces are prerequisites.
-Construction: Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every integer m≥1 there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.
+Construction: Fix a nonzero polynomial f∈ℂ[y₁,y₂]. One can choose a constant c(f)>0 and, for each integer m≥1, a nonzero G_m∈ℂ[x₁,x₂] of total degree ≤c(f)ψ(m)². Every simultaneous solution (ξ₁,ξ₂,η₁,η₂) of Φ_m(ξ₁,η₁)=0, Φ_m(ξ₂,η₂)=0 and f(η₁,η₂)=0 satisfies G_m(ξ₁,ξ₂)=0.
 Prerequisites: Mathlib Polynomial.resultant, Mathlib Polynomial.resultant_eq_zero_iff, ModularCurvesPartII:R13.4
 API TauCeti.NoJacobian.eliminationPolynomial.nonzero: For f≠0 and m≥1 the chosen G_m is nonzero.
 API TauCeti.NoJacobian.eliminationPolynomial.vanishes: A common solution of the two modular equations and f=0 maps to G_m=0.
@@ -460,7 +460,7 @@ Prerequisites: 5C, 1B, AlgebraicModuliForArithmeticGeometry:R09.1, PELModuli:M5,
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:C0/candidate-count (5E)
 The genuine arithmetic moduli/model descent and quantitative isogeny interfaces are prerequisites.
-Theorem: There is µ = µ(g) such that for integers M ≥ 1 and N ≥ 2 there are only ≪ N^{G−1}M^{2g} + N^{G−1}(log N)^µ + N^{G−1/2} log N elements n ∈ [1, N]^G such that some A_n in the projection of Ψ^{-1}(n) is (a) not defined over an extension of Q of degree at most D (1), (b) isogenous to some Ã in H via an isogeny to Ã of degree at most M, or (c) not p-Galois generic, for a fixed prime p (p = 2 will do); the implied constant depends only on Ã, Ψ, H. For g odd or g = 2, 6 the last term can be omitted.
+Theorem: Fix the cover Ã, the parameter map Ψ, the hypersurface H and a prime p; p=2 is allowed. There is an exponent µ(g) such that, for all integers M≥1 and N≥2, the number of bad integral parameters n∈[1,N]^G is bounded by a fixed constant times N^{G−1}M^{2g}+N^{G−1}(log N)^µ+N^{G−1/2}log N. A parameter is bad when at least one projected point A_n of Ψ^{-1}(n) lacks a model over a field of degree ≤D from (1), admits an isogeny of degree ≤M to a point of H, or fails p-Galois genericity. The constant depends on the fixed cover, Ψ and H. In odd dimension, and in dimensions 2 and 6, the same bound holds after removing the final summand.
 Prerequisites: 5A, 5D, 4H, Mathlib MvPolynomial.schwartz_zippel_totalDegree
 -/
 
@@ -642,7 +642,7 @@ Prerequisites: 5B, 7B, 7C, LogicAndDefinabilityInNumberTheory:LD.6
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:C1/counting-theorem (7E)
 The genuine uniform Pila-block, weakly-special image and arithmetic moduli interfaces are prerequisites.
-Theorem: For g ≥ 2, a finite cover Ã of A_g, a finite map Ψ : Ã → A^G, an algebraic hypersurface H ⊂ A_g and γ < 1/2, there are C = C(Ã, Ψ, H, γ) and D = D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ (1) such that for every N ≥ 1 at most C N^{G−γ} elements n ∈ [1, N]^G have a point of Ψ^{-1}(n) whose projection to A_g is (a) not defined over an extension of Q of degree at most D, or (b) isogenous to some B in H; the remaining ones can be taken Galois (hence Hodge) generic ('strong Theorem 1.3'); for g odd or g = 2, 6 any γ < 1 works; and there are Ã, Ψ over Q with D(Ã, Ψ) = 2^{16g⁴}. Interpret covers and finite maps as dominant generically finite rational maps on their specified nonempty regular domains. The exceptional event is existential in a fibre; all regular projected points of each remaining fibre satisfy the conclusions.
+Theorem: Fix g≥2, a cover Ã⇢A_g, a parameter map Ψ:Ã⇢A^G and an algebraic hypersurface H⊂A_g. Both maps are dominant and generically finite, with specified nonempty regular domains. Write D=[F̃:Q][F_Ψ:Q]D_Ψ as in (1). For each γ<1/2 there is a constant C(Ã,Ψ,H,γ) such that, for every integer N≥1, at most C N^{G−γ} integral parameters n∈[1,N]^G are exceptional. Outside this exceptional set, every projected point in the regular fibre Ψ^{-1}(n) has a model over a field of degree ≤D, is Galois generic and is geometrically isogenous to no point of H. Thus genericity is Galois genericity, which implies Hodge genericity. When g is odd or g∈{2,6}, the exponent may be any γ<1. There is a choice of Ã and Ψ over Q for which the field-degree allowance is 2^{16g⁴}. An exceptional fibre is one with at least one failing projected point.
 Prerequisites: 5E, 5H, 7D, 4B, 4C, Mathlib isLittleO_log_rpow_rpow_atTop, 6N
 -/
 
@@ -650,13 +650,13 @@ Prerequisites: 5E, 5H, 7D, 4B, 4C, Mathlib isLittleO_log_rpow_rpow_atTop, 6N
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/hypersurface-avoidance (8A)
 The genuine arithmetic Siegel moduli, avoidance and model-degree interfaces are prerequisites.
-Theorem: Given an algebraic hypersurface H in A_g with g ≥ 2, there is A in A_g, defined over an extension of Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any B in H.
+Theorem: For each g≥2 and proper algebraic hypersurface H⊂A_g, one can find a number field K and a Hodge-generic principally polarized g-dimensional abelian variety A/K satisfying [K:Q]≤2^{16g⁴}. No abelian variety represented by a point of H is geometrically isogenous to A.
 Prerequisites: 7E, 6N, 0H
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/no-jacobian (8B)
 The genuine arithmetic Siegel moduli, avoidance and model-degree interfaces are prerequisites.
-Theorem: For every g ≥ 4 there is a principally polarized abelian variety of dimension g, defined over an extension of Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any Jacobian. This excludes canonically principally polarized Jacobians of stable compact-type curves as well as smooth curves; isogenies need not respect polarizations.
+Theorem: In each dimension g≥4 there is a number field K of degree [K:Q]≤2^{16g⁴} and a Hodge-generic principally polarized abelian variety A/K of dimension g whose geometric isogeny class contains no Jacobian. This excludes canonically principally polarized Jacobians of stable compact-type curves as well as smooth curves; the isogenies need not respect polarizations.
 Prerequisites: 8A, 0D
 -/
 
@@ -680,19 +680,19 @@ Prerequisites: 8D, 8C, 7E
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/dense-independent-set (8F)
 The genuine arithmetic Siegel moduli, avoidance and model-degree interfaces are prerequisites.
-Theorem: For every g ≥ 4 there is a set of principally polarized abelian varieties of dimension g, dense in the euclidean topology, each defined over an extension of Q of degree at most 2^{16g⁴} and not isogenous to any of the others or to any Jacobian.
+Theorem: For g≥4, choose a Euclidean dense subset S⊂A_g(C) consisting of principally polarized abelian varieties with model fields of degree ≤2^{16g⁴}. The choices can be made so that distinct members of S have distinct geometric isogeny classes, and none of these classes contains a Jacobian.
 Prerequisites: 8B, 8E
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/unirational-count (8G)
 The genuine arithmetic Siegel moduli, avoidance and model-degree interfaces are prerequisites.
-Theorem: For g = 2, 3, 4, 5, assume a dominant rational map Ξ : A^G → A_g over Q. For every hypersurface H ⊂ A_g and γ < 1/2 there is C = C(Ξ, H, γ) such that for every N ≥ 1 at most C N^{G−γ} elements n ∈ [1, N]^G have Ξ(n) (a) not defined over Q or (b) isogenous to some B in H; the others can be taken Hodge generic, and for g = 2, 3, 5 any γ < 1 works.
+Theorem: Let g∈{2,3,4,5} and fix a dominant rational parametrization Ξ:A^G⇢A_g over Q. For a fixed hypersurface H⊂A_g and γ<1/2, a constant C(Ξ,H,γ) bounds the exceptional integral parameters in every box [1,N]^G, N≥1, by C N^{G−γ}. Every nonexceptional parameter has a Q-defined, Hodge-generic image whose geometric isogeny class avoids H; undefined images belong to the exceptional set. For g∈{2,3,5} the bound permits every γ<1.
 Prerequisites: 5E, 7D, 4C
 -/
 
 /- Omitted AbelianVarietiesIsogenousToNoJacobian:A0/rational-fourfold (8H)
 The genuine arithmetic Siegel moduli, avoidance and model-degree interfaces are prerequisites.
-Theorem: If A_4 is unirational over Q, there is a principally polarized abelian fourfold defined over Q and Hodge generic that is not isogenous to any Jacobian.
+Theorem: Assuming a Q-defined unirational parametrization of A_4, one can choose a Hodge-generic principally polarized four-dimensional abelian variety over Q whose geometric isogeny class contains no Jacobian.
 Prerequisites: 8G, 0D
 -/
 

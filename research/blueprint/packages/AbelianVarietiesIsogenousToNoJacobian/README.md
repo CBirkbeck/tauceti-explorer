@@ -197,7 +197,7 @@ abelian-variety Rosati involution must come through the geometric supplier.
 | --- | --- |
 | 0 (`MZ0`) | Torelli and period-domain conventions, coefficient descent and the guarded matrix correspondence. |
 | 1 (`E0`) | Elliptic matrix heights, subgroup counts and many elliptic isogeny classes. |
-| 2 (`E1`) | Elliptic real-curve avoidance and the corrected horizontal-offset bound. |
+| 2 (`E1`) | Elliptic real-curve avoidance and a uniform horizontal-offset bound. |
 | 3 (`I0`) | Rational Rosati normalization, short off-diagonal isogenies and period heights. |
 | 4 (`G0`) | Genericity implications and arithmetic exceptional sets. |
 | 5 (`C0`) | Arithmetic candidates and large-isogeny field-degree growth. |
@@ -404,9 +404,9 @@ counting directly to that matrix set would give the wrong conclusion.
 
 **2A. Elimination along two modular correspondences.**
 
-Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every integer m≥1 there is G_m ≠ 0 in C[x1,
-x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) =
-0.
+Fix a nonzero polynomial f∈ℂ[y₁,y₂]. One can choose a constant c(f)>0 and, for each
+integer m≥1, a nonzero G_m∈ℂ[x₁,x₂] of total degree ≤c(f)ψ(m)². Every simultaneous solution
+(ξ₁,ξ₂,η₁,η₂) of Φ_m(ξ₁,η₁)=0, Φ_m(ξ₂,η₂)=0 and f(η₁,η₂)=0 satisfies G_m(ξ₁,ξ₂)=0.
 
 API in `TauCeti.NoJacobian`:
 
@@ -792,12 +792,14 @@ Source: [MZ20] §5.1 Lemma 5.1(b) p.658.
 
 **5E. The higher-dimensional candidate count.**
 
-There is µ = µ(g) such that for integers M ≥ 1 and N ≥ 2 there are only ≪ N^{G−1}M^{2g} +
-N^{G−1}(log N)^µ + N^{G−1/2} log N elements n ∈ [1, N]^G such that some A_n in the projection of
-Ψ^{-1}(n) is (a) not defined over an extension of Q of degree at most D (1), (b) isogenous to some Ã
-in H via an isogeny to Ã of degree at most M, or (c) not p-Galois generic, for a fixed prime p (p =
-2 will do); the implied constant depends only on Ã, Ψ, H. For g odd or g = 2, 6 the last term can be
-omitted.
+Fix the cover Ã, the parameter map Ψ, the hypersurface H and a prime p; p=2 is allowed.
+There is an exponent µ(g) such that, for all integers M≥1 and N≥2, the number of bad integral
+parameters n∈[1,N]^G is bounded by a fixed constant times
+N^{G−1}M^{2g}+N^{G−1}(log N)^µ+N^{G−1/2}log N. A parameter is bad when at least one projected
+point A_n of Ψ^{-1}(n) lacks a model over a field of degree ≤D from (1), admits an isogeny of
+degree ≤M to a point of H, or fails p-Galois genericity. The constant depends on the fixed
+cover, Ψ and H. In odd dimension, and in dimensions 2 and 6, the same bound holds after
+removing the final summand.
 
 Source: [MZ20] §5.1 Lemma 5.1 (32) pp.658–659.
 
@@ -1099,15 +1101,16 @@ Source: [MZ20] §5.1 p.663.
 
 **7E. The strong quantitative hypersurface-avoidance theorem.**
 
-For g ≥ 2, a finite cover Ã of A_g, a finite map Ψ : Ã → A^G, an algebraic hypersurface H ⊂ A_g and
-γ < 1/2, there are C = C(Ã, Ψ, H, γ) and D = D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ (1) such that for every
-N ≥ 1 at most C N^{G−γ} elements n ∈ [1, N]^G have a point of Ψ^{-1}(n) whose projection to A_g is
-(a) not defined over an extension of Q of degree at most D, or (b) isogenous to some B in H; the
-remaining ones can be taken Galois (hence Hodge) generic ('strong Theorem 1.3'); for g odd or g = 2,
-6 any γ < 1 works; and there are Ã, Ψ over Q with D(Ã, Ψ) = 2^{16g⁴}. Interpret covers and finite
-maps as dominant generically finite rational maps on their specified nonempty regular domains. The
-exceptional event is existential in a fibre; all regular projected points of each remaining fibre
-satisfy the conclusions.
+Fix g≥2, a cover Ã⇢A_g, a parameter map Ψ:Ã⇢A^G and an algebraic hypersurface H⊂A_g.
+Both maps are dominant and generically finite, with specified nonempty regular domains.
+Write D=[F̃:Q][F_Ψ:Q]D_Ψ as in (1). For each γ<1/2 there is a constant C(Ã,Ψ,H,γ) such that,
+for every integer N≥1, at most C N^{G−γ} integral parameters n∈[1,N]^G are exceptional.
+Outside this exceptional set, every projected point in the regular fibre Ψ^{-1}(n) has a
+model over a field of degree ≤D, is Galois generic and is geometrically isogenous to no point
+of H. Thus genericity is Galois genericity, which implies Hodge genericity. When g is odd or
+g∈{2,6}, the exponent may be any γ<1. There is a choice of Ã and Ψ over Q for which the
+field-degree allowance is 2^{16g⁴}. An exceptional fibre is one with at least one failing
+projected point.
 
 Source: [MZ20] §1.2 Theorem 1.3 p.638; §5.1 pp.658–663; §5.2 p.666.
 
@@ -1130,17 +1133,19 @@ rational symplectic translates of one fixed example, whose model degrees can gro
 
 **8A. The main bounded-degree hypersurface-avoidance theorem.**
 
-Given an algebraic hypersurface H in A_g with g ≥ 2, there is A in A_g, defined over an extension of
-Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any B in H.
+For each g≥2 and proper algebraic hypersurface H⊂A_g, one can find a number field K and
+a Hodge-generic principally polarized g-dimensional abelian variety A/K satisfying
+[K:Q]≤2^{16g⁴}. No abelian variety represented by a point of H is geometrically isogenous to A.
 
 Source: [MZ20] §1.2 Theorem 1.1 p.637; §5.1–5.2.
 
 **8B. An abelian variety isogenous to no Jacobian.**
 
-For every g ≥ 4 there is a principally polarized abelian variety of dimension g, defined over an
-extension of Q of degree at most 2^{16g⁴} and Hodge generic, that is not isogenous to any Jacobian.
-This excludes canonically principally polarized Jacobians of stable compact-type curves as well as
-smooth curves; isogenies need not respect polarizations.
+In each dimension g≥4 there is a number field K of degree [K:Q]≤2^{16g⁴} and a
+Hodge-generic principally polarized abelian variety A/K of dimension g whose geometric
+isogeny class contains no Jacobian. This excludes canonically principally polarized Jacobians
+of stable compact-type curves as well as smooth curves; the isogenies need not respect
+polarizations.
 
 Source: [MZ20] §1.2 Corollary 1.2 p.637.
 
@@ -1171,25 +1176,28 @@ Source: [MZ20] §5.3 p.667.
 
 **8F. A dense set of pairwise non-isogenous examples.**
 
-For every g ≥ 4 there is a set of principally polarized abelian varieties of dimension g, dense in
-the euclidean topology, each defined over an extension of Q of degree at most 2^{16g⁴} and not
-isogenous to any of the others or to any Jacobian.
+For g≥4, choose a Euclidean dense subset S⊂A_g(C) consisting of principally polarized
+abelian varieties with model fields of degree ≤2^{16g⁴}. The choices can be made so that
+distinct members of S have distinct geometric isogeny classes, and none of these classes
+contains a Jacobian.
 
 Source: [MZ20] §1.2 Corollary 1.4 p.638; §5.3 p.667.
 
 **8G. The unirational counting theorem.**
 
-For g = 2, 3, 4, 5, assume a dominant rational map Ξ : A^G → A_g over Q. For every hypersurface H ⊂
-A_g and γ < 1/2 there is C = C(Ξ, H, γ) such that for every N ≥ 1 at most C N^{G−γ} elements n ∈ [1,
-N]^G have Ξ(n) (a) not defined over Q or (b) isogenous to some B in H; the others can be taken Hodge
-generic, and for g = 2, 3, 5 any γ < 1 works.
+Let g∈{2,3,4,5} and fix a dominant rational parametrization Ξ:A^G⇢A_g over Q.
+For a fixed hypersurface H⊂A_g and γ<1/2, a constant C(Ξ,H,γ) bounds the exceptional
+integral parameters in every box [1,N]^G, N≥1, by C N^{G−γ}. Every nonexceptional parameter
+has a Q-defined, Hodge-generic image whose geometric isogeny class avoids H; undefined
+images belong to the exceptional set. For g∈{2,3,5} the bound permits every γ<1.
 
 Source: [MZ20] §1.2 Theorem 1.5 p.639; §5.1 p.657.
 
 **8H. The conditional rational fourfold consequence.**
 
-If A_4 is unirational over Q, there is a principally polarized abelian fourfold defined over Q and
-Hodge generic that is not isogenous to any Jacobian.
+Assuming a Q-defined unirational parametrization of A_4, one can choose a
+Hodge-generic principally polarized four-dimensional abelian variety over Q whose
+geometric isogeny class contains no Jacobian.
 
 Source: [MZ20] §1.2 Corollary 1.6 p.640.
 
@@ -1545,15 +1553,19 @@ Direct prerequisites for this layer:
   §2, p.3. This citation fixes the equivalent diagonal conditions for the
   Igusa subgroup; no cohomology theorem is used here.
 
-For the analytic theta inputs, MZ20 §5.2, pp.665–666, gives the exact references
-to Jun-ichi Igusa, *Theta Functions* (Springer, 1972): pp.177–178 for normality,
-p.185 for weight, p.197 and Theorem 7 on p.206 for the order estimate,
-pp.208 and 415, 422–423 for the index, projective model and transformation
-conventions. The elementary Minkowski-constant estimate there cites C. G.
-Lekkerkerker, *Geometry of Numbers* (1969), p.63. These references specify
-the stronger shared theorems needed by Layer 6; the statements in this roadmap
-are mathematical targets, not a claim that an original theta proof or an
-arithmetic descent has already been implemented.
+For the analytic theta inputs, MZ20 §5.2, pp.665–666, points to Jun-ichi
+Igusa, *Theta Functions* (Springer, 1972): pp.177–178 for normality, p.185 for
+weight, p.197 and Theorem 7 on p.206 for the order estimate, and p.208 for
+bounded-trace Fourier indices. The level convention, theta transformation and
+arithmetic model references on pp.422–423 and p.415 belong to David Masser
+and Gisbert Wüstholz, *Periods and minimal abelian subvarieties*, Annals of
+Mathematics **137** (1993), no.2, pp.407–458,
+[DOI 10.2307/2946542](https://doi.org/10.2307/2946542), reference [25] of
+MZ20. MZ20 p.666 also prints an Igusa citation to p.415; the arithmetic model
+citation later on that page identifies [25]. The elementary Minkowski-constant
+estimate cites C. G. Lekkerkerker, *Geometry of Numbers* (1969), p.63.
+These locators identify the shared results used by Layer 6; the theta
+arithmetic descent is a separate input from the analytic quotient comparison.
 
 Similarly, MZ20 §5.1, pp.658–663, identifies the Cadoret, Pink, Serre, Deligne,
 Cohen and functional-transcendence inputs for Layers 4 and 7. Their owner
