@@ -38421,7 +38421,8 @@
     "BP-AutomorphicFormsOnReductiveGroups~3"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7952"
   },
   {
    "kind": "blueprint",
@@ -39233,7 +39234,8 @@
     "BP-DiamondSixOperations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DiamondSixOperations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7042"
   },
   {
    "kind": "blueprint",
@@ -39291,7 +39293,8 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7044"
   },
   {
    "kind": "blueprint",
@@ -41891,8 +41894,9 @@
     "BP-RelativeFarguesFontaine--RF0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7087"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7087",
+   "finishedAt": "2026-10-10T07:26:04Z"
   },
   {
    "kind": "blueprint",
@@ -47091,8 +47095,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48213,8 +48217,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -80064,8 +80068,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81373,8 +81377,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
