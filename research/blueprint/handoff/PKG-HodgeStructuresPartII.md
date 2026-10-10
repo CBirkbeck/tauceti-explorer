@@ -1,4 +1,94 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-nvxnhF
+
+Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Codex (GPT-6), session `codex-nvxnhF`, 10 October 2026.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095294789).
+Branch: `codex-nvxnhF-hodge-package`. No manager-priority issue was available
+in the available-swarm listing; this focus package followed the fallback
+ordering. Only this job was claimed.
+
+## Current result and action needed
+
+**Blocked by unchanged owner specifications, not by compilation.** This run
+independently re-read the H.0 ordinary-fibre and both Rees consumers, all seven
+H.0 continuation gaps, and the complete definition/API of
+`CrystallineCohomology:CR.1/integrable-connection` and the two DD.1 filtered/Rees
+targets. Their hashes still match the previous checkpoint. The issue's premise
+that an accepted plan is ready for packaging does not establish the exact
+supplier contracts: the accepted H.0 review explicitly retains seven gaps and
+four requests and calls its layer planned, not closed.
+
+The issue authorizes only README, Suggested.lean, metadata and this handoff,
+and directs plan mistakes into the handoff. PROTOCOL sections 3, 15 and 20
+require exact prerequisites, one owner for shared constructions and fidelity
+to the plan. Completing the following supplier specifications and reconciling
+the consuming packet therefore requires owner-authorized jobs. Adding their
+general mathematics solely to this package would leave its accepted plan and
+supplier ownership inconsistent.
+
+| Repair owner | Exact deficient export | Required consuming comparison |
+| --- | --- | --- |
+| CR.1 | `integrable-connection` presently requires a quotient of Kähler differentials in the affine case, or the small crystalline site under PD hypotheses. | H.0 `ordinary-fiber` needs connections on any supplied differential ringed site, preserving the additive operator, exterior extensions, curvature, horizontal maps, restriction and gluing. |
+| DD.1 | `filtered-modules` and `rees-description` presently specify enhanced derived diagrams, derived graded fibres and localization. | H.0 `rees-parameter` and `rees-specialization` need ordinary finite locally split module sheaves, finite local freeness, the actual zero/unit/localized fibre maps, naturality and descent; their maps must intertwine the H.0 operators. |
+
+The complete repair equations and discriminating witnesses are retained below.
+Route these two repairs, then reconcile H.0's exact supplier references and
+the remaining G2/G4–G7 contracts before certifying the package. G1/G3 alone
+do not discharge the all-layer audit. No owner was moved in this run.
+
+## Fresh evidence and validation
+
+Repository input: `66598e80fd153d96e5577671256d6f1bc08dbbe3`.
+Read-only upstream roadmaps: `cd03e06852a13216ad246d0623492c4beac39af2`.
+Current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+- Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs
+  in full and their relevant suggested signatures. The former supplies scheme
+  bundle operations; the latter's `CurvatureForm` is a smooth real manifold
+  bundle-valued form carrier. Neither states G1/G3's required export.
+- Read the reviewed HodgeStructures L0–L3 target audit. Its pure/mixed linear
+  algebra and period points are existing inputs, not material to re-plan.
+- Read current `TauCeti.SheafOfModules.tensorProduct`, `tensorProduct_val`
+  and `tensorProductIso` with their ambient assumptions: the carrier is the
+  sheafification of presheaf tensor. Read Mathlib's `reesAlgebra` and
+  `mem_reesAlgebra_iff`: these describe an ideal-power polynomial subalgebra,
+  not the requested filtered module sheaf. These are boundary checks, not
+  an exhaustive audit of every target in H.1–H.8.
+- Re-opened [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
+  and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on
+  2026-10-10. Their connection and crystal construction use the small
+  crystalline site over a PD base; they do not state arbitrary supplied-site
+  connections. Read Bhatt's
+  [*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
+  Proposition 2.2.6 and its inverse, printed p.16, and Remarks 2.2.7–2.2.8,
+  printed pp.16–17. The finite-projective affine specialization in Remark
+  2.2.8 supports an ordinary Rees owner extension, whose site and comparison
+  contracts still need to be specified. No source text is reproduced here.
+- `python3 scripts/check_blueprint.py` on all ten Hodge inputs and the CR.0
+  and DD supplier packets: every invocation exited 0, with zero errors and
+  zero warnings. Structural validation does not close their recorded gaps.
+
+- Fresh `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
+  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, zero
+  other warnings. Available memory before checking was 107 GB. The shared
+  check uses Tau Ceti f790474 / Mathlib 082e2d3. Successful elaboration of
+  admitted signatures does not establish the missing sheaf constructions.
+- Scoped intake `check-files` on this handoff: one file, zero problems.
+  `git diff --check` passed. No package artifact changed and no Lean process
+  from this session remains running.
+
+This run changes only this handoff; the inherited mathematical artifacts and
+their admission boundaries are preserved. The package remains incomplete and
+metadata is absent. The intended topic on completion is `math.AG`.
+Everything needed to resume is in the repository; no scratch file is needed.
+
+## Inherited repair specification and resumption detail
+
+The following is the preceding checkpoint's authored record. Its witness work,
+diagnostics and compilation receipts belong to `codex-tOBD6n`; they are retained
+for continuity and are not claimed as this session's work.
+
+### Previous checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
 Codex (GPT-6), session `codex-tOBD6n`, 10 October 2026.
