@@ -1,5 +1,49 @@
 # Handoff: REV-FIX-RT-AREA-langlands-2~3
 
+## Current checkpoint, 10 October 2026 — codex-bmdZE0
+
+Issue #5871; bot confirmation
+[6101257130](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6101257130),
+claim comment 6101256015. Branch `codex-bmdZE0-review-langlands-scope`.
+Started at `e760b5eb86b00b323b8e2d104317e3f0b1a60e98`, then rebased onto
+`2698b0b8d` to retain the latest preceding continuation. Only this job was
+successfully claimed. **Blocked checkpoint:** the mathematical review is
+already complete, while queue scope repair exceeds this issue's deliverables.
+
+Freshly confirmed seven live outputs versus 27 queue outputs, and forty parent
+fix outputs, in both local and fetched-main metadata. All files exist. The
+stock completion predicate returns False for the current entry and True for
+the live scope or the original historical review entry. PR #6724's merge
+queue at `ea48bbeeacfde53c5b93de227ad11d27e83cdafd` has the original ten/seven
+lists, confirming the restoration source detailed below.
+
+**Additional evidence:** the preceding completed-only guard still expands an
+existing external worker's scope. A scratch-only test of the actual nested
+`fix_rounds` helper compares stock, completed-only and all-existing guards.
+Under either new inputs or an earlier send-back, the first two grow a recorded
+external successor from three to five outputs; the all-existing guard retains
+three. The results persist through two generations, with the second using
+the first's outputs. With no existing successor, all three create a new round
+including the new inputs. The report includes the complete reproducer.
+This is not a full-generator test of the alternative; the previous full replay
+applies only to its own guard and remains correctly attributed below.
+
+**Maintainer next action:** restore the original two output lists, decide how
+issued pending scopes are preserved, then run full regeneration twice and
+inspect broader family changes before applying the global repair. Queue and
+generator edits are neither issue-authorized nor ordinary intake paths.
+Keep this job out of scheduling until reconciliation. No permission question
+is pending; another unchanged mathematical review cannot clear the blocker.
+
+Fresh pinned-index packet checks pass with zero errors/warnings (37/73/67
+nodes). The existing table covers all forty confirmed findings exactly once.
+CSM accepted, Global accepted and GL2 needs_changes remain unchanged, as do all
+packet and Lean contents. Lean was not rerun for this documentation-only change;
+the prior receipts remain attributed. Only this handoff and the report change.
+No scratch artifact is needed to resume, and no second job was claimed.
+
+---
+
 Refs #5871. Codex session **codex-LPn2NR**, 10 October 2026.
 Branch: `codex-LPn2NR-review-5871`. Input commit:
 `0339ede22bf7a801e863028435d340d6ab2c0f03`.
