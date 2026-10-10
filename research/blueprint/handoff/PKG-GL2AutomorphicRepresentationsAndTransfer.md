@@ -1,5 +1,168 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Issue: #7901. Worker: Codex, session `codex-yQpilr`. Date: 2026-10-10.
+Branch: `codex-yQpilr-gl2-package`. Continues checkpoint #8207 and its
+inherited package files. Status: **partial; accepted prerequisite plan needs
+repair**. This submission changes the handoff only.
+
+The bot confirmed this session's claim in
+[comment 6093423303](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6093423303).
+The open `swarm` / `state:available` issue list contained none of the manager's
+priority numbers; this focus package was selected under the fallback order.
+One issue was claimed, and no further job is taken.
+
+## Blocking prerequisite and the permitted scope
+
+The accepted R17.3 input still records the gap **Local–global extension of
+characters (Chevalley's congruence theorem for S-units)**. Its consumers are
+`R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction`. Their listed GlobalNumberFields prerequisites
+supply carriers, extraction of local components and ray-class factorization,
+not existence with prescribed characters on the full local multiplicative
+groups. The separate `R17.5/finite-hecke-extension` has a torsion-idele domain;
+it cannot supply uniformizer values.
+
+The current GlobalNumberFields Layers 9–10 and ClassFieldTheory §1 and Layer 12
+were checked again. The latter explicitly excludes prescribed local abelian
+extensions. Reading `HeckeCharacter.Basic`, `FiniteComponent`, `FiniteOrder`
+and `UnitCompatibility` confirms the distinction: the factorization and
+compatibility theorems start with a global character already given. They do not
+construct one from arbitrary specified finite components. Current read-only
+revisions remain TauCetiRoadmap `dea8191cc6047d6142a65872ebce6eeeb841a29b`
+and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+The issue's full instructions say: **Change no packet; if the plan has a
+mistake, describe it in the handoff note.** PROTOCOL.md §20 requires the package
+README to claim nothing unsupported by the accepted plan. The owner and
+prerequisite repair therefore cannot be made in the authorized deliverables.
+This is a scope blocker, not a wait for a library implementation. Do not add
+`metadata.toml`: the intake's existence test would classify the package as
+complete despite its still missing contracts.
+
+## Correction to the inherited congruence proof proposal
+
+The full-local finite-character construction in the inherited handoff remains
+useful **conditional on the congruence contract**. Its proposed shortcut to
+that contract, using derangements for every proper subgroup of an arbitrary
+Galois splitting field, is withdrawn. A local root of a reducible binomial
+need not belong to the global root orbit whose field is being tested. Roots
+chosen at two completions need not generate the same intermediate field.
+Consequently the claimed contradiction from a prime with no degree-one place
+in one chosen root field does not follow.
+
+A precise regression case is `X⁸ − 16` over ℚ. It has no rational root,
+because `8 v₂(y) = 4` would require a nonintegral valuation. Nevertheless it
+has a root over every ℚₚ for odd p. The factorization is
+
+`X⁸ − 16 = (X² − 2)(X² + 2)(X² − 2X + 2)(X² + 2X + 2)`.
+
+At least one of 2, −2 and −1 is a square in every odd residue field: if both
+2 and −1 were nonsquares, their product −2 would be a square. The first two
+quadratics give roots when 2 or −2 is square; the last two have discriminant
+−4 and give roots when −1 is square. Every such root is nonzero and is a
+simple root of the binomial, so Hensel lifts it. The three possible root fields
+are ℚ(√2), ℚ(√−2) and ℚ(i); the example exposes exactly the orbit mismatch.
+It does not refute Chevalley's congruence theorem: having a local eighth root
+is much weaker than the congruence condition that theorem chooses.
+
+Use the primary proof of Chevalley's **Theorem 1**, printed p. 36, Part I,
+pp. 36–39, for a repaired owner contract. Read directly from the
+[publisher PDF](https://www.jstage.jst.go.jp/article/jmath1948/3/1/3_1_36/_pdf/-char/en)
+on 2026-10-10; SHA-256
+`c8ca4e2dac91b20836adaf90ac5300f7dd197bb8f7145d5c422791d436358493`.
+The power-subgroup separation has the following proof obligations, which
+preserve the roots-of-unity hypothesis that the shortcut lost:
+
+1. For finitely generated E ⊂ M×, its saturation E₀ is contained in an S-unit
+   group, is finitely generated, and E₀/E is finite. If d kills that quotient,
+   forcing x ∈ E to be an nd-th power in M forces it to be an n-th power in E.
+   Reduce the required exponent to its prime-power factors and combine their
+   congruence moduli.
+2. For exponent pᵉ, first arrange that −1 is a square if p = 2. When it is
+   not, work in M(i) with exponent 2^(e+k), where 2ᵏ is the largest order of
+   a 2-power root of unity in M(i). If y^(2^(e+k)) ∈ M, let f be the least
+   exponent for which y^(2^f) ∈ M. Quadratic conjugation makes its ratio on y
+   a primitive 2^f-th root of unity; hence f ≤ k, and the desired 2ᵉ-th root
+   lies in M. The increase of exponent is necessary.
+3. For odd p, or for p = 2 with i ∈ M, use prime-power radical descent from
+   M(μ_{pᵉ}) to M. The initial cyclotomic step has degree prime to p and
+   uses a norm/Bézout argument. In each following degree-p step, if
+   y^(pᵉ) ∈ M, the conjugation ratio on y lies in μ_p; multiplying y by a
+   suitable power of the next cyclotomic generator makes it invariant
+   without changing its pᵉ-th power. The degree-two initial exception is
+   excluded by i ∈ M. This is a distinct lower contract, not an unconditional
+   assertion that radicals descend from every cyclotomic extension.
+4. Over a field containing μ_{pᵉ}, adjoining the pᵉ-th roots of finitely
+   many generators of E gives a finite **abelian p-extension** L/M.
+   For each degree-p intermediate field choose, by Chebotarev, an inert
+   finite prime unramified in L and away from the excluded rational primes and p.
+   Choose a
+   rational modulus divisible by the primes below these chosen primes.
+   If x ∈ E is congruent to 1 modulo this modulus, Hensel gives a local
+   pᵉ-th root at every chosen prime. Here all roots differ by multiplication
+   by an element of μ_{pᵉ} ⊂ M, so their fields coincide: the root field is a Galois p-extension
+   inside L and has a degree-one place at each chosen prime. A nontrivial
+   root field would contain a degree-p subfield, contradicting the prime
+   chosen inert there. This proves root existence in M.
+
+These are proposed proof inputs for the owner's repaired plan, not new package
+targets or claims of completed closure. No finding against the published
+source is asserted; the withdrawn argument was the inherited handoff's own
+restatement. The corrected route avoids relying on the alternative remark.
+
+## Shared-owner routing lead
+
+The same general congruence theorem is also used in
+`PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking`,
+whose source is Allen et al., Lemma 5.4.15, pp. 1019–1020, and in the
+`ShimuraVarieties--V0` packet's **CM norm-kernel inputs** gap (Milne's
+Lemma 3.6). The former node only states its application to ordinary integer
+units and level shrinking; the latter records a proposed ClassFieldTheory,
+Part II supplier. Neither is the full S-unit character-prescription contract.
+The maintainer should reconcile these leads and the earlier proposed
+GlobalNumberFields extension into **one** general owner, preserving the finite
+set of primes to avoid. Do not cite the determinant application as if it
+already supplied arbitrary finitely generated multiplicative subgroups.
+
+Then add the finite-character consequence, the one-place quasi-character
+consequence, and the CM infinity-type compatibility contract described below;
+repair both R17.5 consumers' exact prerequisites. The other inherited closure
+requirements remain and must be handled separately. This run makes no
+ownership change or downward move.
+
+## Validation in this session
+
+- Both input `scripts/check_blueprint.py` checks: **zero errors and warnings**;
+  55/57 nodes, eight gaps each, 32/35 requests, zero closed stages. Accepted
+  target-level status alone does not discharge the recorded gaps.
+- `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`:
+  **exit 0, 144 warnings, all declaration uses `sorry`, no errors or other
+  warnings**. Available memory before the run was 108 GB. Managed pins:
+  Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`. No compilation remains running.
+- A residue calculation checked simple roots of `X⁸ − 16` at all **167**
+  odd primes below 1000. The all-prime argument above supplies the reason;
+  this finite computation is a regression check, not its proof.
+- The package README and Lean file are unchanged: **199,924** and **79,108**
+  bytes respectively. Every inherited signature, test and explicitly named
+  omission is preserved. Compilation establishes elaboration only.
+- The current GlobalNumberFields and ReductiveGroups READMEs were read in
+  full; the relevant ClassFieldTheory scope and GlobalNumberFields suggested
+  contracts and the library's character statements were read. The reviewed
+  AUDIT-14 layer entries were consulted. No read-only checkout was modified or
+  used to run Lake. No private book was needed.
+
+The scoped intake file check and `git diff --check` pass. The output-existence
+check still returns **False** for completion. Public source files and scratch
+logs are disposable; all resume information is here. The previous handoff
+below retains the finite-character construction, CM qualification, remaining
+closure inventory and historical source receipts. Its discarded shortcut has
+been replaced by a pointer to this correction.
+
+---
+
+# Previous handoff: checkpoint #8207
+
 Issue: #7901. Worker: Codex, session `codex-gJ1wpQ`. Date: 2026-10-10.
 Continues merged checkpoints #8068, #8149, #8161, #8174, #8190 and #8196.
 Status: **partial; accepted-plan repair required**. This is not a completed
@@ -90,25 +253,10 @@ M×. Rapinchuk–Segev, *Valuation-like maps and the congruence subgroup
 property*, §4, final paragraph on printed p. 582, also records precisely this
 finite-index formulation.
 
-One suitable proof chain, using the alternative argument, is as follows.
-The saturation E₀ of E in M× lies in the same S-unit group, is finitely
-generated, and E₀/E is finite; let d kill that quotient. It suffices to force
-every congruent x ∈ E to have an nd-th root in M: a root y lies in E₀,
-so yᵈ ∈ E and x = (yᵈ)ⁿ. Take a finite Galois splitting field L of the
-nd-th roots of generators of E. For each proper subgroup H of Gal(L/M),
-choose a group element having no fixed point on Gal(L/M)/H. Such an element
-exists by the finite transitive-action fixed-point average: the identity
-fixes more than one point, whereas the average number fixed is one.
-Chebotarev gives a prime outside the excluded finite set, unramified in L
-and away from nd, with this Frobenius class. Impose x ≡ 1 at all these
-finitely many primes. Hensel's lemma then gives an nd-th root locally at
-every chosen prime. If the field generated by a root were nontrivial, its
-corresponding proper subgroup's prime would have no residue-degree-one
-prime by the Frobenius action, contradicting that local root. Thus the root
-lies in M. Required inputs are S-unit finite generation, finite Galois
-theory/splitting fields, the finite-action lemma, Chebotarev, Hensel, and the
-Frobenius/residue-degree correspondence. Do not replace this chain by a
-bare reference to class-field-theoretic existence.
+**Proof-route correction.** The earlier general-splitting-field shortcut is
+withdrawn. Use the prime-power/cyclotomic/Kummer proof obligations in the current
+session’s correction above. The congruence theorem and the following conditional
+character construction remain; the shortcut is not an established proof.
 
 **Finite character contract.** Given M, finite S, and continuous finite-order
 characters ξᵤ : Mᵤ× → ℂ× for every u ∈ S, there exists a continuous
