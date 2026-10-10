@@ -16,105 +16,105 @@
         "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "The native abelian-variety object, with its category and dimension API read in Basic and Hom/Iso.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "tauceti:TauCeti.WreathProduct",
         "kind": "abbrev",
         "module": "TauCeti/GroupTheory/Perm/WreathProduct.lean",
         "provides": "The full permutation wreath product, already built at the pin.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "tauceti:TauCeti.WreathProduct.map",
         "kind": "def",
         "module": "TauCeti/GroupTheory/Perm/WreathProduct.lean",
         "provides": "Functorial base map with unchanged top permutation, used for type-preserving automorphisms.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "tauceti:TauCeti.normLE",
         "kind": "def",
         "module": "TauCeti/Order/Northcott.lean",
         "provides": "Native inclusive real-cutoff finite carrier for a natural Northcott height.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "tauceti:TauCeti.mem_normLE",
         "kind": "theorem",
         "module": "TauCeti/Order/Northcott.lean",
         "provides": "Membership is exactly the inclusive real height bound.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "tauceti:TauCeti.summatory",
         "kind": "def",
         "module": "TauCeti/Order/Northcott.lean",
         "provides": "Native finite weighted sum over normLE.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:Fintype.card",
         "kind": "def",
         "module": "Mathlib/Data/Fintype/Card.lean",
         "provides": "Cardinality of a finite type.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:Set.ncard",
         "kind": "def",
         "module": "Mathlib/Data/Set/Card.lean",
         "provides": "Natural set cardinality; infinite sets have the junk value zero, so finiteness hypotheses are required.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:ZMod",
         "kind": "def",
         "module": "Mathlib/Data/ZMod/Defs.lean",
         "provides": "Residue rings; ZMod 0 is Z, hence positive moduli matter.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:MulAction.orbitRel",
         "kind": "def",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The existing orbit setoid and its quotient, reused for polarization fibers.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:QuotientGroup.lift",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "Quotient homomorphism universal property and its generated additive counterpart QuotientAddGroup.lift.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.map",
         "kind": "irreducible_def",
         "module": "Mathlib/MeasureTheory/Measure/Map.lean",
         "provides": "Measurable/AEMeasurable measure pushforward.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:Northcott",
         "kind": "class",
         "module": "Mathlib/Order/Northcott.lean",
         "provides": "Finiteness of every sublevel set, not just a properness slogan.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:Polynomial.discr",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
         "provides": "Affine polynomial discriminant using natDegree, with constant/linear value 1; it does not retain a vanished binary leading coefficient.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
         "kind": "structure",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Homomorphisms equipped with actual continuity, used for rigid profinite surjections.",
-        "checked": "Statement and surrounding API read in the pinned source tree, 2026-10-10."
+        "checked": "Independently verified by REV-ArithmeticStatistics--ST.0: declaration and surrounding API read using git show at the recorded pinned commit, 2026-10-10."
       }
     ]
   },
@@ -147,7 +147,7 @@
       "id": "bsw25-published",
       "title": "Squarefree values of polynomial discriminants II",
       "authors": "Bhargava, Shankar, Wang",
-      "edition": "published Forum of Mathematics Pi 13 (2025), e11",
+      "edition": "published Forum of Mathematics Pi 13 (2025), e17",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FD680BEF350C0140B682AB604D45F415/S2050508625000095a.pdf/squarefree-values-of-polynomial-discriminants-ii.pdf",
       "sha256": "b6e5d1701f487b813e9d6a0b26f9b8671c02c414996298cbba71fe5060e90740",
       "accessDate": "2026-10-10",
@@ -200,7 +200,7 @@
       "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
       "accessDate": "2026-10-10",
       "readSections": [
-        "§1 pp.1–3 (unweighted counts); §4.4 Proposition 4.11 and Examples 4.12–4.13, p.20"
+        "Introduction §0 pp.1–2 (unweighted counts); §1 begins on p.3; §4.4 Proposition 4.11 and Examples 4.12–4.13, p.20"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "sha256": "542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29",
       "accessDate": "2026-10-10",
       "readSections": [
-        "Introduction pp.3–5; §4 pp.29–33 (bundle law, Picard quotient, theta tails); §5 pp.38,40 (Hecke conventions)"
+        "Introduction pp.3–5; §4 pp.29–33 (bundle law, Picard quotient, theta tails); Appendix A.4 p.38 (Hecke conventions)"
       ]
     },
     {
@@ -267,7 +267,7 @@
       "id": "bstttz20",
       "title": "Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
       "authors": "Bhargava, Shankar, Taniguchi, Thorne, Tsimerman, Zhao",
-      "edition": "public author copy (2020)",
+      "edition": "Public author preprint dated February 18, 2017; the published 2020 text was not compared.",
       "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
       "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
       "accessDate": "2026-10-10",
@@ -1016,7 +1016,7 @@
       ],
       "title": "Acceptable monic local specifications",
       "kind": "definition",
-      "statement": "Fix n≥1 and κ≥2. A specification consists of a real root stratum and for each prime p a set of monic coefficient residues modulo p^κ. Its p-adic condition is the inverse image of that residue set. It is κ-acceptable when, for all sufficiently large primes, it contains every coefficient tuple with p²∤Δ. Local conditions are imposed by intersection, and the real stratum selects the number of real roots. Finite modification preserves acceptability. Existence of an Euler-product asymptotic requires the ST.2 tail estimate.",
+      "statement": "Fix n≥1 and κ≥2. A finite-place specification assigns to each prime p a set of monic coefficient residues modulo p^κ. Its p-adic condition is the inverse image of that residue set. It is κ-acceptable when, for all sufficiently large primes, it contains every coefficient tuple with p²∤Δ. The integral finite-place family is their intersection. A separately supplied real root stratum may then be intersected with this family through the parent local-conditions interface; acceptability concerns only the finite places. Finite modification preserves acceptability. Existence of an Euler-product asymptotic requires the ST.2 tail estimate.",
       "hypotheses": [
         "κ≥2 so squarefree-discriminant safety is visible in the modulus. Real root strata are supplied by the polynomial root-count API."
       ],
@@ -1071,6 +1071,11 @@
           "name": "ArithmeticStatistics.ST0.localSpecificationFamily_mono",
           "role": "characterisation",
           "statement": "Enlarging each local specification enlarges the global family."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.kappaAcceptable_finite_modification",
+          "role": "functoriality",
+          "statement": "Changing the residue sets at finitely many primes preserves κ-acceptability; no nonemptiness of the resulting global family is implied."
         }
       ],
       "prerequisites": [
@@ -1167,6 +1172,21 @@
           "name": "ArithmeticStatistics.ST0.primitiveSign_fiber",
           "role": "characterisation",
           "statement": "Every coefficient class has two primitive representatives."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.hypersurfaceHeight",
+          "role": "data",
+          "statement": "The source real height is the square root of the descended natural-valued squared height."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.hypersurfaceHeight_le",
+          "role": "characterisation",
+          "statement": "For X≥0, the real-height cutoff H≤X is exactly the squared-height cutoff H²≤X²."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.hypersurfaceHeight_real_northcott",
+          "role": "instance",
+          "statement": "The real Euclidean height on coefficient classes is Northcott."
         }
       ],
       "prerequisites": [
@@ -1547,7 +1567,7 @@
       "acceptance": [
         "The identity permutation representation has full S₂ type.",
         "The trivial permutation representation does not have full S₂ type.",
-        "In degree one the full and trivial subgroups coincide."
+        "The trivial representation on one point has full permutation type S₁, so the predicate does not impose a spurious nontriviality condition."
       ],
       "uses": [
         {
@@ -1569,7 +1589,7 @@
         {
           "name": "ArithmeticStatistics.ST0.type_test_one",
           "kind": "degenerate",
-          "statement": "In degree one the full and trivial subgroups coincide."
+          "statement": "The trivial representation on one point has full permutation type S₁, so the predicate does not impose a spurious nontriviality condition."
         }
       ],
       "api": [
@@ -1674,7 +1694,7 @@
       "acceptance": [
         "There is one dimension-zero abelian-variety class over a finite field.",
         "Isomorphic representatives contribute one class.",
-        "An object with two automorphisms contributes 1 to the class count but 1/2 to the mass."
+        "For an actual native dimension-g object A with #Aut(A)=2, the singleton class subfamily has unpolarizedCountOn=1, differing from its inverse-automorphism mass 1/2."
       ],
       "uses": [
         {
@@ -1696,7 +1716,7 @@
         {
           "name": "ArithmeticStatistics.ST0.abelian_test_mass_distinction",
           "kind": "non-example",
-          "statement": "An object with two automorphisms contributes 1 to the class count but 1/2 to the mass."
+          "statement": "For an actual native dimension-g object A with #Aut(A)=2, the singleton class subfamily has unpolarizedCountOn=1, differing from its inverse-automorphism mass 1/2."
         }
       ],
       "api": [
@@ -1719,6 +1739,16 @@
           "name": "ArithmeticStatistics.ST0.unpolarized_iso",
           "role": "characterisation",
           "statement": "Two representatives have the same class precisely when k-isomorphic."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.unpolarizedCountOn",
+          "role": "data",
+          "statement": "For a subfamily S of native class objects, its unweighted count is Set.ncard S; finiteness is required before treating ncard as a count."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.unpolarizedCountOn_univ",
+          "role": "compatibility",
+          "statement": "Counting the full class subfamily recovers unpolarizedCount."
         }
       ],
       "prerequisites": [
@@ -1732,7 +1762,7 @@
       "sources": [
         {
           "sourceId": "lt18",
-          "locator": "§1 pp.1–3",
+          "locator": "Introduction §0, Theorem 0.1, pp.1–2 (arXiv v1)",
           "match": "B(p,g) is the unweighted class count."
         }
       ],
@@ -1814,7 +1844,7 @@
       "sources": [
         {
           "sourceId": "lt18",
-          "locator": "§1 pp.1–3; Proposition 4.11 p.20",
+          "locator": "Introduction §0 pp.1–2; §4.4 Proposition 4.11 p.20 (arXiv v1)",
           "match": "The statistic counts polarized pairs, not polarizations without the automorphism quotient."
         }
       ],
@@ -2018,7 +2048,9 @@
       "title": "Exact bundle parity tails",
       "kind": "theorem",
       "statement": "For d≥1, μ_q({d,d+2,d+4,…})=1/(2q^(d−1)); the even tail starting at d=0 has mass 1/2. Consequently μ_q({a+1,a+3,…})=1/(2q^a) for a≥0. The d=0 exception is required by the balanced-bundle weight.",
-      "hypotheses": [],
+      "hypotheses": [
+        "q>1, as in the natural-bundle-law prerequisite; q is a prime power in the finite-field specialization."
+      ],
       "proofSteps": [
         "Sum the unbalanced geometric series with common ratio q^−2. At d=0 add the exceptional n=0 term to the positive even tail."
       ],
@@ -2117,7 +2149,8 @@
         "SchemeAndStackFoundations:SF.3/picard-brauer-sequence",
         "SchemeAndStackFoundations:SF.3/degree-zero-class-comparison",
         "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
-        "mathlib:QuotientGroup.lift"
+        "mathlib:QuotientGroup.lift",
+        "AbelianSchemesAndArithmeticModuliPartII:F5/finite-field-abelian-lang"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/Families",
@@ -2313,7 +2346,9 @@
       "title": "Parity-compatible product probability",
       "kind": "definition",
       "statement": "Let δ be the parity of deg(M₂−M₁). Define μ_r(n)=2μ_q(n) when n≡r mod2 and 0 otherwise. The candidate joint law is 1/2[μ₀⊗μ_δ+μ₁⊗μ_(1+δ)]. Equivalently its mass is 2μ_q(i)μ_q(j) when i+j≡δ and zero otherwise. It has both marginals μ_q and total mass 1. This construction states the candidate only; equidistribution and its hypotheses are ST.5/geometry results, not part of its definition.",
-      "hypotheses": [],
+      "hypotheses": [
+        "q>1, as in the natural-bundle-law prerequisite; q is a prime power in the finite-field specialization."
+      ],
       "proofSteps": [
         "Use the half-mass parity sectors. Normalize each conditional marginal by 2, and average the two allowed sector products with coefficient 1/2."
       ],
@@ -2396,7 +2431,7 @@
       "acceptance": [
         "Identity translation gives a diagonal measure.",
         "A constant correspondence pushes every point to its constant pair.",
-        "Different constant coordinate maps produce an off-diagonal point, not an independent product assumption."
+        "For distinct b,c, the pair pushforward of a Dirac mass along constant maps b,c differs from the reversed Dirac mass at (c,b)."
       ],
       "uses": [
         {
@@ -2418,7 +2453,7 @@
         {
           "name": "ArithmeticStatistics.ST0.hecke_test_asymmetric",
           "kind": "non-example",
-          "statement": "Different constant coordinate maps produce an off-diagonal point, not an independent product assumption."
+          "statement": "For distinct b,c, the pair pushforward of a Dirac mass along constant maps b,c differs from the reversed Dirac mass at (c,b)."
         }
       ],
       "api": [
@@ -2451,7 +2486,7 @@
       "sources": [
         {
           "sourceId": "st17",
-          "locator": "§5 Hecke correspondence and measure discussion pp.38,40",
+          "locator": "Appendix A.4, Hecke Measures, p.38 (arXiv v1)",
           "match": "The Hecke measure is induced by invariant adelic probability."
         }
       ],
@@ -2470,10 +2505,12 @@
       "statement": "For C/F₃ given by y²=2((x³−x)²+1), the smooth projective curve has genus 2, no F₃-points, fourteen F₉-points and #J(F₃)=4. Consequently Q has eight elements. Its exact bundle pushforward has μ_C(0)=1/2, μ_C(1)=3/8, μ_C(3)=1/8 and all other masses zero. This is a finite regression example, not the limiting natural μ₃. It detects both a spurious rational-point assumption on Pic¹ and a denominator h in place of 2h.",
       "hypotheses": [],
       "proofSteps": [
-        "For the convention P(t)=1+a₁t+a₂t²+3a₁t³+9t⁴, a₁=N₁−4=−4 and a₂=(a₁²+N₂−10)/2=10. Thus P(t)=1−4t+10t²−12t³+9t⁴ and P(1)=4. Θ₀ is a singleton and Θ₁ has no rational points; the one-tail formula and parity masses give ν=0,1,3."
+        "In characteristic 3 the defining sextic has derivative 2(x³−x), coprime to the sextic, so its smooth projective hyperelliptic model has genus 2. Enumerate x,y over F₃ and F₉=F₃[u]/(u²+1), including the infinity equation y²=2: N₁=0 and N₂=14.",
+        "Since N₁=0, the seven Frobenius pairs among C(F₉) are exactly the rational effective divisors of degree 2. Riemann–Roch and Serre duality give h⁰(L)=1 for every degree-two class except the canonical class κ, where h⁰(κ)=2. Thus the canonical Abel fiber has #P¹(F₃)=4 divisors and every other fiber has one. Hence #Pic²(F₃)=7−4+1=4; translation by κ identifies it with J(F₃). This proof needs no zeta-function theorem.",
+        "The degree-two Picard quotient has 2h=8 elements even though C(F₃) is empty. Θ₀ is a singleton, Θ₁ has no rational points, and the higher tails are empty. Applying the one-tail formula and the half-mass of each parity sector gives masses 1/2,3/8,1/8 at ν=0,1,3."
       ],
       "acceptance": [
-        "A finite F₃/F₉ enumeration gives N₁=0,N₂=14 and the genus-two zeta arithmetic gives h=4,Q=8. The exact bundle masses sum to one."
+        "Finite F₃/F₉ enumeration gives N₁=0,N₂=14. The effective-divisor count and Riemann–Roch give h=4,Q=8; the exact bundle masses sum to one."
       ],
       "uses": [],
       "tests": [],
@@ -2495,7 +2532,7 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "leanOmission": "The concrete smooth-projective curve, its Jacobian and bundle pushforward are not native at the pin. The source-independent finite-field count and derived zeta arithmetic are recorded in the reader and verified separately."
+      "leanOmission": "The concrete smooth-projective curve, its Jacobian and bundle pushforward are not native at the pin. The finite-field enumeration and the Riemann–Roch fiber count are independently checked in the review; no geometric Lean signature is fabricated."
     },
     {
       "id": "ArithmeticStatistics:ST.0/wood-outside-involutions",
@@ -2824,7 +2861,7 @@
       "acceptance": [
         "There is one continuous surjection to the trivial group.",
         "There is no surjection from the trivial group to a nontrivial finite group.",
-        "A surjection may have nontrivial kernel; this is not an embedding carrier."
+        "The reduction C₄→C₂ is an element of ContinuousSurjections with nontrivial kernel; replacing the carrier by continuous embeddings fails this test."
       ],
       "uses": [
         {
@@ -2846,7 +2883,7 @@
         {
           "name": "ArithmeticStatistics.ST0.sur_test_not_injective",
           "kind": "computation",
-          "statement": "A surjection may have nontrivial kernel; this is not an embedding carrier."
+          "statement": "The reduction C₄→C₂ is an element of ContinuousSurjections with nontrivial kernel; replacing the carrier by continuous embeddings fails this test."
         }
       ],
       "api": [
@@ -2864,6 +2901,21 @@
           "name": "ArithmeticStatistics.ST0.continuousSurjection_same_kernel",
           "role": "characterisation",
           "statement": "Maps with the same kernel differ by a unique automorphism of G."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.continuousSurjectionPostcompose",
+          "role": "constructor",
+          "statement": "For discrete G, postcompose a continuous surjection with α∈Aut(G) to obtain another element of ContinuousSurjections Γ G."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.continuousSurjectionPostcompose_apply",
+          "role": "simp",
+          "statement": "The underlying map evaluates to α(ρ(x))."
+        },
+        {
+          "name": "ArithmeticStatistics.ST0.continuousSurjectionPostcompose_kernel",
+          "role": "compatibility",
+          "statement": "Postcomposition by α leaves the kernel unchanged."
         }
       ],
       "prerequisites": [
@@ -3149,11 +3201,12 @@
   "requests": [
     {
       "supplier": "ArithmeticStatistics:ST.1",
-      "need": "Fixed-degree binary-form ring R_f, discriminant preservation over Z and arbitrary residue rings, p-maximality criterion at infinity, projective root multiplicities, and the routed BGW/BSW general-rank representation and orbit targets listed in targetCoverage. The current parent ST.1 plans the low-degree/core orbit dictionary; these general-rank source routes remain that stage’s work.",
+      "need": "Fixed-degree binary-form ring R_f, discriminant preservation over Z and arbitrary residue rings, p-maximality criterion at infinity, projective root multiplicities, and the routed BGW/BSW general-rank representation and orbit targets listed in targetCoverage. The current parent ST.1 plans the low-degree/core orbit dictionary; these general-rank source routes remain that stage’s work. Supply also the monic quotient-order interpretation of the Dedekind criterion, with p-maximality equivalent to avoiding (p²,pu,u²) for every monic irreducible u modulo p.",
       "neededBy": [
         "ArithmeticStatistics:ST.0/odd-root-criterion",
         "ArithmeticStatistics:ST.0/binary-density-formulas",
-        "ArithmeticStatistics:ST.0/stickelberger-binary"
+        "ArithmeticStatistics:ST.0/stickelberger-binary",
+        "ArithmeticStatistics:ST.0/local-maximality"
       ]
     },
     {
@@ -3209,7 +3262,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
-      "need": "Over a finite field, rational Pic^d is represented by actual line bundles (Brauer obstruction vanishes), Pic¹ is a nonempty Jacobian torsor by Lang, degree is surjective, and Pic⁰=J(k) is finite. No rational curve point is assumed.",
+      "need": "Over a finite field, represent Pic^d as a torsor under the represented Jacobian and identify Pic⁰=J(k), finite because J is of finite type. Combine the imported SF.3 Picard–Brauer comparison (Br(k)=0) with AbelianSchemesAndArithmeticModuliPartII:F5/finite-field-abelian-lang to obtain an actual degree-one line bundle and degree surjectivity. No rational curve point is assumed; Lang itself is imported, not re-planned in JacobianChallenge.",
       "neededBy": [
         "ArithmeticStatistics:ST.0/finite-picard-quotient"
       ]
@@ -3259,10 +3312,11 @@
     {
       "title": "Polarized geometry and finite class counts",
       "neededBy": [
+        "ArithmeticStatistics:ST.0/unpolarized-abelian-count",
         "ArithmeticStatistics:ST.0/principally-polarized-count",
         "ArithmeticStatistics:ST.0/polarization-fiber-count"
       ],
-      "detail": "The pin has abelian varieties and categorical isomorphisms, but lacks the native dual/principal-polarization type. A.2/M6/F5 supplies it. The generic orbit adapter is typed and does not assert that arbitrary actions are polarizations."
+      "detail": "F3 gives rational-orbit classification but the general fixed-dimension finite-field class carrier still needs an explicit finite-orbit/finiteness theorem. A.2/M6/F5 must additionally bind duals, principal polarizations, finite polarized classes and the forgetful fiber to the native abelian-variety category. The generic orbit adapter is typed and does not assert that arbitrary actions are polarizations."
     },
     {
       "title": "Picard, theta and adelic geometric specialization",
@@ -3297,14 +3351,19 @@
         "2026-10-10: public author copy linked from Avner Ash’s publication page; full §§3,6 including the internally inconsistent tables.",
         "2026-10-10: publisher DOI 10.1080/10586458.2007.10129001 and title plus erratum/correction searches; no applicable correction located.",
         "Repository source-issues and BSW II extraction: its E1 explicitly did not attribute the error to unread ABZ; this run acquired ABZ itself."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ABZ §6 generating series has t⁴ coefficient 8/81 at p=3; enumeration of all 9⁴ monic quartics independently agrees. Its valuation-one table exponent −n is therefore wrong while the combined table exponent 2−n agrees.",
+        "by": "REV-ArithmeticStatistics--ST.0"
+      }
     },
     {
       "id": "ArithmeticStatistics/E8002",
       "source": "bsw25-published",
       "kind": "error",
       "affects": "a stated result",
-      "locator": "Published Forum of Mathematics Pi 13 (2025), e11, Appendix A, Proposition A.1 and ν₁ calculation, pp.53–54; Theorem 1 degree-four specialization.",
+      "locator": "Published Forum of Mathematics Pi 13 (2025), e17, Appendix A, Proposition A.1 and ν₁ calculation, pp.53–54; Theorem 1 degree-four specialization.",
       "printed": "The appendix uses exponent −n in ν₁ for n≥4 and gives α₄=(1−1/p)²(1+2/p−2/p⁴+1/p⁵).",
       "correction": "Use exponent 2−n in ν₁ and α₄=(1−1/p)²(1+1/p)(1+1/p−1/p²), agreeing with every n≥4. Consequently the degree-four global squarefree factor uses this corrected Euler product.",
       "reason": "At p=3 exhaustive enumeration of 9⁵ binary quartic tuples gives 176/243, whereas the displayed special α₄ gives 1600/2187. The corrected monic strata and the three leading-coefficient strata independently give 176/243.",
@@ -3312,8 +3371,13 @@
       "searched": [
         "2026-10-10: Cambridge version of record and its Appendix A; public April 4,2025 author copy has the same expressions.",
         "2026-10-10: arXiv 2207.05592 and title/erratum/corrigendum searches; no applicable later correction located.",
-        "Repository accepted extraction and review: E1 already records the quartic error. This packet adds no independent-review verdict."
-      ]
+        "Repository accepted extraction and review: E1 already records the quartic error. Its source issue is independently checked in this review."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the version of record, Appendix A pp.53–55. The 9⁵ binary quartic residues give 42768 safe tuples, hence 176/243, contradicting the printed degree-four factor 1600/2187; the corrected three-stratum calculation agrees. The publication identifier is e17.",
+        "by": "REV-ArithmeticStatistics--ST.0"
+      }
     },
     {
       "id": "ArithmeticStatistics/E8003",
@@ -3328,7 +3392,31 @@
       "searched": [
         "Repository extraction E12 and its review, which document the unmatched Duke version.",
         "2026-10-10: arXiv v1 pp.30–33 freshly read. Scope is limited to that text; no new publication-persistence claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for arXiv v1 p.33: a finite uniform quotient probability requires division by its cardinality 2h, or h after conditioning parity. The independently counted pointless genus-two quotient has eight classes and a singleton tail, giving 1/8.",
+        "by": "REV-ArithmeticStatistics--ST.0"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E8004",
+      "source": "bsw22",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "arXiv:1611.09806v3, §1.1 p.4, strong/weak root criterion; version of record not compared.",
+      "printed": "The strong/weak discriminant root characterization is stated for any prime, including 2.",
+      "correction": "Restrict the stated root characterization to odd primes. At 2, a monic polynomial with even discriminant is strongly divisible by 4; no weakly 4-divisible monic polynomial exists.",
+      "reason": "For f=x²+1 modulo 2 there is one double root. Every coefficient lift with odd leading coefficient and even linear coefficient has discriminant b²−4ac divisible by 4. More generally Stickelberger congruence gives the same conclusion after any coefficient perturbation by 2.",
+      "known": "PAPER-BHARGAVA-SHANKAR-WANG-22/E1, independently confirmed there; the packet already used the odd-prime repair but had not recorded the source issue.",
+      "searched": [
+        "Read the exact v3 p.4 passage and the existing extraction/review E1, including its version-scoped search record. No new claim about a later correction or the unread version of record."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The quadratic lift computation proves the p=2 counterexample directly. Nodes stickelberger-binary and odd-root-criterion already implement the correct restriction.",
+        "by": "REV-ArithmeticStatistics--ST.0"
+      }
     }
   ],
   "sourceVersions": [
@@ -3353,7 +3441,7 @@
       "kind": "published",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FD680BEF350C0140B682AB604D45F415/S2050508625000095a.pdf/squarefree-values-of-polynomial-discriminants-ii.pdf",
       "sha256": "b6e5d1701f487b813e9d6a0b26f9b8671c02c414996298cbba71fe5060e90740",
-      "citation": "Squarefree values of polynomial discriminants II; published Forum of Mathematics Pi 13 (2025), e11",
+      "citation": "Squarefree values of polynomial discriminants II; published Forum of Mathematics Pi 13 (2025), e17",
       "read": "2026-10-10"
     },
     {
@@ -3433,7 +3521,7 @@
       "kind": "preprint",
       "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
       "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
-      "citation": "Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves; public author copy (2020)",
+      "citation": "Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves; public author preprint dated February 18, 2017 (not a comparison with the 2020 publication).",
       "read": "2026-10-10"
     }
   ],
@@ -4960,5 +5048,213 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticStatistics--ST.0",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review: all 40 nodes, 175 routes, 15 pinned baseline declarations, supplier statements, APIs, tests and six planets checked. Corrected the full Mathlib hash, source identifiers/locators, several API/test gaps and the genus-two proof; confirmed four version-scoped source issues. The planning pass is complete and ST.0 planned, with five honest gaps and twelve requests; no stage is closed. Suggested Lean elaborates at the exact pinned build with 276 expected proof-placeholder warnings only. Reader synchronization and the displayed-layer split remain assembly/maintainer actions documented in the review and handoff.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/coefficient-box",
+        "verdict": "verified",
+        "note": "Coordinatewise integer intervals give the box count and Northcott property; natural and real negative cutoffs agree with normLE."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/monic-weighted-height",
+        "verdict": "verified",
+        "note": "Weighted coefficient powers and empty degree-zero convention agree with BSW I p.1; strict-count exponent and inclusive floor factors were checked."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/binary-discriminant",
+        "verdict": "verified",
+        "note": "The fixed-degree universal resultant retains infinity roots, unlike natDegree-based Polynomial.discr; the quadratic and added-root identities have the stated sign."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/binary-local-proportion",
+        "verdict": "verified",
+        "note": "The denominator includes all n+1 residue coordinates. Independent enumeration gives 1/2, 3/8 and 176/243 in the three test cases."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/monic-local-proportions",
+        "verdict": "verified",
+        "note": "Valuation j is visible modulo p^(j+1); degree-zero and linear discriminants are 1. The quartic valuation-one count is 8/81."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/strong-weak-discriminant",
+        "verdict": "verified",
+        "note": "Strong divisibility quantifies all coefficient perturbations by p; weak means square-divisible but not strong. The supplied quadratic/cubic examples distinguish them."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/stickelberger-binary",
+        "verdict": "verified",
+        "note": "Integral discriminants are 0 or 1 modulo 4, so every 2-square-divisible monic lift is strong. The binary trace/ring binding remains a precise ST.1 request."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/monic-density-formulas",
+        "verdict": "verified",
+        "note": "ABZ Proposition 6.4 and the valuation-one generating series give the corrected exponent 2−n, including n=3 and the separate n=2 formula."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/local-maximality",
+        "verdict": "verified",
+        "note": "The ideal (p²,pu,u²) is the monic Dedekind obstruction. Linear cases are maximal; x²−3 is maximal at 3 while x² is not. The ST.1 request now explicitly includes this order interpretation."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/binary-density-formulas",
+        "verdict": "verified",
+        "note": "The three infinity-root strata give the common odd-prime n≥4 factor; exhaustive quartics confirm 176/243. Binary maximality beta remains an honest omitted ST.1 binding."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/kappa-acceptable-specifications",
+        "verdict": "corrected",
+        "note": "Separated finite-place acceptability from the independently supplied real root stratum so the statement matches Lean; added the finite-modification API. Empty at 2 can remain acceptable while the integral family is empty."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/primitive-hypersurface-family",
+        "verdict": "corrected",
+        "note": "The primitive sign quotient counts fixed-coordinate equations, with two representatives per class. Added the actual real square-root height, its cutoff bridge and Northcott signature."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/finite-local-hypersurface-set",
+        "verdict": "verified",
+        "note": "BLS p.55 requires both primitive coefficients and primitive roots. CRT, positive modulus and the Q=1 case match the existing ST.5 evaluator carrier."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/hyperelliptic-model-family",
+        "verdict": "verified",
+        "note": "BGW counts nonzero-discriminant binary models in a coefficient box, without quotienting equation changes. Leading-zero and scalar-isomorphic models are handled correctly."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/odd-root-criterion",
+        "verdict": "verified",
+        "note": "The root criterion is explicitly odd-prime and projective in the binary case, with zero reduction separate. Added the missing source-issue record for the p=2 exception; no mathematical statement changed."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/density-denominator-comparisons",
+        "verdict": "verified",
+        "note": "The same denominator must be used for both numerator and local family. Source conditional density, positive lower density and absolute density are not interchanged."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/negative-pell-radicands",
+        "verdict": "verified",
+        "note": "KP pp.1–2 use positive squarefree radicands including 1; primes 2 or 1 modulo 4 define rational Pell solubility. The field comparison excludes the degenerate radicand and distinguishes discriminant ordering."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/field-permutation-type",
+        "verdict": "corrected",
+        "note": "The normal-closure representation remains imported from PolynomialGaloisGroups. Strengthened the one-point test to apply HasPermutationType, rather than merely assert S1 is trivial."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/twist-denominator-frontier",
+        "verdict": "verified",
+        "note": "The general-number-field positive squareclass asymptotic is a precise AN.4 frontier, including ray classes modulo Cl² and finite unit/Selmer fibers. It is not inferred from Northcott or generic Tauberian infrastructure."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/unpolarized-abelian-count",
+        "verdict": "corrected",
+        "note": "Uses native k-isomorphisms and dimension. Added a restricted class-count API and a typed singleton-versus-mass test; expanded the existing finiteness gap because F3 rational-orbit classification alone does not prove finite class counts. Corrected the LT introduction locator."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/principally-polarized-count",
+        "verdict": "corrected",
+        "note": "Polarized-pair transport has equation f∨λ′f=λ; counts rational isomorphism classes rather than coarse points or stack mass. Missing native polarizations remain explicit; corrected the LT introduction locator."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/polarization-fiber-count",
+        "verdict": "verified",
+        "note": "The forgetful fiber is an Aut(A) orbit count; neither finite Aut(A) nor finite raw polarization carrier is assumed in the geometric claim. Generic typed action and geometric supplier binding are kept distinct."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/natural-bundle-law",
+        "verdict": "verified",
+        "note": "Inverse GL2 bundle automorphism orders give the displayed normalized law and half-mass parity sectors; q=3 tests give 1/3,4/9,4/27 and reciprocal-order sum 1/16."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/bundle-parity-tails",
+        "verdict": "corrected",
+        "note": "Geometric-series parity tails agree with the source. Made q>1 explicit in the packet, as already required by Lean."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/finite-picard-quotient",
+        "verdict": "corrected",
+        "note": "The quotient cardinality is 2h and does not require a rational curve point. Added the existing F5 finite-field Lang node directly and clarified the remaining Jacobian/Picard comparison request."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/picard-representatives-and-carry",
+        "verdict": "verified",
+        "note": "Unique degree-zero/one representatives use deg κ=2. The odd-plus-odd carry gives the nonsplit C4 example; the set product is not silently a group product."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/finite-joint-bundle-mass",
+        "verdict": "verified",
+        "note": "Uniform joint fiber cardinalities divide by #Q. Reparametrization acts simultaneously, and geometric involution invariance is required before replacing the second component by its inverse."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/theta-tail-normalization",
+        "verdict": "verified",
+        "note": "Theta tails include parity compatibility and the integral κ twist to match total degree; unconditional normalization is 2h, becoming h only after conditioning."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/parity-product-candidate",
+        "verdict": "corrected",
+        "note": "The factor 2 normalizes the parity-compatible product and gives each marginal μ. Made q>1 explicit; no arithmetic equidistribution conclusion is attached."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/hecke-pushforward",
+        "verdict": "corrected",
+        "note": "Corrected the source to Appendix A.4 p.38. Measurability and quotient-probability inputs are explicit; strengthened the asymmetric Dirac test to reject reversal of the two factors."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/pointless-curve-regression",
+        "verdict": "corrected",
+        "note": "Independent F3/F9 enumeration verifies 0 and 14 points. Replaced the unlisted zeta-function step by the seven degree-two divisors and Riemann–Roch: canonical fiber size 4, so h=7−4+1=4 and Q has eight elements."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-outside-involutions",
+        "verdict": "verified",
+        "note": "Uses the existing wreath product and its actual top permutation; square-one plus nonidentity top enforces order two. Trivial-group and canonical-swap tests are nonvacuous."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-admissible-type",
+        "verdict": "verified",
+        "note": "Wood admissibility requires swap membership, generation by all outside involutions and first-factor surjectivity of the top kernel. Source Proposition 2.2 retains all three conditions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-good-type",
+        "verdict": "verified",
+        "note": "Goodness requires one H-conjugacy class in addition to admissibility. The diagonal C2 times swap counterexample has two central outside involutions and is not good."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-type-automorphisms",
+        "verdict": "verified",
+        "note": "Type automorphisms preserve the actual embedded subgroup under diagonal wreath functoriality; they are automorphisms of G, not arbitrary automorphisms of H."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-continuous-surjections",
+        "verdict": "corrected",
+        "note": "Added a typed automorphism-postcomposition constructor with evaluation and kernel API. The C4→C2 regression now inhabits ContinuousSurjections with explicit discrete topologies, instead of testing an unrelated plain homomorphism."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-infinity-and-type-adapter",
+        "verdict": "verified",
+        "note": "Wood uses the full finite-place-unramified split-infinity extension. The chosen imaginary function-field completion and real twist are retained; the existing prime-to supplier cannot replace it."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-average-normalizations",
+        "verdict": "verified",
+        "note": "Number-field cutoffs and function-field exact slices remain separate. Imaginary marking multiplicity is #Aut_H(G); good-real multiplicity is #c times that number, with arithmetic finite fibers requested."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/wood-root-unity-and-tame-comparison",
+        "verdict": "verified",
+        "note": "The reduced multiplier is imported from RS.1. Wood torsion uses the base root-of-unity order and tame averaging changes both denominator and numerator; the C3 torsion test distinguishes 2 from 6."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.0/monic-euler-products",
+        "verdict": "verified",
+        "note": "Local factors are positive with summable uniform prime tails; the degree limit and quadratic constant agree with BSW I. No local product is promoted to a global density without ST.2 tails."
+      }
+    ]
+  }
 }

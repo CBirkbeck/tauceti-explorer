@@ -248,6 +248,11 @@ theorem kappaAcceptable_univ (n κ : ℕ) (hκ : 2 ≤ κ) : KappaAcceptable n �
   sorry
 theorem kappaAcceptable_inter {n κ : ℕ} (sigma Τ : (p : ℕ) → Set (Fin n → ZMod (p^κ))) (hsigma : KappaAcceptable n κ sigma) (hΤ : KappaAcceptable n κ Τ) : KappaAcceptable n κ (fun p => sigma p ∩ Τ p) := by
   sorry
+theorem kappaAcceptable_finite_modification {n κ : ℕ}
+    (sigma Τ : (p : ℕ) → Set (Fin n → ZMod (p^κ)))
+    (hsigma : KappaAcceptable n κ sigma)
+    (h : {p : ℕ | p.Prime ∧ sigma p ≠ Τ p}.Finite) : KappaAcceptable n κ Τ := by
+  sorry
 theorem localSpecificationFamily_mono {n κ : ℕ} (sigma Τ : (p : ℕ) → Set (Fin n → ZMod (p^κ))) (h : ∀ p, sigma p ⊆ Τ p) : localSpecificationFamily n κ sigma ⊆ localSpecificationFamily n κ Τ := by
   sorry
 theorem kappa_test_all : KappaAcceptable 2 2 (fun _ => Set.univ) := by
@@ -277,6 +282,14 @@ def euclideanHeightSq {m : ℕ} (a : Fin m → ℤ) : ℕ := ∑ i, (a i).natAbs
 theorem euclideanHeightSq_neg {m : ℕ} (a : Fin m → ℤ) : euclideanHeightSq (-a) = euclideanHeightSq a := by
   sorry
 def hypersurfaceHeightSq {m : ℕ} : HypersurfaceCoefficients m → ℕ := Quotient.lift (fun a => euclideanHeightSq a.val) (by sorry)
+def hypersurfaceHeight {m : ℕ} (a : HypersurfaceCoefficients m) : ℝ :=
+  Real.sqrt (hypersurfaceHeightSq a : ℝ)
+theorem hypersurfaceHeight_le {m : ℕ} (a : HypersurfaceCoefficients m)
+    (X : ℝ) (hX : 0 ≤ X) :
+    hypersurfaceHeight a ≤ X ↔ (hypersurfaceHeightSq a : ℝ) ≤ X^2 := by
+  sorry
+theorem hypersurfaceHeight_real_northcott (m : ℕ) : Northcott (@hypersurfaceHeight m) := by
+  sorry
 theorem hypersurfaceHeight_northcott (m : ℕ) : Northcott (@hypersurfaceHeightSq m) := by
   sorry
 theorem primitiveSign_fiber {m : ℕ} (a : HypersurfaceCoefficients m) : Nat.card {b : PrimitiveCoefficients m // Quotient.mk (coefficientSignSetoid m) b = a} = 2 := by
@@ -413,10 +426,10 @@ theorem type_test_trivial_not_full : ¬ HasPermutationType (1 : PUnit →* Equiv
 
 example : ¬ HasPermutationType (1 : PUnit →* Equiv.Perm (Fin 2)) ⊤ := by
   sorry
-theorem type_test_one : (⊤ : Subgroup (Equiv.Perm (Fin 1))) = ⊥ := by
+theorem type_test_one : HasPermutationType (1 : PUnit →* Equiv.Perm (Fin 1)) ⊤ := by
   sorry
 
-example : (⊤ : Subgroup (Equiv.Perm (Fin 1))) = ⊥ := by
+example : HasPermutationType (1 : PUnit →* Equiv.Perm (Fin 1)) ⊤ := by
   sorry
 
 
@@ -429,6 +442,12 @@ def abelianIsoSetoid (K : Type*) [Field K] (g : ℕ) : Setoid {A : TauCeti.Algeb
   iseqv := by sorry
 def UnpolarizedClasses (K : Type*) [Field K] (g : ℕ) := Quotient (abelianIsoSetoid K g)
 def unpolarizedCount (K : Type*) [Field K] (g : ℕ) : ℕ := Nat.card (UnpolarizedClasses K g)
+def unpolarizedCountOn {K : Type*} [Field K] {g : ℕ}
+    (S : Set (UnpolarizedClasses K g)) : ℕ := S.ncard
+theorem unpolarizedCountOn_univ (K : Type*) [Field K] (g : ℕ) :
+    unpolarizedCountOn (Set.univ : Set (UnpolarizedClasses K g)) =
+      unpolarizedCount K g := by
+  sorry
 theorem unpolarizedClasses_finite (K : Type*) [Field K] [Finite K] (g : ℕ) : Finite (UnpolarizedClasses K g) := by
   sorry
 theorem unpolarized_iso {K : Type*} [Field K] {g : ℕ} (A B : {A : TauCeti.AlgebraicGeometry.AbelianVariety K // A.dim = (g : WithBot ℕ∞)}) : Quotient.mk (abelianIsoSetoid K g) A = Quotient.mk (abelianIsoSetoid K g) B ↔ Nonempty (A.val ≅ B.val) := by
@@ -443,10 +462,20 @@ theorem abelian_test_iso {K : Type*} [Field K] {g : ℕ} (A B : {A : TauCeti.Alg
 
 example {K : Type*} [Field K] {g : ℕ} (A B : {A : TauCeti.AlgebraicGeometry.AbelianVariety K // A.dim = (g : WithBot ℕ∞)}) (e : A.val ≅ B.val) : Quotient.mk (abelianIsoSetoid K g) A = Quotient.mk (abelianIsoSetoid K g) B := by
   sorry
-theorem abelian_test_mass_distinction : (1 : ℚ) ≠ (2 : ℚ)⁻¹ := by
+theorem abelian_test_mass_distinction {K : Type*} [Field K] {g : ℕ}
+    (A : {A : TauCeti.AlgebraicGeometry.AbelianVariety K // A.dim = (g : WithBot ℕ∞)})
+    (hAut : Nat.card (Aut A.val) = 2) :
+    unpolarizedCountOn ({Quotient.mk (abelianIsoSetoid K g) A} : Set (UnpolarizedClasses K g)) = 1 ∧
+    (unpolarizedCountOn ({Quotient.mk (abelianIsoSetoid K g) A} : Set (UnpolarizedClasses K g)) : ℚ) ≠
+      (Nat.card (Aut A.val) : ℚ)⁻¹ := by
   sorry
 
-example : (1 : ℚ) ≠ (2 : ℚ)⁻¹ := by
+example {K : Type*} [Field K] {g : ℕ}
+    (A : {A : TauCeti.AlgebraicGeometry.AbelianVariety K // A.dim = (g : WithBot ℕ∞)})
+    (hAut : Nat.card (Aut A.val) = 2) :
+    unpolarizedCountOn ({Quotient.mk (abelianIsoSetoid K g) A} : Set (UnpolarizedClasses K g)) = 1 ∧
+    (unpolarizedCountOn ({Quotient.mk (abelianIsoSetoid K g) A} : Set (UnpolarizedClasses K g)) : ℚ) ≠
+      (Nat.card (Aut A.val) : ℚ)⁻¹ := by
   sorry
 
 
@@ -631,10 +660,10 @@ theorem hecke_test_one_point {X B : Type*} [MeasurableSpace X] [MeasurableSpace 
 
 example {X B : Type*} [MeasurableSpace X] [MeasurableSpace B] [MeasurableSingletonClass B] (x : X) (b c : B) : heckePairPushforward (MeasureTheory.Measure.dirac x) (fun _ => b) (fun _ => c) = MeasureTheory.Measure.dirac (b,c) := by
   sorry
-theorem hecke_test_asymmetric {X B : Type*} [MeasurableSpace X] [MeasurableSpace B] [MeasurableSingletonClass B] (x : X) (b c : B) (h : b ≠ c) : heckePairPushforward (MeasureTheory.Measure.dirac x) (fun _ => b) (fun _ => c) = MeasureTheory.Measure.dirac (b,c) := by
+theorem hecke_test_asymmetric {X B : Type*} [MeasurableSpace X] [MeasurableSpace B] [MeasurableSingletonClass B] (x : X) (b c : B) (h : b ≠ c) : heckePairPushforward (MeasureTheory.Measure.dirac x) (fun _ => b) (fun _ => c) ≠ MeasureTheory.Measure.dirac (c,b) := by
   sorry
 
-example {X B : Type*} [MeasurableSpace X] [MeasurableSpace B] [MeasurableSingletonClass B] (x : X) (b c : B) (h : b ≠ c) : heckePairPushforward (MeasureTheory.Measure.dirac x) (fun _ => b) (fun _ => c) = MeasureTheory.Measure.dirac (b,c) := by
+example {X B : Type*} [MeasurableSpace X] [MeasurableSpace B] [MeasurableSingletonClass B] (x : X) (b c : B) (h : b ≠ c) : heckePairPushforward (MeasureTheory.Measure.dirac x) (fun _ => b) (fun _ => c) ≠ MeasureTheory.Measure.dirac (c,b) := by
   sorry
 
 
@@ -749,6 +778,22 @@ example {G : Type*} [Group G] (H : Subgroup (TauCeti.WreathProduct G (Fin 2))) :
 /- Continuous marked surjections -/
 def ContinuousSurjections (Γ G : Type*) [Group Γ] [Group G] [TopologicalSpace Γ] [TopologicalSpace G] := {ρ : ContinuousMonoidHom Γ G // Function.Surjective ρ}
 def continuousSurjectionKernel {Γ G : Type*} [Group Γ] [Group G] [TopologicalSpace Γ] [TopologicalSpace G] (ρ : ContinuousSurjections Γ G) : Subgroup Γ := ρ.val.toMonoidHom.ker
+def continuousSurjectionPostcompose {Γ G : Type*} [Group Γ] [Group G]
+    [TopologicalSpace Γ] [TopologicalSpace G] [DiscreteTopology G]
+    (ρ : ContinuousSurjections Γ G) (α : MulAut G) : ContinuousSurjections Γ G :=
+  ⟨{ toMonoidHom := α.toMonoidHom.comp ρ.val.toMonoidHom,
+      continuous_toFun := by sorry }, by sorry⟩
+theorem continuousSurjectionPostcompose_apply {Γ G : Type*} [Group Γ] [Group G]
+    [TopologicalSpace Γ] [TopologicalSpace G] [DiscreteTopology G]
+    (ρ : ContinuousSurjections Γ G) (α : MulAut G) (x : Γ) :
+    (continuousSurjectionPostcompose ρ α).val x = α (ρ.val x) := by
+  rfl
+theorem continuousSurjectionPostcompose_kernel {Γ G : Type*} [Group Γ] [Group G]
+    [TopologicalSpace Γ] [TopologicalSpace G] [DiscreteTopology G]
+    (ρ : ContinuousSurjections Γ G) (α : MulAut G) :
+    continuousSurjectionKernel (continuousSurjectionPostcompose ρ α) =
+      continuousSurjectionKernel ρ := by
+  sorry
 theorem continuousSurjection_aut_action {Γ G : Type*} [Group Γ] [Group G] [TopologicalSpace Γ] [TopologicalSpace G] [DiscreteTopology G] (ρ : ContinuousSurjections Γ G) (α : MulAut G) : Function.Surjective (α ∘ ρ.val) := by
   sorry
 theorem continuousSurjection_same_kernel {Γ G : Type*} [Group Γ] [Group G] [TopologicalSpace Γ] [TopologicalSpace G] (ρ σ : ContinuousSurjections Γ G) (h : continuousSurjectionKernel ρ = continuousSurjectionKernel σ) : ∃! α : MulAut G, ∀ x, σ.val x = α (ρ.val x) := by
@@ -763,12 +808,23 @@ theorem sur_test_trivial_source {G : Type*} [Group G] [Nontrivial G] [Topologica
 
 example {G : Type*} [Group G] [Nontrivial G] [TopologicalSpace G] : IsEmpty (ContinuousSurjections PUnit G) := by
   sorry
-theorem sur_test_not_injective : let ρ : Multiplicative (ZMod 4) →* Multiplicative (ZMod 2) := {toFun := fun x => Multiplicative.ofAdd (x.toAdd.val : ZMod 2), map_one' := by sorry, map_mul' := by sorry}; Function.Surjective ρ ∧ ¬ Function.Injective ρ := by
+section SurjectionRegression
+local instance : TopologicalSpace (Multiplicative (ZMod 4)) := ⊥
+local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+
+theorem sur_test_not_injective :
+    ∃ ρ : ContinuousSurjections (Multiplicative (ZMod 4)) (Multiplicative (ZMod 2)),
+      (∀ x, ρ.val x = Multiplicative.ofAdd (x.toAdd.val : ZMod 2)) ∧
+      ¬ Function.Injective ρ.val := by
   sorry
 
-example : let ρ : Multiplicative (ZMod 4) →* Multiplicative (ZMod 2) := {toFun := fun x => Multiplicative.ofAdd (x.toAdd.val : ZMod 2), map_one' := by sorry, map_mul' := by sorry}; Function.Surjective ρ ∧ ¬ Function.Injective ρ := by
+example :
+    ∃ ρ : ContinuousSurjections (Multiplicative (ZMod 4)) (Multiplicative (ZMod 2)),
+      (∀ x, ρ.val x = Multiplicative.ofAdd (x.toAdd.val : ZMod 2)) ∧
+      ¬ Function.Injective ρ.val := by
   sorry
 
+end SurjectionRegression
 
 /- Marked global extensions and infinity conventions -/
 
