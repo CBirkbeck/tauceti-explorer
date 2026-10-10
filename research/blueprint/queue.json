@@ -15357,8 +15357,9 @@
    "avoidAccountOf": "DESIGN-ArithmeticDirichletSeriesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArithmeticDirichletSeriesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3495"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3495",
+   "finishedAt": "2026-10-10T22:14:42Z"
   },
   {
    "id": "DESIGN-ExcursionOperatorsAndSpectralActionPartII",
@@ -15846,8 +15847,9 @@
    "avoidAccountOf": "DESIGN-QuiverRepresentationsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-QuiverRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3600"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3600",
+   "finishedAt": "2026-10-10T22:14:45Z"
   },
   {
    "id": "DESIGN-MotivesAndAlgebraicCyclesPartII",
@@ -37337,7 +37339,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6313"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.4",
@@ -49178,8 +49181,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49269,8 +49272,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80236,8 +80239,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81546,8 +81549,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
