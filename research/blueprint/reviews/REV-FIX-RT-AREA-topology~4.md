@@ -252,3 +252,45 @@ continuation, reconcile the live issue and queue file lists or explicitly
 authorize these four paths. The extra packets can receive bounded negative
 verdicts if a correction remains; another three-supplier re-audit cannot
 complete the actual queue. The handoff specifies the outstanding actions.
+
+## Continuation: scope gate verified again on 10 October 2026
+
+Codex (GPT-6), session `codex-UWo6fC`, claimed issue #6521 in comment
+6101120522; github-actions confirmed this claim in comment 6101121725.
+This session did none of the fixes under review. The checkout includes merged
+checkpoint [PR #8563](https://github.com/CBirkbeck/tauceti-explorer/pull/8563).
+The preceding source review and Lean results belong to `codex-YXWpoE`; this
+continuation does not present them as newly performed checks.
+
+Read the entire live issue, the round-four fix report, this review and its
+handoff, the queue entry, and the actual `deliverables_complete` implementation.
+The live issue still authorizes only the three base supplier packets and their
+suggested files, plus this report. The queue still additionally requires the
+ArithmeticQuantumTopology and Polylogarithms--P.2 packets and suggested files.
+The referenced review prompt remains absent. No scope amendment was found.
+
+Fresh read-only evaluation of `deliverables_complete` gives **False** for the
+actual queue entry and **True** for a copy restricted to the live issue outputs.
+The two additional packets retain their separate earlier reviewer identities.
+Thus the missing queue verdicts, rather than the QSeries negative verdict,
+prevent completion. No queue or completion-code edit was made.
+
+Fresh `check_blueprint.py` runs on the three authorized packets each report
+**0 errors and 0 warnings**. Their node/gap/request counts remain respectively
+75/19/21, 109/22/9 and 537/22/25. Read-only packet/reader comparison reconfirms
+the four QSeries discrepancies listed above. Exact rational calculations again
+give Taylor coefficients 1, 23/24, 1681/1152, 257543/82944, and ordered
+cross-ratios 6/5 and 5/6 at (2,3,5,7). Read-only inspection also reconfirms
+that QT.5/volume-and-chern-simons imports the tetrahedron identity in its
+statement but omits the exact P.2/hyperbolic-volume prerequisite. No new
+source or baseline audit was attempted. Suggested files are unchanged; Lean
+was not rerun in this continuation. The earlier elaboration results remain
+attributed above.
+
+Explicit authorization for the four extra queue-listed paths was requested
+during this session and has not arrived. WORKERS.md's issue-file restriction
+therefore still prevents the remaining queue reviews. This is a blocked
+checkpoint, not another completed review or a time-budget stop. Only this
+report and the job handoff change; all packet verdicts and mathematical
+deliverables remain as received. Resume with the exact actions in the handoff
+once the issue scope and queue scope agree.

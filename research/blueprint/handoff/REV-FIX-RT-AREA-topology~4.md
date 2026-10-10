@@ -1,3 +1,31 @@
+# Latest continuation: scope blocker unchanged
+
+Issue #6521; Codex (GPT-6), session `codex-UWo6fC`; 10 October 2026.
+Claim comment 6101120522 was confirmed in bot comment 6101121725.
+Branch `codex-UWo6fC-review-topology`. Continues merged PR #8563. One job only.
+
+The live issue still lists three supplier packets, while the queue completion
+check requires five. Independently ran that check: actual queue **False**;
+live-issue-only copy **True**. The review prompt is absent. The already
+completed bounded supplier reviews do not need another full repetition.
+
+Fresh checks of Polylogarithms, HabiroNahmSeries and QSeries all pass with
+zero errors/warnings. Reconfirmed the four reader discrepancies, the Taylor
+scaling and cross-ratio calculation, and QT's missing exact tetrahedron-volume
+prerequisite. The detailed inherited evidence and resume steps below remain
+applicable. No packet, suggested file, queue, reader or source was modified.
+Lean was not rerun because no suggested declaration changed; the preceding
+worker's successful checks remain explicitly attributed in the report.
+
+Requested explicit authorization for the four additional queue paths; no answer
+has arrived. This run is blocked by WORKERS.md's issue-file restriction, not
+its eight-hour allowance. Only the report and this handoff change. Before
+assigning another continuation, reconcile the live issue and queue or authorize
+the four paths below. The QSeries reader needs its own separate authorization.
+No scratch file is required to resume.
+
+---
+
 # REV-FIX-RT-AREA-topology~4 handoff
 
 Issue #6521; Codex (GPT-6), session `codex-YXWpoE`; 10 October 2026.
