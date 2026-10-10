@@ -1,3 +1,186 @@
+# Scope-preservation regression checks: 10 October 2026
+
+Codex, session `codex-AQARNU`, continued issue #5704 from
+`7717a66bbabd800f7cccc4efbd991743cceca516`. The bot confirmed the claim
+in comment 6092370661. The preceding mathematical review is preserved:
+PerfectoidSpaces P0 needs_changes; AdicEtaleGeometry and AdicSpacesPartII
+accepted for their scoped corrections. This continuation adds reproducible
+regression evidence for the unresolved scope blocker; it does not replace
+any verdict or claim a new source audit.
+
+## Current completion boundary
+
+The live issue still authorizes seven deliverables, covering three packets.
+The current generated queue requires 47 deliverables, covering 23 packets.
+At author merge `c69e5b6c9`, the author fix had ten deliverables and this review
+had seven, agreeing with the issue. The current author fix has 78. Fresh
+`issues.deliverables_complete` results remain false for the current queue
+and true for a copy containing the issue's seven paths. P0's needs_changes
+verdict is a valid completed review disposition; the twenty additional packets
+cause the completion failure.
+
+WORKERS.md limits edits to the issue's named files and the job handoff.
+The queue, generator, generator tests and generated prompts are outside that
+scope. Moreover, `intake.py` excludes generator and queue paths from its
+submission allowlist. Applying the repair requires a maintainer-owned change
+or explicit authorization and a maintainer-reviewed submission route. A scope
+question was sent during this run; no reply or repair authorization is assumed.
+No queue, generator, prompt, packet or suggested file was changed. This is a
+blocked checkpoint, not an unfinished repeat of the three-packet review.
+
+## Additional defects and candidate correction
+
+The preceding checkpoint's proposed change at `made` preserves existing later
+rounds. It does not protect an existing **first** round: `fix_rounds` reuses its
+old outputs only when its state is done. A first round with state external
+(already claimed) or pending can therefore acquire a newly available owner
+without an updated issue. Both cases fail the later-round-only candidate.
+
+A separate fixture shows that, even when outputs happen to be unchanged, an
+existing later round's `after` can change from the preceding author job to its
+review when a send-back is detected. Unconditional reuse of the existing later
+round preserves the stored prerequisite as well as its paths. This matters
+because regeneration must not rewrite the instructions of an assignment
+already issued to a worker.
+
+The tested two-site candidate is:
+
+```diff
+-        if states.get(current) == "done" and current in previous_outputs:
++        if current in previous_outputs:
+             current_outputs = list(previous_outputs[current])
+
+-            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
++            made = previous_jobs.get(following)
+```
+
+This is a candidate policy of preserving every existing fix assignment,
+including pending ones. The maintainer must decide whether an unpublished
+pending assignment may be recomputed and, if so, identify it explicitly;
+state pending alone does not establish that an issue was never published.
+New assignments continue to acquire new owners and follow a finished review
+when that review sends the preceding round back.
+
+## Focused regression results
+
+The fixture extracts the actual nested function with Python's AST. All other
+dependencies are inert fixtures, and generated jobs and prompts are captured
+in memory. It writes no repository file. Pass means expected output paths
+are retained; the existing-send-back case also checks its original `after`.
+The full candidate additionally checks author/reviewer path and prompt
+agreement, preserved prerequisites for existing rounds, and the review
+prerequisite for a new send-back round.
+
+| Fixture | Stock | Later-round-only candidate | Two-site candidate |
+| --- | --- | --- | --- |
+| Claimed first round, new owner | fail | fail | pass |
+| Pending first round, new owner | fail | fail | pass |
+| Finished first round, unchanged owners | pass | pass | pass |
+| Existing later round, new owner | fail | pass | pass |
+| Existing later round, new send-back | fail | pass | pass |
+| New round required by new owner | pass | pass | pass |
+| New round required by send-back | pass | pass | pass |
+| Existing third round, new owner | pass | pass | pass |
+
+All eight focused cases pass for the two-site candidate. The final row does
+not vindicate stock behavior: its already-done preceding second round can
+absorb the new owner before the third round is visited. The fourth row is the
+fixture that catches that mutation directly.
+
+This does not certify full generation, all job kinds, downstream scheduling,
+the final state merge or automatic issue synchronization. Restoring only the
+review's seven paths is insufficient: the author round's original ten paths
+must be restored too, otherwise regeneration derives the broadened review
+from the broadened author assignment. Newly available owner work still needs
+its own properly scoped assignments. Any repair must regenerate twice and
+compare queue entries, prompts, prerequisites and completion before intake.
+
+## Validation and next action
+
+Fresh stock `check_blueprint.py` checks report zero errors and zero warnings
+for all three issue-named packets: P0 326 nodes; AEG 153; ASII 537. The pinned
+declaration index was found by the checker. No Lean signature changed and
+Lean was not rerun; the preceding report's successful sequential elaborations
+remain that session's evidence. No new mathematical completeness or source
+verification is claimed.
+
+Only this report and the handoff change. The next action is a maintainer scope
+repair, rather than another independent audit of the completed three-packet
+review. The handoff gives the exact historical deliverables, preserved
+mathematical follow-ups and repair acceptance conditions. The runnable fixture
+below preserves all new evidence without relying on disposable scratch files.
+
+<details><summary>Read-only regression fixture</summary>
+
+Run from the repository root in disposable scratch space. It uses the current
+stock generator as its input and applies candidate transformations in memory.
+
+```python
+import ast, copy, json, re
+from pathlib import Path
+ROOT=Path.cwd()
+source=(ROOT/'research/blueprint/make_queue.py').read_text()
+original=next(n for n in ast.walk(ast.parse(source)) if isinstance(n,ast.FunctionDef) and n.name=='fix_rounds')
+A='research/blueprint/packets/A.json'; B='research/blueprint/packets/B.json'
+S='research/blueprint/suggested/A.lean'; F='FIX-RT-X'; V='REV-'+F
+
+def run(previous,blueprints,verdicts=None,variant='stock'):
+    node=copy.deepcopy(original)
+    if variant!='stock':
+        made=next(n for n in ast.walk(node) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='made' for t in n.targets))
+        made.value=ast.parse('previous_jobs.get(following)',mode='eval').body
+    if variant=='full':
+        condition=next(n for n in ast.walk(node) if isinstance(n,ast.If) and ast.unparse(n.test)=='states.get(current) == \'done\' and current in previous_outputs')
+        condition.test=ast.parse('current in previous_outputs',mode='eval').body
+    captured=[]
+    env=dict(states={j['id']:j['state'] for j in previous},previous_outputs={j['id']:j['outputs'] for j in previous},previous_jobs={j['id']:j for j in previous},
+             findings_text=lambda *args:'finding',PROMOTABLE=re.compile(r'^research/blueprint/packets/.*\.json$'),fill={},
+             FIX_TEMPLATE='{JOB}|{ROUND}|{PACKETS}|{DELIVERABLES}',FIX_REVIEW_TEMPLATE='{JOB}|{FILES}',
+             add=lambda job,prompt: captured.append((job,prompt)),review_of=lambda path:(verdicts or {}).get(path,{}))
+    exec(compile(ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[])),'<stock AST fixture>','exec'),env)
+    env['fix_rounds']('RT-X','area:X','fixture',[],0,{},[],['report',A,S],blueprints,{},[])
+    return {j['id']:(j,p) for j,p in captured}
+
+def job(id,state,outputs,after=[]):return dict(id=id,state=state,outputs=outputs,after=after)
+first=['research/blueprint/redteam/RT-X.fixes.md',A,S]
+second=['research/blueprint/redteam/RT-X.fixes-2.md',A,S]
+third=['research/blueprint/redteam/RT-X.fixes-3.md',A,S]
+cases=[
+('claimed first round',[job(F,'external',first)],[A,S,B],None,F,first),
+('pending first round',[job(F,'pending',first)],[A,S,B],None,F,first),
+('finished first round',[job(F,'done',first)],[A,S],None,F,first),
+('existing later, new owner',[job(F,'done',first),job(F+'~2','external',second,[F])],[A,S,B],None,F+'~2',second),
+('existing later, send-back',[job(F,'done',first),job(V,'done',['review',A,S]),job(F+'~2','external',second,[F])],[A,S],{A:{'reviewer':'independent-review-'+V,'status':'needs_changes'}},F+'~2',second),
+('new owner round',[job(F,'done',first)],[A,S,B],None,F+'~2',second+[B]),
+('new send-back round',[job(F,'done',first),job(V,'done',['review',A,S])],[A,S],{A:{'reviewer':'independent-review-'+V,'status':'needs_changes'}},F+'~2',second),
+('third round retained',[job(F,'done',first),job(F+'~2','done',second,[F]),job(F+'~3','external',third,[V+'~2'])],[A,S,B],None,F+'~3',third),
+]
+result=[]
+for name,previous,blueprints,verdicts,target,expected in cases:
+    row={'case':name}
+    for variant in ['stock','later_only','full']:
+        got=run(previous,blueprints,verdicts,variant)
+        row[variant]=got[target][0]['outputs']==expected
+        if name=='existing later, send-back':row[variant]=row[variant] and got[target][0]['after']==[F]
+        if variant=='full':
+            assert row[variant],(name,got[target][0]['outputs'],expected)
+            # The review and prompts agree with their generated author job, including existing rounds.
+            for id,(j,p) in got.items():
+                if id.startswith('REV-'):continue
+                packets=[o for o in j['outputs'] if o.endswith('.json')]
+                review=got['REV-'+id]
+                assert all(o in review[0]['outputs'] and o in review[1] and o in p for o in packets)
+            if name=='existing later, send-back':assert got[target][0]['after']==[F]
+            if name=='new send-back round':assert got[target][0]['after']==[V]
+            if name=='third round retained':assert got[target][0]['after']==[V+'~2']
+    result.append(row)
+print(json.dumps(result,indent=2))
+```
+
+</details>
+
+---
+
 # REV-FIX-RT-AREA-padic-1~3
 
 ## Read-only generator reproduction: 10 October 2026
