@@ -1,11 +1,73 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-dPXkFd`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-dPXkFd-gl2-package`.
+Worker: Codex, session `codex-PBcwtj`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-PBcwtj-gl2-package`.
 Status: **partial; required accepted-plan repair exceeds this issue's paths**.
-Claim confirmed by the bot after [comment 6094653757](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094653757).
+Claim confirmed by the bot after [comment 6094847052](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094847052).
 Only this job was claimed. None of the manager's priority issues was available;
-the focus package was the first permitted fallback under WORKERS.md.
+another worker won the claim on the available focus review #7087. This focus
+package was selected among the next equal-rank candidates under WORKERS.md.
+
+## Latest verification: codex-PBcwtj
+
+The blocker persists after the upstream update. The current TauCetiRoadmap
+checkout is now `cd03e06852a13216ad246d0623492c4beac39af2`, rather than the
+previous checkpoint's `0a56d1b5303c26887a4042db834f46d9079ac593`. The intervening
+commit extends `SmoothRepresentationsOfLocalGroups/Suggested.lean`; it does not
+install the missing global character-existence contract. Current Tau Ceti is
+still `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No command built or changed
+either current checkout.
+
+This session read GlobalNumberFields and ReductiveGroups READMEs in full;
+ClassFieldTheory's explicit ownership/exclusion section; GlobalNumberFields'
+Layer 9 and infinity-type suggested declarations; and the four current-library
+statements in the table below. Their directions matter: factoring an existing
+character through a ray class group does not construct one with prescribed
+components; finite index of a congruence subgroup does not say an arbitrary
+finite-index S-unit subgroup contains such a subgroup supported away from S.
+The reviewed AUDIT-14 records for this roadmap were also read, as historical
+baseline evidence rather than evidence about the newer library.
+
+The accepted R17.3 nodes `R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction` still require the full multiplicative group
+of each specified completion, including uniformizers. Their listed
+GlobalNumberFields Layers 1, 7, 9 and 10 do not state the required existence
+theorem, and the packet's gap explicitly records the missing owner. The four
+R19 prerequisites listed under **Downward ownership moves** are also still
+present. These are checked mathematical inputs, not a request to wait for
+their Lean implementations.
+
+Fresh primary-source check: Chevalley's publisher PDF was fetched on
+2026-10-10 from the public URL under **Repair proposal**; its SHA-256 matches
+the receipt below. Theorem **1**, printed p. 36, was read in the page image
+(the text extraction misreads the number as 7). It states that for a finitely
+generated subgroup E of a number field's multiplicative group, a positive
+integer m, and a specified rational integer b, a rational modulus prime to b
+forces congruent elements of E to be m-th powers in E. Taking m to be the
+exponent of E/E′ and b divisible by the rational primes below S gives the
+proposed finite-index subgroup contract. This confirms the source and
+generality of that contract; it does not install its owning plan or certify
+the inherited complete proof decomposition. The finite-character construction
+below remains conditional on that supplier.
+
+Checks rerun in this session:
+
+- Both packet checks pass with zero errors and warnings: 55/57 nodes,
+  8/8 gaps, 32/35 requests and zero closed stages.
+- `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
+  exits 0, with 144 declaration-use-of-`sorry` warnings, zero errors and zero
+  other warnings. Available memory before the check was 105 GB. The helper
+  finished; no compiler remains running.
+- The package README and Suggested.lean and both packets retain the SHA-256
+  fingerprints below. Only this handoff changes. The missing metadata file
+  continues to identify this submission as an incomplete checkpoint.
+
+**Queue action needed:** route the shared character theorem and its proof
+chain to an authorized lower-tier plan-repair job, and repair the four upward
+R19 edges before offering this unchanged package as another continuation.
+The other recorded gaps also require their precise supplier contracts.
+The worker cannot make those edits within #7901's permitted paths and must
+not manufacture a supplier citation or mark the package complete.
 
 ## Decision and required action
 
@@ -37,8 +99,8 @@ historical work, not primary sources reread or newly certified in this run.
 
 ## Current verification of the blocker
 
-The current roadmap and library revisions are unchanged from the preceding
-checkpoint: TauCetiRoadmap `0a56d1b5303c26887a4042db834f46d9079ac593`,
+The preceding checkpoint checked these roadmap and library revisions:
+TauCetiRoadmap `0a56d1b5303c26887a4042db834f46d9079ac593`,
 Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 GlobalNumberFields and ReductiveGroups READMEs were read, together with the
 relevant GlobalNumberFields Suggested.lean and ClassFieldTheory scope.
