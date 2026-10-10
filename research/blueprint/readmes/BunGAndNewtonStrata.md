@@ -16,7 +16,7 @@ We use b′=g b σ(g)⁻¹ for sigma conjugacy. The inverse-g convention in seve
 
 For the bundle moduli, tildeJ_b is the full automorphism v-group. Its positive Banach–Colmez kernel has dimension ⟨2ρ,ν_b⟩; the stratum has the negative dimension. The chart uses the opposite extension filtration and negative-slope extension spaces. The framed chart is not an absolute diamond, although its punctured complement is locally spatial and its map to the point is representable in locally spatial diamonds. The chart quotient is an Artin v-stack. These absolute and relative assertions are distinct. For ℓ-cohomological assertions fix a prime ℓ≠p. The separate finite-coefficient curve comparison treats p-torsion by tilting and Artin–Schreier theory.
 
-The required general z-extension foundation is requested once as proposed ReductiveGroupsPartII RG2.6. Its contracts are induced-torus central kernels, simply connected derived group, induced-torus resolutions and lattice exactness. The current RG2.5 concerns dual/L-group data and supplies none of these conclusions by itself. BG1 owns the B-set consequences; ET.0 owns the relevant cohomology. The algebraic BG0/BG1 classification uses no analytic RF4 patching. The whole-stack Artin proof uses uniformization, open Schubert cells and VS0, and the chart proof then consumes VS1. This order keeps those proofs independent of Satake and sheaf-category compact generation.
+The existing upstream [ReductiveGroups Part II RG2.1.5](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md#rg215-arithmetic-invariants-π₁-z-extensions-and-the-kottwitz-homomorphism) supplies integral π₁, its Galois and inertia-coinvariant APIs, generic z-extensions, their existence, central lattice exactness and representative Kottwitz homomorphisms. These are imported; BG owns the sigma-class invariants and B-set consequences. The remaining induced-torus resolution and canonical maximal-torus/inner-twist comparison refinements are specified in G01/G02. The algebraic BG0/BG1 classification uses no analytic RF4 patching. The whole-stack Artin proof uses uniformization, open Schubert cells and VS0, and the chart proof consumes VS1.
 
 The abelianized Weil construction is restricted to the stated p-adic setting. Its discrete coefficient points are taken in L^sep with the natural Weil action, including inertia; L itself is insufficient. For isocrystal slope λ, A_λ=End_Φ(D_λ) has arithmetic Brauer invariant −λ. The bundle has slope −λ; right-module Morita uses Hom(E_b,E) with precomposition and inverse M⊗_A E_b. FS’s Hom(E,E_b) convention uses left modules. The one-third test detects the sign; one-half does not.
 
@@ -27,7 +27,7 @@ The declarations below specify definitions, APIs, proof chains and discriminatin
 | Stage | Planned declarations | Planets |
 |---|---:|---:|
 | BunGAndNewtonStrata:BG0 | 17 | 6 |
-| BunGAndNewtonStrata:BG1 | 35 | 6 |
+| BunGAndNewtonStrata:BG1 | 35 | 5 |
 | BunGAndNewtonStrata:BG2 | 23 | 0 |
 | BunGAndNewtonStrata:BG2:smooth-Artin | 3 | 2 |
 | BunGAndNewtonStrata:BG2:uniformization | 20 | 6 |
@@ -48,7 +48,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB1](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
+**Prerequisites.** [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB1](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean); [TauCeti.ExactStructure](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/ExactStructure.lean); [TauCeti.ExactStructure.IsConflationExact](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/Functor.lean); [CategoryTheory.Functor.Linear](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Linear/LinearFunctor.lean); [CategoryTheory.Functor.Braided](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean); [CategoryTheory.NatTrans.IsMonoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean).
 
 **Proof/construction.** (1) Use the rational representation category supplied by ReductiveGroups and the exact tensor category of vector bundles supplied by VB1. (2) Construct the groupoid by retaining tensor isomorphisms and the specified exact structure.
 
@@ -74,7 +74,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), After III.1.1 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-category-interface; Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced. Full carrier obligations: G08.
 
 **Atlas planet:** G-bundle.
 
@@ -122,7 +122,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [WittVector.Isocrystal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Isocrystal.lean); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
+**Prerequisites.** [VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [WittVector.Isocrystal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Isocrystal.lean); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean); [TauCeti.ExactStructure](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/ExactStructure.lean); [TauCeti.ExactStructure.IsConflationExact](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/Functor.lean); [CategoryTheory.Functor.Linear](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Linear/LinearFunctor.lean); [CategoryTheory.Functor.Braided](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean); [CategoryTheory.NatTrans.IsMonoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean).
 
 **Proof/construction.** (1) Use the exact tensor category of finite E-isocrystals from VB0. (2) Apply the reductive fibre-functor/torsor dictionary over L and Steinberg vanishing; changing the trivialization changes b by sigma conjugation.
 
@@ -147,7 +147,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.1 p.89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Definition22.4.1 printed210 (PDF220). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
+**Lean formulation.** typed-category-interface; Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced. Full carrier obligations: G08.
 
 **Atlas planet:** G-isocrystal.
 
@@ -196,7 +196,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [TauCeti.ReductiveAffineGroupSchemeCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean); [Subgroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean); [Existence of decent representatives](#existence-of-decent-representative).
+**Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [TauCeti.ReductiveAffineGroupSchemeCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean); [Subgroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean); [Existence of decent representatives](#existence-of-decent-representative); [VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Construct ν_b from the representation slope grading, giving the Levi centralizer after base change. (2) Restrict Ad(b)σ to this centralizer; decency makes descent effective over a finite unramified extension. (3) Use reductive-group descent to represent the fixed-point functor and compare its rational points with tensor automorphisms.
 
@@ -212,14 +212,14 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 **Discriminating unit tests.**
 
 - **TauCeti.BunG.SigmaCentralizer.testTrivial** (degenerate): J_1(E)=G(E).
-- **TauCeti.BunG.SigmaCentralizer.testBasicGL2** (computation): For the simple GL_2 slope1/2 block, J_b(E)=D_(1/2)^×; two copies give GL_2(D_(1/2)).
+- **TauCeti.BunG.SigmaCentralizer.testBasicGL2** (computation): For the simple GL_2 slope1/2 block, J_b(E)=A_(1/2)^×; two copies give GL_2(A_(1/2)). For the simple GL_3 slope1/3 block its division algebra has arithmetic invariant −1/3=2/3 mod Z, detecting the sign hidden by the half-slope case.
 - **TauCeti.BunG.SigmaCentralizer.testNonbasic** (non-example): For GL_2 slopes0,1, the algebraic J_b is G_m×G_m, while the bundle automorphism v-group also has a positive-slope kernel.
 
 **Uses.** FS III.4-III.5: Gives the discrete quotient of bundle automorphisms and pure inner twisting. He21 section2.2: Provides the F-rank used in defect. Kisin17 Lemma4.6.4: Its rational Kottwitz image controls component actions.
 
-**Acceptance.** For b=1, J_b(E)=G(E). For a simple rank-h slope a/h block, J_b is D_(a/h)^×; multiplicity m gives GL_m(D), not a division algebra of rank mh.
+**Acceptance.** For b=1, J_b(E)=G(E). For a simple rank-h isocrystal of slope a/h, J_b is the unit group of its endomorphism division algebra A_(a/h), whose arithmetic Brauer invariant is −a/h. Multiplicity m gives GL_m(A_(a/h)); in the linear supplier’s bundle-slope notation A_(a/h)=D_(−a/h).
 
-**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Sections4.3–4.4 pp.268–269. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), 1.2.12 printed14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Sections4.3–4.4 pp.268–269. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), 1.2.12 printed14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node. Also [FS ExampleIII.4.4 pp.101–102](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf): the centralizer is the unit group of the isocrystal endomorphism algebra; the arithmetic sign is fixed by VB0.
 
 **Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
@@ -306,7 +306,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Import the split-rank interface from relative root theory and apply it to J_b. (2) Change-of-representative isomorphisms make the integer depend only on [b].
 
@@ -589,26 +589,26 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 ### Algebraic fundamental group
 
-**Definition: TauCeti.BunG.AlgebraicPiOne.** For a geometric maximal torus T of connected reductive G, π_1(G)=X_*(T)/ZΦ∨, with its canonical Γ_E-action; identify different T using conjugacy and Weyl invariance of the quotient. Form integral inertia coinvariants π_1(G)_I and full Galois coinvariants π_1(G)_Γ, retaining torsion.
+**Definition: TauCeti.BunG.AlgebraicPiOne.** Use the integral algebraic fundamental group already supplied by upstream ReductiveGroups Part II RG2.1.5: π_1(G)=X_*(T)/ZΦ∨ with its Γ_E-action. BG’s notation AlgebraicPiOne is an import alias for this object, not a second coroot-quotient construction. Use its integral inertia and full Galois coinvariants, preserving torsion; import Weyl invariance, functorial maps and their Galois compatibility. Independence of a maximal-torus choice and canonical inner-twist transport require the specific comparison refinement stated in the supplier request.
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [RootPairing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Defs.lean).
+**Prerequisites.** [Existing ReductiveGroups Part II RG2.1.5](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md#rg215-arithmetic-invariants-π₁-z-extensions-and-the-kottwitz-homomorphism).
 
-**Proof/construction.** (1) Construct the coroot quotient and prove that Weyl reflections act trivially. (2) Descend its action independently of the geometric torus; distinguish inertia and Frobenius quotients.
+**Proof/construction.** (1) Import BruhatTits.AlgebraicFundamentalGroup, its galoisAction, inertiaCoinvariants, map and weyl_invariant from upstream RG2.1.5; retain the inverse-transpose convention on cocharacters. (2) Use full Galois coinvariants of the imported action for κ. Obtain the comparison between compatible maximal-torus choices and inner twists from the RG2.1 refinement; the existing suggested upstream signatures work with a fixed AbsoluteRootData and do not alone supply that comparison.
 
 **API.**
 
 | Declaration | Role | Contract |
 |---|---|---|
-| TauCeti.BunG.AlgebraicPiOne.ofCocharacter | constructor | Take the class of an integral cocharacter. |
-| TauCeti.BunG.AlgebraicPiOne.coinvariants | structure | Form Γ- or I-coinvariants with the specified action. |
-| TauCeti.BunG.AlgebraicPiOne.map | functoriality | A reductive group morphism induces the canonical homomorphism on π_1. |
-| TauCeti.BunG.AlgebraicPiOne.innerInvariant | equivalence | An inner twisting canonically identifies the Γ-modules π_1. |
+| TauCeti.BunG.AlgebraicPiOne.ofCocharacter | constructor | Reuse the upstream RG2.1.5 operation: Take the class of an integral cocharacter. |
+| TauCeti.BunG.AlgebraicPiOne.coinvariants | structure | Reuse the upstream RG2.1.5 operation: Form Γ- or I-coinvariants with the specified action. |
+| TauCeti.BunG.AlgebraicPiOne.map | functoriality | Reuse the upstream RG2.1.5 operation: A reductive group morphism induces the canonical homomorphism on π_1. |
+| TauCeti.BunG.AlgebraicPiOne.innerInvariant | equivalence | Use canonical Γ-module transport under inner twisting after importing the RG2.1 maximal-torus/inner-twist comparison refinement; existing fixed-datum signatures do not yet assert this comparison. |
 
 **Discriminating unit tests.**
 
-- **TauCeti.BunG.AlgebraicPiOne.testGLn** (computation): For GL_n the sum of diagonal entries identifies π_1 with Z.
+- **TauCeti.BunG.AlgebraicPiOne.testGLn** (computation): For GL_n with n≥1, reuse the upstream identification π_1≅Z by the sum of diagonal cocharacters; GL_0 instead has π_1=0.
 - **TauCeti.BunG.AlgebraicPiOne.testSLn** (degenerate): For SL_n the coroot quotient is0.
 - **TauCeti.BunG.AlgebraicPiOne.testNormOne** (non-example): The unramified quadratic norm-one torus has Γ-coinvariants Z/2; its rationalization loses its nonzero class.
 
@@ -618,9 +618,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section2.2 p.818. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
 
-**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
-
-**Atlas planet:** Algebraic fundamental group.
+**Lean formulation.** imported-upstream-signatures; The upstream suggested file defines the quotient from actual AbsoluteRootData and supplies its Galois action, inertia coinvariants and maps. BG does not restate those definitions. The pinned shared build does not expose this roadmap module as an import; the BG alias and canonical inner-twist comparison signatures remain omitted. This is an import of existing work, not a missing fundamental-group plan. Full carrier obligations: G08.
 
 <a id="newton-orbit-space"></a>
 
@@ -630,7 +628,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Rational slope protorus](#slope-protorus); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Rational slope protorus](#slope-protorus); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use the quasi-split rational chamber and the action on the based root datum. (2) Compare orbit representatives in that chamber; transport the order across an inner twisting.
 
@@ -738,7 +736,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Import the actual local extended Weyl datum and its lift to G(L). (2) Prove independence of an allowed n and compatibility of invariant maps. (3) Use the cited He14 straight-class theorem; its original proof remains a named source gap.
 
@@ -904,7 +902,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Basic sigma class](#basic-class); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Basic sigma class](#basic-class); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Project the basic invariant through the rational center isomorphism for M. (2) Use the functorial π_1 map and take G-dominant Newton representatives.
 
@@ -960,7 +958,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** G/E is connected reductive, E is a nonarchimedean local field of either characteristic, and {μ} is a geometric cocharacter conjugacy class. No quasi-split hypothesis. Use the actual local affine root datum and Frobenius action from RG2.4. Retain the full integral κ fibre while removing central inertia torsion for the numerical root-datum calculation.
 
-**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Kottwitz classification by both invariants](#classification-by-two-invariants).
+**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Kottwitz classification by both invariants](#classification-by-two-invariants).
 
 **Proof/construction.** (1) Import the local Iwahori–Weyl datum, Frobenius and geometric cocharacter projection. He16 §2.2 permits both characteristics; its §2.4 comparison preserves κ and Newton points before the equal-characteristic restriction in §2.5. (2) By StraightWeylClassification and two-invariant injectivity, the acceptable B(G) fibre identifies as a poset with the acceptable Newton values in the corresponding affine datum, at the fixed integral κ. (3) For the finite central inertia-torsion subgroup K of the Iwahori–Weyl translation lattice, project to the torsion-free datum. Right exactness of σ-coinvariants identifies the kernel of the projected κ map with the image of K_σ. A lift with the wrong integral κ is corrected by a central torsion element; its Newton value is unchanged. Thus this numerical projection preserves the acceptable Newton set within the chosen κ fibre, without replacing κ by its rationalization. (4) The resulting based reduced root datum and finite-order alcove-preserving affine Frobenius satisfy HN18 §1.3–§1.4. Pass to its adjoint datum using §2.1; express the affine action as an alcove stabilizer times a linear diagram action as in §2.2. (5) Apply HN18 Theorem1.1(1). Its proof (§2.3–§2.5) uses the orbit-weight integrality criterion of Lemma2.5 and the largest allowed orbit-weight bounds to construct a Newton value ν. Chai Theorem6.5 gives the least dominant majorant of those bounds, and Lemma6.2(i) shows every acceptable value is ≤ν. These external convex/root proof inputs remain explicit G06/RG2.4 obligations. (6) Lift back to the chosen integral κ as above and then to B(G). Two-invariant injectivity gives a unique class, and order compatibility makes it dominate every acceptable class. This field-independent transfer is our deduction from the cited root-datum theorem, not a claim that the paper’s p-adic Appendix A states an equal-characteristic theorem. (7) Compare the resulting Newton value with μ◇ to characterize ordinary equality. Unique maximality does not assert ordinary existence for nonsplit inner forms.
 
@@ -978,7 +976,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
+**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Apply the straightness equality to compare the coroot pairings with the Newton centralizer. (2) Use the compatible absolute lift and averaging to force the remaining Levi root pairings to vanish. (3) Use ordinary equality and the straight-class bijection to choose the translation representative.
 
@@ -1014,7 +1012,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Use KZ §2.1: F a nonarchimedean local field, connected reductive G/F, a σ-stable alcove, its Iwahori model I, and a specified connected parahoric model G_script with subgroup W_J. Require b to lie in both the μ-admissible parahoric double-coset union and the ordinary class. Here G_script(O_breveF) is the parahoric subgroup, not the rational points of G.
 
-**Prerequisites.** [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use He–Rapoport Theorem6.1(b) to σ-conjugate b by the specified parahoric into an Iwahori cell indexed by a minimal W_J coset representative. He16 Theorem6.1 puts that index in Adm(μ). (2) Use He–Zhou Theorem4.1 to find a σ-straight x below that index whose Iwahori cell meets the ordinary class, and He14 Theorem3.5 to identify its class. The ordinary equality and KZ Lemma2.2.6 force x=t_μprime; admissible length comparison forces the original index to equal x. (3) Apply He14 Proposition4.5: the Iwahori double coset of a σ-straight lift is a single σ-conjugacy orbit under I(O_breveF). Composing the two integral conjugators proves (2). These non-routine imported inputs remain the precise G10 obligations.
 
@@ -1050,7 +1048,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Basic Levi Newton formula](#levi-newton-formula); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Basic Levi Newton formula](#levi-newton-formula); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use the basic central Newton vector and the integral Levi invariant compatibility. (2) Apply the corrected GHN basic-only uniqueness statement cited by He. (3) Keep the nonbasic Levi invariant obstruction for ADLV consumers; do not import a false general uniqueness lemma.
 
@@ -1139,7 +1137,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Basic Levi Newton formula](#levi-newton-formula); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Basic Levi Newton formula](#levi-newton-formula); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use Wintenberger Cartan realization, Iwasawa reduction and Mazur inequality in the unramified case. (2) Require equality of the integral π_1(G) class in the Satake reduction; minuscule dominance alone is insufficient. (3) Use the torsion-free kernel of π_1(M)_Γ→π_1(G)_Γ and the matching Galois averages for the unramified replacement. (4) Transport a rational parabolic and its rational Levi by the inner twisting; basic κ and ν are compatible.
 
@@ -1353,7 +1351,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Newton functoriality identifies the geometric orbit; choose the dominant representatives in the two chambers. (2) Use Weyl chamber dominance for the first difference and the fundamental-group projection for the J-coroot span conclusion.
 
@@ -1598,7 +1596,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [RelativeFarguesFontaine:RF2:untilts](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D1/strictly-totally-disconnected](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D1/universally-open-std-cover](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [RelativeFarguesFontaine:RF2:untilts](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D1/strictly-totally-disconnected](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D1/universally-open-std-cover](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Use the clopen-component argument to get R→K(s) surjective. (2) Lift group points using henselian smooth lifting. (3) Lift the positive period-ring points by the complete filtration and successive Lie corrections.
 
@@ -1710,7 +1708,7 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Hypotheses.** E is a nonarchimedean local field of either characteristic, with finite residue field; G/E is connected reductive, with no quasi-split or unramified hypothesis. Use GIZ26 arXiv v3: its §2 and Remark2.1 allow both characteristics. He16 §2.5 restricts the schematic closure discussion to equal characteristic; use Vie21 for the mixed-characteristic route.
 
-**Prerequisites.** [Geometric classification of G-bundles](#points-are-B-of-G); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Newton partial order with Kottwitz fibre](#partial-order-on-B-of-G); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Prerequisites.** [Geometric classification of G-bundles](#points-are-B-of-G); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Newton partial order with Kottwitz fibre](#partial-order-on-B-of-G); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use geometric point classification and HN semicontinuity to obtain the continuous bijection with the stated reversed specialization convention. (2) In mixed characteristic, use Vie21 Theorem1.1 with its finite-Q_p-extension hypothesis. (3) In equal characteristic, He16 Theorems1.29 and2.12 identify the schematic specialization order with equal integral κ and Newton dominance. Import the straight-class and affine-Bruhat proof inputs through RG2.4, retaining inertia torsion. (4) GIZ26 Lemma7.17 reduces continuity to finite bounded loci and specialization chains. Its Theorem7.18 identifies schematic and analytic isocrystal specialization and reverses Bun_G specialization. (5) For that comparison, realize adjacent schematic specializations on perfect rank-one valuation rings (GIZ26 Proposition2.17). Theorem3.16 identifies the v-descent limit over Spd(Vhat,Vhat) with bundles on Y_(0,∞]; it does not assert that every arbitrary bundle on the open period space extends. Apply the separate PR24 Proposition2.1.3 and FS II.2.14 classification inputs to this schematic-family-induced boundary bundle. Use Theorem7.13 on products of geometric points for the reverse implication. These interiors remain G04/G06 obligations.
 
@@ -1979,7 +1977,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Induct over the finite positive filtration and use BC positive-slope smoothness, connectedness and H^1 vanishing. (2) Apply additivity of ℓ-dimension to the extension tower. (3) Compute the positive adjoint root weights as the 2ρ pairing.
 
@@ -2219,7 +2217,7 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Prerequisites.** [Unitary flag Newton dimensions](#unitary-flag-stratum-dimension); [Ordinary Newton class](#ordinary-class); [IgusaVarietiesAndTorsionConcentration:IG.0](../../../content/campaign/IgusaVarietiesAndTorsionConcentration/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Prerequisites.** [Unitary flag Newton dimensions](#unitary-flag-stratum-dimension); [Ordinary Newton class](#ordinary-class); [IgusaVarietiesAndTorsionConcentration:IG.0](../../../content/campaign/IgusaVarietiesAndTorsionConcentration/README.md); [ReductiveGroupsPartII:RG2.3](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Use the rational reflex cocharacter and the unramified ordinary theorem. (2) Apply the actual local p-divisible/flag ordinary comparison of CGH Proposition3.3.8. (3) A locally profinite diamond has Krull dimension0.
 
@@ -2439,7 +2437,7 @@ Use D4 for diamonds, small v-stacks, underlying spaces and open substacks. D5 su
 
 ### R06 — EndoscopicTransferAndUnitaryTraceComparison:ET.0
 
-Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic extensions come from proposed RG2.6; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition. Coefficients in the FS Weil complexes are G(L^sep), T(L^sep), etc., with the natural continuous W_E-action on discrete groups, not only L-rational points.
+Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic z-extensions come from existing upstream RG2.1.5; induced-torus resolution refinements remain G01; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition. Coefficients in the FS Weil complexes are G(L^sep), T(L^sep), etc., with the natural continuous W_E-action on discrete groups, not only L-rational points.
 
 **Consumers:** [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Abelianized classes equal fundamental coinvariants](#abelianization-identification); [Diagonalizable Weil–curve comparison](#diagonalizable-curve-cohomology); [Constant crossed-module curve classes](#crossed-module-curve-classes); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [Basic classes and adjoint torsors with connected center](#connected-center-basic-inner-forms).
 
@@ -2463,19 +2461,19 @@ Use its unitary PEL signatures, integral model and comparison of the local B-cla
 
 ### R10 — ReductiveGroupsPartII:RG2.1
 
-Export split-rank and relative-root interfaces for the reductive group and its centralizer, root/coroot lattices, Levi chamber transport and Galois actions. Extend the based-root package to the unramified-replacement averaging and triality orbit equality used by KMPS Proposition1.1.10; keep its proof here as a supplier request. Include the torsion-free Levi coinvariant kernel needed for the KMPS minuscule lifting argument; its refinement is G10.
+Import current upstream RG2.1 local/absolute root data, split ranks, integral π_1, Galois/coinvariant maps, z-extensions and representative Kottwitz homomorphisms. Existing targets suffice for those contracts; they are not new work. Remaining refinements: canonical comparison between maximal-torus choices and inner twists (the actual Suggested.lean uses a fixed AbsoluteRootData), unramified-replacement averaging/triality equality for KMPS Proposition1.1.10, and the torsion-free Levi coinvariant kernel used by its minuscule lifting proof. Preserve the covariant inverse-transpose action on cocharacters. The simple integral Levi-kernel formula is already supplied; its coinvariant exactness refinement remains G10.
 
 **Consumers:** [Defect of a sigma class](#defect); [Basic Levi Newton formula](#levi-newton-formula); [Positive automorphism kernel geometry](#positive-automorphism-kernel); [Newton orbit space and rational dominance](#newton-orbit-space); [Newton comparison for a Levi representative](#general-levi-newton-comparison).
 
 ### R11 — ReductiveGroupsPartII:RG2.3
 
-Export the connected parahoric model, its positive loop group, its extended-Weyl double-coset parametrization and the integral conjugacy/lifting input used by KZ Proposition2.3.3. Preserve the distinction between a parahoric and G(O_L) in the hypotheses. Exact KZ Proposition2.3.3 inputs: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors are G10, not a routine Lang lemma.
+Import the connected parahoric and positive-loop/fixer structures already planned by upstream RG2.3, preserving the distinction between a parahoric and G(O_L). Request only the precise integral-conjugacy/lifting refinements used by KZ Proposition2.3.3: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors remain G10. Extended-Weyl double-coset structure is imported from upstream RG2.4.
 
 **Consumers:** [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Integral conjugacy of an ordinary admissible element](#ordinary-integral-conjugacy); [Unitary ordinary flag locus](#unitary-ordinary-flag-locus).
 
 ### R12 — ReductiveGroupsPartII:RG2.4
 
-Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences. For the general-field maximum, supply the characteristic-independent reduced affine datum and finite-order Frobenius comparison, plus central inertia-torsion removal/restoration at fixed κ using right exactness of σ-coinvariants. Expand the HN18 Lemma2.5 and Chai convex-majorant inputs there; BG1 owns the resulting B(G,{μ}) maximum.
+Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences.
 
 **Consumers:** [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Unique maximum of acceptable classes](#acceptable-unique-maximum); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [Integral conjugacy of an ordinary admissible element](#ordinary-integral-conjugacy); [Levi fibre over a basic G-class](#basic-levi-fibre-uniqueness); [Grassmannian point lifting](#grassmannian-point-lifting); [Newton comparison for a Levi representative](#general-levi-newton-comparison).
 
@@ -2601,13 +2599,13 @@ Use the existing rational representation/comodule category, rigid exact tensor s
 
 ### R33 — tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
-Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are separately requested as proposed RG2.6, not inferred from layer7 or RG2.5. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer.
+Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are imported from existing upstream RG2.1.5, with only the remaining G01 refinements requested. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer.
 
 **Consumers:** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [G-isocrystals](#g-isocrystals-and-B-of-G); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Decent representative](#decent-representative); [Existence of decent representatives](#existence-of-decent-representative); [Division-algebra Morita comparison](#division-algebra-morita); [Basic Levi Newton formula](#levi-newton-formula); [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Torus-special acceptable pair](#torus-special-pair); [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image); [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [Ordinary classes under a derived isogeny](#ordinary-derived-isogeny); [Products and unramified restriction of scalars](#product-and-unramified-norm); [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Geometric classification of G-bundles](#points-are-B-of-G); [Geometrically trivial open locus](#geometrically-trivial-locus); [Beauville–Laszlo uniformization](#beauville-laszlo-surjectivity); [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [Quasi-split opposite-parabolic automorphisms](#quasi-split-opposite-parabolic); [Locally spatial Isom diagonal](#isom-sheaf-representability); [Quasi-split parabolic chart](#quasi-split-parabolic-chart); [Positive tangent criterion for the filtered chart](#chart-jacobian-positivity); [Finite Frobenius norm centralizer](#finite-frobenius-norm-centralizer); [Quasi-split centralizer in the GL minuscule case](#gl-minuscule-quasisplit-centralizer); [Algebraic fundamental group](#algebraic-fundamental-group); [Newton orbit space and rational dominance](#newton-orbit-space); [Galois averaging and Hodge invariants](#galois-average); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Kottwitz classification by both invariants](#classification-by-two-invariants); [Basic sigma class](#basic-class); [Rational Newton representative](#rational-newton-witness); [Torus norm and Newton average](#torus-norm-description); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [Bounded lifting through a z-extension](#z-extension-bounded-lifting); [Basic classes and adjoint torsors with connected center](#connected-center-basic-inner-forms).
 
-### R34 — ReductiveGroupsPartII:RG2.5
+### R34 — ReductiveGroupsPartII:RG2.1
 
-Ownership-extension request: add proposed stage RG2.6 after the current RG2.5. Supply existence of z-extensions (induced central torus kernel, simply connected derived group), a surjection from an induced torus to any torus, cocharacter/π_1 exactness, invariant-lattice surjectivity and central-torus descent. Current RG2.5 owns dual/L-group data and is not claimed to prove these inputs. Extend to z-embeddings in the shared owner when ES consumers require them, following the confirmed RT10 proposal. BG1 retains the B-set/acceptable-set consequences; ET.0 imports the common foundation.
+The generic z-extension foundation is imported from existing upstream RG2.1.5, not added as RG2.6 and not attributed to the dual/L-group layer RG2.5. Request the remaining general induced-torus surjection/resolution and invariant-lattice surjectivity/descent comparison needed by these BG consumers. Use existing z-extension exact_central, map_galoisAction, surjective_points and fundamentalGroup_torsionFree for their actual contracts. Z-embeddings are outside the upstream scope and are not requested by this BG packet. The resolution contract is a surjective E-group morphism from an induced torus to a given E-torus with a torus kernel, not unrestricted surjectivity on E-points. For the lattice sequence of a z-extension, invariant surjectivity is requested only with the vanishing of continuous H^1(J,X_*(Z)); prove that vanishing for the induced kernel and the stated closed Galois subgroup J. Integral coinvariant right exactness is separate and does not imply invariant surjectivity.
 
 **Consumers:** [Basic Levi Newton formula](#levi-newton-formula); [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image); [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [Ordinary classes under a derived isogeny](#ordinary-derived-isogeny); [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Algebraic fundamental group](#algebraic-fundamental-group); [Newton orbit space and rational dominance](#newton-orbit-space); [Galois averaging and Hodge invariants](#galois-average); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Torus norm and Newton average](#torus-norm-description); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [Bounded lifting through a z-extension](#z-extension-bounded-lifting); [Basic classes and adjoint torsors with connected center](#connected-center-basic-inner-forms).
 
@@ -2693,9 +2691,9 @@ Supply the linear period-space comparison V_Y(F)≃Vect(Y_F), functorial for F=S
 
 The packet remains partial. Planned target contracts and successfully typed pointwise cores do not certify closed proof chains.
 
-### G01 — Generic z-extension foundation
+### G01 — Remaining torus-resolution and lattice refinements
 
-Proposed RG2.6 is absent from the integrated stage catalogue. Its existence/exactness/induced-torus contracts are requested from ReductiveGroupsPartII, but cannot be cited as existing nodes. No RG2.5 dependency is used as a substitute.
+The current upstream RG2.1.5 already supplies generic z-extensions, their existence, induced central kernels, simply connected derived groups, rational-point surjectivity, torsion-free π_1 and Γ-equivariant central lattice exactness. The earlier proposed RG2.6 is superseded for these inputs. What still needs an explicit owner contract is a general induced-torus surjection/resolution with the invariant-lattice surjectivity and descent comparison used by the BG arguments. Existing fixed-datum fundamental-group signatures also need maximal-torus/inner-twist comparison when canonical transport is invoked. Z-embeddings are explicitly outside the current upstream scope and are not prerequisites of this BG packet. The requests retain RG2.1 as the catalogue identifier and cite its actual current upstream targets.
 
 **Consumers:** All 17 named consumers are listed in the packet.
 
@@ -2737,7 +2735,7 @@ The datum and CS24 Theorem2.7.3 statement/proof route were checked, but the orig
 
 ### G08 — Lean formulation boundary
 
-The pinned libraries express group quotients, subgroups, finite-dimensional linear isocrystals, rational finite slope data and topology. They do not yet supply the exact tensor-functor target categories for analytic curve bundles and general-E isocrystals, general-E perfectoid coefficient rings, relative FF bundle tensor categories, v-stacks, filtered relative group schemes, crossed-module Weil complexes or the needed analytic cohomological predicates. The suggested file gives concrete pointwise and rational-slope cores plus a name-by-name omission register for these unavailable carriers. It does not replace them with arbitrary propositions, arbitrary types or asserted representability fields. Full signatures depend on the requested suppliers. Tau Ceti already has FGPointRepresentationCat, its rigid symmetric monoidal comodule equivalence and pointwise finite-comodule Tannakian reconstruction. Reuse these as the rational representation source; its existence is not a gap.
+Native Quillen exact structures, conflation-preserving functors, E-linearity, strong symmetric tensor functors and monoidal natural transformations are available at the pins and are imported. The suggested file now elaborates this categorical interface over specified structured categories. Current upstream RG2.1.5 also gives actual root-datum quotient/Galois/coinvariant signatures; they are reused, not duplicated here. The remaining boundary is the concrete analytic FF bundle and general-E isocrystal category instantiation, coefficient-ring/relative FF geometry, v-stacks, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Neither the pinned build nor the inspected supplier suggested files exports these full geometric carriers. The categorical controls do not replace GL_1/torsor reconstruction, and the omission register does not count as full §13 coverage. FGPointRepresentationCat and its rigid symmetric structure already provide the rational representation source. No arbitrary Type/Prop replacement is used.
 
 **Consumers:** All 98 named consumers are listed in the packet.
 
@@ -2767,9 +2765,11 @@ The current GS0 Schubert-bound node already treats general E and nonsplit bounds
 
 ## Suggested file and pinned baseline
 
+The native categorical interface uses specified Quillen exact structures and their distinguished conflations. TensorInterface.Data retains an additive E-linear functor, an invertible unit/tensor comparison compatible with symmetry, and native preservation of conflations. TensorInterface.Iso retains monoidal compatibility of a natural isomorphism. Postcomposition has tensor identity and associativity isomorphisms; componentwise equality determines a tensor isomorphism. Six categorical controls check the unit, tensor, exactness and natural-isomorphism contracts. Their hypotheses are actual category structures, not unspecified geometric predicates. Instantiation with relative analytic bundle and general-E isocrystal categories remains the supplier obligation G08; these controls do not replace the roadmap’s geometric reconstruction tests.
+
 The suggested file contains concrete generic group and rational-slope cores. SigmaClass and ComponentCoset have the stated abstract algebraic types; the point stabilizer, finite product, GL_n slope conditions and numerical examples have explicitly restricted types. The full geometric declarations are named in an omission register because their target carriers and predicates require the requested suppliers. A register entry is neither a Lean declaration nor an elaborated theorem. G08 specifies those formulation obligations. No opaque substitute for a perfectoid space, tensor equivalence, representability theorem or smoothness proposition is introduced.
 
-The concrete prototype elaborated on 2026-10-10 with exit code 0 and only declaration-uses-sorry warnings. This checks the explicitly restricted Mathlib cores and the new map, stabilizer-conjugacy, twisted-norm and affine-fibre equivalence signatures. The full geometric signatures in the omission register were not elaborated. Tau Ceti baseline declarations were read at their pinned commit; this file imports only individual Mathlib modules.
+The prototype elaborated on 2026-10-10 with exit code 0 and only declaration-uses-sorry warnings. This checks the restricted algebraic/numerical cores and the native Tau Ceti exact tensor interface, including coherent postcomposition and monoidal-isomorphism extensionality. The full geometric signatures in the omission register were not elaborated. Tau Ceti baseline declarations were read at their pinned commit; this file imports individual Mathlib and native Tau Ceti exact-category modules.
 
 Mathlib is pinned to 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti to f790474821cf4256814db967cb154e7af3d0c369. The source-checked baseline is:
 
@@ -2788,6 +2788,12 @@ Mathlib is pinned to 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti to f7
 - [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean): Finite natural algebra-valued point representations of a commutative Hopf algebra, equivalent to finite comodules; over a field these are finite-dimensional rational representations.
 - [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean): The finite representation category is rigid symmetric monoidal via transport from finite comodules; reuse this existing structure.
 - [TauCeti.Tannaka.fgPointTensorIsoEquiv](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean): For a field k and commutative Hopf algebra H, A-valued points are tensor automorphisms of scalar extension on finite H-comodules; does not assert analytic torsor reconstruction.
+
+- [TauCeti.ExactStructure](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/ExactStructure.lean): Chosen Quillen exact structure on an additive category with zero object and binary biproducts; the owner supplies the distinguished conflations.
+- [TauCeti.ExactStructure.IsConflationExact](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/CategoryTheory/Exact/Functor.lean): Native preservation of the specified conflations by an additive functor. This does not assert preservation of all finite limits and colimits.
+- [CategoryTheory.Functor.Linear](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Linear/LinearFunctor.lean): A functor between E-linear categories respects scalar multiplication of morphisms.
+- [CategoryTheory.Functor.Braided](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean): Strong monoidal functor with compatibility with the braiding; between symmetric categories this is the symmetric tensor structure.
+- [CategoryTheory.NatTrans.IsMonoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean): Unit and tensor compatibility for natural transformations between monoidal functors; a natural isomorphism alone is insufficient.
 
 ## Routed paper coverage
 
@@ -2907,12 +2913,12 @@ All 148 items from the twelve issue-routed extractions have a named declaration 
 
 | Item | Owned declaration or supplier |
 |---|---|
-| N07 | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
-| N08 | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
-| N09 | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
+| N07 | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
+| N08 | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
+| N09 | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
 | N11 | [Ordinary straight translation and Levi centrality](#ordinary-straight-translation) |
 | N12 | [Ordinary straight translation and Levi centrality](#ordinary-straight-translation) |
-| N13 | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
+| N13 | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
 | N15 | [Straight Weyl comparison with B(G)](#straight-weyl-classification) |
 | N17 | [Ordinary Newton class](#ordinary-class) |
 | N18 | [Unique maximum of acceptable classes](#acceptable-unique-maximum) |
@@ -2963,8 +2969,8 @@ All 148 items from the twelve issue-routed extractions have a named declaration 
 | N21 | [Finiteness and the basic acceptable member](#admissible-finiteness-and-basic) |
 | N22 | [Torus-special acceptable pair](#torus-special-pair) |
 | N23 | [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image) |
-| N24 | [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md) |
-| N25 | [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md) |
+| N24 | [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
+| N25 | [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
 | N26 | [Basic Levi Newton formula](#levi-newton-formula) |
 | N27 | [Minuscule basic Levi lifting](#minuscule-basic-levi-lift) |
 | N28 | [Minuscule basic Levi lifting](#minuscule-basic-levi-lift) |
@@ -2988,12 +2994,12 @@ All 148 items from the twelve issue-routed extractions have a named declaration 
 | rr96-basic-is-minimal | [Representations detect Newton dominance](#representation-detects-dominance) |
 | kottwitz-quasi-split-rational-newton-representative | [Rational Newton representative](#rational-newton-witness) |
 | torus-admissibility | [Torus norm and Newton average](#torus-norm-description) |
-| weil-restricted-adjoint-averaging | [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md) |
+| weil-restricted-adjoint-averaging | [ReductiveGroupsPartII:RG2.1](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
 | standard-levi-quasi-split | [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory) |
 | central-cocharacter-nu-bJ | [Central Newton morphism of the centralizer](#central-newton-on-J) |
-| wintenberger-cartan-coset-realisation | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
-| satake-levi-reduction | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
-| mazur-inequality-unramified | [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md) |
+| wintenberger-cartan-coset-realisation | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
+| satake-levi-reduction | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
+| mazur-inequality-unramified | [ReductiveGroupsPartII:RG2.4](https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md) |
 | rational-parabolic-and-levi-in-quasi-split | [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory) |
 | inner-twisted-levi-basic-classes | [Basic Levi Newton formula](#levi-newton-formula) |
 | basic-levi-representative-from-transfer | [Specialness for a transferred centralizer torus](#transferred-torus-specialness) |
@@ -3123,7 +3129,7 @@ Theorem1.1 and topology convention p.2; proof route in section6 is a precise pro
 
 Xuhua He, Sian Nie. [preprint](https://arxiv.org/pdf/1408.5836). Read 2026-10-07. SHA-256: 8377c0a45eb02125f819d30dffd64cc8209bda6208dec9e2b3989edf4569fe02.
 
-Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1. Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1. Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1.
+Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1. Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1.
 
 ### GIZ26 — Meromorphic vector bundles on the Fargues–Fontaine curve
 
@@ -3136,6 +3142,8 @@ Ian Gleason, Alexander B. Ivanov, Felix Zillinger. [arXiv:2307.00887v3, 14 May 2
 Xuhua He. [arXiv:1511.01386v3, 21 November 2016; survey version, not collated with the published edition cited by KZ.](https://arxiv.org/pdf/1511.01386v3). Read 2026-10-10. SHA-256: f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc.
 
 §1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, including Theorems2.6,2.11 and2.12; §2.11.3–2.11.4 pp.42–43. §2.5 restricts the closure discussion to equal characteristic.
+
+Continuation source read, Codex codex-1VC77g, 2026-10-10: FS III.1.1 and the tensor description pp.88–89, III.2.1–III.2.2 pp.89–90, and ExampleIII.4.4 pp.101–102 were reinspected in the recorded author copy (SHA-256 9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905). Other source reads retain their separately recorded inherited provenance.
 
 ### Corrections used by the declarations
 
@@ -3153,4 +3161,4 @@ Xuhua He. [arXiv:1511.01386v3, 21 November 2016; survey version, not collated wi
 
 - **BunGAndNewtonStrata/E07 (KZ, misprint):** Dominance in rational cocharacter space uses nonnegative combinations of positive coroots. Roots have the wrong ambient lattice. Locator: §2.2.3 in arXiv2103.09945v2, printed10; the current Harvard author copy has the same phrase. Final Annals version not collated..
 
-The 30 planets retain their reviewed names and stage ownership. Coverage is partial for BG1 and BG2, and planned for the other stages; none is closed. The independent needs_changes review remains in the packet for the next reviewer.
+The 29 BG planets retain their reviewed names; the algebraic fundamental-group planet belongs to the existing upstream owner and is removed from BG. Coverage is partial for BG1 and BG2, and planned for the other stages; none is closed. The independent needs_changes review remains in the packet for the next reviewer.
