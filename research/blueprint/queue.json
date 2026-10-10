@@ -32622,8 +32622,9 @@
    ],
    "followUpOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructurePartII--PL.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7840"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7840",
+   "finishedAt": "2026-10-10T03:22:54Z"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructurePartII--PL.7",
@@ -35395,7 +35396,8 @@
    ],
    "avoidAccountOf": "BP-ClassicalAdicEtaleCohomology--H1-valuation-exports",
    "prompt": "research/blueprint/prompts/REV-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7033"
   },
   {
    "id": "BP-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles",
@@ -38901,7 +38903,8 @@
    ],
    "revisionOf": "BP-CrystallineCohomology--CR.0",
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6951"
   },
   {
    "priority": 2,
@@ -47044,8 +47047,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48166,8 +48169,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48825,8 +48828,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49147,8 +49150,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -81326,8 +81329,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
