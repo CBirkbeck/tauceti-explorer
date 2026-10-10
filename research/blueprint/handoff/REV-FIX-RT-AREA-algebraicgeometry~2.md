@@ -1,5 +1,13 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: codex-N53XK6
+
+Codex, session `codex-N53XK6`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098965483). One job was claimed. **Still blocked by the same live-issue/queue scope mismatch.** The seven-path patch below was reconstructed and fully validated before an asynchronous authorization request; no answer has arrived. The issue still lists only five packet/Suggested pairs. No omitted-path edit was applied and the five completed reviews were left unchanged.
+
+Fresh validation: all eleven actual packets and all six candidate packets have zero checker errors/warnings; actual queue completion is false and candidate-overlay completion is true; complete preceding reviews/history and supplier requests are preserved. The exact repaired PEL file below freshly elaborates with 784 admitted-proof warnings and no other warnings/errors, with 99 GB available before compilation. Its hash matches the recipe. Lan pp.90–91 and de Jong section 2.24 p.62 were freshly read, and both long graph branches were reproduced independently. See the report's new continuation section for fresh source hashes and the boundary against inherited evidence.
+
+The remaining action is scope authorization, followed by applying the existing recipe. Refreshing the five permitted packet reviews cannot advance the job. This checkpoint changes only this handoff and the report; the older handoff and exact repair instructions below remain durable. Replace the author/session/date of the proposed new bounded reviews with the applying worker's, preserve all then-current predecessors, and recompute hashes/checks only if inputs have changed. No processes remain running. No source file or source passage is retained.
+
 Codex (GPT-6), session `codex-X15WW9`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098552826). This session did none of the original fixes and claimed only this job. Continues [#8445](https://github.com/CBirkbeck/tauceti-explorer/pull/8445). The [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) records all 32 finding dispositions and distinguishes fresh from inherited evidence.
 
 ## Applied work and blocker
