@@ -30,6 +30,8 @@ import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.GroupTheory.SchurZassenhaus
 import Mathlib.GroupTheory.SpecificGroups.Alternating
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Notation
 
 set_option linter.unusedVariables false
 set_option autoImplicit false
@@ -2816,6 +2818,284 @@ theorem order96_cover_certificate :
        Nonempty (C.projection.ker ≃* (Fin 3 → Two)) ∧
        Nat.card (certificate_relation_subgroup C.cover) = 4 ∧
        Nat.card (C.projection.ker ⧸ certificate_relation_subgroup C.cover) = 2) := by sorry
+
+/-! ### Remaining nonabelian table carriers
+Wood (2019), §8.2, Table 2, p.419 and the embedding discussion p.420.
+Each carrier specifies its embedding and outside marking. The arithmetic
+classification remains in ST.3; all cover certificates are output targets.
+-/
+
+section SumKernelTableFixtures
+variable (G : Type) [Group G]
+
+-- The product of the abelianized coordinates is a homomorphism even
+-- across the swap. Its kernel retains the actual ambient embedding.
+def table_sum_map : FullTableWreath G →* Abelianization G := by sorry
+lemma table_sum_map_apply (w : FullTableWreath G) :
+    table_sum_map G w = Abelianization.of w.left.1 * Abelianization.of w.left.2 := by sorry
+abbrev SumTableType := (table_sum_map G).ker
+instance sum_table_fintype [Fintype G] : Fintype (SumTableType G) := by
+  classical
+  exact Fintype.ofFinite _
+def sum_table_embedding : SumTableType G →* FullTableWreath G :=
+  (table_sum_map G).ker.subtype
+def sum_table_projection : SumTableType G →* Two :=
+  SemidirectProduct.rightHom.comp (sum_table_embedding G)
+def sum_table_outside : Set (SumTableType G) :=
+  {x | sum_table_projection G x ≠ 1 ∧ orderOf x = 2}
+lemma sum_table_mem (w : FullTableWreath G) :
+    w ∈ (table_sum_map G).ker ↔
+      Abelianization.of w.left.2 = (Abelianization.of w.left.1)⁻¹ := by sorry
+lemma sum_table_embedding_injective : Function.Injective (sum_table_embedding G) := by sorry
+lemma sum_table_projection_surjective : Function.Surjective (sum_table_projection G) := by sorry
+lemma sum_table_outside_mem (x : SumTableType G) :
+    x ∈ sum_table_outside G ↔
+      x.val.right ≠ 1 ∧ x.val.left.2 = x.val.left.1⁻¹ := by sorry
+lemma sum_table_card [Finite G] :
+    Nat.card (SumTableType G) = 2 * Nat.card G * Nat.card (commutator G) := by sorry
+lemma sum_table_marking_generates :
+    Subgroup.closure (sum_table_outside G) = ⊤ := by sorry
+lemma sum_table_one_class [Finite G] (hodd : Odd (Nat.card (Abelianization G)))
+    (x y : SumTableType G) (hx : x ∈ sum_table_outside G)
+    (hy : y ∈ sum_table_outside G) : IsConj x y := by sorry
+lemma sum_table_marking_closed (a x : SumTableType G) (hx : x ∈ sum_table_outside G) :
+    a*x*a⁻¹ ∈ sum_table_outside G := by sorry
+
+-- Sum, rather than difference, is forced by the outside inverse pairs.
+example : table_sum_map C3 1 = 1 := by sorry
+example : table_sum_map C3
+    (⟨(Multiplicative.ofAdd (1 : ZMod 3),Multiplicative.ofAdd (2 : ZMod 3)),1⟩ :
+      FullTableWreath C3) = 1 := by sorry
+example : table_sum_map C3
+    (⟨(Multiplicative.ofAdd (1 : ZMod 3),Multiplicative.ofAdd (1 : ZMod 3)),1⟩ :
+      FullTableWreath C3) ≠ 1 := by sorry
+-- All three maps keep the actual two coordinates and quotient coordinate.
+example (x : SumTableType G) : (sum_table_embedding G x).left = x.val.left := by sorry
+example (x : SumTableType G) : (sum_table_embedding G x).right = x.val.right := by sorry
+example (x y : SumTableType G) : sum_table_embedding G x = sum_table_embedding G y ↔ x = y := by sorry
+example : sum_table_projection G 1 = 1 := by sorry
+example (x : SumTableType G) (hx : x.val.right = 1) : sum_table_projection G x = 1 := by sorry
+example (x : SumTableType G) (hx : x.val.right = Multiplicative.ofAdd (1 : ZMod 2)) :
+    sum_table_projection G x = Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+example : (1 : SumTableType G) ∉ sum_table_outside G := by sorry
+example (x : SumTableType G) (hx : x.val.right ≠ 1) (hpair : x.val.left.2 = x.val.left.1⁻¹) :
+    x ∈ sum_table_outside G := by sorry
+example (x : SumTableType G) (hpair : x.val.left.2 ≠ x.val.left.1⁻¹) :
+    x ∉ sum_table_outside G := by sorry
+-- Oddness is necessary for the one-class assertion, not generation.
+example : ∃ x y : SumTableType Two,
+    x ∈ sum_table_outside Two ∧ y ∈ sum_table_outside Two ∧ ¬ IsConj x y := by sorry
+end SumKernelTableFixtures
+
+section GraphTableFixtures
+variable {G : Type} [Group G] (θ : MulAut G) (hθ : Function.Involutive θ)
+def graph_table_action (θ : MulAut G) (hθ : Function.Involutive θ) : Two →* MulAut G := by sorry
+lemma graph_table_action_apply (t : Two) (g : G) :
+    graph_table_action θ hθ t g = if t = 1 then g else θ g := by sorry
+abbrev GraphTableType := G ⋊[graph_table_action θ hθ] Two
+instance graph_table_fintype [Fintype G] : Fintype (GraphTableType θ hθ) :=
+  Fintype.ofEquiv (G × Two) SemidirectProduct.equivProd.symm
+-- The graph is stable under swapping because θ²=id.
+def graph_table_embedding : GraphTableType θ hθ →* FullTableWreath G := by sorry
+lemma graph_table_embedding_apply (x : GraphTableType θ hθ) :
+    (graph_table_embedding θ hθ x).left = (x.left,θ x.left) ∧
+    (graph_table_embedding θ hθ x).right = x.right := by sorry
+lemma graph_table_embedding_injective : Function.Injective (graph_table_embedding θ hθ) := by sorry
+def graph_table_outside : Set (GraphTableType θ hθ) :=
+  {x | x.right ≠ 1 ∧ orderOf x = 2}
+lemma graph_table_outside_mem (x : GraphTableType θ hθ) :
+    x ∈ graph_table_outside θ hθ ↔ x.right ≠ 1 ∧ θ x.left = x.left⁻¹ := by sorry
+lemma graph_table_card [Finite G] : Nat.card (GraphTableType θ hθ) = 2 * Nat.card G := by sorry
+
+example (g : G) : graph_table_action θ hθ 1 g = g := by sorry
+example (g : G) : graph_table_action θ hθ (Multiplicative.ofAdd (1 : ZMod 2)) g = θ g := by sorry
+example (g : G) : graph_table_action θ hθ (Multiplicative.ofAdd (1 : ZMod 2))
+    (graph_table_action θ hθ (Multiplicative.ofAdd (1 : ZMod 2)) g) = g := by sorry
+example : graph_table_embedding θ hθ 1 = 1 := by sorry
+example (g : G) : (graph_table_embedding θ hθ (SemidirectProduct.inl g)).left = (g,θ g) := by sorry
+example : (graph_table_embedding θ hθ
+    (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)))).right =
+      Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+example : (1 : GraphTableType θ hθ) ∉ graph_table_outside θ hθ := by sorry
+example : (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)) :
+    GraphTableType θ hθ) ∈ graph_table_outside θ hθ := by sorry
+example (g : G) (hg : θ g ≠ g⁻¹) :
+    (⟨g,Multiplicative.ofAdd (1 : ZMod 2)⟩ : GraphTableType θ hθ)
+      ∉ graph_table_outside θ hθ := by sorry
+end GraphTableFixtures
+
+section AffineTableBases
+-- Concrete permutations, with composition p(q(x)), use no SmallGroups oracle.
+def table_affine {n : ℕ} (u : (ZMod n)ˣ) (b : ZMod n) : Equiv.Perm (ZMod n) := by sorry
+lemma table_affine_apply {n : ℕ} (u : (ZMod n)ˣ) (b x : ZMod n) :
+    table_affine u b x = u.val*x+b := by sorry
+lemma table_affine_mul {n : ℕ} (u v : (ZMod n)ˣ) (b c : ZMod n) :
+    table_affine u b * table_affine v c = table_affine (u*v) (b+u.val*c) := by sorry
+
+def affine7_dilation : (ZMod 7)ˣ := ⟨2,4,by decide,by decide⟩
+def affine9_dilation : (ZMod 9)ˣ := ⟨4,7,by decide,by decide⟩
+abbrev Affine21 := Subgroup.closure
+  ({table_affine (1 : (ZMod 7)ˣ) 1, table_affine affine7_dilation 0} : Set (Equiv.Perm (ZMod 7)))
+abbrev Affine27 := Subgroup.closure
+  ({table_affine (1 : (ZMod 9)ˣ) 1, table_affine affine9_dilation 0} : Set (Equiv.Perm (ZMod 9)))
+instance affine21_fintype : Fintype Affine21 := by classical exact Fintype.ofFinite _
+instance affine27_fintype : Fintype Affine27 := by classical exact Fintype.ofFinite _
+lemma affine21_card : Nat.card Affine21 = 21 ∧ Nat.card (commutator Affine21) = 7 := by sorry
+lemma affine27_card : Nat.card Affine27 = 27 ∧ Nat.card (commutator Affine27) = 3 := by sorry
+lemma affine21_sum_marking : Nat.card (SumTableType Affine21) = 294 ∧
+    Subgroup.closure (sum_table_outside Affine21) = ⊤ ∧
+    ∀ x ∈ sum_table_outside Affine21, ∀ y ∈ sum_table_outside Affine21, IsConj x y := by sorry
+lemma affine27_sum_marking : Nat.card (SumTableType Affine27) = 162 ∧
+    Subgroup.closure (sum_table_outside Affine27) = ⊤ ∧
+    ∀ x ∈ sum_table_outside Affine27, ∀ y ∈ sum_table_outside Affine27, IsConj x y := by sorry
+
+example : table_affine (1 : (ZMod 7)ˣ) 0 = 1 := by sorry
+example : table_affine (1 : (ZMod 7)ˣ) 1 (6 : ZMod 7) = 0 := by sorry
+example : table_affine affine7_dilation 0 (3 : ZMod 7) = 6 := by sorry
+example : orderOf (table_affine affine7_dilation 0) = 3 := by sorry
+example : orderOf (table_affine affine9_dilation 0) = 3 := by sorry
+example : table_affine affine9_dilation 0 (2 : ZMod 9) = 8 := by sorry
+example : orderOf (table_affine (1 : (ZMod 7)ˣ) 1) = 7 := by sorry
+example : table_affine affine7_dilation 0 * table_affine (1 : (ZMod 7)ˣ) 1 *
+    (table_affine affine7_dilation 0)⁻¹ = table_affine (1 : (ZMod 7)ˣ) 2 := by sorry
+example : Nat.card (SumTableType Affine21) ≠ 2 * Nat.card Affine21 := by sorry
+example : orderOf (table_affine (1 : (ZMod 9)ˣ) 1) = 9 := by sorry
+example : table_affine affine9_dilation 0 * table_affine (1 : (ZMod 9)ˣ) 1 *
+    (table_affine affine9_dilation 0)⁻¹ = table_affine (1 : (ZMod 9)ˣ) 4 := by sorry
+example : ∃ g : Affine27, orderOf g = 9 := by sorry
+
+theorem table_row_13 :
+    Nonempty (table_row_certificate (sum_table_outside Affine21) (ZMod 1)) := by sorry
+theorem table_row_24 :
+    Nonempty (table_row_certificate (sum_table_outside Affine27) (ZMod 1)) := by sorry
+end AffineTableBases
+
+section MatrixTableBases
+abbrev SL23 := Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)
+abbrev SL32 := Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)
+
+-- Entrywise conjugation by diag(-1,1); the determinant remains one.
+def sl23_involution : MulAut SL23 := by sorry
+lemma sl23_involution_matrix (g : SL23) :
+    ((sl23_involution g : SL23) : Matrix (Fin 2) (Fin 2) (ZMod 3)) =
+      !![g.val 0 0, -g.val 0 1; -g.val 1 0, g.val 1 1] := by sorry
+lemma sl23_involutive : Function.Involutive sl23_involution := by sorry
+abbrev GL23Graph := GraphTableType sl23_involution sl23_involutive
+-- Fix the identification, including the determinant coordinate.
+def sl23_diagonal : Matrix.GeneralLinearGroup (Fin 2) (ZMod 3) := by sorry
+lemma sl23_diagonal_matrix : sl23_diagonal.val = !![-1,0;0,1] := by sorry
+def gl23_graph_equiv : GL23Graph ≃* Matrix.GeneralLinearGroup (Fin 2) (ZMod 3) := by sorry
+lemma gl23_graph_equiv_apply (x : GL23Graph) :
+    gl23_graph_equiv x = Matrix.SpecialLinearGroup.toGL x.left *
+      (if x.right = 1 then 1 else sl23_diagonal) := by sorry
+lemma sl23_table_cards : Nat.card SL23 = 24 ∧ Nat.card (commutator SL23) = 8 ∧
+    Nat.card GL23Graph = 48 ∧ Nat.card (SumTableType SL23) = 384 := by sorry
+lemma gl23_marking : Subgroup.closure (graph_table_outside sl23_involution sl23_involutive) = ⊤ ∧
+    ∀ x ∈ graph_table_outside sl23_involution sl23_involutive,
+      ∀ y ∈ graph_table_outside sl23_involution sl23_involutive, IsConj x y := by sorry
+lemma sl23_sum_marking : Subgroup.closure (sum_table_outside SL23) = ⊤ ∧
+    ∀ x ∈ sum_table_outside SL23, ∀ y ∈ sum_table_outside SL23, IsConj x y := by sorry
+
+example : sl23_involution 1 = 1 := by sorry
+example (g : SL23) : (sl23_involution g).val 0 1 = -g.val 0 1 := by sorry
+example (g : SL23) : sl23_involution (sl23_involution g) = g := by sorry
+example : sl23_diagonal * sl23_diagonal = 1 := by sorry
+example : (Matrix.GeneralLinearGroup.det sl23_diagonal).val = -1 := by sorry
+example : sl23_diagonal ≠ 1 := by sorry
+example : gl23_graph_equiv 1 = 1 := by sorry
+example (g : SL23) : gl23_graph_equiv (SemidirectProduct.inl g) =
+    Matrix.SpecialLinearGroup.toGL g := by sorry
+example : gl23_graph_equiv (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2))) =
+    sl23_diagonal := by sorry
+
+-- PSL(3,2)=SL(3,2): the center is trivial over F₂. Use the native SL carrier.
+def sl32_graph_involution : MulAut SL32 := by sorry
+lemma sl32_graph_involution_matrix (g : SL32) :
+    (sl32_graph_involution g).val = (g⁻¹).val.transpose := by sorry
+lemma sl32_graph_involutive : Function.Involutive sl32_graph_involution := by sorry
+lemma sl32_table_structure : Nat.card SL32 = 168 ∧ commutator SL32 = ⊤ ∧
+    Subgroup.center SL32 = ⊥ := by sorry
+lemma sl32_graph_marking :
+    Subgroup.closure (graph_table_outside sl32_graph_involution sl32_graph_involutive) = ⊤ ∧
+    ∀ x ∈ graph_table_outside sl32_graph_involution sl32_graph_involutive,
+      ∀ y ∈ graph_table_outside sl32_graph_involution sl32_graph_involutive, IsConj x y := by sorry
+example : sl32_graph_involution 1 = 1 := by sorry
+example (g : SL32) : sl32_graph_involution (sl32_graph_involution g) = g := by sorry
+-- Inverse transpose preserves product order; transpose alone reverses it.
+example (g h : SL32) : (sl32_graph_involution (g*h)).val =
+    (sl32_graph_involution g).val * (sl32_graph_involution h).val := by sorry
+example : Nat.card (GraphTableType sl32_graph_involution sl32_graph_involutive) = 336 := by sorry
+example : Nat.card (FullTableWreath SL32) = 56448 := by sorry
+example : Subgroup.closure (full_table_outside SL32) = ⊤ := by sorry
+
+theorem table_row_16 : Nonempty (table_row_certificate
+    (graph_table_outside sl23_involution sl23_involutive) (ZMod 1)) := by sorry
+theorem table_row_17 : Nonempty (table_row_certificate (sum_table_outside SL23) (ZMod 1)) := by sorry
+theorem table_row_30 : Nonempty (table_row_certificate
+    (graph_table_outside sl32_graph_involution sl32_graph_involutive) (ZMod 1)) := by sorry
+theorem table_row_31 : Nonempty (table_row_certificate (full_table_outside SL32) (ZMod 2)) := by sorry
+end MatrixTableBases
+
+section HeisenbergTableBases
+-- Native upper unitriangular matrices, with coordinates (a,b,z).
+def heisenberg_table_subgroup : Subgroup (Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)) := by sorry
+lemma heisenberg_table_mem (g : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)) :
+    g ∈ heisenberg_table_subgroup ↔ ∃ a b z : ZMod 3,
+      g.val = !![1,a,z;0,1,b;0,0,1] := by sorry
+abbrev Heisenberg27 := heisenberg_table_subgroup
+instance heisenberg27_fintype : Fintype Heisenberg27 := by classical exact Fintype.ofFinite _
+def heisenberg_table_element (a b z : ZMod 3) : Heisenberg27 := by sorry
+lemma heisenberg_table_element_matrix (a b z : ZMod 3) :
+    (heisenberg_table_element a b z).val.val = !![1,a,z;0,1,b;0,0,1] := by sorry
+lemma heisenberg_table_element_mul (a b z a' b' z' : ZMod 3) :
+    heisenberg_table_element a b z * heisenberg_table_element a' b' z' =
+      heisenberg_table_element (a+a') (b+b') (z+z'+a*b') := by sorry
+lemma heisenberg_table_element_bijective : Function.Bijective
+    (fun p : (ZMod 3 × ZMod 3) × ZMod 3 => heisenberg_table_element p.1.1 p.1.2 p.2) := by sorry
+-- Conjugation by diag(-1,1,-1) negates a,b and fixes z.
+def heisenberg_table_involution : MulAut Heisenberg27 := by sorry
+lemma heisenberg_table_involution_apply (a b z : ZMod 3) :
+    heisenberg_table_involution (heisenberg_table_element a b z) =
+      heisenberg_table_element (-a) (-b) z := by sorry
+lemma heisenberg_table_involutive : Function.Involutive heisenberg_table_involution := by sorry
+lemma heisenberg_table_structure : Nat.card Heisenberg27 = 27 ∧
+    Nat.card (commutator Heisenberg27) = 3 ∧ ∀ g : Heisenberg27, g^3 = 1 := by sorry
+lemma heisenberg_graph_marking :
+    Subgroup.closure (graph_table_outside heisenberg_table_involution heisenberg_table_involutive) = ⊤ ∧
+    ∀ x ∈ graph_table_outside heisenberg_table_involution heisenberg_table_involutive,
+      ∀ y ∈ graph_table_outside heisenberg_table_involution heisenberg_table_involutive, IsConj x y := by sorry
+lemma heisenberg_sum_marking : Nat.card (SumTableType Heisenberg27) = 162 ∧
+    Subgroup.closure (sum_table_outside Heisenberg27) = ⊤ ∧
+    ∀ x ∈ sum_table_outside Heisenberg27, ∀ y ∈ sum_table_outside Heisenberg27, IsConj x y := by sorry
+
+example : (1 : Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)) ∈ heisenberg_table_subgroup := by sorry
+example : ∀ g ∈ heisenberg_table_subgroup, g.val 2 0 = 0 := by sorry
+example : ∀ g ∈ heisenberg_table_subgroup, g.val 1 1 = 1 := by sorry
+example : heisenberg_table_element 0 0 0 = 1 := by sorry
+example : heisenberg_table_element 1 0 0 * heisenberg_table_element 0 1 0 =
+    heisenberg_table_element 1 1 1 := by sorry
+example : heisenberg_table_element 0 1 0 * heisenberg_table_element 1 0 0 =
+    heisenberg_table_element 1 1 0 := by sorry
+example : heisenberg_table_involution (heisenberg_table_element 1 0 0) =
+    heisenberg_table_element 2 0 0 := by sorry
+example : heisenberg_table_involution (heisenberg_table_element 0 1 0) =
+    heisenberg_table_element 0 2 0 := by sorry
+example : heisenberg_table_involution (heisenberg_table_element 0 0 1) =
+    heisenberg_table_element 0 0 1 := by sorry
+-- The central coordinate of a marked element is forced by 2z=ab.
+example : (⟨heisenberg_table_element 1 1 2, Multiplicative.ofAdd (1 : ZMod 2)⟩ :
+    GraphTableType heisenberg_table_involution heisenberg_table_involutive)
+      ∈ graph_table_outside heisenberg_table_involution heisenberg_table_involutive := by sorry
+example : (⟨heisenberg_table_element 1 1 0, Multiplicative.ofAdd (1 : ZMod 2)⟩ :
+    GraphTableType heisenberg_table_involution heisenberg_table_involutive)
+      ∉ graph_table_outside heisenberg_table_involution heisenberg_table_involutive := by sorry
+example : Nat.card (GraphTableType heisenberg_table_involution heisenberg_table_involutive) = 54 := by sorry
+
+theorem table_row_22 : Nonempty (table_row_certificate
+    (graph_table_outside heisenberg_table_involution heisenberg_table_involutive) (ZMod 1)) := by sorry
+theorem table_row_23 : Nonempty (table_row_certificate
+    (sum_table_outside Heisenberg27) (Fin 2 → ZMod 3)) := by sorry
+end HeisenbergTableBases
 
 end TauCeti.ReducedSchur
 end
