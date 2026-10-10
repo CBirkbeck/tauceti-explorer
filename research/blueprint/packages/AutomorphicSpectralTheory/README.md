@@ -1,16 +1,16 @@
 # Automorphic spectral theory and trace distributions
 
-This roadmap constructs the unitary decomposition of automorphic L² into discrete data and Eisenstein wave packets. Continuation, constant terms and truncation then lead to weighted automorphic cohomology and trace distributions. Modular kernels and everywhere-unramified function-field GLₙ formulas test the measures, residues and normalizations. Their specialized hypotheses remain separate from the number-field theory.
+Construct the unitary decomposition of automorphic L², its Eisenstein wave packets, weighted cohomology and trace distributions. Modular kernels and everywhere-unramified function-field GLₙ formulas test measures, residues and normalizations under their separate hypotheses.
 
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** in OperatorTheory supplies projection-valued measures, bounded Borel calculus and self-adjoint partial operators. **OperatorIdeals** supplies singular values, Schatten gauges, Hilbert–Schmidt energy, completeness and compactness. Here the adapters add measurable multiplicities, direct integrals, L² kernels and complex operator trace. The unbounded carrier is Mathlib's `LinearPMap`, with Tau Ceti's adjoint and resolvent APIs. **CompactGroups** supplies Peter–Weyl and continuous compact-group kernels; a compact quotient of a noncompact group still requires its own smoothing estimates.
+**SelfAdjointSpectralTheory** supplies projection measures, bounded Borel calculus and self-adjoint partial operators; **OperatorIdeals** supplies Schatten, Hilbert–Schmidt and compactness APIs. Here add measurable multiplicities, direct integrals, general L² kernels and complex trace. Use Mathlib's `LinearPMap` with Tau Ceti's adjoint/resolvent APIs. **CompactGroups** supplies Peter–Weyl and continuous compact-group kernels; noncompact groups still need smoothing estimates.
 
-Upstream **AdelicAlgebraicGroups** (AA.0–AA.3) supplies adelic topology, Haar products, quotient integration, heights and reduction theory. **ReductiveGroupsPartII** supplies local reductive structure. **SmoothRepresentationsOfLocalGroups** (SR.1–SR.4) supplies Hecke algebras, normalized induction, admissibility and spherical data. Rational global Bruhat indexing and analytic intertwiner estimates extend these interfaces.
+**AdelicAlgebraicGroups** (AA.0–AA.3) supplies adelic topology, quotient measures, heights and reduction theory; **ReductiveGroupsPartII** supplies local reductive structure. **SmoothRepresentationsOfLocalGroups** (SR.1–SR.4) supplies Hecke algebras, normalized induction, admissibility and spherical data. Extend these with rational global Bruhat indexing and analytic intertwiner estimates.
 
-**AutomorphicFormsOnReductiveGroups** (AF.0–AF.3) supplies adelic functions, real representations, restricted tensor products, constant terms and cusp data. **ArithmeticLocallySymmetricSpaces** (ALS.5) supplies the cohomology comparison. **AutomorphicLFunctionsAndLocalFactors** (AL.0–AL.3) supplies Fourier–Laplace inversion, Hecke and GLₙ standard factors, GL×GL factors and the K-Bessel kernel `AL.0/bessel-k`. Classical-group Shahidi factors require the additional GL×classical, exterior/symmetric and Asai interfaces stated below.
+**AutomorphicFormsOnReductiveGroups** (AF.0–AF.3) supplies adelic functions, real representations, restricted tensor products, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** (ALS.5) supplies the cohomology comparison. **AutomorphicLFunctionsAndLocalFactors** (AL.0–AL.3) supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. GL×classical, exterior/symmetric and Asai factors need additional interfaces below.
 
-Stabilization, endoscopic transfer and Galois applications consume this theory. The orbital integrals and classical local packets needed here require definitions before the spectral construction; the rank-one I/J-Bessel, Laplacian and Eisenstein inputs likewise belong before their later arithmetic applications.
+Stabilization, endoscopy and Galois applications consume this theory. Needed orbital integrals and classical local packets precede spectral construction; rank-one I/J-Bessel, Laplacian and Eisenstein inputs precede arithmetic applications.
 
 ## Conventions and order
 
@@ -18,7 +18,7 @@ Hilbert spaces are complete and complex; inner products conjugate the first vari
 
 Induction uses δ_P^(1/2), or a^(ν+ρ_P), and AA.0/AA.2 quotient measures. Weyl denominators, covolumes and stabilizer cardinalities are explicit. The spectral resolvent (A−zI)⁻¹ is the negative of the native (zI−A)⁻¹. Stone uses U(t)=exp(itA), with complex generator iA.
 
-Recurring assumptions are abbreviated as follows:
+Standing assumptions for Yu, DIT and Gross–Zagier targets and tests:
 
 - **Y:** F=𝔽_q(X), X smooth, projective and geometrically connected; n>0; everywhere-unramified GLₙ data, except general compact-group assertions. Probability Haar is normalized on the entire character group: with r components each has mass 1/r. The degree sign and half-modulus convention are fixed; gcd(e,n)=1 is imposed only where stated.
 - **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix). Displayed index, sign, parameter and boundary restrictions are hypotheses.
@@ -148,13 +148,15 @@ Uses: the stated native analytic/Hilbert-space interfaces.
 
 `herglotz_representation`
 
-If F is holomorphic on the upper half-plane and Im F≥0, then uniquely F(z)=a+bz+∫ℝ[(t−z)⁻¹−t/(1+t²)]dν(t), where a∈ℝ, b≥0 and ν is positive with ∫(1+t²)⁻¹dν<∞. The resolvent special case has b=0 and finite mass fixed by its asymptotic at i∞. Polarization of scalar resolvent pairings reconstructs the spectral measure.
+Consume Tau Ceti's `exists_isFiniteMeasure_eq_nevanlinnaKernel_add`: a holomorphic F with Im F≥0 on the upper half-plane has F(z)=a+bz+∫(1+tz)/(t−z)dρ(t), with ρ finite positive, a=Re F(i) and b≥0. Convert by dν=(1+t²)dρ to F(z)=a+bz+∫[(t−z)⁻¹−t/(1+t²)]dν; establish uniqueness in this convention. For resolvents, identify b=0 and finite mass by the asymptotic at i∞; polarize to reconstruct the spectral measure.
+
+Adapter API: `weightedMeasure`, `weighted_mass` and `integral_conversion` preserve positivity, identify ∫(1+t²)⁻¹dν=ρ(ℝ), and equate the two integrals with integrability. Tests: ρ=0 gives ν=0; ρ=δ₂ gives ν=5δ₂; that ν has weighted mass 1. These detect incorrect density factors.
 
 Assume: The sign is the resolvent convention (A−z)⁻¹; a resolvent written (z−A)⁻¹ has the opposite sign.
 
 Source: S2, §3.4 Theorem 3.20, p.107; S30, §10.1 Theorem 10.5, equation (10.1), and proof, printed pp.125–126.
 
-Uses: the stated native analytic/Hilbert-space interfaces.
+Uses: Tau Ceti `Analysis.Complex.Pick.Nevanlinna`; Mathlib `Measure.withDensity` and change-of-density integration.
 
 ### AS.0.7 — Unbounded self-adjoint spectral theorem
 
@@ -520,8 +522,6 @@ Uses: B7; B8; B9.
 
 I_ν(y)=2^(−2ν−1/2)Γ(ν+1)⁻¹y^(−1/2)M_{0,ν}(2y), and K_ν(y)=√(π/(2y))W_{0,ν}(2y). Use these to reconcile every factor2√y in weight-zero expansions.
 
-Assume: D.
-
 Source: S22, DIT11 AppendixA, p977.
 
 Uses: B7; B8; B9; rank-one special-function input contract; AL.0/bessel-k; I-Bessel rank-one definition; AS.0.26.
@@ -531,8 +531,6 @@ Uses: B7; B8; B9; rank-one special-function input contract; AL.0/bessel-k; I-Bes
 `dit_114`
 
 W and M satisfy w″+(−1/4+μ/y+(1/4−ν²)/y²)w=0. For Re(s)>0, M_{μ,s−1/2}(y)=y^s(1+O(y)) near0. Away from exceptional parameters its large-y growing term and the decaying W asymptotic have the gamma constants in DIT11 (A.4). Uniform derivative bounds are needed before differentiation under integrals. More explicitly, W_{μ,ν}~y^μe^(−y/2), M_{μ,ν}~Γ(1+2ν)/Γ(ν−μ+1/2)y^(−μ)e^(y/2) in the initial Euler-integral region, continued only where the growing coefficient is nonzero.
-
-Assume: D.
 
 Source: S22, DIT11 Appendix A, (A.3)–(A.5), printed p.977.
 
@@ -544,8 +542,6 @@ Uses: B7; B8; B9; AS.0.26.
 
 For Re(ν)>0 and complex β, ∫_0^π e^{iβθ}sin^(ν−1)θ dθ=πe^{iπβ/2}Γ(ν)/(2^(ν−1)Γ((ν+β+1)/2)Γ((ν−β+1)/2)), interpreted via reciprocal gamma. The factor2^(ν−1) is missing in the displayed source formula on p984.
 
-Assume: D.
-
 Source: S21, AppendixA, p984; [23]3.892(1).
 
 Uses: AS.0.26; B5; B10; J-Bessel rank-one definition; AS.0.27.
@@ -555,8 +551,6 @@ Uses: AS.0.26; B5; B10; J-Bessel rank-one definition; AS.0.27.
 `dit_118`
 
 For μ∈C,t>0,Re(s)>0, ∫_0^π exp(±i(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)dθ/sinθ = exp(±iπμ/2)(2π)^(3/2)2^(−s)Γ(2s)[Γ((s+1+μ)/2)Γ((s+1−μ)/2)]⁻¹ t^(1/2)J_{s−1/2}(t). Establish the ODE by integration by parts and its t^s leading coefficient using115, then117.
-
-Assume: D.
 
 Source: S21, Lemma 7, display (9.4), p. 980 (statement); restated as (A.1), Appendix A, p. 983; proof Appendix A, pp. 983–985.
 
@@ -568,8 +562,6 @@ Uses: AS.0.26; B5; B10; J-Bessel rank-one definition.
 
 Let H_ε(t)=t^(−s)∫₀^π exp(εi(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)dθ/sinθ, μ∈ℂ, Re(s)>0, t>0, ε=±1. Then f_ε=t^sH_ε satisfies f_ε″+(1−s(s−1)/t²)f_ε=0. On every compact parameter set with Re(s)≥σ>0 the integrands and their first two t derivatives are bounded by C sin^(σ−1)θ; the integration-by-parts endpoint terms are O(δ^σ). The calculation works for both signs without complex conjugation.
 
-Assume: D.
-
 Source: S21, Appendix A, proof of (A.1), p.984: Whittaker angular integration by parts and the differential equation for the angular integral, with vanishing endpoint terms..
 
 Uses: AS.0.26; B5; B10.
@@ -579,8 +571,6 @@ Uses: AS.0.26; B5; B10.
 `dit_appendix_a2_series_of_whittaker_cycle_integral`
 
 For μ ∈ ℂ, Re(s) > 0 and t > 0, ∫_0^π e^{i(t cos θ+μθ)} M_{μ,s−1/2}(2t sin θ) dθ/sin θ = 2π e(μ/4) Γ(2s) Σ_{ℓ≥0} Σ_{m+n=ℓ} (−1)^m (s−μ)_n Γ(s+n) / ( m! n! Γ(2s+n) Γ((n+s+m+μ+1)/2) Γ((n+s−m−μ+1)/2) ) · t^{s+ℓ}. The double series converges absolutely for every t, and the reciprocal gammas are entire. The paper writes (s−μ)_n as Γ(s−μ+n)/Γ(s−μ), so the printed prefactor is 2π e(μ/4)Γ(2s)/Γ(s−μ).
-
-Assume: D.
 
 Source: S21, Appendix A, (A.2), p. 985 (derivation p. 984).
 
@@ -592,8 +582,6 @@ Uses: AS.0.26; B5; B10.
 
 For μ ∈ ℂ, Re(s) > 0, t > 0: G(s,μ) t^{1/2} J_{s−1/2}(t) = π^{3/2} e(μ/4) 2^{2−2s} Γ(2s) / (Γ((s+1+μ)/2) Γ((s+1−μ)/2)) · Σ_{r≥0} (−1)^r 2^{−2r} / (r! Γ(s+1/2+r)) · t^{s+2r}, where G(s,μ) = e(μ/4)(2π)^{3/2}2^{−s}Γ(2s)/(Γ((s+1+μ)/2)Γ((s+1−μ)/2)).
 
-Assume: D.
-
 Source: S21, Appendix A, (A.3), p. 985.
 
 Uses: AS.0.26; B5; B10; J-Bessel rank-one definition.
@@ -604,8 +592,6 @@ Uses: AS.0.26; B5; B10; J-Bessel rank-one definition.
 
 The t^s coefficients in (A.2) and (A.3) both equal 2π e(μ/4)Γ(s)/(Γ((s+1+μ)/2)Γ((s+1−μ)/2)). In (A.2) the t^(s+1) coefficient vanishes by cancellation of (m,n)=(1,0),(0,1), using ((s−μ)/2)/Γ((s−μ)/2+1)=1/Γ((s−μ)/2). The t^(s+2) coefficients also agree. The shared ODE and Frobenius uniqueness from c₀ imply (A.1).
 
-Assume: D.
-
 Source: S21, Appendix A, p. 985 (last paragraph of the proof).
 
 Uses: AS.0.26; B5; B10.
@@ -615,8 +601,6 @@ Uses: AS.0.26; B5; B10.
 `gz_64`
 
 For t>1 and complex s with Re(s)>0, define Q_{s−1}(t)=∫₀∞(t+√(t²−1)cosh u)^(−s)du with the positive real base. It equals Γ(s)²/[2Γ(2s)](2/(1+t))^s ₂F₁(s,s;2s;2/(1+t)), satisfies ((1−t²)Q′)′+s(s−1)Q=0, and for integer s=k≥1 equals the Q_{k−1} of GZ IV(5.7). In particular Q₀(t)=½log((t+1)/(t−1)) and Q₁(t)=tQ₀(t)−1.
-
-Assume: G.
 
 API:
 
@@ -640,8 +624,6 @@ Uses: B7; B9; B5.
 
 Q_{s−1}(t) = −½ log(t − 1) + O(1) as t ↘ 1 (2.7), and Q_{s−1}(t) = O(t^{−s}) as t → ∞ (2.8) (s > 1 fixed).
 
-Assume: G.
-
 Source: S29, Chapter II, §2, (2.7), (2.8), p. 238.
 
 Uses: B7; B9; B5; AS.0.35.
@@ -651,8 +633,6 @@ Uses: B7; B9; B5; AS.0.35.
 `gz_66`
 
 g(z, z′) = log(|z − z′|²/|z̄ − z′|²) satisfies a′) g(γz, γz′) = g(z, z′) for γ ∈ PSL₂(ℝ); b′) continuous and harmonic in each variable on 𝔥 × 𝔥 ∖ diagonal; c′) g = log|z − z′|² + O(1) as z′ → z; but Σ_{γ ∈ Γ₀(N)} g(z, γz′) diverges (barely). For s > 1, g_s(z, z′) = −2Q_{s−1}(1 + |z − z′|²/(2yy′)) (z ≠ z′) (2.9) satisfies a′), c′) (by (2.7)) and Δg_s = s(s−1)g_s in each variable; g₁ = g. The positive spectral Laplacian convention of DIT is −Δ_GZ, so its eigenvalue here is s(1−s).
-
-Assume: G.
 
 API:
 
@@ -676,8 +656,6 @@ Uses: AS.0.35; B16; B17.
 
 For the Legendre function of the second kind Q_{s−1} (s > 1, s near 1) as t ↘ 1: Q_{s−1}(t) = ½ log((t + 1)/(t − 1)) − (Γ′/Γ(s) − Γ′/Γ(1)) + o(1).
 
-Assume: G.
-
 Source: S29, Chapter II, §5, display after (5.7), p. 251.
 
 Uses: B7; B9; B5; AS.0.35.
@@ -687,8 +665,6 @@ Uses: B7; B9; B5; AS.0.35.
 `gz_207`
 
 Fix k ≥ 1. For s ∈ ℂ with Re(s) > 1−k and t ∈ ℝ: V_s(t) = ∫_{−∞}^{∞} e^{−2πixt} dx / ((x+i)^{2k−1}(x²+1)^s). This is the Fourier transform of x ↦ (x+i)^{−(2k−1)}(x²+1)^{−s}, which is absolutely integrable exactly when Re(s) > 1−k.
-
-Assume: G.
 
 API:
 
@@ -712,8 +688,6 @@ Uses: B9; B5.
 
 For k ≥ 1: V_s(0) = (−1)^k π i 2^{−2s−2k+3} Γ(2s+2k−2)/(Γ(s)Γ(s+2k−1)). This holds for Re(s) > 1−k and gives the meromorphic continuation of V_s(0) in s.
 
-Assume: G.
-
 Source: S29, Chapter IV, §3, (3.3) Proposition a), p. 277; proofs pp. 279–280.
 
 Uses: B9; B5; AS.0.39.
@@ -723,8 +697,6 @@ Uses: B9; B5; AS.0.39.
 `gz_213`
 
 For t ≠ 0 the function s ↦ V_s(t) continues holomorphically to all s ∈ ℂ and satisfies, locally uniformly in s, V_s(t) = |t|^{O(1)} e^{−2π|t|} as |t| → ∞.
-
-Assume: G.
 
 Source: S29, Chapter IV, §3, (3.3) Proposition b), p. 277; proof pp. 280–281.
 
@@ -736,8 +708,6 @@ Uses: B9; B5; AS.0.39; AS.0.26.
 
 For t ≠ 0 set V*_s(t) = (π|t|)^{−s−2k+1} Γ(s+2k−1) V_s(t). At Gamma poles the product means its removable holomorphic extension, rather than multiplication of totalized pointwise Gamma values. Then V*_s(t) is entire in s and V*_s(t) = sign(t) V*_{2−2k−s}(t). For t > 0 this comes from V*_s(t) = ∫_0^∞ u^{s+k−1} e^{−πt(u+1/u)} ∫_{−∞}^{∞} e^{−πtv²} (v + (u^{1/2}+u^{−1/2})/i)^{2k−1} dv du/u.
 
-Assume: G.
-
 Source: S29, Chapter IV, §3, (3.3) Proposition c), p. 278; proof p. 280.
 
 Uses: B9; B5; AS.0.39; AS.0.26.
@@ -747,8 +717,6 @@ Uses: B9; B5; AS.0.39; AS.0.26.
 `gz_215`
 
 Let r ∈ ℤ with 0 ≤ r ≤ k−1. Then V_{−r}(t) = 0 for t < 0 and V_{−r}(t) = 2πi(−1)^{k−r} p_{k,r}(4πt) e^{−2πt} for t > 0, where p_{k,r}(t) = (t/2)^{2k−2−2r} Σ_{j=0}^{r} C(r, j) (−t)^j/(2k−2r−2+j)! (a polynomial). Here V_{−r}(t) = ∫ (x−i)^r (x+i)^{−(2k−1−r)} e^{−2πixt} dx, conditionally convergent for r = k−1.
-
-Assume: G.
 
 Source: S29, Chapter IV, §3, (3.3) Proposition d), p. 278; proof p. 281.
 
@@ -760,8 +728,6 @@ Uses: B9; B5; AS.0.39.
 
 For t < 0: ∂/∂s V_s(t)|_{s=1−k} = −2πi q_{k−1}(4π|t|) e^{−2πt}, where q_{k−1}(t) = ∫_1^∞ (x−1)^{k−1} x^{−k} e^{−xt} dx (t > 0).
 
-Assume: G.
-
 Source: S29, Chapter IV, §3, (3.3) Proposition e), p. 278; proof p. 281.
 
 Uses: B9; B5; AS.0.39.
@@ -771,8 +737,6 @@ Uses: B9; B5; AS.0.39.
 `gz_217`
 
 For t > 0: V*_s(t) = i Σ_{a,b,c≥0, 2a+b+c=2k−1} (−1)^{k−a}(2k−1)!/((2a)! b! c!) · Γ(a+½)/(πt)^{a+½} · ∫_0^∞ u^{s+k+(b−c)/2−2} e^{−πt(u+1/u)} du = (2(−1)^k i/t^{1/2}) Σ_{a,b,c≥0, 2a+b+c=2k−1} (2k−1)!/(a! b! c!) · (−1/(4πt))^a · K_{s+k−1+(b−c)/2}(2πt). For k = 1: V*_s(t) = (−2i/√t)(K_{1/2+s}(2πt) + K_{1/2−s}(2πt)). The functional equation (3.3c) for t > 0 follows from K_ν = K_{−ν} by interchanging b and c.
-
-Assume: G.
 
 Source: S29, Chapter IV, §3, proof of (3.3), p. 280.
 
@@ -991,8 +955,6 @@ Uses: AS.1.9; AS.1.8; `AF.3/constant-term-transitivity`.
 
 For M=∏GL_ni let M(A)^0 be the simultaneous kernel of rational-character degrees, Xi_M the central lattice generated by a in each block, X_M=Hom(M(A)/M(A)^0,C*)≅(C*)^r and X_M^L the characters trivial on Z_L(A). The latter need not be connected; Im denotes its unitary subgroup.
 
-Assume: Y.
-
 API:
 
 - `detCoordinates`: identify the unramified characters of a product Levi
@@ -1014,8 +976,6 @@ Uses: `AA.0/restricted-haar-product`.
 `yu_060`
 
 For each R∈P(M), fix the inducing character s_R explicitly. The spherical section space consists of phi on M(F)N_R(A)\G(A)/K with s_R⁻¹ phi|_M∈pi; its basis is s_R*phi_pi. Laf97 p284 and Yu p32 use s_R=rho_R (with P to be replaced by R in Yu); Yu p39 uses s_R=rho_R⁻¹. Use yu_153 to transport conventions and fix the choice matching the Rankin–Selberg normalizers.
-
-Assume: Y.
 
 API:
 
@@ -1039,8 +999,6 @@ Uses: AS.4.11; AS.4.12; `AA.0/restricted-haar-product`; AS.1.1.
 
 Fix positive inducing characters s_R on M(A). Define A_R,pi^s by s_R⁻¹*phi|_M∈pi and spherical basis phi_R(nmk)=s_R(m)*phi_pi(m). For a second convention t_R, C_R^(s→t) multiplies by t_R/s_R in Iwasawa coordinates. Transport each operator by M^t_(R′|R)=C_R′ M^s_(R′|R) C_R⁻¹. Yu p32 and Laf97 p284 use s_R=rho_R in their membership formula (Yu writes P); Yu p39 uses s_R=rho_R⁻¹. One cannot identify their numerical normalizers until this dictionary, including parameter conventions, is checked.
 
-Assume: Y.
-
 API:
 
 - `normalizedSection`: From a fixed positive character s_R, extend a Levi spherical vector by multiplication by s_R; independence follows from its triviality on M∩K.
@@ -1062,8 +1020,6 @@ Uses: AS.1.12; AS.2.14; `AA.0/restricted-haar-product`; AS.1.1.
 `dit_57`
 
 For Re(s)>1, E(z,s)=Σ_{Γ∞\PSL₂(Z)}Im(γz)^s=(1/2)y^sΣ_{gcd(c,d)=1}|cz+d|^(−2s). The half accounts for ±(c,d). Prove local normal convergence and ΔE=s(1−s)E.
-
-Assume: D.
 
 API:
 
@@ -1087,8 +1043,6 @@ Uses: AS.1.3.
 
 Let Λ(s)=π^(−s/2)Γ(s/2)ζ(s), and E*(z,s)=Λ(2s)E(z,s), with meromorphic values interpreted through continuation. Its critical-line use includes the limit at t=0.
 
-Assume: D.
-
 API:
 
 - `completion`: Multiply E(z, s) by Λ(2 s) where Λ is the completed scalar zeta.
@@ -1110,8 +1064,6 @@ Uses: AS.1.3; AS.1.14; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-
 `dit_88`
 
 For mn≠0 and Re(s)>1, Φ(m,n;s)=Σ_{c>0}c⁻¹K(m,n;c)B_{2s−1}(4π√|mn|/c), using I for mn<0 and J for mn>0. This sign convention must match the F_{−m} residue.
-
-Assume: D.
 
 API:
 
@@ -1135,8 +1087,6 @@ Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition; J-Bessel rank-one definiti
 
 For m≠0 and Re(s)>1 let F_m(z,s)=Σ_{Γ∞\Γ}√Im(γz) I_{s−1/2}(2π|m|Im(γz))e(m Re(γz)); F_0=E. No L² assumption is imposed on the exponentially growing seed.
 
-Assume: D.
-
 API:
 
 - `seed`: Use √yI_{s−1/2}(2π|m|y)e(mx) for nonzero m.
@@ -1159,8 +1109,6 @@ Uses: AS.1.3; AS.0.26; AS.0.27; I-Bessel rank-one definition.
 
 F_m converges normally on compact sets for Re(s)>1, is Γ-invariant and satisfies ΔF_m=s(1−s)F_m. The differentiated series needs its own compact majorant.
 
-Assume: D.
-
 Source: S21, §8, p973.
 
 Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition.
@@ -1170,8 +1118,6 @@ Uses: AS.0.26; AS.0.27; I-Bessel rank-one definition.
 `dit_105`
 
 For smooth φ:(0,∞)→ℂ with φ(y)≪y^ε near zero, ε>0, and m∈ℤ, define P_m(τ,φ)=Σ_(γ∈Γ∞\Γ)e(m Re(γτ))φ(Im(γτ))·d(γτ)/dτ. It has weight two, making P_m dτ invariant. The value bound suffices for absolute convergence and Lemma6 unfolding; φ from (9.2) satisfies it for Re(s)>1. The paper's stronger y^(1+ε) bound is unnecessary for these value assertions. Differentiating the series needs additional derivative bounds.
-
-Assume: D.
 
 API:
 
@@ -1195,8 +1141,6 @@ Uses: AS.1.3.
 
 For the weight-zero seed of F_m, −2i∂_zF_m is the weight-two Poincaré series with seed −s|m|^(−1/2)(2πy)⁻¹ Γ(s)/Γ(2s) M_{sgn(m),s−1/2}(4π|m|y)e(mx).
 
-Assume: D.
-
 Source: S21, (9.2).
 
 Uses: AS.0.26; AS.0.27.
@@ -1207,8 +1151,6 @@ Uses: AS.0.26; AS.0.27.
 
 Let m≠0 and Re(s)>1. Then F_m(z,s)=f_m(z,s)+2|m|^{1/2−s}σ_{2s−1}(|m|)((2s−1)Λ(2s))⁻¹y^{1−s}+2y^{1/2}Σ_{n≠0}Φ(m,n;s)K_{s−1/2}(2π|n|y)e(nx), with Λ(s)=π^{−s/2}Γ(s/2)ζ(s) and Φ as in item 88.
 
-Assume: D.
-
 Source: S21, §8, p.974, citing [20] and [16].
 
 Uses: AS.0.26; AS.0.27.
@@ -1218,8 +1160,6 @@ Uses: AS.0.26; AS.0.27.
 `gz_69`
 
 Construct the cusp-∞ normalized level-N adapter E_N to the imported congruence-class weight-zero Eisenstein series of ER.7: E_N=[2ζ(2s)∏_{p|N}(1−p^(−2s))]⁻¹ Σ_{v∈(ℤ/Nℤ)×} E_{(0,v)} for Re(s)>1. Prove this equals Σ_{Γ∞\Γ₀(N)}Im(γz)^s, and that E_1 agrees with AS.1/dit-57. Under Δ_GZ=+y²(∂x²+∂y²), Δ_GZ E_N=s(s−1)E_N; −4πE_N has residue κ_N=−12/[SL₂(ℤ):Γ₀(N)] at s=1.
-
-Assume: G.
 
 API:
 
@@ -1243,8 +1183,6 @@ Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; B30.
 
 For N ≥ 1: E_N(z, s) = N^{−s} ∏_{p|N} (1 − p^{−2s})⁻¹ Σ_{d|N} μ(d) d^{−s} E((N/d)z, s), E = E₁ the SL₂(ℤ) series; consequently E_N(w_N z, s) = N^{−s} ∏_{p|N}(1 − p^{−2s})⁻¹ Σ_{d|N} μ(d) d^{−s} E(dz, s) (p. 241).
 
-Assume: G.
-
 Source: S29, Chapter II, §2, (2.16), p. 240; p. 241.
 
 Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; AS.1.22; B32.
@@ -1254,8 +1192,6 @@ Uses: AS.1/dit-57; congruence-group input contract; AS.1.14; AS.1.22; B32.
 `gz_179`
 
 Let D<0 be a fundamental discriminant, ε its odd primitive quadratic character, δ=|D|, k≥1 and (N,D)=1. With M = N|D|: E_s(z) = E_{M,ε,2k−1,s}(z) = L^{(N)}(2s+2k−1, ε) Σ_{±(∗ ∗; c d) ∈ Γ_∞\Γ₀(M)} ε(d)(cz+d)^{−(2k−1)} y^s |cz+d|^{−2s} = ½ Σ_{c,d∈ℤ, c≡0 (mod M), (d,M)=1} ε(d)(cz+d)^{−(2k−1)} y^s |cz+d|^{−2s}, for Re(s) large. Here L^{(N)}(s, ε) = Σ_{(n,N)=1} ε(n)n^{−s} and Γ_∞ = {±(1 n; 0 1)}. E_s ∈ M̃_{2k−1}(Γ₀(M), ε). (The two expressions agree: pull out g = gcd(c,d), which is prime to M, and pair ±(c,d) using ε(−1)(−1)^{2k−1} = 1.)
-
-Assume: G.
 
 API:
 
@@ -1279,8 +1215,6 @@ Uses: AS.1.1; AS.1.3; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-z
 
 Fix an odd negative fundamental discriminant D, k≥1 and a factorization D=D₁D₂ into fundamental discriminants, allowing D_i=1. Let ε_i be the primitive quadratic characters of conductors |D_i|. For sufficiently large Re(s), define E_s^(D₁)(z) by half the sum over integer pairs (m,n) with D₂ dividing m of ε₁(m)ε₂(n)(mz+n)^(−2k+1) Im(z)^s |mz+n|^(−2s). Its transformation law has weight 2k−1 and character ε₁ε₂ on Γ₀(|D|). The case D₁=1 recovers the level-|D₂| series. Genus characters and ramified ideals are imported arithmetic data for the consumers, rather than part of this analytic definition.
 
-Assume: G.
-
 API:
 
 - `pair_sum`: Use ½Σ_{D₂|m}ε₁(m)ε₂(n)(mz+n)^(−2k+1)y^s|mz+n|^(−2s).
@@ -1303,8 +1237,6 @@ Uses: AS.1.1; AS.1.3; `AL.0`; `AL.1/hecke-l-functional-equation`; `AL.1/global-z
 
 For k ≥ 1, z = x+iy ∈ ℌ and Re(s) > 1−k: Σ_{l∈ℤ} 1/((z+l)^{2k−1}|z+l|^{2s}) = y^{−2s−2k+2} Σ_{r∈ℤ} V_s(ry) e^{2πirx}. Termwise Poisson requires the value/derivative decay proved from the explicit seed; general L¹ Fourier inversion alone is insufficient.
 
-Assume: G.
-
 Source: S29, Chapter IV, §3, proof of (3.2), p. 278.
 
 Uses: AS.0.39.
@@ -1314,8 +1246,6 @@ Uses: AS.0.39.
 `gz_209`
 
 Let D<0 be an odd fundamental discriminant, δ=|D|, ε its primitive quadratic character, k≥1, N≥1 and (D,2N)=1. For a factorization D=D₁D₂ into fundamental discriminants (allowing D_i=1), put δ_i=|D_i|, ε_i=ε_(D_i), and κ(D₁)=1 or i according to its sign. Write E_s^(D₁)(z)=Σ_n e_s^(D₁)(n,y)e(nx). The constant coefficient is L(2s+2k−1,ε)y^s if (D₁,D₂)=(1,D), is V_s(0)L(2s+2k−2,ε)y^(−s−2k+2) if (D₁,D₂)=(D,1), and is zero otherwise. For n≠0 it is [ε₁(δ₂)κ(D₂)/δ₂^(2s+2k−3/2)]·[Σ_(m|n,m>0)ε₁(m)ε₂(n/m)m^(−2s−2k+2)]·y^(−s−2k+2)V_s(ny), with L(s,ε)=Σ_(n≥1)ε(n)n^(−s). The formula holds initially for large Re(s) and continues meromorphically.
-
-Assume: G.
 
 Source: S29, Chapter IV, §3, proof of (3.2), pp. 278–279.
 
@@ -1327,8 +1257,6 @@ Uses: AS.0.39; AS.1.25; AS.1.26.
 
 For real s > 1 let E(z,s) = Σ_{γ∈Γ_∞\SL₂(ℤ)} Im(γz)^s = Σ_{(c,d)=1, mod ±} y^s/|cz+d|^{2s}. Then E(z,s) = y^s + O(y^{1−s}) as y → ∞ (uniformly in x).
 
-Assume: G.
-
 Source: S29, Chapter IV §5 proof of (5.1), p.289; estimate follows from II(2.17), inspected p.240.
 
 Uses: AS.2.16.
@@ -1338,8 +1266,6 @@ Uses: AS.2.16.
 `gz_265`
 
 For E(z,s) = Σ_{Γ∞\SL₂(ℤ)} Im(γz)^s (weight 0): E(z,s) = y^s + π^{1/2}Γ(s−½)ζ(2s−1)/(Γ(s)ζ(2s)) · y^{1−s} + (2π^s y^{1/2}/(Γ(s)ζ(2s))) Σ_{m≠0} |m|^{1/2−s} σ_{2s−1}(m) K_{s−1/2}(2π|m|y) e^{2πimx}, σ_ν(m) = Σ_{d|m} d^ν, K_ν = K-Bessel function. The identity (cz+d)^{−2}|cz+d|^{−2s} y^s = (2i/(s+1)) ∂/∂z (y^{s+1}/|cz+d|^{2s+2}) gives E_{2,s}(z) = (2i/(s+1)) ∂/∂z E(z, s+1), hence E_{2,s}(z) = y^s − π^{1/2} s Γ(s+½)ζ(2s+1)/(Γ(s+2)ζ(2s+2)) · y^{−1−s} + Σ_{m≠0} e_{2,s}(m,y)e^{2πimz} with e_{2,s}(m,y) = (2π^{s+1}|m|^{−s−1/2}/(Γ(s+2)ζ(2s+2))) σ_{2s+1}(m) e^{2πmy} (∂/∂y − 2πm)(√y K_{s+1/2}(2π|m|y)).
-
-Assume: G.
 
 Source: S29, Chapter IV, §6, proof of (6.2), pp. 298-299.
 
@@ -1569,8 +1495,6 @@ Uses: AS.1.1; AS.2.4; `AL.2`; `SR.4`.
 
 Construct M_(R'|R)(w,lambda) by the convergent unipotent integral and meromorphic continuation on induced sections. It satisfies the composition and unitary-axis identities. Ratios M_R(lambda,P;mu)=M_(R|P)(lambda)^−1 M_(R|P)(lambda/mu) give the operator-valued (G,M)-family on its regular domain.
 
-Assume: Y.
-
 API:
 
 - `integralIntertwiner`: define on the domain of absolute convergence
@@ -1593,8 +1517,6 @@ Uses: AS.6.25; AS.1.12; AS.1.4; AS.2.4.
 
 Let (P,π) be a good everywhere-unramified discrete pair, M=M_P, fix nonzero spherical φ_Π for each discrete Π and φ_π their tensor product, and for R in P(M) let φ_R(nmk)=ρ_R(m)φ_π(m) with ρ_R=δ_R^{1/2}. For S,R in P(M): M_{R|S}(λ)φ_S=n_{R|S}(π,λ)φ_R with n_{R|S}(π,λ)=∏_{β in Φ(Z_M,G), β in Φ_S ∩ Φ_{R̄}} n_β(π,λ^{−β^∨}) (equivalently ∏_{α in Φ_R ∩ Φ_S̄} n_{−α}(π,λ^{α^∨})), n_β as in (5.1.1); for L ⊇ M and Q,Q' in P(L) group the factors over β restricting to α in Φ(Z_L,G). In particular M(w,λ)φ_P=n_π(w,λ)φ_P for (w,1) in stab(P,π). The factor q^{(1−g)n_in_j} comes from vol(N(F)\N(A))=1 versus local vol(N(O_v))=1 (vol(F\A)=q^{g−1} for the product measure). Prove the local Gindikin–Karpelevich factors, the restricted Euler product and the global Haar factor separately.
 
-Assume: Y.
-
 Source: S19, Proposition5.3.4 p39.
 
 Uses: AS.1.12; AS.2.14; `AL.3`; `SR.4`.
@@ -1604,8 +1526,6 @@ Uses: AS.1.12; AS.2.14; `AL.3`; `SR.4`.
 `dit_59`
 
 E*(z,s)=Λ(2s)y^s+Λ(2−2s)y^(1−s)+2√y Σ_{n≠0}|n|^(s−1/2)σ_{1−2s}(|n|)K_{s−1/2}(2π|n|y)e(nx). Prove local convergence and parameter continuation of the expansion.
-
-Assume: D.
 
 Source: S21, §5, (5.3), p962.
 
@@ -1617,8 +1537,6 @@ Uses: AS.1.15; AS.2.4.
 
 E*(z,s) extends meromorphically with only simple poles at s=0,1, residues −1/2,+1/2, and E*(z,s)=E*(z,1−s). Do not infer this function-valued statement from scalar ζ continuation alone.
 
-Assume: D.
-
 Source: S21, §5, text before (5.4), (5.4) and (5.5), p962.
 
 Uses: AS.1.15; AS.2.4.
@@ -1627,15 +1545,13 @@ Uses: AS.1.15; AS.2.4.
 
 `dit_91`
 
-Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on the modular L² space, initially off the spectrum, with its boundary/cusp realization and meromorphic continuation to the spectral parameters used. A generic compact-operator spectral theorem is insufficient on this noncompact quotient.
-
-Assume: D.
+Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on modular L², initially off spectrum, with its cusp realization and continued spatial kernel. Native bounded-inverse analyticity applies to genuine spectral gaps. At s₀=1/2+ir, r>0, a cuspidal eigenvalue is embedded in continuous spectrum: the finite-rank subtraction in (8.4) requires meromorphic continuation in weighted/test spaces, not operator-norm holomorphy on full L².
 
 API:
 
-- `inverseEquation`: (Δ−s(1−s))R_s=1 on the proper operator domain off the spectrum.
+- `inverseEquation`: (Δ−s(1−s))R_s=1 on its domain, assuming membership in the native bounded-inverse resolvent set; algebraic bijectivity alone is insufficient.
 - `kernelSymmetry`: The actual self-adjoint resolvent kernel obeys R_s(z,z′)=conj(R_conj(s)(z′,z)), with conjugation of the parameter as well as exchange of the spatial variables.
-- `restrictedResolvent`: Remove an isolated finite-dimensional eigenspace and prove the complement resolvent holomorphic near its eigenvalue.
+- `restrictedResolvent`: Supply the actual closed reducing complement C and its partial Laplacian Δ_C, with s₀(1−s₀) in its resolvent set. Its inverse extends holomorphically near s₀ and equals the projected full inverse where defined. `operatorAdjoint` gives R_s*=R_conj(s) before constructing the spatial kernel.
 
 Tests:
 
@@ -1643,17 +1559,15 @@ Tests:
 - `test2`: At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there.
 - `test3`: The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold.
 
-Source: S21, (8.2)–(8.4), Fay[20].
+Source: S21, §8 (8.2)–(8.4), pp.973–974, citing Fay [20, Theorem 3.1, p.173] and Hejhal [27].
 
-Uses: AS.0.7; AS.0.16; AS.4.8.
+Uses: AS.0.7; AS.0.16; AS.4.8; Tau Ceti `LinearPMap.resolvent`, `IsResolventAt`, `analyticAt_resolvent`.
 
 ### AS.2.19 — Finite-rank resolvent polar part
 
 `dit_92`
 
 Let s₀=1/2+ir with r>0, and let {u} be an orthonormal basis of the Δ-eigenspace with eigenvalue 1/4+r². With the convention (8.2), (Δ−s(1−s))∫_F G(z,z′;s)u(z)dμ(z)=u(z′), the polar part of G at s₀ is (1/4+r²−s(1−s))⁻¹ Σ_u conj(u(z)) u(z′), as in (8.4). Since 1/4+r²−s(1−s)=(s−s₀)(2s₀−1)+O((s−s₀)²), Res_{s₀}(2s−1)G(z,z′;s)=Σ_u conj(u(z))u(z′).
-
-Assume: D.
 
 Source: S21, (8.4).
 
@@ -1665,8 +1579,6 @@ Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18.
 
 For m≠0, F_m extends meromorphically to Re(s)>0 and Res_{s=1/2+ir}[(2s−1)F_m(z,s)]=Σ_φ2a(m)||φ||⁻²φ(z), with the real Hecke normalization a(m); equivalently the residue of (2s−1)F_{−m} uses 2a(−m). The eigenspace sum contains all Hecke eigenforms at λ. The displayed simple-pole formula assumes r>0; the threshold r=0 has a quadratic parameter denominator.
 
-Assume: D.
-
 Source: S21, Proposition3, pp973–974.
 
 Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18; AS.1.17; AS.2.22.
@@ -1676,8 +1588,6 @@ Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18; AS.1.17; AS.2.22.
 `dit_94`
 
 Let m,n≠0. Then Φ(m,n;s) continues meromorphically to Re(s)>0, and Res_{s=1/2+ir}(2s−1)Φ(−m,n;s)=2Σ_φ⟨φ,φ⟩⁻¹a(−m)a(n)=2Σ_φ⟨φ,φ⟩⁻¹a(−1)a(m)a(n). The sum runs over all Hecke–Maass cusp forms φ with eigenvalue 1/4+r², and the a(n) are real. The paper prints a(m)a(n), which is correct only for the even φ (see the new source issue on p.975). Assume r>0 for the simple-pole parameter residue; arbitrary complex orthonormal bases require conjugation in the polar projector.
-
-Assume: D.
 
 Source: S21, §8, pp974–975.
 
@@ -1689,8 +1599,6 @@ Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18; AS.1.16; AS.2.20.
 
 Let Re(s)>1 and let y′>max_{γ∈Γ}Im(γz), which holds for example when z lies in the standard fundamental domain and y′>y. Then G(z,z′;s)=(2s−1)⁻¹y′^{1−s}E(z,s)+√y′Σ_{m≠0}F_{−m}(z,s)K_{s−1/2}(2π|m|y′)e(mx′).
 
-Assume: D.
-
 Source: S21, (8.3), p.973, citing Fay [20, Thm 3.1, p.173].
 
 Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18.
@@ -1700,8 +1608,6 @@ Uses: AS.0.7; AS.0.16; AS.4.8; AS.2.18.
 `gz_68`
 
 (Quoted from Hejhal [20].) G_{N,s}(z, z′) extends meromorphically in s to a neighbourhood of s = 1 with a simple pole at s = 1 of residue κ_N = −12/[SL₂(ℤ) : Γ₀(N)] = −12 N⁻¹ ∏_{p|N} (1 + 1/p)⁻¹, independent of z, z′. Consequently lim_{s→1}[G_{N,s} − κ_N/(s−1)] is not harmonic: its Laplacian is κ_N ≠ 0. The automorphic kernel is G_{N,s}(z,z′)=Σ_{γ∈Γ₀(N)}−2Q_{s−1}(1+|z−γz′|²/(2y Im(γz′))), initially Re(s)>1 and z outside the Γ-orbit of z′. Its finite part at s=1 has Δ_GZ equal to κ_N and is not harmonic; the cusp-corrected arithmetic Green function is owned by GZ.7.
-
-Assume: G.
 
 Source: S29, Chapter II, §2, (2.13), p. 239.
 
@@ -1883,8 +1789,6 @@ Uses: AS.3.5; AS.3.6; AS.2.6; B4.
 
 Using the imported rational root spaces of AA.3, construct their determinant-degree coordinate adapter for function-field GL_n. For M=∏GL_ni, use determinant coordinates for a_M and its dual. Projection a_B→a_M takes block sums, while dual projection takes block averages. Relative roots are det_i/ni−det_j/nj, coroots e_i−e_j, a_M^G has coordinate sum zero and its dual has Σni x_i=0.
 
-Assume: Y.
-
 API:
 
 - `blockProjection`: implement sums on a_M and averages on its dual
@@ -1906,8 +1810,6 @@ Uses: AS.1.11; `AA.0/restricted-haar-product`; `AA.3/relative-chamber`; `AA.3/mi
 `yu_023`
 
 Import the root/fundamental-weight cones from AS.3/truncation-cones and specialize their height argument to the function-field determinant-degree lattice. Define tau_P and hat-tau_P as strict positive-root/fundamental-weight cone indicators. For g=nmk, H_P(g) is the vector of determinant degrees of m. Record block-weight denominators and proper-parabolic conventions in the truncation cutoff.
-
-Assume: Y.
 
 API:
 
@@ -1931,8 +1833,6 @@ Uses: AS.3.10; `AA.0/restricted-haar-product`; AS.3.1.
 
 Choose kappa in the positive chamber outside every relative-root hyperplane for every semistandard Levi. The unique Q_L with all its simple roots positive on kappa orders the Levi blocks. Merely requiring nonzero projections to a_L is insufficient.
 
-Assume: Y.
-
 API:
 
 - `avoidHyperplanes`: choose a point off the finite union of relative-root walls
@@ -1954,8 +1854,6 @@ Uses: AS.3.10; AS.6.23; `AA.0/restricted-haar-product`.
 `yu_058`
 
 Let M be standard, Q in P(M) and s in W_n/W^Q with sQs^{-1} standard. Let φ_Q be the indicator of {H in a_{s(M)} : for all α in Δ_Q, ϖ_{s(α)}(H)≤0 if α(κ)>0 and ϖ_{s(α)}(H)>0 if α(κ)<0}, where ϖ_{s(α)} in Δ̂_{sQs^{-1}} is dual to s(α)^∨, and let ε(Q)=#{α in Δ_Q : α(κ)<0}. Then 1̂_Q(λ) on X_M^G is the analytic continuation of (−1)^{ε(Q)}Σ_{H in a_{M,Z}/X_*(Z_G)} φ_Q(s(H))λ^{−H}, which converges where |λ^{α^∨}|<1 for all α in Φ(Z_M,G) with α(κ)>0 (a region meeting every component of X_M^G). For semi-standard L and Q in P(L), 1̂_Q(λ):=1̂_{wQw^{-1}}(w(λ)), where w in W_n/W^{Q_L} is the unique element with wQ_Lw^{-1} standard. For ζ a primitive n-th root of unity, η=ζ^{deg det} in X_G^G and e in Z, 1̂^e_Q(λ)=n^{-1}Σ_{k=1}^n ζ^{ek}1̂_Q(λη^k); it is the part of the series with Σ_iH_i≡e (mod n), and 1̂_Q=Σ_{e=0}^{n−1}1̂^e_Q.
-
-Assume: Y.
 
 API:
 
@@ -1979,8 +1877,6 @@ Uses: AS.3.11; AS.6.24; AS.3.12; `AA.0/restricted-haar-product`.
 
 For ordered block prefix ranks r_s^i, H_Q^e=s^−1(floor(e r_s^0/n)−floor(e r_s^1/n),..,floor(e r_s^(r−1)/n)−floor(e r_s^r/n)) belongs to the integral a_L lattice with total degree −e. Then hat1_Q^e=lambda^H∏_{alpha∈Delta_Q}(1−lambda^alpha∨)^−1; for e=−1 this is (−1)^(r−1)(∏lambda_i)/theta_Q.
 
-Assume: Y.
-
 Source: S19, Proposition5.2.1 p32.
 
 Uses: AS.3.10; AS.6.24; AS.3.13; `AA.0/restricted-haar-product`.
@@ -1990,8 +1886,6 @@ Uses: AS.3.10; AS.6.24; AS.3.13; `AA.0/restricted-haar-product`.
 `yu_115`
 
 Set I_Q^e=H_Q^e+s^−1(0,1,..,1). The functions lambda↦lambda^I_Q^e form a (G,M)-family, and hat1_Q^e=(−1)^dim(a_M^G)lambda^I_Q^e/theta_Q. Adjacent-block compatibility follows from the floor identities on the wall.
-
-Assume: Y.
 
 API:
 
@@ -2015,8 +1909,6 @@ Uses: AS.6.25; AS.3.14; `AA.0/restricted-haar-product`.
 
 Let n≥1, gcd(e,n)=1, M a standard Levi of GL_n and μ₀∈X_M^G. Suppose the (G,M)-family (c_Q) is defined on a domain containing μ₀^ℤ, c_M^Q is independent of Q∈P(L) for each L∈L(M), and c_Q(λμ₀)=c_Q(λ). Then lim_(λ→1) Σ_(Q∈P(M)) 1̂_Q^e(λμ₀)c_Q(λμ₀)=0 unless μ₀∈X_G^G. Coprimality is essential; the conclusion can fail otherwise.
 
-Assume: Y.
-
 Source: S19, LemmaA.2 pp75–76.
 
 Uses: AS.6.27; AS.6.31; AS.3.15; `AA.0/restricted-haar-product`.
@@ -2026,8 +1918,6 @@ Uses: AS.6.27; AS.6.31; AS.3.15; `AA.0/restricted-haar-product`.
 `yu_117`
 
 Under the same partial-value compatibility, lim_(mu→1)Σ_Qhat1_Q^e(mu)c_Q(mu) depends only on the order of e in Z/nZ. On a Levi with block sizes m_j, the top-degree floor-monomial contribution vanishes unless n|e m_j for every j; product descent gives the assertion.
-
-Assume: Y.
 
 Source: S19, LemmaA.3 pp76–77.
 
@@ -2039,8 +1929,6 @@ Uses: AS.6.27; AS.3.14; AS.3.15; `AA.0/restricted-haar-product`.
 
 Let M_P ≅ GL(n_1) × ⋯ × GL(n_r), e ∈ Z and e_i ∈ Z/n_iZ, and let h = h^e_{(e_i)} = {(d_1, …, d_r) ∈ Z^r : Σ d_i = e, d_i ≡ e_i mod n_i}. (a) [Ch15, Prop 4.5.5] On lattice points T ∈ Hom(X^*(B), Z) ≅ Z^n with T_1 ≥ ⋯ ≥ T_n, the finite sum T ↦ Σ_{H∈h} Γ_{(n_1,…,n_r)}(H, T) agrees with a quasi-polynomial Σ_{ν∈f} p_ν(T) q^{⟨ν,T⟩}, with f ⊂ (2πi/log q) X^*(B) ⊗ Q finite and each p_ν a polynomial. Yu's Γ_I equals Chaudouard's Γ_P. (b) Two such quasi-polynomials that agree at all lattice points T with d(T) ≥ c agree on all lattice points of the closed chamber, in particular at T = 0. (c) (Remarque 3.3.3) Γ_I(·, 0) ≡ 0 for r > 1 and Γ_{(n)} ≡ 1.
 
-Assume: Y.
-
 Source: S19, §3.3.1, p. 20, and Remarque 3.3.3, p. 19; [Ch15, Définition 4.5.3, Proposition 4.5.5].
 
 Uses: `AA.0/restricted-haar-product`; AS.3.10; AS.3.11.
@@ -2050,8 +1938,6 @@ Uses: `AA.0/restricted-haar-product`; AS.3.10; AS.3.11.
 `yu_175`
 
 For a standard Levi L=∏_(i=1)^k GL_(m_i) of GL_n with k≥2, put d=gcd(m₁,…,m_k). The sum Σ_(Q∈P(L))1̂_Q^e(λ) is identically zero on X_L^G unless (n/d) divides e, hence vanishes for gcd(e,n)=1. When (n/d) divides e it is a single monomial taking root-of-unity values. For L=T⊂GL₂ and e=0 it is identically one.
-
-Assume: Y.
 
 Source: S19, Appendix A, pp. 75–76, input to Lemme A.2 (supplement; not stated in the paper).
 
@@ -2221,8 +2107,6 @@ Uses: `AF.1`; `AF.3/constant-term`; AS.4.4.
 
 For a fixed central character theta, use the paper's |theta|-weighted L² norm on the central quotient and take irreducible spherical constituents of the discrete subspace. Cuspidal constituents are discrete; residual constituents must not be discarded.
 
-Assume: Y.
-
 API:
 
 - `weightedNorm`: use theta's absolute-value normalization
@@ -2244,8 +2128,6 @@ Uses: AS.1.11; `AA.0/restricted-haar-product`.
 `yu_018`
 
 A pair (P,pi) has standard P and a discrete spherical representation of M_P, with central character trivial on Xi_M. Quotient by Weyl transport and unramified twists in X_M^G; stab(P,pi) comprises the corresponding pairs (w,lambda).
-
-Assume: Y.
 
 API:
 
@@ -2269,8 +2151,6 @@ Uses: AS.1.11; AS.4.11; `AA.0/restricted-haar-product`.
 
 Choose pi=⊗_i Π_i^⊗mi with equal representatives of each inertial class and distinct classes for distinct i. Then stabilizers split into permutations of equal factors and their twist stabilizers. These choices are required in the zero/pole and cycle computations.
 
-Assume: Y.
-
 API:
 
 - `groupEqualTypes`: choose one representative of each inertial class
@@ -2293,8 +2173,6 @@ Uses: AS.4.12; `AA.0/restricted-haar-product`.
 
 (Moeglin–Waldspurger, [MW89, Théorème p. 606].) Let Π be a discrete everywhere-unramified automorphic representation of G_n(A). There are d | n, the standard parabolic P with M_P = G_d × ⋯ × G_d (ν = n/d factors), and an everywhere-unramified cuspidal representation π of G_d(A) such that, with |g| = q^{deg det g} and π̃ = π|·|^{(ν−1)/2} ⊗ π|·|^{(ν−3)/2} ⊗ ⋯ ⊗ π|·|^{−(ν−1)/2}, Π ≅ π̃ as H_G-modules via t_P at every place. The pair (π, ν) is unique. Conversely, for every everywhere-unramified cuspidal π of G_d(A) and every ν ≥ 1, π̃ viewed as an H_G-module via t_P is isomorphic to the H_G-module of a discrete everywhere-unramified representation of G_{νd}(A), denoted π ⊠ ν.
 
-Assume: Y.
-
 Source: S19, §2.3.4, p. 12, Théorème 2.3.6 (the theorem is on p. 12 only).
 
 Uses: AS.4.11; `AA.0/restricted-haar-product`.
@@ -2304,8 +2182,6 @@ Uses: AS.4.11; `AA.0/restricted-haar-product`.
 `yu_021`
 
 Fix(pi box ν)≅Fix(pi). Two such discrete constituents are inertially equivalent exactly when their ν agree and their cuspidal inputs are inertially equivalent.
-
-Assume: Y.
 
 Source: S19, Proposition 2.3.7 p13.
 
@@ -2317,8 +2193,6 @@ Uses: AS.4.14; `AA.0/restricted-haar-product`.
 
 If lambda_pi∈Fix(pi), multiplication by lambda_pi acts as the identity on A_(P,pi). First evaluate the scalar at a degree-zero nonvanishing point for cuspidal pi; extend to residual pi by the Eisenstein residue construction. On the full smooth G(A)-span it is an intertwiner, not generally the identity.
 
-Assume: Y.
-
 Source: S19, Proposition5.3.1 andRemark5.3.2 pp36–39.
 
 Uses: AS.4.14; AS.4.15; AS.1.12; `AA.0/restricted-haar-product`.
@@ -2328,8 +2202,6 @@ Uses: AS.4.14; AS.4.15; AS.1.12; `AA.0/restricted-haar-product`.
 `yu_166`
 
 (Langlands; Moeglin–Waldspurger 1994, V.3.13(iii).) Let π be an everywhere-unramified discrete, non-cuspidal automorphic representation of G_n(A). For every φ in π there are a discrete pair (P',π') all of whose factors are cuspidal, a cuspidal φ' in A_{P',π'} and a point λ' in X_{P'}^G such that φ(g)=Res_{λ'}E(φ',·)(g) for all g in G(A), where E(φ',λ) is the Eisenstein series of φ' (MW94 II.1.5) and Res_{λ'} is an iterated residue operator at λ'. Moreover E(φ'λ0,λ)=λ0·E(φ',λ) for λ0 in X_G^G.
-
-Assume: Y.
 
 Source: S19, §5.3.1, pp. 38–39, proof of Proposition 5.3.1 (citing [MW94, V.3.13(iii)] and [MW94, II.1.5]).
 
@@ -2341,8 +2213,6 @@ Uses: `AA.0/restricted-haar-product`; AS.4.14; AS.2.14; AS.1.12.
 
 For u=E(z,1/2+it), its derivative constant terms are O(Y^(−1/2)) for fixed t, with the t=0 limit treated separately; nonconstant terms decay exponentially. Cusp forms have exponential decay. Hence the horizontal derivative integral tends to0 and u is absolutely integrable on each finite-width core cusp.
 
-Assume: D.
-
 Source: S21, Lemma1 proof, p972.
 
 Uses: AS.2.16; AS.4.8.
@@ -2352,8 +2222,6 @@ Uses: AS.2.16; AS.4.8.
 `dit_wrong_sign_weyl_integrals_vanish`
 
 Let D>0 be a fundamental discriminant, D=d′d a factorization into fundamental discriminants with genus character χ, and u either E(z,s) with Re(s)=1/2 or ⟨φ,φ⟩^{−1}φ for a Hecke–Maass cusp form φ (λ its eigenvalue). If d′,d>0 then Σ_{A∈Cl⁺(K)} χ(A)(λ/2)∫_{F_A}u dμ = 0 (this includes the trivial character d′=1). If d′,d<0 then Σ_{A∈Cl⁺(K)} χ(A)∫_{∂F_A}u y^{−1}|dz| = 0.
-
-Assume: D.
 
 Source: S21, §5, p963, paragraph after (5.12).
 
@@ -2622,6 +2490,8 @@ Tests:
 - `dirac`: The Dirac distribution at 0 acts as identity.
 - `central_polynomial`: For the distribution whose transform is the Harish-Chandra polynomial p_z, f_γ=zf.
 - `zero`: The zero distribution sends every f to zero.
+
+The growth step is `PaleyWienerBound.mul_of_polynomialGrowth`: a symbol bounded by C e^(R|Re s|)(1+|s|)^d maps radius-r rapid decay to radius r+R, using the input seminorm n+d. The operator-family proof must also preserve every differentiated relation (III.4.1) and fixed K-types before applying the radius-preserving inverse transform. Tests: (1+s)^d keeps radius; exp(as) adds |a|; zero yields zero. Spatial support needs the full transform.
 
 Source: S11, III §4 Theorem 4.2 and its proof, pp.86–87.
 
@@ -2909,8 +2779,6 @@ Uses: AS.6.17; AS.6.15; AS.4.3; AS.4.5.
 
 Form k_P by the prescribed rational Levi sum, central Xi_G sum and unipotent integral; k^T is the alternating sum over P(F)\G(F) with hat-tau_P(H−T). Set J_e^T=∫_{G(F)\G(A)^e} k^T(x,x) dx and J_e=J_e^0, with convergence proved separately.
 
-Assume: Y.
-
 API:
 
 - `parabolicKernel`: assemble rational sums and unipotent integration
@@ -2933,8 +2801,6 @@ Uses: AS.4.12; AS.3.11; `AA.0/restricted-haar-product`.
 
 The truncated fixed-degree integral is absolutely convergent; T↦J_e^T is quasipolynomial in the lattice sense, with its extension determined by values sufficiently deep in the positive chamber. T=0 evaluation is not untruncated integration or an unjustified limit of finite counts.
 
-Assume: Y.
-
 Source: S19, §3.2.1; Theorem 3.3.1; Laf97 p227; Ch15 Definition4.5.3.
 
 Uses: AS.6.19; `AA.0/restricted-haar-product`.
@@ -2944,8 +2810,6 @@ Uses: AS.6.19; `AA.0/restricted-haar-product`.
 `yu_038`
 
 For monic p∈Fq[X] of degree n restrict the large-T kernels to matrices/endormorphisms with characteristic polynomial p and extend their integrals quasipolynomially. If p(0)≠0, End(E) and Aut(E) fibres coincide; hence J_e=Σ_{p(0)≠0} tildeJ_p,e.
-
-Assume: Y.
 
 API:
 
@@ -2969,8 +2833,6 @@ Uses: AS.6.19; AS.6.20; `AA.0/restricted-haar-product`; AS.3.18.
 
 (Chaudouard, D = 0.) Let gcd(n,e) = 1. (a) [Ch15, Thm 6.2.1] For monic p ∈ F_q[X] of degree n, the T = 0 value J̃_{p,e} of the Lie-algebra quasi-polynomial vanishes unless p = (X−α)^n with α ∈ F_q, in which case J̃_{p,e} = J̃_{nilp,e}. (b) [Ch15, Cor 5.2.3] For every T and e, Σ_p J̃^T_{p,e} = J^{T,e}_0 = q^{n²(1−g)} J^{T,e}_K, with K a canonical divisor. (c) [Ch15, Cor 5.2.2] Since deg K = 2g−2, J^{0,e}_K is the mass Σ 1/|Aut| of the groupoid of semistable Higgs bundles (E, θ: E → E ⊗ ω) of rank n and degree e over F_q. Hence J_e = (q−1)J̃_{nilp,e} = ((q−1)/q) Σ_p J̃_{p,e} = ((q−1)/q) q^{−n²(g−1)} mass(Higgs^{ss}_{n,e}(X_1)(F_q)).
 
-Assume: Y.
-
 Source: S19, Appendix B, p. 79; [Ch15, Théorème 6.2.1, Corollaires 5.2.2–5.2.3].
 
 Uses: AS.6.20; AS.6.21; `AA.0/restricted-haar-product`.
@@ -2980,8 +2842,6 @@ Uses: AS.6.20; AS.6.21; `AA.0/restricted-haar-product`.
 `yu_047`
 
 Let M be a semi-standard Levi subgroup of G=GL_n and w in W_n (a permutation matrix). Put w(M)=wMw^{-1}; then w(a_M)=a_{w(M)} and w induces an isomorphism w: X_M^G -> X_{w(M)}^G, w(λ)(m)=λ(w^{-1}mw) for m in w(M)(A). If w(M)=M (so w permutes the blocks of M, necessarily among blocks of equal size), there is a smallest Levi subgroup L_w containing M and w; it is characterized by a_{L_w}=ker((w−id)|a_M), its blocks are the unions of the blocks of M along the cycles of the block permutation induced by w, and w acts trivially on X_{L_w}^G. For M ⊆ L, restriction of characters gives an inclusion X_L^G ⊆ X_M^G. Track the lattices a_{M,Z}, a_{L,Z} as well as the real spaces.
-
-Assume: Y.
 
 API:
 
@@ -3005,8 +2865,6 @@ Uses: AS.1.11; AS.3.10; `AA.0/restricted-haar-product`.
 
 In determinant coordinates set X_M^G={(lambda_i):∏lambda_i^ni=1}. Write lambda^H=∏lambda_i^H_i but <lambda,H>=Σlambda_i H_i, using the coordinate embedding, not a logarithm. The finite central subgroup X_G^G is mu_n.
 
-Assume: Y.
-
 API:
 
 - `multiplicativePairing`: evaluate lambda^H with integer exponents
@@ -3028,8 +2886,6 @@ Uses: AS.1.11; AS.3.10; `AA.0/restricted-haar-product`.
 `yu_049`
 
 For a semi-standard Levi L, the chambers of a_L^G correspond to P(L) via P ↦ {H in a_L^G : α(H)>0 for all α in Δ_P}; P̄ denotes the opposite parabolic (Φ_P̄=−Φ_P), and P,Q in P(L) are adjacent when |Φ_P̄ ∩ Φ_Q|=1. For Q in P(M) and λ in X_M put θ_Q(λ)=∏_{α in Δ_Q}⟨λ,α^∨⟩ (the linear pairing of 4.1.6, so ⟨λ,α^∨⟩=λ_u−λ_v for α^∨=e_{M,u}−e_{M,v}); this differs from Arthur's θ_Q by a volume factor. Let Ω ⊆ X_M^G or X_M be a domain. A family (c_P)_{P in P(M)} of holomorphic functions on Ω is a (G,M)-family if c_P(λ)=c_{P'}(λ) for every adjacent pair P,P' and every λ in Ω with λ^{α^∨}=1, where α is the unique root in Φ_P ∩ Φ_{P̄'}. For such a family c_M(λ)=Σ_{Q in P(M)} c_Q(λ)θ_Q(λ)^{-1} is meromorphic on Ω. A domain around a noncentral translate must be specified when one is used.
-
-Assume: Y.
 
 API:
 
@@ -3053,8 +2909,6 @@ Uses: AS.3.10; AS.6.23; AS.6.24; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 
 (a) Let (c_Q)_{Q in P(M)} be meromorphic on X_M^G (or X_M) and a (G,M)-family on a neighbourhood of λ0 in X_M^G (or X_M). Then c_M(λ)=Σ_Q c_Q(λ)θ_Q(λ)^{-1} is regular at λ0. (b) For a (G,M)-family near 1 put c_M=lim_{λ→1}c_M(λ). For L in L(M), R in P(L) and Q in P^L(M), c^R_Q(λ)=c_{QN_R}(λ) (QN_R the unique element of P(M) contained in R with QN_R ∩ L=Q) is an (L,M)-family near 1, with value c^R_M=lim_{λ→1}Σ_{Q in P^L(M)} c^R_Q(λ)θ^L_Q(λ)^{-1}, θ^L_Q(λ)=∏_{α in Δ^L_Q}⟨λ,α^∨⟩. (c) For Q in P(L) and λ in X_L^G, c_Q(λ):=c_P(λ) for any P in P(M) with P ⊆ Q is independent of P and defines a (G,L)-family near 1.
 
-Assume: Y.
-
 Source: S19, §4.2.1–4.2.2, p. 23, Théorème 4.2.2 and (4.2.2)–(4.2.5).
 
 Uses: AS.6.25; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
@@ -3064,8 +2918,6 @@ Uses: AS.6.25; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 `yu_051`
 
 If c_M^Q is independent of Q∈P(L) for every L⊇M, then (cd)_M=Σ_L c_M^L d_L in Yu's normalization. This hypothesis is essential; the formula is not asserted for arbitrary families without the partial-value compatibility.
-
-Assume: Y.
 
 Source: S19, §4.2.2, pp. 23–24, Proposition 4.2.3 (variant of Arthur 1981, Corollary 6.5).
 
@@ -3077,8 +2929,6 @@ Uses: AS.6.26; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 
 For each root beta choose c_beta meromorphic on C*, regular at 1 with c_beta(1)=1. The products c_Q=∏_{beta∈Phi_Q} c_beta(lambda^beta∨) form a family; c_M=Σ_F ∏_{beta∈F}c_beta'(1), where F ranges over root subsets forming a basis of a_M^{G,*}.
 
-Assume: Y.
-
 Source: S19, Theorem4.2.4 pp24–26.
 
 Uses: AS.6.25; AS.6.26; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
@@ -3088,8 +2938,6 @@ Uses: AS.6.25; AS.6.26; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 `yu_053`
 
 For a root basis F and continuous functions fβ on S¹, the root-coordinate homomorphism p:Im X_M^G→(S¹)^F is surjective with finite kernel and pushes probability Haar to probability Haar. Thus ∫∏β fβ(pβ(λ))dλ=∏β(1/(2πi))∮ fβ(z)dz/z. Equivalently, including ∏βpβ(λ) in the integrand gives ∏β(1/(2πi))∮ fβ(z)dz, as in Yu Lemma4.2.5.
-
-Assume: Y.
 
 Source: S19, Lemma4.2.5 p26.
 
@@ -3101,8 +2949,6 @@ Uses: AS.6.24; AS.6.28; `AA.0/restricted-haar-product`.
 
 Assume each c_beta is meromorphic on a neighborhood of the closed unit disk and nonzero and finite on S1. For the ratio root-product family, its integrated regularized value is Σ_F∏_{beta∈F}(N(c_beta)−P(c_beta)), counting multiplicities in |z|<1. Rational L-ratios satisfy the needed extension assumption when boundary singularities are absent.
 
-Assume: Y.
-
 Source: S19, Corollary4.2.6 p27.
 
 Uses: AS.6.28; AS.6.29; `AA.0/restricted-haar-product`.
@@ -3112,8 +2958,6 @@ Uses: AS.6.28; AS.6.29; `AA.0/restricted-haar-product`.
 `yu_055`
 
 (a) [Lemme 4.2.7] If c_Q(λ)=∏_{β in Φ_Q} c_β(λ^{β^∨}) as in Théorème 4.2.4, then for every L in L(M) the value c^R_M is independent of R in P(L) (write c^L_M): c^R_Q=∏_{β in Φ(Z_M,N_Q)}c_β(λ^{β^∨})·∏_{β in Φ(Z_M,N_R)}c_β(λ^{β^∨}), and the second factor tends to 1. (b) [Lemme 4.2.8] Let μ0 in X_M^G and let (c_Q) be a (G,M)-family on a domain containing μ0^Z such that c^R_M is independent of R in P(L) for every L in L(M) and c_Q(λμ0)=c_Q(λ) wherever c_Q is defined. Then lim_{λ→1}Σ_{Q in P(M)} θ_Q(λμ0)^{-1}c_Q(λμ0)=0 unless μ0 in X_G^G, and for μ0 in X_G^G it equals μ_{01}^{−dim a_M^G} c_M, where μ_{01} is the (common) first coordinate of μ0.
-
-Assume: Y.
 
 Source: S19, Lemmas4.2.7–4.2.8 pp27–29.
 
@@ -3125,8 +2969,6 @@ Uses: AS.6.26; AS.6.27; AS.6.28; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 
 For L=L_w, the map mu_w:Im X_L^G×Im X_M^L→Im X_M^G, (mu,lambda')↦lambda' mu/w^−1(lambda'), is surjective with finite kernel of size |w||X_L^L|, where |w| is the product of cycle lengths. Haar Fourier inversion converts the character sum into a normalized sum over its finite fibres.
 
-Assume: Y.
-
 Source: S19, §5.2.3 pp34–35.
 
 Uses: AS.0.20; AS.0.21; AS.0.22; AS.0.23; AS.0.24; `AA.0/restricted-haar-product`; B13; B14; B15.
@@ -3137,8 +2979,6 @@ Uses: AS.0.20; AS.0.21; AS.0.22; AS.0.23; AS.0.24; `AA.0/restricted-haar-product
 
 For G=GL_n over F_q(X), n>0, the everywhere-unramified trace at T=0 is J_eta=Σ_[(P,pi)] |stab(P,pi)|⁻¹ Σ_[(w,tau)∈stab(P,pi)] ∫_(lambda∈A) D⁻¹ Σ_[(a,c)∈mu_w⁻¹(tau)] F_eta(lambda,a,c) d lambda. Here A=Im X_L^G, B=Im X_M^L, L=L_w, mu_w(a,c)=a*c/w⁻¹(c), D=|w||X_L^L|, and F_eta is the exact ordered regularized trace151 with h_Q(v)=hat1_Q(v eta⁻¹). Haar on A has total mass one, including all components. The finite fibre is equivalently a∈A,b∈B0,tau=a*b,c∈B,δ_w(c)=b. Replacing h_Q by hat1_Q^e gives J_e for every e∈Z. No good-representative hypothesis is required for this spectral identity. The scalar specialization uses compatible spherical vectors, intertwiners, L-factors and Haar measures. Here F_η is the ordered operator trace defined in AS.6/yu-151; both the all-lifts fiber sum and D⁻¹ are retained.
 
-Assume: Y.
-
 Source: S19, Theorem5.2.2 andCorollary5.2.3 pp33–36; corrected Laf97 theorem.
 
 Uses: AS.4.12; AS.6.19; AS.6.20; AS.3.13; AS.2.14; AS.6.32; AS.6.34; AS.6.35; `AA.0/restricted-haar-product`.
@@ -3148,8 +2988,6 @@ Uses: AS.4.12; AS.6.19; AS.6.20; AS.3.13; AS.2.14; AS.6.32; AS.6.34; AS.6.35; `A
 `yu_151`
 
 For a discrete pair (P,pi), (w,tau)∈stab(P,pi), L=L_w, a∈A, b∈B0, tau=a*b and c∈B with δ_w(c)=b, put z=lambda*c for lambda∈A. Define R_Q(z;v)=M_(R|P)(z)⁻¹∘M_(R|P)(z/v), where R∈P^Q(M), v∈X_L^G. For h_Q=hat1_Q(·eta⁻¹) or hat1_Q^e, set F_h(lambda,a,c)=lim_(mu→1 in X_L^G) Tr_(A_P,pi)[(Σ_(Q∈P(L))h_Q(mu*a) R_Q(z;mu*a))∘M(w,w⁻¹(c))∘U_tau]. U_tau is multiplication by tau. The Q-sum is continued holomorphically before evaluation at mu=1; the other parameters are unitary.
-
-Assume: Y.
 
 API:
 
@@ -3173,8 +3011,6 @@ Uses: AS.4.12; AS.3.13; AS.2.14; AS.0.20; AS.0.22; `AA.0/restricted-haar-product
 
 Let n>0, zeta primitive of order n and eta=zeta^deg. If J_(eta^k)=Σ_(e mod n)zeta^(ek) J_e, then J_e=n⁻¹Σ_(k mod n)zeta^(−ek)J_(eta^k). In151 this replaces hat1_Q(mu*a*eta^(−k)) by hat1_Q^e(mu*a)=n⁻¹Σ_k zeta^(ek)hat1_Q(mu*a*eta^k), leaving the fibre, operator order and denominator unchanged. It holds for every integer e, not just coprime e.
 
-Assume: Y.
-
 Source: S19, §§5.2.2–5.2.3 pp32–36.
 
 Uses: AS.3.13; AS.6.34; `AA.0/restricted-haar-product`; B13; B14; B15.
@@ -3185,8 +3021,6 @@ Uses: AS.3.13; AS.6.34; `AA.0/restricted-haar-product`; B13; B14; B15.
 
 Let n≥1, ζ an n-th root of unity and η=ζ^{deg det} in X_G^G. Define J^T_η:=∫_{G(F)\G(A)/Ξ_G} η(g)k^T(g,g)dg, with k^T Arthur's truncated kernel (item 024) and Ξ_G=a^Z (a a fixed idele of degree 1, as a scalar matrix, so deg det a=n). Since G(F) ⊂ G(A)^0, k^T(g,g) is Ξ_G-invariant, and G(F)\G(A)^e → G(F)\G(A)/Ξ_G is a measure-preserving bijection onto the classes with deg det ≡ e (mod n), one has J^T_η=Σ_{e=1}^n ζ^e J^T_e with J^T_e=∫_{G(F)\G(A)^e}k^T(x,x)dx, and J^T_e depends only on e mod n. Hence, for ζ primitive, J^T_{η^k}=Σ_{e=1}^nζ^{ek}J^T_e for all k in Z and J^T_e=n^{-1}Σ_{k=1}^nζ^{−ek}J^T_{η^k} for all e in Z.
 
-Assume: Y.
-
 Source: S19, §5.2.3, p. 33, equation (5.2.8); p. 36, displays before Corollaire 5.2.3.
 
 Uses: `AA.0/restricted-haar-product`; AS.6.19; AS.6.35.
@@ -3196,8 +3030,6 @@ Uses: `AA.0/restricted-haar-product`; AS.6.19; AS.6.35.
 `yu_165`
 
 (Lafforgue 1997, VI §2, through Lemme 9 and Corollaire 10, with the change of variable μ_Q ↦ μ_Qη^{-1} at the start of step (e), p. 304.) For G=GL_n over the function field F of X_1 and η in X_G^G, J_η=J_η^{T=0} equals the sum, over inertial classes of everywhere-unramified discrete pairs (P,π) and over continuous characters χ of Im X_{M_P}^G, of |stab(P,π)|^{-1}Σ_{(w,λ_π) in stab(P,π)} lim_{μ0 in X_{L_w}^G, μ0→1} Σ_{Q in P(L_w)} ∫_{Im X_{L_w}^G}∫_{Im X_{M_P}^G} 1̂_Q(μμ0η^{-1}) χ(λ w(λ_π)μ0μ/w(λ)) Tr_{A_{P,π}}(M_Q(λ,P;μμ0) ∘ M(w^{-1},w(λ)) ∘ w(λ_π)^{-1}) dλ dμ, with probability Haar measures. The Q-sum is continued holomorphically as a whole before μ0→1 (Laf97 Corollaire 10), using the isometry of intertwiners on the unitary axis, the functional equation, and the relations w(λ0)^{H_P}M(w,λ)φ=M(w,λλ0^{-1})(φλ0^{H_P}) and M(w,λμ)=M(w,λ) for μ in X_{L_w}^G.
-
-Assume: Y.
 
 Source: S19, §5.2.3, p. 34, proof of Théorème 5.2.2, equation (5.2.10).
 
