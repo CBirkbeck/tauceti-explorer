@@ -73,7 +73,7 @@ Import integral Dehn surgery on a framed link L in oriented S³: the meridian of
 - `surgery_unknot_pm_one`: Surgery on the plus-one-framed unknot is again the 3-sphere: a definition that gave a different manifold here would be wrong.
 - `homology_surgery_unknot_p`: Surgery on the p-framed unknot has first homology cyclic of order the absolute value of p; for p = 0 this is infinite cyclic, so that presentation is not an integral homology sphere.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2.
+**Sources.** [Habiro, unified invariant][H06], §10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2.
 
 <a id="qt-0-admissible-framed-link"></a>
 
@@ -218,7 +218,7 @@ Over ℚ[[h]] put q=exp(h), v=exp(h/2), K=exp(hH/2). U_h(sl₂) is the h-adicall
 - `Uqev_ne_Uq`: K itself lies in Uq and not in Uqev, so the two forms are different.
 - `classical_limit`: U_h/hU_h is the classical ℚ-enveloping algebra of sl₂; h is a parameter of the ambient complete algebra, not an element asserted in the integral coefficient ring ℤ[q±1].
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions.
+**Sources.** [Habiro, unified invariant][H06], §§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions.
 
 <a id="qt-1-ribbon-structure"></a>
 
@@ -244,7 +244,7 @@ U_h(sl₂) has ΔH=H⊗1+1⊗H, ΔE=E⊗1+K⊗E, ΔF=F⊗K⁻¹+1⊗F, S(H)=−H
 - `R_matrix_classical_limit`: Modulo h the R-matrix is the identity, so the braiding degenerates to the symmetry of the classical category.
 - `quantum_dimension_V1`: The quantum dimension of the 2-dimensional module is the quantum integer [2], not 2; a definition returning the ordinary dimension is wrong.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12, ribbon structure.
+**Sources.** [Habiro, unified invariant][H06], §3.1, pp. 11–12, ribbon structure.
 
 <a id="qt-1-braided-hopf-structure"></a>
 
@@ -264,7 +264,7 @@ The braided Hopf algebra structure of the braided transmutation of U_h induces a
 - A structure map that left the integral form would break the integrality of the universal invariant, which is the point of the theorem.
 - The statement fails for the non-completed form, so the completion is not cosmetic.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 3.1, §3.3, pp. 13–14, integral braided structure.
+**Sources.** [Habiro, unified invariant][H06], Theorem 3.1, §3.3, pp. 13–14, integral braided structure.
 
 <a id="qt-1-bottom-tangle"></a>
 
@@ -288,7 +288,7 @@ An n-component bottom tangle is a framed oriented union of n arcs in the cube wi
 - `closure_of_bottom_knot`: A one-component bottom tangle closes to a knot; the number of components is preserved.
 - `bottomTangle_not_closed`: A tangle with a closed component is not a bottom tangle; this excludes the degenerate case where the universal invariant would already be a trace.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §4.1, pp. 14–15, bottom tangles and their closure.
+**Sources.** [Habiro, unified invariant][H06], §4.1, pp. 14–15, bottom tangles and their closure.
 
 <a id="qt-1-universal-sl2-invariant"></a>
 
@@ -314,7 +314,7 @@ For T∈BT_n the bead-reading rule gives J_T∈U_h completed⊗n, invariant unde
 - `J_framing_change`: Adding a positive kink inserts r⁻¹ in the bead product; invariance under an unframed Reidemeister-I move would lose the framing.
 - `J_hopf_nontrivial`: The universal invariant of the bottom tangle closing to the Hopf link is not the unit, so the invariant sees linking.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §4.2, pp. 15–16, universal invariant.
+**Sources.** [Habiro, unified invariant][H06], §4.2, pp. 15–16, universal invariant.
 
 <a id="qt-1-universal-invariant-integrality"></a>
 
@@ -332,7 +332,7 @@ For an algebraically split AND 0-framed n-component bottom tangle T, J_T lies in
 - The theorem fails for non-zero framings, where the ribbon element contributes denominators; this is why the framing hypothesis is present.
 - Integrality is what makes the coloured Jones polynomials Laurent polynomials rather than rational functions.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 4.1, p. 16; proof in §4.3, pp. 16–17.
+**Sources.** [Habiro, unified invariant][H06], Theorem 4.1, p. 16; proof in §4.3, pp. 16–17.
 
 <a id="qt-1-topological-ribbon-hopf-algebras"></a>
 
@@ -414,7 +414,7 @@ A ribbon category is a braided rigid monoidal category with a natural automorphi
 - `ribbonTrace_vectorSpace`: For finite-dimensional vector spaces with flip braiding and trivial twist the ribbon trace is the ordinary trace.
 - `ribbonTwist_sl2_V1`: In the generic sl₂ instance a positive twist on V₁ acts as q^(3/4), so θ is not the identity.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12; §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), §§2.1–2.2, pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.
+**Sources.** [Habiro, unified invariant][H06], §3.1, pp. 11–12; §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), §§2.1–2.2, pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.
 
 <a id="qt-1-reshetikhin-turaev-functor"></a>
 
@@ -439,7 +439,7 @@ For a ribbon Hopf algebra (A,R,r) over a field, the finite-dimensional module ca
 - `RTFunctor_straight`: The straight colored strand evaluates to id_V.
 - `RTFunctor_crossing_inverse`: A crossing followed by its inverse is the identity; a positive crossing alone is not assumed involutive.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), Theorem 5.1, §5.1, pp. 12–13; proof in §5.4, pp. 15–16; ribbon structure in §3.3, p. 7.
+**Sources.** [Habiro, unified invariant][H06], §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), Theorem 5.1, §5.1, pp. 12–13; proof in §5.4, pp. 15–16; ribbon structure in §3.3, p. 7.
 
 <a id="qt-1-tilting-negligible-quotient"></a>
 
@@ -541,7 +541,7 @@ For a framed m-component oriented link presented as closure of T, put J_L(V_(n�
 - `colouredJones_positive_framing`: The +1-framed unknot in color V₁ has q^(3/4)(v+v⁻¹), not merely [2].
 - `colouredJones_split_union`: For a split union the invariant is the product of the invariants, so a definition that failed multiplicativity would be wrong.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §§5.2–5.3, pp. 19–20; §6.2, pp. 21–22.
+**Sources.** [Habiro, unified invariant][H06], §§5.2–5.3, pp. 19–20; §6.2, pp. 21–22.
 
 <a id="qt-2-p-basis"></a>
 
@@ -565,7 +565,7 @@ In ℚ(v)[X]=R_ℚ(v), X=V₁, define {a}=v^a−v⁻a, {n}!=∏_(j=1)^n{j}, {a}_
 - `P_one`: P₁=X−v−v⁻¹.
 - `P_rescalings_distinct`: P″₁=P₁/({3}{2}) whereas P′₁=P₁/{1}; the denominators are different.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.1, p. 21, P and P″; §8.1, p. 28, P′ and P̃′.
+**Sources.** [Habiro, unified invariant][H06], §6.1, p. 21, P and P″; §8.1, p. 28, P′ and P̃′.
 
 <a id="qt-2-dual-basis-pairing"></a>
 
@@ -582,7 +582,7 @@ For m,n≥0, tr_q^(P″_m)(σ_n)=δ_mn, where the trace is linearly extended ove
 - The pairing of P''_0 with sigma_0 is 1 and with sigma_1 is 0.
 - Duality forces the coefficients in the cyclotomic expansion to be the reduced coloured Jones values at the colours P''_n.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 6.3, §6.2, p. 21; proof in §6.3, pp. 22–24.
+**Sources.** [Habiro, unified invariant][H06], Proposition 6.3, §6.2, p. 21; proof in §6.3, pp. 22–24.
 
 <a id="qt-2-cyclotomic-expansion"></a>
 
@@ -600,7 +600,7 @@ For a zero-framed bottom knot T with closure K there are unique a_i(K)∈ℤ[q±
 - The coefficients are Laurent polynomials, by the integrality theorem, which is the point of the expansion.
 - Summing the expansion against the change-of-basis formula recovers the ordinary coloured Jones polynomials.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 6.4, §6.2, pp. 21–22.
+**Sources.** [Habiro, unified invariant][H06], Theorem 6.4, §6.2, pp. 21–22.
 
 <a id="qt-2-algebra-P-and-completion"></a>
 
@@ -624,7 +624,7 @@ Let P be the ℤ[q±1]-span of P̃′_n in R_ℚ(v), q=v²; it is a subalgebra, 
 - `mul_P_one_one`: P′₁P′₁=({2}!/{1}!²)P′₂+({2}!/{1}!)P′₁; the coefficients change upon tilde rescaling.
 - `twistElement_not_mem`: The twist element lies in the completion and not in the algebra, so the completion step is necessary.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §8.1, p. 28, color algebra and its completion.
+**Sources.** [Habiro, unified invariant][H06], §8.1, p. 28, color algebra and its completion.
 
 <a id="qt-2-integrality-algebraically-split"></a>
 
@@ -641,7 +641,7 @@ For an m-component algebraically split zero-framed L, colors x_i∈P_(k_i), and 
 - The divisibility fails for links that are not algebraically split, which is why the hypothesis is present.
 - The theorem gives the convergence of the surgery sum used to define the unified invariant.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 8.2 and Corollary 8.3, §8.2, p. 29.
+**Sources.** [Habiro, unified invariant][H06], Theorem 8.2 and Corollary 8.3, §8.2, p. 29.
 
 <a id="qt-2-quantum-trace-integrality"></a>
 
@@ -659,7 +659,7 @@ For x∈U_q^ev and y∈P, tr_q^y(x) lies in ℤ[q±1]. Both the even form and th
 - The trace of a basis monomial with mismatched degrees vanishes, which is the vanishing that makes the computation finite.
 - The lemma fails for colours outside the algebra P, where denominators appear, so the restriction on colours is necessary.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 8.5, §8.3, p. 29; proof in §8.4, pp. 30–31.
+**Sources.** [Habiro, unified invariant][H06], Lemma 8.5, §8.3, p. 29; proof in §8.4, pp. 30–31.
 
 <a id="qt-2-coloured-jones-determination"></a>
 
@@ -676,7 +676,7 @@ For a zero-framed knot and n≥1, the values J_K(V₀),…,J_K(V_(n−1)) determ
 - The ideal is not the zero ideal, so the statement is a congruence and not an equality; a stronger reading would be false.
 - The result is a consequence of integrality and not of the definition, so it fails for invariants without the cyclotomic expansion.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 6.5, §6.2, p. 22.
+**Sources.** [Habiro, unified invariant][H06], Proposition 6.5, §6.2, p. 22.
 
 <a id="qt-2-truncations-and-what-may-be-done-before-completion"></a>
 
@@ -701,7 +701,7 @@ For N≥0 define Z_K,<N=Σ_(i<N)a_iσ_i in the polynomial center and, for a fixe
 - `colorTruncation_V1`: At N=2 the V₁ value is [2]+{3}{2}a₁.
 - `cyclotomicTruncation_compat`: Increasing N changes only terms divisible by σ_N.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22, finite color traces.
+**Sources.** [Habiro, unified invariant][H06], §6.2, pp. 21–22, finite color traces.
 
 <a id="qt-2-an-expansion-is-a-theorem-about-an-invariant"></a>
 
@@ -711,7 +711,7 @@ HC.2 supplies generic factorial-series representations of elements of the comple
 
 **Prerequisites.** [Cyclotomic expansion of the universal invariant of a bottom knot](#qt-2-cyclotomic-expansion); [Integrality and divisibility for algebraically split 0-framed links](#qt-2-integrality-algebraically-split); `HabiroCyclotomicCompletions:HC.2/factorial-series`.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22; §8.2, p. 29.
+**Sources.** [Habiro, unified invariant][H06], §6.2, pp. 21–22; §8.2, p. 29.
 
 <a id="qt-2-the-kashaev-invariant-and-the-function-on-the-rationals"></a>
 
@@ -736,7 +736,7 @@ For N≥2 the Murakami–Murakami theorem identifies Kashaev ⟨K⟩_N with J^re
 - `kashaevFunction_periodic`: The function satisfies that its value at an argument plus one equals its value at the argument; this is what makes the statement at minus one over the integer meaningful.
 - `kashaev_Galois_equivariance`: At order 5, the automorphism sending ζ₅ to ζ₅² changes 46+2√5 to 46−2√5; equivariance is not pointwise Galois invariance.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.1)–(1.2), p. 9, and rational extension on p. 10; [The colored Jones polynomials and the simplicial volume of a knot](https://arxiv.org/abs/math/9905075v1), Theorem 4.9, §4, p. 15.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §1, equations (1.1)–(1.2), p. 9, and rational extension on p. 10; [The colored Jones polynomials and the simplicial volume of a knot](https://arxiv.org/abs/math/9905075v1), Theorem 4.9, §4, p. 15.
 
 <a id="qt-2-finite-free-colors"></a>
 
@@ -770,7 +770,7 @@ The helper `formalQChoose` uses the polynomial Gaussian recurrence at q=v²; `fo
 
 `tensorColorEquiv` identifies the module tensor product with functions on the product index, explicitly on pure tensors. `tensorColorH/E/F/K` use ΔH=H⊗1+1⊗H, ΔE=E⊗1+K⊗E, ΔF=F⊗K⁻¹+1⊗F and ΔK=K⊗K. `color_clebschGordan` requires a linear equivalence intertwining all four actions with ⊕_(j≤min(m,n))V_(m+n−2j). The zero-color comparison, V₁⊗V₁ comparison and weight-character product test distinguish the coproduct and decomposition. `colorCharacter` sums the H-weights in a second Laurent variable; `colorCharacter_Chebyshev` and `color_repRing_product` compare this character and the polynomial representation algebra, rather than interpreting a dimension identity as a module isomorphism. Extending these actions to the continuous completed U_h-module and its ribbon operators remains dependent on QT.1.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.1, p. 18; §§5.3–5.4, pp. 19–20. Generator conventions: §2.2–2.3, pp. 7–8; basis actions: equations (5.1)–(5.3), p. 19; representation algebra and trace: §§5.3–5.4, p. 20.
+**Sources.** [Habiro, unified invariant][H06], §5.1, p. 18; §§5.3–5.4, pp. 19–20. Generator conventions: §2.2–2.3, pp. 7–8; basis actions: equations (5.1)–(5.3), p. 19; representation algebra and trace: §§5.3–5.4, p. 20.
 
 <a id="qt-2-completed-even-center"></a>
 
@@ -806,7 +806,7 @@ For a zero-framed knot, the fundamental-color quantum invariant is unreduced: J_
 
 **Prerequisites.** [Coloured Jones polynomials from the universal invariant](#qt-2-coloured-jones); [GeometricTopology — layer-4-knot-theory-done-properly-owned-here](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md#layer-4-knot-theory-done-properly-owned-here).
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; §6.2, pp. 21–22; RT §6.1, p. 17.
+**Sources.** [Habiro, unified invariant][H06], §5.2, pp. 19–20; §6.2, pp. 21–22; RT §6.1, p. 17.
 
 <a id="qt-2-unified-kashaev-invariant"></a>
 
@@ -831,7 +831,7 @@ For a zero-framed knot K with integral cyclotomic coefficients a_n(K)=J_K(P″_n
 - `unifiedKashaev_order_one`: At q=1 only a₀(K)=1 remains.
 - `unifiedKashaev_factorial_square`: The n-th product equals (−1)^n q^(−n(n+1)/2)(q;q)_n², hence has at least twice the factorial divisibility.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, θ₀ specialization.
+**Sources.** [Habiro, unified invariant][H06], §7.1, pp. 24–26, θ₀ specialization.
 
 <a id="qt-3"></a>
 
@@ -861,7 +861,7 @@ In P̂ define ω±=Σ_(n≥0)(±1)^n v^(±n(n+3)/2)P′_n. In the P̃′_n basis
 - `omega_plus_mul_omega_minus`: The product of the two twist elements is 1, which is the algebraic shadow of blowing up and then blowing down.
 - `omega_not_finite`: The twist element has infinitely many non-zero cyclotomic coefficients, so it is not an element of the uncompleted algebra.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §9.1, Propositions 9.1–9.2, p. 33.
+**Sources.** [Habiro, unified invariant][H06], §9.1, Propositions 9.1–9.2, p. 33.
 
 <a id="qt-3-twisting-theorem"></a>
 
@@ -879,7 +879,7 @@ For algebraically split zero-framed L=L₁∪⋯∪L_m∪K with K unknotted and 
 - Applying the theorem twice with opposite signs returns the original invariant, matching that the two twist elements are inverse.
 - The identity is an identity in the completed algebra and requires the divisibility theorem for convergence.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 9.4, §9.2, p. 34.
+**Sources.** [Habiro, unified invariant][H06], Theorem 9.4, §9.2, p. 34.
 
 <a id="qt-3-definition-of-JM"></a>
 
@@ -904,7 +904,7 @@ For an integral homology sphere M with admissible presentation L of component fr
 - `unified_unknot_pm_one`: The plus-one-framed unknot also presents the 3-sphere and must give 1; this is the first non-trivial instance of independence.
 - `unified_converges`: The defining sum has terms divisible by higher and higher q-shifted factorials, so it converges in the Habiro ring; a formula without that divisibility would not define an element.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §10.2, Theorem 10.2, p. 35.
+**Sources.** [Habiro, unified invariant][H06], §10.2, Theorem 10.2, p. 35.
 
 <a id="qt-3-JM-well-defined"></a>
 
@@ -924,7 +924,7 @@ For an integral homology sphere M the element of the Habiro ring defined by the 
 - The proof uses the refined calculus and not the classical one, since the intermediate links of a classical sequence need not be admissible.
 - The invariant of a connected sum is the product of the invariants, which is a consistency check on the normalisation.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 10.2, §10.2, p. 35; refined calculus in §10.1, pp. 34–35.
+**Sources.** [Habiro, unified invariant][H06], Theorem 10.2, §10.2, p. 35; refined calculus in §10.1, pp. 34–35.
 
 <a id="qt-3-JM-divisibility"></a>
 
@@ -943,7 +943,7 @@ For every integral homology sphere M the element J_M minus 1 is divisible in the
 - For the 3-sphere the statement is trivial, since the difference is 0.
 - Expanding the divisor at q=1 begins with 6(q−1), hence the coefficient of q−1 in J_M−1 is divisible by 6. Integrality of all Taylor coefficients instead follows from the integral Habiro Taylor map.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 10.3, §10.3, p. 36; stronger Proposition 12.14, §12.4.2, p. 44.
+**Sources.** [Habiro, unified invariant][H06], Lemma 10.3, §10.3, p. 36; stronger Proposition 12.14, §12.4.2, p. 44.
 
 <a id="qt-3-JM-connected-sum-and-orientation"></a>
 
@@ -963,7 +963,7 @@ The unified invariant is multiplicative under connected sum, so that the invaria
 - The invariant of the connected sum of a manifold with its own orientation reversal is the norm of the invariant under the involution.
 - An invariant that failed multiplicativity would not evaluate to the Witten-Reshetikhin-Turaev invariants, which are multiplicative.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 12.1, §12.1, p. 39.
+**Sources.** [Habiro, unified invariant][H06], Proposition 12.1, §12.1, p. 39.
 
 <a id="qt-3-rational-homology-spheres-are-not-in-this-domain"></a>
 
@@ -973,7 +973,7 @@ QT.3 defines J only for integral homology spheres. For the p-framed unknot with 
 
 **Prerequisites.** [The unified invariant of an integral homology sphere](#qt-3-definition-of-JM); [Surgery on a framed link and the homology of the result](#qt-0-surgery-presentation); [The Witten-Reshetikhin-Turaev invariant at a root of unity](#qt-4-WRT-invariant-at-a-root).
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §16.3, pp. 62–63, rational homology spheres.
+**Sources.** [Habiro, unified invariant][H06], §16.3, pp. 62–63, rational homology spheres.
 
 <a id="qt-4"></a>
 
@@ -1001,7 +1001,7 @@ For r≥2 choose ξ primitive of order 4r and ζ=ξ⁴. Evaluate q^(1/4) at ξ. 
 - `wrt_root_one`: At ζ=1 the invariant is 1 by the declared convention, including r=1.
 - `wrt_stabilization_sign`: A split +1 unknot cancels the positive Gauss factor and a −1 unknot cancels the negative factor; interchanging the two fails this test.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §11.1, equation (11.2), pp. 36–37.
+**Sources.** [Habiro, unified invariant][H06], §11.1, equation (11.2), pp. 36–37.
 
 <a id="qt-4-evaluation-theorem"></a>
 
@@ -1021,7 +1021,7 @@ Let M be an integral homology sphere and zeta a primitive r-th root of unity. Th
 - The theorem holds for every root of unity, including those of even and of non-prime-power order, which the earlier literature had excluded.
 - As a corollary the Witten-Reshetikhin-Turaev invariant of an integral homology sphere is an algebraic integer in the cyclotomic field, and the family is Galois equivariant.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 11.1, §11.1, p. 36; proof in §11.3, pp. 37–38.
+**Sources.** [Habiro, unified invariant][H06], Theorem 11.1, §11.1, p. 36; proof in §11.3, pp. 37–38.
 
 <a id="qt-4-integrality-and-galois"></a>
 
@@ -1040,7 +1040,7 @@ For every integral homology sphere M and every root of unity zeta, the Witten-Re
 - The invariant is an algebraic integer, not merely an algebraic number; this is a strictly stronger statement than the state sum gives directly.
 - Galois equivariance relates the values at all primitive roots of the same order, so one value determines the others in that orbit.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §1.3, pp. 3–4, integrality and Galois consequences.
+**Sources.** [Habiro, unified invariant][H06], §1.3, pp. 3–4, integrality and Galois consequences.
 
 <a id="qt-4-determination-by-WRT"></a>
 
@@ -1057,7 +1057,7 @@ For IHS M the root-value function τ_ζ(M) and J_M determine each other, by eval
 - Two integral homology spheres with the same quantum invariants at all roots have the same unified invariant.
 - The statement is about the evaluation map on the Habiro ring, not about the manifolds, so it needs the ring-theoretic injectivity input.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40.
+**Sources.** [Habiro, unified invariant][H06], Proposition 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40.
 
 <a id="qt-4-ohtsuki-series"></a>
 
@@ -1075,7 +1075,7 @@ For IHS M, σ₁(J_M)∈ℤ[[q−1]] is the Ohtsuki series, characterized by its
 - The coefficient of q−1 is 6λ(M), with λ the Casson invariant in Habiro §12.3.3’s orientation convention.
 - The theorem identifies two objects defined by different means, so it is a comparison and not a definition.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44.
+**Sources.** [Habiro, unified invariant][H06], Theorem 12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44.
 
 <a id="qt-4-general-simple-lie-type"></a>
 
@@ -1102,7 +1102,7 @@ The determination and integrality statements are over ℤ. Over ℚ the all-orde
 
 **Prerequisites.** [Integrality and Galois equivariance of the quantum invariants](#qt-4-integrality-and-galois); `HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity`; `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §1.2, pp. 2–3, integral cyclotomic completion.
+**Sources.** [Habiro, unified invariant][H06], §1.2, pp. 2–3, integral cyclotomic completion.
 
 <a id="qt-4-sl2-kirby-color"></a>
 
@@ -1126,7 +1126,7 @@ For the primitive 4r-th root ξ, r≥2, Ω_r=Σ_(i=0)^(r−2)[i+1]V_i is the sl�
 - `kirbyColor_r3`: At r=3 the labels are V₀ and V₁ with the quantum-dimension coefficients.
 - `kirbyColor_no_top_weight`: The weight V_(r−1) is absent; its vanishing quantum dimension does not supply an extra simple color.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §11.1, pp. 36–37, colors and nonzero unknot normalizations.
+**Sources.** [Habiro, unified invariant][H06], §11.1, pp. 36–37, colors and nonzero unknot normalizations.
 
 <a id="qt-4-ohtsuki-characterization"></a>
 
@@ -1138,7 +1138,7 @@ The homomorphism ℤ[[q−1]]→∏_(p odd prime)ℤ_p[ζ_p] obtained by converg
 
 **Construction or proof.** For a series killed by every evaluation, induct on its first possible nonzero coefficient x_n. Reduce modulo (ζ_p−1)^(n+1) to show p|x_n for every odd prime p. An integer divisible by every odd prime is zero; repeat the induction.
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 12.7, §12.3.2, p. 42.
+**Sources.** [Habiro, unified invariant][H06], Lemma 12.7, §12.3.2, p. 42.
 
 <a id="qt-4-general-core-filtration"></a>
 
@@ -1247,7 +1247,7 @@ The supplier’s ordered ideal hyperbolic tetrahedron with four distinct boundar
 - `shape_product`: The product of the three edge parameters is minus 1, not 1; this pins the convention.
 - `shape_excludes_degenerate`: Shapes 0 and 1 are excluded, so a degenerate configuration is not an ideal tetrahedron.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), §3, pp. 420–421 (PDF pp. 8–9), ideal simplex parameters.
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], §3, pp. 420–421 (PDF pp. 8–9), ideal simplex parameters.
 
 <a id="qt-5-gluing-and-completeness-equations"></a>
 
@@ -1295,7 +1295,7 @@ On Neumann’s cut-plane ℤ²-cover of ℂ∖{0,1}, a point (z;p,q) determines 
 - `flattening_determines_shape`: Equality of the full w-triples determines z; equality of w₀ alone is insufficient.
 - `flattening_regular`: For z=exp(πi/3) and p=q=0 the log parameters are (πi/3,πi/3,−2πi/3), summing to zero.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Definition 3.1 and Lemma 3.2, §3, pp. 421–422 (PDF pp. 9–10).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Definition 3.1 and Lemma 3.2, §3, pp. 421–422 (PDF pp. 9–10).
 
 <a id="qt-5-five-term-and-pachner"></a>
 
@@ -1313,7 +1313,7 @@ For five distinct ideal vertices, the alternating lifted five-shape relation is 
 - Without the flattening condition the lifted relation fails, so the condition is not automatic.
 - The lemma is what makes a two-three Pachner move on an ideal triangulation act trivially on the Bloch element.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Definition 3.3 and Lemma 3.4, §3, pp. 423–424 (PDF pp. 11–12).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Definition 3.3 and Lemma 3.4, §3, pp. 423–424 (PDF pp. 11–12).
 
 <a id="qt-5-bloch-element-of-a-triangulation"></a>
 
@@ -1338,7 +1338,7 @@ For an oriented complete finite-volume hyperbolic 3-manifold M with the ordered 
 - `blochElement_flattening_independent`: Changing the flattening by an admissible amount does not change the class.
 - `blochElement_not_in_prebloch_kernel`: The element is non-zero for a hyperbolic manifold, since its Rogers dilogarithm has non-zero imaginary part equal to the volume.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Theorems 4.5–4.6, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Theorems 4.5–4.6, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53).
 
 <a id="qt-5-volume-and-chern-simons"></a>
 
@@ -1356,7 +1356,7 @@ Neumann’s λ:H₃(PSL₂(ℂ)^δ;ℤ)≅B̂(ℂ) is an isomorphism and R∘λ 
 - The real part of R(β̂(M)) is −CS(M) modulo π²ℤ in Neumann’s convention, since R=i(Vol+i CS)=i Vol−CS.
 - For the figure-eight knot complement the imaginary part is twice the volume of the regular ideal tetrahedron.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Theorem 2.6, p. 420 (PDF p. 8); §12, Theorem 12.1, p. 459 (PDF p. 47); Theorem 14.2, p. 465 (PDF p. 53).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Theorem 2.6, p. 420 (PDF p. 8); §12, Theorem 12.1, p. 459 (PDF p. 47); Theorem 14.2, p. 465 (PDF p. 53).
 
 <a id="qt-5-a-diagram-does-not-produce-a-bloch-class"></a>
 
@@ -1366,7 +1366,7 @@ A knot diagram does not automatically give β_F. Required witnesses are: a compl
 
 **Prerequisites.** [Strong flattening theorem](#qt-5-strong-flattening); [The extended Bloch element of a hyperbolic 3-manifold](#qt-5-bloch-element-of-a-triangulation); [Geometric number-field Bloch class](#qt-5-number-field-geometric-bloch-class); [The Rogers dilogarithm computes volume and Chern-Simons](#qt-5-volume-and-chern-simons).
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), §14, pp. 464–465 (PDF pp. 52–53), complete cusped geometry and fillings.
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], §14, pp. 464–465 (PDF pp. 52–53), complete cusped geometry and fillings.
 
 <a id="qt-5-extended-pre-bloch"></a>
 
@@ -1389,7 +1389,7 @@ Let FT be the five-shape locus (x,y,y/x,(1−1/x)/(1−1/y),(1−x)/(1−y)), x,
 - `transfer_zero`: [z;1,1]+[z;0,0]−[z;1,0]−[z;0,1]=0 in this quotient.
 - `lift_sheet_constraint`: For shapes in FT⁺, arbitrary sheet choices violating p₂=p₁−p₀ are not the specified lifted relation.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Definition 2.2, §2, pp. 417–418 (PDF pp. 5–6).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Definition 2.2, §2, pp. 417–418 (PDF pp. 5–6).
 
 <a id="qt-5-extended-bloch-kernel"></a>
 
@@ -1411,7 +1411,7 @@ The homomorphism ν:P̂(ℂ)→ℂ∧_ℤℂ is ν[z;p,q]=(log z+pπi)∧(−log
 - `extendedDehn_transfer`: The four sheet-interchange terms have wedge sum zero.
 - `extendedDehn_sheet_change`: Changing p by 1 changes ν by πi∧(−log(1−z)+qπi); individual generators are not automatically in the kernel.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Lemma 2.3 and Definition 2.4, §2, p. 418 (PDF p. 6). Theorem 7.5, §7, p. 441 (PDF p. 29), the factor-two boundary square.
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Lemma 2.3 and Definition 2.4, §2, p. 418 (PDF p. 6). Theorem 7.5, §7, p. 441 (PDF p. 29), the factor-two boundary square.
 
 <a id="qt-5-strong-flattening"></a>
 
@@ -1435,7 +1435,7 @@ For a G-labelled ordered 3-cycle K, G=PSL₂(ℂ) with discrete topology, choose
 - `strongFlattening_parity`: An edge-log solution with an odd normal-path parity is not a strong flattening.
 - `strongFlattening_ordering`: An un-ordered ideal triangulation is not the input of the full B̂-class theorem; its unordered invariant can lose C₆ information.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Definition 4.4 and Theorem 4.5, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Definition 4.4 and Theorem 4.5, §4.2, p. 429 (PDF p. 17); Theorem 14.2, p. 465 (PDF p. 53).
 
 <a id="qt-5-extended-rogers-regulator"></a>
 
@@ -1459,7 +1459,7 @@ On the cut-cover chart put R(z;p,q)=Li₂(z)+½log z log(1−z)+(πi/2)(p log(1�
 - `rogers_sheet_p`: Changing p by 2 adds πi log(1−z) before reducing periods.
 - `rogers_not_plain_BlochWigner`: The complex regulator retains a real Chern–Simons term modulo π²; its target is not just ℝ.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Proposition 2.5, §2, pp. 419–420 (PDF pp. 7–8).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], Proposition 2.5, §2, pp. 419–420 (PDF pp. 7–8).
 
 <a id="qt-5-number-field-geometric-bloch-class"></a>
 
@@ -1471,7 +1471,7 @@ For a chosen algebraic nondegenerate complete gluing solution with all shapes in
 
 **Prerequisites.** [Gluing and completeness equations of an ideal triangulation](#qt-5-gluing-and-completeness-equations); [The extended Bloch element of a hyperbolic 3-manifold](#qt-5-bloch-element-of-a-triangulation); `K3BlochGroups:V.3/exterior-kernel-bloch-group`; `K3BlochGroups:V.3/bloch-group`; `Polylogarithms:P.2/bloch-wigner-descent`.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), §15, pp. 470–471 (PDF pp. 58–59); §16, p. 472 (PDF p. 60).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class][N04], §15, pp. 470–471 (PDF pp. 58–59); §16, p. 472 (PDF p. 60).
 
 <a id="qt-6"></a>
 
@@ -1483,11 +1483,11 @@ For a chosen algebraic nondegenerate complete gluing solution with all shapes in
 
 **Formal arithmetic is a source theorem; the general analytic comparison is conjectural.**
 
-The formal GSW geometric NZ series exists and is invariant under its hypotheses, with coefficients in the invariant trace field. A normalized GZ perturbative series additionally includes a one-loop square root, an eighth-root phase and the complex-volume exponential; the normalization comparison is explicit. The Kashaev all-orders analytic expansion is conjectural in general and proved only in the separately cited families. For 4₁ the GZ series begins 3^(−1/4)(1+11h/(72√−3)+697h²/(2(72√−3)²)+⋯). For 5₂ use ξ³−ξ²+1=0 with Im ξ<0 and the prefactor ζ₈/√(3ξ−2). These formal coefficients do not supply an error bound by themselves. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+The formal GSW geometric NZ series exists and is invariant under its hypotheses, with coefficients in the invariant trace field. A normalized GZ perturbative series additionally includes a one-loop square root, an eighth-root phase and the complex-volume exponential; the normalization comparison is explicit. The Kashaev all-orders analytic expansion is conjectural in general and proved only in the separately cited families. For 4₁ the GZ series begins 3^(−1/4)(1+11h/(72√−3)+697h²/(2(72√−3)²)+⋯). For 5₂ use ξ³−ξ²+1=0 with Im ξ<0 and the prefactor ζ₈/√(3ξ−2). These formal coefficients do not supply an error bound by themselves. At primitive order k use the root-refined DG2 series. Compare its finite average and one-loop factor with HB.8 under the integral/parity hypotheses; evaluation of the k=1 series is insufficient.
 
 **Prerequisites.** [Formal state-integral invariance](#qt-6-formal-state-integral-invariance); [The Rogers dilogarithm computes volume and Chern-Simons](#qt-5-volume-and-chern-simons); [Topological Habiro-module comparison](#qt-6-topological-habiro-module-comparison); [Proved quantum modularity cases](#qt-7-bettin-drappeau-proved-cases); [Root-series arithmetic theorem](#qt-6-root-series-arithmetic).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), pp. 9–10; §2.2, pp. 12–14.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §1, equations (1.3)–(1.4), pp. 9–10; §2.2, pp. 12–14.
 
 <a id="qt-6-what-is-exported-to-the-habiro-roadmaps"></a>
 
@@ -1497,7 +1497,7 @@ Three precise interfaces connect QT to the Habiro family: integral knot coeffici
 
 **Prerequisites.** [Cyclotomic expansion of the universal invariant of a bottom knot](#qt-2-cyclotomic-expansion); [The unified invariant does not depend on the admissible presentation](#qt-3-JM-well-defined); [Figure-eight Habiro descendants](#qt-7-figure-eight-habiro-descendants); [Topological Habiro-module comparison](#qt-6-topological-habiro-module-comparison); `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`; `HabiroCyclotomicCompletions:HC.2/factorial-series`.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §7.1, pp. 52–56, descendant Habiro-like functions.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §7.1, pp. 52–56, descendant Habiro-like functions.
 
 <a id="qt-6-formal-and-analytic-asymptotics-are-different-outputs"></a>
 
@@ -1542,9 +1542,13 @@ For nondegenerate Ξ define ψ_h(x,z)=exp(−Σ_(k,ℓ≥0;k+ℓ/2>1) B_k x^ℓ 
 
 **Construction or proof.** Use the source filtered polynomial-series algebra to justify coefficientwise exponentiation. Apply HB.4’s Gaussian differential operator, not a new Gaussian theory. Check odd-polynomial parity and finite contributions to each h coefficient; retain the source prefactor.
 
+Set t=√h. The logarithm is in t·ℂ[x₁,…,x_N][[t]]: its degree-d coefficient uses exactly 2k+ℓ=d+2, d>0. Instantiate `liNeg r z=Li_(−r)(z)` from Polylogarithms. Mathlib `PowerSeries.subst` of `PowerSeries.exp` applies because the logarithm has zero constant coefficient. The parity x↦−x multiplies coefficient d by (−1)^d. HB.4 must supply coefficient-field Wick contraction, compatible with scalar extension and odd parity, for these complex vertices.
+
 **API.**
 
 - `NZVertexSeries`: The normalized ψ_h series with Bernoulli coefficients.
+- `NZVertexLog`: The finite polynomial coefficients of log ψ; `NZVertexLog_hasSubst` certifies substitution.
+- `NZVertexSeries_constant`, `NZVertexSeries_parity`: Unit constant and degree-parity identity.
 - `NZFormalIntegrand`: F_h^Ξ including its flattening exponential.
 - `formalNZStateIntegral`: The imported Gaussian bracket of F_h^Ξ.
 - `formalNZStateIntegral_constant`: Its constant coefficient is 1.
@@ -1555,6 +1559,9 @@ For nondegenerate Ξ define ψ_h(x,z)=exp(−Σ_(k,ℓ≥0;k+ℓ/2>1) B_k x^ℓ 
 - `formalNZ_constant`: At h=0 Φ^Ξ=1.
 - `formalNZ_odd_moment`: The √h coefficient vanishes by Gaussian parity.
 - `formalNZ_normalization`: Replacing GSW ψ by DG ψ without its exp(h/12−x√h/2) correction changes the resulting coefficients.
+- `NZVertexLog_constant`, `NZVertexLog_first`, `formalNZ_vertex_second`: Log coefficients 0, Li₀x/2−Li₋₁x³/6, and −Li₀/12+Li₋₁x²/4−Li₋₂x⁴/24.
+- `NZVertexSeries_constant`, `formalNZ_vertex_first`, `formalNZ_vertex_exponential`: Vertex coefficients 1, log coefficient 1, and log coefficient 2 plus half the square of coefficient 1.
+- `formalNZ_empty_integrand`, `NZFormalIntegrand_first`, `formalNZ_flattening_prefactor`: Empty product is 1; the linear coefficient includes (1−μ_i)/2; with zero vertex input, Q=1, μ=1, f=2, coefficient t² is 1/2. These algebraic controls do not certify geometric data.
 
 **Sources.** [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2), §1, equations (1), (4)–(7), pp. 3–4; §2.2, equations (16)–(19), pp. 7–8; Gaussian evaluation in §3.1, pp. 9–10.
 
@@ -1588,7 +1595,7 @@ If B is unimodular over ℤ, N=I−B⁻¹A is symmetric integral. If additionall
 
 **Comparison target.**
 
-For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and the HB.9 module-membership contract only after its coefficient-transfer, HB.8 all-order identification, Kummer-orientation and all-order gluing obligations are discharged. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to HB.7 effective global descent extended to this full finite étale algebra; a selected number-field component does not prove membership on all components. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k the geometric input is the root-refined DG2 series, with the finite cyclic average and one-loop factor above. Its matching with HB.8’s refined Gaussian collection is a normalization obligation under the integral/parity hypotheses, not mere evaluation of the k=1 series.
+For a nondegenerate isolated solution of the symmetric integral N Nahm equations obtained by the preceding qualified bridge, import the HB.8 refined Gaussian collection only after its G1 global-prefactor and G2 regularity conditions are discharged (and retaining its coprime auxiliary root-order condition) and the HB.9 module-membership contract only after its coefficient-transfer, HB.8 all-order identification, Kummer-orientation and all-order gluing obligations are discharged. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the checked CGZ convention. The coefficient ring R is the arithmetic ring of the chosen number field with the required units and bad-prime localization; HNF HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to HB.7 effective global descent extended to this full finite étale algebra; a selected number-field component does not prove membership on all components. Identifying this collection with the normalized geometric NZ series requires the explicit phase/one-loop and classical-exponential comparison. It is a separate obligation, not an automatic assertion that every formal NZ series is in that module. At primitive order k use the root-refined DG2 series. Compare its finite average and one-loop factor with HB.8 under the integral/parity hypotheses; evaluation of the k=1 series is insufficient.
 
 **Prerequisites.** [NZ–Nahm comparison](#qt-6-nz-to-integral-nahm); `HabiroNahmSeries:HB.8/refinement-gaussian-identification`; `HabiroNahmSeries:HB.9/module-membership`; `HabiroNumberFields:HB.6`; `HabiroNumberFields:HB.7`; `K3BlochGroups:V.3/cgz-published-bloch-group`; [Root-series arithmetic theorem](#qt-6-root-series-arithmetic); `HabiroNahmSeries:HB.9/followup-integral-gluing-contract`; `HabiroNahmSeries:HB.9/followup-kummer-orientation-contract`; `HabiroNahmSeries:HB.9/followup-etale-module-contract`.
 
@@ -1616,7 +1623,7 @@ The Lean signatures use the reciprocal-stable parameter domain Re b>0; the sourc
 - `faddeevPhi_selfDual_b1`: At b=1 the self-duality fixes the parameter.
 - `faddeevPhi_contour_prescription`: The defining integrand has a singularity at w=0; the unsubtracted ordinary integral over ℝ is not the above-zero contour definition.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Definition 15, §1.7, p. 9; Appendix A, §13, pp. 34–37.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Definition 15, §1.7, p. 9; Appendix A, §13, pp. 34–37.
 
 <a id="qt-6-faddeev-functional-inversion"></a>
 
@@ -1628,7 +1635,7 @@ As meromorphic identities, Φ_b(z−i b^(±1)/2)=(1+exp(2π b^(±1)z))Φ_b(z+i b
 
 **Construction or proof.** Shift the contour in the defining strip and compute residues. Use the two shift equations for meromorphic continuation. Check the inversion constant at the source normalization; compare the product representation in its convergence domain.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Appendix A, §13, equations (47)–(49), pp. 34–35.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Appendix A, §13, equations (47)–(49), pp. 34–35.
 
 <a id="qt-6-faddeev-operator-pentagon"></a>
 
@@ -1640,7 +1647,7 @@ On the standard Schrödinger Hilbert space L²(ℝ), for self-adjoint position a
 
 **Construction or proof.** Use the spectral calculus and the canonical commutation realization supplied by HilbertSpectral. Apply AK Appendix A’s integral Fourier identities on the invariant core. Extend to bounded operators and use the charged identity for admissible analytic Pachner moves.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Appendix A, §13, equation (50), p. 35.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Appendix A, §13, equation (50), p. 35.
 
 <a id="qt-6-selected-analytic-state-integrals"></a>
 
@@ -1664,7 +1671,7 @@ Choose b∈(0,1], ℏ=(b+b⁻¹)⁻², and n=2 or 3. For ε∈(0,π) define g_n(
 - `stateIntegral_hbar_b1`: At b=1 the declared parameter is ℏ=1/4.
 - `stateIntegral_phase_52`: χ₅₂(0)=exp(−iπ/3)g₃, so absolute values agree but exact complex values require that phase.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), §§11.4–11.7, pp. 28–32; §12, pp. 32–34.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], §§11.4–11.7, pp. 28–32; §12, pp. 32–34.
 
 <a id="qt-6-selected-state-integral-volume"></a>
 
@@ -1676,7 +1683,7 @@ For the AK selected n=2,3 integrals, as ℏ→0+ on the b→0+ branch, v_n(z)=�
 
 **Construction or proof.** Use the quantum-dilogarithm small-b expansion on a pole-free strip. Identify the contour-selected nondegenerate critical points and relate their dilogarithm action to the complete gluing shapes. Use the source steepest-descent contour and O(ℏ) formula, recording uniform-tail/phase estimates required from the analytic supplier.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Theorem 5, §1.9, p. 11; §12, pp. 32–34, with E8/E9 boundaries.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Theorem 5, §1.9, p. 11; §12, pp. 32–34, with E8/E9 boundaries.
 
 <a id="qt-6-ak-leveled-positive-shapes"></a>
 
@@ -1699,7 +1706,7 @@ On an imported finite ordered oriented pseudo-3-manifold X with orientation-reve
 - `ak_fullyBalanced_boundary`: A shape with a boundary edge cannot be fully balanced under AK’s definition.
 - `ak_positive_inverse_move`: A proposed 2→3 move without positive new angles is excluded, even if its formal linear angle equations have a real solution.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Definitions 1–11, §§1.2–1.6, pp. 2–8.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Definitions 1–11, §§1.2–1.6, pp. 2–8.
 
 <a id="qt-6-ak-charged-tetrahedron-kernel"></a>
 
@@ -1724,7 +1731,7 @@ For λ with ℏ=(λ+λ⁻¹)⁻²>0 and the AK quantum-dilogarithm parameter dom
 - `chargedKernel_hyperplane`: The kernel pairs to zero against any test function supported away from x₀+x₂−x₁=0.
 - `chargedKernel_zero_charge`: The charge boundary a=0 is outside the strictly positive construction; a limiting or residue invariant requires a separate theorem.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), §4, pp. 15–16, charged kernels and Fourier identities.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], §4, pp. 15–16, charged kernels and Fourier identities.
 
 <a id="qt-6-ak-charged-pentagon"></a>
 
@@ -1736,7 +1743,7 @@ For positive charge pairs (a_j,c_j), b_j=1/2−a_j−c_j>0, satisfying a₁=a₀
 
 **Construction or proof.** Insert the charge conjugations around the uncharged tetrahedral operator. Use AK §CPI’s Heisenberg relations, the five linear charge equations and the uncharged pentagon. Evaluate the ratio of the five ν charge phases; it is precisely exp(πi c_λ²P_e/3), not 1.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Proposition 2, §5, pp. 16–17.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Proposition 2, §5, pp. 16–17.
 
 <a id="qt-6-ak-leveled-state-integral"></a>
 
@@ -1761,7 +1768,7 @@ For ℏ>0, the AK state integral F_ℏ(X,ℓ)=Z_ℏ(X)exp(iπℓ/(4ℏ)) is obta
 - `ak_bad_distribution_product`: δ₀·δ₀ on the same coordinate has opposite wavefront covectors and is excluded from this composition rule.
 - `ak_closed_output`: The output for an empty face boundary has no free face-coordinate dependence; cusp links at deleted vertices do not add boundary-face variables.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Theorem 4, §1.7, pp. 9–10; Appendix B, §14, pp. 37–39.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Theorem 4, §1.7, pp. 9–10; Appendix B, §14, pp. 37–39.
 
 <a id="qt-6-ak-state-integral-invariance"></a>
 
@@ -1773,7 +1780,7 @@ For every positively shaped pseudo-3-manifold X satisfying H₂(X∖vertices;ℤ
 
 **Construction or proof.** Use AK’s Fundamental Lemma: the three adjacent vertex exchanges conjugate the charged kernel by its A/B boundary distributions, with charge permutations and orientation change. Use the operator-valued boundary cohomology class θ_X and its annihilation on the kernel of H₁(boundary∖vertices)→H₁(X∖vertices). In the polarization of §Convergence the kernel is ψ_X(η) times a product of independent Dirac factors. A forbidden repeated Dirac constraint under gluing would yield a nonzero H₂ class. Admissibility rules it out; exponential decay of ψ_X supplies the required pushforward extension. Apply the charged pentagon, gauge-trans phase and level shift to prove independence of the admitted refinements and gauge representatives; use conjugate transpose for the * law.
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Theorem 4, §1.7, pp. 9–10; Theorem 7 and proof of Theorem 4, §10, pp. 24–25.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Theorem 4, §1.7, pp. 9–10; Theorem 7 and proof of Theorem 4, §10, pp. 24–25.
 
 <a id="qt-6-root-nz-data"></a>
 
@@ -1809,9 +1816,14 @@ On RootNZDatum, define the filtered vertex series Ψ_(k,h)(x,θ,m)=exp(Σ_(n,j�
 
 **Construction or proof.** Use DG2 §2.4’s propagator and rational diagonal vertex factors, translated by x↦√h x to the displayed filtered series. Import Gaussian moments from HB.4; pair indices and divide each finite diagram by its automorphism count. The degree bound in LD makes every fixed h coefficient finite. Average coefficientwise over the finite m-set; multiply by the separately chosen one-loop factor. Keep the general conjectures separate.
 
+As above, positive t-degree d uses 2n+j=d+2. Evaluate Mathlib’s Bernoulli polynomial at s/k, s=1,…,k; use the imported Li_(−r). Zero logarithmic constant permits exponential substitution. Polynomial parity applies before contraction; HB.4 supplies the covariance kΛ⁻¹ bracket.
+
 **API.**
 
 - `rootNZVertexSeries`: The displayed degree-filtered Bernoulli-polynomial vertex expansion.
+- `rootNZVertexLog`, `rootNZVertexLog_hasSubst`: Finite logarithmic coefficients and substitution condition.
+- `rootNZFormalIntegrand`: Exact product with linear prefactor −xᵀμ/(2k) and scalar fᵀμ/(8k), μ=B⁻¹ν.
+- `rootNZVertexSeries_parity`, `rootNZFormalIntegrand_parity`: Degree-d coefficients have polynomial parity (−1)^d.
 - `rootNZFormalSeries`: The normalized finite average of Gaussian brackets, with Hessian Λ/k.
 - `rootNZFormalSeries_constant`: The constant coefficient of φ⁺ equals 1.
 - `rootNZFormalSeries_descent`: Its coefficients lie in F(ζ), independently of the k-th shape-root choices, by the following arithmetic theorem.
@@ -1821,6 +1833,9 @@ On RootNZDatum, define the filtered vertex series Ψ_(k,h)(x,θ,m)=exp(Σ_(n,j�
 - `rootNZ_constant`: φ⁺(0)=1 whenever S≠0.
 - `rootNZ_odd_moment`: Wick parity removes all odd √h powers.
 - `rootNZ_valence_three`: The n=0, j=3 vertex is necessary: two such vertices with three propagators contribute at h¹; the printed n≥1 block omits this two-loop term.
+- `rootNZVertexLog_constant`, `rootNZ_valence_three`, `rootNZ_cubic_scaling`: Zero log constant; at k=1 its t coefficient is −Li₀x/2−Li₋₁x³/6; at k=2 with Li₀=0, Li₋₁=1 it is −x³/24.
+- `rootNZVertexSeries_constant`, `rootNZ_vertex_exponential`, `rootNZVertexSeries_parity`: Unit constant, coefficient t² contains half the squared t coefficient, and odd t coefficients are odd polynomials.
+- `rootNZ_empty_integrand`, `rootNZ_linear_prefactor`, `rootNZ_flattening_prefactor`: Empty product is 1; with zero vertices, k=2, μ=4, f=2 the t coefficient is −x and the t² coefficient is 1/2+x²/2. These controls distinguish the root prefactor from GSW’s.
 
 **Sources.** [Quantum modularity and complex Chern–Simons theory](https://arxiv.org/abs/1511.05628v1), Definition 2.5, §2.3, p. 7; diagrams in §2.4, equations (24)–(28) and Lemma 2.8, pp. 8–9; [Quantum modularity and complex Chern–Simons theory](https://arxiv.org/abs/1511.05628v1), Conjecture 2.9, §2.8, pp. 11–12.
 
@@ -1850,7 +1865,7 @@ Conjecture (GZ QMC): for γ=(a b;c d)∈SL₂(ℤ), c>0, X→+∞ through ration
 
 **Prerequisites.** [The Kashaev invariant, its identification with a colored Jones evaluation, and the periodic function it defines](#qt-2-the-kashaev-invariant-and-the-function-on-the-rationals); [Representation-indexed knot series](#qt-7-representation-indexed-perturbative-family); [The Rogers dilogarithm computes volume and Chern-Simons](#qt-5-volume-and-chern-simons).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.5)–(1.6), pp. 10–11.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §1, equations (1.5)–(1.6), pp. 10–11.
 
 <a id="qt-7-the-example-ledger"></a>
 
@@ -1877,7 +1892,7 @@ The ledger records exact knot/root/normalization/representation/shape-field data
 - `ledger_traceField`: The trace field of the figure-eight knot is the rationals with the square root of minus three adjoined, and of the knot five two the cubic field of the displayed polynomial.
 - `ledger_empty_column`: A column that cannot be filled for a row is recorded as empty and not as agreement; this is the discipline the ledger exists to enforce.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.3)–(1.4), pp. 9–10; producing nodes cite the selected proved cases.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §1, equations (1.3)–(1.4), pp. 9–10; producing nodes cite the selected proved cases.
 
 <a id="qt-7-proved-cases-conjectures-and-the-executable-boundary"></a>
 
@@ -1887,7 +1902,7 @@ The ledger records each output’s status. Geometric comparisons require their s
 
 **Prerequisites.** [The comparisons with the Habiro ring that are actually proved, and the ones that are not](#qt-6-what-is-exported-to-the-habiro-roadmaps); [A reproducible ledger linking the four kinds of data, for two knots](#qt-7-the-example-ledger).
 
-**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, two-variable invariant and unified Kashaev specialization.
+**Sources.** [Habiro, unified invariant][H06], §7.1, pp. 24–26, two-variable invariant and unified Kashaev specialization.
 
 <a id="qt-7-representation-indexed-perturbative-family"></a>
 
@@ -1915,7 +1930,7 @@ For a knot with a finite set P_K of isolated boundary-parabolic SL₂(ℂ) repre
 - `representationIndex_52`: The selected 5₂ family has four representations.
 - `nonisolated_representation`: A nonisolated or degenerate stationary point is not an input to the declared one-loop formal formula.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §§2.1–2.2, pp. 11–15; §3.1, pp. 15–16.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §§2.1–2.2, pp. 11–15; §3.1, pp. 15–16.
 
 <a id="qt-7-denominator-volume-cocycle"></a>
 
@@ -1946,7 +1961,7 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 - `tweaked_S_two_thirds`: At weight zero the entry is exp(vσ/6).
 - `tweaked_sign`: Negating S leaves the entries and diagonal unchanged; S,0 admits no pole-free GL lift.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.1, equation (3.5) and Lemma 3.1, p. 16 (subtract the second fraction in the displayed proof); §4.2, equations (4.14)–(4.15), p. 30.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.1, equation (3.5) and Lemma 3.1, p. 16 (subtract the second fraction in the displayed proof); §4.2, equations (4.14)–(4.15), p. 30.
 
 <a id="qt-7-generalized-quantum-modularity"></a>
 
@@ -1958,7 +1973,7 @@ Conjecture (GZ GQMC): for every supplied representation σ, γ=(a b;c d), c>0, a
 
 **Prerequisites.** [The conjecture, with its exact normalisation and its domain](#qt-7-the-quantum-modularity-conjecture); [Denominator cocycle](#qt-7-denominator-volume-cocycle).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.1, equation (3.6), p. 16.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.1, equation (3.6), p. 16.
 
 <a id="qt-7-lift-from-values-to-series"></a>
 
@@ -1970,7 +1985,7 @@ Conjecture (GZ §§3.2): put ℏ=h/(2πi), x=X−ℏ and h*=h/[(cx+d)(cX+d)]. Th
 
 **Prerequisites.** [Generalized quantum modularity](#qt-7-generalized-quantum-modularity); `HabiroCyclotomicCompletions:HC.3/the-taylor-map`; `HabiroCyclotomicCompletions:HC.3/re-expansion-of-taylor-expansions`.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.2, equations (3.9), (3.12)–(3.13), pp. 17–18.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.2, equations (3.9), (3.12)–(3.13), pp. 17–18.
 
 <a id="qt-7-quadratic-relations"></a>
 
@@ -1982,7 +1997,7 @@ Conjecture (GZ): Σ_(σ∈P_K∖{σ₀})Φ_ασ(h)Φ_(−α)^σ(−h)=0, with th
 
 **Prerequisites.** [Representation-indexed knot series](#qt-7-representation-indexed-perturbative-family).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.3, equation (3.14), pp. 18–19.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.3, equation (3.14), pp. 18–19.
 
 <a id="qt-7-coefficient-asymptotics"></a>
 
@@ -1994,7 +2009,7 @@ GZ’s experimental large-n expansion couples A_ασ(n)=[h^n]Φ_ασ to all othe
 
 **Prerequisites.** [Representation-indexed knot series](#qt-7-representation-indexed-perturbative-family); [Quadratic relations of knot series](#qt-7-quadratic-relations).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.4, equations (3.16)–(3.18), pp. 20–22; E12 records the phase discrepancy.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.4, equations (3.16)–(3.18), pp. 20–22; E12 records the phase discrepancy.
 
 <a id="qt-7-matrix-refined-quantum-modularity"></a>
 
@@ -2006,7 +2021,7 @@ GZ supplies selected square matrices Φ_α^(σ,σ′)(h) and J(α)=Φ_α(0), ind
 
 **Prerequisites.** [Lift to knot power series](#qt-7-lift-from-values-to-series); [Quadratic relations of knot series](#qt-7-quadratic-relations); [Knot coefficient asymptotics](#qt-7-coefficient-asymptotics).
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §4.5, equations (4.12)–(4.14), pp. 28–30; E13 records the weight discrepancy.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §4.5, equations (4.12)–(4.14), pp. 28–30; E13 records the weight discrepancy.
 
 <a id="qt-7-knot-matrix-cocycle"></a>
 
@@ -2032,7 +2047,7 @@ Given the selected knot matrix J(x) with invertible values and a diagonal tweake
 - `matrixCocycle_noncommutative_order`: The composition multiplies Wγ(γ′x) before Wγ′(x).
 - `matrixCocycle_singular_J`: A singular J(x) does not define a GL-valued W by this formula.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §5 introduction, equations (5.1)–(5.3), pp. 30–31.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §5 introduction, equations (5.1)–(5.3), pp. 30–31.
 
 <a id="qt-7-cocycle-analytic-extension"></a>
 
@@ -2044,7 +2059,7 @@ GZ conjectures that Wγ on ℚ∖{γ⁻¹(∞)} extends real analytically to ℝ
 
 **Prerequisites.** [Knot matrix cocycle](#qt-7-knot-matrix-cocycle); [Matrix refined quantum modularity](#qt-7-matrix-refined-quantum-modularity); `QSeriesPartitionsAndMockModularForms:QM.5`; `MeasureTheory.integral`; `Complex.integral_boundary_rect_eq_zero_of_differentiableOn`.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §5.2, Conjecture 5.1 and conditional Proposition 5.2, pp. 34–37; §5.4, pp. 40–42; both cut planes specified on p. 7.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §5.2, Conjecture 5.1 and conditional Proposition 5.2, pp. 34–37; §5.4, pp. 40–42; both cut planes specified on p. 7.
 
 <a id="qt-7-figure-eight-habiro-descendants"></a>
 
@@ -2071,7 +2086,7 @@ For m∈ℤ define H_m(q)=Σ_(n≥0)(q;q)_n(q⁻¹;q⁻¹)_n q^(mn) in the integ
 - `descendant_recurrence_root_one`: At q=1 the recurrence gives 1−1+1=1.
 - `descendant_half_row_not_integral`: The Taylor coefficient of (q−1)² in Q₂ is −½; an implementation placing this matrix entry in the integral ℤ-Habiro ring contradicts its Taylor map.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §7.1, pp. 52–56, descendant sums and recurrence.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §7.1, pp. 52–56, descendant sums and recurrence.
 
 <a id="qt-7-bettin-drappeau-proved-cases"></a>
 
@@ -2095,7 +2110,7 @@ Conjecture (AK, for a hyperbolic knot K in a closed oriented compact 3-manifold 
 
 **Prerequisites.** [AK convergence and invariance theorem](#qt-6-ak-state-integral-invariance); [Selected analytic state integrals](#qt-6-selected-analytic-state-integrals); [Selected state-integral volume theorem](#qt-6-selected-state-integral-volume); [Formal NZ state integral](#qt-6-formal-nz-state-integral).
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), Conjecture 1 and Theorem 5, §1.9, p. 11.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], Conjecture 1 and Theorem 5, §1.9, p. 11.
 
 <a id="qt-7-kashaev-volume-conjecture"></a>
 
@@ -2107,23 +2122,23 @@ For a hyperbolic knot K⊂S³, put ⟨K⟩_N=J^red_(K,N)(exp(2πi/N)), with dime
 
 **Prerequisites.** [The Kashaev invariant, its identification with a colored Jones evaluation, and the periodic function it defines](#qt-2-the-kashaev-invariant-and-the-function-on-the-rationals); [The conjecture, with its exact normalisation and its domain](#qt-7-the-quantum-modularity-conjecture).
 
-**Sources.** [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2), §1.9, p. 11, volume-conjecture qualification following Conjecture 1; [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §1, equations (1.1), (1.5)–(1.6), pp. 9–11.
+**Sources.** [A TQFT from quantum Teichmüller theory][AK], §1.9, p. 11, volume-conjecture qualification following Conjecture 1; [Knots, perturbative series and quantum modularity][GZ], §1, equations (1.1), (1.5)–(1.6), pp. 9–11.
 
 ## Sources and fixed versions
 
 - **habiro2008** — Kazuo Habiro. [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1). Public arXiv math/0605314v1 (version explicitly fixed).
 
-- **neumann2004** — Walter D. Neumann. [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2). Public arXiv math/0307092v2 (version explicitly fixed).
+- **neumann2004** — Walter D. Neumann. [Extended Bloch group and the Cheeger-Chern-Simons class][N04]. Public arXiv math/0307092v2 (version explicitly fixed).
 
 - **habiro-le-unified-simple-lie** — Kazuo Habiro and Thang T. Q. Le. [Unified quantum invariants for integral homology spheres associated with simple Lie algebras](https://arxiv.org/abs/1503.03549v2). Public arXiv 1503.03549v2 (version explicitly fixed).
 
-- **garoufalidis-zagier-quantum-modularity** — Stavros Garoufalidis and Don Zagier. [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3). Public arXiv 2111.06645v3 (version explicitly fixed).
+- **garoufalidis-zagier-quantum-modularity** — Stavros Garoufalidis and Don Zagier. [Knots, perturbative series and quantum modularity][GZ]. Public arXiv 2111.06645v3 (version explicitly fixed).
 
 - **gsw** — Stavros Garoufalidis, Matthias Storzer, Campbell Wheeler. [Perturbative invariants of cusped hyperbolic 3-manifolds](https://arxiv.org/abs/2305.14884v2). Public arXiv 2305.14884v2.
 
 - **gswz** — Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier. [The Habiro ring of a number field](https://arxiv.org/abs/2412.04241v2). Public arXiv 2412.04241v2.
 
-- **ak** — Jørgen Ellegaard Andersen, Rinat Kashaev. [A TQFT from quantum Teichmüller theory](https://arxiv.org/abs/1109.6295v2). Public arXiv 1109.6295v2.
+- **ak** — Jørgen Ellegaard Andersen, Rinat Kashaev. [A TQFT from quantum Teichmüller theory][AK]. Public arXiv 1109.6295v2.
 
 - **bd** — Sandro Bettin, Sary Drappeau. [Modularity and value distribution of quantum invariants of hyperbolic knots](https://arxiv.org/abs/1905.02045v2). Public arXiv 1905.02045v2.
 
@@ -2144,3 +2159,8 @@ For a hyperbolic knot K⊂S³, put ⟨K⟩_N=J^red_(K,N)(exp(2πi/N)), with dime
 - **dg** — Tudor Dimofte and Stavros Garoufalidis. [The quantum content of the gluing equations](https://arxiv.org/abs/1202.6268v2). Public arXiv 1202.6268v2 (fixed version).
 
 - **dg2** — Tudor Dimofte and Stavros Garoufalidis. [Quantum modularity and complex Chern–Simons theory](https://arxiv.org/abs/1511.05628v1). Public arXiv 1511.05628v1 (fixed version).
+
+[H06]: https://arxiv.org/abs/math/0605314v1
+[GZ]: https://arxiv.org/abs/2111.06645v3
+[AK]: https://arxiv.org/abs/1109.6295v2
+[N04]: https://arxiv.org/abs/math/0307092v2
