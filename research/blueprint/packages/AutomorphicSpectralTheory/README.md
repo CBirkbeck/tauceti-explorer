@@ -1,16 +1,16 @@
 # Automorphic spectral theory and trace distributions
 
-Construct automorphic L² decomposition, Eisenstein wave packets, weighted cohomology and trace distributions; modular kernels and unramified function-field GLₙ formulas test their normalizations.
+Construct automorphic L² decomposition, Eisenstein packets, weighted cohomology and trace distributions, tested by modular kernels and unramified function-field GLₙ formulas.
 
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** supplies projection measures, Borel calculus and self-adjoint partial operators; **OperatorIdeals** supplies Schatten and Hilbert–Schmidt theory. Add measurable multiplicities, direct integrals, L² kernels and complex trace, using native `LinearPMap` adjoints/resolvents. **CompactGroups** supplies Peter–Weyl and compact-group kernels; noncompact groups require smoothing estimates.
+Use **SelfAdjointSpectralTheory** for projection measures, Borel calculus and self-adjoint partial operators, **OperatorIdeals** for Schatten/Hilbert–Schmidt theory, and **CompactGroups** for Peter–Weyl and compact kernels. Add measurable multiplicities, direct integrals, L² kernels and complex trace with native `LinearPMap` adjoints/resolvents; noncompact groups need smoothing estimates.
 
-**AdelicAlgebraicGroups** AA.0–AA.3 supplies adelic topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** supplies local reductive structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 supplies Hecke algebras, normalized induction, admissibility and spherical data. Add rational global Bruhat indexing and analytic intertwiner estimates.
+Use **AdelicAlgebraicGroups** AA.0–AA.3 for adelic topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** for local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 for Hecke algebras, normalized induction, admissibility and spherical data. Add rational global Bruhat indexing and analytic intertwiner estimates.
 
-**AutomorphicFormsOnReductiveGroups** AF.0–AF.3 supplies adelic functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 supplies the cohomology comparison. **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`; GL×classical, exterior/symmetric and Asai factors require extensions.
+Use **AutomorphicFormsOnReductiveGroups** AF.0–AF.3 for adelic functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 for cohomology comparison; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 for Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. Extend this for GL×classical, exterior/symmetric and Asai factors.
 
-Stabilization, endoscopy and Galois applications consume this theory. Orbital integrals and local packets precede spectral construction; rank-one analytic inputs precede arithmetic applications.
+Stabilization, endoscopy and Galois applications consume this theory. Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications.
 
 ## Conventions and order
 
@@ -18,7 +18,7 @@ Hilbert spaces are complete and complex, with conjugate-first inner products. Di
 
 Induction uses δ_P^(1/2), or a^(ν+ρ_P), and AA.0/AA.2 quotient measures. Weyl denominators, covolumes and stabilizer cardinalities are explicit. The spectral resolvent (A−zI)⁻¹ is minus the native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
-Standing assumptions for Yu, DIT and Gross–Zagier targets and tests:
+Yu, DIT and Gross–Zagier targets/tests use Y, D and G respectively:
 
 - **Y:** F=𝔽_q(X), X smooth, projective and geometrically connected; n>0; everywhere-unramified GLₙ data, except general compact-group assertions. Probability Haar is normalized on the entire character group: with r components each has mass 1/r. The degree sign and half-modulus convention are fixed; gcd(e,n)=1 is imposed only where stated.
 - **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix). Displayed index, sign, parameter and boundary restrictions are hypotheses.
@@ -29,7 +29,7 @@ For F=y^(k/2)f, the coefficient and unitary-weight operators satisfy
 
 Build AS.0, AS.1–AS.2, AS.3, AS.4 in order; AS.5 adds AF/ALS cochains. AS.6's local Paley–Wiener/multiplier prefix uses AS.0 and AF.1: general Levi SF compact pictures, K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent quotient-centralizer orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores need oriented quadratic cycles with genus-character signs.
 
-Names are relative to `TauCeti.AutomorphicSpectral`; API/test leaf names extend their target. AS.k.j names a target; AA/SR/AF/AL/ALS name suppliers; B labels name library declarations and S labels bibliography entries.
+Names extend `TauCeti.AutomorphicSpectral`; API/test leaves extend their target. AS.k.j labels targets; AA/SR/AF/AL/ALS suppliers; B library; S bibliography.
 
 `SpecialFunctions` is a consumer comparison interface. I/J agree with QM.2's principal-power regularized ₀F̃₁ formulas, with arguments +y²/4 and −y²/4 respectively; K agrees with AL.0's Mellin integral; Λ agrees with Mathlib `completedRiemannZeta`. Require these equations for the supplied functions. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10); the named suppliers own these functions.
 
@@ -919,7 +919,7 @@ Uses: AS.1.7; AS.1.5; B2.
 
 `cuspidal_datum_space`
 
-A cuspidal datum χ is a Weyl-associate class of pairs (P,σ), where σ occurs in L²_cusp([M_P]¹). Let L²_χ be the closed G(𝔸)¹-invariant linear span of the pseudo-Eisenstein series from all pairs in χ. Associate equivalence requires conjugation of σ together with the parabolic; grouping only the parabolics loses spectral information. This definition uses cuspidal carriers supplied by AF.3 and does not construct a second cuspidal spectrum.
+A cuspidal datum χ is a Weyl-associate class of (P,σ), with σ occurring in L²_cusp([M_P]¹), from AF.3. Let L²_χ be the closed G(𝔸)¹-invariant span of its pseudo-Eisenstein series. Association transports both σ and P; identifying parabolics alone loses spectral information.
 
 Assume: The central quotient/G(𝔸)¹ convention is fixed; equivalence includes the representation.
 
@@ -943,13 +943,15 @@ Uses: AS.1.7; `AF.3/cuspidal-automorphic-representation`.
 
 `cuspidal_data_orthosum`
 
-The subspaces L²_χ form an orthogonal Hilbert direct sum equal to L²([G]¹). Their finite linear combinations are dense. Orthogonality is proved with the pseudo-Eisenstein inner-product formula in the convergence region; completeness uses induction on parabolic rank and Fourier inversion of constant terms. This decomposition precedes analytic continuation and is distinct from the final discrete-plus-continuous Plancherel parametrization.
+The L²_χ form an orthogonal Hilbert sum equal to L²([G]¹), with dense finite sums. Orthogonality uses the convergent pseudo-Eisenstein inner-product formula; density uses parabolic-rank induction and constant-term Fourier inversion. This precedes continuation and Plancherel parametrization.
+
+For generators Sχ, require `OrthogonalFamily` of closed spans and dense span of ⋃χ Sχ. `IsHilbertSum.mkInternal` gives H ≃ₗᵢ `lp (fun χ => cuspidal_datum_space (Sχ)) 2`; inverse single coordinates are inclusions; coordinate sums converge to their inverse image. Prove these inputs automorphically. Checks: repeated blocks fail orthogonality when nonzero; zero generators in ℂ fail density; one full block gives H.
 
 Assume: All cuspidal associate classes χ occur; reductive Levis use the same quotient measures.
 
 Source: S3, §12 Lemma 12.4, equation (12.4), pp.64–66.
 
-Uses: AS.1.9; AS.1.8; `AF.3/constant-term-transitivity`.
+Uses: AS.1.9; AS.1.8; `AF.3/constant-term-transitivity`; Mathlib `IsHilbertSum.mkInternal` (`l2Space`).
 
 ### AS.1.11 — Unramified character tori and central degree lattices
 

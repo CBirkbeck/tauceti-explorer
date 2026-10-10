@@ -1908,12 +1908,75 @@ example : cuspidal_datum_space ({0} : Set H) = ⊥ := by sorry
 
 end cuspidal_datum_space
 
-/-- Orthogonality and completeness of the cuspidal generator system are proved by unfolding.
-The associate-datum quotient is omitted until AF supplies its representation carrier. -/
-theorem cuspidal_data_orthosum {Χ : Type v} (S : Χ → Set H) :
-    (∀ χ χ', χ ≠ χ' → ∀ v ∈ cuspidal_datum_space (S χ),
-      ∀ u ∈ cuspidal_datum_space (S χ'), inner ℂ v u = 0) ∧
-      Dense (↑(Submodule.span ℂ (⋃ χ, S χ)) : Set H) := by sorry
+/-- Hilbert-space assembly after orthogonality and density have been established.
+Mathlib's `IsHilbertSum.mkInternal` supplies the Hilbert sum; no new generic
+Hilbert-sum theory is planned here. For Arthur §12 Lemma 12.4, (12.4), pp.64–66,
+the missing automorphic input is the genuine AF cuspidal associate-class carrier,
+with its pseudo-Eisenstein generators and common quotient measures. Unfolding
+and Fourier inversion must prove `hOrth` and `hDense` for that system.
+This conditional assembly does not assert these facts for arbitrary generators. -/
+theorem cuspidal_data_orthosum {Χ : Type v} (S : Χ → Set H)
+    (hOrth : OrthogonalFamily ℂ (fun χ => cuspidal_datum_space (S χ))
+      (fun χ => (cuspidal_datum_space (S χ)).subtypeₗᵢ))
+    (hDense : Dense (↑(Submodule.span ℂ (⋃ χ, S χ)) : Set H)) :
+    IsHilbertSum ℂ (fun χ => cuspidal_datum_space (S χ))
+      (fun χ => (cuspidal_datum_space (S χ)).subtypeₗᵢ) := by
+  have hSpan : Submodule.span ℂ (⋃ χ, S χ) ≤ ⨆ χ, cuspidal_datum_space (S χ) := by
+    refine Submodule.span_le.mpr ?_
+    intro x hx
+    obtain ⟨χ, hx⟩ := Set.mem_iUnion.mp hx
+    exact Submodule.mem_iSup_of_mem χ
+      ((Submodule.le_topologicalClosure _) (Submodule.subset_span hx))
+  have hTotal : ⊤ ≤ (⨆ χ, cuspidal_datum_space (S χ)).topologicalClosure := by
+    rw [← Submodule.dense_iff_topologicalClosure_eq_top.mp hDense]
+    exact Submodule.topologicalClosure_mono hSpan
+  let : ∀ χ, CompleteSpace (cuspidal_datum_space (S χ)) := fun χ =>
+    (Submodule.isClosed_topologicalClosure (Submodule.span ℂ (S χ))).completeSpace_coe
+  exact IsHilbertSum.mkInternal _ hOrth hTotal
+
+namespace cuspidal_data_orthosum
+variable {Χ : Type v} (S : Χ → Set H)
+variable (hOrth : OrthogonalFamily ℂ (fun χ => cuspidal_datum_space (S χ))
+  (fun χ => (cuspidal_datum_space (S χ)).subtypeₗᵢ))
+variable (hDense : Dense (↑(Submodule.span ℂ (⋃ χ, S χ)) : Set H))
+
+/-- The native unitary decomposition, after the two automorphic inputs are established. -/
+def toHilbertSumEquiv : H ≃ₗᵢ[ℂ] lp (fun χ => cuspidal_datum_space (S χ)) 2 :=
+  (cuspidal_data_orthosum S hOrth hDense).linearIsometryEquiv
+
+theorem inverse_single [DecidableEq Χ] (χ : Χ) (v : cuspidal_datum_space (S χ)) :
+    (toHilbertSumEquiv S hOrth hDense).symm (lp.single 2 χ v) = (v : H) :=
+  (cuspidal_data_orthosum S hOrth hDense).linearIsometryEquiv_symm_apply_single v
+
+theorem inverse_hasSum (v : lp (fun χ => cuspidal_datum_space (S χ)) 2) :
+    HasSum (fun χ => (v χ : H)) ((toHilbertSumEquiv S hOrth hDense).symm v) :=
+  (cuspidal_data_orthosum S hOrth hDense).hasSum_linearIsometryEquiv_symm v
+
+-- A nonzero repeated block is not an orthogonal family.
+example : ¬ OrthogonalFamily ℂ (fun _ : Bool => ℂ)
+    (fun _ => (LinearIsometry.id : ℂ →ₗᵢ[ℂ] ℂ)) := by
+  intro h
+  have hOne := h (by decide : true ≠ false) (1 : ℂ) (1 : ℂ)
+  norm_num at hOne
+
+-- Zero generators are not total, even when the index set contains a class.
+example : ¬ Dense (↑(Submodule.span ℂ (⋃ _ : Unit, ({0} : Set ℂ))) : Set ℂ) := by
+  intro hd
+  have hm : (1 : ℂ) ∈ closure ({0} : Set ℂ) := by
+    simpa using hd (1 : ℂ)
+  simp at hm
+
+-- A single full block reconstructs the ambient space.
+example : IsHilbertSum ℂ (fun _ : Unit => cuspidal_datum_space (Set.univ : Set ℂ))
+    (fun _ => (cuspidal_datum_space (Set.univ : Set ℂ)).subtypeₗᵢ) := by
+  apply cuspidal_data_orthosum (fun _ : Unit => (Set.univ : Set ℂ))
+  · intro i j hij
+    exact False.elim (hij (Subsingleton.elim i j))
+  · intro x
+    apply subset_closure
+    apply Submodule.subset_span
+    exact Set.mem_iUnion.mpr ⟨(), Set.mem_univ x⟩
+end cuspidal_data_orthosum
 end CuspidalBlocks
 
 /- Yu's multiplicative parameter spaces retain their finite components. -/
