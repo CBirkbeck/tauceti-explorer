@@ -624,7 +624,8 @@ def value (i : Characters8) (n : ℕ) : ℂ :=
 -- Declaration TauCeti.SeveralVariableZeta.Characters8.mul
 theorem mul (i : Characters8) (m n : ℕ) : value i (m*n) = value i m * value i n := by sorry
 -- Declaration TauCeti.SeveralVariableZeta.Characters8.unit_table
-theorem unit_table : (value 2 1, value 2 3, value 2 5, value 2 7) = (1,-1,-1,1) := by sorry
+theorem unit_table : (fun i j : Fin 4 => value i (2*j.val+1)) =
+    !![(1 : ℂ), 1, 1, 1; 1, -1, 1, -1; 1, -1, -1, 1; 1, 1, -1, -1] := by sorry
 -- TauCeti.SeveralVariableZeta.Characters8.test_one
 example (i : Characters8) : value i 1 = 1 := by sorry
 -- TauCeti.SeveralVariableZeta.Characters8.test_signs
@@ -811,9 +812,12 @@ example {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V
   (h : ∀ x, Φ x ≠ 0 → d x ≠ 0 ∧ v (d x)=1) :
   LocalIntegral μ d v Φ s = ∫ x, Φ x ∂μ := by sorry
 -- TauCeti.SeveralVariableZeta.LocalIntegral.test_linear_benchmark
-example (s : ℂ) :
-  LocalIntegral (MeasureTheory.Measure.dirac ()) (fun _ : Unit => (2:ℝ))
-    id (fun _ => (3:ℂ)) s = 3*(2:ℂ)^s := by sorry
+example (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)] [BorelSpace (Padic p)]
+    (μ : MeasureTheory.Measure (Padic p)) [MeasureTheory.Measure.IsAddHaarMeasure μ]
+    (hnorm : μ {x | ‖x‖ ≤ 1} = 1) (s : ℂ) (hs : -1 < s.re) :
+    LocalIntegral μ (fun x : Padic p => x) norm
+      (fun x => if ‖x‖ ≤ 1 then 1 else 0) s =
+        (1-(p:ℂ)^(-1:ℂ))/(1-(p:ℂ)^(-s-1)) := by sorry
 end LocalIntegral
 
 /-! The general functions below take the actual ST enumeration and invariant maps as parameters.
@@ -1602,7 +1606,9 @@ theorem spectral_pullback_order (D : ℂ → ℂ) (s₀ : ℂ) (m : ℕ)
     ∃ f : ℂ → ℂ, AnalyticAt ℂ f s₀ ∧ f s₀ ≠ 0 ∧
       ∀ᶠ s in nhds s₀, D (s*(s-1))=(s-s₀)^(if s₀=1/2 then 2*m else m)*f s := by sorry
 
-/-- Barnes G is the exact normalized AN.7 supplier function, not a generic logarithm. -/
+/-- Barnes G is the exact normalized AN.7 supplier function, not a generic logarithm.
+The scalar normalization follows JSS (8.4), p.27, and the differentiated heat transform.
+JSS (6.2), p.20, has an incompatible scalar Gamma coefficient; see source issue E24. -/
 def scalarIdentity (G : ℂ → ℂ) (g : ℕ) (s : ℂ) : ℂ :=
   (2*Real.pi:ℂ)^(2*((g-1:ℕ):ℂ)*s) *
   Complex.exp (2*((g-1:ℕ):ℂ)*s*(1-s)) *
@@ -2158,9 +2164,6 @@ Missing is the canonical binary-cubic GL2 orbit covering with finite stabilizer 
 AnalyticNumberTheory:AN.8/local-density-coefficient-comparison — TauCeti.SeveralVariableZeta.local_density_coefficient_comparison
 LocalIntegral.shell_sum is native for actual norm/discriminant shells. The stronger comparison needs the actual open-orbit selector, representative discriminant, stabilizer order and GL2 orbital measure; it is not an equality with arbitrary coefficient data.
 
-AnalyticNumberTheory:AN.8/cubic-adelic-zeta — TauCeti.SeveralVariableZeta.CubicAdelic.unfolding
-Missing are the actual GL2 adelic quotient measure, Schwartz-Bruhat space, rational binary-cubic orbit quotient and finite stabilizers, all with the right-quotient determinant exponent 2s. Generic theta reindexing and inversion_kernel are native, but not this canonical orbital unfolding.
-
 AnalyticNumberTheory:AN.8/cubic-adelic-convergence — TauCeti.SeveralVariableZeta.cubic_adelic_convergence
 CubicAdelic.integral is native for actual quotient measure, determinant norm and theta supplied as parameters. Identifying them with GL2(A_F)/GL2(F) and proving the canonical Schwartz-Siegel majorant requires AA.2/AL.0/ST.1.
 
@@ -2210,7 +2213,7 @@ AnalyticNumberTheory:AN.8/cubic-singular-tate-restrictions — TauCeti.SeveralVa
 Missing is the actual adelic Schwartz restriction/integration map T1,T2 and their normalized Tate meromorphic continuations. The four residue distributions must be stated as these canonical restrictions.
 
 AnalyticNumberTheory:AN.8/cubic-triple-root-unfolding — TauCeti.SeveralVariableZeta.cubic_triple_root_unfolding
-Missing is the rational triple-root orbit quotient GL2(F)/B(F) and its smoothed theta integral, compact average and idele/Tate change of variables, including the factor 1/3.
+Missing is the triple-root locus parametrization by GL2(F)/B(F) together with a nonzero scalar on the preserved cubic line, and its smoothed theta integral, compact average and idele/Tate change of variables, including the factor 1/3. The Borel preserves that line, rather than fixing each vector on it.
 
 AnalyticNumberTheory:AN.8/cubic-triple-root-residue — TauCeti.SeveralVariableZeta.cubic_triple_root_residue
 Missing are the actual Sigma1 continued Tate restriction, smoothing contours and normalized residue distributions, whose poles are at w=2 and w=3.
