@@ -5069,7 +5069,7 @@
       ],
       "title": "The collection of power series produced by formal Gaussian integration",
       "kind": "construction",
-      "statement": "For a symmetric integral A and each m, define Phi^FGI_{A,m}(t,x) as the sum over the residue classes k modulo m of the formal Gaussian integrals I_{A,m,k}(t^{1/m},x), where each I_{A,m,k} is the explicit expression of GSWZ equation (Ikdef): a prefactor built from the exponential of V(t^m)/(m^2 log(1+x/zeta_m)), the square root of m^N det(-Lambda(t^m)) times the product of the 1 - z_j^{1/m}, and products of the quantities (1 - zeta_m^{k+l} z^{1/m})/(1 - zeta_m^{l+k}) raised to explicit rational powers, times the formal Gaussian integral, against the matrix Lambda(t) = -A - diag(z(t)/(1 - z(t))), of the product of the regularised Pochhammer factors psi. The integrals are m-periodic in k, so the sum makes sense, and the exponential prefactor is independent of k, so the Gaussians are equi-peaked.",
+      "statement": "For a symmetric integral A and each m, define Phi^FGI_{A,m}(t,x) as the sum over the residue classes k modulo m of the formal Gaussian integrals I_{A,m,k}(t^{1/m},x), where each I_{A,m,k} is the explicit expression of GSWZ equation (118): a prefactor built from the exponential of V(t^m)/(m^2 log(1+x/zeta_m)), the square root of m^N det(-Lambda(t^m)) times the product of the 1 - z_j^{1/m}, and products of the quantities (1 - zeta_m^{k+l} z^{1/m})/(1 - zeta_m^{l+k}) raised to explicit rational powers, times the formal Gaussian integral, against the matrix Lambda(t) = -A - diag(z(t)/(1 - z(t))), of the product of the regularised Pochhammer factors psi. The integrals are m-periodic in k, so the sum makes sense, and the exponential prefactor is independent of k, so the Gaussians are equi-peaked.",
       "hypotheses": [
         "A is symmetric integral; z(t) is the t-deformed solution; m is a positive integer and k a residue class modulo m.",
         "The psi factors are the infinite Pochhammer symbols with four explicit terms removed, so that they lie in 1 + x times the completed ring in which the formal Gaussian integration is defined.",
@@ -5098,18 +5098,18 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Definition 2.11, equations (PhiFGIdef) and (Ikdef)",
-          "match": "The definition, verbatim."
+          "locator": "Section 2.5, Definition 2.11, equations (117)-(119), printed pp. 29-30 (arXiv v2)",
+          "match": "Defines the residue-class sum, its Gaussian summands and the Hessian; the subsequent refinement nodes retain the regularisation and global-normalisation obligations."
         },
         {
           "sourceId": "gswz",
-          "locator": "Section 2.5, after Definition 2.11",
-          "match": "The periodicity and the equi-peakedness, verbatim; the source cites two references for the periodicity, which this packet records as an obligation."
+          "locator": "Section 2.5, paragraph after equation (119), printed p. 30 (arXiv v2)",
+          "match": "Explains the residue-class periodicity by a Gaussian change of variables and the shared exponential factor; the cited change-of-variables input remains a proof obligation."
         },
         {
           "sourceId": "gswz",
-          "locator": "Section 2.5, equation (eq:Vgen) and after",
-          "match": "The critical point identification, verbatim."
+          "locator": "Section 2.5, equations (115)-(116), printed p. 29 (arXiv v2)",
+          "match": "Identifies the critical points with the deformed Nahm solution and gives the critical-value function used in the Gaussian prefactor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -9665,7 +9665,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked /11 and all six QT.6 exports with GZ Theorem 3.1 pp. 5-6, GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, section 2.5 equations (110)-(111) p. 28, Remark 4.2 (233) p. 48, section 4.5 pp. 54-55. Corrected internal TeX source locators for the formal Gaussian bracket and radial theorem, and the equation (21) page; support descriptions use our own words. Preserved formal nondegeneracy versus analytic positivity, HB.8 G1/G2, Kummer descent/orientation, excluded primes, full finite-etale coefficients and all-order integral gluing. Pinned covariance theorem requires PosSemidef; density law requires PosDef; neither proves formal integration. Exact figure-eight kernel/delta algebra rechecked. No API, theorem hypothesis, gap or suggested declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 441 admitted-proof warnings. Previous review preserved; see the report."
+    "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /11 formal versus analytic hypotheses and six exports, including HB.8 G1/G2 and HB.9 finite-etale/Kummer/integral-gluing restrictions. GZ section 3 pp. 4-6 and GSWZ section 2.5 pp. 28-30 support the interfaces. Corrected HB.8/fgi-collection to numbered equations (115)-(119), Definition 2.11 and printed pp. 29-30, in our own words. No mathematical contract changed. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -10262,6 +10262,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-qDDgyD, following PR #8425 and its predecessors; this session did none of the reviewed fix or source blueprints. Rechecked /11, all six QT.6 export contracts, the controlling HB.4/HB.8/HB.9 refinements and their reader coverage. Formal nondegenerate Gaussian data are distinct from positive-definite analytic Nahm data. Preserve G1/G2, coefficientwise Kummer descent, signed Kummer orientation, excluded primes, integral gluing and coefficient extension. GZ Theorem 3.1 pp. 5-6; GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, Remark 4.2 equation (233) p. 48, section 4.5 pp. 54-55. Independent exact algebra confirms the figure-eight kernel and delta squared -3. Validator: zero errors/warnings; lean-check exit 0, 441 admitted-proof warnings. This verdict concerns the assigned fix, not a fresh review of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked /11 and all six QT.6 exports with GZ Theorem 3.1 pp. 5-6, GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, section 2.5 equations (110)-(111) p. 28, Remark 4.2 (233) p. 48, section 4.5 pp. 54-55. Corrected internal TeX source locators for the formal Gaussian bracket and radial theorem, and the equation (21) page; support descriptions use our own words. Preserved formal nondegeneracy versus analytic positivity, HB.8 G1/G2, Kummer descent/orientation, excluded primes, full finite-etale coefficients and all-order integral gluing. Pinned covariance theorem requires PosSemidef; density law requires PosDef; neither proves formal integration. Exact figure-eight kernel/delta algebra rechecked. No API, theorem hypothesis, gap or suggested declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 441 admitted-proof warnings. Previous review preserved; see the report."
     }
   ]
 }
