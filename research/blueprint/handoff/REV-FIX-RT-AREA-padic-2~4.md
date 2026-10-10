@@ -1,3 +1,15 @@
+# Latest continuation: authorized review complete, generated scope still blocks intake
+
+Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-mZvm4t**, 10 October 2026. Input `2f1cec205`; bot claim confirmed in [comment 6101031037](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101031037).
+
+**Blocked checkpoint.** The live issue still authorizes seven outputs covering three packet reviews. Freshly fetched current-main and local queues both require 31 outputs covering fifteen packets; the corresponding fix entry has 55 outputs. Every output exists. The stock completion predicate returns `True` for the issue's authorized outputs and `False` for the generated job. All twelve extra packets have accepted reviews under their own independent job identifiers. The three authorized verdicts already name this job, including Perfectoid's honest `needs_changes`; those verdicts are preserved.
+
+**Required next action:** restore the historical fix/review scopes from commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`, and repair `make_queue.py` so existing round scopes survive both `missing` and `sent_back` regeneration cases. Verify regeneration twice, then confirm the actual review entry has seven outputs and passes `issues.deliverables_complete`. Additional receiving work needs separately authorized jobs. Queue/generator edits are outside this issue's permitted files. Keep this issue unavailable until that repair, so another worker does not repeat an already completed review. Workers must not change its labels themselves.
+
+Fresh pinned-index packet checks pass: **56, 326 and 537 nodes, zero errors and warnings**. This continuation changes only the review report and this handoff. Lean was not rerun for documentation changes; earlier successful elaboration and primary-source reading remain attributed to their original sessions. No mathematical or source record was changed. The preceding historical scope evidence and read-only reproducer below suffice to resume; no scratch dependency and no second claim.
+
+---
+
 # Latest continuation: scope repair required before another worker
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-LFQgMn**, 10 October 2026. Claim confirmed in [comment 6100242633](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6100242633). Input `24b730041bcdca9936c22add6fd444b4f0354b90`.
