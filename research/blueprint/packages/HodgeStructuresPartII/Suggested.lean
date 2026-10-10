@@ -1,125 +1,29 @@
-/-
-This file is not the roadmap and is not exhaustive. README.md is definitive.
-These statements suggest Lean forms so contributors and reviewers converge on
-names and signatures. Admitted bodies claim no implementation.
-
-Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-
-Fibre, affine and coordinate-chart declarations are distinguished from global
-variations, moduli spaces and analytic correspondences. Where an imported
-geometric interface cannot be expressed, its mathematical target remains in
-README.md. An inventory comment is not a typed declaration or a test.
--/
-
-import Mathlib.LinearAlgebra.Dual.BaseChange
-import Mathlib.Algebra.Algebra.Bilinear
-import Mathlib.RingTheory.TensorProduct.Basic
-import Mathlib.LinearAlgebra.Contraction
-import Mathlib.CategoryTheory.Monoidal.NaturalTransformation
-import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
-import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
-import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
-import Mathlib.Data.ZMod.Basic
-import Mathlib.Algebra.Polynomial.Derivation
-import Mathlib.RingTheory.Finiteness.Projective
-import Mathlib.Data.Fintype.BigOperators
-import Mathlib.Data.Fin.Tuple.Basic
-import Mathlib.Data.List.OfFn
-import Mathlib.RingTheory.Nilpotent.Basic
-import Mathlib.LinearAlgebra.ExteriorPower.Pairing
-import Mathlib.LinearAlgebra.Matrix.Notation
-import Mathlib.RingTheory.Localization.BaseChange
-import Mathlib.RingTheory.LocalProperties.Submodule
-import Mathlib.RingTheory.Flat.Basic
-import Mathlib.RingTheory.Derivation.Basic
-import Mathlib.RingTheory.Kaehler.Basic
-import Mathlib.LinearAlgebra.TensorProduct.Basic
-import Mathlib.Algebra.Category.ModuleCat.Sheaf
-import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
-import Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal
-import Mathlib.Algebra.MvPolynomial.PDeriv
-import Mathlib.Data.Matrix.Basis
-import Mathlib.LinearAlgebra.Matrix.ToLin
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.LinearAlgebra.Matrix.Trace
-import Mathlib.LinearAlgebra.Matrix.Kronecker
-import Mathlib.LinearAlgebra.SymmetricAlgebra.Basic
-import Mathlib.LinearAlgebra.TensorProduct.Associator
-import Mathlib.LinearAlgebra.Dual.Defs
-import Mathlib.LinearAlgebra.Basis.Defs
-import Mathlib.RingTheory.Congruence.Hom
-import Mathlib.RingTheory.Ideal.Quotient.Operations
-import Mathlib.RingTheory.Ideal.Operations
-import Mathlib.LinearAlgebra.TensorProduct.Basis
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
-import Mathlib.LinearAlgebra.TensorPower.Pairing
-import Mathlib.LinearAlgebra.PiTensorProduct.Basis
-import Mathlib.LinearAlgebra.TensorPower.Basic
-import Mathlib.LinearAlgebra.Dimension.Finrank
-import Mathlib.Data.Finset.Sort
-import Mathlib.Data.Finset.Powerset
-import Mathlib.RingTheory.Finiteness.Defs
-import Mathlib.LinearAlgebra.Quotient.Basic
-import Mathlib.RepresentationTheory.Irreducible
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.Analysis.Complex.Basic
+import Mathlib
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.Geometry.Hodge.Polarization
 import TauCeti.Geometry.Hodge.Mixed.Basic
 import TauCeti.Geometry.Hodge.Mixed.Morphism
 import TauCeti.Geometry.Hodge.Mixed.Strictness
-import Mathlib.RepresentationTheory.Invariants
-import Mathlib.LinearAlgebra.Complex.FiniteDimensional
-import Mathlib.LinearAlgebra.SesquilinearForm.Basic
-import Mathlib.Analysis.SpecialFunctions.Complex.Log
 import TauCeti.Geometry.Hodge.PeriodDomain
 import TauCeti.LinearAlgebra.BilinearForm.Isometry
-import Mathlib.RingTheory.Grassmannian
-import Mathlib.Algebra.Lie.OfAssociative
-import Mathlib.Analysis.Normed.Algebra.Exponential
-import Mathlib.Analysis.Calculus.FDeriv.Basic
-import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
-import Mathlib.GroupTheory.GroupAction.Defs
-import Mathlib.Analysis.Complex.Exponential
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
-import Mathlib.LinearAlgebra.FiniteDimensional.Basic
-import Mathlib.LinearAlgebra.Dual.Lemmas
-import Mathlib.RepresentationTheory.Subrepresentation
-import Mathlib.RingTheory.PowerSeries.Basic
-import Mathlib.RingTheory.Length
-import Mathlib.LinearAlgebra.Eigenspace.Basic
-import Mathlib.LinearAlgebra.Trace
-import Mathlib.Algebra.Lie.Classical
-import Mathlib.AlgebraicGeometry.AffineSpace
-import Mathlib.AlgebraicGeometry.Geometrically.Connected
-import Mathlib.AlgebraicGeometry.Morphisms.Smooth
-import Mathlib.AlgebraicGeometry.ZariskisMainTheorem
-import Mathlib.Analysis.CStarAlgebra.Matrix
-import Mathlib.LinearAlgebra.Matrix.PosDef
-import Mathlib.LinearAlgebra.UnitaryGroup
-import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
-import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
-import Mathlib.Topology.Instances.Matrix
-import Mathlib.Analysis.Normed.Algebra.MatrixExponential
-import Mathlib.Analysis.Complex.Trigonometric
-import Mathlib.Analysis.Analytic.Basic
-import Mathlib.Analysis.Calculus.Deriv.Basic
-import Mathlib.Algebra.DirectSum.Basic
-import Mathlib.RingTheory.Nilpotent.Exp
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.ModelTheory.Definability
-import Mathlib.Topology.NoetherianSpace
-import Mathlib.AlgebraicGeometry.Noetherian
 import TauCeti.Geometry.Hodge.HodgeForm
 import TauCeti.Geometry.Hodge.Structure
 import TauCeti.Geometry.Hodge.Conjugation
-import Mathlib.Algebra.Module.ZLattice.Basic
-import Mathlib.Analysis.Calculus.Implicit
-import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FDeriv
-import Mathlib.Geometry.Convex.Cone.Basic
-import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
-import Mathlib.Analysis.Analytic.Uniqueness
+
+/-!
+# HodgeStructuresPartII: representative target signatures
+
+`README.md` is the definitive roadmap. This file records definitions, theorem
+signatures and examples statable against the pinned APIs; it is not exhaustive.
+It distinguishes affine operators and fibre or coordinate calculations from
+global variations and analytic correspondences. Parameters, ordered tensor
+powers, determinant conventions and coefficient comparisons are explicit.
+Admitted bodies claim no implementation.
+-/
+
+namespace TauCetiRoadmap.HodgeStructuresPartII
+
+open _root_.TauCeti.Hodge
 
 /-! Shared native representation adapter used by H.1 and H.5. -/
 namespace TauCeti.NonabelianHodge
@@ -131,7 +35,7 @@ def matrixRepresentation (ρ : Γ →* Matrix.GeneralLinearGroup (Fin r) K) :
     ((Matrix.GeneralLinearGroup.toLin (n := Fin r) (R := K)).toMonoidHom.comp ρ)
 end TauCeti.NonabelianHodge
 
-/-! ## H.0 original design -/
+/-! ## Layer 0: Higgs fields and parameter connections -/
 
 section Layer0
 
@@ -1414,7 +1318,7 @@ variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
 variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-step-natural
-lemma affineOrderedStep_natural (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedStep_natural (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
     (affineOrderedStep ψ n).comp (TensorProduct.map f (PiTensorProduct.map (fun _ : Fin n => u))) =
@@ -1422,7 +1326,7 @@ lemma affineOrderedStep_natural (θ : E →ₗ[R] E ⊗[R] Q)
         (affineOrderedStep θ n) := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-natural
-lemma affineOrderedIterate_natural (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_natural (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
     (affineOrderedIterate ψ n).comp f =
@@ -1430,30 +1334,30 @@ lemma affineOrderedIterate_natural (θ : E →ₗ[R] E ⊗[R] Q)
         (affineOrderedIterate θ n) := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-mono
-lemma affineOrderedIterate_mono (θ : E →ₗ[R] E ⊗[R] Q) {n m : ℕ}
+theorem affineOrderedIterate_mono (θ : E →ₗ[R] E ⊗[R] Q) {n m : ℕ}
     (hnm : n ≤ m) (hzero : affineOrderedIterate θ n = 0) :
     affineOrderedIterate θ m = 0 := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-surjective
-lemma affineOrderedIterate_zero_of_surjective (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_zero_of_surjective (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) (hf : Function.Surjective f)
     (n : ℕ) (hz : affineOrderedIterate θ n = 0) : affineOrderedIterate ψ n = 0 := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-equiv
-lemma affineOrderedIterate_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E ≃ₗ[R] F) (u : Q ≃ₗ[R] P)
     (h : ψ.comp f.toLinearMap = (TensorProduct.map f.toLinearMap u.toLinearMap).comp θ)
     (n : ℕ) : affineOrderedIterate ψ n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-one
-lemma affineOrderedIterate_one (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineOrderedIterate_one (θ : E →ₗ[R] E ⊗[R] Q) :
     affineOrderedIterate θ 1 =
       (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
         (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm.toLinearMap).comp θ := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-two
-lemma affineOrderedIterate_two (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineOrderedIterate_two (θ : E →ₗ[R] E ⊗[R] Q) :
     affineOrderedIterate θ 2 =
       (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
         ((TensorProduct.congr
@@ -1577,30 +1481,30 @@ variable [AddCommGroup T] [Module R T]
 def affineCoefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
     E →ₗ[R] E ⊗[R] P := by sorry
 
-lemma affineCoefficientMap_apply (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (e : E) :
+theorem affineCoefficientMap_apply (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (e : E) :
     affineCoefficientMap θ u e = TensorProduct.map (LinearMap.id : E →ₗ[R] E) u (θ e) := by sorry
 
-lemma affineCoefficientMap_id (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineCoefficientMap_id (θ : E →ₗ[R] E ⊗[R] Q) :
     affineCoefficientMap θ (LinearMap.id : Q →ₗ[R] Q) = θ := by sorry
 
-lemma affineCoefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineCoefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q) :
     affineCoefficientMap θ (0 : Q →ₗ[R] P) = 0 := by sorry
 
-lemma affineCoefficientMap_comp (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineCoefficientMap_comp (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (v : P →ₗ[R] T) :
     affineCoefficientMap (affineCoefficientMap θ u) v = affineCoefficientMap θ (v.comp u) := by sorry
 
-lemma affineOrderedIterate_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (n : ℕ) :
     affineOrderedIterate (affineCoefficientMap θ u) n =
       (TensorProduct.map (LinearMap.id : E →ₗ[R] E)
         (PiTensorProduct.map (fun _ : Fin n => u))).comp (affineOrderedIterate θ n) := by sorry
 
-lemma affineOrderedIterate_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (n : ℕ) (hz : affineOrderedIterate θ n = 0) :
     affineOrderedIterate (affineCoefficientMap θ u) n = 0 := by sorry
 
-lemma affineOrderedIterate_coefficientMap_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_coefficientMap_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id) (n : ℕ) :
     affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by sorry
 
@@ -1642,7 +1546,7 @@ variable {R E Q P : Type*} [CommRing R]
 variable [AddCommGroup E] [Module R E]
 variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
 
-lemma affineOrderedIterate_natural_zero_iff_of_flat
+theorem affineOrderedIterate_natural_zero_iff_of_flat
     {F : Type*} [AddCommGroup F] [Module R F]
     [Module.Flat R F] [Module.Flat R Q] [Module.Flat R P]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] P)
@@ -1652,7 +1556,7 @@ lemma affineOrderedIterate_natural_zero_iff_of_flat
     (affineOrderedIterate ψ n).comp f = 0 ↔ affineOrderedIterate θ n = 0 := by
   sorry
 
-lemma affineOrderedIterate_coefficientMap_zero_iff_of_flat
+theorem affineOrderedIterate_coefficientMap_zero_iff_of_flat
     [Module.Flat R E] [Module.Flat R Q] [Module.Flat R P]
     (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) (hu : Function.Injective u) (n : ℕ) :
     affineOrderedIterate (affineCoefficientMap θ u) n = 0 ↔ affineOrderedIterate θ n = 0 := by
@@ -1704,19 +1608,19 @@ variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
 variable (S : Type*) [CommRing S] [Algebra R S]
 
 -- node: HodgeStructuresPartII:H.0/affine-base-change-natural
-lemma affineBaseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineBaseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) :
     (affineBaseChange S ψ).comp (f.baseChange S) =
       (TensorProduct.map (f.baseChange S) (u.baseChange S)).comp (affineBaseChange S θ) := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-base-change-coefficient-map
-lemma affineBaseChange_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+theorem affineBaseChange_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
     affineBaseChange S (affineCoefficientMap θ u) =
       affineCoefficientMap (affineBaseChange S θ) (u.baseChange S) := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-natural
-lemma affineOrderedIterate_baseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_baseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) (n : ℕ) :
     (affineOrderedIterate (affineBaseChange S ψ) n).comp (f.baseChange S) =
@@ -1725,11 +1629,11 @@ lemma affineOrderedIterate_baseChange_natural (θ : E →ₗ[R] E ⊗[R] Q)
           (affineOrderedIterate (affineBaseChange S θ) n) := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-base-change-zero-iff
-lemma affineBaseChange_zero_iff [Module.FaithfullyFlat R S]
+theorem affineBaseChange_zero_iff [Module.FaithfullyFlat R S]
     (θ : E →ₗ[R] E ⊗[R] Q) : affineBaseChange S θ = 0 ↔ θ = 0 := sorry
 
 -- node: HodgeStructuresPartII:H.0/affine-ordered-iterate-base-change-one-zero-iff
-lemma affineOrderedIterate_baseChange_one_zero_iff [Module.FaithfullyFlat R S]
+theorem affineOrderedIterate_baseChange_one_zero_iff [Module.FaithfullyFlat R S]
     (θ : E →ₗ[R] E ⊗[R] Q) :
     affineOrderedIterate (affineBaseChange S θ) 1 = 0 ↔ affineOrderedIterate θ 1 = 0 := sorry
 
@@ -1791,15 +1695,15 @@ private def prependEquiv (R Q : Type*) [CommRing R] [AddCommGroup Q] [Module R Q
 def affineTensorPowerBaseChange : (n : ℕ) →
     S ⊗[R] TensorPower R n Q ≃ₗ[S] TensorPower S n (S ⊗[R] Q) := sorry
 
-lemma affineTensorPowerBaseChange_symm_apply (n : ℕ) (x : S ⊗[R] TensorPower R n Q) :
+theorem affineTensorPowerBaseChange_symm_apply (n : ℕ) (x : S ⊗[R] TensorPower R n Q) :
     (affineTensorPowerBaseChange S n).symm (affineTensorPowerBaseChange S n x) = x := sorry
 
-lemma affineTensorPowerBaseChange_unit (a : S) :
+theorem affineTensorPowerBaseChange_unit (a : S) :
     affineTensorPowerBaseChange (Q := Q) S 0
       (a ⊗ₜ[R] TensorPower.algebraMap₀ (R := R) (M := Q) 1) =
       TensorPower.algebraMap₀ (R := S) (M := S ⊗[R] Q) a := sorry
 
-lemma affineTensorPowerBaseChange_prepend (n : ℕ) (a : S) (q : Q)
+theorem affineTensorPowerBaseChange_prepend (n : ℕ) (a : S) (q : Q)
     (t : TensorPower R n Q) :
     affineTensorPowerBaseChange S (n + 1) (a ⊗ₜ[R] prependEquiv R Q n (q ⊗ₜ[R] t)) =
       prependEquiv S (S ⊗[R] Q) n
@@ -1809,25 +1713,25 @@ def affineOrderedBaseChange (n : ℕ) :
     S ⊗[R] (E ⊗[R] TensorPower R n Q) ≃ₗ[S]
       (S ⊗[R] E) ⊗[S] TensorPower S n (S ⊗[R] Q) := sorry
 
-lemma affineOrderedBaseChange_tmul (n : ℕ) (a : S) (e : E) (t : TensorPower R n Q) :
+theorem affineOrderedBaseChange_tmul (n : ℕ) (a : S) (e : E) (t : TensorPower R n Q) :
     affineOrderedBaseChange S n (a ⊗ₜ[R] (e ⊗ₜ[R] t)) =
       (a ⊗ₜ[R] e) ⊗ₜ[S] affineTensorPowerBaseChange S n (1 ⊗ₜ[R] t) := sorry
 
-lemma affineOrderedBaseChange_step (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+theorem affineOrderedBaseChange_step (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     (affineOrderedBaseChange S (n + 1)).toLinearMap.comp
       ((affineOrderedStep θ n).baseChange S) =
     (affineOrderedStep (affineBaseChange S θ) n).comp
       (affineOrderedBaseChange S n).toLinearMap := sorry
 
-lemma affineOrderedIterate_baseChange_comparison (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+theorem affineOrderedIterate_baseChange_comparison (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     (affineOrderedBaseChange S n).toLinearMap.comp ((affineOrderedIterate θ n).baseChange S) =
       affineOrderedIterate (affineBaseChange S θ) n := sorry
 
-lemma affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients
+theorem affineOrderedIterate_baseChange_zero_of_arbitrary_coefficients
     (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) (h : affineOrderedIterate θ n = 0) :
     affineOrderedIterate (affineBaseChange S θ) n = 0 := sorry
 
-lemma affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients
+theorem affineOrderedIterate_baseChange_zero_iff_of_arbitrary_coefficients
     [Module.FaithfullyFlat R S] (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     affineOrderedIterate (affineBaseChange S θ) n = 0 ↔ affineOrderedIterate θ n = 0 := sorry
 
@@ -1906,22 +1810,22 @@ def affineChartField (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) : F →ₗ[S] F ⊗[S] P := by
   sorry
 
-lemma affineChartField_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineChartField_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) :
     (affineChartField S θ e q).comp e.toLinearMap =
       (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by
   sorry
 
-lemma affineChartField_zero (e : S ⊗[R] E ≃ₗ[S] F)
+theorem affineChartField_zero (e : S ⊗[R] E ≃ₗ[S] F)
     (q : S ⊗[R] Q ≃ₗ[S] P) : affineChartField S (0 : E →ₗ[R] E ⊗[R] Q) e q = 0 := by
   sorry
 
-lemma affineChartField_refl (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineChartField_refl (θ : E →ₗ[R] E ⊗[R] Q) :
     affineChartField S θ (LinearEquiv.refl S _) (LinearEquiv.refl S _) =
       affineBaseChange S θ := by
   sorry
 
-lemma affineOrderedIterate_chart_comparison (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_chart_comparison (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
     (affineOrderedIterate (affineChartField S θ e q) n).comp e.toLinearMap =
       (TensorProduct.map e.toLinearMap
@@ -1930,13 +1834,13 @@ lemma affineOrderedIterate_chart_comparison (θ : E →ₗ[R] E ⊗[R] Q)
             ((affineOrderedIterate θ n).baseChange S)) := by
   sorry
 
-lemma affineOrderedIterate_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ) :
     affineOrderedIterate (affineChartField S θ e q) n = 0 ↔
       affineOrderedIterate (affineBaseChange S θ) n = 0 := by
   sorry
 
-lemma affineOrderedIterate_chart_zero_of (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_chart_zero_of (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F) (q : S ⊗[R] Q ≃ₗ[S] P) (n : ℕ)
     (h : affineOrderedIterate θ n = 0) :
     affineOrderedIterate (affineChartField S θ e q) n = 0 := by
@@ -1955,7 +1859,7 @@ include hs
 variable (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
 variable [∀ r : s, IsLocalization.Away r.val (A r)]
 
-lemma affineOrderedIterate_away_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+theorem affineOrderedIterate_away_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     (∀ r : s, affineOrderedIterate (affineBaseChange (A r) θ) n = 0) ↔
       affineOrderedIterate θ n = 0 := by
   sorry
@@ -1965,18 +1869,18 @@ variable [∀ r, AddCommGroup (P r)] [∀ r, Module (A r) (P r)]
 variable (e : ∀ r, (A r) ⊗[R] E ≃ₗ[A r] F r)
 variable (q : ∀ r, (A r) ⊗[R] Q ≃ₗ[A r] P r)
 
-lemma affineOrderedIterate_chart_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
+theorem affineOrderedIterate_chart_cover_zero_iff (θ : E →ₗ[R] E ⊗[R] Q) (n : ℕ) :
     (∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
       affineOrderedIterate θ n = 0 := by
   sorry
 
-lemma affineOrderedIterate_finite_chart_bound [Fintype s]
+theorem affineOrderedIterate_finite_chart_bound [Fintype s]
     (θ : E →ₗ[R] E ⊗[R] Q) (N : s → ℕ)
     (h : ∀ r : s, affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) (N r) = 0) :
     affineOrderedIterate θ (1 + Finset.univ.sup N) = 0 := by
   sorry
 
-lemma affineOrderedIterate_chart_local_nilpotent_iff (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineOrderedIterate_chart_local_nilpotent_iff (θ : E →ₗ[R] E ⊗[R] Q) :
     (∀ r : s, ∃ n : ℕ, 0 < n ∧
       affineOrderedIterate (affineChartField (A r) θ (e r) (q r)) n = 0) ↔
       ∃ n : ℕ, 0 < n ∧ affineOrderedIterate θ n = 0 := by
@@ -2062,21 +1966,21 @@ variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
 variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
 
 
-lemma affineChartField_eq_iff_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineChartField_eq_iff_horizontal (θ : E →ₗ[R] E ⊗[R] Q)
     (e : S ⊗[R] E ≃ₗ[S] F₁) (q : S ⊗[R] Q ≃ₗ[S] P₁)
     (ψ : F₁ →ₗ[S] F₁ ⊗[S] P₁) :
     ψ = affineChartField S θ e q ↔
       ψ.comp e.toLinearMap =
         (TensorProduct.map e.toLinearMap q.toLinearMap).comp (affineBaseChange S θ) := by sorry
 
-lemma affineChartField_transition (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineChartField_transition (θ : E →ₗ[R] E ⊗[R] Q)
     (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
     (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
     (affineChartField S θ e₂ q₂).comp (e₁.symm.trans e₂).toLinearMap =
       (TensorProduct.map (e₁.symm.trans e₂).toLinearMap
         (q₁.symm.trans q₂).toLinearMap).comp (affineChartField S θ e₁ q₁) := by sorry
 
-lemma affineOrderedIterate_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
     (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
     (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) (n : ℕ) :
     (affineOrderedIterate (affineChartField S θ e₂ q₂) n).comp
@@ -2155,30 +2059,30 @@ variable [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
 /-- The actual degree-two exterior projection of the ordered Higgs iterate. -/
 def affineExteriorSquare (θ : E →ₗ[R] E ⊗[R] Q) : E →ₗ[R] E ⊗[R] (⋀[R]^2 Q) := by sorry
 
-lemma affineExteriorSquare_zero :
+theorem affineExteriorSquare_zero :
     affineExteriorSquare (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by sorry
 
-lemma affineExteriorSquare_natural (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_natural (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E →ₗ[R] F) (u : Q →ₗ[R] P)
     (h : ψ.comp f = (TensorProduct.map f u).comp θ) :
     (affineExteriorSquare ψ).comp f =
       (TensorProduct.map f (exteriorPower.map 2 u)).comp (affineExteriorSquare θ) := by sorry
 
-lemma affineExteriorSquare_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_equiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] P) (f : E ≃ₗ[R] F) (u : Q ≃ₗ[R] P)
     (h : ψ.comp f.toLinearMap = (TensorProduct.map f.toLinearMap u.toLinearMap).comp θ) :
     affineExteriorSquare ψ = 0 ↔ affineExteriorSquare θ = 0 := by sorry
 
-lemma affineExteriorSquare_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
+theorem affineExteriorSquare_coefficientMap (θ : E →ₗ[R] E ⊗[R] Q) (u : Q →ₗ[R] P) :
     affineExteriorSquare (affineCoefficientMap θ u) =
       (TensorProduct.map (LinearMap.id : E →ₗ[R] E) (exteriorPower.map 2 u)).comp
         (affineExteriorSquare θ) := by sorry
 
-lemma affineExteriorSquare_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_coefficientMap_zero (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (h : affineExteriorSquare θ = 0) :
     affineExteriorSquare (affineCoefficientMap θ u) = 0 := by sorry
 
-lemma affineExteriorSquare_coefficientEquiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_coefficientEquiv_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q ≃ₗ[R] P) :
     affineExteriorSquare (affineCoefficientMap θ u.toLinearMap) = 0 ↔
       affineExteriorSquare θ = 0 := by sorry
@@ -2186,22 +2090,22 @@ lemma affineExteriorSquare_coefficientEquiv_zero_iff (θ : E →ₗ[R] E ⊗[R] 
 /-- A field with two specified coefficient directions, with no basis assumption. -/
 def affineTwoDirectionField (A B : E →ₗ[R] E) (q r : Q) : E →ₗ[R] E ⊗[R] Q := by sorry
 
-lemma affineTwoDirectionField_apply (A B : E →ₗ[R] E) (q r : Q) (e : E) :
+theorem affineTwoDirectionField_apply (A B : E →ₗ[R] E) (q r : Q) (e : E) :
     affineTwoDirectionField A B q r e = A e ⊗ₜ[R] q + B e ⊗ₜ[R] r := by sorry
 
-lemma affineExteriorSquare_twoDirection (A B : E →ₗ[R] E) (q r : Q) (e : E) :
+theorem affineExteriorSquare_twoDirection (A B : E →ₗ[R] E) (q r : Q) (e : E) :
     affineExteriorSquare (affineTwoDirectionField A B q r) e =
       (A (B e) - B (A e)) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q,r] := by sorry
 
-lemma affineExteriorSquare_twoDirection_zero_of_commute (A B : E →ₗ[R] E)
+theorem affineExteriorSquare_twoDirection_zero_of_commute (A B : E →ₗ[R] E)
     (q r : Q) (h : A.comp B = B.comp A) :
     affineExteriorSquare (affineTwoDirectionField A B q r) = 0 := by sorry
 
-lemma affineExteriorSquare_twoDirection_zero_iff (A B : E →ₗ[R] E) (q r : Q)
+theorem affineExteriorSquare_twoDirection_zero_iff (A B : E →ₗ[R] E) (q r : Q)
     (l : Module.Dual R (⋀[R]^2 Q)) (hl : l (exteriorPower.ιMulti R 2 ![q,r]) = 1) :
     affineExteriorSquare (affineTwoDirectionField A B q r) = 0 ↔ A.comp B = B.comp A := by sorry
 
-lemma affineExteriorSquare_twoCoordinates_zero_iff (A B : E →ₗ[R] E) :
+theorem affineExteriorSquare_twoCoordinates_zero_iff (A B : E →ₗ[R] E) :
     affineExteriorSquare (affineTwoDirectionField A B ((1,0) : R × R) (0,1)) = 0 ↔
       A.comp B = B.comp A := by sorry
 
@@ -2210,7 +2114,7 @@ variable {F₁ F₂ P₁ P₂ : Type*}
 variable [AddCommGroup F₁] [Module S F₁] [AddCommGroup F₂] [Module S F₂]
 variable [AddCommGroup P₁] [Module S P₁] [AddCommGroup P₂] [Module S P₂]
 
-lemma affineExteriorSquare_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
     (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
     (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
     (affineExteriorSquare (affineChartField S θ e₂ q₂)).comp (e₁.symm.trans e₂).toLinearMap =
@@ -2218,17 +2122,17 @@ lemma affineExteriorSquare_chart_transition (θ : E →ₗ[R] E ⊗[R] Q)
         (exteriorPower.map 2 (q₁.symm.trans q₂).toLinearMap)).comp
           (affineExteriorSquare (affineChartField S θ e₁ q₁)) := by sorry
 
-lemma affineExteriorSquare_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_chart_zero_iff (θ : E →ₗ[R] E ⊗[R] Q)
     (e₁ : S ⊗[R] E ≃ₗ[S] F₁) (q₁ : S ⊗[R] Q ≃ₗ[S] P₁)
     (e₂ : S ⊗[R] E ≃ₗ[S] F₂) (q₂ : S ⊗[R] Q ≃ₗ[S] P₂) :
     affineExteriorSquare (affineChartField S θ e₂ q₂) = 0 ↔
       affineExteriorSquare (affineChartField S θ e₁ q₁) = 0 := by sorry
 
-lemma affineOrderedIterate_unitField (n : ℕ) (e : R) :
+theorem affineOrderedIterate_unitField (n : ℕ) (e : R) :
     affineOrderedIterate (TensorProduct.rid R R).symm.toLinearMap n e =
       e ⊗ₜ[R] PiTensorProduct.tprod R (fun _ : Fin n => (1 : R)) := by sorry
 
-lemma affineOrderedIterate_unitField_ne_zero [Nontrivial R] (n : ℕ) :
+theorem affineOrderedIterate_unitField_ne_zero [Nontrivial R] (n : ℕ) :
     affineOrderedIterate (TensorProduct.rid R R).symm.toLinearMap n ≠ 0 := by sorry
 
 set_option backward.isDefEq.respectTransparency.types false
@@ -2329,59 +2233,59 @@ variable {I : Type*} [Fintype I]
 def affineFiniteDirectionField (A : I → Module.End R E) (q : I → Q) :
     E →ₗ[R] E ⊗[R] Q := sorry
 
-lemma affineFiniteDirectionField_apply (A : I → Module.End R E) (q : I → Q) (e : E) :
+theorem affineFiniteDirectionField_apply (A : I → Module.End R E) (q : I → Q) (e : E) :
     affineFiniteDirectionField A q e = ∑ i, A i e ⊗ₜ[R] q i := sorry
 
-lemma affineFiniteDirectionField_reconstruct (b : Module.Basis I R Q)
+theorem affineFiniteDirectionField_reconstruct (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) :
     affineFiniteDirectionField (fun i => affineContractions θ (b.coord i)) b = θ := sorry
 
-lemma affineExteriorSquare_finiteDirection (A : I → Module.End R E) (q : I → Q) (e : E) :
+theorem affineExteriorSquare_finiteDirection (A : I → Module.End R E) (q : I → Q) (e : E) :
     affineExteriorSquare (affineFiniteDirectionField A q) e =
       ∑ j, ∑ i, A i (A j e) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q i,q j] := sorry
 
-lemma affineExteriorSquare_finiteDirection_zero_of_commute
+theorem affineExteriorSquare_finiteDirection_zero_of_commute
     (A : I → Module.End R E) (q : I → Q) (h : ∀ i j, A i * A j = A j * A i) :
     affineExteriorSquare (affineFiniteDirectionField A q) = 0 := sorry
 
-lemma affineExteriorSquare_contraction (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_contraction (θ : E →ₗ[R] E ⊗[R] Q)
     (v w : Module.Dual R Q) :
     affineContractions (affineExteriorSquare θ)
       (exteriorPower.alternatingMapToDual R Q 2 ![v,w]) =
     affineContractions θ v * affineContractions θ w -
       affineContractions θ w * affineContractions θ v := sorry
 
-lemma affineFiniteDirectionField_contraction (A : I → Module.End R E) (q : I → Q)
+theorem affineFiniteDirectionField_contraction (A : I → Module.End R E) (q : I → Q)
     (v : Module.Dual R Q) :
     affineContractions (affineFiniteDirectionField A q) v = ∑ i, v (q i) • A i := sorry
 
-lemma affineFiniteDirectionField_coordinate (b : Module.Basis I R Q)
+theorem affineFiniteDirectionField_coordinate (b : Module.Basis I R Q)
     (A : I → Module.End R E) (i : I) :
     affineContractions (affineFiniteDirectionField A b) (b.coord i) = A i := sorry
 
-lemma affineExteriorSquare_zero_commute (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineExteriorSquare_zero_commute (θ : E →ₗ[R] E ⊗[R] Q)
     (h : affineExteriorSquare θ = 0) (v w : Module.Dual R Q) :
     affineContractions θ v * affineContractions θ w =
       affineContractions θ w * affineContractions θ v := sorry
 
-lemma affineExteriorSquare_finiteBasis_zero_iff (b : Module.Basis I R Q)
+theorem affineExteriorSquare_finiteBasis_zero_iff (b : Module.Basis I R Q)
     (A : I → Module.End R E) :
     affineExteriorSquare (affineFiniteDirectionField A b) = 0 ↔
       ∀ i j, A i * A j = A j * A i := sorry
 
-lemma affineExteriorSquare_coordinate_zero_iff (b : Module.Basis I R Q)
+theorem affineExteriorSquare_coordinate_zero_iff (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) :
     affineExteriorSquare θ = 0 ↔ ∀ i j,
       affineContractions θ (b.coord i) * affineContractions θ (b.coord j) =
       affineContractions θ (b.coord j) * affineContractions θ (b.coord i) := sorry
 
-lemma affineExteriorSquare_dual_zero_iff (b : Module.Basis I R Q)
+theorem affineExteriorSquare_dual_zero_iff (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) :
     affineExteriorSquare θ = 0 ↔ ∀ v w : Module.Dual R Q,
       affineContractions θ v * affineContractions θ w =
       affineContractions θ w * affineContractions θ v := sorry
 
-lemma affineExteriorSquare_coordinates_basis_independent
+theorem affineExteriorSquare_coordinates_basis_independent
     {J : Type*} [Fintype J] (b : Module.Basis I R Q) (c : Module.Basis J R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) :
     (∀ i j, affineContractions θ (b.coord i) * affineContractions θ (b.coord j) =
@@ -2464,22 +2368,22 @@ variable [AddCommGroup Q] [Module R Q]
 def affineTensorField (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     E ⊗[R] F →ₗ[R] (E ⊗[R] F) ⊗[R] Q := by sorry
 
-lemma affineTensorField_tmul (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+theorem affineTensorField_tmul (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (e : E) (f : F) :
     affineTensorField θ ψ (e ⊗ₜ[R] f) =
       TensorProduct.rightComm R E Q F (θ e ⊗ₜ[R] f) +
         (TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] ψ f) := by sorry
 
-lemma affineTensorField_zero :
+theorem affineTensorField_zero :
     affineTensorField (0 : E →ₗ[R] E ⊗[R] Q) (0 : F →ₗ[R] F ⊗[R] Q) = 0 := by sorry
 
-lemma affineTensorField_contractions (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
+theorem affineTensorField_contractions (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (v : Module.Dual R Q) :
     affineContractions (affineTensorField θ ψ) v =
       TensorProduct.map (affineContractions θ v) (LinearMap.id : F →ₗ[R] F) +
         TensorProduct.map (LinearMap.id : E →ₗ[R] E) (affineContractions ψ v) := by sorry
 
-lemma affineTensorField_contractions_commute
+theorem affineTensorField_contractions_commute
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v w : Module.Dual R Q)
     (hθ : affineContractions θ v * affineContractions θ w =
       affineContractions θ w * affineContractions θ v)
@@ -2488,17 +2392,17 @@ lemma affineTensorField_contractions_commute
     affineContractions (affineTensorField θ ψ) v * affineContractions (affineTensorField θ ψ) w =
       affineContractions (affineTensorField θ ψ) w * affineContractions (affineTensorField θ ψ) v := by sorry
 
-lemma affineTensorField_integrable {I : Type*} [Fintype I] (b : Module.Basis I R Q)
+theorem affineTensorField_integrable {I : Type*} [Fintype I] (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (hθ : affineExteriorSquare θ = 0) (hψ : affineExteriorSquare ψ = 0) :
     affineExteriorSquare (affineTensorField θ ψ) = 0 := by sorry
 
-lemma affineTensorField_coefficientMap {P : Type*} [AddCommGroup P] [Module R P]
+theorem affineTensorField_coefficientMap {P : Type*} [AddCommGroup P] [Module R P]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (u : Q →ₗ[R] P) :
     affineCoefficientMap (affineTensorField θ ψ) u =
       affineTensorField (affineCoefficientMap θ u) (affineCoefficientMap ψ u) := by sorry
 
-lemma affineTensorField_horizontal {E' F' : Type*}
+theorem affineTensorField_horizontal {E' F' : Type*}
     [AddCommGroup E'] [Module R E'] [AddCommGroup F'] [Module R F']
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (θ' : E' →ₗ[R] E' ⊗[R] Q) (ψ' : F' →ₗ[R] F' ⊗[R] Q)
@@ -2509,24 +2413,24 @@ lemma affineTensorField_horizontal {E' F' : Type*}
       (TensorProduct.map (TensorProduct.map f g) (LinearMap.id : Q →ₗ[R] Q)).comp
         (affineTensorField θ ψ) := by sorry
 
-lemma affineTensorField_comm (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+theorem affineTensorField_comm (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     (affineTensorField ψ θ).comp (TensorProduct.comm R E F).toLinearMap =
       (TensorProduct.map (TensorProduct.comm R E F).toLinearMap
         (LinearMap.id : Q →ₗ[R] Q)).comp (affineTensorField θ ψ) := by sorry
 
-lemma affineTensorField_rid (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineTensorField_rid (θ : E →ₗ[R] E ⊗[R] Q) :
     θ.comp (TensorProduct.rid R E).toLinearMap =
       (TensorProduct.map (TensorProduct.rid R E).toLinearMap
         (LinearMap.id : Q →ₗ[R] Q)).comp
           (affineTensorField θ (0 : R →ₗ[R] R ⊗[R] Q)) := by sorry
 
-lemma affineTensorField_lid (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineTensorField_lid (θ : E →ₗ[R] E ⊗[R] Q) :
     θ.comp (TensorProduct.lid R E).toLinearMap =
       (TensorProduct.map (TensorProduct.lid R E).toLinearMap
         (LinearMap.id : Q →ₗ[R] Q)).comp
           (affineTensorField (0 : R →ₗ[R] R ⊗[R] Q) θ) := by sorry
 
-lemma affineTensorField_assoc {G : Type*} [AddCommGroup G] [Module R G]
+theorem affineTensorField_assoc {G : Type*} [AddCommGroup G] [Module R G]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (χ : G →ₗ[R] G ⊗[R] Q) :
     (affineTensorField θ (affineTensorField ψ χ)).comp
         (TensorProduct.assoc R E F G).toLinearMap =
@@ -2584,7 +2488,7 @@ abbrev pairExterior : Q ⊗[R] Q →ₗ[R] (⋀[R]^2 Q) :=
       (PiTensorProduct.subsingletonEquiv (R := R) (s := fun _ : Fin 1 => Q) 0).symm).trans
         (TensorPower.mulEquiv (n := 1) (m := 1))).toLinearMap
 
-lemma pairExterior_tmul (q r : Q) :
+theorem pairExterior_tmul (q r : Q) :
     pairExterior (q ⊗ₜ[R] r) = exteriorPower.ιMulti R 2 ![q,r] := by
   simp only [pairExterior, LinearMap.comp_apply, LinearEquiv.coe_coe,
     LinearEquiv.trans_apply, TensorProduct.congr_tmul,
@@ -2597,21 +2501,21 @@ def affineExteriorStep (θ : E →ₗ[R] E ⊗[R] Q) :
     E ⊗[R] Q →ₗ[R] E ⊗[R] (⋀[R]^2 Q) := by
   sorry
 
-lemma affineExteriorSquare_eq_step (θ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineExteriorSquare_eq_step (θ : E →ₗ[R] E ⊗[R] Q) :
     affineExteriorSquare θ = (affineExteriorStep θ).comp θ := by
   sorry
 
-lemma affineExteriorStep_tmul (θ : E →ₗ[R] E ⊗[R] Q) (e : E) (q : Q) :
+theorem affineExteriorStep_tmul (θ : E →ₗ[R] E ⊗[R] Q) (e : E) (q : Q) :
     affineExteriorStep θ (e ⊗ₜ[R] q) =
       TensorProduct.map (LinearMap.id : E →ₗ[R] E) pairExterior
         (TensorProduct.assoc R E Q Q (θ e ⊗ₜ[R] q)) := by
   sorry
 
-lemma affineExteriorStep_add (θ ψ : E →ₗ[R] E ⊗[R] Q) :
+theorem affineExteriorStep_add (θ ψ : E →ₗ[R] E ⊗[R] Q) :
     affineExteriorStep (θ + ψ) = affineExteriorStep θ + affineExteriorStep ψ := by
   sorry
 
-lemma affineExteriorStep_zero :
+theorem affineExteriorStep_zero :
     affineExteriorStep (0 : E →ₗ[R] E ⊗[R] Q) = 0 := by
   sorry
 
@@ -2619,39 +2523,39 @@ def affineTensorWedgePair :
     (E ⊗[R] Q) ⊗[R] (F ⊗[R] Q) →ₗ[R] (E ⊗[R] F) ⊗[R] (⋀[R]^2 Q) := by
   sorry
 
-lemma affineTensorWedgePair_tmul (e : E) (f : F) (q r : Q) :
+theorem affineTensorWedgePair_tmul (e : E) (f : F) (q r : Q) :
     affineTensorWedgePair ((e ⊗ₜ[R] q) ⊗ₜ[R] (f ⊗ₜ[R] r)) =
       (e ⊗ₜ[R] f) ⊗ₜ[R] exteriorPower.ιMulti R 2 ![q,r] := by
   sorry
 
-lemma affineExteriorStep_tensor_left
+theorem affineExteriorStep_tensor_left
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (z : E ⊗[R] Q) (f : F) :
     affineExteriorStep (affineTensorField θ ψ) (TensorProduct.rightComm R E Q F (z ⊗ₜ[R] f)) =
       TensorProduct.rightComm R E (⋀[R]^2 Q) F (affineExteriorStep θ z ⊗ₜ[R] f) -
         affineTensorWedgePair (z ⊗ₜ[R] ψ f) := by
   sorry
 
-lemma affineExteriorStep_tensor_right
+theorem affineExteriorStep_tensor_right
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (e : E) (w : F ⊗[R] Q) :
     affineExteriorStep (affineTensorField θ ψ) ((TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] w)) =
       affineTensorWedgePair (θ e ⊗ₜ[R] w) +
         (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm (e ⊗ₜ[R] affineExteriorStep ψ w) := by
   sorry
 
-lemma affineTensorField_curvature_tmul
+theorem affineTensorField_curvature_tmul
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (e : E) (f : F) :
     affineExteriorSquare (affineTensorField θ ψ) (e ⊗ₜ[R] f) =
       TensorProduct.rightComm R E (⋀[R]^2 Q) F (affineExteriorSquare θ e ⊗ₜ[R] f) +
         (TensorProduct.assoc R E F (⋀[R]^2 Q)).symm (e ⊗ₜ[R] affineExteriorSquare ψ f) := by
   sorry
 
-lemma affineTensorField_integrable_of_arbitrary_coefficients
+theorem affineTensorField_integrable_of_arbitrary_coefficients
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (hθ : affineExteriorSquare θ = 0) (hψ : affineExteriorSquare ψ = 0) :
     affineExteriorSquare (affineTensorField θ ψ) = 0 := by
   sorry
 
-lemma affineTensorField_curvature
+theorem affineTensorField_curvature
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     affineExteriorSquare (affineTensorField θ ψ) =
       (TensorProduct.rightComm R E (⋀[R]^2 Q) F).toLinearMap.comp
@@ -2660,11 +2564,11 @@ lemma affineTensorField_curvature
         (TensorProduct.map (LinearMap.id : E →ₗ[R] E) (affineExteriorSquare ψ)) := by
   sorry
 
-lemma affineTensorWedgePair_same_direction (e : E) (f : F) (q : Q) :
+theorem affineTensorWedgePair_same_direction (e : E) (f : F) (q : Q) :
     affineTensorWedgePair ((e ⊗ₜ[R] q) ⊗ₜ[R] (f ⊗ₜ[R] q)) = 0 := by
   sorry
 
-lemma affineTensorWedgePair_swap (z : E ⊗[R] Q) (w : F ⊗[R] Q) :
+theorem affineTensorWedgePair_swap (z : E ⊗[R] Q) (w : F ⊗[R] Q) :
     affineTensorWedgePair (w ⊗ₜ[R] z) =
       - TensorProduct.map (TensorProduct.comm R E F).toLinearMap
           (LinearMap.id : (⋀[R]^2 Q) →ₗ[R] (⋀[R]^2 Q))
@@ -2756,7 +2660,7 @@ variable [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
 variable [AddCommGroup Q] [Module R Q]
 variable (S : Type*) [CommRing S] [Algebra R S]
 
-lemma affineTensorBaseChange_left (a : S) (z : E ⊗[R] Q) (f : F) :
+theorem affineTensorBaseChange_left (a : S) (z : E ⊗[R] Q) (f : F) :
     TensorProduct.rightComm S (S ⊗[R] E) (S ⊗[R] Q) (S ⊗[R] F)
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E Q (a ⊗ₜ[R] z) ⊗ₜ[S]
         ((1 : S) ⊗ₜ[R] f)) =
@@ -2766,7 +2670,7 @@ lemma affineTensorBaseChange_left (a : S) (z : E ⊗[R] Q) (f : F) :
         (a ⊗ₜ[R] TensorProduct.rightComm R E Q F (z ⊗ₜ[R] f))) := by
   sorry
 
-lemma affineTensorBaseChange_right (a : S) (e : E) (w : F ⊗[R] Q) :
+theorem affineTensorBaseChange_right (a : S) (e : E) (w : F ⊗[R] Q) :
     (TensorProduct.assoc S (S ⊗[R] E) (S ⊗[R] F) (S ⊗[R] Q)).symm
       ((a ⊗ₜ[R] e) ⊗ₜ[S]
         TensorProduct.AlgebraTensorModule.distribBaseChange R S F Q ((1 : S) ⊗ₜ[R] w)) =
@@ -2776,7 +2680,7 @@ lemma affineTensorBaseChange_right (a : S) (e : E) (w : F ⊗[R] Q) :
         (a ⊗ₜ[R] (TensorProduct.assoc R E F Q).symm (e ⊗ₜ[R] w))) := by
   sorry
 
-lemma affineTensorField_baseChange (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
+theorem affineTensorField_baseChange (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)).comp
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
     (TensorProduct.map (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap
@@ -2784,7 +2688,7 @@ lemma affineTensorField_baseChange (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[
       (affineBaseChange S (affineTensorField θ ψ)) := by
   sorry
 
-lemma affineTensorField_baseChange_inverse
+theorem affineTensorField_baseChange_inverse
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     (affineBaseChange S (affineTensorField θ ψ)).comp
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).symm.toLinearMap =
@@ -2793,7 +2697,7 @@ lemma affineTensorField_baseChange_inverse
       (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) := by
   sorry
 
-lemma affineTensorField_baseChange_ordered
+theorem affineTensorField_baseChange_ordered
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
     (affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n).comp
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
@@ -2802,25 +2706,25 @@ lemma affineTensorField_baseChange_ordered
       (affineOrderedIterate (affineBaseChange S (affineTensorField θ ψ)) n) := by
   sorry
 
-lemma affineTensorField_baseChange_ordered_zero_iff
+theorem affineTensorField_baseChange_ordered_zero_iff
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
     affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 ↔
     affineOrderedIterate (affineBaseChange S (affineTensorField θ ψ)) n = 0 := by
   sorry
 
-lemma affineTensorField_baseChange_nilpotence
+theorem affineTensorField_baseChange_nilpotence
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ)
     (h : affineOrderedIterate (affineTensorField θ ψ) n = 0) :
     affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 := by
   sorry
 
-lemma affineTensorField_baseChange_nilpotence_iff [Module.FaithfullyFlat R S]
+theorem affineTensorField_baseChange_nilpotence_iff [Module.FaithfullyFlat R S]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (n : ℕ) :
     affineOrderedIterate (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) n = 0 ↔
     affineOrderedIterate (affineTensorField θ ψ) n = 0 := by
   sorry
 
-lemma affineTensorField_baseChange_exterior
+theorem affineTensorField_baseChange_exterior
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     (affineExteriorSquare (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ))).comp
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).toLinearMap =
@@ -2829,7 +2733,7 @@ lemma affineTensorField_baseChange_exterior
       (affineExteriorSquare (affineBaseChange S (affineTensorField θ ψ))) := by
   sorry
 
-lemma affineTensorField_baseChange_exterior_zero_iff
+theorem affineTensorField_baseChange_exterior_zero_iff
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) :
     affineExteriorSquare (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) = 0 ↔
     affineExteriorSquare (affineBaseChange S (affineTensorField θ ψ)) = 0 := by
@@ -2906,12 +2810,12 @@ variable {R E F Q : Type*} [CommRing R]
   [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
   [AddCommGroup Q] [Module R Q]
 
-lemma affineTensorField_contractions_separate_commute
+theorem affineTensorField_contractions_separate_commute
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q) :
     Commute ((affineContractions θ v).rTensor F) ((affineContractions ψ v).lTensor E) := by
   sorry
 
-lemma affineTensorField_contractions_pow
+theorem affineTensorField_contractions_pow
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q) (k : ℕ) :
     affineContractions (affineTensorField θ ψ) v ^ k =
       ∑ i ∈ Finset.range (k+1),
@@ -2920,28 +2824,28 @@ lemma affineTensorField_contractions_pow
             (affineContractions ψ v ^ (k-i)) := by
   sorry
 
-lemma affineTensorField_contractions_bound
+theorem affineTensorField_contractions_bound
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
     (N M : ℕ) (hθ : affineContractions θ v ^ N = 0)
     (hψ : affineContractions ψ v ^ M = 0) :
     affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
   sorry
 
-lemma affineTensorField_contractions_bound_of_le
+theorem affineTensorField_contractions_bound_of_le
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
     (N M k : ℕ) (hθ : affineContractions θ v ^ N = 0)
     (hψ : affineContractions ψ v ^ M = 0) (hk : N+M ≤ k+1) :
     affineContractions (affineTensorField θ ψ) v ^ k = 0 := by
   sorry
 
-lemma affineTensorField_contractions_isNilpotent
+theorem affineTensorField_contractions_isNilpotent
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (v : Module.Dual R Q)
     (hθ : IsNilpotent (affineContractions θ v))
     (hψ : IsNilpotent (affineContractions ψ v)) :
     IsNilpotent (affineContractions (affineTensorField θ ψ) v) := by
   sorry
 
-lemma affineTensorField_contractions_uniform_bound
+theorem affineTensorField_contractions_uniform_bound
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (N M : ℕ)
     (hθ : ∀ v : Module.Dual R Q, affineContractions θ v ^ N = 0)
     (hψ : ∀ v : Module.Dual R Q, affineContractions ψ v ^ M = 0) :
@@ -2949,26 +2853,26 @@ lemma affineTensorField_contractions_uniform_bound
       affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
   sorry
 
-lemma affineOrderedIterate_contraction_constant (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_contraction_constant (θ : E →ₗ[R] E ⊗[R] Q)
     (n : ℕ) (v : Module.Dual R Q) :
     affineContractions (affineOrderedIterate θ n)
       (TensorPower.multilinearMapToDual R Q n (fun _ => v)) =
         affineContractions θ v ^ n := by
   sorry
 
-lemma affineOrderedIterate_contractions_bound (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineOrderedIterate_contractions_bound (θ : E →ₗ[R] E ⊗[R] Q)
     (N : ℕ) (hθ : affineOrderedIterate θ N = 0) (v : Module.Dual R Q) :
     affineContractions θ v ^ N = 0 := by
   sorry
 
-lemma affineTensorField_contractions_bound_of_ordered
+theorem affineTensorField_contractions_bound_of_ordered
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q) (N M : ℕ)
     (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
     (v : Module.Dual R Q) :
     affineContractions (affineTensorField θ ψ) v ^ (N+M-1) = 0 := by
   sorry
 
-lemma affineTwoDirectionField_contractions (A B : Module.End R E) (q r : Q)
+theorem affineTwoDirectionField_contractions (A B : Module.End R E) (q r : Q)
     (v : Module.Dual R Q) :
     affineContractions (affineTwoDirectionField A B q r) v = v q • A + v r • B := by
   sorry
@@ -3054,14 +2958,14 @@ variable {R E F Q : Type*} [CommRing R]
   [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
   [AddCommGroup Q] [Module R Q]
 
-lemma affineTensorField_contractions_cross_commute
+theorem affineTensorField_contractions_cross_commute
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (v w : Module.Dual R Q) :
     Commute ((affineContractions θ v).rTensor F)
       ((affineContractions ψ w).lTensor E) := by
   sorry
 
-lemma affineTensorField_contractions_selected_word
+theorem affineTensorField_contractions_selected_word
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (n : ℕ) (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool) :
     (List.ofFn (fun i =>
@@ -3072,7 +2976,7 @@ lemma affineTensorField_contractions_selected_word
       ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
   sorry
 
-lemma affineTensorField_contractions_word_expansion
+theorem affineTensorField_contractions_word_expansion
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (n : ℕ) (vs : Fin n → Module.Dual R Q) :
     (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod =
@@ -3081,7 +2985,7 @@ lemma affineTensorField_contractions_word_expansion
       ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) := by
   sorry
 
-lemma affineOrderedIterate_selected_word_zero
+theorem affineOrderedIterate_selected_word_zero
     (θ : E →ₗ[R] E ⊗[R] Q) (N n : ℕ)
     (hθ : affineOrderedIterate θ N = 0)
     (vs : Fin n → Module.Dual R Q) (c : Fin n → Bool)
@@ -3089,7 +2993,7 @@ lemma affineOrderedIterate_selected_word_zero
     (List.ofFn (fun i => if c i then affineContractions θ (vs i) else 1)).prod = 0 := by
   sorry
 
-lemma affineTensorField_contractions_word_summand_zero
+theorem affineTensorField_contractions_word_summand_zero
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
     (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
@@ -3099,7 +3003,7 @@ lemma affineTensorField_contractions_word_summand_zero
       ((List.ofFn (fun i => if c i then 1 else affineContractions ψ (vs i))).prod) = 0 := by
   sorry
 
-lemma affineTensorField_contractions_word_zero
+theorem affineTensorField_contractions_word_zero
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M n : ℕ) (hN : 0 < N) (hM : 0 < M) (hn : N + M ≤ n + 1)
     (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0)
@@ -3107,7 +3011,7 @@ lemma affineTensorField_contractions_word_zero
     (List.ofFn (fun i => affineContractions (affineTensorField θ ψ) (vs i))).prod = 0 := by
   sorry
 
-lemma affineTensorField_ordered_bound_of_basis {I : Type*} [Fintype I]
+theorem affineTensorField_ordered_bound_of_basis {I : Type*} [Fintype I]
     (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
@@ -3115,7 +3019,7 @@ lemma affineTensorField_ordered_bound_of_basis {I : Type*} [Fintype I]
     affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
   sorry
 
-lemma affineTensorField_ordered_bound_of_basis_of_le {I : Type*} [Fintype I]
+theorem affineTensorField_ordered_bound_of_basis_of_le {I : Type*} [Fintype I]
     (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M k : ℕ) (hN : 0 < N) (hM : 0 < M) (hk : N + M ≤ k + 1)
@@ -3125,7 +3029,7 @@ lemma affineTensorField_ordered_bound_of_basis_of_le {I : Type*} [Fintype I]
 
 variable (S : Type*) [CommRing S] [Algebra R S]
 
-lemma affineTensorField_ordered_bound_of_basis_baseChange {I : Type*} [Fintype I]
+theorem affineTensorField_ordered_bound_of_basis_baseChange {I : Type*} [Fintype I]
     (b : Module.Basis I R Q)
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
@@ -3215,12 +3119,12 @@ variable {R E F Q P : Type*} [CommRing R]
   [AddCommGroup E] [Module R E] [AddCommGroup F] [Module R F]
   [AddCommGroup Q] [Module R Q] [AddCommGroup P] [Module R P]
 
-lemma affineCoefficientMap_retract (θ : E →ₗ[R] E ⊗[R] Q)
+theorem affineCoefficientMap_retract (θ : E →ₗ[R] E ⊗[R] Q)
     (u : Q →ₗ[R] P) (v : P →ₗ[R] Q) (hvu : v.comp u = LinearMap.id) :
     affineCoefficientMap (affineCoefficientMap θ u) v = θ := by
   sorry
 
-lemma affineTensorField_ordered_bound_of_split_basis {I : Type*} [Fintype I]
+theorem affineTensorField_ordered_bound_of_split_basis {I : Type*} [Fintype I]
     (b : Module.Basis I R P) (u : Q →ₗ[R] P) (v : P →ₗ[R] Q)
     (hvu : v.comp u = LinearMap.id)
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
@@ -3229,14 +3133,14 @@ lemma affineTensorField_ordered_bound_of_split_basis {I : Type*} [Fintype I]
     affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
   sorry
 
-lemma affineTensorField_ordered_bound_of_projective [Module.Finite R Q] [Module.Projective R Q]
+theorem affineTensorField_ordered_bound_of_projective [Module.Finite R Q] [Module.Projective R Q]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
     (hθ : affineOrderedIterate θ N = 0) (hψ : affineOrderedIterate ψ M = 0) :
     affineOrderedIterate (affineTensorField θ ψ) (N + M - 1) = 0 := by
   sorry
 
-lemma affineTensorField_ordered_larger_bound_of_projective [Module.Finite R Q]
+theorem affineTensorField_ordered_larger_bound_of_projective [Module.Finite R Q]
     [Module.Projective R Q]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M k : ℕ) (hN : 0 < N) (hM : 0 < M) (hk : N + M ≤ k + 1)
@@ -3244,7 +3148,7 @@ lemma affineTensorField_ordered_larger_bound_of_projective [Module.Finite R Q]
     affineOrderedIterate (affineTensorField θ ψ) k = 0 := by
   sorry
 
-lemma affineTensorField_ordered_nilpotent_of_projective [Module.Finite R Q]
+theorem affineTensorField_ordered_nilpotent_of_projective [Module.Finite R Q]
     [Module.Projective R Q]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (hθ : ∃ N, 0 < N ∧ affineOrderedIterate θ N = 0)
@@ -3254,7 +3158,7 @@ lemma affineTensorField_ordered_nilpotent_of_projective [Module.Finite R Q]
 
 variable (S : Type*) [CommRing S] [Algebra R S]
 
-lemma affineTensorField_ordered_baseChange_of_projective [Module.Finite R Q]
+theorem affineTensorField_ordered_baseChange_of_projective [Module.Finite R Q]
     [Module.Projective R Q]
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (N M : ℕ) (hN : 0 < N) (hM : 0 < M)
@@ -3263,7 +3167,7 @@ lemma affineTensorField_ordered_baseChange_of_projective [Module.Finite R Q]
       (affineTensorField (affineBaseChange S θ) (affineBaseChange S ψ)) (N + M - 1) = 0 := by
   sorry
 
-lemma affineTensorField_ordered_chart_of_projective [Module.Finite R Q]
+theorem affineTensorField_ordered_chart_of_projective [Module.Finite R Q]
     [Module.Projective R Q] {G T : Type*} [AddCommGroup G] [Module S G]
     [AddCommGroup T] [Module S T]
     (e : S ⊗[R] (E ⊗[R] F) ≃ₗ[S] G) (q : S ⊗[R] Q ≃ₗ[S] T)
@@ -3273,7 +3177,7 @@ lemma affineTensorField_ordered_chart_of_projective [Module.Finite R Q]
     affineOrderedIterate (affineChartField S (affineTensorField θ ψ) e q) (N + M - 1) = 0 := by
   sorry
 
-lemma affineTensorField_ordered_principalCover_of_projective
+theorem affineTensorField_ordered_principalCover_of_projective
     (s : Set R) (hs : Ideal.span s = ⊤)
     (A : s → Type*) [∀ r, CommRing (A r)] [∀ r, Algebra R (A r)]
     [∀ r : s, IsLocalization.Away r.val (A r)]
@@ -3406,18 +3310,18 @@ variable {Ω : TwoForms k R W Z} {lam : R}
 def Preconnection.affineTensorPair (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) : E →+ F →+ (E ⊗[R] F) ⊗[R] W := by sorry
 
-lemma Preconnection.affineTensorPair_apply (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensorPair_apply (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (e : E) (f : F) :
     D.affineTensorPair C e f =
       TensorProduct.rightComm R E W F (D.toAddHom e ⊗ₜ[R] f) +
         (TensorProduct.assoc R E F W).symm (e ⊗ₜ[R] C.toAddHom f) := by sorry
 
-lemma Preconnection.affineTensorPair_leibniz (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensorPair_leibniz (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (a : R) (e : E) (f : F) :
     D.affineTensorPair C (a • e) f =
       a • D.affineTensorPair C e f + lam • ((e ⊗ₜ[R] f) ⊗ₜ[R] Ω.d0 a) := by sorry
 
-lemma Preconnection.affineTensorPair_balanced (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensorPair_balanced (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (a : R) (e : E) (f : F) :
     D.affineTensorPair C (a • e) f = D.affineTensorPair C e (a • f) := by sorry
 
@@ -3425,32 +3329,32 @@ lemma Preconnection.affineTensorPair_balanced (D : Preconnection Ω lam E)
 def Preconnection.affineTensor (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) : Preconnection Ω lam (E ⊗[R] F) := by sorry
 
-lemma Preconnection.affineTensor_toAddHom (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_toAddHom (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) :
     (D.affineTensor C).toAddHom =
       TensorProduct.liftAddHom (D.affineTensorPair C) (D.affineTensorPair_balanced C) := by sorry
 
-lemma Preconnection.affineTensor_tmul (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_tmul (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (e : E) (f : F) :
     (D.affineTensor C).toAddHom (e ⊗ₜ[R] f) =
       TensorProduct.rightComm R E W F (D.toAddHom e ⊗ₜ[R] f) +
         (TensorProduct.assoc R E F W).symm (e ⊗ₜ[R] C.toAddHom f) := by sorry
 
-lemma Preconnection.affineTensor_leibniz (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_leibniz (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (a : R) (x : E ⊗[R] F) :
     (D.affineTensor C).toAddHom (a • x) =
       a • (D.affineTensor C).toAddHom x + lam • (x ⊗ₜ[R] Ω.d0 a) := by sorry
 
 variable [IsScalarTower k R W]
 
-lemma Preconnection.affineTensor_ofLinear (θ : E →ₗ[R] E ⊗[R] W)
+theorem Preconnection.affineTensor_ofLinear (θ : E →ₗ[R] E ⊗[R] W)
     (ψ : F →ₗ[R] F ⊗[R] W) :
     ((Preconnection.ofLinear (Ω := Ω) θ).affineTensor
       (Preconnection.ofLinear (Ω := Ω) ψ)).toLinear =
         TauCeti.Hodge.ParameterConnection.TwistedHiggsBundle.affineTensorField θ ψ := by sorry
 
 omit [IsScalarTower k R W] in
-lemma Preconnection.affineTensor_horizontal {E' F' : Type*}
+theorem Preconnection.affineTensor_horizontal {E' F' : Type*}
     [AddCommGroup E'] [Module R E'] [AddCommGroup F'] [Module R F']
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (D' : Preconnection Ω lam E') (C' : Preconnection Ω lam F')
@@ -3462,7 +3366,7 @@ lemma Preconnection.affineTensor_horizontal {E' F' : Type*}
       TensorProduct.map (TensorProduct.map u v) LinearMap.id ((D.affineTensor C).toAddHom x) := by sorry
 
 omit [IsScalarTower k R W] in
-lemma Preconnection.affineTensor_comm (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_comm (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (x : E ⊗[R] F) :
     (C.affineTensor D).toAddHom (TensorProduct.comm R E F x) =
       TensorProduct.map (TensorProduct.comm R E F).toLinearMap LinearMap.id
@@ -3537,21 +3441,21 @@ variable [AddCommGroup G] [Module R G]
 variable {W : Type w} {Z : Type z} [AddCommGroup W] [Module R W] [Module k W]
 variable [AddCommGroup Z] [Module R Z] {Ω : TwoForms k R W Z} {lam : R}
 
-lemma Preconnection.affineTensor_assoc (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_assoc (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (B : Preconnection Ω lam G)
     (x : (E ⊗[R] F) ⊗[R] G) :
     (D.affineTensor (C.affineTensor B)).toAddHom (TensorProduct.assoc R E F G x) =
       TensorProduct.map (TensorProduct.assoc R E F G).toLinearMap LinearMap.id
         (((D.affineTensor C).affineTensor B).toAddHom x) := by sorry
 
-lemma Preconnection.horizontal_symm (D : Preconnection Ω lam E)
+theorem Preconnection.horizontal_symm (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (u : E ≃ₗ[R] F)
     (h : ∀ e, C.toAddHom (u e) = TensorProduct.map u.toLinearMap LinearMap.id (D.toAddHom e))
     (f : F) :
     D.toAddHom (u.symm f) =
       TensorProduct.map u.symm.toLinearMap LinearMap.id (C.toAddHom f) := by sorry
 
-lemma Preconnection.affineTensor_assoc_symm (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_assoc_symm (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (B : Preconnection Ω lam G)
     (x : E ⊗[R] (F ⊗[R] G)) :
     ((D.affineTensor C).affineTensor B).toAddHom ((TensorProduct.assoc R E F G).symm x) =
@@ -3560,21 +3464,21 @@ lemma Preconnection.affineTensor_assoc_symm (D : Preconnection Ω lam E)
 
 variable [IsScalarTower k R W]
 
-lemma Preconnection.affineTensor_lid (D : Preconnection Ω lam E) (x : R ⊗[R] E) :
+theorem Preconnection.affineTensor_lid (D : Preconnection Ω lam E) (x : R ⊗[R] E) :
     D.toAddHom (TensorProduct.lid R E x) =
       TensorProduct.map (TensorProduct.lid R E).toLinearMap LinearMap.id
         (((Preconnection.unit Ω lam).affineTensor D).toAddHom x) := by sorry
 
-lemma Preconnection.affineTensor_rid (D : Preconnection Ω lam E) (x : E ⊗[R] R) :
+theorem Preconnection.affineTensor_rid (D : Preconnection Ω lam E) (x : E ⊗[R] R) :
     D.toAddHom (TensorProduct.rid R E x) =
       TensorProduct.map (TensorProduct.rid R E).toLinearMap LinearMap.id
         ((D.affineTensor (Preconnection.unit Ω lam)).toAddHom x) := by sorry
 
-lemma Preconnection.affineTensor_lid_symm (D : Preconnection Ω lam E) (e : E) :
+theorem Preconnection.affineTensor_lid_symm (D : Preconnection Ω lam E) (e : E) :
     ((Preconnection.unit Ω lam).affineTensor D).toAddHom ((TensorProduct.lid R E).symm e) =
       TensorProduct.map (TensorProduct.lid R E).symm.toLinearMap LinearMap.id (D.toAddHom e) := by sorry
 
-lemma Preconnection.affineTensor_rid_symm (D : Preconnection Ω lam E) (e : E) :
+theorem Preconnection.affineTensor_rid_symm (D : Preconnection Ω lam E) (e : E) :
     (D.affineTensor (Preconnection.unit Ω lam)).toAddHom ((TensorProduct.rid R E).symm e) =
       TensorProduct.map (TensorProduct.rid R E).symm.toLinearMap LinearMap.id (D.toAddHom e) := by sorry
 
@@ -3645,21 +3549,21 @@ variable {Z : Type z} [AddCommGroup Z] [Module R Z]
 variable {E : Type v} [AddCommGroup E] [Module R E]
 variable {Ω : TwoForms k R W Z} {lam : R}
 
-lemma TwoForms.wedge_swap (ω α : W) :
+theorem TwoForms.wedge_swap (ω α : W) :
     Ω.wedge ω α + Ω.wedge α ω = 0 := by sorry
-lemma TwoForms.wedgeRight_add (ω α : W) (x : E ⊗[R] W) :
+theorem TwoForms.wedgeRight_add (ω α : W) (x : E ⊗[R] W) :
     Ω.wedgeRight (ω + α) x = Ω.wedgeRight ω x + Ω.wedgeRight α x := by sorry
-lemma TwoForms.wedgeRight_smul (a : R) (ω : W) (x : E ⊗[R] W) :
+theorem TwoForms.wedgeRight_smul (a : R) (ω : W) (x : E ⊗[R] W) :
     Ω.wedgeRight (a • ω) x = a • Ω.wedgeRight ω x := by sorry
-lemma Preconnection.extend_smul [IsScalarTower k R W] (D : Preconnection Ω lam E) (a : R) (x : E ⊗[R] W) :
+theorem Preconnection.extend_smul [IsScalarTower k R W] (D : Preconnection Ω lam E) (a : R) (x : E ⊗[R] W) :
     D.extend (a • x) = a • D.extend x +
       lam • TensorProduct.map LinearMap.id (Ω.wedge (Ω.d0 a)) x := by sorry
-lemma TwoForms.wedgeRight_add_left (ω : W) (x : E ⊗[R] W) :
+theorem TwoForms.wedgeRight_add_left (ω : W) (x : E ⊗[R] W) :
     Ω.wedgeRight ω x + TensorProduct.map LinearMap.id (Ω.wedge ω) x = 0 := by sorry
-lemma Preconnection.curvature_scalar_defect [IsScalarTower k R W] (D : Preconnection Ω lam E) (a : R) (e : E) :
+theorem Preconnection.curvature_scalar_defect [IsScalarTower k R W] (D : Preconnection Ω lam E) (a : R) (e : E) :
     D.curvature (a • e) = a • D.curvature e +
       lam • (e ⊗ₜ[R] Ω.wedge (Ω.d0 lam) (Ω.d0 a)) := by sorry
-lemma Preconnection.unit_curvature [IsScalarTower k R W] (a : R) :
+theorem Preconnection.unit_curvature [IsScalarTower k R W] (a : R) :
     (Preconnection.unit Ω lam).curvature a =
       lam • ((1 : R) ⊗ₜ[R] Ω.wedge (Ω.d0 lam) (Ω.d0 a)) := by sorry
 end
@@ -3678,37 +3582,37 @@ variable {Ω : TwoForms k R W Z} {lam : R}
 
 def TwoForms.tensorWedge (Ω : TwoForms k R W Z) :
     (E ⊗[R] W) ⊗[R] (F ⊗[R] W) →ₗ[R] (E ⊗[R] F) ⊗[R] Z := by sorry
-lemma TwoForms.tensorWedge_tmul (e : E) (f : F) (ω α : W) :
+theorem TwoForms.tensorWedge_tmul (e : E) (f : F) (ω α : W) :
     Ω.tensorWedge ((e ⊗ₜ[R] ω) ⊗ₜ[R] (f ⊗ₜ[R] α)) =
       (e ⊗ₜ[R] f) ⊗ₜ[R] Ω.wedge ω α := by sorry
-lemma TwoForms.wedgeRight_rightComm (ω : W) (x : E ⊗[R] W) (f : F) :
+theorem TwoForms.wedgeRight_rightComm (ω : W) (x : E ⊗[R] W) (f : F) :
     Ω.wedgeRight ω (TensorProduct.rightComm R E W F (x ⊗ₜ[R] f)) =
       TensorProduct.rightComm R E Z F (Ω.wedgeRight ω x ⊗ₜ[R] f) := by sorry
-lemma TwoForms.wedgeRight_assoc_mixed (ω : W) (e : E) (y : F ⊗[R] W) :
+theorem TwoForms.wedgeRight_assoc_mixed (ω : W) (e : E) (y : F ⊗[R] W) :
     Ω.wedgeRight ω ((TensorProduct.assoc R E F W).symm (e ⊗ₜ[R] y)) =
       -Ω.tensorWedge ((e ⊗ₜ[R] ω) ⊗ₜ[R] y) := by sorry
-lemma TwoForms.wedgeRight_assoc (ω : W) (e : E) (y : F ⊗[R] W) :
+theorem TwoForms.wedgeRight_assoc (ω : W) (e : E) (y : F ⊗[R] W) :
     Ω.wedgeRight ω ((TensorProduct.assoc R E F W).symm (e ⊗ₜ[R] y)) =
       (TensorProduct.assoc R E F Z).symm (e ⊗ₜ[R] Ω.wedgeRight ω y) := by sorry
-lemma TwoForms.wedgeRight_rightComm_mixed (ω : W) (x : E ⊗[R] W) (f : F) :
+theorem TwoForms.wedgeRight_rightComm_mixed (ω : W) (x : E ⊗[R] W) (f : F) :
     Ω.wedgeRight ω (TensorProduct.rightComm R E W F (x ⊗ₜ[R] f)) =
       Ω.tensorWedge (x ⊗ₜ[R] (f ⊗ₜ[R] ω)) := by sorry
-lemma Preconnection.affineTensor_extend_left [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_extend_left [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (x : E ⊗[R] W) (f : F) :
     (D.affineTensor C).extend (TensorProduct.rightComm R E W F (x ⊗ₜ[R] f)) =
       TensorProduct.rightComm R E Z F (D.extend x ⊗ₜ[R] f) -
         Ω.tensorWedge (x ⊗ₜ[R] C.toAddHom f) := by sorry
-lemma Preconnection.affineTensor_extend_right [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_extend_right [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (e : E) (y : F ⊗[R] W) :
     (D.affineTensor C).extend ((TensorProduct.assoc R E F W).symm (e ⊗ₜ[R] y)) =
       (TensorProduct.assoc R E F Z).symm (e ⊗ₜ[R] C.extend y) +
         Ω.tensorWedge (D.toAddHom e ⊗ₜ[R] y) := by sorry
-lemma Preconnection.affineTensor_curvature_tmul [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_curvature_tmul [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (e : E) (f : F) :
     (D.affineTensor C).curvature (e ⊗ₜ[R] f) =
       TensorProduct.rightComm R E Z F (D.curvature e ⊗ₜ[R] f) +
         (TensorProduct.assoc R E F Z).symm (e ⊗ₜ[R] C.curvature f) := by sorry
-lemma Preconnection.affineTensor_flat [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_flat [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F)
     (hD : ∀ e, D.curvature e = 0) (hC : ∀ f, C.curvature f = 0)
     (x : E ⊗[R] F) : (D.affineTensor C).curvature x = 0 := by sorry
@@ -3725,11 +3629,11 @@ variable {Z : Type z} [AddCommGroup Z] [Module R Z]
 variable {E : Type v} [AddCommGroup E] [Module R E]
 variable {F : Type t} [AddCommGroup F] [Module R F]
 variable {Ω : TwoForms k R W Z} {lam : R}
-lemma Preconnection.extensionPair_add (D : Preconnection Ω lam E) (e f : E) (ω : W) :
+theorem Preconnection.extensionPair_add (D : Preconnection Ω lam E) (e f : E) (ω : W) :
     D.extensionPair (e + f) ω = D.extensionPair e ω + D.extensionPair f ω := by sorry
-lemma TwoForms.tensorWedge_zero :
+theorem TwoForms.tensorWedge_zero :
     Ω.tensorWedge (E := E) (F := F) 0 = 0 := by sorry
-lemma TwoForms.tensorWedge_add (x y : (E ⊗[R] W) ⊗[R] (F ⊗[R] W)) :
+theorem TwoForms.tensorWedge_add (x y : (E ⊗[R] W) ⊗[R] (F ⊗[R] W)) :
     Ω.tensorWedge (x + y) = Ω.tensorWedge x + Ω.tensorWedge y := by sorry
 end
 end TauCeti.Hodge.ParameterConnection.Intrinsic
@@ -3820,18 +3724,18 @@ variable {F : Type t} [AddCommGroup F] [Module R F]
 variable {G : Type s} [AddCommGroup G] [Module R G]
 variable {Ω : TwoForms k R W Z} {lam : R}
 
-lemma TwoForms.wedgeRight_map [IsScalarTower k R W] (u : E →ₗ[R] F) (ω : W) (x : E ⊗[R] W) :
+theorem TwoForms.wedgeRight_map [IsScalarTower k R W] (u : E →ₗ[R] F) (ω : W) (x : E ⊗[R] W) :
     Ω.wedgeRight ω (TensorProduct.map u LinearMap.id x) =
       TensorProduct.map u LinearMap.id (Ω.wedgeRight ω x) := by sorry
 
-lemma Preconnection.extend_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.extend_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (u : E →ₗ[R] F)
     (hu : ∀ e, C.toAddHom (u e) = TensorProduct.map u LinearMap.id (D.toAddHom e))
     (x : E ⊗[R] W) :
     C.extend (TensorProduct.map u LinearMap.id x) =
       TensorProduct.map u LinearMap.id (D.extend x) := by sorry
 
-lemma Preconnection.curvature_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.curvature_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (u : E →ₗ[R] F)
     (hu : ∀ e, C.toAddHom (u e) = TensorProduct.map u LinearMap.id (D.toAddHom e))
     (e : E) :
@@ -3841,37 +3745,37 @@ lemma Preconnection.curvature_horizontal [IsScalarTower k R W] (D : Preconnectio
 def Preconnection.transport [IsScalarTower k R W] (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
     Preconnection Ω lam F := by sorry
 
-lemma Preconnection.transport_apply [IsScalarTower k R W] (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (f : F) :
+theorem Preconnection.transport_apply [IsScalarTower k R W] (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (f : F) :
     (D.transport u).toAddHom f =
       TensorProduct.map u.toLinearMap LinearMap.id (D.toAddHom (u.symm f)) := by sorry
 
-lemma Preconnection.transport_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) (e : E) :
     (D.transport u).toAddHom (u e) =
       TensorProduct.map u.toLinearMap LinearMap.id (D.toAddHom e) := by sorry
 
-lemma Preconnection.transport_refl [IsScalarTower k R W] (D : Preconnection Ω lam E) (e : E) :
+theorem Preconnection.transport_refl [IsScalarTower k R W] (D : Preconnection Ω lam E) (e : E) :
     (D.transport (LinearEquiv.refl R E)).toAddHom e = D.toAddHom e := by sorry
 
-lemma Preconnection.transport_trans [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_trans [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) (v : F ≃ₗ[R] G) (g : G) :
     ((D.transport u).transport v).toAddHom g = (D.transport (u.trans v)).toAddHom g := by sorry
 
-lemma Preconnection.transport_symm [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_symm [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) (e : E) :
     ((D.transport u).transport u.symm).toAddHom e = D.toAddHom e := by sorry
 
-lemma Preconnection.transport_extend [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_extend [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) (x : E ⊗[R] W) :
     (D.transport u).extend (TensorProduct.map u.toLinearMap LinearMap.id x) =
       TensorProduct.map u.toLinearMap LinearMap.id (D.extend x) := by sorry
 
-lemma Preconnection.transport_curvature [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_curvature [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) (e : E) :
     (D.transport u).curvature (u e) =
       TensorProduct.map u.toLinearMap LinearMap.id (D.curvature e) := by sorry
 
-lemma Preconnection.transport_flat_iff [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.transport_flat_iff [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (u : E ≃ₗ[R] F) :
     (∀ f, (D.transport u).curvature f = 0) ↔ (∀ e, D.curvature e = 0) := by sorry
 
@@ -3879,25 +3783,25 @@ lemma Preconnection.transport_flat_iff [IsScalarTower k R W] (D : Preconnection 
 def Preconnection.curvatureLinear [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0) : E →ₗ[R] E ⊗[R] Z := by sorry
 
-lemma Preconnection.curvatureLinear_apply [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.curvatureLinear_apply [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0) (e : E) : D.curvatureLinear hlam e = D.curvature e := by sorry
 
-lemma Preconnection.curvatureLinear_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.curvatureLinear_horizontal [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (hlam : Ω.d0 lam = 0) (u : E →ₗ[R] F)
     (hu : ∀ e, C.toAddHom (u e) = TensorProduct.map u LinearMap.id (D.toAddHom e)) :
     (C.curvatureLinear hlam).comp u =
       (TensorProduct.map u LinearMap.id).comp (D.curvatureLinear hlam) := by sorry
 
-lemma Preconnection.curvatureLinear_transport [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.curvatureLinear_transport [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0) (u : E ≃ₗ[R] F) :
     ((D.transport u).curvatureLinear hlam).comp u.toLinearMap =
       (TensorProduct.map u.toLinearMap LinearMap.id).comp (D.curvatureLinear hlam) := by sorry
 
-lemma Preconnection.curvatureLinear_eq_zero_iff [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.curvatureLinear_eq_zero_iff [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0) :
     D.curvatureLinear hlam = 0 ↔ ∀ e, D.curvature e = 0 := by sorry
 
-lemma Preconnection.affineTensor_curvatureLinear [IsScalarTower k R W] (D : Preconnection Ω lam E)
+theorem Preconnection.affineTensor_curvatureLinear [IsScalarTower k R W] (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (hlam : Ω.d0 lam = 0) :
     (D.affineTensor C).curvatureLinear hlam =
       (TensorProduct.rightComm R E Z F).toLinearMap.comp
@@ -3905,7 +3809,7 @@ lemma Preconnection.affineTensor_curvatureLinear [IsScalarTower k R W] (D : Prec
       (TensorProduct.assoc R E F Z).symm.toLinearMap.comp
         (TensorProduct.map LinearMap.id (C.curvatureLinear hlam)) := by sorry
 
-lemma Preconnection.unit_curvatureLinear_eq_zero [IsScalarTower k R W] (hlam : Ω.d0 lam = 0) :
+theorem Preconnection.unit_curvatureLinear_eq_zero [IsScalarTower k R W] (hlam : Ω.d0 lam = 0) :
     (Preconnection.unit Ω lam).curvatureLinear hlam = 0 := by sorry
 
 end
@@ -3991,11 +3895,11 @@ def TwoForms.Morphism.refl (Ω : TwoForms k R W Z) :
   d1_map := by sorry
   wedge_map := by sorry
 
-lemma TwoForms.Morphism.refl_one (ω : W) : (TwoForms.Morphism.refl Ω).one ω = ω := by sorry
+theorem TwoForms.Morphism.refl_one (ω : W) : (TwoForms.Morphism.refl Ω).one ω = ω := by sorry
 
-lemma TwoForms.Morphism.refl_two (η : Z) : (TwoForms.Morphism.refl Ω).two η = η := by sorry
+theorem TwoForms.Morphism.refl_two (η : Z) : (TwoForms.Morphism.refl Ω).two η = η := by sorry
 
-lemma TwoForms.Morphism.constant_parameter (m : TwoForms.Morphism f Ω Γ)
+theorem TwoForms.Morphism.constant_parameter (m : TwoForms.Morphism f Ω Γ)
     {lam : R} (h : Ω.d0 lam = 0) : Γ.d0 (f lam) = 0 := by sorry
 
 section Composition
@@ -4013,10 +3917,10 @@ def TwoForms.Morphism.comp (n : TwoForms.Morphism g Γ Δ) (m : TwoForms.Morphis
   d1_map := by sorry
   wedge_map := by sorry
 
-lemma TwoForms.Morphism.comp_one (n : TwoForms.Morphism g Γ Δ)
+theorem TwoForms.Morphism.comp_one (n : TwoForms.Morphism g Γ Δ)
     (m : TwoForms.Morphism f Ω Γ) (ω : W) : (n.comp m).one ω = n.one (m.one ω) := by sorry
 
-lemma TwoForms.Morphism.comp_two (n : TwoForms.Morphism g Γ Δ)
+theorem TwoForms.Morphism.comp_two (n : TwoForms.Morphism g Γ Δ)
     (m : TwoForms.Morphism f Ω Γ) (η : Z) : (n.comp m).two η = n.two (m.two η) := by sorry
 
 end Composition
@@ -4033,54 +3937,54 @@ def Preconnection.SemilinearHorizontal [IsScalarTower k R W] [IsScalarTower k S 
 
 variable [IsScalarTower k R W] [IsScalarTower k S V]
 
-lemma Preconnection.semilinearHorizontal_refl (D : Preconnection Ω lam E) :
+theorem Preconnection.semilinearHorizontal_refl (D : Preconnection Ω lam E) :
     Preconnection.SemilinearHorizontal (TwoForms.Morphism.refl Ω) D D LinearMap.id := by sorry
 
-lemma Preconnection.semilinearHorizontal_unit (m : TwoForms.Morphism f Ω Γ) :
+theorem Preconnection.semilinearHorizontal_unit (m : TwoForms.Morphism f Ω Γ) :
     Preconnection.SemilinearHorizontal m (Preconnection.unit Ω lam)
       (Preconnection.unit Γ (f lam)) f.toSemilinearMap := by sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma TwoForms.Morphism.wedgeRight_natural (m : TwoForms.Morphism f Ω Γ)
+theorem TwoForms.Morphism.wedgeRight_natural (m : TwoForms.Morphism f Ω Γ)
     (h : E →ₛₗ[f] F) (ω : W) (x : E ⊗[R] W) :
     Γ.wedgeRight (m.one ω) (TensorProduct.map h m.one x) =
       TensorProduct.map h m.two (Ω.wedgeRight ω x) := by sorry
 
-lemma Preconnection.extend_semilinear (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.extend_semilinear (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (x : E ⊗[R] W) :
     C.extend (TensorProduct.map h m.one x) = TensorProduct.map h m.two (D.extend x) := by sorry
 
-lemma Preconnection.curvature_semilinear (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.curvature_semilinear (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h) (e : E) :
     C.curvature (h e) = TensorProduct.map h m.two (D.curvature e) := by sorry
 
-lemma Preconnection.flat_on_image (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.flat_on_image (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (hD : ∀ e, D.curvature e = 0) (e : E) : C.curvature (h e) = 0 := by sorry
 
-lemma Preconnection.flat_of_surjective (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.flat_of_surjective (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (hs : Function.Surjective h) (hD : ∀ e, D.curvature e = 0) (x : F) :
     C.curvature x = 0 := by sorry
 
-lemma Preconnection.flat_reflect (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.flat_reflect (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (hi : Function.Injective (TensorProduct.map h m.two))
     (hC : ∀ x, C.curvature x = 0) (e : E) : D.curvature e = 0 := by sorry
 
-lemma Preconnection.flat_semilinear_iff (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.flat_semilinear_iff (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (hs : Function.Surjective h) (hi : Function.Injective (TensorProduct.map h m.two)) :
     (∀ x, C.curvature x = 0) ↔ ∀ e, D.curvature e = 0 := by sorry
 
-lemma Preconnection.curvatureLinear_semilinear (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.curvatureLinear_semilinear (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Γ (f lam) F)
     (h : E →ₛₗ[f] F) (hh : Preconnection.SemilinearHorizontal m D C h)
     (hlam : Ω.d0 lam = 0) (e : E) :
@@ -4097,13 +4001,13 @@ variable {Δ : TwoForms k T P Q} {g : S →+* T}
 local instance : RingHomCompTriple f g (g.comp f) := ⟨rfl⟩
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] in
-lemma TwoForms.Morphism.tensorMap_comp (n : TwoForms.Morphism g Γ Δ)
+theorem TwoForms.Morphism.tensorMap_comp (n : TwoForms.Morphism g Γ Δ)
     (m : TwoForms.Morphism f Ω Γ) (h : E →ₛₗ[f] F) (i : F →ₛₗ[g] G)
     (x : E ⊗[R] W) :
     TensorProduct.map (i.comp h) (n.comp m).one x =
       TensorProduct.map i n.one (TensorProduct.map h m.one x) := by sorry
 
-lemma Preconnection.semilinearHorizontal_comp (n : TwoForms.Morphism g Γ Δ)
+theorem Preconnection.semilinearHorizontal_comp (n : TwoForms.Morphism g Γ Δ)
     (m : TwoForms.Morphism f Ω Γ) (D : Preconnection Ω lam E)
     (C : Preconnection Γ (f lam) F) (B : Preconnection Δ ((g.comp f) lam) G)
     (h : E →ₛₗ[f] F) (i : F →ₛₗ[g] G)
@@ -4224,7 +4128,7 @@ def scalarUnit : E →ₛₗ[algebraMap R S] S ⊗[R] E where
     rw [Algebra.smul_def, mul_one]
     simp only [smul_eq_mul, mul_one]
 
-lemma scalarUnit_apply (e : E) : scalarUnit (S := S) e = 1 ⊗ₜ[R] e := by
+theorem scalarUnit_apply (e : E) : scalarUnit (S := S) e = 1 ⊗ₜ[R] e := by
   sorry
 
 variable {lam : R}
@@ -4243,13 +4147,13 @@ def Preconnection.pullbackPair (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
       TensorProduct.tmul_add, smul_add, AddMonoidHom.add_apply]
     abel
 
-lemma Preconnection.pullbackPair_apply (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem Preconnection.pullbackPair_apply (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (s : S) (e : E) :
     D.pullbackPair m s e = s • TensorProduct.map scalarUnit m.one (D.toAddHom e) +
       algebraMap R S lam • (scalarUnit e ⊗ₜ[S] Γ.d0 s) := by
   sorry
 
-lemma Preconnection.pullback_balanced (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem Preconnection.pullback_balanced (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (a : R) (s : S) (e : E) :
     D.pullbackPair m (a • s) e = D.pullbackPair m s (a • e) := by
   sorry
@@ -4273,7 +4177,7 @@ def Preconnection.affinePullback (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
       simp only [scalarUnit_apply, TensorProduct.smul_tmul', smul_eq_mul, mul_one]
       abel
 
-lemma Preconnection.affinePullback_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem Preconnection.affinePullback_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (s : S) (e : E) :
     (D.affinePullback m).toAddHom (s ⊗ₜ[R] e) =
       s • TensorProduct.map scalarUnit m.one (D.toAddHom e) +
@@ -4282,37 +4186,37 @@ lemma Preconnection.affinePullback_tmul (m : TwoForms.Morphism (algebraMap R S) 
 
 variable [IsScalarTower k R W] [IsScalarTower k S V]
 
-lemma Preconnection.affinePullback_unit (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem Preconnection.affinePullback_unit (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) :
     Preconnection.SemilinearHorizontal m D (D.affinePullback m) scalarUnit := by
   sorry
 
-lemma Preconnection.affinePullback_curvature_unit
+theorem Preconnection.affinePullback_curvature_unit
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) (e : E) :
     (D.affinePullback m).curvature (scalarUnit e) =
       TensorProduct.map scalarUnit m.two (D.curvature e) := by
   sorry
 
-lemma Preconnection.affinePullback_curvature_tmul
+theorem Preconnection.affinePullback_curvature_tmul
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0) (s : S) (e : E) :
     (D.affinePullback m).curvature (s ⊗ₜ[R] e) =
       s • TensorProduct.map scalarUnit m.two (D.curvature e) := by
   sorry
 
-lemma Preconnection.affinePullback_flat
+theorem Preconnection.affinePullback_flat
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0) (hD : ∀ e, D.curvature e = 0) (x : S ⊗[R] E) :
     (D.affinePullback m).curvature x = 0 := by
   sorry
 
-lemma Preconnection.affinePullback_unique
+theorem Preconnection.affinePullback_unique
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (C : Preconnection Γ (algebraMap R S lam) (S ⊗[R] E))
     (h : Preconnection.SemilinearHorizontal m D C scalarUnit) : C = D.affinePullback m := by
   sorry
 
-lemma Preconnection.affinePullback_flat_iff
+theorem Preconnection.affinePullback_flat_iff
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (hlam : Ω.d0 lam = 0)
     (hi : Function.Injective (TensorProduct.map (scalarUnit (E := E)) m.two)) :
@@ -4322,19 +4226,19 @@ lemma Preconnection.affinePullback_flat_iff
 variable {F : Type t} [AddCommGroup F] [Module R F]
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma scalarUnit_baseChange (h : E →ₗ[R] F) (e : E) :
+theorem scalarUnit_baseChange (h : E →ₗ[R] F) (e : E) :
     h.baseChange S (scalarUnit e) = scalarUnit (h e) := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma scalarUnit_tensor_natural (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem scalarUnit_tensor_natural (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (h : E →ₗ[R] F) (x : E ⊗[R] W) :
     TensorProduct.map (h.baseChange S) LinearMap.id (TensorProduct.map scalarUnit m.one x) =
       TensorProduct.map scalarUnit m.one (TensorProduct.map h LinearMap.id x) := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma Preconnection.affinePullback_horizontal
+theorem Preconnection.affinePullback_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam F) (h : E →ₗ[R] F)
     (hh : ∀ e, C.toAddHom (h e) = TensorProduct.map h LinearMap.id (D.toAddHom e))
@@ -4499,17 +4403,17 @@ def TwoForms.Morphism.towerComp (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     intro ω α
     exact (n.wedge_map (m.one ω) (m.one α)).trans (congrArg n.two (m.wedge_map ω α))
 
-lemma TwoForms.Morphism.towerComp_one (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem TwoForms.Morphism.towerComp_one (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (ω : W) :
     (n.towerComp m).one ω = n.one (m.one ω) := by
   sorry
 
-lemma TwoForms.Morphism.towerComp_two (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem TwoForms.Morphism.towerComp_two (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (η : Z) :
     (n.towerComp m).two η = n.two (m.two η) := by
   sorry
 
-lemma TwoForms.Morphism.towerComp_d0 (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem TwoForms.Morphism.towerComp_d0 (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (r : R) :
     Δ.d0 (algebraMap R T r) = n.one (m.one (Ω.d0 r)) := by
   sorry
@@ -4528,7 +4432,7 @@ def Preconnection.affinePullbackTower (n : TwoForms.Morphism (algebraMap S T) Γ
     rw [IsScalarTower.algebraMap_apply R S T]
     exact ((D.affinePullback m).affinePullback n).leibniz t x
 
-lemma Preconnection.affinePullbackTower_apply
+theorem Preconnection.affinePullbackTower_apply
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[S] (S ⊗[R] E)) :
@@ -4536,13 +4440,13 @@ lemma Preconnection.affinePullbackTower_apply
       ((D.affinePullback m).affinePullback n).toAddHom x := by
   sorry
 
-lemma scalarUnit_cancelBaseChange (e : E) :
+theorem scalarUnit_cancelBaseChange (e : E) :
     TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E
       (scalarUnit (S := T) (scalarUnit (S := S) e)) =
         scalarUnit (S := T) e := by
   sorry
 
-lemma scalarUnit_tower_tensor
+theorem scalarUnit_tower_tensor
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (x : E ⊗[R] W) :
     TensorProduct.map
@@ -4555,7 +4459,7 @@ lemma scalarUnit_tower_tensor
 
 variable [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P]
 
-lemma Preconnection.affinePullback_tower_eq
+theorem Preconnection.affinePullback_tower_eq
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (D.affinePullbackTower n m).transport
@@ -4563,7 +4467,7 @@ lemma Preconnection.affinePullback_tower_eq
         D.affinePullback (n.towerComp m) := by
   sorry
 
-lemma Preconnection.affinePullback_tower_horizontal
+theorem Preconnection.affinePullback_tower_horizontal
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[S] (S ⊗[R] E)) :
@@ -4574,7 +4478,7 @@ lemma Preconnection.affinePullback_tower_horizontal
         LinearMap.id ((D.affinePullbackTower n m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_tower_horizontal_symm
+theorem Preconnection.affinePullback_tower_horizontal_symm
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[R] E) :
@@ -4585,7 +4489,7 @@ lemma Preconnection.affinePullback_tower_horizontal_symm
         LinearMap.id ((D.affinePullback (n.towerComp m)).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_tower_extend
+theorem Preconnection.affinePullback_tower_extend
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : (T ⊗[S] (S ⊗[R] E)) ⊗[T] P) :
@@ -4598,7 +4502,7 @@ lemma Preconnection.affinePullback_tower_extend
         LinearMap.id ((D.affinePullbackTower n m).extend x) := by
   sorry
 
-lemma Preconnection.affinePullback_tower_curvature
+theorem Preconnection.affinePullback_tower_curvature
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[S] (S ⊗[R] E)) :
@@ -4609,7 +4513,7 @@ lemma Preconnection.affinePullback_tower_curvature
         LinearMap.id ((D.affinePullbackTower n m).curvature x) := by
   sorry
 
-lemma Preconnection.affinePullback_tower_flat_iff
+theorem Preconnection.affinePullback_tower_flat_iff
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (∀ x, (D.affinePullback (n.towerComp m)).curvature x = 0) ↔
@@ -4780,14 +4684,14 @@ variable {E' : Type a} [AddCommGroup E'] [Module S E']
 variable {F' : Type b} [AddCommGroup F'] [Module S F']
 variable {f : R →+* S} {lam : R}
 
-lemma TwoForms.Morphism.tensor_rightComm (m : TwoForms.Morphism f Ω Γ)
+theorem TwoForms.Morphism.tensor_rightComm (m : TwoForms.Morphism f Ω Γ)
     (h : E →ₛₗ[f] E') (j : F →ₛₗ[f] F') (x : E ⊗[R] W) (y : F) :
     TensorProduct.rightComm S E' V F' (TensorProduct.map h m.one x ⊗ₜ[S] j y) =
       TensorProduct.map (TensorProduct.map h j) m.one
         (TensorProduct.rightComm R E W F (x ⊗ₜ[R] y)) := by
   sorry
 
-lemma TwoForms.Morphism.tensor_assoc_symm (m : TwoForms.Morphism f Ω Γ)
+theorem TwoForms.Morphism.tensor_assoc_symm (m : TwoForms.Morphism f Ω Γ)
     (h : E →ₛₗ[f] E') (j : F →ₛₗ[f] F') (x : E) (y : F ⊗[R] W) :
     (TensorProduct.assoc S E' F' V).symm (h x ⊗ₜ[S] TensorProduct.map j m.one y) =
       TensorProduct.map (TensorProduct.map h j) m.one
@@ -4796,7 +4700,7 @@ lemma TwoForms.Morphism.tensor_assoc_symm (m : TwoForms.Morphism f Ω Γ)
 
 variable [IsScalarTower k R W] [IsScalarTower k S V]
 
-lemma Preconnection.semilinearHorizontal_affineTensor (m : TwoForms.Morphism f Ω Γ)
+theorem Preconnection.semilinearHorizontal_affineTensor (m : TwoForms.Morphism f Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (D' : Preconnection Γ (f lam) E') (C' : Preconnection Γ (f lam) F')
     (h : E →ₛₗ[f] E') (j : F →ₛₗ[f] F')
@@ -4808,13 +4712,13 @@ lemma Preconnection.semilinearHorizontal_affineTensor (m : TwoForms.Morphism f �
 
 variable [Algebra R S]
 
-lemma scalarUnit_distribBaseChange (x : E ⊗[R] F) :
+theorem scalarUnit_distribBaseChange (x : E ⊗[R] F) :
     TensorProduct.AlgebraTensorModule.distribBaseChange R S E F (scalarUnit x) =
       TensorProduct.map (scalarUnit (S := S)) (scalarUnit (S := S)) x := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma scalarUnit_distribBaseChange_tensor
+theorem scalarUnit_distribBaseChange_tensor
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (x : (E ⊗[R] F) ⊗[R] W) :
     TensorProduct.map
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S E F).symm.toLinearMap
@@ -4824,7 +4728,7 @@ lemma scalarUnit_distribBaseChange_tensor
       TensorProduct.map (scalarUnit (S := S)) m.one x := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_eq
+theorem Preconnection.affinePullback_tensor_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F) :
     ((D.affinePullback m).affineTensor (C.affinePullback m)).transport
@@ -4832,7 +4736,7 @@ lemma Preconnection.affinePullback_tensor_eq
         (D.affineTensor C).affinePullback m := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_horizontal_inv
+theorem Preconnection.affinePullback_tensor_horizontal_inv
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (x : (S ⊗[R] E) ⊗[S] (S ⊗[R] F)) :
@@ -4843,7 +4747,7 @@ lemma Preconnection.affinePullback_tensor_horizontal_inv
         LinearMap.id (((D.affinePullback m).affineTensor (C.affinePullback m)).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_horizontal
+theorem Preconnection.affinePullback_tensor_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (x : S ⊗[R] (E ⊗[R] F)) :
@@ -4854,7 +4758,7 @@ lemma Preconnection.affinePullback_tensor_horizontal
         LinearMap.id (((D.affineTensor C).affinePullback m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_extend
+theorem Preconnection.affinePullback_tensor_extend
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (x : (S ⊗[R] (E ⊗[R] F)) ⊗[S] V) :
@@ -4867,7 +4771,7 @@ lemma Preconnection.affinePullback_tensor_extend
         LinearMap.id (((D.affineTensor C).affinePullback m).extend x) := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_curvature
+theorem Preconnection.affinePullback_tensor_curvature
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F)
     (x : S ⊗[R] (E ⊗[R] F)) :
@@ -4878,21 +4782,21 @@ lemma Preconnection.affinePullback_tensor_curvature
         LinearMap.id (((D.affineTensor C).affinePullback m).curvature x) := by
   sorry
 
-lemma Preconnection.affinePullback_tensor_flat_iff
+theorem Preconnection.affinePullback_tensor_flat_iff
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F) :
     (∀ x, ((D.affineTensor C).affinePullback m).curvature x = 0) ↔
       ∀ x, ((D.affinePullback m).affineTensor (C.affinePullback m)).curvature x = 0 := by
   sorry
 
-lemma Preconnection.affinePullback_unitConnection_eq
+theorem Preconnection.affinePullback_unitConnection_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     (Preconnection.unit Γ (algebraMap R S lam)).transport
       (TensorProduct.AlgebraTensorModule.rid R S S).symm =
         (Preconnection.unit Ω lam).affinePullback m := by
   sorry
 
-lemma Preconnection.affinePullback_unitConnection_horizontal_inv
+theorem Preconnection.affinePullback_unitConnection_horizontal_inv
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (s : S) :
     ((Preconnection.unit Ω lam).affinePullback m).toAddHom
       ((TensorProduct.AlgebraTensorModule.rid R S S).symm s) =
@@ -4900,7 +4804,7 @@ lemma Preconnection.affinePullback_unitConnection_horizontal_inv
         LinearMap.id ((Preconnection.unit Γ (algebraMap R S lam)).toAddHom s) := by
   sorry
 
-lemma Preconnection.affinePullback_unitConnection_horizontal
+theorem Preconnection.affinePullback_unitConnection_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (x : S ⊗[R] R) :
     (Preconnection.unit Γ (algebraMap R S lam)).toAddHom
       (TensorProduct.AlgebraTensorModule.rid R S S x) =
@@ -5038,12 +4942,12 @@ variable {Z : Type z} [AddCommGroup Z] [Module R Z]
 variable {Ω : TwoForms k R W Z} [IsScalarTower k R W]
 variable {E : Type v} [AddCommGroup E] [Module R E] {lam : R}
 
-lemma Preconnection.affinePullback_refl_eq (D : Preconnection Ω lam E) :
+theorem Preconnection.affinePullback_refl_eq (D : Preconnection Ω lam E) :
     D.transport (TensorProduct.lid R E).symm =
       D.affinePullback (TwoForms.Morphism.refl Ω) := by
   sorry
 
-lemma Preconnection.affinePullback_refl_horizontal_inv (D : Preconnection Ω lam E)
+theorem Preconnection.affinePullback_refl_horizontal_inv (D : Preconnection Ω lam E)
     (e : E) :
     (D.affinePullback (TwoForms.Morphism.refl Ω)).toAddHom
       ((TensorProduct.lid R E).symm e) =
@@ -5051,28 +4955,28 @@ lemma Preconnection.affinePullback_refl_horizontal_inv (D : Preconnection Ω lam
           (D.toAddHom e) := by
   sorry
 
-lemma Preconnection.affinePullback_refl_horizontal (D : Preconnection Ω lam E)
+theorem Preconnection.affinePullback_refl_horizontal (D : Preconnection Ω lam E)
     (x : R ⊗[R] E) :
     D.toAddHom (TensorProduct.lid R E x) =
       TensorProduct.map (TensorProduct.lid R E).toLinearMap LinearMap.id
         ((D.affinePullback (TwoForms.Morphism.refl Ω)).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_refl_extend (D : Preconnection Ω lam E)
+theorem Preconnection.affinePullback_refl_extend (D : Preconnection Ω lam E)
     (x : (R ⊗[R] E) ⊗[R] W) :
     D.extend (TensorProduct.map (TensorProduct.lid R E).toLinearMap LinearMap.id x) =
       TensorProduct.map (TensorProduct.lid R E).toLinearMap LinearMap.id
         ((D.affinePullback (TwoForms.Morphism.refl Ω)).extend x) := by
   sorry
 
-lemma Preconnection.affinePullback_refl_curvature (D : Preconnection Ω lam E)
+theorem Preconnection.affinePullback_refl_curvature (D : Preconnection Ω lam E)
     (x : R ⊗[R] E) :
     D.curvature (TensorProduct.lid R E x) =
       TensorProduct.map (TensorProduct.lid R E).toLinearMap LinearMap.id
         ((D.affinePullback (TwoForms.Morphism.refl Ω)).curvature x) := by
   sorry
 
-lemma Preconnection.affinePullback_refl_flat_iff (D : Preconnection Ω lam E) :
+theorem Preconnection.affinePullback_refl_flat_iff (D : Preconnection Ω lam E) :
     (∀ x, (D.affinePullback (TwoForms.Morphism.refl Ω)).curvature x = 0) ↔
       ∀ e, D.curvature e = 0 := by
   sorry
@@ -5101,7 +5005,7 @@ variable {N : Type d} [AddCommGroup N] [Module U N]
 variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y}
   {Δ : TwoForms k T P Q} {Ξ : TwoForms k U L N}
 
-lemma TwoForms.Morphism.towerComp_assoc
+theorem TwoForms.Morphism.towerComp_assoc
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -5110,7 +5014,7 @@ lemma TwoForms.Morphism.towerComp_assoc
 
 variable {E : Type v} [AddCommGroup E] [Module R E]
 
-lemma affinePullback_cancel_assoc :
+theorem affinePullback_cancel_assoc :
     (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U E).toLinearMap.comp
         ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E).toLinearMap.baseChange U) =
       (TensorProduct.AlgebraTensorModule.cancelBaseChange R S U U E).toLinearMap.comp
@@ -5122,7 +5026,7 @@ variable [IsScalarTower k R W] [IsScalarTower k S V]
 variable {lam : R}
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affinePullback_triple_horizontal
+theorem Preconnection.affinePullback_triple_horizontal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
@@ -5136,7 +5040,7 @@ lemma Preconnection.affinePullback_triple_horizontal
         LinearMap.id ((((D.affinePullback m).affinePullback n).affinePullback p).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_triple_horizontal_assoc
+theorem Preconnection.affinePullback_triple_horizontal_assoc
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
@@ -5241,20 +5145,20 @@ variable {E : Type v} [AddCommGroup E] [Module R E]
 variable {F : Type t} [AddCommGroup F] [Module R F]
 variable {G : Type a} [AddCommGroup G] [Module R G] {lam : R}
 
-lemma Preconnection.eq_of_toAddHom_eq (D C : Preconnection Ω lam E)
+theorem Preconnection.eq_of_toAddHom_eq (D C : Preconnection Ω lam E)
     (h : D.toAddHom = C.toAddHom) : D = C := by
   sorry
 
 variable [IsScalarTower k R W] [IsScalarTower k S V]
 
-lemma Preconnection.affinePullback_transport_eq
+theorem Preconnection.affinePullback_transport_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
     (D.transport u).affinePullback m =
       (D.affinePullback m).transport (u.baseChange R S) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_horizontal
+theorem Preconnection.affinePullback_transport_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : S ⊗[R] E) :
     ((D.transport u).affinePullback m).toAddHom ((u.baseChange R S) x) =
@@ -5262,7 +5166,7 @@ lemma Preconnection.affinePullback_transport_horizontal
         ((D.affinePullback m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_horizontal_symm
+theorem Preconnection.affinePullback_transport_horizontal_symm
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (y : S ⊗[R] F) :
     (D.affinePullback m).toAddHom ((u.baseChange R S).symm y) =
@@ -5270,7 +5174,7 @@ lemma Preconnection.affinePullback_transport_horizontal_symm
         (((D.transport u).affinePullback m).toAddHom y) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_extend
+theorem Preconnection.affinePullback_transport_extend
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : (S ⊗[R] E) ⊗[S] V) :
     ((D.transport u).affinePullback m).extend
@@ -5279,7 +5183,7 @@ lemma Preconnection.affinePullback_transport_extend
         ((D.affinePullback m).extend x) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_curvature
+theorem Preconnection.affinePullback_transport_curvature
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (x : S ⊗[R] E) :
     ((D.transport u).affinePullback m).curvature ((u.baseChange R S) x) =
@@ -5287,21 +5191,21 @@ lemma Preconnection.affinePullback_transport_curvature
         ((D.affinePullback m).curvature x) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_flat_iff
+theorem Preconnection.affinePullback_transport_flat_iff
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) :
     (∀ y, ((D.transport u).affinePullback m).curvature y = 0) ↔
       ∀ x, (D.affinePullback m).curvature x = 0 := by
   sorry
 
-lemma Preconnection.affinePullback_triangle_source_eq
+theorem Preconnection.affinePullback_triangle_source_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) :
     (D.affinePullback (TwoForms.Morphism.refl Ω)).affinePullback m =
       (D.affinePullback m).transport ((TensorProduct.lid R E).symm.baseChange R S) := by
   sorry
 
-lemma Preconnection.affinePullback_transport_comp_eq
+theorem Preconnection.affinePullback_transport_comp_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (D : Preconnection Ω lam E) (u : E ≃ₗ[R] F) (v : F ≃ₗ[R] G) :
     ((D.transport u).transport v).affinePullback m =
@@ -5396,17 +5300,17 @@ def AffineCategory.category : Category (AffineCategory Ω lam) where
 attribute [instance] AffineCategory.category
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.hom_ext {X Y : AffineCategory Ω lam} (h j : X ⟶ Y)
+theorem AffineCategory.hom_ext {X Y : AffineCategory Ω lam} (h j : X ⟶ Y)
     (he : h.1 = j.1) : h = j := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.id_linear (X : AffineCategory Ω lam) :
+theorem AffineCategory.id_linear (X : AffineCategory Ω lam) :
     (𝟙 X : X ⟶ X).1 = LinearMap.id := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.comp_linear {X Y Z : AffineCategory Ω lam} (h : X ⟶ Y) (j : Y ⟶ Z) :
+theorem AffineCategory.comp_linear {X Y Z : AffineCategory Ω lam} (h : X ⟶ Y) (j : Y ⟶ Z) :
     (h ≫ j).1 = j.1.comp h.1 := by
   sorry
 
@@ -5415,27 +5319,27 @@ def AffineCategory.forget : AffineCategory Ω lam ⥤ ModuleCat.{u} R where
   map h := ModuleCat.ofHom h.1
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.forget_obj (X : AffineCategory Ω lam) :
+theorem AffineCategory.forget_obj (X : AffineCategory Ω lam) :
     (AffineCategory.forget (Ω := Ω) (lam := lam)).obj X = X.1 := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.forget_map {X Y : AffineCategory Ω lam} (h : X ⟶ Y) :
+theorem AffineCategory.forget_map {X Y : AffineCategory Ω lam} (h : X ⟶ Y) :
     ((AffineCategory.forget (Ω := Ω) (lam := lam)).map h).hom = h.1 := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.forget_faithful :
+theorem AffineCategory.forget_faithful :
     (AffineCategory.forget (Ω := Ω) (lam := lam)).Faithful := by
   sorry
 
-lemma AffineCategory.hom_extend {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
+theorem AffineCategory.hom_extend {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
     (x : X.1 ⊗[R] W) :
     Y.2.extend (TensorProduct.map h.1 LinearMap.id x) =
       TensorProduct.map h.1 LinearMap.id (X.2.extend x) := by
   sorry
 
-lemma AffineCategory.hom_curvature {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
+theorem AffineCategory.hom_curvature {X Y : AffineCategory Ω lam} (h : X ⟶ Y)
     (x : X.1) :
     Y.2.curvature (h.1 x) = TensorProduct.map h.1 LinearMap.id (X.2.curvature x) := by
   sorry
@@ -5455,20 +5359,20 @@ def AffineCategory.isoMk {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
     exact e.apply_symm_apply x
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.isoMk_hom {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+theorem AffineCategory.isoMk_hom {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
     (he : ∀ x, Y.2.toAddHom (e x) =
       TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
     (AffineCategory.isoMk e he).hom.1 = e.toLinearMap := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.isoMk_inv {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+theorem AffineCategory.isoMk_inv {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
     (he : ∀ x, Y.2.toAddHom (e x) =
       TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
     (AffineCategory.isoMk e he).inv.1 = e.symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.isoMk_flat_iff {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
+theorem AffineCategory.isoMk_flat_iff {X Y : AffineCategory Ω lam} (e : X.1 ≃ₗ[R] Y.1)
     (he : ∀ x, Y.2.toAddHom (e x) =
       TensorProduct.map e.toLinearMap LinearMap.id (X.2.toAddHom x)) :
     (∀ y, Y.2.curvature y = 0) ↔ ∀ x, X.2.curvature x = 0 := by
@@ -5491,19 +5395,19 @@ def AffineCategory.pullback (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     exact LinearMap.baseChange_comp _ _
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullback_obj_connection (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullback_obj_connection (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (X : AffineCategory Ω lam) :
     ((AffineCategory.pullback m).obj X).2 = X.2.affinePullback m := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullback_map_linear (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullback_map_linear (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     {X X' : AffineCategory Ω lam} (h : X ⟶ X') :
     ((AffineCategory.pullback m).map h).1 = h.1.baseChange S := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullback_map_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullback_map_tmul (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     {X X' : AffineCategory Ω lam} (h : X ⟶ X') (s : S) (x : X.1) :
     ((AffineCategory.pullback m).map h).1 (s ⊗ₜ[R] x) = s ⊗ₜ[R] h.1 x := by
   sorry
@@ -5520,18 +5424,18 @@ def AffineCategory.pullbackIdentityIso :
     change r • h.1 x = h.1 (r • x)
     exact (h.1.map_smul r x).symm)
 
-lemma AffineCategory.pullbackIdentityIso_hom (X : AffineCategory Ω lam) :
+theorem AffineCategory.pullbackIdentityIso_hom (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app X).1 =
       (TensorProduct.lid R X.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackIdentityIso_inv (X : AffineCategory Ω lam) :
+theorem AffineCategory.pullbackIdentityIso_inv (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).inv.app X).1 =
       (TensorProduct.lid R X.1).symm.toLinearMap := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.pullbackIdentityIso_naturality {X X' : AffineCategory Ω lam}
+theorem AffineCategory.pullbackIdentityIso_naturality {X X' : AffineCategory Ω lam}
     (h : X ⟶ X') :
     (TensorProduct.lid R X'.1).toLinearMap.comp (h.1.baseChange R) =
       h.1.comp (TensorProduct.lid R X.1).toLinearMap := by
@@ -5759,68 +5663,68 @@ def AffineCategory.symmetric : SymmetricCategory (AffineCategory Ω lam) :=
 
 attribute [instance] AffineCategory.symmetric
 
-lemma AffineCategory.tensor_connection (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.tensor_connection (X Y : AffineCategory Ω lam) :
     (X ⊗ Y).2 = X.2.affineTensor Y.2 := by
   sorry
 
-lemma AffineCategory.tensorMap_tmul {X X' Y Y' : AffineCategory Ω lam}
+theorem AffineCategory.tensorMap_tmul {X X' Y Y' : AffineCategory Ω lam}
     (h : X ⟶ X') (j : Y ⟶ Y') (x : X.1) (y : Y.1) :
     (h ⊗ₘ j).1 (x ⊗ₜ[R] y) = h.1 x ⊗ₜ[R] j.1 y := by
   sorry
 
-lemma AffineCategory.unit_connection :
+theorem AffineCategory.unit_connection :
     (𝟙_ (AffineCategory Ω lam)).2 = Preconnection.unit Ω lam := by
   sorry
 
-lemma AffineCategory.associator_linear (X Y T : AffineCategory Ω lam) :
+theorem AffineCategory.associator_linear (X Y T : AffineCategory Ω lam) :
     (α_ X Y T).hom.1 = (TensorProduct.assoc R X.1 Y.1 T.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.leftUnitor_linear (X : AffineCategory Ω lam) :
+theorem AffineCategory.leftUnitor_linear (X : AffineCategory Ω lam) :
     (λ_ X).hom.1 = (TensorProduct.lid R X.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.rightUnitor_linear (X : AffineCategory Ω lam) :
+theorem AffineCategory.rightUnitor_linear (X : AffineCategory Ω lam) :
     (ρ_ X).hom.1 = (TensorProduct.rid R X.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.braiding_linear (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.braiding_linear (X Y : AffineCategory Ω lam) :
     (β_ X Y).hom.1 = (TensorProduct.comm R X.1 Y.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.forget_tensor_map {X X' Y Y' : AffineCategory Ω lam}
+theorem AffineCategory.forget_tensor_map {X X' Y Y' : AffineCategory Ω lam}
     (h : X ⟶ X') (j : Y ⟶ Y') :
     AffineCategory.forget.map (h ⊗ₘ j) =
       AffineCategory.forget.map h ⊗ₘ AffineCategory.forget.map j := by
   sorry
 
-lemma AffineCategory.forget_tensor_comparison (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.forget_tensor_comparison (X Y : AffineCategory Ω lam) :
     Functor.LaxMonoidal.μ AffineCategory.forget X Y = 𝟙 _ := by
   sorry
 
-lemma AffineCategory.forget_unit_comparison :
+theorem AffineCategory.forget_unit_comparison :
     Functor.LaxMonoidal.ε (AffineCategory.forget (Ω := Ω) (lam := lam)) = 𝟙 _ := by
   sorry
 
-lemma AffineCategory.tensor_id (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.tensor_id (X Y : AffineCategory Ω lam) :
     (𝟙 X) ⊗ₘ (𝟙 Y) = 𝟙 (X ⊗ Y) := by
   sorry
 
-lemma AffineCategory.tensor_comp {X X' X'' Y Y' Y'' : AffineCategory Ω lam}
+theorem AffineCategory.tensor_comp {X X' X'' Y Y' Y'' : AffineCategory Ω lam}
     (h : X ⟶ X') (h' : X' ⟶ X'') (j : Y ⟶ Y') (j' : Y' ⟶ Y'') :
     (h ⊗ₘ j) ≫ (h' ⊗ₘ j') = (h ≫ h') ⊗ₘ (j ≫ j') := by
   sorry
 
-lemma AffineCategory.pentagon (A B C D : AffineCategory Ω lam) :
+theorem AffineCategory.pentagon (A B C D : AffineCategory Ω lam) :
     (α_ A B C).hom ▷ D ≫ (α_ A (B ⊗ C) D).hom ≫ A ◁ (α_ B C D).hom =
       (α_ (A ⊗ B) C D).hom ≫ (α_ A B (C ⊗ D)).hom := by
   sorry
 
-lemma AffineCategory.triangle (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.triangle (X Y : AffineCategory Ω lam) :
     (α_ X (𝟙_ (AffineCategory Ω lam)) Y).hom ≫ X ◁ (λ_ Y).hom = (ρ_ X).hom ▷ Y := by
   sorry
 
-lemma AffineCategory.symmetry (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.symmetry (X Y : AffineCategory Ω lam) :
     (β_ X Y).hom ≫ (β_ Y X).hom = 𝟙 (X ⊗ Y) := by
   sorry
 
@@ -5931,22 +5835,22 @@ def AffineCategory.parameterChange (h : lam = mu) :
   map_comp _ _ := rfl
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.parameterChange_operator (h : lam = mu) (X : AffineCategory Ω lam) :
+theorem AffineCategory.parameterChange_operator (h : lam = mu) (X : AffineCategory Ω lam) :
     ((AffineCategory.parameterChange h).obj X).2.toAddHom = X.2.toAddHom := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.parameterChange_map (h : lam = mu) {X Y : AffineCategory Ω lam}
+theorem AffineCategory.parameterChange_map (h : lam = mu) {X Y : AffineCategory Ω lam}
     (f : X ⟶ Y) : ((AffineCategory.parameterChange h).map f).1 = f.1 := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.parameterChange_refl :
+theorem AffineCategory.parameterChange_refl :
     AffineCategory.parameterChange (Ω := Ω) (rfl : lam = lam) = 𝟭 _ := by
   sorry
 
 omit [IsScalarTower k R W] in
-lemma AffineCategory.parameterChange_trans (h : lam = mu) (j : mu = nu) :
+theorem AffineCategory.parameterChange_trans (h : lam = mu) (j : mu = nu) :
     AffineCategory.parameterChange (Ω := Ω) h ⋙ AffineCategory.parameterChange j =
       AffineCategory.parameterChange (h.trans j) := by
   sorry
@@ -5967,21 +5871,21 @@ def AffineCategory.pullbackTower (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     AffineCategory.parameterChange (IsScalarTower.algebraMap_apply R S T lam).symm
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] in
-lemma AffineCategory.pullbackTower_operator (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem AffineCategory.pullbackTower_operator (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackTower n m).obj X).2.toAddHom =
       ((X.2.affinePullback m).affinePullback n).toAddHom := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] in
-lemma AffineCategory.pullbackTower_map (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem AffineCategory.pullbackTower_map (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') : ((AffineCategory.pullbackTower n m).map f).1 =
       (f.1.baseChange S).baseChange T := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] in
-lemma AffineCategory.pullbackTower_map_tmul (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem AffineCategory.pullbackTower_map_tmul (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') (t : T) (s : S) (x : X.1) :
     ((AffineCategory.pullbackTower n m).map f).1 (t ⊗ₜ[S] (s ⊗ₜ[R] x)) =
@@ -6004,19 +5908,19 @@ def AffineCategory.pullbackTowerIso (n : TwoForms.Morphism (algebraMap S T) Γ �
     ext x
     simp)
 
-lemma AffineCategory.pullbackTowerIso_hom (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem AffineCategory.pullbackTowerIso_hom (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackTowerIso n m).hom.app X).1 =
       (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_inv (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
+theorem AffineCategory.pullbackTowerIso_inv (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackTowerIso n m).inv.app X).1 =
       (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X.1).symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_naturality
+theorem AffineCategory.pullbackTowerIso_naturality
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') :
@@ -6025,7 +5929,7 @@ lemma AffineCategory.pullbackTowerIso_naturality
         (AffineCategory.pullback (n.towerComp m)).map f := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_flat_iff
+theorem AffineCategory.pullbackTowerIso_flat_iff
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     (∀ x, ((AffineCategory.pullback (n.towerComp m)).obj X).2.curvature x = 0) ↔
@@ -6216,19 +6120,19 @@ def AffineCategory.pullbackMonoidal (m : TwoForms.Morphism (algebraMap R S) Ω �
 
 attribute [instance] AffineCategory.pullbackMonoidal
 
-lemma AffineCategory.pullbackTensorIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullbackTensorIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (X Y : AffineCategory Ω lam) :
     (AffineCategory.pullbackTensorIso m X Y).hom.1 =
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTensorIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullbackTensorIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (X Y : AffineCategory Ω lam) :
     (AffineCategory.pullbackTensorIso m X Y).inv.1 =
       (TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTensorIso_naturality
+theorem AffineCategory.pullbackTensorIso_naturality
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     {X X' Y Y' : AffineCategory Ω lam} (f : X ⟶ X') (g : Y ⟶ Y') :
     ((AffineCategory.pullback m).map f ⊗ₘ (AffineCategory.pullback m).map g) ≫
@@ -6236,23 +6140,23 @@ lemma AffineCategory.pullbackTensorIso_naturality
     (AffineCategory.pullbackTensorIso m X Y).hom ≫ (AffineCategory.pullback m).map (f ⊗ₘ g) := by
   sorry
 
-lemma AffineCategory.pullbackTensorIso_flat_iff
+theorem AffineCategory.pullbackTensorIso_flat_iff
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     (∀ x, ((AffineCategory.pullback m).obj (X ⊗ Y)).2.curvature x = 0) ↔
       ∀ x, (((AffineCategory.pullback m).obj X) ⊗ ((AffineCategory.pullback m).obj Y)).2.curvature x = 0 := by
   sorry
 
-lemma AffineCategory.pullbackUnitIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+theorem AffineCategory.pullbackUnitIso_hom (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     (AffineCategory.pullbackUnitIso (lam := lam) m).hom.1 =
       (TensorProduct.AlgebraTensorModule.rid R S S).symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackUnitIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
+theorem AffineCategory.pullbackUnitIso_inv (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     (AffineCategory.pullbackUnitIso (lam := lam) m).inv.1 =
       (TensorProduct.AlgebraTensorModule.rid R S S).toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackUnitIso_curvature
+theorem AffineCategory.pullbackUnitIso_curvature
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (s : S) :
     ((AffineCategory.pullback (lam := lam) m).obj (𝟙_ (AffineCategory Ω lam))).2.curvature
       ((AffineCategory.pullbackUnitIso m).hom.1 s) =
@@ -6260,17 +6164,17 @@ lemma AffineCategory.pullbackUnitIso_curvature
       ((𝟙_ (AffineCategory Γ (algebraMap R S lam))).2.curvature s) := by
   sorry
 
-lemma AffineCategory.pullbackCoreMonoidal_tensor
+theorem AffineCategory.pullbackCoreMonoidal_tensor
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     (AffineCategory.pullbackCoreMonoidal m).μIso X Y = AffineCategory.pullbackTensorIso m X Y := by
   sorry
 
-lemma AffineCategory.pullbackCoreMonoidal_unit
+theorem AffineCategory.pullbackCoreMonoidal_unit
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     (AffineCategory.pullbackCoreMonoidal (lam := lam) m).εIso = AffineCategory.pullbackUnitIso m := by
   sorry
 
-lemma AffineCategory.pullbackCoreMonoidal_associativity
+theorem AffineCategory.pullbackCoreMonoidal_associativity
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y Z : AffineCategory Ω lam) :
     (AffineCategory.pullbackTensorIso m X Y).hom ▷ (AffineCategory.pullback m).obj Z ≫
       (AffineCategory.pullbackTensorIso m (X ⊗ Y) Z).hom ≫
@@ -6281,7 +6185,7 @@ lemma AffineCategory.pullbackCoreMonoidal_associativity
           (AffineCategory.pullbackTensorIso m X (Y ⊗ Z)).hom := by
   sorry
 
-lemma AffineCategory.pullbackCoreMonoidal_left_unitality
+theorem AffineCategory.pullbackCoreMonoidal_left_unitality
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     (λ_ ((AffineCategory.pullback m).obj X)).hom =
       (AffineCategory.pullbackUnitIso m).hom ▷ (AffineCategory.pullback m).obj X ≫
@@ -6289,7 +6193,7 @@ lemma AffineCategory.pullbackCoreMonoidal_left_unitality
           (AffineCategory.pullback m).map (λ_ X).hom := by
   sorry
 
-lemma AffineCategory.pullbackCoreMonoidal_right_unitality
+theorem AffineCategory.pullbackCoreMonoidal_right_unitality
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     (ρ_ ((AffineCategory.pullback m).obj X)).hom =
       (AffineCategory.pullback m).obj X ◁ (AffineCategory.pullbackUnitIso m).hom ≫
@@ -6297,25 +6201,25 @@ lemma AffineCategory.pullbackCoreMonoidal_right_unitality
           (AffineCategory.pullback m).map (ρ_ X).hom := by
   sorry
 
-lemma AffineCategory.pullbackMonoidal_μ
+theorem AffineCategory.pullbackMonoidal_μ
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     Functor.LaxMonoidal.μ (AffineCategory.pullback m) X Y =
       (AffineCategory.pullbackTensorIso m X Y).hom := by
   sorry
 
-lemma AffineCategory.pullbackMonoidal_δ
+theorem AffineCategory.pullbackMonoidal_δ
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     Functor.OplaxMonoidal.δ (AffineCategory.pullback m) X Y =
       (AffineCategory.pullbackTensorIso m X Y).inv := by
   sorry
 
-lemma AffineCategory.pullbackMonoidal_ε
+theorem AffineCategory.pullbackMonoidal_ε
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     Functor.LaxMonoidal.ε (AffineCategory.pullback (lam := lam) m) =
       (AffineCategory.pullbackUnitIso m).hom := by
   sorry
 
-lemma AffineCategory.pullbackMonoidal_η
+theorem AffineCategory.pullbackMonoidal_η
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     Functor.OplaxMonoidal.η (AffineCategory.pullback (lam := lam) m) =
       (AffineCategory.pullbackUnitIso m).inv := by
@@ -6438,36 +6342,36 @@ def AffineCategory.parameterChangeMonoidal (h : lam = mu) :
 
 attribute [instance] AffineCategory.parameterChangeMonoidal
 
-lemma AffineCategory.parameterChangeMonoidal_tensor (h : lam = mu)
+theorem AffineCategory.parameterChangeMonoidal_tensor (h : lam = mu)
     (X Y : AffineCategory Ω lam) :
     (Functor.LaxMonoidal.μ (AffineCategory.parameterChange h) X Y).1 =
       LinearMap.id := by
   sorry
 
-lemma AffineCategory.parameterChangeMonoidal_unit (h : lam = mu) :
+theorem AffineCategory.parameterChangeMonoidal_unit (h : lam = mu) :
     (Functor.LaxMonoidal.ε (AffineCategory.parameterChange (Ω := Ω) h)).1 =
       LinearMap.id := by
   sorry
 
-lemma AffineCategory.parameterChangeMonoidal_cotensor (h : lam = mu)
+theorem AffineCategory.parameterChangeMonoidal_cotensor (h : lam = mu)
     (X Y : AffineCategory Ω lam) :
     (Functor.OplaxMonoidal.δ (AffineCategory.parameterChange h) X Y).1 =
       LinearMap.id := by
   sorry
 
-lemma AffineCategory.parameterChangeMonoidal_counit (h : lam = mu) :
+theorem AffineCategory.parameterChangeMonoidal_counit (h : lam = mu) :
     (Functor.OplaxMonoidal.η (AffineCategory.parameterChange (Ω := Ω) h)).1 =
       LinearMap.id := by
   sorry
 
-lemma AffineCategory.pullbackIdentityIso_unit :
+theorem AffineCategory.pullbackIdentityIso_unit :
     Functor.LaxMonoidal.ε (AffineCategory.pullback (lam := lam) (TwoForms.Morphism.refl Ω)) ≫
       (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app
         (𝟙_ (AffineCategory Ω lam)) =
       Functor.LaxMonoidal.ε (𝟭 (AffineCategory Ω lam)) := by
   sorry
 
-lemma AffineCategory.pullbackIdentityIso_tensor (X Y : AffineCategory Ω lam) :
+theorem AffineCategory.pullbackIdentityIso_tensor (X Y : AffineCategory Ω lam) :
     Functor.LaxMonoidal.μ (AffineCategory.pullback (TwoForms.Morphism.refl Ω)) X Y ≫
       (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app (X ⊗ Y) =
     ((AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom.app X ⊗ₘ
@@ -6475,13 +6379,13 @@ lemma AffineCategory.pullbackIdentityIso_tensor (X Y : AffineCategory Ω lam) :
       Functor.LaxMonoidal.μ (𝟭 (AffineCategory Ω lam)) X Y := by
   sorry
 
-lemma AffineCategory.pullbackIdentityIso_isMonoidal :
+theorem AffineCategory.pullbackIdentityIso_isMonoidal :
     NatTrans.IsMonoidal (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).hom := by
   sorry
 
 attribute [instance] AffineCategory.pullbackIdentityIso_isMonoidal
 
-lemma AffineCategory.pullbackIdentityIso_inv_isMonoidal :
+theorem AffineCategory.pullbackIdentityIso_inv_isMonoidal :
     NatTrans.IsMonoidal (AffineCategory.pullbackIdentityIso (Ω := Ω) (lam := lam)).inv := by
   sorry
 
@@ -6490,7 +6394,7 @@ variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V] [IsScalarTower 
 variable {Y : Type q} [AddCommGroup Y] [Module S Y]
 variable {Γ : TwoForms k S V Y}
 
-lemma AffineCategory.pullback_braiding (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
+theorem AffineCategory.pullback_braiding (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (X Y : AffineCategory Ω lam) :
     (AffineCategory.pullbackTensorIso m X Y).hom ≫
       (AffineCategory.pullback m).map (β_ X Y).hom =
@@ -6521,7 +6425,7 @@ def AffineCategory.pullbackTowerMonoidal (n : TwoForms.Morphism (algebraMap S T)
 
 attribute [instance] AffineCategory.pullbackTowerMonoidal
 
-lemma AffineCategory.pullbackTowerMonoidal_unit
+theorem AffineCategory.pullbackTowerMonoidal_unit
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     (Functor.LaxMonoidal.ε (AffineCategory.pullbackTower (lam := lam) n m)).1 =
@@ -6529,7 +6433,7 @@ lemma AffineCategory.pullbackTowerMonoidal_unit
         (TensorProduct.AlgebraTensorModule.rid S T T).symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTowerMonoidal_tensor
+theorem AffineCategory.pullbackTowerMonoidal_tensor
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     (Functor.LaxMonoidal.μ (AffineCategory.pullbackTower n m) X Y).1 =
@@ -6538,7 +6442,7 @@ lemma AffineCategory.pullbackTowerMonoidal_tensor
           (S ⊗[R] Y.1)).symm.toLinearMap := by
   sorry
 
-lemma AffineCategory.pullbackTowerMonoidal_cotensor
+theorem AffineCategory.pullbackTowerMonoidal_cotensor
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     (Functor.OplaxMonoidal.δ (AffineCategory.pullbackTower n m) X Y).1 =
@@ -6547,7 +6451,7 @@ lemma AffineCategory.pullbackTowerMonoidal_cotensor
         ((TensorProduct.AlgebraTensorModule.distribBaseChange R S X.1 Y.1).toLinearMap.baseChange T) := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_unit
+theorem AffineCategory.pullbackTowerIso_unit
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     Functor.LaxMonoidal.ε (AffineCategory.pullbackTower (lam := lam) n m) ≫
@@ -6555,7 +6459,7 @@ lemma AffineCategory.pullbackTowerIso_unit
       Functor.LaxMonoidal.ε (AffineCategory.pullback (lam := lam) (n.towerComp m)) := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_tensor
+theorem AffineCategory.pullbackTowerIso_tensor
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
     Functor.LaxMonoidal.μ (AffineCategory.pullbackTower n m) X Y ≫
@@ -6565,7 +6469,7 @@ lemma AffineCategory.pullbackTowerIso_tensor
       Functor.LaxMonoidal.μ (AffineCategory.pullback (n.towerComp m)) X Y := by
   sorry
 
-lemma AffineCategory.pullbackTowerIso_isMonoidal
+theorem AffineCategory.pullbackTowerIso_isMonoidal
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     NatTrans.IsMonoidal (AffineCategory.pullbackTowerIso (lam := lam) n m).hom := by
@@ -6573,7 +6477,7 @@ lemma AffineCategory.pullbackTowerIso_isMonoidal
 
 attribute [instance] AffineCategory.pullbackTowerIso_isMonoidal
 
-lemma AffineCategory.pullbackTowerIso_inv_isMonoidal
+theorem AffineCategory.pullbackTowerIso_inv_isMonoidal
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     NatTrans.IsMonoidal (AffineCategory.pullbackTowerIso (lam := lam) n m).inv := by
@@ -6739,21 +6643,21 @@ def AffineCategory.pullbackParameterChangeIso (h : lam = mu)
       simp)) (by intro X X' f; apply Subtype.ext; rfl)
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullbackParameterChangeIso_hom (h : lam = mu)
+theorem AffineCategory.pullbackParameterChangeIso_hom (h : lam = mu)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
     (x : S ⊗[R] X.1) :
     ((AffineCategory.pullbackParameterChangeIso h m).hom.app X).1 x = x := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullbackParameterChangeIso_inv (h : lam = mu)
+theorem AffineCategory.pullbackParameterChangeIso_inv (h : lam = mu)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
     (x : S ⊗[R] X.1) :
     ((AffineCategory.pullbackParameterChangeIso h m).inv.app X).1 x = x := by
   sorry
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] in
-lemma AffineCategory.pullbackParameterChangeIso_naturality (h : lam = mu)
+theorem AffineCategory.pullbackParameterChangeIso_naturality (h : lam = mu)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') :
     (AffineCategory.parameterChange h ⋙ AffineCategory.pullback m).map f ≫
@@ -6785,7 +6689,7 @@ def AffineCategory.pullbackTriple (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
   [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
-lemma AffineCategory.pullbackTriple_operator (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+theorem AffineCategory.pullbackTriple_operator (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam) :
     ((AffineCategory.pullbackTriple p n m).obj X).2.toAddHom =
@@ -6794,7 +6698,7 @@ lemma AffineCategory.pullbackTriple_operator (p : TwoForms.Morphism (algebraMap 
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
   [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
-lemma AffineCategory.pullbackTriple_map (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+theorem AffineCategory.pullbackTriple_map (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') : ((AffineCategory.pullbackTriple p n m).map f).1 =
@@ -6803,7 +6707,7 @@ lemma AffineCategory.pullbackTriple_map (p : TwoForms.Morphism (algebraMap T U) 
 
 omit [IsScalarTower k R W] [IsScalarTower k S V] [Algebra S U]
   [IsScalarTower S T U] [IsScalarTower R S U] [IsScalarTower k T P] [IsScalarTower k U L] in
-lemma AffineCategory.pullbackTriple_map_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+theorem AffineCategory.pullbackTriple_map_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
     (f : X ⟶ X') (u : U) (t : T) (s : S) (x : X.1) :
@@ -6861,7 +6765,7 @@ def AffineCategory.pullbackTripleInnerIso (p : TwoForms.Morphism (algebraMap T U
     ext x
     simp [LinearMap.comp_assoc, LinearMap.baseChange_baseChange])
 
-lemma AffineCategory.pullbackTripleOuterIso_hom
+theorem AffineCategory.pullbackTripleOuterIso_hom
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
@@ -6871,7 +6775,7 @@ lemma AffineCategory.pullbackTripleOuterIso_hom
         (TensorProduct.AlgebraTensorModule.cancelBaseChange S T U U (S ⊗[R] X.1) x) := by
   sorry
 
-lemma AffineCategory.pullbackTripleOuterIso_naturality
+theorem AffineCategory.pullbackTripleOuterIso_naturality
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
@@ -6882,7 +6786,7 @@ lemma AffineCategory.pullbackTripleOuterIso_naturality
         (AffineCategory.pullback ((p.towerComp n).towerComp m)).map f := by
   sorry
 
-lemma AffineCategory.pullbackTripleOuterIso_tmul
+theorem AffineCategory.pullbackTripleOuterIso_tmul
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
@@ -6892,7 +6796,7 @@ lemma AffineCategory.pullbackTripleOuterIso_tmul
       (s • (t • u)) ⊗ₜ[R] x := by
   sorry
 
-lemma AffineCategory.pullbackTripleInnerIso_hom
+theorem AffineCategory.pullbackTripleInnerIso_hom
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
@@ -6902,7 +6806,7 @@ lemma AffineCategory.pullbackTripleInnerIso_hom
         ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T X.1).toLinearMap.baseChange U x) := by
   sorry
 
-lemma AffineCategory.pullbackTripleInnerIso_naturality
+theorem AffineCategory.pullbackTripleInnerIso_naturality
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) {X X' : AffineCategory Ω lam}
@@ -6913,7 +6817,7 @@ lemma AffineCategory.pullbackTripleInnerIso_naturality
         (AffineCategory.pullback (p.towerComp (n.towerComp m))).map f := by
   sorry
 
-lemma AffineCategory.pullbackTripleInnerIso_tmul
+theorem AffineCategory.pullbackTripleInnerIso_tmul
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X : AffineCategory Ω lam)
@@ -6923,7 +6827,7 @@ lemma AffineCategory.pullbackTripleInnerIso_tmul
       ((s • t) • u) ⊗ₜ[R] x := by
   sorry
 
-lemma AffineCategory.pullbackTriple_coherence_hom
+theorem AffineCategory.pullbackTriple_coherence_hom
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -6931,7 +6835,7 @@ lemma AffineCategory.pullbackTriple_coherence_hom
       (AffineCategory.pullbackTripleInnerIso (lam := lam) p n m).hom := by
   sorry
 
-lemma AffineCategory.pullbackTriple_coherence_inv
+theorem AffineCategory.pullbackTriple_coherence_inv
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -6939,7 +6843,7 @@ lemma AffineCategory.pullbackTriple_coherence_inv
       (AffineCategory.pullbackTripleInnerIso (lam := lam) p n m).inv := by
   sorry
 
-lemma AffineCategory.pullbackTriple_coherence
+theorem AffineCategory.pullbackTriple_coherence
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7124,14 +7028,14 @@ variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V] [IsScalarTower 
 variable {Y : Type q} [AddCommGroup Y] [Module S Y]
 variable {Γ : TwoForms k S V Y}
 
-lemma AffineCategory.pullbackParameterChangeIso_isMonoidal (h : lam = mu)
+theorem AffineCategory.pullbackParameterChangeIso_isMonoidal (h : lam = mu)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     NatTrans.IsMonoidal (AffineCategory.pullbackParameterChangeIso h m).hom := by
   sorry
 
 attribute [instance] AffineCategory.pullbackParameterChangeIso_isMonoidal
 
-lemma AffineCategory.pullbackParameterChangeIso_inv_isMonoidal (h : lam = mu)
+theorem AffineCategory.pullbackParameterChangeIso_inv_isMonoidal (h : lam = mu)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     NatTrans.IsMonoidal (AffineCategory.pullbackParameterChangeIso h m).inv := by
   sorry
@@ -7160,7 +7064,7 @@ def AffineCategory.pullbackTripleMonoidal (p : TwoForms.Morphism (algebraMap T U
 attribute [instance] AffineCategory.pullbackTripleMonoidal
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_unit
+theorem AffineCategory.pullbackTripleMonoidal_unit
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7171,7 +7075,7 @@ lemma AffineCategory.pullbackTripleMonoidal_unit
   sorry
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_tensor
+theorem AffineCategory.pullbackTripleMonoidal_tensor
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
@@ -7184,7 +7088,7 @@ lemma AffineCategory.pullbackTripleMonoidal_tensor
   sorry
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_cotensor
+theorem AffineCategory.pullbackTripleMonoidal_cotensor
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
@@ -7197,7 +7101,7 @@ lemma AffineCategory.pullbackTripleMonoidal_cotensor
   sorry
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_counit
+theorem AffineCategory.pullbackTripleMonoidal_counit
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7207,7 +7111,7 @@ lemma AffineCategory.pullbackTripleMonoidal_counit
           (((TensorProduct.AlgebraTensorModule.rid R S S).toLinearMap.baseChange T).baseChange U)) := by
   sorry
 
-lemma AffineCategory.pullbackTripleOuterIso_unit
+theorem AffineCategory.pullbackTripleOuterIso_unit
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7216,7 +7120,7 @@ lemma AffineCategory.pullbackTripleOuterIso_unit
       Functor.LaxMonoidal.ε (AffineCategory.pullback ((p.towerComp n).towerComp m)) := by
   sorry
 
-lemma AffineCategory.pullbackTripleOuterIso_tensor
+theorem AffineCategory.pullbackTripleOuterIso_tensor
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam) :
@@ -7227,7 +7131,7 @@ lemma AffineCategory.pullbackTripleOuterIso_tensor
         Functor.LaxMonoidal.μ (AffineCategory.pullback ((p.towerComp n).towerComp m)) X Y := by
   sorry
 
-lemma AffineCategory.pullbackTripleOuterIso_isMonoidal
+theorem AffineCategory.pullbackTripleOuterIso_isMonoidal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7236,14 +7140,14 @@ lemma AffineCategory.pullbackTripleOuterIso_isMonoidal
 
 attribute [instance] AffineCategory.pullbackTripleOuterIso_isMonoidal
 
-lemma AffineCategory.pullbackTripleOuterIso_inv_isMonoidal
+theorem AffineCategory.pullbackTripleOuterIso_inv_isMonoidal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
     NatTrans.IsMonoidal (AffineCategory.pullbackTripleOuterIso (lam := lam) p n m).inv := by
   sorry
 
-lemma AffineCategory.pullbackTripleInnerIso_isMonoidal
+theorem AffineCategory.pullbackTripleInnerIso_isMonoidal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7252,7 +7156,7 @@ lemma AffineCategory.pullbackTripleInnerIso_isMonoidal
 
 attribute [instance] AffineCategory.pullbackTripleInnerIso_isMonoidal
 
-lemma AffineCategory.pullbackTripleInnerIso_inv_isMonoidal
+theorem AffineCategory.pullbackTripleInnerIso_inv_isMonoidal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) :
@@ -7260,7 +7164,7 @@ lemma AffineCategory.pullbackTripleInnerIso_inv_isMonoidal
   sorry
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_tensor_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+theorem AffineCategory.pullbackTripleMonoidal_tensor_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam)
     (u v : U) (t r : T) (s q : S) (x : X.1) (y : Y.1) :
@@ -7271,7 +7175,7 @@ lemma AffineCategory.pullbackTripleMonoidal_tensor_tmul (p : TwoForms.Morphism (
   sorry
 
 omit [Algebra S U] [IsScalarTower S T U] [IsScalarTower R S U] in
-lemma AffineCategory.pullbackTripleMonoidal_cotensor_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
+theorem AffineCategory.pullbackTripleMonoidal_cotensor_tmul (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (X Y : AffineCategory Ω lam)
     (u : U) (t : T) (s : S) (x : X.1) (y : Y.1) :
@@ -7421,16 +7325,16 @@ def Preconnection.dualPair (D : Preconnection Ω lam E) :
       TensorProduct.map_add_left]
     abel
 
-lemma Preconnection.dualPair_apply (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+theorem Preconnection.dualPair_apply (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
     D.dualPair f e = lam • Ω.d0 (f e) -
       TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
   sorry
 
-lemma Preconnection.dualPair_smul (D : Preconnection Ω lam E) (a : R) (f : Module.Dual R E) :
+theorem Preconnection.dualPair_smul (D : Preconnection Ω lam E) (a : R) (f : Module.Dual R E) :
     D.dualPair (a • f) = a • D.dualPair f + lam • f.smulRight (Ω.d0 a) := by
   sorry
 
-lemma Preconnection.dualPair_zero_parameter (D : Preconnection Ω 0 E)
+theorem Preconnection.dualPair_zero_parameter (D : Preconnection Ω 0 E)
     (f : Module.Dual R E) (e : E) :
     D.dualPair f e = -TensorProduct.lid R W
       (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
@@ -7449,12 +7353,12 @@ def Preconnection.affineDual (D : Preconnection Ω lam E) :
     ext e
     simp
 
-lemma Preconnection.affineDual_eval (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
+theorem Preconnection.affineDual_eval (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
     dualTensorHom R E W (D.affineDual.toAddHom f) e = lam • Ω.d0 (f e) -
       TensorProduct.lid R W (TensorProduct.map f LinearMap.id (D.toAddHom e)) := by
   sorry
 
-lemma Preconnection.affineDual_unique (D : Preconnection Ω lam E)
+theorem Preconnection.affineDual_unique (D : Preconnection Ω lam E)
     (C : Preconnection Ω lam (Module.Dual R E))
     (h : ∀ (f : Module.Dual R E) (e : E),
       dualTensorHom R E W (C.toAddHom f) e = lam • Ω.d0 (f e) -
@@ -7462,33 +7366,33 @@ lemma Preconnection.affineDual_unique (D : Preconnection Ω lam E)
     C = D.affineDual := by
   sorry
 
-lemma Preconnection.affineDual_evaluation [IsScalarTower k R W]
+theorem Preconnection.affineDual_evaluation [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (x : Module.Dual R E ⊗[R] E) :
     (Preconnection.unit Ω lam).toAddHom (contractLeft R E x) =
       TensorProduct.map (contractLeft R E) LinearMap.id
         ((D.affineDual.affineTensor D).toAddHom x) := by
   sorry
 
-lemma Preconnection.affineDual_curvature_pair [IsScalarTower k R W]
+theorem Preconnection.affineDual_curvature_pair [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (f : Module.Dual R E) (e : E) :
     dualTensorHom R E Z (D.affineDual.curvature f) e +
       TensorProduct.lid R Z (TensorProduct.map f LinearMap.id (D.curvature e)) =
       lam • Ω.wedge (Ω.d0 lam) (Ω.d0 (f e)) := by
   sorry
 
-lemma Preconnection.affineDual_curvature [IsScalarTower k R W]
+theorem Preconnection.affineDual_curvature [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0)
     (f : Module.Dual R E) (e : E) :
     dualTensorHom R E Z (D.affineDual.curvature f) e =
       -TensorProduct.lid R Z (TensorProduct.map f LinearMap.id (D.curvature e)) := by
   sorry
 
-lemma Preconnection.affineDual_flat [IsScalarTower k R W]
+theorem Preconnection.affineDual_flat [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0)
     (hD : ∀ e, D.curvature e = 0) (f : Module.Dual R E) : D.affineDual.curvature f = 0 := by
   sorry
 
-lemma Preconnection.affineDual_horizontal {F : Type*} [AddCommGroup F] [Module R F]
+theorem Preconnection.affineDual_horizontal {F : Type*} [AddCommGroup F] [Module R F]
     [Module.Finite R F] [Module.Projective R F]
     (D : Preconnection Ω lam E) (C : Preconnection Ω lam F) (f : E →ₗ[R] F)
     (hf : ∀ e, C.toAddHom (f e) = TensorProduct.map f LinearMap.id (D.toAddHom e))
@@ -7497,19 +7401,19 @@ lemma Preconnection.affineDual_horizontal {F : Type*} [AddCommGroup F] [Module R
       TensorProduct.map f.dualMap LinearMap.id (C.affineDual.toAddHom g) := by
   sorry
 
-lemma Preconnection.affineDual_bidual (D : Preconnection Ω lam E) (e : E) :
+theorem Preconnection.affineDual_bidual (D : Preconnection Ω lam E) (e : E) :
     D.affineDual.affineDual.toAddHom (Module.evalEquiv R E e) =
       TensorProduct.map (Module.evalEquiv R E).toLinearMap LinearMap.id (D.toAddHom e) := by
   sorry
 
-lemma Preconnection.affineDual_bidual_inverse [IsScalarTower k R W]
+theorem Preconnection.affineDual_bidual_inverse [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (e : Module.Dual R (Module.Dual R E)) :
     D.toAddHom ((Module.evalEquiv R E).symm e) =
       TensorProduct.map (Module.evalEquiv R E).symm.toLinearMap LinearMap.id
         (D.affineDual.affineDual.toAddHom e) := by
   sorry
 
-lemma Preconnection.affineDual_flat_iff [IsScalarTower k R W]
+theorem Preconnection.affineDual_flat_iff [IsScalarTower k R W]
     (D : Preconnection Ω lam E) (hlam : Ω.d0 lam = 0) :
     (∀ f, D.affineDual.curvature f = 0) ↔ (∀ e, D.curvature e = 0) := by
   sorry
@@ -7650,20 +7554,20 @@ def affineDualPullbackEquiv : S ⊗[R] Module.Dual R E ≃ₗ[S] Module.Dual S (
     obtain ⟨x, hx⟩ := hb.2 y
     exact ⟨x, (he x).trans hx⟩
 
-lemma affineDualPullbackEquiv_tmul (s : S) (f : Module.Dual R E) (x : S ⊗[R] E) :
+theorem affineDualPullbackEquiv_tmul (s : S) (f : Module.Dual R E) (x : S ⊗[R] E) :
     affineDualPullbackEquiv (s ⊗ₜ[R] f) x = s * f.baseChange S x := by
   sorry
 
-lemma affineDualPullbackEquiv_eval (s t : S) (f : Module.Dual R E) (e : E) :
+theorem affineDualPullbackEquiv_eval (s t : S) (f : Module.Dual R E) (e : E) :
     affineDualPullbackEquiv (s ⊗ₜ[R] f) (t ⊗ₜ[R] e) =
       s * t * algebraMap R S (f e) := by
   sorry
 
-lemma affineDualPullbackEquiv_unit (f : Module.Dual R E) :
+theorem affineDualPullbackEquiv_unit (f : Module.Dual R E) :
     affineDualPullbackEquiv (1 ⊗ₜ[R] f) = f.baseChange S := by
   sorry
 
-lemma affineDualPullbackEquiv_evaluation (x : S ⊗[R] (Module.Dual R E ⊗[R] E)) :
+theorem affineDualPullbackEquiv_evaluation (x : S ⊗[R] (Module.Dual R E ⊗[R] E)) :
     contractLeft S (S ⊗[R] E)
       (TensorProduct.map (affineDualPullbackEquiv (R := R) (S := S) (E := E)).toLinearMap
         LinearMap.id (TensorProduct.AlgebraTensorModule.distribBaseChange R S
@@ -7671,21 +7575,21 @@ lemma affineDualPullbackEquiv_evaluation (x : S ⊗[R] (Module.Dual R E ⊗[R] E
       TensorProduct.AlgebraTensorModule.rid R S S ((contractLeft R E).baseChange S x) := by
   sorry
 
-lemma affineDualPullbackEquiv_bidual (x : S ⊗[R] E) :
+theorem affineDualPullbackEquiv_bidual (x : S ⊗[R] E) :
     affineDualPullbackEquiv (R := R) (S := S) (E := Module.Dual R E)
       ((Module.evalEquiv R E).toLinearMap.baseChange S x) =
       (affineDualPullbackEquiv (R := R) (S := S) (E := E)).toLinearMap.dualMap
         (Module.evalEquiv S (S ⊗[R] E) x) := by
   sorry
 
-lemma affineDualPullbackEquiv_bidual_inverse (x : S ⊗[R] E) :
+theorem affineDualPullbackEquiv_bidual_inverse (x : S ⊗[R] E) :
     (affineDualPullbackEquiv (R := R) (S := S) (E := E)).symm.toLinearMap.dualMap
       (affineDualPullbackEquiv (R := R) (S := S) (E := Module.Dual R E)
         ((Module.evalEquiv R E).toLinearMap.baseChange S x)) =
       Module.evalEquiv S (S ⊗[R] E) x := by
   sorry
 
-lemma affineDualPullbackEquiv_natural
+theorem affineDualPullbackEquiv_natural
     {F : Type v} [AddCommGroup F] [Module R F] [Module.Finite R F] [Module.Projective R F]
     (h : E →ₗ[R] F) (x : S ⊗[R] Module.Dual R F) :
     affineDualPullbackEquiv (h.dualMap.baseChange S x) =
@@ -7698,7 +7602,7 @@ variable {V : Type p} [AddCommGroup V] [Module S V] [Module k V]
 variable {Y : Type q} [AddCommGroup Y] [Module S Y]
 variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y} {lam : R}
 
-lemma affineDualPullbackEquiv_tensor_eval
+theorem affineDualPullbackEquiv_tensor_eval
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (x : Module.Dual R E ⊗[R] W) (e : E) :
     dualTensorHom S (S ⊗[R] E) V
@@ -7708,7 +7612,7 @@ lemma affineDualPullbackEquiv_tensor_eval
   sorry
 
 omit [Module.Finite R E] [Module.Projective R E] in
-lemma affineDualPullbackEquiv_contraction
+theorem affineDualPullbackEquiv_contraction
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ)
     (f : Module.Dual R E) (x : E ⊗[R] W) :
     TensorProduct.lid S V
@@ -7716,7 +7620,7 @@ lemma affineDualPullbackEquiv_contraction
       m.one (TensorProduct.lid R W (TensorProduct.map f LinearMap.id x)) := by
   sorry
 
-lemma Preconnection.affineDualPullback_unit_horizontal
+theorem Preconnection.affineDualPullback_unit_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (f : Module.Dual R E) :
     (D.affinePullback m).affineDual.toAddHom (f.baseChange S) =
@@ -7725,7 +7629,7 @@ lemma Preconnection.affineDualPullback_unit_horizontal
         m.one (D.affineDual.toAddHom f) := by
   sorry
 
-lemma Preconnection.affineDualPullback_horizontal
+theorem Preconnection.affineDualPullback_horizontal
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : S ⊗[R] Module.Dual R E) :
     (D.affinePullback m).affineDual.toAddHom (affineDualPullbackEquiv x) =
@@ -7733,7 +7637,7 @@ lemma Preconnection.affineDualPullback_horizontal
         LinearMap.id ((D.affineDual.affinePullback m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_horizontal_inverse
+theorem Preconnection.affineDualPullback_horizontal_inverse
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (f : Module.Dual S (S ⊗[R] E)) :
     (D.affineDual.affinePullback m).toAddHom (affineDualPullbackEquiv.symm f) =
@@ -7743,13 +7647,13 @@ lemma Preconnection.affineDualPullback_horizontal_inverse
 
 variable [IsScalarTower k S V]
 
-lemma Preconnection.affineDualPullback_eq
+theorem Preconnection.affineDualPullback_eq
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (D.affineDual.affinePullback m).transport affineDualPullbackEquiv =
       (D.affinePullback m).affineDual := by
   sorry
 
-lemma Preconnection.affineDualPullback_extend
+theorem Preconnection.affineDualPullback_extend
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : (S ⊗[R] Module.Dual R E) ⊗[S] V) :
     (D.affinePullback m).affineDual.extend
@@ -7759,7 +7663,7 @@ lemma Preconnection.affineDualPullback_extend
         LinearMap.id ((D.affineDual.affinePullback m).extend x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_curvature
+theorem Preconnection.affineDualPullback_curvature
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : S ⊗[R] Module.Dual R E) :
     (D.affinePullback m).affineDual.curvature (affineDualPullbackEquiv x) =
@@ -7767,7 +7671,7 @@ lemma Preconnection.affineDualPullback_curvature
         LinearMap.id ((D.affineDual.affinePullback m).curvature x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_flat_iff
+theorem Preconnection.affineDualPullback_flat_iff
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (∀ x, (D.affineDual.affinePullback m).curvature x = 0) ↔
       ∀ f, (D.affinePullback m).affineDual.curvature f = 0 := by
@@ -7882,20 +7786,20 @@ variable {E : Type dualTowerModule} [AddCommGroup E] [Module R E]
   [Module.Finite R E] [Module.Projective R E]
 set_option maxHeartbeats 800000
 
-lemma affineDualPullbackEquiv_id :
+theorem affineDualPullbackEquiv_id :
     (affineDualPullbackEquiv (R := R) (S := R) (E := E)).trans
       (Module.Dual.congr (TensorProduct.lid R E)) =
     TensorProduct.lid R (Module.Dual R E) := by
   sorry
 
-lemma affineDualPullbackEquiv_tower_unit (f : Module.Dual R E) :
+theorem affineDualPullbackEquiv_tower_unit (f : Module.Dual R E) :
     affineDualPullbackEquiv (R := S) (S := T)
       (1 ⊗ₜ[S] affineDualPullbackEquiv (R := R) (S := S) (1 ⊗ₜ[R] f)) =
     (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E).toLinearMap.dualMap
       (affineDualPullbackEquiv (R := R) (S := T) (1 ⊗ₜ[R] f)) := by
   sorry
 
-lemma affineDualPullbackEquiv_tower_apply (x : T ⊗[S] (S ⊗[R] Module.Dual R E)) :
+theorem affineDualPullbackEquiv_tower_apply (x : T ⊗[S] (S ⊗[R] Module.Dual R E)) :
     affineDualPullbackEquiv (R := S) (S := T)
       ((affineDualPullbackEquiv (R := R) (S := S) (E := E)).toLinearMap.baseChange T x) =
     (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E).toLinearMap.dualMap
@@ -7903,7 +7807,7 @@ lemma affineDualPullbackEquiv_tower_apply (x : T ⊗[S] (S ⊗[R] Module.Dual R 
         (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E) x)) := by
   sorry
 
-lemma affineDualPullbackEquiv_tower :
+theorem affineDualPullbackEquiv_tower :
     (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).trans
       (affineDualPullbackEquiv (R := R) (S := T) (E := E)) =
     (((affineDualPullbackEquiv (R := R) (S := S) (E := E)).baseChange S T).trans
@@ -7911,7 +7815,7 @@ lemma affineDualPullbackEquiv_tower :
       (Module.Dual.congr (TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T E)) := by
   sorry
 
-lemma affineDualPullbackEquiv_tower_eval (t u : T) (s : S)
+theorem affineDualPullbackEquiv_tower_eval (t u : T) (s : S)
     (f : Module.Dual R E) (e : E) :
     ((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).trans
       (affineDualPullbackEquiv (R := R) (S := T) (E := E)))
@@ -7932,7 +7836,7 @@ variable {Ω : TwoForms k R W Z} {Γ : TwoForms k S V Y} {Δ : TwoForms k T P Q}
 variable [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P]
 variable {lam : R}
 
-lemma Preconnection.affineDualPullback_id_horizontal (D : Preconnection Ω lam E)
+theorem Preconnection.affineDualPullback_id_horizontal (D : Preconnection Ω lam E)
     (x : R ⊗[R] Module.Dual R E) :
     D.affineDual.toAddHom
       (Module.Dual.congr (TensorProduct.lid R E)
@@ -7941,7 +7845,7 @@ lemma Preconnection.affineDualPullback_id_horizontal (D : Preconnection Ω lam E
         LinearMap.id ((D.affineDual.affinePullback (TwoForms.Morphism.refl Ω)).toAddHom x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_horizontal
+theorem Preconnection.affineDualPullback_tower_horizontal
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[S] (S ⊗[R] Module.Dual R E)) :
@@ -7954,7 +7858,7 @@ lemma Preconnection.affineDualPullback_tower_horizontal
         LinearMap.id ((D.affineDual.affinePullbackTower n m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_inverse
+theorem Preconnection.affineDualPullback_tower_inverse
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (f : Module.Dual T (T ⊗[R] E)) :
@@ -7967,7 +7871,7 @@ lemma Preconnection.affineDualPullback_tower_inverse
         LinearMap.id ((D.affinePullback (n.towerComp m)).affineDual.toAddHom f) := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_eq
+theorem Preconnection.affineDualPullback_tower_eq
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (D.affineDual.affinePullbackTower n m).transport
@@ -7976,7 +7880,7 @@ lemma Preconnection.affineDualPullback_tower_eq
       (D.affinePullback (n.towerComp m)).affineDual := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_extend
+theorem Preconnection.affineDualPullback_tower_extend
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : (T ⊗[S] (S ⊗[R] Module.Dual R E)) ⊗[T] P) :
@@ -7991,7 +7895,7 @@ lemma Preconnection.affineDualPullback_tower_extend
         LinearMap.id ((D.affineDual.affinePullbackTower n m).extend x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_curvature
+theorem Preconnection.affineDualPullback_tower_curvature
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
     (x : T ⊗[S] (S ⊗[R] Module.Dual R E)) :
@@ -8004,7 +7908,7 @@ lemma Preconnection.affineDualPullback_tower_curvature
         LinearMap.id ((D.affineDual.affinePullbackTower n m).curvature x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_tower_flat_iff
+theorem Preconnection.affineDualPullback_tower_flat_iff
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
     (∀ x, (D.affineDual.affinePullbackTower n m).curvature x = 0) ↔
@@ -8161,14 +8065,14 @@ def affineDualPullbackIteratedEquiv :
       (affineDualPullbackEquiv (R := T) (S := U) (E := T ⊗[S] (S ⊗[R] E))))
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma affineDualPullbackIteratedEquiv_eval (u v : U) (t a : T) (s b : S)
+theorem affineDualPullbackIteratedEquiv_eval (u v : U) (t a : T) (s b : S)
     (f : Module.Dual R E) (e : E) :
     affineDualPullbackIteratedEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f)))
       (v ⊗ₜ[T] (a ⊗ₜ[S] (b ⊗ₜ[R] e))) =
       u * v * algebraMap T U (t * a) * algebraMap S U (s * b) * algebraMap R U (f e) := by
   sorry
 
-lemma affineDualPullbackTripleEquiv_assoc :
+theorem affineDualPullbackTripleEquiv_assoc :
     affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E) =
       (((TensorProduct.AlgebraTensorModule.cancelBaseChange R S T T (Module.Dual R E)).baseChange T U).trans
         (TensorProduct.AlgebraTensorModule.cancelBaseChange R T U U (Module.Dual R E))).trans
@@ -8176,14 +8080,14 @@ lemma affineDualPullbackTripleEquiv_assoc :
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma affineDualPullbackTripleEquiv_eval (u v : U) (t : T) (s : S)
+theorem affineDualPullbackTripleEquiv_eval (u v : U) (t : T) (s : S)
     (f : Module.Dual R E) (e : E) :
     affineDualPullbackTripleEquiv (u ⊗ₜ[T] (t ⊗ₜ[S] (s ⊗ₜ[R] f))) (v ⊗ₜ[R] e) =
       u * algebraMap T U t * algebraMap S U s * v * algebraMap R U (f e) := by
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma affineDualPullbackTripleEquiv_coherence :
+theorem affineDualPullbackTripleEquiv_coherence :
     affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E) =
       (affineDualPullbackIteratedEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).trans
         (Module.Dual.congr
@@ -8192,7 +8096,7 @@ lemma affineDualPullbackTripleEquiv_coherence :
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma affineDualPullbackTripleEquiv_inverse_coherence :
+theorem affineDualPullbackTripleEquiv_inverse_coherence :
     (affineDualPullbackTripleEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).symm =
       ((affineDualPullbackIteratedEquiv (R := R) (S := S) (T := T) (U := U) (E := E)).trans
         (Module.Dual.congr
@@ -8201,7 +8105,7 @@ lemma affineDualPullbackTripleEquiv_inverse_coherence :
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma affineDualPullbackTripleEquiv_unit (f : Module.Dual R E) :
+theorem affineDualPullbackTripleEquiv_unit (f : Module.Dual R E) :
     affineDualPullbackTripleEquiv
       ((1 : U) ⊗ₜ[T] ((1 : T) ⊗ₜ[S] ((1 : S) ⊗ₜ[R] f))) = f.baseChange U := by
   sorry
@@ -8236,7 +8140,7 @@ def Preconnection.affineDualPullbackTriple
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U]
   [IsScalarTower k R W] [IsScalarTower k S V] [IsScalarTower k T P] [IsScalarTower k U L] in
-lemma Preconnection.affineDualPullbackTriple_apply
+theorem Preconnection.affineDualPullbackTriple_apply
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8246,7 +8150,7 @@ lemma Preconnection.affineDualPullbackTriple_apply
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_horizontal
+theorem Preconnection.affineDualPullback_triple_horizontal
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8257,7 +8161,7 @@ lemma Preconnection.affineDualPullback_triple_horizontal
         LinearMap.id ((D.affineDualPullbackTriple p n m).toAddHom x) := by
   sorry
 
-lemma Preconnection.affineDualPullback_triple_horizontal_assoc
+theorem Preconnection.affineDualPullback_triple_horizontal_assoc
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8274,7 +8178,7 @@ lemma Preconnection.affineDualPullback_triple_horizontal_assoc
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_inverse
+theorem Preconnection.affineDualPullback_triple_inverse
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8285,7 +8189,7 @@ lemma Preconnection.affineDualPullback_triple_inverse
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_eq
+theorem Preconnection.affineDualPullback_triple_eq
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
@@ -8294,7 +8198,7 @@ lemma Preconnection.affineDualPullback_triple_eq
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_extend
+theorem Preconnection.affineDualPullback_triple_extend
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8306,7 +8210,7 @@ lemma Preconnection.affineDualPullback_triple_extend
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_curvature
+theorem Preconnection.affineDualPullback_triple_curvature
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E)
@@ -8318,7 +8222,7 @@ lemma Preconnection.affineDualPullback_triple_curvature
   sorry
 
 omit [Algebra R T] [IsScalarTower R S T] [IsScalarTower R T U] in
-lemma Preconnection.affineDualPullback_triple_flat_iff
+theorem Preconnection.affineDualPullback_triple_flat_iff
     (p : TwoForms.Morphism (algebraMap T U) Δ Ξ)
     (n : TwoForms.Morphism (algebraMap S T) Γ Δ)
     (m : TwoForms.Morphism (algebraMap R S) Ω Γ) (D : Preconnection Ω lam E) :
@@ -8480,7 +8384,7 @@ end
 end
 end Layer0
 
-/-! ## H.0 -/
+/-! ### Ordered shuffle, rank bounds and parameter residue -/
 
 section Layer1
 
@@ -8525,29 +8429,29 @@ end Imported
 def shuffleSlots {n : ℕ} (s : Finset (Fin n)) :
     Fin s.card ⊕ Fin sᶜ.card ≃ Fin n := by sorry
 
-lemma shuffleSlots_inl {n : ℕ} (s : Finset (Fin n)) (i : Fin s.card) :
+theorem shuffleSlots_inl {n : ℕ} (s : Finset (Fin n)) (i : Fin s.card) :
     shuffleSlots s (Sum.inl i) = s.orderEmbOfFin rfl i := by sorry
 
-lemma shuffleSlots_inr {n : ℕ} (s : Finset (Fin n)) (i : Fin sᶜ.card) :
+theorem shuffleSlots_inr {n : ℕ} (s : Finset (Fin n)) (i : Fin sᶜ.card) :
     shuffleSlots s (Sum.inr i) = sᶜ.orderEmbOfFin rfl i := by sorry
 
 def shuffleCoefficients (R Q : Type*) [CommRing R] [AddCommGroup Q] [Module R Q]
     {n : ℕ} (s : Finset (Fin n)) :
     (⨂[R]^s.card Q) ⊗[R] (⨂[R]^sᶜ.card Q) ≃ₗ[R] (⨂[R]^n Q) := by sorry
 
-lemma shuffleCoefficients_def {n : ℕ} (s : Finset (Fin n)) :
+theorem shuffleCoefficients_def {n : ℕ} (s : Finset (Fin n)) :
     shuffleCoefficients R Q s =
       (PiTensorProduct.tmulEquiv R Q).trans
         (PiTensorProduct.reindex R (fun _ => Q) (shuffleSlots s)) := by sorry
 
-lemma shuffleCoefficients_tprod {n : ℕ} (s : Finset (Fin n))
+theorem shuffleCoefficients_tprod {n : ℕ} (s : Finset (Fin n))
     (a : Fin s.card → Q) (b : Fin sᶜ.card → Q) :
     shuffleCoefficients R Q s
       (PiTensorProduct.tprod R a ⊗ₜ[R] PiTensorProduct.tprod R b) =
         PiTensorProduct.tprod R (fun i => Sum.elim a b ((shuffleSlots s).symm i)) :=
   by sorry
 
-lemma shuffleCoefficients_natural {P : Type*} [AddCommGroup P] [Module R P]
+theorem shuffleCoefficients_natural {P : Type*} [AddCommGroup P] [Module R P]
     (u : Q →ₗ[R] P) {n : ℕ} (s : Finset (Fin n)) :
     (PiTensorProduct.map (fun _ : Fin n => u)).comp
       (shuffleCoefficients R Q s).toLinearMap =
@@ -8559,7 +8463,7 @@ def orderedShuffleTerm (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] 
     {n : ℕ} (s : Finset (Fin n)) :
     E ⊗[R] F →ₗ[R] (E ⊗[R] F) ⊗[R] (⨂[R]^n Q) := by sorry
 
-lemma orderedShuffleTerm_def (θ : E →ₗ[R] E ⊗[R] Q)
+theorem orderedShuffleTerm_def (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] Q) {n : ℕ} (s : Finset (Fin n)) :
     orderedShuffleTerm θ ψ s =
       (TensorProduct.map (LinearMap.id : E ⊗[R] F →ₗ[R] E ⊗[R] F)
@@ -8569,7 +8473,7 @@ lemma orderedShuffleTerm_def (θ : E →ₗ[R] E ⊗[R] Q)
             (TensorProduct.map (Imported.iterate θ s.card)
               (Imported.iterate ψ sᶜ.card))) := by sorry
 
-lemma orderedShuffleTerm_horizontal {E' F' : Type*}
+theorem orderedShuffleTerm_horizontal {E' F' : Type*}
     [AddCommGroup E'] [Module R E'] [AddCommGroup F'] [Module R F']
     (θ : E →ₗ[R] E ⊗[R] Q) (ψ : F →ₗ[R] F ⊗[R] Q)
     (θ' : E' →ₗ[R] E' ⊗[R] Q) (ψ' : F' →ₗ[R] F' ⊗[R] Q)
@@ -8583,7 +8487,7 @@ lemma orderedShuffleTerm_horizontal {E' F' : Type*}
           (orderedShuffleTerm θ ψ s) := by sorry
 
 -- New node H.0/h0-shuffle-term-vanishing: promoted because the bound uses it.
-lemma orderedShuffleTerm_eq_zero (θ : E →ₗ[R] E ⊗[R] Q)
+theorem orderedShuffleTerm_eq_zero (θ : E →ₗ[R] E ⊗[R] Q)
     (ψ : F →ₗ[R] F ⊗[R] Q) {n N M : ℕ} (s : Finset (Fin n))
     (hθ : Imported.iterate θ N = 0) (hψ : Imported.iterate ψ M = 0)
     (hs : N ≤ s.card ∨ M ≤ sᶜ.card) : orderedShuffleTerm θ ψ s = 0 := by sorry
@@ -8691,21 +8595,21 @@ def parameterResidue (t : R) (d : R →+ Q) (D : E →+ E ⊗[R] Q)
     (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a)) :
     modParameter R t E →ₗ[R] modParameter R t (E ⊗[R] Q) := by sorry
 
-lemma parameterResidue_mk (t : R) (d : R →+ Q) (D : E →+ E ⊗[R] Q)
+theorem parameterResidue_mk (t : R) (d : R →+ Q) (D : E →+ E ⊗[R] Q)
     (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a)) (e : E) :
     parameterResidue t d D hD
       ((LinearMap.range (t • (LinearMap.id : E →ₗ[R] E))).mkQ e) =
         (LinearMap.range (t • (LinearMap.id : E ⊗[R] Q →ₗ[R] E ⊗[R] Q))).mkQ (D e) :=
   by sorry
 
-lemma parameterResidue_unique (t : R) (d : R →+ Q) (D : E →+ E ⊗[R] Q)
+theorem parameterResidue_unique (t : R) (d : R →+ Q) (D : E →+ E ⊗[R] Q)
     (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a))
     (f : modParameter R t E →ₗ[R] modParameter R t (E ⊗[R] Q))
     (hf : ∀ e, f ((LinearMap.range (t • (LinearMap.id : E →ₗ[R] E))).mkQ e) =
       (LinearMap.range (t • (LinearMap.id : E ⊗[R] Q →ₗ[R] E ⊗[R] Q))).mkQ (D e)) :
     f = parameterResidue t d D hD := by sorry
 
-lemma parameterResidue_eq_iff (t : R) (d : R →+ Q) (D D' : E →+ E ⊗[R] Q)
+theorem parameterResidue_eq_iff (t : R) (d : R →+ Q) (D D' : E →+ E ⊗[R] Q)
     (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a))
     (hD' : ∀ a e, D' (a • e) = a • D' e + t • (e ⊗ₜ[R] d a)) :
     parameterResidue t d D hD = parameterResidue t d D' hD' ↔
@@ -8713,7 +8617,7 @@ lemma parameterResidue_eq_iff (t : R) (d : R →+ Q) (D D' : E →+ E ⊗[R] Q)
         LinearMap.range (t • (LinearMap.id : E ⊗[R] Q →ₗ[R] E ⊗[R] Q)) := by sorry
 
 -- Native quotient maps compare residues before the separate geometric adapters.
-lemma parameterResidue_natural {P : Type*} [AddCommGroup P] [Module R P]
+theorem parameterResidue_natural {P : Type*} [AddCommGroup P] [Module R P]
     (t : R) (d : R →+ Q) (d' : R →+ P)
     (D : E →+ E ⊗[R] Q) (D' : F →+ F ⊗[R] P)
     (hD : ∀ a e, D (a • e) = a • D e + t • (e ⊗ₜ[R] d a))
@@ -8755,7 +8659,7 @@ end TauCeti.Hodge.ParameterConnection.H0
 end
 end Layer1
 
-/-! ## H.1 -/
+/-! ## Layer 1: Projective non-abelian Hodge theory -/
 
 section Layer2
 
@@ -9187,7 +9091,7 @@ Example omission: TauCeti.NonabelianHodge.FramedParameterModuli.coarse_not_fine
 end
 end Layer2
 
-/-! ## H.2 -/
+/-! ## Layer 2: Variations, extensions and monodromy -/
 
 section Layer3
 
@@ -9830,7 +9734,7 @@ For an admissible graded-polarizable integral VMHS on a connected smooth quasipr
 end
 end Layer3
 
-/-! ## H.3 -/
+/-! ## Layer 3: Period geometry and derivatives -/
 
 section Layer4
 
@@ -10516,7 +10420,7 @@ comparison signature omitted: TauCeti.Hodge.PeriodGeometry.abelianPeriod_holomor
 end
 end Layer4
 
-/-! ## H.4 -/
+/-! ## Layer 4: Parabolic estimates on curves -/
 
 section Layer5
 
@@ -11922,7 +11826,7 @@ unchecked.
 end
 end Layer5
 
-/-! ## H.5 -/
+/-! ## Layer 5: Rigidity, arithmetic models and integrality -/
 
 section Layer6
 
@@ -13784,7 +13688,7 @@ Node HodgeStructuresPartII:H.5/geometric-origin-boundary
 end
 end Layer6
 
-/-! ## H.6 -/
+/-! ## Layer 6: Degeneration and asymptotic metrics -/
 
 section Layer7
 
@@ -13907,12 +13811,12 @@ def SemistableLogModel.localMap {d : ℕ} (M : SemistableLogModel d)
     (x : Vec d) : ℂ :=
   ∏ i : Fin d with i.val < M.divisorCoordinates.val, x i
 
-lemma SemistableLogModel.localMap_equation {d : ℕ} (M : SemistableLogModel d)
+theorem SemistableLogModel.localMap_equation {d : ℕ} (M : SemistableLogModel d)
     (x : Vec d) : M.localMap x =
       ∏ i : Fin d with i.val < M.divisorCoordinates.val, x i := by
   sorry
 
-lemma SemistableLogModel.ext {d : ℕ} (M M' : SemistableLogModel d)
+theorem SemistableLogModel.ext {d : ℕ} (M M' : SemistableLogModel d)
     (hr : M.divisorCoordinates = M'.divisorCoordinates)
     (hρ : M.radius = M'.radius) : M = M' := by
   sorry
@@ -13921,7 +13825,7 @@ def SemistableLogModel.restrict {d : ℕ} (M : SemistableLogModel d)
     (ρ : ℝ) (hρ : 0 < ρ) (_hle : ρ ≤ M.radius) : SemistableLogModel d :=
   { M with radius := ρ, radius_pos := hρ }
 
-lemma SemistableLogModel.restrict_comp {d : ℕ} (M : SemistableLogModel d)
+theorem SemistableLogModel.restrict_comp {d : ℕ} (M : SemistableLogModel d)
     (ρ₁ ρ₂ : ℝ) (h₁ : 0 < ρ₁) (h₂ : 0 < ρ₂)
     (h₁M : ρ₁ ≤ M.radius) (h₂₁ : ρ₂ ≤ ρ₁) :
     (M.restrict ρ₁ h₁ h₁M).restrict ρ₂ h₂ h₂₁ =
@@ -13969,31 +13873,31 @@ theorem wedgeDlogTriangle {d : ℕ} (M : SemistableLogModel d) :
 def logGaussManin {d : ℕ} (A : ℂ → Mat d) (q : ℂ) (v dv : Vec d) : Vec d :=
   dv + q⁻¹ • (A q).mulVec v
 
-lemma logGaussManin.apply {d : ℕ} (A : ℂ → Mat d) (q : ℂ) (v dv : Vec d) :
+theorem logGaussManin.apply {d : ℕ} (A : ℂ → Mat d) (q : ℂ) (v dv : Vec d) :
     logGaussManin A q v dv = dv + q⁻¹ • (A q).mulVec v := by
   sorry
-lemma logGaussManin.add {d : ℕ} (A : ℂ → Mat d) (q : ℂ)
+theorem logGaussManin.add {d : ℕ} (A : ℂ → Mat d) (q : ℂ)
     (u v du dv : Vec d) :
     logGaussManin A q (u + v) (du + dv) =
       logGaussManin A q u du + logGaussManin A q v dv := by
   sorry
-lemma logGaussManin.leibniz {d : ℕ} (A : ℂ → Mat d) (q f df : ℂ)
+theorem logGaussManin.leibniz {d : ℕ} (A : ℂ → Mat d) (q f df : ℂ)
     (v dv : Vec d) :
     logGaussManin A q (f • v) (df • v + f • dv) =
       df • v + f • logGaussManin A q v dv := by
   sorry
-lemma logGaussManin.residue {d : ℕ} (A : ℂ → Mat d)
+theorem logGaussManin.residue {d : ℕ} (A : ℂ → Mat d)
     (hA : ContinuousAt A 0) (v : Vec d) :
     Tendsto (fun q => q • logGaussManin A q v 0) (𝓝[≠] 0)
       (𝓝 ((A 0).mulVec v)) := by
   sorry
-lemma logGaussManin.horizontalMap {d e : ℕ} (A : ℂ → Mat d) (B : ℂ → Mat e)
+theorem logGaussManin.horizontalMap {d e : ℕ} (A : ℂ → Mat d) (B : ℂ → Mat e)
     (P : Matrix (Fin e) (Fin d) ℂ) (hP : ∀ q, P * A q = B q * P)
     (q : ℂ) (v dv : Vec d) :
     P.mulVec (logGaussManin A q v dv) =
       logGaussManin B q (P.mulVec v) (P.mulVec dv) := by
   sorry
-lemma logGaussManin.ramified {d : ℕ} (A : ℂ → Mat d) (e : ℕ) (he : 0 < e)
+theorem logGaussManin.ramified {d : ℕ} (A : ℂ → Mat d) (e : ℕ) (he : 0 < e)
     (t : ℂ) (ht : t ≠ 0) (v dv : Vec d) :
     logGaussManin (fun s => (e : ℂ) • A (s ^ e)) t v
       (((e : ℂ) * t ^ (e - 1)) • dv) =
@@ -14059,18 +13963,18 @@ structure NilpotentOrbit (n d : ℕ) (D : Set (Flag d)) where
 def NilpotentOrbit.orbit {n d : ℕ} {D : Set (Flag d)}
     (O : NilpotentOrbit n d D) (z : Fin n → ℂ) : Flag d :=
   act (twist O.L z) O.F
-lemma NilpotentOrbit.orbit_zero {n d : ℕ} {D : Set (Flag d)}
+theorem NilpotentOrbit.orbit_zero {n d : ℕ} {D : Set (Flag d)}
     (O : NilpotentOrbit n d D) : O.orbit 0 = O.F := by
   sorry
-lemma NilpotentOrbit.orbit_shift {n d : ℕ} {D : Set (Flag d)}
+theorem NilpotentOrbit.orbit_shift {n d : ℕ} {D : Set (Flag d)}
     (O : NilpotentOrbit n d D) (z : Fin n → ℂ) (a : Fin n → ℤ) :
     O.orbit (fun i => z i + a i) = act (twist O.L (fun i => (a i : ℂ))) (O.orbit z) := by
   sorry
-lemma NilpotentOrbit.horizontal {n d : ℕ} {D : Set (Flag d)}
+theorem NilpotentOrbit.horizontal {n d : ℕ} {D : Set (Flag d)}
     (O : NilpotentOrbit n d D) (i : Fin n) (p : ℤ) :
     (O.F p).map (Matrix.toLin' (O.L i)) ≤ O.F (p - 1) := by
   sorry
-lemma NilpotentOrbit.eventual_mem {n d : ℕ} {D : Set (Flag d)}
+theorem NilpotentOrbit.eventual_mem {n d : ℕ} {D : Set (Flag d)}
     (O : NilpotentOrbit n d D) :
     ∃ Y : ℝ, 0 < Y ∧ ∀ z, (∀ i, Y < (z i).im) → O.orbit z ∈ D := by
   sorry
@@ -14086,7 +13990,7 @@ def NilpotentOrbit.reindex {n d : ℕ} {D : Set (Flag d)}
   commute := by sorry
   lowering := by sorry
   eventual := by sorry
-lemma NilpotentOrbit.ext {n d : ℕ} {D : Set (Flag d)} (O O' : NilpotentOrbit n d D)
+theorem NilpotentOrbit.ext {n d : ℕ} {D : Set (Flag d)} (O O' : NilpotentOrbit n d D)
     (hL : O.L = O'.L) (hF : O.F = O'.F) : O = O' := by
   sorry
 
@@ -14138,25 +14042,25 @@ example {n d : ℕ} {D : Set (Flag d)} (O : NilpotentOrbit n d D)
 def untwistedPeriodMap {n d : ℕ} (L : Fin n → Mat d)
     (Φ : (Fin n → ℂ) → Flag d) (z : Fin n → ℂ) : Flag d :=
   act (twist L (fun i => -z i)) (Φ z)
-lemma untwistedPeriodMap.apply {n d : ℕ} (L : Fin n → Mat d)
+theorem untwistedPeriodMap.apply {n d : ℕ} (L : Fin n → Mat d)
     (Φ : (Fin n → ℂ) → Flag d) (z : Fin n → ℂ) :
     untwistedPeriodMap L Φ z = act (twist L (fun i => -z i)) (Φ z) := by
   sorry
-lemma untwistedPeriodMap.undo {n d : ℕ} (L : Fin n → Mat d)
+theorem untwistedPeriodMap.undo {n d : ℕ} (L : Fin n → Mat d)
     (Φ : (Fin n → ℂ) → Flag d) (z : Fin n → ℂ) :
     act (twist L z) (untwistedPeriodMap L Φ z) = Φ z := by
   sorry
-lemma untwistedPeriodMap.integer_shift {n d : ℕ} (L : Fin n → Mat d)
+theorem untwistedPeriodMap.integer_shift {n d : ℕ} (L : Fin n → Mat d)
     (hL : ∀ i j, Commute (L i) (L j)) (Φ : (Fin n → ℂ) → Flag d)
     (hΦ : ∀ (z : Fin n → ℂ) (a : Fin n → ℤ),
       Φ (fun i => z i + a i) = act (twist L (fun i => (a i : ℂ))) (Φ z))
     (z : Fin n → ℂ) (a : Fin n → ℤ) :
     untwistedPeriodMap L Φ (fun i => z i + a i) = untwistedPeriodMap L Φ z := by
   sorry
-lemma untwistedPeriodMap.zero {n d : ℕ} (Φ : (Fin n → ℂ) → Flag d) :
+theorem untwistedPeriodMap.zero {n d : ℕ} (Φ : (Fin n → ℂ) → Flag d) :
     untwistedPeriodMap (fun _ => (0 : Mat d)) Φ = Φ := by
   sorry
-lemma untwistedPeriodMap.gauge {n d : ℕ} (P : (Mat d)ˣ) (L : Fin n → Mat d)
+theorem untwistedPeriodMap.gauge {n d : ℕ} (P : (Mat d)ˣ) (L : Fin n → Mat d)
     (Φ : (Fin n → ℂ) → Flag d) (z : Fin n → ℂ) :
     untwistedPeriodMap (fun i => (↑P : Mat d) * L i * (↑P⁻¹ : Mat d))
       (fun z => act (↑P : Mat d) (Φ z)) z = act (↑P : Mat d) (untwistedPeriodMap L Φ z) := by
@@ -14164,7 +14068,7 @@ lemma untwistedPeriodMap.gauge {n d : ℕ} (P : (Mat d)ˣ) (L : Fin n → Mat d)
 /-- The residue convention `A_i = −L_i/(2πi)` of the canonical extension: its
 monodromy `exp(−2πi A_i)` is `exp L_i`. Left out: the identification of the
 frame with the canonical extension of H.2. -/
-lemma untwistedPeriodMap.canonicalExtension {n d : ℕ} (L : Fin n → Mat d) (i : Fin n) :
+theorem untwistedPeriodMap.canonicalExtension {n d : ℕ} (L : Fin n → Mat d) (i : Fin n) :
     NormedSpace.exp ((-(2 * Real.pi : ℂ) * Complex.I) •
       ((-(2 * Real.pi : ℂ) * Complex.I)⁻¹ • L i)) = NormedSpace.exp (L i) := by
   sorry
@@ -14188,22 +14092,22 @@ example : (Submodule.span ℂ {(![Complex.I,1] : Vec 2)}).map
 /-- The correction `exp(v(q))` of a coefficient `v` in the negative-Lie chart. -/
 def negativeLieCorrection {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
     (q : Fin n → ℂ) : Mat d := NormedSpace.exp (v q)
-lemma negativeLieCorrection.exp_zero {n d : ℕ} (q : Fin n → ℂ) :
+theorem negativeLieCorrection.exp_zero {n d : ℕ} (q : Fin n → ℂ) :
     negativeLieCorrection (fun _ => (0 : Mat d)) q = 1 := by
   sorry
 /-- A coefficient that lifts `Ψ` through the exponential chart at `F` lifts it
 through `negativeLieCorrection`. -/
-lemma negativeLieCorrection.lift {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
+theorem negativeLieCorrection.lift {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
     (Ψ : (Fin n → ℂ) → Flag d) (F : Flag d)
     (hv : ∀ q, Ψ q = act (NormedSpace.exp (v q)) F) (q : Fin n → ℂ) :
     Ψ q = act (negativeLieCorrection v q) F := by
   sorry
-lemma negativeLieCorrection.unique {d : ℕ} (F : Flag d) (B : Set (Mat d))
+theorem negativeLieCorrection.unique {d : ℕ} (F : Flag d) (B : Set (Mat d))
     (hchart : Set.InjOn (fun A => act (NormedSpace.exp A) F) B)
     (A A' : Mat d) (hA : A ∈ B) (hA' : A' ∈ B)
     (h : act (NormedSpace.exp A) F = act (NormedSpace.exp A') F) : A = A' := by
   sorry
-lemma negativeLieCorrection.boundary {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
+theorem negativeLieCorrection.boundary {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
     (hv : v 0 = 0) : negativeLieCorrection v 0 = 1 := by
   sorry
 
@@ -14211,7 +14115,7 @@ def negativeLieCorrection.gamma {n d : ℕ} (L : Fin n → Mat d)
     (v : (Fin n → ℂ) → Mat d) (z : Fin n → ℂ) : Mat d :=
   twist L z * negativeLieCorrection v
     (fun i => Complex.exp ((2 * Real.pi : ℂ) * Complex.I * z i))
-lemma negativeLieCorrection.buffer {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
+theorem negativeLieCorrection.buffer {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
     (U K : Set (Fin n → ℂ)) (hv : AnalyticOnNhd ℂ v U)
     (hK : K ⊆ U) : AnalyticOnNhd ℂ v K := by
   sorry
@@ -14258,7 +14162,7 @@ end TauCeti.Hodge.Degeneration
 end
 end Layer7
 
-/-! ## H.7 -/
+/-! ## Layer 7: Definable period maps and Hodge loci -/
 
 section Layer8
 
@@ -14285,16 +14189,16 @@ universe u v w
 def boundedSector (n : ℕ) (R η : ℝ) : Set (Fin n → ℂ) :=
   {z | ∀ i, |(z i).re| ≤ R ∧ η ≤ (z i).im}
 
-lemma boundedSector.mem_iff {n : ℕ} {R η : ℝ} {z : Fin n → ℂ} :
+theorem boundedSector.mem_iff {n : ℕ} {R η : ℝ} {z : Fin n → ℂ} :
     z ∈ boundedSector n R η ↔ ∀ i, |(z i).re| ≤ R ∧ η ≤ (z i).im := by
   sorry
 
-lemma boundedSector.mono {n : ℕ} {R R' η η' : ℝ}
+theorem boundedSector.mono {n : ℕ} {R R' η η' : ℝ}
     (hR : R ≤ R') (hη : η' ≤ η) :
     boundedSector n R η ⊆ boundedSector n R' η' := by
   sorry
 
-lemma boundedSector.reindex {n : ℕ} (σ : Equiv.Perm (Fin n))
+theorem boundedSector.reindex {n : ℕ} (σ : Equiv.Perm (Fin n))
     (R η : ℝ) (z : Fin n → ℂ) :
     (z ∘ σ) ∈ boundedSector n R η ↔ z ∈ boundedSector n R η := by
   sorry
@@ -14315,17 +14219,17 @@ example : (fun _ : Fin 1 => (2 : ℂ) + 2 * Complex.I) ∉ boundedSector 1 1 1 :
 def orderedSector (n : ℕ) (R Y : ℝ) : Set (Fin n → ℂ) :=
   {z | z ∈ boundedSector n R Y ∧ ∀ i j, i ≤ j → (z j).im ≤ (z i).im}
 
-lemma orderedSector.mem_iff {n : ℕ} {R Y : ℝ} {z : Fin n → ℂ} :
+theorem orderedSector.mem_iff {n : ℕ} {R Y : ℝ} {z : Fin n → ℂ} :
     z ∈ orderedSector n R Y ↔
       z ∈ boundedSector n R Y ∧ ∀ i j, i ≤ j → (z j).im ≤ (z i).im := by
   sorry
 
-lemma orderedSector.subset_boundedSector (n : ℕ) (R Y : ℝ) :
+theorem orderedSector.subset_boundedSector (n : ℕ) (R Y : ℝ) :
     orderedSector n R Y ⊆ boundedSector n R Y := by
   sorry
 
 -- Standalone prerequisite: H.7/ordered-sector-permutation-cover.
-lemma orderedSector.permutation_cover {n : ℕ} {R Y : ℝ} {z : Fin n → ℂ}
+theorem orderedSector.permutation_cover {n : ℕ} {R Y : ℝ} {z : Fin n → ℂ}
     (hz : z ∈ boundedSector n R Y) :
     ∃ σ : Equiv.Perm (Fin n), z ∘ σ ∈ orderedSector n R Y := by
   sorry
@@ -14346,20 +14250,20 @@ example : (![2 * Complex.I, 3 * Complex.I] : Fin 2 → ℂ) ∉ orderedSector 2 
 def sectorUniformization {n : ℕ} (z : Fin n → ℂ) : Fin n → ℂ :=
   fun i => Complex.exp ((2 * Real.pi : ℂ) * Complex.I * z i)
 
-lemma sectorUniformization.apply {n : ℕ} (z : Fin n → ℂ) (i : Fin n) :
+theorem sectorUniformization.apply {n : ℕ} (z : Fin n → ℂ) (i : Fin n) :
     sectorUniformization z i = Complex.exp ((2 * Real.pi : ℂ) * Complex.I * z i) := by
   sorry
 
-lemma sectorUniformization.norm {n : ℕ} (z : Fin n → ℂ) (i : Fin n) :
+theorem sectorUniformization.norm {n : ℕ} (z : Fin n → ℂ) (i : Fin n) :
     ‖sectorUniformization z i‖ = Real.exp (-2 * Real.pi * (z i).im) := by
   sorry
 
-lemma sectorUniformization.integer_shift {n : ℕ} (z : Fin n → ℂ) (a : Fin n → ℤ) :
+theorem sectorUniformization.integer_shift {n : ℕ} (z : Fin n → ℂ) (a : Fin n → ℤ) :
     sectorUniformization (fun i => z i + (a i : ℂ)) = sectorUniformization z := by
   sorry
 
 -- Standalone prerequisite: H.7/sector-uniformization-half-open-surjective.
-lemma sectorUniformization.halfOpen_surjective {n : ℕ} {η : ℝ} (hη : 0 < η)
+theorem sectorUniformization.halfOpen_surjective {n : ℕ} {η : ℝ} (hη : 0 < η)
     (q : Fin n → ℂ)
     (hq : ∀ i, 0 < ‖q i‖ ∧ ‖q i‖ < Real.exp (-2 * Real.pi * η)) :
     ∃ z : Fin n → ℂ, (∀ i, 0 ≤ (z i).re ∧ (z i).re < 1 ∧ η < (z i).im) ∧
@@ -14391,39 +14295,39 @@ variable {hs : S → HodgeStructure hC k}
 def hodgeFormFunction (P : (s : S) → Polarization hC (hs s))
     (s : S) (u v : W) : ℂ := starRingEnd ℂ ((P s).hodgeForm u v)
 
-lemma hodgeFormFunction.apply (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.apply (P : (s : S) → Polarization hC (hs s))
     (s : S) (u v : W) :
     hodgeFormFunction P s u v = (P s).Q ((hs s).weilOperator u) (latticeConj hC v) := by
   sorry
 
-lemma hodgeFormFunction.diagonal (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.diagonal (P : (s : S) → Polarization hC (hs s))
     (s : S) (u : W) :
     hodgeFormFunction P s u u = (P s).hodgeForm u u := by
   sorry
 
-lemma hodgeFormFunction.hermitian (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.hermitian (P : (s : S) → Polarization hC (hs s))
     (s : S) (u v : W) :
     hodgeFormFunction P s u v = starRingEnd ℂ (hodgeFormFunction P s v u) := by
   sorry
 
-lemma hodgeFormFunction.smul_left (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.smul_left (P : (s : S) → Polarization hC (hs s))
     (s : S) (a : ℂ) (u v : W) :
     hodgeFormFunction P s (a • u) v = a * hodgeFormFunction P s u v := by
   sorry
 
-lemma hodgeFormFunction.add_left (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.add_left (P : (s : S) → Polarization hC (hs s))
     (s : S) (u u' v : W) :
     hodgeFormFunction P s (u + u') v =
       hodgeFormFunction P s u v + hodgeFormFunction P s u' v := by
   sorry
 
-lemma hodgeFormFunction.add_right (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.add_right (P : (s : S) → Polarization hC (hs s))
     (s : S) (u v v' : W) :
     hodgeFormFunction P s u (v + v') =
       hodgeFormFunction P s u v + hodgeFormFunction P s u v' := by
   sorry
 
-lemma hodgeFormFunction.smul_right (P : (s : S) → Polarization hC (hs s))
+theorem hodgeFormFunction.smul_right (P : (s : S) → Polarization hC (hs s))
     (s : S) (a : ℂ) (u v : W) :
     hodgeFormFunction P s u (a • v) =
       starRingEnd ℂ a * hodgeFormFunction P s u v := by
@@ -14452,22 +14356,22 @@ variable {W : Type u} [AddCommGroup W] [Module ℂ W]
 def hodgeAdaptedFlag {m : ℕ} (b : Basis (Fin m) ℂ W) (j : Fin (m + 1)) :
     Submodule ℂ W := Submodule.span ℂ {v | ∃ i : Fin m, i.val < j.val ∧ b i = v}
 
-lemma hodgeAdaptedFlag.zero {m : ℕ} (b : Basis (Fin m) ℂ W) :
+theorem hodgeAdaptedFlag.zero {m : ℕ} (b : Basis (Fin m) ℂ W) :
     hodgeAdaptedFlag b 0 = ⊥ := by
   sorry
 
-lemma hodgeAdaptedFlag.top {m : ℕ} (b : Basis (Fin m) ℂ W) :
+theorem hodgeAdaptedFlag.top {m : ℕ} (b : Basis (Fin m) ℂ W) :
     hodgeAdaptedFlag b (Fin.last m) = ⊤ := by
   sorry
 
-lemma hodgeAdaptedFlag.finrank {m : ℕ} (b : Basis (Fin m) ℂ W) (j : Fin (m + 1)) :
+theorem hodgeAdaptedFlag.finrank {m : ℕ} (b : Basis (Fin m) ℂ W) (j : Fin (m + 1)) :
     Module.finrank ℂ (hodgeAdaptedFlag b j) = j.val := by
   sorry
 
 -- Native refinement condition is expressible. Missing H.6 simultaneous I-splitting
 -- supplies this condition and the sorted labels p; it is not reconstructed here.
 -- Standalone prerequisite: H.7/hodge-adapted-flag-refines-filtration.
-lemma hodgeAdaptedFlag.filtration {m : ℕ} (b : Basis (Fin m) ℂ W)
+theorem hodgeAdaptedFlag.filtration {m : ℕ} (b : Basis (Fin m) ℂ W)
     (F : ℤ → Submodule ℂ W) (p : Fin m → ℤ)
     (hF : ∀ a, F a = Submodule.span ℂ {v | ∃ i, a ≤ p i ∧ b i = v})
     (hp : Antitone p) (a : ℤ) (j : Fin (m + 1))
@@ -14493,14 +14397,14 @@ end Flags
 This is not a local definition of that missing carrier. -/
 def specialHodgeImage {X : Type u} {Y : Type v} (f : X → Y) : Set Y := Set.range f
 
-lemma specialHodgeImage.mem_iff {X : Type u} {Y : Type v} (f : X → Y) (y : Y) :
+theorem specialHodgeImage.mem_iff {X : Type u} {Y : Type v} (f : X → Y) (y : Y) :
     y ∈ specialHodgeImage f ↔ ∃ x, f x = y := by
   sorry
 
-lemma specialHodgeImage.id (Y : Type u) : specialHodgeImage (id : Y → Y) = Set.univ := by
+theorem specialHodgeImage.id (Y : Type u) : specialHodgeImage (id : Y → Y) = Set.univ := by
   sorry
 
-lemma specialHodgeImage.comp {X : Type u} {Y : Type v} {Z : Type w}
+theorem specialHodgeImage.comp {X : Type u} {Y : Type v} {Z : Type w}
     (f : X → Y) (g : Y → Z) : specialHodgeImage (g ∘ f) = g '' specialHodgeImage f := by
   sorry
 
@@ -14525,7 +14429,7 @@ The rational embedding and tensor construction are supplied by H.3. -/
 def tensorHodgeLocus (hs : U → HodgeStructureOn W ω k) (r : T → W) (t : T) : Set U :=
   {s | r t ∈ (if k = 0 then (hs s).piece 0 else (⊥ : Submodule ℂ W))}
 
-lemma tensorHodgeLocus.mem_iff (hs : U → HodgeStructureOn W ω k) (r : T → W)
+theorem tensorHodgeLocus.mem_iff (hs : U → HodgeStructureOn W ω k) (r : T → W)
     (t : T) (s : U) :
     s ∈ tensorHodgeLocus hs r t ↔
       r t ∈ (if k = 0 then (hs s).piece 0 else (⊥ : Submodule ℂ W)) := by
@@ -14533,18 +14437,18 @@ lemma tensorHodgeLocus.mem_iff (hs : U → HodgeStructureOn W ω k) (r : T → W
 
 -- r is a supplied rational scalar-extension map. The native zero-preservation
 -- condition is included; no lattice/local-system Prop placeholder is used.
-lemma tensorHodgeLocus.zero [Zero T] (hs : U → HodgeStructureOn W ω k)
+theorem tensorHodgeLocus.zero [Zero T] (hs : U → HodgeStructureOn W ω k)
     (r : T → W) (hr : r 0 = 0) : tensorHodgeLocus hs r 0 = Set.univ := by
   sorry
 
 open Classical in
-lemma tensorHodgeLocus.constant (h : HodgeStructureOn W ω k) (r : T → W) (t : T) :
+theorem tensorHodgeLocus.constant (h : HodgeStructureOn W ω k) (r : T → W) (t : T) :
     tensorHodgeLocus (fun _ : U => h) r t =
       if r t ∈ (if k = 0 then h.piece 0 else (⊥ : Submodule ℂ W))
         then Set.univ else ∅ := by
   sorry
 
-lemma tensorHodgeLocus.pullback {U' : Type*} (hs : U → HodgeStructureOn W ω k)
+theorem tensorHodgeLocus.pullback {U' : Type*} (hs : U → HodgeStructureOn W ω k)
     (r : T → W) (t : T) (g : U' → U) :
     tensorHodgeLocus (hs ∘ g) r t = g ⁻¹' tensorHodgeLocus hs r t := by
   sorry
@@ -14573,25 +14477,25 @@ def exceptionalHodgeLocus {U : Type u} {S : Type v} {T : Type w}
     (π : U → S) (locus : T → Set U) (generic : Set T) : Set S :=
   π '' {u | ∃ t, t ∉ generic ∧ u ∈ locus t}
 
-lemma exceptionalHodgeLocus.mem_iff {U : Type u} {S : Type v} {T : Type w}
+theorem exceptionalHodgeLocus.mem_iff {U : Type u} {S : Type v} {T : Type w}
     (π : U → S) (locus : T → Set U) (generic : Set T) (s : S) :
     s ∈ exceptionalHodgeLocus π locus generic ↔
       ∃ u t, π u = s ∧ t ∉ generic ∧ u ∈ locus t := by
   sorry
 
-lemma exceptionalHodgeLocus.generic_all {U : Type u} {S : Type v} {T : Type w}
+theorem exceptionalHodgeLocus.generic_all {U : Type u} {S : Type v} {T : Type w}
     (π : U → S) (locus : T → Set U) :
     exceptionalHodgeLocus π locus Set.univ = ∅ := by
   sorry
 
-lemma exceptionalHodgeLocus.preimage_eq {U : Type u} {S : Type v} {T : Type w}
+theorem exceptionalHodgeLocus.preimage_eq {U : Type u} {S : Type v} {T : Type w}
     (π : U → S) (locus : T → Set U) (generic : Set T)
     (hsat : ∀ u v, π u = π v →
       ((∃ t, t ∉ generic ∧ u ∈ locus t) ↔ (∃ t, t ∉ generic ∧ v ∈ locus t))) :
     π ⁻¹' exceptionalHodgeLocus π locus generic = {u | ∃ t, t ∉ generic ∧ u ∈ locus t} := by
   sorry
 
-lemma exceptionalHodgeLocus.empty_of_generic {U : Type u} {S : Type v} {T : Type w}
+theorem exceptionalHodgeLocus.empty_of_generic {U : Type u} {S : Type v} {T : Type w}
     (π : U → S) (locus : T → Set U) (generic : Set T)
     (h : ∀ t, (locus t).Nonempty → t ∈ generic) :
     exceptionalHodgeLocus π locus generic = ∅ := by
@@ -14689,7 +14593,7 @@ end TauCeti.Hodge.Tame
 end
 end Layer8
 
-/-! ## H.8 -/
+/-! ## Layer 8: Real Noether–Lefschetz interfaces -/
 
 section Layer9
 
@@ -15226,3 +15130,5 @@ end TauCeti.Hodge.RealNL
 
 end
 end Layer9
+
+end TauCetiRoadmap.HodgeStructuresPartII
