@@ -1,0 +1,2418 @@
+{
+  "roadmapId": "ColemanPowerSeries",
+  "protocol": "blueprint-v1",
+  "part": "L1",
+  "scope": [
+    "ColemanPowerSeries:L1"
+  ],
+  "status": "complete",
+  "summary": "The remaining L1 plan extends the accepted ℤ_p determinant norm and actual cyclotomic interpolation to finite unramified coefficients. It separates coefficient-fixed substitution from arithmetic coefficient Frobenius, constructs the corrected norm projector, and proves twisted interpolation into the actual norm-compatible unit tower. It imports local arithmetic and measure theory from their existing owners.",
+  "conventions": [
+    "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+    "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+    "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+  ],
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries.substAlgHom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+        "provides": "Formal zero-constant substitution as an algebra homomorphism.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native series made from coefficient functions.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Module.Basis.linearCombination_repr",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "Reconstruction of a vector from its native basis coordinates.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Module.Basis.mk",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Basis/Basic.lean",
+        "provides": "Basis from linear independence and spanning in the specified module.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Continuous.homeoOfEquivCompactToT2",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homeomorph/Lemmas.lean",
+        "provides": "A continuous equivalence from a compact space to a Hausdorff space is a homeomorphism.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Algebra.norm",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "Determinant of multiplication as a monoid homomorphism; the module must be certified finite free for the intended value.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Algebra.trace",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "Base-valued linear trace of left multiplication.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
+        "provides": "Polynomial series are dense for the coefficientwise topology.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:DenseRange.equalizer",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/DenseEmbedding.lean",
+        "provides": "Continuous maps into a Hausdorff space agreeing on a dense range are equal.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:RingHom.map_det",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Ring homomorphisms commute with finite matrix determinants.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "tauceti:PowerSeries.aeval_subst",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/MvPowerSeries/Substitution.lean",
+        "provides": "A continuous algebra map evaluates formal zero-constant substitution without requiring discrete coefficient uniformities.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient maps act coefficientwise.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.normUnits",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/Norm/Units.lean",
+        "provides": "Native norm as a homomorphism of actual unit groups, by Units.map.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Units.map",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "Restricts a monoid homomorphism to actual units including inverse witnesses.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MonoidHom.eqLocus",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "Native equalizer subgroup of two homomorphisms.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "A series is a unit exactly when its constant coefficient is a unit.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eval₂Hom",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+        "provides": "Native convergent evaluation for continuous coefficients and HasEval in a complete Hausdorff linearly topologized target.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:MulEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
+        "provides": "Native multiplicative equivalence associated to a bijective multiplicative homomorphism.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_matrix_det",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Defs.lean",
+        "provides": "Computes the native norm in any finite basis.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:Algebra.trace_eq_matrix_trace",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "Computes the native trace in any finite basis.",
+        "checked": "Full statement and ambient hypotheses read in the source tree at the recorded exact pin on 2026-10-10; individual module imports are checked by pinned Lean elaboration."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_frobenius_expand",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "provides": "For a commutative ring of exponential characteristic p and p≠0, coefficient Frobenius after expansion T↦T^p equals the p-th power of a series.",
+        "checked": "Statement and section hypotheses read in the exact pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Matrix.det_pow",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant of the n-th power of a finite square matrix over a commutative ring equals the n-th power of its determinant.",
+        "checked": "Statement and section hypotheses read in the exact pinned source on 2026-10-10."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Coleman1979",
+      "title": "Division Values in Local Fields",
+      "authors": "Robert F. Coleman",
+      "edition": "Inventiones Mathematicae 53 (1979), 91–116; original journal scan",
+      "url": "https://eudml.org/doc/142657",
+      "doi": "10.1007/BF01390028",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Introduction, Theorem A, pp.91–92",
+        "§I, Lemma 2a, pp.94–95",
+        "§III, Theorem 8, pp.100–101",
+        "§IV, Theorem 11, Corollary 12, Lemma 13, Proposition 14, Theorems 15–16 and Corollary 17, pp.102–106"
+      ],
+      "scan": "https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002095289",
+      "scanManifest": "https://manifests.sub.uni-goettingen.de/iiif/presentation/PPN356556735_0053/manifest?version=29486bf2",
+      "scanManifestSha256": "1379d97771494aa7ad8e098ad5cd4a301cb27a3f59e6b396dd8a6f653eb76e40"
+    },
+    {
+      "id": "SharifiNotes",
+      "title": "Iwasawa Theory",
+      "authors": "Romyar Sharifi",
+      "edition": "Author’s online notes, version downloaded 10 October 2026; printed pp.143–147",
+      "url": "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+      "sha256": "99b3a36201cecf55045da6913d462cacdb8dff83bff5860c5883ab7ea824bd32",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§5.4, Notation 5.4.1–Corollary 5.4.13, pp.143–147"
+      ],
+      "html": "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ColemanPowerSeries:L1/unramified-scalar-algebra",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coefficient-fixed cyclotomic scalar algebra",
+      "kind": "construction",
+      "statement": "Give the second B its B-algebra structure with algebraMap=Φ. Thus a•f=Φ(a)f. Coefficients are unchanged by Φ.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Use native formal substitution at Y^p−1, whose constant coefficient is zero.",
+        "Convert that ring homomorphism to its induced scalar algebra. This extends the parent ℤ_p scalar algebra along the coefficient map."
+      ],
+      "acceptance": [
+        "Give the second B its B-algebra structure with algebraMap=Φ. Thus a•f=Φ(a)f. Coefficients are unchanged by Φ."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.substAlgHom",
+        "ColemanPowerSeries:L1/frobenius-scalar-algebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, pp.102–103",
+          "match": "The product identity uses the multiplication-by-p substitution; the scalar-algebra presentation extends the parent determinant construction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.scalarAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.scalarAlgebra_map",
+          "role": "compatibility",
+          "statement": "The structural map is Φ."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.scalarAlgebra_smul",
+          "role": "simp",
+          "statement": "Scalar multiplication is Φ(a)f."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.scalarAlgebra_coefficientMap",
+          "role": "functoriality",
+          "statement": "The coefficient map ℤ_p[[T]]→B commutes with the two structural maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.scalar_X",
+          "kind": "computation",
+          "statement": "The structural image of T is Y^p−1."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.scalar_constant",
+          "kind": "compatibility",
+          "statement": "The structural image of C(c) is C(c), even if σ(c)≠c."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.scalar_identity",
+          "kind": "non-example",
+          "statement": "The structural image of T differs from T when p=3."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L1 determinant norm and trace",
+          "how": "Fixes the actual rank-p scalar action and excludes the rank-one self-algebra."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-coordinates-injective",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Uniqueness of unramified cyclotomic coordinates",
+      "kind": "lemma",
+      "statement": "The assembly map (a_i)↦∑_(i<p)Y^iΦ(a_i) from B^p to B is injective.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Choose a finite ℤ_p-basis of O. Apply its coordinate functions to every power-series coefficient.",
+        "These component maps commute with Φ and multiplication by Y^i, because those series have ℤ_p coefficients.",
+        "Each component relation is the parent ℤ_p coordinate relation. Its injectivity annihilates every component; basis extensionality annihilates every a_i."
+      ],
+      "acceptance": [
+        "The assembly map (a_i)↦∑_(i<p)Y^iΦ(a_i) from B^p to B is injective."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "ColemanPowerSeries:L1/frobenius-coordinate-injectivity",
+        "mathlib:PowerSeries.mk",
+        "mathlib:Module.Basis.linearCombination_repr"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, pp.102–103",
+          "match": "Worker coefficient extension of the finite-degree norm algebra implicit in Coleman’s norm construction; the component proof uses the parent finite-free calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.coordinates_injective"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-coordinates-surjective",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Existence of unramified cyclotomic coordinates",
+      "kind": "lemma",
+      "statement": "Every f∈B has an expansion f=∑_(i<p)Y^iΦ(a_i).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Apply a chosen finite ℤ_p-basis coordinate function coefficientwise to f.",
+        "Use the parent ℤ_p coordinate surjectivity for each of the finitely many component series.",
+        "Assemble their coefficients back in O using the chosen basis; finite sums commute with all formal substitutions and recover f."
+      ],
+      "acceptance": [
+        "Every f∈B has an expansion f=∑_(i<p)Y^iΦ(a_i)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "ColemanPowerSeries:L1/frobenius-coordinate-surjectivity",
+        "mathlib:PowerSeries.mk",
+        "mathlib:Module.Basis.linearCombination_repr"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, pp.102–103",
+          "match": "The norm is a degree-p integral norm. The component proof supplies the corresponding finite-free construction over the finite unramified coefficient ring."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.coordinates_surjective"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-basis",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified Frobenius power basis",
+      "kind": "construction",
+      "statement": "Construct the B-basis b_i=Y^i, i∈Fin p, of B under the coefficient-fixed Φ scalar algebra. Let c_i(f) be its native basis coordinates.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Apply native Basis.mk to the injective and surjective assembly map.",
+        "The basis has exactly p vectors. Keep the induced module argument explicit in every norm, trace and finrank application."
+      ],
+      "acceptance": [
+        "Construct the B-basis b_i=Y^i, i∈Fin p, of B under the coefficient-fixed Φ scalar algebra. Let c_i(f) be its native basis coordinates."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-coordinates-injective",
+        "ColemanPowerSeries:L1/unramified-coordinates-surjective",
+        "mathlib:Module.Basis.mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, pp.102–103",
+          "match": "This is the explicit finite-free algebra realizing Coleman’s norm in the cyclotomic specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.basis"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.basis_apply",
+          "role": "data",
+          "statement": "b_i=Y^i."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.basis_expansion",
+          "role": "characterisation",
+          "statement": "f=∑_(i<p)Y^iΦ(c_i(f))."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.basis_scalar",
+          "role": "compatibility",
+          "statement": "c_i(Φ(a)f)=a c_i(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.basis_rank",
+          "role": "structure",
+          "statement": "The explicitly induced module has finrank p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.basis_zero",
+          "kind": "degenerate",
+          "statement": "b_0=1."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.basis_one_three",
+          "kind": "computation",
+          "statement": "For p=3, b_1=Y."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.basis_carry",
+          "kind": "compatibility",
+          "statement": "The coordinates of Y^p are Y in position 0 and zero in all other positions."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L1 norm/trace congruences",
+          "how": "Supplies rank p and multiplication matrices."
+        },
+        {
+          "where": "L1 arithmetic evaluation",
+          "how": "Specializes to the relative power basis of ζ_(n+1)."
+        }
+      ],
+      "planet": {
+        "name": "Frobenius power basis"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Topology of unramified cyclotomic coordinates",
+      "kind": "lemma",
+      "statement": "Assembly B^p→B and the coordinate inverse f↦(c_i(f)) are continuous for coefficientwise p-adic topologies.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Assembly is continuous coefficientwise: substitution at a zero-constant polynomial uses only finitely many input coefficients in each output coefficient.",
+        "O is compact Hausdorff, so B and B^p are compact Hausdorff products.",
+        "The basis gives a continuous bijection. Native compact-to-Hausdorff inversion gives continuity of its inverse."
+      ],
+      "acceptance": [
+        "Assembly B^p→B and the coordinate inverse f↦(c_i(f)) are continuous for coefficientwise p-adic topologies."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "mathlib:Continuous.homeoOfEquivCompactToT2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Proposition 14 and Corollary 17, pp.104–106",
+          "match": "The source uses the coefficient topology for norm projection and interpolation. This finite-basis topological lemma supplies that continuity without a coefficient supremum norm."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.coordinates_homeomorphism"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified Coleman determinant norm",
+      "kind": "construction",
+      "statement": "Define N:B→*B as native Algebra.norm for the Φ scalar algebra. Its multiplication matrix is taken in b_i=Y^i; the resulting norm is base-valued.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Use the explicit scalar algebra in native Algebra.norm.",
+        "The finite basis certifies the module is finite free of rank p, so this is its determinant norm rather than the native non-finite fallback."
+      ],
+      "acceptance": [
+        "Define N:B→*B as native Algebra.norm for the Φ scalar algebra. Its multiplication matrix is taken in b_i=Y^i; the resulting norm is base-valued."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "ColemanPowerSeries:L1/unramified-basis",
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_eq_matrix_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, pp.102–103",
+          "match": "Coleman defines the integral norm by its division-point product. The determinant realization gives that norm before any root translations are introduced."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.norm_def",
+          "role": "compatibility",
+          "statement": "N is native Algebra.norm for the Φ algebra."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.norm_matrix",
+          "role": "data",
+          "statement": "N(f)=det(left-multiplication matrix of f in b)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.norm_constants",
+          "role": "simp",
+          "statement": "N(C(c))=C(c^p)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.norm_scalar",
+          "role": "simp",
+          "statement": "N(Φ(f))=f^p."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.norm_Y",
+          "role": "simp",
+          "statement": "For s=(−1)^(p−1), N(Y)=sY and N(T)=sT. In particular these are Y and T for odd p, and their negatives for p=2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.norm_zero",
+          "kind": "degenerate",
+          "statement": "N(0)=0."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.norm_constant",
+          "kind": "computation",
+          "statement": "N(C(1+p))=C((1+p)^p)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.norm_native",
+          "kind": "compatibility",
+          "statement": "The returned map equals native Algebra.norm under Φ, not under the ordinary self-algebra."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Theorem A and Lemma 13",
+          "how": "Controls norm-compatible interpolation and iteration."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Provides the arithmetic input to the Coleman-map construction."
+        }
+      ],
+      "planet": {
+        "name": "Coleman norm"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-trace",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified integral Coleman trace",
+      "kind": "construction",
+      "statement": "Define τ:B→ₗ[B]B as native Algebra.trace for the Φ scalar algebra, with the domain module using Φ. This is an integral base-valued map, before normalization.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Apply native Algebra.trace with the explicit scalar algebra.",
+        "Use the finite power basis for its matrix and coordinate formulas."
+      ],
+      "acceptance": [
+        "Define τ:B→ₗ[B]B as native Algebra.trace for the Φ scalar algebra, with the domain module using Φ. This is an integral base-valued map, before normalization."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "ColemanPowerSeries:L1/unramified-basis",
+        "mathlib:Algebra.trace",
+        "mathlib:Algebra.trace_eq_matrix_trace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12 and Lemma 13, pp.102–103",
+          "match": "The trace is the additive counterpart of the norm and gives the divisibility used in the norm congruence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.trace"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.trace_def",
+          "role": "compatibility",
+          "statement": "τ equals native Algebra.trace under Φ."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.trace_coordinates",
+          "role": "data",
+          "statement": "τ(f)=p c_0(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.trace_scalar",
+          "role": "simp",
+          "statement": "τ(Φ(a)f)=aτ(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.trace_powers",
+          "role": "example",
+          "statement": "τ(Y^m)=pY^(m/p) if p divides m, and zero otherwise."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.trace_zero",
+          "kind": "degenerate",
+          "statement": "τ(0)=0."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.trace_one",
+          "kind": "computation",
+          "statement": "τ(1)=p."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.trace_Yp",
+          "kind": "non-example",
+          "statement": "τ(Y^p)=pY, which differs from pY^p."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L1 near-one norm gain",
+          "how": "The linear determinant term is divisible by p."
+        },
+        {
+          "where": "L1 normalized trace",
+          "how": "Compares the integral trace to the independently supplied ψ operator."
+        }
+      ],
+      "planet": {
+        "name": "Coleman trace"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-trace-coordinates",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Trace in unramified Frobenius coordinates",
+      "kind": "lemma",
+      "statement": "For every f∈B, τ(f)=p c_0(f). In particular τ(B)⊆pB.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Expand f in the power basis.",
+        "Multiplication by Y^i has zero diagonal for 0<i<p; multiplication by 1 has diagonal one. Φ-scalar linearity gives the claimed sum."
+      ],
+      "acceptance": [
+        "For every f∈B, τ(f)=p c_0(f). In particular τ(B)⊆pB."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-trace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12 and Lemma 13(i), pp.102–103",
+          "match": "The integral trace divisibility underlies norm improvement. The coordinate computation extends the parent’s base-valued formula. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-trace-coordinates. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.trace_coordinates"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-trace-psi",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified trace and integral psi",
+      "kind": "comparison",
+      "statement": "Let ψ_O be the independently supplied continuous coefficient-extended bounded measure operator, normalized by ψ_O(Y^m)=Y^(m/p) when p|m and zero otherwise. Then τ=pψ_O on all B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "The PMIA L2 request supplies ψ_O independently from bounded measures, its continuity and the displayed polynomial action. No division by p in O[[T]] is used."
+      ],
+      "proofSteps": [
+        "The trace coordinate formula gives its values on every Y^m. These vectors span the polynomial series.",
+        "The measure supplier’s polynomial formula identifies pψ_O there.",
+        "Both maps are continuous; polynomial series are dense for the coefficient topology. Apply the native dense equalizer theorem."
+      ],
+      "acceptance": [
+        "Let ψ_O be the independently supplied continuous coefficient-extended bounded measure operator, normalized by ψ_O(Y^m)=Y^(m/p) when p|m and zero otherwise. Then τ=pψ_O on all B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-trace-coordinates",
+        "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries",
+        "mathlib:DenseRange.equalizer",
+        "ColemanPowerSeries:L1/unramified-norm-continuous"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12(ii), p.102; comparison with parent normalized-trace formula",
+          "match": "Coleman’s additive division-point sum is the integral trace. Identification with the measure-theoretic normalization uses the parent comparison and the coefficient-extension input, not a new definition of ψ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.trace_psi"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-frobenius",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Commutation of norm with coefficient Frobenius",
+      "kind": "lemma",
+      "statement": "For all f∈B, N(Σf)=ΣN(f). The same statement holds for any continuous ℤ_p-algebra coefficient automorphism of O.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Σ commutes with Φ and fixes each basis vector.",
+        "The left-multiplication matrix of Σf is the coefficientwise σ-image of that of f. Determinants commute with ring maps."
+      ],
+      "acceptance": [
+        "For all f∈B, N(Σf)=ΣN(f). The same statement holds for any continuous ℤ_p-algebra coefficient automorphism of O."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-norm",
+        "mathlib:RingHom.map_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (2)–(4), p.103",
+          "match": "Coleman forms Frobenius-corrected norm iterates. The cyclotomic matrix calculation proves the required commutation explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_frobenius"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-root-product",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified norm as division-point product",
+      "kind": "comparison",
+      "statement": "For a complete ramified integral receiving ring S containing O and a primitive p-th root ξ, with continuous coefficient map ρ, the identity map(ρ)(Φ(Nf))=∏_(i<p) t_i(map(ρ)f) holds, where t_i is native convergent power-series evaluation T↦ξ^iY−1. Each such substitution is defined only in S[[T]], with ξ^i−1 topologically nilpotent.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "S is a complete Hausdorff DVR receiving O injectively and continuously, with an adic topology in which ξ−1 is topologically nilpotent. ξ has order p; the translated series ξ^iY−1 satisfy native HasEval in S[[T]], and the constant-series coefficient homomorphism is continuous."
+      ],
+      "proofSteps": [
+        "Extend the multiplication matrix along ρ.",
+        "Evaluate the basis at the p translated points using convergent evaluation first in S[[T]]. Then extend coefficients to (Frac S)[[T]]. The Vandermonde determinant is a product of distinct root differences and powers of Y, hence is invertible in this coefficient extension.",
+        "Diagonalization there gives the translated values as diagonal entries. Take determinants and descend to S[[T]] using coefficient-map injectivity. Evaluation is never manufactured in a field with an artificial linear topology."
+      ],
+      "acceptance": [
+        "For a complete ramified integral receiving ring S containing O and a primitive p-th root ξ, with continuous coefficient map ρ, the identity map(ρ)(Φ(Nf))=∏_(i<p) t_i(map(ρ)f) holds, where t_i is native adic substitution T↦ξ^iY−1. Each such substitution is defined only in S[[T]], with ξ^i−1 topologically nilpotent."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-norm",
+        "tauceti:PowerSeries.aeval_subst",
+        "mathlib:PowerSeries.eval₂Hom"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, p.102",
+          "match": "This is the defining division-point product in Coleman, specialized to the multiplicative formal group. The determinant comparison reuses the parent Vandermonde argument over the correct receiving ring. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/root-translation-multiplication-matrix, ColemanPowerSeries:L1/coleman-norm-root-product. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_root_product"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-phi-reflection",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coefficient precision reflected by cyclotomic substitution",
+      "kind": "lemma",
+      "statement": "For r≥0 and f∈B, Φ(f)∈p^rB if and only if f∈p^rB.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Modulo p, Φ becomes expansion T↦T^p, which is injective over the residue field.",
+        "Induct on r, using p-torsion freeness of O to divide coefficients once and coefficientwise completeness only where the parent coordinate construction needs it.",
+        "Equivalently project to each finite ℤ_p-basis component and apply the parent reflection theorem."
+      ],
+      "acceptance": [
+        "For r≥0 and f∈B, Φ(f)∈p^rB if and only if f∈p^rB."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13(i), p.103",
+          "match": "The residue substitution is injective; this is the integral descent step in the norm congruence argument. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/frobenius-congruence-reflection. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.phi_reflection"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-residue-frobenius",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman norm modulo the coefficient prime",
+      "kind": "lemma",
+      "statement": "For every f∈B, N(f)−Σf∈pB. For nontrivial unramified coefficients this is not the congruence N(f)≡f.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "In k[[T]], the native map_frobenius_expand identity and the residue action of σ give f̄^p=Φ̄(Σ̄f). Thus f^p−Φ(Σf) lies in pB.",
+        "The multiplication-matrix homomorphism sends f^p to M_f^p and Φ(Σf) to the scalar matrix Σf·I. It preserves pB because Φ fixes p. Reduce its entries modulo p, so M̄_f^p=Σ̄f·I.",
+        "Take determinants using RingHom.map_det and Matrix.det_pow. Since the matrix has rank p, (N̄f)^p=(Σ̄f)^p. The residue series ring k[[T]] is a domain; in characteristic p this forces N̄f=Σ̄f. This establishes the congruence directly, without assuming a purely inseparable norm theorem."
+      ],
+      "acceptance": [
+        "For a Teichmüller c with σ(c)=c^p≠c modulo p, N(C(c)) is congruent to C(σ(c)), not C(c)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-norm",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "mathlib:PowerSeries.map_frobenius_expand",
+        "mathlib:Matrix.det_pow",
+        "mathlib:RingHom.map_det"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13(ii), p.103; see also Sharifi §5.4, proof of Proposition 5.4.6, p.145",
+          "match": "Coleman’s corrected congruence includes the arithmetic coefficient Frobenius. This fixes the omitted coefficient action in the inspected secondary calculation. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-residue-identity. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_residue_frobenius"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-near-one-gain",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "One extra digit from the norm near one",
+      "kind": "lemma",
+      "statement": "For r≥1 and h∈B, N(1+p^r h)−1∈p^(r+1)B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Expand det(I+p^r M_h). The term linear in p^r is p^r τ(h), divisible by p^(r+1) by the trace coordinate formula.",
+        "Each term of degree at least two contains p^(2r), divisible by p^(r+1). The constant term is one."
+      ],
+      "acceptance": [
+        "For r≥1 and h∈B, N(1+p^r h)−1∈p^(r+1)B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm",
+        "ColemanPowerSeries:L1/unramified-trace-coordinates"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13(ii), p.103",
+          "match": "The norm of an element congruent to one gains one uniformizer power; the explicit determinant expansion proves the needed integral statement. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-improves-one-congruence. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_near_one_gain"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-congruence-gain",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Improved congruence for unit norms",
+      "kind": "lemma",
+      "statement": "For f,g∈Bˣ and r≥1, f−g∈p^rB implies N(f)−N(g)∈p^(r+1)B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Write fg⁻¹=1+p^r h in B. Apply near-one gain.",
+        "Multiply by the unit N(g), which preserves the p-power ideal."
+      ],
+      "acceptance": [
+        "For f,g∈Bˣ and r≥1, f−g∈p^rB implies N(f)−N(g)∈p^(r+1)B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm-near-one-gain",
+        "ColemanPowerSeries:L1/unramified-norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13(ii), p.103",
+          "match": "The near-one congruence becomes a contracting congruence on unit ratios."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_congruence_gain"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-continuous",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coefficientwise continuity of the unramified norm",
+      "kind": "lemma",
+      "statement": "N:B→B and τ:B→B are continuous for the coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "In the finite basis, the matrix of multiplication by f depends continuously on its coordinate functions.",
+        "Those coordinates are continuous. Finite determinant and trace polynomials are continuous."
+      ],
+      "acceptance": [
+        "N:B→B and τ:B→B are continuous for the coefficientwise p-adic topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
+        "ColemanPowerSeries:L1/unramified-norm",
+        "ColemanPowerSeries:L1/unramified-trace"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Proposition 14 and Corollary 17, pp.104–106",
+          "match": "The projection and interpolation are topological. Finite matrices establish the continuity needed here in the source’s coefficient topology."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_continuous"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-corrected-norm",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius-corrected Coleman norm",
+      "kind": "construction",
+      "statement": "Define M:Bˣ→*Bˣ by M(f)=Σ⁻¹(N(f)). This is the corrected one-step norm on series units.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Restrict the native norm homomorphism to units by native Units.map.",
+        "Postcompose with coefficientwise σ⁻¹. Both maps preserve units and multiplication."
+      ],
+      "acceptance": [
+        "Define M:Bˣ→*Bˣ by M(f)=Σ⁻¹(N(f)). This is the corrected one-step norm on series units."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm",
+        "ColemanPowerSeries:L1/unramified-norm-frobenius",
+        "tauceti:TauCeti.Algebra.normUnits",
+        "mathlib:Units.map"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (2)–(4), p.103",
+          "match": "Coleman iterates the norm with inverse coefficient Frobenius; this is his corrected iteration specialized to integral unit series."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.correctedNorm"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.correctedNorm_val",
+          "role": "data",
+          "statement": "M(f)=Σ⁻¹N(f) on underlying series."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.correctedNorm_iterate",
+          "role": "relation",
+          "statement": "M^r(f)=Σ^(−r)N^r(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.correctedNorm_fixed",
+          "role": "characterisation",
+          "statement": "M(f)=f if and only if N(f)=Σf."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.correctedNorm_continuous",
+          "role": "structure",
+          "statement": "M is continuous."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.corrected_one",
+          "kind": "degenerate",
+          "statement": "M(1)=1."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.corrected_teichmuller",
+          "kind": "computation",
+          "statement": "If σ(c)=c^p for c∈Oˣ, M(C(c))=C(c)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.corrected_native",
+          "kind": "compatibility",
+          "statement": "M is inverse coefficient Frobenius composed with the native unit norm for Φ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Lemma 13 and Proposition 14",
+          "how": "Produces convergent iterates although raw norms can cycle on constants."
+        },
+        {
+          "where": "L1 interpolation existence",
+          "how": "Corrects finite-level lifts without reversing the arithmetic Frobenius convention."
+        }
+      ],
+      "planet": {
+        "name": "Frobenius-corrected norm"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-iteration-precision",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Uniform precision of corrected norm iterates",
+      "kind": "lemma",
+      "statement": "For f∈Bˣ and a≥b≥0, M^a(f)−M^b(f)∈p^(b+1)B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "The residue-Frobenius norm congruence gives M(f)≡f modulo p.",
+        "Apply the unit congruence gain repeatedly, since σ⁻¹ preserves all p-power ideals. Consecutive iterates at index b agree modulo p^(b+1).",
+        "Telescope from b to a; every later difference lies in the same ideal."
+      ],
+      "acceptance": [
+        "For f∈Bˣ and a≥b≥0, M^a(f)−M^b(f)∈p^(b+1)B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "ColemanPowerSeries:L1/unramified-norm-residue-frobenius",
+        "ColemanPowerSeries:L1/unramified-norm-congruence-gain",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equation (2) and Lemma 13, p.103",
+          "match": "The uniform precision estimate is the cyclotomic version of Coleman’s corrected-iterate estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.iteration_precision"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-fixed-units",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius norm-fixed unit subgroup",
+      "kind": "definition",
+      "statement": "Define B^(N=Σ)={f∈Bˣ:N(f)=Σf}, the equalizer subgroup of the unit norm and coefficient Frobenius. Its topology is the inherited unit/subtype topology.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Use the native equalizer subgroup of the two group homomorphisms.",
+        "The defining equation is equivalent to M(f)=f. No abstract fixed predicate replaces the native subgroup."
+      ],
+      "acceptance": [
+        "Define B^(N=Σ)={f∈Bˣ:N(f)=Σf}, the equalizer subgroup of the unit norm and coefficient Frobenius. Its topology is the inherited unit/subtype topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm",
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "mathlib:MonoidHom.eqLocus"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Proposition 14 and Corollary 17, pp.104–106",
+          "match": "Coleman’s limiting group is cut out by norm equals coefficient Frobenius, rather than raw norm equals identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.fixedUnits"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.mem_fixedUnits",
+          "role": "characterisation",
+          "statement": "f belongs exactly when N(f)=Σf."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.fixedUnits_corrected",
+          "role": "compatibility",
+          "statement": "Membership is equivalent to M(f)=f."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.fixedUnits_ext",
+          "role": "extensionality",
+          "statement": "Members are equal when their underlying power series agree."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.fixed_one",
+          "kind": "degenerate",
+          "statement": "1 belongs."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.fixed_Y",
+          "kind": "computation",
+          "statement": "For s=(−1)^(p−1), the unit series sY belongs: Y for odd p and −Y for p=2."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.fixed_teichmuller",
+          "kind": "non-example",
+          "statement": "C(c) belongs when σ(c)=c^p, even if N(C(c))≠C(c)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Theorem A",
+          "how": "This is the integral series group corresponding to actual unit towers."
+        },
+        {
+          "where": "L1 norm projector",
+          "how": "This is the image and codomain of the corrected norm limit."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-unit-space-compact",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Compactness of series units and the fixed subgroup",
+      "kind": "lemma",
+      "statement": "The native unit space Bˣ and its closed subgroup B^(N=Σ) are compact Hausdorff for the coefficient/unit topology.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "A series is a unit exactly when its constant coefficient is a unit. Oˣ is clopen in compact O, so unit-valued series form a compact subset of the compact product O^ℕ.",
+        "Formal inversion has each coefficient a finite polynomial in coefficients and the inverse constant. This identifies that subset homeomorphically with native Bˣ.",
+        "The norm and coefficient Frobenius are continuous, hence their equalizer is closed."
+      ],
+      "acceptance": [
+        "The native unit space Bˣ and its closed subgroup B^(N=Σ) are compact Hausdorff for the coefficient/unit topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-fixed-units",
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§I, Lemma 2a, pp.94–95; §IV, Proposition 14, p.104",
+          "match": "Compactness and the source coefficient topology supply a closed unit carrier for the interpolation argument. The finite-unramified case is a compact coefficient product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.unit_space_compact"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-limit",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Corrected norm projector",
+      "kind": "construction",
+      "statement": "Construct Lσ:Bˣ→*B^(N=Σ) by the coefficientwise limit of M^r(f). This is a multiplicative retraction onto the Frobenius norm-fixed subgroup.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Iteration precision makes every coefficient Cauchy. Complete O gives a unique limiting series.",
+        "The constant coefficients stay unit-valued; alternatively take the limit in the compact native unit space.",
+        "Continuity of M and the precision estimate imply M(Lσf)=Lσf. Multiplication commutes with limits.",
+        "For fixed inputs the iterates are constant, proving the retraction property. Continuity is established by the separately promoted uniform-precision lemma."
+      ],
+      "acceptance": [
+        "Construct Lσ:Bˣ→*B^(N=Σ) by the coefficientwise limit of M^r(f). This is a multiplicative continuous retraction onto the Frobenius norm-fixed subgroup."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
+        "ColemanPowerSeries:L1/unramified-fixed-units"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (3)–(4), p.103, Proposition 14, p.104",
+          "match": "Coleman constructs the Frobenius-corrected limiting norm as a projection. The finite unramified specialization retains units and uses the exact corrected iterates. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-limit-convergence. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.normLimit"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.normLimit_tendsto",
+          "role": "characterisation",
+          "statement": "M^r(f) tends to the underlying unit of Lσf."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.normLimit_precision",
+          "role": "data",
+          "statement": "Lσf−M^r(f)∈p^(r+1)B."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.normLimit_retract",
+          "role": "simp",
+          "statement": "Lσ(f)=f for f in B^(N=Σ)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.normLimit_continuous",
+          "role": "structure",
+          "statement": "Lσ is continuous in coefficientwise topology."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.limit_one",
+          "kind": "degenerate",
+          "statement": "Lσ(1)=1."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.limit_teichmuller",
+          "kind": "computation",
+          "statement": "Lσ(C(c))=C(c) for a Teichmüller unit."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.limit_near_one",
+          "kind": "non-example",
+          "statement": "Lσ(C(1+p))=1, so this projector is not the identity on Bˣ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Proposition 14",
+          "how": "Gives the fixed subgroup as a retract."
+        },
+        {
+          "where": "Coleman Theorem A",
+          "how": "Produces fixed approximants and clarifies the coefficient twist."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-limit-precision",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Uniform precision of the corrected projector",
+      "kind": "lemma",
+      "statement": "For f∈Bˣ and r≥0, Lσf−M^r(f)∈p^(r+1)B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Pass the iteration precision estimate to the limit, using closed p-power ideals coefficientwise."
+      ],
+      "acceptance": [
+        "For f∈Bˣ and r≥0, Lσf−M^r(f)∈p^(r+1)B."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "ColemanPowerSeries:L1/unramified-norm-limit",
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (3)–(4), p.103, Proposition 14, p.104",
+          "match": "The uniform coefficient precision turns the corrected limit into a continuous projection; no continuity in a supremum norm is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.normLimit_precision"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coefficient Frobenius and native cyclotomic evaluation",
+      "kind": "lemma",
+      "statement": "For every f∈B and n≥0, ε_n(Σf)=σ_n(ε_n(f)). Also ε_(n+1)(Φf)=inclusion(ε_n(f)).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "For coefficients and T, these equations are the coefficient-extension property of σ_n, its fixing π_n, and ζ_(n+1)^p=ζ_n.",
+        "They follow on polynomial series by ring-homomorphism laws.",
+        "All participating homomorphisms are continuous. Apply polynomial density and the native equalizer theorem."
+      ],
+      "acceptance": [
+        "For every f∈B and n≥0, ε_n(Σf)=σ_n(ε_n(f)). Also ε_(n+1)(Φf)=inclusion(ε_n(f))."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "mathlib:PowerSeries.eval₂Hom",
+        "mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries",
+        "mathlib:DenseRange.equalizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12, p.102, Theorem 16, pp.105–106",
+          "match": "The source’s evaluation and coefficient-Frobenius squares use a lift fixing division points. These are the two native specialization identities."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.evaluation_frobenius"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Specialization to the unramified relative multiplication matrix",
+      "kind": "lemma",
+      "statement": "The b_i multiplication matrix of f, evaluated entrywise by ε_n, equals the multiplication matrix of ε_(n+1)(f) in the relative O_n-basis ζ_(n+1)^i, i<p.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Specialize the basis expansion for fY^j at π_(n+1).",
+        "Evaluation of Φ(c_i(fY^j)) is the inclusion of ε_n(c_i(fY^j)).",
+        "The supplied relative power basis makes those coefficients unique, hence gives entrywise matrix equality."
+      ],
+      "acceptance": [
+        "The b_i multiplication matrix of f, evaluated entrywise by ε_n, equals the multiplication matrix of ε_(n+1)(f) in the relative O_n-basis ζ_(n+1)^i, i<p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12, p.102",
+          "match": "Coleman’s finite-level norm and trace identities specialize the division-point algebra. The matrix lemma supplies an integral proof over the actual coefficient compositum. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/arithmetic-multiplication-matrix. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.evaluation_matrix"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified arithmetic norm square",
+      "kind": "comparison",
+      "statement": "For n≥0 and f∈B, ε_n(Nf)=Algebra.norm_(O_n)(ε_(n+1)(f)); on units the native unit-map version is ε_n(Nf)=ν_n(ε_(n+1)f).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Take determinants of the specialized multiplication matrices. Ring homomorphisms commute with determinants.",
+        "The L0 fraction-field comparison identifies the native integral norm with the field norm after inclusion; import that supplier result. Restrict the displayed integral square using the native unit-norm homomorphism."
+      ],
+      "acceptance": [
+        "For f=C(c), both sides equal the scalar image of c^p, even when σ(c)≠c. For f=Y and odd p both sides are ζ_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+        "ColemanPowerSeries:L1/unramified-norm",
+        "mathlib:RingHom.map_det",
+        "tauceti:TauCeti.Algebra.normUnits",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12(i), p.102",
+          "match": "This is the actual norm/evaluation compatibility, rather than an assumed interpolation equation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_evaluation"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-trace-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified arithmetic trace square",
+      "kind": "comparison",
+      "statement": "For n≥0 and f∈B, ε_n(τf)=Algebra.trace_(O_n)(ε_(n+1)f).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Take traces of the specialized matrices.",
+        "The L0 integral-to-field trace comparison is an imported supplier result. The displayed square is integral and base-valued; no normalization or inverse substitution enters."
+      ],
+      "acceptance": [
+        "For n≥0 and f∈B, ε_n(τf)=Algebra.trace_(O_n)(ε_(n+1)f)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+        "ColemanPowerSeries:L1/unramified-trace",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 12(ii), p.102",
+          "match": "The division-point sum is the finite-level trace. It is integral before any normalized ψ comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.trace_evaluation"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-evaluation-separation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Separation over finite unramified coefficients",
+      "kind": "theorem",
+      "statement": "If f,g∈B have ε_n(f)=ε_n(g) for every n≥0, then f=g.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "If f−g were nonzero, its evaluations would eventually be nonzero by the preceding lemma. Every one is zero by the hypothesis."
+      ],
+      "acceptance": [
+        "A single level does not determine a series: the minimal polynomial of π_n evaluates to zero at that level."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-evaluation-eventually-nonzero"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, Theorem A, p.92; §IV, Theorem 16, pp.105–106",
+          "match": "Coleman identifies uniqueness with Weierstrass preparation. This specializes that argument to the actual finite unramified cyclotomic fields and increasing degrees."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.evaluation_separation"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius-twisted evaluation into local unit towers",
+      "kind": "construction",
+      "statement": "Define evσ:B^(N=Σ)→*U∞ by (evσf)_n=σ_n^(−n)(ε_n(f)). These are actual finite-level units and are norm-compatible.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "The native evaluation and coefficient automorphisms map units to units.",
+        "Use norm evaluation: ν_n(ε_(n+1)f)=ε_n(Nf)=σ_n(ε_n f).",
+        "The supplied σ_n commute with the relative norm. Apply σ_n^(−n−1) to the last equality to obtain ν_n((evσf)_(n+1))=(evσf)_n. Multiplication is coordinatewise."
+      ],
+      "acceptance": [
+        "Define evσ:B^(N=Σ)→*U∞ by (evσf)_n=σ_n^(−n)(ε_n(f)). These are actual finite-level units and are norm-compatible."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-fixed-units",
+        "ColemanPowerSeries:L1/unramified-norm-evaluation",
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L0",
+        "tauceti:TauCeti.Algebra.normUnits"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, Theorem A, p.92; §IV, Corollary 17, pp.105–106",
+          "match": "Coleman’s inverse Frobenius twist on the nth evaluation is precisely the coordinate formula for the map into the norm limit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.twistedEvaluation"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.twistedEvaluation_coordinate",
+          "role": "data",
+          "statement": "Coordinate n is σ_n^(−n)ε_n(f)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.twistedEvaluation_continuous",
+          "role": "structure",
+          "statement": "The map is continuous for the coefficient and product/subtype topologies."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.twistedEvaluation_injective",
+          "role": "characterisation",
+          "statement": "All coordinates determine f uniquely."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.evaluation_one",
+          "kind": "degenerate",
+          "statement": "evσ(1) is the unit tower of ones."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.evaluation_Y",
+          "kind": "computation",
+          "statement": "For s=(−1)^(p−1), evσ(sY) has coordinate sζ_n. This is the root tower ζ_n for odd p and the signed root tower −ζ_n for p=2."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.evaluation_teichmuller",
+          "kind": "non-example",
+          "statement": "For a Teichmüller c with σ(c)=c^p≠c, C(c) has tower σ_n^(−n)c. The repeated constant c violates the actual relative norm equation already at levels 1→0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Theorem A and Corollary 17",
+          "how": "Gives the inverse of the Coleman interpolating-series map."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Provides the correct arithmetic identification when coefficients are extended."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-twisted-evaluation-injective",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Injectivity of twisted evaluation",
+      "kind": "lemma",
+      "statement": "evσ is injective.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Apply σ_n^n to equality of coordinate n.",
+        "The two series then have identical ε_n values at every level. Apply evaluation separation."
+      ],
+      "acceptance": [
+        "evσ is injective."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "ColemanPowerSeries:L1/unramified-evaluation-separation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, Theorem A, p.92; §IV, Corollary 17, pp.105–106",
+          "match": "This is the uniqueness half of the interpolation isomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.twistedEvaluation_injective"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Corrected norms of native finite-level lifts",
+      "kind": "lemma",
+      "statement": "Let u∈U∞ and let g∈Bˣ have ε_m(g)=σ_m^m(u_m). For 0≤n≤m, ε_n(M^(m−n)g)=σ_n^n(u_n).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Iterate the norm evaluation square from level m to n. The tower equations identify the iterated norm of u_m with u_n.",
+        "Coefficient Frobenius commutes with all relative norms and evaluation. Corrected iteration inserts σ_n^(−m+n).",
+        "The resulting coefficient exponent is n, giving the stated equality."
+      ],
+      "acceptance": [
+        "Let u∈U∞ and let g∈Bˣ have ε_m(g)=σ_m^m(u_m). For 0≤n≤m, ε_n(M^(m−n)g)=σ_n^n(u_n)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm-evaluation",
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 15, pp.104–105, and Theorem 16, p.105",
+          "match": "The finite interpolation theorem transports division-point values through corrected norms. This lemma is the native cyclotomic transport identity used in the compactness proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.iterated_lift_evaluation"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Uniform finite-level approximation of a unit tower",
+      "kind": "lemma",
+      "statement": "For u∈U∞ and r≥0, choose a polynomial unit lift g_r with ε_(2r)(g_r)=σ_(2r)^(2r)(u_(2r)). Put v_r=M^r(g_r). For every n≤r, ε_n(v_r)−σ_n^n(u_n)∈p^(r+1)O_n, and M(v_r)−v_r∈p^(r+1)B.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "The L0 integral power basis and local unit criterion give the polynomial unit lift at level 2r.",
+        "For n≤r, the iterated-lift identity gives exact interpolation by M^(2r−n)g_r. The exponent 2r−n is at least r.",
+        "Iteration precision compares this exact value with M^r g_r modulo p^(r+1); evaluation is a ring homomorphism fixing p, so it sends the scalar p-power ideal into the corresponding native ideal of O_n.",
+        "The same precision theorem compares consecutive iterates at r to prove the approximate fixed equation."
+      ],
+      "acceptance": [
+        "Level zero uses ζ_0 of order p, not the identity root. The approximation exponent is r+1 and holds uniformly in all coefficients before evaluation."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
+        "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 15, pp.104–105, and Theorem 16, p.105",
+          "match": "This is a worker compactness route to the finite-unramified unit specialization of Coleman’s interpolation theorem. The doubled-level indexing avoids requiring a lift already satisfying the target fixed equation. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/evaluation-precision-bound. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.finite_precision_interpolation"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-interpolation-existence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman interpolation with arithmetic Frobenius",
+      "kind": "theorem",
+      "statement": "For every u∈U∞ there exists a unique f∈Bˣ with ε_n(f)=σ_n^n(u_n) for every n≥0. This f satisfies N(f)=Σf.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Take the approximating v_r from finite-precision interpolation in the compact native unit space. Choose a convergent subnet with r tending to infinity.",
+        "For each fixed n, the errors eventually lie in p^(r+1)O_n and tend to zero in the native finite-level adic topology. Continuity of ε_n gives exact interpolation for the limit f.",
+        "The approximate fixed equation passes to the limit by continuity of M, so f is in the norm/Frobenius equalizer.",
+        "Evaluation separation gives uniqueness even among all unit series, without assuming fixedness in the uniqueness hypothesis."
+      ],
+      "acceptance": [
+        "For every u∈U∞ there exists a unique f∈Bˣ with ε_n(f)=σ_n^n(u_n) for every n≥0. This f satisfies N(f)=Σf."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "ColemanPowerSeries:L1/unramified-evaluation-separation",
+        "ColemanPowerSeries:L0",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, Theorem A, p.92; §IV, Theorem 16 and Corollary 17, pp.105–106",
+          "match": "This proves the integral-unit, finite-unramified specialization of the original interpolation result, with the source’s coefficient twist and actual cyclotomic indexing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.interpolation_existence"
+      },
+      "planet": {
+        "name": "Coleman interpolation theorem"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Unramified Coleman power-series equivalence",
+      "kind": "construction",
+      "statement": "Construct Colσ:U∞≃*B^(N=Σ) as the inverse of evσ. Thus ε_n(Colσ(u))=σ_n^n(u_n); neither norm compatibility nor surjectivity is assumed.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Interpolation existence supplies surjectivity of evσ; its injectivity is already proved.",
+        "Apply the native equivalence construction for a bijective homomorphism and take its inverse.",
+        "The group laws follow from the native monoid homomorphism and uniqueness of interpolation."
+      ],
+      "acceptance": [
+        "Construct Colσ:U∞≃*B^(N=Σ) as the inverse of evσ. Thus ε_n(Colσ(u))=σ_n^n(u_n); neither norm compatibility nor surjectivity is assumed."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation-injective",
+        "ColemanPowerSeries:L1/unramified-interpolation-existence",
+        "mathlib:MulEquiv.ofBijective"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 16 and Corollary 17, pp.105–106",
+          "match": "Coleman’s series map is the inverse of the twisted evaluation map and is a multiplicative isomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.colemanEquiv"
+      },
+      "api": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.colemanEquiv_interpolation",
+          "role": "data",
+          "statement": "ε_n(Colσ(u))=σ_n^n(u_n)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.colemanEquiv_symm",
+          "role": "compatibility",
+          "statement": "The inverse is evσ."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.colemanEquiv_mul",
+          "role": "simp",
+          "statement": "Colσ(uv)=Colσ(u)Colσ(v)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.colemanEquiv_unique",
+          "role": "characterisation",
+          "statement": "A unit series with these interpolation values equals Colσ(u)."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.colemanEquiv_continuous",
+          "role": "structure",
+          "statement": "Both directions are continuous."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.coleman_one",
+          "kind": "degenerate",
+          "statement": "The tower of ones maps to 1."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.coleman_root_tower",
+          "kind": "computation",
+          "statement": "The compatible tower sζ_n, s=(−1)^(p−1), maps to sY. At p=2 the compatible signed root tower maps to −Y."
+        },
+        {
+          "name": "TauCetiRoadmap.ColemanUnramified.Tests.coleman_teichmuller",
+          "kind": "non-example",
+          "statement": "The tower σ_n^(−n)c for a Teichmüller c maps to C(c), rejecting the opposite twist."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Coleman Corollary 17",
+          "how": "Identifies local units with the Frobenius norm-fixed power-series subgroup."
+        },
+        {
+          "where": "ColemanPowerSeries:L2",
+          "how": "Allows subsequent Coleman constructions to consume actual arithmetic units."
+        }
+      ],
+      "planet": {
+        "name": "Coleman power-series equivalence"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-interpolation-homeomorphism",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Topology of unramified Coleman interpolation",
+      "kind": "lemma",
+      "statement": "Colσ and evσ are continuous inverse homomorphisms; their underlying equivalence is a homeomorphism.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Twisted evaluation is coordinatewise continuous by native convergent evaluation and σ_n continuity. The map into the product and its closed subgroup is continuous.",
+        "The fixed series subgroup is compact and U∞ is Hausdorff as a subgroup of a Hausdorff product.",
+        "The continuous bijective evσ has continuous inverse by compact-to-Hausdorff inversion."
+      ],
+      "acceptance": [
+        "Colσ and evσ are continuous inverse homomorphisms; their underlying equivalence is a homeomorphism."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
+        "ColemanPowerSeries:L0",
+        "mathlib:Continuous.homeoOfEquivCompactToT2",
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 17, pp.105–106",
+          "match": "Coleman’s interpolation is a topological isomorphism in the coefficient and norm-limit topologies."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.interpolation_homeomorphism"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Arithmetic coefficient Frobenius equivariance",
+      "kind": "lemma",
+      "statement": "For u∈U∞ let (σu)_n=σ_n(u_n). Then Colσ(σu)=Σ(Colσ(u)).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "The norm/Frobenius square shows σu is still in U∞.",
+        "Evaluate the proposed equality at every level and commute σ_n with its own integer powers.",
+        "Use uniqueness of interpolation. Σ preserves the fixed subgroup by norm/Frobenius commutation."
+      ],
+      "acceptance": [
+        "For u∈U∞ let (σu)_n=σ_n(u_n). Then Colσ(σu)=Σ(Colσ(u))."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
+        "ColemanPowerSeries:L1/unramified-norm-frobenius",
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Corollary 17, pp.105–106",
+          "match": "The source’s topological Galois-equivariance includes the coefficient automorphism action. This isolates that component in the finite unramified specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.interpolation_frobenius_equivariant"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-base-coefficient-comparison",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Recovery of the accepted ℤ_p interpolation",
+      "kind": "comparison",
+      "statement": "When E=ℚ_p, O=ℤ_p and σ=id, N, τ, M, B^(N=Σ), Lσ and Colσ identify with their accepted parent ℤ_p versions, under the canonical native scalar-algebra and cyclotomic-tower identifications.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "The two structural maps and basis vectors agree, so the native norm and trace agree.",
+        "The correction is the identity, hence fixed subgroup and iteration limits agree by their defining equations and uniqueness of limits.",
+        "The interpolation formulas agree; parent and unramified series maps agree by evaluation separation."
+      ],
+      "acceptance": [
+        "When E=ℚ_p, O=ℤ_p and σ=id, N, τ, M, B^(N=Σ), Lσ and Colσ identify with their accepted parent ℤ_p versions, under the canonical native scalar-algebra and cyclotomic-tower identifications."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm",
+        "ColemanPowerSeries:L1/unramified-trace",
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "ColemanPowerSeries:L1/unramified-norm-limit",
+        "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "ColemanPowerSeries:L1/coleman-integral-trace",
+        "ColemanPowerSeries:L1/coleman-norm-limit",
+        "ColemanPowerSeries:L1/coleman-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, discussion after Theorem A, p.92; §IV, Corollary 17, pp.105–106",
+          "match": "Coleman states the ℚ_p specialization; this comparison prevents the coefficient variant from introducing a second incompatible norm or interpolation convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.base_coefficient_comparison"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-preserves-precision",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Preservation of integral coefficient precision",
+      "kind": "lemma",
+      "statement": "For f,g∈B and r≥0, f−g∈p^rB implies N(f)−N(g)∈p^rB; units are not required.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "The basis coordinate map preserves p^rB, because Φ fixes the scalar p and basis.repr is B-linear for the Φ action.",
+        "Thus the corresponding multiplication matrices agree modulo p^r. Apply the finite determinant polynomial entrywise."
+      ],
+      "acceptance": [
+        "For f,g∈B and r≥0, f−g∈p^rB implies N(f)−N(g)∈p^rB; units are not required."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-basis",
+        "ColemanPowerSeries:L1/unramified-norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13 and equations (2)–(3), p.103",
+          "match": "Worker determinant consequence supplying the unchanged-precision congruence over finite unramified coefficients. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-preserves-congruence. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.norm_preserves_precision"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-iterated-near-one-gain",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Iterated norm gain at one",
+      "kind": "lemma",
+      "statement": "If f∈Bˣ, r≥1 and f−1∈p^rB, then N^m(f)−1∈p^(r+m)B for every m≥0. The same assertion holds for corrected iterates M^m(f).",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Induct on m using the one-step near-one gain. Native unit norms keep every iterate a unit.",
+        "Coefficient σ and σ⁻¹ preserve each p-power ideal, so the corrected one-step gain and the same induction apply to M."
+      ],
+      "acceptance": [
+        "If f∈Bˣ, r≥1 and f−1∈p^rB, then N^m(f)−1∈p^(r+m)B for every m≥0. The same assertion holds for corrected iterates M^m(f)."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm-near-one-gain",
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Lemma 13(ii) and equation (2), p.103",
+          "match": "This states the iterated near-one estimate explicitly, completing the unramified variants of the parent congruence package. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-iterated-improvement. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.iterated_near_one_gain"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-limit-continuous",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Continuity of the corrected projector",
+      "kind": "lemma",
+      "statement": "Lσ:Bˣ→B^(N=Σ) is continuous for the coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "Fix a basic output neighborhood, determined by finitely many coefficients and one p-adic precision. Choose r so the uniform error bound for Lσ−M^r is smaller than that precision.",
+        "Continuity of the finite iterate M^r provides a basic input neighborhood. The uniform error estimate controls both limits there and proves continuity."
+      ],
+      "acceptance": [
+        "Lσ:Bˣ→B^(N=Σ) is continuous for the coefficientwise p-adic topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm-limit",
+        "ColemanPowerSeries:L1/unramified-norm-limit-precision",
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (3)–(4), p.103, Proposition 14, p.104",
+          "match": "Worker topological consequence of Coleman’s uniform corrected-limit precision estimate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.normLimit_continuous"
+      }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-evaluation-eventually-nonzero",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Eventual nonvanishing at cyclotomic levels",
+      "kind": "lemma",
+      "statement": "For every nonzero f∈B, ε_n(f) is nonzero for all sufficiently large n.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1.",
+        "Choose ζ_n of exact order p^(n+1) in an algebraic closure of E, with ζ_(n+1)^p=ζ_n. E_n=E(ζ_n), O_n=integralClosure O E_n, π_n=ζ_n−1. Use the L0 native integral closure, inherited valuation topology, and inclusion-induced algebras. d_n=[E_n:E]=p^n(p−1). ε_n is native convergent series evaluation O[[T]]→O_n at π_n. σ_n extends σ and fixes ζ_n. ν_n is the native unit norm O_(n+1)ˣ→O_nˣ. U∞ is the subgroup of the product of these actual unit groups cut out by ν_n(u_(n+1))=u_n, with product/subtype topology."
+      ],
+      "proofSteps": [
+        "Apply the independently supplied complete-DVR Weierstrass factorization f=p^μ P v, with P distinguished and v a unit.",
+        "The factors p^μ and ε_n(v) are nonzero in O_n, so a zero of ε_n(f) forces P(π_n)=0.",
+        "The supplied nonzero minimal polynomial of π_n over E has degree d_n=p^n(p−1), tending to infinity. For any nonzero P, a root at π_n forces that minimal polynomial to divide its coefficient image in E[X]. Its degree then cannot exceed degree P. Once d_n>degree P, this is impossible."
+      ],
+      "acceptance": [
+        "For every nonzero f∈B, ε_n(f) is nonzero for all sufficiently large n."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization",
+        "ColemanPowerSeries:L0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "Introduction, Theorem A, p.92; §IV, Theorem 16, pp.105–106",
+          "match": "Coleman identifies uniqueness with Weierstrass preparation. This specializes that argument to the actual finite unramified cyclotomic fields and increasing degrees. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/polynomial-evaluation-degree-obstruction. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.evaluation_eventually_nonzero"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+      "need": "Native finite-extension integer rings, complete compact Hausdorff adic topologies, finite free ℤ_p structure of the unramified integer ring O, and closed p-power ideals with p-adic error convergence. Use the existing local-field ownership and native valuation ring/integral closure comparison.",
+      "neededBy": [
+        "ColemanPowerSeries:L1/unramified-coordinates-injective",
+        "ColemanPowerSeries:L1/unramified-coordinates-surjective",
+        "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
+        "ColemanPowerSeries:L1/unramified-unit-space-compact",
+        "ColemanPowerSeries:L1/unramified-interpolation-existence"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "need": "Canonical arithmetic p-Frobenius σ of finite unramified E/ℚ_p and its restriction to O, continuity, σ(p)=p, and residue action x↦x^p. The current library has this beyond the pinned baseline; use the roadmap input rather than replan it.",
+      "neededBy": [
+        "ColemanPowerSeries:L1/unramified-norm-residue-frobenius",
+        "ColemanPowerSeries:L1/unramified-iteration-precision"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "ColemanPowerSeries:L0",
+      "need": "Specialize the existing native cyclotomic tower to finite unramified E: E_n=adjoin_E ζ_n, O_n=integralClosure O E_n, exact root orders p^(n+1), compatible roots, π_n, inclusion-induced scalar algebras, complete compact Hausdorff p-adic target topology, native continuous eval₂Hom, d_n=p^n(p−1), minimal polynomial degree of π_n, integral relative power basis ζ_(n+1)^i of rank p, norm/trace comparison with fraction fields, and bounded polynomial lifts of each unit. Extend σ to σ_n fixing all ζ_n, commuting with inclusions and relative norms. Supply the actual equalizer subgroup U∞ and its native product topology; it is not a new L1 carrier. This is the finite unramified specialization of L0 arithmetic, not the parent L4 abstract coefficient tensor quotient.",
+      "neededBy": [
+        "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+        "ColemanPowerSeries:L1/unramified-norm-evaluation",
+        "ColemanPowerSeries:L1/unramified-trace-evaluation",
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
+        "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
+        "ColemanPowerSeries:L1/unramified-interpolation-existence",
+        "ColemanPowerSeries:L1/unramified-interpolation-homeomorphism",
+        "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant",
+        "ColemanPowerSeries:L1/unramified-evaluation-eventually-nonzero"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L2",
+      "need": "Coefficient-extend the existing integral bounded ψ operator and its Amice realization to O: a continuous O-linear ψ_O on O[[T]], with ψ_O(Y^m)=Y^(m/p) when p divides m and zero otherwise. Use the existing integral-coefficient-extension and coefficient-extension-amice nodes; provide the receiving-ring topology/lattice adapter for finite unramified coefficients. Do not identify ψ_O with trace as an input.",
+      "neededBy": [
+        "ColemanPowerSeries:L1/unramified-trace-psi"
+      ],
+      "status": "open"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ColemanPowerSeries:L1",
+      "status": "planned",
+      "remaining": [
+        "Discharge the precise L0 finite-unramified arithmetic specialization and the PMIA L2 ψ coefficient/receiving-topology request; then assemble this part with the accepted ℤ_p L1 plan. No additional L1 target remains undecomposed."
+      ]
+    }
+  ],
+  "gaps": [],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+      ],
+      "note": "The current main roadmap already owns finite unramified extensions, integer rings, residue correspondence and canonical arithmetic Frobenius. Current Tau Ceti contains frobeniusAlgEquiv and residueFieldAutEquiv beyond the pinned baseline; they are cited through the owning stage, not claimed as pinned declarations. The cyclotomic specialization belongs to Coleman L0."
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [
+    {
+      "id": "ColemanPowerSeries/E-L1-1",
+      "kind": "misprint",
+      "locator": "SharifiNotes, §5.4, Theorem 5.4.9, printed p.145; PDF hash recorded above",
+      "printed": "Authored description: the stated interpolation argument uses a root of order p^n while the earlier tower convention makes E_n the field generated by a root of order p^(n+1).",
+      "correction": "Use ζ_(p^(n+1))−1 at level n throughout the interpolation statement, or reindex the tower and every associated norm formula consistently.",
+      "reason": "At n=0 the displayed root of order one gives evaluation at zero in O; it cannot represent every unit of the degree p−1 level E_0. Coleman’s original Theorem A uses its compatible level-zero nontrivial division point.",
+      "known": "No published correction located in the inspected PDF, current author HTML, or the searched author-site results; independent review must confirm this version-specific finding.",
+      "searched": [
+        "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
+        "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+        "https://eudml.org/doc/142657",
+        "Author-site searches for Theorem 5.4.9 errata and Coleman interpolation indexing"
+      ],
+      "affects": "a stated result",
+      "source": "SharifiNotes"
+    },
+    {
+      "id": "ColemanPowerSeries/E-L1-2",
+      "kind": "misprint",
+      "locator": "SharifiNotes, proof of Proposition 5.4.6, printed p.144; PDF hash recorded above",
+      "printed": "Authored description: the division-point product in the proof is indexed by the nonidentity p-th roots only.",
+      "correction": "Include the identity root: the product is over i=0,…,p−1.",
+      "reason": "For a constant c the native rank-p determinant is c^p. A product with only p−1 factors gives c^(p−1). The defining identity and Coleman Theorem 11 include all p roots.",
+      "known": "No published correction located in the inspected author PDF or current author HTML; independent review must confirm.",
+      "searched": [
+        "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
+        "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+        "https://eudml.org/doc/142657"
+      ],
+      "affects": "the proof",
+      "source": "SharifiNotes"
+    },
+    {
+      "id": "ColemanPowerSeries/E-L1-3",
+      "kind": "misprint",
+      "locator": "SharifiNotes, last congruence chain in the proof of Proposition 5.4.6, printed p.145; PDF hash recorded above",
+      "printed": "Authored description: a congruence correctly using the coefficient Frobenius is followed by identification with coefficient-fixed substitution of the original series.",
+      "correction": "The final substitution is Φ(Σf), not Φ(f). The next line and the stated proposition already use the corrected coefficient action: Nf≡Σf.",
+      "reason": "A residue coefficient c outside 𝔽_p satisfies c^p≠c. Testing a Teichmüller constant rejects the last displayed identification. Coleman Lemma 13 and equation (2) retain the coefficient action.",
+      "known": "No published correction located in the inspected author PDF or current author HTML; independent review must confirm.",
+      "searched": [
+        "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
+        "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+        "https://eudml.org/doc/142657"
+      ],
+      "affects": "the proof",
+      "source": "SharifiNotes"
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002095289",
+      "read": "2026-10-10",
+      "citation": "Coleman, Inventiones Mathematicae 53 (1979), 91–116; original published-page scan read at the listed printed locators."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
+      "read": "2026-10-10",
+      "sha256": "99b3a36201cecf55045da6913d462cacdb8dff83bff5860c5883ab7ea824bd32"
+    }
+  ]
+}
