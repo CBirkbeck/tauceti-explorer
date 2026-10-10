@@ -1,3 +1,130 @@
+# PKG-ArithmeticQuantumTopology — verified dependency checkpoint
+
+Worker: Codex (GPT-6), session `codex-xyOUwe`, issue #7889, 2026-10-10.
+Branch: `codex-xyOUwe-arithmetic-quantum-topology`.
+Explorer starting commit: `5d4af89bf2de1fd967c5e9716b9e4721c399de97`.
+Claim [6096356104](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096356104)
+was confirmed by the bot in
+[6096357332](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096357332).
+None of the manager's listed issues was in the open `swarm`, `state:available`
+queue when selecting this job. This available focus package came before the
+remaining review and planning jobs under WORKERS. This session claimed only #7889.
+
+## Disposition
+
+**Blocked checkpoint; the package is not complete.** This submission changes
+only this handoff. All mathematical files and authoritative inputs are unchanged.
+The preceding handoff and its eight-layer worklist are retained below, including
+the scalar QT.7 work from #8338 and the earlier native quantum, regulator,
+completion, Gaussian and descendant interfaces. No signature or source audit
+from another session is represented as fresh work here.
+
+The blocking input is an unprovided mathematical interface on another owner's
+objects, rather than a missing proof of a statement already expressible here.
+The accepted plan explicitly records G1 and two open GeometricTopology contracts.
+Its review accepts a target-level pass with gaps; that verdict does not supply
+the omitted geometric consumers of the package's suggested file. In particular,
+its native matrix predicates and cokernel do not define linking numbers or the
+first homology of an actual filled manifold.
+
+Issue #7889 permits only the three package files and this handoff, and says
+"Change no packet; if the plan has a mistake, describe it in the handoff note."
+WORKERS and PROTOCOL §15 retain the foreign objects at their owner. PROTOCOL §13
+requires actual signatures and prohibits dummy conditions standing in for
+unstated mathematics. Under those constraints this session cannot repair the
+missing supplier specification, substitute an unconstrained carrier, or declare
+this package complete. `metadata.toml` remains absent: the intake uses existence
+of the three package files to route a completed package, so adding it would
+misclassify the checkpoint.
+
+## Fresh check of the blocking contracts
+
+Read the current GeometricTopology and RepresentationTheory/SemisimpleAlgebras
+READMEs in full, and GeometricTopology's complete Suggested.lean. Current
+read-only TauCetiRoadmap was checked at
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; current read-only Tau Ceti at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither tree was edited or built.
+The newer roadmaps do not give a replacement for either contract below.
+
+| Required consumer interface | Actual supplying material read | Outstanding owner contract |
+| --- | --- | --- |
+| `QT.0/framed-link-and-linking-matrix`, feeding admissibility, bottom tangles and quantum traces | GeometricTopology layer 4; `KnotTheory/SmoothLink/Basic.lean` and `SmoothLink/Isotopy.lean`; `KnotTheory/Markov.lean` | Framed oriented finite multi-component presentations, transported Seifert framing, pairwise linking numbers, and framed isotopy/diagram/braid comparison. `SmoothLinkEmbedding` is an unframed family of disjoint smooth circles. Its ambient-isotopy setoid only transports those circles. `FramedMarkovBraid` supplies integer component framings, but `MarkovEquiv` acts on the forgotten unframed braid. |
+| `QT.0/surgery-presentation`, ordinary Kirby/Fenn–Rourke imports, and admissible presentation existence | GeometricTopology layer 5 and `LowDimTopology/DehnSurgery/Slope.lean` | Actual oriented filling at slope fμ+λ; H₁/cokernel comparison and determinant criterion; geometric Kirby/Fenn–Rourke relations; stable unimodular-form diagonalization realized by ordinary geometric moves. `FramedBoundaryTorus` supplies a basis of actual first homology and primitive slope arithmetic. It does not construct a complement or filling. |
+
+The upstream README specifies framed presentations and Dehn filling as targets.
+Its Suggested.lean still contains only explanatory comments for these targets,
+not active supplier declarations. Layer 5's stated filling scope does not itself
+state the complete H₁/Kirby/stable-realization contract demanded here; the accepted
+plan therefore explicitly routes the extension to GeometricTopology, Part II.
+Fresh searches of the current library and upstream Lean/README files found no
+active linking-number, filled-manifold or Kirby declarations supplying it.
+
+This is the same substantive boundary as the preceding checkpoint. The input
+packet SHA-256 remains
+`161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
+This session did not read new primary papers or restricted books, and does not
+re-certify the historical source receipts below. The maintainer's source index
+was read; no source file or passage was copied into the repository.
+
+## Action required to resume
+
+Supply or route the existing **two exact GeometricTopology contracts** first.
+A coordinated revision should give the framed presentation and invariant
+linking-number API, then the filled-manifold/H₁/Kirby/stable-realization API,
+with their owner and consuming statements reconciled. If the maintainer changes
+ownership or scope, update the authoritative plans together before packaging
+against the changed contract. A generic `Type`, a matrix cokernel, or a record
+assuming the desired surgery theorems cannot serve as this repair.
+
+Then instantiate the native matrix interfaces on that carrier, state Hoste and
+band-slide relations with actual geometric moves and band choices, and give the
+refined presentation and unified-invariant signatures. Ordinary surgery remains
+the supplier's work; admissible refinements and the quantum invariant remain QT's.
+Continue through the retained eight-layer worklist. Other geometric, analytic
+and coefficient comparisons there remain obligations; resolving G1 alone does
+not certify all eight layers. The prospective metadata line is
+`topic = "math.GT"` after the package meets §20.
+
+A historical note below describes "signature omitted" labels in an earlier
+suggested file. The **current package file has no such literal labels**. Its
+missing geometric declarations are established by inspecting the actual
+interfaces, not by counting that phrase. Its `linkingMatrixCokernel`,
+`IsAdmissible` and `handleSlide` still operate on matrices, and there are no
+active geometric `surgery`, `IsHosteMove` or `hosteEquiv` declarations. Successful
+elaboration therefore is not a signature-completeness check.
+
+## Validation in codex-xyOUwe
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  exit 0, **0 errors, 0 warnings**; 106 nodes, 206 API items, 159 tests, 36
+  planets, 24 baseline references, 8 gaps, 19 requests, 8 planned stages, 0
+  closed stages. No packet changes.
+- The reviewed library audit's 1,316 layer entries contain no
+  `ArithmeticQuantumTopology:` row; this absence is not evidence that a target
+  has been implemented. The relevant current library statements were read as
+  described above.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 631 warnings, all `declaration uses sorry`**, no other
+  warnings. Available memory was 104 GB before compilation. Mathlib HEAD in
+  the shared build is exactly
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; the helper documents its Tau Ceti
+  build as pin `f790474821cf4256814db967cb154e7af3d0c369`. The Tau Ceti build
+  directory has no Git metadata, so its commit was not independently obtained
+  with `git rev-parse`. No Lean process remains.
+- Mathematical package hashes are unchanged: README
+  `68a8366d67a17f73a57c37787e39a5c3f660689d81fe93b54062924c2c4c85f0`,
+  Suggested.lean
+  `b20f7d2d582733278509ec5b11573819cce82cdb4223158b6b93a3e59eb66333`.
+  README remains 199,955 UTF-8 bytes. No fresh exhaustive primary-source,
+  API-name or unit-test-signature audit is claimed.
+- Scoped intake file check and `git diff --check` pass for this handoff.
+  Only this issue's permitted handoff is submitted. Scratch logs are disposable;
+  all continuation information is here and in the retained record below.
+
+---
+
+## Preceding checkpoint — codex-TYTEog
+
 # PKG-ArithmeticQuantumTopology — scalar QT.7 checkpoint
 
 Worker: Codex (GPT-6), session `codex-TYTEog`, issue #7889, 2026-10-10.
