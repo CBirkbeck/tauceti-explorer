@@ -8,7 +8,7 @@ Owners: ModularForms (classical forms), SmoothRepresentationsOfLocalGroups (SR),
 
 Reuse Mathlib `Matrix.GeneralLinearGroup (Fin 2) R`, determinant/scalars/maps, `Matrix.ProjGenLinGroup`, `Representation.invariants` and Haar measure; build adelic quotient measure. `HeckeRing.GL2.Newform` gives newspace, nebentypus, good eigenvalues and a₁=1; ModularForms4 gives bad eigenproperties. `eq_of_forall_notMem_eigenvalue_eq` fixes level/character; adelic strong multiplicity one compares classes. Hilbert coefficients use `TauCeti.symPowerRep` and Mathlib finite tensors.
 
-`TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero` gives algebraic lifting; arithmetic vanishing/continuity is separate. `TauCeti.simple_indFDRep_ofLinearCharacter_iff` requires finite groups and algebraically closed characteristic-zero coefficients; `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two` excludes solvable full GL₂.
+`TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero` gives algebraic lifting; arithmetic vanishing/continuity is separate. `TauCeti.simple_indFDRep_ofLinearCharacter_iff` requires finite groups and algebraically closed characteristic-zero coefficients; `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two` requires a field with a nonzero a satisfying a²≠1.
 
 At finite places O,p,ϖ,q are valuation ring, maximal ideal, uniformizer and residue size; ν(ϖ)=q⁻¹. Upper-Borel induction uses δ_B^(1/2), with δ_B(diag(a,d))=|a/d|. K₀(pⁿ) constrains the lower-left entry; K₁(pⁿ) fixes the last row; both equal GL₂(O) at n=0. Right translation gives K₀-character ω(d); transport Casselman's top-left convention by π∨≅π⊗ω⁻¹det. Fix ψ of conductor O and W(1)=1. SR.2.3/whittaker-functionals gives `SmoothRep.whittakerFunctionals=Hom_U(V,ψ)` and `SmoothRep.whittakerMultiplicityOne_gl2`: dimension one for irreducible infinite-dimensional V. One-dimensional classes have no Whittaker model.
 
@@ -101,7 +101,7 @@ Fix local measures dg_v on GL₂(Fv), vol(GL₂(Ov))=1 at finite places outside 
 
 Uses: R16.1/local-adelic-compact-comparison; AA.0/restricted-haar-product; AA.2/central-character-l2; Mathlib `MeasureTheory.Measure.haarMeasure`; Mathlib `MeasureTheory.Measure.haarMeasure_self`.
 
-Source: [jl70], §10 and §16 fixed central character.
+Source: [jl70], §10 pp. 168–169 and §16 pp. 264–267, fixed central character and quotient measures.
 
 <a id="r16-1-finite-level-comparison"></a>
 
@@ -113,7 +113,7 @@ Kf compact open; finite type and finite-codimension annihilator data as in AF.2.
 
 Uses: R16.1/haar-quotient-comparison; AF.2/automorphic-form; AF.2/adelic-classical-bijection; AL.0/adelic-schwartz-bruhat-space; SR.1.
 
-Source: [jl70], Definition 10.2 and following cusp-form definition.
+Source: [jl70], §10, Definition 10.2 and cusp-form definition, pp. 169–170.
 
 <a id="r16-1-chevalley-congruence"></a>
 
@@ -257,7 +257,7 @@ Tests:
 
 Uses: R16.2/normalized-newvector; SR.4; SR.2.3/whittaker-functionals.
 
-Source: [jl70], §3 spherical functions and unramified zeta calculation.
+Source: [jl70], §3, Lemma 3.10 and unramified zeta calculation, pp. 59–61.
 
 <a id="r16-2-iwahori-oldforms"></a>
 
@@ -479,7 +479,7 @@ The complete hypotheses of tamelyDihedral, including q≡−1 mod ℓ.
 
 Uses: R16.3/tamely-dihedral; R16.3/supercuspidal-parameter; R01.3/conductor-of-a-weil-deligne-representation; ET.6.
 
-Source: [nt26], Paragraph immediately after Definition 2.4.
+Source: [nt26], §2, paragraph after Definition 2.4, p. 11.
 
 <a id="r16-3-cdt-inertia-multiplicity"></a>
 
@@ -499,7 +499,7 @@ Source: [cdt99], Lemma 4.2.4(3), pp. 17–18.
 
 ### The cuspidal restricted tensor factorization
 
-For unitary central character ω trivial on F×, the smooth K∞-finite cuspidal spectrum in AA.2’s L² space is AS.4’s algebraic Hilbert-direct-sum decomposition with finite multiplicities. Every irreducible constituent has the AF.2 restricted tensor factorization ⊗′vπv, with spherical distinguished vectors at almost all finite v. Identify this algebraic factorization with the corresponding smooth vectors of its Hilbert completion and with the Whittaker tensor model. Multiplicity one is proved below; it is not assumed in this comparison. Nonunitary cuspidal representations are handled after an specified norm twist.
+For unitary central character ω trivial on F×, the smooth K∞-finite cuspidal spectrum in AA.2’s L² space is AS.4’s algebraic Hilbert-direct-sum decomposition with finite multiplicities. Every irreducible constituent has the AF.2 restricted tensor factorization ⊗′vπv, with spherical distinguished vectors at almost all finite v. Identify this algebraic factorization with the corresponding smooth vectors of its Hilbert completion and with the Whittaker tensor model. Multiplicity one is proved below; it is not assumed in this comparison. Nonunitary cuspidal representations are handled after a specified norm twist.
 
 F number field; central character unitary for L²; admissible local factors and AF.2 distinguished-vector data.
 
@@ -613,7 +613,7 @@ f in the existing Γ₁(N) normalized newform carrier, nebentypus compatible wit
 
 Uses: R16.5/whittaker-integral-comparison; R16.3/archimedean-factor-comparison; AF.5/gl2-classical-to-adelic; AF.5/gl2-dictionary; ModularForms Layer 4; Tau Ceti `CuspForm.LSeries_qExpansion_coeff_eq`; ModularForms Layer 7.
 
-Source: [jl70], §11 classical specialization of standard factors.
+Source: [jl70], §11, Theorem 11.1 p. 180; §5, standard factors p. 97. Apply the AF.5 holomorphic normalization.
 
 <a id="r16-5-global-epsilon-normalization"></a>
 
@@ -653,7 +653,7 @@ Tests:
 
 Uses: R16.2/casselman-newvector; R16.2/normalized-newvector; R16.2/archimedean-classification; R16.4/global-multiplicity-one; R16.4/strong-multiplicity-one; AF.5/gl2-classical-to-adelic; AF.5/gl2-dictionary; ModularForms Layer 4; Tau Ceti `HeckeRing.GL2.Newform`; Tau Ceti `HeckeRing.GL2.Newform.qExpansion_coeff_one`.
 
-Source: [jl70], §11 holomorphic specialization and §5 real lowest-weight modules.
+Source: [jl70], §11, Proposition 11.1.1 p. 183; §5, Theorem 5.11 pp. 85–86. Use the AF.5 holomorphic dictionary.
 
 <a id="r16-6-classical-hecke-and-level"></a>
 
@@ -1254,7 +1254,7 @@ Source: [gj78], §9.1–2 pp.531–534; [jpss79], Theorem 13.7 pp.243–245 for 
 
 ### The Gelbart–Jacquet adjoint lift
 
-For unitary cusp π, Ad(π)=Sym²π⊗ω_π⁻¹ is self-dual isobaric automorphic GL₃ with centre1. At every place its twisted L-factor is L(s,(π_v⊗χ_v)×π̃_v)/L(s,χ_v), with matching ε; LLC pair-factor compatibility identifies the adjoint parameter. Good eigenvalues are α/β,1,β/α, and character twisting preserves the lift. It is cuspidal iff π has no nontrivial self-twist. Otherwise π=AI_{E/F}θ for quadratic E and Adπ=η_{E/F}⊞AI(θ/θ^σ), interpreting the induction isobarically when invariant. R01 G7 owns the Galois/WD adjoint.
+For unitary cusp π, Ad(π)=Sym²π⊗ω_π⁻¹ is self-dual isobaric automorphic GL₃ with centre1. At every place its twisted L-factor is L(s,(π_v⊗χ_v)×π̃_v)/L(s,χ_v), with matching ε; LLC pair-factor compatibility identifies the adjoint parameter. Good eigenvalues are α/β,1,β/α, and character twisting preserves the lift. It is cuspidal iff π has no nontrivial self-twist. Otherwise π=AI_{E/F}θ for quadratic E and Adπ=η_{E/F}⊞AI(θ/θ^σ), interpreting the induction isobarically when invariant. ArithmeticGaloisRepresentations G7 owns the Galois/WD adjoint.
 
 Identify the local adjoint parameter through GL₂ pair-factor compatibility and the GL₃ local converse theorem (R16.3, ET.6). This input also covers extraordinary components; GJ78 alone does not prove that comparison.
 
@@ -1272,7 +1272,7 @@ Tests:
 - Multiplying both input eigenvalues by any u≠0 does not change the three adjoint eigenvalues.
 - For diag(2,3), the adjoint output differs from diag(4,6,9); forgetting ω^{-1} gives the wrong lift.
 
-Uses: R16.3; AL.3; AF.2/automorphic-representation; `G7`; MetaplecticAutomorphicForms MP.5; ET.6; AF.3/cuspidal-automorphic-representation; R17.4/highly-ramified-converse.
+Uses: R16.3; AL.3; AF.2/automorphic-representation; ArithmeticGaloisRepresentations G7; MetaplecticAutomorphicForms MP.5; ET.6; AF.3/cuspidal-automorphic-representation; R17.4/highly-ramified-converse.
 
 Source: [gj78], Introduction, p. 472; §3.1, Definition 3.1.3 and the remark after it, p. 485; §3.6, p. 491; §9, Theorem 9.3, p. 534; Remark 9.9, p. 541; with §3.7, p. 491; §5 lead-in, Theorem 8.1, p. 496; proof in §§5–8.
 
@@ -1358,7 +1358,7 @@ Subsidiary norm-phase calculation: For K=ℚ[t]/(t³−2), multiplication by a+b
 
 Uses: R16.2/local-classification; R16.3–4; R16.5/full-gl2-converse; R17.4/quadratic-induction; ET.6; AF.1/archimedean-llc-gln; AF.3; AL.1/hecke-l-functional-equation; AL.3/rs-global-poles, rs-global-functional-equation, rs-vertical-strip-bounds, gln-converse-full-rank, isobaric-strong-multiplicity-one; AL.4/local-parameter-comparison; R01.2; ClassFieldTheory Layers9,11. Use these parameter/factor carriers for tensor-induction and the lambda comparison.
 
-Source: [jpss79], Theorem14.2 pp.253–254 and monomial remark p.255; [henniart83], Theorem2.10 pp.20–21 and §3.5 pp.33–34; [henniart02], Theorem1.5 p.590 and §2 pp.592–596; [deligne73], Proposition3.8 pp.530–531, Theorem4.1 p.535, (5.6.2) p.549, §5.11 p.551, §8.12 p.572; [converse], Theorems3.1,3.3 pp.8–9, application(iv) p.10; [cogdell-fields], Lecture9 §§3–6 pp.71–74. The construction is a deduction from these inputs. [mr00], Theorems1,6 pp.172,195 gives a different weak trace route; §4 pp.185–186 supplies the norm-phase calculation. [carayol86], §12.2.1–3 pp.457–458 states the conductor-comparison interface.
+Source: [jpss79], Theorem14.2 pp.253–254 and monomial remark p.255; [henniart83], Theorem2.10 pp.20–21, Proposition3.2 p.30, §3.5 pp.33–34; [henniart02], Theorem1.5 p.590 and §2 pp.592–596; [deligne73], Proposition3.8 pp.530–531, Theorem4.1 p.535, (5.6.2) p.549, §5.11 p.551, §8.12 p.572; [converse], Theorem3.1 p.6 and Theorem3.3 p.9, application(iv) p.10; [cogdell-fields], Lecture9 §§3–6 pp.71–74. The construction is a deduction from these inputs. [mr00], Theorems1,6 pp.172,195 gives a different weak trace route; §4 pp.185–186 supplies the norm-phase calculation. [carayol86], §12.2.1–3 pp.457–458 states the conductor-comparison interface.
 
 ## R17.5. Automorphic induction and solvable Artin representations
 
@@ -1488,7 +1488,7 @@ Proof: Prove root lifting and the lattice comparison by the characteristic polyn
 
 Uses: Mathlib `Representation`, `Matrix.charpoly`, `rootsOfUnity`, finite-dimensional group algebras and composition series; RepresentationTheory/InductionRestriction Layers 3–4 for ordinary induction; LocalFieldsRamification Layer 1 for prime-to-p Hensel lifting. Modular characters and their projective pairing are owned here.
 
-Source: [webb16], Theorem 10.1.1 p. 170, Proposition 10.1.3(5)–(6) pp. 170–171, Theorem 10.2.2 p. 176 and Corollary 10.2.3(3) p. 177.
+Source: [webb16], §10.1, Lemma 10.1.1 p. 170 and Proposition 10.1.3(5)–(6) pp. 170–171; §10.2, Theorem 10.2.2 p. 176 and Corollary 10.2.3(3) p. 177.
 
 <a id="r17-5-solvable-integral-lift"></a>
 
@@ -1502,9 +1502,9 @@ For Fong–Swan use Isaacs5.4's group-order induction. Brauer Clifford decomposi
 
 API: The integral rank equals the residual rank; reduction gives an isomorphism of Γ-modules; extending coefficients preserves that comparison. Tests: A prime-to-p rank-one root lifts by Hensel; the rank-two simple S₃ module in characteristic two lifts despite 2 dividing |S₃|; changing the residual basis changes P, so entrywise equality is not required.
 
-Uses: R17.5/brauer-character; ordinary character realization in RepresentationTheory/CharacterTable Layer 3; Mathlib `Group.IsSolvable`, `HeightOneSpectrum`, `Localization.AtPrime`; GlobalNumberFields Layer 7; NumberFieldArithmetic Layer 5. The modular Clifford and p-solvable character-lifting lemmas are owned here.
+Uses: R17.5/brauer-character; ordinary character realization in RepresentationTheory/InductionRestriction Layer 6; Mathlib `Group.IsSolvable`, `HeightOneSpectrum`, `Localization.AtPrime`; GlobalNumberFields Layer 7; NumberFieldArithmetic Layer 5. The modular Clifford and p-solvable character-lifting lemmas are owned here.
 
-Source: [isaacs74], Theorem 1.2 p. 171, Theorem 5.4 pp. 179–180 and proof in §6 pp. 180–181; Theorem 3.1 pp. 174–175, Lemma 4.1 and Theorem 4.2 pp. 175–177, Lemma 5.1 pp. 178–179. [webb16], Proposition 9.2.6 p. 143, Propositions 9.4.6–7 pp. 152–153, and the preceding reduction-comparison locators.
+Source: [isaacs74], Theorem 1.2 p. 171, Theorem 5.4 pp. 179–180 and proof in §6 pp. 180–181; Theorem 3.1 pp. 174–175, Lemma 4.1 and Theorem 4.2 pp. 175–177, Lemma 5.1 pp. 178–179. [webb16], §9.2, Theorem 9.2.6 p. 143; §9.4, Lemma 9.4.6 p. 152 and Corollary 9.4.7 p. 153; reduction comparison as above.
 
 <a id="r17-5-odd-residual-lift"></a>
 
@@ -1540,8 +1540,6 @@ Irreducibility is unnecessary for existence. Restriction uses a chosen place abo
 
 Uses: R17.5/finite-projective-lift; R16.3; R01.4; ClassFieldTheory Layer 11; GlobalNumberFields Layers 1 and 9; NumberFieldArithmetic Layer 5. R16.1/full-local-character-prescription supplies full-local finite-order extension and its one-place norm-twist consequence, allowing auxiliary ramification. R17.5/finite-hecke-extension has the different domain μ_n(F)\μ_n(𝔸_F).
 
-The full-local extension is R16.1/full-local-character-prescription; its finite-quotient step is the proved `finite_character_extension_iff`.
-
 **Domain test.** `unramifiedQuadraticTwo`, x↦(−1)^v₂(x), kills ℚ₂× units and torsion but sends 2 to −1. `quadraticDirichletFive` has χ(0)=0, χ(2)=−1, χ(−1)=1, χ²=1, is nontrivial and primitive of conductor 5. These Dirichlet data are proved in Lean; GlobalNumberFields Layer 9's Dirichlet–Hecke comparison gives an even extension with auxiliary ramification at 5.
 
 **Order test.** On ℤ/4ℤ, `quarticCharacter` a↦i^a extends the nontrivial quadratic character of {0,2}, has fourth power one and nontrivial square. Every extension has χ(1)²=χ(2)=−1; for a+a=0, χ(a)²=1. These proved tests concern finite-group order growth; arithmetic prescription and Grunwald–Wang require separate arguments.
@@ -1554,7 +1552,7 @@ Source: [tunnell78], §1, Theorem 1.3 and proof, pp. 182–183; [carayol86], §1
 
 Let F be totally real of degree d, k_i≥2 and w of common parity. Write D_{k,w}=𝒲(ℂ,ζ_{k,w}), ζ_{k,w}(z)=(z z̄)^{(−w−k+1)/2}z^{k−1}, with central character t^{−w}. At distinct finite places 𝔭,v prescribe a quadratic field L_𝔭/F_𝔭 and a character ξ_𝔭 not factoring through norm, with ξ_𝔭|·|^{w/2} finite-order. Construct CM L/F with this completion, nonsplit at v, and a Hecke quasicharacter ξ with ξ_𝔭 as prescribed, infinity components ζ_{k_i,w}, and ξ_v not factoring through norm. Then π′=AI_{L/F}(ξ) is cuspidal, ordinary supercuspidal at 𝔭 and v, and has the prescribed D_{k_i,w}. For even d take v to be Carayol's fixed discrete-series place; for odd d it is auxiliary. Full-local prescription supplies the finite correction to an angular infinity-type character; global norm-twisted angular characters need not have finite image.
 
-If d is even, v is Carayol's fixed place of Theorem (B); if d is odd it is any auxiliary finite place. The finite-order condition is equivalent to the local central character being |·|^(−w) times a finite-order character. At a split place 𝒲 denotes the principal series of its two characters.
+The finite-order condition is equivalent to the local central character being |·|^(−w) times a finite-order character. At a split place 𝒲 denotes the principal series of its two characters.
 
 Uses: R17.4/quadratic-induction; R16.2; R16.3; GlobalNumberFields Layer 1; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9; GlobalNumberFields Layer 10. R16.1/full-local-character-prescription supplements these carriers.
 
