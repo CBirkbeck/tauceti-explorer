@@ -2,7 +2,7 @@
 
 This roadmap plans the descent from norm-compatible arithmetic cohomology classes to Selmer bounds, primitivity and module structure. The rank-one Mazur–Rubin and Rubin constructions, Howard’s self-dual theory, and the higher-rank Stark and bidual theories have separate coefficient and local hypotheses. Cyclotomic units, Kato classes, and CM points are supplied by their arithmetic owners. ES.8, including Howard’s Λ-adic theorem, is outside this part.
 
-The pass is at target level: all eight layers are planned and none is closed. Each prerequisite chain ends in the pinned libraries, an inspected owner, an exact supplier request, or a recorded gap. Every implementation status is unchecked. The review object dated 2026-10-06 remains the historical independent review; this revision requires a new independent review.
+The pass is at target level: all eight layers are planned and none is closed. Each prerequisite chain ends in the pinned libraries, an inspected owner, an exact supplier request, or a recorded gap. Every implementation status is unchecked. Independent revision-two review dated 2026-10-10 requests changes to three arithmetic prototype interfaces. The mathematical targets remain planned; their suggested forms need the repairs recorded below.
 
 ## Conventions and ownership
 
@@ -27,6 +27,8 @@ Unavailable supplier conditions are explicitly absent from the prototype in acco
 
 The higher derivative is formed over the full reduced group ring of E(n)/K. Relative Galois products only define the derivative operator; no splitting of the full Galois group is assumed. The correction keeps Δ₁=1, Δ_q=0 and the negative two-prime cross-term. Frobenius injectivity 6.11 is required for the local-relation theorem, rather than for the correction expression itself. At fixed E the typed comparison verifies independence of generators. The larger-auxiliary-field/target-field comparison of Corollary 6.13 and the full corrected MR rank-one comparison remain exact supplier dictionaries; the rank-one typed check covers the raw base component.
 
+The independent revision-two review found three further defects in the prototype: the Selmer support omits mandatory p/infinite places, finite/adic coefficient topology is not enforced in the arithmetic evaluation and duality signatures, and the MR16 unramified condition at p is replaced by an inertia kernel. These are already-expressible missing guards or incorrect constructions, rather than unavailable geometric hypotheses. Their counterexamples and exact repair contracts appear in the gaps and the [review report](../reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0~2.md).
+
 ## Counts and coverage
 
 | Item | Result |
@@ -35,13 +37,13 @@ The higher derivative is formed over the full reduced group ring of E(n)/K. Rela
 | API / unit tests | 245 / 125 |
 | Planets | 35; 6/3/3/5/5/5/4/4 |
 | Pinned baseline declarations | 19 |
-| Supplier requests / gaps | 10 / 5 |
+| Supplier requests / gaps | 10 / 8 |
 | Pass status | complete |
 
 | Layer | Status | Refinement and implementation boundary |
 | --- | --- | --- |
-| ES.0 | planned | Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. All target-level definitions and arithmetic signatures are supplied; their proofs remain implementation work. |
-| ES.1 | planned | Lemma level: Mazur–Rubin 2004 Lemma 3.6.3 and the two-step proof of Propositions 3.6.1–3.6.2; Rubin Lemma V.2.1.; The consumer requests of HeegnerPointEulerSystems (Zhang's two-class detection over a finite field k₀, Gross's eigenspace pairings) are special cases of chebotarev-nonvanishing and transverse-duality for self-dual T; state them in Howard's setting as corollaries once HE.6 fixes its exact forms.; The remaining items of the Liu–Tian–Xiao–Zhang–Zhu route (S23-closure, S23-norm, S23-paired, S23-obstruction, S23-defect, S23-error, S24-rows, S24-bounded) refine abundant-tuples and ES.4/abundant-localization to the paired-evaluation obstruction; they are lemma-level statements of linear algebra over a discrete valuation ring. |
+| ES.0 | planned | Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. The mathematical targets are stated; the suggested arithmetic signatures require the corrections recorded in this review.; Repair the suggested Selmer support/dual-support guard and coefficient-topology dictionary; see the independent review’s concrete counterexamples.; Replace the suggested F_ur at p and infinity by MR16’s saturated unramified universal norms before asserting its core-rank formula. |
+| ES.1 | planned | Lemma level: Mazur–Rubin 2004 Lemma 3.6.3 and the two-step proof of Propositions 3.6.1–3.6.2; Rubin Lemma V.2.1.; The consumer requests of HeegnerPointEulerSystems (Zhang's two-class detection over a finite field k₀, Gross's eigenspace pairings) are special cases of chebotarev-nonvanishing and transverse-duality for self-dual T; state them in Howard's setting as corollaries once HE.6 fixes its exact forms.; The remaining items of the Liu–Tian–Xiao–Zhang–Zhu route (S23-closure, S23-norm, S23-paired, S23-obstruction, S23-defect, S23-error, S24-rows, S24-bounded) refine abundant-tuples and ES.4/abundant-localization to the paired-evaluation obstruction; they are lemma-level statements of linear algebra over a discrete valuation ring.; Restrict local Frobenius/tame evaluation to the source finite/adic coefficient topologies; the arbitrary-TopRep finiteEvaluation is false. |
 | ES.2 | planned | Lemma level: Rubin Lemma IX.6.3 and Corollary 6.4 (units and shifts of the variable) in full, and Proposition IV.3.1(iv)–(v), Lemmas IV.2.5, IV.4.6 and Proposition IV.4.7 as separate statements.; Smoothing (removing the dependence on an auxiliary prime, as for cyclotomic units) is stated by the cyclotomic owner; a generic smoothing operation was not found in the sources read. |
 | ES.3 | planned | Lemma level: Rubin IV §6 (Proposition 6.1 is planned in SelmerIwasawaCohomology L3; Corollaries 6.2, 6.5, Lemma 6.3, Definition 6.6, Lemma 6.7, Proposition 6.8), IV §7 (Lemmas 7.1, 7.3, the lifted telescoping identity), and Mazur–Rubin Appendix A (Lemma A.6 to Proposition A.15).; The derivative descent statement with explicit kernel and cokernel when W^{G_{F(r)}} ≠ 0 is contained in lifting-to-induced-module; an explicit bound for the non-canonical descent used by HeegnerPointEulerSystems HE.7 (bounded denominators) is a follow-up. |
 | ES.4 | planned | Lemma level: Mazur–Rubin 2004 Lemmas 4.3.8–4.3.9, Propositions 4.3.10–4.3.11, Theorem 4.3.12, Theorem 4.4.3 (sufficiently liftable systems) and Appendix B (Howard's proof of Theorem 4.3.3).; Rubin Theorem II.2.10 is included in rubin-bound(c); Rubin Chapter V §2 general case of Lemma 2.5 at lemma level.; Castella–Grossi–Lee–Skinner Lemmas 3.3.10 and Proposition 3.3.11 are cited inside howard-descent-with-errors; they become nodes at lemma level.; Fulfil CA.7’s noncommutative maximal-order pairing-cokernel bound and HE.7’s geometric/non-CM input dictionary; the exact all-prime annihilator target and dyadic error constants are stated here. |
@@ -187,15 +189,15 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 | Source | Version / reading date | Fingerprint |
 | --- | --- | --- |
-| mr-ks | author copy; 2026-10-06; [link](https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf) | 4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f |
-| rubin-es | author copy; 2026-10-06; [link](https://swc-math.github.io/notes/files/99RubinES.pdf) | de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50 |
-| mr-higher | preprint; 2026-10-06; [link](https://arxiv.org/pdf/1312.4052v1) | 15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8 |
-| bss2 | preprint; 2026-10-06; [link](https://arxiv.org/pdf/1805.08448v1) | 2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429 |
-| howard | published; 2026-10-06; [link](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf) | 89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7 |
-| dk | preprint; 2026-10-06; [link](https://arxiv.org/pdf/2010.00657v3) | c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099 |
+| mr-ks | author copy; 2026-10-10; [link](https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf) | 4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f |
+| rubin-es | author copy; 2026-10-10; [link](https://swc-math.github.io/notes/files/99RubinES.pdf) | de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50 |
+| mr-higher | preprint; 2026-10-10; [link](https://arxiv.org/pdf/1312.4052v1) | 15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8 |
+| bss2 | preprint; 2026-10-10; [link](https://arxiv.org/pdf/1805.08448v1) | 2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429 |
+| howard | published; 2026-10-10; [link](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf) | 89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7 |
+| dk | preprint; 2026-10-10; [link](https://arxiv.org/pdf/2010.00657v3) | c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099 |
 | ltxzz | preprint; 2026-10-06; [link](https://arxiv.org/pdf/1912.11942) | 84dc7c8369298314bd4e7ece5a45e5e096f39bd376f08c4c489950873c46fe86 |
-| cgls | preprint; 2026-10-06; [link](https://arxiv.org/pdf/2008.02571v2) | 7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59 |
-| rubin-es-book-copy | author copy; 2026-10-06; [link](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf) | 1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4 |
+| cgls | preprint; 2026-10-10; [link](https://arxiv.org/pdf/2008.02571v2) | 7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59 |
+| rubin-es-book-copy | author copy; 2026-10-10; [link](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf) | 1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4 |
 | nekovar | author copy; 2026-10-10; [link](https://web.archive.org/web/20240000000000id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf) | 05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a |
 | sakamoto | published; 2026-10-10; [link](https://msp.org/ant/2018/12-10/ant-v12-n10-p.pdf) | ea04b2b3cafe1b990ab32c461f8aea0563baf75fa11b0e93eaea06b1cb325ee0 |
 | sano14 | preprint; 2026-10-10; [link](https://arxiv.org/abs/1406.4623v1) | 83ca6e59cefdb60833f418aa57617a451101977de1b767ddf6138661758ccea4 |
@@ -421,7 +423,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Acceptance checks.**
 
-- For F relaxed on T both constructions give the strict condition on T^*[I]; for F strict both give the relaxed condition.
+- For F strict on T both constructions give the relaxed condition on T^*[I]. For F relaxed on T they give the kernel of H¹(K_v,T^*[I]) → H¹(K_v,T^*); this is strict precisely when that map is injective, equivalently when H¹(K_v,T) → H¹(K_v,T/IT) is surjective under the perfect finite/compact-discrete pairing.
 - The condition on a quotient remembers T: H¹_{F_can}(ℚ_p, T/IT) is the image of H¹(ℚ_p, T), which can be smaller than H¹(ℚ_p, T/IT) (Mazur–Rubin 2004, Definition 3.2.1 and Lemma A.1).
 
 **Prerequisites.** `SelmerIwasawaCohomology:L2`, `SelmerIwasawaCohomology:L2/condition-propagation`.
@@ -434,7 +436,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification` — lemma.
 
-**Statement.** Assume T̄^{G_K} = (T̄^*)^{G_K} = 0 for T̄ = T/mT (which follows from (H.1) and (H.3) of Mazur–Rubin 2004). (a) For every ideal I of R, T^*[I] → T^* induces an isomorphism H¹_{F^*}(K, T^*[I]) ≅ H¹_{F^*}(K, T^*)[I]. (b) If R is principal artinian of length k and F is cartesian, then for 0 < i ≤ k the injection π^{k−i} : T/m^iT → T induces isomorphisms H¹(K, T/m^iT) ≅ H¹(K, T)[m^i] and H¹_F(K, T/m^iT) ≅ H¹_F(K, T)[m^i], and H¹_F(K, T)[m^i] is the kernel of H¹_F(K, T) → H¹_F(K, T/m^{k−i}T).
+**Statement.** Assume T̄^{G_K} = (T̄^*)^{G_K} = 0 for T̄ = T/mT. (a) For every ideal I of R, T^*[I] → T^* induces an isomorphism H¹_{F^*}(K,T^*[I]) ≅ H¹_{F^*}(K,T^*)[I]. At the general complete noetherian coefficient scope of MR04 retain its (H.0), (H.1) and (H.3); at principal-artinian scope, or finite free coefficients over a commutative noetherian self-injective local ring with the BSS finite-dual dictionary, residual dual invariant vanishing suffices. (b) If R is principal artinian of length k and F is cartesian, then for 0 < i ≤ k the injection π^{k−i}:T/m^iT → T induces isomorphisms H¹(K,T/m^iT) ≅ H¹(K,T)[m^i] and H¹_F(K,T/m^iT) ≅ H¹_F(K,T)[m^i], and H¹_F(K,T)[m^i] is the kernel of H¹_F(K,T) → H¹_F(K,T/m^{k−i}T).
 
 **Suggested declarations.** `TauCeti.KolyvaginSystems.selmer_torsion_identification`.
 
@@ -443,10 +445,12 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - (T/mT)^{G_K} = (T^*[m])^{G_K} = 0
 - for (b): R principal artinian, F cartesian on Quot_R(T)
 
+- For (a) over general complete noetherian R: MR04 (H.0), (H.1), (H.3). For the weaker finite-coefficient version: principal artinian R, or the self-injective local-ring/free-module/finite-dual scope of BSS II §3.
+
 **Construction or proof.**
 
-1. S^{G_K} = 0 for every subquotient S of T or T^* (Mazur–Rubin 2004, Lemmas 2.1.4 and 3.5.2).
-2. (a) for I = (β): the sequences 0 → T^*[I] → T^* → IT^* → 0 and 0 → IT^* → T^* give H¹(G, T^*[I]) ≅ H¹(G, T^*)[I]; induct on the number of generators; the Selmer conditions agree because F^* on T^*[I] is the inverse image.
+1. Use the corrected MR04 Lemma 2.1.4 only for coefficient-ideal quotients T/IT, as recorded in MR16’s Gomez erratum (arXiv v1 p.32; published p.182). Residual invariant vanishing alone does not apply to arbitrary Galois subquotients.
+2. (a): retain the general MR04 hypotheses for its original dual-annihilator statement. At the weaker finite self-injective coefficient scope use BSS II Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8: for generators r₁,…,r_d of I, compare A/A[I] with A^d by multiplication by those generators; prove vanishing of the diagonal-map cokernel invariants using the coefficient-ideal filtration, then identify the cohomological kernel with I-torsion. The Selmer conditions agree by inverse-image propagation. This replaces the defective induction through unrestricted subquotients.
 3. (b): the same argument with 0 → T/m^i → T → T/m^{k−i} → 0; the local conditions match by cartesianness at Σ(F) and by Lemma 1.1.9 at the unramified places.
 
 **Acceptance checks.**
@@ -460,7 +464,9 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - mr-ks, Lemma 3.5.3, p. 28: Part (a).
 - mr-ks, Lemma 3.5.4, p. 29: Part (b).
-- mr-higher, Proposition 3.3(i)–(ii), p. 7: The same statements over a number field under the invariants hypothesis alone.
+- mr-higher, Proposition 3.3(i)–(ii), pp. 7–8; Gomez erratum to MR04 Lemma 2.1.4, p. 32 (arXiv v1): The principal-artinian number-field statement under invariant vanishing; the erratum restricts Lemma 2.1.4 to coefficient-ideal quotients.
+
+- bss2: Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8, arXiv v1 pp. 15–17. Replacement proof for arbitrary ideals over the stated self-injective local coefficient ring.
 
 ### The Euler characteristic formula for Selmer modules
 
@@ -986,7 +992,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 | `TauCeti.KolyvaginSystems.conductorIdeal_mono` | relation | m \| n implies I_m ≤ I_n. |
 | `TauCeti.KolyvaginSystems.tameGroup` | data | G_q = Gal(K(q)_q/K_q) and G_n = ⊗_{q \| n} G_q, with G_1 = ℤ. |
 | `TauCeti.KolyvaginSystems.tameGroup_tensor_free` | characterisation | G_n ⊗_ℤ R/I_n is a free R/I_n-module of rank one. |
-| `TauCeti.KolyvaginSystems.conductorIdeal_rat` | compatibility | For K = ℚ and R principal, the 2016 ideal I_ℓ is the largest power of m containing the 2004 ideal (ℓ − 1, P_ℓ(1)) for which the coinvariants are free of rank one. |
+| `TauCeti.KolyvaginSystems.conductorIdeal_rat` | compatibility | For K=ℚ, odd residue characteristic p and R principal with the stated p-adic coefficient hypotheses, the 2016 ideal I_ℓ is the largest power of m containing the 2004 ideal (ℓ−1,P_ℓ(1)) for which the coinvariants are free of rank one. The finite-modulus ray class group quotients by ±1; its p-part agrees with the full tame group only after this odd-p restriction. |
 
 **Unit tests.**
 
@@ -998,7 +1004,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - For T = ℤ_p(1) over ℚ: P_ℓ(x) = 1 − ℓx and I_ℓ = (ℓ − 1).
 - I_n depends on Frobenius and on |G_q|, not only on n.
-- Additional arithmetic check: For K = ℚ, R = ℤ_p, T = ℤ_p(1): I_ℓ = (ℓ − 1)ℤ_p, so ℓ ∈ P_k iff ℓ ≡ 1 (mod p^k).
+- Additional arithmetic check: For K=ℚ, odd p, R=ℤ_p and T=ℤ_p(1), both conductor conventions give I_ℓ=(ℓ−1)ℤ_p, so ℓ∈P_k iff ℓ≡1 modulo p^k. At p=2, ℓ=7, the MR04 ideal is (2), whereas the finite-modulus ray class group has order 3 and its maximal 2-extension is trivial, so the MR16 ideal is the unit ideal.
 - Additional arithmetic check: For T = T_pE over ℚ: P_ℓ(1) = 1 − a_ℓ + ℓ and I_ℓ = (ℓ − 1, a_ℓ − 2).
 - Additional arithmetic check: Two primes ℓ, ℓ′ with ℓ ≡ ℓ′ ≡ 1 (mod p^k) can have I_ℓ ≠ I_ℓ′ for T = T_pE, since a_ℓ ≢ a_ℓ′ in general: I_ℓ is not a function of ℓ − 1 alone.
 
@@ -2405,7 +2411,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.4/sheaf-monodromy` — definition.
 
-**Statement.** Let S be a sheaf of R-modules on a graph X. S is locally free of rank r if all S(v), S(e) are free of rank r and all ψ_v^e are isomorphisms; locally cyclic if all S(v), S(e) are cyclic and all ψ_v^e are surjective. For S locally cyclic, a surjective path from v to w is a path (v = v₁, …, v_k = w) such that each ψ_{v_{i+1}}^{e_i} is an isomorphism; it induces a surjection ψ_P : S(v) → S(w). A vertex v is a hub if every vertex is reached from v by a surjective path. S has trivial monodromy if for surjective paths P, P′ from v to w, w′ joined by an edge e, ψ_w^e ∘ ψ_P = ψ_{w′}^e ∘ ψ_{P′}. A global section κ is primitive if κ_v generates S(v) for every v. Proposition: if S is locally cyclic and v is a hub, then Γ(S) → S(v), κ ↦ κ_v, is injective, and surjective iff S has trivial monodromy; Γ(S) is isomorphic to a submodule of the cyclic hub stalk S(v). It is isomorphic to an ideal of R if the hub stalk is free of rank one, or if R is principal artinian (every cyclic module is then isomorphic to an ideal). The ideal conclusion is false for a general complete noetherian local R; and if κ_u ≠ 0 generates m^iS(u) for some u then κ_w generates m^iS(w) for every w.
+**Statement.** Let S be a sheaf of R-modules on a graph X. S is locally free of rank r if all S(v), S(e) are free of rank r and all ψ_v^e are isomorphisms; locally cyclic if all S(v), S(e) are cyclic and all ψ_v^e are surjective. For S locally cyclic, a surjective path from v to w is a path (v = v₁, …, v_k = w) such that each ψ_{v_{i+1}}^{e_i} is an isomorphism; it induces a surjection ψ_P : S(v) → S(w). A vertex v is a hub if every vertex is reached from v by a surjective path. S has trivial monodromy if for surjective paths P, P′ from v to w, w′ joined by an edge e, ψ_w^e ∘ ψ_P = ψ_{w′}^e ∘ ψ_{P′}. A global section κ is primitive if κ_v generates S(v) for every v. Proposition: if S is locally cyclic and v is a hub, then Γ(S) → S(v), κ ↦ κ_v, is injective, and surjective iff S has trivial monodromy; Γ(S) is isomorphic to a submodule of the cyclic hub stalk S(v). It is isomorphic to an ideal of R if the hub stalk is free of rank one, or if R is principal artinian (every cyclic module is then isomorphic to an ideal). The ideal conclusion is false for a general complete noetherian local R; and if u is a hub and κ_u generates JS(u) for an ideal J⊆R then κ_w generates JS(w) for every w. Over a general local ring, a nonzero component at an arbitrary non-hub vertex does not suffice.
 
 **Suggested declarations.** `TauCeti.KolyvaginSystems.GraphSheaf.IsLocallyCyclic`, `TauCeti.KolyvaginSystems.GraphSheaf.IsHub`, `TauCeti.KolyvaginSystems.GraphSheaf.HasTrivialMonodromy`, `TauCeti.KolyvaginSystems.GraphSheaf.eval_injective_of_isHub`, `TauCeti.KolyvaginSystems.GraphSheaf.eval_surjective_iff`, `TauCeti.KolyvaginSystems.GraphSheaf.IsPrimitive`, `TauCeti.KolyvaginSystems.GraphSheaf.generates_of_generates`.
 
@@ -2432,7 +2438,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 | `TauCeti.KolyvaginSystems.GraphSheaf.eval_injective_of_isHub` | characterisation | For S locally cyclic and v a hub, κ ↦ κ_v is injective on Γ(S). |
 | `TauCeti.KolyvaginSystems.GraphSheaf.eval_surjective_iff` | characterisation | For v a hub, κ ↦ κ_v is surjective iff S has trivial monodromy. |
 | `TauCeti.KolyvaginSystems.GraphSheaf.IsPrimitive` | structure | κ_v generates S(v) for all v. |
-| `TauCeti.KolyvaginSystems.GraphSheaf.generates_of_generates` | relation | If κ_u ≠ 0 generates m^i S(u) then κ_w generates m^i S(w) for all w (S locally cyclic with a hub). |
+| `TauCeti.KolyvaginSystems.GraphSheaf.generates_of_generates` | relation | If u is a hub and κ_u generates JS(u), then κ_w generates JS(w) for every w, for any ideal J of R and S locally cyclic. Generation at an arbitrary non-hub vertex is not sufficient over a general local R. |
 
 **Unit tests.**
 
@@ -2448,6 +2454,8 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 - Additional arithmetic check: For the constant sheaf R with identity maps on a connected graph, Γ = R and every nonzero section generating at one vertex is primitive iff it is a unit.
 - Additional arithmetic check: On the triangle graph with all modules R = 𝔽₃ and all maps the identity except one vertex-to-edge map equal to −1, the sheaf is locally free of rank one but has nontrivial monodromy, Γ = 0, and evaluation at a hub is not surjective.
 - Additional arithmetic check: On the one-vertex graph, take R=ℤ_p and S(v)=ℤ_p/p. The vertex is a hub and monodromy is trivial, but Γ(S)=ℤ/p cannot be isomorphic to any ideal of the domain ℤ_p. Injectivity into S(v) does not identify S(v) with an ideal.
+
+- Additional arithmetic check: Let R=𝔽₃[[x,y]], with a two-vertex graph, hub stalk R, other stalk and edge R/(y), and edge maps quotient and identity. The section (x,x mod y) generates mS(u) at the non-hub vertex u, but x does not generate mR at the hub. Thus the arbitrary-vertex assertion of MR04 Proposition 3.4.4(iii) fails at general-local-ring scope.
 
 **Prerequisites.** `EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf`.
 
@@ -2819,7 +2827,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 **Hypotheses.**
 
 - as stated; in particular α ≠ 1 and (h1) E(K)[p] = 0
-- α is congruent to the trivial character modulo the maximal ideal of R, as in CGLS §3.2 (arXiv v2 p.16).
+- α is congruent to the trivial character modulo the maximal ideal of R, as in CGLS §3.2 (arXiv v2 p.17).
 
 **Construction or proof.**
 
@@ -2853,12 +2861,12 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - E/K, p, R, α and T_α are exactly the setting of CGLS §3.2; p∤2N, good ordinary reduction, disc(K) prime to Np.
 - E(K)[p]=0; ordinary conditions cartesian; conjugate self-duality as in CGLS §3.3.
-- α is congruent to the trivial character modulo the maximal ideal of R, as in CGLS §3.2 (arXiv v2 p.16).
+- α is congruent to the trivial character modulo the maximal ideal of R, as in CGLS §3.2 (arXiv v2 p.17).
 
 **Construction or proof.**
 
 1. The invariant/torsion identifications use CGLS Lemma 3.3.1, which uses vanishing residual invariants rather than irreducibility.
-2. Apply the Cassels pairing argument of Howard Proposition 1.5.5 using only (h1), cartesianness and the symmetric self-dual conditions. CGLS Proposition 3.3.2 verifies these hypotheses in the ordinary twist setting.
+2. Apply the Cassels pairing argument of Howard Theorem 1.4.2 and the parity argument of Proposition 1.5.5 using only invariant vanishing, cartesianness and the symmetric conjugate-self-dual conditions actually used in those proofs. CGLS Proposition 3.3.2 verifies these hypotheses in the residually trivial ordinary twist setting.
 3. Howard Lemma 1.5.3 gives parity invariance under the same weak hypotheses; CGLS explicitly records independence of k and n.
 
 **Acceptance checks.**
@@ -2870,13 +2878,13 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 **Sources.**
 
 - cgls, Proposition 3.3.2 and Lemma 3.3.1, arXiv v2 pp. 18–19: The weaker structure and invariant hypotheses.
-- howard, Proposition 1.5.5 and Lemma 1.5.3, pp. 1452–1453: Pairing and parity proof used with the hypotheses specified by CGLS.
+- howard, Theorem 1.4.2, pp. 1448–1450; Lemma 1.5.3 and Proposition 1.5.5, pp. 1450–1451: Pairing and parity proof used with the hypotheses specified by CGLS.
 
 ### All-prime CM-point descent with bounded error
 
 `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent` — theorem.
 
-**Statement.** Fix the data of Nekovář §3.1: a totally real field F, a quaternion algebra B split at one real place, its compact Shimura curve N_H, an F-simple GL₂-type quotient A_j of its Jacobian with End_F(A_j)=O_{L_j}, a totally imaginary quadratic K/F admitting an embedding into B, a CM point x, and a finite character α of Gal(K(x)/K) valued in O_L with L⊇L_j. Let β be its faithful factor on H=K(α), and use the integral isogenous O_L-linear variety A and point y of §5.19. Assume A_j acquires no CM over any totally imaginary quadratic extension of F contained in H, and e_β(y) is non-torsion. For each prime ideal 𝔭 of O_L above any rational prime p, choose O_𝔭 and a uniformizer ϖ. There is C(𝔭)≥0, independent of M and zero for all but finitely many 𝔭, such that ϖ^{C(𝔭)}·(S(A/H,A[ϖ^M])^(β)/O_𝔭 κ₁)=0 for all sufficiently large M. Here κ₁=ϖ^{C₁(𝔭)}δ(e_β(y)), and ϖ is the chosen uniformizer, as in §7.2.1. There is no residual irreducibility or odd-prime restriction. The statement is an annihilator/exponent bound, not an equality of lengths or a square-index formula.
+**Statement.** Fix the data of Nekovář §3.1: a totally real field F, a quaternion algebra B split at one real place, the smooth compactification N_H^* of its Shimura curve, an F-simple GL₂-type quotient A_j of J(N_H^*) with End_F(A_j)=O_{L_j} and the nontrivial Hecke-linear morphism specified in §3.1, a totally imaginary quadratic K/F admitting an embedding into B, a CM point x, and a finite character α of Gal(K(x)/K) valued in O_L with L⊇L_j. Let β be its faithful factor on H=K(α), and use the O_L-linear tensor variety A=A_j⊗_{O_{L_j}}O_L and trace point y of §3.5, with the polarization and Weil pairing of §5.19. Assume A_j acquires no CM over any totally imaginary quadratic extension of F contained in H, and e_β(y) is non-torsion. For each prime ideal 𝔭 of O_L above any rational prime p, choose O_𝔭 and a uniformizer ϖ. There is C(𝔭)≥0, independent of M and zero for all but finitely many 𝔭, such that ϖ^{C(𝔭)}·(S(A/H,A[ϖ^M])^(β)/O_𝔭 κ₁)=0 for all sufficiently large M. Here κ₁=ϖ^{C₁(𝔭)}δ(e_β(y)), and ϖ is the chosen uniformizer, as in §7.2.1. There is no residual irreducibility or odd-prime restriction. The statement is an annihilator/exponent bound, not an equality of lengths or a square-index formula.
 
 **Suggested declarations.** `TauCeti.KolyvaginSystems.Nekovar.all_prime_error_descent`, `TauCeti.KolyvaginSystems.Nekovar.errorConstant_quadratic`, `TauCeti.KolyvaginSystems.Nekovar.errorConstant_nonquadratic`.
 
@@ -2901,7 +2909,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Sources.**
 
-- nekovar, Theorem 3.2, pp. 18–19; §5.19; Proposition 6.4.3, pp. 38–40; Theorem 7.3 and §§7.4–7.6, pp. 45–51 (author copy): CM-point finiteness and uniform annihilator bounds including p=2.
+- nekovar, Theorem 3.2, pp. 18–19; §3.5, p. 19; §5.19, pp. 33–34; Proposition 6.4.3, pp. 38–40; Theorem 7.3 and §§7.4–7.6, pp. 45–51 (author copy): CM-point finiteness and uniform annihilator bounds including p=2.
 
 ## ES.5. Primitivity, module structure and self-dual descent
 
@@ -3165,19 +3173,19 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 `EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure` — theorem.
 
-**Statement.** Let R be principal artinian of length k and (T, F, 𝓛) satisfy H.1, H.3 and H.4 (with vanishing residual invariants). (a) For positive integers s, t with s + t ≤ k there is a pairing ( , )_{s,t} : H¹_F(K, T/m^sT) × H¹_{F^*}(K, T^*[m^t]) → R whose left and right kernels are the images of H¹_F(K, T/m^{s+t}T) and of π^s : H¹_{F^*}(K, T^*[m^{s+t}]) → H¹_{F^*}(K, T^*[m^t]). (b) There are an R-module M and ε ∈ {0, 1} with H¹_F(K, T) ≅ R^ε ⊕ M ⊕ M. (c) Under H.0–H.5 with 𝓛 ⊆ 𝓛_k, for n ∈ N(𝓛) write H¹_{F(n)}(K, T) ≅ R^ε ⊕ M(n) ⊕ M(n); then ε ≡ ρ(n) = ρ(n)^+ + ρ(n)^− (mod 2), where ρ(n)^± = dim H¹_{F(n)}(K, T̄)^±, and ε is independent of n: if loc_ℓ(H̄(n)^±) ≠ 0 then ρ(nℓ)^± = ρ(n)^± − 1, and otherwise ρ(nℓ)^± = ρ(n)^± + 1.
+**Statement.** Let K be imaginary quadratic, p odd, and R a coefficient ring that is principal artinian of length k and (T, F, 𝓛) satisfy H.1, H.3 and H.4 (with vanishing residual invariants). (a) For positive integers s, t with s + t ≤ k there is a pairing ( , )_{s,t} : H¹_F(K, T/m^sT) × H¹_{F^*}(K, T^*[m^t]) → R whose left and right kernels are the images of H¹_F(K, T/m^{s+t}T) and of π^s : H¹_{F^*}(K, T^*[m^{s+t}]) → H¹_{F^*}(K, T^*[m^t]). (b) There are an R-module M and ε ∈ {0, 1} with H¹_F(K, T) ≅ R^ε ⊕ M ⊕ M. (c) Under H.0–H.5 with 𝓛 ⊆ 𝓛_k, for n ∈ N(𝓛) write H¹_{F(n)}(K, T) ≅ R^ε ⊕ M(n) ⊕ M(n); then ε ≡ ρ(n) = ρ(n)^+ + ρ(n)^− (mod 2), where ρ(n)^± = dim H¹_{F(n)}(K, T̄)^±, and ε is independent of n: if loc_ℓ(H̄(n)^±) ≠ 0 then ρ(nℓ)^± = ρ(n)^± − 1, and otherwise ρ(nℓ)^± = ρ(n)^± + 1.
 
 **Suggested declarations.** `TauCeti.KolyvaginSystems.SelfDual.cassels_structure`.
 
 **Hypotheses.**
 
-- H.1, H.3, H.4; R principal artinian
+- K imaginary quadratic; p odd; H.1, H.3, H.4 with vanishing residual invariants; R a principal-artinian coefficient ring.
 - H.0–H.5 and 𝓛 ⊆ 𝓛_k for (c)
 
 **Construction or proof.**
 
 1. (a): Flach's construction of the Cassels–Tate pairing by lifting cocycles; the kernels by global duality.
-2. (b): with H = H¹_F(K, T), the spaces V_s = H[m^s]/mH[m^{s+1}] carry nondegenerate alternating pairings induced by ( , )_{s,1} via H.4 and ES.0/selmer-torsion-identification, so are even-dimensional; conclude by the structure theorem for modules over R.
+2. (b): with H=H¹_F(K,T), for 1≤s<k the spaces V_s=H[m^s]/mH[m^{s+1}] have alternating pairings whose radical is V_{s−1}, by Howard Theorem 1.4.2, H.4 and the torsion identifications. The quotients V_s/V_{s−1} carry nondegenerate alternating pairings and are even-dimensional; induction gives even dimension of V_s for 0≤s<k. The free length-k summands are not subject to this parity constraint; their multiplicity is absorbed into M up to its parity. The finite-module structure theorem then gives the doubled nonfree summand and ε∈{0,1}.
 3. (c): Lemma 1.5.3 by global duality for F_ℓ(n) ≤ F(n), F(nℓ) ≤ F^ℓ(n) on each eigenspace.
 
 **Acceptance checks.**
@@ -3191,6 +3199,8 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - howard, Proposition 1.4.1, p. 1448: The pairing.
 - howard, Lemma 1.5.3, p. 1450: Parity is constant on the graph.
+
+- howard: Theorem 1.4.2 and its proof, pp. 1448–1450. Alternating successive-quotient pairings and the doubled-module structure.
 
 ### Stub Selmer modules in the self-dual setting
 
@@ -3333,7 +3343,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 - bss2, Proposition 2.3, p. 8: The map into the bidual of a kernel.
 - bss2, Proposition 2.4, p. 8: Rank reduction.
-- bss2, Corollary 2.7, p. 10: Coefficient change.
+- bss2, Corollary 2.7, pp. 10–11: Coefficient change.
 
 ### Stark systems
 
@@ -3902,7 +3912,7 @@ Barry Mazur and Karl Rubin. Journal de Théorie des Nombres de Bordeaux 28 (2016
 
 **Sources.**
 
-- bss2, §7, equation (14) and Theorem 7.1(i)–(iii), pp. 48–50; Remarks 7.2–7.3, p. 50: Character assumptions, class-group identification, unconditional all-system ideals and conditional Rubin–Stark element.
+- bss2, §7, equation (14) and Theorem 7.1(i)–(iii), pp. 47–50; Remarks 7.2–7.3, p. 50: Character assumptions, class-group identification, unconditional all-system ideals and conditional Rubin–Stark element.
 
 ### Archimedean and minus-unit Rubin–Stark dictionaries
 
@@ -3962,7 +3972,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality`, `EulerSy
 
 ### SelmerIwasawaCohomology:L2
 
-General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Theorems 2.3.3–2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The prototype states the resulting finite-torsion criterion and its uniform consequence explicitly.
+General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The prototype states the resulting finite-torsion criterion and its uniform consequence explicitly.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure`, `EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-category`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition`, `EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures`, `EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth`, `EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality`, `EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound`, `EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses`, `EulerSystemsAndKolyvaginSystems:ES.4/vertex-step`, `EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure`, `EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer`, `EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality`, `EulerSystemsAndKolyvaginSystems:ES.6/stark-structure`, `EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization`.
 
@@ -3980,7 +3990,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`.
 
 ### HeegnerPointEulerSystems:HE.7
 
-For the all-prime CM-point application supply Nekovář §3.1 arithmetic data and §5.19 O_L-linear isogeny: compact quaternionic Shimura curve/Jacobian quotient of GL₂ type, CM points and their Hecke norm/congruence relations, the non-CM condition (*), polarization/complex-conjugation pairing, and the fixed uniform component-group, image-order and character-overlap constants of §§6.1–6.6. ES.4 owns the conditional bounded-error descent, not these geometric constructions or verification of their hypotheses. Supply the classical elliptic local Kummer-image/Weil-pairing realization used by MR04 §6.2, so its classical Selmer structure and canonical core-rank comparison have actual local-point dictionaries.
+For the all-prime CM-point application supply Nekovář §3.1 arithmetic data and §3.5 O_L-linear tensor-variety realization and §5.19 polarization: compactified quaternionic Shimura curve/Jacobian quotient of GL₂ type, CM points and their Hecke norm/congruence relations, the non-CM condition (*), polarization/complex-conjugation pairing, and the fixed uniform component-group, image-order and character-overlap constants of §§6.1–6.6. ES.4 owns the conditional bounded-error descent, not these geometric constructions or verification of their hypotheses. Supply the classical elliptic local Kummer-image/Weil-pairing realization used by MR04 §6.2, so its classical Selmer structure and canonical core-rank comparison have actual local-point dictionaries.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`, `EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic`.
 
@@ -4018,7 +4028,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`.
 
 ### L6 transfer implementation and coefficient dictionaries
 
-The source normalization is verified against Sano 2014 Proposition 2.4, Lemma 2.10 and Remark 2.12, pp.4–7: i(N_H^{∧r}x)=N_Hx. BSS II map (9), invariant descent and compatible-functional lifts now have an exact L6 request and arithmetic prototype maps. Their proofs and implementation in the supplier remain supplier implementation obligations. The displayed higherDerivative_indep checks generators at fixed E; Corollary 6.13 additionally requires the target-field projection and independence of larger auxiliary E. The rank-one prototype checks the raw base component; the full corrected MR comparison is retained as the exact dictionary below.
+The source normalization is verified against Sano 2014 Lemmas 2.10–2.11 and Remark 2.12, pp.6–7: i(N_H^{∧r}x)=N_Hx. BSS II map (9), invariant descent and compatible-functional lifts now have an exact L6 request and arithmetic prototype maps. Their proofs and implementation in the supplier remain supplier implementation obligations. The displayed higherDerivative_indep checks generators at fixed E; Corollary 6.13 additionally requires the target-field projection and independence of larger auxiliary E. The rank-one prototype checks the raw base component; the full corrected MR comparison is retained as the exact dictionary below.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative`, `EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality`.
 
@@ -4028,19 +4038,37 @@ PROTOCOL §13 permits leaving an unavailable condition out of a suggested signat
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`, `EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-class-group`, `EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic`, `EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization`.
 
+### Selmer support and same-support Cartier dual require arithmetic guards
+
+The suggested SelmerStructure omits Σ⊇S_p∪S_∞. Its dual_sigma lemma then asserts unchanged support for inputs that cannot have it: the trivial 𝔽_p representation over ℚ, p odd, with Σ empty satisfies the displayed unramifiedness fields, whereas its Cartier dual μ_p ramifies at p. Add the finite/adic coefficient scope and mandatory p/infinite support to the carrier and thread them through the dual, propagation and constructor APIs. The pInfinity predicate already exists; this is an expressible missing guard, not omitted geometry.
+
+Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`.
+
+### Arithmetic evaluation and duality signatures admit unsupported coefficient topologies
+
+The arithmetic interfaces quantify over arbitrary TopRep R without the finite-p-primary/discrete or complete p-adic lattice topology hypotheses of MR04/MR16/L2. In particular finiteEvaluation is false for R=ℚ with discrete topology and the trivial T=ℚ: continuous H¹ of the unramified quotient Ẑ is zero, while its Frobenius coinvariants are ℚ. Introduce a genuine coefficient/topology dictionary (finite residue characteristic p, finite/free lattice or finite coefficient module, correct topology and continuous action), and pass it to finiteEvaluation, singularEvaluation, dualRep/dualEquiv, quotient-dual propagation, dualSelmerTorsionEquiv, length/core-rank consumers and local Tate pairings. An unproved signature is not a substitute for these source hypotheses.
+
+Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple`, `EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification`, `EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition`, `EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison`.
+
+### Suggested MR16 unramified structure uses the wrong p-adic local condition
+
+unramifiedStructure_condition sets F_ur equal to finiteLatticeCondition at every place, and unramifiedStructure_eq_canonical_empty records the resulting wrong comparison. MR16 Definition5.1 instead uses saturation of the intersection of corestriction images over finite unramified extensions; at infinity its condition is relaxed. For T=ℤ_p(1) at ℚ_p, p odd, the rational inertia-kernel pullback is zero, whereas the unramified universal norms contain the Kummer unit subgroup of rank one. Replace the construction, specialize away from p through MR16 Lemma5.2/Corollary5.3, and use the actual F_ur in Theorem5.4 core-rank consumers. Add a typed p-adic unit example that distinguishes the two constructions.
+
+Consumers: `EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure`, `EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula`.
+
 ## Source findings retained from the independent review
 
-The findings are scoped to the versions actually inspected. The historical review verdicts remain unchanged. The following descriptions paraphrase the source claim and the correction.
+The findings are scoped to the versions actually inspected. All five findings carry the independent revision-two review’s verdict, including the known Gomez erratum and the additional sheaf counterexample. The following descriptions paraphrase the source claim and the correction.
 
 ### EulerSystemsAndKolyvaginSystems/E1
 
 bss2, Hypothesis 4.7(ii), p. 22 of arXiv:1805.08448v1.
 
-**Claim at that location.** Condition (ii) requires some τ ∈ G_{K(T)_{p^∞}} for which T/(τ − 1)T ≃ R as R-modules.
+**Claim at that location.** After adjoining the representation’s trivializing field K(T) to the auxiliary infinite tower, condition(ii) asks for a Galois element whose coinvariants on T are free of rank one over R.
 
-**Correction.** τ should be taken in G_{K_{p^∞}}, where K_{p^∞} = ⋃_m K_{p^m} and K_{p^m} = K(μ_{p^m}, (O_K^×)^{1/p^m})K(1): 'there exists τ ∈ G_{K_{p^∞}} such that T/(τ − 1)T ≃ R'.
+**Correction.** Take τ in G_{K_{p^∞}}, with K_{p^∞}=⋃_m K_{p^m} and K_{p^m}=K(μ_{p^m},(O_K^×)^{1/p^m})K(1), and require T/(τ−1)T≃R. The field fixed by τ must omit the additional trivializing extension K(T).
 
-**Reason.** K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 says that Hypothesis 4.7 'clearly' gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group.
+**Reason.** K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 asserts that Hypothesis 4.7 gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group.
 
 **Publication status.** new
 
@@ -4065,6 +4093,30 @@ mr-ks, Archived author copy, Proposition 3.4.4(ii), p.27 (PDF p.33).
 **Correction.** Evaluation identifies Γ(S) with a submodule of the cyclic hub stalk. It is isomorphic to an ideal if the hub stalk is free of rank one, or if R is principal artinian. The unrestricted complete noetherian local assertion needs such additional hypotheses.
 
 **Reason.** Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R.
+
+**Publication status.** new
+
+### EulerSystemsAndKolyvaginSystems/E4
+
+mr-ks, Lemma 2.1.4, p.15; repeated use in Lemma 3.5.2, p.28, archived author copy.
+
+**Claim at that location.** Residual invariant vanishing is asserted to imply invariant vanishing for every Galois-module quotient or subquotient of T.
+
+**Correction.** Restrict Lemma 2.1.4 to coefficient-ideal quotients T/IT. Use the repaired arbitrary-ideal annihilator argument of BSS II Proposition 3.5 and Corollary 3.8 at their finite self-injective coefficient scope; do not deduce the unrestricted Galois-subquotient claim from residual H⁰ alone.
+
+**Reason.** Over 𝔽₃ take the continuous G_ℚ-representation through S₃ from the splitting field of x³−2, generated on T=𝔽₃² by b=[[1,1],[0,1]] and a=diag(−1,1). These satisfy b³=a²=1 and aba=b⁻¹. Their common fixed space is zero, but 𝔽₃e₁ is stable and T/𝔽₃e₁ is a nonzero trivial representation. This quotient is not a coefficient-ideal quotient.
+
+**Publication status.** Mazur–Rubin, Controlling Selmer groups in the higher core rank case, arXiv:1312.4052v1 p.32; published JTNB28 (2016) p.182, Gomez erratum. BSS II arXiv:1805.08448v1 pp.15–17 gives the replacement annihilator proof.
+
+### EulerSystemsAndKolyvaginSystems/E5
+
+mr-ks, Proposition 3.4.4(iii), p.27, archived author copy.
+
+**Claim at that location.** For a locally cyclic sheaf with a hub, a nonzero section component generating m^i times the stalk at any vertex is asserted to generate m^i times every stalk.
+
+**Correction.** Over a general local ring, require the starting vertex to be a hub. Generation of J times the hub stalk propagates along its surjective paths for every ideal J. The principal-artinian/DVR valuation situation used in the arithmetic applications supports the stronger arbitrary-vertex conclusion.
+
+**Reason.** Let R=𝔽₃[[x,y]], with hub stalk R, one other vertex and edge stalk R/(y), and maps quotient and identity. Every vertex-to-edge map is surjective; the hub reaches the other vertex through the edge isomorphism at the endpoint, and monodromy is trivial. The section (x,x mod y) is nonzero and generates mS(u) at the other vertex, but (x)≠m=(x,y) at the hub.
 
 **Publication status.** new
 

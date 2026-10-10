@@ -83,7 +83,9 @@ def IsContinuous (T : Rep K R) : Prop :=
   Continuous (fun gt : GK K × T => T.ρ gt.1 gt.2)
 def IsUnramified (T : Rep K R) (v : Place K) : Prop :=
   ∀ g : inertia K v, ∀ t : T, T.ρ (g.val.val) t = t
-/-- Arithmetic Selmer carrier imported from L2, instantiated on canonical H¹. -/
+/-- Arithmetic Selmer carrier imported from L2, instantiated on canonical H¹.
+Independent review: the mandatory p/infinite support and arithmetic coefficient
+guards are still absent; see the corresponding packet gaps. -/
 structure SelmerStructure (T : Rep K R) where
   sigma : Finset (Place K)
   condition : (v : Place K) → Submodule R (LocalH K R T v 1)
@@ -291,7 +293,7 @@ lemma selmer_equiv_dual_prod_free (T : Rep K R) (F : SelmerStructure K R T)
 lemma coreRank_field (T : Rep K R) (F : SelmerStructure K R T) (hR : IsField R)
     (hf : FiniteSelmerLengths T F) : coreRankInt T F =
     (Module.finrank R F.selmer : ℤ) - Module.finrank R (dualStructure T F).selmer := sorry
-/-- MR04 Theorem 2.3.3, including ordinary archimedean H⁰. -/
+/-- MR04 Proposition 2.3.5, including ordinary archimedean H⁰. -/
 theorem selmer_length_difference (T : Rep K R) (F : SelmerStructure K R T)
     [IsArtinianRing R] [IsLocalRing R] [Module.Finite R T] [Finite T]
     (hf : FiniteSelmerLengths T F) :
@@ -535,6 +537,8 @@ lemma fsQuotientPoly_spec (P : R[X]) (hP : P.eval 1 = 0) :
     (X - 1) * fsQuotientPoly P hP = P ∧
       ∀ Q : R[X], (X - 1)*Q = P → Q = fsQuotientPoly P hP := sorry
 -- Frobenius and tame-inertia evaluation are the local reciprocity adapters of L2/CFT.
+-- Independent review: the finite/adic topology guards must be added before these
+-- signatures represent the arithmetic theorem (discrete rational coefficients fail).
 def finiteEvaluation (T : Rep K R) (q : Prime K) (hu : IsUnramified K R T (Sum.inr q)) :
     unramified K R T (Sum.inr q) ≃ₗ[R] (T ⧸ LinearMap.range (frobEnd T q - LinearMap.id)) := sorry
 def singularEvaluation (T : Rep K R) {p : ℕ} {q : Prime K} (D : LocalTameData T p q)
@@ -2412,7 +2416,7 @@ def dualSelmerTorsionEquiv (T : Rep K R) (F : SelmerStructure K R T) (I : Ideal 
     (h0 : NoResidualInvariants T (IsLocalRing.maximalIdeal R)) :
     (dualStructure (quotientRep T I) (propagatedStructure T F I)).selmer ≃ₗ[R]
       torsionBy I (dualStructure T F).selmer := sorry
-/-- MR04 Lemma 2.2.5: local lengths are linear in the quotient length. -/
+/-- MR04 Lemma 1.1.5: local lengths are linear in the quotient length. -/
 theorem cartesian_length_linearity (T : Rep K R) [Module.Free R T] [Module.Finite R T]
     [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
     (v : Place K) (L : Submodule R (LocalH K R T v 1)) (hL : IsCartesian T v L) :
@@ -2437,7 +2441,10 @@ theorem coreRank_independence_of_modulus (T : Rep K R) [Module.Free R T] [Module
     :
     coreRankInt (reducedRep T (IsLocalRing.maximalIdeal R ^ i))
       (reducedStructure T F _) = coreRankInt T F := sorry
-/-- Unramified rational local conditions are pulled back to the lattice at every place. -/
+/-- Independent review: this inertia-kernel construction is not MR16 F_ur at p.
+MR16 Definition 5.1 uses saturated universal norms over unramified extensions,
+and the relaxed condition at infinity. Replace this prototype and its comparison
+lemmas as specified in the packet gap before using Theorem 5.4. -/
 def unramifiedStructure (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
     (hbad : ∀ v ∉ sigma, IsUnramified K R T v) : SelmerStructure K R T := sorry
 lemma unramifiedStructure_condition (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
@@ -2446,7 +2453,7 @@ lemma unramifiedStructure_condition (T : Rep K R) [IsDomain R] (sigma : Finset (
 lemma unramifiedStructure_eq_canonical_empty (T : Rep K R) [IsDomain R] (sigma : Finset (Place K))
     (hbad : ∀ v ∉ sigma, IsUnramified K R T v) :
     unramifiedStructure T sigma hbad = canonicalStructure T sigma ∅ hbad (by simp) := sorry
-/-- MR16 §3: equality with the relaxed p-adic canonical condition needs
+/-- MR16 Corollary 5.3: equality with the relaxed p-adic canonical condition needs
 vanishing of rational dual H⁰ at the relaxed places. Finite lattice-dual invariants
 imply this vanishing; mere unramifiedness does not. -/
 lemma unramifiedStructure_eq_canonical (T : Rep K R) [IsDomain R]
@@ -3049,7 +3056,7 @@ abbrev ExpandedStalk (A : Tower T) (r : ℕ) (F F' : FiniteLayer A) :=
     (Module.Dual (LayerRing A F) (ramifiedCohom A F (layerSupport A F'))))
 instance expandedStalkR (A : Tower T) (r : ℕ) (F F' : FiniteLayer A) : Module R (ExpandedStalk A r F F') :=
   Module.compHom _ (algebraMap R (LayerRing A F))
-/-- L6's group-ring transfer, normalized by Sano14 Proposition 2.4. It is not an exterior norm
+/-- L6's group-ring transfer, normalized by Sano14 Lemma 2.11 and Remark 2.12. It is not an exterior norm
 with a missing power of the extension degree. The cohomological map is corAt. -/
 def higherCorestriction (A : Tower T) (r : ℕ) (F F' : FiniteLayer A)
     (h : F'.val.group ≤ F.val.group) : HigherStalk A r F' →ₗ[R] ExpandedStalk A r F F' := sorry
@@ -4239,7 +4246,9 @@ lemma tameGroup_tensor_free [IsLocalRing R] [IsPrincipalIdealRing R]
       ((R ⧸ conductorIdeal T p n.val) ⊗[ℤ] tameGroup K p n.val) =
         if conductorIdeal T p n.val = ⊤ then 0 else 1 := sorry
 lemma conductorIdeal_rat [IsLocalRing R] [IsPrincipalIdealRing R]
-    (hK : Nonempty (K ≃+* ℚ)) (q : Prime K) (j : ℕ)
+    (hcoef : MR04BasicHypotheses T p) (hp : 2 < p)
+    (hK : Nonempty (K ≃+* ℚ)) (q : Prime K) (hq : ¬ isAboveP p q)
+    (hu : IsUnramified K R T (Sum.inr q)) (j : ℕ)
     (hcoin : Nonempty ((T ⧸ (LinearMap.range (frobEnd T q-LinearMap.id) ⊔
       (IsLocalRing.maximalIdeal R^j • (⊤ : Submodule R T)))) ≃ₗ[R]
         (R ⧸ IsLocalRing.maximalIdeal R^j))) :
@@ -4513,7 +4522,7 @@ namespace TauCeti.EulerSystems.Universal
 open TauCeti.KolyvaginSystems
 variable {K R : Type} [Field K] [NumberField K] [CommRing R] [TopologicalSpace R]
 variable {T : GaloisRep K R} [Module.Free R T] [Module.Finite R T] {A : Tower T}
-/-- Rubin IV Theorem 4.2: Ext¹ vanishes into a finite free group-ring module,
+/-- Rubin IV Proposition 3.4: Ext¹ vanishes into a finite free group-ring module,
 although the universal module need not be free over that group ring. -/
 theorem ext_eq_zero [IsArtinianRing R] [IsLocalRing R] [IsPrincipalIdealRing R]
     (F : FiniteLayer A) (n : Conductor K) (E : EulerFactors T A)
@@ -4802,7 +4811,7 @@ theorem unramified_core_rank_formula [IsLocalRing R] [IsDomain R] [IsDiscreteVal
       ∑ v : NumberField.InfinitePlace K, localDualCorank T (Sum.inl v) := sorry
 
 -- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.4/leading-vertices
-/-- MR04 Theorem 4.1.15. The containment compares actual H¹ submodules. -/
+/-- MR04 Theorem 4.1.16. The containment compares actual H¹ submodules. -/
 theorem leading_vertices_through_submodule [IsLocalRing R] [IsArtinianRing R]
     [IsPrincipalIdealRing R] (T : Rep ℚ R) [Module.Free R T] [Module.Finite R T]
     (S : SelmerTriple ℚ R T) (p : ℕ) (D : KolyvaginData T S p)
@@ -5061,7 +5070,7 @@ variable [IsLocalRing R]
 variable {T : Rep K R} [Module.Free R T] [Module.Finite R T]
 variable {S : SelmerTriple K R T} {p : ℕ}
 -- Blueprint node: EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem
-/-- MR04 Theorem 5.2.10 at an artinian coefficient level. -/
+/-- MR04 Corollary 4.5.2 at an artinian coefficient level. -/
 theorem rank_one_module_artinian (D : KolyvaginData T S p)
     (h : MR04Hypotheses T S p) (hR : PrincipalArtinian (R := R))
     (hP : AtLevel S p) (hr : latticeCoreRank T S.F = 1) :
