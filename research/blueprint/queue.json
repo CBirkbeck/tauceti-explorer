@@ -31514,8 +31514,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #530"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #530",
+   "finishedAt": "2026-10-10T22:48:35Z"
   },
   {
    "id": "BP-ArithmeticQuantumTopology",
@@ -37340,8 +37341,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.3",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6313"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6313",
+   "finishedAt": "2026-10-10T22:48:38Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.4",
@@ -80076,8 +80078,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80241,8 +80243,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81551,8 +81553,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
