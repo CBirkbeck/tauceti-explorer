@@ -1,67 +1,92 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-3~3
 
-Refs #5869. Codex (GPT-6), session `codex-nnFZhT`, 10 October 2026.
+Refs #5869. Codex (GPT-6), session `codex-I3ds2G`, 10 October 2026.
+Input revision `5488856e76e2f94c95260e0c54f19bdb648479ed`; integrated current
+main `334197e7d` before submission, preserving its intervening review.
 
-The assigned independent review is complete, with **accepted** as its
-bounded verdict. Read
-[the review report](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) for each of the
-eight findings, fresh public-source locators and download hashes, ownership
-checks and the limits of the verdict. This session did none of the work
-reviewed and claimed no second job.
+This is a **checkpoint blocked by conflicting dispatch scope**, not a finished
+queue job. The previous #8423 submission was also merged as a checkpoint.
+The live issue authorizes only the Motives packet, its suggested file and the
+review report; the queue additionally requires GH.0 and Kato packet verdicts.
+WORKERS.md says "Edit only the files the issue names, plus your own scratch
+space." A clarification request received no answer during this run. No extra
+packet, reader, queue file, generated atlas file or upstream checkout was edited.
 
-The packet's only changes are `review` and `reviewHistory`. The exact prior
-top-level algebraic-geometry verdict is archived. Mathematical fields,
-all 22 gaps and 16 requests, partial coverage and implementation status
-remain unchanged. The suggested file and reader were not edited.
+## What is done
 
-Checks completed:
+The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) records every
+confirmed finding, fresh public-source locators/hashes, pinned library checks,
+current upstream ownership and the limits of the verdict. This session did
+none of the original work reviewed and took no second job.
 
-- Packet checker at the pinned declaration index: 0 errors, 0 warnings.
-- Full suggested file via `lean-check`: exit 0, 805 admitted-proof warnings,
-  no errors or other Lean warnings. Mathlib pin
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`; file SHA-256
-  `f3874f8f0eb1355d40433cbef95f0cff7bd9d1165822483985bd9529fbfcb51f`.
-- Parsed preservation check, whitespace and submission file-scope checks.
+The six Motives supplier corrections are accepted within the assigned scope,
+after fixing one additional mismatch: `period_torsor` now consumes the
+compatible good-pair product structures and the typed complex comparison
+already required by its packet. Its hypothesis, proof and acceptance explain
+the complex point and nonemptiness used for faithful flatness. The formal-period
+source locator now includes Definition 2.8 p.10 and Remark 2.9 p.11.
 
-There is no unfinished work for this review. The following obligations belong
-to other authorized jobs or the maintainer, and this verdict leaves them open:
+The top-level review names this job and retains `needs_changes` at file level.
+The geomlanglands verdict remains unchanged in history, and the intervening
+algebraic-geometry verdict by `codex-XnOZ0w` is archived unchanged. Its relative Beck
+preservation adapter and missing typed reconstruction interfaces remain
+unresolved; the bounded period correction does not discharge them. All 182
+node ids/order, prerequisites, 23 gaps, 16 requests, partial coverage,
+implementation statuses, source issues, baseline declarations and planets
+are preserved.
 
-1. **Kato source-match follow-up.** The current accepted Kato blueprint's
-   `L1/hecke-and-diamond-equivariance-of-the-moment-map` and its later review
-   `REV-KatoEulerSystems~2` attribute `n^(r−1)` to Lemma 8.8(1). The fresh
-   published page image, printed p.185, has `n^(r′−1)`, as the original
-   verified finding /3 recorded. This is a discrepancy between the later
-   owner and the source, not an applied Motives correction. Its owner must
-   check the normalization derivation: either restore a source-faithful
-   contract, or justify the mathematical replacement and record the printed
-   formula as a source issue. Do not silently conflate `r` with `r′`.
-   Public source: [Kato, Astérisque 295](https://www.numdam.org/item/AST_2004__295__117_0.pdf),
-   Lemma 8.8(1), p.185. I did not edit or re-review that owner packet.
-2. **PS.2 consumer.** Import the MC.5/MC.6 effective and localized Nori
-   category/algebra contracts. State `P=P_eff[L⁻¹]`, extend integration using
-   `ev(L)=2*pi*i≠0`, compare localized `P` with the full torsor and identify
-   integration with the typed comparison point. Keep inverse and rank-one
-   polynomial/Laurent tests. The atlas PS.2 stage wording remains a
-   maintainer correction outside these deliverables.
-3. **Relative comparison.** C5 must supply `PeriodComparison` for arbitrary
-   pairs, with pullback, connecting-map, unit and product laws; SF.2 supplies
-   the geometry, relative products and rank-one Tate calculation. The
-   contracts are explicit, their construction remains requested.
-4. **Reader refresh.** An authorized reader editor should refresh the
-   displayed review/history and later packet annotations. All 182 headings
-   and the six supplier nodes' substantive repaired contracts are present;
-   the reader already explains Tate one-dimensionality. It does not yet
-   name the later `gm_finrank` witness in the two new packet annotations.
-   The report records the broader literal-string differences without
-   claiming full present-day synchronization. This review's deliverables
-   exclude the reader.
-5. **Separate reconstruction review.** #5161,
-   `REV-FIX-RT-AREA-geomlanglands~2`, remains responsible for the nine abstract
-   reconstruction nodes and their 39 comment-only API/test names. Preserve
-   its pending obligation and the inherited Basic Lemma, Artin/Tate,
-   cellular realization, coboundary-product and universal-property gaps.
+## Checks
 
-Public sources were read in disposable scratch; no source passages or
-private filesystem paths are included in the deliverables. No upstream
-checkout was edited or built. No manual promotion, merge, issue closure or
-label change was made. The one PR submits this completed review.
+- Packet checker with the pinned declaration index: 0 errors, 0 warnings.
+- Full suggested file via `lean-check`, before and after the correction:
+  exit 0; final run 806 warnings, all admitted-proof warnings, no errors or
+  other warnings. Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  Final file SHA-256:
+  `99299f01dccfb3946d18ebf7f4497f104b49a216a6727151bd839eb5a0954150`.
+  Compilation does not prove the admitted declarations or supply missing
+  reconstruction interfaces.
+- Parsed preservation, `git diff --check` and intake file checks pass.
+- `issues.deliverables_complete` remains false: GH.0 and Kato still name their
+  separate owner reviews, rather than this job. No completion claim is made.
+
+## Resume here
+
+1. **Reconcile dispatch scope first.** The queue's additional pairs are
+   `packets/GeneralizedHeegnerCycles--GH.0.json` with its suggested file, and
+   `packets/KatoEulerSystems.json` with its suggested file. The maintainer can
+   authorize that review scope and refresh the issue, or align queue outputs
+   with a genuinely Motives-only job. Do not change unrelated review markers
+   or trim queue outputs merely to make intake complete.
+2. **GH.0 bounded review if authorized.** Read BDP §2.2 p.1060, §3.2 p.1067,
+   the introduction p.1040 and Conrad appendix pp.1139–1140. Current
+   `cm-product-good-model`, `p-adic-abel-jacobi-map` and
+   `finite-local-abel-jacobi-class` require the unramified local field and
+   supplied smooth proper models for both factors/product. The conductor
+   application is distinguished from arbitrary ramified twists. Check their
+   actual Lean/API contracts and retain prior review history.
+3. **Kato bounded review if authorized.** Findings /2–/7 largely survive in
+   the present owner: twist `k−r`, linear Euler factors, filtration steps with
+   upper endpoint `i≥k`, twist before specialization, dual restriction limit,
+   and divisor pushforward. A real source-match discrepancy remains:
+   `L1/hecke-and-diamond-equivariance-of-the-moment-map` and
+   `REV-KatoEulerSystems~2` attribute `n^(r−1)` to Lemma 8.8(1), printed p.185,
+   whose displayed formula is `n^(r′−1)`. I checked the page image. Either
+   restore a justified source-faithful contract or derive the intended
+   normalization and record a source issue; do not conflate r and r′. The
+   two diamond exponents and determinant factor are separate from this
+   Hecke discrepancy. Record a needs_changes verdict if it cannot be resolved.
+4. **Reader refresh by an authorized editor.** Transfer the new period-torsor
+   witnesses/proof/acceptance, formal-period page locator, later period-point
+   annotations and current reconstruction review/status. All six supplier
+   statements occur in the reader, but literal synchronization is incomplete.
+5. **Keep separate supplier/consumer obligations.** C5 must construct the
+   typed comparison of arbitrary pairs. PS.2 owns integration/evaluation:
+   import `P=P_eff[L⁻¹]`, extend by `ev(L)=2πi≠0`, identify the typed period
+   point and retain inverse and polynomial/Laurent tests. The atlas's PS.2
+   wording remains a maintainer edit. The geomlanglands review's relative
+   reconstruction gap is not cleared by this run.
+
+Public source URLs and exact mathematical locators are in the review report.
+Sources were read only in disposable scratch, with no passages copied into
+the deliverables. No build or modification was made in either upstream
+checkout. No manual promotion, merge, issue closure or label change was made.

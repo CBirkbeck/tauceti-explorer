@@ -7910,7 +7910,8 @@ cross product in singular homology; and the classes `1`, `[pt]`, `dX/X` and `[S�
 nonzero (they span the one-dimensional groups of `(𝔾_m, {1})` in degree `1`). The comparison
 isomorphism with singular cohomology is not part of this structure: it is the separate typed
 contract `PeriodComparison` below, requested from ComplexComparisonPartII:C5. The formal periods
-`P⁺` and `P` depend only on the data here; the comparison enters only the period point. -/
+`P⁺` and `P` are presented from these data; the comparison enters the period point and the
+nonemptiness argument for the period torsor. -/
 structure PeriodData (Hs : PairHomology) where
   /-- `H^d_dR(X, Y)`. -/
   HdR : ∀ (X : Var) (_ : Closeds X.obj.left), ℤ → Type
@@ -8243,8 +8244,15 @@ theorem formalPeriods_veryGood :
 /-- MC.6/period-torsor: `Spec P` is an affine heap (through `P = A_{1,2}`, the heap
 `X_{1,2} = Iso⊗(H^*_dR, H^*)` of MC.6/iso-torsor) and a torsor under the motivic Galois group,
 acting through a coassociative coaction `P ⟶ A(D_Nori, H^*) ⊗ P` with `P ⊗ P ≅ A ⊗ P`; and `P` is
-faithfully flat over `ℚ`. The compatibility of the action with the heap map is not stated. -/
-theorem period_torsor :
+faithfully flat over `ℚ`. The supplied good-pair structures must agree with the exterior and
+cross products, through `ProductCompatible`; the typed comparison supplies a complex point and
+hence the nonemptiness needed for faithful flatness. These are the hypotheses of HMS §3,
+pp.12–13, and of the packet, rather than conclusions for arbitrary `PeriodData`. The
+compatibility of the action with the heap map is not stated. -/
+theorem period_torsor (P : (good Hs).ProductStructure (goodGrading Hs))
+    (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
+    (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P)
+    (_hM : ProductCompatible Hs dR P M₁ M₂) (_φ : PeriodComparison dR) :
     letI := MotivicGalois.commRing Hs; letI := MotivicGalois Hs
     Nonempty (AffineHeap ℚ (FormalPeriods Hs dR)) ∧
     ∃ ρ : FormalPeriods Hs dR →ₐ[ℚ] (noriRep Hs).coalgebra ⊗[ℚ] FormalPeriods Hs dR,
