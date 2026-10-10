@@ -1,4 +1,92 @@
-# PKG-JacobianChallengePartII — blocked package checkpoint
+# PKG-JacobianChallengePartII — supplier-blocked continuation
+
+Refs #7593. Current worker: Codex (GPT-6), session `codex-mrc0Mm`,
+10 October 2026. Branch: `codex-mrc0Mm-jacobian-package-checkpoint`.
+The bot confirmed [claim comment 6099825945](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6099825945).
+This run took one issue and stops after submitting this checkpoint.
+
+## Current result and blocking evidence
+
+**The package remains a checkpoint.** The earlier README and Suggested.lean
+are preserved unchanged. This continuation independently rechecked the supplier
+availability, current upstream ownership boundary, target correspondence and
+Lean elaboration; it did not review its own package or re-certify source proofs.
+No new mathematical target or implementation is claimed.
+
+The package cannot be finished within this issue's authorized files. WORKERS.md,
+“Upstream tiers”, permits a package's target citations only to the libraries,
+its own or bundled layers, current Tau Ceti roadmaps and lower-tier packages.
+Both of the following required supplier packages remain absent from
+`research/blueprint/packages/`; neither has a roadmap in the supplied current
+TauCetiRoadmap checkout (commit `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`).
+
+| Required input | Fresh check and exact resumption dependency |
+| --- | --- |
+| `AbelianSchemesAndArithmeticModuli:A1–A3` | The 89-node plan retains its independent `accepted` verdict dated 2026-10-09. Its arbitrary-base abelian schemes, dual/Poincaré/polarization, and nonzero multiplication contracts are necessary in JC1–JC5 and JC7. An accepted plan does not supply the missing package. Consume the eventual package's actual layer targets before adding metadata. |
+| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The plan retains its independent `needs_changes` verdict dated 2026-10-05. The unresolved reader/packet contradiction is recorded in that verdict. Revision [#6378](https://github.com/CBirkbeck/tauceti-explorer/issues/6378) is open and available, and its independent review [#6395](https://github.com/CBirkbeck/tauceti-explorer/issues/6395) is blocked. After reconciliation and independent acceptance, MC.4 still needs a package before JC7 can consume it. |
+
+JC7 requires the integral fixed symplectic component over
+Z[1/ℓ,ζ_ℓ], its smooth quasi-projective fine scheme and smooth projective
+universal curve, with g≥2 and ℓ≥3 invertible. The current MC.4 target includes
+this scope; its cited DGH §6.1 result alone is characteristic-zero. Replacing
+the supplier with that smaller result would drop an accepted target. Importing
+MC.4 into JC0–JC5 would also break the dependency boundary: MC.4 already
+consumes JC1's relative Jacobian, base change and principal polarization.
+
+Current Tau Ceti (`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`) was inspected
+read-only. `AbelianVariety/Basic.lean` still bundles `AbelianVariety K` with
+`[Field K]`, rather than an arbitrary-base abelian scheme. A search through its
+algebraic-geometry sources found no `AbelianScheme`, `RelativePicard`,
+`PicardScheme`, `DualAbelian` or `PoincareBundle` interface that could replace
+these contracts. This search is a boundary check, not a full new library audit.
+The current JacobianChallenge and AlgebraicVectorBundles READMEs were read in
+full; field/pointed Jacobians and finite locally free dual/determinant
+infrastructure keep their existing owners. Neither upstream checkout was
+modified, and no Lake command was run there.
+
+## Fresh validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
+  **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
+  14 recorded gaps and 13 requests. All eight stages are planned; none is
+  closed. The packet remains unchanged.
+- Mechanical correspondence: every one of the 48 accepted target statements,
+  all 60 API names and all 52 test names occurs in the README. The geometric
+  API/test contract names also occur in Suggested.lean; the native triangular
+  portion uses namespace-local lemma names and anonymous examples. This is
+  name/statement correspondence, not elaboration of the geometric contracts.
+- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
+  **exit 0, 0 errors, 9 warnings, all `declaration uses sorry`**. Available
+  memory was 100 GB before the single check. Compilation checks only JC5.5's
+  native declaration, five API lemmas and three examples; the other 47 target
+  interfaces remain mathematical comments. No build, update, cache download,
+  language server or new Lake project was started.
+- `python3 research/blueprint/intake.py check-files` on the README,
+  Suggested.lean and this handoff: **3 files, 0 problems**.
+- `git diff --check`: clean. Only this handoff changes in this continuation.
+
+The unchanged input packet SHA-256 remains
+`2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275`.
+Supplier packet receipts:
+`AbelianSchemesAndArithmeticModuli.json`:
+`768adc69448c575ea3b07e4631d532c5177bc7572d030e3e3420bd8d6f67b3ff`;
+`StableReductionPartII.json`:
+`ded54104d6390d9196a8e0ae640ab909938b04fbc1398ff4d1d7eff229f8ce67`.
+
+## Resume only after the supplier boundary changes
+
+The maintainer should gate this package on the two supplier packages above,
+so another worker is not sent to repeat this unchanged blocking audit. This is
+a recommendation; this run changes no labels, queue files or other jobs.
+When the suppliers exist, align their exact layer contracts and sign
+conventions with the package, preserve all 48 targets, repeat correspondence
+and Lean checks, then add `metadata.toml` containing `topic = "math.AG"`.
+The earlier continuation list below retains the detailed mathematical worklist
+and source-reading limits. No continuation needs a file from this run's
+scratch space.
+
+## Earlier checkpoint record (codex-M9i0Dl)
+
 
 Refs #7593. Worker: Codex (GPT-6), session `codex-M9i0Dl`, 10 October 2026.
 Branch: `codex-M9i0Dl-jacobian-package`. The bot confirmed
