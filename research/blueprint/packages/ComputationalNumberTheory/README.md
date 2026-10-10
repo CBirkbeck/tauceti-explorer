@@ -146,7 +146,7 @@ Construction requirements. For algebraic presentations, implement a finite ratio
 
 Construction or proof. Use an inductive instruction type, existing sum and product types for operands and destinations, and finite indices for the operation tables.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Shoup](#source-shoup), §3.2, printed pp.53–55.
 
@@ -477,7 +477,7 @@ Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its 
 
 Construction or proof. Use the multiplicity of 2 in n−1 via Nat.factorization and exact exponentiation in ZMod n.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Shoup](#source-shoup), §10.2, pp.308–310.
 
@@ -523,7 +523,7 @@ Source. [Shoup](#source-shoup), §10.2 algorithm and Theorem 10.3, pp.309–312.
 
 Construction or proof. Search r=2,…,n in increasing order using exact gcd and modular-power computations. The candidate n terminates the search.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.
 
@@ -543,7 +543,7 @@ Tests.
 
 Construction or proof. Use Polynomial.modByMonic over the commutative ring ZMod n. The algorithm supplies r>1, so the modulus is monic of degree r.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Shoup](#source-shoup), §21.2, pp.549–550; Figure 21.1, p.550.
 
@@ -593,7 +593,7 @@ Source. [Shoup](#source-shoup), §21.2 and Lemmas 21.6–21.11, pp.549–558.
 
 Construction or proof. For every prime-power q^e∣F, the order of a modulo p divides n−1 but does not divide (n−1)/q. Thus its q-adic exponent is at least e, and q^e divides p−1. Combine these prime powers.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Thery](#source-thery), Theorem 6.1 and corrected Theorem 6.2, p.9.
 
@@ -673,7 +673,7 @@ Source. [PrattNotes](#source-prattnotes), pp.1–4, formal proof system and its 
 
 **Transport of certified finite-field factors — `transport_finite_factorization`.** Let e:F≃+*K be a certified change from a computable finite-field presentation to the intrinsic finite field. For nonzero f=c∏g_i with c≠0 and all g_i monic irreducible, mapping coefficients by e yields map(e,f)=e(c)∏map(e,g_i), again with monic irreducible factors. The FF.3 checker and its search algorithm supply the data; CN.1 only checks the presentation boundary and reconstructs the intrinsic factorization.
 
-Construction or proof. Import the accepted nonzero finite-field certificate contract. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport.
+Construction or proof. Use the nonzero finite-field factorization certificate supplied by FF.3. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport.
 
 Prerequisites. **FiniteFieldsAndCharacterSums, FF.3** (factorization certificate sound); **FiniteFieldsAndCharacterSums, FF.0** (presentation change isomorphism).
 
@@ -683,7 +683,7 @@ Source. [Shoup](#source-shoup), Theorem 19.14, pp.515–516; Chapter 20.
 
 Construction or proof. Store finite polynomial data and exact proof obligations. This wraps an output of discovery, not a new factorization theory. The factory must obtain each rational irreducibility proof by a justified criterion, with exhaustive modular recombination when one-prime irreducibility is unavailable.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [Shoup](#source-shoup), §16.5–16.6, pp.439–441.
 
@@ -759,7 +759,7 @@ Source. [NumberRings](#source-numberrings), §2, pp.212–213, Theorem 2.2; §7,
 
 Construction or proof. The stabilizing condition is closed under addition, multiplication and negation. Every integer scalar stabilizes I. Package the subset as the existing Subalgebra ℤ K type.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [NumberRings](#source-numberrings), §9, Proposition 9.3, pp.234–235.
 
@@ -779,7 +779,7 @@ Tests.
 
 Construction or proof. Express equality after localization by clearing a denominator prime to p. Keep the intrinsic integral closure as the target.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [NumberRings](#source-numberrings), §9, pp.233–235.
 
@@ -959,7 +959,7 @@ Source. [NumberRings](#source-numberrings), §12, pp.248–252.
 
 Construction or proof. Repeated monic quotient/remainder division lowers degree. The remainders are the a_i. Induction gives reconstruction, the degree bound and uniqueness.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [GMN](#source-gmn), §1.2, Definition 1.6, p.7.
 
@@ -1531,7 +1531,7 @@ Tests.
 
 Construction or proof. Use native real exp and π. Positivity follows from π≠0. On the nonnegative half-line both the exponential factor decreases and the positive denominator increases.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [CL](#source-cl), §3.16, Proposition 3.17 and numerical comments (3), printed pp.304–307, French preprint.
 
@@ -1735,7 +1735,7 @@ Source. [CT](#source-ct), Remark 2.11, pp.281–282.
 
 Construction or proof. Evaluate the positive-semidefinite inequality on x and expand the difference.
 
-Prerequisites. Native arithmetic, finite lists and functions..
+Prerequisites. Native arithmetic, finite lists and functions.
 
 Source. [CT](#source-ct), Remark 2.11, pp.281–282.
 
@@ -1808,7 +1808,7 @@ Tests.
 - `test_check_zero_vector` (degenerate): The zero vector never passes.
 - `test_check_ambiguous_sign` (non-example): An interval straddling zero fails even if its lower endpoint is negative.
 
-**Finite family of Gram certificates — `checkGramDataset`.** A raw Gram row is a dimension n, an n×n rational interval matrix and an n-coordinate rational vector. checkGramDataset applies checkNegativeGram to every row and returns their Boolean conjunction. Acceptance says exactly that every listed witness certifies a negative real quadratic value, assuming the analytic entries are enclosed. It does not assert that the list exhausts a mathematical search space; coverage comes separately from the enumeration certificate. Source identifiers, software pins and file hashes are handoff provenance, not new mathematical structures.
+**Finite family of Gram certificates — `checkGramDataset`.** A raw Gram row is a dimension n, an n×n rational interval matrix and an n-coordinate rational vector. checkGramDataset applies checkNegativeGram to every row and returns their Boolean conjunction. Acceptance says exactly that every listed witness certifies a negative real quadratic value, assuming the analytic entries are enclosed. It does not assert that the list exhausts a mathematical search space; completeness follows separately from the enumeration certificate. Each dataset record must identify its mathematical parameters and the certificate binding its entries to the intrinsic analytic values.
 
 Construction or proof. Use a dependent pair over n and a finite List. Check each row independently; prove the all-members equivalence by list induction.
 
@@ -1824,7 +1824,7 @@ API.
 
 Tests.
 
-- `test_dataset_empty` (degenerate): The empty list passes, proving nothing about coverage.
+- `test_dataset_empty` (degenerate): The empty list passes without proving enumeration completeness.
 - `test_dataset_single` (computation): A one-row negative certificate passes.
 - `test_dataset_bad_row` (non-example): Adding a zero-vector row makes the entire dataset fail.
 
@@ -1927,4 +1927,4 @@ numbering.
 
 <a id="source-cg13"></a>
 
-- **CG13**: Craig Citro and Alexandru Ghitza, [Computing level one Hecke eigensystems (mod p)](https://arxiv.org/pdf/1102.3321v2), arXiv:1102.3321v2, 29 March 2011; journal publication 2013 not independently collated.
+- **CG13**: Craig Citro and Alexandru Ghitza, [Computing level one Hecke eigensystems (mod p)](https://arxiv.org/pdf/1102.3321v2), arXiv:1102.3321v2, 29 March 2011.
