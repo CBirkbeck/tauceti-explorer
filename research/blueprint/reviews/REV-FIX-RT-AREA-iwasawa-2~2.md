@@ -1,3 +1,116 @@
+# Scope-blocked checkpoint — codex-AHC3lr
+
+Codex, session `codex-AHC3lr`, 10 October 2026. Refs #6219.
+Input commit: `6e893062d600b4b59dd6e7666d860aef7d53e5cd`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097216929).
+No fix in this job was this reviewer's work; this run claims one job only.
+
+The review cannot be completed under the live issue's file scope. Its queue
+requires `DirichletPadicLFunctions--L3-2.json` and
+`PadicHodgeRegulators--D.1.json`, neither of which the live issue lists.
+[WORKERS.md](../WORKERS.md) explicitly limits edits to named files. Explicit
+scope authorization was requested while source and compiler checks continued;
+no answer arrived. This checkpoint changes only the report and handoff.
+The existing packet reviews and all histories remain unchanged.
+
+The actual `issues.deliverables_complete` result remains **False**. A scratch
+overlay with just the two omitted packet edits returns **True**. Both proposed
+packets pass the checker. The overlay does not change the queue or suggested
+files. PMIA's retained `needs_changes` is a completed review verdict; its
+mathematical follow-up is separate from this scope blocker.
+
+## Fresh checks and their bounds
+
+Read the six findings, verification and round-two fix report, then checked
+the eight selected L3 Gamma/root contracts, the 29 selected L3-2 root/derivative
+contracts, the four D.2 comparison consumers and the current generic
+Fitting/stable-transpose interfaces. The source locators and mathematical
+cautions in the preceding report remain supported. This continuation does
+not claim a new full audit of PMIA's 50 L6 nodes, the complete packets, LAD or
+RS-16. The earlier report below remains attributed to its original reviewer.
+
+Fetched all eight public papers anew. Checked Morita §1, Lemma 1 and Theorem 1,
+pp.255–256; Gross–Koblitz §1, (1.2), (1.5), Theorem 1.7, pp.570–571; Robert
+Theorem 4 and its dyadic estimate, pp.167–168; Zhao §1.2 p.461, §4 Theorem 4.1
+and (4.1)–(4.6), pp.471–473, Appendix B.2 p.474; DK §§2.2–2.3, pp.15–18,
+Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40 and Appendix B.2 (171), pp.93–94;
+EN §§2.1–2.2 pp.4–8; CN Corollary 3.16 p.37 and Theorem 5.4 p.54; NN
+Remark 2.14 p.14 and Proposition 4.13 pp.53–54. PDF digests match the preceding
+receipt table. Relevant scanned formulas were inspected as images. No source
+passage or restricted book was copied into the repository.
+
+Zhao's derivative retains the conductor correction; its exceptional-zero
+specialization does not establish nonvanishing. Appendix B.2's inclusive
+endpoint is inconsistent with its strict antidifference convention. The
+packet already has the strict endpoint; its only proposed mathematical-text
+edit is the erroneous source-issue locator E34 to
+`DirichletPadicLFunctions/E37`. EN's directed divided/undivided maps and
+factorial twist retain their weight ranges and distinct scalar/sign controls.
+The four regulator consumers do not close the external CS producers.
+
+Current read-only roadmap main is now
+`e255659f8eb50cd472809d9d565c8f755acffd84`; current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the native Fitting and stable
+transpose declarations there. The five PMIA generic nodes listed in the
+preceding report still require a coordinated migration; no partial migration
+is made. At the programme pins, byte comparisons again confirm the shared
+build's transpose and finite-projective dual sources; the three newer
+Fitting/stable-transpose modules are absent at the older Tau Ceti pin.
+
+All four original packets pass `check_blueprint.py`: zero errors, 26 inherited
+L3 short-API warnings, zero warnings in the others. Both overlay packets pass
+with zero errors and warnings. A structural comparison confirms only
+review/history and the single L3-2 locator change; the entire prior D.1 review,
+including its 72 checked entries, is archived unchanged in the draft.
+
+Sequential `lean-check` runs at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369` give:
+
+| Suggested file | Fresh result |
+| --- | --- |
+| `DirichletPadicLFunctions--L3-2.lean` | Success; 110 `sorry` warnings only. |
+| `PadicHodgeRegulators--D.1.lean` | Success; 307 `sorry` warnings only. |
+| `PadicMeasuresIwasawaAlgebras.lean` | Success; 1,075 `sorry` warnings only. |
+| `DirichletPadicLFunctions--L3.lean` | Fails at line 1: unknown module prefix `research`, before its body. |
+
+No Lean source was changed and no compile remains running.
+
+## Concrete proposed review records
+
+These records are **uninstalled proposals**, retained here because scratch is
+deleted after submission. After scope authorization, the continuing independent
+reviewer must make the E37 locator repair, preserve every prior whole review
+in `reviewHistory`, update the attribution/date and remove the word
+“Proposed” from installed notes. The records retain explicit bounded scopes
+and do not substitute for the archived full reviews.
+
+`research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`:
+
+```json
+{
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+  "date": "2026-10-10",
+  "notes": "Proposed bounded independent fix review by Codex, session codex-AHC3lr. Following the retained L3-2 planning material and the predecessor fix-review reports, checked the root normalization and Ferrero-Greenberg contract against Zhao, section 1.2 p.461 and section 4 Theorem 4.1, equations (4.1)-(4.6), pp.471-473. The selected 29 rjw2-gk-/rjw2-fg-/rjw2-ferrero-greenberg nodes preserve all-prime scope, prime-to-p conductor, even branch, the conductor correction term, strict antidifference endpoint, common logarithm, and the separate nonvanishing suppliers. Corrected only the antidifference locator E34 to DirichletPadicLFunctions/E37. All five gaps, eight requests and the sourceIssue remain. Packet checker: zero errors and warnings. Suggested file: 110 proof-placeholder warnings, no errors. This is a bounded fix review, not a complete fresh audit of all 79 nodes or proof closure."
+}
+```
+
+`research/blueprint/packets/PadicHodgeRegulators--D.1.json`:
+
+```json
+{
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+  "date": "2026-10-10",
+  "notes": "Proposed bounded independent fix review by Codex, session codex-AHC3lr, following and preserving the entire independent-review-REV-PadicHodgeRegulators--D.1~2 audit in reviewHistory. Checked the four D.2 consumer contracts log-syntomic-complex, fontaine-messing-kato-period-map, small-twist-comparison, syntomic-exponential against Ertl-Niziol sections 2.1-2.2 pp.4-8, Colmez-Niziol Corollary 3.16 p.37 and Theorem 5.4 p.54, Nekovar-Niziol Remark 2.14 p.14 and Proposition 4.13 pp.53-54. Preserve divided/undivided differentials and directed maps, factorial-modified twist, exact divided range through p-2, bounded undivided comparison, rational exponential scale/sign, and external CS.0-CS.3 producer requests. All 17 sourceIssues, nine gaps, twenty requests and eight planned stages remain. Packet checker: zero errors and warnings. Suggested file: proof-placeholder warnings only. This is a bounded fix review, not a replacement complete regulator audit or a claim that producer construction is closed."
+}
+```
+
+---
+
+## Preceding checkpoint, retained with original attribution
+
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent review checkpoint
 
 Codex, session `codex-7tHQKP`, 10 October 2026.

@@ -1,26 +1,26 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — resolve scope before redispatch
 
-Codex, session `codex-7tHQKP`, 10 October 2026.
+Codex, session `codex-AHC3lr`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096970616).
-Input: `f9d4c17fd933f5012756238a55f02350f8a21fd0`. One job; none of its
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097216929).
+Input: `6e893062d600b4b59dd6e7666d860aef7d53e5cd`. One job; none of its
 fixes was this reviewer's work.
 
-The [consolidated report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) contains
-fresh source checks, exact bounded scopes and six dispositions. It links the
-complete previous report at the input commit, preserving earlier attribution
-and ledgers. Existing reviews/history, mathematical nodes, gaps, requests,
-sourceIssues, coverage, suggested files and dispatch metadata are unchanged.
-Do not refresh the same two named reviews to try to finish this job.
+The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) now preserves
+both proposed review objects as concrete JSON, together with fresh source,
+compiler and structural-check receipts. Its preceding checkpoint remains
+attributed whole to `codex-7tHQKP`; this run does not claim that worker's full
+L6, LAD or RS-16 audit. The actual completion predicate remains False; the
+two-packet draft overlay makes it True. Packet reviews/history and all
+mathematical deliverables are unchanged. Do not refresh the same two named
+reviews to try to finish the job.
 
-This continuation also matched the pinned transpose and finite-projective
-dual source files byte for byte against the pin's Git blobs, and checked the
-new generic Fitting/stable-transpose modules absent at that pin. All four
-original packet checks and Lean attempts were rerun. The proposed two omitted
-packet edits were recreated in scratch, checked with their original packet
-filenames and compared structurally with the originals. No mathematical
-change beyond the single pending E37 locator repair is proposed. No packet
-receipt was refreshed; this remains the same unresolved scope gate.
+Fresh current roadmap main is `e255659f8eb50cd472809d9d565c8f755acffd84`;
+current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The native Fitting and stable-transpose reuse requirement persists.
+All four packet checks, two overlay checks and four sequential Lean attempts
+were repeated. The proposed D.1 archive retains all 72 prior checked entries.
+No queue mutation, owner move, Lean edit or packet receipt refresh was made.
 
 ## The blocking condition
 
@@ -42,7 +42,7 @@ completion predicate is not a solution.
 1. `packets/DirichletPadicLFunctions--L3-2.json`: in node
    `DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference`, change the Zhao
    locator's E34 to `DirichletPadicLFunctions/E37`. Keep the strict endpoint,
-   Gamma argument, proof and sourceIssue verdict unchanged. Install an
+   Gamma argument, proof and sourceIssue verdict unchanged. Use the concrete proposed record in the report to install an
    accepted review by `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, dated
    on the continuation's day, explicitly bounded to the 29 root/derivative
    contracts in the report. Record the all-prime hypotheses, conductor term,
