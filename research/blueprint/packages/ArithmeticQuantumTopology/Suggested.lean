@@ -692,6 +692,133 @@ theorem parity_grading_unique (A : ι → ι → ℤ) (d : ι → ℕ)
     (hgen : ∀ x, generator A d x ∈ C (quantumParityDegree (gram A d) d x)) :
     C = component A d := sorry
 
+@[simp] theorem word_append (A : ι → ι → ℤ) (d : ι → ℕ) (u w) :
+    word A d (u ++ w) = word A d u * word A d w := by
+  simp [word]
+
+@[simp] theorem wordDegree_append (A : ι → ι → ℤ) (d : ι → ℕ) (u w) :
+    wordDegree A d (u ++ w) = wordDegree A d u * wordDegree A d w := by
+  simp [wordDegree]
+
+theorem component_one_mem (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (1 : Algebra A d) ∈ component A d 1 :=
+  Submodule.subset_span ⟨[], by simp [wordDegree], by simp [word]⟩
+
+theorem component_generator_mem (A : ι → ι → ℤ) (d : ι → ℕ) (x) :
+    generator A d x ∈ component A d (quantumParityDegree (gram A d) d x) :=
+  Submodule.subset_span ⟨[x], by simp [wordDegree], by simp [word]⟩
+
+theorem component_mul_mem (A : ι → ι → ℤ) (d : ι → ℕ)
+    (g h : QuantumParityGroup (gram A d)) (x y : Algebra A d)
+    (hx : x ∈ component A d g) (hy : y ∈ component A d h) :
+    x * y ∈ component A d (g * h) := by
+  induction hx, hy using Submodule.span_induction₂ with
+  | mem_mem u v hu hv =>
+      obtain ⟨wu, hdu, rfl⟩ := hu
+      obtain ⟨wv, hdv, rfl⟩ := hv
+      exact Submodule.subset_span ⟨wu ++ wv, by simp [hdu, hdv], by simp⟩
+  | zero_left v hv => simp
+  | zero_right u hu => simp
+  | add_left u v w hu hv hw h1 h2 => simpa [add_mul] using Submodule.add_mem _ h1 h2
+  | add_right u v w hu hv hw h1 h2 => simpa [mul_add] using Submodule.add_mem _ h1 h2
+  | smul_left r u v hu hv h => simpa [smul_mul_assoc] using Submodule.smul_mem _ r h
+  | smul_right r u v hu hv h => simpa [mul_smul_comm] using Submodule.smul_mem _ r h
+
+/-- Habiro–Lê §6.2, p.70: evenness uses the nonabelian parity subgroup,
+not the zero weight component and not the whole generic algebra. -/
+def evenCarrier (A : ι → ι → ℤ) (d : ι → ℕ) :
+    Submodule QuantumRationalFunctions (Algebra A d) :=
+  Submodule.span QuantumRationalFunctions
+    {x | ∃ w, wordDegree A d w ∈ QuantumParityGroup.evenSubgroup (gram A d) ∧ word A d w = x}
+
+theorem evenCarrier_one_mem (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (1 : Algebra A d) ∈ evenCarrier A d :=
+  Submodule.subset_span ⟨[], by simp [wordDegree], by simp [word]⟩
+
+theorem evenCarrier_mul_mem (A : ι → ι → ℤ) (d : ι → ℕ)
+    (x y : Algebra A d) (hx : x ∈ evenCarrier A d) (hy : y ∈ evenCarrier A d) :
+    x * y ∈ evenCarrier A d := by
+  induction hx, hy using Submodule.span_induction₂ with
+  | mem_mem u v hu hv =>
+      obtain ⟨wu, hdu, rfl⟩ := hu
+      obtain ⟨wv, hdv, rfl⟩ := hv
+      exact Submodule.subset_span ⟨wu ++ wv, by simp only [wordDegree_append]; exact
+        (QuantumParityGroup.evenSubgroup (gram A d)).mul_mem hdu hdv, by simp⟩
+  | zero_left v hv => simp
+  | zero_right u hu => simp
+  | add_left u v w hu hv hw h1 h2 => simpa [add_mul] using Submodule.add_mem _ h1 h2
+  | add_right u v w hu hv hw h1 h2 => simpa [mul_add] using Submodule.add_mem _ h1 h2
+  | smul_left r u v hu hv h => simpa [smul_mul_assoc] using Submodule.smul_mem _ r h
+  | smul_right r u v hu hv h => simpa [mul_smul_comm] using Submodule.smul_mem _ r h
+
+/-- The ℂ(q)-subalgebra of even quotient words. Its closure needs neither
+quantum PBW nor an assumed direct-sum decomposition. -/
+def evenAlgebra (A : ι → ι → ℤ) (d : ι → ℕ) :
+    Subalgebra QuantumRationalFunctions (Algebra A d) where
+  carrier := evenCarrier A d
+  zero_mem' := (evenCarrier A d).zero_mem
+  one_mem' := evenCarrier_one_mem A d
+  add_mem' := (evenCarrier A d).add_mem
+  mul_mem' := fun hx hy => evenCarrier_mul_mem A d _ _ hx hy
+  algebraMap_mem' r := by
+    simpa [_root_.Algebra.smul_def] using (evenCarrier A d).smul_mem r (evenCarrier_one_mem A d)
+
+/-- This is precisely the sum of the components with even parity degrees. -/
+theorem evenAlgebra_toSubmodule (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (evenAlgebra A d).toSubmodule =
+      ⨆ g : QuantumParityGroup.evenSubgroup (gram A d), component A d g.val := by
+  have heq : (evenAlgebra A d).toSubmodule = evenCarrier A d := by ext; rfl
+  rw [heq]
+  apply le_antisymm
+  · apply Submodule.span_le.mpr
+    rintro x ⟨w, hw, rfl⟩
+    exact (le_iSup (fun g : QuantumParityGroup.evenSubgroup (gram A d) => component A d g.val)
+      ⟨wordDegree A d w, hw⟩) (Submodule.subset_span ⟨w, rfl, rfl⟩)
+  · apply iSup_le
+    intro g
+    apply Submodule.span_le.mpr
+    rintro x ⟨w, hw, rfl⟩
+    exact Submodule.subset_span ⟨w, hw ▸ g.property, rfl⟩
+
+theorem evenAlgebra_E_mem (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.E i) ∈ evenAlgebra A d := by
+  have hv : QuantumParityGroup.v (gram A d) ∈ QuantumParityGroup.evenSubgroup (gram A d) :=
+    Subgroup.subset_closure (Set.mem_union_left _ (Set.mem_singleton _))
+  have he : QuantumParityGroup.e (gram A d) i ∈ QuantumParityGroup.evenSubgroup (gram A d) :=
+    Subgroup.subset_closure (Set.mem_union_right _ ⟨i, rfl⟩)
+  change generator A d (.E i) ∈ evenCarrier A d
+  refine Submodule.subset_span ⟨[.E i], ?_, by simp [word]⟩
+  simpa [wordDegree, quantumParityDegree] using
+    (QuantumParityGroup.evenSubgroup (gram A d)).mul_mem
+      ((QuantumParityGroup.evenSubgroup (gram A d)).pow_mem hv (d i)) he
+
+theorem evenAlgebra_FK_mem (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.F i) * generator A d (.K i) ∈ evenAlgebra A d := by
+  have he : QuantumParityGroup.e (gram A d) i ∈ QuantumParityGroup.evenSubgroup (gram A d) :=
+    Subgroup.subset_closure (Set.mem_union_right _ ⟨i, rfl⟩)
+  change generator A d (.F i) * generator A d (.K i) ∈ evenCarrier A d
+  exact Submodule.subset_span ⟨[.F i, .K i], by
+    simpa [wordDegree, quantumParityDegree, mul_assoc, ← pow_two] using
+      (QuantumParityGroup.evenSubgroup (gram A d)).inv_mem he, by simp [word]⟩
+
+theorem evenAlgebra_K_square_mem (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.K i) ^ 2 ∈ evenAlgebra A d := by
+  change generator A d (.K i) ^ 2 ∈ evenCarrier A d
+  exact Submodule.subset_span ⟨[.K i, .K i], by
+    simp [wordDegree, quantumParityDegree, ← pow_two], by simp [word, pow_two]⟩
+
+/-- Rank-one evenness allows nonzero root weight but requires the K parity
+correction on F. This exclusion is a PBW comparison target, not a proof. -/
+theorem rankOne_K_not_even :
+    generator (fun (_ _ : Unit) => (2 : ℤ)) (fun _ => 1) (.K ()) ∉
+      evenAlgebra (fun (_ _ : Unit) => (2 : ℤ)) (fun _ => 1) := sorry
+
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.E i) ∈ evenAlgebra A d ∧
+    generator A d (.F i) * generator A d (.K i) ∈ evenAlgebra A d ∧
+    generator A d (.K i) ^ 2 ∈ evenAlgebra A d :=
+  ⟨evenAlgebra_E_mem A d i, evenAlgebra_FK_mem A d i, evenAlgebra_K_square_mem A d i⟩
+
 /-- DJ_sl2_relations: generic negative F-weight; the h-adic comparison is separate. -/
 example : let A : Unit → Unit → ℤ := fun _ _ => 2
     let d : Unit → ℕ := fun _ => 1

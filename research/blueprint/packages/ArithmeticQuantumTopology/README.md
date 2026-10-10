@@ -1,14 +1,14 @@
 # Arithmetic quantum topology, Habiro invariants and regulators
 
-This roadmap builds integral quantum invariants of links and integral homology spheres, then compares selected hyperbolic knot invariants with Bloch classes, perturbative series and quantum modular transformations. Analytic integrals and conjectures retain their hypotheses and normalizations.
+Build integral link and integral-homology-sphere quantum invariants; compare selected hyperbolic knots with Bloch classes, perturbative series and quantum modular transformations, retaining analytic hypotheses and conjectural status.
 
 ## Conventions and boundaries
 
 Rank one uses q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!. Its integral ground ring is ℤ[q±1], ambient color field ℚ(v), q=v². Positive framing uses r⁻¹. Vₙ has dimension n+1; the reduced dimension index N uses Vₙ₋₁. The unreduced unknot is [n+1]; reduce before root evaluation. General Lie type retains its root lattice, symmetrizers, root lift and parity grading.
 
-HabiroCyclotomicCompletions supplies the scalar inverse limit of ℤ[q] modulo cyclotomic factorial ideals. Distinguish the quantum-group image completion in the h-adic algebra from the color-lattice completion. QT.1 builds completed tensors and PBW forms from native quotient/tensor algebras; inverse-limit maps need not be injective.
+HabiroCyclotomicCompletions supplies lim ℤ[q]/(q;q)_n. Distinguish the quantum-group image completion in the h-adic algebra from color-lattice completion. QT.1 builds completed tensors and PBW forms; inverse-limit maps need not be injective.
 
-GeometricTopology owns framed links, presentation equivalence, linking matrices, surgery, Kirby calculus and hyperbolic manifolds. QT.0 imports these for refined admissible calculus. Single-knot Gauss codes/writhe and unframed Markov equivalence do not suffice. LieHighestWeight/RootSystems supply classical Lie/weight/PBW theory; QT.1 builds quantum presentations and integral ribbon forms/cores.
+Import framed links, presentation equivalence, linking matrices, surgery, Kirby calculus and hyperbolic manifolds from GeometricTopology for QT.0 refined calculus. Knot Gauss codes and unframed Markov equivalence lack this data. Import classical Lie/weight/PBW theory from LieHighestWeight/RootSystems; QT.1 builds quantum presentations and integral ribbon forms/cores.
 
 K3BlochGroups supplies pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms supplies dilogarithm branches, Bloch–Wigner and regulators. QT.5 builds geometric flattenings and the full extended group. Compare Neumann’s iVol−CS modulo π²ℤ with GZ’s iVol+CS by negative conjugation, retaining periods and lifts. Trace-field descent requires algebraicity and boundary cancellation.
 
@@ -20,7 +20,7 @@ QSeriesPartitionsAndMockModularForms owns scalar quantum modular/cocycle theory 
 
 Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reuse monoidal/braided/rigid categories and Hopf algebras; add completed tensors, ribbon twists and quantum PBW forms. Total `MeasureTheory.integral` needs integrability; rectangular Cauchy–Goursat deformation needs tail estimates for unbounded contours. Meromorphic normal form and `meromorphicOrderAt` distinguish zeros and poles despite totalized value zero.
 
-Tau Ceti supplies `SmoothLinkEmbedding` (disjoint smooth circles) and `FramedBoundaryTorus` (primitive slopes in actual H₁). GeometricTopology owns framed isotopy, linking and filled manifolds; its cusped extension supplies ordered ideal triangulations, peripheral completeness and geometric refinement. Closed hyperbolic theory alone does not supply cusped completeness.
+Tau Ceti supplies `SmoothLinkEmbedding` and `FramedBoundaryTorus` (primitive actual-H₁ slopes). Import framed isotopy, linking and fillings from GeometricTopology; its cusped extension supplies ordered ideal triangulations, peripheral completeness and geometric refinement.
 
 <a id="qt-0"></a>
 
@@ -32,7 +32,7 @@ Tau Ceti supplies `SmoothLinkEmbedding` (disjoint smooth circles) and `FramedBou
 
 Use GeometricTopology layer 4's framed oriented link presentations and Seifert convention: A_ii=f_i, A_ij=lk(L_i,L_j) for i≠j, with symmetry and crossing-sign/writhe compatibility. FramedOrientedGaussCode describes one knot; FramedMarkovBraid has component framings, but MarkovEquiv forgets them.
 
-The identity braid framed by 0 or 1 has equal forgotten presentations but opposite admissibility: its coefficient matrix is [0] or [1]. No predicate on the forgotten braid recovers this distinction. Layer 4 supplies linking numbers and framed transport.
+Framing the identity braid by 0 or 1 gives the same forgotten presentation but matrices [0] and [1], with different admissibility. Layer 4 supplies linking numbers and framed transport.
 
 **Depends on.** [GeometricTopology — layer-4-knot-theory-done-properly-owned-here][GT4]; `TauCeti.FramedMarkovBraid`; `TauCeti.MarkovEquiv`; `TauCeti.BasedOrientedGaussCode.writhe`.
 
@@ -1208,7 +1208,9 @@ Let G be the Habiro–Le central parity extension of Y×Y/2Y, retaining its cent
 
 ### Quantum parity grading
 
-For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is generated by a central v̇ of order two, commuting K̇_α of order two and invertible ė_α, with K̇_α ė_β=v̇^((α,β))ė_βK̇_α and ė_αė_β=v̇^((α,β))ė_βė_α. Its quotient by ⟨v̇⟩ is Y×Y/2Y. The tensor grading amalgamates the central v̇ in all factors; G^⊗0=⟨v̇⟩. The generator degrees are deg(v)=v̇, deg(K_±α)=K̇_α, deg(E_α)=v̇^(d_α)ė_α and deg(F_α)=ė_α⁻¹K̇_α. The degree-g component spans quotient words of product degree g over ℂ(q). `GenericQuantum.general_parity_grading` states `DirectSum.IsInternal` of these components, their multiplicative closure and generator membership; `parity_grading_unique` characterizes them by the generator degrees. Its hypotheses are a_ii=2, a_ij≤0 for i≠j, d_i>0 and symmetry of d_i a_ij. The even subalgebra is the sum over G^ev. Tensor powers additionally require the central-v scalar-balancing comparison. It records integral square-root cancellation beyond Y-grading.
+For B_ij=(α_i,α_j)=d_i a_ij, symmetric with a_ii=2, a_ij≤0 (i≠j) and d_i>0, G has central v̇ of order two, commuting K̇_i of order two and invertible ė_i. Its relations are K̇_i ė_j=v̇^B_ij ė_jK̇_i and ė_i ė_j=v̇^B_ij ė_j ė_i; G/⟨v̇⟩≅Y×Y/2Y. Degrees are v̇ for v, K̇_i for K_±i, v̇^d_i ė_i for E_i and ė_i⁻¹K̇_i for F_i. `GenericQuantum.component` spans quotient words of product degree g over ℂ(q); `general_parity_grading` asserts their internal direct sum, and `parity_grading_unique` determines it from the generator degrees. Unit/generator/product membership have APIs.
+
+Let G^ev=⟨v̇,ė_i⟩. `GenericQuantum.evenAlgebra` is the ℂ(q)-subalgebra spanned by words of degree in G^ev; `evenAlgebra_toSubmodule` identifies it with Σ_(g∈G^ev) component(g). Span induction proves closure without PBW. E_i, F_iK_i and K_i² belong; in rank one K does not. Evenness differs from weight zero. Tensor degrees identify the central v̇ across factors, with G^⊗0=⟨v̇⟩; tensor powers require the ℂ(v) scalar-balancing comparison.
 
 **Depends on.** [Drinfeld–Jimbo algebra][AQT08]; Mathlib `PresentedGroup`, `QuotientGroup` and `ZMod`.
 
@@ -1217,12 +1219,14 @@ For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is
 - `QuantumParityGroup`: The displayed presentation, its even subgroup and central quotient; symmetry and even diagonal retain v̇≠1.
 - `quantumParityDegree`: The displayed generator degrees; prove the Drinfeld–Jimbo relations homogeneous over ℂ(q) to obtain the unique grading.
 - `tensorParityGroup`: For n>0, quotient Gⁿ by v̇_i v̇_j⁻¹; for n=0 use `Multiplicative (ZMod 2)`. The one-factor group is G.
+- `GenericQuantum.evenAlgebra`: Word-span construction; `evenAlgebra_toSubmodule` gives the even-component sum; `evenAlgebra_E_mem`, `evenAlgebra_FK_mem`, `evenAlgebra_K_square_mem` give generator membership; `rankOne_K_not_even` excludes K.
 
 **Tests.**
 
 - `parity_v_square`: The degree of v²=q is 1.
 - `parity_K_square`: The degree of K_α² is 1.
 - `parity_tensor_zero`: G^⊗0 has cardinality two and nonidentity sign. In two factors v̇₁=v̇₂. Type A₂ is noncommutative; an odd diagonal collapses v̇.
+- Even-generator tests: E_i, F_iK_i and K_i² lie in U^ev; rank-one K does not.
 
 **Sources.** [Habiro–Lê][AQT55], §§6.1–6.3, pp. 68–70; Proposition 6.2.
 
