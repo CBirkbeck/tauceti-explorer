@@ -556,7 +556,7 @@ Prove `auxiliary_cm_extension_prescriptions` in three forms. Let F be a number f
 
 Realize the cyclic prescriptions by a finite-order idele-class character trivial on the prescribed local factors, with local order divisible by N at an additional place, then take its degree-N subextension. Extra split test places force disjointness. For the soluble construction, use induction on the prescribed soluble local towers, retaining their Galois completions. The required local-character existence is the finite-prescription theorem of Clozel–Harris–Taylor, Lemmas 4.1.1–4.1.2, p. 116 ([published paper](https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf)), as used in BLGGT; it is a target here, since general class-field reciprocity alone does not provide those prescriptions. This construction supplies the E₀ choices below together with their stated local conditions.
 
-([BLGGT](#source-blggt), Appendix A.2, Lemmas A.2.1–A.2.2 and Corollary A.2.3, pp. 600–601). *Needs:* Tau Ceti ClassFieldTheory, Layer 12, global reciprocity; CS:R23.1, split test places; finite local Galois solvability from Tau Ceti LocalFieldsRamification.
+([BLGGT](#source-blggt-published), Appendix A.2, Lemmas A.2.1–A.2.2 and Corollary A.2.3, pp. 600–601). *Needs:* Tau Ceti ClassFieldTheory, Layer 12, global reciprocity; CS:R23.1, split test places; finite local Galois solvability from Tau Ceti LocalFieldsRamification.
 
 **Checks.**
 

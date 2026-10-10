@@ -1,4 +1,33 @@
-import Mathlib
+import Mathlib.CategoryTheory.Retract
+import Mathlib.CategoryTheory.Types.Basic
+import Mathlib.Logic.Equiv.Fin.Basic
+import Mathlib.GroupTheory.Perm.Basic
+import Mathlib.Data.Fin.Rev
+import Mathlib.Data.Finset.Card
+import Mathlib.Data.Multiset.Sum
+import Mathlib.Algebra.Group.Submonoid.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+import Mathlib.Algebra.Group.Units.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Block
+import Mathlib.RingTheory.Ideal.Quotient.Defs
+import Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs
+import Mathlib.Algebra.Group.Pi.Units
+import Mathlib.GroupTheory.Index
+import Mathlib.GroupTheory.Torsion
+import Mathlib.Data.Nat.Factorization.Defs
+import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib.Data.Nat.ModEq
+import Mathlib.RingTheory.Artinian.Module
+import Mathlib.Algebra.Polynomial.Module.AEval
+import Mathlib.Algebra.Module.LocalizedModule.Basic
+import Mathlib.Data.Fintype.Sigma
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Topology.Algebra.Constructions
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.NumberTheory.Padics.PadicNumbers
 
 /-!
 # PotentialAutomorphyInfrastructure: representative target signatures
