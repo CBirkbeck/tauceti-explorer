@@ -22427,7 +22427,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisDuality",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisDuality.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #349"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations",
@@ -46893,7 +46894,8 @@
    ],
    "revisionOf": "PKG-AutomorphicGaloisRepresentations",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7891"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentations~2",
@@ -47893,8 +47895,9 @@
     "PKG-EllipticCurveModularityImaginaryQuadratic~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityImaginaryQuadratic~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7926"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7926",
+   "finishedAt": "2026-10-10T00:55:12Z"
   },
   {
    "id": "PKG-EllipticCurveModularityPartII",
@@ -48037,8 +48040,9 @@
     "PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7927"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7927",
+   "finishedAt": "2026-10-10T00:55:15Z"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -48146,8 +48150,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48304,7 +48308,8 @@
     "PKG-GeometricSatakeAndFusion"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GeometricSatakeAndFusion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7517"
   },
   {
    "id": "PKG-GlobalGaloisDeformations",
@@ -49062,8 +49067,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7908"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7908",
+   "finishedAt": "2026-10-10T00:55:17Z"
   },
   {
    "id": "REV-PKG-KatoEulerSystems",
@@ -49341,7 +49347,8 @@
    ],
    "revisionOf": "PKG-MordellLawrenceVenkatesh",
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7911"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh~2",
@@ -79970,8 +79977,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81279,8 +81286,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
