@@ -39,6 +39,8 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 import Mathlib.RepresentationTheory.Irreducible
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Topology.Instances.AddCircle.Defs
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic
+import Mathlib.MeasureTheory.Measure.WithDensity
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.NumberTheory.NumberField.Basic
@@ -940,9 +942,58 @@ lemma cyclicMatching_central {ZE ZF : Type*} [Group ZE] [Group ZF]
 example : ((2 : ℂ) ^ 2 + 3 ^ 2 = 13) ∧ ((2 : ℂ) ^ 2 * 3 ^ 2 = 36) := by sorry
 /- Signature omissions: The AS.2/AS.4/AS.6 and ET.4 trace distributions of a matched factorizable test function and its operators on Borel inductions are absent, so arbitrary complex scalars or endomorphisms cannot satisfy these identities.
 README targets: R17.2/continuous-residual-ledger, R17.2/strong-cuspidal-vanishing, R17.2/specialized-trace-comparison.
-Omitted declaration names: TauCeti.GL2Blueprint.spectralLedger, TauCeti.GL2Blueprint.strongCuspidalVanishing, TauCeti.GL2Blueprint.specializedTraceComparison.
+Omitted declaration names: TauCeti.GL2Blueprint.spectralLedger, TauCeti.GL2Blueprint.strongCuspidalVanishing, TauCeti.GL2Blueprint.specializedTraceComparison, TauCeti.GL2Blueprint.jointSpectralAbsoluteBounds, TauCeti.GL2Blueprint.heckeMeasureSeparation.
+The companion target gives the separate derivative and logarithmic-orbital bounds.
+The circle fragment below only proves the zero-singleton step of that argument.
 -/
 end Trace
+
+section SpectralCircle
+open MeasureTheory
+open scoped ENNReal MeasureTheory
+
+-- The norm of the complex continuous spectral density is the nonnegative d.
+-- Its L¹ bound makes this measure finite; countable fibres give zero atoms
+-- even without a bound on d's essential supremum.
+theorem spectralCircle_fibre_countable (T : ℝ) (x : AddCircle T) :
+    Set.Countable ((fun t : ℝ => (t : AddCircle T)) ⁻¹' {x}) := by
+  obtain ⟨r, rfl⟩ := QuotientAddGroup.mk_surjective x
+  apply (Set.countable_range (fun n : ℤ => r + n • T)).mono
+  intro t ht
+  have htr : (t : AddCircle T) = (r : AddCircle T) := ht
+  have hz : ((t - r : ℝ) : AddCircle T) = 0 := by
+    rw [AddCircle.coe_sub, htr, sub_self]
+  obtain ⟨n, hn⟩ := (AddCircle.coe_eq_zero_iff T).mp hz
+  exact ⟨n, by dsimp; rw [hn]; ring⟩
+
+theorem spectralCircle_density_singleton (T : ℝ) [Fact (0 < T)]
+    (d : ℝ → ℝ≥0∞) (x : AddCircle T) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle T))) {x} = 0 := by
+  have hmeas : Measurable (fun t : ℝ => (t : AddCircle T)) :=
+    AddCircle.measurable_mk'
+  rw [Measure.map_apply hmeas (measurableSet_singleton x)]
+  exact (spectralCircle_fibre_countable T x).measure_zero (volume.withDensity d)
+
+-- Both the identity Weyl orbit and the other reflection-fixed orbit are null.
+example (d : ℝ → ℝ≥0∞) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle (1 : ℝ)))) {0} = 0 :=
+  spectralCircle_density_singleton 1 d 0
+
+example (d : ℝ → ℝ≥0∞) :
+    ((volume.withDensity d).map (fun t : ℝ => (t : AddCircle (1 : ℝ))))
+      {((1 / 2 : ℝ) : AddCircle (1 : ℝ))} = 0 :=
+  spectralCircle_density_singleton 1 d _
+
+-- An atom in the input survives periodization: the density hypothesis matters.
+example :
+    ((Measure.dirac (0 : ℝ)).map (fun t : ℝ => (t : AddCircle (1 : ℝ)))) {0} = 1 := by
+  have hmeas : Measurable (fun t : ℝ => (t : AddCircle (1 : ℝ))) :=
+    AddCircle.measurable_mk'
+  rw [Measure.map_apply hmeas (measurableSet_singleton 0)]
+  simp
+
+end SpectralCircle
+
 /- Signature omissions: The actual conductor-N weight-one primitive newforms and full-O(2) limit D₁(0) automorphic subtype, odd nebentypus and lowering-operator condition are unavailable. Weight one has parameter 1⊕sgn and is not a negative symmetric-power coefficient system.
 README targets: R16.6/weight-one-classical-comparison.
 Omitted declaration names: TauCeti.GL2Blueprint.weightOneClassicalComparison.
