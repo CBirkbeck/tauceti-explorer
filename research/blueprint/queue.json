@@ -46664,7 +46664,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticLocallySymmetricSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7888"
   },
   {
    "id": "REV-PKG-ArithmeticLocallySymmetricSpaces",
@@ -48806,8 +48807,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
