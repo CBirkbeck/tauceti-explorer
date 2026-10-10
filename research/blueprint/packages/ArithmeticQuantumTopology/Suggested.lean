@@ -22,7 +22,9 @@ import Mathlib.Data.Rat.Cast.Order
 import Mathlib.RingTheory.Coprime.Lemmas
 import Mathlib.Tactic.LinearCombination
 import Mathlib.GroupTheory.FreeAbelianGroup
-import Mathlib.GroupTheory.QuotientGroup.Defs
+import Mathlib.GroupTheory.QuotientGroup.Basic
+import Mathlib.GroupTheory.PresentedGroup
+import Mathlib.GroupTheory.Subgroup.Centralizer
 import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
 import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
@@ -337,6 +339,197 @@ def ribbonTrace (r : RibbonCategory C) {X : C} (f : X ⟶ X) : (𝟙_ C) ⟶ (�
 -- ribbonTwist_unit
 example (r : RibbonCategory C) : r.twist.hom.app (𝟙_ C) = 𝟙 (𝟙_ C) := sorry
 end RibbonCategories
+
+/-! QT.4: the general quantum parity group and its tensor powers. -/
+section GeneralParityGrading
+
+/-! Habiro–Lê, §6.1, pp. 68–69: an integral Gram matrix on simple roots
+determines a presented group, with no commutativity imposed on the e generators. -/
+inductive QuantumParityGenerator (ι : Type)
+  | v
+  | K (i : ι)
+  | e (i : ι)
+
+inductive QuantumParityRelation {ι : Type} (B : ι → ι → ℤ) :
+    FreeGroup (QuantumParityGenerator ι) → Prop
+  | v_square : QuantumParityRelation B (FreeGroup.of .v ^ 2)
+  | K_square (i : ι) : QuantumParityRelation B (FreeGroup.of (.K i) ^ 2)
+  | v_central (g : QuantumParityGenerator ι) : QuantumParityRelation B
+      (FreeGroup.of .v * FreeGroup.of g * (FreeGroup.of g * FreeGroup.of .v)⁻¹)
+  | K_commute (i j : ι) : QuantumParityRelation B
+      (FreeGroup.of (.K i) * FreeGroup.of (.K j) *
+        (FreeGroup.of (.K j) * FreeGroup.of (.K i))⁻¹)
+  | K_e (i j : ι) : QuantumParityRelation B
+      (FreeGroup.of (.K i) * FreeGroup.of (.e j) *
+        (FreeGroup.of .v ^ B i j * FreeGroup.of (.e j) * FreeGroup.of (.K i))⁻¹)
+  | e_e (i j : ι) : QuantumParityRelation B
+      (FreeGroup.of (.e i) * FreeGroup.of (.e j) *
+        (FreeGroup.of .v ^ B i j * FreeGroup.of (.e j) * FreeGroup.of (.e i))⁻¹)
+
+abbrev QuantumParityGroup {ι : Type} (B : ι → ι → ℤ) :=
+  PresentedGroup {r | QuantumParityRelation B r}
+
+namespace QuantumParityGroup
+variable {ι : Type} (B : ι → ι → ℤ)
+
+def v : QuantumParityGroup B := PresentedGroup.of .v
+def K (i : ι) : QuantumParityGroup B := PresentedGroup.of (.K i)
+def e (i : ι) : QuantumParityGroup B := PresentedGroup.of (.e i)
+
+@[simp] theorem v_square : v B ^ 2 = 1 := by
+  exact (map_pow (PresentedGroup.mk _) _ _).symm.trans
+    (PresentedGroup.one_of_mem (QuantumParityRelation.v_square (B := B)))
+
+@[simp] theorem K_square (i : ι) : K B i ^ 2 = 1 := by
+  exact (map_pow (PresentedGroup.mk _) _ _).symm.trans
+    (PresentedGroup.one_of_mem (QuantumParityRelation.K_square (B := B) i))
+
+theorem K_mul_e (i j : ι) : K B i * e B j = v B ^ B i j * e B j * K B i := by
+  have h := PresentedGroup.mk_eq_mk_of_mul_inv_mem
+    (rels := {r | QuantumParityRelation B r}) (QuantumParityRelation.K_e (B := B) i j)
+  rw [map_mul, map_mul, map_mul, map_zpow] at h
+  exact h
+
+theorem e_mul_e (i j : ι) : e B i * e B j = v B ^ B i j * e B j * e B i := by
+  have h := PresentedGroup.mk_eq_mk_of_mul_inv_mem
+    (rels := {r | QuantumParityRelation B r}) (QuantumParityRelation.e_e (B := B) i j)
+  rw [map_mul, map_mul, map_mul, map_zpow] at h
+  exact h
+
+theorem v_central (x : QuantumParityGroup B) : v B * x = x * v B := by
+  have hx := PresentedGroup.generated_by {r | QuantumParityRelation B r}
+    (Subgroup.centralizer {v B}) (fun g => ?_) x
+  · exact (Subgroup.mem_centralizer_singleton_iff.mp hx).symm
+  · apply Subgroup.mem_centralizer_singleton_iff.mpr
+    have h := PresentedGroup.mk_eq_mk_of_mul_inv_mem
+      (rels := {r | QuantumParityRelation B r})
+      (QuantumParityRelation.v_central (B := B) g)
+    rw [map_mul, map_mul] at h
+    exact h.symm
+
+/-- Symmetry and even diagonal are the root Gram hypotheses; without them
+the presentation can collapse its central sign. -/
+theorem v_ne_one (hB : ∀ i j, B i j = B j i) (hdiag : ∀ i, Even (B i i)) :
+    v B ≠ 1 := sorry
+
+def evenSubgroup : Subgroup (QuantumParityGroup B) :=
+  Subgroup.closure ({v B} ∪ Set.range (e B))
+
+/-- The central quotient has the root lattice and its reduction modulo two.
+The two Finsupp factors index the e and K generators, respectively. -/
+def centralQuotientEquiv (hB : ∀ i j, B i j = B j i)
+    (hdiag : ∀ i, Even (B i i)) :
+    (QuantumParityGroup B ⧸ Subgroup.normalClosure {v B}) ≃*
+      Multiplicative ((ι →₀ ℤ) × (ι →₀ ZMod 2)) := sorry
+
+end QuantumParityGroup
+
+/-! The degree assignment of Proposition 6.2, p. 69. This is a function on
+quantum algebra generators; homogeneity of all relations is a separate target. -/
+inductive QuantumParityAlgebraGenerator (ι : Type)
+  | v | vInv
+  | K (i : ι) | KInv (i : ι)
+  | E (i : ι) | F (i : ι)
+
+def quantumParityDegree {ι : Type} (B : ι → ι → ℤ) (d : ι → ℕ) :
+    QuantumParityAlgebraGenerator ι → QuantumParityGroup B
+  | .v | .vInv => QuantumParityGroup.v B
+  | .K i | .KInv i => QuantumParityGroup.K B i
+  | .E i => QuantumParityGroup.v B ^ d i * QuantumParityGroup.e B i
+  | .F i => (QuantumParityGroup.e B i)⁻¹ * QuantumParityGroup.K B i
+
+/-! Tensor powers identify the central signs by a normal subgroup of the
+direct product. The zeroth power is separately the central two-element group. -/
+def parityFactor {ι : Type} (B : ι → ι → ℤ) {n : ℕ} (i : Fin n)
+    (x : QuantumParityGroup B) : Fin n → QuantumParityGroup B :=
+  fun j => if j = i then x else 1
+
+def parityTensorRelations {ι : Type} (B : ι → ι → ℤ) (n : ℕ) :
+    Set (Fin n → QuantumParityGroup B) :=
+  {r | ∃ i j, r = parityFactor B i (QuantumParityGroup.v B) *
+    (parityFactor B j (QuantumParityGroup.v B))⁻¹}
+
+def tensorParityGroup {ι : Type} (B : ι → ι → ℤ) : ℕ → Type _
+  | 0 => Multiplicative (ZMod 2)
+  | n + 1 => (Fin (n + 1) → QuantumParityGroup B) ⧸
+      Subgroup.normalClosure (parityTensorRelations B (n + 1))
+
+instance {ι : Type} (B : ι → ι → ℤ) (n : ℕ) : Group (tensorParityGroup B n) := by
+  cases n <;> unfold tensorParityGroup <;> infer_instance
+
+def tensorParityInclusion {ι : Type} (B : ι → ι → ℤ) {n : ℕ} (i : Fin (n + 1)) :
+    QuantumParityGroup B →* tensorParityGroup B (n + 1) :=
+  (QuotientGroup.mk' _).comp
+    { toFun := parityFactor B i
+      map_one' := by ext j; simp [parityFactor]
+      map_mul' := by intros x y; ext j; by_cases h : j = i <;> simp [parityFactor, h] }
+
+theorem tensorParity_shared_v {ι : Type} (B : ι → ι → ℤ) {n : ℕ}
+    (i j : Fin (n + 1)) :
+    tensorParityInclusion B i (QuantumParityGroup.v B) =
+      tensorParityInclusion B j (QuantumParityGroup.v B) := by
+  apply eq_of_mul_inv_eq_one
+  change QuotientGroup.mk _ = 1
+  exact (QuotientGroup.eq_one_iff _).mpr
+    (Subgroup.subset_normalClosure ⟨i, j, rfl⟩)
+
+def tensorParity_oneEquiv {ι : Type} (B : ι → ι → ℤ) :
+    tensorParityGroup B 1 ≃* QuantumParityGroup B := sorry
+
+/-- parity_v_square: q = v² has neutral degree. -/
+example {ι : Type} (B : ι → ι → ℤ) (d : ι → ℕ) :
+    quantumParityDegree B d .v ^ 2 = 1 := QuantumParityGroup.v_square B
+
+/-- parity_K_square: the K² generators of the even integral form are neutral. -/
+example {ι : Type} (B : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    quantumParityDegree B d (.K i) ^ 2 = 1 := QuantumParityGroup.K_square B i
+
+/-- parity_tensor_zero: an empty direct product would give the wrong answer. -/
+example {ι : Type} (B : ι → ι → ℤ) :
+    Nat.card (tensorParityGroup B 0) = 2 := by
+  change Nat.card (Multiplicative (ZMod 2)) = 2
+  exact (Nat.card_congr Multiplicative.ofAdd).symm.trans (by
+    simpa only [Nat.card_eq_fintype_card] using ZMod.card 2)
+
+example {ι : Type} (B : ι → ι → ℤ) :
+    (Multiplicative.ofAdd (α := ZMod 2) 1 : tensorParityGroup B 0) ≠ 1 := by
+  change Multiplicative.ofAdd (1 : ZMod 2) ≠ Multiplicative.ofAdd 0
+  exact fun h => one_ne_zero (Multiplicative.ofAdd.injective h)
+
+/-- Moving v between factors is an equality in the actual quotient. -/
+example {ι : Type} (B : ι → ι → ℤ) :
+    tensorParityInclusion B (0 : Fin 2) (QuantumParityGroup.v B) =
+      tensorParityInclusion B (1 : Fin 2) (QuantumParityGroup.v B) :=
+  tensorParity_shared_v B 0 1
+
+/-- An odd diagonal forces collapse, so the central-extension assertion
+must retain the root Gram matrix hypotheses. -/
+example : QuantumParityGroup.v (fun (_ _ : Unit) => (1 : ℤ)) = 1 := by
+  let B : Unit → Unit → ℤ := fun _ _ => 1
+  have h := QuantumParityGroup.e_mul_e B () ()
+  have hc : 1 = QuantumParityGroup.v B := mul_right_cancel (show
+      1 * (QuantumParityGroup.e B () * QuantumParityGroup.e B ()) =
+        QuantumParityGroup.v B * (QuantumParityGroup.e B () * QuantumParityGroup.e B ()) by
+    simpa [B, mul_assoc] using h)
+  exact hc.symm
+
+/-- Type A₂ has odd off-diagonal Gram pairing and cannot use an abelian
+parity group. This check uses the stated central-sign nontriviality target. -/
+example : let B : Fin 2 → Fin 2 → ℤ := fun i j => if i = j then 2 else -1
+    ¬ Commute (QuantumParityGroup.K B 0) (QuantumParityGroup.e B 1) := by
+  dsimp only
+  let B : Fin 2 → Fin 2 → ℤ := fun i j => if i = j then 2 else -1
+  intro hc
+  have hv : QuantumParityGroup.v B ≠ 1 := QuantumParityGroup.v_ne_one B
+    (by intro i j; simp [B, eq_comm]) (by intro i; simp [B])
+  have h := QuantumParityGroup.K_mul_e B 0 1
+  have hi : 1 = (QuantumParityGroup.v B)⁻¹ := mul_right_cancel (show
+      1 * (QuantumParityGroup.e B 1 * QuantumParityGroup.K B 0) =
+        (QuantumParityGroup.v B)⁻¹ * (QuantumParityGroup.e B 1 * QuantumParityGroup.K B 0) by
+    simpa [B, zpow_neg_one, mul_assoc, hc.eq] using h)
+  exact hv (inv_eq_one.mp hi.symm)
+
+end GeneralParityGrading
 
 /-! QT.1–QT.2: Laurent color conventions. V denotes a representation-algebra
 polynomial; the native finite free color and its pivotal trace appear below. -/
