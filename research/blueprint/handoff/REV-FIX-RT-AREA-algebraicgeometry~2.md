@@ -1,6 +1,6 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
-**Blocked checkpoint, 10 October 2026, Codex session `codex-3X0f5s`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), reviewing author fix [#7968](https://github.com/CBirkbeck/tauceti-explorer/pull/7968). [Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6093589570). No second job was claimed. The [review report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) carries the source locators, hashes, all 32 finding dispositions, exact graph counterexample, six pending verdicts and suggested-file receipts.
+**Blocked checkpoint, 10 October 2026, Codex session `codex-Mmu7hk`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), reviewing author fix [#7968](https://github.com/CBirkbeck/tauceti-explorer/pull/7968). [Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6093731858). No second job was claimed. The [review report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) carries the source locators, hashes, all 32 finding dispositions, exact graph counterexample, six pending verdicts and suggested-file receipts.
 
 ## Why the job still cannot complete
 
@@ -17,7 +17,7 @@ The extra basenames, each in `research/blueprint/packets/<name>.json` and `resea
 | Basename | Completed review verdict to record |
 | --- | --- |
 | AdicCoefficientsAndComparisons | accepted for the bounded area-fix disposition after the two-field repair below |
-| PELModuli | needs_changes: datum/signature/good-prime prototypes do not match their targets |
+| PELModuli | needs_changes: domain-set Shimura datum, uncharacterized Hodge multiplicities, and a non-divisibility statement in place of reflex-field unramifiedness |
 | ShimuraCompactifications--C0 | needs_changes: 83 geometric declarations, 109 API items and 84 tests remain comments |
 | ShimuraVarieties--V0 | needs_changes: all-type automorphic boundary predicate and reader/signature defects remain |
 | GrossZagierAndArithmeticHeights--GZ.0 | needs_changes: broader source-version, supplier and native carrier/API/test defects remain |
@@ -33,8 +33,8 @@ Readers are outside this review's deliverables. Their owners must synchronize th
 
 - All eleven packet checks pass with zero errors and warnings, with the pinned declaration index. The pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 - The newly reconstructed graph has 15,601 edges and is acyclic. Removing the six SF.5 inputs remains acyclic. The nine other ownership/criterion proposals jointly remain acyclic. MC.4-to-SF.4 creates a cycle either way.
-- Public de Jong 2.24, 4.1/4.2 and 6.5 were read anew; the fetched PDF hash matches the report. Current upstream/library commits remain `dea8191cc6047d6142a65872ebce6eeeb841a29b` and `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- Public de Jong, Artin, SGA 1, period-comparison and Tate source loci were read anew; the fetched PDF hash matches the report. Current upstream/library commits are `4dd92d30699e43999f5102255f44bca1af475471` and `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 - All eleven suggested-file hashes match the report. Ten positive exact-pin compilations belong to `codex-C7DgOu`; the unchanged ShimuraData failure belongs to `codex-wPmvcW`. No Lean check was rerun here, since no Lean file or baseline changed and the negative signature conclusions are independent of compilation. The previous ShimuraData log has 66 printed error headers before the 100-error limit and 113 warning headers, three of them other than admitted-proof warnings.
-- All eleven packets currently contain zero legacy source-excerpt fields. Only the report and this handoff changed. Packet/path/whitespace checks pass; queue completion remains false. No process remains running and no scratch file is needed by the next worker.
+- All eleven packets currently contain zero legacy source-excerpt fields. Only the report and this handoff changed. The inherited report's inaccurate PEL claim was corrected: `IsGoodPrime.unramified_reflex` concludes non-divisibility of an integer and does not formulate unramifiedness of the actual reflex field. Packet/path/whitespace checks pass; queue completion remains false. No process remains running and no scratch file is needed by the next worker.
 
 After authorization, apply the bounded Adic repair and six verdicts, rerun the packet/path/whitespace checks and actual queue completion predicate, and submit a complete review PR with `Refs #5702`. Preserve the distinction between fresh checks and inherited compilation evidence. Do not claim a second job in that run.
