@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Revision 2 reconciles the reader with all 98 retained reviewed targets, including the 39 corrections, explicit API dependencies, discrete L^sep Weil coefficients and arithmetic Brauer/Morita signs. A new GIZ26 v3/He16 route sources the topology theorem in both characteristics; the maximum has a characteristic-independent root-datum derivation, while the exact comparison and convex-proof interiors remain G06/G04. The Lean core has genuine quotient functoriality, conjugacy equivalences, twisted-product identities and affine-fibre torsor types. Full geometric signatures still require missing supplier carriers (G08); this is a partial checkpoint, not an accepted or gap-free roadmap. All implementation statuses remain unchecked.",
+ "summary": "Revision 2 retains all 98 reviewed target IDs and the preceding source corrections. Current upstream ReductiveGroups Part II supplies the integral fundamental group, z-extensions, lattice exactness and representative Kottwitz maps; BG imports these foundations rather than proposing a duplicate RG2.6. The suggested file now imports native Tau Ceti exact-category APIs and types exact E-linear symmetric tensor-functor data, tensor isomorphisms and coherent postcomposition over specified categories. Relative analytic bundle/isocrystal category instantiations and the remaining geometric signatures are still unavailable under G08. This is a partial checkpoint; no stage is closed and all implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -106,6 +106,36 @@
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
     "provides": "For a field k and commutative Hopf algebra H, A-valued points are tensor automorphisms of scalar extension on finite H-comodules; does not assert analytic torsor reconstruction.",
     "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.ExactStructure",
+    "module": "TauCeti/CategoryTheory/Exact/ExactStructure.lean",
+    "provides": "Chosen Quillen exact structure on an additive category with zero object and binary biproducts; the owner supplies the distinguished conflations.",
+    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+   },
+   {
+    "ref": "tauceti:TauCeti.ExactStructure.IsConflationExact",
+    "module": "TauCeti/CategoryTheory/Exact/Functor.lean",
+    "provides": "Native preservation of the specified conflations by an additive functor. This does not assert preservation of all finite limits and colimits.",
+    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Functor.Linear",
+    "module": "Mathlib/CategoryTheory/Linear/LinearFunctor.lean",
+    "provides": "A functor between E-linear categories respects scalar multiplication of morphisms.",
+    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Functor.Braided",
+    "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+    "provides": "Strong monoidal functor with compatibility with the braiding; between symmetric categories this is the symmetric tensor structure.",
+    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.NatTrans.IsMonoidal",
+    "module": "Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean",
+    "provides": "Unit and tensor compatibility for natural transformations between monoidal functors; a natural isomorphism alone is insufficient.",
+    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
    }
   ]
  },
@@ -403,7 +433,12 @@
     "VectorBundlesAndIsocrystals:VB1",
     "mathlib:CategoryTheory.Functor.Monoidal",
     "tauceti:TauCeti.FGPointRepresentationCat",
-    "tauceti:TauCeti.FGPointRepresentationCat.instRigidCategory"
+    "tauceti:TauCeti.FGPointRepresentationCat.instRigidCategory",
+    "tauceti:TauCeti.ExactStructure",
+    "tauceti:TauCeti.ExactStructure.IsConflationExact",
+    "mathlib:CategoryTheory.Functor.Linear",
+    "mathlib:CategoryTheory.Functor.Braided",
+    "mathlib:CategoryTheory.NatTrans.IsMonoidal"
    ],
    "sources": [
     {
@@ -472,10 +507,19 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-category-interface",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TensorInterface.Data",
+     "TauCeti.BunG.TensorInterface.Iso",
+     "TauCeti.BunG.TensorInterface.Data.evaluate",
+     "TauCeti.BunG.TensorInterface.Data.unitIso",
+     "TauCeti.BunG.TensorInterface.Data.tensorIso",
+     "TauCeti.BunG.TensorInterface.Data.map_conflation",
+     "TauCeti.BunG.TensorInterface.Data.postcompose",
+     "TauCeti.BunG.TensorInterface.Iso.ext"
+    ],
+    "note": "Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced."
    }
   },
   {
@@ -602,7 +646,12 @@
     "mathlib:WittVector.Isocrystal",
     "mathlib:CategoryTheory.Functor.Monoidal",
     "tauceti:TauCeti.FGPointRepresentationCat",
-    "tauceti:TauCeti.FGPointRepresentationCat.instRigidCategory"
+    "tauceti:TauCeti.FGPointRepresentationCat.instRigidCategory",
+    "tauceti:TauCeti.ExactStructure",
+    "tauceti:TauCeti.ExactStructure.IsConflationExact",
+    "mathlib:CategoryTheory.Functor.Linear",
+    "mathlib:CategoryTheory.Functor.Braided",
+    "mathlib:CategoryTheory.NatTrans.IsMonoidal"
    ],
    "sources": [
     {
@@ -672,10 +721,19 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-category-interface",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.TensorInterface.Data",
+     "TauCeti.BunG.TensorInterface.Iso",
+     "TauCeti.BunG.TensorInterface.Data.evaluate",
+     "TauCeti.BunG.TensorInterface.Data.unitIso",
+     "TauCeti.BunG.TensorInterface.Data.tensorIso",
+     "TauCeti.BunG.TensorInterface.Data.map_conflation",
+     "TauCeti.BunG.TensorInterface.Data.postcompose",
+     "TauCeti.BunG.TensorInterface.Iso.ext"
+    ],
+    "note": "Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced."
    }
   },
   {
@@ -799,7 +857,7 @@
    ],
    "acceptance": [
     "For b=1, J_b(E)=G(E).",
-    "For a simple rank-h slope a/h block, J_b is D_(a/h)^×; multiplicity m gives GL_m(D), not a division algebra of rank mh."
+    "For a simple rank-h isocrystal of slope a/h, J_b is the unit group of its endomorphism division algebra A_(a/h), whose arithmetic Brauer invariant is −a/h. Multiplicity m gives GL_m(A_(a/h)); in the linear supplier’s bundle-slope notation A_(a/h)=D_(−a/h)."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
@@ -808,7 +866,9 @@
     "AlgebraicModuliForArithmeticGeometry:R09.3",
     "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
     "mathlib:Subgroup",
-    "BunGAndNewtonStrata:BG0/existence-of-decent-representative"
+    "BunGAndNewtonStrata:BG0/existence-of-decent-representative",
+    "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
+    "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign"
    ],
    "sources": [
     {
@@ -820,6 +880,11 @@
      "sourceId": "Kisin17",
      "locator": "1.2.12 printed14",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "FS",
+     "locator": "ExampleIII.4.4 pp.101–102",
+     "match": "The centralizer is the unit group of the isocrystal endomorphism algebra. Its arithmetic invariant and bundle-slope name use the VB0 normalization, rather than a sign inferred from the half-slope example."
     }
    ],
    "implementationStatus": "unchecked",
@@ -859,7 +924,7 @@
     {
      "name": "TauCeti.BunG.SigmaCentralizer.testBasicGL2",
      "kind": "computation",
-     "statement": "For the simple GL_2 slope1/2 block, J_b(E)=D_(1/2)^×; two copies give GL_2(D_(1/2))."
+     "statement": "For the simple GL_2 slope1/2 block, J_b(E)=A_(1/2)^×; two copies give GL_2(A_(1/2)). For the simple GL_3 slope1/3 block its division algebra has arithmetic invariant −1/3=2/3 mod Z, detecting the sign hidden by the half-slope case."
     },
     {
      "name": "TauCeti.BunG.SigmaCentralizer.testNonbasic",
@@ -5012,20 +5077,19 @@
    ],
    "title": "Algebraic fundamental group",
    "kind": "definition",
-   "statement": "For a geometric maximal torus T of connected reductive G, π_1(G)=X_*(T)/ZΦ∨, with its canonical Γ_E-action; identify different T using conjugacy and Weyl invariance of the quotient. Form integral inertia coinvariants π_1(G)_I and full Galois coinvariants π_1(G)_Γ, retaining torsion.",
+   "statement": "Use the integral algebraic fundamental group already supplied by upstream ReductiveGroups Part II RG2.1.5: π_1(G)=X_*(T)/ZΦ∨ with its Γ_E-action. BG’s notation AlgebraicPiOne is an import alias for this object, not a second coroot-quotient construction. Use its integral inertia and full Galois coinvariants, preserving torsion; import Weyl invariance, functorial maps and their Galois compatibility. Independence of a maximal-torus choice and canonical inner-twist transport require the specific comparison refinement stated in the supplier request.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Construct the coroot quotient and prove that Weyl reflections act trivially.",
-    "Descend its action independently of the geometric torus; distinguish inertia and Frobenius quotients."
+    "Import BruhatTits.AlgebraicFundamentalGroup, its galoisAction, inertiaCoinvariants, map and weyl_invariant from upstream RG2.1.5; retain the inverse-transpose convention on cocharacters.",
+    "Use full Galois coinvariants of the imported action for κ. Obtain the comparison between compatible maximal-torus choices and inner twists from the RG2.1 refinement; the existing suggested upstream signatures work with a fixed AbsoluteRootData and do not alone supply that comparison."
    ],
    "acceptance": [
     "Do not replace integral coinvariants by their rationalization."
    ],
    "prerequisites": [
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-    "mathlib:RootPairing"
+    "ReductiveGroupsPartII:RG2.1"
    ],
    "sources": [
     {
@@ -5041,36 +5105,33 @@
    ],
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.AlgebraicPiOne",
-   "planet": {
-    "name": "Algebraic fundamental group"
-   },
    "api": [
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.ofCocharacter",
      "role": "constructor",
-     "statement": "Take the class of an integral cocharacter."
+     "statement": "Reuse the upstream RG2.1.5 operation: Take the class of an integral cocharacter."
     },
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.coinvariants",
      "role": "structure",
-     "statement": "Form Γ- or I-coinvariants with the specified action."
+     "statement": "Reuse the upstream RG2.1.5 operation: Form Γ- or I-coinvariants with the specified action."
     },
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.map",
      "role": "functoriality",
-     "statement": "A reductive group morphism induces the canonical homomorphism on π_1."
+     "statement": "Reuse the upstream RG2.1.5 operation: A reductive group morphism induces the canonical homomorphism on π_1."
     },
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.innerInvariant",
      "role": "equivalence",
-     "statement": "An inner twisting canonically identifies the Γ-modules π_1."
+     "statement": "Use canonical Γ-module transport under inner twisting after importing the RG2.1 maximal-torus/inner-twist comparison refinement; existing fixed-datum signatures do not yet assert this comparison."
     }
    ],
    "tests": [
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.testGLn",
      "kind": "computation",
-     "statement": "For GL_n the sum of diagonal entries identifies π_1 with Z."
+     "statement": "For GL_n with n≥1, reuse the upstream identification π_1≅Z by the sum of diagonal cocharacters; GL_0 instead has π_1=0."
     },
     {
      "name": "TauCeti.BunG.AlgebraicPiOne.testSLn",
@@ -5094,10 +5155,19 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "imported-upstream-signatures",
     "gap": "G08",
     "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "note": "The upstream suggested file defines the quotient from actual AbsoluteRootData and supplies its Galois action, inertia coinvariants and maps. BG does not restate those definitions. The pinned shared build does not expose this roadmap module as an import; the BG alias and canonical inner-twist comparison signatures remain omitted. This is an import of existing work, not a missing fundamental-group plan."
+   },
+   "importedFrom": {
+    "roadmap": "ReductiveGroupsPartII",
+    "stage": "RG2.1",
+    "target": "algebraic-fundamental-group",
+    "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
+    "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md#rg215-arithmetic-invariants-π₁-z-extensions-and-the-kottwitz-homomorphism",
+    "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean",
+    "note": "Retained atlas ID and consumer notation; construction, API and elementary tests belong to the existing upstream owner."
    }
   },
   {
@@ -6381,7 +6451,7 @@
    "status": "partial",
    "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
-    "G01: Generic z-extension foundation",
+    "G01: Remaining torus-resolution and lattice refinements",
     "G02: Relative reductive-group and Tannakian descent refinements",
     "G03: Weil crossed-module proof interior",
     "G04: G-isocrystal family descent and stratification refinements",
@@ -6397,7 +6467,7 @@
    "status": "partial",
    "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
-    "G01: Generic z-extension foundation",
+    "G01: Remaining torus-resolution and lattice refinements",
     "G03: Weil crossed-module proof interior",
     "G05: Curve étale comparison refinements",
     "G06: Newton topology and maximal-element proof interiors",
@@ -6422,7 +6492,7 @@
    "status": "partial",
    "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
-    "G01: Generic z-extension foundation",
+    "G01: Remaining torus-resolution and lattice refinements",
     "G03: Weil crossed-module proof interior",
     "G05: Curve étale comparison refinements",
     "G06: Newton topology and maximal-element proof interiors",
@@ -6460,8 +6530,8 @@
  "gaps": [
   {
    "id": "G01",
-   "title": "Generic z-extension foundation",
-   "detail": "Proposed RG2.6 is absent from the integrated stage catalogue. Its existence/exactness/induced-torus contracts are requested from ReductiveGroupsPartII, but cannot be cited as existing nodes. No RG2.5 dependency is used as a substitute.",
+   "title": "Remaining torus-resolution and lattice refinements",
+   "detail": "The current upstream RG2.1.5 already supplies generic z-extensions, their existence, induced central kernels, simply connected derived groups, rational-point surjectivity, torsion-free π_1 and Γ-equivariant central lattice exactness. The earlier proposed RG2.6 is superseded for these inputs. What still needs an explicit owner contract is a general induced-torus surjection/resolution with the invariant-lattice surjectivity and descent comparison used by the BG arguments. Existing fixed-datum fundamental-group signatures also need maximal-torus/inner-twist comparison when canonical transport is invoked. Z-embeddings are explicitly outside the current upstream scope and are not prerequisites of this BG packet. The requests retain RG2.1 as the catalogue identifier and cite its actual current upstream targets.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/levi-newton-formula",
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
@@ -6549,7 +6619,7 @@
   {
    "id": "G08",
    "title": "Lean formulation boundary",
-   "detail": "The pinned libraries express group quotients, subgroups, finite-dimensional linear isocrystals, rational finite slope data and topology. They do not yet supply the exact tensor-functor target categories for analytic curve bundles and general-E isocrystals, general-E perfectoid coefficient rings, relative FF bundle tensor categories, v-stacks, filtered relative group schemes, crossed-module Weil complexes or the needed analytic cohomological predicates. The suggested file gives concrete pointwise and rational-slope cores plus a name-by-name omission register for these unavailable carriers. It does not replace them with arbitrary propositions, arbitrary types or asserted representability fields. Full signatures depend on the requested suppliers. Tau Ceti already has FGPointRepresentationCat, its rigid symmetric monoidal comodule equivalence and pointwise finite-comodule Tannakian reconstruction. Reuse these as the rational representation source; its existence is not a gap.",
+   "detail": "Native Quillen exact structures, conflation-preserving functors, E-linearity, strong symmetric tensor functors and monoidal natural transformations are available at the pins and are imported. The suggested file now elaborates this categorical interface over specified structured categories. Current upstream RG2.1.5 also gives actual root-datum quotient/Galois/coinvariant signatures; they are reused, not duplicated here. The remaining boundary is the concrete analytic FF bundle and general-E isocrystal category instantiation, coefficient-ring/relative FF geometry, v-stacks, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Neither the pinned build nor the inspected supplier suggested files exports these full geometric carriers. The categorical controls do not replace GL_1/torsor reconstruction, and the omission register does not count as full §13 coverage. FGPointRepresentationCat and its rigid symmetric structure already provide the rational representation source. No arbitrary Type/Prop replacement is used.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
@@ -6783,7 +6853,7 @@
   },
   {
    "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
-   "need": "Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic extensions come from proposed RG2.6; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition. Coefficients in the FS Weil complexes are G(L^sep), T(L^sep), etc., with the natural continuous W_E-action on discrete groups, not only L-rational points.",
+   "need": "Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic z-extensions come from existing upstream RG2.1.5; induced-torus resolution refinements remain G01; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition. Coefficients in the FS Weil complexes are G(L^sep), T(L^sep), etc., with the natural continuous W_E-action on discrete groups, not only L-rational points.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
     "BunGAndNewtonStrata:BG1/abelianized-kottwitz-set",
@@ -6836,23 +6906,35 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.1",
-   "need": "Export split-rank and relative-root interfaces for the reductive group and its centralizer, root/coroot lattices, Levi chamber transport and Galois actions. Extend the based-root package to the unramified-replacement averaging and triality orbit equality used by KMPS Proposition1.1.10; keep its proof here as a supplier request. Include the torsion-free Levi coinvariant kernel needed for the KMPS minuscule lifting argument; its refinement is G10.",
+   "need": "Import current upstream RG2.1 local/absolute root data, split ranks, integral π_1, Galois/coinvariant maps, z-extensions and representative Kottwitz homomorphisms. Existing targets suffice for those contracts; they are not new work. Remaining refinements: canonical comparison between maximal-torus choices and inner twists (the actual Suggested.lean uses a fixed AbsoluteRootData), unramified-replacement averaging/triality equality for KMPS Proposition1.1.10, and the torsion-free Levi coinvariant kernel used by its minuscule lifting proof. Preserve the covariant inverse-transpose action on cocharacters. The simple integral Levi-kernel formula is already supplied; its coinvariant exactness refinement remains G10.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/defect",
     "BunGAndNewtonStrata:BG1/levi-newton-formula",
     "BunGAndNewtonStrata:BG3/positive-automorphism-kernel",
     "BunGAndNewtonStrata:BG1/newton-orbit-space",
-    "BunGAndNewtonStrata:BG1/general-levi-newton-comparison"
+    "BunGAndNewtonStrata:BG1/general-levi-newton-comparison",
+    "BunGAndNewtonStrata:BG1/algebraic-fundamental-group"
    ],
    "routedItems": [
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N24",
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N25",
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22/weil-restricted-adjoint-averaging"
-   ]
+   ],
+   "existingUpstream": {
+    "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
+    "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/README.md",
+    "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/201bcaee1f4014c91897d50cdb7631fc6d6a6d71/TauCetiRoadmap/ReductiveGroupsPartII/Suggested.lean",
+    "targets": [
+     "RG2.1.5/algebraic-fundamental-group",
+     "RG2.1.5/z-extension",
+     "RG2.1.5/z-extension-existence",
+     "RG2.1.5/kottwitz-homomorphism"
+    ]
+   }
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.3",
-   "need": "Export the connected parahoric model, its positive loop group, its extended-Weyl double-coset parametrization and the integral conjugacy/lifting input used by KZ Proposition2.3.3. Preserve the distinction between a parahoric and G(O_L) in the hypotheses. Exact KZ Proposition2.3.3 inputs: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors are G10, not a routine Lang lemma.",
+   "need": "Import the connected parahoric and positive-loop/fixer structures already planned by upstream RG2.3, preserving the distinction between a parahoric and G(O_L). Request only the precise integral-conjugacy/lifting refinements used by KZ Proposition2.3.3: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors remain G10. Extended-Weyl double-coset structure is imported from upstream RG2.4.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/straight-weyl-classification",
     "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
@@ -6861,7 +6943,7 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.4",
-   "need": "Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences. For the general-field maximum, supply the characteristic-independent reduced affine datum and finite-order Frobenius comparison, plus central inertia-torsion removal/restoration at fixed κ using right exactness of σ-coinvariants. Expand the HN18 Lemma2.5 and Chai convex-majorant inputs there; BG1 owns the resulting B(G,{μ}) maximum.",
+   "need": "Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
@@ -7075,7 +7157,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-   "need": "Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are separately requested as proposed RG2.6, not inferred from layer7 or RG2.5. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer.",
+   "need": "Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are imported from existing upstream RG2.1.5, with only the remaining G01 refinements requested. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
@@ -7126,8 +7208,8 @@
    ]
   },
   {
-   "supplier": "ReductiveGroupsPartII:RG2.5",
-   "need": "Ownership-extension request: add proposed stage RG2.6 after the current RG2.5. Supply existence of z-extensions (induced central torus kernel, simply connected derived group), a surjection from an induced torus to any torus, cocharacter/π_1 exactness, invariant-lattice surjectivity and central-torus descent. Current RG2.5 owns dual/L-group data and is not claimed to prove these inputs. Extend to z-embeddings in the shared owner when ES consumers require them, following the confirmed RT10 proposal. BG1 retains the B-set/acceptable-set consequences; ET.0 imports the common foundation.",
+   "supplier": "ReductiveGroupsPartII:RG2.1",
+   "need": "The generic z-extension foundation is imported from existing upstream RG2.1.5, not added as RG2.6 and not attributed to the dual/L-group layer RG2.5. Request the remaining general induced-torus surjection/resolution and invariant-lattice surjectivity/descent comparison needed by these BG consumers. Use existing z-extension exact_central, map_galoisAction, surjective_points and fundamentalGroup_torsionFree for their actual contracts. Z-embeddings are outside the upstream scope and are not requested by this BG packet. The resolution contract is a surjective E-group morphism from an induced torus to a given E-torus with a torus kernel, not unrestricted surjectivity on E-points. For the lattice sequence of a z-extension, invariant surjectivity is requested only with the vanishing of continuous H^1(J,X_*(Z)); prove that vanishing for the induced kernel and the stated closed Galois subgroup J. Integral coinvariant right exactness is separate and does not imply invariant surjectivity.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/levi-newton-formula",
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
@@ -7251,13 +7333,7 @@
    ]
   }
  ],
- "restructure": [
-  {
-   "id": "BunGAndNewtonStrata/proposed-RG2.6",
-   "proposal": "Implement the confirmed RT-AREA-geomlanglands/10 ownership repair as a new ReductiveGroupsPartII stage RG2.6, z-extensions and z-embeddings, after RG2.5. Import existing ClassFieldTheory and ProfiniteCohomology; export generic z-extensions, induced-torus resolutions and π_1 functoriality to BG1, BG2:uniformization and ET.0. Consumers keep their B-set or cohomological consequences. This is a proposal only; no supplier edge uses an unintegrated stage.",
-   "reason": "There is no integrated foundational stage for the required extensions; generic dual/L-group data in RG2.5 does not supply them."
-  }
- ],
+ "restructure": [],
  "libraryAudit": {
   "audit": "AUDIT-20",
   "reviewedCoverage": "data/library-coverage.json",
@@ -9318,26 +9394,42 @@
     "Theorem1.1(1), §§1.1–2.5 pp.2–8; Appendix A pp.20–22. General-field transfer uses He16 and the explicit central-torsion argument."
    ],
    "note": "The p-adic Theorem0.1 is not asserted for equal characteristic. The root-datum theorem has no field parameter; the general-field statement in this packet is a deduction with exact supplier obligations."
+  },
+  {
+   "source": "FS",
+   "kind": "author copy",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "read": "2026-10-10",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "sections": [
+    "III.1.1 and the tensor description pp.88–89; III.2.1–III.2.2 pp.89–90; ExampleIII.4.4 pp.101–102."
+   ],
+   "note": "Continuation codex-1VC77g: these passages were reinspected; other source reads remain the separately recorded inherited provenance. Own-word contracts only."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
-  "baseline": "Only Mathlib imports at 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti declarations are source-checked at f790474821cf4256814db967cb154e7af3d0c369, not imported by this concrete Mathlib prototype.",
+  "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (64); no errors or other warnings.",
-   "limitation": "Checks only the concrete Mathlib quotient, subgroup, norm, affine-fibre and numerical slope cores. The full geometric definition/API/example signatures remain omitted under G08. Tau Ceti baseline declarations were source-checked but this file imports only individual Mathlib modules.",
-   "agent": "Codex — codex-EyIjRT"
+   "warnings": "Only admitted-proof declaration warnings (81); no errors or other warnings.",
+   "limitation": "Checks the concrete algebraic/numerical cores and native categorical interface. Relative analytic category instantiations, full named geometric APIs/tests and the upstream roadmap import remain unavailable under G08.",
+   "agent": "Codex — codex-1VC77g"
   }
  },
  "upstreamNotes": [
   {
    "owner": "tauceti:TauCetiRoadmap/ReductiveGroups",
    "note": "The recorded pin already has the finite rational representation/comodule category and rigid monoidal equivalence, and the field-valued finite-comodule Tannakian point reconstruction. These are reused, not replanned. Relative analytic torsor reconstruction and filtered group-scheme descent remain the distinct G02 foundation."
+  },
+  {
+   "owner": "ReductiveGroupsPartII:RG2.1",
+   "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
+   "note": "Current upstream RG2.1.5 supplies the foundations that the older atlas snapshot proposed as RG2.6. That duplicate proposal is removed. The retained BG algebraic-fundamental-group node is an import alias/consumer interface; its duplicate planet is removed. Canonical maximal-torus and inner-twist comparison remains a requested refinement because upstream signatures fix AbsoluteRootData. Z-embeddings remain outside the upstream scope and are not BG inputs. No upstream file is modified."
   }
  ],
  "review": {
@@ -9837,5 +9929,31 @@
     "note": "LZ4.9 supplies G^c-valued tensor data; the output B(G^c) and any G-level lift remain distinguished. RF4 patching cannot make such a lift canonical."
    }
   ]
- }
+ },
+ "upstreamImports": [
+  {
+   "roadmap": "ReductiveGroupsPartII",
+   "catalogueStages": [
+    "ReductiveGroupsPartII:RG2.1",
+    "ReductiveGroupsPartII:RG2.3",
+    "ReductiveGroupsPartII:RG2.4"
+   ],
+   "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
+   "checked": "2026-10-10 by Codex codex-1VC77g",
+   "targets": [
+    "RG2.1.5/algebraic-fundamental-group",
+    "RG2.1.5/z-extension",
+    "RG2.1.5/z-extension-existence",
+    "RG2.1.5/kottwitz-homomorphism-torus",
+    "RG2.1.5/kottwitz-homomorphism",
+    "RG2.3/connected-parahoric-models",
+    "RG2.4.1/iwahori-weyl-exact-sequences",
+    "RG2.4.3/dominant-coinvariant-cocharacters",
+    "RG2.4.3/admissible-set",
+    "RG2.4.4/cartan-decomposition",
+    "RG2.4.4/iwasawa-decomposition"
+   ],
+   "note": "README contracts and their actual Suggested.lean signatures read. Catalogue IDs are retained because atlas stage paths lag current upstream. Existing contracts are imports; requests isolate only the remaining refinements. Current Tau Ceti source search found no implemented local algebraic π_1/Kottwitz module; upstream suggested signatures remain plans, not baseline implementations."
+  }
+ ]
 }
