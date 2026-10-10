@@ -93,14 +93,15 @@ review; all packet implementation statuses remain unchecked.
 This is the L3 projection of the immutable combined signature file. Every L3
 declaration and API signature is retained, together with all 2,880 named tests.
 Sibling L0/L1/L2 arithmetic definitions are imported from their single owners,
-not copied into this layer. L1/L2 suggested modules are currently absent: their
-imports are explicit planned prototype dependencies, not existing library claims.
-The PMIA prototype import is likewise an unchecked supplier interface.
+not copied into this layer. Their suggested source files exist; these imports
+are prototype dependencies, not existing library claims. The PMIA prototype
+import is likewise an unchecked supplier interface. Elaborating this file needs
+compiled artifacts for those research modules on Lean's import search path.
 
-NOT COMPILED. The split projection has no compilation receipt. The inherited
-combined file was also uncompiled because a required native Tau module was not
-available at the exact pin. Historical native/partial-signature receipts do not
-validate this file. No new Lean or library build was run in this completion pass.
+NOT SUCCESSFULLY COMPILED. The shared pinned build stops at import resolution
+because it has no research dependency artifacts. No declaration in this file
+elaborates in that check. Historical native/partial-signature receipts do not
+validate this file.
 
 The packet began above the 300-node budget and adds no nodes. Its complete status
 finishes a planning pass; L3 remains partial with explicit mathematical gaps.

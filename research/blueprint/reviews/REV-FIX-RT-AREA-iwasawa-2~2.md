@@ -1,218 +1,43 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
 
-## Continuation receipt: codex-SOsCZg
+## Current receipt: codex-YzsJct
 
-Codex, session `codex-SOsCZg`, 9 October 2026; input commit
-`457a6c2c24bf0731da73a90417da2fa350edcef6`.
-The bot confirmed this session's claim in
-[comment 6091229794](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091229794).
-This session did none of the original fixes. **Blocked checkpoint: the required
-review scope still exceeds the live issue's authorized deliverables.**
+Codex, session `codex-YzsJct`, 10 October 2026; input commit
+`41831f8789ce1528200c8036800f10d1181eb591`.
+Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091370485).
+This session did none of the original fixes and claimed no second job.
+**Checkpoint: the queue requires reviews outside the live issue's scope.**
 
-Read the complete live issue and claim confirmation, both protocols, WORKERS.md,
-UPSTREAM_GUIDE.md, all six finding/verifier records, the round-two fix report,
-and the existing review and handoff. Reproduced `issues.deliverables_complete`
-against the actual queue entry: **nine-output queue `False`; five-output live
-issue `True`**. L3-2 still lacks a review object; D.1 still carries the accepted
-`independent-review-REV-PadicHodgeRegulators--D.1~2`. Requested explicit
-authorization for those two additional packet and suggested-file reviews from
-the manager. No response had arrived at this checkpoint. No unlisted file or
-review verdict was changed.
+Read the live issue and its embedded instructions, both protocols, WORKERS.md,
+UPSTREAM_GUIDE.md, the confirmed/rejected findings, round-two fix report,
+previous review/handoff and actual completion code. The prior mathematical
+review and its 50-node L6 ledger remain below, with their original authorship.
+No new all-node source or baseline audit is claimed. The named packets have
+not changed since commit `2ddaba8d9c16c7e3d3ef6d13add83ce6852394b9`.
 
-The finding-by-finding verdicts below remain the previous reviewers' work.
-This continuation freshly checked /4's central source contracts and pinned
-transpose reuse; it did not redo their all-node audits or review L3-2/D.1.
-The read-only current upstream StableReduction and QuiverRepresentations
-READMEs and suggested files, plus the reviewed L3/L6 library-coverage entries,
-were checked for the Fitting/transpose ownership boundary. The current Tau Ceti
-checkout differs from the baseline, so the transpose statement was read using
-its Git object at `f790474821cf4256814db967cb154e7af3d0c369`.
+### Reproduced scope blocker
 
-Freshly read [Dasgupta–Kakde, arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3),
-§§2.2–2.3, pp.15–18; Lemma 3.9, pp.25–26; §6.1 and Lemma 6.1, p.40.
-Accessed 9 October 2026; PDF SHA-256
-`c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`.
-The published Annals version was not read.
+The exact `issues.deliverables_complete` predicate returns:
 
-| Contract freshly checked | Result |
+| Scope | Result |
 |---|---|
-| Character ring and cardinality | Image of character evaluation; sufficient coefficient roots, regular element, finite quotient and square-presentation assumptions retained. Finite PID factors use the packet's separate finite-ideal reduction. |
-| Compound-image preimage | The packet uses `ι_J(adj_r(A_J)x)` and the right-sided compound/adjugate identity. For its two-row, three-column example, `(2,1,0)` maps to `(2,2)`; rank-zero and top exterior degree conventions agree. |
-| Transpose and sharp | The cokernel of the dual presentation depends on the presentation; the scalar transport is between inverse character sets. The pinned transpose carrier requires no minimality. For the zero module, the identity presentation gives zero transpose, whereas adding a free relation gives a free transpose; the Fitting formula retains the square-presentation condition. |
+| Nine queue outputs | `False` |
+| Five outputs in the complete live issue | `True` |
 
-| Fresh check | Result |
-|---|---|
-| PMIA packet checker | 487 nodes; zero errors, zero warnings |
-| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings outside this fix's scope |
-| PMIA native `lean-check` | Exit 0; 1,075 warnings, all uses of `sorry`; no errors or other warnings |
-| L3 native `lean-check` | Exit 1 at unresolved `research` import; declarations did not elaborate |
-| Source-excerpt inventory | Neither issue-named packet contains a node-source `excerpt` key |
+All nine paths exist. L3 and PMIA already have accepted reviews naming this
+job. L3-2 has no review object. D.1 has the newer accepted
+`independent-review-REV-PadicHodgeRegulators--D.1~2`. The queue requires this
+job's reviewer identity on those two unlisted packets as well.
 
-Checks ran sequentially with over 20 GB available; no library build or language
-server was started, and no compile remains running. Elaboration proves no
-admitted assertion. The named packets, Lean files, coverage, gaps and existing
-accepted reviews are unchanged. Only this receipt and the handoff changed.
-The exact administrative remedies in the preserved report below remain valid:
-authorize and perform the additional reviews, or reconcile the queue outputs
-with the live issue. Another identical two-packet dispatch cannot finish the
-nine-output completion check.
+WORKERS.md says “Edit only the files the issue names, plus your own scratch
+space.” A scope decision was requested from the user during this continuation;
+no answer had arrived at submission. No unlisted packet or queue edit was made.
+Neither relabeling D.1's existing review nor declaring L3-2 reviewed is a valid
+administrative shortcut.
 
-## Fresh source and compilation receipt from codex-p9uw1D
-
-Codex, session `codex-p9uw1D`, 9 October 2026, input commit
-`dfd35f2a06b8d9f4268196ed46bf680027032b72`. The bot confirmed
-[claim comment 6090968337](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6090968337).
-This session did none of the original fixes. It holds only issue #6219.
-
-**The named reviews remain accepted; the job remains administratively blocked.**
-The complete live issue and its embedded instructions still name only the L3
-and PMIA packets. The queue requires L3-2 and D.1 too. Fresh calls to
-`issues.deliverables_complete` return `False` for the nine queue outputs and
-`True` for the five live-issue outputs. All paths exist. L3-2 has no review;
-D.1 has the newer accepted `independent-review-REV-PadicHodgeRegulators--D.1~2`.
-Neither verdict is replaced to satisfy an administrative predicate.
-
-The issue-named-file restriction in WORKERS.md still applies. An explicit
-request for authorization to conduct the two additional reviews was sent to
-the manager in this session; no answer was received before this checkpoint.
-The concrete five-output queue remedy below remains applicable if the live
-issue scope is intended. If the larger scope is intended, first authorize the
-additional packet reviews and refresh the issue. This submission is a blocked
-checkpoint, not completion of the two additional reviews.
-
-### Fresh checks and their limits
-
-| Check | Result in this session |
-|---|---|
-| PMIA packet checker | 487 nodes; zero errors, zero warnings |
-| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings |
-| Full PMIA native `lean-check` | Exit 0; 1,075 warnings, all declaration uses of `sorry`; zero errors and other warnings |
-| Full L3 native `lean-check` | Exit 1: unknown module prefix `research`; stopped at import resolution before elaborating declarations |
-| Completion predicate | Nine-output queue: `False`; five-output live issue: `True` |
-
-Both Lean checks ran sequentially with more than 20 GB available. No library
-build or language server was started. The L3 import failure is an environment
-boundary, not evidence that its declarations elaborate. PMIA's successful
-signature check does not prove any admitted assertion.
-
-Freshly read [Dasgupta–Kakde, arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3),
-accessed 9 October 2026, SHA-256
-`c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`:
-§§2.2–2.3, pp. 15–18; Lemma 3.9 and its proof, pp. 25–26; §6.1 and
-Lemma 6.1, p. 40. These confirm the central /4 contracts in the existing
-review: evaluation-image character rings; finite-index, non-zerodivisor and
-finite-quotient hypotheses; square presentations; transpose dependence on
-the chosen presentation; and transport between the inverse character sets.
-The current `compound-image-determinant` node supplies the required preimage
-by applying the higher adjugate before embedding into the larger source
-module. The proof correction remains attributed to the previous workers.
-The published Annals text was not read in this session.
-
-Freshly read the corresponding statements at Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`, through Git objects rather than
-assuming the current source tree is the pinned one:
-`TauCeti.AuslanderReitenTranspose`, its quotient map and zero criterion;
-`TauCeti.DiagonalizableGroup.point` and its generator evaluations; and
-`CommGroup.sum_inv_mul_monoidHom_apply_eq_ite`. The transpose carrier does
-not require minimality; orthogonality retains the finite commutative-group,
-domain and sufficient-root hypotheses. Read the reviewed L3/L4/L6 library
-coverage and the current upstream StableReduction Layer 1 and
-QuiverRepresentations Layer 6 ownership boundaries, including their suggested
-files. These are scoped fresh checks, not a new audit of every node or baseline.
-
-The existing per-finding mathematical verdicts, audit ledger and authorship are
-preserved below. No packet, suggested file, source record, reader, coverage or
-review verdict is changed. The report and handoff are the only changed files.
-
-## Reproduction by codex-7PpFhN
-
-Codex, session `codex-7PpFhN`, 9 October 2026, input commit
-`0dd979cd4dbf3dd27e761bd581e724a7f45ed155`. The bot confirmed
-[claim comment 6086683565](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6086683565).
-This continuation independently reproduced the administrative blocker described
-below. It preserves the earlier mathematical review and its authorship; it does
-not claim a new source audit or replace any packet verdict.
-
-The complete live issue still names five deliverables, while the queue still
-names nine. Both named packets already have this job's accepted review identity.
-L3-2 has no review object; D.1 has the newer accepted
-`independent-review-REV-PadicHodgeRegulators--D.1~2`. Every queue path exists.
-The following read-only reproduction, run from the repository root, checks the
-actual completion predicate rather than inferring completion from path presence:
-
-```python
-import json
-import sys
-from pathlib import Path
-
-sys.path.insert(0, "research/blueprint")
-from issues import deliverables_complete
-
-queue = json.loads(Path("research/blueprint/queue.json").read_text())
-job = next(j for j in queue["jobs"]
-           if j["id"] == "REV-FIX-RT-AREA-iwasawa-2~2")
-issue_outputs = [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md",
-    "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
-    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
-    "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
-    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
-]
-print("queue:", deliverables_complete(job))
-print("issue:", deliverables_complete({**job, "outputs": issue_outputs}))
-```
-
-Actual output: `queue: False`, `issue: True`. Inspection of
-`intake.py::merge` confirms that this false result releases a merged submission
-as another checkpoint. Changing a report cannot finish the nine-output job.
-The queue's referenced prompt file is absent from this checkout and supplies no
-additional instruction or authorization.
-
-Fresh packet checks: PMIA has 487 nodes, zero errors and zero warnings; L3 has
-1,663 nodes, zero errors and 26 inherited short-API warnings. Neither packet has
-a source `excerpt` key. No packet or suggested file was modified, and Lean was
-not rerun for this report/handoff-only continuation. The earlier compilation
-receipts and their limitations remain below.
-
-An explicit scope decision was requested from the manager. Pending a reply,
-WORKERS.md's issue-named-file restriction remains binding. The concrete
-five-output remedy below is ready for the maintainer; the alternative is explicit
-authorization for the two additional reviews. This continuation is blocked and
-must not be represented as completion of those reviews.
-
-## Preserved report from codex-SlZ1UM
-
-Codex, session `codex-SlZ1UM`, 9 October 2026. Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219); input commit `6908ce6c38ce72997bfd1c44c481d4ba09d1299f`. The bot confirmed [claim comment 6086448301](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6086448301). This session did none of the original fixes and holds no other job.
-
-**Blocked by the issue/queue scope mismatch.** The previous continuation completed the review of the two issue-named packets. This continuation preserves that work and supplies an executable diagnosis and an exact administrative remedy. It does not repeat the source audit or replace another independent review merely to satisfy the completion predicate. The earlier report below remains attributed to its authors.
-
-## Current completion receipt
-
-Read the entire live issue, its comments, WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the previous handoff/report, the confirmed findings, the round-two fix report, the queue entry and `research/blueprint/issues.py::deliverables_complete`.
-
-At the input commit, direct calls to the completion predicate gave:
-
-| Job description supplied to the predicate | Result |
-|---|---|
-| Current queue entry, all nine outputs | `False` |
-| Same entry, the five outputs actually named in issue #6219 | `True` |
-
-All nine paths exist. The failure is specifically the required top-level reviewer identity on two packets omitted from the issue:
-
-| Packet | Current verdict | Current reviewer |
-|---|---|---|
-| DirichletPadicLFunctions--L3 | accepted | independent-review-REV-FIX-RT-AREA-iwasawa-2~2 |
-| PadicMeasuresIwasawaAlgebras | accepted | independent-review-REV-FIX-RT-AREA-iwasawa-2~2 |
-| DirichletPadicLFunctions--L3-2 | no review object | none |
-| PadicHodgeRegulators--D.1 | accepted | independent-review-REV-PadicHodgeRegulators--D.1~2 |
-
-`deliverables_complete` checks every packet listed in the queue outputs, including packets unchanged by a submission. A review report cannot override that check. Its accepted/needs_changes/rejected alternatives do not remove the requirement to conduct and record the omitted reviews. The D.1 review must not be silently relabelled.
-
-WORKERS.md restricts edits to files named by the issue. A scope question was submitted to the manager in this run and remains pending. Neither the queue nor the two omitted packets is changed. This is an authorization boundary, not a mathematical rejection or a claim that the expanded review was performed.
-
-## Concrete remedy for the maintainer
-
-If the live issue is the intended scope, replace **only** the `outputs` value of queue job `REV-FIX-RT-AREA-iwasawa-2~2` with:
+If the live issue is the intended scope, replace only this queue job's `outputs`
+with the following list and refresh the issue through normal orchestration:
 
 ```json
 [
@@ -224,18 +49,32 @@ If the live issue is the intended scope, replace **only** the `outputs` value of
 ]
 ```
 
-The job then meets the existing completion predicate without changing any review verdict. Regenerate/refresh the issue and sync its state through the normal orchestration; the worker does not change labels or close it. Retain /1–/3's unresolved mathematical obligations with their independent owner jobs.
+If the queue's expanded scope is intended, first authorize and add the L3-2/D.1
+packets and suggested files to the live issue, then perform those independent
+reviews. Another unchanged two-packet dispatch cannot complete the queue job.
+Scope reconciliation resolves no mathematical supplier obligation.
 
-If the nine-output queue scope is intended instead, explicitly extend the live issue to name both omitted packets and suggested files. Its next worker must independently review the relevant /1–/3 contracts, preserve the newer D.1 review in history if replacing its current review, and record actual verdicts. A reviewer may record `needs_changes` for source or contract errors; it must not accept those packets solely because paths exist. Do not schedule another two-packet review before this scope decision: the current predicate will still release that submission as a checkpoint.
+### Correction and fresh checks
 
-This remedy is recorded here for the maintainer; no unlisted orchestration file is edited.
+Corrected the L3 suggested file's comment claiming the L1/L2 source files are
+absent: all three sibling L0/L1/L2 files exist. Its compilation note now states
+the actual missing input, compiled research-module artifacts on Lean's import
+search path. Imports and declarations are unchanged.
 
-## Checks in this continuation
+| Check in this session | Result |
+|---|---|
+| L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings |
+| PMIA packet checker | 487 nodes; zero errors, zero warnings |
+| Native L3 `lean-check` | Exit 1: unknown module prefix `research`; no declaration elaborated |
+| Source-text inventory | Neither named packet contains an `excerpt` key |
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json`: 487 nodes, zero errors and warnings.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/DirichletPadicLFunctions--L3.json`: 1,663 nodes, zero errors and 26 inherited short-API warnings, unchanged from the previous review.
-- Completion-predicate checks: queue scope incomplete, live issue scope complete, as above.
-- No packet, reader, suggested Lean file, review verdict, source text or source metadata is modified. The previous native Lean results below are inherited evidence, not fresh compilations. No Lean process was started for this report-only continuation.
+The Lean check ran with 98 GB available; no library build or language server was
+started and no compile remains running. PMIA's prior native receipt (exit 0,
+1,075 `sorry` warnings only) is inherited evidence; its unchanged Lean file was
+not recompiled. No packet, source claim, mathematical statement or review verdict
+changed. Condensed the repeated administrative receipts in this report; their
+full text remains in Git history. The retained review below records the
+finding-by-finding verdicts and their limits.
 
 ## Preserved mathematical review from codex-7UQW2R
 
