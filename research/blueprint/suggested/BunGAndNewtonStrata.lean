@@ -1628,7 +1628,7 @@ Full construction contract: For S∈Perf_k, Bun_G(S) is the groupoid of G-bundle
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 TauCeti.BunG.Bun.objects — projection: Evaluate to the G-bundle groupoid on X_S.
-TauCeti.BunG.Bun.pullback — functoriality: For T→S, pullback is X_T←X_S bundle pullback, with coherent identities and compositions.
+TauCeti.BunG.Bun.pullback — functoriality: For T→S, the curve map X_T→X_S induces bundle pullback Bun_G(S)→Bun_G(T), with coherent identities and compositions.
 TauCeti.BunG.Bun.ofIsocrystal — constructor: An exact tensor G-isocrystal gives the constant bundle E_b on every X_S.
 TauCeti.BunG.Bun.isomSheaf — projection: The diagonal fibre is the v-sheaf Isom of two G-bundles.
 TauCeti.BunG.Bun.gaga — equivalence: For affinoid S compare algebraic and analytic curve torsor categories.
@@ -1682,7 +1682,7 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 
 BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity
 TauCeti.BunG.CentralTorusGrassmannianSurjectivity
-Full lemma contract: For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a splitting field, split maximal-torus cocharacters lift; on Schubert cells compare the unipotent factors and the central torus lattice. Generic Schubert geometry is imported from GS0.
+Full lemma contract: For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a finite splitting extension, lift the dominant cocharacter through the split torus lattice sequence. The corresponding map of bounded Schubert closures is surjective on geometric points and quasicompact, hence a v-cover. Generic Schubert bounds and properness are imported from GS0.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 
@@ -1717,8 +1717,8 @@ Hypotheses: Global conventions in the reader apply; additional restrictions are 
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 TauCeti.BunG.HNGraded.forget — functoriality: Forget grading to Bun_G.
 TauCeti.BunG.HNGraded.ofClass — constructor: E_b has its canonical Q-grading from the isocrystal, with slope reversal.
-TauCeti.BunG.HNGraded.automorphisms — characterisation: Aut of the graded object is J_b(E).
-TauCeti.BunG.HNGraded.classifying — equivalence: Bun_G^(HN-split)≃∐_(b∈B(G))[*/J_b(E)].
+TauCeti.BunG.HNGraded.automorphisms — characterisation: At a geometric point, graded automorphisms of E_b^gr are J_b(E). Over S, the automorphism v-sheaf is the constant locally profinite group sheaf J_b(E), with sections given by continuous maps |S|→J_b(E).
+TauCeti.BunG.HNGraded.classifying — equivalence: Bun_G^(HN-split)≃∐_(b∈B(G))[*/J_b(E)]. This equivalence uses HNGradedClassification.
 TauCeti.BunG.HNGraded.testGL2 — example contract (computation): For O⊕O(1), graded automorphisms are E××E×.
 TauCeti.BunG.HNGraded.testBasic — example contract (degenerate): For a basic object no positive grading-changing kernel occurs.
 TauCeti.BunG.HNGraded.testUngraded — example contract (non-example): For O⊕O(1), ungraded automorphisms also contain BC(O(1)), which grading removes.
@@ -2081,7 +2081,7 @@ TauCeti.BunG.NewtonOrder.testTorsion — example contract (non-example): Distinc
 BunGAndNewtonStrata:BG1/representation-detects-dominance
 TauCeti.BunG.RepresentationDetectsDominance
 Full theorem contract: For Γ-invariant rational cocharacter classes, ν≤νprime iff for every rational representation the descending slope tuples have the corresponding positive-coroot majorization; totals agree. Basic classes are minimal among the classes with the same rational central projection. Passing to B(G) additionally requires equality of integral κ.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
+Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; RR96 Lemma2.2 is stated in characteristic zero. The equal-characteristic target uses the explicitly requested highest-weight/exterior-power detection and finite-separable scalar-descent interface in G02; it is not claimed closed.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 
 BunGAndNewtonStrata:BG1/admissible-pair
@@ -2106,7 +2106,7 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 
 BunGAndNewtonStrata:BG1/rational-newton-witness
 TauCeti.BunG.RationalNewtonWitness
-Full definition contract: A rational-Newton witness for [b] is a Q_p-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.
+Full definition contract: A rational-Newton witness for [b] is an E-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 TauCeti.BunG.RationalNewtonWitness.quasiSplit — constructor: Build the unique B-dominant rational representative for quasi-split G.
@@ -2125,8 +2125,8 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 
 BunGAndNewtonStrata:BG1/rational-kottwitz-surjectivity
 TauCeti.BunG.RationalKottwitzSurjectivity
-Full theorem contract: The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over the nonarchimedean local field E. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
+Full theorem contract: The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over a finite extension E of Q_p. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.
+Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; For the G(E) surjectivity assertion, E is a finite extension of Q_p, as in Kot97 §7.7. The separate J_b(Q_p) statements retain the unramified Kisin and basic tame van Hoften hypotheses; no equal-characteristic rational-point surjectivity is asserted here.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 
 BunGAndNewtonStrata:BG1/component-kottwitz-coset
@@ -2137,15 +2137,15 @@ Formulation: typed-pointwise-core. These declarations type only the explicitly r
 TauCeti.BunG.ComponentCoset.mem_iff — characterisation: A component x solves the stated difference equation.
 TauCeti.BunG.ComponentCoset.nonempty — universal-property: The Γ-coinvariant compatibility is equivalent to nonemptiness.
 TauCeti.BunG.ComponentCoset.translate — structure: Invariant classes act freely and transitively on the fibre.
-TauCeti.BunG.ComponentCoset.liftZExtension — other: A z-extension and lifted b,μ give a surjective map of affine component cosets.
+TauCeti.BunG.ComponentCoset.liftZExtension — other: Over a finite extension of Q_p, a z-extension and lifted b,μ give a surjective map of affine component cosets, using ZExtensionBoundedLifting with its p-adic scope.
 TauCeti.BunG.ComponentCoset.testIdentity — example contract (degenerate): For σ=id a nonempty coset requires difference0 and equals the entire lattice.
 TauCeti.BunG.ComponentCoset.testSign — example contract (computation): On Z with σ=−id, the equation −2x=2 has unique solution x=−1.
 TauCeti.BunG.ComponentCoset.testParity — example contract (non-example): On the same lattice difference1 has no solution; its full coinvariant compatibility fails.
 
 BunGAndNewtonStrata:BG1/z-extension-bounded-lifting
 TauCeti.BunG.ZExtensionBoundedLifting
-Full theorem contract: For a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
+Full theorem contract: For E a finite extension of Q_p and a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.
+Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.; The bounded-class, component-coset and adjoint acceptable-set conclusions are asserted in the p-adic scope of Kot97 §6.5 and GLX Lemma3.16. The generic z-extension definition is imported in its existing broader scope.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 
 BunGAndNewtonStrata:BG1/connected-center-basic-inner-forms

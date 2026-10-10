@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "The target-level revision pass covers all seven scoped stages with 98 stable nodes and an explicit target-family map. It retains the independent needs_changes review, its accepted contracts and the source/sign/sidedness corrections. Newton maximum and topology targets have separate source routes in both characteristics. Current upstream fundamental-group, z-extension and local group geometry targets are imported; the arithmetic/apartment translation convention is compared explicitly. All prerequisite chains end at baseline declarations, supplier nodes/requests or recorded gaps. The 12 gaps, 47 requests and 88 full Lean-signature omissions remain explicit; no stage is closed, no review acceptance or implementation is claimed.",
+ "summary": "Independent revision-2 review checked the 98-node target-level pass over seven planned stages. Reader consistency and both-characteristic maximum/topology routes are retained. Corrections add direct prerequisites, distinguish geometric-point from sheaf automorphisms, correct bundle pullback and bounded Schubert lifting, qualify characteristic-zero sources, supply general-field classification/torus citations, and retain p-adic scope for rational-point and bounded z-extension lifting. All 42 baseline citations are confirmed and all nine source issues independently checked. The 12 gaps, 47 requests and 88 full Lean-signature omissions remain explicit. The review requires actual named signatures/APIs/examples under §13; no stage is closed and implementation remains unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -21,253 +21,253 @@
     "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
     "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
     "provides": "Finite-type reductive affine group schemes over a field via the Hopf-algebra equivalence; does not supply local Newton theory.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.AffineGroupSchemeCat",
     "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
     "provides": "Affine group objects over Spec of a bundled commutative ring, not arbitrary-base relative group schemes.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Cocharacter.parabolic",
     "module": "TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean",
     "provides": "Dynamic parabolic subgroup of the convolution group of A-valued points of a Hopf algebra. Relative representability and filtered-functor descent remain separate inputs.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Cocharacter.leviGroupExtension",
     "module": "TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean",
     "provides": "GroupExtension of dynamic unipotent, parabolic and Levi point groups, with limit homomorphism; not the relative filtered group-scheme theorem of FS III.5.2.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:WittVector.Isocrystal",
     "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
     "provides": "Frobenius-semilinear equivalence on a module over FractionRing of p-typical Witt vectors. Finite dimensionality is additional; the file proves rank-one classification. General E and the rigid exact category come from VB0.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.Monoidal",
     "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
     "provides": "Strong monoidal structure on an actual functor, including inverse unit/tensor maps and coherence; exactness and rational group-scheme representations are additional inputs.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Equivalence",
     "module": "Mathlib/CategoryTheory/Equivalence.lean",
     "provides": "Functor, inverse and natural unit/counit isomorphisms; a set bijection is weaker.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Subgroup",
     "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
     "provides": "Subgroups of a group, used for the expressible pointwise sigma-centralizer prototype, not its representability.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:RootPairing",
     "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
     "provides": "Paired root/coroot data. Galois action, reductive fundamental group, rational dominant chamber and local affine Weyl group are supplier work, not consequences of this type alone.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Specializes",
     "module": "Mathlib/Topology/Defs/Filter.lean",
     "provides": "Topological specialization; orientation is fixed by b<=bprime iff Ebprime lies in the closure of Eb.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:MulEquiv",
     "module": "Mathlib/Algebra/Group/Equiv/Defs.lean",
     "provides": "An actual multiplicative equivalence, used for the group Frobenius prototype.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Rat.pos",
     "module": "Mathlib/Data/Rat/Defs.lean",
     "provides": "The reduced rational denominator is positive; Finset filtering records its slope multiplicity.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.FGPointRepresentationCat",
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean",
     "provides": "Finite natural algebra-valued point representations of a commutative Hopf algebra, equivalent to finite comodules; over a field these are finite-dimensional rational representations.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.FGPointRepresentationCat.instRigidCategory",
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean",
     "provides": "The finite representation category is rigid symmetric monoidal via transport from finite comodules; reuse this existing structure.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Tannaka.fgPointTensorIsoEquiv",
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean",
     "provides": "For a field k and commutative Hopf algebra H, A-valued points are tensor automorphisms of scalar extension on finite H-comodules; does not assert analytic torsor reconstruction.",
-    "checked": "Independently confirmed by REV-BunGAndNewtonStrata at the recorded pin on 2026-10-07: declaration and providing statement read; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.ExactStructure",
     "module": "TauCeti/CategoryTheory/Exact/ExactStructure.lean",
     "provides": "Chosen Quillen exact structure on an additive category with zero object and binary biproducts; the owner supplies the distinguished conflations.",
-    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.ExactStructure.IsConflationExact",
     "module": "TauCeti/CategoryTheory/Exact/Functor.lean",
     "provides": "Native preservation of the specified conflations by an additive functor. This does not assert preservation of all finite limits and colimits.",
-    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.Linear",
     "module": "Mathlib/CategoryTheory/Linear/LinearFunctor.lean",
     "provides": "A functor between E-linear categories respects scalar multiplication of morphisms.",
-    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.Braided",
     "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
     "provides": "Strong monoidal functor with compatibility with the braiding; between symmetric categories this is the symmetric tensor structure.",
-    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.NatTrans.IsMonoidal",
     "module": "Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean",
     "provides": "Unit and tensor compatibility for natural transformations between monoidal functors; a natural isomorphism alone is insufficient.",
-    "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.AlgHom.mapValue",
     "module": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
     "provides": "Postcomposition by an E-algebra map is a homomorphism of native convolution point groups for a commutative Hopf algebra; used for coefficient Frobenius and coefficient change.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.MultiplicativeGroup.pointsMulEquiv_mapValue",
     "module": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeGroup/Basic.lean",
     "provides": "The Laurent-polynomial Hopf point group is multiplicatively equivalent to units, naturally under coefficient algebra maps. This supplies the G_m Frobenius comparison.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:WittVector.exists_frobenius_solution_fractionRing",
     "module": "Mathlib/RingTheory/WittVector/FrobeniusFractionField.lean",
     "provides": "Over an algebraically closed residue field of characteristic prime p, each nonzero Witt fraction a admits a nonzero b and integer m satisfying φ(b)a=p^m b. This provides existence of rank-one normal forms, not the full general-E category.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:WittVector.FractionRing.frobenius",
     "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
     "provides": "For a perfect domain of characteristic p, native Frobenius extends to a ring equivalence of the p-typical Witt fraction field.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Groupoid",
     "module": "Mathlib/CategoryTheory/Groupoid.lean",
     "provides": "A native category in which each morphism has an inverse. The representative groupoid keeps every twisted conjugator rather than replacing orbit classes by a discrete category.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:CategoryTheory.Aut.Aut_mul_def",
     "module": "Mathlib/CategoryTheory/Endomorphism.lean",
     "provides": "Native Aut multiplication is reversed categorical composition; this gives the usual point-stabilizer multiplication for the representative groupoid.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Algebra.TensorProduct.map",
     "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
     "provides": "Tensor products of algebra homomorphisms give algebra homomorphisms; here coefficient maps act as f⊗id_L.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Algebra.TensorProduct.congr",
     "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
     "provides": "Tensor products of algebra equivalences give algebra equivalences; here Frobenius is id_A⊗σ on A⊗_E L.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.DiagonalizableGroup.weightSpace",
     "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
     "provides": "Corestriction of a representation comodule along a coalgebra map to a group algebra defines weight submodules and their internal direct-sum decomposition.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.DiagonalizableGroup.finite_setOf_weightSpace_ne_bot",
     "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
     "provides": "For a finitely generated representation module, the nonzero weight submodules after corestriction to a group algebra have finite support.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.MonoidAlgebra.mapDomainBialgHom_surjective",
     "module": "TauCeti/Algebra/Bialgebra/MonoidAlgebra/GroupLike.lean",
     "provides": "Over a commutative ring with connected prime spectrum, every bialgebra map between monoid algebras is induced by a monoid homomorphism; the adjacent injectivity theorem assumes a nontrivial base. A field satisfies both conditions.",
-    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.FGComoduleCat.scalarExtensionMonoidalFunctor",
     "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/ScalarExtension/Monoidal.lean",
     "provides": "Native strong monoidal scalar extension of finite comodules to L-modules, with the tensorator given by inverse tensor-product base-change distribution and the tensor-unit comparison.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Comodule.pointsAction",
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/PointsAction.lean",
     "provides": "The native convolution group of algebra-valued Hopf points acts by linear automorphisms of the scalar-extended comodule, multiplicatively in the point.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Tannaka.scalarExtensionComponent",
     "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Monoidal.lean",
     "provides": "Transport a native tensor-automorphism component to an L-linear map on the explicit module L⊗_E M; the adjacent point-action component lemma identifies this with the native comodule action.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Comodule.rTensor_comp_endOfPoint",
     "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
     "provides": "Coefficient postcomposition intertwines the point action with right-tensored coefficient maps. Applying the automorphism σ supplies the semilinear conjugation identity.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Comodule.baseChange_comp_endOfPoint",
     "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
     "provides": "A base-changed comodule morphism intertwines the scalar-extended actions of every algebra-valued Hopf point.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Comodule.endOfPoint_tensor",
     "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
     "provides": "The point action on a tensor comodule is the tensor product of its two actions, transported by the native base-change distribution isomorphism.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "tauceti:TauCeti.Comodule.endOfPoint_trivial",
     "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
     "provides": "The algebra-valued point action is the identity on the scalar extension of a trivial comodule, supplying the tensor-unit equation.",
-    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Representation.Coinvariants",
     "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
     "provides": "Native integral representation coinvariants: quotient by the span of ρ(g)a−a, with additive group and module structures. Applied over ℤ to the cyclic Frobenius action; this is not the reductive fundamental group.",
-    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Representation.Coinvariants.mk",
     "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
     "provides": "Native ℤ-linear quotient projection; mk_self_apply identifies a with ρ(g)a and mk_surjective is the quotient surjectivity used for descent.",
-    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Representation.Coinvariants.map",
     "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
     "provides": "Native induced linear map for an actual intertwining map; map_mk gives its representative formula. Used for integral Kottwitz naturality.",
-    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    },
    {
     "ref": "mathlib:Submodule",
     "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
     "provides": "Native submodules closed under addition and scalar multiplication, used for the restricted effective-over-lattice shear controls on Fin 2 → K. This supplies no coefficient DVR, local-shtuka family or Newton classification.",
-    "checked": "Declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in the shared pinned build on 2026-10-10 by Codex codex-hQQIPH; native type used in the elaborated controls."
+    "checked": "Independently rechecked by REV-BunGAndNewtonStrata~2 at the recorded pin on 2026-10-10: the exact declaration and its supplying statement were read; only the stated scope is used."
    }
   ]
  },
@@ -633,6 +633,18 @@
    "accessed": "2026-10-10",
    "readSections": [
     "Proposition3 with proof author p.4; Lemma4 author pp.5–6; Lemma9 with proof and following height-bound remark author pp.11–12. The referenced Cartier-theory book was not read; existence of an effective lattice remains the linear slope-classification supplier input."
+   ]
+  },
+  {
+   "id": "HV20",
+   "title": "Finiteness properties of affine Deligne–Lusztig varieties",
+   "authors": "Paul Hamacher, Eva Viehmann",
+   "edition": "Documenta Mathematica 25 (2020), 899–910; public published PDF identified by SHA-256.",
+   "url": "https://ems.press/content/serial-article-files/26546?nt=1",
+   "sha256": "8884c1625ff90f828da0fd155ee9b13d94b4e593378a280aeb4fcd806b3789e6",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§1 pp.899–900 fixes local fields in either characteristic; §3 pp.902–904 recalls the centralizer; Lemma5.2 and proof p.906 (PDF8) gives decent representatives."
    ]
   }
  ],
@@ -1599,6 +1611,11 @@
      "sourceId": "KMPS",
      "locator": "Section1.1.2 equations and decency p.6",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "HV20",
+     "locator": "§1 pp.899–900; Lemma5.2 and proof p.906 (PDF8)",
+     "match": "The local field may have characteristic zero or p. The decency equation has a positive period, and the lemma gives a representative in every sigma class. The extra building assertion is not a BG target."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1675,9 +1692,9 @@
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Use the slope cocharacter, a splitting extension and the Kottwitz descent construction.",
-    "Enlarge r to clear slope denominators and descent periods.",
-    "Conjugate over E_r to the chosen chamber; dominance here requires the quasi-split base change."
+    "Use HV20 Lemma5.2 for the general local-field statement. Its proof reduces the class in its Newton centralizer to a basic class and chooses a length-zero normalizer lift; the requisite decent-lift interface is an exact RG2.4 request under G10.",
+    "Use the integral invariant/basic and straight-Weyl comparisons, then enlarge the period to clear slope denominators and the finite descent period. This invokes the requested normalizer-lift theorem, rather than deducing decency from a bare root datum.",
+    "In the separate p-adic GLX refinement, further enlarge the unramified extension so the group is quasi-split and conjugate the Newton map to its chosen dominant chamber."
    ],
    "acceptance": [
     "For a coprime slope a/h simple block choose a period divisible by h."
@@ -1685,18 +1702,26 @@
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/decent-representative",
     "BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
+    "BunGAndNewtonStrata:BG1/straight-weyl-classification",
+    "ReductiveGroupsPartII:RG2.4"
    ],
    "sources": [
     {
      "sourceId": "GLX",
      "locator": "Paragraph4 after Definition2.3 p.819",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic statement and chamber refinement. HV20 Lemma5.2 supplies decent representatives over general local fields."
     },
     {
      "sourceId": "Kot85",
      "locator": "Section4.3 printed213-214",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic statement and chamber refinement. HV20 Lemma5.2 supplies decent representatives over general local fields."
+    },
+    {
+     "sourceId": "HV20",
+     "locator": "§1 pp.899–900; Lemma5.2 and proof p.906 (PDF8)",
+     "match": "The local field may have characteristic zero or p. The decency equation has a positive period, and the lemma gives a representative in every sigma class. The extra building assertion is not a BG target."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3238,7 +3263,7 @@
     {
      "name": "TauCeti.BunG.Bun.pullback",
      "role": "functoriality",
-     "statement": "For T→S, pullback is X_T←X_S bundle pullback, with coherent identities and compositions."
+     "statement": "For T→S, the curve map X_T→X_S induces bundle pullback Bun_G(S)→Bun_G(T), with coherent identities and compositions."
     },
     {
      "name": "TauCeti.BunG.Bun.ofIsocrystal",
@@ -3374,7 +3399,8 @@
     "VectorBundlesAndIsocrystals:VB2:classification",
     "VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting",
     "VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing"
    ],
    "sources": [
     {
@@ -3646,14 +3672,14 @@
    ],
    "title": "Central-torus Grassmannian surjectivity",
    "kind": "lemma",
-   "statement": "For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a splitting field, split maximal-torus cocharacters lift; on Schubert cells compare the unipotent factors and the central torus lattice. Generic Schubert geometry is imported from GS0.",
+   "statement": "For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a finite splitting extension, lift the dominant cocharacter through the split torus lattice sequence. The corresponding map of bounded Schubert closures is surjective on geometric points and quasicompact, hence a v-cover. Generic Schubert bounds and properness are imported from GS0.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Pass v-locally to a splitting field.",
-    "Lift the Schubert cocharacter through the exact torus lattice map and lift the root-group coordinates.",
-    "Descend the local lifts to obtain v-surjectivity."
+    "Pass v-locally to a finite splitting extension and lift the dominant cocharacter through the exact split torus lattice sequence.",
+    "On a geometric point with complete algebraically closed coefficient field C, the split torus kernel has H¹(B_dR(C),Z)=0 by Hilbert 90. Lift the group point and use the Cartan decomposition to obtain a lift in the specified bounded Schubert closure.",
+    "The source Schubert closure is quasicompact and the target quasiseparated over Spd(E), because both are proper. The geometrically surjective bounded map is therefore a quasicompact v-cover. Use the Schubert exhaustion to cover the full Grassmannian."
    ],
    "acceptance": [
     "Unlike rational-point z-extension lifting, this geometric statement needs a torus kernel but not an induced torus."
@@ -3746,7 +3772,8 @@
     "BunGAndNewtonStrata:BG2:uniformization/central-torus-bundle-surjectivity",
     "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity",
     "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "ReductiveGroupsPartII:RG2.1"
    ],
    "sources": [
     {
@@ -3931,12 +3958,15 @@
     {
      "name": "TauCeti.BunG.HNGraded.automorphisms",
      "role": "characterisation",
-     "statement": "Aut of the graded object is J_b(E)."
+     "statement": "At a geometric point, graded automorphisms of E_b^gr are J_b(E). Over S, the automorphism v-sheaf is the constant locally profinite group sheaf J_b(E), with sections given by continuous maps |S|→J_b(E)."
     },
     {
      "name": "TauCeti.BunG.HNGraded.classifying",
      "role": "equivalence",
-     "statement": "Bun_G^(HN-split)≃∐_(b∈B(G))[*/J_b(E)]."
+     "statement": "Bun_G^(HN-split)≃∐_(b∈B(G))[*/J_b(E)]. This equivalence uses HNGradedClassification.",
+     "prerequisites": [
+      "BunGAndNewtonStrata:BG3/hn-graded-classification"
+     ]
     }
    ],
    "tests": [
@@ -5143,7 +5173,8 @@
     "Apply the section-space Jacobian criterion for representability, partial properness, separatedness and smoothness.",
     "Subtract dim Bun_G=0 from dim M_b to compute relative dimension.",
     "The split section contains the b-stratum; openness of the image includes every generalization of b.",
-    "The contracting action degenerates every chart point to the split section, proving the reverse inclusion."
+    "The contracting action degenerates every chart point to the split section, proving the reverse inclusion.",
+    "Apply the Newton topology theorem to identify the generalizations of b with the down-set [bprime]≤[b] in its integral κ fibre; openness alone does not identify this set with the combinatorial order."
    ],
    "acceptance": [
     "For κ=1 in GL_2, the chart of slopes1,0 contains its basic generalization1/2,1/2."
@@ -5155,7 +5186,8 @@
     "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin",
     "VStackSheavesAndLisseCategories:VS1/jacobian-criterion",
     "VStackSheavesAndLisseCategories:VS0",
-    "DiamondsAndVStacks:D5/relative-representability"
+    "DiamondsAndVStacks:D5/relative-representability",
+    "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism"
    ],
    "sources": [
     {
@@ -6093,8 +6125,18 @@
     },
     {
      "sourceId": "RR96",
-     "locator": "Theorem1.15 p.163",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "locator": "Theorem1.15 pp.160–162 (PDF9–11)",
+     "match": "Supplies the characteristic-zero invariant comparison. The general-field classification route is He16 §2.2/Theorem2.6 and the basic-class comparison is Kot14 §13; this citation alone is not an equal-characteristic proof."
+    },
+    {
+     "sourceId": "He16",
+     "locator": "§2.2 p.22 and §2.4, Theorem2.6 pp.25–26",
+     "match": "Works over either characteristic and retains both integral κ and the dominant Newton point."
+    },
+    {
+     "sourceId": "Kot14",
+     "locator": "§13.1–13.3 and Proposition13.1 pp.65–66",
+     "match": "Relates the general local-field B(G) to its σ-conjugacy presentation and the basic integral invariant."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6345,26 +6387,38 @@
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Reduce to the centralizer of the Newton map and its basic class classification.",
-    "Apply the basic Kottwitz bijection there and the injectivity statement of Kot97."
+    "Use He16 §2.2/Theorem2.6 for injectivity of the pair (integral κ, dominant ν) over every nonarchimedean local field. Import the actual local affine datum and its comparison from the straight-Weyl classification, retaining central torsion.",
+    "Kot14 §13.1–13.3 and Proposition13.1 identify the basic local-field set with π_1(G)_Γ and compare it with the σ-conjugacy presentation. The rational compatibility square then determines its central Newton point.",
+    "Kot97 and KMPS provide the p-adic specializations; they are not by themselves citations for equal characteristic."
    ],
    "acceptance": [
     "Quadratic norm-one torus gives equal ν and unequal κ."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "BunGAndNewtonStrata:BG1/straight-weyl-classification"
    ],
    "sources": [
     {
      "sourceId": "Kot97",
      "locator": "Section4.13 pp.274-275 (injectivity), Section4.4 pp.268-269 (basic bijection), and Section5.1 pp.278-280",
-     "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
+     "match": "Supplies the stated p-adic specialization; use He16 and Kot14 for the general-field target."
     },
     {
      "sourceId": "KMPS",
      "locator": "1.1.2.3 pp.6-7",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the stated p-adic specialization; use He16 and Kot14 for the general-field target."
+    },
+    {
+     "sourceId": "He16",
+     "locator": "§2.2 p.22; §2.4, Theorem2.6 pp.25–26",
+     "match": "The setup allows either characteristic; Theorem2.6(3) states injectivity of the two invariants."
+    },
+    {
+     "sourceId": "Kot14",
+     "locator": "§13.1–13.3 and Proposition13.1 pp.65–66",
+     "match": "Supplies the basic bijection over general nonarchimedean local fields, with the σ-class identification in §13.3."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6571,11 +6625,14 @@
    "kind": "theorem",
    "statement": "For Γ-invariant rational cocharacter classes, ν≤νprime iff for every rational representation the descending slope tuples have the corresponding positive-coroot majorization; totals agree. Basic classes are minimal among the classes with the same rational central projection. Passing to B(G) additionally requires equality of integral κ.",
    "hypotheses": [
-    "Global conventions in the reader apply; additional restrictions are stated in the contract."
+    "Global conventions in the reader apply; additional restrictions are stated in the contract.",
+    "RR96 Lemma2.2 is stated in characteristic zero. The equal-characteristic target uses the explicitly requested highest-weight/exterior-power detection and finite-separable scalar-descent interface in G02; it is not claimed closed."
    ],
    "proofSteps": [
-    "Reduce using dominant weights and highest weights of rational representations.",
-    "Separate the central character equality from the semisimple coroot inequalities."
+    "For the forward implication, use Weyl-invariance of representation weights and apply the dominant-weight inequality to each exterior power. Its largest Newton weight gives the corresponding partial sum of slopes; the determinant controls the total. This argument does not require semisimplicity of representations.",
+    "For the converse, over a finite separable splitting field take highest-weight modules for positive integral multiples of the fundamental dominant weights, and restrict their scalars to E. Γ-invariance of ν makes the conjugate highest-weight evaluations agree. These representations detect each coroot inequality; central characters in both directions detect equality of central projections.",
+    "RR96 Lemma2.2 states this argument in characteristic zero. The characteristic-independent highest-weight module and finite-separable descent interface is an additional precise ReductiveGroups layer-1 request under G02, not an assertion already supplied by RR96 or the pinned representation category.",
+    "The Weyl average of a dominant point is its central projection, so that projection is below it in the coroot order. On B(G), impose equality of full integral κ separately."
    ],
    "acceptance": [
     "A faithful representation alone does not establish the full equivalence without a weight-detection argument."
@@ -6587,8 +6644,8 @@
    "sources": [
     {
      "sourceId": "RR96",
-     "locator": "Lemma2.2 and Proposition2.4 pp.165-166",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "locator": "§2.1 and Lemma2.2 pp.165–166; Proposition2.4 and proof pp.166–167",
+     "match": "The representation-detection statement assumes characteristic zero in §2.1. The all-characteristic extension is the stated proof plan with an additional G02 supplier contract."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6724,9 +6781,9 @@
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Use the finite coroot interval and denominator constraints from classification.",
-    "Apply basic minimality at the rational projection of μ♯.",
-    "For a torus there are no nonzero coroots, so κ determines the class."
+    "Choose a faithful rational representation. Its Newton slopes lie in the bounded majorization interval given by μ◇, with fixed total, and each rational slope denominator divides its multiplicity by Dieudonné–Manin. Thus only finitely many GL_n slope tuples occur. The torus weight map is injective, so passage to Weyl orbits has finite fibres.",
+    "At fixed integral κ, injectivity of (ν,κ) converts this finite set of Newton points into finiteness of B(G,{μ}). Use the general-field classification and linear slope inputs; Kot97/KMPS state the p-adic case.",
+    "The unique basic class of κ=μ♯ exists by the basic bijection. Its Newton point is the Weyl average, hence below every acceptable dominant point by the coroot-cone argument. For μ=0 the only dominant point below zero with central projection zero is zero. For tori the coroot order is equality."
    ],
    "acceptance": [
     "Zero bound cannot contain a noncentral positive-coroot displacement with the same central projection."
@@ -6734,18 +6791,30 @@
    "prerequisites": [
     "BunGAndNewtonStrata:BG1/admissible-pair",
     "BunGAndNewtonStrata:BG1/basic-class",
-    "BunGAndNewtonStrata:BG1/representation-detects-dominance"
+    "BunGAndNewtonStrata:BG1/representation-detects-dominance",
+    "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
+    "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
    ],
    "sources": [
     {
      "sourceId": "Kot97",
      "locator": "Section6.4 and6.6 pp.287-288",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic specialization; the displayed proof specifies the general-field deduction and its requested inputs."
     },
     {
      "sourceId": "KMPS",
      "locator": "Lemma1.1.6 p.8",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic specialization; the displayed proof specifies the general-field deduction and its requested inputs."
+    },
+    {
+     "sourceId": "RR96",
+     "locator": "Proposition2.4(iii) and proof pp.166–167",
+     "match": "Provides the faithful-representation finiteness strategy in characteristic zero. Its all-characteristic adaptation uses the explicitly requested weight-detection interface and native general-E Dieudonné–Manin classification."
+    },
+    {
+     "sourceId": "Kot14",
+     "locator": "§13.1–13.3 and Proposition13.1 pp.65–66",
+     "match": "Provides uniqueness and existence of the basic class at the full integral κ in either characteristic."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6765,7 +6834,7 @@
    ],
    "title": "Rational Newton representative",
    "kind": "definition",
-   "statement": "A rational-Newton witness for [b] is a Q_p-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.",
+   "statement": "A rational-Newton witness for [b] is an E-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
@@ -6785,7 +6854,7 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.3 condition1.1.3.1 p.7",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "KMPS states the p-adic case. For general E, the quasi-split rational chamber identifies Γ-fixed rational cocharacters with E-defined slope morphisms; a basic central morphism descends without a chamber choice. These are the requested rational-cocharacter descent inputs of the reductive-group owner."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6878,12 +6947,17 @@
     {
      "sourceId": "KMPS",
      "locator": "1.1.2.4 p.7",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic case and its normalized finite splitting-field norm formula; use Kot14 for the general-field statement."
     },
     {
      "sourceId": "Kot85",
      "locator": "Sections2.4-2.8 pp.208-210",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic case and its normalized finite splitting-field norm formula; use Kot14 for the general-field statement."
+    },
+    {
+     "sourceId": "Kot14",
+     "locator": "§12.13 p.63; Lemma12.12 and §13.2 p.65",
+     "match": "The torus and norm/Shapiro constructions apply over arbitrary nonarchimedean local fields; §13.2 identifies the integral torus invariant."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6903,9 +6977,10 @@
    ],
    "title": "Rational-point Kottwitz surjectivity",
    "kind": "theorem",
-   "statement": "The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over the nonarchimedean local field E. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.",
+   "statement": "The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over a finite extension E of Q_p. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.",
    "hypotheses": [
-    "Global conventions in the reader apply; additional restrictions are stated in the contract."
+    "Global conventions in the reader apply; additional restrictions are stated in the contract.",
+    "For the G(E) surjectivity assertion, E is a finite extension of Q_p, as in Kot97 §7.7. The separate J_b(Q_p) statements retain the unramified Kisin and basic tame van Hoften hypotheses; no equal-characteristic rational-point surjectivity is asserted here."
    ],
    "proofSteps": [
     "For G(E), reduce to tori and simply connected derived groups using a z-extension and the exact invariant lattice sequence.",
@@ -6919,7 +6994,8 @@
     "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
     "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps",
     "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+    "ReductiveGroupsPartII:RG2.1"
    ],
    "sources": [
     {
@@ -6934,8 +7010,8 @@
     },
     {
      "sourceId": "vH24",
-     "locator": "Corollary3.4.6 proof printed37",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "locator": "Lemma3.4.2 pp.33–34 and Corollary3.4.6 proof p.37",
+     "match": "Lemma3.4.2 has the tame Q_p/parahoric hypotheses and gives the rational quotient; the basic-class proof uses its compatibility with J_b."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6998,7 +7074,7 @@
     {
      "name": "TauCeti.BunG.ComponentCoset.liftZExtension",
      "role": "other",
-     "statement": "A z-extension and lifted b,μ give a surjective map of affine component cosets.",
+     "statement": "Over a finite extension of Q_p, a z-extension and lifted b,μ give a surjective map of affine component cosets, using ZExtensionBoundedLifting with its p-adic scope.",
      "prerequisites": [
       "BunGAndNewtonStrata:BG1/z-extension-bounded-lifting"
      ]
@@ -7054,9 +7130,10 @@
    ],
    "title": "Bounded lifting through a z-extension",
    "kind": "theorem",
-   "statement": "For a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.",
+   "statement": "For E a finite extension of Q_p and a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.",
    "hypotheses": [
-    "Global conventions in the reader apply; additional restrictions are stated in the contract."
+    "Global conventions in the reader apply; additional restrictions are stated in the contract.",
+    "The bounded-class, component-coset and adjoint acceptable-set conclusions are asserted in the p-adic scope of Kot97 §6.5 and GLX Lemma3.16. The generic z-extension definition is imported in its existing broader scope."
    ],
    "proofSteps": [
     "Lift μ using the exact cocharacter sequence of the induced torus.",
@@ -7070,7 +7147,8 @@
     "BunGAndNewtonStrata:BG1/admissible-pair",
     "BunGAndNewtonStrata:BG1/component-kottwitz-coset",
     "BunGAndNewtonStrata:BG1/rational-kottwitz-surjectivity",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "ReductiveGroupsPartII:RG2.1"
    ],
    "sources": [
     {
@@ -7308,12 +7386,13 @@
   {
    "stageId": "BunGAndNewtonStrata:BG0",
    "status": "planned",
-   "note": "Target-level pass: 17 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 36 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
+   "note": "Target-level pass: 17 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 37 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
     "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
     "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
     "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7349,6 +7428,7 @@
     "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
     "G09: Local de Rham coefficient group. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7357,11 +7437,12 @@
   {
    "stageId": "BunGAndNewtonStrata:BG2:smooth-Artin",
    "status": "planned",
-   "note": "Target-level pass: 3 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 40 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
+   "note": "Target-level pass: 3 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 41 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
     "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
     "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7380,6 +7461,7 @@
     "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
     "G09: Local de Rham coefficient group. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7395,6 +7477,7 @@
     "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
     "G07: Unitary flag dimension and ordinary comparison interiors. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7403,11 +7486,14 @@
   {
    "stageId": "BunGAndNewtonStrata:BG4",
    "status": "planned",
-   "note": "Target-level pass: 8 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 45 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
+   "note": "Target-level pass: 8 existing nodes realize all target families in targetCoverage; their internal prerequisite closure has 51 nodes. Every external endpoint is a cited baseline, existing supplier node or exact stage request; unresolved inputs remain explicit gaps. This records planning coverage, not closed chains, full Lean signatures or review acceptance.",
    "remaining": [
     "G01: Remaining torus-resolution and lattice refinements. See its exact detail and consumer/request records.",
     "G02: Relative reductive-group and Tannakian descent refinements. See its exact detail and consumer/request records.",
+    "G04: G-isocrystal family descent and stratification refinements. See its exact detail and consumer/request records.",
+    "G06: Newton topology and maximal-element proof interiors. See its exact detail and consumer/request records.",
     "G08: Lean formulation boundary. See its exact detail and consumer/request records.",
+    "G10: Levi coinvariant and Cartan refinements. See its exact detail and consumer/request records.",
     "G11: Source version collation. See its exact detail and consumer/request records.",
     "G12: Exact supplier boundaries for Schubert components and filtered BC towers. See its exact detail and consumer/request records.",
     "Discharge the exact supplier requests reached by this stage before claiming it closed; replace the G08 omissions with actual owner interfaces and their typed APIs/tests."
@@ -7442,14 +7528,15 @@
   {
    "id": "G02",
    "title": "Relative reductive-group and Tannakian descent refinements",
-   "detail": "The affine filtered splitting input has now been read: Zie15 Theorem1.3/4.15 needs an affine base and pro-smooth underlying automorphism group; for the reductive finite-type case that group is smooth. The proof outline clears rational weights on a local tensor generator, splits on affine charts, then trivializes the torsor étale locally. Proposition4.24/Lemma4.25 describe the positive vector quotients. What remains is the generic relative scheme/analytic tensor-torsor and filtered-group representability interface, rational-cocharacter root calculation and effective descent, together with generic inner-form descent and elliptic-torus transfer. Native dynamic field point subgroups do not provide these represented relative objects. Route the generic additions to ReductiveGroups; BG keeps its curve-specific conclusions. Ans19 Theorem3.11 also needs the non-routine reductive invariant-theory/Haboush tensor argument from the rational representation owner. No global non-affine splitting is assumed.",
+   "detail": "The affine filtered splitting input has now been read: Zie15 Theorem1.3/4.15 needs an affine base and pro-smooth underlying automorphism group; for the reductive finite-type case that group is smooth. The proof outline clears rational weights on a local tensor generator, splits on affine charts, then trivializes the torsor étale locally. Proposition4.24/Lemma4.25 describe the positive vector quotients. What remains is the generic relative scheme/analytic tensor-torsor and filtered-group representability interface, rational-cocharacter root calculation and effective descent, together with generic inner-form descent and elliptic-torus transfer. Native dynamic field point subgroups do not provide these represented relative objects. Route the generic additions to ReductiveGroups; BG keeps its curve-specific conclusions. Ans19 Theorem3.11 also needs the non-routine reductive invariant-theory/Haboush tensor argument from the rational representation owner. No global non-affine splitting is assumed. For the general-E representation-detection target, additionally supply highest-weight modules for dominant integral weights over a split reductive group in arbitrary characteristic, the highest weights of exterior powers, and finite-separable restriction of scalars of representations. Export the resulting detection of the coroot cone and central equality by E-rational representations on Γ-fixed Newton classes. RR96 §2.1/Lemma2.2 pp.165–166 has a characteristic-zero hypothesis; the current rational comodule category alone does not supply this detection theorem.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
     "BunGAndNewtonStrata:BG0/finite-frobenius-norm-centralizer",
     "BunGAndNewtonStrata:BG3/filtered-automorphism-group-scheme",
     "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
-    "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G"
+    "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
+    "BunGAndNewtonStrata:BG1/representation-detects-dominance"
    ]
   },
   {
@@ -7619,11 +7706,12 @@
   {
    "id": "G10",
    "title": "Levi coinvariant and Cartan refinements",
-   "detail": "Expand the torsion-free kernel π_1(M)_Γ→π_1(G)_Γ used in KMPS Proposition1.1.13, the unramified replacement/triality averaging, and the Wintenberger–Satake–Mazur local Cartan ingredients through the requested root/Cartan owner. Do not treat absolute Weyl transport as N_G(M)/M. For KZ Proposition2.3.3 expand the specific He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, and He14 Theorem3.5/Proposition4.5 inputs listed in the corrected proof sketch.",
+   "detail": "Expand the torsion-free kernel π_1(M)_Γ→π_1(G)_Γ used in KMPS Proposition1.1.13, the unramified replacement/triality averaging, and the Wintenberger–Satake–Mazur local Cartan ingredients through the requested root/Cartan owner. Do not treat absolute Weyl transport as N_G(M)/M. For KZ Proposition2.3.3 expand the specific He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, and He14 Theorem3.5/Proposition4.5 inputs listed in the corrected proof sketch. Also supply the decent length-zero normalizer lift used in HV20 Lemma5.2, p.906, after enlarging a positive period. The general-field existence target uses this precise lift and the basic/integral comparison, rather than an unsupported extension of Kot85/GLX.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
     "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
-    "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy"
+    "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
+    "BunGAndNewtonStrata:BG0/existence-of-decent-representative"
    ]
   },
   {
@@ -7833,7 +7921,7 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.4",
-   "need": "Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences. In the source arithmetic convention, a translation lifted by mu(pi) has class +[mu]; current upstream labels this same element by -mu. The requested comparison must transport both the chamber and the nu_std=-w_0(nu_disp) normalization, as detected by diag(pi,1) in split GL_2.",
+   "need": "Import current upstream RG2.4 Iwahori–Weyl exact sequences, lengths/Bruhat order, admissible sets, dominant coinvariant cocharacters and Cartan/Iwasawa decompositions, keeping its apartment-translation sign separate from arithmetic κ. Request the σ-straight/twisted-Newton comparison, integral π_1 compatibility, KMPS Wintenberger realization/Satake/unramified Mazur refinements not stated there. Its unramified-combinatorial-comparison target is retained in its stated p-adic setting; request the characteristic-independent reduced-affine-datum comparison needed for the general-field maximum. Central inertia-torsion restoration at fixed κ, HN18 Lemma2.5 integrality and Chai convex-majorant inputs remain G06. BG owns only the resulting B(G,{μ}) and ordinary-class consequences. In the source arithmetic convention, a translation lifted by mu(pi) has class +[mu]; current upstream labels this same element by -mu. The requested comparison must transport both the chamber and the nu_std=-w_0(nu_disp) normalization, as detected by diag(pi,1) in split GL_2. Also supply the decent length-zero normalizer lift used in HV20 Lemma5.2, p.906, after enlarging a positive period. The general-field existence target uses this precise lift and the basic/integral comparison, rather than an unsupported extension of Kot85/GLX.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
@@ -7842,7 +7930,8 @@
     "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
     "BunGAndNewtonStrata:BG1/basic-levi-fibre-uniqueness",
     "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
-    "BunGAndNewtonStrata:BG1/general-levi-newton-comparison"
+    "BunGAndNewtonStrata:BG1/general-levi-newton-comparison",
+    "BunGAndNewtonStrata:BG0/existence-of-decent-representative"
    ],
    "routedItems": [
     "PAPER-KISIN-ZHOU-25/N07",
@@ -8034,7 +8123,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02. The HK22 v5 Theorem2.11 application additionally requires faithful tensor-line stabilizer reconstruction over the coefficient ring and local lifting for the actual automorphism-group orbit, preserving all tensors; a GL of the ambient Hom space is insufficient to state that lifting input. E09 records the missing implication in the read proof: local sections into GL(H) do not ensure membership in Aut(V0). Supply local continuous lifts of the actual orbit map onto its tensor-line embedding orbit, with its induced topology and any smoothness/separability hypotheses made explicit. Do not mark this input proved by the ambient GL action or by the coordinate control.",
+   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02. The HK22 v5 Theorem2.11 application additionally requires faithful tensor-line stabilizer reconstruction over the coefficient ring and local lifting for the actual automorphism-group orbit, preserving all tensors; a GL of the ambient Hom space is insufficient to state that lifting input. E09 records the missing implication in the read proof: local sections into GL(H) do not ensure membership in Aut(V0). Supply local continuous lifts of the actual orbit map onto its tensor-line embedding orbit, with its induced topology and any smoothness/separability hypotheses made explicit. Do not mark this input proved by the ambient GL action or by the coordinate control. For the general-E representation-detection target, additionally supply highest-weight modules for dominant integral weights over a split reductive group in arbitrary characteristic, the highest weights of exterior powers, and finite-separable restriction of scalars of representations. Export the resulting detection of the coroot cone and central equality by E-rational representations on Γ-fixed Newton classes. RR96 §2.1/Lemma2.2 pp.165–166 has a characteristic-zero hypothesis; the current rational comodule category alone does not supply this detection theorem.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent",
@@ -8158,7 +8247,8 @@
    "need": "Import positive H^1 vanishing étale locally, universally on affinoid perfectoid bases after the specified cover; use it to split positive automorphism/graded lifting obstructions.",
    "neededBy": [
     "BunGAndNewtonStrata:BG3/hn-graded-classification",
-    "BunGAndNewtonStrata:BG3/full-automorphism-v-group"
+    "BunGAndNewtonStrata:BG3/full-automorphism-v-group",
+    "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G"
    ]
   },
   {
@@ -9839,8 +9929,8 @@
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in LZ17 v3 Remark4.1(iii) and Corollary4.9 pp.33-34: the coefficient group is G^c. A G-class needs a compatible lift. This finding is restricted to the read preprint; no final-edition claim is added.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "LZ17 v3 Remark4.1(iii)/Corollary4.9 pp.33–34 use G^c. The resulting tensor modification class belongs to B(G^c); a class in B(G) requires compatible extra lifting data. This confirms the coefficient-group correction in the read preprint only.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the de Rham passage labels the associated class as a G-class although the preceding construction uses G^c."
   },
@@ -9868,8 +9958,8 @@
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed on GLX p.830 equation(3.23): a maximal torus does not have π_1(G)_I as its lattice quotient. For G=SL_2, π_1(G)=0, but T(L)/T(O_L)≅Z. The torus sequence has X_*(T)_I as target; the intended rational-point surjectivity is independently supported by Kot97 §7.7.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "GLX Lemma3.16 proof, equation(3.23) p.830, puts π_1(G)_I in a torus-point sequence. For SL_2 the group π_1(G) is zero while the split maximal torus has valuation lattice ℤ. The sequence must use X_*(T)_I; the desired rational-point surjectivity separately follows from Kot97 §7.7 in its p-adic scope.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the displayed torus valuation sequence uses the reductive fundamental group as its quotient."
   },
@@ -9896,8 +9986,8 @@
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in CS17 Proposition3.5.7 p.690 against its preceding dominance convention: closed unions must be upper Newton unions. For split GL_2 with minuscule bound the ordinary locus is P^1(Q_p), closed, and the basic locus is its open Drinfeld complement. This detects the reversed inequality while preserving the intended semicontinuity theorem.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "CS17 Proposition3.5.7 and proof pp.689–690 reverse the semicontinuity wording relative to the preceding dominance convention. Upper Newton unions are closed. For GL_2 with minuscule bound, the ordinary rational locus is closed and the basic Drinfeld locus open. This is a convention correction, not a failure of the intended theorem.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the proposition and proof describe the Newton map as lower semicontinuous for their chosen order."
   },
@@ -9932,8 +10022,8 @@
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in the recorded KMPS author PDF p.6: equation(1.1.2.2) ends with σ^r(b), producing r+1 factors. Rank one b=p gives p^(r+1), whereas the r-th twisted power gives p^r. The last factor must be σ^(r−1)(b). No claim about the uncollated final Duke version.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "The recorded KMPS author PDF equation(1.1.2.2) p.6 has r+1 factors. With b=p in rank one, those factors give p^(r+1), whereas the r-th semilinear power gives p^r. The final exponent must be r−1. The final Duke version was not collated.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the decency display includes one Frobenius factor beyond its period."
   },
@@ -9968,8 +10058,8 @@
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in KMPS pp.11-12. For GL_3 and Levi GL_1×GL_2, take μ=(0,1,0), b_M=diag(p,1,1). The pair is basic in M and acceptable in G, but κ_M(b_M)=(1,0)≠(0,1)=κ_M(μ). The normalizer preserves the unequal-dimensional blocks, so N_G(M)/M is trivial; the absolute Weyl transposition works. Use W(G,T), and retain the remaining hypotheses.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "KMPS Corollary1.1.15 and proof pp.11–12 need an absolute Weyl element. For GL_3 with Levi GL_1×GL_2, μ=(0,1,0) and b_M=diag(p,1,1), the Levi κ values differ. Its unequal blocks have trivial Levi normalizer quotient, while an absolute Weyl transposition gives the required lift. Retain the other hypotheses; the finding concerns the recorded author PDF.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: cocharacter transport is assigned to the normalizer quotient of the Newton Levi."
   },
@@ -9979,7 +10069,7 @@
    "kind": "error",
    "locator": "§1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated; also Introduction, Theorem 3, p.3 (the introduction's form of Corollary 1.3.16 / §1.3.15, p.20)",
    "correction": "The ordinary class is unique if it exists. For a quasi-split p-adic group its existence follows from the supplied theorem; for general inner forms existence must be assumed and can fail for a division-algebra multiplicative group. Density claims therefore need this existence or quasi-split hypothesis in addition to local integrality.",
-   "reason": "§1.3.15 allows non-quasi-split G_{Q_p} ('As in (1.1.5) we fix an inner twisting ξ'). For G_{Q_p} = D^×, D the quaternion division algebra, realise D^×(L) as GL_2(L) with Frobenius Ad(Π)∘σ, Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2) that raises κ by 1 and both Newton slopes by 1/2. A class with ν = μ̄^{-1} = (0, −1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1, which is impossible. So B(D^×, {μ^{-1}}) is the single basic class, with ν = (−1/2, −1/2). This happens inside the paper's setting: the Shimura curve of an indefinite quaternion algebra over Q ramified at an odd p is of Hodge type with G_{Q_p} = D^×, in agreement with Čerednik–Drinfeld (every point of its special fibre is supersingular). For Theorem 3 and Corollary 1.3.16 the example shows the μ-ordinary locus is undefined rather than that a density assertion is false, since that special fibre is not locally integral.",
+   "reason": "§1.3.15 allows non-quasi-split G_{Q_p} (its setup allows an inner twisting). For G_{Q_p} = D^×, D the quaternion division algebra, realise D^×(L) as GL_2(L) with Frobenius Ad(Π)∘σ, Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2) that raises κ by 1 and both Newton slopes by 1/2. A class with ν = μ̄^{-1} = (0, −1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1, which is impossible. So B(D^×, {μ^{-1}}) is the single basic class, with ν = (−1/2, −1/2). This happens inside the paper's setting: the Shimura curve of an indefinite quaternion algebra over Q ramified at an odd p is of Hodge type with G_{Q_p} = D^×, in agreement with Čerednik–Drinfeld (every point of its special fibre is supersingular). For Theorem 3 and Corollary 1.3.16 the example shows the μ-ordinary locus is undefined rather than that a density assertion is false, since that special fibre is not locally integral.",
    "affects": "a stated result",
    "known": "Inherited confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8; The scope distinction is explicitly stated in Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5; the concrete quaternion proof is supplied here. No final KMPS collation.",
    "searched": [
@@ -9995,12 +10085,12 @@
    "inheritedReview": {
     "verdict": "confirmed",
     "by": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
-    "reason": "Checked on the page image (p.20) and in two independent readings. The D^× computation was redone: b ↦ bΠ identifies B(D^×) with B(GL_2), raising κ by 1 and the Newton slopes by 1/2, and a slope of multiplicity 1 in a 2-dimensional isocrystal is an integer. The global instance (a quaternionic Shimura curve ramified at p) is of Hodge type. For quasi-split G_{Q_p} everything holds: [b_μ] is the image of κ_{T*}^{-1}([μ^{-1}]). The same place also has: Quotation checked on the p.3 image. Theorem 3 is the introduction's form of Corollary 1.3.16 (p.20), which uses the μ-ordinary stratum S_[b_μ] of §1.3.15. §1.3.15 asserts for arbitrary G_{Q_p}, without proof, that 'There is a unique [b_μ] ∈ B(G_{Q_p},{μ^{-1}}) with N_ξ(ν̄_G([b_μ])) = μ̄^{-1}'. Uniqueness is fine by (1.1.2.3). Existence fails for non-quasi-split G. Independent check: take B an indefinite quaternion algebra over Q ramified at p, G = B^× (PEL, hence Hodge type), G_{Q_p} = D^×, G* = GL_2, μ = (1,0). Identify D^×(L) = GL_2(L) with Frobenius Ad(Π)∘σ, where Π = [[0,1],[p,0]] and Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2), because (bΠ)σ(bΠ)⋯ = (b·σ_D(b)⋯)·(Πσ(Π)⋯). It raises κ by 1, and it adds the central (1/2,1/2) to Newton points. A class with ν = (0,−1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1. That is impossible, since slope r/s in lowest terms occurs with multiplicity divisible by s. Hence [b_μ] does not exist. The only admissible class is basic, with ν = (−1/2,−1/2), and a check against (1.1.5.2) shows no non-basic class is admissible. So 'the μ-ordinary locus' in Theorem 3 is undefined for such data, and the proof, which goes through §1.3.15, covers only the case where [b_μ] exists. With G_{Q_p} quasi-split everything holds: [b_μ] is the image of κ_{T*}^{-1}([μ^{-1}]), and (1.1.3.1) holds by 1.1.3. Case for the defence: (i) p.2 presents Theorem 3 as a generalisation of Wedhorn and Wortmann, whose setting is hyperspecial, hence quasi-split. (ii) In the D^× test case the hypothesis of Theorem 3 fails at parahoric level: the Čerednik–Drinfeld model is semistable, with nodes where two components meet, so its special fibre is not locally integral. The test case therefore shows that the statement is ill-defined, not that a density assertion is false. No non-quasi-split example with a locally integral special fibre and no [b_μ] is exhibited, so 'false' should not be claimed; 'not established / not well-defined as stated' is accurate. (iii) Reading 'μ-ordinary' as 'the maximal element of B(G,{μ^{-1}})' would need (1.1.3.1) for that class, which the paper does not supply in the non-quasi-split case. On the claim's secondary point: whenever [b_μ] exists, (1.1.3.1) does hold, at least when G is an extended pure inner form of G* (as for D^×). Twisting by a basic x chosen in the Levi M* = Cent(μ̄*) puts a representative of [b_μ] in the Q_p-Levi J_x(M*) with central Q_p-rational Newton point. That point is a routine omission, not part of the mistake. Scope: this is the same defect as ledger E8 (§1.3.15, already 'error / a stated result'), not an independent mistake. It should be recorded by extending E8's locator to Theorem 3 (p.3) and Corollary 1.3.16 (p.20; also Corollary 1.3.18, which applies Corollary 1.3.16), and not counted a second time. One inaccuracy in the claim's correction: Theorem 1 has no quasi-split hypothesis. It assumes that ν_b has a Q_p-rational representative, and quasi-split is a special case."
+    "reason": "Paraphrased provenance of the earlier independent review: the quaternionic inner-form computation forces the missing ordinary-existence hypothesis in KMPS §1.3.15 p.20 and its introductory density statement. The comparison b↦bΠ shifts slopes by 1/2 and κ by 1; multiplicity-denominator constraints prohibit ordinary slopes. The density counterexample does not satisfy local integrality, so the defect is an undefined locus, not a disproof under that hypothesis. The rational-Newton-witness hypothesis of the earlier theorem is weaker than quasi-splitness. The finding was restricted to the author copy."
    },
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in KMPS §1.3.15 p.20 and introductory Theorem3 p.3. For quaternion D^×, twisting to GL_2 shifts slopes by 1/2; the supposed ordinary class would require slopes 1/2 and −1/2 each with multiplicity one, impossible by denominator multiplicity. Unique maximum does not imply ordinary equality. The density assertion is ill-defined without existence, rather than refuted under a locally integral hypothesis; the finding remains scoped to the author PDF.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "KMPS §1.3.15 p.20 asserts ordinary existence for inner forms. In quaternion D^×, b↦bΠ with Π²=p identifies the σ-class set with GL_2 and shifts both slopes by 1/2. Ordinary slopes (0,−1) would give slopes (1/2,−1/2), each with multiplicity one, contradicting Dieudonné–Manin. Ordinary existence needs a hypothesis. The example makes the associated density locus undefined; it does not refute density under local integrality. No final-edition claim is made.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the ordinary-class assertion assumes existence for a general inner form; the density statement adds local integrality."
   },
@@ -10021,8 +10111,8 @@
    "boundedCheck": "The small defect is a type mismatch between character and cocharacter lattices; this finding is confined to the two read preprint/author files.",
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in KZ v2 §2.2.3 p.10: positive roots are written in an order on X_*(T)⊗Q, which requires positive coroots. This is a typed notational error with no change to the intended theorem. The published Annals wording has not been collated.",
-    "by": "REV-BunGAndNewtonStrata"
+    "reason": "KZ v2 §2.2.3 p.10 describes an order in the rational cocharacter space using positive roots. The cone must be generated by positive coroots. This confirms the typed notation correction in the read version, without a claim about the uncollated final Annals text.",
+    "by": "REV-BunGAndNewtonStrata~2"
    },
    "printed": "Paraphrase of the issue: the dominance difference is expressed using roots in place of coroots."
   },
@@ -10035,13 +10125,18 @@
    "correction": "Include the Frobenius denominator of the chosen lattice. Over a coefficient DVR with Frobenius preserving the DVR and fixing π, assume an effective lattice exists and ΦM0⊂π^(−d)M0 with d≥0. The minimal effective over-lattice is Σ_(i=0)^(h−1) Φ^i M0 for rank h, and lies in π^(−d(h−1))M0. This field-level repair does not remove the proper-cover or local-freeness obligations over general bases.",
    "reason": "Over an algebraically closed residue field, take rank two with Φ(x,y)=(σ(x)+π^(−N)σ(y),σ(y)) and standard M0. In equal characteristic choose a residue-field element u with u−u^q=1, which exists over the algebraic closure. The shear g=[[1,uπ^(−N)],[0,1]] satisfies b=g σ(g)^−1, so this is σ-conjugate to the identity and its Newton polygon is always (0,0). Any effective M containing M0 contains Φ(e2)−e2=π^(−N)e1. Containment in π^(−c)M0 therefore forces c≥N, while N is arbitrary. Zink author-copy Lemma9 pp.11–12 bounds the number of iterates by h−1 using a minimal stable lattice, the residue-field dimension and Nakayama; it does not bound these arbitrary input denominators. The subsequent height-only bound in his p-divisible-group setting uses its integral F,V structures.",
    "affects": "the proof",
-   "known": "New finding in this revision, awaiting independent verification; no applicable correction located in the bounded search. Not a claim that Lemma2.9 is false.",
+   "known": "New finding in this revision, independently confirmed by REV-BunGAndNewtonStrata~2; no applicable correction located in the bounded search. Not a claim that Lemma2.9 is false.",
    "searched": [
     "2026-10-10: arXiv https://arxiv.org/abs/2208.01069 and v5 PDF inspected; v5 is the latest listed version. The findings concern v5 only; no comparison of the relevant sentences with every earlier version is claimed.",
     "2026-10-10: publisher record https://www.sciencedirect.com/science/article/abs/pii/S0001870825004153 identifies Advances in Mathematics 480C (2025), Article110517, DOI10.1016/j.aim.2025.110517. The version of record was not obtained or collated.",
     "2026-10-10: https://sites.google.com/site/wansukimmaths/ lists this publication with an arXiv link, without a linked correction for this title. Its linked erratum concerns a different paper.",
     "2026-10-10: bounded title/arXiv searches with correction, erratum and Lemma2.9 found no applicable correction. This does not establish novelty."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HK22 v5 Lemma2.9 proof p.8 claims an effective over-lattice bound depending only on Newton slopes. The rank-two σ-conjugate-to-identity shear with coefficient π^(−N) has slopes (0,0), but any stable lattice containing the standard one contains π^(−N)e_1, forcing its bound c≥N. Zin01 Lemma9, author pp.11–12, controls the iterate count after an effective lattice is supplied. Adding an initial Frobenius denominator d yields the recorded rank-dependent bound. This confirms the proof defect, not falsity of Lemma2.9; published text was not collated.",
+    "by": "REV-BunGAndNewtonStrata~2"
+   }
   },
   {
    "id": "BunGAndNewtonStrata/E09",
@@ -10052,13 +10147,18 @@
    "correction": "Supply local continuous lifting for the actual Aut(V0) orbit map on the Frobenius-compatible tensor-line embeddings, with the required topology and all defining tensors preserved. Ambient GL(H) sections alone do not establish this input. Keep that lifting theorem as an unresolved supplier contract.",
    "reason": "A section into GL(H) has no stated reason to land in Aut(V0). For a concrete membership control, the subgroup K={diag(t,t^−1)} of GL2(Q) sends (1,1) to (2,1/2) using t=2. The invertible matrix A=[[2,0],[−1/2,1]] also sends (1,1) to that vector, but A∉K. Thus even when a smaller-group lift exists, an ambient lift need not preserve its defining tensors. This control identifies the missing implication; it does not disprove local lifting for the particular isocrystal group or Theorem2.11.",
    "affects": "the proof",
-   "known": "New explicit source-gap record in this revision; the actual-orbit requirement was already a packet request. Awaiting independent verification; no applicable correction located in the bounded search.",
+   "known": "New explicit source-gap record in this revision; the actual-orbit requirement was already a packet request. Independently confirmed by REV-BunGAndNewtonStrata~2; no applicable correction located in the bounded search.",
    "searched": [
     "2026-10-10: arXiv https://arxiv.org/abs/2208.01069 and v5 PDF inspected; v5 is the latest listed version. The findings concern v5 only; no comparison of the relevant sentences with every earlier version is claimed.",
     "2026-10-10: publisher record https://www.sciencedirect.com/science/article/abs/pii/S0001870825004153 identifies Advances in Mathematics 480C (2025), Article110517, DOI10.1016/j.aim.2025.110517. The version of record was not obtained or collated.",
     "2026-10-10: https://sites.google.com/site/wansukimmaths/ lists this publication with an arXiv link, without a linked correction for this title. Its linked erratum concerns a different paper.",
     "2026-10-10: bounded title/arXiv searches with correction, erratum and Lemma2.9 found no applicable correction. This does not establish novelty."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HK22 v5 Theorem2.11 proof p.9 uses a section for the ambient GL(H) orbit map to assert a factorization through Aut(V_0). The displayed construction supplies no condition forcing the ambient lift to preserve the defining tensors. The diagonal-subgroup matrix control verifies this missing implication; it does not refute actual local lifting. The actual automorphism-orbit lifting contract remains open. This confirms a proof gap in v5 only.",
+    "by": "REV-BunGAndNewtonStrata~2"
+   }
   }
  ],
  "sourceVersions": [
@@ -10534,6 +10634,17 @@
     "Lemma9 and proof, author pp.11–12 in the 19-page copy."
    ],
    "note": "Codex codex-eBGG2q: The minimal stable lattice and iterate-count argument was read; the cited Cartier-theory book was not read. Author-copy pagination is used, not Duke pagination. Only these bounded reads are newly claimed; other reads retain their inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "HV20",
+   "kind": "independent review; public published version",
+   "url": "https://ems.press/content/serial-article-files/26546?nt=1",
+   "read": "2026-10-10",
+   "sha256": "8884c1625ff90f828da0fd155ee9b13d94b4e593378a280aeb4fcd806b3789e6",
+   "sections": [
+    "§1 pp.899–900 fixes local fields in either characteristic; §3 pp.902–904 recalls the centralizer; Lemma5.2 and proof p.906 (PDF8) gives decent representatives."
+   ],
+   "note": "Codex codex-RH698u read the field scope and decent-representative statement/proof. This supplies the general-field source missing from the inherited p-adic citations; the normalizer-lift input is an exact owner request. Contracts are in the reviewer’s own words."
   }
  ],
  "suggestedLean": {
@@ -10547,7 +10658,7 @@
    "exitCode": 0,
    "warnings": "Only admitted-proof declaration warnings (178); no errors or other warnings.",
    "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples. New shear/orbit controls check only native algebraic signatures, not valuation-theoretic c≥N, Newton slope classification or continuous lifting for the actual isocrystal group.",
-   "agent": "Codex — codex-eBGG2q"
+   "agent": "Codex — codex-RH698u"
   }
  },
  "upstreamNotes": [
@@ -10569,503 +10680,508 @@
    "owner": "ReductiveGroupsPartII:RG2.1",
    "commit": "e255659f8eb50cd472809d9d565c8f755acffd84",
    "note": "Read current ReductiveGroups, ReductiveGroupsPartII RG2.1.5 and AlgebraicVectorBundles plus the current Tau Ceti library. The representative Kottwitz map remains supplied; the local sigma-equivariance paragraph still lacks a full Lean target. The scheme bundle roadmap does not supply relative analytic FF bundles. No current replacement for the omitted exact isocrystal structures, actual perfectoid v-site, ArtinVStack or analytic Jacobian/cohomological predicates was found. No upstream files were modified or lake commands run there."
+  },
+  {
+   "owner": "ReductiveGroupsPartII:RG2.1",
+   "commit": "3c18d9fbfceed0dc5c1edb1070a3927152d19e28",
+   "note": "Independent review read current upstream ReductiveGroups, ReductiveGroupsPartII and AlgebraicVectorBundles README/Suggested files and current Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Existing π_1, z-extension and representative Kottwitz targets remain imports. Rational-point invariant surjectivity is explicitly p-adic there; the matching BG consumers now retain that scope. The local σ-equivariance Lean target and analytic FF/exact-isocrystal/v-stack instantiations remain the recorded requests. No upstream files were edited or build commands run there."
   }
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-BunGAndNewtonStrata",
-  "date": "2026-10-07",
-  "notes": "All 98 target-level nodes, 20 recorded public PDF versions, 15 pinned baseline declarations, exact supplier contracts, 30 definition/construction APIs and their 90 tests, 30 planets, seven source issues and confirmed RT10/11/32 were checked. Clear packet/Lean corrections are made; reader reconciliation is outside this issue’s edit paths. Full signature/API/example coverage is still absent under G08. General-local-field targets unsupported by the p-adic sources are partial with G06 remaining; near-miss supplier refinements are G05/G12. No stage is closed and no formalization is claimed.",
+  "reviewer": "independent-review-REV-BunGAndNewtonStrata~2",
+  "date": "2026-10-10",
+  "notes": "Independent review of all 98 target-level nodes, every located node source, all 42 pinned baseline declarations, 47 supplier requests, the current upstream roadmaps/library and RT-AREA-geomlanglands/10, /11 and /32. Seventeen nodes corrected, 81 verified, no nodes added or removed. All nine source issues confirmed only in their recorded versions. Thirty inherited public PDF hashes matched; the added public published HV20 supplies general-field decency. Packet and reader agree, all seven planned stages meet target-level coverage and no stage is closed. Complete-pass status is retained under current §0, not implementation. Lean elaborates with 178 admitted-proof warnings and no other warnings/errors; 88 full-signature omissions and nine restricted prototypes and one upstream signature import leave the §13 signature/API/example requirement unmet. This concrete deliverable gap, rather than the honestly open mathematical stages, requires revision.",
   "checked": [
    {
     "nodeId": "BunGAndNewtonStrata:BG0/g-bundle",
-    "verdict": "corrected",
-    "note": "Exact rational algebraic representations, exact tensor functors and tensor isomorphisms; GL1/trivial/faithful-presentation tests distinguish weaker actions. Added component extensionality."
+    "verdict": "verified",
+    "note": "FS III.1.1 uses exact E-linear symmetric tensor functors on finite rational representations; categorical cores preserve that structure, while analytic instantiation remains VB1/G08."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "verdict": "verified",
-    "note": "SW19.5.1 is the scheme comparison and19.5.2 the sousperfectoid adic comparison; the pinned field point reconstruction is only a foundation. Relative proof refinement remains G02."
+    "note": "FS III.1.1 and SW 19.5 identify analytic torsors, tensor bundles and faithful-representation realizations; the relative reconstruction input remains a precise G02 request."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent",
     "verdict": "verified",
-    "note": "Contracted product and restriction of representations give the stated variance and effective descent. LZ use retains G^c through E01."
+    "note": "SW 19.5.2 supplies faithful tensor descent; LZ Corollary4.9 retains the G^c qualification rather than treating every reductive group identically."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
-    "verdict": "corrected",
-    "note": "FSIII.2.1 and SW22.4.1 give exact rational tensor G-isocrystals; corrected SW printed page210, and the general-E linear supplier stays explicit."
+    "verdict": "verified",
+    "note": "FS III.2.1 distinguishes the untrivialized exact tensor isocrystal category from its representative bσ presentation; native tensor reconstruction does not claim the omitted equivalence."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/sigma-conjugacy-quotient",
     "verdict": "verified",
-    "note": "Twisted action convention differs by inverse conjugator only; quotient and universal map are actual point cores, not the full groupoid."
+    "note": "The arithmetic quotient uses b′=g b σ(g)⁻¹; native representative arrows retain stabilizers, and the Steinberg/trivialization comparison remains an owner obligation."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
-    "verdict": "corrected",
-    "note": "Read Kot97 §4.3 and Kisin1.2.12 for descent to the Newton centralizer and inner Levi. Added the decent-representative input used by the descent argument."
+    "verdict": "verified",
+    "note": "The functor on all commutative E-algebras uses A⊗E L and id⊗σ; decency supplies finite descent. Nonbasic GL2 and the one-third division invariant distinguish algebraic and bundle automorphisms."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/sigma-centralizer-conjugacy",
     "verdict": "verified",
-    "note": "The conjugation map agrees with bprime=g b σ(g)⁻¹; it transports points and represented groups, with scheme representability routed through G02."
+    "note": "Substitution gives h↦g h g⁻¹ and compatible representative changes; the formula has no misplaced σ(g), and native conjugacy interfaces agree."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/decent-representative",
-    "verdict": "verified",
-    "note": "Positive period, denominator integrality and ordered Frobenius product are distinct; E04 corrects the r+1-factor source misprint."
+    "verdict": "corrected",
+    "note": "Added HV20 Lemma5.2, p.906, for the both-characteristic equation. A positive period and exactly r Frobenius factors are retained; zero-period and rank-one tests discriminate."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/existence-of-decent-representative",
-    "verdict": "verified",
-    "note": "Kot85 §4.3/GLX2.3 give existence after enlarging period; it is algebraic and does not consume curve patching."
+    "verdict": "corrected",
+    "note": "Added the general-field HV20 source, direct basic/straight/normalizer prerequisites and an exact G10/RG2.4 decent-lift request; kept the separate p-adic quasi-split chamber refinement."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/defect",
     "verdict": "verified",
-    "note": "Split-rank difference uses the descended reductive J_b, not geometric rank or full v-automorphisms. RG2.1 supplies relative rank."
+    "note": "Defect compares E-split ranks of G and J_b, not absolute rank or bundle dimension; basic and nonbasic examples retain the source convention."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/pure-inner-twisting",
     "verdict": "verified",
-    "note": "FSIII.4.1 gives twisting by the torsor and its automorphism group; schemes and analytic curve bundles retain the appropriate descent categories."
+    "note": "FS III.4.1 supplies pure inner twisting of torsors; the cocycle and structural-group transport are separated from equality of isomorphism classes."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/basic-inner-form-bundle-equivalence",
-    "verdict": "corrected",
-    "note": "FSIII.4.2-4.3 identify the basic inner curve group with constant J_b. Added explicit basic-class prerequisite; this analytic bundle equivalence is separate from algebraic classification."
+    "verdict": "verified",
+    "note": "FS III.4.2–III.4.3 requires basic b for an inner form of the full group; torsor twisting and the bundle comparison retain this hypothesis."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/division-algebra-morita",
-    "verdict": "corrected",
-    "note": "Corrected isocrystal/bundle Brauer sign and module sidedness using three exact VB suppliers. The denominator-three test distinguishes signs; Hom(E_b,E) carries the stated right action."
+    "verdict": "verified",
+    "note": "FS III.4.4 and the read VB0/VB2 contracts preserve arithmetic Brauer invariant −λ and right-module Hom(E_b,E); the one-third control detects the sign."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/levi-newton-formula",
     "verdict": "verified",
-    "note": "KMPS1.1.12 computes a basic Levi Newton point from full κ with quasi-split/rational-Levi hypotheses; He6.2 supplies the general dominance comparison."
+    "note": "KMPS Lemma1.1.12 computes Levi-to-group averaging for basic classes, with the relevant Weyl/root data and integral coinvariant comparison imported."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
-    "verdict": "corrected",
-    "note": "KMPS1.1.13 and corrected1.1.15 require minuscule μ and the rational Newton witness. Added RG2.1 for the non-routine Levi coinvariant kernel; G10 retains its proof interior."
+    "verdict": "verified",
+    "note": "KMPS Proposition1.1.13/Corollary1.1.15 retains minuscule and basic hypotheses, the Levi coinvariant refinement and the absolute Weyl correction; unequal GL3 blocks detect the false normalizer substitution."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/torus-special-pair",
-    "verdict": "corrected",
-    "note": "The definition is local T-specialness, not existence of a global CM point. Added API-level prerequisite for the elliptic-basic constructor without creating a definition/theorem cycle."
+    "verdict": "verified",
+    "note": "KMPS Definition1.1.7 requires the rational Newton witness and ellipticity in the appropriate centralizer; constructors name their basic/Levi dependencies."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/elliptic-torus-basic-image",
     "verdict": "verified",
-    "note": "Kot85 Prop5.3/KMPS1.1.8 give precisely the basic image for an elliptic torus modulo the center; no minuscule assumption is introduced."
+    "note": "Kot85 Proposition5.3 and KMPS Lemma1.1.8 give the elliptic-torus basic image; acceptability still includes the full integral Kottwitz invariant."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/transferred-torus-specialness",
-    "verdict": "corrected",
-    "note": "KMPS1.1.16-17 requires a rational torus transfer and rational Newton witness. Added the elliptic-basic image theorem actually used by the proof."
+    "verdict": "verified",
+    "note": "KMPS 1.1.16–1.1.17 transports the torus through the inner identification; ellipticity and local H¹/coinvariant inputs are separate, precise requests."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/ordinary-class",
-    "verdict": "corrected",
-    "note": "Ordinary equality and existence are separated correctly for inner forms. Added the maximum theorem prerequisite and restricted its maximum clause to the p-adic scope of the source."
+    "verdict": "verified",
+    "note": "KZ Definition2.2.4 distinguishes ordinary equality ν=μ◇ from the maximum acceptable class; existence for general inner forms is not assumed."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
-    "verdict": "corrected",
-    "note": "HN18 standing field is a finite extension of Q_p. Restricted the maximum contract to that scope; the equal-characteristic extension remains G06."
+    "verdict": "verified",
+    "note": "The HN18 root-datum theorem and He16 local-field straight comparison give the stated general-field maximum route; central torsion, reduced-root transfer and integrality remain explicit G06 refinements."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/straight-weyl-classification",
-    "verdict": "corrected",
-    "note": "KZ §2.2.2 is the straight-class bijection, using §2.1 definitions. Corrected locator; the RG2.4 arithmetic refinement is a request, not ordinary Cartan decomposition alone."
+    "verdict": "verified",
+    "note": "The source straight-class bijection and current RG2.3/RG2.4 imports retain the actual local affine datum and translation normalization; no analytic patching is used."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/ordinary-straight-translation",
-    "verdict": "corrected",
-    "note": "KZ Lemma2.2.6 p.10 uses2.1.7 and2.1.9 p.9. Corrected locator; retain existence of the ordinary class and straightness of the chosen translation."
+    "verdict": "verified",
+    "note": "KZ Lemma2.2.6, using 2.1.7/2.1.9, supplies the ordinary translation and centrality in its Levi; the integral Galois hypothesis is retained."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/ordinary-derived-isogeny",
     "verdict": "verified",
-    "note": "KZ Lemma2.2.8 applies to a derived isogeny; it does not forget integral κ or manufacture ordinary classes for a general inner form."
+    "note": "KZ Lemma2.2.8 controls ordinary classes under a derived isogeny; invariant transport is included rather than identifying arbitrary Newton representatives."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
-    "verdict": "corrected",
-    "note": "Replaced the unsupported generic Lang proof with the exact HR/He/HZ straight-cell reductions of KZ2.3.3. Explicit parahoric and admissible-element hypotheses retained; G10 records unread imported interiors."
+    "verdict": "verified",
+    "note": "KZ Proposition2.3.3 retains the connected parahoric and admissible hypotheses and its specified He–Rapoport/He/He–Zhou reductions; G10 records the proof interiors."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/product-and-unramified-norm",
     "verdict": "verified",
-    "note": "Zhu3.6-3.7 and Kot97 §6.5 give cyclic ordered norm, invariant transport and restriction-of-scalars centralizers/defect; not a commutative power."
+    "note": "Zhu17 Remark3.6/Lemma3.7 and Kot97 6.5 give product and unramified norm comparisons, including the residue-degree normalization of slopes and defect."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/basic-levi-fibre-uniqueness",
     "verdict": "verified",
-    "note": "He6.3 footnote makes the fibre singleton for a basic G-class; the nonbasic Levi-fibre assertion is not promoted."
+    "note": "He21 Theorem6.3 gives uniqueness of the Levi fibre only over a basic G-class; the nonbasic boundary is not generalized away."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "verdict": "verified",
-    "note": "FSI.2 specifies family G-isocrystals over perfect rings; no constant single-class claim for all families is substituted. G04 remains the effective family proof refinement."
+    "note": "FS I.2 and Ans22 §11 give coefficient families with normal-chart descent and exactness reflection; relative annuli and actual integral models remain imported."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
     "verdict": "verified",
-    "note": "FSI.2.1 states v-descent independently of κ-local-constancy; G04 does not hide a circular use of that consequence."
+    "note": "FS I.2.1, Iva23 and Ans22 support the descent/stratification route. HK22 v5 denominator and actual-orbit gaps E08/E09 are confirmed and remain precise supplier obligations."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy",
     "verdict": "verified",
-    "note": "FSIII.2.8 uses SW18.3.1 via clopen maps to the two-point perfect scheme. It is distinct from v-family descent and from curve κ-local-constancy."
+    "note": "FS CorollaryIII.2.8 and SW Proposition18.3.1 give local constancy through clopen perfect-scheme tests; no finite-type moduli carrier is substituted."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/abelianized-kottwitz-set",
-    "verdict": "corrected",
-    "note": "Corrected the crossed module to Gsc(L^sep)→G(L^sep) with the natural Weil action and discrete coefficients. Torus and center API models use the same closure."
+    "verdict": "verified",
+    "note": "FS III.2.4.2 uses discrete points over L^sep with the natural Weil action, including inertia; the p-adic scope and crossed-module definition are retained."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/abelianization-identification",
-    "verdict": "corrected",
-    "note": "Corrected H² coefficient field to Tsc(L^sep); FSIII.2.11 identifies the torus-complex cokernel with full π_1 coinvariants including torsion. G03 retains the original Borovoi/Serre interior."
+    "verdict": "verified",
+    "note": "FS LemmaIII.2.11 identifies the abelianized set with integral fundamental coinvariants, retaining torsion; native cyclic-quotient controls require the requested local instantiation."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site",
-    "verdict": "corrected",
-    "note": "The curve-to-base map is a site morphism, not a geometric projection. Replaced the drafting prohibition test by a coproduct inverse-image test. D6 comparison is p-adic; the equal-characteristic refinement is G05."
+    "verdict": "verified",
+    "note": "FS p.94 constructs an étale-site morphism from finite étale curve objects; it does not infer an ordinary structural map X_S→S."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/curve-torsion-cohomology",
-    "verdict": "corrected",
-    "note": "FSIII.2.12(i) treats all finite coefficients, including p-torsion by its separate tilting/Artin–Schreier argument. Added the actual D6 site supplier with its base restriction retained in G05."
+    "verdict": "verified",
+    "note": "FS PropositionIII.2.12(i) includes finite p-torsion via tilting/Artin–Schreier as well as prime-to-p torsion; G05 records the missing general-E comparison interface."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/diagonalizable-curve-cohomology",
-    "verdict": "corrected",
-    "note": "Corrected diagonalizable Weil coefficients to D(L^sep), including inertia. The μ_p/Q_p coefficient test detects the L-point error. Characteristic-zero diagonalizable decomposition and G03/G05 boundaries remain."
+    "verdict": "verified",
+    "note": "FS III.2.12(ii)/III.2.14 compares diagonalizable coefficients with discrete Weil points over L^sep; the separate torus/centre and cohomology inputs are requested exactly."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/crossed-module-curve-classes",
     "verdict": "verified",
-    "note": "FSIII.2.13 uses diagonalizable degree1/2 comparison and center complexes; it is the second p-adic proof, independent of first uniformization proof."
+    "note": "FS PropositionIII.2.13 uses the centre/torus crossed-module quasi-isomorphisms and simply connected vanishing; ET.0/G03 supplies these rather than another B(G) theory."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/bun-g-as-v-stack",
     "verdict": "corrected",
-    "note": "FSIII.1.2 defines the actual bundle groupoid over Perf_k with v-descent. Added quotient-stack and small-stack owning suppliers and coherent identity/composite pullback API."
+    "note": "Corrected bundle pullback to use X_T→X_S and Bun_G(S)→Bun_G(T); groupoid descent, identity/composition and the three geometric controls otherwise agree with FS III.1.2."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/bun-g-smallness",
-    "verdict": "corrected",
-    "note": "FSIII.1.3 smallness is a bounded presentation, not just any sheafification. Added the exact D4 small-stack definition rather than attributing it to D3."
+    "verdict": "verified",
+    "note": "FS PropositionIII.1.3 proves smallness by faithful-representation data and bounded covers; the precise small-stack supplier is used, not an arbitrary set of isomorphism classes."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
-    "verdict": "verified",
-    "note": "FSIII.2.2/Ans3.11 give geometric G-bundle classification via the linear supplier. The Haboush/Tannakian invariant-theory step is explicitly G02, not replanned linear classification."
+    "verdict": "corrected",
+    "note": "Added the direct VB4 relative positive-cohomology-vanishing dependency to the G-bundle classification, alongside HN splitting and slope-zero local systems; Ans19 characteristic-p tensor detection remains explicit."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/hn-sign-and-semicontinuity",
     "verdict": "verified",
-    "note": "FSIII.2.3 reverses isocrystal slopes and uses bundle HN upper semicontinuity; dominant sign is w0(−ν), not componentwise negation without reordering."
+    "note": "FS TheoremIII.2.3 uses ν_bundle=w₀(−ν_isocrystal) and −κ; linear HN semicontinuity supplies the sign-sensitive GL examples."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/strictly-disconnected-torsors",
-    "verdict": "corrected",
-    "note": "FSIII.2.5-6 reduce triviality to locally profinite torsors on strictly totally disconnected bases. Added the actual D1 cover and D3 torsor contracts."
+    "verdict": "verified",
+    "note": "FS III.2.5–III.2.6 uses pro-étale torsors on strictly totally disconnected bases; the read D1/D3 supplier contracts preserve that topology."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/geometrically-trivial-locus",
-    "verdict": "corrected",
-    "note": "FSIII.2.4 gives the geometric-trivial open locus and classifying stack. Added the separate everywhere-slope-zero local-system equivalence; degree zero alone is insufficient."
+    "verdict": "verified",
+    "note": "FS TheoremIII.2.4 gives an open geometrically trivial locus with a locally profinite torsor presentation; it is not inferred from pointwise triviality alone."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
-    "verdict": "corrected",
-    "note": "FSIII.3.2 lifts geometric lattice modifications; added the actual D1 geometric cover. GS0 nonsplit/component refinements remain G12 rather than being supplied by a split Schubert node."
+    "verdict": "verified",
+    "note": "FS LemmaIII.3.2 retains the divisor and basic-group reduction in lifting geometric bundle points to the Grassmannian."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/beauville-laszlo-surjectivity",
     "verdict": "verified",
-    "note": "FSIII.3.1/Ans6.5 prove BL v-surjectivity; RF4 supplies the construction only. The proof keeps untilt/local trivialization inputs and does not assume surjectivity from nonempty indices."
+    "note": "FS PropositionIII.3.1 and Ans19 Theorem6.5 give v-local Beauville–Laszlo uniformization; RF4 supplies patching here without entering algebraic BG0/BG1 classification."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity",
-    "verdict": "verified",
-    "note": "FSIII.3.5 supplies central-torus Grassmannian lifting via z-extension/lattice exactness; generic extensions are G01 and not falsely RG2.5."
+    "verdict": "corrected",
+    "note": "Replaced unsupported root-coordinate lifting with FS III.3.5’s bounded Schubert argument: split-torus Hilbert90, geometric surjectivity, quasicompact proper bounds and the resulting v-cover."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/central-torus-bundle-surjectivity",
     "verdict": "verified",
-    "note": "FSIII.2.10 and the III.3.5 argument lift curve bundles along central tori. This does not provide a canonical G-lift of a G^c de Rham class."
+    "note": "FS III.2.10/III.3.5 gives central-torus bundle surjectivity from the Grassmannian lifting and uniformization; it does not assert arbitrary central-kernel surjectivity."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy",
-    "verdict": "verified",
-    "note": "FSIII.2.7 uses uniformization for first κ-local-constancy proof, independently of Weil abelianization. Dominance and full κ remain separate."
+    "verdict": "corrected",
+    "note": "Added direct RG2.1 arithmetic-invariant/z-extension input to the FS III.2.7 proof; the HN and integral κ local-constancy conclusions remain distinct."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
     "verdict": "verified",
-    "note": "FSIII.3.6 fixes the BL degree/κ sign. Zhu1.21 is a GS0 connected-component input, not present in the split Schubert supplier alone; explicit G12 refinement retained."
+    "note": "FS III.3.6 gives the bundle/Grassmannian Kottwitz sign. Zhu17’s Witt component result is a comparison input; nonsplit de Rham components remain the precise GS0/G12 request."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism",
-    "verdict": "corrected",
-    "note": "Vie21 §1 assumes a p-adic field. Restricted the homeomorphism theorem accordingly, retaining the precise specialization direction and the G06 equal-characteristic obligation."
+    "verdict": "verified",
+    "note": "GIZ26 v3 states both characteristics; Theorem7.18 and the He16 schematic-order comparison preserve the specialization orientation. Proposition2.17 is the Bezout input, not the full rank-one extension theorem."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/hn-graded-g-bundles",
-    "verdict": "verified",
-    "note": "FSIII.4.7 constructs slope-graded tensor bundles and functorial graded maps using the relative HN supplier; it does not identify all ungraded automorphisms with J_b(E)."
+    "verdict": "corrected",
+    "note": "Distinguished geometric-point automorphisms J_b(E) from the locally profinite constant v-sheaf over S, whose sections are continuous maps; the classification API now names its theorem prerequisite."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/hn-graded-classification",
-    "verdict": "corrected",
-    "note": "FSIII.4.7 graded classification uses local-system detection and positive cohomological lifting. Added the separate slope-zero and local H¹ suppliers with their correct local hypotheses."
+    "verdict": "verified",
+    "note": "FS III.4.7 classifies graded bundles, uses the HN sign, and imports the slope-zero local-system equivalence; it does not reduce all bundle automorphisms to J_b."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/filtered-automorphism-group-scheme",
     "verdict": "verified",
-    "note": "FSIII.5.2 is a relative filtered group-scheme assertion. The pinned pointwise parabolic/Levi extension is not this representability theorem; G02 records the filtered-fibre-functor interior."
+    "note": "FS III.5.2/Zie15 give represented filtered torsor automorphisms, affine-base splitting and vector-group graded pieces; global splitting and positive H¹ require their stated hypotheses."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/full-automorphism-v-group",
-    "verdict": "corrected",
-    "note": "FSIII.5.1 full automorphisms have a positive kernel and constant graded quotient. Added separate zero-slope and local positive H¹ suppliers, rather than claiming both from HN splitting alone."
+    "verdict": "verified",
+    "note": "FS III.5.1 gives the full v-group extension of J_b(E) by a positive BC kernel; generic native point stabilizers cover only the algebraic part."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/positive-automorphism-kernel",
-    "verdict": "corrected",
-    "note": "Added exact positive BC dimension and relative-representability suppliers. The connectedness and reductive tower passage exceed the family theorem and remain G12 refinements."
+    "verdict": "verified",
+    "note": "FS III.5.1 and the separate VB4 BC/cohomology contracts give connectedness, contractibility and positive dimension; the filtered kernel refinement remains G12."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/quasi-split-opposite-parabolic",
     "verdict": "verified",
-    "note": "FSIII.5.1.1 chooses the opposite parabolic under the bundle/isocrystal sign convention. Quasi-split and rational Levi inputs are retained."
+    "note": "FS III.5.1.1 identifies the quasi-split opposite-parabolic presentation with the chosen sign of the filtration; it requires the rational Newton witness."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/semistable-locus-and-basic-strata",
     "verdict": "verified",
-    "note": "FSIII.4.5 gives the open semistable locus with its basic strata and locally constant κ; the torus case consists entirely of semistable bundles."
+    "note": "FS III.4.5 gives an open semistable/basic locus and its locally profinite classifying stack; basicity is relative to the full group."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/torus-picard-stack",
     "verdict": "verified",
-    "note": "FSIII.4.6 identifies the torus Picard stack with B(T) and locally profinite automorphisms, retaining the full lattice rather than rationalization."
+    "note": "FS III.4.6 gives the torus Picard-stack components and automorphisms; norm-one torsion distinguishes integral κ from rational slopes."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/stratum-is-classifying-stack",
     "verdict": "verified",
-    "note": "FSIII.5.3 identifies the full stratum with B tildeJ_b, not B J_b(E) for nonbasic b; positive automorphisms are preserved."
+    "note": "FS III.5.3 uses the full automorphism v-group for a stratum; only in the basic case does it reduce to the constant J_b(E) classifying stack."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/automorphism-torsor-reduction",
-    "verdict": "corrected",
-    "note": "FSIII.5.4 reduces tildeJ_b torsors to the constant graded group pro-étale locally. Added the exact slope-zero local-system supplier used by that reduction."
+    "verdict": "verified",
+    "note": "FS III.5.4 reduces full automorphism torsors over strictly disconnected bases using positive-kernel acyclicity; this is distinct from the whole-stratum equivalence."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/stratum-dimension",
     "verdict": "verified",
-    "note": "FSIV.1.22 gives negative stratum dimension, using positive kernel dimension and the dimension-zero constant-group classifying stack."
+    "note": "FS IV.1.22 gives dimension −⟨2ρ,ν_b⟩ with the arithmetic Newton convention; general Artin classifying-stack dimension is an explicit VS0 supplier refinement."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:smooth-Artin/isom-sheaf-representability",
-    "verdict": "corrected",
-    "note": "FSIV.1.19-20 give open linear Isom diamonds and the Chevalley stabilizer-line reduction. Added the D5 relative representability formalism; point stabilizers alone do not provide a diagonal."
+    "verdict": "verified",
+    "note": "FS IV.1.20 uses a faithful embedding, sections of Hom bundles and the invertible locus to obtain a locally spatial Isom diagonal; absolute and relative representability remain distinct."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:smooth-Artin/bun-g-is-smooth-artin",
     "verdict": "verified",
-    "note": "FSIV.1.18-19 use all open Schubert cells and Artin quotient charts. No BG4/Satake compact-generation cycle occurs; singular closures are not asserted smooth."
+    "note": "FS IV.1.19 uses uniformization and smooth open Schubert cells for the Artin atlas; it has no circular dependence on the later filtered BG4 chart."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:smooth-Artin/connected-components",
     "verdict": "verified",
-    "note": "FSIV.1.23-24 use the basic κ bijection and finite T0 open-point/dimension argument. No later Newton-topology theorem is needed for this proof."
+    "note": "FS IV.1.23–IV.1.24 computes components by the full integral invariant; torsion survives the κ indexing, and connectedness is not inferred from a rational Newton vector."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/filtered-bundle-chart",
     "verdict": "verified",
-    "note": "FSV.3.2 specifies a filtered tensor bundle with semistable graded pieces and its framed chart; absolute diamondhood of the unpunctured chart is not asserted."
+    "note": "FS V.3.2 defines the opposite filtered-bundle chart with framed graded data; arrows, forgetting and the split section have APIs and sign-sensitive tests."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/quasi-split-parabolic-chart",
     "verdict": "verified",
-    "note": "FSV.3.4 identifies the quasi-split opposite-parabolic chart with the specified component. The opposite sign and rational parabolic are retained."
+    "note": "FS V.3.4 requires a quasi-split rational Newton representative for its parabolic presentation; it does not supply this presentation for every inner form."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/chart-over-classifying-stack",
     "verdict": "verified",
-    "note": "FSV.3.5 identifies the chart map to the graded classifying stack and dimension from negative extension spaces, not positive automorphism sections."
+    "note": "FS V.3.5 gives a negative-extension BC tower over the classifying stack; the relative spatial/smooth assertions and negative H¹ supplier refinement are separated."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/section-and-spatial-complement",
-    "verdict": "corrected",
-    "note": "FSV.3.6 gives the closed split section and spatial punctured complement. Added the two-term BC supplier and relative representability; H0 projectivized properness alone is insufficient (G12)."
+    "verdict": "verified",
+    "note": "FS V.3.6 gives the section and locally spatial punctured complement; the whole framed chart is not asserted to be an absolute diamond."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/contracting-chart-action",
-    "verdict": "corrected",
-    "note": "FSV.3.6 supplies contracting Newton action and proper punctured Z-quotient. Added the negative two-term BC supplier; the extension-tower and escaping-action refinements remain G12."
+    "verdict": "verified",
+    "note": "FS V.3.6 supplies contraction and the escaping quotient’s properness; projectivized positive H⁰ properness alone does not prove the negative-extension quotient statement, which remains G12."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/chart-jacobian-positivity",
-    "verdict": "corrected",
-    "note": "FSV.3.7 tangent pieces have positive bundle slopes. Explicitly added the projective-embedding hypothesis of the read VS1 Jacobian supplier, componentwise on projective flag varieties."
+    "verdict": "verified",
+    "note": "FS V.3.7’s Jacobian proof uses the projective flag-bundle embedding and positive tangent H⁰ criterion; the read VS1 hypotheses are explicitly checked."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/chart-to-bun-g",
     "verdict": "corrected",
-    "note": "FSV.3.7 proves a relatively representable, partially proper, cohomologically smooth chart map. Added D5 relative representability, preserving distinction from an absolute diamond."
+    "note": "Added direct Newton-topology dependency: openness of the chart map alone does not identify its image with the integral κ-fibre down-set. Relative representability and partial properness retain FS V.3.7’s scope."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG4/gl2-extension-chart",
     "verdict": "verified",
-    "note": "FSV.3.1 is the GL2 opposite-filtration extension example: split O⊕O(1) versus balanced nonsplit O(1/2), with relative chart dimension1."
+    "note": "FS V.3.1 gives the GL2 negative-extension example and excludes the zero splitting class from the punctured quotient; the sign tests agree with the chart convention."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/finite-frobenius-norm-centralizer",
     "verdict": "verified",
-    "note": "Kisin2.1.2 compares σ-centralizers with centralizers of an ordered finite Frobenius norm after descent; finite-power ordinary centralizer alone is not J_b."
+    "note": "Kisin17 2.1.2 uses a finite Frobenius norm and eventual centralizer stabilization; the r=1 and multiplication-order controls separate it from a naive power of b."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/modification-newton-bound",
     "verdict": "verified",
-    "note": "CS17 Prop3.5.3/Lemma3.5.4 give containment in B(G,{μ^−1}) and full κ equality. Keep bundle/isocrystal sign conversion, not only a rational Newton inequality."
+    "note": "CS17 3.5.3–3.5.4 gives the modification bound with inverse Hodge class and signed κ; the Newton order fixes its integral component."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/minuscule-modification-image",
     "verdict": "verified",
-    "note": "CS17 Remark3.5.8 quotes RapoportA.9 for actual minuscule image equality. The original nonemptiness proof remains an explicit supplier/source gap rather than being inferred from containment."
+    "note": "CS17 3.5.8 retains minuscule/basic and structural-group hypotheses in the modification image; it is not stated for every modification bound."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/flag-newton-strata",
     "verdict": "verified",
-    "note": "CS17 Definition3.5.6 defines minuscule flag strata by actual modifications with inverse bound. Residue-field independence and rank-one generalization are retained."
+    "note": "CS17 3.5.6 defines flag Newton strata by pulling back bundle classes; local closedness and emptiness tests preserve the actual flag-v-sheaf setting."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/flag-strata-semicontinuity",
     "verdict": "verified",
-    "note": "CS17 Prop3.5.7 needs the independently confirmed E03 upper-union correction; local closedness/adic partial properness retain the geometric flag setting."
+    "note": "CS17 3.5.7/3.5.9 requires the corrected closed upper Newton union; source issue E03 and the specialization convention agree."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/unitary-flag-stratum-dimension",
     "verdict": "verified",
-    "note": "CS24 Theorem2.7.3 gives d−d_b only for the specified unitary datum and its PEL comparison. Wedhorn/CGH interiors remain G07, not a general reductive dimension formula."
+    "note": "CS24 Theorem2.7.3 proves d−d_b for its precise unitary PEL datum; generic flag dimension is not inferred, and IG.0 supplies the datum-specific local Newton comparison."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus",
     "verdict": "verified",
-    "note": "CS24 after2.7.3 identifies the ordinary stratum with constant rational flag points for this unramified quasi-split unitary datum, not for arbitrary inner forms."
+    "note": "Wed99, CGH20 and Sch15 retain unramified/ordinary-existence/split-p distinctions. The additional unramified Hodge–Tate comparison is an exact IG.0/G12 request, not claimed proved by CGH20."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/gl-minuscule-quasisplit-centralizer",
     "verdict": "verified",
-    "note": "CS17 Lemma5.5.8 explicitly concerns GL_n and minuscule slopes in an interval of length1; its proof does not establish a centralizer theorem for every reductive group."
+    "note": "CS17 Lemma5.5.8 gives quasi-split GL centralizers for the stated minuscule acceptable slopes; arbitrary denominator patterns are not generalized into that case."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/slope-protorus",
     "verdict": "verified",
-    "note": "The rational-character protorus and denominator-clearing universal property use general-E linear slope theory, not a torus with finitely generated character group."
+    "note": "The slope protorus has character group Q, not Z and not finite type; its native group algebra and rational-weight representation controls retain the correct direction."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/algebraic-fundamental-group",
     "verdict": "verified",
-    "note": "The algebraic coroot quotient and inertia/Galois coinvariants retain integral torsion. PGL_n/norm-one examples reject rational replacement."
+    "note": "Existing upstream RG2.1.5 owns π₁ and its lattice/coinvariant APIs; BG imports them and retains integral torsion rather than re-planning a rationalized quotient."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/newton-orbit-space",
-    "verdict": "corrected",
-    "note": "Corrected RR96 locator/excerpt to the actual §2.1 Weyl-chamber passage; geometric orbit invariance is distinguished from an E-rational representative."
+    "verdict": "verified",
+    "note": "The Newton orbit and coroot dominance contracts preserve equal central projection and Γ-fixed orbits; root/cocharacter typing follows the corrected KZ convention."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/galois-average",
     "verdict": "verified",
-    "note": "Finite Galois averaging through the quasi-split based root datum preserves the rational Newton target but loses κ torsion; it is not a canonical integral cocharacter."
+    "note": "KMPS 1.1.5 gives Γ-averaging and the integral μ♯ invariant; averaging is finite on the chosen orbit and cannot recover torsion."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps",
-    "verdict": "verified",
-    "note": "KMPS1.1.2/RR1.15 provide functorial ν and full κ plus rational compatibility. Pinned RootPairing and WittVector.Isocrystal supply only their stated algebraic/linear fragments."
+    "verdict": "corrected",
+    "note": "Corrected RR96 Theorem1.15 to pp.160–162 and qualified its characteristic-zero scope; added He16/Kot14 general-field sources for the two invariant maps and compatibility."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/classification-by-two-invariants",
     "verdict": "corrected",
-    "note": "Corrected nonexistent Kot97 theorem/proposition labels: injectivity is §4.13 pp.274-275 and basic bijection §4.4 pp.268-269. Both invariants are required."
+    "note": "Added general-field He16 injectivity and Kot14 basic bijection, with direct straight-Weyl comparison; the pair retains full integral κ and is not replaced by a rational invariant."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/basic-class",
-    "verdict": "corrected",
-    "note": "Basic centrality agrees with adjoint slope zero and inner transport. Added classification prerequisite for the unique-basic-of-κ API; nonzero central GL slopes remain basic."
+    "verdict": "verified",
+    "note": "Basicity means central Newton morphism, not merely isoclinicity in one faithful representation; constructors use the basic-classification theorem explicitly."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
     "verdict": "verified",
-    "note": "Fixed κ is part of the B(G) order; positive coroot dominance is in a rational cocharacter space. Torsion examples prevent replacing full κ by total rational slope."
+    "note": "Newton order fixes κ and compares dominant rational ν; reflexivity, transitivity, antisymmetry and torsion controls distinguish it from a Newton-only preorder."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/representation-detects-dominance",
-    "verdict": "verified",
-    "note": "RR96 Lemma2.2(iv) detects dominance by all rational representations. One arbitrary faithful representation is not substituted for the representation family."
+    "verdict": "corrected",
+    "note": "Qualified RR96 §2.1/Lemma2.2 as characteristic zero; expanded G02’s exact arbitrary-characteristic highest-weight/exterior-power and finite-separable scalar-descent contract for the stated general-E detection target."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/admissible-pair",
-    "verdict": "corrected",
-    "note": "Full κ equality and Newton bound define acceptable classes. Added API-level dependencies for finiteness/basic existence/product compatibility without introducing node cycles."
+    "verdict": "verified",
+    "note": "KMPS/KZ acceptability requires both ν≤μ◇ and κ=μ♯; API dependencies distinguish definition from finiteness/basic/product consequences."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/admissible-finiteness-and-basic",
-    "verdict": "verified",
-    "note": "HK §1.1/KMPS1.1.5 give finite acceptable sets and the unique basic minimum. These facts do not provide an ordinary maximum equal to μ◇ in every inner form."
+    "verdict": "corrected",
+    "note": "Added direct Dieudonné–Manin and basic-classification inputs. Finiteness uses bounded faithful-representation slopes with bounded denominators; the general-field basic minimum uses Kot14 and the requested weight-detection interface."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/rational-newton-witness",
     "verdict": "corrected",
-    "note": "A rational Newton witness is actual descent data in G. Added the basic-class prerequisite and API-level central-on-J prerequisite; invariant geometric orbit alone is insufficient."
+    "note": "Replaced Q_p-rational by E-rational in the general-field witness definition and explained the quasi-split chamber/basic central descent route; geometric orbit invariance alone remains insufficient."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/torus-norm-description",
-    "verdict": "verified",
-    "note": "Kot85 §2.4-2.8 computes the torus coinvariant invariant and Newton average by the norm; ramified/norm-one torsion is retained."
+    "verdict": "corrected",
+    "note": "Added Kot14’s general-local-field torus/norm/Shapiro references while retaining the p-adic scope of Kot85/KMPS; the quadratic norm-one torsion example distinguishes κ and ν."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/rational-kottwitz-surjectivity",
-    "verdict": "verified",
-    "note": "Kot97 §7.7 targets σ-invariants of inertia coinvariants; Kisin4.6.4 adds only its unramified J_b statement. GLX E02 is not used as a torus exact sequence."
+    "verdict": "corrected",
+    "note": "Restricted rational-point surjectivity to finite extensions of Q_p, added direct RG2.1 input, and corrected the van Hoften locator to Lemma3.4.2; unramified Kisin and tame/basic hypotheses remain separate."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/component-kottwitz-coset",
     "verdict": "corrected",
-    "note": "Corrected GLX coset locator to equations1.3-1.4 p.807. Actual affine difference fibre has no origin before a choice; added API-level z-extension-lifting dependency."
+    "note": "Retained the affine fibre of σ−1 with no canonical origin; restricted the z-extension lifting API to the p-adic theorem scope. Identity/sign/parity controls distinguish invariants from coinvariants."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/z-extension-bounded-lifting",
-    "verdict": "verified",
-    "note": "GLX3.16 lifts bounded classes and affine cosets using an induced central torus; κ compatibility and surjectivity are explicit, and E02 is independently avoided."
+    "verdict": "corrected",
+    "note": "Restricted bounded z-extension, component-coset and adjoint acceptable-set lifting to finite extensions of Q_p and added direct RG2.1 input; generic z-extension existence remains the existing broader upstream import."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/connected-center-basic-inner-forms",
     "verdict": "verified",
-    "note": "Kot14 Prop10.4 gives basic-to-adjoint-torsor surjectivity when the center is connected. This implements RT11 without claiming the result for disconnected center."
+    "note": "Kot14 Proposition10.4 uses connected centre for basic-to-adjoint H¹ surjectivity; it is distinct from basic curve-bundle twisting and generic z-extension existence."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG0/central-newton-on-J",
     "verdict": "verified",
-    "note": "Central Newton morphism descends in J_b for every b, independently of a rational representative in G; a denominator-clearing multiple supplies the chart contraction element."
+    "note": "FS V.3.6 gives the E-defined central Newton morphism on J_b even when the orbit has no rational representative in G; its action on filtered charts retains this distinction."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG1/general-levi-newton-comparison",
     "verdict": "verified",
-    "note": "He §6.2 computes the Levi-to-G Weyl/dominance relation without a basic assumption. Integral κ_M equality controls the coroot-span statement."
+    "note": "He21 6.2 compares a Levi representative’s Newton point with the dominant G-conjugate; the general Levi formula is distinct from the basic-only uniqueness theorem."
    },
    {
     "nodeId": "BunGAndNewtonStrata:BG2:uniformization/de-rham-quotient-group-class",
     "verdict": "verified",
-    "note": "LZ4.9 supplies G^c-valued tensor data; the output B(G^c) and any G-level lift remain distinguished. RF4 patching cannot make such a lift canonical."
+    "note": "LZ Corollary4.9/Remark4.1(iii) uses the qualified quotient G^c and de Rham lattice identification; source issue E01 and the tensor-descent API retain that boundary."
    }
   ]
  },
