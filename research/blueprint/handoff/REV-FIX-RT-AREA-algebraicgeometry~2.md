@@ -1,3 +1,15 @@
+# Continuation handoff — codex-8gNtJ0
+
+Issue #5702, claim confirmed in comment 6102125914. This is a blocked checkpoint, not a completed dispatch. The required seven-path authorization is pending and no such path has been edited. Only SchemeAndStackFoundations, this report and this handoff changed.
+
+The permitted correction records an additional surviving path in the assembled stage graph: SF.4 → PrismaticCohomology PR.1 → PerfectoidQuotients Q2 → Q4 → AdicEtaleGeometry A3 → RelativeFarguesFontaine RF0:integral-Y → VectorBundlesAndIsocrystals VB0 → FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 → PELModuli M2 → M6 → StableReductionPartII MC.4. It is not confined to broader unreviewed packets. It survives deletion of the six SF.5 forwarding inputs and exclusion of AbelianSchemes A4. Both de Rham branches below also survive. The SF gap and rescope proposal now warn that these displayed paths are not exhaustive: check every path when implementing the supplier split. The preceding complete SF review is preserved in history and the bounded accepted verdict remains.
+
+All eleven actual and six candidate packets pass exact-pin index validation with zero errors/warnings. The seven candidate paths pass intake content and ownership checks; candidate dispatch completeness is true and actual completeness remains false. The complete repaired PEL candidate elaborates with exit 0 and 784 admission warnings only, SHA-256 `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`. The difference from the predecessor’s candidate hash is formatting; add `hpprime : p.Prime` immediately after `(p : ℕ)`. All ten unchanged Suggested files match the preceding full-file receipt hashes, and were not recompiled. No process remains running.
+
+The exact seven-path completion recipe and complete predecessor receipts are retained below. Apply that recipe only after scope is authorized or the live issue is corrected, additionally incorporating the surviving prismatic-path qualification in Adic’s two prose fields. Preserve eight accepted and three negative verdicts and all complete review predecessors; do not take the three separate revisions here. Another unchanged scope-blocked audit cannot finish dispatch.
+
+## Preserved predecessor handoff — codex-CwcQzj
+
 # Handoff — REV-FIX-RT-AREA-algebraicgeometry~2
 
 ## Blocker: correct scope before redispatch
