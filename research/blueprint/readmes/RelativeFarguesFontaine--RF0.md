@@ -443,13 +443,13 @@ API:
 
 - **ramifiedDiagonal** (data): Δ with outer nth ghost F_E^n.
 - **ramifiedDiagonal_ghost** (characterisation): w_n(Δx)=F_E^n x.
-- **unramifiedCoefficientAction** (structure): O_E″ acts through Δ on W_OE(A).
+- **unramifiedCoefficientAction** (structure): For k=F_q′ and the identified coefficient inclusion c:W_OE(k)=O_E″→A, the action is W(c)∘Δ:W_OE(k)→W_OE(A).
 
 Unit tests:
 
 - **diagonal_ghost_zero** (computation): w_0(Δx)=x.
 - **diagonal_ghost_one** (computation): w_1(Δx)=F_E x.
-- **diagonal_unramified_action** (compatibility): For A=F_q′, the coefficient action identifies W_OE(A) with O_E″.
+- **diagonal_unramified_action** (compatibility): With A=F_q′ and c=w_0:W_OE(A)→A, the constructed action W(c)∘Δ is the identity on W_OE(A), recovering the O_E″ coefficient ring.
 
 Uses:
 
@@ -1385,7 +1385,7 @@ Acceptance:
 
 Sources:
 
-- [Relative p-adic Hodge theory: foundations](https://arxiv.org/abs/1301.0792), Lemma 5.3.2, Theorems 5.3.3 and 5.3.6, printed pp. 122–123. The all-variant sheaf statement and restricted acyclicity/Kiehl lists are separate source assertions.
+- [Relative p-adic Hodge theory: foundations](https://arxiv.org/abs/1301.0792), Lemma 5.3.2, Theorems 5.3.3 and 5.3.6, printed pp. 121–123. The all-variant sheaf statement and restricted acyclicity/Kiehl lists are separate source assertions.
 
 ### Relatively perfectoid interval rings
 
@@ -1803,14 +1803,14 @@ Sources:
 
 **lubinTateDiamondPresentation** (comparison; `RelativeFarguesFontaine:RF1/lubin-tate-diamond-presentation`).
 
-For the perfect characteristic-p field F tilt of the Lubin–Tate tower E_LT∞, the associated classical generic period space has diamond Y_F^◇≃Spd(F)×Spd(E), equivalently the punctured perfectoid open-disc presentation of FF18 Remark3.19. The relative curve is its φ^Z quotient. The LT-tower presentation uses the O_E× action supplied by Lubin–Tate theory and local reciprocity; it is separate from the whole π/[ϖ] root extension used to prove integral chart perfectoidness.
+For the perfect characteristic-p field F obtained by tilting the completed Lubin–Tate tower E_LT∞, the classical generic period space has diamond Y_F^◇≃Spd(F)×Spd(E). The punctured perfected open disc over F presents Spd(F)×Spd(E_LT∞); taking its O_E× quotient gives Y_F^◇, using the Lubin–Tate reciprocity action. The relative curve is the subsequent φ^Z quotient. These two quotients are distinct, and the LT tower is separate from the whole π/[ϖ] root extension used for integral chart perfectoidness.
 
 Hypotheses: This is the field-case comparison in the source. The LT torsion tower, its tilt and reciprocity are precise missing upstream inputs; no universal base or root/LT tower identification is assumed.
 
 Proof plan:
 
 1. Use the formal-group torsion tower and its tilted open-disc coordinate.
-2. Apply the reviewed diamond product description to the field pair.
+2. Identify the punctured perfected disc with the product for the completed LT tower, then descend along Gal(E_LT∞/E)≃O_E× to the product with Spd(E).
 3. Track the coefficient action and Frobenius orbit on both presentations.
 4. Compare the resulting quotient with the RF1 curve presentation.
 
@@ -1819,6 +1819,7 @@ Prerequisites: `RelativeFarguesFontaine:RF0:integral-Y/lubin-tate-teichmuller-li
 Acceptance:
 
 - Keep E_LT∞ and E_root∞ as distinct named extensions.
+- Take the coefficient-unit quotient before the Frobenius quotient; the punctured disc itself presents the LT-tower product, not Y_F without quotienting.
 
 Sources:
 
