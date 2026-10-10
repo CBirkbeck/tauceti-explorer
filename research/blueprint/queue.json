@@ -47507,8 +47507,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ConformalMappingPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7537"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7537",
+   "finishedAt": "2026-10-10T14:30:21Z"
   },
   {
    "id": "REV-PKG-ConformalMappingPartII",
@@ -48202,7 +48203,8 @@
     "PKG-ErdosProgressionPowers"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ErdosProgressionPowers.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7603"
   },
   {
    "id": "PKG-FarguesFontaineDiamonds",
@@ -48954,8 +48956,9 @@
     "PKG-HodgeStructuresPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7523"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7523",
+   "finishedAt": "2026-10-10T14:30:25Z"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -49252,8 +49255,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -49772,8 +49775,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-SemisimpleAlgebrasPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7595"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7595",
+   "finishedAt": "2026-10-10T14:30:28Z"
   },
   {
    "id": "REV-PKG-SemisimpleAlgebrasPartII",
@@ -81435,8 +81439,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
