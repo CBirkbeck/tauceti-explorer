@@ -1,0 +1,2729 @@
+{
+  "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+  "protocol": "blueprint-v1",
+  "part": "P9",
+  "scope": [
+    "DeformationAndDerivedPatchingAlgebra:P9"
+  ],
+  "status": "complete",
+  "summary": "A lemma-level plan for complex support, regular-local amplitude versus codimension, balanced concentration, derived finite-algebra actions and Euler lengths, ACC generic idempotent localization and derived Ihara-avoidance support transfer. P7 and R03.6 are imported; the integrated three P9 identifiers are retained with version-specific locators and corrected nonvanishing hypotheses. Every P9 target is planned, with precise supplier contracts and gaps kept visible.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Module.support",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "Primes at which the localized module is nontrivial.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.support_eq_empty_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "Support is empty exactly when the module is subsingleton.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.support_eq_zeroLocus",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "For finite modules, support is the zero locus of the annihilator.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.support_of_exact",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "Support of the middle term of a short exact sequence is the union of the outer supports.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.support_subset_of_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Support.lean",
+        "provides": "Injective linear maps give inclusion of module supports.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Module length in extended natural numbers.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_add_of_exact",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Length additivity for an exact pair with first map injective and second surjective.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_zero_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Length zero exactly for the zero module.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.length_ne_top_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Finite length is equivalent to extended length not equal to infinity.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Length is unchanged on restriction along a surjective coefficient algebra map with scalar tower.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.homologyFunctor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+        "provides": "Native cohomology functor in every integer degree.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.singleFunctor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "Native derived stalk placed in the indicated integer degree.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.IsIdempotentComplete",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Idempotents/Basic.lean",
+        "provides": "The class requires splitting of every idempotent by inclusion and projection with the two retract equations.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.projectiveDimension",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
+        "provides": "Projective dimension in WithBot extended naturals; the zero object has value bottom.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:IsRegularLocalRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+        "provides": "Noetherian local ring whose maximal ideal generator number is its Krull dimension.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:RingTheory.Sequence.IsRegular",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
+        "provides": "Weak regularity of a list and nonzero final quotient.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "tauceti:TauCeti.AbelianK0.AdditiveInvariant.sum_negOnePow_obj_X_eq_sum_negOnePow_obj_homology",
+        "kind": "theorem",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean",
+        "provides": "Euler–Poincaré for a bounded complex and an additive invariant, with finite summation range containing the term interval.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.annihilator",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The kernel of the scalar action, equivalently the ideal killing every element of the module.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.Q",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
+        "provides": "Localization functor from integer cochain complexes at quasi-isomorphisms.",
+        "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "CG-v2",
+      "title": "Modularity lifting beyond the Taylor–Wiles method",
+      "authors": "Frank Calegari and David Geraghty",
+      "edition": "arXiv:1207.4224v2, 16 July 2017; author pagination",
+      "url": "https://arxiv.org/pdf/1207.4224v2",
+      "read": "2026-10-10",
+      "sha256": "67896c853258801967270f8927e5bb33c0315989d3a4188d53435a9305993ebb",
+      "readSections": [
+        "Lemmas 6.1–6.2, pp.65–66; Theorems 6.3–6.4 and Proposition 6.6, pp.66–70"
+      ]
+    },
+    {
+      "id": "ACC-2023",
+      "title": "Potential automorphy over CM fields",
+      "authors": "Patrick Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack Thorne",
+      "edition": "Annals of Mathematics 197 (2023), author copy with printed pagination 897–1113",
+      "url": "https://math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "read": "2026-10-10",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "access": "Maintainer-cleared author copy read in place; no copy or source passage enters this submission.",
+      "readSections": [
+        "§6.3.1–§6.3.5, Lemmas 6.3.2–6.3.4, Assumption 6.3.6, Lemma 6.3.7, Proposition 6.3.8 and Corollary 6.3.9, printed pp.1047–1053; §6.4.1 setup, p.1053"
+      ]
+    },
+    {
+      "id": "Stacks-perfect",
+      "title": "The Stacks project: perfect complexes",
+      "authors": "The Stacks project authors",
+      "edition": "Online stable tags 0656, 07LQ and 07LT, read 10 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/0656",
+      "read": "2026-10-10",
+      "readSections": [
+        "Definition 15.76.1 and Lemmas 15.76.2–15.76.15, tag 0656; Lemma 15.80.1, tag 07LQ; Proposition 15.80.3, tag 07LT"
+      ]
+    },
+    {
+      "id": "Pinned-library",
+      "title": "Pinned Mathlib and Tau Ceti sources",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d3 and Tau Ceti f790474",
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/f790474821cf4256814db967cb154e7af3d0c369",
+      "read": "2026-10-10",
+      "readSections": [
+        "Module support, length and regular sequences; derived homology, linearity, projective dimension and idempotents; TauCeti abelian K0 Euler–Poincaré theorem"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Support of a bounded derived complex",
+      "kind": "definition",
+      "statement": "For C in D(R), define support(C) = ⋃_{i∈Z} Supp_R H^i(C), using native derived cohomology and Mathlib module support. This definition needs neither boundedness nor finite generation.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "mathlib:Module.support",
+        "mathlib:DerivedCategory.homologyFunctor"
+      ],
+      "proofSteps": [
+        "Take the union of the existing module supports; no chosen representative enters the definition."
+      ],
+      "acceptance": [
+        "Support sees every degree, including torsion degrees."
+      ],
+      "sources": [
+        {
+          "sourceId": "Pinned-library",
+          "locator": "DerivedCategory.homologyFunctor and Module.support",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.support",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Support of a complex"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PatchingSupport.mem_support",
+          "role": "characterisation",
+          "statement": "p is in support(C) iff some H^i(C)_p is nonzero."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.support_iso",
+          "role": "compatibility",
+          "statement": "Derived isomorphisms preserve support."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.support_single",
+          "role": "simp",
+          "statement": "The support of the stalk M in degree i is Module.support R M."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.support_shift",
+          "role": "compatibility",
+          "statement": "Every integer shift has the same support."
+        }
+      ],
+      "tests": [
+        {
+          "name": "support_zero",
+          "kind": "degenerate",
+          "statement": "The zero derived object has empty support."
+        },
+        {
+          "name": "support_single_quotient",
+          "kind": "compatibility",
+          "statement": "For any ideal I, the degree-zero stalk of R/I has support V(I)."
+        },
+        {
+          "name": "support_two_stalks",
+          "kind": "computation",
+          "statement": "For C=M[0]⊕N[−1], support(C)=Supp M∪Supp N, even when M=0 and N≠0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CG Lemma 6.2, pp.65–66",
+          "how": "Measures the largest support among all cohomology groups."
+        },
+        {
+          "where": "ACC Proposition 6.3.8 and Corollary 6.3.9, pp.1052–1053",
+          "how": "Tracks components independently of the degrees of surviving cohomology."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/cohomology-annihilator",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Annihilator of all cohomology",
+      "kind": "definition",
+      "statement": "Define cohomologyAnnihilator(C)=⋂_{i∈Z} Ann_R H^i(C), an ideal of R. It is the kernel of the simultaneous scalar action on all cohomology, not necessarily the kernel of R→End_D(R)(C).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "mathlib:DerivedCategory.homologyFunctor",
+        "mathlib:Module.annihilator"
+      ],
+      "proofSteps": [
+        "Use the infimum of module annihilator ideals."
+      ],
+      "acceptance": [
+        "A derived endomorphism can vanish on all cohomology without being zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "Pinned-library",
+          "locator": "DerivedCategory.homologyFunctor; Mathlib module annihilator",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.cohomologyAnnihilator",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PatchingSupport.mem_cohomologyAnnihilator",
+          "role": "characterisation",
+          "statement": "r belongs iff r kills every element of every cohomology module."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.cohomologyAnnihilator_iso",
+          "role": "compatibility",
+          "statement": "The ideal is invariant under derived isomorphism."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.cohomologyAnnihilator_single",
+          "role": "simp",
+          "statement": "On a stalk it is exactly Ann_R M."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.cohomologyAnnihilator_biprod",
+          "role": "relation",
+          "statement": "On C⊕D it is the intersection of their cohomology annihilators."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cohomologyAnnihilator_zero",
+          "kind": "degenerate",
+          "statement": "The annihilator of the zero object is the unit ideal."
+        },
+        {
+          "name": "cohomologyAnnihilator_quotient",
+          "kind": "computation",
+          "statement": "The annihilator of (R/I)[0] is I."
+        },
+        {
+          "name": "cohomologyAnnihilator_two_quotients",
+          "kind": "computation",
+          "statement": "The annihilator of (R/I)[0]⊕(R/J)[−1] is I∩J, not I+J."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P9 component and near-faithfulness conclusions",
+          "how": "Expresses the radical-annihilator conclusion without inventing a single nonzero cohomology module."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-empty",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Empty support detects the zero derived object",
+      "kind": "lemma",
+      "statement": "For C in D(R), support(C)=∅ iff C is zero in D(R).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "mathlib:Module.support_eq_empty_iff",
+        "mathlib:DerivedCategory.Q"
+      ],
+      "proofSteps": [
+        "Each cohomology module is zero iff its support is empty; the derived cohomology functors detect zero objects."
+      ],
+      "acceptance": [
+        "No perfection hypothesis is necessary; no Euler characteristic is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "Pinned-library",
+          "locator": "Module.support_eq_empty_iff; native derived localization at quasi-isomorphisms",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportEmpty",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-closed",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Finite cohomology makes complex support closed",
+      "kind": "lemma",
+      "statement": "If C has bounded finite R-cohomology, support(C)=V(cohomologyAnnihilator(C)); in particular it is closed.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomology-annihilator",
+        "mathlib:Module.support_eq_zeroLocus"
+      ],
+      "proofSteps": [
+        "Use a finite degree interval containing all nonzero cohomology, finite module support=V(Ann), and V of a finite ideal intersection equals the finite union of the zero loci."
+      ],
+      "acceptance": [
+        "An infinite union of module supports need not be closed; boundedness is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "Pinned-library",
+          "locator": "Module.support_eq_zeroLocus and finite zero-locus operations",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportClosed",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-triangle",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Support containment in a distinguished triangle",
+      "kind": "lemma",
+      "statement": "For C1→C2→C3→C1[1] distinguished, support(C2)⊆support(C1)∪support(C3), and its two rotated containments hold.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "mathlib:Module.support_of_exact",
+        "mathlib:DerivedCategory.homologyFunctor"
+      ],
+      "proofSteps": [
+        "Localize the long exact cohomology sequence; if two objects vanish locally, so does the third."
+      ],
+      "acceptance": [
+        "Equality with the union is asserted for a direct sum, not for an arbitrary triangle."
+      ],
+      "sources": [
+        {
+          "sourceId": "Pinned-library",
+          "locator": "Native derived homology long exact sequence",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportTriangle",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-residue-detection",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Perfect support is detected by derived fibres",
+      "kind": "lemma",
+      "statement": "For perfect C and p∈Spec R, p∈support(C) iff C⊗^L_R κ(p)≠0.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension"
+      ],
+      "proofSteps": [
+        "Localize a finite projective representative at p. Apply P7 residual Nakayama to that perfect local object; localization commutes with cohomology."
+      ],
+      "acceptance": [
+        "The nonfinite counterexample Frac(O)[0] over O has zero closed fibre but is nonzero."
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks-perfect",
+          "locator": "Tag 0656, finite projective representatives; P7 residual Nakayama contract",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportResidueDetection",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Support under arbitrary derived coefficient change",
+      "kind": "lemma",
+      "statement": "For any map R→A and perfect C, support_A(C⊗^L_R A)=(Spec A→Spec R)^−1 support_R(C).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-residue-detection",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension"
+      ],
+      "proofSteps": [
+        "For q over p use associativity to identify the A-residue fibre with the R-residue fibre extended from κ(p) to κ(q). Field extension is faithfully flat and detects zero."
+      ],
+      "acceptance": [
+        "Applies to finite flat coefficient change and also to a nonflat local-condition quotient."
+      ],
+      "sources": [
+        {
+          "sourceId": "Stacks-perfect",
+          "locator": "Tag 0656, Lemma 15.76.9; fibre criterion from finite projective representatives",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportDerivedBaseChange",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-framing-quotient",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Removing framing variables by derived augmentation",
+      "kind": "lemma",
+      "statement": "For A commutative, S=A[[z1,…,zr]], J=(z1,…,zr), and perfect S-complex C, support_A(C⊗^L_S A) identifies with support_S(C)∩V(J) under Spec A≅V(J).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/framing-variables"
+      ],
+      "proofSteps": [
+        "Apply the base-change formula to the augmentation S→A, using the existing framing quotient identification."
+      ],
+      "acceptance": [
+        "Ordinary H^i(C)/JH^i(C) alone need not compute the derived augmented cohomology."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Theorem 6.3 augmentation and Theorem 6.4 proof, pp.66–69",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportFramingQuotient",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/complex-near-faithfulness",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Radical annihilator and full support",
+      "kind": "lemma",
+      "statement": "For bounded finite R-cohomology, cohomologyAnnihilator(C)⊆√0 iff support(C)=Spec R. Over a Noetherian ring this is equivalent to nilpotence of that ideal.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-closed",
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomology-annihilator",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful"
+      ],
+      "proofSteps": [
+        "Apply R03.6 to the finite direct sum of all nonzero cohomology modules; its annihilator is the finite intersection."
+      ],
+      "acceptance": [
+        "Full support is weaker than zero annihilator: over k[ε]/ε² the stalk k has full support but annihilator (ε)."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3, printed pp.1047–1053",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.complexNearFaithfulness",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/complex-inverting-regular-element",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Full complex support before and after inversion",
+      "kind": "lemma",
+      "statement": "If f is a nonzerodivisor of R and C has bounded finite cohomology, support(C)=Spec R iff support(C⊗^L_R R[1/f])=Spec R[1/f]. This does not assert integral cohomology concentration or faithful action.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+        "DeformationAndDerivedPatchingAlgebra:P9/complex-near-faithfulness",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting"
+      ],
+      "proofSteps": [
+        "Apply the module result to the finite direct sum of cohomology and use flatness of localization."
+      ],
+      "acceptance": [
+        "The regularity of f on R is required; torsion in cohomology is allowed."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3, printed pp.1047–1053",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.complexInvertingRegularElement",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-cokernel-resolution",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Resolution at the first nonzero cohomology degree",
+      "kind": "lemma",
+      "statement": "Let P be a finite projective cochain complex supported in [a,b], with first nonzero cohomology degree m. For K=coker(d^{m−1}:P^{m−1}→P^m), the truncated sequence 0→P^a→…→P^m→K→0 is a finite projective resolution; pd_R K≤m−a.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-empty",
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "mathlib:CategoryTheory.projectiveDimension"
+      ],
+      "proofSteps": [
+        "Vanishing of cohomology below m is precisely exactness at each preceding term. Reverse the cochain indexing to get a projective resolution of K of length m−a."
+      ],
+      "acceptance": [
+        "Acyclic P is excluded because m would not exist."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 proof, pp.65–66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.firstCohomologyCokernelResolution",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-injects",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The first cohomology embeds in the final cokernel",
+      "kind": "lemma",
+      "statement": "In the preceding situation H^m(P) embeds R-linearly in K=coker d^{m−1}.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-cokernel-resolution"
+      ],
+      "proofSteps": [
+        "The cocycles are a submodule of P^m containing im d^{m−1}; quotient inclusion gives the injection."
+      ],
+      "acceptance": [
+        "K generally differs from H^m when the outgoing differential is nonzero."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 proof, p.66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.firstCohomologyInjects",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-dimension-bound",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Dimension bound at the first nonzero degree",
+      "kind": "lemma",
+      "statement": "For regular local R of dimension n and nonzero finite projective P supported in [a,b], with first nonzero degree m, dim Supp H^m(P)≥n−(m−a).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-cokernel-resolution",
+        "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-injects",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
+        "mathlib:IsRegularLocalRing"
+      ],
+      "proofSteps": [
+        "The nonzero H^m embeds in K. CG6.1, imported through R03.3, gives dim H^m≥depth K. Auslander–Buchsbaum and depth R=n give depth K=n−pd K≥n−(m−a)."
+      ],
+      "acceptance": [
+        "Use finite K and finite H^m; do not apply finite-module depth theorems to an arbitrary module."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemmas 6.1–6.2, pp.65–66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.firstCohomologyDimensionBound",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Calegari–Geraghty codimension–amplitude inequality",
+      "kind": "theorem",
+      "statement": "Let R be regular local of dimension n, a≤b integers with l=b−a≤n, and C≠0 perfect with Tor-amplitude in [a,b]. Then dim support(C)≥n−l, equivalently codim support(C)≤l. Zero support has no finite codimension in this statement.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-dimension-bound",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-projective-interval",
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support"
+      ],
+      "proofSteps": [
+        "Represent C by finite projective terms in [a,b], apply the first-degree dimension bound and enlarge from that cohomology support to the union."
+      ],
+      "acceptance": [
+        "Over a DVR, [O --π→O] in degrees 0,1 achieves codimension one despite rational acyclicity."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2, pp.65–66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.codimensionAmplitudeLemma",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Codimension–amplitude inequality"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Balanced codimension forces concentration at the upper endpoint",
+      "kind": "theorem",
+      "statement": "Under the preceding hypotheses, if dim support(C)≤n−l, then H^i(C)=0 for i≠b and H^b(C)≠0. The finite projective representative is a resolution of H^b(C) placed in degree b.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-dimension-bound",
+        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-projective-interval"
+      ],
+      "proofSteps": [
+        "Let m be first nonzero. Bounds n−(m−a)≤dim H^m≤n−l force m=b; all other cohomology already vanishes outside [a,b]."
+      ],
+      "acceptance": [
+        "A bound on ordinary cohomological amplitude is insufficient: the stalk R/(x) has width zero but positive projective dimension."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 proof, p.66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.balancedDimensionConcentration",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/balanced-projective-dimension",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Projective dimension in the balanced case",
+      "kind": "lemma",
+      "statement": "With balanced concentration as above, pd_R H^b(C)=l.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
+        "mathlib:CategoryTheory.projectiveDimension"
+      ],
+      "proofSteps": [
+        "The resolution gives pd≤l. Depth H^b≤dim H^b=n−l and Auslander–Buchsbaum give pd≥l."
+      ],
+      "acceptance": [
+        "For the quotient by a regular sequence of length l this recovers pd=l."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2(2), p.66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.balancedProjectiveDimension",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/balanced-depth",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Depth in the balanced case",
+      "kind": "lemma",
+      "statement": "In the balanced case depth_R H^b(C)=dim Supp H^b(C)=n−l, so H^b(C) is Cohen–Macaulay as an R-module on its support.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-projective-dimension",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay"
+      ],
+      "proofSteps": [
+        "Auslander–Buchsbaum gives the depth after pd=l; the two support dimension bounds coincide."
+      ],
+      "acceptance": [
+        "Neither R acting through a separate deformation ring nor that deformation ring is thereby regular or Cohen–Macaulay."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2(2), pp.65–66",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.balancedDepth",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A finite algebra bounds support dimension",
+      "kind": "lemma",
+      "statement": "Let R→T be a finite algebra map of Noetherian rings, and C have bounded finite R-cohomology with T-action. If support_T H*(C) lies in a closed subset Z⊆Spec T of dimension≤d, then dim support_R(C)≤d.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Each cohomology is finite over T. Its R-support is the finite spectral image of its T-support; integral finite maps preserve dimension of closed subsets."
+      ],
+      "acceptance": [
+        "Finiteness over the regular patching base must be proved, not inferred from a continuous action."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Proposition 6.3.8 proof, p.1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.finiteAlgebraSupportDimension",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/balanced-patched-complex",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Balanced dimension of a patched complex",
+      "kind": "theorem",
+      "statement": "Suppose S is regular local dim n; C≠0 is perfect of Tor-amplitude [q,q+l]; T acts on C, is finite over S, and its cohomological support has dimension≤n−l. Then C has only H^{q+l} nonzero, of S-depth n−l and S-projective dimension l.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-depth",
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-projective-dimension"
+      ],
+      "proofSteps": [
+        "Use the finite-algebra support bound before applying the three balanced lemmas. P8 supplies the patched object; this theorem assumes its output."
+      ],
+      "acceptance": [
+        "This conclusion applies integrally only when the amplitude bound holds integrally."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Theorem 6.3 proof using Lemma 6.2, pp.67–68",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.balancedPatchedComplex",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/one-degree-specialization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "One-degree patching is a specialization",
+      "kind": "theorem",
+      "statement": "In balanced-patched-complex with l=0, C≅H^q(C)[−q] and H^q(C) is a nonzero finite free S-module. With the explicit module patching data of R03.6, its module support and deformation-to-Hecke consequences are exactly those supplied there.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-patched-complex",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-support-theorem"
+      ],
+      "proofSteps": [
+        "Set l=0: pd=0, hence projective and finite free over the local ring. Apply the module-level supplier only after specifying its ring/action/descent hypotheses."
+      ],
+      "acceptance": [
+        "The stalk of S^r for r>0 is the algebraic Taylor–Wiles l=0 case."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 and Theorem 6.4(1), pp.65–69",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.oneDegreeSpecialization",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/rational-concentration-only",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Rational concentration leaves integral torsion",
+      "kind": "lemma",
+      "statement": "If localization at f is flat and H^i(C⊗R[1/f])=0 for i outside [a,b], then only H^i(C)[1/f]=0 follows. For finite H^i over a Noetherian ring these outside-degree modules are killed by some power of f; they need not be zero.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat"
+      ],
+      "proofSteps": [
+        "Use exactness of flat tensor. Finite generators are each killed by a power of f and a maximum exponent kills the module."
+      ],
+      "acceptance": [
+        "Add [O --π→O] in an outside degree to a nonzero free stalk; rational cohomology sees only the stalk."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Theorem 6.4 characteristic-zero support argument, pp.68–69; explicit torsion example",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.rationalConcentrationOnly",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Finite algebra action in the derived category",
+      "kind": "definition",
+      "statement": "For an S-algebra T and C∈D(S), a DerivedAction is a unital ring homomorphism ρ:T→End_D(S)(C) satisfying ρ(s)=s·id_C for every s∈S. No chain-level lift is included. Applying H^i gives the canonical T-module structure on H^i(C).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "mathlib:DerivedCategory.homologyFunctor"
+      ],
+      "proofSteps": [
+        "Use native preadditive/linear derived endomorphisms and apply the additive cohomology functor."
+      ],
+      "acceptance": [
+        "A family of actions on H^i(C) alone is not this datum."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, pp.1048–1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.DerivedAction",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.ext",
+          "role": "extensionality",
+          "statement": "Actions agree when their ring homomorphisms agree on all elements."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.homologyAction",
+          "role": "data",
+          "statement": "A ring homomorphism T→End_S H^i(C), giving the canonical T-module action."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.scalar",
+          "role": "compatibility",
+          "statement": "The induced S-action on H^i(C) is its original action."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.transport",
+          "role": "functoriality",
+          "statement": "An S-linear additive functor transports the action, compatibly with identity and composition."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.single",
+          "role": "constructor",
+          "statement": "An S-compatible T-action on a module gives an action on its derived stalk."
+        }
+      ],
+      "tests": [
+        {
+          "name": "derivedAction_scalars",
+          "kind": "compatibility",
+          "statement": "For the scalar S-action on any C, the induced action on H^i(C) is scalar multiplication."
+        },
+        {
+          "name": "derivedAction_zero",
+          "kind": "degenerate",
+          "statement": "There is exactly one compatible T-action on the zero derived object."
+        },
+        {
+          "name": "derivedAction_stalk",
+          "kind": "computation",
+          "statement": "For a module M with T-action, the induced action of its degree-zero stalk agrees with the given action via the standard H^0 isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ACC Lemma 6.3.4, p.1049",
+          "how": "Allows finite T to act without treating C as a complex of T-modules."
+        },
+        {
+          "where": "ACC §6.3.5, p.1050",
+          "how": "Specifies the algebra images compared after residual base change."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Nilpotence of the cohomologically trivial action ideal",
+      "kind": "lemma",
+      "statement": "If C has cohomology only in [a,b], the kernel of End_D(S)(C)→∏_i End_S H^i(C) is nilpotent, with product of b−a+1 cohomologically trivial endomorphisms equal to zero. Consequently the inverse-image ideal in any commutative T acting on C is nilpotent.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "mathlib:DerivedCategory.homologyFunctor",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "proofSteps": [
+        "Use the finite canonical truncation filtration: a ghost factors across one further step of the filtration; a product longer than its number of cohomology degrees factors through zero. Explicitly request the T-equivariant truncation/ghost-filtration bridge from P7."
+      ],
+      "acceptance": [
+        "For a stalk the kernel is zero. Boundedness cannot be omitted."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Observation after Assumption 6.3.6, p.1051",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.ghostIdealNilpotent",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A derived action subalgebra has full cohomological support",
+      "kind": "lemma",
+      "statement": "Let S be Noetherian and C perfect. Every commutative S-subalgebra T⊆End_D(S)(C) is finite over S, and ⋃_i Supp_T H^i(C)=Spec T.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-closed",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "proofSteps": [
+        "Bounded finite projective representatives make the derived endomorphism S-module finite. The annihilator of total cohomology is the ghost ideal in T, hence nilpotent; use finite module support."
+      ],
+      "acceptance": [
+        "Do not assert End_D(S)(C) itself is commutative."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Remark after Lemma 6.3.4, p.1050; observation p.1051",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.actionSubalgebraSupport",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Support through a nilpotent action quotient",
+      "kind": "lemma",
+      "statement": "Let C,T be as in action-subalgebra-support, I⊆T nilpotent, and R→T/I a surjection. Define the R-support of H*(C) as the closed embedding Spec(T/I)→Spec R applied to the inverse of Spec(T/I)≅Spec T. Thus it is the closed set V(ker(R→T/I)). This is a support construction through a spectral homeomorphism, not an R-module structure on H^i(C).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-restrict-scalars-surjective"
+      ],
+      "proofSteps": [
+        "Every prime contains I; quotient induces a spectral homeomorphism. The surjection supplies a closed embedding. Independence of replacing I by another nilpotent ideal follows from the same prime correspondence."
+      ],
+      "acceptance": [
+        "If I acts nontrivially on cohomology, R-action does not follow from the quotient map."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.5(3)–(5), pp.1050–1051",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.nilpotentQuotientSupport",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Euler length with finite cohomology lengths",
+      "kind": "definition",
+      "statement": "For bounded C with DerivedAction of Noetherian T and each H^i(C) of finite T-length, define eulerLength_T(C)=Σ_{i∈s} (−1)^i length_T H^i(C) in Z, where s is any finite set containing every nonzero cohomology degree. Length is Mathlib Module.length converted to a natural number only under its finiteness hypothesis.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "mathlib:Module.length",
+        "mathlib:Module.length_ne_top_iff"
+      ],
+      "proofSteps": [
+        "Use the finite degree set and finite lengths; establish range independence before treating the value as invariant."
+      ],
+      "acceptance": [
+        "There is no canonical integer Euler length for infinite-length cohomology."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, pp.1048–1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.eulerLength",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Derived Euler length"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PatchingSupport.eulerLength_range",
+          "role": "compatibility",
+          "statement": "Two finite sets containing all nonzero degrees give the same value."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.eulerLength_iso",
+          "role": "compatibility",
+          "statement": "A T-equivariant derived isomorphism preserves Euler length."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.eulerLength_single",
+          "role": "simp",
+          "statement": "A stalk M in degree i has Euler length (−1)^i length_T M."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.eulerLength_shift",
+          "role": "relation",
+          "statement": "eulerLength(C[n])=(−1)^n eulerLength(C), with H^i(C[n])=H^{i+n}(C)."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.eulerLength_biprod",
+          "role": "relation",
+          "statement": "Finite direct sums have the sum of the Euler lengths."
+        }
+      ],
+      "tests": [
+        {
+          "name": "eulerLength_zero",
+          "kind": "degenerate",
+          "statement": "Euler length of the zero object on any admissible range is zero."
+        },
+        {
+          "name": "eulerLength_field_stalk",
+          "kind": "computation",
+          "statement": "The field k placed in degree 1 with its scalar action has Euler length −1."
+        },
+        {
+          "name": "eulerLength_cancellation",
+          "kind": "non-example",
+          "statement": "k in degrees 0 and 1 with zero differential is nonzero and has Euler length 0; Euler length does not detect acyclicity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ACC Lemma 6.3.4, pp.1049–1050",
+          "how": "Turns the module length defect into a signed generic Euler identity."
+        },
+        {
+          "where": "ACC Lemma 6.3.7, p.1051",
+          "how": "Transfers nonzero generic Euler lengths through a residual divisor."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Euler length is additive in compatible triangles",
+      "kind": "lemma",
+      "statement": "For a distinguished triangle with compatible T-actions and bounded cohomology, finite T-length of cohomology for two terms implies the same for the third, and χ_T(C2)=χ_T(C1)+χ_T(C3).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
+        "mathlib:Module.length_eq_add_of_exact",
+        "mathlib:DerivedCategory.homologyFunctor",
+        "tauceti:TauCeti.AbelianK0.AdditiveInvariant.sum_negOnePow_obj_X_eq_sum_negOnePow_obj_homology"
+      ],
+      "proofSteps": [
+        "Use the finite long exact sequence of T-modules, decompose it into short exact sequences and telescope with alternating signs. This specializes the existing additive-invariant Euler formalism."
+      ],
+      "acceptance": [
+        "A noncompatible family of T-actions does not give a T-linear long exact sequence."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.eulerLengthTriangle",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/euler-length-nonzero-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Nonzero Euler length gives support",
+      "kind": "lemma",
+      "statement": "If localized cohomology has finite lengths and its Euler length is nonzero, some localized cohomology is nonzero. The converse requires a no-cancellation condition, such as a single cohomology degree.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
+        "mathlib:Module.length_eq_zero_iff",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-empty"
+      ],
+      "proofSteps": [
+        "If all cohomology is zero, each length vanishes. In one degree a nonzero module has positive length."
+      ],
+      "acceptance": [
+        "The two adjacent copies of k show the general converse fails."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.7 and Proposition 6.3.8 proof, pp.1051–1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.eulerLengthNonzeroSupport",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Finite kernel and cokernel lengths on a divisor",
+      "kind": "lemma",
+      "statement": "Let (T,m) be Noetherian local, dim T≤1, Spec T irreducible, f∈m, and dim T/(f)=0. For every finite T-module M, both M/fM and M[f] have finite T-length.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "mathlib:Module.length_ne_top_iff",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Both modules are finite and killed by f; a finite module over the zero-dimensional Noetherian local quotient is Artinian and Noetherian."
+      ],
+      "acceptance": [
+        "f need not be M-regular; the kernel term cannot be discarded."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2, pp.1047–1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.lengthDefectFinite",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-additive",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Additivity of the module length defect",
+      "kind": "lemma",
+      "statement": "With finite lengths of multiplication-by-f kernels and cokernels on M1,M2,M3 in a short exact sequence, δ_f(M2)=δ_f(M1)+δ_f(M3), where δ_f(M)=length(M/fM)−length(M[f]) in Z.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "proofSteps": [
+        "Apply the snake lemma to multiplication by f and telescope its six-term exact sequence."
+      ],
+      "acceptance": [
+        "This remains true even if M1,M2,M3 themselves have infinite length."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 proof, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.lengthDefectAdditive",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite-length-zero",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The defect vanishes on finite-length modules",
+      "kind": "lemma",
+      "statement": "For any finite-length T-module M and any f∈T, length_T(M/fM)=length_T(M[f]).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "mathlib:Module.length_eq_add_of_exact"
+      ],
+      "proofSteps": [
+        "Apply length additivity to kernel/image and image/cokernel of the endomorphism f:M→M."
+      ],
+      "acceptance": [
+        "For T a DVR and M=T/(f^r), both lengths equal one when f is a uniformizer."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 proof, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.lengthDefectFiniteLengthZero",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The irreducible divisor dimension dichotomy",
+      "kind": "lemma",
+      "statement": "If T is excellent local with irreducible spectrum, f∈m, and dim T/(f)=0, then dim T≤1. If dim T=1, its only primes are the maximal ideal and a unique minimal prime p; f∉p.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Use the principal ideal theorem at m and uniqueness of the minimal prime. If f belonged to that prime, the quotient would still have dimension one."
+      ],
+      "acceptance": [
+        "The dimension-zero branch allows f nilpotent and must not assume T is a domain."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 statement and first proof paragraph, pp.1047–1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.divisorDimensionDichotomy",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Positive divisor length on the normalization",
+      "kind": "lemma",
+      "statement": "In the dimension-one branch let N be the normalization of T/p in its fraction field. Then N is finite over T, f is a nonzerodivisor on N, and a=length_T(N/fN) is finite and positive.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite"
+      ],
+      "proofSteps": [
+        "Excellence supplies finite normalization; N is a domain and f≠0 in it. Every maximal ideal of N lies over m, hence contains f. Nakayama and finiteness give nonzero N/fN."
+      ],
+      "acceptance": [
+        "a is a length over T, not the unweighted number of branches of N."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 proof, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.normalizationLengthPositive",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/normalization-correction-finite-length",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Normalization changes a module by finite-length errors",
+      "kind": "lemma",
+      "statement": "For finite M over A=T/p, N its finite normalization, Q=N/A, the kernel and cokernel of M→M⊗_A N have finite T-length.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Q has zero generic localization and is finite, so its support is contained in the closed point. The tensor long exact sequence bounds the kernel by Tor_1^A(M,Q) and identifies the cokernel with M⊗_A Q; these are finite and supported at the closed point."
+      ],
+      "acceptance": [
+        "The Tor term is essential when M is not flat."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 proof, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.normalizationCorrectionFiniteLength",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The length identity over the normalized ring",
+      "kind": "lemma",
+      "statement": "For a finite N-module L in the preceding situation, δ_f(L)=a·rank_N(L), with lengths computed over T.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite-length-zero",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-additive",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "A finite normalization of the one-dimensional local domain is a semilocal Dedekind domain, hence a PID. Its finite module structure splits into a finite free module and finite-length torsion; apply additivity and the zero defect of torsion."
+      ],
+      "acceptance": [
+        "Residue field extension multiplicities are retained through length_T."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2 proof final paragraph, p.1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.lengthDefectNormalizedModules",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Module length identity over an irreducible excellent local ring",
+      "kind": "theorem",
+      "statement": "For T excellent local irreducible, f∈m and dim T/(f)=0: δ_f(M)=0 for all finite M if dim T=0. If dim T=1 with generic p, the same positive a=length_T(N/fN), independent of M, satisfies δ_f(M)=a·length_{T_p}(M_p) for every finite M.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite-length-zero",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-additive",
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-correction-finite-length",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy"
+      ],
+      "proofSteps": [
+        "Dimension zero: all finite modules have finite length. Dimension one: nilradical p is nilpotent, so filter M by p^jM.",
+        "Each graded piece is an A-module; finite-length correction terms let one replace it by its tensor with N.",
+        "Its generic length over T_p equals its rank over Frac(A). Add both sides through the p-adic filtration."
+      ],
+      "acceptance": [
+        "For a DVR with f=π, a=1 and the defect is the free rank; for f=π^r, a=r."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.2, pp.1047–1048",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.lengthDefectModuleIdentity",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "An isolated minimal maximal prime splits the ring",
+      "kind": "lemma",
+      "statement": "For Noetherian A and m both maximal and minimal, there is A≅A_m×B with the first projection equal to localization.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Intersect the other minimal primes. The Chinese remainder idempotent modulo the nilradical lifts through its nilpotence. The resulting local factor has sole prime m, is Artinian, and identifies with A_m."
+      ],
+      "acceptance": [
+        "For A=k×k, either factor is selected; for a connected positive-dimensional domain its closed point is not minimal."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.3 proof, p.1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.isolatedPrimeProduct",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The generic factor of a finite algebra",
+      "kind": "lemma",
+      "statement": "For S Noetherian, T finite over S, p minimal in T and q=p∩S, pT_q is maximal and minimal in T_q. The previous product lemma gives a central idempotent e_p of T_q selecting T_p.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Integral incomparability makes primes over q maximal after localization at q. Minimality is preserved. Apply the product decomposition to the Noetherian finite S_q-algebra T_q."
+      ],
+      "acceptance": [
+        "The idempotent lives after base localization S→S_q, not necessarily in T itself."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Paragraph after Lemma 6.3.3, p.1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.genericActionIdempotent",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Idempotent localization of a derived algebra action",
+      "kind": "construction",
+      "statement": "For bounded finite S-cohomology C with derived T-action, T finite over Noetherian S, and p minimal in T over q in S, form C_q=C⊗^L_S S_q, extend the action to T_q, and split ρ_q(e_p). The resulting summand C_p in D^b(S_q) with its T_p-action is the generic derived localization. Its inclusion and projection satisfy projection∘inclusion=id and inclusion∘projection=ρ_q(e_p).",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
+        "mathlib:CategoryTheory.IsIdempotentComplete",
+        "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes"
+      ],
+      "proofSteps": [
+        "Localize the base and action, then use idempotent splitting in the bounded derived module category. The generic algebra factor acts on the summand through the product factor."
+      ],
+      "acceptance": [
+        "Do not form a derived tensor over T without a genuine strict T-module model."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Paragraph between Lemmas 6.3.3 and 6.3.4, p.1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.genericLocalization",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Idempotent localization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_retract",
+          "role": "projection",
+          "statement": "The inclusion and projection split precisely the specified generic idempotent."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_homology",
+          "role": "compatibility",
+          "statement": "H^i(C_p)≅H^i(C)_p as T_p-modules."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_iso",
+          "role": "functoriality",
+          "statement": "T-equivariant maps induce maps on the generic summands, preserving identities and composition."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_choice",
+          "role": "extensionality",
+          "statement": "Two splittings of the same idempotent are canonically isomorphic with the inclusion/projection maps respected."
+        }
+      ],
+      "tests": [
+        {
+          "name": "genericLocalization_zero",
+          "kind": "degenerate",
+          "statement": "Generic localization of the zero object is zero."
+        },
+        {
+          "name": "genericLocalization_scalar_domain",
+          "kind": "compatibility",
+          "statement": "For a domain S, T=S, p=(0), the idempotent is 1 and C_p is C⊗_S Frac(S)."
+        },
+        {
+          "name": "genericLocalization_product",
+          "kind": "computation",
+          "statement": "For S=k, T=k×k acting on M1⊕M2, localization at the first-factor generic prime produces M1, not M1⊕M2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ACC Lemma 6.3.4, pp.1049–1050",
+          "how": "Supplies the correct object whose T_p-Euler length occurs."
+        },
+        {
+          "where": "ACC Lemma 6.3.7, p.1051",
+          "how": "Defines generic Euler nonvanishing for component transport."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Generic localized cohomology has finite length",
+      "kind": "lemma",
+      "statement": "In generic-derived-localization, T_p is zero-dimensional Noetherian local, each H^i(C_p) is finite over T_p, and its T_p-length is finite.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "mathlib:Module.length_ne_top_iff",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Minimal-prime localization is Artinian. Finite S-cohomology is finite T-cohomology and remains finite on localization; retract cohomology identifies with the module localization."
+      ],
+      "acceptance": [
+        "Generic Euler length may be zero for a nonzero complex through cancellation."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Paragraph after Lemma 6.3.3 and Lemma 6.3.4, p.1049",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.genericLocalizedLengthFinite",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Derived reduction is the scalar cone for a regular divisor",
+      "kind": "lemma",
+      "statement": "For a nonzerodivisor f in S and C∈D(S), C --f→ C → C⊗^L_S S/(f) → C[1] is distinguished, compatibly with every derived S-algebra action on C.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension"
+      ],
+      "proofSteps": [
+        "The two-term free complex [S --f→ S] in degrees −1,0 resolves S/(f). Tensor its distinguished triangle with C and use centrality of the scalar action."
+      ],
+      "acceptance": [
+        "For S=k[ε]/ε², f=ε, the free two-term complex has nonzero H^{-1}; it does not resolve S/(ε)."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, p.1049; regularity hypothesis in Lemma 6.3.4",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.regularDivisorDerivedTriangle",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-divisor-length-finite",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Finite lengths for the localized derived divisor",
+      "kind": "lemma",
+      "statement": "Let S excellent local, f∈m_S regular on S, T finite over S, m maximal in T with irreducible Spec T_m and dim T_m/(f)=0, and C bounded with finite S-cohomology and derived T-action. Every H^i((C⊗^L_S S/(f))_m) has finite T_m-length.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle"
+      ],
+      "proofSteps": [
+        "The cone long exact sequence expresses reduction cohomology as extensions of multiplication-by-f cokernels and kernels on adjacent finite cohomology modules. Localize and apply divisor finite length."
+      ],
+      "acceptance": [
+        "C itself need not have finite T_m-length cohomology in the one-dimensional branch."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.4 hypotheses and proof, pp.1049–1050",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.derivedDivisorLengthFinite",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-length-zero-dimensional",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Derived length on the zero-dimensional branch",
+      "kind": "lemma",
+      "statement": "Under derived-divisor-length-finite, if dim T_m=0 then χ_{T_m}((C⊗^L_S S/(f))_m)=0.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-divisor-length-finite",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle"
+      ],
+      "proofSteps": [
+        "Canonical truncation triangles reduce to finite modules in one degree, whose reduction Euler length is the module defect. The dimension-zero defect is zero."
+      ],
+      "acceptance": [
+        "For C=k over a field and scalar f=0, its cone has two adjacent copies of k and Euler length zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.4(1), pp.1049–1050",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.derivedLengthZeroDimensional",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "ACC derived length identity",
+      "kind": "theorem",
+      "statement": "Under derived-divisor-length-finite with dim T_m=1 and its unique generic p, there is a single a∈Z_{>0}, depending on T_m and f but not C, with χ_{T_m}((C⊗^L_S S/(f))_m)=a·χ_{T_p}(C_p). The right side uses idempotent localization, not a fictitious strict T-localization.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-divisor-length-finite",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle"
+      ],
+      "proofSteps": [
+        "Truncate C equivariantly through its finitely many cohomology degrees; both Euler expressions are additive in the resulting triangles.",
+        "For a stalk M in degree i the regular scalar cone gives the signed defect (−1)^i[ length(M/fM)−length(M[f]) ].",
+        "Apply the module identity with the same normalization constant a to every cohomology module and sum."
+      ],
+      "acceptance": [
+        "For S=T a DVR, C=S in degree 1 and f=π, both sides equal −1. Neither positivity of a nor nonzero C prevents Euler cancellation."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.4(2), pp.1049–1050",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.derivedLengthIdentity",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Derived length identity"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/residual-length-comparison",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Compatible residual actions preserve localized Euler lengths",
+      "kind": "lemma",
+      "statement": "Let O be a complete DVR with uniformizer π and Λ a finite-variable power series ring over O; S=Λ[[X1,…,Xr]] with augmentation ideal a∞. C,C′ are perfect S-complexes with a fixed derived S/(π)-isomorphism of their reductions. T,T′ are commutative finite S-subalgebras of their derived endomorphisms whose images, after transport by this isomorphism, in End_D(S/(π))(Cbar) are the same algebra Tbar. R,R′ are complete Noetherian local S-algebras, with surjections R→T/I and R′→T′/I′ for nilpotent I,I′. An S-algebra isomorphism R/(π)≅R′/(π) is compatible with their actions on each H^i(Cbar)/(Ibar+I′bar)H^i(Cbar). At corresponding dimension-(d−1) residual points, the reduced complexes have the same localized Euler length, whenever these cohomology lengths are finite.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
+        "mathlib:Module.length_eq_of_surjective"
+      ],
+      "proofSteps": [
+        "Use the common finite algebra Tbar. Nilpotent ideals lie in every prime and all composition factors at a selected residual point are killed by Ibar+I′bar. Compatibility identifies the point of Tbar and the simple residue module; length over either localized algebra equals length over that common localized image. Apply degreewise to the same cohomology modules. Do not replace χ(M) by χ(M/(Ibar+I′bar)M)."
+      ],
+      "acceptance": [
+        "Nilpotent quotients preserve the indexing of simple factors, not the length of the quotient of a module."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.5(2),(5), pp.1050–1051; transfers in Proposition 6.3.8, p.1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.residualLengthComparison",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The divisor bridge under component hypotheses",
+      "kind": "lemma",
+      "statement": "Let O be a complete DVR with uniformizer π and Λ a finite-variable power series ring over O; S=Λ[[X1,…,Xr]] with augmentation ideal a∞. C,C′ are perfect S-complexes with a fixed derived S/(π)-isomorphism of their reductions. T,T′ are commutative finite S-subalgebras of their derived endomorphisms whose images, after transport by this isomorphism, in End_D(S/(π))(Cbar) are the same algebra Tbar. R,R′ are complete Noetherian local S-algebras, with surjections R→T/I and R′→T′/I′ for nilpotent I,I′. An S-algebra isomorphism R/(π)≅R′/(π) is compatible with their actions on each H^i(Cbar)/(Ibar+I′bar)H^i(Cbar). Put n=dim S and d=n−l with l≥0 and d≥1. Assume dim R=dim R′=d and dim R/(π)=dim R′/(π)=d−1. Every dimension-(d−1) generic of R/(π) has exactly one dimension-d generic of R beneath it; R′ has exactly one dimension-d generic. All other generic points of R,R′,R/(π) have component dimension strictly less than d−1. For each dimension-d generic x of R, a generic point xbar of V(x,π) has dimension d−1 and is a generic of R/(π); the local ring R_xbar has unique minimal prime x and dimension one, with zero-dimensional quotient by π. The corresponding residual point of R′ has its unique top generic x′ beneath it.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "Complete Noetherian local rings are excellent and catenary. Principal-divisor dimension gives d−1; the gap below d−1 excludes lower components through xbar, while uniqueness excludes another top component. Apply the same dimension gap on R′ to force generalization to x′."
+      ],
+      "acceptance": [
+        "The hypothesis is uniqueness of the top generic, not irreducibility of all of Spec R′."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Assumption 6.3.6(1)–(2) and proof of Proposition 6.3.8, pp.1051–1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.topComponentDivisorBridge",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/generic-euler-divisor-transfer",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Nonzero generic Euler length transfers across the divisor",
+      "kind": "lemma",
+      "statement": "Let O be a complete DVR with uniformizer π and Λ a finite-variable power series ring over O; S=Λ[[X1,…,Xr]] with augmentation ideal a∞. C,C′ are perfect S-complexes with a fixed derived S/(π)-isomorphism of their reductions. T,T′ are commutative finite S-subalgebras of their derived endomorphisms whose images, after transport by this isomorphism, in End_D(S/(π))(Cbar) are the same algebra Tbar. R,R′ are complete Noetherian local S-algebras, with surjections R→T/I and R′→T′/I′ for nilpotent I,I′. An S-algebra isomorphism R/(π)≅R′/(π) is compatible with their actions on each H^i(Cbar)/(Ibar+I′bar)H^i(Cbar). Put n=dim S and d=n−l with l≥0 and d≥1. Assume dim R=dim R′=d and dim R/(π)=dim R′/(π)=d−1. Every dimension-(d−1) generic of R/(π) has exactly one dimension-d generic of R beneath it; R′ has exactly one dimension-d generic. All other generic points of R,R′,R/(π) have component dimension strictly less than d−1. For xbar and its unique top generic x, nonzero generic Euler length at x implies nonzero localized reduction Euler length at xbar; the reverse also holds. Membership in the spectral support of T is preserved along this nonzero transfer. The analogous statement holds for R′.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity",
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-length-zero-dimensional",
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-nonzero-support"
+      ],
+      "proofSteps": [
+        "If x is supported, closedness puts xbar in support and the finite algebra localization satisfies the length identity. Conversely a nonzero residual Euler length rules out the dimension-zero algebra branch; its unique generic belongs to the supported top component. Positivity of a gives equivalence of nonvanishing."
+      ],
+      "acceptance": [
+        "Nonzero localized cohomology without nonzero Euler length cannot replace the premise."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Lemma 6.3.7, p.1051",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.genericEulerDivisorTransfer",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/characteristic-zero-concentration-seed",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A characteristic-zero fibre supplies a supported top generic",
+      "kind": "lemma",
+      "statement": "Let O be a complete DVR with uniformizer π and Λ a finite-variable power series ring over O; S=Λ[[X1,…,Xr]] with augmentation ideal a∞. C,C′ are perfect S-complexes with a fixed derived S/(π)-isomorphism of their reductions. T,T′ are commutative finite S-subalgebras of their derived endomorphisms whose images, after transport by this isomorphism, in End_D(S/(π))(Cbar) are the same algebra Tbar. R,R′ are complete Noetherian local S-algebras, with surjections R→T/I and R′→T′/I′ for nilpotent I,I′. An S-algebra isomorphism R/(π)≅R′/(π) is compatible with their actions on each H^i(Cbar)/(Ibar+I′bar)H^i(Cbar). Put n=dim S and d=n−l with l≥0 and d≥1. Assume dim R=dim R′=d and dim R/(π)=dim R′/(π)=d−1. Every dimension-(d−1) generic of R/(π) has exactly one dimension-d generic of R beneath it; R′ has exactly one dimension-d generic. All other generic points of R,R′,R/(π) have component dimension strictly less than d−1. Suppose q⊇a∞ in Spec S has dim S/q=1, π∉q, and C⊗^L_S κ(q) is nonzero with cohomology only in [q0,q0+l]. Then there is a dimension-d generic x of R in support with χ_{T_x}(C_x)≠0.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-residue-detection",
+        "DeformationAndDerivedPatchingAlgebra:P7/residual-perfectness-criterion",
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "proofSteps": [
+        "S_q is regular. The closed support dimension≤n−l gives codimension≥l after localization via the catenary regular-local height formula. P7 gives a finite projective representative in the fibre interval. CG concentration finds a codimension-l support prime. Lift it through finite T to a dimension-d generic of R. At this prime localized cohomology is concentrated in one degree, so its Euler length is nonzero."
+      ],
+      "acceptance": [
+        "Only this characteristic-zero fibre is bounded in the premise; no uniform mod-π cohomology vanishing is assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Assumption 6.3.6(3) and Proposition 6.3.8 proof first paragraph, pp.1051–1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.characteristicZeroConcentrationSeed",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "ACC support on all top-dimensional components",
+      "kind": "theorem",
+      "statement": "Let O be a complete DVR with uniformizer π and Λ a finite-variable power series ring over O; S=Λ[[X1,…,Xr]] with augmentation ideal a∞. C,C′ are perfect S-complexes with a fixed derived S/(π)-isomorphism of their reductions. T,T′ are commutative finite S-subalgebras of their derived endomorphisms whose images, after transport by this isomorphism, in End_D(S/(π))(Cbar) are the same algebra Tbar. R,R′ are complete Noetherian local S-algebras, with surjections R→T/I and R′→T′/I′ for nilpotent I,I′. An S-algebra isomorphism R/(π)≅R′/(π) is compatible with their actions on each H^i(Cbar)/(Ibar+I′bar)H^i(Cbar). Put n=dim S and d=n−l with l≥0 and d≥1. Assume dim R=dim R′=d and dim R/(π)=dim R′/(π)=d−1. Every dimension-(d−1) generic of R/(π) has exactly one dimension-d generic of R beneath it; R′ has exactly one dimension-d generic. All other generic points of R,R′,R/(π) have component dimension strictly less than d−1. Under the characteristic-zero concentration seed hypothesis, the R-support of H*(C), understood through the nilpotent quotient, contains every dimension-d irreducible component of Spec R.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/characteristic-zero-concentration-seed",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-length-comparison",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-euler-divisor-transfer",
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge"
+      ],
+      "proofSteps": [
+        "Start at the supported generic x1 with nonzero Euler length. Choose its residual generic xbar1; transfer to C′ at the corresponding residual point, lift to the unique top generic x′, specialize to a residual generic over any other top generic x2, compare back to C, and lift to x2. Closed support then contains V(x2)."
+      ],
+      "acceptance": [
+        "If R has components of dimension<d−1, the theorem leaves them unrestricted. It supplies no integral R=T assertion."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Proposition 6.3.8 with its setup and Assumption 6.3.6, pp.1050–1052",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.supportTransportAvoidingIhara",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "planet": {
+        "name": "Support on maximal-dimensional components"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/equidimensional-full-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Equidimensional support gives the radical kernel conclusion",
+      "kind": "lemma",
+      "statement": "If R is equidimensional of dimension d in support-transport-avoiding-ihara, its support is all Spec R; therefore ker(R→T/I)⊆√0 and the induced surjection R_red→(T/I)_red is an isomorphism. Without equidimensionality only every top component is supported.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/r-red-equals-t-red"
+      ],
+      "proofSteps": [
+        "All irreducible components are top-dimensional and cover Spec R. A surjection with full closed spectral image has nil kernel; use the reduced quotient comparison."
+      ],
+      "acceptance": [
+        "Nil kernel does not imply zero kernel or R=T."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Proposition 6.3.8 conclusion, p.1052, with the standard reduced-quotient consequence",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.equidimensionalFullSupport",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The top surviving degree persists in a local-condition fibre",
+      "kind": "lemma",
+      "statement": "Let C be bounded with finite S-cohomology, T finite over S acting in D(S), x∈Spec T supported by H*(C), and y=x∩S. In S_y let r be the largest degree with H^r(C_y)_x≠0. The coefficient spectral sequence identifies the top surviving fibre cohomology localized at x with H^r(C_y)_x/yH^r(C_y)_x, which is nonzero by Nakayama.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-sequence",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-actions",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-convergence",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change"
+      ],
+      "proofSteps": [
+        "Terms with positive Tor degree contribute only to lower total degrees. At degree r, incoming and outgoing differentials at Tor degree zero have zero localized other endpoint. Use convergence and Nakayama on the finite T_x-module with y inside its maximal ideal."
+      ],
+      "acceptance": [
+        "The right-edge map is an isomorphism after the stated localization; a Tor_1 contribution in degree r−1 can survive."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Corollary 6.3.9 proof, pp.1052–1053",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.rightEdgeSpecialization",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/local-condition-support",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Support at a point survives derived local-condition specialization",
+      "kind": "theorem",
+      "statement": "Under ACC support transport, if x lies on a top-dimensional component and y is its contraction in S, then x lies in the support of H*((C⊗^L_S S/y)_y), interpreted using the induced action. If dim S/y=1 and π∉y, the same holds after inverting π.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
+      ],
+      "proofSteps": [
+        "Choose the corresponding supported T-point and apply the right-edge lemma. Flat inversion preserves this point because π is not in its contraction."
+      ],
+      "acceptance": [
+        "For a nonflat quotient retain all derived Tor terms."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "Corollary 6.3.9, pp.1052–1053",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.localConditionSupport",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/comparison-one-degree",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Module comparison is the one-degree specialization",
+      "kind": "lemma",
+      "statement": "For two balanced complexes already concentrated in the upper degree b, a compatible isomorphism of their derived reductions mod π induces an isomorphism H^b(C)/π≅H^b(C′)/π; lower derived reduction cohomology can equal the π-torsion modules H^b(C)[π]. Near-faithfulness transfer then uses the exact R03.6 special-fibre hypotheses, including π-regularity on the module when required.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+        "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle",
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre"
+      ],
+      "proofSteps": [
+        "Compute the two cohomology degrees of the scalar cone. Its highest cohomology is the quotient and the preceding degree is the kernel. Import, rather than reproduce, Taylor module descent."
+      ],
+      "acceptance": [
+        "The comparison data for CG Proposition 6.6 are produced by P8; they are not inferred from unrelated levelwise isomorphisms."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Proposition 6.6 and following application, pp.69–70",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.comparisonOneDegree",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/example-dvr-torsion",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Rationally acyclic integral torsion example",
+      "kind": "application",
+      "statement": "For a DVR O with uniformizer π, the finite free complex [O --π→O] in degrees 0,1 has only H^1=O/(π), support V(π), and Tor-amplitude [0,1]. Its mod-π derived reduction has k in degrees 0 and 1, while its rationalization is zero.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+        "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle"
+      ],
+      "proofSteps": [
+        "Use injectivity of π and compute kernel/cokernel; termwise tensor computes derived change because terms are free."
+      ],
+      "acceptance": [
+        "Separates rational acyclicity, integral acyclicity, cohomological width zero and Tor width one."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2, pp.65–66, specialized to a DVR",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.exampleDvrTorsion",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/example-koszul-power-series",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A two-term Koszul complex over a power series ring",
+      "kind": "application",
+      "statement": "For O a DVR and S=O[[x]], [S --x→S] in degrees 0,1 resolves O in degree 1, has support V(x), codimension one, pd=1 and depth=1. Its derived augmentation x=0 gives O in both degrees 0 and 1; after inverting π it still has support V(x) in S[1/π]. This ring is not identified with E[[x]].",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-depth",
+        "DeformationAndDerivedPatchingAlgebra:P9/balanced-projective-dimension",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-framing-quotient"
+      ],
+      "proofSteps": [
+        "x is regular, S is regular local dimension two, and S/(x)=O. Compute the differential after quotient and after flat inversion."
+      ],
+      "acceptance": [
+        "Never equate O[[x]][1/π] with E[[x]]: bounded denominator series form a proper subring in general."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 equality case and Theorem 6.3 framing, pp.65–68",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.exampleKoszulPowerSeries",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/example-reducible-component",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A perfect complex supported on one reducible component",
+      "kind": "application",
+      "statement": "For A=k[ε]/(ε²)×k with k a field and e=(1,0), eA[0] is finite projective and perfect, supported exactly on the first component. Its annihilator is (1−e)A and it is not nearly faithful. To test a reducible local ring use B=k[[x,y]]/(xy) and the perfect complex [B --x→B]; H^0=(y) and H^1=B/(x), so support is V(x), only one component.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "DeformationAndDerivedPatchingAlgebra:P9/complex-near-faithfulness",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change"
+      ],
+      "proofSteps": [
+        "The product example uses an actual projective summand. In the local example ann(x)=(y), both cohomologies have support V(x), and termwise freeness makes the complex perfect although B/(x) alone is not perfect."
+      ],
+      "acceptance": [
+        "Locality alone does not force full support. The local example occupies two cohomology degrees; regular-local concentration does not apply to its singular base."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Remark 6.5 and support discussion, p.69; explicit elementary examples",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.exampleReducibleComponent",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/example-taylor-wiles-stalk",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A genuine one-degree Taylor–Wiles algebra test",
+      "kind": "application",
+      "statement": "For S=O[[z1,…,zr]] and m>0, C=S^m[0] has Tor-amplitude [0,0], full support and faithful scalar action. Derived augmentation gives O^m[0], reduction gives k[[z1,…,zr]]^m[0], and rationalization gives S[1/π]^m[0], all with full support on their bases.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/one-degree-specialization",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change"
+      ],
+      "proofSteps": [
+        "A free stalk has exact scalar extension and no higher Tor; its annihilator is zero. This is an algebraic acceptance test, not a claim to have constructed an arithmetic patched system."
+      ],
+      "acceptance": [
+        "Freeness over S says nothing about an unrelated R→End C unless its module hypotheses are supplied."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Theorem 6.4(1) and l0=0 specialization, pp.68–69",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.exampleTaylorWilesStalk",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/example-non-cm-cohomology",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "A perfect complex with non-Cohen–Macaulay cohomology",
+      "kind": "application",
+      "statement": "For S=k[[x,y]], the stalk M[0] with M=S/(x)⊕S/(x,y) is perfect of Tor-amplitude [−2,0]. Its support is V(x), of dimension one, while depth M=0 and pd M=2. The codimension–amplitude inequality is strict: 1<2. Base change at (x,y) has nonzero cohomology in degrees −2,−1,0.",
+      "hypotheses": [
+        "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude",
+        "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-auslander-buchsbaum-and-dimension-bounds"
+      ],
+      "proofSteps": [
+        "Use the length-one resolution of S/(x) and the length-two regular-sequence resolution of S/(x,y). Their direct sum resolves M; the residue field has zero differentials and dimensions 2,3,1 in degrees 0,−1,−2."
+      ],
+      "acceptance": [
+        "Ordinary cohomological width zero is not Tor width zero, and perfection does not force Cohen–Macaulay cohomology."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG-v2",
+          "locator": "Lemma 6.2 hypotheses and inequality, pp.65–66; explicit regular-sequence example",
+          "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.exampleNonCmCohomology",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+      "need": "Finite normalization of a one-dimensional excellent local domain; semilocal Dedekind normalization is a PID; excellence of complete Noetherian local rings and finite algebras/localizations; finite integral maps preserve dimensions of closed support images; catenary regular-local height/dimension formulas for the localization seed. These are ring-theoretic suppliers, not new P9 definitions.",
+      "consumers": [
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+        "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+        "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
+        "DeformationAndDerivedPatchingAlgebra:P9/characteristic-zero-concentration-seed"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
+      "need": "DGAInfinity, Part II interface: identify the ordinary bounded derived category of finite modules with its native derived-category embedding and supply splitting of its idempotents, preserving finite bounded cohomology. For perfect C also identify the split summand in the existing perfect envelope. No strict action lift is asserted.",
+      "consumers": [
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization"
+      ]
+    },
+    {
+      "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
+      "need": "T-equivariant canonical truncations for a commutative algebra action in the derived category; a bounded ghost ideal is nilpotent with exponent the number of cohomology degrees; finite generation of the derived endomorphism S-module of a perfect complex over Noetherian S; comparison of induced actions under exact derived base change and a T-linear right-edge comparison for derived actions (the existing spectral-actions node assumes strict chain actions). Existing generic tensor/Hom and truncation theory is imported; this request names the native action comparison bridge.",
+      "consumers": [
+        "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
+        "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-length-comparison",
+        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Excellence and normalization interface is not yet a fine supplier node",
+      "detail": "The complete ACC module-length proof is planned through normalization and finite-length corrections. R03.3 must expose the stated excellence, normalization/PID and dimension contracts; no such interface was found at the pin or in its fine nodes. The Lean file omits an unstated excellence predicate and explicitly prototypes the derived reduction step using its module identity input.",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity"
+      ]
+    },
+    {
+      "title": "Native derived action and idempotent comparison bridges",
+      "detail": "The generic localization is a derived retract, not a strict T-chain complex. Its native splitting and T-equivariant truncation/base-change comparisons need the two named supplier contracts. They are exposed as actual morphism/retract data and stated equalities in signatures; the full ACC setup theorem is documented mathematically rather than weakened silently in Lean.",
+      "nodes": [
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
+        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "status": "planned",
+      "remaining": [
+        "Discharge the R03.3 excellence/normalization/dimension supplier contract, replacing coarse prerequisites by fine nodes.",
+        "Connect bounded derived idempotent splitting and the native finite derived-action bridges through the requested existing owners.",
+        "Replace the explicitly marked omitted excellence/full-ACC Lean forms by full signatures once those interfaces are expressible; retain all source hypotheses."
+      ],
+      "notes": "All three target families and all four mandatory examples have nodes. This is a complete planning pass, not a closed or formalized stage. Tor-amplitude, module support/near-faithfulness, patching construction, generic tensor and Euler formalism remain with their existing owners."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "DeformationAndDerivedPatchingAlgebra",
+        "tauceti:TauCetiRoadmap/DGAInfinity"
+      ],
+      "detail": "Native bounded-derived idempotent splitting needs a bridge beyond the existing DG perfect-envelope planning. Generic tensor and Euler theories already have owners.",
+      "proposal": "DGAInfinity, Part II supplies the native bounded-derived splitting comparison used by P9; P7 supplies action/truncation comparisons, R03.3 supplies excellent normalization, and P9 alone owns the specialized derived length and algebraic component-transfer arguments."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E-P9-zero-complex",
+      "kind": "error",
+      "locator": "CG arXiv:1207.4224v2, Lemma 6.2, pp.65–66; published author PDF, PDF page 89",
+      "printed": "Own-words finding: the stated codimension bound does not explicitly exclude an acyclic perfect complex, while its proof chooses a first nonzero cohomology degree.",
+      "correction": "Assume C is nonzero in the derived category (some H^i(C)≠0), and specify a bounded finite-projective representative or equivalent Tor-amplitude.",
+      "reason": "A nonzero contractible finite free complex has empty cohomological support and no first nonzero cohomology degree. With the conventional empty-support dimension, its codimension cannot satisfy the finite inequality.",
+      "affects": "a stated result",
+      "known": "No separate published correction located; the same omission is present in the published author PDF read.",
+      "searched": [
+        "arXiv version history for 1207.4224",
+        "Published CG author PDF at math.uchicago.edu/~fcale/papers/CG.pdf, Lemma 6.2",
+        "Web search for a Lemma 6.2 zero-complex correction"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E-P9-regular-divisor",
+      "kind": "error",
+      "locator": "ACC author copy, paragraph immediately before Lemma 6.3.3, printed p.1049",
+      "printed": "Own-words finding: the scalar-cone identification with derived quotient tensor is described there for a general scalar f.",
+      "correction": "Require f to be a nonzerodivisor on S for this two-term resolution; otherwise use a genuine resolution of S/(f). Lemma 6.3.4 already has the required regularity.",
+      "reason": "For S=k[ε]/ε² and f=ε, the two-term complex has H^{-1}=(ε)≠0, while S/(ε) as a stalk has zero H^{-1}.",
+      "affects": "the proof",
+      "known": "No separate correction located; the subsequent lemma states the missing regularity explicitly, so that lemma and its applications are unaffected.",
+      "searched": [
+        "ACC author copy, Lemma 6.3.4 and preceding paragraph, printed pp.1048–1050",
+        "ACC arXiv version listing 1812.09999",
+        "Web search for ACC Lemma 6.3.4 regular scalar cone erratum"
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    "Read current main DGAInfinity and GrothendieckEulerForms and their Suggested.lean files. P9 imports their existing scope and the current library Euler–Poincaré theorem; it does not replan DG perfect envelopes, derived tensor or generic Euler invariants.",
+    "Current Tau Ceti source searches did not find the regular-local complex codimension theorem, finite-algebra idempotent-localization length theorem or ACC component transfer. Baseline names were checked at the pinned sources, independently of the newer read-only library."
+  ],
+  "review": null
+}
