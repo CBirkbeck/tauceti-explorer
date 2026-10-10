@@ -1,8 +1,9 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-MXSTNn`, 10 October 2026,
-issue #5871, base `5488856e7`. All seven authorized deliverables matched the
-latest merged checkpoint, PR #8421, before this update. Fresh checks confirm
+Current blocked checkpoint: Codex session `codex-oVg7VH`, 10 October 2026,
+issue #5871, base `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`. All seven
+authorized deliverables matched the latest merged checkpoint, PR #8488,
+before this update. Fresh checks confirm
 that the queue still expects twenty files outside the live issue's scope.
 The existing mathematical review is complete; intake completion requires the
 maintainer's historical-scope repair described in the handoff.
@@ -613,3 +614,35 @@ Updated the handoff's extra-packet table to the current ML.1 review job.
 Resume after maintainer reconciliation of the seven review outputs and ten
 historical fix outputs, preservation of those scopes through regeneration,
 and normal intake/sync. No scratch artifact is needed to resume.
+
+## Scope and validation receipt, 10 October 2026 — codex-oVg7VH
+
+The bot confirmed this session's claim at
+[comment 6099716259](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6099716259).
+Re-read the live issue after confirmation and continued from merged
+[PR #8488](https://github.com/CBirkbeck/tauceti-explorer/pull/8488), commit
+`4d208d5b537800f3e0a4a801ffce048f18a1a505`. All seven authorized outputs
+matched that commit byte for byte before these report and handoff edits.
+
+Read the current completion function, intake allowlist and round generator.
+With the seven paths parsed from the live issue, `deliverables_complete`
+returns **false** for the pending queue entry's 27 outputs and **true** after
+replacing only its output list in memory. Every output exists. The ten extra
+packets name other review jobs; their ten suggested files also lie outside
+this issue's scope. The done parent fix lists 40 outputs. Both the queue and
+its generator remain outside the authorized edits and fail `intake.ALLOWED`.
+The exact maintainer reconciliation and read-only reproduction are retained
+in the handoff. The inherited GL2 negative verdict completes its scoped review.
+
+All three fresh packet checks report **zero errors and zero warnings**
+(37 CSM, 73 GL2 and 67 Global nodes). All 177 nodes remain unchecked and no
+packet contains an excerpt field. The result and verification files contain
+the same forty confirmed identifiers, with exactly one report disposition
+per finding. The inherited verdicts and reviewer objects remain unchanged.
+This receipt claims no new mathematical, primary-source or pinned-declaration
+review. The unchanged Lean files were not recompiled; prior receipts remain
+historical evidence.
+
+This is a blocked checkpoint. Resume only after maintainer metadata repair,
+preservation of the historical scopes through regeneration, and normal
+intake/sync. Repeating the unchanged scoped review cannot clear the mismatch.

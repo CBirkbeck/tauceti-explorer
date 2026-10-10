@@ -1,5 +1,36 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
+## Current blocker, 10 October 2026 — codex-oVg7VH
+
+Issue #5871; bot-confirmed claim
+[6099716259](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6099716259).
+Base `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`. All seven authorized
+deliverables matched merged [PR #8488](https://github.com/CBirkbeck/tauceti-explorer/pull/8488),
+commit `4d208d5b537800f3e0a4a801ffce048f18a1a505`, byte for byte before
+this update. The completed scoped review and its packet objects are unchanged:
+CSM accepted, Global accepted, GL2 needs_changes.
+
+Fresh read-only reproduction returns completion **false** for the pending
+27-output queue entry and **true** with only its output list replaced in
+memory by the seven live-issue paths. All outputs exist. The ten extra
+packets correctly name other review jobs, and their ten suggested files are
+outside scope. The done parent fix still lists 40 outputs. Read the current
+completion function, allowlist and round generator: queue and generator
+repairs remain unauthorized and fail `intake.ALLOWED`.
+
+Fresh checks: all three packets have zero errors and warnings; their 177 nodes
+remain unchecked; no packet contains an excerpt field; the forty confirmed
+finding identifiers match the verification file and each has one report
+disposition. Only the report and handoff change. No new source or mathematical
+audit is claimed, and unchanged Lean files were not recompiled.
+
+**Required next action is maintainer metadata repair, before rescheduling.**
+Use the exact seven-review-output and ten-parent-fix-output lists and
+read-only reproduction below, preserve those historical scopes through queue
+regeneration, then run normal intake/sync. Further unchanged-input checkpoints
+cannot repair the excluded metadata. The separate GL2 revision still needs
+the 53 API signatures and 46 tests listed below. No scratch artifact is needed.
+
 ## Current blocker, 10 October 2026 — codex-MXSTNn
 
 Issue #5871; bot-confirmed claim
