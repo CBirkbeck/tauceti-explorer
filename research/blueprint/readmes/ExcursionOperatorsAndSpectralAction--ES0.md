@@ -1,6 +1,6 @@
 # Excursion operators and the spectral action: ES0–ES4
 
-This is a **partial revision 3 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, four explicit gaps and fifteen open supplier requests, with one supplied import contract retained. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
+This is a **partial revision 3 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The completed [revision 3 independent review](../reviews/REV-ExcursionOperatorsAndSpectralAction--ES0~3.md) records **needs_changes** for the missing executable signatures. The packet contains 42 unchecked nodes, four explicit gaps and fifteen open supplier requests, with one supplied import contract retained. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
 
 The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256. The original 7 October reading receipt is retained; revision 2 reread the specific ranges recorded below on 9 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The revision also read the upstream ReductiveGroups and SemisimpleAlgebras roadmaps in full for declaration, proof and API density.
 
@@ -261,7 +261,7 @@ Restrict a central enhanced transformation along the fully faithful trivial-stra
 
 The complex return uses a specified abstract field isomorphism from Qbar_ell to C and transports ordinary smooth representations and their centers. It depends on that choice and carries no condensed Weil topology across the field isomorphism. The characteristic-ell Schur assignment does not use this return. General b-stratum spectral composites belong to ES7:parabolic; they are not reconstructed here.
 
-Coverage: **planned**. Refinement contract: SR.1 abelian ring-valued center/Hecke-corner export and SR.3 field-transport block dictionary.
+Coverage: **planned**. Refinement contract: Enhanced stratum/heart comparison and SR.3 field-transport block dictionary; import the ordinary smooth-center and Hecke-corner targets already supplied upstream.
 
 ### Restriction to the smooth Bernstein center
 
@@ -280,7 +280,7 @@ Construction or proof:
 
 1. Restrict along j_! and use full faithfulness on enhanced mapping objects.
 2. Take pi_0 and restrict to the heart of the derived smooth category.
-3. Compose with the SR.1 abelian center/Hecke-corner dictionary.
+3. Compose with the already supplied upstream SR.0/SR.1 ordinary smooth-center and Hecke-corner dictionary, under its cofinal invertible-pro-order hypotheses.
 
 Acceptance:
 
@@ -1413,7 +1413,7 @@ Acceptance:
 
 Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`.
 
-Source: Proposition IX.5.3 pp. 329–330; Proposition VI.12.1 pp. 239–241; Theorem VII.7.6 pp. 274–275. The stated source result supplies this target with the hypotheses listed here.
+Source: Proposition IX.5.3 pp. 329–330; Proposition VI.12.1 pp. 239–241; Proposition VII.7.6 pp. 274–275. The stated source result supplies this target with the hypotheses listed here.
 
 Lean signature status: Full signature omitted pending actual supplier types.
 
@@ -1635,7 +1635,7 @@ The author manuscript has SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd
 - IX.1–IX.3 pp. 320–327; IX.5 pp. 327–329: normalized Hecke, condensed enrichment, multi-leg comparison and finite-wild proof.
 - X.0–X.3 pp. 339–350: universal/action/colimit statements and proofs, Whittaker sheaf, elliptic context and conjectures.
 
-The published edition’s relevant passage was unavailable in both independent reviews; the finding is scoped to the author copy. No comparison with unavailable published bytes is asserted.
+The published edition’s relevant passage was unavailable in the independent reviews; the finding is scoped to the author copy. No comparison with unavailable published bytes is asserted.
 
 ### ExcursionOperatorsAndSpectralAction/E1
 
@@ -1645,11 +1645,11 @@ The diagram commutes. Do not assert a cartesian square for arbitrary finite-set 
 
 Take H=Q=1, W=C2, C=Vect_L and the trivial W-equivariant tensor family. End(id_C)=L and every left function ring is L. For I={1,2}, J={1}, g:I->J the fold map, the left vertical arrow is id_L; the right is diagonal restriction Map(W^2,L)->Map(W,L). Both horizontal maps send scalars to constant functions. The pullback consists of (a,f) with f(w,w)=a; off-diagonal values are arbitrary. In particular (0,f) with f(1,t)=1 and f zero elsewhere lies in the pullback but not in the image of L. Thus the square is commutative and not cartesian. Over F2 it has 8 pullback elements versus 2 source elements. The subsequent fusion proof only uses commutativity.
 
-Independent verdict: confirmed. Independently reread the proof square on printed p. 292 in the hash-identified author manuscript. Enumerating the fold-map example over F2 gives eight pullback pairs versus two source scalars, including an off-diagonal witness. The following proof needs commutativity. Fresh publisher, arXiv and author-page checks found no correction; only the public publisher sample was readable, so the published passage remains unverified.
+Independent verdict: confirmed, by `REV-ExcursionOperatorsAndSpectralAction--ES0~3` on 2026-10-10. Independently opened printed p. 292 in the hash-identified author manuscript and enumerated the trivial-group C2 fold-map square over F2: eight pullback pairs, two source images, with an off-diagonal witness. Fusion needs commutativity only. Fresh publisher sample, arXiv record and author-page checks found no correction. The published proof passage was not available. A search hit in Hamann, Unitary Groups, p. 26 footnote 2 concerns IX.6.1, not this VIII.4.1 square.
 
 ## Pinned library baseline
 
-The revision 2 independent review reread the original 27 baseline declarations. Revision 3 adds seven source-checked declarations for flat coefficient comparison and its examples, for 34 in total. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
+The revision 2 independent review reread the original 27 baseline declarations. Revision 3 adds seven source-checked declarations for flat coefficient comparison and its examples, for 34 in total. The revision 3 independent review reread all 34 statements at the exact pin. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
 
 - `mathlib:CategoryTheory.CatCenter` — The ordinary center consists of natural endomorphisms of the identity functor. This is the ordinary Bernstein center in VIII.4.1, already provided at the pin; ES plans its enhanced degree-zero counterpart and comparison. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.app` — Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. (Mathlib/CategoryTheory/Center/Basic.lean)
@@ -1738,9 +1738,9 @@ LP1 supplies the deformation complex and local Tate duality statement. The proof
 
 The generic support theorem now takes actual distinguished triangles, additive shifts with explicit central compatibility, biproducts and retracts; it no longer assumes the desired annihilator-product containment. Separate signatures state the Hom factorization and product containment, compatible-functor support inclusion, and the principal radical/power criterion. Concrete scalar-module examples compute free and dual-number support. These improvements do not supply enhanced categories, derived stacky Perf, coherent action anima, elliptic algebraic centralizers or localization telescopes. Revision 3 adds the full generic flat support-coefficient-change signature and the unconditional ideal containment. Its S-linear End tensor equivalence preserves the identity; flatness is explicit. Two ModuleCat examples distinguish missing comparison and missing flatness. The actual geometric End comparison remains requested.
 
-The completed revision 2 independent review retains `needs_changes`. The original review is preserved in the packet history. Its signature-coverage finding remains open: all 42 mathematical targets are specified, but the named register is prose and cannot count as Lean declarations. No empty proposition fields or ordinary aliases are introduced to claim higher coverage.
+The completed revision 3 independent review records `needs_changes`. The full generic flat support comparison is now declared, but 34 node names, 16 API names and 18 proposed test labels remain absent; several present names are weaker ordinary observations. A prose register cannot count as the mandatory executable signatures. Earlier verdicts remain in the packet history. All 42 mathematical targets are specified; no empty proposition fields or ordinary aliases are introduced to claim higher coverage.
 
-The executable inventory has eight proposed node names, 22 proposed API names and 17 examples carrying 13 of the 31 proposed test labels; Five extra examples support ordinary observations and coefficient-hypothesis checks. The two new examples do not substitute for the missing enhanced definition tests. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
+The executable inventory has eight proposed node names, 22 proposed API names and 17 examples carrying 13 of the 31 proposed test labels; five extra examples support ordinary observations and coefficient-hypothesis checks. The two new examples do not substitute for the missing enhanced definition tests. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
 
 The suggested file elaborated through `lean-check` with exit 0 and only 52 `sorry` warnings. It imports the exact pinned Mathlib; the shared TauCeti checkout differs from the recorded pin but is unused. The packet checker result is recorded in the handoff. No theorem is claimed proved.
 
@@ -1760,7 +1760,7 @@ RT-AREA-geomlanglands/7: add ES1:spectral-center to ES2 and ES4’s required inp
 
 ### Ring-valued smooth center in SR1
 
-RT-AREA-geomlanglands/9 verifier correction: SR.1 owns the abelian CatCenter of the smooth Lambda category, its pro-p corner inverse limit and ell-adic separatedness. ES0 owns the enhanced restriction and heart comparison, not a general pi_0-center isomorphism. SR.3 retains the complex block theorem. Remove the checkpoint’s ES0 level-limit theorem and request the exact SR.1 export.
+RT-AREA-geomlanglands/9 verifier correction: SR.1 owns the abelian CatCenter of the smooth Lambda category, its pro-p corner inverse limit and ell-adic separatedness. ES0 owns the enhanced restriction and heart comparison, not a general pi_0-center isomorphism. SR.3 retains the complex block theorem. The ordinary SR.0/SR.1 targets are supplied by current upstream and imported with their cofinal invertible-pro-order and separated coefficient hypotheses. The enhanced restriction and heart comparison remains ES0 work.
 
 ### General stratum center composites in ES7
 

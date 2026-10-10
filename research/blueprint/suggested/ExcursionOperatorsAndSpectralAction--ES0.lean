@@ -15,8 +15,8 @@ mathematical statements are copied into named comments from the packet. No
 True conclusion, arbitrary Prop-valued structure field, or ordinary-category
 alias is used to pretend that the missing enhanced construction exists.
 
-Revision 2 independent review (REV-ExcursionOperatorsAndSpectralAction--ES0~2,
-2026-10-09) completed with needs_changes. Revision 3 supplies the generic
+Revision 3 independent review (REV-ExcursionOperatorsAndSpectralAction--ES0~3,
+2026-10-10) completed with needs_changes. Revision 3 supplies the generic
 support_coefficient_change signature; 34 node, 16 API and 18 test signatures
 remain omitted. Eight packet nodes have corrected supplier or test
 contracts; the corresponding reader is synchronized. The dual-number exact
@@ -520,7 +520,7 @@ FULL MATHEMATICAL SIGNATURE REGISTER
 These names and full statements agree with the packet. A name with a declared
 ordinary observation above still needs the higher conditions stated here.
 All other higher signatures are explicitly OMITTED pending the supplier types.
-Independent review REV-ExcursionOperatorsAndSpectralAction--ES0 records needs_changes:
+Independent review REV-ExcursionOperatorsAndSpectralAction--ES0~3 records needs_changes:
 this comment register is not the actual signatures required by PROTOCOL section 13.
 The updated executable inventory and exact omissions are in the packet and revision handoff.
 The generic support theorem now uses actual triangles and shift compatibility;
