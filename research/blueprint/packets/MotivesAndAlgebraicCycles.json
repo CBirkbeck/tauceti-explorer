@@ -6905,7 +6905,7 @@
    "sources": [
     {
      "sourceId": "HMS.2014",
-     "locator": "Definition 2.8 with Remark 2.9",
+     "locator": "Definition 2.8, p.10, with Remark 2.9, p.11, arXiv:1105.0865v5",
      "match": "The node is that definition together with the remark recording the three ways in which it differs from Kontsevich's."
     }
    ],
@@ -7171,13 +7171,14 @@
    "kind": "theorem",
    "statement": "Let T_1 = H*_dR and T_2 = H* on the diagram of pairs over Q, with the comparison isomorphism over C. The algebra of formal periods P carries a natural map P → P ⊗ P ⊗ P making Spec P an affine heap: through P = A_{1,2} it is the heap X_{1,2} = Iso⊗(H*_dR, H*) of MC.6/iso-torsor. The motivic Galois group G_mot = Aut⊗(H*) of MC.6/tensor-automorphism-group acts on Spec P by composition, compatibly with the heap map, and Spec P is a G_mot-torsor, faithfully flat over Q; the tensor automorphism group of de Rham cohomology acts on the other side. On period matrices the heap map is P_{ij} ↦ Σ_{k,l} P_{ik} ⊗ P⁻¹_{kl} ⊗ P_{lj}.",
    "hypotheses": [
-    "The base field is Q; the diagram is the diagram of pairs; T_1 is de Rham and T_2 singular cohomology, with the comparison isomorphism over C compatible with pullbacks, connecting maps and products (request ComplexComparisonPartII:C5).",
+    "The base field is Q; the diagram is the diagram of pairs; T_1 is de Rham and T_2 singular cohomology. Supply PairDiagram.PeriodComparison for all effective pairs (request ComplexComparisonPartII:C5), including pullback and connecting-map compatibility, unitality and multiplicativity; supply the good-pair product structure P, graded multiplicative structures M_1 and M_2, and PairDiagram.ProductCompatible relating them to the actual exterior and cross products.",
     "The Tannakian input is taken on MM_Nori = C(D_Nori, H*), which Theorem 1.14 proves neutral Tannakian; de Rham cohomology is extended to it by MC.6/fibre-functor-extension with the roles of the two representations exchanged, and X_{2,1} is identified with X_{1,2} by inversion (finding E39).",
     "G_mot is the tensor automorphism group of singular cohomology, as in Theorem 1.14."
    ],
    "proofSteps": [
     "Identify P with A_{1,2} (MC.6/formal-periods-equal-comparison-algebra).",
     "Apply MC.6/tensor-iso-scheme and MC.6/iso-torsor with base category MM_Nori: X_{2,1} = Iso⊗(H*, H*_dR) = Spec A_{2,1} is an affine heap, and inversion identifies it with X_{1,2} = Spec A_{1,2}; this gives the map P → P ⊗ P ⊗ P.",
+    "The supplied typed comparison gives a complex tensor-isomorphism point for the compatible good-pair structures. This establishes nonemptiness after the faithfully flat field extension Q → C; the torsor assertion is not made for arbitrary PeriodData without these witnesses.",
     "Let G_mot = Aut⊗(H*) act by composition; the action commutes with the heap map, and MC.6/tensor-iso-torsor gives faithful flatness over Q and the torsor property.",
     "Record the formula on period matrices (Remark 3.5) and the source's remark that these torsors are torsors in the pro-fppf topology."
    ],
@@ -7186,7 +7187,8 @@
     "The group under which Spec P is a torsor is G_mot, defined through singular cohomology; the source's proof writes G_1, the de Rham group (finding E39); both groups act, on the two sides.",
     "The period conjecture, the injectivity of the evaluation map to the complex numbers, plays no part.",
     "The result is due to Nori and stated without proof by Kontsevich; the source supplies the proof.",
-    "This theorem uses P=P_eff[L^-1], and the localized category MM_Nori, throughout. The rank-one Tate model is Q[t,t^-1]; Q[t] is the effective model and does not already furnish the full Tate tensor-isomorphism torsor."
+    "This theorem uses P=P_eff[L^-1], and the localized category MM_Nori, throughout. The rank-one Tate model is Q[t,t^-1]; Q[t] is the effective model and does not already furnish the full Tate tensor-isomorphism torsor.",
+    "The suggested period_torsor signature consumes P, M_1, M_2, ProductCompatible and PeriodComparison explicitly. An unrelated de Rham representation or arbitrary exterior/cross products cannot satisfy the theorem merely by being PeriodData."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
@@ -15299,10 +15301,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-10",
-  "session": "codex-XnOZ0w",
-  "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire newer REV-FIX-RT-AREA-geomlanglands~2 review, preserved unchanged in reviewHistory. Findings /4 and /31: the geometric Hodge owner after C5 remains an explicitly unaccepted proposal. Fresh signature inspection confirms that PairDiagram.PeriodComparison carries pullback and connecting-map compatibility, unit and product laws, and the Tate rank-one condition; ProductCompatible and the arbitrary-pair C5 request remain explicit. The algebraic-geometry fixes are adequate, but retain the newer negative REV-FIX-RT-AREA-geomlanglands~2 verdict: its relative Beck preservation adapter and typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. Preserve that entire audit and the earlier iwasawa qualifications in history. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Area-fix adequacy does not discharge the inherited Tannaka defects. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
+  "notes": "Independent bounded review of FIX-RT-AREA-iwasawa-3~3, following REV-FIX-RT-AREA-iwasawa-3~2 and the prior Motives-only checkpoint. Findings /1–/7 have the authorized owner handoffs; /8 supplier localization and typed comparison corrections are accepted after correcting period_torsor to consume P, M_1, M_2, ProductCompatible and PeriodComparison, and adding exact Definition 2.8/Remark 2.9 page locators. Fresh public-source and pinned-library checks and full-file Lean elaboration passed. The file-level needs_changes verdict from REV-FIX-RT-AREA-geomlanglands~2 is retained: the relative Beck preservation adapter and missing typed reconstruction interfaces remain unresolved, with the complete geomlanglands verdict retained in history and the intervening codex-XnOZ0w algebraic-geometry verdict archived unchanged. This bounded acceptance does not clear those obligations, partial coverage, 23 gaps or the C5 comparison request. Queue completion also needs GH.0 and Kato verdicts absent from the live issue scope; see report/handoff. Current Kato Lemma 8.8 source-match discrepancy remains outside editable scope."
  },
  "reviewHistory": [
   {
@@ -16286,6 +16287,13 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
    "date": "2026-10-10",
    "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-10",
+   "session": "codex-XnOZ0w",
+   "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire newer REV-FIX-RT-AREA-geomlanglands~2 review, preserved unchanged in reviewHistory. Findings /4 and /31: the geometric Hodge owner after C5 remains an explicitly unaccepted proposal. Fresh signature inspection confirms that PairDiagram.PeriodComparison carries pullback and connecting-map compatibility, unit and product laws, and the Tate rank-one condition; ProductCompatible and the arbitrary-pair C5 request remain explicit. The algebraic-geometry fixes are adequate, but retain the newer negative REV-FIX-RT-AREA-geomlanglands~2 verdict: its relative Beck preservation adapter and typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. Preserve that entire audit and the earlier iwasawa qualifications in history. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Area-fix adequacy does not discharge the inherited Tannaka defects. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
   }
  ],
  "fixes": {
