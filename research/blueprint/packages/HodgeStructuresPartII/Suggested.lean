@@ -11,6 +11,7 @@ import Mathlib.Algebra.Lie.OfAssociative
 import Mathlib.Algebra.Module.ZLattice.Basic
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Algebra.Polynomial.Derivation
+import Mathlib.Algebra.Polynomial.Laurent
 import Mathlib.AlgebraicGeometry.AffineSpace
 import Mathlib.AlgebraicGeometry.Geometrically.Connected
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
@@ -384,6 +385,68 @@ example :
   simp [x, t, Matrix.single]
 
 end SplitReesChecks
+
+/- A rank-one finite Rees chart is free over R[t], also when its generator
+has filtration weight one. Taking its fibre before Laurent localization
+retains that generator. The following checks use the native polynomial and
+Laurent rings to distinguish the ordinary quotient from the localized one.
+They concern a single free chart; they do not construct a filtered sheaf or
+its descent and do not identify an arbitrary sheaf with its sections.
+Source convention: Bhatt, Prismatic F-gauges, Proposition 2.2.6 and
+Remark 2.2.8, pp.16–17. -/
+namespace ReesFiberChecks
+variable {R : Type*} [CommRing R]
+
+/-- Every coefficient survives in the polynomial zero fibre exactly when nonzero. -/
+theorem polynomial_constant_survives (a : R) (ha : a ≠ 0) :
+    Ideal.Quotient.mk (Ideal.span ({Polynomial.X} : Set (Polynomial R)))
+      (Polynomial.C a) ≠ 0 := by
+  intro h
+  obtain ⟨p, hp⟩ := Ideal.mem_span_singleton'.mp
+    (Ideal.Quotient.eq_zero_iff_mem.mp h)
+  have he := congrArg (Polynomial.eval (0 : R)) hp
+  simp only [Polynomial.eval_mul, Polynomial.eval_X, mul_zero,
+    Polynomial.eval_C] at he
+  exact ha he.symm
+
+/-- The Laurent parameter is a unit, so its ideal is the whole ring. -/
+theorem laurent_parameter_ideal :
+    Ideal.span ({LaurentPolynomial.T 1} : Set (LaurentPolynomial R)) = ⊤ := by
+  exact Ideal.span_singleton_eq_top.mpr (LaurentPolynomial.isUnit_T 1)
+
+/-- Localizing before taking the zero fibre kills every Laurent section. -/
+theorem laurent_zero_fibre (f : LaurentPolynomial R) :
+    Ideal.Quotient.mk
+      (Ideal.span ({LaurentPolynomial.T 1} : Set (LaurentPolynomial R))) f = 0 := by
+  apply Ideal.Quotient.eq_zero_iff_mem.mpr
+  rw [laurent_parameter_ideal]
+  exact Submodule.mem_top
+
+/-- Parameter one retains the ordinary rank-one coefficient. -/
+theorem polynomial_one_fibre_survives (a : R) (ha : a ≠ 0) :
+    Ideal.Quotient.mk
+      (Ideal.span ({Polynomial.X - 1} : Set (Polynomial R))) (Polynomial.C a) ≠ 0 := by
+  intro h
+  obtain ⟨p, hp⟩ := Ideal.mem_span_singleton'.mp
+    (Ideal.Quotient.eq_zero_iff_mem.mp h)
+  have he := congrArg (Polynomial.eval (1 : R)) hp
+  simp at he
+  exact ha he.symm
+
+example [Nontrivial R] :
+    Ideal.Quotient.mk (Ideal.span ({Polynomial.X} : Set (Polynomial R))) 1 ≠ 0 := by
+  simpa using polynomial_constant_survives (R := R) 1 one_ne_zero
+
+example (f : LaurentPolynomial R) :
+    Ideal.Quotient.mk
+      (Ideal.span ({LaurentPolynomial.T 1} : Set (LaurentPolynomial R))) f = 0 :=
+  laurent_zero_fibre f
+
+example [Nontrivial R] :
+    Ideal.Quotient.mk (Ideal.span ({Polynomial.X - 1} : Set (Polynomial R))) 1 ≠ 0 := by
+  simpa using polynomial_one_fibre_survives (R := R) 1 one_ne_zero
+
+end ReesFiberChecks
 
 -- test: Connection.test_operator_zero_section
 example (c : Connection F V) (i : Fin d) : c.operator i 0 = 0 := sorry
