@@ -1,9 +1,9 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-VMhu6Z`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-VMhu6Z-gl2-package`.
+Worker: Codex (GPT-6), session `codex-j31rIK`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-j31rIK-gl2-package`.
 Status: **partial; blocked by unresolved mathematical supplier contracts in the accepted plan**.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096281852).
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096626584).
 This session claimed only this job. None of the manager's priority issues
 was available; this available focus package was selected under WORKERS.md.
 
@@ -11,12 +11,12 @@ was available; this available focus package was selected under WORKERS.md.
 
 The inherited blockers were independently checked against the accepted plans,
 the tier order, current upstream scope and five current library statements.
-Both accepted GL2 plans and the current Tau Ceti library revision are unchanged
-from the preceding checkpoint. Current TauCetiRoadmap has advanced; the six
-changed files concern AdelicAlgebraicGroups, ReductiveGroupsPartII and
-IntegralHeckeAndGaloisDeterminants. Neither GlobalNumberFields nor
-ClassFieldTheory changed. The relevant character contracts remain unchanged.
-No mathematical target was added and no claim of closure was made. Only this handoff changes in this submission; preserve the
+Both accepted GL2 plans and both current read-only revisions are unchanged
+from the preceding checkpoint. The relevant character contracts remain
+unchanged. This session adds the Fong–Swan repair lead below, with the exact
+lattice output, its arithmetic consequences and its unverified proof boundary.
+No mathematical target was added and no claim of closure was made. Only this
+handoff changes in this submission; preserve the
 package README and Suggested.lean, including all predecessors' substantive repairs.
 
 The binding issue instruction is: **“Change no packet; if the plan has a
@@ -26,6 +26,13 @@ waiting for Lean implementations or insufficient runtime. PROTOCOL.md §§3,
 15 and 20 and WORKERS.md's tier rules require a specified proof route and a
 single permitted owner; a package cannot replace a missing theorem with a
 carrier or silently certify the provisional moves below.
+
+WORKERS.md permits moving a required higher-tier result down into the package
+and recording the move here. That authorization is already in force; moving
+ownership does not require permission. The substantive blocker is the missing
+specified proof chain for the moved results and the full-local prescription
+theorem. Merely leaving the higher packets unchanged is not, by itself, a
+reason to stop package work.
 
 The decisive checks are:
 
@@ -80,6 +87,94 @@ proof obligations are preserved below. Queue the package continuation after
 these mathematical repairs; repeated package-only checks cannot perform them.
 This is a routing recommendation, not a change to queue files or issue labels.
 
+## New repair lead: lift the solvable linear image, not just its projectivization
+
+The accepted `R17.6/odd-residual-lift` target asks for a characteristic-zero,
+finite-image, absolutely irreducible and totally odd lift of an absolutely
+irreducible two-dimensional residual representation with solvable image,
+at a prime p > 2. Its existing projective-lifting route leaves compatibility
+with reduction unproved. Fong–Swan is a possible replacement proof route for
+this target; it is not an installed supplier or a reason to mark the gap closed.
+
+**Statement checked.** Peter Webb, *A Course in Finite Group Representation
+Theory*, author manuscript dated 23 February 2016, §9.4, Theorem 9.4.12,
+printed p. 156, states the following lifting result, credited to Fong, Swan and
+Rukolaine: over a splitting p-modular system (K, R, k), a simple k[Γ]-module
+for a finite p-solvable group Γ is the reduction of an R[Γ]-lattice. Here R is
+a discrete valuation ring, K its characteristic-zero fraction field and k its
+residue field. This is an actual lattice with the required reduction, rather
+than an equality of virtual classes. The manuscript explicitly gives no proof
+of this theorem and refers to Curtis–Reiner, *Methods of Representation
+Theory*, Vol. I, Theorem 22.1. That book is not among the cleared sources and
+was not read. The prime-to-p special case is proved in Webb's Theorem 9.4.11,
+pp. 155–156; it does not cover the wild cases.
+
+**Proposed arithmetic deduction, conditional on that lattice theorem.**
+
+1. Take Γ to be the finite **linear** image of the residual representation.
+   Solvability implies p-solvability by refining a solvable series. Extend the
+   finite coefficient field to a splitting field and choose a splitting
+   p-modular system. Absolute irreducibility supplies a simple k[Γ]-module V
+   of dimension two. A faithful Γ-action is already part of this input;
+   projecting to PGL₂ discards information which is needed for reduction.
+2. Obtain a Γ-stable free rank-two R-lattice L with an equivariant
+   isomorphism L/𝔪L ≅ V. Inflate its characteristic-zero action along the
+   original finite quotient of the absolute Galois group. This gives a
+   continuous finite-image lift. The conclusion must include the displayed
+   reduction isomorphism; a statement about characters alone would need the
+   Brauer-character-to-module comparison as an additional proof input.
+3. The characteristic-zero representation is absolutely irreducible: after
+   a finite coefficient extension, intersect any invariant line with L.
+   This is a saturated rank-one sublattice whose reduction is a nonzero
+   proper invariant subspace of V, a contradiction. State the saturation and
+   reduction argument explicitly, including preservation after coefficient
+   extension.
+4. At a real place, the image of complex conjugation is an involution.
+   Its characteristic-zero determinant is ±1, and its reduction is −1.
+   Since p > 2 these values remain distinct, so the determinant is −1.
+   This proves total oddness without prescribing a projective section or
+   correcting the lift by an unspecified scalar character.
+5. The target asks for a number field E, a prime λ above p, and an integral
+   realization. Choose the splitting p-modular system algebraically at the
+   start, with K = E and R = (𝓞_E) localized at λ, instead of starting over
+   an arbitrary p-adic field and assuming its lattice basis has algebraic
+   coefficients. A sufficiently large cyclotomic E supplies a splitting
+   field for Γ; enlarge it if necessary to embed the original residual
+   coefficient field into its residue field. The required interfaces are
+   existence of this splitting system, its residue embedding and its
+   compatibility with scalar extension of V. Apply the lattice theorem over
+   that system to obtain the target's integral model directly. This is a
+   proposed arithmetic specialization, not a verified supplier contract.
+   This route claims no preservation of the conductor.
+
+**Ownership and tests needed before adoption.** The current upstream
+`RepresentationTheory/ModularInduction` roadmap concerns exact G₀ and modular
+Artin induction; its scope excludes Brauer characters and the decomposition
+map. Its `modularArtin_exists_nsmul_mem_indCyclicCoprime` conclusion is a
+statement about a positive multiple of a class and does not give this simple
+lattice lift. The representation-family index and a scoped name search in
+the current roadmaps and library found no Fong–Swan supplier. Those checks
+are not a comprehensive library absence audit. Route the general finite-group
+lattice theorem and its proof to a single lower-tier representation-theory
+extension, with the Galois inflation and oddness deduction kept at GL2. Do
+not duplicate the existing exact G₀, character or induction carriers.
+
+The repaired supplier should distinguish: a prime-to-p example such as the
+standard S₃ representation at p = 5; the natural absolutely irreducible
+two-dimensional representation of GL₂(𝔽₃) at p = 3, where p divides the group
+order; and the determinant of an involution with residual eigenvalues 1 and
+−1 at an odd prime. In the second case a projective cover cannot substitute
+for the rank-two lift: its dimension is divisible by 3. The third case must
+retain p > 2, since reduction at 2 does not distinguish ±1. These are proposed
+source-level tests, not newly elaborated Lean declarations.
+
+This may remove the need for the reduction-compatible projective lift in the
+existing proof of `odd-residual-lift`. It does not resolve the character
+prescription, attachment/conductor or other recorded gaps. Before adopting
+it, read a cleared or freely accessible proof of Fong–Swan, specify the
+algebraic splitting-system interfaces, and reconcile the accepted target and its
+single supplier. The package issue forbids editing those packets.
+
 ## Validation in this session
 
 - Both accepted GL2 packets pass `scripts/check_blueprint.py`: zero errors
@@ -89,7 +184,7 @@ This is a routing recommendation, not a change to queue files or issue labels.
   their recorded mathematical gaps.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
   exits successfully: 144 warnings, all `declaration uses sorry`, no errors
-  and no other warnings. Available memory before the check was 108 GB. The
+  and no other warnings. Available memory before the check was 103 GB. The
   shared checker used the atlas pins, Mathlib `082e2d3` and Tau Ceti `f790474`.
   No build or Lake command ran in either current read-only source tree.
 - The twelve GL2 entries of the reviewed `AUDIT-14` library audit were read.
@@ -98,7 +193,19 @@ This is a routing recommendation, not a change to queue files or issue labels.
 - Current read-only revisions: TauCetiRoadmap
   `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; Tau Ceti
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-- New primary-source receipt: Patrikis, *Variations on a theme of
+- This session read the current GlobalNumberFields and
+  RepresentationTheory/ModularInduction roadmaps in full, the representation
+  family index, and the relevant ClassFieldTheory exclusion and character
+  signatures. The reviewed AUDIT-14 entries and five current library
+  statements listed above were checked independently of the pinned build.
+- New source receipt: Webb's author manuscript, dated 23 February 2016,
+  §9.4, pp. 150–156, and §10.2, pp. 176–179, read 2026-10-10 from the
+  [author's PDF](https://www-users.cse.umn.edu/~webb/RepBook/RepBookLatex.pdf).
+  SHA-256: `3053d04310d379844d0ccac2ae078124492730a116e63343014d276169fb4c24`.
+  The receipt verifies the lifting statement, the proved prime-to-p special
+  case and the Brauer-character comparison. It does **not** certify that the
+  Fong–Swan proof was read or that its supplier plan exists.
+- Preserved preceding-session primary-source receipt: Patrikis, *Variations on a theme of
   Grothendieck*, revision dated 31 July 2016, Lemma 2.3.6 and its proof,
   printed pp. 30–31 (PDF pp. 34–35), read 2026-10-10 from the
   [author's PDF](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf).
