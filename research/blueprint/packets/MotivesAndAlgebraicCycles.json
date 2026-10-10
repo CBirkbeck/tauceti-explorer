@@ -15268,9 +15268,10 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
-  "notes": "Codex (GPT-6), session codex-nnFZhT: independent bounded review following REV-FIX-RT-AREA-iwasawa-3~2 and the later algebraicgeometry~2 review, whose exact prior top-level verdict is preserved in reviewHistory. Checked all eight findings and owner handoffs, six MC.5/MC.6 supplier nodes, fresh public HMS/Kato/BDP evidence, six exact-pin localization/model APIs and the known-Hopf boundary. The typed comparison includes both edge laws, unit and product compatibility; ProductCompatible ties the good-pair structures to actual products. Checked the explicit rank-one Tate witness and inverse-evaluation contracts. The reader now has 182 nodes and the corrected mathematics; later annotation/review text needs an authorized refresh. Full suggested-file lean-check passes with 805 admitted-proof warnings and no other Lean warnings; pinned packet checker gives zero errors and warnings. No mathematical field changed. Acceptance covers these fixes and authorized handoffs, not the partial blueprint proof gaps, comment-only geomlanglands signatures or separate #5161 review. A later Kato normalization/source mismatch is recorded in the report and handoff for its owner; it is outside this editable packet and is not certified as repaired."
+  "session": "codex-sv6tah",
+  "notes": "Bounded area-fix acceptance follows the earlier review for this job, with the newer accepted REV-FIX-RT-AREA-iwasawa-3~3 review preserved in full in reviewHistory. The typed period comparison retains unit, product, pullback and connecting-map compatibility; the Tate rank-one condition and arbitrary-pair supplier extension remain explicit. No newer source or supplier verdict is discarded."
  },
  "reviewHistory": [
   {
@@ -16221,6 +16222,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-10",
    "notes": "Codex (GPT-6), session codex-XUvtW5: independent bounded area-fix review following the codex-QcUyiW review, preserved whole in reviewHistory. Findings /4 and /31: checked the unaccepted geometric Hodge supplier after C5, the Betti/de Rham versus etale/Betti owners, and PeriodComparison at Suggested lines 7968–7996. Its pullback, connecting-map, unit and exterior-product laws are all explicit. ProductCompatible and the rank-one Tate witness remain explicit. Huber–Muller-Stach Definition 2.8, p.10 and Theorem 2.10, p.11 support these relations; doubling fails the unit law. Current completed HodgeStructures supplies the abstract objects, not geometric decomposition. Fresh pinned-index validation passes with zero errors and warnings. The unchanged Suggested input hash matches its inherited successful full-file Lean receipt. Acceptance covers the area-fix correction and explicit supplier requests; it does not close the inherited proof/interface gaps. No mathematical field changed. The report distinguishes fresh source and graph checks from inherited full-blueprint audits."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-10",
+   "notes": "Codex (GPT-6), session codex-nnFZhT: independent bounded review following REV-FIX-RT-AREA-iwasawa-3~2 and the later algebraicgeometry~2 review, whose exact prior top-level verdict is preserved in reviewHistory. Checked all eight findings and owner handoffs, six MC.5/MC.6 supplier nodes, fresh public HMS/Kato/BDP evidence, six exact-pin localization/model APIs and the known-Hopf boundary. The typed comparison includes both edge laws, unit and product compatibility; ProductCompatible ties the good-pair structures to actual products. Checked the explicit rank-one Tate witness and inverse-evaluation contracts. The reader now has 182 nodes and the corrected mathematics; later annotation/review text needs an authorized refresh. Full suggested-file lean-check passes with 805 admitted-proof warnings and no other Lean warnings; pinned packet checker gives zero errors and warnings. No mathematical field changed. Acceptance covers these fixes and authorized handoffs, not the partial blueprint proof gaps, comment-only geomlanglands signatures or separate #5161 review. A later Kato normalization/source mismatch is recorded in the report and handoff for its owner; it is outside this editable packet and is not certified as repaired."
   }
  ],
  "fixes": {
