@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ComputationalNumberTheory",
+    "date": "2026-10-10",
+    "notes": "Completed all six checks. README is 149978 bytes; all 108 targets, 187 APIs and 185 tests are present, all 14 public source hashes match the accepted plan, metadata is exactly math.NT, and independent source/arithmetic spot checks pass. Corrected Gram-checker process language, the CG13 bibliography review remark, FF.3 supplier wording and eleven doubled full stops. Required lean-check exited 0 with exactly 449 sorry warnings and no other warnings/errors; Suggested.lean is unchanged. Acceptance is blocked by an upward dependency: the tier-15 package imports finite local-image and saturation algorithms from tier-17 ED.3, contrary to WORKERS.md. The old accepted RS-03 route must be reconciled with exact lower-tier or CN.3-owned algorithm contracts; replacing ED.3 by the native descent framework would omit completeness and termination. Full datasets and admitted development targets were not certified as implemented. See the independent review report for evidence and the required correction."
+  }
+}
