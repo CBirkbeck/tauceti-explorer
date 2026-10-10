@@ -1,17 +1,18 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — resolve scope before redispatch
 
-Codex, session `codex-AHC3lr`, 10 October 2026.
+Codex, session `codex-ACNEuH`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097216929).
-Input: `6e893062d600b4b59dd6e7666d860aef7d53e5cd`. One job; none of its
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097375898).
+Input: `bd62adda22331a1426e1fb48512837fe587e5cee`. One job; none of its
 fixes was this reviewer's work.
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) now preserves
-both proposed review objects as concrete JSON, together with fresh source,
-compiler and structural-check receipts. Its preceding checkpoint remains
-attributed whole to `codex-7tHQKP`; this run does not claim that worker's full
-L6, LAD or RS-16 audit. The actual completion predicate remains False; the
-two-packet draft overlay makes it True. Packet reviews/history and all
+The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records fresh
+bounded checks of the eight L3 contracts, 29 L3-2 contracts, four D.2 consumers
+and 50 PMIA L6 contracts, plus LAD's relevant routing/gaps and RS-16's I.5
+decision. It preserves both concrete proposed review objects and the preceding
+reports with their original attribution. It does not claim a complete fresh
+audit of any whole packet. The actual completion predicate remains False; a
+fresh two-packet draft overlay makes it True. Packet reviews/history and all
 mathematical deliverables are unchanged. Do not refresh the same two named
 reviews to try to finish the job.
 
@@ -21,6 +22,8 @@ The native Fitting and stable-transpose reuse requirement persists.
 All four packet checks, two overlay checks and four sequential Lean attempts
 were repeated. The proposed D.1 archive retains all 72 prior checked entries.
 No queue mutation, owner move, Lean edit or packet receipt refresh was made.
+Both omitted packet drafts preserve every gap, request, sourceIssue and
+coverage entry. The only non-review change is the E37 locator below.
 
 ## The blocking condition
 
