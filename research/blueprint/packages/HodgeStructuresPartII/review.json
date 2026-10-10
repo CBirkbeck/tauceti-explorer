@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HodgeStructuresPartII",
+    "date": "2026-10-10",
+    "notes": "Completed independent package review against all ten accepted inputs. All packet validators reported zero errors and warnings. Corrected the current completed-parent link, Stacks extension/curvature locator, Donaldson metric tests, admissibility APIs/tests and README process discussion; README is 199806 bytes and metadata is the exact math.AG line. Managed lean-check exited 0 with zero errors and 1619 warnings, all declaration uses sorry; Suggested.lean was unchanged. Needs changes because the global targets/APIs/geometric tests across H.0-H.8 are still omission comments or narrower local prototypes, and the arbitrary differential-site ordinary-connection and finite ordinary sheaf-Rees supplier exports are not supplied at their consumer scope. See REV-PKG-HodgeStructuresPartII.md findings R1-R3 and the handoff for exact evidence and revision entry points. This is a completed review, not a checkpoint."
+  }
+}
