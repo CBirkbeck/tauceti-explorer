@@ -21,6 +21,8 @@ import Mathlib.GroupTheory.SpecificGroups.Dihedral
 import Mathlib.GroupTheory.SpecificGroups.Quaternion
 import Mathlib.Algebra.Polynomial.Eval.Defs
 import Mathlib.Data.Nat.Factorization.Basic
+import Mathlib.GroupTheory.SchurZassenhaus
+import Mathlib.GroupTheory.SpecificGroups.Alternating
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
@@ -1722,6 +1724,672 @@ example :
       Pi.single (inertia_class_mk s6_involutions s6_triple_transposition) 1 :
       InertiaClasses s6_involutions → ZMod 2) ≠ 0 := by sorry
 end DistinctInvolutionClassesExample
+
+/-! ## RS.5: native semidirect-product interfaces -/
+
+section CoprimePrimarySupport
+variable {H Γ : Type} [Group H] [Group Γ]
+
+-- Use the existing primary component even when its parameter is composite:
+-- it consists of the elements killed by some power of that parameter.
+abbrev multiplier_primary_part (G : Type) [Group G] (n : ℕ) :=
+  AddCommGroup.primaryComponent (IntegralMultiplier G) n
+
+lemma multiplier_primary_support [Finite H] [Finite Γ] (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ)) :
+    Finite (IntegralMultiplier (H ⋊[φ] Γ)) ∧
+    (∀ z : IntegralMultiplier (H ⋊[φ] Γ),
+      (Nat.card (H ⋊[φ] Γ)) • z = 0) ∧
+    ∃ e : IntegralMultiplier (H ⋊[φ] Γ) ≃+
+      multiplier_primary_part (H ⋊[φ] Γ) (Nat.card H) ×
+        multiplier_primary_part (H ⋊[φ] Γ) (Nat.card Γ),
+      ∀ z, ((e z).1 : IntegralMultiplier (H ⋊[φ] Γ)) +
+        ((e z).2 : IntegralMultiplier (H ⋊[φ] Γ)) = z := by sorry
+
+lemma multiplier_kernel_primary [Finite H] [Finite Γ] (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ)) :
+    (integral_multiplier_map
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)).ker =
+        multiplier_primary_part (H ⋊[φ] Γ) (Nat.card H) ∧
+    Nat.Coprime
+      (Nat.card (integral_multiplier_map
+        (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)).ker) (Nat.card Γ) := by sorry
+end CoprimePrimarySupport
+
+section CoprimeCentralSplittings
+variable {A E H : Type} [CommGroup A] [Group E] [Group H]
+
+-- These statements concern an actual native extension; no unspecified
+-- proposition stands in for centrality or for a splitting.
+lemma central_coprime_splitting [Finite A] [Finite H] (S : GroupExtension A E H)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a)
+    (hcop : Nat.Coprime (Nat.card A) (Nat.card H)) :
+    Nonempty S.Splitting ∧ Subsingleton S.Splitting := by sorry
+
+lemma central_coprime_splitting_product [Finite A] [Finite H] (S : GroupExtension A E H)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a)
+    (hcop : Nat.Coprime (Nat.card A) (Nat.card H)) (s : S.Splitting) :
+    ∃ e : A × H ≃* E, ∀ a h, e (a, h) = S.inl a * s h := by sorry
+end CoprimeCentralSplittings
+
+section AdmissibleInertia
+variable {H Γ : Type} [Group H] [Group Γ]
+
+-- Admissibility is displayed at each theorem. This helper is only its
+-- generating set, with the action and multiplication taken from Mathlib.
+def admissible_generators (φ : Γ →* MulAut H) : Set H :=
+  {a | ∃ h : H, ∃ γ : Γ, a = h⁻¹ * φ γ h}
+
+def admissible_inertia_set (φ : Γ →* MulAut H) : Set (H ⋊[φ] Γ) :=
+  {g | g ≠ 1 ∧ orderOf g = orderOf g.right}
+
+def admissible_class_map (φ : Γ →* MulAut H) :
+    InertiaClasses (admissible_inertia_set φ) → InertiaClasses ({γ : Γ | γ ≠ 1}) := by
+  sorry
+
+lemma admissible_class_map_mk (φ : Γ →* MulAut H)
+    (g : admissible_inertia_set φ) :
+    ∃ hγ : g.val.right ≠ 1,
+      admissible_class_map φ (inertia_class_mk (admissible_inertia_set φ) g) =
+        inertia_class_mk ({γ : Γ | γ ≠ 1}) ⟨g.val.right, hγ⟩ := by sorry
+
+lemma admissible_inertia_closed (φ : Γ →* MulAut H)
+    (a g : H ⋊[φ] Γ) (hg : g ∈ admissible_inertia_set φ) :
+    a * g * a⁻¹ ∈ admissible_inertia_set φ := by sorry
+
+lemma admissible_inertia_power (φ : Γ →* MulAut H)
+    (g : H ⋊[φ] Γ) (hg : g ∈ admissible_inertia_set φ) (n : ℕ)
+    (hcop : Nat.Coprime n (orderOf g)) : g ^ n ∈ admissible_inertia_set φ := by sorry
+
+lemma admissible_inertia_classes [Finite H] [Finite Γ] (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ))
+    (hadm : Subgroup.closure (admissible_generators φ) = ⊤) :
+    Subgroup.closure (admissible_inertia_set φ) = ⊤ ∧
+    Function.Bijective (admissible_class_map φ) := by sorry
+
+-- The conjugacy clause is the explicit contract needed from the owner of
+-- coprime cyclic complement conjugacy; it is not complement existence.
+lemma admissible_inertia_cyclic_conjugacy [Finite H] [Finite Γ]
+    (φ : Γ →* MulAut H) (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ))
+    (g : H ⋊[φ] Γ) (hg : orderOf g = orderOf g.right) :
+    ∃ h : H, g = SemidirectProduct.inl h *
+      SemidirectProduct.inr g.right * (SemidirectProduct.inl h)⁻¹ := by sorry
+
+lemma admissible_abelianization (φ : Γ →* MulAut H)
+    (hadm : Subgroup.closure (admissible_generators φ) = ⊤) :
+    Function.Bijective (Abelianization.map
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)) := by sorry
+
+def admissible_class_lattice_map (φ : Γ →* MulAut H) :
+    (InertiaClasses (admissible_inertia_set φ) →₀ ℤ) →+
+      (InertiaClasses ({γ : Γ | γ ≠ 1}) →₀ ℤ) := by sorry
+
+lemma admissible_class_lattice_map_basis (φ : Γ →* MulAut H)
+    (d : InertiaClasses (admissible_inertia_set φ)) :
+    admissible_class_lattice_map φ (Finsupp.single d 1) =
+      Finsupp.single (admissible_class_map φ d) 1 := by sorry
+
+lemma admissible_class_degree_compatible (φ : Γ →* MulAut H)
+    (m : InertiaClasses (admissible_inertia_set φ) →₀ ℤ) :
+    (class_degree_map ({γ : Γ | γ ≠ 1})) (admissible_class_lattice_map φ m) =
+      (Abelianization.map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)).toAdditive
+        (class_degree_map (admissible_inertia_set φ) m) := by sorry
+
+-- Surjectivity of the relation map only needs a split projection whose
+-- section carries the lower marked subset into the upper one.
+lemma relations_surjection {G K : Type} [Group G] [Group K]
+    (ρ : G →* K) (s : K →* G) (hs : ρ.comp s = MonoidHom.id K)
+    (c : Set G) (d : Set K) (hcd : Set.MapsTo ρ c d)
+    (hdc : Set.MapsTo s d c) :
+    (schur_relations c).map (integral_multiplier_map ρ) = schur_relations d := by sorry
+
+lemma admissible_relations_surjection (φ : Γ →* MulAut H) :
+    (schur_relations (admissible_inertia_set φ)).map
+      (integral_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)) =
+        schur_relations ({γ : Γ | γ ≠ 1}) := by sorry
+
+lemma admissible_inertia_maps_to (φ : Γ →* MulAut H) :
+    Set.MapsTo (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)
+      (admissible_inertia_set φ) ({γ : Γ | γ ≠ 1}) := by sorry
+
+lemma reduced_kernel_primary [Finite H] [Finite Γ] (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ)) :
+    Function.Surjective
+      (reduced_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)
+        (admissible_inertia_set φ) ({γ : Γ | γ ≠ 1}) (admissible_inertia_maps_to φ)) ∧
+    Nat.Coprime
+      (Nat.card (reduced_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)
+        (admissible_inertia_set φ) ({γ : Γ | γ ≠ 1})
+        (admissible_inertia_maps_to φ)).ker) (Nat.card Γ) := by sorry
+
+lemma reduced_kernel_primary_quotient [Finite H] [Finite Γ] (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ)) :
+    ∃ k : multiplier_primary_part (H ⋊[φ] Γ) (Nat.card H) →+
+      (reduced_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)
+        (admissible_inertia_set φ) ({γ : Γ | γ ≠ 1}) (admissible_inertia_maps_to φ)).ker,
+      Function.Surjective k ∧ ∀ z,
+        (k z).val = (QuotientAddGroup.mk z.val :
+          reduced_multiplier (admissible_inertia_set φ)) := by sorry
+end AdmissibleInertia
+
+section HallPreimages
+variable {S A : Type} [Group S] [Group A]
+
+-- In the cover application P is the preimage of H and θ is the projection
+-- to M_Γ obtained from the unique central splitting after dividing by M_H.
+lemma hall_preimage_normal [Finite S] [Finite A] (P : Subgroup S) [P.Normal]
+    (θ : P →* A) (hθ : Function.Surjective θ)
+    (hcop : Nat.Coprime (Nat.card θ.ker) (Nat.card A)) :
+    θ.ker.Characteristic ∧ (θ.ker.map P.subtype).Normal ∧
+      Nat.card (θ.ker.map P.subtype) = Nat.card θ.ker := by sorry
+
+lemma hall_preimage_order [Finite S] [Finite A] (P : Subgroup S) (θ : P →* A)
+    (hθ : Function.Surjective θ) :
+    Nat.card P = Nat.card θ.ker * Nat.card A := by sorry
+end HallPreimages
+
+section CompatiblePowerCorrections
+variable {A E G B F K : Type} [CommGroup A] [Group E] [Group G]
+    [CommGroup B] [Group F] [Group K] {c : Set G} {d : Set K}
+    (M : marked_extension A E G c) (N : marked_extension B F K d)
+    (a : A →* B) (e : E →* F) (ρ : G →* K) (hcd : Set.MapsTo ρ c d)
+    (hinl : e.comp M.extension.inl = N.extension.inl.comp a)
+    (hover : N.extension.rightHom.comp e = ρ.comp M.extension.rightHom)
+    (hmark : ∀ x : c, e (M.marking x) = N.marking ⟨ρ x.val, hcd x.property⟩)
+
+def inertia_class_pushforward : InertiaClasses c → InertiaClasses d := by
+  have := ρ
+  have := hcd
+  sorry
+lemma inertia_class_pushforward_mk (x : c) :
+    inertia_class_pushforward ρ hcd (inertia_class_mk c x) =
+      inertia_class_mk d ⟨ρ x.val, hcd x.property⟩ := by sorry
+def class_lattice_pushforward : (InertiaClasses c →₀ ℤ) →+ (InertiaClasses d →₀ ℤ) :=
+  Finsupp.mapDomain.addMonoidHom (inertia_class_pushforward ρ hcd)
+lemma class_lattice_pushforward_basis (x : c) :
+    class_lattice_pushforward ρ hcd (Finsupp.single (inertia_class_mk c x) 1) =
+      Finsupp.single (inertia_class_mk d ⟨ρ x.val, hcd x.property⟩) 1 := by sorry
+
+variable (n : ℕ) (hn : 0 < n) (hE : ∀ x : E, x^n = 1)
+    (hG : ∀ x : G, x^n = 1) (hF : ∀ x : F, x^n = 1) (hK : ∀ x : K, x^n = 1)
+    (hpowc : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+    (hpowd : ∀ α : (ZMod n)ˣ, ∀ x ∈ d, finite_power n α x ∈ d)
+
+include hinl hover hmark in
+lemma compatible_correction (α : (ZMod n)ˣ) (m : InertiaClasses c →₀ ℤ) :
+    a (central_power_correction M n hn hE hG hpowc α (Multiplicative.ofAdd m)) =
+      central_power_correction N n hn hF hK hpowd α
+        (Multiplicative.ofAdd (class_lattice_pushforward ρ hcd m)) := by sorry
+
+include hover in
+def compatible_fiber_map : cover_fiber_product M.extension.rightHom c →*
+    cover_fiber_product N.extension.rightHom d := by
+  have := e
+  have := ρ
+  have := hcd
+  have := hover
+  sorry
+include hover in
+lemma compatible_fiber_map_val (p : cover_fiber_product M.extension.rightHom c) :
+    (compatible_fiber_map M N e ρ hcd hover p).val =
+      (e p.val.1, Multiplicative.ofAdd
+        (class_lattice_pushforward ρ hcd (Multiplicative.toAdd p.val.2))) := by sorry
+
+include hinl hover hmark in
+lemma compatible_correction_action (α : (ZMod n)ˣ)
+    (p : cover_fiber_product M.extension.rightHom c) :
+    compatible_fiber_map M N e ρ hcd hover
+        (discrete_action M n hn hE hG hpowc α p) =
+      discrete_action N n hn hF hK hpowd α
+        (compatible_fiber_map M N e ρ hcd hover p) := by sorry
+end CompatiblePowerCorrections
+
+/-! ## RS.6: finite reduction certificates on native carriers -/
+
+section ReductionCertificates
+variable {E G : Type} [Group E] [Group G]
+
+def projection_extension (π : E →* G) (hπ : Function.Surjective π) :
+    GroupExtension π.ker E G where
+  inl := π.ker.subtype
+  rightHom := π
+  inl_injective := Subtype.val_injective
+  range_inl_eq_ker_rightHom := by sorry
+  rightHom_surjective := hπ
+
+-- The group structures and enumerations are genuine finite data. In
+-- particular, this is not a structure containing an unspecified
+-- "is a Schur cover" proposition. The parent supplies the ordinary-cover
+-- proofs used to populate the stem and class-map fields.
+structure reduction_certificate [Fintype E] [Fintype G]
+    (π : E →* G) (c : Set G) where
+  enumerateCover : E ≃ Fin (Fintype.card E)
+  enumerateBase : G ≃ Fin (Fintype.card G)
+  surjective : Function.Surjective π
+  central : ∀ k : π.ker, ∀ e : E, k.val * e = e * k.val
+  stem : π.ker ≤ commutator E
+  classMap : IntegralMultiplier G ≃+ Additive π.ker
+  oriented : ∀ (x y : G) (hxy : Commute x y) (X Y : E),
+    π X = x → π Y = y →
+    (Additive.toMul (classMap (homological_commutator x y hxy))).val =
+      X * Y * X⁻¹ * Y⁻¹
+  conjugationClosed : ∀ a x : G, x ∈ c → a * x * a⁻¹ ∈ c
+  representatives : InertiaClasses c → c
+  representatives_mk : ∀ d, inertia_class_mk c (representatives d) = d
+  centralizerGenerators : ∀ d : InertiaClasses c,
+    Finset (Subgroup.centralizer ({(representatives d).val} : Set G))
+  centralizerGenerated : ∀ d,
+    Subgroup.closure (centralizerGenerators d :
+      Set (Subgroup.centralizer ({(representatives d).val} : Set G))) = ⊤
+
+variable [Fintype E] [Fintype G] {π : E →* G} {c : Set G}
+
+def reduction_certificate_tables (C : reduction_certificate π c) :
+    (Fin (Fintype.card E) → Fin (Fintype.card E) → Fin (Fintype.card E)) ×
+      (Fin (Fintype.card E) → Fin (Fintype.card E)) ×
+      (Fin (Fintype.card E) → Fin (Fintype.card G)) :=
+  (fun i j => C.enumerateCover (C.enumerateCover.symm i * C.enumerateCover.symm j),
+    (fun i => C.enumerateCover ((C.enumerateCover.symm i)⁻¹)),
+    (fun i => C.enumerateBase (π (C.enumerateCover.symm i))))
+
+lemma reduction_certificate_tables_associative (C : reduction_certificate π c)
+    (i j k : Fin (Fintype.card E)) :
+    (reduction_certificate_tables C).1 ((reduction_certificate_tables C).1 i j) k =
+      (reduction_certificate_tables C).1 i ((reduction_certificate_tables C).1 j k) := by
+  sorry
+
+def certificate_relation_subgroup (C : reduction_certificate π c) : Subgroup π.ker :=
+  Subgroup.closure {a | ∃ d : InertiaClasses c, ∃ y ∈ C.centralizerGenerators d,
+    a = centralizer_commutator_hom (projection_extension π C.surjective)
+      C.central (C.representatives d).val y}
+
+instance certificate_relation_normal (C : reduction_certificate π c) :
+    (certificate_relation_subgroup C).Normal := by sorry
+
+lemma reduction_certificate_relations (C : reduction_certificate π c) :
+    certificate_relation_subgroup C =
+      ((schur_relations c).map C.classMap.toAddMonoidHom).toSubgroup' := by sorry
+
+def reduction_certificate_quotient (C : reduction_certificate π c) :
+    Multiplicative (reduced_multiplier c) ≃* π.ker ⧸ certificate_relation_subgroup C := by
+  sorry
+
+lemma reduction_certificate_quotient_mk (C : reduction_certificate π c)
+    (z : IntegralMultiplier G) :
+    reduction_certificate_quotient C
+      (Multiplicative.ofAdd (QuotientAddGroup.mk z)) =
+        QuotientGroup.mk (Additive.toMul (C.classMap z)) := by sorry
+
+def reduction_certificate_transport {E' G' : Type} [Group E'] [Group G']
+    [Fintype E'] [Fintype G'] {π' : E' →* G'} {c' : Set G'}
+    (C : reduction_certificate π c) (e : E ≃* E') (g : G ≃* G')
+    (hπ : ∀ x, π' (e x) = g (π x)) (hc : c' = g '' c) :
+    reduction_certificate π' c' := by sorry
+
+-- reduction_certificate_test_1
+example : ∃ C : reduction_certificate (MonoidHom.id (Multiplicative (ZMod 1))) ∅,
+    Subsingleton ((MonoidHom.id (Multiplicative (ZMod 1))).ker ⧸
+      certificate_relation_subgroup C) := by sorry
+
+-- reduction_certificate_test_2: use the actual D₈ cover and the actual
+-- outside relation generators, rather than only a quotient cardinality.
+example : ∃ C : reduction_certificate dihedral_v4_extension.rightHom
+    ({x : Four | x ≠ 1}), certificate_relation_subgroup C = ⊤ ∧
+      Subsingleton (dihedral_v4_extension.rightHom.ker ⧸
+        certificate_relation_subgroup C) := by sorry
+
+-- reduction_certificate_test_3: a nontrivial kernel in an abelian cover
+-- fails the stem condition, even before the homological class-map check.
+example (π₄ : Multiplicative (ZMod 4) →* Multiplicative (ZMod 2))
+    (hπ₄ : Function.Surjective π₄) (hcard : Nat.card π₄.ker = 2)
+    (c₄ : Set (Multiplicative (ZMod 2))) :
+    ¬ Nonempty (reduction_certificate π₄ c₄) := by sorry
+end ReductionCertificates
+
+section CompatibleCoverDiagrams
+variable {S H Γ : Type} [Group S] [Group H] [Group Γ]
+
+abbrev central_kernel_comm_group {G : Type} [Group G] (π : S →* G)
+    (hc : ∀ k : π.ker, ∀ s : S, k.val * s = s * k.val) : CommGroup π.ker :=
+  { π.ker.toGroup with mul_comm := fun a b => Subtype.ext (hc a b.val) }
+
+-- This structure records a quotient diagram of already supplied covers;
+-- it does not define a competing notion of ordinary Schur cover.
+structure compatible_cover_diagram (φ : Γ →* MulAut H) (π : S →* H ⋊[φ] Γ)
+    (τ : IntegralMultiplier (H ⋊[φ] Γ) ≃+ Additive π.ker)
+    (D : Subgroup S) [D.Normal] where
+  lowerProjection : S ⧸ D →* Γ
+  surjective : Function.Surjective lowerProjection
+  central : ∀ k : lowerProjection.ker, ∀ s : S ⧸ D, k.val * s = s * k.val
+  stem : lowerProjection.ker ≤ commutator (S ⧸ D)
+  classMap : IntegralMultiplier Γ ≃+ Additive lowerProjection.ker
+  evaluation : letI := central_kernel_comm_group lowerProjection central
+    classMap.toAddMonoidHom =
+      extension_class_map (projection_extension lowerProjection surjective) central
+  square : lowerProjection.comp (QuotientGroup.mk' D) =
+    (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp π
+  kernel : ∀ z : IntegralMultiplier (H ⋊[φ] Γ),
+    (Additive.toMul (classMap (integral_multiplier_map
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ) z))).val =
+        QuotientGroup.mk ((Additive.toMul (τ z)).val)
+
+lemma compatible_covers [Finite S] [Finite H] [Finite Γ]
+    (φ : Γ →* MulAut H) (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ))
+    (π : S →* H ⋊[φ] Γ) (hπ : Function.Surjective π)
+    (hc : ∀ k : π.ker, ∀ s : S, k.val * s = s * k.val)
+    (hstem : π.ker ≤ commutator S)
+    (τ : IntegralMultiplier (H ⋊[φ] Γ) ≃+ Additive π.ker)
+    (hclass : letI := central_kernel_comm_group π hc
+      τ.toAddMonoidHom = extension_class_map (projection_extension π hπ) hc) :
+    ∃ (D : Subgroup S) (hD : D.Normal),
+      letI := hD
+      Nonempty (compatible_cover_diagram φ π τ D) ∧
+      D ≤ ((SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp π).ker ∧
+      Nat.card D = Nat.card H *
+        Nat.card (multiplier_primary_part (H ⋊[φ] Γ) (Nat.card H)) := by sorry
+
+variable {φ : Γ →* MulAut H} {π : S →* H ⋊[φ] Γ}
+    {τ : IntegralMultiplier (H ⋊[φ] Γ) ≃+ Additive π.ker}
+    {D : Subgroup S} [D.Normal] (C : compatible_cover_diagram φ π τ D)
+
+lemma compatible_covers_square :
+    C.lowerProjection.comp (QuotientGroup.mk' D) =
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp π := C.square
+lemma compatible_covers_kernel (z : IntegralMultiplier (H ⋊[φ] Γ)) :
+    (Additive.toMul (C.classMap (integral_multiplier_map
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ) z))).val =
+        QuotientGroup.mk ((Additive.toMul (τ z)).val) := C.kernel z
+lemma compatible_covers_schur :
+    letI := central_kernel_comm_group C.lowerProjection C.central
+    C.classMap.toAddMonoidHom =
+      extension_class_map (projection_extension C.lowerProjection C.surjective) C.central :=
+  C.evaluation
+-- The choices of the ordinary cover and D remain arguments of the diagram.
+lemma compatible_covers_choice : Function.Surjective C.lowerProjection ∧
+    C.lowerProjection.ker ≤ commutator (S ⧸ D) := ⟨C.surjective, C.stem⟩
+
+variable (hc : ∀ k : π.ker, ∀ s : S, k.val * s = s * k.val)
+    (c : Set (H ⋊[φ] Γ)) (d : Set Γ)
+    (hcd : Set.MapsTo (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ) c d)
+
+def compatible_reduced_cover_map : reduced_cover π hc τ c →*
+    reduced_cover C.lowerProjection C.central C.classMap d := by
+  have := hcd
+  sorry
+lemma compatible_reduced_cover_map_quotient (s : S) :
+    compatible_reduced_cover_map C hc c d hcd (reduced_cover_quotient π hc τ c s) =
+      reduced_cover_quotient C.lowerProjection C.central C.classMap d
+        (QuotientGroup.mk s) := by sorry
+lemma compatible_reduced_cover_map_projection :
+    (reduced_cover_projection C.lowerProjection C.central C.classMap d).comp
+        (compatible_reduced_cover_map C hc c d hcd) =
+      (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp
+        (reduced_cover_projection π hc τ c) := by sorry
+lemma compatible_reduced_cover_map_kernel (z : reduced_multiplier c) :
+    compatible_reduced_cover_map C hc c d hcd
+        (Additive.toMul (reduced_cover_kernel π hc τ c z)).val =
+      (Additive.toMul (reduced_cover_kernel C.lowerProjection C.central C.classMap d
+        (reduced_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)
+          c d hcd z))).val := by sorry
+
+-- compatible_covers_test_1: no upper quotient is needed when H is trivial.
+example [Finite S] [Subsingleton H] [Finite Γ]
+    (hπ : Function.Surjective π)
+    (hc : ∀ k : π.ker, ∀ s : S, k.val * s = s * k.val)
+    (hstem : π.ker ≤ commutator S)
+    (hclass : letI := central_kernel_comm_group π hc
+      τ.toAddMonoidHom = extension_class_map (projection_extension π hπ) hc) :
+    Nonempty (compatible_cover_diagram φ π τ (⊥ : Subgroup S)) := by sorry
+-- compatible_covers_test_2: quotient by all of S when Γ is trivial.
+example [Subsingleton Γ] :
+    Nonempty (compatible_cover_diagram φ π τ (⊤ : Subgroup S)) := by sorry
+-- compatible_covers_test_3: inversion on C₃ gives the S₃ identity cover,
+-- with the lower quotient and its outside element specified in the diagram.
+example (φ₃ : Two →* MulAut C3)
+    (hφ₃ : ∀ t : Two, ∀ h : C3, φ₃ t h = if t = 1 then h else h⁻¹) :
+    ∃ τ₃ : IntegralMultiplier (C3 ⋊[φ₃] Two) ≃+
+        Additive (MonoidHom.id (C3 ⋊[φ₃] Two)).ker,
+    ∃ C₃ : compatible_cover_diagram φ₃ (MonoidHom.id (C3 ⋊[φ₃] Two)) τ₃
+      (SemidirectProduct.rightHom : C3 ⋊[φ₃] Two →* Two).ker,
+      C₃.lowerProjection (QuotientGroup.mk
+        (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)))) =
+          Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+end CompatibleCoverDiagrams
+
+section CertifiedMarkings
+variable {E G : Type} [Group E] [Group G] [Fintype E] [Fintype G]
+    {π : E →* G} {c : Set G} (C : reduction_certificate π c)
+    (X : InertiaClasses c → E) (hX : ∀ d, π (X d) = (C.representatives d).val)
+
+-- Populate this extension from the certified quotient, not from a guessed
+-- group of the same cardinality. The representative lifts remain choices.
+def certificate_marked_model :
+    marked_extension (Multiplicative (reduced_multiplier c))
+      (reduced_cover π C.central C.classMap c) G c := by
+  have := X
+  have := hX
+  sorry
+
+lemma certificate_marked_projection :
+    (certificate_marked_model C X hX).extension.rightHom =
+      reduced_cover_projection π C.central C.classMap c := by sorry
+lemma certificate_marked_representative (d : InertiaClasses c) :
+    (certificate_marked_model C X hX).marking (C.representatives d) =
+      reduced_cover_quotient π C.central C.classMap c (X d) := by sorry
+
+include C in
+lemma certificate_reduced_finite : Finite (reduced_multiplier c) := by sorry
+end CertifiedMarkings
+
+section FiniteParityAlgorithm
+variable {A E G : Type} [CommGroup A] [Group E] [Group G]
+    {c : Set G} [Fintype (InertiaClasses c)]
+    (M : marked_extension A E G c) (hgen : Subgroup.closure c = ⊤)
+    (hinv : ∀ x : c, x.val^2 = 1)
+    (rep : InertiaClasses c → c) (hrep : ∀ d, inertia_class_mk c (rep d) = d)
+
+-- This finite enumeration is a specification of the computation. A table
+-- implementation must supply decidable representations of the certified
+-- kernel and its filtration, instead of relying on classical choice.
+def finite_parity_algorithm (t : ℕ) (x : Option c) :
+    Finset (InertiaClasses c → ZMod 2) := by
+  classical
+  letI := involution_abelianization_module c hgen (fun y hy => hinv ⟨y, hy⟩)
+  exact Finset.univ.filter (fun v =>
+    v + signature_parity x ∈ LinearMap.ker (signature_joint_map M hgen hinv rep t))
+
+lemma finite_parity_algorithm_cosets (t : ℕ) (x : Option c)
+    (v : InertiaClasses c → ZMod 2) :
+    letI := involution_abelianization_module c hgen (fun y hy => hinv ⟨y, hy⟩)
+    v ∈ finite_parity_algorithm M hgen hinv rep t x ↔
+      v + signature_parity x ∈ LinearMap.ker (signature_joint_map M hgen hinv rep t) := by
+  sorry
+
+include hrep in
+lemma finite_parity_algorithm_obstruction (t : ℕ) (x : Option c)
+    (m : InertiaClasses c →₀ ℤ) :
+    degree_parity m ∈ finite_parity_algorithm M hgen hinv rep t x ↔
+      degree_to_abelianization c (Multiplicative.ofAdd m) =
+        Abelianization.of (signature_element x) ∧
+      square_obstruction (signature_square M hinv x)
+        (marked_square_column M hinv rep) (fun d => m d) ∈
+          torsion_image_filtration (A := A) t := by sorry
+
+def finite_parity_histogram (t : ℕ) (x : Option c) : ℕ :=
+  (finite_parity_algorithm M hgen hinv rep t x).card -
+    if t = 0 then 0 else (finite_parity_algorithm M hgen hinv rep (t-1) x).card
+
+lemma finite_parity_algorithm_counts (t : ℕ) (x : Option c) :
+    letI := involution_abelianization_module c hgen (fun y hy => hinv ⟨y, hy⟩)
+    (finite_parity_algorithm M hgen hinv rep t x).card =
+      2 ^ (Fintype.card (InertiaClasses c) - Module.finrank (ZMod 2)
+        (LinearMap.range (signature_joint_map M hgen hinv rep t))) ∧
+    finite_parity_histogram M hgen hinv rep t x =
+      Nat.card {v : InertiaClasses c → ZMod 2 //
+        v + signature_parity x ∈ LinearMap.ker (signature_joint_map M hgen hinv rep t) ∧
+          (t = 0 ∨ v + signature_parity x ∉
+            LinearMap.ker (signature_joint_map M hgen hinv rep (t-1)))} := by sorry
+
+def finite_parity_weights (t N₀ : ℕ) (x : Option c) : Polynomial ℕ :=
+  parity_weight_enumerator (finite_parity_algorithm M hgen hinv rep t x) N₀
+
+lemma finite_parity_algorithm_weights (t N₀ j : ℕ) (x : Option c) :
+    (finite_parity_weights M hgen hinv rep t N₀ x).coeff j =
+      ((finite_parity_algorithm M hgen hinv rep t x).filter
+        (fun v => parity_weight (v + fun _ => (N₀ : ZMod 2)) = j)).card := by
+  classical
+  sorry
+
+-- π₀ specifies the outside signature in the embedded arithmetic application.
+-- The computation uses τ itself, keeping its class rather than only π₀(τ).
+lemma finite_parity_algorithm_signatures (π₀ : G →* Two) (τ : c)
+    (hτ : π₀ τ.val ≠ 1) (t : ℕ) :
+    (finite_parity_algorithm M hgen hinv rep t none).card =
+      (finite_parity_algorithm M hgen hinv rep t (some τ)).card := by sorry
+
+-- finite_parity_algorithm_test_2: a trivial kernel leaves only compatibility.
+include hrep in
+example [Subsingleton A] (t : ℕ) (x : Option c) (m : InertiaClasses c →₀ ℤ) :
+    degree_parity m ∈ finite_parity_algorithm M hgen hinv rep t x ↔
+      degree_to_abelianization c (Multiplicative.ofAdd m) =
+        Abelianization.of (signature_element x) := by sorry
+end FiniteParityAlgorithm
+
+section FiniteParityAlgorithmExamples
+local instance : Fintype (InertiaClasses s3_transpositions) := Fintype.ofFinite _
+-- finite_parity_algorithm_test_1: these are the actual S₃ marked-model maps.
+example (rep : InertiaClasses s3_transpositions → s3_transpositions)
+    (hrep : ∀ d, inertia_class_mk s3_transpositions (rep d) = d)
+    (t : ℕ) (x : Option s3_transpositions) :
+    (finite_parity_algorithm
+      (identity_marked_extension s3_transpositions s3_transpositions_closed)
+      s3_transpositions_generate s3_transpositions_involutions rep t x).card = 1 ∧
+    finite_parity_histogram
+      (identity_marked_extension s3_transpositions s3_transpositions_closed)
+      s3_transpositions_generate s3_transpositions_involutions rep t x =
+        if t = 0 then 1 else 0 := by sorry
+
+-- finite_parity_algorithm_test_3: an algebraic square-column fixture.
+-- This does not assert that C₈ with this column is a reduced arithmetic cover.
+example : obstruction_threshold (Multiplicative.ofAdd (1 : ZMod 8)) = 3 ∧
+    (¬ ∃ a : Multiplicative (ZMod 8), a^(9-1) =
+      ((Multiplicative.ofAdd (1 : ZMod 8))^((9-1)/2))⁻¹) ∧
+    (∃ a : Multiplicative (ZMod 8), a^(17-1) =
+      ((Multiplicative.ofAdd (1 : ZMod 8))^((17-1)/2))⁻¹) := by sorry
+end FiniteParityAlgorithmExamples
+
+section OddIndexTwoReduction
+variable {G : Type} [Group G] (H : Subgroup G) [H.Normal]
+
+def normal_subgroup_conjugation (g : G) : H →* H := by
+  have : H.Normal := inferInstance
+  have := g
+  sorry
+lemma normal_subgroup_conjugation_apply (g : G) (h : H) :
+    (normal_subgroup_conjugation H g h).val = g * h.val * g⁻¹ := by sorry
+
+-- The homological action comes from the actual conjugation maps on H.
+-- Inner conjugation by H is trivial on homology, so it factors through G/H.
+def normal_subgroup_homology_action : Representation ℤ G (IntegralMultiplier H) := by
+  have : H.Normal := inferInstance
+  sorry
+lemma normal_subgroup_homology_action_apply (g : G) (z : IntegralMultiplier H) :
+    normal_subgroup_homology_action H g z =
+      integral_multiplier_map (normal_subgroup_conjugation H g) z := by sorry
+lemma normal_subgroup_homology_action_inner (h : H) (z : IntegralMultiplier H) :
+    normal_subgroup_homology_action H h.val z = z := by sorry
+
+-- This is the degree-two LHS edge isomorphism. Its proof must account for
+-- the incoming d₃ from the 2-primary H₃(C₂,ℤ) term before using oddness.
+lemma odd_index_two_reduction [Finite G] (hodd : Odd (Nat.card H))
+    (quotientTwo : G ⧸ H ≃* Two) (c : Set G) (hinv : ∀ x ∈ c, x^2 = 1) :
+    ∃ e : IntegralMultiplier G ≃+
+      Representation.Coinvariants (normal_subgroup_homology_action H),
+      (∀ z : IntegralMultiplier H, e (integral_multiplier_map H.subtype z) =
+        Representation.Coinvariants.mk (normal_subgroup_homology_action H) z) ∧
+      Finite (IntegralMultiplier G) ∧ Odd (Nat.card (IntegralMultiplier G)) ∧
+      schur_relations c = ⊥ ∧ Nonempty (reduced_multiplier c ≃+ IntegralMultiplier G) := by
+  sorry
+end OddIndexTwoReduction
+
+/-! ## The specified order-96 marked type -/
+
+section Order96Type
+abbrev A4 := alternatingGroup (Fin 4)
+
+-- This particular quotient is part of the explicit marked fixture. Its
+-- kernel, surjectivity and normalization are required statements; an
+-- arbitrary map A₄ → C₃ would not specify the fixture.
+def a4_abelianization : A4 →* C3 := by sorry
+lemma a4_abelianization_surjective : Function.Surjective a4_abelianization := by sorry
+lemma a4_abelianization_kernel : a4_abelianization.ker = commutator A4 := by sorry
+
+def order96_sum_map : A4 × A4 →* C3 where
+  toFun p := a4_abelianization p.1 * a4_abelianization p.2
+  map_one' := by simp
+  map_mul' := by
+    intro p q
+    simp [mul_left_comm, mul_comm]
+
+abbrev Order96Kernel := order96_sum_map.ker
+
+def order96_swap_action : Two →* MulAut Order96Kernel := by sorry
+lemma order96_swap_action_apply (t : Two) (k : Order96Kernel) :
+    (order96_swap_action t k).val =
+      if t = 1 then k.val else (k.val.2, k.val.1) := by sorry
+
+abbrev order96_type := Order96Kernel ⋊[order96_swap_action] Two
+
+lemma order96_type_kernel (a b : A4) :
+    (a, b) ∈ order96_sum_map.ker ↔
+      a4_abelianization a * a4_abelianization b = 1 := by sorry
+
+lemma order96_type_swap (k : Order96Kernel) :
+    (order96_swap_action (Multiplicative.ofAdd (1 : ZMod 2)) k).val =
+      (k.val.2, k.val.1) ∧
+    order96_swap_action (Multiplicative.ofAdd (1 : ZMod 2))
+      (order96_swap_action (Multiplicative.ofAdd (1 : ZMod 2)) k) = k := by sorry
+
+lemma order96_type_order : Nat.card Order96Kernel = 48 ∧ Nat.card order96_type = 96 := by
+  sorry
+
+def order96_outside_involutions : Set order96_type :=
+  {x | x.right ≠ 1 ∧ orderOf x = 2}
+
+lemma order96_type_outside (x : order96_type) :
+    x ∈ order96_outside_involutions ↔
+      (SemidirectProduct.rightHom : order96_type →* Two) x ≠ 1 ∧ orderOf x = 2 := by
+  sorry
+
+-- The embedding is in the actual factor-swap wreath model A₄² ⋊ C₂.
+def a4_factor_swap_action : Two →* MulAut (A4 × A4) := by sorry
+lemma a4_factor_swap_action_apply (t : Two) (p : A4 × A4) :
+    a4_factor_swap_action t p = if t = 1 then p else (p.2, p.1) := by sorry
+def order96_embedding : order96_type →* (A4 × A4) ⋊[a4_factor_swap_action] Two := by
+  sorry
+lemma order96_embedding_apply (x : order96_type) :
+    (order96_embedding x).left = x.left.val ∧ (order96_embedding x).right = x.right := by
+  sorry
+lemma order96_embedding_injective : Function.Injective order96_embedding := by sorry
+
+-- order96_type_test_1: values 1 and 2 in the additive C₃ quotient sum to zero.
+example (a b : A4) (ha : a4_abelianization a = Multiplicative.ofAdd 1)
+    (hb : a4_abelianization b = Multiplicative.ofAdd 2) :
+    (a, b) ∈ order96_sum_map.ker := by sorry
+
+-- order96_type_test_2: the two quotient conventions give different membership.
+example (a b : A4) (ha : a4_abelianization a = Multiplicative.ofAdd 1)
+    (hb : a4_abelianization b = Multiplicative.ofAdd 1) :
+    (a, b) ∉ order96_sum_map.ker ∧
+      a4_abelianization a * (a4_abelianization b)⁻¹ = 1 := by sorry
+
+-- order96_type_test_3
+example : (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)) : order96_type)
+      ∈ order96_outside_involutions := by sorry
+
+theorem order96_reduced_multiplier :
+    Nonempty (reduced_multiplier order96_outside_involutions ≃+ ZMod 2) := by sorry
+end Order96Type
 
 end TauCeti.ReducedSchur
 end
