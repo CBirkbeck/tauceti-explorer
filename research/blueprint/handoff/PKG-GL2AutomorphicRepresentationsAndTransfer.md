@@ -1,5 +1,109 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+## Current continuation: codex-Ean9Nv
+
+Issue: #7901. Worker: Codex (GPT-6), session `codex-Ean9Nv`.
+Date: 2026-10-10. Branch: `codex-Ean9Nv-gl2-package`.
+Status: **partial; accepted-plan repair outside the package's permitted paths**.
+
+The bot confirmed this session's claim in
+[comment 6094476112](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094476112).
+None of the manager's priority issues was in the available swarm list. This
+focus package was the first eligible fallback under the permitted job kinds.
+Only this job was claimed.
+
+### What this continuation establishes
+
+The inherited mathematical blocker persists at the same upstream revisions
+and with identical input fingerprints. Both accepted packets have status
+`complete`, but each still records eight gaps and no closed stages. Under
+PROTOCOL.md §0 this status completes the planning pass; it does not certify
+closure. Their structural checks pass while reporting those gaps explicitly.
+
+The R17.3 gap **Local–global extension of characters (Chevalley's congruence
+theorem for S-units)** says that no Atlas stage owns the needed existence
+theorem. Its consumers are `R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction`. Reading their actual statements and
+prerequisites confirms that the need is prescription on the **full** local
+multiplicative group, with uniformizer values, rather than merely on units or
+torsion. The latter consumer also requires the compatible CM infinity type.
+
+The current GlobalNumberFields README was read in full, together with
+ReductiveGroups as the second upstream style reference. GlobalNumberFields
+Layer 9 and its Suggested.lean were checked for the missing prescription
+interface; relevant ClassFieldTheory scope exclusions were also read. In the
+current Tau Ceti source, the actual statements of
+`HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter`,
+`HeckeCharacter.exists_modulus_finiteComponent_eq_one`, and
+`HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` were read. Each
+starts from an already supplied global Hecke character. The last additionally
+assumes a matching algebraic infinity type. None constructs a global character
+from prescribed full local components. The statement of
+`unitsCongruenceSubgroup_finiteIndex` starts from a modulus; it does not produce
+a congruence subgroup inside an arbitrary finite-index S-unit subgroup.
+
+A scan of the Atlas packet nodes found the existing PA.2 determinant-level
+application, whose scope is ordinary integer units. It is not the missing
+general S-unit theorem. The package's Suggested.lean already distinguishes
+these domains explicitly and omits the unsupplied signatures honestly. This
+continuation changes no mathematics or accepted prerequisite edge.
+
+### Required action before rescheduling
+
+The issue expressly requires: **“Change no packet; if the plan has a mistake,
+describe it in the handoff note.”** Its four authorized paths do not include
+the shared owner's plan or either accepted input packet. PROTOCOL.md §§3, 15
+and 20 require exact, nonduplicated supplier contracts. Consequently a
+package-only continuation cannot install the missing owner and repair the
+consumer edges. This is a scope blocker, not a wait for Lean implementation
+and not exhaustion of this run's time budget.
+
+Before scheduling another continuation against these same inputs, route the
+shared congruence and character-existence contracts below to one lower-tier
+owner and reconcile their consumers, or explicitly authorize the corresponding
+plan repair. Resolve the other recorded gaps and the four upward R19 edges as
+well. A new owner name alone does not supply the exact statements and proof
+chains. The inherited repair proposals and source receipts below remain
+available for that work; they were **not** reverified as primary-source proofs
+in this session.
+
+### Fresh validation
+
+- Both `check_blueprint.py` runs exit 0 with zero errors and zero warnings.
+  R16.1: 55 nodes, eight gaps, 32 requests; R17.3: 57 nodes, eight gaps,
+  35 requests. Both have zero closed stages.
+- `lean-check` on the unchanged package Suggested.lean exits 0: 144 warnings,
+  all uses of `sorry`, zero errors and zero other warnings. Available memory
+  before compilation was 110 GB; the check completed and left no process
+  running. The helper is configured for Tau Ceti `f790474` and Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; the latter build revision was
+  read directly.
+- Read-only roadmap revision: `0a56d1b5303c26887a4042db834f46d9079ac593`.
+  Read-only current Tau Ceti revision:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran there.
+- The reviewed AUDIT-14 entries for all twelve GL2 layers were consulted;
+  their historical absence claims were distinguished from the newer source
+  statements inspected above.
+- All four mathematical input fingerprints in the previous audit below still
+  match exactly. README: 199,985 bytes; Suggested.lean: 83,998 bytes.
+- `metadata.toml` remains absent. The package completion predicate in
+  `issues.deliverables_complete` would otherwise classify this package as
+  complete merely from output existence. This checkpoint must remain partial.
+- The only edited deliverable is this handoff. Scoped intake and whitespace
+  checks pass: three extant deliverables, zero problems; `git diff --check`
+  is clean. `issues.deliverables_complete` returns **False**. No private source, excerpt or local path
+  is added to the repository; scratch is disposable.
+
+Resume at **Required action before rescheduling** above, then the retained
+owner contracts and remaining-gap list below. Preserve the corrected package
+interfaces; the stale assembled Suggested.lean is not a safe replacement.
+
+## Previous checkpoint audit: codex-wTnU0d
+
+The following receipts and repair discussion are retained from the preceding
+checkpoint. References to “this session” below mean `codex-wTnU0d`, not the
+current continuation. Its primary-source reading is historical evidence.
+
 Issue: #7901. Worker: Codex (GPT-6), session `codex-wTnU0d`.
 Date: 2026-10-10. Branch: `codex-wTnU0d-gl2-package`.
 Status: **partial; shared prerequisite ownership requires a plan repair**.
