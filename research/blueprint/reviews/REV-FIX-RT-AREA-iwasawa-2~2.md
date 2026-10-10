@@ -1,3 +1,85 @@
+# REV-FIX-RT-AREA-iwasawa-2~2 — independent continuation
+
+Reviewer: Codex, session `codex-Di891w`, 10 October 2026.
+[Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096271867).
+Input atlas: `f78019f3f76990a4898e2d1ea911baae146a2c25`.
+This session performed none of the fixes under review and claimed no second job.
+
+The two issue-named packet reviews are finished: **accept** L3's eight selected
+Gamma/Gross–Koblitz contracts; **needs changes** for PMIA's coordinated reuse of
+current Tau Ceti Fitting ideals. Their previous receipts are preserved whole in
+`reviewHistory`. This is a bounded fix review, not a new exhaustive audit of
+1,663 L3 or 487 PMIA nodes. The earlier reports below retain their authorship.
+
+## Findings and corrections
+
+| Finding | Verdict in this continuation |
+|---|---|
+| /1: Morita Gamma and Gross–Koblitz | Accept the eight selected L3 contracts. Morita §1, Lemma 1/Theorem 1, pp.255–256, keeps signed interpolation and the dyadic modulus-4 exception. Gross–Koblitz §1, (1.2), (1.5), Theorem 1.7, pp.570–571, keeps the negative Gauss sign and integral root congruence. Robert Theorems 2–4, pp.162,165,168, supplies the separate all-prime route, conditional on RD.6 coefficient/splitting inputs. |
+| /2: Ferrero–Greenberg | The 29 selected L3-2 contracts remain supported read-only. Zhao §1.2 p.461 and §4, (4.1)–(4.6), pp.471–473, retains primitive odd χ, conductor N>1 prime to p, the even branch χω and conductor correction. Appendix B.2 p.474 has an incompatible inclusive product; the node already states the correct strict product and Gamma argument. Its locator still needs E34 replaced by `DirichletPadicLFunctions/E37`. No edit to that omitted path was made. Nonvanishing retains separate arithmetic suppliers. |
+| /3: integral/open syntomic comparisons | The four D.2 consumers remain supported read-only by EN §§2.1–2.2 pp.4–8; CN Corollary 3.16 p.37/Theorem 5.4 p.54; NN Remark 2.14 p.14/Proposition 4.13 pp.53–54. Keep distinct differentials, directed p^r composites, factorial-modified twist, exact divided range through p−2, bounded undivided comparison and rational exponential scale/sign. The external CS.0–CS.3 producer obligations remain. D.1's full 72-node receipt remains untouched. |
+| /4: Dasgupta–Kakde algebra | The selected image-ring, inverse-character transport, square-presentation and corrected right-adjugate contracts agree with DK v3 §§2.2–2.3 pp.15–18/Lemma 3.9 pp.25–26. The transpose non-example keeps `Nontrivial R`, already in its Lean signature. PMIA still needs changes: its four generic Fitting nodes duplicate current native declarations. Retarget their consumers, both StableReduction requests, L4 comparison, reader and suggested signatures together; retain the concrete matrix adapters and general finite-projective obligations. The reader is outside this issue's scope. |
+| /5: derived finite slope | Preserve the verifier/fix boundary and LAD cohomological-support gap. This continuation does not claim a fresh LAD paper audit. |
+| /6: cyclotomic endpoint | Preserve the verifier's rejection of the claimed duplication and RS-16's independent Hecke and Euler-system routes. This continuation does not certify either proof's closure. |
+
+No mathematical packet statement or suggested signature was changed. The only
+packet edits refresh the two named review receipts after archiving their
+preceding receipts intact. No sourceIssue, verdict, gap or request was changed.
+No owner was moved.
+
+## Fresh evidence and validation
+
+Downloaded the eight public sources in the retained source table. Their SHA-256
+values match that table exactly. Read the locations above; Morita,
+Gross–Koblitz and Robert's scanned formulas were inspected as page images.
+No restricted book was read and no source passage was put in the repository.
+Three small exact controls pass: signed Γ_3(4)=2; Γ_2(1) and Γ_2(5) differ
+modulo 4; and the strict Gamma-log product at n=2, p=5 has logarithm zero,
+whereas including 2 gives log_5(2)≡10 modulo 25 after dividing by its
+Teichmüller lift 7. These are discriminating finite checks, not limit proofs.
+
+Read the relevant declarations at the pinned Mathlib/Tau Ceti baseline,
+including the p-adic divisibility bridge, continuous unit lift, adjugate
+identities and projective lifting. Current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; current roadmap main is
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`. The finite-module Fitting
+calculation and arbitrary-base-change statements confirm PMIA's native reuse
+obligation. The newer transpose equivalences do not discharge arbitrary
+finite-projective stable comparison or dual-coordinate range transport by
+themselves. Neither read-only checkout was changed or built.
+
+| Fresh check | Result |
+|---|---|
+| Four packet checkers | Zero errors; L3 has 26 inherited short-API warnings; the others have none. |
+| Original PMIA suggested file, pinned `lean-check` | 1,075 `sorry` warnings only. |
+| Original L3-2 suggested file, pinned `lean-check` | 110 `sorry` warnings only. |
+| Original D.1 suggested file, pinned `lean-check` | 307 `sorry` warnings only. |
+| Original L3 suggested file, pinned `lean-check` | Fails before the body: unavailable repository-local `research` module imports. |
+
+All suggested files are unchanged. The preceding conditional L3 assembly
+receipt remains conditional and attributed to its original worker.
+Checks ran sequentially with more than 20 GB available; no compiler remains
+running. No language server or Lake build/update/cache operation was started.
+
+## Unresolved dispatch scope
+
+The live issue permits five outputs, including only L3 and PMIA packets.
+The unchanged queue requires nine outputs and this review id in all four
+packets. Its completion predicate remains **False**. PMIA's negative verdict
+counts as a finished review and does not cause that dispatch failure.
+
+[WORKERS.md](../WORKERS.md), “Doing the work”, requires: “Edit only the files
+the issue names, plus your own scratch space.” Authorization for L3-2 and D.1
+packet edits was requested while the named review work proceeded. No reply has
+arrived. Their prepared changes are confined to scratch and are described
+precisely in the handoff. Neither queue nor issue metadata was changed to
+force completion. This submission is therefore a blocked checkpoint.
+
+---
+
+## Retained reports and ledgers
+
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked scope checkpoint
 
 Reviewer: Codex (GPT-6), session `codex-ZQ4VPz`, 10 October 2026.
