@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HilbertModularVarietiesAndShimuraCurves",
+    "date": "2026-10-10",
+    "notes": "Completed independent review of all six package checks against both accepted parts: all 133 targets, 206 API entries and 157 tests occur in the 193639-byte README; each of 52 definitions/constructions has at least three tests, internal links resolve and local dependencies precede consumers. Metadata and source/process checks pass. Corrected finiteGamma0_star_mem prime/positive-level hypotheses, unique existence in ResidualHeckeIdeal.actingFactor, and the zero law in integralTraceFamily_parameter_add; clarified geometric versus arithmetic finite PEL components using Carayol p.155 and sections 4.5.1-4.5.5, pp.188-189. Final lean-check exited 0 at the pins with 120 declaration-uses-sorry warnings and no errors or other warnings. Item 5 still fails: only 93 named native declarations and 47 example commands; 154 of 206 README API names have no Lean declaration, and geometric definitions/APIs/tests are only in a block comment. Prose contracts do not satisfy PROTOCOL sections 13 and 20. See the independent report for concrete missing contracts and revision requirements. No mathematical gap in the accepted inputs is certified closed."
+  }
+}
