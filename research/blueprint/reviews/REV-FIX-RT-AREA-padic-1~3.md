@@ -1,5 +1,90 @@
 # REV-FIX-RT-AREA-padic-1~3
 
+## Current continuation: 10 October 2026
+
+Codex, session `codex-HQccLS`, independently reviewed FIX #5703 from base
+`8b716e0182c8d2d50d14908a8421d02160e4546b`. This session did none of the fixes
+or preceding reviews. **The issue's three scoped verdicts remain: P0
+needs_changes; AdicEtaleGeometry accepted; AdicSpacesPartII accepted.** The
+review is complete within the issue's authorization. Submission is a
+checkpoint because the queue additionally requires 20 unauthorized packets.
+
+Continued from the preceding review below rather than reopening its completed
+reader-synchronization work. Re-read the confirmed findings and fix report and
+independently checked the public primary-source statements and proofs at the
+locators and versions listed in the archived evidence table: Berkeley
+Definitions 6.2.9 and 6.3.1, Lemma 6.2.10, Theorem 6.2.11 and Propositions
+6.3.3–6.3.4; ECD Theorems 3.13–3.17, Definition 5.7(ii), Theorem 5.8 and
+Propositions 6.4(iv), 7.23 and 9.3; Česnavičius Lemmas 4.7, 5.1 and 5.2.
+The downloaded public copies have the same hashes as the table. This is fresh
+evidence for the scoped boundaries, not a certification of every inherited
+source record. Each finding's disposition in the archived table is retained;
+excluded-owner handoffs still mean neither installation nor acceptance.
+
+The root-annihilator/almost-flatness, almost-elements and field-base
+comparisons remain unresolved in P0. The two P7 tower targets still lack
+precise supplier interfaces and actual Lean theorem signatures and tests.
+These are mathematical gaps, so the `needs_changes` verdict is appropriate;
+that verdict itself completes a review under the stock completion predicate.
+Neither these gaps nor the older broad audit have been silently accepted.
+AEG retains the constructed characteristic-p comparison and ASII retains a
+pending split proposal, with their inherited qualifications.
+
+Fresh checks strengthen and corroborate the preceding evidence:
+
+- Each of the six affected P1/P7 reader contracts contains its packet's exact
+  authored statement, hypotheses and proof steps. No reader edit was needed.
+- The mandatory tilting and mod-pseudouniformizer prerequisite cones contain
+  93 and 153 vertices and exclude both optional deformation-route nodes.
+  P0's nilpotent lifting still reaches its almost-deformation supplier. AEG
+  has no Q4 prerequisite.
+- ASII's prefix contains 19 of 42 R5 nodes and is closed under R5 inputs.
+  Following prerequisites through all three packets gives a cone of 626
+  vertices with no `ClassicalAdicEtaleCohomology:H0` input. This strengthens
+  the preceding direct-input check. Unprovided external nodes and stages are
+  leaves; no whole-atlas closure or cycle certificate is claimed.
+- The combined graph is acyclic, with 1,016 packet nodes and 1,852 total
+  vertices. The stock packet checker reports zero errors and zero warnings
+  for each packet against the pinned declaration index.
+- All three suggested files were freshly checked sequentially with
+  `lean-check` and exited 0: P0 1,285, AEG 361 and ASII 912 warnings, all
+  `sorry`. Memory was checked before every run. No compiler processes remain.
+  Compilation does not validate the omitted P7 targets.
+
+Read the actual pinned `IsRegularLocalRing`, `IsAdicComplete`, `Module.Flat`,
+`WittVector`, `IsIntegrallyClosedIn`, `IsAnalyticPoint` and `spaAnalytic`
+statements. The reviewed library audit's `layers` has no entries for these
+three roadmaps. That absence does not justify rebuilding existing carriers.
+Read the current upstream AdicSpaces and AlgebraicVectorBundles roadmaps at
+`618e0b30d21791d6a492ce88ba8602745697b21a`, and searched current suggested
+files and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` for the changed
+perfectoid/sousperfectoid/tower interfaces. The ownership conclusions below
+remain qualified; neither read-only tree was modified or built.
+
+Only the three current review objects, their appended historical reviews,
+this report and the handoff changed. No mathematical contract, source record,
+API, test, planet or suggested declaration changed. Intake file checks and
+`git diff --check` pass. The reader already contains source quotations near
+the tower contracts. They were not copied here or added by this continuation;
+the reader owner must replace them with authored descriptions under the
+manager's standing source rule. The reader is outside this issue's editable
+deliverables.
+
+Re-evaluated `issues.deliverables_complete`: it returns **true** for the
+issue's seven deliverables and **false** for the queue's 47 outputs (23
+packets, 23 suggested files and this report). Exactly 20 additional packets
+lack this job's reviewer. WORKERS restricts edits to issue-named files, so
+assigning those verdicts or editing the queue is unauthorized. A scope
+clarification was requested during this continuation and remains unanswered.
+The handoff gives the concrete reconciliation needed; this blocker is the
+reason for the checkpoint, not incomplete scoped review work.
+
+## Archived review: 9 October 2026
+
+The preceding worker's report is preserved below as historical evidence.
+Its dates, base commit and broader validation claims refer to that worker;
+the continuation above specifies what this session checked independently.
+
 **Scoped verdicts: AdicEtaleGeometry accepted; AdicSpacesPartII accepted;
 PerfectoidSpaces--P0 needs_changes.** The third-round reader synchronization
 is correct. P0 still has mathematical supplier and general-base category gaps,
