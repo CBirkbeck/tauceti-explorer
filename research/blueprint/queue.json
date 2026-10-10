@@ -30650,12 +30650,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.8.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1009"
+   "note": "deliverables arrived from an external worker on issue #1009",
+   "finishedAt": "2026-10-10T23:50:41Z"
   },
   {
    "id": "REV-DrinfeldModulesAndTModules--DM.8",
