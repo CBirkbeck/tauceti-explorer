@@ -1,6 +1,107 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
-## Current run: codex-zIru1Z, 10 October 2026
+## Current run: codex-6Hr23i, 10 October 2026
+
+Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Worker: Codex (GPT-6), session `codex-6Hr23i`.
+Branch: `codex-6Hr23i-langlands-parameter-stacks`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097577409);
+[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097578557).
+The bot confirmed this session's claim before work began. The full available
+swarm listing contained 740 issues and none from the manager's priority list.
+The focus package was selected under the fallback order. No second job was claimed.
+
+**Incomplete; blocked on owner specifications outside this issue's four
+authorized files.** The current upstream source and native library revisions
+are unchanged from the inherited checkpoint. This run adds two fully proved
+algebraic checks and their README descriptions; it does not declare the package
+complete or reinterpret the accepted target-level pass as a closed plan.
+
+### New work
+
+In `IdentityComponentCoordinateChecks` of the package Suggested.lean:
+
+- `coordinate_not_projected_switch_invariant` proves that for every nonzero
+  commutative ring R, no element g of the switch-invariant subalgebra of
+  A=R[x,x⁻¹]×R[x,x⁻¹] satisfies (1,0)g=(x,0).
+- `identity_restriction_not_surjective` proves that projection of that
+  subalgebra to the first Laurent factor is not surjective: x has no lift.
+
+These prove the failure of the proposed component restriction as an algebra
+map, beyond comparing two rational points. They apply in characteristic two
+as well. The switch-invariant algebra contains the whole-J invariant algebra;
+thus taking whole-J invariants and then selecting the identity component
+cannot provide the required identity-component invariants. Both proofs use
+the existing genuine Laurent-coordinate fixture and Mathlib subalgebra
+closure; neither introduces a `sorry` or a generic alternate owner.
+The README records these two checks alongside the existing invariant tests.
+
+### Fresh blocker verification
+
+Read current upstream AlgebraicVectorBundles and ReductiveGroups READMEs in
+full. The former's L0–L2 specify ordinary scheme sheaves and vector bundles;
+the latter's Layer 9 specifies pinned integral groups. Neither is the missing
+enhanced quotient-stack interface. Read current upstream IHG §0.7 and the
+`InvariantCoordinateInput`/`ring` signatures: the tuple group and conjugating
+group still come from the same Hopf algebra. The README explicitly restricts
+its reductive applications to connected groups. Compare the atlas IHG
+package's generalized invariant target with its ring-diagram-only signature;
+the construction from separate group/subgroup Hopf data is still absent there.
+
+Read the complete E5 suggested input: its monoidal fibration/Segal fields
+remain `True`, `CAlg` and `AnimatedAlg` remain `Unit`, and `IndInfty` remains
+a proof of `True`. A declaration-text search of the current native Tau Ceti
+tree for `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `CoherentAction` and
+named `IsStable`/`CAlg` definitions returned no matches; this limited search
+does not purport to be a full library audit. Read all eight LP entries of the
+reviewed library audit. The input packet still has five explicit gaps,
+sixteen requests, and eight planned/unclosed stages.
+
+Freshly fetched and read Quast's author-hosted v1, Definition 3.1, Lemmas
+3.4–3.6 and Theorem 3.7 with its reconstruction proof, pp.11–15, and
+Fargues–Scholze VIII.3.5–VIII.3.8, pp.288–290. The identity-component
+invariants and conjugacy in those statements confirm the required scope.
+Hashes equal the public-source receipts preserved below. No source passage
+is committed. The inherited owner repair gates and remaining worklists below
+remain applicable; this run does not re-certify the older signature-token
+inventory as a declaration audit.
+
+### Fresh validation and restart
+
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, no errors, 291 warnings, all `declaration uses sorry`, no other
+  diagnostics. The two new proofs add no warnings. Available memory before
+  compilation was 98 GB. Managed elaboration uses Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and advertised Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- LP and IHG `check_blueprint.py`: exit 0, zero errors and warnings. The
+  checks accept recorded gaps; they do not close them. Neither packet changed.
+- Current read-only roadmap source revision:
+  `e255659f8eb50cd472809d9d565c8f755acffd84`; current native Tau Ceti:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither tree was edited.
+- README: 192338 bytes, within 200 KB.
+- Intake `check-files`: three authorized files, zero problems.
+  `git diff --check` passes.
+
+Resume only after the generic invariant and enhanced-category contracts are
+repaired in their owners and the LP plan is reconciled as described below.
+Then complete the omitted signatures against those contracts, reconcile all
+79 targets/140 APIs/90 tests, and add `topic = "math.NT"` as metadata. The
+metadata file remains absent so `deliverables_complete` continues to recognize
+this as a checkpoint; its package branch currently tests only file existence.
+Repeating a package-only attempt before owner repairs cannot meet these gates.
+No scratch artifact is needed to resume. All new work is in the two package
+files, and the inherited mathematical worklists are retained below and in
+the [previous handoff at its immutable commit](https://github.com/CBirkbeck/tauceti-explorer/blob/db9841733e6ba2604858325971399fc274f8af29/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+No private book was used, no source passage was copied, no owner file was
+edited, and no background compile or Lean language server remains.
+
+## Inherited checkpoint: codex-zIru1Z, 10 October 2026
+
+The following retains the predecessor's detailed owner gates, signature
+worklists and receipts. References to its run and unchanged package hashes
+describe that predecessor; the current validation above supersedes its
+package sizes and Lean receipt.
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
 Worker: Codex (GPT-6), session `codex-zIru1Z`.
