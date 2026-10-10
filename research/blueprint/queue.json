@@ -38760,8 +38760,9 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6928"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6928",
+   "finishedAt": "2026-10-10T14:11:26Z"
   },
   {
    "priority": 2,
@@ -47182,7 +47183,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalGroupsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7534"
   },
   {
    "id": "REV-PKG-ClassicalGroupsPartII",
@@ -48950,7 +48952,8 @@
     "PKG-HodgeStructuresPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HodgeStructuresPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7523"
   },
   {
    "id": "PKG-IgusaVarietiesAndTorsionConcentration",
@@ -81430,8 +81433,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
