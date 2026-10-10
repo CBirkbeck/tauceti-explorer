@@ -244,6 +244,24 @@
     "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
     "provides": "The algebra-valued point action is the identity on the scalar extension of a trivial comodule, supplying the tensor-unit equation.",
     "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "mathlib:Representation.Coinvariants",
+    "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+    "provides": "Native integral representation coinvariants: quotient by the span of ρ(g)a−a, with additive group and module structures. Applied over ℤ to the cyclic Frobenius action; this is not the reductive fundamental group.",
+    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+   },
+   {
+    "ref": "mathlib:Representation.Coinvariants.mk",
+    "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+    "provides": "Native ℤ-linear quotient projection; mk_self_apply identifies a with ρ(g)a and mk_surjective is the quotient surjectivity used for descent.",
+    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+   },
+   {
+    "ref": "mathlib:Representation.Coinvariants.map",
+    "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+    "provides": "Native induced linear map for an actual intertwining map; map_mk gives its representative formula. Used for integral Kottwitz naturality.",
+    "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
    }
   ]
  },
@@ -5854,14 +5872,17 @@
    ],
    "title": "Newton and Kottwitz invariants",
    "kind": "construction",
-   "statement": "There are functorial maps ν:B(G)→N(G) and κ:B(G)→π_1(G)_Γ. The Newton morphism is the slope grading in every rational representation. The representative homomorphism tildeκ:G(L)→π_1(G)_I is the torus valuation map extended through a z-extension; composing with Frobenius coinvariants gives κ. Their rational images agree: δ(ν_b)=average(κ(b)⊗1).",
+   "statement": "There are functorial maps ν:B(G)→N(G) and κ:B(G)→π_1(G)_Γ. The Newton morphism is the slope grading in every rational representation. Import the representative homomorphism κ̃:G(L)→π_1(G)_I from upstream RG2.1.5, rather than reconstructing its torus and z-extension foundations here. Given its Frobenius equivariance, κ is its descent to sigma classes followed by integral Frobenius coinvariants. Their rational images agree: δ(ν_b)=average(κ(b)⊗1).",
    "hypotheses": [
-    "Global conventions in the reader apply; additional restrictions are stated in the contract."
+    "Global conventions in the reader apply; additional restrictions are stated in the contract.",
+    "The typed KottwitzDescent consumer interface takes an actual group G, an integral abelian group A, automorphisms σ and τ, and a supplied homomorphism with κ̃(σg)=τκ̃(g). It does not identify arbitrary such data with a reductive group over a local field."
    ],
    "proofSteps": [
-    "Construct the slope morphism using Dieudonné–Manin and tensor compatibility.",
-    "Construct the torus representative map, then descend along the induced central torus of a z-extension using its exact π_1 sequence.",
-    "Check sigma-conjugacy invariance and the rational compatibility square."
+    "Construct the slope morphism using Dieudonné–Manin and tensor compatibility; its general local-field signature remains G08.",
+    "Import the upstream representative Kottwitz homomorphism on G(L), its surjectivity and naturality. Request its local Frobenius-equivariance signature: the current upstream README states this property but explicitly supplies no Lean target.",
+    "For c=g b σ(g)⁻¹, compute κ̃(c)=κ̃(b)+κ̃(g)−τκ̃(g). Native integral coinvariants identify κ̃(g) with τκ̃(g), so the quotient universal property descends the representative formula uniquely.",
+    "For a cyclic ℤ-action, positive powers give telescoping sums in the range of τ−id and negative powers reduce to positive powers using τ⁻¹. Conversely the generator relation is τa−a. This identifies the native relation submodule with that range. For an abelian point group, the same equation gives both directions of the quotient equivalence.",
+    "Use the native coinvariant map of an integral intertwiner to check naturality on every representative; inherit surjectivity from the supplied homomorphism and quotient projection. Identify successive inertia/Frobenius coinvariants with π_1(G)_Γ using the actual local Galois action, then check the rational Newton compatibility square. Those reductive/local-field comparisons remain G08."
    ],
    "acceptance": [
     "For GL_n, κ=v(det b) and ν is the descending slope tuple."
@@ -5872,7 +5893,10 @@
     "BunGAndNewtonStrata:BG1/algebraic-fundamental-group",
     "BunGAndNewtonStrata:BG1/galois-average",
     "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
-    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "ReductiveGroupsPartII:RG2.1",
+    "mathlib:Representation.Coinvariants",
+    "mathlib:Representation.Coinvariants.map"
    ],
    "sources": [
     {
@@ -5906,7 +5930,7 @@
     {
      "name": "TauCeti.BunG.Invariants.representativeKottwitz",
      "role": "projection",
-     "statement": "Evaluate tildeκ in inertia coinvariants before the σ quotient."
+     "statement": "Evaluate the imported upstream κ̃ in integral inertia coinvariants before the σ quotient."
     },
     {
      "name": "TauCeti.BunG.Invariants.map",
@@ -5917,6 +5941,116 @@
      "name": "TauCeti.BunG.Invariants.rationalCompatibility",
      "role": "compatibility",
      "statement": "The δ/average square commutes; it does not recover torsion κ from ν."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.cyclicRepresentation",
+     "role": "constructor",
+     "statement": "For an integral abelian group A and additive automorphism τ, the multiplicativized integer n acts by the ℤ-linear automorphism τ^n."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.cyclicRepresentation_generator",
+     "role": "characterisation",
+     "statement": "The positive generator acts by τ, fixing the arithmetic Frobenius orientation."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.Target",
+     "role": "projection",
+     "statement": "Reuse native Representation.Coinvariants over ℤ for the cyclic action on A; retain torsion."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.relationMap",
+     "role": "constructor",
+     "statement": "The integral relation map is τ−id on the actual ℤ-module A."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.ker_eq_range",
+     "role": "characterisation",
+     "statement": "The native cyclic-action relation submodule equals the range of τ−id; no rationalization occurs."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.Data",
+     "role": "constructor",
+     "statement": "Supply a homomorphism G→Multiplicative A together with its explicit Frobenius-equivariance equation. Upstream owns its reductive-group construction."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.representativeClass",
+     "role": "projection",
+     "statement": "Project the supplied representative invariant to native integral Frobenius coinvariants."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.representative_twisted",
+     "role": "characterisation",
+     "statement": "For c=g b σ(g)⁻¹, the additive representative invariant is κ̃(b)+κ̃(g)−τκ̃(g)."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.representativeClass_twisted",
+     "role": "compatibility",
+     "statement": "The native integral quotient kills the change κ̃(g)−τκ̃(g)."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.classKottwitz",
+     "role": "constructor",
+     "statement": "Descend the supplied invariant to the actual SigmaClass quotient using twisted-conjugacy invariance."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.classKottwitz_mk",
+     "role": "characterisation",
+     "statement": "On the class represented by b, the descended map is the native coinvariant class of κ̃(b)."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.classKottwitz_unique",
+     "role": "extensionality",
+     "statement": "A function on SigmaClass with the specified representative formula equals classKottwitz."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.classKottwitz_surjective",
+     "role": "compatibility",
+     "statement": "Surjectivity of the supplied representative homomorphism implies surjectivity on sigma classes; it is an explicit hypothesis."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.intertwiner",
+     "role": "functoriality",
+     "statement": "A ℤ-linear map intertwining τ and υ induces a native Representation.IntertwiningMap between their cyclic representations."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.classKottwitz_natural",
+     "role": "functoriality",
+     "statement": "A Frobenius-compatible point-group map and an integral intertwiner compatible with the supplied representative homomorphisms commute with the descended maps via native Coinvariants.map."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.identityData",
+     "role": "constructor",
+     "statement": "For Multiplicative A with Frobenius τ, the identity homomorphism supplies the representative invariant."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.abelianEquiv",
+     "role": "equivalence",
+     "statement": "The twisted-conjugacy quotient of Multiplicative A is equivalent to its native integral τ-coinvariants."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.abelianEquiv_mk",
+     "role": "characterisation",
+     "statement": "The abelian equivalence sends a represented element a to its native integral coinvariant class."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv",
+     "role": "equivalence",
+     "statement": "For identity Frobenius, the integral target is ℤ-linearly equivalent to A."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv_mk",
+     "role": "characterisation",
+     "statement": "The identity-action target equivalence sends the class of a to a."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv",
+     "role": "equivalence",
+     "statement": "For A=ℤ and τ(n)=−n, the native integral target is additively equivalent to ZMod 2."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv_mk",
+     "role": "characterisation",
+     "statement": "The sign-action equivalence sends the integral class of n to its parity in ZMod 2."
     }
    ],
    "tests": [
@@ -5934,6 +6068,41 @@
      "name": "TauCeti.BunG.Invariants.testTorsion",
      "kind": "non-example",
      "statement": "The two norm-one torus classes have equal Newton0 and distinct κ in Z/2."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testIdentityTarget",
+     "kind": "degenerate",
+     "statement": "With identity Frobenius and the identity representative map on Multiplicative A, the descended value of a is a."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testUnit",
+     "kind": "degenerate",
+     "statement": "For every supplied equivariant representative homomorphism, the class represented by 1 maps to zero."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testTwistedInvariant",
+     "kind": "compatibility",
+     "statement": "The classes represented by b and g b σ(g)⁻¹ have equal descended integral invariants."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testSignParity",
+     "kind": "computation",
+     "statement": "For sign Frobenius on Multiplicative ℤ, the actual twisted class of n maps to n modulo 2."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testSignDistinct",
+     "kind": "non-example",
+     "statement": "Under sign Frobenius, the twisted classes represented by 0 and 1 differ; rationalizing the target would lose this distinction."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testSignTwo",
+     "kind": "computation",
+     "statement": "Under sign Frobenius, the twisted classes represented by 2 and 0 agree."
+    },
+    {
+     "name": "TauCeti.BunG.KottwitzDescent.testSignNotFixed",
+     "kind": "non-example",
+     "statement": "The sign-action coinvariant class of 1 is nonzero, whereas every fixed integer is zero; fixed points cannot replace coinvariants."
     }
    ],
    "uses": [
@@ -5947,10 +6116,33 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-integral-kottwitz-descent-interface",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.KottwitzDescent.cyclicRepresentation",
+     "TauCeti.BunG.KottwitzDescent.cyclicRepresentation_generator",
+     "TauCeti.BunG.KottwitzDescent.Target",
+     "TauCeti.BunG.KottwitzDescent.relationMap",
+     "TauCeti.BunG.KottwitzDescent.ker_eq_range",
+     "TauCeti.BunG.KottwitzDescent.Data",
+     "TauCeti.BunG.KottwitzDescent.representativeClass",
+     "TauCeti.BunG.KottwitzDescent.representative_twisted",
+     "TauCeti.BunG.KottwitzDescent.representativeClass_twisted",
+     "TauCeti.BunG.KottwitzDescent.classKottwitz",
+     "TauCeti.BunG.KottwitzDescent.classKottwitz_mk",
+     "TauCeti.BunG.KottwitzDescent.classKottwitz_unique",
+     "TauCeti.BunG.KottwitzDescent.classKottwitz_surjective",
+     "TauCeti.BunG.KottwitzDescent.intertwiner",
+     "TauCeti.BunG.KottwitzDescent.classKottwitz_natural",
+     "TauCeti.BunG.KottwitzDescent.identityData",
+     "TauCeti.BunG.KottwitzDescent.abelianEquiv",
+     "TauCeti.BunG.KottwitzDescent.abelianEquiv_mk",
+     "TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv",
+     "TauCeti.BunG.KottwitzDescent.identityFrobeniusEquiv_mk",
+     "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv",
+     "TauCeti.BunG.KottwitzDescent.signCoinvariantsEquiv_mk"
+    ],
+    "note": "KottwitzDescent types the actual sigma-class descent of a supplied Frobenius-equivariant homomorphism to native integral cyclic coinvariants, its uniqueness, surjectivity, naturality and abelian quotient equivalence. Identity/sign-action controls retain integral torsion. This consumer interface does not reconstruct upstream π_1 or κ̃. The general-E Newton morphism, local Frobenius-equivariance instantiation, successive inertia/Γ comparison and rational compatibility signatures remain G08; the original GL_n, bundle-sign and norm-one-torus examples are still required."
    }
   },
   {
@@ -7111,7 +7303,7 @@
   {
    "id": "G08",
    "title": "Lean formulation boundary",
-   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. RepresentativeTensor now types the actual semilinear Frobenius family on native finite rational comodules, its Tannakian point reconstruction, all tensor arrows and the point sigma-stabilizer comparison. This covers the trivialized presentation. Comparison with the untrivialized exact G-isocrystal category, Steinberg trivialization and represented Newton-Levi descent remain open. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage. The RF suggested file’s DiamondFormulas explicitly leaves the actual perfectoid site, represented base and coefficient sheaves as omitted hypotheses; VS0’s ArtinVStack and VS1’s analytic Jacobian/cohomological signatures likewise remain omission contracts. Generic sheaf carriers do not instantiate these geometric hypotheses.",
+   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. RepresentativeTensor now types the actual semilinear Frobenius family on native finite rational comodules, its Tannakian point reconstruction, all tensor arrows and the point sigma-stabilizer comparison. This covers the trivialized presentation. Comparison with the untrivialized exact G-isocrystal category, Steinberg trivialization and represented Newton-Levi descent remain open. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage. The RF suggested file’s DiamondFormulas explicitly leaves the actual perfectoid site, represented base and coefficient sheaves as omitted hypotheses; VS0’s ArtinVStack and VS1’s analytic Jacobian/cohomological signatures likewise remain omission contracts. Generic sheaf carriers do not instantiate these geometric hypotheses. KottwitzDescent now types the unique sigma-class descent of a supplied equivariant representative homomorphism to native integral cyclic coinvariants, native naturality, surjectivity and an actual abelian quotient equivalence. Its sign-action controls compare the nonzero order-two quotient with zero fixed points. This narrows only the integral descent boundary; general-E Newton and actual local Galois/Frobenius identification remain open.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
@@ -7398,14 +7590,15 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.1",
-   "need": "Import current upstream RG2.1 local/absolute root data, split ranks, integral π_1, Galois/coinvariant maps, z-extensions and representative Kottwitz homomorphisms. Existing targets suffice for those contracts; they are not new work. Remaining refinements: canonical comparison between maximal-torus choices and inner twists (the actual Suggested.lean uses a fixed AbsoluteRootData), unramified-replacement averaging/triality equality for KMPS Proposition1.1.10, and the torsion-free Levi coinvariant kernel used by its minuscule lifting proof. Preserve the covariant inverse-transpose action on cocharacters. The simple integral Levi-kernel formula is already supplied; its coinvariant exactness refinement remains G10.",
+   "need": "Import current upstream RG2.1 local/absolute root data, split ranks, integral π_1, Galois/coinvariant maps, z-extensions and representative Kottwitz homomorphisms. Existing targets suffice for those contracts; they are not new work. Remaining refinements: canonical comparison between maximal-torus choices and inner twists (the actual Suggested.lean uses a fixed AbsoluteRootData), unramified-replacement averaging/triality equality for KMPS Proposition1.1.10, and the torsion-free Levi coinvariant kernel used by its minuscule lifting proof. Preserve the covariant inverse-transpose action on cocharacters. The simple integral Levi-kernel formula is already supplied; its coinvariant exactness refinement remains G10. Also export the local-field Frobenius-equivariance equation for the existing representative Kottwitz homomorphism, and its compatibility with the actual integral inertia/Frobenius quotient. Current upstream main states σ-equivariance in prose but explicitly has no Lean target for it; it is the named input to BG’s typed descent, not a request to rebuild κ̃.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/defect",
     "BunGAndNewtonStrata:BG1/levi-newton-formula",
     "BunGAndNewtonStrata:BG3/positive-automorphism-kernel",
     "BunGAndNewtonStrata:BG1/newton-orbit-space",
     "BunGAndNewtonStrata:BG1/general-levi-newton-comparison",
-    "BunGAndNewtonStrata:BG1/algebraic-fundamental-group"
+    "BunGAndNewtonStrata:BG1/algebraic-fundamental-group",
+    "BunGAndNewtonStrata:BG1/newton-and-kottwitz-maps"
    ],
    "routedItems": [
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N24",
@@ -9708,7 +9901,16 @@
    "sections": [
     "Section1.1 pp.5-14, including decency, basic classes, transfer, minuscule Levi lifting and local specialness; section1.3.15 ordinary assertion checked against KZ and quaternion obstruction."
    ],
-   "note": "Only the listed sections were read; the published edition is not claimed collated when an author copy or preprint is listed."
+   "note": "Only the listed sections were read; the published edition is not claimed collated when an author copy or preprint is listed.",
+   "reinspections": [
+    {
+     "agent": "Codex — codex-pUspDa",
+     "date": "2026-10-10",
+     "sections": "§1.1.1–§1.1.2, printed pp.5–7; bounded read for Newton/Kottwitz normalization and integral torus classes.",
+     "sha256": "fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db",
+     "note": "No published-edition collation is claimed; other source reads retain inherited provenance."
+    }
+   ]
   },
   {
    "source": "KZ",
@@ -9925,14 +10127,14 @@
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
   "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (150); no errors or other warnings.",
-   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including the entire trivialized tensor family and its arrow reconstruction. It does not elaborate the omitted analytic geometry, untrivialized exact isocrystal comparison, reductive centralizer descent or nonsplit Newton comparisons.",
-   "agent": "Codex — codex-vADPRt"
+   "warnings": "Only admitted-proof declaration warnings (175); no errors or other warnings.",
+   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent.",
+   "agent": "Codex — codex-pUspDa"
   }
  },
  "upstreamNotes": [
@@ -9944,6 +10146,11 @@
    "owner": "ReductiveGroupsPartII:RG2.1",
    "commit": "201bcaee1f4014c91897d50cdb7631fc6d6a6d71",
    "note": "Current upstream RG2.1.5 supplies the foundations that the older atlas snapshot proposed as RG2.6. That duplicate proposal is removed. The retained BG algebraic-fundamental-group node is an import alias/consumer interface; its duplicate planet is removed. Canonical maximal-torus and inner-twist comparison remains a requested refinement because upstream signatures fix AbsoluteRootData. Z-embeddings remain outside the upstream scope and are not BG inputs. No upstream file is modified."
+  },
+  {
+   "owner": "ReductiveGroupsPartII:RG2.1",
+   "commit": "8acc80159cfd301db68bde9393a52668efdd8c8c",
+   "note": "Rechecked current main README and Suggested.lean for kottwitz-homomorphism: upstream owns the representative homomorphism, torus and z-extension construction. Its README explicitly states local σ-equivariance without a Lean target. BG consumes the homomorphism and requests precisely that missing instantiation; it now types the integral sigma-class descent. AlgebraicVectorBundles README and current Tau Ceti were also inspected for the missing analytic supplier categories; no replacement was found."
   }
  ],
  "review": {
