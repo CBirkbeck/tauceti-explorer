@@ -616,6 +616,10 @@ set-theoretic content imports Mathlib `Finite.exists_infinite_fiber` and `Set.In
 The modular finiteness theorem is supplied by Tau Ceti ModularForms **Layer 4:
 Eigenforms, newforms, primitive forms, the conductor**
 (`tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`).
+The current Tau Ceti library supplies the instance `Finite (Newform M k)` in
+`TauCeti.NumberTheory.ModularForms.Newforms.OrthogonalBasis`, derived from
+`HeckeRing.GL2.Newform.basis`. Use that instance when working beyond the pinned
+baseline; restrict it to the trivial-character subtype for the witness range.
 
 ### Vanishing of an algebraic integer
 
@@ -1108,7 +1112,8 @@ Weierstrass curve is the ModularCurves Layer 1 interface.
 These assertions test a choice-exists statement, a lower bound over all choices, and a
 case in which the quotient isogeny is an isomorphism while the parametrisation is not.
 They use the degree convention of the curve interface and the homomorphism-degree
-formula of R28.6. The interpretation of a modular degree follows Cremona §2.15.1, p. 47;
+formula of R28.6. The interpretation of a modular degree follows Cremona §2.15.1,
+pp. 47–48, including Proposition 2.15.1 on p. 48;
 the concrete equations are the ones fixed in the earlier tests.
 
 ## Layer R29.6. The converse, modularity, and analytic continuation
@@ -1383,8 +1388,9 @@ statement. The case $n=1$ recovers the elliptic formulation.
 
 This companion is a separately scoped target for the real multiplication extension. Its
 proof requires the $K_X$-linear compatible system, the $n$-th-power conductor
-comparison, and the eventual irreducibility and conductor statements at primes split in
-$K_X$. These are the inputs of Serre (4.7.1)–(4.7.5), pp. 209–210, rather than
+comparison, and the eventual irreducibility, conductor and finite-flat weight-two
+statements at primes split in $K_X$. These are the inputs of Serre (4.7.1)–(4.7.6),
+pp. 209–210, rather than
 consequences of the elliptic point-module interfaces alone. The present application
 records the exact statement and its boundary; the elliptic constructions are the domain
 of the proof here. Its prerequisite is the modularity theorem above. Neither the
