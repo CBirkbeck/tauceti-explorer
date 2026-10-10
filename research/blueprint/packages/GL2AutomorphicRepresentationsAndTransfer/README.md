@@ -10,7 +10,7 @@ Use Mathlib's `Matrix.GeneralLinearGroup (Fin 2) R`, its determinant, scalar hom
 
 Use `TauCeti.symPowerRep` for symmetric powers of the standard representation and Mathlib's finite tensor product for Hilbert coefficients. The algebraic factor-set theorem `TauCeti.IsProjectiveRep.exists_monoidHom_of_cohomologyClass_eq_zero` supplies a lift when its class vanishes; it neither proves arithmetic vanishing nor continuity. `TauCeti.simple_indFDRep_ofLinearCharacter_iff` concerns finite groups over algebraically closed characteristic-zero fields. Weil groups and characteristic-two induction require the stated additional comparisons. `TauCeti.Matrix.GeneralLinearGroup.not_isSolvable_fin_two` excludes solvability of the indicated full matrix group, not automorphic obstructions.
 
-At a finite place write O, p, ϖ and q for the valuation ring, maximal ideal, chosen uniformizer and residue cardinality. Set ν(ϖ)=q⁻¹. The Borel is upper triangular and induction includes δ_B^(1/2), with δ_B(diag(a,d))=|a/d|. K₀(pⁿ) constrains the lower-left entry; K₁(pⁿ) fixes the last row modulo pⁿ. At n=0 both are GL₂(O). Under right translation the minimal line has K₀-character ω(d). Transport Casselman's top-left convention through π∨≅π⊗ω⁻¹det. Whittaker normalization fixes ψ trivial on O and nontrivial on ϖ⁻¹O and then W(1)=1.
+At a finite place write O, p, ϖ and q for the valuation ring, maximal ideal, chosen uniformizer and residue cardinality. Set ν(ϖ)=q⁻¹. The Borel is upper triangular and induction includes δ_B^(1/2), with δ_B(diag(a,d))=|a/d|. K₀(pⁿ) constrains the lower-left entry; K₁(pⁿ) fixes the last row modulo pⁿ. At n=0 both are GL₂(O). Under right translation the minimal line has K₀-character ω(d). Transport Casselman's top-left convention through π∨≅π⊗ω⁻¹det. Whittaker normalization fixes ψ trivial on O and nontrivial on ϖ⁻¹O and then W(1)=1. The complex local functional and model use SmoothRepresentationsOfLocalGroups `SR.2.3/whittaker-functionals`: `SmoothRep.whittakerFunctionals` is Hom_U(V,ψ), and `SmoothRep.whittakerMultiplicityOne_gl2` gives dimension one for irreducible infinite-dimensional V. The one-dimensional case has no Whittaker model; genericity and irreducibility are hypotheses of the normalization.
 
 Local reciprocity sends ϖ to geometric Frobenius Φ, with ν_W(Φ)=q⁻¹. The standard `rec` matches normalized character induction; `recᵀ(π)=rec(π)⊗ν_W^(-1/2)`. This multiplies its rank-two Frobenius matrix by √q and preserves N. Local factors use (ker N)^I. Arithmetic Frobenius is Φ⁻¹: invert its eigenvalues before comparing at Φ, and state the cohomological dual convention. Satake parameters α,β are in unitary normalization; spherical T₁ acts by √q(α+β). The classical weight-k roots are q^((k−1)/2)α and q^((k−1)/2)β. Rationality uses π_alg=π_unitary⊗|det|^(-(k−2)/2).
 
@@ -131,7 +131,7 @@ Over any nonarchimedean characteristic-zero local field F, with ν=|·|F and com
 
 **Hypotheses.** Smooth, irreducible, admissible complex representations; χᵢ smooth quasicharacters.
 
-**Prerequisites.** R16.1/iwasawa-cartan; SR `SR.2`; SR `SR.3`; SR `SR.5`; ET `ET.6`.
+**Prerequisites.** R16.1/iwasawa-cartan; SR `SR.2`; SR `SR.3`; SR `SR.2.3/whittaker-functionals`; ET `ET.6`.
 
 **Sources.** [casselman73], p. 305, principal/special classification.
 
@@ -143,7 +143,7 @@ For an irreducible admissible infinite-dimensional complex smooth representation
 
 **Hypotheses.** Irreducible admissible infinite-dimensional complex smooth π; K₁ is the last-row subgroup over the valuation ring.
 
-**Prerequisites.** R16.1/k1; R16.2/local-classification; Mathlib `Representation.invariants`; SR `SR.3`; SR `SR.5`.
+**Prerequisites.** R16.1/k1; R16.2/local-classification; Mathlib `Representation.invariants`; SR `SR.3`; SR `SR.2.3/whittaker-functionals`.
 
 **Sources.** [casselman73], §1 Theorem1 and Kirillov setup, printed p.302; elementary subgroup decomposition, printed p.303.
 
@@ -179,7 +179,7 @@ For π as above and every n≥0, dimℂ π^{K₁(pⁿ)}=max(0,n−c(π)+1). The 
 
 **Hypotheses.** Irreducible admissible infinite-dimensional complex π; ψ of conductor O; n natural.
 
-**Prerequisites.** R16.2/newvector-conductor; R16.2/local-classification; R16.1/k0; R16.1/k1; SR `SR.5`; AL `AL.2`.
+**Prerequisites.** R16.2/newvector-conductor; R16.2/local-classification; R16.1/k0; R16.1/k1; SR `SR.2.3/whittaker-functionals`; AL `AL.2`.
 
 **Sources.** [casselman73], Theorem 1; Corollary to the Proof pp. 302–307.
 
@@ -187,9 +187,9 @@ For π as above and every n≥0, dimℂ π^{K₁(pⁿ)}=max(0,n−c(π)+1). The 
 
 ### normalized-newvector: The normalized Whittaker newvector
 
-For generic irreducible π and the chosen conductor-O ψ, take the unique K₁(p^{c(π)})-fixed vector in SR.5’s Whittaker model with W(1)=1. Equivalently, in the existing fixed line and its Whittaker functional λ, choose the unique v with λ(v)=1. No arbitrary vector is made canonical before fixing ψ and λ. For an unramified determinant twist χ, Wχ(g)=χ(det g)W(g) under the corresponding Whittaker identification.
+For generic irreducible π and the chosen conductor-O ψ, take the unique K₁(p^{c(π)})-fixed vector in the Whittaker model of SR.2.3/whittaker-functionals with W(1)=1. Equivalently, in the existing fixed line and its Whittaker functional λ, choose the unique v with λ(v)=1. No arbitrary vector is made canonical before fixing ψ and λ. For an unramified determinant twist χ, Wχ(g)=χ(det g)W(g) under the corresponding Whittaker identification.
 
-**Hypotheses.** The fixed line is one-dimensional and λ restricts nontrivially; the Whittaker model and functional are supplied by SR.5.
+**Hypotheses.** The fixed line is one-dimensional and λ restricts nontrivially; the Whittaker model and functional are supplied by SR.2.3/whittaker-functionals.
 
 **API.**
 
@@ -204,7 +204,7 @@ For generic irreducible π and the chosen conductor-O ψ, take the unique K₁(p
 - `normalizedNewvector_rescale`: Replacing λ by aλ with a≠0 changes vnew to a⁻¹vnew.
 - `normalizedNewvector_zero_functional`: The zero functional admits no vector of value one; it fails the input hypothesis.
 
-**Prerequisites.** R16.2/casselman-newvector; Mathlib `Representation.invariants`; SR `SR.5`.
+**Prerequisites.** R16.2/casselman-newvector; Mathlib `Representation.invariants`; SR `SR.2.3/whittaker-functionals`.
 
 **Sources.** [jl70], §11 following Proposition 11.1.1, printed p. 183; normalize the spherical local function at e.
 
@@ -229,7 +229,7 @@ For an unramified generic principal series with unitary-normalized Satake parame
 - `sphericalValues_two`: h₂=α²+αβ+β².
 - `sphericalValues_collision`: h₂(1,1)=3, not an undefined quotient.
 
-**Prerequisites.** R16.2/normalized-newvector; SR `SR.4`; SR `SR.5`.
+**Prerequisites.** R16.2/normalized-newvector; SR `SR.4`; SR `SR.2.3/whittaker-functionals`.
 
 **Sources.** [jl70], §3 spherical functions and unramified zeta calculation.
 
@@ -249,13 +249,13 @@ Let π be an irreducible admissible infinite-dimensional unramified representati
 
 ### supercuspidal-kirillov: The supercuspidal Kirillov comparison
 
-For irreducible supercuspidal π with central character ω and nontrivial ψ, restricting the imported Whittaker function W to diag(x,1), x∈F×, identifies its Kirillov realization with C_c^∞(F×,ℂ). For b=(a u;0 d), the action is (π(b)f)(x)=ω(d)ψ(xu/d)f(xa/d). The Weyl action is the imported local functional equation; it is not a freely chosen transform. For π over a finite extension L/ℚp, DLB’s scalar extension with L∞ and Γ descent is requested from SR.5; locally analytic Kirillov–Colmez theory belongs to R30.
+For irreducible supercuspidal π with central character ω and nontrivial ψ, restricting the imported Whittaker function W to diag(x,1), x∈F×, identifies its Kirillov realization with C_c^∞(F×,ℂ). For b=(a u;0 d), the action is (π(b)f)(x)=ω(d)ψ(xu/d)f(xa/d). The Weyl action is the imported local functional equation; it is not a freely chosen transform. For the DLB variant, F=ℚp, ω=1 and π is defined over a finite extension L/ℚp. Put L∞=colim_n(L⊗_{ℚp}ℚp(μ_{pⁿ})) and Γ=Gal(ℚp(μ_{p∞})/ℚp), acting on the second factor. Give the smooth mirabolic realization on compactly supported locally constant functions φ:ℚp×→L∞ with φ(ax)=σ_a(φ(x)) for a∈ℤp×, where σ_a is the cyclotomic action. Its extension of scalars to L∞ is the ordinary Kirillov model using a chosen compatible p-power-root additive character. This coefficient-descent statement is additional to complex Whittaker multiplicity one. Locally analytic Kirillov–Colmez theory belongs to R30.
 
 **Hypotheses.** Smooth characteristic-zero supercuspidal; additive-character and central-character choices visible.
 
-**Prerequisites.** R16.2/local-classification; SR `SR.5`; AL `AL.0/local-schwartz-bruhat-space`; AL `AL.2`.
+**Prerequisites.** R16.2/local-classification; SR `SR.2.3/whittaker-functionals`; AL `AL.0/local-schwartz-bruhat-space`; AL `AL.2`.
 
-**Sources.** [casselman73], p. 302, equation (1.2).
+**Sources.** [casselman73], p. 302, equation (1.2). [dlb17], §7.5, Remark 7.10, printed p. 39; §11.2, proof of Theorem 11.7, printed p. 62, for the L∞/Γ smooth comparison.
 
 <a id="r16-2-henniart-unicity"></a>
 
@@ -473,7 +473,7 @@ Fix nontrivial ψ:F\𝔸→ℂ× and additive Haar mass vol(F\𝔸)=1. For a smo
 
 **Hypotheses.** Cuspidality supplies zero constant term; smooth automorphic form with imported growth estimates; global ψ and compatible self-dual local measures.
 
-**Prerequisites.** R16.4/cuspidal-tensor-factorization; AL `AL.0/adelic-schwartz-bruhat-space`; AL `AL.3/gln-fourier-expansion`; SR `SR.5`.
+**Prerequisites.** R16.4/cuspidal-tensor-factorization; AL `AL.0/adelic-schwartz-bruhat-space`; AL `AL.3/gln-fourier-expansion`; SR `SR.2.3/whittaker-functionals`.
 
 **Sources.** [jl70], Proposition 11.1.1 proof, printed pp. 182–183.
 
@@ -485,7 +485,7 @@ Every irreducible cuspidal automorphic GL₂(𝔸F) representation occurs with m
 
 **Hypotheses.** Number field F; characteristic-zero automorphic forms; unitary twist when working inside L².
 
-**Prerequisites.** R16.4/global-whittaker-expansion; R16.4/cuspidal-tensor-factorization; SR `SR.5`; AS `AS.4`; AL `AL.3/global-multiplicity-one`.
+**Prerequisites.** R16.4/global-whittaker-expansion; R16.4/cuspidal-tensor-factorization; SR `SR.2.3/whittaker-functionals`; AS `AS.4`; AL `AL.3/global-multiplicity-one`.
 
 **Sources.** [jl70], Proposition 11.1.1, printed p. 183; [cogdell-fields], Lecture 4 §3, Theorem 4.2 and proof, printed pp.33–34 (PDF pp.37–38).
 
@@ -1403,11 +1403,11 @@ For F,p,r̄ as in odd-residual-lift, apply Langlands–Tunnell to its totally od
 
 ### tunnell-primitive-globalization: Tunnell's globalisation of a local two-dimensional Weil representation (Tunnell 1978, Theorem 1.3)
 
-Tunnell, Invent. Math. 46 (1978), Theorem 1.3, for a p-adic field. Let K be a finite extension of Q_p and σ: W_K → GL₂(C) a continuous two-dimensional representation. There exist a number field F, a finite place v of F with an isomorphism F_v ≅ K, and a continuous representation ρ: W_F → GL₂(C) whose restriction ρ_v to W_{F_v} is isomorphic to σ. If σ is reducible, induced from a proper subgroup, of A₄-type or of S₄-type (the type is the image in PGL₂(C)), then ρ can be chosen of the same type. If K = Q₂ and σ is of S₄-type, one can take F = Q and ρ with det ρ(c) = −1 for complex conjugation c. In the primitive case (A₄- or S₄-type, which forces p = 2) the proof gives ρ = ρ₀ ⊗ χ̃, where ρ₀: G_F → GL₂(C) has finite image and the same projective image as σ, χ̃ is a Hecke quasi-character of F, and in the S₄ case det ρ₀(c) = −1 at every real place. Finite-image form, as Carayol 12.2.3 uses it: if σ is primitive with finite image, ρ can be taken to be a continuous representation of G_F with finite image, tetrahedral or octahedral as σ is. This form needs χ̃ of finite order, i.e. R17.5/finite-hecke-extension. For automorphy the quasi-character form suffices, because ρ is then a twist of the finite-image ρ₀. Tunnell states the theorem for every nonarchimedean local field and a global field F; positive characteristic is not planned here.
+Tunnell, Invent. Math. 46 (1978), Theorem 1.3, for a p-adic field. Let K be a finite extension of Q_p and σ: W_K → GL₂(C) a continuous two-dimensional representation. There exist a number field F, a finite place v of F with an isomorphism F_v ≅ K, and a continuous representation ρ: W_F → GL₂(C) whose restriction ρ_v to W_{F_v} is isomorphic to σ. If σ is reducible, induced from a proper subgroup, of A₄-type or of S₄-type (the type is the image in PGL₂(C)), then ρ can be chosen of the same type. If K = Q₂ and σ is of S₄-type, one can take F = Q and ρ with det ρ(c) = −1 for complex conjugation c. In the primitive case (A₄- or S₄-type, which forces p = 2) the proof gives ρ = ρ₀ ⊗ χ̃, where ρ₀: G_F → GL₂(C) has finite image and the same projective image as σ, χ̃ is a Hecke quasi-character of F, and in the S₄ case det ρ₀(c) = −1 at every real place. Finite-image form, as Carayol 12.2.3 uses it: if σ is primitive with finite image, ρ can be taken to be a continuous representation of G_F with finite image, tetrahedral or octahedral as σ is. This form needs a finite-order Hecke character χ̃ whose component on the full group F_v× is the scalar discrepancy between σ and (ρ₀)_v. Restricting that discrepancy to local roots of unity does not determine the uniformizer value or the character on all principal units. For automorphy the quasi-character form suffices, because ρ is then a twist of the finite-image ρ₀. Tunnell states the theorem for every nonarchimedean local field and a global field F; positive characteristic is not planned here.
 
 **Hypotheses.** No irreducibility is needed for the existence assertion. Restriction uses a chosen place above v; its isomorphism class is independent of that choice. A₄ and S₄ types are primitive and force p=2. Only characteristic-zero local fields are in scope.
 
-**Prerequisites.** R17.5/finite-projective-lift; R16.3; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 9; GlobalNumberFields Layer 1; NumberFieldArithmetic Layer 5.
+**Prerequisites.** R17.5/finite-projective-lift; R16.3; R01 `R01.4`; ClassFieldTheory Layer 11; GlobalNumberFields Layer 9; GlobalNumberFields Layer 1; NumberFieldArithmetic Layer 5. The character-extension input must extend a prescribed continuous quasi-character of F_v× to F×\𝔸_F×; for the finite-image form it must preserve finite order, allowing auxiliary ramification. R17.5/finite-hecke-extension prescribes only μ_n(F)\μ_n(𝔸_F) and has a different domain.
 
 **Sources.** [tunnell78], §1, Theorem 1.3, printed p. 182 (GDZ article PDF p. 5; page 4 of the OCR text); [tunnell78], §1, Theorem 1.3, second and third sentences, printed p. 182 (GDZ PDF p. 5); [tunnell78], proof of Theorem 1.3, first paragraph, printed p. 182 (GDZ PDF p. 5); [tunnell78], proof of Theorem 1.3, primitive case, printed p. 183 (GDZ PDF p. 6); [tunnell78], proof of Theorem 1.3, S₄ case, printed p. 183 (GDZ PDF p. 6); [carayol86], 12.2.3, proof of Proposition 12.2.2, printed p. 458 (PDF p. 51).
 
@@ -1415,11 +1415,11 @@ Tunnell, Invent. Math. 46 (1978), Theorem 1.3, for a p-adic field. Let K be a fi
 
 ### prescribed-local-induction: Automorphic induction with prescribed local and archimedean components (Carayol 11.2)
 
-Carayol 1986, 11.2, with the global Weil construction of Jacquet–Langlands §12. Let F be a totally real field of degree d with real places τ₁,…,τ_d, let k₁,…,k_d ≥ 2 and w be integers of the same parity, and let D_{k,w} be the essentially square-integrable representation of GL₂(R) of Carayol 0.2 (central character t ↦ t^{−w}), so that D_{k,w} ≅ 𝒲(C, ζ_{k,w}) with ζ_{k,w}(z) = (z z̄)^{(−w−k+1)/2} z^{k−1}. Let 𝔭 ≠ v be finite places of F, L_𝔭/F_𝔭 a quadratic field extension and ξ_𝔭 a quasi-character of L_𝔭^× that does not factor through the norm, with ξ_𝔭·|·|^{w/2} of finite order; so 𝒲(L_𝔭, ξ_𝔭) is ordinary cuspidal. Then there exist a totally imaginary quadratic extension L/F and a quasi-character ξ of 𝔸_L^×/L^× such that (a) L ⊗_F F_𝔭 ≅ L_𝔭 and the 𝔭-component of ξ is ξ_𝔭; (b) at the complex place of L above τ_i, ξ is ζ_{k_i,w}; (c) L/F is not split at v and ξ_v does not factor through the norm L_v^× → F_v^×. The automorphic induction π′ = 𝒲(L, ξ) = quadraticInduction(ξ) is cuspidal, with π′_u ≅ 𝒲(L_u, ξ_u) at every place u; in particular π′_{τ_i} ≅ D_{k_i,w}, π′_𝔭 ≅ 𝒲(L_𝔭, ξ_𝔭) and π′_v is supercuspidal. Hence, when 𝒲(L_𝔭, ξ_𝔭) is the component π_𝔭 of a π as in Carayol (0.3) and v is the place fixed in Theorem (B), π′ satisfies the hypotheses of Theorem (B) and has the same 𝔭-component as π. Carayol calls the existence of (L, ξ) standard and gives no proof. The finite-order condition, automatic for such π_𝔭, cannot be dropped, and the proof uses R17.5/finite-hecke-extension.
+Carayol 1986, 11.2, with the global Weil construction of Jacquet–Langlands §12. Let F be a totally real field of degree d with real places τ₁,…,τ_d, let k₁,…,k_d ≥ 2 and w be integers of the same parity, and let D_{k,w} be the essentially square-integrable representation of GL₂(R) of Carayol 0.2 (central character t ↦ t^{−w}), so that D_{k,w} ≅ 𝒲(C, ζ_{k,w}) with ζ_{k,w}(z) = (z z̄)^{(−w−k+1)/2} z^{k−1}. Let 𝔭 ≠ v be finite places of F, L_𝔭/F_𝔭 a quadratic field extension and ξ_𝔭 a quasi-character of L_𝔭^× that does not factor through the norm, with ξ_𝔭·|·|^{w/2} of finite order; so 𝒲(L_𝔭, ξ_𝔭) is ordinary cuspidal. Then there exist a totally imaginary quadratic extension L/F and a quasi-character ξ of 𝔸_L^×/L^× such that (a) L ⊗_F F_𝔭 ≅ L_𝔭 and the 𝔭-component of ξ is ξ_𝔭; (b) at the complex place of L above τ_i, ξ is ζ_{k_i,w}; (c) L/F is not split at v and ξ_v does not factor through the norm L_v^× → F_v^×. The automorphic induction π′ = 𝒲(L, ξ) = quadraticInduction(ξ) is cuspidal, with π′_u ≅ 𝒲(L_u, ξ_u) at every place u; in particular π′_{τ_i} ≅ D_{k_i,w}, π′_𝔭 ≅ 𝒲(L_𝔭, ξ_𝔭) and π′_v is supercuspidal. Hence, when 𝒲(L_𝔭, ξ_𝔭) is the component π_𝔭 of a π as in Carayol (0.3) and v is the place fixed in Theorem (B), π′ satisfies the hypotheses of Theorem (B) and has the same 𝔭-component as π. Carayol calls the existence of (L, ξ) standard and gives no proof. The finite-order condition on ξ_𝔭·|·|^{w/2}, automatic for such π_𝔭, cannot be dropped. It is a local condition: the global ξ·|·|^{w/2} still has angular infinity component (z/|z|)^{k_i−1}, which has infinite order for k_i≥2. The character-existence step must prescribe ξ on all of L_𝔭×, together with its complex components and a non-norm component at v. It must respect the product relation on diagonal L× and establish continuity after choosing an auxiliary finite modulus. The torsion-idele extension in R17.5/finite-hecke-extension does not by itself supply these simultaneous prescriptions; Patrikis Lemma 2.3.1 supplies the criterion for an infinity type without prescribed finite components.
 
 **Hypotheses.** If d is even, v is Carayol's fixed place of Theorem (B); if d is odd it is any auxiliary finite place. The finite-order condition is equivalent to the local central character being |·|^(−w) times a finite-order character. At a split place 𝒲 denotes the principal series of its two characters.
 
-**Prerequisites.** R17.5/quadratic-induction; R16.2; R16.3; GlobalNumberFields Layer 1; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9; GlobalNumberFields Layer 10.
+**Prerequisites.** R17.5/quadratic-induction; R16.2; R16.3; GlobalNumberFields Layer 1; GlobalNumberFields Layer 7; GlobalNumberFields Layer 9; GlobalNumberFields Layer 10. In addition to those carriers, use a simultaneous local/infinity-type character-existence theorem preserving the stated finite-order-after-norm-twist condition at 𝔭 and proving global-unit compatibility; merely constructing a Hecke character from an already given ray-class character is insufficient.
 
 **Sources.** [carayol86], 11.2, printed p. 450 (PDF p. 43); [carayol86], 11.2, condition (a), printed p. 450 (PDF p. 43); [carayol86], 11.2, condition (c), printed p. 450 (PDF p. 43); [carayol86], 11.2, conclusion, printed p. 450 (PDF p. 43); [carayol86], 11.2, archimedean components, printed p. 450 (PDF p. 43); [jl70-global], §12, Proposition 12.1, printed p. 206 (PDF p. 212); [jl70-global], §4, Theorem 4.6(iii), printed p. 71 (PDF p. 77); [patrikis], §2.3, Lemma 2.3.1 and the sentence after it, printed p. 28 (PDF p. 32).
 
