@@ -46691,7 +46691,8 @@
     "PKG-ArithmeticLocallySymmetricSpaces"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticLocallySymmetricSpaces.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7915"
   },
   {
    "id": "PKG-ArithmeticQuantumTopology",
@@ -47037,8 +47038,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48156,8 +48157,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48673,8 +48674,9 @@
    ],
    "revisionOf": "PKG-HeckeStacksAndLocalShtukas",
    "prompt": "research/blueprint/prompts/PKG-HeckeStacksAndLocalShtukas~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7905"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7905",
+   "finishedAt": "2026-10-10T02:10:07Z"
   },
   {
    "id": "REV-PKG-HeckeStacksAndLocalShtukas~2",
@@ -48792,7 +48794,8 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7934"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -48810,8 +48813,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -48904,8 +48907,9 @@
    ],
    "revisionOf": "PKG-IgusaVarietiesAndTorsionConcentration",
    "prompt": "research/blueprint/prompts/PKG-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7907"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7907",
+   "finishedAt": "2026-10-10T02:10:12Z"
   },
   {
    "id": "REV-PKG-IgusaVarietiesAndTorsionConcentration~2",
@@ -49129,8 +49133,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -79996,8 +80000,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81305,8 +81309,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
