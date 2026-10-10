@@ -27,14 +27,14 @@ a placeholder. Their declarations are listed at the end of the file with their n
 their mathematical obligations, as the omission ledger; the local determinant E_v is
 prototyped through the matrix representation whose determinant it is.
 
-Compilation. The only Tau Ceti import, `TauCeti.NumberTheory.HeckeRing.Associativity`, is
-not built in the shared environment used for checking. With that import replaced by a
-`sorry`-stub of `HeckeCosetModule.instRingHeckeRing` with the same name and signature, the
-file elaborates against the pinned Mathlib with `sorry` warnings only; the file with the
-genuine import was not compiled.
+Compilation. Independently checked with the genuine Tau Ceti convolution import at the
+pinned baseline. The present declarations elaborate with `sorry` warnings only. This does
+not close the omission ledger or verify the mathematical truth of a `sorry` declaration.
+The packet review records the remaining signature coverage as G2.
 -/
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.OrderOfVanishing.Noetherian
 import Mathlib.RingTheory.LocalRing.ResidueField.Defs
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.Data.Matrix.Block
@@ -66,10 +66,6 @@ section KOnly
 
 variable (K : Type*) [Field K] (n : ℕ)
 
-/-- The normalized valuation of `F_v`, as a homomorphism to `Multiplicative ℤ`
-(Mathlib's adic valuation of the fraction field of a DVR, normalized by `v(ϖ_v) = 1`). -/
-def valuationZ : Kˣ →* Multiplicative ℤ := sorry
-
 /-- Upper unipotent matrices `N_n(F_v)`. -/
 def upperUnipotent : Subgroup (GL (Fin n) K) where
   carrier := {g | (g : Matrix (Fin n) (Fin n) K).BlockTriangular id ∧
@@ -96,6 +92,13 @@ section Carriers
 
 variable (𝒪 : Type*) [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
   (K : Type*) [Field K] [Algebra 𝒪 K] [IsFractionRing 𝒪 K] (n : ℕ)
+
+/-- Generic DVR order on the fraction field, restricted to units. This wraps Mathlib's
+`Ring.ordFrac`; for a nonarchimedean local field use the already implemented
+`TauCeti.normalizedValuation`, rather than planning another valuation. -/
+def valuationZ : Kˣ →* Multiplicative ℤ :=
+  WithZero.unitsWithZeroEquiv.toMonoidHom.comp
+    (Units.map (Ring.ordFrac 𝒪 (K := K)).toMonoidHom)
 
 /-- The residue cardinality `q_v`. -/
 abbrev q : ℕ := Nat.card (IsLocalRing.ResidueField 𝒪)
@@ -156,6 +159,10 @@ section IHR1
 
 variable {𝒪 : Type*} [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
   {K : Type*} [Field K] [Algebra 𝒪 K] [IsFractionRing 𝒪 K] {n : ℕ}
+
+variable [hfinite : Finite (IsLocalRing.ResidueField 𝒪)]
+
+include hfinite
 
 variable (𝒪 K n) in
 /-- IHR.1/tame-iwahori-level: an open compact `I_v` with `Iw_{v,1} ≤ I_v ≤ Iw_v`. -/
@@ -254,7 +261,7 @@ def mk : (Fin n → Kˣ) →* TameTorus I := QuotientGroup.mk' I.torusPart
 def valuation : TameTorus I →* (Fin n → Multiplicative ℤ) := sorry
 
 theorem valuation_mk (t : Fin n → Kˣ) :
-    valuation I (mk I t) = fun i => valuationZ K (t i) := sorry
+    valuation I (mk I t) = fun i => valuationZ 𝒪 K (t i) := sorry
 
 theorem exact (t : Fin n → Kˣ) :
     valuation I (mk I t) = 1 ↔ ∃ u : Fin n → 𝒪ˣ, mk I t = mk I (fun i => Units.map (algebraMap 𝒪 K).toMonoidHom (u i)) :=
@@ -275,7 +282,7 @@ theorem isPositive_iff (t : Fin n → Kˣ) :
       ∀ g ∈ (I.toSubgroup ⊓ upperUnipotent K n : Subgroup (GL (Fin n) K)),
         diagGL K t * g * (diagGL K t)⁻¹ ∈ (I.toSubgroup ⊓ upperUnipotent K n : Subgroup _) := sorry
 
-theorem exists_strongPos_pow_mul_mem (ϖ : Kˣ) (hϖ : valuationZ K ϖ = Multiplicative.ofAdd 1)
+theorem exists_strongPos_pow_mul_mem (ϖ : Kˣ) (hϖ : valuationZ 𝒪 K ϖ = Multiplicative.ofAdd 1)
     (x : TameTorus I) : ∃ k : ℕ, strongPos I ϖ ^ k * x ∈ positive I := sorry
 
 /-- Functoriality in the level. -/
@@ -309,7 +316,7 @@ example (I : TameIwahoriLevel 𝒪 K n) (h : I ≠ ofTorusSubgroup ⊤) :
     (TameTorus.valuation I).ker ≠ ⊥ := sorry
 
 /-- TameTorus.not_positive_antidominant -/
-example (I : TameIwahoriLevel 𝒪 K 2) (ϖ : Kˣ) (hϖ : valuationZ K ϖ = Multiplicative.ofAdd 1) :
+example (I : TameIwahoriLevel 𝒪 K 2) (ϖ : Kˣ) (hϖ : valuationZ 𝒪 K ϖ = Multiplicative.ofAdd 1) :
     TameTorus.mk I ![1, ϖ] ∉ TameTorus.positive I ∧ TameTorus.mk I ![ϖ, 1] ∈ TameTorus.positive I :=
   sorry
 
@@ -352,10 +359,14 @@ theorem tameEmbedding_isUnit (x : TameTorus I) :
 def degree : HeckeAlg I.toSubgroup R →+* R := sorry
 
 /-- The modulus character `|δ_{B_n}|⁻¹ : Ξ_v → ℤ[1/q]ˣ`, evaluated in `R`. -/
-def modulusInv : TameTorus I →* Rˣ := sorry
+def modulusInv (hq : IsUnit (q 𝒪 : R)) : TameTorus I →* Rˣ :=
+  { toFun := fun x => hq.unit ^ (∑ i : Fin n, ((n : ℤ) - 1 - 2 * (i : ℕ)) *
+      Multiplicative.toAdd (TameTorus.valuation I x i))
+    map_one' := sorry
+    map_mul' := sorry }
 
 theorem tameEmbedding_degree (x : TameTorus I) :
-    degree I R (tameEmbedding I R hq (MonoidAlgebra.of R _ x)) = (modulusInv I R x : R) := sorry
+    degree I R (tameEmbedding I R hq (MonoidAlgebra.of R _ x)) = (modulusInv I R hq x : R) := sorry
 
 end tameEmbedding
 
@@ -367,7 +378,7 @@ example (I : TameIwahoriLevel 𝒪 K 1) (R : Type*) [CommRing R] (hq : IsUnit (q
 
 /-- tameEmbedding_degree_antidominant -/
 example (I : TameIwahoriLevel 𝒪 K 2) (R : Type*) [CommRing R] (hq : IsUnit (q 𝒪 : R))
-    (ϖ : Kˣ) (hϖ : valuationZ K ϖ = Multiplicative.ofAdd 1) :
+    (ϖ : Kˣ) (hϖ : valuationZ 𝒪 K ϖ = Multiplicative.ofAdd 1) :
     degree I R (tameEmbedding I R hq (MonoidAlgebra.of R _ (TameTorus.mk I ![1, ϖ]))) *
       (q 𝒪 : R) = 1 := sorry
 
@@ -392,7 +403,7 @@ def heckeScalar {G : Type*} [Group G] (U : Subgroup G) [IsHeckeTriple (⊤ : Sub
 def tameOperatorUniv (I : TameIwahoriLevel 𝒪 K n) (R : Type*) [CommRing R]
     (hq : IsUnit (q 𝒪 : R)) (i : Fin n) (α : Kˣ) : MonoidAlgebra R (TameTorus I) :=
   MonoidAlgebra.single (TameTorus.mk I (Pi.mulSingle i α))
-    ((hq.unit ^ ((i : ℕ) * Multiplicative.toAdd (valuationZ K α)) : Rˣ) : R)
+    ((hq.unit ^ ((i : ℕ) * Multiplicative.toAdd (valuationZ 𝒪 K α)) : Rˣ) : R)
 
 /-- `t_{v,i}(α)`. -/
 def tameOperator (I : TameIwahoriLevel 𝒪 K n) (R : Type*) [CommRing R]
@@ -414,7 +425,7 @@ theorem tameOperator_units (I : TameIwahoriLevel 𝒪 K n) (R : Type*) [CommRing
 
 theorem tameOperator_uniformizer (I : TameIwahoriLevel 𝒪 K n) (R : Type*) [CommRing R]
     (hq : IsUnit (q 𝒪 : R)) (i : Fin n) (ϖ : Kˣ)
-    (hϖ : valuationZ K ϖ = Multiplicative.ofAdd 1) :
+    (hϖ : valuationZ 𝒪 K ϖ = Multiplicative.ofAdd 1) :
     tameOperator I R hq i ϖ =
       heckeScalar I.toSubgroup R ((hq.unit ^ (i : ℕ) : Rˣ) : R) *
         tameEmbedding I R hq (MonoidAlgebra.of R _ (TameTorus.mk I (Pi.mulSingle i ϖ))) := sorry
@@ -446,7 +457,7 @@ theorem tameElemSymm_top (I : TameIwahoriLevel 𝒪 K n) (R : Type*) [CommRing R
     (hq : IsUnit (q 𝒪 : R)) (α : Kˣ) :
     tameElemSymm I R hq n α =
       heckeScalar I.toSubgroup R
-          ((hq.unit ^ ((n * (n - 1) / 2 : ℕ) * Multiplicative.toAdd (valuationZ K α)) : Rˣ) : R) *
+          ((hq.unit ^ ((n * (n - 1) / 2 : ℕ) * Multiplicative.toAdd (valuationZ 𝒪 K α)) : Rˣ) : R) *
         dc I.toSubgroup R (diagGL K (fun _ => α)) := sorry
 
 theorem tameOperator_restrict_level (I J : TameIwahoriLevel 𝒪 K n) (h : I ≤ J) (R : Type*)
@@ -501,7 +512,7 @@ example (R : Type*) [CommRing R] (hq : IsUnit (q 𝒪 : R)) (i : Fin n) (u : �
 
 /-- tameOperator_rank_two -/
 example (I : TameIwahoriLevel 𝒪 K 2) (R : Type*) [CommRing R] (hq : IsUnit (q 𝒪 : R)) (ϖ : Kˣ)
-    (hϖ : valuationZ K ϖ = Multiplicative.ofAdd 1) :
+    (hϖ : valuationZ 𝒪 K ϖ = Multiplicative.ofAdd 1) :
     tameElemSymm I R hq 2 ϖ = heckeScalar I.toSubgroup R (q 𝒪 : R) * dc I.toSubgroup R (diagGL K ![ϖ, ϖ]) :=
   sorry
 
@@ -532,6 +543,10 @@ section IHR3
 
 variable (𝒪 : Type*) [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
   (K : Type*) [Field K] [Algebra 𝒪 K] [IsFractionRing 𝒪 K] (n : ℕ)
+
+variable [hfinite : Finite (IsLocalRing.ResidueField 𝒪)]
+
+include hfinite
 
 /-- The block index of the Siegel parahoric: blocks of sizes `n, 1, …, 1`. -/
 def siegelBlock : Fin n ⊕ Fin n → WithBot (Fin n) :=
@@ -642,7 +657,7 @@ def leviLeft (A : Subgroup (Fin n → (IsLocalRing.ResidueField 𝒪)ˣ)) (R : T
 
 /-- `‖σ‖_v^{m}` for `α = rec σ`, as a unit of `R` (`‖σ‖_v = q_v^{−v(α)}`). -/
 def normPow {R : Type*} [CommRing R] (hq : IsUnit (q 𝒪 : R)) (α : Kˣ) (m : ℤ) : Rˣ :=
-  hq.unit ^ (-(Multiplicative.toAdd (valuationZ K α)) * m)
+  hq.unit ^ (-(Multiplicative.toAdd (valuationZ 𝒪 K α)) * m)
 
 /-- `t_{v,i}(σ)` at the Siegel level: the image of `‖σ‖^{−n} t_{v,i}(σ)`. -/
 def siegelOperator (A : Subgroup (Fin n → (IsLocalRing.ResidueField 𝒪)ˣ)) (R : Type*)
@@ -727,7 +742,7 @@ variable {C : Type*} [CommRing C]
 /-- `Res_v = resultant (P_{v^c,φ^{−c}}) (P_{v,φ})`. -/
 def siegelResultant (Pc P : C[X]) : C := Polynomial.resultant Pc P
 
-theorem siegelResultant_map {B : Type*} [CommRing B] (f : C →+* B) (Pc P : C[X]) :
+theorem siegelResultant_map {B : Type*} [CommRing B] (f : C →+* B) (Pc P : C[X]) (hPc : Pc.Monic) (hP : P.Monic) :
     f (siegelResultant Pc P) = Polynomial.resultant (Pc.map f) (P.map f) := sorry
 
 theorem siegelResultant_bezout (Pc P : C[X]) (h : Pc.natDegree ≠ 0 ∨ P.natDegree ≠ 0) :
@@ -735,7 +750,7 @@ theorem siegelResultant_bezout (Pc P : C[X]) (h : Pc.natDegree ≠ 0 ∨ P.natDe
       Pc * a + P * b = Polynomial.C (siegelResultant Pc P) := sorry
 
 theorem isUnit_siegelResultant_iff {B : Type*} [CommRing B] (f : C →+* B) (Pc P : C[X])
-    (hPc : Pc.Monic) :
+    (hPc : Pc.Monic) (hP : P.Monic) :
     IsUnit (f (siegelResultant Pc P)) ↔ IsCoprime (Pc.map f) (P.map f) := sorry
 
 theorem siegelResultant_eq_prod_roots {κ : Type*} [Field κ] (f : C →+* κ) (Pc P : C[X])

@@ -11,8 +11,8 @@
   "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
   "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7"
  ],
- "status": "complete",
- "summary": "This packet plans Integral Hecke actions, determinants and interpolation, Part II: ramified Hecke operators and local–global compatibility away from p, from §2.2.5 and §3 of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne (Ann. of Math. 197, 2023; published numbering). IHR.1 defines the tame Iwahori levels Iw_{v,1} ⊆ I_v ⊆ Iw_v of GL_n(F_v), the tame torus quotient Ξ_v, the injective embedding t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O (Flicker's invertibility, extended to intermediate levels and integral coefficients), the normalized operators t_{v,i}(α) = q_v^{(i−1)v(α)}t([e_i(α)]), their elementary symmetric functions e_{v,i}, the characters ψ_{v,i} of W_{F_v} and the ramified Hecke polynomial P_{v,σ}(X) (2.2.8). IHR.2 proves Proposition 2.2.9: the tame principal series criterion, the centrality of the e_{v,i}, and that P_{v,σ} acts on π_v^{I_v} by the characteristic polynomial of rec^T(π_v)(σ), specializing to IHG.3's spherical P_v. IHR.3 transfers the operators to Siegel-parahoric levels q̃_v and unitary tame levels Ĩ_v̄ of U(n, n) at split places (Lemmas 2.2.10, 2.2.13, (2.2.11)–(2.2.12), (2.2.17)) and computes their Satake transforms (Propositions 2.2.18–2.2.19). IHR.4 defines the resultant Res_v, proves étaleness of factorizations away from it (Thorne) and Proposition 2.2.14 and Corollary 2.2.15. IHR.5 builds the commutative Hecke algebras T^T_R(K, λ) and T̃^T_R with their localization, Satake homomorphism, twisting, duality and level change. IHR.6 proves local–global compatibility at R for classical points, interpolates it with Scholze's method (Proposition 3.2.2) and extends it to RΓ and the boundary (Corollary 3.2.3). IHR.7 descends to GL_n: auxiliary characters, the decomposed unitary level, Lemma 3.2.1, the boundary determinant D′, the identification D|_{W_{F_v}} = E_v, unramifiedness at R^c − R, Proposition 3.1.2 and Theorem 3.1.1. Imported, never re-planned: IHG.0–IHG.5, ALS.0–ALS.6, SR.1–SR.3, TC.2–TC.4, PA.0 (Theorem 2.4.8), AG2.2/AG2.5, R01.2, ET.6 and Tau Ceti class field theory and Chebotarev; eighteen requests record the precise statements needed from them.",
+ "status": "partial",
+ "summary": "This packet plans Integral Hecke actions, determinants and interpolation, Part II: ramified Hecke operators and local–global compatibility away from p, from §2.2.5 and §3 of Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne (Ann. of Math. 197, 2023; published numbering). IHR.1 defines the tame Iwahori levels Iw_{v,1} ⊆ I_v ⊆ Iw_v of GL_n(F_v), the tame torus quotient Ξ_v, the injective embedding t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O (Flicker's invertibility, extended to intermediate levels and integral coefficients), the normalized operators t_{v,i}(α) = q_v^{(i−1)v(α)}t([e_i(α)]), their elementary symmetric functions e_{v,i}, the characters ψ_{v,i} of W_{F_v} and the ramified Hecke polynomial P_{v,σ}(X) (2.2.8). IHR.2 proves Proposition 2.2.9: the tame principal series criterion, the centrality of the e_{v,i}, and that P_{v,σ} acts on π_v^{I_v} by the characteristic polynomial of rec^T(π_v)(σ), specializing to IHG.3's spherical P_v. IHR.3 transfers the operators to Siegel-parahoric levels q̃_v and unitary tame levels Ĩ_v̄ of U(n, n) at split places (Lemmas 2.2.10, 2.2.13, (2.2.11)–(2.2.12), (2.2.17)) and computes their Satake transforms (Propositions 2.2.18–2.2.19). IHR.4 defines the resultant Res_v, proves étaleness of factorizations away from it (Thorne) and Proposition 2.2.14 and Corollary 2.2.15. IHR.5 builds the commutative Hecke algebras T^T_R(K, λ) and T̃^T_R with their localization, Satake homomorphism, twisting, duality and level change. IHR.6 proves local–global compatibility at R for classical points, interpolates it with Scholze's method (Proposition 3.2.2) and extends it to RΓ and the boundary (Corollary 3.2.3). IHR.7 descends to GL_n: auxiliary characters, the decomposed unitary level, Lemma 3.2.1, the boundary determinant D′, the identification D|_{W_{F_v}} = E_v, unramifiedness at R^c − R, Proposition 3.1.2 and Theorem 3.1.1. Imported, never re-planned: IHG.0–IHG.5, ALS.0–ALS.6, SR.1–SR.3, TC.2–TC.4, PA.0 (Theorem 2.4.8), AG2.2/AG2.5, R01.2, ET.6 and Tau Ceti class field theory and Chebotarev; nineteen requests record the precise statements needed from them.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -21,141 +21,155 @@
     "ref": "mathlib:Matrix.GeneralLinearGroup",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
-    "provides": "GL n R, the group of n × n matrices over a semiring R with unit determinant (line 43); the carrier GL_n(F_v), GL_n(O_{F_v}) of the local levels.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "provides": "GL n R is the unit group of Matrix n n R over a semiring (Defs.lean, line 43). Over a commutative ring this agrees with invertible matrices and unit determinant; no determinant is asserted for a general semiring.",
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:IsDiscreteValuationRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
     "provides": "A discrete valuation ring: a local PID which is not a field (line 58); the ring O_{F_v} with uniformizer ϖ_v.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:IsLocalRing.ResidueField",
     "kind": "def",
     "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
     "provides": "The residue field R/𝔪_R of a local ring (line 30); k(v), through which the Iwahori reduction maps are defined.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Matrix.BlockTriangular",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Block.lean",
     "provides": "Block triangularity of a square matrix with respect to a block-index map (line 61); upper triangular and block upper triangular reductions defining Iw_v and 𝔭_v.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:IsHeckeTriple",
     "kind": "class",
     "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
     "provides": "Hecke triple (H₁, Δ, H₂): both subgroups in Δ, commensurable, Δ in the commensurator (line 75); for a locally profinite group and a compact open subgroup with Δ = ⊤ this is the Hecke pair of a local Hecke algebra.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:HeckeRing",
     "kind": "abbrev",
     "module": "Mathlib/NumberTheory/HeckeRing/Defs.lean",
     "provides": "The Hecke ring 𝕋 Δ H Z of finitely supported Z-linear combinations of double cosets H\\Δ/H (line 189); the carrier of H(G, U) ⊗ R.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "tauceti:HeckeCosetModule.instRingHeckeRing",
     "kind": "instance",
     "module": "TauCeti/NumberTheory/HeckeRing/Associativity.lean",
     "provides": "The ring structure (associative convolution by multiplicities) on 𝕋 Δ H R' for a Hecke triple and any ring R' (line 485), proved in full; the multiplication of double cosets used for [UgU].",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:MonoidAlgebra",
     "kind": "structure",
     "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
     "provides": "The monoid algebra R[M] with convolution product (line 76); the tame torus algebra O[Ξ_v], the domain of t.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Multiset.esymm",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPolynomial/Symmetric/Defs.lean",
     "provides": "The n-th elementary symmetric function of a multiset (line 70); the coefficients e_{v,i}(α).",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Multiset.prod_X_sub_X_eq_sum_esymm",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Polynomial/Vieta.lean",
     "provides": "Vieta: ∏_{t ∈ s}(X − C t) = Σ_j (−1)^j C(esymm s j) X^{card s − j} over a commutative ring (line 87); identifies the two expressions of P_{v,σ}(X).",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.Monic",
     "kind": "def",
     "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
     "provides": "A polynomial is monic if its leading coefficient is 1 (line 60).",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.resultant",
     "kind": "def",
     "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
     "provides": "The resultant of two polynomials over a commutative ring, the determinant of their Sylvester matrix, with size arguments defaulting to the natural degrees (line 134); Res_v and Thorne's Res_{n1,n2}.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.resultant_map_map",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
-    "provides": "resultant (f.map φ) (g.map φ) m n = φ (resultant f g m n) for a ring homomorphism φ (line 140); behaviour of Res_v under 𝒮 and under specialization.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "provides": "resultant (f.map φ) (g.map φ) m n = φ (resultant f g m n) for a ring homomorphism φ (line 140); behaviour of Res_v under 𝒮 and under specialization. The explicit degrees m,n stay fixed; default natural degrees may be substituted only when preserved (as for the monic factors here).",
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.isUnit_resultant_iff_isCoprime",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
     "provides": "For monic f, the resultant of f and g is a unit iff f and g are coprime (line 885); the unit criterion for Res_v and 𝒮(Res_v).",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
-    "provides": "Bézout identity f·p + g·q = C(resultant f g) with deg p < n, deg q < m (line 874).",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "provides": "Bézout identity f·p + g·q = C(resultant f g) with deg p < n, deg q < m (line 874). Requires natDegree bounds by m,n and m≠0 or n≠0; the degree-zero case is separate.",
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.resultant_eq_prod_roots_sub",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
     "provides": "For monic split f, g over a field, resultant f g = ∏ (α − β) over the roots (line 405); the classical-point values of Res_v.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Module.End.exists_isNilpotent_isSemisimple",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/JordanChevalley.lean",
-    "provides": "Jordan–Chevalley–Dunford decomposition f = n + s over a perfect field, n nilpotent, s semisimple, both polynomials in f (line 76); the decomposition ρ(φ_v) = su in Corollary 2.2.15.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "provides": "Jordan–Chevalley–Dunford decomposition f = n + s over a perfect field, n nilpotent, s semisimple, both polynomials in f (line 76); the decomposition ρ(φ_v) = su in Corollary 2.2.15. The cited result is additive, with finite-dimensionality and a perfect base field. For invertible f derive the multiplicative decomposition from the additive one; it does not state that decomposition directly.",
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:NumberField.IsCMField",
     "kind": "class",
     "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
     "provides": "A CM field: totally complex quadratic extension of its maximal real subfield (line 71); the base field F.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Polynomial.reverse",
     "kind": "def",
     "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
     "provides": "The reverse X^{natDegree f}f(1/X) of a polynomial (line 217); with the inverse of the constant term it gives ACC+'s f^∨.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
    },
    {
     "ref": "mathlib:Matrix.aeval_self_charpoly",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
     "provides": "Cayley–Hamilton: aeval M M.charpoly = 0 for a square matrix over any commutative ring (line 216); P_{v,φ_v}(ρ_𝔪(φ_v)) = 0.",
-    "checked": "statement read at the pinned commit (2026-10-09)"
+    "checked": "Statement and hypotheses independently read at the pinned commit (2026-10-10)."
+   },
+   {
+    "ref": "mathlib:Ring.ordFrac",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/OrderOfVanishing/Basic.lean",
+    "provides": "Order of vanishing on the fraction field as K →*₀ Multiplicative ℤ with zero (line 324), for a one-dimensional Noetherian domain; the DVR instances provide these hypotheses. Restricting to units gives valuationZ in the prototype.",
+    "checked": "Independently read at the pinned commit, 2026-10-10."
+   },
+   {
+    "ref": "tauceti:TauCeti.normalizedValuation",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/LocalField/NormalizedValuation.lean",
+    "provides": "The normalized map Kˣ →* Multiplicative ℤ for a field with ValuativeRel, a topology and IsNonarchimedeanLocalField (line 101); uniformizers have additive value 1. It already exists and is not a new Part II definition. The generic DVR prototype wraps Ring.ordFrac instead.",
+    "checked": "Independently read at the pinned commit, 2026-10-10."
    }
   ]
  },
@@ -179,7 +193,8 @@
     "§3 Local–global compatibility, l ≠ p, pp. 953–964",
     "the uses of Theorem 3.1.1 on pp. 900, 1063 and 1067",
     "References, pp. 1106–1113"
-   ]
+   ],
+   "reviewRead": "Published locators used by this packet independently checked on 2026-10-10; paraphrases only."
   },
   {
    "id": "ACC23v2",
@@ -206,7 +221,8 @@
     "§2 The tame group and tame representations (Theorem 2.1, Corollary 2.2, Lemma 2.3), pp. 471–474",
     "§3 Generators and relations (Theorem 3.1, Corollary 3.2, Proposition 3.3, Corollary 3.4), pp. 475–479",
     "§4 Bernstein-type presentation (Theorem 4.5, Proposition 4.11), pp. 479–488"
-   ]
+   ],
+   "reviewRead": "Published locators used by this packet independently checked on 2026-10-10; paraphrases only."
   },
   {
    "id": "Tho22",
@@ -217,8 +233,10 @@
    "sha256": "3bfd478657a9f38c79580bcf7d4cb64dfd071fe25f18d99b752a12c370d0d3cd",
    "accessed": "2026-10-09",
    "readSections": [
-    "§2 A different computation: Lemma 2.1, the resultants Res_{n1,n2} and Res_{q,n1,n2}, Propositions 2.2–2.3, Lemma 2.4, pp. 4–6"
-   ]
+    "§2 A different computation: Lemma 2.1, the resultants Res_{n1,n2} and Res_{q,n1,n2}, Propositions 2.2–2.3, Lemma 2.4, pp. 4–6",
+    "§3, Lemma 3.1, pp. 7–8 (parahoric inverse and convolution volume)"
+   ],
+   "reviewRead": "Published locators used by this packet independently checked on 2026-10-10; paraphrases only."
   }
  ],
  "sourceVersions": [
@@ -542,16 +560,16 @@
     "I_v a tame Iwahori level"
    ],
    "proofSteps": [
-    "Bruhat decomposition at tame level: I_v\\GL_n(F_v)/I_v is in bijection with N(T_n)(F_v)/T_{I_v}, an extension of the extended affine Weyl group ℤ^n ⋊ S_n by (k(v)^×)^n/A(I_v); write T(w) = [I_v w I_v] (Flicker §3 for I_v = Iw_{v,1}; the same argument for intermediate I_v since T_{I_v} ⊇ T_n(1 + ϖ_vO)).",
-    "Length additivity: T(w)T(w′) = T(ww′) when ℓ(ww′) = ℓ(w) + ℓ(w′), because #(I_v w I_v/I_v) = q_v^{ℓ(w)} depends only on the image of w in the extended affine Weyl group (Flicker Theorem 3.1(i)). For I_v-positive t, t′ the lengths add (Lemma 2.1.12 of ACC+, owned by SmoothRepresentationsOfLocalGroups SR.1), giving the product formula.",
-    "Quadratic relation at a simple affine reflection s: T(s)² = q_v T(s²) + Σ_{a ∈ k(v)^×} T(α^∨(a)s) with nonnegative integer structure constants (Flicker Theorem 3.1(ii) and Remark 4 at I_v = Iw_{v,1}); at an intermediate level the torus elements are read in T_n(O)/T_{I_v} and the coefficients are the corresponding multiplicities.",
-    "Hence T(s)·(T(s) − c_s) = q_v T(s²) with c_s ∈ ℤ[T_n(O)/T_{I_v}] and T(s²) of length zero, hence a unit; so T(s) is a unit of H ⊗ ℤ[1/q_v] (Flicker Proposition 3.3). Length-zero elements T(ρ), T(τ) are units, and every T(w) is a product of these and the T(s) (Flicker Corollary 3.4).",
-    "An element t ∈ T_n(F_v) is an element of the extended affine Weyl group, and [I_v t I_v] = T(t) is therefore a unit of H ⊗ R."
+    "First work at J = Iw_{v,1}, not at an arbitrary intermediate level. Flicker §3, Theorem 3.1 and Proposition 3.3/Corollary 3.4, pp. 475–479, give the pro-ℓ-Iwahori presentation and invertibility of torus double cosets. Its integral structure constants and inverse formulas make the same argument over ℤ[1/q_v], then over R by base change; Flicker states the complex version.",
+    "Write A = I_v/J, represented by diagonal residue units. In the J-normalized Hecke algebra let E_A = Σ_{a∈A}[JaJ] = 1_{I_v}. A torus element t commutes with these diagonal representatives, so its J-double-coset operator T_J(t), and its inverse B, commute with E_A. The unipotent right-coset representatives are unchanged on passing from J to I_v, and T_J(t)E_A = 1_{I_v t I_v}.",
+    "The function E_A B is left and right I_v-invariant. Regard it as an element of the I_v-normalized Hecke algebra. Convolution normalized by vol(J)=1 is [I_v:J] times convolution normalized by vol(I_v)=1; using E_A²=[I_v:J]E_A gives both inverse identities there. Verify this first over the torsion-free coefficient ring ℤ[1/q_v], cancelling the positive integer [I_v:J], and then base change. No inverse of [I_v:J], or of q_v−1, is used.",
+    "For positive t,t′ the product formula follows directly from the Iwahori decomposition and the positive-monoid homomorphism of ACC+ Lemma 2.1.12, p. 914 (SR.1). Do not extend the pro-ℓ-Iwahori Weyl-group presentation to non-Weyl-stable A."
    ],
    "acceptance": [
     "n = 1: H(F_v^×, I_v) = ℤ[F_v^×/I_v] and [I_v t I_v]^{−1} = [I_v t^{−1} I_v].",
     "n = 2, I_v = Iw_v: the Iwahori–Matsumoto generator satisfies T_s^{−1} = q_v^{−1}(T_s − (q_v − 1)), and t = diag(ϖ_v, 1) = sτ with τ = (0 1; ϖ_v 0) of length zero gives [Iw_v t Iw_v] = T(s)T(τ), a unit.",
-    "Over ℤ the hypothesis is needed: the degree character H(GL_2(F_v), Iw_v) → ℤ, T(w) ↦ #(Iw_v w Iw_v/Iw_v), sends [Iw_v diag(ϖ_v, 1) Iw_v] to q_v, which is not a unit of ℤ."
+    "Over ℤ the hypothesis is needed: the degree character H(GL_2(F_v), Iw_v) → ℤ, T(w) ↦ #(Iw_v w Iw_v/Iw_v), sends [Iw_v diag(ϖ_v, 1) Iw_v] to q_v, which is not a unit of ℤ.",
+    "For GL₂ with residue field F₅ and A = F₅× × {1}, the simple-reflection double coset has degree 5·4 = 20, a nonunit of ℤ[1/5]. This does not contradict torus invertibility and rules out the old assertion that all reflection double cosets are units at every intermediate level."
    ],
    "prerequisites": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-iwahori-level",
@@ -688,7 +706,7 @@
     {
      "name": "tameEmbedding_degree_antidominant",
      "kind": "non-example",
-     "statement": "For n = 2, deg t([diag(1, ϖ_v)]) = q_v^{−1} while deg [Iw_v diag(1, ϖ_v) Iw_v] = q_v, so t([diag(1, ϖ_v)]) ≠ [Iw_v diag(1, ϖ_v) Iw_v]: t agrees with double cosets only on positive classes."
+     "statement": "For n = 2, deg t([diag(1, ϖ_v)]) = q_v^{−1} while deg [Iw_v diag(1, ϖ_v) Iw_v] = q_v, so t([diag(1, ϖ_v)]) ≠ [Iw_v diag(1, ϖ_v) Iw_v]: t agrees with double cosets only on positive classes. This distinguishing example is over characteristic-zero coefficients (or a specified faithful coefficient specialization); it is not an inequality over every coefficient ring. For a nontrivial tame character choose q_v>2."
     },
     {
      "name": "tameEmbedding_center",
@@ -737,7 +755,8 @@
    "statement": "Let O be a commutative ring with q_v ∈ O^× and I_v a tame Iwahori level. For α ∈ F_v^× and 1 ≤ i ≤ n let e_i(α) = (1, …, 1, α, 1, …, 1) ∈ T_n(F_v) (α in position i) and λ = v(α)ε_i ∈ X_*(T_n). Put t_{v,i}(α) = t(q_v^{−⟨λ, ρ + ((1−n)/2)det⟩}[e_i(α)]) = q_v^{(i−1)v(α)} t([e_i(α)]) ∈ H(GL_n(F_v), I_v) ⊗ O, ρ being the half-sum of the positive roots of B_n, and let e_{v,i}(α) be the i-th elementary symmetric polynomial in t_{v,1}(α), …, t_{v,n}(α) (e_{v,0} = 1). For σ ∈ W_{F_v} put t_{v,i}(σ) = t_{v,i}(α) and e_{v,i}(σ) = e_{v,i}(α), where Art_{F_v}(α) = σ|_{F_v^{ab}} and Art_{F_v} sends uniformizers to geometric Frobenius elements. Then α ↦ t_{v,i}(α) is a group homomorphism F_v^× → (H(GL_n(F_v), I_v) ⊗ O)^×, so ψ_{v,i} : W_{F_v} → (H(GL_n(F_v), I_v) ⊗ O)^×, σ ↦ t_{v,i}(σ), is a character; all t_{v,i}(σ) commute; and e_{v,n}(α) = q_v^{n(n−1)v(α)/2}[I_v α·1_n I_v] is a unit.",
    "hypotheses": [
     "q_v ∈ O^×",
-    "Art_{F_v} normalized to send uniformizers to geometric Frobenius elements (ACC+ §1.2)"
+    "Art_{F_v} normalized to send uniformizers to geometric Frobenius elements (ACC+ §1.2)",
+    "For the Weil-character version imported from current ClassFieldTheory, F_v/ℚ_ℓ is finite and W_{F_v}^{ab} means topological abelianization. The α-parameter torus operators themselves work in either characteristic."
    ],
    "proofSteps": [
     "⟨ε_i, ρ⟩ = (n + 1 − 2i)/2 and ⟨ε_i, ((1−n)/2)det⟩ = (1 − n)/2, so the exponent −⟨λ, ρ + ((1−n)/2)det⟩ equals (i − 1)v(α).",
@@ -849,7 +868,7 @@
     {
      "name": "tameOperator_unnormalized_wrong",
      "kind": "non-example",
-     "statement": "Without the factor q_v^{(i−1)v(α)}, the product ∏_i t([e_i(ϖ_v)]) for n = 2 equals [I_v ϖ_v1_2 I_v] ≠ e_{v,2}(ϖ_v) = q_v[I_v ϖ_v1_2 I_v]; the unnormalized polynomial does not match the determinant q_v ω_π(ϖ_v) of Frobenius on rec^T(π_v)."
+     "statement": "Without the factor q_v^{(i−1)v(α)}, the product ∏_i t([e_i(ϖ_v)]) for n = 2 equals [I_v ϖ_v1_2 I_v] ≠ e_{v,2}(ϖ_v) = q_v[I_v ϖ_v1_2 I_v]; the unnormalized polynomial does not match the determinant q_v ω_π(ϖ_v) of Frobenius on rec^T(π_v). This distinguishing example is over characteristic-zero coefficients (or a specified faithful coefficient specialization); it is not an inequality over every coefficient ring. For a nontrivial tame character choose q_v>2."
     },
     {
      "name": "tameOperator_central_character",
@@ -997,7 +1016,7 @@
     {
      "name": "ramifiedHeckePoly_depends_on_inertia",
      "kind": "non-example",
-     "statement": "P_{v,σ} is not a function of σ modulo inertia: for n = 1, I_v = Iw_{v,1} and τ ∈ I_{F_v} with Art^{−1}(τ) ≡ u mod ϖ_v, u ≠ 1 in k(v)^×, P_{v,τ}(X) = X − ⟨u⟩ ≠ X − 1."
+     "statement": "P_{v,σ} is not a function of σ modulo inertia: for n = 1, I_v = Iw_{v,1} and τ ∈ I_{F_v} with Art^{−1}(τ) ≡ u mod ϖ_v, u ≠ 1 in k(v)^×, P_{v,τ}(X) = X − ⟨u⟩ ≠ X − 1. This distinguishing example is over characteristic-zero coefficients (or a specified faithful coefficient specialization); it is not an inequality over every coefficient ring. For a nontrivial tame character choose q_v>2."
     }
    ],
    "uses": [
@@ -1499,7 +1518,7 @@
    "proofSteps": [
     "ι_v(g) = diag(ϖ_v1_n, 1_n), central in the Levi GL_n × GL_n of ι_v(P), contracting the block-upper radical and expanding the block-lower one: strongly positive.",
     "In GL_{2n}(F_v), diag(ϖ_v1_n, 1_n) is a positive torus element for the pro-ℓ Iwahori Iw_{2n}(1,1) ⊂ 𝔭_{v,1} ⊆ 𝔮_v, and [Iw(1,1) diag(ϖ_v1_n, 1_n) Iw(1,1)] is a unit over O (IHR.1/tame-double-coset-invertible, Flicker Corollary 3.4).",
-    "𝔮_v diag(ϖ_v1_n, 1_n) 𝔮_v = 𝔮_v·diag(ϖ_v1_n, 1_n)·Iw(1,1) by the Iwahori decomposition, so [𝔮_v g 𝔮_v] = [𝔮_v]·[Iw(1,1) g Iw(1,1)] in the Hecke algebra of Iw(1,1) with the volume normalizations matched; the two factors commute (Flicker Theorem 4.5, g being fixed by the Weyl group of the Levi), so [𝔮_v g 𝔮_v] is a unit with inverse [𝔮_v]·[Iw(1,1) g Iw(1,1)]^{−1}, an O-valued function since q_v ∈ O^×.",
+    "Use the change-of-volume argument of Thorne §3, Lemma 3.1, pp. 7–8: in the pro-ℓ-Iwahori algebra put E = 1_{𝔮_v} and B = [JgJ]⁻¹. The Levi Weyl group fixes the central cocharacter of g, so E commutes with [JgJ] and B. The function EB is bi-𝔮_v-invariant and is the inverse of [𝔮_v g 𝔮_v] with vol(𝔮_v)=1. In the J-normalized algebra E²=[𝔮_v:J]E; E is neither the identity nor generally a unit. Establish the convolution identities over ℤ[1/q_v] by the two volume normalizations, then base change, without dividing by [𝔮_v:J].",
     "For Ĩ_v̄ the same argument applies directly: ι_v(Ĩ_v̄) is a tame Iwahori level of GL_{2n}(F_v) and the element is a positive torus element."
    ],
    "acceptance": [
@@ -1527,6 +1546,11 @@
      "sourceId": "Fli11",
      "locator": "Corollary 3.4, p. 479; Theorem 4.5, pp. 482–483",
      "match": "Invertibility of the generators of the tame algebra and its Bernstein-type relations."
+    },
+    {
+     "sourceId": "Tho22",
+     "locator": "§3, Lemma 3.1, pp. 7–8",
+     "match": "The inverse at a larger parahoric level is obtained from a pro-ℓ-Iwahori inverse as a bi-invariant function, with the convolution volume adjusted."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1794,16 +1818,17 @@
     "ℓ ≠ p; the printed X^{n−k} is read as X^{2n−k} (sourceIssues)"
    ],
    "proofSteps": [
-    "Fix ι : Q̄_p ≅ ℂ. There is a tamely ramified χ : T(F⁺_v̄) = T_{2n}(F_v) → Q̄_p^× with π̃ a subquotient of Π̃ = n-Ind_{B}^{G̃}χ; it suffices to show that ẽ_{v,k}(σ) acts on Π̃^{q̃_v} by the k-th elementary symmetric function of ψ_1(α), …, ψ_{2n}(α), α = Art^{−1}(σ), where χ ↔ (ψ_1, …, ψ_{2n}).",
+    "Fix ι : Q̄_p ≅ ℂ. There is a tamely ramified χ : T(F⁺_v̄) = T_{2n}(F_v) → Q̄_p^× with π̃ a subquotient of Π̃ = n-Ind_{B}^{G̃}χ; it suffices to show that ẽ_{v,k}(σ) acts on Π̃^{q̃_v} by the k-th elementary symmetric function of ψ_1(α)|α|_v^{(1−2n)/2}, …, ψ_{2n}(α)|α|_v^{(1−2n)/2}, α = Art^{−1}(σ), where χ ↔ (ψ_1, …, ψ_{2n}).",
     "Pass to the universal unramified twist over R = Q̄_p[T(F⁺_v̄)/T(O)]: Π̃_u^{q̃_v} is finite free over R with specialization isomorphisms, so it suffices to treat a Zariski-dense set of points x.",
     "Bushnell–Kutzko (SmoothRepresentationsOfLocalGroups SR.2): q : (Π̃_x)^{q̃_v} → r_P(Π̃_x)^{GL_n(O_{F_{v^c}}) × I_v} is an isomorphism with hq(y) = δ_P^{1/2}(g)q(t(h)y).",
     "Geometric lemma (SR.2): r_P(Π̃_x) has a filtration by σ_{x,Y_{v^c},Y_v} = n-Ind(⊗_{i∈Y_{v^c}}ψ_{x,i}^{−c}) ⊗ n-Ind(⊗_{i∈Y_v}ψ_{x,i}) over partitions {1, …, 2n} = Y_{v^c} ⊔ Y_v; at points where the central element (ϖ_{v^c}1_n, 1_n) has distinct eigenvalues on the pieces the filtration splits.",
-    "On each summand, the operators e_{v,i}(σ) and e_{v^c,j}(σ^{−c}) act by scalars computed by IHR.2/tame-local-langlands-charpoly (the GL_n(F_v) factor at level I_v) and the spherical normalization of IHG.3 (the GL_n(F_{v^c}) factor), the powers of ‖σ‖_v in (2.2.11)–(2.2.12) cancelling δ_P^{1/2}; Σ_{i+j=k}e_{v,i}(σ)e_{v^c,j}(σ^{−c}) then acts by the k-th elementary symmetric function of the ψ_{x,i}(α), independently of the summand.",
+    "On each summand, the operators e_{v,i}(σ) and e_{v^c,j}(σ^{−c}) act by scalars computed by IHR.2/tame-local-langlands-charpoly (the GL_n(F_v) factor at level I_v) and the spherical normalization of IHG.3 (the GL_n(F_{v^c}) factor), the powers of ‖σ‖_v in (2.2.11)–(2.2.12) cancelling δ_P^{1/2}; Σ_{i+j=k}e_{v,i}(σ)e_{v^c,j}(σ^{−c}) then acts by the k-th elementary symmetric function of the ψ_{x,i}(α)|α|_v^{(1−2n)/2}, independently of the summand.",
     "Transfer back along q, extend to all points by density, and compare with rec^T(Π̃_x ∘ ι_v^{−1}) as in IHR.2/tame-local-langlands-charpoly."
    ],
    "acceptance": [
     "n = 1: π̃ ∘ ι_v^{−1} = St_2 ⊗ (χ ∘ det) with χ unramified: P̃_{v,φ}(X) acts by (X − χ(ϖ_v))(X − q_vχ(ϖ_v)).",
-    "Unramified π̃: P̃_{v,φ}(X) acts by the image of the unramified P̃_v(X) of (2.2.7)."
+    "Unramified π̃: P̃_{v,φ}(X) acts by the image of the unramified P̃_v(X) of (2.2.7).",
+    "For n=1, normalized induction of the two trivial characters of GL₂ has rec^T Frobenius eigenvalues q_v^{1/2}, q_v^{1/2}; the unscaled pair 1,1 cannot be the arithmetic-normalized answer. Fix the square root in Q̄_p consistently with the chosen isomorphism to ℂ."
    ],
    "prerequisites": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/siegel-transfer-operators",
@@ -1975,7 +2000,7 @@
     {
      "name": "siegelResultant_map",
      "role": "functoriality",
-     "statement": "For a ring map f : C_v → B, f(Res_v) is the resultant of the images (Polynomial.resultant_map_map)."
+     "statement": "For a ring map f : C_v → B, f(Res_v) is the resultant of the images (Polynomial.resultant_map_map). Both factors are monic, so mapping preserves their natural degrees; alternatively use explicit size arguments in resultant_map_map."
     },
     {
      "name": "siegelResultant_bezout",
@@ -1995,7 +2020,7 @@
     {
      "name": "siegelResultant_satake",
      "role": "compatibility",
-     "statement": "𝒮(Res_v) is the resultant of P_{v,φ_v}(X) and q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) in the Levi algebra, by IHR.3/satake-transform-siegel-level (with ‖φ_v‖_v = q_v^{−1} and P_{v^c,φ_v^{−c}} the reciprocal polynomial P^∨_{v^c} at a Frobenius of v^c)."
+     "statement": "𝒮(Res_v) is the resultant of q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) and P_{v,φ_v}(X), in that order in the Levi algebra, by IHR.3/satake-transform-siegel-level (with ‖φ_v‖_v = q_v^{−1} and P_{v^c,φ_v^{−c}} the reciprocal polynomial P^∨_{v^c} at a Frobenius of v^c)."
     },
     {
      "name": "charpoly_factor_range",
@@ -2068,9 +2093,9 @@
     "κ a field; for κ algebraically closed the conclusion is (B ⊗_A κ)_𝔪 = κ"
    ],
    "proofSteps": [
-    "B ≅ (ℤ[x_1, …, x_n]^{S_{n₁}×S_{n₂}}) and A ≅ ℤ[x]^{S_n} (fundamental theorem of symmetric polynomials); ℤ[x] is free over both, so B is finite free over A of rank binom(n, n₁) (Thorne Lemma 2.1).",
+    "Use symmetric-polynomial invariant rings A=ℤ[x]^{S_n} and B=ℤ[x]^{S_{n₁}×S_{n₂}}. Thorne §2, Lemma 2.1, p. 4 proves that B is graded projective over A and then graded free, of rank binom(n,n₁), using freeness of the full root ring and its direct-summand descent. Freeness of that ring over A and B alone is not a proof of freeness of B over A.",
     "Over κ, the tangent space of the fibre at f = f_1f_2 is the kernel of the Sylvester map (g_1, g_2) ↦ g_1f_2 + f_1g_2 on pairs with deg g_i < n_i; its determinant is resultant(f_1, f_2), so the tangent space vanishes iff the resultant is nonzero (Mathlib's Sylvester-matrix description of the resultant).",
-    "A finite κ-algebra whose localization has zero tangent space at 𝔪 is a field at 𝔪, separable over κ; with flatness of A → B this is étaleness at the points where the resultant is a unit (Thorne Proposition 2.3)."
+    "Compute relative differentials for the coefficient multiplication map: the square Jacobian is the Sylvester map and its determinant is the resultant, up to the harmless fixed sign from ordering bases. Its invertibility gives Ω_{B/A}=0 locally; finite freeness gives flatness, hence étaleness. A finite étale fibre is a product of finite separable fields, so its localization at a maximal ideal is the stated field. This uses relative differentials, not merely the ordinary maximal-ideal tangent space, which does not detect inseparability over a nonperfect field (Thorne §2, Proposition 2.3, pp. 5–6)."
    ],
    "acceptance": [
     "n₁ = n₂ = 1, f = (X − a)(X − b) over κ = ℚ̄: B ⊗ κ = κ × κ when a ≠ b, and κ[ε]/(ε²) when a = b, where the resultant vanishes."
@@ -2311,7 +2336,7 @@
     {
      "name": "ramifiedHeckeAlgebra_rank_one",
      "kind": "computation",
-     "statement": "For n = 1, T^T_R(K, λ) is the image of the group algebra O[F^× \\ A_F^{∞,×}/K] acting by translation, the generator t_{v,1}(σ) acting as translation by the idele α_v with Art_{F_v}(α_v) = σ|_{F_v^{ab}} at v ∈ R."
+     "statement": "For n=1 the generators act by translations in the idele quotient F× \\ A_F^{∞,×}/K: spherical translations outside T and tame translations at R. The algebra is the image of the subalgebra generated by these translations; no claim is made that translations at the other places of S are generated."
     },
     {
      "name": "ramifiedHeckeAlgebra_spherical_image",
@@ -2321,7 +2346,7 @@
     {
      "name": "ramifiedHeckeAlgebra_not_local",
      "kind": "non-example",
-     "statement": "If n = 2, v ∈ R with K_v = Iw_{v,1}, and ρ̄_𝔪|_{W_{F_v}} is a sum of two characters with distinct values at φ_v, then T^T_R(K, λ)_𝔪 has two maximal ideals above 𝔪, distinguished by the residual value of t_{v,1}(φ_v); it is not local."
+     "statement": "A finite algebra over a localized spherical Hecke algebra need not be local. At rank two, a principal-series invariant module realizing both orderings of two distinct residual Frobenius roots has two maximal ideals, distinguished by t_{v,1}(φ_v). Use such a module as the example; distinct roots alone do not assert that both refinements occur in a specified global cohomology image."
     }
    ],
    "uses": [
@@ -2488,7 +2513,7 @@
    ],
    "title": "The ramified Satake homomorphism 𝒮 : T̃^T_R → T^T_R",
    "kind": "construction",
-   "statement": "In the setting of IHR.5/unitary-ramified-hecke-algebra, the unnormalized Satake map 𝒮 = r_G ∘ r_P (ACC+ (2.1.8), ArithmeticLocallySymmetricSpaces ALS.4) at the places outside R ∪ R^c, together with the localized Satake isomorphisms of Lemma 2.1.13 at the places below R (at levels q̃_v and Ĩ_v̄), restricts to an O-algebra homomorphism 𝒮 : T̃^T_R → T^T_R with: 𝒮(P̃_v(X)) = P_v(X)q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) for v ∉ S (Proposition 2.2.16); 𝒮(P̃_{v,σ}(X)) = P_{v,σ}(X)‖σ‖_v^{n(1−2n)}P_{v^c,σ^{−c}}(‖σ‖_v^{2n−1}X) for v ∈ R and σ ∈ W_{F_v} (Propositions 2.2.18–2.2.19); 𝒮(P_{v,σ}) = P_{v,σ} for v ∈ R − R^c; and 𝒮(Res_v) is the resultant of P_{v,φ_v}(X) and q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) for v ∈ R − R^c. Here f^∨(X) = a_0^{−1}X^{deg f}f(X^{−1}) for f with unit constant term a_0.",
+   "statement": "In the setting of IHR.5/unitary-ramified-hecke-algebra, the unnormalized Satake map 𝒮 = r_G ∘ r_P (ACC+ (2.1.8), ArithmeticLocallySymmetricSpaces ALS.4) at the places outside R ∪ R^c, together with the localized Satake isomorphisms of Lemma 2.1.13 at the places below R (at levels q̃_v and Ĩ_v̄), restricts to an O-algebra homomorphism 𝒮 : T̃^T_R → T^T_R with: 𝒮(P̃_v(X)) = P_v(X)q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) for v ∉ S (Proposition 2.2.16); 𝒮(P̃_{v,σ}(X)) = P_{v,σ}(X)‖σ‖_v^{n(1−2n)}P_{v^c,σ^{−c}}(‖σ‖_v^{2n−1}X) for v ∈ R and σ ∈ W_{F_v} (Propositions 2.2.18–2.2.19); 𝒮(P_{v,σ}) = P_{v,σ} for v ∈ R − R^c; and 𝒮(Res_v) is the resultant of q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) and P_{v,φ_v}(X), in that order for v ∈ R − R^c. Here f^∨(X) = a_0^{−1}X^{deg f}f(X^{−1}) for f with unit constant term a_0.",
    "hypotheses": [
     "q_v ∈ O^× for v ∈ R ∪ R^c",
     "‖φ_v‖_v = q_v^{−1} for a geometric Frobenius lift φ_v"
@@ -2527,7 +2552,7 @@
     {
      "sourceId": "ACC23",
      "locator": "§3.2, proof of Proposition 3.1.2, p. 964",
-     "match": "𝒮(Res_v) is the resultant of P_{v,φ_v}(X) and q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X)."
+     "match": "𝒮(Res_v) is the resultant of q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) and P_{v,φ_v}(X), in that order."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2555,7 +2580,7 @@
     {
      "name": "ramifiedSatake_resultant",
      "role": "simp",
-     "statement": "𝒮(Res_v) = resultant(P_{v,φ_v}, q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X)) for v ∈ R − R^c."
+     "statement": "𝒮(Res_v) = resultant(q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X), P_{v,φ_v}) for v ∈ R − R^c."
     },
     {
      "name": "ramifiedSatake_restrict_spherical",
@@ -2776,13 +2801,13 @@
    "kind": "theorem",
    "statement": "In the setting of IHR.5/unitary-ramified-hecke-algebra (with K̃ as there) fix a Frobenius lift φ_v ∈ W_{F_v} for each v ∈ R. Let π̃ be a cuspidal automorphic representation of G̃(A_{F⁺}), cohomological for an algebraic representation of G̃_ℂ, with (π̃^∞)^{K̃} ≠ 0; fix ι : Q̄_p ≅ ℂ, let T̃^T_R(π̃) be the image of T̃^T_R ⊗_O Q̄_p in End_{Q̄_p}(ι^{−1}(π̃^∞)^{K̃}), and let ρ : G_{F,S} → GL_{2n}(T̃^T_R(π̃)) be the composite of r_ι(π̃) : G_{F,S} → GL_{2n}(Q̄_p) (ACC+ Theorem 2.3.3) with GL_{2n}(Q̄_p) ⊂ GL_{2n}(T̃^T_R(π̃)). Then: (1) for v ∉ S the characteristic polynomial of ρ(Frob_v) is the image of P̃_v(X); (2) for v ∈ R and σ ∈ W_{F_v} the characteristic polynomial of ρ(σ) is the image of P̃_{v,σ}(X); (3) for v ∈ R − R^c and τ_v ∈ I_{F_v}, Res_v^{(2n)!}ρ((τ_v − 1)P_{v,φ_v}(φ_v)) = 0 in M_{2n}(T̃^T_R(π̃)). The images of P̃_v and P̃_{v,σ} lie in Q̄_p[X].",
    "hypotheses": [
-    "F contains an imaginary quadratic field F_0 in which the residue characteristics of the places of R split (needed for Theorem 2.3.3(c))",
+    "For each v∈R its residue characteristic splits in some imaginary quadratic subfield of F; that subfield may depend on v (Theorem 2.3.3(c), p. 936). F contains an imaginary quadratic field for the global representation theorem.",
     "condition (3) is stated for v ∈ R − R^c (the printed R^c − R is a slip, sourceIssues)"
    ],
    "proofSteps": [
     "T̃^T_R(π̃) is commutative and acts on ⊗_v̄(π̃_v̄)^{K̃_v̄}; the operators at v̄ act through scalars on (π̃_v̄)^{K̃_v̄} when they are central or by Lemma 2.2.13, so the images of P̃_v, P̃_{v,σ} lie in Q̄_p[X].",
     "(1) is Theorem 2.3.3(a) (AutomorphicGaloisRepresentationsPartII AG2.2).",
-    "(2): Theorem 2.3.3(c) (AG2.5) gives WD(r_ι(π̃)|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π̃_v̄ ∘ ι_v), and Frobenius semisimplification preserves characteristic polynomials (ArithmeticGaloisRepresentations R01.2). For v ∈ R ∩ R^c, IHR.2/tame-local-langlands-charpoly for GL_{2n} at the level ι_v(Ĩ_v̄) identifies them with P̃_{v,σ} (IHR.3/unitary-tame-hecke-polynomial); for v ∈ R − R^c, Lemma 2.2.13 (IHR.3/siegel-transfer-local-langlands) does.",
+    "(2): Theorem 2.3.3(c) (AG2.5) gives WD(r_ι(π̃)|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π̃_v̄ ∘ ι_v^{−1}), and Frobenius semisimplification preserves characteristic polynomials (ArithmeticGaloisRepresentations R01.2). For v ∈ R ∩ R^c, IHR.2/tame-local-langlands-charpoly for GL_{2n} at the level ι_v(Ĩ_v̄) identifies them with P̃_{v,σ} (IHR.3/unitary-tame-hecke-polynomial); for v ∈ R − R^c, Lemma 2.2.13 (IHR.3/siegel-transfer-local-langlands) does.",
     "(3) is Corollary 2.2.15 (IHR.4/resultant-inertia-galois) for ρ = r_ι(π̃)|_{G_{F_v}}, the algebra T_v̄ of Proposition 2.2.14 mapping to T̃^T_R(π̃)."
    ],
    "acceptance": [
@@ -2929,8 +2954,8 @@
    ],
    "proofSteps": [
     "Redo Scholze's Corollary 5.2.6 keeping track of the operators at R: by TC.2 (requested for all prime-to-p Hecke operators) there are N₀ = N₀(n, [F : ℚ]) and ideals J_m ⊂ T̃^T_R(RΓ_c(X̃_K̃, O/ϖ^m)) with J_m^{N₀} = 0 such that T̃^T_R(RΓ_c(X̃_K̃, O/ϖ^m))/J_m is a continuous quotient of T_cl.",
-    "IHR.6/ramified-interpolation gives determinants D_m over these quotients with (1)–(3), compatible in m by uniqueness.",
-    "T̃^T_R(RΓ_c(X̃_K̃, O)) ≅ lim_m T̃^T_R(RΓ_c(X̃_K̃, O/ϖ^m)) (as in IHR.5/ramified-hecke-algebra's limit statement); put Ĩ_{c,R} = ker(T̃^T_R(RΓ_c) → ∏_m T̃^T_R(RΓ_c(O/ϖ^m))/J_m), so Ĩ_{c,R}^{N₀} = 0 (IHG.5/nilpotent-product-bound), and IHG.4/inverse-limit-determinant glues the D_m to D̃_{c,R}; the conditions hold in every quotient, hence in the limit."
+    "IHR.6/ramified-interpolation gives a continuous determinant D_m over each quotient A_m/J_m with (1)–(3). Do not assume transitions between these quotients: the comparison supplies J_m separately and does not assert their compatibility.",
+    "Let A be the finite O-algebra T̃^T_R(RΓ_c), with its compact Hausdorff topology, and let I be the kernel of A → ∏_m A_m/J_m. The faithful family A → A_m and J_m^{N₀}=0 imply I^{N₀}=0 (IHG.5/nilpotent-product-bound). A/I is compact and embeds continuously in the Hausdorff product. On the conjugacy-dense Frobenius set, all coefficient tuples of the D_m are the images of the same integral Hecke coefficients in A/I. Apply the existing IHG.4 compact determinant gluing theorem to descend the family to a continuous A/I-valued determinant; its polynomial-law identities and (1)–(3) are checked by the jointly injective maps. No inverse-limit structure on A_m/J_m is needed."
    ],
    "acceptance": [
     "For R = ∅ the statement is the R_Γc analogue of Proposition 2.3.9, implicit in [Sch15, Cor. 5.2.6].",
@@ -2941,7 +2966,7 @@
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/unitary-ramified-hecke-algebra",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-level-change",
     "TorsionCohomologyInfrastructure:TC.2",
-    "IntegralHeckeAndGaloisDeterminants:IHG.4/inverse-limit-determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
     "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-product-bound",
     "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial"
    ],
@@ -3154,7 +3179,7 @@
     {
      "name": "weilDeterminant_not_frobenius_only",
      "kind": "non-example",
-     "statement": "For K_v = Iw_{v,1} and n = 1, E_v is not determined by its value at one Frobenius lift: two such E_v's with equal value at φ_v but different restrictions to I_{F_v} exist (characters of k(v)^×)."
+     "statement": "For K_v = Iw_{v,1} and n = 1, E_v is not determined by its value at one Frobenius lift: two such E_v's with equal value at φ_v but different restrictions to I_{F_v} exist (characters of k(v)^×). This distinguishing example is over characteristic-zero coefficients (or a specified faithful coefficient specialization); it is not an inequality over every coefficient ring. For a nontrivial tame character choose q_v>2."
     },
     {
      "name": "weilDeterminant_compat_matrix",
@@ -3199,7 +3224,7 @@
    "proofSteps": [
     "Both coprimality conditions only require that the product ψ(Frob_v)ψ(Frob_{v^c}) avoid a finite subset Z_v ⊂ k̄^× (ratios of eigenvalues) for each v ∈ R.",
     "Take ψ = χ|_{G_F} for a character χ of G_{F⁺} of odd prime order r with r ≠ p and r > max_v #Z_v: since v and v^c lie over the split place v̄, Frob_v and Frob_{v^c} both map to Frob_v̄, so ψ(Frob_v)ψ(Frob_{v^c}) = χ(Frob_v̄)²; squaring is a bijection of μ_r, and μ_r → k̄^× is injective because r ≠ p, so a suitable value of χ(Frob_v̄) avoids Z_v.",
-    "Characters of G_{F⁺} of order r unramified at S̄ with prescribed values at the Frob_v̄, v̄ ∈ R̄: by global class field theory (Tau Ceti ClassFieldTheory layers 11–12) such characters are characters of the idele class group trivial on the units at S̄; the classes of the uniformizers at the v̄ ∈ R̄ are linearly independent in the dual of these characters modulo r, by Kummer theory and Chebotarev (an element of F⁺^× which is an r-th power at a density-one set of places is an r-th power, Tau Ceti Chebotarev layer 10). Duality of finite abelian groups gives the prescribed values.",
+    "Missing input: for a number field L, finite set Σ of finite places, finite split-place prescription set V⊆Σ and an odd prime r≠p, construct a continuous μ_r-valued global Galois character unramified at Σ with specified unramified Frobenius values at V, allowing ramification outside Σ. This is an odd-order local-prescription (Grunwald-type) theorem. ClassFieldTheory layers 11–12 provide reciprocity and norm-subgroup existence, not this prescription theorem; Chebotarev layer 10 does not prove the required independence. The previous Kummer-independence sentence did not construct or prove it. Supply a precise source and proof/supplier contract before closing this node.",
     "For ψ_2, add to S̄ the places above the primes where ψ_1 ramifies; for ψ, additionally require unramifiedness above R ∪ R^c ∪ S_p, which is part of the construction."
    ],
    "acceptance": [
@@ -3246,7 +3271,7 @@
    "proofSteps": [
     "Every compact open subgroup of GL_n(F_v) lies in a conjugate of GL_n(O_{F_v}); conjugating at places of S where no Hecke operator of T^T_R lives changes RΓ(X_K, 𝒱_λ) by a Hecke-equivariant isomorphism (translation r_g, ALS.0).",
     "Local intersections: Ĩw_v̄(1,1) ∩ G = Iw_{v^c,1} × Iw_{v,1} (IHR.3/unitary-tame-level), 𝔭̃_{v,1} ∩ G = GL_n(O_{F_{v^c}}) × Iw_{v,1} (IHR.3/siegel-parahoric-level), matching K at R ∪ R^c by Lemma 3.2.1(1); at the other places the product of the principal congruence kernel with K ∩ G(O) is a subgroup meeting G in K ∩ G(O) = K_v̄.",
-    "Each K̃_v̄ is decomposed with respect to P (Iwahori decomposition of the levels at R̄; at the other places the congruence kernel is decomposed and normalized by the Levi factor); K̃ is neat because K̃_q is principal of level q odd (ALS.0/neat-level-manifold), hence good."
+    "Each local level has (K̃_v̄ ∩ P) = (K̃_v̄ ∩ U) ⋊ (K̃_v̄ ∩ G): use block-upper matrices for the hyperspecial and congruence levels, and the Iwahori decomposition at R̄. Only the intersection with P is asserted; a hyperspecial subgroup does not have a full Iwahori decomposition relative to this parabolic. The principal odd q-level makes K̃ neat (ALS.0/neat-level-manifold), hence good."
    ],
    "acceptance": [
     "At v̄ ∈ R̄_1, K̃_v̄ ∩ G = K_{v^c} × K_v = Iw_{v^c,1} × Iw_{v,1}."
@@ -3264,6 +3289,11 @@
      "sourceId": "ACC23",
      "locator": "§3.2, proof of Lemma 3.2.1, last paragraph, p. 957",
      "match": "Definition of K̃_v̄ place by place and the assertion (said to be easy) that K̃ is good, decomposed with respect to P and satisfies K̃ ∩ G(A^∞_{F⁺}) = K."
+    },
+    {
+     "sourceId": "ACC23",
+     "locator": "§2.1.2, p. 912 (definition of decomposed good subgroup)",
+     "match": "Decomposedness concerns the parabolic intersection and its Levi projection, not the full ambient compact open subgroup."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3281,7 +3311,7 @@
     {
      "name": "decomposedUnitaryLevel_decomposed",
      "role": "structure",
-     "statement": "K̃ = (K̃ ∩ U(A^∞))·(K̃ ∩ G(A^∞)) is decomposed with respect to P = U ⋊ G."
+     "statement": "K̃ ∩ P(A^∞) = (K̃ ∩ U(A^∞)) ⋊ (K̃ ∩ G(A^∞)); equivalently the Levi projection of K̃ ∩ P is K̃ ∩ G. This is decomposedness in ACC+ §2.1.2, p. 912, not an equality between the open ambient level K̃ and a subgroup of P."
     },
     {
      "name": "decomposedUnitaryLevel_good",
@@ -3354,7 +3384,7 @@
    "proofSteps": [
     "(1): choose distinct odd primes q_1, q_2 ≠ p prime to S; let K_i ⊲ K with K_{i,v} = Iw_{v,1} (v ∈ R) and principal level q_i. IHR.5/ramified-level-change gives T^{T_i}_R(K_i, λ)_{𝔪_i} ← T^{T_i}_R(K/K_i, λ)_{𝔪_i} ↠ T^{T_i}_R(K, λ)_{𝔪_i} → T^T_R(K, λ)_𝔪 with left kernel of exponent d; push the determinants D_i forward to T^T_R(K, λ)_𝔪/I with I^{2Nd} = 0 (IHG.5/nilpotent-sum-bound); D_1 and D_2 agree by Chebotarev and Chenevier's Lemma 1.12 (IHG.4/frobenius-determinant-uniqueness), giving compatibility at the q_i-adic places.",
     "(2) and (3): twist by the characters of IHR.7/auxiliary-characters at levels K_i = ∏_v ker(ψ_i ∘ Art ∘ det|_{K_v}); IHR.5/ramified-twisting shows that Proposition 3.1.2 for T^{T_i}_R(K_i, λ)_{𝔪_i} is equivalent to it after twisting, and the argument of the first step returns to K.",
-    "(4): T^T_R(K, λ) ≅ lim_m T^T_R(RΓ(X_K, 𝒱_λ/ϖ^m)) and the level K(p^m) on which 𝒱_λ/ϖ^m is constant (IHR.5/ramified-level-change (2)–(3)); the determinants D_m over T^T_R(K, 𝒱_λ/ϖ^m)_𝔪/I_m, I_m^{Nd} = 0, glue by Chenevier Example 2.32 (IHG.4/inverse-limit-determinant) over T^T_R(K, λ)_𝔪/I with I^{Nd} = 0.",
+    "(4): use the faithful reduction maps from the finite compact O-algebra T^T_R(K,λ)_𝔪 to the mod-ϖ^m Hecke images, and level K(p^m) where 𝒱_λ/ϖ^m is constant (IHR.5/ramified-level-change (2)–(3)). The separately obtained ideals I_m have I_m^{Nd}=0. Set I=ker(A→∏_m A_m/I_m), so I^{Nd}=0; descend the family of determinants by IHG.4 compact determinant gluing, using their common integral Frobenius coefficients. Compatibility of quotient transition maps is not supplied and is not needed.",
     "(5): IHR.7/decomposed-unitary-level."
    ],
    "acceptance": [
@@ -3367,7 +3397,7 @@
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/decomposed-unitary-level",
     "IntegralHeckeAndGaloisDeterminants:IHG.4/frobenius-determinant-uniqueness",
-    "IntegralHeckeAndGaloisDeterminants:IHG.4/inverse-limit-determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.4",
     "IntegralHeckeAndGaloisDeterminants:IHG.5/nilpotent-sum-bound",
     "IntegralHeckeAndGaloisDeterminants:IHG.3/galois-type-maximal-ideal",
     "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
@@ -3483,7 +3513,7 @@
     {
      "name": "boundaryDeterminant_not_square",
      "kind": "non-example",
-     "statement": "D′ ≠ D²: for n = 1 the second Frobenius eigenvalue is q_vT_{v^c,1}^{−1}, not T_{v,1}."
+     "statement": "D′ ≠ D²: for n = 1 the second Frobenius eigenvalue is q_vT_{v^c,1}^{−1}, not T_{v,1}. This distinguishing example is over characteristic-zero coefficients (or a specified faithful coefficient specialization); it is not an inequality over every coefficient ring. For a nontrivial tame character choose q_v>2."
     },
     {
      "name": "boundaryDeterminant_twist_law",
@@ -3523,7 +3553,7 @@
    "proofSteps": [
     "From IHR.7/boundary-determinant (2): D|_{W_{F_v}}·(D^{c,∨} ⊗ ε^{1−2n})|_{W_{F_v}} = E_v·(E^{c,∨}_{v^c} ⊗ ε^{1−2n}) (comparing characteristic polynomials at all σ ∈ W_{F_v}, IHG.0/amitsur-formula).",
     "Twisting by ψ (Lemma 3.2.1(3), IHR.5/ramified-twisting) gives det(ρ_𝔪 ⊗ ψ ⊕ (ρ_𝔪 ⊗ ψ)^{c,∨} ⊗ ε^{1−2n})|_{W_{F_v}} = (E_v ⊗ ψ)((E_{v^c} ⊗ ψ)^{c,∨} ⊗ ε^{1−2n}).",
-    "Modulo each maximal ideal 𝔫 of T^T_R(K, 0)_𝔪, compare the roots of the characteristic polynomials of φ_v under both sides: the separation property of ψ forces the roots of det ρ̄_𝔪(φ_v) to be the roots of E_v(φ_v) mod 𝔫; by the bijection between determinants over a field and semisimple representations (IHG.1/algebraically-closed-reconstruction), det ρ_𝔪|_{W_{F_v}} ≡ E_v mod 𝔫.",
+    "Modulo each maximal ideal, use the equality of the full twisted Weil-group determinants, hence of the associated semisimple representations, not just a polynomial at one Frobenius. The chosen character separates the Frobenius spectra of the candidate factors. An irreducible constituent cannot occur in factors with disjoint Frobenius spectra, so the full equality assigns each constituent to its unique factor. This gives det ρ̄_𝔪|_{W_{F_v}}=E_v mod that ideal. The field reconstruction theorem alone would not justify recovering inertia from one Frobenius polynomial.",
     "Hensel's lemma for determinants (Lemma 3.2.4, requested from IntegralHeckeAndGaloisDeterminants IHG.1), applied to the residually coprime factorization D′|_{W_{F_v}} = D|·(D^{c,∨} ⊗ ε^{1−2n})| over each local factor, gives D|_{W_{F_v}} = E_v."
    ],
    "acceptance": [
@@ -3577,7 +3607,7 @@
    "proofSteps": [
     "Equivalently (applying c and the dual twist) ρ_𝔪^{c,∨} ⊗ ε^{1−2n}|_{W_{F_v}} is unramified with Frobenius polynomial q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X); the polynomial identity follows from IHR.7/boundary-determinant (1)–(2) and IHR.7/determinant-restriction-at-R, so only unramifiedness remains (stronger than unramifiedness of the determinant).",
     "Using D′ = det(ρ_𝔪 ⊕ ρ_𝔪^{c,∨} ⊗ ε^{1−2n}), the trace relation (3) of IHR.7/boundary-determinant reads 𝒮(Res_v)^{(2n)!}[tr ρ_𝔪(σ(τ_v − 1)P_{v,φ_v}(φ_v)) + tr(ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(σ(τ_v − 1)P_{v,φ_v}(φ_v))] = 0; the first trace vanishes because P_{v,φ_v}(ρ_𝔪(φ_v)) = 0 by the Cayley–Hamilton theorem, P_{v,φ_v} being the characteristic polynomial of ρ_𝔪(φ_v) (IHR.7/determinant-restriction-at-R; Mathlib Matrix.aeval_self_charpoly).",
-    "𝒮(Res_v) is the resultant of P_{v,φ_v}(X) and q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) (IHR.5/ramified-satake-homomorphism); modulo each maximal ideal these are the characteristic polynomials of ρ̄_𝔪(φ_v) (IHR.7/determinant-restriction-at-R) and of (ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v), coprime by Lemma 3.2.1(2), so 𝒮(Res_v) is a unit (Polynomial.isUnit_resultant_iff_isCoprime) and tr((ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(σ(τ_v − 1)P_{v,φ_v}(φ_v))) = 0 for all σ ∈ G_{F,S}.",
+    "𝒮(Res_v) is the resultant of q_v^{n(2n−1)}P^∨_{v^c}(q_v^{1−2n}X) and P_{v,φ_v}(X), in that order (IHR.5/ramified-satake-homomorphism); modulo each maximal ideal these are the characteristic polynomials of ρ̄_𝔪(φ_v) (IHR.7/determinant-restriction-at-R) and of (ρ̄_𝔪^{c,∨} ⊗ ε̄^{1−2n})(φ_v), coprime by Lemma 3.2.1(2), so 𝒮(Res_v) is a unit (Polynomial.isUnit_resultant_iff_isCoprime) and tr((ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(σ(τ_v − 1)P_{v,φ_v}(φ_v))) = 0 for all σ ∈ G_{F,S}.",
     "M = (ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(P_{v,φ_v}(φ_v)) has unit determinant (the resultant being a unit), and ρ̄_𝔪 is absolutely irreducible, so the image of T[G_{F,S}] is all of M_n(T) over each local factor (IHG.1/henselian-irreducible) and the trace pairing on M_n is perfect: hence (ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(τ_v − 1)M = 0, so (ρ_𝔪^{c,∨} ⊗ ε^{1−2n})(τ_v) = 1 for all τ_v ∈ I_{F_v}."
    ],
    "acceptance": [
@@ -3802,7 +3832,7 @@
   },
   {
    "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.5",
-   "need": "ACC+ Theorem 2.3.3(c): for v above a prime split in an imaginary quadratic subfield of F, WD(r_ι(π̃)|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π̃_v̄ ∘ ι_v).",
+   "need": "ACC+ Theorem 2.3.3(c): for v above a prime split in an imaginary quadratic subfield of F, WD(r_ι(π̃)|_{G_{F_v}})^{F-ss} ≅ rec^T_{F_v}(π̃_v̄ ∘ ι_v^{−1}).",
    "neededBy": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/classical-point-compatibility"
    ]
@@ -3847,7 +3877,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
-   "need": "The local Weil group W_{F_v} with its inertia subgroup, degree map and abelianization W_{F_v}^{ab} ≅ F_v^× through the Artin map.",
+   "need": "The local Weil group W_{F_v} with its inertia subgroup, degree map and abelianization W_{F_v}^{ab} ≅ F_v^× through the Artin map. For the arithmetic targets F_v is a finite extension of ℚ_ℓ. Use the topological abelianization and this characteristic-zero restriction for the reciprocity isomorphism; the generic Weil-group carrier has a broader scope.",
    "neededBy": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-hecke-operators",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/ramified-local-determinant"
@@ -3870,9 +3900,17 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-   "need": "Dirichlet-density Chebotarev for finite Galois extensions of number fields: density of Frobenius classes, used for the Kummer-theoretic independence of the uniformizer classes and for comparing determinants by Frobenius traces.",
+   "need": "Dirichlet-density Chebotarev for finite Galois extensions of number fields: the conjugacy-saturated Frobenius set is dense for comparing continuous determinants. It does not by itself establish the independent local prescriptions in G1.",
    "neededBy": [
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction"
+   ]
+  },
+  {
+   "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+   "need": "Use the existing current upstream Theorems.compact_determinant_gluing: compact Hausdorff coefficient algebra A, continuous jointly injective maps to Hausdorff coefficient algebras B_i, continuous determinants D_i, and common coefficients in A on a conjugacy-dense Frobenius set imply a unique continuous A-valued determinant lifting the family. Match the atlas node name to this existing contract; do not add another gluing theorem. It handles independently chosen nilpotent quotient ideals without transition maps.",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/compact-support-compatibility",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction"
    ]
   }
@@ -3882,53 +3920,91 @@
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1",
    "status": "planned",
    "remaining": [
-    "SR.1's integral Lemmas 2.1.12–2.1.13 and Tau Ceti ClassFieldTheory layers 7 and 9 are requested; the tame-level Bruhat decomposition and quadratic relation at intermediate levels are carried in the proof of IHR.1/tame-double-coset-invertible and are the first lemma-level refinements."
+    "SR.1's integral Lemmas 2.1.12–2.1.13 and Tau Ceti ClassFieldTheory layers 7 and 9 are requested; torus invertibility descends integrally from the pro-ℓ-Iwahori algebra, without a Weyl presentation at arbitrary intermediate levels.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2",
    "status": "planned",
    "remaining": [
-    "Requests to SR.1–SR.3 (Jacquet's lemma in the Bushnell–Kutzko form, supercuspidal support, universal unramified twist) and ET.6 (rec^T, Steinberg parameters, supercuspidal support) remain open; the universal-unramified-twist density argument is the first lemma-level refinement."
+    "Requests to SR.1–SR.3 (Jacquet's lemma in the Bushnell–Kutzko form, supercuspidal support, universal unramified twist) and ET.6 (rec^T, Steinberg parameters, supercuspidal support) remain open; the universal-unramified-twist density argument is the first lemma-level refinement.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
    "status": "planned",
    "remaining": [
-    "Requests to TC.3 (Siegel datum ι_v and Proposition 2.2.16) and IHG.3 (unramified Weil-group polynomials P_{v,σ}) remain open; the Satake computations of Propositions 2.2.18–2.2.19 are planned as single nodes and split into the v and v^c coordinate computations at lemma level."
+    "Requests to TC.3 (Siegel datum ι_v and Proposition 2.2.16) and IHG.3 (unramified Weil-group polynomials P_{v,σ}) remain open; the Satake computations of Propositions 2.2.18–2.2.19 are planned as single nodes and split into the v and v^c coordinate computations at lemma level.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4",
    "status": "planned",
    "remaining": [
-    "Proposition 2.2.14 rests on ET.6's Langlands classification for tamely ramified principal-series support; its root bookkeeping (with the correction of IntegralHeckeAndGaloisDeterminantsPartII/E9) is the first lemma-level refinement."
+    "Proposition 2.2.14 rests on ET.6's Langlands classification for tamely ramified principal-series support; its root bookkeeping (with the correction of IntegralHeckeAndGaloisDeterminantsPartII/E9) is the first lemma-level refinement.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5",
    "status": "planned",
    "remaining": [
-    "Requests to ALS.5:finite-level-duality (adjoint duality at the places of R) and SR.1 remain open; the equivariant action of the tame operators on the relative complexes RΓ_{K/K′}(X_{K′}) is planned inside IHR.5/ramified-level-change and becomes its own lemma at lemma level."
+    "Requests to ALS.5:finite-level-duality (adjoint duality at the places of R) and SR.1 remain open; the equivariant action of the tame operators on the relative complexes RΓ_{K/K′}(X_{K′}) is planned inside IHR.5/ramified-level-change and becomes its own lemma at lemma level.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
    "status": "planned",
    "remaining": [
-    "Requests to TC.2 (Scholze's comparison for the full prime-to-p Hecke algebra), AG2.2/AG2.5 (Theorem 2.3.3) and IHG.2 (Hecke images of an exact triangle) remain open."
+    "Requests to TC.2 (Scholze's comparison for the full prime-to-p Hecke algebra), AG2.2/AG2.5 (Theorem 2.3.3) and IHG.2 (Hecke images of an exact triangle) remain open.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2)."
    ]
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Requests to TC.4 (Theorems 2.3.5 and 2.3.7), IHG.1 (Lemma 3.2.4) and Tau Ceti ClassFieldTheory/Chebotarev remain open; the import of Theorem 2.4.8 from PotentialAutomorphyInfrastructure PA.0 is subject to the restructure proposal recorded in this packet."
+    "Requests to TC.4 (Theorems 2.3.5 and 2.3.7), IHG.1 (Lemma 3.2.4) and Tau Ceti ClassFieldTheory/Chebotarev remain open; the import of Theorem 2.4.8 from PotentialAutomorphyInfrastructure PA.0 is subject to the restructure proposal recorded in this packet.",
+    "Suggested Lean declaration coverage remains partial; reconcile every packet API/test and named theorem with the omission ledger (G2).",
+    "G1: odd-prime-order global characters with prescribed unramified local values, needed by auxiliary-characters and all downstream descent targets, are not proved by the cited ClassFieldTheory/Chebotarev layers."
    ]
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "id": "IntegralHeckeAndGaloisDeterminantsPartII/G1",
+   "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
+   "title": "Auxiliary-character local prescriptions",
+   "detail": "The odd-order global character theorem with independent unramified local Frobenius prescriptions is not supplied. Prove/source the exact contract in the corrected proofSteps; retain disjoint rational-prime ramification by enlarging the avoidance set for the second character. Locate a freely readable precise Grunwald-type theorem, with its odd-prime hypotheses, and prove how it yields both prescriptions. Request it from the appropriate lower-tier owner without pretending it is already in ClassFieldTheory.",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/boundary-determinant",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-restriction-at-R",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/unramified-at-conjugate",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-local-global",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/local-global-away-from-p"
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminantsPartII/G2",
+   "title": "Lean signature coverage",
+   "detail": "Suggested.lean is a partial carrier prototype: its omission ledger lists required definitions, APIs, tests and named theorems with no elaborated declaration, including all global targets. A comment is not a Lean signature. Compilation of the present declarations does not establish coverage. Finish the ledger against genuine imported roadmap carriers; retain exact hypotheses and normalization. Do not replace absent carriers or conclusions by Prop-valued placeholders.",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6",
+    "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7"
+   ]
+  }
+ ],
  "sourceIssues": [
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E1",
@@ -3945,7 +4021,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. An O-algebra homomorphism needs an O-algebra as domain; the next sentence applies t to an element q_v^{−⟨λ, ρ+(1−n)/2·det⟩}(1, …, α, …, 1) of O[Ξ_v], and Lemma 2.1.13 produces a map on H(M(F), U_M) ⊗ R = O[Ξ_v] for M = T_n.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E2",
@@ -3953,7 +4034,7 @@
    "kind": "gap",
    "locator": "§2.2.5, pp. 924–926: the invertibility of [I_vgI_v] (citing [Fli11, Cor. 3.4]), the centrality of e_{v,i}(α) in Proposition 2.2.9(2) (citing [Fli11, Prop. 4.11]) and the commutation in Lemma 2.2.10 (citing [Fli11, Th. 4.5]) (also in arXiv v2)",
    "printed": "The cited results are applied to every open compact I_v with Iw_v(1,1) ⊂ I_v ⊂ Iw_v(0,1) and to Hecke algebras with coefficients in O.",
-   "correction": "Flicker proves them for the tame subgroup I_t = Iw_v(1,1) only and for complex coefficients. The general statements hold: invertibility over ℤ[1/q_v] at every intermediate level follows from the same Iwahori–Matsumoto argument (quadratic relation with integer structure constants, T(s)(T(s) − c_s) = q_vT(s²)); centrality at an intermediate level follows over Q̄_p from e H(G, Iw_v(1,1)) e ≅ H(G, I_v) with e the averaging idempotent, and over O because the Hecke algebra is O-torsion-free; the commutation identity is an identity of ℤ-valued functions, which holds over ℤ if it holds over ℂ.",
+   "correction": "Torus invertibility is justified by the pro-ℓ-Iwahori integral inverse followed by the bi-invariant-function descent of the corrected IHR.1 proof, with both convolution volumes accounted for. Do not assert the same Weyl presentation at arbitrary intermediate levels. Centrality descends over Q̄_p by the averaging corner and then to O by the injectivity of coefficient extension; averaging is not used over O.",
    "reason": "Flicker, The tame algebra, §§2–4: the algebra studied is C_c(I_t\\G/I_t) over ℂ, with I_t the pro-p Iwahori subgroup; no intermediate level appears. When p divides [I_v : Iw_v(1,1)] the averaging idempotent does not exist over O, so the integral statements need the arguments recorded in IHR.1/tame-double-coset-invertible and IHR.2/tame-hecke-centre.",
    "affects": "nothing",
    "known": "new",
@@ -3962,7 +4043,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed the mismatch between the cited complex pro-ℓ-Iwahori result and the general integral/intermediate-level assertion. The old repair incorrectly extended Weyl relations to non-Weyl-stable levels; this review replaces that repair.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E3",
@@ -3979,7 +4065,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. Take n = 1 and Ã = {(a, a)} ⊂ (k(v)^×)²: Ĩ_v̄ ∩ G(F⁺_v̄) = {(x, y) ∈ O_{F_{v^c}}^× × O_{F_v}^× : c(x)^{−1} ≡ y mod ϖ_v}, which is not a product of subgroups since both projections are onto O^× while the subgroup is proper. For such Ĩ_v̄ the polynomials P_{v,σ}, P_{v^c,σ^{−c}} of Proposition 2.2.18 are not defined.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E4",
@@ -3996,7 +4087,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. The general term (−1)^iq_v^{i(i−1)/2}T_{v,i}X^{n−i} gives the sign (−1)^n at i = n, and the constant term of a characteristic polynomial is (−1)^n times the determinant.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E5",
@@ -4013,15 +4109,20 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. P̃_v is monic of degree 2n and the neighbouring terms carry X^{2n−1}, ….",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E6",
    "source": "ACC23",
    "kind": "misprint",
    "locator": "§2.2.5, after (2.2.7) (p. 922), after (2.2.12) (p. 926) and Lemma 2.2.13(2) (p. 927) (also in arXiv v2)",
-   "printed": "The sums defining P̃_{v,σ}(X) and the characteristic polynomial of r_v(σ) are printed with X^{n−i}, i = 0, …, 2n; Lemma 2.2.13(2) also reads 'is equals'.",
-   "correction": "X^{2n−i} in all three places, and 'equals'.",
+   "printed": "The three degree-2n polynomial expansions use the exponent n−i rather than 2n−i.",
+   "correction": "Use X^{2n−i} in all three expansions.",
    "reason": "P̃_{v,σ} = P_{v^c,σ^{−c}}P_{v,σ} is a product of two monic polynomials of degree n; with X^{n−i} negative powers would occur. (2.2.17) on p. 931 has X^{2n−i}.",
    "affects": "nothing",
    "known": "new",
@@ -4030,7 +4131,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. P̃_{v,σ} = P_{v^c,σ^{−c}}P_{v,σ} is a product of two monic polynomials of degree n; with X^{n−i} negative powers would occur. (2.2.17) on p. 931 has X^{2n−i}.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E7",
@@ -4047,7 +4153,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. By part (3) the scalar is the i-th elementary symmetric function of the eigenvalues of r_v(σ); for n = 2 and an unramified principal series whose Frobenius eigenvalues on rec^T are a and −a, e_{v,1}(ϖ_v, π_v) = 0.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E8",
@@ -4064,7 +4175,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. The preceding sentence defines e_{v^c,i}(σ) for this purpose, e_{v,i}(·) is defined only on W_{F_v} while σ ∈ W_{F_{v^c}}, and the proof of Lemma 2.2.13 uses ẽ_{v,k}(σ) = Σ_{i+j=k}e_{v,i}(σ)e_{v^c,j}(σ^{−c}).",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E9",
@@ -4081,7 +4197,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. For n = 1, s = 1, α_1 = 2, μ = (1, 1) the printed roots differ by a factor q_v², whereas the two Frobenius eigenvalues of r_v(φ_v) on Sp_2 differ by q_v; with the correction they are ψ(φ_v) and ψ|·|^{−1}(φ_v), and the final step of the proof goes through unchanged.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E10",
@@ -4098,7 +4219,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. 𝔪 is a maximal ideal of T^S(K, λ) (p. 963 insists on this), and the localizations T^{T_i}_R(K_i, λ)_{𝔪_i} are taken as T^{S_i}(K_i, λ)-algebras.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E11",
@@ -4115,7 +4241,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. The construction gives K̃_v̄ ∩ G = K_v̄ ∩ G(O_{F⁺_v̄}), which is K_v̄ only if K_v̄ ⊂ G(O_{F⁺_v̄}); for n ≥ 2 and K_v = gGL_n(O_{F_v})g^{−1}, g = diag(ϖ_v, 1, …, 1), this fails.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E12",
@@ -4132,7 +4263,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. Only Ĩ_{c,R} is introduced, and D̃_{c,R} is valued modulo Ĩ_{c,R}; part (3) and Corollary 3.2.3 use the right subscript.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E13",
@@ -4149,7 +4285,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. φ_v, Res_v and P_{v,φ_v} are defined only for v ∈ R − R^c (Res_v at the Siegel level q̃_v); the bullet is meant to give part (3), stated for v ∈ R − R^c, and the parallel bullet on p. 961 says v ∈ R − R^c.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E14",
@@ -4166,7 +4307,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. At v ∈ R − R^c the level is q̃_v and P̃_{v,σ} is built from transferred operators; the needed statement is Lemma 2.2.13, cited nowhere else.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E15",
@@ -4183,7 +4329,12 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. Conditions (1)–(3) compare characteristic polynomials and a trace modulo Ĩ, and what is constructed is a determinant modulo a nilpotent ideal.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E16",
@@ -4200,15 +4351,20 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. The two readings are equivalent because ρ(σ) is invertible.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E17",
    "source": "ACC23",
    "kind": "gap",
    "locator": "§3.2, proof of Lemma 3.2.1, p. 956 (also in arXiv v2)",
-   "printed": "After possibly enlarging O, characters ψ_1, ψ_2 of finite prime-to-p order, unramified at S, never both ramified above one rational prime, and separating the Frobenius characteristic polynomials at R, are asserted to exist, and 'a very similar argument' is said to give ψ as in Lemma 3.2.1(3).",
-   "correction": "Existence holds: take ψ = χ|_{G_F} with χ a character of G_{F⁺} of odd prime order r ≠ p, r larger than the number of excluded values, unramified at the places below S (and below R ∪ R^c ∪ S_p for ψ) with prescribed values at the Frob_v̄ (v̄ below R); such χ exist by class field theory, Kummer theory and Chebotarev, as in IHR.7/auxiliary-characters.",
+   "printed": "Lemma 3.2.1(2)–(3) asserts the separating finite-order characters without giving their global construction or a local-prescription theorem.",
+   "correction": "Record a missing proof input, rather than a false theorem: an odd-prime-order global-character theorem with prescribed unramified Frobenius values and avoidance of a finite ramification set is needed. The former ClassFieldTheory/Kummer/Chebotarev paragraph did not prove that theorem; see G1.",
    "reason": "The coprimality conditions only constrain ψ(Frob_v)ψ(Frob_{v^c}) = χ(Frob_v̄)² to avoid finitely many values; the independence of the uniformizer classes modulo r follows from the principle that an element which is an r-th power at a density-one set of places is an r-th power.",
    "affects": "nothing",
    "known": "new",
@@ -4218,7 +4374,12 @@
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted",
     "RT-PAPER-ALLEN-ETAL-23/29 (an unverified red-team finding on the paper extraction) raises the same point."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. The omission is confirmed; the old proposed Kummer/Chebotarev completion is not established and remains a gap.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   },
   {
    "id": "IntegralHeckeAndGaloisDeterminantsPartII/E18",
@@ -4235,7 +4396,69 @@
     "arXiv 1812.09999 versions v1–v2: the slip is present in v2 (checked in the v2 text, 2026-10-09)",
     "The Annals article page and the authors' posted published copy (2026-10-09): no erratum listed",
     "PAPER-ALLEN-ETAL-23 sourceIssues (the atlas's paper extraction), which records the same slip where noted"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently checked at the published locator. Proposition 2.3.9 concerns T̃^S(K̃, λ̃) acting on RΓ(X̃_K̃, 𝒱_λ̃), not on RΓ_c(X̃_K̃, O).",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminantsPartII/E19",
+   "source": "ACC23",
+   "kind": "error",
+   "locator": "§2.2.5, proof of Lemma 2.2.13, pp. 927–928",
+   "printed": "The symmetric-function comparison in normalized principal series uses the unscaled inducing characters as eigenvalues of rec^T.",
+   "correction": "Use ψ_i(α)|α|^{(1−2n)/2}, consistently with the definition of rec^T in §1.2, p. 908.",
+   "reason": "Already for normalized induction of two trivial characters, rec^T at geometric Frobenius has eigenvalues q_v^{1/2}, not 1.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-10-10: published Annals article page, Calegari and Allen research pages, and searches for the paper title with erratum/corrigendum; no correction for this passage found. This is not an exhaustive claim about all author correspondence."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Already for normalized induction of two trivial characters, rec^T at geometric Frobenius has eigenvalues q_v^{1/2}, not 1.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminantsPartII/E20",
+   "source": "ACC23",
+   "kind": "misprint",
+   "locator": "§2.3, Theorem 2.3.3(c), p. 936",
+   "printed": "The local automorphic representation is composed with the forward map ι_v from the unitary group to GL₂ₙ.",
+   "correction": "Compose with ι_v⁻¹ to obtain a GL₂ₙ representation, as in Lemma 2.2.13, p. 927.",
+   "reason": "The domain of the representation is the unitary group; the forward composition is ill-typed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-10: published Annals article page, Calegari and Allen research pages, and searches for the paper title with erratum/corrigendum; no correction for this passage found. This is not an exhaustive claim about all author correspondence."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The domain of the representation is the unitary group; the forward composition is ill-typed.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminantsPartII/E21",
+   "source": "ACC23",
+   "kind": "misprint",
+   "locator": "§3.2, proof of Proposition 3.1.2, p. 964, compared with §2.2.5, p. 928",
+   "printed": "The later description of Res_v lists the two factors in the reverse order from its defining formula.",
+   "correction": "Preserve the definition resultant(P_{v^c,φ_v^{−c}},P_{v,φ_v}). The reverse-order resultant differs by (−1)^{n²}; the displayed even-powered relation and the unit criterion are unaffected.",
+   "reason": "For n=1 the ordered resultant is b−a when the conjugate factor has root b and the v-factor has root a.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-10: published Annals article page, Calegari and Allen research pages, and searches for the paper title with erratum/corrigendum; no correction for this passage found. This is not an exhaustive claim about all author correspondence."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For n=1 the ordered resultant is b−a when the conjugate factor has root b and the v-factor has root a.",
+    "by": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII"
+   }
   }
  ],
  "restructure": [
@@ -4266,5 +4489,228 @@
    "detail": "The tame torus embedding t (IHR.1/tame-torus-embedding) and the invertibility of tame double cosets are planned here for GL_n, the only group the sources need. RT-PAPER-ALLEN-ETAL-23/16 (unverified) proposes a single owner, the pending SmoothRepresentationsOfLocalGroupsPartII (parahoric centres), which would also serve the pro-prime-to-ℓ Iwahori Lemma 7.3 of Böckle–Harris–Khare–Thorne routed to GValuedDeformationsAndPotentialAutomorphy.",
    "proposal": "When SmoothRepresentationsOfLocalGroupsPartII is designed, plan there the tame Bernstein-type embedding R[T(F)/T_U] → H(G(F), U) ⊗ R for split G and Iw_1 ⊆ U ⊆ Iw with q ∈ R^×, with invertibility and centre; then IHR.1/tame-double-coset-invertible and IHR.1/tame-torus-embedding become its GL_n specializations, keeping their ids and the GL_n normalization t_{v,i}(α) = q_v^{(i−1)v(α)}t([e_i(α)]) here."
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
+  "date": "2026-10-10",
+  "notes": "Independent source and pinned-baseline review of all 43 nodes, 20 original baseline entries (plus two existing valuation declarations) and all 18 existing source issues (plus three corrections found by this review). Corrected intermediate-level invertibility proofs, rec^T scaling, resultant order, compact gluing, decomposedness and misleading non-examples. Needs changes for the unproved auxiliary-character supplier contract and required Lean declaration coverage; see G1/G2 and the review report. This is a completed review, not a checkpoint.",
+  "checked": [
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-iwahori-level",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-torus-quotient",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-double-coset-invertible",
+    "verdict": "corrected",
+    "note": "Replaced the invalid Weyl presentation at arbitrary intermediate levels by integral torus descent from the pro-ℓ-Iwahori level; added a non-Weyl-stable-level countercheck."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-torus-embedding",
+    "verdict": "corrected",
+    "note": "Restricted the distinguishing antidominant inequality to coefficients where q_v and q_v⁻¹ differ."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/tame-hecke-operators",
+    "verdict": "corrected",
+    "note": "Qualified the wrong-normalization non-example to characteristic-zero coefficients. Matched the Weil-Artin comparison to current ClassFieldTheory’s finite-ℚ_ℓ scope and topological abelianization."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1/ramified-hecke-polynomial",
+    "verdict": "corrected",
+    "note": "Qualified the inertia-sensitive non-example by q_v>2 and a faithful coefficient specialization."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/tame-principal-series-criterion",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/tame-hecke-centre",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/tame-local-langlands-charpoly",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.2/spherical-specialization",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/siegel-parahoric-level",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/unitary-tame-level",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/siegel-strongly-positive-invertible",
+    "verdict": "corrected",
+    "note": "Corrected the assertion that the larger-level characteristic function is a unit in the smaller-level algebra; tracked both convolution normalizations."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/siegel-transfer-operators",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/unitary-tame-hecke-polynomial",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/siegel-transfer-local-langlands",
+    "verdict": "corrected",
+    "note": "Restored the |α|^{(1−2n)/2} factor when comparing normalized induction with rec^T; the theorem statement itself was correct."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/satake-transform-tame-level",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.3/satake-transform-siegel-level",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4/siegel-resultant",
+    "verdict": "corrected",
+    "note": "Preserved the ordered resultant definition of p. 928 under Satake; p. 964 reverses its order, which changes its sign for odd n but not the unit criterion or even-powered relation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4/factorization-etale",
+    "verdict": "corrected",
+    "note": "Supplied the graded-projectivity argument for finite freeness and the relative-differentials criterion for étaleness, including inseparable fibres."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4/resultant-kills-inertia",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.4/resultant-inertia-galois",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-hecke-algebra",
+    "verdict": "corrected",
+    "note": "Corrected the rank-one test to the actual generated translation subalgebra and made the semilocal non-example conditional on both refinements occurring."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/unitary-ramified-hecke-algebra",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-satake-homomorphism",
+    "verdict": "corrected",
+    "note": "Preserved the ordered resultant definition of p. 928 under Satake; p. 964 reverses its order, which changes its sign for odd n but not the unit criterion or even-powered relation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-twisting",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-hecke-duality",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.5/ramified-level-change",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/classical-point-compatibility",
+    "verdict": "corrected",
+    "note": "Corrected the direction of the local group identification in the proof and its AG2.5 request: the GL₂ₙ representation is π̃_v̄ ∘ ι_v⁻¹. Removed the stronger common-subfield assumption: the imaginary quadratic subfield can depend on v."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/dual-classical-point-compatibility",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/ramified-interpolation",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/compact-support-compatibility",
+    "verdict": "corrected",
+    "note": "Replaced an unsupported inverse limit of independently chosen nilpotent quotients by current upstream IHG.4 compact determinant gluing."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/cohomology-compatibility",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.6/boundary-compatibility",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/ramified-local-determinant",
+    "verdict": "corrected",
+    "note": "Qualified the pair of different tame inertia characters by existence of a nontrivial residue character."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/auxiliary-characters",
+    "verdict": "unverifiable",
+    "note": "Unverifiable closure: replaced the unsupported local-prescription claim by its exact missing odd-order global-character input."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/decomposed-unitary-level",
+    "verdict": "corrected",
+    "note": "Corrected decomposedUnitaryLevel_decomposed and its proof to the parabolic intersection; the old equation put an open subgroup inside a proper parabolic."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/small-level-reduction",
+    "verdict": "corrected",
+    "note": "Applied the same compact gluing repair to weight reduction; dependence on the unresolved auxiliary-character input remains explicit."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/boundary-determinant",
+    "verdict": "corrected",
+    "note": "Made the non-square example a distinguishing specialization, not a universal inequality."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-restriction-at-R",
+    "verdict": "corrected",
+    "note": "Clarified that factor identification uses the full twisted Weil determinant and separated Frobenius spectra of its constituents; one Frobenius polynomial alone does not identify a Weil determinant."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/unramified-at-conjugate",
+    "verdict": "corrected",
+    "note": "Preserved the ordered resultant definition of p. 928 under Satake; p. 964 reverses its order, which changes its sign for odd n but not the unit criterion or even-powered relation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/determinant-local-global",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   },
+   {
+    "nodeId": "IntegralHeckeAndGaloisDeterminantsPartII:IHR.7/local-global-away-from-p",
+    "verdict": "verified",
+    "note": "Published statement, hypotheses, source locator, direct prerequisite chain, API/tests where present, and planet checked. Supplier obligations remain requests, not claims of implementation."
+   }
+  ]
+ }
 }

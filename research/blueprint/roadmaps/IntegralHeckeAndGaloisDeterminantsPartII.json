@@ -22,7 +22,7 @@
   {
    "key": "IHR.1",
    "title": "Pro-ℓ-Iwahori levels and the ramified Hecke operators of GL_n",
-   "description": "### IHR.1. Pro-ℓ-Iwahori levels and the ramified Hecke operators of GL_n\n\nLet F_v be a nonarchimedean local field with ring of integers O_{F_v}, fixed uniformizer ϖ_v, residue field k(v) of cardinality q_v and residue characteristic ℓ, and let O be a ring in which q_v is a unit (in the arithmetic application, the ring of integers of a finite extension E/ℚ_p with p ≠ ℓ). Hecke algebras H(G, U) are the rings of compactly supported U-biinvariant ℤ-valued functions with vol(U) = 1, written with double cosets [UgU]; Art_{F_v} sends uniformizers to geometric Frobenius elements.\n\n**Targets.**\n- *Tame Iwahori levels.* The open compact subgroups I_v of GL_n(F_v) with Iw_{v,1} ⊆ I_v ⊆ Iw_v (Iw_v the standard Iwahori subgroup, Iw_{v,1} the pro-ℓ Iwahori subgroup of ArithmeticLocallySymmetricSpaces ALS.0); their bijection with subgroups of (k(v)^×)^n = Iw_v/Iw_{v,1}; their Iwahori decomposition with respect to the upper triangular Borel B_n = T_nN_n.\n- *The tame torus quotient* Ξ_v = T_n(F_v)/(T_n(F_v) ∩ I_v) = (F_v^×)^n/ker((O_{F_v}^×)^n → Iw_v/I_v), its positive cone (valuations non-increasing), the exact sequence 0 → T_n(O_{F_v})/(T_n ∩ I_v) → Ξ_v → ℤ^n → 0, and the strongly positive element z_v = diag(ϖ_v^{n−1}, …, ϖ_v, 1).\n- *Invertibility of positive double cosets*: for every g ∈ T_n(F_v), [I_v g I_v] is a unit of H(GL_n(F_v), I_v) ⊗ ℤ[1/q_v] (Flicker's tame presentation, extended to every intermediate level and to integral coefficients).\n- *The tame torus embedding* t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O, the unique O-algebra homomorphism sending a positive g to [I_v g I_v]; it is injective (ACC+ §2.2.5, p. 924, via the positive-monoid Lemmas 2.1.12–2.1.13 owned by SmoothRepresentationsOfLocalGroups SR.1).\n- *The ramified Hecke operators* t_{v,i}(α) = t(q_v^{(i−1)v(α)}·(1, …, α, …, 1)) for α ∈ F_v^× (α in position i), their elementary symmetric functions e_{v,i}(α), and the characters ψ_{v,i} : W_{F_v} → (H(GL_n(F_v), I_v) ⊗ O)^×, σ ↦ t_{v,i}(σ) := t_{v,i}(Art_{F_v}^{−1}(σ|_{F_v^{ab}})).\n- *The ramified Hecke polynomial* (2.2.8) P_{v,σ}(X) = ∏_{i=1}^{n}(X − t_{v,i}(σ)) = Σ_{i=0}^{n}(−1)^i e_{v,i}(σ)X^{n−i}, with its universal version in O[Ξ_v][X], and its compatibility with change of tame level.\n\nEvery object carries the API listed in the roadmap document, with unit tests for n = 1, for I_v = Iw_v and for I_v = Iw_{v,1}.",
+   "description": "### IHR.1. Pro-ℓ-Iwahori levels and the ramified Hecke operators of GL_n\n\nLet F_v be a nonarchimedean local field with ring of integers O_{F_v}, fixed uniformizer ϖ_v, residue field k(v) of cardinality q_v and residue characteristic ℓ, and let O be a ring in which q_v is a unit (in the arithmetic application, the ring of integers of a finite extension E/ℚ_p with p ≠ ℓ). Hecke algebras H(G, U) are the rings of compactly supported U-biinvariant ℤ-valued functions with vol(U) = 1, written with double cosets [UgU]; Art_{F_v} sends uniformizers to geometric Frobenius elements.\n\n**Targets.**\n- *Tame Iwahori levels.* The open compact subgroups I_v of GL_n(F_v) with Iw_{v,1} ⊆ I_v ⊆ Iw_v (Iw_v the standard Iwahori subgroup, Iw_{v,1} the pro-ℓ Iwahori subgroup of ArithmeticLocallySymmetricSpaces ALS.0); their bijection with subgroups of (k(v)^×)^n = Iw_v/Iw_{v,1}; their Iwahori decomposition with respect to the upper triangular Borel B_n = T_nN_n.\n- *The tame torus quotient* Ξ_v = T_n(F_v)/(T_n(F_v) ∩ I_v) = (F_v^×)^n/ker((O_{F_v}^×)^n → Iw_v/I_v), its positive cone (valuations non-increasing), the exact sequence 0 → T_n(O_{F_v})/(T_n ∩ I_v) → Ξ_v → ℤ^n → 0, and the strongly positive element z_v = diag(ϖ_v^{n−1}, …, ϖ_v, 1).\n- *Invertibility of positive double cosets*: for every g ∈ T_n(F_v), [I_v g I_v] is a unit of H(GL_n(F_v), I_v) ⊗ ℤ[1/q_v] (integral torus descent from the pro-ℓ-Iwahori algebra, accounting for both convolution volumes).\n- *The tame torus embedding* t : O[Ξ_v] → H(GL_n(F_v), I_v) ⊗ O, the unique O-algebra homomorphism sending a positive g to [I_v g I_v]; it is injective (ACC+ §2.2.5, p. 924, via the positive-monoid Lemmas 2.1.12–2.1.13 owned by SmoothRepresentationsOfLocalGroups SR.1).\n- *The ramified Hecke operators* t_{v,i}(α) = t(q_v^{(i−1)v(α)}·(1, …, α, …, 1)) for α ∈ F_v^× (α in position i), their elementary symmetric functions e_{v,i}(α), and the characters ψ_{v,i} : W_{F_v} → (H(GL_n(F_v), I_v) ⊗ O)^×, σ ↦ t_{v,i}(σ) := t_{v,i}(Art_{F_v}^{−1}(σ|_{F_v^{ab}})).\n- *The ramified Hecke polynomial* (2.2.8) P_{v,σ}(X) = ∏_{i=1}^{n}(X − t_{v,i}(σ)) = Σ_{i=0}^{n}(−1)^i e_{v,i}(σ)X^{n−i}, with its universal version in O[Ξ_v][X], and its compatibility with change of tame level.\n\nEvery object carries the API listed in the roadmap document, with unit tests for n = 1, for I_v = Iw_v and for I_v = Iw_{v,1}.",
    "requires": [
     "IntegralHeckeAndGaloisDeterminants:IHG.3",
     "SmoothRepresentationsOfLocalGroups:SR.1",
@@ -31,7 +31,8 @@
     "ArithmeticLocallySymmetricSpaces:ALS.4",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.2",
@@ -47,7 +48,8 @@
     "SmoothRepresentationsOfLocalGroups:SR.3",
     "AutomorphicGaloisRepresentationsPartII:AG2.0",
     "IntegralHeckeAndGaloisDeterminantsPartII:IHR.1"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.3",
@@ -64,7 +66,8 @@
     "SmoothRepresentationsOfLocalGroups:SR.3",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
     "IntegralHeckeAndGaloisDeterminants:IHG.3"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.4",
@@ -75,7 +78,8 @@
     "ArithmeticGaloisRepresentations:R01.2",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
     "SmoothRepresentationsOfLocalGroups:SR.2"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.5",
@@ -94,7 +98,8 @@
     "ArithmeticLocallySymmetricSpaces:ALS.6",
     "TorsionCohomologyInfrastructure:TC.3",
     "SmoothRepresentationsOfLocalGroups:SR.1"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.6",
@@ -113,7 +118,8 @@
     "IntegralHeckeAndGaloisDeterminants:IHG.4",
     "IntegralHeckeAndGaloisDeterminants:IHG.5",
     "ArithmeticLocallySymmetricSpaces:ALS.4"
-   ]
+   ],
+   "reviewNote": "Target-level statement checked; see the packet for corrected proof contracts and outstanding Lean signature coverage."
   },
   {
    "key": "IHR.7",
@@ -134,7 +140,8 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
     "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
-   ]
+   ],
+   "reviewNote": "Partial: the auxiliary-character local-prescription theorem is a recorded gap; downstream descent is conditional on it."
   }
  ],
  "sources": [
@@ -190,5 +197,11 @@
    ]
   }
  ],
- "status": "draft"
+ "status": "draft",
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
+  "date": "2026-10-10",
+  "notes": "See the packet review and G1/G2; IHR.7 is partial pending the auxiliary-character input, and Suggested.lean does not yet cover the packet."
+ }
 }
