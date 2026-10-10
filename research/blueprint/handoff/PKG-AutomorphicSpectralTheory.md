@@ -1,3 +1,90 @@
+# PKG-AutomorphicSpectralTheory — blocked package checkpoint
+
+Issue #7893; Codex session `codex-qWatyb`; 10 October 2026.
+Branch: `codex-qWatyb-pkg-automorphic-spectral-theory`.
+Starting explorer commit: `5d4af89bf2de1fd967c5e9716b9e4721c399de97`.
+The bot confirmed [claim 6096353273](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096353273)
+in [6096354264](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096354264).
+No manager-priority issue was available. This focus package was selected under
+WORKERS' fallback ordering; this session claimed only this job.
+
+**Blocked checkpoint, not a completed roadmap package.** Only this handoff is
+changed. The package and authoritative plans are preserved. Metadata remains
+absent, so intake must not treat the package as complete.
+
+## Verified repair boundary
+
+Fresh inspection confirms all three upward prerequisite edges in the unchanged
+AS packet. The tier order places AS in tier 13 and ET in tier 14, outside a
+shared bundle. WORKERS requires higher-tier definitions to move down; the issue
+restricts edits to the three package files and this handoff and explicitly says
+not to change the packet. A package-only change cannot reconcile the owners.
+
+| Consumer in AS | Present supplier | Required specification repair |
+| --- | --- | --- |
+| `AS.2/generic-normalized-intertwiner` | `EndoscopicTransferAndUnitaryTraceComparison:ET.0` | Give the classical parameter/packet carrier, generic unitary members and pure-inner-form conventions a permitted owner and exact export. |
+| `AS.6/weighted-orbital-integral` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move ordinary centralizer-quotient integration, semisimple convergence and singular extension down; ET imports them for stable/transfer additions. |
+| `AS.6/general-euler-poincare` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move the ordinary discrete-series/pseudo-coefficient inputs down and expose their real-representation/Paley–Wiener dependencies. |
+
+The current ET document, `content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md`,
+confirms that ET.0 builds stable conjugacy and endoscopic data, not the classical
+packet carrier. AS's own ET.0 request says no existing ET node supplies that
+carrier. Add `AS.2/generic-normalized-intertwiner` to that request's `neededBy`:
+it is a direct consumer, alongside the three already listed. ET.1 still expressly
+constructs ordinary quotient measures/orbital integration and the unitary-case
+pseudo-coefficient formulas. Updating a package citation alone would conceal
+these contract and ownership changes.
+
+The accepted review is a target-level pass: 52 gaps, 22 requests, seven planned
+stages and zero closed stages. It does not certify a gap-free package. The
+retained continuation below lists 44 target and 16 API signature omissions and
+further AF/ALS supplier repairs; those remain unresolved. This blocker concerns
+the specifications, not implementation of the planned theorems.
+
+**Resume condition:** revise the affected owner and consumer plans together
+under an issue that permits those edits, with precise statements and lower-tier
+or same-bundle imports. Then continue the retained signature inventory. Avoid
+scheduling another identical package-only continuation before that repair.
+
+## Current upstream and validation
+
+- Current read-only TauCetiRoadmap HEAD is now
+  `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`, newer than the preceding note's
+  receipt. Current Tau Ceti HEAD remains
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- Read CompactGroups and OperatorIdeals' current READMEs and inspected their
+  suggested interfaces. A case-insensitive search across both current trees'
+  Lean files and READMEs for orbital integrals, pseudo-coefficients,
+  Paley–Wiener, pure inner forms and classical packets found only an orbital
+  integral bibliography entry in AdelicAlgebraicGroups. No replacement supplier
+  contract was found. Neither tree was edited or built.
+- Read all seven AS entries of the reviewed library audit. The ordinary orbital
+  integral remains absent there. No new claim about a pinned declaration is made.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  exit 0, zero errors/warnings; 190 nodes, 223 API items, 219 tests and 38 planets.
+- Full package `lean-check`: exit 0, zero errors, 741 warnings, all
+  `declaration uses sorry`; no other warnings. Available memory before the check
+  was 106 GB. The helper used the shared atlas-pin build and reported Mathlib
+  `082e2d37e8`. No Lean process remains.
+- AS, AF and ALS authoritative packet hashes still match the preceding receipts:
+  `c3b928e23edff50069469d0e6d6afa7dd095015d4b1d539ee044a66b24fe5e2d`,
+  `e53bde2f09f2a00a0f39cc49cc0e6bc303bac666df24c48a95d4220960d890b4`,
+  `07a7fa47da244817c3ada946da98676606379f31851363121ca87c9c113b9293`.
+- Unchanged package README SHA-256:
+  `3d506516a590c4d30bffb15f9ceb9ed0472b27d5c5e6b25999003c9e987719be`.
+  Unchanged package Suggested.lean SHA-256:
+  `03eabd34ae3440f21c67c878943e9425bc35138a7ac24f385297f02117f6e213`.
+
+No fresh primary-paper verification or mathematical edits were performed in
+this checkpoint. Primary-source readings below are inherited. The cleared
+library index was read; no restricted source was used or copied. Scratch logs
+are disposable; all continuation inputs remain in this handoff and the existing
+package files.
+
+---
+
+# Preceding checkpoint — codex-DqHM0E
+
 # PKG-AutomorphicSpectralTheory — blocked checkpoint with concrete intertwiner checks
 
 Issue #7893. Codex, session `codex-DqHM0E`, 10 October 2026.
