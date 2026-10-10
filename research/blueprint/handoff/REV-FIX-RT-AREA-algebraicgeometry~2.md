@@ -1,12 +1,12 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
-**Blocked checkpoint, 10 October 2026, Codex (GPT-6), session `codex-Ho4B0u`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702). Continues merged checkpoint [#8326](https://github.com/CBirkbeck/tauceti-explorer/pull/8326), by codex-wGe07r. One job only. This checkpoint changes only the report and this handoff; no packet, history, Lean declaration, reader or atlas edge changed.
+**Blocked checkpoint, 10 October 2026, Codex (GPT-6), session `codex-fXIkDJ`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702). Continues merged checkpoint [#8331](https://github.com/CBirkbeck/tauceti-explorer/pull/8331), by codex-Ho4B0u. One job only. Only this handoff and the report changed; all packet, history and Lean files are unchanged.
 
-## Reconcile the assignment before dispatching again
+## Required dispatch correction
 
-The live issue names five packet/suggested pairs; the queue requires eleven. [WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus your own scratch space.” This session asked to apply a concrete patch to the six omitted packets. No authorizing reply arrived. The existing full issue instructions are sufficient; the absent queue prompt is not another blocker.
+The live issue lists five packet/suggested pairs, while its queue requires eleven. The five existing issue-listed review markers satisfy their part of the completion predicate. The exact remaining six-packet patch was prepared in scratch and passed all checks before this session requested explicit authorization. No authorizing reply arrived. WORKERS.md, Doing the work, says “Edit only the files the issue names, plus your own scratch space.” Apply no omitted path until authorized or added to the live issue.
 
-The five existing issue-listed review markers already satisfy their portion of the completion check. Repeating their checks or refreshing those markers cannot finish this job. Negative completed reviews count; supplier implementation is unnecessary. Authorize exactly these six additional packet JSON paths, either explicitly or in the live issue:
+Authorize exactly these six additional packet JSON paths:
 
 - `research/blueprint/packets/AdicCoefficientsAndComparisons.json`
 - `research/blueprint/packets/PELModuli.json`
@@ -15,7 +15,9 @@ The five existing issue-listed review markers already satisfy their portion of t
 - `research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json`
 - `research/blueprint/packets/ShimuraData.json`
 
-The queue already includes these paths. No queue or Suggested edit is required.
+The queue already includes them; no queue, Suggested or prompt edit is needed. Completed negative reviews satisfy completion. The exact proposal changes two Adic mathematical fields plus these six verdicts and histories; it preserves every entire prior review, node, request and all older history. Current completion is false, and staging only the job outputs with this six-packet proposal makes `issues.deliverables_complete` true. No scope approval is inferred from that test.
+
+Do not dispatch another read-only continuation with the same five-file scope. Repeating its validations or refreshing its markers cannot finish #5702. The necessary mathematics and review decisions are below; supplier implementation is not a prerequisite for submitting a completed negative review.
 
 ## Six actions after authorization
 
@@ -49,9 +51,9 @@ Preserve the surrounding rescope fields, MC.6's distinct stable-extension contra
 - All eleven current packets and all six prepared updates pass `check_blueprint.py` with the pinned declaration index: zero errors/warnings. All eleven current packets have no source-excerpt fields.
 - A scratch staging of only the job deliverables returns true from the actual `issues.deliverables_complete`; current outputs return false. Preservation assertions cover entire preceding reviews, old histories, nodes and requests. The unapplied six-packet proposal modifies only the two Adic fields and six reviews/history appendices.
 - Fresh read-only graph assembly reproduces 15,601 current edges and 15,595 after the six SF.5 forwarding deletions. Both are acyclic. MC.4 → SF.4 makes the latter cyclic. The surviving routes differ between VB0 and PEL M2: one uses AbelianSchemes A4, the other FiniteFlatGroups R07.2. Splitting only one is insufficient.
-- Fresh source reads: de Jong 2.24 p.62 visually and textually; SGA 1 XII 1.1 and 4.2/4.4/4.5, including re-edition pp.248–251; Huber–Muller-Stach Definition 2.8 p.10 and Theorem 2.10 p.11; Stacks 07QY/07QZ. The three PDF digests match the report. Tate retrieval returned HTTP 403, so its previous table inspection is explicitly inherited. Artin's original-base and broader source audits remain inherited. No uncleared YZZ copy was accessed.
+- Fresh source reads: de Jong 2.24 p.62 visually and textually; SGA 1 XII 1.1 and 4.2/4.4/4.5, including re-edition pp.248–251; Huber–Muller-Stach Definition 2.8 p.10 and Theorem 2.10 p.11; Stacks 07QY/07QZ. The three PDF digests match the report. The predecessor reported HTTP 403 retrieving Tate; this session did not refetch it and inherits the previous table inspection. Artin's original-base and broader source audits remain inherited. No uncleared YZZ copy was accessed.
 - All eleven unchanged Suggested files hash-match the report's receipts. Reuse ten successful full-file receipts (nine from #8265 and compactifications from #8313, with 51 admitted-proof warnings). ShimuraData's failed receipt from #8304 has 66 printed error headers including the diagnostic limit, and 113 warnings, three other than admitted proofs. No Lean file changed and no unchanged elaboration was repeated.
 - Pinned Hodge.Conjugation was reread; its source matches the deployed build, SHA-256 `41f76a3650b90e0de3c36e7ad1b374e31b960e52a8578faa99884e6211460f99`. Baseline commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-- Current read-only roadmaps remain `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`, current library `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Relevant StableReduction/AlgebraicVectorBundles contracts were reread. No Lake command ran there. Available memory was 109 GB.
+- Current read-only roadmaps are `35abcbde930414647dad7cc22ee03e6464c7ae26` (advanced from the predecessor), current library `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Relevant StableReduction/AlgebraicVectorBundles contracts were reread. No Lake command ran there. Available memory was 108 GB.
 
 The report preserves the full 32-finding ledger and exact Lean hashes. No scratch artifact is needed to resume. After scope authorization, apply the six actions, run the packet and actual completion checks, open the complete-review PR with Refs #5702, and stop after this one job.
