@@ -48452,8 +48452,9 @@
     "PKG-HabiroCohomologyFoundations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7931"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7931",
+   "finishedAt": "2026-10-10T01:16:03Z"
   },
   {
    "id": "PKG-HabiroCyclotomicCompletions",
@@ -49117,7 +49118,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
