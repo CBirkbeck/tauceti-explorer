@@ -55,17 +55,17 @@
 <g fill="none" stroke="#52514e" stroke-opacity="0.32" stroke-width="1.2">
 <path d="M736.0,2897.0 C736.0,2867.0 625.0,2867.0 625.0,2837.0"><title>AdelicAlgebraicGroups uses ReductiveGroupsPartII</title></path>
 <path d="M736.0,2897.0 C736.0,2870.5 847.0,2870.5 847.0,2844.0"><title>SmoothRepresentationsOfLocalGroups uses ReductiveGroupsPartII</title></path>
-<path d="M958.0,2890.0 C958.0,2797.5 847.0,2797.5 847.0,2705.0"><title>IntegralHeckeAndGaloisDeterminants uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M847.0,2786.0 C847.0,2745.5 847.0,2745.5 847.0,2705.0"><title>IntegralHeckeAndGaloisDeterminants uses SmoothRepresentationsOfLocalGroups</title></path>
+<path d="M958.0,2890.0 C958.0,2797.5 847.0,2797.5 847.0,2705.0"><title>IntegralHeckeAndGaloisDeterminants uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M625.0,2793.0 C625.0,2745.5 625.0,2745.5 625.0,2698.0"><title>GeometryOfNumbersAndQuadraticArithmetic uses AdelicAlgebraicGroups</title></path>
 <path d="M1069.0,2793.0 C1069.0,2766.5 1069.0,2766.5 1069.0,2740.0"><title>AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces uses SchemeAndStackFoundations</title></path>
 <path d="M1069.0,2612.0 C1069.0,2585.5 958.0,2585.5 958.0,2559.0"><title>EnhancedDerivedSheaves uses AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces</title></path>
 <path d="M736.0,2897.0 C736.0,2731.5 736.0,2731.5 736.0,2566.0"><title>AlgebraicModuliForArithmeticGeometry uses ReductiveGroupsPartII</title></path>
 <path d="M1069.0,2612.0 C1069.0,2589.0 736.0,2589.0 736.0,2566.0"><title>AlgebraicModuliForArithmeticGeometry uses AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces</title></path>
 <path d="M736.0,2522.0 C736.0,2495.5 958.0,2495.5 958.0,2469.0"><title>ComplexComparisonPartII uses AlgebraicModuliForArithmeticGeometry</title></path>
-<path d="M958.0,2890.0 C958.0,2728.0 1180.0,2728.0 1180.0,2566.0"><title>LocallyAnalyticDistributions uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M736.0,2897.0 C736.0,2731.5 1180.0,2731.5 1180.0,2566.0"><title>LocallyAnalyticDistributions uses ReductiveGroupsPartII</title></path>
 <path d="M1069.0,2612.0 C1069.0,2589.0 1180.0,2589.0 1180.0,2566.0"><title>LocallyAnalyticDistributions uses AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces</title></path>
+<path d="M958.0,2890.0 C958.0,2728.0 1180.0,2728.0 1180.0,2566.0"><title>LocallyAnalyticDistributions uses PadicMeasuresIwasawaAlgebras</title></path>
 <path d="M625.0,2654.0 C625.0,2610.0 514.0,2610.0 514.0,2566.0"><title>DiophantineApproximationAndTranscendence uses GeometryOfNumbersAndQuadraticArithmetic</title></path>
 <path d="M514.0,2522.0 C514.0,2499.0 736.0,2499.0 736.0,2476.0"><title>ClassicalArithmeticCompletion uses DiophantineApproximationAndTranscendence</title></path>
 <path d="M958.0,2439.0 C958.0,2412.5 958.0,2412.5 958.0,2386.0"><title>InverseGaloisAndArithmeticFundamentalGroups uses ComplexComparisonPartII</title></path>
@@ -77,10 +77,10 @@
 <path d="M847.0,2238.0 C847.0,2215.0 736.0,2215.0 736.0,2192.0"><title>ArithmeticGaloisDuality + SelmerIwasawaCohomology uses ArithmeticGaloisRepresentations</title></path>
 <path d="M736.0,2148.0 C736.0,2125.0 958.0,2125.0 958.0,2102.0"><title>CrystallineCohomology + DerivedDeRhamCohomology uses ArithmeticGaloisDuality + SelmerIwasawaCohomology</title></path>
 <path d="M958.0,2058.0 C958.0,2014.0 625.0,2014.0 625.0,1970.0"><title>DeformationAndDerivedPatchingAlgebra uses CrystallineCohomology + DerivedDeRhamCohomology</title></path>
-<path d="M514.0,2522.0 C514.0,2312.0 736.0,2312.0 736.0,2102.0"><title>HeightsRationalPointsAndObstructions uses DiophantineApproximationAndTranscendence</title></path>
 <path d="M736.0,2148.0 C736.0,2125.0 736.0,2125.0 736.0,2102.0"><title>HeightsRationalPointsAndObstructions uses ArithmeticGaloisDuality + SelmerIwasawaCohomology</title></path>
-<path d="M625.0,2793.0 C625.0,2315.5 514.0,2315.5 514.0,1838.0"><title>ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups uses AdelicAlgebraicGroups</title></path>
+<path d="M514.0,2522.0 C514.0,2312.0 736.0,2312.0 736.0,2102.0"><title>HeightsRationalPointsAndObstructions uses DiophantineApproximationAndTranscendence</title></path>
 <path d="M625.0,1926.0 C625.0,1882.0 514.0,1882.0 514.0,1838.0"><title>ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups uses DeformationAndDerivedPatchingAlgebra</title></path>
+<path d="M625.0,2793.0 C625.0,2315.5 514.0,2315.5 514.0,1838.0"><title>ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups uses AdelicAlgebraicGroups</title></path>
 <path d="M514.0,1766.0 C514.0,1739.5 403.0,1739.5 403.0,1713.0"><title>AutomorphicLFunctionsAndLocalFactors uses ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups</title></path>
 <path d="M514.0,1766.0 C514.0,1736.0 1069.0,1736.0 1069.0,1706.0"><title>ShimuraData uses ArithmeticLocallySymmetricSpaces + AutomorphicFormsOnReductiveGroups</title></path>
 <path d="M958.0,2058.0 C958.0,2017.5 847.0,2017.5 847.0,1977.0"><title>FiniteFlatGroupsAndIntegralPadicHodgeTheory uses CrystallineCohomology + DerivedDeRhamCohomology</title></path>
@@ -99,27 +99,27 @@
 <path d="M1180.0,1787.0 C1180.0,1750.0 1291.0,1750.0 1291.0,1713.0"><title>WeightsInEtaleCohomology uses DeligneWeightsAndPurity</title></path>
 <path d="M1180.0,2522.0 C1180.0,2121.0 1513.0,2121.0 1513.0,1720.0"><title>PadicDifferentialEquationsAndRigidCohomology uses LocallyAnalyticDistributions</title></path>
 <path d="M1180.0,1787.0 C1180.0,1753.5 1513.0,1753.5 1513.0,1720.0"><title>PadicDifferentialEquationsAndRigidCohomology uses DeligneWeightsAndPurity</title></path>
-<path d="M1291.0,1669.0 C1291.0,1642.5 1069.0,1642.5 1069.0,1616.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses WeightsInEtaleCohomology</title></path>
-<path d="M736.0,1787.0 C736.0,1701.5 1069.0,1701.5 1069.0,1616.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses DiamondEtaleCohomology</title></path>
 <path d="M1513.0,1662.0 C1513.0,1639.0 1069.0,1639.0 1069.0,1616.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses PadicDifferentialEquationsAndRigidCohomology</title></path>
+<path d="M736.0,1787.0 C736.0,1701.5 1069.0,1701.5 1069.0,1616.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses DiamondEtaleCohomology</title></path>
+<path d="M1291.0,1669.0 C1291.0,1642.5 1069.0,1642.5 1069.0,1616.0"><title>AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology uses WeightsInEtaleCohomology</title></path>
 <path d="M181.0,1676.0 C181.0,1583.5 403.0,1583.5 403.0,1491.0"><title>CohomologyComparisons uses CompletedCohomologyPartII</title></path>
 <path d="M1069.0,1544.0 C1069.0,1517.5 403.0,1517.5 403.0,1491.0"><title>CohomologyComparisons uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
-<path d="M736.0,2058.0 C736.0,1778.0 625.0,1778.0 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses HeightsRationalPointsAndObstructions</title></path>
-<path d="M1180.0,1787.0 C1180.0,1642.5 625.0,1642.5 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses DeligneWeightsAndPurity</title></path>
 <path d="M625.0,1558.0 C625.0,1528.0 625.0,1528.0 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses AutomorphicSpectralTheory</title></path>
 <path d="M736.0,2432.0 C736.0,1965.0 625.0,1965.0 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses ClassicalArithmeticCompletion</title></path>
-<path d="M847.0,1669.0 C847.0,1538.5 514.0,1538.5 514.0,1408.0"><title>ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions uses AlgebraicModularFormsAndSerreWeights</title></path>
-<path d="M1069.0,1544.0 C1069.0,1476.0 514.0,1476.0 514.0,1408.0"><title>ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M736.0,2058.0 C736.0,1778.0 625.0,1778.0 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses HeightsRationalPointsAndObstructions</title></path>
+<path d="M1180.0,1787.0 C1180.0,1642.5 625.0,1642.5 625.0,1498.0"><title>AnalyticNumberTheory + ArithmeticStatistics uses DeligneWeightsAndPurity</title></path>
 <path d="M625.0,1454.0 C625.0,1431.0 514.0,1431.0 514.0,1408.0"><title>ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions uses AnalyticNumberTheory + ArithmeticStatistics</title></path>
+<path d="M1069.0,1544.0 C1069.0,1476.0 514.0,1476.0 514.0,1408.0"><title>ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M847.0,1669.0 C847.0,1538.5 514.0,1538.5 514.0,1408.0"><title>ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions uses AlgebraicModularFormsAndSerreWeights</title></path>
 <path d="M1069.0,1676.0 C1069.0,1639.0 847.0,1639.0 847.0,1602.0"><title>PELModuli + ShimuraVarieties uses ShimuraData</title></path>
 <path d="M958.0,1787.0 C958.0,1694.5 847.0,1694.5 847.0,1602.0"><title>PELModuli + ShimuraVarieties uses ModularCurvesPartII</title></path>
-<path d="M1291.0,1669.0 C1291.0,1583.5 847.0,1583.5 847.0,1498.0"><title>HilbertModularVarietiesAndShimuraCurves uses WeightsInEtaleCohomology</title></path>
 <path d="M847.0,1558.0 C847.0,1528.0 847.0,1528.0 847.0,1498.0"><title>HilbertModularVarietiesAndShimuraCurves uses PELModuli + ShimuraVarieties</title></path>
-<path d="M1069.0,1544.0 C1069.0,1469.0 958.0,1469.0 958.0,1394.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
+<path d="M1291.0,1669.0 C1291.0,1583.5 847.0,1583.5 847.0,1498.0"><title>HilbertModularVarietiesAndShimuraCurves uses WeightsInEtaleCohomology</title></path>
 <path d="M625.0,1454.0 C625.0,1424.0 958.0,1424.0 958.0,1394.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AnalyticNumberTheory + ArithmeticStatistics</title></path>
-<path d="M847.0,1454.0 C847.0,1365.0 958.0,1365.0 958.0,1276.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses HilbertModularVarietiesAndShimuraCurves</title></path>
-<path d="M514.0,1322.0 C514.0,1299.0 958.0,1299.0 958.0,1276.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions</title></path>
+<path d="M1069.0,1544.0 C1069.0,1469.0 958.0,1469.0 958.0,1394.0"><title>GlobalGaloisDeformations + LocalGaloisDeformationRings uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
 <path d="M958.0,1336.0 C958.0,1306.0 958.0,1306.0 958.0,1276.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses GlobalGaloisDeformations + LocalGaloisDeformationRings</title></path>
+<path d="M514.0,1322.0 C514.0,1299.0 958.0,1299.0 958.0,1276.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions</title></path>
+<path d="M847.0,1454.0 C847.0,1365.0 958.0,1365.0 958.0,1276.0"><title>ModularSymbolsPadicLFunctions + PadicFamilies uses HilbertModularVarietiesAndShimuraCurves</title></path>
 <path d="M847.0,1669.0 C847.0,1528.0 736.0,1528.0 736.0,1387.0"><title>AutomorphicBundles + ShimuraCompactifications uses AlgebraicModularFormsAndSerreWeights</title></path>
 <path d="M847.0,1454.0 C847.0,1420.5 736.0,1420.5 736.0,1387.0"><title>AutomorphicBundles + ShimuraCompactifications uses HilbertModularVarietiesAndShimuraCurves</title></path>
 <path d="M736.0,1343.0 C736.0,1306.0 1180.0,1306.0 1180.0,1269.0"><title>ArakelovGeometryAndAbelianHeights uses AutomorphicBundles + ShimuraCompactifications</title></path>
@@ -127,22 +127,22 @@
 <path d="M736.0,1787.0 C736.0,1746.5 625.0,1746.5 625.0,1706.0"><title>DiamondSixOperations uses DiamondEtaleCohomology</title></path>
 <path d="M514.0,1322.0 C514.0,1295.5 736.0,1295.5 736.0,1269.0"><title>AnabelianGeometryAndNonabelianChabauty uses ColemanIntegration + ComputationalNumberTheory + DirichletPadicLFunctions</title></path>
 <path d="M736.0,1225.0 C736.0,1198.5 736.0,1198.5 736.0,1172.0"><title>EffectiveDiophantineMethods uses AnabelianGeometryAndNonabelianChabauty</title></path>
-<path d="M403.0,1461.0 C403.0,1365.0 514.0,1365.0 514.0,1269.0"><title>HodgeTateAndCanonicalSubgroups uses CohomologyComparisons</title></path>
 <path d="M736.0,1343.0 C736.0,1306.0 514.0,1306.0 514.0,1269.0"><title>HodgeTateAndCanonicalSubgroups uses AutomorphicBundles + ShimuraCompactifications</title></path>
-<path d="M625.0,1558.0 C625.0,1528.0 1069.0,1528.0 1069.0,1498.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses AutomorphicSpectralTheory</title></path>
+<path d="M403.0,1461.0 C403.0,1365.0 514.0,1365.0 514.0,1269.0"><title>HodgeTateAndCanonicalSubgroups uses CohomologyComparisons</title></path>
 <path d="M1069.0,1884.0 C1069.0,1691.0 1069.0,1691.0 1069.0,1498.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles</title></path>
+<path d="M625.0,1558.0 C625.0,1528.0 1069.0,1528.0 1069.0,1498.0"><title>EndoscopicTransferAndUnitaryTraceComparison uses AutomorphicSpectralTheory</title></path>
 <path d="M514.0,1225.0 C514.0,1198.5 514.0,1198.5 514.0,1172.0"><title>PerfectoidShimuraVarieties uses HodgeTateAndCanonicalSubgroups</title></path>
 <path d="M1180.0,1225.0 C1180.0,1198.5 1180.0,1198.5 1180.0,1172.0"><title>FaltingsFinitenessAndIsogenyTheorems uses ArakelovGeometryAndAbelianHeights</title></path>
 <path d="M1069.0,1544.0 C1069.0,1358.0 1180.0,1358.0 1180.0,1172.0"><title>FaltingsFinitenessAndIsogenyTheorems uses AInfCohomology + PadicHodgeTheory + PerfectoidQuotients + PrismaticCohomology</title></path>
 <path d="M847.0,1669.0 C847.0,1528.0 1180.0,1528.0 1180.0,1387.0"><title>GL2AutomorphicRepresentationsAndTransfer uses AlgebraicModularFormsAndSerreWeights</title></path>
 <path d="M1069.0,1454.0 C1069.0,1420.5 1180.0,1420.5 1180.0,1387.0"><title>GL2AutomorphicRepresentationsAndTransfer uses EndoscopicTransferAndUnitaryTraceComparison</title></path>
-<path d="M1069.0,1454.0 C1069.0,1313.0 958.0,1313.0 958.0,1172.0"><title>AutomorphicGaloisRepresentationsPartII uses EndoscopicTransferAndUnitaryTraceComparison</title></path>
 <path d="M736.0,1343.0 C736.0,1257.5 958.0,1257.5 958.0,1172.0"><title>AutomorphicGaloisRepresentationsPartII uses AutomorphicBundles + ShimuraCompactifications</title></path>
 <path d="M958.0,1218.0 C958.0,1195.0 958.0,1195.0 958.0,1172.0"><title>AutomorphicGaloisRepresentationsPartII uses ModularSymbolsPadicLFunctions + PadicFamilies</title></path>
+<path d="M1069.0,1454.0 C1069.0,1313.0 958.0,1313.0 958.0,1172.0"><title>AutomorphicGaloisRepresentationsPartII uses EndoscopicTransferAndUnitaryTraceComparison</title></path>
 <path d="M958.0,1128.0 C958.0,1105.0 736.0,1105.0 736.0,1082.0"><title>TorsionCohomologyInfrastructure uses AutomorphicGaloisRepresentationsPartII</title></path>
 <path d="M514.0,1128.0 C514.0,1105.0 736.0,1105.0 736.0,1082.0"><title>TorsionCohomologyInfrastructure uses PerfectoidShimuraVarieties</title></path>
-<path d="M625.0,1676.0 C625.0,1334.0 736.0,1334.0 736.0,992.0"><title>IgusaVarietiesAndTorsionConcentration uses DiamondSixOperations</title></path>
 <path d="M736.0,1038.0 C736.0,1015.0 736.0,1015.0 736.0,992.0"><title>IgusaVarietiesAndTorsionConcentration uses TorsionCohomologyInfrastructure</title></path>
+<path d="M625.0,1676.0 C625.0,1334.0 736.0,1334.0 736.0,992.0"><title>IgusaVarietiesAndTorsionConcentration uses DiamondSixOperations</title></path>
 <path d="M958.0,1128.0 C958.0,1105.0 958.0,1105.0 958.0,1082.0"><title>AutomorphicGaloisRepresentations uses AutomorphicGaloisRepresentationsPartII</title></path>
 <path d="M1180.0,1343.0 C1180.0,1212.5 958.0,1212.5 958.0,1082.0"><title>AutomorphicGaloisRepresentations uses GL2AutomorphicRepresentationsAndTransfer</title></path>
 <path d="M958.0,1038.0 C958.0,1015.0 958.0,1015.0 958.0,992.0"><title>SerreWeightAndLevelOptimisation uses AutomorphicGaloisRepresentations</title></path>
@@ -155,8 +155,8 @@
 <path d="M1180.0,1128.0 C1180.0,887.0 958.0,887.0 958.0,646.0"><title>SmallRamificationAndAbelianVarietyBaseCases uses FaltingsFinitenessAndIsogenyTheorems</title></path>
 <path d="M958.0,602.0 C958.0,579.0 847.0,579.0 847.0,556.0"><title>ClassicalSerreModularity uses SmallRamificationAndAbelianVarietyBaseCases</title></path>
 <path d="M847.0,526.0 C847.0,503.0 847.0,503.0 847.0,480.0"><title>EllipticCurveModularity uses ClassicalSerreModularity</title></path>
-<path d="M847.0,450.0 C847.0,427.0 847.0,427.0 847.0,404.0"><title>ModularityAndLanglandsExtensions uses EllipticCurveModularity</title></path>
 <path d="M736.0,602.0 C736.0,503.0 847.0,503.0 847.0,404.0"><title>ModularityAndLanglandsExtensions uses PotentialAutomorphyInfrastructure</title></path>
+<path d="M847.0,450.0 C847.0,427.0 847.0,427.0 847.0,404.0"><title>ModularityAndLanglandsExtensions uses EllipticCurveModularity</title></path>
 <path d="M847.0,360.0 C847.0,337.0 847.0,337.0 847.0,314.0"><title>CrystallineLocalGlobalCompatibilityCM uses ModularityAndLanglandsExtensions</title></path>
 <path d="M847.0,270.0 C847.0,247.0 847.0,247.0 847.0,224.0"><title>EllipticCurveModularityImaginaryQuadratic uses CrystallineLocalGlobalCompatibilityCM</title></path>
 <path d="M736.0,1128.0 C736.0,676.0 847.0,676.0 847.0,224.0"><title>EllipticCurveModularityImaginaryQuadratic uses EffectiveDiophantineMethods</title></path>
@@ -198,13 +198,13 @@
 <rect x="771.0" y="2822.5" width="51" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
 <text x="775.0" y="2832.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #785</text>
 </g>
-<g><title>T3 · IntegralHeckeAndGaloisDeterminants: package accepted · final check on a Tau Ceti lane</title>
+<g><title>T3 · IntegralHeckeAndGaloisDeterminants: package accepted · pull request open on TauCetiRoadmap</title>
 <rect x="747.0" y="2647.0" width="200" height="58" rx="7" fill="#ffffff" stroke="#0b0b0b" stroke-width="2.5"/>
 <circle cx="760.0" cy="2662.0" r="5" fill="#184f95" stroke="#104281" stroke-width="1"/>
 <text x="771.0" y="2666.0" font-size="11.5" fill="#0b0b0b">Integral Hecke &amp; Galois</text>
 <text x="771.0" y="2680.0" font-size="11.5" fill="#0b0b0b">Determinants</text>
-<rect x="771.0" y="2683.5" width="120" height="13" rx="3" fill="#fff3c4" stroke="#9a9993" stroke-width="0.8"/>
-<text x="775.0" y="2693.0" font-size="10.5" font-weight="600" fill="#5a4300">PR A′ on A · check</text>
+<rect x="771.0" y="2683.5" width="51" height="13" rx="3" fill="#ffd27a" stroke="#9a9993" stroke-width="0.8"/>
+<text x="775.0" y="2693.0" font-size="10.5" font-weight="600" fill="#5a3400">PR #789</text>
 </g>
 <g><title>T3 · GeometryOfNumbersAndQuadraticArithmetic: plan accepted</title>
 <rect x="525.0" y="2654.0" width="200" height="44" rx="7" fill="#ffffff" stroke="#0b0b0b" stroke-width="2.5"/>
