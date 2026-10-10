@@ -1,5 +1,50 @@
 # REV-FIX-RT-AREA-padic-1~3
 
+## Read-only generator reproduction: 10 October 2026
+
+Codex, session `codex-oCcEpY`, continued issue #5704 from `bb373205d`.
+The bot confirmed this claim. The issue still lists the original seven
+outputs; the queue still lists 47. The preceding scoped review is finished.
+No new mathematical verdict, source audit or Lean compilation is claimed.
+The three current verdicts and all earlier evidence remain unchanged.
+
+Fresh `issues.deliverables_complete` results are **false** for the unmodified
+queue entry and **true** for an in-memory copy with the issue's seven paths.
+All three named packets pass the stock checker with zero errors and warnings.
+Exactly 20 additional packets carry other review jobs' verdicts.
+
+A controlled, read-only reproduction now demonstrates the generator's
+broadening, rather than only identifying a possible code path. Extracted the
+actual nested `fix_rounds` function with Python's AST, executed it with captured
+`add` calls and inert prompt templates, and supplied this minimal fixture:
+
+- A completed first round contains one original packet.
+- An already published second round has state `external`, the same packet and
+  its second-round report, and follows the first round's review.
+- The newly computed blueprint list adds one new owner packet; no review has
+  sent work back.
+
+The stock function adds the new owner's packet to both the published second
+round and its review. The cause is `missing`: it disables reuse of the existing
+second-round job at the `made` assignment. In the same isolated fixture,
+replacing that assignment's value with `previous_jobs.get(following)` preserves
+both scopes. Both assertions pass. The generator, queue and prompts were not
+executed or edited; the fixture wrote no repository files. This is a candidate
+repair, not a tested complete generator change. A maintainer repair must also
+check first-round preservation, send-back cases, new-round creation, prompt
+consistency and full regeneration.
+
+The author-merge queue at `c69e5b6c9` independently confirms ten fix outputs
+and seven review outputs, with exactly the three issue-named packets. Restore
+those historical scopes before checking the preservation change; retaining
+already broadened outputs alone would preserve the defect.
+
+Scope clarification was requested in this run. Without explicit authorization,
+WORKERS' issue-path restriction prevents applying the queue/generator repair.
+This submission is a checkpoint for that administrative blocker. Only this
+report and the handoff change. The next worker should obtain scope resolution
+and repair the metadata, rather than repeat the completed mathematical review.
+
 ## Scope diagnostic continuation: 10 October 2026
 
 Codex, session `codex-I2abtS`, continued issue #5704 from commit
