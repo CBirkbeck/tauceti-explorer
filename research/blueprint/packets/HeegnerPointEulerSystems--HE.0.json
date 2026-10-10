@@ -6127,6 +6127,78 @@
         "clarification": "Requested in this session; no answer at the time of the checkpoint.",
         "remaining": "Ten additional independent verdicts, after authorizing their scope, or reconciliation of the queue with the live issue."
       }
+    },
+    "independentFixReviewSession": {
+      "session": "codex-kEnFR2",
+      "date": "2026-10-10",
+      "findings": [
+        "RT-AREA-iwasawa-1/2",
+        "RT-AREA-iwasawa-1/8",
+        "RT-AREA-iwasawa-1/9",
+        "RT-AREA-iwasawa-1/10"
+      ],
+      "sourceRetrieval": [
+        {
+          "sourceId": "howard",
+          "url": "https://arxiv.org/pdf/1202.6340v1",
+          "read": "2026-10-10",
+          "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+          "locators": "Definition 1.2.3 p.7; H.0–H.5 pp.8–9; Theorems 1.6.1/1.6.5 pp.16–19; Proposition 1.7.4 and Theorem 1.7.5 p.21."
+        },
+        {
+          "sourceId": "skinner",
+          "url": "https://arxiv.org/pdf/1407.1093v1",
+          "read": "2026-10-10",
+          "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988",
+          "locators": "Theorems A/B pp.1–2; §2.5, Theorem 2.5.2 and integral coefficient argument pp.15–16."
+        },
+        {
+          "sourceId": "zanarella",
+          "url": "https://arxiv.org/pdf/1908.09197v1",
+          "read": "2026-10-10",
+          "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f",
+          "locators": "Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6 pp.19–20."
+        },
+        {
+          "sourceId": "zhang",
+          "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+          "read": "2026-10-10",
+          "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+          "note": "Version of record read in the maintainer-cleared library; file and passages were not copied.",
+          "locators": "Theorem 2.1 pp.203–204; §6.3, Theorems 6.4–6.5 pp.228–231; Theorem 7.1 pp.231–232."
+        }
+      ],
+      "baseline": "All thirteen cited Mathlib statements read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Current Tau Ceti degeneracy operator, upstream elliptic/modular-curve boundaries and LocalGaloisGroups prototype inspected read-only.",
+      "graph": {
+        "indexedNodes": 30589,
+        "duplicateIds": [],
+        "reachableNodes": 4234,
+        "cycles": [],
+        "HE6CleanNodes": 6,
+        "HE6ZhangNodes": 13,
+        "HE8FamilyNodes": 62,
+        "HE8UsesHE6": 0,
+        "periodHeegnerInputs": [],
+        "missingLeanNames": [],
+        "queueComplete": false,
+        "liveIssueComplete": true
+      },
+      "packetChecker": "0 errors, 0 warnings",
+      "sourceIssueChecker": "10 source issues, 24 version receipts, 0 problems; a schema check, not an independent rereading of all ten errata.",
+      "lean": {
+        "exitCode": 0,
+        "warningCount": 114,
+        "warnings": "All declarations use admissions; no other warnings or errors.",
+        "sha256": "9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b"
+      },
+      "scopeCheck": {
+        "liveIssuePacketCount": 1,
+        "liveQueuePacketCount": 11,
+        "liveIssueDeliverablesComplete": true,
+        "queueDeliverablesComplete": false,
+        "clarification": "Requested in this session; no answer at the time of the checkpoint.",
+        "remaining": "Ten additional independent verdicts, after authorizing their scope, or reconciliation of the queue with the live issue."
+      }
     }
   },
   "reviewHistory": [
@@ -6643,13 +6715,51 @@
           "note": "/9: Accepted OpenImageTheoremsForAbelianVarieties route in PAPER-CALEGARI-GERAGHTY-20 and the Part II design handoff. HE.7 imports the general image theory and keeps only the Heegner error-constant application. Missing all-p/adelic and GL₂-type uniform exports remain requested."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
+      "date": "2026-10-10",
+      "notes": "Independent continuation by Codex — codex-mVQR9r, following codex-TRbVPK’s accepted HE.0 fix review of 2026-10-10. Re-read the four HE.0 fix contracts (/2,/8,/9,/10), the confirmed findings, round-two fix report and current supplier statements. Independently read Zhang Theorem 2.1, §6.3, Theorems 6.4–6.5 and 7.1–7.2 in the version of record; Howard Definition 1.2.3, H.0–H.5 and Theorems 1.6.1/1.6.5; Skinner Theorems A/B and §2.5; Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6. The fixes remain correct within their stated supplier gaps; no new mathematical correction is needed. Read all 13 pinned Mathlib declarations. Re-ran the declaration closure (30,589 indexed nodes, no duplicate ids, no reachable HE.0 cycle), HE.6 partition (6 clean/13 Zhang), HE.8 independence (62 nodes), and period independence. check_blueprint has 0 errors/warnings; source-issue schema/version checks have 0 problems; lean-check exits 0 with 114 warnings, all admission warnings. Acceptance is only of the HE.0 fixes, preserving 21 gaps, 63 requests and unchecked status. The live issue still authorizes only HE.0 while the live queue requires ten additional reviews; those have no verdict from this session. A scope clarification remains unanswered; the report and handoff document this completion blocker.",
+      "checked": [
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+          "verdict": "verified",
+          "note": "/2: Rechecked the exact-level contract against Zhang Theorem 2.1, pp.203–204. Its rational JL and integral transport requirements remain separate."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
+          "verdict": "verified",
+          "note": "/8: Rechecked Zhang Theorem 7.1, pp.231–232, Skinner Theorems A/B pp.1–2 and the integral argument pp.15–16. The repaired prime-to-discriminant restriction and integral conditions remain explicit."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
+          "verdict": "verified",
+          "note": "/8: Rechecked Zhang §6.3 and Theorem 6.4, pp.228–230. The geometric component-group and nonsquarefree supplier requirements remain exact requests. The period export has no Heegner prerequisite."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+          "verdict": "verified",
+          "note": "/9: Ownership contract remains assigned to the image-theory Part II; all-prime/adelic and GL₂-type gaps remain recorded. This is an ownership check, not a new proof of the general open-image theorem."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+          "verdict": "verified",
+          "note": "/10: Howard Theorems 1.6.1 and 1.6.5, pp.16–19, agree with the ES.5 theorem and actual hypothesis verification. No new general descent theorem is planned here."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
+          "verdict": "verified",
+          "note": "/10: Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6, pp.19–20, agree with the current statement, prime bound and exact ES.5 request."
+        }
+      ]
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
     "date": "2026-10-10",
-    "notes": "Independent continuation by Codex — codex-mVQR9r, following codex-TRbVPK’s accepted HE.0 fix review of 2026-10-10. Re-read the four HE.0 fix contracts (/2,/8,/9,/10), the confirmed findings, round-two fix report and current supplier statements. Independently read Zhang Theorem 2.1, §6.3, Theorems 6.4–6.5 and 7.1–7.2 in the version of record; Howard Definition 1.2.3, H.0–H.5 and Theorems 1.6.1/1.6.5; Skinner Theorems A/B and §2.5; Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6. The fixes remain correct within their stated supplier gaps; no new mathematical correction is needed. Read all 13 pinned Mathlib declarations. Re-ran the declaration closure (30,589 indexed nodes, no duplicate ids, no reachable HE.0 cycle), HE.6 partition (6 clean/13 Zhang), HE.8 independence (62 nodes), and period independence. check_blueprint has 0 errors/warnings; source-issue schema/version checks have 0 problems; lean-check exits 0 with 114 warnings, all admission warnings. Acceptance is only of the HE.0 fixes, preserving 21 gaps, 63 requests and unchecked status. The live issue still authorizes only HE.0 while the live queue requires ten additional reviews; those have no verdict from this session. A scope clarification remains unanswered; the report and handoff document this completion blocker.",
+    "notes": "Independent fix review by Codex — codex-kEnFR2, following codex-mVQR9r’s accepted HE.0 review of 2026-10-10. Independently checked confirmed findings /2, /8, /9 and /10, the round-two fix report, current HE.0 statements and supplier contracts. Read Zhang Theorem 2.1, §6.3 and Theorems 6.4–6.5/7.1; Howard Definition 1.2.3, H.0–H.5, Theorems 1.6.1/1.6.5 and Proposition 1.7.4/Theorem 1.7.5; Skinner Theorems A/B and §2.5; Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6. The four fixes remain correct with their supplier gaps explicit; no mathematical or Lean signature correction was needed. All thirteen pinned Mathlib baseline statements were read. Packet and source-issue schema/version checks pass; lean-check exits 0 with 114 warnings, all admission warnings. The reachable declaration graph has no cycle, HE.8 has no HE.6 dependency and the period export has no Heegner input. Acceptance covers these HE.0 fixes only, preserving 21 gaps, 63 requests and unchecked implementation status. Queue completion is blocked: the live issue permits one packet, whereas the queue requires eleven; no verdict is given on the other ten packets. Scope clarification was requested and has not been answered.",
     "checked": [
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
