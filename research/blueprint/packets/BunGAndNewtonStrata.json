@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Revision 2 preserves all 98 reviewed target IDs, the independent needs_changes review and preceding source corrections. It imports current upstream ReductiveGroups foundations. This continuation makes the affine smooth-group filtered splitting proof explicit, supplies the coefficient-family arc-descent route and distinguishes HK22’s current normal-base theorem from its earlier version. The ordinary unitary flag proof now cites the read cocharacter and Hodge–Tate arguments with their actual version hypotheses. Generic relative representability, the unramified PEL comparison and analytic FF/v-stack supplier carriers remain open. This is a blocked partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
+ "summary": "Revision 2 preserves all 98 reviewed target IDs, the independent needs_changes review and preceding source corrections. It imports existing upstream ReductiveGroups foundations. This continuation records two proof findings in HK22 v5: the effective-over-lattice bound must include the initial Frobenius denominator, and an ambient GL(H) section does not justify lifting in the actual isocrystal automorphism group. The field-level lattice repair is derived from the read Zink minimal-lattice argument; three native algebraic controls elaborate. Actual orbit lifting and the general-E exact/analytic FF/v-stack supplier signatures remain open. This is a blocked partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -262,6 +262,12 @@
     "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
     "provides": "Native induced linear map for an actual intertwining map; map_mk gives its representative formula. Used for integral Kottwitz naturality.",
     "checked": "Providing definition and statements read at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10 by Codex codex-pUspDa."
+   },
+   {
+    "ref": "mathlib:Submodule",
+    "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+    "provides": "Native submodules closed under addition and scalar multiplication, used for the restricted effective-over-lattice shear controls on Fin 2 → K. This supplies no coefficient DVR, local-shtuka family or Newton classification.",
+    "checked": "Declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in the shared pinned build on 2026-10-10 by Codex codex-hQQIPH; native type used in the elaborated controls."
    }
   ]
  },
@@ -578,7 +584,7 @@
    "sha256": "f060ee365ba1b6ba50b0c39cc086e1d87726643228ad001d6aa64fe7f54bb5c2",
    "accessed": "2026-10-10",
    "readSections": [
-    "Theorem1.1 p.2; §2.1 p.5 and §2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8 and Theorem2.11 with proof p.9. The latter two require a perfect normal base. Zink’s effective-lattice input and the tensor-line orbit-lifting step remain explicit proof obligations."
+    "Theorem1.1 p.2; §2.1 p.5 and §2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8 and Theorem2.11 with proof p.9. The latter two require a perfect normal base. Zink’s effective-lattice input and the tensor-line orbit-lifting step remain explicit proof obligations. Rechecked the rendered pp.8–9 for E08/E09: the Newton-only lattice bound and ambient-to-actual orbit factorization are proof issues, not established consequences of the cited source."
    ]
   },
   {
@@ -615,6 +621,18 @@
    "accessed": "2026-10-10",
    "readSections": [
     "Lemma3.3.6 and Remark3.3.7 with proof pp.1006–1007 (PDF62–63); Lemma3.3.15 p.1011 (PDF67); Lemmas3.3.19–3.3.20 and their argument p.1013 (PDF69). The earlier canonical-subgroup and Hodge–Tate comparison inputs are not newly expanded."
+   ]
+  },
+  {
+   "id": "Zin01",
+   "title": "On the slope filtration",
+   "authors": "Thomas Zink",
+   "edition": "19-page Bielefeld author copy, PDF creation date 23 January 2002. Author page numbers equal PDF pages; not the pagination of Duke Math. J. 109 (2001), 79–95. Published text not collated.",
+   "url": "https://www.math.uni-bielefeld.de/~zink/slopes.pdf",
+   "sha256": "cf94a433fe048706937a1326c87815fed96109dff45bd819d4ac38c3c9463a78",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "Proposition3 with proof author p.4; Lemma4 author pp.5–6; Lemma9 with proof and following height-bound remark author pp.11–12. The referenced Cartier-theory book was not read; existence of an effective lattice remains the linear slope-classification supplier input."
    ]
   }
  ],
@@ -2706,13 +2724,15 @@
     "Use Iva23 Lemma5.9/Proposition5.10 for arc-descent of coefficient vector bundles in both characteristics. Ans22 Lemma11.3 extends this to G-torsors by exact tensor reconstruction: exactness is reflected because the coefficient-ring map meets every maximal ideal (Iva23 Corollary5.6). Descend the Frobenius isomorphism using full faithfulness. Arc-descent implies v-descent independently of κ-local-constancy.",
     "Ans22 Theorem11.4 trivializes the underlying coefficient-ring torsor v-locally. Its proof reduces to absolutely integrally closed finite-rank valuation rings, uses Steinberg in rank0, the punctured-period-ring extension theorem in rank1, and valuation-ring excision/induction in higher rank. These are supplier inputs, not consequences of schematic torsor descent alone. The resulting presentation is LG/Ad_σ LG.",
     "Only after descent, use Newton semicontinuity and the separately proved family κ-local-constancy to construct the locally closed constant-class loci. The κ argument is not a premise of the descent proof.",
-    "Cover a constant-class locus in the v-topology by spectra of products of perfect normal valuation rings. Choose a connected smooth affine O_E-model of G using the existing RG2.3 parahoric-group-scheme input, as required by HK22 §2.1. On each normal affine piece use HK22 v5 Proposition2.10 and Theorem2.11: separate the least slope by Φ=π^(−r)φ^s, obtain an effective lattice, trivialize its étale part on a profinite étale cover, then reconstruct G from a tensor line in a faithful representation. Retain Zink’s lattice bound and the tensor-line orbit-lifting step as G04 proof obligations.",
-    "On these charts the Isom sheaf is a torsor for the locally profinite J_b(E), and descent identifies the v-stratum with [*/J_b(E)] over any perfect base. The current HK22 theorem requires normality; this route does not claim a profinite étale trivialization over every non-normal perfect base. It gives neither the algebraic classifying stack [*/J_b] nor the positive-kernel automorphism group of a curve bundle."
+    "Cover a constant-class locus in the v-topology by spectra of products of perfect normal valuation rings. Choose the connected smooth affine O_E-model already supplied by RG2.3, as required by HK22 §2.1. Follow HK22 v5 Proposition2.10/Theorem2.11 on each normal piece: separate the least slope by Φ=π^(−r)φ^s and construct an effective lattice. Correct its Lemma2.9 proof bound by choosing a uniform denominator d for Φ on the initial rank-h lattice; the field-level iterated sum is bounded by π^(−d(h−1)), not by the Newton polygon alone (E08). Local freeness over general perfect bases still requires the proper lattice-moduli cover.",
+    "For an effective local shtuka, HK22 Lemma2.8 represents finite-level fixed sections by affine étale schemes; constant slope-zero multiplicity makes them finite étale. The inverse limit trivializes the étale part on a profinite étale cover. Induct through the least slopes as in Proposition2.10. For G, reconstruct its defining tensor line in a faithful representation. Theorem2.11 then needs local continuous lifting within the actual Aut(V0) orbit of its Frobenius-compatible embeddings; a GL(H) section does not provide this lift (E09). This remains a genuine G04 proof obligation, so this sketch is not a closed proof of the stratum equivalence.",
+    "After the actual orbit-lifting input is supplied, the normal-chart Isom sheaf is a torsor for the locally profinite J_b(E), and v-descent identifies the stratum with [*/J_b(E)] over any perfect base. The current HK22 theorem requires normality; this route does not claim a profinite étale trivialization over every non-normal perfect base. It gives neither the algebraic classifying stack [*/J_b] nor the positive-kernel automorphism group of a curve bundle."
    ],
    "acceptance": [
     "The arc-descent argument is independent of the later family κ-local-constancy argument.",
     "Apply current HK22 only over perfect normal charts. An arbitrary-perfect-base profinite étale statement cannot be read off from its v1 version or from v-local isotriviality.",
-    "The original source arguments are now located and read; the exact lattice, tensor-line orbit-lifting and analytic comparison supplier refinements remain G04."
+    "The lattice bound includes the initial Frobenius denominator, and the tensor-line lift lies in the actual automorphism group. E08/E09 affect source proofs; neither is recorded as a counterexample to the stated isotriviality theorem. G04 remains open.",
+    "Restricted Lean controls force the shear coefficient into every stable over-lattice, rule out a bound making that coefficient nonintegral, and distinguish an ambient lift from the diagonal tensor stabilizer. They do not type the family v-stack theorem."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
@@ -2723,7 +2743,8 @@
     "VectorBundlesAndIsocrystals:VB0",
     "DiamondsAndVStacks:D2",
     "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-    "ReductiveGroupsPartII:RG2.3"
+    "ReductiveGroupsPartII:RG2.3",
+    "mathlib:Submodule"
    ],
    "sources": [
     {
@@ -2743,8 +2764,13 @@
     },
     {
      "sourceId": "HK22",
-     "locator": "v5 Proposition2.10 p.8 and Theorem2.11 p.9; v1 Theorem1.4 p.3/2.11 p.8 compared in sourceVersions",
-     "match": "Current isotriviality and the Isom torsor are stated for perfect normal bases. Applying them on valuation-ring v-covers supplies the v-local stratum identification without upgrading it to arbitrary-base profinite étale triviality."
+     "locator": "v5 Lemmas2.8–2.9 pp.7–8, Proposition2.10 p.8 and Theorem2.11 p.9; v1 normality comparison in sourceVersions",
+     "match": "Current isotriviality and the Isom torsor require perfect normal bases. E08 corrects a proof-level bound; E09 leaves the actual tensor-orbit lifting step open. Normal v-covers do not by themselves close that proof gap or yield arbitrary-base profinite étale triviality."
+    },
+    {
+     "sourceId": "Zin01",
+     "locator": "Lemma9 and proof, author pp.11–12 (not Duke pagination)",
+     "match": "The minimal-stable-lattice and Nakayama argument bounds the number of iterates. The denominator-dependent field repair is our deduction; the author lemma concerns a p-divisible-group Dieudonné module."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2752,8 +2778,12 @@
    "prototype": {
     "status": "full-signature-omitted",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.FamilyDescentControls.shear_forces_coefficient",
+     "TauCeti.BunG.FamilyDescentControls.shear_violates_bound",
+     "TauCeti.BunG.FamilyDescentControls.ambient_lift_not_tensor_lift"
+    ],
+    "note": "The full family v-stack signature remains omitted under G08. Three elaborated native Submodule/field-vector controls check E08/E09 only: stable over-lattices contain the shear coefficient, a nonintegral scaled coefficient violates a proposed bound, and an ambient invertible lift need not lie in the smaller tensor stabilizer. No analytic geometry or actual orbit-lifting theorem is supplied."
    }
   },
   {
@@ -7417,7 +7447,7 @@
   {
    "id": "G04",
    "title": "G-isocrystal family descent and stratification refinements",
-   "detail": "The formerly unread family-stack inputs are now located: Iva23 Lemma5.9/Proposition5.10, Ans22 Lemma11.3/Theorem11.4, and HK22 v5 Proposition2.10/Theorem2.11. The first two give an arc-descent proof independent of κ-local-constancy and coefficient-torsor v-triviality; the latter gives Isom torsors over perfect normal bases. FS cites HK22 v1 Theorem1.4, which had no normality hypothesis; v5 adds it. Use normal valuation-ring v-covers for the arbitrary-perfect-base v-stratum equivalence, without claiming arbitrary-base profinite étale trivialization. Expand the remaining exact inputs: perfectoid almost/sousperfectoid descent, rank-one punctured-period-ring torsor extension and valuation excision, Zink’s effective-lattice bound, slope-zero finite étale fixed sections, and tensor-line orbit lifting for the actual automorphism group. The schematic family κ theorem is a later input to stratification, not to descent. GIZ26 Theorem7.13 meromorphic comparison still needs BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these analytic inputs are not supplied by the schematic family definition.",
+   "detail": "The formerly unread family-stack inputs are now located: Iva23 Lemma5.9/Proposition5.10, Ans22 Lemma11.3/Theorem11.4, and HK22 v5 Proposition2.10/Theorem2.11. The first two give an arc-descent proof independent of κ-local-constancy and coefficient-torsor v-triviality; the latter gives Isom torsors over perfect normal bases. FS cites HK22 v1 Theorem1.4, which had no normality hypothesis; v5 adds it. Use normal valuation-ring v-covers for the arbitrary-perfect-base v-stratum equivalence, without claiming arbitrary-base profinite étale trivialization. Expand the remaining exact inputs: perfectoid almost/sousperfectoid descent, rank-one punctured-period-ring torsor extension and valuation excision, Zink’s effective-lattice bound, slope-zero finite étale fixed sections, and tensor-line orbit lifting for the actual automorphism group. The schematic family κ theorem is a later input to stratification, not to descent. GIZ26 Theorem7.13 meromorphic comparison still needs BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these analytic inputs are not supplied by the schematic family definition. New source findings E08/E09 make two of these obligations precise: HK22 Lemma2.9 p.8 needs an initial Frobenius denominator in its effective-over-lattice bound, and Theorem2.11 p.9 does not justify an actual Aut(V0) lift from an ambient GL(H) section. Zin01 Lemma9 author pp.11–12 supplies the minimal-lattice iteration argument, not the Newton-only bound. The finite-level fixed-section calculation in HK22 Lemma2.8 was read; representing it over the actual coefficient family and proving the actual-orbit lift remain supplier work. No closed stratum proof is claimed.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
@@ -7859,7 +7889,7 @@
   },
   {
    "supplier": "VectorBundlesAndIsocrystals:VB0",
-   "need": "Export the finite-dimensional isocrystal tensor category over a general local coefficient field E, semilinear descent and change-of-trivialization, with rank-one π^m slope m. No reductive B(G) theory is imported from this linear stage. Export the compatible local algebraic closures, the embedding into the coefficient algebraic closure, arithmetic Frobenius and degree-r unramified fixed fields. Global-v choices of the Shimura paper are not used in the local targets. For the perfect-algebra family application, supply the effective-lattice bound and slope-zero finite étale fixed-section construction used in HK22 v5 Lemmas2.8–2.9/Proposition2.10. Its profinite étale isotriviality requires a perfect normal base; the BG v-stack application handles other perfect bases only after normal v-covers.",
+   "need": "Export the finite-dimensional isocrystal tensor category over a general local coefficient field E, semilinear descent and change-of-trivialization, with rank-one π^m slope m. No reductive B(G) theory is imported from this linear stage. Export the compatible local algebraic closures, the embedding into the coefficient algebraic closure, arithmetic Frobenius and degree-r unramified fixed fields. Global-v choices of the Shimura paper are not used in the local targets. For the perfect-algebra family application, supply the effective-lattice bound and slope-zero finite étale fixed-section construction used in HK22 v5 Lemmas2.8–2.9/Proposition2.10. Its profinite étale isotriviality requires a perfect normal base; the BG v-stack application handles other perfect bases only after normal v-covers. Correct the field-level effective-over-lattice bound to depend on rank and an initial Frobenius denominator d, using the minimal stable lattice/Nakayama argument of Zin01 Lemma9 author pp.11–12. For a rank-h lattice the iterated sum is bounded by π^(−d(h−1)). A rank-two slope-zero shear with coefficient π^(−N) requires c≥N (E08); do not promise a bound from Newton slopes alone. Over families retain the proper lattice-moduli cover and prove local-freeness separately. At finite level, fixed sections are affine étale; constant slope-zero multiplicity gives finite étale, whose inverse limit is profinite étale (HK22 Lemma2.8).",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
@@ -7985,7 +8015,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02. The HK22 v5 Theorem2.11 application additionally requires faithful tensor-line stabilizer reconstruction over the coefficient ring and local lifting for the actual automorphism-group orbit, preserving all tensors; a GL of the ambient Hom space is insufficient to state that lifting input.",
+   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02. The HK22 v5 Theorem2.11 application additionally requires faithful tensor-line stabilizer reconstruction over the coefficient ring and local lifting for the actual automorphism-group orbit, preserving all tensors; a GL of the ambient Hom space is insufficient to state that lifting input. E09 records the missing implication in the read proof: local sections into GL(H) do not ensure membership in Aut(V0). Supply local continuous lifts of the actual orbit map onto its tensor-line embedding orbit, with its induced topology and any smoothness/separability hypotheses made explicit. Do not mark this input proved by the ambient GL action or by the coordinate control.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent",
@@ -9969,6 +9999,40 @@
     "by": "REV-BunGAndNewtonStrata"
    },
    "printed": "Paraphrase of the issue: the dominance difference is expressed using roots in place of coroots."
+  },
+  {
+   "id": "BunGAndNewtonStrata/E08",
+   "source": "HK22",
+   "kind": "error",
+   "locator": "arXiv2208.01069v5, proof of Lemma2.9, first paragraph p.8; not collated with the published edition",
+   "printed": "Paraphrase of the issue: after choosing an arbitrary full lattice M0, the proof bounds an effective over-lattice by a power of the uniformizer depending only on the Newton polygon.",
+   "correction": "Include the Frobenius denominator of the chosen lattice. Over a coefficient DVR with Frobenius preserving the DVR and fixing π, assume an effective lattice exists and ΦM0⊂π^(−d)M0 with d≥0. The minimal effective over-lattice is Σ_(i=0)^(h−1) Φ^i M0 for rank h, and lies in π^(−d(h−1))M0. This field-level repair does not remove the proper-cover or local-freeness obligations over general bases.",
+   "reason": "Over an algebraically closed residue field, take rank two with Φ(x,y)=(σ(x)+π^(−N)σ(y),σ(y)) and standard M0. In equal characteristic choose a residue-field element u with u−u^q=1, which exists over the algebraic closure. The shear g=[[1,uπ^(−N)],[0,1]] satisfies b=g σ(g)^−1, so this is σ-conjugate to the identity and its Newton polygon is always (0,0). Any effective M containing M0 contains Φ(e2)−e2=π^(−N)e1. Containment in π^(−c)M0 therefore forces c≥N, while N is arbitrary. Zink author-copy Lemma9 pp.11–12 bounds the number of iterates by h−1 using a minimal stable lattice, the residue-field dimension and Nakayama; it does not bound these arbitrary input denominators. The subsequent height-only bound in his p-divisible-group setting uses its integral F,V structures.",
+   "affects": "the proof",
+   "known": "New finding in this revision, awaiting independent verification; no applicable correction located in the bounded search. Not a claim that Lemma2.9 is false.",
+   "searched": [
+    "2026-10-10: arXiv https://arxiv.org/abs/2208.01069 and v5 PDF inspected; v5 is the latest listed version. The findings concern v5 only; no comparison of the relevant sentences with every earlier version is claimed.",
+    "2026-10-10: publisher record https://www.sciencedirect.com/science/article/abs/pii/S0001870825004153 identifies Advances in Mathematics 480C (2025), Article110517, DOI10.1016/j.aim.2025.110517. The version of record was not obtained or collated.",
+    "2026-10-10: https://sites.google.com/site/wansukimmaths/ lists this publication with an arXiv link, without a linked correction for this title. Its linked erratum concerns a different paper.",
+    "2026-10-10: bounded title/arXiv searches with correction, erratum and Lemma2.9 found no applicable correction. This does not establish novelty."
+   ]
+  },
+  {
+   "id": "BunGAndNewtonStrata/E09",
+   "source": "HK22",
+   "kind": "gap",
+   "locator": "arXiv2208.01069v5, proof of Theorem2.11, factorization diagram p.9; not collated with the published edition",
+   "printed": "Paraphrase of the issue: a local section of the ambient GL(H) action map is used to factor a continuous map into the smaller isocrystal automorphism group Aut(V0).",
+   "correction": "Supply local continuous lifting for the actual Aut(V0) orbit map on the Frobenius-compatible tensor-line embeddings, with the required topology and all defining tensors preserved. Ambient GL(H) sections alone do not establish this input. Keep that lifting theorem as an unresolved supplier contract.",
+   "reason": "A section into GL(H) has no stated reason to land in Aut(V0). For a concrete membership control, the subgroup K={diag(t,t^−1)} of GL2(Q) sends (1,1) to (2,1/2) using t=2. The invertible matrix A=[[2,0],[−1/2,1]] also sends (1,1) to that vector, but A∉K. Thus even when a smaller-group lift exists, an ambient lift need not preserve its defining tensors. This control identifies the missing implication; it does not disprove local lifting for the particular isocrystal group or Theorem2.11.",
+   "affects": "the proof",
+   "known": "New explicit source-gap record in this revision; the actual-orbit requirement was already a packet request. Awaiting independent verification; no applicable correction located in the bounded search.",
+   "searched": [
+    "2026-10-10: arXiv https://arxiv.org/abs/2208.01069 and v5 PDF inspected; v5 is the latest listed version. The findings concern v5 only; no comparison of the relevant sentences with every earlier version is claimed.",
+    "2026-10-10: publisher record https://www.sciencedirect.com/science/article/abs/pii/S0001870825004153 identifies Advances in Mathematics 480C (2025), Article110517, DOI10.1016/j.aim.2025.110517. The version of record was not obtained or collated.",
+    "2026-10-10: https://sites.google.com/site/wansukimmaths/ lists this publication with an arXiv link, without a linked correction for this title. Its linked erratum concerns a different paper.",
+    "2026-10-10: bounded title/arXiv searches with correction, erratum and Lemma2.9 found no applicable correction. This does not establish novelty."
+   ]
   }
  ],
  "sourceVersions": [
@@ -10322,7 +10386,7 @@
    "sections": [
     "Theorem1.1 p.2; §2.1 p.5 and §2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8 and Theorem2.11 with proof p.9. The latter two require a perfect normal base. Zink’s effective-lattice input and the tensor-line orbit-lifting step remain explicit proof obligations."
    ],
-   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published. Rendered pp.8–9 rechecked in this revision for E08/E09. Findings restricted to this preprint; published-text status unresolved."
   },
   {
    "source": "HK22",
@@ -10367,20 +10431,31 @@
     "Lemma3.3.6 and Remark3.3.7 with proof pp.1006–1007 (PDF62–63); Lemma3.3.15 p.1011 (PDF67); Lemmas3.3.19–3.3.20 and their argument p.1013 (PDF69). The earlier canonical-subgroup and Hodge–Tate comparison inputs are not newly expanded."
    ],
    "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "Zin01",
+   "kind": "author copy",
+   "url": "https://www.math.uni-bielefeld.de/~zink/slopes.pdf",
+   "read": "2026-10-10",
+   "sha256": "cf94a433fe048706937a1326c87815fed96109dff45bd819d4ac38c3c9463a78",
+   "sections": [
+    "Proposition3 with proof author p.4; Lemma4 author pp.5–6; Lemma9 with proof and following height-bound remark author pp.11–12. The referenced Cartier-theory book was not read; existence of an effective lattice remains the linear slope-classification supplier input."
+   ],
+   "note": "19-page Bielefeld author copy, PDF creation date 23 January 2002. Author page numbers equal PDF pages; not the pagination of Duke Math. J. 109 (2001), 79–95. Published text not collated."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
   "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work. Continuation codex-CxGyYK updates only the omitted filtered-group, family-descent and ordinary-flag contracts and their source hypotheses; it adds no elaborated geometric target signatures.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work. Continuation codex-CxGyYK updates only the omitted filtered-group, family-descent and ordinary-flag contracts and their source hypotheses; it adds no elaborated geometric target signatures. Continuation codex-hQQIPH adds three restricted native shear/orbit membership controls for HK22 proof findings E08/E09; full family and geometric target signatures remain omitted.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (175); no errors or other warnings.",
-   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples.",
-   "agent": "Codex — codex-CxGyYK"
+   "warnings": "Only admitted-proof declaration warnings (178); no errors or other warnings.",
+   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples. New shear/orbit controls check only native algebraic signatures, not valuation-theoretic c≥N, Newton slope classification or continuous lifting for the actual isocrystal group.",
+   "agent": "Codex — codex-hQQIPH"
   }
  },
  "upstreamNotes": [
