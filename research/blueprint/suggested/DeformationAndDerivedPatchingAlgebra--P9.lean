@@ -31,8 +31,8 @@ interfaces. They are stated mathematically in the reader and packet. No unknown 
 represented by an opaque proposition. The derived length signature below isolates the actual
 finite-module length identity input; the component-chain signature isolates its concrete
 nonvanishing transfer input. These are intermediate lemmas, not replacements for the complete
-ACC theorem or its excellence hypotheses. The full native `lengthDefectModuleIdentity`
-and `localConditionSupport` forms are omitted until the normalization and action-edge
+ACC theorem or its excellence hypotheses. The full native `lengthDefectModuleIdentity`, `derivedLengthIdentity`,
+`supportTransportAvoidingIhara` and `localConditionSupport` forms are omitted until the normalization and action-edge
 interfaces below are expressible; the reader states their complete mathematical forms. P7 also owes the T-linear derived-action comparison
 for its coefficient spectral sequence; its existing action node assumes strict chain actions.
 -/
@@ -131,6 +131,14 @@ theorem supportFramingQuotient (C : Der (PowerSeries R)) (hC : Dependency.Perfec
     support ((Dependency.extension (PowerSeries.constantCoeff (R := R))).obj C) =
       (PrimeSpectrum.comap (PowerSeries.constantCoeff (R := R))) ⁻¹' support C := sorry
 
+/-- In the ambient spectrum the augmentation fibre is the divisor V(X). -/
+theorem supportFramingQuotient_image (C : Der (PowerSeries R))
+    (hC : Dependency.Perfect C) :
+    (PrimeSpectrum.comap (PowerSeries.constantCoeff (R := R))) ''
+      support ((Dependency.extension (PowerSeries.constantCoeff (R := R))).obj C) =
+      support C ∩ PrimeSpectrum.zeroLocus
+        (Ideal.span ({PowerSeries.X} : Set (PowerSeries R))) := sorry
+
 /-- CG inequality in the equivalent prime-by-prime dimension form. Nonzero is explicit. -/
 theorem codimensionAmplitudeLemma [IsRegularLocalRing R] (C : Der R) (n l : ℕ) (a : ℤ)
     (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
@@ -153,15 +161,17 @@ theorem balancedProjectiveDimension [IsRegularLocalRing R] (C : Der R) (n l : �
       ringKrullDim (R ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
     CategoryTheory.projectiveDimension (H (a + l) C) = (l : WithBot ℕ∞) := sorry
 
-/-- Depth n-l is expressed using the R03.3 regular-sequence convention, not an opaque depth. -/
+/-- Exact depth: existence AND the upper bound for maximal-ideal regular sequences. -/
 theorem balancedDepth [IsRegularLocalRing R] (C : Der R) (n l : ℕ) (a : ℤ)
     (hdim : ringKrullDim R = (n : WithBot ℕ∞)) (hl : l ≤ n)
     (hC : ¬ IsZero C) (hinterval : Dependency.PerfectInterval C a (a + l))
     (hsupport : ∀ p ∈ support C,
       ringKrullDim (R ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
-    ∃ rs : List R, rs.length = n - l ∧
+    (∃ rs : List R, rs.length = n - l ∧
       (∀ x ∈ rs, x ∈ IsLocalRing.maximalIdeal R) ∧
-      RingTheory.Sequence.IsRegular (H (a + l) C) rs := sorry
+      RingTheory.Sequence.IsRegular (H (a + l) C) rs) ∧
+    (∀ rs : List R, (∀ x ∈ rs, x ∈ IsLocalRing.maximalIdeal R) →
+      RingTheory.Sequence.IsRegular (H (a + l) C) rs → rs.length ≤ n - l) := sorry
 
 theorem oneDegreeSpecialization [IsRegularLocalRing R] (C : Der R) (a : ℤ)
     (hC : ¬ IsZero C) (hinterval : Dependency.PerfectInterval C a a) :
@@ -202,6 +212,26 @@ theorem scalar (ρ : DerivedAction (T := T) C) (i : ℤ) (s : S) (x : H i C) :
 def transport {A : Type u} [CommRing A] [Algebra S A] (F : Der S ⥤ Der A)
     [F.Additive] [Linear S (Der A)] [F.Linear S] (ρ : DerivedAction (T := T) C) :
     T →+* End (F.obj C) := sorry
+
+/-- Transport specifies the functorial image, retaining S-scalar compatibility.
+It need not be an A-compatible action: no A-algebra structure on T is assumed. -/
+theorem transport_apply {A : Type u} [CommRing A] [Algebra S A]
+    (F : Der S ⥤ Der A) [F.Additive] [Linear S (Der A)] [F.Linear S]
+    (ρ : DerivedAction (T := T) C) (t : T) :
+    transport F ρ t = F.map (ρ.toRingHom t) := sorry
+
+theorem transport_scalar {A : Type u} [CommRing A] [Algebra S A]
+    (F : Der S ⥤ Der A) [F.Additive] [Linear S (Der A)] [F.Linear S]
+    (ρ : DerivedAction (T := T) C) (s : S) :
+    transport F ρ (algebraMap S T s) = s • 𝟙 (F.obj C) := sorry
+
+theorem transport_id (ρ : DerivedAction (T := T) C) :
+    transport (𝟭 (Der S)) ρ = ρ.toRingHom := sorry
+
+/-- Identity and composition are actual equalities of images of derived morphisms. -/
+theorem transport_comp (F G : Der S ⥤ Der S) [F.Additive] [G.Additive]
+    [F.Linear S] [G.Linear S] (ρ : DerivedAction (T := T) C) (t : T) :
+    transport (F ⋙ G) ρ t = G.map (transport F ρ t) := sorry
 
 def single (M : ModuleCat.{u} S) (α : T →+* Module.End S M)
     (hα : ∀ s : S, ∀ x : M, α (algebraMap S T s) x = s • x) (i : ℤ) :
@@ -296,6 +326,11 @@ example (ρ : DerivedAction (T := k)
       ¬ IsZero (biprod (stalk (ModuleCat.of k k) 0) (stalk (ModuleCat.of k k) 1)) := sorry
 end EulerTests
 
+/-! The following API prototypes the split-idempotent step AFTER base localization.
+The full finite-algebra construction still needs the P7 bounded splitting supplier and the
+identification e_p H(C_q) ≅ H(C)_p. No global derived-category idempotent-completeness
+instance is claimed. The assumption below supplies a general splitting environment; P7
+need only split the bounded finite-cohomology objects used by the application. -/
 section IdempotentLocalization
 variable {S T : Type u} [CommRing S] [CommRing T] [Algebra S T]
 variable (C : Der S) (ρ : DerivedAction (T := T) C) (e : T) (he : e * e = e)
@@ -314,19 +349,58 @@ theorem genericLocalization_retract :
 /-- The concrete range interface; the reader's finite-algebra lemma identifies this range with
 H^i(C)_p when e=e_p after localization at q. -/
 theorem genericLocalization_homology (i : ℤ) :
-    Nonempty ((H i (genericLocalization C ρ e he).1) ≃ₗ[S]
+    ∃ φ : (H i (genericLocalization C ρ e he).1) ≃ₗ[S]
       LinearMap.range ((DerivedCategory.homologyFunctor (ModuleCat S) i).map
-        (ρ.toRingHom e)).hom) := sorry
+        (ρ.toRingHom e)).hom,
+      ∀ x, (φ x).val = ((DerivedCategory.homologyFunctor (ModuleCat S) i).map
+        (genericLocalization C ρ e he).2.val.1).hom x := sorry
+
+/-- The induced action is the corner action i ≫ ρ(t) ≫ p. -/
+def genericLocalization_action :
+    DerivedAction (T := T) (genericLocalization C ρ e he).1 := sorry
+
+theorem genericLocalization_action_apply (t : T) :
+    (genericLocalization_action C ρ e he).toRingHom t =
+      (genericLocalization C ρ e he).2.val.1 ≫ ρ.toRingHom t ≫
+        (genericLocalization C ρ e he).2.val.2 := sorry
+
+theorem genericLocalization_action_idempotent :
+    (genericLocalization_action C ρ e he).toRingHom e =
+      𝟙 (genericLocalization C ρ e he).1 := sorry
+
+theorem genericLocalization_homology_equivariant (i : ℤ) (t : T) :
+    let L := genericLocalization C ρ e he
+    let F := DerivedCategory.homologyFunctor (ModuleCat S) i
+    (F.map L.2.val.1).hom.comp
+      ((genericLocalization_action C ρ e he).homologyAction i t) =
+      (ρ.homologyAction i t).comp (F.map L.2.val.1).hom := sorry
+
+/-- Canonical map between chosen splittings. Equivariance ensures its naturality laws. -/
+def genericLocalization_map {D : Der S} (σ : DerivedAction (T := T) D) (f : C ⟶ D) :
+    (genericLocalization C ρ e he).1 ⟶ (genericLocalization D σ e he).1 :=
+  (genericLocalization C ρ e he).2.val.1 ≫ f ≫
+    (genericLocalization D σ e he).2.val.2
 
 theorem genericLocalization_iso {D : Der S} (σ : DerivedAction (T := T) D)
     (f : C ⟶ D) (hf : ∀ t, ρ.toRingHom t ≫ f = f ≫ σ.toRingHom t) :
-    ∃ g : (genericLocalization C ρ e he).1 ⟶ (genericLocalization D σ e he).1,
-      g ≫ (genericLocalization D σ e he).2.val.1 =
-        (genericLocalization C ρ e he).2.val.1 ≫ f := sorry
+    genericLocalization_map C ρ e he σ f ≫ (genericLocalization D σ e he).2.val.1 =
+      (genericLocalization C ρ e he).2.val.1 ≫ f := sorry
+
+theorem genericLocalization_map_id :
+    genericLocalization_map C ρ e he ρ (𝟙 C) =
+      𝟙 (genericLocalization C ρ e he).1 := sorry
+
+theorem genericLocalization_map_comp {D E : Der S}
+    (σ : DerivedAction (T := T) D) (τ : DerivedAction (T := T) E)
+    (f : C ⟶ D) (g : D ⟶ E)
+    (hf : ∀ t, ρ.toRingHom t ≫ f = f ≫ σ.toRingHom t)
+    (hg : ∀ t, σ.toRingHom t ≫ g = g ≫ τ.toRingHom t) :
+    genericLocalization_map C ρ e he τ (f ≫ g) =
+      genericLocalization_map C ρ e he σ f ≫ genericLocalization_map D σ e he τ g := sorry
 
 theorem genericLocalization_choice (D : Der S) (i : D ⟶ C) (p : C ⟶ D)
     (h₁ : i ≫ p = 𝟙 D) (h₂ : p ≫ i = ρ.toRingHom e) :
-    ∃ α : D ≅ (genericLocalization C ρ e he).1,
+    ∃! α : D ≅ (genericLocalization C ρ e he).1,
       α.hom ≫ (genericLocalization C ρ e he).2.val.1 = i ∧
       p ≫ α.hom = (genericLocalization C ρ e he).2.val.2 := sorry
 
@@ -360,9 +434,11 @@ theorem balancedPatchedComplex [IsRegularLocalRing S] [Module.Finite S T]
         ringKrullDim (T ⧸ p.asIdeal) ≤ (n - l : WithBot ℕ∞)) :
     (∀ i : ℤ, i ≠ a + l → IsZero (H i C)) ∧
     CategoryTheory.projectiveDimension (H (a + l) C) = (l : WithBot ℕ∞) ∧
-    ∃ rs : List S, rs.length = n - l ∧
+    (∃ rs : List S, rs.length = n - l ∧
       (∀ x ∈ rs, x ∈ IsLocalRing.maximalIdeal S) ∧
-      RingTheory.Sequence.IsRegular (H (a + l) C) rs := sorry
+      RingTheory.Sequence.IsRegular (H (a + l) C) rs) ∧
+    (∀ rs : List S, (∀ x ∈ rs, x ∈ IsLocalRing.maximalIdeal S) →
+      RingTheory.Sequence.IsRegular (H (a + l) C) rs → rs.length ≤ n - l) := sorry
 end PatchedConcentration
 
 section LengthLemmas
@@ -399,7 +475,7 @@ theorem derivedLengthSum (f : T) (p : PrimeSpectrum T) (a : ℤ)
 
 /-- Explicit component graph consequence used at the end of ACC 6.3.8. The reader provides the
 ring hypotheses which establish every transfer input below; none is an opaque predicate. -/
-theorem supportTransportAvoidingIhara
+theorem supportTransportFromEulerComparison
     {X Y B : Type*} (topX : Set X) (topY : Set Y) (supported : Set X)
     (χ : X → ℤ) (χ' : Y → ℤ) (χbar χbar' : B → ℤ)
     (specializes : X → B → Prop) (specializes' : Y → B → Prop)
@@ -437,7 +513,7 @@ theorem eulerLengthTriangle (t : Triangle (Der S)) (ht : t ∈ distTriang (Der S
 and module identity as explicit inputs. In ACC, T is already T_m and p is its unique generic.
 The source's excellence/localization hypotheses supply hmodule and all finiteness inputs.
 The generic summand has these same localized cohomology modules by its homology API. -/
-theorem derivedLengthIdentity (C D : Der S)
+theorem derivedLengthIdentityFromModuleFormula (C D : Der S)
     (ρ : DerivedAction (T := T) C) (σ : DerivedAction (T := T) D)
     (f : S) (hreg : IsSMulRegular S f) (p : PrimeSpectrum T) (a : ℤ) (ha : 0 < a)
     (g : C ⟶ D) (h : D ⟶ C⟦(1 : ℤ)⟧)
