@@ -3348,6 +3348,11 @@ pinned libraries, and the presentation of `S` (HB.8's `ringS`) is left abstract;
 -- then HB.9/module-membership with its excluded primes and coefficient ring. QT.6 owns the
 -- Dimofte-Garoufalidis/state-integral comparison, contours, Faddeev function and 2-3 invariance.
 -- Habiro-module membership alone proves none of those topological/analytic assertions.
+-- Use HB.8/refinement-gaussian-identification with its G1 prefactor and G2 regularity
+-- obligations; the historical identification-theorem is not an unconditional export.
+-- HB.9 retains signed Kummer-orientation and all-order integral-gluing obligations, and
+-- HB.4's coefficient-field clause needs coefficientwise Kummer descent. The figure-eight
+-- regulator computation is numerical; QT.5 owns its comparison with manifold volume.
 
 end HabiroNahmSeries.HB910
 
