@@ -760,12 +760,52 @@ theorem inflate_injective {P' : Subgroup Γ} (h : P' ≤ P) :
     Function.Injective (inflate (α := α) h) := by sorry
 end FiniteWildPiece
 
+omit [P.Normal] in
 /-- Compact wild inertia turns an open cocycle kernel into finite image.
 The converse uses continuity and T1 separation of the finite image. -/
 theorem finiteWild_iff_finite_range [IsTopologicalGroup Γ] [CompactSpace P] [T1Space H]
     (c : LParameter α) :
     FiniteWildRamification c.val P ↔ Set.Finite (Set.range (fun p : P => c.val p.val)) := by
-  sorry
+  classical
+  have h1 : c.val 1 = 1 := by
+    have hm := c.val.map_mul' 1 1
+    simp only [one_mul, map_one, MulAut.one_apply] at hm
+    exact mul_left_cancel (hm.symm.trans (mul_one _).symm)
+  constructor
+  · rintro ⟨U, hU, hc⟩
+    have : Finite (P ⧸ U) := U.quotient_finite_of_isOpen hU
+    let f : P ⧸ U → H := Quotient.lift (fun p : P => c.val p.val) (by
+      intro x y hxy
+      have hu : x⁻¹ * y ∈ U := QuotientGroup.leftRel_apply.mp hxy
+      have hmul := c.val.map_mul' x.val (x⁻¹ * y).val
+      rw [hc _ hu, map_one, mul_one] at hmul
+      simpa only [Subgroup.coe_mul, Subgroup.coe_inv, mul_inv_cancel_left] using hmul.symm)
+    have hr : Set.range (fun p : P => c.val p.val) ⊆ Set.range f := by
+      rintro _ ⟨p, rfl⟩
+      exact ⟨QuotientGroup.mk p, rfl⟩
+    exact (Set.finite_range f).subset hr
+  · intro hr
+    let U : Subgroup P :=
+      { carrier := {p | c.val p.val = 1}
+        one_mem' := h1
+        mul_mem' := by
+          intro x y hx hy
+          change c.val (x.val * y.val) = 1
+          rw [c.val.map_mul', hx, hy, map_one, mul_one]
+        inv_mem' := by
+          intro x hx
+          change c.val x.val⁻¹ = 1
+          have hm := c.val.map_mul' x.val x.val⁻¹
+          rw [mul_inv_cancel, h1, hx, one_mul] at hm
+          exact (α x.val).injective (by simpa only [map_one] using hm.symm) }
+    refine ⟨U, ?_, fun _ hx => hx⟩
+    have hclosed := (hr.sdiff (t := {1})).isClosed
+    have hpre : (U : Set P) =
+        (fun p : P => c.val p.val) ⁻¹' (Set.range (fun p : P => c.val p.val) \ {1})ᶜ := by
+      ext p
+      simp [U]
+    rw [hpre]
+    exact hclosed.isOpen_compl.preimage (c.property.comp continuous_subtype_val)
 
 -- The trivial cutoff is an honest quotient by the identity subgroup.
 example (hbot : (⊥ : Subgroup Γ) ≤ α.ker) (c : LParameter α) (γ : Γ) :
@@ -782,6 +822,7 @@ example (htop : (⊤ : Subgroup Γ) ≤ α.ker) (c : FiniteWildPiece α ⊤)
     (LParameter.quotientEquiv α ⊤ htop c).val x = 1 := by sorry
 
 -- Ordinary topological portion of wild_finite_image, including nondiscrete targets.
+omit [P.Normal] in
 example [IsTopologicalGroup Γ] [CompactSpace P] [T1Space H] (c : LParameter α) :
     FiniteWildRamification c.val P ↔ Set.Finite (Set.range (fun p : P => c.val p.val)) :=
   finiteWild_iff_finite_range α P c
@@ -791,6 +832,58 @@ example :
     (∀ x : Multiplicative (ZMod 2), CrossedCocycle.unit CrossedCocycle.signAction x = 1) ∧
     ¬ (⊤ : Subgroup (Multiplicative (ZMod 2))) ≤ CrossedCocycle.signAction.ker := by sorry
 end FiniteWildQuotient
+
+namespace FiniteWildChecks
+/-- Compactness cannot be dropped from the open-kernel implication. -/
+theorem noncompact_counterexample :
+    let G := Multiplicative ℤ
+    letI : TopologicalSpace G := ⊥
+    let c : LParameter (1 : G →* MulAut G) :=
+      ⟨{toFun := id, map_mul' := by intros; rfl}, continuous_id⟩
+    FiniteWildRamification c.val ⊤ ∧
+      ¬ Set.Finite (Set.range (fun p : (⊤ : Subgroup G) => c.val p.val)) := by
+  dsimp only
+  let : TopologicalSpace (Multiplicative ℤ) := ⊥
+  have : DiscreteTopology (Multiplicative ℤ) := discreteTopology_bot _
+  constructor
+  · refine ⟨⊥, isOpen_discrete _, ?_⟩
+    intro x hx
+    have hx1 : x = 1 := Subgroup.mem_bot.mp hx
+    simp only [hx1, Subgroup.coe_one, id_eq]
+  · have hr : Set.range (fun p : (⊤ : Subgroup (Multiplicative ℤ)) => p.val) = Set.univ := by
+      ext x
+      simp
+    simpa only [id_eq, hr] using
+      (Set.infinite_univ : (Set.univ : Set (Multiplicative ℤ)).Infinite).not_finite
+
+/-- T1 separation cannot be dropped from the finite-image implication. -/
+theorem indiscrete_counterexample :
+    let G := Multiplicative (ZMod 2)
+    letI : TopologicalSpace G := ⊤
+    let c : LParameter (1 : G →* MulAut G) :=
+      ⟨{toFun := id, map_mul' := by intros; rfl}, continuous_id⟩
+    Set.Finite (Set.range (fun p : (⊤ : Subgroup G) => c.val p.val)) ∧
+      ¬ FiniteWildRamification c.val ⊤ := by
+  dsimp only
+  let : TopologicalSpace (Multiplicative (ZMod 2)) := ⊤
+  constructor
+  · have : Finite (Multiplicative (ZMod 2)) := Finite.of_equiv (ZMod 2) Multiplicative.ofAdd
+    exact Set.finite_range _
+  · rintro ⟨U, hU, hu⟩
+    have htop : U = ⊤ := by
+      apply SetLike.coe_injective
+      have ht : (inferInstance : TopologicalSpace (⊤ : Subgroup (Multiplicative (ZMod 2)))) = ⊤ := by
+        exact induced_top
+      change @IsOpen _ inferInstance (U : Set (⊤ : Subgroup (Multiplicative (ZMod 2)))) at hU
+      rw [ht, TopologicalSpace.isOpen_top_iff] at hU
+      rcases hU with hU | hU
+      · have hempty := congrArg (fun s => (1 : (⊤ : Subgroup (Multiplicative (ZMod 2)))) ∈ s) hU
+        simp at hempty
+      · simpa using hU
+    have hbad := hu ⟨Multiplicative.ofAdd (1 : ZMod 2), Subgroup.mem_top _⟩ (by simp [htop])
+    change (1 : ZMod 2) = 0 at hbad
+    exact one_ne_zero hbad
+end FiniteWildChecks
 
 /-! ## LP2c.4: the finite-coordinate open-kernel argument
 
