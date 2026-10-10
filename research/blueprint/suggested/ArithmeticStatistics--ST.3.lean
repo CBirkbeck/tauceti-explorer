@@ -1,5 +1,6 @@
 /-
-This file is not the roadmap and is not exhaustive. The reader document is definitive.
+This file is a nonexhaustive signature prototype. The corrected packet and independent
+review record the current statements; the reader requires the reconciliation listed there.
 These proposed Lean forms let contributors and reviewers converge on names and signatures.
 Proofs and data constructions below are placeholders, not implementations.
 Arithmetic signatures whose exact suppliers are missing are explicitly listed at the end;
@@ -636,6 +637,12 @@ theorem relative_torsion_splitting
       (↥(torsionSubgroup (ClassGroup S) ℓ ⊓ (ClassGroup.relNorm (R := R)).ker) ×
         ↥(torsionSubgroup (ClassGroup R) ℓ))) := by sorry
 
+-- The ordinary splitting above reuses the native class-group norm.
+-- ArithmeticStatistics:ST.3/relative-torsion-splitting (omitted components)
+-- Narrow norm/extension and norm∘extension = power degree need the requested
+-- ClassFieldTheory exports on NumberField.NarrowClassGroup. The ordinary and
+-- narrow torsion-cardinality factorizations are also omitted signatures.
+
 -- The quartic finite-density regression is independent of the global sieve.
 def binaryQuarticDiscriminant (v : Fin 5 → ZMod 9) : ZMod 9 :=
   let a := v 0; let b := v 1; let c := v 2; let d := v 3; let e := v 4
@@ -697,7 +704,9 @@ and packet give the precise statement, hypotheses and supplier for every entry. 
 
 -- ArithmeticStatistics:ST.3/quadratic-order-three-torsion-bound
 -- FieldStatistics.quadratic_order_three_torsion_bound
--- Needs the exact Picard conductor sequence, relative class-field character correspondence and wild-prime3 normalization; the native finite-group rank does not replace them.
+-- Needs the exact Picard conductor sequence and local unit calculation.
+-- The bound is 3^(ω(f)+1)h₃(Cl K), sharpening to 3^ω(f) away from3;
+-- K=Q(√−39), f=9 rules out the unconditional constant-one exponent.
 
 -- ArithmeticStatistics:ST.3/cubic-large-total-ramification-bound
 -- FieldStatistics.cubic_large_total_ramification_bound
@@ -769,7 +778,10 @@ and packet give the precise statement, hypotheses and supplier for every entry. 
 
 -- ArithmeticStatistics:ST.3/rank-moments-determine-rank-law
 -- FieldStatistics.rank_moments_determine_rank_law
--- Imports ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u; the missing arithmetic adapter must bind the empirical rank family and its Gaussian-inversion moments to that supplier.
+-- Needs ST.5 rank-marginal uniqueness from elementary-abelian test moments,
+-- or the recorded DJ geometric-zero growth lemma. Gaussian inversion of rank
+-- moments supplies no moments for non-elementary finite p-groups; the existing
+-- all-test-p-group uniqueness contract alone does not suffice.
 
 -- ArithmeticStatistics:ST.3/uniform-small-degree-field-bound
 -- FieldStatistics.uniform_small_degree_field_bound
