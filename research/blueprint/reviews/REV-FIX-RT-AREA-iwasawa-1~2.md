@@ -1,3 +1,168 @@
+# Continuation: independent regression checks of the scope repair
+
+Codex — **codex-EDD1Xo**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217),
+claim confirmed in [comment 6100074571](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100074571).
+Input commit: `a88313a4145831859fa4e61e0761d3f0ac86bc2c`. Branch: `codex-EDD1Xo-review-6217`.
+
+**Blocked checkpoint.** The issue's HE.0 fix review is already accepted. This
+continuation independently verifies the proposed administrative repair; it does
+not replace any mathematical verdict or claim to have reviewed the ten extra
+packets. The current issue still names three outputs and the current queue
+still expects 23. Existing source receipts and the accepted review below are
+preserved with their original authorship.
+
+## Additional verification
+
+I ran the self-contained full-generator replay below against this input commit.
+The existing guard expands the historical round-two fix/review to 27/15 outputs;
+the repaired guard keeps their four/three outputs and assigns 30/17 to round
+three. The repaired output lists stay equal across two complete generations.
+The wider comparison is unchanged: 36 existing job entries differ, twenty new
+entries appear, and none disappear. Those wider changes were evaluated in memory
+only; no queue generation, issue synchronization or promotion was performed.
+
+I also exercised the actual nested `fix_rounds` function with a small independent
+fixture. These regression cases all pass:
+
+- The existing guard reproduces the bug: new blueprint files overwrite a completed
+  round's scope, with no separate next round.
+- The proposed guard preserves the completed fix's exact outputs and its review's
+  exact outputs; additional packets and suggested files go to the next round.
+- A second generation retains every generated output list.
+- An unfinished round still absorbs new blueprint inputs rather than freezing its
+  incomplete scope.
+- An actual `needs_changes` review makes the new fix depend on that review.
+- A historical completed rejection round keeps its saved review dependency even
+  when newly available work is present.
+
+The actual `issues.deliverables_complete` returns false for today's queue entry
+and true after restoring only the two historical output lists. Every other job
+field stays equal. The concrete patch is the guard below plus those two lists,
+with the queue's original formatting retained; it is 5,821 bytes, not a whole
+queue rewrite. Applying the guard alone does not repair already corrupted scope.
+
+Fresh `check_blueprint.py` validation of HE.0: **zero errors and warnings**,
+78 nodes, 24 API items, eighteen tests, 21 gaps and 63 requests. The unchanged
+suggested file retains SHA-256
+`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+Lean was not rerun; the earlier exact-pin successful elaboration receipt remains
+below. No source was fetched or reread in this administrative continuation.
+
+## Authority and stopping boundary
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus your
+own scratch space.” The issue does not authorize edits to `make_queue.py` or
+`queue.json`. This run requested explicit scope expansion to submit the tested
+repair for maintainer handling, and received no authorization before submission.
+Only this report and the handoff are changed.
+
+Calling `intake.file_problems` locally confirms that both repair paths are
+outside swarm output paths. This is an observed intake rule, not an automatic
+approval rejection: no out-of-scope PR or permission escalation was attempted.
+Do not change intake, label or close issues, or stamp the ten packets to make the
+completion predicate pass. The next useful action is the maintainer's scope
+repair, rather than another continuation that repeats the HE.0 review.
+
+## Reproducible focused regression
+
+Run the following from the repository root, saving the script in task scratch.
+It compiles only the actual nested function's AST and stubs its input/output
+boundary. It writes no repository file, fetches no source and calls no GitHub API.
+The full-generator replay below separately checks actual routing.
+
+```python
+"""Exercise the real fix_rounds function without changing repository files."""
+import ast
+import copy
+import re
+from pathlib import Path
+
+source = Path('research/blueprint/make_queue.py').read_text()
+old = 'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new = '''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+assert source.count(old) == 1
+base = 'FIX-RT-FIXTURE'
+report = 'research/blueprint/redteam/RT-FIXTURE.fixes.md'
+packet = 'research/blueprint/packets/Fixture.json'
+suggested = 'research/blueprint/suggested/Fixture.lean'
+added_packet = 'research/blueprint/packets/NewFixture.json'
+added_suggested = 'research/blueprint/suggested/NewFixture.lean'
+round_two = [report.replace('.fixes.md', '.fixes-2.md'), packet, suggested]
+historical = [
+    {'id': base, 'state': 'done', 'outputs': [report]},
+    {'id': base + '~2', 'state': 'done', 'outputs': round_two, 'after': [base]},
+    {'id': 'REV-' + base + '~2', 'state': 'pending', 'outputs': []},
+]
+
+def generate(src, prior, blueprints, verdicts=None):
+    function = next(n for n in ast.walk(ast.parse(src))
+                    if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
+    module = ast.Module(body=[function], type_ignores=[])
+    jobs = {}
+    env = {
+        'states': {j['id']: j['state'] for j in prior},
+        'previous_outputs': {j['id']: j['outputs'] for j in prior},
+        'previous_jobs': {j['id']: j for j in prior},
+        'PROMOTABLE': re.compile(r'^research/blueprint/packets/'),
+        'review_of': lambda p: (verdicts or {}).get(p, {}),
+        'findings_text': lambda *args: '', 'fill': {},
+        'FIX_TEMPLATE': '', 'FIX_REVIEW_TEMPLATE': '',
+        'add': lambda job, prompt: jobs.update({job['id']: job}),
+    }
+    exec(compile(module, '<real fix_rounds>', 'exec'), env)
+    env['fix_rounds']('RT-FIXTURE', 'fixture', 'fixture', [], 0, {}, [],
+                      [report], blueprints, {}, [])
+    return jobs
+
+blueprints = [packet, suggested, added_packet, added_suggested]
+original = generate(source, historical, blueprints)
+assert original[base + '~2']['outputs'] != round_two
+assert base + '~3' not in original
+fixed_source = source.replace(old, new)
+fixed = generate(fixed_source, historical, blueprints)
+assert fixed[base + '~2']['outputs'] == round_two
+assert fixed[base + '~3']['after'] == [base + '~2']
+assert added_packet in fixed[base + '~3']['outputs']
+assert added_suggested in fixed[base + '~3']['outputs']
+assert fixed['REV-' + base + '~2']['outputs'] == [
+    'research/blueprint/reviews/REV-FIX-RT-FIXTURE~2.md', packet, suggested]
+prior = [dict(j, state=next((p['state'] for p in historical if p['id'] == jid),
+                            'pending')) for jid, j in fixed.items()]
+twice = generate(fixed_source, prior, blueprints)
+assert {k: v['outputs'] for k, v in fixed.items()} == {
+    k: v['outputs'] for k, v in twice.items()}
+
+# Unfinished work still absorbs newly available inputs.
+pending = copy.deepcopy(historical)
+pending[1]['state'] = 'pending'
+unfinished = generate(fixed_source, pending, blueprints)
+assert added_packet in unfinished[base + '~2']['outputs']
+assert base + '~3' not in unfinished
+
+# The genuine rejection path keeps the independent review dependency.
+rejected = copy.deepcopy(historical)
+rejected[2]['state'] = 'done'
+sent_back = generate(fixed_source, rejected, [packet, suggested], {
+    packet: {'status': 'needs_changes',
+             'reviewer': 'independent-review-REV-' + base + '~2'}})
+assert sent_back[base + '~3']['after'] == ['REV-' + base + '~2']
+
+# An existing completed rejection round keeps its recorded reason/dependency.
+saved_rejection = copy.deepcopy(historical)
+saved_rejection[1]['after'] = ['REV-' + base]
+preserved = generate(fixed_source, saved_rejection, blueprints)
+assert preserved[base + '~2']['after'] == ['REV-' + base]
+assert preserved[base + '~2']['outputs'] == round_two
+print('PASS: original bug, completed scope, new-work routing, repeat generation, '
+      'unfinished expansion, rejection dependency, historical dependency')
+```
+
+---
+
+Earlier continuations and mathematical reviews follow with their original attribution.
+
 # Continuation: a tested queue-scope repair for issue #6217
 
 Codex — **codex-kahzso**, 10 October 2026. Claim confirmed in
