@@ -1,55 +1,55 @@
 {
-  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. pr_group names the pull request the roadmap travels in: roadmaps with the same group go up in one pull request; stacked_on names the group a pull request is stacked on.",
-  "updated": "2026-10-10",
-  "roadmaps": {
-    "SchemeAndStackFoundations": {
-      "stage": "pr",
-      "pr": 779
-    },
-    "PadicMeasuresIwasawaAlgebras": {
-      "stage": "pr",
-      "pr": 780
-    },
-    "ReductiveGroupsPartII": {
-      "stage": "pr",
-      "pr": 785,
-      "pr_group": "A"
-    },
-    "AdelicAlgebraicGroups": {
-      "stage": "pr",
-      "pr": 785,
-      "pr_group": "A"
-    },
-    "SmoothRepresentationsOfLocalGroups": {
-      "stage": "pr",
-      "pr": 785,
-      "pr_group": "A"
-    },
-    "IntegralHeckeAndGaloisDeterminants": {
-      "stage": "gate",
-      "pr_group": "A′",
-      "stacked_on": "A"
-    },
-    "AdicEtaleGeometry": {
-      "stage": "gate",
-      "pr_group": "B"
-    },
-    "AdicSpacesPartII": {
-      "stage": "gate",
-      "pr_group": "B"
-    },
-    "DiamondsAndVStacks": {
-      "stage": "gate",
-      "pr_group": "B"
-    },
-    "PerfectoidSpaces": {
-      "stage": "gate",
-      "pr_group": "B"
-    }
+ "_about": "Where each tier 1\u20134 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. pr_group names the pull request the roadmap travels in: roadmaps with the same group go up in one pull request; stacked_on names the group a pull request is stacked on.",
+ "updated": "2026-10-10",
+ "roadmaps": {
+  "SchemeAndStackFoundations": {
+   "stage": "pr",
+   "pr": 779
   },
-  "pr_groups": {
-    "A": "ReductiveGroupsPartII + AdelicAlgebraicGroups + SmoothRepresentationsOfLocalGroups: TauCetiRoadmap pull request #785 (opened 2026-10-10)",
-    "A′": "IntegralHeckeAndGaloisDeterminants, stacked on pull request A",
-    "B": "the planned merged package AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces"
+  "PadicMeasuresIwasawaAlgebras": {
+   "stage": "pr",
+   "pr": 780
+  },
+  "ReductiveGroupsPartII": {
+   "stage": "pr",
+   "pr": 785,
+   "pr_group": "A"
+  },
+  "AdelicAlgebraicGroups": {
+   "stage": "pr",
+   "pr": 785,
+   "pr_group": "A"
+  },
+  "SmoothRepresentationsOfLocalGroups": {
+   "stage": "pr",
+   "pr": 785,
+   "pr_group": "A"
+  },
+  "IntegralHeckeAndGaloisDeterminants": {
+   "stage": "gate",
+   "pr_group": "A\u2032",
+   "stacked_on": "A"
+  },
+  "AdicEtaleGeometry": {
+   "stage": "gate",
+   "pr_group": "B"
+  },
+  "AdicSpacesPartII": {
+   "stage": "gate",
+   "pr_group": "B"
+  },
+  "DiamondsAndVStacks": {
+   "stage": "gate",
+   "pr_group": "B"
+  },
+  "PerfectoidSpaces": {
+   "stage": "gate",
+   "pr_group": "B"
   }
+ },
+ "pr_groups": {
+  "A": "ReductiveGroupsPartII + AdelicAlgebraicGroups + SmoothRepresentationsOfLocalGroups: TauCetiRoadmap pull request #785 (opened 2026-10-10)",
+  "A\u2032": "IntegralHeckeAndGaloisDeterminants, stacked on pull request A",
+  "B": "the planned merged package AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces"
+ }
 }
