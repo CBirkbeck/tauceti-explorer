@@ -47,6 +47,7 @@ import Mathlib.NumberTheory.NumberField.Completion.FinitePlace
 import Mathlib.RingTheory.ClassGroup.Basic
 import TauCeti.NumberTheory.NumberField.Global.Places.Basic
 import Mathlib.RepresentationTheory.Induced
+import Mathlib.RepresentationTheory.Subrepresentation
 import Mathlib.RepresentationTheory.Rep.Res
 import Mathlib.RingTheory.RootsOfUnity.Basic
 import Mathlib.FieldTheory.KrullTopology
@@ -62,8 +63,9 @@ import TauCeti.Topology.Algebra.Group.Profinite.Section
 /-!
 # Suggested declarations: continuous cohomology, Part II
 
-This file is not the roadmap and is not exhaustive. The definitive specification is
-`research/blueprint/readmes/ArithmeticGaloisDuality.md`. These signatures suggest Lean forms
+This file is not exhaustive. The reviewed packet supplies the updated specifications;
+the separate reader needs the corrections listed in the independent review report.
+These signatures suggest Lean forms
 so contributors and reviewers can converge on names, carriers and conventions. Proofs marked
 `sorry` claim no implementation. The packet records source and supplier gaps explicitly.
 
@@ -75,6 +77,8 @@ Joint continuity is imposed where the arithmetic comparison needs it.
 noncomputable section
 
 open CategoryTheory
+
+universe u
 
 namespace TauCeti.CompactCoefficients
 
@@ -114,9 +118,16 @@ abbrev limOne : Type _ := (∀ n, A.obj n) ⧸ A.shift.range
 /-- API: membership in `lim`. -/
 theorem mem_lim (a : ∀ n, A.obj n) : a ∈ A.lim ↔ ∀ n, A.map n (a (n + 1)) = a n := sorry
 
-/-- **`R02.1/mittag-leffler`**: the images of `A_{n+k} → A_n` stabilise in `k`. -/
-def IsMittagLeffler : Prop :=
-  ∀ n, ∃ m, ∀ k ≥ m, (A.mapIter n k).range = (A.mapIter n m).range
+/-- The canonical tower functor, with iterated transition maps. -/
+def toFunctor (A : Tower.{u}) : ℕᵒᵖ ⥤ AddCommGrpCat.{u} := sorry
+
+/-- **`R02.1/mittag-leffler`**: reuse Mathlib's existing predicate. -/
+abbrev IsMittagLeffler : Prop :=
+  (A.toFunctor ⋙ CategoryTheory.forget AddCommGrpCat).IsMittagLeffler
+
+/-- The eventual-range characterization of the existing predicate. -/
+theorem isMittagLeffler_iff_ranges : A.IsMittagLeffler ↔
+    ∀ n, ∃ m, ∀ k ≥ m, (A.mapIter n k).range = (A.mapIter n m).range := sorry
 
 /-- API: surjective transitions give a Mittag-Leffler tower. -/
 theorem isMittagLeffler_of_surjective (h : ∀ n, Function.Surjective (A.map n)) :
@@ -134,11 +145,8 @@ theorem limOne_subsingleton_of_surjective (h : ∀ n, Function.Surjective (A.map
     Subsingleton A.limOne :=
   A.limOne_subsingleton_of_isMittagLeffler (A.isMittagLeffler_of_surjective h)
 
-/-- The canonical tower functor, with iterated transition maps. -/
-def toFunctor (A : Tower) : ℕᵒᵖ ⥤ AddCommGrpCat := sorry
-
 theorem isMittagLeffler_iff_functor (A : Tower) : A.IsMittagLeffler ↔
-    (A.toFunctor ⋙ CategoryTheory.forget AddCommGrpCat).IsMittagLeffler := sorry
+    (A.toFunctor ⋙ CategoryTheory.forget AddCommGrpCat).IsMittagLeffler := Iff.rfl
 
 end Tower
 
@@ -161,9 +169,9 @@ section Cochains
 
 variable {X : Type*} [TopologicalSpace X] [CompactSpace X] [TotallyDisconnectedSpace X]
 
-/-- **`R02.1/cochain-lifting`**: a continuous map from a compact totally disconnected space into a
-finite discrete space lifts along any surjection of finite discrete spaces; so the transition
-maps of the tower of continuous cochains `C(Gⁱ, T_{n+1}) → C(Gⁱ, T_n)` are surjective. -/
+omit [CompactSpace X] [TotallyDisconnectedSpace X] in
+/-- **`R02.1/cochain-lifting`**: a set section of a surjection between discrete spaces
+is continuous. Composing with it lifts a continuous map from any topological space. -/
 theorem exists_lift_continuous {Y Z : Type*} [TopologicalSpace Y] [DiscreteTopology Y]
     [TopologicalSpace Z] [DiscreteTopology Z] (π : Y → Z) (hπ : Function.Surjective π)
     (f : C(X, Z)) : ∃ g : C(X, Y), π ∘ g = f := sorry
@@ -241,7 +249,8 @@ example (p : ℕ) : Subsingleton (Tower.limOne
 
 -- TEST limOne_mul_p
 example (p : ℕ) [Fact p.Prime] :
-    (mulTower p).lim = ⊥ ∧ Nontrivial (mulTower p).limOne := sorry
+    (mulTower p).lim = ⊥ ∧
+      Nonempty ((mulTower p).limOne ≃+ (ℤ_[p] ⧸ (Int.castAddHom ℤ_[p]).range)) := sorry
 
 -- TEST lim_constant
 example (M : Type*) [AddCommGroup M] (a : ∀ _ : ℕ, M) :
@@ -277,6 +286,12 @@ example (C : Type*) [AddCommGroup C] : Subsingleton (Sections (AddMonoidHom.id C
 end SuggestedTest
 
 section FactorSetTopology
+
+/- The following signatures are adapters for the fixed f790474 compilation pin.
+Current Tau Ceti already implements the topology, continuous section and rescaling
+in Topology/Algebra/GroupExtension/FactorSet.lean, and the compact-kernel H²
+classification in Cohomology.lean. Packaging imports those implementations and
+plans only the comparison with the canonical compact-cochain carrier. -/
 
 variable {G M : Type*} [Group G] [CommGroup M] [MulDistribMulAction G M]
   [TopologicalSpace G] [TopologicalSpace M]
@@ -345,6 +360,12 @@ def isAdmissible (I : Ideal R) (ρ : Representation R G M) : Prop :=
     letI : TopologicalSpace (actionSpan ρ) := I.adicModuleTopology (actionSpan ρ)
     Continuous fun g : G => (⟨ρ g, Submodule.subset_span ⟨g,rfl⟩⟩ : actionSpan ρ)
 
+/-- General ind-coefficients are unions of finite-type continuous stable submodules.
+No arbitrary topology on the entire module is used in this condition. -/
+def isIndAdmissible (I : Ideal R) (ρ : Representation R G M) : Prop :=
+  ∀ m : M, ∃ N : Subrepresentation ρ, m ∈ N ∧
+    Module.Finite R N.toSubmodule ∧ isAdmissible I N.toRepresentation
+
 /-- Finite discrete continuous coefficients, over a complete local Noetherian ring. -/
 theorem admissible_of_finite [IsNoetherianRing R] [IsLocalRing R]
     [Finite M] [TopologicalSpace M] [DiscreteTopology M]
@@ -369,6 +390,9 @@ example : actionSpan (Representation.trivial R G M) =
 -- TEST admissible_zero
 example [Subsingleton M] (ρ : Representation R G M) : actionSpan ρ = ⊥ := sorry
 
+-- TEST ind_admissible_trivial
+example (I : Ideal R) : isIndAdmissible I (Representation.trivial R G M) := sorry
+
 -- TEST admissible_joint
 example [IsNoetherianRing R] [IsLocalRing R] [Module.Finite R M]
     (ρ : Representation R G M)
@@ -384,7 +408,11 @@ section ContinuousCochains
 variable {R G : Type*} [Ring R] [Group G] [TopologicalSpace R]
   [TopologicalSpace G] [IsTopologicalGroup G]
 
-/-- D7/continuous-derived-cochains: algebraic image of the canonical homogeneous complex. -/
+/-- D7/continuous-derived-cochains: algebraic image of the canonical homogeneous complex.
+This is the finite-type/cofinite TopRep carrier. For general ind-admissible modules
+the packet instead uses the filtered colimit over finite-type continuous stable
+submodules. Its indexed coefficient functor is an explicit prototype gap.
+The comparison with derived invariants is conditional beyond degrees zero and one. -/
 abbrev algebraicContinuousCochains (X : TopRep R G) : CochainComplex (ModuleCat R) ℕ :=
   ((forget₂ (TopModuleCat R) (ModuleCat R)).mapHomologicalComplex (.up ℕ)).obj
     (TopRep.homogeneousCochains X)
@@ -476,8 +504,6 @@ example : letI : TopologicalSpace (ZMod 2) := ⊥
     ¬ Continuous shearAdd := sorry
 end SuggestedTest
 end TauCeti.CompactCoefficients
-
-universe u
 
 open CategoryTheory.Pretriangulated
 
@@ -971,7 +997,7 @@ def forgetLastQuotientVariable (i j : ℕ) :
 
 /-- The finite contraction on the actual ordinary and complete Tate complexes. -/
 def unbalancedProduct (π : Γ →ₜ* Θ) (X : TopRep.{0} ℤ Γ) (Y : TopRep.{0} ℤ Θ)
-    [Fact (Function.Surjective π)] [DiscreteTopology X.V] [Fact (TauCeti.IsSmoothDiscrete ℤ X)] [DiscreteTopology Y.V] [Fact (TauCeti.IsSmoothDiscrete ℤ Y)] (i j : ℕ) (hj : j ≤ i) :
+    [Fact (Function.Surjective π)] [DiscreteTopology X.V] [Fact (TauCeti.IsSmoothDiscrete ℤ X)] [DiscreteTopology Y.V] [Fact (TauCeti.IsSmoothDiscrete ℤ Y)] (i j : ℕ) (hj : j = 0 ∨ j < i) :
     quotientFactoringCochains π X i j →ₗ[ℤ] (tateComplex (underlyingY Y)).X (-(j : ℤ)) →ₗ[ℤ]
       (inhomogeneousCochains (productRep π X Y)).X (i-j) := sorry
 
@@ -1009,7 +1035,7 @@ theorem unbalancedProduct_one (n : ℕ) (hn : 0 < n)
 
 namespace SuggestedTest
 -- TEST unbalanced_zero
-example (i j : ℕ) (hj : j ≤ i) (b : (tateComplex (underlyingY Y)).X (-(j : ℤ))) :
+example (i j : ℕ) (hj : j = 0 ∨ j < i) (b : (tateComplex (underlyingY Y)).X (-(j : ℤ))) :
     unbalancedProduct π X Y i j hj 0 b = 0 := sorry
 
 -- TEST unbalanced_ordinary
@@ -1340,14 +1366,14 @@ local instance openTopologicalGroup (U : OpenSubgroup G) : IsTopologicalGroup U 
 local instance resSmooth (U : OpenSubgroup G) :
     Fact (TauCeti.IsSmoothDiscrete ℤ (TopRep.res U.toSubgroup.subtype X)) := ⟨sorry⟩
 
-/-- Restriction and transfer for an open subgroup containing the normal subgroup. -/
-def res (U : OpenSubgroup G) (hHU : H ≤ U.toSubgroup)
+/-- Restriction and transfer for any open subgroup, using the inverse-image normal subgroup. -/
+def res (U : OpenSubgroup G)
     (hc : IsClosed ((H.comap U.toSubgroup.subtype : Subgroup U) : Set U)) :
     spectralSequence H hH X ⟶
       spectralSequence (H.comap U.toSubgroup.subtype) hc
         (TopRep.res U.toSubgroup.subtype X) := sorry
 
-def cor (U : OpenSubgroup G) (hHU : H ≤ U.toSubgroup)
+def cor (U : OpenSubgroup G)
     (hc : IsClosed ((H.comap U.toSubgroup.subtype : Subgroup U) : Set U)) :
     spectralSequence (H.comap U.toSubgroup.subtype) hc
       (TopRep.res U.toSubgroup.subtype X) ⟶ spectralSequence H hH X := sorry
