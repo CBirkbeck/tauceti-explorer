@@ -19972,10 +19972,9 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
     "date": "2026-10-10",
-    "session": "codex-X15WW9",
-    "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /1, /8, /11 and /15–18: the unique space/stack, duality and schematic-alteration owners and consumer boundaries remain adequate. Current AlgebraicVectorBundles L1A/L1B and Tau Ceti relativeSpec are imports, separate from the atlas pins. Fresh graph assembly gives 15,601 edges; six SF.5 deletions leave 15,595 and both long SF.4-to-MC.4 branches. Adding the reverse whole-stage import remains cyclic. Fresh de Jong 2.24 p.62 read keeps every genus and at least three marks, finite-etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization at the boundary. SF already records the obstruction; the two contradictory Adic prose fields await omitted-path authorization. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+    "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. The original fix issue #5160 excluded this packet: /15 and /27 were explicitly handed to their owners, not claimed applied. Those narrowed handoffs agree with the verifier; no new scheme mathematics is accepted here. SF.5 positivity/Keel/Stein and SF.1 effective descent/stack interfaces remain unfinished in the existing coverage; the installed D0 generic quotient-stack owner must be reused. Packet check passes and the unchanged suggested file elaborates with only placeholder-proof warnings. Acceptance covers the correct fix boundary, not closure of those targets or the unrelated existing packet gaps."
   },
   "reviewHistory": [
     {
@@ -21573,6 +21572,13 @@
       "date": "2026-10-10",
       "session": "codex-zz1p9S",
       "notes": "Codex: bounded independent area-fix continuation following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2; the complete preceding review is preserved in reviewHistory. Findings /1, /8, /11 and /15–18: existing ownership and supplier requests are adequate. Current AlgebraicVectorBundles L1A/L1B and the current Tau Ceti relativeSpec functor remain imports, separate from the atlas pins. Removing the six SF.5 forwarding inputs leaves both long SF.4-to-MC.4 paths, via A4 or R07.2; blanket reverse import is still cyclic. The pointed cover keeps de Jong 2.24 p.62 genus/marking/level hypotheses and smooth-locus etaleness. Two contradictory Adic prose fields remain outside the live issue scope and are not silently repaired. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "session": "codex-X15WW9",
+      "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /1, /8, /11 and /15–18: the unique space/stack, duality and schematic-alteration owners and consumer boundaries remain adequate. Current AlgebraicVectorBundles L1A/L1B and Tau Ceti relativeSpec are imports, separate from the atlas pins. Fresh graph assembly gives 15,601 edges; six SF.5 deletions leave 15,595 and both long SF.4-to-MC.4 branches. Adding the reverse whole-stage import remains cyclic. Fresh de Jong 2.24 p.62 read keeps every genus and at least three marks, finite-etale level cover on the smooth open after inverting the level prime, and finite dominant projective normalization at the boundary. SF already records the obstruction; the two contradictory Adic prose fields await omitted-path authorization. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
     }
   ]
 }
