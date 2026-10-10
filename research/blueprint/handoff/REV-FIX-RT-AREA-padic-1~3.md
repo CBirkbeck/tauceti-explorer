@@ -7,6 +7,8 @@ One job claimed; no second job.
 
 ## Submission and blocker
 
+Draft checkpoint: [PR #8206](https://github.com/CBirkbeck/tauceti-explorer/pull/8206).
+
 Blocked checkpoint, retained as a draft PR for the maintainer. The original
 three-packet review is already complete: PerfectoidSpaces P0 needs_changes;
 AdicEtaleGeometry and AdicSpacesPartII accepted for their scoped corrections.
