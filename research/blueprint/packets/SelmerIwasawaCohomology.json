@@ -10,7 +10,7 @@
     "SelmerIwasawaCohomology:L4"
   ],
   "status": "complete",
-  "summary": "Target-level plan of all five layers: multiplicative completion/Kummer comparisons and weak semisimplicity; local annihilators and parametric derived duality; compact/rational Selmer adapters and mapping fibres extending upstream discrete Selmer theory; Iwasawa control with derived error terms, arithmetic determinant lines and Greenberg structure; and minimal period/Fontaine–Laffaille foundations, finite conditions, Hodge criticality, class-group dictionaries, parity and conjectural statements. Prerequisites terminate in the pinned libraries, lower-tier or same-bundle suppliers, precise requests, or the recorded parity proof refinements. No target is claimed formalised.",
+  "summary": "Target-level plan of all five layers: multiplicative completion/Kummer comparisons and weak semisimplicity; local annihilators and parametric derived duality; compact/rational Selmer adapters and mapping fibres extending upstream discrete Selmer theory; Iwasawa control with derived error terms, arithmetic determinant lines and Greenberg structure; and minimal period/Fontaine–Laffaille foundations, finite conditions, Hodge criticality, class-group dictionaries, parity and conjectural statements. Prerequisites terminate in the pinned libraries, lower-tier or same-bundle suppliers, precise requests, or the recorded parity proof refinements. No target is claimed formalised. Independent review corrected completion scope, discrete corank examples, direct proof dependencies, compact/discrete dual notation, local-point completion, scalar fields and source labels. Derived p=2 real-place support remains a precise additional gap; the planned stages are not claimed closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -20,266 +20,266 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The I-adic completion of a module.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:AdicCompletion.map",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
         "provides": "Functoriality of the completion.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:AdicCompletion.of",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The canonical map M → M̂.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:AdicCompletion.ofTensorProduct",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "The map R̂ ⊗ M → M̂.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:AdicCompletion.ofTensorProduct_bijective_of_finite_of_isNoetherian",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "R̂ ⊗ M → M̂ is bijective for finite M over Noetherian R.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.isMittagLeffler_of_exists_finite_range",
         "kind": "theorem",
         "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
         "provides": "A cofiltered system with eventually finite ranges is Mittag-Leffler.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom.comp",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Composition of continuous homomorphisms.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:IsIntegral.of_pow",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/IntegralClosure/IsIntegral/Basic.lean",
         "provides": "x is integral if some positive power is.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:Module.finrank",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
         "provides": "Cardinal.toNat of module rank; for finite free modules this is the usual rank.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:MulDistribMulAction.toMonoidHom",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Action/Basic.lean",
         "provides": "The endomorphism x ↦ g • x.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:NumberField.RingOfIntegers",
         "kind": "def",
         "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
         "provides": "The ring of integers.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:NumberField.Units.exist_unique_eq_mul_prod",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
         "provides": "Every unit is uniquely a torsion unit times a product of powers of the fundamental system.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:PadicInt",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The p-adic integers.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:PadicInt.toZModPow",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
         "provides": "ℤ_p → ℤ/p^n.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:PontryaginDual",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/PontryaginDual.lean",
         "provides": "Continuous homomorphisms into the circle.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:Submodule.map_le_iff_le_comap",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
         "provides": "map f p ≤ q ↔ p ≤ comap f q.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:card_rootsOfUnity",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
         "provides": "The n-th roots of unity in a domain have at most n elements.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:rootsOfUnity",
         "kind": "def",
         "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
         "provides": "The subgroup of n-th roots of unity.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitDelta0_coeffMap",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/DeltaNaturality.lean",
         "provides": "A morphism of short exact sequences commutes with δ⁰.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap",
         "kind": "def",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "The Kummer map on Kˣ/(Kˣ)^n.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.kummerClassMap_injective",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "Kˣ/(Kˣ)^n injects into H¹(G_K, μ_n).",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.kummerMap",
         "kind": "def",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "Kˣ →* H¹(G_K, μ_n), the connecting map of the Kummer sequence.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.kummerMap_apply",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
         "provides": "kummerMap is δ⁰ read through Kˣ ≃ ((Kˢ)ˣ)^{G_K}.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.kummerShortExact",
         "kind": "def",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
         "provides": "The Kummer short exact sequence of discrete G_K-modules.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.powerClassQuotient",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/Group/PowerClassGroup.lean",
         "provides": "Kˣ/(Kˣ)^n.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:BDeRhamPlus",
         "kind": "def",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "The θ-kernel completion of W(PreTilt R p)[1/p].",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:BDeRham",
         "kind": "def",
         "module": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
         "provides": "Localization of BDeRhamPlus at images of generators of ker θ.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne real Gamma factor π^(−s/2)Γ(s/2).",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:Complex.Gammaℂ",
         "kind": "def",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "Deligne complex Gamma factor 2(2π)^(−s)Γ(s).",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "mathlib:Complex.Gammaℝ_eq_zero_iff",
         "kind": "theorem",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
         "provides": "The totalized real Gamma factor is zero precisely at nonpositive even integers.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn",
         "kind": "def",
         "module": "TauCeti/Geometry/Hodge/Structure.lean",
         "provides": "An opposed filtration on a complex vector space with real conjugation and fixed weight.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.hodgeNumber",
         "kind": "def",
         "module": "TauCeti/Geometry/Hodge/Dimension.lean",
         "provides": "Finite rank of the pth Hodge piece.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.finite_setOf_hodgeNumber_ne_zero",
         "kind": "theorem",
         "module": "TauCeti/Geometry/Hodge/Dimension.lean",
         "provides": "Finite support of Hodge numbers.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09; current-library additions are distinguished in upstreamNotes."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.dual",
         "kind": "def",
         "module": "TauCeti/Geometry/Hodge/Dual.lean",
         "provides": "The opposed-filtration dual of weight −w, on the complex dual with dual conjugation.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.finrank_dual_piece",
         "kind": "theorem",
         "module": "TauCeti/Geometry/Hodge/Dual.lean",
         "provides": "The dual piece at a has dimension equal to the original piece at −a.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.HodgeStructureOn.tateTwist",
         "kind": "def",
         "module": "TauCeti/Geometry/Hodge/Tate/Twist.lean",
         "provides": "The pure Hodge twist has filtration F(a+m) and weight w−2m.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.tate",
         "kind": "def",
         "module": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
         "provides": "The rank-one integral Tate Hodge structure of type (−m,−m) and weight −2m.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.tate_hodgeNumber",
         "kind": "theorem",
         "module": "TauCeti/Geometry/Hodge/Tate/Basic.lean",
         "provides": "The existing Tate Hodge numbers are one at −m and zero elsewhere.",
-        "checked": "Actual statement read at the pinned commit on 2026-10-09."
+        "checked": "Declaration and actual statement independently read at the recorded pinned commit by REV-SelmerIwasawaCohomology on 2026-10-10; current-library additions remain separate in upstreamNotes."
       }
     ]
   },
@@ -529,135 +529,135 @@
       "kind": "preprint",
       "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
       "citation": "K. Rubin, Euler systems, author draft (1999); published as Annals of Mathematics Studies 147 (2000)",
-      "read": "2026-09-28, 2026-09-29 (Chapter I §§3–5, 7); read again 2026-10-09 at the cited loci",
+      "read": "2026-09-28, 2026-09-29 (Chapter I §§3–5, 7); read again 2026-10-09 at the cited loci; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1312.4052v1",
       "citation": "B. Mazur and K. Rubin, Controlling Selmer groups in the higher core rank case, arXiv:1312.4052v1",
-      "read": "2026-09-28, 2026-09-29 (§§1–2); read again 2026-10-09 at the cited loci",
+      "read": "2026-09-28, 2026-09-29 (§§1–2); read again 2026-10-09 at the cited loci; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
-      "read": "2026-09-28; read again 2026-10-09 at the cited loci",
+      "read": "2026-09-28; read again 2026-10-09 at the cited loci; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2506.03465v2",
       "citation": "A. A. Burungale and Y. Tian, A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin, arXiv:2506.03465v2",
-      "read": "2026-09-28; read again 2026-10-09 at the cited loci",
+      "read": "2026-09-28; read again 2026-10-09 at the cited loci; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_2006__310__R1_0.pdf",
       "citation": "J. Nekovář, Selmer complexes, Astérisque 310 (2006)",
-      "read": "2026-09-29; read again 2026-10-09 at the cited loci",
+      "read": "2026-09-29; read again 2026-10-09 at the cited loci; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f"
     },
     {
       "kind": "published",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), 101–216",
-      "read": "2026-09-29 (pp. 170–172, 196–198)",
+      "read": "2026-09-29 (pp. 170–172, 196–198); independently checked published pp. 170–172, 193–194 and 196–198, 2026-10-10",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
     },
     {
       "kind": "published",
       "url": "https://doi.org/10.1007/s00222-021-01088-4",
       "citation": "Y. Liu; Y. Tian; L. Xiao; W. Zhang; X. Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives; Inventiones Mathematicae 228 (2022), 107–375; maintainer-cleared version of record",
-      "read": "2026-10-09"
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10"
     },
     {
       "kind": "preprint",
       "url": "https://warwick.ac.uk/fac/sci/maths/people/staff/david_loeffler/jhc70/greenberg.pdf",
       "citation": "Ralph Greenberg, On the structure of Selmer groups; Author preprint, 29 pages; use PDF pagination, publication date not authenticated",
-      "read": "2026-10-09"
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10"
     },
     {
       "kind": "preprint",
       "url": "https://web.math.ucsb.edu/~castella/Eisenstein.pdf",
       "citation": "F. Castella; G. Grossi; J. Lee; C. Skinner, On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes; Author preprint dated 10 August 2021, 34 pages; published Inventiones Mathematicae 227 (2022)",
-      "read": "2026-10-09"
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1907.08694v1",
       "citation": "F. Calegari; D. Geraghty; M. Harris, Bloch–Kato conjectures for automorphic motives; Companion appendix preprint, 10 pages, to Modularity lifting for non-regular symplectic representations, Duke Mathematical Journal 169 (2020), Appendix A",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "8389edfec6576b92aea1fd4dbf6c96ccb86b2186a6f244ab46c4abf1c02e2bed"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1405.7294",
       "citation": "Christopher Skinner, A converse to a theorem of Gross, Zagier, and Kolyvagin; Author preprint; published Annals of Mathematics 191 (2020), 329–354",
-      "read": "2026-10-09"
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_2004__295__117_0.pdf",
       "citation": "Kazuya Kato, p-adic Hodge theory and values of zeta functions of modular forms; Astérisque 295 (2004), 117–290",
-      "read": "2026-10-09"
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10"
     },
     {
       "kind": "published",
       "url": "https://virtualmath1.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
       "citation": "Spencer Bloch; Kazuya Kato, L-functions and Tamagawa numbers of motives; The Grothendieck Festschrift I (1990), 333–400; freely available university seminar copy",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5"
     },
     {
       "kind": "published",
       "url": "https://publications.ias.edu/sites/default/files/33_Valeursde.pdf",
       "citation": "Pierre Deligne, Valeurs de fonctions L et périodes d’intégrales; Proc. Sympos. Pure Math. 33, Part 2 (1979), 313–346; author-hosted scan",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "6cfacb0f8742314fb9faeb3585159bdc13c3ff6e93686e3fe0a23ad775e8b574"
     },
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p11-p.pdf",
       "citation": "Tim Dokchitser; Vladimir Dokchitser, On the Birch–Swinnerton-Dyer quotients modulo squares; Annals of Mathematics 172 (2010), 567–596",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "f13acec152f980adbe52b033f6bb20972a0e07ef995affb76c1f0bcbaaaa5306"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/article/BSMF_1999__127_3_459_0.pdf",
       "citation": "Christophe Breuil, Une remarque sur les représentations locales p-adiques et les congruences entre formes modulaires de Hilbert; Bull. Soc. Math. France 127 (1999), 459–472",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "ccc0c9fd501377f07217ff149ff3bddda817c9df6f76f825c5ec48c01f67cfdd"
     },
     {
       "kind": "published",
       "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/duke1993.pdf",
       "citation": "Wiesława Nizioł, Cohomology of crystalline representations; Duke Mathematical Journal 71 (1993), 747–791",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "0cbb8dd04fc76284620049c435eb4757d6fb9f1ab347b11fdf1ae890fe975449"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_1994__223__59_0.pdf",
       "citation": "Jean-Marc Fontaine, Le corps des périodes p-adiques; Astérisque 223 (1994), 59–111",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "74b6bfbaa3a5b5a1eb1f1cd33b0e49aaffa5bde1b8761a91f7cb51a550e9a46e"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/ASENS_1982_4_15_4_547_0.pdf",
       "citation": "Jean-Marc Fontaine; Guy Laffaille, Construction de représentations p-adiques; Annales scientifiques de l’École normale supérieure 15 (1982), 547–608",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "c049a7bff113a45f8bbcffc93118bd2e651e84f8b4a38305f7cb24b34c2011a2"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/item/AST_1994__223__113_0.pdf",
       "citation": "Jean-Marc Fontaine, Représentations p-adiques semi-stables; Astérisque 223 (1994), 113–184",
-      "read": "2026-10-09",
+      "read": "2026-10-09; independently checked at the cited loci by REV-SelmerIwasawaCohomology, 2026-10-10",
       "sha256": "ace926ffda578dacfe8a333c38d450235506ebe18f558ee9bfcb96dc6f70a8ec"
     }
   ],
@@ -723,7 +723,17 @@
         {
           "name": "TauCeti.Selmer.pCompletionMap",
           "role": "functoriality",
-          "statement": "A homomorphism A → B induces Â → B̂, with identity and composition laws."
+          "statement": "A homomorphism A → B induces Â → B̂."
+        },
+        {
+          "name": "TauCeti.Selmer.pCompletionMap_id",
+          "role": "simp",
+          "statement": "Completion sends the identity to the identity."
+        },
+        {
+          "name": "TauCeti.Selmer.pCompletionMap_comp",
+          "role": "functoriality",
+          "statement": "Completion sends g ∘ f to completion(g) ∘ completion(f)."
         },
         {
           "name": "TauCeti.Selmer.adicCompletion_int_equiv_padicInt",
@@ -865,7 +875,7 @@
       ],
       "title": "Local completion and algebraic tensor comparison",
       "kind": "lemma",
-      "statement": "Import the local multiplicative completion A(K) and its p-adic module from Tau Ceti LocalGaloisGroups Layer 7. Identify it with the L0 Mathlib completion through their common quotient tower. For K/ℚ_ℓ finite the canonical Kˣ⊗ℤℤ_p→A(K) is surjective and not injective: valuation contributes ℤ_p; principal units contribute their p-adic completion, not their algebraic tensor product. For ℓ=p the noninjectivity includes a⊗1−1⊗a in ℤ_p⊗ℤℤ_p with a∉ℚ; for ℓ≠p the nonzero tensor of the pro-ℓ unit factor is killed by completion.",
+      "statement": "Import A(K)=lim_m Kˣ/(Kˣ)^(p^m) and its p-adic module from the current LocalGaloisGroups Layer 7 suggested file, whose carrier is defined for arbitrary fields. Its free-quotient rank [K:ℚ_p]+1 requires K/ℚ_p finite; for ℓ≠p use LocalFieldsRamification Layer 1’s multiplicative decomposition instead. Identify it with the L0 Mathlib completion through their common quotient tower. For K/ℚ_ℓ finite the canonical Kˣ⊗ℤℤ_p→A(K) is surjective and not injective: valuation contributes ℤ_p; principal units contribute their p-adic completion, not their algebraic tensor product. For ℓ=p the noninjectivity includes a⊗1−1⊗a in ℤ_p⊗ℤℤ_p with a∉ℚ; for ℓ≠p the nonzero tensor of the pro-ℓ unit factor is killed by completion.",
       "hypotheses": [
         "K/ℚ_ℓ finite, ℓ any prime (ℓ = p allowed)."
       ],
@@ -1050,12 +1060,12 @@
         {
           "name": "kummerLimit_real",
           "kind": "computation",
-          "statement": "K = ℝ, p = 2: ℝ^×/(ℝ^×)^{2^m} = ℤ/2 = H^1(ℤ/2, μ_{2^m}), so both limits are ℤ/2."
+          "statement": "K=ℝ, p=2, m≥1: ℝˣ/(ℝˣ)^(2^m) ≅ ℤ/2 ≅ H¹(ℤ/2,μ_(2^m)); both inverse limits are ℤ/2."
         },
         {
           "name": "kummerLimit_finite_field",
           "kind": "computation",
-          "statement": "K = 𝔽_q: both sides are the p-part of 𝔽_q^× (Ẑ-cohomology H^1 = μ_{p^m}/(Fr − 1))."
+          "statement": "K=𝔽_q, p∤q: both inverse limits are the p-primary part of 𝔽_qˣ, using arithmetic Frobenius and multiplication-by-p coefficient transitions."
         },
         {
           "name": "kummerLimit_rational",
@@ -1241,7 +1251,8 @@
         "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
         "ArithmeticGaloisDuality:R02.1/milnor-sequence",
         "SelmerIwasawaCohomology:L0/kummer-level-compatibility",
-        "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one"
+        "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+        "SelmerIwasawaCohomology:L0/kummer-limit-map"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Completion",
@@ -1515,7 +1526,7 @@
         {
           "sourceId": "RUBIN-ES",
           "locator": "Chapter I, §5, Lemma 5.4, printed p. 12 (PDF p. 22)",
-          "match": "A Selmer map induced by a coefficient map."
+          "match": "Rubin Lemma 5.4 is a coefficient-map specialization; the general commuting-diagram statement follows directly by taking kernels."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1727,12 +1738,12 @@
         {
           "name": "unramified_divisible_W",
           "kind": "computation",
-          "statement": "For unramified T, H^1_f(K, W) = H^1_ur(K, W) (Rubin Lemma 3.5(iv))."
+          "statement": "For K/ℚ_ℓ finite with ℓ≠p and an unramified lattice T, H¹_f(K,W)=H¹_ur(K,W) (Rubin Lemma 3.5(iv))."
         },
         {
           "name": "unramified_non_example",
           "kind": "non-example",
-          "statement": "For ramified B the inclusion H^1_ur(K, T) ⊆ H^1_f(K, T) can be strict, with quotient (W^I/(W^I)_div)^{Fr=1} (Rubin Lemma 3.5(iii))."
+          "statement": "For K/ℚ_ℓ with ℓ≠p, H¹_f(K,T)/H¹_ur(K,T) ≅ (W^I/(W^I)_div)^(Fr=1); this is nonzero for a Tate curve with p-divisible Tamagawa number, so raw unramifiedness is too small."
         }
       ],
       "uses": [
@@ -1953,7 +1964,9 @@
         "M discrete p-primary; G acts continuously."
       ],
       "proofSteps": [
-        "ContinuousMonoidHom.comp with the action of g^{−1}; the left-action law uses (gh)^{−1} = h^{−1}g^{−1}."
+        "ContinuousMonoidHom.comp with the action of g^{−1}; the left-action law uses (gh)^{−1} = h^{−1}g^{−1}.",
+        "For a discrete p-primary M, every circle-valued character has p-power torsion image; identify the circle’s p-primary torsion with ℚ_p/ℤ_p. Finite cyclic p-group duality gives the finite examples, and compatible duals of ℤ/p^m give (ℚ_p/ℤ_p)^∨=ℤ_p with its inverse-limit topology.",
+        "Injectivity of the divisible group ℚ_p/ℤ_p makes dualization exact on discrete p-primary modules. Compactness follows by identifying the dual with the closed character subgroup of a product of finite character groups. On finitely generated compact duals use their finite quotients to recover biduality; these are the arithmetic modules needed by corank and the closed-condition annihilator rules."
       ],
       "acceptance": [
         "Dualising twice returns M; (ℚ_p/ℤ_p)^∨ = ℤ_p."
@@ -2012,6 +2025,11 @@
           "name": "dual_trivial_action",
           "kind": "degenerate",
           "statement": "Trivial action dualises to trivial action."
+        },
+        {
+          "name": "TauCeti.Selmer.Tests.dual_inverse_action",
+          "kind": "computation",
+          "statement": "For M=ℤ/7 and g acting by multiplication by 2 (order 3), the dual action is multiplication by 4, the inverse of 2 mod 7; direct multiplication by 2 fails."
         }
       ],
       "uses": [
@@ -2067,39 +2085,44 @@
         {
           "name": "TauCeti.Selmer.corank",
           "role": "constructor",
-          "statement": "dim_{ℚ_p}(M^∨ ⊗ ℚ_p)."
+          "statement": "For discrete cofinitely generated M, dim_ℚp(ℚ_p⊗_ℤp M^∨)."
         },
         {
-          "name": "TauCeti.Selmer.corank_finite",
+          "name": "TauCeti.Selmer.corankFromDual",
+          "role": "compatibility",
+          "statement": "On a supplied compact dual N=M^∨, compute dim_ℚp(ℚ_p⊗_ℤp N); this is the native signature-testing adapter."
+        },
+        {
+          "name": "TauCeti.Selmer.corankFromDual_finite",
           "role": "simp",
-          "statement": "Finite modules have corank 0."
+          "statement": "A finite compact dual gives corank zero."
         },
         {
-          "name": "TauCeti.Selmer.corank_add",
+          "name": "TauCeti.Selmer.corankFromDual_add",
           "role": "relation",
-          "statement": "Additive in short exact sequences."
+          "statement": "Additive on short exact sequences of finitely generated compact duals; exact Pontryagin duality gives the corresponding discrete corank formula."
         },
         {
-          "name": "TauCeti.Selmer.corank_pi_padicInt",
+          "name": "TauCeti.Selmer.corankFromDual_pi_padicInt",
           "role": "simp",
-          "statement": "ℤ_p^r, the dual of (ℚ_p/ℤ_p)^r, has corank r."
+          "statement": "For M=(ℚ_p/ℤ_p)^r with compact dual N=ℤ_p^r, corank M=corankFromDual N=r."
         }
       ],
       "tests": [
         {
           "name": "corank_Zp",
           "kind": "computation",
-          "statement": "The dual ℤ_p of ℚ_p/ℤ_p has corank 1."
+          "statement": "The discrete module ℚ_p/ℤ_p has corank 1, computed from its compact dual ℤ_p."
         },
         {
           "name": "corank_finite_zero",
           "kind": "degenerate",
-          "statement": "ℤ_p/(p) has corank 0."
+          "statement": "The finite discrete module ℤ/p has corank 0, computed from its finite compact dual."
         },
         {
           "name": "corank_Zp2",
           "kind": "computation",
-          "statement": "ℤ_p² has corank 2."
+          "statement": "The discrete module (ℚ_p/ℤ_p)² has corank 2, computed from its compact dual ℤ_p²."
         }
       ],
       "uses": [
@@ -2332,7 +2355,8 @@
       "kind": "construction",
       "statement": "Extend the upstream discrete structure by orthogonal local conditions on the compact/rational adapters and their dual coefficient diagrams. A Selmer structure F on T (Mazur–Rubin, Definition 2.1) is a finite set Σ(F) of places containing the archimedean places, the places above p and the primes where T is ramified, with a local condition H¹_F(K_q, T) for each q ∈ Σ(F); its Selmer module H¹_F(K, T) is the kernel of H¹(K_{Σ(F)}/K, T) → ⊕_{q∈Σ(F)} H¹(K_q, T)/H¹_F(K_q, T). The dual Selmer structure F^* on T^* = Hom(T, μ_{p^∞}) has Σ(F^*) = Σ(F) and H¹_{F^*}(K_q, T^*) = H¹_F(K_q, T)^⊥ under the local Tate pairing (Mazur–Rubin, Definition 2.5).",
       "hypotheses": [
-        "T finitely generated over O with continuous G_K-action, unramified outside a finite set."
+        "T finitely generated over O with continuous G_K-action, unramified outside a finite set.",
+        "Compact local conditions are closed in their natural topology (in the finite-type O case submodules are closed); coefficient biduality and perfect topological pairings are used for double orthogonals."
       ],
       "proofSteps": [
         "Import the upstream discrete Selmer carrier and its finite place set; instantiate the compact/rational adapter and its localization maps.",
@@ -2411,7 +2435,7 @@
         {
           "name": "finite_selfdual",
           "kind": "computation",
-          "statement": "For T unramified at q ∤ p, the finite condition at q is its own dual."
+          "statement": "For T unramified at q∤p, H¹_f(K_q,T) and H¹_f(K_q,T*) are exact annihilators in their respective local cohomology groups; they are not identified as the same subgroup of one module."
         },
         {
           "name": "archimedean",
@@ -2464,7 +2488,9 @@
       ],
       "prerequisites": [
         "SelmerIwasawaCohomology:L2/unramified-condition",
-        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence"
+        "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Duality",
@@ -2757,7 +2783,7 @@
       ],
       "proofSteps": [
         "The transition maps C^•_cont(G, M_V) → C^•_cont(G, M_U) are surjective, so the projective system is weakly flabby and the first hypercohomology spectral sequence for lim collapses (Jannsen); the second is the stated one, with corestriction transitions by Shapiro's lemma at finite level (ProfiniteCohomology Layer 7).",
-        "For finite R-length coefficient quotients, (F) gives finite cohomology groups and vanishing higher derived limits. For finite-type complete R-coefficients the cohomology groups are compact, not necessarily finite-length: use exactness of inverse limits of compatible compact groups and the coefficient-limit spectral sequence. Do not assert a Mittag–Leffler condition for an arbitrary corestriction tower of lattices. This compact-limit interface is requested from ArithmeticGaloisDuality R02.1.",
+        "For finite R-length coefficient quotients, (F) gives finite cohomology groups and vanishing higher derived limits. For finite-type complete R-coefficients the cohomology groups are compact, not necessarily finite-length: use exactness of inverse limits of compatible compact groups and the coefficient-limit spectral sequence. Do not assert a Mittag–Leffler condition for an arbitrary corestriction tower of lattices. This compact-limit interface is requested from ArithmeticGaloisDuality R02.1. The all-degree discrete comparison is already TauCeti.ContinuousCohomology.shapiroIsoTopRep in the current library; the compact extension is obtained only after the R02.1 coefficient-limit interface.",
         "H⁰: M^{U_n} stabilises to N, and the corestrictions N → N are multiplication by [U_n : U_{n′}], whose p-part tends to infinity; so the limit vanishes (Rubin, Lemma B.3.2)."
       ],
       "acceptance": [
@@ -2767,7 +2793,10 @@
         "SelmerIwasawaCohomology:L2/galois-selmer-group",
         "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
         "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
-        "ArithmeticGaloisDuality:R02.4/global-finiteness"
+        "ArithmeticGaloisDuality:R02.4/global-finiteness",
+        "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
@@ -3003,7 +3032,8 @@
       "prerequisites": [
         "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
         "SelmerIwasawaCohomology:L2/unramified-condition",
-        "ArithmeticGaloisDuality:R02.3/restricted-ramification-group"
+        "ArithmeticGaloisDuality:R02.3/restricted-ramification-group",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
@@ -3039,7 +3069,9 @@
       ],
       "prerequisites": [
         "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
-        "ArithmeticGaloisDuality:R02.2/finite-index-descent"
+        "ArithmeticGaloisDuality:R02.2/finite-index-descent",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
@@ -3064,7 +3096,8 @@
       "kind": "theorem",
       "statement": "For the cyclotomic Γ = Gal(ℚ(ζ_{p^∞})/ℚ) with compatible roots (ζ_{p^n}) fixed, κ the cyclotomic character and k ∈ ℤ, cup product with the norm-compatible system (ζ_{p^n}^{⊗k})_n gives a ℤ_p-linear isomorphism φ_k : H^q_Iw(T) ≅ H^q_Iw(T(k)) with φ_k(λx) = Tw_k(λ)φ_k(x), where Tw_k is the ring automorphism of Λ = 𝒪⟦Γ⟧ with Tw_k(σ) = κ(σ)^{−k}σ. Composing with the specialisation of iwasawa-descent at the augmentation gives H¹_Iw(V) → H¹(ℤ[1/p], T(k)) ⊗ ℚ, which factors through the localisation at ker(Λ → 𝒪, σ_c ↦ c^{−k}).",
       "hypotheses": [
-        "Cyclotomic tower; compatible roots of unity fixed (they trivialise ℤ_p(1) over the tower)."
+        "Cyclotomic tower; compatible roots of unity fixed (they trivialise ℤ_p(1) over the tower).",
+        "For rational V=T[1/p], H^q_Iw(V) means H^q_Iw(T)⊗_ℤpℚ_p. It is not the unrestricted inverse limit of H^q(F_n,V), which can contain systems with unbounded denominators."
       ],
       "proofSteps": [
         "The system (ζ_{p^n}^{⊗k}) is restriction-compatible, so by the projection formula cor(x ∪ res y) = cor(x) ∪ y the cup products are corestriction-compatible (ProfiniteCohomology Layer 12; ArithmeticGaloisDuality R02.2's cup products).",
@@ -3078,7 +3111,8 @@
         "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
         "SelmerIwasawaCohomology:L3/iwasawa-descent",
         "ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence",
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/Iwasawa",
@@ -3435,14 +3469,14 @@
       ],
       "title": "The Bloch–Kato local condition on T and W",
       "kind": "construction",
-      "statement": "For finite K/ℚ_p define H¹_f(K,V)=ker[H¹(K,V)→H¹(K,V⊗B_cris)] on the canonical continuous cochain carrier, with the period topology. Define the T-condition by inverse image and the A=V/T condition by image. Away from p use the unramified rational condition and its propagated lattice/discrete conditions; the raw unramified condition on a finite quotient may differ. Give coefficient, restriction and duality compatibility. For de Rham V, the fundamental sequences give the exponential/finiteness exact fragments; for crystalline V, 0→H⁰(K,V)→D_cris(V)→D_cris(V)⊕D_dR(V)/Fil⁰→H¹_f(K,V)→0, with x↦((1−φ)x,x mod Fil⁰). Thus dim H¹_f=dim(D_dR/Fil⁰)+dim H⁰. Values on ℚ_p and ℚ_p(1) are respectively unramified classes and Kummer completed-unit classes.",
+      "statement": "For finite K/ℚ_p define H¹_f(K,V)=ker[H¹(K,V)→H¹(K,V⊗B_cris)] on the canonical continuous cochain carrier, with the period topology. Define the T-condition by inverse image and the A=V/T condition by image. Away from p use the unramified rational condition and its propagated lattice/discrete conditions; the raw unramified condition on a finite quotient may differ. Give coefficient, restriction and duality compatibility. For de Rham V, the fundamental sequences give the exponential/finiteness exact fragments; for crystalline V, 0→H⁰(K,V)→D_cris(V)→D_cris(V)⊕D_dR(V)/Fil⁰→H¹_f(K,V)→0, with x↦((1−φ)x,x mod Fil⁰). The map 1−φ is ℚ_p-linear, generally not K₀-linear. Thus dim_ℚp H¹_f=[K:ℚ_p]·dim_K(D_dR/Fil⁰)+dim_ℚp H⁰. The exact-annihilator compatibility with V*(1) uses de Rham V (Bloch–Kato Proposition 3.8). Values on ℚ_p and ℚ_p(1) are respectively unramified classes and Kummer completed-unit classes.",
       "hypotheses": [
         "Finite K/ℚ_p and finite-dimensional continuous V with stable lattice T; finite-condition definition makes sense generally, the realization exact sequence is asserted with crystalline/de Rham hypotheses as specified."
       ],
       "proofSteps": [
         "Use crystalline-period-ring and the AGD topological coefficient interface to form the kernel.",
         "Tensor the period-fundamental-sequences with V and take the continuous-cohomology LES; identify the invariants and its finite-kernel fragment.",
-        "Propagate through T→V→A, then compute Tate examples through Kummer and local units. Apply local Tate duality for the exact finite-condition annihilator."
+        "Propagate through T→V→A, then compute Tate examples through Kummer and local units. For de Rham V, use Bloch–Kato Proposition 3.8 and local Tate duality for the exact finite-condition annihilator."
       ],
       "acceptance": [
         "The comparison with Greenberg's condition (Kato; Perrin-Riou §2.4.7) is not read and is listed as remaining; no universal equality is asserted."
@@ -3502,12 +3536,17 @@
         {
           "name": "tate_twist_one",
           "kind": "computation",
-          "statement": "V = ℚ_p(1): H^1_f(F_v, ℚ_p(1)) is the image of 𝒪_{F_v}^× ⊗ ℚ_p under Kummer (Bloch–Kato), so L^BK on W is the image of the units."
+          "statement": "V=ℚ_p(1): H¹_f(K,V) is the Kummer image of the p-completion of O_Kˣ, rationalized over ℤ_p; its ℚ_p-dimension is [K:ℚ_p]."
         },
         {
           "name": "not_greenberg_in_general",
           "kind": "non-example",
-          "statement": "The Bloch–Kato and Greenberg conditions differ by exceptional factors in general; only their coincidence in special cases is recorded (Remark 13.20)."
+          "statement": "For K=ℚ_p, V=ℚ_p(1) and Fil⁺=V, L2 Greenberg gives all H¹(K,V) of dimension 2, while H¹_f(K,V) is the completed-unit line of dimension 1; the uniformizer class is excluded by the finite condition."
+        },
+        {
+          "name": "TauCeti.Selmer.Tests.bk_scalar_degree",
+          "kind": "computation",
+          "statement": "For an unramified quadratic K/ℚ_p and V=ℚ_p(1), dim_ℚp H¹_f(K,V)=2 although dim_K D_dR(V)/Fil⁰=1; omitting [K:ℚ_p] fails."
         }
       ],
       "uses": [
@@ -3596,7 +3635,7 @@
         "Γ procyclic; continuity in the natural p-adic topology; finite type for integral modules."
       ],
       "proofSteps": [
-        "Use the upstream invariants/coinvariants and procyclic generator description.",
+        "For a topological generator σ, continuity and closedness of ker(σ−1) and im(σ−1) in a finite-type p-adic module identify invariants and continuous coinvariants with this kernel and cokernel. The decomposition is elementary linear algebra; no finite-index descent theorem is used.",
         "Define the canonical map, independent of generator. Kernel zero and surjectivity are exactly the direct decomposition.",
         "Transport through equivariant isomorphisms and direct sums."
       ],
@@ -3607,7 +3646,7 @@
         "For p odd, a nontrivial Jordan block at eigenvalue 2 is weakly semisimple because σ−1 is invertible, although the action is not semisimple."
       ],
       "prerequisites": [
-        "ArithmeticGaloisDuality:R02.2/finite-index-descent"
+        "SelmerIwasawaCohomology:L0/padic-completion"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/L0",
@@ -3830,7 +3869,7 @@
       "kind": "theorem",
       "statement": "Let F_X=Fib(C_global(X)⊕⊕U_X,v^+→⊕C_v(X)), and F_Y similarly, with the arrow res−i and pairings/nullhomotopies as in derived-local-complements. Transport the ArithmeticGaloisDuality D7 global compact-support duality to a map F_X→D_J(F_Y)[−3]. Its error triangle has third vertex ⊕_v Err_v. It is an isomorphism if the local adjoints are quasi-isomorphisms, and otherwise the error cone remains in the statement. This L1 theorem is parametric in local-condition maps; L2 instantiates it, avoiding an L1→L2 dependency.",
       "hypotheses": [
-        "Finite S; bounded complexes; the supplier global-duality coefficient hypotheses and modified real-place convention. Chain-level orthogonality data, not just orthogonal H¹ subspaces."
+        "Finite S; bounded admissible complexes with the supplier’s finite/cofinite or dualizing coefficient hypotheses; condition (P): p is odd or F has no real places. Chain-level orthogonality data, not just orthogonal H¹ subspaces. For p=2 with real places this construction/theorem requires the separate modified compact-support extension recorded as a gap."
       ],
       "proofSteps": [
         "Import the compact-support triangle and its perfect degree-three duality.",
@@ -3855,7 +3894,7 @@
       "sources": [
         {
           "sourceId": "NEKOVAR-SC",
-          "locator": "Proposition 6.3.4, pp. 142–143",
+          "locator": "Theorem 6.3.4, pp. 142–143",
           "match": "Global duality is transported along the fibre triangles; it has shift three and explicit local errors."
         }
       ],
@@ -3993,7 +4032,8 @@
       "kind": "construction",
       "statement": "For a finite set S and a bounded compact/rational/discrete coefficient complex X on the canonical continuous carrier, a complex local condition consists of actual maps i_v^+:U_v^+→C_cont(G_v,X). Define RΓ_f(F,S,X;U^+) as Cone(C_cont(G_(F,S),X)⊕⊕_v U_v^+ --res−i-->⊕_v C_cont(G_v,X))[−1]. Supply the triangles RΓ_f→RΓ_global→⊕U_v^− and RΓ_c→RΓ_f→⊕U_v^+. Strict uses U^+=0 and relaxed uses i=id. Submodules of H¹ are not by themselves a unique choice of U^+.",
       "hypotheses": [
-        "Actual continuous complexes and localization maps are supplier objects; finite S; use modified real local complexes at p=2 where required."
+        "Actual continuous complexes and localization maps are supplier objects; finite S; use modified real local complexes at p=2 where required.",
+        "The compact-support identification uses condition (P): p odd or F totally imaginary. Outside (P), use the modified real-place complex only after the recorded AGD extension is supplied."
       ],
       "proofSteps": [
         "Form the finite direct sums, res−i arrow and its shifted cone in Mathlib derived categories.",
@@ -4653,7 +4693,7 @@
       "kind": "theorem",
       "statement": "For perfect coefficient duals T and T^*(1), transport L1 duality to induced coefficients. For Γ≅ℤ_p^d and the regular local ring Λ=O[[Γ]], use coefficient duality with Λ placed in degree zero and obtain RΓ_f,Iw(T)→RHom_Λ(RΓ_f,Iw(T^*(1)),Λ)^ι[−3], where ι(γ)=γ^−1. Its cone is the sum of the induced local complement errors. With elementary coefficient complements at p and the precise unramified conditions elsewhere, calculate which errors vanish and which survive (including Tamagawa terms); derived duality is an equivalence only after those errors vanish. This is compatible with finite-level specialization, global degree-three duality and local degree-two pairings.",
       "hypotheses": [
-        "Perfectness/dualizing coefficient hypotheses of Nekovář §8.9 and the imported AGD duality; tower condition (U). Modified real terms at p=2. A height-one disappearance of an error is weaker than its integral acyclicity.",
+        "Perfectness/dualizing coefficient hypotheses of Nekovář §8.9 and the imported AGD duality; tower condition (U); condition (P): p odd or F has no real places. The p=2 real-place version depends on the recorded modified-support gap. A height-one disappearance of an error is weaker than its integral acyclicity.",
         "Here the compact dual T^*(1) means Hom_O(T,O)(1); it is distinct from Rubin’s discrete T^*=Hom_O(T,E/O)(1).",
         "Λ is the degree-zero coefficient dualizing module in this normalization; using an absolute dualizing complex shifted by dim Λ requires the compensating shift. The displayed shift is the arithmetic degree-three normalization."
       ],
@@ -4715,9 +4755,9 @@
       ],
       "title": "Finite generation, amplitude and local Euler ranks",
       "kind": "theorem",
-      "statement": "For the cyclotomic ℤ_p-extension, p odd, finite S and finite free T, global Iwasawa cohomology is finitely generated over Λ and concentrated in degrees one and two under the standard global H⁰-vanishing hypothesis; with real p=2 terms state the corrected amplitude. Its rank difference is rank_Λ H¹_Iw−rank_Λ H²_Iw=Σ_(v real) rank_O T^(c_v=−1)+Σ_(v complex) rank_O T. At a p-adic place K, rank_Λ H¹_Iw(K,T)=[K:ℚ_p]rank_O T and H²_Iw(K,T) is torsion. Global H² torsion is an additional weak-Leopoldt assertion. For arbitrary ℤ_p^d extensions the conclusion is finite generation/perfectness only with the supplier finite-resolution and local conditions, not a universal cyclotomic rank formula.",
+      "statement": "For the cyclotomic ℤ_p-extension, p odd, finite S and finite free T, global Iwasawa cohomology is finitely generated over Λ and concentrated in degrees one and two under the standard global H⁰-vanishing hypothesis. The p=2 real-place amplitude is a separate recorded gap and is not asserted by this theorem. Its rank difference is rank_Λ H¹_Iw−rank_Λ H²_Iw=Σ_(v real) rank_O T^(c_v=−1)+Σ_(v complex) rank_O T. At a p-adic place K, rank_Λ H¹_Iw(K,T)=[K:ℚ_p]rank_O T and H²_Iw(K,T) is torsion. Global H² torsion is an additional weak-Leopoldt assertion. For arbitrary ℤ_p^d extensions the conclusion is finite generation/perfectness only with the supplier finite-resolution and local conditions, not a universal cyclotomic rank formula.",
       "hypotheses": [
-        "Canonical compact cochains; cyclotomic tower for the displayed rank formulas. At p=2 use AGD modified compact support or invert 2."
+        "Canonical compact cochains; p odd for the displayed cyclotomic rank formulas. The p=2 real-place extension is recorded separately, rather than deduced from the condition-(P) compact-support supplier."
       ],
       "proofSteps": [
         "Use induced coefficients, finite mod-λ cohomology and compact Nakayama for finite generation.",
@@ -4960,7 +5000,7 @@
       "sources": [
         {
           "sourceId": "CGLS-22",
-          "locator": "§1.1, Lemma 1.1.2 and Proposition 1.1.3, pp. 6–7; Lemma 1.3.1, p. 10",
+          "locator": "§1.1, Lemmas 1.1.1–1.1.2 and Proposition 1.1.3, pp. 6–7; Lemma 1.3.1, p. 10",
           "match": "Exact character hypotheses, Frobenius factor and the local elliptic cofreedom test."
         }
       ],
@@ -4991,10 +5031,10 @@
       ],
       "title": "Checkable hypotheses for ordinary Selmer structure",
       "kind": "definition",
-      "statement": "For Λ=O[[T]], D=T₀⊗_ΛΛ^∨ with T₀ finite free and D* = Hom(D,μ_(p∞)), record RFX (T₀ reflexive), LOC2_v (D*/H⁰(F_v,D*) reflexive), LOC1_η (H⁰(F_η,D*)=0 at one finite η), LEO (ker[H²(global,D)→⊕H²(local,D)] Λ-cotorsion), CRK (corank H¹global=corank Sel+corank Q), and almost divisibility of the chosen local conditions (multiplication by each height-one parameter is onto except for finitely many height-one primes). Record additionally Greenberg’s alternative (a), (b) or (c): residual exclusion of μ_p as subquotient; cofree D with exclusion as quotient; or a finite η with dual H⁰ zero and Q_η divisible/coreflexive as required by the theorem. These are explicit propositions on modules and maps, not inferred from residual irreducibility alone.",
+      "statement": "For Λ=O[[T]], let D=T₀⊗_ΛΛ^∨ with T₀ finite free. Then T₀* = Hom(D,μ_(p∞)) is the compact Tate dual; Greenberg’s discrete D* is T₀*⊗_ΛΛ^∨. Record RFX (T₀ reflexive), LOC2_v (T₀*/H⁰(F_v,T₀*) reflexive), LOC1_η (H⁰(F_η,T₀*)=0 at one finite η), LEO (ker[H²(global,D)→⊕H²(local,D)] Λ-cotorsion), CRK (corank H¹global=corank Sel+corank Q), and almost divisibility of the chosen local conditions (multiplication by each height-one parameter is onto except for finitely many height-one primes). Record additionally Greenberg’s alternative (a), (b) or (c): residual exclusion of μ_p as subquotient; cofree D with exclusion as quotient; or a finite η with dual H⁰ zero and Q_η divisible/coreflexive as required by the theorem. These are explicit propositions on modules and maps, not inferred from residual irreducibility alone.",
       "hypotheses": [
         "Finite S; p odd for the applications here; finitely generated compact duals. In dimension two, pseudo-null finitely generated modules are finite O-torsion. Higher-dimensional pseudo-null is not synonymous with finite.",
-        "The residual module in alternatives (a),(b) is D[𝔪_Λ] as a G_(F,S)-module, and μ_p has its mod-p cyclotomic action. In alternative (c), η is finite and H⁰(F_η,D*)=0; the localization-surjectivity theorem requires divisible Q_η, while the no-pseudo-null theorem requires coreflexive Q_η."
+        "The residual module in alternatives (a),(b) is D[𝔪_Λ] as a G_(F,S)-module, and μ_p has its mod-p cyclotomic action. In alternative (c), η is finite and H⁰(F_η,T₀*)=0; the localization-surjectivity theorem requires divisible Q_η, while the no-pseudo-null theorem requires coreflexive Q_η."
       ],
       "proofSteps": [
         "Define every hypothesis using the actual localization maps, reflexive duals and height-one localizations.",
@@ -5215,7 +5255,8 @@
         "SelmerIwasawaCohomology:L3/selmer-no-pseudonull",
         "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
         "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Selmer/L3",
@@ -5224,7 +5265,7 @@
       "sources": [
         {
           "sourceId": "GREENBERG-STRUCTURE",
-          "locator": "§1, pp. 1–4; Theorem 4.1.1, pp. 19–20 (arithmetic no-pseudo-null input)",
+          "locator": "§1, pp. 1–4; Proposition 4.1.1, pp. 19–20 (arithmetic no-pseudo-null input)",
           "match": "The arithmetic structure criterion supplies the depth hypothesis; the lower-tier algebra supplies the ideal comparison."
         }
       ],
@@ -5664,6 +5705,11 @@
           "name": "TauCeti.Selmer.fontaineLaffaille_dual",
           "role": "functoriality",
           "statement": "Dual/twist shifts the interval according to the weight convention."
+        },
+        {
+          "name": "TauCeti.Selmer.IsFreeFontaineLaffaille",
+          "role": "characterisation",
+          "statement": "The module is free and every filtration step has a W-submodule complement. This is the free-object branch of the parameterized native prototype; Witt-ring realization is still required."
         }
       ],
       "tests": [
@@ -5681,6 +5727,11 @@
           "name": "TauCeti.Selmer.Tests.fl_range",
           "kind": "non-example",
           "statement": "A tensor product with combined width >p−2 is not covered by the small-weight comparison theorem."
+        },
+        {
+          "name": "TauCeti.Selmer.Tests.fl_free_split",
+          "kind": "non-example",
+          "statement": "In the free rank-one W-module, the proper filtration step pW (p nonunit) is not a direct summand. A free filtered object admitting that step fails IsFreeFontaineLaffaille, even if its underlying module is free."
         }
       ],
       "uses": [
@@ -5754,7 +5805,7 @@
       "proofSteps": [
         "Define the quotient-lattice and all-reductions predicates with genuine Galois representations.",
         "Use continuous Ext¹/cohomology to identify classes with extensions and pull back the crystalline extension predicate.",
-        "Use the exact small-weight filtered-module category to prove the submodule and functoriality properties, with the interval hypotheses where required."
+        "For the submodule assertion use closure of crystalline lattice quotients under finite products and subquotients in the fixed interval: Baer sum and coefficient pushout are formed from those operations. Use the exact small-weight filtered-module category only for the comparison and finite-length calculations within its allowed interval, not to prove a general-width assertion."
       ],
       "acceptance": [
         "Construct the stated maps on the canonical carriers and prove the comparison with these maps, retaining every displayed correction term.",
@@ -6442,7 +6493,7 @@
       "sources": [
         {
           "sourceId": "RJW-PADIC-L",
-          "locator": "Proposition 13.13 and Corollary 13.14, preprint pp. 67–68 (published pp. 195–196)",
+          "locator": "Proposition 13.13 and Corollary 13.14, preprint pp. 67–68 (published p. 193)",
           "match": "The local/global unit quotient maps onto the p-ramified kernel; the displayed quotient in the proof is reversed."
         }
       ],
@@ -6609,7 +6660,7 @@
       ],
       "title": "Elliptic Bloch–Kato and classical Selmer vanishing",
       "kind": "comparison",
-      "statement": "For E/F and V=V_p E, identify H¹_f(F_v,V) with E(F_v)⊗ℚ_p under Kummer at every finite place; at v∤p this space is zero, and the propagated finite condition on E[p∞] is zero; finite E[p^m] Kummer conditions can still retain Tamagawa contributions. Globally the rational finite Selmer group is (lim_m Sel_(p^m)(E/F), with multiplication-by-p coefficient transitions)⊗ℤpℚ_p, equivalently T_p Sel_(p∞)(E/F)⊗ℤpℚ_p, and H¹_f(F,V)=0 iff the classical p∞ Selmer group is finite (equivalently its ℤ_p-corank is zero). The Weil pairing gives V*(1)≃V, so its Tate-dual finite Selmer group vanishes under the same hypothesis. No finiteness of the full Tate–Shafarevich group is inferred.",
+      "statement": "For E/F and V=V_p E, identify H¹_f(F_v,V) with (lim_m E(F_v)/p^m E(F_v))⊗_ℤpℚ_p under Kummer at every finite place; at v∤p this space is zero, and the propagated finite condition on E[p∞] is zero; finite E[p^m] Kummer conditions can still retain Tamagawa contributions. Globally the rational finite Selmer group is (lim_m Sel_(p^m)(E/F), with multiplication-by-p coefficient transitions)⊗ℤpℚ_p, equivalently T_p Sel_(p∞)(E/F)⊗ℤpℚ_p, and H¹_f(F,V)=0 iff the classical p∞ Selmer group is finite (equivalently its ℤ_p-corank is zero). The Weil pairing gives V*(1)≃V, so its Tate-dual finite Selmer group vanishes under the same hypothesis. No finiteness of the full Tate–Shafarevich group is inferred.",
       "hypotheses": [
         "Stable Tate module and upstream finite-level Kummer/Selmer exact sequences. At p the p-adic comparison for the elliptic Kummer map is part of this target, after the minimal period foundations."
       ],
@@ -6649,6 +6700,11 @@
           "sourceId": "SKINNER-20",
           "locator": "§2.2.1, preprint p. 8",
           "match": "Specialized local comparison."
+        },
+        {
+          "sourceId": "RUBIN-ES",
+          "locator": "Chapter I, Corollary 6.4 and display (9), printed pp. 15–16 (PDF pp. 25–26)",
+          "match": "The rational Kummer comparison uses the p-completion of local points, not their abstract algebraic tensor product."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6923,7 +6979,9 @@
         "SelmerIwasawaCohomology:L2/selmer-data",
         "SelmerIwasawaCohomology:L2/selmer-kernel",
         "SelmerIwasawaCohomology:L2/galois-selmer-group",
-        "SelmerIwasawaCohomology:L2/elliptic-selmer-instance"
+        "SelmerIwasawaCohomology:L2/elliptic-selmer-instance",
+        "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+        "SelmerIwasawaCohomology:L4/congruent-two-parity"
       ],
       "status": "open",
       "note": "RT-AREA-iwasawa-1/20: the general discrete construction is existing upstream work."
@@ -6933,7 +6991,8 @@
       "need": "Local Tate duality for V, W_M and T × W^* over finite extensions of ℚ_ℓ, ℝ and ℂ (Rubin, Theorem 4.1): perfect cup-product pairings into Φ, O/MO and D. The finite case is ClassFieldTheory's; the rational and lattice cases come through R02.1's limits. R02.4's poitou-tate and restricted-product-cohomology are cited as nodes.",
       "neededBy": [
         "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
-        "SelmerIwasawaCohomology:L2/finite-condition-rational-duality"
+        "SelmerIwasawaCohomology:L2/finite-condition-rational-duality",
+        "SelmerIwasawaCohomology:L4/uniform-away-p-bound"
       ],
       "status": "open",
       "note": ""
@@ -6983,7 +7042,9 @@
       "neededBy": [
         "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
         "SelmerIwasawaCohomology:L3/iwasawa-descent",
-        "SelmerIwasawaCohomology:L3/iwasawa-twist"
+        "SelmerIwasawaCohomology:L3/iwasawa-twist",
+        "SelmerIwasawaCohomology:L3/infinite-selmer-complex",
+        "SelmerIwasawaCohomology:L3/iwasawa-finiteness-euler"
       ],
       "status": "open",
       "note": ""
@@ -7047,6 +7108,15 @@
         "SelmerIwasawaCohomology:L4/artin-adjoint-finiteness"
       ],
       "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+      "need": "Import the already implemented all-degree discrete Shapiro map/isomorphism (TauCeti.ContinuousCohomology.shapiroMap, shapiroIso and shapiroIsoTopRep, current Shapiro/AllDegrees.lean). Supply only its complete finite-type coefficient extension and the corestriction transition square through the R02.1 coefficient-limit/compact derived-limit interface, before applying it to RΓ_Iw. Layer 7 alone supplies the low-degree discrete comparison.",
+      "neededBy": [
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology"
+      ],
+      "status": "open",
+      "note": "REV-SelmerIwasawaCohomology read current ProfiniteCohomology Layer 10 and the actual current-library statements; the missing compact extension remains a request, not a second discrete Shapiro theorem."
     }
   ],
   "coverage": [
@@ -7062,7 +7132,8 @@
       "stageId": "SelmerIwasawaCohomology:L1",
       "status": "planned",
       "remaining": [
-        "Discharge the requested compact-support duality and local pairing interfaces, including modified real terms at p=2."
+        "Discharge the requested compact-support duality and local pairing interfaces, including modified real terms at p=2.",
+        "Supply the p=2 real-place derived compact-support extension, whose current D7 supplier assumes (P)."
       ],
       "notes": "Every target in this layer has a node. Open supplier interfaces and named proof refinements prevent closure."
     },
@@ -7078,7 +7149,8 @@
       "stageId": "SelmerIwasawaCohomology:L3",
       "status": "planned",
       "remaining": [
-        "Discharge the lower-tier Iwasawa algebra/perfect determinant and arithmetic étale K(π,1) requests; refine the Greenberg structural proof against those canonical carriers."
+        "Discharge the lower-tier Iwasawa algebra/perfect determinant and arithmetic étale K(π,1) requests; refine the Greenberg structural proof against those canonical carriers.",
+        "Supply the explicit real-place amplitude at p=2 from modified derived compact support; no unspecified corrected amplitude is claimed."
       ],
       "notes": "Every target in this layer has a node. Open supplier interfaces and named proof refinements prevent closure."
     },
@@ -7106,6 +7178,16 @@
         "SelmerIwasawaCohomology:L4/congruent-two-parity"
       ],
       "detail": "Dokchitser–Dokchitser 4.19 explicitly imports its p=2 case from Monsky, Generalizing the Birch–Stephens theorem. I. Modular curves, Math. Z. 221(3) (1996), pp. 415–420, reference [26]. That primary Monsky text and the proof-level 2-adic local-root-number/descent comparison were not read in this pass. Refine the minimal congruent-number proof here, retaining divisible Sha corank; do not substitute Sel₂ dimension or assume Sha finite."
+    },
+    {
+      "title": "Derived compact support at real places for p=2",
+      "neededBy": [
+        "SelmerIwasawaCohomology:L1/derived-selmer-duality",
+        "SelmerIwasawaCohomology:L2/selmer-complex",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "SelmerIwasawaCohomology:L3/iwasawa-finiteness-euler"
+      ],
+      "detail": "The read ArithmeticGaloisDuality D7 compact-support/derived-global-duality/Euler nodes assume (P), excluding real places at p=2. Supply the modified real-place cochain complex, its compact-support triangle and degree-three duality, and the resulting Iwasawa amplitude/rank correction. Finite Poitou–Tate modified terms alone do not provide this derived extension. The present displayed theorems retain (P) or odd p."
     }
   ],
   "sourceIssues": [
@@ -7123,7 +7205,12 @@
         "research/errata/REGISTER.md: RJW entries exist for §§2–13, none for (10.7) or (10.8)",
         "the atlas text of SelmerIwasawaCohomology:L0 warns against replacing the completion by a tensor product; it is not a published correction",
         "the published version (Essential Number Theory 4, 2025) was not accessed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed algebraic tensor disagrees with the inverse-limit completion for infinite free groups and local principal units; finite H⁰, rather than general exactness of lim, kills lim¹. Checked arXiv pp. 52–53 and published pp. 171–172.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E2",
@@ -7139,7 +7226,12 @@
         "research/errata/REGISTER.md: no entry for RJW Definition 13.19",
         "the atlas text of SelmerIwasawaCohomology:L2 states that Greenberg's filtration is stable under a decomposition group at p; it is not a published correction",
         "the published version (Essential Number Theory 4, 2025) was not accessed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 13.19(1) on p. 70 uses the global group; the intended ordinary line is only decomposition-group stable. The local construction and non-CM ordinary example distinguish them.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E3",
@@ -7154,7 +7246,12 @@
       "searched": [
         "research/errata/REGISTER.md: its entries for Rubin's Euler systems concern Chapter III §2.1 only",
         "the published monograph (Annals of Mathematics Studies 147, 2000) was not accessed; the author draft's chapter and section numbering agrees with it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Visually checked Rubin printed p. 19: the final arrow has repeated Σ indices, whereas its source and target and Definition 7.2 require (Σ,Σ₀).",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E4",
@@ -7170,7 +7267,12 @@
         "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
         "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
         "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the arXiv p. 52 and published p. 171 norm displays. Direct cyclotomic multiplication gives the Frobenius group-ring factor, not a scalar action on the underlying unit.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E5",
@@ -7186,21 +7288,31 @@
         "arXiv 2309.15692 abstract page: v2 (19 December 2024) is the latest version and has the same text.",
         "Published version (Essential Number Theory 4 (2025)): same text at printed pp. 171 and 197.",
         "The MSP article page https://msp.org/ent/2025/4-1/p03.xhtml links no erratum (checked 2026-09-29)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed at-p condition on arXiv p. 71 is unramified for n≤0 and full for n≥1, contradicting the repeated ≥ inequality; the ambient plus tower is fixed by Example 13.22.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E135",
       "source": "CG-APPENDIX-20",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Remark after Theorem 1.2, preprint p. 3; published after Theorem A.2, p. 882",
-      "printed": "Selmer vanishing is said to descend through an arbitrary finite extension without an injectivity hypothesis.",
-      "correction": "Require prime-to-p degree or vanishing invariants that make the inflation–restriction kernel zero.",
-      "reason": "A p-group extension can contribute nonzero inflation classes from H¹(Gal(F′/F),A^G_F′).",
-      "affects": "a stated result",
+      "printed": "The remark asserts descent of the adjoint Selmer vanishing after finite extension, without displaying why restriction is injective in that application.",
+      "correction": "Check H¹(Gal(F′/F),A^(G_F′))=0 under the actual adjoint/enormous-image hypotheses, or retain an explicit restriction-injectivity hypothesis; prime-to-p degree is a sufficient generic condition.",
+      "reason": "Inflation–restriction identifies the possible kernel. A trivial p-primary coefficient example shows why generic descent needs a hypothesis, but is not a counterexample under Theorem 1.2’s enormous-image adjoint assumptions. The remark does not supply the required vanishing argument.",
+      "affects": "the proof",
       "known": "atlas E135",
       "searched": [
         "The issue’s accepted source routing records E135; no new errata job is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing justification in the descent remark on preprint p. 3, with the generic restriction kernel displayed. Reclassified as a proof gap: no counterexample satisfying the enormous-image adjoint hypotheses was supplied or established.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E138",
@@ -7209,12 +7321,17 @@
       "locator": "§2, preprint p. 4; published §A.2, p. 883",
       "printed": "Adjoint Artin Selmer finiteness is justified by a class-group quotient shorthand.",
       "correction": "Restriction maps into the equivariant Hom of the finite p-class group, with finite group-cohomology kernel.",
-      "reason": "The representation-valued target is a Hom group, and restriction has a nontrivial possible kernel when the splitting degree has a p-part.",
-      "affects": "a stated result",
+      "reason": "The literal representation-valued class-group quotient description must be replaced by equivariant Hom plus the finite inflation–restriction kernel. Both groups are finite, so this repairs the argument without changing the stated finiteness result.",
+      "affects": "nothing",
       "known": "atlas E138",
       "searched": [
         "The issue’s accepted source routing records E138; no new errata job is claimed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked preprint §2 p. 4. The correct target is an equivariant Hom of the finite p-class group and restriction may have a finite kernel. The source finiteness conclusion survives, so affects nothing.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     },
     {
       "id": "SelmerIwasawaCohomology/E6",
@@ -7228,19 +7345,44 @@
       "known": "not authenticated against all editions",
       "searched": [
         "The arXiv v2 proof and the correct Proposition 13.13 exact sequence were compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p. 68 proof reverses the quotient relative to Proposition 13.13’s p. 67 exact sequence; the global-unit closure is the submodule of the local-unit module.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
+    },
+    {
+      "id": "SelmerIwasawaCohomology/E7",
+      "source": "RJW-PADIC-L",
+      "kind": "misprint",
+      "locator": "§13.4, paragraph between Definition 13.12 and Proposition 13.13, arXiv v2 p. 67; published p. 193",
+      "printed": "The cyclotomic global-unit closure rank is evaluated as half the cyclotomic field degree, dropping the minus one in the preceding Dirichlet-rank expression.",
+      "correction": "For F_n=ℚ(μ_(p^n)), p odd, the rank is r₁+r₂−1=p^(n−1)(p−1)/2−1.",
+      "reason": "F_n is totally imaginary of degree p^(n−1)(p−1), so r₁=0 and r₂ is half that degree. At p=3,n=1 the units have rank zero, already distinguishing the two expressions. The packet’s Leopoldt node uses the correct Dirichlet formula.",
+      "affects": "nothing",
+      "known": "Already recorded as PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E80 and PadicMeasuresIwasawaAlgebras/E7; independently confirmed here, with no novelty claim.",
+      "searched": [
+        "Screened the packet sourceIssues and atlas errata register: PAPER-RODRIGUES-JACINTO-WILLIAMS-23/E80 records the same rank correction, with the additional principal-unit/module distinction; PadicMeasuresIwasawaAlgebras/E7 is its earlier parallel finding.",
+        "Read the arXiv v2 and published p. 193 paragraphs; the rank slip is unchanged. No new author/publisher erratum search is claimed."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the omitted minus one in the independently read p. 67 paragraph, by degree/signature and the p=3,n=1 rank-zero test. Also read published p. 193 and located the same pre-existing atlas finding E80; this is not a new source mistake.",
+        "by": "REV-SelmerIwasawaCohomology"
+      }
     }
   ],
   "upstreamNotes": [
     {
       "roadmap": "TauCetiRoadmap",
-      "commit": "94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
-      "note": "The current read-only checkout was screened, including the nine roadmaps absent from the atlas snapshot and Completed roadmaps. LocalGaloisGroups Layer 7 already constructs the local multiplicative completion, its p-adic module, torsion and rational decomposition. EllipticCurves Layer 7 owns general discrete Selmer structures and locally constant cohomology. Those constructions are imported here."
+      "commit": "618e0b30d21791d6a492ce88ba8602745697b21a",
+      "note": "Current read-only main was screened by searching declaration names and mathematical targets in the Suggested.lean files of all nine newer roadmaps (including OperatorTheory subdirectories), then reading the matching LocalGaloisGroups Layer 7 carrier and mixed-characteristic statements. Completed HodgeStructures and GlobalNumberFields and the relevant EllipticCurves Layer 7 interfaces were read. Import the upstream multiplicative completion and general discrete Selmer theory; no newer roadmap supplies the missing derived compact-support or p-adic finite-condition targets."
     },
     {
       "roadmap": "TauCeti",
       "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-      "note": "Current Kummer.lean implements kummerMap_surjective, kummerIso, kummerIso_res and kummerIso_norm, absent from the pin. NumberTheory/LocalField/PowerSubgroup/Basic.lean implements finiteIndex_range_powMonoidHom and card_powerClasses; LocalField/Kummer.lean imports their finite local H1 consequence. The old local-power-class-finite target is narrowed to the topology comparison, with these current implementations supplying the arithmetic finiteness. No new proof of their arithmetic statements is planned."
+      "note": "Current Kummer.lean implements kummerMap_surjective, kummerIso, kummerIso_res and kummerIso_norm, absent from the pin. NumberTheory/LocalField/PowerSubgroup/Basic.lean implements finiteIndex_range_powMonoidHom and card_powerClasses; LocalField/Kummer.lean imports their finite local H1 consequence. The old local-power-class-finite target is narrowed to the topology comparison, with these current implementations supplying the arithmetic finiteness. No new proof of their arithmetic statements is planned. Current Shapiro/AllDegrees.lean also implements TauCeti.ContinuousCohomology.shapiroIso and shapiroIsoTopRep for closed subgroups and discrete coefficients; RestrictScalars.lean supplies restrictScalarsIntIso. These current discrete statements are imported, not replanned; the complete-coefficient comparison remains requested."
     }
   ],
   "restructure": [
@@ -7259,5 +7401,488 @@
       "detail": "The tier-8 Selmer package needs minimal period/filtered-module finite-condition foundations and the Tate class/unit dictionary before higher tiers. Generic duality and geometric comparisons retain their existing owners.",
       "proposal": "Keep the minimal C_p/de Rham comparison, crystalline period ring/fundamental sequences/realizations, small-range Fontaine–Laffaille finite conditions and the arithmetic class/unit tower/dictionary in SIC L4. Higher-tier period and integral Iwasawa roadmaps import them. ESCMC L3 imports SIC L4 for its characteristic-ideal translation; no higher-tier prerequisite enters SIC."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-SelmerIwasawaCohomology",
+    "date": "2026-10-10",
+    "notes": "Independent source/statement/API/test/graph review of all 95 nodes and 38 baseline declarations at exact pins; 27 nodes corrected, 68 verified, no nodes added or baseline citations removed. Current upstream/library imports screened. All five stages remain planned, with 20 precise requests and three explicit proof gaps; complete means a finished target-level pass, not closure or formalization. Source issues independently reviewed, including conservative reclassification of the adjoint descent objection. Revised suggested file elaborated with only admitted-proof warnings; unavailable canonical-carrier signatures remain explicit contracts, not typed implementation claims. Reader corrections are listed in the report/handoff because the issue does not authorize editing the reader.",
+    "checked": [
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/padic-completion",
+        "verdict": "corrected",
+        "note": "Mathlib already owns completion and its finite-module tensor comparison; the general inverse-limit carrier and the quotient-tower identifications remain distinct from Rubin's double dual. Changes: Named the completion identity and composition laws and added their native signatures."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/units-completion",
+        "verdict": "verified",
+        "note": "Dirichlet's finitely generated unit decomposition justifies the tensor comparison, including the finite p-primary roots-of-unity factor."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/s-units-completion",
+        "verdict": "verified",
+        "note": "The S-unit rank counts finite places together with archimedean places; finite generation is a supplier theorem, not inferred for all field units."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/local-completion",
+        "verdict": "corrected",
+        "note": "The local decomposition gives a surjective tensor-to-completion map; its principal-unit tensor has a kernel. The upstream carrier is general, but its displayed free rank assumes finite extension of Qp. Changes: Separated the general upstream completion carrier from its mixed-characteristic rank theorem; the existing LFR request carries this upstream import."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/local-power-class-finite",
+        "verdict": "verified",
+        "note": "Current Tau Ceti supplies finite local power classes. The target only compares their topology with the compact Kummer carrier; Rubin B.2.7 retains local finiteness."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/kummer-level-compatibility",
+        "verdict": "verified",
+        "note": "The power-class projection matches the coefficient power map, and norms match corestriction. Current finite Kummer isomorphisms are imported."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/kummer-limit-map",
+        "verdict": "corrected",
+        "note": "The inverse map uses compatible finite Kummer bijections, not exactness of inverse limits. The real example requires positive levels and the finite-field example requires p invertible. Changes: Made the real-field level range and finite-field coefficient characteristic explicit."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler",
+        "verdict": "verified",
+        "note": "Finite roots of unity give stabilization of images and the ML hypothesis; finiteness is applied to each finite coefficient group, not to its limit."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/padic-kummer-identification",
+        "verdict": "verified",
+        "note": "The Milnor sequence has lim-one of H0, killed by finite roots of unity. Homeomorphism needs finite local quotient levels; algebraic comparison does not."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/s-unit-kummer-identification",
+        "verdict": "verified",
+        "note": "Finite ideal-class p-torsion contributes no Tate-module limit, while the S-unit tower has the required completion. The coefficient-limit interface remains requested."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/inverse-limit-hypotheses",
+        "verdict": "corrected",
+        "note": "Local finite H1 and away-p finite-type inertia are distinct inputs; tower compactness can kill lim-one without ML. Added the Kummer comparison used directly. Changes: Added direct prerequisites for inputs used by the proof sketch."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-data",
+        "verdict": "verified",
+        "note": "A compact/rational localization diagram extends the upstream discrete Selmer structure. Its commuting maps and submodules are concrete, rather than asserted cohomological predicates."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "verdict": "verified",
+        "note": "The kernel of localization to quotient conditions has an inclusion, universal property and map laws; the discrete arithmetic constructor remains with EllipticCurves Layer 7."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/change-of-conditions",
+        "verdict": "verified",
+        "note": "Nested local conditions give a kernel and a localization image, with surjectivity asserted only onto that image. Mazur–Rubin's dual correction is retained."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-functoriality",
+        "verdict": "corrected",
+        "note": "The abstract diagram map follows by the kernel universal property. Rubin I.5.4 supplies its coefficient-map specialization, not the full general statement directly. Changes: Distinguished the formal diagram generalization from the source’s coefficient-map case."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/condition-propagation",
+        "verdict": "verified",
+        "note": "Inverse image on T and image on A=V/T are the propagated conditions; image and inverse image have different formal laws and finite quotients can differ from raw unramifiedness."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/lattice-passage",
+        "verdict": "verified",
+        "note": "The integral condition is the saturated inverse image of the rational one. Divisible images in W need not reconstruct all unramified classes at ramified primes."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/unramified-condition",
+        "verdict": "corrected",
+        "note": "Inertia restriction defines the kernel. The propagated finite-versus-unramified tests use ell different from p, including a Tamagawa obstruction on a Tate curve. Changes: Restricted the propagated finite-condition tests to ℓ≠p and specified a Tamagawa counterexample."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/greenberg-condition",
+        "verdict": "verified",
+        "note": "Only decomposition-group stability of the ordinary filtration is required. Fil-positive zero and full give unramified and full conditions respectively."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/galois-selmer-group",
+        "verdict": "verified",
+        "note": "The canonical global and local cochain carriers are supplied by AGD; the adapter kernel is linked to upstream discrete Selmer, rather than defining competing arithmetic cohomology."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/pontryagin-dual",
+        "verdict": "corrected",
+        "note": "Circle characters on discrete p-primary modules land in its p-primary torsion; divisible-codomain injectivity gives exactness. Added the inverse-action computation distinguishing the contragredient. Changes: Supplied the p-primary-circle comparison and exactness/biduality argument; added a test detecting a missing inverse in the action."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/corank",
+        "verdict": "corrected",
+        "note": "Corank is defined on discrete M through its compact dual. Renamed the native rank computation corankFromDual; the rank-one and rank-two examples are Qp/Zp and its square. Changes: Corrected discrete-module examples and renamed the compact-dual adapter and API to corankFromDual."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/elliptic-selmer-instance",
+        "verdict": "verified",
+        "note": "The infinite elliptic Selmer group and Sha exact sequence are imported discrete theory and compared with V/T. Tensoring the discrete torsion Selmer group with Qp is not its rationalization."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/orthogonal-complement",
+        "verdict": "verified",
+        "note": "Perfect local pairings and closed submodules give double orthogonals on the intended carriers; the finite pairing prototype is an adapter, not a replacement compact pairing."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/lattice-pairing-compatibility",
+        "verdict": "verified",
+        "note": "Rubin I.4.3 compares rational, lattice, divisible and finite pairings by their actual coefficient maps, with dual coefficients in the second argument."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/dual-selmer-structure",
+        "verdict": "corrected",
+        "note": "Local annihilators are formed in the dual coefficient groups. Closedness and biduality are explicit; the finite conditions on T and T-star are paired, not one subgroup identified with itself. Changes: Made closedness explicit and distinguished the paired finite conditions on dual coefficients."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/unramified-dimension-count",
+        "verdict": "corrected",
+        "note": "Procyclic residue cohomology and away-p inertia dimension yield the two dimension equalities. Added the local tame quotient and cohomological-dimension prerequisites used directly. Changes: Added direct prerequisites for inputs used by the proof sketch."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/finite-unramified-comparison",
+        "verdict": "verified",
+        "note": "Rubin I.3.5 distinguishes T, V and W. The finite quotient W-inertia modulo its divisible part is the integral defect, not automatically zero at bad primes."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/finite-condition-rational-duality",
+        "verdict": "verified",
+        "note": "Rubin I.4.2 proves exact annihilators for the rational finite conditions via local Tate duality and dimension counts; the away-p convention is retained."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/finite-condition-lattice-duality",
+        "verdict": "verified",
+        "note": "Rubin I.4.3 and Mazur–Rubin I.1.7 give integral/divisible and finite reductions by compatible coefficient maps; no finite-condition perfectness is assumed from rational duality alone."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-limits",
+        "verdict": "verified",
+        "note": "Compact coefficients use the inverse Tate-module limit; divisible coefficients use a direct limit. Rubin I.5.5–5.6 supplies the topology and finiteness distinctions."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+        "verdict": "verified",
+        "note": "Changing local conditions gives the exact sequence with dual complementary Selmer terms, rather than an unsupported full localization-surjectivity assertion."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-poitou-tate-limit",
+        "verdict": "verified",
+        "note": "The limit theorem retains finite global cohomology and the dual correction from Rubin I.7.5. The repeated localization indices in the source proof are corrected in E3."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "verdict": "corrected",
+        "note": "Use derived compact inverse limits with corestriction and the canonical Lambda action. All-degree discrete Shapiro is current library work; only its compact extension remains requested. Changes: Added direct prerequisites for inputs used by the proof sketch. Imported current all-degree discrete Shapiro and requested only the compact-coefficient extension, using the actual Layer 10 stage id."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+        "verdict": "verified",
+        "note": "Nekovar 8.4.4.1–2 compare the tower to the induced Iwasawa coefficient object with the inverse Gamma action; individual cohomology limits require the stated acyclicity interface."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-descent",
+        "verdict": "verified",
+        "note": "Derived specialization and Tor give the control sequence; the simple kernel/cokernel form uses a one-variable regular parameter. It is not asserted unchanged for rank-two Gamma."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-torsion-criterion",
+        "verdict": "verified",
+        "note": "Nekovar 8.4.8.5 uses finite generation and finite specialization/correction hypotheses. Residual irreducibility is not an unconditional torsion criterion."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/universal-norms-unramified",
+        "verdict": "corrected",
+        "note": "Rubin B.3.3 uses local inertia at ell different from p and its finite-type module; adding the tame-quotient supplier makes that input direct. Changes: Added direct prerequisites for inputs used by the proof sketch."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/semilocal-cohomology",
+        "verdict": "corrected",
+        "note": "A finite place set over a base place is induced from its decomposition group. Added the finite Shapiro and Mackey prerequisites; infinite-level products require the stated topology. Changes: Added direct prerequisites for inputs used by the proof sketch."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-twist",
+        "verdict": "corrected",
+        "note": "Twisting changes the Lambda action through its automorphism and uses cup-product compatibility. Rational Iwasawa means the integral Iwasawa complex tensored with Qp, not an unrestricted rational inverse limit. Changes: Added direct prerequisites for inputs used by the proof sketch. Specified rationalization after the integral limit, consistently with Kato’s convention."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/local-units-iwasawa-cohomology",
+        "verdict": "verified",
+        "note": "Completed local multiplicative groups give norm-compatible Kummer classes. The source's displayed minus-one unit sequence is torsion and is not mistaken for a nontrivial Euler-system generator."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/tate-twist-greenberg-selmer",
+        "verdict": "verified",
+        "note": "At p the condition is full for positive n and unramified for n nonpositive. The base is the plus tower, and complex-conjugation parity selects the appropriate X or Y eigenspace."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/criticality",
+        "verdict": "verified",
+        "note": "The actual archimedean Gamma factor determines pole orders at one for V and its Tate dual. Both vanish for a critical datum; n=0 is excluded in the rank-zero Tate example."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/greenberg-main-conjecture",
+        "verdict": "verified",
+        "note": "The main conjecture is a proposition on supplied analytic data, not an existence theorem or a proved equality. Fraction-field normalization and positive-corank alternatives remain separate."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/greenberg-conjecture-tate-twists",
+        "verdict": "verified",
+        "note": "Twisting the characteristic ideal translates the positive even Tate conjecture to the cyclotomic proposition. The node proves equivalence of propositions, not the main conjecture itself."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+        "verdict": "corrected",
+        "note": "The crystalline exact fragment uses Qp-linear one-minus-Frobenius, not K0-linearity. Dimensions include [K:Qp]; exact-annihilator compatibility is asserted for de Rham coefficients. Changes: Fixed the scalar field in the dimension formula, qualified annihilator duality, and replaced ambiguous unit tensors and the qualitative Greenberg test by precise examples."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/kummer-cup-shapiro",
+        "verdict": "verified",
+        "note": "The finite Kummer, projection and Mackey squares precede coefficient limits; cup products retain the canonical coefficient maps and norm convention."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/weak-semisimplicity",
+        "verdict": "corrected",
+        "note": "Only the invariant eigenvalue is tested. Closed image of sigma-minus-one in finite-type p-adic modules justifies continuous coinvariants; nontrivial Jordan blocks distinguish weak from full semisimplicity. Changes: Removed irrelevant finite-index-descent citation; gave the elementary kernel/cokernel argument and its closed-image condition."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L0/procyclic-integral-criteria",
+        "verdict": "verified",
+        "note": "The finite free integral and residual dimension hypotheses in Liu Lemmas 2.1.3–2.1.5 are retained; residual inequalities are not replaced by rational semisimplicity alone."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/derived-local-complements",
+        "verdict": "verified",
+        "note": "Chain-level orthogonality includes a null homotopy and a comparison quasi-isomorphism. H1 orthogonality alone does not construct derived dual local conditions."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/derived-selmer-duality",
+        "verdict": "corrected",
+        "note": "Nekovar Theorem 6.3.4 gives the degree-three duality under admissible local complexes. The AGD import assumes condition P; the real p=2 extension is recorded separately. Changes: Corrected the source label and restricted the proved global-duality import to condition (P)."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/ordinary-annihilator-correction",
+        "verdict": "verified",
+        "note": "Strict and inertia ordinary complexes differ by quotient invariants; the H0 correction survives unless the explicit comparison is a quasi-isomorphism."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L1/nonsingular-pairing",
+        "verdict": "verified",
+        "note": "Liu Lemma 2.2.3 asserts annihilation of nonsingular finite classes. No perfectness or exact-annihilator claim is inferred for arbitrary ramified finite modules."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-complex",
+        "verdict": "corrected",
+        "note": "The shifted cone is the homotopy fibre of global-plus-local-condition maps. Its compact-support comparison uses condition P, with the real p=2 extension left as a gap. Changes: Qualified the compact-support identification by the actual supplier’s condition (P)."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/selmer-complex-h1",
+        "verdict": "verified",
+        "note": "The local H0 quotient contributes before the classical Selmer kernel in the long exact sequence; the H1 comparison is conditional on that correction vanishing."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/condition-change-triangle",
+        "verdict": "verified",
+        "note": "Nested complexes yield the triangle with the shifted local quotient cone. Primitive/imprimitive comparisons retain the local condition complex, not just its H1 subgroup."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/lattice-change-cone",
+        "verdict": "verified",
+        "note": "A lattice quotient contributes global and local cones. Inverting p removes finite lattice-change errors but does not assert an integral isomorphism."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L2/restriction-injective-descent",
+        "verdict": "verified",
+        "note": "Vanishing descends after an injective restriction map. The possible inflation–restriction kernel is explicit; source E135 is a proof gap, not a counterexample under enormous-image adjoint hypotheses."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/infinite-selmer-complex",
+        "verdict": "verified",
+        "note": "Take the compact Selmer complex with induced Lambda coefficients and completed action, preserving local condition maps. It depends on the qualified finite-level Selmer-complex input."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/derived-control",
+        "verdict": "verified",
+        "note": "The specialization spectral sequence is Tor over Lambda with the chosen coefficient homomorphism. Integral local error complexes remain until shown acyclic."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/kernel-control",
+        "verdict": "verified",
+        "note": "Classical restriction control also has invariant and localization errors. Derived descent alone does not delete those errors from a kernel comparison."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/correction-complex",
+        "verdict": "verified",
+        "note": "The cone of the specialized local comparison is an actual complex; canonical acyclicity, rather than an arbitrary assumed equality, is the criterion for correction-free control."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "verdict": "corrected",
+        "note": "Duality keeps the degree-three shift, dualizing complex and Lambda involution. Condition P is explicit; height-one disappearance of an error does not imply integral acyclicity. Changes: Kept the degree-three shift and involution; made condition (P) explicit rather than assuming a missing real-place extension."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/iwasawa-finiteness-euler",
+        "verdict": "corrected",
+        "note": "The displayed cyclotomic rank difference is retained for odd p and global H2 torsion remains weak Leopoldt. An unspecified real p=2 amplitude is no longer asserted. Changes: Stopped asserting an unspecified p=2 real-place amplitude; kept the proved odd-prime rank formula."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/selmer-determinant",
+        "verdict": "verified",
+        "note": "The arithmetic line is inverse determinant; its signed height-one lengths give char H2 divided by char H1 in degrees one and two. Generic acyclicity is essential."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/etale-iwasawa-comparison",
+        "verdict": "verified",
+        "note": "Kato's j-star comparison needs arithmetic K(pi,1), coefficient limits and inertia stalks. Finite-etale-cover equivalence alone is not enough and is not claimed sufficient."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/rational-specialization",
+        "verdict": "verified",
+        "note": "A fixed rational specialization uses lattice-independent derived base change and local corrections; it is not an integral control theorem or a conclusion about arbitrary specializations."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/local-cofree-euler",
+        "verdict": "corrected",
+        "note": "CGLS excludes trivial and cyclotomic residual characters at p. The rank-two elliptic case has good-reduction/no-local-p-torsion hypotheses, and the away-p factor uses arithmetic Frobenius. Changes: Added the actual non-p Euler-factor source, Lemma 1.1.1."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/greenberg-structure-hypotheses",
+        "verdict": "corrected",
+        "note": "LOC1/LOC2 use the compact Tate dual, while Greenberg's discrete D-star is its Lambda-dual tensor. The alternative residual/divisibility hypotheses remain explicit. Changes: Distinguished Greenberg’s compact T₀* from discrete D*; LOC1/LOC2 use the compact module."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/localization-surjective",
+        "verdict": "verified",
+        "note": "Greenberg's RFX/LOC/LEO/CRK and the stated alternatives provide surjectivity; residual irreducibility alone does not replace them."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/selmer-no-pseudonull",
+        "verdict": "verified",
+        "note": "The structural theorem keeps Greenberg's coreflexive/divisibility and global hypotheses. In dimension two pseudo-null is finite; higher-dimensional pseudo-null need not be finite."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L3/selmer-fitting-characteristic",
+        "verdict": "corrected",
+        "note": "Added the depth/Auslander–Buchsbaum supplier: no finite submodule in dimension two gives projective dimension at most one. A square presentation then identifies Fitting and characteristic. Changes: Added direct prerequisites for inputs used by the proof sketch. Corrected the Greenberg source label; the added L4 request supplies the depth/Auslander–Buchsbaum step."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/cp-period-comparison",
+        "verdict": "verified",
+        "note": "The completed algebraic closure, valuation and Tate–Sen input are a precise local-field Part II request. Existing BDeRham definitions are imported rather than reconstructed."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/crystalline-period-ring",
+        "verdict": "verified",
+        "note": "Construct the minimal classical divided-power period ring with topology, Frobenius and comparison map; this does not claim Mathlib's de Rham ring already supplies Bcris."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/period-fundamental-sequences",
+        "verdict": "verified",
+        "note": "Bloch–Kato 1.17 provides continuous sections and the exact period sequences needed by cochain cohomology. Algebraic exactness without the topology would not suffice."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/period-realization",
+        "verdict": "verified",
+        "note": "Dcris is a K0-space and DdR a K-space; filtered Frobenius invariants, comparison maps and dimension bounds are actual data, not a free Boolean crystalline predicate."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/period-fixed-fields",
+        "verdict": "verified",
+        "note": "Fontaine's fixed fields and dimension bounds use the completed-algebraic-closure input. Frobenius semilinearity and the two scalar fields are kept distinct."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/fontaine-laffaille-data",
+        "verdict": "corrected",
+        "note": "The finite filtered module has divided semilinear Frobenius and generation. Added the free-branch split-filtration predicate and a nonsplit pW test; the enlarged torsion category remains separate. Changes: Added a native predicate and discriminating test for the required split filtration in the free branch."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/fontaine-laffaille-comparison",
+        "verdict": "verified",
+        "note": "The width bound is p-minus-two over an unramified base. The covariant Niziol convention needs dualizing the original Hom realization; endpoint and interval-changing tensor claims are excluded."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/torsion-crystalline-condition",
+        "verdict": "corrected",
+        "note": "The bounded crystalline extension definition uses compatible lifts and coefficient actions. General interval subquotient closure is not justified merely by the small-weight Fontaine–Laffaille equivalence. Changes: Separated the general quotient-lattice extension predicate from the small-width Fontaine–Laffaille comparison."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/integral-finite-comparison",
+        "verdict": "verified",
+        "note": "Breuil's compatible reductions characterize the integral preimage of rational finite classes; Liu's scalar-change condition is retained, without a small-weight restriction on the general bounded interval."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/torsion-crystalline-duality",
+        "verdict": "verified",
+        "note": "The finite pairing includes the inverse different and compatible scalar restriction. Niziol's finite comparison and Liu's duality are not replaced by an unqualified finite perfect-pairing assertion."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/ordinary-finite-comparison",
+        "verdict": "verified",
+        "note": "Finite and ordinary conditions coincide only with the explicit exceptional invariant/filtration terms controlled. The Qp(1) full ordinary condition distinguishes it from finite units."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/archimedean-realization",
+        "verdict": "verified",
+        "note": "The opposed-filtration Hodge carrier is pinned Tau Ceti work; the separate complex-linear Betti involution and eigenspace dimensions supply the real Gamma exponents."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/hodge-gamma-factor",
+        "verdict": "verified",
+        "note": "Real diagonal signs and complex Hodge pairs give Deligne's factor. Mathlib Gamma is totalized at poles, so pole order is computed from the meromorphic formula, not evaluated zeros."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/positive-rank-leading-term",
+        "verdict": "verified",
+        "note": "The determinant/regulator datum is an explicitly proposed extension of rank-zero language. A supplied nondegenerate line trivialization and local correction lattices prevent a vacuous scalar equality."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/arithmetic-tower-data",
+        "verdict": "verified",
+        "note": "Class fields and unit/class norm towers come from existing reciprocity. This node packages their named Lambda modules and maps for the Selmer dictionary, not another reciprocity proof."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/unit-class-exact-sequence",
+        "verdict": "corrected",
+        "note": "The quotient is local units modulo global-unit closure, and compactness supplies inverse-limit exactness. Independently collated the published locator at p.193, correcting the packet's page numbers. Changes: Corrected the published Proposition 13.13/Corollary 13.14 locator to p. 193 after independent collation."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/leopoldt-selmer",
+        "verdict": "verified",
+        "note": "The strict-at-p Tate Selmer comparison uses Rubin I.6.4 and II.2.7 with the correct unit rank. It does not assert an unproved general Leopoldt theorem."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/global-finite-reduction",
+        "verdict": "verified",
+        "note": "Liu 2.4.3–2.4.6 compare finite crystalline local reductions, the chosen global lattice and conjugation hypotheses; global finite classes are not defined by raw unramifiedness at every prime."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/uniform-away-p-bound",
+        "verdict": "verified",
+        "note": "Purity of weight minus one and the inertia/residue conditions give a uniform away-p annihilator as in Liu 2.4.6(2); the bound is not asserted for arbitrary representations."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+        "verdict": "corrected",
+        "note": "Local Kummer needs completed E(Fv) before Qp rationalization. Added Rubin's Tate-module comparison; finite Tamagawa contributions need not survive the divisible or rational finite condition. Changes: Replaced the abstract local-point tensor by completed local points and added Rubin’s explicit completion comparison."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/artin-adjoint-finiteness",
+        "verdict": "verified",
+        "note": "Restriction lands in equivariant Hom of the finite p-class group and can have a finite inflation kernel. The finiteness conclusion survives these corrections."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/ordinary-selmer-parity",
+        "verdict": "verified",
+        "note": "The exact specialized parity statement is checked in Nekovar 12.2.3, with finite-local hypotheses. Its ordinary-family, nonvanishing and Heegner proof inputs remain a precise gap."
+      },
+      {
+        "nodeId": "SelmerIwasawaCohomology:L4/congruent-two-parity",
+        "verdict": "verified",
+        "note": "Dokchitser–Dokchitser 4.19 explicitly attributes the p=2 result to Monsky. The residue table is for infinite Selmer corank including divisible Sha, with the primary-proof refinement still open."
+      }
+    ]
+  }
 }

@@ -64,6 +64,16 @@ def pCompletionMap {A B : Type*} [AddCommGroup A] [AddCommGroup B] (f : A →ₗ
     pCompletion p A →ₗ[ℤ] pCompletion p B :=
   (AdicCompletion.map (Ideal.span {(p : ℤ)}) f).restrictScalars ℤ
 
+/-- Completion preserves identity maps. -/
+theorem pCompletionMap_id (A : Type*) [AddCommGroup A] :
+    pCompletionMap (p := p) (LinearMap.id : A →ₗ[ℤ] A) = LinearMap.id := sorry
+
+/-- Completion preserves composition, in the same order as the input maps. -/
+theorem pCompletionMap_comp {A B C : Type*} [AddCommGroup A] [AddCommGroup B] [AddCommGroup C]
+    (f : A →ₗ[ℤ] B) (g : B →ₗ[ℤ] C) :
+    pCompletionMap (p := p) (g.comp f) =
+      (pCompletionMap (p := p) g).comp (pCompletionMap (p := p) f) := sorry
+
 /-- API: `AdicCompletion (p) ℤ ≅ ℤ_p`, so that `Â` is a `ℤ_p`-module. -/
 theorem adicCompletion_int_equiv_padicInt :
     Nonempty (AdicCompletion (Ideal.span {(p : ℤ)}) ℤ ≃+* ℤ_[p]) := sorry
@@ -262,22 +272,22 @@ theorem contragredient_mul {G M : Type*} [Group G] [TopologicalSpace M] [CommGro
 
 /-- **`L2/corank`**: the `ℤ_p`-corank `dim_{ℚ_p}(M^∨ ⊗ ℚ_p)` of a cofinitely generated discrete
 `ℤ_p`-module, stated for its compact dual `N = M^∨` as a `ℤ_p`-module. -/
-def corank (p : ℕ) [Fact p.Prime] (N : Type*) [AddCommGroup N] [Module ℤ_[p] N] : ℕ :=
+def corankFromDual (p : ℕ) [Fact p.Prime] (N : Type*) [AddCommGroup N] [Module ℤ_[p] N] : ℕ :=
   Module.finrank ℚ_[p] (ℚ_[p] ⊗[ℤ_[p]] N)
 
 /-- API: finite modules have corank zero. -/
-theorem corank_finite (p : ℕ) [Fact p.Prime] (N : Type*) [AddCommGroup N] [Module ℤ_[p] N]
-    [Finite N] : corank p N = 0 := sorry
+theorem corankFromDual_finite (p : ℕ) [Fact p.Prime] (N : Type*) [AddCommGroup N] [Module ℤ_[p] N]
+    [Finite N] : corankFromDual p N = 0 := sorry
 
 /-- API: additivity in short exact sequences of finitely generated modules. -/
-theorem corank_add (p : ℕ) [Fact p.Prime] {N N' N'' : Type*} [AddCommGroup N] [Module ℤ_[p] N]
+theorem corankFromDual_add (p : ℕ) [Fact p.Prime] {N N' N'' : Type*} [AddCommGroup N] [Module ℤ_[p] N]
     [AddCommGroup N'] [Module ℤ_[p] N'] [AddCommGroup N''] [Module ℤ_[p] N''] [Module.Finite ℤ_[p] N']
     (f : N →ₗ[ℤ_[p]] N') (g : N' →ₗ[ℤ_[p]] N'') (hf : Function.Injective f)
     (hg : Function.Surjective g) (hfg : Function.Exact f g) :
-    corank p N' = corank p N + corank p N'' := sorry
+    corankFromDual p N' = corankFromDual p N + corankFromDual p N'' := sorry
 
-/-- API: `ℤ_p^r`, the dual of `(ℚ_p/ℤ_p)^r`, has corank `r`. -/
-theorem corank_pi_padicInt (p : ℕ) [Fact p.Prime] (r : ℕ) : corank p (Fin r → ℤ_[p]) = r := sorry
+/-- API: the compact dual `ℤ_p^r` computes the corank `r` of `(ℚ_p/ℤ_p)^r`. -/
+theorem corankFromDual_pi_padicInt (p : ℕ) [Fact p.Prime] (r : ℕ) : corankFromDual p (Fin r → ℤ_[p]) = r := sorry
 
 end Dual
 
@@ -423,14 +433,14 @@ example {R : Type*} [CommRing R] (D : SelmerData R Empty) : D.selmer = ⊤ := so
 example {R H HI : Type*} [CommRing R] [AddCommGroup H] [Module R H] [AddCommGroup HI]
     [Module R HI] (resI : H →ₗ[R] HI) : greenberg resI = unramified resI := rfl
 
-/-- The corank of `ℤ_p` (the dual of `ℚ_p/ℤ_p`) is one. -/
-example : corank p ℤ_[p] = 1 := sorry
+/-- The compact dual `ℤ_p` computes corank one for the discrete module `ℚ_p/ℤ_p`. -/
+example : corankFromDual p ℤ_[p] = 1 := sorry
 
 /-- The corank of a finite module is zero: `ℤ_p/(p)`. -/
-example : corank p (ℤ_[p] ⧸ Ideal.span {(p : ℤ_[p])}) = 0 := sorry
+example : corankFromDual p (ℤ_[p] ⧸ Ideal.span {(p : ℤ_[p])}) = 0 := sorry
 
-/-- The corank of `ℤ_p²` is two. -/
-example : corank p (Fin 2 → ℤ_[p]) = 2 := sorry
+/-- The compact dual `ℤ_p²` computes corank two for `(ℚ_p/ℤ_p)²`. -/
+example : corankFromDual p (Fin 2 → ℤ_[p]) = 2 := sorry
 
 /-- Duality: the orthogonal of the strict condition is relaxed. -/
 example {R X X' Y : Type*} [CommRing R] [AddCommGroup X] [Module R X] [AddCommGroup X']
@@ -545,6 +555,11 @@ structure FontaineLaffailleModule (W : Type*) [CommRing W] (p : ℕ) (σ : W ≃
     φ i ⟨x, antitone (by omega) x.property⟩ = p • φ (i + 1) x
   generation : Submodule.span W (⋃ i, Set.range (φ i)) = ⊤
 
+/-- Free objects have split filtration steps; the general filtered prototype alone does not assert this. -/
+def IsFreeFontaineLaffaille {W M : Type*} [CommRing W] [AddCommGroup M] [Module W M]
+    [Module.Finite W M] {p : ℕ} {σ : W ≃+* W} (D : FontaineLaffailleModule W p σ M) : Prop :=
+  Module.Free W M ∧ ∀ i : ℤ, ∃ N : Submodule W M, IsCompl (D.F i) N
+
 def fontaineLaffaille_interval {W M : Type*} [CommRing W] [AddCommGroup M] [Module W M] [Module.Finite W M]
     {p : ℕ} {σ : W ≃+* W} (D : FontaineLaffailleModule W p σ M) (a b : ℤ) : Prop :=
   D.F a = ⊤ ∧ D.F (b + 1) = ⊥
@@ -576,6 +591,10 @@ namespace Tests
 /-- Tests.fl_zero: zero modules admit the zero filtration in every interval. -/
 example (a b : ℤ) : ∃ D : FontaineLaffailleModule ℤ 3 (RingEquiv.refl ℤ) (Fin 0 → ℤ),
     fontaineLaffaille_interval D a b := sorry
+/-- Tests.fl_free_split: the proper step `3ℤ` cannot occur in a free split-filtration object. -/
+example (D : FontaineLaffailleModule ℤ 3 (RingEquiv.refl ℤ) ℤ)
+    (hD : IsFreeFontaineLaffaille D) : D.F 1 ≠ Ideal.span {(3 : ℤ)} := sorry
+
 /-- Tests.fl_rank_one: divided Frobenius generation includes the unit weight-zero object. -/
 example : ∃ D : FontaineLaffailleModule ℤ 3 (RingEquiv.refl ℤ) ℤ,
     fontaineLaffaille_interval D 0 0 ∧ ∀ x : D.F 0, D.φ 0 x = x := sorry
@@ -825,7 +844,11 @@ API TauCeti.Selmer.toPCompletion (constructor): The canonical map A → Â.
 
 API TauCeti.Selmer.ker_toPCompletion (characterisation): ker(A → Â) = ⋂_m p^mA.
 
-API TauCeti.Selmer.pCompletionMap (functoriality): A homomorphism A → B induces Â → B̂, with identity and composition laws.
+API TauCeti.Selmer.pCompletionMap (functoriality): A homomorphism A → B induces Â → B̂.
+
+API TauCeti.Selmer.pCompletionMap_id (simp): Completion sends the identity to the identity.
+
+API TauCeti.Selmer.pCompletionMap_comp (functoriality): Completion sends g ∘ f to completion(g) ∘ completion(f).
 
 API TauCeti.Selmer.adicCompletion_int_equiv_padicInt (equivalence): AdicCompletion(p)ℤ ≅ ℤ_p, making Â a ℤ_p-module.
 
@@ -863,7 +886,7 @@ Source: RUBIN-ES, Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)
 
 #### SelmerIwasawaCohomology:L0/local-completion: Local completion and algebraic tensor comparison
 
-lemma contract: Import the local multiplicative completion A(K) and its p-adic module from Tau Ceti LocalGaloisGroups Layer 7. Identify it with the L0 Mathlib completion through their common quotient tower. For K/ℚ_ℓ finite the canonical Kˣ⊗ℤℤ_p→A(K) is surjective and not injective: valuation contributes ℤ_p; principal units contribute their p-adic completion, not their algebraic tensor product. For ℓ=p the noninjectivity includes a⊗1−1⊗a in ℤ_p⊗ℤℤ_p with a∉ℚ; for ℓ≠p the nonzero tensor of the pro-ℓ unit factor is killed by completion.
+lemma contract: Import A(K)=lim_m Kˣ/(Kˣ)^(p^m) and its p-adic module from the current LocalGaloisGroups Layer 7 suggested file, whose carrier is defined for arbitrary fields. Its free-quotient rank [K:ℚ_p]+1 requires K/ℚ_p finite; for ℓ≠p use LocalFieldsRamification Layer 1’s multiplicative decomposition instead. Identify it with the L0 Mathlib completion through their common quotient tower. For K/ℚ_ℓ finite the canonical Kˣ⊗ℤℤ_p→A(K) is surjective and not injective: valuation contributes ℤ_p; principal units contribute their p-adic completion, not their algebraic tensor product. For ℓ=p the noninjectivity includes a⊗1−1⊗a in ℤ_p⊗ℤℤ_p with a∉ℚ; for ℓ≠p the nonzero tensor of the pro-ℓ unit factor is killed by completion.
 
 Hypotheses: K/ℚ_ℓ finite, ℓ any prime (ℓ = p allowed).
 
@@ -913,9 +936,9 @@ API TauCeti.Selmer.kummerLimit_zp_linear (structure): κ_∞ is ℤ_p-linear.
 
 Example kummerLimit_sepClosed (degenerate): K separably closed: both sides are 0.
 
-Example kummerLimit_real (computation): K = ℝ, p = 2: ℝ^×/(ℝ^×)^{2^m} = ℤ/2 = H^1(ℤ/2, μ_{2^m}), so both limits are ℤ/2.
+Example kummerLimit_real (computation): K=ℝ, p=2, m≥1: ℝˣ/(ℝˣ)^(2^m) ≅ ℤ/2 ≅ H¹(ℤ/2,μ_(2^m)); both inverse limits are ℤ/2.
 
-Example kummerLimit_finite_field (computation): K = 𝔽_q: both sides are the p-part of 𝔽_q^× (Ẑ-cohomology H^1 = μ_{p^m}/(Fr − 1)).
+Example kummerLimit_finite_field (computation): K=𝔽_q, p∤q: both inverse limits are the p-primary part of 𝔽_qˣ, using arithmetic Frobenius and multiplication-by-p coefficient transitions.
 
 Example kummerLimit_rational (non-example): K = ℚ: the limit is not ℤ_p ⊗ ℚ^× (padic-completion, pCompletion_free_infinite).
 
@@ -955,7 +978,7 @@ lemma contract: For every field K with char K≠p, the μ_(p^m)(K) tower is fini
 
 Hypotheses: p invertible; F a number field; S finite.
 
-Prerequisites: SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler, SelmerIwasawaCohomology:L0/local-power-class-finite, SelmerIwasawaCohomology:L0/s-unit-kummer-identification, ArithmeticGaloisDuality:R02.1/milnor-sequence, SelmerIwasawaCohomology:L0/kummer-level-compatibility, ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one
+Prerequisites: SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler, SelmerIwasawaCohomology:L0/local-power-class-finite, SelmerIwasawaCohomology:L0/s-unit-kummer-identification, ArithmeticGaloisDuality:R02.1/milnor-sequence, SelmerIwasawaCohomology:L0/kummer-level-compatibility, ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one, SelmerIwasawaCohomology:L0/kummer-limit-map
 
 Source: RUBIN-ES, Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162); RUBIN-ES, Appendix B, §2, Proposition 2.7, printed p. 153 (PDF p. 163)
 
@@ -981,7 +1004,7 @@ definition contract: For a finite-type ℤ_p-module or finite-dimensional ℚ_p-
 
 Hypotheses: Γ procyclic; continuity in the natural p-adic topology; finite type for integral modules.
 
-Prerequisites: ArithmeticGaloisDuality:R02.2/finite-index-descent
+Prerequisites: SelmerIwasawaCohomology:L0/padic-completion
 
 Source: LIU-ETAL-22, Definition 2.1.2, p. 121
 
@@ -1093,11 +1116,11 @@ Example TauCeti.Selmer.Tests.derived_nonperfect_pairing (non-example): For a zer
 
 theorem contract: Let F_X=Fib(C_global(X)⊕⊕U_X,v^+→⊕C_v(X)), and F_Y similarly, with the arrow res−i and pairings/nullhomotopies as in derived-local-complements. Transport the ArithmeticGaloisDuality D7 global compact-support duality to a map F_X→D_J(F_Y)[−3]. Its error triangle has third vertex ⊕_v Err_v. It is an isomorphism if the local adjoints are quasi-isomorphisms, and otherwise the error cone remains in the statement. This L1 theorem is parametric in local-condition maps; L2 instantiates it, avoiding an L1→L2 dependency.
 
-Hypotheses: Finite S; bounded complexes; the supplier global-duality coefficient hypotheses and modified real-place convention. Chain-level orthogonality data, not just orthogonal H¹ subspaces.
+Hypotheses: Finite S; bounded admissible complexes with the supplier’s finite/cofinite or dualizing coefficient hypotheses; condition (P): p is odd or F has no real places. Chain-level orthogonality data, not just orthogonal H¹ subspaces. For p=2 with real places this construction/theorem requires the separate modified compact-support extension recorded as a gap.
 
 Prerequisites: SelmerIwasawaCohomology:L1/derived-local-complements, ArithmeticGaloisDuality:D7/derived-global-duality, ArithmeticGaloisDuality:D7/compact-support-cochains
 
-Source: NEKOVAR-SC, Proposition 6.3.4, pp. 142–143
+Source: NEKOVAR-SC, Theorem 6.3.4, pp. 142–143
 
 Example TauCeti.Selmer.Tests.selmer_duality_shift (compatibility): Over a field, complementary conditions pair H^i(F_X) with H^(3−i)(F_Y), rather than degree 2−i.
 
@@ -1257,9 +1280,9 @@ API TauCeti.Selmer.greenberg_zero (compatibility): The Greenberg condition with 
 
 Example unramified_trivial_Zp (computation): B = ℤ/p with trivial action over ℚ_ℓ: H^1_ur = Hom(Gal(K^ur/K), ℤ/p) = ℤ/p.
 
-Example unramified_divisible_W (computation): For unramified T, H^1_f(K, W) = H^1_ur(K, W) (Rubin Lemma 3.5(iv)).
+Example unramified_divisible_W (computation): For K/ℚ_ℓ finite with ℓ≠p and an unramified lattice T, H¹_f(K,W)=H¹_ur(K,W) (Rubin Lemma 3.5(iv)).
 
-Example unramified_non_example (non-example): For ramified B the inclusion H^1_ur(K, T) ⊆ H^1_f(K, T) can be strict, with quotient (W^I/(W^I)_div)^{Fr=1} (Rubin Lemma 3.5(iii)).
+Example unramified_non_example (non-example): For K/ℚ_ℓ with ℓ≠p, H¹_f(K,T)/H¹_ur(K,T) ≅ (W^I/(W^I)_div)^(Fr=1); this is nonzero for a Tate curve with p-divisible Tamagawa number, so raw unramifiedness is too small.
 
 #### SelmerIwasawaCohomology:L2/greenberg-condition: Greenberg's local condition
 
@@ -1333,6 +1356,8 @@ Example dual_finite (degenerate): A finite module has a finite dual of the same 
 
 Example dual_trivial_action (degenerate): Trivial action dualises to trivial action.
 
+Example TauCeti.Selmer.Tests.dual_inverse_action (computation): For M=ℤ/7 and g acting by multiplication by 2 (order 3), the dual action is multiplication by 4, the inverse of 2 mod 7; direct multiplication by 2 fails.
+
 #### SelmerIwasawaCohomology:L2/corank: Coranks
 
 construction contract: For a cofinitely generated discrete ℤ_p-module M, corank_{ℤ_p} M = dim_{ℚ_p}(M^∨ ⊗_{ℤ_p} ℚ_p).
@@ -1343,19 +1368,21 @@ Prerequisites: SelmerIwasawaCohomology:L2/pontryagin-dual, mathlib:Module.finran
 
 Source: BURUNGALE-TIAN-26, §1.0.1, the exact sequence and (1.1), p. 1 (arXiv v2)
 
-API TauCeti.Selmer.corank (constructor): dim_{ℚ_p}(M^∨ ⊗ ℚ_p).
+API TauCeti.Selmer.corank (constructor): For discrete cofinitely generated M, dim_ℚp(ℚ_p⊗_ℤp M^∨).
 
-API TauCeti.Selmer.corank_finite (simp): Finite modules have corank 0.
+API TauCeti.Selmer.corankFromDual (compatibility): On a supplied compact dual N=M^∨, compute dim_ℚp(ℚ_p⊗_ℤp N); this is the native signature-testing adapter.
 
-API TauCeti.Selmer.corank_add (relation): Additive in short exact sequences.
+API TauCeti.Selmer.corankFromDual_finite (simp): A finite compact dual gives corank zero.
 
-API TauCeti.Selmer.corank_pi_padicInt (simp): ℤ_p^r, the dual of (ℚ_p/ℤ_p)^r, has corank r.
+API TauCeti.Selmer.corankFromDual_add (relation): Additive on short exact sequences of finitely generated compact duals; exact Pontryagin duality gives the corresponding discrete corank formula.
 
-Example corank_Zp (computation): The dual ℤ_p of ℚ_p/ℤ_p has corank 1.
+API TauCeti.Selmer.corankFromDual_pi_padicInt (simp): For M=(ℚ_p/ℤ_p)^r with compact dual N=ℤ_p^r, corank M=corankFromDual N=r.
 
-Example corank_finite_zero (degenerate): ℤ_p/(p) has corank 0.
+Example corank_Zp (computation): The discrete module ℚ_p/ℤ_p has corank 1, computed from its compact dual ℤ_p.
 
-Example corank_Zp2 (computation): ℤ_p² has corank 2.
+Example corank_finite_zero (degenerate): The finite discrete module ℤ/p has corank 0, computed from its finite compact dual.
+
+Example corank_Zp2 (computation): The discrete module (ℚ_p/ℤ_p)² has corank 2, computed from its compact dual ℤ_p².
 
 #### SelmerIwasawaCohomology:L2/elliptic-selmer-instance: The p^∞-Selmer group of an elliptic curve
 
@@ -1371,7 +1398,7 @@ Source: BURUNGALE-TIAN-26, §1.0.1, the exact sequence and (1.1), p. 1 (arXiv v2
 
 construction contract: Extend the upstream discrete structure by orthogonal local conditions on the compact/rational adapters and their dual coefficient diagrams. A Selmer structure F on T (Mazur–Rubin, Definition 2.1) is a finite set Σ(F) of places containing the archimedean places, the places above p and the primes where T is ramified, with a local condition H¹_F(K_q, T) for each q ∈ Σ(F); its Selmer module H¹_F(K, T) is the kernel of H¹(K_{Σ(F)}/K, T) → ⊕_{q∈Σ(F)} H¹(K_q, T)/H¹_F(K_q, T). The dual Selmer structure F^* on T^* = Hom(T, μ_{p^∞}) has Σ(F^*) = Σ(F) and H¹_{F^*}(K_q, T^*) = H¹_F(K_q, T)^⊥ under the local Tate pairing (Mazur–Rubin, Definition 2.5).
 
-Hypotheses: T finitely generated over O with continuous G_K-action, unramified outside a finite set.
+Hypotheses: T finitely generated over O with continuous G_K-action, unramified outside a finite set. Compact local conditions are closed in their natural topology (in the finite-type O case submodules are closed); coefficient biduality and perfect topological pairings are used for double orthogonals.
 
 Prerequisites: SelmerIwasawaCohomology:L1/orthogonal-complement, SelmerIwasawaCohomology:L1/lattice-pairing-compatibility, SelmerIwasawaCohomology:L2/galois-selmer-group, SelmerIwasawaCohomology:L2/selmer-data
 
@@ -1393,7 +1420,7 @@ API TauCeti.Selmer.SelmerStructure.rubin_dual (example): Rubin's S^Σ(K, W_M) an
 
 Example relaxed_dual_strict (computation): The structure relaxed at every q ∈ Σ has dual strict at every q ∈ Σ; the dual Selmer module is Ш¹_Σ(K, T^*) (ArithmeticGaloisDuality R02.4/restricted-product-cohomology).
 
-Example finite_selfdual (computation): For T unramified at q ∤ p, the finite condition at q is its own dual.
+Example finite_selfdual (computation): For T unramified at q∤p, H¹_f(K_q,T) and H¹_f(K_q,T*) are exact annihilators in their respective local cohomology groups; they are not identified as the same subgroup of one module.
 
 Example archimedean (computation): At a real place H¹(ℝ, W_M) = 0 for p odd, so every archimedean condition is 0 = its dual; for p = 2 it can be nonzero (Rubin, Remark 3.7).
 
@@ -1405,7 +1432,7 @@ lemma contract: Let K/ℚ_ℓ be finite with ℓ ≠ p and V a finite-dimensiona
 
 Hypotheses: ℓ ≠ p.
 
-Prerequisites: SelmerIwasawaCohomology:L2/unramified-condition, ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence
+Prerequisites: SelmerIwasawaCohomology:L2/unramified-condition, ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension
 
 Source: RUBIN-ES, Chapter I, §3.1, Corollary 3.3, printed p. 5 (PDF p. 15)
 
@@ -1473,7 +1500,7 @@ Source: RUBIN-ES, Chapter I, §7, Corollary 7.5, printed p. 19 (PDF p. 29)
 
 construction contract: For a finite set S and a bounded compact/rational/discrete coefficient complex X on the canonical continuous carrier, a complex local condition consists of actual maps i_v^+:U_v^+→C_cont(G_v,X). Define RΓ_f(F,S,X;U^+) as Cone(C_cont(G_(F,S),X)⊕⊕_v U_v^+ --res−i-->⊕_v C_cont(G_v,X))[−1]. Supply the triangles RΓ_f→RΓ_global→⊕U_v^− and RΓ_c→RΓ_f→⊕U_v^+. Strict uses U^+=0 and relaxed uses i=id. Submodules of H¹ are not by themselves a unique choice of U^+.
 
-Hypotheses: Actual continuous complexes and localization maps are supplier objects; finite S; use modified real local complexes at p=2 where required.
+Hypotheses: Actual continuous complexes and localization maps are supplier objects; finite S; use modified real local complexes at p=2 where required. The compact-support identification uses condition (P): p odd or F totally imaginary. Outside (P), use the modified real-place complex only after the recorded AGD extension is supplied.
 
 Prerequisites: ArithmeticGaloisDuality:D7/compact-support-cochains, SelmerIwasawaCohomology:L1/derived-local-complements, ArithmeticGaloisDuality:R02.1/carrier-comparison
 
@@ -1569,7 +1596,7 @@ construction contract: Let R be a complete local noetherian ring with finite res
 
 Hypotheses: R complete local noetherian; M of finite type over R for the corestriction-limit description; condition (F), which G_{K,S} and local Galois groups satisfy (ArithmeticGaloisDuality R02.4/global-finiteness).
 
-Prerequisites: SelmerIwasawaCohomology:L2/galois-selmer-group, ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one, ArithmeticGaloisDuality:R02.1/tate-inverse-limit, ArithmeticGaloisDuality:R02.4/global-finiteness
+Prerequisites: SelmerIwasawaCohomology:L2/galois-selmer-group, ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one, ArithmeticGaloisDuality:R02.1/tate-inverse-limit, ArithmeticGaloisDuality:R02.4/global-finiteness, ArithmeticGaloisDuality:R02.1/cochains-inverse-limit, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees
 
 Source: NEKOVAR-SC, Chapter 8, 8.3.4–8.3.5, p. 203 (Numdam PDF p. 212); RUBIN-ES, Appendix B, §3, Lemmas 3.1–3.2, printed p. 154 (PDF p. 164)
 
@@ -1629,7 +1656,7 @@ theorem contract: Let T be finitely generated over ℤ_p. (i) If K/ℚ_ℓ is fi
 
 Hypotheses: ℓ ≠ p in (i); d ≥ 1.
 
-Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, SelmerIwasawaCohomology:L2/unramified-condition, ArithmeticGaloisDuality:R02.3/restricted-ramification-group
+Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, SelmerIwasawaCohomology:L2/unramified-condition, ArithmeticGaloisDuality:R02.3/restricted-ramification-group, tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group
 
 Source: RUBIN-ES, Appendix B, §3, Proposition 3.3, printed p. 154 (PDF p. 164)
 
@@ -1639,7 +1666,7 @@ theorem contract: Let K be a number field, q a prime of K, F/K finite and S the 
 
 Hypotheses: T discrete for the induction statements; finitely generated over ℤ_p for the descent.
 
-Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, ArithmeticGaloisDuality:R02.2/finite-index-descent
+Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, ArithmeticGaloisDuality:R02.2/finite-index-descent, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-7-coinduced-modules-and-shapiros-lemma
 
 Source: RUBIN-ES, Appendix B, §5, Proposition 5.1, printed p. 157 (PDF p. 167)
 
@@ -1647,9 +1674,9 @@ Source: RUBIN-ES, Appendix B, §5, Proposition 5.1, printed p. 157 (PDF p. 167)
 
 theorem contract: For the cyclotomic Γ = Gal(ℚ(ζ_{p^∞})/ℚ) with compatible roots (ζ_{p^n}) fixed, κ the cyclotomic character and k ∈ ℤ, cup product with the norm-compatible system (ζ_{p^n}^{⊗k})_n gives a ℤ_p-linear isomorphism φ_k : H^q_Iw(T) ≅ H^q_Iw(T(k)) with φ_k(λx) = Tw_k(λ)φ_k(x), where Tw_k is the ring automorphism of Λ = 𝒪⟦Γ⟧ with Tw_k(σ) = κ(σ)^{−k}σ. Composing with the specialisation of iwasawa-descent at the augmentation gives H¹_Iw(V) → H¹(ℤ[1/p], T(k)) ⊗ ℚ, which factors through the localisation at ker(Λ → 𝒪, σ_c ↦ c^{−k}).
 
-Hypotheses: Cyclotomic tower; compatible roots of unity fixed (they trivialise ℤ_p(1) over the tower).
+Hypotheses: Cyclotomic tower; compatible roots of unity fixed (they trivialise ℤ_p(1) over the tower). For rational V=T[1/p], H^q_Iw(V) means H^q_Iw(T)⊗_ℤpℚ_p. It is not the unrestricted inverse limit of H^q(F_n,V), which can contain systems with unbounded denominators.
 
-Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, SelmerIwasawaCohomology:L3/iwasawa-descent, ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence, PadicMeasuresIwasawaAlgebras:L1
+Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-cohomology, SelmerIwasawaCohomology:L3/iwasawa-descent, ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence, PadicMeasuresIwasawaAlgebras:L1, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees
 
 Source: BURUNGALE-TIAN-26, §3, (3.2), p. 6 (arXiv v2)
 
@@ -1739,7 +1766,7 @@ Example TauCeti.Selmer.Tests.specialization_error_tor (non-example): Nonflat U^+
 
 theorem contract: For perfect coefficient duals T and T^*(1), transport L1 duality to induced coefficients. For Γ≅ℤ_p^d and the regular local ring Λ=O[[Γ]], use coefficient duality with Λ placed in degree zero and obtain RΓ_f,Iw(T)→RHom_Λ(RΓ_f,Iw(T^*(1)),Λ)^ι[−3], where ι(γ)=γ^−1. Its cone is the sum of the induced local complement errors. With elementary coefficient complements at p and the precise unramified conditions elsewhere, calculate which errors vanish and which survive (including Tamagawa terms); derived duality is an equivalence only after those errors vanish. This is compatible with finite-level specialization, global degree-three duality and local degree-two pairings.
 
-Hypotheses: Perfectness/dualizing coefficient hypotheses of Nekovář §8.9 and the imported AGD duality; tower condition (U). Modified real terms at p=2. A height-one disappearance of an error is weaker than its integral acyclicity. Here the compact dual T^*(1) means Hom_O(T,O)(1); it is distinct from Rubin’s discrete T^*=Hom_O(T,E/O)(1). Λ is the degree-zero coefficient dualizing module in this normalization; using an absolute dualizing complex shifted by dim Λ requires the compensating shift. The displayed shift is the arithmetic degree-three normalization.
+Hypotheses: Perfectness/dualizing coefficient hypotheses of Nekovář §8.9 and the imported AGD duality; tower condition (U); condition (P): p odd or F has no real places. The p=2 real-place version depends on the recorded modified-support gap. A height-one disappearance of an error is weaker than its integral acyclicity. Here the compact dual T^*(1) means Hom_O(T,O)(1); it is distinct from Rubin’s discrete T^*=Hom_O(T,E/O)(1). Λ is the degree-zero coefficient dualizing module in this normalization; using an absolute dualizing complex shifted by dim Λ requires the compensating shift. The displayed shift is the arithmetic degree-three normalization.
 
 Prerequisites: SelmerIwasawaCohomology:L1/derived-selmer-duality, SelmerIwasawaCohomology:L3/infinite-selmer-complex, SelmerIwasawaCohomology:L2/pontryagin-dual, PadicMeasuresIwasawaAlgebras:L5
 
@@ -1753,9 +1780,9 @@ Example TauCeti.Selmer.Tests.iw_duality_height_one (non-example): A finite Λ-er
 
 #### SelmerIwasawaCohomology:L3/iwasawa-finiteness-euler: Finite generation, amplitude and local Euler ranks
 
-theorem contract: For the cyclotomic ℤ_p-extension, p odd, finite S and finite free T, global Iwasawa cohomology is finitely generated over Λ and concentrated in degrees one and two under the standard global H⁰-vanishing hypothesis; with real p=2 terms state the corrected amplitude. Its rank difference is rank_Λ H¹_Iw−rank_Λ H²_Iw=Σ_(v real) rank_O T^(c_v=−1)+Σ_(v complex) rank_O T. At a p-adic place K, rank_Λ H¹_Iw(K,T)=[K:ℚ_p]rank_O T and H²_Iw(K,T) is torsion. Global H² torsion is an additional weak-Leopoldt assertion. For arbitrary ℤ_p^d extensions the conclusion is finite generation/perfectness only with the supplier finite-resolution and local conditions, not a universal cyclotomic rank formula.
+theorem contract: For the cyclotomic ℤ_p-extension, p odd, finite S and finite free T, global Iwasawa cohomology is finitely generated over Λ and concentrated in degrees one and two under the standard global H⁰-vanishing hypothesis. The p=2 real-place amplitude is a separate recorded gap and is not asserted by this theorem. Its rank difference is rank_Λ H¹_Iw−rank_Λ H²_Iw=Σ_(v real) rank_O T^(c_v=−1)+Σ_(v complex) rank_O T. At a p-adic place K, rank_Λ H¹_Iw(K,T)=[K:ℚ_p]rank_O T and H²_Iw(K,T) is torsion. Global H² torsion is an additional weak-Leopoldt assertion. For arbitrary ℤ_p^d extensions the conclusion is finite generation/perfectness only with the supplier finite-resolution and local conditions, not a universal cyclotomic rank formula.
 
-Hypotheses: Canonical compact cochains; cyclotomic tower for the displayed rank formulas. At p=2 use AGD modified compact support or invert 2.
+Hypotheses: Canonical compact cochains; p odd for the displayed cyclotomic rank formulas. The p=2 real-place extension is recorded separately, rather than deduced from the condition-(P) compact-support supplier.
 
 Prerequisites: SelmerIwasawaCohomology:L3/iwasawa-shapiro, ArithmeticGaloisDuality:R02.4/global-finiteness, ArithmeticGaloisDuality:D7/compact-support-euler-characteristic, PadicMeasuresIwasawaAlgebras:L1
 
@@ -1813,7 +1840,7 @@ Hypotheses: CGLS §1.1’s finite character and anticyclotomic tower. The mod-p 
 
 Prerequisites: SelmerIwasawaCohomology:L3/semilocal-cohomology, ArithmeticGaloisDuality:R02.4/poitou-tate, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal
 
-Source: CGLS-22, §1.1, Lemma 1.1.2 and Proposition 1.1.3, pp. 6–7; Lemma 1.3.1, p. 10
+Source: CGLS-22, §1.1, Lemmas 1.1.1–1.1.2 and Proposition 1.1.3, pp. 6–7; Lemma 1.3.1, p. 10
 
 Example TauCeti.Selmer.Tests.local_cofree_trivial (non-example): The trivial residual character can have H⁰ and is excluded.
 
@@ -1823,9 +1850,9 @@ Example TauCeti.Selmer.Tests.local_euler_frobenius (non-example): Replacing arit
 
 #### SelmerIwasawaCohomology:L3/greenberg-structure-hypotheses: Checkable hypotheses for ordinary Selmer structure
 
-definition contract: For Λ=O[[T]], D=T₀⊗_ΛΛ^∨ with T₀ finite free and D* = Hom(D,μ_(p∞)), record RFX (T₀ reflexive), LOC2_v (D*/H⁰(F_v,D*) reflexive), LOC1_η (H⁰(F_η,D*)=0 at one finite η), LEO (ker[H²(global,D)→⊕H²(local,D)] Λ-cotorsion), CRK (corank H¹global=corank Sel+corank Q), and almost divisibility of the chosen local conditions (multiplication by each height-one parameter is onto except for finitely many height-one primes). Record additionally Greenberg’s alternative (a), (b) or (c): residual exclusion of μ_p as subquotient; cofree D with exclusion as quotient; or a finite η with dual H⁰ zero and Q_η divisible/coreflexive as required by the theorem. These are explicit propositions on modules and maps, not inferred from residual irreducibility alone.
+definition contract: For Λ=O[[T]], let D=T₀⊗_ΛΛ^∨ with T₀ finite free. Then T₀* = Hom(D,μ_(p∞)) is the compact Tate dual; Greenberg’s discrete D* is T₀*⊗_ΛΛ^∨. Record RFX (T₀ reflexive), LOC2_v (T₀*/H⁰(F_v,T₀*) reflexive), LOC1_η (H⁰(F_η,T₀*)=0 at one finite η), LEO (ker[H²(global,D)→⊕H²(local,D)] Λ-cotorsion), CRK (corank H¹global=corank Sel+corank Q), and almost divisibility of the chosen local conditions (multiplication by each height-one parameter is onto except for finitely many height-one primes). Record additionally Greenberg’s alternative (a), (b) or (c): residual exclusion of μ_p as subquotient; cofree D with exclusion as quotient; or a finite η with dual H⁰ zero and Q_η divisible/coreflexive as required by the theorem. These are explicit propositions on modules and maps, not inferred from residual irreducibility alone.
 
-Hypotheses: Finite S; p odd for the applications here; finitely generated compact duals. In dimension two, pseudo-null finitely generated modules are finite O-torsion. Higher-dimensional pseudo-null is not synonymous with finite. The residual module in alternatives (a),(b) is D[𝔪_Λ] as a G_(F,S)-module, and μ_p has its mod-p cyclotomic action. In alternative (c), η is finite and H⁰(F_η,D*)=0; the localization-surjectivity theorem requires divisible Q_η, while the no-pseudo-null theorem requires coreflexive Q_η.
+Hypotheses: Finite S; p odd for the applications here; finitely generated compact duals. In dimension two, pseudo-null finitely generated modules are finite O-torsion. Higher-dimensional pseudo-null is not synonymous with finite. The residual module in alternatives (a),(b) is D[𝔪_Λ] as a G_(F,S)-module, and μ_p has its mod-p cyclotomic action. In alternative (c), η is finite and H⁰(F_η,T₀*)=0; the localization-surjectivity theorem requires divisible Q_η, while the no-pseudo-null theorem requires coreflexive Q_η.
 
 Prerequisites: SelmerIwasawaCohomology:L2/pontryagin-dual, SelmerIwasawaCohomology:L2/corank, PadicMeasuresIwasawaAlgebras:L4
 
@@ -1881,9 +1908,9 @@ theorem contract: Let Λ=O[[T]] with O a complete DVR and X a finitely generated
 
 Hypotheses: Λ regular local of dimension two; X finitely generated torsion. The zero module uses the unit ideal convention.
 
-Prerequisites: SelmerIwasawaCohomology:L3/selmer-no-pseudonull, PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation, PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal
+Prerequisites: SelmerIwasawaCohomology:L3/selmer-no-pseudonull, PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation, PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal, PadicMeasuresIwasawaAlgebras:L4
 
-Source: GREENBERG-STRUCTURE, §1, pp. 1–4; Theorem 4.1.1, pp. 19–20 (arithmetic no-pseudo-null input)
+Source: GREENBERG-STRUCTURE, §1, pp. 1–4; Proposition 4.1.1, pp. 19–20 (arithmetic no-pseudo-null input)
 
 Example TauCeti.Selmer.Tests.fitting_cyclic (compatibility): For X=Λ/(f), f nonzero, both ideals equal (f).
 
@@ -1985,7 +2012,7 @@ Source: RJW-PADIC-L, §13.5.3, Example 13.22 and Remark 13.23, pp. 71–72 (arXi
 
 #### SelmerIwasawaCohomology:L4/bloch-kato-condition: The Bloch–Kato local condition on T and W
 
-construction contract: For finite K/ℚ_p define H¹_f(K,V)=ker[H¹(K,V)→H¹(K,V⊗B_cris)] on the canonical continuous cochain carrier, with the period topology. Define the T-condition by inverse image and the A=V/T condition by image. Away from p use the unramified rational condition and its propagated lattice/discrete conditions; the raw unramified condition on a finite quotient may differ. Give coefficient, restriction and duality compatibility. For de Rham V, the fundamental sequences give the exponential/finiteness exact fragments; for crystalline V, 0→H⁰(K,V)→D_cris(V)→D_cris(V)⊕D_dR(V)/Fil⁰→H¹_f(K,V)→0, with x↦((1−φ)x,x mod Fil⁰). Thus dim H¹_f=dim(D_dR/Fil⁰)+dim H⁰. Values on ℚ_p and ℚ_p(1) are respectively unramified classes and Kummer completed-unit classes.
+construction contract: For finite K/ℚ_p define H¹_f(K,V)=ker[H¹(K,V)→H¹(K,V⊗B_cris)] on the canonical continuous cochain carrier, with the period topology. Define the T-condition by inverse image and the A=V/T condition by image. Away from p use the unramified rational condition and its propagated lattice/discrete conditions; the raw unramified condition on a finite quotient may differ. Give coefficient, restriction and duality compatibility. For de Rham V, the fundamental sequences give the exponential/finiteness exact fragments; for crystalline V, 0→H⁰(K,V)→D_cris(V)→D_cris(V)⊕D_dR(V)/Fil⁰→H¹_f(K,V)→0, with x↦((1−φ)x,x mod Fil⁰). The map 1−φ is ℚ_p-linear, generally not K₀-linear. Thus dim_ℚp H¹_f=[K:ℚ_p]·dim_K(D_dR/Fil⁰)+dim_ℚp H⁰. The exact-annihilator compatibility with V*(1) uses de Rham V (Bloch–Kato Proposition 3.8). Values on ℚ_p and ℚ_p(1) are respectively unramified classes and Kummer completed-unit classes.
 
 Hypotheses: Finite K/ℚ_p and finite-dimensional continuous V with stable lattice T; finite-condition definition makes sense generally, the realization exact sequence is asserted with crystalline/de Rham hypotheses as specified.
 
@@ -2003,9 +2030,11 @@ API TauCeti.Selmer.blochKatoCondition_eq_propagate (compatibility): Agreement wi
 
 Example trivial_coefficients (computation): V = ℚ_p: H^1_f(F_v, ℚ_p) = H^1_ur(F_v, ℚ_p), so L^BK is the image of the unramified classes.
 
-Example tate_twist_one (computation): V = ℚ_p(1): H^1_f(F_v, ℚ_p(1)) is the image of 𝒪_{F_v}^× ⊗ ℚ_p under Kummer (Bloch–Kato), so L^BK on W is the image of the units.
+Example tate_twist_one (computation): V=ℚ_p(1): H¹_f(K,V) is the Kummer image of the p-completion of O_Kˣ, rationalized over ℤ_p; its ℚ_p-dimension is [K:ℚ_p].
 
-Example not_greenberg_in_general (non-example): The Bloch–Kato and Greenberg conditions differ by exceptional factors in general; only their coincidence in special cases is recorded (Remark 13.20).
+Example not_greenberg_in_general (non-example): For K=ℚ_p, V=ℚ_p(1) and Fil⁺=V, L2 Greenberg gives all H¹(K,V) of dimension 2, while H¹_f(K,V) is the completed-unit line of dimension 1; the uniformizer class is excluded by the finite condition.
+
+Example TauCeti.Selmer.Tests.bk_scalar_degree (computation): For an unramified quadratic K/ℚ_p and V=ℚ_p(1), dim_ℚp H¹_f(K,V)=2 although dim_K D_dR(V)/Fil⁰=1; omitting [K:ℚ_p] fails.
 
 #### SelmerIwasawaCohomology:L4/cp-period-comparison: The completed algebraic closure and existing de Rham period rings
 
@@ -2119,11 +2148,15 @@ API TauCeti.Selmer.fontaineLaffaille_interval (characterisation): The explicit i
 
 API TauCeti.Selmer.fontaineLaffaille_dual (functoriality): Dual/twist shifts the interval according to the weight convention.
 
+API TauCeti.Selmer.IsFreeFontaineLaffaille (characterisation): The module is free and every filtration step has a W-submodule complement. This is the free-object branch of the parameterized native prototype; Witt-ring realization is still required.
+
 Example TauCeti.Selmer.Tests.fl_zero (degenerate): The zero module with zero filtration is an object in every allowed interval.
 
 Example TauCeti.Selmer.Tests.fl_rank_one (non-example): The rank-one weight-zero object has Fil⁰=M, Fil¹=0 and unit Frobenius; omitting generation would admit φ₀=0.
 
 Example TauCeti.Selmer.Tests.fl_range (non-example): A tensor product with combined width >p−2 is not covered by the small-weight comparison theorem.
+
+Example TauCeti.Selmer.Tests.fl_free_split (non-example): In the free rank-one W-module, the proper filtration step pW (p nonunit) is not a direct summand. A free filtered object admitting that step fails IsFreeFontaineLaffaille, even if its underlying module is free.
 
 #### SelmerIwasawaCohomology:L4/fontaine-laffaille-comparison: Small-weight crystalline realization and extension exactness
 
@@ -2315,7 +2348,7 @@ Hypotheses: p odd; actual finite-level reciprocity maps and cyclotomic ramificat
 
 Prerequisites: SelmerIwasawaCohomology:L4/arithmetic-tower-data, SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler, ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one
 
-Source: RJW-PADIC-L, Proposition 13.13 and Corollary 13.14, preprint pp. 67–68 (published pp. 195–196)
+Source: RJW-PADIC-L, Proposition 13.13 and Corollary 13.14, preprint pp. 67–68 (published p. 193)
 
 Example TauCeti.Selmer.Tests.unit_sequence_c_zero (degenerate): C=0 gives the original unit/class-group sequence.
 
@@ -2361,13 +2394,13 @@ Source: LIU-ETAL-22, Proposition 2.4.6(2) and proof, pp. 130–131
 
 #### SelmerIwasawaCohomology:L4/elliptic-finite-kummer: Elliptic Bloch–Kato and classical Selmer vanishing
 
-comparison contract: For E/F and V=V_p E, identify H¹_f(F_v,V) with E(F_v)⊗ℚ_p under Kummer at every finite place; at v∤p this space is zero, and the propagated finite condition on E[p∞] is zero; finite E[p^m] Kummer conditions can still retain Tamagawa contributions. Globally the rational finite Selmer group is (lim_m Sel_(p^m)(E/F), with multiplication-by-p coefficient transitions)⊗ℤpℚ_p, equivalently T_p Sel_(p∞)(E/F)⊗ℤpℚ_p, and H¹_f(F,V)=0 iff the classical p∞ Selmer group is finite (equivalently its ℤ_p-corank is zero). The Weil pairing gives V*(1)≃V, so its Tate-dual finite Selmer group vanishes under the same hypothesis. No finiteness of the full Tate–Shafarevich group is inferred.
+comparison contract: For E/F and V=V_p E, identify H¹_f(F_v,V) with (lim_m E(F_v)/p^m E(F_v))⊗_ℤpℚ_p under Kummer at every finite place; at v∤p this space is zero, and the propagated finite condition on E[p∞] is zero; finite E[p^m] Kummer conditions can still retain Tamagawa contributions. Globally the rational finite Selmer group is (lim_m Sel_(p^m)(E/F), with multiplication-by-p coefficient transitions)⊗ℤpℚ_p, equivalently T_p Sel_(p∞)(E/F)⊗ℤpℚ_p, and H¹_f(F,V)=0 iff the classical p∞ Selmer group is finite (equivalently its ℤ_p-corank is zero). The Weil pairing gives V*(1)≃V, so its Tate-dual finite Selmer group vanishes under the same hypothesis. No finiteness of the full Tate–Shafarevich group is inferred.
 
 Hypotheses: Stable Tate module and upstream finite-level Kummer/Selmer exact sequences. At p the p-adic comparison for the elliptic Kummer map is part of this target, after the minimal period foundations.
 
 Prerequisites: SelmerIwasawaCohomology:L2/elliptic-selmer-instance, SelmerIwasawaCohomology:L4/bloch-kato-condition, SelmerIwasawaCohomology:L2/selmer-limits, tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4
 
-Source: BLOCH-KATO-90, Example 3.11, pp. 359–361; BURUNGALE-TIAN-26, §3.1, preprint pp. 5–6; SKINNER-20, §2.2.1, preprint p. 8
+Source: BLOCH-KATO-90, Example 3.11, pp. 359–361; BURUNGALE-TIAN-26, §3.1, preprint pp. 5–6; SKINNER-20, §2.2.1, preprint p. 8; RUBIN-ES, Chapter I, Corollary 6.4 and display (9), printed pp. 15–16 (PDF pp. 25–26)
 
 Example TauCeti.Selmer.Tests.elliptic_away_p (non-example): Rational local finite cohomology is zero away from p, but finite p-torsion Kummer images need not be zero.
 
