@@ -406,25 +406,25 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 ### Commutators of the marked fiber product
 
-**Target `fiber_product_commutator`.** [P,P]=[S_c,S_c]×{0}, as a subgroup of S_c×Multiplicative L.
+**Target `fiber_product_commutator`.** If c generates G, then [P,P]=[S_c,S_c]×{0}, as a subgroup of S_c×Multiplicative L. More generally, this calculation applies to the pullback of any π:S→G along δ when δ is surjective; π need not be surjective.
 
 Construction and proof route: Every commutator of pairs has this form; lift both entries of any S_c commutator using surjectivity of δ.
 
 Needs: RS.2, the marked fiber product.
 
-Checks: The integer degree vanishes on every commutator.
+Checks: The integer degree vanishes on every commutator. Generation cannot be omitted: for G=S₃, π=id and c=∅, the pullback P is A₃, so [P,P]=1 while [S₃,S₃]×{0} has order three.
 
 Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 
 ### Abelianization of the marked fiber product
 
-**Target `fiber_product_abelianization`.** The degree projection induces P^ab≅Multiplicative(ℤ^D), taking the class of (x̂,e_[x]) to e_[x].
+**Target `fiber_product_abelianization`.** If c generates G and the chosen reduced-cover projection induces S_c^ab≅G^ab, then the degree projection induces P^ab≅Multiplicative(ℤ^D), taking the class of (x̂,e_[x]) to e_[x]. The reduced cover inherits this abelianization isomorphism from the parent's ordinary stem cover.
 
 Construction and proof route: Quotient the commutator subgroup, then use S_c^ab≅G^ab to identify the remaining pullback with L.
 
 Needs: RS.2, commutators of the marked fiber product; RS.1, reduced schur cover; `Abelianization.lift` (Mathlib).
 
-Checks: Generation of c is required; it cannot be omitted from the general lemma.
+Checks: For G=S₃, π=id and c=∅, P^ab≅C₃ while L=0. This rejects the formula without generation, even when the map on abelianizations is an isomorphism.
 
 Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), author copy, §2, Lemmas 2.1–2.4 and Theorem 2.5, author PDF pp.2–4.
 

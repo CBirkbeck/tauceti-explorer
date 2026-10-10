@@ -755,6 +755,14 @@ example : Nonempty (cover_fiber_product (MonoidHom.id (Multiplicative (ZMod 2)))
     {Multiplicative.ofAdd 1} ≃* Multiplicative ℤ) := by sorry
 -- marked_fiber_product_test_2
 example : Subsingleton (cover_fiber_product (MonoidHom.id (Multiplicative (ZMod 1))) ∅) := by sorry
+-- Generation is essential for both fiber-product calculations. With no marked
+-- classes, the identity projection of S₃ gives P=A₃ and a zero degree lattice.
+example : Nat.card (cover_fiber_product (MonoidHom.id (Equiv.Perm (Fin 3))) ∅) = 3 ∧
+    Nat.card (commutator (cover_fiber_product (MonoidHom.id (Equiv.Perm (Fin 3))) ∅)) = 1 ∧
+    Nat.card (commutator (Equiv.Perm (Fin 3))) = 3 := by sorry
+example : Nat.card (Abelianization
+    (cover_fiber_product (MonoidHom.id (Equiv.Perm (Fin 3))) ∅)) = 3 ∧
+    Subsingleton (InertiaClasses (∅ : Set (Equiv.Perm (Fin 3))) →₀ ℤ) := by sorry
 -- universal_degree_test_1: the degree map itself, rather than an unspecified isomorphism, is bijective.
 example : Function.Bijective (universal_degree
     {Multiplicative.ofAdd (1 : ZMod 2)} (comm_singleton_closed _)) := by sorry
