@@ -1,5 +1,107 @@
 # Independent review of the second K-theory area fix
 
+Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex — `codex-UC1AMR`,
+10 October 2026. Claim comment 6101317119 was confirmed by bot comment
+6101318506. This session wrote none of the fixes or earlier reviews.
+
+**Blocked checkpoint: synchronize the issue and queue scope before another
+worker repeats the seven-packet review.** The live issue, reread after claim
+confirmation, still lists seven packets and their seven suggested files.
+The queue requires twenty-two packets and twenty-two suggested files.
+[WORKERS.md](../WORKERS.md) restricts edits to the issue's named files.
+Clarification was requested in this session; no authorization to edit the
+additional fifteen packets was received. The preceding review and all its
+mathematical verdicts are preserved below as historical certification,
+rather than replaced by verdicts on unreviewed suppliers.
+
+## Fresh completion audit
+
+Both results below were obtained by importing the repository's actual
+`research/blueprint/issues.py` and calling `deliverables_complete`:
+
+| Outputs checked | Result |
+| --- | --- |
+| The current queue job, with all 22 packet outputs | false |
+| A scratch-only copy of that job restricted to the issue's report, seven packets and seven suggested files | true |
+
+The queue and issue were not edited. All files exist; the failed condition
+is the reviewer identifier on the fifteen extra packets. The predicate
+requires `independent-review-REV-FIX-RT-AREA-ktheory-1~2` and a completed
+verdict on every packet output. It allows a negative verdict, so unresolved
+mathematical findings in the original seven are not the completion blocker.
+The exact additional basenames and their obligations remain in the
+[handoff](../handoff/REV-FIX-RT-AREA-ktheory-1~2.md).
+
+The seven original packet verdicts remain accepted for ArithmeticKTheory
+N.1, K2SymbolsBrauer T.1 and K3BlochGroups, and needs changes for
+GeneralAlgebraicKTheory K.1/K.6, ArithmeticKTheory N.7 and K2SymbolsBrauer
+T.3. No new packet acceptance is claimed by this checkpoint.
+
+## Fresh validation and targeted evidence
+
+Each of the seven issue-listed packets passes `scripts/check_blueprint.py`
+with zero errors and zero warnings. Their corresponding actual declarations
+all elaborate serially with `lean-check` at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`:
+
+| Suggested file | Errors | Admitted-declaration warnings |
+| --- | ---: | ---: |
+| ArithmeticKTheory N.1 | 0 | 124 |
+| GeneralAlgebraicKTheory K.1 | 0 | 0 |
+| K2SymbolsBrauer T.3 | 0 | 275 |
+| ArithmeticKTheory N.7 | 0 | 45 |
+| GeneralAlgebraicKTheory K.6 | 0 | 6 |
+| K2SymbolsBrauer T.1 | 0 | 72 |
+| K3BlochGroups | 0 | 807 |
+
+The warnings mark admitted declarations only. Signatures in comments are
+not type checked. No packet, reader or Lean declaration was changed, no
+language server or build/update/cache command was started, and available
+memory exceeded the worker threshold. No standalone link map or
+restructuring result belongs to this review's outputs.
+
+Targeted checks supplement, rather than repeat, the retained review:
+
+- In [Quillen, Higher algebraic K-theory I](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf),
+  §4 Theorem 3 and Corollary 1, publication pp.108–110 / PDF pp.24–26,
+  the one-step argument closes under ambient admissible subobjects; the
+  bounded-resolution argument instead assumes resolving closure and cover
+  enlargement. The current K.1 nodes keep that distinction. These pages
+  were read as scan images. The freshly fetched PDF has SHA-256
+  `5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04`.
+- The pinned Mathlib group-homology degree-two differential and
+  `HomologicalComplex.ShortExact.δ_apply` give the positive lifted
+  differential. In the retained Heisenberg control, `[a|b]−[b|a]` therefore
+  has lifted boundary `[ba]−[ab]`; its central coordinate is 2 in F₃,
+  versus 1 for the negative. The present prototype retains this control.
+- [Weibel, K-book III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf),
+  Corollary 7.6.3, chapter p.65, states the complete-discrete-valuation-field
+  norm/residue comparison without a finite-residue assumption. The current
+  upstream LocalFieldsRamification README and Suggested.lean retain
+  `IsNonarchimedeanLocalField`. Hence the generic supplier mismatch in
+  T.3 is still present. Current upstream GrothendieckEulerForms was also
+  consulted for the exact-category ownership boundary; neither upstream
+  tree was changed or built.
+
+The public PDFs and baseline declarations used in these targeted checks
+were read on 10 October 2026. Older source hashes, source-issue verdicts,
+full per-finding dispositions and C1–C11 corrections below belong to their
+identified earlier sessions. They are not represented as a new complete
+source review in this continuation. No restricted book was read.
+
+## Resume condition
+
+Synchronize #5542's deliverables with the expanded queue, or explicitly
+authorize the fifteen additional packets and matching suggested files.
+Then check each added packet's actual area-fix obligations, preserve its
+previous verdict in review history, and record this job's scoped verdict.
+Changing only reviewer identifiers to pass intake would not be a review.
+Until scope is reconciled, the seven-packet review already meets its listed
+completion condition; repeating it cannot finish the expanded queue job.
+
+## Retained continuation by codex-dqb0Wk
+
 Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex — `codex-dqb0Wk`,
 10 October 2026. Bot comment 6100433590 confirmed claim comment 6100432305.
 This session did none of the fixes, red team or verification under review.
