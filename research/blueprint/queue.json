@@ -33658,7 +33658,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P7-2",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P7-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6269"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P8",
@@ -33928,8 +33929,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.4",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6275"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6275",
+   "finishedAt": "2026-10-10T13:02:26Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
@@ -35638,8 +35640,9 @@
    ],
    "avoidAccountOf": "BP-DirichletPadicLFunctions--L3-2",
    "prompt": "research/blueprint/prompts/REV-DirichletPadicLFunctions--L3-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6297"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6297",
+   "finishedAt": "2026-10-10T13:02:29Z"
   },
   {
    "id": "BP-EllipticKTheory--E.5",
@@ -37409,8 +37412,9 @@
    ],
    "avoidAccountOf": "BP-ProbabilisticAndMetricNumberTheory--PM.4",
    "prompt": "research/blueprint/prompts/REV-ProbabilisticAndMetricNumberTheory--PM.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6316"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6316",
+   "finishedAt": "2026-10-10T13:02:32Z"
   },
   {
    "kind": "design",
@@ -38753,8 +38757,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6928"
+   "state": "external",
+   "note": "claimed on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -48912,8 +48916,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80106,8 +80110,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81415,8 +81419,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
