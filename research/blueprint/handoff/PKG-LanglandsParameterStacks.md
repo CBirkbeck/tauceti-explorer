@@ -1,6 +1,170 @@
-# PKG-LanglandsParameterStacks — verified supplier obstruction
+# PKG-LanglandsParameterStacks — cutoff descent and supplier checkpoint
 
-## Result of this run
+## Current result: 10 October 2026, codex-6oGNnX
+
+Codex (GPT-6), session `codex-6oGNnX`, continued
+[issue #7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909) after
+the bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6099401495).
+The [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6099400121)
+used the prescribed session. The whole issue was reread after confirmation.
+Branch: `codex-6oGNnX-langlands-parameter-package`. Starting atlas commit:
+`c08922e6feb5c7703d9d427dfda4263121431fec`. Exactly one job was claimed.
+
+**Blocked checkpoint; the package remains incomplete.** The current change
+adds gauge invariance, maximality and source restriction for the existing
+normal wild cutoff, with proved distinguishing examples. The enhanced
+consumer signatures remain unspecified in their suppliers. Completing them
+requires an authorized supplier/plan repair: the issue permits only this
+package and its handoff, forbids packet changes, and PROTOCOL §§3, 13 and 15
+forbid empty replacement conditions and duplicate shared constructions.
+This is a specification and ownership obstruction, rather than waiting for
+supplier proofs to be implemented. `metadata.toml` remains absent; otherwise
+the intake's output-existence test would classify this incomplete package as
+complete. No packet, supplier, reader or library file was changed.
+
+### Work added in this run
+
+For the fixed projection η:Γ→Q and crossed cocycle c for β∘η, the existing
+cutoff is U=P∩ker(γ↦(c(γ),η(γ))) in H⋊Q. The new API states and proves:
+
+- `NormalWildCutoff.subgroup_gauge`: changing framing leaves U unchanged.
+  On ker(η), the twisted gauge formula becomes conjugation by h, preserving
+  the identity value. The identity fibre of c alone need not be invariant.
+- `NormalWildCutoff.le_subgroup_iff`: V≤U exactly when V≤P, V≤ker(η) and
+  c is trivial on V. Thus U is the largest subgroup satisfying these three
+  conditions, not an arbitrary smaller killing subgroup.
+- `NormalWildCutoff.subgroup_restrict`: restriction along any homomorphism
+  f:Δ→Γ, with projection η∘f and wild subgroup f⁻¹(P), gives f⁻¹(U).
+  Injectivity is unnecessary.
+
+The three new Lean examples also appear in the README:
+
+- `cutoff_gauge_twisted`: S₃ acts on itself by conjugation, η=id and c=1.
+  Gauge by (01) changes the value at (12) to a nonidentity permutation,
+  while leaving the fixed-projection cutoff unchanged.
+- `cutoff_nontrivial_kernel`: multiplication by two on ℤ/4ℤ, with trivial
+  Q and P=Γ, retains 2 and excludes 1 from U.
+- `cutoff_restrict_kernel`: pulling back the identity cutoff along the
+  trivial map ℤ→{1} gives all of ℤ.
+
+The `unit`, `gauge` and `restrict` crossed-cocycle constructors now have
+proofs in place of their previous `sorry` bodies. The gauge proof explicitly
+uses the global homomorphism inverse lemma to avoid the namespace's distinct
+crossed-cocycle inverse lemma. This lets the isolated new API checks avoid
+`sorryAx`. These are useful fixtures, not a claim that the roadmap has been
+implemented.
+
+### Independently rechecked restart gates
+
+The LP packet has 79 nodes, 140 API items and 90 tests. Its accepted review
+certifies a target-level planning pass with eight planned, unclosed stages,
+retaining G1–G4/G6, sixteen requests and omitted enhanced Lean signatures.
+The complete statements, hypotheses, prerequisites, APIs and tests of
+`LP1/derived-parameter-stack` and `LP3/mapping-approximation` were read again.
+Their required signatures remain absent from the package:
+
+| Construction | Missing API | Missing examples |
+| --- | --- | --- |
+| LP1 derived stack | `DerivedParameterStack`, `.framed`, `.forgetFraming`, `.classicalPoints`, `.perfectPullback` | `derived_stack_trivial_group`, `derived_stack_free_group`, `derived_stack_gauge` |
+| LP3 approximation | `ParameterMappingApproximation`, `.compare`, `.finiteTorsor`, `.leftKan`, `.ind` | `approx_point`, `approx_coproduct`, `approx_bad_prime` |
+
+LP1 needs animated fpqc mapping stacks over BQ, base-point framing, the
+H-quotient and enhanced perfect pullback. LP3 needs a category-valued sifted
+left Kan extension from finite bases equipped with torsors, comparison to
+actual mapping-stack Perf, and Ind-completion. The torsor's total set need
+not be finite. An arbitrary ordinary category, a `Unit` carrier or an
+unrestricted proposition does not specify either construction.
+
+The current E5 packet is partial (22 nodes, ten gaps, sixteen requests).
+Its suggested file was read in full: `SymMonInftyCat` uses `True` for the
+fibration/Segal requirements, `CAlg` and `AnimatedAlg` use `Unit`, and
+`IndInfty` uses `True`; stability, presentability and coherent actions also
+need genuine specifications. The proposed file in open
+[PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009), head
+`b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`, was checked for these consumer
+needs. `HEquiv` gives homotopy-category equivalences; `SymMonData` does not
+supply cocartesian lifts or the required mapping-space coherence. It also
+lacks the animated quotient-stack QCoh/Perf interface. The PR was still
+open and unmerged at submission preparation. This is a scoped dependency
+check, not a review of that job; its merger alone would not satisfy the gate.
+
+Read all eight LP entries in the library audit and the current upstream
+AlgebraicVectorBundles and ReductiveGroups READMEs in full. Ordinary scheme
+sheaves, finite locally free bundles and relative Spec do not supply the
+enhanced quotient-stack categories. The read-only current revisions were
+TauCetiRoadmap `3c18d9fbfceed0dc5c1edb1070a3927152d19e28` and native Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. A bounded exact-name search for
+`SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `DerivedParameterStack`,
+`ParameterMappingApproximation` and `ParameterSingularities` found no
+replacement there. This is not an exhaustive native-library audit. Neither
+read-only tree was modified or built, and no ownership move was made.
+
+The inherited identity-component invariant, continuity, highest-weight/GIT,
+bad-prime and upstream-import gates remain in the detailed worklist below.
+They were not all independently re-audited in this run and must not be
+treated as discharged by the new cutoff API.
+
+### Source receipts and plan-scope question
+
+Fresh reading used the public
+[Fargues–Scholze author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf):
+Definition VIII.1.1 (p.278), Remark VIII.1.2 and the proof of VIII.1.3
+(pp.279–280), Proposition VIII.2.1 (p.281), the coefficient setup of
+VIII.5.2 (pp.293–294), and §VIII.5.4 with Proposition VIII.5.20
+(pp.311–312). Accessed 10 October 2026; SHA-256
+`9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+The cleared-source index was read; no restricted book was used. All added
+descriptions are in our own words; no source passage is stored in the repo.
+
+An additional scope question needs plan repair: LP's mapping-approximation
+statement and README LP3.18 specify reductive identity components without
+stating a coefficient-field or component-order restriction. The construction
+in §VIII.5.4 uses the algebraically closed characteristic-ℓ setup and assumes
+|π₀G| prime to ℓ before proving the tensor comparison on finite generators;
+VIII.5.20 retains that setup. This reading supports that restricted scope,
+not the broader formulation by itself. An authorized repair should reconcile
+it with the separate integral construction cited in §X.3, including the
+scope of `approx_coproduct`. No claim is made here that a broader theorem is
+false, and no packet or theorem statement was silently changed.
+
+### Validation and where to resume
+
+- Full package `lean-check`: exit 0, zero errors, 282 warnings, all uses of
+  `sorry`, zero other warnings. Available memory before launch: 100 GB.
+- Isolated new cutoff API and all three examples: exit 0, no errors or
+  warnings. Axiom reports for `CrossedCocycle.gauge`, `subgroup_gauge`,
+  `le_subgroup_iff` and `subgroup_restrict` list only `propext` and
+  `Quot.sound`, without `sorryAx`.
+- LP and E5 packet checkers: zero errors and zero warnings each.
+- Permitted-file intake: three files, zero problems. `git diff --check` passed.
+
+The managed driver pins Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. The Mathlib revision was checked;
+the driver's Tau Ceti source has no Git metadata. No Lean server was started.
+Final current package hashes:
+
+| File | SHA-256 |
+| --- | --- |
+| README.md | `27b00005196bb454858ee0f83e945641723ee437bc46c0281008b94f67eef972` |
+| Suggested.lean | `e564d00fb7dea0e54d0f4b1ad474c01460061267cb6414f480588087e5765bf4` |
+
+Resume after authorized supplier and plan repairs expose genuine enhanced
+contracts and reconcile LP imports, source hypotheses and the inherited
+owner gates. Then reconcile all 79 nodes, 140 API items and 90 tests against
+the actual exports; preserve the distinguishing fixtures, finite-image
+comparison and cutoff API; complete the package; add `topic = "math.NT"`
+metadata; rerun Lean and intake checks. Reassigning the package without
+changing these contracts does not resolve the obstruction.
+
+The checkpoint merged from PR #8478 during this submission is preserved
+below, including its restart worklist and further predecessor links. Statements
+of fresh reading and validation below belong to that earlier session unless
+independently checked above. The longer inherited worklist is available at the
+[starting commit](https://github.com/CBirkbeck/tauceti-explorer/blob/c08922e6feb5c7703d9d427dfda4263121431fec/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+No scratch artifact is needed to resume.
+
+## Previous checkpoint: codex-ptf9Mu, merged in PR #8478
 
 **Blocked checkpoint; the package is incomplete.** Codex (GPT-6), session
 `codex-ptf9Mu`, claimed [issue #7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909)

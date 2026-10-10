@@ -241,6 +241,17 @@ Fargues–Scholze VIII.1.1, Remark VIII.1.2 and the proof of VIII.1.3,
 pp.278–279; the coefficient argument establishing finite wild image is
 the separate input stated above.
 
+The cutoff also descends through changes of framing. If η(γ)=1, gauge
+replaces c(γ) by h c(γ) h⁻¹, so its identity fibre inside ker(η) is
+unchanged. `subgroup_gauge` therefore identifies the same subgroup U for
+every gauge-equivalent cocycle. This assertion needs the prescribed
+projection: the cocycle's identity fibre alone can change under a twisted
+gauge action. `le_subgroup_iff` characterizes U as the largest subgroup V
+contained in P∩ker(η) on which c is trivial. For any source homomorphism
+f:Δ→Γ, `subgroup_restrict` identifies the cutoff of the restricted
+cocycle, projection and wild subgroup with f⁻¹(U). Injectivity of f is
+unnecessary; its kernel belongs to this inverse image.
+
 **Checks for quotient descent.**
 
 - For P={1}, evaluation of the descended continuous cocycle on the class of
@@ -267,6 +278,16 @@ the separate input stated above.
   U={1}. This distinguishes the cutoff from P∩ker(η).
 - `cutoff_retains_wild`: for trivial H and Q, U=P, including P={1}.
   This distinguishes the cutoff from ker(s_c) alone.
+- `cutoff_gauge_twisted`: take Γ=H=Q=S₃, η=id, the conjugation action and
+  the unit cocycle. Gauge by (01) changes its value at (12) from the identity
+  to a nonidentity permutation. Both fixed-projection cutoffs remain {1}.
+  The cocycle's identity fibre by itself does not have this invariance.
+- `cutoff_nontrivial_kernel`: for Γ=H=ℤ/4ℤ, trivial Q and the cocycle
+  x↦2x, with P=Γ, U contains 2 and excludes 1. Taking an arbitrary smaller
+  kernel would lose the maximality required by `le_subgroup_iff`.
+- `cutoff_restrict_kernel`: the trivial map ℤ→{1} pulls back the identity
+  cutoff to all of ℤ. Restriction uses inverse image, including the kernel
+  of the source homomorphism, rather than retaining an identity cutoff.
 
 
 The API should provide:
