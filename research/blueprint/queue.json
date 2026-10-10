@@ -39234,8 +39234,9 @@
     "BP-DiamondSixOperations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DiamondSixOperations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7042"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7042",
+   "finishedAt": "2026-10-10T07:59:30Z"
   },
   {
    "kind": "blueprint",
@@ -41349,7 +41350,8 @@
    ],
    "revisionOf": "BP-PerfectoidShimuraVarieties",
    "prompt": "research/blueprint/prompts/BP-PerfectoidShimuraVarieties~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6998"
   },
   {
    "priority": 2,
@@ -42128,8 +42130,9 @@
     "BP-ShimuraCompactifications--C0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraCompactifications--C0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7090"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7090",
+   "finishedAt": "2026-10-10T07:59:34Z"
   },
   {
    "kind": "blueprint",
@@ -48217,8 +48220,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48876,8 +48879,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80068,8 +80071,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81377,8 +81380,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
