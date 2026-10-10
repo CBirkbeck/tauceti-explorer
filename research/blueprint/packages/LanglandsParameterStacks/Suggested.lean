@@ -20,6 +20,8 @@ import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.GroupTheory.Subgroup.Center
 import Mathlib.GroupTheory.Perm.Cycle.Factors
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
 import Mathlib.GroupTheory.Perm.Sign
 import Mathlib.Topology.Algebra.Group.Basic
 import Mathlib.Topology.Algebra.Group.Quotient
@@ -2077,15 +2079,122 @@ example (c : ProjectedPseudocharacter (A := A) D reindex multiply components η)
 end ProjectedPseudocharacter
 end Pseudocharacters
 
--- projected_identity_component_shadow: rational points of H = G_m.
--- For Q = C₂ acting by inversion, whole-(H⋊Q) invariants must satisfy hf.
--- H-conjugation fixes both points but the Laurent coordinate separates them.
--- This checks the elementary calculation, not the missing geometric carrier.
+/- Rational-point regression for LP2c.1. This fixture uses Mathlib's actual
+semidirect product, with C₂ acting on ℚˣ by inversion. It checks the fixed
+projection and H-conjugacy distinction in every tuple arity; it does not
+supply the geometric invariant algebra or reconstruction theorem. -/
+namespace IdentityComponentChecks
+abbrev Q := Multiplicative (ZMod 2)
+
+def invAut : MulAut ℚˣ where
+  toFun := Inv.inv
+  invFun := Inv.inv
+  left_inv := inv_inv
+  right_inv := inv_inv
+  map_mul' a b := by simp [mul_comm]
+
+def action : Q →* MulAut ℚˣ where
+  toFun q := if q.toAdd = 0 then 1 else invAut
+  map_one' := by simp
+  map_mul' q r := by
+    induction q using Multiplicative.rec with | ofAdd s =>
+    induction r using Multiplicative.rec with | ofAdd t =>
+    change (if s + t = 0 then (1 : MulAut ℚˣ) else invAut) =
+      (if s = 0 then 1 else invAut) * (if t = 0 then 1 else invAut)
+    fin_cases s <;> fin_cases t
+    · rfl
+    · rfl
+    · rfl
+    · change (1 : MulAut ℚˣ) = invAut * invAut
+      apply MulEquiv.ext
+      intro x
+      simp [invAut]
+
+abbrev J := SemidirectProduct ℚˣ Q action
+
+def a : ℚˣ := Units.mk0 2 (by norm_num)
+def b : ℚˣ := Units.mk0 (1 / 2) (by norm_num)
+def switch : J := SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2))
+
+theorem inv_a : a⁻¹ = b := by
+  apply Units.ext
+  norm_num [a, b]
+
+-- projected_identity_component_shadow: rational conjugation and coordinate values.
 example (f : ℚˣ → ℚ) (hf : ∀ x : ℚˣ, f x⁻¹ = f x) :
-    let a : ℚˣ := Units.mk0 2 (by norm_num)
-    let b : ℚˣ := Units.mk0 (1 / 2) (by norm_num)
     (∀ h : ℚˣ, h * a * h⁻¹ = a ∧ h * b * h⁻¹ = b) ∧
-      (a : ℚ) ≠ (b : ℚ) ∧ f a = f b := by sorry
+      (a : ℚ) ≠ (b : ℚ) ∧ f a = f b := by
+  refine ⟨fun h => ⟨by simp, by simp⟩, ?_, ?_⟩
+  · norm_num [a, b]
+  · simpa only [inv_a] using (hf a).symm
+
+def lift (x : ℚˣ) : Multiplicative ℤ →* J :=
+  (SemidirectProduct.inl : ℚˣ →* J).comp (zpowersHom ℚˣ x)
+
+theorem lift_projection (x : ℚˣ) (n : Multiplicative ℤ) : (lift x n).right = 1 := by
+  rfl
+
+theorem lift_one (x : ℚˣ) :
+    lift x (Multiplicative.ofAdd (1 : ℤ)) = SemidirectProduct.inl x := by
+  simp [lift, zpowersHom]
+
+theorem h_conjugation (h x : ℚˣ) :
+    (SemidirectProduct.inl h : J) * SemidirectProduct.inl x *
+      (SemidirectProduct.inl h : J)⁻¹ = SemidirectProduct.inl x := by
+  rw [← map_inv, ← map_mul, ← map_mul]
+  congr 1
+  simp
+
+theorem switch_conjugation (x : ℚˣ) :
+    switch * SemidirectProduct.inl x * switch⁻¹ =
+      (SemidirectProduct.inl x⁻¹ : J) := by
+  rw [switch, ← map_inv, ← SemidirectProduct.inl_aut]
+  simp [action, invAut]
+
+theorem lift_switch (n : Multiplicative ℤ) :
+    switch * lift a n * switch⁻¹ = lift b n := by
+  change switch * SemidirectProduct.inl (a ^ n.toAdd) * switch⁻¹ =
+    SemidirectProduct.inl (b ^ n.toAdd)
+  rw [switch_conjugation, ← inv_zpow, inv_a]
+
+/-- Even at fixed trivial projection, these two lifts have distinct H-gauge classes. -/
+theorem lifts_not_h_conjugate : ¬ ∃ h : ℚˣ, ∀ n : Multiplicative ℤ,
+    (SemidirectProduct.inl h : J) * lift a n *
+      (SemidirectProduct.inl h : J)⁻¹ = lift b n := by
+  rintro ⟨h, hh⟩
+  have hab := hh (Multiplicative.ofAdd (1 : ℤ))
+  rw [lift_one, lift_one, h_conjugation] at hab
+  have hab' := SemidirectProduct.inl_injective hab
+  have hval := congrArg (fun x : ℚˣ => (x : ℚ)) hab'
+  norm_num [a, b] at hval
+
+/-- Every whole-J invariant tuple function, in every arity, identifies the two lifts. -/
+theorem whole_group_invariants_equal (I : Type*) {B : Type*} (f : (I → J) → B)
+    (hf : ∀ j : J, ∀ g : I → J, f (fun i => j * g i * j⁻¹) = f g)
+    (n : I → Multiplicative ℤ) :
+    f (fun i => lift a (n i)) = f (fun i => lift b (n i)) := by
+  have heq : (fun i => switch * lift a (n i) * switch⁻¹) =
+      (fun i => lift b (n i)) := funext (fun i => lift_switch (n i))
+  have h := hf switch (fun i => lift a (n i))
+  rw [heq] at h
+  exact h.symm
+
+/-- The rational-point value of the identity-component Laurent coordinate extended by zero. -/
+def coordinate (g : J) : ℚ := if g.right = 1 then (g.left : ℚ) else 0
+
+theorem coordinate_h_invariant (h : ℚˣ) (g : J) :
+    coordinate ((SemidirectProduct.inl h : J) * g *
+      (SemidirectProduct.inl h : J)⁻¹) = coordinate g := by
+  by_cases hg : g.right = 1
+  · simp [coordinate, hg]
+  · simp [coordinate, hg]
+
+example : coordinate (lift a (Multiplicative.ofAdd (1 : ℤ))) = 2 ∧
+    coordinate (lift b (Multiplicative.ofAdd (1 : ℤ))) = 1 / 2 := by
+  rw [lift_one, lift_one]
+  norm_num [coordinate, a, b]
+
+end IdentityComponentChecks
 
 section MatrixCoefficients
 variable {R : Type u} [CommRing R] {I : Type v} [Fintype I]
