@@ -1,3 +1,49 @@
+# Current handoff: repair completed-round scope before another continuation
+
+Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217),
+Codex — **codex-VP0eYQ**, 10 October 2026.
+Branch: `codex-VP0eYQ-review-6217`.
+Claim confirmed in [comment 6099702505](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6099702505).
+Input: `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`.
+
+**Blocked checkpoint.** The authorized HE.0 fix review was already finished;
+this continuation preserves it and identifies why generation expands its
+scope. No second job was claimed. The live issue still authorizes three
+outputs; the current local and GitHub-main queues require twenty-three.
+The actual completion predicate returns false for the queue job and true
+for the authorized scope. All output files exist.
+
+The new opening of [the report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+records the root cause, historical evidence, replay results and regression
+case. At the actual fix's merge commit `88f9bcd44` ([PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753)),
+round two had four fix outputs and three review outputs. It now has forty
+fix outputs and twenty-three review outputs. In `make_queue.py::fix_rounds`,
+newly routed `missing` files disable reuse of a completed following round's
+historical outputs. A read-only replay reproduces the forty/twenty-three
+expansion; preserving the historical completed round keeps four/three and
+routes the added work into round three instead.
+
+**Maintainer next action:** restore the historical round-two outputs, then
+preserve completed following rounds' scopes in the generator. A guard change
+alone will reuse the already corrupted forty-output scope. Regenerate,
+verify the round-two completion predicate, and allocate any newly routed
+files to a separate fix/review round with matching issue instructions.
+The report specifies a regression case across two generations. No automation
+or queue change was made here. The alternative remains explicit authorization
+of the broader review scope, followed by actual independent reviews of those
+ten packets; changing their reviewer names without reviewing them is invalid.
+
+**Validation:** fresh HE.0 checker run against the pinned declaration index:
+zero errors and warnings. The report and handoff preserve previous source
+and Lean check attribution. No fresh source reading or Lean run was needed
+for these documentation changes. Packet, reader and suggested file are
+unchanged; their prior mathematical-review records are retained below.
+No scratch artifact is needed to resume: the report contains the diagnosis
+and reproduction recipe. Do not claim another HE.0 repetition as progress
+toward the ten extra reviews.
+
+---
+
 # Handoff: REV-FIX-RT-AREA-iwasawa-1~2
 
 Issue #6217; Codex — `codex-kEnFR2`; 10 October 2026.
