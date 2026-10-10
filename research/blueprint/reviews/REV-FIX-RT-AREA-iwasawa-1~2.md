@@ -1,3 +1,216 @@
+# Continuation: a tested queue-scope repair for issue #6217
+
+Codex — **codex-kahzso**, 10 October 2026. Claim confirmed in
+[comment 6099857101](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6099857101).
+Input commit: `0d2178b78bf6a3deea5f4c16c2165442659a2a38`.
+
+**Blocked checkpoint.** The issue-named HE.0 review is already accepted by
+this review job. This continuation preserves that verdict and every earlier
+source-reading receipt. Its new deliverable is a concrete generator patch,
+verified both on the actual round function and through the complete generator
+in memory. No additional packet receives a review stamp.
+
+The live issue still names three outputs; the checked-in queue requires
+23. The actual completion predicate returns false for the queue job and true
+when its output list is restricted to the historical three. The maintainer
+must reconcile that discrepancy before another worker can complete this job.
+Repeating the mathematical review of HE.0 cannot change it.
+
+## Ready-to-review repair
+
+Apply the following patch to `research/blueprint/make_queue.py`. It preserves
+a completed following round even when more finished blueprints have arrived.
+The existing `after` value continues to distinguish a rejection round from a
+round that applies newly available blueprints.
+
+```diff
+--- a/research/blueprint/make_queue.py
++++ b/research/blueprint/make_queue.py
+@@ -1954,7 +1954,9 @@
+             earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
+             # A round an earlier run made is kept as it was made, though its files may now carry a later
+             # round's verdict: the rounds after it are then still found, and a later send-back still counts.
+-            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
++            made = previous_jobs.get(following) if (
++                states.get(following) == "done" or (following in states and not (missing or sent_back))
++            ) else None
+             if made:
+                 sent_back = made.get("after") == [review]
+```
+
+Also restore the two historical `outputs` lists in `queue.json` from commit
+`88f9bcd44`, the merge of [PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753).
+The current round-two fix is already marked `done`; preserve its state and
+other fields. The desired lists are:
+
+```json
+{
+  "FIX-RT-AREA-iwasawa-1~2": [
+    "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+  ],
+  "REV-FIX-RT-AREA-iwasawa-1~2": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
+  ]
+}
+```
+
+Restoring the lists is essential: applying the guard to the already expanded
+completed round would preserve its incorrect forty-output scope. Regenerate
+only after restoring them. Newly routed work then belongs to a separate
+round-three fix and its independent review, with matching live issue bodies.
+Do not change the ten extra packet reviewer names to force completion.
+
+## Checks completed in this continuation
+
+The isolated replay executes the real nested `fix_rounds` AST with the
+historical round-two outputs, current job states, and the current forty-output
+fix's blueprint list. The complete-generator replay uses the actual routing,
+all current input files, and the same restoration. Neither writes the queue,
+a prompt, a packet, an automation file, or another job's outputs.
+
+| Execution | Round-two fix outputs | Round-two review outputs | Round-three fix/review outputs |
+|---|---:|---:|---:|
+| Real round function, original guard | 40 | 23 | Absent |
+| Real round function, repaired guard | 4 | 3 | 40 / 23 |
+| Full generator, original guard | 27 | 15 | Absent |
+| Full generator, repaired guard | 4 | 3 | 30 / 17 |
+
+Both repaired runs keep round two's exact historical lists and round three's
+output lists unchanged across a second generation. The isolated replay also
+marks round two's review `done` and supplies a genuine `needs_changes` verdict:
+round three then depends on `REV-FIX-RT-AREA-iwasawa-1~2`, retaining the send-back
+path. In the normal new-blueprint case it depends on `FIX-RT-AREA-iwasawa-1~2`.
+
+The full and isolated counts differ because the current generator's real
+routing no longer supplies every path accumulated in the checked-in expanded
+scope. The full repaired run's thirty fix outputs contain eight packet/reader/
+suggested-file groups, five blueprint revision handoffs, and its fix report.
+The seventeen review outputs are its report, those eight packets, and their
+eight suggested files. Inspect that routing when authorizing the next round.
+
+The guard is shared by every red-team fix family. Comparing the two full
+in-memory runs changes 36 existing job entries and adds twenty new entries
+(ten fix/review pairs); no job is removed. This is an observable broader
+effect, not a change submitted by this checkpoint. The maintainer should
+inspect those families and recover historical scopes from their real fix
+submissions where necessary, rather than assume today's queue is a clean
+historical fixture.
+
+Fresh HE.0 packet validation against the installed pinned declaration index:
+**zero errors and warnings**, 78 nodes, 24 API items, eighteen unit tests,
+21 gaps and 63 requests. No source was fetched or reread in this administrative
+continuation. Lean was not rerun: the file is unchanged, with SHA-256
+`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`;
+the successful prior elaboration and its attribution remain below. No Lean
+process or language server was started.
+
+## Why the patch has not been applied
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” The issue does not name the generator, queue or tests.
+Scope expansion was requested during this continuation and has not been
+received. This checkpoint changes only this report and its handoff.
+
+There is a second administrative boundary: `intake.py::file_problems` rejects
+both `research/blueprint/make_queue.py` and `research/blueprint/queue.json` as
+outside swarm output paths. The repair therefore needs a maintainer-handled
+change even if an expanded edit scope is authorized. No intake rejection has
+been triggered by this checkpoint; its two Markdown outputs are allowed.
+Do not weaken that allowlist as part of an ordinary review submission.
+
+## Self-contained full-generator regression replay
+
+Save the Python below as `full_generation.py` in task scratch. First save the
+historical queue there using the read-only command
+`git show 88f9bcd44:research/blueprint/queue.json > "$TASK_SCRATCH/historical-queue.json"`.
+Run `python3 "$TASK_SCRATCH/full_generation.py" "$TASK_SCRATCH"` from the
+repository root. It executes the module from its existing tree in memory;
+there is no repository copy, queue generation on disk, synchronization or
+promotion. It raises if the generator tries to write any file with
+`Path.write_text`, and redirects its lock file into scratch. The only AST
+change besides the proposed guard is returning the generated jobs/prompts
+when `--dry-run` would otherwise return no value. Counts reflect the inputs
+at the recorded commit and may differ after new work lands.
+
+```python
+import ast
+import builtins
+import contextlib
+import copy
+import io
+import json
+import sys
+from pathlib import Path
+from unittest.mock import patch
+
+REPO=Path.cwd()
+SCRATCH=Path(sys.argv[1])
+source_path=REPO/'research/blueprint/make_queue.py'
+source=source_path.read_text()
+old='made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new='''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+rt='RT-AREA-iwasawa-1'; base='FIX-'+rt
+current=json.loads((REPO/'research/blueprint/queue.json').read_text())
+historical={j['id']:j for j in json.loads((SCRATCH/'historical-queue.json').read_text())['jobs']}
+restored=copy.deepcopy(current)
+for j in restored['jobs']:
+    if j['id'] in (base+'~2','REV-'+base+'~2'):
+        j['outputs']=historical[j['id']]['outputs'][:]
+
+real_read=Path.read_text
+real_open=builtins.open
+
+def generate(source, queue):
+    tree=ast.parse(source)
+    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+    dry=next(n for n in main.body if isinstance(n,ast.If) and isinstance(n.test,ast.Attribute) and n.test.attr=='dry_run')
+    dry.body=[ast.Return(value=ast.Dict(keys=[ast.Constant('jobs'),ast.Constant('prompts')],values=[ast.Name(id='merged',ctx=ast.Load()),ast.Name(id='prompts',ctx=ast.Load())]))]
+    ast.fix_missing_locations(tree)
+    namespace={'__file__':str(source_path),'__name__':'scope_repair_dry_run'}
+    exec(compile(tree,str(source_path),'exec'),namespace)
+    def read(path,*args,**kwargs):
+        return json.dumps(queue) if path==REPO/'research/blueprint/queue.json' else real_read(path,*args,**kwargs)
+    def open_safe(file,*args,**kwargs):
+        if Path(file)==REPO/'research/blueprint/.queue.lock': file=SCRATCH/'generation.lock'
+        return real_open(file,*args,**kwargs)
+    sys.path.insert(0,str(REPO/'research/blueprint'))
+    with patch.object(Path,'read_text',read), patch.object(Path,'write_text',side_effect=AssertionError('dry-run attempted write')), patch('builtins.open',open_safe), patch.object(sys,'argv',[str(source_path),'--library','library','--baseline','baseline','--workers','workers','--dry-run']), contextlib.redirect_stdout(io.StringIO()):
+        return namespace['main']()
+
+runs={}
+for label,src in [('original',source),('repaired',source.replace(old,new))]:
+    first=generate(src,restored)
+    jobs={j['id']:j for j in first['jobs']}
+    print(label,[(jid,len(j['outputs'])) for jid,j in jobs.items() if jid.startswith((base,'REV-'+base))])
+    runs[label]=first
+    if label=='repaired':
+        assert jobs[base+'~2']['outputs']==historical[base+'~2']['outputs']
+        assert jobs['REV-'+base+'~2']['outputs']==historical['REV-'+base+'~2']['outputs']
+        assert base+'~3' in jobs
+        second=generate(src,{'jobs':first['jobs']})
+        for round_ in (base+'~2','REV-'+base+'~2',base+'~3','REV-'+base+'~3'):
+            assert next(j for j in second['jobs'] if j['id']==round_)['outputs']==jobs[round_]['outputs']
+        print('full dry-run: historical scope stable across two generations; additional work assigned to round three')
+
+original={j['id']:j for j in runs['original']['jobs']}
+repaired={j['id']:j for j in runs['repaired']['jobs']}
+changed=[jid for jid in original.keys() & repaired.keys() if original[jid]!=repaired[jid]]
+added=list(repaired.keys()-original.keys())
+removed=list(original.keys()-repaired.keys())
+print('different jobs:',sorted(changed));print('added jobs:',sorted(added));print('removed jobs:',sorted(removed))
+```
+
+---
+
+Preserved prior reviews and diagnosis follow with their original attribution.
+
 # Current continuation: completed-round scope changes during generation
 
 Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217),
