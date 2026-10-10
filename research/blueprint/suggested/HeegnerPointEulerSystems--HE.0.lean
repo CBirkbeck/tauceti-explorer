@@ -8,8 +8,9 @@ Read these as arithmetic signature prototypes under those hypotheses. The packet
 and reader contain the complete statements, not implementation claims. The prior
 independent review is preserved; round-two review accepts the source-backed plan.
 Its supplier gaps and omitted prototype conditions remain explicit.
-The later fix of red-team findings changed seven statement comments, to match
-the packet, and no name or signature.
+The red-team fix changed seven statement comments. The independent continuation
+review makes the primitivity hypotheses explicit and retains 5≤p in its signature.
+The self-dual definition and length formula remain imports requested from ES.5.
 
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
 f790474821cf4256814db967cb154e7af3d0c369.
@@ -477,9 +478,9 @@ theorem sha_square_index_bound (p : ℕ) [Fact p.Prime] {Sha Q : Type*} [AddComm
   sorry
 
 /- HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero
-A nonzero κ_1 yields an upper bound, not equality. Residual primitivity of the actual corrected system, under the self-dual hypotheses H.0–H.5 and for p≥5, gives the corresponding equality of finite length and corrected index (Zanarella Theorem2.3.6). Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index, so cannot preserve an unsupported sharpness assertion. Zhang’s indivisibility conclusion proves a stronger property only under its enumerated hypotheses.
-Prototype boundary: The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement. -/
-theorem primitivity_versus_nonzero (p : ℕ) [Fact p.Prime] {M Q : Type*} [AddCommGroup M] [AddCommGroup Q] [Module ℤ_[p] M] [Module ℤ_[p] Q] : Module.length ℤ_[p] M = Module.length ℤ_[p] Q := by
+In the clean Heegner setting, a nonzero corrected bottom class κ′_1=κ_1 gives Howard’s upper bound. For p≥5, assume that (T,F) and its dual satisfy H.0–H.5, that 𝓛⊇𝓛_s(T) for some s≥1, and that κ′_1≠0. For M in Howard’s discrete Selmer decomposition, Zanarella Theorem2.3.6 gives length M=length(H¹_F(K,T)/Z_pκ′_1)−d(κ′); equality with the full leading-class index holds exactly when the Howard system κ′ over K is primitive. Here primitive means its reduction in KS(T/pT,F,𝓛∩𝓛_1(T)) is nonzero, as in Zanarella Definition2.3.2 and Proposition2.3.3. Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index and destroys residual primitivity. Zhang’s stronger arithmetic indivisibility conclusion requires its separate enumerated hypotheses.
+Prototype boundary: The signature retains the expressible condition 5≤p and the length-equality conclusion. M denotes Howard’s finite part and Q the quotient of the compact Selmer lattice by the corrected leading class. Their arithmetic identification, both H.0–H.5 checks, the prime-set condition and residual primitivity of the actual Howard system cannot yet be expressed through the supplier interfaces and are explicitly omitted. The equality is conditional on those mathematical inputs; the signature is not an unconditional theorem for arbitrary modules. -/
+theorem primitivity_versus_nonzero (p : ℕ) [Fact p.Prime] (_hp : 5 ≤ p) {M Q : Type*} [AddCommGroup M] [AddCommGroup Q] [Module ℤ_[p] M] [Module ℤ_[p] Q] : Module.length ℤ_[p] M = Module.length ℤ_[p] Q := by
   sorry
 
 /- HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence
