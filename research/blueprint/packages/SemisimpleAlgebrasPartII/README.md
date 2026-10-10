@@ -205,7 +205,8 @@ they are needed.
   Galois Cohomology*, Cambridge Studies in Advanced Mathematics 101 $2006$,
   [institutional copy](https://www.math.ens.psl.eu/~benoist/refs/Gille-Szamuely.pdf).
   The arithmetic targets use §4.5, pp. 100–106; the continuous transfer formula
-  also uses Proposition 4.2.10, pp. 88–89, and the Brauer comparison uses §4.4.
+  also uses Proposition 4.2.10, pp. 88–89, and the Brauer comparison uses
+  §4.4, pp. 95–99.
 - **GS errata:** Tamás Szamuely, [author errata dated 4 December
   2020](https://pagine.dm.unipi.it/tamas/erratams.pdf), p. 3. The correction to
   the proof on book p. 101 is used in the separable index-degree argument.
@@ -234,7 +235,7 @@ For the $W_2$-dependent categorical comparison, fix the actual splitting
 and its evaluation data. A category of splitting modules can have nontrivial
 automorphisms; a bare uniqueness assertion cannot choose its coherence maps.
 In BB Proposition 3.11 the differential-operator algebra on a smooth
-$d$-dimensional base has rank (p^{2d}), and the contact-form section is
+$d$-dimensional base has rank $p^{2d}$, and the contact-form section is
 the composite $\eta\circ\delta$, where $\delta$ is the diagonal into the
 fibre product and $\eta$ embeds that fibre product into the larger cotangent
 bundle. These dimensions and arrow directions fix the intended comparison.
@@ -561,7 +562,7 @@ replacement for continuous cohomology of an infinite Galois group.
 Brauer comparison and the relative finite-Galois comparison;
 ProfiniteCohomology, 9–10, for the Galois subgroup and units-coefficient
 dictionary and its degree-two maps; Tau Ceti's Brauer base change.
-**Source:** GS, §4.4 and Propositions 4.5.6–4.5.7 in §4.5,
+**Source:** GS, §4.4, pp. 95–99, and Propositions 4.5.6–4.5.7 in §4.5,
 pp. 100–106. The full units-coefficient square is the precise naturality
 interface required by the transfer construction.
 
