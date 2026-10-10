@@ -1,14 +1,15 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-fL1Mmj`, 10 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103240035).
+Codex (GPT-6), session `codex-YXQsbh`, 10 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6103387238).
 
 ## Status: blocked by the live issue’s file scope
 
 The six-finding bounded correction review was completed by `codex-jIGDIK`.
 This run verified the two prepared receipts against their packet contracts
-and fresh public sources, rechecked PMIA’s current native duplication and
-reran all four packet checkers. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+and fresh public sources, rechecked PMIA’s current native duplication,
+reran all four packet checkers and freshly ran all four suggested Lean files.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
 distinguishes those fresh checks from the predecessor’s audits and links the
 immutable input report at `303b02c8bda26170394f9f96f6c691391a2f8611`.
 No new exhaustive node audit is claimed.
@@ -19,7 +20,8 @@ current Tau Ceti Fitting/stable-transpose results, including the reader and
 consumers. Its negative verdict is finished review work, not a completion
 blocker. The remaining two accepted receipts are reproduced below exactly
 as prepared by the predecessor. All packets and suggested files remain
-byte-identical to this run’s input commit.
+byte-identical to this run’s input commit
+`1613c403b8210425d2aa3d37a18ad3e85a3aa3f1`.
 
 ## Required scope repair before another worker resumes
 
@@ -33,14 +35,17 @@ predicate requires their top review records to name this job. WORKERS.md
 says “Edit only the files the issue names, plus your own scratch space.”
 This run requested explicit authorization to change only `review` and
 `reviewHistory` in those two paths; no answer has arrived. The live issue
-still omits them. Do not treat a new claim, elapsed waiting time or an intake
+still omits them, and a fresh search of its human comments found no prior
+authorization. Do not treat a new claim, elapsed waiting time or an intake
 allowlist as authorization to override this restriction.
 
 Actual `issues.deliverables_complete(job)` is False. A read-only substitution
 of both prepared records below makes it True. Preservation assertions verify
 that only `review` and `reviewHistory` differ, and each new history equals
 old history + [entire old review]. That retains the earlier full 79-node and
-72-node audits and their original attribution. No queue, predicate or labels
+72-node audits and their original attribution. The resulting candidate packet
+set also passes the unchanged packet checker with zero errors or warnings,
+using the existing declaration index. No queue, predicate or labels
 were changed. No mathematical correction remains necessary for installing
 these two bounded review verdicts.
 
@@ -55,17 +60,19 @@ valid final review outcome.
 
 All four actual packets pass check_blueprint.py with zero errors. L3 has
 26 inherited short-API warnings; the other three have none. No excerpt fields
-exist. Fresh lean-check of L3 fails at line 1, unknown module prefix
-`research`, before elaborating the body. Available memory exceeded 20 GB.
-The unchanged L3-2, D.1 and PMIA files retain the predecessor’s successful
-pinned-build checks with respectively 111, 307 and 1,075 `sorry` warnings
-only; these were not rerun or attributed to this session. Do not weaken L3’s
-owned sibling interfaces to bypass missing compiled prototype artifacts.
-No Lean process remains running.
+exist. Fresh sequential lean-check runs used the pinned shared build, with
+94–96 GB available before each invocation. L3 fails at line 1, unknown module
+prefix `research`, before elaborating the body. L3-2, D.1 and PMIA exit 0
+with respectively 111, 307 and 1,075 `sorry` warnings only. All four are this
+session's fresh checks. Do not weaken L3’s owned sibling interfaces to bypass
+missing compiled prototype artifacts. No Lean process remains running.
 
-Four public PDFs were fetched and checked in this run: Zhao, Ertl–Niziol,
-Colmez–Niziol and Nekovar–Niziol. Their hashes match the immutable input
-report; fresh source locators are in the current report. No book was used,
+Eight public PDFs were fetched and checked in this run: Morita,
+Gross–Koblitz, Robert, Zhao, Ertl–Niziol, Colmez–Niziol, Nekovar–Niziol
+and Dasgupta–Kakde. Their hashes match the immutable input report; fresh
+source locators and reading boundaries are in the current report. BCGP
+readings and earlier exhaustive audits retain their original attribution.
+No book was used,
 no source passage was committed, and no ephemeral scratch path is needed
 to resume. Current native declarations were read in the read-only Tau Ceti
 checkout and distinguished from the programme pins.
@@ -104,7 +111,7 @@ only review and reviewHistory. Require exact equality of every remaining
 field; require new history == old history + [old review]. This keeps each
 former full audit intact and attributed, rather than splicing its checked array
 into a new bounded review. L3 and PMIA should remain byte-identical to input
-commit `303b02c8bda26170394f9f96f6c691391a2f8611`; do not append redundant
+commit `1613c403b8210425d2aa3d37a18ad3e85a3aa3f1`; do not append redundant
 receipts there. Recursively reject new excerpt fields.
 
 Run the packet checker for all four packets, git diff --check and the intake
