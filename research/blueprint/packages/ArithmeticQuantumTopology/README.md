@@ -1270,7 +1270,7 @@ For an actual ideal face-pairing triangulation of the interior of a compact orie
 
 ### Combinatorial flattenings and the extended pre-Bloch group
 
-On Neumann’s cut-plane ℤ²-cover of ℂ∖{0,1}, a point (z;p,q) determines (w₀,w₁,w₂)=(log z+pπi,−log(1−z)+qπi,log(1−z)−log z−(p+q)πi). Their sum is zero. Crossing the negative-real cut changes p by 2 and crossing the >1 cut changes q by 2; the cover has four parity components. The triple determines the point of the cover using both w₀ and w₁, not w₀ alone. Strong flattenings of triangulations impose additional parity and normal-path conditions, separately planned.
+On Neumann’s cut-plane ℤ²-cover of ℂ∖{0,1}, a point (z;p,q) determines (w₀,w₁,w₂)=(log z+pπi,−log(1−z)+qπi,log(1−z)−log z−(p+q)πi). Their sum is zero. Crossing the negative-real cut changes p by 2 and crossing the >1 cut changes q by 2; the cover has four parity components. The triple determines the point of the cover using both w₀ and w₁, not w₀ alone. Strong flattenings of triangulations impose additional parity and normal-path conditions, separately planned. An intrinsic model consists of (z,w₀,w₁) with z≠0,1, exp(2w₀)=z² and exp(−2w₁)=(1−z)², with the subspace topology of ℂ³ and w₂=−w₀−w₁. Both logarithms recover z=(1+exp(2w₀)−exp(−2w₁))/2. This model is homeomorphic to the cut-side quotient and retains the four parity components; exp(w₀)=z alone would discard odd p sheets.
 
 **Prerequisites.** [Oriented ideal tetrahedra and their shape parameters](#qt-5-ideal-tetrahedron-and-shape); `Complex.log`.
 
@@ -1395,7 +1395,7 @@ The homomorphism ν:P̂(ℂ)→ℂ∧_ℤℂ is ν[z;p,q]=(log z+pπi)∧(−log
 
 - `extendedDehn`: The displayed logarithmic wedge homomorphism.
 - `extendedBloch`: Its kernel subgroup.
-- `extendedBloch_forget`: Forgetting gives an ordinary Bloch class in the explicitly stated convention.
+- `extendedBloch_forget`: Forgetting gives an ordinary Bloch class in the explicitly stated convention. The comparison square uses ε(w₀∧w₁)=−2 exp(w₀)∧exp(w₁), so ε∘ν=ν′∘forget for ν′[z]=2z∧(1−z).
 
 **Unit tests.**
 
@@ -1403,7 +1403,7 @@ The homomorphism ν:P̂(ℂ)→ℂ∧_ℤℂ is ν[z;p,q]=(log z+pπi)∧(−log
 - `extendedDehn_transfer`: The four sheet-interchange terms have wedge sum zero.
 - `extendedDehn_sheet_change`: Changing p by 1 changes ν by πi∧(−log(1−z)+qπi); individual generators are not automatically in the kernel.
 
-**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Lemma 2.3 and Definition 2.4, §2, p. 418 (PDF p. 6).
+**Sources.** [Extended Bloch group and the Cheeger-Chern-Simons class](https://arxiv.org/abs/math/0307092v2), Lemma 2.3 and Definition 2.4, §2, p. 418 (PDF p. 6). Theorem 7.5, §7, p. 441 (PDF p. 29), the factor-two boundary square.
 
 <a id="qt-5-strong-flattening"></a>
 
