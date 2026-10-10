@@ -70,6 +70,7 @@ import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.LinearAlgebra.Dual.Basis
 import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
+import TauCeti.KnotTheory.Markov
 
 noncomputable section
 open Polynomial LaurentPolynomial Finset MeasureTheory
@@ -127,6 +128,62 @@ example : ¬ IsAdmissible !![(1 : ℤ), 1; 1, 1] := sorry
 -- framing_of_handleSlide
 example : handleSlide !![(0 : ℤ), 1; 1, 0] 0 1 0 0 = 2 := sorry
 end LinkingMatrices
+
+/-! A framing regression against the pinned native braid presentation.
+The coefficient matrix is the one-component part of the QT.0 checks; no
+linking-number, geometric framing relation or surgery type is constructed. -/
+namespace FramingChecks
+
+/-- A native one-strand closure, with its only component framed by f. -/
+def oneStrand (f : ℤ) : TauCeti.FramedMarkovBraid where
+  forgetFraming := ⟨0, 1⟩
+  framing := fun _ => f
+
+/-- The one-component coefficient matrix, read from the actual framing field.
+This fixture does not construct a geometric linking-number operation. -/
+def coefficientMatrix (f : ℤ) : Matrix (Fin 1) (Fin 1) ℤ :=
+  !![(oneStrand f).framing (Quotient.mk _ (0 : Fin 1))]
+
+theorem coefficientMatrix_eq (f : ℤ) : coefficientMatrix f = !![f] := rfl
+
+theorem forgotten_eq (f g : ℤ) :
+    (oneStrand f).forgetFraming = (oneStrand g).forgetFraming := rfl
+
+theorem markovEquiv_forget (f g : ℤ) :
+    TauCeti.MarkovEquiv (oneStrand f).forgetFraming (oneStrand g).forgetFraming :=
+  TauCeti.MarkovEquiv.refl _
+
+theorem isAdmissible_coefficientMatrix_iff (f : ℤ) :
+    IsAdmissible (coefficientMatrix f) ↔ f = 1 ∨ f = -1 := by
+  constructor
+  · intro h
+    exact h.2 0
+  · intro h
+    constructor
+    · intro i j hij
+      exact (hij (Subsingleton.elim i j)).elim
+    · intro i
+      fin_cases i
+      exact h
+
+/-- Forgetting framing relates presentations on opposite sides of admissibility. -/
+theorem framing_change_admissibility :
+    TauCeti.MarkovEquiv (oneStrand 0).forgetFraming (oneStrand 1).forgetFraming ∧
+      ¬ IsAdmissible (coefficientMatrix 0) ∧ IsAdmissible (coefficientMatrix 1) := by
+  refine ⟨markovEquiv_forget 0 1, ?_, ?_⟩
+  · rw [isAdmissible_coefficientMatrix_iff]
+    norm_num
+  · exact (isAdmissible_coefficientMatrix_iff 1).mpr (Or.inl rfl)
+
+/-- Even a predicate on the forgotten carrier cannot recover these framing tests. -/
+theorem admissibility_not_descends :
+    ¬ ∃ P : TauCeti.MarkovBraid → Prop,
+      ∀ f : ℤ, P (oneStrand f).forgetFraming ↔ IsAdmissible (coefficientMatrix f) := by
+  rintro ⟨P, hP⟩
+  have hOne := (hP 1).mpr framing_change_admissibility.2.2
+  exact framing_change_admissibility.2.1 ((hP 0).mp hOne)
+
+end FramingChecks
 
 /-! QT.1: ribbon structure extends the pinned braided and rigid categories. -/
 section RibbonCategories
