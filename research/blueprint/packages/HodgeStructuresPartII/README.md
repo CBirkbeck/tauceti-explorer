@@ -1,8 +1,8 @@
 # Roadmap: Hodge structures, Part II: variations, period maps and non-abelian Hodge theory
 
-This roadmap extends the linear algebra of pure, mixed and polarized Hodge structures to families. It builds the operator library behind Higgs bundles and parameter connections, the complex non-abelian Hodge correspondence, variations and their logarithmic extensions, general period manifolds, rigidity and integrality, degeneration, definable period maps and real Noether–Lefschetz interfaces. The common thread is compatibility: a connection, its graded Higgs field, its monodromy, its period map and its arithmetic realizations must refer to the same coefficient object and the same conventions.
+This roadmap extends pure, mixed and polarized Hodge structures to families. It builds the operator library behind Higgs bundles and parameter connections, the complex non-abelian Hodge correspondence, variations and their logarithmic extensions, general period manifolds, rigidity and integrality, degeneration, definable period maps and real Noether–Lefschetz interfaces. A connection, its graded Higgs field, its monodromy, its period map and its arithmetic realizations must refer to the same coefficient object and the same conventions.
 
-The development has nine layers. H.0 is an algebraic library usable in any characteristic. H.1 is projective complex non-abelian Hodge theory. H.2 supplies variation and monodromy interfaces, and H.3 supplies represented period geometry and derivatives. H.4 proves the parabolic estimates used in deformation arguments; H.5 treats rigid objects and their arithmetic consequences. H.6 supplies degeneration estimates, which H.7 uses to prove definability and algebraicity of individual Hodge loci. H.8 exports real variation interfaces to applications on surfaces.
+The nine layers run from algebraic operators (H.0) and projective complex non-abelian Hodge theory (H.1), through variations and period geometry (H.2–H.3), parabolic estimates and rigidity (H.4–H.5), to degeneration and definable Hodge loci (H.6–H.7) and real weight-two applications (H.8).
 
 Suggested homes are `TauCeti/Geometry/Hodge/ParameterConnection/`, `TauCeti/Geometry/Hodge/Variation/`, `TauCeti/Geometry/Hodge/PeriodGeometry/`, `TauCeti/Geometry/Hodge/Degeneration/` and `TauCeti/Geometry/NonabelianHodge/`. [Suggested.lean](Suggested.lean) gives suggested signatures. The mathematical contracts here determine the generality of the development.
 
@@ -39,7 +39,7 @@ In the real weight-two layer separate geometric complex-linear action σ_C, coef
 | Common variation datum | `ShimuraData:D3`. Import its local system, holomorphic filtration, flat connection, fibre comparison and Griffiths transversality. H.2 adds the interfaces needed here; it does not define another common carrier. |
 | Ordinary connections and relative/logarithmic calculus | `CrystallineCohomology:CR.1`. Require the ordinary connection carrier on arbitrary commutative ringed differential sites, with curvature and horizontal maps, as well as the smooth relative and logarithmic specializations. Quasi-nilpotence belongs to crystal comparisons. |
 | Sheaf tensor and algebraic vector-bundle operations | Native `TauCeti.SheafOfModules.tensorProduct`, its defining sheafification isomorphism, unitors, symmetry, associativity and over-site restriction. `tauceti:TauCetiRoadmap/AlgebraicVectorBundles`, L0A–L0C, owns the closed monoidal, finite locally free dual, pullback and polynomial-operation interfaces; consume them for scheme modules. |
-| General ringed-site coefficient operations and derived cohomology | `EnhancedDerivedSheaves:E1`. Use native `SheafOfModules`, `IsLocallyFree`, `IsFinitePresentation` and the sheafified tensor construction. Supply the required general-site finite-dual/exterior comparisons, descent, tensor exactness and coherent hypercohomology interfaces, consuming the preceding algebraic vector-bundle operations on schemes. |
+| General ringed-site coefficient operations and derived cohomology | `EnhancedDerivedSheaves:E1`. Use native sheaf tensor, dual, exterior and symmetric powers with their stated hypotheses. Supply the remaining polynomial-operation comparisons, descent, tensor exactness and coherent hypercohomology interfaces, consuming algebraic vector-bundle operations on schemes. |
 | Filtered modules and Rees objects | `DerivedDeRhamCohomology:DD.1`. Supply bounded locally split filtrations, their graded quotients, finite Rees fibres, localization and functorial comparisons. The unbounded period lattice needs a separate comparison. |
 | Determinant derivative | `ColemanPowerSeries:L1/derivation-determinant-unit`. For a matrix unit G over an arbitrary commutative algebra, supply δ(det G)=det G·tr(G⁻¹δG), also in rank zero and characteristic two. |
 | Analytification, coherent GAGA and relative cohomology | `ComplexComparisonPartII:C0`, C2, C4 and C5. Require actual analytic bundle and relative base-change maps. Compact coefficient Hodge theory, nonlinear metric analysis and proper analytic images are additional general analytic interfaces. |
@@ -57,8 +57,7 @@ only its tensor object. In `TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProdu
 `monoidalPreadditive`. These apply to small sites with a sheaf of commutative
 rings, the stated sheaf-composition instance, weak sheafification of abelian
 groups, and the identification of its inverted maps with locally bijective
-maps. The standard internal-Hom adjunction, evaluation and coevaluation are
-therefore inputs to H.0. The native `SheafOfModules.ihom_obj` identifies
+maps. Internal-Hom adjunction, evaluation and coevaluation are inputs to H.0. The native `SheafOfModules.ihom_obj` identifies
 internal Hom with the sheafification of the presheaf internal Hom. This does
 not identify tensor sections with tensors of global sections.
 
@@ -125,18 +124,24 @@ evaluation and curvature transport on them; exterior powers, determinant
 operators and arbitrary differential-site pullback still use their stated
 supplier contracts.
 
-The p-adic Simpson and Riemann–Hilbert theories consume H.0's algebra and twist conventions. Their correspondence theorems are outside this roadmap. `CartierFlows` and `RigidCompanions` consume H.5's models and arithmetic criteria. `RealSurfacePeriodIndex` consumes H.8 and owns its double-cover families, application-specific vanishings and period-index argument. These consumers are not prerequisites of the objects they use.
+The p-adic Simpson and Riemann–Hilbert theories consume H.0's algebra and twist conventions. Their correspondence theorems are outside this roadmap. `CartierFlows` and `RigidCompanions` consume H.5's models and arithmetic criteria. `RealSurfacePeriodIndex` consumes H.8 and owns its double-cover families, application-specific vanishings and period-index argument. Consumers do not supply these objects.
 
-## How to read the build
-
-Layer H.0 develops algebraic operators and their tensor, dual, determinant and
-Rees comparisons. H.1 constructs the projective complex correspondence; H.2
-and H.3 organize variation data and represented period geometry. H.4 supplies
-parabolic estimates to the rigidity and integrality results of H.5. The
-degeneration estimates in H.6 feed the definability and individual Hodge-locus
-results of H.7. H.8 uses the variation and derivative interfaces for real
-Noether–Lefschetz applications. Each layer uses the exact contracts above;
-local algebraic calculations and geometric comparison maps are separate targets.
+Exterior and symmetric powers already have sheaf carriers in
+[`Sheaf/ExteriorPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/ExteriorPower.lean)
+and [`Sheaf/SymmetricPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/SymmetricPower.lean).
+Use `SheafOfModules.exteriorPower` and `symmetricPower`: they sheafify the
+sectionwise powers. Their `exteriorPowerIso`/`symmetricPowerIso` and `_map`
+laws identify the objects and morphisms with that construction; the
+`exteriorPowerZeroIso`/`symmetricPowerZeroIso` and corresponding `OneIso`
+identify degree zero with O and degree one with the input sheaf, naturally.
+Assume sheaf composition from commutative rings to rings,
+weak abelian-group sheafification and its locally bijective criterion.
+The presheaf `exteriorPower_obj_map_mk` restricts each wedge factor;
+`coe_symmetricPower_obj_map_apply` computes restriction through the induced
+semilinear symmetric-algebra map. Use these maps before sheafification,
+without equating sheaf-power sections to powers of section modules.
+Finite local freeness, polynomial-operation pullback comparisons, determinant
+gluing and horizontal operator laws retain their stated supplier contracts.
 
 ## Layer 0: Higgs fields and parameter connections
 
@@ -322,7 +327,7 @@ J(u⊗(t⊗(s⊗φ)))(v⊗(a⊗(b⊗e)))=uv σ_TU(ta) σ_SU(sb) σ_RU(φ(e)).
 
 All scalar factors are independent. State K=J followed by the dual congruence of primal cancellation, and the corresponding inverse equation on every receiving-ring covector. Association independence identifies the whole equivalences. The threefold dual pullback operator is identified through both cancellation routes, with extension, curvature and target-flatness comparisons.
 
-Required tests include a finite-projective module specified by an idempotent without a global basis, a rank-zero module, rank-one evaluation and a nonflat algebra map. On Z[x] with λ=x, the dual of λd sends x·id to a covector derivative with value x at 1, although dλ=1. On Z/4 with zero calculus and D(r)=r⊗3, the zero-parameter dual has value 1 at id and 1, detecting the minus sign. Pull back the zero parameter-1 operator on Z to the ordinary unit on Z[x]; the extended covector x⊗id has derivative 1 at 1. Identity, tower and three-step tests must retain all displayed scalar factors and derivative terms. Inputs: native duals, `dualTensorHomEquiv`, scalar extension, cancellation and bidual evaluation. Source context: Stacks §15.74, Lemma 15.74.1(1)–(3), tag 0FNJ, for finite-projective evaluation, and §60.15 for ordinary connections. Categorical coevaluation/rigidity of global bundles requires E1's sheaf finite-dual interface rather than a claim from these affine equalities.
+Required tests include a finite-projective module specified by an idempotent without a global basis, a rank-zero module, rank-one evaluation and a nonflat algebra map. On Z[x] with λ=x, the dual of λd sends x·id to a covector derivative with value x at 1, although dλ=1. On Z/4 with zero calculus and D(r)=r⊗3, the zero-parameter dual has value 1 at id and 1, detecting the minus sign. Pull back the zero parameter-1 operator on Z to the ordinary unit on Z[x]; the extended covector x⊗id has derivative 1 at 1. Identity, tower and three-step tests must retain all displayed scalar factors and derivative terms. Inputs: native duals, `dualTensorHomEquiv`, scalar extension, cancellation and bidual evaluation. Source context: Stacks §15.74, Lemma 15.74.1(1)–(3), tag 0FNJ, for finite-projective evaluation, and §60.15 for ordinary connections. For global coefficient duality use the native exact pairing under the stated sheafification hypotheses; H.0 proves horizontal coevaluation on that pairing.
 
 ### Griffiths symbols, finite Rees and the period adapter
 
@@ -348,7 +353,7 @@ Change the filtered frame by e₁′=e₁ and e₂′=e₂+xe₁. The new Rees f
 
 ### Dependencies
 
-Use `CrystallineCohomology:CR.1` for the ordinary differential-site connection comparison, `EnhancedDerivedSheaves:E1` for general-site finite-dual, exterior and descent comparisons, and `DerivedDeRhamCohomology:DD.1` for the finite locally split ordinary Rees comparisons. Consume `ColemanPowerSeries:L1/derivation-determinant-unit` for integral Jacobi and the algebraic vector-bundle L0A–L0C operations specified above.
+Use `CrystallineCohomology:CR.1` for the ordinary differential-site connection comparison, `EnhancedDerivedSheaves:E1` for the remaining general-site polynomial-operation and descent comparisons on the native coefficient carriers, and `DerivedDeRhamCohomology:DD.1` for the finite locally split ordinary Rees comparisons. Consume `ColemanPowerSeries:L1/derivation-determinant-unit` for integral Jacobi and the algebraic vector-bundle L0A–L0C operations specified above.
 
 ## Layer 1: Projective non-abelian Hodge theory
 
