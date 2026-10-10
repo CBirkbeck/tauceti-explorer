@@ -1,10 +1,10 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Issue: #7901. Worker: Codex (GPT-6), session `codex-A87r6w`.
-Date: 2026-10-10. Branch: `codex-A87r6w-gl2-package-blocker`.
+Issue: #7901. Worker: Codex (GPT-6), session `codex-wTnU0d`.
+Date: 2026-10-10. Branch: `codex-wTnU0d-gl2-package`.
 Status: **partial; shared prerequisite ownership requires a plan repair**.
 
-Claim confirmed in [comment 6094197598](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094197598).
+Claim confirmed in [comment 6094326275](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094326275).
 None of the manager’s listed issues was available; WORKERS.md’s fallback order
 selected this focus package. One job was claimed.
 
@@ -19,12 +19,15 @@ stage owns the full-local character existence theorem needed by
 `R17.5/tunnell-primitive-globalization` and
 `R17.5/prescribed-local-induction`.
 
-This checkpoint consolidates the accumulated handoff into one resume document.
-It preserves the exact arithmetic repair contracts, their conditional
-finite-quotient construction, the withdrawn radical shortcut and corrected
-proof obligations, all other closure requirements, and the three downward
-classical attachment proposals. No package mathematics or accepted packet is
-changed. It records the new upstream revision and fresh Lean/checker results.
+This continuation verifies the arithmetic repair contract against Chevalley's
+primary proof and Patrikis's precise character domains. In particular, it
+checks the cyclotomic conjugation calculation in the corrected proof route
+below, so the next owner need not rely on the withdrawn arbitrary-root-field
+argument. The shared owner and the accepted consumer edges remain missing.
+The conditional finite-quotient construction, other closure requirements and
+three downward classical attachment proposals are preserved. No package
+mathematics or accepted packet is changed; fresh checks and unchanged input
+fingerprints are recorded below.
 
 The package README and Suggested.lean remain the corrected predecessor
 versions. In particular, retain the actual matrix K₀/K₁ carriers and compact
@@ -79,7 +82,8 @@ owner name without its exact statement and proof prerequisites is insufficient.
   Both have zero closed stages.
 - `lean-check` on the unchanged package Suggested.lean: exit 0, 144 warnings,
   all declaration uses `sorry`, zero errors or other warnings. Available memory
-  before the check: 102 GB. The process completed; nothing remains running.
+  before the check: 110 GB. The helper waited for a shared slot, then completed;
+  nothing remains running.
 - Scoped intake: three extant deliverables checked, zero problems. The sole
   changed path is this authorized handoff; `git diff --check` is clean.
   `issues.deliverables_complete` remains **False**.
@@ -87,17 +91,19 @@ owner name without its exact statement and proof prerequisites is insufficient.
   Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 - Current read-only audit revisions: TauCetiRoadmap
   `0a56d1b5303c26887a4042db834f46d9079ac593`; current Tau Ceti
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Since the predecessor’s
-  `8c72a04753b11cab07fa593cc38ceaa7c0515380`, only SmoothRepresentationsOfLocalGroups
-  changed; neither GlobalNumberFields nor ClassFieldTheory acquired the missing
-  theorem. No Lake command was run in either read-only checkout.
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are the same revisions
+  recorded by session `codex-A87r6w`; the candidate statements were nevertheless
+  reread, including their existing-character hypotheses. No Lake command was
+  run in either read-only checkout.
 - GlobalNumberFields and ReductiveGroups READMEs read in full; relevant
   ClassFieldTheory scope and character interfaces inspected. The reviewed
   AUDIT-14 library-coverage entries were consulted; historical absence claims
   were checked against the current character source files.
-- Chevalley, *Deux Théorèmes d’Arithmétique*, Theorem 1, printed p. 36, read
-  directly in the publisher’s page image; its avoidance and finite-generation
-  hypotheses were checked. The OCR mislabels the theorem “7”. Publisher PDF
+- Chevalley, *Deux Théorèmes d'Arithmétique*, Theorem 1, printed p. 36, read
+  directly in the publisher's page image; its avoidance and finite-generation
+  hypotheses were checked. The primary proof on pp. 36–39 was also read;
+  the specific cyclotomic congruence on p. 38 was independently checked below.
+  The OCR mislabels the theorem "7". Publisher PDF
   SHA-256: `c8ca4e2dac91b20836adaf90ac5300f7dd197bb8f7145d5c422791d436358493`.
 - Patrikis, author revision dated 31 July 2016, §2.3, Lemmas 2.3.1 and 2.3.6
   with the start of the latter’s proof, printed pp. 28 and 30–31, read directly.
@@ -105,6 +111,15 @@ owner name without its exact statement and proof prerequisites is insufficient.
 - README unchanged: 199,985 bytes and all 115 inherited target headings.
   Suggested.lean unchanged: 83,998 bytes. No source passage or private path is
   committed. Only disposable scratch held downloaded source files and logs.
+
+Unchanged input SHA-256 fingerprints (relative to the claimed checkout):
+
+| Input | SHA-256 |
+| --- | --- |
+| Accepted R16.1 packet | `c1e3b586b2534254b10be3884e88b4c33a3dd6e8e2068f2dc809757bca89ebce` |
+| Accepted R17.3 packet | `2fcb2c938001426f0c1019d99a2bd9ba47cf82ec91ab2ad5305ef7b896301b65` |
+| Package README | `8a766d83f115d719f86ec9bd61857eeeef546e914e6fb1ed49ffc62795759d30` |
+| Package Suggested.lean | `e0824a42686193cd09bee31e3761d5c9c03d10ff0834d37816658a5b2643236e` |
 
 Historical source receipts, not reread in this session:
 
@@ -275,6 +290,16 @@ preserve the roots-of-unity hypothesis that the shortcut lost:
    without changing its pᵉ-th power. The degree-two initial exception is
    excluded by i ∈ M. This is a distinct lower contract, not an unconditional
    assertion that radicals descend from every cyclotomic extension.
+   The crucial calculation, checked in this continuation against Chevalley,
+   p. 38, is as follows. At the step from M(μ_{pʰ}) to M(μ_{pʰ⁺¹}), let σ
+   generate the degree-p extension and write σ(y)/y = ζ_{pᵉ}ᶠ. Extend σ to
+   M(μ_{pᵉ}), with action ζ ↦ ζᵍ. Since g ≡ 1 modulo pʰ and σᵖ(y) = y,
+   pᵉ divides f(1 + g + ⋯ + g^{p−1}). This sum is p modulo p²: h ≥ 1
+   suffices for odd p, and h ≥ 2 is needed for p = 2. Hence p^{e−1}
+   divides f, giving the asserted μ_p ratio. The ratio σ(ζ_{pʰ⁺¹})/ζ_{pʰ⁺¹}
+   generates μ_p, so a power of this cyclotomic root cancels the ratio;
+   its pᵉ-th power is one. This verifies the descent step's algebra and
+   explains the i ∈ M hypothesis. It does not install the lower owner API.
 4. Over a field containing μ_{pᵉ}, adjoining the pᵉ-th roots of finitely
    many generators of E gives a finite **abelian p-extension** L/M.
    For each degree-p intermediate field choose, by Chebotarev, an inert
@@ -288,12 +313,14 @@ preserve the roots-of-unity hypothesis that the shortcut lost:
    root field would contain a degree-p subfield, contradicting the prime
    chosen inert there. This proves root existence in M.
 
-These are inherited proposed proof inputs for the owner’s repaired plan,
-not new package targets or claims of completed closure. This session rechecked
-the theorem statement and the finite-quotient character construction; it did
-not independently discharge these radical-descent proof obligations. No finding
-against the published source is asserted; the withdrawn argument was the inherited handoff's own
-restatement. The corrected route avoids relying on the alternative remark.
+These are proposed proof inputs for the owner's repaired plan, not new package
+targets or claims of completed closure. This session read the primary proof,
+checked the specific cyclotomic calculation and rechecked the conditional
+finite-quotient character construction. The lower contracts and their supplier
+edges still need to be installed in the owning plan. No finding against the
+published source is asserted; the withdrawn argument was the inherited
+handoff's own restatement. The corrected route avoids relying on the
+alternative remark.
 
 
 ## Shared-owner routing lead
