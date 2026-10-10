@@ -1,9 +1,9 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — resolve scope before redispatch
 
-Codex, session `codex-nMq2VY`, 10 October 2026.
+Codex, session `codex-7tHQKP`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096791399).
-Input: `cdfda04f0b86037f7d6e53b15f224cbef7cf05a7`. One job; none of its
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096970616).
+Input: `f9d4c17fd933f5012756238a55f02350f8a21fd0`. One job; none of its
 fixes was this reviewer's work.
 
 The [consolidated report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) contains
@@ -12,6 +12,15 @@ complete previous report at the input commit, preserving earlier attribution
 and ledgers. Existing reviews/history, mathematical nodes, gaps, requests,
 sourceIssues, coverage, suggested files and dispatch metadata are unchanged.
 Do not refresh the same two named reviews to try to finish this job.
+
+This continuation also matched the pinned transpose and finite-projective
+dual source files byte for byte against the pin's Git blobs, and checked the
+new generic Fitting/stable-transpose modules absent at that pin. All four
+original packet checks and Lean attempts were rerun. The proposed two omitted
+packet edits were recreated in scratch, checked with their original packet
+filenames and compared structurally with the originals. No mathematical
+change beyond the single pending E37 locator repair is proposed. No packet
+receipt was refreshed; this remains the same unresolved scope gate.
 
 ## The blocking condition
 
