@@ -1,99 +1,76 @@
-# Checkpoint: claim bot unavailable
+# Finished independent review: P7, Part II
 
-Job: `REV-DeformationAndDerivedPatchingAlgebra--P7-2` ([issue #6269](https://github.com/CBirkbeck/tauceti-explorer/issues/6269)).
-Worker: Codex, session `codex-S0udvk`. Date: 2026-10-05.
+Job `REV-DeformationAndDerivedPatchingAlgebra--P7-2`, issue #6269.
+Codex session `codex-aXRijI`, 10 October 2026. This replaces the earlier
+claim-blocked checkpoint. The bot confirmed this session's claim before work
+started; the input writer was session `codex-CxeBin`, PR #6373.
 
-## State of the review
+The review is finished and accepted. Every node has its own verdict in the
+packet: 67 verified, 46 corrected and five added, for 118 nodes. All 44 baseline
+references were checked at the pinned Mathlib and Tau Ceti commits. All 27
+public source files matched the recorded SHA-256 values, and all eight source
+issues have independent reasoned verdicts. The report records every changed
+field, all baseline modules, source locators and the exact reader amendments.
 
-The mathematical review has **not started**. No node, source locator, baseline
-declaration, prerequisite, API item, unit test, planet or coverage statement has
-been verified. No review verdict is supplied. The existing packet and suggested
-Lean file are untouched. This submission contains only this handoff note and
-must be treated as a checkpoint, not a finished review.
+P7 remains **planned**, with nine precise gaps and four supplier contracts.
+Packet status complete means the planning pass is finished, not that Lean
+proofs or dependency closure are complete. No implementation is claimed.
 
-The worker selected this issue because it was the only available `kind:review`
-of a finished blueprint or new roadmap, the first category in WORKERS.md's
-selection order. Both inputs named by the issue exist. The packet's most recent
-commit was `9df0610b990321d71b5af94d24f64db8484846e2`, from PR #6373;
-this session did not write that work. No second issue was selected or claimed.
+## Ownership moves to carry into assembly
 
-## External blocker
+- Current upstream SmoothRepresentationsOfLocalGroups SR.0d owns generic
+  K-flatness, derived tensor and internal Hom. P7 plans only their native
+  ModuleCat transport at the trivial group. Retain the registered atlas
+  SR.0:derived-extension id and finer dg-enhancement node when resolving the
+  current upstream layer name.
+- P7 tier 10 now owns strict R-linear product/cone inverse limits and discrete
+  O-linear E/O duality. CompletedCohomologyPartII tier 12 must import these
+  from P7; the two upward CC.2/CC.3 prerequisites and requests were removed.
+  Topological cohomology and character normalization remain later work.
+- Keep generic derived completeness/completion with DD.1 and its finer nodes.
+  The local quotient-tower/unit comparison is a native adapter, with the
+  Noetherian hypotheses retained.
+- L0's current DVR Banach statement does not supply Pilloni's complete-local
+  completed-free-direct-sum theorem. The exact Part II extension is requested;
+  no product interpretation is attributed to the author.
 
-The exact claim comment, `/claim Codex — codex-S0udvk`, was posted at
-20:37:04 UTC on 2026-10-05:
-[comment 6002461851](https://github.com/CBirkbeck/tauceti-explorer/issues/6269#issuecomment-6002461851).
-WORKERS.md requires waiting for the bot's reply and starting only when that
-reply confirms that this comment won. No such reply arrived, so the worker
-never treated the claim as confirmed.
+The five added nodes supply DVR injectivity, the E/O endomorphism computation,
+the native quotient-dual functor, finite free evaluation and strict derived
+inverse limits. Native tensor-Hom signs are now explicit and the old sign gap
+is resolved. Definition/construction coverage is 58 API statements and 42
+discriminating tests across 14 objects. Add no planets beyond the accepted
+predecessor's six.
 
-The corresponding [Swarm claims run](https://github.com/CBirkbeck/tauceti-explorer/actions/runs/37370851321)
-failed three times without executing any job steps or posting a bot reply:
+## Reader and follow-up work
 
-| Attempt | Queued from (UTC) | Ended (UTC) | Result |
-| --- | --- | --- | --- |
-| 1 | 20:37:07 | 20:52:08 | Job cancelled; workflow failure; no steps |
-| 2 | 20:56:17 | 21:11:18 | Job cancelled; workflow failure; no steps |
-| 3 | 21:12:40 | 21:27:41 | Job cancelled; workflow failure; no steps |
+Issue #6269 authorizes the packet, suggested file, review report and this
+handoff, but not the part reader. The reader was checked and remains unchanged.
+Before assembly/package publishes a reconciled reader, apply the report's
+exact amendment list: revise the generic tensor/Hom ownership and contracts;
+replace continuous/Pontryagin and ordinary-derived-diagram formulations;
+insert the five new nodes/API/tests; synchronize every changed-field entry,
+source correction, page locator and the nine-gap/four-request boundary.
 
-Attempts 2 and 3 used the failed-workflow retry, preserving the original claim
-comment and run. After the third failure, the run was completed and no further
-retry was left queued by this worker. At the final inspection, the issue still
-had `state:available` and only the original claim comment. No labels were
-changed by hand.
+No additional review work is pending in this job. Mathematical follow-up uses
+the packet's `gaps`, `requests` and coverage `remaining`, whose consuming nodes
+are explicit. The proposed P7 sublayers and L0 Part II rescope remain proposals
+for the maintainer; stable ids were retained. No other job was claimed.
 
-GitHub's [Actions incident report](https://www.githubstatus.com/incidents/3q1yb5m7ltvb)
-reported hosted-runner assignment delays beginning at 19:11 UTC and remained
-under investigation at 21:27 UTC. The 21:09 update also reported account-page
-access problems, and the 21:22 update reported degraded Pages performance.
-The runner delays are consistent with all three jobs expiring before a runner
-executed their steps. Resolving the GitHub incident is outside this job's scope.
+## Checks and reproducibility
 
-## Work completed before the blocker
+- Packet checker: zero errors, zero warnings.
+- Full final suggested Lean file: `lean-check`, exit 0; 236 warnings, all
+  declarations using `sorry`, and no other warnings or errors. Only types and
+  signatures are checked; the planned proofs are admitted.
+- Mathlib pin `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti pin
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- Current upstream roadmap audit commit
+  `670582c502e1d4497d9ccd492b36c67028ef6666`; current Tau Ceti audit commit
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- Submission intake checks and `git diff --check` pass for the four authorized
+  paths. The PR uses `Refs #6269`, identifies this session and records the
+  elaboration result.
 
-Read the issue's full instructions and the binding programme guidance:
-WORKERS.md, blueprint PROTOCOL.md, expansion PROTOCOL.md, UPSTREAM_GUIDE.md and
-BROWSER_AGENTS.md. Read the upstream AdicSpaces and JacobianChallenge roadmap
-documents for style and scope guidance. No AGENTS.md instructions were found in
-the clone or its ancestors. No repository was cloned or copied.
-
-No papers or library declarations were read as review evidence. No Lean
-language server or build was started. The suggested Lean file was not
-compiled; the claim requirement prevented the review from starting.
-
-## Resume here
-
-1. Re-read issue #6269 and its labels and comments. Follow the claim protocol
-   with the continuing worker's session; wait for the bot's confirmation before
-   starting. The pending comment above is not proof of a won claim.
-2. Review the complete packet
-   `research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--P7-2.json`
-   and suggested file
-   `research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--P7-2.lean`.
-   Read the original writer's handoff, the roadmap and reader document,
-   `data/library-coverage.json`, and relevant supplier packets and stage texts.
-3. Build a node-by-node worklist. Independently verify every source locator and
-   excerpt; every baseline declaration at Mathlib `082e2d3` and Tau Ceti
-   `f790474`; prerequisite closure and supplier scope; lemma granularity;
-   reusable API; discriminating tests; suggested-file correspondence; planets;
-   sourceIssues; and coverage statuses. Correct clear errors only in the files
-   the issue permits, recording every correction.
-4. Use `lean-check` for elaboration of the suggested file, checking available
-   memory first and following the machine's concurrency limits. Do not start a
-   Lean language server or run Lake build, update or cache retrieval.
-5. Run `python3 scripts/check_blueprint.py` on the packet until it reports no
-   errors. Add the required per-node review object with an honest verdict and
-   write the report at
-   `research/blueprint/reviews/REV-DeformationAndDerivedPatchingAlgebra--P7-2.md`.
-   Acceptance must rest on the checks above, not this handoff.
-6. Submit only the issue's deliverables and this handoff on the continuing
-   worker's branch, with `Refs #6269`, agent attribution, checks and Lean status.
-
-All mathematical review work remains. No review findings, gaps, supplier
-requests or source corrections have been established by this session.
-
-## Checkpoint validation
-
-This Markdown-only checkpoint is checked with `git diff --check` and
-`python3 research/blueprint/intake.py check-files` for its sole changed path.
-Packet validation and Lean elaboration do not apply to this unchanged-input
-handoff. The GitHub submission check may be delayed by the same runner incident.
+All continuation evidence is in the packet, review report, suggested file and
+this note. The disposable scratch source copies/logs are not needed and are
+removed after the PR opens. No library build or language server remains.

@@ -5,7 +5,10 @@ can converge on names and signatures. Every `sorry` is a planning hole; nothing
 here is claimed implemented. Pins: Mathlib 082e2d3, Tau Ceti f790474.
 
 The Dependency namespace contains typing adapters for accepted P7 definitions
-and the explicitly requested E1/DD.1/CC.2 interfaces. It does not propose a
+and the explicitly requested E1/DD.1 interfaces. Current upstream SR.0d owns
+generic derived tensor/Hom; this file suggests their native module transport.
+Strict module towers and discrete E/O adjoints belong to P7 under the tier order.
+The Dependency namespace does not propose a
 second implementation of those definitions. Refinement gaps are in the packet.
 -/
 import Mathlib.Algebra.Category.ModuleCat.AB
@@ -22,6 +25,8 @@ import Mathlib.Algebra.Homology.HomotopyCategory.HomComplex
 import Mathlib.Algebra.Homology.SpectralSequence.Basic
 import Mathlib.CategoryTheory.Triangulated.Functor
 import Mathlib.CategoryTheory.Monoidal.Tor
+import Mathlib.CategoryTheory.Linear.Yoneda
+import Mathlib.Algebra.Module.Injective
 import Mathlib.RingTheory.LocalRing.Module
 import Mathlib.RingTheory.AdicCompletion.AsTensorProduct
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
@@ -73,20 +78,18 @@ abbrev quotient (I : Ideal R) (M : ModuleCat.{u} R) : ModuleCat.{u} R :=
   ModuleCat.of R (M ⧸ (I • (⊤ : Submodule R M)))
 def quotientMap (I : Ideal R) (M : ModuleCat.{u} R) : M ⟶ quotient I M :=
   ModuleCat.ofHom (Submodule.mkQ _)
--- Requested CC.2 module realization; no abstract Prop-valued completion flags.
-def derivedInverseLimit : (ℕᵒᵖ ⥤ Der R) ⥤ Der R := by sorry
 -- Requested DD.1 reflective completion functor and unit.
 def derivedCompletion (I : Ideal R) : Der R ⥤ Der R := by sorry
 def completionUnit (I : Ideal R) : 𝟭 (Der R) ⟶ derivedCompletion I := by sorry
+-- Typing adapter for DD.1's localization-Hom criterion, not another owner.
+def IsDerivedComplete (I : Ideal R) (X : Der R) : Prop :=
+  ∀ f : R, f ∈ I → ∀ n : ℤ,
+    Subsingleton (dstalk (ModuleCat.of R (Localization.Away f)) 0 ⟶ X⟦n⟧)
 -- Native product formula for lim^1 of a module tower.
 def oneMinusShift (T : ℕᵒᵖ ⥤ ModuleCat.{u} R) :
     ModuleCat.of R (∀ n : ℕ, T.obj (op n)) ⟶
       ModuleCat.of R (∀ n : ℕ, T.obj (op n)) := by sorry
 def limOne (T : ℕᵒᵖ ⥤ ModuleCat.{u} R) : ModuleCat.{u} R := cokernel (oneMinusShift T)
--- CC.3 supplies the topology/continuous E/O-dual. This is an actual module
--- constructor with the externally specified universal property, not a predicate.
-def continuousQuotientDual (O : Type u) [CommRing O]
-    (M : ModuleCat.{u} O) : ModuleCat.{u} O := by sorry
 -- Degree n of the signed finite-projective dual; the tail compares it to Tau.
 def chainDual (C : Cpx R) : Cpx R := by sorry
 def quotientComplex (I : Ideal R) (C : Cpx R) : Cpx R := by sorry
@@ -99,6 +102,18 @@ structure FiniteFiltration (M : ModuleCat.{u} R) (lo hi : ℤ) where
 abbrev FiniteFiltration.graded {M : ModuleCat.{u} R} {lo hi : ℤ}
     (F : FiniteFiltration M lo hi) (p : ℤ) : ModuleCat.{u} R :=
   ModuleCat.of R (F.F p ⧸ (F.F (p + 1)).comap (F.F p).subtype)
+-- Quotient-map adapters for the equivariant convergence comparison.
+def FiniteFiltration.gradedMap {M : ModuleCat.{u} R} {lo hi : ℤ}
+    (F : FiniteFiltration M lo hi) (f : M ⟶ M)
+    (hf : ∀ p (x : M), x ∈ F.F p → f.hom x ∈ F.F p) (p : ℤ) :
+    F.graded p ⟶ F.graded p := by sorry
+lemma FiniteFiltration.gradedMap_mk {M : ModuleCat.{u} R} {lo hi : ℤ}
+    (F : FiniteFiltration M lo hi) (f : M ⟶ M)
+    (hf : ∀ p (x : M), x ∈ F.F p → f.hom x ∈ F.F p) (p : ℤ) (x : F.F p) :
+    (F.gradedMap f hf p).hom
+      ((Submodule.mkQ ((F.F (p + 1)).comap (F.F p).subtype)) x) =
+        (Submodule.mkQ ((F.F (p + 1)).comap (F.F p).subtype))
+          ⟨f.hom x.val, hf p x.val x.property⟩ := by sorry
 -- Finite coefficient rings have their genuine quotient scalar structures.
 @[instance_reducible] def quotientScalar (I : Ideal R) (M : ModuleCat.{u} R) :
     Module (R ⧸ I) (quotient I M) := by sorry
@@ -139,7 +154,7 @@ lemma kflat_basechange (f : R →+* S) (C : Cpx R) (h : IsKFlat C) :
     IsKFlat ((extendC f).obj C) := by sorry
 lemma kflat_tensor {C D : Cpx R} (hc : IsKFlat C) (hd : IsKFlat D) :
     IsKFlat (C ⊗ D) := by sorry
--- Module specialization of E1; this remains an actual native derived bifunctor.
+-- Transport of current upstream SR.0d at the trivial group to native modules.
 def derivedTensor : Der R ⥤ Der R ⥤ Der R := by sorry
 abbrev dtensor (X Y : Der R) : Der R := (derivedTensor.obj X).obj Y
 def derivedTensor_obj_obj (P T : Cpx R) (hp : IsKFlat P) (ht : IsKFlat T) :
@@ -164,12 +179,12 @@ example : let Z2 := dstalk (ModuleCat.of ℤ (ZMod 2)) 0
   ∀ i : ℤ, i ≠ -1 → i ≠ 0 → IsZero (H i (dtensor Z2 Z2)) := by sorry
  def tensor_representative_comparison (E C : Cpx R) (h : IsKFlat C) :
     dtensor (Q E) (Q C) ≅ Q (E ⊗ C) := by sorry
--- These are the signed E1 shift comparisons for the native module realization.
+-- Signed shift comparisons of the transported upstream tensor structure.
 @[instance_reducible] def derivedTensorCommShift (Y : Der R) :
     (derivedTensor.obj Y).CommShift ℤ := by sorry
 attribute [local instance] derivedTensorCommShift
 lemma tensor_exact (Y : Der R) : (derivedTensor.obj Y).IsTriangulated := by sorry
--- Coherence is part of the E1 tensor structure; these are its comparison maps.
+-- Coherence is part of the upstream tensor structure; these are its comparisons.
 def tensor_coherence (X Y Z : Der R) :
     dtensor (dtensor X Y) Z ≅ dtensor X (dtensor Y Z) := by sorry
  def derivedExtension (f : R →+* S) : Der R ⥤ Der S := by sorry
@@ -456,6 +471,12 @@ lemma noetherian_perfect_criterion [IsNoetherianRing R] (X : Der R) :
     IsPerfect X ↔ (∀ i, Module.Finite R (H i X)) ∧
       (∃ a b, ∀ i, i < a ∨ b < i → IsZero (H i X)) ∧
       ∃ a b, HasTorAmplitude X a b := by sorry
+lemma local_residue_perfect_criterion [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (X : Der R)
+    (hp : IsPseudoCoherent X)
+    (hb : ∃ a b : ℤ, ∀ i : ℤ, i < a ∨ b < i →
+      IsZero (H i ((derivedExtension (Ideal.Quotient.mk
+        (IsLocalRing.maximalIdeal R))).obj X))) : IsPerfect X := by sorry
 section CompleteFlat
 variable [IsLocalRing R] [IsNoetherianRing R] [IsAdicComplete (IsLocalRing.maximalIdeal R) R]
  def IsCompleteFlatComplex (C : Cpx R) : Prop :=
@@ -581,18 +602,67 @@ end CompleteFlat
       ModuleCat.of F (Module.Dual F (H 0 ((derivedExtension f).obj (Q P)))) := by sorry
 abbrev fractionQuotient (O : Type u) [CommRing O] [IsDomain O] : ModuleCat.{u} O :=
   ModuleCat.of O (FractionRing O ⧸ Submodule.span O ({1} : Set (FractionRing O)))
- def dvr_pontryagin_adjoint (O : Type u) [CommRing O] [IsDomain O]
+-- p7ii-dvr-quotient-injective: divisibility plus the native Baer criterion.
+lemma dvr_quotient_injective (O : Type u) [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] : Module.Injective O (fractionQuotient O) := by sorry
+-- p7ii-dvr-quotient-endomorphism: compatible scalar actions modulo π^n.
+def dvr_quotient_endomorphism (O : Type u) [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O] :
+    O ≃+* End (fractionQuotient O) := by sorry
+lemma dvr_quotient_endomorphism_apply (O : Type u) [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    (a : O) (x : fractionQuotient O) :
+    (dvr_quotient_endomorphism O a).hom x = a • x := by sorry
+-- p7ii-quotient-dual: an actual specialization of native linear Yoneda.
+def quotientDualFunctor (O : Type u) [CommRing O] [IsDomain O] :
+    (ModuleCat.{u} O)ᵒᵖ ⥤ ModuleCat.{u} O :=
+  (CategoryTheory.linearYoneda O (ModuleCat.{u} O)).obj (fractionQuotient O)
+abbrev quotientDual (O : Type u) [CommRing O] [IsDomain O] (M : ModuleCat.{u} O) :=
+  (quotientDualFunctor O).obj (op M)
+lemma quotientDual_map (O : Type u) [CommRing O] [IsDomain O]
+    {M N : ModuleCat.{u} O} (f : M ⟶ N) (g : N ⟶ fractionQuotient O) :
+    ((quotientDualFunctor O).map f.op).hom g = f ≫ g := by sorry
+lemma quotientDual_map_comp (O : Type u) [CommRing O] [IsDomain O]
+    {M N P : ModuleCat.{u} O} (f : M ⟶ N) (g : N ⟶ P) :
+    (quotientDualFunctor O).map (f ≫ g).op =
+      (quotientDualFunctor O).map g.op ≫ (quotientDualFunctor O).map f.op := by sorry
+lemma quotientDual_exact (O : Type u) [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] (s : ShortComplex (ModuleCat.{u} O))
+    (hs : s.ShortExact) :
+    ∃ h : (quotientDualFunctor O).map s.g.op ≫ (quotientDualFunctor O).map s.f.op = 0,
+      (ShortComplex.mk ((quotientDualFunctor O).map s.g.op)
+        ((quotientDualFunctor O).map s.f.op) h).ShortExact := by sorry
+def quotientDual_evaluate (O : Type u) [CommRing O] [IsDomain O] :
+    quotientDual O (ModuleCat.of O O) ≅ fractionQuotient O := by sorry
+-- TauCeti.DerivedCoefficient.test_quotient_dual_zero
+example (O : Type u) [CommRing O] [IsDomain O] :
+    IsZero (quotientDual O (0 : ModuleCat.{u} O)) := by sorry
+-- TauCeti.DerivedCoefficient.test_quotient_dual_residue
+example (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] :
+    Nonempty (quotientDual O (ModuleCat.of O (O ⧸ IsLocalRing.maximalIdeal O)) ≅
+      ModuleCat.of O (O ⧸ IsLocalRing.maximalIdeal O)) := by sorry
+-- TauCeti.DerivedCoefficient.test_quotient_dual_fraction
+example (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O] :
+    Nonempty (quotientDual O (fractionQuotient O) ≅ ModuleCat.of O O) := by sorry
+-- p7ii-finite-free-quotient-dual
+def finite_free_quotient_dual (O : Type u) [CommRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    (M : ModuleCat.{u} O) [Module.Free O M] [Module.Finite O M] :
+    quotientDual O (M ⊗ fractionQuotient O) ≅ ModuleCat.of O (Module.Dual O M) := by sorry
+-- The retained node id p7ii-dvr-pontryagin-adjoint now states only E/O-linear duality.
+def dvr_quotient_adjoint (O : Type u) [CommRing O] [IsDomain O]
     [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
     (M N : ModuleCat.{u} O) [Module.Free O M] [Module.Finite O M]
     [Module.Free O N] [Module.Finite O N] (φ : M ⟶ N) :
-    continuousQuotientDual O (kernel (φ ⊗ₘ 𝟙 (fractionQuotient O))) ≅
+    quotientDual O (kernel (φ ⊗ₘ 𝟙 (fractionQuotient O))) ≅
       (cokernel (ModuleCat.ofHom φ.hom.dualMap) : ModuleCat.{u} O) := by sorry
  def dual_degree_zero_dvr (O : Type u) [CommRing O] [IsDomain O]
     [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
     [Algebra O R] (f : R →+* O) (hf : f.comp (algebraMap O R) = RingHom.id O)
     (P : Cpx R) (l : ℤ) (hb : Bounds P 0 l) (hp : FiniteProjective P) :
     (ModuleCat.extendScalars f).obj (H 0 (perfectDual (Q P))) ≅
-      continuousQuotientDual O
+      quotientDual O
         (H 0 (Q (((extendC f).obj P) ⊗ stalk (fractionQuotient O) 0))) := by sorry
 lemma finite_module_complete [IsNoetherianRing R] (I : Ideal R) [IsAdicComplete I R]
     (M : ModuleCat.{u} R) [Module.Finite R M] : IsAdicComplete I M := by sorry
@@ -630,6 +700,19 @@ example : let C := stalk (ModuleCat.of ℤ (ZMod 2)) 0;
  def quotient_tower_derived_comparison (C : Cpx R) (I : Ideal R) (h : IsKFlat C) (n : ℕ) :
     (derivedExtension (Ideal.Quotient.mk (I ^ (n + 1)))).obj (Q C) ≅
       Q ((extendC (Ideal.Quotient.mk (I ^ (n + 1)))).obj C) := by sorry
+abbrev restrictedQuotientTerm (C : Cpx R) (I : Ideal R) (n : ℕ) : Cpx R :=
+  ((ModuleCat.restrictScalars (Ideal.Quotient.mk (I ^ (n + 1)))).mapHomologicalComplex
+    (ComplexShape.up ℤ)).obj ((extendC (Ideal.Quotient.mk (I ^ (n + 1)))).obj C)
+def quotientTowerRestrictedTerm (C : Cpx R) (I : Ideal R) (n : ℕ) :
+    restrictedQuotientTerm C I n ≅ (coefficientQuotientTower C I).obj (op n) := by sorry
+lemma quotientTowerRestrictedTerm_generator (C : Cpx R) (I : Ideal R) (n : ℕ)
+    (j : ℤ) (x : C.X j) :
+    ((quotientTowerRestrictedTerm C I n).hom.f j).hom
+      ((1 : R ⧸ I ^ (n + 1)) ⊗ₜ[R] x) =
+        (quotientTowerTerm C I n j).inv.hom ((quotientMap (I ^ (n + 1)) (C.X j)).hom x) := by sorry
+def quotient_tower_common_R_comparison (C : Cpx R) (I : Ideal R) (n : ℕ) :
+    Q (restrictedQuotientTerm C I n) ≅ Q ((coefficientQuotientTower C I).obj (op n)) :=
+  (DerivedCategory.Q : Cpx R ⥤ Der R).mapIso (quotientTowerRestrictedTerm C I n)
  def quotient_tower_homotopy {C D : Cpx R} (f g : C ⟶ D) (h : Homotopy f g)
     (I : Ideal R) (n : ℕ) :
     Homotopy (((coefficientQuotientTower_map I).map f).app (op n))
@@ -637,10 +720,36 @@ example : let C := stalk (ModuleCat.of ℤ (ZMod 2)) 0;
  def coefficient_complex_limit [IsNoetherianRing R] (I : Ideal R) [IsAdicComplete I R]
     (C : Cpx R) (a b : ℤ) (hb : Bounds C a b) (hf : ∀ i, Module.Finite R (C.X i)) :
     C ≅ limit (coefficientQuotientTower C I) := by sorry
+-- p7ii-derived-inverse-limit: strict towers retain the coherence for cone maps.
+abbrev towerProduct (C : ℕᵒᵖ ⥤ Cpx R) : Cpx R := ∏ᶜ fun n : ℕ => C.obj (op n)
+def towerOneMinusShift (C : ℕᵒᵖ ⥤ Cpx R) : towerProduct C ⟶ towerProduct C := by sorry
+lemma towerOneMinusShift_coordinate (C : ℕᵒᵖ ⥤ Cpx R) (n : ℕ) :
+    towerOneMinusShift C ≫ Pi.π (fun k : ℕ => C.obj (op k)) n =
+      Pi.π (fun k : ℕ => C.obj (op k)) n -
+        Pi.π (fun k : ℕ => C.obj (op k)) (n + 1) ≫
+          C.map (homOfLE (Nat.le_succ n)).op := by sorry
+def derivedInverseLimit : (ℕᵒᵖ ⥤ Cpx R) ⥤ Der R := by sorry
+def derivedInverseLimit_model (C : ℕᵒᵖ ⥤ Cpx R) :
+    derivedInverseLimit.obj C ≅ Q ((CochainComplex.mappingCone
+      (towerOneMinusShift C))⟦(-1 : ℤ)⟧) := by sorry
+lemma derivedInverseLimit_map_id (C : ℕᵒᵖ ⥤ Cpx R) :
+    derivedInverseLimit.map (𝟙 C) = 𝟙 (derivedInverseLimit.obj C) := by sorry
+lemma derivedInverseLimit_map_comp {C D E : ℕᵒᵖ ⥤ Cpx R} (f : C ⟶ D) (g : D ⟶ E) :
+    derivedInverseLimit.map (f ≫ g) = derivedInverseLimit.map f ≫ derivedInverseLimit.map g := by sorry
+lemma derivedInverseLimit_quasiiso {C D : ℕᵒᵖ ⥤ Cpx R} (f : C ⟶ D)
+    (hf : ∀ n : ℕ, QuasiIso (f.app (op n))) : IsIso (derivedInverseLimit.map f) := by sorry
+-- TauCeti.DerivedCoefficient.test_derived_limit_zero
+example : IsZero (derivedInverseLimit.obj (0 : ℕᵒᵖ ⥤ Cpx R)) := by sorry
+-- TauCeti.DerivedCoefficient.test_derived_limit_constant
+example (C : Cpx R) :
+    Nonempty (derivedInverseLimit.obj ((Functor.const ℕᵒᵖ).obj C) ≅ Q C) := by sorry
+-- TauCeti.DerivedCoefficient.test_derived_limit_zero_transitions
+example (C : ℕᵒᵖ ⥤ Cpx R)
+    (hz : ∀ n m : ℕ, ∀ h : n ≤ m, n < m → C.map (homOfLE h).op = 0) :
+    IsZero (derivedInverseLimit.obj C) := by sorry
  def surjective_tower_derived_limit (C : ℕᵒᵖ ⥤ Cpx R)
     (hs : ∀ n m (h : n ≤ m) j, Function.Surjective ((C.map (homOfLE h).op).f j).hom) :
-    Q (limit C) ≅ (derivedInverseLimit.obj
-      (C ⋙ (DerivedCategory.Q : Cpx R ⥤ Der R))) := by sorry
+    Q (limit C) ≅ derivedInverseLimit.obj C := by sorry
 abbrev homologyTower (C : ℕᵒᵖ ⥤ Cpx R) (j : ℤ) : ℕᵒᵖ ⥤ ModuleCat.{u} R :=
   C ⋙ (DerivedCategory.Q : Cpx R ⥤ Der R) ⋙ DerivedCategory.homologyFunctor (ModuleCat.{u} R) j
  lemma module_tower_milnor (C : ℕᵒᵖ ⥤ Cpx R)
@@ -659,15 +768,29 @@ lemma finite_length_cohomology_ml (T : ℕᵒᵖ ⥤ ModuleCat.{u} R)
     [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (C : Cpx R) (a b : ℤ)
     (hb : Bounds C a b) (hp : FiniteProjective C) (j : ℤ) :
     H j (Q C) ≅ limit (homologyTower (coefficientQuotientTower C (IsLocalRing.maximalIdeal R)) j) := by sorry
+lemma perfect_coefficient_limOne_zero [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (C : Cpx R) (a b : ℤ)
+    (hb : Bounds C a b) (hp : FiniteProjective C) (j : ℤ) :
+    IsZero (limOne (homologyTower (coefficientQuotientTower C (IsLocalRing.maximalIdeal R)) j)) := by sorry
  def perfect_derived_completion_comparison [IsNoetherianRing R] (I : Ideal R)
     (X : Der R) (hp : IsPerfect X) (C : Cpx R) (a b : ℤ) (hb : Bounds C a b)
     (hpc : FiniteProjective C) (e : Q C ≅ X) :
-    (derivedCompletion I).obj X ≅ (derivedInverseLimit.obj
-      (coefficientQuotientTower C I ⋙ (DerivedCategory.Q : Cpx R ⥤ Der R))) := by sorry
+    (derivedCompletion I).obj X ≅ derivedInverseLimit.obj (coefficientQuotientTower C I) := by sorry
+lemma perfect_completion_unit_isIso [IsNoetherianRing R] (I : Ideal R)
+    [IsAdicComplete I R] (X : Der R) (hp : IsPerfect X) :
+    IsIso ((completionUnit I).app X) := by sorry
+lemma complete_pseudo_derived_complete [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (X : Der R) (hp : IsPseudoCoherent X) :
+    IsDerivedComplete (IsLocalRing.maximalIdeal R) X := by sorry
 lemma complete_pseudo_derived_nakayama [IsLocalRing R] [IsNoetherianRing R]
     [IsAdicComplete (IsLocalRing.maximalIdeal R) R] (X : Der R) (hp : IsPseudoCoherent X)
     (h : IsZero ((derivedExtension (Ideal.Quotient.mk (IsLocalRing.maximalIdeal R))).obj X)) :
     IsZero X := by sorry
+lemma complete_pseudo_derived_nakayama_map [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] {X Y : Der R}
+    (hx : IsPseudoCoherent X) (hy : IsPseudoCoherent Y) (f : X ⟶ Y)
+    (hf : IsIso ((derivedExtension (Ideal.Quotient.mk
+      (IsLocalRing.maximalIdeal R))).map f)) : IsIso f := by sorry
  def strictTowerLimitMap (C D : ℕᵒᵖ ⥤ Cpx R) (f : C ⟶ D) : limit C ⟶ limit D :=
   lim.map f
 structure StrictTowerAction (T : Type u) [Ring T] (C : ℕᵒᵖ ⥤ Cpx R) where
@@ -745,6 +868,18 @@ lemma coefficientSpectralSequence_map_comp {C D E : Cpx R} {B B' B'' : ModuleCat
     coefficientSpectralSequence_map (f ≫ f') (g ≫ g') b hC hE =
       coefficientSpectralSequence_map f g b hC hD ≫
         coefficientSpectralSequence_map f' g' b hD hE := by sorry
+lemma coefficientSpectralSequence_map_add {C D : Cpx R} (f g : C ⟶ D)
+    (B : ModuleCat.{u} R) (b : ℤ) (hC : C.IsStrictlyLE b) (hD : D.IsStrictlyLE b)
+    (r : ℤ) (hr : 2 ≤ r) :
+    (coefficientSpectralSequence_map (f + g) (𝟙 B) b hC hD).hom r hr =
+      (coefficientSpectralSequence_map f (𝟙 B) b hC hD).hom r hr +
+        (coefficientSpectralSequence_map g (𝟙 B) b hC hD).hom r hr := by sorry
+lemma coefficientSpectralSequence_coefficient_map_add (C : Cpx R)
+    {B B' : ModuleCat.{u} R} (f g : B ⟶ B') (b : ℤ) (hC : C.IsStrictlyLE b)
+    (r : ℤ) (hr : 2 ≤ r) :
+    (coefficientSpectralSequence_map (𝟙 C) (f + g) b hC hC).hom r hr =
+      (coefficientSpectralSequence_map (𝟙 C) f b hC hC).hom r hr +
+        (coefficientSpectralSequence_map (𝟙 C) g b hC hC).hom r hr := by sorry
 -- TauCeti.DerivedCoefficient.test_spectral_free_stalk
 example (B : ModuleCat.{u} R) (hc : (stalk (ModuleCat.of R R) 0).IsStrictlyLE 0) :
     let E := coefficientSpectralSequence (stalk (ModuleCat.of R R) 0) B 0 hc;
@@ -793,6 +928,43 @@ lemma coefficient_spectral_actions {T : Type u} [Ring T] (C : Cpx R) (a : T →+
     coefficientSpectralSequence_map (a (t * u)) (𝟙 B) b hC hC =
       coefficientSpectralSequence_map (a u) (𝟙 B) b hC hC ≫
       coefficientSpectralSequence_map (a t) (𝟙 B) b hC hC := by sorry
+def coefficient_spectral_page_action {T : Type u} [Ring T] (C : Cpx R)
+    (a : T →+* End C) (B : ModuleCat.{u} R) (b : ℤ) (hC : C.IsStrictlyLE b)
+    (r : ℤ) (hr : 2 ≤ r) :
+    T →+* End ((coefficientSpectralSequence C B b hC).page r hr) := by sorry
+lemma coefficient_spectral_page_action_apply {T : Type u} [Ring T] (C : Cpx R)
+    (a : T →+* End C) (B : ModuleCat.{u} R) (b : ℤ) (hC : C.IsStrictlyLE b)
+    (r : ℤ) (hr : 2 ≤ r) (t : T) :
+    coefficient_spectral_page_action C a B b hC r hr t =
+      (coefficientSpectralSequence_map (a t) (𝟙 B) b hC hC).hom r hr := by sorry
+lemma coefficient_spectral_filtration_action {T : Type u} [Ring T] (C : Cpx R)
+    (a : T →+* End C) (B : ModuleCat.{u} R) (b : ℤ) (hC : C.IsStrictlyLE b) (n : ℤ) :
+    ∃ F : FiniteFiltration (H n (dtensor (Q C) (dstalk B 0))) (n - b) 0,
+      (∀ (p r : ℤ) (hr : 2 ≤ r), max 2 (b - n + 2) ≤ r →
+        Nonempty (F.graded p ≅ ((coefficientSpectralSequence C B b hC).page r hr).X (p, n - p))) ∧
+      ∀ (t : T) (p : ℤ) (x : H n (dtensor (Q C) (dstalk B 0))), x ∈ F.F p →
+        (Hmap n ((derivedTensor.map ((DerivedCategory.Q : Cpx R ⥤ Der R).map
+          (a t))).app (dstalk B 0))).hom x ∈ F.F p := by sorry
+lemma coefficient_spectral_action_naturality {T : Type u} [Ring T] {C D : Cpx R}
+    (a : T →+* End C) (a' : T →+* End D) (f : C ⟶ D)
+    (hf : ∀ t, a t ≫ f = f ≫ a' t) (B : ModuleCat.{u} R)
+    (b : ℤ) (hC : C.IsStrictlyLE b) (hD : D.IsStrictlyLE b) (t : T) :
+    coefficientSpectralSequence_map (a t) (𝟙 B) b hC hC ≫
+      coefficientSpectralSequence_map f (𝟙 B) b hC hD =
+        coefficientSpectralSequence_map f (𝟙 B) b hC hD ≫
+          coefficientSpectralSequence_map (a' t) (𝟙 B) b hD hD := by sorry
+lemma coefficient_spectral_graded_equivariance {T : Type u} [Ring T] (C : Cpx R)
+    (a : T →+* End C) (B : ModuleCat.{u} R) (b : ℤ) (hC : C.IsStrictlyLE b) (n : ℤ) :
+    let action := fun t : T => Hmap n
+      ((derivedTensor.map ((DerivedCategory.Q : Cpx R ⥤ Der R).map (a t))).app
+        (dstalk B 0))
+    ∃ (F : FiniteFiltration (H n (dtensor (Q C) (dstalk B 0))) (n - b) 0)
+      (hstable : ∀ (t : T) (p : ℤ) (x : H n (dtensor (Q C) (dstalk B 0))),
+        x ∈ F.F p → (action t).hom x ∈ F.F p),
+      ∀ (p r : ℤ) (hr : 2 ≤ r), max 2 (b - n + 2) ≤ r →
+        ∃ e : F.graded p ≅ ((coefficientSpectralSequence C B b hC).page r hr).X (p, n - p),
+          ∀ t : T, F.gradedMap (action t) (hstable t) p ≫ e.hom =
+            e.hom ≫ (coefficient_spectral_page_action C a B b hC r hr t).f (p, n - p) := by sorry
 section GroupCoefficients
 variable {G : Type u} [Group G] [Fintype G] (V : ModuleCat.{u} R)
 variable (ρ : Representation R G V) (K : Subgroup G) [Fintype K]
