@@ -1,3 +1,127 @@
+# PKG-AutomorphicSpectralTheory — blocked checkpoint with concrete intertwiner checks
+
+Issue #7893. Codex, session `codex-DqHM0E`, 10 October 2026.
+Branch: `codex-DqHM0E-pkg-automorphic-spectral-theory`.
+Starting explorer commit: `114805f6287ccd57cad399c3a78716c068dbc18f`.
+Claim [6096167857](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096167857)
+was confirmed by the bot in
+[6096169003](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096169003).
+None of the manager's 40 priority issues was in the open `swarm`,
+`state:available` queue. This focus package was selected before new planning;
+this session claimed only #7893.
+
+**Disposition: blocked checkpoint, not a completed package.** This submission
+repairs concrete constructions and checks in the package's `Suggested.lean`
+and updates this handoff. The README and authoritative inputs are unchanged;
+metadata remains absent. The previous continuation record below is retained,
+including the 44 target and 16 API signature omissions and source receipts.
+
+## What changed
+
+The block-permutation operator now uses Mathlib's
+`ContinuousLinearEquiv.piCongrLeft`, rather than an admitted construction.
+Its coordinate formula is proved with `Equiv.piCongrLeft_apply_eq_cast`.
+Both the inducing labels and parameter still move by the inverse permutation.
+The point-quotient identity and block-permutation integral tests now compute
+actual Dirac integrals; their named theorems and examples have no admitted proofs.
+
+The conditional `local_intertwiner.intertwines` adapter is proved using
+`ContinuousLinearMap.integral_apply`, `integral_comp_comm` and evaluation's
+`integrable_comp`. It requires an integrable operator field and pointwise
+compatibility. Its source space does not need completeness, so that inherited
+section instance is explicitly omitted. The local point-quotient identity,
+its vector test and example are proved. The continued spherical scalar example
+at q=2, z=−1 is also proved: it sends one to 3/4 and does not preserve norm.
+Altogether this replaces twelve admitted constructions/proofs/examples.
+
+These are restricted integration and reindexing checks. They do not supply
+normalized induction, genuine unipotent quotients, positive chambers, global
+Bruhat transport, meromorphic continuation or the spherical shell-identification
+proof. The local adapter comment now expressly distinguishes its assumed
+pointwise compatibility from deriving the source's equivariance by inducing
+covariance and quotient change of variables. No omitted full signature was
+reintroduced, and no gap or stage is declared closed.
+
+## Fresh source and library checks
+
+Read Arthur, *An Introduction to the Trace Formula*, §7, pp.33–35
+(equation (7.2), Lemma 7.1 and Theorem 7.2), and §21, pp.134–135
+(the local integral preceding Theorem 21.4 and equation (21.11)), in the
+[public Clay PDF](https://www.claymath.org/library/cw/arthur/pdf/62.pdf).
+The source's operators use induced compact pictures and actual unipotent
+quotients; its local normalization results concern representation-qualified
+families. This confirms why the concrete tests cannot replace those carriers.
+The existing recorded outer-rho source issue E37 is not changed by these repairs.
+PDF SHA-256: `2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510`.
+No source passage is reproduced. No restricted book was used or copied.
+
+Read all seven AS entries in the reviewed library audit. Read the current
+CompactGroups and OperatorIdeals upstream READMEs in full, and checked their
+suggested interfaces before using native operations. Their generic compact-group
+and operator-ideal plans remain their own. The actual Mathlib declarations used
+above were read at `082e2d37e8b0463410cdb532e111cd43d5a66174`; their source files
+have no working-tree modifications. Current read-only HEADs remain
+TauCetiRoadmap `201bcaee1f4014c91897d50cdb7631fc6d6a6d71` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. A case-insensitive search of their
+Lean files and READMEs for orbital integration, pseudo-coefficients, Paley–Wiener,
+pure inner forms and classical packets found only a bibliographic reference in
+AdelicAlgebraicGroups, not a supplying target. Neither tree was edited or built.
+
+## Why completion is blocked and where to resume
+
+The authoritative AS packet still has three prohibited upward prerequisites.
+AS is tier 13 and ET tier 14, outside a common bundle:
+
+| AS consumer | Current supplier | Required owner/supplier revision |
+| --- | --- | --- |
+| `AS.2/generic-normalized-intertwiner` | `EndoscopicTransferAndUnitaryTraceComparison:ET.0` | Move source-qualified classical parameter/packet data, generic unitary members and pure-inner-form conventions to a permitted owner. |
+| `AS.6/weighted-orbital-integral` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move ordinary centralizer-quotient orbital integration, convergence and singular extension down; leave endoscopic additions in ET. |
+| `AS.6/general-euler-poincare` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move the ordinary discrete-series/pseudo-coefficient input down with its real-representation and Paley–Wiener prerequisites. |
+
+Freshly reading the ET reader confirms that ET.0 builds conjugacy and endoscopic
+data, not the packet carrier needed here. AS's ET.0 request acknowledges that
+missing carrier, and its `neededBy` still omits the direct normalized-intertwiner
+consumer. ET.1 expressly owns the ordinary integration and pseudo-coefficient
+inputs. WORKERS requires these notions to move down; this issue forbids packet
+edits and permits only its package files and handoff. A coordinated owner and
+consumer revision is therefore necessary before a compliant complete package
+can be produced. Renaming citations or adding opaque predicates would not supply
+the contracts. The accepted target-level review still leaves 52 gaps and 22
+requests, seven planned stages and zero closed stages.
+
+Resume with those coordinated revisions and the retained signature worklist
+below. The fresh concrete proofs can be retained independently of the supplier
+revision. The original AS, AF and ALS input hashes remain respectively
+`c3b928e23edff50069469d0e6d6afa7dd095015d4b1d539ee044a66b24fe5e2d`,
+`e53bde2f09f2a00a0f39cc49cc0e6bc303bac666df24c48a95d4220960d890b4` and
+`07a7fa47da244817c3ada946da98676606379f31851363121ca87c9c113b9293`.
+
+## Validation
+
+- `check_blueprint.py` on AS: exit 0, zero errors and warnings; 190 nodes,
+  223 API items, 219 unit tests, 38 planets and 32 baseline declarations.
+- Full package `lean-check`: exit 0, zero errors, 741 warnings, all
+  `declaration uses sorry`, compared with 753 before this change. No other
+  warnings. Available memory before the final check was 107 GB. The shared helper's configured
+  Tau Ceti build is the atlas pin; its Mathlib HEAD is recorded above.
+- A separate elaborated probe uses byte-identical repaired blocks and checks
+  a non-involutive permutation: swapping 0/1 then 1/2 sends the coordinate
+  vector (0,1,2) to a vector with first coordinate 1, distinguishing inverse
+  from forward transport. Exit 0. `#print axioms` on all eight repaired named
+  declarations reports only `propext`, `Classical.choice` and `Quot.sound`,
+  never `sorryAx`. Other deliberately admitted spherical statements are not
+  dependencies of these repairs.
+- README inventory remains 190 target headings and 199,983 UTF-8 bytes;
+  all 223 API and 219 test leaf-name labels occur. This checks labels, not
+  the omitted signatures or full source faithfulness.
+- Intake file validation and `git diff --check` pass for the two changed
+  deliverables. No Lean process remains. Scratch source files and logs are
+  disposable; all required continuation information is in this note.
+
+---
+
+# Preceding checkpoint — codex-Rx9WK1
+
 # PKG-AutomorphicSpectralTheory — current blocked checkpoint
 
 Issue #7893. Codex, session `codex-Rx9WK1`, 10 October 2026.
