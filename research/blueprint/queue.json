@@ -47766,8 +47766,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7469"
+   "state": "external",
+   "note": "claimed on GitHub issue #7469"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
@@ -47860,7 +47860,8 @@
    ],
    "revisionOf": "PKG-EllipticCurveModularityImaginaryQuadratic",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7898"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic~2",
@@ -48402,7 +48403,8 @@
    ],
    "revisionOf": "PKG-HabiroCohomologyFoundations",
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7903"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~2",
@@ -49046,7 +49048,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-KatoEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7908"
   },
   {
    "id": "REV-PKG-KatoEulerSystems",
@@ -49869,8 +49872,9 @@
     "PKG-VectorBundlesAndIsocrystals~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VectorBundlesAndIsocrystals~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7942"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7942",
+   "finishedAt": "2026-10-10T00:10:10Z"
   },
   {
    "id": "PKG-WeightsInEtaleCohomology",
@@ -81710,8 +81714,8 @@
     "FIX-RT-AREA-padic-1~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5704"
+   "state": "pending",
+   "note": "released on GitHub issue #5704"
   },
   {
    "id": "RT-AREA-padic-2",
@@ -105342,9 +105346,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md",
-   "note": "claimed on GitHub issue #8074"
+   "note": "deliverables arrived from an external worker on issue #8074",
+   "finishedAt": "2026-10-10T00:10:14Z"
   },
   {
    "id": "PKG-GeneralAlgebraicKTheory~codex",
