@@ -16,224 +16,224 @@
         "kind": "structure",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "Native additive characters; character multiplication notation has trivial character 1 (also additive zero).",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "Every nonzero field multiplier gives a nontrivial shifted character.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.FiniteField.primitiveChar",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "A primitive character constructed through the trace and a primitive root in a cyclotomic extension, when target and source characteristics differ; not a chosen complex canonical character.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.to_mulShift_inj_of_isPrimitive",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "Injectivity of a primitive character’s shift parametrisation.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.card_eq",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
         "provides": "Complex additive dual of a finite additive commutative group has the same cardinality.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.complexBasis",
         "kind": "def",
         "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
         "provides": "Native complex character basis of functions on a finite additive commutative group.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.complexBasis_apply",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
         "provides": "The basis vector is the character itself.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.sum_eq_ite",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "Row orthogonality: sum is card at the trivial character, otherwise zero.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:AddChar.sum_apply_eq_ite",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
         "provides": "Complex column orthogonality for an arbitrary finite additive commutative group.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:MulChar",
         "kind": "structure",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "Native monoid characters sending nonunits to zero; over a field all characters, including 1, vanish at zero.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:MulChar.sum_eq_zero_of_ne_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "Sum over a finite commutative monoid of a nontrivial domain-valued MulChar is zero.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:MulChar.sum_one_eq_card_units",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "The trivial MulChar sum counts units, hence q−1 over a finite field.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum",
         "kind": "def",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Native finite commutative ring sum ∑x χ(x)ψ(x).",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_mulShift_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "For unit a, g(χ,ψ_a)=χ⁻¹(a)g(χ,ψ).",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:star_gaussSum_eq",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Complex conjugation inverts both characters in the Gauss sum.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_one_left",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "For nontrivial additive ψ, g(1,ψ)=−1.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "For χ≠1 and primitive ψ over a finite field, g(χ,ψ)g(χ⁻¹,ψ⁻¹)=q.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_sq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "For nontrivial quadratic χ and primitive ψ, g(χ,ψ)²=χ(−1)q.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_ne_zero_of_nontrivial",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Nonzero cardinality in the target, χ≠1 and primitive ψ imply g(χ,ψ)≠0.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:jacobiSum_one_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
         "provides": "Zero-extended trivial characters give J(1,1)=q−2.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:jacobiSum_eq_gaussSum_mul_gaussSum_div_gaussSum",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
         "provides": "If χφ≠1, primitive ψ and nonzero target cardinality, J(χ,φ)=gχ gφ/gχφ.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:jacobiSum_mul_jacobiSum_inv",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
         "provides": "If χ,φ,χφ are nontrivial and characteristics differ, J(χ,φ)J(χ⁻¹,φ⁻¹)=q.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:gaussSum_pow_eq_prod_jacobiSum",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/JacobiSum/Basic.lean",
         "provides": "For n=orderOf χ≥2 and primitive ψ, gχⁿ=χ(−1)q∏_{1≤i<n−1}J(χ,χⁱ).",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:legendreSym.quadratic_reciprocity",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
         "provides": "Quadratic reciprocity for distinct odd primes, with prime instances; the proof uses the built quadratic character/Gauss identities.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Polynomial.degreeLT",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
         "provides": "Native coefficient-vanishing submodule of polynomials of degree strictly less than n.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Polynomial.degreeLTEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
         "provides": "Linear coefficient equivalence degreeLT F n ≃ F^{Fin n}; inverse is the finite monomial sum.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Polynomial.monomial_coe_mem_degreeLT",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Polynomial/Basic.lean",
         "provides": "Monomials with exponent i:Fin n belong to the native degree bound.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Polynomial.lcoeff",
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
         "provides": "Coefficient extraction as an R-linear map.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Polynomial.leval",
         "kind": "def",
         "module": "Mathlib/Algebra/Polynomial/Eval/SMul.lean",
         "provides": "Polynomial evaluation as an R-linear map.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Nat.digits",
         "kind": "def",
         "module": "Mathlib/Data/Nat/Digits/Defs.lean",
         "provides": "Least-significant-first native base-p digits; zero has empty digit list.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "mathlib:Fintype.prod_sum",
         "kind": "lemma",
         "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
         "provides": "Finite dependent product of sums equals the sum over tuples of the product, for a commutative semiring.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       },
       {
         "ref": "tauceti:CommGroup.sum_monoidHom_apply_eq_ite",
         "kind": "theorem",
         "module": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
         "provides": "Column orthogonality on any finite commutative group into a domain with enough roots of unity; specialises to F_qˣ for all prime powers.",
-        "checked": "Actual statement and surrounding hypotheses read in the exact pinned source on 2026-10-05; declaration index used only to locate it."
+        "checked": "Independently read the declaration and its surrounding hypotheses at the exact pinned commit on 2026-10-10 for REV-FiniteFieldsAndCharacterSums--FF.1~2; confirmed its stated use and conventions."
       }
     ]
   },
@@ -245,7 +245,7 @@
       "edition": "Public author notes, version of 14 September 2021",
       "url": "https://people.math.ethz.ch/~kowalski/exponential-sums-elementary.pdf",
       "sha256": "ff30b82d143cedcaf76f1ef2f15a49856c0eabc2c95ba7ac0da2e3e43da9a866",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "Proposition 1.10 and proof, pp.12–13",
         "Proposition 1.13, p.14; multiplicative zero convention p.15",
@@ -259,7 +259,7 @@
       "edition": "2007 Springer GTM 240, ISBN 978-0-387-49893-5; public scan with publisher imprint, not a table of contents",
       "url": "https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf",
       "sha256": "e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "Theorem 11.6.14 and entire proof, pp.372–375",
         "Theorem 11.7.5 and Corollary 11.7.6, pp.386–387",
@@ -275,7 +275,7 @@
       "edition": "Public author notes, undated",
       "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/Gauss-Jacobi-sums.pdf",
       "sha256": "546796c67f82b251c416dcfd10a20602e77efe3c63f0df8749d1e22831d163b7",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "Appendix, p.19, lifting sign and multiplication formula (A.6), including footnotes 8–9"
       ]
@@ -287,7 +287,7 @@
       "edition": "arXiv:2206.07759v2 (17 October 2023); published Annals of Mathematics 199 (2024)",
       "url": "https://arxiv.org/pdf/2206.07759v2",
       "sha256": "36beb2d3eccb42161a0b6190a653b060337f08fed5866f6b578888d503346758",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "Proof of Lemma 5.2, arXiv pp.8–9, including the all-polynomial interpolation step and the separate squarefree induction"
       ]
@@ -299,7 +299,7 @@
       "edition": "Last modified 30 November 2008",
       "url": "https://www.math.u-bordeaux.fr/~cohen/deabookerrata.pdf",
       "sha256": "a2f5e8a3897494a2b7727019fdda1f47ac97af5b6528685e0c024a29aa786fa4",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "Volume II errata, pp.3–5; search entire file for pp.390–391 and Lemma 11.7.12"
       ]
@@ -812,7 +812,7 @@
       "source": "Cohen-II-public",
       "kind": "misprint",
       "locator": "Lemma 11.7.12, printed p.390 and repeated in its proof p.391, 2007 Springer scan (PDF pp.412–413); page images personally checked",
-      "printed": "π/(ζ_p − 1) ≡ 1 (mod 𝔭ℤ_K)",
+      "printed": "The chosen-root ratio is stated to reduce to one modulo the selected prime ideal in the ring of integers.",
       "correction": "No correction to the source: the printed modulus is the fraktur prime ideal 𝔭, giving the intended maximal-ideal congruence, equivalently π ≡ ζ_p−1 modulo (ζ_p−1)². Retain this entry only as a rejected allegation.",
       "reason": "The original packet transcribed the fraktur ideal 𝔭 as the rational integer p. Both occurrences on printed pp.390–391 (PDF pp.412–413) use the EUFM10 fraktur font; ordinary p in π^(p−1)=−p uses the distinct CMMI10 math-italic font. Rendered page images confirm the distinction. The p=3 valuation calculation refutes a stronger rational-prime congruence that the source never states, so it is not evidence of a source misprint.",
       "affects": "nothing",
@@ -824,8 +824,8 @@
       ],
       "review": {
         "verdict": "rejected",
-        "reason": "The original packet transcribed the fraktur ideal 𝔭 as the rational integer p. Both occurrences on printed pp.390–391 (PDF pp.412–413) use the EUFM10 fraktur font; ordinary p in π^(p−1)=−p uses the distinct CMMI10 math-italic font. Rendered page images confirm the distinction. The p=3 valuation calculation refutes a stronger rational-prime congruence that the source never states, so it is not evidence of a source misprint.",
-        "by": "REV-FiniteFieldsAndCharacterSums--FF.1"
+        "reason": "Independently rendered and inspected printed pp.390–391 (PDF pp.412–413) of the recorded 2007 scan on 2026-10-10. Both chosen-root occurrences visibly use the fraktur prime ideal, distinct from the ordinary rational prime in the root equation. The maximal-ideal normalization is already the source statement. The author errata, Volume II entries on PDF pp.3–5, also contains no correction at these pages; the earlier valuation objection addresses a stronger statement that Cohen did not print.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.1~2"
       }
     },
     {
@@ -833,7 +833,7 @@
       "source": "Cohen-II-public",
       "kind": "misprint",
       "locator": "Theorem 11.6.14, printed p.372 first line, 2007 scan",
-      "printed": "The source requires n ≥ 1 with p ∤ n.",
+      "printed": "The first line calls the positive multiplier n, whereas the displayed distribution identity and its argument call it N.",
       "correction": "Use N in place of n in both occurrences; N is the multiplier throughout the displayed distribution identity and its proof.",
       "reason": "The remainder of the theorem uses N for the same multiplier; the author explicitly corrects both occurrences.",
       "affects": "nothing",
@@ -843,8 +843,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The public 2007 scan prints n in the first line of Theorem 11.6.14, while the formula and proof use N. Cohen’s errata dated 30 November 2008, PDF p.4, Volume II p.372 entry, explicitly says to replace n by N twice. The packet already uses the corrected multiplier.",
-        "by": "REV-FiniteFieldsAndCharacterSums--FF.1"
+        "reason": "Independently read Theorem 11.6.14, printed p.372 (PDF p.394), and Cohen’s author errata dated 30 November 2008, PDF p.4. The theorem’s first-line multiplier differs from the multiplier used in its formula and proof; the errata corrects both first-line occurrences to N. This packet already uses the corrected variable.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.1~2"
       }
     }
   ],
@@ -860,55 +860,55 @@
       "kind": "published",
       "url": "https://maths.dur.ac.uk/users/herbert.gangl/ch.pdf",
       "citation": "Henri Cohen, Number Theory II, Springer GTM 240 (2007), copyright and ISBN pages read; publicly hosted scan",
-      "read": "2026-10-05",
+      "read": "2026-10-10",
       "sha256": "e25889069c18eee932088e1b9264c614ce883bb394a03cb3a109f5859ab57ca0"
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.1",
-    "date": "2026-10-05",
-    "notes": "All 8 nodes, 32 pinned baseline declarations, 5 public source versions, 6 API items, 5 definition tests, 4 planets and confirmed RT-AREA-finitefields/7–10 were checked. Four nodes were corrected in scope; no nodes or baseline citations were added or removed. E750 is rejected because Cohen prints the fraktur prime ideal 𝔭; E751 is confirmed from the author errata. The mathematical packet is a sound complete planning pass with its honest two-input analytic gap. Acceptance is withheld because the input reader still alleges the rejected E750 misprint in its source-audit paragraphs and lists four definition tests rather than the revised five. That reader is not an authorized deliverable of this review; the report supplies the exact correction required before acceptance.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.1~2",
+    "date": "2026-10-10",
+    "notes": "Codex — codex-mANpiX independently checked all 8 nodes, 32 pinned declarations, 15 direct supplier nodes and the RD.6 request stage, all 5 public source versions, 6 construction APIs, 5 definition tests, 4 planets, the audit/RS-03 ownership and qualified findings RT-AREA-finitefields/7–10. Both prior reader blockers are corrected. E750 is independently rejected from page images; E751 is confirmed from the author errata. Replaced the two printed-field transcriptions with authored descriptions and refreshed reading/review receipts; no mathematical node, prerequisite, baseline citation, API or suggested signature changed. Recursive closure has 137 nodes and 590 edges, no cycle or unresolved node leaf. The checker passes and the pinned suggested file elaborates with only expected admission warnings. This is an accepted complete planning pass, with FF.1 planned and the existing one analytic gap/two precise RD.6 requests retained; no formalisation or source closure is claimed.",
     "checked": [
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/finite-field-fourier-transport",
         "verdict": "verified",
-        "note": "AC.0 supplies normalized dual-indexed inversion and Parseval and the native-basis comparison; the predecessor supplies the primitive-character shift bijection. Reindexing over the actual field is valid, including F₄, and adds no second Fourier transform."
+        "note": "The native complex-basis coordinates equal the normalized AC.0 transform. Its inversion/reindexing and Parseval APIs, together with the predecessor primitive-shift bijection, supply the two identities on the actual additive group of F. This includes noncyclic extension fields."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/multiplicative-fourier-boundary-coefficients",
-        "verdict": "corrected",
-        "note": "Confirmed the native zero-extension and χ⁻¹(−a) convention. Removed the older nontrivial-only Fourier expansion from direct prerequisites: the proof derives all coefficients from the exact AC.0 comparison and native row/shift lemmas. Compatibility with the older target remains in proofSteps."
+        "verdict": "verified",
+        "note": "Native zero extension gives the two zero-frequency cases. Complex conjugation changes the additive multiplier to −a; the native unit-shift theorem then gives χ⁻¹(−a), including the trivial-character value −1/q at nonzero frequencies."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/digit-product-distribution",
         "verdict": "verified",
-        "note": "Read Cohen’s cyclic Gamma proof and all four exact L3 suppliers. Padded cyclic digits, precision-one Gamma recurrence and unit factorial reduction give the stated exponent and boundaries. Independently checked 11038 finite digit/factorial cases, including p=2, b=0 and m=1."
+        "note": "Cohen’s cyclic Gamma distribution and the four exact L3 suppliers justify the digit-sum and factorial identities. Precision-one reduction applies also at p=2; b=0 and m=1 are separated. Independent exact enumeration passed 17517 cases, including 69 binary cases."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-completion",
-        "verdict": "corrected",
-        "note": "Confirmed Conrad (A.6), Cohen Theorem 11.7.16, exact Gamma-quotient orientation, m source-negative signs on each side, character permutation, primitive-shift transport and binary case. Corrected the false E750 source attribution. Both native RD.6 analytic inputs remain explicitly requested; the target is planned, not closed."
+        "verdict": "verified",
+        "note": "Conrad (A.6) and Cohen Theorem 11.7.16(1) support the exact intervals, multiplier and trivial-character exceptions. The exact Gamma quotient supplies the prime-to-p root identity, including p=2. The L3 comparison is used only with the two explicitly requested RD.6 analytic inputs; the unconditional target remains planned with that recorded gap."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-polynomial-evaluation",
-        "verdict": "corrected",
-        "note": "The native degreeLT inclusion followed by leval/lcoeff implements the prescribed ambient degree and standard projective representatives. Six API items cover the uses. Added a fifth finite-nonzero-point test and matching suggested example to catch evaluation at zero for every finite point."
+        "verdict": "verified",
+        "note": "The constructor composes the native degreeLT inclusion with leval or the ambient coefficient map lcoeff. Its six APIs and five discriminating tests match the corrected reader and elaborated suggested file; the fixed projective representatives and degree-zero boundary are explicit."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-two-evaluation-uniform",
         "verdict": "verified",
-        "note": "For distinct finite points solve the constant and linear coefficients; with infinity solve the degree-d and constant coefficients. This proves surjectivity and fibers q^(d−1) for d≥1, including d=1. Independently enumerated 144 point/degree cases."
+        "note": "Solving two coefficient equations at distinct finite points, or the top and constant coefficients with infinity, yields both surjectivity and q^(d−1) fibres for d≥1. Independent enumeration passed 192 ordered-point/degree cases."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/projective-two-point-character-sum",
         "verdict": "verified",
-        "note": "Uniform fibers and native MulChar row sums prove the all-character product formula and its nontrivial vanishing specialization. The BFP all-polynomial interpolation step is covered without claiming its separate squarefree induction; trivial/trivial gives q^(d−1)(q−1)^2."
+        "note": "Uniform fibre counting followed by native multiplicative row sums proves the all-character identity and nontrivial vanishing. This supplies only BFP’s all-polynomial interpolation ingredient; its squarefree induction is outside this target."
       },
       {
         "nodeId": "FiniteFieldsAndCharacterSums:FF.1/gauss-sum-finite-product-factorisation",
-        "verdict": "corrected",
-        "note": "Native Gauss sums unfold to Fintype.prod_sum for explicitly factored characters, including an empty index type. Removed norm/trace lifts from direct prerequisites because they are application data, not inputs to this elementary proof; the application remains described in the node."
+        "verdict": "verified",
+        "note": "Given the component character factorisations, the native Gauss sum reduces directly to Fintype.prod_sum. The statement allows trivial characters and the empty product; norm/trace lifts are application data, so no extra direct dependency is needed."
       }
     ]
   }
