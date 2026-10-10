@@ -1961,7 +1961,7 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 - `tweaked_S_two_thirds`: At weight zero the entry is exp(vσ/6).
 - `tweaked_sign`: Negating S leaves the entries and diagonal unchanged; S,0 admits no pole-free GL lift.
 
-**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.1, equation (3.5) and Lemma 3.1, p. 16 (subtract the second fraction in the displayed proof); §4.2, equations (4.14)–(4.15), p. 30.
+**Sources.** [Knots, perturbative series and quantum modularity][GZ], §3.1, equation (3.5) and Lemma 3.1, p. 16 (subtract the second fraction in the displayed proof); §4.5, equations (4.14)–(4.15), p. 30.
 
 <a id="qt-7-generalized-quantum-modularity"></a>
 
@@ -2044,8 +2044,8 @@ Given the selected knot matrix J(x) with invertible values and a diagonal tweake
 **Unit tests.**
 
 - `matrixCocycle_constant`: J=I and j̃=I give W=I.
-- `matrixCocycle_noncommutative_order`: The composition multiplies Wγ(γ′x) before Wγ′(x).
-- `matrixCocycle_singular_J`: A singular J(x) does not define a GL-valued W by this formula.
+- `matrixCocycle_noncommutative_order`: With j̃=I, J(−1/2)=I, J(2)=(1 1;0 1), J(1)=(1 0;1 1), W_(ST)(1) has entry (0,0)=1; reversing its factors gives 0.
+- `matrixCocycle_singular_J`: The matrix (1 1;0 0) has zero determinant and no GL lift.
 
 **Sources.** [Knots, perturbative series and quantum modularity][GZ], §5 introduction, equations (5.1)–(5.3), pp. 30–31.
 

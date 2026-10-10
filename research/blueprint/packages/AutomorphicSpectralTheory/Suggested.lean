@@ -1,8 +1,9 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so contributors converge on names and signatures.
-Proofs and constructions are provisional. Conditions without a native supplier carrier
-are explicitly omitted in the adjoining comments, never replaced by opaque propositions.
+Proofs and constructions are provisional. Supplier conditions and explicit omissions are
+documented locally and in the handoff. Remaining inherited signatures need a source-fidelity
+audit; the joined file is not a completed package. No new generic owner is introduced.
 The projection-valued-measure and fixed-basis Schatten models are compatibility sketches
 for SelfAdjointSpectralTheory and OperatorIdeals, rather than additional generic owners.
 -/
@@ -4829,10 +4830,18 @@ def compactLogSeed (g : Multiplicative ℝ) : ℂ :=
 def trivialLattice : Unit → Multiplicative ℝ := fun _ => 1
 
 
-theorem operator {X : Type w} [MeasurableSpace X] (μ : Measure X)
-    (representative : X → G) (rational : J → G) (f : G → ℂ) (u : X → ℂ)
-    (R : (X → ℂ) →ₗ[ℂ] (X → ℂ)) (x : X) :
-    R u x = ∫ y, automorphic_kernel rational f (representative x) (representative y) * u y ∂μ := by sorry
+/- automorphic_kernel.operator requires right convolution on the actual arithmetic
+quotient, a fundamental-domain/quotient-measure comparison, and the source test domain.
+The numerical periodized kernel does not represent an independently chosen linear map.
+The source-qualified signature is omitted until those carriers are supplied. -/
+
+-- A periodized zero kernel does not represent an independently chosen identity map.
+example :
+    ((LinearMap.id : (Unit → ℂ) →ₗ[ℂ] (Unit → ℂ)) (fun _ => 1)) () ≠
+      ∫ _y : Unit, automorphic_kernel (fun _ : Unit => (1 : Multiplicative ℤ))
+        (fun _ => (0 : ℂ)) 1 1 * 1 ∂Measure.dirac () := by
+  simp [automorphic_kernel]
+
 
 def constant_term {N : Type w} [MeasurableSpace N] (ν : Measure N)
     (leviRational : J → G) (unipotent : N → G) (f : G → ℂ) (x y : G) : ℂ :=
@@ -4896,14 +4905,18 @@ def cuspDiagonal (T : ℝ) : ℝ → ℂ :=
     (fun _ _ _ => 1)
 
 
-/-- Summability of geometric/spectral class diagonals and quotient realization are omitted
-until the class-kernel interface is integrated; indices are not put in bijection. -/
-theorem decomposition {O C : Type*} [Countable O] [Countable C]
-    (total : ℂ) (geometric : O → ℂ) (spectral : C → ℂ) :
-    HasSum geometric total ∧ HasSum spectral total := by sorry
+/- coarse_truncated_kernel.decomposition requires the geometric/spectral class kernels
+of the same convolution test and the absolute integrated class-convergence theorem.
+coarse_truncated_kernel.levi_translation requires rational Levi constant-term functions
+and the actual Gamma-prime cone integrals. Independent scalars or height functions do not
+satisfy either identity. Both source-qualified signatures are omitted. -/
 
-theorem levi_translation (J shifted : ℝ → ℂ) (coneContribution : ℝ → ℝ → ℂ) (T H : ℝ) :
-    J (T + H) = shifted T + coneContribution T H := by sorry
+-- Zero summands cannot have an independently chosen nonzero class total.
+example : ¬ HasSum (fun _ : Unit => (0 : ℂ)) 1 := by
+  intro h
+  have hx := h.tsum_eq
+  norm_num at hx
+
 
 def canonical_value (polynomial : ℝ → ℂ) (T₀ : ℝ) : ℂ := polynomial T₀
 
@@ -4945,12 +4958,19 @@ example {P : Type u} [Fintype P] {X : Type v}
 
 end coarse_truncated_kernel
 
-/-- Regular T relative to test support, and the class-kernel coherence, are omitted supplier
-conditions. Both absolute integrated class sums are explicitly part of the target. -/
-theorem coarse_trace_identity {O C : Type u} [Countable O] [Countable C]
-    (geometric : O → ℂ) (spectral : C → ℂ) :
-    Summable (fun o => ‖geometric o‖) ∧ Summable (fun c => ‖spectral c‖) ∧
-      (∑' o, geometric o) = ∑' c, spectral c := by sorry
+/- coarse_trace_identity is omitted until both class-integral families are constructed
+from one smooth compactly supported arithmetic test and sufficiently regular truncation.
+Arthur §14, Theorem 14.1, pp.74–77, and §16, equation (16.1), pp.88–89,
+relate the actual class kernels and their convergent integrals;
+absolute convergence and equality are not assertions about arbitrary scalar sequences. -/
+
+-- Independent geometric and spectral arrays need not have the same total.
+example : ¬ ∀ (geometric spectral : Unit → ℂ),
+    (∑' o, geometric o) = ∑' c, spectral c := by
+  intro h
+  have hx := h 0 (fun _ => 1)
+  norm_num at hx
+
 
 /-- One-complex-variable holomorphic restriction of a smooth (G,M)-family. The full finite
 root-datum and real smooth carrier are omitted. Wall conditions themselves are explicit. -/
@@ -4972,15 +4992,15 @@ theorem wall {P : Type u} {A : Set (P × P)} {w : P × P → ℂ → ℂ} {U : S
 
 def product {P : Type u} {A : Set (P × P)} {w : P × P → ℂ → ℂ} {U : Set ℂ}
     (c d : gm_family P A w U) : gm_family P A w U :=
-  ⟨fun p z => c.member p z * d.member p z, by sorry, by sorry⟩
+  { member := fun p z => c.member p z * d.member p z
+    analytic := fun p => (c.analytic p).mul (d.analytic p)
+    wall_agreement := fun pq hAdj z hz hWall => by
+      rw [c.wall_agreement pq hAdj z hz hWall, d.wall_agreement pq hAdj z hz hWall] }
 
-/-- Root/θ coherence in the given parabolic interval is omitted; cancellation of the whole
-sum is proved, not assumed as the wall condition. -/
-theorem regularized_sum {P : Type u} [Fintype P] {A : Set (P × P)}
-    {w : P × P → ℂ → ℂ} {U : Set ℂ} (c : gm_family P A w U)
-    (theta : P → ℂ → ℂ) (hU : IsOpen U) :
-    ∃ g : ℂ → ℂ, AnalyticOnNhd ℂ g U ∧
-      ∀ z ∈ U, (∀ p, theta p z ≠ 0) → g z = ∑ p, c.member p z / theta p z := by sorry
+/- gm_family.regularized_sum requires the actual relative-root denominator, its coroot
+covolume, and the matching parabolic adjacency. Arbitrary theta functions do not have
+removable poles. The full signature is omitted; rank_one below uses exactly +z and -z,
+so its wall equality cancels the pole as in Arthur §17, Lemma 17.1, p.94. -/
 
 theorem rank_zero (c : gm_family Unit ∅ (fun _ _ => 1) Set.univ) :
     zeroValue c (fun _ _ => 1) = c.member () 0 := by sorry
@@ -5016,12 +5036,83 @@ example  :
     ¬ ∃ c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ,
       (∀ z, c.member true z = 1) ∧ (∀ z, c.member false z = 0) := by sorry
 
+/-- Two-chamber product identity, using the existing rank-one zero-value theorem.
+This proves a specialization, not the general-Levi splitting/descent signature. -/
+theorem rank_one_product
+    (c d : gm_family Bool {(true, false)} (fun _ z => z) Set.univ) :
+    zeroValue (product c d) (fun b z => if b then z else -z) =
+      zeroValue c (fun b z => if b then z else -z) * d.member true 0 +
+      c.member true 0 * zeroValue d (fun b z => if b then z else -z) := by
+  rw [(rank_one (product c d)).2, (rank_one c).2, (rank_one d).2]
+  have hc := c.wall_agreement (true, false) (by simp) 0 (by simp) rfl
+  have hd := d.wall_agreement (true, false) (by simp) 0 (by simp) rfl
+  change deriv (fun z => c.member true z * d.member true z) 0 -
+      deriv (fun z => c.member false z * d.member false z) 0 = _
+  rw [deriv_fun_mul ((c.analytic true 0 (by simp)).differentiableAt)
+      ((d.analytic true 0 (by simp)).differentiableAt),
+    deriv_fun_mul ((c.analytic false 0 (by simp)).differentiableAt)
+      ((d.analytic false 0 (by simp)).differentiableAt)]
+  change c.member true 0 = c.member false 0 at hc
+  change d.member true 0 = d.member false 0 at hd
+  rw [← hc, ← hd]
+  ring
+
+/-- Analytic rank-one families with a common wall value. -/
+def affineFamily (base plusSlope minusSlope : ℂ) :
+    gm_family Bool {(true, false)} (fun _ z => z) Set.univ where
+  member b z := base + (if b then plusSlope else minusSlope) * z
+  analytic b := by fun_prop
+  wall_agreement pq _ z _ hz := by simp_all
+
+theorem affineFamily_zeroValue (base plusSlope minusSlope : ℂ) :
+    zeroValue (affineFamily base plusSlope minusSlope)
+      (fun b z => if b then z else -z) = plusSlope - minusSlope := by
+  rw [(rank_one _).2]
+  simp [affineFamily]
+
+-- Three tests of the actual common-wall family, including a zero and nonzero coefficient.
+example (a b : ℂ) :
+    zeroValue (affineFamily 1 a b) (fun s z => if s then z else -z) = a - b := by
+  exact affineFamily_zeroValue 1 a b
+
+example (a : ℂ) :
+    zeroValue (affineFamily 2 a a) (fun s z => if s then z else -z) = 0 := by
+  rw [affineFamily_zeroValue]
+  ring
+
+example :
+    zeroValue (affineFamily 2 3 1) (fun s z => if s then z else -z) = 2 := by
+  rw [affineFamily_zeroValue]
+  norm_num
+
+example (a b u v : ℂ) :
+    zeroValue (product (affineFamily 1 a b) (affineFamily 1 u v))
+      (fun s z => if s then z else -z) = (a - b) + (u - v) := by
+  rw [rank_one_product, affineFamily_zeroValue, affineFamily_zeroValue]
+  simp [affineFamily]
+
+example :
+    zeroValue (product (affineFamily 2 3 1) (affineFamily 5 7 4))
+      (fun s z => if s then z else -z) = 16 := by
+  rw [rank_one_product, affineFamily_zeroValue, affineFamily_zeroValue]
+  norm_num [affineFamily]
+
+-- Counterexample to the former gm_splitting signature with an independent total.
+example : ¬ ∀ (productValue : ℂ) (c d : Unit → ℂ),
+    productValue = ∑ l, c l * d l := by
+  intro h
+  have hx := h 1 0 0
+  norm_num at hx
+
+
 end gm_family
 
-/-- The lower-Levi partial family and determinant coefficient carrier is omitted. This
-finite summation is the compatible-product formula, not a formula for arbitrary families. -/
-theorem gm_splitting {L : Type*} [Fintype L] (productValue : ℂ) (c d : L → ℂ) :
-    productValue = ∑ l, c l * d l := by sorry
+/- gm_splitting requires actual partial families c_M^Q, the prime transforms d_Q',
+restriction to Levi parameter spaces and fixed-measure determinant coefficients.
+Arthur §17, Lemmas 17.4–17.6, pp.97–101, relates those constructions; it does not
+relate an independently chosen scalar to arbitrary functions. The full signature
+is omitted. gm_family.rank_one_product proves the two-chamber product calculation;
+it supplies no general-Levi descent carrier. -/
 
 /-- The quotient, discriminant and imported ET orbital carrier are arguments. Connected
 centralizer equality is required for this integral; singular induction uses a separate limit. -/
@@ -5151,21 +5242,17 @@ example  :
 end weighted_character
 end WeightedCharacters
 
-/-- Finite geometric sum at sufficiently large S depending on support. The coefficient
-construction in semisimple centralizers and (M,S)-equivalence are omitted pending ET. -/
-theorem fine_geometric_expansion {M : Type u} [Fintype M] {C : M → Type v}
-    [∀ m, Fintype (C m)] (a J : ∀ m, C m → ℂ) (weyl : M → ℚ) (total : ℂ) :
-    total = ∑ m, (weyl m : ℂ) * ∑ gamma, a m gamma * J m gamma := by sorry
+/- fine_geometric_expansion requires the arithmetic coefficients, (M,S)-classes,
+weighted orbital distributions and one common test function. The source-qualified
+signature is omitted: arbitrary a, J, Weyl weights and total have no such relation.
+The full target is Arthur §19, Corollary 19.3, equation (19.10), pp.114–115. -/
 
-/-- Each height's integral is absolutely convergent and the outer height totals are
-absolutely summable. Joint absolute convergence inside the outer sum is not asserted.
-The corrected determinant space is a_M^L, verified in Arthur05 (21.5) and
-Corollary21.3; the later (21.17) misprint is recorded in sourceIssues. -/
-theorem fine_spectral_expansion {X : Type u} [MeasurableSpace X] (μ : Measure X)
-    (integrand : ℕ → X → ℂ) (total : ℂ) :
-    (∀ t, Integrable (integrand t) μ) ∧
-      Summable (fun t => ‖∫ x, integrand t x ∂μ‖) ∧
-        HasSum (fun t => ∫ x, integrand t x ∂μ) total := by sorry
+/- fine_spectral_expansion requires the discrete inducing spectrum, the normalized
+weighted-character integrands and the common Hecke test. Its full signature is omitted.
+The full target retains integrability at each height, summability of the outer height
+integrals, and determinant on a_M^L; it does not assert joint absolute convergence of
+all spectral variables or integrability for arbitrary functions. See Arthur §21,
+Theorem 21.6 and Corollary 21.7, pp.137–138, including Remarks 3–4. -/
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -5313,19 +5400,26 @@ example (J : E →ₗ[ℂ] ℂ) (phi : Unit → E →ₗ[ℂ] F)
 end invariant_recursion
 end Invariance
 
-/-- Corrected Hecke test domain, stable finite geometric limit, and height-truncated
-absolute spectral convergence. The coefficient/distribution objects and multiplier tail
-bound are omitted until AS.6's lower-Levi and real PW carriers are integrated. -/
-theorem invariant_trace_formula (geometric spectral : ℕ → ℂ) (I : ℂ) :
-    (∃ N, ∀ n, N ≤ n → geometric n = I) ∧ Tendsto spectral atTop (𝓝 I) := by sorry
+/- invariant_trace_formula requires the recursively invariantized distributions, one
+Hecke test, compatible arithmetic coefficients and the source spectral tail estimates.
+Its source-qualified signature is omitted; unrelated numerical sequences cannot be
+asserted to stabilize or converge to an arbitrary I. See Arthur §23, Theorem 23.4,
+equations (23.11)–(23.13), pp.151–153. -/
 
-/-- Compact automorphic quotient and smooth compact convolution are required. These
-arithmetic/smooth carrier conditions are omitted; trace class and the diagonal formula
-are actual conclusions. The centralizer convention is fixed in the reader. -/
-theorem compact_trace_specialization {H : Type u} [NormedAddCommGroup H]
-    [InnerProductSpace ℂ H] [CompleteSpace H] {X : Type v} [MeasurableSpace X]
-    (μ : Measure X) (A : Operator H) (kernel : X → X → ℂ) :
-    ∃ T : trace_class H, T.val = A ∧ operatorTrace T = ∫ x, kernel x x ∂μ := by sorry
+-- Stabilization at an independent scalar is already false for a zero sequence.
+example : ¬ ∀ (geometric : ℕ → ℂ) (I : ℂ),
+    ∃ N, ∀ n, N ≤ n → geometric n = I := by
+  intro h
+  obtain ⟨N, hN⟩ := h 0 1
+  have hx := hN N le_rfl
+  norm_num at hx
+
+
+/- compact_trace_specialization requires a compact arithmetic quotient and the smooth
+right-convolution operator with its periodized kernel. Its source-qualified signature
+is omitted. An arbitrary bounded operator need not be trace class, and an independently
+chosen kernel need not have its trace as a diagonal integral. See Arthur §1, p.8, and
+§16, equation (16.1)'', p.90; generic ideal theory is supplied by OperatorIdeals. -/
 
 /-- Scalar trace-image model: explicitly invert an available linear trace equivalence.
 The all-representation Hecke realization remains the Clozel–Delorme source target. -/

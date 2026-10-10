@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Independent target-level review of the 98-node continuation: 59 nodes verified and 39 corrected, with all identifiers retained. Algebraic sigma-conjugacy theory consumes linear isocrystals and reductive-group foundations; analytic torsor patching enters uniformization. Full integral κ, bundle slope reversal, inertia/Galois distinctions and relative chart representability are retained. General-local-field maximum/topology coverage is partial because the read sources are p-adic; missing equal-characteristic and supplier refinements remain precise gaps. The reader must be reconciled and full Lean signatures supplied before acceptance. Every implementation status remains unchecked.",
+ "summary": "Revision 2 reconciles the reader with all 98 retained reviewed targets, including the 39 corrections, explicit API dependencies, discrete L^sep Weil coefficients and arithmetic Brauer/Morita signs. A new GIZ26 v3/He16 route sources the topology theorem in both characteristics; the maximum has a characteristic-independent root-datum derivation, while the exact comparison and convex-proof interiors remain G06/G04. The Lean core has genuine quotient functoriality, conjugacy equivalences, twisted-product identities and affine-fibre torsor types. Full geometric signatures still require missing supplier carriers (G08); this is a partial checkpoint, not an accepted or gap-free roadmap. All implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -348,7 +348,33 @@
    "sha256": "8377c0a45eb02125f819d30dffd64cc8209bda6208dec9e2b3989edf4569fe02",
    "accessed": "2026-10-07",
    "readSections": [
-    "Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1."
+    "Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1.",
+    "Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1."
+   ]
+  },
+  {
+   "id": "GIZ26",
+   "title": "Meromorphic vector bundles on the Fargues–Fontaine curve",
+   "authors": "Ian Gleason, Alexander B. Ivanov, Felix Zillinger",
+   "edition": "arXiv:2307.00887v3, 14 May 2026; 62-page PDF, printed page equals PDF page.",
+   "url": "https://arxiv.org/pdf/2307.00887v3",
+   "sha256": "78855695f8654374174073434eca08297751d397786b3abf29e367c9cc2cff23",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§2 and Remark2.1 pp.6–7; §7.3 pp.50–53, including Lemma7.17 and Theorem7.18 and its proof; Lemma7.11, Corollary7.12 and Theorem7.13 pp.45–47. Boundary-extension and external proof inputs remain G04/G06.",
+    "Revision 2 also inspected Remark3.15 and Theorem3.16 pp.16–17: v-descent-limit/period-space bundle comparison, not unrestricted extension of arbitrary open-period-space bundles."
+   ]
+  },
+  {
+   "id": "He16",
+   "title": "Hecke algebras and p-adic groups",
+   "authors": "Xuhua He",
+   "edition": "arXiv:1511.01386v3, 21 November 2016; survey version, not collated with the published edition cited by KZ.",
+   "url": "https://arxiv.org/pdf/1511.01386v3",
+   "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, including Theorems2.6,2.11 and2.12; §2.11.3–2.11.4 pp.42–43. §2.5 restricts the closure discussion to equal characteristic."
    ]
   }
  ],
@@ -745,9 +771,13 @@
      "TauCeti.BunG.SigmaClass.mk",
      "TauCeti.BunG.SigmaClass.mk_eq_iff",
      "TauCeti.BunG.SigmaClass.map",
-     "TauCeti.BunG.SigmaClass.lift"
+     "TauCeti.BunG.SigmaClass.lift",
+     "TauCeti.BunG.SigmaClass.map_mk",
+     "TauCeti.BunG.SigmaClass.map_id",
+     "TauCeti.BunG.SigmaClass.map_comp",
+     "TauCeti.BunG.SigmaClass.lift_unique"
     ],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
    }
   },
   {
@@ -783,7 +813,7 @@
    "sources": [
     {
      "sourceId": "Kot97",
-     "locator": "Sections4.3-4.4 pp.267-268",
+     "locator": "Sections4.3–4.4 pp.268–269",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
     },
     {
@@ -890,10 +920,13 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.SigmaCentralizerConjugacy",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-pointwise-core",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.SigmaCentralizer.conjugateEquiv",
+     "TauCeti.BunG.SigmaCentralizer.conjugateEquiv_apply"
+    ],
+    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
    }
   },
   {
@@ -1532,14 +1565,14 @@
    ],
    "title": "Ordinary Newton class",
    "kind": "definition",
-   "statement": "An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. For E p-adic, every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.",
+   "statement": "An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. For either characteristic, every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
     "Define equality with the actual Hodge average, retaining acceptability.",
     "Use injectivity of (ν,κ) for uniqueness; use KZ’s quasi-split existence argument.",
-    "Import the unique-maximum theorem of He–Nie, with its combinatorial proof interior identified as a gap."
+    "Import the general-field maximum deduction from the characteristic-independent He–Nie root-datum theorem; retain its specific RG2.4 and convex-proof obligations."
    ],
    "acceptance": [
     "The μ-ordinary predicate and maximum are separate contracts."
@@ -1635,31 +1668,44 @@
    ],
    "title": "Unique maximum of acceptable classes",
    "kind": "theorem",
-   "statement": "For connected reductive G over a finite extension E/Q_p and a geometric class {μ}, B(G,{μ}) has a unique maximal element for the fixed-κ Newton order. The maximum is ordinary exactly when its Newton point equals μ◇. No quasi-split hypothesis is attached to unique maximality.",
+   "statement": "For a connected reductive group G over any nonarchimedean local field E with finite residue field, and a geometric conjugacy class {μ}, B(G,{μ}) has a unique maximum for the fixed-integral-κ Newton order. It is ordinary exactly when its Newton point equals μ◇. The general-field assertion is derived from the characteristic-independent root-datum theorem HN18 Theorem1.1(1) and the local straight-class/invariant comparison; it is not attributed to HN18 Theorem0.1 outside that theorem’s p-adic scope.",
    "hypotheses": [
-    "E is a finite extension of Q_p, as in the standing hypotheses of HN18. The equal-characteristic extension of this contract remains G06; quasi-splitness is not required."
+    "G/E is connected reductive, E is a nonarchimedean local field of either characteristic, and {μ} is a geometric cocharacter conjugacy class. No quasi-split hypothesis.",
+    "Use the actual local affine root datum and Frobenius action from RG2.4. Retain the full integral κ fibre while removing central inertia torsion for the numerical root-datum calculation."
    ],
    "proofSteps": [
-    "Use the He–Nie combinatorial maximal-element theorem for the acceptable Newton set.",
-    "Apply finiteness and the fixed-κ order; compare the maximal point with μ◇."
+    "Import the local Iwahori–Weyl datum, Frobenius and geometric cocharacter projection. He16 §2.2 permits both characteristics; its §2.4 comparison preserves κ and Newton points before the equal-characteristic restriction in §2.5.",
+    "By StraightWeylClassification and two-invariant injectivity, the acceptable B(G) fibre identifies as a poset with the acceptable Newton values in the corresponding affine datum, at the fixed integral κ.",
+    "For the finite central inertia-torsion subgroup K of the Iwahori–Weyl translation lattice, project to the torsion-free datum. Right exactness of σ-coinvariants identifies the kernel of the projected κ map with the image of K_σ. A lift with the wrong integral κ is corrected by a central torsion element; its Newton value is unchanged. Thus this numerical projection preserves the acceptable Newton set within the chosen κ fibre, without replacing κ by its rationalization.",
+    "The resulting based reduced root datum and finite-order alcove-preserving affine Frobenius satisfy HN18 §1.3–§1.4. Pass to its adjoint datum using §2.1; express the affine action as an alcove stabilizer times a linear diagram action as in §2.2.",
+    "Apply HN18 Theorem1.1(1). Its proof (§2.3–§2.5) uses the orbit-weight integrality criterion of Lemma2.5 and the largest allowed orbit-weight bounds to construct a Newton value ν. Chai Theorem6.5 gives the least dominant majorant of those bounds, and Lemma6.2(i) shows every acceptable value is ≤ν. These external convex/root proof inputs remain explicit G06/RG2.4 obligations.",
+    "Lift back to the chosen integral κ as above and then to B(G). Two-invariant injectivity gives a unique class, and order compatibility makes it dominate every acceptable class. This field-independent transfer is our deduction from the cited root-datum theorem, not a claim that the paper’s p-adic Appendix A states an equal-characteristic theorem.",
+    "Compare the resulting Newton value with μ◇ to characterize ordinary equality. Unique maximality does not assert ordinary existence for nonsplit inner forms."
    ],
    "acceptance": [
     "In a nonsplit inner form maximality alone does not imply ordinary equality."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG1/admissible-pair",
-    "ReductiveGroupsPartII:RG2.4"
+    "ReductiveGroupsPartII:RG2.4",
+    "BunGAndNewtonStrata:BG1/straight-weyl-classification",
+    "BunGAndNewtonStrata:BG1/classification-by-two-invariants"
    ],
    "sources": [
     {
      "sourceId": "HN18",
-     "locator": "Theorem0.1 pp.1-2",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "locator": "§§1.1–1.4 pp.2–4, Theorem1.1(1) p.4; §§2.1–2.5 pp.4–8; Appendix A pp.20–22",
+     "match": "The root-datum maximum theorem has no field parameter. The p-adic group theorem and Appendix are kept within their stated scope; the general-field transfer and fixed-κ central-torsion argument are explicit deductions in this proof sketch."
+    },
+    {
+     "sourceId": "He16",
+     "locator": "§2.2 pp.22–24 and §2.4, Theorem2.6 pp.25–26",
+     "match": "Supplies the local Iwahori–Weyl and invariant-preserving class comparison for a general local field. This citation precedes the equal-characteristic-only schematic closure discussion."
     },
     {
      "sourceId": "KZ",
      "locator": "Remark2.2.5 p.10",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Supplies the p-adic application and the distinction between a maximum and an ordinary class."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1744,7 +1790,7 @@
    "sources": [
     {
      "sourceId": "KZ",
-     "locator": "Lemma2.2.6 p.10, using Lemmas2.1.7 and2.1.9 p.9",
+     "locator": "Lemma2.2.6 p.10, using Lemma2.1.7 p.8 and Lemma2.1.9 p.9 (arXiv v2)",
      "match": "Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions."
     }
    ],
@@ -3096,16 +3142,19 @@
     "BunGAndNewtonStrata:BG2:uniformization",
     "BunGAndNewtonStrata:BG2"
    ],
-   "title": "Viehmann Newton topology theorem",
+   "title": "Newton topology theorem in both characteristics",
    "kind": "theorem",
-   "statement": "For E a finite extension of Q_p, the bijection |Bun_G|→B(G) is a homeomorphism when B(G) has the specialization order [b]≤[bprime] iff E_bprime lies in the closure of E_b. Thus closed upper Newton unions and open lower unions are determined by the fixed-κ order. The assertion was a conjecture in FS III.2.15 and is a theorem in Viehmann; its full proof is a separate proof-interior obligation.",
+   "statement": "For every nonarchimedean local field E and connected reductive G/E, the geometric-class bijection |Bun_G|→B(G) is a homeomorphism for the topology whose closed subsets are upward closed in the fixed-κ Newton order. Equivalently, [b]≤[bprime] iff E_bprime lies in the closure of E_b. Mixed characteristic follows from Viehmann. In equal characteristic, combine the schematic closure theorem with the schematic/analytic topology comparison of Gleason–Ivanov–Zillinger; the comparison alone does not identify geometric specialization with the combinatorial order.",
    "hypotheses": [
-    "E is a finite extension of Q_p, as in Vie21 §1. The FS equal-characteristic conjecture is not promoted to a theorem by this citation; that extension remains G06."
+    "E is a nonarchimedean local field of either characteristic, with finite residue field; G/E is connected reductive, with no quasi-split or unramified hypothesis.",
+    "Use GIZ26 arXiv v3: its §2 and Remark2.1 allow both characteristics. He16 §2.5 restricts the schematic closure discussion to equal characteristic; use Vie21 for the mixed-characteristic route."
    ],
    "proofSteps": [
-    "Use the established continuous bijection from FS.",
-    "Apply Viehmann’s realization of the specialization relations to prove the inverse continuous.",
-    "Expand the proof interior from section6 before claiming a lemma-level closed plan."
+    "Use geometric point classification and HN semicontinuity to obtain the continuous bijection with the stated reversed specialization convention.",
+    "In mixed characteristic, use Vie21 Theorem1.1 with its finite-Q_p-extension hypothesis.",
+    "In equal characteristic, He16 Theorems1.29 and2.12 identify the schematic specialization order with equal integral κ and Newton dominance. Import the straight-class and affine-Bruhat proof inputs through RG2.4, retaining inertia torsion.",
+    "GIZ26 Lemma7.17 reduces continuity to finite bounded loci and specialization chains. Its Theorem7.18 identifies schematic and analytic isocrystal specialization and reverses Bun_G specialization.",
+    "For that comparison, realize adjacent schematic specializations on perfect rank-one valuation rings (GIZ26 Proposition2.17). Theorem3.16 identifies the v-descent limit over Spd(Vhat,Vhat) with bundles on Y_(0,∞]; it does not assert that every arbitrary bundle on the open period space extends. Apply the separate PR24 Proposition2.1.3 and FS II.2.14 classification inputs to this schematic-family-induced boundary bundle. Use Theorem7.13 on products of geometric points for the reverse implication. These interiors remain G04/G06 obligations."
    ],
    "acceptance": [
     "The basic point is more general than unstable points with the same κ."
@@ -3113,18 +3162,31 @@
    "prerequisites": [
     "BunGAndNewtonStrata:BG2:uniformization/points-are-B-of-G",
     "BunGAndNewtonStrata:BG2:uniformization/semicontinuity-and-local-constancy",
-    "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G"
+    "BunGAndNewtonStrata:BG1/partial-order-on-B-of-G",
+    "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
+    "BunGAndNewtonStrata:BG1/straight-weyl-classification",
+    "ReductiveGroupsPartII:RG2.4"
    ],
    "sources": [
     {
+     "sourceId": "GIZ26",
+     "locator": "§2 and Remark2.1 pp.6–7; §7.3, Lemma7.17 and Theorem7.18 pp.50–53",
+     "match": "The recorded v3 permits both characteristics and compares schematic/analytic specialization with reversed bundle specialization; identifying this with the κ/ν order also needs the schematic closure theorem."
+    },
+    {
+     "sourceId": "He16",
+     "locator": "§1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, Theorem2.12 p.28",
+     "match": "The straight-class order is equality of integral κ plus Newton dominance; the schematic closure theorem is used within the equal-characteristic restriction of §2.5."
+    },
+    {
      "sourceId": "Vie21",
-     "locator": "Theorem1.1 and preceding topology convention p.2",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "locator": "Theorem1.1 and topology convention p.2",
+     "match": "Supplies the mixed-characteristic case, for E a finite extension of Q_p."
     },
     {
      "sourceId": "FS",
      "locator": "ConjectureIII.2.15 p.97",
-     "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+     "match": "Records the original general-field topology assertion; the theorem is supplied by the later sources, not this conjecture."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4488,10 +4550,14 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.FiniteFrobeniusNormCentralizer",
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-pointwise-core",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.frobeniusNorm_add",
+     "TauCeti.BunG.frobeniusNorm_twistedConjugate",
+     "TauCeti.BunG.centralizes_norm_of_period"
+    ],
+    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
    }
   },
   {
@@ -6031,9 +6097,12 @@
      "TauCeti.BunG.ComponentCoset",
      "TauCeti.BunG.ComponentCoset.mem_iff",
      "TauCeti.BunG.ComponentCoset.nonempty",
-     "TauCeti.BunG.ComponentCoset.translate"
+     "TauCeti.BunG.ComponentCoset.translate",
+     "TauCeti.BunG.ComponentCoset.fixedSubgroup",
+     "TauCeti.BunG.ComponentCoset.equivFixed",
+     "TauCeti.BunG.ComponentCoset.equivFixed_apply"
     ],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
    }
   },
   {
@@ -6310,7 +6379,7 @@
   {
    "stageId": "BunGAndNewtonStrata:BG1",
    "status": "partial",
-   "note": "The target-level pass is complete, but the general-local-field maximum/topology targets are only sourced for p-adic E. Their equal-characteristic extension is a precise G06 follow-up; no closed chain is claimed.",
+   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
     "G01: Generic z-extension foundation",
     "G02: Relative reductive-group and Tannakian descent refinements",
@@ -6326,7 +6395,7 @@
   {
    "stageId": "BunGAndNewtonStrata:BG2",
    "status": "partial",
-   "note": "The target-level pass is complete, but the general-local-field maximum/topology targets are only sourced for p-adic E. Their equal-characteristic extension is a precise G06 follow-up; no closed chain is claimed.",
+   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
     "G01: Generic z-extension foundation",
     "G03: Weil crossed-module proof interior",
@@ -6351,7 +6420,7 @@
   {
    "stageId": "BunGAndNewtonStrata:BG2:uniformization",
    "status": "partial",
-   "note": "The target-level pass is complete, but the general-local-field maximum/topology targets are only sourced for p-adic E. Their equal-characteristic extension is a precise G06 follow-up; no closed chain is claimed.",
+   "note": "All target identifiers are retained. Topology and the unique maximum now have routes in both characteristics, with explicit schematic/analytic and root-datum comparisons. Their exact proof interiors and full Lean carrier signatures remain open; no closed chain is claimed.",
    "remaining": [
     "G01: Generic z-extension foundation",
     "G03: Weil crossed-module proof interior",
@@ -6440,11 +6509,12 @@
   {
    "id": "G04",
    "title": "G-isocrystal family descent and stratification refinements",
-   "detail": "The local sigma-conjugacy category and effective perfect-algebra family descent are specified, but the modern family-stack proof cited by FS I.2 (Ivanov 2023 and Hamacher–Kim 2022) was not read. Expand the v-local conjugation/descent argument and its locally closed constant-class loci. Do not use scheme κ-local-constancy to prove the v-descent premise on which it depends.",
+   "detail": "The local sigma-conjugacy category and effective perfect-algebra family descent are specified, but the modern family-stack proof cited by FS I.2 (Ivanov 2023 and Hamacher–Kim 2022) was not read. Expand the v-local conjugation/descent argument and its locally closed constant-class loci. Do not use scheme κ-local-constancy to prove the v-descent premise on which it depends. For the new topology route, construct the analytic isocrystal comparison and expand GIZ26 Theorem7.13 (meromorphic comparison on products of points) in this owner. Its proof uses BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these are not supplied by the schematic family definition alone.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
-    "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy"
+    "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy",
+    "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism"
    ]
   },
   {
@@ -6461,7 +6531,7 @@
   {
    "id": "G06",
    "title": "Newton topology and maximal-element proof interiors",
-   "detail": "Viehmann Theorem1.1 and He–Nie Theorem0.1 were read as exact statements and their proof routes identified. Refine Viehmann §6 specialization realization and the He–Nie combinatorial maximum proof into lemma-level declarations before claiming these two chains closed. Both read theorem statements assume a p-adic base. Supply and read an equal-characteristic source before extending either theorem to every local E; the packet contracts have been restricted accordingly.",
+   "detail": "The source-level equal-characteristic coverage defects are repaired: the maximum now has an explicit derivation from HN18 Theorem1.1(1) and He16 §2.4, with central inertia torsion restored at fixed integral κ; topology uses GIZ26 v3 Theorem7.18 with He16 in equal characteristic and Vie21 in mixed characteristic. Full proof interiors remain open. For the maximum, expand the reduced-root/adjoint transfer, orbit-weight integrality (HN18 Lemma2.5), and Chai Theorem6.5/Lemma6.2(i) convex-majorant inputs through RG2.4. For topology, expand GIZ26 Proposition2.17, Theorem3.16 and its external boundary-bundle classification inputs, and Theorem7.13 through G04 and the exact VB4 request. No closed proof chain is claimed.",
    "neededBy": [
     "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum"
@@ -6640,7 +6710,7 @@
   {
    "id": "G12",
    "title": "Exact supplier boundaries for Schubert components and filtered BC towers",
-   "detail": "The read GS0 Schubert-bound node is split-integral and does not prove the general-E nonsplit π_1 component comparison; request that refinement from GS0. The read projectivized-BC node treats H^0, whereas negative H^1 is covered by the two-term BC family theorem. The reductive extension-tower contraction/escaping/proper-Z-quotient argument and positive automorphism-kernel connectedness need the separate linear/diamond refinements specified in the requests. D4 alone supplies neither spatiality nor properness; use D5 and retain the missing proper-quotient criterion. These are ownership refinements, not duplicate BG definitions.",
+   "detail": "The current GS0 Schubert-bound node already treats general E and nonsplit bounds by splitting and Galois descent; reuse it. It does not state the exact π_1 connected-component comparison, which remains the separate GS0 refinement. Projectivized BC properness concerns H^0, while negative H^1 extensions use the two-term BC family theorem. The reductive extension-tower contraction/escaping/proper-Z-quotient argument and positive automorphism-kernel connectedness need the separately requested linear/diamond refinements. D4 smallness alone supplies neither spatiality nor properness; retain D5 and the missing proper-quotient criterion.",
    "neededBy": [
     "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
     "BunGAndNewtonStrata:BG2:uniformization/grassmannian-kottwitz-sign",
@@ -6740,7 +6810,7 @@
   },
   {
    "supplier": "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
-   "need": "Use Schubert exhaustion/properness, the geometric loop/Grassmannian connected-component identification with the appropriate π_1 coinvariants, and cocharacter lattice representatives, including nonsplit descent. Zhu Proposition1.21 and its Kottwitz torus-functor argument belong to GS0; BG2 proves only the sign under BL. The cited supplier node assumes split G/O_E and does not state the π_1 connected-component theorem. Treat the general-E nonsplit descent and the component identification as requested refinements G12, supported by Zhu Proposition1.21 and FS III.3.6; do not mark them supplied by this node.",
+   "need": "Import the current general-E Schubert exhaustion and properness contract, including its Galois-stable nonsplit bounds. It does not state the exact Grassmannian π_1 connected-component identification or its torus lattice representatives. Request that separate component refinement from GS0, with the appropriate inertia/Galois coinvariants and nonsplit descent, supported by Zhu Proposition1.21 and FS III.3.6; BG2 proves the sign under BL. This request does not replan the existing Schubert bounds.",
    "neededBy": [
     "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
     "BunGAndNewtonStrata:BG2:uniformization/central-torus-grassmannian-surjectivity",
@@ -6791,7 +6861,7 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.4",
-   "need": "Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences.",
+   "need": "Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences. For the general-field maximum, supply the characteristic-independent reduced affine datum and finite-order Frobenius comparison, plus central inertia-torsion removal/restoration at fixed κ using right exactness of σ-coinvariants. Expand the HN18 Lemma2.5 and Chai convex-majorant inputs there; BG1 owns the resulting B(G,{μ}) maximum.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/minuscule-basic-levi-lift",
     "BunGAndNewtonStrata:BG1/acceptable-unique-maximum",
@@ -7172,6 +7242,13 @@
     "BunGAndNewtonStrata:BG4/section-and-spatial-complement",
     "BunGAndNewtonStrata:BG4/chart-to-bun-g"
    ]
+  },
+  {
+   "supplier": "VectorBundlesAndIsocrystals:VB4",
+   "need": "Supply the linear period-space comparison V_Y(F)≃Vect(Y_F), functorial for F=Spd(Vhat,Vhat) arising from complete perfect rank-one valuation bases, as in GIZ26 Theorem3.16 and Remark3.15 pp.16–17. Here V_Y is the v-descent limit of Vect(Y_X), and Y_F=Y_(0,∞]. This is not unrestricted extension of every bundle from Y_(0,∞) to Y_(0,∞]. The topology proof separately uses PR24 Proposition2.1.3 and FS II.2.14 to classify the induced boundary bundle; retain these precise inputs and GIZ26 Remark2.1 on both characteristics. BG0/BG2 owns the structured meromorphic comparison; VB4 supplies this linear comparison only.",
+   "neededBy": [
+    "BunGAndNewtonStrata:BG2:uniformization/newton-topology-homeomorphism"
+   ]
   }
  ],
  "restructure": [
@@ -7194,7 +7271,8 @@
    "BunGAndNewtonStrata:BG3",
    "BunGAndNewtonStrata:BG4"
   ],
-  "result": "Reviewed all seven stage entries. Reused WittVector.Isocrystal, rigid monoidal functor/equivalence infrastructure, root pairings and the existing Tau Ceti affine reductive/dynamic point-group foundations at the recorded pins. The audit does not supply reductive local Newton theory or relative analytic stack representability."
+  "result": "Reviewed all seven stage entries. Reused WittVector.Isocrystal, rigid monoidal functor/equivalence infrastructure, root pairings and the existing Tau Ceti affine reductive/dynamic point-group foundations at the recorded pins. The audit does not supply reductive local Newton theory or relative analytic stack representability.",
+  "revision2": "Rechecked the seven reviewed coverage records and the current read-only TauCetiRoadmap/TauCeti sources on 2026-10-10. In particular, AlgebraicVectorBundles already supplies scheme finite-locally-free bundle foundations; import these for scheme instances. It does not supply analytic FF bundle tensor categories or v-stacks. Current Tau Ceti rational representation and dynamic point-group infrastructure is reused, not replanned."
  },
  "ownership": {
   "bindingRestructure": "RS-15, accepted independent-review-REV-FIX-RT-RS-15 on 2026-09-30",
@@ -8762,8 +8840,7 @@
    "source": "LZ17",
    "kind": "gap",
    "locator": "arXiv1602.06282v3; Remark4.1(iii),PDF34",
-   "printed": "b_x∈B(G_Qp)",
-   "correction": "The tensor construction explicitly available in the preceding paragraph yields a class in B(G^c_Qp). To assert a class in B(G_Qp), supply a G-level lift and prove its existence/choice properties, or assume G=G^c.",
+   "correction": "The available de Rham tensor data determines a class for G^c. A class for G requires additional lifting data and a proof of its choice properties, or the hypothesis G=G^c.",
    "reason": "The available functor has domain Rep(G^c), so its Tannakian structure group is G^c. It omits central representations removed by G→G^c, and therefore cannot by itself reconstruct that missing central data. This is an omitted group-lifting input in an ancillary remark, not a counterexample to Theorem1.2.",
    "affects": "the proof",
    "known": "Inherited confirmed finding PAPER-LIU-ZHU-17/E10; new",
@@ -8789,15 +8866,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed in LZ17 v3 Remark4.1(iii) and Corollary4.9 pp.33-34: the coefficient group is G^c. A G-class needs a compatible lift. This finding is restricted to the read preprint; no final-edition claim is added.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the de Rham passage labels the associated class as a G-class although the preceding construction uses G^c."
   },
   {
    "id": "BunGAndNewtonStrata/E02",
    "source": "GLX",
    "kind": "error",
    "locator": "ProofLemma3.16(2),(3.23),p830; published57-page version, rendered page inspected unless stated otherwise",
-   "printed": "0 → T(breve Zp) → T(breve Qp) → π₁(G)_I → 0",
-   "correction": "The torus quotient has target X_*(T)_I. The map onward to pi1(G)_I can have a coroot kernel. Prove rational Kottwitz surjectivity by its actual theorem (cited Zhou5.18), not this exact sequence.",
+   "correction": "The torus valuation quotient is the inertia-coinvariant cocharacter lattice of T. Its map to π_1(G)_I can have a coroot kernel, so rational Kottwitz surjectivity requires the separate theorem.",
    "reason": "For split G=SL2 and its diagonal torus T≅Gm, pi1(G)=0 but T(L)/T(O_L)≅Z. The element diag(p,p^-1) lies in the kernel of the map to pi1(G) but not in T(O_L).",
    "affects": "the proof",
    "known": "Inherited confirmed finding PAPER-GLEASON-LIM-XU-26/E03; new",
@@ -8818,15 +8895,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed on GLX p.830 equation(3.23): a maximal torus does not have π_1(G)_I as its lattice quotient. For G=SL_2, π_1(G)=0, but T(L)/T(O_L)≅Z. The torus sequence has X_*(T)_I as target; the intended rational-point surjectivity is independently supported by Kot97 §7.7.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the displayed torus valuation sequence uses the reductive fundamental group as its quotient."
   },
   {
    "id": "BunGAndNewtonStrata/E03",
    "source": "CS17",
    "kind": "misprint",
    "locator": "§3.5, Proposition 3.5.7(1), p. 689, and the same word in its proof, p. 690 (also in arXiv v1)",
-   "printed": "Part (1) asserts lower semicontinuity of b(·) : |Fℓ_{G,µ}| → B(G). The proof reduces this to establishing lower semicontinuity of |Spa(R, R^+)| → |Fℓ_{G,µ}| → B(G).",
-   "correction": "Read \"upper semicontinuous\" in both places, for the partial order ⪯ on B(G) defined on p. 677. That is, every point x has a neighbourhood on which b(·) ⪯ b(x). Since the image is the finite set B(G, µ^{−1}) by part (2), and κ is constant on it, this is equivalent to the following: for every b ∈ B(G), the set {x : b ⪯ b(x)} is closed. Corollary 3.5.9 (p. 690) and Theorem 1.11 (p. 655) use the proposition in exactly this form.",
+   "correction": "For the order fixed on B(G), the Newton map is upper semicontinuous: locally b(y)≤b(x). Its finite image has constant κ, so upper unions are closed. This agrees with Corollary3.5.9 and Theorem1.11.",
    "reason": "The paper orders B(G) on p. 677 by b ⪯ b′ if ν_b ⪯ ν_{b′} and κ(b) = κ(b′). The basic element is the minimum for this order. Read with ⪯, lower semicontinuity would mean that every set {x : b(x) ⪯ b} is closed. In particular the basic stratum would be closed. Corollary 3.5.9 says it \"follows immediately\" from the proposition, but it states the opposite: the basic stratum is open, and each Fℓ^{⪰b}_{G,µ} = ⊔_{b⪯b′} Fℓ^{b′}_{G,µ} is closed. Theorem 1.11 says the same. The modular-curve example on p. 655 shows that the printed direction cannot hold. There Fℓ = ℙ^1, the strata are ℙ^1(ℚ_p) and Ω², and Ω² is open. Under the printed reading Ω² would also be closed, which is impossible because |ℙ^1| is connected and both strata are non-empty.\n\nThe word comes from [KL15, Th. 7.4.5]. There it refers to the y-coordinates of the convex slope polygon (Def. 7.4.1), and the proof shows that near β the polygon lies on or above the polygon at β. With the endpoints fixed, a higher polygon has less spread-out slopes, so it corresponds to a smaller Newton point for ⪯. This does not depend on the sign convention linking bundles to B(G), because ν ⪯ ν′ if and only if −w_0ν ⪯ −w_0ν′. So Kedlaya–Liu's result is exactly upper semicontinuity of b(·) for ⪯. The argument on p. 690 (reduce to representations by [RR96, Lemma 2.2], then apply [KL15, Th. 7.4.5] with Corollary 3.3.4) therefore proves the corrected statement.\n\nOnly the name of the property is wrong. The intended statement is clear from Corollary 3.5.9 and Theorem 1.11, it is proved, and it is used correctly. None of the paper's results change. The printed wording of Proposition 3.5.7(1) is still false under the paper's own order, so the misprint sits in a stated result. It should be recorded as a misprint, not as an error. As printed, the statement of Proposition 3.5.7(1) is false; items use the corrected direction.",
    "affects": "nothing",
    "known": "Inherited confirmed finding PAPER-CARAIANI-SCHOLZE-17/E35; No erratum or published remark was found. The non-compact sequel (Caraiani–Scholze 2024, Theorem 2.7.3) restates the result directly as closedness of Fℓ^{≥b}, which agrees with the corrected reading, and does not repeat the word.",
@@ -8846,15 +8923,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed in CS17 Proposition3.5.7 p.690 against its preceding dominance convention: closed unions must be upper Newton unions. For split GL_2 with minuscule bound the ordinary locus is P^1(Q_p), closed, and the basic locus is its open Drinfeld complement. This detects the reversed inequality while preserving the intended semicontinuity theorem.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the proposition and proof describe the Newton map as lower semicontinuous for their chosen order."
   },
   {
    "id": "BunGAndNewtonStrata/E04",
    "source": "KMPS",
    "kind": "misprint",
    "locator": "(1.1.2.2), p.6, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
-   "printed": "σ^r(b)",
-   "correction": "c b σ(b) ··· σ^{r−1}(b) σ^r(c)^{−1} = c(rν_b)(p)c^{−1}.",
+   "correction": "Decency uses exactly r factors b,σ(b),…,σ^(r−1)(b). After a change of representative by c, the last inverse is σ^r(c)^−1 and the right side is the conjugate by c of the integral Newton value.",
    "reason": "The r-th power of bσ is b σ(b) ··· σ^{r−1}(b) σ^r, with r factors. As printed there are r + 1: for G = G_m and b = p the left side is p^{r+1} but the right side is p^r. Kottwitz [Kot85, 4.3], which is cited, and the paper's own (1.1.4.1) on p.7, \"b σ(b) σ²(b) ··· σ^{r−1}(b) = (rν_b)(p)\", have r factors. Checked on the page image. Noted by the extraction (source discrepancy 1, item N09).",
    "affects": "nothing",
    "known": "Inherited confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E1; Existing repository errata E1 (cc-fb70e5, 2026-09-22); no external correction located in the searches recorded.",
@@ -8882,15 +8959,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed in the recorded KMPS author PDF p.6: equation(1.1.2.2) ends with σ^r(b), producing r+1 factors. Rank one b=p gives p^(r+1), whereas the r-th twisted power gives p^r. The last factor must be σ^(r−1)(b). No claim about the uncollated final Duke version.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the decency display includes one Frobenius factor beyond its period."
   },
   {
    "id": "BunGAndNewtonStrata/E05",
    "source": "KMPS",
    "kind": "error",
    "locator": "Corollary 1.1.15 and its proof, pp.11–12, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
-   "printed": "w ∈ N_G(M)/M",
-   "correction": "Replace N_G(M)/M by the absolute Weyl group W(G, T) of a maximal torus T ⊂ M with μ ∈ X_*(T), as in Proposition 1.1.13. Equivalently: some G(Q̄_p)-conjugate μ′ of μ factoring through T makes ([b_M], {μ′}) M-admissible.",
+   "correction": "Transport the cocharacter by the absolute Weyl group of a maximal torus in M. The quotient N_G(M)/M need not contain the required Weyl element; use the absolute-conjugacy conclusion of Proposition1.1.13.",
    "reason": "The printed statement fails already for split G. Take G = GL_3, M = GL_1 × GL_2 (blocks of sizes 1 and 2), μ = (0,1,0) and b_M = diag(p,1,1), which is basic in M. Then ([b_M], {μ}) is G-admissible: its Newton point (1,0,0) equals the dominant μ̄, and both have κ_G = 1. But κ_M(b_M) = (1,0), while κ_M(μ) = (0,1). Since the blocks have different sizes, N_G(M) = M, so W(G, M) is trivial and no w in it helps. The permutation of the first two coordinates, in W(G, T) = S_3, does. The proof transports to the quasi-split inner form and applies Proposition 1.1.13. That proposition gives w* in the absolute Weyl group W(G*, T*), not in N_{G*}(M*)/M*, so the proof establishes the corrected statement. The only use is in the proof of Corollary 1.1.17, p.13, for G not necessarily quasi-split. It cites \"Lemma 1.1.13\" (the quasi-split Proposition 1.1.13) in the form w ∈ W(G, T). The corrected Corollary 1.1.15 is exactly what that step needs, so the later results stand. Checked on the page images. Noted by the extraction (source discrepancy 2, items N29 and N32), which also verified the Weyl-group computation by machine.",
    "affects": "a stated result",
    "known": "Inherited confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E2; Existing repository errata E2 (cc-fb70e5, 2026-09-22); no external correction located in the searches recorded.",
@@ -8918,15 +8995,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed in KMPS pp.11-12. For GL_3 and Levi GL_1×GL_2, take μ=(0,1,0), b_M=diag(p,1,1). The pair is basic in M and acceptable in G, but κ_M(b_M)=(1,0)≠(0,1)=κ_M(μ). The normalizer preserves the unequal-dimensional blocks, so N_G(M)/M is trivial; the absolute Weyl transposition works. Use W(G,T), and retain the remaining hypotheses.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: cocharacter transport is assigned to the normalizer quotient of the Newton Levi."
   },
   {
    "id": "BunGAndNewtonStrata/E06",
    "source": "KMPS",
    "kind": "error",
    "locator": "§1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated; also Introduction, Theorem 3, p.3 (the introduction's form of Corollary 1.3.16 / §1.3.15, p.20)",
-   "printed": "The source asserts that exactly one [b_μ] ∈ B(G_{Q_p}, {μ^{-1}}) satisfies N_ξ(ν̄_G([b_μ])) = μ̄^{-1}, independently of B* and T*. It calls S_[b_μ] ⊂ 𝒮_K(F̄_p) the μ-ordinary stratum. Theorem 3 begins by assuming local integrality of the special fibre of S.",
-   "correction": "Uniqueness holds by (1.1.2.3); existence does not. Assume G_{Q_p} quasi-split, in which case [b_μ] exists and satisfies (1.1.3.1) (C02, N16); otherwise assume that [b_μ] exists and satisfies (1.1.3.1). Corollaries 1.3.16 and 1.3.18 and Theorem 3 of the Introduction need the same hypothesis. Also: Theorem 3 (and Corollary 1.3.16): 'Suppose G_{Q_p} is quasi-split. If the special fibre of S is locally integral then the μ-ordinary locus is dense in the special fibre.' This matches the abstract and Theorems 4–5. Alternatively, keep G general but assume that a class [b_μ] with N_ξ(ν̄_G([b_μ])) = μ̄^{-1} exists, and in §1.3.15 replace 'There is a unique [b_μ]' by 'If G_{Q_p} is quasi-split, there is a unique [b_μ]' (it can fail otherwise, e.g. G_{Q_p} = D^×). Record as an additional locator of ledger E8, not as a separate entry.",
+   "correction": "The ordinary class is unique if it exists. For a quasi-split p-adic group its existence follows from the supplied theorem; for general inner forms existence must be assumed and can fail for a division-algebra multiplicative group. Density claims therefore need this existence or quasi-split hypothesis in addition to local integrality.",
    "reason": "§1.3.15 allows non-quasi-split G_{Q_p} ('As in (1.1.5) we fix an inner twisting ξ'). For G_{Q_p} = D^×, D the quaternion division algebra, realise D^×(L) as GL_2(L) with Frobenius Ad(Π)∘σ, Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2) that raises κ by 1 and both Newton slopes by 1/2. A class with ν = μ̄^{-1} = (0, −1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1, which is impossible. So B(D^×, {μ^{-1}}) is the single basic class, with ν = (−1/2, −1/2). This happens inside the paper's setting: the Shimura curve of an indefinite quaternion algebra over Q ramified at an odd p is of Hodge type with G_{Q_p} = D^×, in agreement with Čerednik–Drinfeld (every point of its special fibre is supersingular). For Theorem 3 and Corollary 1.3.16 the example shows the μ-ordinary locus is undefined rather than that a density assertion is false, since that special fibre is not locally integral.",
    "affects": "a stated result",
    "known": "Inherited confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8; The scope distinction is explicitly stated in Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5; the concrete quaternion proof is supplied here. No final KMPS collation.",
@@ -8949,15 +9026,15 @@
     "verdict": "confirmed",
     "reason": "Confirmed in KMPS §1.3.15 p.20 and introductory Theorem3 p.3. For quaternion D^×, twisting to GL_2 shifts slopes by 1/2; the supposed ordinary class would require slopes 1/2 and −1/2 each with multiplicity one, impossible by denominator multiplicity. Unique maximum does not imply ordinary equality. The density assertion is ill-defined without existence, rather than refuted under a locally integral hypothesis; the finding remains scoped to the author PDF.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the ordinary-class assertion assumes existence for a general inner form; the density statement adds local integrality."
   },
   {
    "id": "BunGAndNewtonStrata/E07",
    "source": "KZ",
    "kind": "misprint",
    "locator": "§2.2.3 in arXiv2103.09945v2, printed10; the current Harvard author copy has the same phrase. Final Annals version not collated.",
-   "printed": "The source describes a rational combination of positive roots whose coefficients are non-negative.",
-   "correction": "Use positive coroots in the rational cocharacter space.",
+   "correction": "Dominance in rational cocharacter space uses nonnegative combinations of positive coroots. Roots have the wrong ambient lattice.",
    "reason": "The order is on X_*(T)⊗Q. Roots lie in X^*(T), whereas the dominance cone in this space is generated by coroots; the node uses the typed coroot convention. No change to the intended theorem is needed.",
    "affects": "nothing",
    "known": "new",
@@ -8971,7 +9048,8 @@
     "verdict": "confirmed",
     "reason": "Confirmed in KZ v2 §2.2.3 p.10: positive roots are written in an order on X_*(T)⊗Q, which requires positive coroots. This is a typed notational error with no change to the intended theorem. The published Annals wording has not been collated.",
     "by": "REV-BunGAndNewtonStrata"
-   }
+   },
+   "printed": "Paraphrase of the issue: the dominance difference is expressed using roots in place of coroots."
   }
  ],
  "sourceVersions": [
@@ -9206,20 +9284,54 @@
     "§2.2.3, root/coroot wording only."
    ],
    "note": "This extra copy is used only for the bounded E07 correction search, not as a substitute for the recorded v2 contracts."
+  },
+  {
+   "source": "GIZ26",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2307.00887v3",
+   "read": "2026-10-10",
+   "sha256": "78855695f8654374174073434eca08297751d397786b3abf29e367c9cc2cff23",
+   "sections": [
+    "§2 and Remark2.1 pp.6–7; §7.3 pp.50–53, including Lemma7.17 and Theorem7.18 and its proof; Lemma7.11, Corollary7.12 and Theorem7.13 pp.45–47. Boundary-extension and external proof inputs remain G04/G06.",
+    "Revision 2 also inspected Remark3.15 and Theorem3.16 pp.16–17: v-descent-limit/period-space bundle comparison, not unrestricted extension of arbitrary open-period-space bundles."
+   ],
+   "note": "Only these passages were inspected in revision 2. This does not assert collation with another edition or inspection of every external proof input."
+  },
+  {
+   "source": "He16",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1511.01386v3",
+   "read": "2026-10-10",
+   "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc",
+   "sections": [
+    "§1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, including Theorems2.6,2.11 and2.12; §2.11.3–2.11.4 pp.42–43. §2.5 restricts the closure discussion to equal characteristic."
+   ],
+   "note": "Only these passages were inspected in revision 2. This does not assert collation with another edition or inspection of every external proof input."
+  },
+  {
+   "source": "HN18",
+   "kind": "revision source check",
+   "url": "https://arxiv.org/pdf/1408.5836v2",
+   "read": "2026-10-10",
+   "sha256": "8377c0a45eb02125f819d30dffd64cc8209bda6208dec9e2b3989edf4569fe02",
+   "sections": [
+    "Theorem1.1(1), §§1.1–2.5 pp.2–8; Appendix A pp.20–22. General-field transfer uses He16 and the explicit central-torsion argument."
+   ],
+   "note": "The p-adic Theorem0.1 is not asserted for equal characteristic. The root-datum theorem has no field parameter; the general-field statement in this packet is a deduction with exact supplier obligations."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
-  "baseline": "Only Mathlib imports at 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti declarations are source-checked at f790474821cf4256814db967cb154e7af3d0c369, not imported from the different shared-build HEAD.",
+  "baseline": "Only Mathlib imports at 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti declarations are source-checked at f790474821cf4256814db967cb154e7af3d0c369, not imported by this concrete Mathlib prototype.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Full analytic/algebraic geometry signatures are omitted under G08. Independent review: these are partial cores; the comment register is not the full signature/API/example coverage required by PROTOCOL §13.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap.",
   "elaboration": {
-   "date": "2026-10-07",
+   "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof placeholder warnings; independently rerun successfully after the review corrections.",
-   "limitation": "This checks only the concrete Mathlib cores; full signatures listed in the G08 register are omitted, not elaborated. Tau Ceti baseline declarations were read at their pin but were not imported from the different shared-build HEAD.",
-   "reviewer": "independent-review-REV-BunGAndNewtonStrata"
+   "warnings": "Only admitted-proof declaration warnings (64); no errors or other warnings.",
+   "limitation": "Checks only the concrete Mathlib quotient, subgroup, norm, affine-fibre and numerical slope cores. The full geometric definition/API/example signatures remain omitted under G08. Tau Ceti baseline declarations were source-checked but this file imports only individual Mathlib modules.",
+   "agent": "Codex — codex-EyIjRT"
   }
  },
  "upstreamNotes": [

@@ -1,20 +1,20 @@
 # Automorphic spectral theory and trace distributions
 
-Construct automorphic L² decompositions, Eisenstein packets, weighted cohomology and trace distributions, with modular-kernel and function-field GLₙ tests.
+Build automorphic L², Eisenstein, weighted-cohomology and trace theory, tested on modular kernels and function-field GLₙ.
 
 ## Scope and prerequisites
 
-Use **SelfAdjointSpectralTheory** for projection measures, Borel calculus and partial operators, **OperatorIdeals** for Schatten/Hilbert–Schmidt theory, and **CompactGroups** for Peter–Weyl. Add multiplicities, direct integrals, L² kernels and trace, using native `LinearPMap` adjoints/resolvents and noncompact smoothing.
+**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS adds multiplicities, direct integrals, L² kernels, trace and noncompact smoothing.
 
-Use **AdelicAlgebraicGroups** AA.0–AA.3 for topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** for local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 for Hecke algebras, induction, admissibility and spherical data. Add rational Bruhat indexing and analytic intertwiner estimates.
+**AdelicAlgebraicGroups** AA.0–AA.3 supplies topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** supplies local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 supplies Hecke algebras, induction, admissibility and spherical data. AS adds rational Bruhat indices and intertwiner estimates.
 
-Use **AutomorphicFormsOnReductiveGroups** AF.0–AF.3 for functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 for cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 for Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. Add GL×classical, exterior/symmetric and Asai factors.
+**AutomorphicFormsOnReductiveGroups** AF.0–AF.3 supplies functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5 supplies cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS adds GL×classical, exterior/symmetric and Asai factors.
 
-Stabilization, endoscopy and Galois applications use this theory. Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications.
+Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications. Endoscopy, stabilization and Galois applications use AS.
 
 ## Conventions and order
 
-Complex Hilbert spaces are complete; inner products conjugate the first variable. Direct-integral sections use countable fundamental sequences and almost-everywhere equality. Projection measures are strongly countably additive. Trace requires trace class; kernel diagonals require a representative or factorization.
+Hilbert spaces are complete and complex; inner products conjugate the first variable. Direct integrals use countable fundamental sequences and a.e. equality; projection measures are strongly countably additive. Traces require trace class, diagonals a representative or factorization.
 
 Induction uses δ_P^(1/2)=a^ρ_P and AA.0/AA.2 quotient measures. Record Weyl denominators, covolumes and stabilizer orders. The spectral resolvent (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
@@ -27,11 +27,11 @@ Yu, DIT and Gross–Zagier targets/tests use Y, D and G respectively:
 For F=y^(k/2)f, the coefficient and unitary-weight operators satisfy
 Δ_classical f=y^(−k/2)(Δ_unitary F+(k²/4−k/2)F); at k=1/2 the shift is −3/16. Green sums use Γ₀(N)/{±I}, whereas Eisenstein sums use Γ_∞\Γ.
 
-Build AS.0–AS.4 in order; AS.5 adds AF/ALS cochains. AS.6's local Paley–Wiener/multiplier prefix uses AS.0 and AF.1: general Levi SF compact pictures, K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent orbital integrals on centralizer quotients, pseudo-coefficients and finite-place Bernstein trace images. Modular cores need oriented quadratic cycles with genus signs.
+Build AS.0–AS.4 in order; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures with K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix uses convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
 
-Names extend `TauCeti.AutomorphicSpectral`; API/tests extend targets. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
+Namespace: `TauCeti.AutomorphicSpectral`; API/tests extend targets. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
 
-`SpecialFunctions` is a consumer comparison interface. I/J agree with QM.2's principal-power regularized ₀F̃₁ formulas, with arguments +y²/4 and −y²/4 respectively; K agrees with AL.0's Mellin integral; Λ agrees with Mathlib `completedRiemannZeta`. Require these equations for the supplied functions. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10); the named suppliers own these functions.
+`SpecialFunctions` requires I/J to agree with QM.2's principal-power regularized ₀F̃₁ formulas, at +y²/4 and −y²/4; K uses AL.0's Mellin integral; Λ uses native `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
 
 ## AS.0 — Hilbert fields, vector analysis and rank-one kernels
 
@@ -2559,7 +2559,7 @@ For f∈C_c^∞(G(𝔸)^1) and T sufficiently regular relative to supp f, Σ_o�
 
 Assume: Number-field G, smooth compact support at fixed finite level; sufficiently regular truncation; consistent quotient measures.
 
-Source: S3, §14 Theorem 14.1; §16 (16.1); PDF page 74.
+Source: S3, §14 Theorem 14.1, pp.74–77; §16 (16.1), pp.88–89.
 
 Uses: AS.6.5; B3.
 
@@ -2567,7 +2567,7 @@ Uses: AS.6.5; B3.
 
 `gm_family`
 
-Fix G,M and a Haar measure on a_M^G. A (G,M)-family is a smooth collection c_P:ia_M*→ℂ indexed by P∈P(M), whose adjacent members agree on their shared wall. Put θ_P(λ)=vol(a_M^G/ℤΔ_P∨)⁻¹∏_{α∈Δ_P}λ(α∨). Away from walls c_M(λ)=Σ_P c_P(λ)/θ_P(λ); wall cancellation extends it smoothly, with c_M=c_M(0). Restriction to Levi subspaces and parabolics yields the families used in splitting and descent. Operator-valued families use the corresponding vector-valued version.
+Fix G,M and Haar measure on a_M^G. A (G,M)-family consists of smooth c_P:ia_M*→ℂ, P∈P(M), agreeing on shared adjacent walls. Set θ_P(λ)=vol(a_M^G/ℤΔ_P∨)⁻¹∏_{α∈Δ_P}λ(α∨). Off walls, c_M(λ)=Σ_P c_P(λ)/θ_P(λ); cancellation gives a smooth extension and c_M=c_M(0). Use the actual coroots and covolumes. Levi/parabolic restriction gives families for splitting/descent; likewise for operator-valued families.
 
 Assume: Finite rational parabolic/root data; smoothness on the imaginary real vector space; coroot lattice covolume and fixed Haar.
 
@@ -2591,11 +2591,13 @@ Uses: AS.3.1; AS.0.15.
 
 `gm_splitting`
 
-For (G,M)-families c,d the product has (cd)_M=Σ_{Q∈F(M)}c_M^Q d_Q′. If c_M^L is independent of Q∈P(L), this becomes Σ_{L∈L(M)}c_M^L d_L. The two-factor descent/splitting coefficients d_M^G(L₁,L₂) vanish unless a_M^{L₁}⊕a_M^{L₂}→a_M^G is an isomorphism; otherwise they are the determinant of this map with the fixed measures. Applied to local factors this gives the weighted orbital/character splitting formulas with normalized constant-term functions.
+For compatible (G,M)-families, (cd)_M=Σ_{Q∈F(M)}c_M^Q d_Q′. Independence of c_M^L from Q∈P(L) reduces this to Σ_{L∈L(M)}c_M^L d_L. The descent/splitting coefficient d_M^G(L₁,L₂) is zero unless a_M^{L₁}⊕a_M^{L₂}→a_M^G is an isomorphism, and otherwise is its determinant with fixed measures. Local products yield weighted orbital/character splitting with normalized Levi constant terms.
 
 Assume: Smooth wall-compatible families; the indicated independence for the shorter Levi-only sum; the section selecting Q₁,Q₂ and all measures in Arthur §17.
 
-Source: S3, §17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14).
+For analytic chambers with θ±(z)=±z and common wall values c₀,d₀, (cd)_M=c_M d₀+c₀ d_M. For c±(z)=b+a±z, c_M=a₊−a₋. Checks: equal slopes give zero; slopes 3,1 give 2; wall values 2,5 and slope pairs (3,1),(7,4) give 2·5+2·3=16; wall values 1 give the sum of slope differences.
+
+Source: S3, §17 Lemmas 17.4–17.6, (17.8), (17.12)–(17.14), pp.97–101; two chambers use Lemma 17.1, p.94, and the derivative product rule.
 
 Uses: AS.6.7; AS.3.1.
 
