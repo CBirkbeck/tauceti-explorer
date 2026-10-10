@@ -1,12 +1,98 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
-Issue #7592. Worker: Codex (GPT-6), session `codex-8IrsKc`, 2026-10-10.
-Claim confirmed in issue comment 6100409886, responding to comment 6100408699.
-This continues checkpoint #8530 and earlier checkpoints #8434, #8480, #8500
-and #8513. The package remains incomplete. Its statements are admitted
+Issue #7592. Worker: Codex (GPT-6), session `codex-KnSeiP`, 2026-10-10.
+Claim comment 6100691647 was confirmed by bot comment 6100693311.
+This continues checkpoint #8544 and earlier checkpoints #8434, #8480, #8500,
+#8513 and #8530. The package remains incomplete. Its statements are admitted
 prototypes, not completed formalizations.
 
 ## Progress in this run
+
+Added 24 distinct named declarations and 22 anonymous examples, giving 459
+distinct named declarations and 141 anonymous examples. Four more native
+table-row signatures are present: `table_row_07`, `table_row_08`,
+`table_row_28` and `table_row_29`. The README retains all 109 planned targets,
+124 API names and 96 test labels and describes the new interfaces.
+
+- The general nonabelian wreath model uses native factor swap on G×G,
+  its actual projection kernel, and the outside order-two marking. The
+  membership formula requires b=a⁻¹ as well as a nonidentity C₂ coordinate.
+  Outside involutions form one conjugacy class. Generation of the whole
+  wreath product requires perfectness; C₃ tests reject dropping it. The
+  marking is a set, not an asserted anti-diagonal subgroup for nonabelian G.
+- The symmetric models fix τ=(0 1), write σ=aτ^ε and embed σ as
+  ((a,τaτ⁻¹),ε) in Aₙ≀C₂. The even part is obtained by right multiplication
+  by τ. Both factor coordinates, the quotient coordinate, injectivity and
+  marking preservation are specified. The one-class statement is restricted
+  to S₄ and S₅; larger symmetric groups can have different odd involution
+  cycle types. A test with noncommuting transpositions distinguishes right
+  from left multiplication.
+- Rows 07 and 28 require certificates on the actual S₄ and S₅ markings
+  with trivial output. Row 29 uses the full A₅ wreath product and output C₂.
+  Row 08 uses the inherited order-96 sum-kernel model and output C₂.
+- `order96_cover_certificate` requires a cover on Fin 768, its projection
+  and oriented reduction certificate, a kernel isomorphism with C₂³,
+  the actual relation subgroup of order four and a quotient of order two.
+  These are output obligations, not supplied certified computations. The
+  README distinguishes the intermediate GAP evidence from the published
+  C₂ table value.
+- The standard suggested-file note now precedes the imports as an ordinary
+  block comment. Module-doc syntax in that position rejects imports; the
+  final form elaborates.
+
+These additions close four signature omissions while preserving ST.3's
+ownership of embedded arithmetic-type classification and ST.5's limits.
+No ownership move was made. The two prerequisite blockers below were checked
+afresh; an authorized amendment to the plan is still needed. The eight-hour
+allowance was not exhausted and no permission question is pending.
+
+### Current validation and source checks
+
+Final `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+exited **0**, with **530 warnings, all `declaration uses sorry`**, no errors
+and no other warnings. Available memory before checking was 101 GB. Checks
+ran sequentially through the shared wrapper; no language server, build,
+update, cache fetch or compilation in the current read-only environment was
+used. The wrapper records Tau Ceti f790474; Mathlib's commit was checked as
+`082e2d37e8b0463410cdb532e111cd43d5a66174`.
+
+The unchanged packet passed `python3 scripts/check_blueprint.py
+research/blueprint/packets/InductionRestrictionPartII.json` with **0 errors,
+0 warnings**. A static inventory found no missing planned target, API or
+test name in the README. It is 125606 bytes, below the 200 KB cap.
+`python3 research/blueprint/intake.py check-files` passed for the three
+changed deliverables with **0 problems**; `git diff --check` passed.
+
+An independent scratch calculation enumerated permutations with composition
+p(q(i)), their sign parity and the displayed wreath multiplication. It
+checked all 576 S₄ and 14400 S₅ product pairs for the embedding homomorphism,
+injectivity, both even coordinates and the exact marking. The 6 S₄ and
+10 S₅ marked elements each form one conjugacy class and generate their group.
+It also enumerated the closure of the 60 pairs (a,a⁻¹,t) in the A₅ wreath
+product: the closure has 7200 elements, its outside order-two set is exactly
+those 60 points, and the projection kernel surjects onto the first A₅ factor.
+These finite checks validate the carrier conventions; they do not certify
+Schur covers or compute reduced multipliers.
+
+Current Tau Ceti and roadmap main were read at the same commits listed in
+the preceding validation below. The InductionRestriction and
+SemisimpleAlgebras upstream READMEs were read in full. AlgebraicTopology
+Stage 6, item 1 and the relevant native Kronecker/transfer interfaces were
+inspected. Pinned alternating-group and Schur–Zassenhaus declarations were
+read. Current suggested files and library sources were searched for complete
+suppliers of the two recorded gaps; none was found. The existing partial
+suppliers listed below retain their boundaries. The reviewed library audit
+was inspected; it has no direct Part II entry.
+
+Fresh source reading covered Wood's introduction pp.378–379, §8.2 and
+Table 2 p.419, the Appendix opening p.420, and LWZB's published proof of
+Theorem 10.4, PDF p.64. Access date: 2026-10-10. Both downloaded files matched
+the source hashes in the identity table below. The S₄/S₅ carrier maps are
+explicit mathematical constructions for the selected types; ST.3 retains
+their classification. No restricted source was used. This run did not
+independently re-audit every inherited clause or all 30 baseline claims.
+
+## Inherited progress from checkpoint #8544
 
 Added 44 distinct named declarations and 22 anonymous examples, giving 435
 distinct named declarations and 119 anonymous examples. The README retains
@@ -192,7 +278,7 @@ whole package meets section 20.
 | RS.3 | 11/11 | 28/28 | 24/24 |
 | RS.4 | 19/19 | 22/22 | 18/18 |
 | RS.5 | 11/11 | 4/4 | 3/3 |
-| RS.6 | 26/38 | 12/12 | 9/9 |
+| RS.6 | 30/38 | 12/12 | 9/9 |
 
 This is a static name/signature inventory, not semantic certification or
 stage closure. All 109 target names, 124 API names and 96 test labels remain
@@ -203,13 +289,12 @@ then the row-specific native interfaces and a semantic audit:
    targets. Supply the native integral adapter contracts and the cyclic
    complement-conjugacy theorem with tier-compatible owners. This package
    issue does not authorize editing its source-of-truth packet.
-2. Add the twelve remaining row signatures: `table_row_07`, `table_row_08`,
-   `table_row_13`, `table_row_16`, `table_row_17`, `table_row_22`,
-   `table_row_23`, `table_row_24`, `table_row_28`, `table_row_29`,
+2. Add the eight remaining row signatures: `table_row_13`, `table_row_16`,
+   `table_row_17`, `table_row_22`, `table_row_23`, `table_row_24`,
    `table_row_30` and `table_row_31`. Use actual finite marked groups,
    ambient embeddings, covers, centralizer generators, relation subgroups
-   and quotient identifications. Row 08 can reuse the inherited order-96
-   sum-kernel A₄ model, but its certificate signature is still absent. Do not
+   and quotient identifications. Row 08 now has a native certificate
+   signature and a cover-order/kernel/relation contract. Do not
    replace a row by a group of the asserted order or by an unnamed proposition. ST.3 owns the embedded
    arithmetic-type inputs; ST.5 owns the limits.
 3. The order-96 C₂ result needs a cover witness. Certify the reported C₂³
@@ -233,7 +318,7 @@ generation, inverse marking discrepancy, permuted integer degrees and
 nonempty-fiber conditions throughout the remaining adapters. The legacy
 suggested file's omission ledger remains at its original location.
 
-## Validation
+## Validation in checkpoint #8544
 
 The final command
 
@@ -271,7 +356,7 @@ stages, five gaps, one request and zero closed stages. The README is below
 deliverables with **0 problems**; `git diff --check` passed. No packet,
 metadata, library, other job file or upstream checkout changed.
 
-## Source reading and identities
+## Source reading in checkpoint #8544 and version identities
 
 Fresh reading in this run covered Wood, *Nonabelian Cohen–Lenstra moments*,
 Duke 168(3) (2019), the introduction on printed pp.378–379, §8.2, Table 2,
