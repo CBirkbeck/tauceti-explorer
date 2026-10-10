@@ -3118,14 +3118,16 @@
       ],
       "title": "Primitivity and sharpness comparison",
       "kind": "theorem",
-      "statement": "A nonzero κ_1 yields an upper bound, not equality. Residual primitivity of the actual corrected system, under the self-dual hypotheses H.0–H.5 and for p≥5, gives the corresponding equality of finite length and corrected index (Zanarella Theorem2.3.6). Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index, so cannot preserve an unsupported sharpness assertion. Zhang’s indivisibility conclusion proves a stronger property only under its enumerated hypotheses.",
+      "statement": "In the clean Heegner setting, a nonzero corrected bottom class κ′_1=κ_1 gives Howard’s upper bound. For p≥5, assume that (T,F) and its dual satisfy H.0–H.5, that 𝓛⊇𝓛_s(T) for some s≥1, and that κ′_1≠0. For M in Howard’s discrete Selmer decomposition, Zanarella Theorem2.3.6 gives length M=length(H¹_F(K,T)/Z_pκ′_1)−d(κ′); equality with the full leading-class index holds exactly when the Howard system κ′ over K is primitive. Here primitive means its reduction in KS(T/pT,F,𝓛∩𝓛_1(T)) is nonzero, as in Zanarella Definition2.3.2 and Proposition2.3.3. Scaling the parametrization/system by p preserves non-torsion but increases the leading-class index and destroys residual primitivity. Zhang’s stronger arithmetic indivisibility conclusion requires its separate enumerated hypotheses.",
       "hypotheses": [
-        "The hypotheses in the statement are part of the declaration; the conventions in the reader apply."
+        "Use the clean Heegner Selmer triple and the corrected Howard Kolyvagin system of HE.5, with coefficient ring Z_p and p≥5.",
+        "(T,F) and its Tate dual both satisfy H.0–H.5; 𝓛 contains 𝓛_s(T) for some s≥1; κ′_1≠0.",
+        "Primitivity and d(κ′) are those of Howard systems over K, supplied by the exact request to ES.5; they are not the Mazur–Rubin definitions over Q."
       ],
       "proofSteps": [
-        "Apply the self-dual primitivity equality: for p≥5, the bound of EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem is an equality exactly when the system is primitive, that is has nonzero reduction modulo the maximal ideal as in ES.5/divisibility-invariants (Zanarella Theorem2.3.6). This equality is requested from EulerSystemsAndKolyvaginSystems:ES.5. Howard Theorem1.6.1 is an inequality, and the Mazur–Rubin nodes of ES.5 assume core rank one and are not the self-dual setting.",
-        "Compare coefficient reduction of the actual corrected system to its primitive leading/core component.",
-        "Use a p-scaling test on the actual point map."
+        "Import the self-dual primitivity definition and length formula requested from EulerSystemsAndKolyvaginSystems:ES.5: Zanarella Theorem2.3.6, Definition2.3.2 and Proposition2.3.3, for Howard systems over K. Check both the triple and its dual, p≥5 and 𝓛⊇𝓛_s(T), and apply the formula to the actual corrected system κ′. Howard Theorem1.6.1 supplies the decomposition and inequality, not the equality; ES.5/divisibility-invariants concerns Mazur–Rubin systems over Q and does not supply this import.",
+        "The nonzero leading class makes the index finite. Use d(κ′)=0 if and only if the residual Howard system is nonzero, so the bound is sharp exactly under residual primitivity. Keep the global correction and the integral lattice identification when transferring this statement to Heegner points.",
+        "In the free rank-one compact lattice, replacing κ′ by pκ′ increases the leading-class index by one and reduces the new system to zero modulo p. This distinguishes non-torsion from primitivity without changing Howard’s upper-bound theorem."
       ],
       "acceptance": [
         "Check every displayed hypothesis against the cited source and retain integral coefficients and normalization constants."
@@ -3135,7 +3137,7 @@
         "HeegnerPointEulerSystems:HE.1/parameter-choice-and-degree",
         "EulerSystemsAndKolyvaginSystems:ES.5",
         "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
-        "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants"
+        "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses"
       ],
       "sources": [
         {
@@ -3146,7 +3148,7 @@
         {
           "sourceId": "zhang",
           "locator": "Theorem9.3 p.243; §10 pp.245–246.",
-          "match": "Zhang proves this stronger indivisibility under his enumerated hypotheses; the excerpt belongs to Zhang, not Howard."
+          "match": "Zhang proves arithmetic indivisibility under his separate hypotheses; it is not a consequence of nonzero κ_1 alone."
         },
         {
           "sourceId": "zanarella",
@@ -3162,7 +3164,7 @@
       "leanName": "TauCeti.Heegner.primitivity_versus_nonzero",
       "prototype": {
         "status": "conditions_omitted",
-        "detail": "The Lean signature supplies existing algebraic carriers and the indicated conclusion. The exact arithmetic identification, field, geometry, coefficient topology and source hypotheses in this node’s full statement cannot yet be expressed through the supplier interfaces. Those conditions are omitted explicitly, not replaced by invented Prop fields or opaque types. Where the signature presents one component of a geometric comparison (localization, degree, norm, or reduction), the remaining geometric construction and compatibility are still the mathematical target in the statement."
+        "detail": "The signature retains the expressible condition 5≤p and the length-equality conclusion. M denotes Howard’s finite part and Q the quotient of the compact Selmer lattice by the corrected leading class. Their arithmetic identification, both H.0–H.5 checks, the prime-set condition and residual primitivity of the actual Howard system cannot yet be expressed through the supplier interfaces and are explicitly omitted. The equality is conditional on those mathematical inputs; the signature is not an unconditional theorem for arbitrary modules."
       }
     },
     {
@@ -5186,7 +5188,7 @@
       "locator": "Proof of Theorem7.1, third bullet, printed p.232 (PDF42), version of record; the theorem, printed p.231, is stated for p≥3.",
       "printed": "The source claims that ρ̄_{A_g,𝔭} having image ⊃ SL₂(𝔽_p) forces the image of ρ_{A_g,𝔭} to be ⊃ SL₂(ℤ_p), and states that this condition is needed for Kato’s result [37].",
       "correction": "Delete the step. The implication is false at p=3, and at p=5 it does not follow from the residual image when the coefficient ring O_𝔭 is ramified over Z_5. The condition is not needed: by Skinner, Multiplicative reduction and the cyclotomic main conjecture for GL₂ (arXiv:1407.1093v1), §2.5, integrality in the Skinner–Urban main conjecture needs only (a) ρ̄ irreducible and (b) an element g of Gal(Q̄/Q(μ_p∞)) with T/(ρ(g)−1)T free of rank one, and the third hypothesis of Theorem7.1 gives (b) with g a generator of tame inertia at ℓ. Skinner’s TheoremB is the resulting rank-zero formula for a weight-two newform with coefficients O and p≥3, which is what this proof needs for A and its twist.",
-      "reason": "p=3: Elkies, Elliptic curves with 3-adic Galois representation surjective mod 3 but not mod 9 (arXiv:math/0612734), gives a genus-zero modular curve of such elliptic curves over Q; the simplest are y²=x³−27x−42 of conductor 1944 and y²+y=x³−135x−604 of conductor 6075. The LMFDB lists 1944.f1, with coefficients [0,0,0,−27,−42], with 3-adic image 9.27.0.1, of index 27 in GL₂(Z₃). Its determinant is surjective, so the image meets SL₂(Z₃) in a subgroup of index 27, while its reduction modulo 3 is GL₂(F₃). These curves have additive reduction at 3, so they refute the implication and are not themselves instances of Theorem7.1; no curve meeting all three hypotheses at p=3 was looked for. p=5: the binary icosahedral group, of order 120, has a faithful two-dimensional representation with character field Q(√5) which is realised over Q₅(√5), because the icosian quaternion algebra over Q(√5) is ramified only at the two real places. It stabilises a lattice, so it lies in SL₂(Z₅[√5]) after conjugation. The kernel of reduction modulo √5 is a normal 5-subgroup, hence trivial, so the group maps isomorphically onto SL₂(F₅). Being finite, it contains no conjugate of SL₂(Z₅). This is an example of closed subgroups, not of a Galois image. The general lifting theorem (Manoharmayum, arXiv:1304.1196v2, Main Theorem) excludes residue field F₅ for 2×2 matrices and gives the implication for p≥7; for O_𝔭=Z_p and p≥5 it is Serre’s lemma. Zhang applies Theorem7.1 to level-raised forms, whose coefficient rings are not specified (proof of Theorem7.2, p.233), and Theorem1.1 allows p=5, so its proof needs the same replacement there. The statements of Theorems1.1 and 7.1 are not in question.",
+      "reason": "At p=3, Elkies, arXiv:math/0612734v1, Abstract and Introduction pp.1–2, constructs elliptic curves over Q whose representation is surjective modulo 3 but not modulo 9, including the conductor-1944 curve y²=x³−27x−42. A full integral SL₂ together with the cyclotomic determinant would force full GL₂, so this refutes the claimed implication. These curves have additive reduction at 3; they are not counterexamples satisfying all of Theorem7.1’s hypotheses. At p=5, put O=Z_5[√5]. A finite binary (2,3,5) subgroup of SL₂(O) reduces onto SL₂(F_5): generators and verification are given in the independent review report’s E9 check. It cannot contain a conjugate of the infinite group SL₂(Z_5). This is a subgroup counterexample, not a claimed Galois image. Manoharmayum arXiv:1304.1196v2, Main Theorem p.1, excludes the n=2, k=F_5 case; for p≥7 it gives containment of a conjugate of SL₂(Z_p), and for O=Z_p with p≥5 Serre’s lifting lemma applies. Zhang’s level-raised coefficient rings are unrestricted in the proof of Theorem7.2 p.233, so the safe proof uses Skinner’s weaker integrality conditions instead. The mathematical statements of Zhang’s main theorems are not refuted.",
       "affects": "the proof",
       "known": "new",
       "searched": [
@@ -5194,7 +5196,14 @@
         "arXiv title search for “indivisibility of Heegner points”, 2026-10-06: the paper is not on arXiv, so there is no later version to compare.",
         "International Press article pages for Camb. J. Math.2(2), 2026-10-06: both addresses tried returned a browser challenge (HTTP 403); the archive PDF of the version of record was read instead.",
         "Skinner, arXiv:1407.1093v1, read 2026-10-06 (introduction, §2.5, opening of §3.2): the note says it was written in part to give a reference for the special-value formula that Zhang’s paper needs (its reference [22], cited as a 2013 preprint), and removes the SL₂(Z_p) hypothesis from the Skinner–Urban theorem. It supplies the repair and does not mention the printed step."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-FIX-RT-AREA-iwasawa-1~2",
+        "agent": "Codex — codex-TRbVPK",
+        "date": "2026-10-10",
+        "reason": "Zhang Theorem7.1 and its proof, pp.231–233, read in the version of record. Elkies arXiv v1 pp.1–2 supplies the p=3 failure of residual-to-integral lifting. The p=5 finite subgroup can be checked by a binary (2,3,5) matrix construction over Q_5(√5); it refutes a group implication, not the arithmetic theorem. Skinner arXiv:1407.1093v1 §2.5 pp.15–16 gives the weaker integrality inputs and TheoremB pp.1–2 supplies the needed rank-zero formula. Residual ramification at ℓ∥N supplies the tame unipotent element. No counterexample to all hypotheses of Zhang’s theorem is asserted."
+      }
     },
     {
       "id": "HeegnerPointEulerSystems/E10",
@@ -5210,7 +5219,14 @@
         "Wei Zhang’s publication page https://math.mit.edu/~wz2113/math/pub.html read 2026-10-06: the paper is listed with no correction.",
         "arXiv title search for “indivisibility of Heegner points”, 2026-10-06: the paper is not on arXiv, so there is no later version to compare.",
         "International Press article pages for Camb. J. Math.2(2), 2026-10-06: both addresses tried returned a browser challenge (HTTP 403); the archive PDF of the version of record was read instead."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-FIX-RT-AREA-iwasawa-1~2",
+        "agent": "Codex — codex-TRbVPK",
+        "date": "2026-10-10",
+        "reason": "Zhang Notations (i), (x), pp.200,202, and Theorem7.1 pp.231–232 read in the version of record. The printed theorem does not require p∤D_K, but the proof applies the ordinary rank-zero formula to both g and its quadratic twist. If p divides D_K while p∤N, the twist has p² dividing its level and this ordinary argument is unavailable. The correction restricts the planned theorem to the domain used by Zhang’s main results; it does not assert that the omitted-domain statement is false."
+      }
     }
   ],
   "restructure": [
@@ -5951,6 +5967,99 @@
         "unitTests": 18,
         "missing": []
       }
+    },
+    "independentFixReviewContinuation": {
+      "date": "2026-10-10",
+      "job": "REV-FIX-RT-AREA-iwasawa-1~2",
+      "agent": "Codex — codex-TRbVPK",
+      "scope": "HE.0 packet and suggested file, as the live issue #6217 specifies.",
+      "sourceRetrieval": [
+        {
+          "sourceId": "howard",
+          "url": "https://arxiv.org/pdf/1202.6340v1",
+          "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a"
+        },
+        {
+          "sourceId": "skinner",
+          "url": "https://arxiv.org/pdf/1407.1093v1",
+          "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988"
+        },
+        {
+          "sourceId": "zanarella",
+          "url": "https://arxiv.org/pdf/1908.09197v1",
+          "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f"
+        },
+        {
+          "sourceId": "elkies",
+          "url": "https://arxiv.org/pdf/math/0612734v1",
+          "sha256": "3da8cfeb159ed062856dd1a572a3ea1a7174cb1dc2db415290e752809597924a"
+        },
+        {
+          "sourceId": "manoharmayum",
+          "url": "https://arxiv.org/pdf/1304.1196v2",
+          "sha256": "67012803d4df588db684a64612ecc44c2459c14f25b34cd5dfedc3bd96ec9a84"
+        },
+        {
+          "sourceId": "zhang",
+          "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+          "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+          "access": "Version of record read in the maintainer-cleared library; no source file or text copied into scratch or the repository."
+        }
+      ],
+      "baseline": "All 13 Mathlib declarations independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174. Tau Ceti source pin f790474821cf4256814db967cb154e7af3d0c369 and current read-only TauCetiRoadmap/TauCeti checkouts inspected; no Heegner or generic image-theory implementation is claimed.",
+      "packetChecker": {
+        "command": "python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+        "errors": 0,
+        "warnings": 0
+      },
+      "sourceIssueChecker": {
+        "method": "check_issues and versions_checked on the ten sourceIssues and 24 sourceVersions",
+        "problems": 0
+      },
+      "nameCoverage": {
+        "nodes": 78,
+        "apiItems": 24,
+        "unitTests": 18,
+        "missing": [],
+        "mathematicalStatementComments": "All 78 mathematical statements present; the changed primitivity comment matches its packet statement."
+      },
+      "graph": {
+        "reachableDeclarationCycles": 0,
+        "HE6Partition": [
+          6,
+          13
+        ],
+        "outsideZhangConsumers": 0,
+        "HE8FamilyNodes": 62,
+        "HE8FamilyDependsOnHE6": false,
+        "periodDependsOnHeegner": false,
+        "cleanSupplierReachableFromHE8": false,
+        "ZhangSupplierReachableFromHE8": [
+          "ModularIwasawaMainConjectures:L1"
+        ],
+        "limitations": "Sub-layers and removal of stale atlas edges remain maintainer proposals, not applied changes."
+      },
+      "lean": {
+        "command": "lean-check research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 114,
+        "warningKind": "admission only",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "availableMemoryGB": 97,
+        "sha256": "9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b",
+        "limitations": "The suggested file records arithmetic prototypes with explicit supplier omissions; elaboration does not prove the mathematical statements. No Tau Ceti olean build performed."
+      },
+      "completionBlocker": "The live issue lists HE.0 only, while the live queue outputs contain eleven packets. deliverables_complete requires this job’s marker on all eleven. WORKERS.md permits editing only issue-named files; additional scope requires clarification.",
+      "intakeFiles": {
+        "files": 4,
+        "problems": 0
+      },
+      "completionCheck": {
+        "queueScope": false,
+        "liveIssueScope": true,
+        "method": "deliverables_complete with the current job outputs and with the live issue’s three deliverables"
+      }
     }
   },
   "reviewHistory": [
@@ -6351,63 +6460,121 @@
           "note": "Kolyvagin Structure TheoremA states the stronger d_E I_K² order bound with full torsion index and CM-linear full Tate image. Its original proof is a recorded ES.4 source-acquisition gap; it is not deduced from an exponent estimate."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
+      "date": "2026-10-07",
+      "notes": "Independent review by Claude (session claude-yM8YCo) of FIX-RT-AREA-iwasawa-1~2 (Claude claude-PWOydn, PR #6753), for issue #6217. This session wrote none of that fix, the red team RT-AREA-iwasawa-1 or its verification, the first fix round, the packet or its earlier reviews. It follows independent-review-REV-HeegnerPointEulerSystems--HE.0~2 (accepted, 2026-10-06), whose review object is now the only entry of reviewHistory. All four confirmed findings that concern this packet are correctly fixed. /10: the HE.5 and HE.6 nodes cite ES.5/howard-hypotheses and ES.5/howard-dvr-theorem, which state Howard Definition1.2.3, H.0–H.5 and Theorem1.6.1 as printed; the primitivity equality is Zanarella Theorem2.3.6 with its hypotheses p>4, 𝓛⊇𝓛_s(T) and H.0–H.5 for T and its dual; no declaration of HE.8, HE.8b or HE.8c has a prerequisite in HE.6, so the edge HE.6 → HE.8 is not needed. /2: Zhang Theorem2.1, Lemma3.3 and (4.7)–(4.9) are requested as stated; the R17.3 declarations cited supply the transfer and multiplicity one and assign the Shimura-set identification to R18.3. /8: Skinner Theorems A and B, Theorem2.5.2 and the §2.5 integrality argument are as cited; E9 (the residual-to-p-adic image step fails at p=3, LMFDB 1944.f1 with 3-adic image 9.27.0.1 and mod-3 image GL₂(F₃), and is unproved at p=5 for ramified coefficients) and E10 (p∤D_K) are right; the HE.6z partition, its supplier list and the stage-order claims hold on data/atlas.json. /9: the owner is route 5 of PAPER-CALEGARI-GERAGHTY-20, whose brief is quoted correctly. Two corrections in place: the ES.5 primitivity request now names the DVR, the dual hypotheses and primitivity for Howard’s systems over K (Zanarella Definition2.3.2), since ES.5/divisibility-invariants follows Mazur–Rubin’s Definitions 4.5.5, 4.5.7 and 5.2.11, for their systems over Q; the BSD period gap and structure proposal now also record HE.6 → BSD.4 (BSD.4/kato-heegner-comparison), which closes the same cycle through BSD.4 → BSD.5. The reader document, which this job may not edit, keeps the earlier wording of those three passages. Sources re-downloaded with the recorded hashes. check_blueprint with the pinned index: 0 errors, 0 warnings. The suggested file is unchanged (SHA-256 as in verification) and elaborates with lean-check at Mathlib 082e2d3 with no errors and 114 warnings, all unproved declarations. Implementation statuses remain unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+      "checked": [
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+          "verdict": "verified",
+          "note": "/10. The corrected family κ′ is a Kolyvagin system for (T,F,𝓛) in the sense of ES.5/howard-hypotheses, whose statement includes Howard’s Definition1.2.3; Theorem1.7.5 (arXiv v1 p.21) gives κ′ with κ′_1=κ_1."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
+          "verdict": "verified",
+          "note": "/10. H.0–H.2 as stated in ES.5/howard-hypotheses match Howard §1.3; the verification follows the proof of Theorem1.6.5 (arXiv v1 p.18)."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
+          "verdict": "verified",
+          "note": "/10. The stage prerequisite ES.5 is replaced by the hypothesis record, as PROTOCOL section 3 asks once a finer node exists; H.3–H.5 follow the proof of Theorem1.6.5."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+          "verdict": "verified",
+          "note": "/10. ES.5/howard-dvr-theorem states Howard Theorem1.6.1 with 𝓛_s(T)⊆𝓛; 𝓛=𝓛_1 contains 𝓛_s for s≥1, and Theorem1.6.5 reduces TheoremA to H.0–H.5 exactly as the proof step says."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
+          "verdict": "verified",
+          "note": "/10. Zanarella Theorem2.3.6 (arXiv v1 p.20) gives length M=length(H¹_F(K,T)/Rκ_1)−d(κ) for p>4, 𝓛⊇𝓛_s(T) and (T,F),(T*,F*) satisfying H.0–H.5, and Proposition2.3.3 gives d(κ)=0 exactly for primitive κ; the excerpt is literal. The request to ES.5 was made precise in place (DVR, dual hypotheses, primitivity for Howard’s systems over K)."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+          "verdict": "verified",
+          "note": "/2. Zhang Theorem2.1 (p.203) and its proof match step 1 and the R20.2 request, with admissibility from Notations (xiv); R17.3/global-jl, R17.3/multiplicity-one and R17.3/definite-infinity say what the step cites them for; Lemma3.3 (Helm, Corollary8.11), (4.8) (Pollack–Weston Theorem6.2) and (4.9) (Bertolini–Darmon Theorem9.2, Ihara’s lemma of Diamond–Taylor) are on pp.215 and 218–219. The new excerpt is literal."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
+          "verdict": "verified",
+          "note": "/8. Skinner TheoremA (with Theorem2.5.2 for p∤N) and TheoremB (arXiv v1 pp.1–2, 15–16, 20–21) are the inputs as stated; the §2.5 excerpt is literal. p∤D_K is needed for the ordinarity of g_K (E10); Remark15 (p.232) is as quoted; zhang-indivisibility, the only consumer, assumes p∤D_KN."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
+          "verdict": "verified",
+          "note": "/2. The eigenfunction is the R17.3 transfer realised on the Shimura set, as in the proof of Theorem6.5 (p.231) by (4.8) and (4.9)."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
+          "verdict": "verified",
+          "note": "/8. Imports BSD.3a/definite-congruence-period, whose prerequisite closure contains no HeegnerPointEulerSystems node (checked by script). Zhang (6.7) and p.228 define t_g(ℓ) over K_ℓ and note that Φ is constant over k_ℓ for ℓ|N⁻, so the geometric reading is right; the proof of Theorem6.4 (pp.229–230) names Ribet–Takahashi’s second assertion and Khare for nonsquarefree N, as the BSD request says."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+          "verdict": "verified",
+          "note": "/9. Route 5 of PAPER-CALEGARI-GERAGHTY-20 plans Serre’s theorem for E/K with End=Z for large p and puts effective bounds, uniformity and small ℓ out of scope; Bogomolov’s homothety theorem appears only on Serre’s route for abelian surfaces. The requests, gap and structure proposal say this correctly."
+        }
+      ]
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
-    "date": "2026-10-07",
-    "notes": "Independent review by Claude (session claude-yM8YCo) of FIX-RT-AREA-iwasawa-1~2 (Claude claude-PWOydn, PR #6753), for issue #6217. This session wrote none of that fix, the red team RT-AREA-iwasawa-1 or its verification, the first fix round, the packet or its earlier reviews. It follows independent-review-REV-HeegnerPointEulerSystems--HE.0~2 (accepted, 2026-10-06), whose review object is now the only entry of reviewHistory. All four confirmed findings that concern this packet are correctly fixed. /10: the HE.5 and HE.6 nodes cite ES.5/howard-hypotheses and ES.5/howard-dvr-theorem, which state Howard Definition1.2.3, H.0–H.5 and Theorem1.6.1 as printed; the primitivity equality is Zanarella Theorem2.3.6 with its hypotheses p>4, 𝓛⊇𝓛_s(T) and H.0–H.5 for T and its dual; no declaration of HE.8, HE.8b or HE.8c has a prerequisite in HE.6, so the edge HE.6 → HE.8 is not needed. /2: Zhang Theorem2.1, Lemma3.3 and (4.7)–(4.9) are requested as stated; the R17.3 declarations cited supply the transfer and multiplicity one and assign the Shimura-set identification to R18.3. /8: Skinner Theorems A and B, Theorem2.5.2 and the §2.5 integrality argument are as cited; E9 (the residual-to-p-adic image step fails at p=3, LMFDB 1944.f1 with 3-adic image 9.27.0.1 and mod-3 image GL₂(F₃), and is unproved at p=5 for ramified coefficients) and E10 (p∤D_K) are right; the HE.6z partition, its supplier list and the stage-order claims hold on data/atlas.json. /9: the owner is route 5 of PAPER-CALEGARI-GERAGHTY-20, whose brief is quoted correctly. Two corrections in place: the ES.5 primitivity request now names the DVR, the dual hypotheses and primitivity for Howard’s systems over K (Zanarella Definition2.3.2), since ES.5/divisibility-invariants follows Mazur–Rubin’s Definitions 4.5.5, 4.5.7 and 5.2.11, for their systems over Q; the BSD period gap and structure proposal now also record HE.6 → BSD.4 (BSD.4/kato-heegner-comparison), which closes the same cycle through BSD.4 → BSD.5. The reader document, which this job may not edit, keeps the earlier wording of those three passages. Sources re-downloaded with the recorded hashes. check_blueprint with the pinned index: 0 errors, 0 warnings. The suggested file is unchanged (SHA-256 as in verification) and elaborates with lean-check at Mathlib 082e2d3 with no errors and 114 warnings, all unproved declarations. Implementation statuses remain unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+    "date": "2026-10-10",
+    "notes": "Independent continuation review by Codex — codex-TRbVPK for issue #6217, following Claude claude-yM8YCo’s accepted review of 2026-10-07 and the HE.0 round-two review of 2026-10-06. This session authored none of FIX-RT-AREA-iwasawa-1~2 or its inputs. All four findings affecting the live issue’s HE.0 deliverable (/2, /8, /9, /10) are correctly addressed as source-backed imports, exact requests and recorded restructuring gaps. Corrected the primitivity statement, hypotheses, proof and prerequisite to use Howard systems over K and all Zanarella inputs, and retained 5≤p in its Lean signature. Added independent confirmations of E9 and E10. All 13 pinned Mathlib baseline statements were read; the six definition/construction APIs and 18 tests have suggested-file counterparts. The exact HE.6 partition and its current dependency claims were checked across the packet index and atlas stage graph; the current HE.8 family has 62 nodes and no HE.6 dependency. check_blueprint reports 0 errors and 0 warnings; lean-check elaborates with 114 admission warnings only. Acceptance is of the HE.0 fixes, with the 21 gaps and 63 supplier requests preserved, not of a closed or implemented roadmap. The queue’s additional ten packets are outside the live issue’s authorized file list and have no verdict from this session; the mismatch is recorded in the review report and handoff.",
     "checked": [
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
         "verdict": "verified",
-        "note": "/10. The corrected family κ′ is a Kolyvagin system for (T,F,𝓛) in the sense of ES.5/howard-hypotheses, whose statement includes Howard’s Definition1.2.3; Theorem1.7.5 (arXiv v1 p.21) gives κ′ with κ′_1=κ_1."
+        "note": "/10: Howard Definition1.2.3 and Theorem1.7.5, arXiv v1 pp.7,21. The actual system keeps its cyclic tensor and bottom class. The existing gap on extending local χ to global cohomology remains explicit; this review does not certify that construction as implemented."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
         "verdict": "verified",
-        "note": "/10. H.0–H.2 as stated in ES.5/howard-hypotheses match Howard §1.3; the verification follows the proof of Theorem1.6.5 (arXiv v1 p.18)."
+        "note": "/10: Howard §1.3 H.0–H.2 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. The actual Tate-lattice checks import ES.5/howard-hypotheses and retain full Tate surjectivity."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
         "verdict": "verified",
-        "note": "/10. The stage prerequisite ES.5 is replaced by the hypothesis record, as PROTOCOL section 3 asks once a finer node exists; H.3–H.5 follow the proof of Theorem1.6.5."
+        "note": "/10: Howard §1.3 H.3–H.5 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. Cartesian propagation, the symmetric conjugation-twisted Weil pairing and conjugate local orthogonality remain distinct requirements."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
         "verdict": "verified",
-        "note": "/10. ES.5/howard-dvr-theorem states Howard Theorem1.6.1 with 𝓛_s(T)⊆𝓛; 𝓛=𝓛_1 contains 𝓛_s for s≥1, and Theorem1.6.5 reduces TheoremA to H.0–H.5 exactly as the proof step says."
+        "note": "/10: Howard TheoremA, Theorem1.6.1 and Theorem1.6.5, arXiv v1 pp.2,16,18–19. Applies ES.5’s self-dual DVR decomposition and inequality to the corrected Heegner system, without importing a core-rank-one theorem over Q."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
         "verdict": "verified",
-        "note": "/10. Zanarella Theorem2.3.6 (arXiv v1 p.20) gives length M=length(H¹_F(K,T)/Rκ_1)−d(κ) for p>4, 𝓛⊇𝓛_s(T) and (T,F),(T*,F*) satisfying H.0–H.5, and Proposition2.3.3 gives d(κ)=0 exactly for primitive κ; the excerpt is literal. The request to ES.5 was made precise in place (DVR, dual hypotheses, primitivity for Howard’s systems over K)."
+        "note": "/10: Corrected in place to use Howard systems over K and the exact ES.5 request, not ES.5/divisibility-invariants over Q. Zanarella Definition2.3.2, Proposition2.3.3 and Theorem2.3.6, arXiv v1 pp.19–20, require both dual hypothesis lists, p>4, 𝓛⊇𝓛_s(T) and κ_1≠0. The statement, proof and Lean comment agree; the signature now retains 5≤p."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "verdict": "verified",
-        "note": "/2. Zhang Theorem2.1 (p.203) and its proof match step 1 and the R20.2 request, with admissibility from Notations (xiv); R17.3/global-jl, R17.3/multiplicity-one and R17.3/definite-infinity say what the step cites them for; Lemma3.3 (Helm, Corollary8.11), (4.8) (Pollack–Weston Theorem6.2) and (4.9) (Bertolini–Darmon Theorem9.2, Ihara’s lemma of Diamond–Taylor) are on pp.215 and 218–219. The new excerpt is literal."
+        "note": "/2: Zhang Theorem2.1 pp.203–204, Lemma3.3 p.215, and (4.7)–(4.9) pp.218–219. The exact-level and quaternionic transports are requested separately from the weaker R20.2 criterion; R17.3 supplies rational global JL, and R18.3 owns the Shimura-set realization."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
         "verdict": "verified",
-        "note": "/8. Skinner TheoremA (with Theorem2.5.2 for p∤N) and TheoremB (arXiv v1 pp.1–2, 15–16, 20–21) are the inputs as stated; the §2.5 excerpt is literal. p∤D_K is needed for the ordinarity of g_K (E10); Remark15 (p.232) is as quoted; zhang-indivisibility, the only consumer, assumes p∤D_KN."
+        "note": "/8: Zhang Theorem7.1 and proof pp.231–233; Skinner TheoremsA/B arXiv v1 pp.1–2, Theorem2.5.2 and integrality argument pp.15–16, and §3.2 pp.20–21. The repaired input uses residual irreducibility and the tame rank-one coinvariant element, retaining p∤D_K for the quadratic-twist argument."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
         "verdict": "verified",
-        "note": "/2. The eigenfunction is the R17.3 transfer realised on the Shimura set, as in the proof of Theorem6.5 (p.231) by (4.8) and (4.9)."
+        "note": "/2 and /8: Zhang Theorem6.5 and proof pp.230–231 with (4.8)–(4.9) pp.218–219. The eigenfunction is realized through R17.3/R18.3 with the fixed period and congruence normalization, not through automorphic induction."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
         "verdict": "verified",
-        "note": "/8. Imports BSD.3a/definite-congruence-period, whose prerequisite closure contains no HeegnerPointEulerSystems node (checked by script). Zhang (6.7) and p.228 define t_g(ℓ) over K_ℓ and note that Φ is constant over k_ℓ for ℓ|N⁻, so the geometric reading is right; the proof of Theorem6.4 (pp.229–230) names Ribet–Takahashi’s second assertion and Khare for nonsquarefree N, as the BSD request says."
+        "note": "/8: Zhang §6.3 pp.228–229 and Theorem6.4 pp.229–230. The geometric component length is over K_ℓ; the nonsquarefree proof requires the stated Ribet–Takahashi/Khare/Helm inputs. The BSD.3a import remains accompanied by an exact supplier request; its current prerequisite closure contains no Heegner node."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "verdict": "verified",
-        "note": "/9. Route 5 of PAPER-CALEGARI-GERAGHTY-20 plans Serre’s theorem for E/K with End=Z for large p and puts effective bounds, uniformity and small ℓ out of scope; Bogomolov’s homothety theorem appears only on Serre’s route for abelian surfaces. The requests, gap and structure proposal say this correctly."
+        "note": "/9: Accepted OpenImageTheoremsForAbelianVarieties route in PAPER-CALEGARI-GERAGHTY-20 and the Part II design handoff. HE.7 imports the general image theory and keeps only the Heegner error-constant application. Missing all-p/adelic and GL₂-type uniform exports remain requested."
       }
     ]
   }
