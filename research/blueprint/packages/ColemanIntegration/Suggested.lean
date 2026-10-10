@@ -678,9 +678,64 @@ def rationalPolylogSeries (k : ℤ) : _root_.PowerSeries ℚ :=
       if n = 0 then 0 else ((n : ℚ) ^ k)⁻¹ := by
   sorry
 
+/-- Euler differentiation lowers the weight, including zero and negative weights. -/
+theorem X_mul_derivative_rationalPolylogSeries (k : ℤ) :
+    _root_.PowerSeries.X * _root_.PowerSeries.derivative ℚ (rationalPolylogSeries k) =
+      rationalPolylogSeries (k - 1) := by
+  sorry
+
+/-- The rational series is characterized by its Euler derivative and zero constant term. -/
+theorem rationalPolylogSeries_unique (k : ℤ) (f : _root_.PowerSeries ℚ)
+    (h0 : _root_.PowerSeries.constantCoeff f = 0)
+    (hD : _root_.PowerSeries.X * _root_.PowerSeries.derivative ℚ f =
+      rationalPolylogSeries (k - 1)) : f = rationalPolylogSeries k := by
+  sorry
+
+/-- Weight zero is the geometric series with its constant term removed. -/
+theorem rationalPolylogSeries_zero_weight :
+    rationalPolylogSeries 0 = _root_.PowerSeries.X *
+      (1 - (_root_.PowerSeries.X : _root_.PowerSeries ℚ))⁻¹ := by
+  sorry
+
+/-- Mathlib's formal logarithm is log(1+X), so the weight-one argument is -X. -/
+theorem rationalPolylogSeries_one_eq_neg_log :
+    rationalPolylogSeries 1 =
+      -(_root_.PowerSeries.log ℚ).subst (-_root_.PowerSeries.X) := by
+  sorry
+
+/-- Scalar transport uses native coefficient maps and introduces no second series carrier. -/
+theorem map_rationalPolylogSeries_coeff {A : Type*} [Field A] [CharZero A]
+    (k : ℤ) (n : ℕ) :
+    _root_.PowerSeries.coeff n
+      (_root_.PowerSeries.map (algebraMap ℚ A) (rationalPolylogSeries k)) =
+        if n = 0 then 0 else ((n : A) ^ k)⁻¹ := by
+  sorry
+
+/-- Ring homomorphisms of Q-algebras preserve the common rational coefficients. -/
+theorem map_rationalPolylogSeries_comp {A B : Type*}
+    [CommRing A] [CommRing B] [Algebra ℚ A] [Algebra ℚ B]
+    (g : A →+* B) (k : ℤ) :
+    _root_.PowerSeries.map g
+      (_root_.PowerSeries.map (algebraMap ℚ A) (rationalPolylogSeries k)) =
+        _root_.PowerSeries.map (algebraMap ℚ B) (rationalPolylogSeries k) := by
+  sorry
+
+-- Tests rationalPolylogSeries_constant_zero, rationalPolylogSeries_negative_weight_one,
+-- and rationalPolylogSeries_weight_one_coeff_two.
 example : _root_.PowerSeries.coeff 0 (rationalPolylogSeries 1) = 0 := by sorry
 example : _root_.PowerSeries.coeff 1 (rationalPolylogSeries (-2)) = 1 := by sorry
 example : _root_.PowerSeries.coeff 2 (rationalPolylogSeries 1) = 1 / 2 := by sorry
+
+-- Test rationalPolylogSeries_weight_one_coeff_three: rejects -log(1+X).
+example : _root_.PowerSeries.coeff 3 (rationalPolylogSeries 1) = 1 / 3 := by sorry
+
+-- Test rationalPolylogSeries_negative_weight: rejects restricting the recurrence to k >= 1.
+example : rationalPolylogSeries (-1) = _root_.PowerSeries.X *
+    (1 - (_root_.PowerSeries.X : _root_.PowerSeries ℚ))⁻¹ ^ 2 := by sorry
+
+-- Test rationalPolylogSeries_scalar_coeff: the rational value survives coefficient mapping.
+example : _root_.PowerSeries.coeff 2
+    (_root_.PowerSeries.map (algebraMap ℚ ℂ) (rationalPolylogSeries 2)) = 1 / 4 := by sorry
 
 /-! ## Layer L1: Frobenius continuation -/
 
@@ -2830,9 +2885,11 @@ end Regulator
 --   de Jeu's map H^1(M̃_n(F)) → K_{2n-1}(F)_ℚ (L3.Fa) and Besser's syntomic
 --   regulator (L3.Fb).
 -- padicBeilinsonConjecture (L3.16): not stated;
---   needs K_{2n-1}(k)_E, Beilinson's and the syntomic regulators, complex and p-adic Artin
---   L-functions with coefficients. It is a `Prop`-valued definition built from those objects,
---   never an assumption.
+--   needs K_{2n-1}(k)_E, Beilinson's and the syntomic regulators, and coefficient-valued
+--   complex and p-adic Artin L-functions. The complex finite-image theory is imported from
+--   AdelicAlgebraicGroups AA.2.4 (FiniteImageArtin); its E-valued assembly and the
+--   p-adic parity/Brauer interface are additional targets of README L3.Fd.
+--   PBC is a `Prop`-valued definition built from those objects, never an assumption.
 -- padicBeilinsonConjecture_basis_indep, padicBeilinsonConjecture_coeff_ext,
 --   padicBeilinsonConjecture_orthogonal_sum, padicBeilinsonConjecture_dimension_iff,
 --   padicBeilinsonConjecture_quotient_group: not stated; same reason.
