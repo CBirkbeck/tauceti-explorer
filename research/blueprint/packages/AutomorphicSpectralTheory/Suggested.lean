@@ -8,6 +8,7 @@ for SelfAdjointSpectralTheory and OperatorIdeals, rather than additional generic
 -/
 import TauCeti.Analysis.InnerProductSpace.LinearPMap.SelfAdjoint
 import TauCeti.Analysis.Normed.Operator.Resolvent.Unbounded
+import TauCeti.Analysis.Normed.Operator.Resolvent.Analytic
 import TauCeti.NumberTheory.Multiquadratic.FundamentalDiscriminant.Basic
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
@@ -371,7 +372,11 @@ example (B : Set ℝ) (hB : MeasurableSet B) (f : Lp ℂ 2 (volume : Measure ℝ
 
 end projection_valued_measure
 
-/-- The upper-half-plane scalar representation supplies the spectral-measure proof input. -/
+/-- Weighted convention adapter for the upper-half-plane representation. Current Tau Ceti
+already proves `exists_isFiniteMeasure_eq_nevanlinnaKernel_add` in Pick/Nevanlinna;
+that module is later than the elaboration pin. Use its finite measure rho and the
+weighted measure below, rather than prove scalar existence again. Uniqueness and
+the spectral asymptotic/polarization applications remain additional targets. -/
 theorem herglotz_representation (F : ℂ → ℂ)
     (hF : AnalyticOnNhd ℂ F {z : ℂ | 0 < z.im})
     (hIm : ∀ z : ℂ, 0 < z.im → 0 ≤ (F z).im) :
@@ -379,6 +384,31 @@ theorem herglotz_representation (F : ℂ → ℂ)
       0 ≤ b ∧ Integrable (fun t : ℝ => (1 + t ^ 2)⁻¹) ν ∧
       ∀ z : ℂ, 0 < z.im → F z = (a : ℂ) + (b : ℂ) * z +
         ∫ t : ℝ, ((t : ℂ) - z)⁻¹ - (t / (1 + t ^ 2) : ℝ) ∂ν := by sorry
+
+namespace herglotz_representation
+/-- Convert the library's finite measure to the subtracted-kernel convention. -/
+def weightedMeasure (rho : Measure ℝ) : Measure ℝ :=
+  rho.withDensity (fun t => ENNReal.ofReal (1 + t ^ 2))
+
+theorem weighted_mass (rho : Measure ℝ) [IsFiniteMeasure rho] :
+    Integrable (fun t : ℝ => (1 + t ^ 2)⁻¹) (weightedMeasure rho) ∧
+      ∫ t : ℝ, (1 + t ^ 2)⁻¹ ∂weightedMeasure rho = ∫ _ : ℝ, (1 : ℝ) ∂rho := by sorry
+
+/-- The right-hand integrand is exactly Tau Ceti's `nevanlinnaKernel z t`.
+It is written out so this convention adapter elaborates at the older pin. -/
+theorem integral_conversion (rho : Measure ℝ) [IsFiniteMeasure rho]
+    (z : ℂ) (hz : 0 < z.im) :
+    Integrable (fun t : ℝ => ((t : ℂ) - z)⁻¹ - (t / (1 + t ^ 2) : ℝ))
+      (weightedMeasure rho) ∧
+      ∫ t : ℝ, ((t : ℂ) - z)⁻¹ - (t / (1 + t ^ 2) : ℝ) ∂weightedMeasure rho =
+        ∫ t : ℝ, (1 + (t : ℂ) * z) / ((t : ℂ) - z) ∂rho := by sorry
+
+-- Adapter tests distinguish weighting by 1+t² from an unweighted or reciprocal choice.
+example : weightedMeasure (0 : Measure ℝ) = 0 := by sorry
+example : weightedMeasure (Measure.dirac (2 : ℝ)) =
+    (5 : ℝ≥0∞) • Measure.dirac (2 : ℝ) := by sorry
+example : ∫ t : ℝ, (1 + t ^ 2)⁻¹ ∂weightedMeasure (Measure.dirac (2 : ℝ)) = 1 := by sorry
+end herglotz_representation
 
 end TauCeti.AutomorphicSpectral
 
@@ -2902,30 +2932,69 @@ variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [Complete
 /-- Partial-domain inverse of the imported positive modular Laplacian. The self-adjoint
 extension, cusp boundary condition and continuous-spectrum continuation are omitted;
 those are exactly the modular-resolvent gap, not consequences of compactness. -/
-def dit_91 (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ) : Operator H := by sorry
+def dit_91 (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ) : Operator H :=
+  -TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H) (s * (1 - s))
 namespace dit_91
 def scalarLaplacian (eigenvalue : ℂ) : (⊤ : Submodule ℂ ℂ) →ₗ[ℂ] ℂ :=
   eigenvalue • (⊤ : Submodule ℂ ℂ).subtype
 
 
+omit [CompleteSpace H] in
 theorem inverseEquation (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ)
-    (hOff : ∀ v : H, ∃! u : D, lap u - (s * (1 - s)) • u.val = v) :
+    (hOff : s * (1 - s) ∈ TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H)) :
     ∀ v : H, ∃ hD : dit_91 D lap s v ∈ D,
-      lap ⟨dit_91 D lap s v, hD⟩ - (s * (1 - s)) • dit_91 D lap s v = v := by sorry
+      lap ⟨dit_91 D lap s v, hD⟩ - (s * (1 - s)) • dit_91 D lap s v = v := by
+  intro v
+  have hv := TauCeti.LinearPMap.resolvent_mem_domain hOff v
+  refine ⟨D.neg_mem hv, ?_⟩
+  change lap (-⟨TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H)
+    (s * (1 - s)) v, hv⟩) - (s * (1 - s)) •
+      (-TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H) (s * (1 - s)) v) = v
+  have hEquation := TauCeti.LinearPMap.smul_sub_apply_resolvent hOff v
+  change (s * (1 - s)) •
+    TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H) (s * (1 - s)) v -
+      lap ⟨TauCeti.LinearPMap.resolvent (⟨D, lap⟩ : H →ₗ.[ℂ] H)
+        (s * (1 - s)) v, hv⟩ = v at hEquation
+  simpa only [map_neg, smul_neg, sub_eq_add_neg, neg_neg, add_comm] using hEquation
 
 /- dit_91.kernelSymmetry: R_s(z,z′)=conj(R_conj(s)(z′,z)).
-The signature is omitted until QM.3 supplies the kernel of the actual self-adjoint
-resolvent on its domain. An arbitrary function of z,z′,s has no such symmetry;
+The signature is omitted until the modular L² realization supplies the actual spatial
+kernel. The native operator below alone does not construct point evaluations or a
+representative of an integral kernel. An arbitrary function of z,z′,s has no such symmetry;
 a Prop field containing this conclusion would not construct that kernel.
 -/
 
-/-- An isolated finite-dimensional eigenspace and its reducing complement are required.
-The spectral isolation carrier is omitted pending the unbounded spectrum adapter. -/
-theorem restrictedResolvent (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
-    (P : Operator H) (hP : P.comp P = P) (hAdj : P.adjoint = P)
-    [FiniteDimensional ℂ P.range] (s₀ : ℂ) :
-    ∃ r : ℝ, 0 < r ∧ AnalyticOnNhd ℂ
-      (fun s => (dit_91 D lap s).comp (ContinuousLinearMap.id ℂ H - P)) (Metric.ball s₀ r) := by sorry
+/-- Operator adjoint identity, before passing to a spatial kernel representative. -/
+theorem operatorAdjoint (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
+    (hSelf : IsSelfAdjoint (⟨D, lap⟩ : H →ₗ.[ℂ] H)) (s : ℂ)
+    (hOff : s * (1 - s) ∈ TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H))
+    (hOffStar : (star s) * (1 - star s) ∈
+      TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H)) :
+    (dit_91 D lap s).adjoint = dit_91 D lap (star s) := by sorry
+
+omit [CompleteSpace H] in
+/-- A specified closed reducing complement C has its own partial Laplacian lapC.
+The geometric supplier must construct this restriction and show that the removed
+eigenvalue is outside its spectrum. No arbitrary projection implies that fact.
+The extension at s0 is this complement inverse, not a totalized full resolvent
+evaluated on its spectrum. This lemma applies to genuine spectral gaps. At DIT's
+embedded cuspidal eigenvalues the continued kernel needs different weighted/test
+spaces: removing the eigenline does not remove the continuous L² spectrum. -/
+theorem restrictedResolvent (C : Submodule ℂ H) [CompleteSpace C]
+    (DC : Submodule ℂ C) (lapC : DC →ₗ[ℂ] C) (s₀ : ℂ)
+    (hOff : s₀ * (1 - s₀) ∈
+      TauCeti.LinearPMap.resolventSet (⟨DC, lapC⟩ : C →ₗ.[ℂ] C)) :
+    ∃ r : ℝ, 0 < r ∧ AnalyticOnNhd ℂ (dit_91 DC lapC) (Metric.ball s₀ r) := by
+  have hPoly : Continuous (fun s : ℂ => s * (1 - s)) := by fun_prop
+  have hOpen := (TauCeti.LinearPMap.isOpen_resolventSet
+    (⟨DC, lapC⟩ : C →ₗ.[ℂ] C)).preimage hPoly
+  obtain ⟨r, hr, hBall⟩ := Metric.isOpen_iff.mp hOpen s₀ hOff
+  refine ⟨r, hr, ?_⟩
+  intro s hs
+  have hParameter : AnalyticAt ℂ (fun s : ℂ => s * (1 - s)) s := by fun_prop
+  exact
+    ((TauCeti.LinearPMap.analyticAt_resolvent (hBall hs)).comp
+      (f := fun s : ℂ => s * (1 - s)) hParameter).neg
 
 theorem test1 (s : ℂ) (hs : s ≠ 0) (hs' : s ≠ 1) :
     dit_91 ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
@@ -4432,6 +4501,25 @@ Weyl covariance alone is never used as a substitute. -/
 def PaleyWienerBound (f : ℂ → ℂ) (r : ℝ) : Prop :=
   ∀ N : ℕ, ∃ C : ℝ, ∀ s : ℂ,
     Real.exp (-r * |s.re|) * (1 + ‖s‖) ^ N * ‖f s‖ ≤ C
+
+/-- The one-parameter seminorm estimate in Arthur III.4.2. Use the input bound at
+N+d to absorb a distribution's polynomial order d; exponential radii add.
+This is only the growth step. Differentiated coefficient relations, the actual
+Hecke transform and its finite-radius inverse are still required for support. -/
+theorem PaleyWienerBound.mul_of_polynomialGrowth {f gamma : ℂ → ℂ} {r R : ℝ}
+    (hf : PaleyWienerBound f r)
+    (hg : ∃ d : ℕ, ∃ C : ℝ, ∀ s : ℂ,
+      ‖gamma s‖ ≤ C * Real.exp (R * |s.re|) * (1 + ‖s‖) ^ d) :
+    PaleyWienerBound (fun s => gamma s * f s) (r + R) := by sorry
+
+-- Growth-step tests: a central polynomial keeps radius; a translated Dirac adds
+-- its support radius; the zero distribution yields zero regardless of radius.
+example (f : ℂ → ℂ) (r : ℝ) (hf : PaleyWienerBound f r) (d : ℕ) :
+    PaleyWienerBound (fun s => (1 + s) ^ d * f s) r := by sorry
+example (f : ℂ → ℂ) (r a : ℝ) (hf : PaleyWienerBound f r) :
+    PaleyWienerBound (fun s => Complex.exp ((a : ℂ) * s) * f s) (r + |a|) := by sorry
+example (f : ℂ → ℂ) (r : ℝ) :
+    PaleyWienerBound (fun s => (0 : ℂ) * f s) r := by sorry
 
 /- AS.6/real-invariant-paley-wiener and AS.6/real-operator-paley-wiener:
 full signatures omitted until the AF local real-parabolic family and the actual
