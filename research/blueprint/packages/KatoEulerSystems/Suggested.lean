@@ -62,6 +62,23 @@ example (divisor : Rˣ → D) (norm : ℕ → Rˣ → Rˣ) (wanted : D)
 /-- At a nonzero two-torsion point, the original and pulled-back divisor
 coefficients are respectively zero and 24. -/
 example : (0 : ℤ) ≠ 25 - 1 := by sorry
+
+/-- Identity norms and the specified divisor admit the unit one. -/
+example : thetaCondition 5 (fun u : ℚˣ => (u : ℚ)) (fun _ u => u) 1 1 := by sorry
+
+/-- A wrong divisor is rejected even when every norm is identity. -/
+example : ¬ thetaCondition 5 (fun u : ℚˣ => (u : ℚ))
+    (fun _ u => u) 1 (-1) := by sorry
+
+/-- The divisor alone is insufficient: a norm sending one to minus one fails. -/
+example : ¬ thetaCondition 5 (fun u : ℚˣ => (u : ℚ))
+    (fun _ _ => (-1 : ℚˣ)) 1 1 := by sorry
+
+/-- Selection preserves a uniquely prescribed unit other than one. -/
+example (h : ∃! u : ℚˣ, thetaCondition 5 (fun v => (v : ℚ))
+    (fun _ v => v) (-1) u) :
+    cTheta 5 (fun v : ℚˣ => (v : ℚ)) (fun _ v => v) (-1) h = -1 := by sorry
+
 end Theta
 
 section Siegel
@@ -103,6 +120,14 @@ example : rationalSmoothing 5 (1 : ℚ) 1 ≠ rationalSmoothing 7 (1 : ℚ) 1 :=
 
 /-- Identity pullback preserves a possibly nonconstant unit. -/
 example (theta : Rˣ) : siegelUnit (RingHom.id R) theta = theta := by sorry
+
+/-- Pullback of the unit one is one. -/
+example (pull : R →+* S) : siegelUnit pull 1 = 1 := by sorry
+
+/-- Pullback respects inversion of the supplied unit. -/
+example (pull : R →+* S) (theta : Rˣ) :
+    siegelUnit pull theta⁻¹ = (siegelUnit pull theta)⁻¹ := by sorry
+
 end Siegel
 
 /-- Row-vector torsion indices for a column convention on the universal basis. -/
@@ -178,6 +203,16 @@ example (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (v : U) :
 example (symbol : U →ₗ[ℚ] U →ₗ[ℚ] K) (u u' v : U) :
     beilinsonElement symbol (u+u') v =
       beilinsonElement symbol u v + beilinsonElement symbol u' v := by sorry
+
+/-- Scalar multiplication supplies a nonzero bilinear evaluation. -/
+example : beilinsonElement (LinearMap.lsmul ℚ ℚ) 2 3 = 6 := by sorry
+
+/-- A zero second entry gives zero under the same nonzero bilinear map. -/
+example : beilinsonElement (LinearMap.lsmul ℚ ℚ) 2 0 = 0 := by sorry
+
+/-- A nonzero sum in the first slot is evaluated, rather than discarded. -/
+example : beilinsonElement (LinearMap.lsmul ℚ ℚ) (2+3) 7 = 35 := by sorry
+
 end Symbols
 
 section Moment
@@ -214,7 +249,22 @@ example (k j : ℤ) (hlo : 1 ≤ j) (hhi : j ≤ k-1) :
 /-- Identity constituent maps give the identity composite on a nonzero vector. -/
 example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
     LinearMap.id LinearMap.id LinearMap.id 1 = 1 := by sorry
+
+/-- A zero trace kills the constructed moment. -/
+example : chernMoment (LinearMap.id : ℚ →ₗ[ℚ] ℚ)
+    LinearMap.id (0 : ℚ →ₗ[ℚ] ℚ) LinearMap.id 1 = 0 := by sorry
+
+/-- Four nontrivial constituent scalings contribute to the composite. -/
+example : chernMoment ((2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ))
+    (3 • LinearMap.id) (5 • LinearMap.id) (7 • LinearMap.id) 1 = 210 := by sorry
+
 end Moment
+
+/-- Equality of combined level-prime sets does not preserve each index:
+the change (2,3) to (6,9) requires the ramified new-prime norm relation. -/
+example : (2 * 3 : ℕ).primeFactors = (6 * 9 : ℕ).primeFactors ∧
+    (2 : ℕ).primeFactors ≠ (6 : ℕ).primeFactors ∧
+    (3 : ℕ).primeFactors = (9 : ℕ).primeFactors := by sorry
 
 /-! ## Layer 2: integral towers and full-level conductor relations -/
 
@@ -250,6 +300,15 @@ example (ChHigh ChLow : (ℕ → K) →ₗ[F] H)
 /-- An identity moment applied to a nonzero tower remains nonzero. -/
 example : padicZeta (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ))
     (fun _ => 1) 0 = 1 := by sorry
+
+/-- A zero source tower has zero moment. -/
+example : padicZeta (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ))
+    (fun _ => 0) 0 = 0 := by sorry
+
+/-- A nonidentity moment acts on the actual tower values. -/
+example : padicZeta ((2 : ℚ) • (LinearMap.id : (ℕ → ℚ) →ₗ[ℚ] (ℕ → ℚ)))
+    (fun _ => 3) 0 = 6 := by sorry
+
 end Zeta
 
 /-- The modular Euler factor after evaluation at ell-inverse times inverse Frobenius. -/
@@ -402,7 +461,29 @@ example (M : Submodule F D) : modularFiltration 2 M 1 = M := by sorry
 example (expStar : H →ₗ[F] D) (M : Submodule F D)
     (lands : ∀ x, expStar x ∈ M) (x : H) :
     (modularDualExp expStar M lands x : D) = expStar x := by sorry
+
+/-- Restricting the identity to the whole space preserves one. -/
+example : (modularDualExp (LinearMap.id : ℚ →ₗ[ℚ] ℚ) ⊤
+    (fun _ => Submodule.mem_top) 1 : ℚ) = 1 := by sorry
+
+/-- A zero exponential has zero value in the whole-space range. -/
+example : (modularDualExp (0 : ℚ →ₗ[ℚ] ℚ) ⊤
+    (fun _ => Submodule.mem_top) 1 : ℚ) = 0 := by sorry
+
+/-- The range restriction retains a nonidentity exponential value. -/
+example : (modularDualExp ((2 : ℚ) • (LinearMap.id : ℚ →ₗ[ℚ] ℚ)) ⊤
+    (fun _ => Submodule.mem_top) 3 : ℚ) = 6 := by sorry
+
 end Filtration
+
+/-- Before the modular comparison, generalized reciprocity has sign
+minus for Tate-module rank two and plus for rank one (height when Λ=ℤₚ).
+At p=2,m=1,r=0 the
+conductor and factorial factors give respectively minus one quarter and one half. -/
+example : ((-1 : ℚ)^(2-1 : ℕ) * (2 : ℚ)^(-2 : ℤ) /
+    (Nat.factorial 0 : ℚ) = -1/4) ∧
+    ((-1 : ℚ)^(1-1 : ℕ) * (2 : ℚ)^(-1 : ℤ) /
+    (Nat.factorial 0 : ℚ) = 1/2) := by sorry
 
 /-- The critical period sign includes both weight parity and character parity. -/
 def criticalSign (k r : ℤ) (characterParity : ℤ) : ℤ :=
@@ -445,10 +526,14 @@ example : ¬ ∃ a : ℤ, 2*a = 1 := by sorry
 /-- Parameter zero gives no rank-one difference range. -/
 example : upperUnipotent (0 : ℚ) = LinearMap.id := by sorry
 
-/-- A free rank-one module over a product ring has nonzero zero divisors.
-Full Iwasawa torsion-freeness tests regular scalars, not all nonzero scalars. -/
+/-- Nonzero zero divisors in a free rank-one product-ring module reject
+injectivity by every nonzero scalar, a stronger condition than Mathlib torsion-freeness. -/
 example : ((1, 0) : ℚ × ℚ) ≠ 0 ∧ ((0, 1) : ℚ × ℚ) ≠ 0 ∧
     ((1, 0) : ℚ × ℚ) * ((0, 1) : ℚ × ℚ) = 0 := by sorry
+
+/-- Mathlib torsion-freeness tests regular scalars, so the free rank-one
+module over a product ring satisfies the predicate despite its zero divisors. -/
+example : Module.IsTorsionFree (ℚ × ℚ) (ℚ × ℚ) := by sorry
 
 /-! ## Layer 5: rational zeta morphisms and twist-one transport -/
 

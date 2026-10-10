@@ -22,16 +22,16 @@ reciprocity. **SelmerIwasawaCohomology** L0–L3 supplies continuous arithmetic
 cohomology, Selmer conditions, twisting and duality. The construction here
 identifies the actual geometric classes to which these machines apply.
 
-Current **AlgebraicVectorBundles** L0B and L0C supply tensor, dual,
+**AlgebraicVectorBundles** L0B and L0C supply tensor, dual,
 symmetric-power and determinant operations on vector bundles. The integral
 local-system comparisons below use those operations and keep their actual
 coefficient lattices; they do not plan the generic bundle operations again.
 
-The current **ModularCurves** roadmap supplies elliptic curves, Cartier
+The **ModularCurves** roadmap supplies elliptic curves, Cartier
 divisors, Picard duality, multiplication maps and full ordered level bases.
 Its **Part II** supplies the analytic/algebraic and coefficient comparisons.
-The current **ModularForms** roadmap supplies modular forms, normalized
-Eisenstein series and analytically continued L-functions. The current
+The **ModularForms** roadmap supplies modular forms, normalized
+Eisenstein series and analytically continued L-functions. The
 **EllipticCurves** Layers 4 and 6 supply local reduction/formal groups and
 the finite-level Mordell–Weil theorem. These subjects are used at their
 interfaces below. **ModularSymbolsPadicLFunctions** owns modular-symbol
@@ -40,7 +40,7 @@ and their noncritical or family uniqueness principles.
 
 Generic scheme K₂ products and transfers belong to **SchemeKTheoryOperations**
 and **K2SymbolsBrauer**, while finite étale Chern maps and the real regulator
-belong to **MotivicEtaleKTheory**. Current Tau Ceti field Kummer classes,
+belong to **MotivicEtaleKTheory**. Tau Ceti field Kummer classes,
 field restriction/norm compatibilities, continuous cup products and field
 Steinberg relations are deferrals, not new targets here. They do not provide
 the scheme K₂ symbol or a Chern character on an open modular curve. The
@@ -119,7 +119,7 @@ interpolation formula kept explicit.
 
 ## Exact supplier contracts
 
-### From Mathlib and current Tau Ceti
+### From Mathlib and Tau Ceti
 
 Use Mathlib `Units` and `Units.map` for ring units and their functoriality;
 `UpperHalfPlane`, `ModularForm`, `CuspForm` and `DirichletCharacter` for
@@ -133,21 +133,23 @@ analytic continuation at critical integers by itself.
 Use Mathlib `LinearMap`, `Submodule`, `Submodule.span`, `Module.Dual`,
 `Module.Basis.constr`, `Module.IsTorsion`, `Module.IsTorsionFree`,
 `Module.Finite` and `Matrix.GeneralLinearGroup` at their stated algebraic
-generality. Mathlib `Module.IsTorsion` uses regular elements, while
-`Module.IsTorsionFree` forbids annihilation by any nonzero scalar.
-Use the latter only over a domain, such as an odd-prime character
-component; for the full group ring, torsion-free means injectivity
-of multiplication by regular scalars, equivalently zero
-`Submodule.torsion`. A free module over a ring with zero divisors
-need not satisfy `Module.IsTorsionFree`. In ℚ×ℚ the nonzero elements
-(1,0) and (0,1) have product zero, even in the free rank-one module;
-Suggested.lean pins this negative control. In particular `Module.Dual R M` is `M →ₗ[R] R`, and
+generality. Mathlib `Module.IsTorsion` and `Module.IsTorsionFree` both use regular
+scalars. The latter requires multiplication by a regular ring element
+to act injectively on the module; for modules over a commutative ring
+this is equivalent to zero `Submodule.torsion`. Use these predicates
+directly on the full group ring as well as on its domain components.
+The stronger condition forbidding annihilation by every nonzero scalar
+agrees with torsion-freeness over a domain, but fails for the free
+rank-one module over ℚ×ℚ: (1,0)(0,1)=0 although both factors are nonzero.
+Mathlib nevertheless gives `Module.IsTorsionFree (ℚ×ℚ) (ℚ×ℚ)`.
+Suggested.lean checks both facts, distinguishing regular scalars from
+arbitrary nonzero scalars. In particular `Module.Dual R M` is `M →ₗ[R] R`, and
 `Module.Finite ℤ M` is finite generation, not finite cardinality. The
 representative linear maps in Suggested.lean are ingredients of the
 arithmetic constructions, not assertions that arbitrary linear maps
 satisfy explicit reciprocity.
 
-Current Tau Ceti `FieldTheory/GaloisCohomology/Kummer` supplies
+Tau Ceti `FieldTheory/GaloisCohomology/Kummer` at `a91d3aaf` supplies
 `TauCeti.kummerMap`, `TauCeti.kummerIso`, `TauCeti.kummerRes_kummerMap` and
 `TauCeti.kummerCor_kummerMap` for fields, with n invertible for the Kummer
 isomorphism and finite extension for corestriction/norm. Its continuous
@@ -283,7 +285,7 @@ p-torsion-free and zero localization at every height-one prime, is finite
 as an abelian group. This is required also at p=2. Finite quotient and
 equality of submodules are different conclusions.
 
-The early CM elliptic-unit contract is not yet attached to an owner
+The early CM elliptic-unit contract is not attached to an owner
 layer. It must supply H² torsion and H¹ rank one at every p, including
 p=2 and K=ℚ(i), and the contained-cyclotomic branch in Kato 15.14.
 It must precede the rational Kato map. The additional CM upper bound
@@ -296,7 +298,7 @@ Finally, **ModularSymbolsPadicLFunctions** L3 supplies a comparison
 principle at a decent critical point on its specified affinoid
 neighborhood, with a dense noncritical locus and nonvanishing compatible
 periods. A compatible arithmetic zeta section on that same neighborhood
-and its specialization are additional hypotheses, still unsupplied.
+and its specialization are additional hypotheses.
 
 ## How to read the build
 
@@ -356,6 +358,16 @@ geometric theorem, not its proof.
   while 25[0]−E[5] has coefficient zero. The two divisor directions
   cannot be interchanged; the Lean calculation is 0≠25−1.
 
+- For `thetaCondition`, take rational units with divisor equal to their
+  rational value and identity norms. One satisfies prescribed divisor one;
+  this rejects an always-false predicate.
+- With the same divisor and identity norms, minus one fails prescribed
+  divisor one. A predicate that keeps only the norm clause fails this test.
+- With prescribed divisor one, a norm sending one to minus one fails
+  `thetaCondition`. A predicate that keeps only the divisor clause fails.
+- With identity norms and uniquely prescribed rational value minus one,
+  `cTheta` selects minus one. A constant-one selector fails this instance.
+
 *Needs:* ModularCurves 0a, 2a and 2d with the exact norm/Picard contracts;
 Mathlib `Units` and Cartier-divisor group operations.
 
@@ -397,6 +409,11 @@ maps must be the ones supplied by the modular-curve contract.
 - `siegel_identity_pullback`: the identity ring map sends the supplied
   theta unit to itself, including a unit other than one. This rejects
   a constant-one torsion evaluation.
+
+- Pulling back the identity unit gives one, testing `siegelUnit` itself
+  rather than only the rational smoothing expression.
+- Pulling back an inverse gives the inverse of the pulled-back unit.
+  This tests compatibility with the nearest library unit-map operation.
 
 *Needs:* 0.1; ModularCurves 5b; ModularCurvesPartII R12.2 and R12.6;
 Mathlib `Units.map` and ℚ-module operations.
@@ -569,18 +586,27 @@ before the two units are multiplied in K₂.
   sum of the two symbols with the same second slot. Together with the
   four-term smoothing this excludes a pairing that ignores a slot.
 
+- For the bilinear scalar-multiplication map on ℚ, `beilinsonElement`
+  takes (2,3) to six. A zero construction fails this direct evaluation.
+- Under that same nonzero map, (2,0) gives zero. A constant nonzero
+  construction fails this degenerate case.
+- Under that map, (2+3,7) gives 35, testing a nonzero first-slot sum.
+  The determinant check separately fixes the alternating-symbol convention.
+
 *Needs:* Layer 0; ModularCurves 5b and ModularCurvesPartII R12.2;
 SchemeKTheoryOperations product/pullback; K2SymbolsBrauer T2–T3.
 
 ### 1.2 Norms when the level prime sets agree
 
 Prove `k2NormProjection`: for M|M′ and N|N′ with
-prime(MN)=prime(M′N′), the finite flat transfer on the admitted
+prime(M)=prime(M′) and prime(N)=prime(N′), the finite flat transfer on the admitted
 level map sends c,d-z_(M′,N′) to c,d-z_(M,N), with the same admissible
 auxiliary units. Use the actual divisor-free open curves and torsion
 sections (Kato Proposition 2.3, p.126; proof 2.11, pp.130–131).
-The statement requires equality of prime sets, not only divisibility
-of the levels: adding a new prime calls for 1.3.
+The prime sets must agree separately for each index. Equality of their
+unions is insufficient: adding to M a prime already dividing N still
+calls for 1.3's ramified branch. The auxiliary coprimalities at the lower
+level remain valid at the upper level because of these two equalities.
 
 The imported projection formula is f_*{u,f^*v}={Norm_f(u),v}.
 Apply it after arranging the two slots along the particular level
@@ -589,12 +615,16 @@ of the second slot and transfer of the symbol is essential. Coefficient
 rationalization is functorial, but does not justify replacing the
 integral transfer theorem by a formal identity of rational operators.
 
-Raising the exponent of an existing level prime has identity factor.
-For example M′=pM when p already divides MN lies in the same-prime-set
-branch if both relevant prime sets remain equal; adjoining a genuinely
-new ℓ does not. Degenerate identity level maps act as identity on K₂,
-including the zero symbol. These examples are checks of the transfer
-construction, not hypotheses asserting the desired norm equation.
+Raising the exponent of a prime already dividing the same index has
+identity factor: M′=pM with p|M and N′=N is an example. In contrast,
+(M,N)=(2,3) and (M′,N′)=(6,9) have equal combined prime sets, but the
+first index has acquired the new prime 3. Proposition 2.4's ramified
+branch applies and gives 1−T′(3)⟨1/3,1⟩*, rather than the
+prime-set-preserving theorem's identity factor. Suggested.lean checks
+the two prime-set equalities and the failed first-index equality.
+Degenerate identity level maps act as identity on K₂, including the
+zero symbol. These examples test the transfer construction without
+assuming its norm equation.
 
 *Needs:* 1.1, Layer 0's distribution and degeneracy products;
 SchemeKTheoryOperations transfer/projection formula;
@@ -711,6 +741,11 @@ definition.
   must not create a moment by truncated subtraction.
 - `moment_identity_maps`: four identity constituent maps on ℚ send
   1 to 1. This exercises the composite, rejecting a zero morphism.
+
+- Identity constituent maps with a zero trace give zero on input one.
+  This direct `chernMoment` check rejects a skipped trace.
+- Constituent scalings 2,3,5,7 give 210 on input one, rejecting a
+  construction that skips a nonidentity constituent.
 
 *Needs:* 1.1–1.4; ModularCurves 2e integral Weil/Poincaré pairing;
 ModularCurvesPartII R14.3 open-curve finite-coefficient comparison;
@@ -842,6 +877,11 @@ tower, not postulated for arbitrary vectors.
   Coherence alone would also admit a zero tower; this test rejects it
   as an accidental replacement for the supplied nonzero input.
 
+- An identity moment sends the zero rational tower to zero, rejecting a
+  constant nonzero `padicZeta` output.
+- A moment scaling by two sends the constant-three tower to six.
+  This rejects a construction that ignores the supplied moment map.
+
 *Needs:* Layer 1's symbols, norm relations and Hecke scalars; 2.1;
 SelmerIwasawaCohomology L0 coefficient and tower comparisons.
 
@@ -855,7 +895,7 @@ prime(m)∩Σ={p}; thus p divides m, while its other prime factors avoid
 Σ. Define `katoEulerAdapter` as the member of the existing ES.2
 carrier obtained from the conductor family, its coefficient
 projection and the specified Frobenius/Tate convention conversion
-(Kato 8.9, p.185; 13.9–13.10, pp.228–230). No second Euler-system
+(Kato 8.9, p.185; §13.1 and Example 13.3, pp.224–225). No second Euler-system
 carrier is introduced.
 
 The API is `katoEulerAdapter_component`, `katoEulerPolynomial`,
@@ -1051,6 +1091,13 @@ identification is the exact open-curve comparison contract.
   exponential, including a nonzero input value. Suggested.lean
   tests this for an arbitrary linear exp* with its proved range.
 
+- On the whole rational line, the identity exponential gives one on
+  input one, rejecting a zero `modularDualExp` construction.
+- A zero exponential gives zero on input one, rejecting an identity
+  map substituted for the imported exponential.
+- The doubling exponential gives six on input three, testing that range
+  restriction preserves a nonidentity value.
+
 *Needs:* ModularCurvesPartII R14.3 open logarithmic comparison and
 R12.3 compactification; PadicHodgeRegulators L1 generic dual
 exponential; AutomorphicGaloisRepresentations R19.1 for the f-quotient.
@@ -1204,7 +1251,8 @@ versions). At weight two,r=1 in the last branch both nonconstant
 powers are p^(−1), providing the same numerical control as Layer 2.
 
 The proof requires the exact big-local-field statement used in Kato
-§10, based on [KK3] §4.2, and the square (10.9.5) relating symbol,
+§10, whose Proposition 10.12, p.198, cites [KK3] Theorem 4.3.1,
+and the square (10.9.5) relating symbol,
 Kummer cup, trace, modular differential and dual exponential. Section
 11 supplies the syntomic/Kuga–Sato comparison with its rational
 projector denominators. Complete proof closure of the non-perfect-
@@ -1212,6 +1260,24 @@ residue-field reciprocity is an unsupplied D.2 contract. The theorem
 is a target conditional on that contract; the finite-field syntomic
 comparison does not prove it. Neither independent linear maps nor an
 arbitrary vector named “Eisenstein product” satisfy this equality.
+
+In the archived author version of *Generalized explicit reciprocity laws*,
+Theorem 4.3.1, internal p.23, has hypotheses 4.1.1, internal p.19:
+a mixed-characteristic complete discrete valuation field with finite
+p-basis, a one-dimensional p-divisible group, an endomorphism domain Λ
+finite free over ℤₚ, a free Λ-Tate module, and an isomorphism for the
+filtered connection. Set h=rank_Λ(T_pG) and r=∑ᵢs(i) for the
+nonnegative derivative multi-index. Its input consists of norm-compatible
+units evaluated on the ordered division basis. The formula has sign
+(−1)^(h−1), conductor factor p^(−m(h+r)), and factorial denominator
+r!, with m≥1. For Λ=ℤₚ, h is the p-divisible-group height. The
+h=2 sign is negative before transporting the Chern and comparison
+normalizations; Proposition 10.12 states the resulting modular formula.
+At p=2,m=1,r=0 this scalar factor is −1/4 for h=2 and 1/2
+for h=1; Suggested.lean pins these two values before any comparison.
+The author version's internal pagination is distinct from the published
+article's pp.57–126. The proof and the comparison square still belong
+to the D.2 contract.
 
 *Needs:* Layers 1–2 and 3.1–3.2; PadicHodgeRegulators D.2 exact
 big-local-field reciprocity/10.9.5 square; ModularCurvesPartII
@@ -1626,7 +1692,7 @@ conductor prime transfer has identity factor; for a new ℓ∉Σ_f it
 has P_ℓ(σ_ℓ^(−1)), where
 P_ℓ(X)=1−a_ℓX+ℓ^(k−1)ε(ℓ)X² in this convention
 (Nakamura Theorem A.1, pp.265–267; Definition A.4 and
-Proposition A.5, pp.268–269).
+Corollary A.5, pp.268–269).
 
 To apply exp* and periods, first undo the output twist with −k.
 The corresponding edge critical value is
@@ -1909,7 +1975,7 @@ For every f, k, λ and p of 4.4, prove Z(f) is nonzero on each
 character component of Λ_Q, so H¹(V(f))/Z(f) is Λ_Q-torsion. The
 hypothesis concerns the canonical image of V(f), rather than every
 individual γ: the zero vector certainly has zero image. Detect a
-nonzero image using 6.3, an appropriate sign and a finite-order twist
+nonzero image using 3.4 and 5.3, an appropriate sign and a finite-order twist
 with nonzero critical L-value. Choose smoothing parameters whose
 values are nonzero at that twist, and use the modular-symbol spanning
 result to pass from those geometric classes to Z(f). The proof uses
@@ -1918,7 +1984,7 @@ inputs. A map into a rank-one free module alone can be the zero map;
 4.4 without this argument does not prove 7.1 (Kato 13.5–13.7,
 pp.226–228; Burungale–Tian v2 Theorem 2.4 and Remark 2.5, p.5).
 
-*Needs:* 4.3–4.4, 5.1–5.2, 6.3;
+*Needs:* 3.4, 4.3–4.4, 5.1–5.3;
 ModularSymbolsPadicLFunctions L0 modular-symbol spanning.
 
 ### 7.2 The cohomological upper bound
@@ -2113,11 +2179,12 @@ integrally (Kato 17.4–17.5, pp.273–274; proof 17.13,
 pp.279–280).
 
 The proof combines the actual Kato class, 7.2, ordinary local
-comparison and 6.3. Do not infer the ordinary Selmer bound merely
+comparison and the noncritical equality of 6.2. The ordinary unit root
+has slope zero, strictly below k−1. Do not infer the ordinary Selmer bound merely
 from the cohomological inequality without accounting for the local
 ordinary quotient. No reverse divisibility is claimed.
 
-*Needs:* 3.1, 5.4, 6.1–6.3, 7.1–7.2;
+*Needs:* 3.1, 5.4, 6.1–6.2, 7.1–7.2;
 SelmerIwasawaCohomology L2 ordinary Selmer conditions and L3 ordinary
 localization; PadicHodgeRegulators L3 ordinary Perrin–Riou comparison;
 ModularSymbolsPadicLFunctions L3 good periods;
@@ -2255,6 +2322,12 @@ specified printed edition unless a draft page is explicitly named.
   12.4–12.5 (221–222), 13.5–13.14 (226–234), 15.12–15.17
   (263–265), 16.1–16.3 (268–270), 17.1–17.5 (272–274).
   The displayed convention repairs are explained at their uses.
+- Kazuya Kato, *Generalized explicit reciprocity laws*, Advances in
+  Studies in Contemporary Mathematics **1** (1999), 57–126.
+  [Archived author version](https://web.archive.org/web/20220531053712id_/http://www.math.columbia.edu/~phlee/F16-Kato/GER.pdf).
+  The locators used here are hypotheses 4.1.1, internal p.19,
+  and Theorems 4.3.1 and 4.3.4, internal pp.23–24, of this
+  65-page author version. Its internal pages are not published page numbers.
 - Karl Rubin, *Euler Systems*, public 1999 Arizona Winter School
   draft, III.5, draft pp.47–54.
   [Public draft](https://swc-math.github.io/notes/files/99RubinES.pdf).
