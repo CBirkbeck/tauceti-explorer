@@ -24369,8 +24369,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-10",
-    "session": "codex-XnOZ0w",
-    "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire preceding codex-X15WW9 review, preserved unchanged in reviewHistory. Finding /8: fresh inspection of the relevant coverage target and both NC.5 requests confirms that A2 supplies NS(A)=Pic(A)/Pic0(A), the injection into symmetric Hom and Picard rank, with finite generation from A6. SF.3 does not duplicate the construction. These are exact supplier requests rather than implemented Neron–Severi or quadratic Chabauty theory. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Acceptance concerns the area fixes and exact requests. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
+    "notes": "Codex (GPT-6), session codex-uc4o8L: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full in reviewHistory. Finding /8: NC.5 retains the exact A2 request for Pic/Pic0, its symmetric-Hom injection, finite generation and Picard rank. A6 remains a finite-generation input rather than a competing quotient/map owner. No mathematical correction was necessary. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers. Mathematical fields, prior histories and supplier requests are preserved; this review claims no formalisation or proof closure."
   },
   "independentReviewAudit": {
     "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty",
@@ -27852,6 +27851,13 @@
       "date": "2026-10-10",
       "session": "codex-X15WW9",
       "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Finding /8: the two NC.5 requests assign NS(A)=Pic(A)/Pic0(A), its injection into symmetric Hom(A,A∨) and Picard rank to A2, with finite generation from the A6 field Hom input. SF.3 has no competing construction. Freshly read the relevant library-audit target and exact requests; these are requested interfaces, not implemented Neron–Severi or quadratic Chabauty theory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "session": "codex-XnOZ0w",
+      "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire preceding codex-X15WW9 review, preserved unchanged in reviewHistory. Finding /8: fresh inspection of the relevant coverage target and both NC.5 requests confirms that A2 supplies NS(A)=Pic(A)/Pic0(A), the injection into symmetric Hom and Picard rank, with finite generation from A6. SF.3 does not duplicate the construction. These are exact supplier requests rather than implemented Neron–Severi or quadratic Chabauty theory. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Acceptance concerns the area fixes and exact requests. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
     }
   ]
 }
