@@ -32256,12 +32256,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
@@ -36717,8 +36717,9 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6342"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6342",
+   "finishedAt": "2026-10-10T23:25:14Z"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.1",
@@ -37366,8 +37367,9 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6356"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6356",
+   "finishedAt": "2026-10-10T23:25:15Z"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.4",
@@ -43149,7 +43151,8 @@
    ],
    "revisionOf": "BP-AnalyticNumberTheory--AN.0",
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6511"
   },
   {
    "priority": 2,
@@ -49185,8 +49188,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80243,8 +80246,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80466,8 +80469,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81553,8 +81556,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
