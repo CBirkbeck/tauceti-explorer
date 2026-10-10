@@ -703,7 +703,7 @@ Source: QW Corollary 4.38, §4, p.77 · QH Proposition 3.19, §3, p.31.
 
 ### No functorial q-Hodge complex has the q-de Rham-Witt complexes as functorial cohomology
 
-For perfectly covered A that is not a ℚ-algebra, no functor on all smooth A-algebras to derived h-complete A[[h]]-modules can have functorial isomorphisms H^*(qHdg/^L(q^m−1))≅(qW_mΩ)^∧_h for every m with divisor projections inducing F_{m/d}. Both functorial cohomology identifications and the Frobenius-transition condition are essential hypotheses of the impossibility. A Habiro descent must therefore be a complex with its derived cyclotomic filtration, rather than this family of cohomology groups. This does not contradict descent from chosen pairs.
+For perfectly covered A that is not a ℚ-algebra, no functor on all smooth A-algebras to derived h-complete A[[h]]-modules can have functorial isomorphisms H^*(qHdg/^L(q^m−1))≅(qW_mΩ)^∧_h for every m with divisor projections inducing F_{m/d}. The candidate is one derived complex functor: all the reductions and divisor projections come from that same functor. The isomorphisms are graded, in every cohomological degree, and the projections must induce the unrescaled Frobenii. An unrelated family of q-Witt modules with Frobenius maps exists and is not excluded by this theorem. A Habiro descent must therefore be a complex with its derived cyclotomic filtration, rather than this family of cohomology groups. This does not contradict descent from chosen pairs.
 
 Prerequisites: HQ.4, HabiroRings HR.4, EnhancedDerivedSheaves E5:animation, PrismaticCohomology PR.0.
 
@@ -794,7 +794,7 @@ Source: QH Lemma 3.30, §3, p.40.
 
 ### The prismatic Nygaard filtration on the p-completed twisted q-de Rham complexes
 
-Define prismatic Nygaard on (qΩ^(p))^∧_p as the preimage of the canonical décalage filtration along relative Frobenius. For a≥2 pull it back along φ^(a−1) to (qΩ^(p^a))^∧_p. Animate and use quasisyntomic descent. The owner of the Frobenius-divisibility construction is PR.3; no trace comparison defines this filtration.
+Define prismatic Nygaard on (qΩ^(p))^∧_p as the preimage of the canonical décalage filtration along relative Frobenius. For a≥2 pull it back along φ^(a−1) to (qΩ^(p^a))^∧_p. Animate and use quasisyntomic descent. The owner of the Frobenius-divisibility construction is PR.3; no trace comparison defines this filtration. In a static realization, identify both rings and the map with the actual relative Frobenius before taking its ordinary ideal preimage. A realization of the filtration diagram alone does not identify that ring map. In the perfectoid quotient example below, the monomials are the canonical q-divided-power generators of the completed q-PD model, not freely chosen elements.
 
 Prerequisites: HQ.4, PrismaticCohomology PR.6, PrismaticCohomology PR.3, AInfCohomology AI.1.
 
@@ -1344,7 +1344,7 @@ Source: QH Paragraph 1.16, §1, p.8.
 
 ### The rings of interest: p-completely perfectly covered bases, quasi-lci algebras and relative semiperfectness
 
-At fixed p, a p-completely perfectly covered δ-base A is p-complete with p-completely faithfully flat map to its perfection A_∞, equivalently p-completely flat Frobenius. A p-quasi-lci R has p-completed cotangent Tor-amplitude [0,1] in homological indexing. Relative semiperfectness is surjectivity of R/p⊗_{A,φ}A→R/p and forces the amplitude to degree 1. A perfect-regular presentation is R=B/J with B relatively perfect and J Koszul-regular. Globally condition (R) requires prime-by-prime torsion-freeness, p-quasi-lci completed inputs and relative semiperfectness modulo p. These imply the introductory staticity/ideal-filtration condition; no converse is asserted. Tor-amplitude 1 alone does not imply relative semiperfectness, and a perfect-regular presentation is sufficient rather than necessary.
+At fixed p, a p-completely perfectly covered δ-base A is p-complete with p-completely faithfully flat map to its perfection A_∞, equivalently p-completely flat Frobenius. A p-quasi-lci R has p-completed cotangent Tor-amplitude [0,1] in homological indexing. Relative semiperfectness is surjectivity of R/p⊗_{A,φ}A→R/p and forces the amplitude to degree 1. Here p is prime and φ lifts Frobenius modulo p; these conditions make r⊗a↦r^p a well defined. Cotangent Tor means H^(−i) of the derived reduction of the full cotangent complex, derived-tensored with every discrete R/p-module. It is not an independently supplied family of modules. A perfect-regular presentation is R=B/J with B relatively perfect and J Koszul-regular; its δ-structure and base map commute with the base Frobenius. The free p-complete δ-ring on x is characterized by unique δ-compatible maps to any p-complete δ-ring sending x to a specified element. Its perfect analogue has the same property among perfect p-complete δ-rings. The names alone do not give freeness for an arbitrary distinguished element. Globally condition (R) requires prime-by-prime torsion-freeness, p-quasi-lci completed inputs and relative semiperfectness modulo p. These imply the introductory staticity/ideal-filtration condition; no converse is asserted. Tor-amplitude 1 alone does not imply relative semiperfectness, and a perfect-regular presentation is sufficient rather than necessary.
 
 Prerequisites: HQ.2, HabiroRings HR.1, PrismaticCohomology PR.0, DerivedDeRhamCohomology DD.0, Mathlib RingTheory.Sequence.IsRegular, Mathlib Algebra.Etale.
 
@@ -1356,8 +1356,9 @@ Examples:
 
 - For A = Z_p{x}^∧_p (free p-complete δ-ring) and α ≥ 1, R = A/x^α has the perfect-regular presentation with B = A and J = (x^α), and satisfies the p-complete conditions (Example 4.24).
 - An étale A-algebra satisfies the p-complete conditions: L_{R/A} = 0 and the relative Frobenius of R/p is an isomorphism.
-- Tor-amplitude in degree 1 does not imply relative semiperfectness modulo p (Remark 4.20, p ≥ 3).
-- A smooth A-algebra of positive relative dimension is p-quasi-lci but not relatively semiperfect, since Ω^1_{R/A}/p ≠ 0; so the two existence theorems overlap only in relative dimension zero (étale algebras).
+- The cotangent tests use the full complex: the identity map has zero Tor; a polynomial algebra over 𝔽_p has nonzero Tor in degree zero and none outside degree zero; the regular quotient ℤ→𝔽_p has nonzero Tor in degree one. Replacing the full cotangent complex by its Kähler module fails the last test.
+- For p ≥ 3 there is a p-complete ℤ_p-algebra with cotangent Tor-amplitude in degree 1 whose mod-p ring is not semiperfect (Remark 4.20). This is a specific counterexample over ℤ_p, not an existence assertion over every base.
+- A smooth A-algebra with Ω^1_{R/A}/p ≠ 0 is p-quasi-lci but not relatively semiperfect. Positive relative dimension on a component of the mod-p fibre gives this obstruction; dimension on a component where p is invertible does not. The two existence theorems overlap in relative dimension zero on that fibre.
 
 ### Staticity of de Rham and q-de Rham complexes of quasi-lci inputs
 
@@ -1371,6 +1372,8 @@ Source: QH Lemma 4.18(a), §4, p.61; Lemma 4.18(b), §4, p.61; Remark 4.19, §4,
 
 For p-torsion-free p-quasi-lci R over the same A, with R/p relatively semiperfect, the complexes are static. Define the naive filtration as the ordinary preimage of the combined Hodge/h-adic ideals of dR[1/p][[h]] under the canonical qdR map. This is an ordinary filtered-module pullback, not a derived preimage. It is a filtration by ideals in a static ring and hence has a filtered E∞-structure, with a unique filtered map to fil_Hdg dR. Surjectivity after filtered reduction by h remains a separate question.
 
+The ordinary static interface uses D=dR and Q=qdR, with comparison Q→D[1/p][[h]], q↦1+h, and a surjective projection Q→D with kernel (h). Constant-coefficient evaluation of the comparison equals localization of the projection. The Hodge ideals satisfy F_Hdg^0=D, descend and multiply, and each is the preimage of its localized ideal. This saturation follows from p-torsion-freeness of the Hodge associated graded modules. Define C^n in D[1/p][[h]] by the coefficient rule: for k<n, the coefficient of h^k lies in F_Hdg^(n−k)D[1/p]; coefficients with k≥n are unrestricted. Then F^n is exactly the comap of C^n. These primitive equations imply multiplicativity, hF^n⊆F^(n+1), the filtered projection and the injectivity identity below. They do not identify arbitrary ring models with dR or qdR and do not imply surjectivity of filtered reduction.
+
 Prerequisites: HQ.5, HQ.3, HQ.1, HQ.2, DerivedDeRhamCohomology DD.2.
 
 Source: QH Construction 4.21, §4, p.62.
@@ -1382,7 +1385,7 @@ Examples:
 - For R étale over A, q-dR_{R/A} = R⟦q−1⟧ (p-completed) and the filtration is the (q−1)-adic filtration; its reduction modulo q−1 is the Hodge filtration (R in degree 0).
 - For A = Z_p{x}^∧_p and R = A/x, the filtration is not a q-deformation of the Hodge filtration (Example 4.24; exponent-one node).
 - For R = A/x^2, the element γ_q(x^2) − (u^{−1} − 1)δ(x^2) + u^{−2}(q−1)^{p−1}δ(x)^2, with [p]_q = pu + (q−1)^{p−1}, lies in fil^p and reduces to x^{2p}/p modulo q−1 (Example 4.24).
-- The derived pullback differs: its H^1 in filtration degree 1 contains the class of 1/p ∈ dR_{R/A}[1/p]⟦q−1⟧, which lies neither in the image of q-dR_{R/A} nor in the combined filtration's first step plus that image.
+- The derived pullback need not be static. Its H^1 is the cokernel of the map from qdR⊕C^1 to dR[1/p][[h]]. For an integral witness in which 1/p is outside the sum of those images, it gives a nonzero class; this test must verify that nonmembership in the chosen model. It is not a nonvanishing assertion when p is already invertible.
 
 ### The naive filtration is always injective modulo q−1
 
@@ -1402,7 +1405,7 @@ Source: QH Theorem 4.22, §4, p.62; Theorem 4.22(a), §4, p.62 · TC Lemma 3.16,
 
 ### For the quotient by x itself the naive filtration is not a q-deformation
 
-For A=ℤ_p{x}^∧_p and R=A/x, compute D_1=A[φ(x)/p]^∧_p and qD_1=A[[h]][φ(x)/[p]_q]^∧_(p,h). The ordinary class x^p/p has no lift in the p-th naive step. Modulo h^p the correcting term involves u^(−2)h^(p−1)δ(x)/p, which is not integral and cannot be removed by hqD_1. Flat passage to the perfection gives the no-section witness. For x^α, α≥2, the expansion of δ(x^α) splits into an x^{p(α−1)}-multiple and a p-multiple, removing this obstruction.
+For A=ℤ_p{x}^∧_p and R=A/x, compute D_1=A[φ(x)/p]^∧_p and qD_1=A[[h]][φ(x)/[p]_q]^∧_(p,h). The ordinary divided-power class x^p/p in the PD envelope has no lift in the p-th naive step. Here x is the image of the ambient free generator in that envelope; its image in R=A/(x) is zero and cannot represent this obstruction. Modulo h^p the correcting term involves u^(−2)h^(p−1)δ(x)/p, which is not integral and cannot be removed by hqD_1. Flat passage to the perfection gives the no-section witness. For x^α, α≥2, the expansion of δ(x^α) splits into an x^{p(α−1)}-multiple and a p-multiple, removing this obstruction.
 
 Prerequisites: HQ.5, PrismaticCohomology PR.0.
 
