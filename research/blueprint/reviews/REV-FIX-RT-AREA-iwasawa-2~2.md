@@ -1,4 +1,112 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
+# REV-FIX-RT-AREA-iwasawa-2~2 — blocked scope checkpoint
+
+Reviewer: Codex (GPT-6), session `codex-ZQ4VPz`, 10 October 2026.
+[Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096082390).
+Input atlas: `98eb18006fbe9d261c26b38192af6b7cd4ff3d7d`.
+This reviewer performed none of the fixes under review. No second job was claimed.
+
+The inherited bounded verdicts remain supported: accept L3's selected
+Gamma/Gross–Koblitz contracts; retain PMIA's `needs_changes` verdict for
+coordinated reuse of current-native Fitting ideals. Completion is blocked
+by the live issue's omission of L3-2 and D.1, although the unchanged queue
+requires review receipts in both. This session changes only this report
+and its handoff. No packet, suggested signature or dispatch metadata changes.
+
+## Independent continuation by codex-ZQ4VPz
+
+Read the six findings, their independent verification, the round-two fix
+report, the four packets' relevant contracts and the preceding review.
+The ledgers and source receipts retained below remain attributed to their
+original reviewers. This continuation does not claim another full audit of
+all 1,663 L3 nodes, 487 PMIA nodes or 72 D.1 nodes.
+
+Fresh source inspection confirms the endpoint correction proposed for
+L3-2. Zhao, Theorem 4.1 and (4.1)–(4.6), pp.471–473, use the Gamma
+antidifference with the strict natural product. Appendix B.2, p.474, prints
+an incompatible inclusive endpoint and shifted Gamma argument. The node
+`DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference` already has the
+correct mathematical statement and proof steps, but its source locator
+names E34 rather than the existing correction
+`DirichletPadicLFunctions/E37`. Only that locator needs mathematical-data
+editing. The primitive odd character, conductor N>1, coprimality and
+separate arithmetic inputs for nonvanishing remain necessary.
+
+As discriminating finite diagnostics, checked 396 strict-product counts
+for p=2,3,5,7 and 1≤n≤99, 30 finite permutation cases, and 82,448 strict
+filtration comparisons. All pass. At p=5 and n=2 the strict product has
+logarithm zero; including the endpoint produces log_5(2)≡10 modulo 25.
+This residue calculation divides by the Teichmüller lift before applying
+log(1+u)≡u modulo 25. It distinguishes the two endpoint conventions;
+it is a finite diagnostic, not a proof of continuous interpolation.
+
+Read Morita §1, Lemma 1 and Theorem 1, pp.255–256, and Gross–Koblitz
+§1, (1.2), (1.5) and Theorem 1.7, pp.570–571, as page images. The unit-valued
+signed interpolation, dyadic modulus-4 exception, integral normalized root
+and negative Gauss convention agree with the selected contracts. Robert,
+Theorems 2–4, pp.162,165,168, supplies the separate all-prime argument;
+the dyadic estimate keeps its binary digit-sum term. The prerequisite
+coefficient and splitting results remain unclosed suppliers.
+
+Read the four syntomic consumers against EN §§2.1–2.2, pp.4–8;
+CN Corollary 3.16, p.37, and Theorem 5.4, p.54; and NN Remark 2.14,
+p.14, and Proposition 4.13, pp.53–54. Preserve the distinct differentials,
+directed p^r composites, factorial-modified twist, exact divided range
+0≤i≤r≤p−2, bounded undivided comparison and rational exponential scaling.
+The proper Bloch–Kato comparison retains its stated range and sign.
+CS.0–CS.3 remain external producers after CR.5/CR.6. A bounded receipt
+for these four consumers must archive D.1's entire preceding 72-node
+review, not replace that audit without retaining it.
+
+DK §§2.2–2.3, pp.15–18, and Lemma 3.9, pp.25–26, support the selected
+character-image and exterior-power obligations. The compound preimage
+must use the adjugate on the target vector before embedding it into the
+larger source. Keep finite generation, finite presentation, positive-size
+square presentation and regularity hypotheses where used. Read current
+Tau Ceti's Fitting minors comparison and arbitrary-base-change theorem,
+and the transpose quotient equivalence, at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; read the StableReduction and
+QuiverRepresentations interfaces at roadmap main
+`201bcaee1f4014c91897d50cdb7631fc6d6a6d71`. They confirm the outstanding
+coordinated Fitting migration and the continued general finite-projective
+stable-comparison obligation. No upstream checkout was modified or built.
+The LAD owner gap and RS-16's two independent cyclotomic proof routes
+remain unchanged; those conclusions use the retained verifier/fix evidence.
+
+The eight freshly downloaded public PDFs have exactly the SHA-256 values
+in the preceding source table. Scanned formulas were inspected visually.
+No restricted book was used and no source passage was put in the repository.
+
+## Validation and exact blocker
+
+Fresh `check_blueprint.py` runs on all four original packets report zero
+errors. L3 has 26 inherited short-API warnings; the other three have none.
+The two prepared omitted-packet drafts also pass with zero errors and
+warnings. Their preparation changes only L3-2's locator and bounded review,
+and D.1's bounded review after archiving its preceding full review. Existing
+source issues, gaps, requests and planned stages are preserved.
+
+The actual unchanged queue completion predicate returns **False**. A
+scratch-only path/receipt simulation returns **True** after those exact
+edits; its placeholder non-JSON paths test existence only and are not
+compilation receipts. All four suggested-file SHA-256 values match the
+preceding report. No Lean file was edited or compiled in this session.
+The preceding codex-O0mt5G receipts remain inherited: PMIA, L3-2 and D.1
+elaborated with sorry warnings only; original L3 failed before its body
+because repository-local research imports were unavailable in the shared
+build. Conditional assembly evidence is not original-file success.
+
+A fresh live-issue fetch still authorizes only L3 and PMIA packet paths.
+[WORKERS.md](../WORKERS.md), “Doing the work”, says:
+“Edit only the files the issue names, plus your own scratch space.”
+Explicit authorization for the two omitted paths was requested while this
+independent work continued; no reply arrived before submission. The exact
+edits and preservation requirements are in the updated handoff. Correct
+the live scope or grant those edits before redispatching this review.
+
+## Retained preceding report — codex-O0mt5G
+
+### REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
 Reviewer: Codex (GPT-6), session `codex-O0mt5G`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
