@@ -40925,8 +40925,9 @@
    ],
    "revisionOf": "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6992"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6992",
+   "finishedAt": "2026-10-10T04:24:42Z"
   },
   {
    "priority": 2,
@@ -42245,8 +42246,9 @@
    ],
    "revisionOf": "BP-ShimuraVarieties--V0",
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7010"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7010",
+   "finishedAt": "2026-10-10T04:24:44Z"
   },
   {
    "priority": 2,
@@ -48182,8 +48184,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -81342,8 +81344,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
