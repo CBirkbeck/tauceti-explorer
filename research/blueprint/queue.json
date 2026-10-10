@@ -15846,7 +15846,8 @@
    "avoidAccountOf": "DESIGN-QuiverRepresentationsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-QuiverRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3600"
   },
   {
    "id": "DESIGN-MotivesAndAlgebraicCyclesPartII",
@@ -37288,8 +37289,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6312"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6312",
+   "finishedAt": "2026-10-10T22:01:45Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.3",
@@ -37312,8 +37314,9 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6355"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6355",
+   "finishedAt": "2026-10-10T22:01:48Z"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.3",
@@ -43689,8 +43692,9 @@
     "BP-QSeriesPartitionsAndMockModularForms~2"
    ],
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6469"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6469",
+   "finishedAt": "2026-10-10T22:01:50Z"
   },
   {
    "kind": "blueprint",
@@ -49174,8 +49178,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
