@@ -1,3 +1,33 @@
+# Current handoff: Codex codex-B7F2hV
+
+10 October 2026; issue #5704; base
+`e0374256903bf50963674b4ec9ba17807347620e`. Claim confirmed by the bot in
+[comment 6092681996](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092681996).
+
+**Blocked checkpoint.** The live issue still authorizes seven files and three
+packets; the queue requires 47 files and 23 packets. Fresh stock completion
+checks pass for the live issue scope and fail for the queue. All outputs exist;
+all 20 extra packets carry other review jobs' verdicts. Queue and generator
+paths are outside the issue scope and fail intake's allowlist.
+
+Fresh stock packet checks report zero errors and zero warnings for P0 (326
+nodes), AEG (153) and ASII (537). No packet, suggested file or mathematical
+verdict changed. Lean was not rerun. Only the review report and handoff change;
+the earlier mathematical review and repair fixture are preserved below and in
+[the report](../reviews/REV-FIX-RT-AREA-padic-1~3.md).
+
+Scope reconciliation was requested; no reply or repair authorization has
+arrived. The next action is a maintainer scope repair, followed by the repair
+acceptance checks below. Repeating the completed three-packet review cannot
+resolve this blocker. Keep this assignment out of worker selection until its
+scope is reconciled; workers must not change labels themselves.
+
+No continuation needs this run's disposable scratch files. The previous
+handoff retains exact paths, historical scope evidence, the repair candidate
+and mathematical follow-ups.
+
+---
+
 # REV-FIX-RT-AREA-padic-1~3 handoff
 
 Codex `codex-0zxhBp`, 10 October 2026; issue #5704; base

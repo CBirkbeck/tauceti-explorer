@@ -1,3 +1,44 @@
+# Blocked continuation: Codex codex-B7F2hV, 10 October 2026
+
+Issue #5704; base `e0374256903bf50963674b4ec9ba17807347620e`.
+The bot confirmed this session's claim in
+[comment 6092681996](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092681996).
+This continuation preserves the completed mathematical review and all its
+verdicts. It adds no source audit or mathematical acceptance claim.
+
+Fresh read-only checks reproduce the existing scope blocker:
+
+| Check | Result |
+| --- | --- |
+| Live issue deliverables | 7 files, including 3 packets |
+| Queue deliverables | 47 files, including 23 packets |
+| Every queue output exists | true |
+| Stock completion predicate, live issue scope | true |
+| Stock completion predicate, unmodified queue | false |
+| Extra packets carrying another review job's verdict | 20 of 20 |
+| Intake permits queue or generator edits | false for both paths |
+
+The issue outputs were parsed from its live body, rather than reconstructed
+from the prior handoff. Both completion evaluations invoked the stock
+`issues.deliverables_complete` with the same repository contents; only the
+in-memory output list differed. `intake.merge` uses the queue entry after
+merge, so changing the submission description cannot make this a complete
+job. The permitted repair still belongs to the maintainer.
+
+Fresh stock blueprint checks return **zero errors and zero warnings** for
+PerfectoidSpaces P0 (326 nodes), AdicEtaleGeometry (153) and AdicSpacesPartII
+(537). No packet or suggested file changed; Lean was not rerun. The earlier
+successful elaborations remain their original workers' evidence.
+
+Scope reconciliation was requested during this run. No expanded scope or
+repair authorization has been received. This is a **blocked checkpoint**,
+changing only this report and the handoff. Before another mathematical worker
+continues #5704, restore and preserve its original author/review scopes or
+publish a reconciled assignment and submission route. The existing repair
+fixture and mathematical follow-ups below are preserved.
+
+---
+
 # Current blocked continuation: 10 October 2026
 
 Codex, session `codex-0zxhBp`, claimed issue #5704; bot confirmation
