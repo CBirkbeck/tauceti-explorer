@@ -38747,8 +38747,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6928"
+   "state": "pending",
+   "note": "released on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -39475,7 +39475,8 @@
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems--ES.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7046"
   },
   {
    "kind": "blueprint",
@@ -40001,8 +40002,9 @@
     "BP-GrossZagierAndArithmeticHeights--GZ.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7053"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7053",
+   "finishedAt": "2026-10-10T11:32:10Z"
   },
   {
    "kind": "blueprint",
@@ -41271,8 +41273,9 @@
     "BP-PELModuli~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PELModuli~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7077"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7077",
+   "finishedAt": "2026-10-10T11:32:13Z"
   },
   {
    "kind": "blueprint",
@@ -41620,8 +41623,9 @@
     "BP-PrismaticCohomology--PR.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7084"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7084",
+   "finishedAt": "2026-10-10T11:32:15Z"
   },
   {
    "kind": "blueprint",
@@ -46792,8 +46796,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48242,8 +48246,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48901,8 +48905,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49223,8 +49227,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80094,8 +80098,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81403,8 +81407,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
