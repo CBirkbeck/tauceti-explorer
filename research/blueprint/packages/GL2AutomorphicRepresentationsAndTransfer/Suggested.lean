@@ -48,6 +48,8 @@ import Mathlib.Topology.Algebra.Group.Matrix
 import Mathlib.Topology.Algebra.Group.Quotient
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.NumberTheory.LocalField.Basic
+import Mathlib.NumberTheory.DirichletCharacter.Basic
+import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.Algebra.Group.AddChar
 
 noncomputable section
@@ -1104,6 +1106,50 @@ example : unramifiedQuadraticTwo ≠ 1 := by
     exact Padic.valuation_p (p := 2), zpow_one] at he
   have hcoe := congrArg (fun u : ℂˣ => (u : ℂ)) he
   norm_num at hcoe
+
+/- The finite arithmetic witness for auxiliary ramification at 5. These
+examples use Mathlib's Dirichlet-character carrier; they do not assert a
+Dirichlet-to-Hecke comparison or general prescribed-local existence. -/
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+private abbrev quadraticDirichletFive : DirichletCharacter ℂ 5 :=
+  (quadraticChar (ZMod 5)).ringHomComp (Int.castRingHom ℂ)
+
+private lemma quadraticDirichletFive_two : quadraticDirichletFive 2 = -1 := by
+  have h : quadraticChar (ZMod 5) 2 = -1 :=
+    quadraticChar_neg_one_iff_not_isSquare.mpr (by decide)
+  simp only [quadraticDirichletFive, MulChar.ringHomComp_apply, h, map_neg, map_one]
+
+example : quadraticDirichletFive 0 = 0 := MulChar.map_zero quadraticDirichletFive
+
+example : quadraticDirichletFive 2 = -1 := quadraticDirichletFive_two
+
+example : quadraticDirichletFive (-1) = 1 := by
+  have h : quadraticChar (ZMod 5) (-1) = 1 :=
+    (quadraticChar_one_iff_isSquare (F := ZMod 5) (by norm_num)).mpr
+      ⟨(2 : ZMod 5), by decide⟩
+  simp only [quadraticDirichletFive, MulChar.ringHomComp_apply, h, map_one]
+
+example : quadraticDirichletFive ^ 2 = 1 :=
+  ((quadraticChar_isQuadratic (ZMod 5)).comp (Int.castRingHom ℂ)).sq_eq_one
+
+private lemma quadraticDirichletFive_ne_one : quadraticDirichletFive ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h (2 : ZMod 5)
+  rw [quadraticDirichletFive_two,
+    MulChar.one_apply (by decide : IsUnit (2 : ZMod 5))] at he
+  norm_num at he
+
+example : quadraticDirichletFive ≠ 1 := quadraticDirichletFive_ne_one
+
+example : quadraticDirichletFive.IsPrimitive := by
+  change DirichletCharacter.conductor quadraticDirichletFive = 5
+  rcases (Nat.dvd_prime (by decide : Nat.Prime 5)).mp
+      (DirichletCharacter.conductor_dvd_level quadraticDirichletFive) with h1 | h5
+  · exact False.elim (quadraticDirichletFive_ne_one
+      ((DirichletCharacter.eq_one_iff_conductor_eq_one
+        (χ := quadraticDirichletFive)).mpr h1))
+  · exact h5
 
 end FullLocalCharacterTests
 

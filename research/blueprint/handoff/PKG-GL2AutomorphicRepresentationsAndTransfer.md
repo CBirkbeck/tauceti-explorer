@@ -1,33 +1,44 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Issue: #7901. Worker: Codex (GPT-6), session `codex-SwZskw`.
-Date: 2026-10-10. Branch: `codex-SwZskw-gl2-package`.
+Issue: #7901. Worker: Codex (GPT-6), session `codex-r8UoJn`.
+Date: 2026-10-10. Branch: `codex-r8UoJn-gl2-package`.
 Status: **partial; accepted prerequisite plan needs repair**.
 
-Claim confirmed in [comment 6093676660](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6093676660).
+Claim confirmed in [comment 6093869679](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6093869679).
 None of the manager's priority issues was available; this focus package was
 selected in the WORKERS.md fallback order. One job only.
 
 This handoff consolidates the mathematical resume information from checkpoints
 #8068, #8149, #8161, #8174, #8190, #8196, #8207 and #8218. Their full
-historical records remain in Git. No accepted packet or supplier plan is changed.
+historical records remain in Git, including the subsequent `codex-SwZskw`
+checkpoint. No accepted packet or supplier plan is changed.
 
 ## Changes and preserved work
 
-The package now includes an actual continuous unramified quadratic character
-`unramifiedQuadraticTwo : ContinuousMonoidHom ℚ_[2]ˣ ℂˣ`, defined by
-χ(x)=(−1)^v₂(x). Its five examples prove its value at 2, triviality on
-valuation-zero units, exponent two, triviality on every finite-order element,
-and inequality with the trivial character. All five proofs and the continuity
-proof use the pinned Mathlib, without `sorry`. Local constancy follows from
-constancy of the p-adic norm on a sufficiently small ball about a nonzero
-point. These are discriminating tests for the **full-local domain**, not a
-proof or a new generic target for global character extension. The README
-records that test and corrects its ModularForms upstream link.
+This run adds `quadraticDirichletFive : DirichletCharacter ℂ 5`, obtained by
+postcomposing Mathlib's `quadraticChar (ZMod 5)` with the integer-to-complex
+ring homomorphism. Six examples prove its zero value, value −1 at 2,
+evenness (value 1 at −1), square equal to the trivial character,
+nontriviality, and primitivity/conductor 5. The conductor proof uses
+`conductor_dvd_level` and `eq_one_iff_conductor_eq_one`; primeness of 5
+leaves only conductors 1 and 5, and the evaluation at 2 excludes 1.
+All new declarations are proved without `sorry` on the pinned Mathlib.
 
-The introduction is shortened while preserving every named owner and boundary,
-keeping the README below 200,000 bytes. All inherited target headings, API
-names, tests and named signature omissions remain. Positive repairs preserved:
+These checks complement the inherited continuous local character
+`unramifiedQuadraticTwo : ContinuousMonoidHom ℚ_[2]ˣ ℂˣ`, χ(x)=(−1)^v₂(x).
+Its five proved examples distinguish the uniformizer from integral units and
+torsion. The new tests verify the **finite Dirichlet data**, not a Lean proof
+of its associated global Hecke character or of full-local prescription.
+GlobalNumberFields Layer 9 plans the conductor/parity-compatible
+Dirichlet–Hecke dictionary; no such comparison was located in the current
+character modules. Through that dictionary the even character gives the
+arithmetic extension with auxiliary ramification at 5 described below.
+The README now pairs the local and finite arithmetic tests and keeps this
+comparison explicit. No new generic character carrier or theorem is planned.
+
+The introductory prose is compressed to accommodate this test within the
+200,000-byte limit, preserving owner names and mathematical conventions.
+All inherited target headings, API names, tests and named signature omissions remain. Positive repairs preserved:
 actual matrix-group K₀/K₁ carriers and local compact/open statements; scalar
 factorization of K₀ by integral scalars and K₁; invariant-space comparison
 under trivial scalar action; the full finite-sum Iwahori operator and quadratic
@@ -68,12 +79,15 @@ and Grunwald–Wang. Its Layer 12 existence starts from an open idele-class
 subgroup; it does not produce the required quotient from the prescribed data.
 
 Read-only audit revisions: TauCetiRoadmap
-`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti
+`8c72a04753b11cab07fa593cc38ceaa7c0515380`; current Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The reviewed library audit was
 consulted, but its historical carrier absences do not override current code.
 The current GlobalNumberFields and ReductiveGroups READMEs were read in full,
 and the relevant ClassFieldTheory and character declarations were inspected.
 Current upstream and current library are separate from the compilation pins.
+This run independently rechecked the accepted gap, both consumer domains,
+the current character declarations and the Chevalley/Patrikis primary sources.
+The inherited domain and ownership blocker remains.
 
 The issue explicitly says **“Change no packet; if the plan has a mistake,
 describe it in the handoff note.”** PROTOCOL.md §§3, 15 and 20 require precise
@@ -291,7 +305,7 @@ removed merely because the package has target headings for its consequences.
 | R16: singular and continuous trace terms | JL §16 is a sketch. The AS.6/ET.4 specialization must account for identity, unipotent, intertwining-derivative, quadratic exceptional and norm-character/residual terms with the fixed measures and one-half Weyl weights. Generic cancellation does not supply the calculation. |
 | R16: supplier conditions and full tensor types | The full Hilbert tensor/action, dimension, dual and base-change algebraic carrier is now prototyped. Actual Weil induction, primitive cusp subtype, orbital integrals and support/volume conditions remain omitted. Do not call the entire recorded gap closed. |
 | R16: global quaternion existence | Current **GlobalQuadraticForms §4.4**, especially `exists_hilbertSymbol_eq_neg_one_iff_pair`, supplies a,b with prescribed finite/real Hilbert signs for an even ramification set. Combine it with **QuadraticFormInvariants Layer 2**'s existing `(a,b)` algebra. This is an existing existence route, now cited in the README and Lean comment. Check the exact uniqueness/isomorphism-class interface separately; local classification or parity alone is insufficient. Do not add a second quaternion carrier. |
-| R17: highly ramified GL₃ converse | The generic AL.3 reduced-rank converse is not the needed highly ramified T variant. [Gelbart–Jacquet §9.1–9.2, pp. 531–534](https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf) was reread: it uses partial products, trivial central character, attached generic representations, an exponent bound, the highly ramified functional equation and a slowly increasing realization, followed by separate constant-term branches. The omitted T factors contribute cubes of character epsilon factors. Supply this exact contract and its JPSS §13 reconstruction proof chain to AL; twists unramified at S cannot replace it. |
+| R17: highly ramified GL₃ converse | The generic AL.3 reduced-rank converse is not the needed highly ramified T variant. [Gelbart–Jacquet §9.1–9.2, pp. 531–534](https://www.numdam.org/article/ASENS_1978_4_11_4_471_0.pdf) was reread in an earlier checkpoint: it uses partial products, trivial central character, attached generic representations, an exponent bound, the highly ramified functional equation and a slowly increasing realization, followed by separate constant-term branches. The omitted T factors contribute cubes of character epsilon factors. Supply this exact contract and its JPSS §13 reconstruction proof chain to AL; twists unramified at S cannot replace it. |
 | R17: original nonnormal cubic transfer | The README preserves the weak Tunnell theorem and does not identify it with the all-place Carayol assertion. Obtain the original JPSS proof or a complete later proof and the local restriction comparison. Nonnormal cubic transfer cannot be constructed by a cyclic tower. |
 | R17: prescribed-supercuspidal globalization | CDN20's use of Clozel, with prescribed finite component, archimedean type, central-character adjustment and coefficient extension, requires a limit-multiplicity contract. An AS.6 trace-formula stage alone is not that theorem. |
 | R17: reduction-compatible solvable projective lift | Tate's complex obstruction vanishing does not ensure reduction to the given residual representation. Supply the integral projective lift and final scalar twist. Separate the prime-to-p case from p=3, A₄/S₄, where the explicit GL₂(F₃) section is available. The latter section elaborates, but is not by itself the full residual lifting theorem. |
@@ -356,20 +370,26 @@ scoped intake checks for independent package review.
   The unchanged packets' accepted status does not discharge their recorded gaps.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`:
   **exit 0; 144 warnings, all declaration uses `sorry`; zero errors or other
-  warnings**. Available memory before the final run: 106 GB. The new local
-  character and its five tests contain no placeholder proofs.
+  warnings**. Available memory before the final run: 104 GB. The new Dirichlet
+  character, its helper lemmas and six tests contain no placeholder proofs.
+  Its isolated prototype also passed with zero errors and warnings.
 - Managed compilation pins: Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
   `f790474821cf4256814db967cb154e7af3d0c369`. No compile remains running.
 - Scope intake: three files, zero problems. `git diff --check`: clean.
   All **115** inherited target headings are preserved in order. README:
-  **199,996 bytes**; Suggested.lean: **81,907 bytes**.
+  **199,876 bytes**; Suggested.lean: **83,998 bytes**.
 - `issues.deliverables_complete`: **False**, so this remains a checkpoint.
   Only the authorized package README, Lean file and handoff are changed.
 
-The public Chevalley PDF was read directly in this session; only disposable
-scratch held its PDF and extracted text. No private book was needed, no source
-passage or file is committed, and neither read-only checkout was modified or
+The public Chevalley PDF (Part I, §§1–5, printed pp. 36–39) and Patrikis
+[author PDF](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf)
+(Lemmas 2.3.1 and 2.3.6, printed pp. 28 and 30–31) were read directly
+in this session; only disposable scratch held their PDFs and extracted text.
+Patrikis SHA-256:
+`e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81`.
+No private book was needed, no source passage or file is committed, and
+neither read-only checkout was modified by this run or
 used to run Lake. All prose states contracts and proof obligations in our own
 words. No source is claimed to have been reread merely because an inherited
 receipt is retained.
@@ -380,12 +400,10 @@ Inherited source receipts from earlier checkpoints on 2026-10-10
 | Source | Locations inspected | SHA-256 |
 | --- | --- | --- |
 | [Casselman, *On some results of Atkin and Lehner* (1973)](https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf) | Printed pp. 302 and 306, viewed as page images: subgroup/central-character convention and fixed-level dimension corollary. | `7f91ebae1a8f5e695800f4afb9fc06d0e2ea0b3a476751a31a7c8c3f38ad537d` |
-| [Patrikis, author revision of 31 July 2016](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf) | Lemma 2.3.1 and surrounding definitions, p. 28; Lemma 2.3.6 and its proof, pp. 30–31. | `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81` |
 
 No private book was needed; no source file, source passage or private path is
 committed. The inherited CG20, Carayol, Gelbart–Jacquet, Tunnell and DLB source
 contracts are preserved, without claiming they were reread in this run.
-The detailed earlier closure audit follows.
 
 
 Scratch sources and logs are disposable; all mathematical resume information
