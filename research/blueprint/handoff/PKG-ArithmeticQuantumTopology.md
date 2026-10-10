@@ -1,5 +1,158 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-ydEjCj`, issue #7889, 2026-10-10.
+Claim confirmed after comment 6095288222. Branch:
+`codex-ydEjCj-arithmetic-quantum-topology`. No second job was claimed.
+
+This run advances the **QT.6 polynomial-to-series adapters**. The complete
+package is blocked on the framed-link/surgery and geometric NZ/analytic
+supplier interfaces described below. This is a dependency checkpoint.
+It does not claim the geometric state integral, arithmetic descent or analytic
+asymptotics is formalized. No input packet or supplier file was edited.
+
+## Saved in this run
+
+- `Suggested.lean` adds two concrete algebraic functions,
+  `NZPerturbativeSeries` and `rootNZPerturbativeSeries`, using the existing
+  finite polynomial vertices and Mathlib's actual `PowerSeries.mk`.
+  The **4,177-line, 204,788-byte** file retains its inherited Lean body
+  exactly, with two individual imports and a new final `NZContractions`
+  section (**207 added lines** including the imports). The root adapter uses the
+  existing `rootNZAverage` and an actual nonzero-denominator hypothesis.
+- Eight API lemmas give coefficient extraction, conditional constant 1,
+  odd-coefficient vanishing and complete recovery of the contracted t-series
+  through `PowerSeries.expand 2` under h=t². Their proofs use the inherited
+  constant/parity statements and the explicit imported functional laws.
+  They do not establish the inherited `sorry` statements or existence of G.
+- Ten examples cover normalization, odd moments, scalar flattening,
+  the GSW/DG normalization correction, covariance scaling, the cubic pair
+  and failure of multiplicativity. Five specialized coefficient examples
+  remain honest `sorry` statements. The linear-functional nonmultiplicativity
+  control has a Lean proof from the displayed covariance equation.
+- README: **199,177 bytes**. All ordered **106 target headings**, **114
+  anchors**, **75 reference destinations** and **464 distinct inherited
+  backtick-named API/test components in bullet prefixes** are preserved.
+  The two affected targets specify the exact functional laws and adapter
+  boundary. Repeated source labels are shortened to author/acronym labels;
+  the bibliography's titles and fixed versions are retained unchanged.
+- `metadata.toml` remains absent. `issues.py:deliverables_complete` still
+  decides package completeness by existence of every output. Creating the
+  last file would mark this incomplete package complete. Add the one-line
+  `topic = "math.GT"` only when all layers meet PROTOCOL §20.
+
+## Exact supplier contract and mathematical controls
+
+The adapters take a native ℂ-linear map
+G:ℂ[x₁,…,x_N]→ℂ; they do not define a Gaussian operator. At a geometric
+specialization HB.4 must supply G(1)=1,
+G(x_i p)=Σ_j C_ij G(∂_j p), and G(p(−x))=G(p), with C=Λ⁻¹ for GSW
+and C=kΛ⁻¹ for DG2 root order k. The full coefficient-field version must
+commute with field embeddings/base change and specialize to HB.4's real
+polynomial bracket. Normalization and parity hypotheses appear as exact
+native equations, without an unspecified condition or carrier.
+
+Each h-degree d is obtained from the finite polynomial coefficient at t-degree
+2d. The expansion equality also recovers every odd degree as zero; merely
+throwing away odd coefficients would not establish that equality. Root weights
+are arbitrary algebraic inputs to this adapter with S≠0. Their geometric
+formula, root compatibility, Kummer descent and one-loop ambiguity remain the
+separate RootNZDatum and arithmetic-theorem obligations.
+
+The discriminating one-variable controls are:
+
+1. With zero mock vertices, GSW Q=1, μ=1, f=2 retains coefficient h equal
+   1/2. Replacing the unit control by the uncorrected DG factor
+   exp(tx/2−t²/12) at covariance 1 gives coefficient h equal 1/24.
+2. At k=2, zero vertices and μ=4 give coefficient h equal 1 for f=0 and
+   3/2 for f=2 under covariance 2. Using covariance 1 instead gives 1/2
+   and 1, respectively.
+3. Mock Li₀=0, Li₋₁=1 and all other inputs zero, μ=f=0, k=2 give log
+   coefficients −x³/24 and x²/16. Contraction of the exponential gives
+   11/48 at h. The cubic pair contributes 5/48; omitting it gives 1/8.
+   In general root order k this control gives 11/(24k), with cubic-pair
+   contribution 5/(24k). These mock inputs certify no geometric NZ datum.
+4. Covariance 1 gives G(x)=0 and G(x²)=1. A ring homomorphism would wrongly
+   force G(x²)=G(x)². The adapter therefore uses a linear map, never
+   `PowerSeries.map` along a claimed multiplicative bracket.
+
+## Source and baseline audit
+
+Read the public GSW v2 source, *Perturbative invariants of cusped hyperbolic
+3-manifolds*, https://arxiv.org/pdf/2305.14884v2:
+§1 equations (1), (4)–(7), pp. 3–4; §3.1 equation (20), Lemmas 3.1–3.2,
+pp. 9–10. SHA-256:
+`ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb`.
+Read DG2 v1, *Quantum modularity and complex Chern–Simons theory*,
+https://arxiv.org/pdf/1511.05628v1:
+§§2.3–2.4, Definition 2.5, Theorem 2.6, Remark 2.7, Lemma 2.8 and
+(16)–(28), pp. 7–9. SHA-256:
+`3b9da2994233882bdb242798fd1a5f85e53f1d0fd66410809de751d056a07d3a`.
+These match the input receipts. The already-recorded n=0 cubic correction is
+retained. Only own-word statements, formulas and source locators are saved;
+no restricted book was needed and no source passage is retained.
+
+Pinned Mathlib statements read before use: `PowerSeries.mk`, `coeff_mk`,
+`coeff_zero_eq_constantCoeff_apply`, `expand`, `coeff_expand_mul`,
+`coeff_expand_of_not_dvd`; `MvPolynomial.pderiv`, `pderiv_one`,
+`pderiv_X_self`, `pderiv_pow`; linear-map negation and scalar laws;
+`Odd.neg_one_pow`, `Even.two_dvd` and `Nat.not_even_iff_odd`.
+Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+Checker Tau Ceti baseline: `f790474821cf4256814db967cb154e7af3d0c369`.
+The full current SemisimpleAlgebras and GrothendieckEulerForms roadmaps were
+read as the required upstream examples.
+
+## Validation in this run
+
+- Packet checker: **0 errors, 0 warnings**. The accepted input remains
+  106 nodes, 8 gaps, 19 requests, 8 planned stages and 0 closed stages.
+- Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 583 warnings**, all `declaration uses sorry`. Only
+  the provided shared checker was run; available memory was 110 GB. No
+  checker process remains running.
+- **675 exact rational controls** passed. An independent truncated-series
+  computation solves E′=L′E and counts complete Gaussian pairings. It checks
+  the stated values, linear/scalar controls for k=1,…,12 through t-degree 8
+  against exp((c+kb²/2)h), odd parity, the root cubic coefficient and its
+  removal, signed nonzero weighted averages and wrong-covariance controls.
+  These finite checks are not proofs of geometric or infinite-order claims.
+- The heading/anchor/reference/name conservation audit and exact inherited
+  Lean-body comparison passed. Scoped intake `check-files`: **3 files,
+  0 problems**. `git diff --check` passed. Scratch files are not deliverables.
+
+## Fresh dependency evidence and where to resume
+
+Current read-only TauCetiRoadmap:
+`201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; current Tau Ceti:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The roadmap change since the prior handoff concerns only
+SmoothRepresentationsOfLocalGroups, so it does not supply these contracts.
+The reviewed library catalogue has no ArithmeticQuantumTopology entry.
+
+- `SmoothLink/Basic.lean` supplies labeled unframed circle embeddings;
+  framings require separate normal-bundle data. `SmoothLink/Isotopy.lean`
+  supplies the actual unframed ambient-isotopy setoid. Neither supplies
+  QT.0's framed quotient, oriented linking number or surgery carrier.
+- `DehnSurgery/Slope.lean` supplies actual peripheral homology and primitive
+  slopes on `FramedBoundaryTorus`. It does not construct the filled manifold
+  or prove the integral-surgery H₁/Kirby comparison. GeometricTopology's
+  suggested file remains schematic; do not substitute its matrix-side
+  cokernel for a manifold or create a duplicate geometric carrier.
+- `suggested/HabiroNahmSeries.lean` HB.4 remains a real-polynomial operator,
+  with no complex coefficient-field instance. The new QT adapters consume
+  its required extension; they do not discharge that owner request.
+- Ordered cusped triangulations, peripheral/strong flattenings, and the AK
+  spectral/microlocal/gluing contracts remain required by the exact targets.
+
+Resume from the geometric framed-link/linking/surgery supplier interfaces,
+then instantiate the invariant comparisons. For QT.6 first obtain HB.4's
+coefficient-field bracket and the geometric NZ datum, instantiate the new
+adapters with rational Li_(−r), and only then state
+`formalNZStateIntegral`/`rootNZFormalSeries` and their geometric/arithmetic
+comparisons. Keep the eight-layer remaining-work table below: the new
+conditional algebra does not close any of the recorded geometric gaps.
+
+## Prior checkpoint: `codex-cSWQRq`
+
 Worker: Codex (GPT-6), session `codex-cSWQRq`, issue #7889, 2026-10-10.
 Claim confirmed after comment 6095000415. Continues the rank-one foundation
 checkpoint by `codex-eGMIqk`; all earlier mathematical work is retained below.
@@ -803,7 +956,7 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | QT.3 | Actual completed twist elements, prime/tilde coefficient comparison, nonfinite support, inverse relation and even-color characters | Geometric Hopf pairing comparison and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
 | QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square; conditional complex-period Rogers regulator and cut/sign/imaginary comparisons | Instantiate ordinary pre-Bloch and Polylogarithms suppliers and their convention/branch laws; actual strong/geometric flattening and Pachner interface; number-field Bloch and K₃ torsion comparison |
-| QT.6 | Linear NZ/Hessian formulas, full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum, formal Gaussian vertex series and move invariance; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
+| QT.6 | Linear NZ/Hessian formulas, finite polynomial NZ/root vertices and exact prefactors; conditional normalized linear-bracket adapters with integer-power recovery and root weighted averages; full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum and HB.4 coefficient-field bracket instance; formal move invariance and root arithmetic descent; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
 | QT.7 | Finite figure-eight root sums/descendants, denominator cocycle and pole-free action API, explicit scalar/diagonal/GL automorphy factors with composition and sign APIs, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
 
 These are not all external tasks. General Lie-type cores/root data, odd
