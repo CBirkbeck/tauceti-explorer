@@ -33901,7 +33901,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.3",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6274"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.4",
@@ -37221,8 +37222,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.1",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6311"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6311",
+   "finishedAt": "2026-10-10T20:03:30Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.2",
@@ -49236,8 +49238,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80203,8 +80205,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -84604,8 +84606,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
