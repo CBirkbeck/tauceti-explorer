@@ -19,6 +19,8 @@ import Mathlib.NumberTheory.Real.Irrational
 import Mathlib.Topology.Instances.Matrix
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import Mathlib.Topology.Algebra.Group.Quotient
+import TauCeti.Probability.Martingale.Convergence
+import TauCeti.MeasureTheory.Function.ConditionalExpectation
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
@@ -31,10 +33,8 @@ expectation, filtrations, matrices and invariant sigma-algebras are reused.
 
 Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Pinned Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
-The pinned TauCeti.Probability.Martingale.Convergence and
-TauCeti.MeasureTheory.Function.ConditionalExpectation statements were read in source.
-Their cached object files are unavailable in this shared build. These new signatures need
-only the native Mathlib types, so they compile without rebuilding or restating those suppliers.
+The pinned conditional-expectation and reverse-martingale APIs are imported from their
+individual Tau Ceti modules. Their exact supplier statements were read at the recorded pin.
 -/
 
 noncomputable section
@@ -183,7 +183,8 @@ lemma upper_truncation_bound {T : Ω → Ω} (hT : MeasurePreserving T μ μ)
     (∫ x, upperOrbitTruncation T f L x ∂μ) ≤ ∫ x, f x ∂μ := sorry
 lemma signed_limit {T : Ω → Ω} (hT : MeasurePreserving T μ μ)
     {f : Ω → ℝ} (hf : Integrable f μ) :
-    Integrable (orbitLimit T f) μ ∧ ∀ᵐ x ∂μ,
+    Integrable (orbitLimit T f) μ ∧
+    (∫ x, orbitLimit T f x ∂μ) = (∫ x, f x ∂μ) ∧ ∀ᵐ x ∂μ,
       Tendsto (fun n => birkhoffAverage ℝ T f n x) atTop (𝓝 (orbitLimit T f x)) := sorry
 lemma integrable_observable_l1_limit {T : Ω → Ω} (hT : MeasurePreserving T μ μ)
     {f : Ω → ℝ} (hf : Integrable f μ) :
@@ -313,6 +314,13 @@ lemma cylinder_ce_formula {B : Set ℝ} (hB : MeasurableSet B) {w : List ℕ}
 lemma cylinder_ce_converges {B : Set ℝ} (hB : MeasurableSet B) : ∀ᵐ x ∂m,
     Tendsto (fun n => m[B.indicator (fun _ => (1 : ℝ)) | gaussCylinderFiltration n] x)
       atTop (𝓝 (B.indicator (fun _ => (1 : ℝ)) x)) := sorry
+-- Explicit distortion constant, including the empty word.
+lemma cylinder_measure_distortion {w : List ℕ} (hw : ∀ a ∈ w, 1 ≤ a)
+    {B : Set ℝ} (hB : MeasurableSet B) :
+    (m).real (gaussCylinder w) * (m).real B / 4 ≤
+      (m).real (gaussCylinder w ∩ (Inherited.gaussMap^[w.length]) ⁻¹' B) ∧
+    (m).real (gaussCylinder w ∩ (Inherited.gaussMap^[w.length]) ⁻¹' B) ≤
+      4 * (m).real (gaussCylinder w) * (m).real B := sorry
 lemma cylinder_ce_lower_bound {B : Set ℝ}
     (hB : MeasurableSet[⨅ n : ℕ,
       MeasurableSpace.comap (Inherited.gaussMap^[n]) (borel ℝ)] B) (n : ℕ) :
@@ -407,7 +415,11 @@ lemma density_transfer_summable {f : ℝ → ℝ} (hf : ContinuousOn f I)
     Summable (fun k : ℕ => f (1 / ((k + 1 : ℕ) + x)) / ((k + 1 : ℕ) + x) ^ 2) := sorry
 lemma gaussDensityTransfer_continuous {f : ℝ → ℝ} (hf : ContinuousOn f I) :
     ContinuousOn (gaussDensityTransfer f) I := sorry
-lemma density_pushforward (n : ℕ) :
+lemma density_pushforward {f : ℝ → ℝ} (hf : ContinuousOn f I)
+    (hpos : ∀ x ∈ I, 0 ≤ f x) (hmass : (∫ x, f x ∂m) = 1) (n : ℕ) :
+    ((m).withDensity (fun x => ENNReal.ofReal (f x))).map (Inherited.gaussMap^[n]) =
+      (m).withDensity (fun x => ENNReal.ofReal ((gaussDensityTransfer^[n]) f x)) := sorry
+lemma density_pushforward_one (n : ℕ) :
     (m).map (Inherited.gaussMap^[n]) = (m).withDensity
       (fun x => ENNReal.ofReal ((gaussDensityTransfer^[n]) (fun _ => 1) x)) := sorry
 

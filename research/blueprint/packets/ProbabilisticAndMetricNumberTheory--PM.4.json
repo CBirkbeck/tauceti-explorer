@@ -15,343 +15,685 @@
         "ref": "mathlib:birkhoffAverage",
         "module": "Mathlib/Dynamics/BirkhoffSum/Average.lean",
         "provides": "A_n=(n:real)^(-1) times the finite orbit sum, with A_0=0.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.integral_map",
         "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
         "provides": "Change of variables for an AEMeasurable map and an AEStronglyMeasurable integrand for its pushforward. Combined with MeasurePreserving.map_eq; no injectivity required.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.Measure.QuasiMeasurePreserving.ae",
         "module": "Mathlib/MeasureTheory/Measure/QuasiMeasurePreserving.lean",
         "provides": "Pulls back an almost-everywhere predicate under a quasi-measure-preserving map; preservation supplies the quasi-preserving hypothesis.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.AEStronglyMeasurable.mk",
         "module": "Mathlib/MeasureTheory/Function/StronglyMeasurable/AEStronglyMeasurable.lean",
         "provides": "Native strongly measurable representative, with stronglyMeasurable_mk, measurable_mk and ae_eq_mk read alongside it.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.tendsto_integral_of_dominated_convergence",
         "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
         "provides": "Almost-everywhere convergence under an integrable real norm bound, with AEStronglyMeasurable terms, gives integral convergence.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.lintegral_liminf_le",
         "module": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
         "provides": "Fatou inequality for measurable ENNReal functions and a countably generated filter.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.lintegral_iSup",
         "module": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
         "provides": "Integral of the supremum of a monotone sequence of measurable ENNReal functions equals the supremum of their integrals.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.measurableSet_invariants",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Invariants.lean",
         "provides": "Native invariant measurability iff ambient measurable and exact preimage equality.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.measurable_invariants_dom",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Invariants.lean",
         "provides": "Native invariant-domain measurability iff ambient measurability and every measurable target preimage agrees after composing with T.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.ae_eq_condExp_of_forall_setIntegral_eq",
         "module": "Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.lean",
         "provides": "Uniqueness: sub-sigma-algebra ≤ambient, sigma-finite trimmed measure, integrable f, integrability/equal integrals on its finite-measure measurable sets, and AEStronglyMeasurable g for that sigma-algebra.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.setIntegral_condExp",
         "module": "Mathlib/MeasureTheory/Function/ConditionalExpectation/Basic.lean",
-        "provides": "Integral of condExp over a sub-sigma-algebra-measurable set equals the integral of an integrable observable, when the sub-sigma-algebra is ≤ambient.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "provides": "For m≤m₀ and SigmaFinite (μ.trim hm), the integral of condExp over an m-measurable set equals that of an integrable observable. All uses here have finite μ, so the trimmed sigma-finiteness hypothesis is satisfied.",
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Set.countable_range",
         "module": "Mathlib/Data/Set/Countable.lean",
         "provides": "Range of a map from a countable type is countable.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Set.Countable.measure_zero",
         "module": "Mathlib/MeasureTheory/Measure/Typeclasses/NullSingletonClass.lean",
         "provides": "Countable sets have zero measure when all singletons have zero measure.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.NullSingletonClass",
         "module": "Mathlib/MeasureTheory/Measure/Typeclasses/NullSingletonClass.lean",
         "provides": "Singleton measure zero under the native NullSingletonClass; Lebesgue measure on real has this instance.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Matrix",
         "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
         "provides": "Native matrix type m→n→R; no alternative matrix carrier.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Matrix.det_mul",
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "Determinant of a product over a commutative ring is the product of determinants.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.IntFractPair.stream",
         "module": "Mathlib/Algebra/ContinuedFractions/Computation/Basic.lean",
         "provides": "Optional floor/fractional-part stream: zero integer part at x∈(0,1), reciprocal recursion, and termination at a zero fractional part.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.of",
         "module": "Mathlib/Algebra/ContinuedFractions/Computation/Basic.lean",
         "provides": "Native general continued fraction from a field element; all partial numerators one and denominator stream shifted by one.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.terminates_iff_rat",
         "module": "Mathlib/Algebra/ContinuedFractions/Computation/TerminatesIffRat.lean",
         "provides": "Native fraction terminates iff its value is the cast of a rational, in an ordered floor field.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.succ_nth_fib_le_of_nth_den",
         "module": "Mathlib/Algebra/ContinuedFractions/Computation/Approximations.lean",
         "provides": "fib(n+1)≤dens n when n=0 or the native fraction has not terminated at n−1.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.of_den_mono",
         "module": "Mathlib/Algebra/ContinuedFractions/Computation/Approximations.lean",
         "provides": "For the native fraction of v, dens n≤dens(n+1), with no irrationality hypothesis.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.nums_recurrence",
         "module": "Mathlib/Algebra/ContinuedFractions/ContinuantsRecurrence.lean",
         "provides": "Given an available native sequence pair at n+1 and the two previous numerator values, nums(n+2)=b nums(n+1)+a nums n.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:GenContFract.dens_recurrence",
         "module": "Mathlib/Algebra/ContinuedFractions/ContinuantsRecurrence.lean",
         "provides": "The analogous native denominator recurrence, requiring the available sequence pair.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Nat.fib",
         "module": "Mathlib/Data/Nat/Fib/Basic.lean",
         "provides": "Native Fibonacci sequence from (0,1), with zero, one and add-two recurrence; used only for a lower bound, never a new carrier.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.Filtration",
         "module": "Mathlib/Probability/Process/Filtration.lean",
         "provides": "Native monotone sequence of sub-sigma-algebras bounded by ambient; seq, mono and le fields.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.Integrable.tendsto_ae_condExp",
         "module": "Mathlib/Probability/Martingale/Convergence.lean",
         "provides": "Finite measure and integrable real g strongly measurable for the supremum of a native filtration give almost-everywhere CE convergence to g.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.comap",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
         "provides": "Pullback sigma-algebra consisting of preimages of measurable sets.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.comap_mono",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
         "provides": "Monotonicity of pullback in the target sigma-algebra.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.measurableSet_comap",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Basic.lean",
         "provides": "Comap-measurable iff it is exactly the preimage of a target-measurable set.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.eLpNorm_one_eq_lintegral_enorm",
         "module": "Mathlib/MeasureTheory/Function/LpSeminorm/Defs.lean",
         "provides": "Exponent-one eLpNorm is the ENNReal integral of the extended norm.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Real.log_le_sub_one_of_pos",
         "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
         "provides": "For x>0, log x≤x−1.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Real.log_natCast_le_rpow_div",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
         "provides": "For ε>0 and natural n, log n≤n^ε/ε.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Real.summable_nat_rpow",
         "module": "Mathlib/Analysis/PSeries.lean",
         "provides": "The real series Σn^p is summable iff p<−1, with the native zero-base convention.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:integral_log",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean",
         "provides": "Real interval integral of log from a to b equals b log b−a log a−b+a, including endpoint zero.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:intervalIntegral.intervalIntegrable_log'",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrability/Basic.lean",
         "provides": "Lebesgue interval integrability of real log on every finite interval, without excluding zero.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:intervalIntegral.integral_mul_deriv_eq_deriv_mul_of_hasDerivAt",
         "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/IntegrationByParts.lean",
         "provides": "Integration by parts for continuous endpoints, two interior derivatives and interval-integrable derivatives; used first on [ε,1].",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:tendsto_log_mul_rpow_nhdsGT_zero",
         "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
         "provides": "For real r>0, log x times x^r tends to zero as x approaches zero from above.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:integral_pow",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean",
         "provides": "Interval integral of a natural real power, from the rpow integral; denominator exponent+1 is positive.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:hasSum_zeta_two",
         "module": "Mathlib/NumberTheory/ZetaValues.lean",
         "provides": "HasSum of real 1/n² over natural n, including zero term zero, to π²/6.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.hasSum_integral_of_summable_integral_norm",
         "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
         "provides": "Countable family of integrable functions with summable integrals of norms gives HasSum of integrals to the integral of the pointwise tsum.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul",
         "module": "Mathlib/MeasureTheory/Function/Jacobian.lean",
         "provides": "Native Bochner change of variables for an injective within-differentiable map on a measurable set with additive Haar measure; in dimension one its absolute determinant is the absolute derivative.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:contDiffOn_one_iff_derivWithin",
         "module": "Mathlib/Analysis/Calculus/ContDiff/Deriv.lean",
         "provides": "On a uniquely differentiable domain, native C1 iff differentiable there and its within derivative is continuous there.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:hasDerivAt_tsum_of_isPreconnected",
         "module": "Mathlib/Analysis/Calculus/SmoothSeries.lean",
         "provides": "Termwise derivative on an open preconnected set, using a summable uniform derivative bound and one-point value summability. It gives no closed-interval endpoint assertion.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:hasDerivWithinAt_Ici_of_tendsto_deriv",
         "module": "Mathlib/Analysis/Calculus/FDeriv/Extend.lean",
         "provides": "Right-endpoint derivative from differentiability on a right neighborhood, continuity at the endpoint and a convergent interior derivative.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:hasDerivWithinAt_Iic_of_tendsto_deriv",
         "module": "Mathlib/Analysis/Calculus/FDeriv/Extend.lean",
         "provides": "Left-endpoint counterpart with the left neighborhood and derivative limit.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le",
         "module": "Mathlib/Analysis/Calculus/MeanValue.lean",
         "provides": "Convex-domain Lipschitz estimate for a uniform bound on native within Frechet derivatives.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:integral_one_div_of_pos",
         "module": "Mathlib/Analysis/SpecialFunctions/Integrals/Basic.lean",
         "provides": "Positive-endpoint reciprocal integral equals log(b/a); translating [0,1] to [1,2] gives log 2.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "tauceti:MeasureTheory.tendsto_eLpNorm_condExp_iInf",
         "module": "TauCeti/Probability/Martingale/Convergence.lean",
         "provides": "For finite μ, an antitone family F_n with F_0≤ambient, eLpNorm_1 of μ[f|F_n]−μ[f|inf F_n] tends to zero. The statement applies to real f, with native condExp zero convention; no new reverse-martingale theory is needed.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "tauceti:TauCeti.MeasureTheory.condExp_ae_eq_integral_of_forall_zero_or_one",
         "module": "TauCeti/MeasureTheory/Function/ConditionalExpectation.lean",
         "provides": "If m′≤ambient and all its measurable sets have μ measure 0 or 1, native condExp of an integrable function into a complete real normed space is almost everywhere its constant integral.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Irrational",
         "module": "Mathlib/NumberTheory/Real/Irrational.lean",
         "provides": "Native predicate excluding the range of the rational cast; exactly the irrational domain used by the cylinders.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:MeasurableSpace.invariants",
         "module": "Mathlib/MeasureTheory/MeasurableSpace/Invariants.lean",
         "provides": "Ambient measurable sets with strict preimage equality under the given endomap.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Matrix.SpecialLinearGroup",
         "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
         "provides": "Native subtype of square matrices of determinant one. Its subtype topology and matrix coercion are used in the concrete consumer.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:Matrix.SpecialLinearGroup.map",
         "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
         "provides": "Entrywise ring homomorphism induces a group homomorphism on the native determinant-one groups; its range is the integer subgroup.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:QuotientGroup.mk",
         "module": "Mathlib/GroupTheory/Coset/Defs.lean",
-        "provides": "Native quotient map to right cosets of any subgroup, without a normality assumption.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "provides": "Native quotient map to left cosets gH of any subgroup H, without a normality assumption; the equivalence is g⁻¹g′∈H. This is the G/Γ carrier used by the left diagonal action.",
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:QuotientGroup.instTopologicalSpace",
         "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
         "provides": "Native quotient topology for any subgroup of a topological group carrier; no quotient group structure is required.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:borel",
         "module": "Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean",
         "provides": "Native sigma-algebra generated by the open subsets of a topological carrier.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       },
       {
         "ref": "mathlib:TendstoUniformlyOn.continuousOn",
         "module": "Mathlib/Topology/UniformSpace/UniformApproximation.lean",
         "provides": "Uniform-on-set convergence along a nontrivial filter and frequently continuous-on-set approximants give continuity of the limit on that set.",
-        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05."
+        "checked": "Exact statement read in the source at the pinned commit, 2026-10-05.",
+        "independentReview": {
+          "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+          "date": "2026-10-10",
+          "verdict": "confirmed",
+          "note": "Declaration name, module and exact statement read at the recorded library pin; the stated hypotheses and conventions suffice for its citing nodes."
+        }
       }
     ],
     "nearMisses": [
@@ -385,7 +727,13 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Physical pp.45–49, printed pp.37–41: full Theorems 2.2–2.3 and finite coloring proof."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "94b4fb65b7eb7730ad8b8369239eb5a5503a98b547a6bd812515b5bac6261094",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     },
     {
       "id": "SarigTransfer",
@@ -398,7 +746,13 @@
       "readSections": [
         "Physical pp.1–6 and 11–13: Gauss map and transfer operator; pp.31–35: Appendix A.2 exactness; pp.35–41: Appendix A.3 Hennion argument, read but not used in the chosen quantitative proof.",
         "The opening lemma on physical p.42 (Appendix A.4) was incidentally read; EPM4-7 records its quantifier error, but no analyticity theorem is used."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "c00fee5bb0685fac87afb3c66609253c2ddfde7ea553b60ceaa9d325e55fe3a0",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     },
     {
       "id": "Smyth2020",
@@ -410,7 +764,13 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Physical pp.45–49, printed pp.42–46: pointwise theorem, digit frequencies, Khinchin product, mixing alternatives, and the full problem 2.4 logarithmic-denominator argument; inherited reviewed continued-fraction convention nodes are imported by id. No claim to a proof of the full text."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "74a84b7ba741728055e9cc0da7b3c2b14e99b645ea79ac2f3b72d98034a9cf1f",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     },
     {
       "id": "Sun2017",
@@ -422,7 +782,13 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Physical pp.1–6: Theorems 1–2 and their full C1 argument; pp.7–8: zeta bound and references. Only p=1 is used, with a corrected weaker bound."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "9b2eb1867614fe285aa4d729345c25962590e6767a36f2b0c20326a8b86cd703",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     },
     {
       "id": "Gorodnik2010",
@@ -434,7 +800,13 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Physical pp.3–8: bounded geodesics, two-dimensional Mahler compactness, and the badly-approximable/diagonal-orbit comparison. Row-vector convention is transposed and time doubled explicitly."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+        "accessed": "2026-10-10",
+        "sha256": "63889917bce84dd38004ba0001e6946f190db02f33fae953ae719f01920303d8",
+        "note": "The recorded public PDF was acquired independently; the cited source slices and observations were checked. No source passages are stored in the repository."
+      }
     }
   ],
   "nodes": [
@@ -1891,7 +2263,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -1987,7 +2359,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2023,7 +2395,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2061,7 +2433,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2096,7 +2468,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2137,7 +2509,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2171,7 +2543,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2252,7 +2624,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2286,7 +2658,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2320,7 +2692,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2354,7 +2726,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2441,7 +2813,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2475,7 +2847,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2510,7 +2882,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2546,7 +2918,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2585,7 +2957,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2622,7 +2994,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2662,7 +3034,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2700,7 +3072,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2737,7 +3109,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2776,7 +3148,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2817,7 +3189,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2894,7 +3266,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -2975,7 +3347,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3012,7 +3384,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3051,7 +3423,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3089,7 +3461,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3126,7 +3498,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3162,7 +3534,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3198,7 +3570,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3235,7 +3607,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3244,6 +3616,48 @@
         "module": "TauCeti.NumberTheory.MetricNumberTheory.Continuation",
         "namespace": "TauCeti.Probability.MetricNumberTheory"
       }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.4",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.4"
+      ],
+      "title": "Explicit constant-four cylinder measure comparison",
+      "kind": "lemma",
+      "statement": "For every finite word w of positive natural digits, including the empty word, and every Borel B⊆real, m.real(C_w)·m.real(B)/4 ≤ m.real(C_w∩(T^length(w))⁻¹(B)) ≤ 4·m.real(C_w)·m.real(B), where C_w is the irrational cylinder and m is Lebesgue measure restricted to (0,1).",
+      "hypotheses": [
+        "All domain, measure, sign and indexing hypotheses are explicit in the statement."
+      ],
+      "proofSteps": [
+        "For a nonempty word, put q=W_w(1,1) and r=W_w(1,0). The positive-entry and derivative lemmas give q≥1, 0<r≤q and the absolute Jacobian J(y)=1/(q+r y)² on [0,1]. Hence 1/(q+r)²≤J≤1/q² and the ratio of these bounds is at most 4.",
+        "Use the cylinder-image bijection and the native injective change-of-variables theorem on B∩D, and on D for the whole cylinder. Rational points are null. Compare the two Jacobian integrals: the numerator is between J_min·m.real(B) and J_max·m.real(B), and the denominator between J_min and J_max.",
+        "For the empty word C_w=D and T^0=id, so conullness of D gives the inequalities directly."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-positive",
+        "ProbabilisticAndMetricNumberTheory:PM.4/word-derivative",
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-image",
+        "ProbabilisticAndMetricNumberTheory:PM.4/irrational-conull",
+        "mathlib:MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul"
+      ],
+      "acceptance": [
+        "The constant is the specified value 4, independent of the word and event; an existential unspecified distortion constant is insufficient for the downstream 1/8 bound.",
+        "The empty word and removal of rational endpoints preserve the native restricted-Lebesgue masses."
+      ],
+      "sources": [
+        {
+          "sourceId": "SarigTransfer",
+          "locator": "Exercise 2.5(c),(d), physical p.13 (printed p.11); Appendix A.2, physical pp.32–33 (printed pp.30–31)",
+          "match": "Reviewer-derived explicit specialization of the inverse-branch distortion argument. The source proves a uniform comparison; the native word derivative yields the stated constant 4."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.MetricNumberTheory.Continuation",
+        "namespace": "TauCeti.Probability.MetricNumberTheory"
+      },
+      "addedBy": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound",
@@ -3259,13 +3673,13 @@
       ],
       "proofSteps": [
         "For each positive length-n cylinder, identify B∩C_w with v_w(B_n∩D), modulo rational null sets.",
-        "Use the inherited Rényi inequality with the explicit distortion constant 4: m(B∩C_w)/m(C_w)≥m(B_n)/4≥m(B)/8.",
+        "Apply cylinder-measure-distortion with its specified constant 4: m(B∩C_w)/m(C_w)≥m(B_n)/4≥m(B)/8. Cylinder positivity allows the division, including depth zero.",
         "Apply the cell formula and countable union over the cylinders."
       ],
       "prerequisites": [
         "ProbabilisticAndMetricNumberTheory:PM.4/tail-density-lower",
         "ProbabilisticAndMetricNumberTheory:PM.4/tail-event-preimage",
-        "ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi",
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion",
         "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-formula",
         "ProbabilisticAndMetricNumberTheory:PM.4/filtration-atoms"
       ],
@@ -3275,7 +3689,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3314,7 +3728,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3350,7 +3764,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3389,7 +3803,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -3428,7 +3842,7 @@
       "sources": [
         {
           "sourceId": "SarigTransfer",
-          "locator": "Appendix A.2, physical pp.31–35, continued-fraction cylinders and exactness",
+          "locator": "Appendix A.2, physical pp.32–33 (printed pp.30–31), inverse cylinders and tail-event exactness",
           "match": "Refinement of the cylinder proof on irrational points; endpoint and density corrections from the inherited review are retained."
         }
       ],
@@ -4775,6 +5189,11 @@
           "sourceId": "Sun2017",
           "locator": "Theorem 2, physical pp.3–6, specialized to p=1",
           "match": "C1 transfer-operator argument with absolute derivative coefficients restored. The new 9/10 bound is a worker-derived correction, not the paper’s claimed optimal rate."
+        },
+        {
+          "sourceId": "SarigTransfer",
+          "locator": "Proposition 1.1, physical p.6 (printed p.4); §2.3, physical p.12 (printed p.10)",
+          "match": "The bounded-test duality identifies pushforward densities. The general continuous nonnegative initial-density case is derived by iteration, rather than asserted as Sun’s C1 theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5228,11 +5647,16 @@
       "correction": "The triangle estimate needs Σ[δ_a|h_a′|+h_a/(a+x)²]. For p=1 this packet proves a sufficient bound ≤18913/21600<9/10; it does not claim the printed sharper Q_p rate.",
       "reason": "At p=1,a=2,x=1, h_2′=−1/72. The separate mean-value derivative values may have different signs, so the displayed signed coefficient sum does not follow by the maximum-norm triangle inequality. The gap affects this proof step, not the existence of exponential convergence.",
       "affects": "the proof",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "arXiv abstract/version record https://arxiv.org/abs/1705.02921 and v2 PDF, accessed 2026-10-05; v2 is the latest listed version.",
         "Version-of-record DOI 10.1016/S0252-9602(18)30796-3 metadata and bounded title/author plus erratum/correction searches, 2026-10-05; no published correction found. The publisher full text was not read."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v2, Theorem 2, physical p.4. For p=1, h₂′(1)=−1/72; derivatives of g at different evaluation points cannot be bounded by a signed coefficient sum. The absolute-value coefficients used here do support the weaker rate: the independent rational checks give total 18913/21600<9/10. This verdict concerns the displayed proof step and recorded version, not a counterexample to exponential convergence or a claim about unread publisher text.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-2",
@@ -5243,11 +5667,16 @@
       "correction": "Restore the factor R multiplying the seminorm: numerator ||g_n−g_m||+R||f_n−f_m||_0.",
       "reason": "The preceding displayed inequality includes R; rearranging cannot remove it. The subsequence argument still works with the fixed positive constant R.",
       "affects": "the proof",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at equation (A.3), physical p.35/printed p.33: rearranging the preceding inequality retains R times the weak seminorm. A fixed R does not affect the subsequence argument.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-3",
@@ -5258,11 +5687,16 @@
       "correction": "Require U to be a proper closed subspace, or replace U by its closure and require closure(U)≠V.",
       "reason": "A dense proper linear subspace has distance zero from every vector and contradicts the stated positive separation. The subsequent applications to finite-dimensional or established closed subspaces can use the corrected lemma.",
       "affects": "a stated result",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the Riesz lemma, physical p.35/printed p.33. A proper dense linear subspace has zero distance from every vector, so the positive-distance statement requires a proper closed subspace. The proof divides by this distance and needs it positive.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-4",
@@ -5273,11 +5707,16 @@
       "correction": "For the sequence {L^m f_n}, use |z|^m/2 separation; when subsequently using L^(m+1), the corresponding power is |z|^(m+1)/2.",
       "reason": "The factor pulled from z^(−m)L^m is |z|^m, and the normalized Riesz distance is at least 1/2. The printed last inequality changes its exponent without justification.",
       "affects": "the proof",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Step 1, physical p.37/printed p.35. Multiplying the normalized Riesz separation by z^m yields |z|^m/2 for L^m, whereas the text inserts |z|^(m+1)/2. The next iteration L^(m+1) uses the latter exponent legitimately.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-5",
@@ -5288,11 +5727,16 @@
       "correction": "The iteration is r^m||f||+R Σ_(j=0)^(m−1) r^j||L^(m−1−j)f||_0.",
       "reason": "At m=1 the printed expression introduces an extra factor r in front of R||f||_0. Inducting the one-step inequality gives the corrected index and exponents; the required compactness argument remains available.",
       "affects": "the proof",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the iterated (A.2), physical p.37/printed p.35. At m=1 the stated sum has an extra r. Induction gives the proposed sum indexed j=0,…,m−1 with L^(m−1−j).",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-6",
@@ -5303,11 +5747,16 @@
       "correction": "Replace the second operator by (zI−L)^(2m).",
       "reason": "The vector f cannot occupy the operator position; the previous line identifies the stabilized range of zI−L.",
       "affects": "the proof",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Step 2, physical p.38/printed p.36. The stabilized range belongs to zI−L; a vector f is written where the operator L is required.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-7",
@@ -5318,11 +5767,16 @@
       "correction": "The uniform-boundedness argument gives sup_n |φ(x_n)|=∞, hence a subsequence with |φ(x_(n_k))|→∞; it does not give divergence of the whole sequence. The weak-analyticity argument should use that subsequence.",
       "reason": "In complex dimension two, in each block take a fine finite net of the unit sphere scaled by the block index, with mesh at most its inverse square. Norms tend to infinity, but every linear functional has a unit kernel vector, so a subsequence of its values tends to zero. The displayed proof itself only concludes an unbounded supremum.",
       "affects": "a stated result",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the opening lemma of A.4, physical p.42/printed p.40. Uniform boundedness supplies an unbounded supremum, hence a divergent subsequence, rather than divergence along the entire sequence. In complex dimension two, successive finite 1/k²-nets of the unit sphere scaled by k have diverging norms; every functional has a kernel direction, giving a subsequence of values tending to zero. Local boundedness follows using the corrected subsequence conclusion.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     },
     {
       "id": "ProbabilisticAndMetricNumberTheory/EPM4-8",
@@ -5333,11 +5787,16 @@
       "correction": "Replace the concrete-space symbol 𝓛 by the Banach space B in which the generic operator L acts.",
       "reason": "Theorem A.3 fixes an arbitrary Banach space B and a bounded operator on B; 𝓛 was the earlier concrete Lipschitz function space. The lemma’s remaining hypotheses and proof identify B as the intended space.",
       "affects": "nothing",
-      "known": "new: no published correction found in the bounded search; independent verification remains required.",
+      "known": "Independent review confirms the observation in the recorded source version; no published correction was found in the original bounded search of 2026-10-05. This is not a publisher-confirmed erratum.",
       "searched": [
         "Sarig author course page https://www.weizmann.ac.il/math/sarigo/ (accessed 2026-10-05): course file and proof-reading notice, no linked erratum for Appendix A.3 found.",
         "Bounded web search on 2026-10-05: Sarig transfer operator errata Hennion; no published correction of these displayed formulas found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the Conditional Closure Lemma, physical p.35/printed p.33. The ambient setting in Appendix A.3 is the arbitrary Banach space B, while the displayed membership uses the earlier concrete Lipschitz-space symbol. The remaining argument is in B.",
+        "by": "REV-ProbabilisticAndMetricNumberTheory--PM.4"
+      }
     }
   ],
   "imports": [
@@ -5649,8 +6108,15 @@
       ]
     },
     {
+      "target": "ProbabilisticAndMetricNumberTheory:PM.4/gauss-renyi",
+      "proofInputs": [
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion"
+      ]
+    },
+    {
       "target": "ProbabilisticAndMetricNumberTheory:PM.4/gauss-exact",
       "proofInputs": [
+        "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion",
         "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound",
         "ProbabilisticAndMetricNumberTheory:PM.4/tail-zero-one"
       ]
@@ -5713,7 +6179,7 @@
     }
   ],
   "sourceIssueScope": {
-    "newFindings": "EPM4-1 through EPM4-8; findings are worker observations, not independently confirmed errata.",
+    "newFindings": "EPM4-1 through EPM4-8 are independently confirmed mathematical observations in the recorded versions, with a review verdict on each; they are not publisher-confirmed errata.",
     "inherited": "The parent packet is the authority for its exact IDs and independent verdicts. PM.4 uses E15–E22, E24, E26, E28, E33–E34 and E46 at those IDs. E23 and E25 were rejected and are not asserted as errors. The recurrence/Oppenheim findings E27 and E47–E48 have no new target here.",
     "unusedSpectralMaterial": "EPM4-2 through EPM4-6 audit Appendix A.3 read while considering the original proof route. No Hennion or abstract spectral theorem is planned by this continuation. EPM4-7 is an incidental Appendix A.4 finding and has no PM.4 consumer. EPM4-8 is a space-symbol misprint in the unused Conditional Closure Lemma."
   },
@@ -5804,6 +6270,642 @@
       "url": "https://github.com/lua-vr/pointwise-birkhoff/blob/fc06094ca0506d8d74eba8b45b34882ce5930bf4/BirkhoffErgodicThm.lean",
       "read": "2026-10-05",
       "note": "Independent public development by Lua Viana Reis: introductory definitions and the statements/wrappers around lines 246–293 and 371–384 read. Its scalar arbitrary-integrable theorem uses the same native strict invariants and measurable-representative shape. It is outside the pinned libraries; no code is copied, no whole proof is claimed read, and no port is proposed without author coordination. Match the eventual Mathlib API when adopted."
+    },
+    {
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/e255659f8eb50cd472809d9d565c8f755acffd84/TauCetiRoadmap",
+      "read": "2026-10-10",
+      "note": "Independent review checked current roadmap signatures, including the nine additions after the atlas snapshot, and the Exchangeability and OneParameterSemigroups documents. No existing pointwise scalar Birkhoff or Gauss-dynamics target is replanned. Exchangeability’s generic mean-L2 and reverse-martingale infrastructure is consumed through implemented Tau Ceti declarations."
+    },
+    {
+      "url": "https://github.com/TauCetiProject/TauCeti/tree/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "read": "2026-10-10",
+      "note": "Current-library check found native reverse conditional-expectation convergence and mean-L2 Birkhoff APIs, but no scalar arbitrary-integrable pointwise theorem or Gauss-map exactness API. tendsto_integral_abs_birkhoffAverage_sub_condExp requires MemLp f 2 μ, so it does not replace integrable-observable-l1-limit for arbitrary Integrable f."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ProbabilisticAndMetricNumberTheory--PM.4",
+    "date": "2026-10-10",
+    "notes": "Independent mathematical review of every local node, all 57 pinned baseline statements, the 46 inherited IDs, ten definition/construction APIs and their 32 tests, source locators and all eight new source observations. Added an explicit constant-four cylinder measure comparison, repaired its downstream dependency, corrected two baseline descriptions, narrowed A.2 locators and strengthened two Lean signatures. The DT.0/GN.4 requests remain precise supplier obligations: PM.4 is planned, not closed. The current TauCetiRoadmap and Tau Ceti library were checked for duplication. Suggested elaborates against individual Tau Ceti imports with only proof placeholders; no mathematical implementation is claimed.",
+    "checked": [
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/homogeneous-birkhoff",
+        "verdict": "verified",
+        "note": "Time-one ergodicity is obtained from the requested mixing restriction; continuous-flow ergodicity alone is explicitly insufficient."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/bounded-digits-compact-orbit",
+        "verdict": "verified",
+        "note": "Irrationality, positive time, column action and bounded native digits agree with the precise DT.0/GN.4 requests."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/typical-unbounded-semiorbit",
+        "verdict": "verified",
+        "note": "Countably many positive digit frequencies give unbounded digits on one conull set; Haar-a.e. points are not substituted for a horocycle."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-orbit-truncation",
+        "verdict": "verified",
+        "note": "Truncation precedes real conversion, so an infinite limsup gives L rather than zero; the three tests distinguish this."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bounds",
+        "verdict": "verified",
+        "note": "min with a finite nonnegative cap has the claimed bounds even when the extended limsup is infinite."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-measurable",
+        "verdict": "verified",
+        "note": "Countable measurable limsup and continuous extended-real truncation supply real measurability."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-invariant",
+        "verdict": "verified",
+        "note": "The finite-average recurrence preserves nonnegative extended limsup after a one-step shift."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/first-orbit-hit",
+        "verdict": "verified",
+        "note": "Positive lengths and the zero no-crossing sentinel are explicit; constant, equality-boundary and two-cycle tests agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/first-hit-positive",
+        "verdict": "verified",
+        "note": "A positive least crossing exists exactly when some positive-length average crosses the strict threshold."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/first-hit-average",
+        "verdict": "verified",
+        "note": "Minimal positive crossing retains the strict average inequality; zero is never used as a crossing length."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/first-hit-measurable",
+        "verdict": "verified",
+        "note": "Each positive fiber is a measurable crossing set minus the finitely many earlier crossing sets; the zero fiber is their complement."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/greedy-orbit-blocks",
+        "verdict": "verified",
+        "note": "Positive blue blocks, unit red blocks and terminal overrun are distinguished; four tests include the strict boundary and zero sentinel."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-partition",
+        "verdict": "verified",
+        "note": "The recursive starts equal preceding length sums, so positive blocks partition an initial interval without overlaps."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-blue",
+        "verdict": "verified",
+        "note": "Blue lengths equal the prescribed hit, lie between 1 and M, and fit within the available orbit interval."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-red",
+        "verdict": "verified",
+        "note": "Red starts have a zero or too-large prescribed hit and advance by one, preventing nontermination."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/greedy-block-tail",
+        "verdict": "verified",
+        "note": "Stopping is caused by a permitted block that no longer fits; the uncovered length is strictly below M."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/finite-upper-coloring",
+        "verdict": "verified",
+        "note": "Blue sums exceed length times g−ε; nonnegative red corrections cover bad starts and the terminal loss is at most M."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-coloring-integrated",
+        "verdict": "verified",
+        "note": "Invariance and preservation convert orbit sums to integrals; probability and N≥M justify the stated ε and ML/N losses."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/upper-truncation-bound",
+        "verdict": "verified",
+        "note": "First let N grow, then M grow by bounded convergence, then ε decrease; positive hits make the good sets exhaust the space."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/liminf-finite-integrable",
+        "verdict": "verified",
+        "note": "Fatou bounds the nonnegative extended liminf integral; finiteness a.e. and the invariant zero extension are justified."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/finite-lower-coloring",
+        "verdict": "verified",
+        "note": "On blue blocks dropping bad terms lowers the sum; red starts contribute zero and fewer than M tail terms each contribute at most M."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/lower-coloring-integrated",
+        "verdict": "verified",
+        "note": "The negative first-hit construction is positive on the invariant finite-liminf conull set; dominated convergence removes the cutoff."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/nonnegative-limit",
+        "verdict": "verified",
+        "note": "Monotone upper truncations and the lower integral inequality force finite liminf and limsup to coincide a.e."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/measurable-orbit-replacement",
+        "verdict": "verified",
+        "note": "Native measurable representatives agree on all iterates after a countable conull intersection; forward invariance is retained."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/signed-limit",
+        "verdict": "corrected",
+        "note": "Positive and negative parts give convergence, integrability and equality of integrals; the Lean signature now includes the integral equality."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit",
+        "verdict": "verified",
+        "note": "The unique finite real limit is selected on the convergence set and zero elsewhere; constant, cycle and divergent examples agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-value",
+        "verdict": "verified",
+        "note": "Uniqueness of real sequential limits identifies the selected value whenever convergence is supplied."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-measurable",
+        "verdict": "verified",
+        "note": "The countable real Cauchy criterion gives a measurable convergence set, and zero extension preserves measurability."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/orbit-limit-invariant",
+        "verdict": "verified",
+        "note": "Convergence at x and Tx is equivalent by the finite-average recurrence; the common limit and nonconvergence zero values agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/bounded-observable-l1-limit",
+        "verdict": "verified",
+        "note": "Pointwise convergence and the constant integrable bound 2C give dominated convergence on a probability space."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/integrable-observable-l1-limit",
+        "verdict": "verified",
+        "note": "Clipping, averaging contraction and Fatou extend L¹ convergence to arbitrary integrable real observables; native MemLp 2 convergence is a near miss."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/invariant-set-integrals",
+        "verdict": "verified",
+        "note": "Exact invariant events have invariant pullbacks, so preservation identifies their average integrals; L¹ convergence passes to the limit."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/native-condexp-identification",
+        "verdict": "verified",
+        "note": "Strict invariance yields native invariant-sigma measurability; integrability, set integrals and finite trimmed measure satisfy CE uniqueness."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The cylinder is restricted to irrational points and finite positive digit strings; empty, one-digit and order-sensitive two-digit tests agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-empty",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The empty digit condition leaves exactly D, not the full real line or a closed interval."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-cons",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. One digit is the first condition, and the remaining word is read after one Gauss iterate on D."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measurable",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. D and each finite digit condition are Borel, so their intersection is Borel."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-zero",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Irrational orbit digits are positive, so a word containing zero has empty cylinder."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/irrational-conull",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Rational points form a countable image and are null for restricted Lebesgue and the absolutely continuous Gauss probability."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/inverse-word",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Right folding preserves the documented word order; empty, single-branch and noncommuting two-branch tests agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-empty",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The empty right fold is the identity function."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-cons",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. A leading digit prepends its inverse branch on the left of the remaining composition."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/inverse-word-append",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Splitting a word splits its ordered branch composition in the stated order."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The ordered product uses the native 2×2 matrix and B_a entries; exact two-word computations distinguish reversed order."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-empty",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The empty product is the native identity matrix."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-cons",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Prepending a word digit multiplies its matrix on the left, matching inverseWord_cons."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-determinant",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Each branch determinant is −1 and native det_mul gives the parity power."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-matrix-positive",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Positive nonempty words have q≥1 and 0<r≤q by the explicit recurrence; the empty case is separately handled."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/native-stream-gauss",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Stream n+1 matches zero-based digit n and the next fractional iterate; rational termination is excluded by the D hypothesis."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/native-nontermination",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The native termination iff rational theorem gives nontermination, hence access to every required positive digit and denominator."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-native-continuants",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. For nonempty words, native numerator and denominator indices n−1,n match the ordered matrix columns; the empty matrix remains separate."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-mobius",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Composition of branch matrices gives the fractional-linear formula with a positive denominator on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-derivative",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The signed determinant numerator is retained; its absolute value is the inverse square needed for distortion."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/word-denominator-fibonacci",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Positive-digit recurrence gives the correct fib(n+1) lower bound and shrinking cylinder diameter with native indexing."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-image",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Inverse branches biject D onto the digit cylinder, preserve irrationality, and invert T^length; rational endpoints are excluded."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/orbit-product-identity",
+        "verdict": "verified",
+        "note": "Native denominators give the exact reciprocal orbit product, with r₀=0; the logarithmic correction is between 0 and log 2."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/gauss-cylinder-filtration",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Native Filtration is generated by D and cylinders through depth n; three tests distinguish depth-zero generation from ambient Borel."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/filtration-cylinder",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. A word of length at most n is one of the defining measurable generators."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/filtration-atoms",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Positive length-n words partition D uniquely; earlier generators refine into these atoms and the complementary rational atom is null."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/filtration-generates",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Shrinking cylinders form a countable base on D, giving every Borel trace B∩D in the supremum sigma-algebra."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-formula",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Positive cylinder masses permit division; the countable cell-average step function satisfies the native CE uniqueness integrals."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-converges",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The strongly measurable trace indicator agrees a.e. with 1_B, allowing the pinned upward CE theorem to recover it."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-sigma-antitone",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Measurability and comap composition give the decreasing pullback sequence; the zero iterate gives the ambient sigma-algebra."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-event-preimage",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Native measurableSet_comap gives an exact Borel preimage representative for each tail depth."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-density-lower",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Gauss preservation identifies the tail masses and the two explicit density bounds supply m(B_n)≥m(B)/2."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-measure-distortion",
+        "verdict": "added",
+        "note": "Added with an explicit constant 4: positive denominators, the native Jacobian and rational conullness bound both cell masses; the empty word is covered."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/cylinder-ce-lower-bound",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Replaced an unspecified existential supplier by the new constant-four comparison, making the stated m(B)/8 bound follow from direct prerequisites."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-zero-one",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The uniform positive conditional lower bound and upward convergence force any positive tail event to be conull; equivalent measures transfer zero-one to Gauss."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-constant",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. The pinned Tau Ceti zero-or-one CE theorem applies to the native tail infimum below the ambient sigma-algebra on a probability space."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-ce-l1-limit",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Native antitone CE eLpNorm convergence specializes to exponent one and the constant tail expectation, with finite-measure hypotheses satisfied."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/tail-correlation-bound",
+        "verdict": "corrected",
+        "note": "Narrowed the source locator to the actual A.2 pages. Pullback B is measurable at tail depth n; the CE set-integral identity and absolute integral bound control the correlation error."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/digit-log-series-bound",
+        "verdict": "verified",
+        "note": "log(1+t)≤t and log a≤2√a yield a summable a^(−3/2) bound with the correct a(a+2) digit denominator."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/digit-log-integrable",
+        "verdict": "verified",
+        "note": "Countable digit partition and the summable nonnegative weights prove integrability and the inherited log-K integral identity."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integrable",
+        "verdict": "verified",
+        "note": "Native interval integrability of log includes zero for volume; the bounded Gauss density preserves absolute integrability."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/log-power-moment",
+        "verdict": "verified",
+        "note": "Integration by parts away from zero, the endpoint log-power limit and domination give 1/(n+1)²."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/alternating-zeta-two",
+        "verdict": "verified",
+        "note": "Absolute summability permits the even/odd split of the native positive square sum, yielding π²/12."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/negative-log-geometric-series",
+        "verdict": "verified",
+        "note": "Summable absolute moment integrals justify interchange; the expansion is used on the open interval, so endpoint issues are null."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/negative-log-integral",
+        "verdict": "verified",
+        "note": "The geometric expansion and alternating square sum give π²/(12 log 2), preserving density normalization and sign."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/gauss-density-transfer",
+        "verdict": "verified",
+        "note": "The native real tsum has continuous-on-I convergence APIs and zero, scalar, positivity, duality and fixed-density tests."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-zero",
+        "verdict": "verified",
+        "note": "Every branch term is zero, including any totalized off-domain input."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-summable",
+        "verdict": "verified",
+        "note": "Compact boundedness of f and reciprocal-square majorants give absolute and uniform convergence on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-add",
+        "verdict": "verified",
+        "note": "Both absolutely convergent branch series permit termwise addition on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-duality",
+        "verdict": "verified",
+        "note": "Countable inverse branches and native change of variables identify integrals against bounded Borel tests; endpoints are null."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-gauss-transfer",
+        "verdict": "verified",
+        "note": "Positive telescoping weights define the normalized operator, with linearity, bounds, conjugacy and conserved mean APIs; the three tests agree."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-constant",
+        "verdict": "verified",
+        "note": "Positive weights sum to one by telescoping, so every constant is fixed on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-conjugate",
+        "verdict": "verified",
+        "note": "Algebraic cancellation of the inverse-branch factor gives P((1+x)f)=(1+x)Lf."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-integral",
+        "verdict": "verified",
+        "note": "Density duality with the constant test and conjugacy preserve the weighted Lebesgue integral."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-branch-c1",
+        "verdict": "verified",
+        "note": "Rational positive-denominator weights and branches preserve native ContDiffOn on the closed interval."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-interior-derivative",
+        "verdict": "verified",
+        "note": "Summable uniform bounds on values and derivatives meet the pinned open-preconnected termwise-derivative theorem."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-endpoint-derivative",
+        "verdict": "verified",
+        "note": "Uniform convergence makes the derivative sum continuous up to the endpoints; the two pinned extension lemmas provide within derivatives."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-derivative-cancellation",
+        "verdict": "verified",
+        "note": "Differentiating the constant weight sum gives zero derivative, enabling subtraction of the same reference g(v₁)."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-absolute-coefficients",
+        "verdict": "verified",
+        "note": "Triangle inequality uses absolute weight derivatives and a mean-value bound on each difference; the signed source gap is avoided."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-one",
+        "verdict": "verified",
+        "note": "The first difference coefficient vanishes; the remaining positive factor is bounded by 1/2."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-two",
+        "verdict": "verified",
+        "note": "δ₂≤1/2 and |h₂′|≤1/18 give 1/36; the second term is at most 1/24, so the sum is at most 5/72."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-positive-coefficient",
+        "verdict": "verified",
+        "note": "For a≥3 the derivative numerator is positive; combining fractions gives the displayed rational coefficient."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-three",
+        "verdict": "verified",
+        "note": "Independent integer polynomial multiplication confirms the positive numerator certificate for 7/216."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-four",
+        "verdict": "verified",
+        "note": "Independent integer polynomial multiplication confirms the positive numerator certificate for 19/800."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-tail",
+        "verdict": "verified",
+        "note": "The positive coefficient formula reduces the 1/a² bound to 12≤4a² for a≥5."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-square-tail",
+        "verdict": "verified",
+        "note": "Comparison with 1/(a−1)−1/a telescopes the summable tail to at most 1/4."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-coefficient-total",
+        "verdict": "verified",
+        "note": "Independent exact rational arithmetic confirms 18913/21600 and the positive gap 527/21600 below 9/10."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-derivative-contraction",
+        "verdict": "verified",
+        "note": "The absolute coefficient estimate and its uniform sum give the stated contraction for nonnegative derivative bound M."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/transfer-iterate-c1-bound",
+        "verdict": "verified",
+        "note": "Closed-interval C¹ preservation and contraction iterate from n=0 to yield (9/10)^n M."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/weighted-mean-pins-limit",
+        "verdict": "verified",
+        "note": "The positive normalized weight and native mean-value estimate bound every iterate’s distance to its conserved mean without spectral assumptions."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-pushforward",
+        "verdict": "corrected",
+        "note": "The full continuous nonnegative initial-density pushforward is now prototyped, alongside f=1; Sarig’s duality locator supports the generality."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-uniform-error",
+        "verdict": "verified",
+        "note": "The initial normalized function 1+x has derivative one and mean 1/log 2; conjugacy and division by 1+x≥1 give the uniform bound."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/digit-marginal-error",
+        "verdict": "verified",
+        "note": "Pulling back the first-digit event under T^n and integrating the uniform error gives C=1, ρ=9/10, uniformly in the digit."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/column-row-convention",
+        "verdict": "verified",
+        "note": "Transpose changes Γ\\G row action to G/Γ column action; source time s corresponds to t=s/2, as recorded in the GN.4 request."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/diagonal-short-vector-forward",
+        "verdict": "verified",
+        "note": "q=0 is bounded separately; for q≠0 the product of the two coordinate sizes is at least the bad-approximation constant."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/diagonal-short-vector-reverse",
+        "verdict": "verified",
+        "note": "Choosing t=log(2q/δ) makes the second coordinate δ/2, forcing q·distance(qx,integer)≥δ²/2."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-scalar",
+        "verdict": "verified",
+        "note": "Absolute summability permits a real scalar to pass through the native tsum on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-nonnegative",
+        "verdict": "verified",
+        "note": "Every continuous nonnegative branch contribution is nonnegative, hence so is its sum."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-add",
+        "verdict": "verified",
+        "note": "Both summable weighted series allow termwise addition on I."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-scalar",
+        "verdict": "verified",
+        "note": "Summability permits a real scalar to pass through the normalized series."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/normalized-transfer-bounds",
+        "verdict": "verified",
+        "note": "Positive weights with sum one preserve any explicit constant lower and upper bounds on g."
+      },
+      {
+        "nodeId": "ProbabilisticAndMetricNumberTheory:PM.4/density-transfer-continuous",
+        "verdict": "verified",
+        "note": "Uniform convergence of continuous branch sums on compact I gives native ContinuousOn."
+      }
+    ]
+  },
+  "reviewValidation": {
+    "date": "2026-10-10",
+    "job": "REV-ProbabilisticAndMetricNumberTheory--PM.4",
+    "blueprint": {
+      "command": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory--PM.4.json",
+      "errors": 0,
+      "warnings": 0
+    },
+    "lean": {
+      "command": "lean-check research/blueprint/suggested/ProbabilisticAndMetricNumberTheory--PM.4.lean",
+      "exitCode": 0,
+      "errors": 0,
+      "proofPlaceholderWarnings": 145,
+      "otherWarnings": 0,
+      "sha256": "b9f4df13ba73cc891d3214336938e513c67be7061f8408fa8d6e541973a4f524",
+      "scope": "Elaboration at the two recorded library pins, including the individual Tau Ceti modules. All new proofs remain placeholders."
+    },
+    "sourceRegister": {
+      "errors": 0,
+      "confirmedFindings": 8,
+      "rejectedFindings": 0,
+      "pdfHashesMatched": 5,
+      "method": "source_issues.check_issues and check_errata.versions_checked; independent acquisition and hashing of the five public PDFs."
+    },
+    "arithmetic": {
+      "result": "passed",
+      "method": "Independent exact rational arithmetic and integer polynomial multiplication verify the low-branch coefficient certificates, the coefficient total and gap, and the order-sensitive word matrices and endpoints."
+    },
+    "coverage": {
+      "nodesChecked": 115,
+      "baselineDeclarationsChecked": 57,
+      "inheritedNodesChecked": 46,
+      "definitionAndConstructionNodes": 10,
+      "apiItems": 39,
+      "unitTests": 32,
+      "addedNodes": 1,
+      "correctedNodes": 38,
+      "verifiedNodes": 76,
+      "unverifiableNodes": 0,
+      "openSupplierRequests": 2,
+      "narrowedSourceLocators": 36
+    }
+  }
 }
