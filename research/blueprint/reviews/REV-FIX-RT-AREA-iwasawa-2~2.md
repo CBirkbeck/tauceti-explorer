@@ -1,11 +1,14 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-5QRLqC`, 10 October 2026.
-Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099767639).
-This continuation verifies the dispatch blocker and prepares the exact missing
-receipts; it does not repeat or claim the preceding source audits. The review
-cannot finish within the live issue's authorized file scope. See the final
-continuation and handoff for the completion test and bounded resume action.
+Latest continuation: Codex, session `codex-fQKYCg`, 10 October 2026.
+Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099949130).
+Fresh source checks support the bounded corrections; PMIA still needs native
+library reuse. The two issue-named packet reviews are refreshed, preserving
+prior reviews whole. The queue also requires two packets omitted from the
+live issue. Explicit scope authorization for their prepared review-only
+records remains pending, so this is a blocked checkpoint. The final section
+and handoff give the exact remaining action; older audits keep their original
+attribution.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -642,3 +645,84 @@ the two receipt installations. Then preserve the complete prior audits,
 install the bounded receipts, run all four packet checks and the intake file
 screen, and require the actual completion predicate to return True. Another
 unchanged whole-source review is unnecessary for this dispatch repair.
+
+
+## Continuation by codex-fQKYCg: bounded contracts and fresh validation
+
+The claim was bot-confirmed on 10 October 2026. This session did none of
+fixer `claude-6ZAIEy`'s work. Read the live issue, six red-team findings,
+verification, round-2 fix report, previous review and handoff, library coverage
+for L3/D.2/L6, queue outputs and actual completion predicate. No second job
+was claimed. The inherited exhaustive audits remain attributed to their
+original reviewers; this continuation verifies the affected contracts.
+
+Fresh public PDFs for Morita, Gross–Koblitz, Robert, Zhao, Dasgupta–Kakde,
+Ertl–Nizioł, Colmez–Nizioł and Nekovář–Nizioł have the same eight SHA-256
+hashes as the source table above. Access date: 10 October 2026. No book copy
+was used or source passage inserted into the repository.
+
+| Finding | Fresh verification and verdict |
+| --- | --- |
+| /1 | Read Morita §1 pp.255–256 (Lemma 1/Theorem 1), Gross–Koblitz §1 pp.570–571 ((1.2), (1.5), (1.6), Theorem 1.7), and Robert Theorem 4 and estimates pp.167–168, inspecting the formula images. The signed strict product, both recurrence branches, unit-valued extension, dyadic precision, integral chosen root, negative Gauss sign and original odd-prime/nonzero range remain correct. Keep the separate Robert-route coefficient/splitting suppliers. L3's bounded correction is accepted. |
+| /2 | Read Zhao §1.2 p.461, Theorem 4.1 and (4.1)–(4.6) pp.471–473, Appendices A–B pp.473–474 against the seven consumers specified in the preceding handoff. Preserve primitive odd chi, conductor N>1 prime to p, compatible chi-omega/logarithm conventions, the general correction term, strict endpoint (E37) and coefficient-limit inputs. The proposed bounded L3-2 record is accepted with five gaps and eight requests retained. |
+| /3 | Read EN v2 §§2.1–2.2 pp.4–8, CN v4 Corollary 3.16 p.37/Theorem 5.4 p.54, NN v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54 against the four D.2 consumers. Preserve divided/undivided complexes, directed omega/tau maps, factorial-modified twist, exact divided range through p−2, bounded undivided comparison and rational boundary scaling/sign. The proposed bounded D.1 record is accepted with its nine gaps, twenty requests, seventeen source issues and eight planned stages retained. |
+| /4 | Read DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40, Appendix B.2 pp.93–94. Image order, positive square size, determinant regularity/finite quotient, inverse-character target and right-sided adjugate repair remain supported. Current Tau Ceti already supplies generic Fitting ideals/base change and arbitrary projective stable transpose; PMIA needs_changes for the coherent five-node migration described above. |
+| /5 | Read the current LAD compact-complex statements and both named gaps. They preserve the distinction between the noninvariant raw nonalternating product, invariant cohomological support, selected finite windows and the full solid localization. Retain the preceding reviewers' BCGP source audit and routing verdict; no LAD edit or new source audit is claimed. |
+| /6 | Reread accepted RS-16's I.5 decision: the historical Hecke/congruence routes are intentionally independent of the cyclotomic Euler-system route. Preserve the rejected finding and its shared-carrier imports. |
+
+Directly read current Tau Ceti's `fittingIdeal`,
+`fittingIdeal_eq_minorsIdeal_ker`, `fittingIdeal_baseChange` and
+`AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` with their actual
+hypotheses. The current library and roadmap commits remain respectively
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` and
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
+These readings are current-library evidence, not claims about the old
+programme pin. PMIA's non-generating-family relation control still needs its
+adapter; the native kernel theorem requires a surjection onto the module
+whose Fitting ideal is computed. No partial migration was attempted.
+
+Fresh finite controls passed: 204 Gamma recurrence equations, 60 buffered
+congruences and the rejected dyadic modulus-4 claim; 22 Ferrero–Greenberg
+permutations with every filtration; 6,561 rectangular right-adjugate preimages
+including checks on 891 singular submatrices. These are falsification controls,
+not proofs of analytic or arithmetic suppliers.
+
+### Installed reviews, proposed records and completion boundary
+
+Refreshed only `review` and `reviewHistory` in the issue-named L3 and PMIA
+packets, retaining accepted and needs_changes respectively. Each whole
+preceding review is appended to history. Parsed-object assertions establish
+that every other field, every earlier history entry and every archived
+checked entry is preserved. No mathematical node, source issue, API, test,
+request, gap, coverage entry or suggested file changes.
+
+Prepared the same kind of review-only records for L3-2 and D.1 in scratch.
+Each archives its complete preceding 79-entry or 72-entry independent audit.
+The live issue omits those packets while the queue requires them.
+WORKERS.md says: “Edit only the files the issue names, plus your own scratch
+space.” Explicit authorization was requested from this run's user for the two
+concrete patches; no answer has arrived, and neither file was changed.
+The scope question remains pending. Elapsed time is not authorization.
+
+Fresh actual `issues.deliverables_complete` returns **False**. A path adapter
+substituting only the two prepared records, while reading every other real
+output, returns **True**. The PMIA negative verdict completes its review
+portion; it is not the dispatch blocker. Do not rewrite queue logic or
+fabricate review identities to bypass this boundary. Correct the live issue
+scope before dispatching another unchanged continuation.
+
+All four packet checks have zero errors; L3 retains 26 inherited short-API
+warnings, and the other three have none. Fresh sequential `lean-check` results:
+
+| Suggested file | Result |
+| --- | --- |
+| L3 | Exit 1 at the unknown shared `research` import prefix; body not elaborated. |
+| L3-2 | Exit 0; 111 `sorry` warnings, no other warnings or errors. |
+| D.1 | Exit 0; 307 `sorry` warnings, no other warnings or errors. |
+| PMIA | Exit 0; 1,075 `sorry` warnings, no other warnings or errors. |
+
+The shared checker verified memory availability. No Lean source changed,
+library build/update/cache fetch or language server was started, or process
+left running. All four packets contain zero `excerpt` fields. The final intake
+file screen and diff checks cover only the two allowed packets, report and
+handoff. This submission is a blocked checkpoint pending scope authorization.
