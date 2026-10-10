@@ -46445,7 +46445,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianSchemesAndArithmeticModuliPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7531"
   },
   {
    "id": "REV-PKG-AbelianSchemesAndArithmeticModuliPartII",
@@ -46488,7 +46489,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7532"
   },
   {
    "id": "REV-PKG-AbelianVarietiesIsogenousToNoJacobian",
@@ -47377,8 +47379,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7535"
+   "state": "pending",
+   "note": "released on GitHub issue #7535"
   },
   {
    "id": "REV-PKG-ColemanIntegration",
@@ -47468,7 +47470,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ComputationalNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7536"
   },
   {
    "id": "REV-PKG-ComputationalNumberTheory",
@@ -48461,8 +48464,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7540"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7540",
+   "finishedAt": "2026-10-10T15:58:15Z"
   },
   {
    "id": "REV-PKG-GlobalGaloisDeformations",
@@ -49085,8 +49089,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49176,8 +49180,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80143,8 +80147,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81453,8 +81457,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84544,8 +84548,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",

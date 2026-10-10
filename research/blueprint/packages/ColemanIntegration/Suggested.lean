@@ -60,6 +60,10 @@ import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Analysis.Normed.Ring.Lemmas
 import Mathlib.Analysis.Calculus.IteratedDeriv.Defs
 import Mathlib.Analysis.Fourier.ZMod
+import Mathlib.GroupTheory.FreeAbelianGroup
+import Mathlib.GroupTheory.QuotientGroup.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.Quotient.Basic
 
 open Filter Topology
 
@@ -3393,3 +3397,305 @@ example : (∑ m ∈ Finset.Icc 1 2,
       ((2-1).choose (m-1) : ℂ_[3])) = -1 := by sorry
 
 end TauCeti.ColemanIntegration.EndComparison
+
+/-! ## L2.Fb: integral Bloch algebra and branch descent
+
+The source convention is de Jeu, arXiv:2007.11014v1, section 3, pp. 7–8:
+the pre-Bloch quotient imposes five-term relations only. The tensor quotient
+imposes u ⊗ v + v ⊗ u = 0, retaining diagonal 2-torsion. Neither the exterior
+square nor de Jeu's further modified quotient replaces either carrier here.
+The analytic evaluation uses the actual p-adic five-term theorem above.
+-/
+
+namespace TauCeti.ColemanIntegration.BlochAlgebra
+
+open scoped TensorProduct
+
+variable (K : Type*) [Field K]
+
+/-- Admissible scalar symbols; no generator is provided at 0 or 1. -/
+abbrev Symbols := FreeAbelianGroup {x : K // x ≠ 0 ∧ x ≠ 1}
+
+/-- Total notation for an admissible generator, with zero outside its domain. -/
+def symbol (x : K) : Symbols K := by
+  classical
+  exact if h : x ≠ 0 ∧ x ≠ 1 then FreeAbelianGroup.of ⟨x, h⟩ else 0
+
+theorem symbol_admissible (x : K) (hx : x ≠ 0 ∧ x ≠ 1) :
+    symbol K x = FreeAbelianGroup.of ⟨x, hx⟩ := by sorry
+
+@[simp] theorem symbol_zero : symbol K 0 = 0 := by sorry
+@[simp] theorem symbol_one : symbol K 1 = 0 := by sorry
+
+/-- Three controls for the free carrier before taking a quotient. -/
+example : symbol ℚ 0 = 0 ∧ symbol ℚ 1 = 0 := by sorry
+example : symbol ℚ 2 ≠ 0 := by sorry
+example : symbol ℚ 2 + symbol ℚ (1/2) ≠ 0 := by sorry
+
+/-- Exactly the nondegenerate parameters of the scalar five-term relation. -/
+abbrev FiveTermParameters :=
+  {xy : K × K // xy.1 ≠ 0 ∧ xy.1 ≠ 1 ∧ xy.2 ≠ 0 ∧ xy.2 ≠ 1 ∧ xy.1 ≠ xy.2}
+
+def fiveTermRelation (xy : FiveTermParameters K) : Symbols K :=
+  symbol K xy.val.1 - symbol K xy.val.2 + symbol K (xy.val.2 / xy.val.1) -
+    symbol K ((1 - xy.val.1⁻¹) / (1 - xy.val.2⁻¹)) +
+      symbol K ((1 - xy.val.1) / (1 - xy.val.2))
+
+theorem fiveTermRelation_arguments (xy : FiveTermParameters K) :
+    let x := xy.val.1
+    let y := xy.val.2
+    y/x ≠ 0 ∧ y/x ≠ 1 ∧
+      (1-x⁻¹)/(1-y⁻¹) ≠ 0 ∧ (1-x⁻¹)/(1-y⁻¹) ≠ 1 ∧
+        (1-x)/(1-y) ≠ 0 ∧ (1-x)/(1-y) ≠ 1 := by sorry
+
+def fiveTermSubgroup : AddSubgroup (Symbols K) :=
+  AddSubgroup.closure (Set.range (fiveTermRelation K))
+
+/-- Integral pre-Bloch group: there is no extra inverse or complement relation. -/
+abbrev PreBlochGroup := Symbols K ⧸ fiveTermSubgroup K
+
+def preBlochSymbol (x : K) : PreBlochGroup K :=
+  QuotientAddGroup.mk' (fiveTermSubgroup K) (symbol K x)
+
+@[simp] theorem preBlochSymbol_zero : preBlochSymbol K 0 = 0 := by sorry
+@[simp] theorem preBlochSymbol_one : preBlochSymbol K 1 = 0 := by sorry
+
+theorem preBlochSymbol_fiveTerm (xy : FiveTermParameters K) :
+    let x := xy.val.1
+    let y := xy.val.2
+    preBlochSymbol K x - preBlochSymbol K y + preBlochSymbol K (y/x) -
+      preBlochSymbol K ((1-x⁻¹)/(1-y⁻¹)) + preBlochSymbol K ((1-x)/(1-y)) = 0 := by sorry
+
+/-- The genuine quotient universal property, with its exact relation hypothesis. -/
+theorem preBlochGroup_lift {A : Type*} [AddCommGroup A] (f : K → A)
+    (h0 : f 0 = 0) (h1 : f 1 = 0)
+    (h5 : ∀ xy : FiveTermParameters K,
+      let x := xy.val.1
+      let y := xy.val.2
+      f x - f y + f (y/x) - f ((1-x⁻¹)/(1-y⁻¹)) + f ((1-x)/(1-y)) = 0) :
+    ∃! F : PreBlochGroup K →+ A, ∀ x, F (preBlochSymbol K x) = f x := by sorry
+
+def preBlochMap {E : Type*} [Field E] (f : K →+* E) :
+    PreBlochGroup K →+ PreBlochGroup E := by sorry
+
+@[simp] theorem preBlochMap_symbol {E : Type*} [Field E] (f : K →+* E) (x : K) :
+    preBlochMap K f (preBlochSymbol K x) = preBlochSymbol E (f x) := by sorry
+
+theorem preBlochMap_id : preBlochMap K (RingHom.id K) = AddMonoidHom.id _ := by sorry
+
+theorem preBlochMap_comp {E F : Type*} [Field E] [Field F]
+    (f : K →+* E) (g : E →+* F) :
+    preBlochMap K (g.comp f) = (preBlochMap E g).comp (preBlochMap K f) := by sorry
+
+/-- The unreduced five-term expression is not already zero in the free carrier. -/
+example : symbol ℚ 4 - symbol ℚ 2 + symbol ℚ (1/2) - symbol ℚ (3/2) +
+    symbol ℚ 3 ≠ 0 := by sorry
+
+/-- Test PreBlochGroup.fiveTerm_four_two: signs fixed before analytic evaluation. -/
+example : preBlochSymbol ℚ 4 - preBlochSymbol ℚ 2 + preBlochSymbol ℚ (1/2) -
+    preBlochSymbol ℚ (3/2) + preBlochSymbol ℚ 3 = 0 := by sorry
+
+/-- Test PreBlochGroup.removed_points. -/
+example : preBlochSymbol ℚ 0 = 0 ∧ preBlochSymbol ℚ 1 = 0 := by sorry
+
+/-- Test PreBlochGroup.scalar_transport. -/
+example : preBlochMap ℚ (algebraMap ℚ ℂ) (preBlochSymbol ℚ 2) =
+    preBlochSymbol ℂ 2 := by sorry
+
+/-- The additive form of the multiplicative tensor square of units. -/
+abbrev UnitTensor := Additive Kˣ ⊗[ℤ] Additive Kˣ
+
+def symmetricTensorRelations : Submodule ℤ (UnitTensor K) :=
+  Submodule.span ℤ (Set.range (fun uv : Kˣ × Kˣ =>
+    Additive.ofMul uv.1 ⊗ₜ[ℤ] Additive.ofMul uv.2 +
+      Additive.ofMul uv.2 ⊗ₜ[ℤ] Additive.ofMul uv.1))
+
+/-- Antisymmetric tensor square, not the alternating exterior square. -/
+abbrev AntisymmetricSquare := UnitTensor K ⧸ symmetricTensorRelations K
+
+def tensorClass (u v : Kˣ) : AntisymmetricSquare K :=
+  (symmetricTensorRelations K).mkQ (Additive.ofMul u ⊗ₜ[ℤ] Additive.ofMul v)
+
+theorem tensorClass_mul_left (u v w : Kˣ) :
+    tensorClass K (u*v) w = tensorClass K u w + tensorClass K v w := by sorry
+
+theorem tensorClass_mul_right (u v w : Kˣ) :
+    tensorClass K u (v*w) = tensorClass K u v + tensorClass K u w := by sorry
+
+theorem tensorClass_swap (u v : Kˣ) : tensorClass K u v = -tensorClass K v u := by sorry
+
+theorem tensorClass_diagonal_two_torsion (u : Kˣ) :
+    (2 : ℤ) • tensorClass K u u = 0 := by sorry
+
+theorem antisymmetricSquare_hom_ext {A : Type*} [AddCommGroup A]
+    (f g : AntisymmetricSquare K →+ A)
+    (h : ∀ u v, f (tensorClass K u v) = g (tensorClass K u v)) : f = g := by sorry
+
+/-- A field homomorphism acts on each unit tensor and preserves the relation submodule. -/
+def antisymmetricMap {E : Type*} [Field E] (f : K →+* E) :
+    AntisymmetricSquare K →+ AntisymmetricSquare E := by sorry
+
+@[simp] theorem antisymmetricMap_tensorClass {E : Type*} [Field E]
+    (f : K →+* E) (u v : Kˣ) :
+    antisymmetricMap K f (tensorClass K u v) =
+      tensorClass E (Units.map f.toMonoidHom u) (Units.map f.toMonoidHom v) := by sorry
+
+theorem antisymmetricMap_id :
+    antisymmetricMap K (RingHom.id K) = AddMonoidHom.id _ := by sorry
+
+theorem antisymmetricMap_comp {E F : Type*} [Field E] [Field F]
+    (f : K →+* E) (g : E →+* F) :
+    antisymmetricMap K (g.comp f) =
+      (antisymmetricMap E g).comp (antisymmetricMap K f) := by sorry
+
+/-- Test AntisymmetricSquare.unit_factor. -/
+example (u : Kˣ) : tensorClass K 1 u = 0 ∧ tensorClass K u 1 = 0 := by sorry
+
+/-- Test AntisymmetricSquare.diagonal_torsion. -/
+example : (2 : ℤ) • tensorClass ℚ (-1) (-1) = 0 := by sorry
+
+/-- Test AntisymmetricSquare.not_alternating: the sign pairing mod 2 detects this class. -/
+example : tensorClass ℚ (-1) (-1) ≠ 0 := by sorry
+
+def boundaryRaw : Symbols K →+ AntisymmetricSquare K :=
+  FreeAbelianGroup.lift (fun x =>
+    tensorClass K (Units.mk0 x.val x.prop.1)
+      (Units.mk0 (1-x.val) (by exact sub_ne_zero.mpr (Ne.symm x.prop.2))))
+
+theorem boundaryRaw_fiveTerm (xy : FiveTermParameters K) :
+    boundaryRaw K (fiveTermRelation K xy) = 0 := by sorry
+
+def boundary : PreBlochGroup K →+ AntisymmetricSquare K :=
+  QuotientAddGroup.lift (fiveTermSubgroup K) (boundaryRaw K) (by sorry)
+
+theorem boundary_symbol (x : K) (hx : x ≠ 0 ∧ x ≠ 1) :
+    boundary K (preBlochSymbol K x) =
+      tensorClass K (Units.mk0 x hx.1)
+        (Units.mk0 (1-x) (by exact sub_ne_zero.mpr (Ne.symm hx.2))) := by sorry
+
+/-- Test boundary.fiveTerm_four_two. -/
+example : boundary ℚ (preBlochSymbol ℚ 4 - preBlochSymbol ℚ 2 +
+    preBlochSymbol ℚ (1/2) - preBlochSymbol ℚ (3/2) + preBlochSymbol ℚ 3) = 0 := by sorry
+
+/-- Test boundary.two: the tensor target retains the sign factor. -/
+example : boundary ℚ (preBlochSymbol ℚ 2) =
+    tensorClass ℚ (Units.mk0 2 (by norm_num)) (-1) := by sorry
+
+/-- Test boundary.zero: not a generator at the removed point. -/
+example : boundary ℚ (preBlochSymbol ℚ 0) = 0 := by sorry
+
+/-- The Bloch group is the actual kernel inside the integral pre-Bloch group. -/
+abbrev BlochGroup := (boundary K).ker
+
+theorem mem_blochGroup_iff (z : PreBlochGroup K) :
+    z ∈ (boundary K).ker ↔ boundary K z = 0 := by sorry
+
+theorem boundary_complement (x : K) (hx : x ≠ 0 ∧ x ≠ 1) :
+    boundary K (preBlochSymbol K x + preBlochSymbol K (1-x)) = 0 := by sorry
+
+theorem boundary_natural {E : Type*} [Field E] (f : K →+* E) :
+    (boundary E).comp (preBlochMap K f) =
+      (antisymmetricMap K f).comp (boundary K) := by sorry
+
+/-- The induced map on the actual kernels, rather than an independently named group. -/
+def blochMap {E : Type*} [Field E] (f : K →+* E) : BlochGroup K →+ BlochGroup E := by sorry
+
+@[simp] theorem blochMap_val {E : Type*} [Field E] (f : K →+* E) (z : BlochGroup K) :
+    (blochMap K f z).val = preBlochMap K f z.val := by sorry
+
+theorem blochMap_id : blochMap K (RingHom.id K) = AddMonoidHom.id _ := by sorry
+
+theorem blochMap_comp {E F : Type*} [Field E] [Field F]
+    (f : K →+* E) (g : E →+* F) :
+    blochMap K (g.comp f) = (blochMap E g).comp (blochMap K f) := by sorry
+
+/-- Three controls on each field-transport constructor. -/
+example : preBlochMap ℚ (algebraMap ℚ ℂ) (preBlochSymbol ℚ 0) = 0 := by sorry
+example (z : PreBlochGroup ℚ) : preBlochMap ℚ (RingHom.id ℚ) z = z := by sorry
+
+example : antisymmetricMap ℚ (algebraMap ℚ ℂ) (tensorClass ℚ 1 (-1)) = 0 := by sorry
+example : antisymmetricMap ℚ (algebraMap ℚ ℂ) (tensorClass ℚ (-1) (-1)) =
+    tensorClass ℂ (-1) (-1) := by sorry
+example (z : AntisymmetricSquare ℚ) : antisymmetricMap ℚ (RingHom.id ℚ) z = z := by sorry
+
+example : blochMap ℚ (algebraMap ℚ ℂ) 0 = 0 := by sorry
+example (z : BlochGroup ℚ) : blochMap ℚ (RingHom.id ℚ) z = z := by sorry
+example (z : BlochGroup ℚ)
+    (hz : z.val = preBlochSymbol ℚ 2 + preBlochSymbol ℚ (-1)) :
+    (blochMap ℚ (algebraMap ℚ ℂ) z).val =
+      preBlochSymbol ℂ 2 + preBlochSymbol ℂ (-1) := by sorry
+
+/-- Test BlochGroup.complement_two. -/
+example : preBlochSymbol ℚ 2 + preBlochSymbol ℚ (-1) ∈ (boundary ℚ).ker := by sorry
+
+/-- Test BlochGroup.zero. -/
+example : (0 : PreBlochGroup K) ∈ (boundary K).ker := by sorry
+
+/-- Test BlochGroup.kernel_characterisation. -/
+example (z : BlochGroup K) : boundary K z.val = 0 := by sorry
+
+end TauCeti.ColemanIntegration.BlochAlgebra
+
+namespace TauCeti.ColemanIntegration.BlochAlgebra
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Evaluation of the actual Coleman dilogarithm on the genuine quotient. -/
+def dilogEvaluation (a : ℂ_[p]) : PreBlochGroup ℂ_[p] →+ ℂ_[p] := by sorry
+
+theorem dilogEvaluation_symbol (a : ℂ_[p]) (x : ℂ_[p]) (hx : x ≠ 0 ∧ x ≠ 1) :
+    dilogEvaluation p a (preBlochSymbol ℂ_[p] x) =
+      dilogD (isLogBranch_padicLogBranch p a) x := by sorry
+
+/-- A bilinear valuation-logarithm pairing, factored through the antisymmetric quotient.
+The factor 1/2 is retained here, so the branch increment is multiplication by b-a. -/
+def branchPair (a : ℂ_[p]) : AntisymmetricSquare ℂ_[p] →+ ℂ_[p] := by sorry
+
+theorem branchPair_tensorClass (a : ℂ_[p]) (u v : ℂ_[p]ˣ) :
+    branchPair p a (tensorClass ℂ_[p] u v) =
+      ((padicValC p (u : ℂ_[p]) : ℂ_[p]) * padicLogBranch p a (v : ℂ_[p]) -
+        (padicValC p (v : ℂ_[p]) : ℂ_[p]) * padicLogBranch p a (u : ℂ_[p])) / 2 := by sorry
+
+theorem branchPair_branch_independent (a b : ℂ_[p]) : branchPair p a = branchPair p b := by sorry
+
+/-- Full pre-Bloch branch-change formula; only its restriction to the kernel vanishes. -/
+theorem dilogEvaluation_branch_change (a b : ℂ_[p]) (z : PreBlochGroup ℂ_[p]) :
+    dilogEvaluation p b z - dilogEvaluation p a z =
+      (b-a) * branchPair p a (boundary ℂ_[p] z) := by sorry
+
+theorem dilogEvaluation_bloch_branch_independent (a b : ℂ_[p]) (z : BlochGroup ℂ_[p]) :
+    dilogEvaluation p b z.val = dilogEvaluation p a z.val := by sorry
+
+/-- Field-general algebra supplies the kernel; analytic evaluation still uses an embedding
+into C_p, not a change of field name in a complex identity. -/
+theorem dilogEvaluation_field_bloch_branch_independent {K : Type*} [Field K]
+    (f : K →+* ℂ_[p]) (a b : ℂ_[p]) (z : BlochGroup K) :
+    dilogEvaluation p b (preBlochMap K f z.val) =
+      dilogEvaluation p a (preBlochMap K f z.val) := by sorry
+
+/-- Test dilogEvaluation.zero. -/
+example (a : ℂ_[p]) : dilogEvaluation p a 0 = 0 := by sorry
+
+/-- Test dilogEvaluation.fiveTerm_four_two: every prime, including 2. -/
+example (a : ℂ_[p]) :
+    dilogEvaluation p a (preBlochSymbol ℂ_[p] 4 - preBlochSymbol ℂ_[p] 2 +
+      preBlochSymbol ℂ_[p] (1/2) - preBlochSymbol ℂ_[p] (3/2) +
+        preBlochSymbol ℂ_[p] 3) = 0 := by sorry
+
+/-- Test dilogEvaluation.bloch_branch: an explicit kernel element. -/
+example (a b : ℂ_[p]) (x : ℂ_[p]) (hx : x ≠ 0 ∧ x ≠ 1) :
+    dilogEvaluation p b (preBlochSymbol ℂ_[p] x + preBlochSymbol ℂ_[p] (1-x)) =
+      dilogEvaluation p a (preBlochSymbol ℂ_[p] x + preBlochSymbol ℂ_[p] (1-x)) := by sorry
+
+/-- Test branchPair.diagonal: a characteristic-zero target kills diagonal 2-torsion. -/
+example (a : ℂ_[p]) (u : ℂ_[p]ˣ) : branchPair p a (tensorClass ℂ_[p] u u) = 0 := by sorry
+
+/-- Test branchPair.p_four_three: value 1/2 log(4), with v_3(3)=1 and v_3(4)=0. -/
+example (a : ℂ_[3]) :
+    branchPair 3 a (tensorClass ℂ_[3] (Units.mk0 3 (by norm_num))
+      (Units.mk0 4 (by norm_num))) = padicLogBranch 3 a 4 / 2 := by sorry
+
+/-- Test branchPair.unit_factor. -/
+example (a : ℂ_[p]) (u : ℂ_[p]ˣ) : branchPair p a (tensorClass ℂ_[p] 1 u) = 0 := by sorry
+
+end TauCeti.ColemanIntegration.BlochAlgebra

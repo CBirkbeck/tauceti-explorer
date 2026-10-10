@@ -693,12 +693,19 @@
     "module": "Mathlib/CategoryTheory/Monoidal/Bimon_.lean",
     "provides": "Bimonoid compatibility laws for a monoid and comonoid object in a braided monoidal category. The file lists Tannaka reconstruction as TODO; it does not construct H from F.",
     "checked": "Statement read at Mathlib 082e2d3, 2026-09-30, FIX-RT-AREA-geomlanglands~2"
+   },
+   {
+    "ref": "mathlib:ModuleCat",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
+    "provides": "The native category of modules over a ring, reused for the zero-hull non-example. ModuleCat/Biproducts.lean supplies HasFiniteBiproducts through the existing finite-products instance; no replacement category or biproduct construction is planned.",
+    "checked": "Definition in Basic.lean and the HasFiniteBiproducts instance in Biproducts.lean read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-10, REV-FIX-RT-AREA-geomlanglands~2."
    }
   ],
   "abstractReconstructionAudit": {
    "by": "FIX-RT-AREA-geomlanglands~2",
    "mathlibNearMisses": [
-    "RepresentationTheory/Tannaka.lean: TannakaDuality.equiv reconstructs a fixed finite group over an integral domain.",
+    "RepresentationTheory/Tannaka.lean: TannakaDuality.FiniteGroup.equiv reconstructs a fixed finite group over an integral domain.",
     "Algebra/Category/ModuleCat/Tannaka.lean: ringEquivEndForget₂ reconstructs a fixed ring from its module forgetful functor."
    ],
    "taucetiNearMiss": "GroupFunctor.lean pointsFunctorIsoTensorAutFunctor starts with a commutative Hopf algebra H over a field k; Reconstruction.lean reconstructs points of that H. Neither constructs a representing H for arbitrary neutral (C,ω).",
@@ -13060,7 +13067,7 @@
    ],
    "title": "Relative finite-piece reconstruction",
    "kind": "construction",
-   "statement": "Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Its monad is V↦V⊗A_i with A_i=F(X_i) an associative unital algebra object of A. The comparison gives C_i≃Mod_A(A_i)≃Comod_A(A_i∨), compatibly with F_i. Here modules and comodules have underlying objects in A, not arbitrary objects of Ind(A).",
+   "statement": "Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Use symmetry to identify its monad with V↦A_i⊗V, where A_i=F(X_i) has the multiplication transported from that monad. The comparison gives C_i≃LeftMod_A(A_i)≃RightComod_A(A_i∨), compatibly with F_i. Modules and comodules have underlying objects in A, not arbitrary objects of Ind(A). Keeping the unswapped expression V⊗A_i instead uses right modules over the opposite multiplication.",
    "hypotheses": [
     "A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.",
     "F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.",
@@ -13069,13 +13076,13 @@
    ],
    "proofSteps": [
     "Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).",
-    "Transport the adjunction unit and multiplication to the algebra structure on A_i. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.",
+    "Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.",
     "Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i."
    ],
    "acceptance": [
-    "For A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B, the construction recovers that module category and its dual coefficient coalgebra; fix the B-versus-B-opposite convention from the adjunction before identifying the algebra.",
-    "A faithful exact functor without a chosen/established representing object is not sufficient input to this construction.",
-    "For a finite-dimensional algebra B, transpose the regular action and verify the coalgebra counit identity on B∨; reversing the action convention changes the order and must be tracked."
+    "At the finite-piece adjunction level, take A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B. With the monad written A_i⊗V, the recovered algebra is B and the comparison is over the same underlying vector spaces. For B=M₂(k), its transported product satisfies E₁₂E₂₁=E₁₁; the opposite product would give E₂₂.",
+    "The forgetful functor from finite-dimensional, finite-support Z-graded vector spaces to Vect_fd(k) is exact and faithful but has no representing object on the entire category: a proposed representer has finitely many weights and cannot represent the fibre of a line in a missing weight. Thus it cannot be used as one represented finite piece. Its filtered weight-bounded pieces can still satisfy the relative theorem.",
+    "For a finite left B-module V, the right B∨-coaction transposed from the left action obeys (id_V⊗ev_b)ρ(v)=b·v for every b∈B, where ev_b(φ)=φ(b), and (id_V⊗ev_1)ρ=id_V. On the regular B-module, evaluating twice at E₁₂,E₂₁ agrees with left multiplication by E₁₁, detecting an erroneous reversal."
    ],
    "prerequisites": [
     "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
@@ -13095,17 +13102,17 @@
     {
      "name": "relativePiece_regular",
      "kind": "computation",
-     "statement": "For A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B, the construction recovers that module category and its dual coefficient coalgebra; fix the B-versus-B-opposite convention from the adjunction before identifying the algebra."
+     "statement": "At the finite-piece adjunction level, take A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B. With the monad written A_i⊗V, the recovered algebra is B and the comparison is over the same underlying vector spaces. For B=M₂(k), its transported product satisfies E₁₂E₂₁=E₁₁; the opposite product would give E₂₂."
     },
     {
      "name": "relativePiece_needs_representer",
      "kind": "non-example",
-     "statement": "A faithful exact functor without a chosen/established representing object is not sufficient input to this construction."
+     "statement": "The forgetful functor from finite-dimensional, finite-support Z-graded vector spaces to Vect_fd(k) is exact and faithful but has no representing object on the entire category: a proposed representer has finitely many weights and cannot represent the fibre of a line in a missing weight. Thus it cannot be used as one represented finite piece. Its filtered weight-bounded pieces can still satisfy the relative theorem."
     },
     {
      "name": "relativePiece_duality",
      "kind": "compatibility",
-     "statement": "For a finite-dimensional algebra B, transpose the regular action and verify the coalgebra counit identity on B∨; reversing the action convention changes the order and must be tracked."
+     "statement": "For a finite left B-module V, the right B∨-coaction transposed from the left action obeys (id_V⊗ev_b)ρ(v)=b·v for every b∈B, where ev_b(φ)=φ(b), and (id_V⊗ev_1)ρ=id_V. On the regular B-module, evaluating twice at E₁₂,E₂₁ agrees with left multiplication by E₁₁, detecting an erroneous reversal."
     }
    ],
    "uses": [
@@ -13124,12 +13131,12 @@
     {
      "name": "relativePieceMonad",
      "role": "characterisation",
-     "statement": "F_iL_i is tensor by A_i=F(X_i), with the adjunction algebra structure."
+     "statement": "Via symmetry F_iL_i(V)≅A_i⊗V as monads, including the unit and multiplication defining A_i=F(X_i); this convention yields left A_i-modules."
     },
     {
      "name": "relativePieceComparison",
      "role": "compatibility",
-     "statement": "C_i≃Comod_A(A_i∨) over A; natural compatibility with the filtered inclusions."
+     "statement": "C_i≃RightComod_A(A_i∨) over A by transposing the left A_i-action; natural compatibility with the filtered inclusions."
     }
    ]
   },
@@ -13373,12 +13380,14 @@
    "acceptance": [
     "In Vect_fd(k), X=k gives P_X=k and A_X=k; <X> is all finite-dimensional vector spaces.",
     "In Rep_k(G_m), X the weight-one character has <X> consisting of weight-one sums, so X⊗X of weight two is absent.",
-    "For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity."
+    "For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity.",
+    "In ModuleCat k over a field, the subquotient-sum hull of the zero module contains no object isomorphic to the one-dimensional module k. This rejects replacing the finite hull by the entire ambient category."
    ],
    "prerequisites": [
     "mathlib:CategoryTheory.Abelian",
     "mathlib:CategoryTheory.Linear",
-    "mathlib:CategoryTheory.Functor.Faithful"
+    "mathlib:CategoryTheory.Functor.Faithful",
+    "mathlib:ModuleCat"
    ],
    "sources": [
     {
@@ -13404,6 +13413,11 @@
      "name": "neutralRepresenter_nonsemisimple",
      "kind": "non-example",
      "statement": "For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity."
+    },
+    {
+     "name": "neutralHull_zero",
+     "kind": "non-example",
+     "statement": "In ModuleCat k over a field, the subquotient-sum hull of the zero module contains no object isomorphic to the one-dimensional module k. This rejects replacing the finite hull by the entire ambient category."
     }
    ],
    "uses": [
@@ -13542,7 +13556,8 @@
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
     "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
-    "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor"
+    "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+    "tauceti:TauCeti.fgPointRepresentationCategoryEquivalence"
    ],
    "sources": [
     {
@@ -13601,7 +13616,8 @@
     "A constant finite group has the finite regular representation as a subquotient-sum generator, even when its representations are not semisimple."
    ],
    "prerequisites": [
-    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
    ],
    "sources": [
     {
@@ -13752,7 +13768,8 @@
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
-    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain."
+    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain.",
+    "REV-FIX-RT-AREA-geomlanglands~2: finish the early abstract supplier interfaces and typed signatures named in the new gap. The relative Beck preservation bridge remains open; successful elaboration of the current partial prototype does not close it. The MC.6:abstract stage split still awaits maintainer installation under PROTOCOL §9."
    ]
   },
   {
@@ -13953,6 +13970,21 @@
     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
    ],
    "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
+  },
+  {
+   "title": "Abstract reconstruction still lacks typed carriers, signatures and tests",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
+   ],
+   "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
   }
  ],
  "requests": [
@@ -14144,10 +14176,9 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-   "need": "Import the finite-dimensional closed-immersion representation/coordinate-coefficient criterion and the representation-comodule dictionary for affine groups. The existing known-Hopf functor comparison is credited at the pin; general group reconstruction is not re-planned upstream.",
+   "need": "Import the finite-dimensional closed-immersion representation and coordinate-coefficient generation criterion for finite-type affine groups. The representation/comodule dictionary and the known-Hopf functor comparison are already credited at the pin; the neutral reconstruction node imports those declarations directly after constructing its Hopf algebra.",
    "neededBy": [
-    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
-    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition"
    ]
   },
   {
@@ -15267,11 +15298,11 @@
   }
  ],
  "review": {
-  "status": "accepted",
+  "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
   "session": "codex-XnOZ0w",
-  "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire preceding codex-X15WW9 review, preserved unchanged in reviewHistory. Findings /4 and /31: the geometric Hodge owner after C5 remains an explicitly unaccepted proposal. Fresh signature inspection confirms that PairDiagram.PeriodComparison carries pullback and connecting-map compatibility, unit and product laws, and the Tate rank-one condition; ProductCompatible and the arbitrary-pair C5 request remain explicit. Preserve the qualifications of the later accepted iwasawa-3~3 audit in the preceding history. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Acceptance concerns the area fixes and exact requests. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
+  "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire newer REV-FIX-RT-AREA-geomlanglands~2 review, preserved unchanged in reviewHistory. Findings /4 and /31: the geometric Hodge owner after C5 remains an explicitly unaccepted proposal. Fresh signature inspection confirms that PairDiagram.PeriodComparison carries pullback and connecting-map compatibility, unit and product laws, and the Tate rank-one condition; ProductCompatible and the arbitrary-pair C5 request remain explicit. The algebraic-geometry fixes are adequate, but retain the newer negative REV-FIX-RT-AREA-geomlanglands~2 verdict: its relative Beck preservation adapter and typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. Preserve that entire audit and the earlier iwasawa qualifications in history. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Area-fix adequacy does not discharge the inherited Tannaka defects. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
  },
  "reviewHistory": [
   {
@@ -16249,6 +16280,12 @@
    "date": "2026-10-10",
    "session": "codex-X15WW9",
    "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /4 and /31: the proposed geometric Hodge owner remains explicitly unaccepted; abstract Hodge structures alone are not a geometric decomposition supplier. PairDiagram.PeriodComparison retains pullback, connecting-map, unit and product laws, ProductCompatible and the Tate rank-one condition. Freshly read Huber–Müller-Stach Definition 0.1 p.2 supports these relations; the arbitrary-pair comparison remains a C5 request. Preserve every qualification of the later accepted iwasawa-3~3 review in reviewHistory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+   "date": "2026-10-10",
+   "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
   }
  ],
  "fixes": {
