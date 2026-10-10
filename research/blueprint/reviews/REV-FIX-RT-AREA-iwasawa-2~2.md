@@ -1,4 +1,121 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — current review and scope blocker
+# REV-FIX-RT-AREA-iwasawa-2~2 — scoped review and migration requirements
+
+## Current review: codex-1TGphB, 10 October 2026
+
+**L3 is accepted within the fix scope. PMIA needs changes because its generic
+Fitting targets duplicate current Tau Ceti. The named reviews are finished;
+queue completion requires a decision on the two excluded packets.**
+
+Codex, session `codex-1TGphB`, issue
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6092009330).
+Input atlas commit `aa80da4b321c6bcd4d8fed04b5102157998b2bd1`.
+This reviewer did not author the original fix, nor the previous reviews.
+Their evidence and limitations remain below and in `reviewHistory`.
+
+Read the six original claims, verifier verdicts, round-two fix report and
+merged review/handoff before inspecting the present contracts. The inherited
+50-node L6 audit is preserved with its original attribution; this continuation
+checks the source interfaces and migration boundary, rather than claiming a
+new complete audit of either packet.
+
+| Finding | Verdict and reason |
+|---|---|
+| /1: Morita Gamma / Gross–Koblitz | Scoped L3 correction accepted. The signed finite product extends continuously to units; the multiplier is minus the argument on units and minus one on nonunits. Morita §1 pp.255–256 also exposes the already recorded modulus-four exception. Robert §4 pp.165–166 retains the coefficient-decay boundary; a formal telescoping identity alone is insufficient. The normalized-root integral congruence, source-negative Gauss sum and dyadic boundaries remain explicit. L3-2 and RD.6 still own their recorded inputs. |
+| /2: Ferrero–Greenberg | Assignment accepted; the theorem is still an L3-2 obligation. Preserve the general correction term, its exceptional specialization, prime range, derivative/branch coordinates and separate arithmetic nonvanishing input. No fresh Ferrero–Greenberg/Zhao source authentication or L3-2 acceptance is claimed. |
+| /3: integral/open log-syntomic input | Outside-owner handoff accepted. The required early CohomologyComparisons Part II construction, modified twists and comparison ranges are stronger than the proper rational comparison. The newer D.1 independent review remains intact; this run does not overwrite or repeat it. |
+| /4: Dasgupta–Kakde algebra | Source corrections remain sound: use the image character ring with congruences, square presentations, the right-sided compound/adjugate preimage and a presentation-dependent transpose. **PMIA needs changes:** generic higher Fitting construction, independence and base change are now implemented. Import them; retain only necessary concrete matrix comparisons. |
+| /5: finite-slope perfect complexes | Outside-owner assignment accepted; job #641 remains responsible for representative-independent cohomological support, solid derived localization and early shared Stein inputs. This fix does not identify a raw degreewise determinant product with the derived construction. No new audit of that excluded roadmap is claimed. |
+| /6: duplicate endpoint | Verifier rejection retained. The independent Hecke/congruence and Euler-system proof routes remain distinct targets; no endpoint is deleted. |
+
+Freshly read public source copies on 10 October 2026:
+
+| Source | Locators actually checked | SHA-256 |
+|---|---|---|
+| [Morita 1975](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | Complete page images, §1 pp.255–256, Lemma 1, Theorem 1 and following recurrence | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
+| [Robert 2001](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | Complete page images, §4 pp.165–166, Theorem 3 telescoping and subsequent decay lemma | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3) | Text layer: §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1 p.40, Appendix A pp.85–86, Appendix B.2 pp.93–94 | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
+
+The published Annals version was not freshly read. No restricted source,
+verbatim passage, new erratum or new historical priority claim is introduced.
+The existing source findings and version records are preserved.
+
+### Concrete corrections and remaining migration
+
+Read current Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`
+and current TauCetiRoadmap at `37769f03c170a7bc3e1082df70522a0ad59c5ffd`,
+without modifying or building either tree. The preceding exact declaration
+map remains valid. In particular, Basic.lean:343 supplies all degrees;
+:349 computes from any finite-free surjection; Generators.lean:109 computes
+from any generating set of its kernel; BaseChange.lean:134 needs no flatness;
+and :159 also covers localization. These statements require a finite module,
+so finite presentation is not a missing prerequisite for the native carrier.
+
+Corrected both StableReduction supplier notes in PMIA: the old ownership
+narrative is explicitly historical, and their open status denotes an
+unresolved baseline/interface migration, not a request to implement a second
+carrier. Added a precise migration inventory to `upstreamNotes`:
+
+- Replace `higher-fitting-ideal`, `relation-minors-add-generator`,
+  `higher-fitting-independence` and `higher-fitting-base-change` with native
+  definitions/theorems; the previous report below gives names and line numbers.
+- Retarget their direct local consumers, particularly
+  `transpose-higher-fitting-free` and `transpose-higher-fitting`, plus both
+  degree-zero supplier requests and L4's characteristic-ideal comparison.
+- Retain the concrete adapter from a column relation matrix to kernel
+  generators and native functional-evaluation minors. Account explicitly for
+  the transpose and the degree `n-k`; do not recreate generic independence.
+- Carry the existing deficient-relation, high-degree, nonprincipal two-cyclic
+  and nonflat base-change tests to the native vocabulary. Specialized cyclic
+  direct-sum computations may still need matrix lemmas.
+
+The older f790474 Git object tree has no FittingIdeal modules. Consequently
+this review does not add false pinned citations, silently change the baseline,
+or import unavailable modules to claim a successful migration. The four
+inherited generic nodes, their suggested signatures and the unauthorized
+reader require coordinated reconciliation. PMIA remains `needs_changes` until
+that happens. All mathematical nodes, API/test records, gaps, coverage,
+source findings and baseline pins are preserved. No Lean file was changed.
+Both preceding top-level review objects were archived before replacement.
+
+### Validation and scope blocker
+
+Three central shared-build Tau Ceti source modules were compared byte for byte
+against f790474 Git objects: diagonalizable-group evaluation, character
+orthogonality and the Auslander–Reiten transpose. All match. Their statements
+retain the needed group/domain/root hypotheses; the transpose cokernel itself
+does not require a minimal presentation. The earlier full baseline audit is
+inherited evidence, not newly relabelled work.
+
+| Fresh check | Result |
+|---|---|
+| L3 packet checker | Zero errors; 26 inherited short-API warnings outside this fix scope |
+| PMIA packet checker | Zero errors and warnings |
+| Full PMIA `lean-check` | Exit 0; 1,075 warnings, all `sorry`; no other warning or error |
+| Full L3 `lean-check` | Exit 1 at the missing `research` module prefix; no declaration elaborated |
+| Source-text inventory | No `excerpt` key in either packet; no passage added |
+| `issues.deliverables_complete` | Live five-output scope: True; queue nine-output scope: False |
+
+Compiles ran sequentially with over 100 GB available memory. No dependency
+build, language server or background Lean process remains. This is a review
+of planning contracts, not a proof-completion claim.
+
+The live issue authorizes L3 and PMIA packets/suggested files plus this report.
+The queue also requires L3-2 and D.1 packets/suggested files, and its predicate
+requires this exact review identifier on every packet. A completed
+`needs_changes` verdict counts; changing PMIA's verdict cannot resolve that
+scope discrepancy. WORKERS.md requires: “Edit only the files the issue names,
+plus your own scratch space.” Additional authorization was requested during
+this run; no answer has arrived. No excluded review identity, queue entry,
+issue body or label was changed.
+
+This submission is a checkpoint for that scope blocker. The next action is a
+scope decision: authorize the additional independent reviews, or reconcile
+the queue to the live deliverables. Another unchanged two-packet review cannot
+complete it. Separately, the PMIA owner must perform the native Fitting
+migration above. No disposable scratch artifact is needed to resume.
+
+## Preserved preceding review
 
 ## Current review: codex-Jk8aAy, 10 October 2026
 
