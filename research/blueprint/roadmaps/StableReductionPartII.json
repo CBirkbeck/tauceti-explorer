@@ -3,8 +3,8 @@
   "title": "Stable reduction of curves and stable maps, Part II: moduli of curves and stable compactifications",
   "area": "arithmeticgeometry",
   "parent": "tauceti:TauCetiRoadmap/StableReduction",
-  "summary": "Finished 528-declaration planning pass under PROTOCOL section 0; completed independent review records needs_changes. All eight stages and the six-consumer moduli-curves key remain partial, with explicit mathematical owner boundaries. The native polynomial Hom/Ext and finite-projective completion adapters are preserved; ordinary versus relative stable reflexivity, original-R versus completed-ring Hom and finite-projective versus arbitrary completed coefficients remain distinct. Exact early relative Picard/Jacobian, H²_fppf obstruction and stable Hodge targets are imported from their existing owners. Missing arbitrary-base descent, pointed hull/formal-Proj, integral boundary, positivity/Deligne pairing, strong Torelli/topology and all-characteristic compactified Torelli proofs remain precise gaps. The reader still contains substantive obsolete assertions and requires an authorized synchronization job before acceptance. No mathematical closure, implementation or library-wide absence is claimed.",
-  "readme": "The reader document research/blueprint/readmes/StableReductionPartII.md specifies conventions, source scope, APIs, tests and unresolved supplier boundaries. Stable maps remain in the parent; no stable-map moduli construction is asserted here.",
+  "summary": "This continuation constructs the moduli stacks of smooth and stable pointed curves from the parent’s stable-family and DVR reduction theory. It develops Hilbert presentations, pointed contraction and expansion, clutching and boundary normalization, coarse projectivity, smooth full-level moduli, Hodge determinants and the integral Noether comparison. Stable compactifications and Torelli maps connect these moduli to arithmetic families and relative Picard parameters. The polynomial nodal-chart calculations supply explicit algebraic inputs to expansion, with their relative and completed-local scope kept precise.",
+  "readme": "For g,n≥0 with 2g−2+n>0, the basic object is the groupoid of ordered n-pointed smooth or stable genus-g families over a scheme. Morphisms retain automorphisms and pullback coherence. Start with this moduli problem, then build the unpointed Hilbert atlas and independent node deformations. Pointed expansion identifies the universal stable curve with the next pointed stack; genus-zero and genus-one bases complete the stable range. Clutching records graph quotients and cotangent smoothing lines. The arithmetic layers distinguish coarse spaces, fixed symplectic level schemes, Hodge vector bundles and determinant lines, and sheafified relative Picard points from actual line bundles. Import the parent’s family theory and stable maps, current AlgebraicVectorBundles L0B–L0C operations, and exact early relative Jacobian/Picard contracts. The detailed reader gives each target, its API, tests and mathematical supplier boundaries; all eight layers remain partial.",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/StableReduction",
     "AlgebraicModuliForArithmeticGeometry",
@@ -86,7 +86,7 @@
     {
       "key": "MC.5",
       "title": "Hodge determinant and integral Noether comparison",
-      "description": "Construct the rank-g Hodge bundle and its determinant line on the stable stacks and prove pullback, forgetting and clutching comparisons. For g≥2 construct the integral line isomorphism λ¹²≅⟨ω,ω⟩⊗O(Δ), its base-change compatibility and uniqueness up to the global units ±1 on the universal integral stack. For a generically smooth stable family over an integral noetherian base compute the boundary pullback at a trait as the sum of node thicknesses. An equality in rational Chow groups does not substitute for this integral Picard-group identity. The rational GRR comparison is proved over C and the integral identity follows by torsion freeness and Picard restriction injectivity. Ordered separating Hodge determinants have exchange sign (−1)^(g₁g₂), while an ordered nonseparating residue changes sign when the branches are swapped. Universal ±1 choices can have identical pullbacks in characteristic2.",
+      "description": "Construct the rank-g Hodge bundle and its determinant line on the stable stacks and prove pullback, forgetting and clutching comparisons. For g≥2 construct the integral line isomorphism λ¹²≅⟨ω,ω⟩⊗O(Δ), its base-change compatibility and uniqueness up to the global units ±1 on the universal integral stack. For a generically smooth stable family over an integral noetherian base compute the boundary pullback at a trait as the sum of node thicknesses. An equality in rational Chow groups does not substitute for this integral Picard-group identity. The rational GRR comparison is proved over C and the integral identity follows by torsion freeness and Picard restriction injectivity. Ordered separating Hodge determinants have exchange sign (−1)^(g₁g₂), while an ordered nonseparating residue changes sign when the branches are swapped. Universal ±1 choices can have identical pullbacks in characteristic2. Import ordinary finite-locally-free exterior powers and determinants with scheme pullback comparisons from current upstream AlgebraicVectorBundles L0B–L0C; retain stack descent, ordered exact-sequence signs and determinant-of-cohomology/Deligne pairing as distinct inputs.",
       "requires": [
         "StableReductionPartII:MC.3",
         "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
@@ -251,13 +251,18 @@
       "id": "blr-relative-picard-LwkQQl",
       "title": "Néron Models",
       "authors": "Siegfried Bosch; Werner Lütkebohmert; Michel Raynaud",
-      "edition": "Springer, 1990; public scan of printed pp.170–261, selected passages only",
-      "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
+      "edition": "Springer, 1990, first edition; inherited selected-page locators, publisher bibliography checked 2026-10-10",
+      "url": "https://link.springer.com/book/10.1007/978-3-642-51438-8",
       "readSections": [
-        "§8.1 Leray discussion pp.202–203 and Proposition4 with rigidification proof pp.204–205 (scan PDF17–18); §8.4 Theorem1(a) and proof pp.231–232, Proposition2 p.232 (PDF31–32); §9.3 Theorem1 and proof p.252 (PDF42); §9.4 Proposition4 and proof pp.260–261 (PDF46). Other BLR sections and cited transitive proofs were not read in this pass."
+        "Inherited review receipt only: §8.1 pp.202–205, §8.4 pp.231–232, §9.3 p.252 and §9.4 pp.260–261. This revision reads exact supplier statements and public Yuan/DGH interfaces; BLR full text is not newly read."
       ],
-      "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
-      "accessDate": "2026-10-05"
+      "accessDate": "2026-10-10",
+      "historicalCopy": {
+        "reader": "Codex — codex-LwkQQl",
+        "date": "2026-10-05",
+        "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
+        "scope": "Inherited selected-page receipt; no full text acquired or read in revision #6378."
+      }
     },
     {
       "id": "av-moduli-consumer-LwkQQl",
