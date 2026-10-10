@@ -59,7 +59,7 @@
     {
       "key": "MS.5",
       "title": "Maximal split and newform interfaces",
-      "description": "Prove right truncation commutes with maximal peeling, prove the weighted chain decrement, and deduce Proposition 2.7 only for the canonical maximal split. Check repeated intervals and the rank-17 source example. Export the ramified multisegment and split identity to the general-linear newform and unipotent-induction consumers. Import the representation-theoretic identification with Zelevinsky duality from early ET.6 classification, reconciled with current upstream smooth-representation targets; its pinned carrier/signature is an explicit interface gap.",
+      "description": "Prove right truncation commutes with maximal peeling, prove the weighted chain decrement, and deduce Proposition 2.7 only for the canonical maximal split. Check repeated intervals and the rank-17 source example. Export the ramified multisegment and split identity to the general-linear newform and unipotent-induction consumers. Import the existing smooth segment/classification and general involution inputs through early ET.6, reconciled with current upstream smooth-representation targets. Prove the geometric-label comparison locally using Mœglin–Waldspurger II.6 and II.13; its carrier/normalization adapter and representation proof bridge remain explicit in G2.",
       "requires": [
         "QuiverRepresentationsPartII:MS.1",
         "QuiverRepresentationsPartII:MS.3",
@@ -92,11 +92,12 @@
       "sha256": "49198255b00bc0c005649794a809383c15c87f9c8afbf545b4a692764f4589f0",
       "accessDate": "2026-10-10",
       "readSections": [
-        "Introduction p.136; II.1–II.2 pp.148–150",
+        "Introduction pp.136–138; II.1–II.2 pp.148–150",
         "Lemma II.4 and its coefficient recurrence pp.160–161; Lemma II.5 pp.161–162",
-        "Proposition II.6 proof pp.162–169 and Corollary II.7 p.169"
+        "Proposition II.6 proof pp.162–169 and Corollary II.7 p.169",
+        "Theorem and proof in II.13 pp.176–177; II.10–II.12 pp.173–175 read to identify the representation proof inputs"
       ],
-      "accessNote": "The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. No general representation-theoretic argument outside the scoped passages is treated as checked."
+      "accessNote": "The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. The II.13 statement and proof were read, but their complete representation prerequisite chain has not been decomposed into baseline/supplier declarations; this limitation is recorded in G2."
     },
     {
       "id": "Z98",

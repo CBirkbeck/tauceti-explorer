@@ -112,11 +112,12 @@
       "sha256": "49198255b00bc0c005649794a809383c15c87f9c8afbf545b4a692764f4589f0",
       "accessDate": "2026-10-10",
       "readSections": [
-        "Introduction p.136; II.1–II.2 pp.148–150",
+        "Introduction pp.136–138; II.1–II.2 pp.148–150",
         "Lemma II.4 and its coefficient recurrence pp.160–161; Lemma II.5 pp.161–162",
-        "Proposition II.6 proof pp.162–169 and Corollary II.7 p.169"
+        "Proposition II.6 proof pp.162–169 and Corollary II.7 p.169",
+        "Theorem and proof in II.13 pp.176–177; II.10–II.12 pp.173–175 read to identify the representation proof inputs"
       ],
-      "accessNote": "The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. No general representation-theoretic argument outside the scoped passages is treated as checked."
+      "accessNote": "The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. The II.13 statement and proof were read, but their complete representation prerequisite chain has not been decomposed into baseline/supplier declarations; this limitation is recorded in G2."
     },
     {
       "id": "Z98",
@@ -219,17 +220,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.interval_endpoint",
-          "kind": "example",
+          "kind": "computation",
           "statement": "2 belongs to [0,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.interval_singleton",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "[3,3] shortens to no interval."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.interval_shift",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "[2,4] translated by −1 is [1,3]."
         }
       ],
@@ -251,7 +252,7 @@
       ],
       "title": "Multisegments and right truncation",
       "kind": "construction",
-      "statement": "A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence.",
+      "statement": "A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence. Label occurrences by Fin(Card m), with the interval labeling reproducing each multiset count; all subsequent block and poset indices use this same occurrence model.",
       "hypotheses": [
         "Integer endpoints; finite multisets. For graded operator statements, finite dimensional complex spaces with finite support integer grading."
       ],
@@ -269,7 +270,7 @@
         }
       ],
       "acceptance": [
-        "A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence."
+        "A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence. Label occurrences by Fin(Card m), with the interval labeling reproducing each multiset count; all subsequent block and poset indices use this same occurrence model."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -292,22 +293,32 @@
           "name": "TauCeti.MultisegmentDuality.degreeDimension_add",
           "role": "simp",
           "statement": "Degree dimension is additive on multiset sums."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.occurrenceInterval",
+          "role": "data",
+          "statement": "Assign an interval to every occurrence label Fin(Card m), retaining duplicate intervals."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.occurrence_count",
+          "role": "characterisation",
+          "statement": "Counting occurrence labels for interval s gives m.count(s)."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.truncate_repeated",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Two copies of [1,2] shorten to two copies of [1,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.truncate_delete",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "[0,0]+[1,3] shortens to [1,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.degree_repeated",
-          "kind": "example",
+          "kind": "computation",
           "statement": "[0,2]+[1,1] has degree-1 dimension 2."
         }
       ],
@@ -315,6 +326,10 @@
         {
           "where": "AKY §§2.4–2.5 and 3.1–3.3; QuiverRepresentationsPartII:MS.5",
           "how": "Multisegments and right truncation supplies the concrete objects, comparisons or counts in the ramified maximal-split argument."
+        },
+        {
+          "where": "QuiverRepresentationsPartII:MS.1/standard; MS.2/coordinates; MS.4/poset",
+          "how": "The same finite occurrence labels index the standard basis, commuting coefficients, and endpoint order without merging repeated intervals."
         }
       ],
       "planet": {
@@ -375,17 +390,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.maximal_one_copy",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The maximal part of 2[0,2] is [0,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.maximal_nested",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The remainder of [0,2]+[1,1] is [1,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.maximal_disjoint",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Both [0,0] and [2,2] survive in the maximal part of their sum."
         }
       ],
@@ -454,17 +469,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.space_repeated_grade",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Two basis vectors in degree 3 give degree-3 dimension 2."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.space_missing_grade",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "That space has degree-4 dimension 0."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.space_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The grade-0 subspace of the zero space is zero."
         }
       ],
@@ -534,17 +549,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.pair_interval_arrow",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The standard VN operator on [0,1] is nonzero."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.pair_grading_matters",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The VN singletons [0,0] and [1,1] are not graded-isomorphic."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.pair_degree_matters",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The nonzero standard VN operator on [0,1] is not homogeneous of degree −1."
         }
       ],
@@ -630,22 +645,27 @@
           "name": "TauCeti.MultisegmentDuality.standardVector_eq_basis",
           "role": "compatibility",
           "statement": "For a grade in the occurrence interval, its standard vector is the corresponding member of the basis indexed by all valid occurrence/grade pairs."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.standardVector_mem_grade",
+          "role": "characterisation",
+          "statement": "Every standard vector indexed by grade a lies in the grade-a subspace, including the zero vector for a grade outside its interval."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.standard_length",
-          "kind": "example",
+          "kind": "computation",
           "statement": "[0,2] gives total dimension 3."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.standard_repetitions",
-          "kind": "example",
+          "kind": "computation",
           "statement": "2[0,1] gives degree-0 dimension 2."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.standard_reverse",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The standard WL block [2,2] has type [2,2]."
         }
       ],
@@ -753,17 +773,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.image_up_unshifted",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The unshifted VN image of [0,2] has type [1,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.image_up_shift",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "The VN image shifted by −1 has type [0,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.image_down",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "The WL image of [0,2] has type [0,1]."
         }
       ],
@@ -868,17 +888,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.centralizer_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The zero map belongs to the centralizer of a zero VN pair."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.centralizer_one_chain",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The opposite-degree centralizer of the single VN interval [0,2] is zero."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.centralizer_adjacent_singletons",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The centralizer of [0,0]+[1,1] as a VN pair has dimension 1."
         }
       ],
@@ -946,7 +966,7 @@
         "QuiverRepresentationsPartII:MS.2/coordinates"
       ],
       "proofSteps": [
-        "Use the block-coordinate parameterization on the original and shortened interval decompositions. A permitted coefficient between image blocks has a permitted original block: for VN image intervals the two left endpoints increase by 1, whereas for WL image intervals the two right endpoints decrease by 1. Their stricter overlap inequality implies the original one. Lift each image coefficient to that original coefficient and set every unused coefficient to zero. Restrictions are independent on occurrence labels."
+        "Use the original and VN-image interval decompositions with their occurrence labels. If a target image interval [s+1,u] precedes a source image interval [t+1,v], the inequalities s+1<t+1, u<v and t+1≤u+1 imply s<t, u<v and t≤u+1. Thus every permitted image coefficient comes from a permitted original block. Lift that coefficient, set unused coefficients to zero, and check the restrictions on the image basis. Singleton blocks have zero image and introduce no extra coefficients."
       ],
       "sources": [
         {
@@ -985,10 +1005,10 @@
         "Integer endpoints; finite multisets. For graded operator statements, finite dimensional complex spaces with finite support integer grading."
       ],
       "prerequisites": [
-        "QuiverRepresentationsPartII:MS.2/coordinates"
+        "QuiverRepresentationsPartII:MS.2/restrict-up"
       ],
       "proofSteps": [
-        "Use the block-coordinate parameterization on the original and shortened interval decompositions. A permitted coefficient between image blocks has a permitted original block: for VN image intervals the two left endpoints increase by 1, whereas for WL image intervals the two right endpoints decrease by 1. Their stricter overlap inequality implies the original one. Lift each image coefficient to that original coefficient and set every unused coefficient to zero. Restrictions are independent on occurrence labels."
+        "Reflect the grading by a↦−a. A degree −1 operator becomes degree +1, and an interval [b,e] becomes [−e,−b]. This reflection preserves commuting maps and their actual image embeddings, and changes the opposite direction as well. Apply VN image-restriction surjectivity in the reflected grading and transport the lifted map back. This avoids using the VN block inequality without reversing its endpoints."
       ],
       "sources": [
         {
@@ -1088,18 +1108,18 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.zariski_principal",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "The nonzero-coordinate locus of C is open."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.zariski_dense",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "That locus is dense."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.zariski_not_euclidean",
-          "kind": "example",
-          "statement": "The singleton {0} in C is not Zariski open."
+          "kind": "non-example",
+          "statement": "The Euclidean unit disk {z : |z|<1} in C is not open in the polynomial Zariski topology; installing the Euclidean topology would fail this test."
         }
       ],
       "uses": [
@@ -1174,17 +1194,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.generic_chain",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The generic opposite type for the VN interval [0,2] is [0,0]+[1,1]+[2,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.generic_adjacent",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The generic opposite type for VN [0,0]+[1,1] is [0,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.generic_separated",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For VN [0,0]+[2,2], the generic opposite type is unchanged."
         }
       ],
@@ -1303,17 +1323,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.dual_chain",
-          "kind": "example",
+          "kind": "computation",
           "statement": "dual([0,2])=[0,0]+[1,1]+[2,2]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.dual_adjacent",
-          "kind": "example",
+          "kind": "computation",
           "statement": "dual([0,0]+[1,1])=[0,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.dual_separated",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "dual([0,0]+[2,2])=[0,0]+[2,2]."
         }
       ],
@@ -1394,7 +1414,7 @@
       "sources": [
         {
           "sourceId": "AKY",
-          "locator": "Definition 3.3 p.17; Lemma 3.4 p.17",
+          "locator": "§3.1 p.16, unnumbered admissibility paragraph before Lemma 3.3; Lemma 3.4 p.17",
           "match": "Admissibility and its second image condition."
         }
       ],
@@ -1427,17 +1447,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.admissible_empty",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The zero commuting triple is admissible."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.admissible_non_generic",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The zero L on VN [0,0]+[1,1] is not admissible."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.admissible_chain",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The zero L on VN [0,2] is admissible, since its entire opposite centralizer is zero."
         }
       ],
@@ -1587,17 +1607,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.ram_chain",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "ram([0,2]) is empty."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.ram_adjacent",
-          "kind": "example",
+          "kind": "computation",
           "statement": "ram([0,0]+[1,1])=[0,0]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.ram_separated",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "ram([0,0]+[2,2]) is empty."
         }
       ],
@@ -1708,17 +1728,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.cut_meets_not_contains",
-          "kind": "example",
+          "kind": "computation",
           "statement": "[0,0]+[1,1] has two occurrences meeting the cut [0,1]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.cut_weighted",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For 2[0,1]+[1,1], E_0=3."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.cut_not_all_comparable",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For [0,0]+[1,1], E_0=1."
         }
       ],
@@ -1748,7 +1768,7 @@
         "QuiverRepresentationsPartII:MS.0/multisegment"
       ],
       "proofSteps": [
-        "Realize the occurrence labeling by any ordering of the multiset. Strict endpoint inequalities give irreflexivity and transitivity. Define antichains and bipartite matchings as finite subsets and their cardinality maxima. Permuting occurrence labels preserves all feasible sets and maxima."
+        "Realize the occurrence labeling by any ordering of the multiset. Strict endpoint inequalities give irreflexivity and transitivity. Define antichains and bipartite matchings as finite subsets and their cardinality maxima. Permuting occurrence labels preserves all feasible sets and maxima. Take the maximum by filtering the powerset of the finite vertex or edge set and taking the supremum of cardinalities; the empty feasible set ensures the zero case is covered."
       ],
       "sources": [
         {
@@ -1773,11 +1793,6 @@
       "suggestedDeclaration": "TauCeti.MultisegmentDuality.endpointBefore",
       "api": [
         {
-          "name": "TauCeti.MultisegmentDuality.occurrence_count",
-          "role": "characterisation",
-          "statement": "Counting occurrence labels for interval s gives q.count(s)."
-        },
-        {
           "name": "TauCeti.MultisegmentDuality.endpointBefore_irrefl",
           "role": "relation",
           "statement": "No occurrence precedes itself in the endpoint poset."
@@ -1786,22 +1801,47 @@
           "name": "TauCeti.MultisegmentDuality.matchingNumber_bound",
           "role": "characterisation",
           "statement": "The matching number is at most Card(q)."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.IsEndpointAntichain",
+          "role": "data",
+          "statement": "A finite set of occurrence labels is an antichain exactly when no two of its labels satisfy the strict endpoint relation."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.IsEndpointMatching",
+          "role": "data",
+          "statement": "A finite set of ordered occurrence pairs is a matching exactly when every pair is an endpoint-order edge and both the first-coordinate and second-coordinate projections are injective on that set."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.endpointBefore_trans",
+          "role": "relation",
+          "statement": "The strict endpoint relation is transitive."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.matchingNumber_le_iff",
+          "role": "characterisation",
+          "statement": "matchingNumber(q)≤k if and only if every endpoint matching has at most k edges."
+        },
+        {
+          "name": "TauCeti.MultisegmentDuality.antichainWidth_le_iff",
+          "role": "characterisation",
+          "statement": "antichainWidth(q)≤k if and only if every endpoint antichain has at most k labels."
         }
       ],
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.poset_equal_copies",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For 2[0,1], width=2 and matching number=0."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.poset_adjacent",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For [0,0]+[1,1], width=1 and matching number=1."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.poset_contained",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For [0,2]+[1,1], width=2 and matching number=0."
         }
       ],
@@ -1921,7 +1961,7 @@
       "sources": [
         {
           "sourceId": "AKY",
-          "locator": "Proof of Proposition 3.7 pp.20–21, corrected endpoint after Figure 2",
+          "locator": "Proof of Proposition 3.7 pp.20–21; corrected endpoint in the p.20 converse construction before Figure 1",
           "match": "Grid-path specialization and multiplicity weights."
         }
       ],
@@ -1954,17 +1994,17 @@
       "tests": [
         {
           "name": "TauCeti.MultisegmentDuality.tests.grid_terminal",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For r=3,a=1, the terminal point is (1,3)."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.grid_invalid",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The weight at (2,1) is zero for m=[1,3]."
         },
         {
           "name": "TauCeti.MultisegmentDuality.tests.grid_multiplicity",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The vertex (1,3) has weight 2 for m=2[1,3]."
         }
       ],
@@ -2132,14 +2172,22 @@
         }
       ],
       "acceptance": [
-        "If cutPart(m,a) is nonempty, then E_a(m)=E_a(remainder(m))+1 and E_a(maximalPart(m))=1. If it is empty all three quantities are zero."
+        "If cutPart(m,a) is nonempty, then E_a(m)=E_a(remainder(m))+1 and E_a(maximalPart(m))=1. If it is empty all three quantities are zero.",
+        "The main suggested signature includes both nonempty-cut conclusions; chainWeight_peeling_empty states all three empty-cut conclusions."
       ],
       "implementationStatus": "unchecked",
       "library": {
         "module": "TauCeti/RepresentationTheory/Quiver/MultisegmentDuality",
         "namespace": "TauCeti.MultisegmentDuality"
       },
-      "suggestedDeclaration": "TauCeti.MultisegmentDuality.chainWeight_peeling"
+      "suggestedDeclaration": "TauCeti.MultisegmentDuality.chainWeight_peeling",
+      "api": [
+        {
+          "name": "TauCeti.MultisegmentDuality.chainWeight_peeling_empty",
+          "role": "characterisation",
+          "statement": "If cutPart(m,a) is empty, the chain weights of m, remainder(m), and maximalPart(m) at a all equal zero."
+        }
+      ]
     },
     {
       "id": "QuiverRepresentationsPartII:MS.5/split",
@@ -2204,8 +2252,8 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
       ],
       "proofSteps": [
-        "Import the early segment/classification and involution comparison from ET.6; do not use the full local Langlands correspondence or the transfer theorem. Existing current upstream SmoothRepresentationsOfLocalGroups §SR.5.3 supplies general segment, Z/L and involution targets, so ET.6 must build on those targets rather than reintroduce them.",
-        "The independent geometry in this packet supplies the generic dual label. Mœglin–Waldspurger’s main identification matches the two labels; resolve the Z-as-subrepresentation / L-as-quotient normalization in the supplier interface. The exact baseline-ready representation carrier and normalization theorem are G2; no tautological abstract representation-valued oracle is substituted in the suggested file."
+        "Import only the existing-owner smooth GL_n carrier, normalized induction, segment classification, Z/L conventions and general representation involution from the early ET.6 interface, built on current upstream SmoothRepresentationsOfLocalGroups §SR.5.3. The supplier is not asked for this packet’s geometric comparison theorem. For an arbitrary unramified χ, express it as a unitary unramified character times a real power of the normalized absolute value, and adapt the supplier’s real-start segment convention to the integral translates used here.",
+        "Mœglin–Waldspurger Proposition II.6 identifies the generic geometric label with their algorithm. The theorem in II.13 pp.176–177 identifies the algorithm’s label with the representation involution, using II.3’s recursion and the induced-embedding criteria from I.7.2–I.7.3 and II.10–II.11. The exact carrier/normalization adapter and the reduction of these representation proof inputs to supplier declarations remain G2. This packet owns the geometric comparison; neither a requested copy of the conclusion nor an arbitrary representation-valued oracle closes it."
       ],
       "sources": [
         {
@@ -2215,8 +2263,8 @@
         },
         {
           "sourceId": "MW",
-          "locator": "Introduction p.136; Proposition II.6 pp.162–169 and Corollary II.7 p.169",
-          "match": "Geometry/algorithm comparison behind the representation involution identification."
+          "locator": "Proposition II.6 pp.162–169; theorem and proof in II.13 pp.176–177",
+          "match": "II.6 identifies geometry with the algorithm; II.13 supplies the separate representation-theoretic identification."
         }
       ],
       "acceptance": [
@@ -2253,7 +2301,7 @@
       "sources": [
         {
           "sourceId": "AKY",
-          "locator": "§2.5 pp.11–13; Proposition 2.4 p.10 and Corollary 2.8 pp.10–11",
+          "locator": "§2.5 pp.11–13; Proposition 2.4 p.9 and Corollary 2.8 pp.10–11",
           "match": "Worked rank-17 computation and the consumer interfaces."
         }
       ],
@@ -2296,7 +2344,7 @@
     },
     {
       "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-      "need": "Early characteristic-zero GL_n segment classification for F/Q_p finite on a fixed unramified degree-one cuspidal line; normalize Z as subrepresentation and L as Langlands quotient, and export L(m)≅Z(geometric generic dual m). Use current upstream SmoothRepresentationsOfLocalGroups §SR.5.3 segment/Z/L/involution targets. This request uses neither LLC monodromy nor ET.6 transfer.",
+      "need": "Early characteristic-zero smooth GL_n(F) carrier and segment classification for F/Q_p finite; normalized induction, Z as subrepresentation, L as Langlands quotient, and the general representation involution. Build on current upstream SmoothRepresentationsOfLocalGroups §SR.5.3 and expose its real-start/unitary-cuspidal convention for the integer adapter here. No geometric-dual comparison theorem is requested: MS.5/representation owns that comparison. Neither LLC monodromy nor ET.6 transfer is used.",
       "neededBy": [
         "QuiverRepresentationsPartII:MS.5/representation"
       ]
@@ -2342,7 +2390,7 @@
       "stageId": "QuiverRepresentationsPartII:MS.5",
       "status": "planned",
       "remaining": [
-        "Close G1 for ram/truncation and maximal-split targets; resolve the early ET.6 request and G2 representation interface."
+        "Close G1 for ram/truncation and maximal-split targets; resolve the narrow early ET.6 input and both parts of G2: the carrier/normalization adapter and the II.13 representation comparison proof chain."
       ]
     }
   ],
@@ -2357,11 +2405,11 @@
     },
     {
       "id": "QuiverRepresentationsPartII/G2",
-      "title": "Existing-owner GL_n carrier and involution normalization",
+      "title": "Existing-owner GL_n interface and representation comparison bridge",
       "neededBy": [
         "QuiverRepresentationsPartII:MS.5/representation"
       ],
-      "detail": "Resolve the early ET.6 request against current upstream SmoothRepresentationsOfLocalGroups §SR.5.3: actual smooth irreducible GL_n(F) types, integer-interval/cuspidal-segment adapter, Z and L with normalized induction, and L(m)≅Z(geometric dual m). No corresponding baseline-ready supplier names exist at the pinned commits. The signature is deliberately omitted from Suggested rather than replaced with an arbitrary representation-valued function or uninhabited placeholder. No representation classification or Aubert duality is replanned here."
+      "detail": "Resolve the early ET.6 input against current upstream SmoothRepresentationsOfLocalGroups §SR.5.3: actual smooth irreducible GL_n(F) types, normalized Z/L induction and the general representation involution, with the unitary-cuspidal/real-start adapter for an arbitrary unramified χ and a GL_0 unit convention. Then reduce the local geometric comparison to Mœglin–Waldspurger II.6 and the theorem in II.13 pp.176–177. II.13’s recursion and induced-embedding proof inputs (II.3, I.7.2–I.7.3, II.10–II.11) still require exact supplier statements or a local target-level decomposition; no closure of that representation proof chain is claimed. The generic-dual comparison remains owned here, not requested circularly from ET.6. No corresponding baseline-ready supplier names exist at the pinned commits, so the suggested comparison signature is omitted. No general segment classification or Aubert duality is replanned."
     }
   ],
   "upstreamNotes": [
@@ -2378,8 +2426,8 @@
     {
       "kind": "misprint",
       "printed": "The source gives [a+1,a] as the starting point and [a,1] as the endpoint.",
-      "correction": "The endpoint is (1,r), as in the path definition on p18.",
-      "reason": "The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent.",
+      "correction": "The endpoint is (1,r), consistently with the path definition on the same arXiv v4 page.",
+      "reason": "The prescribed start, terminal condition and unit steps give (1,r). The converse construction’s endpoint [a,1] cannot describe those paths.",
       "affects": "nothing",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
@@ -2389,18 +2437,24 @@
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
         "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version.",
-        "2026-10-10: the prior independent review and its published-text/Crossref/version checks were read. Current arXiv v4 formula and the relevant path/interval calculation were checked; no fresh publisher collation or complete correction search is claimed."
+        "2026-10-10: the prior independent review and its published-text/Crossref/version checks were read. Current arXiv v4 formula and the relevant path/interval calculation were checked; no fresh publisher collation or complete correction search is claimed.",
+        "2026-10-10 independent plan review: directly rechecked arXiv v4 pp.12–13 and p.20, including rendered diagrams; inherited publisher/correction searches remain bounded and are not claimed repeated."
       ],
       "id": "QuiverRepresentationsPartII/E1",
       "source": "AKY",
-      "locator": "Published p19 after Figure 2 (visually checked); corresponding arXiv v4 p.20 after Figure 2",
-      "known": "Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E6, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job."
+      "locator": "arXiv v4 p.20, converse path construction before Figure 1; earlier published p.19 collation is inherited from REV-PAPER-ATOBE-KONDO-YASUDA-22",
+      "known": "Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E6, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct arXiv v4 p.20 text and rendered page confirm the endpoint slip. Corrected the locator to the paragraph before Figure 1 and the path-definition page to p.20; no fresh published-text collation is claimed.",
+        "by": "REV-DESIGN-QuiverRepresentationsPartII"
+      }
     },
     {
       "kind": "misprint",
-      "printed": "((m_max)#)^-=(Delta'_1)^-+...+(Delta'_4)^-",
-      "correction": "Retain indices2,3,4,5 from p10 after the singleton Delta'_1=[7,7] disappears; their truncations are[5,5],[4,4],[2,3],[0,2]. Alternatively rename them explicitly, but do not mix original and reset labels.",
-      "reason": "The figure labels retained terms(Delta'_5)^-,...,(Delta'_2)^- correctly. The prose resets indices while also keeping the truncation superscript and changes the original Delta'_i values.",
+      "printed": "The shortened-dual display resets the surviving labels to 1–4, retains their shortening superscripts, and assigns those reset labels the already shortened intervals.",
+      "correction": "Keep original labels 2–5 for the four surviving intervals, whose right shortenings are [5,5], [4,4], [2,3], [0,2]. Alternatively introduce four new labels for those shortened intervals and omit another shortening superscript.",
+      "reason": "Original label 1 denotes the deleted singleton [7,7]. The next-page diagram retains labels 2–5, while the reset labels in the prose already denote shortened intervals; mixing the conventions would shorten twice.",
       "affects": "nothing",
       "searched": [
         "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
@@ -2410,12 +2464,18 @@
         "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
         "Earlier note: new (provisional worker finding; no correction located in the bounded search; independent review required)",
         "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.1017/fmp.2022.17 registers no update relation; a Crossref search for a corrigendum found none; arXiv lists v4 (28 September 2022) as the latest version.",
-        "2026-10-10: the prior independent review and its published-text/Crossref/version checks were read. Current arXiv v4 formula and the relevant path/interval calculation were checked; no fresh publisher collation or complete correction search is claimed."
+        "2026-10-10: the prior independent review and its published-text/Crossref/version checks were read. Current arXiv v4 formula and the relevant path/interval calculation were checked; no fresh publisher collation or complete correction search is claimed.",
+        "2026-10-10 independent plan review: directly rechecked arXiv v4 pp.12–13 and p.20, including rendered diagrams; inherited publisher/correction searches remain bounded and are not claimed repeated."
       ],
       "id": "QuiverRepresentationsPartII/E2",
       "source": "AKY",
       "locator": "Published §2.5 p11, truncated-dual diagram (visually checked); corresponding arXiv v4 p.12 truncated-dual display",
-      "known": "Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E7, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job."
+      "known": "Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E7, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct arXiv v4 pp.12–13 text and rendered diagrams confirm a label/shortening notation inconsistency, rather than an error in the four surviving intervals or final ramified multisegment. Published-text evidence remains inherited.",
+        "by": "REV-DESIGN-QuiverRepresentationsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -2474,5 +2534,188 @@
       "QuiverRepresentationsPartII:MS.4/adjacent"
     ]
   },
-  "closureAudit": "Target pass complete, not closed. All six stages are planned. The geometric gap G1 is local to conormal symmetry and its involutive downstream uses; the adjacent rank/chain proof needs generic rank existence, not involutivity. Requests are imports, never implementation claims."
+  "closureAudit": "Target pass complete, not closed. All six stages are planned. The geometric gap G1 is local to conormal symmetry and its involutive downstream uses; the adjacent rank/chain proof needs generic rank existence, not involutivity. Requests are imports, never implementation claims.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-QuiverRepresentationsPartII",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 35 nodes, all 10 pinned baseline declarations, parent/current upstream boundaries, all APIs/tests and 21 planets. Corrected source locators, test kinds, topology discriminator, occurrence/poset API, WL restriction proof and peeling signatures. Narrowed the supplier request and recorded the MW II.13 representation proof bridge in G2. Accepted as a complete planning pass with six planned stages and explicit open G1/G2, not as a closed or implemented development. Suggested Lean elaborated at the pinned build with only the proof-placeholder warnings permitted by Protocol section 13.",
+    "checked": [
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.0/interval",
+        "verdict": "corrected",
+        "note": "Interval hypotheses and tests checked; test kinds corrected to protocol values."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.0/multisegment",
+        "verdict": "corrected",
+        "note": "Moved occurrence labeling/count to its first-use construction and corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.0/maximal",
+        "verdict": "corrected",
+        "note": "Verified one copy per distinct maximum, including repetitions; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/space",
+        "verdict": "corrected",
+        "note": "Coordinate grading and internal direct-sum baseline checked; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/pair",
+        "verdict": "corrected",
+        "note": "Grade-preserving intertwining and ±1 directions checked; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/standard",
+        "verdict": "corrected",
+        "note": "Added grade membership for standard vectors and checked occurrence basis equations; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/classification",
+        "verdict": "verified",
+        "note": "Finite-window adapter imports parent type-A classification without replanning it."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/image",
+        "verdict": "corrected",
+        "note": "Checked actual images and the −1 VN shift; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.1/reconstruct",
+        "verdict": "verified",
+        "note": "Reconstruction recovers non-singletons from the image and singleton counts from dimensions."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/centralizer",
+        "verdict": "corrected",
+        "note": "Actual commuting submodule and restriction embeddings checked; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/coordinates",
+        "verdict": "verified",
+        "note": "Verified coefficient direction and recurrence against MW II.4 pp.160–161."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/restrict-up",
+        "verdict": "corrected",
+        "note": "Made the permitted VN image coefficient lift explicit, including zero images."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/restrict-down",
+        "verdict": "corrected",
+        "note": "Reduced WL restriction to the VN theorem by grade reflection and added that direct prerequisite."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/zariski",
+        "verdict": "corrected",
+        "note": "Replaced the ineffective Euclidean-topology discriminator by the non-Zariski-open unit disk; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/generic",
+        "verdict": "corrected",
+        "note": "Finite interval ranks recover type on a nonempty polynomial-open locus; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/conormal",
+        "verdict": "verified",
+        "note": "Scoped conormal target and proof route checked against Z81 §4.3 and MW; non-routine dimension/constructibility closure remains explicitly G1."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/dual",
+        "verdict": "corrected",
+        "note": "Up/down generic definitions and graded dimensions checked; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.2/involution",
+        "verdict": "verified",
+        "note": "Involution proof route is sound conditional on the explicitly open G1 conormal bridge."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.3/admissible",
+        "verdict": "corrected",
+        "note": "Corrected the nonexistent Definition 3.3 locator and distinguished genericity on V from image admissibility; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.3/image-generic",
+        "verdict": "verified",
+        "note": "Checked nonempty image-admissible construction and rank-minor chart openness, conditional on involutivity."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.3/simultaneous",
+        "verdict": "verified",
+        "note": "Finite intersection uses one L and image-admissibility on each iterated image, not separately chosen generic maps."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.3/ram",
+        "verdict": "corrected",
+        "note": "Ram convention and unshifted WL-image realization checked; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.3/commute",
+        "verdict": "verified",
+        "note": "Image equality uses the same commuting pair, with the common −1 shift retained."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/cut",
+        "verdict": "corrected",
+        "note": "Cut means meeting [a,a+1], and chain weight retains occurrence multiplicity; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/poset",
+        "verdict": "corrected",
+        "note": "Specified finite feasible antichains/matchings and maximum characterizations; moved occurrence_count to MS.0 and corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/dilworth",
+        "verdict": "verified",
+        "note": "Finite Dilworth and split-graph path cover argument checked, including duplicate occurrences."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/rank",
+        "verdict": "verified",
+        "note": "Allowed block entries, isolated rows/columns, and independent-variable minor argument checked."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/grid",
+        "verdict": "corrected",
+        "note": "Corrected endpoint-error locator and verified path length, boundary vertices and multiplicity weights; corrected test kinds."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/path-chain",
+        "verdict": "verified",
+        "note": "Checked both inequalities for weighted paths/chains; zero weights preclude a path/chain bijection."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.4/adjacent",
+        "verdict": "verified",
+        "note": "Adjacent formula is proved independently of unread higher-power KZ proof; boundary cuts checked."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.5/truncate-peel",
+        "verdict": "verified",
+        "note": "Truncation preserves inclusion on surviving intervals; singleton deletion does not change a surviving maximum."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.5/chain-peel",
+        "verdict": "corrected",
+        "note": "Completed the suggested nonempty-cut conclusion and added its all-three-weights zero-cut companion."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.5/split",
+        "verdict": "verified",
+        "note": "Canonical split induction, degree dimensions and reconstruction checked; arbitrary additivity is not asserted."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.5/representation",
+        "verdict": "corrected",
+        "note": "Cited MW II.13, removed the circular supplier request, and made both the carrier adapter and comparison proof inputs explicit in G2."
+      },
+      {
+        "nodeId": "QuiverRepresentationsPartII:MS.5/consumers",
+        "verdict": "corrected",
+        "note": "Corrected Proposition 2.4 to p.9; checked rank-17 example and ownership of downstream newform/induction targets."
+      }
+    ]
+  }
 }
