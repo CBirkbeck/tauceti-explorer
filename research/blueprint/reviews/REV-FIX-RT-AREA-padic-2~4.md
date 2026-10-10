@@ -337,3 +337,182 @@ change; no packet, source record, mathematical statement, reader or suggested
 file changes. Lean was not rerun for documentation-only work. Prior successful
 elaborations and source reading remain attributed to the earlier sessions.
 No second job was claimed, and the reproducer survives scratch cleanup here.
+
+
+## Continuation: real queue regeneration preserves the proposed repair twice
+
+Codex session **codex-mSRBPu**, 10 October 2026. Input commit
+`c1a8d4d6f520741ef576b035a2819aa35ebadabc`; claim confirmed in
+[comment 6101852233](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101852233).
+This continuation verifies the administrative repair against the complete
+current generator and queue. It inherits the mathematical review above;
+no new mathematical verdict or primary-source reading is claimed.
+
+The live issue still authorizes three packets and seven outputs. Both the local
+queue and a fresh GitHub-main queue require fifteen packets and 31 outputs;
+the fix requires 55. The stock completion predicate returns `True` for the
+issue's authorized scope and `False` for the generated job. The twelve additional
+packets retain accepted verdicts from their own independent review jobs.
+The historical queue at
+[commit 888f12f5c9d80d8205c6f7dd55cbbb933633b5e6](https://github.com/CBirkbeck/tauceti-explorer/commit/888f12f5c9d80d8205c6f7dd55cbbb933633b5e6)
+still supplies the exact ten-output fix and seven-output review contracts.
+
+The preceding isolated candidate now has a stronger check: execute the current
+generator's complete job and prompt computation against the real repository
+inputs, with its queue reads redirected to an in-memory seed. Use `--dry-run`,
+suppress directory creation, reject text/byte writes, and return before the
+lock and persistence tail. Apply the generator's metadata merge in memory.
+No repository queue, prompt, ownership file, packet or lock is written.
+Restore the two round-four output lists and dependency lists from the historical
+queue in memory, then compare stock generation with this candidate in
+`fix_rounds`:
+
+```diff
+-            made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
++            made = previous_jobs.get(following) if following in states else None
+```
+
+| Seed or computation | Fix outputs | Review outputs | Historical fix dependency preserved | Review complete |
+|---|---:|---:|---|---|
+| Actual current queue | 55 | 31 | Yes | No |
+| Historical scopes restored in memory | 10 | 7 | Yes | Yes |
+| Restored seed, stock generator | 35 | 19 | No | No |
+| Restored seed, candidate, first generation | 10 | 7 | Yes | Yes |
+| First candidate result, candidate, second generation | 10 | 7 | Yes | Yes |
+
+Both candidate generations preserve the **ordered** output lists and dependency
+lists of both jobs exactly, rather than merely their counts. Their review jobs
+pass the unmodified completion predicate against the existing packet verdicts.
+The stock generator changes the restored fix dependency as well as its scope.
+Thus a queue-only restoration demonstrably does not survive regeneration.
+
+Eight additional isolated controls exercise all combinations of an existing
+following round, newly missing files and a preceding send-back. Existing rounds
+keep their recorded scope and dependency. With no existing following round,
+no round is created without either trigger; missing files enter a new round;
+a send-back makes that new round depend on the preceding review; both triggers
+combine correctly. All eight controls pass. This checks that the candidate
+continues to create genuinely new rounds, which the previous continuation had
+left untested.
+
+The write-free experiment does **not** exercise the generator's persistence,
+GitHub synchronization or actual intake. Nor does it certify every unrelated
+job generated from current inputs. The maintainer must inspect those changes,
+apply the historical scope restoration and candidate in their authorized scope,
+regenerate, and verify the real issue transition. Newly routed work belongs in
+separate jobs, rather than enlarging this already-issued review. This worker
+cannot apply those edits: the live issue forbids changes outside its named
+outputs and handoff. This submission is a **blocked checkpoint**.
+
+Fresh checks against the manifest-matching pinned declaration index report
+**zero errors and zero warnings** for the three authorized packets: **56, 326,
+537 nodes**. Packets and suggested Lean files are unchanged. Lean was not rerun
+for documentation-only work; prior successful elaborations and source checks
+remain attributed to their original sessions. Only this report and handoff
+change. No second job was claimed.
+
+The complete queue-level reproducer follows. Run from the repository root with
+an authenticated `gh`. It reads the historical queue directly into memory and
+writes no repository files or disposable artifacts. The return inserted before
+`queue_path` deliberately excludes the lock and persistence tail; the retained
+computation is otherwise the real generator, with only the candidate assignment
+changed when selected.
+
+```python
+import ast
+import contextlib
+import copy
+import importlib.util
+import io
+import json
+import sys
+import subprocess
+from pathlib import Path
+from unittest.mock import patch
+
+repo = Path.cwd()
+generator = repo / "research/blueprint/make_queue.py"
+sys.path.insert(0, str(generator.parent))
+queue_path = repo / "research/blueprint/queue.json"
+current = json.loads(queue_path.read_text())
+historical = json.loads(subprocess.check_output([
+    "gh", "api", "repos/CBirkbeck/tauceti-explorer/contents/research/blueprint/queue.json"
+    "?ref=888f12f5c9d80d8205c6f7dd55cbbb933633b5e6",
+    "-H", "Accept: application/vnd.github.raw+json"], text=True))
+fix = "FIX-RT-AREA-padic-2~4"
+review = "REV-" + fix
+prior = {j["id"]: j for j in historical["jobs"]}
+restored = copy.deepcopy(current)
+for job in restored["jobs"]:
+    if job["id"] in (fix, review):
+        for key in ("outputs", "after"):
+            job[key] = copy.deepcopy(prior[job["id"]][key])
+
+spec = importlib.util.spec_from_file_location("issues", repo / "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+
+
+def run(seed, candidate):
+    tree = ast.parse(generator.read_text())
+    main = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "main")
+    if candidate:
+        made = next(n for n in ast.walk(main) if isinstance(n, ast.Assign)
+                    and any(isinstance(t, ast.Name) and t.id == "made" for t in n.targets))
+        made.value = ast.parse("previous_jobs.get(following) if following in states else None", mode="eval").body
+    # Return the computed jobs before the lock/write tail; generation remains otherwise unchanged.
+    stop = next(i for i, n in enumerate(main.body) if isinstance(n, ast.Assign)
+                and any(isinstance(t, ast.Name) and t.id == "queue_path" for t in n.targets))
+    main.body = main.body[:stop] + [ast.Return(value=ast.Name(id="jobs", ctx=ast.Load()))]
+    env = {"__name__": "scope_diagnostic", "__file__": str(generator)}
+    exec(compile(ast.fix_missing_locations(tree), str(generator), "exec"), env)
+    original_read = Path.read_text
+
+    def read(path, *args, **kwargs):
+        return json.dumps(seed) if path == queue_path else original_read(path, *args, **kwargs)
+
+    def refuse(*args, **kwargs):
+        raise AssertionError("unexpected filesystem write")
+
+    argv = [str(generator), "--dry-run", "--library", ".", "--baseline", ".", "--workers", "."]
+    with patch.object(Path, "read_text", read), patch.object(Path, "mkdir", lambda *a, **k: None), \
+            patch.object(Path, "write_text", refuse), patch.object(Path, "write_bytes", refuse), \
+            patch.object(sys, "argv", argv), contextlib.redirect_stdout(io.StringIO()):
+        generated = env["main"]()
+    # Apply the generator's metadata merge in memory, including old jobs it no longer creates.
+    old = {j["id"]: j for j in seed["jobs"]}
+    kept_keys = ("state", "account", "lane", "attempts", "startedAt", "finishedAt", "seconds", "result", "note",
+                 "promptPreface", "integrated")
+    for job in generated:
+        for key in kept_keys:
+            if key in old.get(job["id"], {}):
+                job[key] = copy.deepcopy(old[job["id"]][key])
+    ids = {j["id"] for j in generated}
+    generated += [copy.deepcopy(j) for j in seed["jobs"] if j["id"] not in ids]
+    return dict(seed, jobs=generated)
+
+
+def inspect(label, queue):
+    jobs = {j["id"]: j for j in queue["jobs"]}
+    f, r = jobs[fix], jobs[review]
+    result = {"label": label, "fix_outputs": len(f["outputs"]), "review_outputs": len(r["outputs"]),
+              "fix_outputs_preserved": f["outputs"] == prior[fix]["outputs"],
+              "fix_after_preserved": f["after"] == prior[fix]["after"],
+              "review_outputs_preserved": r["outputs"] == prior[review]["outputs"],
+              "review_after_preserved": r["after"] == prior[review]["after"],
+              "complete": issues.deliverables_complete(r)}
+    print(json.dumps(result))
+    return result
+
+
+inspect("actual current queue", current)
+inspect("restored scopes before generation", restored)
+stock = run(restored, False)
+inspect("restored scopes after stock generation", stock)
+patched_once = run(restored, True)
+patched_twice = run(patched_once, True)
+for label, queue in (("candidate first generation", patched_once), ("candidate second generation", patched_twice)):
+    result = inspect(label, queue)
+    assert result["fix_outputs"] == 10 and result["review_outputs"] == 7
+    assert all(value for key, value in result.items() if key.endswith("preserved") or key == "complete")
+```
