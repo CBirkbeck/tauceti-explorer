@@ -849,6 +849,14 @@ Checks for the affine and coefficient interfaces:
   act on ℤ[x] by x↦−x. Its invariant algebra is ℤ[x²]. After reducing modulo
   2 the action is trivial, and x is invariant; x is not in the image of
   F₂⊗_ℤℤ[x²]. Thus `baseChangeMap` exists but is not surjective here.
+  Detect this with the coefficient of x: invariance over ℤ gives
+  −a₁=a₁ and therefore a₁=0. Under the canonical polynomial reduction
+  F₂⊗_ℤℤ[x]→F₂[x], every pure tensor of an invariant has zero x-coefficient,
+  and so does every sum of such tensors. The element 1⊗x maps to x,
+  whose x-coefficient is 1. It therefore has no preimage under
+  `baseChangeMap`, although δ₂(1⊗x)=ι₂(1⊗x) because −1=1 in F₂.
+  This calculation tests the actual tensor comparison rather than only
+  the set of reductions of individual invariant polynomials.
   This example concerns the general coaction equalizer, with a disconnected
   acting group; it does not assert a connected-reductive counterexample or
   replace the parameter-specific good-prime hypotheses.

@@ -39,6 +39,7 @@ import Mathlib.RingTheory.Flat.Basic
 import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
 import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Algebra.Polynomial.Laurent
+import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.RingTheory.Nilpotent.Defs
 import Mathlib.RepresentationTheory.Basic
@@ -1346,16 +1347,36 @@ noncomputable def baseChangeHom (f : A →ₐ[R] B) :
     ((Algebra.TensorProduct.includeRight : B →ₐ[R] S ⊗[R] B).comp f)
 
 theorem baseChangeHom_tmul (f : A →ₐ[R] B) (s : S) (a : A) :
-    baseChangeHom S f (s ⊗ₜ[R] a) = s ⊗ₜ[R] f a := by sorry
+    baseChangeHom S f (s ⊗ₜ[R] a) = s ⊗ₜ[R] f a := by
+  simp only [baseChangeHom, AlgHom.liftEquiv_tmul, AlgHom.comp_apply,
+    Algebra.TensorProduct.includeRight_apply]
+  rw [TensorProduct.smul_tmul', smul_eq_mul, mul_one]
 
 /-- The canonical comparison exists for every scalar extension. Flatness is
 needed for the bijectivity theorem, not for this map or its formula. -/
 noncomputable def baseChangeMap :
     S ⊗[R] ParameterInvariantAlgebra δ ι →ₐ[S]
-      ParameterInvariantAlgebra (baseChangeHom S δ) (baseChangeHom S ι) := by sorry
+      ParameterInvariantAlgebra (baseChangeHom S δ) (baseChangeHom S ι) :=
+  (baseChangeHom S (ParameterInvariantAlgebra δ ι).val).codRestrict _ (by
+    intro z
+    refine TensorProduct.induction_on z ?_ ?_ ?_
+    · simp
+    · intro s a
+      change baseChangeHom S δ (baseChangeHom S (ParameterInvariantAlgebra δ ι).val
+        (s ⊗ₜ[R] a)) = baseChangeHom S ι (baseChangeHom S (ParameterInvariantAlgebra δ ι).val
+        (s ⊗ₜ[R] a))
+      simp only [baseChangeHom_tmul, Subalgebra.val_apply]
+      rw [a.property]
+    · intro x y hx hy
+      change baseChangeHom S δ (baseChangeHom S (ParameterInvariantAlgebra δ ι).val (x + y)) =
+        baseChangeHom S ι (baseChangeHom S (ParameterInvariantAlgebra δ ι).val (x + y))
+      simp only [map_add]
+      exact congrArg₂ (· + ·) hx hy)
 
 theorem baseChangeMap_tmul (s : S) (a : ParameterInvariantAlgebra δ ι) :
-    (baseChangeMap δ ι S (s ⊗ₜ[R] a)).val = s ⊗ₜ[R] a.val := by sorry
+    (baseChangeMap δ ι S (s ⊗ₜ[R] a)).val = s ⊗ₜ[R] a.val := by
+  change baseChangeHom S (ParameterInvariantAlgebra δ ι).val (s ⊗ₜ[R] a) = _
+  exact baseChangeHom_tmul S _ s a
 
 /-- Tensor exactness identifies the equalizer after flat scalar extension.
 This does not need the good-prime generation theorem. -/
@@ -1381,6 +1402,71 @@ example (ι : A →ₐ[R] B) :
 
 -- flat_nonflat_reduction: the C₂ sign action over ℤ becomes trivial mod 2.
 -- This tests the general equalizer adapter, not connected-reductive GIT.
+namespace NonflatReductionChecks
+
+noncomputable def signAction : Polynomial ℤ →ₐ[ℤ] Polynomial ℤ :=
+  Polynomial.aeval (-Polynomial.X)
+
+lemma signAction_coeff_one (p : Polynomial ℤ) :
+    (signAction p).coeff 1 = -p.coeff 1 := by
+  have hx : (-Polynomial.X : Polynomial ℤ) = Polynomial.C (-1) * Polynomial.X := by simp
+  change (Polynomial.aeval (-Polynomial.X) p).coeff 1 = _
+  rw [hx, ← Polynomial.comp_eq_aeval, Polynomial.comp_C_mul_X_coeff]
+  simp
+
+lemma invariant_coeff_one
+    (p : ParameterInvariantAlgebra signAction (AlgHom.id ℤ (Polynomial ℤ))) :
+    p.val.coeff 1 = 0 := by
+  have h := congrArg (fun q : Polynomial ℤ => q.coeff 1) p.property
+  change (signAction p.val).coeff 1 = p.val.coeff 1 at h
+  rw [signAction_coeff_one] at h
+  omega
+
+/-- The genuine coefficient-reduction map on the scalar-extended polynomial algebra. -/
+noncomputable def reduce :
+    ZMod 2 ⊗[ℤ] Polynomial ℤ →ₐ[ZMod 2] Polynomial (ZMod 2) :=
+  (AlgHom.liftEquiv ℤ (ZMod 2) (Polynomial ℤ) (Polynomial (ZMod 2)))
+    (Polynomial.mapAlgHom (Algebra.ofId ℤ (ZMod 2)))
+
+lemma reduce_tmul (s : ZMod 2) (p : Polynomial ℤ) :
+    reduce (s ⊗ₜ[ℤ] p) = s • p.map (Int.castRingHom (ZMod 2)) := rfl
+
+/-- Every scalar-extended invariant still has zero coefficient of X. -/
+lemma reduced_invariant_coeff_one
+    (z : ZMod 2 ⊗[ℤ] ParameterInvariantAlgebra signAction (AlgHom.id ℤ (Polynomial ℤ))) :
+    (reduce (baseChangeMap signAction (AlgHom.id ℤ (Polynomial ℤ)) (ZMod 2) z).val).coeff 1 =
+      0 := by
+  refine TensorProduct.induction_on z ?_ ?_ ?_
+  · simp
+  · intro s a
+    rw [baseChangeMap_tmul, reduce_tmul]
+    simp [invariant_coeff_one]
+  · intro x y hx hy
+    simp only [map_add, Subalgebra.coe_add, Polynomial.coeff_add, hx, hy, add_zero]
+
+/-- X becomes invariant after reduction but is outside the canonical comparison's image. -/
+theorem nonflat_reduction :
+    let δ := baseChangeHom (ZMod 2) signAction
+    let ι := baseChangeHom (ZMod 2) (AlgHom.id ℤ (Polynomial ℤ))
+    let x : ZMod 2 ⊗[ℤ] Polynomial ℤ := 1 ⊗ₜ[ℤ] Polynomial.X
+    x ∈ ParameterInvariantAlgebra δ ι ∧
+      ¬ ∃ z : ZMod 2 ⊗[ℤ] ParameterInvariantAlgebra signAction
+          (AlgHom.id ℤ (Polynomial ℤ)),
+        (baseChangeMap signAction (AlgHom.id ℤ (Polynomial ℤ)) (ZMod 2) z).val = x := by
+  dsimp only
+  constructor
+  · change baseChangeHom (ZMod 2) signAction (1 ⊗ₜ[ℤ] Polynomial.X) =
+      baseChangeHom (ZMod 2) (AlgHom.id ℤ (Polynomial ℤ)) (1 ⊗ₜ[ℤ] Polynomial.X)
+    rw [baseChangeHom_tmul, baseChangeHom_tmul]
+    simp only [signAction, Polynomial.aeval_X, AlgHom.id_apply]
+    rw [TensorProduct.tmul_neg, ← TensorProduct.neg_tmul, show -(1 : ZMod 2) = 1 from rfl]
+  · rintro ⟨z, hz⟩
+    have hc := reduced_invariant_coeff_one z
+    rw [hz, reduce_tmul] at hc
+    norm_num at hc
+
+end NonflatReductionChecks
+
 example :
     let τ : Polynomial ℤ →ₐ[ℤ] Polynomial ℤ := Polynomial.aeval (-Polynomial.X)
     let δ := baseChangeHom (ZMod 2) τ
@@ -1388,7 +1474,8 @@ example :
     let x : ZMod 2 ⊗[ℤ] Polynomial ℤ := 1 ⊗ₜ[ℤ] Polynomial.X
     x ∈ ParameterInvariantAlgebra δ ι ∧
       ¬ ∃ z : ZMod 2 ⊗[ℤ] ParameterInvariantAlgebra τ (AlgHom.id ℤ (Polynomial ℤ)),
-        (baseChangeMap τ (AlgHom.id ℤ (Polynomial ℤ)) (ZMod 2) z).val = x := by sorry
+        (baseChangeMap τ (AlgHom.id ℤ (Polynomial ℤ)) (ZMod 2) z).val = x :=
+  NonflatReductionChecks.nonflat_reduction
 end ParameterInvariantAlgebra
 
 -- coarse_trivial_group, and the torus case when its action is trivial.
