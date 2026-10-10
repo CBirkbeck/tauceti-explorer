@@ -15331,7 +15331,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ArithmeticDirichletSeriesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3451"
   },
   {
    "id": "REV-DESIGN-ArithmeticDirichletSeriesPartII",
@@ -15817,8 +15818,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuiverRepresentationsPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3462"
+   "state": "external",
+   "note": "claimed on GitHub issue #3462"
   },
   {
    "id": "REV-DESIGN-QuiverRepresentationsPartII",
@@ -31478,14 +31479,15 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-InverseGaloisAndArithmeticFundamentalGroups",
     "BP-SchemeAndStackFoundations",
     "BP-TropicalAndBerkovichArithmetic"
    ],
-   "note": "claimed on GitHub issue #1023"
+   "note": "deliverables arrived from an external worker on issue #1023",
+   "finishedAt": "2026-10-10T21:13:50Z"
   },
   {
    "id": "REV-ArithmeticDynamics",
@@ -33999,8 +34001,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.5",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6276"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6276",
+   "finishedAt": "2026-10-10T21:13:51Z"
   },
   {
    "id": "BP-HabiroCyclotomicCompletions--HC.4",
@@ -37185,8 +37188,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.0",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6310"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6310",
+   "finishedAt": "2026-10-10T21:13:53Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.1",
@@ -37257,8 +37261,9 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6354"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6354",
+   "finishedAt": "2026-10-10T21:13:56Z"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.2",
@@ -49255,8 +49260,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80222,8 +80227,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -84623,8 +84628,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
