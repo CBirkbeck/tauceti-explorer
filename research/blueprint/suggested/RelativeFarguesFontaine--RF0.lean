@@ -368,10 +368,13 @@ def ramifiedWittDiagonal : ramifiedWitt pi q A →ₐ[OE]
 theorem ramifiedDiagonal_ghost (n : ℕ) (x : ramifiedWitt pi q A) :
     ramifiedWitt_ghost_hom pi q (ramifiedWitt pi q A) n (ramifiedDiagonal pi q A x) =
       (ramifiedFrobenius pi q A)^[n] x := by sorry
--- The specified unramified coefficient action uses Delta; the unramified-extension
--- interface is absent. Its underlying coefficient homomorphism is prototyped.
-def unramifiedCoefficientAction (OEun : Type u) [CommRing OEun] :
-    OEun →+* ramifiedWitt pi q A := by sorry
+-- For the residue extension k, identify O_E'' with W_OE(k). Its inclusion
+-- c in A induces the action W(c) ∘ Delta. No arbitrary coefficient ring
+-- or bijection to W_OE(A) is asserted.
+def unramifiedCoefficientAction (k : Type u) [CommRing k] [Algebra OE k]
+    (c : ramifiedWitt pi q k →ₐ[OE] A) :
+    ramifiedWitt pi q k →ₐ[OE] ramifiedWitt pi q A :=
+  (ramifiedWitt_map pi q (ramifiedWitt pi q k) c).comp (ramifiedDiagonal pi q k)
 -- diagonal_ghost_zero
 example (x : ramifiedWitt pi q A) :
     ramifiedWitt_ghost_hom pi q (ramifiedWitt pi q A) 0 (ramifiedDiagonal pi q A x) = x := by sorry
@@ -379,9 +382,10 @@ example (x : ramifiedWitt pi q A) :
 example (x : ramifiedWitt pi q A) :
     ramifiedWitt_ghost_hom pi q (ramifiedWitt pi q A) 1 (ramifiedDiagonal pi q A x) =
       ramifiedFrobenius pi q A x := by sorry
--- diagonal_unramified_action: specialization A to the finite residue extension.
-example (OEun : Type u) [CommRing OEun] :
-    Function.Bijective (unramifiedCoefficientAction pi q A OEun) := by sorry
+-- diagonal_unramified_action: the residue specialization uses the actual
+-- reduction w_0 : W_OE(A) → A. The resulting action is the identity.
+example (x : ramifiedWitt pi q A) :
+    unramifiedCoefficientAction pi q A A (ramifiedWitt_ghost_hom pi q A 0) x = x := by sorry
 -- OEun is the maximal unramified subextension; it cannot be replaced by OE.
 def perfectCoefficientBaseChange (OEun OE' : Type u) [CommRing OEun] [CommRing OE']
     [Algebra OEun OE'] [Algebra OEun (ramifiedWitt pi q A)]
@@ -1543,6 +1547,9 @@ example (OE : Type u) [CommRing OE] (pi : OE) (q : ℕ) (X : TopCat.{u})
 -- curve_etale_not_structural
 example : ¬Nonempty (ZMod 2 →+* ℚ) := by sorry
 -- LT tower and its marked tilt are geometric hypotheses omitted from this formula.
+-- The punctured perfected disc first presents the product with Spd(E_LT∞);
+-- descend by the coefficient-unit reciprocity action to get Y, and only then
+-- take the separate Frobenius quotient to get the curve.
 def lubinTateDiamondPresentation {C : Type u} [Category C]
     (J : GrothendieckTopology C) (Y SpdF SpdE : Sheaf J (Type v)) :
     Y ≅ Limits.prod SpdF SpdE := by sorry
