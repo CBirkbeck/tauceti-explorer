@@ -1,5 +1,126 @@
 # PKG-AutomorphicSpectralTheory — blocked checkpoint
 
+Issue: #7893. Worker: Codex, session `codex-B9KKF4`, 10 October 2026.
+Branch: `codex-B9KKF4-pkg-automorphic-spectral-theory`.
+Claim: [6095018564](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095018564).
+Bot confirmation: [6095019681](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095019681).
+Continues #8272 from explorer main `640efe59cc817f61dfa84b37ca2eb74ba6f98f3a`.
+One issue was claimed. This is a blocked checkpoint, not a completed package.
+
+## Current continuation decision
+
+The authoritative AS packet, reader and original suggested file still have the
+three SHA-256 receipts recorded at the end of this note. The accepted packet
+contains 190 targets, 223 API items, 219 tests, 52 gaps and 22 requests; its seven
+stages are planned, none closed. These counts do not alone block packaging:
+the specific missing contracts below do. No plan or supplier contract was edited.
+
+1. **Real local induction remains narrower than its requested use.** The merged
+   AF packet at SHA-256
+   `ed305ef7e8f4c5ec7455002ca2fee3ab0162dc65ac0ba7c7972ab628e278e091ca3e`
+   still defines `AF.1/principal-series` only for minimal P=MAN, M=Z_K(A)
+   and finite-dimensional smooth W. `AF.1/sf-representation` defines the
+   representation category, not a general-parabolic induction construction.
+   AS's request, consumed by `AS.6/real-invariant-paley-wiener` and
+   `AS.6/real-operator-paley-wiener`, needs every real parabolic, supplied Levi
+   SF/Hilbert data, K∩M covariance, half-modulus, finite K-type coefficient
+   spaces, holomorphic parameters and induction in stages. Fresh reading of
+   Bernstein–Krötz §9.3, pp.39–40, confirms that Proposition 9.6 assumes an
+   irreducible good Harish-Chandra module and its minimal SF-globalization.
+   It does not provide the broader contract merely by citing the SF category.
+2. **All three upward ET references still exist.** The tier order places AS
+   in tier 13 and ET in tier 14. Direct packet edges are
+   `AS.2/generic-normalized-intertwiner → ET.0`,
+   `AS.6/weighted-orbital-integral → ET.1`, and
+   `AS.6/general-euler-poincare → ET.1` (arrows here mean consumes).
+   The ET.0 request explicitly says its conjugacy data do not supply the
+   classical packet, relevance and pure-inner-form carriers. WORKERS requires
+   the needed notions to move down and their higher consumers to import them.
+   Package prose cannot reconcile these authoritative ownership contracts while
+   the issue explicitly requires changing no packet. Retain the existing
+   ordinary-orbital-integral/pseudo-coefficient move worklist and keep
+   stabilization in ET. Fresh reading of Arthur §18, (18.3), pp.102–104,
+   confirms the centralizer-quotient measure and discriminant requirements.
+
+The read-only upstream checkout is now
+`cd03e06852a13216ad246d0623492c4beac39af2`; Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read CompactGroups and OperatorIdeals, their Suggested headers/interfaces,
+and the two family boundaries. Current continuous-intertwiner equivalences
+are finite-dimensional; tensor induction is algebraic wreath-product/tensor
+induction. Their source statements do not discharge the general-Levi analytic
+contract. The AS.0–AS.6 reviewed library audit was checked. No library or
+upstream checkout was changed or built, and no restricted book was used.
+
+## Five additional unsupported signatures removed
+
+Freshly read Jiang–Zhang, arXiv:1508.03205v4, Appendix B, pp.84–87.
+Removed five active target signatures asserting conclusions for arbitrary
+exponent sets or independently supplied operator/scalar families. Each name
+now has an explicit omission comment giving the actual required carriers and
+source locator. The mathematical targets remain unchanged in the README;
+four locators now include the exact printed pages. No theorem's conclusion
+was installed as its own hypothesis, and no proposition-valued placeholder
+was introduced.
+
+| Omitted signature | Required interface |
+| --- | --- |
+| `generic_standard_module` | Relevant generic parameter and pure-inner-form packet; actual standard-module realization and unitary tempered coefficients. Proposition B.1, p.85 supplies irreducibility; (B.5)–(B.6), p.86 supplies the strict ordered exponent bounds in the theorem's unitary setting. |
+| `tempered_gl_intertwiner` | Actual rank-one GL intertwiner with unitary tempered data and the indicated Mœglin–Waldspurger normalization; (B.7)–(B.9), pp.86–87. |
+| `tempered_standard_intertwiner` | Actual standard integral for unitary tempered GL and classical packet data, with the generic-member factor comparison; proof of Theorem B.2, p.87. |
+| `generic_normalized_intertwiner` | Actual Shahidi-normalized operator for the relevant generic unitary coefficients; proof of Theorem B.2, p.86, citing [11, Theorem 11.1]. That cited primary proof was not independently read here. |
+| `jiang_zhang_holomorphy` | Local component of an H_m-relevant generic global Arthur parameter, pure-inner-form packet, irreducible admissible unitary generic self-dual GL coefficients, standard integral and matching (5.4) factors; Theorem B.2, p.85 and proof pp.86–87. |
+
+Five new admission-free examples reject the removed unrestricted assertions:
+`{0}` fails the strict positive exponent bound; the zero operator family
+fails nonvanishing in each of the three half-planes; and the actual scalar
+normalization formula with all factors one and zero raw operator remains zero.
+These are signature checks, not implementations of the five source theorems.
+The other active inherited signatures still require the audit below.
+
+Source receipt: [Jiang–Zhang v4](https://arxiv.org/pdf/1508.03205v4),
+read 10 October 2026, SHA-256
+`d97bf3048aa10de52f07ae5bbbc3970c974996ae4193d9cd7f12b17890df7bb4`,
+matching the packet. This reading is of the specified preprint, not a
+collation of the journal version. The fresh Bernstein–Krötz reading used
+[arXiv v3](https://arxiv.org/pdf/0812.1684v3), §9.3, Proposition 9.6,
+pp.39–40; the fresh Arthur reading used the
+[Clay introduction](https://www.claymath.org/library/cw/arthur/pdf/62.pdf),
+§18 (18.3), pp.102–104. All repository statements are in our own words.
+
+## Validation for codex-B9KKF4
+
+- Packet checker: exit 0, zero errors and warnings; unchanged counts above.
+- Joined package Lean check: **exit 0, zero errors, 753 warnings, all
+  `declaration uses sorry`; no other warnings**, at Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`. Available memory was 111 GB.
+- The five new examples were also checked in isolation using only the native
+  imports and the explicit scalar-normalization formula: **exit 0, zero
+  errors, zero warnings**. No admitted package theorem was imported.
+- README: 190 target blocks, 200,008 UTF-8 bytes; no target removed.
+  Suggested target inventory decreases by five from the preceding checkpoint;
+  the five newly omitted names are all listed above. No API or specification
+  test was removed.
+- Intake file check and `git diff --check` pass. Only the package README,
+  Suggested file and this handoff are changed. Metadata remains absent so
+  intake cannot report an incomplete package as complete.
+
+## Where to resume
+
+Obtain an authorized plan/supplier revision that defines the general-Levi
+real induction contract and integrates the three downward ownership moves.
+Then restore source-qualified signatures for the omissions above and below,
+with actual inducing/packet carriers. Preserve the native adapters and
+negative checks. Finish the outstanding full-source signature audit, check
+all targets/APIs/tests, rerun Lean and add `topic = "math.NT"` only when the
+package satisfies section 20. The inherited detailed worklist and provenance
+below remain continuation inputs. Scratch files are disposable.
+
+---
+
+## Inherited checkpoint through codex-UXfFdh
+
 Issue: #7893. Worker: Codex, session `codex-UXfFdh`, 10 October 2026.
 Branch: `codex-UXfFdh-pkg-automorphic-spectral-theory`.
 Claim: [6094533697](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094533697).

@@ -2,7 +2,7 @@
 
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS: multiplicities, direct integrals, L² kernels, traces, noncompact smoothing.
+Spectral measures and calculus: **SelfAdjointSpectralTheory**; Schatten theory: **OperatorIdeals**; Peter–Weyl: **CompactGroups**. AS owns direct integrals, multiplicities, L² kernels, traces and noncompact smoothing.
 
 **AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS: rational Bruhat indices and intertwiner estimates.
 
@@ -25,7 +25,7 @@ For F=y^(k/2)f,
 
 Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures: K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
 
-`TauCeti.AutomorphicSpectral`; AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
+`TauCeti.AutomorphicSpectral`; AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B/S: library/sources.
 
 `SpecialFunctions` requires I/J to agree with QM.2's principal-power regularized ₀F̃₁ formulas, at +y²/4 and −y²/4; K uses AL.0's Mellin integral; Λ uses native `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
 
@@ -1415,7 +1415,7 @@ For the relevant generic local parameter φ⁺ of a generic global Arthur parame
 
 Assume: φ⁺ is a local component of an H_m-relevant generic global Arthur parameter, not an arbitrary generic nonunitary parameter.
 
-Source: S20, Appendix B Proposition B.1 and (B.5)–(B.6).
+Source: S20, Appendix B Proposition B.1, p.85; (B.5)–(B.6), p.86.
 
 Uses: `SR.3`; `AF.1`.
 
@@ -1427,7 +1427,7 @@ For unitary tempered τ,τ′ on general linear groups, the Mœglin–Waldspurge
 
 Assume: Tempered unitary GL data and the MW normalization; the conclusion is nonzero, not necessarily invertible at a reducibility point.
 
-Source: S20, Appendix B after (B.7)–(B.9), citing [66].
+Source: S20, Appendix B (B.7)–(B.9), pp.86–87, citing [66].
 
 Uses: AS.2.3; `SR.3`.
 
@@ -1451,7 +1451,7 @@ For a generic unitary member of the relevant classical packet and unitary generi
 
 Assume: Generic member of a relevant generic unitary packet; normalization is (5.4).
 
-Source: S20, Appendix B proof of Theorem B.2.
+Source: S20, Appendix B proof of Theorem B.2, p.86, citing [11, Theorem 11.1].
 
 Uses: AS.2.7; classical packet input contract.
 
@@ -1463,7 +1463,7 @@ Let φ⁺ be the local component of an H_m-relevant generic global Arthur parame
 
 Assume: All hypotheses are those of Appendix B Theorem B.2; the local factors use the same packet and ψ.
 
-Source: S20, Appendix B Theorem B.2 = §5.1 Theorem 5.1.
+Source: S20, Appendix B Theorem B.2, p.85; proof pp.86–87; §5.1 Theorem 5.1.
 
 Uses: AS.2.8; AS.2.9; AS.2.10; AS.2.11.
 

@@ -3029,23 +3029,39 @@ example {G : Type*} [Group G] (tau : G →* ℂˣ)
 
 end shahidi_normalization
 
-/-- The actual standard module and irreducibility conclusion require the omitted packet
-carrier. This finite-exponent signature records the strict bounds used in its proof. -/
-theorem generic_standard_module (alpha beta : Finset ℝ) :
-    (∀ a ∈ alpha, 0 < a ∧ a < 1 / 2) ∧ ∀ b ∈ beta, 0 < b ∧ b < 1 / 2 := by sorry
+/- generic_standard_module: source-qualified signature omitted.
+Supply the relevant generic parameter, its pure-inner-form packet, actual
+standard-module realization, tempered unitary coefficients and ordered exponent
+lists. Irreducibility and the strict exponent bounds are conclusions for these
+representations, not for arbitrary finite subsets of the real numbers.
+Source: Jiang–Zhang, arXiv:1508.03205v4, Appendix B Proposition B.1,
+(B.1)–(B.2), p.85; (B.5)–(B.6), p.86. -/
 
-theorem tempered_gl_intertwiner (R : ℂ → H →L[ℂ] K) :
-    AnalyticOnNhd ℂ R {s : ℂ | -1 < s.re} ∧ ∀ s, -1 < s.re → R s ≠ 0 := by sorry
+/- tempered_gl_intertwiner: source-qualified signature omitted.
+Supply the actual normalized rank-one GL intertwining integral attached to
+unitary tempered coefficients and the Mœglin–Waldspurger normalization.
+An arbitrary operator family, including the zero family, need not be nonzero.
+Source: Jiang–Zhang v4, Appendix B (B.7)–(B.9), pp.86–87, citing [66]. -/
 
-theorem tempered_standard_intertwiner (M : ℂ → H →L[ℂ] K) :
-    AnalyticOnNhd ℂ M {s : ℂ | 0 < s.re} ∧ ∀ s, 0 < s.re → M s ≠ 0 := by sorry
+/- tempered_standard_intertwiner: source-qualified signature omitted.
+Supply the standard rank-one integral for unitary tempered GL coefficients and
+a member of the indicated tempered classical packet, with its common measures
+and generic-member local-factor comparison. Retain the open half-plane Re(s)>0.
+Source: Jiang–Zhang v4, Appendix B proof of Theorem B.2, p.87. -/
 
-theorem generic_normalized_intertwiner (N : ℂ → H →L[ℂ] K) :
-    AnalyticOnNhd ℂ N {s : ℂ | 1 / 2 ≤ s.re} ∧ ∀ s, 1 / 2 ≤ s.re → N s ≠ 0 := by sorry
+/- generic_normalized_intertwiner: source-qualified signature omitted.
+Supply the actual Shahidi-normalized rank-one intertwiner for the relevant
+generic unitary classical packet member and unitary generic GL coefficients.
+Retain the parameter convention and the closed half-plane Re(s)>=1/2.
+Source: Jiang–Zhang v4, Appendix B proof of Theorem B.2, p.86, citing [11,
+Theorem 11.1]. This citation is not an independent reading of [11]. -/
 
-theorem jiang_zhang_holomorphy (Lc Lr ec er : ℂ → ℂ) (M : ℂ → H →L[ℂ] K) :
-    AnalyticOnNhd ℂ (shahidi_normalization Lc Lr ec er M) {s : ℂ | 1 / 2 ≤ s.re} ∧
-      ∀ s, 1 / 2 ≤ s.re → shahidi_normalization Lc Lr ec er M s ≠ 0 := by sorry
+/- jiang_zhang_holomorphy: source-qualified signature omitted.
+Supply the local component of the relevant generic global Arthur parameter,
+its pure-inner-form packet, irreducible admissible unitary generic self-dual
+GL coefficients, actual standard integral and the local L/epsilon factors in
+(5.4). Unrelated scalar factors and an arbitrary M do not meet this contract.
+Source: Jiang–Zhang v4, Appendix B Theorem B.2, p.85; proof pp.86–87. -/
 
 /-- Regular invertible slice of the function-field family. The source integral,
 continuation, rationality and Weyl transport must provide this data; it is not
@@ -6124,6 +6140,29 @@ proof requirements remain separate local harmonic-analysis obligations.
 checks use finite incoherent data, not an automorphic supplier construction. -/
 namespace TauCeti.AutomorphicSpectral.signatureChecks
 universe u
+
+-- The standard-module exponent bounds cannot hold for arbitrary finite sets.
+example : ¬ (∀ a ∈ ({0} : Finset ℝ), 0 < a ∧ a < 1 / 2) := by
+  norm_num
+
+-- Zero operator families violate each unrestricted half-plane assertion.
+example : ¬ (∀ s : ℂ, -1 < s.re → (0 : ℂ →L[ℂ] ℂ) ≠ 0) := by
+  intro h
+  exact h 0 (by norm_num) rfl
+
+example : ¬ (∀ s : ℂ, 0 < s.re → (0 : ℂ →L[ℂ] ℂ) ≠ 0) := by
+  intro h
+  exact h 1 (by norm_num) rfl
+
+example : ¬ (∀ s : ℂ, 1 / 2 ≤ s.re → (0 : ℂ →L[ℂ] ℂ) ≠ 0) := by
+  intro h
+  exact h 1 (by norm_num) rfl
+
+-- Scalar normalization of an arbitrary zero integral remains zero.
+example : shahidi_normalization (fun _ => 1) (fun _ => 1)
+    (fun _ => 1) (fun _ => 1) (fun _ => (0 : ℂ →L[ℂ] ℂ)) 1 = 0 := by
+  simp [shahidi_normalization]
+
 namespace arthur_truncation
 /-- Finite but incoherent data: a proper constant term scaled by two. -/
 def incoherentData (X : Type u) : TruncationData X Unit where
