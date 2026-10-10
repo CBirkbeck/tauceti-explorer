@@ -33708,7 +33708,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P8",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P8.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6270"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P9",
@@ -35562,8 +35563,9 @@
    ],
    "avoidAccountOf": "BP-ColemanPowerSeries--L0",
    "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries--L0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6430"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6430",
+   "finishedAt": "2026-10-10T18:44:23Z"
   },
   {
    "id": "BP-ColemanPowerSeries--L1",
@@ -49125,8 +49127,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49216,8 +49218,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80183,8 +80185,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81493,8 +81495,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84584,8 +84586,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
