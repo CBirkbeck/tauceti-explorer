@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-8260 new mistakes confirmed · 1354 awaiting review · 2354 already corrected in print · 154 rejected on review · 4 extractions and packets not yet checked.
+8260 new mistakes confirmed · 1354 awaiting review · 2355 already corrected in print · 154 rejected on review · 4 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -21321,6 +21321,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version (`PadicHodgeTheory`), Theorem 12.4.8 and Theorem 12.4.12, pp. 194–195 (version of 24 June 2009): corrected in the authors' footnotes in the preliminary version.
 - L. Berger, An introduction to the theory of p-adic representations, arXiv:math/0210184v1 (12 Oct 2002) (`PadicHodgeTheory`), III.1.1, p. 21 (arXiv v1): corrected in Berger 2008, Appendice B (the corresponding correction to [Ber02]).
 - L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284 (`PadicHodgeTheory`), Proposition 2.24, p. 24: corrected in Berger 2008 Appendice B and Berger's errata (2026), Section 1..
+- O. Brinon and B. Conrad, CMI Summer School notes on p-adic Hodge theory, 2009 preliminary version (`PadicHodgeTheory`), Example 4.4.4, p. 59, author PDF dated 24 June 2009: corrected in Verified here from the cyclotomic factorization; no assertion is made about publication of an erratum..
 - F. Diamond, M. Flach and L. Guo, The Tamagawa number conjecture of adjoint motives of modular forms, Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662). (`PadicHodgeTheory`), §1.1.1, p. 669 (Ann. Sci. ÉNS 2004); checked on the page image: corrected in corrected in the authors' arXiv version 2512.02348v2 (11 Dec 2025), §1.1, p. 6: Frob_p is geometric, φ_p = Frob_p^{−1}, and (ρ, N) with ρ(g) = gφ^{ν(g)}.
 - F. Diamond, M. Flach and L. Guo, The Tamagawa number conjecture of adjoint motives of modular forms, Ann. Sci. École Norm. Sup. (4) 37 (2004), 663–727, the Numdam copy (65 pages; printed page = PDF page + 662). (`PadicHodgeTheory`), §1.6.3, p. 684 (Ann. Sci. ÉNS 2004); checked on the page image: corrected in corrected in arXiv:2512.02348v2, §5.5, p. 60: "by Langlands, Deligne and Carayol [Ca0] for λ ∤ p, and by Scholl [Scho2] and Saito [Sai] in general".
 - L. Berger, Représentations p-adiques et équations différentielles, arXiv:math/0102179v3 (5 Oct 2001); Invent. Math. 148 (2002) 219-284 (`PadicHodgeTheory`), Propositions 2.11 and 2.12, p. 17-19: corrected in Berger's errata (2026), Section 1, 'Propositions 2.11 and 2.12'..
