@@ -81,7 +81,19 @@ A horizontal map u:E→F is O-linear with D_Fu=(u⊗1)D_E. Give identity, compos
 
 Prove uniqueness, horizontal evaluation and canonical biduality, and the sign κ_D∨=−transpose(κ_D). Finite locally free biduality reflects as well as preserves flatness. Pullback along a ringed differential morphism uses the supplied one-form comparison and its differential/wedge compatibility, with D_Y(b⊗e)=λ_Y e⊗d_Yb+b·df(D_Xe). Prove horizontal functoriality, identity, composition, tensor and dual comparisons, preservation of curvature and unique descent along horizontal transition maps satisfying their cocycle. Pullback needs no flatness premise for finite locally free E. Coordinate comparison identifies the intrinsic operator with λd+A only when the chart supplies a genuine differential basis and its commuting dual derivations. If λ is a unit, dividing D by λ gives the ordinary connection with curvature λ⁻²κ_D and inverse functor ∇↦λ∇. At λ=0 identify the object with an integrable Higgs field; at λ=1 identify it with CR.1's ordinary carrier.
 
-Required checks include zero and unit fibres, the zero module, a nonzero Higgs field and a change of frame that differentiates nonconstant entries. On Q[x], λ=2 sends x to 2dx; tensoring two such unit lines still sends x to 2dx. The ordinary unit d is additive but not O-linear, and multiplication by x on it is not horizontal. For the Higgs line dx, duality gives −dx and pullback along x=y² gives 2y dy and −2y dy; along x↦0 the field becomes zero. On Q[x,y,z], extending dx∧y dz gives −λdx∧dy∧dz, fixing the odd-degree sign. On A²_Q the field E12dx+E21dy has nonzero curvature. A sheaf-tensor test must distinguish local tensor sections from tensors of global sections. On the discrete space N with constant ring Q and zero calculus, the zero fields on stalks Qⁿ form a finite locally free bundle with no finite cover by constant-rank free charts. The constructor and comparison tests use native `SheafOfModules`, its locally free predicate and the CR.1 carrier. Sources: [EGa], §2.1, pp.5–6 and §4.2, pp.23–24; [EG20], §2.1, pp.108–109; Stacks §60.15. Inputs: E1's underived tensor, exterior, dual and descent, and CR.1's relative calculus and ordinary connection.
+**Checks.**
+
+- Required checks include zero and unit fibres, the zero module, a nonzero Higgs field and a change of frame that differentiates nonconstant entries.
+- On Q[x], λ=2 sends x to 2dx; tensoring two such unit lines still sends x to 2dx.
+- The ordinary unit d is additive but not O-linear, and multiplication by x on it is not horizontal.
+- For the Higgs line dx, duality gives −dx and pullback along x=y² gives 2y dy and −2y dy; along x↦0 the field becomes zero.
+- On Q[x,y,z], extending dx∧y dz gives −λdx∧dy∧dz, fixing the odd-degree sign.
+- On A²_Q the field E12dx+E21dy has nonzero curvature.
+- A sheaf-tensor test must distinguish local tensor sections from tensors of global sections.
+- On the discrete space N with constant ring Q and zero calculus, the zero fields on stalks Qⁿ form a finite locally free bundle with no finite cover by constant-rank free charts.
+- The constructor and comparison tests use native `SheafOfModules`, its locally free predicate and the CR.1 carrier.
+
+Sources: [EGa], §2.1, pp.5–6 and §4.2, pp.23–24; [EG20], §2.1, pp.108–109; Stacks §60.15. Inputs: E1's underived tensor, exterior, dual and descent, and CR.1's relative calculus and ordinary connection.
 
 ### Matrix charts, gauge and determinant
 
@@ -99,7 +111,16 @@ tr Aᵢ′=tr Aᵢ−λ(det G)⁻¹δᵢ(det G).
 
 Thus determinant gauge transport agrees with gauge by the native one-by-one unit induced by det G, and determinant curvature is gauge invariant. For a family of sections stored as the rows of S, alternating evaluation gives Σ_r det(updateRow S r (Dᵢ(S_r)))=λδᵢ(det S)+tr(Aᵢ)det S. The connection's matrix action on this family is S Aᵢᵗ. The auxiliary row-action identity uses A S and states Σ_r det(updateRow S r ((A S)_r))=tr(A)det S; transposing gives the required section formula. Neither identity requires S invertible or the connection flat. This is the bridge from matrices to exterior determinant descent. Its API includes trace evaluation, gauge, tensor, dual and the alternating intertwining map.
 
-Test δX=1 on Q[X], reject the identity map as a derivation and reject λ=X when δ=∂_X. Test a 1×1 matrix, the empty determinant det(0×0)=1, characteristic two trace formulae and a nonconstant gauge. The rank-zero determinant is the unit line; rank one recovers the original model; a scalar rank-two coefficient aI gives 2a with parameter λ. With two directions whose derivations vanish and matrices E12,E21 over Q, curvature is diag(1,−1), while the determinant is flat. The scalar unit Higgs field has every positive ordered iterate nonzero; E12 has bound 2 but is nonzero. Over Q[ε]/ε², the scalar ε on a line also has bound 2. These formulae use native `Derivation`, `MvPolynomial.pderiv`, matrices, trace, determinant, tensor and exterior algebra. Sources: [EGa], §4.2, pp.23–24; [EG20], §2.1, pp.108–109; the determinant derivative is imported from ColemanPowerSeries L1 rather than redeveloped here.
+**Checks.**
+
+- Test δX=1 on Q[X], reject the identity map as a derivation and reject λ=X when δ=∂_X.
+- Test a 1×1 matrix, the empty determinant det(0×0)=1, characteristic two trace formulae and a nonconstant gauge.
+- The rank-zero determinant is the unit line; rank one recovers the original model; a scalar rank-two coefficient aI gives 2a with parameter λ.
+- With two directions whose derivations vanish and matrices E12,E21 over Q, curvature is diag(1,−1), while the determinant is flat.
+- The scalar unit Higgs field has every positive ordered iterate nonzero; E12 has bound 2 but is nonzero.
+- Over Q[ε]/ε², the scalar ε on a line also has bound 2.
+
+These formulae use native `Derivation`, `MvPolynomial.pderiv`, matrices, trace, determinant, tensor and exterior algebra. Sources: [EGa], §4.2, pp.23–24; [EG20], §2.1, pp.108–109; the determinant derivative is imported from ColemanPowerSeries L1 rather than redeveloped here.
 
 ### Twisted Higgs fields and symmetric actions
 
