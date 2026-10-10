@@ -15270,8 +15270,8 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
-  "session": "codex-sv6tah",
-  "notes": "Bounded area-fix acceptance follows the earlier review for this job, with the newer accepted REV-FIX-RT-AREA-iwasawa-3~3 review preserved in full in reviewHistory. The typed period comparison retains unit, product, pullback and connecting-map compatibility; the Tate rank-one condition and arbitrary-pair supplier extension remain explicit. No newer source or supplier verdict is discarded."
+  "session": "codex-zz1p9S",
+  "notes": "Codex: bounded independent area-fix continuation following codex-sv6tah; the complete preceding review is preserved in reviewHistory. Findings /4 and /31: geometric Hodge theory remains an explicit supplier gap; the native PeriodComparison specifies pullback, connecting-map, unit and product laws, retains the Tate rank-one and product-compatibility conditions, and rejects doubling by the unit test. The arbitrary-pair comparison remains a request. The newer iwasawa review and its qualifications remain in history. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
  },
  "reviewHistory": [
   {
@@ -16228,6 +16228,13 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
    "date": "2026-10-10",
    "notes": "Codex (GPT-6), session codex-nnFZhT: independent bounded review following REV-FIX-RT-AREA-iwasawa-3~2 and the later algebraicgeometry~2 review, whose exact prior top-level verdict is preserved in reviewHistory. Checked all eight findings and owner handoffs, six MC.5/MC.6 supplier nodes, fresh public HMS/Kato/BDP evidence, six exact-pin localization/model APIs and the known-Hopf boundary. The typed comparison includes both edge laws, unit and product compatibility; ProductCompatible ties the good-pair structures to actual products. Checked the explicit rank-one Tate witness and inverse-evaluation contracts. The reader now has 182 nodes and the corrected mathematics; later annotation/review text needs an authorized refresh. Full suggested-file lean-check passes with 805 admitted-proof warnings and no other Lean warnings; pinned packet checker gives zero errors and warnings. No mathematical field changed. Acceptance covers these fixes and authorized handoffs, not the partial blueprint proof gaps, comment-only geomlanglands signatures or separate #5161 review. A later Kato normalization/source mismatch is recorded in the report and handoff for its owner; it is outside this editable packet and is not certified as repaired."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-10",
+   "session": "codex-sv6tah",
+   "notes": "Bounded area-fix acceptance follows the earlier review for this job, with the newer accepted REV-FIX-RT-AREA-iwasawa-3~3 review preserved in full in reviewHistory. The typed period comparison retains unit, product, pullback and connecting-map compatibility; the Tate rank-one condition and arbitrary-pair supplier extension remain explicit. No newer source or supplier verdict is discarded."
   }
  ],
  "fixes": {
