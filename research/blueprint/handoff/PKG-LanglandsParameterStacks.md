@@ -1,3 +1,180 @@
+# PKG-LanglandsParameterStacks — enhanced-interface checkpoint
+
+## Current result: 10 October 2026, codex-kKeoaw
+
+Codex (GPT-6), session `codex-kKeoaw`, claimed issue
+[#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098359787)
+after the [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098358544).
+The issue was reread after confirmation. Branch:
+`codex-kKeoaw-langlands-parameter-stacks`; starting atlas commit:
+`4d7c5071a5cb34e311750e1f3f831581c31e4cca`.
+
+**Blocked checkpoint; the package remains incomplete.** This run changes only
+this handoff. The unchanged README and Suggested.lean contain useful work,
+but the enhanced signatures required by the accepted plan remain absent.
+Metadata remains absent so output-existence checks do not certify completion.
+No second job was claimed.
+
+All forty manager-priority issues were checked directly: none was available.
+The complete available-swarm list contained 734 issues. Its highest eligible
+fallback tier contained two focus package jobs, #7889 and #7909; this session
+chose #7909 among those equal candidates. No eligible top or focus plan/package
+review appeared in that list.
+
+### What this run independently established
+
+The accepted LP packet has 79 nodes, 140 API entries and 90 tests. It has eight
+planned stages, no closed stage, five recorded gaps and sixteen requests. Its
+review accepts a target-level planning pass and explicitly retains omitted
+enhanced signatures and supplier extensions. The issue's assertion that its
+plan is complete therefore does not certify the package's Lean coverage.
+
+Read the E5 suggested file in full and the packet's status, gaps, coverage and
+LP-facing requests. E5 remains partial, without a review object: 22 nodes,
+ten gaps, sixteen requests and zero planned stages. `SymMonInftyCat` has
+`True` for its projection, coCartesian and Segal fields; `CAlg` and
+`AnimatedAlg` return `Unit`; `IndInfty` proves `True`. These are not types
+expressing the required constructions. This is a specification obstruction,
+not a demand for implemented proofs of supplier theorems.
+
+Freshly checked the complete statements, hypotheses, prerequisites, API,
+uses and tests of three additional LP targets against both the README and
+Suggested.lean. Their sixteen API names and ten test identifiers are absent
+even as text in the entire package suggested file:
+
+| Target suffix, relative to `LanglandsParameterStacks:` | Missing named API entries | Missing tests |
+| --- | --- | --- |
+| `LP2:excursion-presentation/categorical-hecke-datum` | `CategoricalHeckeDatum`; `.unit`; `.reindex`; `.create`; `.annihilate` | `hecke_empty_set`; `hecke_fold`; `hecke_zero_category` |
+| `LP3/good-filtration-t-structure` | `goodFiltrationTStructure`; `.connective_iff`; `.coconnective_iff`; `.tensorConnective`; `.homotopy` | `good_torus`; `good_zero`; `good_induced`; `good_shift_sign` |
+| `LP4/rep-action-on-perf` | `UniversalRepresentationBundle`; `.unit`; `.tensor`; `.reindex`; `.act`; `.baseChange` | `rep_bundle_unit`; `rep_bundle_at_parameter`; `rep_bundle_tensor` |
+
+A dot-prefixed name in each cell uses that cell's displayed namespace. This
+is an exact scoped absence result, not a complete count of missing signatures.
+The preceding checkpoint's three separately checked targets and wider
+inventory remain below for resumption.
+
+### Source reading and the actual contracts
+
+Downloaded and read the relevant portions of the
+[Fargues–Scholze author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+accessed 2026-10-10, SHA-256
+`9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+Fresh readings: VIII.4 setup, Theorem VIII.4.1, Definition VIII.4.2 and the
+operator construction, pp.290–292; §VIII.5.1, Proposition VIII.5.3,
+Definition VIII.5.4 and its following discussion, pp.294–295; Chapter X
+introduction and the universal representation functor, pp.339–340.
+
+The required distinctions are:
+
+- Hecke data include monoidal representation functors, group actions,
+  finite-set coherence, and creation/annihilation maps. The source's ordinary
+  category version does not by itself supply the accepted enhanced version.
+- The good-filtration t-structure lives on IndPerf. Its tests distinguish the
+  Weyl and dual-Weyl conditions and the shift sign; truncations need not stay
+  in Perf.
+- Universal associated bundles arise from the universal torsor and its Weil
+  action, with tensor and finite-set comparisons. Their construction precedes
+  the good-prime generation theorem and should not inherit that theorem's
+  prime restriction.
+
+This run did not read the whole paper, the general highest-weight sources or
+all auxiliary proofs. No source passage is recorded in this handoff.
+
+### Current upstream screen
+
+The current read-only TauCetiRoadmap revision is
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`, newer than the preceding
+checkpoint's `670582c`. The intervening commits concern IHG finite
+normalisation/Azumaya exports and ReductiveGroupsPartII local structure.
+The current native Tau Ceti revision is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+Read **AlgebraicVectorBundles** and **DGAInfinity** READMEs in full, and
+inspected their suggested interfaces. Preserve AlgebraicVectorBundles L0–L2
+for ordinary scheme sheaves, finite locally free bundles and relative Spec,
+and DGAInfinity Layers 5–6 for DG derived modules and perfect envelopes.
+Neither specifies LP's animated fpqc quotient-stack Perf or its coherent
+finite-set representation action. Read all eight LP library-audit entries
+and the pinned `SSet.Quasicategory` and `DerivedCategory` declarations.
+They supply horn filling and an ordinary triangulated localization,
+respectively, without the missing E5 contracts.
+
+A bounded name screen of current native Tau Ceti and upstream suggested files
+found none of `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`,
+`CategoricalHeckeDatum`, `goodFiltrationTStructure` or
+`UniversalRepresentationBundle`. This is not an exhaustive absence proof.
+The current IHG `InvariantCoordinateInput` still uses a single Hopf group for
+both tuple entries and conjugating points. Its `ring` imposes whole-group
+conjugation over every coefficient algebra. The new upstream commits have
+not supplied the separate identity-component acting-group interface required
+for `O[(H ⋊ Q)^n]^H`; the preceding checkpoint's concrete counterexample and
+owner gate remain relevant.
+
+### Why this job cannot complete inside its authorized scope
+
+The issue says: “Change no packet; if the plan has a mistake, describe it in
+the handoff note.” Only the three package outputs and this handoff are
+allowed. PROTOCOL §§3, 13, 15 and 20 require agreement with the plan,
+non-vacuous signatures, and one owner for the shared constructions.
+Defining general stable monoidal categories, animation, quotient-stack
+QCoh/Perf, or identity-component invariant theory inside this package would
+replan the suppliers. Giving unrelated ordinary categories or unspecified
+predicates their names would not state the accepted targets or their tests.
+Neither route resolves the obstruction.
+
+Completion requires an authorized repair of E5 and the other owners, with
+LP's supplier requests reconciled to their actual exports. The next package
+worker should first check those repaired exports; repeated elaboration of
+the unchanged LP shadow file cannot settle this gate.
+
+Acceptance for the three targets checked here requires:
+
+1. A genuine stable symmetric monoidal enhanced carrier, coherent exact
+   functors, equivariant endofunctors and an enhanced operator centre, so that
+   the finite-set unit, fusion, creation and annihilation comparisons are typed.
+2. Quotient-stack Perf and enhanced Ind, with tensor, coefficient pullback,
+   cohomology and the imported Weyl/dual-Weyl objects on the same carriers.
+   State the good-filtration t-structure there and its Mathlib homotopy
+   comparison; retain the non-connective `V[-1]` torus test.
+3. The universal parameter torsor and associated representation functor on
+   those quotient-stack carriers, with Weil actions, coefficient change and
+   the unit/tensor/fusion comparisons, before generation is invoked.
+
+These conditions supplement rather than replace the inherited derived-stack,
+induced-perfect, mapping-approximation, continuity and invariant-theory gates.
+After owner repairs, reconcile all 79 targets, 140 API entries and 90 tests,
+then add `topic = "math.NT"` metadata and rerun the package checks.
+
+### Fresh validation
+
+- `lean-check` on the unchanged package Suggested.lean: **exit 0, 286 warnings,
+  all uses of `sorry`, zero errors and no other warnings**. Available memory
+  before launch was 99 GB. This checks the existing shadow signatures, not
+  the absent interfaces listed above.
+- LP and E5 packet checkers: both **zero errors and zero warnings**. These
+  schema/graph checks do not certify the missing mathematical interfaces.
+- Baseline: `research/blueprint/baseline.json` and the managed driver identify
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the shared Mathlib source
+  revision was independently checked as
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+- The package README and Suggested.lean hashes are unchanged from the table
+  in the retained handoff below, as are the LP packet and both E5 inputs.
+- Scoped intake `check-files` and `git diff --check`: passed before submission.
+
+No upstream/library tree was edited or built. No supplier, packet, reader or
+package file was changed. No private book was used, no source passage was
+copied, and no background Lean process remains. All resumption information is
+in this handoff and its immutable predecessor links; scratch can be deleted.
+
+---
+
+## Retained preceding checkpoint and detailed worklist
+
+Everything below is the preceding checkpoint's record. Its historical readings,
+proof receipts and counts are retained for resumption, not recertified by this
+session except where the fresh checks above explicitly say so.
+
 # PKG-LanglandsParameterStacks — supplier gate checkpoint
 
 ## Current result, 10 October 2026
