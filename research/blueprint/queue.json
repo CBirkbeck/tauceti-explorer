@@ -46445,7 +46445,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianSchemesAndArithmeticModuliPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7531"
   },
   {
    "id": "REV-PKG-AbelianSchemesAndArithmeticModuliPartII",
@@ -46488,7 +46489,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7532"
   },
   {
    "id": "REV-PKG-AbelianVarietiesIsogenousToNoJacobian",
@@ -47377,8 +47379,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7535"
+   "state": "pending",
+   "note": "released on GitHub issue #7535"
   },
   {
    "id": "REV-PKG-ColemanIntegration",
@@ -48277,8 +48279,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48462,8 +48464,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7540"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7540",
+   "finishedAt": "2026-10-10T15:58:15Z"
   },
   {
    "id": "REV-PKG-GlobalGaloisDeformations",
@@ -49086,8 +49089,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49177,8 +49180,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -49268,8 +49271,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -83604,8 +83607,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5161"
+   "state": "external",
+   "note": "claimed on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
@@ -84545,8 +84548,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
