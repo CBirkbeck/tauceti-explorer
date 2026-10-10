@@ -2114,28 +2114,36 @@ GZ conjectures that Wγ on ℚ∖{γ⁻¹(∞)} extends real analytically to ℝ
 
 ### Figure-eight Habiro descendants
 
-For m∈ℤ define H_m(q)=Σ_(n≥0)(q;q)_n(q⁻¹;q⁻¹)_n q^(mn) in the integral ordinary Habiro ring. Laurent monomials q^(mn) cause no denominator problem because q is a unit; the summands are cofinally factorial-divisible. The exact recurrence is q^(m+1)H_(m+1)+(1−2q^m)H_m+q^(m−1)H_(m−1)=1. H₀ is the figure-eight Kashaev element, and the first descendant matrix row is (1,H₀,½(qH₁−q⁻¹H₋₁)); the last entry is in ½ times the integral Habiro ring. Its Taylor coefficient of (q−1)² is −½, so it is not an element of the integral ℤ-Habiro ring. The source explicitly only asserts visible integral membership after multiplying this entry by 2. Nontrivial matrix rows involve the selected shape-field branches and are not ordinary integral Habiro elements by this formula alone.
+For m∈ℤ, H_m=Σ_n(q;q)_n(q⁻¹;q⁻¹)_n q^(mn) belongs to the integral Habiro ring: q is a unit and the summands are factorial-divisible. Its recurrence is q^(m+1)H_(m+1)+(1−2q^m)H_m+q^(m−1)H_(m−1)=1. H₀ is the figure-eight Kashaev element. The trivial first row is (1,H₀,Q₂), Q₂=½(qH₁−q⁻¹H₋₁). Only 2Q₂ is visibly integral; Q₂'s t² coefficient is −½ for t=q−1. Nontrivial rows need shape-field branches.
 
 **Depends on.** [Kashaev invariant][AQT23]; `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`; `HabiroCyclotomicCompletions:HC.2/factorial-series`; `HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity`.
 
-**Proof.** Construct the sum using the imported factorial-series convergence and q-unit theorem. Telescope the shifted summands to prove the inhomogeneous recurrence in every finite quotient, then pass to the inverse limit. Specialize at roots by truncating at their order. For Q₂=½(qH₁−q⁻¹H₋₁), the n=0 summand is (q−q⁻¹)/2=(q−1)−(q−1)²/2+⋯; every n≥1 summand has order at least 3. This detects its coefficient-ring localization.
+**Proof.** Use HC's q-unit and factorial-series maps, telescope in finite quotients and truncate root evaluations. Independently, realize q=1+t as a native power-series unit; each summand is divisible by t^(2n). Define degree d using n≤⌊d/2⌋ and prove stabilization for d<2N. The n=1 term is −t²q^(m−1), so H_m starts 1−t²+(1−m)t³. Map coefficients ℤ→ℚ for Q₂, then substitute t=exp(−h)−1, whose constant is zero. This Taylor construction does not supply HC's completion or its comparison map.
 
 **API.**
 
-- `figureEightDescendant`: The integral Habiro series H_m for every integer m.
-- `figureEightDescendant_recurrence`: The displayed inhomogeneous three-term recurrence.
-- `figureEightDescendant_eval`: At a root of order N only n<N contribute.
-- `figureEightDescendant_firstRow`: The trivial row (1,H₀,Q₂) in the scalar extension by ½, with 2Q₂ integral; Q₂ is not in the integral ℤ-Habiro ring.
+- `figureEightDescendant`: Integral Habiro H_m.
+- `figureEightDescendant_recurrence`: The inhomogeneous recurrence above.
+- `figureEightDescendant_eval`: At root order N, only n<N contribute.
+- `figureEightDescendant_firstRow`: Row (1,H₀,Q₂) after adjoining ½; 2Q₂ is integral, Q₂ is not.
+- `DescendantTaylor`: Unit `q`, integer powers `qpow`, Pochhammer `term`, and `expMinusOne`; unit/constant laws, t^(2n) divisibility, term n=1 and admissible substitution.
+- `figureEightDescendantTaylor`, `figureEightHalfRowTaylor`, `figureEightFirstRowTaylor`: Native ℤ[[t]] descendants and ℚ[[t]] row; finite precision, recurrence, low coefficients, doubling and nonintegrality.
+- `figureEightDescendantHSeries`, `figureEightHalfRowHSeries`: Native substitution q=exp(−h); normalization, recurrence, H_m(−h)=H_−m(h), vanishing odd degrees for H₀.
 
 **Tests.**
 
-- `descendant_root_one`: ev₁H_m=1 for every m.
+- `descendant_root_one`: ev₁H_m=1.
 - `descendant_root_minus_one`: ev₋₁H_m=1+4(−1)^m.
-- `descendant_root_three`: For a primitive cube root ζ, evζH₀=13.
-- `descendant_recurrence_root_one`: At q=1 the recurrence gives 1−1+1=1.
-- `descendant_half_row_not_integral`: The Taylor coefficient of (q−1)² in Q₂ is −½; an implementation placing this matrix entry in the integral ℤ-Habiro ring contradicts its Taylor map.
+- `descendant_root_three`: evζH₀=13 at a primitive cube root.
+- `descendant_recurrence_root_one`: 1−1+1=1.
+- `descendant_half_row_not_integral`: Q₂ has t² coefficient −½; no integral power series maps to it.
+- `descendant_Taylor_constant`, `descendant_Taylor_linear`, `descendant_Taylor_cubic`: Coefficients 1,0,1−m.
+- `descendant_Taylor_finite_precision`, `descendant_Taylor_boundary_term`: Degree 5 uses n<3; the recurrence at m=0 retains right side 1.
+- `descendant_half_row_linear`, `descendant_half_row_quadratic`, `descendant_first_row_constant`: Q₂ starts t−t²/2; row constants (1,1,0).
+- `descendant_h_convention`, `descendant_h_odd`, `descendant_half_row_h_sign`: Cubic coefficients for m=±1 are ±1; H₀'s degree 7 is zero; Q₂ starts −h+11h³/6.
+- `descendant_summand_zero`, `descendant_summand_one`, `descendant_summand_two`: Terms 1,−t²q^(m−1), and zero below degree 4 for n=2.
 
-**Sources.** [GZ][GZ], §7.1, pp. 52–56, descendant sums and recurrence.
+**Sources.** [GZ][GZ], §4.3, (4.5), pp. 25–26; §7.1, (7.1), (7.3)–(7.5), pp. 52–53. Low Taylor coefficients follow by finite expansion.
 
 <a id="qt-7-bettin-drappeau-proved-cases"></a>
 

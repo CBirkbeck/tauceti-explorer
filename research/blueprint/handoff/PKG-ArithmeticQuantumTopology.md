@@ -1,5 +1,153 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-Ogf0LN`, issue #7889, 2026-10-10.
+Claim comment 6095607536 was confirmed by bot comment 6095608646.
+Branch: `codex-Ogf0LN-arithmetic-quantum-topology`. No second job was claimed.
+
+This run advances **QT.7's figure-eight descendant Taylor interfaces**. The
+package remains blocked on its external geometric supplier contracts. These
+are mathematical interfaces owned elsewhere, not missing proof implementations
+that a package may replace with `sorry`. The accepted plan explicitly imports
+them, and this issue allows edits only to its package and handoff. No accepted
+input, supplier roadmap or library file was changed. This is a dependency
+checkpoint, not a time-limit checkpoint.
+
+## Saved in this run
+
+- `Suggested.lean`: **4,452 lines, 217,491 bytes**. Adds one individual import
+  and a final **274-line** QT.7 section. The inherited body is retained exactly.
+  The addition has **9 concrete definitions, 33 API theorems and 21 examples**.
+  Its carriers are Mathlib's actual `PowerSeries ℤ`, `PowerSeries ℚ`, units
+  and a native `Fin 3` row. No opaque completion or geometric carrier is added.
+- `README.md`: **199,963 bytes**. Only the figure-eight descendant target
+  changes. All ordered **106 target headings**, **114 anchors**, **75 reference
+  destinations** and **477 distinct inherited backtick-named components in
+  API/test bullet prefixes** are retained; 20 prefix names are added. The
+  earlier handoff's count of 464 used a different inventory. The current
+  conservation check compares the actual old and new prefix sets directly.
+- `metadata.toml` remains absent. `issues.py:deliverables_complete` treats a
+  package with all output files present as complete. Adding the last file now
+  would falsely complete this package. Its eventual content is one line,
+  `topic = "math.GT"`, after every layer meets PROTOCOL §20.
+
+## Exact mathematical interfaces and controls
+
+`DescendantTaylor.q` is the actual unit 1+t over a commutative ring, with its
+integral inverse built using `PowerSeries.invOfUnit`. `qpow` takes integer
+powers in the unit group. Negative powers are not the ring's total inverse,
+which is unavailable over ℤ. Its unit, exponent-addition and constant laws
+have Lean proofs. `term m n` is the product of the two finite Pochhammer
+factors and q^(mn); its target valuation is at least 2n. The n=1 formula is
+−t²q^(m−1).
+
+`figureEightDescendantTaylor m` defines coefficient d by summing n≤⌊d/2⌋.
+The precision theorem identifies this coefficient with any partial sum n<N
+when d<2N. It is a knot-specific integral Taylor series, not a duplicate
+construction of HC.1's Habiro ring or HC.2's general factorial-series map.
+The recurrence retains the inhomogeneous right side 1. Its first four
+coefficients are 1, 0, −1, 1−m.
+
+`figureEightHalfRowTaylor` is exactly ½(qH₁−q⁻¹H₋₁), over ℚ[[t]], and
+`figureEightFirstRowTaylor` is (1,H₀,Q₂). Doubling Q₂ gives the coefficientwise
+image of an integral series. Its t coefficients start 0, 1, −½, −3/2, 5/2.
+The nonintegrality theorem has a Lean proof from the quadratic-coefficient
+signature: an integral preimage would imply 2a=−1 in ℤ. This does not establish
+that coefficient signature's `sorry` proof obligation or the independent
+Habiro/Taylor comparison.
+
+`DescendantTaylor.expMinusOne` uses Mathlib's formal exponential rescaled
+by −1. Its zero constant and admissibility for substitution have Lean proofs.
+`figureEightDescendantHSeries` and `figureEightHalfRowHSeries` substitute
+this actual series for t, fixing q=exp(−h). Their target cubic descendant
+coefficient is m, not −m; H₀'s odd degrees vanish by reciprocal symmetry.
+The half-row h coefficients start 0, −1, 0, 11/6, 0. Normalization of every
+H-series has a Lean proof; the recurrence, symmetry and coefficient theorems
+remain honest source-theorem obligations.
+
+These definitions do not construct the full geometric knot matrix or its
+nontrivial shape-field rows. The new Taylor interfaces do not claim integral
+Habiro membership from Taylor integrality alone. To connect them with that
+ring, use the actual HC.1 q-unit and HC.2 factorial-series/Taylor maps and
+prove that they send each Pochhammer summand to `DescendantTaylor.term`.
+
+## Source and library audit
+
+Read the public fixed GZ v3 source, *Knots, Perturbative Series and Quantum
+Modularity*, https://arxiv.org/pdf/2111.06645v3:
+§4.3, equation (4.5), printed pp. 25–26; §7.1, equations (7.1), (7.3)–(7.5),
+printed pp. 52–53, with the following discussion on p. 54. SHA-256:
+`2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de`.
+This matches the input source receipt. The low-degree signatures are finite
+expansions of those explicit formulas, not separate claims that the source
+proves Habiro membership of Q₂. Only own-word results and precise locators
+are saved. No restricted book was needed; no source passages or PDFs are
+included in the repository.
+
+Read the pinned statements before use: `PowerSeries.mk`, `coeff_mk`,
+`coeff_map`, `coeff_zero_eq_constantCoeff_apply`, `invOfUnit`,
+`mul_invOfUnit`, `invOfUnit_mul`, `coeff_rescale`, `exp`, `coeff_exp`,
+`constantCoeff_exp`, `subst`, `HasSubst.of_constantCoeff_zero'` and
+`constantCoeff_subst_of_constantCoeff_zero`; `Units.map` and its value and
+integer-power laws. The reviewed library catalogue has no dedicated
+ArithmeticQuantumTopology entry. Existing scalar-Habiro and Gaussian
+supplier ownership is preserved.
+
+Pinned Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+Checker Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`.
+Current read-only TauCetiRoadmap: `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`.
+Current read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The current GeometricTopology and SemisimpleAlgebras READMEs were read in
+full as the two upstream examples.
+
+## Validation in this run
+
+- Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 604 warnings**, all `declaration uses sorry`. Available
+  memory before that run was 110 GB. Only the shared checker was used, one
+  invocation at a time; no Lean process remains running.
+- Packet checker: **0 errors, 0 warnings**. Accepted input still has 106
+  nodes, 8 gaps, 19 open requests, 8 planned stages and 0 closed stages.
+- **2,362 exact rational controls passed** through degree 14 for descendants
+  m=−12,…,12. Generalized-binomial q powers were checked independently
+  against polynomial multiplication and a recursively inverted 1+t. Checks
+  include integral coefficients, summand valuations, every admissible finite
+  cutoff, the recurrence, both first-row formulas, doubling and nonintegrality.
+  Formal exponential substitution was compared against direct exponential
+  Pochhammer factors, including the h recurrence and reciprocal symmetry.
+  Negative controls detect omitting ½, losing the Laurent inverse, dropping
+  the recurrence's boundary term and using exp(+h). These finite checks are
+  not infinite-order proofs or geometric comparisons.
+- README heading/anchor/reference/name conservation and exact inherited
+  Lean-body conservation passed. Scoped intake `check-files`: **3 files,
+  0 problems**. `git diff --check` passed. Scratch files are not deliverables.
+
+## Blocking suppliers and where to resume
+
+Fresh reading confirms the accepted plan's G1 blocker:
+
+- `SmoothLink/Basic.lean` supplies a labeled oriented family of disjoint
+  smooth circle embeddings and explicitly excludes normal-bundle framings.
+  `SmoothLink/Isotopy.lean` supplies unframed ambient isotopy. Neither gives
+  the framed multi-link quotient, linking number and Seifert-framing laws
+  required by QT.0 and the framed RT/bottom-tangle carrier in QT.1.
+- `DehnSurgery/Slope.lean` supplies primitive actual peripheral homology
+  classes modulo sign and `FramedBoundaryTorus` slope arithmetic. It does
+  not construct the filled manifold, calculate its H₁ from the linking
+  matrix or prove ordinary Kirby/Fenn–Rourke equivalence. A matrix cokernel
+  is not a replacement manifold. These are explicit GeometricTopology,
+  Part II requests in the accepted input.
+
+QT.5/QT.6 also still require ordered cusped face-pairing geometry,
+peripheral/strong flattenings, the geometric NZ datum, the coefficient-field
+Gaussian bracket and the spectral/microlocal AK contracts recorded below.
+The new Taylor series close none of those geometric gaps. Resume by obtaining
+these exact owner signatures, then instantiate the package's native algebraic
+interfaces and state the geometric comparisons. Do not replace them with an
+unspecified predicate, a free matrix pretending to be geometry or a second
+supplier carrier. Keep the eight-layer remaining-work table below.
+
+## Prior checkpoint: `codex-ydEjCj`
+
 Worker: Codex (GPT-6), session `codex-ydEjCj`, issue #7889, 2026-10-10.
 Claim confirmed after comment 6095288222. Branch:
 `codex-ydEjCj-arithmetic-quantum-topology`. No second job was claimed.
