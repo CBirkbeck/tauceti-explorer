@@ -301,8 +301,10 @@ variable {Λ P R T : Type*} [CommRing Λ] [CommRing P] [CommRing R] [CommRing T]
   [Algebra Λ R] {I : Type*}
 
 /-- PL.7/generic-potential-propagation.
+D is [L+:Q] and r is |R|; the twist-degree bound is retained.
 Omitted: genericity, residual invariants, triviality at R, q_v bounds and unitary setup. -/
 theorem generic_potential_propagation (θ : P →+* R) (J : I → Ideal P)
+    (D r : ℕ) (hdegree : r < D)
     (ϖ : R) (p : PrimeSpectrum R) (hchar : ϖ ∈ p.asIdeal)
     (hdim : ringKrullDim (R ⧸ p.asIdeal) = 1)
     (hauto : IsPotentiallyProAutomorphic θ J p)
@@ -312,7 +314,7 @@ theorem generic_potential_propagation (θ : P →+* R) (J : I → Ideal P)
 
 /-- PL.7/connectedness-ordinary-lifting, the all-component conclusion.
 Omitted: unitary setup, generic-prime/connectedness hypotheses and the O-point classicality
-conclusion. D is [L+:Q], r is the cardinality of R; the sufficient +3 bound is retained. -/
+conclusion and the q_v congruence bound at R. D is [L+:Q], r is the cardinality of R; the sufficient +3 bound is retained. -/
 theorem connectedness_ordinary_lifting (θ : P →+* R) (J : I → Ideal P)
     (D n r d₀ d_l : ℕ) (hn : 2 ≤ n) (hd₀ : r * n * (n + 1) + 3 < d₀)
     (hdl : max (r * n * (n + 1) + 3) (n * (n - 1) / 2 + 1) < d_l)
