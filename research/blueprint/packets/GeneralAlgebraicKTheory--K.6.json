@@ -5258,7 +5258,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
     "date": "2026-10-10",
-    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Reviewed the noncommutative right-module P¹/Nil, Karoubi cone/index, Frobenius localization and nonunital matrix-continuity decompositions for /4, /17–/19. Corrected Quillen’s dual pagination and the K-book uniqueness locator; corrected Ranicki projector blocks and homotopy sign, with a distinguishing nonexample; included the unit/K₀ adapter in the proposed early product stage. /4 remains open because the early product stage is not applied and current K.6/K.7 parents are cyclic. Preserve the explicit Keller and finite-Artin K₃ supplier gaps. Future spectrum/triangulated signatures remain comments, not elaborated statements. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
+    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the early product and unit-product proposed parents and the actual K.6/K.7 cycle. Finding /4 remains open until the maintainer applies the stage restructuring. Reread K-book V localization/cofinality proof interfaces; support-space comparison remains distinguished from the full stable fibre. Existing finite-domination, Keller and finite-Artin source boundaries are retained. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
   },
   "reviewHistory": [
     {
@@ -5384,6 +5384,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
       "date": "2026-09-30",
       "notes": "Codex session codex-J6LwjP; follows independent-review-REV-GeneralAlgebraicKTheory--K.6. Corrected handedness, nonzero-ring tests, the MR/VB splitting argument, and the map from the entire Nil category; added its explicit natural resolution. Restricted Morita product claims and positive matrix size; exposed the missing nonunital matrix continuity adapter. Noncommutative P¹ resolution/localization, Karoubi comparison, early products and several True-valued prototypes remain inadequate for /4, /17–/19. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+      "date": "2026-10-10",
+      "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Reviewed the noncommutative right-module P¹/Nil, Karoubi cone/index, Frobenius localization and nonunital matrix-continuity decompositions for /4, /17–/19. Corrected Quillen’s dual pagination and the K-book uniqueness locator; corrected Ranicki projector blocks and homotopy sign, with a distinguishing nonexample; included the unit/K₀ adapter in the proposed early product stage. /4 remains open because the early product stage is not applied and current K.6/K.7 parents are cyclic. Preserve the explicit Keller and finite-Artin K₃ supplier gaps. Future spectrum/triangulated signatures remain comments, not elaborated statements. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
     }
   ]
 }

@@ -4710,7 +4710,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
     "date": "2026-10-10",
-    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of /30: the four new quotient-bar nodes give an explicit integral kernel-complex proof of the five-term sequence, mixed commutators, positive connecting sign and naturality using the actual pinned homology maps. Replaced their uncleared-book proof citations with public Löh statement/naturality locators and explicitly distinguished the worker chain-level derivation. Added actual nonsurjective C₁→C₂, C₄→C₂ map, S₃ sign-quotient and identity tests; retained older source and plus-construction gaps without certifying them. This partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
+    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Independently checked the quotient-bar kernel, its H1 identification, inclusion map and naturality against the pinned chainsMap, degree-two differential, H1 generator formula and connecting-map naturality. Reread Löh Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, and K-book III.5.3.2–5.5.1. The direct bar argument is a worker derivation, not a construction contained in Löh. Existing unrelated source gaps remain explicit. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
   },
   "reviewHistory": [
     {
@@ -4951,6 +4951,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
       "date": "2026-09-30",
       "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+      "date": "2026-10-10",
+      "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of /30: the four new quotient-bar nodes give an explicit integral kernel-complex proof of the five-term sequence, mixed commutators, positive connecting sign and naturality using the actual pinned homology maps. Replaced their uncleared-book proof citations with public Löh statement/naturality locators and explicitly distinguished the worker chain-level derivation. Added actual nonsurjective C₁→C₂, C₄→C₂ map, S₃ sign-quotient and identity tests; retained older source and plus-construction gaps without certifying them. This partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
     }
   ]
 }

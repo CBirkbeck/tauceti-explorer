@@ -1,12 +1,62 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Refs #5542. Codex — `codex-dbAQYQ`, 10 October 2026.
+Refs #5542. Codex — `codex-qY3SVa`, 10 October 2026.
 
-**The independent review is complete; this is not a checkpoint.** The report
-is [REV-FIX-RT-AREA-ktheory-1~2](../reviews/REV-FIX-RT-AREA-ktheory-1~2.md).
-It gives all 38 verdicts, C1–C11 corrections, public-source URLs/hashes and
-the exact validation results. The seven packets have this review's dated
-top-level verdicts and retain their previous reviews in `reviewHistory`.
+**Checkpoint: the GitHub issue's seven-packet review is complete, but the
+expanded queue job is blocked by a scope mismatch.** The report is
+[REV-FIX-RT-AREA-ktheory-1~2](../reviews/REV-FIX-RT-AREA-ktheory-1~2.md).
+It gives all 38 scoped verdicts, this run's evidence and validation, and
+the retained C1–C11 corrections and source record from `codex-dbAQYQ`.
+The seven packets have refreshed top-level verdicts; the prior same-job
+verdicts are preserved in `reviewHistory`.
+
+## Resume here: reconcile issue and queue scope
+
+The issue body and full instructions name seven packets and their suggested
+files. The current `queue.json` review job names **22 packets** and 22
+suggested files. `issues.py`'s `deliverables_complete` checks every packet
+output for this exact review id, including a negative verdict. Fifteen
+suppliers still have their own different review ids. This explains why
+earlier PRs that claimed a completed review were merged as checkpoints.
+Negative mathematical verdicts on the seven original packets are not the
+completion blocker.
+
+WORKERS.md says “Edit only the files the issue names.” This run asked for
+clarification before editing the additional suppliers; no answer had
+arrived at submission. Do not silently change the queue, relabel issues,
+or overwrite supplier verdicts merely to satisfy intake. The maintainer
+must synchronize the issue's deliverables or explicitly authorize the
+expanded review. Then review the actual area-fix obligations in each added
+packet, preserve its old review in history, and write this job's scoped
+accepted/needs_changes verdict. Broad unrelated packet gaps remain outside
+the area-fix certification.
+
+Additional packet basenames (each has a matching `.lean` under `suggested/`):
+
+1. `ArithmeticKTheory--N.3-finite-generation`
+2. `BorelRegulators`
+3. `MotivicEtaleKTheory--M.1`
+4. `MotivicEtaleKTheory--M.5d`
+5. `ArithmeticKTheory--N.5`
+6. `StableHomotopyKTheory`
+7. `ArithmeticKTheory--N.2`
+8. `KTheoryLowDegrees--U.1`
+9. `KTheoryLowDegrees--U.6`
+10. `SpecialValuesBirchTate`
+11. `SchemeKTheoryOperations`
+12. `KTheoryLowDegrees--U.4`
+13. `K3BlochGroups--V.1`
+14. `KTheoryLowDegrees--Z.3`
+15. `KTheoryFiniteLocalFields`
+
+Read-only structural checks of all fifteen passed with zero errors/warnings
+at the pinned baseline. They were not edited or fully reviewed by this run;
+their Lean files were not compiled. Original seven files all compiled,
+with zero errors and only admitted-declaration warnings: N.1 124, K.1 0,
+T.3 275, N.7 45, K.6 6, T.1 72, K3BlochGroups 807. Their executable
+content did not change. Every final packet check and `git diff --check`
+passed. Current source locators and hashes are in the report; no scratch
+file is needed to resume.
 
 Accepted: ArithmeticKTheory N.1, K2SymbolsBrauer T.1, K3BlochGroups.
 Needs changes: GeneralAlgebraicKTheory K.1/K.6, ArithmeticKTheory N.7,
@@ -17,7 +67,8 @@ All seven packet checks pass with zero errors/warnings at Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. All seven actual Lean files
 elaborate with only `sorry` warnings; K.1 has none. Future comments are not
-type checked. The report records warning totals and the three-file rechecks.
+type checked. The report distinguishes this run's checks from the earlier
+three-file rechecks.
 Nothing is claimed formalized; no live atlas, reader, supplier or upstream
 roadmap file was edited. No standalone link map or restructuring result
 was a deliverable. Scratch evidence is reproduced in the report where
@@ -78,12 +129,14 @@ scope does not cover `Q((t))→Q((s))`, `t=s²`. Do not narrow the intended
 all-field Milnor theorem or duplicate an upstream toolkit in T.4. Keep the
 pure-first finite-normalization and independent transfer decompositions.
 
-## Supplier handoffs still requiring their own review
+## Supplier handoffs for the expanded review
 
 - /5, /33: move rational Hurewicz/Cartan–Serre to H.6 and update Borel
   consumers; retain homotopy associativity and the finite-type duality scope.
-- /23: S.4 imports H.6's general exact couples, supplying only its geometric
-  filtration and convergence adapters.
+- /23 is now carried: both S.4 coniveau nodes import H.6's exact-couple,
+  filtered-spectrum and convergence nodes. The earlier missing-destination
+  assessment is stale. This read-only check does not accept the whole scheme
+  packet.
 - /2: M.1/M.5d retain the requested naturality and Dedekind truncation form.
 - /1, /7, /35: Borel's full coefficient/arithmetic-subgroup contract,
   degree-one separation and explicit ALS.5 import still need destination
