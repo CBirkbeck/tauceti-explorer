@@ -1,3 +1,29 @@
+# Current handoff: Codex codex-jrmgFT
+
+10 October 2026; Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); base `c5bc043866c06b60b2fbe729da5ce32c18f3c2b6`. Claim confirmed in [comment 6092951905](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6092951905). One job only. **Scope-blocked checkpoint**, continuing [#8179](https://github.com/CBirkbeck/tauceti-explorer/pull/8179).
+
+## New work
+
+Corrected SF.0's remaining work in SchemeAndStackFoundations: import relative Spec and its API from existing AlgebraicVectorBundles L1A/L1B rather than plan them again. Read the current upstream README/signatures at roadmap commit `dea8191cc6047d6142a65872ebce6eeeb841a29b` and current Tau Ceti RelativeSpec.Basic/Functor at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The latter already constructs the relative spectrum and contravariant functor; do not claim it implements the entire roadmap API or belongs to the older atlas baseline. General relative Proj work and its finiteness hypotheses remain. Preserve the pinned library audit as a record of its pins.
+
+The SF review now records this correction, retaining its predecessor in reviewHistory. No node, prerequisite, test, Lean signature or stage status changed. The SF.0 reader is outside this review's authorized list and needs synchronization by its owner. The other four accepted fix-disposition verdicts are unchanged. The report preserves every prior finding disposition and all source/Lean evidence.
+
+## Exact blocker
+
+The fresh live issue names eleven files covering five packet pairs; its full instructions repeat those same five packets. The current queue requires 23 files covering eleven pairs. All files exist. Stock `issues.deliverables_complete` is true for the issue's exact output list and false for the queue; five packet reviewer markers match and six do not. Negative verdicts count as completed reviews, so this is edit scope, not a requirement to accept flawed mathematics.
+
+At author merge `f0b79768c` (#7968), the queue already listed 36 author outputs and 23 review outputs, both covering eleven packets. The author ledger independently records eleven. The mismatch therefore predates this continuation; simply narrowing the review to five would exclude six author-side dispositions. Prefer authorizing the six extra packet/suggested pairs and restoring the missing full review prompt before refreshing both issue sections. The report below lists the six extra dispositions and concrete Adic correction.
+
+A scope clarification was requested; no expanded scope or repair authorization arrived. Queue, generator and prompt edits are outside this issue and fail intake's allowed paths. No issue body or label was changed. **The next useful action is maintainer scope reconciliation.** Keep this assignment out of worker selection until that is recorded; workers must not change its labels. Do not repeat the five completed verdicts to try to finish the eleven-packet predicate.
+
+## Fresh validation
+
+All five authorized packet checks pass at the exact-pin declaration index with zero errors/warnings, including the corrected SF packet. Node counts: 182, 476, 303, 363, 78. No source excerpt fields are present. All five suggested-file hashes match the earlier successful receipts below. Lean was not rerun because no Lean signature or test changed; earlier elaboration receipts remain their original workers' evidence. No process is running and no scratch file is needed by the continuation.
+
+The inherited notes below retain the mathematical continuation and six-pair dispositions. Their source reading and compilation belong to their named sessions, not this one.
+
+---
+
 # REV-FIX-RT-AREA-algebraicgeometry~2 — scope-blocked checkpoint
 
 Codex session `codex-3qWhkP`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), continuing checkpoint [#8158](https://github.com/CBirkbeck/tauceti-explorer/pull/8158). The bot confirmed this session's claim in comment `6092541383`. One job only; no second claim. This is a scope-blocked checkpoint.
