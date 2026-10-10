@@ -127560,12 +127560,18 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
       "date": "2026-10-10",
       "notes": "Codex, codex-Jk8aAy. Scoped findings /1–/2 review following the preserved earlier independent reviews. Fresh Morita §1 Lemma 1, Theorem 1 and recurrence pp.255–256 confirms the signed, unit-valued continuous Gamma function and the modulus-four exclusion. Fresh Robert §4 p.166 confirms the coefficient-decay proof boundary remains a supplier obligation; no full new Robert/Gross–Koblitz or 1663-node source audit is claimed. The L3-2 normalized-root, dyadic and derivative obligations remain explicit, with the RD.6 coefficient-bound/splitting suppliers. Checker: zero errors and 26 inherited short-API warnings outside this fix scope. Native lean-check exits 1 at research-module import resolution before declaration elaboration. No source excerpt or new mathematical construction added. The four-packet queue scope remains unresolved; this verdict does not review L3-2 or D.1."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-10",
+      "notes": "Codex, codex-1TGphB; independent scoped continuation of codex-Jk8aAy and the preserved earlier reviews. Fresh public Morita Section 1 pp.255–256 confirms the signed finite product, both unit/nonunit recurrence branches and the dyadic modulus-four exception. Fresh Robert Section 4 pp.165–166 confirms that the telescoping comparison still needs the explicit coefficient-decay supplier. The normalized-root, dyadic, derivative-coordinate, correction-term and independent nonvanishing obligations remain with L3-2 and the existing RD.6 requests; that excluded input is not newly accepted here. Checker: zero errors, 26 inherited short-API warnings outside the fix scope. Native lean-check: exit 1 at the missing research-module prefix, before any declaration elaborates. No new source finding, mathematical node or proof claim. Queue completion remains blocked by the four-packet versus two-packet live scope."
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
     "date": "2026-10-10",
-    "notes": "Codex, codex-1TGphB; independent scoped continuation of codex-Jk8aAy and the preserved earlier reviews. Fresh public Morita Section 1 pp.255–256 confirms the signed finite product, both unit/nonunit recurrence branches and the dyadic modulus-four exception. Fresh Robert Section 4 pp.165–166 confirms that the telescoping comparison still needs the explicit coefficient-decay supplier. The normalized-root, dyadic, derivative-coordinate, correction-term and independent nonvanishing obligations remain with L3-2 and the existing RD.6 requests; that excluded input is not newly accepted here. Checker: zero errors, 26 inherited short-API warnings outside the fix scope. Native lean-check: exit 1 at the missing research-module prefix, before any declaration elaborates. No new source finding, mathematical node or proof claim. Queue completion remains blocked by the four-packet versus two-packet live scope."
+    "notes": "Fresh independent scoped review by Codex, codex-O0a12m, following codex-1TGphB and preserved prior evidence. Read Morita Section 1 pp.255–256 as images and Robert Section 4 pp.165–166 as images; signed unit-valued extension, both recurrence branches, dyadic modulus-four exclusion and explicit RD.6 decay boundary remain sound. Full Gross–Koblitz/Ferrero–Greenberg and L3-2 review are outside the live scope. Checker: 0 errors, 26 inherited short-API warnings. Full lean-check fails at the unresolved research import prefix before elaboration; no full compile is claimed. No mathematical contract changed."
   }
 }

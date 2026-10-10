@@ -1,57 +1,53 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex, session `codex-1TGphB`, 10 October 2026; issue
+Codex session `codex-O0a12m`, 10 October 2026; issue
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-One bot-confirmed claim. **Checkpoint: scope decision required.**
+One bot-confirmed claim; one checkpoint PR. **Blocked by the live issue/queue
+scope mismatch. The two authorized independent reviews are finished.**
 
-The two authorized independent reviews are finished: L3 is accepted within
-scope; PMIA needs changes for its generic Fitting targets, already implemented
-in current Tau Ceti. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-records all six finding verdicts, fresh source locators/hashes, native API
-mapping, corrections and preserved historical reviews. It does not claim a
-new complete audit of either packet or the two excluded inputs.
+L3 is accepted within the fix scope. PMIA needs changes because current Tau
+Ceti implements its generic Fitting targets. The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+gives all six dispositions, fresh source hashes/locators, pinned/current
+library checks, native declaration mapping, exact migration requirements and
+attributed inherited L6 evidence. Current receipts are in the two authorized
+packets; previous receipts remain in `reviewHistory`. No mathematical node,
+source finding, baseline pin, suggested signature or excluded file changed.
 
-## Resume with a scope decision
+## Required manager action before another continuation
 
-The live issue names five outputs, the queue nine. Completion is True for the
-live outputs and False for the queue. The excluded inputs are
-DirichletPadicLFunctions--L3-2 and PadicHodgeRegulators--D.1, both packets and
-suggested files. WORKERS.md permits only issue-named edits. Additional scope
-was requested during this run; no answer arrived. Their newer independent
-review objects remain intact. A finished needs_changes review counts toward
-completion; PMIA's verdict is not the administrative blocker.
+Live issue outputs: L3/PMIA packets and suggested files, plus the report.
+Queue outputs additionally require L3-2 and D.1 packets and suggested files.
+`issues.deliverables_complete` is True for the live scope and False for the
+queue. Finished `needs_changes` verdicts count; PMIA's verdict is not the scope
+blocker. WORKERS.md forbids issue-unnamed edits. Asked the user to authorize
+those four additional files; no answer arrived.
 
-Authorize those additional independent reviews or reconcile the queue to the
-live issue. **Do not dispatch another unchanged two-packet continuation:**
-repeating its completed review cannot satisfy the queue. No excluded file,
-queue entry, issue body or label was changed.
+Authorize those scoped independent reviews or reconcile the queue to the
+live issue. **Do not dispatch another unchanged two-packet review.** It cannot
+finish the queue. D.1's newer independent review and the unreviewed L3-2 input
+remain intact. No queue, issue body or labels were edited.
 
-## Native Fitting migration
+## Remaining PMIA correction
 
-Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 implements all
-degrees for Module.Finite, kernel-generator computations, presentation
-independence, arbitrary base change and localization. These modules are absent
-at f790474. PMIA upstreamNotes now gives the exact four-node replacement and
-consumer inventory, the remaining column-matrix/kernel-minor adapter and tests
-to preserve. Both StableReduction request notes now distinguish historical
-ownership from the existing native implementation. Their open status records
-baseline/interface reconciliation, not missing generic mathematics.
+Current Tau Ceti a91d3aa supplies all-degree Fitting ideals under Module.Finite,
+presentation/kernel-generator computations, independence and arbitrary base
+change/localization. They are absent at f790474. Migrate the four generic L6
+nodes, direct consumers, two StableReduction requests, L4 comparison and
+reader/signatures to a baseline containing that API. Keep only necessary
+concrete matrix/order comparisons and the kernel-minor adapter, and retain
+the discriminating examples. Do not create another carrier or falsely cite
+the new modules at f790474. The reader is outside this issue's live scope.
 
-The PMIA owner must retarget those nodes and suggested signatures, both
-requests, the L4 characteristic-ideal comparison and reader to a baseline
-containing that API. Retain only necessary concrete matrix/order lemmas. Do
-not implement another carrier or cite current declarations at f790474. The
-reader is not an authorized file here. All nodes, API/tests, gaps, source
-findings, pins and prior reviews remain intact. No Lean file changed.
+## Fresh validation
 
-## Checks
+- L3 checker: 0 errors, 26 inherited warnings outside fix scope.
+- PMIA checker: 0 errors and warnings.
+- Full PMIA lean-check: exit 0, 1,075 sorry warnings only.
+- Full L3 lean-check: exit 1 at unresolved research imports; no elaboration.
+- Three central shared-build modules match pinned Git objects byte for byte.
+- All 57 L6 test names occur in the suggested file.
+- No source excerpts added; public source hashes/locators are in the report.
 
-- L3 checker: zero errors, 26 inherited warnings outside fix scope.
-- PMIA checker: zero errors and warnings.
-- Full PMIA Lean: exit 0, 1,075 sorry warnings only.
-- Full L3 Lean: exit 1 at research-module resolution; no elaboration.
-- Three central shared-build source modules match f790474 Git objects.
-- Fresh Morita pp.255–256, Robert pp.165–166 and DK v3 locators are in report.
-- Current library and roadmap trees were read, never modified or built.
-
-No disposable scratch artifact is needed to resume; no Lean process remains.
+Current library and roadmap trees were read only. No Lean process remains.
+All evidence needed to resume is in the committed report/packets; no scratch
+artifact is required.
