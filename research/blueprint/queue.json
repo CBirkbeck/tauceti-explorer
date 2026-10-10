@@ -32645,7 +32645,8 @@
    ],
    "avoidAccountOf": "BP-PotentialAutomorphyInfrastructurePartII--PL.7",
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructurePartII--PL.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7844"
   },
   {
    "id": "BP-HodgeStructuresPartII--H.0",
@@ -40915,7 +40916,8 @@
    ],
    "revisionOf": "BP-LefschetzPencilsAndVanishingCycles--LPV.0",
    "prompt": "research/blueprint/prompts/BP-LefschetzPencilsAndVanishingCycles--LPV.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6992"
   },
   {
    "priority": 2,
@@ -46719,8 +46721,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47047,8 +47049,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -49150,8 +49152,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80020,8 +80022,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
