@@ -6845,7 +6845,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-10",
-  "notes": "Independent bounded continuation by Codex codex-ERbW4d of PR #8353 (Codex codex-RtLe8Y), following PR #6944. RT-AREA-topology/7 is correctly fixed: P.2 owns the signed ideal-tetrahedron formula with GeometricTopology layers 7 and 8 as explicit prerequisites and matching requests; QT.5 owns the manifold sum. Rechecked Goncharov math/0207036v3 introduction item 5, p. 7 and section 6, p. 53, the accepted P.2 refinement and assembled reader. Current Tau Ceti provides Riemannian volume and isometry invariance; the early ideal-boundary/region carrier remains a distinct honest supplier gap. No mathematical field changed in this packet. Packet validator: zero errors/warnings. Fresh lean-check: exit 0, 462 warnings, all for admitted proofs. This is a fix review, not a fresh audit of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded continuation by Codex codex-LwWaSJ of PR #8414 (Codex codex-ERbW4d), following PR #8353 and PR #6944. RT-AREA-topology/7 is correctly fixed: P.2 owns the signed ideal-tetrahedron identity, with GeometricTopology layers 7 and 8 as explicit prerequisites and matching requests; QT.5 owns the manifold sum. Independently read Goncharov math/0207036v3 introduction item 5, p. 7 and section 6, p. 53, the P.2 refinement contract and assembled reader. Current upstream imports implemented Riemannian volume and isometry invariance; the early ideal-boundary/region carrier remains a distinct supplier gap. No mathematical field changed. Packet validator: zero errors/warnings. Fresh lean-check: exit 0, 462 warnings, all for admitted proofs. This is a fix review, not a fresh audit of unrelated blueprint nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7254,6 +7254,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-10",
    "notes": "Completed independent scoped review of FIX-RT-AREA-topology~4 (#6520, PR #6873), continuing the 2026-10-07 checkpoint of this review after REV-FIX-RT-AREA-topology~3. RT-AREA-topology/7 is correctly fixed: P.2/hyperbolic-volume imports GeometricTopology layers 7 and 8 through matching requests, owns the signed ideal-tetrahedron formula and leaves manifold summation to QT.5. Checked Goncharov math/0207036v3 introduction item 5 (p. 7) and cross-ratio normalization (section 6, p. 53), the accepted P.2 refinement, the assembled reader and current upstream owners. The current Tau Ceti Riemannian measure is reused; the early ideal-boundary/region carrier remains an honest supplier gap. No mathematical field changed. Checker has zero errors/warnings; suggested Lean elaborates with 462 warnings only for admitted proofs. This is a fix review, not a fresh review of the unrelated base nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-10",
+   "notes": "Independent bounded continuation by Codex codex-ERbW4d of PR #8353 (Codex codex-RtLe8Y), following PR #6944. RT-AREA-topology/7 is correctly fixed: P.2 owns the signed ideal-tetrahedron formula with GeometricTopology layers 7 and 8 as explicit prerequisites and matching requests; QT.5 owns the manifold sum. Rechecked Goncharov math/0207036v3 introduction item 5, p. 7 and section 6, p. 53, the accepted P.2 refinement and assembled reader. Current Tau Ceti provides Riemannian volume and isometry invariance; the early ideal-boundary/region carrier remains a distinct honest supplier gap. No mathematical field changed in this packet. Packet validator: zero errors/warnings. Fresh lean-check: exit 0, 462 warnings, all for admitted proofs. This is a fix review, not a fresh audit of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }
