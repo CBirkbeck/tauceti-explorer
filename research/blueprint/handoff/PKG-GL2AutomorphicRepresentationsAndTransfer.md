@@ -1,49 +1,45 @@
-# PKG-GL2AutomorphicRepresentationsAndTransfer — source-blocked checkpoint
+# PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Worker: Codex (GPT-6), session `codex-yKwdy4`; issue #7901; 2026-10-10.
-Branch: `codex-yKwdy4-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6097498242).
+Worker: Codex (GPT-6), session `codex-GaPc7K`; issue #7901; 2026-10-10.
+Branch: `codex-GaPc7K-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6098644381).
 
-**Partial.** This continuation makes substantial progress on the package but does
-not certify mathematical closure. The original JPSS nonnormal cubic argument
-could not be obtained from an authorized readable source; the accessible later
-proof has specific errors and an unavailable convergence dependency. Its
-all-place upgrade is also unresolved. These are actual source/proof blockers,
-not a request for permission to move ownership or to use proposed interfaces.
-Metadata remains absent so the three-file existence check cannot mistake this
-checkpoint for a finished package. No second job was claimed.
+**Partial, source/proof blocked.** The original JPSS nonnormal cubic note
+remains unreadable through the public catalogue, and the accessible alternative
+requires a convergence argument not yet verified. Neither weak cubic existence
+nor the stronger all-place comparison is certified closed. Metadata remains
+absent; do not mistake this checkpoint for a finished package. No second job
+was claimed. All forty manager-priority issues were unavailable when checked;
+this was an eligible focus package under WORKERS.md.
 
-The manager's forty priority issues had no suitable available job. The worker
-then selected this available focus package under WORKERS.md. Only the package
-README, Suggested.lean and this handoff changed; neither accepted packet changed.
-This note replaces the recursively accumulated historical handoffs. Preserved
-mathematics is summarized below; historical validation results are not current
-validation.
+## This continuation
 
-## What changed
+The conductor target now uses the classical modular-curve tower directly.
+Carayol explicitly includes F=Q with parabolic cohomology, cusp modifications
+and the parabolic Picard–Lefschetz calculation. The inherited demand for a
+separate compact-quaternionic bridge was therefore incorrect. The reader
+replaces it with the actual rank-two multiplicity, normalization kernel,
+monodromy and trace requirements. The odd-prime comparison needed by RT at
+ell=2 uses ordinary cases and does not depend on extraordinary dyadic cubic
+transfer. The full general comparison retains that extra dependency.
 
-All 112 accepted targets remain in the reader. Its starting 115 target headings
-also included three provisional classical attachments; all survive. Seven
-supporting targets were added, giving 122 headings:
+A further proof boundary is exposed: Langlands Proposition7.12 gives a ramified
+stalk/dual-stalk Lefschetz formula without proving it. The exact curve
+specialization is now a subsidiary target, rather than an assumed theorem.
+The lower point-counting TraceFormula roadmap explicitly excludes arbitrary
+correspondences, so its Frobenius trace theorem alone is insufficient.
 
-- R16.1/chevalley-congruence and full-local-character-prescription;
-- R17.4/highly-ramified-converse;
-- R17.5/artin-all-place-upgrade, brauer-character and solvable-integral-lift;
-- R17.6/classical-parabolic-realization.
+Suggested.lean updates the corresponding omission explanation. No Lean
+signature or proof changed. Concise wording of the congruence-subgroup tests
+preserves their conditions and examples while keeping README below200KB.
+All112 accepted targets and all122 headings survive; no input packet changed.
 
-The reader additionally expands the primitive dyadic example, ramified classical
-U_p dictionary, trace-term ledger and comparisons, fixed-centre quaternionic
-globalization, higher-weight and weight-one constructions, and conductor proof
-contract. Compression removed repeated source prose, labels and a duplicate
-compatible-descent paragraph. It did not remove a target, hypothesis or source
-locator. README is **199,708 bytes**, below the 200 KB ceiling.
-
-Suggested.lean adds arithmetic character statements on the existing idele and
-modulus carriers, an all-rank modular-character interface, and the integral
-solvable lift with its residual change of basis. Analytic and geometric interfaces
-which cannot yet be typed remain explicit signature omissions, not false
-statements over arbitrary types. The Lean file is a planning aid; `sorry` does
-not constitute mathematical proof or gap closure.
+The sections below preserve earlier research receipts and mathematical resume
+points, updated where this continuation changes their conclusions. They do
+not claim that this worker reread every earlier source. Inherited additions
+include Chevalley/full-local character prescription, highly ramified converse,
+all-place Artin upgrade, Brauer/integral solvable lift and parabolic realization.
+Continue from the package, never the stale assembled801KB Suggested file.
 
 ## Character prescription: complete target-level route, arithmetic proofs planned
 
@@ -302,33 +298,41 @@ higher ComplexComparisonPartII/C5 or import a higher-tier generic attachment.
 The parabolic coefficient specialization and primitive projector are local
 subsidiary constructions, not duplicates of the generic comparison.
 
-**Conductor remains unresolved.** The reader now specifies the actual parabolic
-attachment's Frobenius-semisimple WD representation, including N, with
-WD(rho_f)=rec(pi_p)^dual tensor nu_W^((k−1)/2). Dual N is −N^transpose.
-The desired characteristic-zero conductor equals exact primitive level away
-ell, and residual conductor is at most that conductor. A Steinberg twist has
-conductor1 despite unramified semisimple Weil action; forgetting N fails.
+**Classical conductor: corrected construction, outstanding proof obligations.**
+Carayol Theorems(A)–(B) pp.409–412 include F=Q; 0.11 p.412 specifies
+parabolic H¹. Sections2.2 pp.419–420 define its commuting Hecke/Galois tower
+and multiplicity;4.9 p.426 specifies the special-fibre parabolic substitution.
+Section11.4 p.451 explicitly invokes the noncompact Picard–Lefschetz argument
+at the end of Langlands1973. There is no independent quaternionic attachment
+to identify in this case: the quaternion algebra is M₂(Q).
 
-Carayol's quaternionic §§11–12, read pp.449–460, gives the principal-series
-special-fibre piece, ordinary cusp comparison using global CM induction, and
-special-branch Picard–Lefschetz monodromy. Extraordinary dyadic comparison
-requires the all-place cubic transfer and a cohomological field-change
-identification. Those arguments cannot simply be applied to the split
-classical parabolic multiplicity without a bridge. HMV R18.2's maximal split
-models are smooth proper; principal-level normalizations are regular with
-Drinfeld basis, not automatically semistable. Its model tower distinguishes
-smooth split places from the semistable division/Mumford case. R18.4 supplies
-finite H^1, local systems, integral freeness and pairings; its
-cohomological-eigenspaces proof explicitly leaves the Galois identification to
-R19. An unspecified quaternionic eigenprojector is not the actual classical
-attachment. Do not claim HMV already proves the bridge.
+Langlands Proposition3.1 p.27 gives the two-dimensional multiplicity.
+Theorems7.1 p.67 and7.5 p.70 treat principal series and special representations;
+Lemma7.14 pp.94–98 proves the nonzero monodromy via branch-difference
+cokernels and the dual incidence pairing, keeping extension by zero at cusps.
+Carayol11.1–3 pp.449–451 gives the ordinary-supercuspidal CM comparison.
+All pages of Langlands here use the author's retypeset pagination, not
+original LNM pagination. The needed sections were read in this continuation.
 
-A possible narrower route for the RT consumer is to prove only residual
-conductor ≤ primitive level at odd primes for ell=2 and odd N. All those
-local supercuspidals are ordinary, so that consumer does not itself require
-an extraordinary dyadic comparison. This is a lead, not a proved replacement
-for the current general conductor target. The geometric bridge is still
-required. No accepted packet or higher consumer was edited.
+The trace comparison still requires a ramified correspondence theorem.
+Langlands explicitly leaves Proposition7.12 pp.89–90 unproved. At a fixed
+point its branches are ut^a, vt^d with a≠d; the local contribution is the
+stalk trace when d>a and the Verdier-dual stalk trace when a>d. The reader
+now plans this curve specialization, including cusp extension by zero.
+The exact lower supplier was inspected at upstream proposal#196 head
+`4bd72379658126cbe9be935656396f0c9dac4de0`: TraceFormula's final boundary
+excludes the full Lefschetz–Verdier theorem for arbitrary correspondences.
+Do not infer this specialization from its Frobenius point-count formula.
+Its proof remains to establish; it is not certified closed here.
+
+For ell=2 and odd primitive level, every relevant p is odd and every local
+supercuspidal is ordinary. Carayol(B) is consequently the appropriate source;
+no extraordinary dyadic/cubic step is needed for that RT conductor bound.
+For the full target, p=2≠ell still needs strong cubic comparison and the
+field-change identification of12.2 pp.457–458. Residual conductor inequality
+uses the actual attachment, giving N|M; if M|N this forces equality.
+WD(rho_f)=rec(pi_p)^dual tensor nu_W^((k−1)/2), with dualN=−N^transpose,
+remains unchanged. No accepted packet or higher consumer was edited.
 
 The other ownership move is now explicit: R16.1's full-local prescription is
 the lower owner for both GL2 consumers, the higher
@@ -455,7 +459,7 @@ certify those recorded gaps. The following is the current disposition:
 | Smooth/automorphic/test-function suggested carriers | Explicit omissions retain exact conditions. Use concrete supplier interfaces where possible; absent implementation alone is not a mathematical blocker. Never restore arbitrary-type equivalences. |
 | Newvectors and ramified factors | Existing actual-representation newvector signatures and last-row convention preserved; new complete U_p dictionary supplied. Concrete SR model and normalized Whittaker realization tests still need checking. |
 | Primitive dyadic fixture | New n=1,conductor3,Swan1 fixture and matching sign supplied at target level; exact operator and quaternion matching normalization still needs final audit. |
-| Arithmetic/geometric Galois convention | Good-prime dual and twist explicit; the actual ramified parabolic comparison remains open. |
+| Arithmetic/geometric Galois convention | Direct parabolic realization identified; ramified stalk/dual-stalk trace specialization still needs proof, and full dyadic comparison still needs strong cubic transfer. |
 | Singular/continuous trace terms | Ledger and detailed cancellations added; AS convergence/expansion and the full logarithmic identity remain to certify. |
 | Full tensor/supplier conditions | Existing genuine symmetric-power tensor, scalar, dimension, dual and coefficient-map APIs preserved; analytic conditions remain named omissions. |
 | Prescribed quaternion ramification | GlobalQuadraticForms4.4 prescribed Hilbert signs plus QuadraticFormInvariants2 algebra supplies existence; check the exact global uniqueness/isomorphism-class interface, not parity alone. |
@@ -473,8 +477,9 @@ certify those recorded gaps. The following is the current disposition:
 1. Obtain the original JPSS cubic note from an authorized readable source, or
    prove the alternative local matching and quantitative convergence above.
    Establish its all-place comparison, not just good Satake powers.
-2. Complete the classical parabolic ramified comparison or its exact narrower
-   RT conductor bound, with the geometric bridge and monodromy.
+2. Prove the ramified curve trace specialization and finish the direct
+   parabolic comparison. For RT at ell=2 use only odd-prime ordinary cases;
+   do not require a new compact-quaternionic bridge.
 3. Audit the remaining trace and globalization proof contracts against the
    concrete AS/AF supplier statements, then the other table entries.
 4. Reconcile the downward ownership moves in the permitted future plan job.
@@ -489,44 +494,36 @@ Continue from this package, the individual accepted packets and the reviewed
 library audit. Do not append this entire handoff to the next one; replace it
 with an updated current account preserving the mathematical receipts.
 
-## Validation and existing work audit
+## Current validation and library audit
 
-- Full `lean-check` exited0 with **154 warnings, all declaration-uses-sorry**,
-  and no errors. Memory available before compile:104GB. The subsequent Lean
-  changes only adjust comments; no declaration/import/proof changed after
-  this final compile. No language server, build/update/cache or second
-  concurrent compile was started; nothing is left compiling.
+- Full `lean-check` exited0:154 warnings, all declaration-uses-sorry, no errors.
+  Available memory before compile101GB. No declaration changed afterward.
+  No language server or Lake build/update/cache was started; nothing remains
+  compiling. Pinned Mathlib `082e2d37e8`, Tau Ceti `f790474`.
 - Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
-  Neither packet was changed. Their SHA256 values appear below.
+  Their55+57 nodes remain under matching reader headings; all122 headings
+  match the starting package's heading set. Packet hashes are below.
+- Current read-only roadmaps: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
+  current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+  The reviewed GL2 library audit and full ClassFieldTheory and
+  GlobalNumberFields readers were inspected. No existing target is replanned.
+  The earlier pinned declaration receipts in the package remain unchanged.
+- Upstream proposal#196 is still open at the same head noted above. Its
+  TraceFormula boundary and relevant comparison/base-change statements were
+  checked. These are proposed suppliers, not files on current main.
+- Read-only trees were not modified or built. Public papers were held only
+  in scratch; cleared books were never copied. No source passage appears
+  in the deliverables.
 - Scoped `intake.py check-files`:3 files,0 problems. `git diff --check`:pass.
-  Only the three authorized deliverables changed; metadata is absent.
-- Pinned elaboration baseline: Mathlib `082e2d37e8`, Tau Ceti `f790474`.
-  Current read-only library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  Current upstream roadmaps at the final audit:
-  `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
-- GlobalNumberFields and RepresentationTheory/ModularInduction READMEs were
-  read in full, as well as the reviewed GL2 library audit. Actual pinned
-  character-extension, idele, modulus, representation, matrix and localization
-  declarations were read before use. GNF9 factors existing Hecke characters;
-  GNF7's congruence finite-index theorem starts from an existing modulus;
-  CFT12 has prime-p S-unit Kummer, not this full prescription contract.
-  Current RepresentationTheory explicitly excludes modular Brauer theory.
-- Upstream advanced during the run. Final diff against `e255659` was checked:
-  AA, RG2, IntegralHeckeAndGaloisDeterminants and SR changed. Their local modulus
-  owner is now RG2.4, and AA2.4 expands Artin–Hecke determinant factor assembly;
-  neither adds the missing full-local prescription or cubic/classical bridge.
-  AA's new Artin factors remain its owner; this package's analytic upgrade
-  uses their comparison and R01 local constants, without re-planning them.
-- Read-only trees were never built or modified. Cleared BH2006 was read in
-  place; no book, excerpt or extracted book text was copied. Public papers
-  were kept only in scratch, and no source passage is in the deliverables.
+  Reader:199,955 bytes, below200KB. All122 starting headings and112 accepted slugs survive.
 
 ## Primary-source receipts
 
-Bibliographic URLs and locators are in the reader. These checksums identify
-public copies used for this continuation; the files themselves are not retained
-in the repository. Source access dates:2026-10-10. The cleared BH copy is
-identified by the maintainer's index, not an alternate internet copy.
+Bibliographic URLs and locators are in the reader. The following preserves
+earlier source checksums; this continuation additionally read Carayol1986,
+Mao–Rallis2000 and the Langlands1973 author copy. Public files are not retained
+in the repository. Access date:2026-10-10. The cleared BH copy is identified
+by the maintainer's index, not an alternate internet copy.
 
 | Public source | SHA256 |
 | --- | --- |
@@ -535,6 +532,7 @@ identified by the maintainer's index, not an alternate internet copy.
 | Isaacs1974 | `413add693a05e715bbe9dd480feab658ebd2ff180fce71dbd73d099fec8bdc29` |
 | Webb2016 author manuscript | `3053d04310d379844d0ccac2ae078124492730a116e63343014d276169fb4c24` |
 | Clozel1986 university repository | `0cbe657414bd1872a47510a433bd09a90c7fc12e42fd391830e9fa1cbd7dbcf1` |
+| Langlands1973 author retypeset | `fcbc7e055ef7582e80d31c092ea0d26007007aa0bf30a0ad5b526577cb8dc644` |
 | Carayol1986 | `d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8` |
 | JL1970 IAS editorial retypeset | `ede21b1b303d3a398eb0b9057716c4b293bafe39eba118fd9b6a871eab6f2dcf` |
 | Langlands1980 author copy | `6af3f53d0eb0e841548f43151f9cb79fd2e12ceac4ca909aefeb08d5462758ab` |

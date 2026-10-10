@@ -69,7 +69,7 @@ Uses: R16.1/k0; Mathlib `Matrix.GeneralLinearGroup`.
 
 Source: [aky22], §1.2, pp. 3–4, K(n,λ) and generic λπ.
 
-Embed K₀(pⁿ) and K₁(pⁿ) through the valuation-ring coefficient map as localK0(n) and localK1(n). Both are compact open and antitone, with common level-zero value GL₂(O), and localK1(n)⊆localK0(n). The API states these identities, inclusions, compactness and openness. At level one an upper unipotent with entry 1 belongs to both, a lower unipotent does not, and diag(u,1) belongs to localK1 even for u−1∉p. The Weyl element belongs at level zero and is excluded at level one. A scalar u with u−1∉p belongs to localK0(1) but not localK1(1); this test assumes such a residue unit, so it does not require one over F₂. These tests distinguish the last row and exclude principal congruence.
+Embed these groups in GL₂(F) as localK0(n), localK1(n). Their API gives compactness, openness, antitonicity, level-zero equality GL₂(O) and localK1(n)⊆localK0(n). At level one the upper unipotent with entry 1 belongs to both, the lower one to neither, and diag(u,1) belongs to localK1. The Weyl element belongs at level zero only. If u−1∉p, scalar u belongs to localK0(1), not localK1(1); this test requires such a residue unit, absent over F₂. The diagonal test distinguishes principal congruence.
 
 <a id="r16-1-local-adelic-compact-comparison"></a>
 
@@ -1605,19 +1605,24 @@ Source: [ds74], Theorem 4.1, Corollary 4.2 and Remarks 4.4–5, pp.513–515; Pr
 
 ### classical-conductor-comparison: The conductor bound needed for exact residual level
 
-For a primitive newform f of weight k≥2, exact level M and character ε, and its classical attachment at λ|ℓ, prove that the Artin conductor away from ℓ equals the prime-to-ℓ part of M. Full Frobenius-semisimple Weil–Deligne compatibility, including the nilpotent operator, identifies the ramified factors. Reduction of a stable lattice does not increase the prime-to-ℓ conductor. Thus, if a semisimple residual representation has odd conductor N, ℓ=2 and comes from a primitive form of level M|N, then M=N. The required bound concerns the actual attachment of f, not any representation with the same unramified traces.
+For a primitive newform f of weight k≥2, exact level M and character ε, its attachment at λ|ℓ has conductor away from ℓ equal to M's prime-to-ℓ part. Frobenius-semisimple Weil–Deligne compatibility, including N, identifies ramified factors. Stable-lattice reduction cannot increase it. Thus a semisimple residual representation of odd conductor N at ℓ=2, arising from a primitive form of level M|N, forces M=N. Apply this to the actual attachment of f.
 
-For p≠ℓ let ν_W(Φ)=p⁻¹ and π_p be in unitary normalization. The arithmetic attachment satisfies WD(ρ_{f,λ})=rec(π_p)^∨⊗ν_W^((k−1)/2); its dual matches rec(π_p)⊗ν_W^(−(k−1)/2). Dualizing sends N to −Nᵗ. Conductor is unchanged by this dual and unramified twist.
+For p≠ℓ set ν_W(Φ)=p⁻¹; π_p is unitary-normalized. The arithmetic attachment satisfies WD(ρ_{f,λ})=rec(π_p)^∨⊗ν_W^((k−1)/2); its dual matches rec(π_p)⊗ν_W^(−(k−1)/2). Dualizing sends N to −Nᵗ. Conductor is unchanged by this dual and unramified twist.
 
-**Proof contract.** Construct the local comparison for the parabolic eigenspace, rather than substitute a compact quaternionic H¹ carrier. At bad primes this requires the coefficient nearby-cycle sequence, its Hecke and Galois actions, and the nonzero monodromy of the special branch. Carayol §§11–12 gives the corresponding quaternionic calculation: principal-series classes come from the special fibre; ordinary supercuspidals are compared with a globally induced CM representation with the same local type; Picard–Lefschetz gives rank-one N for special classes. The extraordinary branch additionally needs the all-place cubic transfer of §12.2 and the cohomological identification after its global field change. Supply the bridge to the classical parabolic attachment before applying these conclusions. Raw regular models and finite H¹ with an unspecified eigenspace do not supply that bridge.
+**Parabolic comparison.** For F=ℚ, Carayol uses M₂(ℚ) and classical parabolic H¹. The primitive π_f multiplicity in the Sym^(k−2) modular-curve tower has dimension two; level, Hecke and Galois actions commute. Good-prime recognition identifies its dual with ρ_{f,λ}.
 
+For a semistable model set X=ker(H¹_par(special fibre)→H¹(normalization)). Keep cusp extension by zero in the coefficient nearby-cycle sequence. Picard–Lefschetz surjects generic H¹(1) onto X through the nondegenerate pairing of the node branch-difference cokernel and dual incidence kernel, forcing rank-one N on special summands. Principal series come from the normalized fibre; ordinary supercuspidals use CM induction and good-prime recognition of the same multiplicity.
+
+Prove the ramified Lefschetz specialization for smooth proper curves: c=(c₁,c₂):Y→X×X, constructible ℓ-adic F and c₂*F→c₁!F. At each fixed point let c₁*t=utᵃ and c₂*t=vtᵈ, u,v units, a,d>0 and a≠d. The alternating trace sums stalk traces for d>a and Verdier-dual stalk traces for a>d. Include cusp extension by zero. Langlands Proposition 7.12 leaves this unproved; it is a target here.
+
+At odd p every supercuspidal is ordinary, so the ℓ=2 odd-conductor application uses Theorem (B), without cubic transfer. For p=2≠ℓ use Carayol §12.2's strong cubic comparison and field-change identification. Residual inequality gives N|M, hence M=N when M|N.
 API: Ramified Frobenius-semisimple compatibility with N; equality of characteristic-zero conductor and primitive level away from ℓ; independence of stable lattice for the semisimple residual class; residual conductor inequality.
 
 Tests: An unramified Steinberg twist has conductor exponent one despite unramified semisimple Weil action; an ordinary supercuspidal uses its full Swan conductor; residual conductor can drop under reduction, so equality with the characteristic-zero conductor is not asserted.
 
-Uses: R17.6/classical-higher-weight-attachment; R16.3; R16.6/classical-hecke-and-level; R01.3 and R01.5; R17.5/prescribed-local-induction; R17.4/nonnormal-cubic-base-change. The ramified parabolic comparison and any auxiliary cohomological identification in the proof contract are subsidiary constructions here. HMV R18.2 regular models and R18.4 finite cohomology supply raw quaternionic geometry only where their stated hypotheses hold.
+Uses: R17.6/classical-higher-weight-attachment; R16.3; R16.6/classical-hecke-and-level; R01.3 and R01.5; R17.5/prescribed-local-induction; R17.4/nonnormal-cubic-base-change. Parabolic comparison, ramified trace and field-change identification are subsidiary targets here.
 
-Source: [ddt], Theorem 3.1(d)–(e), p.86, for weight two; [carayol86], Theorem (A) pp.409–411, §§11.1–3 pp.449–454, §§12.1–3 pp.455–460; [rt97], Lemma and level argument pp.302–306. The classical/cohomological bridge in the proof contract is additional to the raw model statements.
+Source: [ddt], Theorem 3.1(d)–(e), p.86 (weight two); [carayol86], Theorems (A)–(B), pp.409–412; §§2.2, 4.9, 11.1–9, 12.2, pp.419–420, 426, 449–454, 457–458; [langlands73], Proposition 3.1 p.27, Theorems 7.1 and 7.5 pp.67, 70, Proposition 7.12 pp.89–90, Lemma 7.14 pp.94–98 (author pagination); [rt97], pp.302–306.
 
 <a id="r17-6-solvable-dihedral"></a>
 
@@ -1843,3 +1848,5 @@ Source: [ac89], Chapter 3 Theorem 4.2, p. 202; [ac89], Chapter 3 Theorem 5.1, p.
 [ag11]: https://www.wisdom.weizmann.ac.il/~dimagur/SmoothTransfer.pdf "Avraham Aizenbud and Dmitry Gourevitch, Smooth transfer of Kloosterman integrals (the Archimedean case), author version 1 June 2011; locators use its 28-page pagination"
 
 [deligne69]: https://www.numdam.org/article/SB_1968-1969__11__139_0.pdf "Pierre Deligne, Formes modulaires et représentations ℓ-adiques, Séminaire Bourbaki 355 (1969), pp.139–172."
+
+[langlands73]: https://www.sunsite.ubc.ca/DigitalMathArchive/Langlands/pdf/antwerp-ps.pdf "Robert P. Langlands, Modular Forms and ℓ-adic Representations, LNM 349 (1973), 361–500; author retypeset, pp.1–100."

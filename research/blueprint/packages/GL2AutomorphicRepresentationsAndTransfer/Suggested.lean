@@ -1667,7 +1667,14 @@ Omitted declaration names: TauCeti.GL2Transfer.solvable_dihedral, TauCeti.GL2Tra
 -/
 /- Signature omissions: The classical attachments in R17.6 require the actual
 modular-curve eigenprojector realization, coefficient descent and integral
-ramified local–global comparison. Good-place trace data alone do not supply them.
+ramified local–global comparison. At F=Q the modular-curve tower itself is
+Carayol's parabolic realization (2.2, 4.9); no change to a compact quaternionic
+carrier is involved. The special branch requires the nonzero Picard–Lefschetz
+map onto the normalization kernel (Langlands 7.14), and the ramified trace
+formula includes Langlands 7.12's stalk/dual-stalk local terms. The odd-prime
+comparison needed at ell=2 uses the ordinary cases of Carayol's Theorem B;
+extraordinary dyadic compatibility at ell not equal to 2 additionally uses
+strong cubic transfer. Good-place trace data alone do not supply these maps.
 README targets: R17.6/classical-parabolic-realization,
 R17.6/classical-higher-weight-attachment,
 R17.6/classical-weight-one-attachment, R17.6/classical-conductor-comparison.
