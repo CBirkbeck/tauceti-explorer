@@ -38,6 +38,8 @@ import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.LinearAlgebra.Matrix.IsDiag
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
@@ -99,7 +101,10 @@ abbrev linkingMatrixCokernel (A : Matrix (Fin n) (Fin n) ℤ) : Type :=
   (Fin n → ℤ) ⧸ LinearMap.range A.mulVecLin
 
 theorem linkingMatrixCokernel_trivial_iff (A : Matrix (Fin n) (Fin n) ℤ) :
-    Subsingleton (linkingMatrixCokernel A) ↔ IsUnit A.det := sorry
+    Subsingleton (linkingMatrixCokernel A) ↔ IsUnit A.det := by
+  rw [Submodule.Quotient.subsingleton_iff, LinearMap.range_eq_top]
+  change Function.Surjective A.mulVec ↔ IsUnit A.det
+  rw [Matrix.mulVec_surjective_iff_isUnit, Matrix.isUnit_iff_isUnit_det]
 
 theorem linkingMatrixCokernel_of_isAdmissible {A : Matrix (Fin n) (Fin n) ℤ}
     (h : IsAdmissible A) : Subsingleton (linkingMatrixCokernel A) := sorry
@@ -120,6 +125,40 @@ theorem linkingMatrix_congr_of_handleSlide (A : Matrix (Fin n) (Fin n) ℤ)
     simp [handleSlide, Matrix.transpose_add, Matrix.transpose_single,
       Matrix.add_mul, Matrix.mul_add, hsym]
     ring
+
+/-- On column representatives the congruence transport is x ↦ Pᵀx. -/
+def linkingMatrixCokernelCongr (A P : Matrix (Fin n) (Fin n) ℤ)
+    (hP : IsUnit P.det) :
+    linkingMatrixCokernel A ≃ₗ[ℤ] linkingMatrixCokernel (P.transpose * A * P) := by
+  let e : (Fin n → ℤ) ≃ₗ[ℤ] (Fin n → ℤ) :=
+    LinearEquiv.ofLinearMap P.transpose.mulVecLin (P.transpose)⁻¹.mulVecLin
+      (by rw [← Matrix.mulVecLin_mul, Matrix.mul_nonsing_inv _ (Matrix.isUnit_det_transpose P hP),
+        Matrix.mulVecLin_one])
+      (by rw [← Matrix.mulVecLin_mul, Matrix.nonsing_inv_mul _ (Matrix.isUnit_det_transpose P hP),
+        Matrix.mulVecLin_one])
+  have hr : LinearMap.range (A * P).mulVecLin = LinearMap.range A.mulVecLin := by
+    rw [Matrix.mulVecLin_mul]
+    apply LinearMap.range_comp_of_range_eq_top
+    apply LinearMap.range_eq_top.mpr
+    change Function.Surjective P.mulVec
+    exact Matrix.mulVec_surjective_iff_isUnit.mpr ((Matrix.isUnit_iff_isUnit_det P).mpr hP)
+  apply Submodule.Quotient.equiv _ _ e
+  change (LinearMap.range A.mulVecLin).map P.transpose.mulVecLin = _
+  rw [Matrix.mul_assoc, Matrix.mulVecLin_mul, LinearMap.range_comp, hr]
+
+theorem linkingMatrixCokernelCongr_mk (A P : Matrix (Fin n) (Fin n) ℤ)
+    (hP : IsUnit P.det) (x : Fin n → ℤ) :
+    linkingMatrixCokernelCongr A P hP (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk (P.transpose.mulVec x) := by
+  simp only [linkingMatrixCokernelCongr, Submodule.Quotient.equiv_apply,
+    Submodule.mapQ_apply]
+  rfl
+
+theorem linkingMatrixCokernel_handleSlide (A : Matrix (Fin n) (Fin n) ℤ)
+    {i j : Fin n} (hij : i ≠ j) :
+    Nonempty (linkingMatrixCokernel A ≃ₗ[ℤ] linkingMatrixCokernel (handleSlide A i j)) :=
+  ⟨linkingMatrixCokernelCongr A (Matrix.transvection j i 1)
+    (by rw [Matrix.det_transvection_of_ne j i hij.symm]; exact isUnit_one)⟩
 
 -- linkingMatrix_hopf
 example : ¬ IsAlgebraicallySplit !![(0 : ℤ), 1; 1, 0] := sorry
@@ -159,6 +198,55 @@ example : handleSlide !![(0 : ℤ), 1; 0, 0] 0 1 0 0 = 1 ∧
       (0 : ℤ) + 0 + 2 * 1 := by
   norm_num [handleSlide, Matrix.mul_apply, Fin.sum_univ_two, Matrix.single_apply,
     Matrix.one_apply]
+-- Cokernel transport regression tests.
+example : Nonempty (linkingMatrixCokernel (0 : Matrix (Fin 0) (Fin 0) ℤ) ≃ₗ[ℤ]
+    linkingMatrixCokernel (0 : Matrix (Fin 0) (Fin 0) ℤ)) := by
+  simpa using ⟨linkingMatrixCokernelCongr (0 : Matrix (Fin 0) (Fin 0) ℤ) 1 (by simp)⟩
+
+-- Identity transport fixes every quotient representative.
+example (A : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) :
+    linkingMatrixCokernelCongr A 1 (by simp) (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk x := by
+  rw [linkingMatrixCokernelCongr_mk]
+  simp
+
+-- Concrete representative image for a shear, with a nontrivial singular cokernel.
+example : linkingMatrixCokernelCongr !![(0 : ℤ), 0; 0, 1] !![1, 0; 1, 1]
+    (by norm_num [Matrix.det_fin_two]) (Submodule.Quotient.mk ![0, 1]) =
+      Submodule.Quotient.mk ![1, 1] := by
+  rw [linkingMatrixCokernelCongr_mk]
+  congr 1
+  ext i
+  fin_cases i <;> norm_num [Matrix.mulVec, Fin.sum_univ_two]
+
+-- A singular symmetric matrix: only Pᵀ sends its relation to a new relation.
+example :
+    let A : Matrix (Fin 2) (Fin 2) ℤ := !![0, 0; 0, 1]
+    let P : Matrix (Fin 2) (Fin 2) ℤ := !![1, 0; 1, 1]
+    (P.transpose * A * P).mulVec ![0, 1] = P.transpose.mulVec ![0, 1] ∧
+      ¬ ∃ y, (P.transpose * A * P).mulVec y = P.mulVec ![0, 1] := by
+  dsimp
+  constructor
+  · ext i
+    fin_cases i <;> norm_num [Matrix.mulVec, Matrix.mul_apply, Fin.sum_univ_two]
+  · rintro ⟨y, hy⟩
+    have h0 := congr_fun hy 0
+    have h1 := congr_fun hy 1
+    norm_num [Matrix.mulVec, Matrix.mul_apply, Fin.sum_univ_two] at h0 h1
+    omega
+
+-- Without unimodularity, congruence can turn a surjective matrix into 4ℤ.
+example :
+    let A : Matrix (Fin 1) (Fin 1) ℤ := !![1]
+    let P : Matrix (Fin 1) (Fin 1) ℤ := !![2]
+    ¬ IsUnit P.det ∧ ¬ ∃ y, (P.transpose * A * P).mulVec y = ![1] := by
+  dsimp
+  constructor
+  · norm_num [Matrix.det_fin_one, Int.isUnit_iff]
+  · rintro ⟨y, hy⟩
+    have h := congr_fun hy 0
+    norm_num [Matrix.mulVec, Matrix.mul_apply, dotProduct, Fin.sum_univ_one] at h
+    omega
 end LinkingMatrices
 
 /-! A framing regression against the pinned native braid presentation.
