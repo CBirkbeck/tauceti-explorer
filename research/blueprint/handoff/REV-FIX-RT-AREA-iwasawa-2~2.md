@@ -1,95 +1,89 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — scope-blocked checkpoint
+# REV-FIX-RT-AREA-iwasawa-2~2 — reviewed, dispatch scope blocked
 
-Codex, session `codex-Iu0m4D`, 10 October 2026. Refs #6219.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098549442).
-Base `0307aa1f1`; branch `codex-Iu0m4D-review-iwasawa`. One job claimed;
-stop after its pull request. No second job was taken.
+Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
+Branch `codex-x3M7Sz-review-iwasawa`, input `31c60725c`.
+One job claimed. This session did not write the fixes by `claude-6ZAIEy`.
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) gives the six
-finding verdicts, selected contracts, primary-source theorem/page locators,
-source/file hashes, fresh Lean results and native-reuse revision. L3's bounded
-receipt is `accepted`; PMIA's is `needs_changes`. Both preceding review
-objects are archived whole and unchanged. No mathematical or planning fields
-and no suggested Lean files were changed.
+## Finished review work
 
-## Actual blocker: live scope and queue outputs disagree
+The report `reviews/REV-FIX-RT-AREA-iwasawa-2~2.md` records all six finding
+verdicts, exact public source versions and locators, selected pinned and current
+library interfaces, meaningful finite falsification controls, and fresh
+sequential Lean checks. L3's bounded source corrections are accepted. PMIA
+needs changes to import current generic Fitting and stable-transpose results;
+the report names the five nodes and the consumer migration. That negative
+verdict finishes the review of PMIA, rather than blocking review completion.
 
-The live issue names only L3 and PMIA packets. The queue also requires this
-job's top-level review receipts in:
+The issue-listed L3 and PMIA top-level review receipts were refreshed with
+reviewer `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, date 2026-10-10,
+and this session's attribution. Both preceding reviews were archived whole.
+Their mathematical and planning fields and all suggested files are unchanged.
 
-- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`;
-- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`.
+## Blocker and exact resume step
 
-WORKERS.md says “Edit only the files the issue names, plus your own scratch
-space.” A concrete review-only patch was prepared; explicit authorization
-was requested in this session and has not arrived. Both omitted packets and
-the queue remain untouched. The real `issues.deliverables_complete` returns
-False; substituting only the prepared receipts in memory makes it True.
-PMIA's negative verdict is valid completion of a review and is a separate
-mathematical concern, not the reason the completion predicate fails.
+The live #6219 deliverables and its “Files under review” list omit:
 
-**Fix dispatch scope before assigning another worker this unchanged blocker.**
-The bounded review is ready; another full source audit is unnecessary for
-installing these receipts. Once scope is explicitly authorized:
+- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
+- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 
-1. Read each then-current packet; preserve its entire top review unchanged
-   in `reviewHistory` before replacing that top review. L3-2 currently has
-   the `independent-review-REV-DirichletPadicLFunctions--L3-2` accepted full
-   audit with 79 checked entries. D.1 has the accepted
-   `independent-review-REV-PadicHodgeRegulators--D.1~2` audit with 72 entries.
-   Never replace newer packet mathematics with an old snapshot.
-2. Install bounded `accepted` receipts naming
-   `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, the current date and the
-   continuing reviewer's session. Use finding /2 in the report for L3-2:
-   all-prime Zhao range, primitive odd chi/even chi-omega branch, conductor
-   correction, common log, strict normalized antidifference, coefficient
-   limits and separate nonvanishing/simple-zero suppliers. Retain E37, five
-   gaps and eight requests. Use finding /3 for the four D.2 consumers:
-   divided/undivided complexes, directed maps, factorial twist, exact divided
-   range, bounded constants and normalized rational boundary. Preserve nine
-   gaps, twenty requests, seventeen source issues and eight planned stages;
-   integral/open CS.0–CS.3 producers remain external.
-3. Verify all non-review fields are unchanged and every original audit entry
-   survives. Run the four packet checkers, intake file checks and the real
-   completion predicate; require True before reporting the job complete.
-   Update the report and handoff to record authorization and completion.
+The queue requires both packets, and `issues.deliverables_complete` requires
+this job's reviewer in every output packet. WORKERS.md explicitly says:
+“Edit only the files the issue names, plus your own scratch space.”
+This session prepared a concrete review-only patch and asked for explicit
+scope authorization. No authorization has arrived, so those files and the
+queue remain untouched. The live issue was re-read before submission and
+still omits both paths. The real completion predicate returns False.
 
-## Fresh checks in this run
+**Correct the dispatch scope before assigning this unchanged blocker again.**
+The mathematics needed for these bounded receipts has been checked; it does
+not need another exhaustive audit of their 79 and 72 nodes.
 
-All four packet checkers passed: zero errors, 26 inherited L3 short-API
-warnings and no warnings for the others. Intake file checks pass. Parsed
-before/after comparisons preserve the two earlier receipts whole and every
-non-review field; the two omitted packets are unchanged. No packet contains
-an `excerpt` key.
+After explicit authorization or correction of the issue's deliverables,
+append each then-current `review` object whole to `reviewHistory` and install
+an accepted review with the same reviewer id and the installation date.
+Use bounded notes identifying the continuing session and these checks:
 
-Sequential fresh `lean-check` runs elaborated PMIA, L3-2 and D.1 with only
-1,075, 111 and 307 `sorry` warnings respectively. L3 failed at its unresolved
-repository-local `research` import before its body; no body elaboration is
-claimed. Suggested files are unchanged. No library was built, no current
-read-only checkout was modified and no Lean process remains running.
+1. L3-2: finding /2, Zhao §1.2 p.461, Theorem 4.1 and (4.1)–(4.6)
+   pp.471–473, Appendices A–B pp.473–474; primitive odd character,
+   chi-omega branch, common logarithm, general conductor term, strict Gamma
+   endpoint and coefficient-limit differentiation. Keep nonvanishing and
+   simple-zero suppliers separate. Preserve the full preceding 79-entry
+   audit, five gaps, eight requests and E37. No new exhaustive review or
+   supplier closure is claimed.
+2. D.1: finding /3 and the four D.2 consumers; Ertl–Nizioł v2 §§2.1–2.2
+   pp.4–8, Colmez–Nizioł v4 Corollary 3.16 p.37/Theorem 5.4 p.54,
+   Nekovář–Nizioł v5 Remark 2.14 p.14/Proposition 4.13 pp.53–54.
+   Preserve divided/undivided complexes, directed omega/tau maps, factorial
+   twist, exact divided range through p−2, bounded undivided comparison and
+   rational boundary scaling/sign. CS.0–CS.3 remain proposed producers and
+   CP.4 is not the full integral/open supplier. Preserve the full previous
+   72-entry audit, nine gaps, twenty requests, seventeen source issues and
+   eight planned stages. No mathematical or planning field changes.
 
-Fresh finite controls: 72 buffered Gamma congruences plus the dyadic modulus-4
-counterexample, 55 FG permutations with all filtration endpoints, 120 strict
-counts, quartic character-weight controls, 56 rectangular adjugate preimages,
-deficient-relation/nonflat mod-2 examples and three weight-two boundary scaling
-examples. Public source hashes and exact versions are in the report. Scratch
-is removed after submission; this handoff and the report retain what a
-continuing worker needs.
+Run all four packet checkers, whole-object non-review/history preservation
+assertions, intake file checks and the actual completion predicate. Require
+True before reporting this review complete. Keep PMIA `needs_changes` with
+the coherent current-library migration described in the report. Do not
+perform a partial migration that omits its reader or consumers.
 
-## Separate PMIA revision
+## Validation boundary
 
-Current TauCeti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` already supplies
-generic higher Fitting ideals, finite-free kernel independence, arbitrary
-commutative-algebra base change and stable transpose comparison of arbitrary
-projective presentations. Exact paths and statements are in the report.
-Current roadmap main checked: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
+All four packet checkers pass without errors. L3 retains 26 API-outline
+warnings; the other three have none. Fresh finite controls include dyadic
+Gamma rejection, strict count/permutation endpoints, exact quartic-character
+weights/carries, 234 rectangular compound preimages including singular
+matrices, Fitting relation and nonflat controls, stable-transpose summand
+orientation and syntomic cone scaling. They do not prove supplier theorems.
 
-Migrate the five generic nodes `higher-fitting-ideal`,
-`relation-minors-add-generator`, `higher-fitting-independence`,
-`higher-fitting-base-change`, `transpose-stable-equivalence`, together with
-direct consumers, both StableReduction requests, the L4 comparison, reader
-and suggested interfaces. Keep non-generating-family matrix/kernel adapters,
-order calculations, finite-projective scalar/range transport and nonflat,
-deficient-relation, rank and nontriviality controls. These newer modules are
-absent at programme pin `f790474`; do not attribute them to that pin. The
-reader is outside this review's live scope, so no partial migration was made.
+Sequential `lean-check` at the shared programme build: L3-2 exit 0 with 111
+proof-placeholder warnings; D.1 exit 0 with 307; PMIA exit 0 with 1,075.
+There were no other warnings. L3 exits 1 at missing prototype `research`
+imports before its body elaborates. Its existing header states that boundary.
+No suggested file changed; no library build, update, cache fetch or language
+server was run. The current read-only roadmaps and library were only read.
+
+The report retains public URLs, theorem/section/page locators and hashes.
+No source passage or cleared-library file was copied into the repository.
+Scratch patches, PDFs, images and logs are disposable once the PR opens;
+this handoff contains everything needed to install the bounded receipts.
