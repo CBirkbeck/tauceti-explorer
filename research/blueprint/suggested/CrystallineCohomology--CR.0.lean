@@ -53,6 +53,8 @@ import Mathlib.CategoryTheory.Sites.CoverLifting
 import Mathlib.CategoryTheory.Limits.Preserves.Finite
 import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.BinaryFan
 import Mathlib.CategoryTheory.Limits.Shapes.IsTerminal
+import Mathlib.AlgebraicGeometry.Morphisms.Etale
+import Mathlib.RingTheory.WittVector.Isocrystal
 import Mathlib.CategoryTheory.Comma.Over.Basic
 import Mathlib.CategoryTheory.EssentialImage
 import Mathlib.CategoryTheory.Adjunction.Basic
@@ -94,11 +96,11 @@ structure AdditivePowers (I : Ideal A) where
 def AdditivePowers.ofDividedPowers (γ : DividedPowers I) : AdditivePowers I := by sorry
 lemma AdditivePowers.ofDividedPowers_dpow (γ : DividedPowers I) (n : ℕ) (x : A) : (AdditivePowers.ofDividedPowers γ).dpow n x = γ.dpow n x := by sorry
 lemma AdditivePowers.ext (δ ε : AdditivePowers I) (h : ∀ n x, x ∈ I → δ.dpow n x = ε.dpow n x) : δ = ε := by sorry
--- test_candidate_zero_index: Degree zero at zero is one.
+-- TauCeti.PD.test_candidate_zero_index: Degree zero at zero is one.
 example (δ : AdditivePowers I) : δ.dpow 0 0 = 1 := by sorry
--- test_candidate_positive_at_zero: Degree two at zero is zero.
+-- TauCeti.PD.test_candidate_positive_at_zero: Degree two at zero is zero.
 example (δ : AdditivePowers I) : δ.dpow 2 0 = 0 := by sorry
--- test_candidate_rational: Over a commutative ℚ-algebra, the candidate of γ has the value (n!)⁻¹·xⁿ at every x of the ideal.
+-- TauCeti.PD.test_candidate_rational: Over a commutative ℚ-algebra, the candidate of γ has the value (n!)⁻¹·xⁿ at every x of the ideal.
 example {R : Type*} [CommRing R] [Algebra ℚ R] (K : Ideal R) (γ : DividedPowers K) (n : ℕ) (x : R) (hx : x ∈ K) : (AdditivePowers.ofDividedPowers γ).dpow n x = (n.factorial : ℚ)⁻¹ • x ^ n := by sorry
 
 -- CrystallineCohomology:CR.0/multiplication-addition
@@ -127,11 +129,11 @@ def AdditivePowers.toDividedPowers (δ : AdditivePowers I) (S : Set A) (hS : I =
 lemma AdditivePowers.toDividedPowers_dpow (δ : AdditivePowers I) (S : Set A) (hS hm hc) (n : ℕ) (x : A) : (δ.toDividedPowers S hS hm hc).dpow n x = δ.dpow n x := by sorry
 lemma AdditivePowers.toDividedPowers_unique (δ : AdditivePowers I) (S : Set A) (hS hm hc) (γ : DividedPowers I) (h : ∀ n x, x ∈ I → γ.dpow n x = δ.dpow n x) : γ = δ.toDividedPowers S hS hm hc := by sorry
 lemma AdditivePowers.toDividedPowers_generators (δ : AdditivePowers I) (S T : Set A) (hS hm hc hT hmT hcT) : δ.toDividedPowers S hS hm hc = δ.toDividedPowers T hT hmT hcT := by sorry
--- test_generators_degree_two: The generated structure has the required quadratic mixed term.
+-- TauCeti.PD.test_generators_degree_two: The generated structure has the required quadratic mixed term.
 example (δ : AdditivePowers I) (S : Set A) (hS hm hc) (x y : A) (hx : x ∈ I) (hy : y ∈ I) : (δ.toDividedPowers S hS hm hc).dpow 2 (x+y) = δ.dpow 2 x + x*y + δ.dpow 2 y := by sorry
--- test_generators_outside: The constructed total operation at degree zero outside I is zero, not one.
+-- TauCeti.PD.test_generators_outside: The constructed total operation at degree zero outside I is zero, not one.
 example (δ : AdditivePowers I) (S : Set A) (hS hm hc) (x : A) (hx : x ∉ I) : (δ.toDividedPowers S hS hm hc).dpow 0 x = 0 := by sorry
--- test_generators_inner_one: Iteration with inner index one gives back the unchanged operation.
+-- TauCeti.PD.test_generators_inner_one: Iteration with inner index one gives back the unchanged operation.
 example (δ : AdditivePowers I) (S : Set A) (hS hm hc) (n : ℕ) (x : A) (hx : x ∈ I) : (δ.toDividedPowers S hS hm hc).dpow n ((δ.toDividedPowers S hS hm hc).dpow 1 x) = δ.dpow n x := by sorry
 
 -- CrystallineCohomology:CR.0/sum-convolution
@@ -139,11 +141,11 @@ def convolution (γ : DividedPowers I) (ε : DividedPowers J) (n : ℕ) (x y : A
 lemma convolution_eq (γ : DividedPowers I) (ε : DividedPowers J) (n : ℕ) (x y : A) : convolution γ ε n x y = ∑ k ∈ antidiagonal n, γ.dpow k.1 x * ε.dpow k.2 y := by sorry
 lemma convolution_swap (γ : DividedPowers I) (ε : DividedPowers J) (n : ℕ) (x y : A) : convolution γ ε n x y = convolution ε γ n y x := by sorry
 lemma convolution_mem (γ : DividedPowers I) (ε : DividedPowers J) (n : ℕ) (hn : n ≠ 0) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : convolution γ ε n x y ∈ I ⊔ J := by sorry
--- test_convolution_zero: C₀(0,0)=1.
+-- TauCeti.PD.test_convolution_zero: C₀(0,0)=1.
 example (γ : DividedPowers I) (ε : DividedPowers J) : convolution γ ε 0 0 0 = 1 := by sorry
--- test_convolution_quadratic: C₂(x,y)=γ₂(x)+xy+ε₂(y).
+-- TauCeti.PD.test_convolution_quadratic: C₂(x,y)=γ₂(x)+xy+ε₂(y).
 example (γ : DividedPowers I) (ε : DividedPowers J) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : convolution γ ε 2 x y = γ.dpow 2 x + x*y + ε.dpow 2 y := by sorry
--- test_convolution_same: For a single PD structure Cₙ(x,y)=γₙ(x+y).
+-- TauCeti.PD.test_convolution_same: For a single PD structure Cₙ(x,y)=γₙ(x+y).
 example (γ : DividedPowers I) (n : ℕ) (x y : A) (hx : x ∈ I) (hy : y ∈ I) : convolution γ γ n x y = γ.dpow n (x+y) := by sorry
 
 -- CrystallineCohomology:CR.0/sum-independence
@@ -159,11 +161,11 @@ def supCandidate (γ : DividedPowers I) (ε : DividedPowers J)
 lemma supCandidate_dpow_add (γ : DividedPowers I) (ε : DividedPowers J) (h) (n : ℕ) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : (supCandidate γ ε h).dpow n (x+y) = convolution γ ε n x y := by sorry
 lemma supCandidate_left (γ : DividedPowers I) (ε : DividedPowers J) (h) (n : ℕ) (x : A) (hx : x ∈ I) : (supCandidate γ ε h).dpow n x = γ.dpow n x := by sorry
 lemma supCandidate_right (γ : DividedPowers I) (ε : DividedPowers J) (h) (n : ℕ) (y : A) (hy : y ∈ J) : (supCandidate γ ε h).dpow n y = ε.dpow n y := by sorry
--- test_supCandidate_zero: At zero and degree zero, the sum candidate is one.
+-- TauCeti.PD.test_supCandidate_zero: At zero and degree zero, the sum candidate is one.
 example (γ : DividedPowers I) (ε : DividedPowers J) (h) : (supCandidate γ ε h).dpow 0 0 = 1 := by sorry
--- test_supCandidate_mixed: The quadratic sum candidate retains the mixed product.
+-- TauCeti.PD.test_supCandidate_mixed: The quadratic sum candidate retains the mixed product.
 example (γ : DividedPowers I) (ε : DividedPowers J) (h) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : (supCandidate γ ε h).dpow 2 (x+y) = γ.dpow 2 x + x*y + ε.dpow 2 y := by sorry
--- test_supCandidate_outside: Degree zero outside the sum ideal is zero.
+-- TauCeti.PD.test_supCandidate_outside: Degree zero outside the sum ideal is zero.
 example (γ : DividedPowers I) (ε : DividedPowers J) (h) (x : A) (hx : x ∉ I ⊔ J) : (supCandidate γ ε h).dpow 0 x = 0 := by sorry
 
 -- CrystallineCohomology:CR.0/sum-restrictions
@@ -177,11 +179,11 @@ def sup (γ : DividedPowers I) (ε : DividedPowers J)
 lemma sup_dpow_add (γ : DividedPowers I) (ε : DividedPowers J) (h) (n : ℕ) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : (sup γ ε h).dpow n (x+y) = convolution γ ε n x y := by sorry
 lemma sup_left (γ : DividedPowers I) (ε : DividedPowers J) (h) : γ.IsDPMorphism (sup γ ε h) (RingHom.id A) := by sorry
 lemma sup_right (γ : DividedPowers I) (ε : DividedPowers J) (h) : ε.IsDPMorphism (sup γ ε h) (RingHom.id A) := by sorry
--- test_sup_same: Gluing γ to itself returns the same operations.
+-- TauCeti.PD.test_sup_same: Gluing γ to itself returns the same operations.
 example (γ : DividedPowers I) (n : ℕ) (x : A) : (sup γ γ (by intros; rfl)).dpow n x = γ.dpow n x := by sorry
--- test_sup_zero_ideal: Gluing with the zero PD ideal returns γ on its domain.
+-- TauCeti.PD.test_sup_zero_ideal: Gluing with the zero PD ideal returns γ on its domain.
 example (γ : DividedPowers I) (h) (n : ℕ) (x : A) (hx : x ∈ I) : (sup γ (dividedPowersBot A) h).dpow n x = γ.dpow n x := by sorry
--- test_sup_quadratic: The glued degree-two formula contains xy with coefficient one.
+-- TauCeti.PD.test_sup_quadratic: The glued degree-two formula contains xy with coefficient one.
 example (γ : DividedPowers I) (ε : DividedPowers J) (h) (x y : A) (hx : x ∈ I) (hy : y ∈ J) : (sup γ ε h).dpow 2 (x+y) = γ.dpow 2 x + x*y + ε.dpow 2 y := by sorry
 
 -- CrystallineCohomology:CR.0/sum-universal-property
@@ -212,13 +214,13 @@ def extendPrincipal (γ : DividedPowers I) (f : A →+* B) (x : A)
 lemma extendPrincipal_dpow (γ : DividedPowers I) (f : A →+* B) (x : A) (hx) (n : ℕ) (b : B) : (extendPrincipal γ f x hx).dpow n (b * f x) = b^n * f (γ.dpow n x) := by sorry
 lemma extendPrincipal_isDPMorphism (γ : DividedPowers I) (f : A →+* B) (x : A) (hx) : γ.IsDPMorphism (extendPrincipal γ f x hx) f := by sorry
 lemma extendPrincipal_generator_independent (γ : DividedPowers I) (f : A →+* B) (x y : A) (hx hy) : extendPrincipal γ f x hx = extendPrincipal γ f y hy := by sorry
--- test_principal_identity: Extension along the identity has the original operation on I.
+-- TauCeti.PD.test_principal_identity: Extension along the identity has the original operation on I.
 example (γ : DividedPowers I) (x : A) (hx) (n : ℕ) (z : A) (hz : z ∈ I) : (extendPrincipal γ (RingHom.id A) x hx).dpow n z = γ.dpow n z := by sorry
--- test_principal_zero: Extending the zero ideal gives the existing zero divided powers on its image.
+-- TauCeti.PD.test_principal_zero: Extending the zero ideal gives the existing zero divided powers on its image.
 example (f : A →+* B) (n : ℕ) : (extendPrincipal (dividedPowersBot A) f 0 (by simp)).dpow n 0 = (dividedPowersBot B).dpow n 0 := by sorry
--- test_principal_quadratic: The degree-two value on bf(x) scales by b².
+-- TauCeti.PD.test_principal_quadratic: The degree-two value on bf(x) scales by b².
 example (γ : DividedPowers I) (f : A →+* B) (x : A) (hx) (b : B) : (extendPrincipal γ f x hx).dpow 2 (b * f x) = b^2 * f (γ.dpow 2 x) := by sorry
--- test_principal_p_two: For the canonical PD ideal (2) in Z₂, identity extension satisfies γ₂(2)=2, so ordinary or PD nilpotence must not be inferred.
+-- TauCeti.PD.test_principal_p_two: For the canonical PD ideal (2) in Z₂, identity extension satisfies γ₂(2)=2, so ordinary or PD nilpotence must not be inferred.
 example  : (extendPrincipal (PadicInt.dividedPowers 2) (RingHom.id ℤ_[2]) 2 rfl).dpow 2 2 = 2 := by sorry
 
 -- CrystallineCohomology:CR.0/extension-coefficient
@@ -227,11 +229,11 @@ def extensionCoefficient (γ : DividedPowers I) (f : A →+* B)
 lemma extensionCoefficient_eq (γ : DividedPowers I) (f : A →+* B) (r n : ℕ) (b : Fin r → B) (x : Fin r → A) : extensionCoefficient γ f r n b x = ∑ k ∈ (Finset.univ : Finset (Fin r)).sym n, ∏ i : Fin r, b i ^ Multiset.count i k * f (γ.dpow (Multiset.count i k) (x i)) := by sorry
 lemma extensionCoefficient_one (γ : DividedPowers I) (f : A →+* B) (n : ℕ) (b : B) (x : A) : extensionCoefficient γ f 1 n (fun _ => b) (fun _ => x) = b^n * f (γ.dpow n x) := by sorry
 lemma extensionCoefficient_mem (γ : DividedPowers I) (f : A →+* B) (r n : ℕ) (hn : n ≠ 0) (b : Fin r → B) (x : Fin r → A) (hx : ∀ i, x i ∈ I) : extensionCoefficient γ f r n b x ∈ I.map f := by sorry
--- test_coefficient_empty_zero: The empty family in degree zero contributes one.
+-- TauCeti.PD.test_coefficient_empty_zero: The empty family in degree zero contributes one.
 example (γ : DividedPowers I) (f : A →+* B) : extensionCoefficient γ f 0 0 Fin.elim0 Fin.elim0 = 1 := by sorry
--- test_coefficient_empty_positive: The empty family in degree one contributes zero.
+-- TauCeti.PD.test_coefficient_empty_positive: The empty family in degree one contributes zero.
 example (γ : DividedPowers I) (f : A →+* B) : extensionCoefficient γ f 0 1 Fin.elim0 Fin.elim0 = 0 := by sorry
--- test_coefficient_quadratic: For two elements, E₂=b₀²fγ₂(x₀)+b₀b₁f(x₀x₁)+b₁²fγ₂(x₁).
+-- TauCeti.PD.test_coefficient_quadratic: For two elements, E₂=b₀²fγ₂(x₀)+b₀b₁f(x₀x₁)+b₁²fγ₂(x₁).
 example (γ : DividedPowers I) (f : A →+* B) (b : Fin 2 → B) (x : Fin 2 → A) (hx : ∀ i, x i ∈ I) : extensionCoefficient γ f 2 2 b x = b 0 ^ 2 * f (γ.dpow 2 (x 0)) + (b 0 * b 1) * f (x 0 * x 1) + b 1 ^ 2 * f (γ.dpow 2 (x 1)) := by sorry
 
 -- CrystallineCohomology:CR.0/coefficient-substitution
@@ -256,11 +258,11 @@ lemma flatCandidate_formula [Algebra A B] [Module.Flat A B] (γ : DividedPowers 
 -- CrystallineCohomology:CR.0/flat-candidate-base
 lemma flatCandidate_base [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (n : ℕ) (x : A) (hx : x ∈ I) : (flatCandidate (B := B) γ).dpow n (algebraMap A B x) = algebraMap A B (γ.dpow n x) := by sorry
 lemma flatCandidate_outside [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (n : ℕ) (b : B) (hb : b ∉ I.map (algebraMap A B)) : (flatCandidate (B := B) γ).dpow n b = 0 := by sorry
--- test_flatCandidate_zero: Degree zero at zero is one.
+-- TauCeti.PD.test_flatCandidate_zero: Degree zero at zero is one.
 example [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) : (flatCandidate (B := B) γ).dpow 0 0 = 1 := by sorry
--- test_flatCandidate_scalar: A single scalar multiple has the expected nth-power coefficient.
+-- TauCeti.PD.test_flatCandidate_scalar: A single scalar multiple has the expected nth-power coefficient.
 example [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (n : ℕ) (b : B) (x : A) (hx : x ∈ I) : (flatCandidate (B := B) γ).dpow n (b * algebraMap A B x) = b^n * algebraMap A B (γ.dpow n x) := by sorry
--- test_flatCandidate_quadratic: The quadratic formula includes the mixed product after base change.
+-- TauCeti.PD.test_flatCandidate_quadratic: The quadratic formula includes the mixed product after base change.
 example [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (x y : A) (hx : x ∈ I) (hy : y ∈ I) : (flatCandidate (B := B) γ).dpow 2 (algebraMap A B x + algebraMap A B y) = algebraMap A B (γ.dpow 2 x + x*y + γ.dpow 2 y) := by sorry
 
 -- CrystallineCohomology:CR.0/flat-extension
@@ -270,11 +272,11 @@ lemma extendFlat_formula [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) 
 -- CrystallineCohomology:CR.0/flat-extension-map
 lemma extendFlat_isDPMorphism [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) : γ.IsDPMorphism (extendFlat (B := B) γ) (algebraMap A B) := by sorry
 lemma extendFlat_unique [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (θ : DividedPowers (I.map (algebraMap A B))) (h : γ.IsDPMorphism θ (algebraMap A B)) : θ = extendFlat γ := by sorry
--- test_flat_identity: Identity extension agrees with γ at every element.
+-- TauCeti.PD.test_flat_identity: Identity extension agrees with γ at every element.
 example (γ : DividedPowers I) (n : ℕ) (x : A) : (extendFlat (B := A) γ).dpow n x = γ.dpow n x := by sorry
--- test_flat_principal: On a principal ideal the flat and principal constructions agree.
+-- TauCeti.PD.test_flat_principal: On a principal ideal the flat and principal constructions agree.
 example [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (x : A) (hx) : extendFlat (B := B) γ = extendPrincipal γ (algebraMap A B) x hx := by sorry
--- test_flat_quadratic: A linear combination of two base elements retains its cross term.
+-- TauCeti.PD.test_flat_quadratic: A linear combination of two base elements retains its cross term.
 example [Algebra A B] [Module.Flat A B] (γ : DividedPowers I) (b c : B) (x y : A) (hx : x ∈ I) (hy : y ∈ I) : (extendFlat (B := B) γ).dpow 2 (b * algebraMap A B x + c * algebraMap A B y) = b^2 * algebraMap A B (γ.dpow 2 x) + b*c * algebraMap A B (x*y) + c^2 * algebraMap A B (γ.dpow 2 y) := by sorry
 
 -- CrystallineCohomology:CR.0/localization-formula
@@ -300,9 +302,9 @@ lemma DieudonneComplex.F_zero {p : ℕ} (M : DieudonneComplex p) (n : ℤ) : M.F
 lemma DieudonneComplex.F_add {p : ℕ} (M : DieudonneComplex p) (n : ℤ) (x y : M.complex.X n) : M.F n (x+y) = M.F n x + M.F n y := by sorry
 -- CrystallineCohomology:CR.4/dieudonne-dF
 lemma DieudonneComplex.d_F {p : ℕ} (M : DieudonneComplex p) (n : ℤ) (x : M.complex.X n) : (M.complex.d n (n+1)).hom (M.F n x) = p • M.F (n+1) ((M.complex.d n (n+1)).hom x) := by sorry
--- test_dieudonne_degree_zero: Z concentrated in degree zero permits any Frobenius multiplication a.
+-- TauCeti.Crystalline.test_dieudonne_degree_zero: Z concentrated in degree zero permits any Frobenius multiplication a.
 example (a : ℤ) : ∃ (M : DieudonneComplex 2) (e : M.complex.X 0 ≃ₗ[ℤ] ℤ), (∀ x, e (M.F 0 x) = a * e x) ∧ ∀ n : ℤ, n ≠ 0 → Subsingleton (M.complex.X n) := by sorry
--- test_dieudonne_not_chain: For p=2 there is a Dieudonné complex with dF≠Fd: Z→Z with d=id, F₀=2 and F₁=1.
+-- TauCeti.Crystalline.test_dieudonne_not_chain: For p=2 there is a Dieudonné complex with dF≠Fd: Z→Z with d=id, F₀=2 and F₁=1.
 example  : ∃ (M : DieudonneComplex 2) (x : M.complex.X 0), (M.complex.d 0 1).hom (M.F 0 x) ≠ M.F 1 ((M.complex.d 0 1).hom x) := by sorry
 /- Inherited aggregate specification: A Dieudonné complex is a cochain complex of abelian groups (M*,d) with a map of graded abelian groups F:M*→M* satisfying dF(x)=pF(dx); morphisms commute with d and F. For a p-torsion-free complex, (η_p M)^n={x∈p^nM^n : dx∈p^{n+1}M^{n+1}} is a subcomplex of M*[p^{-1}] (Construction 2.1.3; for complexes in nonnegative degrees η_pM⊆M, footnote 1). For termwise p-torsion-free M, a Dieudonné structure F is equivalent to a map of cochain complexes α_F:M*→(η_pM)*, α_F(x)=p^nF(x) for x∈M^n, with inverse F(x)=p^{-n}α(x).
 The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement. -/
@@ -319,11 +321,11 @@ lemma IsSaturated.p_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturat
 lemma IsSaturated.F_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Function.Injective (M.F n) := by sorry
 -- CrystallineCohomology:CR.4/saturated-F-range
 lemma IsSaturated.F_range {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Set.range (M.F n) = {x | ∃ y : M.complex.X (n+1), (M.complex.d n (n+1)).hom x = p • y} := by sorry
--- test_saturated_zero: Every complex whose groups are zero is saturated.
+-- TauCeti.Crystalline.test_saturated_zero: Every complex whose groups are zero is saturated.
 example {p : ℕ} (M : DieudonneComplex p) (h : ∀ n, Subsingleton (M.complex.X n)) : IsSaturated M := by sorry
--- test_saturated_zero_d: For zero differential and termwise p-torsionfree groups, saturation is equivalent to bijectivity of F.
+-- TauCeti.Crystalline.test_saturated_zero_d: For zero differential and termwise p-torsionfree groups, saturation is equivalent to bijectivity of F.
 example {p : ℕ} (M : DieudonneComplex p) (hp : ∀ n, Function.Injective (fun x : M.complex.X n => p • x)) (hd : ∀ n, M.complex.d n (n+1) = 0) : IsSaturated M ↔ ∀ n, Function.Bijective (M.F n) := by sorry
--- test_saturated_multiplication_two: The degree-zero group Z with F=2 is not saturated at p=2.
+-- TauCeti.Crystalline.test_saturated_multiplication_two: The degree-zero group Z with F=2 is not saturated at p=2.
 example (M : DieudonneComplex 2) (e : M.complex.X 0 ≃ₗ[ℤ] ℤ) (hF : ∀ x, e (M.F 0 x) = 2 * e x) (hd : M.complex.d 0 1 = 0) : ¬ IsSaturated M := by sorry
 /- Inherited aggregate specification: A Dieudonné complex is saturated when it is termwise p-torsion-free and F:M^n→{x∈M^n:dx∈pM^{n+1}} is bijective in every degree. Equivalently, α_F:M→η_p M is an isomorphism.
 The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement. -/
@@ -340,9 +342,9 @@ lemma verschiebung_d {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n 
 -- CrystallineCohomology:CR.4/verschiebung-FdV
 lemma verschiebung_FdV {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (x : M.complex.X n) : M.F (n+1) ((M.complex.d n (n+1)).hom (verschiebung M hM n x)) = (M.complex.d n (n+1)).hom x := by sorry
 lemma verschiebung_injective {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) : Function.Injective (verschiebung M hM n) := by sorry
--- test_V_F_identity: If F is identity in a degree, V is multiplication by p there.
+-- TauCeti.Crystalline.test_V_F_identity: If F is identity in a degree, V is multiplication by p there.
 example {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (hF : ∀ x, M.F n x = x) (x : M.complex.X n) : verschiebung M hM n x = p • x := by sorry
--- test_V_F_p: If F is multiplication by p in a degree, V is identity there; e.g. a rational degree-zero group.
+-- TauCeti.Crystalline.test_V_F_p: If F is multiplication by p in a degree, V is identity there; e.g. a rational degree-zero group.
 example {p : ℕ} (M : DieudonneComplex p) (hM : IsSaturated M) (n : ℤ) (hF : ∀ x, M.F n x = p • x) (x : M.complex.X n) : verschiebung M hM n x = x := by sorry
 /- Inherited aggregate specification: On a saturated Dieudonné complex define V uniquely by F(Vx)=px. It is injective and satisfies FV=VF=p, FdV=d and Vd=p dV.
 The concrete core is typed on the pinned cochain-complex carrier; the eta dictionary or categorical consequences in the inherited aggregate still require refinement. -/
@@ -395,7 +397,7 @@ theorem augmentation_unique (f : DividedPowerAlgebra R M →ₐ[R] R)
     (hf : ∀ n m, n ≠ 0 → f (DividedPowerAlgebra.dp R n m) = 0) :
     f = augmentation R M := by sorry
 
--- augmentation_test_positive_with_scalar
+-- TauCeti.Crystalline.augmentation_test_positive_with_scalar
 example (m : M) : augmentation R M
     (algebraMap R _ (3 : R) + DividedPowerAlgebra.dp R 2 m) = 3 := by sorry
 
@@ -415,13 +417,13 @@ theorem scalar_mem_augmentationIdeal (r : R) :
     algebraMap R (DividedPowerAlgebra R M) r ∈ augmentationIdeal R M ↔ r = 0 := by
   sorry
 
--- augmentationIdeal_test_positive
+-- TauCeti.Crystalline.augmentationIdeal_test_positive
 example (m : M) : DividedPowerAlgebra.dp R 2 m ∈ augmentationIdeal R M := by sorry
 
--- augmentationIdeal_test_unit
+-- TauCeti.Crystalline.augmentationIdeal_test_unit
 example : (1 : DividedPowerAlgebra ℤ ℤ) ∉ augmentationIdeal ℤ ℤ := by sorry
 
--- augmentationIdeal_test_degree_one_insufficient
+-- TauCeti.Crystalline.augmentationIdeal_test_degree_one_insufficient
 example : DividedPowerAlgebra.dp (ZMod 2) 2 (1 : ZMod 2) ∈
       augmentationIdeal (ZMod 2) (ZMod 2) ∧
     DividedPowerAlgebra.dp (ZMod 2) 2 (1 : ZMod 2) ∉
@@ -454,13 +456,13 @@ theorem augmentationSplitting_symm (r : R) (x : augmentationIdeal R M) :
     (augmentationSplitting R M).symm (r, x) =
       algebraMap R (DividedPowerAlgebra R M) r + x := by sorry
 
--- augmentationSplitting_test_scalar
+-- TauCeti.Crystalline.augmentationSplitting_test_scalar
 example (r : R) : augmentationSplitting R M (algebraMap R _ r) = (r, 0) := by sorry
 
--- augmentationSplitting_test_ideal
+-- TauCeti.Crystalline.augmentationSplitting_test_ideal
 example (x : augmentationIdeal R M) : augmentationSplitting R M x = (0, x) := by sorry
 
--- augmentationSplitting_test_addition
+-- TauCeti.Crystalline.augmentationSplitting_test_addition
 example (r : R) (x : augmentationIdeal R M) :
     augmentationSplitting R M (algebraMap R _ r + x) = (r, x) := by sorry
 
@@ -832,7 +834,7 @@ theorem map_pdFiltration_le (hI : DividedPowers I) (hJ : DividedPowers J)
 theorem map_pdFiltration_of_surjective (hI : DividedPowers I)
     (hJ : DividedPowers J) (f : R →+* S)
     (hf : DividedPowers.IsDPMorphism hI hJ f)
-    (hs : Function.Surjective f) (hIJ : I.map f = J) (n : ℕ) :
+    (hIJ : I.map f = J) (n : ℕ) :
     (pdFiltration hI n).map f = pdFiltration hJ n := by sorry
 
 -- CrystallineCohomology:CR.0/pd-filtration-rational
@@ -840,16 +842,16 @@ theorem pdFiltration_eq_pow_of_ratAlgebra [Algebra ℚ R]
     (hI : DividedPowers I) (n : ℕ) : pdFiltration hI n = I ^ n := by sorry
 
 -- Acceptance: the empty word survives even on the zero ideal.
--- pd_filtration_empty_word
+-- TauCeti.Crystalline.pd_filtration_empty_word
 example : pdFiltration (dividedPowersBot R) 0 = ⊤ := by sorry
 
 -- Acceptance: every positive stage on the zero ideal vanishes.
--- pd_filtration_zero_ideal
+-- TauCeti.Crystalline.pd_filtration_zero_ideal
 example (n : ℕ) (hn : 0 < n) :
     pdFiltration (dividedPowersBot R) n = ⊥ := by sorry
 
 -- Negative control: the second PD stage is larger than the ordinary square.
--- pd_filtration_two_adic_counterexample
+-- TauCeti.Crystalline.pd_filtration_two_adic_counterexample
 example [Fact (Nat.Prime 2)] :
     let I : Ideal ℤ_[2] := Ideal.span {(2 : ℤ_[2])}
     (2 : ℤ_[2]) ∈ pdFiltration (PadicInt.dividedPowers 2) 2 ∧
@@ -1198,7 +1200,7 @@ def pdDifferentials_lift (M : Type*) [AddCommGroup M] [Module B M] [Module A M]
 lemma pdDifferentials_dpow (n : ℕ) (hn : 0 < n) (x : B) (hx : x ∈ J) :
     pdDifferential A B J δ (δ.dpow n x) =
       δ.dpow (n-1) x • pdDifferential A B J δ x := by sorry
--- The exterior algebra and its graded differential are an ordinary-forms DD.0
+-- The exterior algebra and its graded differential are an ordinary-forms DD.2
 -- supplier obligation; they are not replaced by arbitrary graded modules here.
 -- TauCeti.Crystalline.test_pdDifferentials_base
 example : (∀ δ₀ : DividedPowers (⊥ : Ideal B),
@@ -2007,12 +2009,12 @@ theorem augmentation_map {S N : Type*} [CommRing S] [Algebra R S] [AddCommGroup 
     augmentation S N (DividedPowerAlgebra.map S f z) =
       algebraMap R S (augmentation R M z) := by sorry
 
--- augmentation_test_degree_one
+-- TauCeti.Crystalline.augmentation_test_degree_one
 example : (∀ m : M, augmentation R M (DividedPowerAlgebra.dp R 1 m) = 0) ∧
     (augmentation R M).toLinearMap.comp (DividedPowerAlgebra.embed R M) = 0 := by sorry
 
 open scoped Classical in
--- augmentation_test_not_evaluation
+-- TauCeti.Crystalline.augmentation_test_not_evaluation
 example :
     DividedPowerAlgebra.lift (DividedPowers.RatAlgebra.dividedPowers (⊤ : Ideal ℚ))
         (LinearMap.id : ℚ →ₗ[ℚ] ℚ) (fun _ => Submodule.mem_top)
@@ -2316,7 +2318,7 @@ theorem pdFiltration_eq_span_of_span (hI : DividedPowers I) (S : Set R) (hS : I 
     pdFiltration hI n = Ideal.span {z | ∃ l : List (ℕ × S),
       n ≤ (l.map Prod.fst).sum ∧ z = (l.map fun t => hI.dpow t.1 (t.2 : R)).prod} := by sorry
 
--- pd_filtration_two_adic_constant
+-- TauCeti.Crystalline.pd_filtration_two_adic_constant
 example (n : ℕ) (hn : 1 ≤ n) :
     pdFiltration (PadicInt.dividedPowers 2) n = Ideal.span {(2 : ℤ_[2])} := by sorry
 
@@ -2710,7 +2712,8 @@ lemma completedEnvelope.isSubDPIdeal_span_pow (p : ℕ) [Fact p.Prime] {D : Type
 lemma completedEnvelope_lift (p : ℕ) [Fact p.Prime] {D : Type*} [CommRing D] {J : Ideal D}
     (γ : DividedPowers J) (t : ℕ) (ht : (p : D) ^ t ∈ J) {C : Type*} [CommRing C]
     [IsAdicComplete (Ideal.span {(p : C)}) C] {K : Ideal C} (ε : DividedPowers K)
-    (hK : ∃ s : ℕ, (p : C) ^ s ∈ K) (f : D →+* C) (hf : DividedPowers.IsDPMorphism γ ε f) :
+    (hK : K = ⨅ n : ℕ, K ⊔ Ideal.span {(p : C) ^ n})
+    (f : D →+* C) (hf : DividedPowers.IsDPMorphism γ ε f) :
     ∃! g : completedEnvelope.ring p D →+* C, g.comp (completedEnvelope.of p D) = f ∧
       DividedPowers.IsDPMorphism (completedEnvelope p γ t ht) ε g := by sorry
 
@@ -4690,1206 +4693,1128 @@ end ContinuousWitt
 
 end TauCeti.Crystalline
 
-/- BEGIN EXACT PROTOTYPE OMISSION REGISTER
-These are mathematical contracts, not Lean declarations. Names in this register
-are omitted forms or wider components outside the compilation claim. The packet
-and reader are definitive; every omitted condition must be stated on its actual
-supplier object before a signature can be introduced.
 
-CrystallineCohomology:CR.4/dieudonne-complex
-api TauCeti.Crystalline.DieudonneComplex.alphaF
-For a termwise p-torsion-free Dieudonné complex M, α_F:M→η_pM is the cochain map with
-α_F(x)=p^nF(x) for x∈M^n; in the normalized coordinates of AInfCohomology:AI.1/principal-complex
-it is F itself, regarded as a cochain map M→E_p(M).
-api TauCeti.Crystalline.DieudonneComplex.ofAlpha
-For a termwise p-torsion-free cochain complex M of abelian groups and a cochain map α:M→η_pM,
-the triple (M,d,F) with F(x)=p^(−n)α(x) for x∈M^n is a Dieudonné complex.
-api TauCeti.Crystalline.DieudonneComplex.alphaF_ofAlpha
-The two constructions are mutually inverse: the map α_F of ofAlpha(α) is α, and ofAlpha(α_F) has
-Frobenius F.
-api TauCeti.Crystalline.DieudonneComplex.alphaF_natural
-For termwise p-torsion-free Dieudonné complexes M, N and a cochain map f:M→N with f∘F=F∘f,
-η_p(f)∘α_F=α_F∘f.
+namespace TauCeti.Crystalline
+open CategoryTheory AlgebraicGeometry
+universe u
+
+/- CR.4 owns this specialization before the later general décalage theory.
+The normalized term is a real submodule of the pinned complex, in every integer degree. -/
+def PDecalageTerm (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ) :
+    Submodule ℤ (M.X n) where
+  carrier := {x | ∃ y : M.X (n+1), (M.d n (n+1)).hom x = p • y}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+def PTermwiseTorsionFree (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) : Prop :=
+  ∀ n, Function.Injective (fun x : M.X n => p • x)
+
+def pDecalageDiff (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ) :
+    PDecalageTerm p M n →ₗ[ℤ] PDecalageTerm p M (n+1) := by sorry
+
+-- CrystallineCohomology:CR.4/principal-p-decalage
+def principal_p_decalage (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) : CochainComplex (ModuleCat.{u} ℤ) ℤ :=
+  CochainComplex.of (fun n => ModuleCat.of ℤ (PDecalageTerm p M n))
+    (fun n => ModuleCat.ofHom (pDecalageDiff p M hp n)) (by sorry)
+
+lemma pDecalage_degree (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ)
+    (x : M.X n) : x ∈ PDecalageTerm p M n ↔
+      ∃ y : M.X (n+1), (M.d n (n+1)).hom x = p • y := by sorry
+
+lemma pDecalage_d (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ) (x : PDecalageTerm p M n) :
+    p • (pDecalageDiff p M hp n x).val = (M.d n (n+1)).hom x.val := by sorry
+
+def pDecalage_map (p : ℕ) {M N : CochainComplex (ModuleCat.{u} ℤ) ℤ}
+    (hM : PTermwiseTorsionFree p M) (hN : PTermwiseTorsionFree p N) (f : M ⟶ N) :
+    principal_p_decalage p M hM ⟶ principal_p_decalage p N hN := by sorry
+
+lemma pDecalage_map_apply (p : ℕ) {M N : CochainComplex (ModuleCat.{u} ℤ) ℤ}
+    (hM : PTermwiseTorsionFree p M) (hN : PTermwiseTorsionFree p N) (f : M ⟶ N)
+    (n : ℤ) (x : PDecalageTerm p M n) :
+    ((pDecalage_map p hM hN f).f n x).val = (f.f n).hom x.val := by sorry
+
+lemma pDecalage_map_id (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) : pDecalage_map p hp hp (𝟙 M) = 𝟙 _ := by sorry
+
+lemma pDecalage_map_comp (p : ℕ) {M N P : CochainComplex (ModuleCat.{u} ℤ) ℤ}
+    (hM : PTermwiseTorsionFree p M) (hN : PTermwiseTorsionFree p N)
+    (hP : PTermwiseTorsionFree p P) (f : M ⟶ N) (g : N ⟶ P) :
+    pDecalage_map p hM hP (f ≫ g) =
+      pDecalage_map p hM hN f ≫ pDecalage_map p hN hP g := by sorry
+
+def DieudonneComplex.alphaF {p : ℕ} (M : DieudonneComplex.{u} p)
+    (hp : PTermwiseTorsionFree p M.complex) :
+    M.complex ⟶ principal_p_decalage p M.complex hp := by sorry
+
+lemma DieudonneComplex.alphaF_apply {p : ℕ} (M : DieudonneComplex.{u} p)
+    (hp : PTermwiseTorsionFree p M.complex) (n : ℤ) (x : M.complex.X n) :
+    ((M.alphaF hp).f n x).val = M.F n x := by sorry
+
+def DieudonneComplex.ofAlpha (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (α : M ⟶ principal_p_decalage p M hp) :
+    DieudonneComplex p where
+  complex := M
+  F n := { toFun := fun x => ((α.f n).hom x).val
+           map_add' := by sorry
+           map_smul' := by sorry }
+  comm := by sorry
+
+lemma DieudonneComplex.alphaF_ofAlpha (p : ℕ)
+    (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (hp : PTermwiseTorsionFree p M)
+    (α : M ⟶ principal_p_decalage p M hp) :
+    (DieudonneComplex.ofAlpha p M hp α).alphaF hp = α := by sorry
+
+lemma DieudonneComplex.alphaF_natural {p : ℕ} {M N : DieudonneComplex.{u} p}
+    (hM : PTermwiseTorsionFree p M.complex) (hN : PTermwiseTorsionFree p N.complex)
+    (f : DieudonneHom M N) :
+    M.alphaF hM ≫ pDecalage_map p hM hN f.toCochainHom =
+      f.toCochainHom ≫ N.alphaF hN := by sorry
+
+-- TauCeti.Crystalline.test_pDecalage_zero
+example (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (h : ∀ n, Subsingleton (M.X n)) (n : ℤ) :
+    PDecalageTerm p M n = ⊥ := by sorry
+
+-- TauCeti.Crystalline.test_pDecalage_two_term
+example (p : ℕ) [Fact p.Prime] (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (e₀ : M.X 0 ≃ₗ[ℤ] ℤ) (e₁ : M.X 1 ≃ₗ[ℤ] ℤ)
+    (hd : ∀ x, e₁ ((M.d 0 1).hom x) = (p : ℤ) * e₀ x)
+    (hz : M.d 1 2 = 0) :
+    PDecalageTerm p M 0 = ⊤ ∧
+      Function.Bijective (pDecalageDiff p M hp 0) := by sorry
+
+-- TauCeti.Crystalline.test_pDecalage_negative
+example (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hd : M.d (-1) 0 = 0) : PDecalageTerm p M (-1) = ⊤ := by sorry
+
+-- CR.1 étale objects share the existing PD-thickening carrier.
+-- CrystallineCohomology:CR.1/etale-crystalline-site (small object component)
+abbrev etale_crystalline_site (p : ℕ) (S : PDScheme.{u}) (X : Scheme.{u})
+    (xS : X ⟶ S.scheme) :=
+  (show ObjectProperty (CrisSite p S X xS) from fun A => Etale A.toX).FullSubcategory
+
+def CrisSite.IsEtaleCover {p : ℕ} {S : PDScheme.{u}} {X : Scheme.{u}}
+    {xS : X ⟶ S.scheme} (A : CrisSite p S X xS) {ι : Type u}
+    (B : ι → CrisSite p S X xS) (f : ∀ i, B i ⟶ A) : Prop :=
+  (∀ i, Etale (f i).onT.hom) ∧
+  (∀ i, IsPullback (f i).onU (B i).thickening.immersion
+    A.thickening.immersion (f i).onT.hom) ∧
+  ∀ x : A.thickening.T.scheme, ∃ i y, (f i).onT.hom y = x
+
+-- TauCeti.Crystalline.test_etale_crystalline_identity
+example {p : ℕ} {S : PDScheme.{u}} {X : Scheme.{u}} {xS : X ⟶ S.scheme}
+    (A : CrisSite p S X xS) :
+    A.IsEtaleCover (fun _ : PUnit => A) (fun _ => 𝟙 A) := by sorry
+
+/- Elliptic point counts reuse the upstream model; these two examples check its
+affine chart numerically. The full crystalline polynomial and slope statements
+remain in the omission register until the cohomology and isocrystal APIs land. -/
+open scoped Classical in
+-- TauCeti.Crystalline.ellipticOrdinary_affine_count
+example : (Finset.univ.filter (fun z : ZMod 5 × ZMod 5 =>
+    z.2 ^ 2 = z.1 ^ 3 + z.1)).card + 1 = 4 := by sorry
+
+open scoped Classical in
+-- TauCeti.Crystalline.ellipticSupersingular_affine_count
+example : (Finset.univ.filter (fun z : ZMod 3 × ZMod 3 =>
+    z.2 ^ 2 = z.1 ^ 3 - z.1)).card + 1 = 4 := by sorry
+
+end TauCeti.Crystalline
+
+
+namespace TauCeti.Crystalline
+open CategoryTheory
+universe u
+
+/- Cohomology modulo p is presented explicitly by lifted cocycles and
+boundaries. This avoids inventing a cohomology carrier for the Bockstein. -/
+def PModBoundaries (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ) :
+    Submodule ℤ (PDecalageTerm p M n) where
+  carrier := {x | ∃ y : M.X (n-1), ∃ z : M.X n,
+    x.val = (M.d (n-1) n).hom y + p • z}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+abbrev PModCohomology (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ) :=
+  PDecalageTerm p M n ⧸ PModBoundaries p M n
+
+def pBocksteinClass (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ)
+    (x : PDecalageTerm p M n) : PModCohomology p M n :=
+  (PModBoundaries p M n).mkQ x
+
+def pBocksteinDiff (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ) :
+    PModCohomology p M n →ₗ[ℤ] PModCohomology p M (n+1) := by sorry
+
+-- CrystallineCohomology:CR.4/p-bockstein
+def p_bockstein (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) : CochainComplex (ModuleCat.{u} ℤ) ℤ :=
+  CochainComplex.of (fun n => ModuleCat.of ℤ (PModCohomology p M n))
+    (fun n => ModuleCat.ofHom (pBocksteinDiff p M hp n)) (by sorry)
+
+lemma pBockstein_lift (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ)
+    (x : PDecalageTerm p M n) (y : PDecalageTerm p M (n+1))
+    (hxy : (M.d n (n+1)).hom x.val = p • y.val) :
+    pBocksteinDiff p M hp n (pBocksteinClass p M n x) =
+      pBocksteinClass p M (n+1) y := by sorry
+
+lemma pBockstein_square (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ) :
+    (pBocksteinDiff p M hp (n+1)).comp (pBocksteinDiff p M hp n) = 0 := by sorry
+
+abbrev PQuotientTerm (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ) :=
+  M.X n ⧸ LinearMap.range ((p : ℤ) • (LinearMap.id : Module.End ℤ (M.X n)))
+
+def pQuotientDiff (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ) :
+    PQuotientTerm p M n →ₗ[ℤ] PQuotientTerm p M (n+1) := by sorry
+
+lemma pQuotientDiff_mk (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) (n : ℤ)
+    (x : M.X n) :
+    pQuotientDiff p M n (Submodule.Quotient.mk x) =
+      Submodule.Quotient.mk ((M.d n (n+1)).hom x) := by sorry
+
+def pQuotientComplex (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ) :
+    CochainComplex (ModuleCat.{u} ℤ) ℤ :=
+  CochainComplex.of (fun n => ModuleCat.of ℤ (PQuotientTerm p M n))
+    (fun n => ModuleCat.ofHom (pQuotientDiff p M n)) (by sorry)
+
+def pBockstein_decalage (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) :
+    pQuotientComplex p (principal_p_decalage p M hp) ⟶ p_bockstein p M hp := by sorry
+
+lemma pBockstein_decalage_mk (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (n : ℤ) (x : PDecalageTerm p M n) :
+    ((pBockstein_decalage p M hp).f n).hom (Submodule.Quotient.mk x) =
+      pBocksteinClass p M n x := by sorry
+
+lemma pBockstein_decalage_quasiIso (p : ℕ) (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) : QuasiIso (pBockstein_decalage p M hp) := by sorry
+
+-- TauCeti.Crystalline.test_pBockstein_p
+example (p : ℕ) [Fact p.Prime] (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (e₀ : M.X 0 ≃ₗ[ℤ] ℤ) (e₁ : M.X 1 ≃ₗ[ℤ] ℤ)
+    (hd : ∀ x, e₁ ((M.d 0 1).hom x) = (p : ℤ) * e₀ x)
+    (hneg : M.d (-1) 0 = 0) (hpos : M.d 1 2 = 0) :
+    ∃ f₀ : PModCohomology p M 0 ≃ₗ[ℤ] ZMod p,
+    ∃ f₁ : PModCohomology p M 1 ≃ₗ[ℤ] ZMod p,
+      ∀ x, f₁ (pBocksteinDiff p M hp 0 x) = f₀ x := by sorry
+
+-- TauCeti.Crystalline.test_pBockstein_p_squared
+example (p : ℕ) [Fact p.Prime] (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (e₀ : M.X 0 ≃ₗ[ℤ] ℤ) (e₁ : M.X 1 ≃ₗ[ℤ] ℤ)
+    (hd : ∀ x, e₁ ((M.d 0 1).hom x) = (p : ℤ)^2 * e₀ x)
+    (hneg : M.d (-1) 0 = 0) (hpos : M.d 1 2 = 0) :
+    pBocksteinDiff p M hp 0 = 0 ∧
+      (M.d 0 1).hom ≠ 0 := by sorry
+
+-- TauCeti.Crystalline.test_pBockstein_degree_zero
+example (p : ℕ) [Fact p.Prime] (M : CochainComplex (ModuleCat.{u} ℤ) ℤ)
+    (hp : PTermwiseTorsionFree p M) (e₀ : M.X 0 ≃ₗ[ℤ] ℤ)
+    (hz : ∀ n : ℤ, n ≠ 0 → Subsingleton (M.X n)) :
+    (∀ n, pBocksteinDiff p M hp n = 0) ∧
+      Nonempty (PQuotientTerm p (principal_p_decalage p M hp) 0 ≃ₗ[ℤ] ZMod p) := by sorry
+
+end TauCeti.Crystalline
+
+/- BEGIN EXACT PROTOTYPE OMISSION REGISTER
+The following mathematical interfaces need supplier carriers or additional typed
+forms. These are comments, not elaborated declarations or proof certificates.
 
 CrystallineCohomology:CR.4/saturation-colimit
+
 api TauCeti.Crystalline.Saturation.isColimit
-For termwise p-torsion-free M, Sat(M) is the colimit in cochain complexes of M --α_F--> η_pM
---η_p(α_F)--> η_pη_pM --> ⋯, its Frobenius is induced by those of the stages, and the unit
-M→Sat(M) is the canonical map from the first term.
+For termwise p-torsion-free M, Sat(M) is the colimit in cochain complexes of M --α_F--> η_pM --η_p(α_F)--> η_pη_pM --> ⋯, its Frobenius is induced by those of the stages, and the unit M→Sat(M) is the canonical map from the first term.
 
 CrystallineCohomology:CR.4/cartier-saturation-mod-p
+
 declaration TauCeti.Crystalline.cartier_saturation_mod_p
-If M is a termwise p-torsion-free Dieudonné complex and F induces an isomorphism of graded
-groups M/p→H*(M/p), then M/p→Sat(M)/p is a quasi-isomorphism.
+If M is a termwise p-torsion-free Dieudonné complex and F induces an isomorphism of graded groups M/p→H*(M/p), then M/p→Sat(M)/p is a quasi-isomorphism.
 
 CrystallineCohomology:CR.4/dieudonne-morphism
+
+api TauCeti.Crystalline.DieudonneComplex.category
+For a fixed prime p, Dieudonné complexes with DieudonneHom as morphisms, DieudonneHom.id and DieudonneHom.comp form a category DC.
+
 api TauCeti.Crystalline.DieudonneHom.comm_F
 For a morphism f:M→N, every integer n and x∈M^n: f_n(F_M x)=F_N(f_n x).
 
 CrystallineCohomology:CR.0/envelope-base-change
+
 declaration TauCeti.Crystalline.envelopeBaseChange
-(1) Let (A,I,γ) be a divided power ring and B→B′ a homomorphism of A-algebras such that
-B/IB→B′/IB′ is flat and Tor₁^B(B′,B/IB)=0 (equivalently, IB⊗_B B′→B′ is injective). Then for
-every ideal J of B with IB⊆J the canonical map D_(B,γ)(J)⊗_B B′→D_(B′,γ)(JB′) is an isomorphism.
-(2) Let (B,I,γ)→(B′,I′,γ′) be a homomorphism of divided power rings and I⊆J⊆B, I′⊆J′⊆B′ ideals
-such that B/I→B′/I′ is flat and J′=JB′+I′. Then the canonical map D_(B,γ)(J)⊗_B B′→D_(B′,γ′)(J′)
-is an isomorphism. In both cases the canonical map is the B′-linear extension of the divided
-power morphism between the envelopes given by PDEnvelope.map.
+(1) Let (A,I,γ) be a divided power ring and B→B′ a homomorphism of A-algebras such that B/IB→B′/IB′ is flat and Tor₁^B(B′,B/IB)=0 (equivalently, IB⊗_B B′→B′ is injective). Then for every ideal J of B with IB⊆J the canonical map D_(B,γ)(J)⊗_B B′→D_(B′,γ)(JB′) is an isomorphism. (2) Let (B,I,γ)→(B′,I′,γ′) be a homomorphism of divided power rings and I⊆J⊆B, I′⊆J′⊆B′ ideals such that B/I→B′/I′ is flat and J′=JB′+I′. Then the canonical map D_(B,γ)(J)⊗_B B′→D_(B′,γ′)(J′) is an isomorphism. In both cases the canonical map is the B′-linear extension of the divided power morphism between the envelopes given by PDEnvelope.map.
+
+Typed component limits: Neither part (1) nor part (2) is an executable Lean declaration in this file. The exact two tensor-product comparisons, their flatness and Tor hypotheses, and the canonical maps are recorded in the omission register. The general PDEnvelope.map is typed, but is not a proof or a typed signature of these base-change isomorphisms.
 
 CrystallineCohomology:CR.0/completed-envelope
+
 api TauCeti.Crystalline.completedEnvelope_reduction
 For p-torsionfree D, LΛ_p(D)⊗^L Z/p^e≅D/p^e.
+
 test TauCeti.Crystalline.test_completedEnvelope_modp
 A p-killed envelope has derived completion equal to itself in degree0.
 
+Typed component limits: The typed lift now assumes K=⋂_n(K+p^nC), expressing p-adic closedness directly in ideals. The derived-completion clauses remain dependent on DD.1; the typed inverse-limit assertion is given by its compatible-family universal property.
+
 CrystallineCohomology:CR.1/site-morphisms
+
 api TauCeti.Crystalline.cris_u_sections
-For a sheaf F on Cris(X/S) and V⊂X open, Γ(V,u_{X/S,*}F)=Γ((V/S)_cris,F|_{Cris(V/S)}), where
-Cris(V/S)⊂Cris(X/S) is the full subcategory of objects (U,T,δ) with U⊂V (Stacks Lemma 60.9.5).
+For a sheaf F on Cris(X/S) and V⊂X open, Γ(V,u_{X/S,*}F)=Γ((V/S)_cris,F|_{Cris(V/S)}), where Cris(V/S)⊂Cris(X/S) is the full subcategory of objects (U,T,δ) with U⊂V (Stacks Lemma 60.9.5).
+
 api TauCeti.Crystalline.cris_small_big
-π∘i=id as morphisms of topoi, π_*=i⁻¹ and π⁻¹=i_!; consequently
-Hⁿ((X/S)_CRIS,G)=Hⁿ((X/S)_cris,i⁻¹G) for every abelian sheaf G on CRIS(X/S) and every n.
+π∘i=id as morphisms of topoi, π_*=i⁻¹ and π⁻¹=i_!; consequently Hⁿ((X/S)_CRIS,G)=Hⁿ((X/S)_cris,i⁻¹G) for every abelian sheaf G on CRIS(X/S) and every n.
+
+api TauCeti.Crystalline.cris_u_inverse_eval
+For a Zariski sheaf G on X, u⁻¹G evaluated on (U,T,δ) is G(U), with sheafification understood. In particular (u⁻¹O_X^×)(U,T,δ)=Γ(U,O_U)^×; the homomorphism O_crys^×→u⁻¹O_X^× is restriction along U→T. This is the evaluation used in first-chern-class.
+
 test TauCeti.Crystalline.test_crisMap_variants
-For X=S=Spec F_p with the zero PD ideal, the sheaf G:(U,T,δ)↦Γ(U,Ω_{U/X}) on CRIS(X/S) has
-i⁻¹G=0 but G(𝔸¹_X,𝔸¹_X,∅)=F_p[t]dt≠0; hence π⁻¹i⁻¹G≠G and i∘π is not isomorphic to the identity.
+For X=S=Spec F_p with the zero PD ideal, the sheaf G:(U,T,δ)↦Γ(U,Ω_{U/X}) on CRIS(X/S) has i⁻¹G=0 but G(𝔸¹_X,𝔸¹_X,∅)=F_p[t]dt≠0; hence π⁻¹i⁻¹G≠G and i∘π is not isomorphic to the identity.
 
 CrystallineCohomology:CR.1/structure-sheaves
+
 test TauCeti.Crystalline.test_crisStructure_affine
 For T=Spec B,U=Spec(B/J), the sequence evaluates to0→J→B→B/J→0.
+
 test TauCeti.Crystalline.test_crisStructure_sheaf_epi
-For k a field of characteristic p, U=𝔸²_k∖{0} over S=Spec k with the zero PD ideal, and T the
-first-order deformation of U over k[ε] glued from D(x)[ε] and D(y)[ε] by 1+ε·x⁻¹y⁻¹∂_x on
-D(xy)[ε], with γ_n=0 on εO_T for n≥2: (U,T,γ) is an object of Cris(U/S), and x∈Γ(U,O_U) has no
-lift to Γ(T,O_T). So O_crys(U,T,γ)→O_X^cris(U,T,γ) is not surjective although the map of sheaves
-is.
+For k a field of characteristic p, U=𝔸²_k∖{0} over S=Spec k with the zero PD ideal, and T the first-order deformation of U over k[ε] glued from D(x)[ε] and D(y)[ε] by 1+ε·x⁻¹y⁻¹∂_x on D(xy)[ε], with γ_n=0 on εO_T for n≥2: (U,T,γ) is an object of Cris(U/S), and x∈Γ(U,O_U) has no lift to Γ(T,O_T). So O_crys(U,T,γ)→O_X^cris(U,T,γ) is not surjective although the map of sheaves is.
 
 CrystallineCohomology:CR.1/crystal
+
 declaration TauCeti.Crystalline.Crystal
-Let the site be CRIS(X/S) or Cris(X/S), ringed by O_crys. An O_crys-module E is a crystal in
-O_crys-modules if for every morphism f:(U,T,δ)→(U′,T′,δ′) the comparison map
-c_f:f^*E_T′=O_T⊗_{f⁻¹O_T′}f⁻¹E_T′→E_T is an isomorphism. It is a crystal in quasi-coherent
-modules, respectively of finite type, respectively in finite locally free modules, if moreover
-every restriction E_T is a quasi-coherent O_T-module, respectively quasi-coherent of finite
-type, respectively finite locally free. An O_crys-module is quasi-coherent as a module on the
-ringed site if and only if it is a crystal in quasi-coherent modules (Stacks Lemma 60.11.2). For
-O_crys-modules E, F one has (E⊗F)_T=E_T⊗_{O_T}F_T, and the tensor product of two crystals is a
-crystal; for a crystal E in finite locally free modules the dual E^∨=Hom(E,O_crys) is a crystal
-with (E^∨)_T=Hom_{O_T}(E_T,O_T). Crystals in finite locally free modules, with the sequences
-that are exact on every thickening, form a rigid tensor exact category; they are not closed
-under cokernels.
+Let the site be CRIS(X/S) or Cris(X/S), ringed by O_crys. An O_crys-module E is a crystal in O_crys-modules if for every morphism f:(U,T,δ)→(U′,T′,δ′) the comparison map c_f:f^*E_T′=O_T⊗_{f⁻¹O_T′}f⁻¹E_T′→E_T is an isomorphism. It is a crystal in quasi-coherent modules, respectively of finite type, respectively in finite locally free modules, if moreover every restriction E_T is a quasi-coherent O_T-module, respectively quasi-coherent of finite type, respectively finite locally free. An O_crys-module is quasi-coherent as a module on the ringed site if and only if it is a crystal in quasi-coherent modules (Stacks Lemma 60.11.2). For O_crys-modules E, F one has (E⊗F)_T=E_T⊗_{O_T}F_T, and the tensor product of two crystals is a crystal; for a crystal E in finite locally free modules the dual E^∨=Hom(E,O_crys) is a crystal with (E^∨)_T=Hom_{O_T}(E_T,O_T). Crystals in finite locally free modules, with the sequences that are exact on every thickening, form a rigid tensor exact category; they are not closed under cokernels.
+
 api TauCeti.Crystalline.Crystal.pullback_iso
 The canonical f^*E_T′→E_T is O_T-linear and invertible.
+
 api TauCeti.Crystalline.Crystal.tensor_eval
 Evaluation of E⊗F is E_T⊗_(O_T)F_T.
+
 api TauCeti.Crystalline.Crystal.dual_eval
 For finite locally free E, evaluation of E∨ is Hom_(O_T)(E_T,O_T), with evaluation/coevaluation.
+
 api TauCeti.Crystalline.Crystal.quasiCoherent_iff
-An O_crys-module is quasi-coherent on the ringed site if and only if every restriction E_T is a
-quasi-coherent O_T-module and E is a crystal (Stacks Lemma 60.11.2).
+An O_crys-module is quasi-coherent on the ringed site if and only if every restriction E_T is a quasi-coherent O_T-module and E is a crystal (Stacks Lemma 60.11.2).
+
 api TauCeti.Crystalline.Crystal.pullback
-For f_cris:(X/S)_cris→(Y/S′)_cris (CR.1/site-morphisms) and a crystal E in quasi-coherent
-O_crys-modules on Cris(Y/S′), f_cris^*E is a crystal in quasi-coherent modules on Cris(X/S); for
-every object (U,T,δ) of Cris(X/S) and every morphism g of CRIS(Y/S′) from (U,T,δ) to an object
-(V,T′,δ′) of Cris(Y/S′), (f_cris^*E)_T≅g^*E_T′. Pullback preserves finite type, finite local
-freeness, tensor products and duals.
+For f_cris:(X/S)_cris→(Y/S′)_cris (CR.1/site-morphisms) and a crystal E in quasi-coherent O_crys-modules on Cris(Y/S′), f_cris^*E is a crystal in quasi-coherent modules on Cris(X/S); for every object (U,T,δ) of Cris(X/S) and every morphism g of CRIS(Y/S′) from (U,T,δ) to an object (V,T′,δ′) of Cris(Y/S′), (f_cris^*E)_T≅g^*E_T′. Pullback preserves finite type, finite local freeness, tensor products and duals.
+
 test TauCeti.Crystalline.test_crystal_structure
 O_crys with canonical comparisons is a rank-one crystal.
+
 test TauCeti.Crystalline.test_crystal_constant
 The crystal from a finite free base module evaluates as its tensor extension to O_T.
+
 test TauCeti.Crystalline.test_crystal_not_abelian
-For k a perfect field of characteristic p, X=Spec k and S=Spec W₂(k) with the canonical PD
-structure on (p): the cokernel of p:O_crys→O_crys is a crystal in quasi-coherent modules whose
-value on (Spec k,Spec W₂(k),γ) is k, which is not a free W₂(k)-module; so crystals in finite
-locally free modules are not closed under cokernels.
+For k a perfect field of characteristic p, X=Spec k and S=Spec W₂(k) with the canonical PD structure on (p): the cokernel of p:O_crys→O_crys is a crystal in quasi-coherent modules whose value on (Spec k,Spec W₂(k),γ) is k, which is not a free W₂(k)-module; so crystals in finite locally free modules are not closed under cokernels.
+
 test TauCeti.Crystalline.test_crystal_quotient_sheaf
-For X=𝔸¹_{F_p} over S=Spec F_p with the zero PD ideal, O_X^cris:(U,T,δ)↦Γ(U,O_U) is an
-O_crys-module with quasi-coherent restrictions and with c_f an isomorphism for every open
-immersion f:T→T′ with U=U′×_T′T, but it is not a crystal: for the first-order thickening
-p₀:T′→T=X with O_T′=O_X⊕Ω_{X/F_p}, the map c_{p₀}:O_T′→O_X is not injective.
+For X=𝔸¹_{F_p} over S=Spec F_p with the zero PD ideal, O_X^cris:(U,T,δ)↦Γ(U,O_U) is an O_crys-module with quasi-coherent restrictions and with c_f an isomorphism for every open immersion f:T→T′ with U=U′×_T′T, but it is not a crystal: for the first-order thickening p₀:T′→T=X with O_T′=O_X⊕Ω_{X/F_p}, the map c_{p₀}:O_T′→O_X is not injective.
 
 CrystallineCohomology:CR.1/isocrystal
+
 declaration TauCeti.Crystalline.Isocrystal
-(Crystals and isocrystals over W.) Let k be a perfect field of characteristic p, W=W(k) and
-W_n=W/pⁿ with the canonical PD structure on (p), and Z a smooth k-scheme. Crys(Z/W_n) is the
-category of crystals of finite type on Cris(Z/Spec W_n), and Crys(Z/W) the category of crystals
-of finite type on Cris(Z/Spec W); every object of Cris(Z/Spec W) is Zariski locally an object of
-some Cris(Z/Spec W_n). The category of isocrystals is the ℚ-linearization Isoc(Z/W)=Crys(Z/W)_ℚ:
-the same objects, with Hom_Isoc(E,F)=Hom_Crys(E,F)⊗_ℤℚ (Esnault–Groechenig §2.6). Crystals in
-finite locally free modules form a full subcategory of Crys(Z/W); Isoc(Z/W) is formed from all
-crystals of finite type, not only from these. (F-crystals.) Let (A,I,γ) be a PD ring with A a
-ℤ_(p)-algebra and p∈I, S=Spec A, σ:A→A a PD homomorphism with σ(x)≡xᵖ mod pA for all x∈A, and
-X→S₀=Spec A/I a morphism of schemes with p locally nilpotent on X (Stacks Situation 60.26.1).
-The absolute Frobenius F_X lies over Spec σ and gives (F_X)_cris:(X/S)_cris→(X/S)_cris. An
-F-crystal on X/S relative to σ is a pair (E,Φ) of a crystal E in finite locally free
-O_crys-modules and a map Φ:(F_X)_cris^*E→E. It is nondegenerate if there exist an integer i≥0
-and a map V:E→(F_X)_cris^*E with V∘Φ=pⁱ·id (Stacks Definition 60.26.2). If the rank of E is at
-most r, then V′=p^{ri}V satisfies V′∘Φ=Φ∘V′=p^{ri+i}·id (Stacks Remark 60.26.3). The case A=W(k)
-or W_n(k), I=(p), σ the Frobenius of Witt vectors is the instance over a perfect field.
-(F-isocrystals.) For Z smooth over perfect k, (F_Z)_cris^* induces an endofunctor F^* of
-Isoc(Z/W); an F-isocrystal is an object E of Isoc(Z/W) with an isomorphism Φ:F^*E→E in
-Isoc(Z/W), and E has a Frobenius structure in the sense of Esnault–Groechenig if (F^*)^fE≅E for
-some integer f≥1.
+(Crystals and isocrystals over W.) Let k be a perfect field of characteristic p, W=W(k) and W_n=W/pⁿ with the canonical PD structure on (p), and Z a smooth k-scheme. Crys(Z/W_n) is the category of crystals of finite type on Cris(Z/Spec W_n), and Crys(Z/W) the category of crystals of finite type on Cris(Z/Spec W); every object of Cris(Z/Spec W) is Zariski locally an object of some Cris(Z/Spec W_n). The category of isocrystals is the ℚ-linearization Isoc(Z/W)=Crys(Z/W)_ℚ: the same objects, with Hom_Isoc(E,F)=Hom_Crys(E,F)⊗_ℤℚ (Esnault–Groechenig §2.6). Crystals in finite locally free modules form a full subcategory of Crys(Z/W); Isoc(Z/W) is formed from all crystals of finite type, not only from these. (F-crystals.) Let (A,I,γ) be a PD ring with A a ℤ_(p)-algebra and p∈I, S=Spec A, σ:A→A a PD homomorphism with σ(x)≡xᵖ mod pA for all x∈A, and X→S₀=Spec A/I a morphism of schemes with p locally nilpotent on X (Stacks Situation 60.26.1). The absolute Frobenius F_X lies over Spec σ and gives (F_X)_cris:(X/S)_cris→(X/S)_cris. An F-crystal on X/S relative to σ is a pair (E,Φ) of a crystal E in finite locally free O_crys-modules and a map Φ:(F_X)_cris^*E→E. It is nondegenerate if there exist an integer i≥0 and a map V:E→(F_X)_cris^*E with V∘Φ=pⁱ·id (Stacks Definition 60.26.2). If the rank of E is at most r, then V′=p^{ri}V satisfies V′∘Φ=Φ∘V′=p^{ri+i}·id (Stacks Remark 60.26.3). The case A=W(k) or W_n(k), I=(p), σ the Frobenius of Witt vectors is the instance over a perfect field. (F-isocrystals.) For Z smooth over perfect k, (F_Z)_cris^* induces an endofunctor F^* of Isoc(Z/W); an F-isocrystal is an object E of Isoc(Z/W) with an isomorphism Φ:F^*E→E in Isoc(Z/W), and E has a Frobenius structure in the sense of Esnault–Groechenig if (F^*)^fE≅E for some integer f≥1.
+
 api TauCeti.Crystalline.Isocrystal.hom
-For E, F in Crys(Z/W): Hom_{Isoc(Z/W)}(E,F)=Hom_{Crys(Z/W)}(E,F)⊗_ℤℚ, with composition induced
-from Crys(Z/W).
+For E, F in Crys(Z/W): Hom_{Isoc(Z/W)}(E,F)=Hom_{Crys(Z/W)}(E,F)⊗_ℤℚ, with composition induced from Crys(Z/W).
+
 api TauCeti.Crystalline.FCrystal.linearize
-Evaluation of Φ is linear from the Frobenius-twisted module; its associated endomorphism is
-σ-semilinear.
+Evaluation of Φ is linear from the Frobenius-twisted module; its associated endomorphism is σ-semilinear.
+
 api TauCeti.Crystalline.FCrystal.dual
-The dual F-isocrystal uses the inverse transpose of the rationalized Frobenius.
+For a finite locally free rational crystal E with an isomorphism Φ:F^*E≅E, define E^∨=Hom(E,O_crys)[1/p]. Its Frobenius is (Φ⁻¹)^∨:F^*(E^∨)≅E^∨ using F^*(E^∨)≅(F^*E)^∨. In a basis it is the inverse transpose of Φ, and evaluation E^∨⊗E→O_crys[1/p] commutes with Frobenius. This gives a dual in F-isocrystals, without asserting an integral F-crystal structure on E^∨.
+
 api TauCeti.Crystalline.Isocrystal.frobeniusPullback
-For Z smooth over a perfect field k, pullback by (F_Z)_cris preserves crystals of finite type
-and induces a ℚ-linear endofunctor F^* of Isoc(Z/W).
+For Z smooth over a perfect field k, pullback by (F_Z)_cris preserves crystals of finite type and induces a ℚ-linear endofunctor F^* of Isoc(Z/W).
+
 api TauCeti.Crystalline.FCrystal.nondegenerate_twoSided
-If (E,Φ) is a nondegenerate F-crystal with V∘Φ=pⁱ·id and E has rank at most r, then for every
-N≥ri the map V′=pᴺV satisfies V′∘Φ=Φ∘V′=p^{N+i}·id; in particular Ker Φ and Coker Φ are killed
-by p^{ri+i} (Stacks Remark 60.26.3).
+If (E,Φ) is a nondegenerate F-crystal with V∘Φ=pⁱ·id and E has rank at most r, then for every N≥ri the map V′=pᴺV satisfies V′∘Φ=Φ∘V′=p^{N+i}·id; in particular Ker Φ and Coker Φ are killed by p^{ri+i} (Stacks Remark 60.26.3).
+
 test TauCeti.Crystalline.test_isocrystal_unit
 The unit W-crystal with Witt Frobenius gives the unit F-isocrystal.
+
 test TauCeti.Crystalline.test_isocrystal_p
-For E in Crys(Z/W), multiplication by p on E is an isomorphism in Isoc(Z/W), with inverse
-id_E⊗p⁻¹ in Hom(E,E)⊗_ℤℚ; for E=O_crys and Z nonempty it is not an isomorphism in Crys(Z/W).
+For E in Crys(Z/W), multiplication by p on E is an isomorphism in Isoc(Z/W), with inverse id_E⊗p⁻¹ in Hom(E,E)⊗_ℤℚ; for E=O_crys and Z nonempty it is not an isomorphism in Crys(Z/W).
+
 test TauCeti.Crystalline.test_isocrystal_zeroF
-For X=Spec k: over A=W(k) the pair (O_crys,Φ=0) is not a nondegenerate F-crystal; over A=W_e(k)
-it is nondegenerate in the sense of Stacks Definition 60.26.2, with V=0 and i=e.
+For X=Spec k: over A=W(k) the pair (O_crys,Φ=0) is not a nondegenerate F-crystal; over A=W_e(k) it is nondegenerate in the sense of Stacks Definition 60.26.2, with V=0 and i=e.
+
 test TauCeti.Crystalline.test_fcrystal_p
-For X=Spec k and A=W(k), (O_crys,Φ=p·can) is a nondegenerate F-crystal with V=can⁻¹ and i=1; Φ
-is not an isomorphism of crystals, and its image in Isoc(Spec k/W) is an isomorphism.
+For X=Spec k and A=W(k), (O_crys,Φ=p·can) is a nondegenerate F-crystal with V=can⁻¹ and i=1; Φ is not an isomorphism of crystals, and its image in Isoc(Spec k/W) is an isomorphism.
 
 CrystallineCohomology:CR.1/pd-stratification
+
 declaration TauCeti.Crystalline.PDStratification
-In Stacks Situation 60.5.1 (p a prime, (A,I,γ) a PD ring with A a ℤ_(p)-algebra, A→C a ring map
-with IC=0 and p nilpotent in C), let P=A[x_i] be a polynomial algebra with a surjection P→C of
-A-algebras, and for n≥0 let J(n) be the kernel of P⊗_A⋯⊗_AP→C (n+1 factors). D(n) is the p-adic
-completion of the PD envelope of J(n) relative to γ, and D=D(0). The D(n) form a cosimplicial
-object in PD rings, and D(n) is the coproduct of n+1 copies of D in the category Cris^∧(C/A) of
-p-adically complete PD thickenings of C (Stacks Remark 60.5.4, Lemma 60.17.2). Write
-p₀,p₁:D→D(1), q₀,q₁,q₂:D→D(2) and q₀₁,q₁₂,q₀₂:D(1)→D(2) for the coprojections and Δ:D(1)→D for
-the codiagonal. A PD stratification on a p-adically complete D-module M is a D(1)-linear
-isomorphism ε:M⊗^∧_{D,p₀}D(1)→M⊗^∧_{D,p₁}D(1) such that Δ^*ε=id_M and q₀₂^*ε=q₁₂^*ε∘q₀₁^*ε as
-maps M⊗^∧_{D,q₀}D(2)→M⊗^∧_{D,q₂}D(2). Here ⊗^∧ is the p-adically completed tensor product.
+In Stacks Situation 60.5.1 (p a prime, (A,I,γ) a PD ring with A a ℤ_(p)-algebra, A→C a ring map with IC=0 and p nilpotent in C), let P=A[x_i] be a polynomial algebra with a surjection P→C of A-algebras, and for n≥0 let J(n) be the kernel of P⊗_A⋯⊗_AP→C (n+1 factors). D(n) is the p-adic completion of the PD envelope of J(n) relative to γ, and D=D(0). The D(n) form a cosimplicial object in PD rings, and D(n) is the coproduct of n+1 copies of D in the category Cris^∧(C/A) of p-adically complete PD thickenings of C (Stacks Remark 60.5.4, Lemma 60.17.2). Write p₀,p₁:D→D(1), q₀,q₁,q₂:D→D(2) and q₀₁,q₁₂,q₀₂:D(1)→D(2) for the coprojections and Δ:D(1)→D for the codiagonal. A PD stratification on a p-adically complete D-module M is a D(1)-linear isomorphism ε:M⊗^∧_{D,p₀}D(1)→M⊗^∧_{D,p₁}D(1) such that Δ^*ε=id_M and q₀₂^*ε=q₁₂^*ε∘q₀₁^*ε as maps M⊗^∧_{D,q₀}D(2)→M⊗^∧_{D,q₂}D(2). Here ⊗^∧ is the p-adically completed tensor product.
+
 api TauCeti.Crystalline.PDStratification.diagonal
 Pulling ε to the diagonal gives id_M.
+
 api TauCeti.Crystalline.PDStratification.cocycle
 q₀₂^*ε=q₁₂^*ε∘q₀₁^*ε as maps M⊗^∧_{D,q₀}D(2)→M⊗^∧_{D,q₂}D(2).
+
 api TauCeti.Crystalline.PDStratification.from_crystal
 The crystal pullback isomorphisms on D(1) define ε and satisfy the cocycle.
+
 api TauCeti.Crystalline.PDStratification.taylorCoefficients
-For a PD stratification ε and m∈M there are unique elements θ_K(m)∈M, K running over the
-multi-indices of finite support, with ε(m⊗1)=Σ_Kθ_K(m)⊗∏_iξ_i^{[k_i]} in M⊗^∧_{D,p₁}D(1), where
-ξ_i=x_i⊗1−1⊗x_i=p₀(x_i)−p₁(x_i); the sum converges p-adically. One has θ_0=id and
-θ_K∘θ_L=θ_{K+L}; so the θ_i=θ_{e_i} commute and θ_K=∏_iθ_i^{k_i} (proof of Stacks Lemma
-60.17.3).
+For a PD stratification ε and m∈M there are unique elements θ_K(m)∈M, K running over the multi-indices of finite support, with ε(m⊗1)=Σ_Kθ_K(m)⊗∏_iξ_i^{[k_i]} in M⊗^∧_{D,p₁}D(1), where ξ_i=x_i⊗1−1⊗x_i=p₀(x_i)−p₁(x_i); the sum converges p-adically. One has θ_0=id and θ_K∘θ_L=θ_{K+L}; so the θ_i=θ_{e_i} commute and θ_K=∏_iθ_i^{k_i} (proof of Stacks Lemma 60.17.3).
+
 test TauCeti.Crystalline.test_stratification_unit
 The structure module has its canonical identity-after-base-change stratification.
+
 test TauCeti.Crystalline.test_stratification_three
-For A=F_p with the zero PD ideal, C=P=F_p[t] and M=D=F_p[t] with ε the identity of
-D(1)=F_p[t]⟨ξ⟩, ξ=t⊗1−1⊗t: ε(f⊗1)=p₀(f)=Σ_kp₁(f^{(k)})·ξ^{[k]} for every f, so θ_k is the k-th
-derivative.
+For A=F_p with the zero PD ideal, C=P=F_p[t] and M=D=F_p[t] with ε the identity of D(1)=F_p[t]⟨ξ⟩, ξ=t⊗1−1⊗t: ε(f⊗1)=p₀(f)=Σ_kp₁(f^{(k)})·ξ^{[k]} for every f, so θ_k is the k-th derivative.
+
 test TauCeti.Crystalline.test_stratification_connection
-For A=F_p with the zero PD ideal and C=P=F_p[t], the module M=F_p[t]·e with the integrable
-connection ∇e=e⊗dt has no PD stratification whose coefficient θ_1 is the operator θ of ∇: such
-an ε would satisfy ε(e⊗1)=Σ_kθᵏ(e)⊗ξ^{[k]} with only finitely many nonzero terms, but θᵏ(e)=e
-for all k.
+For A=F_p with the zero PD ideal and C=P=F_p[t], the module M=F_p[t]·e with the integrable connection ∇e=e⊗dt has no PD stratification whose coefficient θ_1 is the operator θ of ∇: such an ε would satisfy ε(e⊗1)=Σ_kθᵏ(e)⊗ξ^{[k]} with only finitely many nonzero terms, but θᵏ(e)=e for all k.
 
 CrystallineCohomology:CR.1/envelope-differentials
+
 declaration TauCeti.Crystalline.envelopeDifferentials
-Let (A,I,γ) be a PD ring, A→P a ring map, J⊂P an ideal with IP⊂J, and (D,J̄,γ̄)=D_{P,γ}(J) the
-PD envelope. The canonical map Ω_{P/A}⊗_PD→Ω¹_PD(D/A) is an isomorphism (Stacks Lemma 60.6.6);
-no flatness of D over P is needed. Hence Ω^q_PD(D/A)=Ω^q_{P/A}⊗_PD for every q≥0. If P is smooth
-over A these D-modules are finite locally free. If p is a prime, A is a ℤ_(p)-algebra and p is
-nilpotent in P/J, then with D_e=D/pᵉD the p-adic completion of Ω¹_PD(D/A) is lim_eΩ¹_PD(D_e/A)
-(Stacks Lemma 60.6.10); for P=A[x_i] it consists of the sums Σf_idx_i with f_i in the p-adic
-completion D^∧ of D and, for every e, f_i∈pᵉD^∧ for all but finitely many i.
+Let (A,I,γ) be a PD ring, A→P a ring map, J⊂P an ideal with IP⊂J, and (D,J̄,γ̄)=D_{P,γ}(J) the PD envelope. The canonical map Ω_{P/A}⊗_PD→Ω¹_PD(D/A) is an isomorphism (Stacks Lemma 60.6.6); no flatness of D over P is needed. Hence Ω^q_PD(D/A)=Ω^q_{P/A}⊗_PD for every q≥0. If P is smooth over A these D-modules are finite locally free. If p is a prime, A is a ℤ_(p)-algebra and p is nilpotent in P/J, then with D_e=D/pᵉD the p-adic completion of Ω¹_PD(D/A) is lim_eΩ¹_PD(D_e/A) (Stacks Lemma 60.6.10); for P=A[x_i] it consists of the sums Σf_idx_i with f_i in the p-adic completion D^∧ of D and, for every e, f_i∈pᵉD^∧ for all but finitely many i.
 
 CrystallineCohomology:CR.1/taylor-equivalence
+
 declaration TauCeti.Crystalline.crystalConnectionEquivalence
-Convention. A PD stratification is ε:M⊗^∧_{D,p₀}D(1)→M⊗^∧_{D,p₁}D(1) (CR.1/pd-stratification), a
-connection is written ∇m=Σ_iθ_i(m)dx_i (CR.1/quasi-nilpotent-connection), and
-ξ_i=x_i⊗1−1⊗x_i=p₀(x_i)−p₁(x_i)∈D(1). (1) In Stacks Situation 60.5.1 with X=Spec C and S=Spec A,
-let P=A[x_i]→C be a surjection from a polynomial algebra, D the p-adic completion of the PD
-envelope of its kernel and D_e=D/pᵉD. For a crystal F in quasi-coherent O_crys-modules on
-Cris(X/S), M=lim_eΓ((X,Spec D_e,γ̄),F) is a p-adically complete D-module with M/pᵉM=Γ((X,Spec
-D_e,γ̄),F), the crystal property gives a PD stratification ε on M, and
-ε(m⊗1)=Σ_Kθ_K(m)⊗∏_iξ_i^{[k_i]} with θ_K=∏_iθ_i^{k_i}, where ∇(m)=Σ_iθ_i(m)dx_i is the canonical
-connection of F evaluated on the Spec D_e; ∇ is integrable and topologically quasi-nilpotent
-(Stacks Lemma 60.17.3). (2) The functor F↦(M,∇) is an equivalence from the category of crystals
-in quasi-coherent O_crys-modules on Cris(X/S) to the category of pairs (M,∇) of a p-adically
-complete D-module and an integrable, topologically quasi-nilpotent connection ∇:M→M⊗^∧_DΩ_D
-(Stacks Proposition 60.17.4). A quasi-inverse sends (M,∇) to the crystal with value M⊗_{D,f}B on
-an affine object (U,Spec B,δ) with a morphism f:D→B of thickenings, two choices f, g being
-identified by c_{f,g}(m⊗1)=Σ_Kθ_K(m)⊗∏_i(f(x_i)−g(x_i))^{[k_i]}, a finite sum. (3) Let A→P′→C be
-ring maps with P′ smooth over A and P′→C surjective with kernel J′, and D′ the p-adic completion
-of D_{P′,γ}(J′). There are a surjection P→C from a polynomial algebra and PD A-algebra maps
-a:D→D′, b:D′→D compatible with the maps to C with a∘b=id; base change along a and b gives an
-equivalence between the pairs (M,∇) over D and the pairs (M′,∇′) over D′ that are p-adically
-complete, integrable and topologically quasi-nilpotent, and the equivalence of (2) holds for the
-functor F↦(M′,∇′) (Stacks Lemma 60.17.5).
+Convention. A PD stratification is ε:M⊗^∧_{D,p₀}D(1)→M⊗^∧_{D,p₁}D(1) (CR.1/pd-stratification), a connection is written ∇m=Σ_iθ_i(m)dx_i (CR.1/quasi-nilpotent-connection), and ξ_i=x_i⊗1−1⊗x_i=p₀(x_i)−p₁(x_i)∈D(1). (1) In Stacks Situation 60.5.1 with X=Spec C and S=Spec A, let P=A[x_i]→C be a surjection from a polynomial algebra, D the p-adic completion of the PD envelope of its kernel and D_e=D/pᵉD. For a crystal F in quasi-coherent O_crys-modules on Cris(X/S), M=lim_eΓ((X,Spec D_e,γ̄),F) is a p-adically complete D-module with M/pᵉM=Γ((X,Spec D_e,γ̄),F), the crystal property gives a PD stratification ε on M, and ε(m⊗1)=Σ_Kθ_K(m)⊗∏_iξ_i^{[k_i]} with θ_K=∏_iθ_i^{k_i}, where ∇(m)=Σ_iθ_i(m)dx_i is the canonical connection of F evaluated on the Spec D_e; ∇ is integrable and topologically quasi-nilpotent (Stacks Lemma 60.17.3). (2) The functor F↦(M,∇) is an equivalence from the category of crystals in quasi-coherent O_crys-modules on Cris(X/S) to the category of pairs (M,∇) of a p-adically complete D-module and an integrable, topologically quasi-nilpotent connection ∇:M→M⊗^∧_DΩ_D (Stacks Proposition 60.17.4). A quasi-inverse sends (M,∇) to the crystal with value M⊗_{D,f}B on an affine object (U,Spec B,δ) with a morphism f:D→B of thickenings, two choices f, g being identified by c_{f,g}(m⊗1)=Σ_Kθ_K(m)⊗∏_i(f(x_i)−g(x_i))^{[k_i]}, a finite sum. (3) Let A→P′→C be ring maps with P′ smooth over A and P′→C surjective with kernel J′, and D′ the p-adic completion of D_{P′,γ}(J′). There are a surjection P→C from a polynomial algebra and PD A-algebra maps a:D→D′, b:D′→D compatible with the maps to C with a∘b=id; base change along a and b gives an equivalence between the pairs (M,∇) over D and the pairs (M′,∇′) over D′ that are p-adically complete, integrable and topologically quasi-nilpotent, and the equivalence of (2) holds for the functor F↦(M′,∇′) (Stacks Lemma 60.17.5).
 
 CrystallineCohomology:CR.1/finite-witt-evaluation
+
 declaration TauCeti.Crystalline.finiteWittEvaluation
-Let k be a perfect field of characteristic p, W=W(k) with the canonical PD structure on (p),
-W_n=W/pⁿ, Z a smooth k-scheme of finite type and Ẑ a smooth p-adic formal W-scheme with Ẑ⊗_Wk=Z;
-put Z_n=Ẑ⊗_WW_n. Then (Z,Z_n,γ) is an object of Cris(Z/Spec W_n). Let MIC(Z_n) be the category
-of O_{Z_n}-modules of finite type with an integrable connection ∇_n:E_n→E_n⊗Ω¹_{Z_n/W_n}. Call
-(E_n,∇_n) quasi-nilpotent if for every affine open Spec P′ of Z_n the pair (Γ(Spec P′,E_n),∇_n)
-over D′=P′ is topologically quasi-nilpotent in the sense of CR.1/quasi-nilpotent-connection
-(Stacks Lemma 60.17.5), and let MIC(Z_n)^qn be the full subcategory of these. (1) Evaluation
-E↦(E_{Z_n},∇) on the object (Z,Z_n,γ) is an equivalence from Crys(Z/W_n), the crystals of finite
-type on Cris(Z/Spec W_n), to MIC(Z_n)^qn, compatible with reduction from W_{n+1} to W_n;
-crystals in finite locally free modules correspond to the (E_n,∇_n) with E_n finite locally
-free. (2) (E_n,∇_n) in MIC(Z_n) is quasi-nilpotent if and only if its reduction
-(E_1,∇_1)=(E_n,∇_n)⊗_{W_n}k is. (3) Crys(Z/W) is equivalent to the category of coherent
-O_Ẑ-modules E with an integrable connection such that (E,∇)⊗_WW_n lies in MIC(Z_n)^qn for every
-n; such E satisfy E=lim_nE/pⁿE.
+Let k be a perfect field of characteristic p, W=W(k) with the canonical PD structure on (p), W_n=W/pⁿ, Z a smooth k-scheme of finite type and Ẑ a smooth p-adic formal W-scheme with Ẑ⊗_Wk=Z; put Z_n=Ẑ⊗_WW_n. Then (Z,Z_n,γ) is an object of Cris(Z/Spec W_n). Let MIC(Z_n) be the category of O_{Z_n}-modules of finite type with an integrable connection ∇_n:E_n→E_n⊗Ω¹_{Z_n/W_n}. Call (E_n,∇_n) quasi-nilpotent if for every affine open Spec P′ of Z_n the pair (Γ(Spec P′,E_n),∇_n) over D′=P′ is topologically quasi-nilpotent in the sense of CR.1/quasi-nilpotent-connection (Stacks Lemma 60.17.5), and let MIC(Z_n)^qn be the full subcategory of these. (1) Evaluation E↦(E_{Z_n},∇) on the object (Z,Z_n,γ) is an equivalence from Crys(Z/W_n), the crystals of finite type on Cris(Z/Spec W_n), to MIC(Z_n)^qn, compatible with reduction from W_{n+1} to W_n; crystals in finite locally free modules correspond to the (E_n,∇_n) with E_n finite locally free. (2) (E_n,∇_n) in MIC(Z_n) is quasi-nilpotent if and only if its reduction (E_1,∇_1)=(E_n,∇_n)⊗_{W_n}k is. (3) Crys(Z/W) is equivalent to the category of coherent O_Ẑ-modules E with an integrable connection such that (E,∇)⊗_WW_n lies in MIC(Z_n)^qn for every n; such E satisfy E=lim_nE/pⁿE.
 
 CrystallineCohomology:CR.2/crystalline-cohomology
+
 declaration TauCeti.Crystalline.RΓcrys
-In the situation of CR.1/crystalline-site, with f:X→S the structure map,
-u_{X/S}:(X/S)_cris→Sh(X_Zar) is a morphism of topoi (CR.1/site-morphisms). It is not a morphism
-of ringed topoi to (X_Zar,O_X): the natural ring map goes from O_crys to u⁻¹O_X. Through
-u⁻¹f⁻¹O_S→O_crys every O_crys-module is a module over u⁻¹f⁻¹O_S, and
-Ru_{X/S,*}:D((X/S)_cris,O_crys)→D(X_Zar,f⁻¹O_S) is the derived direct image. Crystalline
-cohomology is RΓ_crys(X/S,E)=RΓ(Cris(X/S),E)=RΓ(X_Zar,Ru_{X/S,*}E), an object of D(Γ(S,O_S)). In
-particular, for a PD ring (A,I,γ) with A a ℤ_(p)-algebra and p nilpotent in A/I, S=Spec A and X
-an S₀-scheme with p locally nilpotent on X, RΓ_crys(X/S,E)∈D(A) is defined although p need not
-be nilpotent in A. In that case pᵉA⊂I is stable under γ for e≫0; with S_e=Spec A/pᵉA,
-Cris(X/S_e) is a full subcategory of Cris(X/S), and for every O_crys-module F with restrictions
-F_e to Cris(X/S_e) one has RΓ(Cris(X/S),F)≅Rlim_eRΓ(Cris(X/S_e),F_e) (Stacks Remark 60.24.10).
+In the situation of CR.1/crystalline-site, with f:X→S the structure map, u_{X/S}:(X/S)_cris→Sh(X_Zar) is a morphism of topoi (CR.1/site-morphisms). It is not a morphism of ringed topoi to (X_Zar,O_X): the natural ring map goes from O_crys to u⁻¹O_X. Through u⁻¹f⁻¹O_S→O_crys every O_crys-module is a module over u⁻¹f⁻¹O_S, and Ru_{X/S,*}:D((X/S)_cris,O_crys)→D(X_Zar,f⁻¹O_S) is the derived direct image. Crystalline cohomology is RΓ_crys(X/S,E)=RΓ(Cris(X/S),E)=RΓ(X_Zar,Ru_{X/S,*}E), an object of D(Γ(S,O_S)). In particular, for a PD ring (A,I,γ) with A a ℤ_(p)-algebra and p nilpotent in A/I, S=Spec A and X an S₀-scheme with p locally nilpotent on X, RΓ_crys(X/S,E)∈D(A) is defined although p need not be nilpotent in A. In that case pᵉA⊂I is stable under γ for e≫0; with S_e=Spec A/pᵉA, Cris(X/S_e) is a full subcategory of Cris(X/S), and for every O_crys-module F with restrictions F_e to Cris(X/S_e) one has RΓ(Cris(X/S),F)≅Rlim_eRΓ(Cris(X/S_e),F_e) (Stacks Remark 60.24.10).
+
 api TauCeti.Crystalline.RΓcrys_comp
-RΓ_crys(X/S,−)=RΓ(X_Zar,−)∘Ru_{X/S,*} as functors D((X/S)_cris,O_crys)→D(Γ(S,O_S)), where
-Ru_{X/S,*} takes values in D(X_Zar,f⁻¹O_S).
+RΓ_crys(X/S,−)=RΓ(X_Zar,−)∘Ru_{X/S,*} as functors D((X/S)_cris,O_crys)→D(Γ(S,O_S)), where Ru_{X/S,*} takes values in D(X_Zar,f⁻¹O_S).
+
 api TauCeti.Crystalline.RΓcrys_map
-For a square X→Y over (S,I,γ)→(S′,I′,γ′) as in CR.1/site-morphisms, an O_crys-module F′ on
-Cris(Y/S′) and a map f_cris⁻¹F′→F of sheaves on Cris(X/S) linear over f_cris⁻¹O_{Y/S′}→O_{X/S},
-there is a map RΓ_crys(Y/S′,F′)→RΓ_crys(X/S,F), linear over Γ(S′,O_S′)→Γ(S,O_S).
+For a square X→Y over (S,I,γ)→(S′,I′,γ′) as in CR.1/site-morphisms, an O_crys-module F′ on Cris(Y/S′) and a map f_cris⁻¹F′→F of sheaves on Cris(X/S) linear over f_cris⁻¹O_{Y/S′}→O_{X/S}, there is a map RΓ_crys(Y/S′,F′)→RΓ_crys(X/S,F), linear over Γ(S′,O_S′)→Γ(S,O_S).
+
 api TauCeti.Crystalline.RΓcrys_limit
-For a PD ring (A,I,γ) with A a ℤ_(p)-algebra and p nilpotent in A/I, S=Spec A and S_e=Spec A/pᵉA
-(e≫0): RΓ(Cris(X/S),F)≅Rlim_eRΓ(Cris(X/S_e),F|_{Cris(X/S_e)}) for every O_crys-module F (Stacks
-Remark 60.24.10).
+For a PD ring (A,I,γ) with A a ℤ_(p)-algebra and p nilpotent in A/I, S=Spec A and S_e=Spec A/pᵉA (e≫0): RΓ(Cris(X/S),F)≅Rlim_eRΓ(Cris(X/S_e),F|_{Cris(X/S_e)}) for every O_crys-module F (Stacks Remark 60.24.10).
+
 test TauCeti.Crystalline.test_RΓcrys_empty
 The empty scheme has zero crystalline cohomology.
+
 test TauCeti.Crystalline.test_RΓcrys_point
-For k a perfect field of characteristic p, X=Spec k and S=Spec W_e(k) with the canonical PD
-structure on (p): RΓ_crys(X/S,O_crys)=W_e(k) in degree 0.
+For k a perfect field of characteristic p, X=Spec k and S=Spec W_e(k) with the canonical PD structure on (p): RΓ_crys(X/S,O_crys)=W_e(k) in degree 0.
+
 test TauCeti.Crystalline.test_RΓcrys_limit_not_groups
-For X=𝔸¹_{F_p} over S=Spec ℤ_p and F=O_crys, the map
-H¹(RΓ_crys(X/S,O_crys))→lim_eH¹(RΓ_crys(X/S_e,O_crys)) is not injective: the class of
-η=Σ_{e>0}pᵉx^{pᵉ−1}dx is nonzero and maps to zero, since η≡d(Σ_{0<j<e}x^{pʲ}) modulo pᵉ (Stacks
-Example 60.22.2).
+For X=𝔸¹_{F_p} over S=Spec ℤ_p and F=O_crys, the map H¹(RΓ_crys(X/S,O_crys))→lim_eH¹(RΓ_crys(X/S_e,O_crys)) is not injective: the class of η=Σ_{e>0}pᵉx^{pᵉ−1}dx is nonzero and maps to zero, since η≡d(Σ_{0<j<e}x^{pʲ}) modulo pᵉ (Stacks Example 60.22.2).
 
 CrystallineCohomology:CR.2/linearization
+
 declaration TauCeti.Crystalline.linearization
-Setting: p a prime, (A,I,γ) a PD ring with p nilpotent in A, A→C a ring map with IC=0, X=Spec C,
-S=Spec A, P=A[x_1,…,x_d] with a surjection P→C with kernel J, and D=D_{P,γ}(J), so that (X,Spec
-D,γ̄) is an object of Cris(X/S). Construction: for an object (U,T,δ) of Cris(X/S) let
-(U,D_T,δ_T)=(U,T,δ)×(X,Spec D,γ̄) be the product in Cris(X/S), with projections pr_T:D_T→T and
-pr_D:D_T→Spec D; D_T is the PD envelope of U in T×_SSpec P relative to δ. For a D-module N the
-linearization L(N) is the O_crys-module on Cris(X/S) with L(N)_T=pr_{T,*}pr_D^*Ñ and the
-restriction maps given by functoriality of the product. (1) If T=Spec B is affine and h:D→B is a
-morphism of thickenings, then D_T=Spec B⟨ξ_1,…,ξ_d⟩ with pr_D given by x_i↦h(x_i)+ξ_i, so
-L(N)(U,T,δ)=N⊗_DB⟨ξ_1,…,ξ_d⟩; L(N) is a crystal in quasi-coherent O_crys-modules. (2)
-RΓ(Cris(X/S),L(N))≅N, placed in degree 0. (3) L(Ω^q_PD(D/A))_T=pr_{T,*}Ω^q_PD(D_T/T), and the
-relative PD de Rham differentials of D_T over T make L(Ω^•_PD(D/A)) a complex of O_crys-modules
-with an augmentation O_crys→L(D). For a crystal E in quasi-coherent O_crys-modules with value
-E_D on Spec D, E⊗_{O_crys}L(Ω^q_PD(D/A))≅L(E_D⊗_DΩ^q_PD(D/A)), and the augmented complex
-E→E⊗_{O_crys}L(Ω^•_PD(D/A)) is exact: E is resolved by linearizations.
+Setting: p a prime, (A,I,γ) a PD ring with p nilpotent in A, A→C a ring map with IC=0, X=Spec C, S=Spec A, P=A[x_1,…,x_d] with a surjection P→C with kernel J, and D=D_{P,γ}(J), so that (X,Spec D,γ̄) is an object of Cris(X/S). Construction: for an object (U,T,δ) of Cris(X/S) let (U,D_T,δ_T)=(U,T,δ)×(X,Spec D,γ̄) be the product in Cris(X/S), with projections pr_T:D_T→T and pr_D:D_T→Spec D; D_T is the PD envelope of U in T×_SSpec P relative to δ. For a D-module N the linearization L(N) is the O_crys-module on Cris(X/S) with L(N)_T=pr_{T,*}pr_D^*Ñ and the restriction maps given by functoriality of the product. (1) If T=Spec B is affine and h:D→B is a morphism of thickenings, then D_T=Spec B⟨ξ_1,…,ξ_d⟩ with pr_D given by x_i↦h(x_i)+ξ_i, so L(N)(U,T,δ)=N⊗_DB⟨ξ_1,…,ξ_d⟩; L(N) is a crystal in quasi-coherent O_crys-modules. (2) RΓ(Cris(X/S),L(N))≅N, placed in degree 0. (3) L(Ω^q_PD(D/A))_T=pr_{T,*}Ω^q_PD(D_T/T), and the relative PD de Rham differentials of D_T over T make L(Ω^•_PD(D/A)) a complex of O_crys-modules with an augmentation O_crys→L(D). For a crystal E in quasi-coherent O_crys-modules with value E_D on Spec D, E⊗_{O_crys}L(Ω^q_PD(D/A))≅L(E_D⊗_DΩ^q_PD(D/A)), and the augmented complex E→E⊗_{O_crys}L(Ω^•_PD(D/A)) is exact: E is resolved by linearizations.
+
 api TauCeti.Crystalline.linearization_eval
-L(N)(U,T,δ)=Γ(D_T,pr_D^*Ñ) with (U,D_T,δ_T)=(U,T,δ)×(X,Spec D,γ̄); for T=Spec B affine and h:D→B
-a morphism of thickenings, D_T=Spec B⟨ξ_1,…,ξ_d⟩ with pr_D:x_i↦h(x_i)+ξ_i and
-L(N)(U,T,δ)=N⊗_DB⟨ξ_1,…,ξ_d⟩.
+L(N)(U,T,δ)=Γ(D_T,pr_D^*Ñ) with (U,D_T,δ_T)=(U,T,δ)×(X,Spec D,γ̄); for T=Spec B affine and h:D→B a morphism of thickenings, D_T=Spec B⟨ξ_1,…,ξ_d⟩ with pr_D:x_i↦h(x_i)+ξ_i and L(N)(U,T,δ)=N⊗_DB⟨ξ_1,…,ξ_d⟩.
+
 api TauCeti.Crystalline.linearization_map
-A D-linear map N→N′ induces a map of O_crys-modules L(N)→L(N′), compatibly with composition and
-with the restriction maps.
+A D-linear map N→N′ induces a map of O_crys-modules L(N)→L(N′), compatibly with composition and with the restriction maps.
+
 api TauCeti.Crystalline.linearization_augmentation
-For a crystal E in quasi-coherent O_crys-modules, the maps
-E_T→pr_{T,*}pr_T^*E_T=pr_{T,*}pr_D^*Ẽ_D define E→L(E_D), and L(E_D⊗_DN)≅E⊗_{O_crys}L(N) for
-every D-module N.
+For a crystal E in quasi-coherent O_crys-modules, the maps E_T→pr_{T,*}pr_T^*E_T=pr_{T,*}pr_D^*Ẽ_D define E→L(E_D), and L(E_D⊗_DN)≅E⊗_{O_crys}L(N) for every D-module N.
+
 api TauCeti.Crystalline.linearization_cohomology
 RΓ(Cris(X/S),L(N))≅N in degree 0: Γ(Cris(X/S),L(N))=N and Hⁱ(Cris(X/S),L(N))=0 for i>0.
+
 api TauCeti.Crystalline.linearization_resolution
-L(Ω^•_PD(D/A)), with L(Ω^q_PD(D/A))_T=pr_{T,*}Ω^q_PD(D_T/T) and the relative PD de Rham
-differentials, is a complex of O_crys-modules, and for every crystal E in quasi-coherent
-O_crys-modules the augmented complex E→E⊗_{O_crys}L(Ω^•_PD(D/A)) is exact.
+L(Ω^•_PD(D/A)), with L(Ω^q_PD(D/A))_T=pr_{T,*}Ω^q_PD(D_T/T) and the relative PD de Rham differentials, is a complex of O_crys-modules, and for every crystal E in quasi-coherent O_crys-modules the augmented complex E→E⊗_{O_crys}L(Ω^•_PD(D/A)) is exact.
+
 test TauCeti.Crystalline.test_linearization_zero
 L(0)=0.
+
 test TauCeti.Crystalline.test_linearization_identity
-For A=F_p with the zero PD ideal and C=P=F_p[x], so that D=F_p[x] and X=Spec D:
-L(D)(X,X,∅)=F_p[x]⟨ξ⟩, where the two maps from F_p[x] are x↦x and x↦x+ξ; this is free of
-infinite rank over F_p[x] and is not D. RΓ(Cris(X/S),L(D))=F_p[x] in degree 0.
+For A=F_p with the zero PD ideal and C=P=F_p[x], so that D=F_p[x] and X=Spec D: L(D)(X,X,∅)=F_p[x]⟨ξ⟩, where the two maps from F_p[x] are x↦x and x↦x+ξ; this is free of infinite rank over F_p[x] and is not D. RΓ(Cris(X/S),L(D))=F_p[x] in degree 0.
+
 test TauCeti.Crystalline.test_linearization_PD
-For the same data, L(D)(X,X,∅)=F_p[x]⟨ξ⟩ is not the polynomial ring F_p[x][ξ]: ξᵖ=p!·ξ^{[p]}=0
-in it, and ξ^{[p]} is not a polynomial in ξ.
+For the same data, L(D)(X,X,∅)=F_p[x]⟨ξ⟩ is not the polynomial ring F_p[x][ξ]: ξᵖ=p!·ξ^{[p]}=0 in it, and ξ^{[p]} is not a polynomial in ξ.
 
 CrystallineCohomology:CR.2/pd-poincare
+
 declaration TauCeti.Crystalline.pdPoincare
-(1) Let A be a ring and P=A⟨x_i⟩_{i∈W} a PD polynomial algebra on any set W of variables, with
-its PD ideal P₊. For every A-module N the complex 0→N→N⊗_AP→N⊗_AΩ¹_PD(P/A)→N⊗_AΩ²_PD(P/A)→⋯ is
-exact (Stacks Lemma 60.20.1). (2) Let (B,I,δ) be a PD ring with B an A-algebra, P=B⟨x_i⟩_{i∈W}
-with PD ideal IP+P₊, and M a B-module with an integrable connection ∇:M→M⊗_BΩ¹_PD(B/A). Then the
-map of de Rham complexes M⊗_BΩ^•_PD(B/A)→M⊗_BΩ^•_PD(P/A) is a quasi-isomorphism (Stacks Lemma
-60.20.2). (3) Let p be a prime. In (1), with D₀ the p-adic completion of P and Ωⁱ_{D₀} the
-p-adic completion of Ωⁱ_PD(P/A), the complex 0→N→N⊗^∧_AD₀→N⊗^∧_AΩ¹_{D₀}→⋯ is exact for every
-p-adically complete A-module N. In (2), with D and D′ the p-adic completions of B and P and
-Ωⁱ_D, Ωⁱ_{D′} the p-adic completions of Ωⁱ_PD(B/A) and Ωⁱ_PD(P/A), the map
-M⊗^∧_DΩ^•_D→M⊗^∧_DΩ^•_{D′} is a quasi-isomorphism for every p-adically complete D-module M with
-an integrable connection ∇:M→M⊗^∧_DΩ¹_D. (4) For one variable z over B the contraction is
-explicit: on Ω^•_PD(B⟨z⟩/B), the B-linear map h with h(z^{[n]}dz)=z^{[n+1]} and h=0 in degree 0
-satisfies dh+hd=id−ev₀, where ev₀ is evaluation at z=0 in degree 0 and zero in degree 1 (Stacks
-Example 60.25.2).
+(1) Let A be a ring and P=A⟨x_i⟩_{i∈W} a PD polynomial algebra on any set W of variables, with its PD ideal P₊. For every A-module N the complex 0→N→N⊗_AP→N⊗_AΩ¹_PD(P/A)→N⊗_AΩ²_PD(P/A)→⋯ is exact (Stacks Lemma 60.20.1). (2) Let (B,I,δ) be a PD ring with B an A-algebra, P=B⟨x_i⟩_{i∈W} with PD ideal IP+P₊, and M a B-module with an integrable connection ∇:M→M⊗_BΩ¹_PD(B/A). Then the map of de Rham complexes M⊗_BΩ^•_PD(B/A)→M⊗_BΩ^•_PD(P/A) is a quasi-isomorphism (Stacks Lemma 60.20.2). (3) Let p be a prime. In (1), with D₀ the p-adic completion of P and Ωⁱ_{D₀} the p-adic completion of Ωⁱ_PD(P/A), the complex 0→N→N⊗^∧_AD₀→N⊗^∧_AΩ¹_{D₀}→⋯ is exact for every p-adically complete A-module N. In (2), with D and D′ the p-adic completions of B and P and Ωⁱ_D, Ωⁱ_{D′} the p-adic completions of Ωⁱ_PD(B/A) and Ωⁱ_PD(P/A), the map M⊗^∧_DΩ^•_D→M⊗^∧_DΩ^•_{D′} is a quasi-isomorphism for every p-adically complete D-module M with an integrable connection ∇:M→M⊗^∧_DΩ¹_D. (4) For one variable z over B the contraction is explicit: on Ω^•_PD(B⟨z⟩/B), the B-linear map h with h(z^{[n]}dz)=z^{[n+1]} and h=0 in degree 0 satisfies dh+hd=id−ev₀, where ev₀ is evaluation at z=0 in degree 0 and zero in degree 1 (Stacks Example 60.25.2).
 
 CrystallineCohomology:CR.2/embedding-computation
+
 declaration TauCeti.Crystalline.crysEmbeddingComputation
-Setting for (1)–(4): Stacks Situation 60.5.1 with X=Spec C and S=Spec A, P=A[x_i]→C a surjection
-from a polynomial algebra, D(n) the p-adically completed PD envelopes of CR.1/pd-stratification,
-D=D(0), and T(n)_e=Spec D(n)/pᵉD(n), so that (X,T(n)_e,γ̄) is an object of Cris(X/S) for e≫0.
-(1) (Čech–Alexander complex.) Let F be an O_crys-module on Cris(X/S) such that every restriction
-F_T is quasi-coherent and c_f:f^*F_T′→F_T is surjective for every morphism of Cris(X/S) with
-f:T→T′ a closed immersion. Then M(n)=lim_eΓ((X,T(n)_e,γ̄),F) is a cosimplicial module over the
-cosimplicial ring D(•), and the complex M(0)→M(1)→M(2)→⋯ computes RΓ(Cris(X/S),F) (Stacks
-Proposition 60.21.1). (2) For such F, Hʲ(Cris(X/S),F⊗_{O_crys}Ωⁱ_{X/S})=0 for all i>0 and j≥0
-(Stacks Lemma 60.21.2). (3) If F is a crystal in quasi-coherent modules and (M,∇) the associated
-module with connection over D (CR.1/taylor-equivalence), then M⊗^∧_DΩ^•_D computes
-RΓ(Cris(X/S),F) (Stacks Proposition 60.21.3); if p is nilpotent in A the completions may be
-omitted. (4) If A→P′→C are ring maps with P′ smooth over A and P′→C surjective, D′ is the p-adic
-completion of the PD envelope of the kernel and (M′,∇′) is the pair over D′ associated to F,
-then M′⊗^∧_{D′}Ω^•_{D′} computes RΓ(Cris(X/S),F) (Stacks Lemma 60.21.4). (5) (Sheaf form.) In
-the situation of CR.1/crystalline-site, for a crystal F in quasi-coherent modules,
-Ru_{X/S,*}(F⊗_{O_crys}Ωⁱ_{X/S})=0 for all i>0, so the map of complexes F⊗Ω^•_{X/S}→F[0] becomes
-an isomorphism after Ru_{X/S,*} (Stacks Proposition 60.23.1); for every object (U,T,δ) this
-gives a canonical map RΓ(Cris(X/S),F)→RΓ(T,F_T⊗_{O_T}Ω^•_{T/S,δ}). (6) (Closed embedding.) If
-moreover p is locally nilpotent on S and X→P is a closed S₀-immersion into a smooth S-scheme
-with PD envelope D, then (X,D,γ̄) is an object of Cris(X/S) and the map of (5) for T=D induces
-an isomorphism Ru_{X/S,*}F≅F_D⊗_{O_P}Ω^•_{P/S} in D(X_Zar,f⁻¹O_S).
+Setting for (1)–(4): Stacks Situation 60.5.1 with X=Spec C and S=Spec A, P=A[x_i]→C a surjection from a polynomial algebra, D(n) the p-adically completed PD envelopes of CR.1/pd-stratification, D=D(0), and T(n)_e=Spec D(n)/pᵉD(n), so that (X,T(n)_e,γ̄) is an object of Cris(X/S) for e≫0. (1) (Čech–Alexander complex.) Let F be an O_crys-module on Cris(X/S) such that every restriction F_T is quasi-coherent and c_f:f^*F_T′→F_T is surjective for every morphism of Cris(X/S) with f:T→T′ a closed immersion. Then M(n)=lim_eΓ((X,T(n)_e,γ̄),F) is a cosimplicial module over the cosimplicial ring D(•), and the complex M(0)→M(1)→M(2)→⋯ computes RΓ(Cris(X/S),F) (Stacks Proposition 60.21.1). (2) For such F, Hʲ(Cris(X/S),F⊗_{O_crys}Ωⁱ_{X/S})=0 for all i>0 and j≥0 (Stacks Lemma 60.21.2). (3) If F is a crystal in quasi-coherent modules and (M,∇) the associated module with connection over D (CR.1/taylor-equivalence), then M⊗^∧_DΩ^•_D computes RΓ(Cris(X/S),F) (Stacks Proposition 60.21.3); if p is nilpotent in A the completions may be omitted. (4) If A→P′→C are ring maps with P′ smooth over A and P′→C surjective, D′ is the p-adic completion of the PD envelope of the kernel and (M′,∇′) is the pair over D′ associated to F, then M′⊗^∧_{D′}Ω^•_{D′} computes RΓ(Cris(X/S),F) (Stacks Lemma 60.21.4). (5) (Sheaf form.) In the situation of CR.1/crystalline-site, for a crystal F in quasi-coherent modules, Ru_{X/S,*}(F⊗_{O_crys}Ωⁱ_{X/S})=0 for all i>0, so the map of complexes F⊗Ω^•_{X/S}→F[0] becomes an isomorphism after Ru_{X/S,*} (Stacks Proposition 60.23.1); for every object (U,T,δ) this gives a canonical map RΓ(Cris(X/S),F)→RΓ(T,F_T⊗_{O_T}Ω^•_{T/S,δ}). (6) (Closed embedding.) If moreover p is locally nilpotent on S and X→P is a closed S₀-immersion into a smooth S-scheme with PD envelope D, then (X,D,γ̄) is an object of Cris(X/S) and the map of (5) for T=D induces an isomorphism Ru_{X/S,*}F≅F_D⊗_{O_P}Ω^•_{P/S} in D(X_Zar,f⁻¹O_S).
 
 CrystallineCohomology:CR.2/embedding-independence
+
 declaration TauCeti.Crystalline.crysEmbeddingIndependent
-In the setting of CR.2/embedding-computation (1)–(4), let F be a crystal in quasi-coherent
-O_crys-modules and (M,∇) the associated module with connection over D. (1) For every PD
-A-algebra endomorphism ρ:D→D compatible with the maps to C, the induced map
-M⊗^∧_DΩ^•_D→M⊗^∧_{D,ρ}Ω^•_D is a quasi-isomorphism (proof of Stacks Lemma 60.21.4). (2) For ring
-maps A→P′→C with P′ smooth and P′→C surjective, a surjection P→P′ from a polynomial algebra and
-a:D→D′, b:D′→D as in CR.1/taylor-equivalence (3), the base change maps
-M′⊗^∧_{D′}Ω^•_{D′}→M⊗^∧_DΩ^•_D along b and M⊗^∧_DΩ^•_D→M′⊗^∧_{D′}Ω^•_{D′} along a are
-quasi-isomorphisms (Stacks Lemma 60.21.4). (3) Each of the b+1 coprojections D→D(b) induces a
-quasi-isomorphism M⊗^∧_DΩ^•_D→M⊗^∧_DΩ^•_{D(b)}, and they all induce the same map in the derived
-category, the inverse being induced by the codiagonal D(b)→D (proof of Stacks Proposition
-60.21.3). (4) Let P₁→C and P₂→C be surjections from polynomial A-algebras, with completed
-envelopes D₁, D₂, and D₁₂ the completed envelope of the kernel of P₁⊗_AP₂→C, and let (M₁,∇),
-(M₂,∇), (M₁₂,∇) be the modules with connection of F. Then D₁₂ is the p-adic completion of a PD
-polynomial algebra over D₁ and over D₂, and the maps M₁⊗^∧Ω^•_{D₁}→M₁₂⊗^∧Ω^•_{D₁₂}←M₂⊗^∧Ω^•_{D₂}
-are quasi-isomorphisms compatible with the identifications of the three complexes with
-RΓ(Cris(X/S),F). (5) Any two PD A-algebra maps g,h:D₂→D₁ compatible with the maps to C induce
-the same map M₂⊗^∧Ω^•_{D₂}→M₁⊗^∧Ω^•_{D₁} in the derived category.
+In the setting of CR.2/embedding-computation (1)–(4), let F be a crystal in quasi-coherent O_crys-modules and (M,∇) the associated module with connection over D. (1) For every PD A-algebra endomorphism ρ:D→D compatible with the maps to C, the induced map M⊗^∧_DΩ^•_D→M⊗^∧_{D,ρ}Ω^•_D is a quasi-isomorphism (proof of Stacks Lemma 60.21.4). (2) For ring maps A→P′→C with P′ smooth and P′→C surjective, a surjection P→P′ from a polynomial algebra and a:D→D′, b:D′→D as in CR.1/taylor-equivalence (3), the base change maps M′⊗^∧_{D′}Ω^•_{D′}→M⊗^∧_DΩ^•_D along b and M⊗^∧_DΩ^•_D→M′⊗^∧_{D′}Ω^•_{D′} along a are quasi-isomorphisms (Stacks Lemma 60.21.4). (3) Each of the b+1 coprojections D→D(b) induces a quasi-isomorphism M⊗^∧_DΩ^•_D→M⊗^∧_DΩ^•_{D(b)}, and they all induce the same map in the derived category, the inverse being induced by the codiagonal D(b)→D (proof of Stacks Proposition 60.21.3). (4) Let P₁→C and P₂→C be surjections from polynomial A-algebras, with completed envelopes D₁, D₂, and D₁₂ the completed envelope of the kernel of P₁⊗_AP₂→C, and let (M₁,∇), (M₂,∇), (M₁₂,∇) be the modules with connection of F. Then D₁₂ is the p-adic completion of a PD polynomial algebra over D₁ and over D₂, and the maps M₁⊗^∧Ω^•_{D₁}→M₁₂⊗^∧Ω^•_{D₁₂}←M₂⊗^∧Ω^•_{D₂} are quasi-isomorphisms compatible with the identifications of the three complexes with RΓ(Cris(X/S),F). (5) Any two PD A-algebra maps g,h:D₂→D₁ compatible with the maps to C induce the same map M₂⊗^∧Ω^•_{D₂}→M₁⊗^∧Ω^•_{D₁} in the derived category.
 
 CrystallineCohomology:CR.2/smooth-lift-filtration
+
 declaration TauCeti.Crystalline.crysSmoothLiftFiltration
-(1) (Smooth lift; Stacks Remark 60.24.11.) Let p be a prime, (A,I,γ) a PD ring with p nilpotent
-in A, S=Spec A, S₀=Spec A/I, Y a smooth S-scheme, X=Y×_SS₀, and F a crystal in quasi-coherent
-O_crys-modules on Cris(X/S). Then γ extends to a PD structure on the ideal of X in Y, so that
-(X,Y,γ) is an object of Cris(X/S); the restriction F_Y carries a canonical integrable connection
-∇:F_Y→F_Y⊗_{O_Y}Ω_{Y/S}; and RΓ(Cris(X/S),F)≅RΓ(Y,F_Y⊗_{O_Y}Ω^•_{Y/S}) in D(A). (2) (Filtration
-on an envelope.) Let (A,I,γ) be a PD ring, P an A-algebra, J⊂P an ideal containing IP, (D,J̄,γ̄)
-the PD envelope and J̄^{[a]} the PD powers of J̄ (CR.0/pd-filtration), with J̄^{[a]}=D for a≤0.
-Then d(J̄^{[a]})⊂J̄^{[a−1]}·Ω¹_PD(D/A). Hence for every integer r the submodules
-Filʳ(Ω^q_PD(D/A))=J̄^{[r−q]}·Ω^q_PD(D/A) form a subcomplex Filʳ of Ω^•_PD(D/A), decreasing in r,
-equal to the whole complex for r≤0; and for a D-module M with integrable connection the
-submodules J̄^{[r−q]}·(M⊗_DΩ^q_PD(D/A)) form a subcomplex of M⊗_DΩ^•_PD(D/A). (3) If I=0 and
-J=0, so that D=P, then Filʳ=σ_{≥r}Ω^•_{P/A}, the stupid truncation. In the situation of (1), for
-D=O_Y and J̄=IO_Y, the image of Filʳ in Ω^•_{X/S₀} is σ_{≥r}Ω^•_{X/S₀}.
+(1) (Smooth lift; Stacks Remark 60.24.11.) Let p be a prime, (A,I,γ) a PD ring with p nilpotent in A, S=Spec A, S₀=Spec A/I, Y a smooth S-scheme, X=Y×_SS₀, and F a crystal in quasi-coherent O_crys-modules on Cris(X/S). Then γ extends to a PD structure on the ideal of X in Y, so that (X,Y,γ) is an object of Cris(X/S); the restriction F_Y carries a canonical integrable connection ∇:F_Y→F_Y⊗_{O_Y}Ω_{Y/S}; and RΓ(Cris(X/S),F)≅RΓ(Y,F_Y⊗_{O_Y}Ω^•_{Y/S}) in D(A). (2) (Filtration on an envelope.) Let (A,I,γ) be a PD ring, P an A-algebra, J⊂P an ideal containing IP, (D,J̄,γ̄) the PD envelope and J̄^{[a]} the PD powers of J̄ (CR.0/pd-filtration), with J̄^{[a]}=D for a≤0. Then d(J̄^{[a]})⊂J̄^{[a−1]}·Ω¹_PD(D/A). Hence for every integer r the submodules Filʳ(Ω^q_PD(D/A))=J̄^{[r−q]}·Ω^q_PD(D/A) form a subcomplex Filʳ of Ω^•_PD(D/A), decreasing in r, equal to the whole complex for r≤0; and for a D-module M with integrable connection the submodules J̄^{[r−q]}·(M⊗_DΩ^q_PD(D/A)) form a subcomplex of M⊗_DΩ^•_PD(D/A). (3) If I=0 and J=0, so that D=P, then Filʳ=σ_{≥r}Ω^•_{P/A}, the stupid truncation. In the situation of (1), for D=O_Y and J̄=IO_Y, the image of Filʳ in Ω^•_{X/S₀} is σ_{≥r}Ω^•_{X/S₀}.
 
 CrystallineCohomology:CR.2/formal-and-end0
+
 declaration TauCeti.Crystalline.crysFormalEnd0
-(1) (Stacks Remark 60.24.14.) Let p be a prime, (A,I,γ) a PD ring with A noetherian and
-p-adically complete and p nilpotent in A/I, S=Spec A, S₀=Spec A/I, Y a proper smooth S-scheme,
-X=Y×_SS₀, and F a crystal of finite type in quasi-coherent O_crys-modules on Cris(X/S). Then
-there is a coherent O_Y-module F_Y with an integrable connection ∇:F_Y→F_Y⊗_{O_Y}Ω_{Y/S} such
-that F_Y/pᵉF_Y with its connection is the module with connection over A/pᵉA of
-CR.2/smooth-lift-filtration (1), and RΓ(Cris(X/S),F)≅RΓ(Y,F_Y⊗_{O_Y}Ω^•_{Y/S}) in D(A). (2) For
-A=W(k) with k a perfect field, I=(p) and K=W(k)[1/p]:
-RΓ(Cris(X/S),F)⊗_{W(k)}K≅RΓ(Y_K,F_{Y_K}⊗Ω^•_{Y_K/K}). (3) (Trace-free endomorphisms.) Let E be a
-crystal in finite locally free O_crys-modules of constant rank r≥1. The trace
-tr:End(E)=E^∨⊗E→O_crys is a surjective map of crystals, End⁰(E):=Ker(tr) is a crystal in finite
-locally free modules of rank r²−1, and (1) and (2) apply to End(E) and End⁰(E). The map
-O_crys⊕End⁰(E)→End(E), (a,φ)↦a·id+φ, has cokernel O_crys/r·O_crys; it is an isomorphism if p
-does not divide r, and it is not surjective if p divides r and X is nonempty.
+(1) (Stacks Remark 60.24.14.) Let p be a prime, (A,I,γ) a PD ring with A noetherian and p-adically complete and p nilpotent in A/I, S=Spec A, S₀=Spec A/I, Y a proper smooth S-scheme, X=Y×_SS₀, and F a crystal of finite type in quasi-coherent O_crys-modules on Cris(X/S). Then there is a coherent O_Y-module F_Y with an integrable connection ∇:F_Y→F_Y⊗_{O_Y}Ω_{Y/S} such that F_Y/pᵉF_Y with its connection is the module with connection over A/pᵉA of CR.2/smooth-lift-filtration (1), and RΓ(Cris(X/S),F)≅RΓ(Y,F_Y⊗_{O_Y}Ω^•_{Y/S}) in D(A). (2) For A=W(k) with k a perfect field, I=(p) and K=W(k)[1/p]: RΓ(Cris(X/S),F)⊗_{W(k)}K≅RΓ(Y_K,F_{Y_K}⊗Ω^•_{Y_K/K}). (3) (Trace-free endomorphisms.) Let E be a crystal in finite locally free O_crys-modules of constant rank r≥1. The trace tr:End(E)=E^∨⊗E→O_crys is a surjective map of crystals, End⁰(E):=Ker(tr) is a crystal in finite locally free modules of rank r²−1, and (1) and (2) apply to End(E) and End⁰(E). The map O_crys⊕End⁰(E)→End(E), (a,φ)↦a·id+φ, has cokernel O_crys/r·O_crys; it is an isomorphism if p does not divide r, and it is not surjective if p divides r and X is nonempty.
 
 CrystallineCohomology:CR.3/crystalline-descent
+
 declaration TauCeti.Crystalline.crysDescent
-Let (A,I,γ) be a PD ring in which p is nilpotent, S=Spec A, S₀=Spec A/I, X a quasi-compact
-separated S₀-scheme and E a crystal in quasi-coherent O_crys-modules on X/S. Choose a finite
-affine open cover X=⋃_(λ∈Λ)U_λ with U_λ=Spec C_λ, a total order on Λ, and for each λ a
-surjection P_λ→C_λ from a polynomial A-algebra. For λ₀<…<λ_n write U_(λ₀)∩…∩U_(λ_n)=Spec
-C_(λ₀…λ_n), let D_(λ₀…λ_n) be the PD envelope, relative to γ, of the kernel of P_(λ₀)⊗_A…⊗_A
-P_(λ_n)→C_(λ₀…λ_n), and let (M_(λ₀…λ_n),∇) be the D_(λ₀…λ_n)-module with integrable connection
-attached to E. Then RΓ_crys(X/S,E) is isomorphic in D(A) to the total complex of the double
-complex M^(n,m)=⊕_(λ₀<…<λ_n) M_(λ₀…λ_n)⊗_(D_(λ₀…λ_n))Ω^m_PD(D_(λ₀…λ_n)/A), with the Čech
-differential in n and the de Rham differential of ∇ in m.
+Let (A,I,γ) be a PD ring in which p is nilpotent, S=Spec A, S₀=Spec A/I, X a quasi-compact separated S₀-scheme and E a crystal in quasi-coherent O_crys-modules on X/S. Choose a finite affine open cover X=⋃_(λ∈Λ)U_λ with U_λ=Spec C_λ, a total order on Λ, and for each λ a surjection P_λ→C_λ from a polynomial A-algebra. For λ₀<…<λ_n write U_(λ₀)∩…∩U_(λ_n)=Spec C_(λ₀…λ_n), let D_(λ₀…λ_n) be the PD envelope, relative to γ, of the kernel of P_(λ₀)⊗_A…⊗_A P_(λ_n)→C_(λ₀…λ_n), and let (M_(λ₀…λ_n),∇) be the D_(λ₀…λ_n)-module with integrable connection attached to E. Then RΓ_crys(X/S,E) is isomorphic in D(A) to the total complex of the double complex M^(n,m)=⊕_(λ₀<…<λ_n) M_(λ₀…λ_n)⊗_(D_(λ₀…λ_n))Ω^m_PD(D_(λ₀…λ_n)/A), with the Čech differential in n and the de Rham differential of ∇ in m.
 
 CrystallineCohomology:CR.3/derived-base-change
+
 declaration TauCeti.Crystalline.crysBaseChange
-Let (A′,I′,γ′)→(A,I,γ) be a homomorphism of PD rings, S′=Spec A′, S=Spec A, X′ a scheme over
-A′/I′, X a scheme over A/I and f:X→X′ a morphism over Spec A/I→Spec A′/I′, with p locally
-nilpotent on X and X′. For an O_crys-module E′ on X′/S′ with pullback E=f_crys^*E′ put
-K′=RΓ_crys(X′/S′,E′) and K=RΓ_crys(X/S,E). (1) There is a canonical base-change map
-K′⊗^L_(A′)A→K in D(A). (2) It is an isomorphism if all of the following hold: p is nilpotent in
-A′; E′ is a crystal in quasi-coherent O_crys-modules; X′→Spec A′/I′ is quasi-compact and
-quasi-separated; X=X′×_(Spec A′/I′)Spec A/I; E′ is a flat O_crys-module; X′→Spec A′/I′ is a
-local complete intersection morphism; X′ and Spec A/I are Tor-independent over Spec A′/I′. The
-conditions on X′, X and E′ hold when X′ is quasi-compact, quasi-separated and smooth over A′/I′,
-X is its base change and E′ is a finite locally free crystal. (3) p-adic form: let A′ and A be
-p-adically complete with p nilpotent in A′/I′ and in A/I, and assume the conditions of (2)
-except the nilpotence of p in A′. For e so large that p^eA′⊂I′ is stable under γ′ put
-K′_e=RΓ_crys(X′/Spec(A′/p^e),E′). If K′ is a perfect complex of A′-modules and
-K′⊗^L_(A′)A′/p^e→K′_e is an isomorphism for all such e, then K′⊗^L_(A′)A→K is an isomorphism.
+Let (A′,I′,γ′)→(A,I,γ) be a homomorphism of PD rings, S′=Spec A′, S=Spec A, X′ a scheme over A′/I′, X a scheme over A/I and f:X→X′ a morphism over Spec A/I→Spec A′/I′, with p locally nilpotent on X and X′. For an O_crys-module E′ on X′/S′ with pullback E=f_crys^*E′ put K′=RΓ_crys(X′/S′,E′) and K=RΓ_crys(X/S,E). (1) There is a canonical base-change map K′⊗^L_(A′)A→K in D(A). (2) It is an isomorphism if all of the following hold: p is nilpotent in A′; E′ is a crystal in quasi-coherent O_crys-modules; X′→Spec A′/I′ is quasi-compact and quasi-separated; X=X′×_(Spec A′/I′)Spec A/I; E′ is a flat O_crys-module; X′→Spec A′/I′ is a local complete intersection morphism; X′ and Spec A/I are Tor-independent over Spec A′/I′. The conditions on X′, X and E′ hold when X′ is quasi-compact, quasi-separated and smooth over A′/I′, X is its base change and E′ is a finite locally free crystal. (3) p-adic form: let A′ and A be p-adically complete with p nilpotent in A′/I′ and in A/I, and assume the conditions of (2) except the nilpotence of p in A′. For e so large that p^eA′⊂I′ is stable under γ′ put K′_e=RΓ_crys(X′/Spec(A′/p^e),E′). If K′ is a perfect complex of A′-modules and K′⊗^L_(A′)A′/p^e→K′_e is an isomorphism for all such e, then K′⊗^L_(A′)A→K is an isomorphism.
+
 api TauCeti.Crystalline.crysBaseChange_id
-For the identity of (A,I,γ) and the identity of X the base-change map K⊗^L_A A→K is the
-canonical isomorphism.
+For the identity of (A,I,γ) and the identity of X the base-change map K⊗^L_A A→K is the canonical isomorphism.
+
 api TauCeti.Crystalline.crysBaseChange_comp
-For PD homomorphisms (A″,I″,γ″)→(A′,I′,γ′)→(A,I,γ) and morphisms X→X′→X″ over them, the
-base-change map K″⊗^L_(A″)A→K is the composite of (K″⊗^L_(A″)A′)⊗^L_(A′)A→K′⊗^L_(A′)A with
-K′⊗^L_(A′)A→K.
+For PD homomorphisms (A″,I″,γ″)→(A′,I′,γ′)→(A,I,γ) and morphisms X→X′→X″ over them, the base-change map K″⊗^L_(A″)A→K is the composite of (K″⊗^L_(A″)A′)⊗^L_(A′)A→K′⊗^L_(A′)A with K′⊗^L_(A′)A→K.
+
 api TauCeti.Crystalline.crysBaseChange_natural
-A homomorphism E′₁→E′₂ of O_crys-modules on X′/S′ induces a commutative square of base-change
-maps; the base-change map is also natural for morphisms g:Y′→X′ of schemes over A′/I′ and their
-base changes.
+A homomorphism E′₁→E′₂ of O_crys-modules on X′/S′ induces a commutative square of base-change maps; the base-change map is also natural for morphisms g:Y′→X′ of schemes over A′/I′ and their base changes.
 
 CrystallineCohomology:CR.3/proper-perfectness
+
 declaration TauCeti.Crystalline.crysPerfect
-(1) Let (A,I,γ) be a PD ring with A Noetherian and p nilpotent in A, X a proper smooth scheme
-over A/I and E a finite locally free crystal on X/Spec A. Then K=RΓ_crys(X/Spec A,E) is a
-perfect complex of A-modules. (2) Let (A,I,γ) be a PD ring with A Noetherian and p-adically
-complete and p nilpotent in A/I, X proper smooth over A/I and E a finite locally free crystal on
-X/Spec A. For e such that p^eA⊂I is stable under γ (all sufficiently large e) put
-K_e=RΓ_crys(X/Spec(A/p^e),E). Then K=Rlim_e K_e is a perfect complex of A-modules and K⊗^L_A
-A/p^e→K_e is an isomorphism for every such e. (3) Let k be a perfect field of characteristic p,
-A=W(k), I=(p), X proper smooth over k of dimension ≤d and E a finite locally free crystal on
-X/W(k). Then K=RΓ_crys(X/W(k),E) is a perfect complex of W(k)-modules of Tor-amplitude in
-[0,2d], K⊗^L_(W(k))W_n(k)≅RΓ_crys(X/W_n(k),E) for all n≥1, and each H^i(K) is a finitely
-generated W(k)-module, zero unless 0≤i≤2d. The modules H^i(K) can have p-torsion. (4) In the
-situation of (2), for a homomorphism (A,I,γ)→(B,J,δ) of PD rings with B Noetherian and
-p-adically complete and p nilpotent in B/J, the base-change map K⊗^L_A B→RΓ_crys(X_B/Spec B,E_B)
-of CR.3/derived-base-change is an isomorphism, where X_B=X×_(Spec A/I)Spec B/J and E_B is the
-pullback of E.
+(1) Let (A,I,γ) be a PD ring with A Noetherian and p nilpotent in A, X a proper smooth scheme over A/I and E a finite locally free crystal on X/Spec A. Then K=RΓ_crys(X/Spec A,E) is a perfect complex of A-modules. (2) Let (A,I,γ) be a PD ring with A Noetherian and p-adically complete and p nilpotent in A/I, X proper smooth over A/I and E a finite locally free crystal on X/Spec A. For e such that p^eA⊂I is stable under γ (all sufficiently large e) put K_e=RΓ_crys(X/Spec(A/p^e),E). Then K=Rlim_e K_e is a perfect complex of A-modules and K⊗^L_A A/p^e→K_e is an isomorphism for every such e. (3) Let k be a perfect field of characteristic p, A=W(k), I=(p), X proper smooth over k of dimension ≤d and E a finite locally free crystal on X/W(k). Then K=RΓ_crys(X/W(k),E) is a perfect complex of W(k)-modules of Tor-amplitude in [0,2d], K⊗^L_(W(k))W_n(k)≅RΓ_crys(X/W_n(k),E) for all n≥1, and each H^i(K) is a finitely generated W(k)-module, zero unless 0≤i≤2d. The modules H^i(K) can have p-torsion. (4) In the situation of (2), for a homomorphism (A,I,γ)→(B,J,δ) of PD rings with B Noetherian and p-adically complete and p nilpotent in B/J, the base-change map K⊗^L_A B→RΓ_crys(X_B/Spec B,E_B) of CR.3/derived-base-change is an isomorphism, where X_B=X×_(Spec A/I)Spec B/J and E_B is the pullback of E.
 
 CrystallineCohomology:CR.3/cup-product
+
 declaration TauCeti.Crystalline.crysCup
-Let (A,I,γ) be a PD ring with A a Z_(p)-algebra, S=Spec A, X a scheme over A/I on which p is
-locally nilpotent, and write K(E)=RΓ_crys(X/S,E) for an O_crys-module E. (1) For O_crys-modules
-E, F the cup product is the map ∪:K(E)⊗^L_A K(F)→K(E⊗_(O_crys)F) in D(A) obtained from the cup
-product RΓ(E)⊗^L RΓ(F)→RΓ(E⊗^L_(O_crys)F) of the ringed crystalline topos followed by E⊗^L
-F→E⊗F; the unit is A→K(O_crys). (2) It is associative and unital, natural in E and F, and
-compatible with pullback along the morphisms of crystalline topoi induced by commutative squares
-of schemes over homomorphisms of PD rings. (3) On H^*_crys(X/S)=H^*(K(O_crys)) it is a graded
-A-algebra structure, graded commutative: x∪y=(−1)^(ij)·y∪x for x∈H^i, y∈H^j. In particular
-2·x∪x=0 for x of odd degree, hence x∪x=0 when p is odd; for p=2 this gives only 2·x∪x=0. (4) For
-schemes X, Y over A/I the external product of x∈H^*(K_X(E)) and y∈H^*(K_Y(F)) is
-pr₁^*x∪pr₂^*y∈H^*(K_(X×Y)(pr₁^*E⊗pr₂^*F)), X×Y the fibre product over A/I.
+Let (A,I,γ) be a PD ring with A a Z_(p)-algebra, S=Spec A, X a scheme over A/I on which p is locally nilpotent, and write K(E)=RΓ_crys(X/S,E) for an O_crys-module E. (1) For O_crys-modules E, F the cup product is the map ∪:K(E)⊗^L_A K(F)→K(E⊗_(O_crys)F) in D(A) obtained from the cup product RΓ(E)⊗^L RΓ(F)→RΓ(E⊗^L_(O_crys)F) of the ringed crystalline topos followed by E⊗^L F→E⊗F; the unit is A→K(O_crys). (2) It is associative and unital, natural in E and F, and compatible with pullback along the morphisms of crystalline topoi induced by commutative squares of schemes over homomorphisms of PD rings. (3) On H^*_crys(X/S)=H^*(K(O_crys)) it is a graded A-algebra structure, graded commutative: x∪y=(−1)^(ij)·y∪x for x∈H^i, y∈H^j. In particular 2·x∪x=0 for x of odd degree, hence x∪x=0 when p is odd; for p=2 this gives only 2·x∪x=0. (4) For schemes X, Y over A/I the external product of x∈H^*(K_X(E)) and y∈H^*(K_Y(F)) is pr₁^*x∪pr₂^*y∈H^*(K_(X×Y)(pr₁^*E⊗pr₂^*F)), X×Y the fibre product over A/I.
+
 api TauCeti.Crystalline.crysCup_unit
-The class 1∈H⁰_crys(X/S), image of 1 under the unit A→K(O_crys), satisfies 1∪x=x=x∪1 for
-x∈H^*(K(E)), under O_crys⊗E≅E≅E⊗O_crys.
+The class 1∈H⁰_crys(X/S), image of 1 under the unit A→K(O_crys), satisfies 1∪x=x=x∪1 for x∈H^*(K(E)), under O_crys⊗E≅E≅E⊗O_crys.
+
 api TauCeti.Crystalline.crysCup_graded_comm
-For x∈H^i_crys(X/S) and y∈H^j_crys(X/S): x∪y=(−1)^(ij)·y∪x; for O_crys-modules E, F the same
-holds between K(E⊗F) and K(F⊗E) through the exchange isomorphism.
+For x∈H^i_crys(X/S) and y∈H^j_crys(X/S): x∪y=(−1)^(ij)·y∪x; for O_crys-modules E, F the same holds between K(E⊗F) and K(F⊗E) through the exchange isomorphism.
+
 api TauCeti.Crystalline.crysCup_reduction
-For a homomorphism of PD rings (A′,I′,γ′)→(A,I,γ) and f:X→X′ over it, the base-change map
-K′(E′)⊗^L_(A′)A→K(f_crys^*E′) of CR.3/derived-base-change is compatible with cup products and
-units. In particular, for p^eA⊂I stable under γ, the reduction K(E)→RΓ_crys(X/Spec(A/p^e),E)
-carries cup products to cup products.
+For a homomorphism of PD rings (A′,I′,γ′)→(A,I,γ) and f:X→X′ over it, the base-change map K′(E′)⊗^L_(A′)A→K(f_crys^*E′) of CR.3/derived-base-change is compatible with cup products and units. In particular, for p^eA⊂I stable under γ, the reduction K(E)→RΓ_crys(X/Spec(A/p^e),E) carries cup products to cup products.
+
 api TauCeti.Crystalline.crysCup_assoc
-(x∪y)∪z=x∪(y∪z) in H^*(K(E⊗F⊗G)) for x∈H^*(K(E)), y∈H^*(K(F)), z∈H^*(K(G)); the same holds for
-the maps of complexes in D(A).
+(x∪y)∪z=x∪(y∪z) in H^*(K(E⊗F⊗G)) for x∈H^*(K(E)), y∈H^*(K(F)), z∈H^*(K(G)); the same holds for the maps of complexes in D(A).
+
 api TauCeti.Crystalline.crysCup_pullback
-For a morphism g:X′→X of schemes over a homomorphism of PD rings and O_crys-modules E, F on X:
-g^*(x∪y)=g^*x∪g^*y and g^*1=1.
+For a morphism g:X′→X of schemes over a homomorphism of PD rings and O_crys-modules E, F on X: g^*(x∪y)=g^*x∪g^*y and g^*1=1.
+
 api TauCeti.Crystalline.crysCup_deRham
-If p is nilpotent in A and Y is a smooth lift of X over A, then under
-H^*_crys(X/S)≅H^*(Y,Ω^•_(Y/A)) of CR.2/smooth-lift-filtration the cup product is the product
-induced by the wedge product of Ω^•_(Y/A); with coefficients it is induced by
-(e⊗ω)∧(f⊗η)=(e⊗f)⊗(ω∧η).
+If p is nilpotent in A and Y is a smooth lift of X over A, then under H^*_crys(X/S)≅H^*(Y,Ω^•_(Y/A)) of CR.2/smooth-lift-filtration the cup product is the product induced by the wedge product of Ω^•_(Y/A); with coefficients it is induced by (e⊗ω)∧(f⊗η)=(e⊗f)⊗(ω∧η).
+
 api TauCeti.Crystalline.crysCup_external
-For schemes X, Y over A/I and classes x∈H^*(K_X(E)), y∈H^*(K_Y(F)):
-x⊠y=pr₁^*x∪pr₂^*y∈H^*(K_(X×Y)(pr₁^*E⊗pr₂^*F)); on complexes, K_X(E)⊗^L_A
-K_Y(F)→K_(X×Y)(pr₁^*E⊗pr₂^*F).
+For schemes X, Y over A/I and classes x∈H^*(K_X(E)), y∈H^*(K_Y(F)): x⊠y=pr₁^*x∪pr₂^*y∈H^*(K_(X×Y)(pr₁^*E⊗pr₂^*F)); on complexes, K_X(E)⊗^L_A K_Y(F)→K_(X×Y)(pr₁^*E⊗pr₂^*F).
+
 test TauCeti.Crystalline.test_crysCup_point
-For X=Spec k, k a perfect field of characteristic p, and S=Spec W(k): K(O_crys)=W(k) in degree 0
-and the cup product is the multiplication of W(k).
+For X=Spec k, k a perfect field of characteristic p, and S=Spec W(k): K(O_crys)=W(k) in degree 0 and the cup product is the multiplication of W(k).
+
 test TauCeti.Crystalline.test_crysCup_P1
-On P¹×P¹ over a perfect field k, with h_a=pr_a^*h and h=c₁(O(1))∈H²_crys(P¹/W(k)): h₁∪h₂=h₂∪h₁
-generates H⁴_crys(P¹×P¹/W(k))≅W(k), and h₁∪h₁=0=h₂∪h₂.
+On P¹×P¹ over a perfect field k, with h_a=pr_a^*h and h=c₁(O(1))∈H²_crys(P¹/W(k)): h₁∪h₂=h₂∪h₁ generates H⁴_crys(P¹×P¹/W(k))≅W(k), and h₁∪h₁=0=h₂∪h₂.
+
 test TauCeti.Crystalline.test_crysCup_P2
 On P² over a perfect field k: h∪h generates H⁴_crys(P²/W(k))≅W(k) and h∪h∪h=0, for h=c₁(O(1)).
+
 test TauCeti.Crystalline.test_crysCup_odd
-For a geometrically connected smooth proper curve C over a perfect field k and
-x,y∈H¹_crys(C/W(k)): x∪y=−y∪x and x∪x=0 in H²_crys(C/W(k)).
+For a geometrically connected smooth proper curve C over a perfect field k and x,y∈H¹_crys(C/W(k)): x∪y=−y∪x and x∪x=0 in H²_crys(C/W(k)).
 
 CrystallineCohomology:CR.3/kunneth
+
 declaration TauCeti.Crystalline.crysKunneth
-Let k be a perfect field of characteristic p, W=W(k), X and Y proper smooth k-schemes and E, F
-finite locally free crystals on X/W and Y/W; write K(X,E)=RΓ_crys(X/W,E). The external cup
-product K(X,E)⊗^L_W K(Y,F)→K(X×_kY,pr₁^*E⊗pr₂^*F), x⊗y↦pr₁^*x∪pr₂^*y, is an isomorphism in D(W).
-It is compatible with cup products, with the reductions ⊗^L_W W_n(k), and, when (E,Φ_E) and
-(F,Φ_F) are F-crystals relative to the Witt vector Frobenius σ, with the linearised Frobenius
-maps of CR.3/frobenius-map for (E,Φ_E), (F,Φ_F) and (pr₁^*E⊗pr₂^*F,Φ_E⊗Φ_F). Consequently there
-are short exact sequences 0→⊕_(i+j=n)H^i(K(X,E))⊗_W
-H^j(K(Y,F))→H^n(K(X×Y,pr₁^*E⊗pr₂^*F))→⊕_(i+j=n+1)Tor₁^W(H^i(K(X,E)),H^j(K(Y,F)))→0.
+Let k be a perfect field of characteristic p, W=W(k), X and Y proper smooth k-schemes and E, F finite locally free crystals on X/W and Y/W; write K(X,E)=RΓ_crys(X/W,E). The external cup product K(X,E)⊗^L_W K(Y,F)→K(X×_kY,pr₁^*E⊗pr₂^*F), x⊗y↦pr₁^*x∪pr₂^*y, is an isomorphism in D(W). It is compatible with cup products, with the reductions ⊗^L_W W_n(k), and, when (E,Φ_E) and (F,Φ_F) are F-crystals relative to the Witt vector Frobenius σ, with the linearised Frobenius maps of CR.3/frobenius-map for (E,Φ_E), (F,Φ_F) and (pr₁^*E⊗pr₂^*F,Φ_E⊗Φ_F). Consequently there are short exact sequences 0→⊕_(i+j=n)H^i(K(X,E))⊗_W H^j(K(Y,F))→H^n(K(X×Y,pr₁^*E⊗pr₂^*F))→⊕_(i+j=n+1)Tor₁^W(H^i(K(X,E)),H^j(K(Y,F)))→0.
 
 CrystallineCohomology:CR.3/frobenius-map
+
 declaration TauCeti.Crystalline.crysFrobenius
-Let (A,I,γ) be a PD ring with A a Z_(p)-algebra and p∈I, and σ:A→A a homomorphism of PD rings
-with σ(x)≡x^p modulo pA. Let S=Spec A, S₀=Spec A/I and X an S₀-scheme. (1) The absolute
-Frobenius F_X of X lies over the absolute Frobenius F_(S₀) of S₀, which Spec(σ) lifts; it
-induces a morphism of crystalline topoi (F_X)_crys:(X/S)_crys→(X/S)_crys. (2) An F-crystal on
-X/S relative to σ is a crystal E in finite locally free O_crys-modules together with a map
-Φ:(F_X)_crys^*E→E; it is nondegenerate if there are an integer i≥0 and a map V:E→(F_X)_crys^*E
-with V∘Φ=p^i. The structure sheaf with the canonical isomorphism (F_X)_crys^*O_crys=O_crys is an
-F-crystal. (3) For an F-crystal (E,Φ) and K=RΓ_crys(X/S,E) the linearised Frobenius
-F_K:K⊗^L_(A,σ)A→K is the composite of three maps: the base-change map
-K⊗^L_(A,σ)A→RΓ_crys(X^(1)/S,E^(1)), where X^(1)=X×_(S₀,F_(S₀))S₀ and E^(1) is the pullback of E
-along the projection X^(1)→X over Spec(σ); the pullback
-RΓ_crys(X^(1)/S,E^(1))→RΓ_crys(X/S,(F_X)_crys^*E) along the relative Frobenius F_(X/S₀):X→X^(1);
-and the map induced by Φ. (4) The composite F:K→K⊗^L_(A,σ)A→K is σ-semilinear on cohomology:
-F(ax)=σ(a)F(x).
+Let (A,I,γ) be a PD ring with A a Z_(p)-algebra and p∈I, and σ:A→A a homomorphism of PD rings with σ(x)≡x^p modulo pA. Let S=Spec A, S₀=Spec A/I and X an S₀-scheme. (1) The absolute Frobenius F_X of X lies over the absolute Frobenius F_(S₀) of S₀, which Spec(σ) lifts; it induces a morphism of crystalline topoi (F_X)_crys:(X/S)_crys→(X/S)_crys. (2) An F-crystal on X/S relative to σ is a crystal E in finite locally free O_crys-modules together with a map Φ:(F_X)_crys^*E→E; it is nondegenerate if there are an integer i≥0 and a map V:E→(F_X)_crys^*E with V∘Φ=p^i. The structure sheaf with the canonical isomorphism (F_X)_crys^*O_crys=O_crys is an F-crystal. (3) For an F-crystal (E,Φ) and K=RΓ_crys(X/S,E) the linearised Frobenius F_K:K⊗^L_(A,σ)A→K is the composite of three maps: the base-change map K⊗^L_(A,σ)A→RΓ_crys(X^(1)/S,E^(1)), where X^(1)=X×_(S₀,F_(S₀))S₀ and E^(1) is the pullback of E along the projection X^(1)→X over Spec(σ); the pullback RΓ_crys(X^(1)/S,E^(1))→RΓ_crys(X/S,(F_X)_crys^*E) along the relative Frobenius F_(X/S₀):X→X^(1); and the map induced by Φ. (4) The composite F:K→K⊗^L_(A,σ)A→K is σ-semilinear on cohomology: F(ax)=σ(a)F(x).
+
 api TauCeti.Crystalline.crysFrobenius_semilinear
-The endomorphism F of H^*(K) induced by K→K⊗^L_(A,σ)A→K is additive and satisfies
-F(ax)=σ(a)·F(x) for a∈A.
+The endomorphism F of H^*(K) induced by K→K⊗^L_(A,σ)A→K is additive and satisfies F(ax)=σ(a)·F(x) for a∈A.
+
 api TauCeti.Crystalline.crysFrobenius_linearize
-F_K:K⊗^L_(A,σ)A→K is an A-linear map in D(A), the composite of the base-change map for Spec(σ),
-the pullback along the relative Frobenius F_(X/S₀):X→X^(1) and the map induced by Φ.
+F_K:K⊗^L_(A,σ)A→K is an A-linear map in D(A), the composite of the base-change map for Spec(σ), the pullback along the relative Frobenius F_(X/S₀):X→X^(1) and the map induced by Φ.
+
 api TauCeti.Crystalline.crysFrobenius_lift
-Assume p is nilpotent in A. Let Y be a smooth lift of X over A and φ̃:Y→Y a morphism over
-Spec(σ) whose reduction modulo p is the absolute Frobenius of Y⊗_A A/p. Under
-RΓ_crys(X/S)≅RΓ(Y,Ω^•_(Y/A)) of CR.2/smooth-lift-filtration the semilinear Frobenius of the
-structure crystal is induced by φ̃^*:Ω^•_(Y/A)→Ω^•_(Y/A), and φ̃^*(Ω^q_(Y/A))⊂p^q·Ω^q_(Y/A) for
-every q≥0.
+Assume p is nilpotent in A. Let Y be a smooth lift of X over A and φ̃:Y→Y a morphism over Spec(σ) whose reduction modulo p is the absolute Frobenius of Y⊗_A A/p. Under RΓ_crys(X/S)≅RΓ(Y,Ω^•_(Y/A)) of CR.2/smooth-lift-filtration the semilinear Frobenius of the structure crystal is induced by φ̃^*:Ω^•_(Y/A)→Ω^•_(Y/A), and φ̃^*(Ω^q_(Y/A))⊂p^q·Ω^q_(Y/A) for every q≥0.
+
 api TauCeti.Crystalline.crysFrobenius_natural
-For a morphism g:X′→X of schemes over A/I and a morphism of F-crystals g_crys^*(E,Φ)→(E′,Φ′),
-the induced map K→K′ commutes with the linearised Frobenius maps; in particular g^*∘F=F∘g^* on
-H^*_crys.
+For a morphism g:X′→X of schemes over A/I and a morphism of F-crystals g_crys^*(E,Φ)→(E′,Φ′), the induced map K→K′ commutes with the linearised Frobenius maps; in particular g^*∘F=F∘g^* on H^*_crys.
+
 api TauCeti.Crystalline.crysFrobenius_cup
-For F-crystals (E,Φ_E), (E′,Φ_(E′)) and the F-crystal (E⊗E′,Φ_E⊗Φ_(E′)): F(x∪y)=F(x)∪F(y); and
-F(1)=1 in H⁰_crys(X/S).
+For F-crystals (E,Φ_E), (E′,Φ_(E′)) and the F-crystal (E⊗E′,Φ_E⊗Φ_(E′)): F(x∪y)=F(x)∪F(y); and F(1)=1 in H⁰_crys(X/S).
+
 api TauCeti.Crystalline.crysFrobenius_chern
 F(c₁(L))=p·c₁(L) in H²_crys(X/S) for every invertible O_X-module L, because F_X^*L≅L^(⊗p).
+
 api TauCeti.Crystalline.crysFrobenius_finite_field
-For k=F_(p^f), A=W(k) and σ the Witt vector Frobenius, the iterate F^f is W(k)-linear on
-H^*_crys(X/W(k)).
+For k=F_(p^f), A=W(k) and σ the Witt vector Frobenius, the iterate F^f is W(k)-linear on H^*_crys(X/W(k)).
+
 test TauCeti.Crystalline.test_crysFrobenius_point
-For X=Spec k, k perfect of characteristic p, A=W(k), σ the Witt vector Frobenius: K=W(k) and
-F=σ; it is not W(k)-linear when k≠F_p.
+For X=Spec k, k perfect of characteristic p, A=W(k), σ the Witt vector Frobenius: K=W(k) and F=σ; it is not W(k)-linear when k≠F_p.
+
 test TauCeti.Crystalline.test_crysFrobenius_P1
-For P¹ over a perfect field k and A=W(k): F=σ on H⁰_crys=W and F(h)=p·h for
-h=c₁(O(1))∈H²_crys(P¹/W(k)).
+For P¹ over a perfect field k and A=W(k): F=σ on H⁰_crys=W and F(h)=p·h for h=c₁(O(1))∈H²_crys(P¹/W(k)).
+
 test TauCeti.Crystalline.test_crysFrobenius_Pd
 On H^(2i)_crys(P^d/W(k))=W·h^i, k perfect: F(a·h^i)=σ(a)·p^i·h^i for 0≤i≤d.
+
 test TauCeti.Crystalline.test_crysFrobenius_singular
-For X=Spec F_p[x,y]/(x²,xy,y²), A=Z_p with I=(p) and σ=id: the Frobenius F of H⁰_crys(X/Z_p) is
-not injective.
+For X=Spec F_p[x,y]/(x²,xy,y²), A=Z_p with I=(p) and σ=id: the Frobenius F of H⁰_crys(X/Z_p) is not injective.
 
 CrystallineCohomology:CR.3/weak-lefschetz
+
 declaration TauCeti.Crystalline.crysWeakLefschetz
-Let k be a perfect field of characteristic p, X a smooth projective variety of dimension d over
-k and L an invertible O_X-module. Let i_L≥0 be an integer such that for every coherent
-O_X-module F one has H^i(X,F⊗L^n)=0 for all i>i_L and all sufficiently large n. Then there is an
-integer n₀ such that for every n≥n₀ and every smooth H⊂X that is the zero scheme of a section of
-L^n, the restriction map H^j_crys(X/W(k))→H^j_crys(H/W(k)) is an isomorphism for j<d−i_L−1 and
-is injective with torsion-free cokernel for j=d−i_L−1. If L is ample one can take i_L=0.
+Let k be a perfect field of characteristic p, X a smooth projective variety of dimension d over k and L an invertible O_X-module. Let i_L≥0 be an integer such that for every coherent O_X-module F one has H^i(X,F⊗L^n)=0 for all i>i_L and all sufficiently large n. Then there is an integer n₀ such that for every n≥n₀ and every smooth H⊂X that is the zero scheme of a section of L^n, the restriction map H^j_crys(X/W(k))→H^j_crys(H/W(k)) is an isomorphism for j<d−i_L−1 and is injective with torsion-free cokernel for j=d−i_L−1. If L is ample one can take i_L=0.
 
 CrystallineCohomology:CR.3/torsion-and-models
+
 declaration TauCeti.Crystalline.crysAcceptanceModels
-Let k be a perfect field of characteristic p, W=W(k), σ its Frobenius and F the semilinear
-Frobenius of CR.3/frobenius-map. (a) For d≥0: H^*_crys(P^d_k/W)=W[h]/(h^(d+1)) as a graded
-W-algebra, with h=c₁(O(1)) in degree 2; thus H^(2i)=W·h^i for 0≤i≤d, the odd groups vanish, and
-F(h)=p·h. (b) For a geometrically connected smooth proper curve C of genus g over k:
-H⁰_crys(C/W)=W, H¹_crys(C/W) is free of rank 2g, H²_crys(C/W) is free of rank 1, and
-F(H²_crys(C/W))=p·H²_crys(C/W). (c) For an elliptic curve E over k with origin 0: H¹_crys(E/W)
-is free of rank 2 and H²_crys(E/W)=W·e with e=c₁(O_E([0])) and F(e)=p·e. (d) Let O be the ring
-of integers of a complete algebraically closed non-archimedean extension C of Q_p, with residue
-field k. The smooth projective surface H over O constructed in BMS1 §2.2 satisfies
-H¹_crys(H_k/W(k))=0 and H²_crys(H_k/W(k))_tors≅k⊕k, while H²_ét(H_C,Z_p)_tors≅Z/p².
+Let k be a perfect field of characteristic p, W=W(k), σ its Frobenius and F the semilinear Frobenius of CR.3/frobenius-map. (a) For d≥0: H^*_crys(P^d_k/W)=W[h]/(h^(d+1)) as a graded W-algebra, with h=c₁(O(1)) in degree 2; thus H^(2i)=W·h^i for 0≤i≤d, the odd groups vanish, and F(h)=p·h. (b) For a geometrically connected smooth proper curve C of genus g over k: H⁰_crys(C/W)=W, H¹_crys(C/W) is free of rank 2g, H²_crys(C/W) is free of rank 1, and F(H²_crys(C/W))=p·H²_crys(C/W). (c) For an elliptic curve E over k with origin 0: H¹_crys(E/W) is free of rank 2 and H²_crys(E/W)=W·e with e=c₁(O_E([0])) and F(e)=p·e. (d) Let O be the ring of integers of a complete algebraically closed non-archimedean extension C of Q_p, with residue field k. The smooth projective surface H over O constructed in BMS1 §2.2 satisfies H¹_crys(H_k/W(k))=0 and H²_crys(H_k/W(k))_tors≅k⊕k, while H²_ét(H_C,Z_p)_tors≅Z/p².
 
 CrystallineCohomology:CR.3:Frobenius-isogeny/inseparable-control
+
 declaration TauCeti.Crystalline.crysInseparableControl
-Let (S,I,γ) be a PD scheme over Z_(p) with p∈I, S₀=V(I), and f:X′→X a morphism of S₀-schemes
-which, locally on X, is a composite of finitely many morphisms of the form Spec
-C[z]/(z^p−c)→Spec C (an iterated α_p-cover), of constant degree q. Let E be a crystal in
-quasi-coherent O_crys-modules on X/S and E′=f_crys^*E. Then the cone Q of
-Ru_(X/S,*)E→f_*Ru_(X′/S,*)E′ in the derived category of X_Zar has cohomology sheaves annihilated
-by q, and f^*:H^i_crys(X/S,E)→H^i_crys(X′/S,E′) has kernel and cokernel annihilated by q^(i+1).
-If X→S₀ is smooth of relative dimension d and X^(1)=X×_(S₀,F_(S₀))S₀, the relative Frobenius
-F_(X/S₀):X→X^(1) is an iterated α_p-cover of degree p^d; hence for every crystal G in
-quasi-coherent modules on X^(1)/S the map
-F_(X/S₀)^*:H^i_crys(X^(1)/S,G)→H^i_crys(X/S,(F_(X/S₀))_crys^*G) has kernel and cokernel
-annihilated by p^(d(i+1)).
+Let (S,I,γ) be a PD scheme over Z_(p) with p∈I, S₀=V(I), and f:X′→X a morphism of S₀-schemes which, locally on X, is a composite of finitely many morphisms of the form Spec C[z]/(z^p−c)→Spec C (an iterated α_p-cover), of constant degree q. Let E be a crystal in quasi-coherent O_crys-modules on X/S and E′=f_crys^*E. Then the cone Q of Ru_(X/S,*)E→f_*Ru_(X′/S,*)E′ in the derived category of X_Zar has cohomology sheaves annihilated by q, and f^*:H^i_crys(X/S,E)→H^i_crys(X′/S,E′) has kernel and cokernel annihilated by q^(i+1). If X→S₀ is smooth of relative dimension d and X^(1)=X×_(S₀,F_(S₀))S₀, the relative Frobenius F_(X/S₀):X→X^(1) is an iterated α_p-cover of degree p^d; hence for every crystal G in quasi-coherent modules on X^(1)/S the map F_(X/S₀)^*:H^i_crys(X^(1)/S,G)→H^i_crys(X/S,(F_(X/S₀))_crys^*G) has kernel and cokernel annihilated by p^(d(i+1)).
 
 CrystallineCohomology:CR.3:Frobenius-isogeny/rational-frobenius
+
 declaration TauCeti.Crystalline.crysFrobeniusIsogeny
-Let (A,I,γ) be a PD ring with A Noetherian and p-adically complete and p∈I, σ:A→A a homomorphism
-of PD rings with σ(x)≡x^p modulo pA, X a proper smooth scheme over A/I, and (E,Φ) a
-nondegenerate F-crystal on X/Spec A relative to σ: E is a crystal in finite locally free
-O_crys-modules, Φ:(F_X)_crys^*E→E, and there are an integer i≥0 and a map V:E→(F_X)_crys^*E with
-V∘Φ=p^i. Then the linearised Frobenius F_K:K⊗^L_(A,σ)A→K of CR.3/frobenius-map, K=RΓ_crys(X/Spec
-A,E), becomes an isomorphism after inverting p. In particular, for a perfect field k of
-characteristic p, A=W(k) and σ the Witt vector Frobenius, the semilinear Frobenius of
-H^j_crys(X/W(k),E)[1/p] is bijective for every j. It need not be bijective on
-H^j_crys(X/W(k),E).
+Let (A,I,γ) be a PD ring with A Noetherian and p-adically complete and p∈I, σ:A→A a homomorphism of PD rings with σ(x)≡x^p modulo pA, X a proper smooth scheme over A/I, and (E,Φ) a nondegenerate F-crystal on X/Spec A relative to σ: E is a crystal in finite locally free O_crys-modules, Φ:(F_X)_crys^*E→E, and there are an integer i≥0 and a map V:E→(F_X)_crys^*E with V∘Φ=p^i. Then the linearised Frobenius F_K:K⊗^L_(A,σ)A→K of CR.3/frobenius-map, K=RΓ_crys(X/Spec A,E), becomes an isomorphism after inverting p. In particular, for a perfect field k of characteristic p, A=W(k) and σ the Witt vector Frobenius, the semilinear Frobenius of H^j_crys(X/W(k),E)[1/p] is bijective for every j. It need not be bijective on H^j_crys(X/W(k),E).
 
 CrystallineCohomology:CR.3:duality/trace
+
 declaration TauCeti.Crystalline.crysTrace
-Let k be a perfect field of characteristic p, W_n=W_n(k), X a proper smooth k-scheme of pure
-dimension d, W_nX the scheme (|X|,W_nO_X) and f_n:W_nX→Spec W_n its structure map; f_n^! denotes
-the exceptional inverse image of coherent duality. (1) The complex f_n^!W_n is concentrated in
-degree −d, and there is a unique map of W_nO_X-modules Tr^Ek:W_nΩ^d_X→f_n^!W_n[−d] which, on
-every open U⊂X with a smooth lift U′ over W_n, is the composite of the isomorphism
-θ:W_nΩ^d_U≅σ^n_*H^d(Ω^•_(U′/W_n)) with the map induced by the coherent trace isomorphism
-Ω^d_(U′/W_n)≅f′^!W_n[−d] of f′:U′→Spec W_n. It is an isomorphism and is compatible with étale
-maps. (2) Through Ru_*O_crys≅W_nΩ^•_X (CR.4/crystalline-comparison), the isomorphism
-C^(−n):W_nΩ^d_X≅H^d(W_nΩ^•_X) and adjunction for the proper map f_n, it induces
-Tr^Ek_(X,n):RΓ_crys(X/W_n)→W_n[−2d], equivalently a W_n-linear map H^(2d)_crys(X/W_n)→W_n. These
-maps are compatible with reduction from W_n to W_(n−1), and
-Tr^Ek_(X,1):H^(2d)_dR(X/k)=H^d(X,Ω^d_X)→k is the trace of coherent duality. (3) Normalisation.
-For X=P^d, Tr^Ek_(X,n) sends to 1 the class [ω] of the Čech d-cocycle ω=dlog[t₁]∧…∧dlog[t_d] of
-the standard covering, [t_i]∈W_nO the Teichmüller representative of the coordinate t_i; and
-h^d=ε_d·[ω] in H^(2d)_crys(P^d/W_n) for a sign ε_d∈{1,−1} which depends only on d and on the
-sign conventions for products of Čech cochains. The crystalline trace is
-Tr_(X,n)=ε_d·Tr^Ek_(X,n), and Tr_X=Rlim_n Tr_(X,n):RΓ_crys(X/W)→W[−2d]; thus Tr_(P^d)(h^d)=1.
+Let k be a perfect field of characteristic p, W_n=W_n(k), X a proper smooth k-scheme of pure dimension d, W_nX the scheme (|X|,W_nO_X) and f_n:W_nX→Spec W_n its structure map; f_n^! denotes the exceptional inverse image of coherent duality. (1) The complex f_n^!W_n is concentrated in degree −d, and there is a unique map of W_nO_X-modules Tr^Ek:W_nΩ^d_X→f_n^!W_n[−d] which, on every open U⊂X with a smooth lift U′ over W_n, is the composite of the isomorphism θ:W_nΩ^d_U≅σ^n_*H^d(Ω^•_(U′/W_n)) with the map induced by the coherent trace isomorphism Ω^d_(U′/W_n)≅f′^!W_n[−d] of f′:U′→Spec W_n. It is an isomorphism and is compatible with étale maps. (2) Through Ru_*O_crys≅W_nΩ^•_X (CR.4/crystalline-comparison), the isomorphism C^(−n):W_nΩ^d_X≅H^d(W_nΩ^•_X) and adjunction for the proper map f_n, it induces Tr^Ek_(X,n):RΓ_crys(X/W_n)→W_n[−2d], equivalently a W_n-linear map H^(2d)_crys(X/W_n)→W_n. These maps are compatible with reduction from W_n to W_(n−1), and Tr^Ek_(X,1):H^(2d)_dR(X/k)=H^d(X,Ω^d_X)→k is the trace of coherent duality. (3) Normalisation. For X=P^d, Tr^Ek_(X,n) sends to 1 the class [ω] of the Čech d-cocycle ω=dlog[t₁]∧…∧dlog[t_d] of the standard covering, [t_i]∈W_nO the Teichmüller representative of the coordinate t_i; and h^d=ε_d·[ω] in H^(2d)_crys(P^d/W_n) for a sign ε_d∈{1,−1} which depends only on d and on the sign conventions for products of Čech cochains. The crystalline trace is Tr_(X,n)=ε_d·Tr^Ek_(X,n), and Tr_X=Rlim_n Tr_(X,n):RΓ_crys(X/W)→W[−2d]; thus Tr_(P^d)(h^d)=1.
+
 api TauCeti.Crystalline.crysTrace_projective
 Tr_(P^d)(h^d)=1 in W(k), for h=c₁(O(1)) and every d≥0; the same holds over W_n(k).
+
 api TauCeti.Crystalline.crysTrace_reduction
-Tr_X⊗^L_W W_n=Tr_(X,n) under RΓ_crys(X/W)⊗^L_W W_n≅RΓ_crys(X/W_n), and Tr_(X,1):H^d(X,Ω^d_X)→k
-is ε_d times the trace of coherent duality.
+Tr_X⊗^L_W W_n=Tr_(X,n) under RΓ_crys(X/W)⊗^L_W W_n≅RΓ_crys(X/W_n), and Tr_(X,1):H^d(X,Ω^d_X)→k is ε_d times the trace of coherent duality.
+
 api TauCeti.Crystalline.crysTrace_etale_local
-For an étale morphism g:U→X of smooth k-schemes of pure dimension d, g^*(Tr^Ek_X)=Tr^Ek_U under
-the identifications g^*W_nΩ^d_X≅W_nΩ^d_U and g^*f_(X,n)^!W_n≅f_(U,n)^!W_n (Ekedahl I, (2.11)).
+For an étale morphism g:U→X of smooth k-schemes of pure dimension d, g^*(Tr^Ek_X)=Tr^Ek_U under the identifications g^*W_nΩ^d_X≅W_nΩ^d_U and g^*f_(X,n)^!W_n≅f_(U,n)^!W_n (Ekedahl I, (2.11)).
+
 api TauCeti.Crystalline.crysTrace_iso
-Tr^Ek:W_nΩ^d_X→f_n^!W_n[−d] is an isomorphism of W_nO_X-modules, for X smooth of pure dimension
-d over k (Ekedahl I, Theorem 4.1).
+Tr^Ek:W_nΩ^d_X→f_n^!W_n[−d] is an isomorphism of W_nO_X-modules, for X smooth of pure dimension d over k (Ekedahl I, Theorem 4.1).
+
 api TauCeti.Crystalline.crysTrace_ekedahl
-Tr_(X,n)=ε_d·Tr^Ek_(X,n), where Tr^Ek is induced by Ekedahl's map (2.11), Tr^Ek_(P^d,n)([ω])=1
-for the Čech class [ω] of dlog[t₁]∧…∧dlog[t_d], and ε_d∈{1,−1} is defined by h^d=ε_d·[ω].
+Tr_(X,n)=ε_d·Tr^Ek_(X,n), where Tr^Ek is induced by Ekedahl's map (2.11), Tr^Ek_(P^d,n)([ω])=1 for the Čech class [ω] of dlog[t₁]∧…∧dlog[t_d], and ε_d∈{1,−1} is defined by h^d=ε_d·[ω].
+
 api TauCeti.Crystalline.crysTrace_frobenius
-Tr_X(F(x))=p^d·σ(Tr_X(x)) for x∈H^(2d)_crys(X/W), F the semilinear Frobenius of
-CR.3/frobenius-map and σ the Frobenius of W(k); equivalently Tr_X is a map
-RΓ_crys(X/W)→W(−d)[−2d] compatible with Frobenius, W(−d) being W with Frobenius p^d·σ.
+Tr_X(F(x))=p^d·σ(Tr_X(x)) for x∈H^(2d)_crys(X/W), F the semilinear Frobenius of CR.3/frobenius-map and σ the Frobenius of W(k); equivalently Tr_X is a map RΓ_crys(X/W)→W(−d)[−2d] compatible with Frobenius, W(−d) being W with Frobenius p^d·σ.
+
 test TauCeti.Crystalline.test_crysTrace_point
 For X=Spec k (d=0): Tr_X is the identity of W(k)=H⁰_crys(Spec k/W(k)).
+
 test TauCeti.Crystalline.test_crysTrace_P1
 For P¹ over k: Tr(h)=1 for h=c₁(O(1))∈H²_crys(P¹/W(k)).
+
 test TauCeti.Crystalline.test_crysTrace_finite_extension
-For X=Spec k′ with k′/k a finite extension (d=0): Tr_X:W(k′)→W(k) is the trace of the finite
-étale W(k)-algebra W(k′).
+For X=Spec k′ with k′/k a finite extension (d=0): Tr_X:W(k′)→W(k) is the trace of the finite étale W(k)-algebra W(k′).
 
 CrystallineCohomology:CR.3:duality/poincare-pairing
+
 declaration TauCeti.Crystalline.crysPoincareDuality
-Let k be a perfect field of characteristic p, W=W(k), X a proper smooth k-scheme of pure
-dimension d and E a finite locally free crystal on X/W with dual E^∨; write K(E)=RΓ_crys(X/W,E).
-The pairing K(E)⊗^L_W K(E^∨)→K(E⊗E^∨)→K(O_crys)→W[−2d], composed of the cup product, the
-evaluation E⊗E^∨→O_crys and Tr_X, is perfect: its adjoint K(E)→RHom_W(K(E^∨),W)[−2d] is an
-isomorphism in D(W). The same holds over W_n(k) with Tr_(X,n), compatibly with ⊗^L_W W_n. For
-E=O_crys and H^i=H^i_crys(X/W): H^i[1/p]⊗H^(2d−i)[1/p]→W[1/p] is a perfect pairing of
-W[1/p]-vector spaces, (H^i/tors)⊗_W(H^(2d−i)/tors)→W is a perfect pairing, and
-H^i_tors≅Hom_W(H^(2d−i+1)_tors,W[1/p]/W).
+Let k be a perfect field of characteristic p, W=W(k), X a proper smooth k-scheme of pure dimension d and E a finite locally free crystal on X/W with dual E^∨; write K(E)=RΓ_crys(X/W,E). The pairing K(E)⊗^L_W K(E^∨)→K(E⊗E^∨)→K(O_crys)→W[−2d], composed of the cup product, the evaluation E⊗E^∨→O_crys and Tr_X, is perfect: its adjoint K(E)→RHom_W(K(E^∨),W)[−2d] is an isomorphism in D(W). The same holds over W_n(k) with Tr_(X,n), compatibly with ⊗^L_W W_n. For E=O_crys and H^i=H^i_crys(X/W): H^i[1/p]⊗H^(2d−i)[1/p]→W[1/p] is a perfect pairing of W[1/p]-vector spaces, (H^i/tors)⊗_W(H^(2d−i)/tors)→W is a perfect pairing, and H^i_tors≅Hom_W(H^(2d−i+1)_tors,W[1/p]/W).
 
 CrystallineCohomology:CR.3:duality/gysin
+
 declaration TauCeti.Crystalline.crysGysin
-Let k be a perfect field of characteristic p, W=W(k), and f:X→Y a morphism of proper smooth
-k-schemes of pure dimensions d_X and d_Y; write K(X)=RΓ_crys(X/W). (1) The Gysin map
-f_*:K(X)→K(Y)[2(d_Y−d_X)] is the transpose of f^*:K(Y)→K(X) under the duality isomorphisms of
-CR.3:duality/poincare-pairing:
-K(X)≅RHom_W(K(X),W)[−2d_X]→RHom_W(K(Y),W)[−2d_X]≅K(Y)[2(d_Y−d_X)]. It satisfies
-Tr_Y(f_*x∪y)=Tr_X(x∪f^*y) for x∈H^i_crys(X/W), y∈H^(2d_X−i)_crys(Y/W). (2) Projection formula:
-f_*(x∪f^*y)=f_*x∪y. (3) For a second morphism g:Y→Z of proper smooth k-schemes of pure
-dimension, (g∘f)_*=g_*∘f_*. (4) For the structure map a:X→Spec k, a_*=Tr_X. (5) For a closed
-immersion f the class of X in Y is cl_Y(X)=f_*(1)∈H^(2(d_Y−d_X))_crys(Y/W).
+Let k be a perfect field of characteristic p, W=W(k), and f:X→Y a morphism of proper smooth k-schemes of pure dimensions d_X and d_Y; write K(X)=RΓ_crys(X/W). (1) The Gysin map f_*:K(X)→K(Y)[2(d_Y−d_X)] is the transpose of f^*:K(Y)→K(X) under the duality isomorphisms of CR.3:duality/poincare-pairing: K(X)≅RHom_W(K(X),W)[−2d_X]→RHom_W(K(Y),W)[−2d_X]≅K(Y)[2(d_Y−d_X)]. It satisfies Tr_Y(f_*x∪y)=Tr_X(x∪f^*y) for x∈H^i_crys(X/W), y∈H^(2d_X−i)_crys(Y/W). (2) Projection formula: f_*(x∪f^*y)=f_*x∪y. (3) For a second morphism g:Y→Z of proper smooth k-schemes of pure dimension, (g∘f)_*=g_*∘f_*. (4) For the structure map a:X→Spec k, a_*=Tr_X. (5) For a closed immersion f the class of X in Y is cl_Y(X)=f_*(1)∈H^(2(d_Y−d_X))_crys(Y/W).
+
 api TauCeti.Crystalline.crysGysin_comp
 (g∘f)_*=g_*∘f_* with the corresponding summed dimension shifts.
+
 api TauCeti.Crystalline.crysGysin_projection
 f_*(x·f^*y)=f_*x·y.
+
 api TauCeti.Crystalline.crysGysin_trace
 For the structural map X→Spec k, f_*=Tr_X.
+
 api TauCeti.Crystalline.crysGysin_adjoint
-Tr_Y(f_*x∪y)=Tr_X(x∪f^*y) for x∈H^i_crys(X/W) and y∈H^(2d_X−i)_crys(Y/W); on complexes, f_* is
-the transpose of f^* under the duality isomorphisms.
+Tr_Y(f_*x∪y)=Tr_X(x∪f^*y) for x∈H^i_crys(X/W) and y∈H^(2d_X−i)_crys(Y/W); on complexes, f_* is the transpose of f^* under the duality isomorphisms.
+
 api TauCeti.Crystalline.crysGysin_frobenius
-p^(d_Y)·f_*(F_X x)=p^(d_X)·F_Y(f_*x) in H^*_crys(Y/W)[1/p] for x∈H^*_crys(X/W)[1/p]; for a
-closed immersion of codimension c, F_Y(f_*x)=p^c·f_*(F_X x).
+p^(d_Y)·f_*(F_X x)=p^(d_X)·F_Y(f_*x) in H^*_crys(Y/W)[1/p] for x∈H^*_crys(X/W)[1/p]; for a closed immersion of codimension c, F_Y(f_*x)=p^c·f_*(F_X x).
+
 test TauCeti.Crystalline.test_crysGysin_identity
 For id_X, pushforward is the identity.
+
 test TauCeti.Crystalline.test_crysGysin_hyperplane
 For a hyperplane i:P^(d−1)→P^d over k: i_*(1)=h and i_*(h^j)=h^(j+1) for 0≤j≤d−1, h=c₁(O(1)).
+
 test TauCeti.Crystalline.test_crysGysin_shift
-For the structure map a:P^d→Spec k: a_*(h^d)=1 in W=H⁰_crys(Spec k/W) and a_*(h^j)=0 for j<d;
-the target of a_* is K(Spec k)[−2d]=W[−2d].
+For the structure map a:P^d→Spec k: a_*(h^d)=1 in W=H⁰_crys(Spec k/W) and a_*(h^j)=0 for j<d; the target of a_* is K(Spec k)[−2d]=W[−2d].
+
 test TauCeti.Crystalline.test_crysGysin_finite_etale
-For π:X′→X finite étale of constant degree n between proper smooth k-schemes of pure dimension
-d: π_*(1)=n in H⁰_crys(X/W) and π_*π^*x=n·x.
+For π:X′→X finite étale of constant degree n between proper smooth k-schemes of pure dimension d: π_*(1)=n in H⁰_crys(X/W) and π_*π^*x=n·x.
 
 CrystallineCohomology:CR.3:duality/diagonal
+
 declaration TauCeti.Crystalline.crysDiagonal
-Let k be a perfect field of characteristic p, W=W(k), X a proper smooth k-scheme of pure
-dimension d, K=RΓ_crys(X/W) and Δ:X→X×_kX the diagonal. (1) [Δ_X]=Δ_*(1)∈H^(2d)_crys(X×X/W), Δ_*
-the Gysin map of CR.3:duality/gysin. (2) The correspondence [Δ_X] acts as the identity:
-pr_(2*)([Δ_X]∪pr₁^*x)=x for x∈H^*_crys(X/W). (3) Under the Künneth isomorphism K⊗^L_W
-K≅RΓ_crys(X×X/W), [Δ_X] is the coevaluation coev:W→(K⊗^L_W K)[2d] for the evaluation ev:K⊗^L_W
-K→W[−2d], ev(x⊗y)=Tr_X(x∪y): the composites (ev⊗id)∘(id⊗coev) and (id⊗ev)∘(coev⊗id) are the
-identity of K. (4) If the H^i=H^i_crys(X/W) are free with bases e_(i,j), then
-[Δ_X]=Σ_(i,j)e_(i,j)⊗e′_(2d−i,j) with e′_(2d−i,j)∈H^(2d−i) determined by
-Tr_X(e_(i,j)∪e′_(2d−i,j′))=(−1)^i·δ_(jj′). (5) For P^d: [Δ]=Σ_(i=0)^d h₁^i∪h₂^(d−i),
-h_a=pr_a^*h. The same holds over W_n(k), compatibly with reduction.
+Let k be a perfect field of characteristic p, W=W(k), X a proper smooth k-scheme of pure dimension d, K=RΓ_crys(X/W) and Δ:X→X×_kX the diagonal. (1) [Δ_X]=Δ_*(1)∈H^(2d)_crys(X×X/W), Δ_* the Gysin map of CR.3:duality/gysin. (2) The correspondence [Δ_X] acts as the identity: pr_(2*)([Δ_X]∪pr₁^*x)=x for x∈H^*_crys(X/W). (3) Under the Künneth isomorphism K⊗^L_W K≅RΓ_crys(X×X/W), [Δ_X] is the coevaluation coev:W→(K⊗^L_W K)[2d] for the evaluation ev:K⊗^L_W K→W[−2d], ev(x⊗y)=Tr_X(x∪y): the composites (ev⊗id)∘(id⊗coev) and (id⊗ev)∘(coev⊗id) are the identity of K. (4) If the H^i=H^i_crys(X/W) are free with bases e_(i,j), then [Δ_X]=Σ_(i,j)e_(i,j)⊗e′_(2d−i,j) with e′_(2d−i,j)∈H^(2d−i) determined by Tr_X(e_(i,j)∪e′_(2d−i,j′))=(−1)^i·δ_(jj′). (5) For P^d: [Δ]=Σ_(i=0)^d h₁^i∪h₂^(d−i), h_a=pr_a^*h. The same holds over W_n(k), compatibly with reduction.
+
 api TauCeti.Crystalline.crysDiagonal_action
 The diagonal correspondence acts as id_K.
+
 api TauCeti.Crystalline.crysDiagonal_triangles
 Evaluation and coevaluation satisfy both triangular identities.
+
 api TauCeti.Crystalline.crysDiagonal_projective
 On P^d, [Δ]=Σh₁^i h₂^(d−i).
+
 test TauCeti.Crystalline.test_crysDiagonal_point
 For the point the diagonal class and coevaluation are 1.
+
 test TauCeti.Crystalline.test_crysDiagonal_P1
 For P¹, [Δ]=h₁+h₂.
+
 test TauCeti.Crystalline.test_crysDiagonal_curve
-For a geometrically connected smooth proper curve C of genus g over k, with pt∈H²_crys(C/W) of
-trace 1 and a basis a₁,…,a_g,b₁,…,b_g of H¹_crys(C/W) with Tr(a_i∪b_j)=δ_ij and
-Tr(a_i∪a_j)=0=Tr(b_i∪b_j): [Δ_C]=pt⊗1+1⊗pt+Σ_i(b_i⊗a_i−a_i⊗b_i).
+For a geometrically connected smooth proper curve C of genus g over k, with pt∈H²_crys(C/W) of trace 1 and a basis a₁,…,a_g,b₁,…,b_g of H¹_crys(C/W) with Tr(a_i∪b_j)=δ_ij and Tr(a_i∪a_j)=0=Tr(b_i∪b_j): [Δ_C]=pt⊗1+1⊗pt+Σ_i(b_i⊗a_i−a_i⊗b_i).
+
 test TauCeti.Crystalline.test_crysDiagonal_euler
-Tr_(X×X)([Δ_X]∪[Δ_X])=Σ_i(−1)^i·rank_W H^i_crys(X/W); this is d+1 for P^d and 2−2g for a curve
-of genus g.
+Tr_(X×X)([Δ_X]∪[Δ_X])=Σ_i(−1)^i·rank_W H^i_crys(X/W); this is d+1 for P^d and 2−2g for a curve of genus g.
 
 CrystallineCohomology:CR.4/dieudonne-algebra
+
 api TauCeti.Crystalline.DieudonneAlgebra.ofDeRham
-For a p-torsion-free ring R with a ring endomorphism φ, φ(x)≡x^p mod p: the absolute de Rham
-complex Ω^*_R with F(x)=φ(x) and F(dx)=x^(p−1)dx+d((φ(x)−x^p)/p) is a Dieudonné algebra; the
-same holds for the p-completed de Rham complex Ω̂^*_R=lim_n Ω^*_R/p^n (BLM Proposition 3.2.1,
-Variant 3.3.1).
+For a p-torsion-free ring R with a ring endomorphism φ, φ(x)≡x^p mod p: the absolute de Rham complex Ω^*_R with F(x)=φ(x) and F(dx)=x^(p−1)dx+d((φ(x)−x^p)/p) is a Dieudonné algebra; the same holds for the p-completed de Rham complex Ω̂^*_R=lim_n Ω^*_R/p^n (BLM Proposition 3.2.1, Variant 3.3.1).
+
 api TauCeti.Crystalline.DieudonneAlgebra.ofDeRham_lift
-For a p-torsion-free Dieudonné algebra A, restriction to degree 0 is a bijection from maps of
-Dieudonné algebras Ω^*_R→A to ring maps f:R→A⁰ with f∘φ=F∘f; if A is moreover termwise
-p-adically complete, the same holds for Ω̂^*_R (BLM Proposition 3.2.3, Variant 3.3.1).
+For a p-torsion-free Dieudonné algebra A, restriction to degree 0 is a bijection from maps of Dieudonné algebras Ω^*_R→A to ring maps f:R→A⁰ with f∘φ=F∘f; if A is moreover termwise p-adically complete, the same holds for Ω̂^*_R (BLM Proposition 3.2.3, Variant 3.3.1).
 
 CrystallineCohomology:CR.4/saturated-de-rham-witt
+
 api TauCeti.Crystalline.satDRW_ofLift
-For a p-torsion-free ring B with an endomorphism φ lifting Frobenius: maps of Dieudonné algebras
-Ω̂^*_B→A into a strict A correspond bijectively to ring maps B→A⁰/VA⁰; the map
-μ:Ω̂^*_B→WsatΩ_(B/pB) corresponding to B→B/pB→S_(B/pB) induces W(Sat Ω̂^*_B)≅WsatΩ_(B/pB) (BLM
-Proposition 4.2.1, Corollary 4.2.3).
+For a p-torsion-free ring B with an endomorphism φ lifting Frobenius: maps of Dieudonné algebras Ω̂^*_B→A into a strict A correspond bijectively to ring maps B→A⁰/VA⁰; the map μ:Ω̂^*_B→WsatΩ_(B/pB) corresponding to B→B/pB→S_(B/pB) induces W(Sat Ω̂^*_B)≅WsatΩ_(B/pB) (BLM Proposition 4.2.1, Corollary 4.2.3).
 
 CrystallineCohomology:CR.4/witt-basic-differentials
+
 declaration TauCeti.Crystalline.basicWittExpansion
-For S=A[T₁,…,T_d], A a Z_(p)-algebra, weights are k∈Z[1/p]≥0^d; order the support of k by
-increasing p-valuation, with a fixed tie order that is the same for k and p^a·k. A partition P
-of the support is a sequence of intervals I₀,…,I_q in increasing order, with I₀ allowed empty
-and the later intervals nonempty. Put t(I)=−min_(i∈I)v_p(k_i), u(I)=max(0,t(I)) and
-u(k)=max(0,−min_i v_p(k_i)); the weight k_I (the restriction of k to I) is integral when t(I)≤0,
-and the intervals with non-integral k_I come first. For ξ=V^u(k)(η) the basic form e(ξ,k,P) is
-the product, in order, of V^u(I₀)(η[T]^(p^u(I₀)k_I₀)) for block 0, dV^u(I)([T]^(p^u(I)k_I)) for
-each later block with k_I not integral, and F^(−t(I))d[T]^(p^t(I)k_I) for each later block with
-k_I integral. If I₀ is empty, η is placed inside the first factor, dV^u(I₁)(η[T]^(p^u(I₁)k_I₁)),
-when k is not integral, and in front of the product when k is integral. Every element of
-W_rΩ^q_(S/A) is uniquely a finite sum of basic forms e(ξ_(k,P),k,P) over weights with p^(r−1)·k
-integral (that is u(k)<r) and partitions into q+1 intervals, with ξ_(k,P)∈V^u(k)W_(r−u(k))(A).
-Every element of WΩ^q_(S/A)=lim_r W_rΩ^q_(S/A) is uniquely a convergent sum of basic forms,
-where for each m all but finitely many coefficients lie in V^mW(A).
+For S=A[T₁,…,T_d], A a Z_(p)-algebra, weights are k∈Z[1/p]≥0^d; order the support of k by increasing p-valuation, with a fixed tie order that is the same for k and p^a·k. A partition P of the support is a sequence of intervals I₀,…,I_q in increasing order, with I₀ allowed empty and the later intervals nonempty. Put t(I)=−min_(i∈I)v_p(k_i), u(I)=max(0,t(I)) and u(k)=max(0,−min_i v_p(k_i)); the weight k_I (the restriction of k to I) is integral when t(I)≤0, and the intervals with non-integral k_I come first. For ξ=V^u(k)(η) the basic form e(ξ,k,P) is the product, in order, of V^u(I₀)(η[T]^(p^u(I₀)k_I₀)) for block 0, dV^u(I)([T]^(p^u(I)k_I)) for each later block with k_I not integral, and F^(−t(I))d[T]^(p^t(I)k_I) for each later block with k_I integral. If I₀ is empty, η is placed inside the first factor, dV^u(I₁)(η[T]^(p^u(I₁)k_I₁)), when k is not integral, and in front of the product when k is integral. Every element of W_rΩ^q_(S/A) is uniquely a finite sum of basic forms e(ξ_(k,P),k,P) over weights with p^(r−1)·k integral (that is u(k)<r) and partitions into q+1 intervals, with ξ_(k,P)∈V^u(k)W_(r−u(k))(A). Every element of WΩ^q_(S/A)=lim_r W_rΩ^q_(S/A) is uniquely a convergent sum of basic forms, where for each m all but finitely many coefficients lie in V^mW(A).
 
 CrystallineCohomology:CR.4/witt-localization-descent
+
 declaration TauCeti.Crystalline.wittEtaleDescent
-(1) For a map A→R of Z_(p)-algebras and an étale R-algebra S, the natural map
-W_r(S)⊗_(W_r(R))W_rΩ^*_(R/A)→W_rΩ^*_(S/A) is an isomorphism for every r≥1; it is an isomorphism
-of differential graded algebras for the unique extension of the derivation to the tensor
-product, which is not 1⊗d. In particular W_r(R_f)⊗_(W_r(R))W_rΩ^*_(R/A)≅W_rΩ^*_(R_f/A) for f∈R.
-(2) If p^m·W_r(A)=0, then W_(m+r)(S)⊗_(W_(m+r)(R),F^m)W_rΩ^i_(R/A)≅W_rΩ^i_(S/A), and in this
-description 1⊗d induces d. (3) For a saturated Dieudonné algebra A and s∈A⁰ with F(s)=s^p, the
-map W_r(A)[s̄⁻¹]→W_r(A[s⁻¹]) is an isomorphism of differential graded algebras; hence for an
-F_p-algebra R and s∈R, W_r(WsatΩ_R)[[s]⁻¹]≅W_r(WsatΩ_(R[1/s])), and WsatΩ_(R[1/s]) is the strict
-completion W(WsatΩ_R[[s]⁻¹]); the localisation WsatΩ_R[[s]⁻¹] itself is in general not strict.
-For an étale map R→S of F_p-algebras, W_r(WsatΩ_R)⊗_(W_r(R))W_r(S)≅W_r(WsatΩ_S) for every r. (4)
-For a scheme X over a Z_(p)-algebra A, U↦W_rΩ^q_(O(U)/A) on affine opens is a quasi-coherent
-sheaf on the scheme (|X|,W_r(O_X)), and an étale sheaf when p is nilpotent in A. For an
-F_p-scheme X, U↦W_r(WsatΩ^q_(O(U))) and U↦WsatΩ^q_(O(U)) are sheaves for the Zariski and the
-étale topology on affines, the former quasi-coherent over W_r(O_X), and the Zariski cohomology
-groups H^n(Spec R,WsatΩ^q) vanish for n>0.
+(1) For a map A→R of Z_(p)-algebras and an étale R-algebra S, the natural map W_r(S)⊗_(W_r(R))W_rΩ^*_(R/A)→W_rΩ^*_(S/A) is an isomorphism for every r≥1; it is an isomorphism of differential graded algebras for the unique extension of the derivation to the tensor product, which is not 1⊗d. In particular W_r(R_f)⊗_(W_r(R))W_rΩ^*_(R/A)≅W_rΩ^*_(R_f/A) for f∈R. (2) If p^m·W_r(A)=0, then W_(m+r)(S)⊗_(W_(m+r)(R),F^m)W_rΩ^i_(R/A)≅W_rΩ^i_(S/A), and in this description 1⊗d induces d. (3) For a saturated Dieudonné algebra A and s∈A⁰ with F(s)=s^p, the map W_r(A)[s̄⁻¹]→W_r(A[s⁻¹]) is an isomorphism of differential graded algebras; hence for an F_p-algebra R and s∈R, W_r(WsatΩ_R)[[s]⁻¹]≅W_r(WsatΩ_(R[1/s])), and WsatΩ_(R[1/s]) is the strict completion W(WsatΩ_R[[s]⁻¹]); the localisation WsatΩ_R[[s]⁻¹] itself is in general not strict. For an étale map R→S of F_p-algebras, W_r(WsatΩ_R)⊗_(W_r(R))W_r(S)≅W_r(WsatΩ_S) for every r. (4) For a scheme X over a Z_(p)-algebra A, U↦W_rΩ^q_(O(U)/A) on affine opens is a quasi-coherent sheaf on the scheme (|X|,W_r(O_X)), and an étale sheaf when p is nilpotent in A. For an F_p-scheme X, U↦W_r(WsatΩ^q_(O(U))) and U↦WsatΩ^q_(O(U)) are sheaves for the Zariski and the étale topology on affines, the former quasi-coherent over W_r(O_X), and the Zariski cohomology groups H^n(Spec R,WsatΩ^q) vanish for n>0.
 
 CrystallineCohomology:CR.4/witt-quotients-topologies
+
 declaration TauCeti.Crystalline.wittQuotientCompletion
-Let A be a ring and r≥1. For an ideal I⊂A put W_r(I)=ker(W_r(A)→W_r(A/I)) and let [I]⊂W_r(A) be
-the ideal generated by the Teichmüller lifts [a], a∈I. (a) For every ideal I and s≥1:
-[I]^s⊂[I^s]⊂W_r(I^s) and [I]^s⊂W_r(I)^s⊂W_r(I^s). If I is finitely generated with finite
-generating set Σ, then moreover W_r(I^(|Σ|·p^r·s))⊂⟨[a^s]:a∈Σ⟩⊂[I]^s; so the five chains
-⟨[a^s]:a∈Σ⟩, [I]^s, [I^s], W_r(I)^s, W_r(I^s) are intertwined. (b) [p]^(2s)·W_r(A)⊂p^s·W_r(A),
-p^(rs)·W_r(A)⊂W_r(pA)^s and W_r(pA)^(p^r·s)⊂[p]^s·W_r(A); so the [p]-adic, W_r(pA)-adic and
-p-adic topologies of W_r(A) coincide. (c) For a map A→R of Z_(p)-algebras and an ideal I⊂R, the
-kernel of W_rΩ^*_(R/A)→W_rΩ^*_((R/I)/A) is the differential graded ideal generated by W_r(I). If
-I is finitely generated by Σ, the chains ⟨[a^s]:a∈Σ⟩·W_rΩ^*_(R/A) and
-ker(W_rΩ^*_(R/A)→W_rΩ^*_((R/I^s)/A)) are intertwined. (d) For a map A→R of Z_(p)-algebras and a
-finitely generated ideal I⊂A, the pro-objects {W_rΩ^*_(R/A)⊗_(W_r(A))W_r(A)/[I^s]}_s and
-{W_rΩ^*_((R/I^sR)/(A/I^s))}_s are isomorphic; in particular their inverse limits over s agree.
+Let A be a ring and r≥1. For an ideal I⊂A put W_r(I)=ker(W_r(A)→W_r(A/I)) and let [I]⊂W_r(A) be the ideal generated by the Teichmüller lifts [a], a∈I. (a) For every ideal I and s≥1: [I]^s⊂[I^s]⊂W_r(I^s) and [I]^s⊂W_r(I)^s⊂W_r(I^s). If I is finitely generated with finite generating set Σ, then moreover W_r(I^(|Σ|·p^r·s))⊂⟨[a^s]:a∈Σ⟩⊂[I]^s; so the five chains ⟨[a^s]:a∈Σ⟩, [I]^s, [I^s], W_r(I)^s, W_r(I^s) are intertwined. (b) [p]^(2s)·W_r(A)⊂p^s·W_r(A), p^(rs)·W_r(A)⊂W_r(pA)^s and W_r(pA)^(p^r·s)⊂[p]^s·W_r(A); so the [p]-adic, W_r(pA)-adic and p-adic topologies of W_r(A) coincide. (c) For a map A→R of Z_(p)-algebras and an ideal I⊂R, the kernel of W_rΩ^*_(R/A)→W_rΩ^*_((R/I)/A) is the differential graded ideal generated by W_r(I). If I is finitely generated by Σ, the chains ⟨[a^s]:a∈Σ⟩·W_rΩ^*_(R/A) and ker(W_rΩ^*_(R/A)→W_rΩ^*_((R/I^s)/A)) are intertwined. (d) For a map A→R of Z_(p)-algebras and a finitely generated ideal I⊂A, the pro-objects {W_rΩ^*_(R/A)⊗_(W_r(A))W_r(A)/[I^s]}_s and {W_rΩ^*_((R/I^sR)/(A/I^s))}_s are isomorphic; in particular their inverse limits over s agree.
 
 CrystallineCohomology:CR.4/continuous-relative-witt
+
 api TauCeti.Crystalline.continuousWitt_eval
-An element is a family of forms modulo p^s compatible under quotient restriction.
+For q≥0, r≥1 and s≥1, ev_s:W_rΩ^(q,cont)_(R/A)→W_rΩ^q_((R/p^s)/(A/p^s)) is the projection. Its image coordinates satisfy res_(s+1,s)∘ev_(s+1)=ev_s, and a compatible family of coordinates defines exactly one element of the limit.
+
 api TauCeti.Crystalline.continuousWitt_map
-A commuting square A→R, A′→R′ gives the induced compatible map on these p-adic limits.
+For ring maps a:A→A′ and b:R→R′ with b∘(A→R)=(A′→R′)∘a, the map b_*:W_rΩ^(q,cont)_(R/A)→W_rΩ^(q,cont)_(R′/A′) is induced by the maps modulo p^s and satisfies ev_s∘b_*=(b mod p^s)_*∘ev_s. Identity and composition agree coordinatewise.
+
 api TauCeti.Crystalline.continuousWitt_operators
-R,F,V,d act coordinatewise and satisfy the finite-level identities.
+For r≥1, restriction and F map W_(r+1)Ω^(q,cont)→W_rΩ^(q,cont), V maps W_rΩ^(q,cont)→W_(r+1)Ω^(q,cont), and d maps degree q to q+1 at fixed r. Every ev_s intertwines these operators with the operator at base (R/p^s)/(A/p^s). Hence FV=p, FdV=d, d²=0 and dF=pFd hold with these domains.
+
 test TauCeti.Crystalline.test_continuousWitt_p_nilpotent
 If p^N=0 on A and R, the defining tower is eventually constant and recovers W_rΩ_(R/A).
+
 test TauCeti.Crystalline.test_continuousWitt_identity
 For R=A the result has only degree0, the p-completion of W_r(A).
+
 test TauCeti.Crystalline.test_continuousWitt_r1
 At r=1 it is the degreewise p-completed ordinary relative de Rham complex.
 
 CrystallineCohomology:CR.4/torus-integral-part
+
 declaration TauCeti.Crystalline.wittTorusIntegral
-For S=A[T₁^±1,…,T_d^±1], the basic Witt expansion extends to all weights a∈p^(−r)Z^d, ordered by
-v_p(a_i), including v_p(0)=∞. Partition all coordinate indices into ordered blocks I₀,…,I_q,
-with I₀ possibly empty and the others nonempty. Nonintegral blocks use V and dV; integral
-nonzero blocks use F^v d of the corresponding divided-weight Teichmüller monomial; zero blocks
-use dlog of the product of their coordinates, as in the three cases of BMS1 10.12. The
-coefficient module for weight a is V^u(a)W_(r−u(a))(A), u(a)=max(−min_i v_p(a_i),0). The map
-τ:Ω^*_(W_r(A)[U^±1]/W_r(A))→W_rΩ^*_(S/A), U_i↦[T_i], is injective and a quasi-isomorphism. Its
-image is exactly the integral-weight subcomplex; the fractional-weight complement is acyclic.
-The image depends on these coordinates.
+For S=A[T₁^±1,…,T_d^±1], the basic Witt expansion extends to all weights a∈p^(−r)Z^d, ordered by v_p(a_i), including v_p(0)=∞. Partition all coordinate indices into ordered blocks I₀,…,I_q, with I₀ possibly empty and the others nonempty. Nonintegral blocks use V and dV; integral nonzero blocks use F^v d of the corresponding divided-weight Teichmüller monomial; zero blocks use dlog of the product of their coordinates, as in the three cases of BMS1 10.12. The coefficient module for weight a is V^u(a)W_(r−u(a))(A), u(a)=max(−min_i v_p(a_i),0). The map τ:Ω^*_(W_r(A)[U^±1]/W_r(A))→W_rΩ^*_(S/A), U_i↦[T_i], is injective and a quasi-isomorphism. Its image is exactly the integral-weight subcomplex; the fractional-weight complement is acyclic. The image depends on these coordinates.
 
 CrystallineCohomology:CR.4/perfectoid-base-change
+
 declaration TauCeti.Crystalline.wittPerfectoidBaseChange
-For a homomorphism A→A′ of perfectoid rings, a smooth A-algebra R with base change R′=R⊗_A A′,
-and r≥1: (i) the W_r(A)-modules W_rΩ^q_(R/A) and W_r(A′) are Tor-independent for every q≥0; (ii)
-the canonical map W_rΩ^*_(R/A)⊗_(W_r(A))W_r(A′)→W_rΩ^*_(R′/A′) is an isomorphism of differential
-graded W_r(A′)-algebras.
+For a homomorphism A→A′ of perfectoid rings, a smooth A-algebra R with base change R′=R⊗_A A′, and r≥1: (i) the W_r(A)-modules W_rΩ^q_(R/A) and W_r(A′) are Tor-independent for every q≥0; (ii) the canonical map W_rΩ^*_(R/A)⊗_(W_r(A))W_r(A′)→W_rΩ^*_(R′/A′) is an isomorphism of differential graded W_r(A′)-algebras.
 
 CrystallineCohomology:CR.4/classical-regular-comparison
+
 declaration TauCeti.Crystalline.classicalSaturatedComparison
-(1) Let R be a regular Noetherian F_p-algebra and {W_rΩ^*_R}_r its classical de Rham–Witt
-complex (CR.4/classical-de-rham-witt). The tower {W_r(WsatΩ_R)}_r, with its Verschiebung maps
-and the map W(R)→WsatΩ_R⁰ lifting e:R→S_R, is an R-framed V-pro-complex, and the resulting maps
-γ_r:W_rΩ^*_R→W_r(WsatΩ_R) are isomorphisms for all r≥0; hence γ:WΩ^*_R→WsatΩ_R is an isomorphism
-of differential graded algebras compatible with V, restriction and the maps from W(R), and
-ν:Ω^*_R→W_1(WsatΩ_R) is an isomorphism. Moreover the surjections W_rΩ^*_R→W_rΩ^*_(R/F_p) onto
-the Langer–Zink complex (CR.4/relative-de-rham-witt) are isomorphisms. (2) Let k be a perfect
-F_p-algebra and R a smooth k-algebra; then ν:Ω^*_R→W_1(WsatΩ_R) is an isomorphism. (3) Let B be
-a p-torsion-free ring with a ring endomorphism φ, φ(x)≡x^p mod p, such that B/pB is smooth over
-a perfect F_p-algebra. Then the p-completed de Rham complex Ω̂^*_B is a Dieudonné complex of
-Cartier type, and the map μ:Ω̂^*_B→WsatΩ_(B/pB) of CR.4/saturated-de-rham-witt is a
-quasi-isomorphism.
+(1) Let R be a regular Noetherian F_p-algebra and {W_rΩ^*_R}_r its classical de Rham–Witt complex (CR.4/classical-de-rham-witt). The tower {W_r(WsatΩ_R)}_r, with its Verschiebung maps and the map W(R)→WsatΩ_R⁰ lifting e:R→S_R, is an R-framed V-pro-complex, and the resulting maps γ_r:W_rΩ^*_R→W_r(WsatΩ_R) are isomorphisms for all r≥0; hence γ:WΩ^*_R→WsatΩ_R is an isomorphism of differential graded algebras compatible with V, restriction and the maps from W(R), and ν:Ω^*_R→W_1(WsatΩ_R) is an isomorphism. (2) Let k be a perfect F_p-algebra and R a smooth k-algebra; then ν:Ω^*_R→W_1(WsatΩ_R) is an isomorphism. (3) Let B be a p-torsion-free ring with a ring endomorphism φ, φ(x)≡x^p mod p, such that B/pB is smooth over a perfect F_p-algebra. Then the p-completed de Rham complex Ω̂^*_B is a Dieudonné complex of Cartier type, and the map μ:Ω̂^*_B→WsatΩ_(B/pB) of CR.4/saturated-de-rham-witt is a quasi-isomorphism.
 
 CrystallineCohomology:CR.4/crystalline-comparison
+
 declaration TauCeti.Crystalline.crystallineWittComparison
-(a) Let A be a ring in which p is nilpotent and X a smooth A-scheme. For each r≥1 there is an
-isomorphism Ru_(r*)O_(X/W_r(A))≅W_rΩ^*_(X/A) in D⁺(X_Zar,W_r(A)), functorial in X, where
-u_r:(X/W_r(A))_crys→X_Zar and the crystalline site is formed with respect to the canonical
-divided powers on the kernel V W_(r−1)(A) of the projection w₀:W_r(A)→A. (b) More generally, for
-a quasi-coherent crystal E of flat modules on (X/W_r(A))_crys, Ru_(r*)E is represented by
-E_r⊗_(W_r(O_X))W_rΩ^*_(X/A), where E_r is the value of E on the PD thickening X→W_r(X) and the
-differential is induced by the connection of the crystal. (c) For X smooth over a perfect field
-k (the case A=k), these isomorphisms are compatible in r and give Ru_*O_(X/W(k))≅Rlim_r
-W_rΩ^*_(X/k)≅WΩ^*_(X/k), and the corresponding isomorphisms on RΓ(X,−); here lim_r W_rΩ^q=Rlim_r
-W_rΩ^q because the restriction maps are surjective on affine opens.
+(a) Let A be a ring in which p is nilpotent and X a smooth A-scheme. For each r≥1 there is an isomorphism Ru_(r*)O_(X/W_r(A))≅W_rΩ^*_(X/A) in D⁺(X_Zar,W_r(A)), functorial in X, where u_r:(X/W_r(A))_crys→X_Zar and the crystalline site is formed with respect to the canonical divided powers on the kernel V W_(r−1)(A) of the projection w₀:W_r(A)→A. (b) More generally, for a quasi-coherent crystal E of flat modules on (X/W_r(A))_crys, Ru_(r*)E is represented by E_r⊗_(W_r(O_X))W_rΩ^*_(X/A), where E_r is the value of E on the PD thickening X→W_r(X) and the differential is induced by the connection of the crystal. (c) For X smooth over a perfect field k (the case A=k), these isomorphisms are compatible in r and give Ru_*O_(X/W(k))≅Rlim_r W_rΩ^*_(X/k)≅WΩ^*_(X/k), and the corresponding isomorphisms on RΓ(X,−); here lim_r W_rΩ^q=Rlim_r W_rΩ^q because the restriction maps are surjective on affine opens.
 
 CrystallineCohomology:CR.4/degree-scaled-frobenius
+
 declaration TauCeti.Crystalline.wittCrystallineFrobenius
-In every F–V procomplex dF=pFd, so the graded Frobenius F is in general not a map of complexes.
-Let p be nilpotent in A and X a smooth A-scheme. The absolute Frobenius
-𝐅:W_rΩ^q_(X/A)→W_(r−1)Ω^q_(X/A), 𝐅=p^q·F, is a map of complexes, semilinear over
-F:W_r(A)→W_(r−1)(A); it is the map induced on de Rham–Witt complexes by F:W_r(O_X)→W_(r−1)(O_X).
-The crystalline complexes carry an absolute Frobenius
-𝐅:Ru_(r*)O_(X/W_r(A))→Ru_((r−1)*)O_(X/W_(r−1)(A)), induced by the absolute Frobenius of X₀=X⊗F_p
-and the PD morphism Spec W_(r−1)(A)→Spec W_r(A) given by F, for the divided powers extended to
-the kernel of W_r(A)→A/pA. The comparison isomorphisms of CR.4/crystalline-comparison at levels
-r and r−1 intertwine the two maps 𝐅. For X smooth over a perfect field k, the limit over r is
-the endomorphism φ=p^q·F of the complex WΩ^*_(X/k), and it corresponds to the crystalline
-Frobenius of Ru_*O_(X/W(k)).
+In every F–V procomplex dF=pFd, so the graded Frobenius F is in general not a map of complexes. Let p be nilpotent in A and X a smooth A-scheme. The absolute Frobenius 𝐅:W_rΩ^q_(X/A)→W_(r−1)Ω^q_(X/A), 𝐅=p^q·F, is a map of complexes, semilinear over F:W_r(A)→W_(r−1)(A); it is the map induced on de Rham–Witt complexes by F:W_r(O_X)→W_(r−1)(O_X). The crystalline complexes carry an absolute Frobenius 𝐅:Ru_(r*)O_(X/W_r(A))→Ru_((r−1)*)O_(X/W_(r−1)(A)), induced by the absolute Frobenius of X₀=X⊗F_p and the PD morphism Spec W_(r−1)(A)→Spec W_r(A) given by F, for the divided powers extended to the kernel of W_r(A)→A/pA. The comparison isomorphisms of CR.4/crystalline-comparison at levels r and r−1 intertwine the two maps 𝐅. For X smooth over a perfect field k, the limit over r is the endomorphism φ=p^q·F of the complex WΩ^*_(X/k), and it corresponds to the crystalline Frobenius of Ru_*O_(X/W(k)).
 
 CrystallineCohomology:CR.4/leta-fixed-point
+
 declaration TauCeti.Crystalline.strictDieudonneFixedPoint
-Let D(Z)^_p be the full subcategory of derived p-complete objects of D(Z); Lη_p preserves it.
-Sending a strict Dieudonné complex M to the pair (M,α_F:M≅Lη_pM) is an equivalence from the
-category of strict Dieudonné complexes to the fixed-point category of Lη_p on D(Z)^_p, whose
-objects are pairs (X,φ:X≅Lη_pX) and whose morphisms are the maps X→X′ in D(Z) commuting with φ,
-φ′. The fixed-point ∞-category, defined as the equalizer of the identity and Lη_p on the
-∞-category of derived p-complete objects of the derived ∞-category of Z (so that objects carry a
-specified equivalence and morphisms a specified homotopy), has discrete mapping spaces, and the
-forgetful functor from it to the ordinary fixed-point category is an equivalence. For strict M,
-F^r induces isomorphisms W_r(M)≅H^*(M/p^rM), so M=lim_r W_r(M) is recovered from the cohomology
-of the reductions M⊗^L Z/p^r.
+Let D(Z)^_p be the full subcategory of derived p-complete objects of D(Z); Lη_p preserves it. Sending a strict Dieudonné complex M to the pair (M,α_F:M≅Lη_pM) is an equivalence from the category of strict Dieudonné complexes to the fixed-point category of Lη_p on D(Z)^_p, whose objects are pairs (X,φ:X≅Lη_pX) and whose morphisms are the maps X→X′ in D(Z) commuting with φ, φ′. The fixed-point ∞-category, defined as the equalizer of the identity and Lη_p on the ∞-category of derived p-complete objects of the derived ∞-category of Z (so that objects carry a specified equivalence and morphisms a specified homotopy), has discrete mapping spaces, and the forgetful functor from it to the ordinary fixed-point category is an equivalence. For strict M, F^r induces isomorphisms W_r(M)≅H^*(M/p^rM), so M=lim_r W_r(M) is recovered from the cohomology of the reductions M⊗^L Z/p^r.
 
 CrystallineCohomology:CR.4/witt-slope-spectral-sequence
+
 declaration TauCeti.Crystalline.wittSlopeSpectralSequence
-Let X be a smooth proper scheme of dimension d over a perfect field k, W=W(k), K=W[1/p]. The
-filtration of WΩ^*_X by the subcomplexes WΩ^(≥a)_X, 0≤a≤d, gives a convergent spectral sequence
-E₁^(a,b)=H^b(X,WΩ^a_X)⇒H^(a+b)_crys(X/W), compatible with the Frobenius φ, which acts on the
-a-th column through p^a·F. After tensoring with K, the E₁ terms are finite-dimensional over K,
-the Frobenius on the a-th column has slopes in [a,a+1), and the spectral sequence degenerates at
-E₁; so H^b(X,WΩ^a_X)⊗K is the part of H^(a+b)_crys(X/W)⊗K with slopes in [a,a+1). For each r≥1
-the same filtration of W_rΩ^*_X gives a spectral sequence
-E₁^(a,b)=H^b(X,W_rΩ^a_X)⇒H^(a+b)_crys(X/W_r(k)).
+Let X be a smooth proper scheme of dimension d over a perfect field k, W=W(k), K=W[1/p]. The filtration of WΩ^*_X by the subcomplexes WΩ^(≥a)_X, 0≤a≤d, gives a convergent spectral sequence E₁^(a,b)=H^b(X,WΩ^a_X)⇒H^(a+b)_crys(X/W), compatible with the Frobenius φ, which acts on the a-th column through p^a·F. After tensoring with K, the E₁ terms are finite-dimensional over K, the Frobenius on the a-th column has slopes in [a,a+1), and the spectral sequence degenerates at E₁; so H^b(X,WΩ^a_X)⊗K is the part of H^(a+b)_crys(X/W)⊗K with slopes in [a,a+1). For each r≥1 the same filtration of W_rΩ^*_X gives a spectral sequence E₁^(a,b)=H^b(X,W_rΩ^a_X)⇒H^(a+b)_crys(X/W_r(k)).
 
 CrystallineCohomology:CR.4/nygaard-filtration-comparisons
+
 declaration TauCeti.Crystalline.nygaardComparisons
-Let R be a smooth algebra over a perfect field k and WΩ=WΩ^*_R with its Nygaard filtration. (1)
-The composite N^(≥i)WΩ--φ_i→WΩ→Ω^*_(R/k) lands in the canonical truncation τ^(≤i)Ω^*_(R/k),
-kills N^(≥i+1)WΩ, and induces a quasi-isomorphism gr^i_N WΩ→τ^(≤i)Ω^*_(R/k). (2) The sequence
-WΩ/N^(≥i)--p→WΩ/N^(≥i+1)→Ω^(≤i)_(R/k) is a cofiber sequence, where Ω^(≤i) is the stupid
-truncation and the second map is induced by WΩ→Ω^*_(R/k)→Ω^(≤i)_(R/k). (3) Let Ã be the p-adic
-completion of a smooth W(k)-algebra lifting R, with a chosen lift φ̃ of Frobenius, and let
-σ:Ω̂^*_(Ã/W(k))→WΩ be the comparison map constructed from φ̃. Then σ maps the subcomplex
-p^max(i−•,0)Ω̂^•_(Ã/W(k)), with terms p^(i−q)Ω̂^q for q<i and Ω̂^q for q≥i, into N^(≥i)WΩ, and
-the induced map is a quasi-isomorphism for every i≥0.
+Let R be a smooth algebra over a perfect field k and WΩ=WΩ^*_R with its Nygaard filtration. (1) The composite N^(≥i)WΩ--φ_i→WΩ→Ω^*_(R/k) lands in the canonical truncation τ^(≤i)Ω^*_(R/k), kills N^(≥i+1)WΩ, and induces a quasi-isomorphism gr^i_N WΩ→τ^(≤i)Ω^*_(R/k). (2) The sequence WΩ/N^(≥i)--p→WΩ/N^(≥i+1)→Ω^(≤i)_(R/k) is a cofiber sequence, where Ω^(≤i) is the stupid truncation and the second map is induced by WΩ→Ω^*_(R/k)→Ω^(≤i)_(R/k). (3) Let Ã be the p-adic completion of a smooth W(k)-algebra lifting R, with a chosen lift φ̃ of Frobenius, and let σ:Ω̂^*_(Ã/W(k))→WΩ be the comparison map constructed from φ̃. Then σ maps the subcomplex p^max(i−•,0)Ω̂^•_(Ã/W(k)), with terms p^(i−q)Ω̂^q for q<i and Ω̂^q for q≥i, into N^(≥i)WΩ, and the induced map is a quasi-isomorphism for every i≥0.
 
 CrystallineCohomology:CR.4/logarithmic-witt-sheaf
+
 declaration TauCeti.Crystalline.LogWitt
-Let X be a regular locally Noetherian F_p-scheme, q≥0 and r≥1, and let W_rΩ^q_X be the sheaf on
-the small étale site of X given on affines by the de Rham–Witt complex (on regular Noetherian
-rings the classical, Langer–Zink and saturated complexes agree by
-CR.4/classical-regular-comparison). The logarithmic Hodge–Witt sheaf W_rΩ^q_(X,log) is the
-image, in the category of sheaves on X_ét, of the map (O_X^×)^(⊗q)→W_rΩ^q_X,
-u₁⊗⋯⊗u_q↦dlog[u₁]∧⋯∧dlog[u_q], where dlog[u]=[u]⁻¹·d[u]. For q=0 it is the image of Z→W_r(O_X),
-the constant sheaf Z/p^r. Its sections are closed forms. For X smooth over a perfect field k,
-WΩ^q_(X,log)=lim_r W_rΩ^q_(X,log), formed in sheaves on the pro-étale site of X.
+Let X be a regular locally Noetherian F_p-scheme, q≥0 and r≥1, and let W_rΩ^q_X be the sheaf on the small étale site of X given on affines by the de Rham–Witt complex (on regular Noetherian rings the classical, Langer–Zink and saturated complexes agree by CR.4/classical-regular-comparison). The logarithmic Hodge–Witt sheaf W_rΩ^q_(X,log) is the image, in the category of sheaves on X_ét, of the map (O_X^×)^(⊗q)→W_rΩ^q_X, u₁⊗⋯⊗u_q↦dlog[u₁]∧⋯∧dlog[u_q], where dlog[u]=[u]⁻¹·d[u]. For q=0 it is the image of Z→W_r(O_X), the constant sheaf Z/p^r. Its sections are closed forms. For X smooth over a perfect field k, WΩ^q_(X,log)=lim_r W_rΩ^q_(X,log), formed in sheaves on the pro-étale site of X.
+
 api TauCeti.Crystalline.LogWitt.symbol
-A tuple of units maps to the wedge of their Teichmüller dlog forms.
+For V→X étale and units u₁,…,u_q∈O_X(V)^×, symbol_V(u₁,…,u_q)∈W_rΩ^q_(X,log)(V) has image ∧_(i=1)^q([u_i]⁻¹d[u_i]) in W_rΩ^q_X(V). The empty tuple maps to 1. The symbol is additive in each unit under multiplication, and commutes with étale restriction and length restriction.
+
 api TauCeti.Crystalline.LogWitt.closed_fixed
-Every local section ω of W_rΩ^q_(X,log) satisfies dω=0. For every local section ω̃ of
-W_(r+1)Ω^q_(X,log) with restriction ω to level r, F(ω̃)=ω in W_rΩ^q_X, where
-F:W_(r+1)Ω^q_X→W_rΩ^q_X; indeed F(dlog[u])=dlog[u].
+Every local section ω of W_rΩ^q_(X,log) satisfies dω=0. For every local section ω̃ of W_(r+1)Ω^q_(X,log) with restriction ω to level r, F(ω̃)=ω in W_rΩ^q_X, where F:W_(r+1)Ω^q_X→W_rΩ^q_X; indeed F(dlog[u])=dlog[u].
+
 api TauCeti.Crystalline.LogWitt.map
 Pullback of schemes sends a unit symbol to the symbol of its pulled-back units.
+
 test TauCeti.Crystalline.test_logWitt_zero_degree
 W_rΩ⁰_log is the constant Z/p^r generated by1.
+
 test TauCeti.Crystalline.test_logWitt_torus
 On G_m, the symbol of t is dlog[t], a closed degree-one section.
+
 test TauCeti.Crystalline.test_logWitt_not_all
-On Spec F_p[t] at length1, dt is not a logarithmic section on the whole scheme: its Cartier
-image is0 whereas logarithmic forms are Cartier fixed.
+On Spec F_p[t] at length1, dt is not a logarithmic section on the whole scheme: its Cartier image is0 whereas logarithmic forms are Cartier fixed.
 
 CrystallineCohomology:CR.4/logarithmic-witt-sequences
+
 declaration TauCeti.Crystalline.logWittExactSequences
-Let X be a regular locally Noetherian F_p-scheme and q≥0; all sheaves are on the small étale
-site of X. (1) For r≥1, F:W_(r+1)Ω^q_X→W_rΩ^q_X induces F:W_rΩ^q_X→W_rΩ^q_X/dV^(r−1)Ω^(q−1)_X
-(with Ω^(−1)=0), and the sequence 0→W_rΩ^q_(X,log)→W_rΩ^q_X--1−F→W_rΩ^q_X/dV^(r−1)Ω^(q−1)_X→0 is
-exact. (2) The sequence of pro-sheaves 0→W_•Ω^q_(X,log)→W_•Ω^q_X--R−F→W_•Ω^q_X→0 is exact. (3)
-For positive integers n, m, multiplication by p^m on W_(n+m)Ω^q_(X,log) induces a map
-p̲^m:W_nΩ^q_(X,log)→W_(n+m)Ω^q_(X,log), and the sequence
-0→W_nΩ^q_(X,log)--p̲^m→W_(n+m)Ω^q_(X,log)--R^n→W_mΩ^q_(X,log)→0 is exact; consequently
-0→W_•Ω^q_(X,log)--p^m→W_•Ω^q_(X,log)→W_mΩ^q_(X,log)→0 is an exact sequence of pro-sheaves.
+Let X be a regular locally Noetherian F_p-scheme and q≥0; all sheaves are on the small étale site of X. (1) For r≥1, F:W_(r+1)Ω^q_X→W_rΩ^q_X induces F:W_rΩ^q_X→W_rΩ^q_X/dV^(r−1)Ω^(q−1)_X (with Ω^(−1)=0), and the sequence 0→W_rΩ^q_(X,log)→W_rΩ^q_X--1−F→W_rΩ^q_X/dV^(r−1)Ω^(q−1)_X→0 is exact. (2) The sequence of pro-sheaves 0→W_•Ω^q_(X,log)→W_•Ω^q_X--R−F→W_•Ω^q_X→0 is exact. (3) For positive integers n, m, multiplication by p^m on W_(n+m)Ω^q_(X,log) induces a map p̲^m:W_nΩ^q_(X,log)→W_(n+m)Ω^q_(X,log), and the sequence 0→W_nΩ^q_(X,log)--p̲^m→W_(n+m)Ω^q_(X,log)--R^n→W_mΩ^q_(X,log)→0 is exact; consequently 0→W_•Ω^q_(X,log)--p^m→W_•Ω^q_(X,log)→W_mΩ^q_(X,log)→0 is an exact sequence of pro-sheaves.
 
 CrystallineCohomology:CR.4/semistable-log-witt-models
+
 declaration TauCeti.Crystalline.LogWittModel
-Let κ be a perfect field of characteristic p, W=W(κ), K₀=W[1/p]. Let W[t]° be Spec W[t] with the
-log structure associated with 1↦t, W° its fibre at t=0, κ° the fibre of W° at p=0 (the standard
-log point), and W^triv=Spec W with the trivial log structure. Let (X,L) be a log scheme of
-finite type and strictly semistable over κ°, and {(X^⋆,L^⋆)↪(Z^⋆,N^⋆)} an admissible embedding
-system for (X,L)/W[t]°; put (Y^⋆,M^⋆)=(Z^⋆,N^⋆)×_(W[t]°)W°, and for l≥1 let D_l^⋆ be the PD
-envelope of X^⋆ in Y_l^⋆=Y^⋆⊗Z/p^l, over W with its usual divided powers. Define, in
-D⁺(X_ét,W_•) (systems indexed by l), Wω_X=Ru_*(Ω^*_((Y^⋆,M^⋆)/W°)⊗O_(D_l^⋆)) and
-Wω̃_X=Ru_*(Ω^*_((Z^⋆,N^⋆)/W^triv)⊗O_(D_l^⋆)), where u:X^⋆→X is the augmentation of the
-hypercovering. They do not depend on the embedding system. After applying Rlim_l and ⊗_W K₀
-there is a distinguished triangle Wω_(X,K₀)[−1]→Wω̃_(X,K₀)→Wω_(X,K₀)--N→Wω_(X,K₀) in
-D⁺(X_ét,K₀), whose first map is ∧dlog t, whose second map is the natural projection, and whose
-third map N is the connecting map. The convergent complexes ω_X, ω̃_X∈D⁺(X_ét,K₀) of Disegni–Liu
-(the same differential forms with the tube of X^⋆ in place of the PD envelopes) are related to
-them by natural equivalences ω_X≃Wω_(X,K₀), ω̃_X≃Wω̃_(X,K₀), under which the triangle (B.1) of
-Disegni–Liu corresponds to this one.
+Let κ be a perfect field of characteristic p, W=W(κ), K₀=W[1/p]. Let W[t]° be Spec W[t] with the log structure associated with 1↦t, W° its fibre at t=0, κ° the fibre of W° at p=0 (the standard log point), and W^triv=Spec W with the trivial log structure. Let (X,L) be a log scheme of finite type and strictly semistable over κ°, and {(X^⋆,L^⋆)↪(Z^⋆,N^⋆)} an admissible embedding system for (X,L)/W[t]°; put (Y^⋆,M^⋆)=(Z^⋆,N^⋆)×_(W[t]°)W°, and for l≥1 let D_l^⋆ be the PD envelope of X^⋆ in Y_l^⋆=Y^⋆⊗Z/p^l, over W with its usual divided powers. Define, in D⁺(X_ét,W_•) (systems indexed by l), Wω_X=Ru_*(Ω^*_((Y^⋆,M^⋆)/W°)⊗O_(D_l^⋆)) and Wω̃_X=Ru_*(Ω^*_((Z^⋆,N^⋆)/W^triv)⊗O_(D_l^⋆)), where u:X^⋆→X is the augmentation of the hypercovering. They do not depend on the embedding system. After applying Rlim_l and ⊗_W K₀ there is a distinguished triangle Wω_(X,K₀)[−1]→Wω̃_(X,K₀)→Wω_(X,K₀)--N→Wω_(X,K₀) in D⁺(X_ét,K₀), whose first map is ∧dlog t, whose second map is the natural projection, and whose third map N is the connecting map. The convergent complexes ω_X, ω̃_X∈D⁺(X_ét,K₀) of Disegni–Liu (the same differential forms with the tube of X^⋆ in place of the PD envelopes) are related to them by natural equivalences ω_X≃Wω_(X,K₀), ω̃_X≃Wω̃_(X,K₀), under which the triangle (B.1) of Disegni–Liu corresponds to this one.
+
 api TauCeti.Crystalline.LogWittModel.envelope_eval
-For an admissible embedding system, Wω_X and Wω̃_X are represented by Ru_* of the complexes
-Ω^*_((Y^⋆,M^⋆)/W°)⊗O_(D_l^⋆) and Ω^*_((Z^⋆,N^⋆)/W^triv)⊗O_(D_l^⋆), l≥1, on the hypercovering
-X^⋆.
+For an admissible embedding system, Wω_X and Wω̃_X are represented by Ru_* of the complexes Ω^*_((Y^⋆,M^⋆)/W°)⊗O_(D_l^⋆) and Ω^*_((Z^⋆,N^⋆)/W^triv)⊗O_(D_l^⋆), l≥1, on the hypercovering X^⋆.
+
 api TauCeti.Crystalline.LogWittModel.embedding_independence
 The product-embedding maps are compatible quasi-isomorphisms and satisfy the cocycle.
+
 api TauCeti.Crystalline.LogWittModel.rational_compare
-There are natural equivalences ω_X≃Wω_(X,K₀) and ω̃_X≃Wω̃_(X,K₀) in D⁺(X_ét,K₀) (Disegni–Liu
-(B.5)) carrying the triangle (B.1) of the convergent complexes to the triangle (B.4); in
-particular they commute with the maps ∧dlog t.
+There are natural equivalences ω_X≃Wω_(X,K₀) and ω̃_X≃Wω̃_(X,K₀) in D⁺(X_ét,K₀) (Disegni–Liu (B.5)) carrying the triangle (B.1) of the convergent complexes to the triangle (B.4); in particular they commute with the maps ∧dlog t.
+
 api TauCeti.Crystalline.LogWittModel.monodromy_triangle
-Wω_(X,K₀)[−1]--∧dlog t→Wω̃_(X,K₀)→Wω_(X,K₀)--N→Wω_(X,K₀) is a distinguished triangle in
-D⁺(X_ét,K₀), and N is its connecting map (Disegni–Liu (B.4)).
+Wω_(X,K₀)[−1]--∧dlog t→Wω̃_(X,K₀)→Wω_(X,K₀)--N→Wω_(X,K₀) is a distinguished triangle in D⁺(X_ét,K₀), and N is its connecting map (Disegni–Liu (B.4)).
+
 test TauCeti.Crystalline.test_logWittModel_point
-For X=κ° with the embedding κ°↪W[t]° (Z=Spec W[t], Y=W°, D_l=Spec W/p^l): Wω_X=(W/p^l)_l in
-degree 0, Wω̃_X=(W/p^l⊕W/p^l·dlog t)_l in degrees 0 and 1 with zero differential, and the
-connecting map N of the triangle is 0.
+For X=κ° with the embedding κ°↪W[t]° (Z=Spec W[t], Y=W°, D_l=Spec W/p^l): Wω_X=(W/p^l)_l in degree 0, Wω̃_X=(W/p^l⊕W/p^l·dlog t)_l in degrees 0 and 1 with zero differential, and the connecting map N of the triangle is 0.
+
 test TauCeti.Crystalline.test_logWittModel_diagonal_embedding
-For an admissible embedding system E of (X,L), the isomorphisms Wω_X(E)≅Wω_X(E) and
-Wω̃_X(E)≅Wω̃_X(E) obtained by comparing E with itself through the product system E×E and its two
-projections are the identity maps.
+For an admissible embedding system E of (X,L), the isomorphisms Wω_X(E)≅Wω_X(E) and Wω̃_X(E)≅Wω̃_X(E) obtained by comparing E with itself through the product system E×E and its two projections are the identity maps.
+
 test TauCeti.Crystalline.test_logWittModel_rational_scope
-For X=κ° with the embedding κ°↪W[t]°: the tube of X in the generic fibre of the formal
-completion of Y=W° is the point Sp K₀, so ω_X=K₀ in degree 0 and ω̃_X=K₀⊕K₀·dlog t in degrees 0
-and 1 with zero differential; Wω_(X,K₀) and Wω̃_(X,K₀) are the same complexes, and the
-equivalences of (B.5) are the identity maps.
+For X=κ° with the embedding κ°↪W[t]°: the tube of X in the generic fibre of the formal completion of Y=W° is the point Sp K₀, so ω_X=K₀ in degree 0 and ω̃_X=K₀⊕K₀·dlog t in degrees 0 and 1 with zero differential; Wω_(X,K₀) and Wω̃_(X,K₀) are the same complexes, and the equivalences of (B.5) are the identity maps.
 
 CrystallineCohomology:CR.4/log-witt-proper-support
+
 declaration TauCeti.Crystalline.LogWittSupport
-In the situation of CR.4/semistable-log-witt-models let F:U→X be the inclusion of an open
-subscheme, and let ω̃_(U,X), ω⁺_(U,X)∈D⁺(X_ét,K₀) be the convergent complexes with support of
-Disegni–Liu, defined like ω̃_X and ω⁺_X with the tube functor f^!_(U^⋆,X^⋆) inserted (f^! is the
-kernel of the unit id→g_*g^* for the open immersion g of the tube of X^⋆∖U^⋆ into the tube of
-X^⋆). (1) There is a natural map F_!F^*Wω̃_(X,K₀)→ω̃_(U,X) in D⁺(X_ét,K₀) (Disegni–Liu (B.6)):
-F_!F^* applied to the inverse of the equivalence ω̃_X≃Wω̃_(X,K₀), followed by the natural
-transformation F_!∘F^*∘Rs_*→Rs_*∘f^! of their Lemma B.3. (2) Let WΞ_X∈D⁺(X_ét,W_•) be Sato's
-cohomological de Rham–Witt complex, with the equivalence ω⁺_X≃WΞ_(X,K₀). In the same way there
-is a natural map F_!F^*WΞ_(X,K₀)→ω⁺_(U,X) (Disegni–Liu (B.9)). (3) These two maps form a
-commutative square (Disegni–Liu (B.10)) with the map F_!F^*Wω̃_(X,K₀)→F_!F^*WΞ_(X,K₀)[−1]
-induced by Sato's map Wω̃_X→WΞ_X[−1] and the map ω̃_(U,X)→ω⁺_(U,X)[−1] induced by the quotient
-maps Ω^(q+1)_((Z^⋆,N^⋆)/W^triv)⊗O_(Y^⋆)→Ξ^q_(Z^⋆)=Ω^(q+1)_((Z^⋆,N^⋆)/W^triv)/Ω^(q+1)_(Z^⋆/W).
-The map ∧dlog t is the map ω_(U,X)[−1]→ω̃_(U,X) of Disegni–Liu (B.8); it does not occur in
-(B.10). For U=X the tube functor is the identity and the maps (1), (2) are the inverses of the
-comparison equivalences.
+In the situation of CR.4/semistable-log-witt-models let F:U→X be the inclusion of an open subscheme, and let ω̃_(U,X), ω⁺_(U,X)∈D⁺(X_ét,K₀) be the convergent complexes with support of Disegni–Liu, defined like ω̃_X and ω⁺_X with the tube functor f^!_(U^⋆,X^⋆) inserted (f^! is the kernel of the unit id→g_*g^* for the open immersion g of the tube of X^⋆∖U^⋆ into the tube of X^⋆). (1) There is a natural map F_!F^*Wω̃_(X,K₀)→ω̃_(U,X) in D⁺(X_ét,K₀) (Disegni–Liu (B.6)): F_!F^* applied to the inverse of the equivalence ω̃_X≃Wω̃_(X,K₀), followed by the natural transformation F_!∘F^*∘Rs_*→Rs_*∘f^! of their Lemma B.3. (2) Let WΞ_X∈D⁺(X_ét,W_•) be Sato's cohomological de Rham–Witt complex, with the equivalence ω⁺_X≃WΞ_(X,K₀). In the same way there is a natural map F_!F^*WΞ_(X,K₀)→ω⁺_(U,X) (Disegni–Liu (B.9)). (3) Assuming the correspondence between Sato’s map and the quotient map specified below, these two maps form a commutative square (Disegni–Liu (B.10)) with the map F_!F^*Wω̃_(X,K₀)→F_!F^*WΞ_(X,K₀)[−1] induced by Sato's map Wω̃_X→WΞ_X[−1] and the map ω̃_(U,X)→ω⁺_(U,X)[−1] induced by the quotient maps Ω^(q+1)_((Z^⋆,N^⋆)/W^triv)⊗O_(Y^⋆)→Ξ^q_(Z^⋆)=Ω^(q+1)_((Z^⋆,N^⋆)/W^triv)/Ω^(q+1)_(Z^⋆/W). The map ∧dlog t is the map ω_(U,X)[−1]→ω̃_(U,X) of Disegni–Liu (B.8); it does not occur in (B.10). For U=X the tube functor is the identity and the maps (1), (2) are the inverses of the comparison equivalences.
+
 api TauCeti.Crystalline.LogWittSupport.compare
-Natural maps F_!F^*Wω̃_(X,K₀)→ω̃_(U,X) and F_!F^*WΞ_(X,K₀)→ω⁺_(U,X) in D⁺(X_ét,K₀) (Disegni–Liu
-(B.6), (B.9)).
+Natural maps F_!F^*Wω̃_(X,K₀)→ω̃_(U,X) and F_!F^*WΞ_(X,K₀)→ω⁺_(U,X) in D⁺(X_ét,K₀) (Disegni–Liu (B.6), (B.9)).
+
 api TauCeti.Crystalline.LogWittSupport.open_identity
-For U=X, the tube support functor is the identity and the comparison recovers the full rational
-model comparison.
+For U=X, the tube support functor is the identity and the comparison recovers the full rational model comparison.
+
 api TauCeti.Crystalline.LogWittSupport.dlog_square
-The maps (B.6) and (B.9) form a commutative square with F_!F^*Wω̃_(X,K₀)→F_!F^*WΞ_(X,K₀)[−1],
-induced by Sato's map, and ω̃_(U,X)→ω⁺_(U,X)[−1], induced by the quotient maps
-Ω^(q+1)_((Z^⋆,N^⋆)/W^triv)⊗O_(Y^⋆)→Ξ^q_(Z^⋆) (Disegni–Liu (B.10)). The map ∧dlog t is not an
-arrow of this square.
+Under the compatibility hypothesis of clause (3), the maps (B.6) and (B.9) form the square (B.10), whose vertical arrows are the support comparison maps and whose horizontal arrows are induced respectively by Sato’s map and by the quotient of forms. Naturality of the tube support transformation proves the square.
+
 test TauCeti.Crystalline.test_logWittSupport_empty
-For U=∅: g is the identity of the tube of X^⋆, f^!_(∅,X)=ker(id→id)=0, so ω̃_(∅,X)=ω⁺_(∅,X)=0,
-and the sources F_!F^*(−) of (B.6) and (B.9) are 0.
+For U=∅: g is the identity of the tube of X^⋆, f^!_(∅,X)=ker(id→id)=0, so ω̃_(∅,X)=ω⁺_(∅,X)=0, and the sources F_!F^*(−) of (B.6) and (B.9) are 0.
+
 test TauCeti.Crystalline.test_logWittSupport_full
-For U=X: the tube of X∖U is empty, f^!_(X,X) is the identity, ω̃_(X,X)=ω̃_X, and (B.6) is the
-inverse of the equivalence ω̃_X≃Wω̃_(X,K₀) of (B.5).
+For U=X: the tube of X∖U is empty, f^!_(X,X) is the identity, ω̃_(X,X)=ω̃_X, and (B.6) is the inverse of the equivalence ω̃_X≃Wω̃_(X,K₀) of (B.5).
+
 test TauCeti.Crystalline.test_logWittSupport_map
-The natural transformation F_!∘F^*∘Rs_*→Rs_*∘f^!_(U,X) of Disegni–Liu Lemma B.3 is not an
-isomorphism of functors in general, even when X=Z: otherwise f=F_!∘F^* would satisfy
-f∘Rs_*≃Rs_*∘f^!_(U,X), and by their Remark B.2 no functor f on D⁺(X_ét,R) does in general.
+Let X=X₁⊔X₂ be a disjoint union of two smooth points over κ°, with the standard semistable log structures, and U=X₁. The source and target of (B.6) restrict on X₁ to the full comparison and on X₂ to zero. The support map is the full comparison on X₁ and zero on X₂; replacing support by the full complex or by zero fails this test.
 
 CrystallineCohomology:CR.1/integrable-connection
+
 api TauCeti.Crystalline.crisDifferentials
-On Cris(X/S), Ω_{X/S} with d_{X/S}:O_crys→Ω_{X/S} is the universal PD S-derivation;
-(Ω_{X/S})_T=Ω_{T/S,δ} and d_{X/S} restricts to d_{T/S,δ}; Ω_{X/S} has quasi-coherent
-restrictions and c_f:f^*(Ω_{X/S})_T′→(Ω_{X/S})_T is surjective when f:T→T′ is a closed
-immersion, but Ω_{X/S} is in general not a crystal (Stacks Lemmas 60.12.3 and 60.12.6).
+On Cris(X/S), Ω_{X/S} with d_{X/S}:O_crys→Ω_{X/S} is the universal PD S-derivation; (Ω_{X/S})_T=Ω_{T/S,δ} and d_{X/S} restricts to d_{T/S,δ}; Ω_{X/S} has quasi-coherent restrictions and c_f:f^*(Ω_{X/S})_T′→(Ω_{X/S})_T is surjective when f:T→T′ is a closed immersion, but Ω_{X/S} is in general not a crystal (Stacks Lemmas 60.12.3 and 60.12.6).
+
 api TauCeti.Crystalline.Connection.ofCrystal
-A crystal F in O_crys-modules on Cris(X/S) carries a canonical integrable connection: for an
-object (U,T,δ), with T′ the first-order thickening O_T′=O_T⊕Ω_{T/S,δ}, projections p₀,p₁:T′→T
-and c=c_{p₁}⁻¹∘c_{p₀}:p₀^*F_T→p₁^*F_T, one has ∇(s)=p₁^*s−c(p₀^*s) in F_T⊗_{O_T}Ω_{T/S,δ}
-(Stacks Lemma 60.15.1).
+A crystal F in O_crys-modules on Cris(X/S) carries a canonical integrable connection: for an object (U,T,δ), with T′ the first-order thickening O_T′=O_T⊕Ω_{T/S,δ}, projections p₀,p₁:T′→T and c=c_{p₁}⁻¹∘c_{p₀}:p₀^*F_T→p₁^*F_T, one has ∇(s)=p₁^*s−c(p₀^*s) in F_T⊗_{O_T}Ω_{T/S,δ} (Stacks Lemma 60.15.1).
 
 CrystallineCohomology:CR.3/first-chern-class
+
 declaration TauCeti.Crystalline.crysChern
-Let (S,I,γ) be a PD scheme over Z_(p), S₀=V(I), and X an S₀-scheme on which p is locally
-nilpotent. On the crystalline site of X/S let O_crys, O_X^cris and J_crys=ker(O_crys→O_X^cris)
-be the sheaves of CR.1/structure-sheaves, δ the divided powers of J_crys, and u:(X/S)_crys→X_Zar
-the projection. (1) The sequence of sheaves of abelian groups 1→1+J_crys→O_crys^*→(O_X^cris)^*→1
-is exact, and (O_X^cris)^*=u^(−1)O_X^*. (2) log:1+J_crys→J_crys,
-log(1+x)=Σ_(n≥1)(−1)^(n−1)·(n−1)!·δ_n(x), is a homomorphism from the multiplicative group
-1+J_crys to the additive group J_crys; on each thickening the sum is locally finite because p is
-locally nilpotent there. (3) The first Chern class
-c₁:Pic(X)=H¹(X,O_X^*)→H²_crys(X/S)=H²((X/S)_crys,O_crys) is the composite of u^(−1), the
-connecting homomorphism H¹((O_X^cris)^*)→H²(1+J_crys) of (1), the map induced by log, and the
-map induced by J_crys⊂O_crys. (4) The sign of the connecting homomorphism is fixed by the
-following property: if p is nilpotent on S, Y is a smooth lift of X over S and L̃ is an
-invertible O_Y-module lifting L, with trivialising sections s_λ on an open cover, then under
-H²_crys(X/S)≅H²(Y,Ω^•_(Y/S)) the class c₁(L) is the class of the Čech 1-cocycle
-(dlog(s_μ/s_λ))_(λ,μ) with values in Ω¹_(Y/S), the de Rham first Chern class of L̃. (5) c₁ is a
-homomorphism of groups and is natural for the morphisms of crystalline topoi induced by
-commutative squares of schemes over PD morphisms. (6) For a perfect field k of characteristic p
-and X proper smooth over k, c₁(L)∈H²_crys(X/W(k)) is the compatible system of the classes
-c₁(L)∈H²_crys(X/W_n(k)); the hyperplane class is h=c₁(O(1))∈H²_crys(P^d_k/W(k)).
+Let (S,I,γ) be a PD scheme over Z_(p), S₀=V(I), and X an S₀-scheme on which p is locally nilpotent. On the crystalline site of X/S let O_crys, O_X^cris and J_crys=ker(O_crys→O_X^cris) be the sheaves of CR.1/structure-sheaves, δ the divided powers of J_crys, and u:(X/S)_crys→X_Zar the projection. (1) The sequence of sheaves of abelian groups 1→1+J_crys→O_crys^*→(O_X^cris)^*→1 is exact, and (O_X^cris)^*=u^(−1)O_X^*. (2) log:1+J_crys→J_crys, log(1+x)=Σ_(n≥1)(−1)^(n−1)·(n−1)!·δ_n(x), is a homomorphism from the multiplicative group 1+J_crys to the additive group J_crys; on each thickening the sum is locally finite because p is locally nilpotent there. (3) The first Chern class c₁:Pic(X)=H¹(X,O_X^*)→H²_crys(X/S)=H²((X/S)_crys,O_crys) is the composite of u^(−1), the connecting homomorphism H¹((O_X^cris)^*)→H²(1+J_crys) of (1), the map induced by log, and the map induced by J_crys⊂O_crys. (4) The sign of the connecting homomorphism is fixed by the following property: if p is nilpotent on S, Y is a smooth lift of X over S and L̃ is an invertible O_Y-module lifting L, with trivialising sections s_λ on an open cover, then under H²_crys(X/S)≅H²(Y,Ω^•_(Y/S)) the class c₁(L) is the class of the Čech 1-cocycle (dlog(s_μ/s_λ))_(λ,μ) with values in Ω¹_(Y/S), the de Rham first Chern class of L̃. (5) c₁ is a homomorphism of groups and is natural for the morphisms of crystalline topoi induced by commutative squares of schemes over PD morphisms. (6) For a perfect field k of characteristic p and X proper smooth over k, c₁(L)∈H²_crys(X/W(k)) is the compatible system of the classes c₁(L)∈H²_crys(X/W_n(k)); the hyperplane class is h=c₁(O(1))∈H²_crys(P^d_k/W(k)).
+
 api TauCeti.Crystalline.crysChern_log
-log((1+x)(1+y))=log(1+x)+log(1+y) for local sections x, y of J_crys, where
-log(1+x)=Σ_(n≥1)(−1)^(n−1)·(n−1)!·δ_n(x).
+log((1+x)(1+y))=log(1+x)+log(1+y) for local sections x, y of J_crys, where log(1+x)=Σ_(n≥1)(−1)^(n−1)·(n−1)!·δ_n(x).
+
 api TauCeti.Crystalline.crysChern_add
 c₁(L⊗M)=c₁(L)+c₁(M), c₁(O_X)=0 and c₁(L^∨)=−c₁(L) for invertible O_X-modules L, M.
+
 api TauCeti.Crystalline.crysChern_pullback
 For a morphism g:X′→X over a morphism of PD schemes S′→S: g^*c₁(L)=c₁(g^*L) in H²_crys(X′/S′).
+
 api TauCeti.Crystalline.crysChern_fil
 c₁(L) lies in the image of H²((X/S)_crys,J_crys)→H²_crys(X/S).
+
 api TauCeti.Crystalline.crysChern_deRham
-If p is locally nilpotent on S, Y is a smooth lift of X over S and L̃ an invertible O_Y-module
-lifting L with trivialising sections s_λ, then under H²_crys(X/S)≅H²(Y,Ω^•_(Y/S)) of
-CR.2/smooth-lift-filtration c₁(L) is the class of the Čech 1-cocycle (dlog(s_μ/s_λ)) with values
-in Ω¹_(Y/S).
+If p is locally nilpotent on S, Y is a smooth lift of X over S and L̃ an invertible O_Y-module lifting L with trivialising sections s_λ, then under H²_crys(X/S)≅H²(Y,Ω^•_(Y/S)) of CR.2/smooth-lift-filtration c₁(L) is the class of the Čech 1-cocycle (dlog(s_μ/s_λ)) with values in Ω¹_(Y/S).
+
 api TauCeti.Crystalline.crysChern_reduction
-For k perfect and X proper smooth over k, the reduction H²_crys(X/W(k))→H²_crys(X/W_n(k)) sends
-c₁(L) to c₁(L), and for n=1 the image is the de Rham class c₁^dR(L)∈H²_dR(X/k).
+For k perfect and X proper smooth over k, the reduction H²_crys(X/W(k))→H²_crys(X/W_n(k)) sends c₁(L) to c₁(L), and for n=1 the image is the de Rham class c₁^dR(L)∈H²_dR(X/k).
+
 api TauCeti.Crystalline.crysChern_hyperplane
 h=c₁(O(1))∈H²_crys(P^d_k/W(k)) for a perfect field k of characteristic p and d≥1.
+
 test TauCeti.Crystalline.test_crysChern_P1
-For a perfect field k of characteristic p, H²_crys(P¹_k/W_n(k)) is free of rank one over W_n(k)
-with basis h=c₁(O(1)); under H²_crys(P¹_k/W_n)≅H²(P¹_(W_n),Ω^•) the class h is that of the Čech
-1-cocycle dt/t on U₀∩U₁, t=T₁/T₀.
+For a perfect field k of characteristic p, H²_crys(P¹_k/W_n(k)) is free of rank one over W_n(k) with basis h=c₁(O(1)); under H²_crys(P¹_k/W_n)≅H²(P¹_(W_n),Ω^•) the class h is that of the Čech 1-cocycle dt/t on U₀∩U₁, t=T₁/T₀.
+
 test TauCeti.Crystalline.test_crysChern_twist
 c₁(O(m))=m·h in H²_crys(P^d_k/W(k)) for every integer m.
+
 test TauCeti.Crystalline.test_crysChern_mod_p
-For k a perfect field of characteristic p and S=Spec k: c₁(O(p))=0 in
-H²_crys(P¹_k/k)=H²_dR(P¹_k/k), although O(p) is not trivial and c₁(O(p))=p·h≠0 in
-H²_crys(P¹_k/W(k)); so c₁ is not injective, and the class over W(k) is not determined by its
-reduction modulo p.
+For k a perfect field of characteristic p and S=Spec k: c₁(O(p))=0 in H²_crys(P¹_k/k)=H²_dR(P¹_k/k), although O(p) is not trivial and c₁(O(p))=p·h≠0 in H²_crys(P¹_k/W(k)); so c₁ is not injective, and the class over W(k) is not determined by its reduction modulo p.
+
 test TauCeti.Crystalline.test_crysChern_trivial
 c₁(O_X)=0 in H²_crys(X/S).
 
 CrystallineCohomology:CR.4/strict-dieudonne-tower
+
 declaration TauCeti.Crystalline.StrictDieudonneTower
-A strict Dieudonné tower is an inverse system ⋯→X_3→X_2→X_1→X_0 of cochain complexes of abelian
-groups, with transition maps R:X_(r+1)→X_r, equipped with maps of graded abelian groups
-F:X_(r+1)→X_r and V:X_r→X_(r+1) for every r≥0, such that: (1) X_0=0; (2) R:X_(r+1)→X_r is
-surjective for every r≥0; (3) F:X_(r+1)→X_r satisfies dF=pFd for every r≥0; (4) F, R and V
-commute with each other; (5) F(V(x))=p·x=V(F(x)) for every x∈X_r; (6) every x∈X_r such that dx
-is divisible by p lies in the image of F:X_(r+1)→X_r; (7) the kernel of R:X_(r+1)→X_r is the
-subgroup X_(r+1)[p] of elements x with p·x=0; (8) the kernel of R:X_(r+1)→X_r is the span of the
-images of V^r:X_1→X_(r+1) and dV^r:X_1→X_(r+1). A morphism of strict Dieudonné towers is a
-morphism of towers of cochain complexes compatible with F and V; TD denotes the category of
-strict Dieudonné towers. (a) For a saturated Dieudonné complex M, the tower (W_r(M))_(r≥0) with
-the maps Res, F and V of CR.4/verschiebung-completion-tower is a strict Dieudonné tower. (b) For
-a strict Dieudonné tower (X_r), the inverse limit X=lim_r X_r, with F the inverse limit of the
-maps F:X_(r+1)→X_r, is a saturated Dieudonné complex; for every r≥0 the projection X→X_r induces
-an isomorphism of cochain complexes W_r(X)=X/(im V^r+im dV^r)≅X_r; these isomorphisms form an
-isomorphism of strict Dieudonné towers (W_r(X))_r≅(X_r)_r; and X is a strict Dieudonné complex.
-(c) The functor M↦(W_r(M))_(r≥0) from the category DC_str of strict Dieudonné complexes to TD is
-an equivalence of categories, with inverse (X_r)_(r≥0)↦lim_r X_r.
+A strict Dieudonné tower is an inverse system ⋯→X_3→X_2→X_1→X_0 of cochain complexes of abelian groups, with transition maps R:X_(r+1)→X_r, equipped with maps of graded abelian groups F:X_(r+1)→X_r and V:X_r→X_(r+1) for every r≥0, such that: (1) X_0=0; (2) R:X_(r+1)→X_r is surjective for every r≥0; (3) F:X_(r+1)→X_r satisfies dF=pFd for every r≥0; (4) F, R and V commute with each other; (5) F(V(x))=p·x=V(F(x)) for every x∈X_r; (6) every x∈X_r such that dx is divisible by p lies in the image of F:X_(r+1)→X_r; (7) the kernel of R:X_(r+1)→X_r is the subgroup X_(r+1)[p] of elements x with p·x=0; (8) the kernel of R:X_(r+1)→X_r is the span of the images of V^r:X_1→X_(r+1) and dV^r:X_1→X_(r+1). A morphism of strict Dieudonné towers is a morphism of towers of cochain complexes compatible with F and V; TD denotes the category of strict Dieudonné towers. (a) For a saturated Dieudonné complex M, the tower (W_r(M))_(r≥0) with the maps Res, F and V of CR.4/verschiebung-completion-tower is a strict Dieudonné tower. (b) For a strict Dieudonné tower (X_r), the inverse limit X=lim_r X_r, with F the inverse limit of the maps F:X_(r+1)→X_r, is a saturated Dieudonné complex; for every r≥0 the projection X→X_r induces an isomorphism of cochain complexes W_r(X)=X/(im V^r+im dV^r)≅X_r; these isomorphisms form an isomorphism of strict Dieudonné towers (W_r(X))_r≅(X_r)_r; and X is a strict Dieudonné complex. (c) The functor M↦(W_r(M))_(r≥0) from the category DC_str of strict Dieudonné complexes to TD is an equivalence of categories, with inverse (X_r)_(r≥0)↦lim_r X_r.
+
 api TauCeti.Crystalline.StrictDieudonneTower.ofSaturated
-For a saturated Dieudonné complex M, the complexes W_r(M) (r≥0) with Res:W_(r+1)(M)→W_r(M),
-F:W_(r+1)(M)→W_r(M) and V:W_r(M)→W_(r+1)(M) form a strict Dieudonné tower (BLM Proposition
-2.6.2).
+For a saturated Dieudonné complex M, the complexes W_r(M) (r≥0) with Res:W_(r+1)(M)→W_r(M), F:W_(r+1)(M)→W_r(M) and V:W_r(M)→W_(r+1)(M) form a strict Dieudonné tower (BLM Proposition 2.6.2).
+
 api TauCeti.Crystalline.StrictDieudonneTower.limit
-For a strict Dieudonné tower X, the inverse limit lim_r X_r with (Fx)_r=F(x_(r+1)) is a
-saturated Dieudonné complex, and its Verschiebung is given by (Vx)_(r+1)=V(x_r), (Vx)_0=0 (BLM
-Proposition 2.6.5).
+For a strict Dieudonné tower X, the inverse limit lim_r X_r with (Fx)_r=F(x_(r+1)) is a saturated Dieudonné complex, and its Verschiebung is given by (Vx)_(r+1)=V(x_r), (Vx)_0=0 (BLM Proposition 2.6.5).
+
 api TauCeti.Crystalline.StrictDieudonneTower.limitWIso
-For a strict Dieudonné tower X and every r≥0, the projection lim_s X_s→X_r is surjective with
-kernel im V^r+im dV^r; so it induces an isomorphism of cochain complexes W_r(lim_s X_s)≅X_r, and
-these isomorphisms commute with R, F and V (BLM Proposition 2.9.1, Corollary 2.9.2).
+For a strict Dieudonné tower X and every r≥0, the projection lim_s X_s→X_r is surjective with kernel im V^r+im dV^r; so it induces an isomorphism of cochain complexes W_r(lim_s X_s)≅X_r, and these isomorphisms commute with R, F and V (BLM Proposition 2.9.1, Corollary 2.9.2).
+
 api TauCeti.Crystalline.StrictDieudonneTower.limit_isStrict
-For a strict Dieudonné tower X, lim_r X_r is a strict Dieudonné complex in the sense of
-CR.4/strict-dieudonne-complex (BLM Corollary 2.9.3).
+For a strict Dieudonné tower X, lim_r X_r is a strict Dieudonné complex in the sense of CR.4/strict-dieudonne-complex (BLM Corollary 2.9.3).
+
 api TauCeti.Crystalline.StrictDieudonneTower.Hom
-A morphism X→Y of strict Dieudonné towers is a family of maps of cochain complexes f_r:X_r→Y_r
-with R∘f_(r+1)=f_r∘R, F∘f_(r+1)=f_r∘F and V∘f_r=f_(r+1)∘V. It induces a morphism of Dieudonné
-complexes lim f:lim_r X_r→lim_r Y_r, with lim(id)=id and lim(g∘f)=lim(g)∘lim(f); a morphism
-f:M→N of saturated Dieudonné complexes induces the morphism (W_r(f))_r of towers, compatibly
-with identities and composition.
+A morphism X→Y of strict Dieudonné towers is a family of maps of cochain complexes f_r:X_r→Y_r with R∘f_(r+1)=f_r∘R, F∘f_(r+1)=f_r∘F and V∘f_r=f_(r+1)∘V. It induces a morphism of Dieudonné complexes lim f:lim_r X_r→lim_r Y_r, with lim(id)=id and lim(g∘f)=lim(g)∘lim(f); a morphism f:M→N of saturated Dieudonné complexes induces the morphism (W_r(f))_r of towers, compatibly with identities and composition.
+
 api TauCeti.Crystalline.StrictDieudonneTower.equivalence
-M↦(W_r(M))_r, from strict Dieudonné complexes to strict Dieudonné towers, and X↦lim_r X_r are
-inverse equivalences of categories: ρ_M:M→lim_r W_r(M) is a natural isomorphism for strict M,
-and W_r(lim_s X_s)≅X_r is a natural isomorphism of towers (BLM Corollary 2.9.4).
+M↦(W_r(M))_r, from strict Dieudonné complexes to strict Dieudonné towers, and X↦lim_r X_r are inverse equivalences of categories: ρ_M:M→lim_r W_r(M) is a natural isomorphism for strict M, and W_r(lim_s X_s)≅X_r is a natural isomorphism of towers (BLM Corollary 2.9.4).
+
 api TauCeti.Crystalline.StrictDieudonneTower.relations
-In a strict Dieudonné tower: p^r·X_r=0 for every r≥0 (by (1) and (7), by induction on r); and
-V∘d=p·d∘V:X_r^n→X_(r+1)^(n+1) and F∘d∘V=d:X_r^n→X_r^(n+1). The last two are not axioms; they
-follow from X_r≅W_r(lim X) and the identities Vd=p·dV, FdV=d on the saturated complex lim X.
+In a strict Dieudonné tower: p^r·X_r=0 for every r≥0 (by (1) and (7), by induction on r); and V∘d=p·d∘V:X_r^n→X_(r+1)^(n+1) and F∘d∘V=d:X_r^n→X_r^(n+1). The last two are not axioms; they follow from X_r≅W_r(lim X) and the identities Vd=p·dV, FdV=d on the saturated complex lim X.
+
 test TauCeti.Crystalline.test_tower_Zp
-The tower of Z_p (degree 0, F=id) is X_r=Z/p^r with R and F the projections Z/p^(r+1)→Z/p^r and
-V multiplication by p, Z/p^r→Z/p^(r+1). It satisfies the eight axioms:
-ker(R:X_(r+1)→X_r)=p^r·Z/p^(r+1)=X_(r+1)[p]=V^r(X_1), and F is surjective. Its limit is Z_p with
-F=id and V=p.
+The tower of Z_p (degree 0, F=id) is X_r=Z/p^r with R and F the projections Z/p^(r+1)→Z/p^r and V multiplication by p, Z/p^r→Z/p^(r+1). It satisfies the eight axioms: ker(R:X_(r+1)→X_r)=p^r·Z/p^(r+1)=X_(r+1)[p]=V^r(X_1), and F is surjective. Its limit is Z_p with F=id and V=p.
+
 test TauCeti.Crystalline.test_tower_constant_Fp
-Let X_0=0 and X_r=F_p in degree 0 for r≥1, with R:X_(r+1)→X_r and F:X_(r+1)→X_r the identity for
-r≥1 and zero for r=0, and V=0. Axioms (1)–(6) and (8) hold, and (7) fails: for r≥1,
-ker(R:X_(r+1)→X_r)=0 and X_(r+1)[p]=F_p. The limit F_p is not p-torsion-free.
+Let X_0=0 and X_r=F_p in degree 0 for r≥1, with R:X_(r+1)→X_r and F:X_(r+1)→X_r the identity for r≥1 and zero for r=0, and V=0. Axioms (1)–(6) and (8) hold, and (7) fails: for r≥1, ker(R:X_(r+1)→X_r)=0 and X_(r+1)[p]=F_p. The limit F_p is not p-torsion-free.
+
 test TauCeti.Crystalline.test_tower_rational
-The zero tower (X_r=0 for all r) is a strict Dieudonné tower with limit 0. It is the tower of
-the saturated complex Q (degree 0, F=id), for which V=p is bijective and W_r(Q)=0; so lim_r
-W_r(M)≅M fails for the non-strict saturated complex M=Q.
+The zero tower (X_r=0 for all r) is a strict Dieudonné tower with limit 0. It is the tower of the saturated complex Q (degree 0, F=id), for which V=p is bijective and W_r(Q)=0; so lim_r W_r(M)≅M fails for the non-strict saturated complex M=Q.
+
 test TauCeti.Crystalline.test_tower_localization
-The saturated complexes Z_(p) and Z_p (degree 0, F=id) have the same tower (Z/p^r)_r, and its
-limit Z_p is the completion W(Z_(p)) of CR.4/verschiebung-completion-tower; for a saturated M,
-lim_r of the tower (W_r(M))_r is W(M).
+The saturated complexes Z_(p) and Z_p (degree 0, F=id) have the same tower (Z/p^r)_r, and its limit Z_p is the completion W(Z_(p)) of CR.4/verschiebung-completion-tower; for a saturated M, lim_r of the tower (W_r(M))_r is W(M).
+
 test TauCeti.Crystalline.test_tower_free
-Let X_r⁰=⊕_(m≥0)(Z/p^r)·e_m ⊕ ⊕_(0<n<r)(Z/p^(r−n))·v_n and X_r¹=⊕_(m≥0)(Z/p^r)·f_m ⊕
-⊕_(0<n<r)(Z/p^(r−n))·w_n, with d(e_m)=p^m·f_m, d(v_n)=w_n, R the projections, F(e_m)=e_(m+1),
-F(v_n)=p·v_(n−1), F(f_m)=f_(m+1), F(w_n)=w_(n−1), V(e_m)=p·e_(m−1) for m≥1, V(e_0)=v_1,
-V(v_n)=v_(n+1), V(f_m)=p·f_(m−1) for m≥1, V(f_0)=p·w_1, V(w_n)=p·w_(n+1), where v_0=e_0 and
-w_0=f_0. This is a strict Dieudonné tower with nonzero differential (d(e_0)=f_0 in X_1); it is
-the tower of the free strict Dieudonné complex on x=e_0 of BLM Example 2.5.7, with e_m=F^m x,
-v_n=V^n x, f_m=F^m dx, w_n=dV^n x.
+Let X_r⁰=⊕_(m≥0)(Z/p^r)·e_m ⊕ ⊕_(0<n<r)(Z/p^(r−n))·v_n and X_r¹=⊕_(m≥0)(Z/p^r)·f_m ⊕ ⊕_(0<n<r)(Z/p^(r−n))·w_n, with d(e_m)=p^m·f_m, d(v_n)=w_n, R the projections, F(e_m)=e_(m+1), F(v_n)=p·v_(n−1), F(f_m)=f_(m+1), F(w_n)=w_(n−1), V(e_m)=p·e_(m−1) for m≥1, V(e_0)=v_1, V(v_n)=v_(n+1), V(f_m)=p·f_(m−1) for m≥1, V(f_0)=p·w_1, V(w_n)=p·w_(n+1), where v_0=e_0 and w_0=f_0. This is a strict Dieudonné tower with nonzero differential (d(e_0)=f_0 in X_1); it is the tower of the free strict Dieudonné complex on x=e_0 of BLM Example 2.5.7, with e_m=F^m x, v_n=V^n x, f_m=F^m dx, w_n=dV^n x.
+
+CrystallineCohomology:CR.0/envelope-etale-extension
+
+declaration TauCeti.Crystalline.envelope_etale_extension
+Let (A,I,γ) be a PD ring, P an A-algebra, J⊂P an ideal containing IP, and P→P′ an étale map. Put J′=JP′. Then D_(P′,γ)(J′)≅P′⊗_P D_(P,γ)(J), with the divided powers extended from D along the flat map, compatibly with the quotient P′/J′. The construction commutes with composition and localisation. At compatible finite p-power quotients the same statement holds; the completed version is the inverse limit of these isomorphisms, without replacing completed tensor product by ordinary tensor product.
+
+CrystallineCohomology:CR.1/etale-crystalline-site
+
+api TauCeti.Crystalline.etale_crystalline_site_toX
+The projection (U,T,δ)↦U takes values in X_ét on the small site and pulls an étale cover of T back to a cover of U.
+
+api TauCeti.Crystalline.etale_crystalline_site_structure
+O_crys,ét(U,T)=Γ(T,O_T) and J_crys,ét(U,T)=ker(Γ(T,O_T)→Γ(U,O_U)); these are étale sheaves.
+
+api TauCeti.Crystalline.etale_crystalline_site_change
+The identity on big-site objects from the finer étale topology gives ε to the big Zariski crystalline topos; ε⁻¹ is étale sheafification of the Zariski sheaf.
+
+test TauCeti.Crystalline.test_etale_crystalline_field_cover
+For X=Spec F_p, the object (Spec F_(p²),Spec F_(p²),0) is small étale over X but not small Zariski over X; the map to (X,X,0) is a covering.
+
+test TauCeti.Crystalline.test_etale_crystalline_affine_descent
+For an affine thickening Spec B and a finite faithfully flat étale B-algebra B′, the equalizer B′⇉B′⊗_B B′ is B, and the equalizer of the pulled-back PD ideals is the original ideal.
+
+Typed component limits: The small-object full subcategory, the big-site étale covering condition and the identity-cover detector are typed. The associated Grothendieck topology, structural ringed topos, remaining API and two other tests are recorded as omissions; they are not replaced by an uninterpreted proposition.
+
+CrystallineCohomology:CR.1/etale-crystal-comparison
+
+declaration TauCeti.Crystalline.etale_crystal_comparison
+Restriction and étale extension give inverse equivalences between quasi-coherent crystals on the small étale and small Zariski crystalline sites. They preserve finite local freeness. For such a crystal E and every Zariski open V⊂X, the natural map RΓ((V/S)_cris,Zar,E)→RΓ((V/S)_cris,ét,E_ét) is an isomorphism, functorial in V and E. Equivalently Ru_Zar,*E agrees with Rν_*Ru_ét,*E_ét for ν:X_ét→X_Zar, as objects with base coefficients f⁻¹O_S.
+
+CrystallineCohomology:CR.2/smooth-ambient-linearization
+
+declaration TauCeti.Crystalline.smooth_ambient_linearization
+Let p be nilpotent on the PD base S and i:X↪P a closed S-immersion with P smooth of finite presentation over S. Let D be its PD envelope and N a quasi-coherent O_D-module, viewed on X. For a crystalline thickening (U,T), form the PD envelope D_T of U in T×_S P relative to the PD ideal on T. With projections a:D_T→T and b:D_T→D, define L_i(N)_T=a_*b^*N. Its transition maps come from these envelopes. Ru_{X/S,*}L_i(N)≅N as sheaves of base modules on X; higher direct images vanish. The linearizations of E_D⊗Ω^q_(P/S), with their relative PD differential, form a resolution of a quasi-coherent crystal E. This also defines linearization of the differential operators in the coefficient de Rham complex.
+
+api TauCeti.Crystalline.smooth_linearization_eval
+L_i(N)_T=a_*b^*N, with D_T the relative PD envelope of U in T×_SP; this formula defines the restriction maps.
+
+api TauCeti.Crystalline.smooth_linearization_map
+An O_D-linear map N→N′ induces L_i(N)→L_i(N′); identity and composition are preserved.
+
+api TauCeti.Crystalline.smooth_linearization_acyclic
+u_*L_i(N)=N and R^qu_*L_i(N)=0 for q>0 as base-module sheaves on X.
+
+api TauCeti.Crystalline.smooth_linearization_resolution
+The crystal transition isomorphisms identify E⊗L_i(Ω^q_(P/S)|_D) with L_i(E_D⊗Ω^q_(P/S)|_D); the augmented relative PD de Rham complex is exact.
+
+test TauCeti.Crystalline.test_smooth_linearization_zero
+L_i(0)=0 on every object.
+
+test TauCeti.Crystalline.test_smooth_linearization_line
+For X=P=A¹_(F_p), D=X and (U,T)=(X,X), L_i(O_X)_T=F_p[x]⟨ξ⟩ with the second coordinate x+ξ.
+
+test TauCeti.Crystalline.test_smooth_linearization_etale_chart
+Restrict the preceding construction to X=P=G_m. The value is F_p[x,x⁻¹]⟨ξ⟩, and x+ξ is invertible since ξ^p=0; thus the two ambient maps respect the inverted coordinate.
+
+CrystallineCohomology:CR.2/smooth-ambient-comparison
+
+declaration TauCeti.Crystalline.smooth_ambient_comparison
+In the situation of smooth-ambient-linearization, for a quasi-coherent crystal E with envelope value E_D and its integrable PD connection, Ru_{X/S,*}E≅(E_D⊗_(O_P)Ω^•_(P/S),∇) as complexes of f⁻¹O_S-modules on X. For p-adic bases and compatible crystals at finite level the analogous identity is the derived limit of these complexes. If i₁:X↪P₁ and i₂:X↪P₂ are two smooth embeddings, pullback through X↪P₁×_SP₂ gives canonical quasi-isomorphisms between their envelope complexes, coherent for triples and compatible with base change and open restriction.
+
+CrystallineCohomology:CR.2/filtered-pd-comparison
+
+declaration TauCeti.Crystalline.filtered_pd_comparison
+Let p∈I and p be nilpotent on the PD base (S,I,γ), i:X↪P smooth as above, and E a finite locally free crystal. Give E on the crystalline site the filtration J_crys^[r]E (J^[r]=O for r≤0). On its envelope de Rham complex set Fil^r(E_D⊗Ω^q_(P/S))=J_D^[r−q]E_D⊗Ω^q_(P/S), where J_D=ker(O_D→O_X). Then Ru_*(J_crys^[r]E)≅Fil^r(E_D⊗Ω^•_(P/S),∇) for every integer r, compatibly with r and with smooth-ambient independence. In a smooth lift the filtration is the base PD filtration combined with degree, and modulo the base PD ideal it becomes the Hodge filtration. The p-adic assertion is the derived inverse limit of the finite-level filtered identities.
+
+CrystallineCohomology:CR.2/cech-alexander-global
+
+declaration TauCeti.Crystalline.cech_alexander_global
+Let X/S be a crystalline situation, E a quasi-coherent crystal, and U_•→X a Zariski hypercover whose terms admit smooth ambient embeddings. Form for each U_n its compatible envelope Čech–Alexander de Rham bicomplex C_n using all repeated intersections and ambient tensor factors. Then RΓ_crys(X/S,E)≅Tot_n RΓ(U_n,C_n). If X is separated and a finite totally ordered affine cover is used, the alternating Čech total complex of the intersection envelope complexes also computes it. A refinement gives a canonical comparison quasi-isomorphism; any two refinements agree in the derived category after passage to a common refinement. At p-adic level use Rlim of the compatible finite-level totalizations.
+
+CrystallineCohomology:CR.2/higher-direct-image-vanishing
+
+declaration TauCeti.Crystalline.higher_direct_image_vanishing
+For X a Z_p-scheme with p locally nilpotent and E a quasi-coherent crystal on (X/Z_p)_cris, Ru_*(E⊗Ω^q_crys)=0 for every q>0. Consequently the projection of the crystalline de Rham complex (E→E⊗Ω¹_crys→⋯) to E[0] becomes an isomorphism under Ru_*. Here u is ringed over f⁻¹O_(Spec Z_p), and Ω_crys is the PD differential sheaf on thickenings. The same argument applies over a finite Z/p^e base at each compatible level.
+
+CrystallineCohomology:CR.3/mayer-vietoris
+
+declaration TauCeti.Crystalline.mayer_vietoris
+For X=U∪V an open cover and E an O_crys-module (or a bounded-below coefficient complex), there is a natural distinguished triangle RΓ_crys(X/S,E)→RΓ_crys(U/S,E)⊕RΓ_crys(V/S,E)→RΓ_crys((U∩V)/S,E)→RΓ_crys(X/S,E)[1], whose middle arrow is res_U−res_V. It is compatible with coefficients, restrictions and PD base-change maps.
+
+CrystallineCohomology:CR.3/etale-hypercover-descent
+
+declaration TauCeti.Crystalline.etale_hypercover_descent
+Let U_•→X be an étale hypercover of schemes over the PD base S and E a quasi-coherent crystal. With pullback coefficients E_n on each U_n, the augmentation RΓ_crys(X/S,E)→Tot_n RΓ_crys(U_n/S,E_n) is an isomorphism. Totalization is a homotopy limit. For bounded-below coefficient complexes use their derived hypercohomology; in the p-adic setting use compatible finite-level descent followed by Rlim. This does not assert h-, fppf- or proper descent for arbitrary crystalline coefficients.
+
+CrystallineCohomology:CR.4/principal-p-decalage
+
+api TauCeti.Crystalline.pDecalage_cohomology
+H^n(E_pM)=H^n(M)/H^n(M)[p].
+
+api TauCeti.Crystalline.pDecalage_filtered_colimit
+colim E_p(M_j)≅E_p(colim M_j) for a filtered diagram of termwise p-torsion-free complexes.
+
+Typed component limits: The integer-indexed normalized submodules, d/p differential and functorial cochain map are typed. The homology and filtered-colimit assertions are in the exact omission register. The negative-degree test checks the normalized carrier; its embedding into the localization as p^(-1)Z is not typed.
+
+CrystallineCohomology:CR.4/derived-p-decalage
+
+declaration TauCeti.Crystalline.derived_p_decalage
+The functor E_p on termwise p-torsion-free complexes descends through quasi-isomorphisms to Lη_p:D(Z)→D(Z), and to its enhanced derived category. H^n(Lη_pK)≅H^n(K)/H^n(K)[p]. There is a natural equivalence (Lη_pK)^∧_p≅Lη_p(K^∧_p). In particular Lη_p preserves derived p-completeness. This is an endofunctor, without a claim that it is exact or preserves arbitrary limits.
+
+api TauCeti.Crystalline.derivedPDecalage_model
+For a torsion-free model M of K, Lη_pK is represented by E_p(M).
+
+api TauCeti.Crystalline.derivedPDecalage_cohomology
+H^n(Lη_pK)≅H^n(K)/H^n(K)[p], naturally.
+
+api TauCeti.Crystalline.derivedPDecalage_completion
+(Lη_pK)^∧_p≅Lη_p(K^∧_p), naturally in K.
+
+test TauCeti.Crystalline.test_derivedPDecalage_p
+Lη_p(Z/p[0])=0, computed on [Z --p--> Z] in degrees −1,0.
+
+test TauCeti.Crystalline.test_derivedPDecalage_p_squared
+H⁰(Lη_p(Z/p²[0]))=Z/p and all other cohomology is zero.
+
+test TauCeti.Crystalline.test_derivedPDecalage_complete
+Lη_p(Z_p[0])=Z_p[0] and its derived p-completion map is an isomorphism.
+
+CrystallineCohomology:CR.4/witt-structural-identities
+
+declaration TauCeti.Crystalline.witt_structural_identities
+Use Mathlib WittVector p R and TruncatedWittVector p r R. Restriction R_r:W_(r+1)(R)→W_r(R) and F_r:W_(r+1)(R)→W_r(R) are ring maps, V_r:W_r(R)→W_(r+1)(R) is additive and injective, and Teichmüller is multiplicative. F_rV_r=p and V_r(x)·y=V_r(xF_r(y)); the kernel of restriction W_(r+1)→W_r is V^r(R). For R of characteristic p and r≥1, V_(r−1)F_(r−1)=p on W_r(R); on infinite Witt vectors VF=p. The restriction kernel statement means the image of the r-fold coordinate shift from W_1(R)=R into W_(r+1)(R). If R is reduced of characteristic p, W(R) is p-torsion-free and its Frobenius is injective.
+
+CrystallineCohomology:CR.4/witt-frobenius-lift-universal
+
+declaration TauCeti.Crystalline.witt_frobenius_lift_universal
+Let A be a p-torsion-free commutative ring with a ring endomorphism φ satisfying φ(a)≡a^p mod p. Let S be a reduced F_p-algebra and f:A→S a ring map. There is a unique ring map u:A→W(S) with w₀u=f and F_Wu=uφ. Here F_W is injective because S is reduced. This is the special Witt lifting property needed to identify degree zero of a strict Dieudonné algebra.
+
+CrystallineCohomology:CR.3/smooth-curve-lift
+
+declaration TauCeti.Crystalline.smooth_curve_lift
+For a geometrically connected smooth proper curve C over a perfect field k of characteristic p, there exists a smooth proper projective W(k)-scheme C̃ with C̃⊗k≅C. A lift is chosen, not canonical. For every n, coherent cohomology of O and Ω¹ on C̃_n has ranks 1,g,g,1 and is free over W_n(k); the Hodge–de Rham spectral sequence degenerates and H²_dR(C̃_n/W_n(k)) is free of rank one.
+
+CrystallineCohomology:CR.3/crystalline-leray
+
+declaration TauCeti.Crystalline.crystalline_leray
+For a morphism f:Y→X of schemes over a PD base S and a bounded-below crystalline coefficient complex E, the morphism of crystalline topoi gives E₂^(a,b)=H^a_crys(X/S,R^b f_crys,*E)⇒H^(a+b)_crys(Y/S,E). For a proper smooth f whose relative cohomology is finite locally free and commutes with PD base change, the R^b f_crys,*E are finite locally free crystals. For an étale-locally trivial E₀-torsor with E₀ a smooth proper elliptic curve, R¹ f_crys,*O is the constant rank-two crystal H¹_crys(E₀/S); its descent transition maps are trivial because translations act trivially on H¹.
+
+CrystallineCohomology:CR.3/top-coherent-differential
+
+declaration TauCeti.Crystalline.top_coherent_differential
+If X is smooth proper equidimensional of dimension d over a field k of positive characteristic, d:H^d(X,Ω^(d−1)_(X/k))→H^d(X,Ω^d_(X/k)) is zero. Thus the coherent trace factors through top de Rham cohomology. For a geometrically connected smooth proper curve this gives H¹_dR dimension 2g.
+
+CrystallineCohomology:CR.3/elliptic-frobenius
+
+declaration TauCeti.Crystalline.elliptic_frobenius
+For an elliptic curve E/F_p with a=p+1−#E(F_p), H¹_crys(E/Z_p) is free of rank two and its Frobenius has characteristic polynomial T²−aT+p. For E:y²=x³+x over F_5 the point count is 4, a=2, and the Newton slopes are 0 and 1; E is ordinary. For E:y²=x³−x over F_3 the point count is 4, a=0, and the polynomial is T²+3 with both slopes 1/2; E is supersingular. The slopes describe rational cohomology and do not assert a diagonal integral basis.
+
+CrystallineCohomology:CR.3:duality/finite-etale-transfer
+
+declaration TauCeti.Crystalline.finite_etale_transfer
+For a finite étale map g:Y→X of constant degree m between smooth proper pure d-dimensional schemes over a perfect field k, the trace of the finite locally free algebra on each PD thickening defines tr_g:Rg_crys,*O_(Y/W)→O_(X/W). It induces g_!:RΓ_crys(Y/W)→RΓ_crys(X/W), satisfying g_!g^*=m·id, the projection formula g_!(g^*a∪b)=a∪g_!b, composition, and Tr_X g_!=Tr_Y. This transfer agrees with the degree-zero-shift Gysin map defined by duality.
+
+api TauCeti.Crystalline.finiteEtaleTransfer_scalar
+g_!g^*=m·id on RΓ_crys(X/W).
+
+api TauCeti.Crystalline.finiteEtaleTransfer_projection
+g_!(g^*a∪b)=a∪g_!b.
+
+api TauCeti.Crystalline.finiteEtaleTransfer_trace
+Tr_X∘g_!=Tr_Y, and transfer composes for finite étale maps.
+
+test TauCeti.Crystalline.test_finiteEtaleTransfer_identity
+The identity cover has transfer id.
+
+test TauCeti.Crystalline.test_finiteEtaleTransfer_split
+For Y=⊔_(i=1)^mX the transfer is the sum of the m coordinates and g_!g^*=m.
+
+test TauCeti.Crystalline.test_finiteEtaleTransfer_field
+For Spec F_(p^r)→Spec F_p transfer in degree zero is the trace W(F_(p^r))→Z_p and sends 1 to r.
+
+CrystallineCohomology:CR.4/isocrystal-slope-decomposition
+
+declaration TauCeti.Crystalline.isocrystal_slope_decomposition
+Let k be a perfect field of characteristic p and V a finite-dimensional Mathlib WittVector.Isocrystal over K=FractionRing(WittVector p k). For a reduced rational λ=a/b, b>0, define the standard block over an algebraic closure of k by F(e_i)=e_(i+1) for i<b and F(e_b)=p^a e_1, with σ on coefficients. V is isoclinic of slope λ if its scalar extension is a sum of these blocks. There is a canonical finite direct-sum decomposition V=⊕_λ V_λ into isoclinic subisocrystals. Hom(V_λ,V_μ)=0 for λ≠μ. Over algebraically closed k the standard blocks are exactly the simple objects. Over a finite field F_(p^r), the slopes are v_p of eigenvalues of the K-linear F^r divided by r, with multiplicities.
+
+CrystallineCohomology:CR.4/perfectoid-witt-base-change-input
+
+declaration TauCeti.Crystalline.perfectoid_witt_base_change_input
+Let S→S′ be a map of integral perfectoid rings in the lower-tier PerfectoidSpaces P1 sense (BMS1 Definition 3.5). For 1≤j≤r the canonical maps W_j(S)⊗^L_(A_inf(S))A_inf(S′)→W_j(S′) and W_j(S)⊗^L_(W_r(S))W_r(S′)→W_j(S′) are isomorphisms, using either restriction or Frobenius for the W_r-module structure. For 1≤j<r, Ann_(W_r(S))(V^j(1))=ker(F^j:W_r(S)→W_(r−j)(S)), V^j(1)W_r(S)=V^jW_(r−j)(S), and F^j and multiplication by V^j(1) identify W_r(S)/Ann(V^j(1)) with W_(r−j)(S) and V^jW_(r−j)(S), respectively.
 END EXACT PROTOTYPE OMISSION REGISTER -/
