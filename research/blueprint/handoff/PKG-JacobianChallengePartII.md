@@ -1,17 +1,18 @@
 # PKG-JacobianChallengePartII — blocked package checkpoint
 
-Refs #7593. Worker: Codex (GPT-6), session `codex-qsAl8L`,
-10 October 2026. Branch: `codex-qsAl8L-jacobian-package`.
-The bot confirmed [claim comment 6100416135](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100416135)
-in [comment 6100417378](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100417378).
+Refs #7593. Worker: Codex (GPT-6), session `codex-u1FdEf`,
+10 October 2026. Branch: `codex-u1FdEf-jacobian-package`.
+The bot confirmed [claim comment 6100808589](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100808589)
+in [comment 6100810020](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100810020).
 This is the only job claimed in this run. No issue on the manager's priority
 list was available; this package was the first eligible fallback kind.
 
 ## Result and blocking dependencies
 
 **Checkpoint: two required supplier packages remain absent.** This run changes
-only this handoff, consolidating repeated continuation records while retaining
-the source limits, proof worklist and target correspondence. The mathematical
+only this handoff, updating the supplier revision state and content receipts,
+rechecking the two-packet internal dependency graph, and retaining the source
+limits, proof worklist and target correspondence. The mathematical
 README and Suggested.lean are unchanged. No source proof or omitted geometric
 signature is newly certified.
 
@@ -21,7 +22,7 @@ listing, the supplier packets and their issue states establish:
 | Required supplier | Current state | What must precede completion |
 | --- | --- | --- |
 | `AbelianSchemesAndArithmeticModuli:A1–A3` | The 89-node parent plan is independently accepted, dated 2026-10-09. No parent package exists locally or on GitHub main. | Package the parent's arbitrary-base abelian schemes and rigidity (A1), dual/Poincaré/polarization interfaces (A2), and nonzero finite locally free multiplication (A3). Then match the actual packaged contracts to JC1–JC5 and JC7. |
-| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The 528-node plan has verdict `needs_changes`, dated 2026-10-05, and no package. Revision [#6378](https://github.com/CBirkbeck/tauceti-explorer/issues/6378) is claimed; its review [#6395](https://github.com/CBirkbeck/tauceti-explorer/issues/6395) is blocked. | Reconcile the reader with the corrected packet, obtain independent acceptance, and package the fixed symplectic component and its universal smooth curve. |
+| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The 528-node plan has verdict `needs_changes`, dated 2026-10-05, and no package. Revision [#6378](https://github.com/CBirkbeck/tauceti-explorer/issues/6378) is now submitted; its review [#6395](https://github.com/CBirkbeck/tauceti-explorer/issues/6395) is now claimed. The packet still carries the earlier `needs_changes` verdict pending that review. | Reconcile the reader with the corrected packet, obtain independent acceptance, and package the fixed symplectic component and its universal smooth curve. |
 
 WORKERS.md, **Upstream tiers**, says:
 
@@ -60,15 +61,20 @@ g≥2 and ℓ≥3 invertible, its smooth quasi-projective fine scheme, and its s
 projective universal curve. DGH's characteristic-zero construction does not
 replace this target. The actual MC.4/full-level node imports JC1's relative
 Jacobian, arbitrary base change and principal polarization; its input here
-must stay in JC7, never enter JC0–JC5. An earlier DFS found no cycle among the
-explicit internal prerequisites of the two plans; it did not verify every
-external supplier or atlas integration.
+must stay in JC7, never enter JC0–JC5. A fresh topological sort of the
+explicit internal prerequisites of the current two plans visits all 576 nodes
+(48 Jacobian and 528 stable-reduction nodes), with no cycle. This scoped check
+does not verify external supplier closure or atlas integration. The revised
+MC.4 statements still separate the homogeneous level functor from the fixed
+symplectic component and still supply its integral smooth universal curve.
 
 ## Current upstream and library boundary checks
 
-Read the current upstream JacobianChallenge and AlgebraicVectorBundles
-READMEs in full, inspected their Suggested.lean files, and read upstream
-StableReduction Layer 2 and its J-B/SR-2 contract. The upstream checkout is
+This continuation read the current upstream JacobianChallenge and
+AlgebraicVectorBundles READMEs in full. Earlier assembly inspected their
+Suggested.lean files and upstream StableReduction Layer 2 and its J-B/SR-2
+contract; those latter inspections are inherited, not repeated here.
+The upstream checkout is
 `3c18d9fbfceed0dc5c1edb1070a3927152d19e28` and contains neither missing
 supplier. Pointed field Jacobians stay with JacobianChallenge; JC6.2 and
 JC6.3 import finite locally free duals and determinants from
@@ -111,7 +117,7 @@ Lake.
   source correctness or geometric typechecking.
 - `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
   **exit 0, no errors, nine warnings, all `declaration uses sorry`**.
-  Available memory was 102 GB before this single check. The shared Mathlib
+  Available memory was 98 GB before this single check. The shared Mathlib
   pin was `082e2d37e8`; no Tau Ceti module is imported by this file. No language
   server, project, build, update or cache download was started.
 - `metadata.toml` remains absent because this package is incomplete. Its
@@ -125,14 +131,18 @@ Lake.
 
 The two supplier packet Git blob ids match GitHub's default-branch content
 listing: `84b26b1831f0e62fdceb7d84a771862c2e1bd63b` for the parent and
-`dc59ea91e4a1ead87604f769da45f613a7774858` for StableReductionPartII.
-Fresh SHA-256 receipts also match the earlier package checkpoint:
+`e8429524de9692de5328036810b499140fb93c53` for StableReductionPartII.
+The stable-reduction packet has changed since the preceding checkpoint;
+its exact two MC.4 supplier statements and their Jacobian prerequisites were
+read again. The abelian-scheme parent packet and both saved Jacobian package
+files remain byte-for-byte identical to the preceding checkpoint.
+Fresh SHA-256 receipts are:
 
 | File | SHA-256 |
 | --- | --- |
 | `packets/JacobianChallengePartII.json` | `2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275` |
 | `packets/AbelianSchemesAndArithmeticModuli.json` | `768adc69448c575ea3b07e4631d532c5177bc7572d030e3e3420bd8d6f67b3ff` |
-| `packets/StableReductionPartII.json` | `ded54104d6390d9196a8e0ae640ab909938b04fbc1398ff4d1d7eff229f8ce67` |
+| `packets/StableReductionPartII.json` | `59451e50405d0079f6d3ad2f662a4914d8407a51f611d08fba1e2cc52a8ba1d8` |
 | `packages/JacobianChallengePartII/README.md` | `ddfa5c7a605a616d4a507c23c3e1dd656b7345075038b01a5c0ef3e0ca3e3a78` |
 | `packages/JacobianChallengePartII/Suggested.lean` | `ada2203aec5fef3d02a490986708a00641856b98c8338eb9c4b9cac3e03135e0` |
 
