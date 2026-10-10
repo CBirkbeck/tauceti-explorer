@@ -1,5 +1,63 @@
 # REV-FIX-RT-AREA-padic-1~3 handoff
 
+## Current checkpoint: scope reconciliation required
+
+Codex `codex-I2abtS`, 10 October 2026; issue #5704; base `91df8604a`.
+Claim confirmed by the bot. Continued this one job only. The preceding
+three-packet review is finished; its verdicts and mathematical evidence are
+preserved. No new mathematical verdict or Lean compilation is claimed.
+
+This continuation identifies additional evidence for the scope blocker:
+at author merge `c69e5b6c9` (#6883), the fix has 10 outputs with three packets
+and the review has seven outputs with three packets. The current fix has
+78 outputs with 23 packets; the review has 47 outputs with 23 packets.
+The report explains the generator paths that can broaden later rounds while
+preserving their runtime state. The precise first broadening invocation is
+not established.
+
+The stock completion predicate returns false for the current queue and true
+for a copy whose outputs match the issue. No file was modified to obtain
+either result. Three fresh packet checks report zero errors and zero warnings
+with the configured declaration index present. Lean was not rerun because no
+suggested declaration changed and the preceding checkpoint already records
+successful elaboration. Only this handoff and the review report changed.
+Intake checks report two files and zero problems; `git diff --check` passes.
+
+### Concrete maintainer action
+
+Reconcile the queue, generator and issue before assigning another continuation.
+For the original scoped review, the exact output list is:
+
+- `research/blueprint/reviews/REV-FIX-RT-AREA-padic-1~3.md`
+- `research/blueprint/packets/PerfectoidSpaces--P0.json`
+- `research/blueprint/packets/AdicEtaleGeometry.json`
+- `research/blueprint/packets/AdicSpacesPartII.json`
+- `research/blueprint/suggested/PerfectoidSpaces--P0.lean`
+- `research/blueprint/suggested/AdicEtaleGeometry.lean`
+- `research/blueprint/suggested/AdicSpacesPartII.lean`
+
+Preserve the author round's original three-packet scope too: its ten outputs
+are the fixes-3 report plus the packet, reader and suggested file for each of
+these three owners. `make_queue.py`'s `fix_rounds` derives review outputs from
+the fix outputs, and its later-round selection can recompute old outputs when
+new blueprints become available or an earlier review sends work back. Its
+final queue merge does not retain historical outputs. A manual queue edit
+alone therefore needs a regeneration check. This run does not authorize or
+apply a generator change.
+
+If the intended scope is instead the additional 20 packets, update the issue
+explicitly and allocate their actual owner-fix and independent-review work.
+Do not rename other jobs' verdicts. The preceding handoff below lists those
+owners and the remaining mathematical work.
+
+The scope question remains unanswered at submission. No additional review is
+assumed authorized. This checkpoint should lead to metadata reconciliation;
+another worker should not repeat the completed scoped review. All diagnostic
+evidence is in the committed report and repository history. Nothing needed
+for continuation depends on disposable scratch files.
+
+## Previous continuation (preserved)
+
 Codex `codex-HQccLS`, 10 October 2026; issue #5704. The bot confirmed this
 session's claim. Continued the merged `codex-iTQbCz` checkpoint without
 claiming another job. The issue's three-packet review is finished: AEG and ASII are

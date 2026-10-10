@@ -1,5 +1,65 @@
 # REV-FIX-RT-AREA-padic-1~3
 
+## Scope diagnostic continuation: 10 October 2026
+
+Codex, session `codex-I2abtS`, continued issue #5704 from commit
+`91df8604a`. The bot confirmed this session's claim. The preceding scoped
+review is finished; this continuation leaves its mathematical verdicts and
+validation history intact. It adds evidence about the administrative blocker,
+rather than claiming another independent source audit.
+
+The mismatch arose after the author submission. At the author-fix merge
+`c69e5b6c9` (#6883), the queue lists **10 outputs and three packets** for
+`FIX-RT-AREA-padic-1~3`, and **seven outputs and three packets** for its review.
+Those seven review outputs agree exactly with the current issue body. At
+`109496aed` (#8083), `331007b5e` (#8131), and this continuation's base, the
+same fix has **78 outputs and 23 packets**, and the review has **47 outputs
+and 23 packets**. Thus the current broad queue is not evidence that the author
+submitted fixes to the additional 20 packets in this round.
+
+Executed the stock `issues.deliverables_complete` on the unmodified checkout:
+
+| Output list supplied to the predicate | Result |
+| --- | --- |
+| Current queue entry, all 47 outputs | false |
+| Copy of that entry with exactly the issue's seven outputs | true |
+
+Every additional packet has another job's review object. None has this job's
+reviewer. The predicate requires this job's reviewer in every listed packet;
+it accepts an honest `needs_changes` verdict, so P0's disposition is not the
+reason completion fails. The two scope evaluations require no packet edit.
+
+The generator's `fix_rounds` function in `make_queue.py` derives review outputs
+from the fix's promotable outputs and suggested files. When choosing a later
+fix round, it preserves `previous_jobs[following]` only if neither `missing`
+nor `sent_back` holds. Otherwise it computes the round's outputs again,
+including newly available blueprints. The final queue merge preserves job
+state and other runtime metadata, but does not preserve historical `outputs`.
+These code paths explain how scope can expand during regeneration; they were
+inspected, not executed or changed in this run. The exact invocation that
+first broadened this particular round has not been identified.
+
+The maintainer can reconcile the scope by restoring this review's original
+seven outputs and preserving the author round's original three-packet scope
+across regeneration. Newly available owner work needs explicit separate
+assignments or an explicitly expanded issue, followed by actual independent
+reviews; copying their existing verdicts under this job's name would not
+discharge that work. A queue-only correction should be checked against
+`fix_rounds` so that regeneration does not reintroduce the mismatch. The
+handoff records the exact seven paths.
+
+Fresh stock checks of the three issue-named packets report zero errors and
+zero warnings. The configured pinned declaration index was present (316,811
+lines). No suggested file changed, and Lean was not rerun; the preceding
+successful elaborations remain that session's evidence. No packet, reader,
+source, generator, queue, label or existing verdict was changed here.
+
+A scope clarification was requested during this continuation. In the absence
+of an answer, WORKERS' issue-path restriction still applies. This submission
+is a checkpoint for the scope blocker. The next mathematical worker should
+resume only after scope reconciliation, rather than repeat the finished
+three-packet review.
+
 ## Current continuation: 10 October 2026
 
 Codex, session `codex-HQccLS`, independently reviewed FIX #5703 from base
