@@ -5,8 +5,8 @@ names and signatures. All planned proofs use sorry.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Executable declarations use the existing Mathlib coordinate carriers. The
-remaining mathematical interfaces appear in comments beside their full names:
+Executable declarations use Mathlib's coordinate, point-group and coefficient
+lattice carriers. The remaining mathematical interfaces appear in comments beside their full names:
 their supplier types are unavailable, so there is no faithful Lean signature
 yet. Some coordinate APIs below express only the algebraic part of the full
 interface. Their geometric comparisons are specified in the corresponding
@@ -20,6 +20,11 @@ import Mathlib.FieldTheory.RatFunc.Degree
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.Analysis.Normed.Module.Basic
+import Mathlib.Data.Set.Card
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
+import Mathlib.GroupTheory.Torsion
 
 set_option autoImplicit false
 -- Signature prototyping intentionally admits sorry.
@@ -27,6 +32,8 @@ set_option warningAsError false
 noncomputable section
 open scoped Polynomial
 namespace TauCeti.ImaginaryQuadraticModularity
+
+attribute [local instance] Classical.decEq
 
 def shortEquationFamily (F : Type*) [Field F] [NumberField F] :
     Set (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F) :=
@@ -44,6 +51,60 @@ theorem discriminant (F : Type*) [Field F] [NumberField F]
       -16 * (4 * (a : F) ^ 3 + 27 * (b : F) ^ 2) ∧
     ((a, b) ∈ shortEquationFamily F ↔
       (⟨0, 0, 0, (a : F), (b : F)⟩ : WeierstrassCurve F).IsElliptic) := by sorry
+
+/-- Unweighted counting in the real coefficient space of Zywina §1.1, pp.1–2.
+The norm is on ℝ ⊗ℤ 𝒪F². The subtype on the left remembers each coefficient
+pair separately; the set on the right is the same bounded lattice family.
+Finiteness is included so that the natural cardinal is an actual finite count. -/
+theorem height_count (F : Type*) [Field F] [NumberField F]
+    [NormedAddCommGroup
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    [NormedSpace ℝ
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    (X : ℝ) :
+    {ab : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F |
+      ab ∈ shortEquationFamily F ∧ ‖TensorProduct.tmul ℤ (1 : ℝ) ab‖ ≤ X}.Finite ∧
+    Nat.card {ab : shortEquationFamily F |
+      ‖TensorProduct.tmul ℤ (1 : ℝ) ab.val‖ ≤ X} =
+      {ab : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F |
+        ab ∈ shortEquationFamily F ∧ ‖TensorProduct.tmul ℤ (1 : ℝ) ab‖ ≤ X}.ncard := by
+  sorry
+
+-- shortEquationFamily.height_count_test_nonpositive: the origin is singular.
+example (F : Type*) [Field F] [NumberField F]
+    [NormedAddCommGroup
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    [NormedSpace ℝ
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    (X : ℝ) (hX : X ≤ 0) :
+    Nat.card {ab : shortEquationFamily F |
+      ‖TensorProduct.tmul ℤ (1 : ℝ) ab.val‖ ≤ X} = 0 := by sorry
+
+-- shortEquationFamily.height_count_test_one: (0,1) contributes one equation.
+example (F : Type*) [Field F] [NumberField F]
+    [NormedAddCommGroup
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    [NormedSpace ℝ
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    (X : ℝ)
+    (hX : ‖TensorProduct.tmul ℤ (1 : ℝ)
+      ((0, 1) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F)‖ ≤ X) :
+    1 ≤ Nat.card {ab : shortEquationFamily F |
+      ‖TensorProduct.tmul ℤ (1 : ℝ) ab.val‖ ≤ X} := by sorry
+
+-- shortEquationFamily.height_count_test_scaling: isomorphic equations count twice.
+example (F : Type*) [Field F] [NumberField F]
+    [NormedAddCommGroup
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    [NormedSpace ℝ
+      (TensorProduct ℤ ℝ (NumberField.RingOfIntegers F × NumberField.RingOfIntegers F))]
+    (X : ℝ)
+    (h₁ : ‖TensorProduct.tmul ℤ (1 : ℝ)
+      ((0, 1) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F)‖ ≤ X)
+    (h₂ : ‖TensorProduct.tmul ℤ (1 : ℝ)
+      ((0, 64) : NumberField.RingOfIntegers F × NumberField.RingOfIntegers F)‖ ≤ X) :
+    2 ≤ Nat.card {ab : shortEquationFamily F |
+      ‖TensorProduct.tmul ℤ (1 : ℝ) ab.val‖ ≤ X} := by sorry
 
 -- shortEquationFamily.test_zero
 example (F : Type*) [Field F] [NumberField F] :
@@ -77,6 +138,13 @@ theorem b3J_eval (K : Type) [Field K] [CharZero K] (x : K) (h : x ≠ 0) : RatFu
 
 theorem b3J_intDegree : RatFunc.intDegree b3J = 3 := by sorry
 
+/-- Degree of the genuine function-field extension ℚ(x)/ℚ(j).
+Identifying this with the modular curve's proper j-morphism still requires
+small_curve_models. This is not RatFunc.intDegree. -/
+theorem b3J_functionFieldDegree :
+    Module.finrank (IntermediateField.adjoin ℚ ({b3J} : Set (RatFunc ℚ)))
+      (RatFunc ℚ) = 4 := by sorry
+
 -- The full _intDegree API also identifies the proper j-map degree via small_curve_models.
 
 -- b3J_test_one
@@ -95,6 +163,10 @@ theorem b5J_fraction : b5J = RatFunc.mk ((Polynomial.X^2 + 250*Polynomial.X + 31
 theorem b5J_eval (K : Type) [Field K] [CharZero K] (x : K) (h : x^5 ≠ 0) : RatFunc.eval (Rat.castHom K) x b5J = (x^2+250*x+3125)^3/x^5 := by sorry
 
 theorem b5J_intDegree : RatFunc.intDegree b5J = 1 := by sorry
+
+theorem b5J_functionFieldDegree :
+    Module.finrank (IntermediateField.adjoin ℚ ({b5J} : Set (RatFunc ℚ)))
+      (RatFunc ℚ) = 6 := by sorry
 
 -- The full _intDegree API also identifies the proper j-map degree via small_curve_models.
 
@@ -115,6 +187,10 @@ theorem ns3J_eval (K : Type) [Field K] [CharZero K] (x : K) (h : 1 ≠ 0) : RatF
 
 theorem ns3J_intDegree : RatFunc.intDegree ns3J = 3 := by sorry
 
+theorem ns3J_functionFieldDegree :
+    Module.finrank (IntermediateField.adjoin ℚ ({ns3J} : Set (RatFunc ℚ)))
+      (RatFunc ℚ) = 3 := by sorry
+
 -- The full _intDegree API also identifies the proper j-map degree via small_curve_models.
 
 -- ns3J_test_zero
@@ -134,6 +210,10 @@ theorem ns5J_eval (K : Type) [Field K] [CharZero K] (x : K) (h : (x^2+x-1)^5 ≠
 
 theorem ns5J_intDegree : RatFunc.intDegree ns5J = 0 := by sorry
 
+theorem ns5J_functionFieldDegree :
+    Module.finrank (IntermediateField.adjoin ℚ ({ns5J} : Set (RatFunc ℚ)))
+      (RatFunc ℚ) = 10 := by sorry
+
 -- The full _intDegree API also identifies the proper j-map degree via small_curve_models.
 
 -- ns5J_test_zero
@@ -152,6 +232,10 @@ theorem s3J_fraction : s3J = RatFunc.mk (27*(Polynomial.X+1)^3*(Polynomial.X-3)^
 theorem s3J_eval (K : Type) [Field K] [CharZero K] (x : K) (h : x^3 ≠ 0) : RatFunc.eval (Rat.castHom K) x s3J = 27*(x+1)^3*(x-3)^3/x^3 := by sorry
 
 theorem s3J_intDegree : RatFunc.intDegree s3J = 3 := by sorry
+
+theorem s3J_functionFieldDegree :
+    Module.finrank (IntermediateField.adjoin ℚ ({s3J} : Set (RatFunc ℚ)))
+      (RatFunc ℚ) = 6 := by sorry
 
 -- The full _intDegree API also identifies the proper j-map degree via small_curve_models.
 
@@ -177,6 +261,16 @@ theorem B_discriminant : B.Δ = -675 ∧ IsUnit B.Δ := by sorry
 theorem B_baseChange (K : Type*) [Field K] [CharZero K] : B.baseChange K = (⟨0, 0, -1, 0, 1⟩ : WeierstrassCurve K) := by sorry
 
 instance B_elliptic : B.IsElliptic := by sorry
+
+/-- CN Proposition 7.1.3(5), p.94, and Proposition 7.4.4, p.100.
+A bijective integer-multiple map supplies a saturated generator and proves
+both rank one and trivial torsion on Mathlib's actual point group. -/
+theorem B_mordell_weil :
+    ∃ D : B.toAffine.Point, Function.Bijective (fun n : ℤ => n • D) := by sorry
+
+-- B_mordell_weil_test_saturation: doubling loses a genuine generator.
+example (D : B.toAffine.Point) (hD : Function.Bijective (fun n : ℤ => n • D)) :
+    ¬ IsOfFinAddOrder D ∧ ¬ Function.Surjective (fun n : ℤ => n • (2 • D)) := by sorry
 
 -- B_test_j
 example : B.j = 0 := by sorry
@@ -212,6 +306,17 @@ theorem Es35_baseChange (K : Type*) [Field K] [CharZero K] : Es35.baseChange K =
 
 instance Es35_elliptic : Es35.IsElliptic := by sorry
 
+-- Unfolding baseChange lets the existing map instance transport ellipticity.
+local instance E15_baseChange_elliptic (F : Type*) [Field F] [Algebra ℚ F] :
+    (E15.toAffine.baseChange F).IsElliptic := by
+  change (E15.map (algebraMap ℚ F)).IsElliptic
+  infer_instance
+
+local instance Es35_baseChange_elliptic (F : Type*) [Field F] [Algebra ℚ F] :
+    (Es35.toAffine.baseChange F).IsElliptic := by
+  change (Es35.map (algebraMap ℚ F)).IsElliptic
+  infer_instance
+
 -- Es35_test_zero
 example : ∃ h : Es35.toAffine.Equation 0 0, WeierstrassCurve.Affine.Point.mk h ≠ 0 ∧ 2 • WeierstrassCurve.Affine.Point.mk h = 0 := by sorry
 
@@ -220,6 +325,53 @@ example : Es35.toAffine.Equation (0) 0 ∧ Es35.toAffine.Equation (-1) 0 ∧ Es3
 
 -- Es35_test_delta
 example : Es35.Δ = 921600 ∧ Es35 ≠ E15 := by sorry
+
+/-- CN Corollary 7.1.2 proof, p.93. The rational subgroups are the images of
+the canonical base-change homomorphisms. Having a square root characterizes
+the named quadratic fields without choosing a private number-field carrier.
+The Gaussian count distinguishes eight new torsion points from eight total
+points. This statement does not assume rank zero over an arbitrary field. -/
+theorem quadratic_level_fifteen_torsion (F : Type*) [Field F] [NumberField F]
+    (hF : Module.finrank ℚ F = 2) :
+    ((∀ P : (E15.toAffine.baseChange F).Point,
+        IsOfFinAddOrder P → P ∈ Set.range
+          (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+            (Algebra.ofId ℚ F))) ↔
+      (¬ ∃ i : F, i ^ 2 = -1) ∧ (¬ ∃ s : F, s ^ 2 = 5)) ∧
+    ((∀ P : (Es35.toAffine.baseChange F).Point,
+        IsOfFinAddOrder P → P ∈ Set.range
+          (WeierstrassCurve.Affine.Point.map (W' := Es35.toAffine)
+            (Algebra.ofId ℚ F))) ↔ (¬ ∃ s : F, s ^ 2 = 5)) ∧
+    Nat.card E15.toAffine.Point = 8 ∧ Nat.card Es35.toAffine.Point = 8 ∧
+    ((∃ i : F, i ^ 2 = -1) →
+      Nat.card {P : (E15.toAffine.baseChange F).Point |
+        IsOfFinAddOrder P ∧ P ∉ Set.range
+          (WeierstrassCurve.Affine.Point.map (W' := E15.toAffine)
+            (Algebra.ofId ℚ F))} = 8) := by sorry
+
+/-- The rank-zero part of the four CN examples (§1, p.2), on the explicit
+elliptic model. The conclusion that every curve is modular needs Modular and
+finite_level_fifteen_modularity; it is not asserted by this signature. -/
+theorem small_imaginary_quadratic_level_fifteen_finite
+    (F : Type*) [Field F] [NumberField F] (hF : Module.finrank ℚ F = 2)
+    (d : ℕ) (hd : d = 1 ∨ d = 2 ∨ d = 3 ∨ d = 5)
+    (s : F) (hs : s ^ 2 = -(d : F)) :
+    Finite (E15.toAffine.baseChange F).Point := by sorry
+
+/-- The explicit point (-1,6√(-10)) on the level-fifteen model is nontorsion.
+The geometric X₀(15) comparison is supplied by level_fifteen_models. -/
+theorem sqrt_minus_ten_infinite_level_fifteen
+    (F : Type*) [Field F] [NumberField F] (hF : Module.finrank ℚ F = 2)
+    (s : F) (hs : s ^ 2 = -10) :
+    ∃ h : (E15.toAffine.baseChange F).Equation (-1) (6 * s),
+      ¬ IsOfFinAddOrder (WeierstrassCurve.Affine.Point.mk h) ∧
+      (∀ q : ℚ, 6 * s ≠ (q : F)) ∧
+      Infinite (E15.toAffine.baseChange F).Point := by sorry
+
+-- sqrt_minus_ten_infinite_level_fifteen_test_equation: retain the square root.
+example (F : Type*) [Field F] [NumberField F] (s : F) (hs : s ^ 2 = -10) :
+    (E15.toAffine.baseChange F).Equation (-1) (6 * s) ∧
+    ¬ (E15.toAffine.baseChange F).Equation (-1) 6 := by sorry
 
 def gaussianExceptional (K : Type*) [Field K] (i : K) : WeierstrassCurve K := ⟨i, 1, 1, 6+i, 10-15*i⟩
 
@@ -419,9 +571,10 @@ example (K : Type*) [Field K] [CharZero K] (s : K) (h : s^2 = -55) : (quarticIma
 ## Mathematical interfaces
 
 The following comments specify all eight layers in order, including the full
-contracts of the coordinate declarations above. A name in these comments is
-an intended declaration, not an executable theorem. Definitions, API lemmas
-and named examples must use the genuine supplier carriers when available.
+geometric contracts of the declarations above. Only declarations outside
+comments provide Lean signatures. Contracts needing unavailable supplier
+carriers remain specifications. Definitions, API lemmas and named examples
+must use the genuine supplier carriers when available.
 Sources and prerequisites use the README's abbreviations.
 -/
 
