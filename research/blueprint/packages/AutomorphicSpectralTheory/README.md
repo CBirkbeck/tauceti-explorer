@@ -23,7 +23,7 @@ Conventions Y, D, G:
 For F=y^(k/2)f,
 Δ_classical f=y^(−k/2)(Δ_unitary F+(k²/4−k/2)F); at k=1/2 the shift is −3/16. Green sums use Γ₀(N)/{±I}, whereas Eisenstein sums use Γ_∞\Γ.
 
-Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures: K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
+Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6 imports `AF.1/normalized-real-parabolic-induction`: covariance a^(ν+ρ_P)σ(m), right translation, K∩M_P compact picture and induction in stages; Paley–Wiener requires holomorphic finite-K-type families. Its trace suffix uses orbital integrals, pseudo-coefficients and Bernstein trace images; modular cores use oriented quadratic cycles with genus signs.
 
 `TauCeti.AutomorphicSpectral`; AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B/S: library/sources.
 
@@ -2457,11 +2457,11 @@ Uses: AS.5.12; AS.2.13.
 
 For a real reductive algebraic group G with maximal compact K and radius r>0, the trace transforms of smooth bi-K-finite functions supported in the radius-r ball are exactly the collections F_i(δ,ν) on basic representations induced from limits of discrete series of Levi subgroups satisfying: finite support in δ; entire scalar Paley–Wiener bounds of type r in ν; K-conjugacy/Weyl invariance; and every induction-in-stages additivity relation (iv) of Clozel–Delorme Theorem 1. The LF image carries the quotient topology. All four conditions are required; a Weyl-invariant entire function alone is insufficient.
 
-Assume: The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed. The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+Assume: The real reductive algebraic setting and basic representations of Clozel–Delorme §0; Haar, norm/radius, and normalized induction are fixed. Use `AF.1/normalized-real-parabolic-induction` and holomorphic finite-K-type matrix coefficients.
 
 Source: S16, §0 Theorem 1(i)–(iv), pp.194–195; §5 Theorem 1′.
 
-Uses: AS.0.12; `AF.1`; `AF.1/sf-representation`.
+Uses: AS.0.12; `AF.1/normalized-real-parabolic-induction`; `AF.1/sf-representation`.
 
 ### AS.6.2 — Real operator Paley–Wiener theorem
 
@@ -2469,11 +2469,11 @@ Uses: AS.0.12; `AF.1`; `AF.1/sf-representation`.
 
 For Arthur’s real reductive group G and K, Fourier transformation f↦{I_B(σ,λ,f)} is a topological algebra isomorphism C_c^∞(G,K)→PW(G,K). At fixed radius N and finite K-type set Γ it identifies C_N^∞(G)_Γ with PW_N(G)_Γ: entire finite-dimensional operator families with all seminorms sup e^(−N||Re λ||)(1+||λ||)^n||F_B(σ,λ)|| finite and all differential matrix-coefficient relations (III.4.1) inherited from the induced representations. The relations include derivatives, not just ordinary intertwining covariance.
 
-Assume: The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces. The induced families in this local theorem come from the requested AF.1 real-parabolic compact picture, not AS.1 global adelic automorphic induction.
+Assume: The representation, radius and finite-K-type conventions of Arthur Acta III §4; finite-dimensional matrix coefficient spaces. Use `AF.1/normalized-real-parabolic-induction` and holomorphic finite-K-type matrix coefficients.
 
 Source: S11, III §4 Theorem 4.1, pp.84–85.
 
-Uses: AS.0.15; AS.0.12; `AF.1/sf-representation`; `AF.1`.
+Uses: AS.0.15; AS.0.12; `AF.1/sf-representation`; `AF.1/normalized-real-parabolic-induction`.
 
 ### AS.6.3 — Arthur spectral multipliers
 

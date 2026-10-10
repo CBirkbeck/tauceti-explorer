@@ -1,5 +1,130 @@
 # PKG-AutomorphicSpectralTheory — blocked checkpoint
 
+Issue #7893. Worker: Codex, session `codex-j4B1sN`, 10 October 2026.
+Branch: `codex-j4B1sN-pkg-automorphic-spectral-theory`.
+Claim: [6095229097](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095229097), confirmed by the bot for this session.
+Continues #8291 from explorer main `66598e80fd153d96e5577671256d6f1bc08dbbe3`.
+Only this issue was claimed. The package is unfinished; this is a blocked checkpoint.
+
+## Changed supplier evidence: do not repeat the old absence claim
+
+The AF packet **has changed** since #8291. Its SHA-256 is now
+`4d5bd16513715fc784b405d22e4b02d01d6c27e682f742e0ca86906076e4467b`;
+its suggested file is
+`046edd4c00a0862f0f815174c839e085d49fc0521d02a84912ba662370e87513`.
+The node `AutomorphicFormsOnReductiveGroups:AF.1/normalized-real-parabolic-induction`
+now plans general real-parabolic normalized smooth induction. It includes
+left covariance, right translation, the compact-picture topological equivalence,
+functoriality, minimal-principal-series compatibility and induction in stages.
+Its suggested file supplies `normalizedInduction.ofLevi`, `ofLeviCarrier`,
+`ofLevi_action`, `restrictK` and `transitivity`, with native Levi coordinates,
+modular determinants and actual inducing representations. The inherited claim
+that AF supplies only minimal finite-dimensional principal series is obsolete.
+
+Updated the README's build paragraph and the two Paley–Wiener targets to cite
+this exact owner. Updated the corresponding Lean omission comment and export
+comment. The missing interface is now **parameter dependence**: a single
+compact-picture carrier over the complex dual of the split Lie algebra,
+entire finite-K-type induced operator/matrix-coefficient families, and the
+parameter-compatible differentiated relations needed by operator
+Paley–Wiener. Neither this node's statement/API nor its native inducing-character
+signatures states that holomorphic family theorem. Do not confuse having a
+pointwise `InducingCharacter` argument with proving holomorphic dependence.
+The actual Hecke/PW topological algebras are also still absent from the AS
+prototype. No new theorem or definition was asserted in this checkpoint.
+
+Fresh primary reading: Bernstein–Krötz, *Smooth Fréchet Globalizations of
+Harish-Chandra Modules*, [arXiv v3](https://arxiv.org/pdf/0812.1684v3),
+§9.3, printed pp.39–40, Proposition 9.6. The inducing coefficient there is a
+Harish-Chandra module's minimal SF realization; the canonical-globalization
+comparison assumes it is irreducible and good. This fixed-parameter comparison
+does not itself state the requested holomorphic finite-K-type family interface.
+Accessed 10 October 2026; PDF SHA-256
+`f5f2e79d87532c9ac46389d7eb1606e0301eac0ba7c7972ab628e278e091ca3e`.
+No restricted source was needed or copied.
+
+## Decisive remaining ownership blocker
+
+The AS packet, reader and original suggested file retain the immutable hashes
+at the end of the inherited note. The three direct upward prerequisites remain:
+
+| AS consumer | Current supplier | Required disposition |
+| --- | --- | --- |
+| `AS.2/generic-normalized-intertwiner` | `EndoscopicTransferAndUnitaryTraceComparison:ET.0` | Assign the relevant classical packet, pure-inner-form and genericity carriers to an appropriate lower-tier owner, with exact statements. The AS request itself says ET.0's conjugacy data do not supply these carriers. |
+| `AS.6/weighted-orbital-integral` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move ordinary quotient-centralizer orbital integration, convergence and singular extension down; retain endoscopic stabilization in ET. |
+| `AS.6/general-euler-poincare` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move the discrete-series/pseudo-coefficient input down and redirect its consumers, preserving the independent real Paley–Wiener prefix. |
+
+`upstream/CaraianiNewton.md` still puts AS in tier 13 and ET in tier 14.
+WORKERS' Upstream tiers rule requires these owner moves. Section 20 prohibits
+upward suppliers in the package. Issue #7893 explicitly says to change no
+packet and describe plan mistakes in the handoff. The permitted package files
+cannot implement these authoritative ownership corrections. Removing target
+hypotheses, assuming their conclusions, or relabelling an ET input without
+planning its actual lower-tier owner would leave the gap intact.
+
+**Maintainer action required before this job can finish:** authorize or merge
+the AS/ET ownership revision and the AF parameter-family supplier refinement;
+then give this package job the revised exact contracts. Repeated packaging
+runs against these unchanged contracts cannot produce a completed package.
+The older full signature audit and omitted-target worklist below still apply.
+
+## Current upstream and library check
+
+Read the current CompactGroups and OperatorIdeals READMEs in full and their
+Suggested interfaces; searched current roadmap/library sources by principal
+series, parabolic induction, compact picture, Paley–Wiener, orbital integrals
+and pseudo-coefficients. The read-only roadmap checkout is still
+`cd03e06852a13216ad246d0623492c4beac39af2`; Tau Ceti is still
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The actual `GL2PrincipalSeries` declaration is for `[Field F] [Fintype F]`
+and uses algebraic `indFDRep`; it does not supply real smooth parameter
+families. No current matching supplier was found for the remaining contracts.
+Read the seven AS layers in `data/library-coverage.json`; the audit distinguishes
+constant-field L²/compact Peter–Weyl from general direct integrals and records
+orbital integration as absent. These were reads only; no build ran there.
+
+## Checks and preservation
+
+- Packet checker: exit 0, zero errors/warnings. Unchanged inventory:
+  190 targets, 223 API items, 219 unit tests, 38 planets, 32 baseline declarations,
+  52 gaps, 22 requests; seven planned stages, zero closed.
+- `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
+  **exit 0, zero errors, 753 warnings, all `declaration uses sorry`; no other warnings**.
+  Available memory before checking: 107 GB. This was the shared pinned wrapper
+  (Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`). No active Lean declaration changed;
+  this elaboration does not certify the inherited mathematics.
+- Intake file check: three allowed files, zero problems. `git diff --check` passes.
+- README: 190 target blocks, 199,956 UTF-8 bytes. All target, API and test content
+  is retained. Only supplier prose and omission comments changed.
+- No metadata was added: the package remains incomplete. No packet, supplier,
+  library, review, atlas data or other job output was modified.
+
+### Pass on the touched contracts
+
+| Contract checked | Instance or comparison | Result |
+| --- | --- | --- |
+| Real induction scope | Minimal finite-dimensional inducing coefficient versus general supplied Levi SAF module | The new AF node and `ofLevi` cover the latter; exact supplier citation corrected. |
+| Normalization and action | P=G gives zero half-root sum; SL₂ positive diagonal has exponent ν+1 | AF's explicit acceptance/tests pin these cases; conventions retained without introducing another induction owner. |
+| Parameter quantification | One fixed inducing character versus an entire complex-dual operator family | New supplier is insufficient for the latter; omission narrowed and retained honestly. |
+| Dependency direction | AS tier 13 versus ET tier 14 | All three prohibited upward edges remain; exact owner revisions listed above. |
+
+Resume from the new supplier evidence above, rather than the obsolete minimal-only
+blocker in the historical note. After authorized revisions, restore genuine
+source-qualified signatures from the inherited omission worklist, finish the
+source/README/signature audit and upstream formatting, run the checks, and add
+`topic = "math.NT"` only when the package is complete.
+
+---
+
+## Historical handoff through #8291
+
+The material below preserves earlier fixes, omitted signatures, source receipts
+and continuation worklists. Its minimal-only AF absence claim is superseded by
+the new evidence above; its AS hashes and remaining signature work are retained.
+
+# PKG-AutomorphicSpectralTheory — blocked checkpoint
+
 Issue: #7893. Worker: Codex, session `codex-B9KKF4`, 10 October 2026.
 Branch: `codex-B9KKF4-pkg-automorphic-spectral-theory`.
 Claim: [6095018564](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6095018564).

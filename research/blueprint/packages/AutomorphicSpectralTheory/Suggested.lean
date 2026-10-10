@@ -4822,8 +4822,11 @@ example (f : ℂ → ℂ) (r : ℝ) :
     PaleyWienerBound (fun s => (0 : ℂ) * f s) r := by sorry
 
 /- AS.6/real-invariant-paley-wiener and AS.6/real-operator-paley-wiener:
-full signatures omitted until the AF local real-parabolic family and the actual
-Hecke/PW topological algebras exist. Scalar entire bounds and finite support alone
+AF.1/normalized-real-parabolic-induction supplies the smooth normalized carrier,
+compact-picture equivalence and induction in stages. Its pointwise inducing
+character does not yet state holomorphic dependence of finite-K-type operator
+families. Full signatures also require the actual Hecke/PW topological algebras.
+Scalar entire bounds and finite support alone
 do not imply membership in an arbitrary transform range; arbitrary rings need not
 be isomorphic. The invariant theorem also needs Clozel–Delorme's relations (iii),
 (iv); the operator theorem needs every differentiated matrix-coefficient relation.
@@ -6113,8 +6116,8 @@ end TauCeti.AutomorphicSpectral
 Real harmonic-analysis export proposal (findings /4 and /24):
 AS.6/real-invariant-paley-wiener, real-operator-paley-wiener and
 spectral-multiplier form a proposed AS.1a prefix before ET.1 and AS.6.
-Only independent AS.0 LF/Schwartz/integration and the requested AF.1 local
-real-parabolic families on the independent supplied SF/Hilbert carrier, together
+Only independent AS.0 LF/Schwartz/integration and AF.1/normalized-real-parabolic-induction
+on supplied smooth Levi realizations, with holomorphic finite-K-type families, together
 with AF.1b real classification, belong to that prefix. The global adelic
 AS.1 induced-family is not a local real supplier. The multiplier uses the
 operator theorem. ET.1 then supplies ordinary orbital integrals to AS.6's
