@@ -38011,7 +38011,8 @@
     "BP-AInfCohomology--AI.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AInfCohomology--AI.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6983"
   },
   {
    "kind": "blueprint",
@@ -38737,7 +38738,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -42281,8 +42283,9 @@
     "BP-ShimuraVarieties--V0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7092"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7092",
+   "finishedAt": "2026-10-10T05:21:46Z"
   },
   {
    "kind": "blueprint",
@@ -48193,8 +48196,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -49174,8 +49177,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -81353,8 +81356,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
