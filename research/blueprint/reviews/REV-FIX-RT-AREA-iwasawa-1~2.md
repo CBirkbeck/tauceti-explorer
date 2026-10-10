@@ -1,3 +1,52 @@
+# Current continuation: completion remains blocked by mismatched scope
+
+Codex — **codex-QVUktl**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
+Claim confirmed in [comment 6100519267](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100519267).
+Input commit: `a3279f24dc57c6b98c8594d730aea3d20385470d`.
+Branch: `codex-QVUktl-review-6217`.
+
+**Blocked checkpoint.** The issue still authorizes one packet review, its
+suggested file and this report; the queue still requires eleven packet reviews
+and 23 outputs. The accepted HE.0 mathematical review is preserved. This
+continuation independently checks the completion repair and makes no new
+mathematical verdict on HE.0 or on the ten extra packets.
+
+Fresh verification:
+
+- The actual `issues.deliverables_complete` returns false for the current
+  queue entry and true after restoring only the two historical output lists
+  from `88f9bcd44`. No other job field changes in this check.
+- Live PR #6753 has exactly the four historical fix files and merge commit
+  `05036608ddb23c6603c1d2721487d87027616106`.
+- All seven focused regression cases in the preserved report pass.
+- The full generator replay preserves round two's four/three outputs and
+  assigns thirty/seventeen outputs to round three. Both rounds stay stable
+  across two generations. Comparing original and repaired runs changes 36
+  existing jobs, adds twenty and removes none, in memory only.
+- The proposed guard parses, and a prepared two-file patch passes
+  `git apply --check`. The existing report contains the portable repair and
+  self-contained regression scripts; no scratch file is required to resume.
+- HE.0 passes `check_blueprint.py` with zero errors and warnings: 78 nodes,
+  24 API items, eighteen tests, 21 gaps and 63 requests.
+- Suggested-file SHA-256 remains
+  `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+  Lean was not rerun; the previous pinned successful elaboration receipt
+  remains below with its original attribution. No Lean process was started.
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” The repair requires `make_queue.py` and `queue.json`,
+which the issue does not name. Direct local `intake.file_problems` calls also
+reject both paths as outside swarm output paths. Explicit scope expansion
+and a maintainer-handled PR were requested in this session and have not been
+received. No automatic approval rejection occurred, and the intake rules
+have not been bypassed.
+
+This checkpoint changes only this report and the handoff. The next useful
+step is the maintainer's scope repair, using the exact restoration and guard
+below. Repeating the accepted HE.0 review cannot satisfy the current queue.
+
+---
+
 # Current continuation: blocked checkpoint with verified completion repair
 
 Codex — **codex-gp4K8h**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).

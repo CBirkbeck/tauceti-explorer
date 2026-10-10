@@ -1,49 +1,41 @@
-# Handoff: #6217 blocked checkpoint; completion repair verified
+# Handoff: #6217 completion blocked by issue/queue scope mismatch
 
-Codex — **codex-gp4K8h**, 10 October 2026.
-Branch: `codex-gp4K8h-review-6217`. Input commit: `24b730041bcdca9936c22add6fd444b4f0354b90`.
-Claim confirmed in [comment 6100250146](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100250146).
+Codex — **codex-QVUktl**, 10 October 2026.
+Branch: `codex-QVUktl-review-6217`.
+Input commit: `a3279f24dc57c6b98c8594d730aea3d20385470d`.
+Claim confirmed in [comment 6100519267](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100519267).
 **Blocked checkpoint.** This session claimed only #6217.
 
-The HE.0 fix review is already accepted. Its packet and suggested file are
-unchanged. Completion remains false because the issue authorizes one packet
-and three review outputs, while the queue requires eleven packets and 23
-outputs. Ten additional packets retain their own jobs' reviewer markers.
+The issue's HE.0 mathematical fix review is accepted and unchanged. Completion
+remains false because the issue names one packet and three outputs while the
+queue requires eleven packets and 23 outputs. Ten extra packets retain other
+jobs' reviewer markers. No new mathematical verdict was added.
 
-## Ready repair
+The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) preserves the
+exact guard, historical four/three output lists and two self-contained
+regression scripts. Restore only `outputs` of `FIX-RT-AREA-iwasawa-1~2` and
+`REV-FIX-RT-AREA-iwasawa-1~2` from `88f9bcd44` (PR #6753), preserving all
+other fields, then apply the guard in `make_queue.py::fix_rounds`. The live
+PR's four-file list and canonical merge commit
+`05036608ddb23c6603c1d2721487d87027616106` confirm that original scope.
+The guard alone would preserve the already incorrect expanded output lists.
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) contains the exact
-Python guard, historical four/three output lists and two self-contained
-regression scripts. Apply the guard to `make_queue.py::fix_rounds` and restore
-only `outputs` of `FIX-RT-AREA-iwasawa-1~2` and
-`REV-FIX-RT-AREA-iwasawa-1~2` from commit `88f9bcd44` (PR #6753).
-The canonical GitHub merge commit
-`05036608ddb23c6603c1d2721487d87027616106` records the same historical lists,
-and the live PR #6753 file list confirms its four-file fix scope.
-Preserve states and all other fields. Applying the guard alone would retain
-the already incorrect historical scope.
+Fresh checks reproduce the seven passing focused cases and the full generator
+replay. Restoring the output lists makes the actual completion predicate true.
+Two full generations preserve round two's four/three outputs and assign thirty/
+seventeen to round three. The broader in-memory comparison changes 36 jobs,
+adds twenty and removes none. Inspect that routing before publishing new rounds.
+No generator, queue, prompt, synchronization or promotion output was written.
 
-This session prepared the minimal 5,821-byte repair and verified it without
-changing those repository files. All seven focused regression cases pass.
-Two full generator replays preserve round two's four/three lists and route
-new work to round three's thirty/seventeen lists. The generated comparison
-changes 36 existing jobs, adds twenty and removes none, in memory only.
-No prompts, queue generation, issue synchronization or promotion was run.
-The real completion predicate returns true after only the output restoration.
+WORKERS.md restricts edits to issue-named files, and `intake.file_problems`
+rejects the two repair paths. Scope expansion and a maintainer-handled PR were
+requested and remain pending. The maintainer must apply the repair or expand
+and reconcile the live issue's scope. Do not replace other packets' reviewer
+markers, alter intake, or repeat the HE.0 review to force completion.
 
-## Resume
-
-Explicit authorization for these two paths and a maintainer-handled PR was
-requested during this run and has not been received. WORKERS.md restricts worker edits
-to issue-named paths; local `intake.file_problems` also rejects generator and
-queue paths. Do not modify intake or replace other packets' reviewer markers.
-The maintainer should apply the repair, inspect subsequent routing and
-publish matching instructions for new rounds. All repair instructions are
-in the report, so no scratch artifact is needed to resume.
-
-Fresh HE.0 validation: zero errors and warnings, 78 nodes, 24 API items,
-eighteen tests, 21 gaps and 63 requests. This session's pinned `lean-check`
-exits 0 with 114 warnings, all admissions, and no errors. Suggested SHA-256:
+HE.0 validation: zero errors and warnings; 78 nodes, 24 API items, eighteen
+tests, 21 gaps and 63 requests. Its Lean file is unchanged, SHA-256
 `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
-No new mathematical or source-reading verdict is claimed. No Lean process
-remains. Delete scratch after the PR opens.
+Lean was not rerun; the preserved prior receipt reports exit 0 with 114
+warnings, all admissions. No Lean process remains. All resumption instructions
+are in the report, so no scratch artifact is needed.
