@@ -1,3 +1,176 @@
+# PKG-ArithmeticQuantumTopology — scalar QT.7 checkpoint
+
+Worker: Codex (GPT-6), session `codex-TYTEog`, issue #7889, 2026-10-10.
+Branch: `codex-TYTEog-arithmetic-quantum-topology`.
+Continues explorer main `114805f6287ccd57cad399c3a78716c068dbc18f` and merged #8324.
+Claim [6096133473](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096133473)
+was confirmed by bot [6096134671](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096134671).
+None of the manager's priority issues was available at selection. This focus
+package was selected under the fallback order. No second job was claimed.
+
+## Outcome and dependency blocker
+
+**The package remains incomplete because G1's foreign geometric contracts are
+absent.** This is a dependency checkpoint. The accepted input imports framed
+oriented multi-links and actual surgery from GeometricTopology, explicitly
+records G1 and two open Part II requests, and disallows an alternate carrier.
+Issue #7889 allows edits only to this package and its handoff, not its packet or
+suppliers. The missing interfaces cannot be supplied by inventing geometric
+records, assuming their desired theorems as fields, or re-planning the owner.
+
+**Required owner action:** provide the exact framed-link/linking and
+surgery/H₁/Kirby signatures in the two existing GeometricTopology requests, or
+have the maintainer revise the ownership/scope. The saved matrix congruences
+are only the algebraic shadow of geometric moves. They do not construct a
+filled manifold or prove invariance of its quantum invariant.
+
+Current read-only TauCetiRoadmap checked:
+`35abcbde930414647dad7cc22ee03e6464c7ae26`.
+Current read-only Tau Ceti checked:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read GeometricTopology and RepresentationTheory/SemisimpleAlgebras READMEs in
+full as upstream examples, and GeometricTopology's Suggested.lean. The latter
+still contains comments describing future link/surgery declarations, rather
+than active signatures. The current library's relevant contracts remain:
+
+| Accepted consumer | Supplier checked | Missing exact interface |
+| --- | --- | --- |
+| `QT.0/framed-link-and-linking-matrix`, with bottom-tangle and trace consumers | `KnotTheory/SmoothLink/Basic.lean`, `SmoothLink/Isotopy.lean`, `KnotTheory/Markov.lean`; GeometricTopology layer 4 | Finite oriented components, transported integer Seifert framing, pairwise linking numbers, framed isotopy and diagram/braid comparison. `SmoothLinkEmbedding` has disjoint smooth circle embeddings without framing. Its ambient isotopy relation has no framing data. `FramedMarkovBraid` has component integers, whereas `MarkovEquiv` relates unframed braids. |
+| `QT.0/surgery-presentation`, `QT.0/kirby-and-fenn-rourke-moves`, `QT.0/refined-presentation-existence` | `LowDimTopology/DehnSurgery/Slope.lean`; GeometricTopology layer 5 | An actual oriented filled manifold at fμ+λ; H₁/cokernel comparison and IHS iff det=±1; ordinary Kirby/Fenn–Rourke equivalence; stable unimodular-form diagonalization and realization by ordinary moves. A homology basis and primitive slope do not supply the filling. |
+
+Fresh searches of the current library found no definitions of the missing
+linking-number or filling carriers and no matching Kirby theorem. The pinned
+Markov statements retain the same framing distinction. The reviewed library
+audit has no dedicated ArithmeticQuantumTopology row. The other existing
+GeometricTopology requests, for oriented gluing/AK pseudo-manifolds and cusped
+ideal geometry, are also unchanged. No supplier or accepted input was edited.
+
+## Mathematical progress saved
+
+Added a **183-line scalar QT.7 section** to Suggested.lean, with **5 concrete
+definitions, 12 API theorems and 17 examples**, plus two individual Mathlib
+imports. The inherited body is otherwise unchanged. The new predicates
+specify the QMC/GQMC for supplied knot-specific values, volumes and geometric
+series. They do not assert the conjectures for arbitrary inputs or establish
+any missing knot or geometric comparison.
+
+- `qmcParameter` is hγ(X)=2πi/[c(cX+d)]. Its API gives the reduced cusp
+  denominator, nonvanishing away from the pole, and convergence to zero.
+- `qmcTruncation` evaluates the native `PowerSeries.trunc M` polynomial only.
+  Its API gives the coefficient sum and successor law. No infinite formal
+  series is evaluated, so even factorial coefficients are admissible inputs.
+- `qmcScale` retains the selected row's normalized-volume twist and weight,
+  and the geometric exponential exp(Vgeo/[den(a/c)²h]). The one-loop factor
+  stays in the supplied geometric series. Positive c makes cX+d eventually
+  positive, agreeing with the source's real branch.
+- `generalized_quantum_modularity` uses Mathlib `Asymptotics.IsBigO` on
+  `atTop ⊓ principal {X : ℚ | X.den ≤ B}` for every B>0 and every M. The
+  remainder is J(γX) minus scale·J(X) times the first M coefficients; its
+  comparison is scale·J(X)·h^M. Constants may depend on B and M but are uniform
+  in X. The norm-bound API states this quantifier order explicitly.
+- Ratio notation requires eventual J(X)≠0 on every such filter. Uniqueness
+  of the formal series requires eventual nonvanishing along the integer
+  subsequence. Positive B makes the filter nontrivial. The all-zero row
+  satisfies the multiply-through criterion for every series, which is why
+  the uniqueness hypothesis is necessary.
+- `the_quantum_modularity_conjecture` specializes the generalized criterion
+  at weight 3/2 and normalized row-volume zero, with exact equality.
+
+The 17 Lean examples specify three controls each for hγ, finite truncation,
+scale and the original specialization, plus denominator-one/zero, wrong
+remainder order, zero-row and c=0 controls. They include S at 1 and 2,
+sign invariance, factorial truncation 1+h+2h²+6h³, the nontrivial-row twist,
+and rejection of T. Most API/example proofs remain `sorry` as roadmap
+prototypes; successful elaboration is not a proof of these statements.
+
+README gives the uniform scalar remainder, these API/test names, their
+nonvanishing hypotheses and the distinction from the separately normalized
+Bettin–Drappeau theorem. To fit its size limit, repeated convention/proof prose
+was shortened. All inherited targets, references and API/test blocks remain.
+No generic quantum-modular framework or foreign geometry was re-planned.
+
+## Fresh source and library receipts
+
+Garoufalidis–Zagier, *Knots, Perturbative Series and Quantum Modularity*,
+[arXiv:2111.06645v3](https://arxiv.org/pdf/2111.06645v3): §1 equations
+(1.5)–(1.6), pp.10–11, for the original all-orders, bounded-denominator
+expansion and negative-q convention; §3.1 equations (3.3)–(3.8), pp.15–16,
+for the representation twist, weight and completed geometric exponential.
+Read these portions afresh. PDF SHA-256:
+`2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de`.
+No new claim about a later version or a freshly checked Bettin–Drappeau proof
+is made. All saved mathematical prose is in our own words. No restricted
+book was used; the maintainer's library index was read.
+
+New native library interfaces were read at the pinned Mathlib commit:
+`PowerSeries.trunc`, `Polynomial.eval`, `Filter.atTop`, `Filter.principal`
+and `Asymptotics.IsBigO`. There is no new opaque asymptotic predicate or
+completion carrier. The build's Mathlib commit was verified as
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; the shared checker's documented
+Tau Ceti pin is `f790474821cf4256814db967cb154e7af3d0c369`.
+
+## Validation in codex-TYTEog
+
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, no errors, 631 warnings, all `declaration uses sorry`**.
+  A first check found a real-power coercion error in an example; it was fixed
+  with an explicit `Real.rpow`, and the complete file was checked again.
+  Available memory before the final check was 105 GB. Only the shared checker
+  was used, with one Lean invocation at a time. No Lean process remains.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  **exit 0, 0 errors, 0 warnings**. Unchanged accepted input: 106 nodes,
+  206 API items, 159 tests, 36 planets, 24 baselines, 8 gaps, 19 requests,
+  8 planned stages and 0 closed stages.
+- An independent exact-rational Python control checked 81 determinant-one
+  matrices with entries in [−4,4] and c>0 against 77 rationals of numerator
+  in [−10,10] and denominator in [1,6], excluding poles. There were 6,156
+  checks each for 1/[den(a/c)²·(h/(2πi))]=X+d/c and the denominator-cocycle
+  identity. Another 325 checks exercised factorial truncation/successor
+  formulas; 1,000 choices C=1,…,1000 with X=2C+1 rejected the constant-error
+  O(1/X) bound. **13,637 finite controls passed.** These are formula controls,
+  not universal Lean proofs or evidence that the knot conjecture is true.
+- Conservation against the inherited files: **106 ordered target headings,
+  114 anchors, 121 inline/reference link destinations and 405 single-name
+  inherited API/test prefixes preserved**. The **106 API/test blocks** found
+  by the block inventory are byte-for-byte unchanged. The preceding
+  handoff's 54-block count used a different block convention.
+- README: **199,955 UTF-8 bytes**, below 200,000. Suggested.lean retains the
+  inherited body byte-for-byte apart from the two imports and new section.
+  Scoped intake check: **3 files, 0 problems**; `git diff --check` passes; changes are only README,
+  Suggested.lean and this handoff.
+- Input packet SHA-256:
+  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
+  Saved Suggested.lean SHA-256:
+  `b20f7d2d582733278509ec5b11573819cce82cdb4223158b6b93a3e59eb66333`.
+  Saved README SHA-256:
+  `68a8366d67a17f73a57c37787e39a5c3f660689d81fe93b54062924c2c4c85f0`.
+
+`metadata.toml` remains absent. Intake marks a package complete by existence
+of all three package files; adding metadata would incorrectly complete this
+one. Its eventual line is `topic = "math.GT"` after every layer meets §20.
+
+## Where to resume
+
+Resolve the owner contracts above first, then instantiate the saved native
+algebra on them. Preserve the band choice in geometric handle slides. QT owns
+admissible band-slide/Hoste refinements and quantum invariants, not ordinary
+surgery foundations. Re-running packaging without a supplier change cannot
+close G1.
+
+The scalar all-orders criterion is now explicit. Still connect its supplied
+J, V and φ to the actual knot/representation family and geometric NZ series;
+complete lifted and matrix expansions and their source-specific comparisons;
+keep their conjectural status. The earlier eight-layer worklist remains
+below, including quantum integral cores, coefficient-field Gaussian brackets,
+full finite étale Habiro descent and analytic AK interfaces. The new scalar
+section does not discharge those items. This session does not re-certify
+historical source readings or all inherited prototypes.
+
+## Inherited checkpoints and source receipts
+
+Everything below is retained from the previous handoff. Its session-specific
+reports describe those earlier runs, not additional checks in codex-TYTEog.
+
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
 Worker: Codex (GPT-6), session `codex-CApqnZ`, issue #7889, 2026-10-10.

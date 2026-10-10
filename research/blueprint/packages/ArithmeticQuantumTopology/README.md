@@ -4,17 +4,17 @@ This roadmap constructs integral quantum invariants of links and integral homolo
 
 ## Conventions and boundaries
 
-For rank one, q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E, and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!. The integral ground ring is ℤ[q±1]; the ambient representation algebra uses ℚ(v), with q=v². Positive framing acts by the inverse ribbon element r⁻¹. Vₙ has dimension n+1, whereas the reduced colored-Jones dimension index N uses Vₙ₋₁. The unreduced unknot value is [n+1]; division defining a reduced polynomial takes place before root evaluation. General Lie type retains the root lattice, symmetrizers, root lift and parity grading rather than borrowing rank-one formulas without their hypotheses.
+Rank one uses q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!. Its integral ground ring is ℤ[q±1], ambient color field ℚ(v), q=v². Positive framing uses r⁻¹. Vₙ has dimension n+1; the reduced dimension index N uses Vₙ₋₁. The unreduced unknot is [n+1]; reduce before root evaluation. General Lie type retains its root lattice, symmetrizers, root lift and parity grading.
 
-The scalar Habiro ring is imported from HabiroCyclotomicCompletions: the inverse limit of ℤ[q] modulo the cyclotomic factorial ideals. Neither the completion of the integral quantum group nor the color-lattice completion is silently identified with that scalar ring. The former is an image of an inverse limit in the ambient h-adic quantum algebra. QT.1 constructs quantum completed tensors and PBW forms using native quotient and tensor algebras. A general inverse-limit map is not asserted injective.
+HabiroCyclotomicCompletions supplies the scalar inverse limit of ℤ[q] modulo cyclotomic factorial ideals. The quantum-group image completion in the ambient h-adic algebra and the color-lattice completion are distinct. QT.1 builds completed tensors and PBW forms from native quotient/tensor algebras; inverse-limit maps need not be injective.
 
-GeometricTopology owns framed links, their ordinary diagram and braid relations, linking matrices, surgery, Kirby calculus, manifold carriers and hyperbolic geometry. Tau Ceti’s based Gauss codes and writhe are single-knot interfaces; its unframed Markov equivalence does not prove a framed link theorem. QT.0 imports these carriers and adds the refined admissible calculus needed by the integral invariant. LieHighestWeight and its RootSystems inputs own the classical Lie, root, weight and PBW theory. QT.1 owns the quantum presentations and integral ribbon/core structures.
+GeometricTopology owns framed links, diagram/braid equivalence, linking matrices, surgery, Kirby calculus, manifolds and hyperbolic geometry. QT.0 consumes these and builds refined admissible calculus. Gauss codes/writhe are single-knot data; unframed Markov equivalence is insufficient. LieHighestWeight and RootSystems own classical Lie/weight/PBW theory; QT.1 owns quantum presentations and integral ribbon/cores.
 
-K3BlochGroups owns ordinary pre-Bloch and Bloch groups, their boundary conventions, Suslin fibres and K₃ interfaces. Polylogarithms owns dilogarithm branches, Bloch–Wigner and regulator machinery. QT.5 supplies geometric flattenings, the full extended group needed by these manifolds, and the normalization comparisons. Neumann’s regulator is iVol−CS in ℂ/π²ℤ; GZ’s complex volume is iVol+CS, so the comparison is −complex conjugation with the period and lift recorded. A trace-field class needs verified algebraicity and boundary cancellation; a diagram alone does not supply it.
+K3BlochGroups owns ordinary pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms owns dilogarithm branches, Bloch–Wigner and regulators. QT.5 builds geometric flattenings, the full extended group and normalization comparisons. Neumann uses iVol−CS modulo π²ℤ; GZ uses iVol+CS: compare by negative conjugation, retaining period and lift. Trace-field descent needs algebraicity and boundary cancellation beyond a diagram.
 
-HabiroNahmSeries owns formal Gaussian contraction and the integral Nahm/module theorem. HabiroNumberFields supplies the early Frobenius coefficient ring and the twisted K₃-indexed module. The QT comparison retains HB.9’s coefficient-transfer, signed Kummer, integral-gluing and full quadratic finite étale descent obligations, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, parity compatibility, nondegenerate shapes and the exact arithmetic coefficient ring; invertibility of B alone gives a rational matrix and is insufficient. QT.6 contributes the geometric series and the comparison of its classical, one-loop and phase factors. Unbounded self-adjoint operators and their functional calculus belong to Tau Ceti’s OperatorTheory/SelfAdjointSpectralTheory; the Schrödinger realization, common Schwartz core and microlocal kernel extension build on that owner; the analytic Faddeev pentagon differs from the formal noncommutative pentagon already owned by the cyclotomic-completion roadmap.
+HabiroNahmSeries owns Gaussian contraction and the integral Nahm/module theorem; HabiroNumberFields supplies Frobenius coefficients and twisted K₃-indexed modules. QT retains HB.9 coefficient-transfer, signed Kummer, integral-gluing and full quadratic finite étale descent, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, compatible parity, nondegenerate shapes and the exact arithmetic ring; invertible B gives only a rational matrix. QT.6 compares geometric classical, one-loop and phase factors. OperatorTheory/SelfAdjointSpectralTheory owns unbounded self-adjoint operators and functional calculus. The Schrödinger realization, Schwartz core and microlocal kernels consume it. Cyclotomic completions owns the formal pentagon; QT owns the analytic Faddeev comparison.
 
-QSeriesPartitionsAndMockModularForms owns generic scalar quantum modular and cocycle theory. Its matrix multiplicative and branch-aware extension is requested as Part II. QT.7 owns the selected knot rows, matrices and comparisons. Its algebraic cocycle identity is conditional on invertibility and the automorphy-factor identity; real analyticity is a separate conjecture. A general resurgence or Borel-summation framework is outside this roadmap. Wheeler’s two-variable knot invariant and its MMR/Alexander and relative-Habiro comparison are routed to ArithmeticQuantumTopology, Part II, using HabiroRings HR.1/HR.5 for the generic relative-completion interfaces.
+QSeriesPartitionsAndMockModularForms owns generic scalar quantum modular/cocycle theory and its requested matrix, branch-aware Part II. QT.7 owns knot rows and comparisons. Its cocycle requires invertibility and the automorphy law; real analyticity remains conjectural. General resurgence/Borel summation is outside QT. ArithmeticQuantumTopology, Part II owns Wheeler’s two-variable MMR/Alexander and relative-Habiro comparison, consuming HabiroRings HR.1/HR.5.
 
 ## Library interfaces
 
@@ -277,7 +277,7 @@ The braided Hopf algebra structure of the braided transmutation of U_h induces a
 
 **Depends on.** [Quantum sl₂ algebra and integral forms][AQT09]; [The ribbon structure of U_h(sl(2))][AQT12].
 
-**Proof.** Recall the braided transmutation of U_h: the same algebra with the braided coproduct and antipode built from the R-matrix. Check on the free basis of the even form that each structure map has image in the completed tensor power of the even form. Extend to the completion by continuity, using that each structure map respects the defining filtration. Record that the same holds for the odd form and for the Z/2-grading, which is the variant used for bottom knots.
+**Proof.** Transmute U_h using R, retaining its algebra. On the even-form free basis, check the braided structure maps land in its completed tensor powers and respect the filtration; continuity extends them to completion. Establish the odd-form and ℤ/2-graded variants used for bottom knots.
 
 **Checks.**
 
@@ -948,7 +948,7 @@ For an integral homology sphere M the element of the Habiro ring defined by the 
 
 **Depends on.** [The unified invariant of an integral homology sphere](#qt-3-definition-of-JM); [Refined Kirby calculus for admissible links (Hoste's conjecture)][AQT04]; [Twisting theorem: surgery along a unit-framed unknotted component][AQT24].
 
-**Proof.** By the refined Kirby calculus any two admissible presentations of M are related by isotopies and Hoste moves. Check invariance of the surgery formula under an isotopy, which is immediate from invariance of the coloured invariant. Check invariance under a single Hoste move, using the twisting theorem to compare the two sides. Conclude by induction along the sequence of moves.
+**Proof.** Refined Kirby calculus connects admissible presentations by isotopies and Hoste moves. Coloured-invariant isotopy invariance and the twisting theorem give invariance along that sequence.
 
 **Checks.**
 
@@ -987,7 +987,7 @@ The unified invariant is multiplicative under connected sum, so that the invaria
 
 **Depends on.** [The unified invariant does not depend on the admissible presentation](#qt-3-JM-well-defined); [GeometricTopology — layer-1-manifold-library-buildout-general-dimension-general-structure-group][GT1]; `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`.
 
-**Proof.** Present the connected sum by the split union of admissible presentations of the two summands. Use multiplicativity of the coloured invariant on split unions to factor the surgery formula. For orientation reversal, take the mirror image of the presentation and track the effect on the twist elements and on the coloured invariant. Identify the result with the ring involution of the Habiro ring.
+**Proof.** Split union presents connected sum; coloured-invariant multiplicativity factors its surgery formula. Mirroring changes twist colours and the coloured invariant by the Habiro q-inversion involution.
 
 **Checks.**
 
@@ -1045,7 +1045,7 @@ Let M be an integral homology sphere and zeta a primitive r-th root of unity. Th
 
 **Depends on.** [The unified invariant does not depend on the admissible presentation](#qt-3-JM-well-defined); [The Witten-Reshetikhin-Turaev invariant at a root of unity](#qt-4-WRT-invariant-at-a-root); `HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity`.
 
-**Proof.** Evaluate the surgery formula for the unified invariant at the root, using that evaluation is a ring homomorphism from the Habiro ring to the ring of integers of the cyclotomic field. Identify the evaluated twist elements with the finite Gauss sums appearing in the state sum. Match the normalisations, using the auxiliary lemma on coloured invariants with colours in the representation ring at the root. Conclude the equality for every root of unity, without restriction on the order.
+**Proof.** Apply the integral cyclotomic evaluation homomorphism to the surgery formula. Match evaluated twist colours with the finite Gauss sums, using the root representation-ring trace comparison and both sign normalizations. This includes every root order.
 
 **Checks.**
 
@@ -1065,7 +1065,7 @@ For every integral homology sphere M and every root of unity zeta, the Witten-Re
 
 **Depends on.** [Evaluation of the unified invariant at a root of unity][AQT25]; `HabiroCyclotomicCompletions:HC.3/evaluation-at-a-root-of-unity`.
 
-**Proof.** Apply the evaluation theorem to write the invariant as the image of an element of the Habiro ring. Observe that the Habiro ring has coefficients in the integers, so evaluation lands in the ring of integers generated by the root. For equivariance, note that an automorphism of the cyclotomic field commutes with evaluation of a fixed element of the Habiro ring. Conclude both statements.
+**Proof.** The evaluation theorem expresses WRT as an integral Habiro evaluation. Integer coefficients give cyclotomic integrality and commute with every cyclotomic field automorphism.
 
 **Checks.**
 
@@ -1180,7 +1180,7 @@ Let G be the Habiro–Le central parity extension of Y×Y/2Y, retaining its cent
 
 **Depends on.** [Integral core subalgebra](#qt-1-general-integral-core); `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`; [Quantum parity grading](#qt-4-general-parity-grading); [Topological ribbon Hopf algebras][AQT14]; [Bottom tangles and their closure][AQT07].
 
-**Proof.** Before AL1, construct the generic J_T from the topological ribbon Hopf bead rules (Habiro–Le §2.7) and its finite-color trace compatibility; this missing general-type interface is explicitly G2, not supplied by universal-sl2-invariant. Use the even core and degree-one intersection to exclude unwanted square roots. Stability and the integral Borromean computation establish AL1. Twist images lie in Ã∩ℚ(q)=ℤ[q±1]; continuity gives AL2 and K̃₀.
+**Proof.** Construct generic J_T and finite-color traces from Habiro–Le §2.7 before AL1; the rank-one invariant is insufficient. Even-core degree-one stability and the integral Borromean computation give AL1. Twist images lie in Ã∩ℚ(q)=ℤ[q±1]; continuity gives AL2 and K̃₀.
 
 **API.**
 
@@ -1910,7 +1910,7 @@ For the admitted RootNZDatum with nonzero S, every coefficient of φ⁺_(Ξ,ζ) 
 
 **Conjectural target.**
 
-Conjecture (GZ QMC): for γ=(a b;c d)∈SL₂(ℤ), c>0, X→+∞ through rationals with bounded denominator, J_K(γX)∼(cX+d)^(3/2) J_K(X) Φ̂_(a/c)^geo(2πi/[c(cX+d)]). Here the completed geometric series is exp(Vgeo/[den(α)²h])Φ_α^geo(h), with the specified volume representative, one-loop phase and q convention. The relation means an all-orders asymptotic expansion, not equality of rational functions or pointwise convergence of the formal series. The positive-q Bettin–Drappeau theorem is a separately normalized proved specialization for its ten knots, requiring the explicit q-conjugation comparison.
+For γ=(a b;c d)∈SL₂(ℤ), c>0, put hγ(X)=2πi/[c(cX+d)] and α=a/c. For the supplied GZ negative-q invariant J, QMC asserts J(γX)∼(cX+d)^(3/2)J(X)exp(Vgeo/[den(α)²hγ(X)])Φα(hγ(X)), along rational X→+∞ of bounded denominator. The geometric complex-volume representative, one-loop phase and q convention are fixed inputs. The following generalized target specifies the all-orders remainder; the positive-q Bettin–Drappeau theorem requires its separate normalization comparison.
 
 **Depends on.** [Kashaev invariant][AQT23]; [Representation-indexed knot series][AQT52]; [Rogers volume and Chern–Simons regulator][AQT37].
 
@@ -1963,7 +1963,7 @@ For a knot with a finite set P_K of isolated boundary-parabolic SL₂(ℂ) repre
 
 **Depends on.** [Kashaev invariant][AQT23]; [Formal state-integral invariance][AQT42]; [The conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in](#qt-6-the-asymptotic-series-and-its-arithmetic); `HabiroCyclotomicCompletions:HC.3/the-taylor-map`; `HabiroCyclotomicCompletions:HC.3/re-expansion-of-taylor-expansions`.
 
-**Proof.** Import rootwise Taylor maps for the trivial branch. Extract the selected nontrivial stationary points and finite representation index from the knot data. Compare each formal NZ normalization and field; require isolated nondegenerate input rather than a bare representation label.
+**Proof.** Use rootwise Taylor maps on the trivial row. Extract the finite stationary-point index from the knot data; compare fields and NZ normalizations at each isolated nondegenerate point.
 
 **API.**
 
@@ -2018,7 +2018,26 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 
 **Conjectural target.**
 
-Conjecture (GZ GQMC): for every supplied representation σ, γ=(a b;c d), c>0, and rational X→+∞ with bounded denominator, (cX+d)^(−κσ) exp(−Ṽσλγ(X))Jσ(γX)∼Jσ(X)Φ̂_(a/c)^geo(2πi/[c(cX+d)]). The trivial σ reduces to the original QMC; nontrivial σ has weight zero but retains its complex-volume twist. All-orders error statements are analytic conjectures; neither the formal series nor the cocycle identity proves them.
+For each supplied representation σ, γ=(a b;c d) with c>0, α=a/c and h=hγ(X), set Aσ(X)=exp(vσλγ(X))|cX+d|^κσ exp(Vgeo/[den(α)²h]), vσ=Vσ/(2πi). The source GQMC is Jσ(γX)∼Aσ(X)Jσ(X)Φα(h). The trivial row has v=0, κ=3/2; other rows have κ=0 and retain their volume twist.
+
+For every integer B>0 and M≥0, require constants C>0 and N∈ℚ such that, for every rational X≥N with den(X)≤B,
+
+‖Jσ(γX)−Aσ(X)Jσ(X) Σ_(n<M)φ_n hγ(X)^n‖ ≤ C‖Aσ(X)Jσ(X)hγ(X)^M‖.
+
+Thus C and N may depend on the fixed knot, γ, B and M, but not on X. Use Mathlib `Asymptotics.IsBigO` on atTop intersected with the principal filter den(X)≤B. The comparison includes the full scale and Jσ(X), without dividing by a possibly zero value. Ratios require eventual nonvanishing. For c>0, cX+d is eventually positive, so its absolute-value real power has the source branch and the finite pole is irrelevant. A determinant-one matrix gives den(a/c)=c. Evaluate only `PowerSeries.trunc M`; the formal series need not converge.
+
+**Scalar API.**
+
+- `qmcParameter`, `qmcParameter_ne_zero`, `qmcParameter_tendsto_zero`, `qmcCusp_den`: the displayed hγ, its pole-free nonvanishing and limit zero, and the reduced cusp denominator.
+- `qmcTruncation`, `qmcTruncation_eq_sum`, `qmcTruncation_succ`: the finite polynomial evaluation, its coefficient formula, and addition of φ_Mh^M at the next truncation.
+- `qmcScale`, `qmcScale_ne_zero`: Aσ and its nonvanishing away from the pole, using the existing scalar tweaked automorphy factor.
+- `generalized_quantum_modularity`, `generalized_quantum_modularity_iff_bound`, `generalized_quantum_modularity_iff_ratio`: the concrete all-orders property, its uniform norm criterion, and its ratio form under eventual Jσ(X)≠0 for every B>0.
+- `the_quantum_modularity_conjecture`, `qmc_trivial_row`: the same property at κ=3/2, v=0. `qmc_series_unique` identifies two expansions only when J is eventually nonzero along integers.
+- `qmc_bounded_denominator_neBot`, `qmc_positive_denominator_eventually`: every B>0 includes arbitrarily large integers; cX+d is eventually positive.
+
+**Scalar tests.**
+
+`qmcParameter_S_one`, `qmcParameter_S_two`, `qmcParameter_sign` give 2πi, πi and sign invariance. `qmcTruncation_empty`, `qmcTruncation_constant`, `qmcTruncation_divergent_series` give 0, φ₀ and 1+h+2h²+6h³ for factorial coefficients. `qmcScale_original_S` is X^(3/2)exp(Vgeo X/(2πi)) for X>0; `qmcScale_nontrivial_row` at S,1 is exp(v)exp(Vgeo/(2πi)); `qmcScale_zero_volume` at weight zero is 1. `qmc_bound_one` keeps exactly integers; `qmc_bound_zero` gives the bottom filter; `qmc_wrong_order` rejects 1=O(hγ) along integers. `qmc_zero_row` and `qmc_original_zero_row` show why uniqueness needs nonvanishing. `qmc_translation_excluded` and `qmc_original_translation_excluded` reject T, whose c=0. `qmc_original_trivial_weight` is exact equality of the two criteria.
 
 **Depends on.** [The conjecture, with its exact normalisation and its domain][AQT53]; [Denominator cocycle][AQT49].
 
