@@ -16,6 +16,11 @@ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Data.Matrix.Basis
 import Mathlib.Data.ZMod.Basic
+import Mathlib.GroupTheory.FreeAbelianGroup
+import Mathlib.GroupTheory.QuotientGroup.Defs
+import Mathlib.LinearAlgebra.ExteriorPower.Basic
+import Mathlib.Topology.Connected.PathConnected
+import Mathlib.Topology.Constructions
 import Mathlib.LinearAlgebra.Matrix.IsDiag
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
@@ -177,9 +182,9 @@ example : P_prime 1 * P_prime 1 =
     Polynomial.C (braceFactorial 2 / braceFactorial 1 ^ 2) * P_prime 2 +
     Polynomial.C (braceFactorial 2 / braceFactorial 1) * P_prime 1 := sorry
 
-/-! QT.5: local logarithmic charts. Full Flattening requires Neumann's actual
-cut-cover identifications. Extended pre-Bloch/Bloch groups are omitted pending
-G5; no unspecified relation subgroup is used. Geometry stays with its supplier. -/
+/-! QT.5: concrete principal charts, followed by the full cut cover and
+extended groups. Strong flattenings and geometric cycles require the actual
+triangulation interface from their supplier. -/
 structure ShapeChart where
   z : ℂ
   ne_zero : z ≠ 0
@@ -224,6 +229,362 @@ def regularChart : FlatteningChart where
 example : regularChart.w₀ = Real.pi * Complex.I / 3 ∧
     regularChart.w₁ = Real.pi * Complex.I / 3 ∧
     regularChart.w₂ = -2 * Real.pi * Complex.I / 3 := sorry
+
+/-! QT.5: Neumann's four-component logarithmic cover, the two relation
+families, and the logarithmic Dehn map. Neumann, Definition 2.2, Lemma 2.3,
+Definition 2.4, pp. 417–418, and Definition 3.1/Lemma 3.2, pp. 421–422.
+The intrinsic model uses exp(2w₀)=z² and exp(-2w₁)=(1-z)²; it retains odd
+sheets, unlike the ordinary simultaneous-logarithm cover. -/
+namespace ExtendedBloch
+
+abbrev Shape := {z : ℂ // z ≠ 0 ∧ z ≠ 1}
+
+/-- Both logarithms determine the shape. The topology is the subspace topology
+of ℂ³, which makes path lifting and the distinguished five-term component meaningful. -/
+def Flattening := {t : ℂ × ℂ × ℂ //
+  t.1 ≠ 0 ∧ t.1 ≠ 1 ∧ Complex.exp (2 * t.2.1) = t.1 ^ 2 ∧
+    Complex.exp (-2 * t.2.2) = (1 - t.1) ^ 2}
+
+instance : TopologicalSpace Flattening := inferInstanceAs (TopologicalSpace {t : ℂ × ℂ × ℂ //
+  t.1 ≠ 0 ∧ t.1 ≠ 1 ∧ Complex.exp (2 * t.2.1) = t.1 ^ 2 ∧
+    Complex.exp (-2 * t.2.2) = (1 - t.1) ^ 2})
+
+def Flattening.shape (f : Flattening) : Shape := ⟨f.1.1, f.2.1, f.2.2.1⟩
+def Flattening.w₀ (f : Flattening) : ℂ := f.1.2.1
+def Flattening.w₁ (f : Flattening) : ℂ := f.1.2.2
+def Flattening.w₂ (f : Flattening) : ℂ := -(f.w₀ + f.w₁)
+
+theorem flattening_sum_zero (f : Flattening) : f.w₀ + f.w₁ + f.w₂ = 0 := sorry
+
+theorem flattening_shape_recovery (f : Flattening) :
+    f.shape.1 = (1 + Complex.exp (2 * f.w₀) - Complex.exp (-2 * f.w₁)) / 2 := sorry
+
+theorem Flattening.ext {f g : Flattening}
+    (h₀ : f.w₀ = g.w₀) (h₁ : f.w₁ = g.w₁) : f = g := sorry
+
+/-- Principal chart; the cut quotient below specifies the boundary-side transitions. -/
+def chart (z : Shape) (p q : ℤ) : Flattening :=
+  ⟨(z.1, Complex.log z.1 + p * Real.pi * Complex.I,
+    -Complex.log (1 - z.1) + q * Real.pi * Complex.I), by sorry⟩
+
+def deck (f : Flattening) (p q : ℤ) : Flattening :=
+  ⟨(f.shape.1, f.w₀ + p * Real.pi * Complex.I, f.w₁ + q * Real.pi * Complex.I),
+    by sorry⟩
+
+theorem deck_zero (f : Flattening) : deck f 0 0 = f := sorry
+
+theorem deck_add (f : Flattening) (p q r s : ℤ) :
+    deck (deck f p q) r s = deck f (p + r) (q + s) := sorry
+
+theorem chart_deck (z : Shape) (p q r s : ℤ) :
+    deck (chart z p q) r s = chart z (p + r) (q + s) := sorry
+
+theorem chart_surjective (f : Flattening) : ∃ z p q, f = chart z p q := sorry
+
+inductive CutSide where | upper | lower
+  deriving DecidableEq
+
+def OnCut (z : Shape) : Prop := z.1.im = 0 ∧ (z.1.re < 0 ∨ 1 < z.1.re)
+
+structure CutPoint where
+  shape : Shape
+  side : CutSide
+  lower_on_cut : side = .lower → OnCut shape
+
+def cutUpper (z : Shape) : CutPoint := ⟨z, .upper, by intro h; cases h⟩
+def cutLower (z : Shape) (h : OnCut z) : CutPoint := ⟨z, .lower, by intro _; exact h⟩
+
+/-- The negative cut has arguments +π above and -π below. -/
+def cutLog₀ (c : CutPoint) : ℂ :=
+  Complex.log c.shape.1 -
+    (if c.side = .lower ∧ c.shape.1.re < 0 then 2 * Real.pi * Complex.I else 0)
+
+/-- Above the >1 cut, -log(1-z) has imaginary part +π. -/
+def cutLog₁ (c : CutPoint) : ℂ :=
+  -Complex.log (1 - c.shape.1) +
+    (if c.side = .upper ∧ c.shape.1.im = 0 ∧ 1 < c.shape.1.re
+      then 2 * Real.pi * Complex.I else 0)
+
+/-- Separate the two banks by their limiting logarithms. -/
+instance : TopologicalSpace CutPoint :=
+  TopologicalSpace.induced (fun c => (c.shape.1, cutLog₀ c, cutLog₁ c)) inferInstance
+
+abbrev CutRaw := CutPoint × ℤ × ℤ
+
+inductive CutIdentification : CutRaw → CutRaw → Prop
+  | negative (z : Shape) (him : z.1.im = 0) (hre : z.1.re < 0) (p q : ℤ) :
+      CutIdentification (cutUpper z, p, q)
+        (cutLower z ⟨him, Or.inl hre⟩, p + 2, q)
+  | positive (z : Shape) (him : z.1.im = 0) (hre : 1 < z.1.re) (p q : ℤ) :
+      CutIdentification (cutUpper z, p, q)
+        (cutLower z ⟨him, Or.inr hre⟩, p, q + 2)
+
+/-- Actual cut-side quotient, with its quotient topology. -/
+def CutCover := Quotient (Relation.EqvGen.setoid CutIdentification)
+instance : TopologicalSpace CutCover := inferInstanceAs
+  (TopologicalSpace (Quotient (Relation.EqvGen.setoid CutIdentification)))
+
+def cutClass (c : CutRaw) : CutCover := Quotient.mk _ c
+
+def rawFlattening (c : CutRaw) : Flattening :=
+  ⟨(c.1.shape.1, cutLog₀ c.1 + c.2.1 * Real.pi * Complex.I,
+    cutLog₁ c.1 + c.2.2 * Real.pi * Complex.I), by sorry⟩
+
+def cutFlattening : CutCover → Flattening := Quotient.lift rawFlattening (by sorry)
+
+/-- The cut construction and the intrinsic log-triple model agree as spaces. -/
+def flatteningEquiv : CutCover ≃ₜ Flattening where
+  toEquiv := Equiv.ofBijective cutFlattening (by sorry)
+  continuous_toFun := by sorry
+  continuous_invFun := by sorry
+
+theorem flatteningEquiv_raw (c : CutRaw) :
+    flatteningEquiv (cutClass c) = rawFlattening c := sorry
+
+theorem flattening_cover_transition (z : Shape) (p q : ℤ) :
+    (∀ (him : z.1.im = 0) (hre : z.1.re < 0),
+      cutClass (cutUpper z, p, q) = cutClass (cutLower z ⟨him, Or.inl hre⟩, p + 2, q)) ∧
+    (∀ (him : z.1.im = 0) (hre : 1 < z.1.re),
+      cutClass (cutUpper z, p, q) = cutClass (cutLower z ⟨him, Or.inr hre⟩, p, q + 2)) := sorry
+
+-- flattening_zero_zero: the principal chart, including the third parameter.
+example (z : Shape) : (chart z 0 0).w₀ = Complex.log z.1 ∧
+    (chart z 0 0).w₁ = -Complex.log (1 - z.1) ∧
+    (chart z 0 0).w₂ = Complex.log (1 - z.1) - Complex.log z.1 := sorry
+
+-- flattening_determines_shape: both logarithms are necessary.
+example (f g : Flattening) (h₀ : f.w₀ = g.w₀) (h₁ : f.w₁ = g.w₁) :
+    f.shape = g.shape := sorry
+example : ∃ f g : Flattening, f.w₀ = g.w₀ ∧ f.shape ≠ g.shape := sorry
+
+-- flattening_regular: compatibility with the existing concrete chart.
+def regularShape : Shape := ⟨regularChart.z, regularChart.ne_zero, regularChart.ne_one⟩
+example : (chart regularShape 0 0).w₀ = Real.pi * Complex.I / 3 ∧
+    (chart regularShape 0 0).w₁ = Real.pi * Complex.I / 3 ∧
+    (chart regularShape 0 0).w₂ = -2 * Real.pi * Complex.I / 3 := sorry
+
+-- Odd sheets must not collapse to the ordinary even-sheet cover.
+example (z : Shape) : chart z 1 0 ≠ chart z 0 0 := sorry
+example (z : Shape) : Complex.exp (chart z 1 0).w₀ = -z.1 := sorry
+example (z : Shape) : ¬ Joined (chart z 0 0) (chart z 1 0) := sorry
+example (z : Shape) : Joined (chart z 0 0) (chart z 2 0) := sorry
+
+/-- Explicit ordinary five-shape locus. -/
+def FiveTerm (z : Fin 5 → Shape) : Prop :=
+  z 0 ≠ z 1 ∧ (z 2).1 = (z 1).1 / (z 0).1 ∧
+    (z 3).1 = (1 - (z 0).1⁻¹) / (1 - (z 1).1⁻¹) ∧
+    (z 4).1 = (1 - (z 0).1) / (1 - (z 1).1)
+
+def FiveTermPositive (z : Fin 5 → Shape) : Prop :=
+  FiveTerm z ∧ ∀ i, 0 < (z i).1.im
+
+def fiveTermPreimage : Set (Fin 5 → Flattening) :=
+  {f | FiveTerm (fun i => (f i).shape)}
+
+/-- Path component of the actual five-shape preimage containing FT⁺ principal lifts.
+This uses paths in the cover; it is not unrestricted choice of five sheets. -/
+def LiftedFiveTermZero (f : Fin 5 → Flattening) : Prop :=
+  ∃ z : Fin 5 → Shape, FiveTermPositive z ∧
+    JoinedIn fiveTermPreimage (fun i => chart (z i) 0 0) f
+
+/-- The source's five independent sheet coordinates. -/
+def sheetLattice (p₀ p₁ q₀ q₁ q₂ : ℤ) : Fin 5 → ℤ × ℤ :=
+  ![(p₀, q₀), (p₁, q₁), (p₁ - p₀, q₂),
+    (p₁ - p₀ + q₁ - q₀, q₂ - q₁), (q₁ - q₀, q₂ - q₁ - p₀)]
+
+def LiftedFiveTerm (f : Fin 5 → Flattening) : Prop :=
+  ∃ g, LiftedFiveTermZero g ∧ ∃ p₀ p₁ q₀ q₁ q₂ : ℤ,
+    ∀ i, f i = deck (g i) (sheetLattice p₀ p₁ q₀ q₁ q₂ i).1
+      (sheetLattice p₀ p₁ q₀ q₁ q₂ i).2
+
+theorem liftedFiveTerm_forget {f : Fin 5 → Flattening} (h : LiftedFiveTerm f) :
+    FiveTerm (fun i => (f i).shape) := sorry
+
+theorem liftedFiveTerm_chart_iff (z : Fin 5 → Shape) (h : FiveTermPositive z)
+    (p q : Fin 5 → ℤ) : LiftedFiveTerm (fun i => chart (z i) (p i) (q i)) ↔
+    p 2 = p 1 - p 0 ∧ p 3 = p 1 - p 0 + q 1 - q 0 ∧
+    q 3 = q 2 - q 1 ∧ p 4 = q 1 - q 0 ∧ q 4 = q 2 - q 1 - p 0 := sorry
+
+-- lift_sheet_constraint: illegal independent choices are rejected in FT⁺.
+example (z : Fin 5 → Shape) (hz : FiveTermPositive z) (p q : Fin 5 → ℤ)
+    (hp : p 2 ≠ p 1 - p 0) : ¬ LiftedFiveTerm (fun i => chart (z i) (p i) (q i)) := sorry
+example (z : Fin 5 → Shape) (hz : FiveTermPositive z) (p₀ p₁ q₀ q₁ q₂ : ℤ) :
+    LiftedFiveTerm (fun i => chart (z i) (sheetLattice p₀ p₁ q₀ q₁ q₂ i).1
+      (sheetLattice p₀ p₁ q₀ q₁ q₂ i).2) := sorry
+example : ∃ z : Fin 5 → Shape, FiveTermPositive z := sorry
+
+abbrev FreeFlattening := FreeAbelianGroup Flattening
+
+def fiveTermRelation (f : Fin 5 → Flattening) : FreeFlattening :=
+  ∑ i, (-1 : ℤ) ^ i.val • FreeAbelianGroup.of (f i)
+
+def transferRelation (f : Flattening) (p q p' q' : ℤ) : FreeFlattening :=
+  FreeAbelianGroup.of (deck f p q) + FreeAbelianGroup.of (deck f p' q') -
+    FreeAbelianGroup.of (deck f p q') - FreeAbelianGroup.of (deck f p' q)
+
+def liftedRelations : AddSubgroup FreeFlattening :=
+  AddSubgroup.closure {a | ∃ f, LiftedFiveTerm f ∧ a = fiveTermRelation f}
+
+def transferRelations : AddSubgroup FreeFlattening :=
+  AddSubgroup.closure {a | ∃ f p q p' q', a = transferRelation f p q p' q'}
+
+def extendedRelations : AddSubgroup FreeFlattening := liftedRelations ⊔ transferRelations
+
+abbrev extendedPreBloch := FreeFlattening ⧸ extendedRelations
+
+def classMap : FreeFlattening →+ extendedPreBloch := QuotientAddGroup.mk' extendedRelations
+
+def gen (f : Flattening) : extendedPreBloch := classMap (FreeAbelianGroup.of f)
+
+theorem lifted_five_term (f : Fin 5 → Flattening) (h : LiftedFiveTerm f) :
+    classMap (fiveTermRelation f) = 0 := sorry
+
+theorem transfer_zero_general (f : Flattening) (p q p' q' : ℤ) :
+    classMap (transferRelation f p q p' q') = 0 := sorry
+
+/-- Universal property with both concrete relation families. -/
+def lift {A : Type*} [AddCommGroup A] (g : Flattening → A)
+    (_h₅ : ∀ f, LiftedFiveTerm f → ∑ i, (-1 : ℤ) ^ i.val • g (f i) = 0)
+    (_ht : ∀ f p q p' q', g (deck f p q) + g (deck f p' q') -
+      g (deck f p q') - g (deck f p' q) = 0) : extendedPreBloch →+ A :=
+  QuotientAddGroup.lift extendedRelations (FreeAbelianGroup.lift g) (by sorry)
+
+theorem lift_gen {A : Type*} [AddCommGroup A] (g : Flattening → A)
+    (h₅ : ∀ f, LiftedFiveTerm f → ∑ i, (-1 : ℤ) ^ i.val • g (f i) = 0)
+    (ht : ∀ f p q p' q', g (deck f p q) + g (deck f p' q') -
+      g (deck f p q') - g (deck f p' q) = 0) (f : Flattening) :
+    lift g h₅ ht (gen f) = g f := sorry
+
+theorem hom_ext {A : Type*} [AddCommGroup A] (φ ψ : extendedPreBloch →+ A)
+    (h : ∀ f, φ (gen f) = ψ (gen f)) : φ = ψ := sorry
+
+/-- Import-facing forgetful map. The target P and generator map come from the
+ordinary pre-Bloch supplier; no second ordinary pre-Bloch group is constructed here. -/
+def forget {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0) :
+    extendedPreBloch →+ P :=
+  lift (fun f => g f.shape) (by sorry) (by sorry)
+
+theorem forget_gen {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0) (f : Flattening) :
+    forget g h₅ (gen f) = g f.shape := sorry
+
+-- lifted_five_term_general: the actual forgetful relation, in any supplied P.
+example {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0)
+    (f : Fin 5 → Flattening) (hf : LiftedFiveTerm f) :
+    forget g h₅ (classMap (fiveTermRelation f)) =
+      ∑ i, (-1 : ℤ) ^ i.val • g (f i).shape := sorry
+
+-- transfer_zero: the required (1,1), (0,0), (1,0), (0,1) test.
+example (z : Shape) : gen (chart z 1 1) + gen (chart z 0 0) -
+    gen (chart z 1 0) - gen (chart z 0 1) = 0 := sorry
+
+/-- Omitting transfer retains Neumann's order-two class (Lemma 7.1/Proposition 7.2, pp. 439–440). -/
+abbrev preBlochWithoutTransfer := FreeFlattening ⧸ liftedRelations
+
+def noTransferClass : FreeFlattening →+ preBlochWithoutTransfer :=
+  QuotientAddGroup.mk' liftedRelations
+
+example (z : Shape) : noTransferClass (transferRelation (chart z 0 0) 1 1 0 0) ≠ 0 ∧
+    (2 : ℤ) • noTransferClass (transferRelation (chart z 0 0) 1 1 0 0) = 0 := sorry
+
+abbrev LogWedge := ⋀[ℤ]^2 ℂ
+
+def wedge (a b : ℂ) : LogWedge := exteriorPower.ιMulti ℤ 2 ![a, b]
+
+def freeDehn : FreeFlattening →+ LogWedge :=
+  FreeAbelianGroup.lift (fun f => wedge f.w₀ f.w₁)
+
+theorem freeDehn_lifted (f : Fin 5 → Flattening) (h : LiftedFiveTerm f) :
+    freeDehn (fiveTermRelation f) = 0 := sorry
+
+theorem freeDehn_transfer (f : Flattening) (p q p' q' : ℤ) :
+    freeDehn (transferRelation f p q p' q') = 0 := sorry
+
+def extendedDehn : extendedPreBloch →+ LogWedge :=
+  QuotientAddGroup.lift extendedRelations freeDehn (by sorry)
+
+theorem extendedDehn_gen (f : Flattening) :
+    extendedDehn (gen f) = wedge f.w₀ f.w₁ := sorry
+
+/-- Genuine subgroup of the constructed extended pre-Bloch quotient. -/
+def extendedBloch : AddSubgroup extendedPreBloch := extendedDehn.ker
+
+theorem extendedBloch_mem_iff (x : extendedPreBloch) :
+    x ∈ extendedBloch ↔ extendedDehn x = 0 := sorry
+
+-- extendedBloch_zero
+example : (0 : extendedPreBloch) ∈ extendedBloch := sorry
+-- extendedDehn_transfer
+example (z : Shape) (p q p' q' : ℤ) :
+    extendedDehn (gen (chart z p q) + gen (chart z p' q') -
+      gen (chart z p q') - gen (chart z p' q)) = 0 := sorry
+-- extendedDehn_sheet_change
+example (z : Shape) (p q : ℤ) :
+    extendedDehn (gen (chart z (p + 1) q)) - extendedDehn (gen (chart z p q)) =
+      wedge (Real.pi * Complex.I) (chart z p q).w₁ := sorry
+
+-- The logarithmic wedge is over ℤ, not over ℂ (where the square is zero).
+example : ∃ z : Shape, gen (chart z 0 0) ∉ extendedBloch := sorry
+
+
+/-- Neumann's multiplicative boundary square (Theorem 7.5, p. 441).
+The additive type synonym exposes the ℤ-module of complex units. -/
+abbrev UnitsWedge := ⋀[ℤ]^2 (Additive ℂˣ)
+
+def expLinear : ℂ →ₗ[ℤ] Additive ℂˣ where
+  toFun w := Additive.ofMul (Units.mk0 (Complex.exp w) (Complex.exp_ne_zero w))
+  map_add' := by sorry
+  map_smul' := by sorry
+
+def exponentialBoundary : LogWedge →ₗ[ℤ] UnitsWedge :=
+  (-2 : ℤ) • exteriorPower.map 2 expLinear
+
+def shapeUnit (z : Shape) : ℂˣ := Units.mk0 z.1 z.2.1
+def complementUnit (z : Shape) : ℂˣ := Units.mk0 (1 - z.1) (by sorry)
+
+def ordinaryBoundaryGenerator (z : Shape) : UnitsWedge :=
+  (2 : ℤ) • exteriorPower.ιMulti ℤ 2
+    ![Additive.ofMul (shapeUnit z), Additive.ofMul (complementUnit z)]
+
+theorem exponentialBoundary_gen (f : Flattening) :
+    exponentialBoundary (extendedDehn (gen f)) = ordinaryBoundaryGenerator f.shape := sorry
+
+/-- The supplier's boundary must have exactly the displayed factor-two convention. -/
+theorem forget_boundary {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0)
+    (δ : P →+ UnitsWedge) (hδ : ∀ z, δ (g z) = ordinaryBoundaryGenerator z)
+    (x : extendedPreBloch) :
+    δ (forget g h₅ x) = exponentialBoundary (extendedDehn x) := sorry
+
+/-- Native kernel restriction; instantiate P,g,δ from the ordinary Bloch owner.
+This does not identify exterior, factor-two, and antisymmetric-tensor kernels. -/
+def extendedBloch_forget {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0)
+    (δ : P →+ UnitsWedge) (hδ : ∀ z, δ (g z) = ordinaryBoundaryGenerator z) :
+    extendedBloch →+ δ.ker where
+  toFun x := ⟨forget g h₅ x.val, by
+    change δ (forget g h₅ x.val) = 0
+    rw [forget_boundary g h₅ δ hδ x.val, (extendedBloch_mem_iff x.val).mp x.property]
+    exact map_zero exponentialBoundary⟩
+  map_zero' := by sorry
+  map_add' := by sorry
+
+-- expLinear retains the sign on an odd sheet.
+example (z : Shape) : (expLinear (chart z 1 0).w₀).toMul = -shapeUnit z := sorry
+-- The factor -2 converts the inverse in w₁ to Neumann's +2 boundary.
+example (z : Shape) (p q : ℤ) :
+    exponentialBoundary (wedge (chart z p q).w₀ (chart z p q).w₁) =
+      ordinaryBoundaryGenerator z := sorry
+-- The restricted map agrees with the actual forgetful homomorphism.
+example {P : Type*} [AddCommGroup P] (g : Shape → P)
+    (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0)
+    (δ : P →+ UnitsWedge) (hδ : ∀ z, δ (g z) = ordinaryBoundaryGenerator z)
+    (x : extendedBloch) : (extendedBloch_forget g h₅ δ hδ x).val = forget g h₅ x.val := sorry
+
+end ExtendedBloch
+
 
 /-! QT.6: linear side of NZDatum. This structure intentionally has no manifold
 claim. Face pairings, peripheral curves, full rank and strong flattenings are
