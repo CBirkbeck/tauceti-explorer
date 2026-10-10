@@ -59,7 +59,7 @@ unspecified lattice.
 | WeightsInEtaleCohomology:R34.4–R34.6 | Surface weight-monodromy, good-reduction purity and the independent Saito geometric weight theorem |
 | LefschetzPencilsAndVanishingCycles:LPV.0, LPV.7:semistable-curves | Vanishing-cycle sequences and the normalization-kernel form of Picard–Lefschetz |
 | PotentialModularityAndCompatibleSystems:R24.5:operations and its character-system interface | Early system carrier/operations and the converse from labelled Hodge–Tate characters to algebraic Hecke characters |
-| IntegralHeckeAndGaloisDeterminants:IHG.1, IHG.4 | Generic reconstruction and whole-ring integral determinant descent |
+| Tau Ceti IntegralHeckeAndGaloisDeterminants, layers 1 and 4 | Generic reconstruction and whole-ring integral determinant descent |
 | OrdinaryAutomorphicFormsAndModularityLifting:R21.3 | Exact ordinary graded characters and the specified invariant line |
 | LocalGaloisDeformationRings:R08.3; GlobalGaloisDeformations:R04.3 | Local condition quotients, finite-algebra period families and universal global deformation rings |
 | SerreWeightAndLevelOptimisation:R20.2, R20.6 | Level lowering and weight-two level optimization with their residual hypotheses |
@@ -304,6 +304,17 @@ Scholl’s symmetric-power projector:
 - `schollProjector_hecke` (compatibility): It intertwines the geometric Hecke action.
 - `schollProjector_level` (functoriality): Transport through fine-level change commutes with the projector.
 
+For the underlying finite representation, `schollProjector_intertwine` states
+that any coefficient-linear map intertwining every group element intertwines
+the weighted averages; `schollProjector_comm` specializes this to an endomorphism
+commuting with the group action. The geometric Hecke and level maps must meet
+these hypotheses. Unsigned averaging on the two-point permutation representation
+over Q differs from sign-weighted averaging on its first basis vector. On the
+trivial action of the two-element permutation group, averaging is the identity,
+which tests the inverse-cardinality normalization. These finite-action checks
+supplement the geometric tests below; the graded Künneth identification remains
+part of the geometric contract.
+
 Concrete tests for this interface:
 
 - `schollProjector_weight_three` (computation): r=1: translations act trivially and inversion acts by −1 on H¹ of the elliptic fibre.
@@ -419,7 +430,7 @@ Concrete tests for this interface:
 
 **The unrestricted Hilbert constructor.** For every π of type (k,w) as fixed above, construct a continuous semisimple ρ_{π,λ} over a sufficiently large E_λ for every finite λ, unramified outside S_π and ℓ, with good geometric polynomial P_v. No finite discrete-series place is required when d is even. In the geometric branch twist Carayol's representation; in the other branch use auxiliary μ_s-new congruences modulo λ^s and compatible trace/determinant reconstruction. The auxiliary prime can vary with s and imposes no hypothesis on π. Prove independence of construction, extension/conjugation of coefficients, twist compatibility and agreement with the classical M_f. Good polynomials characterize the semisimple representation, while minimal descent to Q(π)_λ is a separate assertion not made here.
 
-*Inputs:* `R19.2/carayol-theorem-b`; `R19.2/carayol-twisting-and-determinant`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `IntegralHeckeAndGaloisDeterminants:IHG.1`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `HilbertModularVarietiesAndShimuraCurves:R18.4`; `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
+*Inputs:* `R19.2/carayol-theorem-b`; `R19.2/carayol-twisting-and-determinant`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `HilbertModularVarietiesAndShimuraCurves:R18.4`; `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
 
 *Reference:* [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — §4.1, p. 542; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Proof of Theorem 4.3, p. 544; [Christopher Skinner](https://content.ems.press/assets/public/full-texts/serials/dm/14/8965206/online/10.4171-dm-272.pdf) — Introduction, p. 242, after equation (1); [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 0.5, printed p. 410.
 
@@ -737,7 +748,7 @@ Concrete tests for this interface:
 
 **Kisin's coefficient-prime theorem.** For π of arbitrary regular cohomological multiweight over a totally real F, λ|p and absolutely irreducible semisimplified residual representation, every v|p is potentially semistable with the prescribed labelled degrees and full Frobenius-semisimple WD parameter `Rec_v(π_v⊗|·|⁻¹/²)`. No parallel-weight, unramified-base or finite discrete-series assumption is imposed. In the proof the fixed-type quotient and finite-projective period module are defined over complete Noetherian local coefficient algebras, and are tested on finite Q_p-algebras with nilpotents. Do not substitute equality at field-valued points for this quotient property. The residual assumption belongs to this proof route and is removed by the next theorem.
 
-*Inputs:* `R19.2/all-cohomological-hilbert-representation`; `R19.2/hilbert-normalisation-dictionary`; `R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`; `LocalGaloisDeformationRings:R08.3/semistable-height-quotient`; `LocalGaloisDeformationRings:R08.3/pst-quotient-in-families`; `IntegralHeckeAndGaloisDeterminants:IHG.1`.
+*Inputs:* `R19.2/all-cohomological-hilbert-representation`; `R19.2/hilbert-normalisation-dictionary`; `R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`; `LocalGaloisDeformationRings:R08.3/semistable-height-quotient`; `LocalGaloisDeformationRings:R08.3/pst-quotient-in-families`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction`.
 
 *Reference:* [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 4.3 and proof, pp. 543–544; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 2.5.5, pp. 530–531; Theorem 2.7.6, p. 534; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — §4.1, p. 542.
 
@@ -783,15 +794,24 @@ Ordinary refinement and saturated lattice:
 - `ordinaryRefinement_quotient` (projection): The unramified quotient character with arithmetic Frob eigenvalue α.
 - `ordinaryRefinement_subcharacter` (characterisation): The subcharacter is εχ_p^{k−1} times the inverse quotient character.
 - `ordinaryLatticePlus` (constructor): T∩V⁺ as an invariant O_λ-submodule.
-- `ordinaryLatticePlus_saturated` (structure): T/T⁺ is torsion-free of rank one.
+- `ordinaryLatticePlusIn` (integral carrier): Regard T∩V⁺ as an O-submodule of T itself; `ordinaryLatticeQuotient` is its actual quotient, T/T⁺. Membership is equivalent to membership of the underlying vector in V⁺.
+- `ordinaryLatticePlus_stable` (invariance): Stability of T and V⁺ under the coefficient-linear representation implies stability of their intersection.
+- `ordinaryLatticePlus_cancel` (saturation): For v∈T and c∈O with nonzero image in K, cv∈T⁺ implies v∈T⁺.
+- `ordinaryLatticeQuotient_isTorsionFree` (structure): If O is a domain and O→K is injective, T/T⁺ is torsion-free, without a rank or finite-generation assumption.
+- `ordinaryLatticePlus_span` (generic fibre): If K is the fraction field of O and T spans V over K, T⁺ spans V⁺ over K.
+- `ordinaryLatticePlus_saturated` (rank-one structure): For O a DVR with fraction field K, V of K-dimension two, T a finitely generated O-submodule spanning V, and V⁺ of K-dimension one, T/T⁺ is torsion-free and free of O-rank one. The finite-generation and spanning hypotheses concern the chosen integral lattice; dimension one of V⁺ alone does not supply them.
 - `ordinaryRefinement_coeffChange` (functoriality): Flat coefficient extension transports the line and lattice intersection with the appropriate saturation comparison.
 - `ordinaryRefinement_period` (compatibility): Use the already specified rational period line under the realisation comparison.
+
+The quotient assertions follow from intersection inside a fraction-field vector
+space and the structure of finite torsion-free modules over a DVR. The cited
+papers supply the eigenform lattice and its ordinary line.
 
 Concrete tests for this interface:
 
 - `ordinaryRefinement_11a1_three` (computation): X²+X+3 has one 3-adic unit root; choose that root for the unramified quotient.
 - `ordinaryRefinement_11a1_two` (non-example): X²+2X+2 at 2 has no unit root; ordinary refinement is not defined.
-- `ordinaryLatticePlus_saturation` (non-example): In T=O² with V⁺=Ke₁ the intersection is Oe₁; pOe₁ has torsion quotient and fails the contract.
+- `ordinaryLatticePlus_saturation` (non-example): In T=O² with V⁺=Ke₁ the intersection is Oe₁; pOe₁ has torsion quotient and fails the contract. For any nonzero nonunit c∈O, the class of e₁ in O²/cOe₁ is nonzero and killed by c; O²/Oe₁ is free of rank one. With V⁺=0 the submodule inside T is zero; with V⁺=V, or T=0, the integral quotient is zero. These degenerate cases exclude an unconditional rank-one assertion.
 - `ordinaryRefinement_determinant` (compatibility): The two characters multiply to εχ_p^{k−1}, including the unramified unit-root factor.
 
 Nonordinary crystalline and Wach realisation:
@@ -910,13 +930,13 @@ Concrete tests for this interface:
 
 **The geometric Hecke determinant.** Let O be a complete DVR and T_m a completed local finite O-flat Hecke algebra, including possible nilpotents. From the actual cohomology multiplicity construct a faithful generic rank-two T_m[1/p]-module with commuting continuous G_{F,S}-action. Descend its degree-two determinant law to all of T_m, with good geometric coefficients T_v,NvS_v, and prove continuity and compatibility with every finite quotient and coefficient change. O-flatness makes T_m→T_m[1/p] injective even with nilpotents. In weight two this module is H¹, dual to DDT's Tate module; its residual law is the dual of the arithmetic residual law. Use the full generalized oldform eigenspaces. Reduced eigenform points cannot supply the nilpotent coefficients; torsion/non-flat cohomological determinant construction is not implied by this flat-family theorem.
 
-*Inputs:* `R19.1/newform-projector-and-coefficient-descent`; `R19.2/carayol-sigma-lambda-construction`; `R19.6/full-weight-two-hecke-algebra-and-its-galois-representations`; `IntegralHeckeAndGaloisDeterminants:IHG.4`; `ArithmeticGaloisRepresentations:R01.5`; `HilbertModularVarietiesAndShimuraCurves:R18.4`.
+*Inputs:* `R19.1/newform-projector-and-coefficient-descent`; `R19.2/carayol-sigma-lambda-construction`; `R19.6/full-weight-two-hecke-algebra-and-its-galois-representations`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-4-interpolation-over-integral-coefficient-rings`; `ArithmeticGaloisRepresentations:R01.5`; `HilbertModularVarietiesAndShimuraCurves:R18.4`.
 
 *Reference:* [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, the structure of the full Hecke algebra, pp. 109–110, and Lemmas 1.37–1.39; [Mark Kisin](https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf) — Theorem 4.3 proof, pp. 543–544; [Gaetan Chenevier](https://arxiv.org/pdf/0809.0415v2) — §§1.1–1.5, pp. 7–8; §1.10, p. 12.
 
 **From a determinant law to a Hecke representation.** Let T be complete local and let D be a continuous degree-two determinant over its entire group algebra. Suppose its residual law is split and comes from a specified absolutely irreducible rank-two representation over the finite residue field. Import henselian Cayley–Hamilton reconstruction to obtain a continuous representation into GL₂(T), unique up to conjugacy and up to strict equivalence with fixed residual identification. The residue field need not be algebraically closed. Specialize through all coefficient quotients, including nilpotent ones. The good geometric polynomial is `X²−T_vX+Nv S_v`; take the arithmetic dual before a map to an arithmetic universal deformation problem.
 
-*Inputs:* `IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible`; `R19.6/geometric-hecke-determinant`; `R19.6/residual-representation-of-a-newform`.
+*Inputs:* `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#13-henselian-lifting-and-generalized-matrix-algebras`; `R19.6/geometric-hecke-determinant`; `R19.6/residual-representation-of-a-newform`.
 
 *Reference:* [Gaetan Chenevier](https://arxiv.org/pdf/0809.0415v2) — Theorem 2.22(i), printed p. 34; split residual determinant definitions in §2.18–2.22.
 
@@ -947,7 +967,7 @@ The level `U=∏_v U_v` is open and compact modulo the centre in
 `F×\(A_F^∞)×`. The representation is unique up to conjugacy, or up to
 strict equivalence once its residual identification is fixed.
 
-*Inputs:* `R19.6/determinants-and-representability-over-a-hecke-algebra`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `IntegralHeckeAndGaloisDeterminants:IHG.1`; `R19.2/all-cohomological-hilbert-representation`; `ArithmeticGaloisRepresentations:R01.1`; `IntegralHeckeAndGaloisDeterminants:IHG.4`; `GlobalGaloisDeformations:R04.2/universal-deformation-ring`; `GlobalGaloisDeformations:R04.2/fixed-determinant-rings`; `GlobalGaloisDeformations:R04.3`; `R19.2/hilbert-normalisation-dictionary`.
+*Inputs:* `R19.6/determinants-and-representability-over-a-hecke-algebra`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-1-cayleyhamilton-algebras-and-reconstruction`; `R19.2/all-cohomological-hilbert-representation`; `ArithmeticGaloisRepresentations:R01.1`; `tauceti:TauCetiRoadmap/IntegralHeckeAndGaloisDeterminants#layer-4-interpolation-over-integral-coefficient-rings`; `GlobalGaloisDeformations:R04.2/universal-deformation-ring`; `GlobalGaloisDeformations:R04.2/fixed-determinant-rings`; `GlobalGaloisDeformations:R04.3`; `R19.2/hilbert-normalisation-dictionary`.
 
 *Reference:* [C. Khare and J.-P. Wintenberger](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) — §9.1.1, p. 80 (authors' final version, 30 May 2009); [C. Khare and J.-P. Wintenberger](https://www.math.ucla.edu/~shekhar/papers/proofs.pdf) — §9.1.1, p. 80.
 
