@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Revision 2 retains all 98 reviewed target IDs and the preceding source corrections. Current upstream ReductiveGroups Part II supplies the integral fundamental group, z-extensions, lattice exactness and representative Kottwitz maps; BG imports these foundations rather than proposing a duplicate RG2.6. The suggested file now imports native Tau Ceti exact-category APIs and types exact E-linear symmetric tensor-functor data, tensor isomorphisms and coherent postcomposition over specified categories. Relative analytic bundle/isocrystal category instantiations and the remaining geometric signatures are still unavailable under G08. This is a partial checkpoint; no stage is closed and all implementation statuses remain unchecked.",
+ "summary": "Revision 2 preserves all 98 reviewed target IDs and preceding source corrections. Current upstream ReductiveGroups Part II supplies integral fundamental groups and z-extension foundations, which BG imports. This continuation types Frobenius on the native finite rational comodule fibre functor, reconstructs its trivialized tensor family through native Tannaka duality, compares all conjugator arrows and identifies tensor automorphisms with point sigma-stabilizers. The untrivialized exact isocrystal comparison and analytic FF/v-stack supplier interfaces remain unavailable under G08. This is a partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -202,6 +202,48 @@
     "module": "TauCeti/Algebra/Bialgebra/MonoidAlgebra/GroupLike.lean",
     "provides": "Over a commutative ring with connected prime spectrum, every bialgebra map between monoid algebras is induced by a monoid homomorphism; the adjacent injectivity theorem assumes a nontrivial base. A field satisfies both conditions.",
     "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.FGComoduleCat.scalarExtensionMonoidalFunctor",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/Finite/ScalarExtension/Monoidal.lean",
+    "provides": "Native strong monoidal scalar extension of finite comodules to L-modules, with the tensorator given by inverse tensor-product base-change distribution and the tensor-unit comparison.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Comodule.pointsAction",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/PointsAction.lean",
+    "provides": "The native convolution group of algebra-valued Hopf points acts by linear automorphisms of the scalar-extended comodule, multiplicatively in the point.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Tannaka.scalarExtensionComponent",
+    "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Monoidal.lean",
+    "provides": "Transport a native tensor-automorphism component to an L-linear map on the explicit module L⊗_E M; the adjacent point-action component lemma identifies this with the native comodule action.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Comodule.rTensor_comp_endOfPoint",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
+    "provides": "Coefficient postcomposition intertwines the point action with right-tensored coefficient maps. Applying the automorphism σ supplies the semilinear conjugation identity.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Comodule.baseChange_comp_endOfPoint",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
+    "provides": "A base-changed comodule morphism intertwines the scalar-extended actions of every algebra-valued Hopf point.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Comodule.endOfPoint_tensor",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
+    "provides": "The point action on a tensor comodule is the tensor product of its two actions, transported by the native base-change distribution isomorphism.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.Comodule.endOfPoint_trivial",
+    "module": "TauCeti/Algebra/Coalgebra/Comodule/PointsAction.lean",
+    "provides": "The algebra-valued point action is the identity on the scalar extension of a trivial comodule, supplying the tensor-unit equation.",
+    "checked": "Codex codex-vADPRt, 2026-10-10: providing statements read in the shared pinned source and verified against git show at Tau Ceti f790474; only this scope is used."
    }
   ]
  },
@@ -699,7 +741,8 @@
    ],
    "proofSteps": [
     "Use the exact tensor category of finite E-isocrystals from VB0.",
-    "Apply the reductive fibre-functor/torsor dictionary over L and Steinberg vanishing; changing the trivialization changes b by sigma conjugation."
+    "Apply the reductive fibre-functor/torsor dictionary over L and Steinberg vanishing; changing the trivialization changes b by sigma conjugation.",
+    "For the trivialized presentation, linearize Φ by inverse coefficient Frobenius, use native Tannakian reconstruction on the fixed finite-comodule fibre functor, and reconstruct all tensor arrows. This does not instantiate VB0’s untrivialized exact category or establish Steinberg triviality."
    ],
    "acceptance": [
     "Underlying vector spaces are over L, not E."
@@ -717,7 +760,15 @@
     "tauceti:TauCeti.ExactStructure.IsConflationExact",
     "mathlib:CategoryTheory.Functor.Linear",
     "mathlib:CategoryTheory.Functor.Braided",
-    "mathlib:CategoryTheory.NatTrans.IsMonoidal"
+    "mathlib:CategoryTheory.NatTrans.IsMonoidal",
+    "tauceti:TauCeti.FGComoduleCat.scalarExtensionMonoidalFunctor",
+    "tauceti:TauCeti.Comodule.pointsAction",
+    "tauceti:TauCeti.Tannaka.scalarExtensionComponent",
+    "tauceti:TauCeti.Tannaka.fgPointTensorIsoEquiv",
+    "tauceti:TauCeti.Comodule.rTensor_comp_endOfPoint",
+    "tauceti:TauCeti.Comodule.baseChange_comp_endOfPoint",
+    "tauceti:TauCeti.Comodule.endOfPoint_tensor",
+    "tauceti:TauCeti.Comodule.endOfPoint_trivial"
    ],
    "sources": [
     {
@@ -757,6 +808,96 @@
      "name": "TauCeti.BunG.GIsocrystal.map",
      "role": "functoriality",
      "statement": "A group morphism carries b to f(b) and agrees with precomposition of rational representations."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.coefficientSigma",
+     "role": "constructor",
+     "statement": "For fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, coefficient Frobenius on L⊗_E M is the invertible σ-semilinear map σ⊗id_M, for every native finite rational H-comodule M."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.coefficientSigma_tmul",
+     "role": "characterisation",
+     "statement": "Coefficient Frobenius sends a⊗m to σ(a)⊗m; the representation factor remains fixed."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.frobenius",
+     "role": "constructor",
+     "statement": "For a native convolution point b:H→L, compose σ⊗id_M with Tau Ceti’s native point action ρ_M(b), obtaining an invertible σ-semilinear map on L⊗_E M."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.frobenius_apply",
+     "role": "characterisation",
+     "statement": "The component formula is Φ_b,M(x)=ρ_M(b)((σ⊗id_M)(x)), with coefficient Frobenius applied first."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.tensorCombine",
+     "role": "compatibility",
+     "statement": "Combine x∈L⊗_E M and y∈L⊗_E N using the inverse native base-change distribution isomorphism on x⊗_L y. The result lies in L⊗_E(M⊗_E N)."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.Data",
+     "role": "constructor",
+     "statement": "Trivialized Frobenius data on the fixed native scalar-extension fibre functor consist of invertible σ-semilinear components on every finite rational comodule, natural for comodule maps, taking a⊗1 in the tensor unit to σ(a)⊗1 and preserving tensorCombine. These are explicit equations; this presentation is not the untrivialized exact G-isocrystal definition."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.ofRepresentative",
+     "role": "constructor",
+     "statement": "The family Φ_b,M=ρ_M(b)(σ⊗id_M) satisfies the naturality, unit and tensor equations of Data. Its underlying L-fibre functor is the native finite-comodule scalar-extension functor."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.linearized",
+     "role": "constructor",
+     "statement": "Compose every component of Data with inverse coefficient Frobenius to obtain a native tensor automorphism of finite-comodule scalar extension."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.linearized_component",
+     "role": "characterisation",
+     "statement": "The transported component of the linearized tensor automorphism at M sends x to Φ_M((σ⊗id_M)⁻¹x)."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.reconstructedPoint",
+     "role": "compatibility",
+     "statement": "Apply the inverse of Tau Ceti’s native field-valued Tannakian point/tensor-automorphism equivalence to the linearized family, reconstructing a genuine E-algebra point H→L."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.equivalence",
+     "role": "equivalence",
+     "statement": "Representative points and trivialized Frobenius families are equivalent, with inverse reconstructedPoint. The inverse laws recover the point and the entire family, rather than only one faithful representation."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.Iso",
+     "role": "constructor",
+     "statement": "An arrow between two trivialized families is a native tensor automorphism η of scalar extension satisfying η_MΦ_M=Ψ_Mη_M on every finite rational comodule."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.conjugatorEquiv",
+     "role": "equivalence",
+     "statement": "All points g with c=g b σ(g)⁻¹ are equivalent to the Frobenius-compatible tensor arrows from ofRepresentative b to ofRepresentative c. The forward arrow is native Tannakian action by g; the inverse reconstructs g from the tensor arrow."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.changeTrivialization",
+     "role": "equivalence",
+     "statement": "For b,g, the native tensor action by g gives a Frobenius-compatible arrow from the family of b to the family of g b σ(g)⁻¹."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.changeTrivialization_component",
+     "role": "characterisation",
+     "statement": "The component of that arrow on L⊗_E M is exactly the native point action ρ_M(g), without an extra coefficient Frobenius."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.isoComp",
+     "role": "functoriality",
+     "statement": "Compose a tensor arrow f:F→G with g:G→K by multiplying their native tensor automorphisms as g·f. This corresponds to the later conjugator on the left."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.isoRefl",
+     "role": "constructor",
+     "statement": "The identity native tensor automorphism is the identity arrow on each trivialized Frobenius family."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.isoInv",
+     "role": "constructor",
+     "statement": "The inverse native tensor automorphism reverses a Frobenius-compatible arrow. Together with isoComp and isoRefl these give a native Groupoid on Data."
     }
    ],
    "tests": [
@@ -774,6 +915,41 @@
      "name": "TauCeti.BunG.GIsocrystal.testTensorSlope",
      "kind": "computation",
      "statement": "For G_m representatives π^a and π^b, tensoring has slope a+b and duality has slope −a."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testSemilinearity",
+     "kind": "compatibility",
+     "statement": "For every representation M and a∈L, Φ_b,M(a x)=σ(a)Φ_b,M(x), rather than aΦ_b,M(x)."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testCoefficientUnit",
+     "kind": "degenerate",
+     "statement": "For b=1 and every native finite rational comodule, Φ_1,M(a⊗m)=σ(a)⊗m."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testTensorFamily",
+     "kind": "compatibility",
+     "statement": "The component on M⊗N sends tensorCombine(x,y) to tensorCombine(Φ_M(x),Φ_N(y)) for arbitrary M,N."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testNotLinear",
+     "kind": "non-example",
+     "statement": "If σ(a)≠a for some a∈L, no L-linear map on the scalar-extended tensor-unit representation agrees everywhere with its Frobenius component."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testIntertwiner",
+     "kind": "compatibility",
+     "statement": "For b′=g b σ(g)⁻¹, the point action ρ_M(g) intertwines Φ_b,M and Φ_b′,M on every M."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testArrowComposition",
+     "kind": "compatibility",
+     "statement": "For conjugators g:b→c and h:c→d, the composite tensor arrow acts as ρ_M(h g) on every representation; reversing the point multiplication order fails in noncommutative cases."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testReconstruction",
+     "kind": "compatibility",
+     "statement": "Reconstructing a point from an arbitrary Data family and applying ofRepresentative recovers that entire family, including its coherence fields."
     }
    ],
    "uses": [
@@ -787,7 +963,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-category-interface",
+    "status": "typed-native-trivialized-frobenius-family",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.TensorInterface.Data",
@@ -797,9 +973,28 @@
      "TauCeti.BunG.TensorInterface.Data.tensorIso",
      "TauCeti.BunG.TensorInterface.Data.map_conflation",
      "TauCeti.BunG.TensorInterface.Data.postcompose",
-     "TauCeti.BunG.TensorInterface.Iso.ext"
+     "TauCeti.BunG.TensorInterface.Iso.ext",
+     "TauCeti.BunG.RepresentativeTensor.coefficientSigma",
+     "TauCeti.BunG.RepresentativeTensor.coefficientSigma_tmul",
+     "TauCeti.BunG.RepresentativeTensor.frobenius",
+     "TauCeti.BunG.RepresentativeTensor.frobenius_apply",
+     "TauCeti.BunG.RepresentativeTensor.tensorCombine",
+     "TauCeti.BunG.RepresentativeTensor.Data",
+     "TauCeti.BunG.RepresentativeTensor.ofRepresentative",
+     "TauCeti.BunG.RepresentativeTensor.linearized",
+     "TauCeti.BunG.RepresentativeTensor.linearized_component",
+     "TauCeti.BunG.RepresentativeTensor.reconstructedPoint",
+     "TauCeti.BunG.RepresentativeTensor.equivalence",
+     "TauCeti.BunG.RepresentativeTensor.Iso",
+     "TauCeti.BunG.RepresentativeTensor.conjugatorEquiv",
+     "TauCeti.BunG.RepresentativeTensor.changeTrivialization",
+     "TauCeti.BunG.RepresentativeTensor.changeTrivialization_component",
+     "TauCeti.BunG.RepresentativeTensor.isoComp",
+     "TauCeti.BunG.RepresentativeTensor.isoRefl",
+     "TauCeti.BunG.RepresentativeTensor.isoInv",
+     "TauCeti.BunG.RepresentativeTensor.dataGroupoid"
     ],
-    "note": "Native exact E-linear symmetric tensor data and monoidal natural isomorphisms are elaborated over specified structured categories, with identity/composition coherence and six categorical controls. These restricted interfaces do not supply the actual analytic bundle or general-E isocrystal categories, the full named API, or the geometric reconstruction tests. Those obligations remain G08; no arbitrary geometry carrier or unspecified proposition is introduced."
+    "note": "Over fields E,L, a commutative Hopf E-algebra H and an E-algebra automorphism σ of L, RepresentativeTensor uses the actual native finite rational comodule category and scalar-extension fibre functor. It types σ-semilinear Frobenius components, explicit naturality/unit/tensor equations, linearization and native Tannakian reconstruction, a Groupoid of tensor intertwiners and all twisted conjugator arrows. These are the trivialized presentation, not another definition of linear isocrystals. VB0’s structured untrivialized exact category, its general local coefficients and the Steinberg trivialization comparison are still G08; the original full GIsocrystal API and Witt GL_n/slope tests remain unfulfilled."
    }
   },
   {
@@ -830,7 +1025,11 @@
     "mathlib:CategoryTheory.Groupoid",
     "mathlib:CategoryTheory.Aut.Aut_mul_def",
     "mathlib:WittVector.exists_frobenius_solution_fractionRing",
-    "mathlib:WittVector.FractionRing.frobenius"
+    "mathlib:WittVector.FractionRing.frobenius",
+    "tauceti:TauCeti.FGComoduleCat.scalarExtensionMonoidalFunctor",
+    "tauceti:TauCeti.Comodule.pointsAction",
+    "tauceti:TauCeti.Tannaka.scalarExtensionComponent",
+    "tauceti:TauCeti.Tannaka.fgPointTensorIsoEquiv"
    ],
    "sources": [
     {
@@ -909,6 +1108,21 @@
      "name": "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer",
      "role": "characterisation",
      "statement": "In that Witt specialization, the class of p^m maps to m, for every integer m; the normalized valuation is Frobenius-invariant."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.representativeFunctor",
+     "role": "functoriality",
+     "statement": "Send each native twisted-conjugacy representative b to its whole Frobenius tensor family and every conjugator g to its native Tannakian tensor action."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.reconstructionFunctor",
+     "role": "functoriality",
+     "statement": "Reconstruct both the native coefficient point and the actual conjugator of each Frobenius-compatible tensor arrow. Identity and composition agree with the representative groupoid."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.categoryEquivalence",
+     "role": "equivalence",
+     "statement": "The native representative groupoid is equivalent to the Groupoid of trivialized Frobenius families on finite rational comodules. Comparison with untrivialized exact G-isocrystals still requires VB0’s structured category and Steinberg triviality."
     }
    ],
    "tests": [
@@ -961,6 +1175,11 @@
      "name": "TauCeti.BunG.SigmaClass.testWittGL1Distinct",
      "kind": "non-example",
      "statement": "The classes of 1 and p in the Witt units quotient differ; replacing Frobenius or dropping the valuation normalization would miss this control."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testRepresentativeFamily",
+     "kind": "compatibility",
+     "statement": "The forward category equivalence sends b to the family whose component on every native representation is ρ_M(b)(σ⊗id_M)."
     }
    ],
    "uses": [
@@ -974,7 +1193,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-affine-point-and-groupoid-interface",
+    "status": "typed-affine-point-and-tensor-groupoid-interface",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.SigmaClass",
@@ -993,9 +1212,12 @@
      "TauCeti.BunG.SigmaClass.representativeAut",
      "TauCeti.BunG.SigmaClass.gmEquiv",
      "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv",
-     "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer"
+     "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer",
+     "TauCeti.BunG.RepresentativeTensor.representativeFunctor",
+     "TauCeti.BunG.RepresentativeTensor.reconstructionFunctor",
+     "TauCeti.BunG.RepresentativeTensor.categoryEquivalence"
     ],
-    "note": "The quotient is instantiated at native Hopf-algebra points and at the native Witt unit group, with a genuine representative groupoid and stabilizer automorphism equivalence. The G_m comparison uses Tau Ceti’s Laurent-polynomial points equivalence; the Witt slope equivalence has the explicit p-typical hypotheses. The remaining G08 obligation is its comparison with the concrete exact tensor G-isocrystal category and the general local coefficient/Frobenius instantiation. These are algebraic interfaces, not analytic bundle or v-stack signatures."
+    "note": "The native Hopf-point quotient and representative groupoid now compare by an actual category-equivalence signature with the whole trivialized Frobenius tensor family on finite rational comodules. Its arrows reconstruct the actual conjugator by native Tannaka duality. G_m and Witt-unit controls remain concrete. The untrivialized exact tensor G-isocrystal comparison and actual general local coefficient/Frobenius instantiation remain G08; this does not supply analytic bundle or v-stack signatures."
    }
   },
   {
@@ -1031,7 +1253,11 @@
     "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign",
     "tauceti:TauCeti.AlgHom.mapValue",
     "mathlib:Algebra.TensorProduct.map",
-    "mathlib:Algebra.TensorProduct.congr"
+    "mathlib:Algebra.TensorProduct.congr",
+    "tauceti:TauCeti.FGComoduleCat.scalarExtensionMonoidalFunctor",
+    "tauceti:TauCeti.Comodule.pointsAction",
+    "tauceti:TauCeti.Tannaka.scalarExtensionComponent",
+    "tauceti:TauCeti.Tannaka.fgPointTensorIsoEquiv"
    ],
    "sources": [
     {
@@ -1091,6 +1317,16 @@
      "name": "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply",
      "role": "characterisation",
      "statement": "At every coefficient E-algebra A, the natural representative-change map sends h to g_A h g_A^−1, where g_A is the image of g in G(A⊗_E L). It uses g_A on both sides, rather than σ(g_A)."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.tensorAut",
+     "role": "compatibility",
+     "statement": "The native category-theoretic Aut group of ofRepresentative b identifies multiplicatively with the point sigma-stabilizer {g:g b=b σ(g)}. This is the tensor automorphism comparison on the trivialized presentation; reductive representability of J_b and untrivialized comparison remain additional contracts."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.tensorAut_component",
+     "role": "characterisation",
+     "statement": "Every tensor automorphism has component equal to the native representation action of its reconstructed stabilizer point, for every finite rational comodule."
     }
    ],
    "tests": [
@@ -1123,6 +1359,16 @@
      "name": "TauCeti.BunG.SigmaCentralizer.testIdentityFrobenius",
      "kind": "non-example",
      "statement": "If σ is replaced by the identity and b=1, the value at A is the entire coefficient point group. This control must not be mistaken for arithmetic fixed-field descent."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testTensorStabilizer",
+     "kind": "compatibility",
+     "statement": "A tensor automorphism reconstructs a point satisfying g b=b σ(g), preserving the correct placement of Frobenius."
+    },
+    {
+     "name": "TauCeti.BunG.RepresentativeTensor.testTensorIdentitySigma",
+     "kind": "non-example",
+     "statement": "At identity coefficient Frobenius and b=1, the tensor automorphism group is the entire native point group, rather than a trivial automorphism group of orbit classes."
     }
    ],
    "uses": [
@@ -1140,7 +1386,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-affine-point-functor",
+    "status": "typed-affine-point-functor-and-tensor-automorphisms",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.PointCoefficients",
@@ -1151,9 +1397,11 @@
      "TauCeti.BunG.centralizerFunctor",
      "TauCeti.BunG.SigmaCentralizer.functorOfPoints",
      "TauCeti.BunG.SigmaCentralizer.naturalConjugacy",
-     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply"
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply",
+     "TauCeti.BunG.RepresentativeTensor.tensorAut",
+     "TauCeti.BunG.RepresentativeTensor.tensorAut_component"
     ],
-    "note": "The actual functor on all commutative E-algebras and its natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Its representation by a reductive E-group, Newton-Levi base change and tensor-isocrystal automorphism comparison remain omitted."
+    "note": "The actual group-valued functor on all commutative E-algebras and natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Native tensor automorphisms of the trivialized Frobenius family now identify multiplicatively with the point sigma-stabilizer, with component formulas on every representation. Reductive representation of this functor, Newton-Levi base change and untrivialized exact G-isocrystal comparison remain omitted."
    }
   },
   {
@@ -6863,7 +7111,7 @@
   {
    "id": "G08",
    "title": "Lean formulation boundary",
-   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. Those algebraic interfaces do not supply tensor-isocrystal reconstruction or represented Newton-Levi descent. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage.",
+   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. RepresentativeTensor now types the actual semilinear Frobenius family on native finite rational comodules, its Tannakian point reconstruction, all tensor arrows and the point sigma-stabilizer comparison. This covers the trivialized presentation. Comparison with the untrivialized exact G-isocrystal category, Steinberg trivialization and represented Newton-Levi descent remain open. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage. The RF suggested file’s DiamondFormulas explicitly leaves the actual perfectoid site, represented base and coefficient sheaves as omitted hypotheses; VS0’s ArtinVStack and VS1’s analytic Jacobian/cohomological signatures likewise remain omission contracts. Generic sheaf carriers do not instantiate these geometric hypotheses.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
@@ -7284,7 +7532,7 @@
   },
   {
    "supplier": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
-   "need": "Reuse VB0’s existing TauCeti.FFBundles.FiniteIsocrystal L σ and its Hom/category, tensor object and endomorphism ring. Export its E-linear preadditive, Quillen exact and rigid symmetric monoidal category structures with coherence, over the actual general local coefficient field. The object and arrow carriers are already suggested; the full structured category needed to instantiate TensorInterface is not. Retain native Witt rank-one compatibility and the standard simple slope block; BG imports these rather than replanning their linear definitions.",
+   "need": "Reuse VB0’s existing TauCeti.FFBundles.FiniteIsocrystal L σ and its Hom/category, tensor object and endomorphism ring. Export its E-linear preadditive, Quillen exact and rigid symmetric monoidal category structures with coherence, over the actual general local coefficient field. The object and arrow carriers are already suggested; the full structured category needed to instantiate TensorInterface is not. Retain native Witt rank-one compatibility and the standard simple slope block; BG imports these rather than replanning their linear definitions. BG now supplies the whole trivialized Frobenius tensor family and Tannakian arrow reconstruction on native rational comodules; this request still supplies the untrivialized target category and its structured comparisons, rather than duplicating that presentation.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G"
    ]
@@ -9660,20 +9908,31 @@
     "DefinitionIII.2.1 and TheoremIII.2.2 p.89; III.2.4.1–III.2.4.2 pp.89–90; PropositionIII.2.7 and TheoremIII.2.10 pp.91–93."
    ],
    "note": "Codex codex-2yypeW inspected these passages for the affine representative quotient, tensor classification boundary, valuation normalization and family invariant comparison. No new full-source audit or published-edition collation is claimed; contracts use own words."
+  },
+  {
+   "source": "FS",
+   "kind": "author copy; bounded continuation check",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "read": "2026-10-10",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "sections": [
+    "Definition III.2.1 and Theorem III.2.2, printed pp.89–90 (PDF pp.89–90)."
+   ],
+   "note": "Codex codex-vADPRt read these passages to check Frobenius on rational representations and the trivialization boundary. Native point reconstruction is supplied by the pinned library. This does not assert another full-source audit or published-edition collation; all statements use own words."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
   "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (122); no errors or other warnings.",
-   "limitation": "Checks the typed native algebraic, numerical and categorical interfaces. It does not elaborate the omitted analytic geometry, tensor-isocrystal instantiation, reductive centralizer descent or nonsplit Newton comparisons.",
-   "agent": "Codex — codex-2yypeW"
+   "warnings": "Only admitted-proof declaration warnings (150); no errors or other warnings.",
+   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including the entire trivialized tensor family and its arrow reconstruction. It does not elaborate the omitted analytic geometry, untrivialized exact isocrystal comparison, reductive centralizer descent or nonsplit Newton comparisons.",
+   "agent": "Codex — codex-vADPRt"
   }
  },
  "upstreamNotes": [
