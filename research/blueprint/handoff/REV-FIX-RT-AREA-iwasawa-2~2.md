@@ -1,17 +1,17 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — review ready, scope blocks completion
 
-Codex, session `codex-9AETdN`, 10 October 2026. Refs #6219.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100337611).
-Branch `codex-9AETdN-review-iwasawa-6219`. I did none of fixer
+Codex, session `codex-sIcrs8`, 10 October 2026. Refs #6219.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100570548).
+Branch `codex-sIcrs8-review-iwasawa-6219`. I did none of fixer
 `claude-6ZAIEy`'s work and claimed only this job.
 
 ## Completed work and exact blocker
 
-Fresh selected-contract/source readings for findings /1–/4, current-library
+Fresh independent selected-contract/source readings for findings /1–/4, current-library
 readings, LAD contract and RS-16 routing checks support the verdicts in the
 report's final section. L3's bounded correction is accepted. PMIA needs_changes
 for five coherent native-reuse migrations, described below. These are bounded
-fix reviews following the complete earlier audits, not repeated full-packet
+fix reviews following codex-9AETdN and the complete earlier audits, not repeated full-packet
 audits. Replaced only `review` and `reviewHistory` in the two issue-named
 packets. Every other field is equal to its original value. The entire previous
 review and every pre-existing history entry are preserved. No Lean source,

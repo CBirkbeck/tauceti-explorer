@@ -1,16 +1,14 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-9AETdN`, 10 October 2026.
-Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100337611).
-Fresh bounded source and library readings support L3's correction and retain
-PMIA's `needs_changes` verdict. All four packet checks pass. Fresh sequential
-Lean checks pass for L3-2, D.1 and PMIA with only `sorry` warnings; L3 stops
-before body elaboration at the shared build's unresolved `research` import.
-The issue-named reviews preserve their complete predecessors. Completion
-also requires receipts in L3-2 and D.1, omitted from the live issue; explicit
-authorization for those prepared review-only updates has not arrived. This
-is a blocked checkpoint; the last section and handoff give the exact repair.
-Earlier exhaustive audits keep their original attribution.
+Latest continuation: Codex, session `codex-sIcrs8`, 10 October 2026.
+Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6100570548).
+The fresh bounded review preserves L3 accepted and PMIA needs_changes.
+The four packet checks pass. L3-2, D.1 and PMIA elaborate with only `sorry`
+warnings; L3 cannot resolve its `research` import in the shared pinned build.
+The live issue still omits the L3-2 and D.1 review records required by the
+completion checker. Prepared review-only updates await explicit authorization.
+This is a blocked checkpoint; the final section and handoff explain the scope
+repair. Earlier exhaustive audits retain their original attribution.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -923,3 +921,61 @@ negative verdict completes its review portion and is not the dispatch blocker.
 Intake screening reports four files and zero problems; `git diff --check`
 passes. This is a blocked checkpoint. The handoff contains the exact
 reconstruction recipe so scope repair needs no repetition of the source audit.
+
+## Continuation by codex-sIcrs8: bounded review and unresolved scope
+
+I did none of fixer `claude-6ZAIEy`'s work. This session reread the whole issue,
+all six findings and their verification/fix report, the preceding audits and
+selected packet contracts. It checked the sources cited in the /1–/4 sections
+above at the same eight public PDF versions and hashes. Morita §1 pp.255–256,
+Gross–Koblitz §1 pp.570–571, and Robert Theorem 4/estimates pp.167–168 were
+inspected as page images where extraction omitted formulas. Zhao Theorem 4.1,
+(4.1)–(4.6) pp.471–473 and Appendices A–B pp.473–474, EN §§2.1–2.2 pp.4–8,
+CN Corollary 3.16 p.37/Theorem 5.4 p.54, NN Remark 2.14 p.14/Proposition 4.13
+pp.53–54 and DK §§2.2–2.3 pp.15–18/Lemma 3.9 pp.25–26/§6.1 p.40/Appendix B.2
+pp.93–94 support the selected contracts. These are independent bounded checks,
+not repeated exhaustive audits of L3's 1,663 or PMIA's 487 nodes.
+
+The six verdicts remain: /1 accepted within its existing supplier limits;
+/2 supported for the strict-endpoint and corrected Ferrero–Greenberg contracts;
+/3 supported for the divided/undivided comparison and rational normalization
+contracts; /4 needs_changes for the coherent five-node native-reuse migration;
+/5 retains only the compact-complex/finite-window routes with explicit solid
+comparison gaps; /6 retains the verifier's rejection and independent historical
+Hecke route. LAD's current contracts and RS-16's routing decision were reread;
+no fresh BCGP paper audit is claimed. No mathematical correction was made.
+
+The pinned native unit, density, continuous-unit and adjugate declarations,
+and the pinned opposite-module transpose carrier were checked. The current
+Tau Ceti Fitting ideal/base-change/stable-transpose statements and current
+StableReduction and QuiverRepresentations roadmap boundaries retain the
+migration specified above. In particular, native Fitting ideals require finite
+modules, rather than a finite-presentation hypothesis; the kernel comparison
+requires a surjection. The stable transpose theorem allows arbitrary projective
+presentations with the displayed exactness and surjectivity assumptions, and
+its scalar ring is opposite. The programme pin and current library were kept
+distinct. No upstream file was changed or built.
+
+Four packet checks: zero errors; L3 has 26 inherited short-API warnings, the
+others zero. Fresh sequential `lean-check`: L3 exits 1 before body elaboration
+at unknown module prefix `research`; L3-2 exits 0 with 111, D.1 with 307 and
+PMIA with 1,075 `sorry` warnings and no other diagnostics. No Lean file changed
+or compilation remains running. Fresh finite controls passed 260 recurrence
+equations, 260 strict counts, 90 buffered congruence pairs and 81 two-sided
+2×2 adjugate identities, retaining dyadic, endpoint and cofactor-orientation
+counterexamples. These controls do not prove the general analytic contracts.
+All eight fresh PDF hashes match the version table; no book was used or source
+passage copied into the repository. All four packets have zero excerpt fields.
+
+Replaced only `review`/`reviewHistory` in issue-named L3 and PMIA, archiving each
+entire predecessor and retaining all earlier history. Parsed equality confirms
+every mathematical and planning field is unchanged. Prepared accepted bounded
+receipts for L3-2 and D.1 also archive their complete 79/72-entry preceding
+audits and pass their packet checkers. They remain uninstalled: the reread live
+issue still omits them, and WORKERS.md's file-scope rule requires authorization
+before those writes. Authorization was requested with the concrete patches
+ready; no reply has arrived. The actual completion predicate is False, while
+substituting only the prepared records through a read-only path adapter makes
+it True. PMIA's negative verdict completes its review portion and does not
+cause the dispatch blocker. The handoff supplies the exact reconstruction
+recipe. Correct the issue scope before another unchanged continuation.
