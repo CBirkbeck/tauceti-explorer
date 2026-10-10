@@ -1,5 +1,26 @@
 # Independent review of FIX-RT-AREA-algebraicgeometry~2
 
+## Continuation by codex-i8y6Vr: dispatch scope still blocks completion
+
+**Blocked checkpoint, 10 October 2026.** Codex (GPT-6), session `codex-i8y6Vr`, independently continues [#8357](https://github.com/CBirkbeck/tauceti-explorer/pull/8357). Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6096807936). This session authored none of the fixes under review. No second job was claimed.
+
+The live issue still permits only five packet/suggested pairs; the queue's completion predicate requires eleven packet verdicts. The five permitted verdicts already identify this review job and need no further refresh. A concrete six-packet proposal was prepared in scratch, preserving every entire previous review and older history entry, every node and every supplier request. Only two Adic mathematical fields and six verdict/history records would change. Explicit scope authorization was requested after preparing that proposal. No authorizing reply has arrived, and no omitted packet was edited. [WORKERS.md](../WORKERS.md), Doing the work, requires: “Edit only the files the issue names, plus your own scratch space.” The exact six paths and updates are retained in the handoff.
+
+Fresh verification in this continuation:
+
+- All eleven current packets and all six proposed updates pass `check_blueprint.py`: zero errors and zero warnings. Preservation assertions verify entire preceding reviews, older histories, nodes and requests in the prospective patch.
+- The actual `issues.deliverables_complete` returns false for current outputs and true for a scratch staging of precisely the six proposed packets with the other job outputs unchanged. This is a completion check, not authorization to modify those files.
+- Read-only stage-graph assembly reproduces 15,601 current edges and 15,595 after the six SF.5 forwarding deletions. Both surviving SF.4-to-MC.4 paths below were independently reproduced: one passes through AbelianSchemes A4, the other through FiniteFlatGroups R07.2. Either witnesses a cycle if the reverse MC.4-to-SF.4 edge is inserted; the two-field Adic correction remains necessary.
+- [de Jong, Section 2.24, printed p.62](https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf) was reread: the pointed-cover construction covers every genus with at least three marks, uses a prime level at least three inverted on the base, and distinguishes the finite-etale smooth-locus cover from the finite dominant projective normalized cover. [Lan, Corollary 1.2.5.7, printed p.91](https://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf) was reread: the unramified reflex-field result assumes a rational prime. PEL's unchanged line-827 prototype still quantifies over natural numbers without that hypothesis. The broader integer assertion is not certified by that source.
+- The five unchanged ShimuraData D0 signatures at lines 93–110 were inspected directly; they still assume identifications or commutativity instead of constructing the specified bridges. The pinned `Hodge.Conjugation` statement was read in its source: its carrier map is `toEquiv`, with involutivity. Selected SF.4, NC.5 and R11.2 reviewed library-audit entries and the current AlgebraicVectorBundles and completed HodgeStructures documents were read; existing ownership boundaries stand. No new declaration or roadmap was planned.
+- All eleven current Suggested-file SHA-256 hashes match the inherited receipts in the table below. No Lean file was changed or recompiled. Ten inherited elaborations succeed with admitted-proof warnings only; ShimuraData's inherited full-file elaboration fails. Those results are explicitly inherited, not fresh Lean executions. No restricted YZZ2013 book was accessed and no source passage was copied into the repository.
+
+This continuation changes only this report and the handoff. The five completed permitted verdicts and six omitted packets remain unchanged. Scope authorization, or expansion of the live issue to name the six paths, is the sole dispatch blocker. A completed review may record `needs_changes`; implementing those packets' broader missing mathematics is not required to submit this review.
+
+## Preserved predecessor report (codex-XUvtW5, checkpoint #8357)
+
+The text below is preserved from the preceding session. Its references to “this session”, fresh reads, compilation and scope requests describe codex-XUvtW5; only the evidence explicitly listed above was freshly checked by codex-i8y6Vr.
+
 **Scoped review finished; overall job blocked by the live issue's omitted deliverables.** Codex (GPT-6), session `codex-XUvtW5`, 10 October 2026. Reviewer: `independent-review-REV-FIX-RT-AREA-algebraicgeometry~2`. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6096589333). This session authored none of [the fixes under review, #7968](https://github.com/CBirkbeck/tauceti-explorer/pull/7968). It continues [checkpoint #8349](https://github.com/CBirkbeck/tauceti-explorer/pull/8349), by codex-QcUyiW, and its preserved predecessors.
 
 ## Result and scope boundary
