@@ -53,6 +53,8 @@ import Mathlib.Algebra.FreeAlgebra
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.RingQuot
 import Mathlib.RingTheory.PowerSeries.Inverse
+import Mathlib.RingTheory.PowerSeries.Trunc
+import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Algebra.Lie.Classical
 import Mathlib.Algebra.Lie.UniversalEnveloping
 import Mathlib.Algebra.Polynomial.AlgebraMap
@@ -3370,6 +3372,189 @@ example : ¬ ∃ g : Matrix.GeneralLinearGroup (Fin 2) ℂ,
   have hdet := Matrix.GeneralLinearGroup.det_ne_zero g
   rw [hg] at hdet
   norm_num [Matrix.det_fin_two] at hdet
+
+/-! QT.7: the scalar all-orders criterion, GZ v3 (1.5)–(1.6), pp. 10–11,
+and (3.6)–(3.8), p. 16. The inputs are supplied knot values, complex-volume
+representatives and the geometric formal series, rather than newly asserted
+knot invariants. These concrete predicates specify conjectures; no theorem
+asserts them for arbitrary data or for a knot whose comparison is missing.
+Only finite PowerSeries.trunc polynomials are evaluated. -/
+
+/-- The geometric expansion parameter for a positive-c modular transformation. -/
+def qmcParameter (γ : SL₂) (x : ℚ) : ℂ :=
+  2 * Real.pi * Complex.I /
+    ((γ 1 0 : ℂ) * ((γ 1 0 : ℂ) * (x : ℂ) + γ 1 1))
+
+/-- Evaluate the first M coefficients, with no convergence assumption on φ. -/
+def qmcTruncation (φ : PowerSeries ℂ) (M : ℕ) (h : ℂ) : ℂ :=
+  (PowerSeries.trunc M φ).eval h
+
+/-- The complete scale multiplying J(X) in the generalized scalar conjecture.
+v is the selected representation's normalized volume; V is the geometric
+complex-volume representative. The supplied φ carries the one-loop factor. -/
+def qmcScale (γ : SL₂) (κ : ℝ) (v V : ℂ) (x : ℚ) : ℂ :=
+  tweakedAutomorphyEntry v κ γ x *
+    Complex.exp (V / (((((γ 0 0 : ℚ) / γ 1 0).den : ℂ) ^ 2) * qmcParameter γ x))
+
+/-- GZ GQMC, as a precise property of supplied knot-specific scalar data.
+The positive-c hypothesis is part of the property. For each positive denominator
+bound B and each truncation M, a single Big-O constant works for all sufficiently
+large rationals of denominator at most B. The comparison includes the full
+exponential and J(X), so it never divides by a possibly zero knot value. -/
+def generalized_quantum_modularity (J : ℚ → ℂ) (γ : SL₂) (κ : ℝ)
+    (v V : ℂ) (φ : PowerSeries ℂ) : Prop :=
+  0 < γ 1 0 ∧ ∀ (B : ℕ), 0 < B → ∀ (M : ℕ),
+    Asymptotics.IsBigO
+      (Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ B})
+      (fun x => J (rationalMobius γ x) -
+        qmcScale γ κ v V x * J x * qmcTruncation φ M (qmcParameter γ x))
+      (fun x => qmcScale γ κ v V x * J x * qmcParameter γ x ^ M)
+
+/-- The original conjecture is precisely the trivial-row weight 3/2 and v=0. -/
+def the_quantum_modularity_conjecture (J : ℚ → ℂ) (γ : SL₂)
+    (V : ℂ) (φ : PowerSeries ℂ) : Prop :=
+  generalized_quantum_modularity J γ (3 / 2) 0 V φ
+
+theorem qmcTruncation_eq_sum (φ : PowerSeries ℂ) (M : ℕ) (h : ℂ) :
+    qmcTruncation φ M h = ∑ n ∈ range M, PowerSeries.coeff n φ * h ^ n := by
+  sorry
+
+theorem qmcTruncation_succ (φ : PowerSeries ℂ) (M : ℕ) (h : ℂ) :
+    qmcTruncation φ (M + 1) h =
+      qmcTruncation φ M h + PowerSeries.coeff M φ * h ^ M := by
+  sorry
+
+/-- Determinant one ensures that a/c is reduced when c>0. -/
+theorem qmcCusp_den (γ : SL₂) (hγ : 0 < γ 1 0) :
+    ((γ 0 0 : ℚ) / γ 1 0).den = (γ 1 0).natAbs := by
+  sorry
+
+theorem qmcParameter_ne_zero (γ : SL₂) (x : ℚ)
+    (hγ : 0 < γ 1 0) (hx : rationalPoleFree γ x) : qmcParameter γ x ≠ 0 := by
+  sorry
+
+theorem qmcParameter_tendsto_zero (γ : SL₂) (hγ : 0 < γ 1 0) :
+    Filter.Tendsto (qmcParameter γ) Filter.atTop (𝓝 0) := by
+  sorry
+
+/-- A positive denominator bound includes arbitrarily large integers. -/
+theorem qmc_bounded_denominator_neBot (B : ℕ) (hB : 0 < B) :
+    Filter.NeBot (Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ B}) := by
+  sorry
+
+/-- Totalized division at the single pole never contributes to the limit. -/
+theorem qmc_positive_denominator_eventually (γ : SL₂) (hγ : 0 < γ 1 0) :
+    ∀ᶠ x : ℚ in Filter.atTop, 0 < (γ 1 0 : ℚ) * x + γ 1 1 := by
+  sorry
+
+theorem qmcScale_ne_zero (γ : SL₂) (κ : ℝ) (v V : ℂ) (x : ℚ)
+    (hx : rationalPoleFree γ x) : qmcScale γ κ v V x ≠ 0 := by
+  sorry
+
+/-- Make the order of quantifiers, and hence the uniformity, explicit. -/
+theorem generalized_quantum_modularity_iff_bound (J : ℚ → ℂ) (γ : SL₂)
+    (κ : ℝ) (v V : ℂ) (φ : PowerSeries ℂ) :
+    generalized_quantum_modularity J γ κ v V φ ↔
+      0 < γ 1 0 ∧ ∀ (B : ℕ), 0 < B → ∀ (M : ℕ),
+        ∃ C : ℝ, 0 < C ∧ ∃ N : ℚ, ∀ x : ℚ, N ≤ x → x.den ≤ B →
+          ‖J (rationalMobius γ x) -
+            qmcScale γ κ v V x * J x * qmcTruncation φ M (qmcParameter γ x)‖ ≤
+          C * ‖qmcScale γ κ v V x * J x * qmcParameter γ x ^ M‖ := by
+  sorry
+
+/-- Ratio notation is justified only with eventual nonvanishing of J. -/
+theorem generalized_quantum_modularity_iff_ratio (J : ℚ → ℂ) (γ : SL₂)
+    (κ : ℝ) (v V : ℂ) (φ : PowerSeries ℂ) (hγ : 0 < γ 1 0)
+    (hJ : ∀ (B : ℕ), 0 < B →
+      ∀ᶠ x : ℚ in Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ B}, J x ≠ 0) :
+    generalized_quantum_modularity J γ κ v V φ ↔
+      ∀ (B : ℕ), 0 < B → ∀ (M : ℕ),
+        Asymptotics.IsBigO
+          (Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ B})
+          (fun x => J (rationalMobius γ x) / (qmcScale γ κ v V x * J x) -
+            qmcTruncation φ M (qmcParameter γ x))
+          (fun x => qmcParameter γ x ^ M) := by
+  sorry
+
+/-- All-orders expansions determine the formal series on a nonvanishing row. -/
+theorem qmc_series_unique (J : ℚ → ℂ) (γ : SL₂) (κ : ℝ) (v V : ℂ)
+    (φ ψ : PowerSeries ℂ)
+    (hJ : ∀ᶠ x : ℚ in Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ 1}, J x ≠ 0)
+    (hφ : generalized_quantum_modularity J γ κ v V φ)
+    (hψ : generalized_quantum_modularity J γ κ v V ψ) : φ = ψ := by
+  sorry
+
+theorem qmc_trivial_row (J : ℚ → ℂ) (γ : SL₂) (V : ℂ) (φ : PowerSeries ℂ) :
+    the_quantum_modularity_conjecture J γ V φ ↔
+      generalized_quantum_modularity J γ (3 / 2) 0 V φ := Iff.rfl
+
+-- qmcParameter_S_one
+example : qmcParameter ModularGroup.S 1 = 2 * Real.pi * Complex.I := by
+  sorry
+-- qmcParameter_S_two
+example : qmcParameter ModularGroup.S 2 = Real.pi * Complex.I := by
+  sorry
+-- qmcParameter_sign
+example (γ : SL₂) (x : ℚ) : qmcParameter (-γ) x = qmcParameter γ x := by
+  sorry
+
+-- qmcTruncation_empty
+example (φ : PowerSeries ℂ) (h : ℂ) : qmcTruncation φ 0 h = 0 := by
+  sorry
+-- qmcTruncation_constant
+example (φ : PowerSeries ℂ) (h : ℂ) :
+    qmcTruncation φ 1 h = PowerSeries.coeff 0 φ := by
+  sorry
+-- qmcTruncation_divergent_series: factorial coefficients require no infinite evaluation.
+example (h : ℂ) : qmcTruncation (PowerSeries.mk fun n => (n.factorial : ℂ)) 4 h =
+    1 + h + 2 * h ^ 2 + 6 * h ^ 3 := by
+  sorry
+
+-- qmcScale_original_S: the source exponential, without an extra denominator factor.
+example (V : ℂ) (x : ℚ) (hx : 0 < x) :
+    qmcScale ModularGroup.S (3 / 2) 0 V x =
+      (Real.rpow (x : ℝ) (3 / 2) : ℂ) *
+        Complex.exp (V * (x : ℂ) / (2 * Real.pi * Complex.I)) := by
+  sorry
+-- qmcScale_nontrivial_row: weight zero still retains the representation twist.
+example (v V : ℂ) : qmcScale ModularGroup.S 0 v V 1 =
+    Complex.exp v * Complex.exp (V / (2 * Real.pi * Complex.I)) := by
+  sorry
+-- qmcScale_zero_volume: no exponential remains when both volumes vanish.
+example (x : ℚ) (hx : x ≠ 0) : qmcScale ModularGroup.S 0 0 0 x = 1 := by
+  sorry
+
+-- qmc_bound_one: this restriction keeps exactly the integers.
+example (x : ℚ) : x.den ≤ 1 ↔ ∃ n : ℤ, x = n := by
+  sorry
+-- qmc_bound_zero: exclude the vacuous bottom filter from the conjecture.
+example : (Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ 0}) = ⊥ := by
+  sorry
+-- qmc_wrong_order: a nonzero constant error is not O(h) even along integers.
+example : ¬ Asymptotics.IsBigO
+    (Filter.atTop ⊓ Filter.principal {x : ℚ | x.den ≤ 1})
+    (fun _ : ℚ => (1 : ℂ)) (qmcParameter ModularGroup.S) := by
+  sorry
+-- qmc_zero_row: nonvanishing is necessary for the uniqueness API.
+example (γ : SL₂) (κ : ℝ) (v V : ℂ) (φ : PowerSeries ℂ) (hγ : 0 < γ 1 0) :
+    generalized_quantum_modularity (fun _ => 0) γ κ v V φ := by
+  sorry
+-- qmc_translation_excluded: T has c=0 and is outside this expansion domain.
+example (J : ℚ → ℂ) (κ : ℝ) (v V : ℂ) (φ : PowerSeries ℂ) :
+    ¬ generalized_quantum_modularity J ModularGroup.T κ v V φ := by
+  sorry
+-- qmc_original_translation_excluded
+example (J : ℚ → ℂ) (V : ℂ) (φ : PowerSeries ℂ) :
+    ¬ the_quantum_modularity_conjecture J ModularGroup.T V φ := by
+  sorry
+-- qmc_original_zero_row
+example (γ : SL₂) (V : ℂ) (φ : PowerSeries ℂ) (hγ : 0 < γ 1 0) :
+    the_quantum_modularity_conjecture (fun _ => 0) γ V φ := by
+  sorry
+-- qmc_original_trivial_weight: original and generalized criteria coincide exactly.
+example (J : ℚ → ℂ) (γ : SL₂) (V : ℂ) (φ : PowerSeries ℂ) :
+    the_quantum_modularity_conjecture J γ V φ =
+      generalized_quantum_modularity J γ (3 / 2) 0 V φ := rfl
 
 inductive Provenance where
   | proved | imported | computed | numerical | conjectural
