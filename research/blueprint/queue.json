@@ -25613,7 +25613,8 @@
    ],
    "avoidAccountOf": "BP-FunctionFieldArithmetic",
    "prompt": "research/blueprint/prompts/REV-FunctionFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #409"
   },
   {
    "id": "BP-GL2AutomorphicRepresentationsAndTransfer--R16.1",
@@ -31477,14 +31478,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-InverseGaloisAndArithmeticFundamentalGroups",
     "BP-SchemeAndStackFoundations",
     "BP-TropicalAndBerkovichArithmetic"
    ],
-   "note": "released on GitHub issue #1023"
+   "note": "claimed on GitHub issue #1023"
   },
   {
    "id": "REV-ArithmeticDynamics",
@@ -36680,8 +36681,9 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6298"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6298",
+   "finishedAt": "2026-10-10T21:00:47Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
@@ -43204,8 +43206,9 @@
     "BP-AnalyticNumberTheory--AN.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-AnalyticNumberTheory--AN.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6464"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6464",
+   "finishedAt": "2026-10-10T21:00:50Z"
   },
   {
    "kind": "blueprint",
@@ -49252,8 +49255,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80219,8 +80222,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81529,8 +81532,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84620,8 +84623,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
