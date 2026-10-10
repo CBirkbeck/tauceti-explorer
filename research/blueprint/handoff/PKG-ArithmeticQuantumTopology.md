@@ -1,12 +1,12 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-c2or2X`, issue #7889, 2026-10-10.
-Continues `codex-MNQaDU` (PR #8222), following PRs #8210, #8192 and #8154.
+Worker: Codex (GPT-6), session `codex-tNXl0D`, issue #7889, 2026-10-10.
+Continues `codex-c2or2X` (PR #8235), following PRs #8222, #8210, #8192 and #8154.
 
 This is **partial**, not a completed package. The README is assembled; the Lean
-file is a compiled subset, now also including the explicit QT.7 diagonal
-automorphy factor, its pole-free GL lift and composition/sign APIs. The native
-color inverse limit, twists and finite formal-color interfaces remain.
+file is a compiled subset, now also including the QT.6 filtered GSW and root-NZ
+polynomial vertices and their exact prefactor products. The QT.7 automorphy
+factor, color inverse limit, twists and finite formal-color interfaces remain.
 Missing supplier carriers prevent the full signatures
 required by PROTOCOL §20. No packet, review verdict or supplier file was changed.
 
@@ -19,12 +19,16 @@ required by PROTOCOL §20. No packet, review verdict or supplier file was change
   Every numbered/page source locator remains. The procedural application
   paragraph is replaced by its mathematical comparison boundary. It omits process
   narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,939 bytes, below the 200 KB ceiling. Comparison obligations
+  document is 199,930 bytes, below the 200 KB ceiling. Four repeated source
+  links now use Markdown references, with the same URLs and individual locators.
+  The QT.6 additions give logarithmic/exponential coefficient, prefactor and
+  parity APIs and discriminating tests. Comparison obligations
   and conjectures remain visibly distinct from established source results.
 - `Suggested.lean`: the input's concrete native interfaces, without the long
   commented inventory masquerading as signatures, plus genuine meromorphic
   Faddeev, extended Bloch, formal finite-color and completed color-algebra
-  interfaces. The README retains the omitted mathematical specifications;
+  interfaces, plus six genuine polynomial-vertex/integrand definitions.
+  The README retains the omitted mathematical specifications;
   this handoff identifies where native signatures still have to be supplied.
 - `metadata.toml` is deliberately **not submitted**. The intake's
   `issues.deliverables_complete` treats a package as complete whenever its three
@@ -86,7 +90,92 @@ No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native QT.7 addition in this checkpoint
+## Native QT.6 addition in this checkpoint
+
+`NZVertices` at the end of `Suggested.lean` adds `NZVertexLog`, `NZVertexSeries`,
+`NZFormalIntegrand`, `rootNZVertexLog`, `rootNZVertexSeries` and
+`rootNZFormalIntegrand`. Their carrier is
+`PowerSeries (MvPolynomial (Fin N) ℂ)`, with formal variable t=√h.
+For degree d>0 the logarithmic coefficient is a finite sum with
+2n+j=d+2. This retains n=0 at valence j≥3. Each coefficient is a polynomial,
+so there is no infinite coefficient sum or analytic integration hidden in a
+definition. The zero log constant justifies Mathlib exponential substitution.
+The GSW scalar prefactor is fᵀQf/8 and its linear term is xᵀ(1−μ)/2;
+the root scalar is fᵀμ/(8k) and its linear term is −xᵀμ/(2k), with
+Q=B⁻¹A and μ=B⁻¹ν supplied by the future geometric adapter.
+
+The six zero-constant/substitution/unit-constant declarations, the GSW first
+log coefficient and the k=2 cubic-scaling example have Lean proofs. The
+remaining new APIs/examples are planning statements using `sorry`.
+The parameter `liNeg r z` must be instantiated as
+`TauCeti.Polylog.polylog (-(r : ℤ)) z` from
+`Polylogarithms:P.1/classical-polylogarithm`. That supplier's rational
+nonpositive-index specification was read. Its suggested `polylog` definition
+still has a `sorry` body and no package import exists here; no duplicate
+polylogarithm is defined in QT. Algebraic mock inputs in the prefactor/cubic
+tests do not assert a valid geometric NZ datum.
+
+An additional exact supplier boundary was verified in
+`suggested/HabiroNahmSeries.lean`, lines 545–585. HB.4's current
+`formalGaussian` and `gaussLaplacian` take **real** matrices/polynomials.
+They cannot contract these generally complex/algebraic shape coefficients.
+The existing HB.4 request needs a characteristic-zero coefficient-field
+interface: for symmetric invertible Λ over K, a K-linear normalized bracket
+on `MvPolynomial (Fin N) K`, with second moment Λ⁻¹ᵢⱼ, odd-polynomial
+vanishing, Wick moments and compatibility with field embeddings/base change.
+The ℝ specialization must agree with HB.4's existing bracket. QT consumes this
+interface at covariance Λ⁻¹ or kΛ⁻¹; it must not recreate Gaussian contraction.
+No substitute Gaussian `Prop`, dummy carrier or unconstrained bracket was
+added. `formalNZStateIntegral` and `rootNZFormalSeries` remain unstated until
+this supplier and the geometric datum adapter exist.
+
+## Validation of session codex-tNXl0D
+
+- Read both complete current TauCetiRoadmap examples
+  `OperatorTheory/SelfAdjointSpectralTheory` and `GrothendieckEulerForms`,
+  then the current GeometricTopology suggested file and native smooth-link
+  and surgery-slope statements. The read-only upstream hashes are the ones
+  recorded above; the required framed-link, filled-manifold and cusped
+  triangulation suppliers remain absent. The reviewed library catalogue
+  has no ArithmeticQuantumTopology row.
+- Read GSW arXiv:2305.14884v2 §1, equations (4)–(7), pp. 3–4, and DG2
+  arXiv:1511.05628v1 §§2.3–2.4, equations (20)–(25), pp. 7–8, directly.
+  PDF SHA-256 values respectively:
+  `ebc8e64d901c9e4f397ece6170c92d5d65045ef7fbb15d251a268327acf7e1fb` and
+  `3b9da2994233882bdb242798fd1a5f85e53f1d0fd66410809de751d056a07d3a`.
+  No restricted source was needed. Source files/texts stayed in scratch.
+- Read pinned Mathlib's `PowerSeries.exp`, `PowerSeries.subst`,
+  `HasSubst.of_constantCoeff_zero'`,
+  `constantCoeff_subst_of_constantCoeff_zero`, `coeff_mk`,
+  `Polynomial.bernoulli`, and Bernoulli-number sign conventions before use.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 254 warnings**, all `declaration uses sorry`.
+  Available memory was 102 GB before the final elaboration; no language
+  server or build/update/cache command was run. Six definitions and eight
+  new proved statements/examples are added; the other signatures remain plans.
+- **239 exact rational checks passed** using independently indexed source
+  double sums through t-degree 4: GSW at z=−2,−1,1/2,3/2,2,3; genuine
+  k=1,2 root vertices at θ=2,3,3/2 and every m; exponential cross terms
+  and polynomial parity. The mock Li₀=0, Li₋₁=1 cubic coefficient is
+  −x³/(6k²) for k=1,…,7. Its paired sixth-degree term has coefficient
+  1/(72k⁴), giving 5/(24k) after the sixth Wick moment at covariance k.
+  Omitting n=0 removes that term. The scalar/linear prefactor controls also
+  pass. These finite computations do not prove the remaining `sorry` APIs
+  or source topological/analytic conjectures. The deleted scratch script
+  is not a required input to resume the job.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  **0 errors, 0 warnings**; the input is unchanged, with 106 nodes,
+  8 gaps, 19 requests and no closed stage.
+- README retains every existing target/layer anchor and original API/test
+  name. Each reference link resolves to its unchanged source URL.
+  `git diff --check` passes; intake `check-files` reports 3 files, 0 problems.
+  Only the three permitted package/handoff paths are changed.
+
+Resume at the supplier boundaries above. The polynomial vertices can now be
+instantiated directly; do not replace them with a commented signature inventory
+or infer source invariance/analytic asymptotics from their finite tests.
+
+## Native QT.7 addition inherited from PR #8235
 
 Garoufalidis–Zagier arXiv:2111.06645v3 was read directly at §3.1, equation
 (3.5), Lemma 3.1 and (3.7), p. 16; §4.2, equations (4.14)–(4.15), p. 30.
@@ -323,7 +412,7 @@ accepted input for exhaustive target/name tracing; this checkpoint has changed
 no mathematical verdict there. Only after all layers meet §20 should metadata
 be added and the package submitted as complete.
 
-## Sources and validation
+## Sources and validation inherited from PR #8235
 
 This run read the current GeometricTopology and
 OperatorTheory/SelfAdjointSpectralTheory roadmaps and suggested files, and the

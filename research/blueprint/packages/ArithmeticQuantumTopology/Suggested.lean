@@ -25,6 +25,8 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.PowerSeries.Exp
+import Mathlib.RingTheory.PowerSeries.Substitution
+import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.LinearAlgebra.Matrix.IsDiag
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
@@ -1781,5 +1783,234 @@ theorem rootNZAverage_one {n k : ℕ} (a : (Fin n → Fin k) → ℂ)
 
 -- rootNZ_denominator: zero weights do not supply the required hypothesis.
 example {n k : ℕ} : (∑ _m : Fin n → Fin k, (0 : ℂ)) = 0 := sorry
+
+/-! QT.6: polynomial vertices in t = √h.
+`liNeg r z` is the import-facing value Li_{-r}(z) from Polylogarithms:P.1.
+No polylogarithm or Gaussian operator is defined here. The geometric datum
+and the complex-coefficient extension of HB.4 remain supplier interfaces.
+The coefficients below are genuine finite polynomials, even before these
+imports are instantiated. Sources: GSW §1 (4)–(7), pp. 3–4; DG2 §2.3–2.4
+(20)–(25), pp. 7–8. -/
+section NZVertices
+variable {N : ℕ}
+
+/-- Positive t-degree part of the GSW logarithmic vertex. At degree d,
+the finite indices satisfy 2n+j=d+2; all nonpositive t-degrees are excluded. -/
+def NZVertexLog (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  PowerSeries.mk fun d => if d = 0 then 0 else
+    ∑ n ∈ (range (d + 3)).filter (fun n => 2 * n ≤ d + 2),
+      let j := d + 2 - 2 * n
+      MvPolynomial.C (-((_root_.bernoulli n : ℚ) : ℂ) * liNeg (n + j - 2) z /
+        ((n.factorial : ℂ) * (j.factorial : ℂ))) * MvPolynomial.X i ^ j
+
+def NZVertexSeries (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  PowerSeries.subst (NZVertexLog liNeg i z)
+    (PowerSeries.exp (MvPolynomial (Fin N) ℂ))
+
+theorem NZVertexLog_constant (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.constantCoeff (NZVertexLog liNeg i z) = 0 := by
+  simp [NZVertexLog, PowerSeries.constantCoeff_mk]
+
+theorem NZVertexLog_hasSubst (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.HasSubst (NZVertexLog liNeg i z) :=
+  PowerSeries.HasSubst.of_constantCoeff_zero' (NZVertexLog_constant liNeg i z)
+
+theorem NZVertexSeries_constant (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.constantCoeff (NZVertexSeries liNeg i z) = 1 := by
+  change MvPowerSeries.constantCoeff (PowerSeries.subst (NZVertexLog liNeg i z)
+    (PowerSeries.exp (MvPolynomial (Fin N) ℂ))) = 1
+  rw [PowerSeries.constantCoeff_subst_of_constantCoeff_zero
+    (NZVertexLog_constant liNeg i z)]
+  simp
+
+theorem NZVertexLog_first (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.coeff 1 (NZVertexLog liNeg i z) =
+      MvPolynomial.C (liNeg 0 z / 2) * MvPolynomial.X i -
+      MvPolynomial.C (liNeg 1 z / 6) * MvPolynomial.X i ^ 3 := by
+  norm_num [NZVertexLog, PowerSeries.coeff_mk, Finset.sum_filter,
+    Finset.sum_range_succ, Nat.factorial, div_eq_mul_inv, map_mul, mul_neg, map_neg]
+  ring
+
+-- formalNZ_vertex_second: the scalar Bernoulli term and the quartic term
+-- discriminate the exponent's filter and factorials.
+example (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.coeff 2 (NZVertexLog liNeg i z) =
+      -MvPolynomial.C (liNeg 0 z / 12) +
+      MvPolynomial.C (liNeg 1 z / 4) * MvPolynomial.X i ^ 2 -
+      MvPolynomial.C (liNeg 2 z / 24) * MvPolynomial.X i ^ 4 := sorry
+
+-- formalNZ_vertex_exponential: this is exp(log ψ), not the logarithm itself.
+example (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.coeff 2 (NZVertexSeries liNeg i z) =
+      PowerSeries.coeff 2 (NZVertexLog liNeg i z) +
+      MvPolynomial.C (1 / 2 : ℂ) *
+        PowerSeries.coeff 1 (NZVertexLog liNeg i z) ^ 2 := sorry
+
+-- formalNZ_vertex_first: the cubic vertex survives already at degree t.
+example (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) :
+    PowerSeries.coeff 1 (NZVertexSeries liNeg i z) =
+      PowerSeries.coeff 1 (NZVertexLog liNeg i z) := sorry
+
+theorem NZVertexSeries_parity (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (z : ℂ) (d : ℕ) :
+    MvPolynomial.eval₂ MvPolynomial.C (fun j => -MvPolynomial.X j)
+        (PowerSeries.coeff d (NZVertexSeries liNeg i z)) =
+      (-1 : MvPolynomial (Fin N) ℂ) ^ d *
+        PowerSeries.coeff d (NZVertexSeries liNeg i z) := sorry
+
+/-- Exact GSW prefactor and product; Q=B⁻¹A, μ=B⁻¹ν and f is the
+integer flattening cast into ℂ by the geometric NZ-data adapter. -/
+def NZFormalIntegrand (liNeg : ℕ → ℂ → ℂ)
+    (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  let linear : MvPolynomial (Fin N) ℂ :=
+    ∑ i, MvPolynomial.C ((1 - μ i) / 2) * MvPolynomial.X i
+  let scalar : ℂ := (∑ i, f i * (Q.mulVec f) i) / 8
+  PowerSeries.subst
+      (PowerSeries.monomial 1 linear + PowerSeries.monomial 2 (MvPolynomial.C scalar))
+      (PowerSeries.exp (MvPolynomial (Fin N) ℂ)) *
+    ∏ i, NZVertexSeries liNeg i (z i)
+
+theorem NZFormalIntegrand_constant (liNeg : ℕ → ℂ → ℂ)
+    (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    PowerSeries.constantCoeff (NZFormalIntegrand liNeg Q μ f z) = 1 := sorry
+
+theorem NZFormalIntegrand_first (liNeg : ℕ → ℂ → ℂ)
+    (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    PowerSeries.coeff 1 (NZFormalIntegrand liNeg Q μ f z) =
+      ∑ i, (MvPolynomial.C ((1 - μ i + liNeg 0 (z i)) / 2) * MvPolynomial.X i -
+        MvPolynomial.C (liNeg 1 (z i) / 6) * MvPolynomial.X i ^ 3) := sorry
+
+theorem NZFormalIntegrand_parity (liNeg : ℕ → ℂ → ℂ)
+    (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) (d : ℕ) :
+    MvPolynomial.eval₂ MvPolynomial.C (fun i => -MvPolynomial.X i)
+        (PowerSeries.coeff d (NZFormalIntegrand liNeg Q μ f z)) =
+      (-1 : MvPolynomial (Fin N) ℂ) ^ d *
+        PowerSeries.coeff d (NZFormalIntegrand liNeg Q μ f z) := sorry
+
+-- formalNZ_empty_integrand: zero-dimensional products and prefactors are units.
+example (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin 0) (Fin 0) ℂ)
+    (μ f z : Fin 0 → ℂ) : NZFormalIntegrand liNeg Q μ f z = 1 := sorry
+
+-- formalNZ_flattening_prefactor: distinguish the fᵀQf/8 term.
+example (z : Fin 1 → ℂ) :
+    PowerSeries.coeff 2 (NZFormalIntegrand (fun _ _ => 0)
+      (1 : Matrix (Fin 1) (Fin 1) ℂ) (fun _ => 1) (fun _ => 2) z) =
+      MvPolynomial.C (1 / 2 : ℂ) := sorry
+
+/-- The filtered root logarithm includes n=0 at valence at least three.
+Its domain is positive k; root and shape compatibility is imposed by the
+RootNZDatum adapter, not by this polynomial coefficient function. -/
+def rootNZVertexLog (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (_hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  PowerSeries.mk fun d => if d = 0 then 0 else
+    ∑ n ∈ (range (d + 3)).filter (fun n => 2 * n ≤ d + 2),
+      let j := d + 2 - 2 * n
+      MvPolynomial.C (((-1 : ℂ) ^ j /
+          ((n.factorial : ℂ) * (j.factorial : ℂ) * (k : ℂ) ^ j)) *
+        ∑ s ∈ range k,
+          (Polynomial.bernoulli n).eval₂ (algebraMap ℚ ℂ) (((s + 1 : ℕ) : ℂ) / k) *
+          liNeg (n + j - 2) (ζ ^ (m.val + s + 1) * θ⁻¹)) * MvPolynomial.X i ^ j
+
+def rootNZVertexSeries (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  PowerSeries.subst (rootNZVertexLog liNeg k hk i ζ θ m)
+    (PowerSeries.exp (MvPolynomial (Fin N) ℂ))
+
+theorem rootNZVertexLog_constant (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries.constantCoeff (rootNZVertexLog liNeg k hk i ζ θ m) = 0 := by
+  simp [rootNZVertexLog, PowerSeries.constantCoeff_mk]
+
+theorem rootNZVertexLog_hasSubst (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries.HasSubst (rootNZVertexLog liNeg k hk i ζ θ m) :=
+  PowerSeries.HasSubst.of_constantCoeff_zero'
+    (rootNZVertexLog_constant liNeg k hk i ζ θ m)
+
+theorem rootNZVertexSeries_constant (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries.constantCoeff (rootNZVertexSeries liNeg k hk i ζ θ m) = 1 := by
+  change MvPowerSeries.constantCoeff (PowerSeries.subst (rootNZVertexLog liNeg k hk i ζ θ m)
+    (PowerSeries.exp (MvPolynomial (Fin N) ℂ))) = 1
+  rw [PowerSeries.constantCoeff_subst_of_constantCoeff_zero
+    (rootNZVertexLog_constant liNeg k hk i ζ θ m)]
+  simp
+
+-- rootNZ_valence_three: the t-linear cubic coefficient at k=1 cannot be omitted.
+example (liNeg : ℕ → ℂ → ℂ) (i : Fin N) (θ : ℂ) :
+    PowerSeries.coeff 1 (rootNZVertexLog liNeg 1 (by decide) i 1 θ 0) =
+      -MvPolynomial.C (liNeg 0 θ⁻¹ / 2) * MvPolynomial.X i -
+      MvPolynomial.C (liNeg 1 θ⁻¹ / 6) * MvPolynomial.X i ^ 3 := sorry
+
+-- rootNZ_cubic_scaling: at k=2 with Li₀=0, Li₋₁=1 the exponent is −x³/24.
+example (i : Fin N) (ζ θ : ℂ) :
+    PowerSeries.coeff 1 (rootNZVertexLog (fun r _ => if r = 1 then 1 else 0)
+      2 (by decide) i ζ θ 0) =
+      -MvPolynomial.C (1 / 24 : ℂ) * MvPolynomial.X i ^ 3 := by
+  norm_num [rootNZVertexLog, PowerSeries.coeff_mk, Finset.sum_filter,
+    Finset.sum_range_succ, Nat.factorial]
+
+-- rootNZ_vertex_exponential: cubic pairs contribute in degree t²=h.
+example (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) :
+    PowerSeries.coeff 2 (rootNZVertexSeries liNeg k hk i ζ θ m) =
+      PowerSeries.coeff 2 (rootNZVertexLog liNeg k hk i ζ θ m) +
+      MvPolynomial.C (1 / 2 : ℂ) *
+        PowerSeries.coeff 1 (rootNZVertexLog liNeg k hk i ζ θ m) ^ 2 := sorry
+
+theorem rootNZVertexSeries_parity (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (i : Fin N) (ζ θ : ℂ) (m : Fin k) (d : ℕ) :
+    MvPolynomial.eval₂ MvPolynomial.C (fun j => -MvPolynomial.X j)
+        (PowerSeries.coeff d (rootNZVertexSeries liNeg k hk i ζ θ m)) =
+      (-1 : MvPolynomial (Fin N) ℂ) ^ d *
+        PowerSeries.coeff d (rootNZVertexSeries liNeg k hk i ζ θ m) := sorry
+
+/-- Root-specific prefactor: it uses fᵀμ, not fᵀQf, and the linear term
+is −xᵀμ/(2k). Both differences from GSW are retained. -/
+def rootNZFormalIntegrand (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (m : Fin N → Fin k) :
+    PowerSeries (MvPolynomial (Fin N) ℂ) :=
+  let linear : MvPolynomial (Fin N) ℂ :=
+    ∑ i, MvPolynomial.C (-μ i / (2 * (k : ℂ))) * MvPolynomial.X i
+  let scalar : ℂ := (∑ i, f i * μ i) / (8 * (k : ℂ))
+  PowerSeries.subst
+      (PowerSeries.monomial 1 linear + PowerSeries.monomial 2 (MvPolynomial.C scalar))
+      (PowerSeries.exp (MvPolynomial (Fin N) ℂ)) *
+    ∏ i, rootNZVertexSeries liNeg k hk i ζ (θ i) (m i)
+
+theorem rootNZFormalIntegrand_constant (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (m : Fin N → Fin k) :
+    PowerSeries.constantCoeff (rootNZFormalIntegrand liNeg k hk μ f θ ζ m) = 1 := sorry
+
+theorem rootNZFormalIntegrand_parity (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (m : Fin N → Fin k) (d : ℕ) :
+    MvPolynomial.eval₂ MvPolynomial.C (fun i => -MvPolynomial.X i)
+        (PowerSeries.coeff d (rootNZFormalIntegrand liNeg k hk μ f θ ζ m)) =
+      (-1 : MvPolynomial (Fin N) ℂ) ^ d *
+        PowerSeries.coeff d (rootNZFormalIntegrand liNeg k hk μ f θ ζ m) := sorry
+
+-- rootNZ_empty_integrand: a product over no tetrahedra equals one.
+example (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin 0 → ℂ) (ζ : ℂ) (m : Fin 0 → Fin k) :
+    rootNZFormalIntegrand liNeg k hk μ f θ ζ m = 1 := sorry
+
+-- rootNZ_linear_prefactor: retaining the sign and 1/k factor.
+example (θ : Fin 1 → ℂ) (ζ : ℂ) :
+    PowerSeries.coeff 1 (rootNZFormalIntegrand (fun _ _ => 0) 2 (by decide)
+      (fun _ => 4) (fun _ => 0) θ ζ (fun _ => 0)) =
+      -MvPolynomial.X (0 : Fin 1) := sorry
+
+-- rootNZ_flattening_prefactor: the scalar term fᵀμ/(8k) survives at degree two.
+example (θ : Fin 1 → ℂ) (ζ : ℂ) :
+    PowerSeries.coeff 2 (rootNZFormalIntegrand (fun _ _ => 0) 2 (by decide)
+      (fun _ => 4) (fun _ => 2) θ ζ (fun _ => 0)) =
+      MvPolynomial.C (1 / 2 : ℂ) +
+        MvPolynomial.C (1 / 2 : ℂ) * MvPolynomial.X (0 : Fin 1) ^ 2 := sorry
+
+end NZVertices
 
 end TauCeti.QuantumTopology
