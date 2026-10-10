@@ -1,18 +1,18 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
-## Current checkpoint
+Codex (GPT-6), session `codex-sv6tah`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098269067). This session did none of the fixes and claimed only one job. Continues [#8431](https://github.com/CBirkbeck/tauceti-explorer/pull/8431). The [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) retains the predecessor's 32-finding ledger and distinguishes fresh from inherited evidence.
 
-Codex (GPT-6), session `codex-cFmZAF`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6098031844). The [review report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) contains all 32 finding dispositions, current source evidence, exact input hashes and the fresh graph counterexample. This session did none of the fixes under review and claimed only this issue. None of the manager's priority issues was available at selection.
+## Blocker and applied work
 
-**Blocked by dispatch scope.** The live issue names five packet/Suggested pairs, but its queue outputs and completion check require eleven. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” A concrete seven-file completion patch was prepared and validated before requesting explicit authorization. No authorizing reply arrived; the live issue still omitted the paths when checked. Only the authorized report and handoff changed. The five permitted packet verdicts were already complete and remain unchanged. No mathematical supplier implementation is needed to finish the review: completed negative verdicts count.
+**Blocked by dispatch scope.** The live issue lists five packet/Suggested pairs; the queue requires eleven verdicts. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” A concrete completion patch was prepared and validated before asking for authorization in this session. That request remains pending. No authorization for the omitted paths is inferred from the queue or available label.
 
-This session independently reproduced #8416’s seven-file candidate, preservation checks, completion result, graph counterexample and full PEL candidate elaboration, and read all 32 finding/verifier contracts against the current packets. Six public sources were freshly retrieved, including a fresh image inspection of Tate’s §6 table, printed p.46. The roadmap and library checkouts remain at the commits below; the relevant StableReduction and AlgebraicVectorBundles files are unchanged from the earlier `e255659f8eb50cd472809d9d565c8f755acffd84` snapshot. The source checks and completion overlay need no repository copy.
+**Applied authorized correction:** MotivesAndAlgebraicCycles.json now has this job's bounded accepted verdict. The newer accepted REV-FIX-RT-AREA-iwasawa-3~3 review is appended in full to reviewHistory, with every earlier entry and mathematical field preserved. Its out-of-scope Kato mismatch and other acceptance qualifications remain inherited boundaries. The other four issue-listed verdicts already name this job and needed no change.
 
-This handoff retains #8388’s correction of #8377 and #8357's obsolete PEL/GZ instructions. PEL revision 2 and GZ revision 2 have since received accepted independent reviews. Preserve those reviews in full. Do not ask for another independent GZ review or reproduce the old PEL carrier/domain objections. The concrete remaining PEL correction is the native rational-prime hypothesis described below.
+The predecessor's prepared patch now needs seven omitted paths, listed below. With the Motives correction applied, that seven-path overlay makes the actual deliverables_complete predicate true; current files still return false. This is a dispatch blocker, not a requirement to implement the broader mathematical gaps of the two negative reviews. Completed negative verdicts count.
 
-## Required authorization and exact paths
+## Required authorization
 
-The manager must add these seven paths to #5702, or explicitly authorize this prepared completion patch:
+Add these paths to the live #5702 issue, or explicitly authorize the bounded completion patch:
 
 - `research/blueprint/packets/AdicCoefficientsAndComparisons.json`
 - `research/blueprint/packets/PELModuli.json`
@@ -22,62 +22,61 @@ The manager must add these seven paths to #5702, or explicitly authorize this pr
 - `research/blueprint/packets/ShimuraData.json`
 - `research/blueprint/suggested/PELModuli.lean`
 
-The stored completion predicate returns false on current files and true with precisely this proposed patch and all other outputs unchanged. Authorization is the missing input. Another evidence-only refresh cannot finish the dispatch. Do not infer scope authorization from the available label or repeat unchanged elaborations; a manager must first authorize these paths or repair the issue scope.
+Another evidence-only refresh cannot finish the dispatch. Ask for these exact paths or have the manager repair the issue scope; do not claim another job during a continuation of this run.
 
-## Apply the prepared correction after authorization
+## Apply after authorization
 
-For each of the six packets, append a deep copy of the **entire current** `review` object to `reviewHistory`. Preserve all older history entries, checked-node ledgers, source decisions, requests and other metadata. Replace the top-level review with `reviewer: independent-review-REV-FIX-RT-AREA-algebraicgeometry~2`, the applying worker's current date/session and the bounded verdict below. Attribute the full blueprint/source audits to their preceding reviewers rather than claiming a new source audit.
+For each of the six omitted packets, append a deep copy of the **entire then-current** review object to reviewHistory. Retain every older history entry, checked-node ledger, source decision, supplier request and unrelated metadata. Replace the top-level review with reviewer `independent-review-REV-FIX-RT-AREA-algebraicgeometry~2`, the applying session/date and the bounded verdict below. Attribute full blueprint/source audits to their preceding reviewers; do not claim a new full audit. Keep JSON formatting unchanged.
 
-| Packet | Verdict after the bounded repair | Previous review and preserved boundary |
+| Packet | Bounded verdict | Preserved predecessor and boundary |
 | --- | --- | --- |
-| AdicCoefficientsAndComparisons | accepted | REV-AdicCoefficientsAndComparisons; all 46 node verdicts, eight gaps, fourteen requests. Change only the two mathematical prose fields below plus review/history. |
-| PELModuli | accepted | REV-PELModuli~2; all 91 node verdicts, source corrections and forty supplier requests. Change only the existing reflex-field API wording, the one Suggested hypothesis and review/history. SF.2 Part II owns the ordinary analytic carrier; C0 supplies the local comparison. |
-| ShimuraCompactifications--C0 | needs_changes | REV-ShimuraCompactifications--C0~2; all 90 node verdicts, E3/source evidence, 21 gaps and 37 requests. Area ownership fixes are adequate; retain the full review's negative Suggested-correspondence decision. |
-| ShimuraVarieties--V0 | accepted | REV-ShimuraVarieties--V0~2; all 69 node verdicts, nineteen refinements, eighteen requests. The old boundary-definition objection is resolved. |
-| GrossZagierAndArithmeticHeights--GZ.0 | accepted | REV-GrossZagierAndArithmeticHeights--GZ.0~2; all 243 node verdicts, 78 requests, ten gates and 86 source decisions. Its completed independent acceptance supersedes the old pending-review handoff. |
-| ShimuraData | needs_changes | REV-ShimuraData~3; all 123 node verdicts, source issues and 26 requests. Hodge imports are correct; the five D0 prototypes and inherited failing elaboration remain unresolved. |
-
-The following are exact own-words replacement texts from the validated proposal. They contain no source excerpt.
+| AdicCoefficientsAndComparisons | accepted | REV-AdicCoefficientsAndComparisons: all 46 node decisions, eight gaps, fourteen requests. Change only the two prose fields below. |
+| PELModuli | accepted after prime repair | REV-PELModuli~2: all 91 node decisions, source corrections, forty requests. SF.2 Part II owns the ordinary analytic carrier; C0 supplies its local comparison. Change only one API wording and the Suggested hypothesis below. |
+| ShimuraCompactifications--C0 | needs_changes | REV-ShimuraCompactifications--C0~2: all 90 node decisions, E3/source evidence, 21 gaps, 37 requests. Area-fix ownership/imports adequate; full Suggested correspondence remains incomplete. |
+| ShimuraVarieties--V0 | accepted | REV-ShimuraVarieties--V0~2: all 69 node decisions, nineteen refinements, eighteen requests. Earlier boundary-definition objection resolved. |
+| GrossZagierAndArithmeticHeights--GZ.0 | accepted | REV-GrossZagierAndArithmeticHeights--GZ.0~2: all 243 node decisions, 78 requests, ten gates, 86 source decisions. General StableReduction imports do not duplicate admissible arithmetic specialization. |
+| ShimuraData | needs_changes | REV-ShimuraData~3: all 123 node decisions, source issues, 26 requests. Native Hodge imports adequate; five D0 prototypes and full-file elaboration failure remain unresolved. |
 
 ### Adic G-owners detail
 
-Replace `gaps[id=AdicCoefficientsAndComparisons/G-owners].detail` with:
+Replace gaps[id=AdicCoefficientsAndComparisons/G-owners].detail with:
 
 SF.4 is the unique owner of schematic alterations, following accepted RS-25 and RT-AREA-algebraicgeometry/16. L5 imports those results and retains tasks 4–5, proper comparison descent and local calculations. Keep schematic alterations separate from the formal/cohomological H1/H5 consumers; do not introduce a competing L5:alterations owner. Retargeting RD.5 from L5 to SF.4 belongs to its blueprint job. Removing the six SF.5 forwarding inputs eliminates the short SF.4 → SF.5 → MC.4 path, but leaves SF.4 → DD.5 → Q3 → Q4 → A3 → RF0:integral-Y → VB0 → A4 → PEL M2 → PEL M6 → MC.4. Another surviving branch uses FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 in place of AbelianSchemes A4 between VB0 and PEL M2. Splitting or rerouting only one branch is insufficient. Keep the MC.4 pointed-cover extension as an open request attached to the alteration nodes, and separate or reroute the formal/cohomological consumers before approving a whole-stage MC.4 → SF.4 import. SF.4 alteration nodes and supplier edges remain unimplemented requests.
 
 ### Adic first rescope proposal
 
-Replace `restructure[0].proposal` with:
+Replace restructure[0].proposal with:
 
 Keep SF.4 as the sole schematic-alteration owner. L5 imports its tasks 1–3 from SF.4 and retains proper comparison descent and local calculations. SF.4 → L5 and SF.4 → RD.5 are ownership proposals; the RD.5 owner must retarget its request. StableReductionPartII MC.4 must extend its projective scheme-cover contract to every genus g ≥ 0 and n ≥ 3 marks (de Jong 2.24, p.62). After inverting a level prime ℓ ≥ 3, the level cover is finite étale on the smooth pointed-curve locus. Normalization across the stable boundary is finite, dominant and projective, without boundary étaleness. MC.6 separately owns pointed stable extension after finite base change. Removing the six SF.5 forwarding inputs breaks the short cycle, but leaves SF.4 → DD.5 → Q3 → Q4 → A3 → RF0:integral-Y → VB0 → A4 → PEL M2 → PEL M6 → MC.4 and the alternative branch through FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 instead of AbelianSchemes A4. Keep the MC.4 request at alteration nodes and split or reroute both formal/cohomological branches before adding a whole-stage MC.4 → SF.4 edge. PrimeToDegreeAlterations is not an atlas roadmap id; the Temkin and Dittmann–Pop routes import SF.4 when the supplier is planned. Do not introduce L5:alterations without an explicit superseding ownership decision.
 
-The fresh read-only graph has 15,601 edges; exactly the six SF.5 deletions leave 15,595 edges. Both graphs are acyclic, but the two paths named above survive. The second was found with A4 excluded. The reverse whole-stage MC.4 → SF.4 import makes the graph cyclic. Do not change graph edges or replace the unique schematic-alteration owner. The SF packet already contains the correct long-path warning.
+The graph has 15,601 edges; precisely six SF.5 deletions leave 15,595. Both long SF.4-to-MC.4 paths remain, including the branch through FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2 when A4 is excluded. No graph edge changes belong to this patch. The SF packet already contains the long-path warning.
 
 ### PEL rational-prime hypothesis
 
-In node `PELModuli:M0/reflex-field`, set the existing `RationalPELDatum.unramified_reflex` API statement to:
+In node PELModuli:M0/reflex-field, replace RationalPELDatum.unramified_reflex's existing API statement with:
 
 For a rational prime p, p unramified in the actual centre F implies p unramified in the PEL reflex field F₀.
 
-In the corresponding Suggested theorem (current line 840), insert `(hpprime : p.Prime)` after `(p : ℕ)` and retain the actual-centre and nondivisibility hypotheses. The relevant signature tail is:
+In the Suggested theorem unramified_reflex (line 840 before editing), insert `(hpprime : p.Prime)` after `(p : ℕ)`, putting the existing hp hypothesis on the next line. Keep hcentre and the nondivisibility hypotheses:
 
 ```lean
-    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B))
-    (p : ℕ) (hpprime : p.Prime)
+    (hcentre : Set.range (algebraMap F B) = (Subring.center B : Set B)) (p : ℕ) (hpprime : p.Prime)
     (hp : ¬ (p : ℤ) ∣ NumberField.discr F) :
     ¬ (p : ℤ) ∣ NumberField.discr D.reflexField := sorry
 ```
 
-There are no call sites to adapt. This available native assumption is part of the source statement, not a future geometric-carrier gate. Lan's author-hosted thesis, Definition 1.2.5.4 pp.90–91 and Corollaries 1.2.5.6–7 p.91, was freshly read; the last corollary assumes a rational prime. No claim about a separate arbitrary-integer theorem or a counterexample is needed.
+No call sites need adaptation. Lan's author-hosted thesis, Definition 1.2.5.4 pp.90–91 and Corollaries 1.2.5.6–7 p.91, explicitly assumes a rational prime. This restores the source statement without making an arbitrary-integer counterexample claim.
 
-The exact candidate produced by inserting the hypothesis after the existing `(p : ℕ)` on the same line, then placing `hp` on the next line, has SHA-256 `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed`. The current unchanged file has SHA-256 `d6b4f179dbe8e6e2043956187c0104a1b2282a7a85af94c9cf247f0d9c8a8b69`. The full candidate completed `lean-check` with 784 admitted-proof warnings and no other warning or error. Approximately 99 GB of memory was available. The candidate was not committed because this path is omitted from the live issue.
+The exact candidate's SHA-256 is `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed`; unchanged current PEL Suggested SHA-256 is `d6b4f179dbe8e6e2043956187c0104a1b2282a7a85af94c9cf247f0d9c8a8b69`. This session freshly ran the full candidate through lean-check: 784 admitted-proof warnings, no other warnings or errors, with 99 GB available. The candidate was not committed because its path is omitted from the live issue.
 
-## Validation and finish
+## Evidence and validation
 
-All eleven current packets and all six candidates pass `scripts/check_blueprint.py` against the pinned index with zero errors and zero warnings. Candidate preservation assertions retain every request, all older review history, and every entire current review. The only mathematical JSON changes are `gaps[id=AdicCoefficientsAndComparisons/G-owners].detail`, `restructure[0].proposal` in Adic, and the PEL API wording above; all other nodes, gaps, source decisions and metadata are unchanged. The actual `research/blueprint/issues.py` completion check passes on a read-only overlay of that proposed patch. No link map or standalone restructuring result is under review.
+Fresh in this session: actual Motives checker; canonical-path read-only overlay checker for all seven candidate packets (including Motives); full review/history/request preservation assertions; actual queue completion overlay; stage-graph paths; full PEL candidate elaboration; targeted Lan, Stacks 07QY/07QZ and Huber–Müller-Stach Definition 0.1 p.2 source reads; relevant current upstream supplier contracts. The prior broad source audits and 32-finding ledger are inherited explicitly, not recertified. All seven candidate packet checks give zero errors and warnings at the pinned declaration index. Scratch checks do not need a repository copy: overlay Path.read_text for changed canonical paths and call the actual check_blueprint checker.
 
-After authorization and application, rerun the packet checker on changed packets, verify the full-history/request preservation and `deliverables_complete` for this job, and run `research/blueprint/intake.py check-files` on the changed deliverables plus report/handoff. A later input change warrants a new Lean check; the exact PEL candidate already has the successful full-file receipt above. Unchanged files do not need repetitive elaboration. The report's eleven current hashes and inherited receipts are explicit: ten successes, ShimuraData's unchanged failure. Its latest full-file failure receipt is codex-2sonJP's fresh run in #8377, inherited here at the same input hash: 66 printed error headers and 113 warnings, three other than admitted-proof warnings. The first error uses `Hodge.Conjugation` as a function at line 186 instead of `toEquiv`; line 363 also uses the reserved `GL` identifier. Preserve that newer receipt rather than reverting to #8304. PEL/GZ receipts come from their newer completed reviews, replacing the obsolete 772-warning PEL and 241-node GZ evidence.
+Unchanged Suggested receipts remain inherited: ten successes and ShimuraData's failure. The report retains all eleven hashes. ShimuraData's most recent full-file receipt is codex-2sonJP's run in #8377 at hash `9377216ae5607357bdeaebb207f84cdc25d3d958eea88c279947a171cc216cc9`: 66 printed error headers and 113 warnings, three not admitted-proof warnings. Its first error applies Hodge.Conjugation as a function rather than using toEquiv at line 186; GL at line 363 is also reserved. This failure is why its negative verdict must remain. PEL/GZ's newer completed reviews supersede the obsolete carrier/domain and pending-GZ-review handoffs.
 
-Update this handoff and the report to say the six verdicts and bounded repairs have actually been applied, then submit a completed PR with `Refs #5702`. The five issue-listed reviews already identify this job and should not be refreshed merely to manufacture progress. Do not implement the broader compactifications or ShimuraData gaps to finish this review. Do not claim another job in the current run.
+Read-only upstream is TauCetiRoadmap `a7712b2de0fbbe57dc06903169fe84cc69cf71ab` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; atlas pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` / Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Respect existing AlgebraicVectorBundles relative Spec and StableReduction's general locally Noetherian proper coherent cohomology and J-E torsion contract. Current implementations are not recast as pinned declarations. No restricted source, source passage or private path is committed; no background process remains.
 
-Current read-only upstream evidence is TauCetiRoadmap `670582c502e1d4497d9ccd492b36c67028ef6666` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; exact atlas baseline remains Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` / Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Import existing relative Spec, general locally Noetherian proper coherent cohomology and the J-E torsion contract. The newer GZ review's public alternatives do not certify the unread YZZ2013 edition. No restricted source, source passage or private path is committed. No background process or scratch artifact is needed to resume.
+## Finish
+
+After authorization, apply the six verdicts and bounded repairs, rerun check_blueprint.py on changed packets, assert complete prior-review/history/request preservation, and verify deliverables_complete. Run intake.py check-files on changed deliverables/report/handoff. No link map or standalone restructure result is under review. The exact PEL candidate already has a fresh successful receipt; recompile only if its input changes. Update this report and handoff to record actual application, then submit a **completed** pull request with Refs #5702. Avoid implementing broader compactification or ShimuraData supplier gaps to discharge this bounded review. If scope remains unauthorized, submit a blocked checkpoint containing only the authorized work and durable handoff.
