@@ -1,26 +1,26 @@
 # Arithmetic quantum topology, Habiro invariants and regulators
 
-This roadmap constructs integral quantum invariants of links and integral homology spheres, then relates selected hyperbolic knot invariants to Bloch classes, perturbative series and quantum modular transformations. Its central objects are the even integral quantum group, Habiro’s cyclotomic color lattice, the unified invariant, geometric extended Bloch classes and triangulation-derived formal state integrals. Analytic knot integrals and quantum modular conjectures have their own hypotheses and normalization data.
+This roadmap builds integral quantum invariants of links and integral homology spheres, then compares selected hyperbolic knot invariants with Bloch classes, perturbative series and quantum modular transformations. Analytic integrals and conjectures retain their hypotheses and normalizations.
 
 ## Conventions and boundaries
 
 Rank one uses q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!. Its integral ground ring is ℤ[q±1], ambient color field ℚ(v), q=v². Positive framing uses r⁻¹. Vₙ has dimension n+1; the reduced dimension index N uses Vₙ₋₁. The unreduced unknot is [n+1]; reduce before root evaluation. General Lie type retains its root lattice, symmetrizers, root lift and parity grading.
 
-HabiroCyclotomicCompletions supplies the scalar inverse limit of ℤ[q] modulo cyclotomic factorial ideals. The quantum-group image completion in the ambient h-adic algebra and the color-lattice completion are distinct. QT.1 builds completed tensors and PBW forms from native quotient/tensor algebras; inverse-limit maps need not be injective.
+HabiroCyclotomicCompletions supplies the scalar inverse limit of ℤ[q] modulo cyclotomic factorial ideals. Distinguish the quantum-group image completion in the h-adic algebra from the color-lattice completion. QT.1 builds completed tensors and PBW forms from native quotient/tensor algebras; inverse-limit maps need not be injective.
 
-GeometricTopology owns framed links, diagram/braid equivalence, linking matrices, surgery, Kirby calculus, manifolds and hyperbolic geometry. QT.0 consumes these and builds refined admissible calculus. Gauss codes/writhe are single-knot data; unframed Markov equivalence is insufficient. LieHighestWeight and RootSystems own classical Lie/weight/PBW theory; QT.1 owns quantum presentations and integral ribbon/cores.
+GeometricTopology owns framed links, presentation equivalence, linking matrices, surgery, Kirby calculus and hyperbolic manifolds. QT.0 imports these for refined admissible calculus. Single-knot Gauss codes/writhe and unframed Markov equivalence do not suffice. LieHighestWeight/RootSystems supply classical Lie/weight/PBW theory; QT.1 builds quantum presentations and integral ribbon forms/cores.
 
-K3BlochGroups owns ordinary pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms owns dilogarithm branches, Bloch–Wigner and regulators. QT.5 builds geometric flattenings, the full extended group and normalization comparisons. Neumann uses iVol−CS modulo π²ℤ; GZ uses iVol+CS: compare by negative conjugation, retaining period and lift. Trace-field descent needs algebraicity and boundary cancellation beyond a diagram.
+K3BlochGroups supplies pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms supplies dilogarithm branches, Bloch–Wigner and regulators. QT.5 builds geometric flattenings and the full extended group. Compare Neumann’s iVol−CS modulo π²ℤ with GZ’s iVol+CS by negative conjugation, retaining periods and lifts. Trace-field descent requires algebraicity and boundary cancellation.
 
-HabiroNahmSeries owns Gaussian contraction and the integral Nahm/module theorem; HabiroNumberFields supplies Frobenius coefficients and twisted K₃-indexed modules. QT retains HB.9 coefficient-transfer, signed Kummer, integral-gluing and full quadratic finite étale descent, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, compatible parity, nondegenerate shapes and the exact arithmetic ring; invertible B gives only a rational matrix. QT.6 compares geometric classical, one-loop and phase factors. OperatorTheory/SelfAdjointSpectralTheory owns unbounded self-adjoint operators and functional calculus. The Schrödinger realization, Schwartz core and microlocal kernels consume it. Cyclotomic completions owns the formal pentagon; QT owns the analytic Faddeev comparison.
+Import Gaussian contraction and the integral Nahm/module theorem from HabiroNahmSeries, Frobenius coefficients and twisted K₃ modules from HabiroNumberFields. QT owns HB.9 coefficient-transfer, signed Kummer, integral-gluing and quadratic finite étale descent, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, parity, nondegenerate shapes and the exact arithmetic ring; invertible B yields only rational entries. QT.6 compares classical, one-loop and phase factors. Schrödinger, Schwartz-core and microlocal constructions import unbounded self-adjoint operators and functional calculus from OperatorTheory/SelfAdjointSpectralTheory. Import the formal pentagon from cyclotomic completions; build the analytic Faddeev comparison here.
 
-QSeriesPartitionsAndMockModularForms owns generic scalar quantum modular/cocycle theory and its requested matrix, branch-aware Part II. QT.7 owns knot rows and comparisons. Its cocycle requires invertibility and the automorphy law; real analyticity remains conjectural. General resurgence/Borel summation is outside QT. ArithmeticQuantumTopology, Part II owns Wheeler’s two-variable MMR/Alexander and relative-Habiro comparison, consuming HabiroRings HR.1/HR.5.
+QSeriesPartitionsAndMockModularForms owns scalar quantum modular/cocycle theory and its matrix, branch-aware Part II. QT.7 builds knot rows and comparisons; cocycles need invertibility and automorphy, and real analyticity is conjectural. General resurgence/Borel summation is outside QT. Wheeler’s two-variable MMR/Alexander and relative-Habiro comparison belongs to ArithmeticQuantumTopology, Part II, importing HabiroRings HR.1/HR.5.
 
 ## Library interfaces
 
-The suggested signatures use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Monoidal, braided and rigid categories and ordinary Hopf algebras supply their existing algebraic interfaces. Completed tensor powers, a ribbon twist and quantum PBW forms are additional structures. `MeasureTheory.integral` is total, so every contour construction needs an integrability theorem. Cauchy–Goursat on a rectangle handles finite deformation; passage to an unbounded contour also requires tail estimates. Meromorphic normal form and `meromorphicOrderAt` supply a native way to distinguish a zero from a pole, even when both have the totalized value zero.
+Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Reuse monoidal/braided/rigid categories and Hopf algebras; add completed tensors, ribbon twists and quantum PBW forms. Total `MeasureTheory.integral` needs integrability; rectangular Cauchy–Goursat deformation needs tail estimates for unbounded contours. Meromorphic normal form and `meromorphicOrderAt` distinguish zeros and poles despite totalized value zero.
 
-Current Tau Ceti also supplies `SmoothLinkEmbedding`, with disjoint smooth circle components, and `FramedBoundaryTorus`, with primitive surgery slopes in actual first homology. The framed isotopy quotient, oriented linking numbers and construction of a filled manifold belong to GeometricTopology. Its cusped extension supplies ordered ideal triangulations, peripheral completeness and geometric refinement. The invariants below require those exact interfaces. The closed hyperbolic theory does not provide the cusped completeness theorem by itself.
+Tau Ceti supplies `SmoothLinkEmbedding` (disjoint smooth circles) and `FramedBoundaryTorus` (primitive slopes in actual H₁). GeometricTopology owns framed isotopy, linking and filled manifolds; its cusped extension supplies ordered ideal triangulations, peripheral completeness and geometric refinement. Closed hyperbolic theory alone does not supply cusped completeness.
 
 <a id="qt-0"></a>
 
@@ -504,7 +504,7 @@ Specialize the Lusztig divided-power quantum group at the source root: q=s^L, s 
 
 ### Drinfeld–Jimbo algebra
 
-For a finite-dimensional simple complex Lie algebra with normalized short-root length²=2, put d_i=(α_i,α_i)/2∈{1,2,3}, v_i=v^d_i, q=v², and use root lattice Y⊂weight lattice X with D=|X/Y|. U_h(g) has Cartan-root commutators, [E_i,F_j]=δ_ij(K_i−K_i⁻¹)/(v_i−v_i⁻¹), and quantum Serre relations of degree 1−a_ij, with K_i=exp(hH_i/2) in the source convention. The generic U_q(g) over ℂ(v) embeds in U_h(g); its PBW root-vector and Lusztig divided-power integral forms are distinguished. Classical root data and ordinary PBW are imported from LieHighestWeight.
+For a finite-dimensional simple complex Lie algebra with normalized short-root length²=2, put d_i=(α_i,α_i)/2∈{1,2,3}, v_i=v^d_i, q=v², and use root lattice Y⊂weight lattice X with D=|X/Y|. U_h(g) has Cartan-root commutators, [E_i,F_j]=δ_ij(K_i−K_i⁻¹)/(v_i−v_i⁻¹), and quantum Serre relations of degree 1−a_ij, with K_i=exp(hH_i/2) in the source convention. The generic U_q(g) over ℂ(v) embeds in U_h(g); its PBW root-vector and Lusztig divided-power integral forms are distinguished. Classical root data and ordinary PBW are imported from LieHighestWeight. Present U_q over ℂ(q) by adjoining central v,v⁻¹ with vv⁻¹=1 and v²=q. Set a_ij=⟨α_j,α_i∨⟩, the transpose of Mathlib’s `Base.cartanMatrix`, so B_ij=d_i a_ij is symmetric. Impose K_iE_jK_i⁻¹=v^B_ij E_j and K_iF_jK_i⁻¹=v^(−B_ij)F_j, and both Serre sums Σ_s(−1)^s[r choose s]_i X_i^(r−s)X_jX_i^s=0, r=1−a_ij, X=E,F. Here [n choose k]_i=v^(−d_i k(n−k)) Gaussian(q^d_i;n,k). `GenericQuantum.Algebra` is a `FreeAlgebra`/`RingQuot` presentation with a lift respecting all relators. `cartanOfBase` imports `RootPairing.Base`; `algebraOfBase` retains d. Compare separately with the h-adic algebra, PBW basis and integral forms.
 
 **Depends on.** `HopfAlgebra`; [RepresentationTheory/LieHighestWeight — layer-3-enveloping-algebra-verma-modules-and-lλ][LHW3]; [Topological ribbon Hopf algebras][AQT14]; [RepresentationTheory/LieHighestWeight — layer-1-cartan-subalgebras-and-the-root-space-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieHighestWeight/README.md#layer-1-cartan-subalgebras-and-the-root-space-decomposition).
 
@@ -518,7 +518,7 @@ For a finite-dimensional simple complex Lie algebra with normalized short-root l
 
 - `DJ_sl2_relations`: For rank one the relations reduce to QT.1 U_h(sl₂), including the correct F weight sign.
 - `DJ_serre_commuting_roots`: For a_ij=0 the quantum Serre relation is E_iE_j=E_jE_i.
-- `DJ_root_lengths_G2`: In G₂ the long-root d_i is 3; replacing every v_i by v loses the Serre coefficients.
+- `DJ_root_lengths_G2`: In G₂ use a=[[2,−3],[−1,2]], d=(1,3), hence B_01=B_10=−3. The long-root [2 choose 1]_i is v³+v⁻³; setting both d_i=1 destroys Gram symmetry.
 
 **Sources.** [Habiro–Lê][AQT55], §§3.1–3.4, pp. 36–40, quantum presentations, gradings and triangular forms.
 
@@ -1208,7 +1208,7 @@ Let G be the Habiro–Le central parity extension of Y×Y/2Y, retaining its cent
 
 ### Quantum parity grading
 
-For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is generated by a central v̇ of order two, commuting K̇_α of order two and invertible ė_α, with K̇_α ė_β=v̇^((α,β))ė_βK̇_α and ė_αė_β=v̇^((α,β))ė_βė_α. Its quotient by ⟨v̇⟩ is Y×Y/2Y. The tensor grading amalgamates the central v̇ in all factors; G^⊗0=⟨v̇⟩. The generator degrees are deg(v)=v̇, deg(K_±α)=K̇_α, deg(E_α)=v̇^(d_α)ė_α and deg(F_α)=ė_α⁻¹K̇_α. These define the grading over ℂ(q); the even subalgebra is the sum over G^ev. This carries integral square-root cancellation information unavailable from ordinary Y-grading.
+For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is generated by a central v̇ of order two, commuting K̇_α of order two and invertible ė_α, with K̇_α ė_β=v̇^((α,β))ė_βK̇_α and ė_αė_β=v̇^((α,β))ė_βė_α. Its quotient by ⟨v̇⟩ is Y×Y/2Y. The tensor grading amalgamates the central v̇ in all factors; G^⊗0=⟨v̇⟩. The generator degrees are deg(v)=v̇, deg(K_±α)=K̇_α, deg(E_α)=v̇^(d_α)ė_α and deg(F_α)=ė_α⁻¹K̇_α. The degree-g component spans quotient words of product degree g over ℂ(q). `GenericQuantum.general_parity_grading` states `DirectSum.IsInternal` of these components, their multiplicative closure and generator membership; `parity_grading_unique` characterizes them by the generator degrees. Its hypotheses are a_ii=2, a_ij≤0 for i≠j, d_i>0 and symmetry of d_i a_ij. The even subalgebra is the sum over G^ev. Tensor powers additionally require the central-v scalar-balancing comparison. It records integral square-root cancellation beyond Y-grading.
 
 **Depends on.** [Drinfeld–Jimbo algebra][AQT08]; Mathlib `PresentedGroup`, `QuotientGroup` and `ZMod`.
 
@@ -2207,39 +2207,39 @@ For a hyperbolic knot K⊂S³, put ⟨K⟩_N=J^red_(K,N)(exp(2πi/N)), with dime
 
 ## Sources and fixed versions
 
-- Kazuo Habiro. [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1). Public arXiv math/0605314v1 (version explicitly fixed).
+- Kazuo Habiro. [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1). math/0605314v1.
 
-- Walter D. Neumann. [Extended Bloch group and the Cheeger-Chern-Simons class][N04]. Public arXiv math/0307092v2 (version explicitly fixed).
+- Walter D. Neumann. [Extended Bloch group and the Cheeger-Chern-Simons class][N04]. math/0307092v2.
 
-- Kazuo Habiro and Thang T. Q. Le. [Habiro–Lê, unified invariants][AQT55]. Public arXiv 1503.03549v2 (version explicitly fixed).
+- Kazuo Habiro and Thang T. Q. Le. [Habiro–Lê, unified invariants][AQT55]. 1503.03549v2.
 
-- Stavros Garoufalidis and Don Zagier. [Knots, perturbative series and quantum modularity][GZ]. Public arXiv 2111.06645v3 (version explicitly fixed).
+- Stavros Garoufalidis and Don Zagier. [Knots, perturbative series and quantum modularity][GZ]. 2111.06645v3.
 
-- Stavros Garoufalidis, Matthias Storzer, Campbell Wheeler. [Geometric perturbative invariants][AQT58]. Public arXiv 2305.14884v2.
+- Stavros Garoufalidis, Matthias Storzer, Campbell Wheeler. [Geometric perturbative invariants][AQT58]. 2305.14884v2.
 
-- Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier. [The Habiro ring of a number field][AQT59]. Public arXiv 2412.04241v2.
+- Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier. [The Habiro ring of a number field][AQT59]. 2412.04241v2.
 
-- Jørgen Ellegaard Andersen, Rinat Kashaev. [A TQFT from quantum Teichmüller theory][AK]. Public arXiv 1109.6295v2.
+- Jørgen Ellegaard Andersen, Rinat Kashaev. [A TQFT from quantum Teichmüller theory][AK]. 1109.6295v2.
 
-- Sandro Bettin, Sary Drappeau. [Modularity and value distribution of quantum invariants of hyperbolic knots][AQT57]. Public arXiv 1905.02045v2.
+- Sandro Bettin, Sary Drappeau. [Modularity and value distribution of quantum invariants of hyperbolic knots][AQT57]. 1905.02045v2.
 
-- Kazuo Habiro. [Bottom tangles and universal invariants](https://arxiv.org/abs/math/0505219v2). Public arXiv math/0505219v2.
+- Kazuo Habiro. [Bottom tangles and universal invariants](https://arxiv.org/abs/math/0505219v2). math/0505219v2.
 
-- Kazuo Habiro. [An integral form of the quantized enveloping algebra of sl2 and its completions][AQT62]. Public arXiv math/0605313v1.
+- Kazuo Habiro. [An integral form of the quantized enveloping algebra of sl2 and its completions][AQT62]. math/0605313v1.
 
-- Kazuo Habiro. [Habiro, refined Kirby calculus][AQT61]. Public arXiv math/0509039v2.
+- Kazuo Habiro. [Habiro, refined Kirby calculus][AQT61]. math/0509039v2.
 
-- Hitoshi Murakami, Jun Murakami. [The colored Jones polynomials and the simplicial volume of a knot][AQT63]. Public arXiv math/9905075v1.
+- Hitoshi Murakami, Jun Murakami. [The colored Jones polynomials and the simplicial volume of a knot][AQT63]. math/9905075v1.
 
-- Campbell Wheeler. [Quantum knot invariants and the Habiro ring](https://arxiv.org/abs/2603.01619v1). Public arXiv 2603.01619v1.
+- Campbell Wheeler. [Quantum knot invariants and the Habiro ring](https://arxiv.org/abs/2603.01619v1). 2603.01619v1.
 
-- Stephen F. Sawin. [Quantum groups at roots of unity and modularity][AQT60]. Public arXiv math/0308281v2.
+- Stephen F. Sawin. [Quantum groups at roots of unity and modularity][AQT60]. math/0308281v2.
 
 - N. Yu. Reshetikhin, V. G. Turaev. [Ribbon graphs and their invariants derived from quantum groups][AQT64]. Communications in Mathematical Physics 127 (1990), 1–26.
 
-- Tudor Dimofte and Stavros Garoufalidis. [The quantum content of the gluing equations][AQT54]. Public arXiv 1202.6268v2 (fixed version).
+- Tudor Dimofte and Stavros Garoufalidis. [The quantum content of the gluing equations][AQT54]. 1202.6268v2 (fixed version).
 
-- Tudor Dimofte and Stavros Garoufalidis. [Matrix quantum modularity][AQT56]. Public arXiv 1511.05628v1 (fixed version).
+- Tudor Dimofte and Stavros Garoufalidis. [Matrix quantum modularity][AQT56]. 1511.05628v1 (fixed version).
 
 [H06]: https://arxiv.org/abs/math/0605314v1
 [GZ]: https://arxiv.org/abs/2111.06645v3

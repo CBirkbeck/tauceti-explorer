@@ -1,235 +1,178 @@
-# PKG-ArithmeticQuantumTopology — quantum parity and geometric contract checkpoint
+# PKG-ArithmeticQuantumTopology — generic Serre algebra and grading checkpoint
 
-Worker: Codex, session `codex-CvtWqI`, issue #7889, 2026-10-10.
-Branch: `codex-CvtWqI-arithmetic-quantum-topology`.
-Starting explorer commit: `fb99cf051cb90cec265ac63529c9541642546aee`.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6097869930).
-None of the manager-priority issues was available when the available swarm
-issues were listed. WORKERS' fallback selected this eligible focus package.
-Only #7889 was claimed; no review or red-team job was performed.
+Worker: Codex, session `codex-gwayaY`, issue #7889, 2026-10-10.
+Branch: `codex-gwayaY-arithmetic-quantum-topology`.
+Starting explorer commit: `eb32c2d3450f60e02c9a82733aa7e25339e2eb99`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6098089475).
+None of the manager-priority issues was available; WORKERS' fallback selected
+this eligible focus package. Only #7889 was claimed.
 
-## Result and reason for checkpoint
+## Result
 
-**Blocked checkpoint; the package remains incomplete.** This session adds
-QT.4's actual quantum parity group presentation, its generator-degree assignment
-and its tensor-power quotient, with the packet's three tests and additional
-negative controls. The full suggested file elaborates. The geometric supplier
-contract problem was checked afresh against the current read-only upstream
-roadmaps and Tau Ceti, rather than inferred from previous checkpoint notes.
+**Blocked checkpoint; the package remains incomplete.** This session adds a
+concrete generic Drinfeld–Jimbo presentation and actual direct-sum parity-grading
+signatures. The full Suggested.lean elaborates. These refine
+QT.1/general-drinfeld-jimbo-algebra and QT.4/general-parity-grading; they do not
+discharge every target of those nodes or close the geometric gap.
 
-The blocker concerns specification and ownership, not waiting for implementations
-or proofs. G1 in the accepted packet asks for a framed multi-link comparison,
-linking numbers, actual filling and surgery H₁, ordinary Kirby/Fenn–Rourke
-calculus and the geometric realization of stable unimodular-form moves. The
-GeometricTopology README plans framed presentations and actual Dehn surgery,
-but does not state all those additional contracts. Its Suggested.lean has no
-compiled signatures. No GeometricTopology Part II packet, reader or package
-in this checkout supplies the missing contracts at the requested scope.
+Only the package README, Suggested.lean and this handoff change. The accepted
+packet, reader and source suggested file are untouched. Metadata remains absent:
+intake regards presence of all output paths as a complete submission, and this
+submission is incomplete. Its intended content is still `topic = "math.GT"`.
 
-PROTOCOL §13 allows an unstated condition to be omitted from a prototype;
-it does not create an owning target for a missing prerequisite. Sections 15
-and 20 require nonduplicated ownership and a package grounded in its accepted
-plan. The plan explicitly routes these imports to GeometricTopology Part II,
-and #7889 permits changes only to the package and this handoff, forbidding
-packet edits. A fabricated local link/manifold carrier would neither satisfy
-the requested geometric comparison nor reconcile that ownership. Completion
-therefore needs the owner contracts or a maintainer reconciliation of the
-accepted plan and permitted scope. This is not a compile failure or elapsed-time
-checkpoint.
+## Added interfaces
 
-Only README.md, Suggested.lean and this handoff change. Metadata remains absent,
-as in the inherited checkpoint: intake treats the existence of every output
-path as a complete submission, and this submission is incomplete. Its intended
-content remains `topic = "math.GT"`. The accepted packet is unchanged.
+All additions are in `TauCeti.QuantumTopology`, section
+`GenericDrinfeldJimbo`, after `GeneralParityGrading`.
 
-## Quantum parity work
+- `QuantumRationalFunctions` is Mathlib's `RatFunc ℂ`; `quantumQ` is the
+  polynomial algebra-map image of `Polynomial.X`. `quantumGaussian` gives
+  the Gaussian recursion.
+- `GenericQuantum.Presentation` is `FreeAlgebra` on the existing v, vInv,
+  K, KInv, E and F generators. `Relation` imposes both inverse laws,
+  centrality of v and vInv, v²=q, commuting K's, positive E and negative F
+  weight relations, the EF commutator and both quantum Serre sums.
+  `Algebra` is `RingQuot` of those relators. No carrier, multiplication or
+  relation-holding proposition is supplied as an arbitrary extra assumption.
+- `binomial` expresses the symmetric coefficient as
+  v^(-d*k*(n-k))*Gaussian(q^d;n,k); `serre` sums over s=0,...,r.
+  The commutator coefficient v^d/(q^d-1) equals 1/(v^d-v^(-d)).
+- `cartanOfBase` consumes `RootPairing.Base` with crystallographic input
+  over ℚ. Mathlib puts the root in the row; this presentation puts the
+  coroot in the row. The transpose is explicit. `algebraOfBase` retains
+  a chosen d and does not manufacture root or weight lattices.
+- `quotientMap`, `generator`, `v_square`, `K_E`, `K_F`, `E_F`,
+  `serre_eq_zero`, `lift` and `lift_generator` expose the quotient API and
+  universal map to an algebra satisfying every relator. All six named
+  equation theorems have proofs from Mathlib's quotient API.
+- `word`, `wordDegree` and `component` construct actual quotient monomials,
+  product parity degrees and their ℂ(q)-linear spans.
+  `general_parity_grading` states `DirectSum.IsInternal`, unit/product closure
+  and generator membership under diagonal 2, nonpositive off-diagonal,
+  positive d and symmetric d*A hypotheses. `parity_grading_unique`
+  characterizes these components by the generator degrees. No grading is
+  assumed in the presentation itself.
 
-All new declarations are in `TauCeti.QuantumTopology`, section
-`GeneralParityGrading`. They refine the existing
-`ArithmeticQuantumTopology:QT.4/general-parity-grading` target without adding
-an owner, layer or planet.
+Exactly three additions use `sorry`: direct-sum grading, its uniqueness,
+and the long-root binomial test. These are suggested theorem signatures,
+not implemented results. The generic quotient does not yet supply
+`DrinfeldJimboDatum`, the h-adic `DrinfeldJimboAlgebra`, `quantumPBWBasis`,
+the generic-to-h-adic embedding, integral cores or an ℂ(v)-balanced tensor
+grading. Those remain separate obligations.
 
-- `QuantumParityGenerator` distinguishes the central sign, the K generators
-  and the e generators. `QuantumParityRelation B` gives the actual relators
-  for the integer simple-root Gram matrix B. `QuantumParityGroup B` is Mathlib's
-  `PresentedGroup` on them, rather than an abelian group or a type assumed as
-  extra input. The relations encode the two squares, centrality, commuting
-  K generators and both Gram-dependent commutation laws.
-- `QuantumParityGroup.v`, `.K` and `.e` are the images of those generators.
-  `.v_square`, `.K_square`, `.K_mul_e`, `.e_mul_e` and `.v_central` have proofs.
-  Centrality uses Mathlib's centralizer and generation theorem for a presented
-  group, without a separate private theory of group presentations.
-- `.v_ne_one` states nontriviality under the explicit symmetric/even-diagonal
-  Gram hypotheses. `.evenSubgroup` is the subgroup generated by v and the e's.
-  `.centralQuotientEquiv` targets the actual quotient by the central sign and
-  `Multiplicative ((ι →₀ ℤ) × (ι →₀ ZMod 2))`; the factors represent the root
-  lattice and its reduction modulo two in simple-root coordinates.
-- `quantumParityDegree B d` assigns the source degrees to v, its inverse,
-  both K signs, E and F. The symmetrizers d are consumed in the E degree.
-  This is a function on algebra generators, not yet the direct-sum grading
-  of the general Drinfeld–Jimbo algebra. That homogeneity/uniqueness theorem
-  still needs the genuine general algebra interface and remains work.
-- `tensorParityGroup B (n+1)` is the quotient of the direct product of n+1
-  copies by the normal closure of v_i v_j⁻¹. `tensorParityInclusion` constructs
-  the actual factor homomorphisms; `tensorParity_shared_v` proves that their
-  central signs agree. The zero case is explicitly `Multiplicative (ZMod 2)`.
-  `tensorParity_oneEquiv` supplies the one-factor equivalence signature.
-
-Exactly three added declarations use `sorry`: central-sign nontriviality,
-the central quotient equivalence and the one-factor equivalence. They are
-honest mathematical statements on concrete types. No phantom carrier,
-arbitrary proposition field or `def _ : Prop := sorry` was introduced.
-
-The three packet tests appear as commented Lean `example`s:
-
-1. `parity_v_square`: the assigned degree of v²=q is neutral.
-2. `parity_K_square`: the assigned degree of K_i² is neutral.
-3. `parity_tensor_zero`: the zero-factor group has cardinality two; its
-   element represented by 1 in ZMod 2 is nonidentity.
-
-Additional examples check equality of the signs in two tensor factors and
-show that a one-root Gram matrix with odd diagonal collapses v. These proofs
-use no admitted parity theorem. A type A₂ example shows that K₀ and e₁ do not
-commute for B=[[2,-1],[-1,2]]. That example relies on the admitted `.v_ne_one`
-target; it is not claimed as an independent proof of the entire extension.
-The odd-diagonal test explains why the Gram hypotheses must not be dropped.
-
-The README now pins B_ii=2d_i, the quotient/tensor conventions, the distinction
-between assigning degrees and proving homogeneity, and the negative controls.
-Machine source identifiers were removed from the bibliography bullets to keep
-the document below 200,000 bytes; authors, titles, links and versions remain.
-All inherited headings, anchors, API names and test names were preserved.
+Tests check the generic rank-one negative F weight, commuting E and F at
+a_ij=0, and G₂ with coroot-row matrix [[2,-3],[-1,2]], d=(1,3).
+Gram symmetry and its failure with d=(1,1) are proved by computation.
+The long-root coefficient is stated as v³+v⁻³. The rank-one example covers
+only the generic F-weight portion of `DJ_sl2_relations`, not the full
+h-adic comparison. Both commuting tests use the actual Serre relators.
+The README pins these conventions and the grading construction. Redundant
+introductory and bibliography prose was condensed to fit 200,000 bytes;
+all targets, headings, anchors, API/test names, authors, links and fixed
+versions remain.
 
 ## Sources and library checks
 
 Kazuo Habiro and Thang T. Q. Lê,
 [Unified quantum invariants for integral homology spheres associated with simple Lie algebras](https://arxiv.org/abs/1503.03549v2),
-was read at §6.1, pp. 68–69 (group presentation, even subgroup, central
-quotient and tensor powers), Proposition 6.2 in §6.2, p. 69 (degree assignment
-and relation homogeneity), and §6.3, p. 70 (structural-map compatibility).
-The zero-factor group is specified on p. 69. The public PDF SHA-256 matches
-the packet's fixed-version receipt:
+was read at §3.1, pp. 36–38 (presentations and quantum coefficients),
+§6.1, pp. 68–69 (parity presentation), and Proposition 6.2 in §6.2,
+p. 69 (existence and uniqueness of the grading). §§6.3–6.10 were also
+inspected for structural, integral and tensor consumers. The fixed public
+PDF SHA-256 agrees with the packet receipt:
 `234eae71d85a7b282e9b197ae505edb804d631fe6c33b3d641425de0dc9ae490`.
-The scratch extraction includes §§6.1–6.7; only the cited parity material was
-used here. All repository exposition is in our own words. No restricted source
-file or source passage was copied into the repository.
+Repository prose is our own; no source passage or restricted file was copied.
 
-Pinned Mathlib declarations were read before use:
+Current GeometricTopology and RepresentationTheory/RootSystems READMEs
+were read in full, and their suggested interfaces inspected. IntegralLattices
+and LieHighestWeight were inspected at relevant dependency boundaries.
+The reviewed library audit has 1,316 layers and no direct QT or GT entry;
+its five completed IntegralLattices entries are imported, not replanned.
+Targeted current-roadmap/library searches found no general quantum Serre
+algebra, quantum PBW basis or quantum parity implementation under these names.
+This is a focused check, not a new exhaustive library audit.
 
-- `PresentedGroup`, `PresentedGroup.of`, `.mk`, `.one_of_mem`,
-  `.mk_eq_mk_of_mul_inv_mem`, `.generated_by`
-  (`Mathlib/GroupTheory/PresentedGroup.lean`).
-- `Subgroup.centralizer`, `.mem_centralizer_singleton_iff`
-  (`Mathlib/GroupTheory/Subgroup/Centralizer.lean`).
-- `Subgroup.normalClosure`, `.subset_normalClosure`, `QuotientGroup.mk'`,
-  `.eq_one_iff` (group quotient definitions/basic API).
-- `map_pow`, `map_zpow` (`Mathlib/Algebra/Group/Hom/Defs.lean`);
-  `Multiplicative.ofAdd`, `.ofAdd_zero`
-  (`Mathlib/Algebra/Group/TypeTags/Basic.lean`), and `ZMod.card`.
+Pinned Mathlib statements read before use include `FreeAlgebra.ι`, `.lift`,
+`.lift_ι_apply`; `RingQuot.mkAlgHom`, `.mkAlgHom_rel`, `.liftAlgHom`,
+`.liftAlgHom_mkAlgHom_apply`; the polynomial algebra map into `RatFunc`;
+`RootPairing.Base.cartanMatrixIn`, `.cartanMatrix` and their orientation;
+and `DirectSum.IsInternal` for submodule families.
 
-The reviewed library audit has 1,316 layer entries, with no direct
-ArithmeticQuantumTopology or GeometricTopology entry. Its IntegralLattices
-material is imported rather than re-planned. Targeted searches of the current
-read-only upstream roadmaps and Tau Ceti found no parity-group implementation
-or target under these names. This is a focused dependency check, not a new
-exhaustive library audit.
+Read-only revisions checked: TauCetiRoadmap
+`a7712b2de0fbbe57dc06903169fe84cc69cf71ab`; current Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The managed build uses Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and baseline Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. No upstream tree was edited or built.
 
-Read-only revisions checked:
+## Blocker and restart
 
-- TauCetiRoadmap main: `670582c502e1d4497d9ccd492b36c67028ef6666`.
-- Current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-- Managed Mathlib pin: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-- Managed baseline Tau Ceti pin: `f790474821cf4256814db967cb154e7af3d0c369`
-  (the shared lean-check configuration; the managed tree has no Git metadata).
+G1 was checked afresh. GeometricTopology layer 4 plans framed presentations,
+and layer 5 plans actual Dehn filling. Neither its README nor a
+GeometricTopology Part II deliverable in this checkout specifies the entire
+requested framed multi-link, surgery H₁, ordinary Kirby/Fenn–Rourke and
+stable unimodular-form realization contract. Its Suggested.lean has no
+compiled declarations. Current Tau Ceti supplies smooth disjoint link
+embeddings, ambient isotopy, integer-framed braids and actual torus H₁/slope
+coordinates. `MarkovEquiv` still forgets the framings. The only DehnSurgery
+module is the slope interface, not a filled-manifold construction.
 
-GeometricTopology and CombinatorialHeegaardFloer's complete current READMEs
-were read for upstream structure and supplier boundaries; GeometricTopology's
-Suggested.lean was also read in full. ClassFieldTheory, IntegralLattices and
-the current knot/surgery modules were inspected at the relevant loci.
+This is a specification/ownership blocker, not a demand for prerequisite
+implementations before writing a roadmap. The accepted plan explicitly
+assigns the missing ordinary topology to GeometricTopology Part II.
+PROTOCOL §§15 and 20 prohibit duplicating that owner or silently changing
+the plan; #7889 forbids packet edits. A placeholder manifold or new private
+surgery theory cannot meet the required comparison.
 
-| Existing interface | What it supplies | Unresolved G1 comparison |
-| --- | --- | --- |
-| `KnotTheory/SmoothLink/Basic.lean`, `SmoothLinkEmbedding` | Labelled disjoint smooth circle embeddings | Global framing, linking numbers and framed presentation comparison |
-| `KnotTheory/SmoothLink/Isotopy.lean`, `SmoothAmbientIsotopic` | One diffeotopy transporting all components | Transport of the extra framing data |
-| `KnotTheory/Markov.lean`, `FramedMarkovBraid`, `MarkovEquiv` | Integer component framings and ordinary equivalence of the forgotten braid | Framing-preserving relation and geometric comparison |
-| `LowDimTopology/DehnSurgery/Slope.lean`, `BoundaryTorus.firstHomology`, `FramedBoundaryTorus.coord_symm_apply` | Actual torus singular H₁ and pμ+qλ coordinates | Link exterior, actual filled manifold, its H₁ and Kirby comparison |
+The maintainer/owner reconciliation must identify or state:
 
-No upstream checkout was edited or built.
+1. Layer 4/Part II: framed oriented labelled multi-links/tangles, linking
+   numbers, Seifert framings and framing-preserving presentation comparison.
+2. Layer 5/Part II: actual filling at fμ+λ, H₁≅coker A, determinant/IHS
+   criterion, ordinary Kirby/Fenn–Rourke calculus and geometric realization
+   of stable unimodular-form moves, with explicit slide bands.
 
-## Remaining work and restart
+Then instantiate QT.0's existing matrix/cokernel transport on genuine
+geometric data and state QT.3's JM comparison on the resulting manifolds.
+For the independent quantum lane, next supply the normalized d adapter,
+general h-adic presentation and quantum PBW/core comparisons. Use the
+concrete components here for even-subalgebra and central-v-balanced tensor
+grading. Do not replace them with arbitrary carriers or assumptions of the
+desired theorem. All eight accepted gaps and nineteen requests remain open.
 
-The owner-level reconciliation must specify, or identify exact already-owned
-targets for, the following contracts requested by the accepted plan:
-
-1. GeometricTopology layer 4/Part II: framed oriented multi-component links
-   and tangles, finite component labels, pairwise linking, integer Seifert
-   framing and framing-preserving presentation comparisons. A common genuine
-   presentation is enough; a bundled hub `Knot` type is unnecessary.
-2. GeometricTopology layer 5/Part II: actual oriented filling at fμ+λ,
-   H₁≅coker A, the determinant/IHS criterion, ordinary Kirby/Fenn–Rourke
-   calculus, and realization of stable unimodular-form moves by geometric
-   moves. Filled manifolds carry ordinary topological/manifold instances and
-   comparisons use geometric equivalences. Slide bands remain explicit data.
-   QT owns the admissible band-slide and Hoste refinements.
-
-With those contracts, instantiate QT.0's matrix API on genuine geometric data,
-complete its refined presentation-existence statements, and state QT.3's
-unified invariant on actual resulting manifolds. Neither the inherited cokernel
-transport nor this session's parity group discharges those obligations.
-
-For QT.4, connect B and d to the existing general root/Cartan input and finish
-`general_parity_grading`: homogeneous Drinfeld–Jimbo relations, the C(q)-linear
-direct-sum grading, the even homogeneous components and its tensor-power
-compatibility. Use the concrete presentation here; do not replace it by an
-arbitrary group supplied as an assumption. The central quotient and one-factor
-equivalence signatures are already available for the suggested API.
-
-The complete inherited eight-layer worklist, nineteen supplier requests,
-QT.7 ledger/native-sum progress, QT.0 cokernel transport and earlier source
-receipts remain in the immutable
-[predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/fb99cf051cb90cec265ac63529c9541642546aee/research/blueprint/handoff/PKG-ArithmeticQuantumTopology.md)
-and its linked earlier notes. Their historical checks are not claimed as
-fresh checks by this session. All eight packet gaps remain open.
-
-A fresh exact-text name screen finds 121 of the 206 definition/construction
-API names and 79 of their 159 test names absent from Suggested.lean; across
-all nodes the figures are 131 of 221 and 85 of 169. These are search leads,
-not counts of missing mathematical statements: renamed/qualified declarations
-need semantic comparison, and occurrences in comments do not certify a
-signature. Nonetheless, the remaining general parity grading and QT.0 geometry
-are concrete incomplete interfaces. All packet API/test names occur in README.
-Do not treat the passing structural checker or the complete packet status as
-proof that the package is finished.
+The inherited eight-layer worklist, QT.7 ledger/native-sum progress, QT.0
+cokernel transport and earlier source receipts remain in the immutable
+[predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/eb32c2d3450f60e02c9a82733aa7e25339e2eb99/research/blueprint/handoff/PKG-ArithmeticQuantumTopology.md)
+and its linked predecessors. Their historical checks are not fresh checks
+by this session. A fresh text screen finds 131 of 221 API names and 82 of
+169 test names absent from Suggested.lean. These are search leads, not
+mathematical completeness counts; renamed statements need semantic checking.
 
 ## Validation
 
 - Full `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
-  exit 0, zero errors, 630 warnings, all `declaration uses sorry`, zero other
-  warnings. The inherited file was checked separately: exit 0 and 627 such
-  warnings. This session adds exactly the three admissions listed above.
-- The isolated parity diagnostic passes with only those three warnings.
-  `#print axioms` for `.v_square`, `.K_square`, `.K_mul_e`, `.e_mul_e`,
-  `.v_central` and `tensorParity_shared_v` lists only `propext`,
-  `Classical.choice` and `Quot.sound`, with no `sorryAx`. The diagnostic
-  commands remain outside the package.
+  exit 0, zero errors, 633 warnings, all `declaration uses sorry`, zero other
+  warnings. The integrated addition contributes exactly three admissions.
+- The isolated presentation/parity diagnostic elaborates with its six
+  expected admissions (three inherited, three new). `#print axioms` for
+  `v_square`, `K_E`, `K_F`, `E_F`, `serre_eq_zero` and `lift_generator`
+  lists only `propext`, `Classical.choice` and `Quot.sound`, no `sorryAx`.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
-  exit 0, zero errors/warnings; 106 nodes, 206 definition/construction API
-  items, 159 definition/construction tests, 36 planets, 24 baseline declarations,
-  eight planned stages, zero closed stages, eight gaps and nineteen requests.
+  zero errors/warnings; 106 nodes, eight planned stages, zero closed stages,
+  eight gaps, nineteen requests. Packet status is not package completion.
+- All 118 headings and 114 anchors match the starting README. All 221
+  packet API names and 169 test names occur in it. README: 199,900 bytes.
+- Accepted packet SHA-256 is unchanged:
+  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
 - `python3 research/blueprint/intake.py check-files` on the three changed
   paths: three files, zero problems. `git diff --check` passes.
-- A fresh comparison with the starting README preserves every heading and
-  anchor; all 221 packet API names and all 169 packet test names occur in it.
-- README is 199,876 bytes; Suggested.lean is 258,557 bytes.
-- Accepted packet SHA-256:
-  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
-- README SHA-256:
-  `b66fc4bf554f847418ff2eb90cddc095bec4bfc2cb18835c30000ffa543d03e0`.
-- Suggested.lean SHA-256:
-  `3bb06557ebc78ba81e0419fbfde314342d9623ce183be3af26e66aef6cfdd9e7`.
 
-All Lean checks used the managed shared pinned build, sequentially; the
-precompile memory check showed 98 GB available. No build/update/cache operation or
-language server was started. No session-owned compiler will be left running.
-Continuation needs the saved files and immutable handoff/source links, not
-scratch. Submit this checkpoint and stop; claim no second issue.
+Lean checks used the managed shared pinned build sequentially; available
+memory was 97–99 GB. No build/update/cache command or language server was
+started. No session-owned compiler remains running. Continuation needs the
+saved deliverables and immutable links, not scratch. Submit this checkpoint
+and stop; claim no second job.
+
+Final package SHA-256 receipts:
+
+- README.md (199900 bytes): `2fb76671923716f58a387c82b8703612ec09ac6e380ffd47e82cad68fd88f0cb`.
+- Suggested.lean (270000 bytes): `24cbf7bdef1485d1bc70b585fb990da3cb8e91e13c1b8e1fa0adc04b062443eb`.

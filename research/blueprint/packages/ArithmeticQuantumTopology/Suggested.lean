@@ -54,6 +54,9 @@ import Mathlib.Topology.Algebra.InfiniteSum.Ring
 import Mathlib.Topology.Algebra.Ring.Basic
 import Mathlib.Topology.UniformSpace.Pi
 
+import Mathlib.FieldTheory.RatFunc.Basic
+import Mathlib.LinearAlgebra.RootSystem.CartanMatrix
+import Mathlib.Algebra.DirectSum.Decomposition
 import Mathlib.Algebra.FreeAlgebra
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.RingQuot
@@ -530,6 +533,203 @@ example : let B : Fin 2 → Fin 2 → ℤ := fun i j => if i = j then 2 else -1
   exact hv (inv_eq_one.mp hi.symm)
 
 end GeneralParityGrading
+
+/-! QT.1 and QT.4: the generic Drinfeld–Jimbo presentation over ℂ(q).
+Habiro–Lê §§3.1 and 6.2, pp. 36–38 and 69. Adjoining v as a central
+generator, rather than a scalar, retains its nontrivial parity degree. -/
+section GenericDrinfeldJimbo
+
+abbrev QuantumRationalFunctions := RatFunc ℂ
+
+def quantumQ : QuantumRationalFunctions := algebraMap (Polynomial ℂ) QuantumRationalFunctions Polynomial.X
+
+/-- Gaussian coefficients at t, with [n,k]=0 outside 0≤k≤n. -/
+def quantumGaussian (t : QuantumRationalFunctions) : ℕ → ℕ → QuantumRationalFunctions
+  | _, 0 => 1
+  | 0, _ + 1 => 0
+  | n + 1, k + 1 => quantumGaussian t n (k + 1) + t ^ (n - k) * quantumGaussian t n k
+
+namespace GenericQuantum
+open Classical
+local instance : (ι : Type) → DecidableEq ι := fun _ => Classical.decEq _
+variable {ι : Type}
+
+abbrev Presentation (ι : Type) := FreeAlgebra QuantumRationalFunctions (QuantumParityAlgebraGenerator ι)
+
+def gen (x : QuantumParityAlgebraGenerator ι) : Presentation ι :=
+  FreeAlgebra.ι QuantumRationalFunctions x
+
+def vPower (m : ℤ) : Presentation ι :=
+  if 0 ≤ m then gen .v ^ m.toNat else gen .vInv ^ (-m).toNat
+
+/-- Symmetric quantum binomial [n choose k]ᵢ as a polynomial in v,v⁻¹
+with coefficients in ℂ(q), using qᵢ=q^dᵢ. -/
+def binomial (d : ℕ) (n k : ℕ) : Presentation ι :=
+  gen .vInv ^ (d * k * (n - k)) *
+    algebraMap QuantumRationalFunctions (Presentation ι) (quantumGaussian (quantumQ ^ d) n k)
+
+def serre (d : ℕ) (r : ℕ) (x y : QuantumParityAlgebraGenerator ι) : Presentation ι :=
+  ∑ s ∈ Finset.range (r + 1), (-1 : Presentation ι) ^ s *
+    binomial d r s * gen x ^ (r - s) * gen y * gen x ^ s
+
+/-- A_ij=⟨α_j,α_i^∨⟩, B_ij=d_i A_ij=(α_i,α_j).
+All inverse and centrality relations occur explicitly. The F weight is negative. -/
+inductive Relation (A : ι → ι → ℤ) (d : ι → ℕ) : Presentation ι → Presentation ι → Prop
+  | v_inv : Relation A d (gen .v * gen .vInv) 1
+  | inv_v : Relation A d (gen .vInv * gen .v) 1
+  | v_square : Relation A d (gen .v ^ 2) (algebraMap _ _ quantumQ)
+  | v_central (x : QuantumParityAlgebraGenerator ι) : Relation A d (gen .v * gen x) (gen x * gen .v)
+  | vInv_central (x : QuantumParityAlgebraGenerator ι) : Relation A d (gen .vInv * gen x) (gen x * gen .vInv)
+  | K_inv (i : ι) : Relation A d (gen (.K i) * gen (.KInv i)) 1
+  | inv_K (i : ι) : Relation A d (gen (.KInv i) * gen (.K i)) 1
+  | K_commute (i j : ι) : Relation A d (gen (.K i) * gen (.K j)) (gen (.K j) * gen (.K i))
+  | K_E (i j : ι) : Relation A d
+      (gen (.K i) * gen (.E j) * gen (.KInv i)) (vPower ((d i : ℤ) * A i j) * gen (.E j))
+  | K_F (i j : ι) : Relation A d
+      (gen (.K i) * gen (.F j) * gen (.KInv i)) (vPower (-((d i : ℤ) * A i j)) * gen (.F j))
+  | E_F (i j : ι) : Relation A d (gen (.E i) * gen (.F j) - gen (.F j) * gen (.E i))
+      (if i = j then algebraMap _ _ ((quantumQ ^ d i - 1)⁻¹) *
+        gen .v ^ d i * (gen (.K i) - gen (.KInv i)) else 0)
+  | serre_E (i j : ι) (hij : i ≠ j) : Relation A d
+      (serre (d i) (1 - A i j).toNat (.E i) (.E j)) 0
+  | serre_F (i j : ι) (hij : i ≠ j) : Relation A d
+      (serre (d i) (1 - A i j).toNat (.F i) (.F j)) 0
+
+abbrev Algebra (A : ι → ι → ℤ) (d : ι → ℕ) := RingQuot (Relation A d)
+
+def quotientMap (A : ι → ι → ℤ) (d : ι → ℕ) : Presentation ι →ₐ[QuantumRationalFunctions] Algebra A d :=
+  RingQuot.mkAlgHom QuantumRationalFunctions (Relation A d)
+
+def generator (A : ι → ι → ℤ) (d : ι → ℕ) (x : QuantumParityAlgebraGenerator ι) : Algebra A d :=
+  quotientMap A d (gen x)
+
+def gram (A : ι → ι → ℤ) (d : ι → ℕ) : ι → ι → ℤ := fun i j => (d i : ℤ) * A i j
+
+/-- A root base uses the opposite Cartan orientation: Mathlib puts the root
+in the row and the coroot in the column. The transpose is essential in B,C,F,G. -/
+def cartanOfBase {ρ M N : Type} [AddCommGroup M] [Module ℚ M]
+    [AddCommGroup N] [Module ℚ N] (P : RootPairing ρ ℚ M N)
+    [P.IsCrystallographic] (b : P.Base) : b.support → b.support → ℤ :=
+  fun i j => b.cartanMatrix j i
+
+/-- This is the generic algebra; the h-adic algebra and quantum PBW/core
+comparisons are separate targets. No completion or PBW basis is assumed here. -/
+abbrev algebraOfBase {ρ M N : Type} [AddCommGroup M] [Module ℚ M]
+    [AddCommGroup N] [Module ℚ N] (P : RootPairing ρ ℚ M N)
+    [P.IsCrystallographic] (b : P.Base) (d : b.support → ℕ) := Algebra (cartanOfBase P b) d
+
+theorem v_square (A : ι → ι → ℤ) (d : ι → ℕ) :
+    generator A d .v ^ 2 = algebraMap _ _ quantumQ := by
+  simpa [generator, quotientMap] using
+    RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.v_square (A := A) (d := d))
+
+theorem K_E (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) :
+    generator A d (.K i) * generator A d (.E j) * generator A d (.KInv i) =
+      quotientMap A d (vPower ((d i : ℤ) * A i j)) * generator A d (.E j) := by
+  simpa [generator, quotientMap] using
+    RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.K_E (A := A) (d := d) i j)
+
+theorem K_F (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) :
+    generator A d (.K i) * generator A d (.F j) * generator A d (.KInv i) =
+      quotientMap A d (vPower (-((d i : ℤ) * A i j))) * generator A d (.F j) := by
+  simpa [generator, quotientMap] using
+    RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.K_F (A := A) (d := d) i j)
+
+theorem E_F (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) :
+    generator A d (.E i) * generator A d (.F j) - generator A d (.F j) * generator A d (.E i) =
+      if i = j then algebraMap _ _ ((quantumQ ^ d i - 1)⁻¹) * generator A d .v ^ d i *
+        (generator A d (.K i) - generator A d (.KInv i)) else 0 := by
+  simpa [generator, quotientMap, apply_ite] using
+    RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.E_F (A := A) (d := d) i j)
+
+theorem serre_eq_zero (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) (hij : i ≠ j) :
+    quotientMap A d (serre (d i) (1 - A i j).toNat (.E i) (.E j)) = 0 ∧
+      quotientMap A d (serre (d i) (1 - A i j).toNat (.F i) (.F j)) = 0 := by
+  constructor
+  · simpa [quotientMap] using RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.serre_E (A := A) (d := d) i j hij)
+  · simpa [quotientMap] using RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.serre_F (A := A) (d := d) i j hij)
+
+/-- Universal property for the specified Serre quotient, retaining every relation. -/
+def lift {S : Type} [Ring S] [_root_.Algebra QuantumRationalFunctions S]
+    (A : ι → ι → ℤ) (d : ι → ℕ) (f : QuantumParityAlgebraGenerator ι → S)
+    (hf : ∀ x y, Relation A d x y → FreeAlgebra.lift QuantumRationalFunctions f x =
+      FreeAlgebra.lift QuantumRationalFunctions f y) : Algebra A d →ₐ[QuantumRationalFunctions] S :=
+  RingQuot.liftAlgHom QuantumRationalFunctions ⟨FreeAlgebra.lift QuantumRationalFunctions f, hf⟩
+
+@[simp] theorem lift_generator {S : Type} [Ring S] [_root_.Algebra QuantumRationalFunctions S]
+    (A : ι → ι → ℤ) (d : ι → ℕ) (f : QuantumParityAlgebraGenerator ι → S) (hf) (x) :
+    lift A d f hf (generator A d x) = f x := by
+  simp [lift, generator, quotientMap, gen]
+
+/-- Ordered words are concrete monomials in the quotient. -/
+def word (A : ι → ι → ℤ) (d : ι → ℕ) (w : List (QuantumParityAlgebraGenerator ι)) : Algebra A d :=
+  (w.map (generator A d)).prod
+
+def wordDegree (A : ι → ι → ℤ) (d : ι → ℕ) (w : List (QuantumParityAlgebraGenerator ι)) :
+    QuantumParityGroup (gram A d) := (w.map (quantumParityDegree (gram A d) d)).prod
+
+/-- The homogeneous component is the ℂ(q)-span of words of that degree. -/
+def component (A : ι → ι → ℤ) (d : ι → ℕ) (g : QuantumParityGroup (gram A d)) :
+    Submodule QuantumRationalFunctions (Algebra A d) :=
+  Submodule.span QuantumRationalFunctions {x | ∃ w, wordDegree A d w = g ∧ word A d w = x}
+
+/-- Existence of the genuine direct-sum grading. The matrix hypotheses are
+exactly those needed for homogeneity; finite type is unnecessary for this statement. -/
+theorem general_parity_grading (A : ι → ι → ℤ) (d : ι → ℕ)
+    (hdiag : ∀ i, A i i = 2) (hoff : ∀ i j, i ≠ j → A i j ≤ 0)
+    (hd : ∀ i, 0 < d i) (hsymm : ∀ i j, gram A d i j = gram A d j i) :
+    DirectSum.IsInternal (component A d) ∧
+      (1 : Algebra A d) ∈ component A d 1 ∧
+      (∀ g h, ∀ x ∈ component A d g, ∀ y ∈ component A d h, x * y ∈ component A d (g * h)) ∧
+      (∀ x, generator A d x ∈ component A d (quantumParityDegree (gram A d) d x)) := sorry
+
+/-- The generator degrees determine the grading: no arbitrary component
+family is carried as an assumption of the presentation or its construction. -/
+theorem parity_grading_unique (A : ι → ι → ℤ) (d : ι → ℕ)
+    (C : QuantumParityGroup (gram A d) → Submodule QuantumRationalFunctions (Algebra A d))
+    (hC : DirectSum.IsInternal C) (h1 : (1 : Algebra A d) ∈ C 1)
+    (hmul : ∀ g h, ∀ x ∈ C g, ∀ y ∈ C h, x * y ∈ C (g * h))
+    (hgen : ∀ x, generator A d x ∈ C (quantumParityDegree (gram A d) d x)) :
+    C = component A d := sorry
+
+/-- DJ_sl2_relations: generic negative F-weight; the h-adic comparison is separate. -/
+example : let A : Unit → Unit → ℤ := fun _ _ => 2
+    let d : Unit → ℕ := fun _ => 1
+    generator A d (.K ()) * generator A d (.F ()) * generator A d (.KInv ()) =
+      quotientMap A d (gen .vInv ^ 2) * generator A d (.F ()) := by
+  simpa [vPower] using K_F (fun (_ _) => 2) (fun _ => 1) () ()
+
+/-- DJ_serre_commuting_roots: r=1 gives commuting E_i,E_j, not E_i=E_j. -/
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) (hij : i ≠ j) (hA : A i j = 0) :
+    generator A d (.E i) * generator A d (.E j) = generator A d (.E j) * generator A d (.E i) := by
+  have h := (serre_eq_zero A d i j hij).1
+  simpa [hA, serre, binomial, quantumGaussian, Finset.sum_range_succ,
+    generator, ← sub_eq_add_neg, sub_eq_zero, quotientMap] using h
+
+/-- The same r=1 relation holds for the negative generators. -/
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i j : ι) (hij : i ≠ j) (hA : A i j = 0) :
+    generator A d (.F i) * generator A d (.F j) = generator A d (.F j) * generator A d (.F i) := by
+  have h := (serre_eq_zero A d i j hij).2
+  simpa [hA, serre, binomial, quantumGaussian, Finset.sum_range_succ,
+    generator, ← sub_eq_add_neg, sub_eq_zero, quotientMap] using h
+
+/-- DJ_root_lengths_G2: source Cartan orientation has the long coroot in row 1. -/
+def G2Cartan : Fin 2 → Fin 2 → ℤ := fun i j => if i = j then 2 else if i = 0 then -3 else -1
+
+def G2Lengths : Fin 2 → ℕ := fun i => if i = 0 then 1 else 3
+
+example : gram G2Cartan G2Lengths 0 1 = -3 ∧ gram G2Cartan G2Lengths 1 0 = -3 ∧
+    G2Lengths 1 = 3 := by decide
+
+/-- The long-root symmetric binomial is v³+v⁻³, not v+v⁻¹. -/
+example : quotientMap G2Cartan G2Lengths (binomial 3 2 1) =
+    generator G2Cartan G2Lengths .v ^ 3 + generator G2Cartan G2Lengths .vInv ^ 3 := sorry
+
+/-- Using d=1 on both G₂ roots destroys the symmetric Gram input. -/
+example : gram G2Cartan (fun _ => 1) 0 1 ≠ gram G2Cartan (fun _ => 1) 1 0 := by decide
+
+end GenericQuantum
+end GenericDrinfeldJimbo
 
 /-! QT.1–QT.2: Laurent color conventions. V denotes a representation-algebra
 polynomial; the native finite free color and its pivotal trace appear below. -/
