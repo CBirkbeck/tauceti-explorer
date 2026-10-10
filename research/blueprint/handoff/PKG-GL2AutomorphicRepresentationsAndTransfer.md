@@ -1,5 +1,164 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Issue: #7901. Worker: Codex (GPT-6), session `codex-1LgEKN`.
+Date: 2026-10-10. Branch: `codex-1LgEKN-gl2-package`.
+Status: **partial; shared prerequisite ownership requires a plan repair**.
+
+Claim confirmed in [comment 6094030708](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094030708).
+No issue in the manager's priority list was available. This focus package was
+selected in the fallback order; no second job was claimed.
+
+## What this checkpoint changes
+
+The package's `prescribed-local-induction` section now includes the accepted
+plan's construction, especially the previously omitted proof that the initial
+CM character has finite order on the **full nonsplit local group**. Let 𝔓 be
+stable under CM conjugation σ and choose h>0 with 𝔓^h=(a). The quotient a/σa
+is an integer unit whose archimedean absolute values are all one. Kronecker's
+theorem makes it torsion. Its embedding values are the squares of the phases
+of a, so the angular infinity character takes a to a root of unity. The
+principal-idele relation, finite image of each finite unit restriction, and
+unramifiedness outside a finite set then make ψ₀,𝔓(a) torsion. The subgroup
+a^ℤ O_𝔓× has index h, proving finite order of ψ₀,𝔓 on L_𝔓×. This is the
+third proof step already in the accepted `prescribed-local-induction` node;
+it introduces no new owner or target.
+
+The rest of the construction now explicitly takes the finite discrepancy
+μ=ξ_𝔭/ψ_𝔓 and a finite correction θ at the other nonsplit place. If ψ_𝔙 is
+σ-invariant, choose x with σx/x≠1. A principal-unit quotient detects this
+norm-one unit. Quotienting additionally by a uniformizer's cyclic subgroup
+gives a finite abelian group; a complex character detecting σx/x supplies a
+finite-order θ with θ≠θ∘σ. Otherwise θ=1 suffices. The desired finite global
+correction would prescribe μ and θ on both **full** local groups, and be
+trivial at infinity. Its existence remains the separately recorded gap.
+
+This resolves the inherited handoff's request to justify local finiteness
+in the CM construction: the proof was already in the plan and is now exposed
+in the package. It does **not** make the global angular character finite
+order or resolve full-local prescription.
+
+The domain-test paragraph also corrects the attribution of
+`quadraticDirichletFive`: it is a private suggested example using Mathlib's
+`DirichletCharacter`, not a Mathlib declaration. All its six tests and the
+local `unramifiedQuadraticTwo` tests are preserved. Repeated source locators
+in the two affected sections are consolidated without losing theorem,
+section or printed-page references. All 115 target headings remain in order.
+The README is 199,985 bytes, within the 200,000-byte limit.
+
+The suggested file is unchanged. The accepted packets, assembly and other
+roadmaps are unchanged. `metadata.toml` remains absent because the submission
+classifier otherwise marks this unfinished package complete.
+
+## Why completion is blocked, and what must happen first
+
+The accepted R17.3 packet explicitly records the gap **Local–global extension
+of characters (Chevalley's congruence theorem for S-units)** for
+`R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction`. Its own gap states that no Atlas stage
+owns the required full-local existence theorem. The first consumer needs
+single-place quasi-character extension and, for its finite-image version,
+finite-order extension. The second needs finite-order corrections at two
+nonsplit finite places that preserve its specified complex infinity type.
+
+Patrikis, Lemma 2.3.6, printed pp. 30–31, starts instead with a character of
+μ_n(M)\μ_n(𝔸_M). It does not prescribe a full M_u× component. The existing
+ℚ₂ test distinguishes the trivial character from the unramified quadratic
+character although their unit and torsion restrictions agree. No substitution
+of that lemma for full-local prescription is valid.
+
+This session rechecked current GlobalNumberFields Layers 9–10 and the actual
+character declarations. `ofRayClassCharacter` takes a ray-class character as
+input; `isFiniteOrder_iff_exists_rayClassCharacter` takes an already given
+Hecke character. `exists_modulus_finiteComponent_eq_one` likewise starts from
+a Hecke character and finds a modulus killing its unit restrictions. None
+constructs the finite global character from prescribed full local data.
+`unitsCongruenceSubgroup_finiteIndex` starts from a modulus and proves finite
+index; Chevalley's separation goes in the other direction, starting from a
+finite-index subgroup and finding a modulus prime to a specified set. Current
+ClassFieldTheory §1 explicitly excludes prescribed local abelian extensions
+and Grunwald–Wang, and its global existence theorem starts from an open
+idele-class subgroup. It does not supply the missing character construction.
+
+The issue's binding restriction is: **“Change no packet; if the plan has a
+mistake, describe it in the handoff note.”** PROTOCOL.md §§3, 15 and 20 require
+exact prerequisite ownership and a package with no unsupported inputs. Routing
+the shared congruence theorem, adding its owner contract and updating these
+consumer prerequisites requires edits outside this issue's four authorized
+paths. This is the external scope blocker; no additional compilation or
+unrelated example can resolve it.
+
+Before another package-only continuation, the maintainer needs to:
+
+1. Assign one lower-tier owner to Chevalley's congruence separation for
+   finitely generated multiplicative subgroups, avoiding a prescribed finite
+   set of primes. Reconcile the GlobalNumberFields extension proposal with
+   `PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking`
+   and the `ShimuraVarieties--V0` CM norm-kernel gap; neither supplies the
+   general full S-unit statement.
+2. Give that owner the full-local finite-character construction and its
+   single-place quasi-character consequence, using the finite ray quotient
+   route preserved below; update the two R17.5 consumers to cite it.
+3. Repair the four upward R19 prerequisite edges in `rt-technical-lemma`
+   and `weight-two-witness`, with the three lower classical attachment
+   targets and their proof chains identified below.
+4. Resolve the other recorded source-proof gaps and supply exact dependency
+   interfaces for the signature omissions. The accepted packets have eight
+   gaps each, not just this character-extension gap. Preserve their precise
+   hypotheses and all inherited corrections.
+
+Then finish the faithful suggested signatures, add `metadata.toml` with
+`topic = "math.NT"`, and validate the package. The notes below preserve the
+congruence proof proposal, the other closure requirements and the downward
+moves. Do not regenerate from the stale assembled suggested file.
+
+## Checks and source receipts from this session
+
+- Both input `scripts/check_blueprint.py` checks: exit 0, no errors or warnings;
+  55 and 57 nodes, eight gaps each, 32 and 35 requests, zero closed stages.
+- `lean-check` on the package's unchanged `Suggested.lean`: exit 0; 144
+  declaration-uses-`sorry` warnings, no errors or other warnings. Available
+  memory before checking: 105 GB. The check completed; nothing remains running.
+- Scoped intake: three checked files, zero problems; no scope refusals;
+  `git diff --check` clean; completion classifier **False**.
+- Compilation pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+- Read-only audit revisions: TauCetiRoadmap
+  `8c72a04753b11cab07fa593cc38ceaa7c0515380`, current Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Current library and compilation
+  baseline were kept distinct. No Lake command was run in either read-only
+  checkout.
+- Current GlobalNumberFields and ReductiveGroups READMEs were read in full,
+  and GlobalNumberFields' suggested character interfaces and ClassFieldTheory's
+  scope were read. The reviewed AUDIT-14 library coverage was consulted.
+- The pinned Mathlib statement `NumberField.Units.mem_torsion` was read in
+  `Mathlib/NumberTheory/NumberField/Units/Basic.lean`: an integer unit is
+  torsion exactly when all infinite-place absolute values are one.
+- The current character statements were read in
+  `TauCeti/NumberTheory/NumberField/Global/HeckeCharacter/FiniteComponent.lean`,
+  `FiniteOrder.lean` and `UnitCompatibility.lean`, and the current finite-index
+  instance in `Global/RayClass/Finite.lean`.
+- [Carayol, published Numdam scan](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf),
+  §11.2, printed p. 450 (PDF p. 43), read on 2026-10-10; SHA-256
+  `d4a5fb6b1cd76f944f8948e06df1c7ad5656ae5ee14b9189178ee1e8f2b0dab8`.
+- [Patrikis, author revision of 31 July 2016](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf),
+  §2.3, Lemmas 2.3.1 and 2.3.6 with proof, printed pp. 28 and 30–31
+  (PDF pp. 32, 34–35), read on 2026-10-10; SHA-256
+  `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81`.
+
+Only public sources were needed, and only scratch held source PDFs/text and
+logs. No source passage or private path is committed. Source receipts below
+are inherited unless separately identified above as read in this session.
+
+## Inherited resume notes (predecessor session codex-r8UoJn)
+
+The following is the previous checkpoint's handoff, preserved for its
+mathematical repair proposals and remaining-work list. Statements about
+“this run” below describe that predecessor, not session `codex-1LgEKN`.
+The current-session report above supersedes its CM local-finiteness resume
+requirement and its old byte count.
+
+### PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
+
 Issue: #7901. Worker: Codex (GPT-6), session `codex-r8UoJn`.
 Date: 2026-10-10. Branch: `codex-r8UoJn-gl2-package`.
 Status: **partial; accepted prerequisite plan needs repair**.
@@ -13,7 +172,7 @@ This handoff consolidates the mathematical resume information from checkpoints
 historical records remain in Git, including the subsequent `codex-SwZskw`
 checkpoint. No accepted packet or supplier plan is changed.
 
-## Changes and preserved work
+#### Changes and preserved work
 
 This run adds `quadraticDirichletFive : DirichletCharacter ℂ 5`, obtained by
 postcomposing Mathlib's `quadraticChar (ZMod 5)` with the integer-to-complex
@@ -48,7 +207,7 @@ and finite-projective-lift statements; primitive-newform carrier reuse; and
 the explicit GL₂(F₃) section. These are suggested interfaces with placeholder
 proofs unless explicitly proved, not claims of implemented automorphic theory.
 
-## First blocking dependency and authorized scope
+#### First blocking dependency and authorized scope
 
 The accepted `GL2AutomorphicRepresentationsAndTransfer--R17.3.json` still
 records **Local–global extension of characters (Chevalley's congruence theorem
@@ -102,7 +261,7 @@ package as complete if all three output paths exist, regardless of the handoff.
 Do not complete it by adding metadata alone. After substantive closure and
 complete faithful signatures, its topic is `math.NT`.
 
-## Repair proposal: Chevalley congruences and full local prescription
+#### Repair proposal: Chevalley congruences and full local prescription
 
 **Source, read directly:** C. Chevalley, *Deux Théorèmes d'Arithmétique*,
 J. Math. Soc. Japan **3** (1951), 36–44,
@@ -197,7 +356,7 @@ and auxiliary ramification really is allowed. Requiring an everywhere
 unramified finite global extension would fail in this example.
 
 
-## Correction to the inherited congruence proof proposal
+#### Correction to the inherited congruence proof proposal
 
 The full-local finite-character construction in the inherited handoff remains
 useful **conditional on the congruence contract**. Its proposed shortcut to
@@ -269,7 +428,7 @@ source is asserted; the withdrawn argument was the inherited handoff's own
 restatement. The corrected route avoids relying on the alternative remark.
 
 
-## Shared-owner routing lead
+#### Shared-owner routing lead
 
 The same general congruence theorem is also used in
 `PotentialAutomorphyInfrastructure:PA.2/determinant-neat-level-shrinking`,
@@ -290,7 +449,7 @@ requirements remain and must be handled separately. This run makes no
 ownership change or downward move.
 
 
-## Other inherited closure requirements
+#### Other inherited closure requirements
 
 These are the accepted gaps, not new red-team work. None should be silently
 removed merely because the package has target headings for its consequences.
@@ -314,7 +473,7 @@ removed merely because the package has target headings for its consequences.
 | R17: GL₃ recognition signature | The actual global admissible/cuspidal, completed twist, epsilon and pole carriers are omitted by name. The algebraic adjoint Satake calculation is not the converse theorem or pole criterion. |
 | R17: transfer signature omissions | Global JL, cyclic/solvable/cubic transfer, induction, Artin automorphy and the characteristic-two modularity applications still require the exact carriers and hypotheses listed in their omission blocks. Do not count those blocks as declarations or the fragment examples as full source-level tests. |
 
-## Downward ownership moves
+#### Downward ownership moves
 
 WORKERS.md forbids the four upward prerequisite edges in the accepted R17.3
 packet. Its `rt-technical-lemma` cites the higher R19.1 weight-one and
@@ -342,7 +501,7 @@ that statement alone is not a construction proof. The Lean file names the
 three signature omissions honestly. Accepted packets and higher consumers
 have not been changed, per the issue's file restrictions.
 
-## Resume here
+#### Resume here
 
 The maintainer must route and accept the **prescribed-local-character theorem
 and proof chain** in its owning plan. Reconcile that owner with both consumers
@@ -363,7 +522,7 @@ interfaces and definition tests, add metadata, and rerun the packet, Lean and
 scoped intake checks for independent package review.
 
 
-## Validation and source receipts
+#### Validation and source receipts
 
 - Both accepted input `scripts/check_blueprint.py` checks: exit 0, zero errors
   and warnings; 55/57 nodes, eight gaps each, 32/35 requests, zero closed stages.
