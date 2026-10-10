@@ -2,7 +2,7 @@
 This file is not the roadmap and is not exhaustive. README.md is definitive.
 These statements suggest Lean forms so contributors can converge on names and
 signatures. They claim no implementation. The concrete algebraic and analytic
-interfaces below do not supply the missing geometric or completed carriers.
+interfaces below do not supply the missing geometric or completed quantum-group carriers.
 The handoff records the signatures still requiring those supplier interfaces.
 -/
 import Mathlib.CategoryTheory.Monoidal.Braided.Basic
@@ -31,9 +31,12 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import Mathlib.MeasureTheory.Integral.Bochner.Basic
 import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Polynomial.Chebyshev
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Topology.Algebra.InfiniteSum.Ring
+import Mathlib.Topology.Algebra.Ring.Basic
+import Mathlib.Topology.UniformSpace.Pi
 
 noncomputable section
 open Polynomial LaurentPolynomial Finset MeasureTheory
@@ -185,6 +188,264 @@ example : P_doublePrime 1 ≠ P_prime 1 := sorry
 example : P_prime 1 * P_prime 1 =
     Polynomial.C (braceFactorial 2 / braceFactorial 1 ^ 2) * P_prime 2 +
     Polynomial.C (braceFactorial 2 / braceFactorial 1) * P_prime 1 := sorry
+
+/-! QT.2–QT.3: the actual cyclotomic color completion and twist coordinates.
+Habiro math/0605314v1, §8.1, Lemma 8.1 and (8.1), p. 28; §9.1,
+Propositions 9.1–9.2, p. 33. This is the color algebra, distinct from the
+scalar Habiro ring. Every finite quotient is a quotient of the lattice already
+defined above, and multiplication in the inverse limit is induced from those
+quotient rings. Even-color characters are concrete polynomial evaluations;
+their comparison with the geometric Hopf link requires the RT interface.
+-/
+section CyclotomicCompletion
+
+theorem mul_P (m n : ℕ) :
+    P_prime m * P_prime n =
+      ∑ i ∈ range (min m n + 1),
+        Polynomial.C (braceFactorial (m + n) /
+          (braceFactorial i * braceFactorial (m - i) * braceFactorial (n - i))) *
+            P_prime (m + n - i) := sorry
+
+/-- q^a as an element of the actual q=v² ground subring. -/
+def qPower (a : ℤ) : qGround := ⟨vPower (2 * a), sorry⟩
+
+theorem qPower_zero : qPower 0 = 1 := sorry
+theorem qPower_add (a b : ℤ) : qPower (a + b) = qPower a * qPower b := sorry
+
+/-- The subalgebra has exactly the carrier of the prescribed tilde lattice. -/
+def colorAlgebra : Subalgebra qGround (Polynomial ColourField) where
+  carrier := algebraP
+  mul_mem' := fun hx hy => algebraP_isSubalgebra _ _ hx hy
+  add_mem' := fun hx hy => algebraP.add_mem hx hy
+  algebraMap_mem' := sorry
+
+/-- Fix the inherited ring instance before forming ideals and their quotients. -/
+instance colorAlgebraCommRing : CommRing colorAlgebra := colorAlgebra.toCommRing
+
+theorem colorAlgebra_mem_iff (x : Polynomial ColourField) :
+    x ∈ colorAlgebra ↔ x ∈ algebraP := Iff.rfl
+
+def tildeColor (n : ℕ) : colorAlgebra := ⟨P_tildePrime n, sorry⟩
+
+/-- The tilde colors are a basis over ℤ[q±1], rather than over ℚ(v). -/
+def tildeColorBasis : Module.Basis ℕ qGround colorAlgebra := sorry
+
+theorem tildeColorBasis_apply (n : ℕ) : tildeColorBasis n = tildeColor n := sorry
+theorem tildeColor_zero : tildeColor 0 = 1 := sorry
+
+/-- The ideal in the color algebra whose carrier is the tail lattice P_k. -/
+def colorIdeal (k : ℕ) : Ideal colorAlgebra where
+  carrier := {x | (x : Polynomial ColourField) ∈ filtration k}
+  zero_mem' := (filtration k).zero_mem
+  add_mem' := fun hx hy => (filtration k).add_mem hx hy
+  smul_mem' := sorry
+
+theorem colorIdeal_antitone {j k : ℕ} (h : j ≤ k) : colorIdeal k ≤ colorIdeal j := sorry
+theorem colorIdeal_zero : colorIdeal 0 = ⊤ := sorry
+theorem colorIdeal_iInf : ⨅ k, colorIdeal k = ⊥ := sorry
+
+theorem colorIdeal_mem_iff (k : ℕ) (x : colorAlgebra) :
+    x ∈ colorIdeal k ↔ ∀ n < k, tildeColorBasis.repr x n = 0 := sorry
+
+abbrev ColorQuotient (k : ℕ) := colorAlgebra ⧸ colorIdeal k
+
+def colorTransition {j k : ℕ} (h : j ≤ k) : ColorQuotient k →ₐ[qGround] ColorQuotient j :=
+  Ideal.Quotient.factorₐ qGround (colorIdeal_antitone h)
+
+theorem colorTransition_comp {i j k : ℕ} (hij : i ≤ j) (hjk : j ≤ k) :
+    (colorTransition hij).comp (colorTransition hjk) = colorTransition (hij.trans hjk) := sorry
+
+/-- Finite coefficients are linear coordinates; their multiplication is not pointwise. -/
+def quotientCoordinates (k : ℕ) : ColorQuotient k ≃ₗ[qGround] (Fin k → qGround) := sorry
+
+theorem quotientCoordinates_mk (k : ℕ) (x : colorAlgebra) (i : Fin k) :
+    quotientCoordinates k (Ideal.Quotient.mk (colorIdeal k) x) i =
+      tildeColorBasis.repr x i.val := sorry
+
+/-- Compatible elements in the product of the genuine finite quotient algebras. -/
+def completedColorAlgebra : Subalgebra qGround (∀ k, ColorQuotient k) where
+  carrier := {x | ∀ (j k : ℕ) (h : j ≤ k), colorTransition h (x k) = x j}
+  mul_mem' := sorry
+  add_mem' := sorry
+  algebraMap_mem' := sorry
+
+abbrev completion := completedColorAlgebra
+
+instance completionCommRing : CommRing completion := completedColorAlgebra.toCommRing
+
+def completionProjection (k : ℕ) : completion →ₐ[qGround] ColorQuotient k where
+  toFun x := x.val k
+  map_zero' := rfl
+  map_one' := rfl
+  map_add' _ _ := rfl
+  map_mul' _ _ := rfl
+  commutes' _ := rfl
+
+theorem completionProjection_compatible (x : completion) {j k : ℕ} (h : j ≤ k) :
+    colorTransition h (completionProjection k x) = completionProjection j x := x.property j k h
+
+def algebraPToCompletion : colorAlgebra →ₐ[qGround] completion where
+  toFun x := ⟨fun k => Ideal.Quotient.mk (colorIdeal k) x, by
+    intro j k h
+    rfl⟩
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+  commutes' := sorry
+
+theorem algebraPToCompletion_injective : Function.Injective algebraPToCompletion := sorry
+
+/-- The k-th truncation is a finite sum, so no analytic summation is hidden here. -/
+def colorPartialSum (a : ℕ → qGround) (k : ℕ) : colorAlgebra :=
+  ∑ i : Fin k, a i.val • tildeColor i.val
+
+def fromCoordinates (a : ℕ → qGround) : completion :=
+  ⟨fun k => Ideal.Quotient.mk (colorIdeal k) (colorPartialSum a k), sorry⟩
+
+def completionCoeff (x : completion) (n : ℕ) : qGround :=
+  quotientCoordinates (n + 1) (completionProjection (n + 1) x) ⟨n, Nat.lt_succ_self n⟩
+
+def completionCoordinates : completion ≃ₗ[qGround] (ℕ → qGround) where
+  toFun x n := completionCoeff x n
+  invFun := fromCoordinates
+  left_inv := sorry
+  right_inv := sorry
+  map_add' := sorry
+  map_smul' := sorry
+
+theorem completionCoeff_fromCoordinates (a : ℕ → qGround) (n : ℕ) :
+    completionCoeff (fromCoordinates a) n = a n := sorry
+
+theorem completionCoeff_algebraPToCompletion (x : colorAlgebra) (n : ℕ) :
+    completionCoeff (algebraPToCompletion x) n = tildeColorBasis.repr x n := sorry
+
+theorem completionProjection_fromCoordinates (a : ℕ → qGround) (k : ℕ) :
+    completionProjection k (fromCoordinates a) =
+      Ideal.Quotient.mk (colorIdeal k) (colorPartialSum a k) := rfl
+
+theorem mem_range_algebraPToCompletion_iff (x : completion) :
+    x ∈ Set.range algebraPToCompletion ↔ (Function.support (completionCoordinates x)).Finite := sorry
+
+/-- Give each finite quotient and each coefficient its discrete uniformity. -/
+instance colorQuotientUniformSpace (k : ℕ) : UniformSpace (ColorQuotient k) := ⊥
+instance qGroundUniformSpace : UniformSpace qGround := ⊥
+
+instance completionUniformSpace : UniformSpace completion := inferInstanceAs (UniformSpace completedColorAlgebra)
+
+theorem completion_isTopologicalRing : IsTopologicalRing completion := sorry
+theorem completion_complete : CompleteSpace completion := sorry
+theorem completion_t2 : T2Space completion := sorry
+
+def completionCoordinateHomeomorph : completion ≃ₜ (ℕ → qGround) where
+  __ := completionCoordinates.toEquiv
+  continuous_toFun := sorry
+  continuous_invFun := sorry
+
+theorem completionPartialSum_tendsto (a : ℕ → qGround) :
+    Filter.Tendsto (fun k => algebraPToCompletion (colorPartialSum a k))
+      Filter.atTop (nhds (fromCoordinates a)) := sorry
+
+inductive TwistSign | plus | minus
+
+/-- Coefficients in the tilde basis: q^(n(n+1)/2) and (-1)^n q^(-n). -/
+def omegaCoefficient (ε : TwistSign) (n : ℕ) : qGround :=
+  match ε with
+  | .plus => qPower ((n * (n + 1) / 2 : ℕ) : ℤ)
+  | .minus => (-1) ^ n * qPower (-(n : ℤ))
+
+def omega (ε : TwistSign) : completion := fromCoordinates (omegaCoefficient ε)
+
+theorem omega_coeff (ε : TwistSign) (n : ℕ) :
+    completionCoeff (omega ε) n = omegaCoefficient ε n := sorry
+
+theorem omegaCoefficient_ne_zero (ε : TwistSign) (n : ℕ) :
+    omegaCoefficient ε n ≠ 0 := sorry
+
+theorem omega_not_finite (ε : TwistSign) : omega ε ∉ Set.range algebraPToCompletion := sorry
+
+theorem omega_mul_inv : omega .plus * omega .minus = 1 := sorry
+
+/-- Compare the two normalizations without replacing the tilde basis by P′. -/
+theorem omega_partialSum_prime (ε : TwistSign) (k : ℕ) :
+    (colorPartialSum (omegaCoefficient ε) k : Polynomial ColourField) =
+      ∑ n ∈ range k,
+        Polynomial.C (match ε with
+          | .plus => vPower ((n * (n + 3) / 2 : ℕ) : ℤ)
+          | .minus => (-1) ^ n * vPower (-((n * (n + 3) / 2 : ℕ) : ℤ))) *
+            P_prime n := sorry
+
+def evenColorPoint (p : ℕ) : ColourField := vPower (2 * p + 1) + vPower (-(2 * p + 1))
+
+/-- Evaluation represents pairing with the normalized even color V_(2p)/[2p+1]. -/
+def evenEvaluation (p : ℕ) : colorAlgebra →+* ColourField :=
+  (Polynomial.evalRingHom (evenColorPoint p)).comp colorAlgebra.val.toRingHom
+
+theorem evenEvaluation_vanish (p : ℕ) (x : colorAlgebra) (hx : x ∈ colorIdeal (p + 1)) :
+    evenEvaluation p x = 0 := sorry
+
+def evenEvaluationQuotient (p : ℕ) : ColorQuotient (p + 1) →+* ColourField :=
+  Ideal.Quotient.lift (colorIdeal (p + 1)) (evenEvaluation p) (evenEvaluation_vanish p)
+
+def evenCharacter (p : ℕ) : completion →+* ColourField :=
+  (evenEvaluationQuotient p).comp (completionProjection (p + 1)).toRingHom
+
+theorem evenCharacter_algebraPToCompletion (p : ℕ) (x : colorAlgebra) :
+    evenCharacter p (algebraPToCompletion x) = Polynomial.eval (evenColorPoint p) x.val := sorry
+
+theorem evenCharacter_fromCoordinates (p : ℕ) (a : ℕ → qGround) :
+    evenCharacter p (fromCoordinates a) =
+      ∑ n ∈ range (p + 1), (a n : ColourField) *
+        Polynomial.eval (evenColorPoint p) (P_tildePrime n) := sorry
+
+theorem evenCharacters_separate (x y : completion)
+    (h : ∀ p, evenCharacter p x = evenCharacter p y) : x = y := sorry
+
+theorem evenCharacter_omega (ε : TwistSign) (p : ℕ) :
+    evenCharacter p (omega ε) =
+      match ε with
+      | .plus => vPower (2 * p * (p + 1))
+      | .minus => vPower (-(2 * p * (p + 1))) := sorry
+
+/-- Restore the unreduced quantum dimension of V_(2p). -/
+def evenHopfValue (x : completion) (p : ℕ) : ColourField :=
+  algebraMap LaurentBase ColourField (qInt (2 * p + 1)) * evenCharacter p x
+
+-- omega_coeff_low_degree: catches a sign or a basis-normalization exchange.
+example : completionCoeff (omega .plus) 1 = qPower 1 ∧
+    completionCoeff (omega .plus) 2 = qPower 3 ∧
+    completionCoeff (omega .minus) 1 = -qPower (-1) ∧
+    completionCoeff (omega .minus) 2 = qPower (-2) := sorry
+
+-- pairing_omega_V0: normalized and unreduced V₀ both have value one.
+example (ε : TwistSign) : evenHopfValue (omega ε) 0 = 1 := sorry
+
+-- omega_plus_mul_omega_minus
+example : omega .plus * omega .minus = 1 := sorry
+
+-- omega_not_finite: excludes the tempting finite polynomial carrier.
+example (ε : TwistSign) : ¬ ∃ x : colorAlgebra, algebraPToCompletion x = omega ε := sorry
+
+-- completion_truncation_zero: P/P₀ is the zero ring, not the first coefficient.
+example : Subsingleton (ColorQuotient 0) := sorry
+
+-- completion_truncation_one: the next quotient records only the constant color.
+example (a : ℕ → qGround) :
+    quotientCoordinates 1 (completionProjection 1 (fromCoordinates a)) 0 = a 0 := sorry
+
+-- completion_truncation_tail: altering a higher color leaves lower precision fixed.
+example (a b : ℕ → qGround) (k : ℕ) (h : ∀ n < k, a n = b n) :
+    completionProjection k (fromCoordinates a) = completionProjection k (fromCoordinates b) := sorry
+
+-- completion_mul_not_pointwise: tilde P₁² has a nonzero P₁ coefficient.
+example : completionCoeff (algebraPToCompletion (tildeColor 1) ^ 2) 1 =
+    qPower 1 - qPower (-1) := sorry
+
+-- evenCharacter_first: a nontrivial even color distinguishes the two twists.
+example : evenCharacter 1 (omega .plus) = vPower 4 ∧
+    evenCharacter 1 (omega .minus) = vPower (-4) := sorry
+
+end CyclotomicCompletion
 
 /-! QT.2: native formal colors in Habiro's divided-power basis.
 Habiro math/0605314v1, §5.1, pp. 18–19, (5.1)–(5.3); §5.3, p. 20;
