@@ -1,10 +1,12 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex, session
-`codex-LwWaSJ`, 10 October 2026. Atlas base
-`fb99cf051cb90cec265ac63529c9541642546aee`.
+`codex-qDDgyD`, 10 October 2026. Atlas base
+`eb32c2d3450f60e02c9a82733aa7e25339e2eb99`.
 
-This continues Codex `codex-ERbW4d`'s checkpoint in
+This continues Codex `codex-LwWaSJ`'s checkpoint in
+[PR #8425](https://github.com/CBirkbeck/tauceti-explorer/pull/8425), which continued
+Codex `codex-ERbW4d`'s checkpoint in
 [PR #8414](https://github.com/CBirkbeck/tauceti-explorer/pull/8414), which continued
 Codex `codex-RtLe8Y`'s checkpoint in
 [PR #8353](https://github.com/CBirkbeck/tauceti-explorer/pull/8353), which continued
@@ -113,7 +115,12 @@ normalized nonzero automorphy factor. It does not supply multiplicative matrix
 cocycles. The canonical definition has an API and discriminating tests,
 including the integer-indicator non-example and lower-boundary half-integral
 weight sign. Cocycle normalization excludes the zero-factor counterexample.
-No new definition or API was introduced here.
+No new definition or API was introduced here. This continuation makes the
+existing generator API state `ε(1)=1` explicitly, matching
+`QuantumCocycleCondition` in the suggested file. It also replaces the
+Kontsevich hypothesis's ambiguous "conjugate-inverse" by the inverse eta
+multiplier for the specified lower-boundary convention; the stated generator
+values and suggested declarations already use that convention.
 
 The Kontsevich export retains the inverse eta multiplier and lower-boundary
 convention. Strange coefficients belong to the normalized series, with their
@@ -154,6 +161,12 @@ these are the scaled numbers `c_n`, with coefficients `c_n/(24^n n!)`.
 Independent truncated expansion with exact rational arithmetic through degree
 three gives
 `1, 23/24, 1681/1152, 257543/82944`, agreeing with the packet's normalization.
+Only the products with `n≤3` contribute through degree three, since the
+`n`th product has `t`-adic order `n`. Multiplying each factor's truncated
+exponential and then `exp(-t/24)` uses rational arithmetic alone.
+A separate computation in `Q[z]/(z²-z+1)` gives
+`(1-2z)z=2-z` and `(1-2z)²=-3`, confirming the formal figure-eight
+`δ=1-2z` and norm 3 without a geometric volume assertion.
 The reader's restructuring paragraph still says QT.7 has no nodes and describes
 a prospective consumer, although its current accepted packet has 106 nodes.
 Synchronize these locations with all nine packet contracts. The reader's
@@ -243,8 +256,8 @@ own words. No restricted book or source passage was copied.
 |---|---|---|
 | [Goncharov, math/0207036v3](https://arxiv.org/pdf/math/0207036v3) | Introduction item 5, p. 7; §6 normalization, p. 53. | `ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db` |
 | [Garoufalidis–Zagier, 1812.07690v1](https://arxiv.org/pdf/1812.07690v1) | §1 positive-definite setup, pp. 2–4; §3 Theorem 3.1, pp. 5–6. | `c8e810047d40b52ffc139553e8c9833853675f139070f3d1d4cf365267ae5b66` |
-| [GSWZ, 2412.04241v2](https://arxiv.org/pdf/2412.04241v2) | §1.8, pp. 15–17; Remark 4.2, (233), p. 48; §4.5, pp. 54–55. | `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9` |
-| [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf) | Definition/cocycle, p. 2; Example 4, (28)–(30), pp. 11–12; Example 5 boundary, pp. 12–16. | `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf` |
+| [GSWZ, 2412.04241v2](https://arxiv.org/pdf/2412.04241v2) | Theorem 5, p. 14; §1.8, pp. 15–17; Remark 4.2, (233), p. 48; §4.5, pp. 54–55. | `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9` |
+| [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf) | Definition/cocycle, p. 2; Example 4, (28)–(30), pp. 11–12; Example 5 boundary, pp. 12–13. | `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf` |
 | [Zagier, strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf) | §6 Theorem, (37)–(39), pp. 958–959. | `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e` |
 | [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf) | §3 Theorems 1–2, p. 98; §4, (15)–(18), pp. 102–104. | `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543` |
 | [Habiro, math/0605314v1](https://arxiv.org/pdf/math/0605314v1) | §9 Theorem 9.4, p. 34; §10 Theorems 10.1–10.2, p. 35; §11 Lemma 11.2, p. 38. | `5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc` |
@@ -257,7 +270,7 @@ checked with their packets. No `excerpt` field is present in any of them.
 `python3 research/blueprint/intake.py check-files` passes on all five changed
 files with **0 problems**; `git diff --check` also passes.
 
-With 100 GB memory available before compilation, fresh sequential `lean-check` runs
+With 103 GB memory available before compilation, fresh sequential `lean-check` runs
 at the prescribed pin returned exit 0 for all three:
 
 | Suggested file | Errors | Warnings |
@@ -279,8 +292,10 @@ plus your own scratch space." The local queue additionally names ArithmeticQuant
 Polylogarithms--P.2 packets/Lean files; its prompt file is absent. Those two
 packets currently have different independent top-level reviewers, so the
 `issues.py` completion predicate demands reviews outside the issue's writable
-scope. This discrepancy was raised for clarification before the independent
-checks; no authorization to expand the file list has arrived. The three specified
+scope. The authorized reviews are complete. After preparing the report and bounded
+proposal, this session requested authorization for the extra four paths.
+No authorization arrived before submission. The handoff records the concrete
+continuation. A fresh issue read still lists only the seven original paths. The three specified
 reviews and all 27 dispositions above are complete; the two additional reviews
 were not silently overwritten contrary to WORKERS.md's file restriction.
 
@@ -291,13 +306,13 @@ accounted for all 27 findings, and confirmed the prior mathematical corrections
 against public sources and pinned library statements. Polylogarithms and
 HabiroNahmSeries are accepted for this round; QSeries still needs the specified
 reader synchronization, with its broader blueprint objections preserved.
+The two QSeries prose corrections agree with the existing Lean condition.
 All three packet validators pass, and all three suggested files elaborate with
-only `sorry` warnings. The new upstream observation is the discrepancy between
-AlgebraicTopology's restricted prose and its unrestricted relative-homotopy
-carrier; no upstream file was edited.
+only `sorry` warnings. Reconfirmed the upstream discrepancy between AlgebraicTopology's restricted
+prose and its unrestricted relative-homotopy carrier; no upstream file was edited.
 
 The submission is a checkpoint because the queue requires two additional
 packet reviews outside the GitHub issue's writable scope. Completion under the
 issue's seven outputs is true; under the queue's eleven outputs it is false.
 The handoff identifies the precise metadata reconciliation or scope
-authorization required. This is a scope blocker, not a time limit.
+authorization required, with a concrete bounded review proposal. This is a scope blocker, not a time limit.
