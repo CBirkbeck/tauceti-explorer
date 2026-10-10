@@ -239,7 +239,7 @@ equivalence.
 - `tensorSymmetricAlgebra_char_two`: For M=F₂·v, the shuffle square v·v is zero, but v^[2] is
 nonzero; ordinary tensor concatenation would fail this test.
 - `tensorSymmetricAlgebra_free`: For a free module, the construction agrees with the existing
-DividedPowerAlgebra via the separately planned diagonal comparison.
+DividedPowerAlgebra via the diagonal comparison below.
 
 **Source.** [KS][KS], Definition 1.6 continuation, PDF p.9.
 
@@ -394,14 +394,17 @@ zero because p!=0; the integral moment map is not automatically an isomorphism.
 ### Finite and completed Poincaré sheaves
 
 For a coherent sheaf F on a smooth group G with unit ideal J, construct its unit completion from
-the inverse system F ⊗ O_G/J^(n+1), restricted to the unit space. For A, put P^(n) = (id_A ×
+the inverse system F ⊗ O_G/J^(n+1), restricted to the unit space, and compare it with pullback
+to the formal completion. For A, put P^(n) = (id_A ×
 π∨^(n))_*(P|_(A×A∨^(n))) and P̂ = lim_n P^(n). Perform the same construction on A♮ to obtain
 P♮^(n), P̂♮ and their integrable relative connections. The rigidifications identify degree zero
-with O_A, give compatible unit sections, and identify the associated-graded kernels with
-π^*Sym^n(ω_A∨) and π^*Sym^n(H), respectively. Construct the maps P^(n) → P♮^(n) and the
-finite-level change-of-coefficient comparison along the formal map A♮ → A∨. All limits use the
-specified finite pushforwards; tensor interchange with an arbitrary inverse limit is a separate
-assertion.
+with O_A. For n≥1, prove the truncation sequences
+0 → π^*Sym^n(ω_A∨) → P^(n) → P^(n−1) → 0 and
+0 → π^*Sym^n(H) → P♮^(n) → P♮^(n−1) → 0.
+Their compatible unit sections induce O_S → e^*P̂ ≃ O_Â∨ and
+O_S → e^*P̂♮ ≃ O_Â♮. Construct the unit-compatible maps P^(n) → P♮^(n) and identify
+P♮^(n) with P^(n) ⊗_(O_(A×A∨^(n))) O_(A×A♮^(n)). All limits use the specified finite
+pushforwards; tensor interchange with an arbitrary inverse limit is a separate assertion.
 
 **API.**
 
@@ -616,10 +619,10 @@ coordinate rings have the inverse-limit direction. Dual étaleness of [𝔭_Σ^n
 diagonal torsion splitting over A × C_n. Passing compatibly to the limit trivializes P̂ on Â
 with coefficient ring O_((A×A∨)^∧). The first levels become O_Â ⊗ (O_Cp ⊕ ω_A∨) and O_Â ⊗
 (O_Cp ⊕ H). Moments give integral injections into the corresponding completed invariant-tensor
-coefficient modules. On the Cp generic fibre these are isomorphisms. Construct the Hodge
-retraction r of i : P̂ → P̂♮ and show that r ∇ i becomes the ordinary differential on the formal
-coefficient ring. The [p]_# calculation eliminates the unwanted Hodge component; the symbol for
-the retraction is distinct from the prime p.
+coefficient modules. On the Cp generic fibre these are isomorphisms; on that fibre construct the
+Hodge retraction r of i : P̂ → P̂♮ and show that r ∇ i becomes the ordinary differential on the
+formal coefficient ring. The [p]_# calculation eliminates the unwanted Hodge component; the
+symbol for the retraction is distinct from the prime p.
 
 **Source.** [KS][KS], Proposition 5.9, equations(5.2.1)–(5.2.4), Lemma 5.11, PDF pp.59–61.
 
@@ -2032,6 +2035,11 @@ Stab(M)=∏S_{M,ℓ}, contained in K_M=∏H_{M,ℓ}=a_M K₀ a_M⁻¹ with a_M�
 away from finitely many primes, and ∏[H_{M,ℓ}:S_{M,ℓ}]≤D_*. Then Γ\X is finite and #Γ\X≤D_*³h.
 If the relevant Weil-lattice tuple satisfies these assumptions and D_*≤(2√p)^{m(m−1)}, the
 resulting conditional bound is #Γ\X≤(2√p)^{3m(m−1)}h.
+
+The abstract counting lemma needs only a group action, finitely many G_f-orbits and double
+cosets, and stabilizers contained with finite index at most D_* in conjugates of K₀. The local
+product decomposition supplies that index hypothesis. State finiteness separately from the
+numerical index bound: Mathlib's subgroup index and `Nat.card` assign zero to infinite quotients.
 
 **Source.** [LT][LT], §3.2(15),(20)–(21),(28), v1 pp.11,14,16; coarse orbit-count adaptation.
 
