@@ -1,22 +1,106 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Worker: Codex (GPT-6), session `codex-jwJsfm`; issue #7901; 2026-10-10.
-Branch: `codex-jwJsfm-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099307973).
+Worker: Codex (GPT-6), session `codex-TbWFBR`; issue #7901; 2026-10-10.
+Branch: `codex-TbWFBR-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099768824).
 
-**Partial, source/proof blocked.** The original JPSS nonnormal cubic note
-remains inaccessible through the public catalogue; the official Gallica
-endpoints again returned HTTP403. The accessible Mao–Rallis replacement
-needs general-discriminant local matching and quantitative convergence, and
-proves weak transfer rather than Carayol's all-place comparison. Rajan2000
-assumes JPSS existence and does not replace that proof. A separate cyclic
-trace issue is now explicit: AS.6's fixed-height absolute convergence does
-not supply the total-variation bound needed for Hecke measure separation.
-Metadata remains absent. This is not a finished package. No second job was
-claimed. None of the manager-priority issues was available and eligible;
-this was an eligible focus package under WORKERS.md.
+**Partial, source/proof blocked.** The cyclic joint spectral bounds now have a
+source-backed target-level route, and the circle zero-singleton step is proved
+in Lean. The original JPSS nonnormal cubic construction and its all-place
+upgrade remain unresolved. Official Gallica endpoints again returned HTTP403;
+the AMS Selected Works reprint is an uncleared book and was not obtained.
+The accessible Mao–Rallis replacement has the specific local/convergence
+obligations below and states weak transfer. Metadata remains absent: this is
+not a finished package. No second issue was claimed. No manager-priority issue
+was available/eligible; this was an eligible focus package under WORKERS.md.
 
-## This continuation
+## This continuation: joint cyclic spectral bounds
+
+R17.2/specialized-trace-comparison now controls each derivative separately,
+including the logarithmic orbital correction. A combined signed trace identity
+alone would not give the needed estimate.
+
+1. Fix the other factors and the spherical unit at a good split place. Lift a
+   compact-mod-centre test with a central cutoff on GL2(A)^1 and project to its
+   prescribed character of the compact quotient Z(F)\Z(A)^1. The original
+   compact-mod-centre test need not be L1 on GL2(A)^1: its adelic centre before
+   quotienting by Z(F) is not compact. The lifted smooth compact test has all
+   archimedean differential L1 seminorms finite. Central projection has norm
+   at most one and commutes with the invariant-centre cyclic action.
+2. Finis–Lapid–Müller2011 Theorem3/Proposition1 pp.183–184 and §5.1–2
+   pp.187–191 give the joint absolute estimate. Delta=1−Omega+2Omega_K has
+   block bound |mu|² >= (1+t²+lambda_pi²+lambda_tau²)/4, equation(5.2) p.188.
+   Normalize M=nN and expand M^−1M'=(n'/n)Id+sum_u N_u^−1N_u'. The displayed
+   scalar weighted L1 bound p.189 uses Müller2002 Theorem5.3 and bounds its
+   absolute value individually. At fixed level only finitely many local
+   normalized derivatives survive. Their rational degrees are bounded at
+   finite places and polynomial in the archimedean K-type, with polynomial
+   block dimension. Unitarity, Lemma1's integrated variation bound and Lemma2
+   pp.190–191 control each one. At p-adic places q^s is periodic, so retain
+   the decaying real-parameter weight. Choose the resolvent power beyond
+   these powers and the discrete counting exponent (Müller1998 Cor0.3 as used
+   on p.188). The dimension-weighted block sum and integrals converge before
+   signed traces; central projection preserves the bound.
+3. Müller–Wakatsuki2026, arXiv2607.18870v2, Theorem11.1 pp.14–16 and
+   Theorem13.1 pp.17–18 give the twisted version for Res_(E/F)GL2 with sigma.
+   Its unitary U_P, conjugated level and equation(11.1) preserve the resolvent
+   bound. Its proof invokes those same individual FLM Proposition1 bounds.
+   The paper's initially trivial twisting character is distinct from the
+   fixed central character, selected by the commuting central projection.
+   Retain self-associate terms and the quadratic exceptional summand as
+   zero-dimensional spectral contributions.
+4. B1 is separate from the normalized intertwiner. Langlands1980 §9 pp.98–99
+   gives second real and third complex distributional derivatives of its
+   compact logarithmic orbital function as finite measures; p.111 gives
+   second derivatives for the nonsplit real twisted quotient. Fourier–Mellin
+   decay is O((1+|t|)^−2) in dimension1, O((1+|(t,m)|)^−3) in dimension2,
+   and order2 on the nonsplit real quotient of dimension1. Other archimedean
+   Abel transforms are smooth/compact; finite-place transforms have bounded
+   conductor. Fixed-level characters are finitely many lattices times a real
+   norm direction, by S-units and finite ray classes. Disjoint fixed-radius
+   tubes compare their sum/integral with the integrable product decay, also
+   for sigma-invariant subsets. Do not attribute this B1 estimate to FLM.
+5. Hence sum|c_i| and integral|d(it)| are finite in Langlands1980(11.6)–(11.7)
+   pp.136–137. Push d to the circle of period 2pi/|log|uniformizer|| and its
+   Weyl quotient. Countable point fibres imply zero singleton measure, with
+   variation bounded by the L1 norm. The extra M3 supremum bound is unnecessary.
+   The Weyl-invariant Laurent algebra is self-adjoint on the compact unitary
+   Satake set, including complementary parameters, and separates its orbits.
+   Uniform density equates finite measures and kills aggregated atoms. For
+   each original coefficient first bound the tail, then separate the remaining
+   finite set at finitely many good places (§11 p.138). This permits arbitrary
+   finite changes of bad-place factors.
+
+The new `spectralCircle_fibre_countable` and
+`spectralCircle_density_singleton` use the actual `AddCircle`, Lebesgue
+`volume.withDensity` and `Measure.map`. Both and three fixtures have complete
+proofs. The Weyl-fixed points0 and1/2 have zero singleton measure; a Dirac input
+keeps its atom. Unbounded density is permitted: the separate L1 condition is
+needed for finite variation, not zero singletons. The reader also tests harmonic
+cutoffs, integrable unbounded |t|^(−1/2) on(0,1), and a constant parameter map.
+Native trace distributions/resolvents/Satake carriers remain explicit signature
+omissions. The new circle fragment does not formalize the trace formula.
+
+All112 accepted targets and122 starting headings are retained. Repeated owner
+aliases and introductory/bibliographic wording were compressed to keep the
+reader below200,000 bytes without dropping hypotheses or source locators.
+Mao–Rallis's weak theorem now cites Theorem1 p.172 as well as the relative
+trace identity Theorem6 p.195. Accepted packets were not edited; the stale
+assembled suggested file was not used.
+
+An independent cubic route through finite Artin induction was examined:
+compare GL2×GL3 factors against Ind_(E/F)chi for finite characters of E. It
+needs nonnormal cubic GL3 character induction with all-place factors, not only
+cyclic cubic induction. Quadratic descent and restriction to the normal closure
+do not themselves choose the bad local fibres. No lower supplier proof was
+established, so this is not an installed premise or resolution. The cyclic
+spectral bounds above also do not estimate the different theta–Whittaker kernel
+in Mao–Rallis: its quantitative height-tail requirement remains separate.
+
+## Preserved mathematical receipts
+
+The following records earlier work, not claims that this worker reread or proved
+all its sources. Resume from the package, not the stale assembled suggested file.
 
 **Ramified curve trace.** R17.6/classical-conductor-comparison now has a
 source-backed proof route for the gap left by Langlands1973 Proposition7.12
@@ -77,33 +161,11 @@ for trace-class T, ||R(z)T||₁=||T||₁, and finite-rank approximation proves
 trace-norm continuity. Compact centre integration therefore commutes with
 trace by AS.0/trace-class. Details and source locators are below.
 
-Langlands1980 §9 pp.108–111 now supplies the m'/m norm-fibre identity from
-Hecke L-products and logarithmic differentiation, including the A₃ correction
-and archimedean logarithms. The analytic remaining requirement is separate:
-prove sum_i |c_i|<infinity and integral |d(it)|dt<infinity for §11 equations
-(11.6)–(11.7), pp.136–137. AS.6/fine-spectral-expansion and invariant-trace-formula
-explicitly supply only absolute convergence at fixed spectral height and a
-sum of absolute height contributions; neither bounds absolute values inside
-all the integrals. Smooth archimedean decay, spectral growth and Hecke
-logarithmic derivatives need a rank-two quantitative estimate before exchanging
-sums and constructing finite measures. The reader no longer attributes this
-stronger bound to AS.6. This estimate remains a genuine proof obligation.
-
 **Ownership.** Quadratic induction now precedes nonnormal cubic transfer in
 R17.4; the old R17.5 anchor remains for links. A future permitted packet job
 must move `R17.5/quadratic-induction` to `R17.4/quadratic-induction` and repoint
 consumers. Its mathematics, API and tests were preserved. The accepted packets
 were not edited. Earlier downward ownership moves are recorded below.
-
-Full current GlobalNumberFields and RepresentationTheory/ModularInduction
-readers, the reviewed GL2 library audit, and the relevant current supplier
-statements were read. The reader remains below200,000 bytes, retaining all112
-accepted targets and122 starting headings. Introductory and bibliographic
-wording was compressed without dropping theorem, section or page locators.
-The remaining receipts below describe inherited work unless this section
-explicitly says otherwise. Historical source readings are not claims that
-this worker reread every source. Resume from this package, not the stale
-assembled Suggested.lean.
 
 ## Inherited norm-phase fragment
 
@@ -319,7 +381,7 @@ coefficient extension. This is a target-level argument, not a native trace
 formalization. No semisimple result was silently extended to arbitrary centres.
 
 **Trace ledger.** Langlands1980 §9 pp.97–111, §10 pp.112–128 and §11
-pp.130–138 were inspected this continuation. The ordinary six terms include
+pp.130–138 were inspected in the earlier continuation. The ordinary six terms include
 elliptic, −1/4 self-associate intertwiner, (4pi)^−1 logarithmic derivative,
 singular constant, logarithmic unipotent and (2pi)^−1 local-B derivative.
 Twisted terms use10.28,10.30,10.31,10.32,10.35. Retain the quadratic exceptional
@@ -329,10 +391,10 @@ Section9 gives A₃(c,phi)=−theta'(c,0,phi) and
 theta'(c,0,phi)=d theta'(Nc,0,f), including the real-to-complex logarithmic
 correction for d=2. This must precede cancellation of10.5 with d times10.32.
 
-Hecke separation additionally needs the joint discrete/continuous absolute
-bounds stated above; they remain unproved. Only then can Laurent-polynomial
-density on the compact unitary Satake set, including complementary parameters,
-separate atoms from continuous density. Vary the other factors afterward.
+The joint discrete/continuous bounds are now supplied by the route at the
+start of this handoff. With these, Laurent-polynomial density on the compact
+unitary Satake set, including complementary parameters, separates atoms from
+continuous density. Vary the other factors afterwards.
 The quaternion comparison uses two K-averaged zero-constant-term factors,
 as in JL §16 equation16.1.7 (UBC p.275; IAS p.277). Steinberg and supercuspidal
 both qualify; do not replace this with an unsupported pointwise x,y condition.
@@ -340,7 +402,7 @@ Even a local derivative term has the other zero factor. Equation16.1.2 kills
 a possible scalar difference. Retain norm characters until their equal traces
 are subtracted; the product of Steinberg signs is+1. Langlands1980 p.112
 explicitly omits analytical details, and p.136's asserted finite M₁,M₂,M₃
-does not by itself supply the required joint estimate.
+does not by itself supply the joint estimate; use the separate bounds above.
 
 ## Classical attachment and downward ownership
 
@@ -562,7 +624,7 @@ certify those recorded gaps. The following is the current disposition:
 | Newvectors and ramified factors | Existing actual-representation newvector signatures and last-row convention preserved; new complete U_p dictionary supplied. Concrete SR model and normalized Whittaker realization tests still need checking. |
 | Primitive dyadic fixture | New n=1,conductor3,Swan1 fixture and matching sign supplied at target level; exact operator and quaternion matching normalization still needs final audit. |
 | Arithmetic/geometric Galois convention | Direct parabolic realization preserved; Varshavsky supplies the ramified stalk/dual-stalk route and native contraction is proved. Six-operations trace signatures remain omitted; full dyadic comparison needs strong cubic transfer. |
-| Singular/continuous trace terms | Norm-fibre logarithmic identity and A3 correction audited; joint absolute spectral bounds remain unproved and are not supplied by AS.6. |
+| Singular/continuous trace terms | Norm-fibre/A3 identities retained; this continuation supplies the joint bound from FLM2011, Müller–Wakatsuki2026 and the separate logarithmic-orbital estimate. Native analytic signatures remain omitted. |
 | Full tensor/supplier conditions | Existing genuine symmetric-power tensor, scalar, dimension, dual and coefficient-map APIs preserved; analytic conditions remain named omissions. |
 | Prescribed quaternion ramification | Supplier chain and actual existence/uniqueness signatures now supplied in R17.1; complete parity proof and six closed fixtures. Planned arithmetic proofs consume GQF4.4, QFI2/5–6D, CFT10 and SemisimpleAlgebras6. |
 | Highly ramified GL3 converse | New fill-and-twist target gives a route from the exact lower generic converse; native analytic signature remains omitted. |
@@ -579,9 +641,9 @@ certify those recorded gaps. The following is the current disposition:
 1. Obtain the original JPSS cubic note from an authorized readable source, or
    prove the alternative local matching and quantitative convergence above.
    Establish its all-place comparison, not just good Satake powers.
-2. Prove the joint rank-two spectral absolute bounds for Langlands1980
-   (11.6)–(11.7). Fixed-height AS.6 convergence is insufficient; justify every
-   exchange of summation/integration before using finite-measure separation.
+2. Use the joint bounds and circle step recorded above for cyclic trace
+   comparison. Do not confuse this with the separate cubic relative-trace
+   convergence problem or return to a fixed-height-only justification.
 3. Finish the direct parabolic comparison using the ramified curve route above,
    then audit the remaining table entries and concrete supplier signatures.
    For RT at ell=2 use only odd-prime ordinary cases; no new compact-quaternionic
@@ -600,43 +662,39 @@ with an updated current account preserving the mathematical receipts.
 
 ## Current validation and library audit
 
-- Final full `lean-check` exited0:153 warnings, all declaration-uses-sorry,
-  no errors or other warnings. Available memory before compile102GB.
-  No Lean declaration changed afterward. The ideal lemma and three fixtures
-  have complete proofs; all larger omitted interfaces remain identified.
-  No language server or Lake build/update/cache was started; nothing remains
-  compiling. Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
-  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+- Full package `lean-check` exited0:153 warnings, all declaration-uses-sorry,
+  no errors or other warnings. Available memory before compile101GB. No Lean
+  declarations changed afterwards. The circle fragment and three fixtures
+  have complete proofs, as do inherited norm-phase and ideal fragments.
+  No language server or Lake build/update/cache was started; no compile remains.
+  Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`.
 - Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
-  All55+57 nodes retain matching reader headings; the122 starting headings
-  are unchanged as a set. The unchanged packets still record16 gaps,
-  67 requests,12 planned stages and0 closed stages.
-- Current read-only roadmaps: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
+  They still record55+57 nodes,16 gaps,67 requests,12 planned stages and0 closed
+  stages; JSON completion does not certify those gaps.
+- Current upstream readers RepresentationTheory/ModularInduction and
+  RepresentationTheory/CharacterTheory were read. The reviewed GL2 library
+  audit and relevant AS.0/6, AL.2/3 and ET.4/6 contracts were checked.
+  OperatorTheory/OperatorIdeals already plans generic nuclear/Schatten objects;
+  this specializes spectral estimates. New Mathlib uses were read at the pin:
+  countable-set zero measure, density singleton instances, quotient
+  measurability and map. Neither generic measure nor operator theory is replanned.
+- Read-only roadmap main: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
   current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  Relevant AS.0/6, AF.1 and AL.2/3 supplier statements were checked against
-  the reader's contracts. No existing upstream target is replanned. Neither
-  read-only tree was modified or built.
-- Upstream proposal#196's head and remote status remain inherited receipts;
-  this continuation did not repeat that remote-status check. Its suppliers
-  must be distinguished from files on current main.
-- Public papers were held only in scratch; cleared books were never copied.
-  No source passage appears in the deliverables.
-- Scoped `intake.py check-files`:3 files,0 problems. `git diff --check`:pass.
-  Reader:199,930 bytes, below200KB;122 headings and112 accepted slugs survive.
+  Neither tree was modified or built. Upstream proposal#196's remote status
+  above is an inherited receipt, not rechecked in this continuation.
+- Public files stayed in scratch; cleared books were not copied. No source
+  passage appears in deliverables. Scoped `intake.py check-files`:3 files,0
+  problems. `git diff --check`:pass. Reader:199,990 bytes; all112 accepted
+  slugs and122 starting headings survive, with no unresolved reference keys.
 
 ## Primary-source receipts
 
 Bibliographic URLs and locators are in the reader. This continuation obtained
-Varshavsky's v2, UBC JL1970, Langlands1980, Clozel1986, Getz2015, Rajan2000,
-Badulescu–Renard2010, Langlands1973, Carayol1986 and Mao–Rallis2000 through
-public author, publisher or institutional sources. Only the passages relevant
-to the contracts above were inspected; this is not a whole-source audit.
-Getz is the author manuscript dated13March2015. Rajan's public download is
-the full journal issue; the receipt is for that file. All other receipts in
-the table are historical, including the IAS JL version; they are not claims
-of new reading. Access date:2026-10-10. No public file is retained in the
-repository, and no private source was copied. The uncleared AMS JPSS reprint
-was not obtained or read.
+FLM2011, Müller–Wakatsuki2026v2, Müller–Speh2004, Langlands1980 and Mao–Rallis2000
+from primary publisher/author/arXiv sources and read the relevant statements.
+The hashes below are for public PDFs. Other receipts are inherited from previous
+continuations; this worker does not claim to have reread them.
 
 | Public source | SHA256 |
 | --- | --- |
@@ -659,6 +717,9 @@ was not obtained or read.
 | Deligne–Serre1974 | `65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc` |
 | Deligne1969 | `19509c19b0cb056f4a5eba83a48a99f54bb6df0c7a96ab7f4018b0765e1ed98c` |
 | JPSS1979 Columbia scan | `0cf1baf41a6279cd1f78b44b0e6d3ff0ed71f7b9b54b55de28210b9f02a293f7` |
+| Finis–Lapid–Müller2011 | `86271ace3fa54466817c3e6cc993a5a0b0dc8f287de5b69bda5832c9cb613746` |
+| Müller–Wakatsuki2026, arXiv2607.18870v2 | `a1bf7c9a7be08e4d734fe86508084af0ed9e4d8522de6e42efed2dd171076ba2` |
+| Müller–Speh2004, arXiv math/0211030v2 | `bd71ad1943ab0cf6aee6a84ddab2aff85c11f5dece0b1b3ade912bc22795d245` |
 
 | Unchanged input packet | SHA256 |
 | --- | --- |
