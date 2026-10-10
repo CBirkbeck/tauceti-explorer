@@ -33878,8 +33878,9 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6322"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6322",
+   "finishedAt": "2026-10-10T19:53:03Z"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.3",
@@ -36651,7 +36652,8 @@
    ],
    "followUpOf": "BP-AnabelianGeometryAndNonabelianChabauty",
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty--NC.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6341"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -37219,7 +37221,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.1",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6311"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.2",
@@ -43632,7 +43635,8 @@
    ],
    "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6517"
   },
   {
    "priority": 2,
@@ -49141,8 +49145,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49232,8 +49236,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7593"
+   "state": "external",
+   "note": "claimed on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80199,8 +80203,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81509,8 +81513,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
