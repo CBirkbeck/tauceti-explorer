@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-topology~4: bounded review, scope blocked
 
-Issue #6521; Codex (GPT-6), session `codex-PdVMrQ`; 10 October 2026.
-Claim comment 6101815567 confirmed by bot comment 6101816684.
-Branch `codex-PdVMrQ-review-topology`. Continues merged checkpoint PR #8589.
+Issue #6521; Codex (GPT-6), session `codex-UdiiZt`; 10 October 2026.
+Claim comment 6101949467 confirmed by bot comment 6101950637.
+Branch `codex-UdiiZt-review-topology`. Continues merged checkpoint PR #8602.
 This worker did none of the fixes or original plans and took one job only.
 
 ## Done in this run
@@ -12,11 +12,11 @@ Freshly checked the volume owner/conventions, six Habiro export contracts and
 scalar quantum-modular ownership against the public sources cited in the
 report. Replaced the three authorized supplier review objects, preserving their
 predecessors in reviewHistory: Polylogarithms accepted, Habiro accepted,
-QSeries needs_changes for four reader discrepancies. These are bounded fix
-verdicts; all blueprint gaps and previous full-review qualifications remain.
+QSeries accepted: the regenerated reader resolves all four predecessor
+discrepancies. These are bounded fix verdicts; all blueprint gaps and previous full-review qualifications remain.
 Updated the predecessor report’s account of all
-27 dispositions and confirmed its source and current-library contracts. Added
-a non-real sign test for the volume comparison and fresh Lean elaboration.
+27 dispositions and confirmed its source and current-library contracts. Rechecked
+the non-real sign test for the volume comparison and fresh Lean elaboration.
 No mathematical or suggested-file content changed.
 
 Current Tau Ceti adds two important inputs to the inherited consumer handoff:
@@ -80,21 +80,21 @@ transport order, orientation and manifold incidence signs together; swapping
 two vertices already reverses signed volume. Do not add a second unsupported
 minus. Retain the carrier and normalization comparison gaps.
 
-The QSeries reader is outside this job's file list and queue. Its needs_changes
-verdict may remain. A separately permitted reader correction must add the
-ninth scalar cocycle export, specify inverse eta multiplier on the lower
-branch, replace scaled Glaisher numbers by c_n/(24^n n!) with coefficients
-1,23/24,1681/1152,257543/82944, and replace the obsolete no-nodes QT.7 account.
-Retain the trefoil normalization qualification and broader analytic gaps.
+The QSeries reader is outside this job's file list and queue, and was not
+edited. Its regenerated content already includes the scalar cocycle,
+inverse eta multiplier on the lower branch, scaled Taylor coefficients and
+current QT.7 nodes. The report gives the current line locators. The bounded
+verdict is accepted; earlier full-blueprint objections, its 39 current gaps,
+trefoil normalization qualification and broader analytic gaps remain.
 
 ## Validation and provenance
 
 All five fresh packet checks pass: 0 errors, 0 warnings. Node/gap/request counts
-are Polylogarithms 75/19/21, Habiro 109/22/9, QSeries 537/22/25, QT 106/8/19,
+are Polylogarithms 75/19/21, Habiro 109/22/9, QSeries 537/39/25, QT 106/8/19,
 P.2 14/2/3. Exact arithmetic checks and fresh public source versions/hashes
 are in the report. Pinned declaration statements and current upstream/library
 inputs were read without builds. Fresh serial lean-check runs in this session exit 0
-for all three issue-listed suggested files, with 462/441/1469 sorry warnings
+for all three issue-listed suggested files, with 462/441/1488 sorry warnings
 and no other warning. Suggested files did not change; these checks establish
 elaboration, not the admitted results. No source passages were committed.
 

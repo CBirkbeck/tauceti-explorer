@@ -1,10 +1,10 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-PdVMrQ`, 10 October 2026. Claim comment 6101815567 was confirmed by
-bot comment 6101816684. This worker did none of the fixes or original plans
+`codex-UdiiZt`, 10 October 2026. Claim comment 6101949467 was confirmed by
+bot comment 6101950637. This worker did none of the fixes or original plans
 under review and claimed one job only. Continues merged checkpoint
-[PR #8589](https://github.com/CBirkbeck/tauceti-explorer/pull/8589).
+[PR #8602](https://github.com/CBirkbeck/tauceti-explorer/pull/8602).
 
 **Blocked checkpoint: every issue-listed supplier has a bounded verdict;
 two queue-required packet review updates remain outside the live issue's
@@ -15,13 +15,13 @@ was requested and has not arrived. The blocker is file scope, not run time.
 |---|---|---|
 | Polylogarithms | accepted | /7's single tetrahedron-volume owner and explicit geometric imports, with its gaps preserved. |
 | HabiroNahmSeries | accepted | /11's six export contracts distinguish formal, analytic and arithmetic hypotheses. |
-| QSeriesPartitionsAndMockModularForms | needs_changes | /13's scalar ownership is correct; four reader discrepancies remain outside scope. |
+| QSeriesPartitionsAndMockModularForms | accepted | /13's scalar ownership is correct; the regenerated reader resolves all four predecessor discrepancies. |
 
 Replaced those three review objects with this session's independent findings
 and preserved their predecessor objects in `reviewHistory`. Updated the predecessor report
 and handoff with this run’s evidence. Confirmed current
 Tau Ceti inputs in the /5 and /7 handoffs, independently elaborated all three
-suggested files, and added a non-real convention test for /7. Mathematical nodes, APIs, tests,
+suggested files, and rechecked the non-real convention test for /7. Mathematical nodes, APIs, tests,
 prerequisites, gaps, requests, suggested declarations and upstream files were
 not changed. These verdicts assess the assigned fixes, not the whole blueprints.
 The predecessor full-review qualifications remain in history.
@@ -64,10 +64,7 @@ wrong sign. A stronger exact test uses `T=(0,1,-i,2)`: `rP(T)=(1+i)/4`,
 Zagier I.3 equations (3), (5) give `D(1/z)=-D(z)` and positivity in the
 upper half-plane, so the first value has positive D and its reciprocal has
 negative D. This supplies a sign-sensitive test for the proposed carrier
-comparison. Independent numerical integration of each dilogarithm gives
-approximately `0.6190336014842515` and `-0.6190336014842512`; those decimals
-are a diagnostic, with the source identities supplying the exact argument.
-Thus the consumer must state
+comparison. Thus the consumer must state
 the geometric carrier comparison, transport vertex order and orientation
 together, and carry that transport into the manifold incidence signs.
 Transposing the first two vertices already reverses oriented volume; a second
@@ -123,25 +120,25 @@ multiplier and finite-Weil-image gaps. The trefoil comparison explicitly
 requires the color, orientation and normalization comparison. WRT/false-theta
 comparisons retain the QT.4 normalized invariant input.
 
-Independently checked the four discrepancies previously identified in
-`research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md`:
+The current reader has been regenerated since the predecessor review. Fresh
+inspection of `research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md`
+shows that all four earlier objections are resolved:
 
-1. Near line 2964, the export table omits the ninth packet export,
-   `QM.5/quantum-modular-cocycle`. Add its scalar additive-cocycle contract;
-   it does not provide a knot matrix theorem.
-2. Near line 2972, replace the unspecified eta multiplier description by the
-   inverse eta multiplier on the lower branch, with
-   `epsilon(T)=exp(-2 pi i/24)` and `epsilon(S)=exp(2 pi i/8)`.
-3. Near lines 2818 and 2987, distinguish scaled Glaisher numbers c_n from the
-   ordinary Taylor coefficients `c_n/(24^n n!)` of the stated series. Exact
-   rational division gives `1, 23/24, 1681/1152, 257543/82944`.
-4. Near lines 4166–4168, replace the obsolete assertion that QT.7 has no
-   nodes with its existing knot-specific plan and the QM.5 → QT.7 direction.
+1. The scalar additive-cocycle node is present at lines 8539–8557, with
+   `epsilon(1)=1` and the factor cocycle hypothesis. The QM.5 overview at
+   lines 8303–8304 distinguishes this contract from QT.7's knot matrices.
+2. The Kontsevich theorem at lines 9069–9071 specifies the inverse eta
+   multiplier on the lower branch, with `epsilon(T)=exp(-2 pi i/24)` and
+   `epsilon(S)=exp(2 pi i/8)`.
+3. The expansions at lines 9037 and 9049 distinguish scaled Glaisher numbers
+   c_n from ordinary Taylor coefficients `c_n/(24^n n!)`. Exact division gives
+   `1, 23/24, 1681/1152, 257543/82944`.
+4. The introduction at line 11 and QM.5 overview now recognize QT.7's existing
+   knot-specific nodes and the QM.5 → QT.7 supplier direction.
 
-The reader is outside both the live issue and queue outputs. It was not
-edited. The `needs_changes` verdict completes this bounded supplier review;
-it does not block the queue predicate by itself. Earlier broader blueprint
-objections remain in history and are not discharged by this fix review.
+No reader edit was needed or made. The bounded /13 verdict is now accepted;
+this does not discharge the earlier full-blueprint objections, analytic gaps
+or normalization comparisons. Their review objects remain in `reviewHistory`.
 
 ## All 27 assigned findings
 
@@ -165,7 +162,7 @@ remain read-only because those additional paths are not authorized.
 | /10 | Handoff accepted: NZ and root-refined series, their invariance and the integral/parity bridge have separate inputs; G6 retains normalization and coefficient obligations. |
 | /11 | Supplier accepted: all six exports preserve formal, analytic and arithmetic restrictions as checked above. |
 | /12 | Handoff accepted: root/color Kashaev evaluation, cyclotomic lift, general conjectures and separately proved cases remain distinguished. |
-| /13 | Needs changes: the four reader corrections above remain. Scalar and matrix owners are correctly separated in the packet. |
+| /13 | Supplier accepted: scalar and matrix owners are separate; the regenerated reader resolves the four predecessor objections as checked above. Broader analytic and normalization gaps remain. |
 | /14 | Handoff accepted: Faddeev/AK data keep contours, domains, distribution contraction and tails under G7; the generic formal pentagon has a separate owner request. |
 | /15 | Handoff accepted: general resurgence is excluded; knot coefficient asymptotics retain conjectural status and G8's phase issue. |
 | /16 | Handoff accepted: the Wheeler/MMR/relative-Habiro extension is a named QT follow-up with Alexander and HabiroRings inputs; Bouis–Gazda is excluded. |
@@ -253,7 +250,7 @@ All five fresh `scripts/check_blueprint.py` runs pass with 0 errors and
 |---|---:|---:|---:|
 | Polylogarithms | 75 | 19 | 21 |
 | HabiroNahmSeries | 109 | 22 | 9 |
-| QSeriesPartitionsAndMockModularForms | 537 | 22 | 25 |
+| QSeriesPartitionsAndMockModularForms | 537 | 39 | 25 |
 | ArithmeticQuantumTopology | 106 | 8 | 19 |
 | Polylogarithms--P.2 | 14 | 2 | 3 |
 
@@ -267,7 +264,7 @@ coefficients and the figure-eight matrix's null vector reported above.
 
 Fresh serial `lean-check` runs in this session exit 0 for all three issue-listed
 suggested files. Polylogarithms produces 462 sorry warnings, HabiroNahmSeries
-441, and QSeriesPartitionsAndMockModularForms 1469; no other warnings or
+441, and QSeriesPartitionsAndMockModularForms 1488; no other warnings or
 errors occur. Available memory was checked before elaboration. No suggested
 file changed. These results supersede the inherited compile evidence for
 these unchanged files, and do not prove their admitted statements. There are no
@@ -277,7 +274,7 @@ The public source portions cited in /7, /11, /13 and /2 above were freshly read
 in this session. For Zagier's Topology paper, also read equation (24) and
 Theorem 3, printed p. 952, and section 6 equations (37)–(39), printed p. 958,
 from rendered pages to avoid the broken text extraction. Equation (24) gives
-c_n/(24^n n!), corroborating the reader correction. The Kontsevich S-law and
+c_n/(24^n n!), corroborating the corrected reader. The Kontsevich S-law and
 translation law fix the stated multiplier convention.
 
 | Public source/version | SHA-256 of retrieved PDF |
@@ -317,7 +314,7 @@ needed for queue completion.
 Fresh evaluation of the unmodified `issues.py:deliverables_complete` returns
 False for the actual queue entry. Supplying just those two review updates
 through an in-memory path reader makes the same function return True. All
-other output files already exist; QSeries' needs_changes verdict is allowed.
+other output files already exist; the bounded QSeries verdict is now accepted.
 No queue, completion code or out-of-scope review object was changed in that
 experiment. The exact check and required fields are sufficient to reproduce
 it; no scratch file is needed.
@@ -325,5 +322,5 @@ it; no scratch file is needed.
 Authorization for these two paths remains unanswered. Reconcile the live issue
 and queue or authorize those two review updates before assigning another
 continuation. Repeating only the three supplier checks cannot complete this
-job. The reader discrepancies can retain needs_changes and await a separate
-permitted reader correction. The handoff contains every remaining action.
+job. The reader discrepancies are resolved; no separate reader correction is needed
+for this bounded review. The handoff contains every remaining action.
