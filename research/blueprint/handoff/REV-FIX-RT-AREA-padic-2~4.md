@@ -1,222 +1,60 @@
-# Latest continuation: proposed repair survives two complete generation computations
-
-Refs #6519. Codex (GPT-6), session **codex-mSRBPu**, 10 October 2026.
-Input `c1a8d4d6f520741ef576b035a2819aa35ebadabc`; branch
-`codex-mSRBPu-padic-review`. Bot confirmation:
-[comment 6101852233](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101852233).
-
-**Blocked checkpoint.** The live issue's three-packet review is already complete.
-Fresh local and GitHub-main inspection still finds seven authorized review
-outputs against 31 generated outputs; the fix has 55 instead of its historical
-ten. Completion is `True` for the authorized scope and `False` for the generated
-job. The existing packet verdicts, including Perfectoid's `needs_changes`, and
-the twelve additional packets' independent reviews are preserved.
-
-**New evidence:** the complete generator's job and prompt computation was run
-without writes against real repository inputs, seeding an in-memory queue with
-the historical round-four contracts. Stock generation expands the restored
-scope to 35 fix / 19 review outputs and changes the fix dependency. The preceding
-one-line candidate preserves the exact ten / seven output lists and both jobs'
-dependency lists through **two successive generation computations**. Both
-resulting review entries pass the stock completion predicate. Eight isolated
-controls also pass, including all four cases for creating genuinely new rounds.
-The full executable reproducer is preserved in
-[the report](../reviews/REV-FIX-RT-AREA-padic-2~4.md#continuation-real-queue-regeneration-preserves-the-proposed-repair-twice);
-it has no scratch dependency and performs no writes.
-
-**Required next action:** in authorized maintainer work, restore these two jobs'
-`outputs` and `after` lists from historical commit
-`888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`, and make `fix_rounds` retrieve an already
-issued following round regardless of `missing` or `sent_back`. The report gives
-the exact one-line diff. Inspect unrelated generated jobs before actual
-regeneration; then check persistence, issue synchronization and intake. Those
-final side effects were deliberately excluded from the experiment. Queue and
-generator edits remain outside this issue's allowed files. Keep this issue
-unavailable until repaired so another worker need not repeat its finished review.
-New receiving work needs separate jobs. Workers may not change labels themselves.
-
-**Validation:** pinned-index checks of the three authorized packets pass with
-56, 326 and 537 nodes, zero errors and warnings. Only this handoff and the report
-change. Lean was not rerun for documentation-only changes; earlier successful
-elaboration and source-reading records remain attributed below. No source file
-or passage was copied. No second job was claimed. Disposable diagnostic scripts
-and queue JSON files are unnecessary after scratch cleanup.
-
----
-
-# Latest continuation: round mutation reproduced in isolation
-
-Refs #6519. Codex (GPT-6), session **codex-MIrRlz**, 10 October 2026.
-Input `2698b0b8d47114f372cc6a6f3d53a9f79386522d`; branch
-`codex-MIrRlz-padic-review-scope`. Bot confirmation:
-[comment 6101317239](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101317239).
-
-**Blocked checkpoint.** The authorized three-packet review is already complete.
-Fresh local and GitHub-main checks still find seven authorized review outputs
-against 31 generated outputs, and ten historical fix outputs against 55 current
-ones. The unmodified completion predicate returns `True` for the live scope and
-`False` for the actual queue entry. The twelve additional packets have accepted
-reviews under their own job identifiers. No verdict is replaced here.
-
-**New diagnostic:** a scratch-only harness executes the actual `fix_rounds`
-function extracted through Python's AST, with two previously issued synthetic
-rounds. All four combinations of newly missing supplier files and a preceding
-send-back were checked. New files enlarge the existing second round's fix
-outputs from four to seven and its review outputs from three to five. A send-back
-also changes that existing round's `after` edge from the previous fix to its
-review. Thus regeneration can alter both scope and dependency order. An
-in-memory candidate that retrieves an existing following round regardless of
-these two flags preserves both contracts in all four controls. No generator
-was edited or run against the repository's queue. The complete reproducer and
-results are in [the report](../reviews/REV-FIX-RT-AREA-padic-2~4.md#continuation-controlled-reproduction-of-round-mutation).
-
-**Required maintainer action:** restore the fix's ten and review's seven outputs
-from historical commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`; preserve already
-issued rounds' outputs and dependency edges when regenerating. Allocate newly
-routed work separately. Verify the restored real queue entry's completion and
-two successive regenerations. The candidate has only isolated control-flow
-evidence; full queue integration and the creation of genuinely new rounds still
-need verification. Queue/generator changes are outside this issue's permitted
-files. Gate this issue until repaired so another worker need not repeat it.
-
-Fresh pinned-index checks pass for **56, 326 and 537 nodes, zero errors and
-warnings**. Only this handoff and the report change. Lean is not rerun for
-documentation-only changes; the earlier successful elaborations and source
-reading remain attributed below. No source file or passage is copied, and no
-new mathematical review is claimed. No second job is claimed. No disposable
-scratch artifact is needed to resume.
-
----
-
-# Latest continuation: authorized review complete, generated scope still blocks intake
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-mZvm4t**, 10 October 2026. Input `2f1cec205`; bot claim confirmed in [comment 6101031037](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101031037).
-
-**Blocked checkpoint.** The live issue still authorizes seven outputs covering three packet reviews. Freshly fetched current-main and local queues both require 31 outputs covering fifteen packets; the corresponding fix entry has 55 outputs. Every output exists. The stock completion predicate returns `True` for the issue's authorized outputs and `False` for the generated job. All twelve extra packets have accepted reviews under their own independent job identifiers. The three authorized verdicts already name this job, including Perfectoid's honest `needs_changes`; those verdicts are preserved.
-
-**Required next action:** restore the historical fix/review scopes from commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`, and repair `make_queue.py` so existing round scopes survive both `missing` and `sent_back` regeneration cases. Verify regeneration twice, then confirm the actual review entry has seven outputs and passes `issues.deliverables_complete`. Additional receiving work needs separately authorized jobs. Queue/generator edits are outside this issue's permitted files. Keep this issue unavailable until that repair, so another worker does not repeat an already completed review. Workers must not change its labels themselves.
-
-Fresh pinned-index packet checks pass: **56, 326 and 537 nodes, zero errors and warnings**. This continuation changes only the review report and this handoff. Lean was not rerun for documentation changes; earlier successful elaboration and primary-source reading remain attributed to their original sessions. No mathematical or source record was changed. The preceding historical scope evidence and read-only reproducer below suffice to resume; no scratch dependency and no second claim.
-
----
-
-# Latest continuation: scope repair required before another worker
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-LFQgMn**, 10 October 2026. Claim confirmed in [comment 6100242633](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6100242633). Input `24b730041bcdca9936c22add6fd444b4f0354b90`.
-
-**Blocked checkpoint.** Fresh local/current-main queue inspection and the stock completion predicate still reproduce the seven-output versus 31-output mismatch. All outputs exist; the live issue's scope passes, the generated scope fails. The twelve additional packets retain accepted reviews by their own independent jobs. Only this handoff and the [report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) change. Existing mathematical reviews and source-reading attribution are preserved.
-
-The report's “Continuation: scope repair acceptance criteria” gives a concrete verification checklist for the maintainer: restore the historical scopes, preserve them through both `missing` and `sent_back` regeneration cases, and obtain a passing completion predicate for the actual queue entry without changing the twelve unrelated reviews. Run regeneration twice to ensure persistence. The historical commit, extra-path table and read-only reproducer remain below.
-
-All three permitted packet checks pass against the pinned declaration index: **56, 326 and 537 nodes; zero errors and warnings**. No Lean or mathematical file changed, so Lean was not rerun. Prior successful elaborations remain attributed to their original session. No primary source was fetched or copied in this continuation.
-
-**Next action:** maintainer scope repair; keep the issue unavailable until repaired. A worker cannot resolve this by repeating the bounded review. After repair, retain its existing verdicts, including Perfectoid's `needs_changes`, which already counts as a completed review. No scratch files are needed to resume, and no second job was claimed.
-
----
-
-# Current continuation: historical review scope recovered
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-iYcsUX**, 10 October 2026. Bot confirmation: [comment 6099841027](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099841027). Input commit: `0d2178b78bf6a3deea5f4c16c2165442659a2a38`.
-
-**Blocked checkpoint.** The live issue still permits three packets and seven outputs; the local queue and independently fetched current-main queue require fifteen packets and 31 outputs. The unmodified completion predicate returns `True` for the authorized scope and `False` for the queue scope. The three authorized review objects already name this job. All twelve additional packets have accepted reviews under separate independent job identifiers. Further changes to this report, handoff or the three authorized packets cannot satisfy the additional reviewer-identifier requirements.
-
-**New evidence for the maintainer:** the queue committed with the round-four fix, [commit 888f12f5c9d80d8205c6f7dd55cbbb933633b5e6](https://github.com/CBirkbeck/tauceti-explorer/commit/888f12f5c9d80d8205c6f7dd55cbbb933633b5e6) (PR #6852, 7 October), preserves the actual historical scopes. `FIX-RT-AREA-padic-2~4` has **ten** outputs there: its report and the packet, reader and suggested file for each of Faltings, Perfectoid P0 and Adic Part II. `REV-FIX-RT-AREA-padic-2~4` has **seven** outputs there, exactly those still listed in the live issue. The merge itself changed only the fix report and the Faltings/Perfectoid readers. This provides a concrete source for scope restoration rather than inferring it from the live issue alone.
-
-**Repair outside this worker's permitted files:** restore those two historical output lists, and make `make_queue.py` preserve already-created round scopes before allowing new supplier outputs to enter later work. Its `fix_rounds` function preserves an existing following round only when neither `missing` nor `sent_back` is true; consequently that preservation path does not protect a historical round when newly completed blueprints appear. Restoring only the queue risks recurrence during regeneration. Validate that this review remains seven outputs after regeneration, that genuinely new receiving work receives separate authorized jobs, and that existing independent reviews retain their identities. Keep this issue unavailable until the repair is applied; workers may not change its labels themselves.
-
-**Fresh checks:** all three authorized packets pass `scripts/check_blueprint.py` against the declaration index whose manifest records the specified Mathlib and Tau Ceti pins: 56, 326 and 537 nodes, zero errors and warnings. Only this handoff and the existing report are updated. No new mathematical or primary-source review is claimed, and no verdict is replaced. Lean is not rerun for documentation-only changes; the previous successful elaborations remain attributed below. No upstream tree or library copy was modified, and no source file or passage was copied.
-
-**Resume after repair:** retain the completed bounded review and its existing verdicts, including Perfectoid's honest `needs_changes`. That verdict satisfies the completion predicate; it is not this administrative blocker. The earlier report, extra-path table and read-only reproducer below remain sufficient. This continuation adds no scratch dependency and claims no second job.
-
----
-
-# Latest continuation: current-main scope blocker verified
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-Ndn8bk**, 10 October 2026. Claim confirmed in [comment 6099697112](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099697112). Input `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`.
-
-**Blocked checkpoint.** The live issue permits three packet reviews (seven outputs); both the clone's queue and the independently fetched current-main queue require fifteen packet reviews (31 outputs). The stock completion predicate returns `True` for the live scope and `False` for the queue scope. All twelve extra packets have accepted independent reviews with other job identifiers. Replacing those verdicts is outside this issue's authorized files and would not constitute the required mathematical review.
-
-Only this handoff and the [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) change. Existing mathematical verdicts and source-reading attribution are retained. Fresh checks of the three authorized packets against the pinned declaration index pass with zero errors and warnings (56, 326, 537 nodes). Lean was not rerun because no Lean or mathematical file changed; previous successful elaborations remain recorded below. No source was copied or fetched in this continuation.
-
-**Maintainer action:** reconcile the review's generated outputs with the historical round-four fix and live issue. Keep the issue unavailable until repaired so fresh workers do not repeat this blocked continuation. Restore the three-packet review scope, or allocate a separately authorized expanded review with explicit inputs and independence requirements. Inspect `make_queue.py`'s `fix_rounds` historical-output handling before regenerating; the current fix entry itself has 55 outputs. A queue-only manual correction may be overwritten.
-
-**Resume:** use the retained completed bounded review and its verdicts after scope reconciliation. The exact twelve extra packet/suggested pairs and a read-only reproduction are preserved below. There is no scratch dependency. No second job was claimed.
-
----
-
-# Current continuation: blocked by scope mismatch
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-hHkBnT**, 10 October 2026. Claim confirmed in [comment 6099408303](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099408303). Input `fb0cd9eed77d7eb6fbd7226707e91d90fa7acdfe`.
-
-This checkpoint adds an independently reproduced administrative diagnosis to the existing [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md), under “Continuation: completion-boundary verification”. It preserves the previous mathematical review, verdicts and source-reading attribution. No second job was claimed. The job cannot be completed within its authorized output scope.
-
-**Current evidence:** the live issue lists seven deliverables; the generated queue lists 31. All exist. The completion predicate returns `True` for the live scope and `False` for the queue scope. All twelve extra packets now have accepted reviews under their own independent review jobs, listed in the report. Replacing their verdicts solely to meet this job's reviewer-name requirement would neither perform the missing review nor respect the issue's file restrictions.
-
-**Validation:** fresh pinned-index checks of the three authorized packets report zero errors and zero warnings. Packets, readers and suggested files are unchanged. Lean was not rerun for documentation-only changes; the previous session's successful checks remain recorded below. No source was fetched, copied or freshly reviewed in this continuation.
-
-**Maintainer next action:** reconcile this review's queue outputs with the historical round-four fix and live issue. The generator's `fix_rounds` function in `research/blueprint/make_queue.py` derives reviews from `current_outputs` and can append newly routed `missing` blueprint files when advancing a round. Inspect that historical-scope path before regenerating; a manual queue edit alone may be overwritten. Restore this review to the three packets actually reviewed, or explicitly allocate a separate expanded fix/review with concrete inputs and independence requirements. Do not erase the receiving packets' independent reviews or broaden this completed review merely to pass intake.
-
-After reconciliation, use the retained bounded review. Its verdicts are already present in the three authorized packets. The remaining mathematical work still belongs to the supplier/Perfectoid jobs, not another repetition of this synchronization review. No scratch artifact is required to resume: the reproduction below and report contain the evidence.
-
-Run from the repository root to reproduce the two completion results without writing any files:
-
-```python
-import importlib.util
-import json
-
-spec = importlib.util.spec_from_file_location("issues", "research/blueprint/issues.py")
-issues = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(issues)
-queue = json.load(open("research/blueprint/queue.json"))
-jobs = queue["jobs"] if isinstance(queue, dict) else queue
-job = next(j for j in jobs if j["id"] == "REV-FIX-RT-AREA-padic-2~4")
-authorized = ["research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~4.md"]
-for name in ("FaltingsFinitenessAndIsogenyTheorems", "PerfectoidSpaces--P0", "AdicSpacesPartII"):
-    authorized.append(f"research/blueprint/packets/{name}.json")
-    authorized.append(f"research/blueprint/suggested/{name}.lean")
-print("live scope:", issues.deliverables_complete(dict(job, outputs=authorized)))
-print("queue scope:", issues.deliverables_complete(job))
-```
-
-The previous handoff follows for the mathematical work, exact extra paths and source-check provenance.
-
-# Handoff: REV-FIX-RT-AREA-padic-2~4
-
-Previous mathematical-review handoff, retained below.
-
-Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-5FwGoc**, 10 October 2026. Bot claim confirmation: [comment 6098831658](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6098831658). Input `b9ba38061383810d0da07c603653912ba7715c7c`.
-
-**The live-issue review is finished; queue completion is blocked by a scope mismatch.** See [the review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) for all 36 finding dispositions, source URLs/locators/hashes, exact qualifications and validation. No second job was claimed.
-
-## Completed work
-
-- Reviewed the two round-four reader corrections and inherited local supplier fixes against the verified findings and fresh bounded primary-source reading.
-- Replaced the three authorized review objects and appended their previous values to history. Faltings and Adic are accepted for these fixes; Perfectoid remains `needs_changes`, retaining the newer padic-1 review's substantive gaps and unfinished comprehensive audit.
-- Preserved every mathematical node, source record, baseline, dependency, API, test, coverage, planet, gap and request. Readers and suggested files remain unchanged.
-- All three packet checks pass with zero errors/warnings using the pinned declaration index. Sequential `lean-check` runs return exit 0 with only `sorry` warnings: 197, 1285, 912 respectively. Intake file checks and whitespace checks pass.
-- Verified live receiving assignments in all sixteen open issues. P7 now has a `needs_changes` review dated 10 October; its exact Tate–Sen candidates remain partial suppliers. Their packet ancestry has no R07/R28 input, but that does not certify unresolved external stage leaves.
-
-## Maintainer action required before continuation
-
-The live issue names seven deliverables: this review report, three packets and their three suggested files. WORKERS.md requires editing only issue-named outputs and allows this handoff. The generated `queue.json` entry for this same job instead names **31** outputs, covering **15** packets. Its twelve extra packet/suggested pairs are:
-
-| Packet basename | Extra paths under `research/blueprint/` |
-|---|---|
-| AInfCohomology--AI.0 | `packets/AInfCohomology--AI.0.json`, `suggested/AInfCohomology--AI.0.lean` |
-| CrystallineCohomology--CR.0 | `packets/CrystallineCohomology--CR.0.json`, `suggested/CrystallineCohomology--CR.0.lean` |
-| CohomologyComparisons | `packets/CohomologyComparisons.json`, `suggested/CohomologyComparisons.lean` |
-| IgusaVarietiesAndTorsionConcentration | `packets/IgusaVarietiesAndTorsionConcentration.json`, `suggested/IgusaVarietiesAndTorsionConcentration.lean` |
-| PrismaticCohomology--PR.0 | `packets/PrismaticCohomology--PR.0.json`, `suggested/PrismaticCohomology--PR.0.lean` |
-| DerivedDeRhamCohomology | `packets/DerivedDeRhamCohomology.json`, `suggested/DerivedDeRhamCohomology.lean` |
-| AInfCohomology--AI.6 | `packets/AInfCohomology--AI.6.json`, `suggested/AInfCohomology--AI.6.lean` |
-| CrystallineCohomology--CR.5 | `packets/CrystallineCohomology--CR.5.json`, `suggested/CrystallineCohomology--CR.5.lean` |
-| RelativeFarguesFontaine--RF0 | `packets/RelativeFarguesFontaine--RF0.json`, `suggested/RelativeFarguesFontaine--RF0.lean` |
-| AutomorphicGaloisRepresentations | `packets/AutomorphicGaloisRepresentations.json`, `suggested/AutomorphicGaloisRepresentations.lean` |
-| AutomorphicGaloisRepresentationsPartII--AG2.6 | `packets/AutomorphicGaloisRepresentationsPartII--AG2.6.json`, `suggested/AutomorphicGaloisRepresentationsPartII--AG2.6.lean` |
-| AutomorphicGaloisRepresentationsPartII--AG2.0 | `packets/AutomorphicGaloisRepresentationsPartII--AG2.0.json`, `suggested/AutomorphicGaloisRepresentationsPartII--AG2.0.lean` |
-
-No verdict was written to those unauthorized packets. Their existence does not authorize reviewing them in this issue. The stock `research/blueprint/issues.py` completion predicate accepts the live issue's seven-output scope after this review and rejects the real queue scope. It recognizes `needs_changes` as a completed review verdict, so Perfectoid's honest verdict is not what blocks the predicate.
-
-Reconcile the queue-generation source and live issue: either restore this review's three-file mathematical scope in the queue, or explicitly authorize and allocate the expanded receiving reviews with their inputs and independence requirements. The first option matches the submitted fix and all preceding rounds. Do not have another worker stamp the twelve receiving packets accepted merely to satisfy the queue. Those packets have separate incomplete inputs and independent reviews.
-
-Once scope is reconciled, retain this completed bounded review. Remaining mathematical work belongs to the existing supplier/Perfectoid jobs described in the report; it is not another reader synchronization round. Until then, the automatic intake treats this submission as a checkpoint. No source files or passages from the cleared library were copied; the evidence needed for continuation is in the review report.
+# REV-FIX-RT-AREA-padic-2~4: blocked on generated scope
+
+Refs #6519. Codex (GPT-6), session **codex-PyyooY**, 10 October 2026.
+Input `f5b0b6eb6da63dcd787ae320ebfea77e726ce65a`; branch
+`codex-PyyooY-padic-review-checkpoint`. Bot confirmation:
+[comment 6102043360](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102043360).
+
+## Done
+
+The live issue's three-packet review is complete. Its original mathematical
+review, finding-by-finding dispositions, source-reading attribution and Lean
+results are preserved in the
+[review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md). Faltings and Adic are
+accepted for the scoped fixes; Perfectoid remains `needs_changes` for its
+unfinished broader audit. Those verdicts already name this job and are not
+replaced.
+
+This session re-read the issue after claiming and independently checked the
+current local and freshly fetched GitHub-main queues and the stock completion
+predicate. Both queues require **31 review outputs / fifteen packets** versus
+the issue's **seven outputs / three packets**. The associated fix has 55 outputs.
+All generated outputs exist. Completion is **True** for the authorized scope
+and **False** for the generated job. All twelve additional packets retain
+accepted reviews under other independent job identifiers.
+
+Fresh pinned-index packet checks pass with **56, 326 and 537 nodes, zero errors
+and warnings**. The index manifest matches Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Only the report and this handoff
+change; Lean was not rerun for documentation-only work. Prior successful
+elaborations remain attributed in the report.
+
+## What remains and where to resume
+
+**Maintainer scope repair is required before another worker can finish intake.**
+Queue and generator edits are outside this issue's explicit permitted files.
+Repeating the finished mathematical review or changing Perfectoid's verdict
+does not resolve this administrative blocker.
+
+1. Restore `outputs` and `after` for `FIX-RT-AREA-padic-2~4` and its review from
+   historical commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`: ten fix outputs
+   and seven review outputs.
+2. In `make_queue.py`'s `fix_rounds`, preserve an already issued following round
+   regardless of `missing` or `sent_back`. The report's
+   [complete-generation experiment](../reviews/REV-FIX-RT-AREA-padic-2~4.md#continuation-real-queue-regeneration-preserves-the-proposed-repair-twice)
+   contains the exact one-line candidate and a self-contained write-free
+   reproducer. That earlier experiment preserved both jobs' ordered output
+   and dependency lists through two computations, and passed eight isolated
+   controls for existing and genuinely new rounds. Its evidence is inherited,
+   not rerun in this session.
+3. Inspect unrelated generated changes, apply the repair in authorized
+   maintainer work, and verify actual persistence, issue synchronization and
+   intake. Those side effects have not been tested by the write-free experiment.
+   Newly routed receiving work needs separate authorized jobs.
+4. Keep this issue unavailable until repaired to prevent repeated claims of
+   the completed bounded review. Workers may not change its labels themselves.
+
+No scratch artifact is needed to resume: all substantive evidence is in the
+report. No new mathematical review or primary-source reading is claimed here;
+no second job was claimed.

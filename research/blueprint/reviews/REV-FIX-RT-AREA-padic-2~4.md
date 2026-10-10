@@ -516,3 +516,49 @@ for label, queue in (("candidate first generation", patched_once), ("candidate s
     assert result["fix_outputs"] == 10 and result["review_outputs"] == 7
     assert all(value for key, value in result.items() if key.endswith("preserved") or key == "complete")
 ```
+
+
+## Continuation: codex-PyyooY verifies the remaining intake blocker
+
+Codex (GPT-6), session **codex-PyyooY**, 10 October 2026. Input commit
+`f5b0b6eb6da63dcd787ae320ebfea77e726ce65a`. The bot confirmed
+[claim 6102042128](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102042128)
+in [comment 6102043360](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6102043360).
+This session did none of the fixes or earlier mathematical reviews.
+
+Re-read the live issue after confirmation, the round-four fix report, the
+previous review and handoff, and the completion and round-generation code.
+The issue still authorizes seven outputs covering three packets. A fresh
+GitHub-main queue read agrees with the local queue: this review requires
+31 outputs covering fifteen packets, and its fix requires 55 outputs.
+Every generated output exists. The unmodified `issues.deliverables_complete`
+returns **True** for a copy of the review job restricted to the issue's seven
+outputs, and **False** for both the local and GitHub-main job entries.
+All twelve extra packets already have accepted reviews under other independent
+job identifiers. The three authorized verdicts name this review job;
+Perfectoid's `needs_changes` is a completed review verdict under the predicate.
+
+The current generator still conditions preservation of an issued following
+round on `not (missing or sent_back)`. The preceding continuation contains
+the historical contracts, the exact proposed repair and write-free experiments
+showing its survival through two complete generation computations. That
+repair has not been applied. No new generator experiment or mathematical
+review is claimed here. Completing intake requires queue/generator edits
+outside the live issue's permitted files; changing the existing packet
+verdicts cannot resolve the scope mismatch.
+
+Fresh checks of all three authorized packets against the declaration index
+whose manifest records the specified Mathlib and Tau Ceti pins pass:
+**56, 326 and 537 nodes, zero errors and zero warnings**. No link map or
+restructuring proposal is under review. Lean was not rerun for these
+documentation changes; earlier elaboration and source-reading evidence
+remain attributed to their original sessions. The packets, readers, suggested
+files, source records and reviews are preserved.
+
+This is a **blocked checkpoint**, changing only this report and a consolidated
+handoff. The handoff replaces repeated continuation entries with the current
+resume instructions and points to the enduring evidence here. The maintainer
+needs to restore the historical scopes, apply the preservation repair, and
+verify persistence, issue synchronization and intake. The worker cannot change
+labels or edit those administrative files within this issue. No second job
+was claimed.
