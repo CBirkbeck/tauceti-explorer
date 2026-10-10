@@ -14,7 +14,8 @@
     "PELModuli",
     "ShimuraCompactifications",
     "JacobianChallengePartII",
-    "NeronModelsAndSemistableAbelianVarieties"
+    "NeronModelsAndSemistableAbelianVarieties",
+    "tauceti:TauCetiRoadmap/AlgebraicVectorBundles"
   ],
   "stages": [
     {
