@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-gS5ooB`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6092532885).
+Codex (GPT-6), session `codex-RfkvHm`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6092807228).
 None of the manager-priority issues was available at selection. This was an
 available focus package under WORKERS' fallback order. Only this job was claimed.
 
@@ -13,7 +13,47 @@ allows only the package files and this handoff, and expressly forbids changing
 packets. The required supplier extensions cannot be made within those edits.
 A further package-only pass cannot resolve these two dependencies.
 
-## Work in this session
+## Current pass: codex-RfkvHm
+
+- Confirmed the bot awarded this session the claim, re-read the issue, and
+  continued its existing files. No manager-priority issue was available;
+  this was the first eligible focus package under the fallback order.
+- Re-read the H.0 consumer targets and all four requests, and the exact
+  `CR.1/integrable-connection`, `DD.1/filtered-modules` and
+  `DD.1/rees-description` owner statements. Both mismatches in the table
+  below remain. The crystalline packet still has review `needs_changes`;
+  the derived-de-Rham package's Rees subsection retains the derived scope.
+- Read the AlgebraicVectorBundles and HodgeStructures upstream documents,
+  the relevant AlgebraicVectorBundles and DifferentialGeometry suggested
+  signatures, native sheaf tensor and finite-locally-free carrier statements,
+  and the native ideal-power Rees grading. Searched the current Tau Ceti
+  algebra, algebraic-geometry and ring-theory trees for alternative carriers.
+  This search found no exact replacement for either owner contract; it is
+  not a whole-library absence proof. Current commits are recorded below.
+- Added the direct source for the existing smooth characteristic-zero
+  filtered-connection-to-Higgs target: Bhatt, Remark 2.3.7, pp.25–26. Its
+  grading convention has weight i equal to gr^(−i), and therefore raises
+  weight under the Higgs field. The README states the characteristic-zero
+  scope explicitly; this source does not settle the general-site request.
+- Corrected the README's ambiguous “constant filtration” check to the
+  finite one-step filtration already specified by
+  `GriffithsFiltration.test_trivial`. An all-index constant nonzero
+  filtration is not bounded and cannot be an example of the finite
+  Griffiths/Rees carrier. The corrected check states its zero Higgs,
+  unit-connection and localized fibres, and retains the rank-zero check.
+- Added the public lecture-note reference `BF22`. No target, theorem
+  hypothesis, Lean declaration, example or input packet was changed.
+
+**Why this run stops.** The issue's package-only file restriction prevents
+repairing the named owner interfaces, and PROTOCOL section 15 forbids
+reconstructing their general notions here. This is a demonstrated scope
+blocker, not exhaustion of the eight-hour allowance. Another package-only
+claim against the same inputs will encounter it again. The maintainer must
+route the owner extensions and the consumer-reference update through jobs
+that authorize those files before this package can be completed. Workers
+must not change issue labels or the queue themselves.
+
+## Inherited package work (codex-gS5ooB)
 
 - Re-read the current H.0 continuation's coverage, all seven gaps and all four
   requests. Read the actual connection and filtered/Rees owner statements,
@@ -66,6 +106,10 @@ of finite-projective modules having finite-projective graded pieces.
 The ordinary finite affine case is therefore a source-backed specialization
 for the owner to export. A source theorem is not a substitute for the
 missing sheaf contract, natural fibre maps and H.0 operator comparisons.
+This pass also read the characteristic-zero setting of §2.3, p.21, and
+Remark 2.3.7, pp.25–26. The latter gives the filtered-flat-bundle and
+associated-graded Higgs interpretation used in the README. It does not
+extend the construction to the arbitrary supplied differential sites of G1.
 Downloaded and read on 10 October 2026; SHA-256:
 `a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`.
 The public PDF remained in scratch and is removed at submission.
@@ -150,7 +194,25 @@ strictness and period-domain points; it has no HodgeStructuresPartII entry.
   subalgebra of polynomials whose degree-n coefficients lie in I^n. This
   ideal-power construction is not the filtered module-sheaf/operator contract.
 
-## Checks in this session
+## Checks from codex-RfkvHm
+
+- All ten unchanged Hodge packets: `python3 scripts/check_blueprint.py`,
+  exit 0, zero errors and zero warnings for each. These structural checks
+  do not resolve the mathematical gaps recorded above.
+- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`:
+  exit 0, zero errors, 1623 warnings, all `declaration uses sorry`, and no
+  other warnings. Available memory was 105 GB before compilation. The
+  shared build uses Mathlib `082e2d3` and Tau Ceti `f790474`; the process
+  has finished. The file remains unchanged at 808,917 bytes, SHA-256
+  `0c3a9d28ff75d1851314efe525c18bd657d31b820d99be888d0bafc046773110`.
+- The README is 191,639 bytes, below the 200 KB limit. All 688 Lean examples
+  and all input packets are unchanged. The diff contains only the README
+  and this handoff.
+- `python3 research/blueprint/intake.py check-files` for the two changed
+  deliverables: exit 0, zero problems. `git diff --check`: passed.
+- No source passage, restricted file or private filesystem path was added.
+
+## Checks inherited from codex-gS5ooB
 
 - All ten unchanged Hodge packets: `python3 scripts/check_blueprint.py`,
   exit 0, zero errors and zero warnings for each. Structural success permits
@@ -189,9 +251,9 @@ and the current-library duplication and bottom-up dependency checks for all
 targets. This session does not claim those obligations completed.
 
 `metadata.toml` remains absent because this is a checkpoint. Its final content
-is `topic = "math.AG"` when the package is complete. This run elaborates the
-whole file including the new chart examples, without changing any existing
-Lean statement.
+is `topic = "math.AG"` when the package is complete. The preceding checkpoint
+elaborated the whole file including the chart examples. This pass preserves
+every Lean statement.
 
 Everything needed to resume is in the repository inputs and this note. No
 scratch file is needed by the next worker.
