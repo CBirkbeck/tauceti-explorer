@@ -47766,8 +47766,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7469"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7469",
+   "finishedAt": "2026-10-10T00:19:02Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
@@ -48003,7 +48004,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7899"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -48266,8 +48268,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeometricSatakeAndFusion.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7473"
+   "state": "external",
+   "note": "claimed on GitHub issue #7473"
   },
   {
    "id": "REV-PKG-GeometricSatakeAndFusion",
@@ -81265,8 +81267,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
