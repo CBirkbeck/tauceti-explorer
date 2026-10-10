@@ -1,86 +1,90 @@
-# PKG-LanglandsParameterStacks — finite-image proof and blocked supplier checkpoint
+# PKG-LanglandsParameterStacks — normal wild cutoffs and blocked supplier checkpoint
 
-## Current result: 10 October 2026, codex-eB70Ld
+## Current result: 10 October 2026, codex-JmoW45
 
-Codex (GPT-6), session `codex-eB70Ld`, claimed
+Codex (GPT-6), session `codex-JmoW45`, claimed
 [issue #7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098809214)
-after the [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098807990).
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6099046483)
+after the [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6099045326).
 The full issue was reread after confirmation. Branch:
-`codex-eB70Ld-langlands-parameter-stacks`; starting atlas commit:
-`47b87dafe9e844ff7c1fbf5b11dca7ce85079583`.
-All forty manager-priority issues were checked individually: none was
-available. Among 733 available swarm issues, no eligible top issue or focus
-plan/package review preceded this focus package. Exactly one job was claimed.
+`codex-JmoW45-langlands-parameter-package`; starting atlas commit:
+`8a07284fc1d2dcc904eadd7f5c462690c1cf5470`.
+None of the forty manager-priority issues was available in the listing of
+726 available swarm issues. No eligible top or focus review preceded the two
+available focus packages; this run chose this package. Exactly one job was claimed.
 
-**Blocked checkpoint; the package remains incomplete.** This run supplies a
-proof and two discriminating tests in the ordinary continuous interface and
-corrects its README. The enhanced targets still lack supplier specifications.
-The issue permits only package outputs and this note, and forbids packet
-changes. PROTOCOL §§3, 13, 15 and 20 require faithful signatures and shared
-constructions in their owners. The missing specifications cannot be repaired
-inside these permitted outputs. This is a dependency obstruction, rather than
-a demand for implemented supplier proofs or an elapsed-time checkpoint.
-Metadata remains absent because the intake's output-existence check would
-otherwise mark the incomplete package complete.
+**Blocked checkpoint; the package remains incomplete.** This run supplies
+an explicit normal wild cutoff, its proofs and three discriminating examples.
+The enhanced targets still lack supplier specifications. The issue permits
+only package outputs and this note, and forbids packet changes. PROTOCOL
+§§3, 13, 15 and 20 require faithful signatures and shared constructions in
+their owners. Repairing E5's enhanced contracts and reconciling LP's imports
+requires an authorized supplier/plan repair outside these permitted outputs.
+This is a dependency obstruction, not a request for implemented supplier
+proofs or an elapsed-time checkpoint. Metadata remains absent because the
+intake's output-existence check would otherwise mark the incomplete package
+complete.
 
-The inherited actionable worklist follows below. Historical source receipts
-and investigations not repeated here remain in the
-[preceding handoff at the starting commit](https://github.com/CBirkbeck/tauceti-explorer/blob/47b87dafe9e844ff7c1fbf5b11dca7ce85079583/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
-Statements of fresh reading or inventory counts in the inherited section
-belong to the earlier workers unless explicitly verified here.
+The inherited actionable worklist follows below. The preceding worker's
+finite-image proof, tests and source receipts remain in the
+[handoff at the starting commit](https://github.com/CBirkbeck/tauceti-explorer/blob/8a07284fc1d2dcc904eadd7f5c462690c1cf5470/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+Claims of fresh reading and inventory counts in the inherited sections belong
+to earlier workers unless explicitly verified here. No scratch artifact is
+needed to resume.
 
 ## New mathematical work
 
-`finiteWild_iff_finite_range` now has a proof rather than a `sorry` body.
-For a continuous crossed cocycle c, a compact subgroup P of a topological
-group and a T₁ target, an open subgroup of P killed by c exists exactly when
-c(P) is finite. The theorem and its generic test no longer assume P normal.
-No action-kernel hypothesis is needed for this equivalence.
+`NormalWildCutoff.lift` constructs the homomorphism
+s_c:Γ→H⋊Q, γ↦(c(γ),η(γ)), for β:Q→Aut(H), η:Γ→Q and a
+crossed cocycle for β∘η. Its unit and multiplication proofs use the
+crossed multiplication law directly, without the existing `sorry`-proved
+cocycle API. `NormalWildCutoff.subgroup` is U=P∩ker(s_c).
 
-For the forward implication, an open U has finite index in compact P.
-The cocycle is constant on the left cosets xU because c(u)=1, even for a
-nontrivial action. The proof descends the function to the finite coset type;
-U need not be normal. For the converse, the identity fibre is a subgroup by
-the crossed multiplication law. The other values form a finite closed set
-in the T₁ target, so continuity makes its complement's preimage open.
-The proof derives the unit and inverse facts from that multiplication law
-and does not invoke the existing `sorry`-proved crossed-cocycle API.
-The README's former reference to right cosets is corrected to left cosets xU.
+The new API proves:
 
-Two new proved tests live in `FiniteWildChecks`:
+- `mem_subgroup`: membership is exactly membership in P together with
+  c(γ)=1 and η(γ)=1.
+- Normality in the whole Γ when P is normal; containment in P and ker(η);
+  and vanishing of the cocycle on U.
+- `isOpen` and `exists_cutoff`: U is relatively open in P when c is
+  continuous with finite image on P into a T₁ space, and η restricted to P
+  is continuous into discrete Q. The finite closed set of nonidentity
+  c-values and the open identity fibre of η give the two open factors.
+- `subgroup_mono` and `subgroup_inf`: restriction and refinement inside a
+  preassigned subgroup preserve the explicit common-kernel construction.
+- `LParameter.exists_normalWildCutoff`: compact P and finite wild
+  ramification supply finite image through the preceding worker's proved
+  `finiteWild_iff_finite_range`, yielding the same normal-open cutoff.
 
-- `noncompact_counterexample`: the identity cocycle of discrete ℤ kills the
-  open identity subgroup, while its range on the whole group is infinite.
-- `indiscrete_counterexample`: the identity cocycle of C₂ with indiscrete
-  topology on both groups is continuous and has finite range, while no open
-  subgroup is killed. The only nonempty open set is the whole group.
+There is no infinite intersection of conjugates. The prescribed Q-projection
+is killed even if its action on H has a kernel. The new assertions do not
+prove every relatively discrete parameter has finite wild ramification, and
+do not replace the condensed or derived parameter problem.
 
-Together with the generic test without normality, these distinguish the
-ordinary equivalence's hypotheses. They do not close `LParameter.finiteWild`:
-the relatively discrete coefficient convention and the pro-p versus ℓ-adic
-congruence argument must still establish finite wild image for every parameter.
-The unchanged condensed, derived and representation targets retain their
-own supplier requirements.
+Three proved examples distinguish wrong cutoffs:
 
-Read the pinned statements used in this proof:
-`Subgroup.quotient_finite_of_isOpen` (Mathlib
-`Topology/Algebra/OpenSubgroup`, compact groups and open subgroups),
-`QuotientGroup.leftRel_apply` (`GroupTheory/Coset/Defs`, x⁻¹y∈U),
-`Set.Finite.isClosed` (`Topology/Separation/Basic`, T₁ spaces), and
-`TopologicalSpace.isOpen_top_iff` (`Topology/Order`, indiscrete topology).
-No general Mathlib construction was re-planned.
+- `cutoff_fixed_projection`: Γ=Q, η=id and unit cocycle give U={1},
+  including a trivial action. Killing only the action fails for nontrivial Q.
+- `cutoff_cocycle_kernel`: trivial Q and identity cocycle Γ→Γ give
+  U={1}; merely intersecting P with ker(η) fails.
+- `cutoff_retains_wild`: trivial H and Q give U=P; taking ker(s_c)
+  without intersecting with P fails.
+
+Read the pinned declarations used: `SemidirectProduct` and its actual
+multiplication in `GroupTheory/SemidirectProduct`,
+`MonoidHom.normal_ker` in `Algebra/Group/Subgroup/Ker`,
+`Subgroup.normal_inf_normal` in `Algebra/Group/Subgroup/Basic`,
+`Set.Finite.isClosed` in `Topology/Separation/Basic` (T₁ spaces), and
+`isOpen_discrete` in `Topology/Order`. These generic library constructions
+are used directly, not re-planned.
 
 Fresh primary-source reading used
 [Fargues–Scholze's author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf):
 Definition VIII.1.1 (p.278), Remark VIII.1.2 and the proof of Theorem VIII.1.3
-(pp.279–280), and Proposition VIII.2.1 (p.281). These distinguish the
-relatively discrete coefficients and finite-wild theorem from the ordinary
-topological comparison proved here. Also read §VIII.5.4 and Proposition
-VIII.5.20 (pp.311–312): the sifted approximation is category-valued, with a
-comparison to the actual mapping-stack category. Finite projective generators
-have finite base sets carrying W-torsors; their total torsor need not be finite.
-The prime-to-ℓ conditions for the comparison cannot be discarded.
+(pp.279–280), and Proposition VIII.2.1 (p.281). The README explains the
+normal-cutoff step in our own words and separates its assumptions from the
+coefficient argument establishing finite wild image. Also read §VIII.5.4 and
+Proposition VIII.5.20 (pp.311–312) to check the mapping-approximation contract.
 No source passage or section-by-section summary is stored in the repository.
 No restricted book was used; the cleared-source index was inspected.
 The public PDF was accessed on 10 October 2026; SHA-256:
@@ -90,58 +94,53 @@ The public PDF was accessed on 10 October 2026; SHA-256:
 
 The accepted LP packet still has 79 targets, 140 API entries and 90 tests,
 with eight planned but unclosed stages, five gaps and sixteen requests.
-Its accepted review describes a target-level pass and explicitly retains
-omitted enhanced signatures. Read the complete statements, hypotheses,
-prerequisites, APIs and tests of the following two constructions and compare
-them to both package files:
+Its accepted review describes a target-level pass and retains omitted
+enhanced signatures. Read the complete statements, hypotheses,
+prerequisites, APIs and tests of these two constructions:
 
 | Target | Required interface | Missing suggested tests |
 | --- | --- | --- |
 | LP1/derived-parameter-stack | Animated fpqc mapping stack over BQ, framed fibre, H-quotient, classical points and enhanced perfect pullback | `derived_stack_trivial_group`, `derived_stack_free_group`, `derived_stack_gauge` |
 | LP3/mapping-approximation | Category-valued sifted left Kan extension from finite bases with torsors, coherent comparison to the actual Perf mapping category, and Ind completion | `approx_point`, `approx_coproduct`, `approx_bad_prime` |
 
-All ten required API names of these two targets and their six test identifiers
-remain absent from the package Suggested.lean. The README retains the targets.
-This is a scoped absence check, not a certification of all other signatures.
-Do not replace either construction with an arbitrary ordinary category.
+Their ten required API names and six test identifiers remain absent from the
+package Suggested.lean; the README retains the targets. This scoped check
+is not a certification of the other signatures. Finite torsor bases must
+not be confused with finite total torsors, and an arbitrary ordinary category
+cannot supply either required construction.
 
 The current E5 packet remains partial: 22 targets, ten gaps and sixteen
-requests. Read its suggested file in full. `SymMonInftyCat` has `True`
+requests. Its suggested file was read in full. `SymMonInftyCat` has `True`
 fibration/Segal fields, `CAlg` and `AnimatedAlg` use `Unit`, and `IndInfty`
-uses `True`; they do not specify these consumer contracts.
+uses `True`; these do not specify the consumer contracts.
 The open [E5 repair PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009)
 was rechecked at head `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f` in
-`tauceti-ai-for-science/tauceti-explorer`. Its proposed suggested file still
-uses homotopy-category equivalences for `HEquiv`; `SymMonData` omits the
-cocartesian/inner-fibration and inert mapping-space requirements, and the
-category diagrams omit coherent composition. It does not supply the needed
-derived fpqc quotient-stack QCoh/Perf interface. These are consumer checks,
-not an independent review of that worker's job. Merging that PR alone is not
-a sufficient restart gate.
+`tauceti-ai-for-science/tauceti-explorer`. Its proposed suggested file uses
+homotopy-category equivalences for `HEquiv`; `SymMonData` omits the
+cocartesian-fibration and inert mapping-space requirements. It does not
+supply the derived fpqc quotient-stack QCoh/Perf interface. This is a scoped
+consumer dependency check, not a review of that job. Merging that PR alone
+is not a sufficient restart gate.
 
 ## Current library and upstream boundary
 
 Read all eight LP entries of the reviewed library audit. Read upstream
-AlgebraicVectorBundles and DGAInfinity READMEs in full and inspect their
-pertinent suggested interfaces. Ordinary scheme sheaves, finite locally free
-bundles and relative Spec in AlgebraicVectorBundles L0–L2 do not supply
-animated quotient-stack Perf. DGAInfinity Layers 5–6 concern DG/A-infinity
-modules, perfect envelopes and Morita comparison, without the required
-coherent category-valued sifted construction.
-
+AlgebraicVectorBundles and ReductiveGroups READMEs in full. Ordinary scheme
+sheaves, finite locally free bundles and relative Spec in AlgebraicVectorBundles
+L0–L2 do not supply animated quotient-stack Perf. The ReductiveGroups roadmap
+does not supply the missing enhanced-category constructions.
 Fresh Git revision checks on the read-only current sources gave:
 
 - TauCetiRoadmap: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
 - Native Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-The bounded exact-name search found no replacement for the enhanced or
-identity-component APIs. Also read current upstream IHG's
-`InvariantCoordinateInput`, `tensorCoordinates`, `tensorEvaluate` and `ring`:
-tuple points and acting points still use the same Hopf group. Substituting
-J=H⋊Q yields whole-J invariants, while substituting H changes the tuple space.
-Neither gives O[Jⁿ]^H. The existing proved inversion fixtures and the
-three-artifact owner comparison below remain necessary. No owner move was made.
-The read-only upstream and native trees were never built or modified.
+A bounded exact-name search found no replacements for `SymMonInftyCat`,
+`AnimatedAlg`, `IndInfty`, `DerivedParameterStack`,
+`ParameterMappingApproximation` or `ParameterSingularities` in those trees.
+The identity-component invariant, continuity and highest-weight owner gates
+below are inherited and remain actionable; this run does not claim a fresh
+full audit of those interfaces. No owner move was made. The read-only
+upstream and native trees were never built or modified.
 
 ## Required next action
 
@@ -151,18 +150,19 @@ actual exports. Preserve framed versus unframed tests, higher coherence and
 finite base versus total torsor distinctions. The identity-component invariant,
 continuity and highest-weight owner gates below also remain necessary.
 After those contracts change, reconcile all 79 targets, 140 API items and
-90 tests; retain the proved fixtures and the new finite-image proof; supply
-`topic = "math.NT"` metadata; rerun Lean and intake checks. Rechecking the
-ordinary prototypes alone cannot close the enhanced targets.
+90 tests; retain the proved fixtures, finite-image comparison and normal
+cutoff; supply `topic = "math.NT"` metadata; rerun Lean and intake checks.
+Reassigning this package without changing its supplier contracts cannot
+close the enhanced targets.
 
 ## Fresh validation
 
 - Full package `lean-check`: exit 0, zero errors, 285 warnings, all uses of
-  `sorry`; zero other warnings. Available memory before launch was 97 GB.
+  `sorry`; zero other warnings. Available memory before launch was 101 GB.
   This validates existing signatures, not the omitted enhanced signatures.
-- The same proof and two counterexamples re-elaborated in isolation with no
-  errors or warnings. Each axiom report lists only `propext`,
-  `Classical.choice` and `Quot.sound`, and no `sorryAx`.
+- The new cutoff and three examples re-elaborated in isolation with no
+  errors or warnings. Axiom reports for `exists_cutoff` and `mem_subgroup`
+  list only standard logical axioms and no `sorryAx`.
 - LP and current E5 packet checkers: zero errors and zero warnings each.
 - Permitted-file intake: three files, zero problems. `git diff --check`: passed.
 
@@ -170,8 +170,8 @@ Final package SHA-256:
 
 | File | SHA-256 |
 | --- | --- |
-| README.md | `2248cc6be71b70e08a59ca32be1314437e7e69942d0a49a0ecdfcb8946d9dd89` |
-| Suggested.lean | `164a0d2b90cb71cd2a6bcd587673202694658ff95ed81250e03fe9bd410c19de` |
+| README.md | `67f9e18b7ec5b192b15d0c46b8e64d17edccf16b5c58a2bfddd2c0e80510e16f` |
+| Suggested.lean | `bce4a9a41252e26aebc21611e66f9c386d586e62d0ab9de14efb52e53b5351ac` |
 
 The managed Lean driver identifies pinned Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti

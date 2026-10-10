@@ -14,6 +14,7 @@ split GL_n shadow. Neither is the full parameter functor. No missing condition
 is replaced by an unconstrained Prop field or a True-valued predicate.
 -/
 import Mathlib.GroupTheory.SemidirectProduct
+import Mathlib.Algebra.Group.PUnit
 import Mathlib.GroupTheory.FreeGroup.Basic
 import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.QuotientGroup.Defs
@@ -832,6 +833,153 @@ example :
     (∀ x : Multiplicative (ZMod 2), CrossedCocycle.unit CrossedCocycle.signAction x = 1) ∧
     ¬ (⊤ : Subgroup (Multiplicative (ZMod 2))) ≤ CrossedCocycle.signAction.ker := by sorry
 end FiniteWildQuotient
+
+/-! The kernel of the L-group lift, rather than just the cocycle's identity
+fibre, gives a cutoff normal in the whole source and kills the prescribed Q-map. -/
+namespace NormalWildCutoff
+variable {Γ : Type u} {H : Type v} {Q : Type w}
+  [Group Γ] [Group H] [Group Q]
+variable (β : Q →* MulAut H) (η : Γ →* Q)
+
+/-- The concrete lift with the fixed Q-projection. -/
+def lift (c : CrossedCocycle (β.comp η)) : Γ →* SemidirectProduct H Q β where
+  toFun x := ⟨c x, η x⟩
+  map_one' := by
+    have hm := c.map_mul' 1 1
+    simp only [one_mul, map_one, MulAut.one_apply] at hm
+    have h1 : c 1 = 1 := mul_left_cancel (hm.symm.trans (mul_one _).symm)
+    exact SemidirectProduct.ext h1 η.map_one
+  map_mul' x y := SemidirectProduct.ext (c.map_mul' x y) (η.map_mul x y)
+
+/-- A subgroup of Γ: normality will come from that of P and the lift's kernel. -/
+def subgroup (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) : Subgroup Γ :=
+  P ⊓ (lift β η c).ker
+
+theorem mem_subgroup (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) (x : Γ) :
+    x ∈ subgroup β η P c ↔ x ∈ P ∧ c x = 1 ∧ η x = 1 := by
+  change (x ∈ P ∧ lift β η c x = 1) ↔ _
+  constructor
+  · rintro ⟨hp, hx⟩
+    exact ⟨hp, congrArg SemidirectProduct.left hx, congrArg SemidirectProduct.right hx⟩
+  · rintro ⟨hp, hc, hη⟩
+    exact ⟨hp, SemidirectProduct.ext hc hη⟩
+
+instance (P : Subgroup Γ) [P.Normal] (c : CrossedCocycle (β.comp η)) :
+    (subgroup β η P c).Normal := by
+  unfold subgroup
+  infer_instance
+
+theorem le_wild (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    subgroup β η P c ≤ P := inf_le_left
+
+theorem le_projection_kernel (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    subgroup β η P c ≤ η.ker := by
+  intro x hx
+  exact ((mem_subgroup β η P c x).mp hx).2.2
+
+theorem kills_cocycle (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    ∀ x : Γ, x ∈ subgroup β η P c → c x = 1 := by
+  intro x hx
+  exact ((mem_subgroup β η P c x).mp hx).2.1
+
+/-- The topology is relative to P. Neither P nor this subgroup is assumed
+open in Γ, and no finiteness of the parameter's image outside P is used. -/
+theorem isOpen [TopologicalSpace Γ] [TopologicalSpace H] [T1Space H]
+    [TopologicalSpace Q] [DiscreteTopology Q] (P : Subgroup Γ)
+    (c : LParameter (β.comp η))
+    (hη : Continuous (fun p : P => η p.val))
+    (hfin : Set.Finite (Set.range (fun p : P => c.val p.val))) :
+    IsOpen (P.subtype ⁻¹' (subgroup β η P c.val : Set Γ)) := by
+  have hclosed := (hfin.sdiff (t := {1})).isClosed
+  have hpre : P.subtype ⁻¹' (subgroup β η P c.val : Set Γ) =
+      (fun p : P => c.val p.val) ⁻¹'
+        (Set.range (fun p : P => c.val p.val) \ {1})ᶜ ∩
+      (fun p : P => η p.val) ⁻¹' {1} := by
+    ext p
+    simp [mem_subgroup]
+  rw [hpre]
+  exact (hclosed.isOpen_compl.preimage (c.property.comp continuous_subtype_val)).inter
+    ((isOpen_discrete ({1} : Set Q)).preimage hη)
+
+/-- Relative openness and full-source normality together provide an admissible
+cutoff for the fixed-projection parameter problem. -/
+theorem exists_cutoff [TopologicalSpace Γ] [TopologicalSpace H] [T1Space H]
+    [TopologicalSpace Q] [DiscreteTopology Q] (P : Subgroup Γ) [P.Normal]
+    (c : LParameter (β.comp η))
+    (hη : Continuous (fun p : P => η p.val))
+    (hfin : Set.Finite (Set.range (fun p : P => c.val p.val))) :
+    ∃ U : Subgroup Γ, U.Normal ∧ U ≤ P ∧
+      IsOpen (P.subtype ⁻¹' (U : Set Γ)) ∧ U ≤ η.ker ∧
+      ∀ x : Γ, x ∈ U → c.val x = 1 :=
+  ⟨subgroup β η P c.val, inferInstance, le_wild β η P c.val,
+    isOpen β η P c hη hfin, le_projection_kernel β η P c.val,
+    kills_cocycle β η P c.val⟩
+
+/-- Containment of wild subgroups gives containment of their cutoffs. -/
+theorem subgroup_mono {P P' : Subgroup Γ} (h : P' ≤ P)
+    (c : CrossedCocycle (β.comp η)) :
+    subgroup β η P' c ≤ subgroup β η P c := inf_le_inf_right _ h
+
+/-- The cutoff can be refined inside a preassigned subgroup. Normality and
+relative openness of that subgroup give the same properties for the refinement. -/
+theorem subgroup_inf (P V : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    subgroup β η (P ⊓ V) c = subgroup β η P c ⊓ V := by
+  ext x
+  simp only [mem_subgroup, Subgroup.mem_inf]
+  constructor
+  · rintro ⟨⟨hp, hv⟩, hc, hη⟩
+    exact ⟨⟨hp, hc, hη⟩, hv⟩
+  · rintro ⟨⟨hp, hc, hη⟩, hv⟩
+    exact ⟨⟨hp, hv⟩, hc, hη⟩
+
+-- cutoff_fixed_projection: even a trivial action and unit cocycle cannot
+-- discard a nontrivial prescribed Q-projection.
+example (c : CrossedCocycle β) (hc : ∀ x : Q, c x = 1) (P : Subgroup Q) :
+    subgroup β (MonoidHom.id Q) P c = ⊥ := by
+  ext x
+  simp only [mem_subgroup, hc, MonoidHom.id_apply, Subgroup.mem_bot, true_and]
+  exact ⟨fun hx => hx.2, fun hx => by subst x; simp⟩
+
+-- cutoff_cocycle_kernel: with trivial Q, the identity cocycle forces the
+-- identity cutoff, rather than the entire wild subgroup.
+example (P : Subgroup Γ) :
+    subgroup (1 : Unit →* MulAut Γ) (1 : Γ →* Unit) P
+      ({ toFun := id
+         map_mul' := by intro x y; simp } :
+        CrossedCocycle ((1 : Unit →* MulAut Γ).comp (1 : Γ →* Unit))) = ⊥ := by
+  ext x
+  simp only [mem_subgroup, id_eq, Subgroup.mem_bot]
+  exact ⟨fun hx => hx.2.1, fun hx => by subst x; simp⟩
+
+-- cutoff_retains_wild: trivial coefficients and projection leave exactly P,
+-- including P=1; intersecting with the ambient wild subgroup is essential.
+example (P : Subgroup Γ) :
+    subgroup (1 : Unit →* MulAut Unit) (1 : Γ →* Unit) P
+      ({ toFun := fun _ => 1
+         map_mul' := by intro _ _; simp } :
+        CrossedCocycle ((1 : Unit →* MulAut Unit).comp (1 : Γ →* Unit))) = P := by
+  ext x
+  simp [mem_subgroup]
+
+end NormalWildCutoff
+
+namespace LParameter
+/-- Compact wild inertia converts finite wild ramification to the finite image
+used by the canonical cutoff. The conclusion kills the prescribed projection,
+including components that happen to act trivially on H. -/
+theorem exists_normalWildCutoff {Γ : Type u} {H : Type v} {Q : Type w}
+    [Group Γ] [Group H] [Group Q] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+    [TopologicalSpace H] [T1Space H] [TopologicalSpace Q] [DiscreteTopology Q]
+    (β : Q →* MulAut H) (η : Γ →* Q) (P : Subgroup Γ) [P.Normal] [CompactSpace P]
+    (c : LParameter (β.comp η))
+    (hη : Continuous (fun p : P => η p.val))
+    (hc : FiniteWildRamification c.val P) :
+    ∃ U : Subgroup Γ, U.Normal ∧ U ≤ P ∧
+      IsOpen (P.subtype ⁻¹' (U : Set Γ)) ∧ U ≤ η.ker ∧
+      ∀ x : Γ, x ∈ U → c.val x = 1 :=
+  NormalWildCutoff.exists_cutoff β η P c hη
+    ((finiteWild_iff_finite_range (β.comp η) P c).mp hc)
+end LParameter
 
 namespace FiniteWildChecks
 /-- Compactness cannot be dropped from the open-kernel implication. -/

@@ -216,6 +216,31 @@ of the identity open. This is the topological comparison used by
 required to show that every parameter satisfies either side; compactness
 alone does not prove that assertion.
 
+The normal cutoff can be constructed directly. For an action β:Q→Aut(H)
+and the fixed projection η:Γ→Q, put s_c(γ)=(c(γ),η(γ)). The crossed
+multiplication law makes s_c a homomorphism to H⋊Q. For a normal wild
+subgroup P, take U=P∩ker(s_c). Thus U is normal in Γ, lies in P and
+ker(η), and kills c. Its inverse image in P is the intersection of the
+identity fibres of c and η. If c has finite image on P, is continuous into
+a T₁ target, and η restricted to P is continuous into discrete Q, both
+fibres are open. This proves relative openness without taking an infinite
+intersection of conjugates. Killing the action alone would lose the fixed
+projection when the action of Q on H is not faithful.
+
+`NormalWildCutoff.lift` specifies s_c and `NormalWildCutoff.subgroup`
+specifies U. `mem_subgroup` characterizes membership by the three equations
+above; its normal-subgroup instance, `le_wild`, `le_projection_kernel` and
+`kills_cocycle` give the quotient inputs. `isOpen` and `exists_cutoff` use
+finite wild image. `LParameter.exists_normalWildCutoff` instead assumes
+finite wild ramification and compact P, using the finite-image comparison.
+`subgroup_mono` gives containment for smaller wild groups, and
+`subgroup_inf` identifies refinement inside V with U∩V. If V is normal
+in Γ and relatively open in P, this refinement remains normal and
+relatively open. These formulas are the group-theoretic cutoff step in
+Fargues–Scholze VIII.1.1, Remark VIII.1.2 and the proof of VIII.1.3,
+pp.278–279; the coefficient argument establishing finite wild image is
+the separate input stated above.
+
 **Checks for quotient descent.**
 
 - For P={1}, evaluation of the descended continuous cocycle on the class of
@@ -235,6 +260,13 @@ alone does not prove that assertion.
 - For the identity cocycle of C₂ with indiscrete topology on both groups,
   the image is finite and the cocycle is continuous, but its kernel is not
   open. T₁ separation cannot be dropped.
+- `cutoff_fixed_projection`: for Γ=Q, η=id and the unit cocycle, U={1},
+  even when β is trivial. Replacing ker(η) by the action kernel fails this
+  check for nontrivial Q.
+- `cutoff_cocycle_kernel`: for trivial Q and the identity cocycle Γ→Γ,
+  U={1}. This distinguishes the cutoff from P∩ker(η).
+- `cutoff_retains_wild`: for trivial H and Q, U=P, including P={1}.
+  This distinguishes the cutoff from ker(s_c) alone.
 
 
 The API should provide:
