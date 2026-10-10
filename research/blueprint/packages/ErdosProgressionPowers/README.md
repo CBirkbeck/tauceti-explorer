@@ -447,7 +447,7 @@ Under H and a in A(k), E_a[ell] is irreducible of Serre weight 2, its prime-to-e
 
 **Prerequisites.** EP.1 — first-family reduced-level bounds; EP.0 — large-prime valuation divisibility; `SerreWeightAndLevelOptimisation:R20.4`; `ArithmeticGaloisRepresentations:R01.3`.
 
-**Source.** [BS20], Adapter between Theorem 4 and Lemma 5.1, §§2–5.
+**Source.** [BS20], §2, Theorem 4, p. 360; §3.1, Lemmas 3.2–3.3, pp. 361–362; §5, Lemma 5.1, p. 365. The weight and conductor comparison is the adapter between these results.
 
 ### Kraus threshold for progression levels
 
@@ -497,7 +497,7 @@ Given k and finite parameter sets L_a of rational numbers for a in A(k), form Ca
 
 **API.**
 
-- `TauCeti.ProgressionPowers.case_partition_mem` (characterisation): Membership in CaseI is the stated existential nonsquare condition; membership in CaseII means every parameter is in -Q^2 union2Q^2.
+- `TauCeti.ProgressionPowers.case_partition_mem` (characterisation): Membership in CaseI is equivalent to membership in A(k) and the stated existential nonsquare condition; membership in CaseII is equivalent to membership in A(k) and every parameter being in -Q^2 union2Q^2.
 - `TauCeti.ProgressionPowers.case_partition_union` (relation): The union of the two components is A(k) and they are disjoint.
 - `TauCeti.ProgressionPowers.case_partition_reindex` (functoriality): Pointwise equal finite parameter sets give equal partitions.
 

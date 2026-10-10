@@ -241,8 +241,10 @@ def case_partition (k : ℕ) (parameters : Triple → Finset ℚ) : Finset Tripl
   let first := (ap_triples k).filter (fun a => ∃ u ∈ parameters a, ¬ inCaseSquareclasses u)
   exact (first, ap_triples k \ first)
 lemma case_partition_mem (k : ℕ) (parameters : Triple → Finset ℚ) (a : Triple) :
-    a ∈ (case_partition k parameters).1 ↔
-      a ∈ ap_triples k ∧ ∃ u ∈ parameters a, ¬ inCaseSquareclasses u := by sorry
+    (a ∈ (case_partition k parameters).1 ↔
+      a ∈ ap_triples k ∧ ∃ u ∈ parameters a, ¬ inCaseSquareclasses u) ∧
+    (a ∈ (case_partition k parameters).2 ↔
+      a ∈ ap_triples k ∧ ∀ u ∈ parameters a, inCaseSquareclasses u) := by sorry
 lemma case_partition_union (k : ℕ) (parameters : Triple → Finset ℚ) :
     (case_partition k parameters).1 ∪ (case_partition k parameters).2 = ap_triples k ∧
       Disjoint (case_partition k parameters).1 (case_partition k parameters).2 := by sorry

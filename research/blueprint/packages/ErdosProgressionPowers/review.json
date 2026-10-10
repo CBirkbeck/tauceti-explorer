@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-ErdosProgressionPowers",
+    "date": "2026-10-10",
+    "notes": "Independently checked upstream form, all 49 targets with their hypotheses and prerequisites, 56 API contracts and 59 tests, own-word source attribution with section/theorem/page locators, absence of process history, native declaration correspondence and single-line math.NT metadata. Corrected case_partition_mem to characterize both cases with triple membership, clarified its README contract, and supplied exact pages/sections for the coefficient-prime bridge. Checked pinned declarations, current upstream/library overlap, supplier ownership and critical BS20/DG95 passages. Final lean-check: zero errors, 140 sorry warnings, no other warnings. An admission-free scratch Lean proof verifies the corrected partition characterization. Packet checker: zero errors and warnings. The accepted plan's explicitly omitted native geometric signatures and local/conductor clauses are preserved as precise README obligations; no implementation or computability claim is certified."
+  }
+}
