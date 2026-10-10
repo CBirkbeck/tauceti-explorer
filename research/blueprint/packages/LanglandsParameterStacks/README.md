@@ -1394,61 +1394,63 @@ Unit tests:
 
 - `projected_unipotent`: For Q=1, H=SL₂ and Γ=Z, a nontrivial unipotent generator and the trivial representation have equal pseudocharacters, although the lifts are not conjugate.
 
-**Identity-component check.** Take H=G_m over an algebraically closed field
-of characteristic zero and Q=C₂ acting by inversion. Let Γ=ℤ and let η be
-trivial. The two lifts sending 1 to (2,1) and (1/2,1) in J=H⋊Q are
-semisimple and have the same projection. They are distinct under H-conjugation:
-H fixes every element of the identity component. Extend the Laurent coordinate
-x on that component by zero on the other component. This is a regular
-H-invariant function on J and its evaluations on the two generators are 2 and
-1/2. Conjugation by the nonidentity element of Q exchanges the lifts, so every
-J-invariant tuple function gives the same evaluations on them. In particular,
-the equality of x+x⁻¹ at the two generators does not identify their projected
-pseudocharacters. Taking whole-J invariants and then imposing η loses this
-distinction; it cannot replace O[Jⁿ]^H. The rational-point fixture
-`IdentityComponentChecks` in Suggested.lean uses Mathlib's semidirect product
-ℚˣ⋊C₂ and homomorphisms from the multiplicative form of ℤ. Its proofs check the
-common trivial projection, distinct H-conjugacy classes, equal evaluations of
-whole-J invariant functions in every tuple arity, and an H-invariant coordinate
-whose generator values differ. The elementary
-`projected_identity_component_shadow` calculation is also proved.
+**Connected regular-coordinate tests.** `ParameterTupleChecks` sets Q=1 and
+uses the free-cocycle coaction equalizer for O[Hⁿ]^H. Reindexing and ordered
+fibre multiplication are the actual word-substitution pullbacks. Evaluation
+of a homomorphism Γ→H(A) on these algebras defines all Θ_n and their relations;
+the unique component idempotent is 1. Evaluating the equalizer equation at a
+simultaneous conjugating point proves `projected_conjugate` in this connected
+case. The finite-Q version uses the imported IHG coordinate interface.
 
-The regular-coordinate fixture `IdentityComponentCoordinateChecks` uses
-A=R[x,x⁻¹]×R[x,x⁻¹] for O[J] and
-B=R[h,h⁻¹,x,x⁻¹]×R[h,h⁻¹,x,x⁻¹] for O[H×J], over any commutative ring R.
-Writing C₂ additively, conjugation by h∈H fixes (x,0) and sends (x,1)
-to (h²x,1). Its coordinate
-pullback δ and the projection pullback ι are actual R-algebra homomorphisms:
-on the two components they send xⁿ respectively to xⁿ and h²ⁿxⁿ, while ι
-sends xⁿ to xⁿ on both. Conjugation by the component switch pulls xⁿ back to
-x⁻ⁿ on both components. The invariants are checked in Mathlib's
-`AlgHom.equalizer`, using regular functions rather than only R-valued points.
+For `projected_rank_one`, the coordinate Hopf algebra is Mathlib's
+`LaurentPolynomial R`. Evaluation at χ(γ) is `LaurentPolynomial.eval₂` at
+that unit. Apply the coproduct universal property to the monomial
+∏ᵢtᵢ^{aᵢ}; its value is ∏ᵢχ(γᵢ)^{aᵢ}, including negative exponents.
 
-- `coordinate_h_invariant` puts f=(x,0) in the equalizer of δ and ι;
-  `coordinate_not_switch_invariant` excludes f from the switch invariants
-  whenever R is nonzero. This distinction persists over fields of
-  characteristic two: Laurent exponents 1 and −1 remain distinct.
-- `other_component_not_h_invariant` excludes (0,x) from the H-invariants for
-  nonzero R, detecting an action that incorrectly fixes the second component.
-- The component idempotent e=(1,0) is fixed by both actions. Over ℚ, evaluation
-  on the identity component sends e to 1 at both x=2 and x=1/2, but sends f
-  to 2 and 1/2 respectively. The component condition cannot recover f after
-  whole-J invariants have discarded it.
-- `coordinate_not_projected_switch_invariant` proves that no switch-invariant
-  function g satisfies eg=f. Consequently `identity_restriction_not_surjective`
-  proves that restriction of the switch-invariant subalgebra to R[x,x⁻¹]
-  misses x, for every nonzero R. The same holds for its whole-J invariant
-  subalgebra. This checks the proposed component restriction as an algebra
-  map, including in characteristic two where the preceding rational-point
-  calculation does not apply.
+`ProjectedSL2Checks` uses Tau Ceti's
+`SpecialLinear.coordinateHopfAlgebra ℚ 2` and `SpecialLinear.pointsMulEquiv`,
+which identify Hopf-algebra points with actual SL₂ matrices. Over any
+ℚ-algebra field K, send k∈ℤ to U(k)=[[1,k],[0,1]]. For every tuple (kᵢ), the
+polynomial curve [[1,kᵢt²],[0,1]] is simultaneously conjugate to (U(kᵢ))
+by diag(t,t⁻¹) when t≠0. Thus every regular invariant pulls back to a constant
+polynomial: K is infinite and K[t]→K[t,t⁻¹] is injective. Its endpoints at
+0 and 1 give the trivial and original tuples. `projected_unipotent` therefore
+compares the whole Θ family; U(1)≠1 excludes conjugacy of the lifts. These
+suggested proofs use `sorry` and assert no implementation.
 
-All these fixture proofs are complete. They check this explicit coordinate
-algebra, without supplying the general invariant-coordinate or pseudocharacter
-carrier, the quotient stack, or semisimple reconstruction.
+**Identity-component check.** Let H=G_m, Q=C₂ act by inversion, Γ=ℤ and
+η=1. The semisimple lifts with generator (2,1) and (1/2,1) are distinct under
+H-conjugation but exchanged by Q. The Laurent coordinate x on the identity
+component, extended by zero, distinguishes them; whole-J invariant tuple
+functions agree in every arity. Equality of x+x⁻¹ cannot identify their
+projected pseudocharacters. `IdentityComponentChecks` proves this using
+Mathlib's semidirect product ℚˣ⋊C₂, including the common projection and
+`projected_identity_component_shadow` calculation.
+
+`IdentityComponentCoordinateChecks` works over any commutative ring R with
+O[J]=R[x,x⁻¹]² and O[H×J]=R[h,h⁻¹,x,x⁻¹]². Write C₂ additively. Conjugation
+by h fixes (x,0) and sends (x,1) to (h²x,1); the projection fixes x on both
+components. The corresponding algebra maps δ and ι define the invariants
+through `AlgHom.equalizer`. The component switch sends xⁿ to x⁻ⁿ on both.
+
+- `coordinate_h_invariant` puts f=(x,0) in the equalizer;
+  `coordinate_not_switch_invariant` excludes it from switch invariants for
+  nonzero R, including characteristic two where exponents 1 and −1 differ.
+- `other_component_not_h_invariant` excludes (0,x) when R is nonzero.
+- The idempotent e=(1,0) is fixed by both actions. At x=2 and x=1/2 over ℚ,
+  e evaluates to 1 but f has different values, so imposing the component
+  condition cannot recover f from whole-J invariants.
+- `coordinate_not_projected_switch_invariant` excludes any switch-invariant
+  g with eg=f. Hence `identity_restriction_not_surjective` shows that
+  restriction to R[x,x⁻¹] misses x, also for the whole-J invariant subalgebra
+  and in characteristic two.
+
+These identity-component fixture proofs are complete. Their explicit algebra
+does not supply the general IHG carrier, quotient stack or reconstruction.
 
 **Needs:** [LP2e.11](#lp2e11-the-universal-excursion-relations); **ReductiveGroupsPartII, RG2.5**; `RingHom` (Mathlib); **IntegralHeckeAndGaloisDeterminants, IHG.0/reductive-pseudocharacter**.
 
-**Source:** [Quast][Quast-pseudocharacters], Definition 3.1 and Lemma 3.5, pp.11–13. [Fargues–Scholze][FS-geometrization], VIII.3.7–VIII.3.8, pp.288–290.
+**Source:** [Quast][Quast-pseudocharacters], Definition 3.1 and Lemma 3.5, pp.11–13. [Fargues–Scholze][FS-geometrization], VIII.3.7–VIII.3.8, pp.288–290; Definition VIII.3.1 and Proposition VIII.3.2, pp.285–287. [Böckle–Harris–Khare–Thorne][BHKT-local-systems], Definition 4.1 and Lemma 4.3, pp.19–20.
 
 ### LP2c.2 Reconstruction with prescribed finite projection
 

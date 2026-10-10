@@ -55,6 +55,7 @@ import Mathlib.CategoryTheory.Limits.Sifted
 import Mathlib.Topology.Instances.Matrix
 import TauCeti.GroupTheory.FixedSubgroup
 import TauCeti.Algebra.AlgebraicGroup.PointsFunctor
+import TauCeti.Algebra.AlgebraicGroup.SpecialLinear.Basic
 
 open CategoryTheory CategoryTheory.Limits
 open scoped BigOperators TensorProduct
@@ -2561,7 +2562,8 @@ variable {R : Type v} {A : Type w} [CommRing R] [CommRing A] [Algebra R A]
 
 /-- Ordinary tuple shadow of the imported IHG carrier. This is not a second
 owner of reductive pseudocharacters. The identification D n = O((H⋊Q)^n)^H
-and its genuine coordinate maps are absent supplier inputs. -/
+and its genuine coordinate maps are supplier inputs. The connected test
+fixtures below supply those maps for Q = 1 only. -/
 structure InvariantTupleShadow where
   Θ : ∀ n, 0 < n → D n →ₐ[R] ((Fin n → Γ) → A)
   reindex_law : ∀ {m n} (hm : 0 < m) (hn : 0 < n)
@@ -2650,6 +2652,180 @@ example (c : ProjectedPseudocharacter (A := A) D reindex multiply components η)
     c.map D reindex multiply components η (AlgHom.id R A) = c := by sorry
 end ProjectedPseudocharacter
 end Pseudocharacters
+
+/-! ## LP2c.1: regular-coordinate tests in the connected fibre
+
+The following test fixture specializes to Q = 1. It uses the already specified
+free-cocycle coaction, rather than an arbitrary tuple diagram or functions on
+rational points. Generic generalized-reductive pseudocharacters and their
+reconstruction remain IHG's targets. -/
+namespace ParameterTupleChecks
+noncomputable section
+variable {R C A Γ : Type} [CommRing R] [CommRing C] [HopfAlgebra R C]
+  [CommRing A] [Algebra R A] [Group Γ]
+
+abbrev action : Unit →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C) := 1
+
+def index (n : ℕ) : FreeCocycleIndex Unit := ⟨n, 1⟩
+
+abbrev invariants (n : ℕ) :=
+  FreeCocycleIndex.invariantCoordinates (action (R := R) (C := C)) (index n)
+
+/-- Pull back actual coordinate functions by selecting tuple entries. -/
+def reindex {m n : ℕ} (u : Fin m → Fin n) :
+    invariants (R := R) (C := C) m →ₐ[R] invariants (R := R) (C := C) n :=
+  FreeCocycleIndex.invariantPullback action
+    (FreeCocycleIndex.wordHom (fun j => FreeGroup.of (u j)) (by sorry))
+
+/-- Multiplication uses the ordered fibres of u; an empty fibre contributes 1. -/
+def multiply {m n : ℕ} (u : Fin m → Fin n) :
+    invariants (R := R) (C := C) n →ₐ[R] invariants (R := R) (C := C) m := by
+  classical
+  exact FreeCocycleIndex.invariantPullback action
+    (FreeCocycleIndex.wordHom
+      (fun i => (((List.finRange m).filter (fun j => decide (u j = i))).map FreeGroup.of).prod)
+      (by sorry))
+
+/-- For Q = 1 the unique component idempotent is the unit. -/
+def components (n : ℕ) (_q : Fin n → Unit) : invariants (R := R) (C := C) n := 1
+
+/-- This is evaluation of regular invariant coordinates on an actual tuple. -/
+def tupleEvaluation (g : Fin n → IntegralCocycleScheme.Points (R := R) (C := C) A) :
+    invariants (R := R) (C := C) n →ₐ[R] A :=
+  (IntegralCocycleScheme.evaluateTuple g).comp
+    (ParameterInvariantAlgebra.inclusion
+      (FreeCocycleIndex.gaugeAction action (index n)) Algebra.TensorProduct.includeRight)
+
+/-- A homomorphism evaluates all tuple coordinate algebras compatibly. -/
+def shadow (ρ : Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A) :
+    InvariantTupleShadow (Γ := Γ) (A := A)
+      (fun n => ↥(invariants (R := R) (C := C) n)) reindex multiply where
+  Θ n _ := AlgHom.pi (fun γ => tupleEvaluation (fun i => ρ (γ i)))
+  reindex_law := by sorry
+  multiply_law := by sorry
+
+/-- Connected prescribed-projection fibre, with its genuine component idempotent. -/
+def projected (ρ : Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A) :
+    ProjectedPseudocharacter (Γ := Γ) (A := A)
+      (fun n => ↥(invariants (R := R) (C := C) n)) reindex multiply components (1 : Γ →* Unit) where
+  underlying := shadow ρ
+  component_eval := by sorry
+
+theorem projected_eval
+    (ρ : Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A)
+    (n : ℕ) (hn : 0 < n) (f : invariants (R := R) (C := C) n) (γ : Fin n → Γ) :
+    (projected ρ).underlying.Θ n hn f γ =
+      IntegralCocycleScheme.evaluateTuple (fun i => ρ (γ i)) f.val := by sorry
+
+def conjugate (ρ : Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A)
+    (h : IntegralCocycleScheme.Points (R := R) (C := C) A) :
+    Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A where
+  toFun γ := h * ρ γ * h⁻¹
+  map_one' := by sorry
+  map_mul' := by sorry
+
+-- projected_conjugate: equality in the fibre, in all tuple arities and all regular invariants.
+example (ρ : Γ →* IntegralCocycleScheme.Points (R := R) (C := C) A)
+    (h : IntegralCocycleScheme.Points (R := R) (C := C) A) :
+    projected (conjugate ρ h) = projected ρ := by sorry
+
+/-- G_m(A) from Mathlib's Laurent-polynomial Hopf algebra, with its actual evaluation. -/
+def torusPoint (x : Aˣ) :
+    IntegralCocycleScheme.Points (R := R) (C := LaurentPolynomial R) A :=
+  WithConv.toConv
+    { toRingHom := LaurentPolynomial.eval₂ (algebraMap R A) x
+      commutes' := by sorry }
+
+def torusCharacter (χ : Γ →* Aˣ) :
+    Γ →* IntegralCocycleScheme.Points (R := R) (C := LaurentPolynomial R) A where
+  toFun γ := torusPoint (χ γ)
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- The invariant Laurent monomial on G_m^n; negative exponents are retained. -/
+def torusMonomial (a : Fin n → ℤ) : invariants (R := R) (C := LaurentPolynomial R) n :=
+  ⟨∏ i, (IntegralCocycleScheme.generatorPoint (R := R) (C := LaurentPolynomial R) i).ofConv
+    (LaurentPolynomial.T (a i)), by sorry⟩
+
+-- projected_rank_one: the expected character value, not a trace or a constant function.
+example (χ : Γ →* Aˣ) (n : ℕ) (hn : 0 < n) (a : Fin n → ℤ) (γ : Fin n → Γ) :
+    (projected (torusCharacter (R := R) χ)).underlying.Θ n hn (torusMonomial a) γ =
+      ∏ i, ((χ (γ i) ^ a i : Aˣ) : A) := by sorry
+
+end
+end ParameterTupleChecks
+
+/-! ## LP2c.1: all-arity SL₂ semisimplification test
+
+Use Tau Ceti's imported SL₂ Hopf algebra. The polynomial curve simultaneously
+replaces the upper-right entry k_i of every unipotent matrix by k_i t². Its
+value at t = 0 is the trivial tuple, and t = 1 gives the original tuple.
+Conjugation by diag(t,t⁻¹) supplies the curve away from zero. -/
+namespace ProjectedSL2Checks
+noncomputable section
+abbrev Coordinates := TauCeti.SpecialLinear.coordinateHopfAlgebra ℚ 2
+abbrev Γ := Multiplicative ℤ
+variable {K : Type} [Field K] [Algebra ℚ K]
+
+/-- The genuine imported matrix/point equivalence, rather than a second group carrier. -/
+abbrev pointEquiv (B : Type) [CommRing B] [Algebra ℚ B] :=
+  TauCeti.SpecialLinear.pointsMulEquiv (R := ℚ) (A := B) 2
+
+/-- The additive one-parameter root subgroup, viewed as a homomorphism out of ℤ. -/
+def unipotentLift : Γ →* Matrix.SpecialLinearGroup (Fin 2) K where
+  toFun k := ⟨!![1, (k.toAdd : K); 0, 1], by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+def parameter : Γ →* IntegralCocycleScheme.Points (R := ℚ) (C := Coordinates) K :=
+  (pointEquiv K).symm.toMonoidHom.comp unipotentLift
+
+/-- All entries degenerate through one conjugating matrix, as tuple invariance requires. -/
+def curve (γ : Fin n → Γ) :
+    Fin n → Matrix.SpecialLinearGroup (Fin 2) (Polynomial K) :=
+  fun i => ⟨!![1, Polynomial.C ((γ i).toAdd : K) * Polynomial.X ^ 2; 0, 1], by sorry⟩
+
+def diagonal (t : K) (ht : t ≠ 0) : Matrix.SpecialLinearGroup (Fin 2) K :=
+  ⟨!![t, 0; 0, t⁻¹], by sorry⟩
+
+/-- One and the same conjugating matrix works for every entry of the tuple. -/
+theorem curve_nonzero (γ : Fin n → Γ) (t : K) (ht : t ≠ 0) (i : Fin n) :
+    Matrix.SpecialLinearGroup.map (Polynomial.evalRingHom t) (curve γ i) =
+      diagonal t ht * unipotentLift (γ i) * (diagonal t ht)⁻¹ := by sorry
+
+def curveEvaluation (γ : Fin n → Γ) :
+    ParameterTupleChecks.invariants (R := ℚ) (C := Coordinates) n →ₐ[ℚ] Polynomial K :=
+  ParameterTupleChecks.tupleEvaluation (fun i => (pointEquiv (Polynomial K)).symm (curve γ i))
+
+/-- Each regular invariant pulls back to a constant polynomial, including the origin. -/
+theorem curve_constant (γ : Fin n → Γ)
+    (f : ParameterTupleChecks.invariants (R := ℚ) (C := Coordinates) n) :
+    curveEvaluation γ f = Polynomial.C
+      (ParameterTupleChecks.tupleEvaluation
+        (fun _ => (1 : IntegralCocycleScheme.Points (R := ℚ) (C := Coordinates) K)) f) := by
+  sorry
+
+theorem curve_zero (γ : Fin n → Γ) :
+    (Polynomial.eval₂AlgHom (AlgHom.id ℚ K) 0 (fun _ => Commute.all _ _)).comp
+      (curveEvaluation γ) =
+    ParameterTupleChecks.tupleEvaluation
+      (fun _ => (1 : IntegralCocycleScheme.Points (R := ℚ) (C := Coordinates) K)) := by sorry
+
+theorem curve_one (γ : Fin n → Γ) :
+    (Polynomial.eval₂AlgHom (AlgHom.id ℚ K) 1 (fun _ => Commute.all _ _)).comp
+      (curveEvaluation γ) =
+    ParameterTupleChecks.tupleEvaluation (fun i => parameter (γ i)) := by sorry
+
+-- projected_unipotent: equal complete pseudocharacters, despite distinct conjugacy classes.
+example :
+    ParameterTupleChecks.projected (parameter (K := K)) =
+      ParameterTupleChecks.projected
+        (1 : Γ →* IntegralCocycleScheme.Points (R := ℚ) (C := Coordinates) K) ∧
+    ¬ ∃ h : Matrix.SpecialLinearGroup (Fin 2) K,
+      ∀ k : Γ, h * unipotentLift k * h⁻¹ = 1 := by sorry
+
+end
+end ProjectedSL2Checks
 
 /- Rational-point regression for LP2c.1. This fixture uses Mathlib's actual
 semidirect product, with C₂ acting on ℚˣ by inversion. It checks the fixed
