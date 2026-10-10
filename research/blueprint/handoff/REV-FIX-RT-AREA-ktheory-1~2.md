@@ -1,14 +1,21 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Refs #5542. Codex — `codex-qY3SVa`, 10 October 2026.
+Refs #5542. Codex — `codex-dqb0Wk`, 10 October 2026.
 
 **Checkpoint: the GitHub issue's seven-packet review is complete, but the
-expanded queue job is blocked by a scope mismatch.** The report is
+expanded queue job is blocked by a scope mismatch.**
+A fresh call to `issues.py:deliverables_complete` returns false because
+the fifteen added packet outputs do not carry this review job’s id. No
+authorization to edit those added outputs arrived during this run. The report is
 [REV-FIX-RT-AREA-ktheory-1~2](../reviews/REV-FIX-RT-AREA-ktheory-1~2.md).
 It gives all 38 scoped verdicts, this run's evidence and validation, and
 the retained C1–C11 corrections and source record from `codex-dbAQYQ`.
-The seven packets have refreshed top-level verdicts; the prior same-job
-verdicts are preserved in `reviewHistory`.
+The seven packets have refreshed top-level verdicts; both prior same-job
+verdicts are preserved in `reviewHistory`. This continuation strengthens
+T.1’s positive transgression test with a Heisenberg-group control over 𝔽₃: the
+positive boundary gives 2, the opposite sign 1. The test helpers and numerical
+controls are proved; the transgression comparison remains admitted. The
+report contains its derivation and the exact suggested form.
 
 ## Resume here: reconcile issue and queue scope
 
@@ -49,12 +56,16 @@ Additional packet basenames (each has a matching `.lean` under `suggested/`):
 14. `KTheoryLowDegrees--Z.3`
 15. `KTheoryFiniteLocalFields`
 
-Read-only structural checks of all fifteen passed with zero errors/warnings
-at the pinned baseline. They were not edited or fully reviewed by this run;
+The preceding continuation’s read-only structural checks of all fifteen
+passed with zero errors/warnings at the pinned baseline. They were not
+repeated, edited or fully reviewed by this run;
 their Lean files were not compiled. Original seven files all compiled,
 with zero errors and only admitted-declaration warnings: N.1 124, K.1 0,
-T.3 275, N.7 45, K.6 6, T.1 72, K3BlochGroups 807. Their executable
-content did not change. Every final packet check and `git diff --check`
+T.3 275, N.7 45, K.6 6, T.1 72, K3BlochGroups 807. T.1’s executable
+content changed only to add the sign control; its final content elaborates
+with the same 72 admitted-declaration warnings. The other
+six files did not change. The report distinguishes fresh source checks from
+retained historical certifications. Every final packet check and `git diff --check`
 passed. Current source locators and hashes are in the report; no scratch
 file is needed to resume.
 
@@ -65,10 +76,8 @@ older partial-packet gaps remain explicit.
 
 All seven packet checks pass with zero errors/warnings at Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. All seven actual Lean files
-elaborate with only `sorry` warnings; K.1 has none. Future comments are not
-type checked. The report distinguishes this run's checks from the earlier
-three-file rechecks.
+`f790474821cf4256814db967cb154e7af3d0c369`. Future signatures in comments are not type checked. The report distinguishes
+this run's checks from the preceding continuation's three-file rechecks.
 Nothing is claimed formalized; no live atlas, reader, supplier or upstream
 roadmap file was edited. No standalone link map or restructuring result
 was a deliverable. Scratch evidence is reproduced in the report where
@@ -96,7 +105,7 @@ The maintainer must apply the K.1/K.6 embedded restructuring proposals:
 5. Recheck stage projection after application, including the early transfer
    and boundary consumers. The 467-node internal graph is already acyclic;
    current parents still induce K.6↔K.7 and
-   K.3→K.5→K.6→K.7→K.3 cycles. Proposed parents do not apply these changes.
+   K.3↔K.7 cycles (and the older longer K.3→K.5→K.6→K.7→K.3 cycle). Proposed parents do not apply these changes.
 
 The next reviewer should keep the corrected one-step ambient-subobject
 hypothesis distinct from ordinary resolving closure, and keep the support

@@ -688,16 +688,75 @@ example : Subsingleton (mixedCoinvariants
     Nat.card (Abelianization
       (Equiv.Perm.sign : Equiv.Perm (Fin 3) →* ℤˣ).ker) = 3 := by sorry
 
--- Test five_term_positive_sign: the example below uses +d(lift).
-example (q : E →* Q) (hq : Function.Surjective q)
-    (z : (integralBar Q).X 2) (hz : (integralBar Q).d 2 1 z = 0)
-    (lift : (integralBar E).X 2) (hlift : (barMap q).f 2 lift = z)
-    (boundary : (barKernel q).X 1)
-    (hb : (kernel.ι (barMap q)).f 1 boundary = (integralBar E).d 2 1 lift) :
-    transgression q hq ((integralBar Q).homologyπ 2
-      ((integralBar Q).cyclesMk z 1 (ChainComplex.next_nat_succ 1) hz)) =
-      barKernelH1Equiv q ((barKernel q).homologyπ 1
-        ((barKernel q).cyclesMk boundary 0 (ChainComplex.next_nat_succ 0) (by sorry))) := by sorry
+/-- A finite test carrier: upper-unitriangular 3×3 matrices over 𝔽₃, in coordinates.
+Multiplication is (x,y,z)(x′,y′,z′)=(x+x′,y+y′,z+z′+xy′). -/
+@[ext] structure HeisenbergThree where
+  x : ZMod 3
+  y : ZMod 3
+  z : ZMod 3
+  deriving DecidableEq
+
+instance heisenbergMul : Mul HeisenbergThree :=
+  ⟨fun a b => ⟨a.x + b.x, a.y + b.y, a.z + b.z + a.x * b.y⟩⟩
+instance heisenbergOne : One HeisenbergThree := ⟨⟨0, 0, 0⟩⟩
+instance heisenbergInv : Inv HeisenbergThree :=
+  ⟨fun a => ⟨-a.x, -a.y, -a.z + a.x * a.y⟩⟩
+
+instance : Group HeisenbergThree where
+  mul_assoc a b c := by
+    apply HeisenbergThree.ext
+    · change (a.x + b.x) + c.x = a.x + (b.x + c.x); ring
+    · change (a.y + b.y) + c.y = a.y + (b.y + c.y); ring
+    · change (a.z + b.z + a.x * b.y) + c.z + (a.x + b.x) * c.y =
+        a.z + (b.z + c.z + b.x * c.y) + a.x * (b.y + c.y); ring
+  one_mul a := by
+    apply HeisenbergThree.ext
+    · change 0 + a.x = a.x; ring
+    · change 0 + a.y = a.y; ring
+    · change 0 + a.z + 0 * a.y = a.z; ring
+  mul_one a := by
+    apply HeisenbergThree.ext
+    · change a.x + 0 = a.x; ring
+    · change a.y + 0 = a.y; ring
+    · change a.z + 0 + a.x * 0 = a.z; ring
+  inv_mul_cancel a := by
+    apply HeisenbergThree.ext
+    · change -a.x + a.x = 0; ring
+    · change -a.y + a.y = 0; ring
+    · change (-a.z + a.x * a.y) + a.z + (-a.x) * a.y = 0; ring
+
+/-- Projection to the abelian pair of first superdiagonal coordinates. -/
+def heisenbergProjection : HeisenbergThree →* Multiplicative (ZMod 3 × ZMod 3) where
+  toFun a := Multiplicative.ofAdd (a.x, a.y)
+  map_one' := rfl
+  map_mul' _a _b := rfl
+
+theorem heisenbergProjection_surjective : Function.Surjective heisenbergProjection := by
+  intro t
+  exact ⟨⟨t.toAdd.1, t.toAdd.2, 0⟩, rfl⟩
+
+-- The kernel is the central coordinate, so mixed coinvariants identify with 𝔽₃.
+-- The positive boundary of [a|b]−[b|a] is [ba]−[ab], giving z², not z.
+-- This computation has odd order: a sign error cannot disappear as in a C₂ target.
+example :
+    let a : HeisenbergThree := ⟨1, 0, 0⟩
+    let b : HeisenbergThree := ⟨0, 1, 0⟩
+    (b * a * (a * b)⁻¹).z = 2 ∧ (a * b * (b * a)⁻¹).z = 1 := by decide
+
+-- Test five_term_positive_sign. The comparison hypothesis specifies the actual
+-- central-coordinate isomorphism; it is not an unspecified abstract group iso.
+example (central : mixedCoinvariants heisenbergProjection ≃+ ZMod 3)
+    (hcentral : ∀ n : heisenbergProjection.ker,
+      central (Additive.ofMul
+        (QuotientGroup.mk' (mixedCommutator heisenbergProjection) n)) = n.val.z) :
+    let a : HeisenbergThree := ⟨1, 0, 0⟩
+    let b : HeisenbergThree := ⟨0, 1, 0⟩
+    let z : (integralBar (Multiplicative (ZMod 3 × ZMod 3))).X 2 :=
+      Finsupp.single ![heisenbergProjection a, heisenbergProjection b] (1 : ℤ) -
+        Finsupp.single ![heisenbergProjection b, heisenbergProjection a] 1
+    central (transgression heisenbergProjection heisenbergProjection_surjective
+      ((integralBar _).homologyπ 2
+        ((integralBar _).cyclesMk z 1 (ChainComplex.next_nat_succ 1) (by sorry)))) = 2 := by sorry
 
 def mixedMap (q : E →* Q) (q' : E' →* Q') (a : E →* E') (b : Q →* Q')
     (hsq : q'.comp a = b.comp q) : mixedCoinvariants q →+ mixedCoinvariants q' := by sorry
