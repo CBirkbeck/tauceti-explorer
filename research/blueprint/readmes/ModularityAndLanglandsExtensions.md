@@ -4,6 +4,8 @@ This roadmap assembles modularity and potential-automorphy theorems, symmetric-p
 
 The roadmap document is the mathematical specification. The [packet](../packets/ModularityAndLanglandsExtensions.json) records its prerequisite graph and source editions. The [suggested file](../suggested/ModularityAndLanglandsExtensions.lean) proposes names and expressible signatures. Its concrete prototypes concern endpoint bookkeeping, the singular Hodge list, reciprocal Euler polynomials, the finite-field projective-image condition, the orthogonal determinant sign constraint, and the weight-level parallel condition. Dependent signatures whose actual supplier objects or hypotheses are unavailable are explicitly omitted there. Their names, mathematical statements, API and test specifications remain in the manifest. Compiling that file verifies the stated prototypes; it does not certify the omitted endpoints or implement this roadmap.
 
+The [independent review of revision 2](../reviews/REV-ModularityAndLanglandsExtensions~2.md) accepts this target-level plan: 127 nodes verified and 15 corrected, with all eight baseline citations confirmed. Acceptance retains the precise supplier requests and gaps; it certifies neither omitted Lean signatures nor a global atlas dependency order.
+
 ## Scope and order
 
 All six layers have a target-level plan. None is closed: the supplier requests and exact gaps below are part of the plan. A known mathematical endpoint, a conditional theorem and a conjectural frontier have distinct meanings even when all three have unimplemented Lean declarations. The source-qualified statements determine those meanings; the registry records them rather than inferring them from a stage label.
@@ -549,11 +551,11 @@ Suggested signature: omitted until C-ARTHUR supplies the actual objects and hypo
 
 Target `ML.0/expected-crystallinity-newton-above-hodge`; definition. Proposed declaration: `TauCeti.LanglandsRegister.ExpectedSingularWeightHodge`.
 
-ExpectedSingularWeightHodge is the proposition: for a system of Hecke eigenvalues Θ occurring in the coherent cohomology H^i(S^tor_{K,Σ}, Ω^{(k,r)}), (k, r) ∈ ℤ_{≥0} × ℤ (or its cuspidal version), of the Siegel threefold, the attached semisimple ρ_{Θ,λ} : G_ℚ → GL₄(E_λ) is de Rham at p with Hodge–Tate weights (0, r − 2, r + k − 1, k + 2r − 3) (cyclotomic character of weight −1), crystalline at p if (N, p) = 1, with Newton polygon above the Hodge polygon. Status: conjectural in general; in cohomological weight (r ≠ 2, k + r ≠ 1, k + 2r ≠ 3) the Newton-above-Hodge statement is a consequence of V. Lafforgue's theorem.
+ExpectedSingularWeightHodge is the proposition: for a system of Hecke eigenvalues Θ occurring in the coherent cohomology H^i(S^tor_{K,Σ}, Ω^{(k,r)}), (k, r) ∈ ℤ_{≥0} × ℤ (or its cuspidal version), of the Siegel threefold, the attached semisimple ρ_{Θ,λ} : G_ℚ → GL₄(E_λ) is de Rham at p with Hodge–Tate weights (0, r − 2, r + k − 1, k + 2r − 3) (cyclotomic character of weight −1), and crystalline at p if (N,p)=1. When (N,p)=1, the Newton polygon of the p-local Hecke parameters lies above the stated Hodge polygon, with equal endpoints. Status: conjectural in general; at good p in cohomological weight (r ≠ 2, k+r ≠ 1, k+2r ≠ 3), Pilloni cites V. Lafforgue for this Newton inequality. That cited conclusion does not certify the entire expected de Rham/crystalline assertion.
 
 Hypotheses:
 
-- Frontier statement; status conjectural (cohomological weight: Newton above Hodge known).
+- Frontier assertion: conjectural in general. The cited known Newton inequality requires (N,p)=1 and cohomological weight; it is distinct from the full de Rham/crystalline assertion.
 
 Proof route:
 
@@ -878,9 +880,9 @@ Hypotheses:
 
 Proof route:
 
-1. Kim–Shahidi (Ann. of Math. 2002): the Langlands–Shahidi method for the Levi GL₂ × GL₃ of SL₅-type groups gives the analytic properties of L(s, π × σ × τ) for cuspidal τ on GL_m, m ≤ 4, and Cogdell–Piatetski-Shapiro's converse theorem.
-2. Sym³π is a constituent of π ⊠ Sym²π (Gelbart–Jacquet), split off by the central character.
-3. Kim–Shahidi prove local compatibility outside the places above 2 and 3; Newton–Thorne I quote Sym³ as a functorial lift at every place (with Henniart's local results).
+1. For the GL₂×GL₃ transfer Kim–Shahidi use triple-product L-functions from the exceptional cases D₅−2, E₆−1 and E₇−1 of the Langlands–Shahidi method (Introduction pp. 839–840), followed by the GL₆ converse theorem (§3, Theorem 3.8) and the local comparison in §5, Theorem 5.1.
+2. For non-dihedral π, Sym²π is cuspidal; identify the GL₆ product π⊠Sym²π with Sym³π⊞(π⊗ω_π) and construct the GL₄ summand using §6. Handle the dihedral case through automorphic induction separately, since its Sym² is noncuspidal.
+3. Theorem 5.1 gives the tensor product’s matching local factors at every place; §6 gives the symmetric-cube lift and its dihedral/tetrahedral cuspidality exceptions. Places above 2 and 3 are not excluded in this theorem; that qualification belongs to Kim’s exterior-square result.
 
 Direct prerequisites: [ML.3/gelbart-jacquet](#target-gelbart-jacquet), [ML.3/functorial-lift](#target-functorial-lift), `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
@@ -1336,7 +1338,7 @@ Suggested signature: omitted until C-GALOIS, C-SYSTEM, C-LOCAL-DEFORMATION suppl
 
 Target `ML.2/steinberg-ordinarity-lemma`; lemma. Proposed declaration: `TauCeti.PotentialAutomorphy.steinbergOrdinary`.
 
-At a place v|l of the chosen Dwork point require v(t)<0. Suppose V_{λ,t}^{ss}≅r_{l,ι}(π) for a regular algebraic cuspidal π and that the auxiliary-prime V_{λ′,t} is semisimple. The latter holds in the construction because its residual twist is an absolutely irreducible elliptic symmetric power. Match the coefficient embeddings. The monodromy of V_{λ′,t} at v is a single unipotent Jordan block of size n. Varma’s bound for its actual automorphic realization then forces π_v to be an unramified twist of Steinberg. The Hodge weights at τ are M(a_τ),…,M(a_τ)+n−1, so the constant automorphic weight is +λ_τ with λ_τ=M(a_τ). The central-character slope is +nλ_τ, and its j-th partial slope is +jλ_τ, giving ι-ordinarity by Geraghty. This proves ordinary automorphy of V_{λ,t}^{ss}; it does not assert semisimplicity of the original l-adic fibre.
+At a place v|l of the chosen Dwork point require v(t)<0. Suppose V_{λ,t}^{ss}≅r_{l,ι}(π) for a regular algebraic cuspidal π and that the auxiliary-prime V_{λ′,t} is semisimple. The latter holds in the construction because its residual twist is an absolutely irreducible elliptic symmetric power. Match the coefficient embeddings. The monodromy of V_{λ′,t} at v is a single unipotent Jordan block of size n. Varma’s bound for its actual automorphic realization then forces π_v to be an unramified twist of Steinberg. The Hodge weights at τ are M(a_τ),…,M(a_τ)+n−1, so the constant automorphic weight is +λ_τ with λ_τ=M(a_τ). The central-character slope is +nλ_τ, and its j-th partial slope is +jλ_τ, giving ι-ordinarity by Geraghty. This proves ι-ordinarity of π. Galois ordinarity and potential semistability of V_{λ,t}^{ss} require the separate Dwork geometry and subquotient argument; they do not follow from good-place compatibility with V_{λ′,t}. No semisimplicity of the original l-adic fibre is asserted.
 
 Hypotheses:
 
@@ -1463,11 +1465,11 @@ Suggested signature: omitted until C-GALOIS, C-SYSTEM, C-LOCAL-DEFORMATION suppl
 
 Target `ML.2/pd-lifts-with-local-conditions`; theorem. Proposed declaration: `TauCeti.PotentialAutomorphy.exists_pd_lift`.
 
-In the setting of §4.3 (F imaginary CM with ζ_l ∉ F, S split containing places above l, µ algebraic unramified outside S with µ(c_v) = −1, r̄ : G_{F⁺} → G_n(F̄_l) unramified outside S with ν ∘ r̄ = µ̄, lifts ρ_v of r̄̆|_{G_{F_ṽ}} for v ∈ S), assume r̄̆|_{G_{F(ζ_l)}} irreducible, l ≥ 2(d + 1), and for v | l that ρ_v is potentially diagonalizable with n distinct τ-Hodge–Tate numbers. Then r̄ has a lift r : G_{F⁺} → G_n(O_{Q̄_l}) with ν ∘ r = µ, r̆|_{G_{F_ṽ}} ∼ ρ_v for v ∈ S, unramified outside S.
+Let n ≥ 1, l be an odd prime, and F be an imaginary CM field with ζ_l ∉ F. Let S be a finite set of finite places of F⁺, split in F and containing every place above l, with chosen ṽ above each v. Let µ : G_{F⁺} → Q̄_l^× be continuous algebraic, unramified outside S and satisfy µ(c_v)=−1 at every real place. Let r̄ : G_{F⁺} → G_n(F̄_l) be continuous, unramified outside S, with ν∘r̄=µ̄ and r̄⁻¹(G_n⁰)=G_F. For each v∈S choose a lift ρ_v of r̄̆|G_{F_ṽ}. Define d as the largest dimension of an irreducible subrepresentation of r̄̆ restricted to the closed subgroup generated by the Sylow pro-l subgroups. Suppose r̄̆|G_{F(ζ_l)} is irreducible, l ≥ 2(d+1), and at v|l the chosen ρ_v is potentially diagonalizable with n distinct labeled Hodge–Tate numbers. Then there is a lift r : G_{F⁺} → G_n(O_{Q̄_l}), unramified outside S, with ν∘r=µ and r̆|G_{F_ṽ} ∼ ρ_v at every v∈S. Theorem 4.3.1 assumes no pre-existing residual automorphy.
 
 Hypotheses:
 
-- F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).
+- The CM, odd-prime, rank, multiplier, component-preimage, residual restriction, dimension bound and chosen local lifts are the data in the statement. The group is G_n=(GL_n×GL_1)⋊{1,j} of BLGGT §1.1.
 
 Proof route:
 
@@ -1940,7 +1942,7 @@ Proof route:
 
 1. Apply ACC+ Theorem 6.1.2 at l′ with ordinary regular weights, enormous image, decomposed genericity and the scalar element. Retain the resulting cuspidal representation and the actual character twist.
 2. Obtain coefficient-independent good-place eigenprojector traces by the Lefschetz trace formula applied to symmetry elements composed with Frobenius. Match the coefficient embeddings.
-3. Apply Chebotarev and Brauer–Nesbitt to identify the semisimplification with the same automorphic system member. For reducible residual input use the graded lattice from a composition series: its reduction is the original semisimple residual module. Use the Steinberg slope argument on this semisimplification. Absolutely irreducible residual input forces the original fibre to be irreducible.
+3. Use Chebotarev and Brauer–Nesbitt to identify the global semisimplification with the same automorphic member. A graded stable lattice reduces to the original semisimple residual module. The auxiliary-prime Steinberg argument proves ι-ordinarity of π; potential semistability and Galois ordinarity of V_{λ,t}^{ss} use the separate geometric calculation at v(t)<0 and subquotient stability requested from PL.5. Absolutely irreducible residual input forces the original fibre to be irreducible.
 
 Direct prerequisites: [ML.2/elliptic-symmetric-power-seed](#target-elliptic-symmetric-power-seed), `PotentialAutomorphyInfrastructure:PA.4`, `PotentialAutomorphyInfrastructurePartII:PL.5`, [Chebotarev](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/Chebotarev/README.md#layer-10-dirichlet-density-chebotarev), `PotentialAutomorphyInfrastructure:PA.4/ordinary-automorphy-lifting`.
 
@@ -1948,7 +1950,7 @@ Acceptance controls:
 
 - The transport between coefficient primes is the step where the compatible system of the Dwork motive is used.
 
-Sources: [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator; [P. B. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. V. Le Hung, J. Newton, P. Scholze, R. Taylor, J. A. Thorne, Potential automorphy over CM fields](https://arxiv.org/pdf/1812.09999), §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030).
+Sources: [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator; [P. B. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. V. Le Hung, J. Newton, P. Scholze, R. Taylor, J. A. Thorne, Potential automorphy over CM fields](https://arxiv.org/pdf/1812.09999), §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030); [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4; [Lie Qian, Potential automorphy for general linear groups (PhD dissertation, Stanford University)](https://stacks.stanford.edu/file/druid:yn815wp7042/Thesis%20Final%20Version-augmented.pdf), Remark 3.0.13, printed p. 55 (PDF p. 62).
 
 Suggested signature: omitted until C-GALOIS, C-SYSTEM, C-LOCAL-DEFORMATION supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -2022,7 +2024,7 @@ Proof route:
 1. Choose the auxiliary data E, N, F^avoid and an ordinary auxiliary prime l′ (ML.2/qian-auxiliary-prime).
 2. Automorphy of Sym^{n−1} of the elliptic curve at l′ over a totally real F^suff (ML.2/elliptic-symmetric-power-seed).
 3. Moret-Bailly gives a point t of the Dwork family over F′ with the l-adic fibre lifting r̄ ⊗ (twist) and the l′-adic fibre congruent to Sym^{n−1} of E (PotentialAutomorphyInfrastructurePartII PL.5; PotentialModularityAndCompatibleSystems R23.1).
-4. Lift at l′ with ACC+ Theorem 6.1.2 and transport to V_{λ,t}^{ss} with matched coefficient embeddings. The auxiliary-prime semisimplicity and Steinberg slope argument give ordinary automorphy at l. The graded lattice reduces to the original semisimple r̄. The irreducible-residual converse from Galois ordinarity is used only in the Theorem 1.4 branch, not to prove the general semisimple Theorem 1.1.
+4. Apply ACC+ Theorem 6.1.2 at l′ and compare common good-place Frobenius polynomials with matched coefficient embeddings to obtain V_{λ,t}^{ss}≅r_{l,ι}(π). At the l-adic places v(t)<0, Qian Lemma 3.10(4) and the semistable maximal-monodromy calculation of thesis Remark 3.0.13 give potential semistability and an ordinary regular filtration of V_{λ,t} geometrically. These properties pass to G_{F′_v}-stable subquotients and hence to the global semisimplification; retain the union of the distinct Hodge weights. Separately, auxiliary-prime semisimplicity and the Steinberg slope argument prove that π is ι-ordinary. A graded stable lattice reduces to the original semisimple r̄. ACC+ Corollary 5.5.2’s irreducible-residual converse is used only in Theorem 1.4, never to obtain Galois ordinarity in the general Theorem 1.1 branch.
 
 Direct prerequisites: [ML.2/qian-auxiliary-prime](#target-qian-auxiliary-prime), [ML.2/elliptic-symmetric-power-seed](#target-elliptic-symmetric-power-seed), [ML.2/dwork-fibre-automorphy-transport](#target-dwork-fibre-automorphy-transport), [ML.2/steinberg-ordinarity-lemma](#target-steinberg-ordinarity-lemma), `PotentialModularityAndCompatibleSystems:R23.1`, `PotentialAutomorphyInfrastructurePartII:PL.5`.
 
@@ -2030,7 +2032,7 @@ Acceptance controls:
 
 - The output is automorphy over the extension F′ only (acceptance of ML.2); no descent to F is claimed.
 
-Sources: [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1).
+Sources: [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1); [Lie Qian, Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761), Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4; [Lie Qian, Potential automorphy for general linear groups (PhD dissertation, Stanford University)](https://stacks.stanford.edu/file/druid:yn815wp7042/Thesis%20Final%20Version-augmented.pdf), Remark 3.0.13, printed p. 55 (PDF p. 62).
 
 Suggested signature: omitted until C-MODULI supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -2066,7 +2068,7 @@ Suggested signature: omitted until C-LOCAL-DEFORMATION supplies the actual objec
 Check every target at the displayed hypotheses and source scope, every definition against its negative controls, and every direct prerequisite against the exact export. The target-level chains end in a baseline declaration, a checked external node, a requested supplier stage or the named gaps below.
 
 - Obtain typed C-SYSTEM/C-LOCAL-DEFORMATION/C-MODULI exports for the seventeen-condition p–r switch, actual local points and common all-prime realization.
-- Construct Dwork monodromy/Hodge and auxiliary-prime extensions and the CG18 general-number-field conditional branch.
+- Construct Dwork monodromy/Hodge, coefficient-prime semistable/ordinary filtration and subquotient transport, auxiliary-prime extensions and the CG18 general-number-field conditional branch.
 - Export Patrikis–Taylor’s regular/pure constituent systems and common extension from R24.5, distinct from extreme regularity.
 
 ## Layer ML.3: Symmetric powers and Sato–Tate
@@ -2083,11 +2085,11 @@ Target `ML.3/accessible-regular-refinement`; comparison. Proposed declaration: `
 
 Import owner: **LocalGlobalCompatibilityPartIIEigenvarietyCompanions**. This target records its required export; its method is built by that owner.
 
-For a definite unitary group G_n over F⁺ and an automorphic π of G_n(𝔸_{F⁺}) with p-adic places S_p, an accessible refinement is a choice χ = (χ_v)_{v∈S_p} of smooth characters χ_v : T_n(F_ṽ) → Q̄_p^× occurring as subquotients of the normalised Jacquet module ι^{−1}r_{N_n}(π_v), equivalently with π_v ↪ i^{GL_n}_{B_n}ιχ_v. For n = 2 it is n-regular if (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1 and every v ∈ S_p. For π on GL₂(𝔸_ℚ), π_l has an accessible refinement iff its Jacquet module is nonzero, iff π_l is not supercuspidal.
+For a definite unitary group G_d over F⁺ and an automorphic π of G_d(𝔸_{F⁺}), identify its split p-adic factors with GL_d(F_ṽ). An accessible refinement is a tuple of smooth torus characters χ_v : T_d(F_ṽ) → Q̄_p^× occurring in the normalized Jacquet module ι⁻¹r_{N_d}(π_v), equivalently admitting π_v ↪ i_{B_d}^{GL_d}ιχ_v. For a rank-two input and a separate symmetric-power rank n ≥ 2, the refinement is n-regular when (χ_{v,1}/χ_{v,2})^i ≠ 1 for every 1 ≤ i ≤ n−1 and every v∈S_p. The group rank d=2 does not force n=2. For π on GL₂(𝔸_ℚ), π_l admits an accessible refinement exactly when its Jacquet module is nonzero, equivalently when π_l is not supercuspidal.
 
 Hypotheses:
 
-- G_n the definite unitary group of NT §1; T_n ⊂ B_n ⊂ GL_n diagonal torus and upper Borel.
+- G_d is the definite unitary group of NT §1; T_d⊂B_d⊂GL_d. The n-regular ratio criterion displayed here is for d=2 and arbitrary n≥2.
 
 Proof route:
 
@@ -2103,7 +2105,7 @@ Consumers:
 Planning API:
 
 - `TauCeti.SymmetricPower.IsAccessibleRefinement` — χ_v a subquotient of the normalised Jacquet module at each v ∈ S_p.
-- `TauCeti.SymmetricPower.IsNRegular` — (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1.
+- `TauCeti.SymmetricPower.IsNRegular` — For a rank-two refinement and n≥2, (χ_{v,1}/χ_{v,2})^i ≠ 1 for all 1≤i≤n−1 and all v∈S_p.
 - `TauCeti.SymmetricPower.isAccessible_iff_not_supercuspidal` — An accessible refinement exists iff π_l is not supercuspidal.
 - `TauCeti.SymmetricPower.isNRegular_mono` — n-regular ⇒ m-regular for m ≤ n.
 
@@ -2286,7 +2288,7 @@ Acceptance controls:
 
 - Check that the strategy uses small residual image and large p, in contrast to Clozel–Thorne's large image and small p.
 
-Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3).
+Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), §7, Theorem 7.6, p. 90; Introduction p. 4 (arXiv v3).
 
 Suggested signature: omitted until C-GALOIS, C-AUTOMORPHIC, C-SYSTEM supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -2417,11 +2419,11 @@ Target `ML.3/steinberg-level-raising`; comparison. Proposed declaration: `TauCet
 
 Import owner: **SymmetricPowersByUnitaryLevelRaising**. This target records its required export; its method is built by that owner.
 
-Let n ≥ 3, p ≡ 1 (mod 48·n!), q ≠ p, X₀ a finite set of places of K prime to 2pq and ω a de Rham character with ωω^c = ε³, unramified on X₀. Then there is a soluble CM F/K, X₀-split, and a RACSDC ι-ordinary Π on GL_n(𝔸_F) with r_{Π,ι} ≅ ω^{n−1}|_{G_F} ⊗ Sym^{n−1}r_{σ₀,ι}|_{G_F}, the same Hodge–Tate numbers, and Π_v an unramified twist of Steinberg at some v | q (Theorem 7.1; proved here for n odd, Proposition 7.4; for n even via Anastassiades–Thorne).
+Fix K=ℚ(i) and σ₀, the unique cuspidal newform of level Γ₁(4) and weight 5, obtained by automorphic induction of the unramified Hecke character of K of infinity type (4,0). Let n≥3, let p be a prime with p≡1 (mod 48·n!), choose ι : Q̄_p≅ℂ, and let q≠p be a prime. Let X₀ be a finite set of places of K prime to 2pq, and let ω : G_K→Q̄_p^× be de Rham with ωω^c=ε³ and unramified at X₀. Then there is a soluble CM extension F/K, split at X₀, and a RACSDC ι-ordinary Π on GL_n(𝔸_F), with r_{Π,ι}≅ω^{n−1}|G_F⊗Sym^{n−1}r_{σ₀,ι}|G_F, the displayed representation’s labeled Hodge–Tate numbers, and Π_v an unramified Steinberg twist at some v|q. NT I Theorem 7.1 uses Proposition 7.4 for odd n and Anastassiades–Thorne for even n.
 
 Hypotheses:
 
-- σ₀ a theta series congruent to the chosen level-one form (NT I §7); K an imaginary quadratic field.
+- The fixed K=ℚ(i), weight-five level-four σ₀, primes p and q, embedding ι, X₀ and ω are the data in Theorem 7.1. No arbitrary imaginary-quadratic theta seed or prior congruence with a level-one form is a hypothesis.
 
 Proof route:
 
@@ -2433,7 +2435,7 @@ Acceptance controls:
 
 - Check the arithmetic condition p ≡ 1 (mod 48·n!) on a small case: for n = 3, 48·3! = 288 and p = 577 is a prime ≡ 1 (mod 288) (suggested file).
 
-Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), §7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv v3).
+Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), §7, Theorem 7.1 and the fixed seed, pp. 82–83; §4 Theorem 4.1, pp. 59–60; §6 Theorem 6.1, pp. 75–76 (arXiv v3).
 
 Suggested signature: omitted until C-GALOIS, C-AUTOMORPHIC, C-SYSTEM supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -2827,7 +2829,7 @@ Acceptance controls:
 
 - Check the CM decomposition for n = 2 (symmetric-power-lifting test cm_not_cuspidal).
 
-Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms, II](https://arxiv.org/pdf/2009.07180v2), Appendix A, Theorem A.1, p. 27 (arXiv v2).
+Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms, II](https://arxiv.org/pdf/2009.07180v2), Appendix A, Theorem A.1 and proof, p. 28 (arXiv v2).
 
 Suggested signature: omitted until C-GALOIS, C-AUTOMORPHIC, C-SYSTEM supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -2901,7 +2903,7 @@ Acceptance controls:
 
 - Check on Δ (weight 12, level 1): Sym^{n−1}Δ exists for every n, so L(Sym^{n−1}Δ, s) is entire.
 
-Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3).
+Sources: [James Newton and Jack A. Thorne, Symmetric power functoriality for holomorphic modular forms](https://arxiv.org/pdf/1912.11261v3), Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 91 (arXiv v3).
 
 Suggested signature: omitted until C-GALOIS, C-AUTOMORPHIC, C-SYSTEM supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -3382,7 +3384,7 @@ Acceptance controls:
 - The empty index set has the full (already trivial) sign group.
 - For two odd-dimensional summands membership is s₀=s₁.
 
-Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.4, (1.4.4), pp. 30–31, 2011 manuscript.
+Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.4, (1.4.8)–(1.4.9), p. 35, 2011 manuscript.
 
 Suggested signature: stated with its API and tests.
 
@@ -3446,7 +3448,7 @@ Suggested signature: omitted until C-AUTOMORPHIC supplies the actual objects and
 
 Target `ML.4/global-arthur-parameter`; definition. Proposed declaration: `TauCeti.Arthur.GlobalParameter`.
 
-A discrete global Arthur parameter for G is a formal unordered sum ψ = μ₁ ⊠ ν_{b₁} ⊞ ⋯ ⊞ μ_r ⊠ ν_{b_r}, where μ_i is a unitary cuspidal automorphic representation of GL_{m_i}(𝔸_F) with μ_i ≅ μ_i^∨, ν_b is the b-dimensional irreducible representation of SL₂(ℂ), Σ m_i b_i = N, the pairs (μ_i, b_i) are pairwise distinct, every summand μ_i ⊠ ν_{b_i} has the parity of Ĝ (for Ĝ symplectic: μ_i of symplectic type with b_i odd or of orthogonal type with b_i even; for Ĝ orthogonal: μ_i of orthogonal type with b_i odd or of symplectic type with b_i even), and ∏_i ω_{μ_i}^{b_i} = η_G. Ψ_2(G) denotes the set of these (for G = SO_{2n} taken up to the outer automorphism, Ψ̃_2(G)). ψ is generic when every b_i = 1. Its global component group S_ψ is the sign group on the summands, restricted by ∏_i s_i^{m_i b_i}=1 when Ĝ is special orthogonal, then quotiented by the image of Z(Ĝ)^Γ; the determinant-one constraint can remove a generator before the central quotient, and Arthur attaches to ψ a sign character ε_ψ of S_ψ built from symplectic root numbers ε(1/2, μ_i × μ_j). At each place v, ψ localises to ψ_v : L_{F_v} × SL₂(ℂ) → ^LG through the local Langlands correspondence for the GL_{m_i}.
+A discrete global Arthur parameter for G is a formal unordered sum ψ = μ₁ ⊠ ν_{b₁} ⊞ ⋯ ⊞ μ_r ⊠ ν_{b_r}, where μ_i is a unitary cuspidal automorphic representation of GL_{m_i}(𝔸_F) with μ_i ≅ μ_i^∨, ν_b is the b-dimensional irreducible representation of SL₂(ℂ), Σ m_i b_i = N, the pairs (μ_i, b_i) are pairwise distinct, every summand μ_i ⊠ ν_{b_i} has the parity of Ĝ (for Ĝ symplectic: μ_i of symplectic type with b_i odd or of orthogonal type with b_i even; for Ĝ orthogonal: μ_i of orthogonal type with b_i odd or of symplectic type with b_i even), and ∏_i ω_{μ_i}^{b_i} = η_G. Ψ_2(G) denotes the set of these (for G = SO_{2n} taken up to the outer automorphism, Ψ̃_2(G)). ψ is generic when every b_i = 1. Its global component group S_ψ is the sign group on the summands, restricted by ∏_i s_i^{m_i b_i}=1 when Ĝ is special orthogonal, then quotiented by the image of Z(Ĝ)^Γ; the determinant-one constraint can remove a generator before the central quotient, and Arthur attaches a sign character ε_ψ through the adjoint decomposition in (1.5.6): on the symplectic constituents with root number −1 it multiplies the corresponding determinant characters of S_ψ. At each place v, ψ localises to ψ_v : L_{F_v} × SL₂(ℂ) → ^LG through the local Langlands correspondence for the GL_{m_i}.
 
 Hypotheses:
 
@@ -3456,7 +3458,7 @@ Proof route:
 
 1. The parity condition is the condition that ψ, viewed as an N-dimensional representation of L_F × SL₂(ℂ), preserves a form of the type of Ĝ: ν_b is symplectic for b even and orthogonal for b odd, and types multiply.
 2. S_ψ is the group of components of the centraliser of the image of ψ in Ĝ, modulo Z(Ĝ)^Γ; each self-dual irreducible summand of the right type contributes one factor ℤ/2ℤ.
-3. ε_ψ is Arthur's (1.5.6): a product of root numbers ε(1/2, μ_i × μ_j) = ±1 over the pairs of summands where the Rankin–Selberg product is of symplectic type.
+3. Decompose Ad∘ψ into irreducible summands λ_α⊗μ_α⊗ν_α as in (1.5.6), retaining multiplicities. Arthur’s (1.5.7) evaluates ε_ψ at x represented by s as the product of det λ_α(s) over symplectic μ_α with ε(1/2,μ_α)=−1. Pairwise Rankin–Selberg factors must carry their SL₂ multiplicities; an unweighted product over pairs is not the character. For generic ψ the character is trivial.
 
 Direct prerequisites: [ML.4/self-dual-cuspidal-type](#target-self-dual-cuspidal-type), `AutomorphicLFunctionsAndLocalFactors:AL.3/strong-multiplicity-one`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-boundary-nonvanishing`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
@@ -3491,7 +3493,7 @@ Acceptance controls:
 
 - For G = SO₃ ≅ PGL₂ (N = 2) the parameter 1 ⊠ ν₂ is discrete and its packet is the trivial representation; a generic μ ∈ Ψ_2(SO₃) is exactly a cuspidal GL₂ representation with trivial central character.
 
-Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.4, (1.4.4), p. 30 (2011 manuscript); [Chung Pang Mok, Endoscopic classification of representations of quasi-split unitary groups](https://arxiv.org/pdf/1206.0882), §2.3, p. 15 (arXiv v5).
+Sources: [James Arthur, The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf), §1.4, (1.4.3)–(1.4.9), pp. 30–35; §1.5, (1.5.6)–(1.5.7), pp. 46–47 (2011 manuscript); [Chung Pang Mok, Endoscopic classification of representations of quasi-split unitary groups](https://arxiv.org/pdf/1206.0882), §2.3, p. 15 (arXiv v5).
 
 Suggested signature: omitted until C-ARTHUR supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4118,8 +4120,8 @@ Hypotheses:
 
 Proof route:
 
-1. Lemma 5.1, F non-archimedean: Mœglin–Waldspurger §2.14 with the Gross–Prasad–Rallis conjecture proved by Gan–Ichino (Appendix B of their Formal degrees paper); archimedean F by Arthur's refined inductive property.
-2. Lemma 5.5: Mœglin (non-archimedean) and Mœglin–Renard (F = ℂ).
+1. Lemma 5.1: for nonarchimedean F use Mœglin–Waldspurger §2.14 and the Gross–Prasad–Rallis input of Gan–Ichino. For F=ℝ use Speh–Vogan [83], and for F=ℂ use the known irreducibility of the almost-tempered induced representation. These are separate real/complex inputs, not an application of Arthur’s refined inductive property.
+2. Lemma 5.5: use Mœglin for nonarchimedean F and Mœglin–Renard for F=ℂ. For F=ℝ the canonical bad/good decomposition yields disjoint half-integral infinitesimal-character supports for the inducing factors; the Kazhdan–Lusztig input [22] in Gan–Ichino’s proof gives irreducibility. The real input is not omitted.
 
 Direct prerequisites: [ML.4/vogan-packets-so-v](#target-vogan-packets-so-v), [ML.4/local-arthur-packets](#target-local-arthur-packets).
 
@@ -4203,7 +4205,7 @@ Proof route:
 
 1. Harish-Chandra parametrisation of (limits of) discrete series by Weyl chambers (AutomorphicFormsOnReductiveGroups).
 2. Blasius–Harris–Ramakrishnan Proposition 5.3.7 / Mok §3.1: the L-packet of the parameter with infinitesimal character λ.
-3. For general-type ψ, ψ_∞ is trivial on SL₂ (S_ψ = 1), so Π_{ψ_∞} is the L-packet (Wallach Theorem 2.1, as cited by CG).
+3. For general-type ψ=Π⊠ν₁, every Arthur SL₂ summand has dimension one. Thus ψ_∞ is trivial on that SL₂ and its Arthur packet is the L-packet (Wallach Theorem 2.1, as cited by CG). Triviality of the global S_ψ controls multiplicities; it does not imply triviality of an SL₂ action.
 
 Direct prerequisites: [ML.4/gsp4-arthur-classification](#target-gsp4-arthur-classification), [ML.0/archimedean-langlands-conventions](#target-archimedean-langlands-conventions), `AutomorphicFormsOnReductiveGroups:AF.1/discrete-series`.
 
@@ -4422,7 +4424,7 @@ Acceptance controls:
 
 - The acceptance criterion of ML.5: every known transfer is registered with exact hypotheses and owner.
 
-Sources: [James Arthur, The principle of functoriality](https://www.ams.org/journals/bull/2003-40-01/S0273-0979-02-00963-1/S0273-0979-02-00963-1.pdf), §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)).
+Sources: [James Arthur, The principle of functoriality](https://www.claymath.org/library/cw/arthur/pdf/57.pdf), §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)).
 
 Suggested signature: omitted until C-AUTOMORPHIC, C-GALOIS supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4469,7 +4471,7 @@ Acceptance controls:
 
 - A known instance (e.g. G′ = GL₂, G = GL₃, ρ = Sym²: ML.3/gelbart-jacquet) proves Functoriality for that triple only.
 
-Sources: [James Arthur, The principle of functoriality](https://www.ams.org/journals/bull/2003-40-01/S0273-0979-02-00963-1/S0273-0979-02-00963-1.pdf), §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)).
+Sources: [James Arthur, The principle of functoriality](https://www.claymath.org/library/cw/arthur/pdf/57.pdf), §4, Conjecture (Langlands [L1]), pp. 44–45 (Bull. AMS 40 (2003)).
 
 Suggested signature: omitted until C-AUTOMORPHIC supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4569,7 +4571,7 @@ Acceptance controls:
 
 - A semisimple parametrisation π ↦ φ_π^{ss} (Fargues–Scholze) is weaker and does not prove LLC(G, F_v).
 
-Sources: [James Arthur, The principle of functoriality](https://www.ams.org/journals/bull/2003-40-01/S0273-0979-02-00963-1/S0273-0979-02-00963-1.pdf), §5, p. 47 (Bull. AMS 40 (2003)).
+Sources: [James Arthur, The principle of functoriality](https://www.claymath.org/library/cw/arthur/pdf/57.pdf), §5, p. 47 (Bull. AMS 40 (2003)).
 
 Suggested signature: omitted until C-AUTOMORPHIC, C-GALOIS supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4656,7 +4658,7 @@ Acceptance controls:
 
 - Every 'automorphic' predicate of ML.0 (BLGGT, Newton–Thorne) is an instance of the matching it asks for.
 
-Sources: [James Arthur, The principle of functoriality](https://www.ams.org/journals/bull/2003-40-01/S0273-0979-02-00963-1/S0273-0979-02-00963-1.pdf), §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)).
+Sources: [James Arthur, The principle of functoriality](https://www.claymath.org/library/cw/arthur/pdf/57.pdf), §4, Conjecture (Langlands [L1]) for G′ = {1}, p. 45 (Bull. AMS 40 (2003)).
 
 Suggested signature: omitted until C-ARTIN supplies the actual objects and hypotheses. The mathematical target and its API/test specifications above remain required.
 
@@ -4793,7 +4795,7 @@ Required by: [ML.0/compatible-system-automorphic-l-function-comparison](#target-
 
 ### R12: `AutomorphicLFunctionsAndLocalFactors:AL.3`
 
-For cuspidal π, π′ on GL_n, GL_{n′} with unitary twists, L^S(π × π′^∨, s) is meromorphic, holomorphic and nonzero at s = 1 unless π ≅ π′ ⊗ |det|^t, in which case it has a simple pole there (Jacquet–Shalika 1981, Shahidi 1981); used in BLGGT Theorem 5.5.2. Also: L(Π, s) ≠ 0 on Re s = 1 for cuspidal Π on GL_n (Jacquet–Shalika), used for Sato–Tate. Also: strong multiplicity one for cuspidal and isobaric representations (AL.3/strong-multiplicity-one) and the simple pole of L^S(s, π × π^∨) at s = 1 (Jacquet–Shalika), used for the symplectic/orthogonal dichotomy and the uniqueness of functorial lifts.
+For unitary cuspidal π, π′ on GL_n, GL_{n′}, L^S(π×π′^∨,s) is meromorphic and is holomorphic and nonzero at s=1 unless n=n′ and π≅π′, when it has a simple pole. For nontrivial norm twists track the shifted pole location explicitly (Jacquet–Shalika 1981, Shahidi 1981); used in BLGGT Theorem 5.5.2. Also: L(Π, s) ≠ 0 on Re s = 1 for cuspidal Π on GL_n (Jacquet–Shalika), used for Sato–Tate. Also: strong multiplicity one for cuspidal and isobaric representations (AL.3/strong-multiplicity-one) and the simple pole of L^S(s, π × π^∨) at s = 1 (Jacquet–Shalika), used for the symplectic/orthogonal dichotomy and the uniqueness of functorial lifts.
 
 Required by: [ML.2/irreducibility-density-one](#target-irreducibility-density-one), [ML.3/sato-tate-elliptic-curves](#target-sato-tate-elliptic-curves).
 
@@ -4883,7 +4885,7 @@ Required by: [ML.2/galois-ordinarity-from-automorphic](#target-galois-ordinarity
 
 ### R27: `PotentialAutomorphyInfrastructurePartII:PL.5`
 
-The Dwork family's compatible systems and BLGGT Theorem 3.1.2 / Proposition 3.2.1 (potential ordinary automorphy, ordinary lifts with prescribed local behaviour), as used in Qian §4 and ACC+ §7.2.
+The Dwork family's compatible systems and BLGGT Theorem 3.1.2 / Proposition 3.2.1 (potential ordinary automorphy, ordinary lifts with prescribed local behaviour), as used in Qian §4 and ACC+ §7.2. Required Qian extension: Lemma 3.10(4), arXiv v1 pp. 20–21, and thesis Remark 3.0.13, printed p. 55, must supply potential semistability and a regular ordinary Galois filtration at v(t)<0 at λ|l. Prove stability under local subquotients and the global semisimplification, retaining the Hodge multiset and graded residual lattice. This is distinct from the auxiliary-prime Steinberg proof of π’s ι-ordinarity; neither weak compatibility nor ACC+ Corollary 5.5.2 without its irreducible-residual hypotheses supplies it.
 
 Required by: [ML.2/dwork-fibre-automorphy-transport](#target-dwork-fibre-automorphy-transport), [ML.2/qian-residual-potential-automorphy](#target-qian-residual-potential-automorphy), [ML.3/acc-elliptic-symmetric-powers](#target-acc-elliptic-symmetric-powers).
 
@@ -4997,7 +4999,7 @@ Required by: [ML.3/level-one-ping-pong](#target-level-one-ping-pong).
 
 ### R45: `ModularityAndLanglandsExtensions:ML.3`
 
-Let n ≥ 3, p ≡ 1 (mod 48·n!), q ≠ p, X₀ a finite set of places of K prime to 2pq and ω a de Rham character with ωω^c = ε³, unramified on X₀. Then there is a soluble CM F/K, X₀-split, and a RACSDC ι-ordinary Π on GL_n(𝔸_F) with r_{Π,ι} ≅ ω^{n−1}|_{G_F} ⊗ Sym^{n−1}r_{σ₀,ι}|_{G_F}, the same Hodge–Tate numbers, and Π_v an unramified twist of Steinberg at some v | q (Theorem 7.1; proved here for n odd, Proposition 7.4; for n even via Anastassiades–Thorne). Required export: TauCeti.SymmetricPower.exists_steinberg_levelRaising. Preserve the source hypotheses and the coherent local/automorphic realizations, rather than a free geometric context.
+Fix K=ℚ(i) and σ₀, the unique cuspidal newform of level Γ₁(4) and weight 5, obtained by automorphic induction of the unramified Hecke character of K of infinity type (4,0). Let n≥3, let p be a prime with p≡1 (mod 48·n!), choose ι : Q̄_p≅ℂ, and let q≠p be a prime. Let X₀ be a finite set of places of K prime to 2pq, and let ω : G_K→Q̄_p^× be de Rham with ωω^c=ε³ and unramified at X₀. Then there is a soluble CM extension F/K, split at X₀, and a RACSDC ι-ordinary Π on GL_n(𝔸_F), with r_{Π,ι}≅ω^{n−1}|G_F⊗Sym^{n−1}r_{σ₀,ι}|G_F, the displayed representation’s labeled Hodge–Tate numbers, and Π_v an unramified Steinberg twist at some v|q. NT I Theorem 7.1 uses Proposition 7.4 for odd n and Anastassiades–Thorne for even n. Required export: TauCeti.SymmetricPower.exists_steinberg_levelRaising. Preserve the source hypotheses and the coherent local/automorphic realizations, rather than a free geometric context.
 
 Proposed owner: SymmetricPowersByUnitaryLevelRaising.
 
@@ -5029,7 +5031,7 @@ Required by: [ML.3/symmetric-power-automorphy-lifting](#target-symmetric-power-a
 
 ### R49: `ModularityAndLanglandsExtensions:ML.3`
 
-For a definite unitary group G_n over F⁺ and an automorphic π of G_n(𝔸_{F⁺}) with p-adic places S_p, an accessible refinement is a choice χ = (χ_v)_{v∈S_p} of smooth characters χ_v : T_n(F_ṽ) → Q̄_p^× occurring as subquotients of the normalised Jacquet module ι^{−1}r_{N_n}(π_v), equivalently with π_v ↪ i^{GL_n}_{B_n}ιχ_v. For n = 2 it is n-regular if (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1 and every v ∈ S_p. For π on GL₂(𝔸_ℚ), π_l has an accessible refinement iff its Jacquet module is nonzero, iff π_l is not supercuspidal. Required export: TauCeti.SymmetricPower.IsAccessibleRefinement. Preserve the source hypotheses and the coherent local/automorphic realizations, rather than a free geometric context.
+For a definite unitary group G_d over F⁺ and an automorphic π of G_d(𝔸_{F⁺}), identify its split p-adic factors with GL_d(F_ṽ). An accessible refinement is a tuple of smooth torus characters χ_v : T_d(F_ṽ) → Q̄_p^× occurring in the normalized Jacquet module ι⁻¹r_{N_d}(π_v), equivalently admitting π_v ↪ i_{B_d}^{GL_d}ιχ_v. For a rank-two input and a separate symmetric-power rank n ≥ 2, the refinement is n-regular when (χ_{v,1}/χ_{v,2})^i ≠ 1 for every 1 ≤ i ≤ n−1 and every v∈S_p. The group rank d=2 does not force n=2. For π on GL₂(𝔸_ℚ), π_l admits an accessible refinement exactly when its Jacquet module is nonzero, equivalently when π_l is not supercuspidal. Required export: TauCeti.SymmetricPower.IsAccessibleRefinement. Preserve the source hypotheses and the coherent local/automorphic realizations, rather than a free geometric context.
 
 Proposed owner: LocalGlobalCompatibilityPartIIEigenvarietyCompanions.
 
@@ -5147,7 +5149,7 @@ Required by: [ML.3/all-regular-symmetric-powers](#target-all-regular-symmetric-p
 
 ### G6: Dwork, open-image and Conjecture B extensions require their requested owners
 
-The Dwork family's Hodge numbers, monodromy and the switching theorem (proposed PotentialAutomorphyDworkMotivesPartII), Serre's open image and supersingular-prime theorems (proposed OpenImageTheoremsForAbelianVarieties), and Calegari–Geraghty's Conjecture B with their Theorem 5.16 (proposed PotentialAutomorphyInfrastructure Part II) are not roadmaps yet; cited, not planned.
+The Dwork family's Hodge numbers, monodromy and the switching theorem (proposed PotentialAutomorphyDworkMotivesPartII), Serre's open image and supersingular-prime theorems (proposed OpenImageTheoremsForAbelianVarieties), and Calegari–Geraghty's Conjecture B with their Theorem 5.16 (proposed PotentialAutomorphyInfrastructure Part II) are not roadmaps yet; cited, not planned. In particular, the Qian extension must construct the coefficient-prime semistable/ordinary filtration at v(t)<0 and prove its preservation by subquotients and global semisimplification; automorphic ι-ordinarity alone is insufficient.
 
 Required by: [ML.2/cg18-odd-symmetric-powers](#target-cg18-odd-symmetric-powers), [ML.2/cg18-conditional-potential-modularity](#target-cg18-conditional-potential-modularity), [ML.2/qian-auxiliary-prime](#target-qian-auxiliary-prime), [ML.2/qian-residual-potential-automorphy](#target-qian-residual-potential-automorphy).
 
@@ -5159,7 +5161,7 @@ Required by: [ML.1/imaginary-quadratic-elliptic-modularity](#target-imaginary-qu
 
 ### G8: Secondary-only sources
 
-Still read through cited primary endpoints only: Khare 1997 weight-one descent, Blasius–Harris–Ramakrishnan Proposition 5.3.7, Schmidt 2017/2018, Kim–Shahidi Duke 2002 and Henniart 2009. Pilloni–Stroh, Snowden, Gan–Takeda, Patrikis–Taylor, Arancibia–Mœglin–Renard, Mœglin–Renard and Zou are now checked directly at the locators recorded in sources. The refused AMS downloads of Arthur 2003 and Kim 2003 do not count as reading those primary PDFs.
+Read only through cited endpoint sources: Khare 1997 weight-one descent, Blasius–Harris–Ramakrishnan Proposition 5.3.7, Schmidt 2017/2018 and Henniart 2009. Kim 2003’s AMS PDF was refused; its symmetric-fourth result remains checked through BCGP/NT and its primary reading is open. Kim–Shahidi 2002 is now checked directly (Annals 155, Theorems 5.1 and 6.1). Arthur 2003 is now read in the official Clay author archive. The newly read primary editions for Pilloni–Stroh, Snowden, Gan–Takeda, Patrikis–Taylor, AMR, Mœglin–Renard and Zou remain recorded.
 
 Required by: [ML.4/gsp4-archimedean-limit-packets](#target-gsp4-archimedean-limit-packets), [ML.4/limit-discrete-series-packet-types](#target-limit-discrete-series-packet-types), [ML.3/kim-shahidi-sym3](#target-kim-shahidi-sym3).
 
@@ -5209,7 +5211,7 @@ Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2
 
 Replace the undefined µ by χ; for the operative CM pure-weight-w normalization use χ_v(−1)=(−1)^{n+w} (canonical inherited AG2/E2), not the unqualified printed rank-only sign.
 
-The µ/χ variable slip is present on p.32. It duplicates canonical AG2/E1, not a new independent erratum. The sign itself must also use weight n+w as in inherited AG2/E2; replacing µ alone is insufficient.
+At BLGGT p.32 the automorphic paragraph uses an undeclared multiplier letter. Its operative CM sign also needs the inherited pure-weight n+w correction; the original variable correction alone is insufficient.
 
 ### E2: confirmed
 
@@ -5217,7 +5219,7 @@ Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2
 
 Read: each prime v of F above l_i (r_i is a representation of G_F); Lemma 1.4.3(2) (the Fontaine–Laffaille criterion; Lemma 1.4.2 lifts filtered modules); unramified above l_i; HT_τ(ρ_{i,v}) has n_i distinct elements; ∼ ρ_{i,v}|_{G_{F′_u}}.
 
-Read pp.59–61: index, field-prime and lemma-reference slips are present. The interval remark also requires l_i rather than an unindexed l.
+BLGGT pp.59–61 contain the stated field-prime, Fontaine–Laffaille lemma-reference and i-index slips. The totally real corollary has a different field-prime convention and is not changed.
 
 ### E3: confirmed
 
@@ -5225,7 +5227,7 @@ Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2
 
 ρ_v is a lift of r̄|_{G_{F_ṽ}}.
 
-Theorem 4.4.1 begins with r̄ and only produces π later, so the printed residual attachment to π is premature.
+In BLGGT 4.4.1 pp.58–59 the residual representation is input and pi is produced later. A local lift must lift that input, rather than an attachment to the future pi.
 
 ### E4: confirmed
 
@@ -5233,7 +5235,7 @@ Source: [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.p
 
 E has CM when End_{K̄}(E) is larger than ℤ. The printed condition is geometric non-CM.
 
-Printed p.134 reverses CM and non-CM. State the correction geometrically: End_{K̄}(E)≠ℤ, not End_K(E)≠ℤ.
+The condition in Kedlaya p.134 describes geometric non-CM. CM requires additional geometric endomorphisms, independently of whether they are defined over the ground field.
 
 ### E5: confirmed
 
@@ -5241,7 +5243,7 @@ Source: [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.p
 
 For Sym^n H¹ the abscissa is Re s>1+n/2. Boundary nonvanishing requires an analytic theorem, not absolute convergence on the open half-plane. Entireness is now known for non-CM E and n≥1; n=0 has a zeta pole. The historical CHSBT attribution must be distinguished from the later NT theorem.
 
-The abscissa 3/2 is only the n=1 case, and convergence alone does not prove nonvanishing on the boundary. Current entireness is true for n≥1 non-CM curves by NT, but the historical attribution is inaccurate; n=0 has a zeta pole. Distinguish this from the reciprocal-root error E15.
+Kedlaya p.135 uses the rank-two abscissa for every symmetric degree and infers boundary nonvanishing from open-half-plane convergence. The correct degree-dependent abscissa and separate analytic theorem are needed; degree zero has a pole.
 
 ### E6: confirmed
 
@@ -5249,7 +5251,7 @@ Source: [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.p
 
 at most c values of i with N(x_i) = n (bounded multiplicity of each norm).
 
-Conjecture 24.3 needs a uniform bound on the number of occurrences of each norm n; N(x_i)≤c is a misprint.
+Kedlaya p.134 must bound multiplicity separately at each norm. A bound involving only a single fixed cutoff does not provide that hypothesis.
 
 ### E7: rejected
 
@@ -5257,7 +5259,7 @@ Source: [Abelian surfaces over totally real fields are potentially modular](http
 
 The allegation is rejected; use the source-qualified statement above.
 
-Using rec_GT for the archimedean packet is standard implicit extension of notation, not an established mathematical gap in BCGP. The blueprint must nevertheless distinguish finite Gan–Takeda LLC from archimedean Langlands classification.
+BCGP p.38 uses a conventional extension of rec notation at infinity. This does not establish a mathematical source error. The plan correctly supplies finite and archimedean correspondences separately.
 
 ### E8: confirmed
 
@@ -5265,15 +5267,15 @@ Source: [Abelian surfaces over totally real fields are potentially modular](http
 
 with central character ω_π
 
-The undefined µ_π on p.39 should denote the central character ω_π used in adjacent cases.
+BCGP p.39 uses an undefined central-character symbol in case (b). The adjacent cases and the underlying classification identify the intended character as omega_pi.
 
 ### E9: confirmed
 
 Source: [Abelian surfaces over totally real fields are potentially modular](https://arxiv.org/pdf/1812.09269v3), Remark 9.3.2, p. 259 (arXiv:1812.09269v3).
 
-Since the 4-dimensional Galois representations H¹(A, ℚ_l) are generalized symplectic
+For each prime l, H¹(A,ℚ_l) is one generalized-symplectic representation of dimension four.
 
-Remark 9.3.2 p.259 has the extra word four; there is one rank-four representation for each l.
+BCGP Remark 9.3.2 p.259 describes four rank-four representations. For each coefficient prime there is a single rank-four generalized-symplectic H1 representation.
 
 ### E10: rejected
 
@@ -5281,7 +5283,7 @@ Source: [Minimal modularity lifting for nonregular symplectic representations (w
 
 The allegation is rejected; use the source-qualified statement above.
 
-The sentence is shorthand, not enough evidence of a paper proof gap. The proposed correction is itself incomplete: an essentially self-dual GL4 representation needs the appropriate algebraic twist/normalization before its CM base change is conjugate self-dual. Restriction must retain absolute irreducibility and the descent classification must be supplied. Record this as a blueprint dependency gap instead.
+CG Lemma 6.9 is abbreviated, but that is insufficient evidence of a source proof gap. The plan now separately requests the algebraic twist, CM restriction preserving irreducibility, unitary descent and pairing transport; the unnormalized proposed shortcut is invalid.
 
 ### E11: confirmed
 
@@ -5289,15 +5291,15 @@ Source: [Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20
 
 ρ̄_{A,p}(G_{ℚ(ζ_{p^∞})}) ∖ ρ̄_{A,p}(G_{K(ζ_{p^∞})})
 
-Lemma 10.4.1 p.223: the subgroup is G_{K(ζ_{p^∞})}; the printed G in the subscript is a typo.
+BCGP 2025 p.223 needs the subgroup over K with p-power roots of unity. The repeated group letter in the field subscript is a typographical error.
 
 ### E12: confirmed
 
 Source: [Higher coherent cohomology and p-adic modular forms of singular weights](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf), Remark 5.3.2, p. 26 (author version, 17 June 2019).
 
-This last statement is a consequence of the main theorem of [45] if the weight is cohomological.
+Remove the duplicate copula from the sentence relating the good-prime Newton inequality in cohomological weight to reference [45].
 
-Remark 5.3.2 p.26 contains a stray is.
+Pilloni Remark 5.3.2 p.26 has a duplicate copula. Its cohomological Newton consequence also retains the good-prime hypothesis in the reviewed node.
 
 ### E13: rejected
 
@@ -5305,7 +5307,7 @@ Source: [Serre's modularity conjecture (I)](https://www.math.ucla.edu/~shekhar/p
 
 The allegation is rejected; use the source-qualified statement above.
 
-KW explicitly announces a sketch and cites Khare 1997. Its omission of the final finite-newform/Chebotarev argument is not an established error in the paper. The blueprint must import the R27.6 descent step, which it does.
+KW p.20 announces a sketch and cites the weight-one descent input. This is not an established paper error. Uniform level, finite newforms and Frobenius comparison are the explicit R27.6 import.
 
 ### E14: confirmed
 
@@ -5313,7 +5315,7 @@ Source: [Endoscopic classification of representations of quasi-split unitary gro
 
 Use Kaletha–Mínguez–Shin–White, arXiv:1409.3731, Appendix A (invariance of R-groups under the Aubert involution for unitary groups).
 
-KMSW p.77 explicitly reports the missing justification and supplies Appendix A. This is a known repaired input, not a still-open proposition.
+KMSW p.77 identifies the missing justification for the Ban input in Mok and repairs it in Appendix A. The source issue is confirmed as known and repaired, not treated as an unresolved theorem.
 
 ### E15: confirmed
 
@@ -5321,7 +5323,7 @@ Source: [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.p
 
 For P_n(T)=∏_{j=0}^n(1−α_p^{n−j}ᾱ_p^jT), its roots are the reciprocals of those eigenvalues; alternatively use the monic characteristic polynomial Q_n and the factor q^{(n+1)s}/Q_n(q^s).
 
-Direct degree-one computation and the primary elliptic Euler factors verify the reciprocal-root correction.
+For the constant-one degree-one elliptic Euler polynomial, its zeros are inverses of the Frobenius eigenvalues. This independently verifies the reciprocal-root correction to Kedlaya p.135.
 
 ### E16: confirmed
 
@@ -5329,7 +5331,7 @@ Source: [Potential automorphy and change of weight](https://arxiv.org/pdf/1010.2
 
 For odd regular rank n, each non-middle Hodge pair contributes complex-conjugation determinant −1. Thus use d±=(n±(−1)^{w/2+(n−1)/2}(det R)(c_v))/2. Equivalently use the appropriately signed trace when a compatible real realization is supplied.
 
-The regular rank-three symmetric-square positive control contradicts the printed sign. R24.5/system-l-functions also needs this correction; its existing E2 handles Hodge signs but does not include this rank-parity factor.
+The BLGGT p.64 odd-rank determinant formula fails the rank-three weight-two Sym2 H1 control: Martin–Watkins 4.2 gives Gamma_R(s) Gamma_C(s). The missing (n−1)/2 rank parity repairs the middle sign. R24.5 needs the same owner correction.
 
 The packet applies, without re-recording them, the confirmed errata of the routed extractions that its nodes use: PAPER-ALLEN-ETAL-23 E3, E51, E101, E103–E107; PAPER-QIAN-23 E1, E2, E7, E36, E40, E41, E43, E45; PAPER-CALEGARI-GERAGHTY-18 E96–E100, E180–E183, E186, E212–E216, E230; PAPER-CALEGARI-GERAGHTY-20 E39, E43, E49, E83; PAPER-PILLONI-20 E26, E161, E163; PAPER-BOXER-CALEGARI-GEE-PILLONI-21 E147, E148; PAPER-BOXER-CALEGARI-GEE-ETAL-25 E13, E26–E30; PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22 E33, E34; PAPER-CLOZEL-THORNE-17 E4, E5; PAPER-NEWTON-THORNE-26 E6–E12; PAPER-GAN-ICHINO-18 E3, E7; PAPER-JIANG-ZHANG-20 E21, E23; PAPER-GAN-SAVIN-23-B E8, E14, E15; PAPER-BOXER-CALEGARI-GEE-25 E8.
 
@@ -5341,7 +5343,7 @@ The packet applies, without re-recording them, the confirmed errata of the route
 - **kedlaya-ant-2025**: Kiran S. Kedlaya, [Notes on analytic number theory](https://kskedlaya.org/papers/ant-ptx.pdf). Author PreTeXt PDF, last modified 21 December 2025, 154 PDF pages.
 - **acc-2023**: P. B. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. V. Le Hung, J. Newton, P. Scholze, R. Taylor, J. A. Thorne, [Potential automorphy over CM fields](https://arxiv.org/pdf/1812.09999). arXiv:1812.09999v2 (16 Jun 2022; latest, the accepted version) / Ann. of Math. 197 (2023), no. 3, 897–1113
 - **agikms-2024**: Hiraku Atobe, Wee Teck Gan, Atsushi Ichino, Tasho Kaletha, Alberto Mínguez, Sug Woo Shin, [Local intertwining relations and co-tempered A-packets of classical groups](https://arxiv.org/pdf/2410.13504). arXiv:2410.13504v3 (24 Jul 2026; v1 17 Oct 2024)
-- **arthur-2003**: James Arthur, [The principle of functoriality](https://www.ams.org/journals/bull/2003-40-01/S0273-0979-02-00963-1/S0273-0979-02-00963-1.pdf). Bull. Amer. Math. Soc. (N.S.) 40 (2003), no. 1, 39–53 (electronically published 10 October 2002)
+- **arthur-2003**: James Arthur, [The principle of functoriality](https://www.claymath.org/library/cw/arthur/pdf/57.pdf). Bull. Amer. Math. Soc. (N.S.) 40 (2003), no. 1, 39–53 (electronically published 10 October 2002) Author archive at Clay; printed pages 39–53, 15 PDF pages.
 - **arthur-2013**: James Arthur, [The Endoscopic Classification of Representations: Orthogonal and Symplectic Groups](http://web.archive.org/web/20120511125150id_/http://claymath.org/cw/arthur/pdf/Book.pdf). Book manuscript (pdfTeX, dated 30 May 2011, 535 pp.) formerly posted at claymath.org/cw/arthur/pdf/Book.pdf; published as AMS Colloquium Publications 61 (2013). Wayback Machine snapshot of 11 May 2012.
 - **bcg-2025**: George Boxer, Frank Calegari, Toby Gee, [Cuspidal cohomology classes for GL_n(Z)](https://arxiv.org/pdf/2309.15944v3). arXiv:2309.15944v3 (12 Sep 2024); published J. Amer. Math. Soc. 38 (2025) (Remark 2.5 on p. 515 of the journal, per the extraction; not compared)
 - **bcgnt-2025**: George Boxer, Frank Calegari, Toby Gee, James Newton, Jack A. Thorne, [The Ramanujan and Sato–Tate conjectures for Bianchi modular forms](https://arxiv.org/pdf/2309.15880). arXiv:2309.15880v3 [math.NT] (27 Mar 2025; latest, post-publication: its §1.5 thanks Dat Pham for a correction to Remark 2.1.1 'of the published version'); published as Forum Math. Pi (2025), doi:10.1017/fmp.2024.29
