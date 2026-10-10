@@ -274,5 +274,5 @@ The table below maps every accepted node to its reader target; all node names ha
 
 ## Final file receipts
 
-- `README.md`: 199763 bytes; SHA-256 `389901a9dda1b34ef74f4e790cc463fbfd5305626892728eb6f9f3c64baaedc3`.
+- `README.md`: 199762 bytes; SHA-256 `cacf1c92a6f8625e4d77de219b51012c8ddbfad71b7f1c3bfe5d7cba99c541e9`.
 - `Suggested.lean`: 160823 bytes; SHA-256 `7cbcfc3aef54b31de08c625934a6a43640bec354fe38a99336fe135c625056a1`.

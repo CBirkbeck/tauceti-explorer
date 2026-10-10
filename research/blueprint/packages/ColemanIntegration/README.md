@@ -2414,4 +2414,3 @@ References identify sources or frameworks for the elementary deductions. The fou
 - **RJW-published:** Joaquín Rodrigues Jacinto and Chris Williams, [An introduction to p-adic L-functions (version of record)](https://msp.org/ent/2025/4-1/p03.xhtml), Essential Number Theory 4 (2025), no. 1, 101-216.
 - **BDJ-preprint:** Amnon Besser and Rob de Jeu, [The syntomic regulator for K-theory of fields](https://arxiv.org/abs/math/0110334v2), arXiv:math/0110334v2.
 - **DJ:** Rob de Jeu, [Describing all multivariable functional equations of dilogarithms](https://arxiv.org/abs/2007.11014v1), arXiv:2007.11014v1, 21 July 2020.
-
