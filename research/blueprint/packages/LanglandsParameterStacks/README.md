@@ -1,4 +1,4 @@
-# Parameter stacks, invariant theory and spectral coefficients
+# Roadmap: parameter stacks, invariant theory and spectral coefficients
 
 Local Langlands parameters occur in three related forms: cocycles with a fixed Weil action, geometric points of an integral parameter scheme, and characters of an algebra of invariant functions. This roadmap builds the bridges between these forms, then constructs the perfect complexes and representation bundles needed by spectral actions. It includes deformation theory and singularities because they distinguish the parameter stack from its coarse quotient. It includes modular good filtrations because rational semisimplicity alone does not prove the integral generation statements.
 
@@ -171,6 +171,50 @@ A parameter has finite wild ramification if its restriction to wild inertia P_E 
 
 **Build.** A continuous image of the pro-p wild group in the l-adic matrix congruence kernel is trivial; compactness and reduction modulo l yield finite wild image. Shrink a kernel to a W_E-normal open subgroup and require it to kill the fixed finite action.
 
+For the ordinary continuous interface, use the actual quotient group W_E/P
+with its quotient topology. If P is normal, P lies in the kernel of the
+specified action, and c is trivial on P, then c descends uniquely to a cocycle
+for the descended action. `CrossedCocycle.descend_mk` fixes its value on every
+quotient representative. `CrossedCocycle.quotientEquiv` identifies these
+cocycles with the subtype of cocycles trivial on P; its inverse is inflation.
+`LParameter.quotientEquiv` restricts this equivalence to continuous cocycles.
+Continuity is transported through the quotient map, rather than imposed
+using a new topology. Gauge commutes with descent because both the cocycle
+and the action are trivial on P; `gauge_trivial_on` retains both hypotheses.
+
+For P′⊂P the canonical group map is W_E/P′→W_E/P. Pulling a quotient cocycle
+back along this map corresponds exactly to `FiniteWildPiece.inflate`, which
+is injective. `cutoffMap_mk` pins the map on representatives, and
+`quotient_inflate` pins the comparison. These group-level maps do not by
+themselves prove that the corresponding parameter-scheme inclusions are
+open and closed; that assertion belongs to LP1.2.
+
+For a continuous cocycle on a topological group with compact wild subgroup
+and T₁ target, `finiteWild_iff_finite_range` identifies an open wild cocycle
+kernel with a finite image on that subgroup. An open subgroup has finite
+index in a compact group, and the cocycle is constant on its right cosets.
+Conversely, continuity into a finite subspace of a T₁ space makes the fibre
+of the identity open. This is the topological comparison used by
+`wild_finite_image`. The pro-p and ℓ-adic coefficient argument is still
+required to show that every parameter satisfies either side; compactness
+alone does not prove that assertion.
+
+**Checks for quotient descent.**
+
+- For P={1}, evaluation of the descended continuous cocycle on the class of
+  γ is c(γ); the inverse inflation recovers c.
+- For P=W_E, an action killed by P is trivial and the descended cocycle is
+  the unit cocycle on the trivial quotient.
+- For P′⊂P, evaluating the inflated piece on a class in W_E/P′ agrees with
+  evaluation of the original quotient cocycle on its image in W_E/P.
+- The unit cocycle for C₂ acting by negation on the additive group ℤ kills
+  the whole source, but that action does not factor through the trivial
+  quotient. Dropping the action-kernel hypothesis is therefore invalid.
+- The finite-image equivalence uses compactness of the wild subgroup,
+  continuity of the cocycle and T₁ separation. It imposes no finiteness
+  condition on the image of geometric Frobenius.
+
+
 The API should provide:
 
 - `FiniteWildRamification`: There exists an open wild kernel.
@@ -191,7 +235,7 @@ Unit tests:
 
 **Needs:** [LP0.2](#lp02-condensed-l-parameters); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification).
 
-**Source:** [Fargues–Scholze][FS-geometrization], VIII.1, p.278.
+**Source:** [Fargues–Scholze][FS-geometrization], VIII.1.1 and Theorem VIII.1.3 with its proof, pp.278–280.
 
 ### LP0.4 Discrete Weil groups and unique extension
 
@@ -1128,6 +1172,43 @@ Let L be an algebraically closed discrete Z_l-field and η:W_E→Q the continuou
 **Hypotheses.** Use the generalized finite anchor from IHG.1 and finite generation of the actual integral tuple-invariant algebra. Do not replace nonflat integral invariants by fibre invariants. There is no good-π₁ or prime-to-|Q| condition. The component idempotents are included in the finite collection of invariant values.
 
 **Build.** Import a generalized-reductive stable tuple and its unique appended-element characterization from IHG.1, including both maximal minimal-parabolic dimension and maximal component count before minimizing the centralizer. Choose finitely many generators of the tuple-invariant algebra. Their evaluations with that anchor are locally constant near 1 on compact inertia. On a common open inertia neighbourhood all generator values equal those at 1. The unique appended-element characterization forces the reconstructed lift to equal 1 there. Its inertia kernel is therefore open and its inertia image finite. The homomorphism law transports continuity to each open inertia coset in W_E.
+
+The topological step has a precise finite-coordinate interface. Let I be an
+open compact subgroup of a topological group W, let ρ:W→J be the reconstructed
+homomorphism, and let f₁,…,fₙ:J→A take values in a discrete space A. Assume
+that each i↦fⱼ(ρ(i)) is continuous on I, and that for i∈I equality
+fⱼ(ρ(i))=fⱼ(1) for every j implies ρ(i)=1. Then
+`DiscreteWeilContinuity.inertia_kernel_open` makes ker(ρ|I) open in I,
+`finite_inertia_image` makes ρ(I) finite, and `continuous_lift` makes ρ
+continuous when J has the discrete topology. Openness of the kernel does
+not need compactness; finiteness of its index does. Continuity on W needs
+openness of I, whereas finite inertia image does not.
+
+In the parameter application, J=H(L)⋊Q, and the fⱼ are the actual integral
+invariant generators evaluated with the fixed anchor. Their separation
+property comes from the imported unique appended-element theorem, with the
+closed-orbit conditions supplied by reconstruction. The finite component
+idempotents are included. Constant test functions do not satisfy the
+separation hypothesis in general, so continuity of an arbitrary family of
+evaluations cannot replace this input. This finite-coordinate argument does
+not supply the characteristic-zero relatively discrete coefficient theorem
+of LP2c.3.
+
+**Checks for the continuity interface.**
+
+- The unit homomorphism has its whole inertia subgroup as kernel and the
+  singleton inertia image {1}.
+- With no coordinate functions, the separation hypothesis forces ρ|I=1.
+- A constant coordinate on C₂ is continuous but does not separate its
+  nonidentity element from 1. This rejects the argument with separation
+  omitted.
+- On the discrete degree group ℤ, the homomorphism k↦2ᵏ into ℚ× is continuous,
+  takes geometric Frobenius to 2, has trivial image on the identity inertia
+  subgroup and has infinite full image. `unramifiedPower` uses the
+  multiplicative copy of ℤ to express this homomorphism in Lean. The witness
+  retains the distinction between compact inertia and the full Weil group.
+  At degree 0 its value is 1; at degree −1 its value is the inverse of 2.
+
 
 **Checks.** For Q=1 and discrete L, the imported connected profinite theorem agrees on inertia. For H=G_m, an unramified character into a discrete algebraically closed characteristic-zero field may send geometric Frobenius to 2; it is continuous with infinite Weil image and trivial inertia image.
 

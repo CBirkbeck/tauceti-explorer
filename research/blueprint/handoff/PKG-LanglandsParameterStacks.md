@@ -1,5 +1,145 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
+Issue: #7909. Worker: Codex, session `codex-eMVz7a`.
+Date: 2026-10-10. Claim confirmed by bot comment 6093268965 in reply to
+6093267983. Continues checkpoints #8167, #8186, #8197 and #8204.
+
+## Current outcome
+
+This is a checkpoint, **not a completed package**. The continuation adds actual
+normal-quotient descent for the ordinary continuous cocycle interface and the
+finite-coordinate open-kernel argument used in discrete Weil continuity. The
+README explains their hypotheses, maps and counterexamples. General enhanced
+foundations remain blocked at their existing suppliers; the new statements do
+not stand in for the absent condensed or enhanced targets.
+
+Only the package README, Suggested.lean and this handoff change. The accepted
+packet, original reader and original suggested file remain unchanged.
+`metadata.toml` remains absent because existence of all deliverables signals a
+completed package. Add `topic = "math.NT"` only once the required interfaces
+and examples are actually supplied.
+
+## New interfaces and where to resume
+
+The new Lean block is between `end Continuous` and `section Wild`.
+
+- `CrossedCocycle.descend` and `quotientEquiv` use the actual group Γ/P, with
+  P normal and P≤ker(α). The subtype requires c|P=1. The evaluation equation
+  fixes the descended cocycle; the inverse equation fixes inflation. Gauge
+  descent retains the action-kernel hypothesis explicitly in
+  `gauge_trivial_on` rather than allowing Lean to drop that section variable.
+- `LParameter.quotientEquiv` uses the quotient topology, with evaluation and
+  inverse equations. Its gauge equation retains the orbit-map continuity
+  assumptions on the original and quotient actions.
+- `FiniteWildPiece.cutoffMap` is the canonical map Γ/P′→Γ/P when P′≤P.
+  `quotient_inflate` identifies its pullback with the existing inflation of
+  wild pieces, and `inflate_injective` records injectivity. These statements
+  do not prove open-and-closed scheme inclusions or the condensed comparison.
+- `finiteWild_iff_finite_range` assumes a continuous cocycle, a compact
+  subgroup P and a T₁ target. An open cocycle kernel gives finitely many right
+  cosets and hence finite image; finite image makes the identity fibre open.
+  The separate pro-p/ℓ-adic argument establishing this condition for every
+  parameter is still required.
+- `DiscreteWeilContinuity.inertia_kernel_open` uses finitely many discrete
+  coordinate functions evaluated on the same lift. Equality to their values
+  at 1 must separate the lift from 1 on inertia. Compact inertia then gives
+  `finite_inertia_image`. Open inertia and a discrete target give
+  `continuous_lift`, without any finite-image assertion for the whole Weil
+  group. Specializing these lemmas still requires the IHG anchor and actual
+  invariant-generator separation theorem, not arbitrary test functions.
+
+The new examples check the identity and full cutoffs, the finite-image
+comparison, the failure of action descent for the unit cocycle with C₂
+negation action, trivial lifts, an empty separating family, and a constant
+nonseparating coordinate on C₂. `unramifiedPower` is the actual homomorphism
+from multiplicative ℤ to ℚˣ sending k to 2^k. Its examples test Frobenius value
+2, degree-zero and inverse values, trivial identity inertia image and infinite
+full image. ℚˣ has its usual
+Mathlib topology here; a discrete degree source makes the map continuous.
+This model demonstrates why compact-inertia finiteness cannot be extended to
+full-Weil finiteness; it is not a condensed-coefficient specialization.
+
+## Independently confirmed blocker
+
+G3 remains a supplier design/signature blocker. The current
+`research/blueprint/suggested/EnhancedDerivedSheaves--E5.lean` was read in full:
+monoidal coherence is represented by `True` at lines 79–81, `CAlg` by `Unit`
+at line 104, stability by `True` at lines 113–115, compactness/Ind by `True`
+at lines 141/145, and `AnimatedAlg` by `Unit` at line 199. Searches of current
+upstream suggested files and current Tau Ceti found no faithful replacement.
+The required animated stacks, stable symmetric monoidal infinity categories,
+Perf/IndPerf and coherent actions therefore have no usable supplier contracts.
+
+PROTOCOL §§13 and 20 require these actual interfaces; §15 gives their general
+foundations to the existing owners. This issue permits no edits to those
+owners. Complete packaging therefore needs the supplier contracts settled
+first. Adding local general foundations or using unconstrained predicates
+would not resolve this gap faithfully. Stopping is due to this independently
+confirmed blocker, rather than the four-hour time limit.
+
+G1, G4 and G6 also retain the obligations recorded below. In particular, the
+finite-coordinate argument does not prove LP2c.3 characteristic-zero
+relatively discrete continuity. No accepted gap is marked resolved, and no
+ordinary signature is counted as completion of an enhanced target.
+
+## Sources and library checks in this continuation
+
+Read the current upstream ReductiveGroups and AlgebraicVectorBundles READMEs
+in full, the E5 suggested file, accepted plan, library audit and existing
+package interfaces. Read-only upstream roadmap commit:
+`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti library commit:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+For the new mathematical arguments, read:
+
+- Fargues–Scholze, §VIII.1.1 and Theorem VIII.1.3 with its proof, printed
+  pp.278–280, from the author-hosted Geometrization PDF. SHA-256:
+  `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+- Böckle–Harris–Khare–Thorne, Proposition 4.7(iii), printed pp.23–24, from
+  the published Acta PDF. The profinite-group proof is applied only to compact
+  inertia; openness then transports continuity to Weil cosets. SHA-256:
+  `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`.
+- Quast, Theorem 3.7, Claims A–C, printed pp.13–15, from the author-hosted
+  pseudocharacters PDF, for the disconnected anchor/extension argument. This
+  does not rely on Theorem 3.8's compactness argument. SHA-256:
+  `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
+
+Read the needed Mathlib quotient lift/evaluation, quotient topology,
+open-subgroup finite-quotient and continuity-at-one declarations at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. Compared pinned git objects with
+the shared build byte-for-byte for Group/Quotient, Group/Neighborhood,
+OpenSubgroup, QuotientGroup/Defs and Instances/Rat; all match. Earlier
+31-baseline and source readings remain inherited verification, not fresh
+claims of this continuation. No restricted book was needed, and no source
+passage or source file is included in the repository.
+
+## Final validation
+
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, 262 warnings, all `declaration uses sorry`; zero errors and zero
+  other warning classes. This certifies elaboration of signatures with
+  admitted proofs, not their proof correctness or absent supplier targets.
+- Packet checker: zero errors and zero warnings; accepted input unchanged.
+- README audit: 79 target headings, 79 source blocks and 79 prerequisite
+  blocks; all 140 accepted API names and 90 accepted test names retained.
+  Target headings and all 147 internal links are unchanged. README size:
+  171,138 bytes, below 200 KB. Coverage does not certify missing
+  signatures.
+- Intake `check-files`: three changed deliverables, zero problems.
+- `git diff --check`: passed.
+
+No Lake project, library build, cache download or language server was started.
+No compile remains running. All information needed to resume is in this note
+and the submitted files; scratch may be deleted after opening the PR.
+
+The historical note below preserves the mathematical interfaces and supplier
+obligations from #8204. Its readings and counts describe that earlier
+checkpoint; the current continuation's validation above is authoritative.
+
+---
+
+# Inherited checkpoint #8204 — codex-XDEuv3
+
 Issue: #7909. Worker: Codex, session `codex-XDEuv3`.
 Date: 2026-10-10. The claim was confirmed by the swarm bot against comment
 6093067320. This continues the merged checkpoints #8167, #8186 and #8197.
