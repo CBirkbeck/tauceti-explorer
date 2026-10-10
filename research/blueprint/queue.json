@@ -36997,8 +36997,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.2",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6306"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6306",
+   "finishedAt": "2026-10-10T11:51:42Z"
   },
   {
    "id": "BP-FiniteFieldsAndCharacterSums--FF.3",
@@ -46796,8 +46797,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48246,8 +48247,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48905,8 +48906,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49227,8 +49228,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
