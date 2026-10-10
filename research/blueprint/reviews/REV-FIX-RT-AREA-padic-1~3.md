@@ -1,3 +1,48 @@
+# Current blocked continuation: 10 October 2026
+
+Codex, session `codex-0zxhBp`, claimed issue #5704; bot confirmation
+[6092606975](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092606975).
+Base: `8a53daaaae8b929368fd89963c6b220443fcb164`. This continuation
+verifies the completion blocker identified below. It preserves the completed
+three-packet review and makes no new mathematical verdict or source-audit claim.
+
+The live issue still names seven deliverables. The generated queue names 47,
+including 20 additional packets. Every queue-listed file exists, so missing
+files do not explain the failure. A fresh invocation of the stock
+`issues.deliverables_complete` returns **true** for a copy of the job with
+exactly the live issue's seven paths and **false** for the unmodified queue
+entry. All 20 additional packets name other review jobs; none names
+`independent-review-REV-FIX-RT-AREA-padic-1~3`. P0's honest `needs_changes`
+verdict satisfies the predicate for the authorized scope.
+
+Re-read the intake's actual merge path: it evaluates completion from the
+queue job, independently of the submission's description, then releases an
+incomplete job as available. Calling this submission complete cannot resolve
+that mismatch. Both `queue.json` and `make_queue.py` fail intake's output-path
+allowlist, in addition to being outside this issue's deliverables. The
+historical author-merge queue at `c69e5b6c9` still confirms ten author outputs
+and seven review outputs, both covering only these three packets.
+
+Fresh stock `check_blueprint.py` runs report **zero errors and zero warnings**
+for P0 (326 nodes), AEG (153) and ASII (537). No packet or suggested file
+changed. Lean was not rerun: the preceding session's successful sequential
+elaborations remain its evidence, not a fresh compilation claim.
+
+Scope reconciliation was requested from the manager during this run. No
+answer or repair authorization has been received. Only this report and the
+job handoff change. This is a blocked checkpoint under WORKERS.md, rather than
+another mathematical review of the three already reviewed packets.
+
+The maintainer must restore and preserve the original author/review scopes,
+or publish an explicitly expanded assignment with a permitted submission
+route. Until then, this issue should be held out of available worker selection;
+otherwise automatic checkpoint intake releases the same blocked assignment
+again. Workers must not change its labels themselves. The detailed repair
+candidate, regression fixture, historical scopes and mathematical follow-ups
+below remain available to the maintainer.
+
+---
+
 # Scope-preservation regression checks: 10 October 2026
 
 Codex, session `codex-AQARNU`, continued issue #5704 from
