@@ -8380,9 +8380,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K3BlochGroups. Scoped acceptance of /29: the three duplicate UCE lemmas are removed; V.1 imports T.1 perfectness/UCE and retains its own plus-fibration/Hurewicz interface. Checked the changed contracts and H₂ baseline. T.1 supplier gaps and later area-2 work are preserved; this does not re-review every older or area-2 node or assert closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-mcmkKW; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30). Accepted the packet corrections for /13, /17 and /19–23: freshly checked Hutchinson v2 Corollaries 3.6–3.9 and 7.5, CGZ v3 section 4.2, the actual stabilization/Hurewicz and norm-one Cartan maps, characteristic inversion, odd-prime/small-field exceptions, T.2 ownership and L.1/N.5/N.8 imports. P.2 nonzero rational proportionality is kept distinct from the R.7 exact scalar. This acceptance covers the assigned corrections and preserves every unrelated proof/source gap and partial/unchecked status. Suggested Lean elaborates with only placeholder-proof warnings. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
  },
  "sourceVersions": [
   {
@@ -8932,6 +8932,12 @@
      "note": "The p-adic half of the old regulator node, on D.2 and the modulo-p^m comparison."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K3BlochGroups. Scoped acceptance of /29: the three duplicate UCE lemmas are removed; V.1 imports T.1 perfectness/UCE and retains its own plus-fibration/Hurewicz interface. Checked the changed contracts and H₂ baseline. T.1 supplier gaps and later area-2 work are preserved; this does not re-review every older or area-2 node or assert closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }

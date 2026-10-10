@@ -5918,346 +5918,354 @@
     }
   ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-HabiroNumberFields",
-    "date": "2026-09-25",
-    "notes": "Independent review of all 18 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, by three checkers (HB.1 with the baseline, the library audit and the K-theory suppliers; HB.2 with Calegari–Garoufalidis–Zagier and Hutchinson; HB.6–HB.7 with Garoufalidis–Scholze–Wheeler–Zagier and the packet-level fields), whose key claims the reviewer re-checked (PARI for the eigenspace convention; the rendered GSWZ pages for (21) and (24)). Sources read: CGZ arXiv v3 §§1–7 (hash confirmed), Hutchinson arXiv v4 in full (hash confirmed), GSWZ arXiv v2 §§1.3–1.5, 2.1, 3, 5.1–5.3 (hash confirmed), Weibel's K-book IV–V. Outcome: 17 nodes corrected, 50 added, 1 deleted (HB.2's bundled bar-cycles node); 42 baseline declarations, each confirmed in the pinned index; every test has a kind; 30 source issues recorded (the packet had none). Main corrections: (1) false statements: the Bloch conventions differ by elementary abelian 2-groups, one way, not 'two- and six-primary' groups in both directions; the Remark 1.3 excerpt reversed the exponent law (R_(ζ^k) = R_ζ^(k^−1)), which would give the χ-eigenspace; the Chern-class target is the multiplicative group, not the units, and needs N odd; the Bott element lies in K₂(R; ℤ/N); GSWZ (21) has p/x, not p·x (with p·x no section exists), and (24) is a product in the Habiro ring of R[1/γ], not a ratio over R/γ; the local-picture node contradicted GSWZ Theorem 2; (2) library: PowerSeries.subst needs nilpotence, so the substitution is HabiroCyclotomicCompletions HC.3's re-expansion on PowerSeries.eval₂Hom; Mathlib's autToPow is the cyclotomic character the packet planned again; (3) closure: CGZ §3 (c_ζ, Lemmas 3.1, 3.3–3.5, Proposition 2.12, Theorem 1.5), CGZ §§2 and 4–5 (the descent to R_ζ, the KMS identity, the local maps, Theorem 1.6), Hutchinson's argument, GSWZ's compatible roots, the p-completed ring, the class decomposition, Theorems 1 and 2 and Proposition 1.5 had no nodes and are decomposed; (4) ownership: the Bloch conventions are K3BlochGroups V.3–V.6's, the Frobenius lift HabiroRings HR.1's, and nine misdirected or reversed requests (V.1, V.2, M.3 for HB.1, H.2, HR.5, HC.6, ...) are replaced. The exported units are GSWZ's ε_m = c_(ζ_m)² for every m. The refinement R_ζ = c_ζ² needs CGZ Theorem 7.4, proved only through HabiroNahmSeries HB.4, which requires HB.2: it is a gap with a restructure proposal, and the sign of the scalar depends on conventions the sources do not fix (gap). Source issues include false stated results of GSWZ (Definition 1.3's shape breaks Theorem 1 for ξ = 0; Remark 1.2 as indexed; footnote 1's φ_m) and of CGZ (§3.5's count for 3 | n; S depending on n). No stage-level or node-level cycle. Coverage: all four stages partial, with 10 gaps and 14 requests. The packet is accepted: every node is corrected or added, every baseline citation is confirmed, and the open points are recorded.",
-    "checked": [
-      {
-        "nodeId": "HabiroNumberFields:HB.1/bloch-group-conventions",
-        "verdict": "corrected",
-        "note": "Re-planned what the accepted K3BlochGroups packet owns (V.3, V.4, V.6) and was false in four places: the conventions differ in generators and boundary target, not only in relations; the comparison runs one way (B ⊆ B̃ ↠ B_CGZ); kernel and cokernel are elementary abelian 2-groups, not 'two- and six-primary'; and 'no roots of unity in the field' is impossible (−1 ∈ F). Now a thin import with the identification modulo odd n prime to w_F; V.1 (the Steinberg-group model) replaced by the V.3–V.6 node ids."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, §1.1, equation (4) and the following sentence, p. 3 (arXiv v3)): The cyclotomic character and the χ^j-eigenspaces."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
-        "verdict": "corrected",
-        "note": "Its 'verbatim' excerpt of CGZ Remark 1.3 reversed the exponent law (R_{ζ^k} = R_ζ^{k^{−1}}, not R_ζ^k), which would put the image in the χ-eigenspace; the reviewer checked with PARI that the value ∏(1 − 2ζ₅^k)^k lies in the χ^{−1}-eigenspace and not the χ-eigenspace. It never fixed χ (Mathlib's autToPow, now its own node) and gave no formula; now the projector lemma with the n = 9 counterexample to exactness."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/sahs-lemma",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proof of Proposition 2.5(b), §2.3, p. 13 (arXiv v3)): Sah's lemma: central elements act trivially on group cohomology."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/the-excluded-primes",
-        "verdict": "corrected",
-        "note": "Never defined M_F although it said it did, referred forward to R_ζ (HB.2's map), conflated M_F with the set S of Theorems 1.2 and 1.5, and quoted 'twisted by χ^{−1}' where CGZ have the χ^{−1}-eigenspace. Now the definition of M_F = 6|Δ_F||K₂(O_F)| and M′_F = 2|Δ_F||K₂(O_F)| (CGZ Remark 1.4) with their arithmetic consequences and computed values (M_ℚ = 12, M′_ℚ = 4)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
-        "verdict": "corrected",
-        "note": "Called the target 'the units' where Hutchinson Corollary 2.11 has the whole multiplicative group modulo N-th powers, dropped 'N odd' (for N = 2 and ℚ, K₃^M ≠ 0), planned objects owned by StableHomotopyKTheory H.6 and MotivicEtaleKTheory M.7/M.8, and cited M.3 (Tate's degree-two theorem) for a degree-three comparison. Now an import; the Chern class map c_ζ is its own node; excerpt shortened."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/inflation-restriction-injectivity",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.1 and its proof, §3.1, p. 18 (arXiv v3)): Restriction to the cyclotomic extension is injective for n prime to w_m(F) (CGZ Lemma 3.1)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, §3.1, before (29), p. 18 (arXiv v3)): The Chern class map c_ζ into the χ^{1−m}-eigenspace (CGZ §3.1)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.3, the definition of c_ζ after Corollary 2.11 (arXiv v4)): Hutchinson's finite-coefficient c_ζ equals CGZ's c_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Theorem 3.2, §3.2, pp. 18–19 (arXiv v3)): K₃ of a number field and H¹ of the second twist at odd primes (CGZ Theorem 3.2), imported."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/injectivity-of-c-zeta",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.3, §3.2, p. 19 (arXiv v3)): Injectivity of c_ζ on K₃(F)/n (CGZ Lemma 3.3)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/s-units-realise-c-zeta",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.4, §3.3, p. 19 (arXiv v3)): The image of c_ζ is realised by S-units (CGZ Lemma 3.4)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/units-realise-c-zeta",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.5, §3.4, p. 20 (arXiv v3)): The image of c_ζ is realised by units when n avoids 2, Δ_F and K₂(O_F) (CGZ Lemma 3.5)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/equivariant-unit-rank",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proposition 2.12(a) and its proof, §2.6, pp. 16–17 (arXiv v3)): The χ^{−1}-part of the units of F_n has rank r₂(F) (CGZ Proposition 2.12(a))."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/eigenspace-of-units-mod-p",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proposition 2.12(b), §2.6, p. 16 (arXiv v3)): (O_pˣ/(O_pˣ)^p)^{χ^{−1}} ≅ (ℤ/p)^{r₂(F)} when χ ≠ χ^{−1} (CGZ Proposition 2.12(b))."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.1/cgz-theorem-1-5",
-        "verdict": "added",
-        "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Theorem 1.5, §1.2, p. 4 (arXiv v3)): Injectivity and image of the Chern class map (CGZ Theorem 1.5)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
-        "verdict": "corrected",
-        "note": "Conflated P_ζ (in the Kummer extension) with R_ζ, omitted the descent (two pages of CGZ), claimed results proved only after the comparison, and had a false test: changing ζ to ζ^k raises the class to the k^{−1}-th power, not the k-th (CGZ Lemma 2.7(1); PARI). Now the definition of D_ζ with its API; P_ζ, the descent and R_ζ are separate nodes."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/kms-identity",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.5, proof of Theorem 2.11, p. 15): The Kashaev–Mangazeev–Stroganov identity for D_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/kummer-value-P",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.2, equation (20) and Lemma 2.4, p. 10): The Kummer-extension value P_ζ and its independence of the root."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/lifting-obstruction-is-a-cup-product",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.3, proof of Proposition 2.5(a), pp. 11–13): The obstruction to descending P_ζ is the cup product of the boundary."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/the-map-R-zeta",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.3, Proposition 2.5, p. 11): The map R_ζ: the unique χ^{−1}-lift of P_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/five-term-distribution-and-galois",
-        "verdict": "corrected",
-        "note": "Cited K3BlochGroups V.2 (indecomposable K₃) for the five-term relation, which is V.3's, and gave no source for the identity it needs, the Kashaev–Mangazeev–Stroganov identity (now a lemma, checked exactly by checker B, with a gap for its proof); rewritten as CGZ Theorem 2.11 with literal locators."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/root-of-unity-dependence",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.1, Remark 1.3, p. 3): Dependence of R_ζ on ζ and Galois equivariance."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/distribution-in-the-order",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.4, Lemma 2.7(2), p. 14): Change of the order n: the distribution compatibility."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/change-of-field",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.4, Lemma 2.10, p. 15): Change of field."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/etale-bloch-group-and-K2",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.2, Theorem 1.7 and equation (15), p. 5; proof in §6, pp. 31–33): The étale Bloch group and K_2 (CGZ Theorem 1.7)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/the-element-eta",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, proof of Lemma 5.1, equation (34), p. 26): The torsion element η_ζ of B(Q(ζ)^+)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/cyclic-bar-chains",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.1, Lemma 2.1 (arXiv v4; LaTeX label lem:cyc)): The cyclic bar chains α_r(t)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/bott-element",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, paragraph before Lemma 4.1 (arXiv v4)): The Bott element β(ζ) ∈ K_2(R; Z/N)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/hurewicz-mod-odd-N",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, Lemma 4.3 (LaTeX label lem:hur)): K_3 with odd finite coefficients is H_3 of SL."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/eta-is-zeta-times-bott",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, Proposition 4.6 (LaTeX label prop:gamma)): η̄_ζ = ζ ∗ β in K_3(Q(ζ); Z/N) (Hutchinson Proposition 4.6)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/chern-sign-conventions",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §3.1, p. 18): The sign conventions that fix c_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/soule-formula-in-degree-three",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.3, Theorem 2.12 (LaTeX label thm:sou)): Soulé's product formula in degree three, with its sign."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/chern-class-of-eta",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §3, Theorem 3.1 (arXiv v4; LaTeX label thm:main)): Hutchinson's theorem: the Chern class of η_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/local-maps-at-primes-of-norm-minus-one",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §4.4, p. 25): The local maps R_{ζ,q} and c_{ζ,q} at primes of norm ≡ −1."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/eta-generates",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, Lemma 5.1, p. 26): η_ζ generates the p-part, globally and at primes of norm ≡ −1 (CGZ Lemma 5.1)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/local-R-is-an-isomorphism",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, Theorem 5.2, p. 26): The local map R_{ζ,q} is an isomorphism (CGZ Theorem 5.2)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/chebotarev-detection",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §4.1, Proposition 4.2, p. 22): Detection of Chern classes by primes of norm ≡ −1 (CGZ Proposition 4.2)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/the-comparison-with-the-chern-class",
-        "verdict": "corrected",
-        "note": "Bundled CGZ Theorem 1.6, the conjecture, Hutchinson's theorem and a policy; its 'weaker comparison outside the refinement' is vacuous (n prime to M_F already forces n odd and μ_n(F) = 1); its field-independence argument (a compositum) fails; and the refinement needs CGZ Theorem 7.4, which the packet never cited. Now Theorem 1.6 with field independence through the local maps; the refinement is its own node with a gap."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/scalar-from-eta",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.2, after Theorem 1.6, p. 4): Reading off the scalar from η_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/eta-galois-scaling",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §7.2, end of the proof of Theorem 7.4, p. 39): η_{ζ^k} = k^2 η_ζ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/R-injectivity-and-image",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.1, Theorem 1.2, p. 3): Injectivity and image of R_ζ (the rest of CGZ Theorem 1.2)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/hutchinson-refinement",
-        "verdict": "added",
-        "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, Abstract (arXiv v4)): Hutchinson's refinement: R_ζ = c_ζ^2 for n prime to M_F."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.2/the-exported-interface",
-        "verdict": "corrected",
-        "note": "Exported units attached to Bloch classes for n prime to the excluded set, but GSWZ (16) define ε_m = c_{ζ_m}² on K₃(K) for EVERY m (for ℚ(√−3) and m = 3 R_ζ does not exist); now the definition of ε_m(ξ) with its Kummer class, root line, equivariance, multiplicativity and coherence in m, and its identification with R_{ζ_m} only for m prime to M_K."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/compatible-roots-of-unity",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.3, equation (7), p. 4 (arXiv v2)): The compatible system of roots of unity."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
-        "verdict": "corrected",
-        "note": "R[ζ_m] must be the full algebra R ⊗ ℤ[ζ_m] (for ℚ(i) and Δ = 4 it splits), the Frobenius does not lift 'the' residue field's (R/p is a product of fields), GSWZ use two Frobenius conventions, and the test 'not an automorphism' was false (φ_p is an automorphism of R^∧_p, not induced by Aut K; ℚ(∛2), p = 5). The Frobenius lift is imported from HabiroRings HR.1 instead of the reversed HR.5 request; the compatible roots of unity are a new node."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/the-substitution-exists",
-        "verdict": "corrected",
-        "note": "Relied on Mathlib's PowerSeries.subst, whose hypothesis is nilpotence of the constant coefficient, not topological nilpotence; now cites HabiroCyclotomicCompletions HC.3/p-adic-closeness-of-roots and HC.3/p-adic-re-expansion (PowerSeries.eval₂Hom) and states which roots are close."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/the-gluing-condition",
-        "verdict": "corrected",
-        "note": "Stated the gluing before the substitution it uses (the dependency is reversed), without GSWZ's compatible roots, for which alone ζ_pm − ζ_m is topologically nilpotent (for ω_m = e^{2πi/m}, v₂(ω₁₀ − ω₅) = 0); tests with kinds, including the Kontsevich series glued 2- and 3-adically."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/the-p-completed-ring",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.4, equation (14), p. 7 (arXiv v2)): The p-completed Habiro ring and the intersection description."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/the-p-adic-classical-ring",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.4, equation (14), p. 7 (arXiv v2)): Habiro's ring over Z_p splits into power series rings at orders prime to p."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
-        "verdict": "corrected",
-        "note": "Its excerpt is from §5.1, not §1.4; it cited the stage HabiroCyclotomicCompletions HC.6, which after REV-HabiroCyclotomicCompletions no longer supplies the comparison (and would close a cycle); and the surjectivity of the comparison has no source (GSWZ credit Habiro, who proves only injectivity). Now the comparison for all Δ ≥ 1 citing HC node ids, with a gap for the p-adic splitting (14)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/decomposition-into-classes",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Remark 1.2, §1.4, p. 7 (arXiv v2)): H_R is a product over the classes of orders; H_R|Δ is a domain."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/abelian-fields",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Footnote 1, §1.4, p. 6 (arXiv v2)): Abelian fields: the embedding of R and the base-change description."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.6/what-is-not-true-of-this-ring",
-        "verdict": "corrected",
-        "note": "Said inverting primes 'restricts which root orders are available' (all orders remain) and repeated GSWZ Remark 1.2, which is false as indexed (for ℚ(i) and Δ = 4 the factor of the class of 4 has an idempotent); now points to the decomposition node, and the ring is not a domain for Δ > 1."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/invertible-local-sections",
-        "verdict": "corrected",
-        "note": "Transcribed GSWZ (21) with p·x where the page has p/x, which makes the object empty whenever D_p(ξ) ≠ 0 (checked on the rendered page by the reviewer); GSWZ's own shape (20) is also wrong (source issue E24), so the node uses the shape (195) of Lemma 3.6; Theorem 1 is split off."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/dworks-lemma",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Lemma 3.4, §3.2, p. 39 (arXiv v2)): Dwork's lemma and its exponential corollary."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/pochhammer-dwork-difference",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 2.2, §2.1, p. 19 (arXiv v2)): The Dwork-type difference of the infinite Pochhammer symbol."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/pochhammer-sections",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Definition 3.9, §3.2, p. 42 (arXiv v2)): Explicit invertible sections from the infinite Pochhammer symbol."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/local-freeness",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Theorem 1, §1.5, p. 9 (arXiv v2)): Invertible sections exist and the local modules are free of rank one (Theorem 1)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/extension-to-all-roots",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Corollary 3.7, §3.2, p. 41 (arXiv v2)): Extending an invertible section to all roots of unity."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/the-global-module",
-        "verdict": "corrected",
-        "note": "Transcribed GSWZ (24) as a ratio in the Habiro ring of the quotient R/γ, where the page has the product f(q^γ)^γ f(q^{−1}) in the Habiro ring of R[1/γ] (checked by the reviewer); 'is a local section' should be 'lies in the span'; planet renamed after the source ('Habiro module H_{R,ξ}')."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Theorem 2, §1.5, p. 10 (arXiv v2)): H_{R,0} = H_R, and multiplication H_{R,ξ} ⊗ H_{R,ξ'} ≅ H_{R,ξ+ξ'} (Theorem 2)."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/operations-on-the-modules",
-        "verdict": "corrected",
-        "note": "Asserted operations GSWZ do not prove (scalar extension, Galois action, K₃ transfer; now a gap), a false evaluation target for ξ ≠ 0 (constant terms lie in R[ζ_m, ε_m^{1/m}]), and 'change of index', which is not the source's γ*; rewritten around γ*, τ and Proposition 1.5."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/involution-pairing",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (b), §1.5, p. 11 (arXiv v2)): f·τg lies in the ring, and any two elements are proportional."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/vanishing-propagates",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (e), §1.5, p. 11 (arXiv v2)): A vanishing component forces vanishing along the prime chain."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/constant-terms",
-        "verdict": "added",
-        "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (f), §1.5, p. 11 (arXiv v2)): Evaluation: constant terms lie in R[ζ_m, ε_m^{1/m}] for orders prime to Δ."
-      },
-      {
-        "nodeId": "HabiroNumberFields:HB.7/what-the-local-picture-does-not-give",
-        "verdict": "corrected",
-        "note": "Contradicted GSWZ Theorem 2 ('multiplication gives a canonical isomorphism', so H_{R,ξ} is invertible); now the correct non-implications (multiplication by one element need not be surjective; global freeness is not claimed) with Theorem 2 as its own node and a gap for its proof."
-      }
-    ]
-  }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-mcmkKW; follows independent-review-REV-HabiroNumberFields (2026-09-25). Checked /2, /13–18 and convention/normalization imports against CGZ v3, Hutchinson v2/v4 and GSWZ v2. The conditional exponent-two implication is correct, but the downstream HabiroNahmSeries HB.9 consumer still applies it unconditionally; assemble the normalized evaluation after HB.4 and retarget that consumer. /14 retains the unread Keune proof and finite-module translation; /18 retains the unsplit early finite-Chern supplier. No unconditional sign comparison or supplier closure is certified. Suggested Lean elaborates with only placeholder-proof warnings. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-HabiroNumberFields",
+      "date": "2026-09-25",
+      "notes": "Independent review of all 18 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, by three checkers (HB.1 with the baseline, the library audit and the K-theory suppliers; HB.2 with Calegari–Garoufalidis–Zagier and Hutchinson; HB.6–HB.7 with Garoufalidis–Scholze–Wheeler–Zagier and the packet-level fields), whose key claims the reviewer re-checked (PARI for the eigenspace convention; the rendered GSWZ pages for (21) and (24)). Sources read: CGZ arXiv v3 §§1–7 (hash confirmed), Hutchinson arXiv v4 in full (hash confirmed), GSWZ arXiv v2 §§1.3–1.5, 2.1, 3, 5.1–5.3 (hash confirmed), Weibel's K-book IV–V. Outcome: 17 nodes corrected, 50 added, 1 deleted (HB.2's bundled bar-cycles node); 42 baseline declarations, each confirmed in the pinned index; every test has a kind; 30 source issues recorded (the packet had none). Main corrections: (1) false statements: the Bloch conventions differ by elementary abelian 2-groups, one way, not 'two- and six-primary' groups in both directions; the Remark 1.3 excerpt reversed the exponent law (R_(ζ^k) = R_ζ^(k^−1)), which would give the χ-eigenspace; the Chern-class target is the multiplicative group, not the units, and needs N odd; the Bott element lies in K₂(R; ℤ/N); GSWZ (21) has p/x, not p·x (with p·x no section exists), and (24) is a product in the Habiro ring of R[1/γ], not a ratio over R/γ; the local-picture node contradicted GSWZ Theorem 2; (2) library: PowerSeries.subst needs nilpotence, so the substitution is HabiroCyclotomicCompletions HC.3's re-expansion on PowerSeries.eval₂Hom; Mathlib's autToPow is the cyclotomic character the packet planned again; (3) closure: CGZ §3 (c_ζ, Lemmas 3.1, 3.3–3.5, Proposition 2.12, Theorem 1.5), CGZ §§2 and 4–5 (the descent to R_ζ, the KMS identity, the local maps, Theorem 1.6), Hutchinson's argument, GSWZ's compatible roots, the p-completed ring, the class decomposition, Theorems 1 and 2 and Proposition 1.5 had no nodes and are decomposed; (4) ownership: the Bloch conventions are K3BlochGroups V.3–V.6's, the Frobenius lift HabiroRings HR.1's, and nine misdirected or reversed requests (V.1, V.2, M.3 for HB.1, H.2, HR.5, HC.6, ...) are replaced. The exported units are GSWZ's ε_m = c_(ζ_m)² for every m. The refinement R_ζ = c_ζ² needs CGZ Theorem 7.4, proved only through HabiroNahmSeries HB.4, which requires HB.2: it is a gap with a restructure proposal, and the sign of the scalar depends on conventions the sources do not fix (gap). Source issues include false stated results of GSWZ (Definition 1.3's shape breaks Theorem 1 for ξ = 0; Remark 1.2 as indexed; footnote 1's φ_m) and of CGZ (§3.5's count for 3 | n; S depending on n). No stage-level or node-level cycle. Coverage: all four stages partial, with 10 gaps and 14 requests. The packet is accepted: every node is corrected or added, every baseline citation is confirmed, and the open points are recorded.",
+      "checked": [
+        {
+          "nodeId": "HabiroNumberFields:HB.1/bloch-group-conventions",
+          "verdict": "corrected",
+          "note": "Re-planned what the accepted K3BlochGroups packet owns (V.3, V.4, V.6) and was false in four places: the conventions differ in generators and boundary target, not only in relations; the comparison runs one way (B ⊆ B̃ ↠ B_CGZ); kernel and cokernel are elementary abelian 2-groups, not 'two- and six-primary'; and 'no roots of unity in the field' is impossible (−1 ∈ F). Now a thin import with the identification modulo odd n prime to w_F; V.1 (the Steinberg-group model) replaced by the V.3–V.6 node ids."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, §1.1, equation (4) and the following sentence, p. 3 (arXiv v3)): The cyclotomic character and the χ^j-eigenspaces."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/the-eigenspace-and-division-by-a-group-order",
+          "verdict": "corrected",
+          "note": "Its 'verbatim' excerpt of CGZ Remark 1.3 reversed the exponent law (R_{ζ^k} = R_ζ^{k^{−1}}, not R_ζ^k), which would put the image in the χ-eigenspace; the reviewer checked with PARI that the value ∏(1 − 2ζ₅^k)^k lies in the χ^{−1}-eigenspace and not the χ-eigenspace. It never fixed χ (Mathlib's autToPow, now its own node) and gave no formula; now the projector lemma with the n = 9 counterexample to exactness."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/sahs-lemma",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proof of Proposition 2.5(b), §2.3, p. 13 (arXiv v3)): Sah's lemma: central elements act trivially on group cohomology."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/the-excluded-primes",
+          "verdict": "corrected",
+          "note": "Never defined M_F although it said it did, referred forward to R_ζ (HB.2's map), conflated M_F with the set S of Theorems 1.2 and 1.5, and quoted 'twisted by χ^{−1}' where CGZ have the χ^{−1}-eigenspace. Now the definition of M_F = 6|Δ_F||K₂(O_F)| and M′_F = 2|Δ_F||K₂(O_F)| (CGZ Remark 1.4) with their arithmetic consequences and computed values (M_ℚ = 12, M′_ℚ = 4)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+          "verdict": "corrected",
+          "note": "Called the target 'the units' where Hutchinson Corollary 2.11 has the whole multiplicative group modulo N-th powers, dropped 'N odd' (for N = 2 and ℚ, K₃^M ≠ 0), planned objects owned by StableHomotopyKTheory H.6 and MotivicEtaleKTheory M.7/M.8, and cited M.3 (Tate's degree-two theorem) for a degree-three comparison. Now an import; the Chern class map c_ζ is its own node; excerpt shortened."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/inflation-restriction-injectivity",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.1 and its proof, §3.1, p. 18 (arXiv v3)): Restriction to the cyclotomic extension is injective for n prime to w_m(F) (CGZ Lemma 3.1)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, §3.1, before (29), p. 18 (arXiv v3)): The Chern class map c_ζ into the χ^{1−m}-eigenspace (CGZ §3.1)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.3, the definition of c_ζ after Corollary 2.11 (arXiv v4)): Hutchinson's finite-coefficient c_ζ equals CGZ's c_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/quillen-lichtenbaum-degree-three",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Theorem 3.2, §3.2, pp. 18–19 (arXiv v3)): K₃ of a number field and H¹ of the second twist at odd primes (CGZ Theorem 3.2), imported."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/injectivity-of-c-zeta",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.3, §3.2, p. 19 (arXiv v3)): Injectivity of c_ζ on K₃(F)/n (CGZ Lemma 3.3)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/s-units-realise-c-zeta",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.4, §3.3, p. 19 (arXiv v3)): The image of c_ζ is realised by S-units (CGZ Lemma 3.4)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/units-realise-c-zeta",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Lemma 3.5, §3.4, p. 20 (arXiv v3)): The image of c_ζ is realised by units when n avoids 2, Δ_F and K₂(O_F) (CGZ Lemma 3.5)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/equivariant-unit-rank",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proposition 2.12(a) and its proof, §2.6, pp. 16–17 (arXiv v3)): The χ^{−1}-part of the units of F_n has rank r₂(F) (CGZ Proposition 2.12(a))."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/eigenspace-of-units-mod-p",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Proposition 2.12(b), §2.6, p. 16 (arXiv v3)): (O_pˣ/(O_pˣ)^p)^{χ^{−1}} ≅ (ℤ/p)^{r₂(F)} when χ ≠ χ^{−1} (CGZ Proposition 2.12(b))."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.1/cgz-theorem-1-5",
+          "verdict": "added",
+          "note": "Added from checker A's decomposition (CGZ.BlochUnits.2021, Theorem 1.5, §1.2, p. 4 (arXiv v3)): Injectivity and image of the Chern class map (CGZ Theorem 1.5)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/the-cyclic-quantum-dilogarithm",
+          "verdict": "corrected",
+          "note": "Conflated P_ζ (in the Kummer extension) with R_ζ, omitted the descent (two pages of CGZ), claimed results proved only after the comparison, and had a false test: changing ζ to ζ^k raises the class to the k^{−1}-th power, not the k-th (CGZ Lemma 2.7(1); PARI). Now the definition of D_ζ with its API; P_ζ, the descent and R_ζ are separate nodes."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/kms-identity",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.5, proof of Theorem 2.11, p. 15): The Kashaev–Mangazeev–Stroganov identity for D_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/kummer-value-P",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.2, equation (20) and Lemma 2.4, p. 10): The Kummer-extension value P_ζ and its independence of the root."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/lifting-obstruction-is-a-cup-product",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.3, proof of Proposition 2.5(a), pp. 11–13): The obstruction to descending P_ζ is the cup product of the boundary."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/the-map-R-zeta",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.3, Proposition 2.5, p. 11): The map R_ζ: the unique χ^{−1}-lift of P_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/five-term-distribution-and-galois",
+          "verdict": "corrected",
+          "note": "Cited K3BlochGroups V.2 (indecomposable K₃) for the five-term relation, which is V.3's, and gave no source for the identity it needs, the Kashaev–Mangazeev–Stroganov identity (now a lemma, checked exactly by checker B, with a gap for its proof); rewritten as CGZ Theorem 2.11 with literal locators."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/root-of-unity-dependence",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.1, Remark 1.3, p. 3): Dependence of R_ζ on ζ and Galois equivariance."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/distribution-in-the-order",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.4, Lemma 2.7(2), p. 14): Change of the order n: the distribution compatibility."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/change-of-field",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §2.4, Lemma 2.10, p. 15): Change of field."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/etale-bloch-group-and-K2",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.2, Theorem 1.7 and equation (15), p. 5; proof in §6, pp. 31–33): The étale Bloch group and K_2 (CGZ Theorem 1.7)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/the-element-eta",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, proof of Lemma 5.1, equation (34), p. 26): The torsion element η_ζ of B(Q(ζ)^+)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/cyclic-bar-chains",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.1, Lemma 2.1 (arXiv v4; LaTeX label lem:cyc)): The cyclic bar chains α_r(t)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/bott-element",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, paragraph before Lemma 4.1 (arXiv v4)): The Bott element β(ζ) ∈ K_2(R; Z/N)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/hurewicz-mod-odd-N",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, Lemma 4.3 (LaTeX label lem:hur)): K_3 with odd finite coefficients is H_3 of SL."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/eta-is-zeta-times-bott",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §4, Proposition 4.6 (LaTeX label prop:gamma)): η̄_ζ = ζ ∗ β in K_3(Q(ζ); Z/N) (Hutchinson Proposition 4.6)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/chern-sign-conventions",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §3.1, p. 18): The sign conventions that fix c_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/soule-formula-in-degree-three",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §2.3, Theorem 2.12 (LaTeX label thm:sou)): Soulé's product formula in degree three, with its sign."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/chern-class-of-eta",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, §3, Theorem 3.1 (arXiv v4; LaTeX label thm:main)): Hutchinson's theorem: the Chern class of η_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/local-maps-at-primes-of-norm-minus-one",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §4.4, p. 25): The local maps R_{ζ,q} and c_{ζ,q} at primes of norm ≡ −1."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/eta-generates",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, Lemma 5.1, p. 26): η_ζ generates the p-part, globally and at primes of norm ≡ −1 (CGZ Lemma 5.1)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/local-R-is-an-isomorphism",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §5.1, Theorem 5.2, p. 26): The local map R_{ζ,q} is an isomorphism (CGZ Theorem 5.2)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/chebotarev-detection",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §4.1, Proposition 4.2, p. 22): Detection of Chern classes by primes of norm ≡ −1 (CGZ Proposition 4.2)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/the-comparison-with-the-chern-class",
+          "verdict": "corrected",
+          "note": "Bundled CGZ Theorem 1.6, the conjecture, Hutchinson's theorem and a policy; its 'weaker comparison outside the refinement' is vacuous (n prime to M_F already forces n odd and μ_n(F) = 1); its field-independence argument (a compositum) fails; and the refinement needs CGZ Theorem 7.4, which the packet never cited. Now Theorem 1.6 with field independence through the local maps; the refinement is its own node with a gap."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/scalar-from-eta",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.2, after Theorem 1.6, p. 4): Reading off the scalar from η_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/eta-galois-scaling",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §7.2, end of the proof of Theorem 7.4, p. 39): η_{ζ^k} = k^2 η_ζ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/R-injectivity-and-image",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (CGZ.BlochUnits.2021, §1.1, Theorem 1.2, p. 3): Injectivity and image of R_ζ (the rest of CGZ Theorem 1.2)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/hutchinson-refinement",
+          "verdict": "added",
+          "note": "Added from checker B's decomposition (Hutchinson.ChernQuantumDilog.2024, Abstract (arXiv v4)): Hutchinson's refinement: R_ζ = c_ζ^2 for n prime to M_F."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.2/the-exported-interface",
+          "verdict": "corrected",
+          "note": "Exported units attached to Bloch classes for n prime to the excluded set, but GSWZ (16) define ε_m = c_{ζ_m}² on K₃(K) for EVERY m (for ℚ(√−3) and m = 3 R_ζ does not exist); now the definition of ε_m(ξ) with its Kummer class, root line, equivariance, multiplicativity and coherence in m, and its identification with R_{ζ_m} only for m prime to M_K."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/compatible-roots-of-unity",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.3, equation (7), p. 4 (arXiv v2)): The compatible system of roots of unity."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
+          "verdict": "corrected",
+          "note": "R[ζ_m] must be the full algebra R ⊗ ℤ[ζ_m] (for ℚ(i) and Δ = 4 it splits), the Frobenius does not lift 'the' residue field's (R/p is a product of fields), GSWZ use two Frobenius conventions, and the test 'not an automorphism' was false (φ_p is an automorphism of R^∧_p, not induced by Aut K; ℚ(∛2), p = 5). The Frobenius lift is imported from HabiroRings HR.1 instead of the reversed HR.5 request; the compatible roots of unity are a new node."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/the-substitution-exists",
+          "verdict": "corrected",
+          "note": "Relied on Mathlib's PowerSeries.subst, whose hypothesis is nilpotence of the constant coefficient, not topological nilpotence; now cites HabiroCyclotomicCompletions HC.3/p-adic-closeness-of-roots and HC.3/p-adic-re-expansion (PowerSeries.eval₂Hom) and states which roots are close."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/the-gluing-condition",
+          "verdict": "corrected",
+          "note": "Stated the gluing before the substitution it uses (the dependency is reversed), without GSWZ's compatible roots, for which alone ζ_pm − ζ_m is topologically nilpotent (for ω_m = e^{2πi/m}, v₂(ω₁₀ − ω₅) = 0); tests with kinds, including the Kontsevich series glued 2- and 3-adically."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/the-p-completed-ring",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.4, equation (14), p. 7 (arXiv v2)): The p-completed Habiro ring and the intersection description."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/the-p-adic-classical-ring",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, §1.4, equation (14), p. 7 (arXiv v2)): Habiro's ring over Z_p splits into power series rings at orders prime to p."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/ring-operations-and-the-classical-comparison",
+          "verdict": "corrected",
+          "note": "Its excerpt is from §5.1, not §1.4; it cited the stage HabiroCyclotomicCompletions HC.6, which after REV-HabiroCyclotomicCompletions no longer supplies the comparison (and would close a cycle); and the surjectivity of the comparison has no source (GSWZ credit Habiro, who proves only injectivity). Now the comparison for all Δ ≥ 1 citing HC node ids, with a gap for the p-adic splitting (14)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/decomposition-into-classes",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Remark 1.2, §1.4, p. 7 (arXiv v2)): H_R is a product over the classes of orders; H_R|Δ is a domain."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/abelian-fields",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Footnote 1, §1.4, p. 6 (arXiv v2)): Abelian fields: the embedding of R and the base-change description."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.6/what-is-not-true-of-this-ring",
+          "verdict": "corrected",
+          "note": "Said inverting primes 'restricts which root orders are available' (all orders remain) and repeated GSWZ Remark 1.2, which is false as indexed (for ℚ(i) and Δ = 4 the factor of the class of 4 has an idempotent); now points to the decomposition node, and the ring is not a domain for Δ > 1."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/invertible-local-sections",
+          "verdict": "corrected",
+          "note": "Transcribed GSWZ (21) with p·x where the page has p/x, which makes the object empty whenever D_p(ξ) ≠ 0 (checked on the rendered page by the reviewer); GSWZ's own shape (20) is also wrong (source issue E24), so the node uses the shape (195) of Lemma 3.6; Theorem 1 is split off."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/dworks-lemma",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Lemma 3.4, §3.2, p. 39 (arXiv v2)): Dwork's lemma and its exponential corollary."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/pochhammer-dwork-difference",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 2.2, §2.1, p. 19 (arXiv v2)): The Dwork-type difference of the infinite Pochhammer symbol."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/pochhammer-sections",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Definition 3.9, §3.2, p. 42 (arXiv v2)): Explicit invertible sections from the infinite Pochhammer symbol."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/local-freeness",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Theorem 1, §1.5, p. 9 (arXiv v2)): Invertible sections exist and the local modules are free of rank one (Theorem 1)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/extension-to-all-roots",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Corollary 3.7, §3.2, p. 41 (arXiv v2)): Extending an invertible section to all roots of unity."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/the-global-module",
+          "verdict": "corrected",
+          "note": "Transcribed GSWZ (24) as a ratio in the Habiro ring of the quotient R/γ, where the page has the product f(q^γ)^γ f(q^{−1}) in the Habiro ring of R[1/γ] (checked by the reviewer); 'is a local section' should be 'lies in the span'; planet renamed after the source ('Habiro module H_{R,ξ}')."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/the-ring-case-and-tensor-products",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Theorem 2, §1.5, p. 10 (arXiv v2)): H_{R,0} = H_R, and multiplication H_{R,ξ} ⊗ H_{R,ξ'} ≅ H_{R,ξ+ξ'} (Theorem 2)."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/operations-on-the-modules",
+          "verdict": "corrected",
+          "note": "Asserted operations GSWZ do not prove (scalar extension, Galois action, K₃ transfer; now a gap), a false evaluation target for ξ ≠ 0 (constant terms lie in R[ζ_m, ε_m^{1/m}]), and 'change of index', which is not the source's γ*; rewritten around γ*, τ and Proposition 1.5."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/involution-pairing",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (b), §1.5, p. 11 (arXiv v2)): f·τg lies in the ring, and any two elements are proportional."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/vanishing-propagates",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (e), §1.5, p. 11 (arXiv v2)): A vanishing component forces vanishing along the prime chain."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/constant-terms",
+          "verdict": "added",
+          "note": "Added from checker C's decomposition (GSWZ.HabiroNumberField.2024, Proposition 1.5 (f), §1.5, p. 11 (arXiv v2)): Evaluation: constant terms lie in R[ζ_m, ε_m^{1/m}] for orders prime to Δ."
+        },
+        {
+          "nodeId": "HabiroNumberFields:HB.7/what-the-local-picture-does-not-give",
+          "verdict": "corrected",
+          "note": "Contradicted GSWZ Theorem 2 ('multiplication gives a canonical isomorphism', so H_{R,ξ} is invertible); now the correct non-implications (multiplication by one element need not be surjective; global freeness is not claimed) with Theorem 2 as its own node and a gap for its proof."
+        }
+      ]
+    }
+  ]
 }

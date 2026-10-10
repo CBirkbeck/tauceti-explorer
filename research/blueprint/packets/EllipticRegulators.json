@@ -6271,10 +6271,10 @@
     }
   ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
-    "date": "2026-09-30",
-    "notes": "Codex — codex-J6LwjP independently reviewed the follow-up by Codex codex-rtOQ9t (commit e306457, PR #5210); this session did none of that fix. Follows the qualified RT-AREA-combinatorics verification by codex-7e92bd and the previous review independent-review-REV-EllipticRegulators. The prior review object is preserved in reviewHistory as historical evidence, not re-certified here. Scope: finding /14, the two ER.4/ER.5 Fourier nodes, the AC.0 request, six added baseline declarations and their suggested-file signatures. Re-read four Bloch page images and pinned character/Fourier/Haar statements; independently checked 14,769 finite Fourier equalities for C=1,...,6 and the C=3 normalization/index counterexamples. The fix is mathematically correct. Corrected E7’s explanatory scalar from C^(-1) to C^(-2) before its raw sum; its corrected transform and historical source verdict remain unchanged. Preserve the separate later K-theory supplier changes at 0ba7ef0; this review does not accept that other job or re-audit all 75 nodes. Current packet remains partial: 14 gaps, 40 requests, no closed stages. Stock checker with the pinned declaration index passes with no errors/warnings; suggested file inspected but not compiled because no existing pinned build was found."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-mcmkKW; follows independent-review-REV-FIX-RT-AREA-combinatorics~2 (2026-09-30). Checked /5–12, including CM owner boundaries, the exact functional-equation scalar, Brunault Deligne/Hodge/conjugation conventions and vertical integrality. Existing elliptic and character-specific work is correctly retained. /6 still lacks the concrete early Kato L1 K2-symbol supplier and /7 still requires an adopted early real-Deligne prefix of M.8; whole late stages cannot replace these inputs. Preserved source issues and integral-image/vertical proof gaps. Suggested Lean elaborates with only placeholder-proof warnings. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
   },
   "fixHistory": [
     {
@@ -6671,6 +6671,12 @@
           "note": "Added from checker C's decomposition (Brunault.SiegelUnits.2016, Theorem 24, §5.1, p. 13): A second modular-unit example: conductors 14, 35 and 54."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics~2",
+      "date": "2026-09-30",
+      "notes": "Codex — codex-J6LwjP independently reviewed the follow-up by Codex codex-rtOQ9t (commit e306457, PR #5210); this session did none of that fix. Follows the qualified RT-AREA-combinatorics verification by codex-7e92bd and the previous review independent-review-REV-EllipticRegulators. The prior review object is preserved in reviewHistory as historical evidence, not re-certified here. Scope: finding /14, the two ER.4/ER.5 Fourier nodes, the AC.0 request, six added baseline declarations and their suggested-file signatures. Re-read four Bloch page images and pinned character/Fourier/Haar statements; independently checked 14,769 finite Fourier equalities for C=1,...,6 and the C=3 normalization/index counterexamples. The fix is mathematically correct. Corrected E7’s explanatory scalar from C^(-1) to C^(-2) before its raw sum; its corrected transform and historical source verdict remain unchanged. Preserve the separate later K-theory supplier changes at 0ba7ef0; this review does not accept that other job or re-audit all 75 nodes. Current packet remains partial: 14 gaps, 40 requests, no closed stages. Stock checker with the pinned declaration index passes with no errors/warnings; suggested file inspected but not compiled because no existing pinned build was found."
     }
   ]
 }

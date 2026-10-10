@@ -18031,7 +18031,8 @@
       "remaining": [
         "The scheme-brauer, coherent-duality and equivariant-sheaf-cohomology keys now have 55 nodes with mathematical specifications, APIs and tests. Finish noncommutative sheaf-algebra/Azumaya descent and the native H² units bridge; derived QCoh/RHom, compactification and coherent adjunction; semilinear equivariant categories, enough injectives and derived-composite acyclicity. The three keys are not typed or proof-closed.",
         "Split early site/coefficients from later comparisons: import EDC/CPC and EtaleDualityAbsolutePurityPartII. Preserve coherent-curve SR2 and general coherent-duality distinction; do not create a second six-operations or absolute-purity theory.",
-        "Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry."
+        "Retain all site/localization/support/compact support/base-change/Cousin/pro-etale/Nisnevich routes with coefficient distinctions. Henselian points require the still-open affine strand and additional site geometry.",
+        "For the Nisnevich route import the accepted S.4/nisnevich-site and S.4/nisnevich-distinguished-square-criterion fallback owner, including empty-object descent and its qcqs domain. Keep Cech descent distinct from hyperdescent and retain Noetherian/finite-dimensional bounds only where used. Do not create a second generic site owner; an eventual adopted transfer must replace the S.4 contract and its incoming references (RT-AREA-ktheory-2/38)."
       ]
     },
     {
@@ -18960,9 +18961,9 @@
     {
       "id": "RT-AREA-ktheory-2/38",
       "stage": "SchemeAndStackFoundations:SF.2",
-      "status": "unimplemented",
-      "boundary": "General Nisnevich site and henselian point foundation must be supplied here.",
-      "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker."
+      "status": "resolved ownership via accepted S.4 fallback",
+      "boundary": "Import the generic Nisnevich site and distinguished-square Cech descent criterion from SchemeKTheoryOperations:S.4/nisnevich-site and S.4/nisnevich-distinguished-square-criterion, the current accepted fallback owner. SF.2 must not duplicate them. A future adopted relocation to SF.2 or an early EDS prefix must replace this owner and retarget its consumers. Ordinary henselian and strict henselian points remain distinct; henselization construction remains an SF.0 proof frontier.",
+      "read": "Independent fix review codex-mcmkKW, 2026-10-10: original finding, verified evidence, fix report and current accepted S.4 contracts read; no new general-site theorem is asserted."
     },
     {
       "id": "RT-AREA-geomlanglands/15",
@@ -19972,10 +19973,9 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-2~2",
     "date": "2026-10-10",
-    "session": "codex-zz1p9S",
-    "notes": "Codex: bounded independent area-fix continuation following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2; the complete preceding review is preserved in reviewHistory. Findings /1, /8, /11 and /15–18: existing ownership and supplier requests are adequate. Current AlgebraicVectorBundles L1A/L1B and the current Tau Ceti relativeSpec functor remain imports, separate from the atlas pins. Removing the six SF.5 forwarding inputs leaves both long SF.4-to-MC.4 paths, via A4 or R07.2; blanket reverse import is still cyclic. The pointed cover keeps de Jong 2.24 p.62 genus/marking/level hypotheses and smooth-locus etaleness. Two contradictory Adic prose fields remain outside the live issue scope and are not silently repaired. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
+    "notes": "Codex session codex-mcmkKW; follows independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10). Accepted the corrected /38 ownership boundary: current independently accepted S.4/nisnevich-site and S.4/nisnevich-distinguished-square-criterion supply the generic Nisnevich foundation as the named fallback owner. SF.2 imports that route rather than planning it again; henselian geometry remains an explicit separate gap, and Cech descent is not hyperdescent. Updated the stale confirmedFinding and SF.2 coverage handoff to reflect that owner. This acceptance is restricted to /38, preserves all unrelated partial target/gap information and follows the newer algebraic-geometry review. Suggested Lean elaborates with only placeholder-proof warnings. Earlier review preserved in reviewHistory; report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md."
   },
   "reviewHistory": [
     {
@@ -21566,6 +21566,13 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-10",
       "notes": "Codex (GPT-6), session codex-XUvtW5: independent bounded area-fix review following the codex-QcUyiW review, preserved whole in reviewHistory. Findings /1, /8, /11 and /15–18: the SF ownership contracts stand. Current AlgebraicVectorBundles L1A/L1B and the current Tau Ceti relativeSpec functor remain imports. Fresh graph assembly has 15,601 edges, or 15,595 after the six SF.5 forwarding deletions. Both long SF.4-to-MC.4 branches survive, through A4 or R07.2 after VB0. The reverse whole-stage import remains cyclic. De Jong 2.24, p.62 retains all genus g >= 0 and n >= 3 marks, finite etaleness on the smooth open after inverting the level prime, and finite dominant projective normalization across the boundary. SF already records this obstruction; Adic’s two remaining contradictory fields are outside the live issue scope. Fresh pinned-index validation passes with zero errors and warnings. The unchanged Suggested input hash matches its inherited successful full-file Lean receipt. Acceptance covers the area-fix correction and explicit supplier requests; it does not close the inherited proof/interface gaps. No mathematical field changed. The report distinguishes fresh source and graph checks from inherited full-blueprint audits."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "session": "codex-zz1p9S",
+      "notes": "Codex: bounded independent area-fix continuation following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2; the complete preceding review is preserved in reviewHistory. Findings /1, /8, /11 and /15–18: existing ownership and supplier requests are adequate. Current AlgebraicVectorBundles L1A/L1B and the current Tau Ceti relativeSpec functor remain imports, separate from the atlas pins. Removing the six SF.5 forwarding inputs leaves both long SF.4-to-MC.4 paths, via A4 or R07.2; blanket reverse import is still cyclic. The pointed cover keeps de Jong 2.24 p.62 genus/marking/level hypotheses and smooth-locus etaleness. Two contradictory Adic prose fields remain outside the live issue scope and are not silently repaired. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
     }
   ]
 }
