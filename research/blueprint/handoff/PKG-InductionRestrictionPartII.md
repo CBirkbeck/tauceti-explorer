@@ -1,145 +1,163 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
-## Current session: codex-FnrdAE
+## Current session: codex-kpOXkh
 
 Issue [#7592](https://github.com/CBirkbeck/tauceti-explorer/issues/7592).
-Worker: Codex (GPT-6), session `codex-FnrdAE`, 2026-10-10.
-The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6102940479).
-This continues merged checkpoint [#8633](https://github.com/CBirkbeck/tauceti-explorer/pull/8633).
+Worker: Codex (GPT-6), session `codex-kpOXkh`, 2026-10-10.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6103179816).
+This continues merged checkpoint [#8638](https://github.com/CBirkbeck/tauceti-explorer/pull/8638).
 None of the manager's forty priority issues was available in the initial
-open `swarm`/`state:available` query. The package was selected from the
-permitted fallback queue. One job was claimed.
+open `swarm`/`state:available` query. This was the first eligible package in
+the permitted fallback order. Exactly one job was claimed.
 
-### Disposition
+### What changed
 
-**Blocked checkpoint on an unchanged planning input.** The package cannot
-meet PROTOCOL sections 3, 15 and 20 while its accepted source-of-truth plan
-leaves prerequisite ownership unassigned. The issue restricts edits to the
-three package files and this handoff and explicitly requires: "Change no
-packet; if the plan has a mistake, describe it in the handoff note."
-The prerequisite amendment must therefore be made by the maintainer or an
-in-scope planning job before this package can finish.
+The native UCT specification now includes the canonical Ext injection that
+its README already required. The inherited Lean exactness statement asserted
+only that some injection existed with the right range. It gave no map to
+which the required naturality identities could refer.
 
-The two blocking entries were inspected directly, rather than inferred from
-the previous checkpoint:
+- `IntegralUCTExt` abbreviates the actual Mathlib derived Ext carrier, with
+  Additive(G^ab) in its opposite first argument and A in its second argument.
+- `integral_uct_ext_inclusion` is a specified additive homomorphism into
+  native `groupCohomology.H2 (Rep.trivial ℤ G A)`. Its API states injectivity,
+  equality of its range with the evaluation kernel, and naturality under
+  group pullback and coefficient pushforward, using the existing Ext
+  bifunctor and native cohomology maps. There are no finiteness or injective
+  coefficient assumptions. `integral_uct_evaluation_exact` now uses this
+  same injection rather than an existentially chosen map.
+- Three admitted examples test the nonzero integral Ext contribution for
+  C₂ with coefficients ℤ; the zero Ext contribution for ℤ² with arbitrary
+  abelian coefficients; and a nonzero evaluation-kernel class for C₄ with
+  coefficients C₂. These exercise native carriers, not placeholder predicates.
+- README gives the construction through free integral bar chains, the H₁
+  abelianization identification, and the projective-resolution comparison
+  with Mathlib's Ext. It adds the corresponding API, tests and source locators.
+
+Fresh primary-source readings supporting this change were Hatcher,
+*Algebraic Topology*, §3.1, Theorem 3.2 and its Ext computations/naturality,
+printed pp.195–196 ([author PDF](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf)),
+and Löh, *Group Cohomology* (30 July 2019), Theorem 1.4.1 pp.20–22 and
+Corollary 1.6.9 p.47 ([author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf)).
+The pinned `Ext` definition and `CategoryTheory.ProjectiveResolution.isoExt`
+were inspected directly. Statements and construction routes are in our own
+words. No source passage was added to the repository.
+
+### Why completion is blocked
+
+The accepted source-of-truth plan still leaves two prerequisite owners
+unassigned. Issue #7592 restricts edits to the package and this handoff and
+explicitly says: "Change no packet; if the plan has a mistake, describe it in
+the handoff note." A package that silently assigns these inputs to a layer
+would contradict that plan. PROTOCOL sections 3, 15 and 20 and UPSTREAM_GUIDE
+require the missing mathematics to be actual targets with named owners.
+
+The two entries were inspected directly:
 
 - `gaps[0]`, **Natural integral homological bridge — supplier unassigned**:
-  arbitrary-abelian-coefficient native integral UCT with its natural Ext
-  injection, oriented evaluation, extension transgression and homological
-  five-term exactness; finite positive-degree homology consequences; and
-  the coprime degree-two edge, including the incoming d₃. Twelve targets
-  need this contract. Parent InductionRestriction Layer 7 is expressly the
-  ordinary-cover supplier only.
+  arbitrary-abelian-coefficient native integral UCT, its natural Ext injection
+  and oriented evaluation; the central-extension class map and homological
+  five-term exactness; finite positive-degree homology consequences; and the
+  coprime degree-two LHS edge including the incoming d₃. Twelve targets need
+  these inputs. The packet explicitly says its proposed continuation is an
+  ownership question, not an existing stage or dependency. Parent
+  InductionRestriction Layer 7 owns ordinary covers only.
 - `gaps[4]`, **Conjugacy of complements over a cyclic coprime quotient**:
-  conjugacy by an element of H for finite coprime H,C with C cyclic,
-  permitting nonabelian H. RS.5/admissible-inertia-classes needs this input.
+  conjugacy by an element of H for finite coprime H,C, with C cyclic and
+  without an abelian or solvable hypothesis on H. RS.5/admissible-inertia-classes
+  needs this input. The packet explicitly requires a general finite-group
+  owner to be assigned.
 
-The accepted review explicitly retains five gaps and one request. The packet
-has `status: complete`, meaning a finished planning pass; all six stages are
-`planned` and none is `closed`. The ordinary-cover request has an identified
-parent owner. The finite-certificate and native-signature obligations remain
-recorded; this session does not certify that they have been discharged.
-Admitted native signatures and proof routes do not assign the two missing
-owners in the authoritative graph.
-
-**Queue recommendation:** suspend package eligibility until the ownership
-amendment below has been made. Another package-only continuation with the
-same packet cannot perform that amendment. No label was changed here.
+The accepted review retains five gaps and one request; all six stages are
+`planned`, none `closed`. The ordinary-cover request has a named parent owner.
+The finite-certificate and original-signature obligations remain recorded.
+This session does not certify that they have been discharged. Admitted Lean
+signatures specify planned mathematics; they neither prove it nor assign
+its owner in the authoritative graph. This checkpoint is caused by the scope
+blocker, not the eight-hour limit. `metadata.toml` remains absent.
 
 ### Fresh supplier checks
 
-Current read-only TauCetiRoadmap is
+Read-only TauCetiRoadmap main is
 `070dc2becd74419e76303ede84b465ed4a69461f`; current Tau Ceti is
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are the same commits as
-checkpoint #8633. No Lake command was run in either checkout.
-InductionRestriction and SemisimpleAlgebras READMEs were read, and searches
-of current roadmap and library sources were followed by inspection of the
-candidate statements:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+InductionRestriction and SemisimpleAlgebras READMEs were read in full. Current
+roadmap/library searches and direct statement inspection found no matching
+owner contract:
 
-- AlgebraicTopology Stage 6 specifies singular UCT. Current
+- AlgebraicTopology Stage 6 plans singular UCT. Current
   `TauCeti.ChainComplex.kronecker_bijective` (Algebra/Homology/Kronecker,
-  line 177) requires `[Injective Y]`; `TopCat.singularKroneckerEquiv`
-  (AlgebraicTopology/Cohomology/Kronecker, lines 85–88) requires
-  `[Injective M]`. Neither supplies the required arbitrary-coefficient
-  native group sequence and its Ext injection.
-- ProfiniteCohomology explicitly excludes the Hochschild–Serre spectral
-  sequence. Its cohomological five-term sequence is not the native
-  homological extension sequence needed here.
+  line 177) assumes `[Injective Y]`, and `TopCat.singularKroneckerEquiv`
+  (AlgebraicTopology/Cohomology/Kronecker, line 85) assumes `[Injective M]`.
+  These do not supply the arbitrary-coefficient native group sequence.
+- ProfiniteCohomology explicitly excludes Hochschild–Serre; its cohomological
+  five-term sequence does not supply the required homological extension maps.
 - Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`
-  (GroupHomology/Transfer/Basic, lines 107–109) supplies transfer followed
-  by inclusion as the subgroup index times the identity. Reuse this input;
-  the missing bridge is not a request for another transfer theory.
-- Current
-  `TauCeti.FactorSet.characterTransgression_injective_iff_range_inl_le_commutator_of_separates`
-  (GroupExtension/Character, line 148) concerns kernel characters and an
-  explicit separation hypothesis. It does not supply integral homological
-  transgression or five-term exactness.
+  (GroupHomology/Transfer/Basic, line 107) supplies transfer followed by
+  inclusion as subgroup index times identity. Reuse it for annihilation;
+  do not plan another transfer theory.
 - Pinned Mathlib `Subgroup.exists_right_complement'_of_coprime`
-  (GroupTheory/SchurZassenhaus, lines 277–292) concludes complement
-  existence. Its conclusion does not compare two complements. The search
-  of the pinned finite-group sources found no matching conjugacy supplier.
-- The exact candidate `StableHomotopyKTheory:H.1/bar-complex-comparison`
-  supplies a natural classifying-space/bar comparison. It does not supply
-  the extension maps or arbitrary-coefficient UCT; K3BlochGroups--V.4
-  records those additional inputs as a Part II supplier gap.
-- `ArithmeticStatistics:ST.5/complements-of-a-coprime-abelian-normal-subgroup-are-conjugate`
-  requires an abelian normal Hall kernel. This does not cover the allowed
-  nonabelian H. The inverse-Galois node IG.4/coprime-profinite-complements
-  retains finite conjugacy and its inverse-limit passage as explicit proof
-  obligations and records a complement-conjugacy gap. Neither candidate
-  resolves the present unassigned contract.
+  (GroupTheory/SchurZassenhaus, line 277) concludes existence, not conjugacy.
+  ArithmeticStatistics ST.5's complement-conjugacy target assumes an abelian
+  normal subgroup. It does not supply this possibly nonabelian H case.
+- The reviewed library audit has no direct Part II entry. The parent's
+  R17.5/MP.1 entries describe projective lifting and factor-set classification,
+  not these two general contracts.
 
-The reviewed library audit has no direct Part II entry. Its adjacent R17.5
-and MP.1 records describe projective lifting and factor-set classification,
-with the parent owning ordinary representation groups; they do not establish
-these missing contracts. No new ownership assignment was made.
+The previous checkpoint's additional candidate exclusions and the substantive
+ownership amendment below remain applicable. No library or upstream roadmap
+was modified, and no Lake command was run in the read-only checkouts.
 
-### Fresh verification and preserved artifacts
+### Verification
 
+- Final `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
+  exit 0, 678 warnings, all `declaration uses sorry`, zero errors or other
+  diagnostics. The inherited file had 670 such warnings; the eight additional
+  warnings are the new map, four API lemmas and three examples. Preflight
+  showed 94 GiB available. The check finished. No language server, library
+  build, update or cache download was started.
+- The shared helper identifies its Tau Ceti build pin as
+  `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib source HEAD was
+  independently read as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  Successful elaboration validates signatures, not proofs or ownership.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`:
   exit 0, zero errors and warnings; 109 nodes, 124 API items, 96 tests,
-  30 planets and 30 baseline declarations. Five gaps, one request, six
-  planned stages and zero closed stages remain.
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`:
-  exit 0; 670 warnings, all `declaration uses sorry`; no errors or other
-  diagnostics. Memory preflight showed 101 GiB available. The shared
-  helper identifies its Tau Ceti build pin as
-  `f790474821cf4256814db967cb154e7af3d0c369`; the Mathlib source HEAD was
-  independently read as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  The check finished. No language server, library build, update or cache
-  download was started. Elaboration validates signatures, not implementation
-  or prerequisite ownership.
-- `python3 research/blueprint/intake.py check-files research/blueprint/handoff/PKG-InductionRestrictionPartII.md`: one allowed file, zero problems.
+  30 planets, 30 baseline declarations, five gaps, one request, six planned
+  stages and zero closed stages.
+- Fresh name inventory found all 109 target suffixes, 124 API suffixes and
+  96 test labels in each package file. All 32 definition/construction nodes
+  have at least three tests. This is a correspondence check, not a new
+  mathematical audit of all 109 statements.
+- `python3 research/blueprint/intake.py check-files` on the two changed package
+  files and this handoff: three allowed files, zero problems.
   `git diff --check` passed.
-- Name correspondence: all 109 target suffixes, 124 API suffixes and 96
-  test labels occur in both package files. All 32 definition/construction
-  nodes have at least three tests. This is an inventory check, not a fresh
-  mathematical review of every signature.
-- README is 151,274 bytes; Suggested.lean is 178,906 bytes. Both package
-  files and the authoritative packet remain unchanged. `metadata.toml`
-  remains absent, so this is not a completed package submission.
 
-| Unchanged artifact | SHA-256 |
+### Artifact receipts
+
+The packet is unchanged; the two package files changed as described above.
+
+| Artifact | SHA-256 |
 | --- | --- |
 | `packets/InductionRestrictionPartII.json` | `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5` |
-| `packages/InductionRestrictionPartII/README.md` | `919907f5c82678c279d6723eacf7c331f490237f1614fa1be9cb1274100191ac` |
-| `packages/InductionRestrictionPartII/Suggested.lean` | `9151ddf2e8835b89cf66492904029d62c1e70ab6912875bc9266c266d15fa7f0` |
-
-Only this handoff changes. Repeated session receipts have been consolidated;
-the substantive mathematical amendment, interfaces, source receipts and
-finite-model resumption notes from session codex-pCwOIS are preserved below.
-Its source readings and finite calculations are inherited evidence, not work
-rerun in this session. No scratch artifact is needed to resume.
+| `packages/InductionRestrictionPartII/README.md` | `f0316dd9934aaaab2375b34590a31e58042f26788d82ad9c3d19ea8770ee869b` |
+| `packages/InductionRestrictionPartII/Suggested.lean` | `6dab88e81c6fa9cf03ee44c8f82e5ec3cd87809eb52fa757bb4e6bc9f5cbb137` |
 
 ### Resumption gate
 
-First assign the five contracts in the amendment table below to actual owner
-layers and reconcile the accepted packet and its source documents. Then
-reconcile this package, retain naturality of the canonical Ext injection,
-complete its native interfaces and certificates to the package standard,
-and add exactly `topic = "math.GR"` in metadata.toml. Preserve the distinction
-between a theorem still to be implemented and a prerequisite whose ownership
-has not yet been specified.
+First confirm the five contract owners proposed below, or name actual
+alternative owner layers, and reconcile the accepted packet and its source
+documents. Then reconcile the package, retaining the now-specified natural
+Ext injection, complete the remaining native interfaces/certificates to the
+package standard, and add exactly `topic = "math.GR"` in metadata.toml.
+A theorem awaiting implementation differs from a prerequisite without an owner.
+
+**Queue recommendation:** suspend package eligibility until this amendment
+is made. Another package-only run cannot amend the unchanged authoritative
+plan. No label was changed here. The inherited mathematical proof routes,
+source receipts and finite-model notes are preserved below; those calculations
+were not rerun. The current verification results above supersede its older
+compiler counts and its earlier existential-only Ext warning. No scratch
+artifact is needed to resume.
 
 ## Inherited implementation record — session codex-pCwOIS
 
@@ -232,11 +250,12 @@ made by this submission. It keeps the existing six layers and all 109 targets.
 A planning amendment must confirm these owners or name actual alternative
 supplier layers, add the necessary key-definition/theorem nodes and source
 locators, and replace the two unassigned gap entries. The source documents
-must be reconciled as that amendment requires. The Suggested exactness
-prototype currently states existence of an Ext injection with the correct
-range; README also requires its canonical natural identification. A supplier's
-full API must retain that naturality, not treat the existential prototype as
-an exhaustive specification.
+must be reconciled as that amendment requires. The original Suggested exactness
+prototype stated existence of an Ext injection with the correct range, while
+README required its canonical natural identification. Session codex-kpOXkh
+replaced that prototype with a specified injection and both naturality maps,
+as recorded above. Those signatures must be retained in the eventual supplier
+contract; they do not themselves assign its owner.
 
 ## Verification
 

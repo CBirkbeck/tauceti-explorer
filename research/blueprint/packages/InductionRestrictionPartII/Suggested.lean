@@ -851,15 +851,54 @@ lemma integral_uct_evaluation_coefficient_map (μ : A →+ B)
       (groupCohomology.map (A := Rep.trivial ℤ G A) (B := Rep.trivial ℤ G B)
         (MonoidHom.id G) (Rep.ofHom { toLinearMap := μ.toIntLinearMap, isIntertwining' := by intro g; rfl }) 2 α) z =
       μ (integral_uct_evaluation α z) := by sorry
+-- This is the existing derived Ext carrier, with no chosen splitting of UCT.
+abbrev IntegralUCTExt (G A : Type) [Group G] [AddCommGroup A] :=
+  ((Ext ℤ (ModuleCat ℤ) 1).obj
+    (Opposite.op (ModuleCat.of ℤ (Additive (Abelianization G))))).obj (ModuleCat.of ℤ A)
+-- The injection is a specified natural map, rather than an existential choice.
+def integral_uct_ext_inclusion :
+    IntegralUCTExt G A →+ groupCohomology.H2 (Rep.trivial ℤ G A) := by sorry
+lemma integral_uct_ext_inclusion_injective :
+    Function.Injective (integral_uct_ext_inclusion (G := G) (A := A)) := by sorry
+lemma integral_uct_ext_inclusion_range :
+    (integral_uct_ext_inclusion (G := G) (A := A)).range =
+      (integral_uct_evaluation (G := G) (A := A)).ker := by sorry
+lemma integral_uct_ext_inclusion_group_map (f : G →* H) (ξ : IntegralUCTExt H A) :
+    integral_uct_ext_inclusion
+      (((Ext ℤ (ModuleCat ℤ) 1).map
+        (ModuleCat.ofHom (Abelianization.map f).toAdditive.toIntLinearMap).op).app
+          (ModuleCat.of ℤ A) ξ) =
+    groupCohomology.map (A := Rep.trivial ℤ H A) (B := Rep.trivial ℤ G A) f
+      (Rep.ofHom { toLinearMap := LinearMap.id, isIntertwining' := by intro g; rfl }) 2
+        (integral_uct_ext_inclusion ξ) := by sorry
+lemma integral_uct_ext_inclusion_coefficient_map (μ : A →+ B) (ξ : IntegralUCTExt G A) :
+    integral_uct_ext_inclusion
+      (((Ext ℤ (ModuleCat ℤ) 1).obj
+        (Opposite.op (ModuleCat.of ℤ (Additive (Abelianization G))))).map
+          (ModuleCat.ofHom μ.toIntLinearMap) ξ) =
+    groupCohomology.map (A := Rep.trivial ℤ G A) (B := Rep.trivial ℤ G B)
+      (MonoidHom.id G)
+      (Rep.ofHom { toLinearMap := μ.toIntLinearMap, isIntertwining' := by intro g; rfl }) 2
+        (integral_uct_ext_inclusion ξ) := by sorry
 lemma integral_uct_evaluation_exact :
     Function.Surjective (integral_uct_evaluation (G := G) (A := A)) ∧
-    ∃ i : (((Ext ℤ (ModuleCat ℤ) 1).obj
-        (Opposite.op (ModuleCat.of ℤ (Additive (Abelianization G))))).obj
-        (ModuleCat.of ℤ A)) →+ groupCohomology.H2 (Rep.trivial ℤ G A),
-      Function.Injective i ∧
-        i.range = (integral_uct_evaluation (G := G) (A := A)).ker := by sorry
+    Function.Injective (integral_uct_ext_inclusion (G := G) (A := A)) ∧
+    (integral_uct_ext_inclusion (G := G) (A := A)).range =
+      (integral_uct_evaluation (G := G) (A := A)).ker := by sorry
 lemma integral_uct_evaluation_free [Module.Free ℤ (Additive (Abelianization G))] :
     Function.Bijective (integral_uct_evaluation (G := G) (A := A)) := by sorry
+-- integral_uct_ext_inclusion_test_1: every cyclic integral class is an Ext class.
+example : Function.Bijective
+    (integral_uct_ext_inclusion (G := Multiplicative (ZMod 2)) (A := ℤ)) ∧
+    ∃ ξ : IntegralUCTExt (Multiplicative (ZMod 2)) ℤ,
+      integral_uct_ext_inclusion ξ ≠ 0 := by sorry
+-- integral_uct_ext_inclusion_test_2: the integral torus has no Ext contribution.
+example : integral_uct_ext_inclusion
+    (G := Multiplicative (ℤ × ℤ)) (A := A) = 0 := by sorry
+-- integral_uct_ext_inclusion_test_3: torsion coefficient classes are not discarded.
+example : ∃ ξ : IntegralUCTExt (Multiplicative (ZMod 4)) (ZMod 2),
+    integral_uct_ext_inclusion ξ ≠ 0 ∧
+    integral_uct_evaluation (integral_uct_ext_inclusion ξ) = 0 := by sorry
 -- integral_uct_evaluation_test_1: cyclic Ext classes have zero evaluation.
 example : ∃ α : groupCohomology.H2 (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ),
     α ≠ 0 ∧ integral_uct_evaluation α = 0 := by sorry
