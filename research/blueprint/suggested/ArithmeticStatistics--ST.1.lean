@@ -17,6 +17,7 @@ import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.RingTheory.DedekindDomain.Basic
 import Mathlib.RingTheory.Localization.FractionRing
+import Mathlib.FieldTheory.Separable
 
 /-!
 This file is not the roadmap and is not exhaustive. The accompanying roadmap
@@ -53,6 +54,9 @@ lemma quarticMinors_plucker (M : Matrix (Fin 2) (Fin 6) ℤ) (i j k l : Fin 6) :
     quarticMinors M i k * quarticMinors M j l =
       quarticMinors M i j * quarticMinors M k l +
       quarticMinors M i l * quarticMinors M j k := by sorry
+lemma quarticMinors_mul (h : Matrix (Fin 2) (Fin 2) ℤ)
+    (M : Matrix (Fin 2) (Fin 6) ℤ) :
+    quarticMinors (h*M) = h.det • quarticMinors M := by sorry
 -- ArithmeticOrbitRefinement.minors_standard
 example : quarticMinors ![![1,0,0,0,0,0], ![0,1,0,0,0,0]] 0 1 = 1 := by sorry
 -- ArithmeticOrbitRefinement.minors_row_swap
@@ -262,6 +266,13 @@ private def traceDual (I : Submodule D L) : Submodule D L :=
     zero_mem' := by sorry
     add_mem' := by sorry
     smul_mem' := by sorry }
+lemma formOrder_span {n : ℕ} (hn : 3 ≤ n) (f : Fin (n+1) → D) (θ : L)
+    (hroot : evaluatesToZero f θ) :
+    (formOrder f θ).toSubmodule = Submodule.span D (Set.range (orderVectors f θ)) := by sorry
+lemma formIdeal_stable {n : ℕ} (hn : 3 ≤ n) (f : Fin (n+1) → D) (θ : L)
+    (hroot : evaluatesToZero f θ) (k : ℕ) (hk : k ≤ n-1)
+    (r : L) (hr : r ∈ formOrder f θ) (x : L) (hx : x ∈ formIdeal f θ k) :
+    r*x ∈ formIdeal f θ k := by sorry
 lemma formIdeal_traceDual {n : ℕ} (hn : 3 ≤ n) (f : Fin (n+1) → D) (θ : L)
     (hf0 : f 0 ≠ 0) (hroot : evaluatesToZero f θ)
     (b : Module.Basis (Fin n) K L) (hb : ∀ i, b i = θ^i.val)
@@ -288,7 +299,8 @@ def idealNorm {n : ℕ} (b : Module.Basis (Fin n) K L) (I : Submodule D L) : Sub
 /-- BGW Theorem16, p.7: actual stability, rank, inclusion, and norm constraints. -/
 def IsOrbitTriple {n : ℕ} (f : Fin (n+1) → D) (θ : L) (b : Module.Basis (Fin n) K L)
     (I : Submodule D L) (α : Lˣ) (s : Kˣ) : Prop :=
-  Module.Finite D I ∧ Submodule.span K (I : Set L) = ⊤ ∧
+  3 ≤ n ∧ evaluatesToZero f θ ∧ (∀ i, b i = orderVectors f θ i) ∧
+    Module.Finite D I ∧ Submodule.span K (I : Set L) = ⊤ ∧
     (∀ r ∈ formOrder f θ, ∀ x ∈ I, r*x ∈ I) ∧
     (∀ x ∈ I, ∀ y ∈ I,
       x*y ∈ (formIdeal f θ (n-3)).map (LinearMap.mulLeft D (α : L))) ∧
@@ -314,33 +326,45 @@ example {n : ℕ} (f : Fin (n+1) → D) (θ : L) (b : Module.Basis (Fin n) K L)
 example {n : ℕ} (hn : 0 < n) (f : Fin (n+1) → D) (θ : L)
     (b : Module.Basis (Fin n) K L) (α : Lˣ) (s : Kˣ) :
     ¬IsOrbitTriple f θ b ⊥ α s := by sorry
+-- ArithmeticOrbitRefinement.triple_degree_two
+example (f : Fin 3 → D) (θ : L) (b : Module.Basis (Fin 2) K L)
+    (I : Submodule D L) (α : Lˣ) (s : Kˣ) : ¬IsOrbitTriple f θ b I α s := by sorry
 end Orders
 
 section NormPairs
 variable {K L : Type*} [Field K] [CommRing L] [Algebra K L]
 variable [Module.Free K L] [Module.Finite K L]
-/-- BGW Corollary19, p.8: the scalar s is part of the data. -/
+/-- BGW Corollary19, p.8: degree and separability are retained alongside s. -/
 structure NormPair (n : ℕ) (f0 : Kˣ) where
+  degree_ge_three : 3 ≤ n
+  degree_eq : Module.finrank K L = n
+  separable : Algebra.IsSeparable K L
   alpha : Lˣ
   orientation : Kˣ
   norm_eq : Algebra.norm K (alpha : L) = (orientation : K)^2 * (f0 : K)^(n-3)
 def NormPair.rescale {n : ℕ} {f0 : Kˣ} (a : NormPair (L := L) n f0) (c : Lˣ)
     (t : Kˣ) (ht : (t : K) = Algebra.norm K (c : L)) : NormPair (L := L) n f0 :=
-  ⟨c^2*a.alpha, t*a.orientation, by sorry⟩
+  ⟨a.degree_ge_three, a.degree_eq, a.separable, c^2*a.alpha, t*a.orientation, by sorry⟩
+lemma NormPair.ext {n : ℕ} {f0 : Kˣ} (a b : NormPair (L := L) n f0)
+    (halpha : a.alpha = b.alpha) (horientation : a.orientation = b.orientation) : a = b := by sorry
 lemma normPair_sign_iff {n : ℕ} {f0 : Kˣ} (a : NormPair (L := L) n f0) :
     (∃ c : Lˣ, c^2*a.alpha = a.alpha ∧
       Algebra.norm K (c : L) * (a.orientation : K) = -(a.orientation : K)) ↔
       ∃ c : Lˣ, c^2 = 1 ∧ Algebra.norm K (c : L) = -1 := by sorry
 -- ArithmeticOrbitRefinement.normPair_unit
-example {n : ℕ} : ∃ a : NormPair (L := L) n (1 : Kˣ),
+example {n : ℕ} [Algebra.IsSeparable K L] (hn : 3 ≤ n)
+    (hdegree : Module.finrank K L = n) : ∃ a : NormPair (L := L) n (1 : Kˣ),
     a.alpha = 1 ∧ a.orientation = 1 := by sorry
 -- ArithmeticOrbitRefinement.normPair_negative_orientation
-example {n : ℕ} (hchar : (2 : K) ≠ 0) :
+example {n : ℕ} [Algebra.IsSeparable K L] (hn : 3 ≤ n)
+    (hdegree : Module.finrank K L = n) (hchar : (2 : K) ≠ 0) :
     ∃ a : NormPair (L := L) n (1 : Kˣ),
       a.alpha = 1 ∧ a.orientation = -1 ∧ a.orientation ≠ 1 := by sorry
 -- ArithmeticOrbitRefinement.normPair_odd_split
 example : ∃ c : (Fin 3 → K)ˣ, c^2 = 1 ∧
     (c : Fin 3 → K) = ![-1,1,1] ∧ Algebra.norm K (c : Fin 3 → K) = -1 := by sorry
+-- ArithmeticOrbitRefinement.normPair_wrong_degree
+example : IsEmpty (NormPair (L := K) 3 (1 : Kˣ)) := by sorry
 end NormPairs
 
 /-- BSW I §1, p.4; BSW II introduction, p.3: universally quantify over coefficient
@@ -373,6 +397,9 @@ lemma qHyperdeterminant_transform {g : ℕ} (U V : Matrix (Fin g) (Fin (g+1)) R)
       h.det^(g+1) * k.det^g * qHyperdeterminant U V := by sorry
 lemma qHyperdeterminant_scale {g : ℕ} (t : R) (U V : Matrix (Fin g) (Fin (g+1)) R) :
     qHyperdeterminant (t • U) (t • V) = t^(g*(g+1))*qHyperdeterminant U V := by sorry
+lemma qHyperdeterminant_sl2 {g : ℕ} (U V : Matrix (Fin g) (Fin (g+1)) R)
+    (a b c d : R) (hdet : a*d-b*c = 1) :
+    qHyperdeterminant (a • U + b • V) (c • U + d • V) = qHyperdeterminant U V := by sorry
 -- ArithmeticOrbitRefinement.q_g1
 example : qHyperdeterminant (!![1,0] : Matrix (Fin 1) (Fin 2) ℤ) (!![0,1]) = -1 := by sorry
 -- ArithmeticOrbitRefinement.q_g2
