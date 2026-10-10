@@ -46707,7 +46707,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48221,7 +48222,8 @@
     "PKG-GeneralizedHeegnerCycles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GeneralizedHeegnerCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7930"
   },
   {
    "id": "PKG-GenericDoublePointInterpolation",
@@ -48309,8 +48311,9 @@
     "PKG-GeometricSatakeAndFusion"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GeometricSatakeAndFusion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7517",
+   "finishedAt": "2026-10-10T01:09:43Z"
   },
   {
    "id": "PKG-GlobalGaloisDeformations",
@@ -79979,8 +79982,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81288,8 +81291,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
