@@ -14,17 +14,33 @@ The tame relation is `Φ σ Φ⁻¹ = σ^q`.
 These signatures use Mathlib `082e2d3` and Tau Ceti `f790474`.
 The imported deformation-functor carrier is displayed in a self-contained adapter
 until its supplier is available as an import. Its mathematical ownership remains
-with GlobalGaloisDeformations R04.1. Supplier-dependent signatures that cannot yet
-be expressed are specified in the final interface inventory, with their full
-mathematical statements. No missing condition is replaced by an arbitrary
-`Prop` field or a `Prop` definition with a placeholder body.
+with GlobalGaloisDeformations R04.1. Supplier objects retain their mathematical owner in their documentation.
+Definitions, API lemmas and discriminating examples below use those interfaces;
+no missing condition is replaced by an arbitrary proposition.
 -/
 
+import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
+import Mathlib.AlgebraicGeometry.Pullbacks
+import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
+import Mathlib.Algebra.MvPolynomial.Basic
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.Data.Nat.Factorization.Basic
+import Mathlib.RingTheory.LaurentSeries
+import Mathlib.Topology.Algebra.Module.ModuleTopology
+import Mathlib.FieldTheory.Galois.Profinite
+import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
 import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.NumberTheory.Padics.RingHoms
 import Mathlib.Algebra.DualNumber
 import Mathlib.RingTheory.Ideal.Quotient.Operations
+import Mathlib.RingTheory.LocalRing.Quotient
+import Mathlib.RingTheory.Jacobson.Ring
+import Mathlib.RingTheory.PrincipalIdealDomain
 import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
 import Mathlib.RingTheory.Ideal.Cotangent
 import Mathlib.Data.ZMod.QuotientGroup
@@ -36,22 +52,37 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.SymplecticGroup
 import Mathlib.LinearAlgebra.Dimension.Finrank
+import Mathlib.Algebra.Module.Projective
 import Mathlib.Topology.Instances.Matrix
 import Mathlib.Topology.Algebra.Group.Basic
+import Mathlib.Topology.Algebra.Group.Subgroup
 import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.FieldTheory.Minpoly.Field
+import Mathlib.RingTheory.Ideal.Height
+import Mathlib.RingTheory.MvPowerSeries.Rename
+import Mathlib.RingTheory.Regular.RegularSequence
+import Mathlib.Topology.Connected.Clopen
 import Mathlib.RingTheory.KrullDimension.Basic
 import Mathlib.RingTheory.Ideal.MinimalPrime.Basic
 import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.MvPowerSeries.Inverse
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.AdicCompletion.Algebra
+import Mathlib.RingTheory.TensorProduct.Maps
+import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 import Mathlib.RingTheory.Smooth.Basic
+import Mathlib.RingTheory.Etale.Basic
 import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
 import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.RingTheory.Flat.Basic
 import Mathlib.RingTheory.Artinian.Ring
 import Mathlib.RingTheory.LocalRing.ResidueField.Defs
 import Mathlib.RingTheory.Noetherian.Defs
 import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.RingTheory.PolynomialLaw.Basic
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.LinearCombination
 import Mathlib.Tactic.Ring
@@ -60,12 +91,14 @@ import Mathlib.Tactic.FinCases
 universe u
 
 open Matrix
+open CategoryTheory
 
 noncomputable section
 
 set_option linter.overlappingInstances false
 set_option linter.unusedSectionVars false
 set_option linter.unusedVariables false
+set_option maxHeartbeats 800000
 
 /-! ## Imported carrier (GlobalGaloisDeformations R04.1)
 
@@ -105,17 +138,61 @@ namespace TauCeti.GaloisDeformation.Local
 
 open TauCeti.GaloisDeformation
 
+/-- The chosen `𝒪`-algebra structure identifies `𝔽` with the residue field.
+This is the residue-identification part of the coefficient category supplied by
+DeformationAndDerivedPatchingAlgebra R03.1. -/
+class ResidueIdentification (𝒪 𝔽 : Type*) [CommRing 𝒪] [IsLocalRing 𝒪]
+    [Field 𝔽] [Algebra 𝒪 𝔽] : Prop where
+  surjective : Function.Surjective (algebraMap 𝒪 𝔽)
+  ker_eq : RingHom.ker (algebraMap 𝒪 𝔽) = IsLocalRing.maximalIdeal 𝒪
+
+/-- Mazur's finiteness condition, expressed over the finite residue field:
+every open subgroup has finitely many continuous additive characters.
+The local-field instance is supplied by LocalGaloisGroups and ClassFieldTheory,
+and the generic representability theorem by GlobalGaloisDeformations R04.2. -/
+class MazurFinite (G 𝔽 : Type*) [Group G] [TopologicalSpace G] [Field 𝔽] : Prop where
+  finite_characters : ∀ H : Subgroup G, IsOpen (H : Set G) →
+    Finite {χ : H →* Multiplicative 𝔽 //
+      @Continuous H (Multiplicative 𝔽) inferInstance ⊥ χ}
+
+/-- Continuity of a residual representation for the discrete topology on matrices.
+Keeping this hypothesis on the input excludes abstract, discontinuous representations. -/
+class ContinuousResidual {G 𝔽 : Type*} [Group G] [TopologicalSpace G] [Field 𝔽]
+    {n : ℕ} (ρ : G →* GL (Fin n) 𝔽) : Prop where
+  continuous : @Continuous G (Matrix (Fin n) (Fin n) 𝔽) inferInstance ⊥
+    (fun g ↦ (ρ g : Matrix (Fin n) (Fin n) 𝔽))
+
+/-- The local coefficient morphisms: continuous, local, and compatible with
+the chosen residue maps. `R03.1` owns this category; here its concrete hom set is displayed. -/
+def CoeffHom {𝒪 𝔽 R A : Type*} [CommRing 𝒪] [Field 𝔽] [CommRing R] [CommRing A]
+    [Algebra 𝒪 R] [Algebra 𝒪 A] [Algebra 𝒪 𝔽] [IsLocalRing R] [IsLocalRing A]
+    [TopologicalSpace R] [TopologicalSpace A] (πR : R →ₐ[𝒪] 𝔽) (πA : A →ₐ[𝒪] 𝔽) :=
+  {f : R →ₐ[𝒪] A // Continuous f ∧
+    Ideal.comap f.toRingHom (IsLocalRing.maximalIdeal A) = IsLocalRing.maximalIdeal R ∧
+    πA.comp f = πR}
+
+/-- Scalar endomorphisms are the entire residual centralizer (the Schur condition). -/
+class SchurResidual {G 𝔽 : Type*} [Group G] [Field 𝔽] {n : ℕ}
+    (ρ : G →* GL (Fin n) 𝔽) : Prop where
+  centralizer : ∀ M : Matrix (Fin n) (Fin n) 𝔽,
+    (∀ g, M * (ρ g : Matrix (Fin n) (Fin n) 𝔽) = (ρ g : Matrix (Fin n) (Fin n) 𝔽) * M) →
+      ∃ c : 𝔽, M = c • 1
+
 section LiftingRing
 
 variable (𝒪 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-variable {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽]
-variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-variable (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽)
+variable {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [MazurFinite G 𝔽]
+variable (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽) [ContinuousResidual ρbar]
 
 /-- **`R08.1/local-lifting-ring`**, the carrier: the framed lifting ring `R^□_ρ̄ ∈ C_𝒪`. -/
 def LiftingRing (𝒪 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽) : Type u := sorry
+    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [MazurFinite G 𝔽] (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽) [ContinuousResidual ρbar] : Type u := sorry
 
 instance : CommRing (LiftingRing 𝒪 n ρbar) := sorry
 instance : Algebra 𝒪 (LiftingRing 𝒪 n ρbar) := sorry
@@ -125,8 +202,16 @@ instance : IsNoetherianRing (LiftingRing 𝒪 n ρbar) := sorry
 instance : IsAdicComplete (IsLocalRing.maximalIdeal (LiftingRing 𝒪 n ρbar))
     (LiftingRing 𝒪 n ρbar) := sorry
 
+/-- The topology on the universal ring is its maximal-ideal adic topology. -/
+theorem LiftingRing.isAdic : IsAdic (IsLocalRing.maximalIdeal (LiftingRing 𝒪 n ρbar)) := sorry
+
 /-- The residue map `R^□_ρ̄ → 𝔽`. -/
 def LiftingRing.residue : LiftingRing 𝒪 n ρbar →ₐ[𝒪] 𝔽 := sorry
+
+theorem LiftingRing.residue_surjective : Function.Surjective (LiftingRing.residue 𝒪 n ρbar) := sorry
+theorem LiftingRing.residue_ker :
+    RingHom.ker (LiftingRing.residue 𝒪 n ρbar).toRingHom =
+      IsLocalRing.maximalIdeal (LiftingRing 𝒪 n ρbar) := sorry
 
 /-- The universal lift `ρ^□ : G → GL_n(R^□_ρ̄)`. -/
 def LiftingRing.univ : Lift n ρbar (LiftingRing.residue 𝒪 n ρbar).toRingHom := sorry
@@ -147,6 +232,24 @@ end LiftingRing
 section GenericFibre
 
 variable {𝒪 : Type*} [CommRing 𝒪] {R : Type*} [CommRing R] [Algebra 𝒪 R]
+
+/-- The completed tensor product, completed at the sum of the two maximal ideals.
+The construction and its universal property belong to DeformationAndDerivedPatchingAlgebra R03.1. -/
+abbrev CompletedTensor (𝒪 R S : Type*) [CommRing 𝒪] [CommRing R] [CommRing S]
+    [Algebra 𝒪 R] [Algebra 𝒪 S]  : Type _ :=
+  AdicCompletion
+    (Ideal.map (Algebra.TensorProduct.includeLeft : R →ₐ[𝒪] TensorProduct 𝒪 R S).toRingHom
+       (Ideal.jacobson (⊥ : Ideal R)) ⊔
+     Ideal.map (Algebra.TensorProduct.includeRight : S →ₐ[𝒪] TensorProduct 𝒪 R S).toRingHom
+       (Ideal.jacobson (⊥ : Ideal S))) (TensorProduct 𝒪 R S)
+
+/-- Canonical maps into the completed tensor product. -/
+def CompletedTensor.inl (𝒪 R S : Type*) [CommRing 𝒪] [CommRing R] [CommRing S]
+    [Algebra 𝒪 R] [Algebra 𝒪 S]  :
+    R →ₐ[𝒪] CompletedTensor 𝒪 R S := sorry
+def CompletedTensor.inr (𝒪 R S : Type*) [CommRing 𝒪] [CommRing R] [CommRing S]
+    [Algebra 𝒪 R] [Algebra 𝒪 S]  :
+    S →ₐ[𝒪] CompletedTensor 𝒪 R S := sorry
 
 /-- The generic fibre `R[1/ϖ]` of an `𝒪`-algebra, for a uniformiser `ϖ` of `𝒪`. -/
 abbrev GenericFibre (ϖ : 𝒪) (R : Type*) [CommRing R] [Algebra 𝒪 R] : Type _ :=
@@ -181,20 +284,36 @@ namespace TauCeti.GaloisDeformation.Local
 
 open TauCeti.GaloisDeformation
 
+/-- Properties of the Krull topology, transported through the absolute-group wrapper. -/
+instance absoluteGroup_compact (K : Type*) [Field K] [PerfectField K] :
+    CompactSpace (Field.absoluteGaloisGroup K) := sorry
+instance absoluteGroup_t2 (K : Type*) [Field K] : T2Space (Field.absoluteGaloisGroup K) := sorry
+instance absoluteGroup_totallyDisconnected (K : Type*) [Field K] :
+    TotallyDisconnectedSpace (Field.absoluteGaloisGroup K) := sorry
+
+/-- LocalGaloisGroups supplies the local-field finiteness input to representability. -/
+theorem localField_mazurFinite (ℓ : ℕ) [Fact ℓ.Prime] (K : Type*) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] (𝔽 : Type*) [Field 𝔽] [Finite 𝔽] :
+    MazurFinite (Field.absoluteGaloisGroup K) 𝔽 := sorry
+
+
 section R081
 
 variable {𝒪 : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-variable {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽]
-variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-variable {n : ℕ} {ρbar : G →* GL (Fin n) 𝔽}
+variable {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {G : Type u} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [MazurFinite G 𝔽]
+variable {n : ℕ} {ρbar : G →* GL (Fin n) 𝔽} [ContinuousResidual ρbar]
 
 /-- **`R08.1/local-lifting-ring`**: `R^□_ρ̄` pro-represents the lifting functor on local Artinian
 `𝒪`-algebras with residue field `𝔽` (discrete topology): local `𝒪`-algebra maps compatible with the
 residue maps correspond to lifts of `ρ̄`, by pushing forward the universal lift. -/
 theorem liftingRing_represents (A : Type u) [CommRing A] [TopologicalSpace A] [DiscreteTopology A]
     [IsLocalRing A] [IsArtinianRing A] [Algebra 𝒪 A] (π : A →ₐ[𝒪] 𝔽)
-    (hπ : RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A) :
-    ∃ e : {f : LiftingRing 𝒪 n ρbar →ₐ[𝒪] A // π.comp f = LiftingRing.residue 𝒪 n ρbar} ≃
+    (hπ : RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+    (hπsurj : Function.Surjective π) :
+    ∃ e : CoeffHom (LiftingRing.residue 𝒪 n ρbar) π ≃
         Lift n ρbar π.toRingHom,
       ∀ f g, ((e f).toHom g : Matrix (Fin n) (Fin n) A) =
         ((LiftingRing.univ 𝒪 n ρbar).toHom g : Matrix (Fin n) (Fin n) _).map f.1 := sorry
@@ -219,8 +338,8 @@ theorem liftingRing_tangent [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] [Alg
 (ClassFieldTheory Layer 5). -/
 theorem liftingRing_krullDim_ge (p : ℕ) [Fact p.Prime] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
     [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type u) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) :
+    (K : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] :
     ((1 + n ^ 2 + n ^ 2 * Module.finrank ℚ_[p] K : ℕ) : WithBot ℕ∞) ≤
       ringKrullDim (LiftingRing 𝒪 n ρ₀) := sorry
 
@@ -229,8 +348,8 @@ theorem liftingRing_krullDim_ge (p : ℕ) [Fact p.Prime] [IsDomain 𝒪] [IsDisc
 nonzero `G_K`-equivariant maps `ρ̄ → ρ̄ ⊗ ω̄` for the mod `p` cyclotomic character `ω̄`. -/
 theorem liftingRing_isPowerSeries_of_unobstructed (p : ℕ) [Fact p.Prime] [IsDomain 𝒪]
     [IsDiscreteValuationRing 𝒪] [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type u) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [CharP 𝔽 p] (ω : Field.absoluteGaloisGroup K →* 𝔽ˣ)
+    (K : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] [CharP 𝔽 p] (ω : Field.absoluteGaloisGroup K →* 𝔽ˣ)
     (hω : ∀ g : Field.absoluteGaloisGroup K, ∀ ζ : AlgebraicClosure K, ζ ^ p = 1 →
       ∃ m : ℕ, (show AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K from g) ζ = ζ ^ m ∧ (ω g : 𝔽) = m)
     (h : ∀ M : Matrix (Fin n) (Fin n) 𝔽, (∀ g, M * (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽) =
@@ -247,29 +366,52 @@ theorem detIdeal_points (ψ : G →* 𝒪ˣ) {B : Type*} [CommRing B] [Algebra �
       ∀ g, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom g) =
         Units.map (algebraMap 𝒪 B).toMonoidHom (ψ g) := sorry
 
+section Unframed
+
+variable [SchurResidual ρbar]
+
 /-- **`R08.1/local-forget-framing`**: the unframed universal deformation ring (Schur `ρ̄`). -/
 def UnframedRing (𝒪 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽) : Type u := sorry
+    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [MazurFinite G 𝔽] (n : ℕ) (ρbar : G →* GL (Fin n) 𝔽) [ContinuousResidual ρbar] [SchurResidual ρbar] : Type u := sorry
 
 instance : CommRing (UnframedRing 𝒪 n ρbar) := sorry
 instance : Algebra 𝒪 (UnframedRing 𝒪 n ρbar) := sorry
+instance : IsLocalRing (UnframedRing 𝒪 n ρbar) := sorry
+instance : IsNoetherianRing (UnframedRing 𝒪 n ρbar) := sorry
+instance : TopologicalSpace (UnframedRing 𝒪 n ρbar) := sorry
+instance : IsAdicComplete (IsLocalRing.maximalIdeal (UnframedRing 𝒪 n ρbar))
+    (UnframedRing 𝒪 n ρbar) := sorry
 instance : Algebra (UnframedRing 𝒪 n ρbar) (LiftingRing 𝒪 n ρbar) := sorry
 
-/-- **`R08.1/local-forget-framing`**: for Schur `ρ̄`, `R^□ ≅ R^univ ⊗̂ 𝒪⟦x_{ij}⟧/(x₁₁)`; recorded here
-through Krull dimensions, `dim R^□ = dim R^univ + n² − 1`. -/
-theorem liftingRing_krullDim_eq_unframed
+/-- The forgetful map from the unframed universal ring to the framed ring. -/
+def forgetFraming : UnframedRing 𝒪 n ρbar →ₐ[𝒪] LiftingRing 𝒪 n ρbar := sorry
+
+/-- **`R08.1/local-forget-framing`**: Schur residual representations admit the
+complete local power-series comparison, compatible with forgetting the basis. -/
+theorem liftingRing_powerSeries_unframed (hn : 0 < n)
     (hSchur : ∀ M : Matrix (Fin n) (Fin n) 𝔽, (∀ g, M * (ρbar g : Matrix (Fin n) (Fin n) 𝔽) =
       (ρbar g : Matrix (Fin n) (Fin n) 𝔽) * M) → ∃ c : 𝔽, M = c • 1) :
-    ringKrullDim (LiftingRing 𝒪 n ρbar) = ringKrullDim (UnframedRing 𝒪 n ρbar) + (n ^ 2 - 1 : ℕ) :=
-  sorry
+    ∃ e : LiftingRing 𝒪 n ρbar ≃ₐ[𝒪] MvPowerSeries (Fin (n ^ 2 - 1)) (UnframedRing 𝒪 n ρbar),
+      ∀ r, e (forgetFraming r) = MvPowerSeries.C r := sorry
+
+/-- The Krull-dimension consequence of the framed-to-unframed comparison. -/
+theorem liftingRing_krullDim_eq_unframed (hn : 0 < n)
+    (hSchur : ∀ M : Matrix (Fin n) (Fin n) 𝔽, (∀ g, M * (ρbar g : Matrix (Fin n) (Fin n) 𝔽) =
+      (ρbar g : Matrix (Fin n) (Fin n) 𝔽) * M) → ∃ c : 𝔽, M = c • 1) :
+    ringKrullDim (LiftingRing 𝒪 n ρbar) = ringKrullDim (UnframedRing 𝒪 n ρbar) + (n ^ 2 - 1 : ℕ) := sorry
+
+end Unframed
 
 /-- **`R08.1/archimedean-rings-p-odd`**: for `p` odd and `c` of order two, the lifting ring of
 `ρ̄ : ⟨c⟩ → GL_n(𝔽)` with `ρ̄(c)` of eigenvalue multiplicities `a, b` (`a + b = n`) is a power series
 ring in `n² − a² − b²` variables. -/
 theorem archimedean_isPowerSeries {C : Type u} [Group C] [TopologicalSpace C] [DiscreteTopology C]
-    [IsTopologicalGroup C] (c : C) (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
-    (ρ₀ : C →* GL (Fin n) 𝔽) (h2 : (2 : 𝔽) ≠ 0) (a b : ℕ) (hab : a + b = n)
+    [IsTopologicalGroup C] [CompactSpace C] [T2Space C]
+    [TotallyDisconnectedSpace C] [MazurFinite C 𝔽] (c : C) (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
+    (ρ₀ : C →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (h2 : (2 : 𝔽) ≠ 0) (a b : ℕ) (hab : a + b = n)
     (hmult : Module.finrank 𝔽 (LinearMap.ker (Matrix.toLin' ((ρ₀ c : Matrix (Fin n) (Fin n) 𝔽) - 1))) = a) :
     IsPowerSeriesOver 𝒪 (LiftingRing 𝒪 n ρ₀) (n ^ 2 - a ^ 2 - b ^ 2) := sorry
 
@@ -283,8 +425,9 @@ noncomputable def oddArchimedeanEquation {R : Type*} [CommRing R] (a₀ b₀ c�
 /-- **`R08.1/archimedean-odd-ring-p2`**: for `n = 2`, `p = 2` and `ρ̄(c) = (a₀, b₀; c₀, −a₀)`
 reduced, the ring of odd lifts (determinant `−1`) is `𝒪⟦X₀, X₁, X₂⟧/(oddArchimedeanEquation)`. -/
 theorem oddArchimedeanRing_presentation {C : Type u} [Group C] [TopologicalSpace C]
-    [DiscreteTopology C] [IsTopologicalGroup C] (c : C) (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
-    (ρ₀ : C →* GL (Fin 2) 𝔽) (h2 : (2 : 𝔽) = 0)
+    [DiscreteTopology C] [IsTopologicalGroup C] [CompactSpace C] [T2Space C]
+    [TotallyDisconnectedSpace C] [MazurFinite C 𝔽] (c : C) (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
+    (ρ₀ : C →* GL (Fin 2) 𝔽) [ContinuousResidual ρ₀] (h2 : (2 : 𝔽) = 0)
     (I : Ideal (LiftingRing 𝒪 2 ρ₀)) (a₀ b₀ c₀ : 𝒪)
     (hρ₀ : (ρ₀ c : Matrix (Fin 2) (Fin 2) 𝔽) =
       !![algebraMap 𝒪 𝔽 a₀, algebraMap 𝒪 𝔽 b₀; algebraMap 𝒪 𝔽 c₀, -algebraMap 𝒪 𝔽 a₀])
@@ -297,16 +440,137 @@ theorem oddArchimedeanRing_presentation {C : Type u} [Group C] [TopologicalSpace
 `𝔽'`, `R^□_{ρ̄ ⊗ 𝔽'} ≅ R^□_ρ̄ ⊗_𝒪 𝒪'`; here, its consequence on Krull dimensions. -/
 theorem liftingRing_baseChange_krullDim {𝒪' : Type u} [CommRing 𝒪'] [IsLocalRing 𝒪']
     [IsNoetherianRing 𝒪'] [Algebra 𝒪 𝒪'] [Module.Finite 𝒪 𝒪'] [Module.Flat 𝒪 𝒪']
-    {𝔽' : Type u} [Field 𝔽'] [Algebra 𝒪' 𝔽'] (ι : 𝔽 →+* 𝔽') :
+    {𝔽' : Type u} [Field 𝔽'] [Algebra 𝒪' 𝔽'] [IsDomain 𝒪'] [IsDiscreteValuationRing 𝒪']
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪') 𝒪'] [Finite 𝔽'] [ResidueIdentification 𝒪' 𝔽']
+    [MazurFinite G 𝔽'] (ι : 𝔽 →+* 𝔽')
+    (hι : ι.comp (algebraMap 𝒪 𝔽) = (algebraMap 𝒪' 𝔽').comp (algebraMap 𝒪 𝒪'))
+    [ContinuousResidual ((Matrix.GeneralLinearGroup.map ι).comp ρbar)] :
     ringKrullDim (LiftingRing 𝒪' n ((Matrix.GeneralLinearGroup.map ι).comp ρbar)) =
       ringKrullDim (LiftingRing 𝒪 n ρbar) := sorry
+
+/-- **`R08.1/local-residue-field-change`**: the compatibility square is part of
+base change. The isomorphism identifies the two universal representations. -/
+theorem liftingRing_baseChange {𝒪' : Type u} [CommRing 𝒪'] [IsLocalRing 𝒪']
+    [IsNoetherianRing 𝒪'] [IsDomain 𝒪'] [IsDiscreteValuationRing 𝒪']
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪') 𝒪']
+    [Algebra 𝒪 𝒪'] [Module.Finite 𝒪 𝒪'] [Module.Flat 𝒪 𝒪']
+    {𝔽' : Type u} [Field 𝔽'] [Finite 𝔽'] [Algebra 𝒪' 𝔽'] [ResidueIdentification 𝒪' 𝔽']
+    [MazurFinite G 𝔽'] (ι : 𝔽 →+* 𝔽')
+    (hι : ι.comp (algebraMap 𝒪 𝔽) = (algebraMap 𝒪' 𝔽').comp (algebraMap 𝒪 𝒪'))
+    [ContinuousResidual ((Matrix.GeneralLinearGroup.map ι).comp ρbar)] :
+    letI : Algebra 𝒪' (CompletedTensor 𝒪 (LiftingRing 𝒪 n ρbar) 𝒪') :=
+      (CompletedTensor.inr 𝒪 (LiftingRing 𝒪 n ρbar) 𝒪').toRingHom.toAlgebra
+    ∃ e : LiftingRing 𝒪' n ((Matrix.GeneralLinearGroup.map ι).comp ρbar) ≃ₐ[𝒪']
+        CompletedTensor 𝒪 (LiftingRing 𝒪 n ρbar) 𝒪',
+      (Matrix.GeneralLinearGroup.map e.toRingHom).comp
+          (LiftingRing.univ 𝒪' n ((Matrix.GeneralLinearGroup.map ι).comp ρbar)).toHom =
+        (Matrix.GeneralLinearGroup.map (CompletedTensor.inl 𝒪 (LiftingRing 𝒪 n ρbar) 𝒪').toRingHom).comp
+          (LiftingRing.univ 𝒪 n ρbar).toHom := sorry
+
+/-- Relative fixed-determinant presentations do not require `p ∤ n`.
+Böckle–Iyengar–Paškūnas, Proposition 4.3, p. 37. `ad⁰` is the trace kernel,
+not an asserted splitting off of scalar matrices in residue characteristic. -/
+def traceZeroCocycles [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] :
+    Submodule 𝔽 (G → Matrix (Fin n) (Fin n) 𝔽) :=
+  (adCocycles ρbar) ⊓ {
+    carrier := {f | ∀ g, Matrix.trace (f g) = 0}
+    zero_mem' := sorry
+    add_mem' := sorry
+    smul_mem' := sorry }
+
+/-- The determinant residual representation in rank one. -/
+def determinantResidual (ρ : G →* GL (Fin n) 𝔽) : G →* GL (Fin 1) 𝔽 := sorry
+instance [ContinuousResidual ρbar] : ContinuousResidual (determinantResidual ρbar) := sorry
+
+/-- The universal determinant character ring, owned by R04.2. -/
+abbrev DeterminantRing := LiftingRing 𝒪 1 (determinantResidual ρbar)
+
+def determinantMap : DeterminantRing (𝒪 := 𝒪) (ρbar := ρbar) →ₐ[𝒪] LiftingRing 𝒪 n ρbar := sorry
+
+/-- Characters reducing to one and trivial on the local torsion subgroup. -/
+def TwistCharacters {A : Type u} [CommRing A] [IsLocalRing A] [TopologicalSpace A]
+    (torsion : Subgroup G) : Type u :=
+  {θ : G →* Aˣ // Continuous (fun g ↦ (θ g : A)) ∧
+    (∀ g, (θ g : A) - 1 ∈ IsLocalRing.maximalIdeal A) ∧ ∀ g ∈ torsion, θ g = 1}
+
+/-- The ring of the torsion-trivial character space; the Artin map supplies `torsion`.
+The integer `r` is `[K:ℚ_p]+1` for the local field. -/
+abbrev TwistCharacterRing (𝒪 : Type u) [CommRing 𝒪] (r : ℕ) := MvPowerSeries (Fin r) 𝒪
+
+instance (r : ℕ) : TopologicalSpace (TwistCharacterRing 𝒪 r) :=
+  (IsLocalRing.maximalIdeal (TwistCharacterRing 𝒪 r)).adicTopology
+
+def TwistCharacterRing.power (r e : ℕ) :
+    TwistCharacterRing 𝒪 r →ₐ[𝒪] TwistCharacterRing 𝒪 r := sorry
+
+theorem TwistCharacterRing.power_X (r e : ℕ) (i : Fin r) :
+    TwistCharacterRing.power (𝒪 := 𝒪) r e (MvPowerSeries.X i) = (1 + MvPowerSeries.X i) ^ e - 1 := sorry
+
+/-- The torsion-determinant quotient (`χ = ψ|_μ`). -/
+def torsionDetIdeal (torsion : Subgroup G) (ψ : G →* 𝒪ˣ) : Ideal (LiftingRing 𝒪 n ρbar) :=
+  Ideal.span {r | ∃ g ∈ torsion, r =
+    (Matrix.GeneralLinearGroup.det ((LiftingRing.univ 𝒪 n ρbar).toHom g) : LiftingRing 𝒪 n ρbar) -
+      algebraMap 𝒪 (LiftingRing 𝒪 n ρbar) (ψ g : 𝒪)}
+
+/-- Twisting ring comparison, valid also when `p | n`. The left side uses the
+power map as its scalar structure. The map `α` classifies `(det ρ)ψ⁻¹`, and
+`hα` identifies its universal character; it is not an unrelated algebra structure. -/
+theorem determinantTwisting_iso (r : ℕ) (hn : 0 < n) (torsion : Subgroup G) (ψ : G →* 𝒪ˣ)
+    (hψ : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ g) = Matrix.GeneralLinearGroup.det (ρbar g))
+    (Xuniv : G →* (TwistCharacterRing 𝒪 r)ˣ)
+    (α : TwistCharacterRing 𝒪 r →ₐ[𝒪] ConditionRing (torsionDetIdeal (ρbar := ρbar) torsion ψ))
+    (hα : ∀ g, Units.map α.toMonoidHom (Xuniv g) =
+      Matrix.GeneralLinearGroup.det (pointRep (Ideal.Quotient.mk (torsionDetIdeal (ρbar := ρbar) torsion ψ)) g) *
+        (Units.map (algebraMap 𝒪 _).toMonoidHom (ψ g))⁻¹)
+    (hX : ∀ {A : Type u} [CommRing A] [IsLocalRing A] [IsNoetherianRing A]
+      [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [TopologicalSpace A] [Algebra 𝒪 A],
+      ∀ (πA : A →ₐ[𝒪] 𝔽), Function.Surjective πA →
+      RingHom.ker πA.toRingHom = IsLocalRing.maximalIdeal A →
+      IsAdic (IsLocalRing.maximalIdeal A) →
+      ∃ e : {f : TwistCharacterRing 𝒪 r →ₐ[𝒪] A // Continuous f ∧
+        Ideal.comap f.toRingHom (IsLocalRing.maximalIdeal A) =
+          IsLocalRing.maximalIdeal (TwistCharacterRing 𝒪 r) ∧
+        ∀ z, πA (f z) = algebraMap 𝒪 𝔽 (MvPowerSeries.constantCoeff z)} ≃
+        TwistCharacters (A := A) torsion,
+        ∀ f g, (e f).val g = Units.map f.val.toMonoidHom (Xuniv g)) :
+    letI := α.toAlgebra
+    letI := (TwistCharacterRing.power (𝒪 := 𝒪) r n).toAlgebra
+    ∃ e : CompletedTensor (TwistCharacterRing 𝒪 r)
+        (ConditionRing (torsionDetIdeal (ρbar := ρbar) torsion ψ)) (TwistCharacterRing 𝒪 r) ≃+*
+      CompletedTensor 𝒪 (ConditionRing (detIdeal (ρbar := ρbar) ψ)) (TwistCharacterRing 𝒪 r),
+      (∀ a : 𝒪, e (CompletedTensor.inl (TwistCharacterRing 𝒪 r)
+          (ConditionRing (torsionDetIdeal (ρbar := ρbar) torsion ψ)) (TwistCharacterRing 𝒪 r) (algebraMap 𝒪 _ a)) =
+        CompletedTensor.inl 𝒪 (ConditionRing (detIdeal (ρbar := ρbar) ψ)) (TwistCharacterRing 𝒪 r) (algebraMap 𝒪 _ a)) ∧
+      (∀ z, e (CompletedTensor.inr (TwistCharacterRing 𝒪 r)
+          (ConditionRing (torsionDetIdeal (ρbar := ρbar) torsion ψ)) (TwistCharacterRing 𝒪 r) z) =
+        CompletedTensor.inr 𝒪 (ConditionRing (detIdeal (ρbar := ρbar) ψ)) (TwistCharacterRing 𝒪 r) z) ∧
+      (∀ g i j, e (CompletedTensor.inl (TwistCharacterRing 𝒪 r)
+          (ConditionRing (torsionDetIdeal (ρbar := ρbar) torsion ψ)) (TwistCharacterRing 𝒪 r)
+          (Ideal.Quotient.mk _ (((LiftingRing.univ 𝒪 n ρbar).toHom g : Matrix (Fin n) (Fin n) _) i j))) =
+        CompletedTensor.inl 𝒪 (ConditionRing (detIdeal (ρbar := ρbar) ψ)) (TwistCharacterRing 𝒪 r)
+          (Ideal.Quotient.mk _ (((LiftingRing.univ 𝒪 n ρbar).toHom g : Matrix (Fin n) (Fin n) _) i j)) *
+        CompletedTensor.inr 𝒪 (ConditionRing (detIdeal (ρbar := ρbar) ψ)) (TwistCharacterRing 𝒪 r) (Xuniv g : TwistCharacterRing 𝒪 r)) := sorry
+
+/-- The power map is finite flat even in residue characteristic dividing its exponent. -/
+theorem TwistCharacterRing.power_finite_flat (r e : ℕ) (he : 0 < e) :
+    letI := (TwistCharacterRing.power (𝒪 := 𝒪) r e).toAlgebra
+    letI : Module (TwistCharacterRing 𝒪 r) (TwistCharacterRing 𝒪 r) := Algebra.toModule
+    Module.Finite (TwistCharacterRing 𝒪 r) (TwistCharacterRing 𝒪 r) ∧
+      Module.Flat (TwistCharacterRing 𝒪 r) (TwistCharacterRing 𝒪 r) := sorry
+
+/-- `d=p=2`, `K=ℚ₂`: the power map has degree four, including the special fibre. -/
+example (h2 : (2 : 𝔽) = 0) :
+    letI := (TwistCharacterRing.power (𝒪 := 𝒪) 2 2).toAlgebra
+    letI : Module (TwistCharacterRing 𝒪 2) (TwistCharacterRing 𝒪 2) := Algebra.toModule
+    Module.Free (TwistCharacterRing 𝒪 2) (TwistCharacterRing 𝒪 2) ∧
+      Module.finrank (TwistCharacterRing 𝒪 2) (TwistCharacterRing 𝒪 2) = 4 := sorry
 
 /-- **`R08.1/rank-one-ring`**: for a character of `G_K`, `K/ℚ_p` finite, with `μ_{p^∞}(K)` trivial,
 the lifting ring is `𝒪⟦y₁, …, y_{[K:ℚ_p]+1}⟧`. -/
 theorem rankOne_isPowerSeries (p : ℕ) [Fact p.Prime] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
     [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type u) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    (hμ : ∀ ζ : K, ζ ^ p = 1 → ζ = 1) (χ : Field.absoluteGaloisGroup K →* GL (Fin 1) 𝔽) :
+    (K : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (hμ : ∀ ζ : K, ζ ^ p = 1 → ζ = 1) (χ : Field.absoluteGaloisGroup K →* GL (Fin 1) 𝔽) [ContinuousResidual χ] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] :
     IsPowerSeriesOver 𝒪 (LiftingRing 𝒪 1 χ) (Module.finrank ℚ_[p] K + 1) := sorry
 
 /-- **`R08.1/determinant-twisting`**: twisting by `𝒳` identifies `R^{□,χ}` with `R^{□,ψ}` completed
@@ -315,9 +579,9 @@ over the character ring; recorded through dimensions, `dim R^□ = dim R^{□,ψ
 Böckle–Iyengar–Paškūnas comparison of the node). -/
 theorem determinantTwisting_krullDim (p : ℕ) [Fact p.Prime] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
     [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type u) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (K : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
     (hμ : ∀ ζ : K, ζ ^ p = 1 → ζ = 1) (hpn : ¬ p ∣ n)
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) (ψ : Field.absoluteGaloisGroup K →* 𝒪ˣ)
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] (ψ : Field.absoluteGaloisGroup K →* 𝒪ˣ)
     (hψ : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ g) = Matrix.GeneralLinearGroup.det (ρ₀ g)) :
     ringKrullDim (LiftingRing 𝒪 n ρ₀) =
       ringKrullDim (ConditionRing (detIdeal (n := n) (ρbar := ρ₀) ψ)) +
@@ -332,76 +596,240 @@ theorem completion_isRegular_of_unobstructed (ϖ : 𝒪)
       ringKrullDim (Localization.AtPrime P)) :
     IsRegularLocalRing (Localization.AtPrime P) := sorry
 
-/-- **`R08.1/coefficient-rings-lambda`**: the three kinds of `𝒪`-field `κ`. -/
-inductive CoeffFieldKind
-  | finite
-  | padic
-  | localCharP
+/-- **`R08.1/coefficient-rings-lambda`**. The tag is accompanied by its field model
+and the compatibility with the original residue or coefficient map. -/
+inductive CoefficientFieldData (𝒪 𝔽 κ : Type u) [CommRing 𝒪] [Field 𝔽] [Field κ]
+    [Algebra 𝒪 𝔽] [Algebra 𝒪 κ] where
+  | finite [Finite κ] (ι : 𝔽 →+* κ)
+      (compatible : ι.comp (algebraMap 𝒪 𝔽) = algebraMap 𝒪 κ)
+  | padic (p : ℕ) [Fact p.Prime] (K : Type u) [NormedField K] [Algebra ℚ_[p] K]
+      [NormedAlgebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (model : κ ≃+* K)
+      (injective : Function.Injective (algebraMap 𝒪 κ))
+  | localCharP (p : ℕ) [Fact p.Prime] [CharP κ p]
+      (k' : Type u) [Field k'] [Finite k'] [CharP k' p]
+      (ι : 𝔽 →+* k') (model : κ ≃+* LaurentSeries k')
+      (compatible : ∀ a : 𝒪, model (algebraMap 𝒪 κ a) =
+        algebraMap k' (LaurentSeries k') (ι (algebraMap 𝒪 𝔽 a)))
 
-/-- **`R08.1/coefficient-rings-lambda`**, API `CoeffRing`: the ring `Λ` attached to `κ` (a complete
-DVR with uniformiser `ϖ` and residue field `κ` in the finite and characteristic-`p` cases, `κ` itself in
-the `p`-adic case). -/
-def CoeffRing (κ : Type u) [Field κ] [Algebra 𝒪 κ] (k : CoeffFieldKind) : Type u := sorry
+/-- `Λ` for the selected field model: unramified coefficient extension in the finite
+case, `κ` in the characteristic-zero case, and the `ϖ`-adic completion of
+`𝒪'⟦t⟧[1/t]` in equal characteristic. R03.1 owns the coefficient construction. -/
+def CoeffRing (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) : Type u := sorry
 
-instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (k : CoeffFieldKind) :
-    CommRing (CoeffRing (𝒪 := 𝒪) κ k) := sorry
-instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (k : CoeffFieldKind) :
-    Algebra 𝒪 (CoeffRing (𝒪 := 𝒪) κ k) := sorry
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    CommRing (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    Algebra 𝒪 (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    IsLocalRing (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    IsNoetherianRing (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
 
-/-- API `CoeffRing.isCohen`: in the characteristic-`p` case, `Λ` is a discrete valuation ring with
-residue field `κ`, and any complete DVR over `𝒪` with uniformiser `ϖ` and residue field `κ` is
-isomorphic to it. -/
-theorem CoeffRing.isCohen (κ : Type u) [Field κ] [Algebra 𝒪 κ] [IsDomain (CoeffRing (𝒪 := 𝒪) κ .localCharP)] :
-    IsDiscreteValuationRing (CoeffRing (𝒪 := 𝒪) κ .localCharP) := sorry
+/-- The topology in BIP §3.5, pp. 25–26: in the last case it is the inverse-limit
+of the finite-level topologies induced from `(ϖ,t)`-adic `𝒪'⟦t⟧`, not the discrete
+residue topology. The finite case uses the adic topology and the middle case the
+finite-dimensional `ℚ_p` topology. -/
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    TopologicalSpace (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
 
-/-- API `ArtinCat`: the test objects of `𝔄_Λ`: local Artinian `Λ`-algebras with residue field `κ`,
-with a topology (discrete for finite `κ`). -/
-structure ArtinCat (Λ : Type u) [CommRing Λ] (κ : Type u) [Field κ] [Algebra Λ κ] where
+def CoeffRing.residue (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) : CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d →ₐ[𝒪] κ := sorry
+
+theorem CoeffRing.residue_surjective (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) : Function.Surjective (CoeffRing.residue κ d) := sorry
+
+theorem CoeffRing.residue_ker (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    RingHom.ker (CoeffRing.residue κ d).toRingHom = IsLocalRing.maximalIdeal (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) := sorry
+
+/-- The Cohen ring in the local characteristic-`p` case is a complete DVR with
+uniformizer the image of `ϖ`, and residue field the chosen Laurent-series field. -/
+theorem CoeffRing.isCohen (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    (p : ℕ) [Fact p.Prime] [CharP κ p] (k' : Type u) [Field k'] [Finite k'] [CharP k' p]
+    (ι : 𝔽 →+* k') (e : κ ≃+* LaurentSeries k')
+    (hc : ∀ a : 𝒪, e (algebraMap 𝒪 κ a) = algebraMap k' (LaurentSeries k') (ι (algebraMap 𝒪 𝔽 a)))
+    (ϖ : 𝒪) (hϖ : Irreducible ϖ) :
+    let Λ := CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ (.localCharP p k' ι e hc)
+    ∃ hd : IsDomain Λ, @IsDiscreteValuationRing Λ inferInstance hd ∧
+      IsAdicComplete (IsLocalRing.maximalIdeal Λ) Λ ∧
+      Ideal.span {algebraMap 𝒪 Λ ϖ} = IsLocalRing.maximalIdeal Λ := sorry
+
+instance (κ : Type u) [Field κ] [Algebra 𝒪 κ] (d : CoefficientFieldData 𝒪 𝔽 κ) :
+    Algebra (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) κ :=
+  (CoeffRing.residue κ d).toRingHom.toAlgebra
+
+/-- The test category: finite local Artinian `Λ`-algebras, with a chosen residue
+identification and the natural finite-module topology. These conditions determine
+both the hom sets and the continuity used by the lifting functor. -/
+structure ArtinCat (Λ : Type u) [CommRing Λ] [TopologicalSpace Λ]
+    (κ : Type u) [Field κ] [Algebra Λ κ] where
   carrier : Type u
   [ring : CommRing carrier]
   [alg : Algebra Λ carrier]
   [isLocal : IsLocalRing carrier]
   [artinian : IsArtinianRing carrier]
+  [finite : Module.Finite Λ carrier]
   [top : TopologicalSpace carrier]
+  [naturalTopology : IsModuleTopology Λ carrier]
   residue : carrier →ₐ[Λ] κ
+  residue_surjective : Function.Surjective residue
+  residue_ker : RingHom.ker residue.toRingHom = IsLocalRing.maximalIdeal carrier
 
-/-- API `liftFunctorΛ`: `D^□_ρ(A)`, continuous lifts of `ρ : G → GL_d(κ)` to an object of `𝔄_Λ`. -/
-def liftFunctorΛ {Λ κ : Type u} [CommRing Λ] [Field κ] [Algebra Λ κ] (ρ : G →* GL (Fin n) κ)
-    (A : ArtinCat Λ κ) : Type _ :=
+/-- Continuous local residue-compatible homomorphisms in the test category. -/
+def ArtinCat.Hom {Λ κ : Type u} [CommRing Λ] [TopologicalSpace Λ] [Field κ] [Algebra Λ κ]
+    (A B : ArtinCat Λ κ) : Type _ :=
+  letI := A.ring; letI := A.alg; letI := A.top; letI := A.isLocal
+  letI := B.ring; letI := B.alg; letI := B.top; letI := B.isLocal
+  CoeffHom A.residue B.residue
+
+/-- Continuous framed lifts to an object of `𝔄_Λ`. -/
+def liftFunctorΛ {Λ κ : Type u} [CommRing Λ] [TopologicalSpace Λ] [Field κ] [Algebra Λ κ]
+    (ρ : G →* GL (Fin n) κ) (A : ArtinCat Λ κ) : Type _ :=
   letI := A.ring; letI := A.alg; letI := A.top
   Lift n ρ A.residue.toRingHom
 
-/-- API `liftFunctorΛ_finite`: for finite `κ` with the discrete topology on `A`, `D^□_ρ` is the lifting
-functor of GlobalGaloisDeformations R04.1 (here, the two carriers coincide by definition). -/
-theorem liftFunctorΛ_finite {Λ κ : Type u} [CommRing Λ] [Field κ] [Algebra Λ κ] [Finite κ]
-    (ρ : G →* GL (Fin n) κ) (A : ArtinCat Λ κ) :
-    liftFunctorΛ ρ A = (letI := A.ring; letI := A.alg; letI := A.top; Lift n ρ A.residue.toRingHom) :=
-  rfl
+/-- The finite-residue category has the discrete topology. -/
+theorem liftFunctorΛ_finite {Λ κ : Type u} [CommRing Λ] [TopologicalSpace Λ]
+    [IsLocalRing Λ] [IsNoetherianRing Λ] [Field κ] [Algebra Λ κ] [Finite κ]
+    (hΛ : IsAdic (IsLocalRing.maximalIdeal Λ)) (A : ArtinCat Λ κ) :
+    letI := A.top
+    DiscreteTopology A.carrier := sorry
 
-/-- `coeffRing_finite` (degenerate): for `κ = k` (finite), `Λ = 𝒪`. -/
-example [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
-    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite (IsLocalRing.ResidueField 𝒪)] :
-    Nonempty (CoeffRing (𝒪 := 𝒪) (IsLocalRing.ResidueField 𝒪) .finite ≃ₐ[𝒪] 𝒪) := sorry
+/-- Equal residue field gives back the original coefficient ring. -/
+example : Nonempty (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) 𝔽 (.finite (RingHom.id 𝔽) (by rfl)) ≃ₐ[𝒪] 𝒪) := sorry
 
-/-- `coeffRing_padic` (computation): in the `p`-adic case `Λ = κ`. -/
-example (κ : Type u) [Field κ] [Algebra 𝒪 κ] : Nonempty (CoeffRing (𝒪 := 𝒪) κ .padic ≃ₐ[𝒪] κ) := sorry
+/-- A finite extension of `ℚ_p` uses itself, with its field topology. -/
+example (κ : Type u) [NormedField κ] [Algebra 𝒪 κ] (p : ℕ) [Fact p.Prime]
+    [Algebra ℚ_[p] κ] [NormedAlgebra ℚ_[p] κ] [FiniteDimensional ℚ_[p] κ]
+    (hi : Function.Injective (algebraMap 𝒪 κ)) :
+    Nonempty (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ (.padic p κ (RingEquiv.refl κ) hi) ≃ₐ[𝒪] κ) := sorry
 
-/-- `coeffRing_char_p_dvr` (non-example): for `κ = k((t))`, `Λ` is a DVR, unlike `𝒪⟦t⟧`, which has Krull
-dimension two. -/
-example [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] :
-    ringKrullDim (PowerSeries 𝒪) = 2 := sorry
+/-- The residue of the Cohen ring really is the Laurent-series field, whereas
+`𝒪⟦t⟧` has dimension two and has not inverted the residue uniformizer. -/
+example (κ : Type u) [Field κ] [Algebra 𝒪 κ] (p : ℕ) [Fact p.Prime] [CharP κ p]
+    (k' : Type u) [Field k'] [Finite k'] [CharP k' p] (ι : 𝔽 →+* k')
+    (e : κ ≃+* LaurentSeries k')
+    (hc : ∀ a : 𝒪, e (algebraMap 𝒪 κ a) = algebraMap k' (LaurentSeries k') (ι (algebraMap 𝒪 𝔽 a))) :
+    let Λ := CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ (.localCharP p k' ι e hc)
+    Nonempty (IsLocalRing.ResidueField Λ ≃+* κ) ∧ ringKrullDim (PowerSeries 𝒪) = 2 := sorry
 
-/-- `liftFunctorΛ_compat` (compatibility): for finite `κ`, `liftFunctorΛ` is `Lift`. -/
-example {Λ κ : Type u} [CommRing Λ] [Field κ] [Algebra Λ κ] [Finite κ] (ρ : G →* GL (Fin n) κ)
-    (A : ArtinCat Λ κ) : liftFunctorΛ ρ A = (letI := A.ring; letI := A.alg; letI := A.top;
-      Lift n ρ A.residue.toRingHom) := liftFunctorΛ_finite ρ A
+/-- The residue-field topology attached to the field model. -/
+@[reducible] def CoefficientFieldData.topology {κ : Type u} [Field κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) : TopologicalSpace κ := by
+  cases d with
+  | finite _ _ => exact ⊥
+  | padic p K e _ => exact TopologicalSpace.induced e inferInstance
+  | localCharP p k' ι e _ => exact TopologicalSpace.induced e inferInstance
+
+/-- Continuity for the topology specified by the coefficient-field model. -/
+def NaturalContinuous {κ : Type u} [Field κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) (ρ : G →* GL (Fin n) κ) : Prop :=
+  @Continuous G (Matrix (Fin n) (Fin n) κ) inferInstance
+    (by letI := d.topology; exact inferInstance) (fun g ↦ (ρ g : Matrix (Fin n) (Fin n) κ))
+
+/-- Finite topological generation, supplied for `G_K` by LocalGaloisGroups.
+This is separate from the finiteness condition on discrete residual characters. -/
+class TopologicallyFinitelyGenerated (G : Type*) [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] : Prop where
+  generators : ∃ S : Finset G, (Subgroup.closure (S : Set G)).topologicalClosure = ⊤
+
+/-- **`R08.1/lambda-presentation`**: framed lifts over the natural coefficient category.
+`ρ` is continuous for the natural topology of `κ`; it need not have finite image. -/
+def LambdaLiftingRing (κ : Type u) [Field κ] [Algebra 𝒪 κ]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+    (d : CoefficientFieldData 𝒪 𝔽 κ) (ρ : G →* GL (Fin n) κ)
+    [CompactSpace G] [T2Space G] [IsTopologicalGroup G] [TotallyDisconnectedSpace G]
+    [TopologicallyFinitelyGenerated G]
+    (hc : NaturalContinuous d ρ) : Type u := sorry
+
+section LambdaRing
+
+variable {κ : Type u} [Field κ] [Algebra 𝒪 κ]
+variable (d : CoefficientFieldData 𝒪 𝔽 κ) (ρ : G →* GL (Fin n) κ)
+variable [TopologicallyFinitelyGenerated G]
+variable (hc : NaturalContinuous d ρ)
+
+instance : CommRing (LambdaLiftingRing κ d ρ hc) := sorry
+instance : Algebra (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) (LambdaLiftingRing κ d ρ hc) := sorry
+instance : Algebra 𝒪 (LambdaLiftingRing κ d ρ hc) := sorry
+instance : IsLocalRing (LambdaLiftingRing κ d ρ hc) := sorry
+instance : IsNoetherianRing (LambdaLiftingRing κ d ρ hc) := sorry
+instance : TopologicalSpace (LambdaLiftingRing κ d ρ hc) := sorry
+instance : IsAdicComplete (IsLocalRing.maximalIdeal (LambdaLiftingRing κ d ρ hc))
+    (LambdaLiftingRing κ d ρ hc) := sorry
+
+def LambdaLiftingRing.residue : LambdaLiftingRing κ d ρ hc →ₐ[CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d] κ := sorry
+
+def LambdaLiftingRing.univ : Lift n ρ (LambdaLiftingRing.residue d ρ hc).toRingHom := sorry
+
+/-- Representation on every finite local Artinian test algebra, with its prescribed topology. -/
+theorem LambdaLiftingRing.represents
+    (A : ArtinCat (CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ d) κ) :
+    letI := A.ring; letI := A.alg; letI := A.top; letI := A.isLocal
+    ∃ e : CoeffHom (LambdaLiftingRing.residue d ρ hc) A.residue ≃ liftFunctorΛ ρ A,
+      ∀ f g, ((e f).toHom g : Matrix (Fin n) (Fin n) A.carrier) =
+        ((LambdaLiftingRing.univ d ρ hc).toHom g : Matrix (Fin n) (Fin n) _).map f.val := sorry
+
+end LambdaRing
+
+/-- Continuous coefficient-linear adjoint cohomology supplied by ClassFieldTheory
+and GlobalGaloisDeformations. The additive quotient is TauCeti.ContCohomology.H2;
+the coefficient-linear refinement identifies this carrier with that quotient. -/
+def AdH2 {E : Type u} [Field E] {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+    {r : ℕ} (ρ : Γ →* GL (Fin r) E) : Type u := sorry
+instance {E : Type u} [Field E] {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+    {r : ℕ} (ρ : Γ →* GL (Fin r) E) : AddCommGroup (AdH2 ρ) := sorry
+instance {E : Type u} [Field E] {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+    {r : ℕ} (ρ : Γ →* GL (Fin r) E) : Module E (AdH2 ρ) := sorry
+
+/-- The completed local ring at a prime. -/
+abbrev CompletedLocalRing {R : Type u} [CommRing R] (P : Ideal R) [P.IsPrime] :=
+  AdicCompletion (IsLocalRing.maximalIdeal (Localization.AtPrime P)) (Localization.AtPrime P)
+
+/-- The residue map on that completion, with the chosen identification of the point's field. -/
+def CompletedLocalRing.residue {R κ : Type u} [CommRing R] [Field κ] (P : Ideal R) [P.IsPrime]
+    (x : R →+* κ) (hx : RingHom.ker x = P) : CompletedLocalRing P →+* κ := sorry
+
+/-- **`R08.1/completion-at-points`**, characteristic-zero closed points.
+The ring comparison includes the residue-field identification. BIP Proposition 3.41,
+p. 29; Kisin Proposition 2.3.5. -/
+theorem completion_at_points (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (P : Ideal (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))) [P.IsMaximal]
+    (κ : Type u) [Field κ] [CharZero κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ)
+    (x : GenericFibre ϖ (LiftingRing 𝒪 n ρbar) →ₐ[𝒪] κ) (hx : RingHom.ker x.toRingHom = P)
+    [TopologicallyFinitelyGenerated G]
+    (hc : NaturalContinuous d (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar)))))) :
+    ∃ e : CompletedLocalRing P ≃+* LambdaLiftingRing κ d (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))))) hc,
+      (LambdaLiftingRing.residue d (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))))) hc).toRingHom.comp
+        e.toRingHom = CompletedLocalRing.residue P x.toRingHom hx := sorry
+
+/-- The characteristic-zero unobstructed comparison is a power-series isomorphism.
+The coefficient embedding reduces to the identity on the point's field. -/
+theorem completion_unobstructed_powerSeries (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (P : Ideal (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))) [P.IsMaximal]
+    (κ : Type u) [Field κ] [CharZero κ] [Algebra 𝒪 κ]
+    (d : CoefficientFieldData 𝒪 𝔽 κ)
+    (x : GenericFibre ϖ (LiftingRing 𝒪 n ρbar) →ₐ[𝒪] κ) (hx : RingHom.ker x.toRingHom = P)
+    [TopologicallyFinitelyGenerated G]
+    (hc : NaturalContinuous d (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))))))
+    [Subsingleton (AdH2 (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar))))))]
+    [Algebra κ (CompletedLocalRing P)]
+    (hκ : (CompletedLocalRing.residue P x.toRingHom hx).comp (algebraMap κ _) = RingHom.id κ) :
+    letI := d.topology
+    Nonempty (CompletedLocalRing P ≃ₐ[κ] MvPowerSeries
+      (Fin (Module.finrank κ (adCocycles (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρbar) (GenericFibre ϖ (LiftingRing 𝒪 n ρbar)))))))) κ) := sorry
 
 /-- **`R08.1/lambda-presentation`** (2), unobstructed form: `R^□_ρ` over `Λ` is a power series ring in
 `d²(1 + [F:ℚ_p])` variables when `H²(G_F, ad ρ) = 0` (stated for finite `κ`). -/
 theorem lambdaPresentation_unobstructed (p : ℕ) [Fact p.Prime] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
     [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type u) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [CharP 𝔽 p] (ω : Field.absoluteGaloisGroup K →* 𝔽ˣ)
+    (K : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] [CharP 𝔽 p] (ω : Field.absoluteGaloisGroup K →* 𝔽ˣ)
     (hω : ∀ g : Field.absoluteGaloisGroup K, ∀ ζ : AlgebraicClosure K, ζ ^ p = 1 →
       ∃ m : ℕ, (show AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K from g) ζ = ζ ^ m ∧ (ω g : 𝔽) = m)
     (h : ∀ M : Matrix (Fin n) (Fin n) 𝔽, (∀ g, M * (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽) =
@@ -409,45 +837,264 @@ theorem lambdaPresentation_unobstructed (p : ℕ) [Fact p.Prime] [IsDomain 𝒪]
     IsPowerSeriesOver 𝒪 (LiftingRing 𝒪 n ρ₀) (n ^ 2 * (1 + Module.finrank ℚ_[p] K)) :=
   liftingRing_isPowerSeries_of_unobstructed p K ρ₀ ω hω h
 
-/-! The G-valued framed rings (`R08.1/g-valued-framed-ring`, `R08.1/g-valued-presentations`) are stated
-for a closed subgroup functor of `GL_d` given by matrix equations; the smooth affine group-scheme API
-(Lie algebras, `G/G^der`) is a requested supplier (ArithmeticStatistics ST.5 and its extension). -/
+/-! ### Affine group interface (ReductiveGroups)
 
-/-- API `GLift`: `D^□_{ρ,G}(A)`, lifts valued in a subgroup family `𝒢(A) ⊆ GL_d(A)` cut out by matrix
-equations, functorial in `A`. -/
-def GLift (𝒢 : ∀ (A : Type u) [CommRing A], Subgroup (GL (Fin n) A)) {A : Type u} [CommRing A]
-    [TopologicalSpace A] (π : A →+* 𝔽) : Set (Lift n ρbar π) :=
-  {ρ | ∀ g, ρ.toHom g ∈ 𝒢 A}
+The coordinate ring and its natural equivalence with the subgroup of matrices are
+part of the input. A coefficient map preserves the subgroup, and the coordinate
+map from `GL_n` is surjective. Thus this is a closed affine group functor, rather
+than a family of unrelated subgroups. ReductiveGroups owns this interface. -/
 
-/-- API `GFramedRing`: the quotient of `R^□` representing `𝒢`-valued lifts. -/
-def GFramedRing.ideal (𝒢 : ∀ (A : Type u) [CommRing A], Subgroup (GL (Fin n) A)) :
+/-- Coordinates of `GL_n`: matrix entries and one inverse-determinant coordinate. -/
+abbrev GLCoordinateRing (𝒪 : Type u) [CommRing 𝒪] (n : ℕ) :=
+  MvPolynomial ((Fin n × Fin n) ⊕ Unit) 𝒪 ⧸ Ideal.span {
+    (Matrix.det (fun i j ↦ MvPolynomial.X (Sum.inl (i,j))) *
+      MvPolynomial.X (Sum.inr ()) - 1 : MvPolynomial ((Fin n × Fin n) ⊕ Unit) 𝒪)}
+
+/-- Evaluation of the GL coordinate ring at an invertible matrix. -/
+def GLCoordinateRing.eval (𝒪 : Type u) [CommRing 𝒪] (n : ℕ)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] (g : GL (Fin n) A) :
+    GLCoordinateRing 𝒪 n →ₐ[𝒪] A := sorry
+
+structure ClosedMatrixGroup (𝒪 : Type u) [CommRing 𝒪] (n : ℕ) where
+  coordinate : Type u
+  [coordinateRing : CommRing coordinate]
+  [coordinateAlgebra : Algebra 𝒪 coordinate]
+  closedEmbedding : GLCoordinateRing 𝒪 n →ₐ[𝒪] coordinate
+  closedEmbedding_surjective : Function.Surjective closedEmbedding
+  points : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A], Subgroup (GL (Fin n) A)
+  map_mem : ∀ {A B : Type u} [CommRing A] [CommRing B] [Algebra 𝒪 A] [Algebra 𝒪 B]
+    (f : A →ₐ[𝒪] B) {g : GL (Fin n) A}, g ∈ points A → Matrix.GeneralLinearGroup.map f g ∈ points B
+  represents : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A], (coordinate →ₐ[𝒪] A) ≃ points A
+  embedding_eval : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A] (g : points A),
+    ((represents A).symm g).comp closedEmbedding = GLCoordinateRing.eval 𝒪 n A g.val
+  naturality : ∀ {A B : Type u} [CommRing A] [CommRing B] [Algebra 𝒪 A] [Algebra 𝒪 B]
+    (f : A →ₐ[𝒪] B) (x : coordinate →ₐ[𝒪] A),
+    (represents B (f.comp x)).val = Matrix.GeneralLinearGroup.map f (represents A x).val
+
+attribute [instance] ClosedMatrixGroup.coordinateRing ClosedMatrixGroup.coordinateAlgebra
+
+/-- Coefficient base change on points of the represented group. -/
+def ClosedMatrixGroup.map (𝒢 : ClosedMatrixGroup 𝒪 n) {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra 𝒪 A] [Algebra 𝒪 B] (f : A →ₐ[𝒪] B) : 𝒢.points A →* 𝒢.points B where
+  toFun g := ⟨Matrix.GeneralLinearGroup.map f g.val, 𝒢.map_mem f g.property⟩
+  map_one' := sorry
+  map_mul' := sorry
+
+/-- A group-scheme multiplier: the character on points commutes with every coefficient map. -/
+structure GroupMultiplier (𝒢 : ClosedMatrixGroup 𝒪 n) where
+  toHom : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A], 𝒢.points A →* Aˣ
+  naturality : ∀ {A B : Type u} [CommRing A] [CommRing B] [Algebra 𝒪 A] [Algebra 𝒪 B]
+    (f : A →ₐ[𝒪] B) (g : 𝒢.points A),
+    toHom B (𝒢.map f g) = Units.map f.toMonoidHom (toHom A g)
+
+/-- The general linear group and the identity subgroup are represented closed groups. -/
+def ClosedMatrixGroup.gl (𝒪 : Type u) [CommRing 𝒪] (n : ℕ) : ClosedMatrixGroup 𝒪 n := sorry
+def ClosedMatrixGroup.trivial (𝒪 : Type u) [CommRing 𝒪] (n : ℕ) : ClosedMatrixGroup 𝒪 n := sorry
+
+theorem ClosedMatrixGroup.gl_points (A : Type u) [CommRing A] [Algebra 𝒪 A] :
+    (ClosedMatrixGroup.gl 𝒪 n).points A = ⊤ := sorry
+theorem ClosedMatrixGroup.trivial_points (A : Type u) [CommRing A] [Algebra 𝒪 A] :
+    (ClosedMatrixGroup.trivial 𝒪 n).points A = ⊥ := sorry
+
+/-- API `GLift`: the subgroup-valued continuous lifts of the specified residual representation. -/
+def GLift (𝒢 : ClosedMatrixGroup 𝒪 n) {A : Type u} [CommRing A] [Algebra 𝒪 A]
+    [TopologicalSpace A] (π : A →ₐ[𝒪] 𝔽) : Set (Lift n ρbar π.toRingHom) :=
+  {ρ | ∀ g, ρ.toHom g ∈ 𝒢.points A}
+
+/-- API `GFramedRing`: the closed quotient, with the residual group-valuedness hypothesis. -/
+def GFramedRing.ideal (𝒢 : ClosedMatrixGroup 𝒪 n) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽) :
     Ideal (LiftingRing 𝒪 n ρbar) := sorry
 
-/-- `R^□_{ρ,G}` as a ring. -/
-abbrev GFramedRing (𝒢 : ∀ (A : Type u) [CommRing A], Subgroup (GL (Fin n) A)) : Type u :=
-  ConditionRing (GFramedRing.ideal (𝒪 := 𝒪) (ρbar := ρbar) 𝒢)
+abbrev GFramedRing (𝒢 : ClosedMatrixGroup 𝒪 n) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽) : Type u :=
+  ConditionRing (GFramedRing.ideal 𝒢 hρ)
 
-/-- API `GFramedRing.gl`: for `𝒢 = GL_d`, `R^□_{ρ,G} = R^□_ρ`. -/
-theorem GFramedRing.gl : GFramedRing.ideal (𝒪 := 𝒪) (ρbar := ρbar) (fun _ _ ↦ ⊤) = ⊥ := sorry
+/-- The represented quotient classifies exactly the group-valued lifts. -/
+theorem GFramedRing.points (𝒢 : ClosedMatrixGroup 𝒪 n) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽)
+    {A : Type u} [CommRing A] [Algebra 𝒪 A] [IsLocalRing A] [TopologicalSpace A]
+    (π : A →ₐ[𝒪] 𝔽) (x : CoeffHom (LiftingRing.residue 𝒪 n ρbar) π) :
+    (∀ r ∈ GFramedRing.ideal 𝒢 hρ, x.val r = 0) ↔
+      ∀ g, pointRep x.val.toRingHom g ∈ 𝒢.points A := sorry
 
-/-- API `GFramedRing.fixedMultiplier`: with a multiplier `ν : 𝒢 → 𝔾_m` and a character `μ`, the ideal of
-lifts with `ν ∘ ρ = μ`. -/
-def GFramedRing.fixedMultiplier (ν : ∀ (A : Type u) [CommRing A], GL (Fin n) A →* Aˣ)
-    (μ : G →* 𝒪ˣ) : Ideal (LiftingRing 𝒪 n ρbar) := sorry
+/-- API `GFramedRing.gl`: the `GL_n` quotient has zero defining ideal. -/
+theorem GFramedRing.gl (hρ : ∀ g, ρbar g ∈ (ClosedMatrixGroup.gl 𝒪 n).points 𝔽) :
+    GFramedRing.ideal (ClosedMatrixGroup.gl 𝒪 n) hρ = ⊥ := sorry
 
-/-- API `GFramedRing.hom_ext`: maps out of `R^□_{ρ,G}` are determined by the induced lifts. -/
-theorem GFramedRing.hom_ext (𝒢 : ∀ (A : Type u) [CommRing A], Subgroup (GL (Fin n) A))
-    {B : Type u} [CommRing B] [Algebra 𝒪 B] (f₁ f₂ : GFramedRing (𝒪 := 𝒪) (ρbar := ρbar) 𝒢 →ₐ[𝒪] B)
-    (h : ∀ g, pointRep ((f₁.toRingHom).comp (Ideal.Quotient.mk _)) g =
-      pointRep ((f₂.toRingHom).comp (Ideal.Quotient.mk _)) g) : f₁ = f₂ := sorry
+/-- API `GFramedRing.fixedMultiplier`: the multiplier character is natural and
+its prescribed value reduces to the residual multiplier. -/
+def GFramedRing.fixedMultiplier (𝒢 : ClosedMatrixGroup 𝒪 n)
+    (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽) (ν : GroupMultiplier 𝒢) (μ : G →* 𝒪ˣ)
+    (hμ : ∀ g, ν.toHom 𝔽 ⟨ρbar g, hρ g⟩ = Units.map (algebraMap 𝒪 𝔽).toMonoidHom (μ g)) :
+    Ideal (GFramedRing 𝒢 hρ) := sorry
 
-/-- `gFramed_trivial_group` (degenerate): for `𝒢 = 1` and `ρ̄ = 1` the only lift is trivial and
-`R^□_{ρ,G} = 𝒪`. -/
-example (hρ : ρbar = 1) :
-    Nonempty (GFramedRing (𝒪 := 𝒪) (ρbar := ρbar) (fun _ _ ↦ ⊥) ≃ₐ[𝒪] 𝒪) := sorry
+/-- API `GFramedRing.hom_ext`: local continuous maps are determined by the induced lift. -/
+theorem GFramedRing.hom_ext (𝒢 : ClosedMatrixGroup 𝒪 n) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽)
+    {B : Type u} [CommRing B] [Algebra 𝒪 B] [TopologicalSpace B]
+    (f₁ f₂ : GFramedRing 𝒢 hρ →ₐ[𝒪] B)
+    (hc₁ : Continuous (f₁.toRingHom.comp (Ideal.Quotient.mk _)))
+    (hc₂ : Continuous (f₂.toRingHom.comp (Ideal.Quotient.mk _)))
+    (h : ∀ g, pointRep (f₁.toRingHom.comp (Ideal.Quotient.mk _)) g =
+      pointRep (f₂.toRingHom.comp (Ideal.Quotient.mk _)) g) : f₁ = f₂ := sorry
 
-/-- `gFramed_GL_compat` (compatibility): `GFramedRing` for `GL_d` is `R^□_ρ`. -/
-example : GFramedRing.ideal (𝒪 := 𝒪) (ρbar := ρbar) (fun _ _ ↦ ⊤) = ⊥ := GFramedRing.gl
+example (hρ : ρbar = 1) (hG : ∀ g, ρbar g ∈ (ClosedMatrixGroup.trivial 𝒪 n).points 𝔽) :
+    Nonempty (GFramedRing (ClosedMatrixGroup.trivial 𝒪 n) hG ≃ₐ[𝒪] 𝒪) := sorry
+example (hG : ∀ g, ρbar g ∈ (ClosedMatrixGroup.gl 𝒪 n).points 𝔽) :
+    GFramedRing.ideal (ClosedMatrixGroup.gl 𝒪 n) hG = ⊥ := GFramedRing.gl hG
+
+/-- The infinitesimal matrix `1+εX`, with inverse `1−εX`. -/
+def infinitesimalGL {k : Type u} [Field k] {r : ℕ}
+    (X : Matrix (Fin r) (Fin r) k) : GL (Fin r) (DualNumber k) := sorry
+
+theorem infinitesimalGL_matrix {k : Type u} [Field k] {r : ℕ}
+    (X : Matrix (Fin r) (Fin r) k) :
+    ∀ i j, (infinitesimalGL X : Matrix (Fin r) (Fin r) (DualNumber k)) i j =
+      (if i = j then 1 else 0) + (TrivSqZeroExt.inr (X i j) : DualNumber k) := sorry
+
+/-- The actual tangent Lie subspace of a represented matrix group. -/
+def ClosedMatrixGroup.lie (𝒢 : ClosedMatrixGroup 𝒪 n) :
+    Submodule 𝔽 (Matrix (Fin n) (Fin n) 𝔽) where
+  carrier := {X | infinitesimalGL X ∈ 𝒢.points (DualNumber 𝔽)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- A morphism of represented affine groups, with a coordinate map and a
+natural homomorphism on points. Its differential is identified on dual numbers. -/
+structure ClosedMatrixGroup.Hom {m : ℕ} (𝒢 : ClosedMatrixGroup 𝒪 n)
+    (ℋ : ClosedMatrixGroup 𝒪 m) where
+  coordinate : ℋ.coordinate →ₐ[𝒪] 𝒢.coordinate
+  toHom : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A], 𝒢.points A →* ℋ.points A
+  represents : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A] (x : 𝒢.coordinate →ₐ[𝒪] A),
+    toHom A (𝒢.represents A x) = ℋ.represents A (x.comp coordinate)
+  naturality : ∀ {A B : Type u} [CommRing A] [CommRing B] [Algebra 𝒪 A] [Algebra 𝒪 B]
+    (f : A →ₐ[𝒪] B) (g : 𝒢.points A), toHom B (𝒢.map f g) = ℋ.map f (toHom A g)
+
+variable [TopologicalSpace 𝔽] [DiscreteTopology 𝔽]
+
+/-- Adjoint group-valued cocycles: ordinary matrix cocycles with values in Lie G. -/
+def gCocycles (𝒢 : ClosedMatrixGroup 𝒪 n) :
+    Submodule 𝔽 (G → Matrix (Fin n) (Fin n) 𝔽) :=
+  adCocycles ρbar ⊓ {
+    carrier := {f | ∀ g, f g ∈ 𝒢.lie (𝔽 := 𝔽)}
+    zero_mem' := sorry
+    add_mem' := sorry
+    smul_mem' := sorry }
+
+/-- **`R08.1/g-valued-framed-ring`**, the group-valued tangent correspondence. -/
+theorem GFramedRing.tangent (𝒢 : ClosedMatrixGroup 𝒪 n) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽) :
+    Nonempty ({x : GFramedRing 𝒢 hρ →ₐ[𝒪] DualNumber 𝔽 // ∀ r,
+      TrivSqZeroExt.fst (x (Ideal.Quotient.mk _ r)) = LiftingRing.residue 𝒪 n ρbar r} ≃
+      gCocycles (ρbar := ρbar) 𝒢) := sorry
+
+/-- Functoriality reverses the direction of the group morphism on representing rings. -/
+def GFramedRing.map {m : ℕ} (𝒢 : ClosedMatrixGroup 𝒪 n) (ℋ : ClosedMatrixGroup 𝒪 m)
+    (φ : 𝒢.Hom ℋ) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽)
+    (σ : G →* GL (Fin m) 𝔽) [ContinuousResidual σ]
+    (hσ : ∀ g, σ g ∈ ℋ.points 𝔽)
+    (hφ : ∀ g, (φ.toHom 𝔽 ⟨ρbar g, hρ g⟩).val = σ g) :
+    GFramedRing ℋ hσ →ₐ[𝒪] GFramedRing 𝒢 hρ := sorry
+
+/-- Continuous trace-zero 2-cocycles for the adjoint action. This is cohomology
+of the trace-kernel module itself, not the kernel of the trace map on `H²`. -/
+def traceZeroTwoCocycles : Submodule 𝔽 ((G × G) → Matrix (Fin n) (Fin n) 𝔽) where
+  carrier := {f | Continuous f ∧ (∀ g h, Matrix.trace (f (g,h)) = 0) ∧
+    ∀ g h k, (ρbar g : Matrix (Fin n) (Fin n) 𝔽) * f (h,k) *
+      ((ρbar g)⁻¹ : GL (Fin n) 𝔽) - f (g*h,k) + f (g,h*k) - f (g,h) = 0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Coboundaries of continuous trace-zero 1-cochains. -/
+def traceZeroTwoCoboundaries : Submodule 𝔽 ((G × G) → Matrix (Fin n) (Fin n) 𝔽) :=
+  Submodule.span 𝔽 {f | ∃ c : G → Matrix (Fin n) (Fin n) 𝔽,
+    Continuous c ∧ (∀ g, Matrix.trace (c g) = 0) ∧
+      f = fun gh ↦ (ρbar gh.1 : Matrix (Fin n) (Fin n) 𝔽) * c gh.2 *
+        ((ρbar gh.1)⁻¹ : GL (Fin n) 𝔽) - c (gh.1*gh.2) + c gh.1}
+
+abbrev traceZeroH2 := traceZeroTwoCocycles (ρbar := ρbar) ⧸
+  Submodule.comap (traceZeroTwoCocycles (ρbar := ρbar)).subtype
+    (traceZeroTwoCoboundaries (ρbar := ρbar))
+
+/-- The algebra structure is the universal determinant map. -/
+instance determinantAlgebra : Algebra (DeterminantRing (𝒪 := 𝒪) (ρbar := ρbar)) (LiftingRing 𝒪 n ρbar) :=
+  (determinantMap (𝒪 := 𝒪) (ρbar := ρbar)).toAlgebra
+
+/-- **`R08.1/local-fixed-determinant`**, BIP Proposition 4.3, p. 37.
+The comparison is relative to the determinant ring and retains the canonical map;
+trace-zero cohomology is used even when the residue characteristic divides `n`. -/
+theorem liftingRing_relativeDeterminant :
+    ∃ f : Fin (Module.finrank 𝔽 (traceZeroH2 (ρbar := ρbar))) →
+      MvPowerSeries (Fin (Module.finrank 𝔽 (traceZeroCocycles (ρbar := ρbar))))
+        (DeterminantRing (𝒪 := 𝒪) (ρbar := ρbar)),
+      Nonempty (LiftingRing 𝒪 n ρbar ≃ₐ[DeterminantRing (𝒪 := 𝒪) (ρbar := ρbar)]
+        MvPowerSeries (Fin (Module.finrank 𝔽 (traceZeroCocycles (ρbar := ρbar))))
+          (DeterminantRing (𝒪 := 𝒪) (ρbar := ρbar)) ⧸ Ideal.span (Set.range f)) := sorry
+
+/-- Differential of a represented group morphism, identified by dual-number points. -/
+def ClosedMatrixGroup.Hom.differential {m : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    {ℋ : ClosedMatrixGroup 𝒪 m} (φ : 𝒢.Hom ℋ) : 𝒢.lie (𝔽 := 𝔽) →ₗ[𝔽] ℋ.lie (𝔽 := 𝔽) := sorry
+
+/-- The relative Lie module is the kernel of the group morphism's differential. -/
+def relativeLie {m : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n} {ℋ : ClosedMatrixGroup 𝒪 m}
+    (φ : 𝒢.Hom ℋ) : Submodule 𝔽 (Matrix (Fin n) (Fin n) 𝔽) :=
+  Submodule.map (𝒢.lie (𝔽 := 𝔽)).subtype (LinearMap.ker (φ.differential (𝔽 := 𝔽)))
+
+def relativeCocycles {m : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n} {ℋ : ClosedMatrixGroup 𝒪 m}
+    (φ : 𝒢.Hom ℋ) : Submodule 𝔽 (G → Matrix (Fin n) (Fin n) 𝔽) :=
+  adCocycles ρbar ⊓ {
+    carrier := {f | ∀ g, f g ∈ relativeLie (𝔽 := 𝔽) φ}
+    zero_mem' := sorry
+    add_mem' := sorry
+    smul_mem' := sorry }
+
+/-- Continuous adjoint cohomology with values in an invariant submodule. -/
+def valueTwoCocycles (V : Submodule 𝔽 (Matrix (Fin n) (Fin n) 𝔽)) :
+    Submodule 𝔽 ((G × G) → Matrix (Fin n) (Fin n) 𝔽) where
+  carrier := {f | Continuous f ∧ (∀ gh, f gh ∈ V) ∧
+    ∀ g h k, (ρbar g : Matrix (Fin n) (Fin n) 𝔽) * f (h,k) *
+      ((ρbar g)⁻¹ : GL (Fin n) 𝔽) - f (g*h,k) + f (g,h*k) - f (g,h) = 0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def valueTwoCoboundaries (V : Submodule 𝔽 (Matrix (Fin n) (Fin n) 𝔽)) :
+    Submodule 𝔽 ((G × G) → Matrix (Fin n) (Fin n) 𝔽) :=
+  Submodule.span 𝔽 {f | ∃ c : G → Matrix (Fin n) (Fin n) 𝔽,
+    Continuous c ∧ (∀ g, c g ∈ V) ∧
+      f = fun gh ↦ (ρbar gh.1 : Matrix (Fin n) (Fin n) 𝔽) * c gh.2 *
+        ((ρbar gh.1)⁻¹ : GL (Fin n) 𝔽) - c (gh.1*gh.2) + c gh.1}
+
+abbrev AdH2WithValues (V : Submodule 𝔽 (Matrix (Fin n) (Fin n) 𝔽)) :=
+  valueTwoCocycles (ρbar := ρbar) V ⧸ Submodule.comap
+    (valueTwoCocycles (ρbar := ρbar) V).subtype (valueTwoCoboundaries (ρbar := ρbar) V)
+
+/-- **`R08.1/g-valued-presentations`**, PQ Proposition 3.6, p. 24.
+Smoothness and surjectivity of the differential give the relative obstruction theory. -/
+theorem gFramed_relativePresentation {m : ℕ} (𝒢 : ClosedMatrixGroup 𝒪 n) (ℋ : ClosedMatrixGroup 𝒪 m)
+    (φ : 𝒢.Hom ℋ) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽)
+    (σ : G →* GL (Fin m) 𝔽) [ContinuousResidual σ] (hσ : ∀ g, σ g ∈ ℋ.points 𝔽)
+    (hφ : ∀ g, (φ.toHom 𝔽 ⟨ρbar g, hρ g⟩).val = σ g)
+    (hsmoothG : Algebra.Smooth 𝒪 𝒢.coordinate) (hsmoothH : Algebra.Smooth 𝒪 ℋ.coordinate)
+    (hsurj : Function.Surjective (φ.differential (𝔽 := 𝔽)))
+    (hsmooth : letI := φ.coordinate.toAlgebra; Algebra.Smooth ℋ.coordinate 𝒢.coordinate) :
+    letI := (GFramedRing.map 𝒢 ℋ φ hρ σ hσ hφ).toAlgebra
+    ∃ f : Fin (Module.finrank 𝔽 (AdH2WithValues (ρbar := ρbar) (relativeLie (𝔽 := 𝔽) φ))) →
+        MvPowerSeries (Fin (Module.finrank 𝔽 (relativeCocycles (ρbar := ρbar) φ))) (GFramedRing ℋ hσ),
+      Nonempty (GFramedRing 𝒢 hρ ≃ₐ[GFramedRing ℋ hσ]
+        MvPowerSeries (Fin (Module.finrank 𝔽 (relativeCocycles (ρbar := ρbar) φ))) (GFramedRing ℋ hσ) ⧸
+          Ideal.span (Set.range f)) := sorry
+
+/-- **`R08.1/g-valued-presentations`**, central finite-étale comparison.
+A central quotient with finite étale kernel is formally étale. The theorem is
+stated for any étale morphism of smooth represented groups, and identifies the
+canonical homomorphism of framed rings, not merely their dimensions. -/
+theorem centralQuotient_finiteEtale {m : ℕ} (𝒢 : ClosedMatrixGroup 𝒪 n) (ℋ : ClosedMatrixGroup 𝒪 m)
+    (φ : 𝒢.Hom ℋ) (hρ : ∀ g, ρbar g ∈ 𝒢.points 𝔽)
+    (σ : G →* GL (Fin m) 𝔽) [ContinuousResidual σ] (hσ : ∀ g, σ g ∈ ℋ.points 𝔽)
+    (hφ : ∀ g, (φ.toHom 𝔽 ⟨ρbar g, hρ g⟩).val = σ g)
+    (hsmoothG : Algebra.Smooth 𝒪 𝒢.coordinate) (hsmoothH : Algebra.Smooth 𝒪 ℋ.coordinate)
+    (hetale : letI := φ.coordinate.toAlgebra; Algebra.Etale ℋ.coordinate 𝒢.coordinate) :
+    ∃ e : GFramedRing ℋ hσ ≃ₐ[𝒪] GFramedRing 𝒢 hρ,
+      e.toAlgHom = GFramedRing.map 𝒢 ℋ φ hρ σ hσ hφ := sorry
 
 end R081
 
@@ -520,22 +1167,30 @@ theorem tamePair_of_rep (p q : ℕ) (r : TameGroup p q →* GL (Fin n) A) :
   rw [← map_mul, ← map_inv, ← map_mul, TameGroup.conj_t, map_pow]
 
 instance (p q : ℕ) : IsTopologicalGroup (TameGroup p q) := sorry
+instance (p q : ℕ) : CompactSpace (TameGroup p q) := sorry
+instance (p q : ℕ) : T2Space (TameGroup p q) := sorry
+instance (p q : ℕ) : TotallyDisconnectedSpace (TameGroup p q) := sorry
+instance (p q : ℕ) (𝔽 : Type*) [Field 𝔽] [Finite 𝔽] : MazurFinite (TameGroup p q) 𝔽 := sorry
+
 
 /-- The ideal of `R^□` of lifts of a `T_q`-representation that are unramified (`t ↦ 1`). -/
 def unramifiedIdeal {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] {𝔽 : Type}
-    [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) :
+    [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] :
     Ideal (LiftingRing 𝒪 n ρ₀) := sorry
 
 /-- Points of `unramifiedIdeal`. -/
 theorem unramifiedIdeal_points {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
+    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
     {B : Type} [CommRing B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) :
     (∀ r ∈ unramifiedIdeal p q ρ₀, x r = 0) ↔ pointRep x.toRingHom (TameGroup.t p q) = 1 := sorry
 
 /-- **`R08.2/unramified-lifting-ring`**: for unramified `ρ̄` (`ρ̄(t) = 1`), the unramified quotient is a
 power series ring in `n²` variables (the lift of `Φ`). -/
 theorem unramified_isPowerSeries {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
+    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
     (hρ₀ : ρ₀ (TameGroup.t p q) = 1) :
     IsPowerSeriesOver 𝒪 (ConditionRing (unramifiedIdeal (𝒪 := 𝒪) p q ρ₀)) (n ^ 2) := sorry
 
@@ -566,8 +1221,9 @@ theorem IsMinimallyRamified.conj {𝔽 : Type*} [Field 𝔽] (π : A →+* 𝔽)
 /-- API `minimallyRamified_deformationProblem`: for `ρ̄ : T_q → GL_n(𝔽)` with `ρ̄(t)` unipotent, the
 minimally ramified lifts are cut out by an ideal of `R^□` (CHT §2.4.4). -/
 theorem minimallyRamified_deformationProblem {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
-    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
-    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
+    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ)
+    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
     (hunip : IsNilpotent ((ρ₀ (TameGroup.t p q) : Matrix (Fin n) (Fin n) 𝔽) - 1)) :
     ∃ I : Ideal (LiftingRing 𝒪 n ρ₀), ∀ {B : Type} [CommRing B] [IsLocalRing B] [IsArtinianRing B]
       [Algebra 𝒪 B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (πB : B →+* 𝔽),
@@ -604,8 +1260,9 @@ example {𝔽 : Type*} [Field 𝔽] [IsLocalRing A] (π : A →+* 𝔽) (x : A) 
 /-- **`R08.2/minimally-ramified-ring`**: the minimally ramified quotient of the lifting ring of a
 `T_q`-representation with unipotent `ρ̄(t)` is a power series ring in `n²` variables (CHT Lemma 2.4.19). -/
 theorem minimallyRamified_isPowerSeries {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
-    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
-    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (I : Ideal (LiftingRing 𝒪 n ρ₀))
+    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ)
+    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (I : Ideal (LiftingRing 𝒪 n ρ₀))
     (hunip : IsNilpotent ((ρ₀ (TameGroup.t p q) : Matrix (Fin n) (Fin n) 𝔽) - 1))
     (hI : ∀ {B : Type} [CommRing B] [IsLocalRing B] [IsArtinianRing B] [Algebra 𝒪 B]
       (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (πB : B →+* 𝔽),
@@ -616,20 +1273,22 @@ theorem minimallyRamified_isPowerSeries {𝒪 : Type} [CommRing 𝒪] [IsLocalRi
 /-- **`R08.2/unrestricted-away-from-p`**: the unrestricted lifting ring away from `p` is `𝒪`-flat,
 reduced and equidimensional of dimension `1 + n²` (Shotton). -/
 theorem unrestricted_equidimensional {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (ℓ p : ℕ)
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (ℓ p : ℕ)
     [Fact ℓ.Prime] [Fact p.Prime] (hℓp : ℓ ≠ p) [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type) [Field K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) :
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] :
     Module.Flat 𝒪 (LiftingRing 𝒪 n ρ₀) ∧ IsReduced (LiftingRing 𝒪 n ρ₀) ∧
       IsEquidimensional (LiftingRing 𝒪 n ρ₀) ((1 + n ^ 2 : ℕ) : WithBot ℕ∞) := sorry
 
 /-- **`R08.2/unrestricted-ring-complete-intersection`**: it is a complete intersection of relative
 dimension `n²`: a quotient of a power series ring in `m + n²` variables by `m` elements. -/
 theorem unrestricted_completeIntersection {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
-    [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽]
+    [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
     (ℓ p : ℕ) [Fact ℓ.Prime] [Fact p.Prime] (hℓp : ℓ ≠ p) [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
-    (K : Type) [Field K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
-    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) :
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [MazurFinite (Field.absoluteGaloisGroup K) 𝔽] :
     ∃ (m : ℕ) (f : Fin m → MvPowerSeries (Fin (m + n ^ 2)) 𝒪),
       Nonempty (LiftingRing 𝒪 n ρ₀ ≃ₐ[𝒪] MvPowerSeries (Fin (m + n ^ 2)) 𝒪 ⧸ Ideal.span (Set.range f)) :=
   sorry
@@ -680,12 +1339,14 @@ example : ¬ SteinbergFrobRelation 2 (1 : Matrix (Fin 2) (Fin 2) ℚ) := by
 
 /-- The ideal of lifts of a `T_q`-representation whose inertia has characteristic polynomial `f`. -/
 def charpolyIdeal {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] {𝔽 : Type}
-    [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (f : Polynomial 𝒪) :
+    [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (f : Polynomial 𝒪) :
     Ideal (LiftingRing 𝒪 n ρ₀) := sorry
 
 /-- Points of `charpolyIdeal`. -/
 theorem charpolyIdeal_points {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
+    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
     (f : Polynomial 𝒪) {B : Type} [CommRing B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) :
     (∀ r ∈ charpolyIdeal p q ρ₀ f, x r = 0) ↔
       (pointRep x.toRingHom (TameGroup.t p q) : Matrix (Fin n) (Fin n) B).charpoly =
@@ -703,7 +1364,8 @@ condition (with respect to a uniformiser `ϖ`) is prime, i.e. the Steinberg ring
 Proposition 3.17; Newton–Thorne, proof of Lemma 3.8). -/
 theorem steinbergRing_isPrime {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
     [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
-    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ) [Fact p.Prime] (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽)
+    {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ) [Fact p.Prime] (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
     (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1)
     (ϖ : 𝒪) (hϖ : Irreducible ϖ) (Istein : Ideal (LiftingRing 𝒪 n ρ₀))
     (hI : ∀ {B : Type} [CommRing B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B),
@@ -715,8 +1377,9 @@ theorem steinbergRing_isPrime {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [
 /-- **`R08.2/taylor-wiles-local-ring`**: at a Taylor–Wiles place (`q ≡ 1 mod p`, `ρ̄` unramified with
 distinct Frobenius eigenvalues) the lifting ring of the tame representation has dimension `1 + n²`. -/
 theorem taylorWiles_krullDim {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
-    [Fact p.Prime] [CharP 𝔽 p] (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (hq : (q : 𝔽) = 1)
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ)
+    [Fact p.Prime] [CharP 𝔽 p] (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (hq : (q : 𝔽) = 1)
     (hρ₀ : ρ₀ (TameGroup.t p q) = 1)
     (hdistinct : ((ρ₀ (TameGroup.φ p q) : Matrix (Fin n) (Fin n) 𝔽).charpoly.roots).Nodup)
     (hsplit : ((ρ₀ (TameGroup.φ p q) : Matrix (Fin n) (Fin n) 𝔽).charpoly.roots).card = n) :
@@ -726,8 +1389,9 @@ theorem taylorWiles_krullDim {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [I
 and a condition with residually trivial characters `ζ_i` have the same special fibre (before flat
 closure; the component statements of Taylor's Proposition 3.1 concern the flat closures). -/
 theorem iharaAvoidance_same_specialFibre {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
-    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
-    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (ϖ : 𝒪) (ζ : Fin n → 𝒪)
+    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ)
+    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (ϖ : 𝒪) (ζ : Fin n → 𝒪)
     (hζ : ∀ i, ζ i - 1 ∈ Ideal.span {ϖ}) :
     charpolyIdeal p q ρ₀ ((Polynomial.X - 1) ^ n) ⊔ Ideal.span {algebraMap 𝒪 _ ϖ} =
       charpolyIdeal p q ρ₀ (∏ i, (Polynomial.X - Polynomial.C (ζ i))) ⊔
@@ -736,47 +1400,25 @@ theorem iharaAvoidance_same_specialFibre {𝒪 : Type} [CommRing 𝒪] [IsLocalR
 /-- **`R08.2/ihara-avoidance-components`**, the other half: with the `ζ_i` pairwise distinct (and
 `q ≡ 1 mod p`, trivial `ρ̄`), the flat closure of the distinct-character condition is prime. -/
 theorem iharaAvoidance_distinct_isPrime {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪]
-    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] (p q : ℕ)
+    [IsNoetherianRing 𝒪] {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽] (p q : ℕ)
     [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
-    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1) (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] (hρ₀ : ρ₀ = 1) (hq : (q : 𝔽) = 1) (ϖ : 𝒪) (hϖ : Irreducible ϖ)
     (ζ : Fin n → 𝒪) (hζ1 : ∀ i, ζ i - 1 ∈ Ideal.span {ϖ}) (hζ : Function.Injective ζ) :
     (flatClosure (algebraMap 𝒪 _ ϖ)
       (charpolyIdeal p q ρ₀ (∏ i, (Polynomial.X - Polynomial.C (ζ i))))).IsPrime := sorry
 
 /-- **`R08.2/level-raising-local-problems`**, API `LevelRaising.localModel`: the local model
 `𝒪⟦x₀, x₁⟧/(x₀x₁)`. -/
-noncomputable def LevelRaising.localModel (𝒪 : Type*) [CommRing 𝒪] : Type _ :=
+noncomputable abbrev LevelRaising.localModel (𝒪 : Type*) [CommRing 𝒪] : Type _ :=
   MvPowerSeries (Fin 2) 𝒪 ⧸ Ideal.span {(MvPowerSeries.X 0 * MvPowerSeries.X 1 : MvPowerSeries (Fin 2) 𝒪)}
-
-/-- API `LevelRaising.mix`: the ideal of `𝒟^mix` in the polarized lifting ring (data). -/
-def LevelRaising.mix {𝒪 : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (ρ₀ : G →* GL (Fin n) 𝔽) : Ideal (LiftingRing 𝒪 n ρ₀) := sorry
-
-/-- API `LevelRaising.unr`: `𝒟^unr ⊂ 𝒟^mix`, the locus `x₀ = 0`. -/
-def LevelRaising.unr {𝒪 : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (ρ₀ : G →* GL (Fin n) 𝔽) : Ideal (LiftingRing 𝒪 n ρ₀) := sorry
-
-/-- API `LevelRaising.ram`: `𝒟^ram ⊂ 𝒟^mix`, the locus `x₁ = 0`. -/
-def LevelRaising.ram {𝒪 : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (ρ₀ : G →* GL (Fin n) 𝔽) : Ideal (LiftingRing 𝒪 n ρ₀) := sorry
 
 /-- API `LevelRaising.relation`: in the rank-two block, `x (s − q^{−N}) = 0`; checked on the nodal
 model as the vanishing of `x₀x₁`. -/
-theorem LevelRaising.relation (𝒪 : Type*) [CommRing 𝒪] :
+theorem LevelRaising.node_relation (𝒪 : Type*) [CommRing 𝒪] :
     (Ideal.Quotient.mk (Ideal.span {(MvPowerSeries.X 0 * MvPowerSeries.X 1 : MvPowerSeries (Fin 2) 𝒪)}))
       (MvPowerSeries.X 0 * MvPowerSeries.X 1) = 0 :=
   Ideal.Quotient.eq_zero_iff_mem.mpr (Ideal.subset_span rfl)
-
-/-- API `LevelRaising.unr_eq_minimal`: `𝒟^unr` and `𝒟^ram` are subproblems of `𝒟^mix`, and on the nodal
-model `𝒟^unr` is the branch `x₀ = 0` (the unramified condition); recorded as the containment of ideals. -/
-theorem LevelRaising.unr_eq_minimal {𝒪 : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-    {𝔽 : Type u} [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type u} [Group G] [TopologicalSpace G]
-    [IsTopologicalGroup G] (ρ₀ : G →* GL (Fin n) 𝔽) :
-    LevelRaising.mix (𝒪 := 𝒪) ρ₀ ≤ LevelRaising.unr ρ₀ ∧ LevelRaising.mix (𝒪 := 𝒪) ρ₀ ≤ LevelRaising.ram ρ₀ :=
-  sorry
 
 /-- `levelRaising_N2_components` (characterisation): the nodal model has exactly two minimal primes,
 `(x₀)` and `(x₁)`. -/
@@ -872,10 +1514,339 @@ example {I E : Type*} [Group I] [TopologicalSpace I] [Field E] (χ : I →* GL (
   rintro ⟨τ, rfl⟩
   exact h τ.isOpen_ker
 
-/- The period-condition quotient needs the full labelled Hodge type, the actual
-local inertia and its Weil extension, and the period-ring predicate. A multiplicity
-profile alone does not supply this data; these quotient signatures are therefore
-specified in the complete inventory, rather than formed with that profile. -/
+/-! ### Labelled types and period comparisons
+
+PadicHodgeTheory R06.2–R06.3 supplies the period algebras, their filtrations,
+comparison maps and potentially semistable Dieudonné modules. The following
+adapter displays those carriers and maps, so that the local quotient criteria
+retain their mathematical content. All period functors here are contravariant. -/
+
+section HodgeTypes
+
+variable (p : ℕ) [Fact p.Prime]
+variable (K E : Type u) [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+
+/-- **`R08.3/hodge-and-galois-types`**: a labelled filtered `K⊗E`-module
+of rank `n`, with all jumps in `[0,h]`. A basis on `D_E` is auxiliary; the API
+uses filtered isomorphism rather than equality of coordinate subspaces. -/
+structure HodgeType (n h : ℕ) where
+  Fil : ℤ → Submodule (TensorProduct ℚ_[p] E K) (Fin n → TensorProduct ℚ_[p] E K)
+  antitone : Antitone Fil
+  Fil_zero : Fil 0 = ⊤
+  Fil_end : Fil (h + 1) = ⊥
+  graded_projective : ∀ i, Module.Projective (TensorProduct ℚ_[p] E K)
+    ((Fil i) ⧸ Submodule.comap (Fil i).subtype (Fil (i+1)))
+
+/-- The actual filtration-preserving subspace in the adjoint module. -/
+def HodgeType.adFilZero {n h : ℕ} (v : HodgeType p K E n h) :
+    Submodule E (Matrix (Fin n) (Fin n) (TensorProduct ℚ_[p] E K)) where
+  carrier := {M | ∀ i, ∀ x ∈ v.Fil i, Matrix.mulVec M x ∈ v.Fil i}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def HodgeType.adQuotDim {n h : ℕ} (v : HodgeType p K E n h) : ℕ :=
+  Module.finrank E ((Matrix (Fin n) (Fin n) (TensorProduct ℚ_[p] E K)) ⧸ v.adFilZero)
+
+/-- Specialization at a labelled embedding, used only over a splitting coefficient field. -/
+def HodgeType.FilAt {n h : ℕ} (v : HodgeType p K E n h) (σ : K →ₐ[ℚ_[p]] E) (i : ℤ) :
+    Submodule E (Fin n → E) := sorry
+
+def HodgeType.gradedRank {n h : ℕ} (v : HodgeType p K E n h) (σ : K →ₐ[ℚ_[p]] E) (i : ℤ) : ℕ :=
+  Module.finrank E ((HodgeType.FilAt p K E v σ i) ⧸ Submodule.comap (HodgeType.FilAt p K E v σ i).subtype (HodgeType.FilAt p K E v σ (i+1)))
+
+/-- After splitting `K⊗E`, graded multiplicities classify filtered isomorphism classes. -/
+theorem HodgeType.filteredIsom_iff {n h : ℕ} (v w : HodgeType p K E n h)
+    [Fintype (K →ₐ[ℚ_[p]] E)]
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E) = Module.finrank ℚ_[p] K) :
+    (∃ e : (Fin n → TensorProduct ℚ_[p] E K) ≃ₗ[TensorProduct ℚ_[p] E K]
+        (Fin n → TensorProduct ℚ_[p] E K), ∀ i, Submodule.map e.toLinearMap (v.Fil i) = w.Fil i) ↔
+      ∀ σ i, HodgeType.gradedRank p K E v σ i = HodgeType.gradedRank p K E w σ i := sorry
+
+/-- The flag-variety dimension is the dimension of the actual adjoint quotient. -/
+theorem HodgeType.adQuotDim_eq {n h : ℕ} (v : HodgeType p K E n h)
+    [Fintype (K →ₐ[ℚ_[p]] E)]
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E) = Module.finrank ℚ_[p] K) :
+    2 * v.adQuotDim = ∑ σ : K →ₐ[ℚ_[p]] E,
+      (n ^ 2 - ∑ i : Fin (h+1), (HodgeType.gradedRank p K E v σ i) ^ 2) := sorry
+
+/-- Extension of a labelled filtration to a finite coefficient algebra. -/
+def HodgeType.baseChange {n h : ℕ} (v : HodgeType p K E n h)
+    (B : Type u) [CommRing B] [Algebra E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B] :
+    ℤ → Submodule (TensorProduct ℚ_[p] B K) (Fin n → TensorProduct ℚ_[p] B K) := sorry
+
+end HodgeTypes
+
+/-- An inertial Galois type. Its kernel is open; its matrix representative can be changed. -/
+structure GaloisType (I : Type u) [Group I] [TopologicalSpace I] (E : Type u) [Field E] (n : ℕ) where
+  toHom : I →* GL (Fin n) E
+  open_kernel : IsOpen (toHom.ker : Set I)
+
+/-- A full Weil extension is additional data, distinct from its inertial restriction. -/
+structure GaloisType.WeilExtension {I E : Type u} [Group I] [TopologicalSpace I] [Field E] {n : ℕ}
+    (τ : GaloisType I E n) (W : Type u) [Group W] (inertia : I →* W) where
+  toHom : W →* GL (Fin n) E
+  restrict : toHom.comp inertia = τ.toHom
+
+def GaloisType.conj {I E : Type u} [Group I] [TopologicalSpace I] [Field E] {n : ℕ}
+    (τ : GaloisType I E n) (g : GL (Fin n) E) : GaloisType I E n where
+  toHom := (MulAut.conj g).toMonoidHom.comp τ.toHom
+  open_kernel := sorry
+
+theorem GaloisType.conjugacy {I E : Type u} [Group I] [TopologicalSpace I] [Field E] {n : ℕ}
+    (τ : GaloisType I E n) (g : GL (Fin n) E) :
+    (τ.conj g).toHom.ker = τ.toHom.ker ∧
+      ∀ γ, Matrix.trace ((τ.conj g).toHom γ : Matrix (Fin n) (Fin n) E) =
+        Matrix.trace (τ.toHom γ : Matrix (Fin n) (Fin n) E) := sorry
+
+/-- A period algebra with its fixed scalar ring and decreasing filtration.
+`fixed_scalars` makes the scalar ring an identification of invariants, not an
+arbitrary choice. The actual instances are the de Rham and semistable period rings. -/
+structure PeriodExtension (B S Γ : Type u) [CommRing B] [CommRing S] [Algebra B S] [Group Γ] where
+  ring : Type u
+  [commRing : CommRing ring]
+  [scalarAlgebra : Algebra S ring]
+  [coefficientAlgebra : Algebra B ring]
+  [scalarTower : IsScalarTower B S ring]
+  action : Γ →* (ring ≃+* ring)
+  scalar_fixed : ∀ γ s, action γ (algebraMap S ring s) = algebraMap S ring s
+  fixed_scalars : ∀ z : ring, (∀ γ, action γ z = z) ↔ z ∈ Set.range (algebraMap S ring)
+  Fil : ℤ → Submodule S ring
+  antitone : Antitone Fil
+  action_fil : ∀ γ i z, z ∈ Fil i → action γ z ∈ Fil i
+
+attribute [instance] PeriodExtension.commRing PeriodExtension.scalarAlgebra
+  PeriodExtension.coefficientAlgebra PeriodExtension.scalarTower
+
+/-- `Hom_{B[Γ]}(V_B,P)`, written in a basis of `V_B` as row coordinates. -/
+def PeriodHom {B S Γ : Type u} [CommRing B] [CommRing S] [Algebra B S] [Group Γ]
+    {n : ℕ} (P : PeriodExtension B S Γ) (ρ : Γ →* GL (Fin n) B) :
+    Submodule S (Fin n → P.ring) where
+  carrier := {f | ∀ γ i, P.action γ (f i) =
+    ∑ j, f j * algebraMap B P.ring ((ρ γ : Matrix (Fin n) (Fin n) B) j i)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- The filtration on the period invariants. -/
+def PeriodHom.Fil {B S Γ : Type u} [CommRing B] [CommRing S] [Algebra B S] [Group Γ]
+    {n : ℕ} (P : PeriodExtension B S Γ) (ρ : Γ →* GL (Fin n) B) (i : ℤ) :
+    Submodule S (PeriodHom P ρ) where
+  carrier := {f | ∀ j, f.val j ∈ P.Fil i}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- The canonical comparison `r⊗f ↦ r f`, with the fixed scalar ring as tensor base. -/
+def PeriodHom.comparison {B S Γ : Type u} [CommRing B] [CommRing S] [Algebra B S] [Group Γ]
+    {n : ℕ} (P : PeriodExtension B S Γ) (ρ : Γ →* GL (Fin n) B) :
+    TensorProduct S P.ring (PeriodHom P ρ) →ₗ[P.ring] (Fin n → P.ring) := sorry
+
+theorem PeriodHom.comparison_tmul {B S Γ : Type u} [CommRing B] [CommRing S] [Algebra B S] [Group Γ]
+    {n : ℕ} (P : PeriodExtension B S Γ) (ρ : Γ →* GL (Fin n) B) (r : P.ring) (f : PeriodHom P ρ) :
+    PeriodHom.comparison P ρ (TensorProduct.tmul S r f) = fun i ↦ r * f.val i := sorry
+
+section Periods
+
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (B : Type u) [CommRing B] [Algebra ℚ_[p] B]
+
+/-- PadicHodgeTheory R06.2's filtered de Rham period algebra with coefficients. -/
+def deRhamPeriods : PeriodExtension B (TensorProduct ℚ_[p] B K) (Field.absoluteGaloisGroup K) := sorry
+
+/-- The semistable fixed scalars `L₀⊗B` for the open subgroup corresponding to `L/K`.
+The coefficient system and period algebra are supplied by R06.3. -/
+def SemistableScalars (p : ℕ) [Fact p.Prime] (K : Type u) [Field K]
+    [Algebra ℚ_[p] K] (B : Type u) [CommRing B] [Algebra ℚ_[p] B]
+    (H : Subgroup (Field.absoluteGaloisGroup K)) : Type u := sorry
+instance (H : Subgroup (Field.absoluteGaloisGroup K)) : CommRing (SemistableScalars p K B H) := sorry
+instance (H : Subgroup (Field.absoluteGaloisGroup K)) : Algebra B (SemistableScalars p K B H) := sorry
+
+def semistablePeriods (H : Subgroup (Field.absoluteGaloisGroup K)) (hH : IsOpen (H : Set (Field.absoluteGaloisGroup K))) :
+    PeriodExtension B (SemistableScalars p K B H) H := sorry
+
+/-- Semistability after a finite extension is the comparison isomorphism for an open subgroup. -/
+def IsPotentiallySemistable {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop :=
+  ∃ (H : Subgroup (Field.absoluteGaloisGroup K)) (hH : IsOpen (H : Set (Field.absoluteGaloisGroup K))),
+    (letI : TopologicalSpace B := moduleTopology ℚ_[p] B;
+      Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) ∧
+    Function.Bijective (PeriodHom.comparison (semistablePeriods p K B H hH) (ρ.comp H.subtype))
+
+/-- Unramified period scalars of `D*_pst`, supplied by PadicHodgeTheory R06.3. -/
+def PotentiallySemistableScalars (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [Algebra ℚ_[p] K] [CommRing B] [Algebra ℚ_[p] B] : Type u := sorry
+instance : CommRing (PotentiallySemistableScalars p K B) := sorry
+instance : Algebra B (PotentiallySemistableScalars p K B) := sorry
+
+/-- The contravariant potentially semistable Dieudonné module. Its scalar ring
+retains the unramified period field; monodromy does not require a coefficient basis. -/
+def PotentiallySemistableModule (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [Algebra ℚ_[p] K] [CommRing B] [Algebra ℚ_[p] B] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Type u := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    AddCommGroup (PotentiallySemistableModule p K B ρ) := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    Module (PotentiallySemistableScalars p K B) (PotentiallySemistableModule p K B ρ) := sorry
+
+/-- Inertia trace on `D*_pst`, descended to the coefficient algebra (R06.3). -/
+def pstInertiaTrace (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [Algebra ℚ_[p] K] [CommRing B] [Algebra ℚ_[p] B] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (I : Subgroup (Field.absoluteGaloisGroup K)) : I → B := sorry
+
+/-- The intrinsic monodromy endomorphism on the period module (R06.3). -/
+def pstMonodromy (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [Algebra ℚ_[p] K] [CommRing B] [Algebra ℚ_[p] B] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    Module.End (PotentiallySemistableScalars p K B) (PotentiallySemistableModule p K B ρ) := sorry
+
+variable (E : Type u) [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra E B] [IsScalarTower ℚ_[p] E B]
+
+/-- **`R08.3/hodge-and-galois-types`**: the actual period comparisons, labelled
+filtration, and inertial traces, for a finite coefficient algebra. -/
+def IsOfType {n h : ℕ} (I : Subgroup (Field.absoluteGaloisGroup K))
+    (τ : GaloisType I E n) (v : HodgeType p K E n h)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop :=
+  IsPotentiallySemistable p K B ρ ∧
+  Function.Bijective (PeriodHom.comparison (deRhamPeriods p K B) ρ) ∧
+  (∃ e : PeriodHom (deRhamPeriods p K B) ρ ≃ₗ[TensorProduct ℚ_[p] B K]
+       (Fin n → TensorProduct ℚ_[p] B K),
+     ∀ i, Submodule.map e.toLinearMap (PeriodHom.Fil (deRhamPeriods p K B) ρ i) = HodgeType.baseChange p K E v B i) ∧
+  ∀ γ : I, pstInertiaTrace p K B ρ I γ =
+    algebraMap E B (Matrix.trace (τ.toHom γ : Matrix (Fin n) (Fin n) E))
+
+/-- Potential crystallinity adds the intrinsic zero-monodromy condition. -/
+def IsPotentiallyCrystallineOfType {n h : ℕ} (I : Subgroup (Field.absoluteGaloisGroup K))
+    (τ : GaloisType I E n) (v : HodgeType p K E n h)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop :=
+  IsOfType p K B E I τ v ρ ∧ pstMonodromy p K B ρ = 0
+
+end Periods
+
+/-! ## Potentially semistable quotients in families (R08.3)
+
+These are the quotient constructions of Kisin Theorems 2.5.5 and 2.7.6,
+pp. 526–527 and 534–535. The integral closure uses the radical of the generic
+ideal; the generic quotient and its reduction are kept distinct. -/
+
+/-- The inertia subgroup supplied by LocalGaloisGroups. -/
+def localInertia (p : ℕ) [Fact p.Prime] (K : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : Subgroup (Field.absoluteGaloisGroup K) := sorry
+
+/-- A finite-rank continuous integral family with the coefficient field,
+labelled filtration and inertial type fixed. The coefficient structures on the
+localization are part of the compatibility data. -/
+structure PstFamilyData (p : ℕ) [Fact p.Prime] (K E 𝒪 A : Type u)
+    [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    [CommRing 𝒪] [IsLocalRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+    [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+    [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    [CommRing A] [IsLocalRing A] [IsNoetherianRing A] [Algebra 𝒪 A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+    [TopologicalSpace A] (n h : ℕ) where
+  uniformizer : 𝒪
+  irreducible : Irreducible uniformizer
+  [genericAlgebra : Algebra E (GenericFibre (algebraMap 𝒪 A uniformizer) A)]
+  [genericTower : IsScalarTower 𝒪 E (GenericFibre (algebraMap 𝒪 A uniformizer) A)]
+  representation : Field.absoluteGaloisGroup K →* GL (Fin n) A
+  continuous : Continuous fun g ↦ (representation g : Matrix (Fin n) (Fin n) A)
+  adic : IsAdic (IsLocalRing.maximalIdeal A)
+  type : GaloisType (localInertia p K) E n
+  hodge : HodgeType p K E n h
+
+attribute [instance] PstFamilyData.genericAlgebra PstFamilyData.genericTower
+
+namespace PstFamilyData
+
+variable {p : ℕ} [Fact p.Prime] {K E 𝒪 A : Type u}
+variable [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [CommRing A] [IsLocalRing A] [IsNoetherianRing A] [Algebra 𝒪 A]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+variable [TopologicalSpace A] {n h : ℕ} (D : PstFamilyData p K E 𝒪 A n h)
+
+abbrev genericBase := GenericFibre (algebraMap 𝒪 A D.uniformizer) A
+
+/-- Scheme ideal characterized on every finite coefficient algebra. -/
+def genericIdeal : Ideal D.genericBase := sorry
+abbrev genericRing := D.genericBase ⧸ D.genericIdeal
+
+/-- The additional closed monodromy-zero locus, not just the inertial type. -/
+def crystallineIdeal : Ideal D.genericBase := sorry
+abbrev crystallineGenericRing := D.genericBase ⧸ D.crystallineIdeal
+
+/-- Reduced torsion-free closure of the generic locus. -/
+def integralIdeal : Ideal A := Ideal.comap (algebraMap A D.genericBase) D.genericIdeal.radical
+abbrev integralRing := A ⧸ D.integralIdeal
+
+def crystallineIntegralIdeal : Ideal A :=
+  Ideal.comap (algebraMap A D.genericBase) D.crystallineIdeal.radical
+abbrev crystallineIntegralRing := A ⧸ D.crystallineIntegralIdeal
+
+/-- The point criterion uses all finite `E`-algebras, including nonreduced ones. -/
+theorem genericRing_points (B : Type u) [CommRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : D.genericBase →ₐ[E] B) :
+    (∀ r ∈ D.genericIdeal, x r = 0) ↔
+      IsOfType p K B E (localInertia p K) D.type D.hodge
+        ((Matrix.GeneralLinearGroup.map (x.toRingHom.comp (algebraMap A D.genericBase))).comp D.representation) := sorry
+
+theorem crystallineGenericRing_points (B : Type u) [CommRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : D.genericBase →ₐ[E] B) :
+    (∀ r ∈ D.crystallineIdeal, x r = 0) ↔
+      IsPotentiallyCrystallineOfType p K B E (localInertia p K) D.type D.hodge
+        ((Matrix.GeneralLinearGroup.map (x.toRingHom.comp (algebraMap A D.genericBase))).comp D.representation) := sorry
+
+/-- A field point kills the radical exactly when it kills the generic ideal. -/
+theorem integralRing_points (B : Type u) [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : D.genericBase →ₐ[E] B) :
+    (∀ r ∈ D.integralIdeal, x (algebraMap A D.genericBase r) = 0) ↔
+      IsOfType p K B E (localInertia p K) D.type D.hodge
+        ((Matrix.GeneralLinearGroup.map (x.toRingHom.comp (algebraMap A D.genericBase))).comp D.representation) := sorry
+
+theorem crystallineIdeal_contains : D.genericIdeal ≤ D.crystallineIdeal := sorry
+
+theorem integralRing_reduced : IsReduced D.integralRing := sorry
+theorem integralRing_flat : Module.Flat 𝒪 D.integralRing := sorry
+
+/-- Inverting the uniformizer identifies the integral closure with the reduced generic scheme. -/
+theorem integralRing_generic : Nonempty
+    (GenericFibre (algebraMap 𝒪 D.integralRing D.uniformizer) D.integralRing ≃ₐ[𝒪]
+      D.genericBase ⧸ D.genericIdeal.radical) := sorry
+
+/-- There is no type-compatible point precisely when the integral quotient is zero. -/
+theorem integralRing_zero_iff : Subsingleton D.integralRing ↔
+    ¬ ∃ (B : Type u) (_ : Field B) (_ : Algebra E B) (_ : FiniteDimensional E B)
+      (x : D.genericBase →ₐ[E] B), ∀ r ∈ D.genericIdeal, x r = 0 := sorry
+
+/-- Kisin's quotient construction commutes with changing the integral family. -/
+theorem baseChange {A' : Type u} [CommRing A'] [IsLocalRing A'] [IsNoetherianRing A']
+    [Algebra 𝒪 A'] [IsAdicComplete (IsLocalRing.maximalIdeal A') A']
+    [Finite (IsLocalRing.ResidueField A')] [TopologicalSpace A']
+    (D' : PstFamilyData p K E 𝒪 A' n h) (f : A →ₐ[𝒪] A')
+    (hc : Continuous f) (hl : Ideal.comap f.toRingHom (IsLocalRing.maximalIdeal A') = IsLocalRing.maximalIdeal A)
+    (hu : D'.uniformizer = D.uniformizer)
+    (hρ : D'.representation = (Matrix.GeneralLinearGroup.map f.toRingHom).comp D.representation)
+    (hτ : D'.type = D.type) (hv : D'.hodge = D.hodge)
+    (fgen : D.genericBase →ₐ[E] D'.genericBase)
+    (hgen : ∀ a, fgen (algebraMap A D.genericBase a) = algebraMap A' D'.genericBase (f a)) :
+    D'.genericIdeal = Ideal.map fgen.toRingHom D.genericIdeal := sorry
+
+end PstFamilyData
+
+/-- **`R08.3/pst-deformation-ring`**: the reduced integral type quotient. -/
+abbrev pstRing := @PstFamilyData.integralRing
+abbrev pcrisRing := @PstFamilyData.crystallineIntegralRing
 
 end R083
 
@@ -884,26 +1855,11 @@ end R083
 section R084
 
 variable {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-variable {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽]
-variable {G : Type} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
-variable {n : ℕ} (ρ₀ : G →* GL (Fin n) 𝔽)
-
-/-- **`R08.4/flat-deformation-condition`**: the ideal of flat lifts (data; its point criterion, Tate modules
-of `p`-divisible groups, is recorded in the inventory). -/
-def flatIdeal : Ideal (LiftingRing 𝒪 n ρ₀) := sorry
-
-/-- API `flatLiftingRing`: `R^{fl,□} = R^□/flatIdeal`. -/
-abbrev flatLiftingRing : Type := ConditionRing (flatIdeal (𝒪 := 𝒪) ρ₀)
-
-/-- API `flatDeformationRing`: `R^fl`, the corresponding quotient of the unframed ring (Schur `ρ̄`). -/
-def flatDeformationRing (𝒪 : Type) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] {𝔽 : Type}
-    [Field 𝔽] [Algebra 𝒪 𝔽] {G : Type} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] {n : ℕ}
-    (ρ₀ : G →* GL (Fin n) 𝔽) : Type := sorry
-
-/-- API `flatLiftingRing.universal`: maps out of `R^{fl,□}` are maps out of `R^□` killing the flat ideal. -/
-theorem flatLiftingRing.universal {B : Type} [CommRing B] [Algebra 𝒪 B]
-    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (hx : ∀ r ∈ flatIdeal (𝒪 := 𝒪) ρ₀, x r = 0) :
-    ∃! y : flatLiftingRing (𝒪 := 𝒪) ρ₀ →ₐ[𝒪] B, y.comp (Ideal.Quotient.mkₐ 𝒪 _) = x := sorry
+variable {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {G : Type} [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+    [TotallyDisconnectedSpace G] [MazurFinite G 𝔽]
+variable {n : ℕ} (ρ₀ : G →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
 
 /-- **`R08.4/kw-algebraisation-lemma`** (KW II Lemma 3.8), rank one: an element `f` of `𝒪⟦T⟧` whose
 reduction modulo `𝔪` is nonzero is a unit multiple of a polynomial (Weierstrass preparation,
@@ -935,9 +1891,8 @@ end R084
 
 section R085
 
-/-- **`R08.5/weight-p-plus-one-ordinary-ring`**, dimension: over `F_v = ℚ_p`, the crystalline weight-`(p+1)`
-ordinary ring is formally smooth of relative dimension `3 + [F_v:ℚ_p] = 4`; recorded as the dimension
-count `(n² − 1) + [F_v:ℚ_p] + 1` with `n = 2`. -/
+/-- Supplementary arithmetic check of the rank-two relative dimension formula.
+The power-series presentation of the weight-(p+1) ring is stated below. -/
 example : (2 ^ 2 - 1) + 1 = 3 + 1 := rfl
 
 /-- **`R08.5/kisin-local-rings-p2-comparison`** (Kisin 2.5.6, trivial `V_𝔽`): the universal odd lift
@@ -953,53 +1908,244 @@ end R085
 
 section R086
 
-/-- **`R08.6/kw-local-conditions`**, API `KWCondition`: the kinds of KW II local conditions with their
-choices: odd lifts at `∞`; at `p`, low-weight crystalline, weight two (with its inertial parameter) and
-semistable weight two (with the unramified `γ_v`); away from `p`, semistable (with `γ_v`) or inertia-rigid
-(with `ρ₀`). -/
-inductive KWCondition (Γ : Type*) [Group Γ] (A : Type*) [CommRing A]
-  | odd
-  | lowWeightCrystalline (k : ℕ) (unramChoice : Option Γ)
-  | weightTwo (inertialParam : Bool)
-  | semistableWeightTwo (γ : Γ →* Aˣ)
-  | semistableAway (γ : Γ →* Aˣ)
-  | inertiaRigid (ρ₀ : Γ →* GL (Fin 2) A)
+/-- A chosen continuous unramified character, with its inertia subgroup explicit. -/
+structure UnramifiedCharacter (Γ A : Type u) [Group Γ] [TopologicalSpace Γ]
+    [CommRing A] [TopologicalSpace A] (I : Subgroup Γ) where
+  toHom : Γ →* Aˣ
+  continuous : Continuous fun g ↦ (toHom g : A)
+  inertia_trivial : ∀ g : I, toHom g = 1
 
-variable {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-variable {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽]
-variable {G : Type} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+/-- The four weight-two branches; weight here is the residual Serre weight.
+The dyadic weight-four branch retains nonzero monodromy. -/
+inductive KWWeightTwoBranch (p k : ℕ)
+  | oddFinite (hp : p ≠ 2) (hk : 2 ≤ k ∧ k ≤ p)
+  | oddSpecial (hp : p ≠ 2) (hk : k = p+1)
+  | dyadicCrystalline (hp : p = 2) (hk : k = 2)
+  | dyadicSpecial (hp : p = 2) (hk : k = 4)
 
-/-- API `KWCondition.ring`: the ideal of `R^{□,ψ}_v` defining the flat reduced quotient of `X_v`-lifts. -/
-def KWCondition.ideal (ρ₀ : G →* GL (Fin 2) 𝔽) (c : KWCondition G 𝒪) :
-    Ideal (LiftingRing 𝒪 2 ρ₀) := sorry
+/-- Cyclotomic and finite tame cyclotomic characters supplied by ClassFieldTheory. -/
+def localCyclotomic (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+    (𝒪 : Type u) [CommRing 𝒪] [Algebra ℤ_[p] 𝒪] : Field.absoluteGaloisGroup K →* 𝒪ˣ := sorry
 
-/-- `R̄^{□,ψ}_v`. -/
-abbrev KWCondition.ring (ρ₀ : G →* GL (Fin 2) 𝔽) (c : KWCondition G 𝒪) : Type :=
-  ConditionRing (KWCondition.ideal ρ₀ c)
+def localTameCyclotomic (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [Field E]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Algebra ℚ_[p] E] : localInertia p K →* Eˣ := sorry
 
-/-- API `KWCondition.points`, the odd case: points of the odd ring are the lifts with `det ρ(c) = −1`. -/
-theorem KWCondition.points_odd (ρ₀ : G →* GL (Fin 2) 𝔽) (c : G) (hc : ∀ g, g = 1 ∨ g = c)
-    {B : Type} [CommRing B] [IsDomain B] [CharZero B] [Algebra 𝒪 B]
+/-- Weight `{0,k−1}` in the contravariant Hodge convention. -/
+def rankTwoHodgeType (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E] (k : ℕ) :
+    HodgeType p K E 2 (k-1) := sorry
+
+/-- The finite inertia parameter `ω^{k−2}⊕1`, or the trivial parameter in the special branches. -/
+def KWWeightTwoBranch.type {p k : ℕ} [Fact p.Prime]
+    (K E : Type u) [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    (b : KWWeightTwoBranch p k) : GaloisType (localInertia p K) E 2 := sorry
+
+theorem KWWeightTwoBranch.type_oddFinite {p k : ℕ} [Fact p.Prime]
+    (K E : Type u) [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    (hp : p ≠ 2) (hk : 2 ≤ k ∧ k ≤ p) (g : localInertia p K) :
+    ((KWWeightTwoBranch.type K E (.oddFinite hp hk)).toHom g : Matrix (Fin 2) (Fin 2) E) =
+      !![(localTameCyclotomic p K E g : E)^(k-2), 0; 0, 1] := sorry
+
+section KWData
+
+variable (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable (Γ 𝒪 : Type u) [Group Γ] [TopologicalSpace Γ] [CommRing 𝒪] [TopologicalSpace 𝒪]
+variable [Algebra ℤ_[p] 𝒪]
+
+/-- **`R08.6/kw-local-conditions`**: local data includes the chosen characters,
+weight/type branch, inertia, and the identification with the p-adic local group
+where periods are used. It records no replacement Boolean for a WD parameter. -/
+inductive KWCondition (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    (Γ 𝒪 : Type u) [Group Γ] [TopologicalSpace Γ] [CommRing 𝒪] [TopologicalSpace 𝒪]
+    [Algebra ℤ_[p] 𝒪]
+  | odd (c : Γ) (hc : c*c=1) (hexhaust : ∀ g, g=1 ∨ g=c)
+  | lowWeightCrystalline (k : ℕ) (hk : 2 ≤ k ∧ k ≤ p+1)
+      (e : Γ ≃* Field.absoluteGaloisGroup K)
+      (choice : Option (UnramifiedCharacter Γ 𝒪 ((localInertia p K).comap e.toMonoidHom)))
+  | weightTwo (k : ℕ) (branch : KWWeightTwoBranch p k)
+      (e : Γ ≃* Field.absoluteGaloisGroup K)
+  | semistableWeightTwo (e : Γ ≃* Field.absoluteGaloisGroup K)
+      (γ : UnramifiedCharacter Γ 𝒪 ((localInertia p K).comap e.toMonoidHom))
+  | semistableAway (I : Subgroup Γ) (ε : Γ →* 𝒪ˣ) (γ : UnramifiedCharacter Γ 𝒪 I)
+  | inertiaRigid (I : Subgroup Γ) (fixed : Γ →* GL (Fin 2) 𝒪)
+      (choice : Option (UnramifiedCharacter Γ 𝒪 I))
+
+end KWData
+
+/-- A free stable line with unramified quotient and the prescribed inertia weight.
+The open subgroup permits the finite-order factors in KW's ordinary condition. -/
+def IsRankTwoOrdinary {Γ B : Type u} [Group Γ] [TopologicalSpace Γ] [CommRing B]
+    (I : Subgroup Γ) (ε : Γ →* Bˣ) (k : ℕ) (ρ : Γ →* GL (Fin 2) B) : Prop :=
+  ∃ (L Q : Submodule B (Fin 2 → B)) (χ₁ χ₂ : Γ →* Bˣ),
+    IsCompl L Q ∧ Nonempty (L ≃ₗ[B] B) ∧
+    (∀ g x, x ∈ L → Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) B) x = (χ₁ g : B) • x) ∧
+    (∀ g x, Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) B) x - (χ₂ g : B) • x ∈ L) ∧
+    (∀ g : I, χ₂ g = 1) ∧ ∃ H : Subgroup I, IsOpen (H : Set I) ∧
+      ∀ g : H, χ₁ (g.val.val : Γ) = (ε (g.val.val : Γ))^(k-1)
+
+/-- The selected semistable shape fixes both diagonal characters. -/
+def IsSelectedSemistable {Γ B : Type u} [Group Γ] [CommRing B]
+    (ε γ : Γ →* Bˣ) (ρ : Γ →* GL (Fin 2) B) : Prop :=
+  ∃ g : GL (Fin 2) B, ∀ σ : Γ,
+    let M := (g : Matrix (Fin 2) (Fin 2) B) * (ρ σ : Matrix (Fin 2) (Fin 2) B) *
+      ((g⁻¹ : GL (Fin 2) B) : Matrix (Fin 2) (Fin 2) B)
+    M 1 0 = 0 ∧ M 0 0 = (ε σ : B) * (γ σ : B) ∧ M 1 1 = (γ σ : B)
+
+section KWConditions
+
+variable {p : ℕ} [Fact p.Prime] {K E 𝒪 𝔽 G : Type u}
+variable [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [TopologicalSpace 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [Group G] [TopologicalSpace G] [IsTopologicalGroup G] [CompactSpace G] [T2Space G]
+variable [TotallyDisconnectedSpace G] [MazurFinite G 𝔽]
+variable (ρ₀ : G →* GL (Fin 2) 𝔽) [ContinuousResidual ρ₀]
+variable (ψ : G →* 𝒪ˣ)
+variable (hψ : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ g) = Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (c : KWCondition p K E G 𝒪)
+
+/-- The point condition, in characteristic zero. Period operators and the
+ordinary and inertia-rigid shapes are explicit in each branch. -/
+def KWCondition.satisfies {B : Type u} [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (ρ : G →* GL (Fin 2) B) : Prop :=
+  match c with
+  | .odd σ _ _ => Matrix.GeneralLinearGroup.det (ρ σ) = -1
+  | .lowWeightCrystalline k _ e choice =>
+      let ρK := ρ.comp e.symm.toMonoidHom
+      let ε := (Units.map (algebraMap 𝒪 B).toMonoidHom).comp (localCyclotomic p K 𝒪)
+      (if k = p+1 then IsRankTwoOrdinary (localInertia p K) ε k ρK else
+        IsPotentiallyCrystallineOfType p K B E (localInertia p K)
+          ⟨1, by sorry⟩ (rankTwoHodgeType p K E k) ρK) ∧
+      match choice with
+      | none => True
+      | some γ => ∃ g : GL (Fin 2) B, ∀ σ,
+          let M := (g : Matrix (Fin 2) (Fin 2) B) * (ρ σ : Matrix (Fin 2) (Fin 2) B) *
+            ((g⁻¹ : GL (Fin 2) B) : Matrix (Fin 2) (Fin 2) B)
+          M 1 0 = 0 ∧ M 1 1 = algebraMap 𝒪 B (γ.toHom σ : 𝒪)
+  | .weightTwo k b e =>
+      let ρK := ρ.comp e.symm.toMonoidHom
+      IsOfType p K B E (localInertia p K) (b.type K E) (rankTwoHodgeType p K E 2) ρK ∧
+        match b with
+        | .oddFinite _ _ => pstMonodromy p K B ρK = 0
+        | .dyadicCrystalline _ _ => pstMonodromy p K B ρK = 0
+        | .oddSpecial _ _ => pstMonodromy p K B ρK ≠ 0
+        | .dyadicSpecial _ _ => pstMonodromy p K B ρK ≠ 0
+  | .semistableWeightTwo e γ =>
+      IsSelectedSemistable ((Units.map (algebraMap 𝒪 B).toMonoidHom).comp
+        ((localCyclotomic p K 𝒪).comp e.toMonoidHom))
+        ((Units.map (algebraMap 𝒪 B).toMonoidHom).comp γ.toHom) ρ
+  | .semistableAway _ ε γ => IsSelectedSemistable
+      ((Units.map (algebraMap 𝒪 B).toMonoidHom).comp ε)
+      ((Units.map (algebraMap 𝒪 B).toMonoidHom).comp γ.toHom) ρ
+  | .inertiaRigid I fixed choice =>
+      (∃ g : GL (Fin 2) B, ∀ σ : I,
+        (g : Matrix (Fin 2) (Fin 2) B) * (ρ σ : Matrix (Fin 2) (Fin 2) B) *
+          ((g⁻¹ : GL (Fin 2) B) : Matrix (Fin 2) (Fin 2) B) =
+            (fixed σ : Matrix (Fin 2) (Fin 2) 𝒪).map (algebraMap 𝒪 B)) ∧
+      match choice with
+      | none => True
+      | some γ => ∃ g : GL (Fin 2) B, ∀ σ,
+          let M := (g : Matrix (Fin 2) (Fin 2) B) * (ρ σ : Matrix (Fin 2) (Fin 2) B) *
+            ((g⁻¹ : GL (Fin 2) B) : Matrix (Fin 2) (Fin 2) B)
+          M 1 0 = 0 ∧ M 1 1 = algebraMap 𝒪 B (γ.toHom σ : 𝒪)
+
+/-- Irreducibility is a condition on invariant subspaces, not a Boolean tag. -/
+def IsIrreducibleRep {Γ k : Type u} [Group Γ] [Field k] {n : ℕ}
+    (ρ : Γ →* GL (Fin n) k) : Prop :=
+  ∀ V : Submodule k (Fin n → k),
+    (∀ g x, x ∈ V → Matrix.mulVec (ρ g : Matrix (Fin n) (Fin n) k) x ∈ V) → V = ⊥ ∨ V = ⊤
+
+/-- Serre's weight, in the normalization used in KW II §3.2. -/
+def localSerreWeight (p : ℕ) [Fact p.Prime] (K k : Type u) [Field K] [CharZero K] [Field k]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) k) : ℕ := sorry
+
+/-- LocalGaloisGroups' ramification index for K/ℚ_p. -/
+def localRamificationIndex (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : ℕ := sorry
+
+/-- The KW hypotheses that rule out empty or unwanted boundary components.
+The full determinant (called φ in KW II) is the parameter `ψ` here. -/
+def KWCondition.admissible : Prop :=
+  (Continuous fun g ↦ (ψ g : 𝒪)) ∧ ringChar 𝔽 = p ∧
+  match c with
+  | .odd σ _ _ => σ ≠ 1 ∧ ψ σ = -1
+  | .lowWeightCrystalline k _ e choice =>
+      let ρK := ρ₀.comp e.symm.toMonoidHom
+      localRamificationIndex p K = 1 ∧ k = localSerreWeight p K 𝔽 ρK ∧
+      ((IsIrreducibleRep ρK ∨ k=p+1) → Module.finrank ℚ_[p] K = 1) ∧
+      (∀ σ : localInertia p K, ψ (e.symm σ.val) = localCyclotomic p K 𝒪 σ.val ^ (k-1)) ∧
+      (match choice with
+       | none => ¬ (k=p ∧ (∀ σ : localInertia p K, ρK σ.val = 1) ∧
+           ∃ a b : G →* 𝔽ˣ, a ≠ b ∧ ∃ h : GL (Fin 2) 𝔽, ∀ g,
+             (h : Matrix (Fin 2) (Fin 2) 𝔽) * (ρ₀ g : Matrix (Fin 2) (Fin 2) 𝔽) *
+               (h⁻¹ : GL (Fin 2) 𝔽) = Matrix.diagonal ![(a g : 𝔽), (b g : 𝔽)])
+       | some γ => ∃ h : GL (Fin 2) 𝔽, ∀ g,
+           let M := (h : Matrix (Fin 2) (Fin 2) 𝔽) * (ρ₀ g : Matrix (Fin 2) (Fin 2) 𝔽) *
+             (h⁻¹ : GL (Fin 2) 𝔽)
+           M 1 0 = 0 ∧ M 1 1 = algebraMap 𝒪 𝔽 (γ.toHom g : 𝒪))
+  | .weightTwo k b e =>
+      let ρK := ρ₀.comp e.symm.toMonoidHom
+      localRamificationIndex p K = 1 ∧ k = localSerreWeight p K 𝔽 ρK ∧
+      (IsIrreducibleRep ρK → Module.finrank ℚ_[p] K = 1) ∧
+      ∀ σ : localInertia p K, algebraMap 𝒪 E (ψ (e.symm σ.val) : 𝒪) =
+        algebraMap 𝒪 E (localCyclotomic p K 𝒪 σ.val : 𝒪) *
+          (Matrix.GeneralLinearGroup.det ((b.type K E).toHom σ) : E)
+  | .semistableWeightTwo e γ =>
+      localRamificationIndex p K = 1 ∧
+      (∀ g, γ.toHom g ^ 2 * localCyclotomic p K 𝒪 (e g) = ψ g) ∧
+      IsSelectedSemistable ((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp
+        ((localCyclotomic p K 𝒪).comp e.toMonoidHom))
+        ((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp γ.toHom) ρ₀
+  | .semistableAway _ ε γ => (∀ g, γ.toHom g ^ 2 * ε g = ψ g) ∧
+      IsSelectedSemistable ((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp ε)
+        ((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp γ.toHom) ρ₀
+  | .inertiaRigid I fixed _ =>
+      (Matrix.GeneralLinearGroup.map (algebraMap 𝒪 𝔽)).comp fixed = ρ₀ ∧
+      (∀ g, Matrix.GeneralLinearGroup.det (fixed g) = ψ g) ∧
+      Set.Finite (Set.range fun g : I ↦ fixed g.val)
+
+/-- The fixed determinant is a parameter of the reduced flat condition quotient. -/
+def KWCondition.ideal (ψ : G →* 𝒪ˣ)
+    (hψ : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ g) = Matrix.GeneralLinearGroup.det (ρ₀ g))
+    (c : KWCondition p K E G 𝒪) : Ideal (LiftingRing 𝒪 2 ρ₀) := sorry
+abbrev KWCondition.ring := ConditionRing (KWCondition.ideal ρ₀ ψ hψ c)
+
+theorem KWCondition.containsDet : detIdeal (ρbar := ρ₀) ψ ≤ KWCondition.ideal ρ₀ ψ hψ c := sorry
+
+/-- All branches have a characteristic-zero point criterion with the chosen data fixed. -/
+theorem KWCondition.points {B : Type u} [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (hvalid : KWCondition.admissible ρ₀ ψ c)
     (x : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪] B) :
-    (∀ r ∈ KWCondition.ideal ρ₀ (.odd : KWCondition G 𝒪), x r = 0) ↔
-      ((pointRep x.toRingHom c : GL (Fin 2) B) : Matrix (Fin 2) (Fin 2) B).det = -1 := sorry
+    (∀ r ∈ KWCondition.ideal ρ₀ ψ hψ c, x r = 0) ↔
+      (∀ g, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom g) =
+        Units.map (algebraMap 𝒪 B).toMonoidHom (ψ g)) ∧
+      KWCondition.satisfies c (pointRep x.toRingHom) := sorry
 
-/-- API `KWCondition.ring_unique`: two reduced `𝒪`-flat quotients of `R^□` with the same
-characteristic-zero points coincide: their ideals are equal (both are the intersection of the kernels of
-those points). -/
-theorem KWCondition.ring_unique [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] [CharZero 𝒪]
-    (ρ₀ : G →* GL (Fin 2) 𝔽) (I J : Ideal (LiftingRing 𝒪 2 ρ₀)) (ϖ : 𝒪) (hϖ : Irreducible ϖ)
-    (hI : flatClosure (algebraMap 𝒪 _ ϖ) I = I) (hJ : flatClosure (algebraMap 𝒪 _ ϖ) J = J)
-    (hIr : I.IsRadical) (hJr : J.IsRadical)
-    (hpts : ∀ (B : Type) [Field B] [CharZero B] [Algebra 𝒪 B] (x : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪] B),
-      (∀ r ∈ I, x r = 0) ↔ (∀ r ∈ J, x r = 0)) : I = J := sorry
+/-- Equality of all characteristic-zero point sets determines reduced flat quotients.
+KW II Corollary 2.3, p. 8; uniqueness also respects the quotient map. -/
+theorem KWCondition.ring_unique (I J : Ideal (LiftingRing 𝒪 2 ρ₀))
+    (hIred : IsReduced (ConditionRing I)) (hJred : IsReduced (ConditionRing J))
+    (hIflat : Module.Flat 𝒪 (ConditionRing I)) (hJflat : Module.Flat 𝒪 (ConditionRing J))
+    (hpoints : ∀ (B : Type u) [Field B] [Algebra E B] [FiniteDimensional E B]
+      [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] (x : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪] B),
+      (∀ r ∈ I, x r = 0) ↔ (∀ r ∈ J, x r = 0)) :
+    I = J ∧ ∃! e : ConditionRing I ≃ₐ[𝒪] ConditionRing J,
+      e.toAlgHom.comp (Ideal.Quotient.mkₐ 𝒪 I) = Ideal.Quotient.mkₐ 𝒪 J := sorry
 
-/-- **`R08.6/export-archimedean`**: for `p` odd the odd ring at a real place is a power series ring in
-`2` variables (`n² − a² − b² = 4 − 1 − 1`). -/
-theorem export_archimedean (ρ₀ : G →* GL (Fin 2) 𝔽) (h2 : (2 : 𝔽) ≠ 0) (c : G)
-    (hc : ∀ g, g = 1 ∨ g = c) (hc2 : c * c = 1)
-    (hodd : ((ρ₀ c : GL (Fin 2) 𝔽) : Matrix (Fin 2) (Fin 2) 𝔽).det = -1) :
-    IsPowerSeriesOver 𝒪 (KWCondition.ring ρ₀ (.odd : KWCondition G 𝒪)) 2 := sorry
+end KWConditions
 
 /-- `kwCondition_infinity` (computation): `diag(1, −1)` is an odd involution. -/
 example : (!![(1 : ℤ), 0; 0, -1]) * !![(1 : ℤ), 0; 0, -1] = 1 ∧
@@ -1086,47 +2232,174 @@ theorem flag_of_isDetOrdinary {K : Type*} [Field K] (ρ : G →* GL (Fin n) K) (
     ∃ F : FullFlag K n, IsOrdinaryFlag ρ χ F := sorry
 
 variable {𝒪 : Type} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
-variable {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽]
-variable {Γ : Type} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+variable {𝔽 : Type} [Field 𝔽] [Algebra 𝒪 𝔽] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Finite 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {Γ : Type} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+    [TotallyDisconnectedSpace Γ] [MazurFinite Γ 𝔽]
 
-/-- API `detOrdTilde`: the ideal of `R^□ ⊗̂ Λ̃` defining `R̃^{det,ord}_v`, with characters valued in the
-condition ring (data). -/
-def detOrdTilde.ideal (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ) :
-    Ideal (LiftingRing 𝒪 n ρ₀) := sorry
+/-! ### Universal character parameters and the determinant-ordinary image
 
-/-- API `detOrdTilde`: `R̃^{det,ord}_v`. -/
-abbrev detOrdTilde (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ) : Type :=
-  ConditionRing (detOrdTilde.ideal ρ₀ χ)
+The coefficient rings are constructed in `L8/ordinary-coefficient-ring` using
+ClassFieldTheory's inertia image in the abelianized local group and the completed
+group algebra of PadicMeasuresIwasawaAlgebras. The data below includes the
+universal property for full characters; it cannot be supplied by arbitrary
+characters in the unextended framed ring. -/
 
-/-- API `detOrdTilde_charpoly`: (6.2.7) holds over `R̃^{det,ord}_v`. -/
-theorem detOrdTilde_charpoly (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ) (g : Γ) :
-    ((pointRep (Ideal.Quotient.mk (detOrdTilde.ideal ρ₀ χ)) g).val).charpoly =
-      ∏ i, (Polynomial.X - Polynomial.C (Ideal.Quotient.mk _ ((χ i g : (LiftingRing 𝒪 n ρ₀)ˣ) :
-        LiftingRing 𝒪 n ρ₀))) := sorry
+/-- The natural character extension of a chosen ordinary weight algebra.
+The full ring adds the unramified variables. Its relative universal property
+fixes the prescribed inertial restrictions as well as the residual characters. -/
+structure OrdinaryParameters (𝒪 𝔽 Γ : Type u) [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽]
+    [Group Γ] [TopologicalSpace Γ] (n : ℕ) where
+  weight : Type u
+  [weightRing : CommRing weight]
+  [weightAlgebra : Algebra 𝒪 weight]
+  [weightLocal : IsLocalRing weight]
+  [weightNoetherian : IsNoetherianRing weight]
+  [weightComplete : IsAdicComplete (IsLocalRing.maximalIdeal weight) weight]
+  [weightTop : TopologicalSpace weight]
+  weightAdic : IsAdic (IsLocalRing.maximalIdeal weight)
+  residue : weight →ₐ[𝒪] 𝔽
+  residue_surjective : Function.Surjective residue
+  residue_ker : RingHom.ker residue.toRingHom = IsLocalRing.maximalIdeal weight
+  inertia : Subgroup Γ
+  residualCharacter : Fin n → Γ →* 𝔽ˣ
+  inertialCharacter : Fin n → inertia →* weightˣ
+  fullCharacter : Fin n → Γ →* (MvPowerSeries (Fin n) weight)ˣ
+  restrict_full : ∀ i (g : inertia), fullCharacter i g =
+    Units.map (MvPowerSeries.C : weight →+* MvPowerSeries (Fin n) weight).toMonoidHom (inertialCharacter i g)
+  reduce_inertia : ∀ i (g : inertia), Units.map residue.toMonoidHom (inertialCharacter i g) = residualCharacter i g
+  representsFull : ∀ (A : Type u) [CommRing A] [IsLocalRing A] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [TopologicalSpace A]
+    [Algebra weight A] (π : A →+* 𝔽), Function.Surjective π →
+    RingHom.ker π = IsLocalRing.maximalIdeal A →
+    (∀ a, π (algebraMap weight A a) = residue a) →
+    IsAdic (IsLocalRing.maximalIdeal A) →
+    letI : TopologicalSpace (MvPowerSeries (Fin n) weight) :=
+      (IsLocalRing.maximalIdeal (MvPowerSeries (Fin n) weight)).adicTopology
+    ∃ e : {f : MvPowerSeries (Fin n) weight →ₐ[weight] A // Continuous f ∧
+      Ideal.comap f.toRingHom (IsLocalRing.maximalIdeal A) = IsLocalRing.maximalIdeal (MvPowerSeries (Fin n) weight) ∧
+      ∀ r, π (f r) = residue (MvPowerSeries.constantCoeff r)} ≃
+      {χ : Fin n → Γ →* Aˣ // (∀ i, Continuous fun g ↦ (χ i g : A)) ∧
+        (∀ i g, Units.map π.toMonoidHom (χ i g) = residualCharacter i g) ∧
+        ∀ i (g : inertia), χ i g = Units.map (algebraMap weight A).toMonoidHom (inertialCharacter i g)},
+      ∀ f i g, (e f).val i g = Units.map f.val.toMonoidHom (fullCharacter i g)
 
-/-- API `detOrdTilde_product`: (6.2.7) and (6.2.8) hold over `R̃^{det,ord}_v`: the universal point is
-determinant-ordinary. -/
-theorem detOrdTilde_product (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ)
-    (g : Fin n → Γ) :
-    IsDetOrdinary (pointRep (Ideal.Quotient.mk (detOrdTilde.ideal ρ₀ χ)))
-      (fun i ↦ (Units.map (Ideal.Quotient.mk (detOrdTilde.ideal ρ₀ χ)).toMonoidHom).comp (χ i)) := sorry
+attribute [instance] OrdinaryParameters.weightRing OrdinaryParameters.weightAlgebra
+  OrdinaryParameters.weightLocal OrdinaryParameters.weightNoetherian OrdinaryParameters.weightComplete
+  OrdinaryParameters.weightTop
 
-/-- API `detOrdTilde.factor_iff`: a map out of `R^□` factors through `R̃^{det,ord}_v` iff its point is
-determinant-ordinary for the pushed-forward characters. -/
-theorem detOrdTilde.factor_iff (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ)
-    {B : Type} [CommRing B] (x : LiftingRing 𝒪 n ρ₀ →+* B) :
-    (∀ r ∈ detOrdTilde.ideal ρ₀ χ, x r = 0) ↔
-      IsDetOrdinary (pointRep x) (fun i ↦ (Units.map x.toMonoidHom).comp (χ i)) := sorry
+/-- `Λ̃` carries full characters; the underlying algebra is `Λ⟦z₁,…,z_n⟧`. -/
+abbrev ordinaryWeightRingTilde (W : OrdinaryParameters 𝒪 𝔽 Γ n) := MvPowerSeries (Fin n) W.weight
 
-/-- API `detOrd`: `R^{det,ord}_v`, the image of `R^□_v` in `R̃^{det,ord}_v` (data). -/
-def detOrd (ρ₀ : Γ →* GL (Fin n) 𝔽) : Type := sorry
+section DeterminantOrdinary
 
-/-- API `detOrd_universal`: points with values in a ring `R ↪ S` whose characters are defined over `S`
-factor through `R^{det,ord}_v`; recorded through `detOrdTilde.factor_iff`. -/
-theorem detOrd_universal (ρ₀ : Γ →* GL (Fin n) 𝔽) (χ : Fin n → Γ →* (LiftingRing 𝒪 n ρ₀)ˣ)
-    {B : Type} [CommRing B] (x : LiftingRing 𝒪 n ρ₀ →+* B)
-    (h : IsDetOrdinary (pointRep x) (fun i ↦ (Units.map x.toMonoidHom).comp (χ i))) :
-    ∀ r ∈ detOrdTilde.ideal ρ₀ χ, x r = 0 := (detOrdTilde.factor_iff ρ₀ χ x).mpr h
+variable (W : OrdinaryParameters 𝒪 𝔽 Γ n)
+variable (ρ₀ : Γ →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+variable (hflag : ∃ F : FullFlag 𝔽 n, IsOrdinaryFlag ρ₀ W.residualCharacter F)
+
+/-- The framed ring over `Λ`, obtained from the framed ring over `𝒪`. -/
+abbrev OrdinaryFramedRing := CompletedTensor 𝒪 (LiftingRing 𝒪 n ρ₀) W.weight
+
+instance : IsLocalRing (OrdinaryFramedRing W ρ₀) := sorry
+instance : IsNoetherianRing (OrdinaryFramedRing W ρ₀) := sorry
+instance : TopologicalSpace (OrdinaryFramedRing W ρ₀) := sorry
+instance : IsAdicComplete (IsLocalRing.maximalIdeal (OrdinaryFramedRing W ρ₀))
+    (OrdinaryFramedRing W ρ₀) := sorry
+instance : Algebra W.weight (OrdinaryFramedRing W ρ₀) :=
+  (CompletedTensor.inr 𝒪 (LiftingRing 𝒪 n ρ₀) W.weight).toRingHom.toAlgebra
+
+/-- `R̃^□ = R^□⊗̂_ΛΛ̃`, the carrier of both universal representations and full characters. -/
+abbrev OrdinaryExtendedRing := CompletedTensor W.weight (OrdinaryFramedRing W ρ₀) (ordinaryWeightRingTilde W)
+
+/-- The representation in the extended ring. -/
+def ordinaryExtendedRep : Γ →* GL (Fin n) (OrdinaryExtendedRing W ρ₀) :=
+  (Matrix.GeneralLinearGroup.map (CompletedTensor.inl W.weight (OrdinaryFramedRing W ρ₀)
+    (ordinaryWeightRingTilde W)).toRingHom).comp
+      (pointRep (CompletedTensor.inl 𝒪 (LiftingRing 𝒪 n ρ₀) W.weight).toRingHom)
+
+def ordinaryExtendedCharacter (i : Fin n) : Γ →* (OrdinaryExtendedRing W ρ₀)ˣ :=
+  (Units.map (CompletedTensor.inr W.weight (OrdinaryFramedRing W ρ₀)
+    (ordinaryWeightRingTilde W)).toMonoidHom).comp (W.fullCharacter i)
+
+/-- The defining equations in the extended ring, including every ordered tuple. -/
+def detOrdTilde.ideal : Ideal (OrdinaryExtendedRing W ρ₀) := Ideal.span
+  ({r | ∃ (g : Γ) (j : ℕ), r =
+      ((ordinaryExtendedRep W ρ₀ g : Matrix (Fin n) (Fin n) _).charpoly).coeff j -
+        (∏ i, (Polynomial.X - Polynomial.C (ordinaryExtendedCharacter W ρ₀ i g :
+          OrdinaryExtendedRing W ρ₀))).coeff j} ∪
+   {r | ∃ (g : Fin n → Γ) (i j : Fin n), r =
+      (List.ofFn fun k ↦ ((ordinaryExtendedRep W ρ₀ (g k) : Matrix (Fin n) (Fin n) (OrdinaryExtendedRing W ρ₀)) -
+        (ordinaryExtendedCharacter W ρ₀ k (g k) : OrdinaryExtendedRing W ρ₀) • (1 : Matrix (Fin n) (Fin n) (OrdinaryExtendedRing W ρ₀)))).prod i j})
+
+abbrev detOrdTilde := OrdinaryExtendedRing W ρ₀ ⧸ detOrdTilde.ideal W ρ₀
+
+/-- The structural homomorphism from the unextended framed ring. -/
+def detOrdTilde.structural : OrdinaryFramedRing W ρ₀ →ₐ[W.weight] detOrdTilde W ρ₀ :=
+  (Ideal.Quotient.mkₐ W.weight (detOrdTilde.ideal W ρ₀)).comp
+    (CompletedTensor.inl W.weight (OrdinaryFramedRing W ρ₀) (ordinaryWeightRingTilde W))
+
+/-- **`L8/determinant-ordinary-ring`**: the image subalgebra, with its inherited ring
+and structural maps. The characters need not take values in this image. -/
+def detOrd.image : Subalgebra W.weight (detOrdTilde W ρ₀) := (detOrdTilde.structural W ρ₀).range
+abbrev detOrd := detOrd.image W ρ₀
+
+def detOrd.structural : OrdinaryFramedRing W ρ₀ →ₐ[W.weight] detOrd W ρ₀ :=
+  (detOrdTilde.structural W ρ₀).rangeRestrict
+
+theorem detOrd.image_eq : detOrd.image W ρ₀ = (detOrdTilde.structural W ρ₀).range := rfl
+
+/-- Characteristic polynomials and ordered products hold in the extended quotient. -/
+theorem detOrdTilde_charpoly :
+    ∀ g, ((Matrix.GeneralLinearGroup.map (Ideal.Quotient.mk (detOrdTilde.ideal W ρ₀))
+      (ordinaryExtendedRep W ρ₀ g) : Matrix (Fin n) (Fin n) (detOrdTilde W ρ₀)).charpoly) =
+        ∏ i, (Polynomial.X - Polynomial.C (Ideal.Quotient.mk _
+          (ordinaryExtendedCharacter W ρ₀ i g : OrdinaryExtendedRing W ρ₀))) := sorry
+
+theorem detOrdTilde_product :
+    IsDetOrdinary ((Matrix.GeneralLinearGroup.map (Ideal.Quotient.mk (detOrdTilde.ideal W ρ₀))).comp
+      (ordinaryExtendedRep W ρ₀))
+      (fun i ↦ (Units.map (Ideal.Quotient.mk (detOrdTilde.ideal W ρ₀)).toMonoidHom).comp
+        (ordinaryExtendedCharacter W ρ₀ i)) := sorry
+
+/-- The universal quotient is characterized on maps out of the extended ring. -/
+theorem detOrdTilde.factor_iff {B : Type u} [CommRing B]
+    (x : OrdinaryExtendedRing W ρ₀ →+* B) :
+    (∀ r ∈ detOrdTilde.ideal W ρ₀, x r = 0) ↔
+      IsDetOrdinary ((Matrix.GeneralLinearGroup.map x).comp (ordinaryExtendedRep W ρ₀))
+        (fun i ↦ (Units.map x.toMonoidHom).comp (ordinaryExtendedCharacter W ρ₀ i)) := sorry
+
+/-- Descent through an injection, with characters available only over the larger ring.
+ACC+ §6.2.6, p. 139. The inertial restrictions are prescribed by `Λ`. -/
+theorem detOrd_universal {R S : Type u} [CommRing R] [CommRing S]
+    [IsLocalRing R] [IsLocalRing S] [IsNoetherianRing R] [IsNoetherianRing S]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [IsAdicComplete (IsLocalRing.maximalIdeal S) S]
+    [Algebra W.weight R] [Algebra W.weight S] [TopologicalSpace R] [TopologicalSpace S]
+    (hR : IsAdic (IsLocalRing.maximalIdeal R)) (hS : IsAdic (IsLocalRing.maximalIdeal S))
+    (πR : R →+* 𝔽) (πS : S →+* 𝔽)
+    (hπR : Function.Surjective πR ∧ RingHom.ker πR = IsLocalRing.maximalIdeal R)
+    (hπS : Function.Surjective πS ∧ RingHom.ker πS = IsLocalRing.maximalIdeal S)
+    (hbaseR : ∀ a, πR (algebraMap W.weight R a) = W.residue a)
+    (hbaseS : ∀ a, πS (algebraMap W.weight S a) = W.residue a)
+    (x : OrdinaryFramedRing W ρ₀ →ₐ[W.weight] R) (ι : R →ₐ[W.weight] S)
+    (hι : Function.Injective ι) (hcx : Continuous x) (hcι : Continuous ι)
+    (hlx : Ideal.comap x.toRingHom (IsLocalRing.maximalIdeal R) = IsLocalRing.maximalIdeal (OrdinaryFramedRing W ρ₀))
+    (hlι : Ideal.comap ι.toRingHom (IsLocalRing.maximalIdeal S) = IsLocalRing.maximalIdeal R)
+    (hπ : πS.comp ι.toRingHom = πR)
+    (hres : ∀ g, Matrix.GeneralLinearGroup.map πR
+      (pointRep (x.toRingHom.comp (CompletedTensor.inl 𝒪 (LiftingRing 𝒪 n ρ₀) W.weight).toRingHom) g) = ρ₀ g)
+    (χ : Fin n → Γ →* Sˣ) (hc : ∀ i, Continuous fun g ↦ (χ i g : S))
+    (hχ : ∀ i g, Units.map πS.toMonoidHom (χ i g) = W.residualCharacter i g)
+    (hI : ∀ i (g : W.inertia), χ i g = Units.map (algebraMap W.weight S).toMonoidHom (W.inertialCharacter i g))
+    (h : IsDetOrdinary ((Matrix.GeneralLinearGroup.map (ι.comp x).toRingHom).comp
+      (pointRep (CompletedTensor.inl 𝒪 (LiftingRing 𝒪 n ρ₀) W.weight).toRingHom)) χ) :
+    ∃! y : detOrd W ρ₀ →ₐ[W.weight] R, y.comp (detOrd.structural W ρ₀) = x := sorry
+
+/-- **`L8/det-ord-finite`**, Lemma 6.2.9, p. 139: the complete extended quotient is
+finite over the actual image subring. Integrality of individual values is supplementary. -/
+theorem detOrd_finite (hflag : ∃ F : FullFlag 𝔽 n, IsOrdinaryFlag ρ₀ W.residualCharacter F) :
+    Module.Finite (detOrd W ρ₀) (detOrdTilde W ρ₀) := sorry
+
+end DeterminantOrdinary
 
 /-- `detOrd_n_one` (degenerate): for `n = 1` the condition says `ρ = χ₁`. -/
 example (ρ : G →* GL (Fin 1) A) (χ : Fin 1 → G →* Aˣ) :
@@ -1177,6 +2450,178 @@ end L8
 
 /-! ## L7: local models and arbitrary dimension -/
 
+/-! The coefficient rings and étale φ-modules below are the interfaces of
+FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4. This section constructs only
+lattices in the module of a deformation family and their local model. -/
+
+namespace BKFamily
+
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+variable (B : Type u) [CommRing B] [Algebra ℤ_[p] B]
+
+/-- `W(k)[[u]]` with coefficients in `B`, in the R07.4 coefficient category. -/
+def series (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+    (B : Type u) [CommRing B] [Algebra ℤ_[p] B] : Type u := sorry
+instance : CommRing (series p K B) := sorry
+instance : Algebra B (series p K B) := sorry
+/-- The completed étale coefficient ring, with `u` inverted. -/
+def etale (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+    (B : Type u) [CommRing B] [Algebra ℤ_[p] B] : Type u := sorry
+instance : CommRing (etale p K B) := sorry
+instance : Algebra (series p K B) (etale p K B) := sorry
+instance : Algebra B (etale p K B) := sorry
+instance : IsScalarTower B (series p K B) (etale p K B) := sorry
+
+def eisenstein : series p K B := sorry
+def frobenius : series p K B →+* series p K B := sorry
+
+/-- The R07.4 étale φ-module attached to `V_B`, in the chosen contravariant convention. -/
+def module (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+    (B : Type u) [CommRing B] [Algebra ℤ_[p] B] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Type u := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    AddCommGroup (module p K B ρ) := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    Module (etale p K B) (module p K B ρ) := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    Module (series p K B) (module p K B ρ) := sorry
+instance {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    IsScalarTower (series p K B) (etale p K B) (module p K B ρ) := sorry
+
+def phi {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    module p K B ρ →ₛₗ[frobenius p K B] module p K B ρ := sorry
+
+/-- Scalar pullback along φ: `S ⊗_{φ,S} L`. -/
+def phiPullback (S : Type u) [CommRing S] (φ : S →+* S)
+    (L : Type u) [AddCommGroup L] [Module S L] : Type u :=
+  letI : Algebra S S := φ.toAlgebra
+  TensorProduct S S L
+instance (S : Type u) [CommRing S] (φ : S →+* S)
+    (L : Type u) [AddCommGroup L] [Module S L] : AddCommGroup (phiPullback S φ L) := sorry
+instance (S : Type u) [CommRing S] (φ : S →+* S)
+    (L : Type u) [AddCommGroup L] [Module S L] : Module S (phiPullback S φ L) := sorry
+
+/-- Linearization of the restriction to a φ-stable lattice. -/
+def linearization {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (L : Submodule (series p K B) (module p K B ρ))
+    (hL : ∀ x ∈ L, phi p K B ρ x ∈ L) :
+    phiPullback (series p K B) (frobenius p K B) L →ₗ[series p K B] L := sorry
+
+/-- Constant rank means rank on every residue-field fibre, including non-domain bases. -/
+def constantRank (S : Type u) [CommRing S] (L : Type u) [AddCommGroup L] [Module S L]
+    (n : ℕ) : Prop :=
+  ∀ (P : Ideal S) [P.IsPrime], Module.finrank (IsLocalRing.ResidueField (Localization.AtPrime P))
+    (TensorProduct S (IsLocalRing.ResidueField (Localization.AtPrime P)) L) = n
+
+/-- Extension of the ambient coefficient φ-module along `B → B′`. -/
+def coefficientMap {B' : Type u} [CommRing B'] [Algebra ℤ_[p] B']
+    (f : B →ₐ[ℤ_[p]] B') : series p K B →+* series p K B' := sorry
+
+def moduleMap {B' : Type u} [CommRing B'] [Algebra ℤ_[p] B']
+    (f : B →ₐ[ℤ_[p]] B') {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    module p K B ρ →ₛₗ[coefficientMap p K B f]
+      module p K B' ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) := sorry
+
+end BKFamily
+
+section HeightLattices
+
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (B : Type u) [CommRing B] [Algebra ℤ_[p] B] {n : ℕ}
+variable (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+
+/-- **`L7/finite-height-lattices`**: actual projective, spanning, φ-stable
+submodules; the last condition kills the cokernel of linearized Frobenius. -/
+structure heightLatticeFunctor (h : ℕ) where
+  lattice : Submodule (BKFamily.series p K B) (BKFamily.module p K B ρ)
+  finite : Module.Finite (BKFamily.series p K B) lattice
+  projective : Module.Projective (BKFamily.series p K B) lattice
+  rank : BKFamily.constantRank (BKFamily.series p K B) lattice n
+  spanning : Submodule.span (BKFamily.etale p K B) (lattice : Set (BKFamily.module p K B ρ)) = ⊤
+  phi_stable : ∀ x ∈ lattice, BKFamily.phi p K B ρ x ∈ lattice
+  height : ∀ x : lattice, (BKFamily.eisenstein p K B) ^ h • x ∈
+    LinearMap.range (BKFamily.linearization p K B ρ lattice phi_stable)
+
+/-- These extra fields are properties of the underlying submodule. -/
+theorem heightLatticeFunctor.ext {h : ℕ} (L L' : heightLatticeFunctor p K B ρ h)
+    (heq : L.lattice = L'.lattice) : L = L' := sorry
+
+/-- Coefficient base change is the submodule generated by the image of the lattice. -/
+def heightLatticeFunctor.map {h : ℕ} {B' : Type u} [CommRing B'] [Algebra ℤ_[p] B']
+    (f : B →ₐ[ℤ_[p]] B') (L : heightLatticeFunctor p K B ρ h) :
+    heightLatticeFunctor p K B' ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) h := sorry
+
+theorem heightLatticeFunctor.map_lattice {h : ℕ} {B' : Type u} [CommRing B'] [Algebra ℤ_[p] B']
+    (f : B →ₐ[ℤ_[p]] B') (L : heightLatticeFunctor p K B ρ h) :
+    (heightLatticeFunctor.map p K B ρ f L).lattice = Submodule.span (BKFamily.series p K B')
+      ((BKFamily.moduleMap p K B f ρ) '' (L.lattice : Set _)) := sorry
+
+theorem heightLatticeFunctor.map_id {h : ℕ} (L : heightLatticeFunctor p K B ρ h) :
+    HEq (heightLatticeFunctor.map p K B ρ (AlgHom.id ℤ_[p] B) L) L := sorry
+
+theorem heightLatticeFunctor.map_comp {h : ℕ} {B' B'' : Type u}
+    [CommRing B'] [CommRing B''] [Algebra ℤ_[p] B'] [Algebra ℤ_[p] B'']
+    (f : B →ₐ[ℤ_[p]] B') (g : B' →ₐ[ℤ_[p]] B'') (L : heightLatticeFunctor p K B ρ h) :
+    HEq (heightLatticeFunctor.map p K B ρ (g.comp f) L)
+      (heightLatticeFunctor.map p K B' ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) g
+        (heightLatticeFunctor.map p K B ρ f L)) := sorry
+
+/-- Increasing the height bound keeps the same projective lattice. -/
+def heightLatticeFunctor.mono {h h' : ℕ} (hh : h ≤ h')
+    (L : heightLatticeFunctor p K B ρ h) : heightLatticeFunctor p K B ρ h' := sorry
+
+theorem heightLatticeFunctor.mono_lattice {h h' : ℕ} (hh : h ≤ h')
+    (L : heightLatticeFunctor p K B ρ h) :
+    (heightLatticeFunctor.mono p K B ρ hh L).lattice = L.lattice := sorry
+
+theorem heightLatticeFunctor_subsingleton (h : ℕ) [Module.Finite ℤ_[p] B] [Module.Flat ℤ_[p] B] :
+    Subsingleton (heightLatticeFunctor p K B ρ h) := sorry
+
+/-- The unique finite-height submodule in R07.4, without assuming projectivity. -/
+def BKFamily.uniqueFiniteHeightLattice (h : ℕ) :
+    Option (Submodule (BKFamily.series p K B) (BKFamily.module p K B ρ)) := sorry
+
+/-- Existence retains the projectivity requirement; height alone is insufficient. -/
+theorem heightLatticeFunctor_nonempty_iff (h : ℕ) [Module.Finite ℤ_[p] B] [Module.Flat ℤ_[p] B] :
+    Nonempty (heightLatticeFunctor p K B ρ h) ↔
+      ∃ L, BKFamily.uniqueFiniteHeightLattice p K B ρ h = some L ∧
+        Module.Projective (BKFamily.series p K B) L := sorry
+
+/-- **`L7/height-lattice-moduli`**: the projective local model of the lattice functor. -/
+def heightLatticeModuli (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (B : Type u) [CommRing B] [Algebra ℤ_[p] B] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) (h : ℕ) [IsLocalRing B] [IsNoetherianRing B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [Finite (IsLocalRing.ResidueField B)] [TopologicalSpace B]
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) : AlgebraicGeometry.Scheme := sorry
+
+def heightLatticeModuli.toSpec (h : ℕ) [IsLocalRing B] [IsNoetherianRing B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [Finite (IsLocalRing.ResidueField B)] [TopologicalSpace B]
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) :
+    heightLatticeModuli p K B ρ h hc ⟶ AlgebraicGeometry.Spec (.of B) := sorry
+
+theorem heightLatticeModuli.proper (h : ℕ) [IsLocalRing B] [IsNoetherianRing B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [Finite (IsLocalRing.ResidueField B)] [TopologicalSpace B]
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) :
+    AlgebraicGeometry.IsProper (heightLatticeModuli.toSpec p K B ρ h hc) := sorry
+
+/-- Representation on the nilpotent coefficient category of Kisin Proposition 1.3,
+pp. 13–14. The finite-flat and characteristic-zero point interpretations are separate. -/
+theorem heightLatticeModuli.points (h : ℕ) [IsLocalRing B] [IsNoetherianRing B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [Finite (IsLocalRing.ResidueField B)] [TopologicalSpace B]
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B))
+    (C : Type u) [CommRing C] [Algebra B C] [Algebra ℤ_[p] C] [IsScalarTower ℤ_[p] B C]
+    (hC : ∃ i : ℕ, ∀ b ∈ (IsLocalRing.maximalIdeal B)^i, algebraMap B C b = 0) :
+    Nonempty ({x : AlgebraicGeometry.Spec (.of C) ⟶ heightLatticeModuli p K B ρ h hc //
+      x ≫ heightLatticeModuli.toSpec p K B ρ h hc = AlgebraicGeometry.Spec.map (CommRingCat.ofHom (algebraMap B C))} ≃
+      heightLatticeFunctor p K C ((Matrix.GeneralLinearGroup.map (algebraMap B C)).comp ρ) h) := sorry
+
+end HeightLattices
+
 section L7
 
 variable {A : Type*} [CommRing A] {n : ℕ}
@@ -1187,7 +2632,7 @@ def HasHeightLE (E : A) (X : Matrix (Fin n) (Fin n) A) (h : ℕ) : Prop :=
   ∃ Y : Matrix (Fin n) (Fin n) A, X * Y = E ^ h • (1 : Matrix (Fin n) (Fin n) A)
 
 /-- API `heightLatticeFunctor.mono`: height `≤ h` implies height `≤ h'` for `h ≤ h'`. -/
-theorem heightLatticeFunctor.mono (E : A) (X : Matrix (Fin n) (Fin n) A) {h h' : ℕ} (hh : h ≤ h')
+theorem HasHeightLE.mono (E : A) (X : Matrix (Fin n) (Fin n) A) {h h' : ℕ} (hh : h ≤ h')
     (H : HasHeightLE E X h) : HasHeightLE E X h' := by
   obtain ⟨Y, hY⟩ := H
   refine ⟨E ^ (h' - h) • Y, ?_⟩
@@ -1246,41 +2691,41 @@ theorem ordinaryFlagScheme.baseChange_mem {B : Type*} [CommRing B] (f : A →+* 
 example {G : Type*} [Group G] (ρ : G →* GL (Fin 1) A) (χ : Fin 1 → G →* Aˣ) (F : FullFlag A 1) :
     IsOrdinaryFlag ρ χ F ↔ ∀ g, (ρ g : Matrix (Fin 1) (Fin 1) A) 0 0 = ((χ 0 g : Aˣ) : A) := sorry
 
-/-- **`L7/connects-relation`**, API `Connects`: two points of a ring (in practice the potentially crystalline
+/-- **`L7/connects-relation`**, API `SameComponent`: two points of a ring (in practice the potentially crystalline
 lifting ring of fixed weights) connect if they lie on a common irreducible component. -/
-def Connects {R B : Type*} [CommRing R] [CommRing B] (x y : R →+* B) : Prop :=
+def SameComponent {R B : Type*} [CommRing R] [CommRing B] (x y : R →+* B) : Prop :=
   ∃ P ∈ minimalPrimes R, P ≤ RingHom.ker x ∧ P ≤ RingHom.ker y
 
-/-- API `Connects.symm`. -/
-theorem Connects.symm {R B : Type*} [CommRing R] [CommRing B] {x y : R →+* B} (h : Connects x y) :
-    Connects y x := by
+/-- API `SameComponent.symm`. -/
+theorem SameComponent.symm {R B : Type*} [CommRing R] [CommRing B] {x y : R →+* B} (h : SameComponent x y) :
+    SameComponent y x := by
   obtain ⟨P, hP, hx, hy⟩ := h
   exact ⟨P, hP, hy, hx⟩
 
-/-- API `Connects.trans_of_smooth`: on points lying on a unique component, connecting is transitive. -/
-theorem Connects.trans_of_smooth {R B : Type*} [CommRing R] [CommRing B] {x y z : R →+* B}
+/-- API `SameComponent.trans_of_smooth`: on points lying on a unique component, connecting is transitive. -/
+theorem SameComponent.trans_of_smooth {R B : Type*} [CommRing R] [CommRing B] {x y z : R →+* B}
     (hy : ∀ P ∈ minimalPrimes R, ∀ Q ∈ minimalPrimes R, P ≤ RingHom.ker y → Q ≤ RingHom.ker y → P = Q)
-    (h₁ : Connects x y) (h₂ : Connects y z) : Connects x z := by
+    (h₁ : SameComponent x y) (h₂ : SameComponent y z) : SameComponent x z := by
   obtain ⟨P, hP, hxP, hyP⟩ := h₁
   obtain ⟨Q, hQ, hyQ, hzQ⟩ := h₂
   have := hy P hP Q hQ hyP hyQ
   subst this
   exact ⟨P, hP, hxP, hzQ⟩
 
-/-- `connects_restrict` (compatibility) and API `Connects.restrict`: for any ring map `f : R' → R` (in
+/-- `connects_restrict` (compatibility) and API `SameComponent.restrict`: for any ring map `f : R' → R` (in
 practice the map of lifting rings induced by restriction to `G_{K'}`), two points of `R` that connect give
 points of `R'` that connect: the preimage of a common minimal prime contains a minimal prime of `R'`. -/
-theorem Connects.restrict {R R' B : Type*} [CommRing R] [CommRing R'] [CommRing B] (f : R' →+* R)
-    {x y : R →+* B} (h : Connects x y) : Connects (x.comp f) (y.comp f) := by
+theorem SameComponent.restrict {R R' B : Type*} [CommRing R] [CommRing R'] [CommRing B] (f : R' →+* R)
+    {x y : R →+* B} (h : SameComponent x y) : SameComponent (x.comp f) (y.comp f) := by
   obtain ⟨P, hP, hx, hy⟩ := h
   have : P.IsPrime := hP.1.1
   obtain ⟨Q, hQ, hQP⟩ := Ideal.exists_minimalPrimes_le (I := (⊥ : Ideal R')) (J := P.comap f) bot_le
   exact ⟨Q, hQ, fun r hr => hx (hQP hr), fun r hr => hy (hQP hr)⟩
 
 /-- Injective coefficient extension preserves and detects the common-component relation. -/
-theorem Connects.coefficientExtension {R B C : Type*} [CommRing R] [CommRing B] [CommRing C]
+theorem SameComponent.coefficientExtension {R B C : Type*} [CommRing R] [CommRing B] [CommRing C]
     (i : B →+* C) (hi : Function.Injective i) (x y : R →+* B) :
-    Connects (i.comp x) (i.comp y) ↔ Connects x y := sorry
+    SameComponent (i.comp x) (i.comp y) ↔ SameComponent x y := sorry
 
 /-- **`L7/local-model-rho-nm0`**, API `rhoNM0`: `ρ_{n,m,0} = ⊕_i ε₂^{m(n−i)} (ε₂′)^{m(i−1)}` for characters
 `e = ε₂`, `e' = ε₂′`. -/
@@ -1303,7 +2748,7 @@ def rhoNM0Weights (n m : ℕ) : List ℕ := (List.range n).map (· * m)
 example : rhoNM0Weights 3 2 = [0, 2, 4] := by decide
 
 /-- API `rhoNM0.tensor`: the exponent identity behind `ρ_{n,m,0} ⊗ ρ_{m,1,0} ≅ ρ_{nm,1,0}`. -/
-theorem rhoNM0.tensor (n m i j : ℤ) :
+theorem rhoNM0.tensor_exponents (n m i j : ℤ) :
     m * (n - i) + (m - j) = n * m - (m * (i - 1) + j) ∧
       m * (i - 1) + (j - 1) = (m * (i - 1) + j) - 1 := by
   constructor <;> ring
@@ -1362,11 +2807,10 @@ for `R = k` this is the residual shape itself. -/
 example (M : Matrix (Fin 4) (Fin 4) A)
     (h : ∀ i j : Fin 4, 2 ≤ (i : ℕ) → (j : ℕ) < 2 → M i j = 0) : IsSiegelShape M := h
 
-/-- `siegelOrdinary_u_dim` (computation): `dim u = 3` (the unipotent radical of the Siegel parabolic in `sp₄`
-is the space of symmetric `2 × 2` matrices). -/
+/-- Supplementary arithmetic count for symmetric 2×2 matrices. -/
 example : Nat.choose 3 2 = 3 := by decide
 
-/-- **`L7/gsp4-ordinary-flag-incidence`**, test `gsp4Flag_filtration_dims`: `dim Fil^i ad⁰ = 6, 4, 2, 1, 0`. -/
+/-- Supplementary decreasing-sequence check; the Lie-space dimensions are stated below. -/
 example : [6, 4, 2, 1, 0].Pairwise (· > ·) ∧ 6 ≤ 10 := by decide
 
 /-! ### GL₃ explicit rings (`L7/gl3-explicit-rings`, `L7/gl3-explicit-ring-rows`) -/
@@ -1452,7 +2896,7 @@ example : sigma0Edges.length = 15 ∧ ∀ e ∈ sigma0Edges, e.1 < 6 ∧ 6 ≤ e
 
 /-- **`L7/ordinary-ring-with-frobenius-eigenvalue`**, API `OrdinaryWithEigenvalue.beta_relation`: with
 `α = 1 + β`, `P_φ(α) = 0` and `det φ = 1` give `β² − (φ₁ + φ₄)β − (φ₁ + φ₄) = 0`. -/
-theorem OrdinaryWithEigenvalue.beta_relation (φ₁ φ₄ β : A) :
+theorem OrdinaryWithEigenvalue.beta_expansion (φ₁ φ₄ β : A) :
     (1 + β) ^ 2 - (2 + φ₁ + φ₄) * (1 + β) + 1 = β ^ 2 - (φ₁ + φ₄) * β - (φ₁ + φ₄) := by ring
 
 /-- `eigenvalueRing_trace_relation` (computation): `α + α⁻¹ = 2 + φ₁ + φ₄`. -/
@@ -1898,6 +3342,9760 @@ example : (2 : ZMod 3) • regularNilpotentModThree + regularNilpotentModThree ^
   decide
 
 end TauCeti.GaloisDeformation.Local.WorkedTest
+namespace TauCeti.GaloisDeformation.Local
+
+open AlgebraicGeometry CategoryTheory.Limits
+
+/-! The scheme operations below use actual base change. The integral-model object
+and its generic fibre are adapters for FiniteFlatGroupsAndIntegralPadicHodgeTheory
+R07.2–R07.4, rather than additional constructions of that supplier's categories. -/
+
+/-- Pull a model space back along `Spec B → Spec A`. -/
+def modelBaseChange {A : Type u} [CommRing A] {X : Scheme}
+    (f : X ⟶ Spec (.of A)) (B : Type u) [CommRing B] (ι : A →+* B) : Scheme :=
+  pullback f (Spec.map (CommRingCat.ofHom ι))
+
+def modelBaseChange.toSpec {A : Type u} [CommRing A] {X : Scheme}
+    (f : X ⟶ Spec (.of A)) (B : Type u) [CommRing B] (ι : A →+* B) :
+    modelBaseChange f B ι ⟶ Spec (.of B) := pullback.snd _ _
+
+/-- Kernel of the structural map to global sections: the affine image ideal. -/
+def modelImageIdeal {A : Type u} [CommRing A] {X : Scheme} (f : X ⟶ Spec (.of A)) : Ideal A :=
+  RingHom.ker (((Scheme.ΓSpecIso (.of A)).inv ≫ f.appTop).hom)
+
+/-- Integral finite-flat group objects, as supplied by R07.2. -/
+def FiniteFlatObject (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [Algebra ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] K] : Type (u+1) := sorry
+
+def FiniteFlatObject.genericPoints {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Type u := sorry
+instance {p : ℕ} [Fact p.Prime] {K : Type u} [Field K] [Algebra ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : AddCommGroup H.genericPoints := sorry
+instance {p : ℕ} [Fact p.Prime] {K : Type u} [Field K] [Algebra ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Module ℤ_[p] H.genericPoints := sorry
+
+def FiniteFlatObject.genericAction {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) :
+    Field.absoluteGaloisGroup K →* (H.genericPoints ≃ₗ[ℤ_[p]] H.genericPoints) := sorry
+
+/-- Endomorphisms of the integral group object, with generic fibre on endomorphisms. -/
+def FiniteFlatObject.End {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Type u := sorry
+instance {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Ring H.End := sorry
+
+def FiniteFlatObject.genericEnd {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) :
+    H.End →+* Module.End ℤ_[p] H.genericPoints := sorry
+
+/-- A model includes its coefficient action and the specified generic-fibre identification. -/
+structure FiniteFlatModel (p : ℕ) [Fact p.Prime] (K B : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing B] [Algebra ℤ_[p] B]
+    {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) where
+  group : FiniteFlatObject p K
+  [coefficientAction : Module B group.genericPoints]
+  [scalarTower : IsScalarTower ℤ_[p] B group.genericPoints]
+  integralAction : B →+* group.End
+  action_compatible : ∀ b x, group.genericEnd (integralAction b) x = b • x
+  identify : group.genericPoints ≃ₗ[B] (Fin n → B)
+  equivariance : ∀ g x, identify (group.genericAction g x) =
+    Matrix.mulVec (ρ g : Matrix (Fin n) (Fin n) B) (identify x)
+
+attribute [instance] FiniteFlatModel.coefficientAction FiniteFlatModel.scalarTower
+
+/-- Finite-flatness is required on every Artinian quotient. -/
+def IsFlatLift (p : ℕ) [Fact p.Prime] (K B : Type u) [Field K] [Algebra ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] K] [CommRing B] [Algebra ℤ_[p] B] [IsLocalRing B]
+    {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop :=
+  ∀ I : Ideal B, (∃ r : ℕ, (IsLocalRing.maximalIdeal B)^r ≤ I) →
+    Nonempty (FiniteFlatModel p K (B ⧸ I) ((Matrix.GeneralLinearGroup.map (Ideal.Quotient.mk I)).comp ρ))
+
+section IntegralModelSpaces
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (A : Type u) [CommRing A] [Algebra ℤ_[p] A] [IsLocalRing A] [IsNoetherianRing A]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+variable [TopologicalSpace A] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) A)
+variable (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A))
+
+/-- **`R08.4/finite-flat-model-moduli`**, the height-one specialization. -/
+abbrev finiteFlatModels := heightLatticeModuli p K A ρ 1 hc
+abbrev finiteFlatModels_toFlat := heightLatticeModuli.toSpec p K A ρ 1 hc
+
+theorem finiteFlatModels.proper : IsProper (finiteFlatModels_toFlat p K A ρ hc) :=
+  heightLatticeModuli.proper p K A ρ 1 hc
+
+/-- This is the closed-point fibre, distinct from the uniformizer special fibre. -/
+abbrev finiteFlatModels.closedFibre := modelBaseChange (finiteFlatModels_toFlat p K A ρ hc)
+  (IsLocalRing.ResidueField A) (IsLocalRing.residue A)
+
+/-- **`R08.4/finite-flat-model-moduli`**, Kisin Corollary 1.2.13, p. 14. -/
+theorem finiteFlatModels_closedFibre (hp : p≠2) (k' : Type u) [Field k']
+    [Algebra (IsLocalRing.ResidueField A) k'] [Algebra ℤ_[p] k']
+    [Algebra A k'] [IsScalarTower A (IsLocalRing.ResidueField A) k']
+    [IsScalarTower ℤ_[p] A k'] :
+    Nonempty ({x : Spec (.of k') ⟶ finiteFlatModels.closedFibre p K A ρ hc //
+      x ≫ modelBaseChange.toSpec (finiteFlatModels_toFlat p K A ρ hc)
+        (IsLocalRing.ResidueField A) (IsLocalRing.residue A) =
+          Spec.map (CommRingCat.ofHom (algebraMap (IsLocalRing.ResidueField A) k'))} ≃
+      FiniteFlatModel p K k' ((Matrix.GeneralLinearGroup.map (algebraMap A k')).comp ρ)) := sorry
+
+/-- General coefficient points use the same lattice functor and carry the identification. -/
+theorem finiteFlatModels.points (B : Type u) [CommRing B] [Algebra A B]
+    [Algebra ℤ_[p] B] [IsScalarTower ℤ_[p] A B]
+    (hB : ∃ r : ℕ, ∀ a ∈ (IsLocalRing.maximalIdeal A)^r, algebraMap A B a = 0) :
+    Nonempty ({x : Spec (.of B) ⟶ finiteFlatModels p K A ρ hc //
+      x ≫ finiteFlatModels_toFlat p K A ρ hc = Spec.map (CommRingCat.ofHom (algebraMap A B))} ≃
+      heightLatticeFunctor p K B ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ) 1) :=
+  heightLatticeModuli.points p K A ρ 1 hc B hB
+
+/-- The generic-fibre map of the height-lattice space is a closed immersion. -/
+theorem heightLatticeModuli.generic_closedImmersion (h : ℕ) :
+    IsClosedImmersion (modelBaseChange.toSpec (heightLatticeModuli.toSpec p K A ρ h hc)
+      (GenericFibre (p : A) A) (algebraMap A (GenericFibre (p : A) A))) := sorry
+
+/-- The height quotient is the actual affine scheme-theoretic image. -/
+def heightImageIdeal (h : ℕ) : Ideal A := modelImageIdeal (heightLatticeModuli.toSpec p K A ρ h hc)
+abbrev heightImageRing (h : ℕ) := A ⧸ heightImageIdeal p K A ρ hc h
+
+/-- **`L7/height-lattice-moduli`**, the finite characteristic-zero point criterion. -/
+theorem heightImageRing.points (h : ℕ) (B : Type u) [CommRing B] [Algebra ℚ_[p] B]
+    [Module.Finite ℚ_[p] B] [Algebra A B] [Algebra ℤ_[p] B] [IsScalarTower ℤ_[p] A B] :
+    (∀ a ∈ heightImageIdeal p K A ρ hc h, algebraMap A B a = 0) ↔
+      Nonempty (heightLatticeFunctor p K B ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ) h) := sorry
+
+/-- The labelled determinant condition uses the supplier's filtered height-one lattice. -/
+def heightLatticeHodgeRanks (B : Type u) [CommRing B] [Algebra ℤ_[p] B]
+    (ρB : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (L : heightLatticeFunctor p K B ρB 1) : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ := sorry
+
+/-- **`R08.4/hodge-type-resolution`**: the quotient selecting these components. -/
+def flatHodgeTypeQuotientIdeal (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (A : Type u) [CommRing A] [Algebra ℤ_[p] A] [IsLocalRing A] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+    [TopologicalSpace A] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) A)
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A))
+    (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ) : Ideal A := sorry
+abbrev flatHodgeTypeQuotient (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ) :=
+  A ⧸ flatHodgeTypeQuotientIdeal p K A ρ hc v
+
+/-- The flat closure of the Hodge-type lattice space, rather than its entire closed fibre. -/
+def flatResolution (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    (A : Type u) [CommRing A] [Algebra ℤ_[p] A] [IsLocalRing A] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+    [TopologicalSpace A] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) A)
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A))
+    (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ) : Scheme := sorry
+
+def flatResolution.toSpec (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ) :
+    flatResolution p K A ρ hc v ⟶ Spec (.of (flatHodgeTypeQuotient p K A ρ hc v)) := sorry
+
+theorem flatResolution.proper (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ) :
+    IsProper (flatResolution.toSpec p K A ρ hc v) := sorry
+
+/-- After inverting p the resolution is an isomorphism for a reduced generic
+flat family at odd p. The formally smooth universal flat family satisfies these
+hypotheses; no assertion is made for an arbitrary nonreduced pullback. -/
+theorem flatResolution_generic_iso (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ)
+    (hp : p≠2) (hflat : IsFlatLift p K A ρ)
+    [IsReduced (GenericFibre (p : A) A)] :
+    IsIso (modelBaseChange.toSpec (flatResolution.toSpec p K A ρ hc v)
+      (GenericFibre (p : flatHodgeTypeQuotient p K A ρ hc v) (flatHodgeTypeQuotient p K A ρ hc v))
+      (algebraMap _ _)) := sorry
+
+end IntegralModelSpaces
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+section FlagGeometry
+variable {Γ A : Type u} [Group Γ] [CommRing A] [IsNoetherianRing A] {n : ℕ}
+
+/-- **`L7/ordinary-flag-scheme`**: closed incidence scheme of stable flags with
+ordered inertial characters (ACC+ §6.2.6, pp. 136–138). -/
+def ordinaryFlagScheme (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) : Scheme := sorry
+
+def ordinaryFlagScheme.toSpec (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) : ordinaryFlagScheme I ρ χ ⟶ Spec (.of A) := sorry
+
+theorem ordinaryFlagScheme_proper (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) : IsProper (ordinaryFlagScheme.toSpec I ρ χ) := sorry
+
+/-- The existing flag-level point description is represented by this scheme. -/
+theorem ordinaryFlagScheme.represents (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) (B : Type u) [CommRing B] [IsLocalRing B] [Algebra A B] :
+    Nonempty ({x : Spec (.of B) ⟶ ordinaryFlagScheme I ρ χ //
+      x ≫ ordinaryFlagScheme.toSpec I ρ χ = Spec.map (CommRingCat.ofHom (algebraMap A B))} ≃
+      ordinaryFlagScheme.points I ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ)
+        (fun i ↦ (Units.map (algebraMap A B).toMonoidHom).comp (χ i))) := sorry
+
+/-- The image is a ring with its inherited structural map; no flat closure is taken. -/
+def ordinaryFlagImage (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) : Type u :=
+  A ⧸ modelImageIdeal (ordinaryFlagScheme.toSpec I ρ χ)
+
+/-- The image criterion over a complete local domain may require an algebraic
+closure of its fraction field to find a stable flag. -/
+theorem ordinaryFlagImage_points (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A)
+    (χ : Fin n → Γ →* Aˣ) (B C : Type u) [CommRing B] [IsDomain B]
+    [IsLocalRing B] [IsNoetherianRing B] [IsAdicComplete (IsLocalRing.maximalIdeal B) B]
+    [Algebra A B] [Field C] [Algebra B C] [Algebra (FractionRing B) C]
+    [IsAlgClosure (FractionRing B) C] [IsFractionRing B (FractionRing B)]
+    [Algebra A C] [IsScalarTower A B C]
+    (x : A →ₐ[A] B) (hc : ∀ a, x a = algebraMap A B a) :
+    (∀ a ∈ modelImageIdeal (ordinaryFlagScheme.toSpec I ρ χ), x a = 0) ↔
+      Nonempty (ordinaryFlagScheme.points I
+        ((Matrix.GeneralLinearGroup.map (algebraMap A C)).comp ρ)
+        (fun i ↦ (Units.map (algebraMap A C).toMonoidHom).comp (χ i))) := sorry
+end FlagGeometry
+
+/-- The standard flag, with `Fil_j` spanned by the first `j` basis vectors. -/
+def standardFlag (A : Type u) [CommRing A] (n : ℕ) : FullFlag A n := sorry
+
+theorem standardFlag_mem (A : Type u) [CommRing A] (n : ℕ)
+    (j : Fin (n+1)) (x : Fin n → A) :
+    x ∈ (standardFlag A n).Fil j ↔ ∀ k : Fin n, (j : ℕ) ≤ k.val → x k = 0 := sorry
+
+/-- Orthogonal complement for the fixed antidiagonal alternating form. -/
+def GSp4.perp {A : Type u} [CommRing A] (V : Submodule A (Fin 4 → A)) :
+    Submodule A (Fin 4 → A) where
+  carrier := {x | ∀ y ∈ V, dotProduct x (Matrix.mulVec (symplecticJ : Matrix (Fin 4) (Fin 4) A) y) = 0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def GSp4.IsSymplecticFlag {A : Type u} [CommRing A] (F : FullFlag A 4) : Prop :=
+  ∀ j : Fin 5, GSp4.perp (F.Fil j) = F.Fil ⟨4-j.val, by omega⟩
+
+/-- An ordinary symplectic flag whose Lagrangian plane has trivial inertia. -/
+def GSp4.HasWeightTwoFlag {Γ A : Type u} [Group Γ] [CommRing A]
+    (I : Subgroup Γ) (r : Γ →* GL (Fin 4) A) (χ : Fin 4 → Γ →* Aˣ) : Prop :=
+  ∃ L : FullFlag A 4, GSp4.IsSymplecticFlag L ∧
+    L ∈ ordinaryFlagScheme.points (⊤ : Subgroup Γ) r χ ∧
+    ∀ (σ : I) v, v ∈ L.Fil 2 → Matrix.mulVec (r σ.val : Matrix (Fin 4) (Fin 4) A) v=v
+
+/-- Lie Sp₄, including the trace-zero fixed-multiplier condition. -/
+def GSp4.lie {E : Type u} [Field E] : Submodule E (Matrix (Fin 4) (Fin 4) E) where
+  carrier := {X | X.transpose * symplecticJ + symplecticJ * X = 0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Symplectic endomorphisms lowering the full flag by `i`. -/
+def GSp4.adFil {E : Type u} [Field E] (F : FullFlag E 4) (i : ℕ) :
+    Submodule E (Matrix (Fin 4) (Fin 4) E) := GSp4.lie ⊓ {
+  carrier := {X | ∀ (j : Fin 5) (x : Fin 4 → E), x ∈ F.Fil j →
+    Matrix.mulVec X x ∈ F.Fil ⟨j.val-i, by omega⟩}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry }
+
+/-- **`L7/gsp4-ordinary-flag-incidence`**, BCGP25 §6.2: these are dimensions
+of the actual Lie filtration, rather than a decreasing list of integers. -/
+theorem GSp4.adFil_finrank {E : Type u} [Field E] [CharZero E]
+    (F : FullFlag E 4) (hF : GSp4.IsSymplecticFlag F) :
+    (List.range 5).map (fun i ↦ Module.finrank E (GSp4.adFil F i)) = [6,4,2,1,0] := sorry
+
+example {E : Type u} [Field E] [CharZero E] :
+    (List.range 5).map (fun i ↦ Module.finrank E (GSp4.adFil (standardFlag E 4) i)) = [6,4,2,1,0] := sorry
+example {E : Type u} [Field E] [CharZero E] : Module.finrank E (GSp4.lie (E := E)) = 10 := sorry
+example {E : Type u} [Field E] [CharZero E] :
+    Module.finrank E (GSp4.adFil (standardFlag E 4) 1) = 4 := sorry
+
+section SymplecticIncidence
+variable {Γ A : Type u} [Group Γ] [CommRing A] [IsNoetherianRing A]
+
+/-- The symplectic incidence scheme, with the ordered multiplier-compatible characters. -/
+def GSp4.ordinaryFlagScheme (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g) : Scheme := sorry
+
+def GSp4.ordinaryFlagScheme.toSpec (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g) :
+    GSp4.ordinaryFlagScheme I ρ μ χ hμ hχ ⟶ Spec (.of A) := sorry
+
+theorem GSp4.ordinaryFlagScheme_proper (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g) :
+    IsProper (GSp4.ordinaryFlagScheme.toSpec I ρ μ χ hμ hχ) := sorry
+
+/-- Its coefficient points include the isotropic flag; multiplier equations remain fixed. -/
+theorem GSp4.ordinaryFlagScheme.points (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g)
+    (B : Type u) [CommRing B] [IsLocalRing B] [Algebra A B] :
+    Nonempty ({x : Spec (.of B) ⟶ GSp4.ordinaryFlagScheme I ρ μ χ hμ hχ //
+      x ≫ GSp4.ordinaryFlagScheme.toSpec I ρ μ χ hμ hχ = Spec.map (CommRingCat.ofHom (algebraMap A B))} ≃
+      {F : FullFlag B 4 // GSp4.IsSymplecticFlag F ∧ F ∈ ordinaryFlagScheme.points I
+        ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ)
+        (fun i ↦ (Units.map (algebraMap A B).toMonoidHom).comp (χ i))}) := sorry
+
+def GSp4.ordinaryImage (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g) : Type u :=
+    A ⧸ modelImageIdeal (GSp4.ordinaryFlagScheme.toSpec I ρ μ χ hμ hχ)
+
+/-- Pairwise distinct residual characters imply uniqueness and a closed immersion. -/
+theorem GSp4.ordinaryFlagScheme_closedImmersion [IsLocalRing A]
+    (I : Subgroup Γ) (ρ : Γ →* GL (Fin 4) A)
+    (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+    (hμ : ∀ g, IsGSp4 (ρ g : Matrix (Fin 4) (Fin 4) A) (μ g : A))
+    (hχ : ∀ g, χ 0 g * χ 3 g = μ g ∧ χ 1 g * χ 2 g = μ g)
+    (hdist : Pairwise fun i j ↦ (Units.map (IsLocalRing.residue A).toMonoidHom).comp (χ i) ≠
+      (Units.map (IsLocalRing.residue A).toMonoidHom).comp (χ j)) :
+    IsClosedImmersion (GSp4.ordinaryFlagScheme.toSpec I ρ μ χ hμ hχ) := sorry
+end SymplecticIncidence
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Labelled dominant weights, with the source's order of the `n` entries. -/
+structure DominantWeight (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] (n : ℕ) where
+  value : (K →ₐ[ℚ_[p]] E) → Fin n → ℤ
+  dominant : ∀ σ, Antitone (value σ)
+
+/-- ClassFieldTheory's algebraic inertia character with exponent
+`−wt_{σ,n−i}−i`, for the geometric-Frobenius Artin convention. -/
+def ordinaryInertialCharacter (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K]
+    {n : ℕ} (wt : DominantWeight p K E n) (i : Fin n) : localInertia p K →* Eˣ := sorry
+
+section OrdinaryWeights
+variable (p : ℕ) [Fact p.Prime] (K E B : Type u) [Field K] [CharZero K] [Field E] [CommRing B]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K]
+variable [Algebra E B] [Module.Finite E B] {n : ℕ} (wt : DominantWeight p K E n)
+variable (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+
+/-- **`L7/ordinary-of-weight-lambda`**: a full flag, with its ordered characters,
+and equality with the algebraic inertia characters on an open subgroup. -/
+def IsOrdinaryOfWeight : Prop :=
+  (letI : TopologicalSpace E := moduleTopology ℚ_[p] E;
+    letI : TopologicalSpace B := moduleTopology E B;
+    Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) ∧
+  ∃ (F : FullFlag B n) (χ : Fin n → Field.absoluteGaloisGroup K →* Bˣ),
+    IsOrdinaryFlag ρ χ F ∧ ∃ H : Subgroup (localInertia p K), IsOpen (H : Set (localInertia p K)) ∧
+      ∀ i (g : H), χ i g.val.val = Units.map (algebraMap E B).toMonoidHom
+        (ordinaryInertialCharacter p K E wt i g.val)
+
+/-- Exact inertia identities define semistable ordinarity. -/
+def IsSemistableOrdinaryOfWeight : Prop :=
+  (letI : TopologicalSpace E := moduleTopology ℚ_[p] E;
+    letI : TopologicalSpace B := moduleTopology E B;
+    Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) ∧
+  ∃ (F : FullFlag B n) (χ : Fin n → Field.absoluteGaloisGroup K →* Bˣ),
+    IsOrdinaryFlag ρ χ F ∧ ∀ i (g : localInertia p K), χ i g.val =
+      Units.map (algebraMap E B).toMonoidHom (ordinaryInertialCharacter p K E wt i g)
+
+theorem IsSemistableOrdinaryOfWeight.isOrdinary
+    (h : IsSemistableOrdinaryOfWeight p K E B wt ρ) : IsOrdinaryOfWeight p K E B wt ρ := sorry
+
+/-- Ordinary representations are potentially semistable; labelled Hodge weights
+are the displayed algebraic exponents. This includes nonparallel weights. -/
+theorem IsOrdinaryOfWeight.potentiallySemistable [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (h : IsOrdinaryOfWeight p K E B wt ρ) : IsPotentiallySemistable p K B ρ := sorry
+
+theorem IsOrdinaryOfWeight.baseChange {B' : Type u} [CommRing B'] [Algebra E B'] [Module.Finite E B']
+    (f : B →ₐ[E] B') (h : IsOrdinaryOfWeight p K E B wt ρ) :
+    IsOrdinaryOfWeight p K E B' wt ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) := sorry
+
+theorem IsSemistableOrdinaryOfWeight.baseChange {B' : Type u} [CommRing B'] [Algebra E B'] [Module.Finite E B']
+    (f : B →ₐ[E] B') (h : IsSemistableOrdinaryOfWeight p K E B wt ρ) :
+    IsSemistableOrdinaryOfWeight p K E B' wt ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) := sorry
+
+/-- Uniqueness is asserted over fields, with genuinely distinct inertia characters. -/
+theorem IsOrdinaryOfWeight.flag_unique (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [CharZero K] [Field B] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (χ : Fin n → Field.absoluteGaloisGroup K →* Bˣ) (F F' : FullFlag B n)
+    (hF : IsOrdinaryFlag ρ χ F) (hF' : IsOrdinaryFlag ρ χ F')
+    (g : localInertia p K) (hdist : Function.Injective fun i ↦ χ i g.val) : F = F' := sorry
+
+end OrdinaryWeights
+
+/-- The local absolute-group restriction map, imported from LocalGaloisGroups. -/
+def localRestriction (p : ℕ) [Fact p.Prime] (K K' : Type u) [Field K] [Field K']
+    [CharZero K] [CharZero K'] [Algebra ℚ_[p] K] [Algebra ℚ_[p] K']
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] K'] (ι : K →ₐ[ℚ_[p]] K') :
+    Field.absoluteGaloisGroup K' →* Field.absoluteGaloisGroup K := sorry
+
+/-- Restriction carries the character of weight wt to the restricted labelled weight. -/
+theorem IsOrdinaryOfWeight.restrict (p : ℕ) [Fact p.Prime] (K K' E B : Type u)
+    [Field K] [Field K'] [CharZero K] [CharZero K'] [Field E] [CommRing B]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] K'] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] K'] [Algebra E B] [Module.Finite E B]
+    (ι : K →ₐ[ℚ_[p]] K') {n : ℕ} (wt : DominantWeight p K E n) (wt' : DominantWeight p K' E n)
+    (hwt : ∀ σ i, wt'.value σ i = wt.value (σ.comp ι) i)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (h : IsOrdinaryOfWeight p K E B wt ρ) :
+    IsOrdinaryOfWeight p K' E B wt' (ρ.comp (localRestriction p K K' ι)) := sorry
+
+/-- **`L7/ordinary-condition-fixed-inertial-characters`**: the actual incidence
+condition; increasing flag index `j` corresponds to CHT's decreasing index `n−1−j`. -/
+def OrdinaryFixedInertia {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (I : Subgroup Γ) (χ : Fin n → Γ →* Aˣ) (ρ : Γ →* GL (Fin n) A) : Prop :=
+  Nonempty (ordinaryFlagScheme.points I ρ χ)
+
+/-- Assigned filtration, with the character ordering retained. -/
+def OrdinaryFixedInertia.filtration {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (I : Subgroup Γ) (χ : Fin n → Γ →* Aˣ) (ρ : Γ →* GL (Fin n) A)
+    (h : OrdinaryFixedInertia I χ ρ) : FullFlag A n := (Classical.choice h).val
+
+/-- The graded character statement is a statement about quotient action, not trace. -/
+theorem OrdinaryFixedInertia.graded_character {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (I : Subgroup Γ) (χ : Fin n → Γ →* Aˣ) (ρ : Γ →* GL (Fin n) A)
+    (h : OrdinaryFixedInertia I χ ρ) (g : I) (i : Fin n) (x : Fin n → A)
+    (hx : x ∈ (OrdinaryFixedInertia.filtration I χ ρ h).Fil i.succ) :
+    Matrix.mulVec (ρ g.val : Matrix (Fin n) (Fin n) A) x - (χ i g.val : A) • x ∈
+      (OrdinaryFixedInertia.filtration I χ ρ h).Fil i.castSucc := sorry
+
+theorem OrdinaryFixedInertia.filtration_baseChange {Γ A B : Type u} [Group Γ] [CommRing A] [CommRing B]
+    {n : ℕ} (I : Subgroup Γ) (χ : Fin n → Γ →* Aˣ) (ρ : Γ →* GL (Fin n) A)
+    (f : A →+* B) (h : OrdinaryFixedInertia I χ ρ) :
+    OrdinaryFixedInertia I (fun i ↦ (Units.map f.toMonoidHom).comp (χ i))
+      ((Matrix.GeneralLinearGroup.map f).comp ρ) := sorry
+
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- LocalGaloisGroups' Weil group with its inertia embedding. -/
+def LocalWeil (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : Type u := sorry
+instance (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : Group (LocalWeil ℓ K) := sorry
+
+def LocalWeil.inertia (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : localInertia ℓ K →* LocalWeil ℓ K := sorry
+
+def LocalWeil.norm (ℓ : ℕ) [Fact ℓ.Prime] (K E : Type u) [Field K] [CharZero K] [Field E]
+    [CharZero E] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : LocalWeil ℓ K →* Eˣ := sorry
+
+/-- Full inertia data includes N and a Weil extension satisfying the norm relation. -/
+structure InertialTypeData (ℓ : ℕ) [Fact ℓ.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Field E] [CharZero E] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] (n : ℕ) where
+  weil : LocalWeil ℓ K →* GL (Fin n) E
+  openKernel : IsOpen (((weil.comp (LocalWeil.inertia ℓ K)).ker) : Set (localInertia ℓ K))
+  monodromy : Matrix (Fin n) (Fin n) E
+  nilpotent : monodromy^n = 0
+  normRelation : ∀ w, (weil w : Matrix (Fin n) (Fin n) E) * monodromy *
+    ((weil w)⁻¹ : GL (Fin n) E) = (LocalWeil.norm ℓ K E w : E) • monodromy
+
+/-- Conjugacy on inertia retains N but forgets the unramified Weil parameter. -/
+def InertialTypeData.IsEquivalent {ℓ : ℕ} [Fact ℓ.Prime] {K E : Type u}
+    [Field K] [CharZero K] [Field E] [CharZero E] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] K] {n : ℕ} (τ τ' : InertialTypeData ℓ K E n) : Prop :=
+  ∃ g : GL (Fin n) E, (∀ i : localInertia ℓ K,
+    g * τ.weil (LocalWeil.inertia ℓ K i) * g⁻¹ = τ'.weil (LocalWeil.inertia ℓ K i)) ∧
+    (g : Matrix (Fin n) (Fin n) E) * τ.monodromy * (g⁻¹ : GL (Fin n) E) = τ'.monodromy
+
+instance inertialTypeSetoid {ℓ : ℕ} [Fact ℓ.Prime] {K E : Type u}
+    [Field K] [CharZero K] [Field E] [CharZero E] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] K] {n : ℕ} : Setoid (InertialTypeData ℓ K E n) where
+  r := InertialTypeData.IsEquivalent
+  iseqv := sorry
+
+/-- **`R08.2/inertial-type-with-monodromy`**: an isomorphism class, not a
+bare semisimple inertia representation. Shotton Definition 3.5, p. 12. -/
+abbrev InertialType (ℓ : ℕ) [Fact ℓ.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Field E] [CharZero E] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] (n : ℕ) :=
+  Quotient (inertialTypeSetoid (ℓ := ℓ) (K := K) (E := E) (n := n))
+
+def InertialTypeData.map {ℓ : ℕ} [Fact ℓ.Prime] {K E B : Type u}
+    [Field K] [CharZero K] [Field E] [CharZero E] [Field B] [CharZero B]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] (f : E →+* B) {n : ℕ}
+    (τ : InertialTypeData ℓ K E n) : InertialTypeData ℓ K B n := sorry
+
+/-- PadicHodgeTheory's monodromy theorem associates a WD representation away
+from the coefficient prime. The adapter retains its inertia and N. -/
+def localWD (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K B : Type u)
+    [Field K] [CharZero K] [Field B] [CharZero B] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] K] [Algebra ℚ_[p] B] [FiniteDimensional ℚ_[p] B]
+    (hne : ℓ ≠ p) {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    InertialTypeData ℓ K B n := sorry
+
+def HasExactInertialType {p ℓ : ℕ} [Fact p.Prime] [Fact ℓ.Prime] {K E B : Type u}
+    [Field K] [CharZero K] [Field E] [CharZero E] [Field B] [CharZero B]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] [Algebra E B] [FiniteDimensional E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B] (hne : ℓ ≠ p) {n : ℕ}
+    (τ : InertialType ℓ K E n) (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop := by
+  letI : Module.Finite ℚ_[p] B := Module.Finite.trans E B
+  exact InertialTypeData.IsEquivalent (InertialTypeData.map (algebraMap E B) (Quotient.out τ))
+    (localWD p ℓ K B hne ρ)
+
+section AwayTypeRings
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K E 𝒪 𝔽 : Type u)
+variable [Field K] [CharZero K] [Field E] [CharZero E]
+variable [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [MazurFinite (Field.absoluteGaloisGroup K) 𝔽]
+variable (hne : ℓ ≠ p) {n : ℕ} (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽)
+variable [ContinuousResidual ρ₀] (τ : InertialType ℓ K E n)
+
+/-- The exact-type closure is literally an intersection of characteristic-zero kernels. -/
+def fixedTypeRing.ideal : Ideal (LiftingRing 𝒪 n ρ₀) := sInf
+  {J | ∃ (B : Type u) (_ : Field B) (_ : CharZero B) (_ : Algebra E B)
+    (_ : FiniteDimensional E B) (_ : Algebra 𝒪 B) (_ : IsScalarTower 𝒪 E B)
+    (_ : Algebra ℚ_[p] B) (_ : IsScalarTower ℚ_[p] E B)
+    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B),
+      HasExactInertialType hne τ (pointRep x.toRingHom) ∧ RingHom.ker x.toRingHom = J}
+
+abbrev fixedTypeRing := LiftingRing 𝒪 n ρ₀ ⧸ fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ
+
+theorem fixedTypeRing_reduced : IsReduced (fixedTypeRing p ℓ K E 𝒪 𝔽 hne ρ₀ τ) := sorry
+
+theorem fixedTypeRing_flat : Module.Flat 𝒪 (fixedTypeRing p ℓ K E 𝒪 𝔽 hne ρ₀ τ) := sorry
+
+/-- Every exact-type point factors. The converse is deliberately not asserted. -/
+theorem fixedTypeRing_points (B : Type u) [Field B] [CharZero B] [Algebra E B]
+    [FiniteDimensional E B] [Algebra 𝒪 B] [IsScalarTower 𝒪 E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (hx : HasExactInertialType hne τ (pointRep x.toRingHom)) :
+    ∀ r ∈ fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ, x r = 0 := sorry
+
+/-- Exact-type kernels are dense in their closed type locus. -/
+theorem fixedTypeRing.dense : closure
+    {P : PrimeSpectrum (LiftingRing 𝒪 n ρ₀) | ∃ (B : Type u) (_ : Field B) (_ : CharZero B)
+      (_ : Algebra E B) (_ : FiniteDimensional E B) (_ : Algebra 𝒪 B) (_ : IsScalarTower 𝒪 E B)
+      (_ : Algebra ℚ_[p] B) (_ : IsScalarTower ℚ_[p] E B)
+      (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B), HasExactInertialType hne τ (pointRep x.toRingHom) ∧
+        RingHom.ker x.toRingHom = P.asIdeal} =
+      PrimeSpectrum.zeroLocus (fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ : Set _) := sorry
+
+/-- The intersection definition uniquely determines the compatible quotient. -/
+theorem fixedTypeRing.unique (J : Ideal (LiftingRing 𝒪 n ρ₀))
+    (hJ : J = fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ) :
+    ∃! e : (LiftingRing 𝒪 n ρ₀ ⧸ J) ≃ₐ[𝒪] fixedTypeRing p ℓ K E 𝒪 𝔽 hne ρ₀ τ,
+      e.toAlgHom.comp (Ideal.Quotient.mkₐ 𝒪 J) = Ideal.Quotient.mkₐ 𝒪 _ := sorry
+
+/-- Shotton Proposition 3.6, p. 12: all nonzero type closures have the expected dimension. -/
+theorem fixedTypeRing_equidimensional
+    (hneRing : Nontrivial (fixedTypeRing p ℓ K E 𝒪 𝔽 hne ρ₀ τ)) :
+    IsEquidimensional (fixedTypeRing p ℓ K E 𝒪 𝔽 hne ρ₀ τ) (1+n^2) := sorry
+
+/-- There are finitely many nonzero full-type closures; the closed generic loci
+cover and may intersect where monodromy drops. Shotton Proposition 3.6, p. 12. -/
+theorem fixedTypeRing_union : ∃ S : Finset (InertialType ℓ K E n),
+    ∀ P : PrimeSpectrum (LiftingRing 𝒪 n ρ₀), (p : LiftingRing 𝒪 n ρ₀) ∉ P.asIdeal →
+      ∃ τ ∈ S, fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ≤ P.asIdeal := sorry
+
+variable (ψ : Field.absoluteGaloisGroup K →* 𝒪ˣ)
+variable (hψ : ∀ σ, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ))
+
+/-- Fixed-determinant exact-type closure. Intersect the exact point kernels
+with the determinant imposed, rather than intersecting only inertia types. -/
+def typeQuotient.ideal : Ideal (LiftingRing 𝒪 n ρ₀) := sInf
+  {J | ∃ (B : Type u) (_ : Field B) (_ : CharZero B) (_ : Algebra E B)
+    (_ : FiniteDimensional E B) (_ : Algebra 𝒪 B) (_ : IsScalarTower 𝒪 E B)
+    (_ : Algebra ℚ_[p] B) (_ : IsScalarTower ℚ_[p] E B)
+    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B),
+      HasExactInertialType hne τ (pointRep x.toRingHom) ∧
+      (∀ σ, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom σ)=Units.map (algebraMap 𝒪 B).toMonoidHom (ψ σ)) ∧
+      RingHom.ker x.toRingHom=J}
+
+abbrev typeQuotient := LiftingRing 𝒪 n ρ₀ ⧸ typeQuotient.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ
+
+theorem typeQuotient.containsDet : detIdeal (ρbar := ρ₀) ψ ≤ typeQuotient.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ := sorry
+
+def typeQuotient.fromFixedDet : ConditionRing (detIdeal (ρbar := ρ₀) ψ) →ₐ[𝒪] typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ := sorry
+
+theorem typeQuotient_points (B : Type u) [Field B] [CharZero B] [Algebra E B]
+    [FiniteDimensional E B] [Algebra 𝒪 B] [IsScalarTower 𝒪 E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (hx : HasExactInertialType hne τ (pointRep x.toRingHom))
+    (hdet : ∀ σ, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom σ)=Units.map (algebraMap 𝒪 B).toMonoidHom (ψ σ)) :
+    typeQuotient.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ ≤ RingHom.ker x.toRingHom := sorry
+
+theorem typeQuotient_krullDim (hn : n=2)
+    (hr : Nontrivial (typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ)) :
+    ringKrullDim (typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ)=4 := sorry
+
+theorem typeQuotient_finite : Set.Finite {τ : InertialType ℓ K E n |
+    Nontrivial (typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ)} := sorry
+
+theorem typeQuotient_unique (J : Ideal (LiftingRing 𝒪 n ρ₀))
+    (hJ : J=typeQuotient.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ) :
+    ∃! e : (LiftingRing 𝒪 n ρ₀ ⧸ J) ≃ₐ[𝒪] typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ,
+      e.toAlgHom.comp (Ideal.Quotient.mkₐ 𝒪 J)=Ideal.Quotient.mkₐ 𝒪 _ := sorry
+
+/-- In rank two the full-type construction with the same determinant agrees
+with the fixed determinant closure. It retains the structural quotient maps. -/
+theorem fixedTypeRing_n2 (hn : n=2) (ϖ : 𝒪) (hϖ : Irreducible ϖ) :
+    Nonempty ((LiftingRing 𝒪 n ρ₀ ⧸ (flatClosure (algebraMap 𝒪 _ ϖ)
+      (fixedTypeRing.ideal p ℓ K E 𝒪 𝔽 hne ρ₀ τ ⊔ detIdeal (ρbar := ρ₀) ψ)).radical) ≃ₐ[𝒪]
+      typeQuotient p ℓ K E 𝒪 𝔽 hne ρ₀ τ ψ) := sorry
+
+end AwayTypeRings
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- FiniteFlatGroupsAndIntegralPadicHodgeTheory's p-divisible group with a
+coefficient action and an identification of its Tate module with the given lift. -/
+def PDivisibleModel (p : ℕ) [Fact p.Prime] (K B : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing B] [Algebra ℤ_[p] B]
+    {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Type (u+1) := sorry
+
+section FlatRings
+variable (p : ℕ) [Fact p.Prime] (K 𝒪 𝔽 : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [Algebra ℤ_[p] 𝔽] [IsScalarTower ℤ_[p] 𝒪 𝔽]
+variable [MazurFinite (Field.absoluteGaloisGroup K) 𝔽]
+variable {n : ℕ} (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+
+/-- **`R08.4/flat-deformation-condition`**: the relatively representable
+finite-flat condition on local absolute Galois representations. -/
+def flatIdeal : Ideal (LiftingRing 𝒪 n ρ₀) := by
+  have _ := p
+  let _ : Algebra ℤ_[p] 𝒪 := inferInstance
+  let _ : Module.Finite ℤ_[p] 𝒪 := inferInstance
+  exact sorry
+
+abbrev flatLiftingRing := LiftingRing 𝒪 n ρ₀ ⧸ flatIdeal p K 𝒪 𝔽 ρ₀
+
+/-- Universal property in the Artinian coefficient category, with the actual
+finite-flat condition, not merely a tautological quotient factorization. -/
+theorem flatLiftingRing.universal (A : Type u) [CommRing A] [Algebra 𝒪 A]
+    [Algebra ℤ_[p] A] [IsScalarTower ℤ_[p] 𝒪 A] [IsLocalRing A] [IsArtinianRing A]
+    [TopologicalSpace A] [DiscreteTopology A] (π : A →ₐ[𝒪] 𝔽)
+    (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A) :
+    Nonempty ({x : flatLiftingRing p K 𝒪 𝔽 ρ₀ →ₐ[𝒪] A //
+      Continuous (x.toRingHom.comp (Ideal.Quotient.mk _)) ∧ ∀ r,
+        π (x (Ideal.Quotient.mk _ r)) = LiftingRing.residue 𝒪 n ρ₀ r} ≃
+      {ρ : Lift n ρ₀ π.toRingHom // IsFlatLift p K A ρ.toHom}) := sorry
+
+/-- At coefficient integers, the point condition is the Tate-module condition. -/
+theorem flatLiftingRing_points (B : Type u) [CommRing B] [Algebra 𝒪 B]
+    [Algebra ℤ_[p] B] [IsScalarTower ℤ_[p] 𝒪 B] [IsLocalRing B] [IsNoetherianRing B]
+    [IsDomain B] [IsDiscreteValuationRing B] [Module.Finite 𝒪 B]
+    [IsAdicComplete (IsLocalRing.maximalIdeal B) B] [TopologicalSpace B]
+    (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) (hc : Continuous x)
+    (hl : Ideal.comap x.toRingHom (IsLocalRing.maximalIdeal B) = IsLocalRing.maximalIdeal (LiftingRing 𝒪 n ρ₀)) :
+    (∀ r ∈ flatIdeal p K 𝒪 𝔽 ρ₀, x r = 0) ↔ Nonempty (PDivisibleModel p K B (pointRep x.toRingHom)) := sorry
+
+/-- The unframed condition is a quotient of the Schur unframed ring. -/
+def flatDeformationIdeal [SchurResidual ρ₀] : Ideal (UnframedRing 𝒪 n ρ₀) := by
+  have _ := p
+  let _ : Algebra ℤ_[p] 𝒪 := inferInstance
+  let _ : Module.Finite ℤ_[p] 𝒪 := inferInstance
+  exact sorry
+abbrev flatDeformationRing [SchurResidual ρ₀] := UnframedRing 𝒪 n ρ₀ ⧸ flatDeformationIdeal p K 𝒪 𝔽 ρ₀
+
+/-- Framing adds precisely the usual `n²−1` variables to the same flat problem. -/
+theorem flatLiftingRing.framing [SchurResidual ρ₀] : Nonempty
+    (flatLiftingRing p K 𝒪 𝔽 ρ₀ ≃ₐ[𝒪] MvPowerSeries (Fin (n^2-1)) (flatDeformationRing p K 𝒪 𝔽 ρ₀)) := sorry
+end FlatRings
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- The finite coefficient-module representation category supplied by
+GlobalGaloisDeformations R04.3. A module may be torsion; it need not be free. -/
+structure CoefficientRepresentation (R Γ : Type u) [CommRing R] [Group Γ] [TopologicalSpace Γ] where
+  module : Type u
+  [add : AddCommGroup module]
+  [scalar : Module R module]
+  [finite : Module.Finite R module]
+  [topology : TopologicalSpace module]
+  [addTopology : IsTopologicalAddGroup module]
+  action : Γ →* (module ≃ₗ[R] module)
+  continuous : Continuous fun gx : Γ × module ↦ action gx.1 gx.2
+attribute [instance] CoefficientRepresentation.add CoefficientRepresentation.scalar
+  CoefficientRepresentation.finite CoefficientRepresentation.topology CoefficientRepresentation.addTopology
+
+namespace CoefficientRepresentation
+variable {R Γ : Type u} [CommRing R] [Group Γ] [TopologicalSpace Γ]
+
+def Isomorphic (V W : CoefficientRepresentation R Γ) : Prop :=
+  ∃ e : V.module ≃ₗ[R] W.module, ∀ g x, e (V.action g x) = W.action g (e x)
+
+def stable (V : CoefficientRepresentation R Γ) (U : Submodule R V.module) : Prop :=
+  ∀ g x, x ∈ U → V.action g x ∈ U
+
+/-- Invariant subobjects and quotients have their actual module carriers. -/
+def subobject [IsNoetherianRing R] (V : CoefficientRepresentation R Γ)
+    (U : Submodule R V.module) (hU : V.stable U) : CoefficientRepresentation R Γ := sorry
+
+def quotient [IsNoetherianRing R] (V : CoefficientRepresentation R Γ)
+    (U : Submodule R V.module) (hU : V.stable U) : CoefficientRepresentation R Γ := sorry
+
+def product (V W : CoefficientRepresentation R Γ) : CoefficientRepresentation R Γ := sorry
+
+theorem subobject_carrier [IsNoetherianRing R] (V : CoefficientRepresentation R Γ)
+    (U : Submodule R V.module) (hU : V.stable U) :
+    Nonempty ((V.subobject U hU).module ≃ₗ[R] U) := sorry
+
+theorem quotient_carrier [IsNoetherianRing R] (V : CoefficientRepresentation R Γ)
+    (U : Submodule R V.module) (hU : V.stable U) :
+    Nonempty ((V.quotient U hU).module ≃ₗ[R] (V.module ⧸ U)) := sorry
+
+theorem product_carrier (V W : CoefficientRepresentation R Γ) :
+    Nonempty ((V.product W).module ≃ₗ[R] (V.module × W.module)) := sorry
+
+/-- Restrict coefficient scalars on a finite matrix representation. -/
+def ofMatrix (A : Type u) [CommRing A] [Algebra R A] [Module.Finite R A]
+    [TopologicalSpace A] [IsTopologicalRing A] {n : ℕ} (ρ : Γ →* GL (Fin n) A)
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A)) : CoefficientRepresentation R Γ := sorry
+
+theorem ofMatrix_carrier (A : Type u) [CommRing A] [Algebra R A] [Module.Finite R A]
+    [TopologicalSpace A] [IsTopologicalRing A] {n : ℕ} (ρ : Γ →* GL (Fin n) A)
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A)) :
+    Nonempty ((ofMatrix (R := R) A ρ hc).module ≃ₗ[R] (Fin n → A)) := sorry
+end CoefficientRepresentation
+
+/-- Objects with a finite filtration having the given residual representation
+as each graded factor. This is the imported category S(ρ̄) of KW II §2. -/
+def ResiduallyFiltered {R k Γ : Type u} [CommRing R] [IsNoetherianRing R]
+    [Field k] [Algebra R k] [Module.Finite R k] [TopologicalSpace k] [DiscreteTopology k]
+    [Group Γ] [TopologicalSpace Γ] {n : ℕ} (ρ₀ : Γ →* GL (Fin n) k)
+    (hc : Continuous fun g ↦ (ρ₀ g : Matrix (Fin n) (Fin n) k))
+    (V : CoefficientRepresentation R Γ) : Prop :=
+  ∃ (r : ℕ) (F : Fin (r+1) → Submodule R V.module), Monotone F ∧ F 0 = ⊥ ∧ F (Fin.last r) = ⊤ ∧
+    (∀ i, V.stable (F i)) ∧ ∀ i : Fin r,
+      ∃ e : (F i.succ ⧸ Submodule.comap (F i.succ).subtype (F i.castSucc)) ≃ₗ[R] (Fin n → k),
+        ∀ g (x : F i.succ),
+          e (Submodule.Quotient.mk ⟨V.action g x.val, by sorry⟩) =
+            Matrix.mulVec (ρ₀ g : Matrix (Fin n) (Fin n) k) (e (Submodule.Quotient.mk x))
+
+/-- **`R08.6/category-deformation-conditions`**: a full subcategory with explicit
+closure axioms and the fixed residual object. These axioms describe real module
+operations; they do not stand in for unspecified deformation hypotheses. -/
+structure CategoryCondition (R k Γ : Type u) [CommRing R] [IsNoetherianRing R]
+    [Field k] [Algebra R k] [Module.Finite R k] [TopologicalSpace k] [DiscreteTopology k]
+    [Group Γ] [TopologicalSpace Γ] {n : ℕ} (ρ₀ : Γ →* GL (Fin n) k)
+    (hc : Continuous fun g ↦ (ρ₀ g : Matrix (Fin n) (Fin n) k)) where
+  objects : Set (CoefficientRepresentation R Γ)
+  residualFiltered : ∀ V ∈ objects, ResiduallyFiltered ρ₀ hc V
+  containsResidual : CoefficientRepresentation.ofMatrix (R := R) k ρ₀ hc ∈ objects
+  iso_closed : ∀ V W, V ∈ objects → V.Isomorphic W → W ∈ objects
+  sub_closed : ∀ V ∈ objects, ∀ (U : Submodule R V.module) (hU : V.stable U),
+    ResiduallyFiltered ρ₀ hc (V.subobject U hU) → V.subobject U hU ∈ objects
+  quotient_closed : ∀ V ∈ objects, ∀ (U : Submodule R V.module) (hU : V.stable U),
+    ResiduallyFiltered ρ₀ hc (V.quotient U hU) → V.quotient U hU ∈ objects
+  product_closed : ∀ V W, V ∈ objects → W ∈ objects → V.product W ∈ objects
+
+/-- Artinian reductions of a CNL coefficient algebra are finite over the base DVR.
+This helper uses a residue-field identification, rather than an arbitrary algebra map. -/
+def artinMatrixReduction (𝒪 𝔽 Γ A : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+    [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+    [Group Γ] [TopologicalSpace Γ] [CommRing A] [Algebra 𝒪 A]
+    [IsLocalRing A] [IsNoetherianRing A] [TopologicalSpace A]
+    (π : A →ₐ[𝒪] 𝔽) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+    {n : ℕ} (ρ : Γ →* GL (Fin n) A) (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A))
+    (hA : IsAdic (IsLocalRing.maximalIdeal A)) (r : ℕ) (hr : 0 < r) : CoefficientRepresentation 𝒪 Γ := sorry
+
+/-- The helper's carrier is the actual power-of-the-maximal-ideal quotient. -/
+theorem artinMatrixReduction_carrier (𝒪 𝔽 Γ A : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+    [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+    [Group Γ] [TopologicalSpace Γ] [CommRing A] [Algebra 𝒪 A]
+    [IsLocalRing A] [IsNoetherianRing A] [TopologicalSpace A]
+    (π : A →ₐ[𝒪] 𝔽) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+    {n : ℕ} (ρ : Γ →* GL (Fin n) A) (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) A))
+    (hA : IsAdic (IsLocalRing.maximalIdeal A)) (r : ℕ) (hr : 0 < r) : Nonempty
+      ((artinMatrixReduction 𝒪 𝔽 Γ A π hπ ρ hc hA r hr).module ≃ₗ[𝒪]
+        (Fin n → (A ⧸ (IsLocalRing.maximalIdeal A)^r))) := sorry
+
+section CategoryConditionFunctors
+variable {𝒪 𝔽 Γ A : Type u} [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽] [Module.Finite 𝒪 𝔽]
+variable [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] [Group Γ] [TopologicalSpace Γ]
+variable {n : ℕ} (ρ₀ : Γ →* GL (Fin n) 𝔽)
+variable (hc₀ : Continuous fun g ↦ (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽))
+variable (S : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀)
+variable [CommRing A] [Algebra 𝒪 A] [IsLocalRing A] [IsNoetherianRing A] [TopologicalSpace A]
+variable (π : A →ₐ[𝒪] 𝔽) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+
+variable (hA : IsAdic (IsLocalRing.maximalIdeal A))
+
+/-- The category condition on each finite quotient of a complete lift. -/
+def CategoryCondition.defFunctor (ρ : TauCeti.GaloisDeformation.Lift n ρ₀ π.toRingHom) : Prop :=
+  ∀ (r : ℕ) (hr : 0 < r), artinMatrixReduction 𝒪 𝔽 Γ A π hπ ρ.toHom ρ.continuous hA r hr ∈ S.objects
+
+/-- Inclusion of categories gives inclusion of their actual conditions. -/
+theorem CategoryCondition.defFunctor_mono (T : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀)
+    (hST : S.objects ⊆ T.objects) (ρ : TauCeti.GaloisDeformation.Lift n ρ₀ π.toRingHom)
+    (hρ : CategoryCondition.defFunctor ρ₀ hc₀ S π hπ hA ρ) :
+    CategoryCondition.defFunctor ρ₀ hc₀ T π hπ hA ρ := sorry
+end CategoryConditionFunctors
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- R07.3's filtered category, in CHT's covariant normalization and range [0,p−2]. -/
+def FLObject (p : ℕ) [Fact p.Prime] (K 𝒪 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing 𝒪] [Algebra ℤ_[p] 𝒪] : Type (u+1) := sorry
+
+def FLObject.realize (p : ℕ) [Fact p.Prime] (K 𝒪 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing 𝒪] [Algebra ℤ_[p] 𝒪]
+    (M : FLObject p K 𝒪) : CoefficientRepresentation 𝒪 (Field.absoluteGaloisGroup K) := sorry
+
+def FLObject.gradedRank (p : ℕ) [Fact p.Prime] (K E 𝒪 : Type u) [Field K] [CharZero K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K]
+    [CommRing 𝒪] [Algebra ℤ_[p] 𝒪] (M : FLObject p K 𝒪) (σ : K →ₐ[ℚ_[p]] E) (i : ℤ) : ℕ := sorry
+
+/-- **`L7/fontaine-laffaille-deformation-condition`**: every Artinian reduction
+is in the essential image of the supplier's covariant realization. -/
+def FLDeformation (p : ℕ) [Fact p.Prime] (K 𝒪 𝔽 A : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [Algebra ℤ_[p] 𝒪]
+    [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+    [CommRing A] [Algebra 𝒪 A] [IsLocalRing A] [IsNoetherianRing A] [TopologicalSpace A]
+    (π : A →ₐ[𝒪] 𝔽) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+    (hA : IsAdic (IsLocalRing.maximalIdeal A)) {n : ℕ}
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) (ρ : Lift n ρ₀ π.toRingHom) : Prop :=
+  ∀ (r : ℕ) (hr : 0 < r), ∃ M : FLObject p K 𝒪,
+    (FLObject.realize p K 𝒪 M).Isomorphic
+      (artinMatrixReduction 𝒪 𝔽 (Field.absoluteGaloisGroup K) A π hπ ρ.toHom ρ.continuous hA r hr)
+
+section FLConditions
+variable (p : ℕ) [Fact p.Prime] (K 𝒪 𝔽 A : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [Algebra ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [CommRing A] [Algebra 𝒪 A] [IsLocalRing A] [IsNoetherianRing A] [TopologicalSpace A]
+variable (π : A →ₐ[𝒪] 𝔽) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom = IsLocalRing.maximalIdeal A)
+variable (hA : IsAdic (IsLocalRing.maximalIdeal A)) {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) (ρ : Lift n ρ₀ π.toRingHom)
+
+/-- In the Artinian case the condition reduces to one essential-image assertion. -/
+theorem FLDeformation.mem_iff [IsArtinianRing A] [Module.Finite 𝒪 A] [IsTopologicalRing A] :
+    FLDeformation p K 𝒪 𝔽 A π hπ hA ρ₀ ρ ↔ ∃ M : FLObject p K 𝒪,
+      (FLObject.realize p K 𝒪 M).Isomorphic
+        (CoefficientRepresentation.ofMatrix (R := 𝒪) A ρ.toHom ρ.continuous) := sorry
+
+/-- Coefficient-compatible realization sends an Artinian FL lift to an FL lift. -/
+theorem FLDeformation.baseChange {B : Type u} [CommRing B] [Algebra 𝒪 B]
+    [IsLocalRing B] [IsNoetherianRing B] [TopologicalSpace B] [IsArtinianRing A] [IsArtinianRing B]
+    (πB : B →ₐ[𝒪] 𝔽) (hπB : Function.Surjective πB ∧ RingHom.ker πB.toRingHom = IsLocalRing.maximalIdeal B)
+    (hB : IsAdic (IsLocalRing.maximalIdeal B)) (f : A →ₐ[𝒪] B)
+    (hf : Continuous f) (hres : πB.comp f = π)
+    (ρB : Lift n ρ₀ πB.toRingHom)
+    (hρB : ρB.toHom = (Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ.toHom)
+    (h : FLDeformation p K 𝒪 𝔽 A π hπ hA ρ₀ ρ) :
+    FLDeformation p K 𝒪 𝔽 B πB hπB hB ρ₀ ρB := sorry
+
+/-- CHT Lemma 2.4.1, p. 35: small extensions lift under the multiplicity-one
+and unramified-local-field hypotheses. -/
+theorem FLDeformation.liftable (E : Type u) [Field E] [Algebra ℚ_[p] E]
+    (hK : localRamificationIndex p K = 1) [IsArtinianRing A]
+    (I : Ideal A) [IsLocalRing (A ⧸ I)] (hI : IsLocalRing.maximalIdeal A * I = ⊥)
+    (πI : (A ⧸ I) →ₐ[𝒪] 𝔽)
+    (hπI : Function.Surjective πI ∧ RingHom.ker πI.toRingHom = IsLocalRing.maximalIdeal (A ⧸ I))
+    (hAI : IsAdic (IsLocalRing.maximalIdeal (A ⧸ I)))
+    (hπmap : πI.comp (Ideal.Quotient.mkₐ 𝒪 I) = π)
+    (ρI : Lift n ρ₀ πI.toRingHom)
+    (M₀ : FLObject p K 𝒪)
+    (hmult : ∀ σ i, FLObject.gradedRank p K E 𝒪 M₀ σ i ≤ 1)
+    (hM₀ : (FLObject.realize p K 𝒪 M₀).Isomorphic
+      (artinMatrixReduction 𝒪 𝔽 (Field.absoluteGaloisGroup K) A π hπ ρ.toHom ρ.continuous hA 1 (by decide)))
+    (hρI : FLDeformation p K 𝒪 𝔽 (A ⧸ I) πI hπI hAI ρ₀ ρI) :
+    ∃ ρA : Lift n ρ₀ π.toRingHom, FLDeformation p K 𝒪 𝔽 A π hπ hA ρ₀ ρA ∧
+      (Matrix.GeneralLinearGroup.map (Ideal.Quotient.mk I)).comp ρA.toHom = ρI.toHom := sorry
+end FLConditions
+
+/-- Actual first cohomology of the coefficient-linear adjoint module. -/
+def adCoboundaries {Γ k : Type u} [Group Γ] [TopologicalSpace Γ] [Field k]
+    {n : ℕ} (ρ : Γ →* GL (Fin n) k) : Submodule k (Γ → Matrix (Fin n) (Fin n) k) :=
+  Submodule.span k {f | ∃ X : Matrix (Fin n) (Fin n) k, ∀ g,
+    f g = (ρ g : Matrix (Fin n) (Fin n) k) * X * ((ρ g)⁻¹ : GL (Fin n) k) - X}
+
+abbrev AdH1 {Γ k : Type u} [Group Γ] [TopologicalSpace Γ] [Field k] [TopologicalSpace k]
+    {n : ℕ} (ρ : Γ →* GL (Fin n) k) :=
+  adCocycles ρ ⧸ Submodule.comap (adCocycles ρ).subtype (adCoboundaries ρ)
+
+/-- R07.3's Ext¹ space and its coefficient-linear realization comparison. -/
+def FLObject.ExtOne (p : ℕ) [Fact p.Prime] (K 𝔽 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field 𝔽] [Algebra ℤ_[p] 𝔽]
+    (M : FLObject p K 𝔽) : Type u := sorry
+instance (p : ℕ) [Fact p.Prime] (K 𝔽 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field 𝔽] [Algebra ℤ_[p] 𝔽]
+    (M : FLObject p K 𝔽) : AddCommGroup (FLObject.ExtOne p K 𝔽 M) := sorry
+instance (p : ℕ) [Fact p.Prime] (K 𝔽 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field 𝔽] [Algebra ℤ_[p] 𝔽]
+    (M : FLObject p K 𝔽) : Module 𝔽 (FLObject.ExtOne p K 𝔽 M) := sorry
+
+def FLObject.extRealization (p : ℕ) [Fact p.Prime] (K 𝔽 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field 𝔽] [Algebra ℤ_[p] 𝔽]
+    [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] {n : ℕ}
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) (M : FLObject p K 𝔽)
+    (e : (FLObject.realize p K 𝔽 M).module ≃ₗ[𝔽] (Fin n → 𝔽))
+    (he : ∀ g x, e ((FLObject.realize p K 𝔽 M).action g x) =
+      Matrix.mulVec (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽) (e x)) :
+    FLObject.ExtOne p K 𝔽 M →ₗ[𝔽] AdH1 ρ₀ := sorry
+
+/-- The FL tangent subspace is the image of the actual Ext comparison. -/
+def FLDeformation.tangentSpace (p : ℕ) [Fact p.Prime] (K 𝔽 : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field 𝔽] [Algebra ℤ_[p] 𝔽]
+    [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] {n : ℕ}
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) (M : FLObject p K 𝔽)
+    (e : (FLObject.realize p K 𝔽 M).module ≃ₗ[𝔽] (Fin n → 𝔽))
+    (he : ∀ g x, e ((FLObject.realize p K 𝔽 M).action g x) =
+      Matrix.mulVec (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽) (e x)) : Submodule 𝔽 (AdH1 ρ₀) :=
+  LinearMap.range (FLObject.extRealization p K 𝔽 ρ₀ M e he)
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Regularity is required at every prime, including non-closed points. -/
+def HasRegularGenericFibre {𝒪 : Type*} [CommRing 𝒪] (ϖ : 𝒪) (R : Type*)
+    [CommRing R] [Algebra 𝒪 R] : Prop :=
+  ∀ (P : Ideal (GenericFibre ϖ R)) [P.IsPrime],
+    IsRegularLocalRing (Localization.AtPrime P)
+
+def KWCondition.relativeDimension {p : ℕ} [Fact p.Prime] {K E Γ 𝒪 : Type u}
+    [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    [Group Γ] [TopologicalSpace Γ] [CommRing 𝒪] [TopologicalSpace 𝒪] [Algebra ℤ_[p] 𝒪]
+    (c : KWCondition p K E Γ 𝒪) : ℕ :=
+  match c with
+  | .odd _ _ _ => 2
+  | .lowWeightCrystalline _ _ _ _ => 3 + Module.finrank ℚ_[p] K
+  | .weightTwo _ _ _ => 3 + Module.finrank ℚ_[p] K
+  | .semistableWeightTwo _ _ => 3 + Module.finrank ℚ_[p] K
+  | .semistableAway _ _ _ => 3
+  | .inertiaRigid _ _ _ => 3
+
+section KWGeometry
+variable {p : ℕ} [Fact p.Prime] {K E 𝒪 𝔽 Γ : Type u}
+variable [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [TopologicalSpace 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+variable [TotallyDisconnectedSpace Γ] [MazurFinite Γ 𝔽]
+variable (ρ₀ : Γ →* GL (Fin 2) 𝔽) [ContinuousResidual ρ₀]
+variable (ψ : Γ →* 𝒪ˣ)
+variable (hψ : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (ψ g) = Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (c : KWCondition p K E Γ 𝒪) (hv : KWCondition.admissible ρ₀ ψ c)
+include hv
+
+/-- KW II §3, pp. 18–19: these are reduced flat quotients, with their determinant
+and auxiliary character choices fixed. -/
+theorem KWCondition.reduced_flat :
+    IsReduced (KWCondition.ring ρ₀ ψ hψ c) ∧ Module.Flat 𝒪 (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+/-- KW II Proposition 3.1, p. 19. Each component has the stated *relative*
+dimension; the Krull dimension below includes the coefficient DVR. -/
+theorem KWCondition.geometry (ϖ : 𝒪) (hϖ : Irreducible ϖ) :
+    IsEquidimensional (KWCondition.ring ρ₀ ψ hψ c) (c.relativeDimension + 1) ∧
+    HasRegularGenericFibre ϖ (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+/-- Nonemptiness includes an integral point after finite extension of coefficients. -/
+theorem KWCondition.integralPoint : ∃ (𝒪' : Type u) (_ : CommRing 𝒪')
+    (_ : IsDomain 𝒪') (_ : IsDiscreteValuationRing 𝒪') (_ : IsLocalRing 𝒪')
+    (_ : Algebra 𝒪 𝒪') (_ : Module.Finite 𝒪 𝒪')
+    (_ : IsAdicComplete (IsLocalRing.maximalIdeal 𝒪') 𝒪'),
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c →ₐ[𝒪] 𝒪') := sorry
+
+/-- KW II §3.2.7, pp. 31–32: the très ramifié weight-(p+1) branch is a
+power-series ring. Its map to the character parameter space need not be smooth. -/
+theorem weightPPlusOne_ordinary_powerSeries (hp : p ≠ 2)
+    (e : Γ ≃* Field.absoluteGaloisGroup K) (hdeg : Module.finrank ℚ_[p] K = 1)
+    (hk : localSerreWeight p K 𝔽 (ρ₀.comp e.symm.toMonoidHom) = p+1)
+    (hc : c = .lowWeightCrystalline (p+1) (by have := (Fact.out : p.Prime).two_le; omega) e none) :
+    IsPowerSeriesOver 𝒪 (KWCondition.ring ρ₀ ψ hψ c) 4 := sorry
+
+/-- Carrier test `weight_p_plus_one_ring`: four variables in the actual quotient. -/
+example (hp : p ≠ 2) (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hdeg : Module.finrank ℚ_[p] K = 1)
+    (hk : localSerreWeight p K 𝔽 (ρ₀.comp e.symm.toMonoidHom) = p+1)
+    (hc : c = .lowWeightCrystalline (p+1) (by have := (Fact.out : p.Prime).two_le; omega) e none) :
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[𝒪] MvPowerSeries (Fin 4) 𝒪) := sorry
+
+/-- The semistable extension branch is a domain with fixed unramified quotient. -/
+theorem exportSemistableWeightTwoAtP
+    (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (γ : UnramifiedCharacter Γ 𝒪 ((localInertia p K).comap e.toMonoidHom))
+    (hc : c = .semistableWeightTwo e γ) :
+    IsDomain (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+/-- At primes away from p the selected semistable branch is a domain; a general
+inertia-rigid quotient is allowed to have several components. -/
+theorem exportAwayFromP (I : Subgroup Γ) (ε : Γ →* 𝒪ˣ)
+    (γ : UnramifiedCharacter Γ 𝒪 I) (hc : c = .semistableAway I ε γ) :
+    IsDomain (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+/-- Low-weight irreducible crystalline and weight-two irreducible exports use the
+same chosen-type quotient, rather than a union of monodromy types. -/
+theorem exportFontaineLaffailleIrreducible (k : ℕ) (hk : 2 ≤ k ∧ k ≤ p)
+    (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hirred : IsIrreducibleRep (ρ₀.comp e.symm.toMonoidHom))
+    (hdeg : Module.finrank ℚ_[p] K = 1)
+    (hc : c = .lowWeightCrystalline k (by omega) e none) :
+    IsDomain (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+theorem exportWeightTwoIrreducible (k : ℕ) (b : KWWeightTwoBranch p k)
+    (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hirred : IsIrreducibleRep (ρ₀.comp e.symm.toMonoidHom))
+    (hdeg : Module.finrank ℚ_[p] K = 1) (hc : c = .weightTwo k b e) :
+    IsDomain (KWCondition.ring ρ₀ ψ hψ c) := sorry
+end KWGeometry
+
+/-- KW II Proposition 3.3 and its remark, pp. 20–21: the odd real dyadic
+quadric at the trivial residual involution. -/
+abbrev oddRealDyadicRing (𝒪 : Type*) [CommRing 𝒪] :=
+  MvPowerSeries (Fin 3) 𝒪 ⧸ Ideal.span
+    {((MvPowerSeries.X 0)^2 + MvPowerSeries.X 1 * MvPowerSeries.X 2 +
+      2 * MvPowerSeries.X 0 : MvPowerSeries (Fin 3) 𝒪)}
+
+theorem exportArchimedean_dyadic (𝒪 : Type*) [CommRing 𝒪] [IsLocalRing 𝒪]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [Algebra ℤ_[2] 𝒪] [Module.Finite ℤ_[2] 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] (ϖ : 𝒪) (hϖ : Irreducible ϖ) :
+    IsDomain (oddRealDyadicRing 𝒪) ∧ Module.Flat 𝒪 (oddRealDyadicRing 𝒪) ∧
+    ringKrullDim (oddRealDyadicRing 𝒪) = 3 ∧
+    HasRegularGenericFibre ϖ (oddRealDyadicRing 𝒪) := sorry
+
+/-- KW II Proposition 3.2, p. 19. The general algebra of completed products is
+R03.1/R03.3; this is its application to local exports. -/
+theorem exportCompletedTensor_pair (𝒪 R S : Type u) [CommRing 𝒪] [IsLocalRing 𝒪]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+    [CommRing R] [CommRing S] [Algebra 𝒪 R] [Algebra 𝒪 S]
+    [IsLocalRing R] [IsLocalRing S] [IsNoetherianRing R] [IsNoetherianRing S]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal S) S]
+    [IsDomain R] [IsDomain S] [Module.Flat 𝒪 R] [Module.Flat 𝒪 S]
+    (ϖ : 𝒪) (hϖ : Irreducible ϖ) (hR : HasRegularGenericFibre ϖ R)
+    (hS : HasRegularGenericFibre ϖ S) (xR : R →ₐ[𝒪] 𝒪) (xS : S →ₐ[𝒪] 𝒪)
+    (dR dS : ℕ) (hdR : IsEquidimensional R (dR+1)) (hdS : IsEquidimensional S (dS+1)) :
+    IsDomain (CompletedTensor 𝒪 R S) ∧ Module.Flat 𝒪 (CompletedTensor 𝒪 R S) ∧
+    HasRegularGenericFibre ϖ (CompletedTensor 𝒪 R S) ∧
+    IsEquidimensional (CompletedTensor 𝒪 R S) (dR+dS+1) ∧
+    Nonempty (CompletedTensor 𝒪 R S →ₐ[𝒪] 𝒪) := sorry
+
+/-- Carrier test: the completed product of the smooth real and p-adic models
+for F=ℚ has six variables over 𝒪, hence Krull dimension seven. -/
+example (𝒪 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsDomain 𝒪]
+    [IsDiscreteValuationRing 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] :
+    Nonempty (CompletedTensor 𝒪 (MvPowerSeries (Fin 2) 𝒪) (MvPowerSeries (Fin 4) 𝒪)
+      ≃ₐ[𝒪] MvPowerSeries (Fin 6) 𝒪) := sorry
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+section EigenvalueRings
+variable (𝒪 𝔽 Γ : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+variable [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+variable [TotallyDisconnectedSpace Γ] [MazurFinite Γ 𝔽]
+variable (ρ₀ : Γ →* GL (Fin 2) 𝔽) [ContinuousResidual ρ₀]
+
+/-- CG Definition 3.18 and proof of Lemma 3.22, pp. 335–337. The ambient
+power-series variable is β=α−1. The displayed equations retain the eigenvalue. -/
+structure OrdinaryEigenvalueData where
+  inertia : Subgroup Γ
+  frobenius : Γ
+  weight : ℕ
+  weight_ge : 2 ≤ weight
+  character : Γ →* 𝒪ˣ
+  trivialResidual : ρ₀ = 1
+  characterResidual : ∀ g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (character g) = 1
+  frobeniusCharacter : character frobenius = 1
+  uniformizer : 𝒪
+  irreducible : Irreducible uniformizer
+
+variable {𝔽 Γ}
+variable (D : OrdinaryEigenvalueData 𝒪 𝔽 Γ ρ₀)
+abbrev OrdinaryWithEigenvalue.ambient := MvPowerSeries (Fin 1) (LiftingRing 𝒪 2 ρ₀)
+
+def OrdinaryWithEigenvalue.alphaUnit : (OrdinaryWithEigenvalue.ambient 𝒪 ρ₀)ˣ := sorry
+
+theorem OrdinaryWithEigenvalue.alphaUnit_val :
+    (OrdinaryWithEigenvalue.alphaUnit 𝒪 ρ₀ : OrdinaryWithEigenvalue.ambient 𝒪 ρ₀) =
+      1 + MvPowerSeries.X 0 := sorry
+
+def OrdinaryWithEigenvalue.ambientRep : Γ →* GL (Fin 2) (OrdinaryWithEigenvalue.ambient 𝒪 ρ₀) :=
+  (Matrix.GeneralLinearGroup.map (algebraMap (LiftingRing 𝒪 2 ρ₀) _)).comp
+    (LiftingRing.univ 𝒪 2 ρ₀).toHom
+
+def OrdinaryWithEigenvalue.equations : Ideal (OrdinaryWithEigenvalue.ambient 𝒪 ρ₀) :=
+  let R := OrdinaryWithEigenvalue.ambient 𝒪 ρ₀
+  let ρ := OrdinaryWithEigenvalue.ambientRep 𝒪 ρ₀
+  let α := OrdinaryWithEigenvalue.alphaUnit 𝒪 ρ₀
+  let Φ := (ρ D.frobenius : Matrix (Fin 2) (Fin 2) R)
+  let c := fun g ↦ algebraMap 𝒪 R (D.character g : 𝒪) ^ (D.weight-1)
+  Ideal.span ({z | ∃ g, z = (Matrix.GeneralLinearGroup.det (ρ g) : R) - c g} ∪
+    {Polynomial.eval (α : R) Φ.charpoly} ∪
+    {z | ∃ g : D.inertia, z = Matrix.trace (ρ g.val : Matrix (Fin 2) (Fin 2) R) - (c g.val+1)} ∪
+    {z | ∃ (g g' : D.inertia) (i j : Fin 2), z =
+      (((ρ g.val : Matrix (Fin 2) (Fin 2) R)-1) * ((ρ g'.val : Matrix (Fin 2) (Fin 2) R)-1) -
+        (c g.val-1) • ((ρ g'.val : Matrix (Fin 2) (Fin 2) R)-1)) i j} ∪
+    {z | ∃ (g : D.inertia) (i j : Fin 2), z =
+      (((ρ g.val : Matrix (Fin 2) (Fin 2) R)-1) * (Φ-(α:R) • 1) -
+        (c g.val-1) • (Φ-(α:R) • 1)) i j} ∪
+    {z | ∃ (g : D.inertia) (i j : Fin 2), z =
+      ((Φ-(α:R) • 1) * ((ρ g.val : Matrix (Fin 2) (Fin 2) R)-1) -
+        ((α⁻¹:Rˣ):R) • ((ρ g.val : Matrix (Fin 2) (Fin 2) R)-1) +
+        (α:R) • ((ρ g.val : Matrix (Fin 2) (Fin 2) R)-1)) i j})
+
+def OrdinaryWithEigenvalue.ideal : Ideal (OrdinaryWithEigenvalue.ambient 𝒪 ρ₀) :=
+  (flatClosure (algebraMap 𝒪 _ D.uniformizer) (OrdinaryWithEigenvalue.equations 𝒪 ρ₀ D)).radical
+abbrev OrdinaryWithEigenvalue := OrdinaryWithEigenvalue.ambient 𝒪 ρ₀ ⧸
+  OrdinaryWithEigenvalue.ideal 𝒪 ρ₀ D
+
+instance : IsLocalRing (OrdinaryWithEigenvalue 𝒪 ρ₀ D) := sorry
+
+def OrdinaryWithEigenvalue.structural : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪] OrdinaryWithEigenvalue 𝒪 ρ₀ D :=
+  (Ideal.Quotient.mkₐ 𝒪 _).comp (IsScalarTower.toAlgHom 𝒪 (LiftingRing 𝒪 2 ρ₀) _)
+
+abbrev OrdinaryWithEigenvalue.image := (OrdinaryWithEigenvalue.structural 𝒪 ρ₀ D).range
+
+def OrdinaryWithEigenvalue.forget : OrdinaryWithEigenvalue.image 𝒪 ρ₀ D →ₐ[𝒪]
+    OrdinaryWithEigenvalue 𝒪 ρ₀ D := (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D).val
+
+def OrdinaryWithEigenvalue.toImage : LiftingRing 𝒪 2 ρ₀ →ₐ[𝒪]
+    OrdinaryWithEigenvalue.image 𝒪 ρ₀ D :=
+  (OrdinaryWithEigenvalue.structural 𝒪 ρ₀ D).rangeRestrict
+
+def OrdinaryWithEigenvalue.imageRep : Γ →* GL (Fin 2) (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D) :=
+  (Matrix.GeneralLinearGroup.map (OrdinaryWithEigenvalue.toImage 𝒪 ρ₀ D).toRingHom).comp
+    (LiftingRing.univ 𝒪 2 ρ₀).toHom
+
+def OrdinaryWithEigenvalue.unrIdeal : Ideal (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D) :=
+  Ideal.span {z | ∃ (g : D.inertia) (i j : Fin 2), z =
+    ((OrdinaryWithEigenvalue.imageRep 𝒪 ρ₀ D g.val : Matrix (Fin 2) (Fin 2) (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D)) - (1 : Matrix (Fin 2) (Fin 2) (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D))) i j}
+
+abbrev OrdinaryWithEigenvalue.unr := OrdinaryWithEigenvalue.image 𝒪 ρ₀ D ⧸
+  OrdinaryWithEigenvalue.unrIdeal 𝒪 ρ₀ D
+
+/-- The tilde-unramified algebra is a tensor product, not a product of rings. -/
+abbrev OrdinaryWithEigenvalue.tildeUnr :=
+  letI := (OrdinaryWithEigenvalue.forget 𝒪 ρ₀ D).toAlgebra
+  TensorProduct (OrdinaryWithEigenvalue.image 𝒪 ρ₀ D)
+    (OrdinaryWithEigenvalue 𝒪 ρ₀ D) (OrdinaryWithEigenvalue.unr 𝒪 ρ₀ D)
+
+def OrdinaryWithEigenvalue.unramifiedIdeal : Ideal (LiftingRing 𝒪 2 ρ₀) :=
+  RingHom.ker ((Ideal.Quotient.mkₐ 𝒪 (OrdinaryWithEigenvalue.unrIdeal 𝒪 ρ₀ D)).comp
+    (OrdinaryWithEigenvalue.toImage 𝒪 ρ₀ D)).toRingHom
+
+/-- Ann_R(tilde-R/R-image), using the actual structural R-action. -/
+def OrdinaryWithEigenvalue.doublingIdeal : Ideal (LiftingRing 𝒪 2 ρ₀) :=
+  letI := (OrdinaryWithEigenvalue.structural 𝒪 ρ₀ D).toAlgebra
+  Module.annihilator (LiftingRing 𝒪 2 ρ₀)
+    (OrdinaryWithEigenvalue 𝒪 ρ₀ D ⧸
+      Submodule.span (LiftingRing 𝒪 2 ρ₀) {(1 : OrdinaryWithEigenvalue 𝒪 ρ₀ D)})
+
+/-- β's relation in the universal ring, rather than just an expansion identity. -/
+theorem OrdinaryWithEigenvalue.beta_relation :
+    let q := Ideal.Quotient.mk (OrdinaryWithEigenvalue.ideal 𝒪 ρ₀ D)
+    let β := q (MvPowerSeries.X 0)
+    let Φ := (OrdinaryWithEigenvalue.ambientRep 𝒪 ρ₀ D.frobenius : Matrix (Fin 2) (Fin 2) _)
+    let t := q (Φ 0 0 + Φ 1 1 - 2)
+    β^2 - t*β - t = 0 := sorry
+
+/-- Continuous maps from the tilde ring remember both ρ and α. -/
+theorem OrdinaryWithEigenvalue.hom_ext {A : Type u} [CommRing A] [Algebra 𝒪 A]
+    [TopologicalSpace A] (f g : OrdinaryWithEigenvalue 𝒪 ρ₀ D →ₐ[𝒪] A)
+    (hf : Continuous (f.toRingHom.comp (Ideal.Quotient.mk _)))
+    (hg : Continuous (g.toRingHom.comp (Ideal.Quotient.mk _))) :
+    f = g ↔ (f.comp (OrdinaryWithEigenvalue.structural 𝒪 ρ₀ D) =
+      g.comp (OrdinaryWithEigenvalue.structural 𝒪 ρ₀ D)) ∧
+      f (Ideal.Quotient.mk _ (MvPowerSeries.X 0)) =
+        g (Ideal.Quotient.mk _ (MvPowerSeries.X 0)) := sorry
+end EigenvalueRings
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- DeformationAndDerivedPatchingAlgebra R03.1's complete coefficient category,
+displayed as a carrier adapter. Morphisms below retain the residue identification. -/
+structure CNLObject (𝒪 𝔽 : Type u) [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽] where
+  ring : Type u
+  [commRing : CommRing ring]
+  [algebra : Algebra 𝒪 ring]
+  [localRing : IsLocalRing ring]
+  [noetherian : IsNoetherianRing ring]
+  [complete : IsAdicComplete (IsLocalRing.maximalIdeal ring) ring]
+  [topology : TopologicalSpace ring]
+  [topologicalRing : IsTopologicalRing ring]
+  adic : IsAdic (IsLocalRing.maximalIdeal ring)
+  residue : ring →ₐ[𝒪] 𝔽
+  residue_surjective : Function.Surjective residue
+  residue_ker : RingHom.ker residue.toRingHom = IsLocalRing.maximalIdeal ring
+
+attribute [instance] CNLObject.commRing CNLObject.algebra CNLObject.localRing
+  CNLObject.noetherian CNLObject.complete CNLObject.topology CNLObject.topologicalRing
+
+/-- The chosen residual quotient transports finiteness from F. -/
+instance CNLObject.finiteResidue {O F : Type u} [CommRing O] [Field F] [Finite F]
+    [Algebra O F] (A : CNLObject O F) : Finite (IsLocalRing.ResidueField A.ring) := sorry
+
+abbrev CNLObject.Hom {𝒪 𝔽 : Type u} [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽]
+    (A B : CNLObject 𝒪 𝔽) := CoeffHom A.residue B.residue
+
+/-- Pushforward of the imported lifting functor. -/
+def mapCNLift {𝒪 𝔽 Γ : Type u} [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽]
+    [Group Γ] [TopologicalSpace Γ] {n : ℕ} (ρ₀ : Γ →* GL (Fin n) 𝔽)
+    {A B : CNLObject 𝒪 𝔽} (f : A.Hom B) (ρ : Lift n ρ₀ A.residue.toRingHom) :
+    Lift n ρ₀ B.residue.toRingHom where
+  toHom := (Matrix.GeneralLinearGroup.map f.val.toRingHom).comp ρ.toHom
+  continuous := sorry
+  reduce := sorry
+
+/-- Ring-theoretic fibre product, in the supplier's coefficient category. -/
+def coefficientPullback {𝒪 𝔽 : Type u} [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽]
+    {A B C : CNLObject 𝒪 𝔽} (f : A.Hom C) (g : B.Hom C) : Subring (A.ring × B.ring) where
+  carrier := {x | f.val x.1 = g.val x.2}
+  zero_mem' := by simp
+  one_mem' := by simp
+  add_mem' := by intro x y hx hy; simpa using congrArg₂ (·+·) hx hy
+  mul_mem' := by intro x y hx hy; simpa using congrArg₂ (·*·) hx hy
+  neg_mem' := by intro x hx; simpa using congrArg Neg.neg hx
+
+end TauCeti.GaloisDeformation.Local
+namespace TauCeti.GaloisDeformation
+open Local
+
+/-- GlobalGaloisDeformations R04.3, Gee Definition 3.16, p. 14. This adapter
+states the supplier's closure axioms, including injection detection and separated
+limits. The local roadmap supplies the conditions that satisfy them. -/
+structure DeformationProblem (𝒪 𝔽 Γ : Type u) [CommRing 𝒪] [Field 𝔽] [Algebra 𝒪 𝔽]
+    [Group Γ] [TopologicalSpace Γ] (n : ℕ) (ρ₀ : Γ →* GL (Fin n) 𝔽) where
+  condition : ∀ A : CNLObject 𝒪 𝔽, Set (Lift n ρ₀ A.residue.toRingHom)
+  residue_mem : ∀ A, Function.Bijective A.residue → ∀ ρ, ρ ∈ condition A
+  map_mem : ∀ {A B} (f : A.Hom B) (ρ : Lift n ρ₀ A.residue.toRingHom),
+    ρ ∈ condition A → mapCNLift ρ₀ f ρ ∈ condition B
+  injection_detects : ∀ {A B} (f : A.Hom B), Function.Injective f.val → ∀ ρ,
+    mapCNLift ρ₀ f ρ ∈ condition B → ρ ∈ condition A
+  strict_conj : ∀ A (ρ : Lift n ρ₀ A.residue.toRingHom)
+    (g : strictKernel n A.residue.toRingHom), ρ ∈ condition A → g • ρ ∈ condition A
+  pullback_detects : ∀ {A B C} (f : A.Hom C) (g : B.Hom C),
+    Function.Surjective f.val → Function.Surjective g.val →
+    ∀ (P : CNLObject 𝒪 𝔽) (e : P.ring ≃+* coefficientPullback f g)
+      (a : P.Hom A) (b : P.Hom B),
+    (∀ x, a.val x = (e x).val.1 ∧ b.val x = (e x).val.2) → ∀ ρ,
+      ρ ∈ condition P ↔ mapCNLift ρ₀ a ρ ∈ condition A ∧ mapCNLift ρ₀ b ρ ∈ condition B
+  separated_limit : ∀ A (I : ℕ → Ideal A.ring), Antitone I → (⨅ r, I r) = ⊥ →
+    ∀ (B : ℕ → CNLObject 𝒪 𝔽) (f : ∀ r, A.Hom (B r)),
+      (∀ r, Function.Surjective (f r).val ∧ RingHom.ker (f r).val.toRingHom = I r) →
+      ∀ ρ, ρ ∈ condition A ↔ ∀ r, mapCNLift ρ₀ (f r) ρ ∈ condition (B r)
+end TauCeti.GaloisDeformation
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- CHT §2.4.1, pp. 34–36: the FL essential-image condition is a local problem.
+The residual FL object and unramified hypothesis are explicit. -/
+theorem FLDeformation.isLocalDeformationProblem (p : ℕ) [Fact p.Prime]
+    (K 𝒪 𝔽 : Type u) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [Algebra ℤ_[p] 𝒪]
+    [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+    [Algebra ℤ_[p] 𝔽] (hK : localRamificationIndex p K = 1) {n : ℕ}
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+    (M₀ : FLObject p K 𝔽)
+    (e : (FLObject.realize p K 𝔽 M₀).module ≃ₗ[𝔽] (Fin n → 𝔽))
+    (he : ∀ g x, e ((FLObject.realize p K 𝔽 M₀).action g x) =
+      Matrix.mulVec (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽) (e x)) :
+    ∃ D : TauCeti.GaloisDeformation.DeformationProblem 𝒪 𝔽 (Field.absoluteGaloisGroup K) n ρ₀,
+      ∀ A ρ, ρ ∈ D.condition A ↔ FLDeformation p K 𝒪 𝔽 A.ring A.residue
+        ⟨A.residue_surjective, A.residue_ker⟩ A.adic ρ₀ ρ := sorry
+
+section CategoryRings
+variable (𝒪 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+variable [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable {𝔽 Γ : Type u} [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽]
+variable [ResidueIdentification 𝒪 𝔽] [Module.Finite 𝒪 𝔽] [TopologicalSpace 𝔽] [DiscreteTopology 𝔽]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+variable [TotallyDisconnectedSpace Γ] [MazurFinite Γ 𝔽] {n : ℕ}
+variable (ρ₀ : Γ →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀] [SchurResidual ρ₀]
+variable (hc₀ : Continuous fun g ↦ (ρ₀ g : Matrix (Fin n) (Fin n) 𝔽))
+variable (S : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀)
+
+/-- The relatively representable category subfunctor cuts out a closed ideal. -/
+def CategoryCondition.framedIdeal (S : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀) : Ideal (LiftingRing 𝒪 n ρ₀) := sorry
+
+def CategoryCondition.unframedIdeal : Ideal (UnframedRing 𝒪 n ρ₀) :=
+  Ideal.comap (forgetFraming (𝒪 := 𝒪) (ρbar := ρ₀)).toRingHom
+    (CategoryCondition.framedIdeal 𝒪 ρ₀ hc₀ S)
+
+abbrev CategoryCondition.ring := UnframedRing 𝒪 n ρ₀ ⧸ CategoryCondition.unframedIdeal 𝒪 ρ₀ hc₀ S
+
+/-- BCDT §4.3, p. 874 (author manuscript pp. 27–28). -/
+theorem CategoryCondition.points (A : CNLObject 𝒪 𝔽)
+    (x : CoeffHom (LiftingRing.residue 𝒪 n ρ₀) A.residue)
+    (ρ : Lift n ρ₀ A.residue.toRingHom)
+    (hρ : ρ.toHom = pointRep x.val.toRingHom) :
+    (∀ r ∈ CategoryCondition.framedIdeal 𝒪 ρ₀ hc₀ S, x.val r = 0) ↔
+      CategoryCondition.defFunctor ρ₀ hc₀ S A.residue
+        ⟨A.residue_surjective, A.residue_ker⟩ A.adic ρ := sorry
+
+/-- Subcategory inclusion reverses the direction on representing rings. -/
+def CategoryCondition.mono (T : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀) (hST : S.objects ⊆ T.objects) :
+    CategoryCondition.ring 𝒪 ρ₀ hc₀ T →ₐ[𝒪] CategoryCondition.ring 𝒪 ρ₀ hc₀ S := sorry
+
+theorem CategoryCondition.mono_surjective (T : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀)
+    (hST : S.objects ⊆ T.objects) : Function.Surjective (CategoryCondition.mono 𝒪 ρ₀ hc₀ S T hST) := sorry
+
+theorem CategoryCondition.mono_quotient (T : CategoryCondition 𝒪 𝔽 Γ ρ₀ hc₀)
+    (hST : S.objects ⊆ T.objects) :
+    (CategoryCondition.mono 𝒪 ρ₀ hc₀ S T hST).comp (Ideal.Quotient.mkₐ 𝒪 _) =
+      Ideal.Quotient.mkₐ 𝒪 (CategoryCondition.unframedIdeal 𝒪 ρ₀ hc₀ S) := sorry
+
+/-- Carrier test `categoryCondition_all`: the full residual-filtration category
+imposes no extra equation. -/
+example (hall : ∀ V, ResiduallyFiltered ρ₀ hc₀ V → V ∈ S.objects) :
+    CategoryCondition.unframedIdeal 𝒪 ρ₀ hc₀ S = ⊥ ∧
+      Nonempty (CategoryCondition.ring 𝒪 ρ₀ hc₀ S ≃ₐ[𝒪] UnframedRing 𝒪 n ρ₀) := sorry
+end CategoryRings
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Reductive ordinary conditions
+
+The Borel/torus carrier is a ReductiveGroups Layer 7/9 adapter. The relative
+Borel-conjugacy input remains the stated supplier gap in the reader. For GLₙ
+and GSp₄ the full and isotropic flags above give the concrete carriers.
+FKP Appendix B, Definition B.2 and Lemmas B.3–B.4, pp. 52–54 (arXiv v5). -/
+
+def BorelInterface (𝒪 : Type u) [CommRing 𝒪] {n : ℕ}
+    (𝒢 : ClosedMatrixGroup 𝒪 n) : Type (u+1) := sorry
+
+def BorelInterface.torusRank {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) : ℕ := sorry
+
+def canonicalTorus {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) :
+    ClosedMatrixGroup 𝒪 B.torusRank := sorry
+
+def BorelInterface.standard {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] : Subgroup (𝒢.points A) := sorry
+
+def BorelInterface.unipotent {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] : Subgroup (B.standard A) := sorry
+
+instance {𝒪 : Type u} [CommRing 𝒪] {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    (B : BorelInterface 𝒪 𝒢) (A : Type u) [CommRing A] [Algebra 𝒪 A] :
+    (B.unipotent A).Normal := sorry
+
+def BorelInterface.torusProjection {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] : B.standard A →* (canonicalTorus B).points A := sorry
+
+/-- The canonical torus is the Borel quotient by its unipotent radical. -/
+theorem canonicalTorus.quotient {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] :
+    (B.torusProjection A).ker = B.unipotent A ∧
+      Function.Surjective (B.torusProjection A) ∧
+      Nonempty ((B.standard A ⧸ B.unipotent A) ≃* (canonicalTorus B).points A) := sorry
+
+instance canonicalTorus.commGroup {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] : CommGroup ((canonicalTorus B).points A) := sorry
+
+/-- A cocharacter is a natural homomorphism from the multiplicative group. -/
+structure GCocharacter {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) where
+  eval : ∀ (A : Type u) [CommRing A] [Algebra 𝒪 A], Aˣ →* (canonicalTorus B).points A
+  naturality : ∀ {A A' : Type u} [CommRing A] [CommRing A'] [Algebra 𝒪 A] [Algebra 𝒪 A']
+    (f : A →ₐ[𝒪] A') (z : Aˣ), (canonicalTorus B).map f (eval A z) =
+      eval A' (Units.map f.toMonoidHom z)
+
+/-- ClassFieldTheory's inverse local Artin character on inertia, with geometric
+Frobenius normalization; the map factors through inertia abelianization. -/
+def localArtinInverse (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : localInertia p K →* Kˣ := sorry
+
+/-- The integral algebraic inertia character attached to labelled cocharacters. -/
+def chiLambda (p : ℕ) [Fact p.Prime] (K E 𝒪 : Type u) [Field K] [CharZero K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] E] [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B) :
+    localInertia p K →* (canonicalTorus B).points 𝒪 := sorry
+
+theorem chiLambda_formula (p : ℕ) [Fact p.Prime] (K E 𝒪 : Type u)
+    [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    [Fintype (K →ₐ[ℚ_[p]] E)] {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    (B : BorelInterface 𝒪 𝒢) (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B) (g : localInertia p K) :
+    (canonicalTorus B).map (Algebra.ofId 𝒪 E) (chiLambda p K E 𝒪 B wt g) =
+      ∏ σ : K →ₐ[ℚ_[p]] E, (wt σ).eval E
+        (Units.map σ.toMonoidHom (localArtinInverse p K g)) := sorry
+
+/-- Conjugation into a Borel and the full canonical-torus equation. The open
+subgroup H corresponds to the fixed finite extension F′/K. -/
+def IsGOrdinary (p : ℕ) [Fact p.Prime] (K E 𝒪 A : Type u)
+    [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    [CommRing A] [Algebra 𝒪 A] [Algebra E A] [IsScalarTower 𝒪 E A]
+    [Module.Finite E A] [IsLocalRing A] {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    (B : BorelInterface 𝒪 𝒢) (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B)
+    (H : Subgroup (Field.absoluteGaloisGroup K))
+    (ρ : Field.absoluteGaloisGroup K →* 𝒢.points A) : Prop :=
+  (letI : TopologicalSpace E := moduleTopology ℚ_[p] E;
+    letI : TopologicalSpace A := moduleTopology E A;
+    Continuous fun γ ↦ ((ρ γ).val : Matrix (Fin n) (Fin n) A)) ∧
+  ∃ g : 𝒢.points A,
+    (∀ γ, g * ρ γ * g⁻¹ ∈ B.standard A) ∧
+    ∀ (σ : localInertia p K), σ.val ∈ H →
+      ∃ h : g * ρ σ.val * g⁻¹ ∈ B.standard A,
+        B.torusProjection A ⟨g * ρ σ.val * g⁻¹, h⟩ =
+          (canonicalTorus B).map (Algebra.ofId 𝒪 A) (chiLambda p K E 𝒪 B wt σ)
+
+/-- Relative flag variety, supplied by ReductiveGroups. -/
+def borelFlagScheme {𝒪 : Type u} [CommRing 𝒪] {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    (B : BorelInterface 𝒪 𝒢) : AlgebraicGeometry.Scheme.{u} := sorry
+
+/-- Root data and pairings are the split ReductiveGroups supplier interface. -/
+def BorelInterface.Root {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) : Type u := sorry
+instance {𝒪 : Type u} [CommRing 𝒪] {n : ℕ} {𝒢 : ClosedMatrixGroup 𝒪 n}
+    (B : BorelInterface 𝒪 𝒢) : Fintype B.Root := sorry
+def BorelInterface.positiveRoots {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) : Finset B.Root := sorry
+def BorelInterface.pairing {𝒪 : Type u} [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢) : GCocharacter B → B.Root → ℤ := sorry
+
+/-- Strictly positive root pairings, with no condition lost for the central torus. -/
+def GRegularWeight {p : ℕ} [Fact p.Prime] {K E 𝒪 : Type u} [Field K] [Field E]
+    [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [CommRing 𝒪] {n : ℕ}
+    {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+    (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B) : Prop :=
+  ∀ σ α, α ∈ B.positiveRoots → 0 < B.pairing (wt σ) α
+
+section GOrdinaryGeometry
+variable (p : ℕ) [Fact p.Prime] (K A : Type u)
+variable {E 𝒪 : Type u}
+variable [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [CommRing A] [Algebra 𝒪 A] [IsNoetherianRing A] {n : ℕ}
+variable {𝒢 : ClosedMatrixGroup 𝒪 n} (B : BorelInterface 𝒪 𝒢)
+variable (χ : localInertia p K →* (canonicalTorus B).points 𝒪)
+variable (H : Subgroup (Field.absoluteGaloisGroup K))
+variable (ρ : Field.absoluteGaloisGroup K →* 𝒢.points A)
+
+/-- The closed incidence scheme keeps the torus equations, even for a torus
+with empty root system. Those equations also imply the root equations. -/
+def gOrdinaryFlagScheme (B : BorelInterface 𝒪 𝒢)
+    (χ : localInertia p K →* (canonicalTorus B).points 𝒪)
+    (H : Subgroup (Field.absoluteGaloisGroup K))
+    (ρ : Field.absoluteGaloisGroup K →* 𝒢.points A) : AlgebraicGeometry.Scheme.{u} := sorry
+
+def gOrdinaryFlagScheme.toSpec : gOrdinaryFlagScheme p K A B χ H ρ ⟶ AlgebraicGeometry.Spec (.of A) := sorry
+
+def gOrdinaryFlagScheme.toFlag : gOrdinaryFlagScheme p K A B χ H ρ ⟶ borelFlagScheme B := sorry
+
+theorem gOrdinaryFlagScheme.isClosed :
+    AlgebraicGeometry.IsClosedImmersion
+      (CategoryTheory.Limits.prod.lift (gOrdinaryFlagScheme.toFlag p K A B χ H ρ)
+        (gOrdinaryFlagScheme.toSpec p K A B χ H ρ)) := sorry
+
+theorem gOrdinaryFlagScheme.proper :
+    AlgebraicGeometry.IsProper (gOrdinaryFlagScheme.toSpec p K A B χ H ρ) := sorry
+
+/-- The generic incidence image, followed by integral closure of its image ideal. -/
+def gOrdinaryRing.ideal (ϖ : 𝒪) : Ideal A :=
+  let f := modelBaseChange.toSpec (gOrdinaryFlagScheme.toSpec p K A B χ H ρ)
+    (GenericFibre (algebraMap 𝒪 A ϖ) A) (algebraMap A _)
+  Ideal.comap (algebraMap A (GenericFibre (algebraMap 𝒪 A ϖ) A)) (modelImageIdeal f)
+abbrev gOrdinaryRing (ϖ : 𝒪) := A ⧸ gOrdinaryRing.ideal p K A B χ H ρ ϖ
+
+/-- Point criterion in the prescribed finite local semistable/Hodge family.
+The ambient hypothesis is part of the assertion, rather than being silently
+inferred from a weight on the unrestricted lifting ring. -/
+theorem gOrdinaryRing_points (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B) (hχ : χ = chiLambda p K E 𝒪 B wt)
+    (hreg : GRegularWeight B wt)
+    (hH : IsOpen (H : Set (Field.absoluteGaloisGroup K)))
+    {C : Type u} [CommRing C] [IsLocalRing C] [Algebra E C] [Module.Finite E C]
+    [Algebra 𝒪 C] [IsScalarTower 𝒪 E C] (x : A →ₐ[𝒪] C)
+    [Algebra ℚ_[p] C] [IsScalarTower ℚ_[p] E C]
+    (hAmbient : Function.Bijective
+      (PeriodHom.comparison (semistablePeriods p K C H hH)
+        (((Matrix.GeneralLinearGroup.map x.toRingHom).comp
+          ((𝒢.points A).subtype.comp ρ)).comp H.subtype)))
+    :
+    (∀ a ∈ gOrdinaryRing.ideal p K A B χ H ρ ϖ, x a = 0) ↔
+      IsGOrdinary p K E 𝒪 C B wt H ((𝒢.map x).comp ρ) := sorry
+end GOrdinaryGeometry
+
+def BorelInterface.gl (𝒪 : Type u) [CommRing 𝒪] (n : ℕ) :
+    BorelInterface 𝒪 (ClosedMatrixGroup.gl 𝒪 n) := sorry
+
+def glCocharacter (𝒪 : Type u) [CommRing 𝒪] {n : ℕ} (w : Fin n → ℤ) :
+    GCocharacter (BorelInterface.gl 𝒪 n) := sorry
+
+/-- The j-th torus coordinate on GLₙ's diagonal canonical torus. -/
+def glTorusCoordinate (𝒪 : Type u) [CommRing 𝒪] {n : ℕ}
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] (i : Fin n) :
+    (canonicalTorus (BorelInterface.gl 𝒪 n)).points A →* Aˣ := sorry
+
+theorem glCocharacter_eval (𝒪 : Type u) [CommRing 𝒪] {n : ℕ} (w : Fin n → ℤ)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] (z : Aˣ) (i : Fin n) :
+    glTorusCoordinate 𝒪 A i ((glCocharacter 𝒪 w).eval A z) = z ^ w i := sorry
+
+/-- The reversal and minus sign translate the inertial cocharacter convention
+into the labelled ordinary-weight convention; HT(ε)=+1 remains fixed. -/
+theorem IsGOrdinary.gl (p : ℕ) [Fact p.Prime] (K E 𝒪 A : Type u)
+    [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+    [CommRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    [CommRing A] [Algebra 𝒪 A] [Algebra E A] [IsScalarTower 𝒪 E A]
+    [Module.Finite E A] [IsLocalRing A] {n : ℕ} (wt : DominantWeight p K E n)
+    (ρ : Field.absoluteGaloisGroup K →* (ClosedMatrixGroup.gl 𝒪 n).points A) :
+    (∃ H : Subgroup (Field.absoluteGaloisGroup K), IsOpen (H : Set (Field.absoluteGaloisGroup K)) ∧
+      IsGOrdinary p K E 𝒪 A (BorelInterface.gl 𝒪 n)
+        (fun σ ↦ glCocharacter 𝒪 (fun j ↦ -(wt.value σ j.rev + (j.val : ℤ)))) H ρ) ↔
+      IsOrdinaryOfWeight p K E A wt (((ClosedMatrixGroup.gl 𝒪 n).points A).subtype.comp ρ) := sorry
+
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Polarized inert-place level raising
+
+GlobalGaloisDeformations G7 supplies 𝒢_N=(GL_N×GL₁)⋊C₂ and its faithful
+matrix representation. LocalGaloisGroups supplies the finite-place completion
+and unramified quadratic restriction. The inert problem itself is constructed
+here, following LTXZZ Definition 3.5.1 and Proposition 3.5.2, pp. 27–28 (v1).
+-/
+
+def FinitePlaceCompletion (F : Type u) [Field F] [NumberField F]
+    (v : Ideal (NumberField.RingOfIntegers F)) : Type u := sorry
+instance (F : Type u) [Field F] [NumberField F]
+    (v : Ideal (NumberField.RingOfIntegers F)) : Field (FinitePlaceCompletion F v) := sorry
+
+/-- A CM extension and its inert finite place, with the actual local completions.
+Inertness is recorded by the unique prime above v and its residue cardinality. -/
+structure InertCMPlace (ℓ : ℕ) [Fact ℓ.Prime] (Kplus K : Type u)
+    [Field Kplus] [Field K] [Algebra ℚ_[ℓ] Kplus] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] Kplus] [FiniteDimensional ℚ_[ℓ] K]
+    [Algebra Kplus K] where
+  Fplus : Type u
+  F : Type u
+  [fieldPlus : Field Fplus]
+  [field : Field F]
+  [numberFieldPlus : NumberField Fplus]
+  [numberField : NumberField F]
+  [totallyReal : NumberField.IsTotallyReal Fplus]
+  [totallyComplex : NumberField.IsTotallyComplex F]
+  [extension : Algebra Fplus F]
+  degree : Module.finrank Fplus F = 2
+  v : Ideal (NumberField.RingOfIntegers Fplus)
+  w : Ideal (NumberField.RingOfIntegers F)
+  [maximal_v : v.IsMaximal]
+  [maximal_w : w.IsMaximal]
+  v_nonzero : v ≠ ⊥
+  w_nonzero : w ≠ ⊥
+  prime_above : Ideal.comap (NumberField.RingOfIntegers.mapRingHom (algebraMap Fplus F)) w = v
+  inert : ∀ (w' : Ideal (NumberField.RingOfIntegers F)), w'.IsPrime → w' ≠ ⊥ →
+    Ideal.comap (NumberField.RingOfIntegers.mapRingHom (algebraMap Fplus F)) w' = v → w'=w
+  [finite_residue_v : Fintype (NumberField.RingOfIntegers Fplus ⧸ v)]
+  [finite_residue_w : Fintype (NumberField.RingOfIntegers F ⧸ w)]
+  q : ℕ
+  q_eq : q = Fintype.card (NumberField.RingOfIntegers Fplus ⧸ v)
+  residue_char : ∃ f : ℕ, 0 < f ∧ q=ℓ^f
+  q_squared : Fintype.card (NumberField.RingOfIntegers F ⧸ w) = q^2
+  completion_plus : FinitePlaceCompletion Fplus v ≃+* Kplus
+  completion : FinitePlaceCompletion F w ≃+* K
+  local_degree : Module.finrank Kplus K = 2
+
+/-- Supplier's faithful closed matrix model of the polarized group. -/
+def polarizedGroupScheme (𝒪 : Type u) [CommRing 𝒪] (N : ℕ) : ClosedMatrixGroup 𝒪 (2*N+1) := sorry
+
+def polarizedMultiplier (𝒪 : Type u) [CommRing 𝒪] (N : ℕ) : GroupMultiplier (polarizedGroupScheme 𝒪 N) := sorry
+
+def polarizedIdentityEmbedding (𝒪 : Type u) [CommRing 𝒪] (N : ℕ)
+    (A : Type u) [CommRing A] [Algebra 𝒪 A] :
+    (GL (Fin N) A × Aˣ) →* (polarizedGroupScheme 𝒪 N).points A := sorry
+
+/-- The quadratic character of the inert extension and the p-adic cyclotomic
+character at an ℓ-adic place, both supplied by LocalGaloisGroups. -/
+def inertQuadraticCharacter (ℓ : ℕ) [Fact ℓ.Prime] (Kplus K 𝒪 : Type u)
+    [Field Kplus] [Field K] [Algebra ℚ_[ℓ] Kplus] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] Kplus] [FiniteDimensional ℚ_[ℓ] K]
+    [Algebra Kplus K] [CommRing 𝒪] : Field.absoluteGaloisGroup Kplus →* 𝒪ˣ := sorry
+
+def cyclotomicAt (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K 𝒪 : Type u)
+    [Field K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    [CommRing 𝒪] [Algebra ℤ_[p] 𝒪] : Field.absoluteGaloisGroup K →* 𝒪ˣ := sorry
+
+section PolarizedLevelRaising
+variable (p ℓ N : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+variable (Kplus K 𝒪 𝔽 : Type u) [Field Kplus] [Field K] [CharZero Kplus] [CharZero K]
+variable [Algebra ℚ_[ℓ] Kplus] [Algebra ℚ_[ℓ] K]
+variable [FiniteDimensional ℚ_[ℓ] Kplus] [FiniteDimensional ℚ_[ℓ] K]
+variable [Algebra Kplus K] [IsScalarTower ℚ_[ℓ] Kplus K]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪]
+variable [IsDiscreteValuationRing 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [MazurFinite (Field.absoluteGaloisGroup Kplus) 𝔽]
+
+structure LevelRaisingData where
+  place : InertCMPlace ℓ Kplus K
+  distinct_primes : ℓ ≠ p
+  rank_ge : 2 ≤ N
+  prime_ge : N ≤ p
+  nondegenerate : ¬ (p : ℤ) ∣ (place.q : ℤ)^2 - 1
+  residue_characteristic : ringChar 𝔽 = p
+  qUnit : 𝒪ˣ
+  qUnit_val : (qUnit : 𝒪) = place.q
+  parity : ZMod 2
+  multiplier : Field.absoluteGaloisGroup Kplus →* 𝒪ˣ
+  multiplier_eq : ∀ g, multiplier g =
+    inertQuadraticCharacter ℓ Kplus K 𝒪 g ^ parity.val *
+      cyclotomicAt p ℓ Kplus 𝒪 g ^ (1-(N:ℤ))
+  residual : Field.absoluteGaloisGroup Kplus →* GL (Fin (2*N+1)) 𝔽
+  [continuous_residual : ContinuousResidual residual]
+  group_value : ∀ g, residual g ∈ (polarizedGroupScheme 𝒪 N).points 𝔽
+  multiplier_residual : ∀ g, (polarizedMultiplier 𝒪 N).toHom 𝔽 ⟨residual g, group_value g⟩ =
+    Units.map (algebraMap 𝒪 𝔽).toMonoidHom (multiplier g)
+  naturalResidual : Field.absoluteGaloisGroup K →* GL (Fin N) 𝔽
+  [continuous_natural : ContinuousResidual naturalResidual]
+  identity_component : ∀ g, (⟨residual (localRestriction ℓ Kplus K
+      (IsScalarTower.toAlgHom ℚ_[ℓ] Kplus K) g), group_value _⟩ :
+      (polarizedGroupScheme 𝒪 N).points 𝔽) =
+    polarizedIdentityEmbedding 𝒪 N 𝔽
+      (naturalResidual g, Units.map (algebraMap 𝒪 𝔽).toMonoidHom
+        (multiplier (localRestriction ℓ Kplus K (IsScalarTower.toAlgHom ℚ_[ℓ] Kplus K) g)))
+  unramified_residual : ∀ g : localInertia ℓ K, naturalResidual g.val = 1
+  frobenius : Field.absoluteGaloisGroup K
+  tame : Field.absoluteGaloisGroup K
+  tame_inertia : tame ∈ localInertia ℓ K
+  eigenvalue_zero : Polynomial.rootMultiplicity
+    ((algebraMap 𝒪 𝔽 (qUnit : 𝒪)) ^ (-(N:ℤ)))
+    (naturalResidual frobenius : Matrix (Fin N) (Fin N) 𝔽).charpoly = 1
+  eigenvalue_one : Polynomial.rootMultiplicity
+    ((algebraMap 𝒪 𝔽 (qUnit : 𝒪)) ^ (2-(N:ℤ)))
+    (naturalResidual frobenius : Matrix (Fin N) (Fin N) 𝔽).charpoly = 1
+
+attribute [instance] LevelRaisingData.continuous_residual LevelRaisingData.continuous_natural
+variable {p ℓ N Kplus K 𝒪 𝔽}
+variable (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽)
+
+abbrev PolarizedLocalRing :=
+  GFramedRing (polarizedGroupScheme 𝒪 N) D.group_value ⧸
+    GFramedRing.fixedMultiplier (ρbar := D.residual) (polarizedGroupScheme 𝒪 N)
+      D.group_value (polarizedMultiplier 𝒪 N) D.multiplier D.multiplier_residual
+
+/-- Universal natural representation on the quadratic local subgroup. -/
+def PolarizedLocalRing.naturalRep (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽) :
+    Field.absoluteGaloisGroup K →* GL (Fin N) (PolarizedLocalRing D) := sorry
+
+/-- Hensel projectors onto the two specified simple residual eigenvalues. -/
+def LevelRaising.projector (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽) :
+    Matrix (Fin N) (Fin N) (PolarizedLocalRing D) := sorry
+
+def LevelRaising.eigenvalue0 (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽) : PolarizedLocalRing D := sorry
+def LevelRaising.eigenvalue1 (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽) : PolarizedLocalRing D := sorry
+
+theorem LevelRaising.projector_idempotent : LevelRaising.projector D ^ 2 = LevelRaising.projector D := sorry
+
+/-- Mixed: inertia preserves M₀ and is the identity on its canonical complement M₁. -/
+def LevelRaising.mix : Ideal (PolarizedLocalRing D) :=
+  let P : Matrix (Fin N) (Fin N) (PolarizedLocalRing D) := LevelRaising.projector D
+  let ρ := PolarizedLocalRing.naturalRep D
+  Ideal.span ({z | ∃ (g : localInertia ℓ K) (i j : Fin N),
+    z = ((1-P) * (ρ g.val : Matrix (Fin N) (Fin N) (PolarizedLocalRing D)) * P) i j} ∪
+    {z | ∃ (g : localInertia ℓ K) (i j : Fin N),
+    z = (((ρ g.val : Matrix (Fin N) (Fin N) (PolarizedLocalRing D))-1) * (1-P)) i j})
+
+/-- Unramified on both blocks. -/
+def LevelRaising.unr : Ideal (PolarizedLocalRing D) :=
+  Ideal.span {z | ∃ (g : localInertia ℓ K) (i j : Fin N),
+    z = ((PolarizedLocalRing.naturalRep D g.val : Matrix (Fin N) (Fin N) (PolarizedLocalRing D))-1) i j}
+
+/-- Ramified: the characteristic polynomial on M₀ is the fixed two-root polynomial. -/
+def LevelRaising.ram : Ideal (PolarizedLocalRing D) :=
+  let a := algebraMap 𝒪 (PolarizedLocalRing D) ((D.qUnit ^ (-(N:ℤ)) : 𝒪ˣ) : 𝒪)
+  let b := algebraMap 𝒪 (PolarizedLocalRing D) ((D.qUnit ^ (2-(N:ℤ)) : 𝒪ˣ) : 𝒪)
+  LevelRaising.mix D ⊔ Ideal.span {LevelRaising.eigenvalue0 D + LevelRaising.eigenvalue1 D - a-b,
+    LevelRaising.eigenvalue0 D * LevelRaising.eigenvalue1 D - a*b}
+
+/-- The unramified condition in the actual polarized ambient ring. -/
+def polarizedUnramifiedIdeal : Ideal (PolarizedLocalRing D) :=
+  let q : LiftingRing 𝒪 (2*N+1) D.residual →+* PolarizedLocalRing D :=
+    (Ideal.Quotient.mk _).comp (Ideal.Quotient.mk
+    (GFramedRing.ideal (ρbar := D.residual) (polarizedGroupScheme 𝒪 N) D.group_value))
+  Ideal.span {z | ∃ (g : localInertia ℓ Kplus) (i j : Fin (2*N+1)),
+    z = ((pointRep q g.val : Matrix (Fin (2*N+1)) (Fin (2*N+1)) (PolarizedLocalRing D))-1) i j}
+
+/-- Equality with the unramified polarized problem, not just ideal containment. -/
+theorem LevelRaising.unr_eq_minimal : LevelRaising.unr D = polarizedUnramifiedIdeal D := sorry
+
+/-- Even parity gives the nodal local model. -/
+theorem LevelRaising.mixed_model (hparity : D.parity=0) :
+    Nonempty ((PolarizedLocalRing D ⧸ LevelRaising.mix D) ≃ₐ[𝒪]
+      MvPowerSeries (Fin (N^2-1)) (LevelRaising.localModel 𝒪)) := sorry
+
+/-- Odd parity makes 2+x+y a unit, so the mixed condition is unramified. -/
+theorem LevelRaising.odd_parity (hparity : D.parity=1) :
+    LevelRaising.mix D = LevelRaising.unr D ∧
+      ringKrullDim (PolarizedLocalRing D ⧸ LevelRaising.ram D) = N^2 := sorry
+
+def LevelRaising.monodromyParameter (D : LevelRaisingData p ℓ N Kplus K 𝒪 𝔽) : PolarizedLocalRing D := sorry
+
+/-- Monodromy goes from the q^{-N} eigenline towards q^{-N+2}; the local
+Frobenius relation uses q², the residue cardinality at the inert place w. -/
+theorem LevelRaising.relation (hparity : D.parity=0) :
+    let q := Ideal.Quotient.mk (LevelRaising.mix D)
+    q (LevelRaising.monodromyParameter D) *
+      (q (LevelRaising.eigenvalue0 D) -
+        q (algebraMap 𝒪 (PolarizedLocalRing D) ((D.qUnit ^ (-(N:ℤ)) : 𝒪ˣ) : 𝒪))) = 0 := sorry
+end PolarizedLevelRaising
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Ordinary character algebras
+The completed group algebra is the PadicMeasuresIwasawaAlgebras L1 carrier;
+local Artin reciprocity is ClassFieldTheory Layer 7. ACC+ §6.2.6, p. 138.
+-/
+def LocalProPUnits (p : ℕ) [Fact p.Prime] (K : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : Type u := sorry
+instance (p : ℕ) [Fact p.Prime] (K : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : CommGroup (LocalProPUnits p K) := sorry
+instance (p : ℕ) [Fact p.Prime] (K : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : TopologicalSpace (LocalProPUnits p K) := sorry
+
+def CompletedGroupAlgebra (𝒪 U : Type u) [CommRing 𝒪] [CommGroup U]
+    [TopologicalSpace U] : Type u := sorry
+instance (𝒪 U : Type u) [CommRing 𝒪] [CommGroup U] [TopologicalSpace U] :
+    CommRing (CompletedGroupAlgebra 𝒪 U) := sorry
+instance (𝒪 U : Type u) [CommRing 𝒪] [CommGroup U] [TopologicalSpace U] :
+    Algebra 𝒪 (CompletedGroupAlgebra 𝒪 U) := sorry
+
+def CompletedGroupAlgebra.groupElement (𝒪 U : Type u) [CommRing 𝒪]
+    [CommGroup U] [TopologicalSpace U] : U →* (CompletedGroupAlgebra 𝒪 U)ˣ := sorry
+
+section WeightAlgebra
+variable (p : ℕ) [Fact p.Prime] (K 𝒪 𝔽 : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽] (n : ℕ)
+abbrev ordinaryGroupAlgebra := CompletedGroupAlgebra 𝒪 (Fin n → LocalProPUnits p K)
+
+def LocalProPUnits.artinInverse : localInertia p K →* LocalProPUnits p K := sorry
+
+/-- A nonempty collection of irreducible components, not an arbitrary ideal. -/
+structure OrdinaryWeightComponents where
+  primes : Set (Ideal (ordinaryGroupAlgebra p K 𝒪 n))
+  nonempty : primes.Nonempty
+  minimal : primes ⊆ minimalPrimes (ordinaryGroupAlgebra p K 𝒪 n)
+
+variable {p K 𝒪 𝔽 n}
+variable (a : OrdinaryWeightComponents p K 𝒪 n)
+def OrdinaryWeightComponents.ideal : Ideal (ordinaryGroupAlgebra p K 𝒪 n) := sInf a.primes
+abbrev ordinaryWeightRing := ordinaryGroupAlgebra p K 𝒪 n ⧸ a.ideal
+instance : IsLocalRing (ordinaryWeightRing a) := sorry
+instance : IsNoetherianRing (ordinaryWeightRing a) := sorry
+instance : IsAdicComplete (IsLocalRing.maximalIdeal (ordinaryWeightRing a)) (ordinaryWeightRing a) := sorry
+instance : TopologicalSpace (ordinaryWeightRing a) :=
+  (IsLocalRing.maximalIdeal (ordinaryWeightRing a)).adicTopology
+
+def ordinaryWeightRing.residue : ordinaryWeightRing a →ₐ[𝒪] 𝔽 := sorry
+
+def teichmullerCharacter (χ : localInertia p K →* 𝔽ˣ) : localInertia p K →* 𝒪ˣ := sorry
+
+def universalInertialCharacter (χbar : Fin n → localInertia p K →* 𝔽ˣ)
+    (i : Fin n) : localInertia p K →* (ordinaryWeightRing a)ˣ := sorry
+
+/-- The Teichmüller factor multiplies the i-th group-like element. -/
+theorem universalInertialCharacter_formula
+    (χbar : Fin n → localInertia p K →* 𝔽ˣ) (i : Fin n) (g : localInertia p K) :
+    universalInertialCharacter a χbar i g =
+      Units.map (algebraMap 𝒪 (ordinaryWeightRing a)).toMonoidHom (teichmullerCharacter (χbar i) g) *
+        Units.map (Ideal.Quotient.mk a.ideal).toMonoidHom
+          (CompletedGroupAlgebra.groupElement 𝒪 _ (fun j ↦ if j=i then
+            LocalProPUnits.artinInverse p K g else 1)) := sorry
+
+theorem universalInertialCharacter_residual
+    (χbar : Fin n → localInertia p K →* 𝔽ˣ) (i : Fin n) (g : localInertia p K) :
+    Units.map (ordinaryWeightRing.residue (𝔽 := 𝔽) a).toMonoidHom
+      (universalInertialCharacter a χbar i g) = χbar i g := sorry
+
+/-- Torsion subgroup of the local pro-p unit group. -/
+def ordinaryTorsionUnits : Subgroup (LocalProPUnits p K) where
+  carrier := {z | ∃ m : ℕ, 0<m ∧ z^m=1}
+  one_mem' := ⟨1, by omega, by simp⟩
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+/-- Galois orbits of torsion characters, with the actual coefficient action. -/
+def torsionCharacterSetoid (E : Type u) [Field E] [Algebra 𝒪 E] :
+    Setoid ((Fin n → ordinaryTorsionUnits (p := p) (K := K)) →* (AlgebraicClosure E)ˣ) where
+  r χ ψ := ∃ σ : AlgebraicClosure E ≃ₐ[E] AlgebraicClosure E,
+    ∀ z, Units.map σ.toAlgHom.toMonoidHom (χ z) = ψ z
+  iseqv := sorry
+
+theorem minimalPrimes_torsionCharacters (E : Type u) [Field E]
+    [Algebra 𝒪 E] [IsFractionRing 𝒪 E] :
+    Nonempty ({P : Ideal (ordinaryGroupAlgebra p K 𝒪 n) // P ∈ minimalPrimes _} ≃
+      Quotient (torsionCharacterSetoid (p := p) (K := K) (𝒪 := 𝒪) (n := n) E)) := sorry
+
+/-- The prescribed component condition is imposed on the completed group-algebra
+map, while reductions of the inertial characters include their Teichmüller factors. -/
+theorem ordinaryWeightRing.universal (A : Type u) [CommRing A] [Algebra 𝒪 A]
+    [IsLocalRing A] [IsNoetherianRing A]
+    [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
+    [TopologicalSpace A] [IsTopologicalRing A] (hA : IsAdic (IsLocalRing.maximalIdeal A)) :
+    Nonempty ({x : ordinaryWeightRing a →ₐ[𝒪] A // Continuous x} ≃
+      {χ : (Fin n → LocalProPUnits p K) →* Aˣ //
+        (Continuous fun g ↦ (χ g : A)) ∧
+        ∃ f : ordinaryGroupAlgebra p K 𝒪 n →ₐ[𝒪] A,
+          (∀ g, Units.map f.toMonoidHom (CompletedGroupAlgebra.groupElement 𝒪 _ g) = χ g) ∧
+          ∀ r ∈ a.ideal, f r=0}) := sorry
+
+end WeightAlgebra
+
+/-- Carrier test: over ℚ_p, p odd, the pro-p unit group has no torsion. -/
+example (p : ℕ) [Fact p.Prime] (𝒪 : Type) [CommRing 𝒪] [IsLocalRing 𝒪]
+    [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪] [Algebra ℤ_[p] 𝒪]
+    [Module.Finite ℤ_[p] 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+    (n : ℕ) (hp : p ≠ 2) (a : OrdinaryWeightComponents p ℚ_[p] 𝒪 n)
+    (hall : a.primes = minimalPrimes (ordinaryGroupAlgebra p ℚ_[p] 𝒪 n)) :
+    Nonempty (ordinaryWeightRing a ≃ₐ[𝒪] MvPowerSeries (Fin n) 𝒪) := sorry
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+/-! ## Discrete-series conditions (CHT §2.4.5, pp. 47–51)
+Only local conditions on the imported finite representation category are added.
+-/
+def CoefficientRepresentation.baseChange {R Γ : Type u} [CommRing R]
+    [Group Γ] [TopologicalSpace Γ] (V : CoefficientRepresentation R Γ)
+    (A : Type u) [CommRing A] [Algebra R A] [TopologicalSpace A]
+    [IsTopologicalRing A] : CoefficientRepresentation A Γ := sorry
+
+def CoefficientRepresentation.restrict {R Γ : Type u} [CommRing R]
+    [Group Γ] [TopologicalSpace Γ] (V : CoefficientRepresentation R Γ)
+    (H : Subgroup Γ) : CoefficientRepresentation R H := sorry
+
+def CoefficientRepresentation.twist {R Γ : Type u} [CommRing R]
+    [Group Γ] [TopologicalSpace Γ] [TopologicalSpace R] (V : CoefficientRepresentation R Γ)
+    (χ : Γ →* Rˣ) (hc : Continuous fun g ↦ (χ g : R)) : CoefficientRepresentation R Γ := sorry
+
+def CoefficientRepresentation.IsSimple {k Γ : Type u} [Field k]
+    [Group Γ] [TopologicalSpace Γ] (V : CoefficientRepresentation k Γ) : Prop :=
+  Nontrivial V.module ∧ ∀ U : Submodule k V.module, V.stable U → U=⊥ ∨ U=⊤
+
+def CoefficientRepresentation.IsAbsolutelySimple {k Γ : Type u} [Field k]
+    [Group Γ] [TopologicalSpace Γ] (V : CoefficientRepresentation k Γ) : Prop :=
+  ∀ (L : Type u) [Field L] [Algebra k L],
+    letI : TopologicalSpace L := ⊥
+    letI : DiscreteTopology L := ⟨rfl⟩
+    (V.baseChange L).IsSimple
+
+section DiscreteSeries
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K 𝒪 𝔽 : Type u)
+variable [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪]
+variable [IsDiscreteValuationRing 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [TopologicalSpace 𝒪] [IsTopologicalRing 𝒪] [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [TopologicalSpace 𝔽] [DiscreteTopology 𝔽] [Module.Finite 𝒪 𝔽]
+
+structure DiscreteSeriesType where
+  away : ℓ ≠ p
+  m : ℕ
+  d : ℕ
+  m_pos : 0<m
+  d_pos : 0<d
+  representation : Field.absoluteGaloisGroup K →* GL (Fin d) 𝒪
+  continuous : Continuous fun g ↦ (representation g : Matrix (Fin d) (Fin d) 𝒪)
+  residual : CoefficientRepresentation 𝔽 (Field.absoluteGaloisGroup K)
+  residual_identification : residual.Isomorphic
+    ((CoefficientRepresentation.ofMatrix (R := 𝒪) 𝒪 representation continuous).baseChange 𝔽)
+  absolutelyIrreducible : residual.IsAbsolutelySimple
+  inertiaConstituents : ∀ (U : Submodule 𝔽 (residual.restrict (localInertia ℓ K)).module)
+    (hU : (residual.restrict (localInertia ℓ K)).stable U)
+    (W : Submodule 𝔽 ((residual.restrict (localInertia ℓ K)).subobject U hU).module)
+    (hW : ((residual.restrict (localInertia ℓ K)).subobject U hU).stable W),
+    (((residual.restrict (localInertia ℓ K)).subobject U hU).quotient W hW).IsSimple →
+    (((residual.restrict (localInertia ℓ K)).subobject U hU).quotient W hW).IsAbsolutelySimple
+  noSelfTwist : ∀ i : ℕ, 1 ≤ i → i ≤ m →
+    ¬ residual.Isomorphic (residual.twist
+      (((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp (cyclotomicAt p ℓ K 𝒪))^i) (by sorry))
+
+variable {p ℓ K 𝒪 𝔽}
+variable (D : DiscreteSeriesType p ℓ K 𝒪 𝔽)
+variable (A : Type u) [CommRing A] [Algebra 𝒪 A]
+
+/-- The decreasing filtration, including equivariant graded identifications.
+Splitting is required on modules, not on Galois representations. -/
+structure DiscreteSeriesFiltration (ρ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) A) where
+  Fil : Fin (D.m+1) → Submodule A (Fin (D.m*D.d) → A)
+  antitone : Antitone Fil
+  top : Fil 0=⊤
+  bot : Fil (Fin.last D.m)=⊥
+  summand : ∀ i, ∃ Q, IsCompl (Fil i) Q
+  stable : ∀ i g x, x ∈ Fil i → Matrix.mulVec (ρ g : Matrix _ _ A) x ∈ Fil i
+  graded : Fin D.m → (Field.absoluteGaloisGroup K →* GL (Fin D.d) A)
+  basis : ∀ i : Fin D.m,
+    (Fil i.castSucc ⧸ Submodule.comap (Fil i.castSucc).subtype (Fil i.succ)) ≃ₗ[A] (Fin D.d → A)
+  equivariant : ∀ (i : Fin D.m) g (x : Fil i.castSucc),
+    basis i (Submodule.Quotient.mk ⟨Matrix.mulVec (ρ g : Matrix _ _ A) x.val, stable _ _ _ x.property⟩) =
+      Matrix.mulVec (graded i g : Matrix _ _ A) (basis i (Submodule.Quotient.mk x))
+  twists : ∀ i : Fin D.m, ∃ g : GL (Fin D.d) A, ∀ σ,
+    ((g * graded i σ * g⁻¹ : GL (Fin D.d) A) : Matrix (Fin D.d) (Fin D.d) A) = (algebraMap 𝒪 A (cyclotomicAt p ℓ K 𝒪 σ : 𝒪))^(i.val) • (graded ⟨0,D.m_pos⟩ σ : Matrix (Fin D.d) (Fin D.d) A)
+  inertia : ∃ g : GL (Fin D.d) A, ∀ σ : localInertia ℓ K,
+    g * graded ⟨0,D.m_pos⟩ σ.val * g⁻¹ =
+      Matrix.GeneralLinearGroup.map (algebraMap 𝒪 A) (D.representation σ.val)
+
+/-- CHT Definition 2.4.24, p. 49. -/
+def IsDiscreteSeriesLift (ρ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) A) : Prop :=
+  Nonempty (DiscreteSeriesFiltration D A ρ)
+
+theorem IsDiscreteSeriesLift.filtration_unique [IsLocalRing A]
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) A)
+    (F F' : DiscreteSeriesFiltration D A ρ) : F.Fil=F'.Fil := sorry
+
+def DiscreteSeriesType.filtration_baseChange (B : Type u) [CommRing B] [Algebra 𝒪 B]
+    (f : A →ₐ[𝒪] B) (ρ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) A)
+    (F : DiscreteSeriesFiltration D A ρ) :
+    DiscreteSeriesFiltration D B ((Matrix.GeneralLinearGroup.map f.toRingHom).comp ρ) := sorry
+
+/-- The induced representation uses the unramified stabilizer extension;
+induction itself is the RepresentationTheory carrier. -/
+def unramifiedExtensionSubgroup (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K]
+    [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] (d : ℕ) :
+    Subgroup (Field.absoluteGaloisGroup K) := sorry
+
+def inducedMatrixRepresentation {Γ R : Type u} [Group Γ] [CommRing R]
+    (H : Subgroup Γ) (d n : ℕ) (s : H →* GL (Fin d) R)
+    (hindex : H.index*d=n) : Γ →* GL (Fin n) R := sorry
+
+theorem DiscreteSeriesType.induced : ∃ (r d' : ℕ) (hr : 0<r) (hd : r*d'=D.d)
+    (s : unramifiedExtensionSubgroup ℓ K r →* GL (Fin d') 𝒪)
+    (hi : (unramifiedExtensionSubgroup ℓ K r).index*d'=D.d),
+    ∃ g : GL (Fin D.d) 𝒪, ∀ σ, g * D.representation σ * g⁻¹ =
+      inducedMatrixRepresentation _ d' D.d s hi σ := sorry
+
+variable [MazurFinite (Field.absoluteGaloisGroup K) 𝔽]
+theorem discreteSeriesDeformation
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) 𝔽)
+    [ContinuousResidual ρ₀] (hρ₀ : IsDiscreteSeriesLift D 𝔽 ρ₀) :
+    ∃ P : DeformationProblem 𝒪 𝔽 (Field.absoluteGaloisGroup K) (D.m*D.d) ρ₀,
+      ∀ A ρ, ρ ∈ P.condition A ↔ IsDiscreteSeriesLift D A.ring ρ.toHom := sorry
+
+def discreteSeriesIdeal (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) 𝔽)
+    [ContinuousResidual ρ₀] (hρ₀ : IsDiscreteSeriesLift D 𝔽 ρ₀) :
+    Ideal (LiftingRing 𝒪 (D.m*D.d) ρ₀) := sorry
+
+/-- CHT Lemmas 2.4.27–2.4.28, pp. 50–51. -/
+theorem discreteSeries_formallySmooth
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) 𝔽)
+    [ContinuousResidual ρ₀] (hρ₀ : IsDiscreteSeriesLift D 𝔽 ρ₀) :
+    IsPowerSeriesOver 𝒪 (LiftingRing 𝒪 (D.m*D.d) ρ₀ ⧸ discreteSeriesIdeal D ρ₀ hρ₀) ((D.m*D.d)^2) := sorry
+
+/-- Test ds_m1: a one-step filtration fixes precisely the inertia type. -/
+example (hm : D.m=1) (ρ : Field.absoluteGaloisGroup K →* GL (Fin (D.m*D.d)) A)
+    (e : Fin (D.m*D.d) ≃ Fin D.d) :
+    IsDiscreteSeriesLift D A ρ ↔ ∃ g : GL (Fin D.d) A,
+      ∀ σ : localInertia ℓ K, (g : Matrix (Fin D.d) (Fin D.d) A) * Matrix.reindex e e (ρ σ.val : Matrix (Fin (D.m*D.d)) (Fin (D.m*D.d)) A) * (g⁻¹ : GL (Fin D.d) A) =
+        (Matrix.GeneralLinearGroup.map (algebraMap 𝒪 A) (D.representation σ.val) : Matrix (Fin D.d) (Fin D.d) A) := sorry
+end DiscreteSeries
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.PhiGamma
+open TauCeti.GaloisDeformation.Local
+/-! ## Deformations of (φ,Γ)-modules
+PadicHodgeTheory P7 owns the Robba-ring module category and its period/triangulation
+functors. These adapters expose its objects, morphisms and deformation groupoids.
+Ding §3.2.2, p. 61, Proposition 2.10(1), and square (3.55).
+-/
+section PhiGamma
+variable (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+
+def Object (n : ℕ) : Type (u+1) := by
+  have _ := p; let _ : Field K := inferInstance; let _ : Field E := inferInstance
+  let _ : FiniteDimensional ℚ_[p] K := inferInstance
+  let _ : FiniteDimensional ℚ_[p] E := inferInstance
+  exact sorry
+
+variable {p K E}
+
+def End {n : ℕ} (D : Object p K E n) : Type u := sorry
+instance {n : ℕ} (D : Object p K E n) : Ring (End D) := sorry
+instance {n : ℕ} (D : Object p K E n) : Algebra E (End D) := sorry
+
+variable (p K E)
+
+/-- The supplier's full subcategory ΦΓ_nc(φ,h); it includes crystabellinity,
+regular labelled weights, generic Frobenius and noncriticality of every refinement.
+An arbitrary generic trianguline object is not an object of this carrier. -/
+
+def NoncriticalCrystabelline (n : ℕ) : Type (u+1) := by
+  have _ := p; let _ : Field K := inferInstance; let _ : Field E := inferInstance
+  let _ : FiniteDimensional ℚ_[p] K := inferInstance
+  let _ : FiniteDimensional ℚ_[p] E := inferInstance
+  exact sorry
+
+variable {p K E}
+
+def NoncriticalCrystabelline.module {n : ℕ} (D : NoncriticalCrystabelline p K E n) :
+    Object p K E n := sorry
+
+def NoncriticalCrystabelline.parameter {n : ℕ} (D : NoncriticalCrystabelline p K E n)
+    (w : Equiv.Perm (Fin n)) : (Fin n → Kˣ) →* Eˣ := sorry
+
+def ExtOne {n : ℕ} (D : Object p K E n) : Type u := sorry
+instance {n : ℕ} (D : Object p K E n) : AddCommGroup (ExtOne D) := sorry
+instance {n : ℕ} (D : Object p K E n) : Module E (ExtOne D) := sorry
+
+def triangulineExtOne {n : ℕ} (D : NoncriticalCrystabelline p K E n)
+    (w : Equiv.Perm (Fin n)) : Submodule E (ExtOne (D.module)) := sorry
+
+def deRhamExtOne {n : ℕ} (D : NoncriticalCrystabelline p K E n) :
+    Submodule E (ExtOne D.module) := sorry
+
+variable {n : ℕ} (D : NoncriticalCrystabelline p K E n)
+variable (hEnd : Nonempty (End D.module ≃ₐ[E] E))
+
+/-- Complete local E-algebras representing module deformations, with residue E. -/
+def defRing (D : NoncriticalCrystabelline p K E n)
+    (hEnd : Nonempty (End D.module ≃ₐ[E] E)) : Type u := sorry
+instance : CommRing (defRing D hEnd) := sorry
+instance : Algebra E (defRing D hEnd) := sorry
+instance : IsLocalRing (defRing D hEnd) := sorry
+instance : IsNoetherianRing (defRing D hEnd) := sorry
+instance : IsAdicComplete (IsLocalRing.maximalIdeal (defRing D hEnd)) (defRing D hEnd) := sorry
+
+def triangulineIdeal (w : Equiv.Perm (Fin n)) : Ideal (defRing D hEnd) := sorry
+abbrev triangulineDefRing (w : Equiv.Perm (Fin n)) := defRing D hEnd ⧸ triangulineIdeal D hEnd w
+
+def deRhamIdeal : Ideal (defRing D hEnd) := sorry
+abbrev deRhamDefRing := defRing D hEnd ⧸ deRhamIdeal D hEnd
+instance (w : Equiv.Perm (Fin n)) : Nontrivial (triangulineDefRing D hEnd w) := sorry
+instance : Nontrivial (deRhamDefRing D hEnd) := sorry
+instance (w : Equiv.Perm (Fin n)) : IsLocalRing (triangulineDefRing D hEnd w) := sorry
+instance : IsLocalRing (deRhamDefRing D hEnd) := sorry
+
+def triangulineDefRing.forget (w : Equiv.Perm (Fin n)) :
+    defRing D hEnd →ₐ[E] triangulineDefRing D hEnd w := Ideal.Quotient.mkₐ E _
+
+theorem triangulineDefRing.forget_surjective (w : Equiv.Perm (Fin n)) :
+    Function.Surjective (triangulineDefRing.forget D hEnd w) := sorry
+
+theorem triangulineIdeal_le_deRham (w : Equiv.Perm (Fin n)) :
+    triangulineIdeal D hEnd w ≤ deRhamIdeal D hEnd := sorry
+
+abbrev tangent (R : Type u) [CommRing R] [Algebra E R] [IsLocalRing R] : Type u :=
+  (IsLocalRing.maximalIdeal R).Cotangent →ₗ[E] E
+
+theorem tangent_defRing (w : Equiv.Perm (Fin n)) :
+    Nonempty (tangent (E := E) (defRing D hEnd) ≃ₗ[E] ExtOne D.module) ∧
+    Nonempty (tangent (E := E) (triangulineDefRing D hEnd w) ≃ₗ[E] triangulineExtOne D w) ∧
+    Nonempty (tangent (E := E) (deRhamDefRing D hEnd) ≃ₗ[E] deRhamExtOne D) := sorry
+
+/-- Formal smoothness here is complete-local formal smoothness, expressed by
+power-series presentations. It does not mean finite-presentation algebraic smoothness. -/
+theorem formallySmooth (w : Equiv.Perm (Fin n)) :
+    IsPowerSeriesOver E (defRing D hEnd) (1+n^2*Module.finrank ℚ_[p] K) ∧
+    IsPowerSeriesOver E (triangulineDefRing D hEnd w)
+      (1+Module.finrank ℚ_[p] K*(n*(n+1)/2)) ∧
+    IsPowerSeriesOver E (deRhamDefRing D hEnd)
+      (1+Module.finrank ℚ_[p] K*(n*(n-1)/2)) := sorry
+
+/-- The character's universal deformation and its locally algebraic quotient. -/
+def parameterRing (δ : (Fin n → Kˣ) →* Eˣ) : Type u := sorry
+instance (δ : (Fin n → Kˣ) →* Eˣ) : CommRing (parameterRing δ) := sorry
+instance (δ : (Fin n → Kˣ) →* Eˣ) : Algebra E (parameterRing δ) := sorry
+
+def parameterLocallyAlgebraicIdeal (δ : (Fin n → Kˣ) →* Eˣ) : Ideal (parameterRing δ) := sorry
+
+def parameterMap (w : Equiv.Perm (Fin n)) :
+    parameterRing (D.parameter w) →ₐ[E] triangulineDefRing D hEnd w := sorry
+
+/-- Square (3.55): first-order trianguline deformations are de Rham precisely
+when their parameter is locally algebraic. -/
+theorem firstOrder_cartesian (w : Equiv.Perm (Fin n))
+    (x : triangulineDefRing D hEnd w →ₐ[E] TrivSqZeroExt E E) :
+    (∀ z ∈ Ideal.map (triangulineDefRing.forget D hEnd w).toRingHom (deRhamIdeal D hEnd), x z=0) ↔
+      ∀ z ∈ parameterLocallyAlgebraicIdeal (D.parameter w), x (parameterMap D hEnd w z)=0 := sorry
+
+def DRig (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) E) : Object p K E n := sorry
+
+/-- The module/Galois equivalence supplies a genuine module isomorphism, not
+merely equality of dimensions. -/
+def Iso (D D' : Object p K E n) : Type u := sorry
+
+theorem galois_compat (𝒪 𝔽 : Type u) [CommRing 𝒪] [IsLocalRing 𝒪]
+    [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+    [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+    [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+    [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+    [MazurFinite (Field.absoluteGaloisGroup K) 𝔽]
+    (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+    (ϖ : 𝒪) (hϖ : Irreducible ϖ)
+    (x : GenericFibre ϖ (LiftingRing 𝒪 n ρ₀) →ₐ[𝒪] E)
+    (P : Ideal (GenericFibre ϖ (LiftingRing 𝒪 n ρ₀))) [P.IsMaximal]
+    (hx : RingHom.ker x.toRingHom=P)
+    (i : Iso D.module (DRig (p := p) (K := K)
+      (pointRep (x.toRingHom.comp (algebraMap (LiftingRing 𝒪 n ρ₀) _))))) :
+    Nonempty (CompletedLocalRing P ≃+*
+      MvPowerSeries (Fin (n^2-1)) (defRing D hEnd)) := sorry
+
+/-- Rank one: the actual universal ring has [K:ℚ_p]+1 variables. -/
+example (hn : n=1) : IsPowerSeriesOver E (defRing D hEnd) (Module.finrank ℚ_[p] K+1) := sorry
+
+/-- Rank two over a degree-one field: the de Rham quotient has two parameters. -/
+example (hn : n=2) (hK : Module.finrank ℚ_[p] K=1) :
+    Nonempty (deRhamDefRing D hEnd ≃ₐ[E] MvPowerSeries (Fin 2) E) := sorry
+end PhiGamma
+end TauCeti.GaloisDeformation.PhiGamma
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Coefficient Kisin deformation groupoids
+The integral category, tensor pullbacks and maximal étale quotient are
+FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4's carriers, including its
+requested dyadic extension. Kisin 2-adic §2.1, (2.1.1)–(2.1.7), pp. 19–21.
+-/
+section KisinGroupoids
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+
+/-- The admissible augmented coefficient category of the supplier. -/
+structure AugmentedCoefficientAlgebra (𝔽 : Type u) [Field 𝔽] [CharP 𝔽 p] [Algebra ℤ_[p] 𝔽] where
+  ring : Type u
+  [commRing : CommRing ring]
+  [coefficient : Algebra ℤ_[p] ring]
+  [noetherian : IsNoetherianRing ring]
+  ideal : Ideal ring
+  [complete : IsAdicComplete ideal ring]
+  [residueAlgebra : Algebra 𝔽 (ring ⧸ ideal)]
+  [residueFinite : Module.Finite 𝔽 (ring ⧸ ideal)]
+  coefficient_compatibility : ∀ z : ℤ_[p], Ideal.Quotient.mk ideal (algebraMap ℤ_[p] ring z) =
+    algebraMap 𝔽 (ring ⧸ ideal) (algebraMap ℤ_[p] 𝔽 z)
+
+attribute [instance] AugmentedCoefficientAlgebra.commRing AugmentedCoefficientAlgebra.coefficient
+  AugmentedCoefficientAlgebra.noetherian AugmentedCoefficientAlgebra.complete
+  AugmentedCoefficientAlgebra.residueAlgebra AugmentedCoefficientAlgebra.residueFinite
+
+/-- R07.4's finite projective height-one coefficient Kisin modules. -/
+def KisinCoefficientObject (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (A : Type u) [CommRing A] [Algebra ℤ_[p] A] (n : ℕ) : Type (u+1) := sorry
+
+def EtalePhiObject (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (A : Type u) [CommRing A] [Algebra ℤ_[p] A] (n : ℕ) : Type (u+1) := sorry
+
+variable {p K}
+def KisinCoefficientObject.localize {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M : KisinCoefficientObject p K A n) : EtalePhiObject p K A n := sorry
+
+def KisinCoefficientObject.baseChange {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra ℤ_[p] A] [Algebra ℤ_[p] B] {n : ℕ}
+    (f : A →ₐ[ℤ_[p]] B) (M : KisinCoefficientObject p K A n) : KisinCoefficientObject p K B n := sorry
+
+def EtalePhiObject.baseChange {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra ℤ_[p] A] [Algebra ℤ_[p] B] {n : ℕ}
+    (f : A →+* B) (M : EtalePhiObject p K A n) : EtalePhiObject p K B n := sorry
+
+def EtalePhiObject.Iso {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M M' : EtalePhiObject p K A n) : Type u := sorry
+
+def KisinCoefficientObject.Iso {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M M' : KisinCoefficientObject p K A n) : Type u := sorry
+
+def KisinCoefficientObject.localizeIso {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    {M M' : KisinCoefficientObject p K A n} (i : M.Iso M') : M.localize.Iso M'.localize := sorry
+
+def EtalePhiObject.Iso.comp {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    {M M' M'' : EtalePhiObject p K A n} (i : M.Iso M') (j : M'.Iso M'') : M.Iso M'' := sorry
+
+def EtalePhiObject.Iso.baseChange {A B : Type u} [CommRing A] [CommRing B]
+    [Algebra ℤ_[p] A] [Algebra ℤ_[p] B] {n : ℕ}
+    (f : A →+* B) {M M' : EtalePhiObject p K A n} (i : M.Iso M') :
+    (EtalePhiObject.baseChange f M).Iso (EtalePhiObject.baseChange f M') := sorry
+
+/-- Connectedness is tested on the maximal étale quotient's module. -/
+def KisinCoefficientObject.maximalEtaleQuotient {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M : KisinCoefficientObject p K A n) : Type u := sorry
+instance {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M : KisinCoefficientObject p K A n) : AddCommGroup M.maximalEtaleQuotient := sorry
+
+def KisinCoefficientObject.connected {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+    (M : KisinCoefficientObject p K A n) : Prop := Subsingleton M.maximalEtaleQuotient
+
+variable (𝔽 : Type u) [Field 𝔽] [CharP 𝔽 p] [Algebra ℤ_[p] 𝔽]
+variable {n : ℕ} (M₀ : EtalePhiObject p K 𝔽 n)
+variable (A : AugmentedCoefficientAlgebra p 𝔽)
+
+/-- Objects with an identification after reducing and localizing. -/
+structure kisinGroupoid where
+  lattice : KisinCoefficientObject p K A.ring n
+  identification : EtalePhiObject.Iso
+    (EtalePhiObject.baseChange (Ideal.Quotient.mk A.ideal) lattice.localize)
+    (EtalePhiObject.baseChange (algebraMap 𝔽 (A.ring ⧸ A.ideal)) M₀)
+
+/-- Morphisms are precisely isomorphisms compatible with the identification. -/
+def kisinGroupoid.Hom (X Y : kisinGroupoid 𝔽 M₀ A) : Type u :=
+  {i : X.lattice.Iso Y.lattice //
+    HEq (EtalePhiObject.Iso.comp
+      (EtalePhiObject.Iso.baseChange (Ideal.Quotient.mk A.ideal) (KisinCoefficientObject.localizeIso i)) Y.identification)
+      X.identification}
+
+instance : Groupoid (kisinGroupoid 𝔽 M₀ A) := sorry
+abbrev kisinGroupoid.connected := {X : kisinGroupoid 𝔽 M₀ A // X.lattice.connected}
+instance : Groupoid (kisinGroupoid.connected 𝔽 M₀ A) := sorry
+
+/-- Étale φ-module deformations have the same augmented reduction datum. -/
+structure phiModuleGroupoid where
+  module : EtalePhiObject p K A.ring n
+  identification : EtalePhiObject.Iso
+    (EtalePhiObject.baseChange (Ideal.Quotient.mk A.ideal) module)
+    (EtalePhiObject.baseChange (algebraMap 𝔽 (A.ring ⧸ A.ideal)) M₀)
+instance : Groupoid (phiModuleGroupoid 𝔽 M₀ A) := sorry
+
+def kisinGroupoid_toPhiModule : kisinGroupoid 𝔽 M₀ A ⥤ phiModuleGroupoid 𝔽 M₀ A := sorry
+
+theorem kisinGroupoid_toPhiModule_obj (X : kisinGroupoid 𝔽 M₀ A) :
+    (kisinGroupoid_toPhiModule 𝔽 M₀ A).obj X = ⟨X.lattice.localize, X.identification⟩ := sorry
+
+/-- An allowed map of augmented algebras preserves the given residual algebra
+map and sends the augmentation ideal into the next one. -/
+structure AugmentedCoefficientAlgebra.Hom (B : AugmentedCoefficientAlgebra p 𝔽) where
+  toAlgHom : A.ring →ₐ[ℤ_[p]] B.ring
+  ideal : A.ideal ≤ Ideal.comap toAlgHom.toRingHom B.ideal
+  residue : ∀ x : 𝔽,
+    Ideal.quotientMap B.ideal toAlgHom.toRingHom ideal
+      (algebraMap 𝔽 (A.ring ⧸ A.ideal) x) = algebraMap 𝔽 (B.ring ⧸ B.ideal) x
+
+def kisinGroupoid.baseChange (B : AugmentedCoefficientAlgebra p 𝔽)
+    (f : AugmentedCoefficientAlgebra.Hom 𝔽 A B) :
+    kisinGroupoid 𝔽 M₀ A ⥤ kisinGroupoid 𝔽 M₀ B := sorry
+
+theorem kisinGroupoid.baseChange_lattice (B : AugmentedCoefficientAlgebra p 𝔽)
+    (f : AugmentedCoefficientAlgebra.Hom 𝔽 A B) (X : kisinGroupoid 𝔽 M₀ A) :
+    ((kisinGroupoid.baseChange 𝔽 M₀ A B f).obj X).lattice =
+      KisinCoefficientObject.baseChange f.toAlgHom X.lattice := sorry
+
+theorem kisinGroupoid.baseChange_connected (B : AugmentedCoefficientAlgebra p 𝔽)
+    (f : AugmentedCoefficientAlgebra.Hom 𝔽 A B) (X : kisinGroupoid 𝔽 M₀ A)
+    (hX : X.lattice.connected) : ((kisinGroupoid.baseChange 𝔽 M₀ A B f).obj X).lattice.connected := sorry
+
+/-- In the dyadic case the connected subgroupoid is exactly the objects whose
+maximal étale quotient vanishes; it does not exclude other finite-flat objects. -/
+theorem kisinGroupoid.connected_iff_etalePart (hp : p=2) (X : kisinGroupoid 𝔽 M₀ A) :
+    X.lattice.connected ↔ Subsingleton X.lattice.maximalEtaleQuotient := Iff.rfl
+end KisinGroupoids
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Torsion crystalline objects
+LTXZZ Definition 2.2.4, pp. 124–125. Intervals below use this file's
+HT(ε)=+1 convention; the source's cyclotomic interval [-1,0] becomes [0,1].
+The crystalline period and Fontaine–Laffaille categories remain R06/R07 suppliers.
+-/
+section TorsionCrystalline
+variable (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+
+/-- Crystallinity over K itself, with the labelled filtration supported in [a,b]. -/
+def IsCrystallineInInterval {n : ℕ} (a b : ℤ)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]) : Prop :=
+  Function.Bijective (PeriodHom.comparison
+    (semistablePeriods p K ℚ_[p] ⊤ (by simp)) (ρ.comp (⊤ : Subgroup (Field.absoluteGaloisGroup K)).subtype)) ∧
+  pstMonodromy p K ℚ_[p] ρ=0 ∧
+  PeriodHom.Fil (deRhamPeriods p K ℚ_[p]) ρ a=⊤ ∧
+  PeriodHom.Fil (deRhamPeriods p K ℚ_[p]) ρ (b+1)=⊥
+
+/-- A stable full integral lattice in a fixed rational representation. -/
+structure CrystallineLattice {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]) where
+  submodule : Submodule ℤ_[p] (Fin n → ℚ_[p])
+  finite : Module.Finite ℤ_[p] submodule
+  spanning : Submodule.span ℚ_[p] (submodule : Set (Fin n → ℚ_[p]))=⊤
+  stable : ∀ g x, x ∈ submodule → Matrix.mulVec (ρ g : Matrix (Fin n) (Fin n) ℚ_[p]) x ∈ submodule
+
+variable {p K}
+def CrystallineLattice.representation {n : ℕ}
+    {ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]} (L : CrystallineLattice p K ρ) :
+    CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K) := sorry
+
+theorem CrystallineLattice.representation_carrier {n : ℕ}
+    {ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]} (L : CrystallineLattice p K ρ) :
+    Nonempty (L.representation.module ≃ₗ[ℤ_[p]] L.submodule) := sorry
+
+def CrystallineLattice.quotient {n : ℕ}
+    {ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]} (L L' : CrystallineLattice p K ρ)
+    (h : L'.submodule ≤ L.submodule) :
+    CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K) := sorry
+
+theorem CrystallineLattice.quotient_carrier {n : ℕ}
+    {ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]} (L L' : CrystallineLattice p K ρ)
+    (h : L'.submodule ≤ L.submodule) :
+    Nonempty ((L.quotient L' h).module ≃ₗ[ℤ_[p]]
+      (L.submodule ⧸ Submodule.comap L.submodule.subtype L'.submodule)) := sorry
+
+/-- The torsion condition is an actual quotient of two stable full lattices. -/
+def IsTorsionCrystalline (a b : ℤ)
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) : Prop :=
+  ∃ (n : ℕ) (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p]),
+    (Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) ℚ_[p])) ∧ IsCrystallineInInterval p K a b ρ ∧
+    ∃ (L L' : CrystallineLattice p K ρ) (h : L'.submodule ≤ L.submodule), V.Isomorphic (L.quotient L' h)
+
+def CoefficientRepresentation.modPower
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) (m : ℕ) :
+    CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K) := sorry
+
+theorem CoefficientRepresentation.modPower_carrier
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) (m : ℕ) :
+    Nonempty ((V.modPower m).module ≃ₗ[ℤ_[p]]
+      (V.module ⧸ LinearMap.range ((p^m : ℤ_[p]) • (LinearMap.id : V.module →ₗ[ℤ_[p]] V.module)))) := sorry
+
+def IsCrystallineIntegral (a b : ℤ)
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) : Prop :=
+  ∀ m : ℕ, 0<m → IsTorsionCrystalline a b (V.modPower m)
+
+/-- Subobject, quotient and direct-sum closure is unconditional in the fixed interval. -/
+theorem IsTorsionCrystalline.closed (a b : ℤ)
+    (V W : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K))
+    (hV : IsTorsionCrystalline a b V) (hW : IsTorsionCrystalline a b W)
+    (U : Submodule ℤ_[p] V.module) (hU : V.stable U) :
+    IsTorsionCrystalline a b (V.subobject U hU) ∧
+    IsTorsionCrystalline a b (V.quotient U hU) ∧
+    IsTorsionCrystalline a b (V.product W) := sorry
+
+theorem IsCrystallineIntegral.of_rational (a b : ℤ) {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p])
+    (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) ℚ_[p]))
+    (hρ : IsCrystallineInInterval p K a b ρ) (L : CrystallineLattice p K ρ) :
+    IsCrystallineIntegral a b L.representation := sorry
+
+/-- The shifted Fontaine–Laffaille category with its exact realization is R07.3. -/
+def ShiftedFLObject (p : ℕ) [Fact p.Prime] (K : Type) [Field K]
+    [Algebra ℚ_[p] K] (a b : ℤ) : Type 1 := sorry
+
+def ShiftedFLObject.realize (a b : ℤ) (M : ShiftedFLObject p K a b) :
+    CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K) := sorry
+
+theorem IsTorsionCrystalline.fontaineLaffaille (a b : ℤ) (hab : a≤b)
+    (hwidth : b-a ≤ (p:ℤ)-2) (hK : localRamificationIndex p K=1)
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) :
+    IsTorsionCrystalline a b V ↔ ∃ M : ShiftedFLObject p K a b,
+      V.Isomorphic (ShiftedFLObject.realize a b M) := sorry
+
+def CoefficientRepresentation.tensor
+    (V W : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K)) :
+    CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K) := sorry
+
+theorem IsTorsionCrystalline.twist (a b w : ℤ)
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K))
+    (hV : IsTorsionCrystalline a b V)
+    (χ : Field.absoluteGaloisGroup K →* GL (Fin 1) ℚ_[p])
+    (hχ : IsCrystallineInInterval p K w w χ) (L : CrystallineLattice p K χ) :
+    IsTorsionCrystalline (a+w) (b+w) (V.tensor L.representation) := sorry
+
+/-- Carrier tests for trivial torsion and a stable rational lattice. -/
+example (m : ℕ) (hm : 0<m)
+    (V : CoefficientRepresentation ℤ_[p] (Field.absoluteGaloisGroup K))
+    (e : V.module ≃ₗ[ℤ_[p]] (ℤ_[p] ⧸ Ideal.span {(p^m : ℤ_[p])})) (htriv : ∀ g x, V.action g x=x) :
+    IsTorsionCrystalline 0 0 V := sorry
+end TorsionCrystalline
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+/-! ## Symplectic ordinary shapes and their local problems
+CG Definition 4.6, pp. 814–816; BCGP Definition 7.3.1 and Lemma 7.3.12,
+pp. 172–178 (arXiv v3). The zero entries on the unramified plane are retained.
+-/
+def GSp4.group (𝒪 : Type u) [CommRing 𝒪] : ClosedMatrixGroup 𝒪 4 := sorry
+
+theorem GSp4.group_points (𝒪 A : Type u) [CommRing 𝒪] [CommRing A] [Algebra 𝒪 A]
+    (g : GL (Fin 4) A) : g ∈ (GSp4.group 𝒪).points A ↔
+      ∃ ν : A, IsGSp4 (g : Matrix _ _ A) ν := sorry
+
+def GSp4.multiplier (𝒪 : Type u) [CommRing 𝒪] : GroupMultiplier (GSp4.group 𝒪) := sorry
+
+/-- Symplectic conjugation into a Borel, with ordered characters on its diagonal. -/
+def GSp4.BorelShape {Γ A : Type u} [Group Γ] [CommRing A]
+    (ρ : Γ →* GL (Fin 4) A) (χ : Fin 4 → Γ →* Aˣ) : Prop :=
+  (∀ σ, IsGSp4 (ρ σ : Matrix (Fin 4) (Fin 4) A)
+    ((χ 0 σ : A)*(χ 3 σ : A))) ∧
+  ∃ g : GL (Fin 4) A, (∃ ν, IsGSp4 (g : Matrix _ _ A) ν) ∧ ∀ σ,
+    let M := ((g * ρ σ * g⁻¹ : GL (Fin 4) A) : Matrix _ _ A)
+    (∀ i j : Fin 4, j < i → M i j=0) ∧ ∀ i, M i i=(χ i σ : A)
+
+/-- P is the torus times the Siegel unipotent radical, a six-dimensional
+subgroup of the Borel. This is stronger than just a stable Lagrangian plane. -/
+def GSp4.ParabolicShape {Γ A : Type u} [Group Γ] [CommRing A]
+    (ρ : Γ →* GL (Fin 4) A) (χ : Fin 4 → Γ →* Aˣ) : Prop :=
+  (∀ σ, IsGSp4 (ρ σ : Matrix (Fin 4) (Fin 4) A)
+    ((χ 0 σ : A)*(χ 3 σ : A))) ∧
+  ∃ g : GL (Fin 4) A, (∃ ν, IsGSp4 (g : Matrix _ _ A) ν) ∧ ∀ σ,
+    let M := ((g * ρ σ * g⁻¹ : GL (Fin 4) A) : Matrix _ _ A)
+    (∀ i j : Fin 4, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0 ∧ ∀ i, M i i=(χ i σ : A)
+
+def GSp4.pairedCharacters {Γ A : Type u} [Group Γ] [CommRing A]
+    (a b μ : Γ →* Aˣ) : Fin 4 → Γ →* Aˣ := ![a,b,μ*b⁻¹,μ*a⁻¹]
+
+section SymplecticOrdinary
+variable (p : ℕ) [Fact p.Prime] (𝒪 𝔽 : Type)
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪]
+variable [IsDiscreteValuationRing 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Module.Finite ℤ_[p] 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) 𝔽]
+variable (hp : p≠2) (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* 𝔽ˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) 𝔽) [ContinuousResidual ρ₀]
+variable (a : ℕ) (ha : 2≤a)
+
+/-- Residual genericity excludes the four root-character coincidences. -/
+def GSp4.SiegelGeneric (φ : Field.absoluteGaloisGroup ℚ_[p]) : Prop :=
+  let α := (χbar 0 φ : 𝔽)
+  let β := (χbar 1 φ : 𝔽)
+  (α^2-1)*(β^2-1)*(α^2*β^2-1)*(α-β) ≠ 0
+
+variable {p 𝒪 𝔽}
+/-- At weight two, both plane characters are unramified, with distinct residual
+characters. This condition by itself allows noncrystalline semistable extensions. -/
+def GSp4.IsPDistinguishedOrdinary (A : CNLObject 𝒪 𝔽)
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  χbar 0 ≠ χbar 1 ∧ ∃ α β : UnramifiedCharacter (Field.absoluteGaloisGroup ℚ_[p]) A.ring (localInertia p ℚ_[p]),
+    (∀ σ, Units.map A.residue.toMonoidHom (α.toHom σ)=χbar 0 σ) ∧
+    (∀ σ, Units.map A.residue.toMonoidHom (β.toHom σ)=χbar 1 σ) ∧
+    GSp4.ParabolicShape ρ.toHom (GSp4.pairedCharacters α.toHom β.toHom
+      (((Units.map (algebraMap 𝒪 A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] 𝒪))⁻¹))
+
+/-- The Siegel condition fixes the multiplier ε^{-(a-1)} and the two unramified
+characters on the plane. The additional ψ in the source is absorbed in α and β. -/
+def GSp4.SiegelOrdinary (A : CNLObject 𝒪 𝔽)
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  ∃ α β : UnramifiedCharacter (Field.absoluteGaloisGroup ℚ_[p]) A.ring (localInertia p ℚ_[p]),
+    (∀ σ, Units.map A.residue.toMonoidHom (α.toHom σ)=χbar 0 σ) ∧
+    (∀ σ, Units.map A.residue.toMonoidHom (β.toHom σ)=χbar 1 σ) ∧
+    GSp4.ParabolicShape ρ.toHom (GSp4.pairedCharacters α.toHom β.toHom
+      (((Units.map (algebraMap 𝒪 A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] 𝒪))^(-(a-1:ℕ):ℤ)))
+
+/-- The plane is a genuine direct summand of rank two, equal to its orthogonal. -/
+structure GSp4.SiegelPlane (A : CNLObject 𝒪 𝔽)
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) where
+  plane : Submodule A.ring (Fin 4 → A.ring)
+  complement : ∃ Q, IsCompl plane Q
+  basis : Nonempty (plane ≃ₗ[A.ring] (Fin 2 → A.ring))
+  lagrangian : GSp4.perp plane=plane
+  stable : ∀ σ x, x ∈ plane → Matrix.mulVec (ρ.toHom σ : Matrix _ _ A.ring) x ∈ plane
+  unramified : ∀ σ : localInertia p ℚ_[p], ∀ x ∈ plane,
+    Matrix.mulVec (ρ.toHom σ.val : Matrix _ _ A.ring) x=x
+
+def GSp4.SiegelOrdinary.plane (A : CNLObject 𝒪 𝔽)
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) (hρ : GSp4.SiegelOrdinary χbar ρ₀ a A ρ) :
+    GSp4.SiegelPlane ρ₀ A ρ := sorry
+
+theorem GSp4.SiegelOrdinary.plane_unique (φ : Field.absoluteGaloisGroup ℚ_[p])
+    (hgen : GSp4.SiegelGeneric (p := p) 𝔽 χbar φ) (A : CNLObject 𝒪 𝔽)
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) (hρ : GSp4.SiegelOrdinary χbar ρ₀ a A ρ)
+    (P Q : GSp4.SiegelPlane ρ₀ A ρ) : P.plane=Q.plane := sorry
+
+variable (W : OrdinaryParameters 𝒪 𝔽 (Field.absoluteGaloisGroup ℚ_[p]) 2)
+
+/-- B-ordinary with the selected residual first character. -/
+def GSp4.BorelOrdinary (c : Fin 2) (A : CNLObject 𝒪 𝔽)
+    (ι : W.weight →ₐ[𝒪] A.ring) (ρ : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  ∃ χ₁ χ₂ : Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ,
+    (∀ σ, Units.map A.residue.toMonoidHom (χ₁ σ)=χbar c σ ∧
+      Units.map A.residue.toMonoidHom (χ₂ σ)=χbar (1-c) σ) ∧
+    (∀ σ : W.inertia, χ₁ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 0 σ) ∧
+      χ₂ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 1 σ)) ∧
+    GSp4.BorelShape ρ.toHom (GSp4.pairedCharacters χ₁ χ₂
+      (((Units.map (algebraMap 𝒪 A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] 𝒪))⁻¹))
+
+/-- P-ordinary is pulled back along the diagonal weight map Λ₂ → Λ₁:
+there is one inertial weight, and the inertia action on the plane is scalar. -/
+def GSp4.ParabolicOrdinary (A : CNLObject 𝒪 𝔽)
+    (ι : W.weight →ₐ[𝒪] A.ring) (ρ : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  (∀ σ : W.inertia, ι (W.inertialCharacter 0 σ : W.weight)=
+    ι (W.inertialCharacter 1 σ : W.weight)) ∧
+  ∃ χ₁ χ₂ : Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ,
+    (∀ σ, Units.map A.residue.toMonoidHom (χ₁ σ)=χbar 0 σ ∧
+      Units.map A.residue.toMonoidHom (χ₂ σ)=χbar 1 σ) ∧
+    (∀ σ : W.inertia, χ₁ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 0 σ) ∧
+      χ₂ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 0 σ)) ∧
+    GSp4.ParabolicShape ρ.toHom (GSp4.pairedCharacters χ₁ χ₂
+      (((Units.map (algebraMap 𝒪 A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] 𝒪))⁻¹))
+
+theorem ParabolicOrdinary.toBorel (A : CNLObject 𝒪 𝔽)
+    (ι : W.weight →ₐ[𝒪] A.ring)
+    (hequal : ∀ σ : W.inertia, ι (W.inertialCharacter 0 σ : W.weight)=ι (W.inertialCharacter 1 σ : W.weight))
+    (ρ : Lift 4 ρ₀ A.residue.toRingHom) (hρ : GSp4.ParabolicOrdinary χbar ρ₀ W A ι ρ) :
+    GSp4.BorelOrdinary χbar ρ₀ W 0 A ι ρ ∧ GSp4.BorelOrdinary χbar ρ₀ W 1 A ι ρ := sorry
+
+/-- The weight algebra has two parameters and the symplectic lift has rank four. -/
+abbrev GSp4.ordinaryAmbient := CompletedTensor 𝒪 (LiftingRing 𝒪 4 ρ₀) W.weight
+
+/-- Relative representability ideals, with the selected stabilization retained. -/
+def GSp4.BorelOrdinary.ideal (c : Fin 2) : Ideal (GSp4.ordinaryAmbient ρ₀ W) := sorry
+def GSp4.ParabolicOrdinary.ideal : Ideal (GSp4.ordinaryAmbient ρ₀ W) := sorry
+abbrev GSp4.BorelRing (c : Fin 2) := GSp4.ordinaryAmbient ρ₀ W ⧸ GSp4.BorelOrdinary.ideal ρ₀ W c
+abbrev GSp4.ParabolicRing := GSp4.ordinaryAmbient ρ₀ W ⧸ GSp4.ParabolicOrdinary.ideal ρ₀ W
+
+def GSp4.partiallyFramedRing (parabolic : Bool) (c : Fin 2) : Type :=
+  let _ := ρ₀
+  let _ := W
+  sorry
+instance (parabolic : Bool) (c : Fin 2) : CommRing (GSp4.partiallyFramedRing ρ₀ W parabolic c) := sorry
+instance (parabolic : Bool) (c : Fin 2) : Algebra 𝒪 (GSp4.partiallyFramedRing ρ₀ W parabolic c) := sorry
+
+def GSp4.partiallyFramedMap (c : Fin 2) :
+    GSp4.partiallyFramedRing ρ₀ W false c →ₐ[𝒪] GSp4.BorelRing ρ₀ W c := sorry
+
+def GSp4.partiallyFramedParabolicMap (c : Fin 2) :
+    GSp4.partiallyFramedRing ρ₀ W true c →ₐ[𝒪] GSp4.ParabolicRing ρ₀ W := sorry
+
+/-- Formal smoothness over the partially framed ring is expressed in the
+appropriate completed local category, via power series. -/
+theorem GSp4.partiallyFramed (c : Fin 2) (hp : p≠2)
+    (hdist : χbar 0≠χbar 1)
+    (hunram : ∀ i (σ : localInertia p ℚ_[p]), χbar i σ.val=1)
+    (hres : GSp4.ParabolicShape ρ₀ (GSp4.pairedCharacters (χbar 0) (χbar 1)
+      (((Units.map (algebraMap 𝒪 𝔽).toMonoidHom).comp (localCyclotomic p ℚ_[p] 𝒪))⁻¹)))
+    (hW : W.inertia=localInertia p ℚ_[p] ∧ W.residualCharacter=χbar) :
+    Nonempty (GSp4.BorelRing ρ₀ W c ≃ₐ[𝒪]
+      MvPowerSeries (Fin 4) (GSp4.partiallyFramedRing ρ₀ W false c)) ∧
+    Nonempty (GSp4.ParabolicRing ρ₀ W ≃ₐ[𝒪]
+      MvPowerSeries (Fin 5) (GSp4.partiallyFramedRing ρ₀ W true c)) := sorry
+
+/-- Carrier test: a P-shape has the two zero entries, and hence acts diagonally
+on the unramified Lagrangian plane. -/
+example {A : Type} [CommRing A] (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) A)
+    (χ : Fin 4 → Field.absoluteGaloisGroup ℚ_[p] →* Aˣ)
+    (hρ : GSp4.ParabolicShape ρ χ) : GSp4.BorelShape ρ χ := sorry
+end SymplecticOrdinary
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Degree-two determinant laws
+The polynomial-law carrier is Mathlib's `PolynomialLaw`. The multiplicative
+and degree conditions below are the deformation-functor adapter of R04.1;
+block-specific residual determinants are constructed in R08.3. Chenevier,
+§§1.5 and 1.10, pp. 9 and 12, and §3.1, pp. 41–42 (arXiv 0809.0415). -/
+
+structure DegreeTwoDeterminant (A Γ : Type u) [CommRing A] [Group Γ] where
+  law : PolynomialLaw A (MonoidAlgebra A Γ) A
+  one : ∀ (S : Type u) [CommRing S] [Algebra A S], law.toFun' S 1=1
+  mul : ∀ (S : Type u) [CommRing S] [Algebra A S]
+    (x y : TensorProduct A S (MonoidAlgebra A Γ)),
+    law.toFun' S (x*y)=law.toFun' S x*law.toFun' S y
+  homogeneous : ∀ (S : Type u) [CommRing S] [Algebra A S]
+    (a : S) (x : TensorProduct A S (MonoidAlgebra A Γ)),
+    law.toFun' S (a • x)=a^2 • law.toFun' S x
+
+variable {A Γ : Type u} [CommRing A] [Group Γ]
+
+/-- The characteristic polynomial is evaluated universally, before taking
+its coefficients. It does not require 2 to be invertible. -/
+def DegreeTwoDeterminant.charpoly (D : DegreeTwoDeterminant A Γ) (g : Γ) : Polynomial A :=
+  TensorProduct.rid A (Polynomial A)
+    (D.law.toFun' (Polynomial A)
+      (TensorProduct.tmul A Polynomial.X (1 : MonoidAlgebra A Γ)-
+        TensorProduct.tmul A (1 : Polynomial A) (MonoidAlgebra.single g 1)))
+
+def DegreeTwoDeterminant.trace (D : DegreeTwoDeterminant A Γ) (g : Γ) : A :=
+  -(D.charpoly g).coeff 1
+
+def DegreeTwoDeterminant.determinant (D : DegreeTwoDeterminant A Γ) : Γ →* Aˣ := sorry
+
+theorem DegreeTwoDeterminant.charpoly_formula (D : DegreeTwoDeterminant A Γ) (g : Γ) :
+    D.charpoly g=Polynomial.X^2-Polynomial.C (D.trace g)*Polynomial.X+
+      Polynomial.C (D.determinant g : A) := sorry
+
+/-- Base change is a change of the complete law, rather than its trace only. -/
+def DegreeTwoDeterminant.map {B : Type u} [CommRing B] (f : A →+* B)
+    (D : DegreeTwoDeterminant A Γ) : DegreeTwoDeterminant B Γ := sorry
+
+theorem DegreeTwoDeterminant.map_charpoly {B : Type u} [CommRing B]
+    (f : A →+* B) (D : DegreeTwoDeterminant A Γ) (g : Γ) :
+    (D.map f).charpoly g=(D.charpoly g).map f := sorry
+
+/-- Determinant of the induced group-algebra representation. -/
+def DegreeTwoDeterminant.ofRepresentation (r : Γ →* GL (Fin 2) A) :
+    DegreeTwoDeterminant A Γ := sorry
+
+theorem DegreeTwoDeterminant.ofRepresentation_charpoly (r : Γ →* GL (Fin 2) A) (g : Γ) :
+    (DegreeTwoDeterminant.ofRepresentation r).charpoly g=
+      (r g : Matrix (Fin 2) (Fin 2) A).charpoly := sorry
+
+/-- Continuous pseudo-representations require all characteristic coefficients. -/
+def DegreeTwoDeterminant.IsContinuous [TopologicalSpace A] [TopologicalSpace Γ]
+    (D : DegreeTwoDeterminant A Γ) : Prop :=
+  Continuous D.trace ∧ Continuous (fun g ↦ (D.determinant g : A))
+
+example (r : Γ →* GL (Fin 2) A) (g : Γ) :
+    (DegreeTwoDeterminant.ofRepresentation r).trace g=Matrix.trace (r g : Matrix (Fin 2) (Fin 2) A) := sorry
+
+/-- In characteristic two the trace of a scalar 2×2 matrix vanishes, while
+the constant characteristic coefficient still records its determinant. -/
+example (a : ZMod 2) :
+    Matrix.trace (a • (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)))=0 ∧
+    Matrix.det (a • (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)))=a^2 := sorry
+
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Whole Weil–Deligne type rings
+CDN, §5.2 and Théorème 5.11, arXiv pp. 65–67. The block and
+pseudo-character functors are suppliers; the closure and integral image are local
+constructions. Frobenius belongs to the type retained here. -/
+
+/-- The inclusion of the Weil group in the absolute Galois group is supplied by
+LocalGaloisGroups. -/
+def LocalWeil.toGalois (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : LocalWeil ℓ K →* Field.absoluteGaloisGroup K := sorry
+
+/-- Whole WD isomorphism tests every Weil element, rather than only inertia. -/
+def InertialTypeData.IsWDIsomorphic {ℓ : ℕ} [Fact ℓ.Prime] {K E : Type u}
+    [Field K] [CharZero K] [Field E] [CharZero E] [Algebra ℚ_[ℓ] K]
+    [FiniteDimensional ℚ_[ℓ] K] {n : ℕ} (M M' : InertialTypeData ℓ K E n) : Prop :=
+  ∃ g : GL (Fin n) E, (∀ w, g*M.weil w*g⁻¹=M'.weil w) ∧
+    (g : Matrix (Fin n) (Fin n) E)*M.monodromy*(g⁻¹ : GL (Fin n) E)=M'.monodromy
+
+/-- The potentially semistable comparison's full WD representation, R06.3. -/
+def pAdicWD (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Field E] [CharZero E] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) E) : InertialTypeData p K E n := sorry
+
+/-- Fixed vectors of a compact open subgroup in a smooth linear action. -/
+def smoothGL2FixedVectors {p : ℕ} [Fact p.Prime] {F V : Type u}
+    [Field F] [AddCommGroup V] [Module F V]
+    (r : GL (Fin 2) ℚ_[p] →* (V ≃ₗ[F] V)) (H : Subgroup (GL (Fin 2) ℚ_[p])) :
+    Submodule F V where
+  carrier := {x | ∀ g : H, r g.val x=x}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Smooth mod-p representations needed for the block construction in R08.3.
+The vector space may be infinite dimensional; finite-dimensional coefficient
+representations cannot model the supersingular objects. -/
+structure SmoothGL2Representation (p : ℕ) [Fact p.Prime] (F : Type u) [Field F] where
+  module : Type u
+  [add : AddCommGroup module]
+  [scalar : Module F module]
+  action : GL (Fin 2) ℚ_[p] →* (module ≃ₗ[F] module)
+  smooth : ∀ x, IsOpen {g : GL (Fin 2) ℚ_[p] | action g x=x}
+  admissible : ∀ H : Subgroup (GL (Fin 2) ℚ_[p]),
+    IsOpen (H : Set (GL (Fin 2) ℚ_[p])) → IsCompact (H : Set (GL (Fin 2) ℚ_[p])) →
+    Module.Finite F (smoothGL2FixedVectors action H)
+  centralCharacter : ℚ_[p]ˣ →* Fˣ
+  centralAction : ∀ z x, action (Matrix.GeneralLinearGroup.scalar (Fin 2) z) x=
+    (centralCharacter z : F) • x
+
+attribute [instance] SmoothGL2Representation.add SmoothGL2Representation.scalar
+
+def SmoothGL2Representation.stable {p : ℕ} [Fact p.Prime] {F : Type u} [Field F]
+    (V : SmoothGL2Representation p F) (N : Submodule F V.module) : Prop :=
+  ∀ g x, x ∈ N → V.action g x ∈ N
+
+def SmoothGL2Representation.IsSimple {p : ℕ} [Fact p.Prime] {F : Type u} [Field F]
+    (V : SmoothGL2Representation p F) : Prop :=
+  Nontrivial V.module ∧ ∀ N : Submodule F V.module, V.stable N → N=⊥ ∨ N=⊤
+
+/-- Linking by a nonsplit extension is symmetric for the equivalence relation
+that defines a block; the short exact sequence itself keeps its direction. -/
+def SmoothGL2Representation.ExtLinked {p : ℕ} [Fact p.Prime] {F : Type u} [Field F]
+    (V W : SmoothGL2Representation p F) : Prop :=
+  V.centralCharacter=W.centralCharacter ∧
+  ∃ (U : SmoothGL2Representation p F) (i : V.module →ₗ[F] U.module)
+    (q : U.module →ₗ[F] W.module), U.centralCharacter=V.centralCharacter ∧ Function.Injective i ∧ Function.Surjective q ∧
+    LinearMap.range i=LinearMap.ker q ∧
+    (∀ g x, i (V.action g x)=U.action g (i x)) ∧
+    (∀ g x, q (U.action g x)=W.action g (q x)) ∧
+    ¬∃ s : W.module →ₗ[F] U.module, q.comp s=LinearMap.id ∧
+      ∀ g x, s (W.action g x)=U.action g (s x)
+
+abbrev SimpleSmoothGL2Representation (p : ℕ) [Fact p.Prime] (F : Type u) [Field F] :=
+  {V : SmoothGL2Representation p F // V.IsSimple}
+
+def smoothBlockSetoid (p : ℕ) [Fact p.Prime] (F : Type u) [Field F] :
+    Setoid (SimpleSmoothGL2Representation p F) :=
+  { r := Relation.EqvGen fun V W ↦ V.val.ExtLinked W.val ∨ W.val.ExtLinked V.val
+    iseqv := sorry }
+
+/-- Blocks are the equivalence classes generated by nonsplit extensions.
+This construction is owned here; the local-Langlands roadmap imports it. -/
+def ModPBlock (p : ℕ) [Fact p.Prime] (𝔽 : Type u) [Field 𝔽] [CharP 𝔽 p] : Type (u+1) :=
+  Quotient (smoothBlockSetoid p 𝔽)
+
+section WDTypeRings
+variable (p : ℕ) [Fact p.Prime] (E 𝒪 𝔽 : Type)
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪]
+variable [IsDiscreteValuationRing 𝒪] [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Algebra ℤ_[p] 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [Field 𝔽] [Finite 𝔽] [CharP 𝔽 p] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable (B : ModPBlock p 𝔽) (M : InertialTypeData p ℚ_[p] E 2)
+variable (δ : Field.absoluteGaloisGroup ℚ_[p] →* 𝒪ˣ)
+
+/-- The fixed-determinant pseudo-character deformation ring belonging to B.
+Its universal trace is the supplier's degree-two pseudo-character, not a chosen
+representation or the framed deformation ring. -/
+def blockPseudoRing : Type :=
+  let _ := B
+  let _ := δ
+  sorry
+instance : CommRing (blockPseudoRing p 𝒪 𝔽 B δ) := sorry
+instance : Algebra 𝒪 (blockPseudoRing p 𝒪 𝔽 B δ) := sorry
+
+/-- CDN Remark 1.15(ii) and the paragraph before Theorem 1.16, pp. 19–20:
+the block's coefficient field can exceed the original residue field. -/
+def blockResidueField : Type :=
+  let _ := B
+  sorry
+instance : Field (blockResidueField p 𝔽 B) := sorry
+instance : Finite (blockResidueField p 𝔽 B) := sorry
+instance : Algebra 𝔽 (blockResidueField p 𝔽 B) := sorry
+instance : Algebra 𝒪 (blockResidueField p 𝔽 B) := sorry
+instance : IsScalarTower 𝒪 𝔽 (blockResidueField p 𝔽 B) := sorry
+
+/-- The semisimple determinant attached to the block by the mod-p
+classification. It includes characteristic coefficients, not only trace. -/
+def blockResidualDeterminant :
+    DegreeTwoDeterminant (blockResidueField p 𝔽 B) (Field.absoluteGaloisGroup ℚ_[p]) := sorry
+
+def blockDeterminantCompatible : Prop :=
+  ∀ g, (blockResidualDeterminant p 𝔽 B).determinant g=
+    Units.map (algebraMap 𝒪 (blockResidueField p 𝔽 B)).toMonoidHom (δ g)
+
+def blockPseudoResidue (hB : blockDeterminantCompatible p 𝒪 𝔽 B δ) :
+    blockPseudoRing p 𝒪 𝔽 B δ →ₐ[𝒪] blockResidueField p 𝔽 B := sorry
+
+def blockPseudoCNL (hB : blockDeterminantCompatible p 𝒪 𝔽 B δ) :
+    CNLObject 𝒪 (blockResidueField p 𝔽 B) where
+  ring := blockPseudoRing p 𝒪 𝔽 B δ
+  localRing := sorry
+  noetherian := sorry
+  complete := sorry
+  topology := (Ideal.jacobson (⊥ : Ideal (blockPseudoRing p 𝒪 𝔽 B δ))).adicTopology
+  topologicalRing := sorry
+  adic := sorry
+  residue := blockPseudoResidue p 𝒪 𝔽 B δ hB
+  residue_surjective := sorry
+  residue_ker := sorry
+
+/-- The universal determinant law; δ denotes the Galois determinant here.
+CDN's central character δ_M corresponds to δ=δ_M ε. -/
+def blockPseudoDeterminant :
+    DegreeTwoDeterminant (blockPseudoRing p 𝒪 𝔽 B δ) (Field.absoluteGaloisGroup ℚ_[p]) := sorry
+
+theorem blockPseudoDeterminant_fixed (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    (blockPseudoDeterminant p 𝒪 𝔽 B δ).determinant g=
+      Units.map (algebraMap 𝒪 (blockPseudoRing p 𝒪 𝔽 B δ)).toMonoidHom (δ g) := sorry
+
+theorem blockPseudoDeterminant_reduction (hB : blockDeterminantCompatible p 𝒪 𝔽 B δ) :
+    (blockPseudoDeterminant p 𝒪 𝔽 B δ).map (blockPseudoResidue p 𝒪 𝔽 B δ hB).toRingHom=
+      blockResidualDeterminant p 𝔽 B := sorry
+
+/-- Continuous maps of complete local coefficient rings to the specified
+block coefficient field. The universal property retains the whole law. -/
+def blockPseudo_represents (hB : blockDeterminantCompatible p 𝒪 𝔽 B δ)
+    (A : CNLObject 𝒪 (blockResidueField p 𝔽 B)) :
+    (blockPseudoCNL p 𝒪 𝔽 B δ hB).Hom A ≃
+      {D : DegreeTwoDeterminant A.ring (Field.absoluteGaloisGroup ℚ_[p]) //
+        D.IsContinuous ∧ D.map A.residue.toRingHom=blockResidualDeterminant p 𝔽 B ∧
+        ∀ g, D.determinant g=Units.map (algebraMap 𝒪 A.ring).toMonoidHom (δ g)} := sorry
+
+
+def blockPseudoTrace : Field.absoluteGaloisGroup ℚ_[p] → blockPseudoRing p 𝒪 𝔽 B δ :=
+  (blockPseudoDeterminant p 𝒪 𝔽 B δ).trace
+
+/-- Supercuspidality requires an absolutely irreducible Weil representation. -/
+def IsSupercuspidalWD : Prop := M.monodromy=0 ∧
+  IsIrreducibleRep ((Matrix.GeneralLinearGroup.map (algebraMap E (AlgebraicClosure E))).comp M.weil)
+
+abbrev blockPseudoGeneric := GenericFibre (p : blockPseudoRing p 𝒪 𝔽 B δ) (blockPseudoRing p 𝒪 𝔽 B δ)
+instance : Algebra E (blockPseudoGeneric p 𝒪 𝔽 B δ) := sorry
+
+def HasWDWeightsZeroOne (L : Type) [Field L] [CharZero L] [Algebra E L]
+    [FiniteDimensional E L] [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L) : Prop := by
+  letI : Module.Finite ℚ_[p] L := Module.Finite.trans E L
+  exact Function.Bijective (PeriodHom.comparison (deRhamPeriods p ℚ_[p] L) ρ) ∧
+  PeriodHom.Fil (deRhamPeriods p ℚ_[p] L) ρ 0=⊤ ∧
+  PeriodHom.Fil (deRhamPeriods p ℚ_[p] L) ρ 2=⊥ ∧
+  Module.finrank L (PeriodHom.Fil (deRhamPeriods p ℚ_[p] L) ρ 1)=1 ∧
+  InertialTypeData.IsWDIsomorphic (InertialTypeData.map (algebraMap E L) M) (pAdicWD p ℚ_[p] L ρ)
+
+/-- Exact trace points include de Rham comparison, both Hodge weights,
+full WD isomorphism and the fixed determinant. -/
+def WDExactPoint (L : Type) [Field L] [CharZero L] [Algebra E L]
+    [FiniteDimensional E L] [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    [Algebra 𝒪 L] [IsScalarTower 𝒪 E L]
+    (x : blockPseudoGeneric p 𝒪 𝔽 B δ →ₐ[E] L) : Prop := by
+  letI : TopologicalSpace L := moduleTopology ℚ_[p] L
+  exact ∃ ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L,
+    (Continuous fun g ↦ (ρ g : Matrix (Fin 2) (Fin 2) L)) ∧
+    HasWDWeightsZeroOne p E M L ρ ∧
+    (∀ g, Matrix.GeneralLinearGroup.det (ρ g)=Units.map (algebraMap 𝒪 L).toMonoidHom (δ g)) ∧
+    ∀ g, Matrix.trace (ρ g : Matrix (Fin 2) (Fin 2) L)=
+      x (algebraMap (blockPseudoRing p 𝒪 𝔽 B δ) (blockPseudoGeneric p 𝒪 𝔽 B δ) (blockPseudoTrace p 𝒪 𝔽 B δ g))
+
+/-- The ideal is an intersection of kernels at the exact de Rham trace points. -/
+def WDTypeRing.ideal : Ideal (blockPseudoGeneric p 𝒪 𝔽 B δ) := sInf
+  {J | ∃ (L : Type) (_ : Field L) (_ : CharZero L) (_ : Algebra E L)
+    (_ : FiniteDimensional E L) (_ : Algebra ℚ_[p] L) (_ : IsScalarTower ℚ_[p] E L)
+    (_ : Algebra 𝒪 L) (_ : IsScalarTower 𝒪 E L)
+    (x : blockPseudoGeneric p 𝒪 𝔽 B δ →ₐ[E] L),
+      WDExactPoint p E 𝒪 𝔽 B M δ L x ∧ RingHom.ker x.toRingHom=J}
+
+abbrev WDTypeRing := blockPseudoGeneric p 𝒪 𝔽 B δ ⧸ WDTypeRing.ideal p E 𝒪 𝔽 B M δ
+
+def WDTypeRing.integralMap : blockPseudoRing p 𝒪 𝔽 B δ →+* WDTypeRing p E 𝒪 𝔽 B M δ :=
+  (Ideal.Quotient.mk _).comp (algebraMap _ _)
+abbrev WDTypeRing.integralImage := (WDTypeRing.integralMap p E 𝒪 𝔽 B M δ).range
+
+/-- The converse uses CDN's earlier Kisin-ring theorem [19, Theorem 0.1],
+in addition to the intersection definition. -/
+theorem WDTypeRing.points (hs : IsSupercuspidalWD p E M)
+    (L : Type) [Field L] [CharZero L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L] [Algebra 𝒪 L] [IsScalarTower 𝒪 E L]
+    (x : blockPseudoGeneric p 𝒪 𝔽 B δ →ₐ[E] L) :
+    (WDTypeRing.ideal p E 𝒪 𝔽 B M δ ≤ RingHom.ker x.toRingHom) ↔ WDExactPoint p E 𝒪 𝔽 B M δ L x := sorry
+
+theorem WDTypeRing.reduced (hs : IsSupercuspidalWD p E M) :
+    IsReduced (WDTypeRing p E 𝒪 𝔽 B M δ) ∧ IsJacobsonRing (WDTypeRing p E 𝒪 𝔽 B M δ) := sorry
+
+/-- The PID factors may be an empty product when the type misses the block. -/
+theorem WDTypeRing.pid (hs : IsSupercuspidalWD p E M) :
+    ∃ (s : ℕ) (R : Fin s → Type) (_ : ∀ i, CommRing (R i))
+      (_ : ∀ i, IsDomain (R i)) (_ : ∀ i, IsPrincipalIdealRing (R i)),
+      Nonempty (WDTypeRing p E 𝒪 𝔽 B M δ ≃+* ∀ i, R i) := sorry
+
+def WDTypeRing.universalRep (hs : IsSupercuspidalWD p E M) :
+    Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) (WDTypeRing p E 𝒪 𝔽 B M δ) := sorry
+
+theorem WDTypeRing.universalRep_trace (hs : IsSupercuspidalWD p E M) (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    Matrix.trace (WDTypeRing.universalRep p E 𝒪 𝔽 B M δ hs g : Matrix (Fin 2) (Fin 2) _) =
+      WDTypeRing.integralMap p E 𝒪 𝔽 B M δ (blockPseudoTrace p 𝒪 𝔽 B δ g) := sorry
+
+theorem WDTypeRing.integralImage_kernel :
+    RingHom.ker (WDTypeRing.integralMap p E 𝒪 𝔽 B M δ)=
+      Ideal.comap (algebraMap (blockPseudoRing p 𝒪 𝔽 B δ) (blockPseudoGeneric p 𝒪 𝔽 B δ))
+        (WDTypeRing.ideal p E 𝒪 𝔽 B M δ) := sorry
+
+theorem WDTypeRing.integralImage_localize :
+    Nonempty (GenericFibre (p : WDTypeRing.integralImage p E 𝒪 𝔽 B M δ)
+      (WDTypeRing.integralImage p E 𝒪 𝔽 B M δ) ≃+* WDTypeRing p E 𝒪 𝔽 B M δ) := sorry
+
+example (hempty : ∀ (L : Type) [Field L] [CharZero L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L] [Algebra 𝒪 L] [IsScalarTower 𝒪 E L]
+    (x : blockPseudoGeneric p 𝒪 𝔽 B δ →ₐ[E] L), ¬ WDExactPoint p E 𝒪 𝔽 B M δ L x) :
+    WDTypeRing.ideal p E 𝒪 𝔽 B M δ=⊤ ∧ Subsingleton (WDTypeRing p E 𝒪 𝔽 B M δ) := sorry
+
+end WDTypeRings
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## GSp₄ ramification and integral orbit conditions
+Calegari–Geraghty, Assumption 4.3 and Remark 4.4, published pp. 813–814;
+Definition 4.6, p. 815. Orbits below are rational conjugacy orbits in a chosen
+splitting coefficient ring. Rank alone does not define an integral orbit. -/
+
+def GSp4.orbitRepresentative (A : Type u) [CommRing A] : Fin 3 → Matrix (Fin 4) (Fin 4) A :=
+  ![!![0,0,0,0;0,0,1,0;0,0,0,0;0,0,0,0],
+    !![0,1,0,0;0,0,0,0;0,0,0,-1;0,0,0,0],
+    !![0,1,0,0;0,0,1,0;0,0,0,-1;0,0,0,0]]
+
+/-- Usual truncated exponential. Its use at U₃ requires 6 to be a unit;
+at U₁ and U₂ the square of the representative already vanishes. -/
+def GSp4.orbitExponential {A : Type u} [CommRing A] (N : Matrix (Fin 4) (Fin 4) A) :=
+  1+N+Ring.inverse (2:A) • N^2+Ring.inverse (6:A) • N^3
+
+def GSp4.IsIntegralOrbit {A : Type u} [CommRing A] (i : Fin 3)
+    (N : Matrix (Fin 4) (Fin 4) A) : Prop :=
+  ∃ (g : GL (Fin 4) A) (u : Aˣ), (∃ ν, IsGSp4 (g : Matrix _ _ A) ν) ∧
+    N=(g : Matrix _ _ A)*((u:A) • GSp4.orbitRepresentative A i)*((g⁻¹ : GL (Fin 4) A) : Matrix (Fin 4) (Fin 4) A)
+
+/-- The inertial image is topologically generated by the specified matrix. -/
+def IsInertiaGenerated {Γ A : Type u} [Group Γ] [CommRing A] [TopologicalSpace A]
+    {n : ℕ} (I : Subgroup Γ) (ρ : Γ →* GL (Fin n) A) (s : GL (Fin n) A) : Prop :=
+  closure (Set.range fun g : I ↦ ρ g.val)=closure (Set.range fun z : ℤ ↦ s^z)
+
+section GSp4Types
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (hne : ℓ≠p)
+variable (k : Type) [Field k] [CharP k p] [Finite k] [TopologicalSpace k] [DiscreteTopology k]
+variable (ρ : Field.absoluteGaloisGroup ℚ_[ℓ] →* GL (Fin 4) k)
+
+/-- A type label is accompanied by its actual predicate on the local representation. -/
+def GSp4RamType.Is (t : GSp4RamType) : Prop :=
+  (∀ σ, ∃ ν, IsGSp4 (ρ σ : Matrix _ _ k) ν) ∧ match t with
+  | .U1 => ∃ N, GSp4.IsIntegralOrbit 0 N ∧ ∃ s : GL (Fin 4) k,
+      (s : Matrix _ _ k)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) ρ s
+  | .U2 => ∃ N, GSp4.IsIntegralOrbit 1 N ∧ ∃ s : GL (Fin 4) k,
+      (s : Matrix _ _ k)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) ρ s
+  | .U3 => 5≤p ∧ ∃ N, GSp4.IsIntegralOrbit 2 N ∧ ∃ s : GL (Fin 4) k,
+      (s : Matrix _ _ k)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) ρ s
+  | .P => Nat.Coprime p (ℓ-1) ∧ ∃ (χ : localInertia ℓ ℚ_[ℓ] →* kˣ)
+      (χs : Fin 4 → Field.absoluteGaloisGroup ℚ_[ℓ] →* kˣ) (g : GL (Fin 4) k),
+      χ≠1 ∧ (∃ ν, IsGSp4 (g : Matrix _ _ k) ν) ∧
+      (∀ σ, ((g*ρ σ*g⁻¹ : GL (Fin 4) k) : Matrix (Fin 4) (Fin 4) k)=Matrix.diagonal (fun i ↦ (χs i σ : k))) ∧
+      ∀ σ : localInertia ℓ ℚ_[ℓ], χs 0 σ.val=1 ∧ χs 1 σ.val=1 ∧ χs 2 σ.val=χ σ ∧ χs 3 σ.val=χ σ
+  | .H => Nat.Coprime p (ℓ^4-1) ∧ IsIrreducibleRep
+      ((Matrix.GeneralLinearGroup.map (algebraMap k (AlgebraicClosure k))).comp
+        (ρ.comp (localInertia ℓ ℚ_[ℓ]).subtype))
+
+/-- The statement retains the split orbit, as well as the rank. -/
+theorem GSp4RamType.unipotent_rank (i : Fin 3) (t : GSp4RamType)
+    (ht : t=![GSp4RamType.U1,.U2,.U3] i) (hp : i=2 → 5≤p) :
+    GSp4RamType.Is p ℓ k ρ t ↔
+      (∀ σ, ∃ ν, IsGSp4 (ρ σ : Matrix _ _ k) ν) ∧
+      ∃ N, GSp4.IsIntegralOrbit i N ∧ N.rank=i.val+1 ∧ ∃ s : GL (Fin 4) k,
+        (s : Matrix _ _ k)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) ρ s := sorry
+
+theorem GSp4RamType.exclusive (t t' : GSp4RamType)
+    (h : GSp4RamType.Is p ℓ k ρ t) (h' : GSp4RamType.Is p ℓ k ρ t') : t=t' := sorry
+
+theorem GSp4RamType.not_P (hμ : ∀ σ : localInertia ℓ ℚ_[ℓ],
+    IsGSp4 (ρ σ.val : Matrix _ _ k) 1) : ¬ GSp4RamType.Is p ℓ k ρ .P := sorry
+
+def conjugateRepresentation {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (g : GL (Fin n) A) (r : Γ →* GL (Fin n) A) : Γ →* GL (Fin n) A := sorry
+
+theorem conjugateRepresentation_apply {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (g : GL (Fin n) A) (r : Γ →* GL (Fin n) A) (σ : Γ) :
+    conjugateRepresentation g r σ=g*r σ*g⁻¹ := sorry
+
+theorem GSp4RamType.conjugate (t : GSp4RamType) (g : GL (Fin 4) k)
+    (hg : ∃ ν, IsGSp4 (g : Matrix _ _ k) ν) :
+    GSp4RamType.Is p ℓ k (conjugateRepresentation g ρ) t ↔ GSp4RamType.Is p ℓ k ρ t := sorry
+
+example (hunr : ∀ σ : localInertia ℓ ℚ_[ℓ], ρ σ.val=1) (t : GSp4RamType) :
+    ¬ GSp4RamType.Is p ℓ k ρ t := sorry
+example (h : GSp4RamType.Is p ℓ k ρ .U2) : ¬ GSp4RamType.Is p ℓ k ρ .U1 := sorry
+example (hp : p=5) (hq : ℓ%5=2) : ¬ GSp4RamType.Is p ℓ k ρ .H := sorry
+end GSp4Types
+
+section GSp4Minimal
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (hne : ℓ≠p)
+variable (𝒪 k : Type) [CommRing 𝒪] [Field k] [Finite k] [CharP k p] [Algebra 𝒪 k]
+variable [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [ResidueIdentification 𝒪 k]
+variable [TopologicalSpace k] [DiscreteTopology k] [MazurFinite (Field.absoluteGaloisGroup ℚ_[ℓ]) k]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[ℓ] →* GL (Fin 4) k) [ContinuousResidual ρ₀]
+variable (μ : Field.absoluteGaloisGroup ℚ_[ℓ] →* 𝒪ˣ) (t : GSp4RamType)
+variable {𝒪 k}
+
+/-- P/H rigidity means equality of the kernels on inertia, making reduction
+injective on the lifted inertia image. -/
+def InertiaRigid (A : CNLObject 𝒪 k) (r : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  ∀ σ : localInertia ℓ ℚ_[ℓ], ρ₀ σ.val=1 → r.toHom σ.val=1
+
+/-- At U_i this is a split integral conjugacy orbit with a unit parameter;
+it is not a generic rank condition on a matrix over an Artinian ring. -/
+def GSp4.MinimalAt (A : CNLObject 𝒪 k) (r : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  (∀ σ, IsGSp4 (r.toHom σ : Matrix _ _ A.ring) (algebraMap 𝒪 A.ring (μ σ : 𝒪))) ∧
+  match t with
+  | .U1 => ∃ N, GSp4.IsIntegralOrbit 0 N ∧ ∃ s : GL (Fin 4) A.ring,
+      (s : Matrix _ _ A.ring)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) r.toHom s
+  | .U2 => ∃ N, GSp4.IsIntegralOrbit 1 N ∧ ∃ s : GL (Fin 4) A.ring,
+      (s : Matrix _ _ A.ring)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) r.toHom s
+  | .U3 => 5≤p ∧ ∃ N, GSp4.IsIntegralOrbit 2 N ∧ ∃ s : GL (Fin 4) A.ring,
+      (s : Matrix _ _ A.ring)=GSp4.orbitExponential N ∧ IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) r.toHom s
+  | .P => InertiaRigid ℓ ρ₀ A r
+  | .H => True
+
+theorem GSp4.MinimalAt.rigid (ht : t=.P ∨ t=.H) (hres : GSp4RamType.Is p ℓ k ρ₀ t)
+    (A : CNLObject 𝒪 k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (h : GSp4.MinimalAt p ℓ ρ₀ μ t A r) : InertiaRigid ℓ ρ₀ A r := sorry
+
+theorem GSp4.MinimalAt.unipotent_rank (i : Fin 3) (ht : t=![GSp4RamType.U1,.U2,.U3] i)
+    (A : CNLObject 𝒪 k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (h : GSp4.MinimalAt p ℓ ρ₀ μ t A r) : ∃ N, GSp4.IsIntegralOrbit i N ∧
+      ∃ s : GL (Fin 4) A.ring, (s : Matrix _ _ A.ring)=GSp4.orbitExponential N ∧
+        IsInertiaGenerated (localInertia ℓ ℚ_[ℓ]) r.toHom s := sorry
+
+theorem GSp4.MinimalAt.isLocalDeformationProblem (hp : 3≤p)
+    (hres : GSp4RamType.Is p ℓ k ρ₀ t)
+    (hne : ℓ≠p) (hU3 : t=.U3 → 5≤p)
+    (hμ : ∀ σ, IsGSp4 (ρ₀ σ : Matrix (Fin 4) (Fin 4) k) (algebraMap 𝒪 k (μ σ : 𝒪)))
+    (hcμ : @Continuous (Field.absoluteGaloisGroup ℚ_[ℓ]) 𝒪 inferInstance
+      (IsLocalRing.maximalIdeal 𝒪).adicTopology (fun σ ↦ (μ σ : 𝒪))) :
+    ∃ D : TauCeti.GaloisDeformation.DeformationProblem 𝒪 k (Field.absoluteGaloisGroup ℚ_[ℓ]) 4 ρ₀,
+      ∀ A r, D.condition A r ↔ GSp4.MinimalAt p ℓ ρ₀ μ t A r := sorry
+
+example (A : CNLObject 𝒪 k) (N : Matrix (Fin 4) (Fin 4) A.ring) (hN : N^2≠0) :
+    ¬ GSp4.IsIntegralOrbit 0 N := sorry
+example (A : CNLObject 𝒪 k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (h : InertiaRigid ℓ ρ₀ A r) (σ : localInertia ℓ ℚ_[ℓ]) :
+    r.toHom σ.val=1 ↔ ρ₀ σ.val=1 := sorry
+end GSp4Minimal
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Continuous tame pairs
+Liu–Tian–Xiao–Zhang–Zhu, Definition 3.3.1, arXiv v1 p. 15;
+LocalGaloisGroups supplies the full tame
+quotient. T_q retains its p-primary tame inertia, so its kernel in G_K includes
+both wild inertia and the prime-to-p tame factors. -/
+
+/-- A complete local coefficient ring and residually unipotent tame matrix
+ensure continuity of the p-primary inertia action. -/
+def TameGroup.lift {𝒪 𝔽 : Type} [CommRing 𝒪] [Field 𝔽] [Finite 𝔽]
+    [Algebra 𝒪 𝔽] (p q : ℕ) [Fact p.Prime] [CharP 𝔽 p] (hpq : Nat.Coprime p q)
+    {n : ℕ} (R : CNLObject 𝒪 𝔽) (A B : GL (Fin n) R.ring)
+    (hrel : B*A*B⁻¹=A^q)
+    (huni : (((Matrix.GeneralLinearGroup.map R.residue.toRingHom A : GL (Fin n) 𝔽) :
+      Matrix (Fin n) (Fin n) 𝔽)-1)^n = 0) :
+    {r : TameGroup p q →* GL (Fin n) R.ring //
+      (Continuous fun g ↦ (r g : Matrix (Fin n) (Fin n) R.ring)) ∧
+        r (TameGroup.t p q)=A ∧ r (TameGroup.φ p q)=B} := sorry
+
+/-- The inverse image of the non-p tame inertia factors. This construction
+uses LocalGaloisGroups' tame inertia decomposition, rather than redefining it. -/
+def localPTameKernel (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] :
+    Subgroup (Field.absoluteGaloisGroup K) := sorry
+instance (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] :
+    (localPTameKernel p ℓ K).Normal := sorry
+
+def localResidueCardinality (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : ℕ := sorry
+
+/-- The p-primary tame quotient. A Frobenius and tame generator determine the
+isomorphism; full tame inertia is the product over all primes different from ℓ. -/
+def TameGroup.ofLocalField (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    (hne : ℓ≠p) :
+    Field.absoluteGaloisGroup K ⧸ localPTameKernel p ℓ K ≃ₜ* TameGroup p (localResidueCardinality ℓ K) := sorry
+
+example {𝒪 𝔽 : Type} [CommRing 𝒪] [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽]
+    (p q : ℕ) [Fact p.Prime] [CharP 𝔽 p] (hpq : Nat.Coprime p q)
+    (R : CNLObject 𝒪 𝔽) {n : ℕ} (B : GL (Fin n) R.ring) :
+    (TameGroup.lift p q hpq R 1 B (by simp) (by sorry)).val (TameGroup.t p q)=1 := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+/-! ## Partition rings as closed type conditions
+Clozel–Thorne, §2, pp. 8–10; Taylor, Proposition 3.1, pp. 112–114.
+The Frobenius q-chains constrain more than the inertial semisimplification. -/
+
+/-- A partition is positive, decreasing and has the specified total size. -/
+structure MonodromyPartition (n : ℕ) where
+  parts : List ℕ
+  positive : ∀ r ∈ parts, 0<r
+  decreasing : parts.Pairwise (· ≥ ·)
+  total : parts.sum=n
+
+/-- Refinement breaks each old part into consecutive subchains; reordering the
+resulting parts is harmless. It is stronger than dominance of partitions. -/
+def MonodromyPartition.Splits {n : ℕ} (m m' : MonodromyPartition n) : Prop :=
+  ∃ blocks : List (List ℕ), (blocks.map List.sum).Perm m'.parts ∧
+    blocks.flatten.Perm m.parts ∧ ∀ block ∈ blocks, ∀ r ∈ block, 0<r
+
+def HasQChains {B : Type u} [Field B] {n : ℕ} (q : ℕ) (m : MonodromyPartition n)
+    (Φ : GL (Fin n) B) : Prop :=
+  IsInPol (q : AlgebraicClosure B) m.parts
+    ((Φ : Matrix (Fin n) (Fin n) B).charpoly.map (algebraMap B (AlgebraicClosure B)))
+
+section PartitionRings
+variable (p q : ℕ) [Fact p.Prime] (hpq : Nat.Coprime p q)
+variable (E 𝒪 𝔽 : Type) [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪] [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪] [Algebra 𝒪 E] [IsFractionRing 𝒪 E]
+variable [Field 𝔽] [Finite 𝔽] [CharP 𝔽 p] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {n : ℕ} (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+variable (hρ₀ : ρ₀=1) (hq : (q:𝔽)=1) (m : MonodromyPartition n)
+
+def partitionRing.ideal : Ideal (LiftingRing 𝒪 n ρ₀) := sInf
+  {J | ∃ (B : Type) (_ : Field B) (_ : Algebra E B) (_ : FiniteDimensional E B)
+    (_ : Algebra 𝒪 B) (_ : IsScalarTower 𝒪 E B) (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B),
+      (pointRep x.toRingHom (TameGroup.t p q) : Matrix (Fin n) (Fin n) B).charpoly=(Polynomial.X-1)^n ∧
+      HasQChains q m (pointRep x.toRingHom (TameGroup.φ p q)) ∧ RingHom.ker x.toRingHom=J}
+
+abbrev partitionRing := LiftingRing 𝒪 n ρ₀ ⧸ partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m
+
+theorem partitionRing_reduced : IsReduced (partitionRing p q E 𝒪 𝔽 ρ₀ m) := sorry
+theorem partitionRing_flat : Module.Flat 𝒪 (partitionRing p q E 𝒪 𝔽 ρ₀ m) := sorry
+
+theorem partitionRing_points (B : Type) [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B) :
+    (partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m ≤ RingHom.ker x.toRingHom) ↔
+      (pointRep x.toRingHom (TameGroup.t p q) : Matrix (Fin n) (Fin n) B).charpoly=(Polynomial.X-1)^n ∧
+      HasQChains q m (pointRep x.toRingHom (TameGroup.φ p q)) := sorry
+
+theorem partitionRing_mono (m' : MonodromyPartition n) (hm : m.Splits m') :
+    partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m ≤ partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m' := sorry
+
+def partitionRing.refinementMap (m' : MonodromyPartition n) (hm : m.Splits m') :
+    partitionRing p q E 𝒪 𝔽 ρ₀ m →ₐ[𝒪] partitionRing p q E 𝒪 𝔽 ρ₀ m' := sorry
+
+theorem partitionRing.refinementMap_surjective (m' : MonodromyPartition n) (hm : m.Splits m') :
+    Function.Surjective (partitionRing.refinementMap p q E 𝒪 𝔽 ρ₀ m m' hm) := sorry
+
+example (B : Type) [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B)
+    (hm : m.parts=[n]) (hi : (pointRep x.toRingHom (TameGroup.t p q) : Matrix (Fin n) (Fin n) B).charpoly=(Polynomial.X-1)^n) :
+    (partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m ≤ RingHom.ker x.toRingHom) ↔
+      HasQChains q m (pointRep x.toRingHom (TameGroup.φ p q)) := sorry
+
+example (B : Type) [Field B] [Algebra E B] [FiniteDimensional E B]
+    [Algebra 𝒪 B] [IsScalarTower 𝒪 E B] (x : LiftingRing 𝒪 n ρ₀ →ₐ[𝒪] B)
+    (hm : m.parts=List.replicate n 1) :
+    (partitionRing.ideal p q E 𝒪 𝔽 ρ₀ m ≤ RingHom.ker x.toRingHom) ↔
+      (pointRep x.toRingHom (TameGroup.t p q) : Matrix (Fin n) (Fin n) B).charpoly=(Polynomial.X-1)^n := sorry
+
+example (m' : MonodromyPartition n) (hm : m.parts=[2,2]) (hm' : m'.parts=[3,1]) :
+    ¬ m.Splits m' := sorry
+end PartitionRings
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+/-! ## Taylor–Wiles blocks
+BCGP25 §5.5, arXiv v1 p. 124; Thorne, Lemma 4.2, pp. 15–16.
+Scalar inertia on the selected repeated-eigenvalue block is imposed explicitly. -/
+
+def TameGroup.inertia (p q : ℕ) : Subgroup (TameGroup p q) :=
+  (Subgroup.zpowers (TameGroup.t p q)).topologicalClosure
+
+/-- A chosen cyclic model of the p-part of the residue units. Normalized local
+reciprocity identifies it with the canonical residue-unit quotient. -/
+abbrev TaylorWilesDelta (p q : ℕ) := Multiplicative (ZMod (p^((q-1).factorization p)))
+
+section TaylorWilesBlocks
+variable (p q : ℕ) [Fact p.Prime] (hpq : Nat.Coprime p q)
+variable (𝒪 𝔽 : Type) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+variable [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [CharP 𝔽 p] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable {n : ℕ} (ρ₀ : TameGroup p q →* GL (Fin n) 𝔽) [ContinuousResidual ρ₀]
+
+/-- The selected residual block is singled out by its eigenvalue and Hensel
+separation from the complement. The residual Frobenius is semisimple. -/
+structure TaylorWilesBlockData where
+  residue_cardinality_ge_two : 2≤q
+  size : ℕ
+  positive : 0<size
+  bound : size≤n
+  eigenvalue : 𝔽ˣ
+  eigenbasis : GL (Fin n) 𝔽
+  eigenvalues : Fin n → 𝔽ˣ
+  selected : ∀ i : Fin n, i.val < size → eigenvalues i=eigenvalue
+  separated : ∀ i : Fin n, size ≤ i.val → eigenvalues i≠eigenvalue
+  diagonal : ((eigenbasis*ρ₀ (TameGroup.φ p q)*eigenbasis⁻¹ : GL (Fin n) 𝔽) : Matrix (Fin n) (Fin n) 𝔽)=
+    Matrix.diagonal (fun i ↦ (eigenvalues i : 𝔽))
+  unramified : ρ₀ (TameGroup.t p q)=1
+
+def TaylorWilesBlockData.projector (D : TaylorWilesBlockData p q 𝔽 ρ₀) : Matrix (Fin n) (Fin n) 𝔽 :=
+  ((D.eigenbasis⁻¹ : GL (Fin n) 𝔽) : Matrix (Fin n) (Fin n) 𝔽)*
+    Matrix.diagonal (fun i ↦ if i.val < D.size then 1 else 0)*(D.eigenbasis : Matrix (Fin n) (Fin n) 𝔽)
+
+variable {p q 𝒪 𝔽}
+variable (D : TaylorWilesBlockData p q 𝔽 ρ₀)
+
+/-- A direct-summand decomposition with scalar inertia on A and trivial
+inertia on B; its projector reduces to the selected residual eigenblock. -/
+structure TaylorWilesDecomposition (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom) where
+  projector : Matrix (Fin n) (Fin n) R.ring
+  idempotent : projector^2=projector
+  reduction : projector.map R.residue.toRingHom=D.projector
+  commutes : ∀ σ, projector*(r.toHom σ : Matrix _ _ R.ring)=(r.toHom σ : Matrix _ _ R.ring)*projector
+  selectedBasis : Nonempty ((LinearMap.range (Matrix.mulVecLin projector)) ≃ₗ[R.ring] (Fin D.size → R.ring))
+  complementBasis : Nonempty ((LinearMap.ker (Matrix.mulVecLin projector)) ≃ₗ[R.ring] (Fin (n-D.size) → R.ring))
+  character : TameGroup.inertia p q →* R.ringˣ
+  scalar : ∀ σ : TameGroup.inertia p q,
+    (r.toHom σ.val : Matrix _ _ R.ring)*projector=(character σ : R.ring) • projector
+  unramified : ∀ σ : TameGroup.inertia p q,
+    (r.toHom σ.val : Matrix _ _ R.ring)*(1-projector)=1-projector
+
+def TaylorWilesBlock (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom) : Prop :=
+  Nonempty (TaylorWilesDecomposition ρ₀ D R r)
+
+def TaylorWilesBlock.decomposition (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom)
+    (h : TaylorWilesBlock ρ₀ D R r) : TaylorWilesDecomposition ρ₀ D R r := Classical.choice h
+
+theorem TaylorWilesBlock.decomposition_unique (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom)
+    (X Y : TaylorWilesDecomposition ρ₀ D R r) : X.projector=Y.projector ∧ X.character=Y.character := sorry
+
+def TaylorWilesDecomposition.baseChange {R S : CNLObject 𝒪 𝔽} (f : R.Hom S)
+    (r : Lift n ρ₀ R.residue.toRingHom) (X : TaylorWilesDecomposition ρ₀ D R r) :
+    TaylorWilesDecomposition ρ₀ D S (mapCNLift ρ₀ f r) := sorry
+
+theorem TaylorWilesDecomposition.baseChange_projector {R S : CNLObject 𝒪 𝔽} (f : R.Hom S)
+    (r : Lift n ρ₀ R.residue.toRingHom) (X : TaylorWilesDecomposition ρ₀ D R r) :
+    (TaylorWilesDecomposition.baseChange ρ₀ D f r X).projector=X.projector.map f.val.toRingHom := sorry
+
+theorem TaylorWilesBlock.isLocalDeformationProblem :
+    ∃ C : DeformationProblem 𝒪 𝔽 (TameGroup p q) n ρ₀,
+      ∀ R r, r ∈ C.condition R ↔ TaylorWilesBlock ρ₀ D R r := sorry
+
+def TaylorWilesBlock.ideal : Ideal (LiftingRing 𝒪 n ρ₀) :=
+  let _ := D
+  sorry
+abbrev TaylorWilesBlock.ring := LiftingRing 𝒪 n ρ₀ ⧸ TaylorWilesBlock.ideal ρ₀ D
+
+/-- The universal scalar inertia character factors through the p-part of the
+residue units; this yields the diamond algebra map. -/
+def TaylorWilesBlock.deltaAlgebra : MonoidAlgebra 𝒪 (TaylorWilesDelta p q) →ₐ[𝒪] TaylorWilesBlock.ring (𝒪 := 𝒪) ρ₀ D := sorry
+
+def TaylorWilesBlock.deltaCharacter (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom)
+    (X : TaylorWilesDecomposition ρ₀ D R r) : TaylorWilesDelta p q →* R.ringˣ := sorry
+
+theorem TaylorWilesBlock.deltaCharacter_factor (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom)
+    (X : TaylorWilesDecomposition ρ₀ D R r) : ∃ a : TameGroup.inertia p q →* TaylorWilesDelta p q,
+      Function.Surjective a ∧ X.character=(TaylorWilesBlock.deltaCharacter ρ₀ D R r X).comp a := sorry
+
+example (R : CNLObject 𝒪 𝔽) (r : Lift n ρ₀ R.residue.toRingHom)
+    (X : TaylorWilesDecomposition ρ₀ D R r) (hsize : D.size=n) :
+    ∀ σ : TameGroup.inertia p q, (r.toHom σ.val : Matrix (Fin n) (Fin n) R.ring)=(X.character σ : R.ring) • 1 := sorry
+
+example (hp : p=2) (hq : q=17) : Fintype.card (TaylorWilesDelta p q)=16 := sorry
+end TaylorWilesBlocks
+
+/-- Diagonal units as an actual general linear matrix. -/
+def diagonalUnits {A : Type u} [CommRing A] {n : ℕ} (u : Fin n → Aˣ) : GL (Fin n) A :=
+  ⟨Matrix.diagonal (fun i ↦ (u i : A)), Matrix.diagonal (fun i ↦ ((u i)⁻¹ : Aˣ)), by sorry, by sorry⟩
+
+/-- The rank-two coordinate ring with its four coordinates. Gee Lemma 3.33
+and Exercise 3.34, p. 20. -/
+abbrev TaylorWilesCoordinates (𝒪 : Type) [CommRing 𝒪] (p m : ℕ) :=
+  MvPowerSeries (Fin 4) 𝒪 ⧸ Ideal.span {((1+MvPowerSeries.X 3)^(p^m)-1 : MvPowerSeries (Fin 4) 𝒪)}
+
+section TaylorWilesRankTwo
+variable (𝒪 𝔽 : Type) [CommRing 𝒪] [IsLocalRing 𝒪] [IsNoetherianRing 𝒪]
+variable [IsDomain 𝒪] [IsDiscreteValuationRing 𝒪]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal 𝒪) 𝒪]
+variable [Field 𝔽] [Finite 𝔽] [Algebra 𝒪 𝔽] [ResidueIdentification 𝒪 𝔽]
+variable (p q m : ℕ) [Fact p.Prime] [CharP 𝔽 p]
+variable (ρ₀ : TameGroup p q →* GL (Fin 2) 𝔽) [ContinuousResidual ρ₀]
+variable (χ : TameGroup p q →* 𝒪ˣ) (α : 𝒪ˣ)
+
+abbrev TaylorWilesFixedDet := ConditionRing (detIdeal (ρbar := ρ₀) χ)
+
+def TaylorWilesCoordinates.basisChange : GL (Fin 2) (TaylorWilesCoordinates 𝒪 p m) := sorry
+
+def TaylorWilesCoordinates.eigenvalue : (TaylorWilesCoordinates 𝒪 p m)ˣ :=
+  let _ := α
+  sorry
+def TaylorWilesCoordinates.inertiaEigenvalue : (TaylorWilesCoordinates 𝒪 p m)ˣ := sorry
+
+theorem TaylorWilesCoordinates.basisChange_matrix :
+    (TaylorWilesCoordinates.basisChange 𝒪 p m : Matrix (Fin 2) (Fin 2) (TaylorWilesCoordinates 𝒪 p m)) =
+      !![1,Ideal.Quotient.mk _ (MvPowerSeries.X (1 : Fin 4));Ideal.Quotient.mk _ (MvPowerSeries.X (0 : Fin 4)),1] := sorry
+
+theorem TaylorWilesCoordinates.eigenvalue_val :
+    (TaylorWilesCoordinates.eigenvalue 𝒪 p m α : TaylorWilesCoordinates 𝒪 p m)=
+      algebraMap 𝒪 _ (α:𝒪)+Ideal.Quotient.mk _ (MvPowerSeries.X 2) := sorry
+
+theorem TaylorWilesCoordinates.inertiaEigenvalue_val :
+    (TaylorWilesCoordinates.inertiaEigenvalue 𝒪 p m : TaylorWilesCoordinates 𝒪 p m)=
+      1+Ideal.Quotient.mk _ (MvPowerSeries.X 3) := sorry
+
+theorem taylorWiles_presentation (hq : (q:𝔽)=1) (hm : (q-1).factorization p=m)
+    (hunr : ρ₀ (TameGroup.t p q)=1)
+    (hdiag : (ρ₀ (TameGroup.φ p q) : Matrix (Fin 2) (Fin 2) 𝔽)=
+      Matrix.diagonal ![algebraMap 𝒪 𝔽 (α:𝒪),algebraMap 𝒪 𝔽 (χ (TameGroup.φ p q):𝒪)/algebraMap 𝒪 𝔽 (α:𝒪)])
+    (hdist : algebraMap 𝒪 𝔽 (α:𝒪)≠algebraMap 𝒪 𝔽 (χ (TameGroup.φ p q):𝒪)/algebraMap 𝒪 𝔽 (α:𝒪))
+    (hχ : χ (TameGroup.t p q)=1)
+    (hdet : ∀ σ, Units.map (algebraMap 𝒪 𝔽).toMonoidHom (χ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    ∃ e : TaylorWilesFixedDet 𝒪 𝔽 p q ρ₀ χ ≃ₐ[𝒪] TaylorWilesCoordinates 𝒪 p m,
+      let r := (Matrix.GeneralLinearGroup.map e.toRingHom).comp
+        (pointRep (Ideal.Quotient.mk (detIdeal (ρbar := ρ₀) χ)))
+      let C := TaylorWilesCoordinates.basisChange 𝒪 p m
+      let a := TaylorWilesCoordinates.eigenvalue 𝒪 p m α
+      let u := TaylorWilesCoordinates.inertiaEigenvalue 𝒪 p m
+      r (TameGroup.φ p q)=C⁻¹*diagonalUnits ![a,Units.map (algebraMap 𝒪 _).toMonoidHom (χ (TameGroup.φ p q))*a⁻¹]*C ∧
+      r (TameGroup.t p q)=C⁻¹*diagonalUnits ![u,u⁻¹]*C := sorry
+end TaylorWilesRankTwo
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+/-- BCGP21 §7.4.13–7.4.17, pp. 193–195: the tame-pair local model.
+Both entries are symplectic similitudes; the second has the prescribed polynomial. -/
+def GSp4.MSpace (q : ℕ) (A : Type u) [CommRing A] (x y : Aˣ) :=
+  {z : GL (Fin 4) A × GL (Fin 4) A //
+    (∃ ν, IsGSp4 (z.1 : Matrix (Fin 4) (Fin 4) A) ν) ∧
+    (∃ ν, IsGSp4 (z.2 : Matrix (Fin 4) (Fin 4) A) ν) ∧
+    (z.2 : Matrix (Fin 4) (Fin 4) A).charpoly =
+      (Polynomial.X-Polynomial.C (x:A))*(Polynomial.X-Polynomial.C (y:A))*
+      (Polynomial.X-Polynomial.C ((y⁻¹:Aˣ):A))*(Polynomial.X-Polynomial.C ((x⁻¹:Aˣ):A)) ∧
+    z.1*z.2*z.1⁻¹=z.2^q}
+
+/-- The nilpotent-pair model uses the modified cubic relation, including p=3. -/
+def GSp4.NSpace (q : ℕ) (A : Type u) [CommRing A] :=
+  {z : GL (Fin 4) A × Matrix (Fin 4) (Fin 4) A //
+    (∃ ν, IsGSp4 (z.1 : Matrix (Fin 4) (Fin 4) A) ν) ∧
+    z.2.transpose*symplecticJ+symplecticJ*z.2=0 ∧ z.2.charpoly=Polynomial.X^4 ∧
+    (z.1 : Matrix (Fin 4) (Fin 4) A)*z.2*((z.1⁻¹ : GL (Fin 4) A) : Matrix (Fin 4) (Fin 4) A)=
+      (q:A) • z.2+(((q:ℤ)-(q:ℤ)^3)/3:ℤ) • z.2^3}
+
+def GSp4.MSpace.logEquiv (q : ℕ) (A : Type u) [CommRing A] [Invertible (2:A)] :
+    GSp4.MSpace q A 1 1 ≃ GSp4.NSpace q A := sorry
+
+theorem GSp4.MSpace.logEquiv_apply (q : ℕ) (A : Type u) [CommRing A] [Invertible (2:A)]
+    (z : GSp4.MSpace q A 1 1) :
+    (GSp4.MSpace.logEquiv q A z).val=(z.val.1,GSp4.log₂ (z.val.2 : Matrix (Fin 4) (Fin 4) A)) := sorry
+
+def GSp4.MSpace.map {A B : Type u} [CommRing A] [CommRing B] (q : ℕ)
+    (x y : Aˣ) (f : A →+* B) : GSp4.MSpace q A x y →
+      GSp4.MSpace q B (Units.map f.toMonoidHom x) (Units.map f.toMonoidHom y) := sorry
+
+theorem GSp4.MSpace.map_pair {A B : Type u} [CommRing A] [CommRing B] (q : ℕ)
+    (x y : Aˣ) (f : A →+* B) (z : GSp4.MSpace q A x y) :
+    (GSp4.MSpace.map q x y f z).val=
+      (Matrix.GeneralLinearGroup.map f z.val.1,Matrix.GeneralLinearGroup.map f z.val.2) := sorry
+
+def GSp4.MSpaceScheme (q : ℕ) (O : Type u) [CommRing O] (x y : Oˣ) : Scheme := sorry
+
+def GSp4.MSpaceScheme.toSpec (q : ℕ) (O : Type u) [CommRing O] (x y : Oˣ) :
+    GSp4.MSpaceScheme q O x y ⟶ Spec (.of O) := sorry
+
+theorem GSp4.MSpaceScheme.represents (q : ℕ) (O A : Type u) [CommRing O] [CommRing A]
+    [Algebra O A] (x y : Oˣ) : Nonempty
+    ({f : Spec (.of A) ⟶ GSp4.MSpaceScheme q O x y //
+      f ≫ GSp4.MSpaceScheme.toSpec q O x y=Spec.map (CommRingCat.ofHom (algebraMap O A))} ≃
+      GSp4.MSpace q A (Units.map (algebraMap O A).toMonoidHom x) (Units.map (algebraMap O A).toMonoidHom y)) := sorry
+
+/-- The unipotent identity point corresponds to zero monodromy. -/
+example (q : ℕ) (A : Type u) [CommRing A] [Invertible (2:A)]
+    (z : GSp4.MSpace q A 1 1) (h : z.val.2=1) :
+    (GSp4.MSpace.logEquiv q A z).val.2=0 := sorry
+
+/-- The specified spectrum excludes a second matrix with unrelated eigenvalues. -/
+example (q : ℕ) (A : Type u) [CommRing A] (x y : Aˣ)
+    (z : GSp4.MSpace q A x y) :
+    (z.val.2 : Matrix (Fin 4) (Fin 4) A).charpoly=
+      (Polynomial.X-Polynomial.C (x:A))*(Polynomial.X-Polynomial.C (y:A))*
+      (Polynomial.X-Polynomial.C ((y⁻¹:Aˣ):A))*(Polynomial.X-Polynomial.C ((x⁻¹:Aˣ):A)) := z.property.2.2.1
+
+/-- In q=1 the two tame matrices commute, for the actual model points. -/
+example (A : Type u) [CommRing A] (x y : Aˣ) (z : GSp4.MSpace 1 A x y) :
+    z.val.1*z.val.2=z.val.2*z.val.1 := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Representatives of the explicit chart rows, before outer affine-Weyl symmetry.
+LLHLM20 Tables 3–4, arXiv v4 pp. 53–55; equations (3.14), p. 43. -/
+inductive GL3ChartRow
+  | identity | alpha | betaAlphaGamma | alphaBetaGamma | alphaBetaAlpha | alphaBeta | betaAlpha
+  | lengthFour (row : Fin 6)
+  deriving DecidableEq
+
+def GL3ChartRow.variables : GL3ChartRow → ℕ
+  | .identity => 12 | .alpha => 12 | .betaAlphaGamma => 8 | .alphaBetaGamma => 8
+  | .alphaBetaAlpha => 7 | .alphaBeta => 10 | .betaAlpha => 9 | .lengthFour _ => 6
+
+/-- Polynomial relations in the non-unit coordinates and the three starred units.
+The unit variables are added to their chosen nonzero residual values. -/
+def GL3.rowRelations {F : Type u} [Field F] (a b c : F) (ū : Fin 3 → F)
+    (row : GL3ChartRow) : List (MvPowerSeries (Fin row.variables) F) :=
+  match row with
+  | .betaAlphaGamma =>
+      let x : ℕ → MvPowerSeries (Fin 8) F := fun i ↦ if h : i < 8 then MvPowerSeries.X ⟨i,h⟩ else 0
+      let C : F → MvPowerSeries (Fin 8) F := MvPowerSeries.C
+      let s : Fin 3 → _ := fun i ↦ C (ū i)+x (5+i.val)
+      [x 0*x 1,C (-1-a+c)*s 0*x 2-C (-1-b+c)*x 4*x 0]
+  | .alphaBetaGamma =>
+      let x : ℕ → MvPowerSeries (Fin 8) F := fun i ↦ if h : i < 8 then MvPowerSeries.X ⟨i,h⟩ else 0
+      let C : F → MvPowerSeries (Fin 8) F := MvPowerSeries.C
+      let s : Fin 3 → _ := fun i ↦ C (ū i)+x (5+i.val)
+      [x 2*x 4,C (-1-a+c)*x 0*s 2+C (b-c)*x 3*x 2]
+  | .alphaBetaAlpha =>
+      let x : ℕ → MvPowerSeries (Fin 7) F := fun i ↦ if h : i < 7 then MvPowerSeries.X ⟨i,h⟩ else 0
+      let C : F → MvPowerSeries (Fin 7) F := MvPowerSeries.C
+      let s : Fin 3 → _ := fun i ↦ C (ū i)+x (4+i.val)
+      [x 0*(C (a-b)*x 3*x 1-C (a-c)*s 1*x 2)]
+  | .alphaBeta =>
+      let x : ℕ → MvPowerSeries (Fin 10) F := fun i ↦ if h : i < 10 then MvPowerSeries.X ⟨i,h⟩ else 0
+      let C : F → MvPowerSeries (Fin 10) F := MvPowerSeries.C
+      let s : Fin 3 → _ := fun i ↦ C (ū i)+x (7+i.val)
+      [x 1*x 4-x 3*x 2,x 3*x 0,s 2*x 2-x 6*x 1,
+       x 1*(C (b-c)*x 6*s 1+C (a-b)*x 0*x 5),
+       C (-1-a+c)*x 4*s 2-C (-1-a+b)*x 3*x 6]
+  | .betaAlpha =>
+      let x : ℕ → MvPowerSeries (Fin 9) F := fun i ↦ if h : i < 9 then MvPowerSeries.X ⟨i,h⟩ else 0
+      let C : F → MvPowerSeries (Fin 9) F := MvPowerSeries.C
+      let s : Fin 3 → _ := fun i ↦ C (ū i)+x (6+i.val)
+      [x 0*x 4,x 3*(x 2*s 2-x 0*x 5),
+       x 0*(C (a-b)*x 1*s 1-C (a-c)*x 3*x 5),
+       C (1+a-c)*x 4*s 1*s 0-x 2*(C (a-b)*x 1*s 1-C (a-c)*x 3*x 5)]
+  | _ => []
+
+/-- The identity and length-one rows use the corrected determinant and
+p-saturation equations already displayed above. Length-four charts are given
+in their smooth coordinates, after eliminating the solvable Table 4 relation. -/
+def GL3.explicitRing (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) : GL3ChartRow → Type u
+  | .identity => MvPowerSeries GL3IdVar F ⧸ GL3.idIdeal a b c ū
+  | .alpha => MvPowerSeries GL3AlphaVar F ⧸ GL3.alphaIdeal a b c ū
+  | row => MvPowerSeries (Fin row.variables) F ⧸ Ideal.span (Set.range (GL3.rowRelations a b c ū row).get)
+
+instance (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) (row : GL3ChartRow) :
+    CommRing (GL3.explicitRing F a b c ū row) := by cases row <;> dsimp [GL3.explicitRing] <;> infer_instance
+instance (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) (row : GL3ChartRow) :
+    Algebra F (GL3.explicitRing F a b c ū row) := by cases row <;> dsimp [GL3.explicitRing] <;> infer_instance
+
+def GL3.genericConstants {F : Type u} [Field F] (a b c : F) : Prop :=
+  a-b≠0 ∧ b-c≠0 ∧ a-c≠0 ∧ -1-a+b≠0 ∧ -1-a+c≠0 ∧ -1-b+c≠0
+
+theorem GL3.row_dimensions (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F)
+    (hū : ∀ i, ū i≠0) (hg : GL3.genericConstants a b c) (row : GL3ChartRow) :
+    IsEquidimensional (GL3.explicitRing F a b c ū row) 6 := sorry
+
+theorem GL3.row_components (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F)
+    (hū : ∀ i, ū i≠0) (hg : GL3.genericConstants a b c) (row : GL3ChartRow) :
+    (minimalPrimes (GL3.explicitRing F a b c ū row)).ncard=
+      match row with
+      | .identity | .alpha => 6
+      | .alphaBeta | .betaAlpha => 4
+      | .lengthFour _ => 1
+      | _ => 2 := sorry
+
+/-- The length-three αβα relation retains c*22. Replacing it by c*33
+changes the presented ring when the chosen residual units differ. -/
+example (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) :
+    (GL3.rowRelations a b c ū .alphaBetaAlpha).length=1 := rfl
+
+example (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) :
+    (GL3.rowRelations a b c ū .alphaBeta).length=5 := rfl
+
+example (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) :
+    Nonempty (GL3.explicitRing F a b c ū (.lengthFour 0) ≃ₐ[F] MvPowerSeries (Fin 6) F) := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Lowest-alcove data for the tame type. The shifted integers are retained,
+rather than replacing genericity by an unspecified predicate. -/
+structure GL3LowestAlcove (p f : ℕ) where
+  positive : 0 < f
+  permutation : Fin f → Equiv.Perm (Fin 3)
+  weight : Fin f → Fin 3 → ℤ
+  ordered : ∀ j, weight j 0 > weight j 1 ∧ weight j 1 > weight j 2
+  alcove : ∀ j, weight j 0-weight j 2 < (p:ℤ)
+
+def GL3LowestAlcove.IsGeneric {p f : ℕ} (D : GL3LowestAlcove p f) (N : ℕ) : Prop :=
+  ∀ j (i k : Fin 3), i < k →
+    (N:ℤ) < D.weight j i-D.weight j k ∧ D.weight j i-D.weight j k < (p:ℤ)-N
+
+/-- R07.4's rank-three Kisin modules of height [0,h], with tame descent and
+mod-u type τ∨. The carrier, descent action, and realization belong to that
+supplier; this roadmap introduces eigenbasis charts on it. LLHLM20 Def. 3.1.3,
+arXiv v4 p. 21. -/
+def TameKisinObject (p : ℕ) [Fact p.Prime] (K E R : Type u) [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing R] [Algebra ℤ_[p] R]
+    (τ : GaloisType (localInertia p K) E 3) (h : ℕ) : Type (u+1) := sorry
+
+def TameKisinObject.Iso {p : ℕ} [Fact p.Prime] {K E R : Type u} [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing R] [Algebra ℤ_[p] R]
+    {τ : GaloisType (localInertia p K) E 3} {h : ℕ}
+    (M M' : TameKisinObject p K E R τ h) : Type u := sorry
+
+/-- An eigenbasis includes the descent-compatible basis at every labelled
+embedding and compatibility under the f-shift. LLHLM20 Def. 3.1.6, p. 22. -/
+def TameKisinObject.Eigenbasis {p f : ℕ} [Fact p.Prime] {K E R : Type u} [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing R] [Algebra ℤ_[p] R]
+    {τ : GaloisType (localInertia p K) E 3} {h : ℕ} (D : GL3LowestAlcove p f)
+    (M : TameKisinObject p K E R τ h) : Type u := sorry
+
+/-- ArithmeticGaloisRepresentations R01.2 supplies the tame fundamental
+characters and hence the inertial representation from this lowest-alcove data. -/
+def GL3LowestAlcove.galoisType {p f : ℕ} [Fact p.Prime] (D : GL3LowestAlcove p f)
+    (K E : Type u) [Field K] [CharZero K] [Field E] [Algebra ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] K] : GaloisType (localInertia p K) E 3 := sorry
+
+structure GL3KisinChart {p f : ℕ} [Fact p.Prime] {K E R : Type u} [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing R] [Algebra ℤ_[p] R]
+    (τ : GaloisType (localInertia p K) E 3) (h : ℕ) (D : GL3LowestAlcove p f) where
+  compatible : τ=D.galoisType K E
+  unramified : localRamificationIndex p K=1
+  residue_degree : Module.finrank ℚ_[p] K=f
+  object : TameKisinObject p K E R τ h
+  basis : object.Eigenbasis D
+
+section GL3ChartAPI
+variable {p f : ℕ} [Fact p.Prime] {K E R : Type u} [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing R] [Algebra ℤ_[p] R]
+variable {τ : GaloisType (localInertia p K) E 3} {h : ℕ} {D : GL3LowestAlcove p f}
+
+/-- The matrix of the oriented partial Frobenius in the chosen eigenbasis. -/
+def GL3KisinChart.frobMatrix (C : GL3KisinChart (R := R) τ h D) : Fin f → GL (Fin 3) (LaurentSeries R) := sorry
+
+/-- Iwahori matrices come from integral invertible matrices with upper-triangular
+constant coefficient. This condition excludes arbitrary Laurent changes of basis. -/
+def GL3.IsIwahori (M : GL (Fin 3) (LaurentSeries R)) : Prop :=
+  ∃ U : GL (Fin 3) (PowerSeries R), Matrix.GeneralLinearGroup.map (algebraMap (PowerSeries R) (LaurentSeries R)) U=M ∧
+    ∀ i j : Fin 3, j < i → PowerSeries.constantCoeff ((U : Matrix (Fin 3) (Fin 3) (PowerSeries R)) i j)=0
+
+/-- Frobenius on Laurent coordinates: coefficients of R are fixed and v↦v^p. -/
+def GL3.phiScalar (p : ℕ) (R : Type u) [CommRing R] : LaurentSeries R →+* LaurentSeries R := sorry
+
+/-- The orientation twist s_j* v^(μ_j*+η_j*) of Prop. 3.2.1, p. 22.
+Its multiplication with A_j is the Frobenius matrix of the étale φ-module. -/
+def GL3.orientationTwist (D : GL3LowestAlcove p f) (R : Type u) [CommRing R] (j : Fin f) :
+    GL (Fin 3) (LaurentSeries R) := sorry
+
+def GL3.nextLabel (D : GL3LowestAlcove p f) (j : Fin f) : Fin f := ⟨(j.val+1)%f, Nat.mod_lt _ D.positive⟩
+
+/-- Exact twisted conjugation follows by applying a change of basis to A_j D_j.
+LLHLM18 Prop. 2.15, as used in LLHLM20 §3.2, pp. 22–23. -/
+theorem GL3KisinChart.changeBasis (C C' : GL3KisinChart (R := R) τ h D)
+    (i : C.object.Iso C'.object) :
+    ∃ I : Fin f → GL (Fin 3) (LaurentSeries R), (∀ j, GL3.IsIwahori (I j)) ∧ ∀ j,
+      C'.frobMatrix j=(I (GL3.nextLabel D j))⁻¹*C.frobMatrix j*GL3.orientationTwist D R j*
+        Matrix.GeneralLinearGroup.map (GL3.phiScalar p R) (I j)*(GL3.orientationTwist D R j)⁻¹ := sorry
+
+/-- The extended affine-Weyl element is recorded in monomial-matrix coordinates;
+the group and its Bruhat order are supplied by ReductiveGroups. -/
+abbrev GL3AffineShape := Equiv.Perm (Fin 3) × (Fin 3 → ℤ)
+def GL3AffineShape.monomial (w : GL3AffineShape) (R : Type u) [CommRing R] : GL (Fin 3) (LaurentSeries R) := sorry
+
+def GL3KisinChart.HasShape (C : GL3KisinChart (R := R) τ h D) (w : Fin f → GL3AffineShape) : Prop :=
+  ∀ j, ∃ a b : GL (Fin 3) (LaurentSeries R), GL3.IsIwahori a ∧ GL3.IsIwahori b ∧
+    C.frobMatrix j=a*GL3AffineShape.monomial (w j) R*b
+
+/-- For a principal-series type these double cosets are independent of the
+chosen eigenbasis; general types first use the supplier's unramified base change. -/
+def GL3KisinChart.shape (hR : IsField R) (C : GL3KisinChart (R := R) τ h D) : Fin f → GL3AffineShape :=
+  let _ := hR
+  sorry
+
+theorem GL3KisinChart.shape_spec (hR : IsField R) (C : GL3KisinChart (R := R) τ h D)
+    (hprincipal : ∀ j, D.permutation j=1) : C.HasShape (C.shape hR) := sorry
+
+theorem GL3KisinChart.shape_independent (hR : IsField R) (C C' : GL3KisinChart (R := R) τ h D)
+    (i : C.object.Iso C'.object) : C.shape hR=C'.shape hR := sorry
+
+/-- R07.4's contravariant T*_dd, on the subgroup G_{K∞}. -/
+def kisinKInfinity (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : Subgroup (Field.absoluteGaloisGroup K) := sorry
+
+def TameKisinObject.realize (M : TameKisinObject p K E R τ h) : kisinKInfinity p K →* GL (Fin 3) R := sorry
+
+/-- Uniqueness concerns the module, allowing all of its eigenbasis charts.
+LLHLM18 Thm. 3.2 and LLHLM20 Def. 3.3.2, arXiv p. 24. -/
+theorem GL3KisinChart.unique (hR : IsField R) (hg : D.IsGeneric 3) (hh : h=2)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin 3) R)
+    (C C' : GL3KisinChart (R := R) τ h D)
+    (hc : ∃ g : GL (Fin 3) R, ∀ σ, g*C.object.realize σ*g⁻¹=ρ σ.val)
+    (hc' : ∃ g : GL (Fin 3) R, ∀ σ, g*C'.object.realize σ*g⁻¹=ρ σ.val) :
+    Nonempty (C.object.Iso C'.object) ∧ C.shape hR=C'.shape hR := sorry
+
+example (hR : IsField R) (C C' : GL3KisinChart (R := R) τ h D) (i : C.object.Iso C'.object) :
+    C.shape hR=C'.shape hR := GL3KisinChart.shape_independent hR C C' i
+
+example (M : GL (Fin 3) (LaurentSeries R)) (hM : GL3.IsIwahori M) :
+    ∃ U : GL (Fin 3) (PowerSeries R), Matrix.GeneralLinearGroup.map (algebraMap _ _) U=M := sorry
+
+example (D : GL3LowestAlcove p f) (hg : D.IsGeneric 3) : D.IsGeneric 1 := sorry
+end GL3ChartAPI
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+section UniversalPstRings
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E] [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n h : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (τ : GaloisType (localInertia p K) E n) (v : HodgeType p K E n h)
+variable (ϖ : O) (hϖ : Irreducible ϖ)
+
+instance : Finite (IsLocalRing.ResidueField (LiftingRing O n ρ₀)) := sorry
+
+/-- The family in Kisin's quotient theorem is the universal framed family.
+Kisin 2008 Thm. 2.5.5, pp. 20–21; this links the family construction to R□. -/
+def universalPstFamily : PstFamilyData p K E O (LiftingRing O n ρ₀) n h :=
+  let _ := τ
+  let _ := v
+  let _ := ϖ
+  let _ := hϖ
+  sorry
+
+theorem universalPstFamily_data :
+    (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).representation=(LiftingRing.univ O n ρ₀).toHom ∧
+    (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).type=τ ∧
+    (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).hodge=v ∧
+    (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).uniformizer=ϖ := sorry
+
+abbrev UniversalPstRing := (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).integralRing
+abbrev UniversalPcrisRing := (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).crystallineIntegralRing
+
+/-- Semistable and crystalline generic fibres have the same expected dimension,
+but crystalline smoothness is stronger than semistable generic smoothness. -/
+theorem pstRing_dimension :
+    IsEquidimensional (GenericFibre (algebraMap O (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ) ϖ)
+      (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ)) (n^2+v.adQuotDim) ∧
+    IsEquidimensional (GenericFibre (algebraMap O (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ) ϖ)
+      (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ)) (n^2+v.adQuotDim) := sorry
+
+theorem pcrisRing_generic_regular : HasRegularGenericFibre ϖ (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ) := sorry
+
+/-- Fixing a compatible determinant is followed by the reduced O-flat closure.
+Kisin 2009 Cor. 2.7.7, pp. 34–35; the integral quotient need not be the raw
+quotient of the already reduced ring by determinant equations. -/
+def pstFixedDetIdeal (ψ : Field.absoluteGaloisGroup K →* Oˣ) : Ideal (LiftingRing O n ρ₀) :=
+  (flatClosure (algebraMap O _ ϖ)
+    ((universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).integralIdeal ⊔ detIdeal (ρbar := ρ₀) ψ)).radical
+abbrev pstFixedDetRing (ψ : Field.absoluteGaloisGroup K →* Oˣ) := LiftingRing O n ρ₀ ⧸ pstFixedDetIdeal p K E O F ρ₀ τ v ϖ hϖ ψ
+
+theorem pstFixedDet_points (ψ : Field.absoluteGaloisGroup K →* Oˣ)
+    (B : Type) [Field B] [Algebra E B] [FiniteDimensional E B] [Algebra O B] [IsScalarTower O E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B] (x : LiftingRing O n ρ₀ →ₐ[O] B) :
+    (∀ z ∈ pstFixedDetIdeal p K E O F ρ₀ τ v ϖ hϖ ψ, x z=0) ↔
+      IsOfType p K B E (localInertia p K) τ v (pointRep x.toRingHom) ∧
+      ∀ σ, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom σ)=Units.map (algebraMap O B).toMonoidHom (ψ σ) := sorry
+
+/-- Forgetting a framing retains the canonical local algebra structure.
+This comparison requires the Schur condition on the residual representation. -/
+def pstUnframedIdeal [SchurResidual ρ₀] : Ideal (UnframedRing O n ρ₀) :=
+  Ideal.comap (forgetFraming (𝒪 := O) (ρbar := ρ₀)).toRingHom
+    (universalPstFamily p K E O F ρ₀ τ v ϖ hϖ).integralIdeal
+
+/-- Example: regular rank-two weights over Qp give a five-dimensional generic fibre. -/
+example (hn : n=2) (hv : v.adQuotDim=1) :
+    IsEquidimensional (GenericFibre (algebraMap O (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ) ϖ)
+      (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ)) 5 := sorry
+
+end UniversalPstRings
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+/-- Outer affine-Weyl symmetry transports a shape to its Table 3 row.
+The six length-four classes use smooth coordinates in the explicit ring. -/
+def GL3.chartRow (w : GL3AffineShape) : GL3ChartRow := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- R03.1's finite completed tensor product, with the sum of the maximal
+ideals as ideal of completion. Each factor retains its structural inclusion. -/
+def CompletedTensorFamily (O : Type u) [CommRing O] (J : Type u) [Fintype J]
+    (R : J → Type u) [∀ j, CommRing (R j)] [∀ j, Algebra O (R j)]
+    [∀ j, IsLocalRing (R j)] : Type u := sorry
+instance (O : Type u) [CommRing O] (J : Type u) [Fintype J]
+    (R : J → Type u) [∀ j, CommRing (R j)] [∀ j, Algebra O (R j)] [∀ j, IsLocalRing (R j)] :
+    CommRing (CompletedTensorFamily O J R) := sorry
+instance (O : Type u) [CommRing O] (J : Type u) [Fintype J]
+    (R : J → Type u) [∀ j, CommRing (R j)] [∀ j, Algebra O (R j)] [∀ j, IsLocalRing (R j)] :
+    Algebra O (CompletedTensorFamily O J R) := sorry
+
+def CompletedTensorFamily.incl (O : Type u) [CommRing O] (J : Type u) [Fintype J]
+    (R : J → Type u) [∀ j, CommRing (R j)] [∀ j, Algebra O (R j)] [∀ j, IsLocalRing (R j)]
+    (j : J) : R j →ₐ[O] CompletedTensorFamily O J R := sorry
+
+instance (F : Type u) [Field F] (a b c : F) (ū : Fin 3 → F) (row : GL3ChartRow) :
+    IsLocalRing (GL3.explicitRing F a b c ū row) := sorry
+
+section GL3Comparison
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E] [Field F] [Finite F] [CharP F p]
+variable [Algebra O F] [ResidueIdentification O F] [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F]
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin 3) F) [ContinuousResidual ρ₀]
+variable (τ : GaloisType (localInertia p K) E 3) (v : HodgeType p K E 3 2)
+variable (ϖ : O) (hϖ : Irreducible ϖ) {f : ℕ} (D : GL3LowestAlcove p f)
+variable (M₀ : GL3KisinChart (R := F) τ 2 D)
+
+abbrev GL3.pcrisReduction := UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ ⧸
+  Ideal.span {algebraMap O (UniversalPcrisRing p K E O F ρ₀ τ v ϖ hϖ) ϖ}
+instance : Algebra F (GL3.pcrisReduction p K E O F ρ₀ τ v ϖ hϖ) := sorry
+
+/-- The common ring classifies a framed Galois deformation, a tame Kisin
+module realizing it, and a gauge basis lifting the specified residual basis.
+It is neither of the two smaller rings of diagram (3.9). -/
+def GL3.gaugeRing : Type :=
+  let _ := D
+  let _ := M₀
+  let _ := ρ₀
+  let _ := v
+  let _ := ϖ
+  let _ := hϖ
+  sorry
+instance : CommRing (GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀) := sorry
+instance : Algebra F (GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀) := sorry
+
+def GL3.galoisToGauge : GL3.pcrisReduction p K E O F ρ₀ τ v ϖ hϖ →ₐ[F]
+  GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀ := sorry
+
+/-- Étale and type-η deformation groupoids in the bottom row of (3.9).
+Their objects include reduction isomorphisms to M₀; morphisms preserve these.
+The general module categories and realization are R07.4's supplied interfaces. -/
+def GL3.etaleDeformationGroupoid (A : Type) [CommRing A] [Algebra F A]
+    (π : A →ₐ[F] F) : Type 1 :=
+  let _ := M₀
+  sorry
+def GL3.kisinDeformationGroupoid (A : Type) [CommRing A] [Algebra F A]
+    (π : A →ₐ[F] F) : Type 1 :=
+  let _ := M₀
+  sorry
+instance (A : Type) [CommRing A] [Algebra F A] (π : A →ₐ[F] F) :
+    Category (GL3.etaleDeformationGroupoid p K E F τ D M₀ A π) := sorry
+instance (A : Type) [CommRing A] [Algebra F A] (π : A →ₐ[F] F) :
+    Category (GL3.kisinDeformationGroupoid p K E F τ D M₀ A π) := sorry
+
+def GL3.iotaPrime (A : Type) [CommRing A] [Algebra F A] (π : A →ₐ[F] F) :
+    GL3.kisinDeformationGroupoid p K E F τ D M₀ A π ⥤
+    GL3.etaleDeformationGroupoid p K E F τ D M₀ A π := sorry
+
+/-- The forgetful functor is fully faithful on every Artin test algebra.
+This is the monomorphism statement; essential surjectivity is not asserted. -/
+theorem GL3.iotaPrime_mono (hg : D.IsGeneric 3)
+    (hss : ∀ V : Submodule F (Fin 3 → F),
+      (∀ σ x, x ∈ V → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ V) →
+      ∃ W : Submodule F (Fin 3 → F), IsCompl V W ∧
+        ∀ σ x, x ∈ W → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ W)
+    (A : Type) [CommRing A] [IsLocalRing A] [IsArtinianRing A] [Algebra F A]
+    (π : A →ₐ[F] F) (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom=IsLocalRing.maximalIdeal A) :
+    (GL3.iotaPrime p K E F τ D M₀ A π).Full ∧ (GL3.iotaPrime p K E F τ D M₀ A π).Faithful := sorry
+
+/-- R01.2's semisimple tame inertial representation attached to a lowest-alcove
+presentation, evaluated over the algebraic closure of the residue field. -/
+def GL3LowestAlcove.residualType (D₀ : GL3LowestAlcove p f) :
+    localInertia p K →* GL (Fin 3) (AlgebraicClosure F) := sorry
+
+/-- Table 3's a,b,c constants are the oriented shifted lowest-alcove integers
+reduced in F. The three residual unit coordinates are read from the gauge-basis
+partial Frobenius matrix, rather than chosen independently of M₀. -/
+def GL3.chartConstants : Fin f → Fin 3 → F :=
+  let _ := D
+  sorry
+
+def GL3.residualUnits : Fin f → Fin 3 → F :=
+  let _ := M₀
+  sorry
+
+def GL3.residualGeneric (N : ℕ) : Prop :=
+  ∃ D₀ : GL3LowestAlcove p f, D₀.IsGeneric N ∧
+    ∃ g : GL (Fin 3) (AlgebraicClosure F), ∀ σ : localInertia p K,
+      g*Matrix.GeneralLinearGroup.map (algebraMap F (AlgebraicClosure F)) (ρ₀ σ.val)*g⁻¹=
+        GL3LowestAlcove.residualType p K F D₀ σ
+
+/-- The ring diagram retains both structural maps and the common gauge ring.
+LLHLM20 §3.6.1, diagram (3.9), arXiv v4 pp. 36–39. -/
+structure GL3.ComparisonDiagram (rows : Fin f → GL3ChartRow)
+    (constants : Fin f → Fin 3 → F) (units : Fin f → Fin 3 → F) where
+  explicitToGauge : CompletedTensorFamily F (Fin f)
+    (fun j ↦ GL3.explicitRing F (constants j 0) (constants j 1) (constants j 2) (units j) (rows j)) →ₐ[F]
+      GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀
+
+def GL3.comparisonDiagram (rows : Fin f → GL3ChartRow)
+    (constants units : Fin f → Fin 3 → F)
+    (hcoords : constants=GL3.chartConstants p F D ∧ units=GL3.residualUnits p K E F τ D M₀)
+    (hshape : ∀ j, rows j=GL3.chartRow (M₀.shape (Field.toIsField F) j)) :
+    GL3.ComparisonDiagram p K E O F ρ₀ τ v ϖ hϖ D M₀ rows constants units := sorry
+
+/-- Local choices of coordinates identify the gauge ring with power series
+in 3f variables over the Galois ring, and nine over the explicit chart.
+The algebra structures in both comparisons are the maps in (3.9). -/
+theorem GL3.formallySmooth_over_explicit (hg : D.IsGeneric 7)
+    (hρgeneric : GL3.residualGeneric (f := f) p K F ρ₀ 10)
+    (hK : localRamificationIndex p K=1) (hf : Module.finrank ℚ_[p] K=f)
+    (hrealize : ∃ g : GL (Fin 3) F, ∀ σ : kisinKInfinity p K,
+      g*M₀.object.realize σ*g⁻¹=ρ₀ σ.val)
+    (hss : ∀ V : Submodule F (Fin 3 → F),
+      (∀ σ x, x ∈ V → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ V) →
+      ∃ W : Submodule F (Fin 3 → F), IsCompl V W ∧
+        ∀ σ x, x ∈ W → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ W)
+    (rows : Fin f → GL3ChartRow) (constants units : Fin f → Fin 3 → F)
+    (hunits : ∀ j k, units j k≠0) (hconstants : ∀ j, GL3.genericConstants (constants j 0) (constants j 1) (constants j 2))
+    (hshape : ∀ j, rows j=GL3.chartRow (M₀.shape (Field.toIsField F) j))
+    (hcoords : constants=GL3.chartConstants p F D ∧ units=GL3.residualUnits p K E F τ D M₀) :
+    let diagram := GL3.comparisonDiagram p K E O F ρ₀ τ v ϖ hϖ D M₀ rows constants units hcoords hshape
+    letI := (GL3.galoisToGauge p K E O F ρ₀ τ v ϖ hϖ D M₀).toAlgebra
+    letI := diagram.explicitToGauge.toAlgebra
+    Nonempty (GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀ ≃ₐ[GL3.pcrisReduction p K E O F ρ₀ τ v ϖ hϖ]
+      MvPowerSeries (Fin (3*f)) (GL3.pcrisReduction p K E O F ρ₀ τ v ϖ hϖ)) ∧
+    Nonempty (GL3.gaugeRing p K E O F ρ₀ τ v ϖ hϖ D M₀ ≃ₐ[CompletedTensorFamily F (Fin f)
+      (fun j ↦ GL3.explicitRing F (constants j 0) (constants j 1) (constants j 2) (units j) (rows j))]
+      MvPowerSeries (Fin 9) (CompletedTensorFamily F (Fin f)
+        (fun j ↦ GL3.explicitRing F (constants j 0) (constants j 1) (constants j 2) (units j) (rows j)))) := sorry
+
+/-- The common formally smooth ring induces the component bijection; no
+homomorphism from the explicit product to the Galois ring is required. -/
+def GL3.irr_bijection (rows : Fin f → GL3ChartRow) (constants units : Fin f → Fin 3 → F)
+    (hK : localRamificationIndex p K=1) (hf : Module.finrank ℚ_[p] K=f)
+    (hg : D.IsGeneric 7) (hρgeneric : GL3.residualGeneric (f := f) p K F ρ₀ 10) (hunits : ∀ j k, units j k≠0)
+    (hconstants : ∀ j, GL3.genericConstants (constants j 0) (constants j 1) (constants j 2))
+    (hrealize : ∃ g : GL (Fin 3) F, ∀ σ : kisinKInfinity p K, g*M₀.object.realize σ*g⁻¹=ρ₀ σ.val)
+    (hshape : ∀ j, rows j=GL3.chartRow (M₀.shape (Field.toIsField F) j))
+    (hcoords : constants=GL3.chartConstants p F D ∧ units=GL3.residualUnits p K E F τ D M₀)
+    (hss : ∀ V : Submodule F (Fin 3 → F),
+      (∀ σ x, x ∈ V → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ V) →
+      ∃ W : Submodule F (Fin 3 → F), IsCompl V W ∧
+        ∀ σ x, x ∈ W → Matrix.mulVec (ρ₀ σ : Matrix (Fin 3) (Fin 3) F) x ∈ W) :
+    {P : Ideal (GL3.pcrisReduction p K E O F ρ₀ τ v ϖ hϖ) // P ∈ minimalPrimes _} ≃
+      ((j : Fin f) → {P : Ideal (GL3.explicitRing F (constants j 0) (constants j 1) (constants j 2) (units j) (rows j)) //
+        P ∈ minimalPrimes _}) := sorry
+
+end GL3Comparison
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- Teichmüller section on units of the specified finite residue field.
+This is the complete-DVR Hensel lift of the roots of unity of order |F|-1. -/
+def residueUnitSection (O F : Type u) [CommRing O] [IsLocalRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F] : Fˣ →* Oˣ := sorry
+
+theorem residueUnitSection_reduce (O F : Type u) [CommRing O] [IsLocalRing O] [IsDomain O]
+    [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F] (x : Fˣ) :
+    Units.map (algebraMap O F).toMonoidHom (residueUnitSection O F x)=x := sorry
+
+/-- ArithmeticGaloisRepresentations' induction of a character from an open
+subgroup of index two, in a chosen coset basis. -/
+def quadraticInduction {Γ A : Type u} [Group Γ] [CommRing A] (H : Subgroup Γ)
+    (hindex : H.index=2) (γ : H →* Aˣ) : Γ →* GL (Fin 2) A := sorry
+
+/-- ClassFieldTheory and ArtinConductors supply the wild subgroup, transfer,
+and conductor, with coefficient-independent finite-image normalization. -/
+def localWildInertia (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : Subgroup (Field.absoluteGaloisGroup K) := sorry
+
+def localArtinConductor (ℓ : ℕ) [Fact ℓ.Prime] (K A : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] [CommRing A] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) A) : ℕ := sorry
+
+section DyadicMinimal
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (hne : p≠ℓ)
+variable (K O F : Type) [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F]
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (ψ : Field.absoluteGaloisGroup K →* Oˣ)
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- Case (a), KW II §3.3.1, p. 33. The ramified quadratic extension is
+represented by its index-two subgroup. γ is wildly ramified of odd order.
+The correcting quadratic character is tame and ramified, hence nontrivial on
+H∩I and trivial on H∩P. -/
+structure DyadicMinimal.DihedralData where
+  dyadic : p=2
+  distinct_primes : p≠ℓ
+  subgroup : Subgroup (Field.absoluteGaloisGroup K)
+  index_two : subgroup.index=2
+  ramified : ∃ σ : localInertia ℓ K, σ.val ∉ subgroup
+  gamma : subgroup →* Fˣ
+  gamma_finite : Set.Finite (Set.range gamma)
+  gamma_odd : Odd (Nat.card gamma.range)
+  gamma_wild : ∃ σ : subgroup, σ.val ∈ localWildInertia ℓ K ∧ gamma σ≠1
+  residual : ∃ g : GL (Fin 2) F, ∀ σ,
+    g*quadraticInduction subgroup index_two gamma σ*g⁻¹=ρ₀ σ
+  delta : subgroup →* Oˣ
+  delta_square : ∀ σ, delta σ^2=1
+  delta_tame : ∀ σ : subgroup, σ.val ∈ localWildInertia ℓ K → delta σ=1
+  delta_ramified : ∃ σ : subgroup, σ.val ∈ localInertia ℓ K ∧ delta σ≠1
+
+variable {p ℓ K O F}
+variable (D : DyadicMinimal.DihedralData p ℓ K O F ρ₀)
+
+/-- The corrected induced lift; a subsequent unramified twist imposes ψ. -/
+def DyadicMinimal.induced : Field.absoluteGaloisGroup K →* GL (Fin 2) O :=
+  quadraticInduction D.subgroup D.index_two (((residueUnitSection O F).comp D.gamma)*D.delta)
+
+/-- The source's minimal lift includes the chosen determinant, not just its
+restriction to inertia. Coefficients may first be enlarged to provide the twist. -/
+def DyadicMinimal.lift (hψ : ∀ σ : localInertia ℓ K,
+    ψ σ.val=residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val)))
+    (htwist : ∃ η : UnramifiedCharacter (Field.absoluteGaloisGroup K) O (localInertia ℓ K),
+      ∀ σ, η.toHom σ^2*Matrix.GeneralLinearGroup.det (DyadicMinimal.induced ρ₀ D σ)=ψ σ) :
+    Field.absoluteGaloisGroup K →* GL (Fin 2) O := sorry
+
+theorem DyadicMinimal.lift_is_twist (hψ : ∀ σ : localInertia ℓ K,
+    ψ σ.val=residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val)))
+    (htwist : ∃ η : UnramifiedCharacter (Field.absoluteGaloisGroup K) O (localInertia ℓ K),
+      ∀ σ, η.toHom σ^2*Matrix.GeneralLinearGroup.det (DyadicMinimal.induced ρ₀ D σ)=ψ σ) :
+    ∃ η : UnramifiedCharacter (Field.absoluteGaloisGroup K) O (localInertia ℓ K),
+      ∀ σ, (DyadicMinimal.lift ρ₀ ψ D hψ htwist σ : Matrix (Fin 2) (Fin 2) O)=
+        (η.toHom σ : O) • (DyadicMinimal.induced ρ₀ D σ : Matrix (Fin 2) (Fin 2) O) := sorry
+
+/-- Independence means isomorphism of restrictions in the chosen induced
+bases, not equality of every arbitrary choice of global lift. -/
+theorem DyadicMinimal.restrict_inertia (D' : DyadicMinimal.DihedralData p ℓ K O F ρ₀)
+    (hH : D'.subgroup=D.subgroup)
+    (hγ : ∀ σ : D.subgroup, D'.gamma ⟨σ.val,by sorry⟩=D.gamma σ) :
+    ∃ g : GL (Fin 2) O, ∀ σ : localInertia ℓ K,
+      g*DyadicMinimal.induced ρ₀ D σ.val*g⁻¹=DyadicMinimal.induced ρ₀ D' σ.val := sorry
+
+theorem DyadicMinimal.det_inertia : ∀ σ : localInertia ℓ K,
+    Matrix.GeneralLinearGroup.det (DyadicMinimal.induced ρ₀ D σ.val)=
+      residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val)) := sorry
+
+theorem DyadicMinimal.conductor :
+    localArtinConductor ℓ K O (DyadicMinimal.induced ρ₀ D)=localArtinConductor ℓ K F ρ₀ := sorry
+
+/-- The minimal problem is inertia isomorphism with the fixed corrected lift.
+GlobalGaloisDeformations R04.4 owns the general inertia-rigid problem. -/
+def DyadicMinimal.problem (fixed : Field.absoluteGaloisGroup K →* GL (Fin 2) O)
+    (hfinite : Set.Finite (Set.range fun σ : localInertia ℓ K ↦ fixed σ.val))
+    (hred : (Matrix.GeneralLinearGroup.map (algebraMap O F)).comp fixed=ρ₀)
+    (hdet : ∀ σ, Matrix.GeneralLinearGroup.det (fixed σ)=ψ σ) :
+    DeformationProblem O F (Field.absoluteGaloisGroup K) 2 ρ₀ := sorry
+
+theorem DyadicMinimal.problem_points (fixed : Field.absoluteGaloisGroup K →* GL (Fin 2) O)
+    (hfinite : Set.Finite (Set.range fun σ : localInertia ℓ K ↦ fixed σ.val))
+    (hred : (Matrix.GeneralLinearGroup.map (algebraMap O F)).comp fixed=ρ₀)
+    (hdet : ∀ σ, Matrix.GeneralLinearGroup.det (fixed σ)=ψ σ)
+    (A : CNLObject O F) (r : Lift 2 ρ₀ A.residue.toRingHom) :
+    r ∈ (DyadicMinimal.problem ρ₀ ψ fixed hfinite hred hdet).condition A ↔
+      (∀ σ, Matrix.GeneralLinearGroup.det (r.toHom σ)=Units.map (algebraMap O A.ring).toMonoidHom (ψ σ)) ∧
+      ∃ g : GL (Fin 2) A.ring, ∀ σ : localInertia ℓ K,
+        g*r.toHom σ.val*g⁻¹=Matrix.GeneralLinearGroup.map (algebraMap O A.ring) (fixed σ.val) := sorry
+
+/-- Carrier test: the correcting tame quadratic factor preserves the conductor
+while supplying the required determinant on inertia. -/
+example : (∀ σ : localInertia ℓ K, Matrix.GeneralLinearGroup.det (DyadicMinimal.induced ρ₀ D σ.val)=
+      residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val))) ∧
+    localArtinConductor ℓ K O (DyadicMinimal.induced ρ₀ D)=localArtinConductor ℓ K F ρ₀ := sorry
+
+/-- Without δ the quadratic extension character remains in the determinant. -/
+example (εL : Field.absoluteGaloisGroup K →* Oˣ)
+    (hε : ∃ σ : localInertia ℓ K, εL σ.val≠1)
+    (hformula : ∀ σ : localInertia ℓ K,
+      Matrix.GeneralLinearGroup.det (quadraticInduction D.subgroup D.index_two
+        ((residueUnitSection O F).comp D.gamma) σ.val)=
+        εL σ.val*residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val))) :
+    ∃ σ : localInertia ℓ K, Matrix.GeneralLinearGroup.det (quadraticInduction D.subgroup D.index_two
+      ((residueUnitSection O F).comp D.gamma) σ.val)≠residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val)) := sorry
+
+end DyadicMinimal
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Over a local coefficient ring this quotient is the projective matrix group.
+Scalar matrices are exactly the centre of GL₂. The PGL construction itself is
+ReductiveGroups' interface, displayed here only for the exceptional local lift. -/
+abbrev projectiveGL2 (A : Type u) [CommRing A] := GL (Fin 2) A ⧸ Subgroup.center (GL (Fin 2) A)
+def projectiveGL2.mk (A : Type u) [CommRing A] : GL (Fin 2) A →* projectiveGL2 A := QuotientGroup.mk' _
+
+def projectiveGL2.reduce (O F : Type u) [CommRing O] [Field F] [Algebra O F]
+    (hs : Function.Surjective (algebraMap O F)) : projectiveGL2 O →* projectiveGL2 F := sorry
+
+section ExceptionalMinimal
+variable (ℓ : ℕ) [Fact ℓ.Prime] (K O F : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[3] O] [Module.Finite ℤ_[3] O]
+variable [Field F] [Finite F] [CharP F 3] [Algebra O F] [ResidueIdentification O F]
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (ψ : Field.absoluteGaloisGroup K →* Oˣ)
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- Case (b), KW II §3.3.1, p. 33: a specified S₄ projective lift and the
+compatible residual projective action. The inertia image is A₄, rather than an
+arbitrary representation bearing an exceptional label. -/
+structure DyadicMinimal.ExceptionalData where
+  residue_two : ℓ=2
+  action : Field.absoluteGaloisGroup K →* Equiv.Perm (Fin 4)
+  inertia_image : Set.range (fun σ : localInertia ℓ K ↦ action σ.val)=
+    {s | Equiv.Perm.sign s=1}
+  projectiveLift : Equiv.Perm (Fin 4) →* projectiveGL2 O
+  faithful : Function.Injective projectiveLift
+  compatible : (projectiveGL2.reduce O F ResidueIdentification.surjective).comp
+    (projectiveLift.comp action)=(projectiveGL2.mk F).comp ρ₀
+
+variable {ℓ K O F}
+variable (D : DyadicMinimal.ExceptionalData ℓ K O F ρ₀)
+
+/-- p=3 gives a unique lift with the prescribed projectivisation and determinant.
+The corresponding finite coefficient extension is fixed before this constructor. -/
+def DyadicMinimal.exceptionalLift
+    (hψ : ∀ σ, Units.map (algebraMap O F).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    Field.absoluteGaloisGroup K →* GL (Fin 2) O :=
+  let _ := D
+  sorry
+
+theorem DyadicMinimal.exceptionalLift_projective
+    (hψ : ∀ σ, Units.map (algebraMap O F).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    (projectiveGL2.mk O).comp (DyadicMinimal.exceptionalLift ρ₀ ψ D hψ)=D.projectiveLift.comp D.action := sorry
+
+theorem DyadicMinimal.exceptionalLift_det
+    (hψ : ∀ σ, Units.map (algebraMap O F).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    ∀ σ, Matrix.GeneralLinearGroup.det (DyadicMinimal.exceptionalLift ρ₀ ψ D hψ σ)=ψ σ := sorry
+
+theorem DyadicMinimal.exceptionalLift_conductor
+    (hψ : ∀ σ, Units.map (algebraMap O F).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ))
+    (hunr : ∀ σ : localInertia ℓ K, ψ σ.val=residueUnitSection O F (Matrix.GeneralLinearGroup.det (ρ₀ σ.val))) :
+    localArtinConductor ℓ K O (DyadicMinimal.exceptionalLift ρ₀ ψ D hψ)=localArtinConductor ℓ K F ρ₀ := sorry
+
+/-- The actual lifted projective image is isomorphic to the image of the S₄
+action; it may be a subgroup of S₄. -/
+example (hψ : ∀ σ, Units.map (algebraMap O F).toMonoidHom (ψ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    Nonempty (((projectiveGL2.mk O).comp (DyadicMinimal.exceptionalLift ρ₀ ψ D hψ)).range ≃* D.action.range) := sorry
+end ExceptionalMinimal
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- ArithmeticGaloisRepresentations' symmetric power in the monomial basis.
+In rank two Sym^(n-1) has n basis monomials. -/
+def symmetricRankTwo {Γ A : Type u} [Group Γ] [CommRing A] (n : ℕ) (hn : 0<n)
+    (ρ : Γ →* GL (Fin 2) A) : Γ →* GL (Fin n) A := sorry
+
+/-- Tensor product of matrix representations, reindexed by Fin(n*m). -/
+def tensorRepresentation {Γ A : Type u} [Group Γ] [CommRing A] {n m : ℕ}
+    (ρ : Γ →* GL (Fin n) A) (σ : Γ →* GL (Fin m) A) : Γ →* GL (Fin (n*m)) A := sorry
+
+/-- Labelled weights of the covariant de Rham module, with HT(ε)=+1.
+PadicHodgeTheory R06.2 supplies the embedding decomposition and filtration. -/
+def labelledHodgeWeights (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K]
+    [FiniteDimensional ℚ_[p] E] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) E) (σ : K →ₐ[ℚ_[p]] E) : Multiset ℤ := sorry
+
+section LubinTateModels
+variable (p : ℕ) [Fact p.Prime] (K E O : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E]
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- The two geometrically normalized Lubin–Tate characters of Qp².
+ClassFieldTheory Layer 7 and R01.2 supply these characters; the equality on
+inertia and the chosen uniformizer determine the full characters. BCGNT25
+Def. 5.1.1, p. 49. -/
+structure LubinTateModelData where
+  degree_two : Module.finrank ℚ_[p] K=2
+  unramified : localRamificationIndex p K=1
+  embedding : K →ₐ[ℚ_[p]] E
+  conjugateEmbedding : K →ₐ[ℚ_[p]] E
+  distinct : embedding≠conjugateEmbedding
+  first : Field.absoluteGaloisGroup K →* Oˣ
+  second : Field.absoluteGaloisGroup K →* Oˣ
+  first_cont : Continuous fun σ ↦ (first σ : O)
+  second_cont : Continuous fun σ ↦ (second σ : O)
+  uniformizerArtin : Field.absoluteGaloisGroup K
+  first_uniformizer : first uniformizerArtin=1
+  second_uniformizer : second uniformizerArtin=1
+  first_inertia : ∀ σ : localInertia p K,
+    Units.map (algebraMap O E).toMonoidHom (first σ.val)=
+      (Units.map embedding.toMonoidHom (localArtinInverse p K σ))⁻¹
+  second_inertia : ∀ σ : localInertia p K,
+    Units.map (algebraMap O E).toMonoidHom (second σ.val)=
+      (Units.map conjugateEmbedding.toMonoidHom (localArtinInverse p K σ))⁻¹
+  product : ∀ σ, first σ*second σ=(localCyclotomic p K O σ)⁻¹
+
+variable {p K E O} (D : LubinTateModelData p K E O)
+
+abbrev rhoNM0.model (n m : ℕ) := rhoNM0 n m D.first D.second
+
+def rhoNM0.rational (n m : ℕ) : Field.absoluteGaloisGroup K →* GL (Fin n) E :=
+  (Matrix.GeneralLinearGroup.map (algebraMap O E)).comp (rhoNM0.model D n m)
+
+theorem rhoNM0.hodgeTate (n m : ℕ) (hn : 0<n) (hm : 0<m) (hp : n*m<p)
+    (σ : K →ₐ[ℚ_[p]] E) :
+    labelledHodgeWeights p K E (rhoNM0.rational D n m) σ=
+      (↑((List.range n).map (fun i ↦ -((i*m:ℕ):ℤ))) : Multiset ℤ) := sorry
+
+/-- The comparison is an intertwining basis isomorphism of the actual
+representations, not only an equality of the exponents. -/
+theorem rhoNM0.symPow (n m : ℕ) (hn : 0<n) :
+    ∃ g : GL (Fin n) O, ∀ σ,
+      g*symmetricRankTwo n hn (rhoNM0.model D 2 m) σ*g⁻¹=rhoNM0.model D n m σ := sorry
+
+theorem rhoNM0.tensor (n m : ℕ) :
+    ∃ g : GL (Fin (n*m)) O, ∀ σ,
+      g*tensorRepresentation (rhoNM0.model D n m) (rhoNM0.model D m 1) σ*g⁻¹=
+        rhoNM0.model D (n*m) 1 σ := sorry
+
+theorem rhoNM0.det (σ : Field.absoluteGaloisGroup K) :
+    Matrix.GeneralLinearGroup.det (rhoNM0.model D 2 1 σ)=(localCyclotomic p K O σ)⁻¹ := sorry
+
+example (hp : 7<p) (σ : K →ₐ[ℚ_[p]] E) :
+    labelledHodgeWeights p K E (rhoNM0.rational D 3 2) σ=({0,-2,-4} : Multiset ℤ) := sorry
+
+example (m : ℕ) : rhoNM0.model D 1 m=1 := rhoNM0.rank_one m D.first D.second
+
+example (σ : Field.absoluteGaloisGroup K) :
+    Matrix.GeneralLinearGroup.det (rhoNM0.model D 2 1 σ)=(localCyclotomic p K O σ)⁻¹ := rhoNM0.det D σ
+end LubinTateModels
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Direct sum and contragredient in the standard matrix bases, supplied by
+ArithmeticGaloisRepresentations. Tensor products were displayed above. -/
+def sumRepresentation {Γ A : Type} [Group Γ] [CommRing A] {n m : ℕ}
+    (ρ : Γ →* GL (Fin n) A) (σ : Γ →* GL (Fin m) A) : Γ →* GL (Fin (n+m)) A := sorry
+
+def dualRepresentation {Γ A : Type} [Group Γ] [CommRing A] {n : ℕ}
+    (ρ : Γ →* GL (Fin n) A) : Γ →* GL (Fin n) A := sorry
+
+def inverseCharacter {Γ A : Type} [Group Γ] [CommRing A] (χ : Γ →* Aˣ) : Γ →* Aˣ where
+  toFun σ := (χ σ)⁻¹
+  map_one' := by simp
+  map_mul' := by intro x y; simp [mul_comm]
+
+def scalarTwist {Γ A : Type} [Group Γ] [CommRing A] {n : ℕ}
+    (ρ : Γ →* GL (Fin n) A) (χ : Γ →* Aˣ) : Γ →* GL (Fin n) A := sorry
+
+section GeometricComponents
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E] [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+
+/-- A common crystalline deformation space after a finite extension of K.
+The trivial inertial type imposes crystallinity over L itself. A common Tate
+shift, recorded below, allows the bounded Hodge presentation for any weights.
+BLGGT14 §1.4, pp. 12–14. -/
+structure PcrisRingData (n : ℕ) where
+  L : Type
+  [field : Field L]
+  [charZero : CharZero L]
+  [padic : Algebra ℚ_[p] L]
+  [finite : FiniteDimensional ℚ_[p] L]
+  extension : K →ₐ[ℚ_[p]] L
+  residual : Field.absoluteGaloisGroup L →* GL (Fin n) F
+  [continuous : ContinuousResidual residual]
+  [mazur : MazurFinite (Field.absoluteGaloisGroup L) F]
+  bound : ℕ
+  type : GaloisType (localInertia p L) E n
+  trivial_type : type.toHom=1
+  hodge : HodgeType p L E n bound
+  uniformizer : O
+  uniformizer_irreducible : Irreducible uniformizer
+
+attribute [instance] PcrisRingData.field PcrisRingData.charZero PcrisRingData.padic
+  PcrisRingData.finite PcrisRingData.continuous PcrisRingData.mazur
+variable {p K E O F} {n : ℕ}
+
+abbrev PcrisRingData.integralRing (D : PcrisRingData p K E O F n) :=
+  UniversalPcrisRing p D.L E O F D.residual D.type D.hodge D.uniformizer D.uniformizer_irreducible
+
+instance (D : PcrisRingData p K E O F n) :
+    Algebra E (GenericFibre D.uniformizer D.integralRing) := sorry
+
+/-- Components are geometric components, over the algebraic closure of the
+finite coefficient field, rather than minimal primes of the integral ring. -/
+abbrev PcrisRingData.geometricRing (D : PcrisRingData p K E O F n) :=
+  TensorProduct E (AlgebraicClosure E) (GenericFibre D.uniformizer D.integralRing)
+
+/-- The composite of the crystalline quotient, localization and scalar
+extension; this map is fixed by those three canonical structural maps. -/
+def PcrisRingData.universalMap (D : PcrisRingData p K E O F n) :
+    LiftingRing O n D.residual →+* D.geometricRing := sorry
+
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- Two integral finite-coefficient representations give specified geometric
+points after restriction and a common Tate shift. The residual comparisons and
+characteristic-zero intertwining matrices make both framings explicit. -/
+structure PcrisComponentWitness (D : PcrisRingData p K E O F n)
+    (ρ₁ ρ₂ : Field.absoluteGaloisGroup K →* GL (Fin n) O) where
+  shift : ℤ
+  x : D.geometricRing →ₐ[AlgebraicClosure E] AlgebraicClosure E
+  y : D.geometricRing →ₐ[AlgebraicClosure E] AlgebraicClosure E
+  first_residual : ∃ g : GL (Fin n) F, ∀ σ,
+    g*Matrix.GeneralLinearGroup.map (algebraMap O F)
+      (scalarTwist ρ₁ ((localCyclotomic p K O)^shift) (localRestriction p K D.L D.extension σ))*g⁻¹=D.residual σ
+  second_residual : ∃ g : GL (Fin n) F, ∀ σ,
+    g*Matrix.GeneralLinearGroup.map (algebraMap O F)
+      (scalarTwist ρ₂ ((localCyclotomic p K O)^shift) (localRestriction p K D.L D.extension σ))*g⁻¹=D.residual σ
+  first_point : ∃ g : GL (Fin n) (AlgebraicClosure E), ∀ σ,
+    g*pointRep (x.toRingHom.comp D.universalMap) σ*g⁻¹=
+      Matrix.GeneralLinearGroup.map ((algebraMap E (AlgebraicClosure E)).comp (algebraMap O E))
+        (scalarTwist ρ₁ ((localCyclotomic p K O)^shift) (localRestriction p K D.L D.extension σ))
+  second_point : ∃ g : GL (Fin n) (AlgebraicClosure E), ∀ σ,
+    g*pointRep (y.toRingHom.comp D.universalMap) σ*g⁻¹=
+      Matrix.GeneralLinearGroup.map ((algebraMap E (AlgebraicClosure E)).comp (algebraMap O E))
+        (scalarTwist ρ₂ ((localCyclotomic p K O)^shift) (localRestriction p K D.L D.extension σ))
+
+variable (p K E O F)
+
+/-- The finite-coefficient version of BLGGT's relation. Enlargement of E and O
+uses the coefficient-extension comparison; all representations here descend to
+this specified finite extension. The ring construction enforces equal weights
+and potential crystallinity, while the witness enforces equivalent reductions. -/
+def Connects (ρ₁ ρ₂ : Field.absoluteGaloisGroup K →* GL (Fin n) O) : Prop :=
+  Continuous (fun σ ↦ (ρ₁ σ : Matrix (Fin n) (Fin n) O)) ∧
+  Continuous (fun σ ↦ (ρ₂ σ : Matrix (Fin n) (Fin n) O)) ∧
+  ∃ (D : PcrisRingData p K E O F n) (W : PcrisComponentWitness D ρ₁ ρ₂),
+    SameComponent W.x.toRingHom W.y.toRingHom
+
+variable (ρ₁ ρ₂ ρ₃ : Field.absoluteGaloisGroup K →* GL (Fin n) O)
+
+theorem Connects.symm (h : Connects p K E O F ρ₁ ρ₂) : Connects p K E O F ρ₂ ρ₁ := sorry
+
+/-- Strongly connecting means that the first geometric point lies on exactly
+one component in the common comparison space. -/
+def StronglyConnects (ρ₁ ρ₂ : Field.absoluteGaloisGroup K →* GL (Fin n) O) : Prop :=
+  Connects p K E O F ρ₁ ρ₂ ∧
+  ∃ (D : PcrisRingData p K E O F n) (W : PcrisComponentWitness D ρ₁ ρ₂),
+    SameComponent W.x.toRingHom W.y.toRingHom ∧
+    ∀ P ∈ minimalPrimes D.geometricRing, ∀ Q ∈ minimalPrimes D.geometricRing,
+      P ≤ RingHom.ker W.x.toRingHom → Q ≤ RingHom.ker W.x.toRingHom → P=Q
+
+theorem Connects.trans_of_smooth (h₁ : StronglyConnects p K E O F ρ₂ ρ₁)
+    (h₂ : Connects p K E O F ρ₂ ρ₃) : Connects p K E O F ρ₁ ρ₃ := sorry
+
+theorem Connects.restrict (L : Type) [Field L] [CharZero L] [Algebra ℚ_[p] L]
+    [FiniteDimensional ℚ_[p] L] (ι : K →ₐ[ℚ_[p]] L) (h : Connects p K E O F ρ₁ ρ₂) :
+    Connects p L E O F (ρ₁.comp (localRestriction p K L ι)) (ρ₂.comp (localRestriction p K L ι)) := sorry
+
+/-- The operations induce morphisms of the corresponding potentially
+crystalline generic fibres. BLGGT14 Lemma 1.2.2 and §1.4, pp. 9–14. -/
+theorem Connects.sum_tensor_dual {m : ℕ}
+    (σ₁ σ₂ : Field.absoluteGaloisGroup K →* GL (Fin m) O)
+    (hρ : Connects p K E O F ρ₁ ρ₂) (hσ : Connects p K E O F σ₁ σ₂)
+    (χ : UnramifiedCharacter (Field.absoluteGaloisGroup K) O (localInertia p K))
+    (hχ : ∀ γ, Units.map (algebraMap O F).toMonoidHom (χ.toHom γ)=1) :
+    Connects p K E O F (sumRepresentation ρ₁ σ₁) (sumRepresentation ρ₂ σ₂) ∧
+    Connects p K E O F (tensorRepresentation ρ₁ σ₁) (tensorRepresentation ρ₂ σ₂) ∧
+    Connects p K E O F (dualRepresentation ρ₁) (dualRepresentation ρ₂) ∧
+    Connects p K E O F (scalarTwist ρ₁ χ.toHom) ρ₂ := sorry
+
+theorem Connects.symPow (r : ℕ) (hr : 0<r) (ρ₁ ρ₂ : Field.absoluteGaloisGroup K →* GL (Fin 2) O)
+    (h : Connects p K E O F ρ₁ ρ₂) :
+    Connects p K E O F (symmetricRankTwo r hr ρ₁) (symmetricRankTwo r hr ρ₂) := sorry
+
+/-- Carrier test: differing labelled Hodge weights rule out connecting. -/
+example (σ : K →ₐ[ℚ_[p]] E)
+    (h : labelledHodgeWeights p K E ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp ρ₁) σ ≠
+      labelledHodgeWeights p K E ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp ρ₂) σ) :
+    ¬ Connects p K E O F ρ₁ ρ₂ := sorry
+
+end GeometricComponents
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+section FixedInertialOrdinary
+variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+variable [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
+variable (O F : Type u) [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F] [MazurFinite Γ F]
+variable {n : ℕ} (I : Subgroup Γ) (χ : Fin n → Γ →* Oˣ)
+variable (ρ₀ : Γ →* GL (Fin n) F) [ContinuousResidual ρ₀]
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- Distinct residual inertia characters are the uniqueness hypothesis in
+CHT08 Lemma 2.4.6(1), pp. 36–37. The flag still has its prescribed order. -/
+def ResiduallyDistinguished : Prop :=
+  ∀ i j : Fin n, i≠j → ∃ σ : I,
+    Units.map (algebraMap O F).toMonoidHom (χ i σ.val)≠
+      Units.map (algebraMap O F).toMonoidHom (χ j σ.val)
+
+variable {O F}
+
+theorem OrdinaryFixedInertia.filtration_unique (hd : ResiduallyDistinguished O F I χ)
+    (A : CNLObject O F) (ρ : Lift n ρ₀ A.residue.toRingHom)
+    (F₁ F₂ : ordinaryFlagScheme.points I ρ.toHom
+      (fun i ↦ (Units.map (algebraMap O A.ring).toMonoidHom).comp (χ i))) : F₁.val=F₂.val := sorry
+
+/-- The residue condition and continuous character extensions are retained.
+The assertion constructs the supplier's local problem, including the Artin
+pullback and separated-limit axioms. CHT08 Lemma 2.4.6(3), pp. 36–37. -/
+def OrdinaryFixedInertia.isLocalDeformationProblem
+    (hd : ResiduallyDistinguished O F I χ)
+    (hc : ∀ i, Continuous fun σ ↦ (χ i σ : O))
+    (hρ₀ : OrdinaryFixedInertia I
+      (fun i ↦ (Units.map (algebraMap O F).toMonoidHom).comp (χ i)) ρ₀) :
+    DeformationProblem O F Γ n ρ₀ := sorry
+
+theorem OrdinaryFixedInertia.localProblem_points
+    (hd : ResiduallyDistinguished O F I χ)
+    (hc : ∀ i, Continuous fun σ ↦ (χ i σ : O))
+    (hρ₀ : OrdinaryFixedInertia I
+      (fun i ↦ (Units.map (algebraMap O F).toMonoidHom).comp (χ i)) ρ₀)
+    (A : CNLObject O F) (ρ : Lift n ρ₀ A.residue.toRingHom) :
+    ρ ∈ (OrdinaryFixedInertia.isLocalDeformationProblem I χ ρ₀ hd hc hρ₀).condition A ↔
+      OrdinaryFixedInertia I
+        (fun i ↦ (Units.map (algebraMap O A.ring).toMonoidHom).comp (χ i)) ρ.toHom := sorry
+
+/-- Pullback transports the assigned unique filtration, rather than only
+preserving nonemptiness of the incidence condition. -/
+theorem OrdinaryFixedInertia.assignedFiltration_baseChange
+    (hd : ResiduallyDistinguished O F I χ) (A B : CNLObject O F) (f : A.Hom B)
+    (ρ : Lift n ρ₀ A.residue.toRingHom)
+    (hρ : OrdinaryFixedInertia I
+      (fun i ↦ (Units.map (algebraMap O A.ring).toMonoidHom).comp (χ i)) ρ.toHom)
+    (hfρ : OrdinaryFixedInertia I
+      (fun i ↦ (Units.map (algebraMap O B.ring).toMonoidHom).comp (χ i)) (mapCNLift ρ₀ f ρ).toHom) :
+    ordinaryFlagScheme.baseChange f.val.toRingHom
+      (OrdinaryFixedInertia.filtration I _ ρ.toHom hρ)=
+        OrdinaryFixedInertia.filtration I _ (mapCNLift ρ₀ f ρ).toHom hfρ := sorry
+
+example (hd : ResiduallyDistinguished O F I χ) (A : CNLObject O F)
+    (ρ : Lift n ρ₀ A.residue.toRingHom) (F₁ F₂ : ordinaryFlagScheme.points I ρ.toHom
+      (fun i ↦ (Units.map (algebraMap O A.ring).toMonoidHom).comp (χ i))) :
+    F₁.val=F₂.val := OrdinaryFixedInertia.filtration_unique I χ ρ₀ hd A ρ F₁ F₂
+
+/-- Repeated characters do not give uniqueness: the trivial rank-two
+representation has flags with distinct first lines. -/
+example : ∃ F₁ F₂ : ordinaryFlagScheme.points (⊤ : Subgroup Unit)
+    (1 : Unit →* GL (Fin 2) F) (fun _ ↦ 1), F₁.val.Fil 1≠F₂.val.Fil 1 := sorry
+end FixedInertialOrdinary
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+section FlatResolutionPoints
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (A : Type u) [CommRing A] [Algebra ℤ_[p] A] [IsLocalRing A] [IsNoetherianRing A]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal A) A] [Finite (IsLocalRing.ResidueField A)]
+variable [TopologicalSpace A] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) A)
+variable (hc : Continuous fun σ ↦ (ρ σ : Matrix (Fin n) (Fin n) A))
+variable (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ)
+
+/-- Admissible points use the height-one lattice and its labelled Hodge
+multiplicities. Kisin08 Cor. 2.4.10, pp. 24–25. The admissibility condition is
+nilpotence of the base maximal ideal, as in the general lattice functor. -/
+def flatResolution.points (B : Type u) [CommRing B] [Algebra A B]
+    [Algebra ℤ_[p] B] [IsScalarTower ℤ_[p] A B]
+    (hB : ∃ r : ℕ, ∀ a ∈ (IsLocalRing.maximalIdeal A)^r, algebraMap A B a=0) :
+    {x : Spec (.of B) ⟶ flatResolution p K A ρ hc v //
+      x ≫ flatResolution.toSpec p K A ρ hc v ≫ Spec.map
+        (CommRingCat.ofHom (Ideal.Quotient.mk (flatHodgeTypeQuotientIdeal p K A ρ hc v)))=
+          Spec.map (CommRingCat.ofHom (algebraMap A B))} ≃
+    {L : heightLatticeFunctor p K B ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ) 1 //
+      heightLatticeHodgeRanks p K B _ L=v} := sorry
+
+/-- The filtration and its ranks are pulled back with the universal lattice.
+The equality is required on the admissible Hodge locus, where the filtered
+quotients are locally free. It is not an assertion about arbitrary lattices. -/
+theorem flatResolution.hodge_baseChange (B C : Type u) [CommRing B] [CommRing C]
+    [Algebra A B] [Algebra A C] [Algebra ℤ_[p] B] [Algebra ℤ_[p] C]
+    [IsScalarTower ℤ_[p] A B] [IsScalarTower ℤ_[p] A C]
+    (f : B →ₐ[A] C) (fz : B →ₐ[ℤ_[p]] C) (hf : f.toRingHom=fz.toRingHom)
+    (L : heightLatticeFunctor p K B ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp ρ) 1)
+    (hL : heightLatticeHodgeRanks p K B _ L=v) :
+    heightLatticeHodgeRanks p K C _ (heightLatticeFunctor.map p K B _ fz L)=v := sorry
+
+/-- A scheme point pulls back the universal height-one lattice. The statement
+identifies the actual submodule in the étale φ-module, rather than an auxiliary
+integer counting its possible ranks. -/
+example (B : Type u) [CommRing B] [Algebra A B] [Algebra ℤ_[p] B] [IsScalarTower ℤ_[p] A B]
+    (hB : ∃ r : ℕ, ∀ a ∈ (IsLocalRing.maximalIdeal A)^r, algebraMap A B a=0)
+    (x : {x : Spec (.of B) ⟶ flatResolution p K A ρ hc v //
+      x ≫ flatResolution.toSpec p K A ρ hc v ≫ Spec.map
+        (CommRingCat.ofHom (Ideal.Quotient.mk (flatHodgeTypeQuotientIdeal p K A ρ hc v)))=
+          Spec.map (CommRingCat.ofHom (algebraMap A B))}) :
+    heightLatticeHodgeRanks p K B _ ((flatResolution.points p K A ρ hc v B hB x).val)=v :=
+  (flatResolution.points p K A ρ hc v B hB x).property
+end FlatResolutionPoints
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Finite-flat realization of a finite coefficient module. The coefficient
+endomorphisms act on the integral group object, and their generic action is the
+specified O-module action. This includes nonfree torsion modules. -/
+structure FiniteFlatCoefficientModel (p : ℕ) [Fact p.Prime] (K O : Type u)
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [CommRing O] [Algebra ℤ_[p] O] (V : CoefficientRepresentation O (Field.absoluteGaloisGroup K)) where
+  group : FiniteFlatObject p K
+  [scalar : Module O group.genericPoints]
+  [tower : IsScalarTower ℤ_[p] O group.genericPoints]
+  integralAction : O →+* group.End
+  action_compatible : ∀ b x, group.genericEnd (integralAction b) x=b • x
+  identify : group.genericPoints ≃ₗ[O] V.module
+  equivariance : ∀ σ x, identify (group.genericAction σ x)=V.action σ (identify x)
+
+attribute [instance] FiniteFlatCoefficientModel.scalar FiniteFlatCoefficientModel.tower
+
+section FlatCategory
+variable (p : ℕ) [Fact p.Prime] (K O F : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F] [Module.Finite O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F] [TopologicalSpace F] [DiscreteTopology F]
+variable {n : ℕ} (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (hc₀ : Continuous fun σ ↦ (ρ₀ σ : Matrix (Fin n) (Fin n) F))
+variable (hflat : Nonempty (FiniteFlatModel p K F ρ₀))
+
+/-- BCDT §4.3, pp. 873–875: the finite-flat full subcategory of S(ρ̄).
+The residual realization ensures that the residual object belongs to it. -/
+def finiteFlatCategory : CategoryCondition O F (Field.absoluteGaloisGroup K) ρ₀ hc₀ :=
+  let _ := hflat
+  sorry
+
+theorem finiteFlatCategory_objects (V : CoefficientRepresentation O (Field.absoluteGaloisGroup K)) :
+    V ∈ (finiteFlatCategory p K O F ρ₀ hc₀ hflat).objects ↔
+      ResiduallyFiltered ρ₀ hc₀ V ∧ Nonempty (FiniteFlatCoefficientModel p K O V) := sorry
+
+/-- Equality of the category condition and the flat lifting condition on all
+complete local coefficient objects, not only characteristic-zero points. -/
+theorem CategoryCondition.flat (A : CNLObject O F) [Algebra ℤ_[p] A.ring]
+    [IsScalarTower ℤ_[p] O A.ring]
+    (ρ : TauCeti.GaloisDeformation.Lift n ρ₀ A.residue.toRingHom) :
+    CategoryCondition.defFunctor ρ₀ hc₀ (finiteFlatCategory p K O F ρ₀ hc₀ hflat)
+      A.residue ⟨A.residue_surjective,A.residue_ker⟩ A.adic ρ ↔ IsFlatLift p K A.ring ρ.toHom := sorry
+
+example (A : CNLObject O F) [Algebra ℤ_[p] A.ring] [IsScalarTower ℤ_[p] O A.ring]
+    (ρ : TauCeti.GaloisDeformation.Lift n ρ₀ A.residue.toRingHom)
+    (hρ : CategoryCondition.defFunctor ρ₀ hc₀ (finiteFlatCategory p K O F ρ₀ hc₀ hflat)
+      A.residue ⟨A.residue_surjective,A.residue_ker⟩ A.adic ρ) : IsFlatLift p K A.ring ρ.toHom := sorry
+end FlatCategory
+
+section CategoryTangent
+variable (O : Type u) [CommRing O] [IsLocalRing O] [IsNoetherianRing O]
+variable {F Γ : Type u} [Field F] [Algebra O F] [Module.Finite O F]
+variable [TopologicalSpace F] [DiscreteTopology F] [Group Γ] [TopologicalSpace Γ]
+variable {n : ℕ} (ρ₀ : Γ →* GL (Fin n) F)
+variable (hc₀ : Continuous fun σ ↦ (ρ₀ σ : Matrix (Fin n) (Fin n) F))
+variable (S : CategoryCondition O F Γ ρ₀ hc₀)
+variable [TopologicalSpace (DualNumber F)] [DiscreteTopology (DualNumber F)]
+local instance : Algebra O (DualNumber F) :=
+  ((algebraMap F (DualNumber F)).comp (algebraMap O F)).toAlgebra
+local instance : Module.Finite O (DualNumber F) := sorry
+
+/-- The cocycle's first-order representation is (1+εc(g))ρ̄(g). -/
+def cocycleFirstOrder (c : adCocycles ρ₀) : Γ →* GL (Fin n) (DualNumber F) := sorry
+
+theorem cocycleFirstOrder_matrix (c : adCocycles ρ₀) (σ : Γ) :
+    (cocycleFirstOrder ρ₀ c σ : Matrix (Fin n) (Fin n) (DualNumber F))=
+      (infinitesimalGL (c.val σ) : Matrix (Fin n) (Fin n) (DualNumber F))*
+        (Matrix.GeneralLinearGroup.map (algebraMap F (DualNumber F)) (ρ₀ σ) : Matrix (Fin n) (Fin n) (DualNumber F)) := sorry
+
+theorem cocycleFirstOrder.continuous (hc : Continuous fun σ ↦ (ρ₀ σ : Matrix (Fin n) (Fin n) F))
+    (c : adCocycles ρ₀) :
+    Continuous fun σ ↦ (cocycleFirstOrder ρ₀ c σ : Matrix (Fin n) (Fin n) (DualNumber F)) := sorry
+
+/-- The O-linear matrix action associated with the first-order cocycle. -/
+def cocycleFirstOrder.linearAction (c : adCocycles ρ₀) :
+    Γ →* ((Fin n → DualNumber F) ≃ₗ[O] (Fin n → DualNumber F)) := sorry
+
+theorem cocycleFirstOrder.linearAction_matrix (c : adCocycles ρ₀) (σ : Γ)
+    (x : Fin n → DualNumber F) :
+    cocycleFirstOrder.linearAction O ρ₀ c σ x=
+      Matrix.mulVec (cocycleFirstOrder ρ₀ c σ : Matrix (Fin n) (Fin n) (DualNumber F)) x := sorry
+
+/-- The finite module is literally F[ε]^n with its cocycle action. -/
+def cocycleFirstOrder.coefficient (c : adCocycles ρ₀) : CoefficientRepresentation O Γ where
+  module := Fin n → DualNumber F
+  add := inferInstance
+  scalar := inferInstance
+  finite := by sorry
+  topology := ⊥
+  addTopology := by sorry
+  action := cocycleFirstOrder.linearAction O ρ₀ c
+  continuous := by
+    let _ := hc₀
+    sorry
+
+/-- Trace zero imposes the infinitesimal fixed determinant. Membership in S
+is tested on the actual extension representation, not a dimension formula. -/
+def CategoryCondition.tangentCocycles : Submodule F (adCocycles ρ₀) where
+  carrier := {c | (∀ σ, Matrix.trace (c.val σ)=0) ∧
+    cocycleFirstOrder.coefficient O ρ₀ hc₀ c ∈ S.objects}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def CategoryCondition.tangent : Submodule F (AdH1 ρ₀) :=
+  Submodule.map (Submodule.mkQ (Submodule.comap (adCocycles ρ₀).subtype (adCoboundaries ρ₀))) (CategoryCondition.tangentCocycles O ρ₀ hc₀ S)
+
+/-- Carrier test: the full category retains exactly the trace-zero cocycles
+before quotienting by strict conjugation. -/
+example (hall : ∀ V, ResiduallyFiltered ρ₀ hc₀ V → V ∈ S.objects) :
+    ∀ c : adCocycles ρ₀, c ∈ CategoryCondition.tangentCocycles O ρ₀ hc₀ S ↔
+      ∀ σ, Matrix.trace (c.val σ)=0 := sorry
+end CategoryTangent
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- ReductiveGroups' generalised reductive structure on this represented group:
+smooth identity component reductive, and finite étale component group. -/
+def GeneralisedReductiveStructure {O : Type u} [CommRing O] {n : ℕ}
+    (G : ClosedMatrixGroup O n) : Type (u+1) := sorry
+
+/-- ReductiveGroups' derived quotient, including identification of the kernel
+with G′ and its universal fppf quotient property. -/
+def DerivedQuotientStructure {O : Type u} [CommRing O] {n a : ℕ}
+    (G : ClosedMatrixGroup O n) (Gab : ClosedMatrixGroup O a) (q : G.Hom Gab) : Type (u+1) := sorry
+
+/-- The fppf central quotient G→G/Z. Z is a closed normal subgroup of the
+centre of G⁰; its torus structure is part of the supplier datum. -/
+def CentralTorusQuotientStructure {O : Type u} [CommRing O] {n m z : ℕ}
+    (G : ClosedMatrixGroup O n) (H : ClosedMatrixGroup O m) (Z : ClosedMatrixGroup O z)
+    (i : Z.Hom G) (φ : G.Hom H) : Type (u+1) := sorry
+
+/-- Coordinate algebra of Z∩G′, computed as the fibre product with the kernel
+of q. ReductiveGroups supplies the scheme intersection, not a pointwise
+intersection asserted only over the residue field. -/
+def derivedCentralIntersection {O : Type u} [CommRing O] {n a z : ℕ}
+    {G : ClosedMatrixGroup O n} {Gab : ClosedMatrixGroup O a} {Z : ClosedMatrixGroup O z}
+    (q : G.Hom Gab) (i : Z.Hom G) : Type u := sorry
+instance {O : Type u} [CommRing O] {n a z : ℕ}
+    {G : ClosedMatrixGroup O n} {Gab : ClosedMatrixGroup O a} {Z : ClosedMatrixGroup O z}
+    (q : G.Hom Gab) (i : Z.Hom G) : CommRing (derivedCentralIntersection q i) := sorry
+instance {O : Type u} [CommRing O] {n a z : ℕ}
+    {G : ClosedMatrixGroup O n} {Gab : ClosedMatrixGroup O a} {Z : ClosedMatrixGroup O z}
+    (q : G.Hom Gab) (i : Z.Hom G) : Algebra O (derivedCentralIntersection q i) := sorry
+
+section CentralTorusComparison
+variable (O : Type u) [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable {F Γ : Type u} [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+variable [TotallyDisconnectedSpace Γ] [MazurFinite Γ F] {n m a b z : ℕ}
+variable (G : ClosedMatrixGroup O n) (H : ClosedMatrixGroup O m)
+variable (Gab : ClosedMatrixGroup O a) (Hab : ClosedMatrixGroup O b) (Z : ClosedMatrixGroup O z)
+variable (φ : G.Hom H) (qG : G.Hom Gab) (qH : H.Hom Hab) (π : Gab.Hom Hab) (i : Z.Hom G)
+variable (ρG : Γ →* GL (Fin n) F) (ρH : Γ →* GL (Fin m) F)
+variable (ρGab : Γ →* GL (Fin a) F) (ρHab : Γ →* GL (Fin b) F)
+variable [ContinuousResidual ρG] [ContinuousResidual ρH] [ContinuousResidual ρGab] [ContinuousResidual ρHab]
+variable (hG : ∀ σ, ρG σ ∈ G.points F) (hH : ∀ σ, ρH σ ∈ H.points F)
+variable (hGab : ∀ σ, ρGab σ ∈ Gab.points F) (hHab : ∀ σ, ρHab σ ∈ Hab.points F)
+variable (hφ : ∀ σ, (φ.toHom F ⟨ρG σ,hG σ⟩).val=ρH σ)
+variable (hqG : ∀ σ, (qG.toHom F ⟨ρG σ,hG σ⟩).val=ρGab σ)
+variable (hqH : ∀ σ, (qH.toHom F ⟨ρH σ,hH σ⟩).val=ρHab σ)
+variable (hπ : ∀ σ, (π.toHom F ⟨ρGab σ,hGab σ⟩).val=ρHab σ)
+
+/-- Both maps are the actual framed deformation maps induced by the quotient
+square. R03.1 supplies completion of their tensor product over R□_{H/H′}. -/
+abbrev centralTorusSource :=
+  letI := (GFramedRing.map Gab Hab π hGab ρHab hHab hπ).toAlgebra
+  letI := (GFramedRing.map H Hab qH hH ρHab hHab hqH).toAlgebra
+  CompletedTensor (GFramedRing Hab hHab) (GFramedRing Gab hGab) (GFramedRing H hH)
+
+instance : Algebra O (centralTorusSource (O := O) (H := H) (Gab := Gab) (Hab := Hab) (qH := qH) (π := π) (ρH := ρH) (ρGab := ρGab) (ρHab := ρHab) (hH := hH) (hGab := hGab) (hHab := hHab) (hqH := hqH) (hπ := hπ)) := sorry
+
+/-- The canonical tensor map sends its two factors by qG and φ.
+The commuting group-square hypothesis makes the two scalar actions agree. -/
+def centralTorusMap
+    (hsquare : ∀ (A : Type u) [CommRing A] [Algebra O A] (g : G.points A),
+      π.toHom A (qG.toHom A g)=qH.toHom A (φ.toHom A g)) :
+    centralTorusSource (O := O) (H := H) (Gab := Gab) (Hab := Hab) (qH := qH) (π := π) (ρH := ρH) (ρGab := ρGab) (ρHab := ρHab) (hH := hH) (hGab := hGab) (hHab := hHab) (hqH := hqH) (hπ := hπ) →ₐ[O] GFramedRing G hG :=
+  let _ := hφ
+  let _ := hqG
+  sorry
+
+/-- PQ26 Prop. 3.13, p. 26: the canonical completed scalar-product comparison.
+The étale hypothesis concerns the scheme intersection with the derived group,
+not the whole torus Z, whose Lie algebra can have positive dimension. -/
+theorem centralQuotient_torus
+    (gG : GeneralisedReductiveStructure G) (gH : GeneralisedReductiveStructure H)
+    (dG : DerivedQuotientStructure G Gab qG) (dH : DerivedQuotientStructure H Hab qH)
+    (zTorus : CentralTorusQuotientStructure G H Z i φ)
+    (hetale : Algebra.Etale O (derivedCentralIntersection qG i))
+    (hsquare : ∀ (A : Type u) [CommRing A] [Algebra O A] (g : G.points A),
+      π.toHom A (qG.toHom A g)=qH.toHom A (φ.toHom A g)) :
+    ∃ e : centralTorusSource (O := O) (H := H) (Gab := Gab) (Hab := Hab) (qH := qH) (π := π) (ρH := ρH) (ρGab := ρGab) (ρHab := ρHab) (hH := hH) (hGab := hGab) (hHab := hHab) (hqH := hqH) (hπ := hπ) ≃ₐ[O] GFramedRing G hG,
+      e.toAlgHom=centralTorusMap (O := O) (G := G) (H := H) (Gab := Gab) (Hab := Hab) (φ := φ) (qG := qG) (qH := qH) (π := π) (ρG := ρG) (ρH := ρH) (ρGab := ρGab) (ρHab := ρHab) (hG := hG) (hH := hH) (hGab := hGab) (hHab := hHab) (hφ := hφ) (hqG := hqG) (hqH := hqH) (hπ := hπ) hsquare := sorry
+end CentralTorusComparison
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+section MinimalCoefficientMaps
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (hne : ℓ≠p)
+variable (O F : Type) [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [TopologicalSpace F] [DiscreteTopology F] [MazurFinite (Field.absoluteGaloisGroup ℚ_[ℓ]) F]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[ℓ] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+variable (μ : Field.absoluteGaloisGroup ℚ_[ℓ] →* Oˣ) (t : GSp4RamType)
+
+/-- Coefficient maps carry the integral orbit's conjugating matrix and unit
+parameter. At P/H they carry the same finite prime-to-p inertia lift. -/
+theorem GSp4.MinimalAt.baseChange (hp : 3≤p) (hres : GSp4RamType.Is p ℓ F ρ₀ t)
+    (A B : CNLObject O F) (f : A.Hom B) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (hr : GSp4.MinimalAt p ℓ ρ₀ μ t A r) :
+    GSp4.MinimalAt p ℓ ρ₀ μ t B (mapCNLift ρ₀ f r) := sorry
+
+/-- In the regular residual orbit, unipotence of the inertia image forces the
+same single Jordan block. This is the U₃ equality, not merely equality of a
+rank computed after extending to a field. CG20 Def. 4.6, p. 815. -/
+theorem GSp4.MinimalAt.U3_eq_unipotent (hp : 5≤p)
+    (hres : GSp4RamType.Is p ℓ F ρ₀ .U3) (A : CNLObject O F)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) :
+    GSp4.MinimalAt p ℓ ρ₀ μ .U3 A r ↔
+      (∀ γ, IsGSp4 (r.toHom γ : Matrix (Fin 4) (Fin 4) A.ring) (algebraMap O A.ring (μ γ : O))) ∧
+      ∀ γ : localInertia ℓ ℚ_[ℓ],
+        (r.toHom γ.val : Matrix (Fin 4) (Fin 4) A.ring).charpoly=(Polynomial.X-1)^4 := sorry
+
+theorem GSp4.MinimalAt.U3_minimallyRamified (hp : 5≤p)
+    (hres : GSp4RamType.Is p ℓ F ρ₀ .U3) (A : CNLObject O F)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) (σ : localInertia ℓ ℚ_[ℓ])
+    (hσ : Matrix.rank ((ρ₀ σ.val : Matrix (Fin 4) (Fin 4) F)-1)=3)
+    (hr : GSp4.MinimalAt p ℓ ρ₀ μ .U3 A r) :
+    IsMinimallyRamified A.residue.toRingHom (r.toHom σ.val : Matrix (Fin 4) (Fin 4) A.ring) := sorry
+
+example (hp : 5≤p) (hres : GSp4RamType.Is p ℓ F ρ₀ .U3)
+    (A : CNLObject O F) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (hr : GSp4.MinimalAt p ℓ ρ₀ μ .U3 A r) :
+    ∀ γ : localInertia ℓ ℚ_[ℓ],
+      (r.toHom γ.val : Matrix (Fin 4) (Fin 4) A.ring).charpoly=(Polynomial.X-1)^4 := sorry
+end MinimalCoefficientMaps
+end TauCeti.GaloisDeformation.Local
+
+namespace TauCeti.GaloisDeformation.Local
+section PartitionCoefficientMaps
+variable (p q : ℕ) [Fact p.Prime] (E O F : Type) [Field E] [CharZero E]
+variable [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable {n : ℕ} (ρ₀ : TameGroup p q →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (m : MonodromyPartition n)
+
+/-- The quotient's point functor carries the representation by the coefficient
+map. Its defining q-chain equations impose no bound on monodromy rank.
+ACC+23 §2.4.4, Lemma 2.4.29, pp. 59–60. -/
+def partitionRing.coefficientMap {B C : Type} [CommRing B] [CommRing C]
+    [Algebra O B] [Algebra O C] (f : B →ₐ[O] C) :
+    (partitionRing p q E O F ρ₀ m →ₐ[O] B) →
+      (partitionRing p q E O F ρ₀ m →ₐ[O] C) := fun x ↦ f.comp x
+
+theorem partitionRing.coefficientMap_rep {B C : Type} [CommRing B] [CommRing C]
+    [Algebra O B] [Algebra O C] (f : B →ₐ[O] C)
+    (x : partitionRing p q E O F ρ₀ m →ₐ[O] B) :
+    pointRep ((partitionRing.coefficientMap p q E O F ρ₀ m f x).toRingHom.comp
+      (Ideal.Quotient.mk (partitionRing.ideal p q E O F ρ₀ m)))=
+    (Matrix.GeneralLinearGroup.map f.toRingHom).comp
+      (pointRep (x.toRingHom.comp (Ideal.Quotient.mk (partitionRing.ideal p q E O F ρ₀ m)))) := sorry
+end PartitionCoefficientMaps
+
+/-- LocalGaloisGroups' finite unramified extension with its actual field and
+extension embedding. The relative ramification index is one. -/
+structure FiniteUnramifiedExtension (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] where
+  field : Type
+  [fieldInst : Field field]
+  [charZero : CharZero field]
+  [padic : Algebra ℚ_[p] field]
+  [finite : FiniteDimensional ℚ_[p] field]
+  embedding : K →ₐ[ℚ_[p]] field
+  unramified : localRamificationIndex p field=localRamificationIndex p K
+attribute [instance] FiniteUnramifiedExtension.fieldInst FiniteUnramifiedExtension.charZero
+  FiniteUnramifiedExtension.padic FiniteUnramifiedExtension.finite
+
+/-- The linear inertia action on D*_pst; inertia fixes its unramified scalars.
+This is the R06.3 action whose trace is pstInertiaTrace. -/
+def pstInertiaAction (p : ℕ) [Fact p.Prime] (K B : Type u)
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing B] [Algebra ℚ_[p] B] {n : ℕ}
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) :
+    localInertia p K →* (PotentiallySemistableModule p K B ρ ≃ₗ[PotentiallySemistableScalars p K B]
+      PotentiallySemistableModule p K B ρ) := sorry
+
+section ModelComponentComparison
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E] [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable (D : LubinTateModelData p K E O) (n m : ℕ) (hn : 0<n) (hm : 0<m) (hp : n*m<p)
+variable (U : FiniteUnramifiedExtension p K)
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+
+/-- Crystallinity as trivial WD inertia and zero monodromy, together with the
+actual potentially semistable comparison. PadicHodgeTheory R06.3 supplies the
+identification with the B_cris comparison over the original local field. -/
+def IsCrystallineRepresentation (L : Type) [Field L] [CharZero L]
+    [Algebra ℚ_[p] L] [FiniteDimensional ℚ_[p] L]
+    (r : Field.absoluteGaloisGroup L →* GL (Fin n) E) : Prop :=
+  IsPotentiallySemistable p L E r ∧ pstMonodromy p L E r=0 ∧
+    ∀ σ : localInertia p L, pstInertiaAction p L E r σ=1
+
+/-- BCGNT25 Lemma 5.1.3, p. 49. The first conclusion makes the full residual
+representations agree after an unramified extension; the second uses that
+agreement in the definition of the component relation. Agreement only on
+inertia is the input, not an implicit assumption of the component relation. -/
+theorem rhoNM0.connects (hn : 0<n) (hm : 0<m) (hp : n*m<p)
+    (r : Field.absoluteGaloisGroup U.field →* GL (Fin n) O)
+    (hc : Continuous fun σ ↦ (r σ : Matrix (Fin n) (Fin n) O))
+    (hcrys : IsCrystallineRepresentation p E n U.field
+      ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp r))
+    (hweights : ∀ σ : U.field →ₐ[ℚ_[p]] E,
+      labelledHodgeWeights p U.field E ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp r) σ=
+        (↑((List.range n).map (fun i ↦ -((i*m:ℕ):ℤ))) : Multiset ℤ))
+    (hinertia : ∃ g : GL (Fin n) F, ∀ σ : localInertia p U.field,
+      g*Matrix.GeneralLinearGroup.map (algebraMap O F) (r σ.val)*g⁻¹=
+        Matrix.GeneralLinearGroup.map (algebraMap O F)
+          (rhoNM0.model D n m (localRestriction p K U.field U.embedding σ.val))) :
+    ∃ V : FiniteUnramifiedExtension p U.field,
+      (∃ g : GL (Fin n) F, ∀ σ,
+        g*Matrix.GeneralLinearGroup.map (algebraMap O F)
+          (r (localRestriction p U.field V.field V.embedding σ))*g⁻¹=
+        Matrix.GeneralLinearGroup.map (algebraMap O F)
+          (rhoNM0.model D n m (localRestriction p K U.field U.embedding
+            (localRestriction p U.field V.field V.embedding σ)))) ∧
+      Connects p V.field E O F
+        (r.comp (localRestriction p U.field V.field V.embedding))
+        ((rhoNM0.model D n m).comp ((localRestriction p K U.field U.embedding).comp
+          (localRestriction p U.field V.field V.embedding))) := by
+  let _ := hn
+  let _ := hm
+  let _ := hp
+  sorry
+end ModelComponentComparison
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- ClassFieldTheory's normalized p-primary residue-unit quotient: the chosen
+tame generator maps to 1 in the additive cyclic model of Δ. -/
+def TameGroup.artinDelta (p q : ℕ) : TameGroup.inertia p q →* TaylorWilesDelta p q := sorry
+
+section TaylorWilesComparison
+variable (O F : Type) [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable (p q : ℕ) [Fact p.Prime] [CharP F p]
+variable {n : ℕ} (ρ₀ : TameGroup p q →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (D : TaylorWilesBlockData p q F ρ₀)
+
+theorem TaylorWilesBlock.deltaCharacter_artin (R : CNLObject O F)
+    (r : Lift n ρ₀ R.residue.toRingHom) (X : TaylorWilesDecomposition ρ₀ D R r) :
+    X.character=(TaylorWilesBlock.deltaCharacter ρ₀ D R r X).comp (TameGroup.artinDelta p q) := sorry
+
+/-- Relative representability on the complete local coefficient category. -/
+theorem TaylorWilesBlock.ring_points (R : CNLObject O F)
+    (x : CoeffHom (LiftingRing.residue O n ρ₀) R.residue)
+    (r : Lift n ρ₀ R.residue.toRingHom) (hr : r.toHom=pointRep x.val.toRingHom) :
+    TaylorWilesBlock.ideal ρ₀ D ≤ RingHom.ker x.val.toRingHom ↔
+      TaylorWilesBlock ρ₀ D R r := sorry
+
+/-- The unique extension of the universal scalar inertia character with value
+one on the chosen Frobenius. Its reduction is the trivial character. -/
+def TaylorWilesBlock.scalarExtension : TameGroup p q →* (TaylorWilesBlock.ring (𝒪 := O) ρ₀ D)ˣ := sorry
+
+theorem TaylorWilesBlock.scalarExtension_frobenius :
+    TaylorWilesBlock.scalarExtension O F p q ρ₀ D (TameGroup.φ p q)=1 := sorry
+
+/-- At rank two, fixing det = χ·ψ̃ fixes the unramified part χ while allowing
+ψ̃ to be the universal scalar inertia character of the selected block. -/
+def TaylorWilesBlock.fixedUnramifiedDetIdeal (χ : TameGroup p q →* Oˣ) :
+    Ideal (TaylorWilesBlock.ring (𝒪 := O) ρ₀ D) :=
+  Ideal.span {z | ∃ σ, z=
+    (Matrix.GeneralLinearGroup.det (pointRep (𝒪 := O) (Ideal.Quotient.mk (TaylorWilesBlock.ideal (𝒪 := O) ρ₀ D)) σ) :
+      TaylorWilesBlock.ring (𝒪 := O) ρ₀ D) -
+    algebraMap O _ (χ σ : O)*(TaylorWilesBlock.scalarExtension O F p q ρ₀ D σ :
+      TaylorWilesBlock.ring (𝒪 := O) ρ₀ D)}
+
+abbrev TaylorWilesBlock.fixedUnramifiedDetRing (χ : TameGroup p q →* Oˣ) :=
+  TaylorWilesBlock.ring (𝒪 := O) ρ₀ D ⧸ TaylorWilesBlock.fixedUnramifiedDetIdeal O F p q ρ₀ D χ
+
+/-- The diamond character, now valued in the fixed-unramified-determinant ring. -/
+def TaylorWilesBlock.fixedUnramifiedDelta (χ : TameGroup p q →* Oˣ) :
+    MonoidAlgebra O (TaylorWilesDelta p q) →ₐ[O] TaylorWilesBlock.fixedUnramifiedDetRing O F p q ρ₀ D χ :=
+  (Ideal.Quotient.mkₐ O _).comp (TaylorWilesBlock.deltaAlgebra ρ₀ D)
+
+/-- Odd p gives the unique square root in the character group reducing to one. -/
+def TaylorWilesBlock.halfScalar (χ : TameGroup p q →* Oˣ) (hp : Odd p) :
+    TameGroup p q →* (TaylorWilesBlock.fixedUnramifiedDetRing O F p q ρ₀ D χ)ˣ := sorry
+
+theorem TaylorWilesBlock.halfScalar_square (χ : TameGroup p q →* Oˣ) (hp : Odd p) :
+    ∀ σ, TaylorWilesBlock.halfScalar O F p q ρ₀ D χ hp σ ^ 2=
+      Units.map (Ideal.Quotient.mk (TaylorWilesBlock.fixedUnramifiedDetIdeal O F p q ρ₀ D χ)).toMonoidHom
+        (TaylorWilesBlock.scalarExtension O F p q ρ₀ D σ) := sorry
+end TaylorWilesComparison
+
+/-- The group-algebra automorphism induced by δ↦δ² for an odd p-group. -/
+def deltaSquare (O : Type) [CommRing O] (p q : ℕ) [Fact p.Prime] (hp : Odd p) :
+    MonoidAlgebra O (TaylorWilesDelta p q) ≃ₐ[O] MonoidAlgebra O (TaylorWilesDelta p q) := sorry
+
+section TaylorWilesRankTwoComparison
+variable (O F : Type) [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable (p q : ℕ) [Fact p.Prime] [CharP F p]
+variable (ρ₀ : TameGroup p q →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (D : TaylorWilesBlockData p q F ρ₀) (χ : TameGroup p q →* Oˣ)
+
+/-- The determinant-one-on-inertia presentation has its diamond map from the
+first Hensel eigenline, ordered by the selected residual eigenvalue. -/
+def TaylorWilesFixedDet.deltaAlgebra :
+    MonoidAlgebra O (TaylorWilesDelta p q) →ₐ[O] TaylorWilesFixedDet O F p q ρ₀ χ :=
+  let _ := D
+  sorry
+
+/-- BCGP25 §5.5, p. 124, compared with Gee Lemma 3.33 and Exercise 3.34,
+p. 20. The ring comparison also identifies the universal representations and
+the diamond algebras, including the squaring change of generator. -/
+theorem TaylorWilesBlock.rank2 (hp : Odd p) (hq : (q:F)=1) (hsize : D.size=1)
+    (hχ : χ (TameGroup.t p q)=1)
+    (hdet : ∀ σ, Units.map (algebraMap O F).toMonoidHom (χ σ)=Matrix.GeneralLinearGroup.det (ρ₀ σ)) :
+    ∃ e : TaylorWilesBlock.fixedUnramifiedDetRing O F p q ρ₀ D χ ≃ₐ[O]
+        TaylorWilesFixedDet O F p q ρ₀ χ,
+      e.toAlgHom.comp (TaylorWilesBlock.fixedUnramifiedDelta O F p q ρ₀ D χ)=
+        (TaylorWilesFixedDet.deltaAlgebra O F p q ρ₀ D χ).comp (deltaSquare O p q hp).toAlgHom ∧
+      (Matrix.GeneralLinearGroup.map e.toRingHom).comp
+        (scalarTwist
+          (pointRep ((Ideal.Quotient.mk (TaylorWilesBlock.fixedUnramifiedDetIdeal O F p q ρ₀ D χ)).comp
+            (Ideal.Quotient.mk (TaylorWilesBlock.ideal ρ₀ D))))
+          (inverseCharacter (TaylorWilesBlock.halfScalar O F p q ρ₀ D χ hp)))=
+        pointRep (Ideal.Quotient.mk (detIdeal (ρbar := ρ₀) χ)) := sorry
+end TaylorWilesRankTwoComparison
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- A nonarchimedean place of a number field. The ideal is maximal and nonzero;
+the archimedean places are excluded by the carrier. -/
+abbrev FiniteNumberFieldPlace (F : Type) [Field F] [NumberField F] :=
+  {v : Ideal (NumberField.RingOfIntegers F) // v.IsMaximal ∧ v≠⊥}
+
+/-- LocalGaloisGroups' completion and chosen decomposition map at a finite
+place. The chosen prime above v and both completions are retained, whether the
+place splits, is inert or ramifies in the quadratic extension. -/
+structure CMFiniteLocalisation (Fplus F : Type) [Field Fplus] [NumberField Fplus]
+    [Field F] [NumberField F] [Algebra Fplus F] (v : FiniteNumberFieldPlace Fplus) where
+  residuePrime : ℕ
+  [prime : Fact residuePrime.Prime]
+  Kplus : Type
+  K : Type
+  [fieldPlus : Field Kplus]
+  [field : Field K]
+  [zeroPlus : CharZero Kplus]
+  [zero : CharZero K]
+  [padicPlus : Algebra ℚ_[residuePrime] Kplus]
+  [padic : Algebra ℚ_[residuePrime] K]
+  [finitePlus : FiniteDimensional ℚ_[residuePrime] Kplus]
+  [finite : FiniteDimensional ℚ_[residuePrime] K]
+  extension : Kplus →ₐ[ℚ_[residuePrime]] K
+  w : FiniteNumberFieldPlace F
+  above : Ideal.comap (NumberField.RingOfIntegers.mapRingHom (algebraMap Fplus F)) w.val=v.val
+  completionPlus : FinitePlaceCompletion Fplus v.val ≃+* Kplus
+  completion : FinitePlaceCompletion F w.val ≃+* K
+  decompositionPlus : Field.absoluteGaloisGroup Kplus →* Field.absoluteGaloisGroup Fplus
+  decomposition : Field.absoluteGaloisGroup K →* Field.absoluteGaloisGroup F
+  q : ℕ
+  residueCardinality : q=Nat.card (NumberField.RingOfIntegers Fplus ⧸ v.val)
+  cardinalityPower : ∃ f : ℕ, 0<f ∧ q=residuePrime^f
+  frobenius : Field.absoluteGaloisGroup K
+attribute [instance] CMFiniteLocalisation.prime CMFiniteLocalisation.fieldPlus CMFiniteLocalisation.field
+  CMFiniteLocalisation.zeroPlus CMFiniteLocalisation.zero CMFiniteLocalisation.padicPlus
+  CMFiniteLocalisation.padic CMFiniteLocalisation.finitePlus CMFiniteLocalisation.finite
+
+def CMFiniteLocalisation.IsInert {Fplus F : Type} [Field Fplus] [NumberField Fplus]
+    [Field F] [NumberField F] [Algebra Fplus F] {v : FiniteNumberFieldPlace Fplus}
+    (D : CMFiniteLocalisation Fplus F v) : Prop :=
+  (∀ w' : FiniteNumberFieldPlace F,
+    Ideal.comap (NumberField.RingOfIntegers.mapRingHom (algebraMap Fplus F)) w'.val=v.val → w'=D.w) ∧
+      Nat.card (NumberField.RingOfIntegers F ⧸ D.w.val)=D.q^2
+
+/-- One multiplicity block in the canonical prime-to-p wild-inertia
+isotypic decomposition. CHT §2.4.4 and LTXZZrigid Construction 3.4.4,
+Proposition 3.4.7 and Definition 3.4.8, pp. 20–25, construct these blocks.
+The represented group is GL, symplectic or orthogonal according to the
+conjugate-dual orbit. X is the logarithm of the actual tame multiplicity action;
+X₀ is its integral orbit representative of the residual Jordan type. -/
+structure PolarizedWildMultiplicityBlock (O A : Type) [CommRing O] [CommRing A] [Algebra O A] where
+  size : ℕ
+  group : ClosedMatrixGroup O size
+  X : Matrix (Fin size) (Fin size) A
+  X₀ : Matrix (Fin size) (Fin size) O
+  nilpotent : IsNilpotent X
+  nilpotentReference : IsNilpotent X₀
+
+/-- The source's wild decomposition, including coefficient enlargement and
+multiplicity actions, is supplied by GlobalGaloisDeformations R04.4. This
+adapter returns its actual block matrices. It is applied after the unramified
+coefficient enlargement splitting the wild types and their conjugate-dual
+orbits; descent is independent of that enlargement (Remark 3.4.9, p. 25). -/
+def polarizedWildMultiplicityBlocks (p ℓ N : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (K O A : Type) [Field K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    [CommRing O] [CommRing A] [Algebra O A]
+    (r : Field.absoluteGaloisGroup K →* (polarizedGroupScheme O N).points A) :
+    List (PolarizedWildMultiplicityBlock O A) := sorry
+
+/-- Integral membership in the same nilpotent orbit in every wild multiplicity
+block. The conjugator lies in the block's represented group, so the symplectic
+and orthogonal forms are retained; ranks over a fraction field do not suffice. -/
+def PolarizedIsMinimallyRamified (p ℓ N : ℕ) [Fact p.Prime] [Fact ℓ.Prime]
+    (K O A : Type) [Field K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+    [CommRing O] [CommRing A] [Algebra O A]
+    (r : Field.absoluteGaloisGroup K →* (polarizedGroupScheme O N).points A) : Prop :=
+  ∀ B ∈ polarizedWildMultiplicityBlocks p ℓ N K O A r,
+    ∃ g : B.group.points A,
+      (g.val : Matrix (Fin B.size) (Fin B.size) A)*B.X₀.map (algebraMap O A)*
+        (g.val⁻¹ : GL (Fin B.size) A)=B.X
+
+/-- Residual regular FL realization after the finite coefficient enlargement
+allowed in LTXZZrigid Definition 3.2.4, p. 12. The Tate shift is arbitrary;
+the supplier's FL category has range [0,p−2]. -/
+structure RegularFLResidualWitness (p : ℕ) [Fact p.Prime] (K F : Type)
+    [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [Field F] [Algebra ℤ_[p] F] {n : ℕ}
+    (r : Field.absoluteGaloisGroup K →* GL (Fin n) F) where
+  coefficient : Type
+  [field : Field coefficient]
+  [finite : Finite coefficient]
+  [extension : Algebra F coefficient]
+  [padic : Algebra ℤ_[p] coefficient]
+  [tower : IsScalarTower ℤ_[p] F coefficient]
+  shift : ℤ
+  object : FLObject p K coefficient
+  basis : (FLObject.realize p K coefficient object).module ≃ₗ[coefficient] (Fin n → coefficient)
+  equivariance : ∀ σ x, basis ((FLObject.realize p K coefficient object).action σ x)=
+    Matrix.mulVec
+      (scalarTwist ((Matrix.GeneralLinearGroup.map (algebraMap F coefficient)).comp r)
+        ((localCyclotomic p K coefficient)^shift) σ : Matrix (Fin n) (Fin n) coefficient) (basis x)
+  regular : ∀ (σ : K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) (i : ℤ),
+    FLObject.gradedRank p K (AlgebraicClosure ℚ_[p]) coefficient object σ i≤1
+
+section RigidResidualConditions
+variable (p N : ℕ) [Fact p.Prime] (O k Fplus F : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field k] [Finite k] [CharP k p] [Algebra O k] [ResidueIdentification O k]
+variable [Algebra ℤ_[p] k] [IsScalarTower ℤ_[p] O k]
+variable [Field Fplus] [NumberField Fplus] [Field F] [NumberField F]
+variable [NumberField.IsTotallyReal Fplus] [NumberField.IsTotallyComplex F]
+variable [Algebra Fplus F]
+
+/-- The global polarized representation is an input from Part II. Its local
+restrictions are computed with the decomposition maps, and the natural
+representations on Γ_{F_w} are identified with the identity-component action.
+The fixed multiplier is η^N ε^(1−N); the quadratic and cyclotomic characters
+are the GlobalGaloisDeformations/ArithmeticGaloisRepresentations suppliers. -/
+structure RigidResidualDatum where
+  degree : Module.finrank Fplus F=2
+  rank_ge_two : 2≤N
+  prime_ge_rank : N≤p
+  residual : Field.absoluteGaloisGroup Fplus →* (polarizedGroupScheme O N).points k
+  quadratic : Field.absoluteGaloisGroup Fplus →* Oˣ
+  cyclotomic : Field.absoluteGaloisGroup Fplus →* Oˣ
+  multiplier : Field.absoluteGaloisGroup Fplus →* Oˣ
+  multiplier_eq : multiplier=quadratic^N*cyclotomic^(1-(N:ℤ))
+  multiplier_residual : ∀ σ, (polarizedMultiplier O N).toHom k (residual σ)=
+    Units.map (algebraMap O k).toMonoidHom (multiplier σ)
+  localData : ∀ v : FiniteNumberFieldPlace Fplus, CMFiniteLocalisation Fplus F v
+  naturalResidual : ∀ v : FiniteNumberFieldPlace Fplus,
+    Field.absoluteGaloisGroup (localData v).K →* GL (Fin N) k
+  identity_component : ∀ v σ,
+    residual ((localData v).decompositionPlus
+      (localRestriction (localData v).residuePrime (localData v).Kplus (localData v).K
+        (localData v).extension σ))=
+      polarizedIdentityEmbedding O N k (naturalResidual v σ,
+        Units.map (algebraMap O k).toMonoidHom
+          (multiplier ((localData v).decompositionPlus
+            (localRestriction (localData v).residuePrime (localData v).Kplus (localData v).K
+              (localData v).extension σ))))
+
+variable {p N O k Fplus F} (D : RigidResidualDatum p N O k Fplus F)
+
+abbrev RigidResidualDatum.localResidual (v : FiniteNumberFieldPlace Fplus) :=
+  ((polarizedGroupScheme O N).points k).subtype.comp
+    (D.residual.comp (D.localData v).decompositionPlus)
+
+/-- Fixed-similitude liftings at a place, including all represented group
+relations. This makes the quantifier in clause (1) mathematically precise. -/
+def RigidResidualDatum.IsFixedLift (v : FiniteNumberFieldPlace Fplus) (A : CNLObject O k)
+    (r : Lift (2*N+1) (D.localResidual v) A.residue.toRingHom) : Prop :=
+  ∃ hg : ∀ σ, r.toHom σ ∈ (polarizedGroupScheme O N).points A.ring,
+    ∀ σ, (polarizedMultiplier O N).toHom A.ring ⟨r.toHom σ,hg σ⟩=
+      Units.map (algebraMap O A.ring).toMonoidHom (D.multiplier ((D.localData v).decompositionPlus σ))
+
+/-- Clause (1), expressed on every actual fixed-similitude lift. -/
+def RigidResidualDatum.EveryLiftMinimal (v : FiniteNumberFieldPlace Fplus) : Prop :=
+  ∀ (A : CNLObject O k) (r : Lift (2*N+1) (D.localResidual v) A.residue.toRingHom)
+    (hg : ∀ σ, r.toHom σ ∈ (polarizedGroupScheme O N).points A.ring),
+    D.IsFixedLift v A r →
+      PolarizedIsMinimallyRamified p (D.localData v).residuePrime N (D.localData v).Kplus O A.ring
+        (r.toHom.codRestrict _ hg)
+
+/-- Clause (2) includes the inert and q²−1 side conditions of the standing
+local datum. Each specified root has multiplicity exactly one. -/
+def RigidResidualDatum.LevelRaisingAt (v : FiniteNumberFieldPlace Fplus) : Prop :=
+  (D.localData v).IsInert ∧ (D.localData v).residuePrime≠p ∧
+    ¬(p:ℤ) ∣ ((D.localData v).q:ℤ)^2-1 ∧
+    Polynomial.rootMultiplicity (((D.localData v).q:k)^(-(N:ℤ)))
+      (D.naturalResidual v (D.localData v).frobenius : Matrix (Fin N) (Fin N) k).charpoly=1 ∧
+    Polynomial.rootMultiplicity (((D.localData v).q:k)^(2-(N:ℤ)))
+      (D.naturalResidual v (D.localData v).frobenius : Matrix (Fin N) (Fin N) k).charpoly=1
+
+/-- Transport of the p-adic scalar algebra along equality of primes. -/
+@[instance_reducible]
+def padicIntegerAlgebraTransport {p ℓ : ℕ} [Fact p.Prime] [Fact ℓ.Prime]
+    (k : Type) [CommRing k] [Algebra ℤ_[p] k] (h : ℓ=p) : Algebra ℤ_[ℓ] k := by
+  cases h
+  infer_instance
+
+/-- The residue-prime equality transports the actual completion to a p-adic
+field before asking for its regular Fontaine–Laffaille realization. -/
+def RigidResidualDatum.FontaineLaffailleAt (v : FiniteNumberFieldPlace Fplus)
+    (hpv : (D.localData v).residuePrime=p) : Prop := by
+  letI : Algebra ℤ_[(D.localData v).residuePrime] k :=
+    padicIntegerAlgebraTransport k hpv
+  exact Nonempty (RegularFLResidualWitness (D.localData v).residuePrime (D.localData v).K k (D.naturalResidual v))
+
+def RigidResidualDatum.UnramifiedAt (v : FiniteNumberFieldPlace Fplus) : Prop :=
+  ∀ σ : localInertia (D.localData v).residuePrime (D.localData v).Kplus,
+    D.residual ((D.localData v).decompositionPlus σ.val)=1
+
+/-- LTXZZ22 Definition 6.3.4 (arXiv v3), p. 115, and LTXZZrigid
+Definition 3.6.1, p. 28: the four local clauses of rigidity. -/
+structure IsRigidFor (Smin Slr : Finset (FiniteNumberFieldPlace Fplus)) : Prop where
+  disjoint : Disjoint Smin Slr
+  away_p_min : ∀ v ∈ Smin, (D.localData v).residuePrime≠p
+  away_p_lr : ∀ v ∈ Slr, (D.localData v).residuePrime≠p
+  odd_rank : Odd N → Slr=∅
+  minimal : ∀ v ∈ Smin, D.EveryLiftMinimal v
+  levelRaising : ∀ v ∈ Slr, D.LevelRaisingAt v
+  unramified_lr : ∀ v ∈ Slr, D.UnramifiedAt v
+  ramification_coverage : ∀ v, (D.localData v).residuePrime≠p → ¬D.UnramifiedAt v → v∈Smin
+  fontaineLaffaille : ∀ v (hpv : (D.localData v).residuePrime=p), D.FontaineLaffailleAt v hpv
+  unramified : ∀ v, v∉Smin → v∉Slr → (D.localData v).residuePrime≠p → D.UnramifiedAt v
+
+/-- Adding a disjoint, admissible inert place preserves all four clauses.
+An odd-rank datum cannot acquire a level-raising place. -/
+theorem IsRigidFor.mono (Smin Slr : Finset (FiniteNumberFieldPlace Fplus))
+    (h : IsRigidFor D Smin Slr) (v : FiniteNumberFieldPlace Fplus)
+    (hmin : v∉Smin) (hlr : v∉Slr) (heven : Even N) (hv : D.LevelRaisingAt v) :
+    IsRigidFor D Smin (insert v Slr) := sorry
+
+/-- Empty-set carrier test: rigidity retains the actual local FL and
+unramified predicates; it does not become the proposition True. -/
+example : IsRigidFor D ∅ ∅ ↔
+    (∀ v (hpv : (D.localData v).residuePrime=p), D.FontaineLaffailleAt v hpv) ∧
+    (∀ v, (D.localData v).residuePrime≠p → D.UnramifiedAt v) := sorry
+
+example (Smin Slr : Finset (FiniteNumberFieldPlace Fplus)) (v : FiniteNumberFieldPlace Fplus)
+    (hv : v∈Slr)
+    (hm : Polynomial.rootMultiplicity (((D.localData v).q:k)^(-(N:ℤ)))
+      (D.naturalResidual v (D.localData v).frobenius : Matrix (Fin N) (Fin N) k).charpoly=2) :
+    ¬IsRigidFor D Smin Slr := sorry
+
+example (Smin Slr : Finset (FiniteNumberFieldPlace Fplus)) (h : IsRigidFor D Smin Slr)
+    (v : FiniteNumberFieldPlace Fplus) (hmin : v∉Smin) (hlr : v∉Slr)
+    (heven : Even N) (hv : D.LevelRaisingAt v) : IsRigidFor D Smin (insert v Slr) :=
+  h.mono D Smin Slr v hmin hlr heven hv
+end RigidResidualConditions
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+/-- A map of the split Borel and its canonical torus induced by a represented
+group morphism. These equations are natural on coefficient algebras. -/
+structure OrdinaryBorelMap {O : Type u} [CommRing O] {n m : ℕ}
+    {G : ClosedMatrixGroup O n} {G' : ClosedMatrixGroup O m}
+    (B : BorelInterface O G) (B' : BorelInterface O G') (f : G.Hom G') where
+  torus : (canonicalTorus B).Hom (canonicalTorus B')
+  borel : ∀ (A : Type u) [CommRing A] [Algebra O A] (g : G.points A),
+    g∈B.standard A → f.toHom A g∈B'.standard A
+  projection : ∀ (A : Type u) [CommRing A] [Algebra O A] (g : B.standard A),
+    torus.toHom A (B.torusProjection A g)=B'.torusProjection A ⟨f.toHom A g.val,borel A g.val g.property⟩
+
+/-- ReductiveGroups supplies the finite faithfully flat central isogeny,
+including the scheme-theoretic central kernel. -/
+def CentralIsogenyStructure {O : Type u} [CommRing O] {n m : ℕ}
+    {G : ClosedMatrixGroup O n} {G' : ClosedMatrixGroup O m} (f : G.Hom G') : Type (u+1) := sorry
+
+section GOrdinaryAdditional
+variable (p : ℕ) [Fact p.Prime] (K E O : Type u) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [Algebra ℤ_[p] O]
+variable [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable {n m : ℕ} {G : ClosedMatrixGroup O n} {G' : ClosedMatrixGroup O m}
+variable (B : BorelInterface O G) (B' : BorelInterface O G')
+variable (wt : (K →ₐ[ℚ_[p]] E) → GCocharacter B)
+variable (wt' : (K →ₐ[ℚ_[p]] E) → GCocharacter B')
+
+/-- FKP22 Definition 3.6, pp. 26–27: a central isogeny carries the Borel
+reduction and the full torus character to the induced weight. -/
+theorem IsGOrdinary.map (f : G.Hom G') (hf : CentralIsogenyStructure f)
+    (D : OrdinaryBorelMap B B' f)
+    (hwt : ∀ σ (A : Type u) [CommRing A] [Algebra O A], (wt' σ).eval A=
+      (D.torus.toHom A).comp ((wt σ).eval A))
+    (hχ : chiLambda p K E O B' wt'=
+      (D.torus.toHom O).comp (chiLambda p K E O B wt))
+    (A : Type u) [CommRing A] [IsLocalRing A] [Algebra E A] [Module.Finite E A]
+    [Algebra O A] [IsScalarTower O E A]
+    (H : Subgroup (Field.absoluteGaloisGroup K)) (ρ : Field.absoluteGaloisGroup K →* G.points A)
+    (hρ : IsGOrdinary p K E O A B wt H ρ) :
+    IsGOrdinary p K E O A B' wt' H ((f.toHom A).comp ρ) := sorry
+end GOrdinaryAdditional
+
+/-- A Borel reduction is a point of G/B, not a chosen conjugating matrix.
+The quotient relation makes equivalent representatives the same flag. -/
+abbrev BorelReduction {O A : Type u} [CommRing O] [CommRing A] [Algebra O A]
+    {n : ℕ} {G : ClosedMatrixGroup O n} (B : BorelInterface O G) :=
+  Quotient (QuotientGroup.leftRel (B.standard A))
+
+def BorelReduction.Compatible (p : ℕ) [Fact p.Prime] (K O A : Type u)
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [CommRing O] [CommRing A] [Algebra O A] {n : ℕ} {G : ClosedMatrixGroup O n}
+    (B : BorelInterface O G) (χ : localInertia p K →* (canonicalTorus B).points O)
+    (H : Subgroup (Field.absoluteGaloisGroup K)) (ρ : Field.absoluteGaloisGroup K →* G.points A)
+    (x : BorelReduction (A := A) B) : Prop :=
+  ∃ g : G.points A, Quotient.mk (QuotientGroup.leftRel (B.standard A)) g=x ∧
+    (∀ γ, g⁻¹*ρ γ*g∈B.standard A) ∧
+    ∀ σ : localInertia p K, σ.val∈H →
+      ∃ h : g⁻¹*ρ σ.val*g∈B.standard A,
+        B.torusProjection A ⟨g⁻¹*ρ σ.val*g,h⟩=
+          (canonicalTorus B).map (Algebra.ofId O A) (χ σ)
+
+section GOrdinarySchemePoints
+variable (p : ℕ) [Fact p.Prime] (K O A : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing O]
+variable [CommRing A] [Algebra O A] {n : ℕ} {G : ClosedMatrixGroup O n}
+variable (B : BorelInterface O G) (χ : localInertia p K →* (canonicalTorus B).points O)
+variable (H : Subgroup (Field.absoluteGaloisGroup K)) (ρ : Field.absoluteGaloisGroup K →* G.points A)
+
+/-- The fibre over a specified coefficient point is the incidence functor:
+a Borel reduction satisfying the stability and canonical-torus equations.
+The source's finite semistable/Hodge family is the ambient Spec A. -/
+def gOrdinaryFlagScheme.points (C : Type u) [CommRing C] [IsLocalRing C] [Algebra O C]
+    (x : A →ₐ[O] C) :
+    {s : Spec (.of C) ⟶ gOrdinaryFlagScheme p K A B χ H ρ //
+      s ≫ gOrdinaryFlagScheme.toSpec p K A B χ H ρ=Spec.map (CommRingCat.ofHom x.toRingHom)} ≃
+    {s : BorelReduction (A := C) B // BorelReduction.Compatible p K O C B χ H ((G.map x).comp ρ) s} := sorry
+end GOrdinarySchemePoints
+
+section GLOrdinaryComparison
+variable (p : ℕ) [Fact p.Prime] (K E O A : Type u) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [Algebra ℤ_[p] O]
+variable [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [CommRing A] [Algebra O A] {n : ℕ} (wt : DominantWeight p K E n)
+variable (ρ : Field.absoluteGaloisGroup K →* (ClosedMatrixGroup.gl O n).points A)
+variable (χ : Fin n → Field.absoluteGaloisGroup K →* Oˣ) (ϖ : O)
+
+/-- The specialization of the integral ordinary-flag image to the fixed
+inertial weight, inside the already chosen Hodge/semistable ambient family. -/
+def ordinaryWeightSpecializedIdeal : Ideal A :=
+  let f := ordinaryFlagScheme.toSpec (localInertia p K)
+    (((ClosedMatrixGroup.gl O n).points A).subtype.comp ρ)
+    (fun i ↦ (Units.map (algebraMap O A).toMonoidHom).comp (χ i))
+  Ideal.comap (algebraMap A (GenericFibre (algebraMap O A ϖ) A))
+    (modelImageIdeal (modelBaseChange.toSpec f (GenericFibre (algebraMap O A ϖ) A) (algebraMap A _)))
+
+/-- The full cocharacter is the reverse, negative ordinary weight. The
+comparison fixes the integral quotient maps; its ambient ring has already
+imposed v_λ, so no unrestricted variable-weight ring is confused with it.
+FKP22 §3.2, compared with CHT08 §2.4.1. -/
+theorem gOrdinaryRing.gl
+    (hχ : ∀ i σ, Units.map (algebraMap O E).toMonoidHom (χ i σ.val)=
+      ordinaryInertialCharacter p K E wt i σ) :
+    ∃ e : gOrdinaryRing p K A (BorelInterface.gl O n)
+        (chiLambda p K E O (BorelInterface.gl O n)
+          (fun σ ↦ glCocharacter O (fun j ↦ -(wt.value σ j.rev+(j.val:ℤ))))) ⊤ ρ ϖ ≃ₐ[O]
+        (A ⧸ ordinaryWeightSpecializedIdeal p K O A ρ χ ϖ),
+      e.toAlgHom.comp (Ideal.Quotient.mkₐ O _)=Ideal.Quotient.mkₐ O _ := sorry
+end GLOrdinaryComparison
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Symplectic ordinary tangent and coefficient comparisons
+Calegari–Geraghty, Definition 4.6 and Lemma 4.8, pp. 815–817;
+BCGP21, Definition 7.3.1 and Lemma 7.3.12, pp. 172, 179;
+BCGP25, §6.2, pp. 142–146. -/
+
+/-- The three-dimensional Siegel radical inside the actual symplectic Lie algebra. -/
+def GSp4.siegelRadical (k : Type) [Field k] : Submodule k (Matrix (Fin 4) (Fin 4) k) :=
+  GSp4.lie ⊓ {
+    carrier := {X | ∀ i j : Fin 4, ¬(i.val<2 ∧ 2≤j.val) → X i j=0}
+    zero_mem' := sorry
+    add_mem' := sorry
+    smul_mem' := sorry }
+
+example (k : Type) [Field k] (h2 : (2:k)≠0) : Module.finrank k (GSp4.siegelRadical k)=3 := sorry
+example (k : Type) [Field k] :
+    GSp4.siegelRadical k ≤ GSp4.adFil (standardFlag k 4) 0 := sorry
+example (k : Type) [Field k] (X : Matrix (Fin 4) (Fin 4) k)
+    (hX : X∈GSp4.siegelRadical k) : X 0 1=0 ∧ X 2 3=0 := sorry
+
+section SiegelTangent
+variable (p : ℕ) [Fact p.Prime] (k : Type) [Field k] [Finite k] [CharP k p] [Algebra ℤ_[p] k]
+variable [TopologicalSpace k] [DiscreteTopology k]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) k)
+
+/-- The kernel condition on H¹(I,b⁰/u) is imposed on cocycles modulo a
+b⁰-valued coboundary on inertia. Requiring pointwise zero would lose classes. -/
+def GSp4.SiegelOrdinary.tangentCocycles : Submodule k (adCocycles ρ₀) where
+  carrier := {c | (∀ σ, c.val σ∈GSp4.adFil (standardFlag k 4) 0) ∧
+    ∃ Y : GSp4.adFil (standardFlag k 4) 0, ∀ σ : localInertia p ℚ_[p],
+      c.val σ.val - ((ρ₀ σ.val : Matrix (Fin 4) (Fin 4) k)*Y.val*
+        ((ρ₀ σ.val)⁻¹ : GL (Fin 4) k)-Y.val) ∈ GSp4.siegelRadical k}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- L_p is the image of L′_p in the actual first adjoint cohomology group. -/
+def GSp4.SiegelOrdinary.tangent : Submodule k (AdH1 ρ₀) :=
+  (GSp4.SiegelOrdinary.tangentCocycles p k ρ₀).map
+    (Submodule.mkQ (Submodule.comap (adCocycles ρ₀).subtype (adCoboundaries ρ₀)))
+
+/-- H⁰(G_p,sp₄) is the invariant subspace for conjugation by the residual lift. -/
+def GSp4.adInvariants : Submodule k (GSp4.lie (E := k)) where
+  carrier := {X | ∀ σ, (ρ₀ σ : Matrix (Fin 4) (Fin 4) k)*X.val*
+    ((ρ₀ σ)⁻¹ : GL (Fin 4) k)=X.val}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem GSp4.SiegelOrdinary.tangent_dimension (hp : p≠2) (a : ℕ) (ha : 2≤a)
+    (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* kˣ)
+    (hunram : ∀ i (σ : localInertia p ℚ_[p]), χbar i σ.val=1)
+    (φ : Field.absoluteGaloisGroup ℚ_[p]) (hgen : GSp4.SiegelGeneric (p := p) k χbar φ)
+    (hstd : ∀ σ,
+      let M := (ρ₀ σ : Matrix (Fin 4) (Fin 4) k)
+      (∀ i j : Fin 4, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0 ∧
+      ∀ i, M i i=(GSp4.pairedCharacters (χbar 0) (χbar 1)
+        ((localCyclotomic p ℚ_[p] k)^(-(a-1:ℕ):ℤ)) i σ : k)) :
+    Module.finrank k (GSp4.SiegelOrdinary.tangent p k ρ₀)=
+      Module.finrank k (GSp4.adInvariants p k ρ₀)+3 := sorry
+end SiegelTangent
+
+section SiegelCoefficientMaps
+variable (p : ℕ) [Fact p.Prime] (O k : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field k] [Finite k] [Algebra O k] [ResidueIdentification O k]
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* kˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) k) [ContinuousResidual ρ₀]
+
+/-- Pullback of the Lagrangian direct summand along a coefficient morphism. -/
+def GSp4.SiegelPlane.baseChange (A B : CNLObject O k) (f : A.Hom B)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) (P : GSp4.SiegelPlane ρ₀ A r) :
+    GSp4.SiegelPlane ρ₀ B (mapCNLift ρ₀ f r) := sorry
+
+theorem GSp4.SiegelPlane.baseChange_carrier (A B : CNLObject O k) (f : A.Hom B)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) (P : GSp4.SiegelPlane ρ₀ A r) :
+    (P.baseChange p O k ρ₀ A B f r).plane=
+      Submodule.span B.ring (Set.range (fun x : P.plane ↦ fun i ↦ f.val (x.val i))) := sorry
+
+theorem SiegelOrdinary.baseChange (a : ℕ) (A B : CNLObject O k) (f : A.Hom B)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) (hr : GSp4.SiegelOrdinary χbar ρ₀ a A r) :
+    GSp4.SiegelOrdinary χbar ρ₀ a B (mapCNLift ρ₀ f r) := sorry
+
+theorem SiegelOrdinary.baseChange_plane (a : ℕ) (A B : CNLObject O k) (f : A.Hom B)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) (hr : GSp4.SiegelOrdinary χbar ρ₀ a A r)
+    (φ : Field.absoluteGaloisGroup ℚ_[p]) (hgen : GSp4.SiegelGeneric (p := p) k χbar φ) :
+    ((GSp4.SiegelOrdinary.plane χbar ρ₀ a A r hr).baseChange p O k ρ₀ A B f r).plane=
+      (GSp4.SiegelOrdinary.plane χbar ρ₀ a B (mapCNLift ρ₀ f r)
+        (SiegelOrdinary.baseChange p O k χbar ρ₀ a A B f r hr)).plane := sorry
+
+/-- The standard split symplectic Borel is imported from ReductiveGroups. -/
+def GSp4.borel : BorelInterface O (GSp4.group O) :=
+  let _ := p
+  sorry
+
+/-- The diagonal section of the canonical symplectic torus quotient. -/
+def GSp4.torusLift (A : Type) [CommRing A] [Algebra O A] :
+    (canonicalTorus (GSp4.borel p O)).points A →* (GSp4.group O).points A := sorry
+
+theorem GSp4.torusLift_projection (A : Type) [CommRing A] [Algebra O A]
+    (t : (canonicalTorus (GSp4.borel p O)).points A) :
+    ∃ h : GSp4.torusLift p O A t∈(GSp4.borel p O).standard A,
+      (GSp4.borel p O).torusProjection A ⟨GSp4.torusLift p O A t,h⟩=t := sorry
+
+/-- The nonregular Siegel cocharacter, with repeated weights. -/
+def GSp4.siegelCocharacter (a : ℕ) : GCocharacter (GSp4.borel p O) := sorry
+
+theorem GSp4.siegelCocharacter_diagonal (a : ℕ) (A : Type) [CommRing A] [Algebra O A] (z : Aˣ) :
+    ((GSp4.torusLift p O A ((GSp4.siegelCocharacter p O a).eval A z)).val : Matrix (Fin 4) (Fin 4) A)=
+      Matrix.diagonal ![1,1,(↑(z^(-(a-1:ℕ):ℤ)):A),(↑(z^(-(a-1:ℕ):ℤ)):A)] := sorry
+
+variable (E C : Type) [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra O E] [IsFractionRing O E]
+variable [CommRing C] [IsLocalRing C] [Algebra E C] [Module.Finite E C]
+variable [Algebra O C] [IsScalarTower O E C] [Algebra ℚ_[p] C] [IsScalarTower ℚ_[p] E C]
+
+/-- Every Siegel lift is G-ordinary for its repeated weight. No regularity
+hypothesis is imposed on this implication. -/
+theorem GSp4.SiegelOrdinary.isOrdinary (a : ℕ) (ha : 2≤a)
+    (A : CNLObject O k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (hr : GSp4.SiegelOrdinary χbar ρ₀ a A r) (x : A.ring →ₐ[O] C) :
+    ∃ rG : Field.absoluteGaloisGroup ℚ_[p] →* (GSp4.group O).points C,
+      (Subgroup.subtype _).comp rG=(Matrix.GeneralLinearGroup.map x.toRingHom).comp r.toHom ∧
+      IsGOrdinary p ℚ_[p] E O C (GSp4.borel p O)
+        (fun _ ↦ GSp4.siegelCocharacter p O a) ⊤ rG := sorry
+
+variable (W : OrdinaryParameters O k (Field.absoluteGaloisGroup ℚ_[p]) 2)
+/-- At weight two, unramified distinguished plane characters give the
+semistable comparison. This does not assert crystallinity of the lift. -/
+theorem GSp4.BorelOrdinary.semistable (hp : p≠2)
+    (hdist : χbar 0≠χbar 1)
+    (hunram : ∀ i (σ : localInertia p ℚ_[p]), χbar i σ.val=1)
+    (hres : GSp4.ParabolicShape ρ₀ (GSp4.pairedCharacters (χbar 0) (χbar 1)
+      ((Units.map (algebraMap O k).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))⁻¹))
+    (A : CNLObject O k) (ι : W.weight →ₐ[O] A.ring)
+    (hweight : ∀ i (σ : W.inertia), ι (W.inertialCharacter i σ : W.weight)=1)
+    (hinertia : W.inertia=localInertia p ℚ_[p])
+    (c : Fin 2) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (hr : GSp4.BorelOrdinary χbar ρ₀ W c A ι r) (x : A.ring →ₐ[O] C) :
+    Function.Bijective (PeriodHom.comparison
+      (semistablePeriods p ℚ_[p] C ⊤ (by simp))
+      (((Matrix.GeneralLinearGroup.map x.toRingHom).comp r.toHom).comp (⊤ : Subgroup _).subtype)) := sorry
+
+/-- Equal residual characters fail the distinguishing condition on the actual lift. -/
+example (A : CNLObject O k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (h : χbar 0=χbar 1) : ¬GSp4.IsPDistinguishedOrdinary χbar ρ₀ A r := sorry
+
+example (a : ℕ) (A : CNLObject O k) (r : Lift 4 ρ₀ A.residue.toRingHom)
+    (hr : GSp4.SiegelOrdinary χbar ρ₀ a A r) :
+    ∀ σ, IsGSp4 (r.toHom σ : Matrix (Fin 4) (Fin 4) A.ring)
+      (↑((((Units.map (algebraMap O A.ring).toMonoidHom).comp
+        (localCyclotomic p ℚ_[p] O)) σ)^(-(a-1:ℕ):ℤ)) : A.ring) := sorry
+end SiegelCoefficientMaps
+
+/-- The rank-two symplectic weight algebra retains the whole pro-p unit group,
+including its torsion when p=2. -/
+abbrev GSp4.weightAlgebra (p : ℕ) [Fact p.Prime] (O : Type) [CommRing O] :=
+  CompletedGroupAlgebra O (Fin 2 → LocalProPUnits p ℚ_[p])
+
+section SymplecticWeightTests
+variable (p : ℕ) [Fact p.Prime] (O : Type) [CommRing O] [IsLocalRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O] [CharZero O]
+
+theorem GSp4.weightAlgebra_powerSeries (hp : p≠2) :
+    Nonempty (GSp4.weightAlgebra p O ≃ₐ[O] MvPowerSeries (Fin 2) O) := sorry
+
+example (hp : p≠2) :
+    Nonempty (GSp4.weightAlgebra p O ≃ₐ[O] MvPowerSeries (Fin 2) O) := sorry
+example (hp : p=2) : Nat.card (minimalPrimes (GSp4.weightAlgebra p O))=4 := sorry
+example (ϖ : O) (hϖ : Irreducible ϖ) (hp : p=2) :
+    ∀ P : Ideal (GenericFibre ϖ (GSp4.weightAlgebra p O)), ∀ (_ : P.IsPrime),
+      IsRegularLocalRing (Localization.AtPrime P) := sorry
+end SymplecticWeightTests
+
+section SymplecticImagePoints
+variable {Γ A : Type} [Group Γ] [CommRing A] [IsNoetherianRing A]
+variable (I : Subgroup Γ) (r : Γ →* GL (Fin 4) A) (μ : Γ →* Aˣ) (χ : Fin 4 → Γ →* Aˣ)
+variable (hμ : ∀ σ, IsGSp4 (r σ : Matrix (Fin 4) (Fin 4) A) (μ σ : A))
+variable (hχ : ∀ σ, χ 0 σ*χ 3 σ=μ σ ∧ χ 1 σ*χ 2 σ=μ σ)
+
+/-- Integral DVR points of the scheme-theoretic image lift to symplectic flags.
+Properness extends a flag from the fraction field; no flat closure is taken. -/
+theorem GSp4.ordinaryImage_points (B : Type) [CommRing B] [IsDomain B] [IsLocalRing B]
+    [IsDiscreteValuationRing B] [Algebra A B] :
+    (∀ a∈modelImageIdeal (GSp4.ordinaryFlagScheme.toSpec I r μ χ hμ hχ), algebraMap A B a=0) ↔
+      Nonempty {F : FullFlag B 4 // GSp4.IsSymplecticFlag F ∧ F∈TauCeti.GaloisDeformation.Local.ordinaryFlagScheme.points I
+        ((Matrix.GeneralLinearGroup.map (algebraMap A B)).comp r)
+        (fun i ↦ (Units.map (algebraMap A B).toMonoidHom).comp (χ i))} := sorry
+end SymplecticImagePoints
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Presentations for all three coefficient-field cases
+BIP Proposition 4.3, pp. 31–32, and Proposition 3.41, p. 29.
+Continuous cohomology with nondiscrete local-field coefficients is an explicit
+ClassFieldTheory supplier requirement; finite-residue Mazur finiteness alone
+cannot justify these statements. -/
+section GeneralLambdaPresentation
+variable {O F κ Γ : Type u} [CommRing O] [IsLocalRing O] [IsNoetherianRing O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Field κ] [Algebra O κ]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+variable [T2Space Γ] [TotallyDisconnectedSpace Γ] [TopologicallyFinitelyGenerated Γ]
+variable {n : ℕ} (d : CoefficientFieldData O F κ) (ρ : Γ →* GL (Fin n) κ)
+variable (hc : NaturalContinuous d ρ)
+
+/-- The relation count is the continuous obstruction dimension, with the natural
+κ topology even when κ is not a finite discrete field. -/
+theorem LambdaLiftingRing.presentation :
+    letI := d.topology
+    ∃ f : Fin (Module.finrank κ (AdH2 ρ)) →
+        MvPowerSeries (Fin (Module.finrank κ (adCocycles ρ))) (CoeffRing κ d),
+      Nonempty (LambdaLiftingRing κ d ρ hc ≃ₐ[CoeffRing κ d]
+        MvPowerSeries (Fin (Module.finrank κ (adCocycles ρ))) (CoeffRing κ d) ⧸
+          Ideal.span (Set.range f)) := sorry
+
+/-- A general coefficient-field completion includes the tensor-product kernel,
+not merely the original generic-fibre maximal ideal. -/
+theorem completion_at_general_points
+    [MazurFinite Γ F] (ρ₀ : Γ →* GL (Fin n) F) [ContinuousResidual ρ₀]
+    (x : LiftingRing O n ρ₀ →ₐ[O] κ)
+    (hpoint : ringKrullDim ((LiftingRing O n ρ₀) ⧸ RingHom.ker x.toRingHom)=1 ∨
+      RingHom.ker x.toRingHom=IsLocalRing.maximalIdeal (LiftingRing O n ρ₀))
+    (heq : ρ=pointRep x.toRingHom)
+    (Q : Ideal (TensorProduct O (CoeffRing κ d) (LiftingRing O n ρ₀))) [Q.IsPrime]
+    (hQ : Q=RingHom.ker ((Algebra.TensorProduct.lift
+      (CoeffRing.residue κ d) x (by intro a b; exact Commute.all _ _)).toRingHom)) :
+    ∃ e : CompletedLocalRing Q ≃+* LambdaLiftingRing κ d ρ hc,
+      (LambdaLiftingRing.residue d ρ hc).toRingHom.comp e.toRingHom =
+        CompletedLocalRing.residue Q
+          ((Algebra.TensorProduct.lift (CoeffRing.residue κ d) x
+            (by intro a b; exact Commute.all _ _)).toRingHom) hQ.symm := sorry
+end GeneralLambdaPresentation
+
+section LocalCocycleCounts
+variable (p : ℕ) [Fact p.Prime] (K κ : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field κ] [TopologicalSpace κ] [IsTopologicalRing κ]
+variable {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) κ)
+variable (hc : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) κ))
+
+/-- The adjoint invariant carrier is the actual commutant. -/
+def AdH0 : Submodule κ (Matrix (Fin n) (Fin n) κ) where
+  carrier := {M | ∀ g, M*(ρ g : Matrix (Fin n) (Fin n) κ)=
+    (ρ g : Matrix (Fin n) (Fin n) κ)*M}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+include hc in
+/-- Valid for the natural finite, p-adic or local characteristic-p topology.
+The coefficient model is retained explicitly to exclude arbitrary topological fields. -/
+theorem local_cocycle_count (O F : Type u) [CommRing O] [Field F]
+    [Algebra O F] [Algebra O κ] (d : CoefficientFieldData O F κ)
+    (htop : (inferInstance : TopologicalSpace κ)=d.topology) :
+    Module.finrank κ (adCocycles ρ)+Module.finrank κ (AdH0 K κ ρ)=
+      Module.finrank κ (AdH1 ρ)+n^2 ∧
+    Module.finrank κ (adCocycles ρ)=n^2*(1+Module.finrank ℚ_[p] K)+
+      Module.finrank κ (AdH2 ρ) := sorry
+end LocalCocycleCounts
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Filtered (φ,N)-deformations and the generic semistable locus
+Kisin 2008 §3.1–3.3, pp. 22–27. The scalar rings are `L₀⊗A` and `L⊗A`;
+PadicHodgeTheory R06.2 supplies their Frobenius and descent action. -/
+
+structure PhiNModule (p : ℕ) (A S : Type u) [CommRing A] [CommRing S] [Algebra A S]
+    (Δ : Type u) [Group Δ] (d : ℕ) where
+  module : Type u
+  [add : AddCommGroup module]
+  [scalar : Module S module]
+  [finite : Module.Finite S module]
+  [projective : Module.Projective S module]
+  constantRank : BKFamily.constantRank S module d
+  scalarFrob : S →ₐ[A] S
+  frob : module →ₛₗ[scalarFrob.toRingHom] module
+  frob_bijective : Function.Bijective frob
+  monodromy : Module.End S module
+  nilpotent : ∃ r : ℕ, monodromy^r=0
+  scalarDescent : Δ →* (S ≃ₐ[A] S)
+  descent : ∀ g : Δ, module →ₛₗ[(scalarDescent g).toRingHom] module
+  descent_one : ∀ x, descent 1 x=x
+  descent_mul : ∀ g h x, descent (g*h) x=descent g (descent h x)
+  p_relation : ∀ x, (p : S) • frob (monodromy x)=monodromy (frob x)
+  descent_frob : ∀ g x, descent g (frob x)=frob (descent g x)
+  descent_N : ∀ g x, descent g (monodromy x)=monodromy (descent g x)
+
+attribute [instance] PhiNModule.add PhiNModule.scalar PhiNModule.finite PhiNModule.projective
+
+instance {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S] [Algebra A S]
+    [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d) : Module A D.module :=
+  Module.compHom D.module (algebraMap A S)
+instance {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S] [Algebra A S]
+    [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d) : IsScalarTower A S D.module := sorry
+
+/-- Filtration jumps are direct summands; an arbitrary filtration does not belong
+to Kisin's filtered deformation groupoid. -/
+structure FilteredPhiNModule (p : ℕ) (A S T : Type u) [CommRing A] [CommRing S] [CommRing T]
+    [Algebra A S] [Algebra S T] [Algebra A T] [IsScalarTower A S T] (Δ : Type u) [Group Δ] (d : ℕ) extends PhiNModule p A S Δ d where
+  Fil : ℤ → Submodule T (TensorProduct S T module)
+  decreasing : Antitone Fil
+  exhaustive : ∃ i, Fil i=⊤
+  separated : ∃ i, Fil i=⊥
+  gradedSplit : ∀ i, ∃ C : Submodule T (TensorProduct S T module),
+    Fil (i+1) ⊔ C=Fil i ∧ Disjoint (Fil (i+1)) C
+  scalarDescentOnT : Δ →* (T ≃ₐ[A] T)
+  scalarDescent_compatible : ∀ g s, scalarDescentOnT g (algebraMap S T s)=
+    algebraMap S T (scalarDescent g s)
+  descentOnExtension : ∀ g : Δ, TensorProduct S T module →ₛₗ[(scalarDescentOnT g).toRingHom]
+    TensorProduct S T module
+  descentOnExtension_tmul : ∀ g t x, descentOnExtension g (TensorProduct.tmul S t x)=
+    TensorProduct.tmul S (scalarDescentOnT g t) (descent g x)
+  descentStable : ∀ g i x, x ∈ Fil i → descentOnExtension g x ∈ Fil i
+
+section PhiNComplex
+variable (p : ℕ) (A S Δ : Type u) [CommRing A] [CommRing S] [Algebra A S]
+variable [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d)
+
+/-- Descent-invariant adjoint endomorphisms, rather than all matrices. -/
+def PhiNModule.adjoint : Submodule A (Module.End S D.module) where
+  carrier := {f | ∀ g x, f (D.descent g x)=D.descent g (f x)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Conjugation by the bijective semilinear Frobenius. -/
+def PhiNModule.adjointPhi : D.adjoint p A S Δ ≃ₗ[A] D.adjoint p A S Δ := sorry
+
+theorem PhiNModule.adjointPhi_spec (f : D.adjoint p A S Δ) (x : D.module) :
+    (D.adjointPhi p A S Δ f).val (D.frob x)=D.frob (f.val x) := sorry
+
+def PhiNModule.adjointN : D.adjoint p A S Δ →ₗ[A] D.adjoint p A S Δ := sorry
+
+theorem PhiNModule.adjointN_spec (f : D.adjoint p A S Δ) (x : D.module) :
+    (D.adjointN p A S Δ f).val x=D.monodromy (f.val x)-f.val (D.monodromy x) := sorry
+
+def PhiNModule.d0 : D.adjoint p A S Δ →ₗ[A] (D.adjoint p A S Δ × D.adjoint p A S Δ) :=
+  { toFun := fun f ↦ (f-D.adjointPhi p A S Δ f, D.adjointN p A S Δ f)
+    map_add' := sorry
+    map_smul' := sorry }
+
+def PhiNModule.d1 : (D.adjoint p A S Δ × D.adjoint p A S Δ) →ₗ[A] D.adjoint p A S Δ :=
+  { toFun := fun z ↦ D.adjointN p A S Δ z.1+(p:A) • D.adjointPhi p A S Δ z.2-z.2
+    map_add' := sorry
+    map_smul' := sorry }
+
+theorem PhiNModule.d1_d0 : (D.d1 p A S Δ).comp (D.d0 p A S Δ)=0 := sorry
+
+abbrev PhiNModule.H2 := D.adjoint p A S Δ ⧸ LinearMap.range (D.d1 p A S Δ)
+abbrev PhiNModule.H0 := LinearMap.ker (D.d0 p A S Δ)
+def PhiNModule.H1 : Type u := _root_.Quotient
+  (Submodule.quotientRel (R := A) (M := ↥(LinearMap.ker (D.d1 p A S Δ)))
+    (Submodule.comap (R := A) (M := ↥(LinearMap.ker (D.d1 p A S Δ)))
+      (LinearMap.ker (D.d1 p A S Δ)).subtype (LinearMap.range (D.d0 p A S Δ))))
+
+instance : AddCommGroup (D.H1 p A S Δ) := sorry
+
+instance : Module A (D.H1 p A S Δ) := sorry
+
+
+/-- A scalar extension of the actual module, with induced φ, N and descent. -/
+def PhiNModule.baseChange (D : PhiNModule p A S Δ d) (B : Type u) [CommRing B] [Algebra A B] :
+    PhiNModule p B (TensorProduct A B S) Δ d := sorry
+
+end PhiNComplex
+
+/-! Generic regular loci use prime spectra and openness/density. They are
+statements about the universal family, rather than an arbitrary quotient family. -/
+section PstGeometryExtra
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type) [Field K] [CharZero K] [Field E]
+variable [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E] [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n h : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (τ : GaloisType (localInertia p K) E n) (v : HodgeType p K E n h)
+variable (ϖ : O) (hϖ : Irreducible ϖ)
+
+abbrev UniversalPstGeneric := GenericFibre (algebraMap O (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ) ϖ)
+  (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ)
+
+def pstRegularLocus : Set (PrimeSpectrum (UniversalPstGeneric p K E O F ρ₀ τ v ϖ hϖ)) :=
+  {x | IsRegularLocalRing (Localization.AtPrime x.asIdeal)}
+
+theorem pstRing_dense_regular :
+    IsOpen (pstRegularLocus p K E O F ρ₀ τ v ϖ hϖ) ∧
+    Dense (pstRegularLocus p K E O F ρ₀ τ v ϖ hϖ) := sorry
+
+/-- Nonemptiness is needed for the integral dimension assertion. -/
+theorem pstRing_integral_dimension [Nontrivial (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ)] :
+    ringKrullDim (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ)=1+n^2+v.adQuotDim := sorry
+
+abbrev UniversalPstUnframed [SchurResidual ρ₀] := UnframedRing O n ρ₀ ⧸
+  pstUnframedIdeal p K E O F ρ₀ τ v ϖ hϖ
+
+/-- The comparison is an algebra isomorphism compatible with forgetting the
+framing, with n²−1 framing variables. -/
+theorem pstRing_unframed [SchurResidual ρ₀] (hn : 0<n) :
+    Nonempty (UniversalPstRing p K E O F ρ₀ τ v ϖ hϖ ≃ₐ[O]
+      MvPowerSeries (Fin (n^2-1)) (UniversalPstUnframed p K E O F ρ₀ τ v ϖ hϖ)) ∧
+    IsEquidimensional (GenericFibre (algebraMap O (UniversalPstUnframed p K E O F ρ₀ τ v ϖ hϖ) ϖ)
+      (UniversalPstUnframed p K E O F ρ₀ τ v ϖ hϖ)) (1+v.adQuotDim) := sorry
+
+/-- Characteristic-zero determinant twisting removes one dimension even if p|n.
+Its integral power-series splitting requires p∤n and is a separate theorem. -/
+theorem pstRing_fixedDet_dimension (ψ : Field.absoluteGaloisGroup K →* Oˣ)
+    [Nontrivial (pstFixedDetRing p K E O F ρ₀ τ v ϖ hϖ ψ)] :
+    IsEquidimensional (GenericFibre (algebraMap O (pstFixedDetRing p K E O F ρ₀ τ v ϖ hϖ ψ) ϖ)
+      (pstFixedDetRing p K E O F ρ₀ τ v ϖ hϖ ψ)) ((n^2-1+v.adQuotDim : ℕ) : WithBot ℕ∞) := sorry
+end PstGeometryExtra
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation AlgebraicGeometry
+
+/-! ## Local commutative algebra used by model resolutions
+Regular sequences are Mathlib's `RingTheory.Sequence.IsRegular`. Depth is the
+supremum of their lengths; this local refinement is requested from R03.3. -/
+def localDepth (R : Type u) [CommRing R] : ℕ∞ :=
+  sSup {r | ∃ f : List R, RingTheory.Sequence.IsRegular R f ∧ r=(f.length:ℕ∞)}
+
+def IsCohenMacaulayLocal (R : Type u) [CommRing R] [IsLocalRing R] : Prop :=
+  ringKrullDim R=(localDepth R : WithBot ℕ∞)
+
+/-- A regular sequence presentation, rather than a bare generator count. -/
+def IsCompleteIntersectionOver (O R : Type u) [CommRing O] [CommRing R] [Algebra O R]
+    (d : ℕ) : Prop :=
+  ∃ (s : ℕ) (f : List (MvPowerSeries (Fin (s+d)) O)),
+    f.length=s ∧ RingTheory.Sequence.IsRegular (MvPowerSeries (Fin (s+d)) O) f ∧
+    Nonempty (R ≃ₐ[O] MvPowerSeries (Fin (s+d)) O ⧸ Ideal.ofList f)
+
+section KisinParts
+variable (p : ℕ) [Fact p.Prime] (K : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable {A : Type u} [CommRing A] [Algebra ℤ_[p] A] {n : ℕ}
+
+/-- These are the coefficient Kisin-module carriers of R07.4, with their
+Frobenius and maximal-part operations; this roadmap adds their local-ring uses. -/
+def KisinCoefficientObject.module (M : KisinCoefficientObject p K A n) : Type u := sorry
+instance (M : KisinCoefficientObject p K A n) : AddCommGroup M.module := sorry
+instance (M : KisinCoefficientObject p K A n) : Module (BKFamily.series p K A) M.module := sorry
+instance (M : KisinCoefficientObject p K A n) : Module.Finite (BKFamily.series p K A) M.module := sorry
+instance (M : KisinCoefficientObject p K A n) : Module.Projective (BKFamily.series p K A) M.module := sorry
+instance (M : KisinCoefficientObject p K A n) : Module (BKFamily.series p K A) M.maximalEtaleQuotient := sorry
+
+def KisinCoefficientObject.multiplicativePart (M : KisinCoefficientObject p K A n) :
+    Submodule (BKFamily.series p K A) M.module := sorry
+
+def KisinCoefficientObject.etaleProjection (M : KisinCoefficientObject p K A n) :
+    M.module →ₗ[BKFamily.series p K A] M.maximalEtaleQuotient := sorry
+
+theorem KisinCoefficientObject.etaleProjection_surjective (M : KisinCoefficientObject p K A n) :
+    Function.Surjective M.etaleProjection := sorry
+
+/-- Both ranks are ranks over the Kisin scalar ring, not dimensions over A. -/
+def KisinCoefficientObject.etaleRank [IsLocalRing A] (M : KisinCoefficientObject p K A n) : ℕ := sorry
+def KisinCoefficientObject.multiplicativeRank [IsLocalRing A] (M : KisinCoefficientObject p K A n) : ℕ := sorry
+
+theorem KisinCoefficientObject.part_ranks [IsLocalRing A] (M : KisinCoefficientObject p K A n) :
+    BKFamily.constantRank (BKFamily.series p K A) M.maximalEtaleQuotient M.etaleRank ∧
+    BKFamily.constantRank (BKFamily.series p K A) M.multiplicativePart M.multiplicativeRank ∧
+    M.etaleRank+M.multiplicativeRank≤n := sorry
+
+def KisinCoefficientObject.dual (M : KisinCoefficientObject p K A n) : KisinCoefficientObject p K A n := sorry
+
+theorem KisinCoefficientObject.dual_parts [IsLocalRing A] (M : KisinCoefficientObject p K A n) :
+    M.dual.etaleRank=M.multiplicativeRank ∧ M.dual.multiplicativeRank=M.etaleRank := sorry
+
+theorem KisinCoefficientObject.parts_baseChange {B : Type u} [CommRing B]
+    [Algebra ℤ_[p] B] [IsLocalRing A] [IsLocalRing B] (f : A →ₐ[ℤ_[p]] B)
+    (hf : IsLocalHom f.toRingHom) (M : KisinCoefficientObject p K A n) :
+    (KisinCoefficientObject.baseChange f M).etaleRank=M.etaleRank ∧
+    (KisinCoefficientObject.baseChange f M).multiplicativeRank=M.multiplicativeRank := sorry
+
+/-- The source's contravariant convention: E(u) is the étale rank-one matrix,
+whereas the identity matrix is multiplicative. -/
+def KisinCoefficientObject.frobMatrix (M : KisinCoefficientObject p K A n)
+    (b : M.module ≃ₗ[BKFamily.series p K A] (Fin n → BKFamily.series p K A)) :
+    Matrix (Fin n) (Fin n) (BKFamily.series p K A) := sorry
+
+example [IsLocalRing A] (M : KisinCoefficientObject p K A 1)
+    (b : M.module ≃ₗ[BKFamily.series p K A] (Fin 1 → BKFamily.series p K A))
+    (h : M.frobMatrix p K b=Matrix.diagonal (fun _ ↦ BKFamily.eisenstein p K A)) :
+    M.etaleRank=1 ∧ ¬M.connected := sorry
+
+example [IsLocalRing A] (M : KisinCoefficientObject p K A 1)
+    (b : M.module ≃ₗ[BKFamily.series p K A] (Fin 1 → BKFamily.series p K A))
+    (h : M.frobMatrix p K b=1) : M.multiplicativeRank=1 ∧ M.connected := sorry
+
+example [IsLocalRing A] (M : KisinCoefficientObject p K A 1)
+    (b : M.module ≃ₗ[BKFamily.series p K A] (Fin 1 → BKFamily.series p K A))
+    (w : (BKFamily.series p K A)ˣ)
+    (h : M.frobMatrix p K b=Matrix.diagonal (fun _ ↦ (w:BKFamily.series p K A)*BKFamily.eisenstein p K A)) :
+    M.etaleRank=1 ∧ ¬M.connected := sorry
+end KisinParts
+
+/-! ## Flat-resolution geometry (R08.4)
+Kisin 2009 §2.4, pp. 25–28, and Theorem 3.3.1, pp. 44–45.
+Normality and special-fibre singularities use the Pappas–Rapoport local-model
+supplier identified in the README; they are not consequences of properness. -/
+section FlatGeometricFamily
+variable (p : ℕ) [Fact p.Prime] (K O F : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+
+/-- A universal flat family includes the point comparison with continuous lifts
+on every Artinian test algebra. This prevents geometry being asserted for an
+arbitrary, possibly singular, base change of the universal ring. -/
+structure FlatGeometricFamily where
+  base : CNLObject O F
+  [padic : Algebra ℤ_[p] base.ring]
+  [scalarTower : IsScalarTower ℤ_[p] O base.ring]
+  representation : Lift n ρ₀ base.residue.toRingHom
+  flat : IsFlatLift p K base.ring representation.toHom
+  represents : ∀ (B : CNLObject O F) [Algebra ℤ_[p] B.ring],
+    ∃ e : base.Hom B ≃ {r : Lift n ρ₀ B.residue.toRingHom // IsFlatLift p K B.ring r.toHom},
+      ∀ f, (e f).val=mapCNLift ρ₀ f representation
+
+attribute [instance] FlatGeometricFamily.padic FlatGeometricFamily.scalarTower
+
+variable {p K O F ρ₀}
+variable (D : FlatGeometricFamily p K O F ρ₀)
+variable (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ)
+
+abbrev FlatGeometricFamily.typeRing := flatHodgeTypeQuotient p K D.base.ring
+  D.representation.toHom D.representation.continuous v
+abbrev FlatGeometricFamily.resolution := flatResolution p K D.base.ring
+  D.representation.toHom D.representation.continuous v
+abbrev FlatGeometricFamily.resolutionMap := flatResolution.toSpec p K D.base.ring
+  D.representation.toHom D.representation.continuous v
+
+/-- The uniformizer reduction is the larger special fibre. -/
+abbrev FlatGeometricFamily.specialFibre (ϖ : O) := modelBaseChange (D.resolutionMap v)
+  (D.typeRing v ⧸ Ideal.span {algebraMap O (D.typeRing v) ϖ}) (Ideal.Quotient.mk _)
+
+/-- A nonempty type quotient inherits the closed residual point. -/
+def FlatTypeCompatible : Prop :=
+  flatHodgeTypeQuotientIdeal p K D.base.ring D.representation.toHom
+    D.representation.continuous v ≤ RingHom.ker D.base.residue.toRingHom
+
+def FlatGeometricFamily.typeResidue (ht : FlatTypeCompatible D v) :
+    D.typeRing v →+* F := Ideal.Quotient.lift _ D.base.residue.toRingHom ht
+
+/-- The closed-point fibre is used only for the component bijection. -/
+abbrev FlatGeometricFamily.closedFibre (ht : FlatTypeCompatible D v) :=
+  modelBaseChange (D.resolutionMap v) F (D.typeResidue v ht)
+
+variable (ht : FlatTypeCompatible D v)
+
+/-- Each local ring of the flat closure is normal and Cohen–Macaulay. -/
+theorem flatResolution_local_structure (hp : p≠2) : ∀ x : D.resolution v,
+    IsDomain ((D.resolution v).presheaf.stalk x) ∧
+    IsIntegrallyClosed ((D.resolution v).presheaf.stalk x) ∧
+    IsCohenMacaulayLocal ((D.resolution v).presheaf.stalk x) := sorry
+
+theorem flatResolution_specialFibre_normal (hp : p≠2) (ϖ : O) (hϖ : Irreducible ϖ) :
+    ∀ x : D.specialFibre v ϖ, IsDomain ((D.specialFibre v ϖ).presheaf.stalk x) ∧
+      IsIntegrallyClosed ((D.specialFibre v ϖ).presheaf.stalk x) := sorry
+
+/-- The generic isomorphism, together with the reduced special fibre, gives a
+bijection of connected components of the ring and the closed-point fibre. -/
+def flatResolution_component_bijection (hp : p≠2) :
+    ConnectedComponents (PrimeSpectrum (GenericFibre (p : D.typeRing v) (D.typeRing v))) ≃
+      ConnectedComponents (D.closedFibre v ht) := sorry
+
+/-- The ordinary-type function records the two maximal-part ranks and is locally
+constant on the closed fibre. It is not a claim of connectedness in arbitrary rank. -/
+def flatResolution.ordinaryType : D.closedFibre v ht → ℕ × ℕ := sorry
+
+theorem flatResolution.ordinaryType_constant (hp : p≠2) (x y : D.closedFibre v ht)
+    (h : ConnectedComponents.mk x=ConnectedComponents.mk y) :
+    flatResolution.ordinaryType D v ht x=flatResolution.ordinaryType D v ht y := sorry
+end FlatGeometricFamily
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Complete-intersection and component structure away from p
+Shotton Theorem 2.5, arXiv v2 p. 7; LTXZZ Proposition 3.4.12,
+arXiv v1 p. 25. The regular-sequence condition is essential: counting
+relations alone does not define a complete intersection. -/
+section AwayCompleteIntersection
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+
+variable {K}
+
+abbrev AwayUniversal := LiftingRing O n ρ₀
+
+theorem away_completeIntersection (hℓp : ℓ≠p) :
+    IsCompleteIntersectionOver O (AwayUniversal O F ρ₀) (n^2) := sorry
+
+theorem away_specialFibre_equidimensional (hℓp : ℓ≠p) (ϖ : O) (hϖ : Irreducible ϖ) :
+    IsEquidimensional (AwayUniversal O F ρ₀ ⧸ Ideal.span {algebraMap O (AwayUniversal O F ρ₀) ϖ})
+      ((n^2 : ℕ) : WithBot ℕ∞) := sorry
+
+/-- Strict conjugation preserves each individual irreducible component. -/
+def strictConjugation (g : GL (Fin n) (AwayUniversal O F ρ₀))
+    (hg : Matrix.GeneralLinearGroup.map (LiftingRing.residue O n ρ₀).toRingHom g=1) :
+    AwayUniversal O F ρ₀ ≃ₐ[O] AwayUniversal O F ρ₀ := sorry
+
+theorem strictConjugation_univ (g : GL (Fin n) (AwayUniversal O F ρ₀))
+    (hg : Matrix.GeneralLinearGroup.map (LiftingRing.residue O n ρ₀).toRingHom g=1) (σ : Field.absoluteGaloisGroup K) :
+    Matrix.GeneralLinearGroup.map (strictConjugation O F ρ₀ g hg).toRingHom
+      ((LiftingRing.univ O n ρ₀).toHom σ)=g*(LiftingRing.univ O n ρ₀).toHom σ*g⁻¹ := sorry
+
+theorem away_component_stable (hℓp : ℓ≠p) (P : Ideal (AwayUniversal O F ρ₀))
+    (hP : P ∈ minimalPrimes (AwayUniversal O F ρ₀))
+    (g : GL (Fin n) (AwayUniversal O F ρ₀))
+    (hg : Matrix.GeneralLinearGroup.map (LiftingRing.residue O n ρ₀).toRingHom g=1) :
+    Ideal.comap (strictConjugation O F ρ₀ g hg).toRingHom P=P := sorry
+
+/-- A formally smooth minimal quotient of the full dimension is a component. -/
+theorem away_minimal_isComponent (hℓp : ℓ≠p) (I : Ideal (AwayUniversal O F ρ₀))
+    (hmin : IsPowerSeriesOver O (AwayUniversal O F ρ₀ ⧸ I) (n^2)) :
+    I ∈ minimalPrimes (AwayUniversal O F ρ₀) := sorry
+end AwayCompleteIntersection
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Purity carrier adapters
+ArithmeticGaloisRepresentations R01.2 owns Weil numbers and WD purity;
+LinearAlgebraicGroupsAndParameterVarieties LPV.1 owns the nilpotent filtration.
+The formulas here translate those supplier objects into the matrix carrier used
+in this file; their constructions and general theorems are imported.
+Taylor–Yoshida Lemma 1.4; BCGP21 Lemma 7.1.3, arXiv v3 p. 170. -/
+
+def monodromyFiltrationAdapter {E : Type u} [Field E] {n : ℕ}
+    (N : Matrix (Fin n) (Fin n) E) (a : ℤ) : Submodule E (Fin n → E) :=
+  ⨆ (i : ℕ) (j : ℕ) (_ : (i : ℤ)-j=a),
+    LinearMap.ker ((Matrix.toLin' N)^(i+1)) ⊓ LinearMap.range ((Matrix.toLin' N)^j)
+
+def IsWeilNumberAdapter {E : Type u} [Field E] [CharZero E]
+    (q : ℕ) (w : ℤ) (α : E) : Prop :=
+  IsAlgebraic ℚ α ∧ ∀ z ∈ (minpoly ℚ α).aroots ℂ, ‖z‖=(q:ℝ)^((w:ℝ)/2)
+
+/-- This tests eigenvalues on the monodromy graded pieces, not just on V. -/
+def IsPureWD {ℓ : ℕ} [Fact ℓ.Prime] {K E : Type u} [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] [Field E] [CharZero E]
+    {n : ℕ} (q : ℕ) (Frob : LocalWeil ℓ K) (M : InertialTypeData ℓ K E n) : Prop :=
+  ∃ w : ℤ, ∀ (a : ℤ) (α : AlgebraicClosure E)
+    (v : TensorProduct E (AlgebraicClosure E) (Fin n → E)),
+    v ∈ (monodromyFiltrationAdapter M.monodromy a).baseChange (AlgebraicClosure E) →
+    v ∉ (monodromyFiltrationAdapter M.monodromy (a-1)).baseChange (AlgebraicClosure E) →
+    (Matrix.toLin' (M.weil Frob : Matrix (Fin n) (Fin n) E)).baseChange (AlgebraicClosure E) v-α • v ∈
+      (monodromyFiltrationAdapter M.monodromy (a-1)).baseChange (AlgebraicClosure E) →
+    IsWeilNumberAdapter q (w+a) α
+
+def LocalWeil.geometricFrobenius (ℓ : ℕ) [Fact ℓ.Prime] (K : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] : LocalWeil ℓ K := sorry
+
+def IsPureLocalRepresentation (ℓ : ℕ) [Fact ℓ.Prime] (K E : Type u) [Field K] [CharZero K]
+    [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K] [Field E] [CharZero E]
+    {n : ℕ} (WD : InertialTypeData ℓ K E n) : Prop :=
+  IsPureWD (localResidueCardinality ℓ K) (LocalWeil.geometricFrobenius ℓ K) WD
+
+example {E : Type u} [Field E] {n : ℕ} :
+    monodromyFiltrationAdapter (0 : Matrix (Fin n) (Fin n) E) (-1)=⊥ ∧
+    monodromyFiltrationAdapter (0 : Matrix (Fin n) (Fin n) E) 0=⊤ := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+/-- Scalar character twisting on the matrix representation carrier. -/
+def twistRep {Γ A : Type} [Group Γ] [CommRing A] {n : ℕ}
+    (r : Γ →* GL (Fin n) A) (χ : Γ →* Aˣ) : Γ →* GL (Fin n) A := sorry
+
+theorem twistRep_matrix {Γ A : Type} [Group Γ] [CommRing A] {n : ℕ}
+    (r : Γ →* GL (Fin n) A) (χ : Γ →* Aˣ) (σ : Γ) :
+    (twistRep r χ σ : Matrix (Fin n) (Fin n) A)=(χ σ : A) • (r σ : Matrix (Fin n) (Fin n) A) := sorry
+
+/-! ## Canonical GSp₄ ordinary families and their geometry
+BCGP21 §7.3, Proposition 7.3.4 p. 173, Proposition 7.3.16 p. 183;
+BCGP25 §6.2, Lemmas 6.2.2, 6.2.5–6.2.6, pp. 143–146.
+Absolute dimension assertions require the canonical two-variable weight algebra.
+They do not apply to an arbitrary OrdinaryParameters with extra variables. -/
+section SymplecticUniversalGeometry
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+
+/-- The actual canonical weights, including torsion at p=2. -/
+structure GSp4.CanonicalWeights (W : OrdinaryParameters O F (Field.absoluteGaloisGroup ℚ_[p]) 2) where
+  weightIso : W.weight ≃ₐ[O] GSp4.weightAlgebra p O
+  inertia_eq : W.inertia=localInertia p ℚ_[p]
+  residual_eq : W.residualCharacter=χbar
+  inertial_formula : ∀ i (g : W.inertia),
+    Units.map weightIso.toMonoidHom (W.inertialCharacter i g)=
+      CompletedGroupAlgebra.groupElement O _ (fun j ↦ if j=i then
+        LocalProPUnits.artinInverse p ℚ_[p] ⟨g.val, inertia_eq ▸ g.property⟩ else 1)
+
+/-- Test objects for the full fixed-multiplier framed ring with two full characters. -/
+structure GSp4.LiftWithCharacters (A : CNLObject O F) where
+  representation : Lift 4 ρ₀ A.residue.toRingHom
+  character : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ
+  continuous : ∀ i, Continuous fun σ ↦ (character i σ : A.ring)
+  residual : ∀ i σ, Units.map A.residue.toMonoidHom (character i σ)=χbar i σ
+  multiplier : ∀ σ, IsGSp4 (representation.toHom σ : Matrix (Fin 4) (Fin 4) A.ring)
+    ↑((Units.map (algebraMap O A.ring).toMonoidHom (localCyclotomic p ℚ_[p] O σ))⁻¹)
+
+/-- Universal, rather than an arbitrary possibly singular family. -/
+structure GSp4.UniversalOrdinaryFamily where
+  weights : OrdinaryParameters O F (Field.absoluteGaloisGroup ℚ_[p]) 2
+  canonical : GSp4.CanonicalWeights χbar weights
+  base : CNLObject O F
+  weightMap : weights.weight →ₐ[O] base.ring
+  data : GSp4.LiftWithCharacters χbar ρ₀ base
+  weight_restriction : ∀ i (g : weights.inertia), data.character i g.val=
+    Units.map weightMap.toMonoidHom (weights.inertialCharacter i g)
+  represents : ∀ (A : CNLObject O F),
+    ∃ e : base.Hom A ≃ GSp4.LiftWithCharacters χbar ρ₀ A,
+      (∀ f, (e f).representation=mapCNLift ρ₀ f data.representation) ∧
+      ∀ f i σ, (e f).character i σ=Units.map f.val.toMonoidHom (data.character i σ)
+
+variable {χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ}
+variable {ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F}
+variable (U : GSp4.UniversalOrdinaryFamily (O := O) χbar ρ₀)
+
+abbrev GSp4.UniversalOrdinaryFamily.mu :=
+  inverseCharacter ((Units.map (algebraMap O U.base.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))
+abbrev GSp4.UniversalOrdinaryFamily.characters :=
+  GSp4.pairedCharacters (U.data.character 0) (U.data.character 1) U.mu
+
+theorem GSp4.UniversalOrdinaryFamily.character_pairing :
+    ∀ σ, U.characters 0 σ*U.characters 3 σ=U.mu σ ∧
+      U.characters 1 σ*U.characters 2 σ=U.mu σ := sorry
+
+def GSp4.UniversalOrdinaryFamily.scheme : Scheme := GSp4.ordinaryFlagScheme ⊤
+  U.data.representation.toHom U.mu U.characters U.data.multiplier U.character_pairing
+
+def GSp4.UniversalOrdinaryFamily.toSpec : U.scheme ⟶ Spec (.of U.base.ring) :=
+  GSp4.ordinaryFlagScheme.toSpec ⊤ U.data.representation.toHom U.mu U.characters
+    U.data.multiplier U.character_pairing
+
+abbrev GSp4.UniversalOrdinaryFamily.image :=
+  U.base.ring ⧸ modelImageIdeal U.toSpec
+abbrev GSp4.UniversalOrdinaryFamily.genericRing :=
+  GenericFibre (p : U.image) U.image
+abbrev GSp4.UniversalOrdinaryFamily.genericScheme :=
+  modelBaseChange U.toSpec (GenericFibre (p : U.base.ring) U.base.ring) (algebraMap _ _)
+
+def GSp4.UniversalOrdinaryFamily.imageWeight : U.weights.weight →ₐ[O] U.image :=
+  (Ideal.Quotient.mkₐ O _).comp U.weightMap
+
+variable {E : Type} [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra O E] [Algebra ℤ_[p] E] [IsScalarTower ℤ_[p] O E]
+variable [TopologicalSpace E] [IsTopologicalRing E]
+
+/-- A flagged field point retains the coefficient map and the exact graded characters. -/
+structure GSp4.FlagGenericPoint where
+  point : GenericFibre (p : U.base.ring) U.base.ring →ₐ[O] E
+  flag : FullFlag E 4
+  isotropic : GSp4.IsSymplecticFlag flag
+  ordinary : flag ∈ TauCeti.GaloisDeformation.Local.ordinaryFlagScheme.points ⊤
+    ((Matrix.GeneralLinearGroup.map (point.toRingHom.comp (algebraMap U.base.ring _))).comp U.data.representation.toHom)
+    (fun i ↦ (Units.map (point.toRingHom.comp (algebraMap U.base.ring _)).toMonoidHom).comp (U.characters i))
+
+variable {U : GSp4.UniversalOrdinaryFamily (O := O) χbar ρ₀}
+variable (x : GSp4.FlagGenericPoint U (E := E))
+abbrev GSp4.FlagGenericPoint.representation :=
+  (Matrix.GeneralLinearGroup.map (x.point.toRingHom.comp (algebraMap U.base.ring _))).comp U.data.representation.toHom
+abbrev GSp4.FlagGenericPoint.characters := fun i ↦
+  (Units.map (x.point.toRingHom.comp (algebraMap U.base.ring _)).toMonoidHom).comp (U.characters i)
+
+/-- The representing comparison supplies the corresponding closed scheme point. -/
+def GSp4.FlagGenericPoint.schemePoint (x : GSp4.FlagGenericPoint U (E := E)) : U.genericScheme := sorry
+
+def GSp4.FlagGenericPoint.toScheme (x : GSp4.FlagGenericPoint U (E := E)) : Spec (.of E) ⟶ U.genericScheme := sorry
+
+theorem GSp4.FlagGenericPoint.toScheme_point : ∀ z : Spec (.of E),
+    (x.toScheme).base z=x.schemePoint := sorry
+
+theorem GSp4.FlagGenericPoint.toScheme_coefficients :
+    x.toScheme ≫ modelBaseChange.toSpec U.toSpec (GenericFibre (p : U.base.ring) U.base.ring)
+      (algebraMap _ _) = Spec.map (CommRingCat.ofHom x.point.toRingHom) := sorry
+
+abbrev GSp4.FlagGenericPoint.obstruction :=
+  AdH2WithValues (ρbar := x.representation) (GSp4.adFil x.flag 0)
+
+/-- The dual obstruction carrier is invariants in (sp₄/Fil¹)(1). -/
+abbrev GSp4.FlagGenericPoint.adQuotient := GSp4.lie (E := E) ⧸
+  Submodule.comap (GSp4.lie (E := E)).subtype (GSp4.adFil x.flag 1)
+
+def GSp4.FlagGenericPoint.quotientAction : Field.absoluteGaloisGroup ℚ_[p] →*
+    (x.adQuotient ≃ₗ[E] x.adQuotient) := sorry
+
+def GSp4.FlagGenericPoint.dualObstruction : Submodule E x.adQuotient where
+  carrier := {v | ∀ σ, (localCyclotomic p ℚ_[p] E σ : E) • x.quotientAction σ v=v}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem GSp4.ordinary_obstruction_duality :
+    Nonempty (Module.Dual E x.obstruction ≃ₗ[E] x.dualObstruction) := sorry
+
+/-- Regularity is at the flagged point, even when its image has several flags. -/
+theorem GSp4.ordinaryFlag_regular (h : Subsingleton x.obstruction) :
+    IsRegularLocalRing (U.genericScheme.presheaf.stalk x.schemePoint) ∧
+    ringKrullDim (U.genericScheme.presheaf.stalk x.schemePoint)=16 ∧
+    ∃! C : Set U.genericScheme, C ∈ irreducibleComponents U.genericScheme ∧ x.schemePoint ∈ C := sorry
+
+theorem GSp4.ordinaryFlag_rootCriterion
+    (h : (x.characters 0)^2≠1 ∧ (x.characters 1)^2≠1 ∧
+      x.characters 0*x.characters 1≠1 ∧
+      x.characters 0*inverseCharacter (x.characters 1)≠localCyclotomic p ℚ_[p] E) :
+    Subsingleton x.obstruction := sorry
+
+theorem GSp4.ordinaryFlag_pure_distinguished
+    (hpst : IsPotentiallySemistable p ℚ_[p] E x.representation)
+    (hpure : IsPureLocalRepresentation p ℚ_[p] E (pAdicWD p ℚ_[p] E x.representation))
+    (hdist : Pairwise fun i j ↦ x.characters i≠x.characters j) :
+    Subsingleton x.obstruction := sorry
+
+theorem GSp4.ordinaryFlag_pure_crystalline
+    (hcrys : IsCrystallineRepresentation p E 4 ℚ_[p] x.representation)
+    (hpure : IsPureLocalRepresentation p ℚ_[p] E (pAdicWD p ℚ_[p] E x.representation)) :
+    Subsingleton x.obstruction := sorry
+
+/-- Transfer to the image requires a distinguished point. -/
+def GSp4.FlagGenericPoint.imagePoint (x : GSp4.FlagGenericPoint U (E := E)) : PrimeSpectrum U.genericRing := sorry
+
+theorem GSp4.ordinaryImage_regular (h : Subsingleton x.obstruction)
+    (hdist : Pairwise fun i j ↦ x.characters i≠x.characters j) :
+    IsRegularLocalRing (Localization.AtPrime x.imagePoint.asIdeal) ∧
+    ∃! Q : Ideal U.genericRing, Q ∈ minimalPrimes U.genericRing ∧ Q ≤ x.imagePoint.asIdeal := sorry
+
+/-- Closed finite-flat incidence subspace: the twist is finite flat and the
+Lagrangian plane has trivial inertia, at the weight-two specialization. -/
+def GSp4.UniversalOrdinaryFamily.flatScheme (U : GSp4.UniversalOrdinaryFamily (O := O) χbar ρ₀) : Scheme := sorry
+
+def GSp4.UniversalOrdinaryFamily.flatInclusion : U.flatScheme ⟶ U.scheme := sorry
+
+theorem GSp4.UniversalOrdinaryFamily.flat_closed : IsClosedImmersion U.flatInclusion := sorry
+
+instance (z : U.flatScheme) : Algebra O (U.flatScheme.presheaf.stalk z) := sorry
+instance (z : U.flatScheme) : Algebra O (IsLocalRing.ResidueField (U.flatScheme.presheaf.stalk z)) := sorry
+
+abbrev GSp4.UniversalOrdinaryFamily.flatCompletedStalk (z : U.flatScheme) : Type :=
+  AdicCompletion (IsLocalRing.maximalIdeal (U.flatScheme.presheaf.stalk z))
+    (U.flatScheme.presheaf.stalk z)
+instance (z : U.flatScheme) : CommRing (U.flatCompletedStalk z) := inferInstance
+instance (z : U.flatScheme) : Algebra O (U.flatCompletedStalk z) := sorry
+
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+
+theorem GSp4.flatFlag_formallySmooth (hp : p≠2)
+    (hflat : IsFlatLift p ℚ_[p] F (twistRep ρ₀
+      ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))
+    (z : U.flatScheme) (hclosed : IsClosed {z})
+    (hres : Nonempty (IsLocalRing.ResidueField (U.flatScheme.presheaf.stalk z) ≃ₐ[O] F)) :
+    ∃ d : ℕ, Nonempty (U.flatCompletedStalk z ≃ₐ[O] MvPowerSeries (Fin d) O) := sorry
+
+/-- A common component for all pure ordinary crystalline weight-two points. -/
+theorem GSp4.weightTwo_singleComponent (hp : p≠2)
+    (hflat : IsFlatLift p ℚ_[p] F (twistRep ρ₀
+      ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))
+    (hordinary : GSp4.HasWeightTwoFlag (localInertia p ℚ_[p]) ρ₀
+      (GSp4.pairedCharacters (χbar 0) (χbar 1)
+        (inverseCharacter ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))) :
+    ∃ Q ∈ minimalPrimes U.genericRing,
+      ringKrullDim (U.genericRing ⧸ Q)=16 ∧
+      ∀ (x : GSp4.FlagGenericPoint U (E := E)),
+        IsCrystallineRepresentation p E 4 ℚ_[p] x.representation →
+        IsPureLocalRepresentation p ℚ_[p] E (pAdicWD p ℚ_[p] E x.representation) →
+        (∀ σ : localInertia p ℚ_[p], x.characters 0 σ.val=1 ∧ x.characters 1 σ.val=1) →
+        Q ≤ x.imagePoint.asIdeal ∧
+          ∀ Q' ∈ minimalPrimes U.genericRing, Q' ≤ x.imagePoint.asIdeal → Q'=Q := sorry
+
+/-- Only components which dominate the whole weight space get this conclusion. -/
+theorem GSp4.dominant_component_specializes_uniquely (hp : p≠2)
+    (Q : Ideal U.image) (hQ : Q ∈ minimalPrimes U.image)
+    (hsurj : Function.Surjective (PrimeSpectrum.comap
+      ((Ideal.Quotient.mk Q).comp U.imageWeight.toRingHom))) :
+    ringKrullDim (U.image ⧸ Q)=17 ∧
+    ∃ P ∈ minimalPrimes (U.image ⧸ Ideal.span {(p : U.image)}),
+      Q ≤ Ideal.comap (Ideal.Quotient.mk _) P ∧
+      ∀ Q' ∈ minimalPrimes U.image, Q' ≤ Ideal.comap (Ideal.Quotient.mk _) P → Q'=Q := sorry
+end SymplecticUniversalGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## GL₂ Borel ordinary rings, with their character coordinates
+BCGP21 Lemmas 7.3.6–7.3.9, arXiv v3 pp. 174–179. The partially framed
+functor consists of actual upper triangular matrices. The fully framed functor
+allows strict changes of basis. These are distinct representable functors. -/
+section GL2BorelRings
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+local instance : TopologicalSpace F := ⊥
+local instance : DiscreteTopology F := ⟨rfl⟩
+local instance : IsTopologicalRing F := inferInstance
+attribute [local instance] Classical.propDecidable
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable (γ : Fˣ) (r₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual r₀]
+
+/-- The unramified character normalized at geometric Frobenius. -/
+def unramifiedFrobeniusCharacter (γ : Fˣ) : Field.absoluteGaloisGroup ℚ_[p] →* Fˣ := sorry
+
+theorem unramifiedFrobeniusCharacter_inertia (σ : localInertia p ℚ_[p]) :
+    unramifiedFrobeniusCharacter (p := p) γ σ.val=1 := sorry
+
+/-- This representation is written in the Borel basis, including its extension. -/
+def GL2Borel.ResidualShape : Prop :=
+  ∀ σ, (r₀ σ : Matrix (Fin 2) (Fin 2) F) 1 0=0 ∧
+    (r₀ σ : Matrix (Fin 2) (Fin 2) F) 0 0=
+      (unramifiedFrobeniusCharacter (p := p) γ σ : F) ∧
+    (r₀ σ : Matrix (Fin 2) (Fin 2) F) 1 1=
+      ((Units.map (algebraMap O F).toMonoidHom (localCyclotomic p ℚ_[p] O σ))⁻¹*
+        (unramifiedFrobeniusCharacter (p := p) γ σ)⁻¹ : Fˣ)
+
+/-- Splitting of the extension class, invariant under upper triangular changes
+of basis; its zero condition is not the vanishing of a chosen cocycle. -/
+def GL2Borel.IsSplit : Prop :=
+  ∃ b : F, ∀ σ, (r₀ σ : Matrix (Fin 2) (Fin 2) F) 0 1=
+    b*((r₀ σ : Matrix (Fin 2) (Fin 2) F) 1 1-(r₀ σ : Matrix (Fin 2) (Fin 2) F) 0 0)
+
+/-- Universal inertia weights are the completed group algebra of local pro-p units. -/
+def GL2Borel.weight (p : ℕ) [Fact p.Prime] : CNLObject O F := sorry
+
+def GL2Borel.weight_iso : (GL2Borel.weight (p := p) (O := O) (F := F)).ring ≃ₐ[O]
+    CompletedGroupAlgebra O (LocalProPUnits p ℚ_[p]) := sorry
+
+def GL2Borel.theta : localInertia p ℚ_[p] →*
+    (GL2Borel.weight (p := p) (O := O) (F := F)).ringˣ := sorry
+
+theorem GL2Borel.theta_formula (σ : localInertia p ℚ_[p]) :
+    Units.map GL2Borel.weight_iso.toMonoidHom (GL2Borel.theta (O := O) (F := F) σ)=
+      CompletedGroupAlgebra.groupElement O _ (LocalProPUnits.artinInverse p ℚ_[p] σ) := sorry
+
+/-- A partially framed test point is an upper triangular lift with its exact
+character and the prescribed inverse cyclotomic determinant. -/
+structure GL2Borel.UpperPoint (A : CNLObject O F)
+    (ι : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom A) where
+  lift : Lift 2 r₀ A.residue.toRingHom
+  character : Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ
+  continuous : Continuous fun σ ↦ (character σ : A.ring)
+  inertia : ∀ σ : localInertia p ℚ_[p], character σ.val=Units.map ι.val.toMonoidHom (GL2Borel.theta σ)
+  upper : ∀ σ, (lift.toHom σ : Matrix (Fin 2) (Fin 2) A.ring) 1 0=0
+  diagonal : ∀ σ,
+    (lift.toHom σ : Matrix (Fin 2) (Fin 2) A.ring) 0 0=(character σ : A.ring) ∧
+    (lift.toHom σ : Matrix (Fin 2) (Fin 2) A.ring) 1 1=
+      ((Units.map (algebraMap O A.ring).toMonoidHom (localCyclotomic p ℚ_[p] O σ))⁻¹*(character σ)⁻¹ : A.ringˣ)
+
+def GL2Borel.FullPoint (A : CNLObject O F)
+    (ι : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom A) :=
+  {r : Lift 2 r₀ A.residue.toRingHom // ∃ g : GL (Fin 2) A.ring,
+    Matrix.GeneralLinearGroup.map A.residue.toRingHom g=1 ∧
+    ∃ x : GL2Borel.UpperPoint r₀ A ι, ∀ σ, r.toHom σ=g*x.lift.toHom σ*g⁻¹}
+
+/-- The two representing rings. Inclusion of upper triangular lifts gives
+`fullToUpper`; a choice of formal slice gives the reverse coordinate section. -/
+structure GL2Borel.Universal where
+  upperBase : CNLObject O F
+  fullBase : CNLObject O F
+  upperWeight : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom upperBase
+  fullWeight : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom fullBase
+  upperData : GL2Borel.UpperPoint r₀ upperBase upperWeight
+  fullData : GL2Borel.FullPoint r₀ fullBase fullWeight
+  upperRepresents : ∀ A : CNLObject O F,
+    upperBase.Hom A ≃ Σ ι, GL2Borel.UpperPoint r₀ A ι
+  upperFormula : ∀ (A : CNLObject O F) (f : upperBase.Hom A) σ,
+    ((upperRepresents A f).2.lift.toHom σ)=
+      Matrix.GeneralLinearGroup.map f.val.toRingHom (upperData.lift.toHom σ)
+  fullRepresents : ∀ A : CNLObject O F,
+    fullBase.Hom A ≃ Σ ι, GL2Borel.FullPoint r₀ A ι
+  fullFormula : ∀ (A : CNLObject O F) (f : fullBase.Hom A) σ,
+    ((fullRepresents A f).2.val.toHom σ)=
+      Matrix.GeneralLinearGroup.map f.val.toRingHom (fullData.val.toHom σ)
+  fullToUpper : fullBase.Hom upperBase
+  inclusionFormula : ∀ σ, Matrix.GeneralLinearGroup.map fullToUpper.val.toRingHom
+    (fullData.val.toHom σ)=upperData.lift.toHom σ
+  inclusionWeight : fullToUpper.val.comp fullWeight.val=upperWeight.val
+  upperToFull : upperBase.Hom fullBase
+  sliceSection : fullToUpper.val.comp upperToFull.val=AlgHom.id O upperBase.ring
+  weightCompatibility : upperToFull.val.comp upperWeight.val=fullWeight.val
+
+variable {γ : Fˣ} {r₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F} (U : GL2Borel.Universal (O := O) r₀)
+local instance : Algebra U.upperBase.ring U.fullBase.ring := U.upperToFull.val.toRingHom.toAlgebra
+
+abbrev GL2Borel.Universal.upperGeneric := GenericFibre (p : O) U.upperBase.ring
+abbrev GL2Borel.Universal.fullGeneric := GenericFibre (p : O) U.fullBase.ring
+
+def GL2Borel.traceZeroUpper : Submodule F (Matrix (Fin 2) (Fin 2) F) where
+  carrier := {X | Matrix.trace X=0 ∧ X 1 0=0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- The obstruction dimension is controlled by the split residual extension. -/
+theorem GL2Borel.obstruction_dimension (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) :
+    Module.finrank F (AdH2WithValues (ρbar := r₀) (GL2Borel.traceZeroUpper (F := F)))=
+      if γ^2=1 ∧ GL2Borel.IsSplit r₀ then 1 else 0 := sorry
+
+theorem GL2Borel.fullyFramed_comparison (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) :
+    Nonempty (U.fullBase.ring ≃ₐ[U.upperBase.ring] MvPowerSeries (Fin 1) U.upperBase.ring) := sorry
+
+theorem GL2Borel.geometry (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) :
+    IsDomain U.upperGeneric ∧ ringKrullDim U.upperGeneric=4 ∧
+    IsDomain U.fullGeneric ∧ ringKrullDim U.fullGeneric=5 ∧
+    IsCompleteIntersectionOver O U.upperBase.ring 4 := sorry
+
+/-- Coordinates respect the two variables of the universal full character.
+The framing and extension coordinates depend on the chosen tangent basis. -/
+structure GL2Borel.CharacterCoordinates (d : ℕ) where
+  characterMap : MvPowerSeries (Fin 2) O →ₐ[O] U.upperBase.ring
+  weightCoordinate : (GL2Borel.weight (p := p) (O := O) (F := F)).ring ≃ₐ[O]
+    MvPowerSeries (Fin 1) O
+  weightFormula : ∀ f,
+    U.upperWeight.val f=characterMap (MvPowerSeries.rename (fun _ : Fin 1 ↦ (1 : Fin 2)) (weightCoordinate f))
+  coordinate : Fin d → U.upperBase.ring
+
+/-- Non-exceptional cases retain the character coordinates as the last two variables. -/
+theorem GL2Borel.presentation_nonexceptional (hp : p≠2)
+    (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2≠1) :
+    ∃ e : U.upperBase.ring ≃ₐ[O] MvPowerSeries (Fin 4) O,
+      ∃ c : GL2Borel.CharacterCoordinates U 4,
+        ∀ i : Fin 2, e (c.characterMap (MvPowerSeries.X i))=MvPowerSeries.X (⟨i.val+2, by omega⟩ : Fin 4) := sorry
+
+/-- The peu ramifiée predicate is the finite-flat extension condition, imported
+from R07.3; it is defined here on this specific matrix representation. -/
+def GL2Borel.IsPeuRamifie (r₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) : Prop := IsFlatLift p ℚ_[p] F (twistRep r₀
+  ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O)))
+
+/-- A nonzero exceptional extension has a nonzero linear initial relation. -/
+theorem GL2Borel.presentation_exceptional_nonsplit (hp : p≠2)
+    (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2=1) (hη : ¬GL2Borel.IsSplit r₀)
+    (ϖ : O) (hϖ : Irreducible ϖ) :
+    ∃ (g : MvPowerSeries (Fin 5) O) (c d : O),
+      Nonempty (U.upperBase.ring ≃ₐ[O] (MvPowerSeries (Fin 5) O ⧸ Ideal.span {g})) ∧
+      (c ∉ IsLocalRing.maximalIdeal O ∨ d ∉ IsLocalRing.maximalIdeal O) ∧
+      g-c • MvPowerSeries.X 3-d • MvPowerSeries.X 4 ∈
+        Ideal.span {MvPowerSeries.C ϖ} ⊔ (IsLocalRing.maximalIdeal (MvPowerSeries (Fin 5) O))^2 ∧
+      (c ∈ IsLocalRing.maximalIdeal O ↔ GL2Borel.IsPeuRamifie (O := O) r₀) ∧
+      IsPowerSeriesOver O U.upperBase.ring 4 := sorry
+
+/-- The split exceptional initial equation detects the singular special fibre. -/
+theorem GL2Borel.presentation_exceptional_split (hp : p≠2)
+    (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2=1) (hη : GL2Borel.IsSplit r₀)
+    (ϖ : O) (hϖ : Irreducible ϖ) :
+    ∃ g : MvPowerSeries (Fin 5) O,
+      Nonempty (U.upperBase.ring ≃ₐ[O] (MvPowerSeries (Fin 5) O ⧸ Ideal.span {g})) ∧
+      g-(MvPowerSeries.X 1*MvPowerSeries.X 3+MvPowerSeries.X 2*MvPowerSeries.X 4) ∈
+        Ideal.span {MvPowerSeries.C ϖ} ⊔ (IsLocalRing.maximalIdeal (MvPowerSeries (Fin 5) O))^3 ∧
+      ¬IsRegularLocalRing (U.upperBase.ring ⧸ Ideal.span {algebraMap O U.upperBase.ring ϖ}) := sorry
+
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2≠1) :
+    IsPowerSeriesOver O U.upperBase.ring 4 := sorry
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2=1) (hη : ¬GL2Borel.IsSplit r₀) :
+    IsPowerSeriesOver O U.fullBase.ring 5 := sorry
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) (hγ : γ^2=1) (hη : GL2Borel.IsSplit r₀) :
+    Module.finrank F (AdH2WithValues (ρbar := r₀) (GL2Borel.traceZeroUpper (F := F)))=1 := sorry
+end GL2BorelRings
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Distinguished Borel and Siegel-parabolic generic fibres
+BCGP21 Proposition 7.3.4 p. 173 and Proposition 7.3.16 pp. 183–187.
+The two-variable canonical weight hypothesis prevents dimension assertions for
+an arbitrary enlarged coefficient algebra. No integral flatness is asserted for
+the exceptional Borel complete-intersection case in Remark 7.3.17. -/
+def singularClosureIdeal (R : Type u) [CommRing R] : Ideal R :=
+  ⨅ (x : PrimeSpectrum R) (_ : ¬IsRegularLocalRing (Localization.AtPrime x.asIdeal)), x.asIdeal
+
+section DistinguishedSymplecticGeometry
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+variable (W : OrdinaryParameters O F (Field.absoluteGaloisGroup ℚ_[p]) 2)
+variable (hp : p≠2) (hdist : χbar 0≠χbar 1)
+variable (hunram : ∀ i (σ : localInertia p ℚ_[p]), χbar i σ.val=1)
+variable (hres : GSp4.ParabolicShape ρ₀ (GSp4.pairedCharacters (χbar 0) (χbar 1)
+  (inverseCharacter ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O)))))
+variable (hW : GSp4.CanonicalWeights χbar W)
+
+include hp hdist hunram hres hW in
+ theorem GSp4.ordinary_generic_irreducible (c : Fin 2) :
+    IsDomain (GenericFibre (p : O) (GSp4.BorelRing ρ₀ W c)) ∧
+    ringKrullDim (GenericFibre (p : O) (GSp4.BorelRing ρ₀ W c))=16 ∧
+    IsDomain (GenericFibre (p : O) (GSp4.ParabolicRing ρ₀ W)) ∧
+    ringKrullDim (GenericFibre (p : O) (GSp4.ParabolicRing ρ₀ W))=14 := sorry
+
+include hp hdist hunram hres hW in
+ theorem GSp4.parabolic_completeIntersection :
+    IsCompleteIntersectionOver O (GSp4.ParabolicRing ρ₀ W) 14 := sorry
+
+include hp hdist hunram hres hW in
+ theorem GSp4.parabolic_singular_codimension :
+    ringKrullDim (GenericFibre (p : O) (GSp4.ParabolicRing ρ₀ W) ⧸
+      singularClosureIdeal (GenericFibre (p : O) (GSp4.ParabolicRing ρ₀ W)))≤12 := sorry
+
+/-- The unconstrained P-functor omits the equality of the two inertial weights. -/
+def GSp4.ParabolicUnconstrained (A : CNLObject O F) (ι : W.weight →ₐ[O] A.ring)
+    (r : Lift 4 ρ₀ A.residue.toRingHom) : Prop :=
+  ∃ χ₁ χ₂ : Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ,
+    (∀ σ, Units.map A.residue.toMonoidHom (χ₁ σ)=χbar 0 σ ∧
+      Units.map A.residue.toMonoidHom (χ₂ σ)=χbar 1 σ) ∧
+    (∀ σ : W.inertia, χ₁ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 0 σ) ∧
+      χ₂ σ.val=Units.map ι.toMonoidHom (W.inertialCharacter 1 σ)) ∧
+    GSp4.ParabolicShape r.toHom (GSp4.pairedCharacters χ₁ χ₂
+      (inverseCharacter ((Units.map (algebraMap O A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))
+
+def GSp4.ParabolicUnconstrained.ideal : Ideal (GSp4.ordinaryAmbient ρ₀ W) := sorry
+abbrev GSp4.ParabolicUnconstrained.ring := GSp4.ordinaryAmbient ρ₀ W ⧸
+  GSp4.ParabolicUnconstrained.ideal ρ₀ W
+
+include hp hdist hunram hres hW in
+ theorem GSp4.parabolicUnconstrained_geometry :
+    IsCompleteIntersectionOver O (GSp4.ParabolicUnconstrained.ring ρ₀ W) 15 ∧
+    IsDomain (GenericFibre (p : O) (GSp4.ParabolicUnconstrained.ring ρ₀ W)) ∧
+    ringKrullDim (GenericFibre (p : O) (GSp4.ParabolicUnconstrained.ring ρ₀ W))=15 ∧
+    ringKrullDim (GenericFibre (p : O) (GSp4.ParabolicUnconstrained.ring ρ₀ W) ⧸
+      singularClosureIdeal (GenericFibre (p : O) (GSp4.ParabolicUnconstrained.ring ρ₀ W)))≤13 := sorry
+end DistinguishedSymplecticGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Isomorphisms and identified reductions in the (φ,N) groupoids
+Kisin 2008 Proposition 3.1.2, Corollary 3.1.3, Lemma 3.2.1,
+published pp. 535–539. Supplier scalar contexts are L₀⊗A and L⊗A. -/
+
+structure PhiNModule.Iso {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S]
+    [Algebra A S] [Group Δ] {d : ℕ} (D D' : PhiNModule p A S Δ d) where
+  linear : D.module ≃ₗ[S] D'.module
+  frob : ∀ x, linear (D.frob x)=D'.frob (linear x)
+  monodromy : ∀ x, linear (D.monodromy x)=D'.monodromy (linear x)
+  descent : ∀ g x, linear (D.descent g x)=D'.descent g (linear x)
+
+structure FilteredPhiNModule.Iso {p : ℕ} {A S T Δ : Type u} [CommRing A] [CommRing S]
+    [CommRing T] [Algebra A S] [Algebra S T] [Algebra A T] [IsScalarTower A S T]
+    [Group Δ] {d : ℕ} (D D' : FilteredPhiNModule p A S T Δ d) where
+  underlying : PhiNModule.Iso D.toPhiNModule D'.toPhiNModule
+  filtration : ∀ i, Submodule.map (underlying.linear.toLinearMap.baseChange T) (D.Fil i)=D'.Fil i
+
+/-- Isomorphisms of (φ,N)-objects form a groupoid. -/
+def PhiNModule.Iso.refl {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S]
+    [Algebra A S] [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d) : PhiNModule.Iso D D := sorry
+
+def PhiNModule.Iso.symm {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S]
+    [Algebra A S] [Group Δ] {d : ℕ} {D D' : PhiNModule p A S Δ d}
+    (f : PhiNModule.Iso D D') : PhiNModule.Iso D' D := sorry
+
+def PhiNModule.Iso.trans {p : ℕ} {A S Δ : Type u} [CommRing A] [CommRing S]
+    [Algebra A S] [Group Δ] {d : ℕ} {D D' D'' : PhiNModule p A S Δ d}
+    (f : PhiNModule.Iso D D') (g : PhiNModule.Iso D' D'') : PhiNModule.Iso D D'' := sorry
+
+/-- The scalar-extension carrier comparison, from R06.2. -/
+def PhiNModule.baseChangeModuleIso (p : ℕ) (A S Δ : Type u) [CommRing A]
+    [CommRing S] [Algebra A S] [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d)
+    (B : Type u) [CommRing B] [Algebra A B] :
+    (D.baseChange p A S Δ B).module ≃ₗ[B] TensorProduct A B D.module := sorry
+
+def PhiNModule.baseChangeTmul (p : ℕ) (A S Δ : Type u) [CommRing A]
+    [CommRing S] [Algebra A S] [Group Δ] {d : ℕ} (D : PhiNModule p A S Δ d)
+    (B : Type u) [CommRing B] [Algebra A B] (b : B) (x : D.module) :
+    (D.baseChange p A S Δ B).module :=
+  (D.baseChangeModuleIso p A S Δ B).symm (TensorProduct.tmul A b x)
+
+section IdentifiedPhiNLifts
+variable (p : ℕ) (A S Δ : Type u) [CommRing A] [CommRing S] [Algebra A S]
+variable [Group Δ] {d : ℕ} (B : Type u) [CommRing B] [Algebra A B]
+variable (D₀ : PhiNModule p B (TensorProduct A B S) Δ d)
+
+/-- Reduction is part of a deformation, rather than an existentially unrelated object. -/
+structure PhiNModule.IdentifiedLift where
+  object : PhiNModule p A S Δ d
+  reduction : PhiNModule.Iso (object.baseChange p A S Δ B) D₀
+
+/-- Strict isomorphisms induce the identity on the specified reduction. -/
+def PhiNModule.IdentifiedLift.Equiv (x y : PhiNModule.IdentifiedLift p A S Δ B D₀) : Prop :=
+  ∃ f : PhiNModule.Iso x.object y.object,
+    ∀ (b : B) (m : x.object.module),
+      y.reduction.linear (y.object.baseChangeTmul p A S Δ B b (f.linear m))=
+        x.reduction.linear (x.object.baseChangeTmul p A S Δ B b m)
+
+/-- Isomorphism classes, with the strict equivalence relation explicitly retained. -/
+abbrev PhiNModule.liftClasses := Quotient (show Setoid (PhiNModule.IdentifiedLift p A S Δ B D₀) from
+  { r := PhiNModule.IdentifiedLift.Equiv p A S Δ B D₀
+    iseqv := sorry })
+end IdentifiedPhiNLifts
+
+/-- A scalar model imported from R06.2. Both rings are finite étale over Qp,
+and T has finite Galois descent to the ground field. The fixed scalar Frobenius
+is part of the scalar model, not an additional deformation parameter. -/
+structure PhiNScalarModel (p : ℕ) [Fact p.Prime] where
+  S : Type u
+  T : Type u
+  [Sfield : Field S]
+  [Tfield : Field T]
+  [Spadic : Algebra ℚ_[p] S]
+  [Tpadic : Algebra ℚ_[p] T]
+  [ST : Algebra S T]
+  [tower : IsScalarTower ℚ_[p] S T]
+  [Sfinite : FiniteDimensional ℚ_[p] S]
+  [Tfinite : FiniteDimensional ℚ_[p] T]
+  ground : Type u
+  [groundField : Field ground]
+  [groundPadic : Algebra ℚ_[p] ground]
+  [groundFinite : FiniteDimensional ℚ_[p] ground]
+  [groundT : Algebra ground T]
+  [groundTower : IsScalarTower ℚ_[p] ground T]
+  [galois : IsGalois ground T]
+  frob : S ≃ₐ[ℚ_[p]] S
+  descentS : Gal(T/ground) →* (S ≃ₐ[ℚ_[p]] S)
+  frob_descent : ∀ g s, frob (descentS g s)=descentS g (frob s)
+  descentFormula : ∀ g s, (g : T ≃ₐ[ground] T) (algebraMap S T s)=algebraMap S T (descentS g s)
+
+attribute [instance] PhiNScalarModel.Sfield PhiNScalarModel.Tfield PhiNScalarModel.Spadic
+  PhiNScalarModel.Tpadic PhiNScalarModel.ST PhiNScalarModel.tower PhiNScalarModel.Sfinite
+  PhiNScalarModel.Tfinite PhiNScalarModel.groundField PhiNScalarModel.groundPadic
+  PhiNScalarModel.groundFinite PhiNScalarModel.groundT PhiNScalarModel.groundTower PhiNScalarModel.galois
+
+/-- R06.2 supplies the model from L/K and the maximal unramified subfield L₀.
+LocalGaloisGroups supplies its residue Frobenius; it is not re-planned here. -/
+def PhiNScalarModel.fromExtension (p : ℕ) [Fact p.Prime] (K L : Type u)
+    [Field K] [Field L] [Algebra ℚ_[p] K] [Algebra ℚ_[p] L]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] L]
+    [Algebra K L] [IsScalarTower ℚ_[p] K L] [IsGalois K L] : PhiNScalarModel p := sorry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Ordinary type and rank-two Barsotti–Tate components
+Kisin, Moduli of finite flat group schemes, Proposition 2.4.14,
+Corollary 2.4.10 and Corollary 2.5.16, published pp. 1126–1132, 1141–1142.
+The general connectedness conjecture 2.4.16 is not used as a theorem. -/
+
+def inertiaFixed {Γ E : Type u} [Group Γ] [Field E] {n : ℕ}
+    (I : Subgroup Γ) (r : Γ →* GL (Fin n) E) : Submodule E (Fin n → E) where
+  carrier := {v | ∀ σ : I, Matrix.mulVec (r σ.val : Matrix (Fin n) (Fin n) E) v=v}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def inertiaCoinvariantRelations {Γ E : Type u} [Group Γ] [Field E] {n : ℕ}
+    (I : Subgroup Γ) (r : Γ →* GL (Fin n) E) : Submodule E (Fin n → E) :=
+  Submodule.span E {v | ∃ (σ : I) (w : Fin n → E),
+    v=Matrix.mulVec (r σ.val : Matrix (Fin n) (Fin n) E) w-w}
+
+section FlatFieldComponents
+variable {p : ℕ} [Fact p.Prime] {K O F E : Type}
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra O E] [Algebra ℤ_[p] E] [IsScalarTower ℤ_[p] O E]
+variable [TopologicalSpace E] [IsTopologicalRing E]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable {ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F} [ContinuousResidual ρ₀]
+variable (D : FlatGeometricFamily p K O F ρ₀)
+variable (v : (K →ₐ[ℚ_[p]] AlgebraicClosure ℚ_[p]) → ℕ)
+
+structure FlatGeometricFamily.FieldPoint where
+  map : GenericFibre (p : O) (D.typeRing v) →ₐ[O] E
+  continuous : Continuous fun σ ↦
+    Matrix.GeneralLinearGroup.map
+      (map.toRingHom.comp ((algebraMap (D.typeRing v) _).comp (Ideal.Quotient.mk _)))
+      (D.representation.toHom σ)
+
+variable {D v}
+variable (x : D.FieldPoint v (E := E))
+
+abbrev FlatGeometricFamily.FieldPoint.representation :=
+  (Matrix.GeneralLinearGroup.map
+    (x.map.toRingHom.comp ((algebraMap (D.typeRing v) _).comp (Ideal.Quotient.mk _)))).comp
+      D.representation.toHom
+
+def FlatGeometricFamily.FieldPoint.prime (x : D.FieldPoint v (E := E)) :
+    PrimeSpectrum (GenericFibre (p : O) (D.typeRing v)) := sorry
+
+theorem FlatGeometricFamily.FieldPoint.prime_ideal : x.prime.asIdeal=RingHom.ker x.map.toRingHom := sorry
+
+/-- The maximal multiplicative rank is computed on V(-1). -/
+abbrev FlatGeometricFamily.FieldPoint.multiplicativeRank := Module.finrank E
+  (inertiaFixed (localInertia p K)
+    (twistRep x.representation (inverseCharacter (localCyclotomic p K E))))
+
+/-- The maximal étale rank is the dimension of the largest inertia-trivial quotient. -/
+abbrev FlatGeometricFamily.FieldPoint.etaleRank := Module.finrank E
+  ((Fin n → E) ⧸ inertiaCoinvariantRelations (localInertia p K) x.representation)
+
+abbrev FlatGeometricFamily.FieldPoint.ordinaryType := (x.etaleRank, x.multiplicativeRank)
+
+def FlatGeometricFamily.FieldPoint.IsOrdinary : Prop := n=2 ∧ x.ordinaryType=(1,1)
+
+def FlatGeometricFamily.FieldPoint.SameComponent (y : D.FieldPoint v (E := E)) : Prop :=
+  ConnectedComponents.mk x.prime=ConnectedComponents.mk y.prime
+
+/-- The rank pair is constant on each connected component of the generic fibre. -/
+theorem FlatGeometricFamily.FieldPoint.ordinaryType_constant (hp : p≠2)
+    (y : D.FieldPoint v (E := E)) (h : x.SameComponent y) : x.ordinaryType=y.ordinaryType := sorry
+
+/-- At an ordinary BT point the cyclotomic line is precisely V(-1)^I, untwisted. -/
+theorem FlatGeometricFamily.FieldPoint.ordinary_line (hn : n=2) (h : x.IsOrdinary) :
+    Module.finrank E (inertiaFixed (localInertia p K)
+      (twistRep x.representation (inverseCharacter (localCyclotomic p K E))))=1 := sorry
+
+/-- Only the totally ramified case gives the non-ordinary connectedness converse. -/
+theorem FlatGeometricFamily.FieldPoint.nonordinary_sameComponent (hp : p≠2) (hn : n=2)
+    (hv : v=fun _ ↦ 1) (hresidue : localResidueCardinality p K=p)
+    (y : D.FieldPoint v (E := E)) (hx : ¬x.IsOrdinary) (hy : ¬y.IsOrdinary) :
+    x.SameComponent y := sorry
+
+/-- Residual cyclotomic-line characters are retained through an actual integral
+coefficient ring; equality only of Hodge–Tate weights would not suffice. -/
+structure FlatGeometricFamily.FieldPoint.IntegralLineCharacter
+    (OE kE : Type) [CommRing OE] [IsLocalRing OE] [Field kE]
+    [Algebra OE E] [Algebra OE kE] where
+  character : Field.absoluteGaloisGroup K →* OEˣ
+  line : Submodule E (Fin n → E)
+  rank : Module.finrank E line=1
+  action : ∀ σ z, z ∈ line → Matrix.mulVec (x.representation σ : Matrix (Fin n) (Fin n) E) z=
+    (algebraMap OE E (character σ : OE)) • z
+  cyclotomic : ∀ (σ : localInertia p K) z, z ∈ line →
+    Matrix.mulVec (x.representation σ.val : Matrix (Fin n) (Fin n) E) z=(localCyclotomic p K E σ.val : E) • z
+
+variable {OE kE : Type} [CommRing OE] [IsLocalRing OE] [IsDomain OE] [IsDiscreteValuationRing OE]
+variable [Field kE] [Algebra OE E] [IsFractionRing OE E] [Algebra OE kE] [ResidueIdentification OE kE]
+
+theorem FlatGeometricFamily.FieldPoint.ordinary_sameComponent (hp : p≠2) (hn : n=2)
+    (hv : v=fun _ ↦ 1) (y : D.FieldPoint v (E := E)) (hx : x.IsOrdinary) (hy : y.IsOrdinary)
+    (Lx : x.IntegralLineCharacter OE kE) (Ly : y.IntegralLineCharacter OE kE)
+    (hchars : ∀ σ, Units.map (algebraMap OE kE).toMonoidHom (Lx.character σ)=
+      Units.map (algebraMap OE kE).toMonoidHom (Ly.character σ)) : x.SameComponent y := sorry
+
+/-- Carrier test: inertia-trivial representations have full maximal étale rank. -/
+example (h : ∀ σ : localInertia p K, x.representation σ.val=1) : x.etaleRank=n := sorry
+/-- The cyclotomic twist of an unramified rank-one character is multiplicative. -/
+example (hn : n=1) (h : ∀ σ : localInertia p K,
+    x.representation σ.val=diagonalUnits (fun _ ↦ localCyclotomic p K E σ.val)) :
+    x.multiplicativeRank=1 := sorry
+/-- A rank-two BT point with no unramified subobject or quotient is non-ordinary. -/
+example (hn : n=2) (he : x.etaleRank=0) (hm : x.multiplicativeRank=0) : ¬x.IsOrdinary := sorry
+end FlatFieldComponents
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Labelled identity and length-one GL₃ components
+LLHLM20 Theorem 3.6.4, Table 3, published pp. 55–58.
+The identity label (0,1) uses (b-c), which is necessary for primality.
+The numbering uses the vertices of `sigma0Edges`, so the labels retain their
+weight-graph identity rather than merely counting components. -/
+
+def GL3.idComponentLabel : Fin 6 → Fin 9 := ![4,7,5,8,3,6]
+def GL3.alphaComponentLabel : Fin 6 → Fin 9 := ![7,5,8,2,3,6]
+
+noncomputable def GL3.idComponentIdeal {F : Type*} [Field F]
+    (a b c : F) (ū : Fin 3 → F) (k : Fin 6) : Ideal (MvPowerSeries GL3IdVar F) :=
+  let x : Fin 3 → Fin 3 → MvPowerSeries GL3IdVar F := fun i j ↦ MvPowerSeries.X (.c i j)
+  let s : Fin 3 → MvPowerSeries GL3IdVar F := fun i ↦ MvPowerSeries.C (ū i)+MvPowerSeries.X (.u i)
+  match k.val with
+  | 0 => Ideal.span {x 0 0,x 1 1,x 2 2,x 1 0,x 2 0,x 1 2}
+  | 1 => Ideal.span {x 2 0,x 2 2,x 0 0,
+      MvPowerSeries.C (-1-a+c)*x 2 1*x 0 2-MvPowerSeries.C (-1-a+b)*x 0 1*s 2,
+      x 1 0*x 0 2-x 1 2*s 0}
+  | 2 => Ideal.span {x 0 0,x 1 1,x 2 2,x 0 1,x 2 0,x 2 1}
+  | 3 => Ideal.span {x 0 1,x 1 1,x 0 0,
+      MvPowerSeries.C (a-b)*x 1 0*x 0 2-MvPowerSeries.C (-1-b+c)*x 1 2*s 0,
+      x 1 0*x 2 1-x 2 0*s 1}
+  | 4 => Ideal.span {x 0 0,x 1 1,x 2 2,x 0 2,x 1 2,x 0 1}
+  | _ => Ideal.span {x 1 2,x 2 2,x 1 1,
+      MvPowerSeries.C (b-c)*x 1 0*x 2 1-MvPowerSeries.C (a-c)*x 2 0*s 1,
+      x 2 1*x 0 2-x 0 1*s 2}
+
+noncomputable def GL3.alphaComponentIdeal {F : Type*} [Field F]
+    (a b c : F) (ū : Fin 3 → F) (k : Fin 6) : Ideal (MvPowerSeries GL3AlphaVar F) :=
+  let x : GL3AlphaVar → MvPowerSeries GL3AlphaVar F := MvPowerSeries.X
+  let s : Fin 3 → MvPowerSeries GL3AlphaVar F := fun i ↦ MvPowerSeries.C (ū i)+x (.u i)
+  match k.val with
+  | 0 => Ideal.span {x .c11,x .c13,x .c31}
+  | 1 => Ideal.span {x .c11,x .c31,s 1*x .ct32}
+  | 2 => Ideal.span {x .c11,s 1*x .ct32,
+      MvPowerSeries.C (a-b)*x .c13*x .d22+MvPowerSeries.C (-1-a+c)*x .c23*s 0}
+  | 3 => Ideal.span {x .c23,x .d22,s 1*x .ct32}
+  | 4 => Ideal.span {x .c11,x .c13,x .c23}
+  | _ => Ideal.span {x .c11*s 2-x .c13*x .c31,x .c23,
+      MvPowerSeries.C (a-b)*x .c31*x .d22+MvPowerSeries.C (c-b)*s 1*x .ct32}
+
+section GL3LabelledComponents
+variable {F : Type*} [Field F] (a b c : F) (ū : Fin 3 → F)
+variable (hgen : GL3.genericConstants a b c) (hū : ∀ i, ū i≠0)
+
+include hgen hū in
+ theorem GL3.idComponentIdeal_contains (k : Fin 6) :
+    GL3.idIdeal a b c ū ≤ GL3.idComponentIdeal a b c ū k := sorry
+include hgen hū in
+ theorem GL3.alphaComponentIdeal_contains (k : Fin 6) :
+    GL3.alphaIdeal a b c ū ≤ GL3.alphaComponentIdeal a b c ū k := sorry
+include hgen hū in
+ theorem GL3.idComponentIdeal_minimal (k : Fin 6) :
+    Ideal.map (Ideal.Quotient.mk (GL3.idIdeal a b c ū)) (GL3.idComponentIdeal a b c ū k) ∈
+      minimalPrimes (MvPowerSeries GL3IdVar F ⧸ GL3.idIdeal a b c ū) := sorry
+include hgen hū in
+ theorem GL3.alphaComponentIdeal_minimal (k : Fin 6) :
+    Ideal.map (Ideal.Quotient.mk (GL3.alphaIdeal a b c ū)) (GL3.alphaComponentIdeal a b c ū k) ∈
+      minimalPrimes (MvPowerSeries GL3AlphaVar F ⧸ GL3.alphaIdeal a b c ū) := sorry
+
+def GL3.idLabelledComponents (hgen : GL3.genericConstants a b c) (hū : ∀ i, ū i≠0) : Fin 6 ≃
+    {P : Ideal (MvPowerSeries GL3IdVar F ⧸ GL3.idIdeal a b c ū) // P ∈ minimalPrimes _} := sorry
+def GL3.alphaLabelledComponents (hgen : GL3.genericConstants a b c) (hū : ∀ i, ū i≠0) : Fin 6 ≃
+    {P : Ideal (MvPowerSeries GL3AlphaVar F ⧸ GL3.alphaIdeal a b c ū) // P ∈ minimalPrimes _} := sorry
+
+include hgen hū in
+ theorem GL3.idLabelledComponents_formula (k : Fin 6) :
+    (GL3.idLabelledComponents a b c ū hgen hū k).val=
+      Ideal.map (Ideal.Quotient.mk (GL3.idIdeal a b c ū)) (GL3.idComponentIdeal a b c ū k) := sorry
+include hgen hū in
+ theorem GL3.alphaLabelledComponents_formula (k : Fin 6) :
+    (GL3.alphaLabelledComponents a b c ū hgen hū k).val=
+      Ideal.map (Ideal.Quotient.mk (GL3.alphaIdeal a b c ū)) (GL3.alphaComponentIdeal a b c ū k) := sorry
+
+/-- Tests distinguish the corrected lower-alcove prime and actual quotient components. -/
+example : GL3.idComponentLabel 5=6 ∧ GL3.alphaComponentLabel 3=2 := by decide
+example : MvPowerSeries.C (b-c)*MvPowerSeries.X (GL3IdVar.c 1 0)*MvPowerSeries.X (.c 2 1)-
+    MvPowerSeries.C (a-c)*MvPowerSeries.X (.c 2 0)*
+      (MvPowerSeries.C (ū 1)+MvPowerSeries.X (.u 1)) ∈ GL3.idComponentIdeal a b c ū 5 := sorry
+include hgen hū in
+ example : GL3.idComponentIdeal a b c ū 0≠GL3.idComponentIdeal a b c ū 1 := sorry
+include hgen hū in
+ example : GL3.alphaComponentIdeal a b c ū 0≠GL3.alphaComponentIdeal a b c ū 4 := sorry
+end GL3LabelledComponents
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Matrix models that detect (φ,N) obstructions
+Kisin Proposition 3.1.2 and Corollary 3.1.3, published pp. 536–537.
+These examples use the actual differential, including its resonant rank-two
+summand. They distinguish the crystalline deformation problem, where N is
+fixed to zero, from the semistable problem at a point having N=0. -/
+
+section PhiNMatrixModels
+variable (p : ℕ) [Fact p.Prime] (E : Type u) [Field E] [Algebra ℚ_[p] E]
+
+/-- With trivial descent and scalar Frobenius, the carrier is E^d. -/
+def PhiNModule.ofMatrices {d : ℕ} (Φ : GL (Fin d) E) (N : Matrix (Fin d) (Fin d) E)
+    (hN : ∃ k : ℕ, N^k=0) (hrel : (p:E) • (Φ : Matrix (Fin d) (Fin d) E)*N=N*(Φ : Matrix _ _ E)) :
+    PhiNModule p E E PUnit d := sorry
+
+def PhiNModule.ofMatricesBasis {d : ℕ} (Φ : GL (Fin d) E) (N : Matrix (Fin d) (Fin d) E)
+    (hN : ∃ k : ℕ, N^k=0) (hrel : (p:E) • (Φ : Matrix (Fin d) (Fin d) E)*N=N*(Φ : Matrix _ _ E)) :
+    (PhiNModule.ofMatrices p E Φ N hN hrel).module ≃ₗ[E] (Fin d → E) := sorry
+
+theorem PhiNModule.ofMatrices_frob {d : ℕ} (Φ : GL (Fin d) E) (N : Matrix (Fin d) (Fin d) E)
+    (hN : ∃ k : ℕ, N^k=0) (hrel : (p:E) • (Φ : Matrix (Fin d) (Fin d) E)*N=N*(Φ : Matrix _ _ E))
+    (v : (PhiNModule.ofMatrices p E Φ N hN hrel).module) :
+    PhiNModule.ofMatricesBasis p E Φ N hN hrel ((PhiNModule.ofMatrices p E Φ N hN hrel).frob v)=
+      Matrix.mulVec (Φ : Matrix (Fin d) (Fin d) E) (PhiNModule.ofMatricesBasis p E Φ N hN hrel v) := sorry
+
+theorem PhiNModule.ofMatrices_N {d : ℕ} (Φ : GL (Fin d) E) (N : Matrix (Fin d) (Fin d) E)
+    (hN : ∃ k : ℕ, N^k=0) (hrel : (p:E) • (Φ : Matrix (Fin d) (Fin d) E)*N=N*(Φ : Matrix _ _ E))
+    (v : (PhiNModule.ofMatrices p E Φ N hN hrel).module) :
+    PhiNModule.ofMatricesBasis p E Φ N hN hrel ((PhiNModule.ofMatrices p E Φ N hN hrel).monodromy v)=
+      Matrix.mulVec N (PhiNModule.ofMatricesBasis p E Φ N hN hrel v) := sorry
+
+example (Φ : GL (Fin 1) E) (hN : ∃ k : ℕ, (0 : Matrix (Fin 1) (Fin 1) E)^k=0)
+    (hrel : (p:E) • (Φ : Matrix (Fin 1) (Fin 1) E)*0=0*(Φ : Matrix _ _ E)) :
+    let D := PhiNModule.ofMatrices p E Φ 0 hN hrel
+    Module.finrank E (D.H0 p E E PUnit)=1 ∧
+    Module.finrank E (D.H1 p E E PUnit)=1 ∧ Subsingleton (D.H2 p E E PUnit) := sorry
+
+/-- Resonance at Φ=diag(1,p) produces a genuine degree-two obstruction. -/
+example (Φ : GL (Fin 2) E) (hΦ : (Φ : Matrix (Fin 2) (Fin 2) E)=Matrix.diagonal ![1,(p:E)])
+    (hN : ∃ k : ℕ, (0 : Matrix (Fin 2) (Fin 2) E)^k=0)
+    (hrel : (p:E) • (Φ : Matrix (Fin 2) (Fin 2) E)*0=0*(Φ : Matrix _ _ E)) :
+    let D := PhiNModule.ofMatrices p E Φ 0 hN hrel
+    Module.finrank E (D.H2 p E E PUnit)=1 := sorry
+
+/-- Turning on the resonant monodromy makes that obstruction disappear. -/
+example (Φ : GL (Fin 2) E) (hΦ : (Φ : Matrix (Fin 2) (Fin 2) E)=Matrix.diagonal ![1,(p:E)])
+    (N : Matrix (Fin 2) (Fin 2) E) (hNmat : N=Matrix.single 0 1 1)
+    (hN : ∃ k : ℕ, N^k=0)
+    (hrel : (p:E) • (Φ : Matrix (Fin 2) (Fin 2) E)*N=N*(Φ : Matrix _ _ E)) :
+    let D := PhiNModule.ofMatrices p E Φ N hN hrel
+    Subsingleton (D.H2 p E E PUnit) := sorry
+end PhiNMatrixModels
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Small extensions and the (φ,N) lifting obstruction
+Kisin Proposition 3.1.2 and Corollary 3.1.3, published pp. 536–537.
+The coefficients are Artinian local characteristic-zero algebras, the scalar
+Frobenius and descent actions are fixed, and the kernel is killed by the
+maximal ideal. Identifications are retained when taking lift classes. -/
+
+structure PhiNSmallExtension (E A B : Type u) [Field E] [CommRing A] [CommRing B]
+    [Algebra E A] [Algebra E B] [Algebra A B] [Algebra B E]
+    [IsLocalRing A] [IsLocalRing B] where
+  q : A →ₐ[E] B
+  q_algebra : ∀ a, q a=algebraMap A B a
+  surjective : Function.Surjective q
+  residue : B →ₐ[E] E
+  residue_algebra : ∀ b, residue b=algebraMap B E b
+  residueKernel : RingHom.ker residue.toRingHom=IsLocalRing.maximalIdeal B
+  small : IsLocalRing.maximalIdeal A*RingHom.ker q.toRingHom=⊥
+
+section PhiNSmallLifts
+variable (p : ℕ) [Fact p.Prime] (E A B S Δ : Type u)
+variable [Field E] [Algebra ℚ_[p] E] [CommRing A] [CommRing B]
+variable [Algebra E A] [Algebra E B] [Algebra ℚ_[p] A] [IsScalarTower ℚ_[p] E A]
+variable [IsLocalRing A] [IsLocalRing B]
+variable [IsArtinianRing A] [IsArtinianRing B] [Module.Finite E A] [Module.Finite E B]
+variable [CommRing S] [Algebra A S] [Group Δ] [Finite Δ]
+variable [Algebra A B] [Algebra B E]
+variable (X : PhiNSmallExtension E A B)
+variable {d : ℕ} (Dref : PhiNModule p A S Δ d)
+variable (D₀ : PhiNModule p B (TensorProduct A B S) Δ d)
+
+abbrev PhiNSmallExtension.kernel := LinearMap.ker X.q.toLinearMap
+abbrev PhiNSmallExtension.residualModule :=
+  let _ := X
+  D₀.baseChange p B (TensorProduct A B S) Δ E
+abbrev PhiNSmallExtension.obstructionSpace := TensorProduct E
+  ((PhiNSmallExtension.residualModule p E A B S Δ X D₀).H2 p E
+    (TensorProduct B E (TensorProduct A B S)) Δ) (PhiNSmallExtension.kernel E A B X)
+abbrev PhiNSmallExtension.tangentSpace := TensorProduct E
+  ((PhiNSmallExtension.residualModule p E A B S Δ X D₀).H1 p E
+    (TensorProduct B E (TensorProduct A B S)) Δ) (PhiNSmallExtension.kernel E A B X)
+
+/-- Scalar compatibility is independent of whether the object itself lifts. -/
+def PhiNSmallExtension.ScalarCompatible : Prop :=
+  let _ := X
+  D₀.scalarFrob=(Dref.baseChange p A S Δ B).scalarFrob ∧
+  D₀.scalarDescent=(Dref.baseChange p A S Δ B).scalarDescent
+
+abbrev PhiNSmallExtension.Lift :=
+  let _ := X
+  {L : PhiNModule.IdentifiedLift p A S Δ B D₀ //
+    L.object.scalarFrob=Dref.scalarFrob ∧ L.object.scalarDescent=Dref.scalarDescent}
+
+abbrev PhiNSmallExtension.liftClasses := Quotient (show Setoid
+    (PhiNSmallExtension.Lift p E A B S Δ X Dref D₀) from
+  { r := fun x y ↦ PhiNModule.IdentifiedLift.Equiv p A S Δ B D₀ x.val y.val
+    iseqv := sorry })
+
+/-- R06.2 supplies the scalar model from L₀; this compatibility hypothesis
+prevents asserting unobstructed lifting for arbitrary scalar endomorphisms. -/
+def PhiNSmallExtension.IsPeriodScalarModel : Prop :=
+  let _ := X
+  ∃ M : PhiNScalarModel.{u} p,
+    Nonempty (S ≃ₐ[A] TensorProduct ℚ_[p] A M.S) ∧
+    Nonempty (Δ ≃* (M.T ≃ₐ[M.ground] M.T)) ∧
+    ∃ e : S ≃ₐ[A] TensorProduct ℚ_[p] A M.S,
+      (∀ a s, e (Dref.scalarFrob (e.symm (TensorProduct.tmul ℚ_[p] a s)))=
+        TensorProduct.tmul ℚ_[p] a (M.frob s)) ∧
+      ∃ g : Δ ≃* (M.T ≃ₐ[M.ground] M.T), ∀ δ a s,
+        e (Dref.scalarDescent δ (e.symm (TensorProduct.tmul ℚ_[p] a s)))=
+          TensorProduct.tmul ℚ_[p] a (M.descentS (g δ) s)
+
+/-- The obstruction is a class in the actual cokernel of the differential. -/
+def PhiNSmallExtension.obstruction
+    (hmodel : PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X Dref)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X Dref D₀) :
+    PhiNSmallExtension.obstructionSpace p E A B S Δ X D₀ := sorry
+
+theorem PhiNSmallExtension.obstruction_zero_iff
+    (hmodel : PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X Dref)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X Dref D₀) :
+    PhiNSmallExtension.obstruction p E A B S Δ X Dref D₀ hmodel hcompat=0 ↔
+      Nonempty (PhiNSmallExtension.Lift p E A B S Δ X Dref D₀) := sorry
+
+theorem PhiNSmallExtension.unobstructed_lift
+    (hmodel : PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X Dref)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X Dref D₀)
+    (hH2 : Subsingleton ((PhiNSmallExtension.residualModule p E A B S Δ X D₀).H2 p E
+      (TensorProduct B E (TensorProduct A B S)) Δ)) :
+    Nonempty (PhiNSmallExtension.Lift p E A B S Δ X Dref D₀) := sorry
+
+/-- After one lift has been chosen, differences give the H¹⊗I torsor coordinate. -/
+def PhiNSmallExtension.liftTorsor
+    (hmodel : PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X Dref)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X Dref D₀)
+    (x : PhiNSmallExtension.Lift p E A B S Δ X Dref D₀) :
+    PhiNSmallExtension.liftClasses p E A B S Δ X Dref D₀ ≃
+      PhiNSmallExtension.tangentSpace p E A B S Δ X D₀ := sorry
+
+theorem PhiNSmallExtension.liftTorsor_origin
+    (hmodel : PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X Dref)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X Dref D₀)
+    (x : PhiNSmallExtension.Lift p E A B S Δ X Dref D₀) :
+    PhiNSmallExtension.liftTorsor p E A B S Δ X Dref D₀ hmodel hcompat x (Quotient.mk _ x)=0 := sorry
+end PhiNSmallLifts
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## GL₂ ordinary rings over their weight algebra
+BCGP21 Lemma 7.3.7, pp. 177–178. Formal smoothness is in the complete
+coefficient category; a power-series presentation records its relative dimension. -/
+section GL2WeightGeometry
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (γ : Fˣ) (r₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual r₀]
+variable (U : GL2Borel.Universal (O := O) r₀)
+local instance : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring :=
+  U.upperWeight.val.toRingHom.toAlgebra
+
+theorem GL2Borel.weight_flat (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) :
+    Module.Flat (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring := sorry
+
+theorem GL2Borel.weight_smooth_iff (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀) :
+    IsPowerSeriesOver (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring 3 ↔
+      γ^2≠1 ∨ (¬GL2Borel.IsSplit r₀ ∧ ¬GL2Borel.IsPeuRamifie (O := O) r₀) := sorry
+
+/-- The exceptional nonsplit case can be O-smooth while failing smoothness over Λ. -/
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀)
+    (hγ : γ^2=1) (hsplit : ¬GL2Borel.IsSplit r₀) (hpeu : GL2Borel.IsPeuRamifie (O := O) r₀) :
+    IsPowerSeriesOver O U.upperBase.ring 4 ∧
+    ¬IsPowerSeriesOver (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring 3 ∧
+    Module.Flat (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring := sorry
+
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀)
+    (hγ : γ^2=1) (hsplit : ¬GL2Borel.IsSplit r₀) (hpeu : ¬GL2Borel.IsPeuRamifie (O := O) r₀) :
+    IsPowerSeriesOver (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring 3 := sorry
+
+example (hp : p≠2) (hshape : GL2Borel.ResidualShape (O := O) γ r₀)
+    (hγ : γ^2≠1) :
+    IsPowerSeriesOver (GL2Borel.weight (p := p) (O := O) (F := F)).ring U.upperBase.ring 3 := sorry
+end GL2WeightGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## The filtered tangent complex
+Kisin Lemma 3.2.1, published pp. 538–539. The extra degree-one term
+is the descent-invariant quotient of endomorphisms by filtration-preserving
+endomorphisms. The lifting problem retains the reduction identification. -/
+instance tensorScalarAlgebra (A S T B : Type u) [CommRing A] [CommRing S] [CommRing T]
+    [CommRing B] [Algebra A S] [Algebra A T] [Algebra S T] [Algebra A B]
+    [IsScalarTower A S T] : Algebra (TensorProduct A B S) (TensorProduct A B T) :=
+  (Algebra.TensorProduct.map (AlgHom.id B B) (IsScalarTower.toAlgHom A S T)).toRingHom.toAlgebra
+
+instance tensorScalarTower (A S T B : Type u) [CommRing A] [CommRing S] [CommRing T]
+    [CommRing B] [Algebra A S] [Algebra A T] [Algebra S T] [Algebra A B]
+    [IsScalarTower A S T] : IsScalarTower B (TensorProduct A B S) (TensorProduct A B T) := sorry
+
+section FilteredPhiNComplex
+variable (p : ℕ) (A S T Δ : Type u) [CommRing A] [CommRing S] [CommRing T]
+variable [Algebra A S] [Algebra S T] [Algebra A T] [IsScalarTower A S T]
+variable [Group Δ] {d : ℕ} (F : FilteredPhiNModule p A S T Δ d)
+
+local instance : Module A (Module.End T (TensorProduct S T F.module)) :=
+  Module.compHom _ (algebraMap A T)
+
+abbrev FilteredPhiNModule.extendedModule := TensorProduct S T F.module
+
+def FilteredPhiNModule.Fil0End : Submodule A (Module.End T (TensorProduct S T F.module)) where
+  carrier := {f | ∀ i x, x ∈ F.Fil i → f x ∈ F.Fil i}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+def FilteredPhiNModule.rawFiltrationTangent : Type u :=
+  _root_.Quotient (Submodule.quotientRel (R := A) (M := Module.End T (TensorProduct S T F.module))
+    (F.Fil0End p A S T Δ))
+
+instance : AddCommGroup (F.rawFiltrationTangent p A S T Δ) := sorry
+
+instance : Module A (F.rawFiltrationTangent p A S T Δ) := sorry
+
+
+def FilteredPhiNModule.filtrationTangentAction : Δ →*
+    (F.rawFiltrationTangent p A S T Δ ≃ₗ[A] F.rawFiltrationTangent p A S T Δ) := sorry
+
+def FilteredPhiNModule.filtrationTangent : Submodule A (F.rawFiltrationTangent p A S T Δ) where
+  carrier := {x | ∀ g, F.filtrationTangentAction p A S T Δ g x=x}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-- Extension of a descent-invariant adjoint endomorphism, modulo Fil⁰. -/
+def FilteredPhiNModule.adjointToFiltration :
+    F.toPhiNModule.adjoint p A S Δ →ₗ[A] F.filtrationTangent p A S T Δ := sorry
+
+theorem FilteredPhiNModule.adjointToFiltration_formula
+    (f : F.toPhiNModule.adjoint p A S Δ)
+    (g : Module.End T (TensorProduct S T F.module))
+    (hg : ∀ t x, g (TensorProduct.tmul S t x)=TensorProduct.tmul S t (f.val x)) :
+    (F.adjointToFiltration p A S T Δ f).val=(F.Fil0End p A S T Δ).mkQ g := sorry
+
+def FilteredPhiNModule.d0 : F.toPhiNModule.adjoint p A S Δ →ₗ[A]
+    ((F.toPhiNModule.adjoint p A S Δ × F.toPhiNModule.adjoint p A S Δ) ×
+      F.filtrationTangent p A S T Δ) where
+  toFun f := (F.toPhiNModule.d0 p A S Δ f, F.adjointToFiltration p A S T Δ f)
+  map_add' := sorry
+  map_smul' := sorry
+
+def FilteredPhiNModule.d1 :
+    ((F.toPhiNModule.adjoint p A S Δ × F.toPhiNModule.adjoint p A S Δ) ×
+      F.filtrationTangent p A S T Δ) →ₗ[A] F.toPhiNModule.adjoint p A S Δ where
+  toFun z := F.toPhiNModule.d1 p A S Δ z.1
+  map_add' := sorry
+  map_smul' := sorry
+
+theorem FilteredPhiNModule.d1_d0 : (F.d1 p A S T Δ).comp (F.d0 p A S T Δ)=0 := sorry
+def FilteredPhiNModule.H1 : Type u := _root_.Quotient
+  (Submodule.quotientRel (R := A) (M := ↥(LinearMap.ker (F.d1 p A S T Δ)))
+    (Submodule.comap (R := A) (M := ↥(LinearMap.ker (F.d1 p A S T Δ)))
+      (LinearMap.ker (F.d1 p A S T Δ)).subtype (LinearMap.range (F.d0 p A S T Δ))))
+
+instance : AddCommGroup (F.H1 p A S T Δ) := sorry
+
+instance : Module A (F.H1 p A S T Δ) := sorry
+
+
+/-- Base change carries the direct-summand filtration and its descent action. -/
+def FilteredPhiNModule.baseChange (F : FilteredPhiNModule p A S T Δ d)
+    (B : Type u) [CommRing B] [Algebra A B] :
+    FilteredPhiNModule p B (TensorProduct A B S) (TensorProduct A B T) Δ d := sorry
+
+/-- A trivial filtration contributes no extra tangent directions. -/
+example (hF : ∀ i, F.Fil i=⊥ ∨ F.Fil i=⊤) :
+    Subsingleton (F.filtrationTangent p A S T Δ) ∧
+    Nonempty (F.H1 p A S T Δ ≃ₗ[A] F.toPhiNModule.H1 p A S Δ) := sorry
+end FilteredPhiNComplex
+
+section FilteredSmallLifts
+variable (p : ℕ) [Fact p.Prime] (E A B S T Δ : Type u)
+variable [Field E] [Algebra ℚ_[p] E] [CommRing A] [CommRing B]
+variable [Algebra E A] [Algebra E B] [Algebra ℚ_[p] A] [IsScalarTower ℚ_[p] E A]
+variable [IsLocalRing A] [IsLocalRing B] [IsArtinianRing A] [IsArtinianRing B]
+variable [Module.Finite E A] [Module.Finite E B] [Algebra A B] [Algebra B E]
+variable [CommRing S] [CommRing T] [Algebra A S] [Algebra A T] [Algebra S T]
+variable [IsScalarTower A S T] [Group Δ] [Finite Δ]
+variable (X : PhiNSmallExtension E A B) {d : ℕ} (D : PhiNModule p A S Δ d)
+variable (F₀ : FilteredPhiNModule p B (TensorProduct A B S) (TensorProduct A B T) Δ d)
+
+/-- R06.2 supplies L⊗A as well as L₀⊗A, with their compatible descent. -/
+def FilteredPeriodScalarModel : Prop :=
+  ∃ M : PhiNScalarModel.{u} p, ∃ eS : S ≃ₐ[A] TensorProduct ℚ_[p] A M.S,
+    ∃ eT : T ≃ₐ[A] TensorProduct ℚ_[p] A M.T,
+      (∀ a s, eT (algebraMap S T (eS.symm (TensorProduct.tmul ℚ_[p] a s)))=
+        TensorProduct.tmul ℚ_[p] a (algebraMap M.S M.T s)) ∧
+      PhiNSmallExtension.IsPeriodScalarModel p E A B S Δ X D
+
+theorem filteredPhiN_forget_lift
+    (hmodel : FilteredPeriodScalarModel p E A B S T Δ X D)
+    (hcompat : PhiNSmallExtension.ScalarCompatible p E A B S Δ X D F₀.toPhiNModule)
+    (identification : PhiNModule.Iso (D.baseChange p A S Δ B) F₀.toPhiNModule) :
+    ∃ F : FilteredPhiNModule p A S T Δ d,
+      ∃ h : F.toPhiNModule=D,
+      ∃ i : FilteredPhiNModule.Iso (F.baseChange p A S T Δ B) F₀,
+        HEq i.underlying identification := sorry
+end FilteredSmallLifts
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry CategoryTheory
+
+/-! ## Faithful point adapters and finite-flat completions
+BCGP25 Proposition 6.2.5, p. 72; Lemma 6.2.7 and Corollary 6.2.8,
+pp. 74–75. Residue-field extensions require an unramified coefficient
+extension; the original-coefficient presentation is its rational-point case. -/
+section SymplecticPointAdapters
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable {χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ}
+variable {ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F} [ContinuousResidual ρ₀]
+variable (U : GSp4.UniversalOrdinaryFamily (O := O) χbar ρ₀)
+
+/-- The finite-flat condition and trivial inertia on the Lagrangian plane
+are literal equations on a coefficient point and its chosen symplectic flag. -/
+def GSp4.UniversalOrdinaryFamily.FlatFlag (A : CNLObject O F) [Algebra ℤ_[p] A.ring]
+    (f : U.base.Hom A) : Type :=
+  {L : FullFlag A.ring 4 // GSp4.IsSymplecticFlag L ∧
+    L ∈ TauCeti.GaloisDeformation.Local.ordinaryFlagScheme.points
+      (⊤ : Subgroup (Field.absoluteGaloisGroup ℚ_[p]))
+      ((Matrix.GeneralLinearGroup.map f.val.toRingHom).comp U.data.representation.toHom)
+      (fun i ↦ (Units.map f.val.toMonoidHom).comp (U.characters i)) ∧
+    IsFlatLift p ℚ_[p] A.ring
+      (twistRep ((Matrix.GeneralLinearGroup.map f.val.toRingHom).comp U.data.representation.toHom)
+        ((Units.map (algebraMap O A.ring).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))) ∧
+    ∀ (σ : localInertia p ℚ_[p]) v, v ∈ L.Fil 2 →
+      Matrix.mulVec (Matrix.GeneralLinearGroup.map f.val.toRingHom (U.data.representation.toHom σ.val) :
+        Matrix (Fin 4) (Fin 4) A.ring) v=v}
+
+def GSp4.flatScheme_represents (A : CNLObject O F) [Algebra ℤ_[p] A.ring]
+    (f : U.base.Hom A) :
+    {t : Spec (.of A.ring) ⟶ U.flatScheme //
+      t ≫ U.flatInclusion ≫ U.toSpec=Spec.map (CommRingCat.ofHom f.val.toRingHom)} ≃ U.FlatFlag A f := sorry
+
+abbrev GSp4.UniversalOrdinaryFamily.flatImage :=
+  U.base.ring ⧸ modelImageIdeal (U.flatInclusion ≫ U.toSpec)
+
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+theorem GSp4.flatImage_irreducible (hp : p≠2)
+    (hflat : IsFlatLift p ℚ_[p] F (twistRep ρ₀
+      ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))
+    (hordinary : GSp4.HasWeightTwoFlag (localInertia p ℚ_[p]) ρ₀
+      (GSp4.pairedCharacters (χbar 0) (χbar 1)
+        (inverseCharacter ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))) :
+    IrreducibleSpace (PrimeSpectrum U.flatImage) := sorry
+
+/-- A finite residue extension is handled by its unramified coefficient ring.
+The chosen coefficient lift induces the stated residue identification. -/
+theorem GSp4.flatFlag_formallySmooth_finiteResidue (hp : p≠2)
+    (hflat : IsFlatLift p ℚ_[p] F (twistRep ρ₀
+      ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))))
+    (z : U.flatScheme) (hclosed : IsClosed {z})
+    (O' : Type) [CommRing O'] [IsLocalRing O'] [IsDomain O'] [IsDiscreteValuationRing O']
+    [IsAdicComplete (IsLocalRing.maximalIdeal O') O'] [Algebra O O']
+    [Module.Finite O O'] [Algebra.Etale O O']
+    [Algebra O' (U.flatCompletedStalk z)] [IsScalarTower O O' (U.flatCompletedStalk z)]
+    [IsLocalRing (U.flatCompletedStalk z)]
+    [Algebra O' (IsLocalRing.ResidueField (U.flatCompletedStalk z))]
+    [ResidueIdentification O' (IsLocalRing.ResidueField (U.flatCompletedStalk z))] :
+    ∃ d : ℕ, Nonempty (U.flatCompletedStalk z ≃ₐ[O'] MvPowerSeries (Fin d) O') := sorry
+
+variable {U}
+variable {E : Type} [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra O E] [Algebra ℤ_[p] E] [IsScalarTower ℤ_[p] O E]
+variable [TopologicalSpace E] [IsTopologicalRing E]
+variable (x : GSp4.FlagGenericPoint U (E := E))
+
+def GSp4.FlagGenericPoint.conjugateLie (σ : Field.absoluteGaloisGroup ℚ_[p])
+    (Y : GSp4.lie (E := E)) : GSp4.lie (E := E) :=
+  ⟨(x.representation σ : Matrix (Fin 4) (Fin 4) E)*Y.val*
+    (x.representation σ⁻¹ : Matrix (Fin 4) (Fin 4) E), by sorry⟩
+
+theorem GSp4.FlagGenericPoint.quotientAction_formula (σ : Field.absoluteGaloisGroup ℚ_[p])
+    (Y : GSp4.lie (E := E)) :
+    x.quotientAction σ
+      ((Submodule.comap (GSp4.lie (E := E)).subtype (GSp4.adFil x.flag 1)).mkQ Y)=
+      (Submodule.comap (GSp4.lie (E := E)).subtype (GSp4.adFil x.flag 1)).mkQ (x.conjugateLie σ Y) := sorry
+
+/-- Recovering the flag as well as the coefficient point fixes the representing adapter. -/
+def GSp4.FlagGenericPoint.flagOfMorphism (x : GSp4.FlagGenericPoint U (E := E))
+    (t : Spec (.of E) ⟶ U.genericScheme)
+    (h : t ≫ modelBaseChange.toSpec U.toSpec (GenericFibre (p : U.base.ring) U.base.ring)
+      (algebraMap _ _)=Spec.map (CommRingCat.ofHom x.point.toRingHom)) : FullFlag E 4 := sorry
+
+theorem GSp4.FlagGenericPoint.toScheme_flag :
+    x.flagOfMorphism x.toScheme x.toScheme_coefficients=x.flag := sorry
+end SymplecticPointAdapters
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+section KWVectorNormalisation
+variable (O : Type u) [CommRing O] [IsLocalRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+
+/-- KW II Lemma 3.8, p. 30: after choosing a polynomial-module basis,
+an arbitrary formal vector is in the GL-orbit of a polynomial vector.
+No primitivity hypothesis on the vector is needed. -/
+theorem kwAlgebraisation_vector (r : ℕ) (m : Fin r → PowerSeries O) :
+    ∃ (m₀ : Fin r → Polynomial O) (g : GL (Fin r) (PowerSeries O)),
+      Matrix.mulVec (g : Matrix (Fin r) (Fin r) (PowerSeries O))
+        (fun i ↦ (m₀ i : PowerSeries O))=m := sorry
+
+/-- This formulation retains the free polynomial module and its scalar
+extension, so the vector statement does not just assert preparation of one series. -/
+theorem kwAlgebraisation_freeModule (M₀ : Type u) [AddCommGroup M₀]
+    [Module (Polynomial O) M₀] [Module.Free (Polynomial O) M₀]
+    [Module.Finite (Polynomial O) M₀]
+    (m : TensorProduct (Polynomial O) (PowerSeries O) M₀) :
+    ∃ (m₀ : M₀)
+      (e : TensorProduct (Polynomial O) (PowerSeries O) M₀ ≃ₗ[PowerSeries O]
+        TensorProduct (Polynomial O) (PowerSeries O) M₀),
+      e (TensorProduct.tmul (Polynomial O) 1 m₀)=m := sorry
+
+example : ∃ g : GL (Fin 1) (PowerSeries O),
+    Matrix.mulVec (g : Matrix (Fin 1) (Fin 1) (PowerSeries O)) (fun _ ↦ 1)=
+      (fun _ ↦ 1+PowerSeries.X) := sorry
+
+/-- A vector all of whose coefficients have positive uniformizer valuation
+is covered by the same lemma; residue-nonzero preparation alone would miss it. -/
+example (ϖ : O) : ∃ g : GL (Fin 1) (PowerSeries O),
+    Matrix.mulVec (g : Matrix (Fin 1) (Fin 1) (PowerSeries O))
+      (fun _ ↦ PowerSeries.C ϖ)=
+        (fun _ ↦ PowerSeries.C ϖ*(1+PowerSeries.X)) := sorry
+
+example (r : ℕ) : ∃ (m₀ : Fin r → Polynomial O) (g : GL (Fin r) (PowerSeries O)),
+    m₀=0 ∧ Matrix.mulVec (g : Matrix (Fin r) (Fin r) (PowerSeries O))
+      (fun i ↦ (m₀ i : PowerSeries O))=0 := sorry
+end KWVectorNormalisation
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Full KW export presentations
+KW II §3.2.3–3.2.4, p. 24; Savitt Theorem 6.22(3), preprint p. 42.
+The fixed determinant is the full Galois determinant. The unframed quotient is
+obtained by contracting the condition ideal along the forgetful map. -/
+section KWExportPresentations
+variable {p : ℕ} [Fact p.Prime] {K E O F Γ : Type u}
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [TopologicalSpace O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+variable [T2Space Γ] [TotallyDisconnectedSpace Γ] [MazurFinite Γ F]
+variable (ρ₀ : Γ →* GL (Fin 2) F) [ContinuousResidual ρ₀] [SchurResidual ρ₀]
+variable (ψ : Γ →* Oˣ)
+variable (hψ : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=
+  Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (c : KWCondition p K E Γ O)
+
+def KWCondition.unframedIdeal : Ideal (UnframedRing O 2 ρ₀) :=
+  Ideal.comap (forgetFraming (𝒪 := O) (n := 2) (ρbar := ρ₀)).toRingHom
+    (KWCondition.ideal ρ₀ ψ hψ c)
+
+abbrev KWCondition.unframedRing :=
+  UnframedRing O 2 ρ₀ ⧸ KWCondition.unframedIdeal ρ₀ ψ hψ c
+
+def KWCondition.forgetFraming : KWCondition.unframedRing ρ₀ ψ hψ c →ₐ[O]
+    KWCondition.ring ρ₀ ψ hψ c := sorry
+
+theorem KWCondition.framingComparison : ∃ e : KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O]
+    MvPowerSeries (Fin 3) (KWCondition.unframedRing ρ₀ ψ hψ c),
+    ∀ r, e (KWCondition.forgetFraming ρ₀ ψ hψ c r)=MvPowerSeries.C r := sorry
+
+variable (hv : KWCondition.admissible ρ₀ ψ c)
+include hv
+
+/-- One deformation parameter and three independent framing parameters,
+including the irreducible endpoint k=p and the dyadic k=2 case. -/
+theorem exportFontaineLaffailleIrreducible_presentations
+    (k : ℕ) (hk : 2≤k ∧ k≤p) (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hirred : IsIrreducibleRep (ρ₀.comp e.symm.toMonoidHom))
+    (hdeg : Module.finrank ℚ_[p] K=1)
+    (hc : c=.lowWeightCrystalline k (by omega) e none) :
+    Nonempty (KWCondition.unframedRing ρ₀ ψ hψ c ≃ₐ[O] PowerSeries O) ∧
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O] MvPowerSeries (Fin 4) O) := sorry
+
+/-- The weight-two nodal presentation requires a nontrivial principal-series
+inertial type. The two explicit coefficient hypotheses are those of Savitt. -/
+theorem exportWeightTwoIrreducible_presentations
+    (k : ℕ) (hp : p≠2) (hk : 3≤k ∧ k≤p)
+    (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hirred : IsIrreducibleRep (ρ₀.comp e.symm.toMonoidHom))
+    (hdeg : Module.finrank ℚ_[p] K=1)
+    (hc : c=.weightTwo k (.oddFinite hp (by omega)) e)
+    (K₂ : Type u) [Field K₂] [CharZero K₂] [Algebra ℚ_[p] K₂]
+    [FiniteDimensional ℚ_[p] K₂]
+    (h₂ : Module.finrank ℚ_[p] K₂=2) (hunr : localRamificationIndex p K₂=1)
+    (e₂ : K₂ →ₐ[ℚ_[p]] E)
+    (Fr : Field.absoluteGaloisGroup K)
+    (hFr : Fr=(LocalWeil.toGalois p K) (LocalWeil.geometricFrobenius p K))
+    (hsqrt : ∃ a : F, a^2=(Matrix.GeneralLinearGroup.det (ρ₀ (e.symm Fr)) : F)) :
+    Nonempty (KWCondition.unframedRing ρ₀ ψ hψ c ≃ₐ[O]
+      (MvPowerSeries (Fin 2) O ⧸ Ideal.span
+        {MvPowerSeries.X 0*MvPowerSeries.X 1-MvPowerSeries.C (p:O)})) ∧
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O]
+      (MvPowerSeries (Fin 5) O ⧸ Ideal.span
+        {MvPowerSeries.X 0*MvPowerSeries.X 1-MvPowerSeries.C (p:O)})) := sorry
+
+/-- The trivial tame type at k=2 gives the crystalline case, rather than the
+nontrivial-type node. -/
+example (hp : p≠2) (e : Γ ≃* Field.absoluteGaloisGroup K)
+    (hirred : IsIrreducibleRep (ρ₀.comp e.symm.toMonoidHom))
+    (hdeg : Module.finrank ℚ_[p] K=1)
+    (hc : c=.weightTwo 2 (.oddFinite hp (by have := (Fact.out : p.Prime).two_le; omega)) e) :
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O] MvPowerSeries (Fin 4) O) := sorry
+end KWExportPresentations
+
+/-- The algebra model with m extra framing parameters. -/
+abbrev SavittNode (p : ℕ) (O : Type u) [CommRing O] (m : ℕ) :=
+  MvPowerSeries (Fin (m+2)) O ⧸ Ideal.span
+    {MvPowerSeries.X 0*MvPowerSeries.X 1-MvPowerSeries.C (p:O)}
+
+section SavittNodeGeometry
+variable (p : ℕ) [Fact p.Prime] (O : Type u) [CommRing O] [IsLocalRing O]
+variable [IsDomain O] [IsDiscreteValuationRing O] [IsNoetherianRing O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable (m : ℕ) (ϖ : O) (hϖ : Irreducible ϖ)
+include hϖ
+
+theorem savittNode_geometry : IsDomain (SavittNode p O m) ∧ Module.Flat O (SavittNode p O m) ∧
+    IsEquidimensional (SavittNode p O m) (m+2) ∧
+    HasRegularGenericFibre ϖ (SavittNode p O m) ∧
+    ¬ Algebra.FormallySmooth O (SavittNode p O m) := sorry
+
+/-- The actual special-fibre ring has two components. Regularity of the total
+ring for unramified coefficients does not make this morphism formally smooth. -/
+example (F : Type u) [Field F] [Algebra O F] [ResidueIdentification O F] :
+    Nonempty ((SavittNode p O m ⧸ Ideal.span {algebraMap O (SavittNode p O m) ϖ}) ≃ₐ[O]
+      (MvPowerSeries (Fin (m+2)) F ⧸ Ideal.span {(MvPowerSeries.X 0*MvPowerSeries.X 1 : MvPowerSeries (Fin (m+2)) F)})) ∧
+    ∃ P Q : Ideal (MvPowerSeries (Fin (m+2)) F ⧸
+      Ideal.span {(MvPowerSeries.X 0*MvPowerSeries.X 1 : MvPowerSeries (Fin (m+2)) F)}),
+      P≠Q ∧ minimalPrimes (MvPowerSeries (Fin (m+2)) F ⧸
+        Ideal.span {(MvPowerSeries.X 0*MvPowerSeries.X 1 : MvPowerSeries (Fin (m+2)) F)})={P,Q} := sorry
+end SavittNodeGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## Full WD specializations and an unramified-twist test
+CDN §5.2, Theorem 5.11 and Lemma 5.12, preprint pp. 66–67.
+These are statements about the whole Weil representation, not just inertia. -/
+section WDTwisting
+variable {p : ℕ} [Fact p.Prime] {K E : Type u} [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Field E] [CharZero E]
+variable {n : ℕ}
+
+def InertialTypeData.twist (M : InertialTypeData p K E n)
+    (χ : LocalWeil p K →* Eˣ)
+    (hχ : ∀ i : localInertia p K, χ (LocalWeil.inertia p K i)=1) :
+    InertialTypeData p K E n where
+  weil :=
+    { toFun := fun w ↦ Matrix.GeneralLinearGroup.scalar (Fin n) (χ w)*M.weil w
+      map_one' := sorry
+      map_mul' := sorry }
+  openKernel := sorry
+  monodromy := M.monodromy
+  nilpotent := M.nilpotent
+  normRelation := sorry
+
+theorem InertialTypeData.twist_matrix (M : InertialTypeData p K E n)
+    (χ : LocalWeil p K →* Eˣ) (hχ : ∀ i : localInertia p K, χ (LocalWeil.inertia p K i)=1)
+    (w : LocalWeil p K) :
+    ((M.twist χ hχ).weil w : Matrix (Fin n) (Fin n) E)=
+      (χ w : E) • (M.weil w : Matrix (Fin n) (Fin n) E) := sorry
+
+/-- A quadratic unramified twist preserves inertia, N and determinant in rank two.
+A nonzero Frobenius trace detects a change in the full WD representation. -/
+example (M : InertialTypeData p K E 2) (χ : LocalWeil p K →* Eˣ)
+    (hχ : ∀ i : localInertia p K, χ (LocalWeil.inertia p K i)=1)
+    (hquad : ∀ w, χ w ^ 2=1)
+    (hFr : χ (LocalWeil.geometricFrobenius p K)=-1)
+    (htrace : Matrix.trace (M.weil (LocalWeil.geometricFrobenius p K) :
+      Matrix (Fin 2) (Fin 2) E)≠0) :
+    InertialTypeData.IsEquivalent M (M.twist χ hχ) ∧
+    (∀ w, Matrix.GeneralLinearGroup.det ((M.twist χ hχ).weil w)=
+      Matrix.GeneralLinearGroup.det (M.weil w)) ∧
+    ¬ InertialTypeData.IsWDIsomorphic M (M.twist χ hχ) := sorry
+end WDTwisting
+
+section WDSpecialization
+variable (p : ℕ) [Fact p.Prime] (E O F : Type)
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable (B : ModPBlock p F) (M : InertialTypeData p ℚ_[p] E 2)
+variable (δ : Field.absoluteGaloisGroup ℚ_[p] →* Oˣ)
+variable (hs : IsSupercuspidalWD p E M)
+
+/-- The universal trace determines the representation over the product of PID
+factors. This retains the isomorphism, rather than only equality of traces. -/
+theorem WDTypeRing.universalRep_unique
+    (r : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) (WDTypeRing p E O F B M δ))
+    (hr : ∀ g, Matrix.trace (r g : Matrix (Fin 2) (Fin 2) _)=
+      WDTypeRing.integralMap p E O F B M δ (blockPseudoTrace p O F B δ g)) :
+    ∃ h : GL (Fin 2) (WDTypeRing p E O F B M δ), ∀ g,
+      h*r g*h⁻¹=WDTypeRing.universalRep p E O F B M δ hs g := sorry
+
+theorem WDTypeRing.universalRep_determinant (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    Matrix.GeneralLinearGroup.det (WDTypeRing.universalRep p E O F B M δ hs g)=
+      Units.map (WDTypeRing.integralMap p E O F B M δ).toMonoidHom
+        (Units.map (algebraMap O (blockPseudoRing p O F B δ)).toMonoidHom (δ g)) := sorry
+
+/-- Every finite closed-point specialization has the full de Rham and WD datum,
+and is absolutely irreducible; its trace determines its isomorphism class. -/
+theorem WDTypeRing.universalRep_specialization
+    (L : Type) [Field L] [CharZero L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    [Algebra O L] [IsScalarTower O E L]
+    (x : WDTypeRing p E O F B M δ →ₐ[E] L) :
+    let r := (Matrix.GeneralLinearGroup.map x.toRingHom).comp
+      (WDTypeRing.universalRep p E O F B M δ hs)
+    HasWDWeightsZeroOne p E M L r ∧
+    IsIrreducibleRep ((Matrix.GeneralLinearGroup.map (algebraMap L (AlgebraicClosure L))).comp r) ∧
+    ∀ (r' : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L),
+      (∀ g, Matrix.trace (r' g : Matrix (Fin 2) (Fin 2) L)=
+        Matrix.trace (r g : Matrix (Fin 2) (Fin 2) L)) →
+      ∃ h : GL (Fin 2) L, ∀ g, h*r' g*h⁻¹=r g := sorry
+
+/-- A carrier test of the point API: the actual specialization retains both
+weights and the Weil action. -/
+example (L : Type) [Field L] [CharZero L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    [Algebra O L] [IsScalarTower O E L]
+    (x : WDTypeRing p E O F B M δ →ₐ[E] L) :
+    HasWDWeightsZeroOne p E M L
+      ((Matrix.GeneralLinearGroup.map x.toRingHom).comp
+        (WDTypeRing.universalRep p E O F B M δ hs)) := sorry
+end WDSpecialization
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Ordinary KW exports
+KW II Proposition 3.6, pp. 24–30. The residual upper-triangular shape and the
+chosen unramified quotient are retained, including the unramified split case. -/
+section KWOrdinaryExport
+variable {p : ℕ} [Fact p.Prime] {K E O F Γ : Type u}
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [TopologicalSpace O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+variable [T2Space Γ] [TotallyDisconnectedSpace Γ] [MazurFinite Γ F]
+variable (ρ₀ : Γ →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (ψ : Γ →* Oˣ)
+variable (hψ : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=
+  Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (c : KWCondition p K E Γ O)
+variable (e : Γ ≃* Field.absoluteGaloisGroup K) (k : ℕ)
+
+/-- Reducibility alone does not specify the KW ordinary residual condition. -/
+def IsResidualKWOrdinary : Prop := ∃ h : GL (Fin 2) F,
+    ∃ χ₁ χ₂ : Γ →* Fˣ,
+    (∀ g, let M := (h*ρ₀ g*h⁻¹ : GL (Fin 2) F);
+      (M : Matrix (Fin 2) (Fin 2) F) 1 0=0 ∧
+      (M : Matrix (Fin 2) (Fin 2) F) 0 0=(χ₁ g : F) ∧
+      (M : Matrix (Fin 2) (Fin 2) F) 1 1=(χ₂ g : F)) ∧
+    (∀ g : (localInertia p K).comap e.toMonoidHom, χ₂ g.val=1) ∧
+    ∀ g : (localInertia p K).comap e.toMonoidHom,
+      χ₁ g.val=Units.map (algebraMap O F).toMonoidHom (localCyclotomic p K O (e g.val))^(k-1)
+
+def IsUnramifiedDistinctSplit : Prop := ∃ (χ₁ χ₂ : Γ →* Fˣ) (h : GL (Fin 2) F),
+  χ₁≠χ₂ ∧ (∀ g : (localInertia p K).comap e.toMonoidHom, χ₁ g.val=1 ∧ χ₂ g.val=1) ∧
+  ∀ g, ((h*ρ₀ g*h⁻¹ : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F)=
+    Matrix.diagonal ![(χ₁ g : F),(χ₂ g : F)]
+
+variable (hk : 2≤k ∧ k≤p) (hv : KWCondition.admissible ρ₀ ψ c)
+variable (hord : IsResidualKWOrdinary (p := p) (O := O) ρ₀ e k)
+variable (hcond : (∃ choice, c=.lowWeightCrystalline k (by omega) e choice) ∨
+  ∃ b : KWWeightTwoBranch p k, c=.weightTwo k b e)
+include hk hv hord hcond
+
+theorem exportOrdinary (ϖ : O) (hϖ : Irreducible ϖ) :
+    IsDomain (KWCondition.ring ρ₀ ψ hψ c) ∧ Module.Flat O (KWCondition.ring ρ₀ ψ hψ c) ∧
+    IsEquidimensional (KWCondition.ring ρ₀ ψ hψ c) (4+Module.finrank ℚ_[p] K) ∧
+    HasRegularGenericFibre ϖ (KWCondition.ring ρ₀ ψ hψ c) := sorry
+
+/-- Ramified ordinary residual representations and distinct split unramified
+ones give the stated complete local smooth model. -/
+theorem exportOrdinary_powerSeries
+    (hsmooth : (∃ g : (localInertia p K).comap e.toMonoidHom, ρ₀ g.val≠1) ∨
+      IsUnramifiedDistinctSplit (p := p) ρ₀ e) :
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O]
+      MvPowerSeries (Fin (3+Module.finrank ℚ_[p] K)) O) := sorry
+
+/-- A carrier-level test at the ramified ordinary point of an unramified local
+field of degree two: five parameters, and Krull dimension six. -/
+example (hdeg : Module.finrank ℚ_[p] K=2)
+    (hram : ∃ g : (localInertia p K).comap e.toMonoidHom, ρ₀ g.val≠1) :
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O] MvPowerSeries (Fin 5) O) ∧
+    ringKrullDim (KWCondition.ring ρ₀ ψ hψ c)=6 := sorry
+
+/-- The unramified distinct case uses the selected quotient in the condition,
+so its two possible orderings are not silently identified. -/
+example (hdeg : Module.finrank ℚ_[p] K=1)
+    (hsplit : IsUnramifiedDistinctSplit (p := p) ρ₀ e) :
+    Nonempty (KWCondition.ring ρ₀ ψ hψ c ≃ₐ[O] MvPowerSeries (Fin 4) O) := sorry
+end KWOrdinaryExport
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Three GL₂ subquotients of the P-framed problem
+BCGP21 Lemma 7.3.15, p. 183. The cross subquotient has variable determinant.
+The fibre product identifies its two characters with the first characters of
+the other two problems; omitting this identification gives the wrong ring. -/
+section SymplecticTriple
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (r₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual r₀]
+variable (δ : Field.absoluteGaloisGroup ℚ_[p] →* Oˣ)
+
+/-- An upper triangular lift with both actual diagonal characters. A prescribed
+determinant is imposed when `fixed` is true. The cross problem sets it false. -/
+structure GL2Borel.GeneralUpperPoint (fixed : Bool) (A : CNLObject O F) where
+  lift : Lift 2 r₀ A.residue.toRingHom
+  character : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ
+  continuous : ∀ i, Continuous fun g ↦ (character i g : A.ring)
+  upper : ∀ g, (lift.toHom g : Matrix (Fin 2) (Fin 2) A.ring) 1 0=0
+  diagonal : ∀ i g, (lift.toHom g : Matrix (Fin 2) (Fin 2) A.ring) i i=(character i g : A.ring)
+  determinant : fixed=true → ∀ g, Matrix.GeneralLinearGroup.det (lift.toHom g)=
+    Units.map (algebraMap O A.ring).toMonoidHom (δ g)
+
+structure GL2Borel.GeneralUpperUniversal (fixed : Bool) where
+  base : CNLObject O F
+  data : GL2Borel.GeneralUpperPoint r₀ δ fixed base
+  represents : ∀ A : CNLObject O F, ∃ e : base.Hom A ≃ GL2Borel.GeneralUpperPoint r₀ δ fixed A,
+    ∀ f, (e f).lift=mapCNLift r₀ f data.lift ∧
+      ∀ i g, (e f).character i g=Units.map f.val.toMonoidHom (data.character i g)
+
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ)
+
+structure GSp4.PMatrixPoint (scalarInertia : Bool) (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F)
+    [ContinuousResidual ρ₀] (A : CNLObject O F) where
+  lift : Lift 4 ρ₀ A.residue.toRingHom
+  character : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ
+  continuous : ∀ i, Continuous fun g ↦ (character i g : A.ring)
+  residual : ∀ i g, Units.map A.residue.toMonoidHom (character i g)=χbar i g
+  symplectic : ∀ g, IsGSp4 (lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring)
+    (algebraMap O A.ring (δ g : O))
+  upper : ∀ g i j, j < i → (lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring) i j=0
+  P_zero : ∀ g, (lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring) 0 1=0 ∧
+    (lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring) 2 3=0
+  diagonal : ∀ i g, (lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring) i i=
+    (GSp4.pairedCharacters (character 0) (character 1)
+      ((Units.map (algebraMap O A.ring).toMonoidHom).comp δ) i g : A.ring)
+  inertia : scalarInertia=true → ∀ g : localInertia p ℚ_[p], character 0 g.val=character 1 g.val
+
+/-- The fixed P-basis, rather than a conjugacy class of such bases. -/
+structure GSp4.PMatrixUniversal (scalarInertia : Bool)
+    (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀] where
+  base : CNLObject O F
+  data : GSp4.PMatrixPoint δ χbar scalarInertia ρ₀ base
+  represents : ∀ A : CNLObject O F, ∃ e : base.Hom A ≃ GSp4.PMatrixPoint δ χbar scalarInertia ρ₀ A,
+    ∀ f, (e f).lift=mapCNLift ρ₀ f data.lift ∧
+      ∀ i g, (e f).character i g=Units.map f.val.toMonoidHom (data.character i g)
+
+/-- The source's three subquotient matrices, in the P-basis. -/
+def GSp4.PMatrixPoint.subquotientMatrix {scalarInertia : Bool}
+    {ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F} [ContinuousResidual ρ₀]
+    {A : CNLObject O F} (r : GSp4.PMatrixPoint δ χbar scalarInertia ρ₀ A)
+    (i : Fin 3) (g : Field.absoluteGaloisGroup ℚ_[p]) : Matrix (Fin 2) (Fin 2) A.ring :=
+  let M := (r.lift.toHom g : Matrix (Fin 4) (Fin 4) A.ring)
+  ![!![M 0 0,M 0 3;0,M 3 3], !![M 1 1,M 1 2;0,M 2 2],
+    !![M 0 0,M 0 2;0,M 2 2]] i
+
+/-- Every subquotient lifts its literal residual matrix. -/
+def GSp4.PResidualSubquotient (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F)
+    (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+      (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0)
+    (i : Fin 3) : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F := sorry
+
+instance (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+    (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+      (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0) (i : Fin 3) :
+    ContinuousResidual (GSp4.PResidualSubquotient ρ₀ hP i) := sorry
+
+theorem GSp4.PResidualSubquotient_matrix (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F)
+    (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+      (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0) (i : Fin 3) (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    (GSp4.PResidualSubquotient ρ₀ hP i g : Matrix (Fin 2) (Fin 2) F)=
+      let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F)
+      ![!![M 0 0,M 0 3;0,M 3 3], !![M 1 1,M 1 2;0,M 2 2],
+        !![M 0 0,M 0 2;0,M 2 2]] i := sorry
+
+/-- The character-pair ring is a genuine representing object. -/
+structure GSp4.CharacterPairUniversal where
+  base : CNLObject O F
+  character : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* base.ringˣ
+  continuous : ∀ i, Continuous fun g ↦ (character i g : base.ring)
+  residual : ∀ i g, Units.map base.residue.toMonoidHom (character i g)=χbar i g
+  represents : ∀ A : CNLObject O F, ∃ e : base.Hom A ≃
+    {χ : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* A.ringˣ //
+      (∀ i, Continuous fun g ↦ (χ i g : A.ring)) ∧
+      ∀ i g, Units.map A.residue.toMonoidHom (χ i g)=χbar i g},
+    ∀ f i g, (e f).val i g=Units.map f.val.toMonoidHom (character i g)
+
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+variable (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+  (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0)
+variable (UA : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 0) δ true)
+variable (UB : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 1) δ true)
+variable (UAB : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 2) δ false)
+variable (C : GSp4.CharacterPairUniversal (O := O) χbar)
+
+/-- The first two rings carry the fixed multiplier; the cross ring is matched
+with their diagonal characters by this coefficient map. -/
+structure GSp4.TripleCharacterMaps (R : Type) [CommRing R]
+    (a : UA.base.ring →+* R) (b : UB.base.ring →+* R) where
+  toPair : C.base.ring →+* R
+  coefficients : ∀ x : O, toPair (algebraMap O C.base.ring x)=a (algebraMap O UA.base.ring x)
+  toCross : C.base.Hom UAB.base
+  first : ∀ g, Units.map toPair.toMonoidHom (C.character 0 g)=
+    Units.map a.toMonoidHom (UA.data.character 0 g)
+  second : ∀ g, Units.map toPair.toMonoidHom (C.character 1 g)=
+    Units.map b.toMonoidHom (UB.data.character 0 g)
+  cross_first : ∀ g, Units.map toCross.val.toMonoidHom (C.character 0 g)=UAB.data.character 0 g
+  cross_second : ∀ g, Units.map toCross.val.toMonoidHom (C.character 1 g)=
+    Units.map (algebraMap O UAB.base.ring).toMonoidHom (δ g)*(UAB.data.character 1 g)⁻¹
+
+variable (D : GSp4.TripleCharacterMaps (δ := δ) (χbar := χbar) (ρ₀ := ρ₀) (hP := hP)
+  (UA := UA) (UB := UB) (UAB := UAB) (C := C) (CompletedTensor O UA.base.ring UB.base.ring)
+  (CompletedTensor.inl O UA.base.ring UB.base.ring).toRingHom
+  (CompletedTensor.inr O UA.base.ring UB.base.ring).toRingHom)
+/-- Exact completed tensor presentation, with the character identifications.
+The fully framed ring has five further parameters. -/
+theorem GSp4.parabolicUnconstrained_tripleTensor
+    (U : GSp4.PMatrixUniversal δ χbar false ρ₀) :
+    letI : Algebra C.base.ring (CompletedTensor O UA.base.ring UB.base.ring) := D.toPair.toAlgebra
+    letI : Algebra C.base.ring UAB.base.ring := D.toCross.val.toRingHom.toAlgebra
+    Nonempty (U.base.ring ≃+*
+      CompletedTensor C.base.ring (CompletedTensor O UA.base.ring UB.base.ring) UAB.base.ring) := sorry
+
+/-- The actual cross representation has determinant δ·α/β; fixing it to δ
+would incorrectly force the two characters to coincide. -/
+example {A : CNLObject O F} (r : GSp4.PMatrixPoint δ χbar false ρ₀ A)
+    (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    Matrix.det (GSp4.PMatrixPoint.subquotientMatrix δ χbar r 2 g)=
+      (r.character 0 g : A.ring)*algebraMap O A.ring (δ g : O)*((r.character 1 g)⁻¹ : A.ringˣ) := sorry
+
+/-- The two diagonal subquotients have the fixed multiplier. -/
+example {A : CNLObject O F} (r : GSp4.PMatrixPoint δ χbar false ρ₀ A)
+    (g : Field.absoluteGaloisGroup ℚ_[p]) :
+    Matrix.det (GSp4.PMatrixPoint.subquotientMatrix δ χbar r 0 g)=algebraMap O A.ring (δ g : O) ∧
+    Matrix.det (GSp4.PMatrixPoint.subquotientMatrix δ χbar r 1 g)=algebraMap O A.ring (δ g : O) := sorry
+end SymplecticTriple
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## Borel obstruction cases
+BCGP21 Lemma 7.3.14, pp. 182–183. Vanishing of an extension class is
+expressed by splitting its actual rank-two subquotient. The conditions below
+are necessary for a nonzero H²; their converse is not asserted. -/
+
+def upperMatrixSubmodule (F : Type u) [Field F] (n : ℕ) :
+    Submodule F (Matrix (Fin n) (Fin n) F) where
+  carrier := {X | ∀ i j, j < i → X i j=0}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+abbrev GSp4.borelLie (F : Type u) [Field F] :=
+  GSp4.lie (E := F) ⊓ upperMatrixSubmodule F 4
+
+section GSpBorelObstructions
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [TopologicalSpace F] [DiscreteTopology F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+variable (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+  (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0)
+
+abbrev GSp4.BorelH2 := AdH2WithValues (ρbar := ρ₀) (GSp4.borelLie F)
+
+/-- The three extensions are A=(α,ε⁻¹α⁻¹), B=(β,ε⁻¹β⁻¹),
+and AB=(α,ε⁻¹β⁻¹). -/
+def GSp4.ExtensionSplits (i : Fin 3) : Prop :=
+  GL2Borel.IsSplit (GSp4.PResidualSubquotient ρ₀ hP i)
+
+variable (Fr : Field.absoluteGaloisGroup ℚ_[p])
+
+def GSp4.BorelObstructionCaseOne : Prop :=
+  GSp4.ExtensionSplits ρ₀ hP 2 ∧ GSp4.ExtensionSplits ρ₀ hP 0 ∧ χbar 0 Fr ^ 2=1
+
+def GSp4.BorelObstructionCaseTwo : Prop :=
+  GSp4.ExtensionSplits ρ₀ hP 1 ∧ χbar 1 Fr ^ 2=1
+
+def GSp4.BorelObstructionCaseThree : Prop :=
+  GSp4.ExtensionSplits ρ₀ hP 2 ∧ GSp4.ExtensionSplits ρ₀ hP 1 ∧ χbar 0 Fr*χbar 1 Fr=1
+
+variable (hp : p≠2) (hdist : χbar 0≠χbar 1)
+variable (hunram : ∀ i (g : localInertia p ℚ_[p]), χbar i g.val=1)
+variable (hFr : Fr=LocalWeil.toGalois p ℚ_[p] (LocalWeil.geometricFrobenius p ℚ_[p]))
+variable (hdiag : ∀ g i, (ρ₀ g : Matrix (Fin 4) (Fin 4) F) i i=
+  (GSp4.pairedCharacters (χbar 0) (χbar 1)
+    (inverseCharacter ((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))) i g : F))
+variable (hsympl : ∀ g, IsGSp4 (ρ₀ g : Matrix (Fin 4) (Fin 4) F)
+  ↑(((Units.map (algebraMap O F).toMonoidHom).comp (localCyclotomic p ℚ_[p] O))⁻¹ g))
+include hp hdist hunram hFr hdiag hsympl hP
+
+theorem GSp4.borelH2_nonzero_cases (h : Module.finrank F (GSp4.BorelH2 ρ₀)≠0) :
+    GSp4.BorelObstructionCaseOne χbar ρ₀ hP Fr ∨
+    GSp4.BorelObstructionCaseTwo χbar ρ₀ hP Fr ∨
+    GSp4.BorelObstructionCaseThree χbar ρ₀ hP Fr := sorry
+
+theorem GSp4.borelH2_dimension_bound : Module.finrank F (GSp4.BorelH2 ρ₀)≤2 ∧
+    (¬ (GSp4.BorelObstructionCaseOne χbar ρ₀ hP Fr ∧
+      GSp4.BorelObstructionCaseTwo χbar ρ₀ hP Fr) →
+      Module.finrank F (GSp4.BorelH2 ρ₀)≤1) := sorry
+
+/-- The simultaneous exceptional case contributes two obstruction classes. -/
+theorem GSp4.borelH2_double_exception
+    (h₁ : GSp4.BorelObstructionCaseOne χbar ρ₀ hP Fr)
+    (h₂ : GSp4.BorelObstructionCaseTwo χbar ρ₀ hP Fr) :
+    Module.finrank F (GSp4.BorelH2 ρ₀)=2 := sorry
+
+/-- Case (ii.b) retains the isomorphism to the GL₂ obstruction group of the
+actual B-subquotient. A dimension equality alone loses this comparison. -/
+theorem GSp4.borelH2_GL2_comparison
+    (h₂ : GSp4.BorelObstructionCaseTwo χbar ρ₀ hP Fr)
+    (h₁ : ¬ GSp4.BorelObstructionCaseOne χbar ρ₀ hP Fr) :
+    Module.finrank F (GSp4.BorelH2 ρ₀)=1 ∧
+    Nonempty (GSp4.BorelH2 ρ₀ ≃ₗ[F] AdH2WithValues
+      (ρbar := GSp4.PResidualSubquotient ρ₀ hP 1) (GL2Borel.traceZeroUpper (F := F))) := sorry
+
+/-- Generic Frobenius root characters force the actual H² to vanish. -/
+example (hα : χbar 0 Fr ^ 2≠1) (hβ : χbar 1 Fr ^ 2≠1)
+    (hαβ : χbar 0 Fr*χbar 1 Fr≠1) : Subsingleton (GSp4.BorelH2 ρ₀) := sorry
+
+/-- With α²=1, a non-split A-extension excludes case (i), even though its
+root character is exceptional. -/
+example (hα : χbar 0 Fr ^ 2=1) (hA : ¬GSp4.ExtensionSplits ρ₀ hP 0)
+    (hβ : χbar 1 Fr ^ 2≠1) (hαβ : χbar 0 Fr*χbar 1 Fr≠1) :
+    Subsingleton (GSp4.BorelH2 ρ₀) := sorry
+end GSpBorelObstructions
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- H⁰(G,ad⁰ρ̄), as a trace-zero commutant rather than a numeric parameter. -/
+def TraceZeroAdH0 {Γ F : Type u} [Group Γ] [Field F] {n : ℕ}
+    (ρ₀ : Γ →* GL (Fin n) F) : Submodule F (Matrix (Fin n) (Fin n) F) where
+  carrier := {X | Matrix.trace X=0 ∧ ∀ g,
+    X*(ρ₀ g : Matrix (Fin n) (Fin n) F)=(ρ₀ g : Matrix (Fin n) (Fin n) F)*X}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+/-! BCDT §4.3, author pp. 27–28, combined with Ramakrishna's finite-flat
+calculation. Closure inside S(ρ̄) concerns only its subobjects and quotients;
+a one-dimensional invariant line in a reducible V is not itself in S(ρ̄). -/
+section FiniteFlatTangentTest
+variable (p : ℕ) [Fact p.Prime] (O F : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [Module.Finite O F] [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [TopologicalSpace F] [DiscreteTopology F]
+variable [TopologicalSpace (DualNumber F)] [DiscreteTopology (DualNumber F)]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (hc : Continuous fun g ↦ (ρ₀ g : Matrix (Fin 2) (Fin 2) F))
+variable (hflat : Nonempty (FiniteFlatModel p ℚ_[p] F ρ₀))
+variable (hshape : ∀ g, (ρ₀ g : Matrix (Fin 2) (Fin 2) F) 1 0=0 ∧
+  (ρ₀ g : Matrix (Fin 2) (Fin 2) F) 0 0=
+    (Units.map (algebraMap O F).toMonoidHom (localCyclotomic p ℚ_[p] O g) : F) ∧
+  (ρ₀ g : Matrix (Fin 2) (Fin 2) F) 1 1=1)
+include hshape
+
+/-- The weight-two finite-flat (peu ramifiée) carrier gives the precise
+fixed-determinant tangent dimension, including its actual invariant space. -/
+theorem CategoryCondition.finiteFlat_tangent_dimension (hp : p≠2) :
+    Module.finrank F (CategoryCondition.tangent O ρ₀ hc
+      (finiteFlatCategory p ℚ_[p] O F ρ₀ hc hflat))=
+    1+Module.finrank F (TraceZeroAdH0 ρ₀) := sorry
+
+/-- A nonsplit extension of the two distinct characters has scalar commutant;
+in odd characteristic its trace-zero commutant is zero. -/
+example (hp : p≠2) (hnonsplit : ¬GL2Borel.IsSplit ρ₀) :
+    Module.finrank F (TraceZeroAdH0 ρ₀)=0 ∧
+    Module.finrank F (CategoryCondition.tangent O ρ₀ hc
+      (finiteFlatCategory p ℚ_[p] O F ρ₀ hc hflat))=1 := sorry
+end FiniteFlatTangentTest
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! ## BCDT type quotients
+BCDT §1.1 and Conjecture 1.1.1, author pp. 7–8; Kisin 2008,
+Introduction p. 513 and Theorem 2.7.6, pp. 534–535. The period criterion
+uses the Barsotti–Tate/crystalline comparison of PadicHodgeTheory R06.4.
+The full extended type additionally fixes Frobenius. -/
+section BCDTTypes
+variable (p : ℕ) [Fact p.Prime] (E O F : Type) [Field E] [CharZero E]
+variable [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F)
+variable [ContinuousResidual ρ₀] [SchurResidual ρ₀]
+variable (τ : GaloisType (localInertia p ℚ_[p]) E 2)
+variable (ϖ : O) (hϖ : Irreducible ϖ)
+
+/-- The character ε⁻¹detρ has finite order coprime to p. This is stronger
+than requiring its restriction to inertia to have finite image. -/
+def BCDT.PrimeToPDeterminant (L : Type) [Field L] [Algebra ℚ_[p] L]
+    (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L) : Prop :=
+  ∃ N : ℕ, 0<N ∧ N.Coprime p ∧ ∀ g,
+    (Matrix.GeneralLinearGroup.det (ρ g)*Units.map (algebraMap ℚ_[p] L).toMonoidHom (localCyclotomic p ℚ_[p] ℚ_[p] g⁻¹))^N=1
+
+/-- Kisin's period form of the BCDT inertial type condition: weight two,
+zero monodromy, the specified inertia parameter and the prime-to-p determinant. -/
+def BCDT.IsOfType (L : Type) [Field L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L) : Prop :=
+  IsPotentiallyCrystallineOfType p ℚ_[p] L E (localInertia p ℚ_[p]) τ
+    (rankTwoHodgeType p ℚ_[p] E 2) ρ ∧ BCDT.PrimeToPDeterminant p L ρ
+
+/-- All characteristic-zero type points, contracted to the unframed ring.
+An empty family has intersection ⊤, hence gives the zero ring. -/
+def BCDT.typePrimes : Set (Ideal (UnframedRing O 2 ρ₀)) :=
+  {J | ∃ (L : Type) (_ : Field L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+      (_ : Algebra O L) (_ : IsScalarTower O E L) (_ : Algebra ℚ_[p] L)
+      (_ : IsScalarTower ℚ_[p] E L) (x : LiftingRing O 2 ρ₀ →ₐ[O] L),
+    BCDT.IsOfType p E τ L (pointRep x.toRingHom) ∧
+      J=RingHom.ker (x.comp (forgetFraming (𝒪 := O) (ρbar := ρ₀))).toRingHom}
+
+def BCDT.typeIdeal : Ideal (UnframedRing O 2 ρ₀) := sInf (BCDT.typePrimes p E O F ρ₀ τ)
+abbrev BCDT.typeRing := UnframedRing O 2 ρ₀ ⧸ BCDT.typeIdeal p E O F ρ₀ τ
+
+/-- Factoring the unframed coefficient map is the original weak type condition. -/
+def BCDT.WeaklyOfType {A : Type} [CommRing A] [Algebra O A]
+    (x : UnframedRing O 2 ρ₀ →ₐ[O] A) : Prop :=
+  BCDT.typeIdeal p E O F ρ₀ τ ≤ RingHom.ker x.toRingHom
+
+def BCDT.WeaklyAcceptable : Prop :=
+  Subsingleton (BCDT.typeRing p E O F ρ₀ τ) ∨
+    ∃ f : PowerSeries O →ₐ[O] BCDT.typeRing p E O F ρ₀ τ,
+      IsLocalHom f.toRingHom ∧ Function.Surjective f
+
+/-- The fixed determinant is the unique prime-to-p lift of its residual
+factor times ε, and is constant across all type points. -/
+theorem BCDT.fixedDeterminant (ψ : Field.absoluteGaloisGroup ℚ_[p] →* Oˣ)
+    (hψ : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=Matrix.GeneralLinearGroup.det (ρ₀ g))
+    (hprime : ∃ N : ℕ, 0<N ∧ N.Coprime p ∧ ∀ g,
+      (ψ g*localCyclotomic p ℚ_[p] O g⁻¹)^N=1)
+    (O' L : Type) [CommRing O'] [IsDomain O'] [IsLocalRing O']
+    [Algebra O O'] [Field L] [Algebra O' L] [IsFractionRing O' L]
+    [Algebra O L] [IsScalarTower O O' L] [Algebra E L] [FiniteDimensional E L]
+    [IsScalarTower O E L] [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (x : LiftingRing O 2 ρ₀ →ₐ[O] O') (hlocal : IsLocalHom x.toRingHom)
+    (htype : BCDT.IsOfType p E τ L (pointRep ((algebraMap O' L).comp x.toRingHom))) :
+    ∀ g, Matrix.GeneralLinearGroup.det (pointRep ((algebraMap O' L).comp x.toRingHom) g)=
+      Units.map (algebraMap O L).toMonoidHom (ψ g) := sorry
+
+/-- The crystalline quotient with its determinant equations has the same
+unframed defining ideal. Its reduced flat closure is part of the construction. -/
+theorem BCDT.pcris_comparison (ψ : Field.absoluteGaloisGroup ℚ_[p] →* Oˣ)
+    (hψ : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=Matrix.GeneralLinearGroup.det (ρ₀ g))
+    (hprime : ∃ N : ℕ, 0<N ∧ N.Coprime p ∧ ∀ g,
+      (ψ g*localCyclotomic p ℚ_[p] O g⁻¹)^N=1) :
+    BCDT.typeIdeal p E O F ρ₀ τ=
+      Ideal.comap (forgetFraming (𝒪 := O) (ρbar := ρ₀)).toRingHom
+        ((flatClosure (algebraMap O _ ϖ)
+          ((universalPstFamily p ℚ_[p] E O F ρ₀ τ (rankTwoHodgeType p ℚ_[p] E 2) ϖ hϖ).crystallineIntegralIdeal ⊔
+            detIdeal (ρbar := ρ₀) ψ)).radical) := sorry
+
+/-- Coefficient-integer points satisfy the full type criterion. The map is
+checked before passing to its fraction field, so this is the weak type theorem. -/
+theorem BCDT.weak_iff_type (O' L : Type) [CommRing O'] [IsDomain O']
+    [IsLocalRing O'] [IsNoetherianRing O'] [IsDiscreteValuationRing O']
+    [IsAdicComplete (IsLocalRing.maximalIdeal O') O'] [TopologicalSpace O']
+    [IsTopologicalRing O'] [Field L] [Algebra O' L]
+    [IsFractionRing O' L] [Algebra O O'] [Algebra E L] [FiniteDimensional E L]
+    [Algebra O L] [IsScalarTower O O' L] [IsScalarTower O E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (x : LiftingRing O 2 ρ₀ →ₐ[O] O') (hlocal : IsLocalHom x.toRingHom)
+    (hadic : IsAdic (IsLocalRing.maximalIdeal O')) (hcontinuous : Continuous x) :
+    BCDT.WeaklyOfType p E O F ρ₀ τ (x.comp (forgetFraming (𝒪 := O) (ρbar := ρ₀))) ↔
+      BCDT.IsOfType p E τ L (pointRep ((algebraMap O' L).comp x.toRingHom)) := sorry
+
+/-- Full extended type uses the Weil representation, not merely its inertia.
+Thus an unramified twist preserving inertia need not preserve extended type. -/
+def BCDT.IsOfExtendedType (M : InertialTypeData p ℚ_[p] E 2)
+    (L : Type) [Field L] [CharZero L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L] [FiniteDimensional ℚ_[p] L]
+    (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L) : Prop :=
+  BCDT.IsOfType p E τ L ρ ∧
+    InertialTypeData.IsWDIsomorphic (M.map (algebraMap E L)) (pAdicWD p ℚ_[p] L ρ)
+
+example (hempty : BCDT.typePrimes p E O F ρ₀ τ=∅) :
+    Subsingleton (BCDT.typeRing p E O F ρ₀ τ) := sorry
+
+/-- A semistable weight-two Tate representation is excluded by its actual
+nonzero monodromy, even when the inertia type is trivial. -/
+example (L : Type) [Field L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (ρ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) L)
+    (hN : pstMonodromy p ℚ_[p] L ρ≠0) : ¬BCDT.IsOfType p E τ L ρ := sorry
+end BCDTTypes
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! BCGP21 Lemma 7.3.15, p. 183: imposing equal plane weights changes
+the first tensor product from O to Λ. Character-pair matching remains necessary. -/
+section SymplecticScalarTriple
+variable {p : ℕ} [Fact p.Prime] {O F : Type}
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (δ : Field.absoluteGaloisGroup ℚ_[p] →* Oˣ)
+variable (χbar : Fin 2 → Field.absoluteGaloisGroup ℚ_[p] →* Fˣ)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 4) F) [ContinuousResidual ρ₀]
+variable (hP : ∀ g, let M := (ρ₀ g : Matrix (Fin 4) (Fin 4) F);
+  (∀ i j, j < i → M i j=0) ∧ M 0 1=0 ∧ M 2 3=0)
+variable (UA : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 0) δ true)
+variable (UB : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 1) δ true)
+variable (UAB : GL2Borel.GeneralUpperUniversal (GSp4.PResidualSubquotient ρ₀ hP 2) δ false)
+variable (C : GSp4.CharacterPairUniversal (O := O) χbar)
+variable (a : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom UA.base)
+variable (b : (GL2Borel.weight (p := p) (O := O) (F := F)).Hom UB.base)
+variable (ha : ∀ g : localInertia p ℚ_[p],
+  Units.map a.val.toMonoidHom (GL2Borel.theta (O := O) (F := F) g)=UA.data.character 0 g.val)
+variable (hb : ∀ g : localInertia p ℚ_[p],
+  Units.map b.val.toMonoidHom (GL2Borel.theta (O := O) (F := F) g)=UB.data.character 0 g.val)
+variable (D :
+  letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring := a.val.toRingHom.toAlgebra
+  letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UB.base.ring := b.val.toRingHom.toAlgebra
+  GSp4.TripleCharacterMaps (δ := δ) (χbar := χbar) (ρ₀ := ρ₀) (hP := hP)
+    (UA := UA) (UB := UB) (UAB := UAB) (C := C)
+    (CompletedTensor (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring UB.base.ring)
+    (CompletedTensor.inl (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring UB.base.ring).toRingHom
+    (CompletedTensor.inr (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring UB.base.ring).toRingHom)
+include ha hb
+
+/-- The scalar-inertia quotient has the completed tensor product over the
+common actual inertia-character ring. The two maps retain the chosen residual basis. -/
+theorem GSp4.parabolicScalar_tripleTensor (hp : p≠2)
+    (U : GSp4.PMatrixUniversal δ χbar true ρ₀) :
+    letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring := a.val.toRingHom.toAlgebra
+    letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UB.base.ring := b.val.toRingHom.toAlgebra
+    let R := CompletedTensor (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring UB.base.ring
+    letI : Algebra C.base.ring R := D.toPair.toAlgebra
+    letI : Algebra C.base.ring UAB.base.ring := D.toCross.val.toRingHom.toAlgebra
+    Nonempty (U.base.ring ≃+* CompletedTensor C.base.ring R UAB.base.ring) := sorry
+
+/-- The tensor equations genuinely identify the two inertia characters. -/
+example (g : localInertia p ℚ_[p]) :
+    letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UA.base.ring := a.val.toRingHom.toAlgebra
+    letI : Algebra (GL2Borel.weight (p := p) (O := O) (F := F)).ring UB.base.ring := b.val.toRingHom.toAlgebra
+    Units.map (CompletedTensor.inl (GL2Borel.weight (p := p) (O := O) (F := F)).ring
+      UA.base.ring UB.base.ring).toMonoidHom (UA.data.character 0 g.val)=
+    Units.map (CompletedTensor.inr (GL2Borel.weight (p := p) (O := O) (F := F)).ring
+      UA.base.ring UB.base.ring).toMonoidHom (UB.data.character 0 g.val) := sorry
+end SymplecticScalarTriple
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! KW II §3.2.2(i)–(ii), pp. 22–24: the ordinary matrices retain the
+finite Teichmüller factor in the weight-two branch. -/
+section KWOrdinaryShape
+variable {p : ℕ} [Fact p.Prime] {K E O F Γ : Type u}
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [TopologicalSpace O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+variable [T2Space Γ] [TotallyDisconnectedSpace Γ] [MazurFinite Γ F]
+
+/-- ClassFieldTheory's finite-order Teichmüller lift of the mod-p cyclotomic
+character, viewed over the actual coefficient integers. -/
+def teichmullerCyclotomic : Field.absoluteGaloisGroup K →* Oˣ := by
+  let _ := algebraMap O F
+  let _ := localCyclotomic p K O
+  sorry
+
+theorem teichmullerCyclotomic_reduction (g : Field.absoluteGaloisGroup K) :
+    Units.map (algebraMap O F).toMonoidHom (teichmullerCyclotomic (p := p) (K := K) (O := O) (F := F) g)=
+      Units.map (algebraMap O F).toMonoidHom (localCyclotomic p K O g) := sorry
+
+theorem teichmullerCyclotomic_order (g : Field.absoluteGaloisGroup K) :
+    (teichmullerCyclotomic (p := p) (K := K) (O := O) (F := F) g)^(p-1)=1 := sorry
+
+/-- The fixed character in the upper-left entry; η₁ and η₂ are separately
+unramified. The two branches have different characteristic-zero inertia. -/
+def KWCondition.ordinaryWeightCharacter (c : KWCondition p K E Γ O) : Γ →* Oˣ :=
+  match c with
+  | .lowWeightCrystalline k _ e _ => ((localCyclotomic p K O).comp e.toMonoidHom)^(k-1)
+  | .weightTwo k _ e => ((localCyclotomic p K O)*
+      (teichmullerCyclotomic (p := p) (K := K) (O := O) (F := F))^(k-2)).comp e.toMonoidHom
+  | _ => 1
+
+
+variable (ρ₀ : Γ →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (ψ : Γ →* Oˣ)
+variable (hψ : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (c : KWCondition p K E Γ O)
+variable (e : Γ ≃* Field.absoluteGaloisGroup K) (k : ℕ)
+variable (hk : 2≤k ∧ k≤p) (hv : KWCondition.admissible ρ₀ ψ c)
+variable (hord : IsResidualKWOrdinary (p := p) (O := O) ρ₀ e k)
+
+
+include hk hv hord in
+theorem exportOrdinary_liftShape
+    (hcond : (∃ choice, c=.lowWeightCrystalline k (by omega) e choice) ∨
+      ∃ b : KWWeightTwoBranch p k, c=.weightTwo k b e)
+    (L : Type u) [Field L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra O L] [IsScalarTower O E L] [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (x : LiftingRing O 2 ρ₀ →ₐ[O] L)
+    (hx : KWCondition.ideal ρ₀ ψ hψ c ≤ RingHom.ker x.toRingHom) :
+    ∃ (η₁ η₂ : Γ →* Lˣ) (h : GL (Fin 2) L),
+      (∀ g : (localInertia p K).comap e.toMonoidHom, η₁ g.val=1 ∧ η₂ g.val=1) ∧
+      ∀ g, let M := (h*pointRep x.toRingHom g*h⁻¹ : GL (Fin 2) L);
+        (M : Matrix (Fin 2) (Fin 2) L) 1 0=0 ∧
+        (M : Matrix (Fin 2) (Fin 2) L) 0 0=
+          (Units.map (algebraMap O L).toMonoidHom
+            (KWCondition.ordinaryWeightCharacter (F := F) c g)*η₁ g : Lˣ) ∧
+        (M : Matrix (Fin 2) (Fin 2) L) 1 1=(η₂ g : L) := sorry
+
+/-- Weight three distinguishes the prescribed inertia of a weight-two lift
+from the crystalline ε² character, despite their identical residual character. -/
+example (hp : 3≤p) (b : KWWeightTwoBranch p 3)
+    (g : Γ) :
+    KWCondition.ordinaryWeightCharacter (F := F) (.weightTwo 3 b e : KWCondition p K E Γ O) g=
+      localCyclotomic p K O (e g)*teichmullerCyclotomic (p := p) (K := K) (O := O) (F := F) (e g) := sorry
+end KWOrdinaryShape
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! BCDT §4.3, author pp. 27–28: the product closure is a condition on
+actual representations, including their underlying module sizes. -/
+section CategoryProductTest
+variable {R Γ : Type u} [CommRing R] [IsNoetherianRing R]
+variable [Group Γ] [TopologicalSpace Γ]
+
+/-- The full subcategory with zero objects and one residual isomorphism class. -/
+def zeroOrSingleObjects (V : CoefficientRepresentation R Γ) :
+    Set (CoefficientRepresentation R Γ) :=
+  {W | Subsingleton W.module ∨ W.Isomorphic V}
+
+theorem zeroOrSingleObjects_self (V : CoefficientRepresentation R Γ) :
+    V ∈ zeroOrSingleObjects V := sorry
+
+/-- A finite nonzero residual object has more elements in its square than in
+itself. Thus this subcategory fails the product axiom, even though it contains V. -/
+theorem zeroOrSingleObjects_product (V : CoefficientRepresentation R Γ)
+    (hV : 1<Nat.card V.module) : V.product V ∉ zeroOrSingleObjects V := sorry
+
+example (F : Type u) [Field F] [Finite F] [Algebra R F] [Module.Finite R F]
+    [TopologicalSpace F] [DiscreteTopology F]
+    (ρ₀ : Γ →* GL (Fin 2) F)
+    (hc : Continuous fun g ↦ (ρ₀ g : Matrix (Fin 2) (Fin 2) F)) :
+    let V := CoefficientRepresentation.ofMatrix (R := R) F ρ₀ hc
+    V ∈ zeroOrSingleObjects V ∧ V.product V ∉ zeroOrSingleObjects V := sorry
+end CategoryProductTest
+
+/-! Geraghty 2010 Definition 3.3.1, pp. 35–36, and Caraiani–Newton
+Definition 3.3.1, arXiv v3 p. 51: the weight convention and flag ordering
+are tested on the characters and on stable subspaces. -/
+def zeroDominantWeight (p : ℕ) [Fact p.Prime] (K E : Type u)
+    [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] (n : ℕ) :
+    DominantWeight p K E n where
+  value := fun _ _ ↦ 0
+  dominant := by intro σ i j hij; exact le_rfl
+
+section OrdinaryOrderingTests
+variable (p : ℕ) [Fact p.Prime] (K E : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra ℤ_[p] E] [IsScalarTower ℤ_[p] ℚ_[p] E]
+
+/-- In rank two, weight zero prescribes inertia 1 on the subline and
+ε⁻¹ on the quotient. -/
+theorem ordinaryInertialCharacter_weightZero (i : Fin 2) (g : localInertia p K) :
+    ordinaryInertialCharacter p K E (zeroDominantWeight p K E 2) i g=
+      (localCyclotomic p K E g.val)^(-(i.val:ℤ)) := sorry
+
+example (g : localInertia p K) :
+    ordinaryInertialCharacter p K E (zeroDominantWeight p K E 2) 0 g=1 ∧
+    ordinaryInertialCharacter p K E (zeroDominantWeight p K E 2) 1 g=
+      (localCyclotomic p K E g.val)⁻¹ := sorry
+
+/-- The reverse extension has the correct semisimple character but the wrong
+stable-line ordering. A nonsplit cyclotomic extension cannot be used as a
+weight-zero ordinary point. -/
+example (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) E)
+    (hshape : ∀ g,
+      (ρ g : Matrix (Fin 2) (Fin 2) E) 1 0=0 ∧
+      (ρ g : Matrix (Fin 2) (Fin 2) E) 0 0=((localCyclotomic p K E g)⁻¹ : Eˣ) ∧
+      (ρ g : Matrix (Fin 2) (Fin 2) E) 1 1=1)
+    (hnonsplit : ¬∃ b : E, ∀ g, (ρ g : Matrix (Fin 2) (Fin 2) E) 0 1=
+      b*((ρ g : Matrix (Fin 2) (Fin 2) E) 1 1-(ρ g : Matrix (Fin 2) (Fin 2) E) 0 0)) :
+    (∀ g, (ρ g : Matrix (Fin 2) (Fin 2) E).charpoly=
+      (Polynomial.X-1)*(Polynomial.X-Polynomial.C (((localCyclotomic p K E g)⁻¹ : Eˣ):E))) ∧
+    ¬IsOrdinaryOfWeight p K E E (zeroDominantWeight p K E 2) ρ := sorry
+end OrdinaryOrderingTests
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! Caraiani–Newton Definition 3.3.1 and Theorem 3.3.3, arXiv v3
+pp. 51–52. Integer weights are handled by shifting the bounded Hodge type;
+the ordinary condition continues to use the original ordered characters. -/
+
+/-- A bounded Hodge type together with its integer shift. This permits the
+negative weights in the ordinary convention without changing the bounded
+height construction. -/
+structure ShiftedHodgeType (p : ℕ) [Fact p.Prime] (K E : Type u)
+    [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E] (n : ℕ) where
+  lower : ℤ
+  width : ℕ
+  effective : HodgeType p K E n width
+
+def ShiftedHodgeType.Fil {p : ℕ} [Fact p.Prime] {K E : Type u}
+    [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E] {n : ℕ}
+    (v : ShiftedHodgeType p K E n) (i : ℤ) := v.effective.Fil (i-v.lower)
+
+/-- The original ordered Hodge weights in the convention HT(ε)=+1. -/
+def ordinaryHodgeWeights {p : ℕ} [Fact p.Prime] {K E : Type u}
+    [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E] {n : ℕ}
+    (wt : DominantWeight p K E n) (σ : K →ₐ[ℚ_[p]] E) : List ℤ :=
+  List.ofFn fun i : Fin n ↦ -(wt.value σ i.rev+(i.val:ℤ))
+
+/-- Compatibility is equality of labelled graded multiplicities, including
+all integer jumps and the translation by the lower endpoint. -/
+def OrdinaryHodgeCompatible {p : ℕ} [Fact p.Prime] {K E : Type u}
+    [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+    [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E] {n : ℕ}
+    (wt : DominantWeight p K E n) (v : ShiftedHodgeType p K E n) : Prop :=
+  ∀ σ i, HodgeType.gradedRank p K E v.effective σ i=
+    (ordinaryHodgeWeights wt σ).count (i+v.lower)
+
+section ShiftedSemistableCondition
+variable (p : ℕ) [Fact p.Prime] (K E B : Type u)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing B] [Algebra E B] [Module.Finite E B]
+variable [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+variable {n : ℕ} (v : ShiftedHodgeType p K E n)
+variable (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+
+/-- Semistability over K itself and the full shifted de Rham filtration.
+Potential semistability over an unspecified extension would be too weak here. -/
+def IsSemistableOfShiftedType : Prop :=
+  (letI : TopologicalSpace B := moduleTopology ℚ_[p] B;
+    Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) B)) ∧
+  Function.Bijective (PeriodHom.comparison
+    (semistablePeriods p K B ⊤ (by simp))
+    (ρ.comp (⊤ : Subgroup (Field.absoluteGaloisGroup K)).subtype)) ∧
+  Function.Bijective (PeriodHom.comparison (deRhamPeriods p K B) ρ) ∧
+  ∃ e : PeriodHom (deRhamPeriods p K B) ρ ≃ₗ[TensorProduct ℚ_[p] B K]
+      (Fin n → TensorProduct ℚ_[p] B K),
+    ∀ i, Submodule.map e.toLinearMap (PeriodHom.Fil (deRhamPeriods p K B) ρ i)=
+      HodgeType.baseChange p K E v.effective B (i-v.lower)
+end ShiftedSemistableCondition
+
+section FixedOrdinaryQuotient
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (wt : DominantWeight p K E n) (v : ShiftedHodgeType p K E n)
+
+/-- The integral flat closure of the semistable locus of the shifted Hodge type. -/
+def shiftedSemistableIdeal : Ideal (LiftingRing O n ρ₀) := sInf
+  {P | ∃ (L : Type) (_ : Field L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+      (_ : Algebra O L) (_ : IsScalarTower O E L) (_ : Algebra ℚ_[p] L)
+      (_ : IsScalarTower ℚ_[p] E L) (x : LiftingRing O n ρ₀ →ₐ[O] L),
+    IsSemistableOfShiftedType p K E L v (pointRep x.toRingHom) ∧ P=RingHom.ker x.toRingHom}
+abbrev shiftedSemistableRing := LiftingRing O n ρ₀ ⧸ shiftedSemistableIdeal p K E O F ρ₀ v
+
+/-- Characteristic-zero ordinary points determine the reduced O-flat
+integral quotient. The Boolean selects the additional crystalline condition. -/
+def fixedWeightOrdinaryIdeal (crystalline : Bool) : Ideal (LiftingRing O n ρ₀) := sInf
+  {P | ∃ (L : Type) (_ : Field L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+      (_ : Algebra O L) (_ : IsScalarTower O E L) (_ : Algebra ℚ_[p] L)
+      (_ : IsScalarTower ℚ_[p] E L) (x : LiftingRing O n ρ₀ →ₐ[O] L),
+    IsSemistableOrdinaryOfWeight p K E L wt (pointRep x.toRingHom) ∧
+    (crystalline=true → pstMonodromy p K L (pointRep x.toRingHom)=0) ∧
+    P=RingHom.ker x.toRingHom}
+abbrev fixedWeightOrdinaryRing (crystalline : Bool) :=
+  LiftingRing O n ρ₀ ⧸ fixedWeightOrdinaryIdeal p K E O F ρ₀ wt crystalline
+
+/-- The point criterion includes nonreduced finite local coefficient algebras. -/
+theorem fixedWeightOrdinary_points (crystalline : Bool)
+    (B : Type) [CommRing B] [IsLocalRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra O B] [IsScalarTower O E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : LiftingRing O n ρ₀ →ₐ[O] B) :
+    fixedWeightOrdinaryIdeal p K E O F ρ₀ wt crystalline ≤ RingHom.ker x.toRingHom ↔
+      IsSemistableOrdinaryOfWeight p K E B wt (pointRep x.toRingHom) ∧
+      (crystalline=true → pstMonodromy p K B (pointRep x.toRingHom)=0) := sorry
+
+theorem fixedWeightOrdinary_flat_reduced (crystalline : Bool) :
+    Module.Flat O (fixedWeightOrdinaryRing p K E O F ρ₀ wt crystalline) ∧
+    IsReduced (fixedWeightOrdinaryRing p K E O F ρ₀ wt crystalline) := sorry
+
+/-- The genuine semistable quotient has the same finite-algebra point criterion,
+with a period comparison over K rather than over an unspecified extension. -/
+theorem shiftedSemistable_points
+    (B : Type) [CommRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra O B] [IsScalarTower O E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : LiftingRing O n ρ₀ →ₐ[O] B) :
+    shiftedSemistableIdeal p K E O F ρ₀ v ≤ RingHom.ker x.toRingHom ↔
+      IsSemistableOfShiftedType p K E B v (pointRep x.toRingHom) := sorry
+
+variable [Fintype (K →ₐ[ℚ_[p]] E)]
+variable (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+variable (hv : OrdinaryHodgeCompatible wt v)
+
+include hsplit hv in
+/-- CN Lemma 3.3.2: ordinary residual flags lift throughout a finite local
+semistable deformation of this fixed Hodge type. -/
+theorem semistableOrdinary_of_residue
+    (B L : Type) [CommRing B] [IsLocalRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    [Field L] [Algebra E L] [FiniteDimensional E L]
+    (r : B →ₐ[E] L) (hr : Function.Surjective r ∧ RingHom.ker r.toRingHom=IsLocalRing.maximalIdeal B)
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B)
+    (hst : IsSemistableOfShiftedType p K E B v ρ)
+    (hord : IsSemistableOrdinaryOfWeight p K E L wt ((Matrix.GeneralLinearGroup.map r.toRingHom).comp ρ)) :
+    IsSemistableOrdinaryOfWeight p K E B wt ρ := sorry
+
+include hsplit hv in
+def fixedWeightOrdinary.fromSemistable
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+    (hv : OrdinaryHodgeCompatible wt v) :
+    shiftedSemistableRing p K E O F ρ₀ v →ₐ[O] fixedWeightOrdinaryRing p K E O F ρ₀ wt false := sorry
+
+include hsplit hv in
+theorem fixedWeightOrdinary.fromSemistable_matrix (g : Field.absoluteGaloisGroup K) (i j : Fin n) :
+    fixedWeightOrdinary.fromSemistable p K E O F ρ₀ wt v hsplit hv
+      (Ideal.Quotient.mk _ (((LiftingRing.univ O n ρ₀).toHom g : Matrix (Fin n) (Fin n) _) i j))=
+    Ideal.Quotient.mk _ (((LiftingRing.univ O n ρ₀).toHom g : Matrix (Fin n) (Fin n) _) i j) := sorry
+
+include hsplit hv in
+def fixedWeightOrdinary.genericMap
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+    (hv : OrdinaryHodgeCompatible wt v) (ϖ : O) :
+    GenericFibre (algebraMap O (shiftedSemistableRing p K E O F ρ₀ v) ϖ)
+      (shiftedSemistableRing p K E O F ρ₀ v) →ₐ[O]
+    GenericFibre (algebraMap O (fixedWeightOrdinaryRing p K E O F ρ₀ wt false) ϖ)
+      (fixedWeightOrdinaryRing p K E O F ρ₀ wt false) := sorry
+
+include hsplit hv in
+theorem fixedWeightOrdinary.genericMap_coefficients (ϖ : O)
+    (z : shiftedSemistableRing p K E O F ρ₀ v) :
+    fixedWeightOrdinary.genericMap p K E O F ρ₀ wt v hsplit hv ϖ (algebraMap _ _ z)=
+      algebraMap _ _ (fixedWeightOrdinary.fromSemistable p K E O F ρ₀ wt v hsplit hv z) := sorry
+
+include hsplit hv in
+/-- The generic ordinary locus is open and closed: its canonical quotient
+kernel is generated by an idempotent, so it is a union of whole components. -/
+theorem fixedWeightOrdinary_generic_clopen (ϖ : O) (hϖ : Irreducible ϖ) :
+    Function.Surjective (fixedWeightOrdinary.genericMap p K E O F ρ₀ wt v hsplit hv ϖ) ∧
+    ∃ e : GenericFibre (algebraMap O (shiftedSemistableRing p K E O F ρ₀ v) ϖ)
+        (shiftedSemistableRing p K E O F ρ₀ v), e^2=e ∧
+      RingHom.ker (fixedWeightOrdinary.genericMap p K E O F ρ₀ wt v hsplit hv ϖ).toRingHom=Ideal.span {e} := sorry
+
+example (crystalline : Bool) (hempty : fixedWeightOrdinaryIdeal p K E O F ρ₀ wt crystalline=⊤) :
+    Subsingleton (fixedWeightOrdinaryRing p K E O F ρ₀ wt crystalline) := sorry
+
+example (σ : K →ₐ[ℚ_[p]] E) :
+    ordinaryHodgeWeights (zeroDominantWeight p K E 2) σ=[0,-1] := sorry
+
+include hsplit in
+/-- Geraghty preprint Lemma 3.4.3, p. 39 (published Lemma 3.14):
+the nonzero ordinary crystalline quotient of a trivial residual
+representation is a domain. The assertion concerns the full integral
+quotient, not merely one chosen generic component. -/
+theorem fixedWeightOrdinary_crystalline_domain
+    (htriv : ∀ g, ρ₀ g=1)
+    (hnonzero : Nontrivial (fixedWeightOrdinaryRing p K E O F ρ₀ wt true)) :
+    IsDomain (fixedWeightOrdinaryRing p K E O F ρ₀ wt true) := sorry
+
+include hsplit in
+theorem fixedWeightOrdinary_crystalline_irreducible
+    (htriv : ∀ g, ρ₀ g=1)
+    (hnonzero : Nontrivial (fixedWeightOrdinaryRing p K E O F ρ₀ wt true)) :
+    IrreducibleSpace (PrimeSpectrum (fixedWeightOrdinaryRing p K E O F ρ₀ wt true)) := sorry
+
+include hsplit in
+/-- In rank one there is one unramified character parameter; fixing the
+labelled weight does not introduce framing parameters. -/
+example (hn : n=1) (htriv : ∀ g, ρ₀ g=1)
+    (hnonzero : Nontrivial (fixedWeightOrdinaryRing p K E O F ρ₀ wt true)) :
+    IsPowerSeriesOver O (fixedWeightOrdinaryRing p K E O F ρ₀ wt true) 1 := sorry
+
+include hsplit in
+/-- BCGNT Lemma 5.1.4: in weight zero, two crystalline ordinary points
+of the trivial residual problem belong to the same component. -/
+example (htriv : ∀ g, ρ₀ g=1)
+    (hnonzero : Nontrivial (fixedWeightOrdinaryRing p K E O F ρ₀
+      (zeroDominantWeight p K E n) true)) (ϖ : O) (hϖ : Irreducible ϖ)
+    (P Q : Ideal (GenericFibre ϖ (fixedWeightOrdinaryRing p K E O F ρ₀
+      (zeroDominantWeight p K E n) true)))
+    (hP : P ∈ minimalPrimes (GenericFibre ϖ (fixedWeightOrdinaryRing p K E O F ρ₀
+      (zeroDominantWeight p K E n) true)))
+    (hQ : Q ∈ minimalPrimes (GenericFibre ϖ (fixedWeightOrdinaryRing p K E O F ρ₀
+      (zeroDominantWeight p K E n) true))) : P=Q := sorry
+end FixedOrdinaryQuotient
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! ## General-group geometry away from p
+Bellovin–Gee §3.1, Proposition 3.3.2, Theorem 3.3.3 and Remark 3.3.4,
+arXiv v3 pp. 29–31. Fixing the full derived quotient is necessary for
+the dimension formula. A scalar multiplier is sufficient only when it
+identifies that quotient, as the similitude does for GSp. -/
+section GFullAbelianisation
+variable (O F : Type u) [CommRing O] [IsLocalRing O] [IsNoetherianRing O]
+variable [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+variable [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
+variable [MazurFinite Γ F] {n a : ℕ}
+variable (ρ₀ : Γ →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (G : ClosedMatrixGroup O n) (Gab : ClosedMatrixGroup O a)
+variable (hG : ∀ g, ρ₀ g ∈ G.points F) (q : G.Hom Gab)
+
+/-- The universal lift in the represented group, obtained from its defining
+closed quotient, with the same framing as the ambient general-linear lift. -/
+def GFramedRing.univ : Γ →* G.points (GFramedRing G hG) where
+  toFun g := ⟨pointRep (Ideal.Quotient.mk (GFramedRing.ideal G hG)) g, sorry⟩
+  map_one' := sorry
+  map_mul' := sorry
+
+theorem GFramedRing.univ_matrix (g : Γ) (i j : Fin n) :
+    ((GFramedRing.univ O F ρ₀ G hG g).val : Matrix (Fin n) (Fin n) (GFramedRing G hG)) i j=
+    Ideal.Quotient.mk _ (((LiftingRing.univ O n ρ₀).toHom g : Matrix (Fin n) (Fin n) (LiftingRing O n ρ₀)) i j) := sorry
+
+/-- Equations fixing the whole G/G′-valued character, in every matrix
+coordinate of the faithful representation of that quotient. -/
+def GFramedRing.abelianisationIdeal (χ : Γ →* Gab.points O) : Ideal (GFramedRing G hG) :=
+  Ideal.span {z | ∃ g : Γ, ∃ i j : Fin a,
+    z=(((q.toHom _ (GFramedRing.univ O F ρ₀ G hG g)).val : Matrix (Fin a) (Fin a) _) i j)-
+      (((Gab.map (Algebra.ofId O (GFramedRing G hG)) (χ g)).val : Matrix (Fin a) (Fin a) _) i j)}
+
+abbrev GAbelianisationRing (χ : Γ →* Gab.points O) :=
+  GFramedRing G hG ⧸ GFramedRing.abelianisationIdeal O F ρ₀ G Gab hG q χ
+
+/-- The point criterion fixes an actual group-valued character rather than
+only one of its scalar characters. -/
+theorem GFramedRing.abelianisation_points (χ : Γ →* Gab.points O)
+    {B : Type u} [CommRing B] [Algebra O B] (x : GFramedRing G hG →ₐ[O] B) :
+    GFramedRing.abelianisationIdeal O F ρ₀ G Gab hG q χ ≤ RingHom.ker x.toRingHom ↔
+      ∀ g, q.toHom B (G.map x (GFramedRing.univ O F ρ₀ G hG g))=
+        Gab.map (Algebra.ofId O B) (χ g) := sorry
+
+/-- A represented identity homomorphism, used to test the full-quotient
+condition when the group itself is abelian. -/
+def ClosedMatrixGroup.Hom.identity (H : ClosedMatrixGroup O n) : H.Hom H where
+  coordinate := AlgHom.id O H.coordinate
+  toHom A := MonoidHom.id (H.points A)
+  represents := by intros; rfl
+  naturality := by intros; rfl
+
+example (χ : Γ →* G.points O) {B : Type u} [CommRing B] [Algebra O B]
+    (x : GFramedRing G hG →ₐ[O] B) :
+    GFramedRing.abelianisationIdeal O F ρ₀ G G hG (ClosedMatrixGroup.Hom.identity O G) χ ≤
+      RingHom.ker x.toRingHom ↔
+    ∀ g, G.map x (GFramedRing.univ O F ρ₀ G hG g)=G.map (Algebra.ofId O B) (χ g) := sorry
+
+example (χ : Γ →* Gab.points O) {B : Type u} [CommRing B] [Algebra O B]
+    (x : GFramedRing G hG →ₐ[O] B)
+    (g : Γ) (hne : q.toHom B (G.map x (GFramedRing.univ O F ρ₀ G hG g))≠
+      Gab.map (Algebra.ofId O B) (χ g)) :
+    ¬GFramedRing.abelianisationIdeal O F ρ₀ G Gab hG q χ ≤ RingHom.ker x.toRingHom := sorry
+end GFullAbelianisation
+
+section GAwayGeometry
+variable (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (K O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[ℓ] K] [FiniteDimensional ℚ_[ℓ] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n a : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (G : ClosedMatrixGroup O n) (Gab : ClosedMatrixGroup O a)
+variable (hG : ∀ g, ρ₀ g ∈ G.points F) (q : G.Hom Gab)
+variable (χ : Field.absoluteGaloisGroup K →* Gab.points O)
+variable (hχ : ∀ g, q.toHom F ⟨ρ₀ g,hG g⟩=Gab.map (Algebra.ofId O F) (χ g))
+variable (gG : GeneralisedReductiveStructure G) (dq : DerivedQuotientStructure G Gab q)
+variable (ϖ : O) (hϖ : Irreducible ϖ)
+
+abbrev GAwayGeneric := GenericFibre (algebraMap O (GAbelianisationRing O F ρ₀ G Gab hG q χ) ϖ)
+  (GAbelianisationRing O F ρ₀ G Gab hG q χ)
+
+def gAwayRegularLocus : Set (PrimeSpectrum (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)) :=
+  {x | IsRegularLocalRing (Localization.AtPrime x.asIdeal)}
+
+include hχ gG dq hϖ in
+/-- The characteristic-zero geometry of the full fixed-abelianisation ring.
+Types can contain several components; no bijection with types is asserted. -/
+theorem gAway_generic_geometry (hℓp : ℓ≠p) :
+    IsReduced (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ) ∧
+    IsEquidimensional (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)
+      ((Module.finrank F (relativeLie (𝔽 := F) q) : ℕ) : WithBot ℕ∞) ∧
+    IsOpen (gAwayRegularLocus K O F ρ₀ G Gab hG q χ ϖ) ∧
+    Dense (gAwayRegularLocus K O F ρ₀ G Gab hG q χ ϖ) := sorry
+
+include hχ gG dq hϖ in
+/-- Local complete intersection at every closed characteristic-zero point,
+expressed by a regular-sequence presentation of its completed local ring.
+The coefficient-field embedding must reduce to the point's residue field. -/
+theorem gAway_completed_local_completeIntersection (hℓp : ℓ≠p)
+    (P : Ideal (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)) [P.IsMaximal]
+    (κ : Type) [Field κ] [CharZero κ] [Algebra O κ]
+    (x : GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ →ₐ[O] κ)
+    (hx : RingHom.ker x.toRingHom=P) (hsurj : Function.Surjective x)
+    [Algebra κ (CompletedLocalRing P)]
+    (hκ : (CompletedLocalRing.residue P x.toRingHom hx).comp (algebraMap κ _)=RingHom.id κ) :
+    IsCompleteIntersectionOver κ (CompletedLocalRing P)
+      (Module.finrank F (relativeLie (𝔽 := F) q)) := sorry
+
+/-- Closure of an actual generic component is contraction of its minimal
+prime, rather than an arbitrarily chosen integral quotient. -/
+abbrev GAwayComponentClosure (P : Ideal (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)) :=
+  GAbelianisationRing O F ρ₀ G Gab hG q χ ⧸
+    Ideal.comap (algebraMap (GAbelianisationRing O F ρ₀ G Gab hG q χ)
+      (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)) P
+
+include hχ gG dq hϖ in
+theorem gAway_componentClosure_flat_reduced (hℓp : ℓ≠p)
+    (P : Ideal (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ))
+    (hP : P ∈ minimalPrimes (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ)) :
+    Module.Flat O (GAwayComponentClosure K O F ρ₀ G Gab hG q χ ϖ P) ∧
+    IsReduced (GAwayComponentClosure K O F ρ₀ G Gab hG q χ ϖ P) := sorry
+
+include hχ gG dq hϖ in
+/-- GL₂ with the whole determinant fixed has generic dimension three.
+The numerical Lie-kernel equality is an explicit adapter obligation for the
+represented determinant morphism, not a replacement for fixing it. -/
+example (hℓp : ℓ≠p) (hn : n=2) (ha : a=1)
+    (hGL : G=ClosedMatrixGroup.gl O n)
+    (hdet : ∀ (A : Type) [CommRing A] [Algebra O A] (g : G.points A),
+      ((q.toHom A g).val : Matrix (Fin a) (Fin a) A)=(Matrix.det (g.val : Matrix (Fin n) (Fin n) A)) • 1)
+    (hdim : Module.finrank F (relativeLie (𝔽 := F) q)=3) :
+    IsEquidimensional (GAwayGeneric K O F ρ₀ G Gab hG q χ ϖ) 3 := sorry
+end GAwayGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- A diagonal representation assembled from its actual unit-valued
+characters, used for coefficient-level and finite-flat tests. -/
+def diagonalRepresentation {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (χ : Fin n → Γ →* Aˣ) : Γ →* GL (Fin n) A where
+  toFun g := diagonalUnits (fun i ↦ χ i g)
+  map_one' := sorry
+  map_mul' := sorry
+
+theorem diagonalRepresentation_matrix {Γ A : Type u} [Group Γ] [CommRing A] {n : ℕ}
+    (χ : Fin n → Γ →* Aˣ) (g : Γ) :
+    (diagonalRepresentation χ g : Matrix (Fin n) (Fin n) A)=Matrix.diagonal (fun i ↦ (χ i g : A)) := rfl
+
+/-! Kisin 2009, §1.1, pp. 4–6, and the rank-one finite-flat classification
+of R07.2: test finite-flat realizations themselves, including the excluded
+square of the residual cyclotomic character over Q_p. -/
+section FiniteFlatCarrierTests
+variable (p : ℕ) [Fact p.Prime] (K F : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field F] [Finite F] [CharP F p] [Algebra ℤ_[p] F]
+
+example : Nonempty (FiniteFlatModel p K F
+    (diagonalRepresentation ![localCyclotomic p K F,1])) := sorry
+
+example (hp : 3<p) : ¬Nonempty (FiniteFlatModel p ℚ_[p] F
+    (diagonalRepresentation (fun _ : Fin 1 ↦ (localCyclotomic p ℚ_[p] F)^2))) := sorry
+
+/-- The condition is invariant under the prescribed change of framing,
+so it tests the generic representation rather than its matrix presentation. -/
+example (g : GL (Fin 2) F) : Nonempty (FiniteFlatModel p K F
+    (conjugateRepresentation g (diagonalRepresentation ![localCyclotomic p K F,1]))) := sorry
+end FiniteFlatCarrierTests
+
+/-! LTXZZ Definition 2.2.4, pp. 124–125: cyclotomic torsion has interval
+[0,1] after translation to HT(epsilon)=+1, and a rational crystalline
+lattice gives the integral condition at every power of p. -/
+section TorsionCarrierTests
+variable (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (F : Type) [Field F] [Finite F] [CharP F p] [Algebra ℤ_[p] F]
+variable [Module.Finite ℤ_[p] F] [TopologicalSpace F] [DiscreteTopology F]
+variable (hc : Continuous fun g ↦
+  (diagonalRepresentation (fun _ : Fin 1 ↦ localCyclotomic p K F) g : Matrix (Fin 1) (Fin 1) F))
+
+example : IsTorsionCrystalline (p := p) (K := K) 0 1
+    (CoefficientRepresentation.ofMatrix (R := ℤ_[p]) F
+      (diagonalRepresentation (fun _ : Fin 1 ↦ localCyclotomic p K F)) hc) := sorry
+
+example {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) ℚ_[p])
+    (hcρ : Continuous fun g ↦ (ρ g : Matrix (Fin n) (Fin n) ℚ_[p]))
+    (a b : ℤ) (hρ : IsCrystallineInInterval p K a b ρ) (L : CrystallineLattice p K ρ) :
+    ∀ m : ℕ, 0<m → IsTorsionCrystalline (p := p) (K := K) a b (L.representation.modPower m) := sorry
+end TorsionCarrierTests
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+open TauCeti.GaloisDeformation
+
+/-! Geraghty preprint Lemma 3.4.2, pp. 38–39 (published Lemma 3.13).
+The weight base is the completed group algebra of local pro-p units,
+possibly restricted to its specified components. The flag fibre keeps
+stability under the full Galois group as well as the inertial equations. -/
+section GeraghtyWeightFibres
+variable (p : ℕ) [Fact p.Prime] (K O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] (n : ℕ)
+variable (a : OrdinaryWeightComponents p K O n)
+
+/-- Actual universal local character parameters with trivial residual
+characters. The full characters add only the unramified variables. -/
+@[reducible] def localTrivialOrdinaryParameters : OrdinaryParameters O F (Field.absoluteGaloisGroup K) n where
+  weight := ordinaryWeightRing a
+  weightAdic := sorry
+  residue := ordinaryWeightRing.residue (𝔽 := F) a
+  residue_surjective := sorry
+  residue_ker := sorry
+  inertia := localInertia p K
+  residualCharacter := fun _ ↦ 1
+  inertialCharacter := universalInertialCharacter a (fun _ ↦ (1 : localInertia p K →* Fˣ))
+  fullCharacter := sorry
+  restrict_full := sorry
+  reduce_inertia := sorry
+  representsFull := sorry
+
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+
+abbrev GeraghtyFramedRing := OrdinaryFramedRing (localTrivialOrdinaryParameters p K O F n a) ρ₀
+
+instance : Algebra (ordinaryWeightRing a) (GeraghtyFramedRing p K O F n a ρ₀) :=
+  (CompletedTensor.inr O (LiftingRing O n ρ₀) (ordinaryWeightRing a)).toRingHom.toAlgebra
+
+/-- A choice of unramified extension of the universal inertial characters.
+Its restriction to inertia, and hence the flag space, is independent of
+that choice. -/
+def geraghtyFullCharacter (i : Fin n) : Field.absoluteGaloisGroup K →* (GeraghtyFramedRing p K O F n a ρ₀)ˣ :=
+  (Units.map ((algebraMap (ordinaryWeightRing a) (GeraghtyFramedRing p K O F n a ρ₀)).comp
+    MvPowerSeries.constantCoeff).toMonoidHom).comp
+      ((localTrivialOrdinaryParameters p K O F n a).fullCharacter i)
+
+def geraghtyFlagSpace : Scheme := ordinaryFlagScheme (localInertia p K)
+  (pointRep (CompletedTensor.inl O (LiftingRing O n ρ₀) (ordinaryWeightRing a)).toRingHom)
+  (geraghtyFullCharacter p K O F n a ρ₀)
+
+def geraghtyFlagSpace.toWeight : geraghtyFlagSpace p K O F n a ρ₀ ⟶ Spec (.of (ordinaryWeightRing a)) :=
+  ordinaryFlagScheme.toSpec (localInertia p K)
+    (pointRep (CompletedTensor.inl O (LiftingRing O n ρ₀) (ordinaryWeightRing a)).toRingHom)
+    (geraghtyFullCharacter p K O F n a ρ₀) ≫
+  Spec.map (CommRingCat.ofHom (algebraMap (ordinaryWeightRing a) (GeraghtyFramedRing p K O F n a ρ₀)))
+
+/-- The fibre is an actual scheme pullback at a closed weight point. -/
+def geraghtyWeightFibre (ϖ : O) (κ : Type) [Field κ] [Algebra O κ]
+    (x : GenericFibre ϖ (ordinaryWeightRing a) →ₐ[O] κ) : Scheme :=
+  modelBaseChange (geraghtyFlagSpace.toWeight p K O F n a ρ₀) κ
+    (x.toRingHom.comp (algebraMap (ordinaryWeightRing a) (GenericFibre ϖ (ordinaryWeightRing a))))
+
+/-- Connectedness holds for every closed characteristic-zero weight, not
+only at arithmetic weights or on a selected arithmetic component. -/
+theorem geraghtyWeightFibre_connected (htriv : ∀ g, ρ₀ g=1)
+    (ϖ : O) (hϖ : Irreducible ϖ) (κ : Type) [Field κ] [CharZero κ] [Algebra O κ]
+    (x : GenericFibre ϖ (ordinaryWeightRing a) →ₐ[O] κ)
+    (hx : (RingHom.ker x.toRingHom).IsMaximal) (hsurj : Function.Surjective x) :
+    ConnectedSpace (geraghtyWeightFibre p K O F n a ρ₀ ϖ κ x) := sorry
+
+example (ϖ : O) (κ : Type) [Field κ] [Algebra O κ]
+    (x : GenericFibre ϖ (ordinaryWeightRing a) →ₐ[O] κ) :
+    geraghtyWeightFibre p K O F n a ρ₀ ϖ κ x=
+      modelBaseChange (geraghtyFlagSpace.toWeight p K O F n a ρ₀) κ
+        (x.toRingHom.comp (algebraMap (ordinaryWeightRing a) (GenericFibre ϖ (ordinaryWeightRing a)))) := rfl
+end GeraghtyWeightFibres
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+/-! The following finite-flat group objects and special-fibre operation are
+R07.2 supplier adapters. The tests distinguish integral models, rather than
+merely repeating the generic finite-flat existence condition.
+Kisin 2009 §1.1 and Corollary 1.2.13, pp. 4–6 and 14. -/
+section DistinctFiniteFlatModels
+variable (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+
+/-- The finite group scheme of p-th roots of unity over the integers of K. -/
+def FiniteFlatObject.muP : FiniteFlatObject p K := sorry
+
+/-- The constant finite group scheme Z/p over the integers of K. -/
+def FiniteFlatObject.constantP : FiniteFlatObject p K := sorry
+
+/-- The special fibre after extension to an algebraic closure of the
+residue field; it retains its scheme structure. -/
+def FiniteFlatObject.geometricSpecialFibre (H : FiniteFlatObject p K) : Scheme.{u} := sorry
+
+/-- The multiplicative special fibre is connected, despite the generic
+fibre being étale in characteristic zero. -/
+example : ConnectedSpace ((FiniteFlatObject.muP p K).geometricSpecialFibre) := sorry
+
+/-- The constant special fibre has p separate points. -/
+example : ¬ConnectedSpace ((FiniteFlatObject.constantP p K).geometricSpecialFibre) := sorry
+
+/-- In particular these integral models cannot become isomorphic after
+passing to their geometric special fibres. -/
+theorem finiteFlatObjects_muP_constantP_distinct :
+    ¬Nonempty ((FiniteFlatObject.muP p K).geometricSpecialFibre ≅
+      (FiniteFlatObject.constantP p K).geometricSpecialFibre) := sorry
+
+variable [Algebra ℤ_[p] (ZMod p)]
+
+/-- Over K containing the p-th roots of unity, the two nonisomorphic
+integral group schemes realize the same trivial rank-one representation.
+The hypothesis is stated on the residual cyclotomic character, so it also
+covers p=2 without an artificial odd-prime restriction. -/
+example (hcycl : ∀ g, localCyclotomic p K (ZMod p) g=1) :
+    ∃ M₁ M₂ : FiniteFlatModel p K (ZMod p)
+        (1 : Field.absoluteGaloisGroup K →* GL (Fin 1) (ZMod p)),
+      M₁.group=FiniteFlatObject.muP p K ∧ M₂.group=FiniteFlatObject.constantP p K ∧
+      ¬Nonempty (M₁.group.geometricSpecialFibre ≅ M₂.group.geometricSpecialFibre) := sorry
+end DistinctFiniteFlatModels
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! Calegari–Geraghty Theorem 3.19, Definitions 3.20–3.21,
+Lemma 3.22 and Theorem 4.3, arXiv v2 pp. 28–31 and 44;
+published pp. 334–337 and 356. The general equation carrier above is
+specialized here to Q_p and to the normalized cyclotomic character. -/
+section LocalEigenvalueGeometry
+variable (p : ℕ) [Fact p.Prime] (O F : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (D : OrdinaryEigenvalueData O F (Field.absoluteGaloisGroup ℚ_[p]) ρ₀)
+variable (hp : 2<p) (hI : D.inertia=localInertia p ℚ_[p])
+variable (hχ : D.character=localCyclotomic p ℚ_[p] O *
+  (teichmullerCyclotomic (p := p) (K := ℚ_[p]) (O := O) (F := F))⁻¹)
+variable (hgen : Dense {g : Field.absoluteGaloisGroup ℚ_[p] |
+  ∃ σ : D.inertia, ∃ m : ℤ, g=σ.val*D.frobenius^m})
+
+include hp hI hχ hgen in
+theorem OrdinaryWithEigenvalue.local_domain_normal_cm :
+    IsDomain (OrdinaryWithEigenvalue O ρ₀ D) ∧
+    IsIntegrallyClosed (OrdinaryWithEigenvalue O ρ₀ D) ∧
+    IsCohenMacaulayLocal (OrdinaryWithEigenvalue O ρ₀ D) ∧
+    Module.Flat O (OrdinaryWithEigenvalue O ρ₀ D) ∧
+    ringKrullDim (OrdinaryWithEigenvalue O ρ₀ D)=5 := sorry
+
+include hp hI hχ hgen in
+/-- The two ideals are computed in the same universal framed ring. -/
+theorem OrdinaryWithEigenvalue.doubling_eq_unramified :
+    OrdinaryWithEigenvalue.doublingIdeal O ρ₀ D=
+      OrdinaryWithEigenvalue.unramifiedIdeal O ρ₀ D := sorry
+
+include hp hI hχ hgen in
+/-- Adjoining the chosen eigenvalue is finite over the image ring. -/
+theorem OrdinaryWithEigenvalue.local_finite :
+    letI := (OrdinaryWithEigenvalue.forget O ρ₀ D).toAlgebra
+    Module.Finite (OrdinaryWithEigenvalue.image O ρ₀ D) (OrdinaryWithEigenvalue O ρ₀ D) := sorry
+
+/-- Localization of the actual forgetful map; it has generic degree one. -/
+def OrdinaryWithEigenvalue.genericForget :
+    GenericFibre D.uniformizer (OrdinaryWithEigenvalue.image O ρ₀ D) →ₐ[O]
+      GenericFibre D.uniformizer (OrdinaryWithEigenvalue O ρ₀ D) := sorry
+
+theorem OrdinaryWithEigenvalue.genericForget_coefficients
+    (r : OrdinaryWithEigenvalue.image O ρ₀ D) :
+    OrdinaryWithEigenvalue.genericForget p O F ρ₀ D (algebraMap _ _ r)=
+      algebraMap _ _ (OrdinaryWithEigenvalue.forget O ρ₀ D r) := sorry
+
+include hp hI hχ hgen in
+theorem OrdinaryWithEigenvalue.genericForget_bijective :
+    Function.Bijective (OrdinaryWithEigenvalue.genericForget p O F ρ₀ D) := sorry
+
+/-- The coefficient torsion ideal of the unramified quotient. -/
+def eigenvalueUnramifiedCoefficientIdeal : Ideal O :=
+  Ideal.span {z | ∃ g : Field.absoluteGaloisGroup ℚ_[p], z=(D.character g : O)^(D.weight-1)-1}
+
+abbrev EigenvalueUnramifiedModel :=
+  let C := O ⧸ eigenvalueUnramifiedCoefficientIdeal p O F ρ₀ D
+  let X := MvPowerSeries.X (σ := Fin 4) (R := C)
+  MvPowerSeries (Fin 4) C ⧸ Ideal.span {X 0+X 3+X 0*X 3-X 1*X 2}
+
+include hp hI hχ hgen in
+/-- This describes the coefficient torsion and the determinant-one equation,
+not an O-flat unramified model. -/
+example : Nonempty (OrdinaryWithEigenvalue.unr O ρ₀ D ≃ₐ[O]
+    EigenvalueUnramifiedModel p O F ρ₀ D) := sorry
+
+include hp hI hχ hgen in
+example : ¬Function.Surjective (OrdinaryWithEigenvalue.forget O ρ₀ D) := sorry
+end LocalEigenvalueGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! Calegari–Geraghty Theorem 4.3 and Lemmas 4.5–4.7,
+arXiv v2 pp. 44–47 (published pp. 356–360). These are actual quotient
+rings and their regular-sequence and socle computations. -/
+
+/-- Coordinate order: a,b,c,phi_1,phi_2,phi_3,phi_4,beta. -/
+def snowdenSpecialRelations (F : Type) [Field F] : Fin 7 → MvPowerSeries (Fin 8) F :=
+  let X := MvPowerSeries.X (σ := Fin 8) (R := F)
+  ![X 3+X 6+X 3*X 6-X 4*X 5,
+    (X 7)^2-(X 3+X 6)*X 7-(X 3+X 6),
+    X 0*X 3+X 1*X 5-X 0*X 7,
+    X 0*X 4+X 1*X 6-X 1*X 7,
+    -(X 0*X 5)+X 2*X 3-X 2*X 7,
+    X 0*X 6-X 2*X 4-X 0*X 7,
+    (X 0)^2+X 1*X 2]
+
+abbrev SnowdenSpecialRing (F : Type) [Field F] :=
+  MvPowerSeries (Fin 8) F ⧸ Ideal.span (Set.range (snowdenSpecialRelations F))
+
+def SnowdenSpecialRing.parameter (F : Type) [Field F] (i : Fin 8) : SnowdenSpecialRing F :=
+  Ideal.Quotient.mk _ (MvPowerSeries.X i)
+
+/-- The beta-zero quotient in coordinates a,b,c,phi_1,phi_2,phi_3. -/
+def snowdenBetaZeroRelations (F : Type) [Field F] : Fin 6 → MvPowerSeries (Fin 6) F :=
+  let X := MvPowerSeries.X (σ := Fin 6) (R := F)
+  ![-((X 3)^2)-X 4*X 5,
+    X 0*X 3+X 1*X 5,
+    X 0*X 4-X 1*X 3,
+    -(X 0*X 5)+X 2*X 3,
+    -(X 0*X 3)-X 2*X 4,
+    (X 0)^2+X 1*X 2]
+
+abbrev SnowdenBetaZeroRing (F : Type) [Field F] :=
+  MvPowerSeries (Fin 6) F ⧸ Ideal.span (Set.range (snowdenBetaZeroRelations F))
+
+instance (F : Type) [Field F] : IsLocalRing (SnowdenSpecialRing F) := sorry
+instance (F : Type) [Field F] : IsLocalRing (SnowdenBetaZeroRing F) := sorry
+
+/-- The Hilbert coefficient retains the actual maximal-ideal graded piece. -/
+def localHilbertCoefficient (F R : Type) [Field F] [CommRing R] [IsLocalRing R]
+    [Algebra F R] (j : ℕ) : ℕ :=
+  let m := IsLocalRing.maximalIdeal R
+  Module.finrank F ((m^j : Ideal R) ⧸
+    Submodule.comap (m^j : Ideal R).subtype (m^(j+1) : Submodule R R))
+
+/-- The square-zero Artinian quotient of the regular sequence. -/
+abbrev SnowdenSocleRing (F : Type) [Field F] :=
+  MvPolynomial (Fin 3) F ⧸
+    (Ideal.span (Set.range (MvPolynomial.X : Fin 3 → MvPolynomial (Fin 3) F)))^2
+
+instance (F : Type) [Field F] : IsLocalRing (SnowdenSocleRing F) := sorry
+
+/-- The socle is the annihilator of the maximal ideal, as an F-subspace. -/
+def localSocle (F R : Type) [Field F] [CommRing R] [IsLocalRing R] [Algebra F R] :
+    Submodule F R where
+  carrier := {x | ∀ y ∈ IsLocalRing.maximalIdeal R, y*x=0}
+  zero_mem' := by simp
+  add_mem' := sorry
+  smul_mem' := sorry
+
+section SnowdenSpecialGeometry
+variable (p : ℕ) [Fact p.Prime] (F : Type) [Field F] [CharP F p] (hp : 2<p)
+
+include hp in
+theorem SnowdenSpecialRing.normal_cm :
+    IsDomain (SnowdenSpecialRing F) ∧ IsIntegrallyClosed (SnowdenSpecialRing F) ∧
+    IsCohenMacaulayLocal (SnowdenSpecialRing F) ∧ ringKrullDim (SnowdenSpecialRing F)=4 := sorry
+
+include hp in
+theorem SnowdenSpecialRing.beta_zero : Nonempty
+    ((SnowdenSpecialRing F ⧸ Ideal.span {SnowdenSpecialRing.parameter F 7}) ≃ₐ[F]
+      SnowdenBetaZeroRing F) := sorry
+
+include hp in
+theorem SnowdenBetaZeroRing.cm_hilbert :
+    IsCohenMacaulayLocal (SnowdenBetaZeroRing F) ∧ ringKrullDim (SnowdenBetaZeroRing F)=3 ∧
+    localHilbertCoefficient F (SnowdenBetaZeroRing F) 0=1 ∧
+    localHilbertCoefficient F (SnowdenBetaZeroRing F) 1=6 ∧
+    localHilbertCoefficient F (SnowdenBetaZeroRing F) 2=15 := sorry
+
+/-- beta,a,phi_2+phi_3,b+c+phi_1, in that order. -/
+def SnowdenSpecialRing.parameterSequence : List (SnowdenSpecialRing F) :=
+  let x := SnowdenSpecialRing.parameter F
+  [x 7,x 0,x 4+x 5,x 1+x 2+x 3]
+
+include hp in
+theorem SnowdenSpecialRing.parameterSequence_regular :
+    RingTheory.Sequence.IsRegular (SnowdenSpecialRing F) (SnowdenSpecialRing.parameterSequence F) := sorry
+
+include hp in
+theorem SnowdenSpecialRing.parameterSequence_quotient : Nonempty
+    ((SnowdenSpecialRing F ⧸ Ideal.ofList (SnowdenSpecialRing.parameterSequence F)) ≃ₐ[F]
+      SnowdenSocleRing F) := sorry
+
+include hp in
+/-- The three coordinate classes span the socle, yielding type three after
+quotienting the canonical module by the regular sequence. -/
+theorem SnowdenSocleRing.socle_rank : Module.finrank F (localSocle F (SnowdenSocleRing F))=3 := sorry
+
+include hp in
+example : localHilbertCoefficient F (SnowdenSocleRing F) 0=1 ∧
+    localHilbertCoefficient F (SnowdenSocleRing F) 1=3 ∧
+    ∀ j : ℕ, 2≤j → localHilbertCoefficient F (SnowdenSocleRing F) j=0 := sorry
+
+include hp in
+example (i j : Fin 3) :
+    (Ideal.Quotient.mk _ (MvPolynomial.X i) : SnowdenSocleRing F)*
+      Ideal.Quotient.mk _ (MvPolynomial.X j)=0 := sorry
+end SnowdenSpecialGeometry
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! The canonical-module carrier is DeformationAndDerivedPatchingAlgebra
+R03.3's dualizing-module adapter for the complete local ring. The local
+calculation is Calegari–Geraghty Theorem 4.3, arXiv v2 pp. 44–47,
+published p. 356. -/
+section EigenvalueCanonicalModule
+variable (p : ℕ) [Fact p.Prime] (O F : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup ℚ_[p]) F]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+variable (D : OrdinaryEigenvalueData O F (Field.absoluteGaloisGroup ℚ_[p]) ρ₀)
+
+/-- Reduction of the universal lift and of alpha to the prescribed
+trivial residual lift and alpha=1. -/
+def OrdinaryWithEigenvalue.residue : OrdinaryWithEigenvalue O ρ₀ D →ₐ[O] F := sorry
+
+/-- The canonical module of this complete local ring, as supplied by R03.3.
+The later hypotheses select its normal Cohen–Macaulay local problem. -/
+def OrdinaryWithEigenvalue.canonicalModule : Type := by
+  let _ := (D : OrdinaryEigenvalueData O F (Field.absoluteGaloisGroup ℚ_[p]) ρ₀)
+  sorry
+instance : AddCommGroup (OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D) := sorry
+instance : Module (OrdinaryWithEigenvalue O ρ₀ D)
+    (OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D) := sorry
+instance : Module.Finite (OrdinaryWithEigenvalue O ρ₀ D)
+    (OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D) := sorry
+
+/-- The actual maximal-ideal multiple of the canonical module. -/
+def OrdinaryWithEigenvalue.canonicalMaximalMultiple :
+    Submodule (OrdinaryWithEigenvalue O ρ₀ D) (OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D) :=
+  Submodule.span (OrdinaryWithEigenvalue O ρ₀ D) {z | ∃ r ∈ IsLocalRing.maximalIdeal
+    (OrdinaryWithEigenvalue O ρ₀ D), ∃ x : OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D, z=r • x}
+
+abbrev OrdinaryWithEigenvalue.canonicalFibre :=
+  OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D ⧸
+    OrdinaryWithEigenvalue.canonicalMaximalMultiple p O F ρ₀ D
+
+instance : Module F (OrdinaryWithEigenvalue.canonicalFibre p O F ρ₀ D) := sorry
+
+theorem OrdinaryWithEigenvalue.canonicalFibre_scalar (r : OrdinaryWithEigenvalue O ρ₀ D)
+    (x : OrdinaryWithEigenvalue.canonicalFibre p O F ρ₀ D) :
+    r • x=(OrdinaryWithEigenvalue.residue p O F ρ₀ D r) • x := sorry
+
+abbrev OrdinaryWithEigenvalue.specialRing := OrdinaryWithEigenvalue O ρ₀ D ⧸
+  Ideal.span {algebraMap O (OrdinaryWithEigenvalue O ρ₀ D) D.uniformizer}
+
+instance : Algebra F (OrdinaryWithEigenvalue.specialRing p O F ρ₀ D) := sorry
+instance : IsScalarTower O F (OrdinaryWithEigenvalue.specialRing p O F ρ₀ D) := sorry
+
+variable [CharP F p]
+variable (hp : 2<p) (hI : D.inertia=localInertia p ℚ_[p])
+variable (hχ : D.character=localCyclotomic p ℚ_[p] O *
+  (teichmullerCyclotomic (p := p) (K := ℚ_[p]) (O := O) (F := F))⁻¹)
+variable (hgen : Dense {g : Field.absoluteGaloisGroup ℚ_[p] |
+  ∃ σ : D.inertia, ∃ m : ℤ, g=σ.val*D.frobenius^m})
+
+include hp hI hχ hgen in
+/-- The explicit special-fibre presentation is tied to the local eigenvalue
+ring, rather than being an unrelated coordinate variety. -/
+theorem OrdinaryWithEigenvalue.specialRing_snowden : Nonempty
+    (OrdinaryWithEigenvalue.specialRing p O F ρ₀ D ≃ₐ[F] SnowdenSpecialRing F) := sorry
+
+include hp hI hχ hgen in
+theorem OrdinaryWithEigenvalue.canonical_type_three :
+    Module.finrank F (OrdinaryWithEigenvalue.canonicalFibre p O F ρ₀ D)=3 := sorry
+
+include hp hI hχ hgen in
+/-- The canonical module is not a free rank-one module, the local
+Cohen–Macaulay criterion excluding Gorensteinness. -/
+theorem OrdinaryWithEigenvalue.canonical_not_rank_one : ¬Nonempty
+    (OrdinaryWithEigenvalue.canonicalModule p O F ρ₀ D ≃ₗ[OrdinaryWithEigenvalue O ρ₀ D]
+      OrdinaryWithEigenvalue O ρ₀ D) := sorry
+end EigenvalueCanonicalModule
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! Caraiani–Newton, Lemma 3.3.6, arXiv v3 pp. 52–53. The determinant
+character has the sum of the labelled weights, with this file's HT(epsilon)=+1
+convention. The section untwists by the unique residually trivial unramified
+n-th root. This is the crystalline/semistable-ordinary comparison, rather than
+a claim about all potentially semistable types. -/
+section FixedWeightDeterminantComparison
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+variable (wt : DominantWeight p K E n) (v : ShiftedHodgeType p K E n)
+
+/-- The full crystalline locus of this Hodge type, without imposing an
+ordinary flag. The comparison over K and zero monodromy both remain visible. -/
+def fixedWeightCrystallineIdeal : Ideal (LiftingRing O n ρ₀) := sInf
+  {P | ∃ (L : Type) (_ : Field L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+      (_ : Algebra O L) (_ : IsScalarTower O E L) (_ : Algebra ℚ_[p] L)
+      (_ : IsScalarTower ℚ_[p] E L) (x : LiftingRing O n ρ₀ →ₐ[O] L),
+    IsSemistableOfShiftedType p K E L v (pointRep x.toRingHom) ∧
+    pstMonodromy p K L (pointRep x.toRingHom)=0 ∧ P=RingHom.ker x.toRingHom}
+
+/-- True selects semistable ordinarity; false selects the full crystalline
+locus. Each branch uses the same framed universal representation. -/
+def fixedWeightComparisonIdeal (ordinary : Bool) : Ideal (LiftingRing O n ρ₀) :=
+  if ordinary then fixedWeightOrdinaryIdeal p K E O F ρ₀ wt false
+    else fixedWeightCrystallineIdeal p K E O F ρ₀ v
+abbrev FixedWeightComparisonRing (ordinary : Bool) :=
+  LiftingRing O n ρ₀ ⧸ fixedWeightComparisonIdeal p K E O F ρ₀ wt v ordinary
+
+variable (ψ : Field.absoluteGaloisGroup K →* Oˣ)
+
+def fixedWeightDeterminantIdeal (ordinary : Bool) : Ideal (LiftingRing O n ρ₀) :=
+  fixedWeightComparisonIdeal p K E O F ρ₀ wt v ordinary ⊔ detIdeal (ρbar := ρ₀) ψ
+abbrev FixedWeightDeterminantRing (ordinary : Bool) :=
+  LiftingRing O n ρ₀ ⧸ fixedWeightDeterminantIdeal p K E O F ρ₀ wt v ψ ordinary
+
+/-- The quotient map really is induced from the determinant equations. -/
+def fixedWeightDeterminantQuotient (ordinary : Bool) :
+    FixedWeightComparisonRing p K E O F ρ₀ wt v ordinary →ₐ[O]
+      FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary := sorry
+
+theorem fixedWeightDeterminantQuotient_coefficients (ordinary : Bool) (r : LiftingRing O n ρ₀) :
+    fixedWeightDeterminantQuotient p K E O F ρ₀ wt v ψ ordinary (Ideal.Quotient.mk _ r)=
+      Ideal.Quotient.mk _ r := sorry
+
+variable [Fintype (K →ₐ[ℚ_[p]] E)]
+variable (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+variable (hv : OrdinaryHodgeCompatible wt v) (hpn : ¬p∣n)
+variable (hψres : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=
+  Matrix.GeneralLinearGroup.det (ρ₀ g))
+variable (hψcrys : IsCrystallineRepresentation p E 1 K
+  (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)))
+variable (hψwt : ∀ σ : K →ₐ[ℚ_[p]] E, labelledHodgeWeights p K E
+  (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)) σ=
+    {(ordinaryHodgeWeights wt σ).sum})
+variable (hψcont : letI : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+  Continuous fun g ↦ (ψ g : O))
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+def fixedWeightDeterminantSection
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+    (hv : OrdinaryHodgeCompatible wt v) (hpn : ¬p∣n)
+    (hψres : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=Matrix.GeneralLinearGroup.det (ρ₀ g))
+    (hψcrys : IsCrystallineRepresentation p E 1 K
+      (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)))
+    (hψwt : ∀ σ : K →ₐ[ℚ_[p]] E, labelledHodgeWeights p K E
+      (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)) σ=
+        {(ordinaryHodgeWeights wt σ).sum})
+    (hψcont : letI : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+      Continuous fun g ↦ (ψ g : O)) (ordinary : Bool) :
+    FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary →ₐ[O]
+      FixedWeightComparisonRing p K E O F ρ₀ wt v ordinary := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+theorem fixedWeightDeterminantSection_rightInverse (ordinary : Bool) :
+    Function.RightInverse
+      (fixedWeightDeterminantSection p K E O F ρ₀ wt v ψ hsplit hv hpn hψres hψcrys hψwt hψcont ordinary)
+      (fixedWeightDeterminantQuotient p K E O F ρ₀ wt v ψ ordinary) := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+def fixedWeightDeterminantPowerSeriesIso
+    (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+    (hv : OrdinaryHodgeCompatible wt v) (hpn : ¬p∣n)
+    (hψres : ∀ g, Units.map (algebraMap O F).toMonoidHom (ψ g)=Matrix.GeneralLinearGroup.det (ρ₀ g))
+    (hψcrys : IsCrystallineRepresentation p E 1 K
+      (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)))
+    (hψwt : ∀ σ : K →ₐ[ℚ_[p]] E, labelledHodgeWeights p K E
+      (diagonalRepresentation (fun _ : Fin 1 ↦ (Units.map (algebraMap O E).toMonoidHom).comp ψ)) σ=
+        {(ordinaryHodgeWeights wt σ).sum})
+    (hψcont : letI : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+      Continuous fun g ↦ (ψ g : O)) (ordinary : Bool) :
+    PowerSeries (FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary) ≃ₐ[O]
+      FixedWeightComparisonRing p K E O F ρ₀ wt v ordinary := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+/-- The isomorphism extends the section on constant series. -/
+theorem fixedWeightDeterminantPowerSeriesIso_constants (ordinary : Bool)
+    (r : FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary) :
+    fixedWeightDeterminantPowerSeriesIso p K E O F ρ₀ wt v ψ hsplit hv hpn hψres hψcrys hψwt hψcont ordinary
+      (PowerSeries.C r)=
+    fixedWeightDeterminantSection p K E O F ρ₀ wt v ψ hsplit hv hpn hψres hψcrys hψwt hψcont ordinary r := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+/-- Specializing the twist parameter to zero is the fixed determinant quotient. -/
+theorem fixedWeightDeterminantPowerSeriesIso_quotient (ordinary : Bool)
+    (f : PowerSeries (FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary)) :
+    fixedWeightDeterminantQuotient p K E O F ρ₀ wt v ψ ordinary
+      (fixedWeightDeterminantPowerSeriesIso p K E O F ρ₀ wt v ψ hsplit hv hpn hψres hψcrys hψwt hψcont ordinary f)=
+      PowerSeries.constantCoeff f := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+theorem fixedWeightDeterminant_flat_reduced (ordinary : Bool) :
+    Module.Flat O (FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary) ∧
+    IsReduced (FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ ordinary) := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+/-- Nilpotent finite-algebra points retain the full crystalline comparison,
+ordinary inertia characters and determinant equality. -/
+theorem fixedWeightDeterminant_points (ordinary : Bool)
+    (B : Type) [CommRing B] [IsLocalRing B] [Algebra E B] [Module.Finite E B]
+    [Algebra O B] [IsScalarTower O E B] [Algebra ℚ_[p] B] [IsScalarTower ℚ_[p] E B]
+    (x : LiftingRing O n ρ₀ →ₐ[O] B) :
+    fixedWeightDeterminantIdeal p K E O F ρ₀ wt v ψ ordinary ≤ RingHom.ker x.toRingHom ↔
+      (if ordinary then IsSemistableOrdinaryOfWeight p K E B wt (pointRep x.toRingHom)
+        else IsSemistableOfShiftedType p K E B v (pointRep x.toRingHom) ∧
+          pstMonodromy p K B (pointRep x.toRingHom)=0) ∧
+      ∀ g, Matrix.GeneralLinearGroup.det (pointRep x.toRingHom g)=
+        Units.map (algebraMap O B).toMonoidHom (ψ g) := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+example (hn : n=1) : Nonempty
+    (FixedWeightDeterminantRing p K E O F ρ₀ wt v ψ false ≃ₐ[O] O) := sorry
+
+include hsplit hv hpn hψres hψcrys hψwt hψcont in
+example (ordinary : Bool) :
+    fixedWeightDeterminantQuotient p K E O F ρ₀ wt v ψ ordinary
+      (fixedWeightDeterminantPowerSeriesIso p K E O F ρ₀ wt v ψ hsplit hv hpn hψres hψcrys hψwt hψcont ordinary
+        PowerSeries.X)=0 := sorry
+end FixedWeightDeterminantComparison
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-! Snowden's weight-zero components in the fixed determinant normalization
+used by Caraiani–Newton §5.3.1 and Proposition 5.3.2, pp. 75–76 (arXiv v3).
+The residual representation and cyclotomic character are both trivial. -/
+section SnowdenWeightZeroComponents
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F]
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+
+/-- The semistable ordinary ring of weight zero with determinant epsilon^-1. -/
+def SnowdenOrdinaryIdeal : Ideal (LiftingRing O 2 ρ₀) :=
+  fixedWeightOrdinaryIdeal p K E O F ρ₀ (zeroDominantWeight p K E 2) false ⊔
+    detIdeal (ρbar := ρ₀) (localCyclotomic p K O)⁻¹
+abbrev SnowdenOrdinaryRing := LiftingRing O 2 ρ₀ ⧸ SnowdenOrdinaryIdeal p K E O F ρ₀
+
+/-- The crystalline component retains the original flag ordering. -/
+def SnowdenCrystallineIdeal : Ideal (LiftingRing O 2 ρ₀) :=
+  fixedWeightOrdinaryIdeal p K E O F ρ₀ (zeroDominantWeight p K E 2) true ⊔
+    detIdeal (ρbar := ρ₀) (localCyclotomic p K O)⁻¹
+
+/-- The second component fixes the full characters, including Frobenius.
+The off-diagonal function is unconstrained except by the representation law. -/
+def SnowdenIsSpecial (B : Type) [CommRing B] [Algebra O B]
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) B) : Prop :=
+  ∃ (g : GL (Fin 2) B) (c : Field.absoluteGaloisGroup K → B), ∀ σ,
+    (g*ρ σ*g⁻¹ : Matrix (Fin 2) (Fin 2) B)=
+      !![1,c σ;0,((Units.map (algebraMap O B).toMonoidHom (localCyclotomic p K O σ))⁻¹ : Bˣ)]
+
+def SnowdenSpecialIdeal : Ideal (LiftingRing O 2 ρ₀) := sInf
+  {P | ∃ (L : Type) (_ : Field L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+      (_ : Algebra O L) (_ : IsScalarTower O E L) (x : LiftingRing O 2 ρ₀ →ₐ[O] L),
+    SnowdenIsSpecial p K O L (pointRep x.toRingHom) ∧ P=RingHom.ker x.toRingHom}
+
+/-- Component ideals in the actual ordinary ring, rather than in an
+unrelated coordinate model. -/
+def SnowdenOrdinaryRing.crystallineComponent : Ideal (SnowdenOrdinaryRing p K E O F ρ₀) :=
+  Ideal.map (Ideal.Quotient.mk (SnowdenOrdinaryIdeal p K E O F ρ₀))
+    (SnowdenCrystallineIdeal p K E O F ρ₀)
+def SnowdenOrdinaryRing.specialComponent : Ideal (SnowdenOrdinaryRing p K E O F ρ₀) :=
+  Ideal.map (Ideal.Quotient.mk (SnowdenOrdinaryIdeal p K E O F ρ₀))
+    (SnowdenSpecialIdeal p K E O F ρ₀)
+
+variable [Fintype (K →ₐ[ℚ_[p]] E)]
+variable (hsplit : Fintype.card (K →ₐ[ℚ_[p]] E)=Module.finrank ℚ_[p] K)
+variable (hp : 2<p) (hρ : ρ₀=1)
+variable (hε : ∀ g, Units.map (algebraMap O F).toMonoidHom (localCyclotomic p K O g)=1)
+
+include hsplit hp hρ hε in
+theorem SnowdenOrdinaryRing.flat_reduced :
+    Module.Flat O (SnowdenOrdinaryRing p K E O F ρ₀) ∧
+    IsReduced (SnowdenOrdinaryRing p K E O F ρ₀) := sorry
+
+include hsplit hp hρ hε in
+theorem SnowdenOrdinaryRing.dimension :
+    IsEquidimensional (SnowdenOrdinaryRing p K E O F ρ₀) (Module.finrank ℚ_[p] K+4) := sorry
+
+include hsplit hp hρ hε in
+/-- There are precisely two components, specified as prime ideals. -/
+theorem SnowdenOrdinaryRing.two_components :
+    (SnowdenOrdinaryRing.crystallineComponent p K E O F ρ₀).IsPrime ∧
+    (SnowdenOrdinaryRing.specialComponent p K E O F ρ₀).IsPrime ∧
+    SnowdenOrdinaryRing.crystallineComponent p K E O F ρ₀ ≠
+      SnowdenOrdinaryRing.specialComponent p K E O F ρ₀ ∧
+    minimalPrimes (SnowdenOrdinaryRing p K E O F ρ₀)=
+      {SnowdenOrdinaryRing.crystallineComponent p K E O F ρ₀,
+        SnowdenOrdinaryRing.specialComponent p K E O F ρ₀} := sorry
+
+include hsplit hp hρ hε in
+theorem SnowdenOrdinaryRing.crystalline_points
+    (L : Type) [Field L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra O L] [IsScalarTower O E L] [Algebra ℚ_[p] L] [IsScalarTower ℚ_[p] E L]
+    (x : SnowdenOrdinaryRing p K E O F ρ₀ →ₐ[O] L) :
+    SnowdenOrdinaryRing.crystallineComponent p K E O F ρ₀ ≤ RingHom.ker x.toRingHom ↔
+      pstMonodromy p K L (pointRep (x.toRingHom.comp
+        (Ideal.Quotient.mk (SnowdenOrdinaryIdeal p K E O F ρ₀))))=0 := sorry
+
+include hsplit hp hρ hε in
+theorem SnowdenOrdinaryRing.special_points
+    (L : Type) [Field L] [Algebra E L] [FiniteDimensional E L]
+    [Algebra O L] [IsScalarTower O E L]
+    (x : SnowdenOrdinaryRing p K E O F ρ₀ →ₐ[O] L) :
+    SnowdenOrdinaryRing.specialComponent p K E O F ρ₀ ≤ RingHom.ker x.toRingHom ↔
+      SnowdenIsSpecial p K O L (pointRep (x.toRingHom.comp
+        (Ideal.Quotient.mk (SnowdenOrdinaryIdeal p K E O F ρ₀)))) := sorry
+
+include hsplit hp hρ hε in
+/-- Each generic point of the special fibre has exactly one generic
+point of the integral ring generalizing it. -/
+theorem SnowdenOrdinaryRing.special_generic_unique (ϖ : O) (hϖ : Irreducible ϖ)
+    (Q : Ideal (SnowdenOrdinaryRing p K E O F ρ₀ ⧸
+      Ideal.span {algebraMap O (SnowdenOrdinaryRing p K E O F ρ₀) ϖ}))
+    (hQ : Q ∈ minimalPrimes (SnowdenOrdinaryRing p K E O F ρ₀ ⧸
+      Ideal.span {algebraMap O (SnowdenOrdinaryRing p K E O F ρ₀) ϖ})) :
+    ∃! P : Ideal (SnowdenOrdinaryRing p K E O F ρ₀),
+      P ∈ minimalPrimes (SnowdenOrdinaryRing p K E O F ρ₀) ∧
+      P ≤ Ideal.comap (Ideal.Quotient.mk
+        (Ideal.span {algebraMap O (SnowdenOrdinaryRing p K E O F ρ₀) ϖ})) Q := sorry
+end SnowdenWeightZeroComponents
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open TauCeti.GaloisDeformation
+
+/-- The coordinate r-plane used to test the filtered module, not only
+its list of multiplicities. -/
+def coordinatePlane (R : Type u) [CommRing R] (n r : ℕ) : Submodule R (Fin n → R) where
+  carrier := {x | ∀ i : Fin n, r ≤ i.val → x i=0}
+  zero_mem' := by simp
+  add_mem' := sorry
+  smul_mem' := sorry
+
+section HodgeCarrierExamples
+variable (p : ℕ) [Fact p.Prime] (K E : Type)
+variable [Field K] [Field E] [Algebra ℚ_[p] K] [Algebra ℚ_[p] E]
+variable [FiniteDimensional ℚ_[p] K] [FiniteDimensional ℚ_[p] E]
+
+/-- Fil^0 is the whole module, Fil^1 is the coordinate r-plane, and
+Fil^2 is zero. The labelled multiplicities are (n-r,r). -/
+def twoStepHodgeType (n r : ℕ) (hr : r≤n) : HodgeType p K E n 1 where
+  Fil i := if i≤0 then ⊤ else if i≤1 then coordinatePlane (TensorProduct ℚ_[p] E K) n r else ⊥
+  antitone := sorry
+  Fil_zero := by simp
+  Fil_end := by simp
+  graded_projective := sorry
+
+theorem twoStepHodgeType_graded (n r : ℕ) (hr : r≤n) (σ : K →ₐ[ℚ_[p]] E) :
+    HodgeType.gradedRank p K E (twoStepHodgeType p K E n r hr) σ 0=n-r ∧
+    HodgeType.gradedRank p K E (twoStepHodgeType p K E n r hr) σ 1=r := sorry
+
+/-- Regular rank-two weights give the adjoint quotient dimension one. -/
+example : HodgeType.adQuotDim p ℚ_[p] ℚ_[p]
+    (twoStepHodgeType p ℚ_[p] ℚ_[p] 2 1 (by decide))=1 := sorry
+
+/-- Multiplicities (2,1) give a two-dimensional quotient in rank three. -/
+example : HodgeType.adQuotDim p ℚ_[p] ℚ_[p]
+    (twoStepHodgeType p ℚ_[p] ℚ_[p] 3 1 (by decide))=2 := sorry
+
+/-- A filtration with only one jump imposes no adjoint flag condition. -/
+example : HodgeType.adQuotDim p ℚ_[p] ℚ_[p]
+    (twoStepHodgeType p ℚ_[p] ℚ_[p] 3 0 (by decide))=0 := sorry
+end HodgeCarrierExamples
+
+/-- Restriction of continuous adjoint cocycles descends to their cohomology
+quotient. This is the ClassFieldTheory Layer 5 restriction adapter. -/
+def AdH1.restrict {Γ k : Type u} [Group Γ] [TopologicalSpace Γ] [Field k]
+    [TopologicalSpace k] {n : ℕ} (ρ : Γ →* GL (Fin n) k) (H : Subgroup Γ) :
+    AdH1 ρ →ₗ[k] AdH1 (ρ.comp H.subtype) := sorry
+
+section FontaineLaffailleCarrierExamples
+variable (p : ℕ) [Fact p.Prime] (F : Type) [Field F] [Finite F] [CharP F p]
+variable [Algebra ℤ_[p] F] [TopologicalSpace F] [DiscreteTopology F]
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 1) F)
+variable (M : FLObject p ℚ_[p] F)
+variable (e : (FLObject.realize p ℚ_[p] F M).module ≃ₗ[F] (Fin 1 → F))
+variable (he : ∀ g x, e ((FLObject.realize p ℚ_[p] F M).action g x)=
+  Matrix.mulVec (ρ₀ g : Matrix (Fin 1) (Fin 1) F) (e x))
+
+/-- CHT Corollary 2.4.4, p.37: the actual tangent image is the
+unramified cohomology subspace. -/
+example : FLDeformation.tangentSpace p ℚ_[p] F ρ₀ M e he=
+    LinearMap.ker (AdH1.restrict ρ₀ (localInertia p ℚ_[p])) := sorry
+
+example : Module.finrank F (FLDeformation.tangentSpace p ℚ_[p] F ρ₀ M e he)=1 := sorry
+
+/-- The supplier's finite FL category has zero graded piece at its
+excluded endpoint. This is a statement about that piece, not a bound on integers. -/
+example (M₁ : FLObject p ℚ_[p] F) :
+    FLObject.gradedRank p ℚ_[p] ℚ_[p] F M₁ (AlgHom.id ℚ_[p] ℚ_[p]) ((p:ℤ)-1)=0 := sorry
+
+/-- Two copies of the mod-p cyclotomic character have a repeated jump
+p-2 in CHT's covariant normalization. Therefore the multiplicity-one
+hypothesis fails even though each individual summand is in range. -/
+example (hp : 2<p) (M₂ : FLObject p ℚ_[p] F)
+    (e₂ : (FLObject.realize p ℚ_[p] F M₂).module ≃ₗ[F] (Fin 2 → F))
+    (he₂ : ∀ g x, e₂ ((FLObject.realize p ℚ_[p] F M₂).action g x)=
+      Matrix.mulVec (diagonalRepresentation (fun _ : Fin 2 ↦ localCyclotomic p ℚ_[p] F) g :
+        Matrix (Fin 2) (Fin 2) F) (e₂ x)) :
+    FLObject.gradedRank p ℚ_[p] ℚ_[p] F M₂ (AlgHom.id ℚ_[p] ℚ_[p]) ((p:ℤ)-2)=2 := sorry
+end FontaineLaffailleCarrierExamples
+
+section FontaineLaffailleOutOfRange
+variable (p : ℕ) [Fact p.Prime] (O E F : Type)
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [Algebra ℤ_[p] O]
+variable [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [TopologicalSpace O] (hO : IsAdic (IsLocalRing.maximalIdeal O))
+variable (π : O →ₐ[O] F)
+variable (hπ : Function.Surjective π ∧ RingHom.ker π.toRingHom=IsLocalRing.maximalIdeal O)
+variable (ρ₀ : Field.absoluteGaloisGroup ℚ_[p] →* GL (Fin 1) F)
+variable (ρ : Lift 1 ρ₀ π.toRingHom)
+
+/-- CHT §2.4.1 pp.33–35 and the R06.4 sign dictionary: a positive
+weight p-1 lies outside the covariant realization's interval [2-p,0]. -/
+example (hp : 2<p)
+    (hcrys : IsCrystallineRepresentation p E 1 ℚ_[p]
+      ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp ρ.toHom))
+    (hwt : labelledHodgeWeights p ℚ_[p] E
+      ((Matrix.GeneralLinearGroup.map (algebraMap O E)).comp ρ.toHom) (Algebra.ofId ℚ_[p] E)=
+        {((p:ℤ)-1)}) : ¬FLDeformation p ℚ_[p] O F O π hπ hO ρ₀ ρ := sorry
+end FontaineLaffailleOutOfRange
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+open AlgebraicGeometry
+
+/-- R07.2's underlying integral finite-flat group scheme. Connectedness is a
+condition on this scheme, not on its geometric characteristic-zero points. -/
+def FiniteFlatObject.scheme {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Scheme.{u} := sorry
+
+def FiniteFlatObject.IsConnected {p : ℕ} [Fact p.Prime] {K : Type u} [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] (H : FiniteFlatObject p K) : Prop :=
+  _root_.IsConnected (Set.univ : Set H.scheme)
+
+/-- Connected finite-flatness on every Artinian reduction; the coefficient
+endomorphisms and generic-fibre intertwiner remain in `FiniteFlatModel`. -/
+def IsFlatConnectedLift (p : ℕ) [Fact p.Prime] (K B : Type u) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing B] [Algebra ℤ_[p] B]
+    [IsLocalRing B] {n : ℕ} (ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B) : Prop :=
+  ∀ I : Ideal B, (∃ r : ℕ, (IsLocalRing.maximalIdeal B)^r ≤ I) →
+    ∃ H : FiniteFlatModel p K (B ⧸ I)
+      ((Matrix.GeneralLinearGroup.map (Ideal.Quotient.mk I)).comp ρ), H.group.IsConnected
+
+theorem IsFlatConnectedLift.isFlat {p : ℕ} [Fact p.Prime] {K B : Type u}
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [CommRing B]
+    [Algebra ℤ_[p] B] [IsLocalRing B] {n : ℕ}
+    {ρ : Field.absoluteGaloisGroup K →* GL (Fin n) B}
+    (h : IsFlatConnectedLift p K B ρ) : IsFlatLift p K B ρ := sorry
+
+section ConnectedFlatRings
+variable (p : ℕ) [Fact p.Prime] (K O F : Type u) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O] [IsDiscreteValuationRing O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O]
+variable [Field F] [Finite F] [Algebra O F] [ResidueIdentification O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F] {n : ℕ}
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin n) F) [ContinuousResidual ρ₀]
+
+/-- Kisin Lemma 2.2.2, DVI pp. 22–23: closed connected-flat subfunctor.
+The ideal is defined by its continuous residual-compatible Artinian points. -/
+def flatConnectedIdeal : Ideal (LiftingRing O n ρ₀) := sInf
+  {J | ∃ (B : CNLObject O F) (_ : Algebra ℤ_[p] B.ring)
+    (_ : IsScalarTower ℤ_[p] O B.ring) (_ : IsArtinianRing B.ring)
+    (x : LiftingRing O n ρ₀ →ₐ[O] B.ring), Continuous x ∧
+      (∀ r, B.residue (x r)=LiftingRing.residue O n ρ₀ r) ∧
+      IsFlatConnectedLift p K B.ring (pointRep x.toRingHom) ∧ RingHom.ker x.toRingHom=J}
+
+abbrev flatConnectedRing := LiftingRing O n ρ₀ ⧸ flatConnectedIdeal p K O F ρ₀
+
+theorem flatConnectedIdeal.containsFlat : flatIdeal p K O F ρ₀ ≤
+    flatConnectedIdeal p K O F ρ₀ := sorry
+
+/-- The point criterion detects connected integral models, including at p=2. -/
+theorem flatConnectedRing.artinian_points (B : CNLObject O F)
+    [Algebra ℤ_[p] B.ring] [IsScalarTower ℤ_[p] O B.ring] [IsArtinianRing B.ring]
+    (x : LiftingRing O n ρ₀ →ₐ[O] B.ring) (hx : Continuous x)
+    (hres : ∀ r, B.residue (x r)=LiftingRing.residue O n ρ₀ r) :
+    flatConnectedIdeal p K O F ρ₀ ≤ RingHom.ker x.toRingHom ↔
+      IsFlatConnectedLift p K B.ring (pointRep x.toRingHom) := sorry
+
+/-- Integral closed immersion into the flat ring, not the unrestricted family. -/
+def flatConnectedRing.fromFlat : flatLiftingRing p K O F ρ₀ →ₐ[O]
+    flatConnectedRing p K O F ρ₀ := sorry
+
+theorem flatConnectedRing.fromFlat_quotient (r : LiftingRing O n ρ₀) :
+    flatConnectedRing.fromFlat p K O F ρ₀ (Ideal.Quotient.mk _ r)=Ideal.Quotient.mk _ r := sorry
+
+def flatConnectedRing.genericFromFlat : GenericFibre (p : O) (flatLiftingRing p K O F ρ₀) →ₐ[O]
+    GenericFibre (p : O) (flatConnectedRing p K O F ρ₀) := sorry
+
+theorem flatConnectedRing.genericFromFlat_commutes (r : flatLiftingRing p K O F ρ₀) :
+    flatConnectedRing.genericFromFlat p K O F ρ₀ (algebraMap _ _ r)=
+      algebraMap _ _ (flatConnectedRing.fromFlat p K O F ρ₀ r) := sorry
+
+/-- Lemma 2.2.2, DVI p. 23. Flatness of the ambient universal family is essential. -/
+theorem flatConnectedRing.generic_openImmersion : IsOpenImmersion
+    (Spec.map (CommRingCat.ofHom (flatConnectedRing.genericFromFlat p K O F ρ₀).toRingHom)) := sorry
+
+/-- Framed universal specialization of Lemma 2.2.3, DVI p. 23. -/
+theorem flatConnectedRing.generic_regular : HasRegularGenericFibre (p : O)
+    (flatConnectedRing p K O F ρ₀) := sorry
+
+end ConnectedFlatRings
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- Cyclotomic character after the specified rational scalar extension. -/
+def rationalCyclotomic (p : ℕ) [Fact p.Prime] (K L : Type) [Field K] [Field L]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] [Algebra ℚ_[p] L] :
+    Field.absoluteGaloisGroup K →* Lˣ :=
+  (Units.map (algebraMap ℚ_[p] L).toMonoidHom).comp
+    ((Units.map (algebraMap ℤ_[p] ℚ_[p]).toMonoidHom).comp (localCyclotomic p K ℤ_[p]))
+
+section KisinOrdinaryGeneral
+variable (p : ℕ) [Fact p.Prime] (K E O F : Type)
+variable [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [Field E] [CharZero E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
+variable [CommRing O] [IsLocalRing O] [IsNoetherianRing O] [IsDomain O]
+variable [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [Algebra ℤ_[p] O] [Module.Finite ℤ_[p] O] [Algebra O E] [IsFractionRing O E]
+variable [Field F] [Finite F] [CharP F p] [Algebra O F] [ResidueIdentification O F]
+variable [Algebra ℤ_[p] F] [IsScalarTower ℤ_[p] O F]
+variable [MazurFinite (Field.absoluteGaloisGroup K) F]
+variable (ρ₀ : Field.absoluteGaloisGroup K →* GL (Fin 2) F) [ContinuousResidual ρ₀]
+local instance : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+variable (ψ : UnramifiedCharacter (Field.absoluteGaloisGroup K) O (localInertia p K))
+
+/-- Kisin Corollary 2.4.6(1), author DVI p. 33. This is the crystalline
+positive-weight orientation (epsilon psi eta, eta inverse), for arbitrary K
+and including p=2. The full characters, rather than their inertia traces, occur. -/
+def KisinOrdinaryShape (L : Type) [Field L] [CharZero L]
+    [Algebra ℚ_[p] L] [FiniteDimensional ℚ_[p] L] [Algebra O L]
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) L) : Prop :=
+  letI : TopologicalSpace L := moduleTopology ℚ_[p] L
+  IsCrystallineRepresentation p L 2 K ρ ∧
+    ∃ (η : UnramifiedCharacter (Field.absoluteGaloisGroup K) L (localInertia p K))
+      (g : GL (Fin 2) L) (c : Field.absoluteGaloisGroup K → L), ∀ σ,
+      (g*ρ σ*g⁻¹ : Matrix (Fin 2) (Fin 2) L)=
+        !![(rationalCyclotomic p K L σ : L)*algebraMap O L (ψ.toHom σ)*(η.toHom σ : L), c σ;
+          0, (((η.toHom σ)⁻¹ : Lˣ) : L)]
+
+/-- The integral image is the intersection of the characteristic-zero point
+kernels; this retains the actual ordinary crystalline locus at the dyadic prime. -/
+def KisinOrdinaryIdeal : Ideal (LiftingRing O 2 ρ₀) := sInf
+  {J | ∃ (L : Type) (_ : Field L) (_ : CharZero L) (_ : Algebra ℚ_[p] L)
+    (_ : FiniteDimensional ℚ_[p] L) (_ : Algebra E L) (_ : FiniteDimensional E L)
+    (_ : IsScalarTower ℚ_[p] E L) (_ : Algebra O L) (_ : IsScalarTower O E L)
+    (x : LiftingRing O 2 ρ₀ →ₐ[O] L),
+      KisinOrdinaryShape p K O ψ L (pointRep x.toRingHom) ∧ RingHom.ker x.toRingHom=J}
+
+abbrev KisinOrdinaryRing := LiftingRing O 2 ρ₀ ⧸ KisinOrdinaryIdeal p K E O F ρ₀ ψ
+abbrev KisinOrdinaryGeneric := GenericFibre (p : O) (KisinOrdinaryRing p K E O F ρ₀ ψ)
+instance : Algebra E (KisinOrdinaryGeneric p K E O F ρ₀ ψ) := sorry
+instance : IsScalarTower O E (KisinOrdinaryGeneric p K E O F ρ₀ ψ) := sorry
+
+/-- The full field-point equivalence, not only necessity of its matrix shape. -/
+theorem KisinOrdinaryRing.points (L : Type) [Field L] [CharZero L]
+    [Algebra ℚ_[p] L] [FiniteDimensional ℚ_[p] L] [Algebra E L] [FiniteDimensional E L]
+    [IsScalarTower ℚ_[p] E L] [Algebra O L] [IsScalarTower O E L]
+    (x : LiftingRing O 2 ρ₀ →ₐ[O] L) :
+    KisinOrdinaryIdeal p K E O F ρ₀ ψ ≤ RingHom.ker x.toRingHom ↔
+      KisinOrdinaryShape p K O ψ L (pointRep x.toRingHom) := sorry
+
+/-- The exception is an actual residual direct sum of distinct full characters,
+each cyclotomic on inertia; p=2 does not make the full characters equal. -/
+def KisinOrdinarySplitException : Prop :=
+  ∃ (χ₁ χ₂ : Field.absoluteGaloisGroup K →* Fˣ) (g : GL (Fin 2) F), χ₁≠χ₂ ∧
+    (∀ σ : localInertia p K, χ₁ σ.val=localCyclotomic p K F σ.val ∧
+      χ₂ σ.val=localCyclotomic p K F σ.val) ∧
+    ∀ σ, (g*ρ₀ σ*g⁻¹ : Matrix (Fin 2) (Fin 2) F) = !![(χ₁ σ : F),0;0,(χ₂ σ : F)]
+
+/-- Framed universal family in Corollary 2.4.6(2), DVI p. 33. Coefficients
+are not assumed unramified and the local prime may be two. -/
+theorem KisinOrdinaryRing.generic_smooth : Algebra.FormallySmooth E
+    (KisinOrdinaryGeneric p K E O F ρ₀ ψ) := sorry
+
+theorem KisinOrdinaryRing.generic_dimension
+    [Nontrivial (KisinOrdinaryRing p K E O F ρ₀ ψ)] :
+    ringKrullDim (KisinOrdinaryGeneric p K E O F ρ₀ ψ)=3+Module.finrank ℚ_[p] K := sorry
+
+/-- Corollary 2.4.6(3), DVI p. 33. Nonemptiness excludes the zero quotient. -/
+theorem KisinOrdinaryRing.domain
+    [Nontrivial (KisinOrdinaryRing p K E O F ρ₀ ψ)]
+    (h : ¬KisinOrdinarySplitException p K F ρ₀) :
+    IsDomain (KisinOrdinaryRing p K E O F ρ₀ ψ) := sorry
+
+end KisinOrdinaryGeneral
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-! The following coefficient-linear quotient displays the already-owned
+ProfiniteCohomology Layer 2 carrier. Its scalar structure and the Kummer
+coefficient comparison are adapters, not a second general cohomology roadmap. -/
+
+section DiscreteLinearCohomologyAdapter
+variable (R Γ M : Type) [CommRing R] [Group Γ] [TopologicalSpace Γ]
+variable [AddCommGroup M] [Module R M]
+variable (a : Γ →* (M ≃ₗ[R] M))
+
+/-- Continuous cocycles with the discrete coefficient topology. -/
+def discreteLinearZ1 : Submodule R (Γ → M) := by
+  letI : TopologicalSpace M := ⊥
+  exact { carrier := {c | Continuous c ∧ ∀ g h, c (g*h)=c g+a g (c h)}
+          zero_mem' := by sorry
+          add_mem' := by sorry
+          smul_mem' := by sorry }
+
+/-- Coboundaries inside the continuous cocycles, rather than inside all functions.
+The orbit-continuity hypothesis is indispensable for this map. -/
+def discreteLinearD0
+    (ha : ∀ x : M, letI : TopologicalSpace M := ⊥; Continuous fun g ↦ a g x) :
+    M →ₗ[R] discreteLinearZ1 R Γ M a := sorry
+
+theorem discreteLinearD0_apply
+    (ha : ∀ x : M, letI : TopologicalSpace M := ⊥; Continuous fun g ↦ a g x)
+    (x : M) (g : Γ) : (discreteLinearD0 R Γ M a ha x).val g=a g x-x := sorry
+
+abbrev discreteLinearH1
+    (ha : ∀ x : M, letI : TopologicalSpace M := ⊥; Continuous fun g ↦ a g x) :=
+  discreteLinearZ1 R Γ M a ⧸ LinearMap.range (discreteLinearD0 R Γ M a ha)
+
+/-- Supplier restriction, preserving the coefficient-linear quotient. -/
+def discreteLinearH1.restrict
+    (ha : ∀ x : M, letI : TopologicalSpace M := ⊥; Continuous fun g ↦ a g x)
+    (H : Subgroup Γ)
+    (haH : ∀ x : M, letI : TopologicalSpace M := ⊥;
+      Continuous fun g : H ↦ a g.val x) :
+    discreteLinearH1 R Γ M a ha →ₗ[R]
+      discreteLinearH1 R H M (a.comp H.subtype) haH := sorry
+
+end DiscreteLinearCohomologyAdapter
+
+/-- Kisin §2.4.1, author DVI p.30. Finiteness is not assumed: the
+coefficient module is discrete, inertia acts trivially, and a fixed power of p
+annihilates it. These are the inputs to Lemma 2.4.2. -/
+structure UnramifiedTorsionModule (p : ℕ) [Fact p.Prime] (K : Type)
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] where
+  module : Type
+  [addCommGroup : AddCommGroup module]
+  [scalar : Module ℤ_[p] module]
+  action : Field.absoluteGaloisGroup K →* (module ≃ₗ[ℤ_[p]] module)
+  orbit_continuous : ∀ x : module, letI : TopologicalSpace module := ⊥;
+    Continuous fun g ↦ action g x
+  inertia_trivial : ∀ g : localInertia p K, ∀ x : module, action g.val x=x
+  p_nilpotent : ∃ m : ℕ, ∀ x : module, ((p : ℤ_[p])^m) • x=0
+attribute [instance] UnramifiedTorsionModule.addCommGroup UnramifiedTorsionModule.scalar
+
+namespace UnramifiedTorsionModule
+variable (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable (M : UnramifiedTorsionModule p K)
+
+/-- Twist the specified action by the actual cyclotomic character of K. -/
+def cyclotomicAction : Field.absoluteGaloisGroup K →* (M.module ≃ₗ[ℤ_[p]] M.module) := sorry
+
+theorem cyclotomicAction_apply (g : Field.absoluteGaloisGroup K) (x : M.module) :
+    cyclotomicAction p K M g x=(localCyclotomic p K ℤ_[p] g : ℤ_[p]) • M.action g x := sorry
+
+theorem cyclotomicAction_continuous (x : M.module) :
+    letI : TopologicalSpace M.module := ⊥;
+    Continuous fun g ↦ cyclotomicAction p K M g x := sorry
+
+theorem cyclotomicAction_inertia_continuous (x : M.module) :
+    letI : TopologicalSpace M.module := ⊥;
+    Continuous fun g : localInertia p K ↦ cyclotomicAction p K M g.val x := sorry
+
+abbrev H1 := discreteLinearH1 ℤ_[p] (Field.absoluteGaloisGroup K) M.module
+  (cyclotomicAction p K M) (cyclotomicAction_continuous p K M)
+abbrev inertiaH1 := discreteLinearH1 ℤ_[p] (localInertia p K) M.module
+  ((cyclotomicAction p K M).comp (localInertia p K).subtype)
+  (cyclotomicAction_inertia_continuous p K M)
+
+/-- K^ur is the inertia fixed field in the chosen algebraic closure. -/
+def unramifiedField : IntermediateField K (AlgebraicClosure K) :=
+  IntermediateField.fixedField (localInertia p K)
+
+instance : Algebra ℤ_[p] (unramifiedField p K) :=
+  ((algebraMap K (unramifiedField p K)).comp
+    ((algebraMap ℚ_[p] K).comp (algebraMap ℤ_[p] ℚ_[p]))).toAlgebra
+
+/-- The integral closure is the ring of integers of the algebraic unramified
+extension. Integral units, rather than all nonzero elements, define finiteness. -/
+abbrev unramifiedIntegers := integralClosure ℤ_[p] (unramifiedField p K)
+
+/-- For p-nilpotent M, ordinary integral tensors give the finite-level Kummer
+coefficient tensor. This avoids assigning a Z_p-action to the raw unit group;
+the supplier comparison with the p-completed unit tensor must be retained. -/
+abbrev unitTensor := TensorProduct ℤ (Additive (unramifiedIntegers p K)ˣ) M.module
+abbrev fieldTensor := TensorProduct ℤ (Additive (unramifiedField p K)ˣ) M.module
+
+/-- Inclusion of integral units on the first factor. -/
+def unitTensorMap : unitTensor p K M →ₗ[ℤ] fieldTensor p K M :=
+  TensorProduct.map
+    ((Units.map (unramifiedIntegers p K).val.toMonoidHom).toAdditive.toIntLinearMap)
+    (LinearMap.id : M.module →ₗ[ℤ] M.module)
+
+/-- ProfiniteCohomology Layer 9's Kummer comparison, extended to these
+coefficients. The fixed-field identification and cyclotomic action occur in
+its type; an arbitrary isomorphism is not an input to H1_f. -/
+def inertiaKummer : inertiaH1 p K M ≃ₗ[ℤ] fieldTensor p K M := sorry
+
+def restrictKummer : H1 p K M →ₗ[ℤ] fieldTensor p K M :=
+  (inertiaKummer p K M).toLinearMap.comp
+    ((discreteLinearH1.restrict ℤ_[p] (Field.absoluteGaloisGroup K) M.module
+      (cyclotomicAction p K M) (cyclotomicAction_continuous p K M)
+      (localInertia p K) (cyclotomicAction_inertia_continuous p K M)).restrictScalars ℤ)
+
+/-- Kisin's finite extension classes, §2.4.1 p.30. -/
+def H1f : Submodule ℤ_[p] (H1 p K M) where
+  carrier := {x | restrictKummer p K M x ∈ LinearMap.range (unitTensorMap p K M)}
+  zero_mem' := sorry
+  add_mem' := sorry
+  smul_mem' := sorry
+
+theorem mem_H1f (x : H1 p K M) : x ∈ H1f p K M ↔
+    ∃ y : unitTensor p K M, unitTensorMap p K M y=restrictKummer p K M x := sorry
+
+/-- A module map retains equivariance for the full unramified action. -/
+structure Hom (N : UnramifiedTorsionModule p K) where
+  toLinearMap : M.module →ₗ[ℤ_[p]] N.module
+  equivariant : ∀ g x, toLinearMap (M.action g x)=N.action g (toLinearMap x)
+
+variable {M} {N : UnramifiedTorsionModule p K}
+def Hom.H1map (f : Hom p K M N) : H1 p K M →ₗ[ℤ_[p]] H1 p K N := sorry
+
+theorem Hom.preservesFinite (f : Hom p K M N) (x : H1 p K M)
+    (hx : x ∈ H1f p K M) : f.H1map p K x ∈ H1f p K N := sorry
+
+def Hom.H1fmap (f : Hom p K M N) : H1f p K M →ₗ[ℤ_[p]] H1f p K N := sorry
+
+theorem Hom.H1fmap_val (f : Hom p K M N) (x : H1f p K M) :
+    (f.H1fmap p K x).val=f.H1map p K x.val := sorry
+
+/-- Lemma 2.4.2, DVI p.31: the whole right-exact assertion, including
+surjectivity. It applies to discrete p-nilpotent modules, not just finite ones. -/
+theorem H1f_rightExact {M₁ M₂ M₃ : UnramifiedTorsionModule p K}
+    (f : Hom p K M₁ M₂) (g : Hom p K M₂ M₃)
+    (hfg : LinearMap.range f.toLinearMap=LinearMap.ker g.toLinearMap)
+    (hg : Function.Surjective g.toLinearMap) :
+    LinearMap.range (f.H1fmap p K)=LinearMap.ker (g.H1fmap p K) ∧
+      Function.Surjective (g.H1fmap p K) := sorry
+
+/-- Kernel of restriction consists of finite classes because zero is an
+integral-unit tensor. This tests the actual submodule. -/
+example : LinearMap.ker (restrictKummer p K M) ≤ (H1f p K M).restrictScalars ℤ := sorry
+
+/-- A zero coefficient object has zero finite cohomology. -/
+example [Subsingleton M.module] : Subsingleton (H1f p K M) := sorry
+
+/-- A class with a nonintegral Kummer restriction is excluded, even when it
+is a perfectly valid continuous cohomology class. -/
+example (x : H1 p K M)
+    (hx : restrictKummer p K M x ∉ LinearMap.range (unitTensorMap p K M)) :
+    x ∉ H1f p K M := sorry
+
+end UnramifiedTorsionModule
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- The line datum of Kisin §2.4.3, DVI p.31, in a framed representation.
+Nonempty rank-one identifications are properties; choosing trivializations would
+add unwanted parameters to the line moduli. Over a local coefficient ring these
+conditions give the projective line and projective quotient in that definition. -/
+structure KisinOrdinaryLineData (p : ℕ) [Fact p.Prime] (K A : Type)
+    [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+    [CommRing A] [IsLocalRing A] [Algebra ℤ_[p] A]
+    (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) A) where
+  line : Submodule A (Fin 2 → A)
+  line_rank : Nonempty (line ≃ₗ[A] A)
+  quotient_rank : Nonempty (((Fin 2 → A) ⧸ line) ≃ₗ[A] A)
+  stable : ∀ g x, x ∈ line → Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) A) x ∈ line
+  inertia_cyclotomic : ∀ g : localInertia p K, ∀ x : line,
+    Matrix.mulVec (ρ g.val : Matrix (Fin 2) (Fin 2) A) x.val=
+      (localCyclotomic p K A g.val : A) • x.val
+  determinant : (Matrix.GeneralLinearGroup.det.comp ρ)=localCyclotomic p K A
+
+namespace KisinOrdinaryLineData
+variable (p : ℕ) [Fact p.Prime] (K A : Type) [Field K] [CharZero K]
+variable [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
+variable [CommRing A] [IsLocalRing A] [Algebra ℤ_[p] A]
+variable (ρ : Field.absoluteGaloisGroup K →* GL (Fin 2) A)
+variable (D : KisinOrdinaryLineData p K A ρ)
+
+abbrev quotient := (Fin 2 → A) ⧸ D.line
+abbrev extensionCoefficients := D.quotient p K A ρ →ₗ[A] D.line
+
+def lineAction : Field.absoluteGaloisGroup K →* (D.line ≃ₗ[A] D.line) := sorry
+
+theorem lineAction_apply (g : Field.absoluteGaloisGroup K) (x : D.line) :
+    (D.lineAction p K A ρ g x).val=Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) A) x.val := sorry
+
+def quotientAction : Field.absoluteGaloisGroup K →*
+    (D.quotient p K A ρ ≃ₗ[A] D.quotient p K A ρ) := sorry
+
+theorem quotientAction_apply (g : Field.absoluteGaloisGroup K) (x : Fin 2 → A) :
+    D.quotientAction p K A ρ g (D.line.mkQ x)=
+      D.line.mkQ (Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) A) x) := sorry
+
+/-- Removing one cyclotomic twist makes inertia trivial on Hom(V/L,L).
+The full unramified action is retained. -/
+def untwistedHomAction : Field.absoluteGaloisGroup K →*
+    (D.extensionCoefficients p K A ρ ≃ₗ[ℤ_[p]] D.extensionCoefficients p K A ρ) := sorry
+
+theorem untwistedHomAction_apply (g : Field.absoluteGaloisGroup K)
+    (f : D.extensionCoefficients p K A ρ) (q : D.quotient p K A ρ) :
+    D.untwistedHomAction p K A ρ g f q=
+      (((localCyclotomic p K ℤ_[p] g)⁻¹ : ℤ_[p]ˣ) : ℤ_[p]) •
+        (D.lineAction p K A ρ g (f (D.quotientAction p K A ρ g⁻¹ q))) := sorry
+
+/-- Artinian augmentation coefficients have p nilpotent and discrete action.
+Those hypotheses are explicit rather than inferred from an arbitrary A. -/
+def extensionModule
+    (hpA : ∃ m : ℕ, (p:A)^m=0)
+    (hρ : letI : TopologicalSpace A := ⊥;
+      Continuous fun g ↦ (ρ g : Matrix (Fin 2) (Fin 2) A)) : UnramifiedTorsionModule p K where
+  module := D.extensionCoefficients p K A ρ
+  action := D.untwistedHomAction p K A ρ
+  orbit_continuous := sorry
+  inertia_trivial := sorry
+  p_nilpotent := sorry
+
+variable (hpA : ∃ m : ℕ, (p:A)^m=0)
+variable (hρ : letI : TopologicalSpace A := ⊥;
+  Continuous fun g ↦ (ρ g : Matrix (Fin 2) (Fin 2) A))
+
+/-- A section produces the usual continuous extension cocycle with values
+in Hom(V/L,L). Its class will not depend on the section. -/
+def extensionCocycle (s : D.quotient p K A ρ →ₗ[A] (Fin 2 → A))
+    (hs : D.line.mkQ.comp s=LinearMap.id) :
+    discreteLinearZ1 ℤ_[p] (Field.absoluteGaloisGroup K)
+      (D.extensionModule p K A ρ hpA hρ).module
+      (UnramifiedTorsionModule.cyclotomicAction p K (D.extensionModule p K A ρ hpA hρ)) := sorry
+
+theorem extensionCocycle_apply (s : D.quotient p K A ρ →ₗ[A] (Fin 2 → A))
+    (hs : D.line.mkQ.comp s=LinearMap.id) (g : Field.absoluteGaloisGroup K)
+    (q : D.quotient p K A ρ) :
+    ((show D.extensionCoefficients p K A ρ from
+      (D.extensionCocycle p K A ρ hpA hρ s hs).val g) q).val=
+      Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) A)
+        (s (D.quotientAction p K A ρ g⁻¹ q))-s q := sorry
+
+def extensionClass : UnramifiedTorsionModule.H1 p K (D.extensionModule p K A ρ hpA hρ) := sorry
+
+theorem extensionClass_of_section (s : D.quotient p K A ρ →ₗ[A] (Fin 2 → A))
+    (hs : D.line.mkQ.comp s=LinearMap.id) :
+    D.extensionClass p K A ρ hpA hρ=Submodule.Quotient.mk
+      (D.extensionCocycle p K A ρ hpA hρ s hs) := sorry
+
+/-- This is condition (3) of §2.4.3, not only triangularity or a determinant
+condition. The coefficient module is constructed from the very same line. -/
+def IsFiniteExtension : Prop :=
+  D.extensionClass p K A ρ hpA hρ ∈
+    UnramifiedTorsionModule.H1f p K (D.extensionModule p K A ρ hpA hρ)
+
+/-- A G_K-equivariant splitting has zero extension class and is finite. -/
+example (s : D.quotient p K A ρ →ₗ[A] (Fin 2 → A))
+    (hs : D.line.mkQ.comp s=LinearMap.id)
+    (heq : ∀ g q, Matrix.mulVec (ρ g : Matrix (Fin 2) (Fin 2) A) (s q)=
+      s (D.quotientAction p K A ρ g q)) :
+    D.extensionClass p K A ρ hpA hρ=0 ∧ D.IsFiniteExtension p K A ρ hpA hρ := sorry
+
+end KisinOrdinaryLineData
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+namespace UnramifiedTorsionModule
+
+/-- The actual trivial unramified F_p-module, with the reduction map from Z_p. -/
+def modPTorsion (p : ℕ) [Fact p.Prime] (K : Type) [Field K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] : UnramifiedTorsionModule p K := by
+  letI : Algebra ℤ_[p] (ZMod p) := (PadicInt.toZMod (p := p)).toAlgebra
+  exact { module := ZMod p
+          action := 1
+          orbit_continuous := by sorry
+          inertia_trivial := by sorry
+          p_nilpotent := by sorry }
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- The supplier Kummer class with the fixed mod-p cyclotomic identification.
+The restriction formula below connects this to the inertia comparison used by H1_f. -/
+def modPKummer : Additive ℚ_[p]ˣ →+ H1 p ℚ_[p] (modPTorsion p ℚ_[p]) := sorry
+
+theorem modPKummer_restriction (x : ℚ_[p]ˣ) :
+    restrictKummer p ℚ_[p] (modPTorsion p ℚ_[p]) (modPKummer p (Additive.ofMul x))=
+      TensorProduct.tmul ℤ
+        (Additive.ofMul (Units.map (algebraMap ℚ_[p] (unramifiedField p ℚ_[p])).toMonoidHom x))
+        (1 : ZMod p) := sorry
+
+/-- p is a nonzero element of Q_p and hence a unit there, though it is not
+an integral unit. This is the ramified Kummer class excluded by finiteness. -/
+def primeAsRationalUnit : ℚ_[p]ˣ :=
+  Units.mk0 (p : ℚ_[p]) (by exact_mod_cast (Fact.out : p.Prime).ne_zero)
+
+/-- Integral unit Kummer classes belong to the finite submodule. -/
+example (u : ℤ_[p]ˣ) :
+    modPKummer p (Additive.ofMul (Units.map (algebraMap ℤ_[p] ℚ_[p]).toMonoidHom u)) ∈
+      H1f p ℚ_[p] (modPTorsion p ℚ_[p]) := sorry
+
+/-- The uniformizer class is a concrete non-example, even at p=2. -/
+example : modPKummer p (Additive.ofMul (primeAsRationalUnit p)) ∉
+    H1f p ℚ_[p] (modPTorsion p ℚ_[p]) := sorry
+
+/-- For odd p the finite extension-class space is one-dimensional over F_p.
+The cocycle space has an additional framing/coboundary dimension. -/
+example (hp : 2<p) : Nat.card (H1f p ℚ_[p] (modPTorsion p ℚ_[p]))=p := sorry
+
+/-- At p=2 the integral unit -1 contributes a further square class. -/
+example : Nat.card (H1f 2 ℚ_[2] (modPTorsion 2 ℚ_[2]))=4 := sorry
+
+end UnramifiedTorsionModule
+end TauCeti.GaloisDeformation.Local
+
+
+namespace TauCeti.GaloisDeformation.Local
+
+/-- LocalGaloisGroups' cyclotomic image calculation applied to finite K/Q_p:
+the inertia image remains infinite after a finite extension. -/
+theorem localCyclotomic_inertia_infinite (p : ℕ) [Fact p.Prime]
+    (K : Type) [Field K] [CharZero K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] :
+    Set.Infinite (Set.range fun g : localInertia p K ↦ localCyclotomic p K ℤ_[p] g.val) := sorry
+
+/-- R08.3/hodge-and-galois-types, non-example: cyclotomic inertia is not
+an inertial type. Openness of the kernel would force its image to be finite,
+since inertia is compact. Continuity alone would admit this wrong object. -/
+example (p : ℕ) [Fact p.Prime] (K : Type) [Field K] [CharZero K]
+    [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K] :
+    ¬IsOpen (((diagonalRepresentation
+      (fun _ : Fin 1 ↦ localCyclotomic p K ℚ_[p])).comp (localInertia p K).subtype).ker :
+        Set (localInertia p K)) := sorry
+
+end TauCeti.GaloisDeformation.Local
+
+
 /-!
 ## Complete mathematical interface inventory
 
@@ -2184,9 +13382,9 @@ API `TauCeti.GaloisDeformation.Local.liftFunctorΛ`: D^□_ρ : 𝔄_Λ → Set,
 
 API `TauCeti.GaloisDeformation.Local.liftFunctorΛ_finite`: For κ finite, D^□_ρ restricted to Artinian objects is the lifting functor of GlobalGaloisDeformations R04.1.
 
-Test `coeffRing_finite` (degenerate): For κ = k, CoeffRing κ = 𝒪.
+Test `coeffRing_finite` (degenerate): For κ = k, CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ = 𝒪.
 
-Test `coeffRing_padic` (computation): For κ = L, CoeffRing κ = L and 𝔄_Λ consists of finite local L-algebras with residue field L.
+Test `coeffRing_padic` (computation): For κ = L, CoeffRing (𝒪 := 𝒪) (𝔽 := 𝔽) κ = L and 𝔄_Λ consists of finite local L-algebras with residue field L.
 
 Test `coeffRing_char_p_dvr` (non-example): For κ = k((t)), Λ is not 𝒪⟦t⟧ (not a DVR, residue field k) but the ϖ-adic completion of 𝒪⟦t⟧[1/t], a DVR with residue field k((t)).
 
@@ -2241,7 +13439,7 @@ Sources: PQ-2026, §3, Lemma 3.2, arXiv v2 p. 23; BCGP-2021, §7.1, arXiv v3 p. 
 
 ### `LocalGaloisDeformationRings:R08.1/completion-at-points` — Completed local rings at points of the generic fibre are framed rings
 
-Let ρ̄ : G_F → GL_d(k′) (k′/k finite, F/ℚ_ℓ finite, ℓ = p allowed) with framed ring R^□_ρ̄. Let x ∈ Spec R^□_ρ̄ be the closed point, or a point with dim R^□_ρ̄/𝔭_x = 1, whose residue field is a finite extension of L or a local field of characteristic p; BIP Proposition 3.41 treats ℓ = p, and for ℓ ≠ p only the closed points of the generic fibre are used here (BLGGT Lemma 1.3.2, Kisin). ρ_x : G_F → GL_d(κ(x)) the specialisation of the universal lift, Λ the coefficient ring of κ(x) (R08.1/coefficient-rings-lambda) and 𝔮 the kernel of Λ ⊗_𝒪 R^□_ρ̄ → κ(x), λ ⊗ a ↦ λ̄ā. Then the completion of (Λ ⊗_𝒪 R^□_ρ̄)_𝔮 is naturally isomorphic to R^□_{ρ_x}. In particular, for a closed point x of Spec R^□_ρ̄[1/p] with residue field E′, the completed local ring (R^□_ρ̄[1/p])^∧_x pro-represents the framed deformations of ρ_x : G_F → GL_d(E′) to Artinian local E′-algebras with residue field E′, and is a power series ring over E′ in dim Z¹(G_F, ad ρ_x) variables when H²(G_F, ad ρ_x) = 0. The same holds with fixed determinant (ad⁰ in place of ad) and for G-valued lifts (R08.1/g-valued-framed-ring).
+Let ρ̄ : G_F → GL_d(k′) (k′/k finite, F/ℚ_ℓ finite, ℓ = p allowed) with framed ring R^□_ρ̄. Let x ∈ Spec R^□_ρ̄ be the closed point, or a point with dim R^□_ρ̄/𝔭_x = 1, whose residue field is a field finite over L, or a characteristic-p local field; BIP Proposition 3.41 treats ℓ = p, and for ℓ ≠ p only the closed points of the generic fibre are used here (BLGGT Lemma 1.3.2, Kisin). ρ_x : G_F → GL_d(κ(x)) the specialisation of the universal lift, Λ the coefficient ring of κ(x) (R08.1/coefficient-rings-lambda) and 𝔮 the kernel of Λ ⊗_𝒪 R^□_ρ̄ → κ(x), λ ⊗ a ↦ λ̄ā. Then the completion of (Λ ⊗_𝒪 R^□_ρ̄)_𝔮 is naturally isomorphic to R^□_{ρ_x}. In particular, for a closed point x of Spec R^□_ρ̄[1/p] with residue field E′, the completed local ring (R^□_ρ̄[1/p])^∧_x pro-represents the framed deformations of ρ_x : G_F → GL_d(E′) to Artinian local E′-algebras with residue field E′, and is a power series ring over E′ in dim Z¹(G_F, ad ρ_x) variables when H²(G_F, ad ρ_x) = 0. The same holds with fixed determinant (ad⁰ in place of ad) and for G-valued lifts (R08.1/g-valued-framed-ring).
 
 Hypotheses: Closed points of R^□_ρ̄[1/p] have residue fields finite over E (Taylor II, Lemma 1.6).; The comparison is of complete local rings; it does not assert that R^□_ρ̄[1/p] is excellent or regular anywhere..
 
@@ -2989,11 +14187,11 @@ Sources: KISIN-PST-2008, (2.7.5), p. 534.
 
 ### `LocalGaloisDeformationRings:R08.3/weil-deligne-type-ring` — Rings of fixed Weil–Deligne type cut out of pseudo-character deformation rings (R_{B,M})
 
-Let p be such that the block theory of GL₂(ℚ_p) applies, B a block of mod p representations of GL₂(ℚ_p) with pseudo-character deformation ring R^{ps,δ}_B, and M a supercuspidal Weil–Deligne representation (a filtered (φ, N, G_{ℚ_p})-module type of weights 0 and 1) with δ_M its determinant. I_{B,M} is the intersection of the maximal ideals 𝔭 of R^{ps,δ_M}_B[1/p] at which the universal pseudo-character specialises to the trace of a de Rham representation of weights {0, 1} and type M (whole Weil–Deligne representation fixed, not only its restriction to inertia). R_{B,M} := R^{ps,δ_M}_B[1/p]/I_{B,M} is reduced and Jacobson, R^+_{B,M} is the image of R^{ps,δ_M}_B, and R_{B,M} = R^+_{B,M}[1/p]. (Théorème 5.11) R_{B,M} is the ring of bounded analytic functions on an open subset of ℙ¹, a finite product of principal ideal domains, and there is a unique up to isomorphism representation ρ_{B,M} : G_{ℚ_p} → GL₂(R_{B,M}) with trace the universal pseudo-character.
+Let p be such that the block theory of GL₂(ℚ_p) applies, B a block of mod p representations of GL₂(ℚ_p) with pseudo-character deformation ring R^{ps,δ}_B, and M a supercuspidal Weil–Deligne representation (a filtered (φ, N, G_{ℚ_p})-module type of weights 0 and 1) with δ_M its associated central character (the fixed Galois determinant is δ_Mε). I_{B,M} is the intersection of the maximal ideals 𝔭 of R^{ps,δ_M}_B[1/p] at which the universal pseudo-character specialises to the trace of a de Rham representation of weights {0, 1} and type M (whole Weil–Deligne representation fixed, not only its restriction to inertia). R_{B,M} := R^{ps,δ_M}_B[1/p]/I_{B,M} is reduced and Jacobson, R^+_{B,M} is the image of R^{ps,δ_M}_B, and R_{B,M} = R^+_{B,M}[1/p]. (Théorème 5.11) R_{B,M} is the ring of bounded analytic functions on an open subset of ℙ¹, a finite product of principal ideal domains, and there is a unique up to isomorphism representation ρ_{B,M} : G_{ℚ_p} → GL₂(R_{B,M}) with trace the universal pseudo-character.
 
 Hypotheses: This differs from R08.3/pst-deformation-ring in two ways: the type is the whole Weil–Deligne representation M (not a Galois type τ), and the ring is a quotient of a pseudo-character deformation ring rather than of a framed ring.; For M special (Sp ⊗ η) CDN set R_{M,B} = L and use the Steinberg block separately..
 
-Suppliers: LocalGaloisDeformationRings:R08.3/pst-quotient-in-families; LocalGaloisDeformationRings:R08.3/hodge-and-galois-types; GlobalGaloisDeformations:R04.1/lifting-functor; PadicLocalLanglandsForGL2Qp:R30.5.
+Suppliers: LocalGaloisDeformationRings:R08.3/pst-quotient-in-families; LocalGaloisDeformationRings:R08.3/hodge-and-galois-types; GlobalGaloisDeformations:R04.1/lifting-functor; LocalGaloisDeformationRings:R08.3/block-pseudocharacter-ring.
 
 API `TauCeti.GaloisDeformation.Local.WDTypeRing`: R_{B,M} = R^{ps,δ_M}_B[1/p]/I_{B,M} and its integral model R^+_{B,M}.
 
@@ -3355,7 +14553,7 @@ Sources: KW2-2009, Lemma 3.5 (i) and its proof, author copy p. 22; KW2-2009, pro
 
 ### `LocalGaloisDeformationRings:R08.5/weight-p-plus-one-ordinary-ring` — Crystalline lifts of weight p + 1: ordinarity and formal smoothness
 
-Let p ≠ 2, ρ̄ : G_{F_v} → GL₂(k) with F_v = ℚ_p, k(ρ̄) = p + 1 (so ρ̄|I_v ≅ (χ̄_p ∗; 0 1) très ramifié) and φ a fixed determinant. (1) For F_v = ℚ_p, every crystalline lift of weight p + 1 is ordinary (Berger–Li–Zhu), i.e. an extension of an unramified free rank-one representation by a free rank-one representation on which I_v acts by χ_p^p. (2) The framed fixed-determinant ring R^{□,ψ}_v of ordinary lifts of weight p + 1 (extensions of unramified η₂ by χ_p^pη₁) is formally smooth over 𝒪 of relative dimension 4. (3) The map Spf R^{□,ψ}_v → X to the space of characters giving the action on the stable line is not formally smooth.
+Let p ≠ 2, ρ̄ : G_{F_v} → GL₂(k) with F_v = ℚ_p, k(ρ̄) = p + 1 (so ρ̄|I_v ≅ (χ̄_p ∗; 0 1) très ramifié) and φ a fixed determinant. (1) For F_v = ℚ_p, every crystalline lift of weight p + 1 is ordinary (Berger–Li–Zhu), i.e. a rank-two extension whose quotient is free of rank one and unramified, and whose free rank-one subrepresentation has inertia character χ_p^p. (2) The framed fixed-determinant ring R^{□,ψ}_v of ordinary lifts of weight p + 1 (extensions of unramified η₂ by χ_p^pη₁) is formally smooth over 𝒪 of relative dimension 4. (3) The map Spf R^{□,ψ}_v → X to the space of characters giving the action on the stable line is not formally smooth.
 
 Hypotheses: (1) is the second part of KW II Lemma 3.5(i), owned by PadicHodgeTheory R06.4, its single owner; this layer imports it through a request.; (2) does not use the smooth-resolution criterion: the ring is shown to be a power series ring directly.; This node keeps F_v = ℚ_p in every clause. In KW II §3.2.7 only (1) needs it; (2) is proved there for every finite unramified F_v, with relative dimension 3 + [F_v : ℚ_p] (one for the line, 2 + [F_v : ℚ_p] for the cocycles)..
 
@@ -3417,7 +14615,7 @@ Sources: KISIN-2ADIC-2009, §2.1, Lemmas 2.1.8–2.1.9 and Proposition 2.1.10, p
 
 ### `LocalGaloisDeformationRings:R08.5/twisted-semistable-away-from-p` — Twists of semistable deformations away from p
 
-Let v ∤ p and ρ̄|D_v = (γ̄_vχ̄_p ∗; 0 γ̄_v). Fix a character γ_v of D_v lifting γ̄_v whose restriction to I_v is the Teichmüller lift, with γ_v²χ_p = φ, and consider lifts (γ_vχ_p ∗; 0 γ_v). For a finite 𝒪-algebra A, |Z¹(G_{F_v}, A(χ_p))| = |A|·|H⁰(G_{F_v}, A)| = |A|², and the moduli of such lifts with a stable line is a smooth resolution as in R08.5/semistable-weight-two-resolution with cocycle module of rank 2. If ρ̄_v is ramified, the conductor of such a lift equals the conductor of ρ̄_v.
+Let v ∤ p and ρ̄|D_v = (γ̄_vχ̄_p ∗; 0 γ̄_v). Fix a character γ_v of D_v lifting γ̄_v whose restriction to I_v is the Teichmüller lift, with γ_v²χ_p = φ, and consider lifts (γ_vχ_p ∗; 0 γ_v). For a finite 𝒪-algebra A, |Z¹(G_{F_v}, A(χ_p))| = |A|·|H⁰(G_{F_v}, A)| = |A|², and the moduli of such lifts with a stable line is a smooth resolution as in R08.5/semistable-weight-two-resolution with cocycle module of rank 2. For ramified ρ̄_v, these lifts have the same conductor as ρ̄_v.
 
 Hypotheses: This is the twisting calculation of KW II §3.3.4; at p = 2 it includes the case ρ̄(I_v) projectively cyclic of order 2..
 
@@ -3737,7 +14935,7 @@ Sources: CT-2017, §5.1, item 5, accepted manuscript p. 39.
 
 ### `LocalGaloisDeformationRings:L7/torsion-crystalline-representations` — Torsion crystalline representations with Hodge–Tate weights in [a, b]
 
-Let w | p with F_w/ℚ_p finite unramified, a ≤ b integers, and Mod(F_w, ℤ_p) the category of finitely generated ℤ_p-modules with continuous Γ_{F_w}-action. (1) A torsion object R is crystalline with Hodge–Tate weights in [a, b] if R ≅ R″/R′ for Γ_{F_w}-stable ℤ_p-lattices R′ ⊆ R″ in a crystalline ℚ_p-representation with Hodge–Tate weights in [a, b]. (2) R ∈ Mod(F_w, ℤ_p) is crystalline with weights in [a, b] if R/p^m R is torsion crystalline with weights in [a, b] for every m ≥ 1. (3) R ∈ Mod(F_w, 𝒪) is crystalline if its underlying ℤ_p-module is. A lattice R with R_ℚ crystalline with weights in [a, b] is crystalline. For b − a ≤ p − 2 the torsion objects are those in the essential image of Fontaine–Laffaille's functor (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3, after the twist bringing the weights into its range); this identification is not part of LTXZZ's definition and is to be proved with R07.3.
+Let w | p with F_w/ℚ_p finite unramified, a ≤ b integers, and Mod(F_w, ℤ_p) the category of finitely generated ℤ_p-modules with continuous Γ_{F_w}-action. (1) Call a torsion object R crystalline in the interval [a, b] when Γ_{F_w}-stable ℤ_p-lattices R′ ⊆ R″ inside a crystalline ℚ_p-representation of that weight range give an isomorphism R ≅ R″/R′. (2) R ∈ Mod(F_w, ℤ_p) is crystalline with weights in [a, b] if R/p^m R is torsion crystalline with weights in [a, b] for every m ≥ 1. (3) R ∈ Mod(F_w, 𝒪) is crystalline if its underlying ℤ_p-module is. A lattice R with R_ℚ crystalline with weights in [a, b] is crystalline. For b − a ≤ p − 2 the torsion objects are those in the essential image of Fontaine–Laffaille's functor (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3, after the twist bringing the weights into its range); this identification is not part of LTXZZ's definition and is to be proved with R07.3.
 
 Hypotheses: Convention: ℚ_p(1) has Hodge–Tate weight −1 in LTXZZ.; LTXZZ footnote 5 also claims the converse (R crystalline ⟹ R_ℚ crystalline) by Lemma 2.2.6; only the direction R_ℚ crystalline ⟹ R crystalline is immediate (take R″ = R, R′ = p^m R) and used..
 
@@ -3821,7 +15019,7 @@ Sources: CG-2020, Definition 4.6 (6), published p. 815; CG-2020, §4, the defini
 
 ### `LocalGaloisDeformationRings:L7/gl2-borel-ordinary-ring` — The GL₂ ordinary ring R^{B₂}: irreducible generic fibre and explicit presentations
 
-Let p > 2 and r̄ = (λ_ᾱ ∗; 0 ε̄^{-1}λ_ᾱ^{-1}) : G_{ℚ_p} → GL₂(k), written with extension class η_{α²} ∈ H¹(ℚ_p, ε̄λ_{ᾱ²}); let Λ = 𝒪⟦1 + pℤ_p⟧ with canonical character θ : I_{ℚ_p} → Λ^× (through Art^{-1}). A lift r over A ∈ CNL_Λ is ordinary if it is ker(GL₂(A) → GL₂(k))-conjugate to (χ ∗; 0 ε^{-1}χ^{-1}) with χ̄ = λ_ᾱ and χ|_{I_{ℚ_p}} = θ; this local deformation problem is represented by R^{B₂}. (1) h²(ℚ_p, ad⁰_{B₂}r̄) = 0 unless ᾱ² = 1 and η_{α²} = 0, in which case it equals 1. (2) R^{B₂}[1/p] is irreducible of relative dimension 5 over ℚ_p; when h² = 0, R^{B₂} is formally smooth over 𝒪 of relative dimension 5. (3) (Lemma 7.3.7) The B₂-framed fixed-determinant ring R^{B₂,◹} of r̄ = (λ_γ ε̄⁻¹λ_γ⁻¹η; 0 ε̄⁻¹λ_γ⁻¹), γ ∈ k^×, η ∈ H¹(ℚ_p, ε̄λ_γ²), is a complete intersection, flat over Λ = 𝒪⟦y₂⟧ and irreducible of relative dimension 4 over 𝒪, and as an algebra over R^{GL₁} = 𝒪⟦y₁, y₂⟧ (the universal ring of λ_γ) it is: (a) 𝒪⟦x₁, x₂, y₁, y₂⟧ if γ² ≠ 1 and η ≠ 0; (b) 𝒪⟦x₁, z₁, y₁, y₂⟧ if γ² ≠ 1 and η = 0; (c) if γ² = 1 and η ≠ 0, formally smooth over 𝒪, formally smooth over Λ unless η is peu ramifiée, and ≅ 𝒪⟦x₁, x₂, z₁, y₁, y₂⟧/(g_η) with g_η ≡ c_η y₁ + d_η y₂ mod (λ, 𝔪²) for [c_η : d_η] ∈ ℙ¹(k) depending only on η (c_η = 0 exactly when η is peu ramifiée); (d) if γ² = 1 and η = 0, ≅ 𝒪⟦x₁, z₁, z₂, y₁, y₂⟧/(g) with g ≡ z₁y₁ + z₂y₂ mod (λ, 𝔪³), and R^{B₂,◹}/λ is not formally smooth. Here x_i are framing variables, y_i come from R^{GL₁} and z_i are extension variables. R^{B₂,□} is formally smooth over R^{B₂,◹} of relative dimension dim ad⁰_{GL₂} − dim ad⁰_{B₂} = 1. (4) The points of R^{B₂}[1/p] that are not smooth over Λ are, up to unramified twist, crystalline extensions of ε^{-1} by 1.
+Let p > 2 and r̄ = (λ_ᾱ ∗; 0 ε̄^{-1}λ_ᾱ^{-1}) : G_{ℚ_p} → GL₂(k), written with extension class η_{α²} ∈ H¹(ℚ_p, ε̄λ_{ᾱ²}); let Λ = 𝒪⟦1 + pℤ_p⟧ with canonical character θ : I_{ℚ_p} → Λ^× (through Art^{-1}). Ordinarity for a lift r over A ∈ CNL_Λ means that conjugation by an element of ker(GL₂(A) → GL₂(k)) puts r in the form (χ ∗; 0 ε^{-1}χ^{-1}) with χ̄ = λ_ᾱ and χ|_{I_{ℚ_p}} = θ; this local deformation problem is represented by R^{B₂}. (1) h²(ℚ_p, ad⁰_{B₂}r̄) = 0 unless ᾱ² = 1 and η_{α²} = 0, in which case it equals 1. (2) R^{B₂}[1/p] is irreducible of relative dimension 5 over ℚ_p; when h² = 0, R^{B₂} is formally smooth over 𝒪 of relative dimension 5. (3) (Lemma 7.3.7) The B₂-framed fixed-determinant ring R^{B₂,◹} of r̄ = (λ_γ ε̄⁻¹λ_γ⁻¹η; 0 ε̄⁻¹λ_γ⁻¹), γ ∈ k^×, η ∈ H¹(ℚ_p, ε̄λ_γ²), is a complete intersection, flat over Λ = 𝒪⟦y₂⟧ and irreducible of relative dimension 4 over 𝒪, and as an algebra over R^{GL₁} = 𝒪⟦y₁, y₂⟧ (the universal ring of λ_γ) it is: (a) 𝒪⟦x₁, x₂, y₁, y₂⟧ if γ² ≠ 1 and η ≠ 0; (b) 𝒪⟦x₁, z₁, y₁, y₂⟧ if γ² ≠ 1 and η = 0; (c) if γ² = 1 and η ≠ 0, formally smooth over 𝒪, formally smooth over Λ unless η is peu ramifiée, and ≅ 𝒪⟦x₁, x₂, z₁, y₁, y₂⟧/(g_η) with g_η ≡ c_η y₁ + d_η y₂ mod (λ, 𝔪²) for [c_η : d_η] ∈ ℙ¹(k) depending only on η (c_η = 0 exactly when η is peu ramifiée); (d) if γ² = 1 and η = 0, ≅ 𝒪⟦x₁, z₁, z₂, y₁, y₂⟧/(g) with g ≡ z₁y₁ + z₂y₂ mod (λ, 𝔪³), and R^{B₂,◹}/λ is not formally smooth. Here x_i are framing variables, y_i come from R^{GL₁} and z_i are extension variables. R^{B₂,□} is formally smooth over R^{B₂,◹} of relative dimension dim ad⁰_{GL₂} − dim ad⁰_{B₂} = 1. (4) The points of R^{B₂}[1/p] that are not smooth over Λ are, up to unramified twist, crystalline extensions of ε^{-1} by 1.
 
 Suppliers: LocalGaloisDeformationRings:L7/ordinary-condition-fixed-inertial-characters; LocalGaloisDeformationRings:R08.1/rank-one-ring; LocalGaloisDeformationRings:R08.1/completion-at-points; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality; tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors.
 
@@ -3945,7 +15143,7 @@ Sources: ACC-POTENTIAL-AUTOMORPHY-CM-2023, §6.2.6, Proposition 6.2.10, p. 139 (
 
 ### `LocalGaloisDeformationRings:L7/weight-zero-crystalline-connectedness` — Connectedness results for crystalline weight-zero lifts
 
-Let K/ℚ_p be finite. (1) Two ordinary crystalline weight-0 representations ρ₁, ρ₂ of G_K with ρ̄₁ = ρ̄₂ trivial connect: ρ₁ ∼ ρ₂ (the ordinary weight-0 crystalline lifting ring of the trivial representation is irreducible). (2) For ρ : G_K → GL_n(ℤ̄_p) crystalline of weight 0 there is c = c(K, ρ, n) such that every crystalline weight-0 t with t ≡ ρ mod p^c satisfies t ∼ ρ. (3) In the sources' convention HT(ε) = −1 (so weights {0, −1, …, −(n − 1)} in this roadmap's convention), a crystalline representation of G_K with parallel Hodge–Tate weights {0, …, n − 1} is ordinary iff the eigenvalues of the Frobenius φ^f of WD(ρ) (f the residue degree) have valuations 0, f, …, (n − 1)f, the valuation being normalised by v(p) = 1. (4) Symmetric powers and tensor products of crystalline ordinary representations are crystalline and carry the induced G_K-stable flag; they are ordinary when, for every τ, the resulting labelled Hodge–Tate weights are pairwise distinct and are ordered along the flag in the same way, as for Sym^{n−1} of a two-dimensional one and for the tensor products ρ_{n,m,0} ⊗ ρ_{m,1,0} of L7/local-model-rho-nm0.
+Let K/ℚ_p be finite. (1) Two ordinary crystalline weight-0 representations ρ₁, ρ₂ of G_K with ρ̄₁ = ρ̄₂ trivial connect: ρ₁ ∼ ρ₂ (irreducibility of the ordinary crystalline weight-zero ring for trivial residual data gives this). (2) For ρ : G_K → GL_n(ℤ̄_p) crystalline of weight 0 there is c = c(K, ρ, n) such that every crystalline weight-0 t with t ≡ ρ mod p^c satisfies t ∼ ρ. (3) In the sources' convention HT(ε) = −1 (so weights {0, −1, …, −(n − 1)} in this roadmap's convention), a crystalline representation of G_K with parallel Hodge–Tate weights {0, …, n − 1} is ordinary iff the eigenvalues of the Frobenius φ^f of WD(ρ) (f the residue degree) have valuations 0, f, …, (n − 1)f, the valuation being normalised by v(p) = 1. (4) Symmetric powers and tensor products of crystalline ordinary representations are crystalline and carry the induced G_K-stable flag; they are ordinary when, for every τ, the resulting labelled Hodge–Tate weights are pairwise distinct and are ordered along the flag in the same way, as for Sym^{n−1} of a two-dimensional one and for the tensor products ρ_{n,m,0} ⊗ ρ_{m,1,0} of L7/local-model-rho-nm0.
 
 Hypotheses: Geraghty's results are read in the 2010 preprint with the concordance of the source GERAGHTY-2019 (Lemma 2.32 = preprint Lemma 2.7.7, Lemma 3.14 = Lemma 3.4.3)..
 
@@ -4071,7 +15269,7 @@ Sources: LLHLM-2020, Theorem 3.5.3, published p. 38; LLHLM-2020, Lemma 3.5.4, pu
 
 ### `LocalGaloisDeformationRings:L7/gsp4-ordinary-regularity` — Regularity of the GSp₄ ordinary flag scheme at characteristic-zero points
 
-Keep L7/gsp4-ordinary-flag-incidence and let x be a closed point of 𝒢_v[1/p] with ρ_x. (1) If H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0, then x is a regular point of 𝒢_v[1/p], on a unique irreducible component, of dimension 16; and H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0 iff H⁰(G_{F_v}, (ad⁰ρ_x/Fil¹ad⁰ρ_x)(1)) = 0. (2) The conditions of (1) hold if (a) none of the specialisations at x of χ̃₁²ε, χ̃₂²ε, χ̃₁χ̃₂ε, χ̃₁χ̃₂^{-1} equals ε; or (b) ρ_x is pure and p-distinguished; or (c) ρ_x is pure and potentially crystalline. (3) If ρ_x is p-distinguished and (1) holds, the image of x in Spec R^△_v is a regular point on a unique irreducible component of relative 𝒪-dimension 16.
+Keep L7/gsp4-ordinary-flag-incidence and let x be a closed point of 𝒢_v[1/p] with ρ_x. (1) If H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0, then x is a regular point of 𝒢_v[1/p], on a unique irreducible component, of dimension 16; and H²(G_{F_v}, Fil⁰ad⁰ρ_x) = 0 iff H⁰(G_{F_v}, (ad⁰ρ_x/Fil¹ad⁰ρ_x)(1)) = 0. (2) The conditions of (1) hold if (a) none of the specialisations at x of χ̃₁²ε, χ̃₂²ε, χ̃₁χ̃₂ε, χ̃₁χ̃₂^{-1} equals ε; or (b) ρ_x is pure and p-distinguished; or (c) purity holds for ρ_x and it is potentially crystalline. (3) If ρ_x is p-distinguished and (1) holds, the image of x in Spec R^△_v is a regular point on a unique irreducible component of relative 𝒪-dimension 16.
 
 Hypotheses: (2)(c) concerns the flagged point x of 𝒢_v, not its image, when ρ_x is not p-distinguished..
 
