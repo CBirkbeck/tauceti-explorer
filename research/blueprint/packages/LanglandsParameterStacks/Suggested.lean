@@ -3,7 +3,8 @@ This file is not the roadmap and is not exhaustive. README.md is definitive;
 these statements suggest Lean forms so that contributors and reviewers converge
 on names and signatures. Proofs using `sorry` do not claim an implementation.
 
-These are ordinary group, ring, tuple and split GL_n signatures. The complete
+These include ordinary group, ring and split GL_n signatures, together with
+an affine cocycle scheme built from the imported Hopf group of points. The complete
 condensed coefficient convention, algebraic regularity, scheme parabolics,
 admissible complex enhancements, and stable infinity-category constructions
 require the supplier interfaces specified in README.md. In particular,
@@ -13,6 +14,7 @@ is replaced by an unconstrained Prop field or a True-valued predicate.
 -/
 import Mathlib.GroupTheory.SemidirectProduct
 import Mathlib.GroupTheory.FreeGroup.Basic
+import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.GroupTheory.Subgroup.Center
 import Mathlib.GroupTheory.Perm.Cycle.Factors
@@ -22,6 +24,11 @@ import Mathlib.Topology.Algebra.Group.Basic
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.MonoidAlgebra.Defs
 import Mathlib.Algebra.Category.Ring.Colimits
+import Mathlib.Algebra.Category.CommAlgCat.Basic
+import Mathlib.AlgebraicGeometry.AffineScheme
+import Mathlib.RingTheory.FinitePresentation
+import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Algebra.Polynomial.Laurent
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.RingTheory.Nilpotent.Defs
@@ -31,9 +38,10 @@ import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.BinaryFan
 import Mathlib.CategoryTheory.Limits.Sifted
 import Mathlib.Topology.Instances.Matrix
 import TauCeti.GroupTheory.FixedSubgroup
+import TauCeti.Algebra.AlgebraicGroup.PointsFunctor
 
 open CategoryTheory CategoryTheory.Limits
-open scoped BigOperators
+open scoped BigOperators TensorProduct
 
 namespace TauCeti.LanglandsParameterStacks
 universe u v w z
@@ -174,6 +182,304 @@ example : ¬ ∃ f : Multiplicative (ZMod 2) →* Multiplicative ℤ,
     ∀ x, f x = signCocycle x := by sorry
 end CrossedCocycle
 end Crossed
+
+section FreeCrossed
+variable {I : Type u} {H : Type v} [Group H]
+
+namespace CrossedCocycle
+/-- Generator values extend by lifting into the genuine semidirect product. -/
+noncomputable def fromGenerators (α : FreeGroup I →* MulAut H) (g : I → H) :
+    CrossedCocycle α := by sorry
+
+theorem fromGenerators_of (α : FreeGroup I →* MulAut H) (g : I → H) (i : I) :
+    fromGenerators α g (FreeGroup.of i) = g i := by sorry
+
+noncomputable def generatorEquiv (α : FreeGroup I →* MulAut H) :
+    CrossedCocycle α ≃ (I → H) := by sorry
+
+theorem generatorEquiv_apply (α : FreeGroup I →* MulAut H)
+    (c : CrossedCocycle α) (i : I) :
+    generatorEquiv α c i = c (FreeGroup.of i) := by sorry
+
+theorem generatorEquiv_symm (α : FreeGroup I →* MulAut H) (g : I → H) :
+    (generatorEquiv α).symm g = fromGenerators α g := by sorry
+end CrossedCocycle
+end FreeCrossed
+
+/-! ## LP1.1: actual affine cocycle equations
+
+The group model is imported: `WithConv (C →ₐ[R] B)` is the existing Hopf
+functor of points. The action is an opposed group of units of bialgebra
+endomorphisms, so it is algebraic and natural in B. The coordinate algebra
+below is the existing coproduct of commutative algebras, divided by the
+explicit relator ideal. No enhanced-stack or reductivity carrier is inferred
+from this affine construction. -/
+namespace IntegralCocycleScheme
+noncomputable section
+variable {R C : Type u} [CommRing R] [CommRing C] [HopfAlgebra R C]
+variable {I : Type u} [Finite I]
+
+/-- Points of the imported affine group, with convolution. -/
+abbrev Points (B : Type u) [CommRing B] [Algebra R B] := WithConv (C →ₐ[R] B)
+
+/-- Coordinate pullback reverses composition, hence the opposite group. -/
+abbrev CoordinateAut := ((C →ₐc[R] C)ˣ)ᵐᵒᵖ
+
+def pointAction {Γ : Type u} [Group Γ] (β : Γ →* CoordinateAut (R := R) (C := C))
+    (B : Type u) [CommRing B] [Algebra R B] : Γ →* MulAut (Points (R := R) (C := C) B) := by
+  sorry
+
+theorem pointAction_apply {Γ : Type u} [Group Γ]
+    (β : Γ →* CoordinateAut (R := R) (C := C))
+    (B : Type u) [CommRing B] [Algebra R B] (γ : Γ) (f : Points (R := R) (C := C) B) :
+    ((pointAction β B γ) f).ofConv =
+      f.ofConv.comp (MulOpposite.unop (β γ)).val.toAlgHom := by sorry
+
+theorem pointAction_natural {Γ : Type u} [Group Γ]
+    (β : Γ →* CoordinateAut (R := R) (C := C))
+    {B D : Type u} [CommRing B] [Algebra R B] [CommRing D] [Algebra R D]
+    (f : B →ₐ[R] D) (γ : Γ) (x : Points (R := R) (C := C) B) :
+    TauCeti.AlgHom.mapValue f (pointAction β B γ x) =
+      pointAction β D γ (TauCeti.AlgHom.mapValue f x) := by sorry
+
+/-- O(H^I), using Mathlib's coproduct rather than a second tensor convention. -/
+abbrev tupleCoordinates (I : Type u) :=
+  ∐ (fun _ : I => CommAlgCat.of R C)
+
+def generatorPoint (i : I) : Points (R := R) (C := C) (tupleCoordinates (R := R) (C := C) I) :=
+  WithConv.toConv (Sigma.ι (fun _ : I => CommAlgCat.of R C) i).hom
+
+def evaluateTuple {B : Type u} [CommRing B] [Algebra R B]
+    (g : I → Points (R := R) (C := C) B) :
+    tupleCoordinates (R := R) (C := C) I →ₐ[R] B :=
+  (Sigma.desc (fun i => CommAlgCat.ofHom (g i).ofConv)).hom
+
+theorem evaluateTuple_generator {B : Type u} [CommRing B] [Algebra R B]
+    (g : I → Points (R := R) (C := C) B) (i : I) (a : C) :
+    evaluateTuple g ((generatorPoint (R := R) (C := C) i).ofConv a) =
+      (g i).ofConv a := by sorry
+
+variable (rels : Finset (FreeGroup I))
+variable (β : PresentedGroup (rels : Set (FreeGroup I)) →*
+  CoordinateAut (R := R) (C := C))
+
+/-- Universal generator values extended with the specified crossed action. -/
+def freeCocycle : CrossedCocycle
+    ((pointAction β (tupleCoordinates (R := R) (C := C) I)).comp
+      (PresentedGroup.mk (rels : Set (FreeGroup I)))) :=
+  CrossedCocycle.fromGenerators _ (generatorPoint (R := R) (C := C))
+
+/-- All coordinate equations c(r)=1; these retain the scheme's nilpotents. -/
+def relatorIdeal : Ideal (tupleCoordinates (R := R) (C := C) I) :=
+  Ideal.span {x | ∃ r ∈ rels, ∃ a : C,
+    x = (freeCocycle rels β r).ofConv a -
+      (1 : Points (R := R) (C := C) (tupleCoordinates (R := R) (C := C) I)).ofConv a}
+
+abbrev coordinateRing :=
+  tupleCoordinates (R := R) (C := C) I ⧸ relatorIdeal rels β
+
+/-- The actual spectrum of an explicit quotient algebra. -/
+def scheme : AlgebraicGeometry.Scheme :=
+  AlgebraicGeometry.Spec (CommRingCat.of (coordinateRing rels β))
+
+def universalCocycle :
+    CrossedCocycle (pointAction β (coordinateRing rels β)) := by sorry
+
+theorem universalCocycle_generator (i : I) (a : C) :
+    (universalCocycle rels β (PresentedGroup.of i)).ofConv a =
+      Ideal.Quotient.mk (relatorIdeal rels β)
+        ((generatorPoint (R := R) (C := C) i).ofConv a) := by sorry
+
+/-- Algebra-valued points of the explicit spectrum are crossed cocycles. -/
+def pointsEquiv (B : Type u) [CommRing B] [Algebra R B] :
+    (coordinateRing rels β →ₐ[R] B) ≃ CrossedCocycle (pointAction β B) := by sorry
+
+theorem pointsEquiv_apply (B : Type u) [CommRing B] [Algebra R B]
+    (f : coordinateRing rels β →ₐ[R] B)
+    (w : PresentedGroup (rels : Set (FreeGroup I))) :
+    pointsEquiv rels β B f w =
+      TauCeti.AlgHom.mapValue f (universalCocycle rels β w) := by sorry
+
+theorem pointsEquiv_natural {B D : Type u}
+    [CommRing B] [Algebra R B] [CommRing D] [Algebra R D]
+    (f : coordinateRing rels β →ₐ[R] B) (g : B →ₐ[R] D) :
+    pointsEquiv rels β D (g.comp f) =
+      (pointsEquiv rels β B f).map (TauCeti.AlgHom.mapValue g)
+        (fun w x => pointAction_natural β g w x) := by sorry
+
+/-- A finite algebra-generating set also suffices to impose the relators. -/
+theorem relatorIdeal_generators (a : Finset C) (ha : Algebra.adjoin R (a : Set C) = ⊤) :
+    relatorIdeal rels β = Ideal.span {x | ∃ r ∈ rels, ∃ t ∈ a,
+      x = (freeCocycle rels β r).ofConv t -
+        (1 : Points (R := R) (C := C)
+          (tupleCoordinates (R := R) (C := C) I)).ofConv t} := by sorry
+
+/-- Finite presentation follows from finite generators/relators and the
+finite presentation of the imported group coordinate algebra. -/
+theorem finitePresentation [Algebra.FinitePresentation R C] :
+    Algebra.FinitePresentation R (coordinateRing rels β) := by sorry
+
+theorem relatorIdeal_empty (β₀ : PresentedGroup ((∅ : Finset (FreeGroup I)) : Set (FreeGroup I)) →*
+    CoordinateAut (R := R) (C := C)) :
+    relatorIdeal (∅ : Finset (FreeGroup I)) β₀ = ⊥ := by sorry
+
+/-- Coordinate pullback of the genuine twisted conjugation action. -/
+def gaugeAction : coordinateRing rels β →ₐ[R] C ⊗[R] coordinateRing rels β :=
+  let f : coordinateRing rels β →ₐ[R] C ⊗[R] coordinateRing rels β :=
+    Algebra.TensorProduct.includeRight
+  (pointsEquiv rels β _).symm
+    (((universalCocycle rels β).map (TauCeti.AlgHom.mapValue f)
+      (fun w x => pointAction_natural β f w x)).gauge
+      (WithConv.toConv Algebra.TensorProduct.includeLeft))
+
+/-- Evaluation at an H-point and a cocycle-scheme point. -/
+def evaluateGauge {B : Type u} [CommRing B] [Algebra R B]
+    (h : Points (R := R) (C := C) B) (f : coordinateRing rels β →ₐ[R] B) :
+    C ⊗[R] coordinateRing rels β →ₐ[R] B :=
+  Algebra.TensorProduct.lift h.ofConv f (fun _ _ => Commute.all _ _)
+
+theorem gaugeAction_evaluate {B : Type u} [CommRing B] [Algebra R B]
+    (h : Points (R := R) (C := C) B) (f : coordinateRing rels β →ₐ[R] B) :
+    pointsEquiv rels β B ((evaluateGauge rels β h f).comp (gaugeAction rels β)) =
+      (pointsEquiv rels β B f).gauge h := by sorry
+
+theorem gaugeAction_counit :
+    ((Algebra.TensorProduct.lid R (coordinateRing rels β)).toAlgHom.comp
+      (Algebra.TensorProduct.map (Bialgebra.counitAlgHom R C)
+        (AlgHom.id R (coordinateRing rels β)))).comp (gaugeAction rels β) =
+      AlgHom.id R (coordinateRing rels β) := by sorry
+
+theorem gaugeAction_coassoc :
+    (Algebra.TensorProduct.assoc R R R C C (coordinateRing rels β)).toAlgHom.comp
+      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom R C)
+        (AlgHom.id R (coordinateRing rels β))).comp (gaugeAction rels β)) =
+    (Algebra.TensorProduct.map (AlgHom.id R C) (gaugeAction rels β)).comp
+      (gaugeAction rels β) := by sorry
+
+/-- Honest scalar extension of the representing coordinate algebra. -/
+def baseChange (S : Type u) [CommRing S] [Algebra R S] : AlgebraicGeometry.Scheme :=
+  AlgebraicGeometry.Spec (CommRingCat.of (S ⊗[R] coordinateRing rels β))
+
+def baseChangePointsEquiv (S B : Type u) [CommRing S] [Algebra R S]
+    [CommRing B] [Algebra R B] [Algebra S B] [IsScalarTower R S B] :
+    (S ⊗[R] coordinateRing rels β →ₐ[S] B) ≃ CrossedCocycle (pointAction β B) :=
+  (AlgHom.liftEquiv R S (coordinateRing rels β) B).symm.trans (pointsEquiv rels β B)
+
+theorem baseChangePointsEquiv_apply (S B : Type u) [CommRing S] [Algebra R S]
+    [CommRing B] [Algebra R B] [Algebra S B] [IsScalarTower R S B]
+    (f : S ⊗[R] coordinateRing rels β →ₐ[S] B)
+    (w : PresentedGroup (rels : Set (FreeGroup I))) (a : C) :
+    (baseChangePointsEquiv rels β S B f w).ofConv a =
+      f (1 ⊗ₜ[R] (universalCocycle rels β w).ofConv a) := by sorry
+
+/-- Independence of a finite presentation of the same abstract group.
+This does not assert integral independence of a chosen dense Weil subgroup. -/
+def presentationEquiv {J : Type u} [Finite J] (rels' : Finset (FreeGroup J))
+    (e : PresentedGroup (rels : Set (FreeGroup I)) ≃*
+      PresentedGroup (rels' : Set (FreeGroup J))) :
+    coordinateRing rels β ≃ₐ[R] coordinateRing rels' (β.comp e.symm.toMonoidHom) := by
+  sorry
+
+theorem presentationEquiv_evaluate {J : Type u} [Finite J]
+    (rels' : Finset (FreeGroup J))
+    (e : PresentedGroup (rels : Set (FreeGroup I)) ≃*
+      PresentedGroup (rels' : Set (FreeGroup J)))
+    (B : Type u) [CommRing B] [Algebra R B]
+    (f : coordinateRing rels' (β.comp e.symm.toMonoidHom) →ₐ[R] B)
+    (w : PresentedGroup (rels : Set (FreeGroup I))) :
+    pointsEquiv rels β B (f.comp (presentationEquiv rels β rels' e).toAlgHom) w =
+      pointsEquiv rels' (β.comp e.symm.toMonoidHom) B f (e w) := by sorry
+
+-- scheme_free_group
+example (β₀ : PresentedGroup ((∅ : Finset (FreeGroup I)) : Set (FreeGroup I)) →*
+    CoordinateAut (R := R) (C := C)) :
+    Nonempty (coordinateRing (∅ : Finset (FreeGroup I)) β₀ ≃ₐ[R]
+      tupleCoordinates (R := R) (C := C) I) := by sorry
+
+-- scheme_trivial_group
+example [IsEmpty I]
+    (β₀ : PresentedGroup ((∅ : Finset (FreeGroup I)) : Set (FreeGroup I)) →*
+      CoordinateAut (R := R) (C := C)) :
+    Nonempty (coordinateRing (∅ : Finset (FreeGroup I)) β₀ ≃ₐ[R] R) := by sorry
+
+end
+end IntegralCocycleScheme
+
+/-- LP1's scheme, with the finite presentation and algebraic action as explicit inputs. -/
+noncomputable abbrev IntegralCocycleScheme {R C I : Type u}
+    [CommRing R] [CommRing C] [HopfAlgebra R C] [Finite I]
+    (rels : Finset (FreeGroup I))
+    (β : PresentedGroup (rels : Set (FreeGroup I)) →*
+      IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) :=
+  IntegralCocycleScheme.scheme rels β
+
+namespace IntegralCocycleScheme
+noncomputable section
+
+/-- Relator for geometric Frobenius, with generator 0=σ and 1=τ. -/
+def tameRelator (q : ℕ) : FreeGroup (Fin 2) :=
+  (FreeGroup.of (0 : Fin 2))⁻¹ * FreeGroup.of (1 : Fin 2) *
+    FreeGroup.of (0 : Fin 2) * (FreeGroup.of (1 : Fin 2) ^ q)⁻¹
+
+abbrev tameRelations (q : ℕ) : Finset (FreeGroup (Fin 2)) := {tameRelator q}
+
+variable (R : Type) [CommRing R]
+
+/-- The two-coordinate torus divided by t^(q-1)-1, without reduction. -/
+def tameTorusIdeal (q : ℕ) : Ideal (LaurentPolynomial R ⊗[R] LaurentPolynomial R) :=
+  Ideal.span {((Algebra.TensorProduct.includeRight :
+    LaurentPolynomial R →ₐ[R] LaurentPolynomial R ⊗[R] LaurentPolynomial R)
+      (LaurentPolynomial.T 1)) ^ (q - 1) - 1}
+
+abbrev tameTorusCoordinates (q : ℕ) :=
+  (LaurentPolynomial R ⊗[R] LaurentPolynomial R) ⧸ tameTorusIdeal R q
+
+abbrev tameTorusCocycleCoordinates (q : ℕ) :=
+  coordinateRing (tameRelations q)
+    (1 : PresentedGroup (tameRelations q : Set (FreeGroup (Fin 2))) →*
+      CoordinateAut (R := R) (C := LaurentPolynomial R))
+
+-- scheme_tame_torus
+example (q : ℕ) (hq : 1 < q) :
+    Nonempty (tameTorusCocycleCoordinates R q ≃ₐ[R] tameTorusCoordinates R q) := by sorry
+
+-- scheme_gauge_trivial_torus
+example (B : Type) [CommRing B] [Algebra R B]
+    (c : CrossedCocycle (pointAction
+      (1 : PresentedGroup (tameRelations 3 : Set (FreeGroup (Fin 2))) →*
+        CoordinateAut (R := R) (C := LaurentPolynomial R)) B))
+    (h : Points (R := R) (C := LaurentPolynomial R) B) : c.gauge h = c := by sorry
+
+-- scheme_algebraic_inversion: action on points reverses coordinate pullback.
+example {Γ : Type} [Group Γ]
+    (β : Γ →* CoordinateAut (R := R) (C := LaurentPolynomial R)) (γ : Γ)
+    (hγ : (MulOpposite.unop (β γ)).val.toAlgHom =
+      (LaurentPolynomial.invert (R := R)).toAlgHom)
+    (B : Type) [CommRing B] [Algebra R B]
+    (h : Points (R := R) (C := LaurentPolynomial R) B) :
+    pointAction β B γ h = h⁻¹ := by sorry
+
+-- scheme_twisted_gauge: ordinary conjugation would incorrectly give 1.
+example {Γ : Type} [Group Γ]
+    (β : Γ →* CoordinateAut (R := R) (C := LaurentPolynomial R)) (γ : Γ)
+    (hγ : (MulOpposite.unop (β γ)).val.toAlgHom =
+      (LaurentPolynomial.invert (R := R)).toAlgHom)
+    (B : Type) [CommRing B] [Algebra R B]
+    (h : Points (R := R) (C := LaurentPolynomial R) B) :
+    ((CrossedCocycle.unit (pointAction β B)).gauge h) γ = h ^ 2 := by sorry
+
+/-- Universal tame generator in the characteristic-two q=3 fibre. -/
+def tameTorusNilpotent : tameTorusCocycleCoordinates (ZMod 2) 3 :=
+  (universalCocycle (tameRelations 3)
+    (1 : PresentedGroup (tameRelations 3 : Set (FreeGroup (Fin 2))) →*
+      CoordinateAut (R := ZMod 2) (C := LaurentPolynomial (ZMod 2)))
+    (PresentedGroup.of (1 : Fin 2))).ofConv (LaurentPolynomial.T 1) - 1
+
+-- scheme_tame_torus_nonreduced: reduction would make the first assertion false.
+example : tameTorusNilpotent ≠ 0 ∧ tameTorusNilpotent ^ 2 = 0 := by sorry
+
+end
+end IntegralCocycleScheme
 
 section Continuous
 variable {Γ : Type u} {H : Type v} [Group Γ] [Group H]
