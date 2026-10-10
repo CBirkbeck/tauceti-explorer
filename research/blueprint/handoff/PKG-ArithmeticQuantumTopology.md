@@ -1,3 +1,138 @@
+# PKG-ArithmeticQuantumTopology — blocked supplier checkpoint
+
+Worker: Codex (GPT-6), session `codex-xYZsDl`, issue #7889, 2026-10-10.
+Branch: `codex-xYZsDl-arithmetic-quantum-topology`.
+Explorer starting commit: `ce82b4c10ea71d8692bf765e5e33432c242ff285`.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096747580)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096748581)
+by the bot for this session. No issue in the manager's priority list appeared
+in the open `swarm`, `state:available` queue at selection. This focus package
+was selected from the next eligible group. This session holds only this job.
+
+## Result
+
+**Blocked checkpoint. The roadmap package remains incomplete.** The existing
+README and Suggested.lean are preserved; this submission updates only the
+handoff. The obstacle is the accepted plan's unprovided geometric supplier
+contract, not elapsed time or failure to elaborate an existing signature.
+
+The authoritative packet still records G1, two exact open requests on
+GeometricTopology layers 4 and 5, and nineteen open requests in total. Its
+accepted review explicitly describes eight planned stages, eight gaps and no
+closed stages. Acceptance of that target-level pass does not close its gaps.
+A package cannot manufacture the missing foreign constructions while obeying
+PROTOCOL §§13, 15 and 20 and this issue's instruction to change no packet.
+The instructions permit describing a plan problem here; they do not authorize
+reassigning its objects or editing its supplier.
+
+## Fresh supplier checks
+
+Current read-only TauCetiRoadmap: `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
+Current read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The commits and files are unchanged from the preceding checkpoint. Read the
+GeometricTopology and RepresentationTheory/SemisimpleAlgebras roadmaps, and
+GeometricTopology's complete Suggested.lean. Neither tree was edited or built.
+
+The relevant source statements were inspected directly:
+
+- `TauCeti/KnotTheory/SmoothLink/Basic.lean`, `SmoothLinkEmbedding`: a family
+  of disjoint, labeled oriented smooth circle embeddings. Framing is separate
+  data; this carrier has no pairwise linking-number operation.
+- `TauCeti/KnotTheory/SmoothLink/Isotopy.lean`,
+  `SmoothLinkEmbedding.SmoothAmbientIsotopic` and its setoid: a single ambient
+  diffeotopy carries each component to the corresponding component. Its
+  arguments contain no framing data to transport.
+- `TauCeti/KnotTheory/Markov.lean`, `FramedMarkovBraid` and `MarkovEquiv`:
+  component integers belong to the former; the equivalence is on the latter's
+  forgotten `MarkovBraid`. Confirmed the framed carrier directly at the pinned
+  Tau Ceti commit `f790474821cf4256814db967cb154e7af3d0c369` as well.
+- `TauCeti/LowDimTopology/DehnSurgery/Slope.lean`, `FramedBoundaryTorus`,
+  `coord_symm_apply`, `meridian`, `longitude` and `slopeEquiv`: coordinates on
+  actual singular H₁ of a boundary torus and primitive-class slope arithmetic.
+  They do not construct a link complement, attach solid tori, identify the
+  homology of a filling, or give Kirby equivalence.
+
+A search of the whole current library and upstream Lean files for linking-number,
+Dehn-filling, Kirby-equivalence and framed-smooth-link names found no supplying
+active declaration. GeometricTopology's layer-5 README has illustrative commented
+filling signatures; its Suggested.lean has no active declarations. Its README
+plans complements and fillings, but the exact homology/Kirby/stable-realization
+contract needed here is not specified there in full. The atlas has no
+GeometricTopology Part II packet, reader or roadmap definition providing the
+extension to which the accepted requests route it.
+
+### Clarification for the continuation: presentations, not a hub type
+
+The preceding handoff uses the phrase "framed multi-link quotient". Read that
+as shorthand for the missing framing-preserving presentation interface and
+invariant transport, **not** as a requirement to create an umbrella `Knot` or
+link-type quotient. GeometricTopology's encoding conventions explicitly use
+first-class presentations and a manifold type with Mathlib instances. The
+supplier repair must follow that design. A shared geometric presentation,
+framing data, and transport theorems would meet the intended boundary without
+inventing a canonical hub carrier.
+
+There is a concrete reason that the forgotten Markov relation cannot substitute
+for framed transport. Take the one-strand identity braid and decorate its sole
+component first with framing 0, then with framing 1. The underlying braids are
+equal, so `MarkovEquiv.refl` relates their forgotten presentations. Their
+one-component framing matrices are [0] and [1]. The package's actual
+`IsAdmissible` rejects [0] and accepts [1]. Consequently pulling back the
+unframed relation cannot even preserve admissibility, before any quantum
+invariance is considered. This follows from the inspected carrier and relation
+and the existing matrix predicate; it adds no foreign geometry or Lean declaration.
+
+## Exact restart actions
+
+1. Resolve the two existing supplier requests before another package pass:
+   provide framed presentation transport, finite components and linking numbers
+   for layer 4; provide oriented filling at fμ+λ, H₁/cokernel and determinant
+   comparisons, ordinary Kirby/Fenn–Rourke equivalence, and stable unimodular-form
+   realization for layer 5. Retain the presentation-based conventions above.
+   If the maintainer changes ownership or scope, reconcile the authoritative
+   plans together first.
+2. Instantiate `IsAdmissible`, `handleSlide` and `linkingMatrixCokernel` on that
+   interface. They are currently matrix-level algebra, not geometric definitions.
+   State the genuine band-slide and Hoste operations, refined presentation
+   existence, and unified-invariant consumers against those supplied objects.
+3. Continue the retained eight-layer worklist below. G2–G8 and the other exact
+   requests remain separate obligations. This run did not re-audit every primary
+   source, API item or test and does not certify the remaining interfaces complete.
+
+No packet or supplier was changed. The maintainer's cleared-source index was
+read; no restricted source or passage was used or copied. No new claim about a
+primary-paper theorem or source erratum is made. Metadata remains absent while
+the package is incomplete; the prospective line is `topic = "math.GT"`.
+
+## Validation in codex-xYZsDl
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  exit 0, **0 errors, 0 warnings**. It reports 106 nodes, 206 API items, 159
+  tests, 36 planets, 24 baseline references, 8 gaps, 19 requests, 8 planned
+  stages and 0 closed stages.
+- Read the reviewed library audit: its 1,316 layer keys contain no direct
+  `ArithmeticQuantumTopology:` entry. This is not evidence of implementation.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 631 warnings, all `declaration uses sorry`**. Available
+  memory was 102 GB before compilation. The shared build's Mathlib HEAD is
+  exactly `082e2d37e8b0463410cdb532e111cd43d5a66174`; the helper identifies its
+  Tau Ceti pin as `f790474821cf4256814db967cb154e7af3d0c369`. That build's Tau
+  Ceti directory has no Git metadata, so the latter is the helper's provenance.
+  Compilation establishes only elaboration of the existing signatures. No
+  compile remains running.
+- Authoritative packet SHA-256:
+  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
+  Preserved README SHA-256:
+  `68a8366d67a17f73a57c37787e39a5c3f660689d81fe93b54062924c2c4c85f0`.
+  Preserved Suggested.lean SHA-256:
+  `b20f7d2d582733278509ec5b11573819cce82cdb4223158b6b93a3e59eb66333`.
+- Scoped intake file check and `git diff --check` pass. All continuation evidence
+  is in this handoff; scratch logs are disposable. No second job is claimed.
+
+---
+
+## Preceding checkpoint — codex-xyOUwe
+
 # PKG-ArithmeticQuantumTopology — verified dependency checkpoint
 
 Worker: Codex (GPT-6), session `codex-xyOUwe`, issue #7889, 2026-10-10.
