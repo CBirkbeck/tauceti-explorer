@@ -15301,10 +15301,10 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
-  "session": "codex-Ra2LGa",
-  "notes": "Fresh independent bounded review following REV-FIX-RT-AREA-iwasawa-3~2 the codex-I3ds2G Motives-only checkpoint, and the intervening codex-fwRLjE algebraic-geometry review, archived unchanged in reviewHistory. All eight findings/verifier decisions and fix rounds checked against public primary sources. The six existing Motives supplier corrections, including the period_torsor comparison/product arguments and rank-one Tate nonvanishing, are accepted; 32 API and 18 example contracts checked and unchanged full-file Lean elaboration passed. No new mathematical or Lean correction was needed here. Preserve the separate REV-FIX-RT-AREA-geomlanglands~2 needs_changes verdict: relative Beck preservation and typed reconstruction interfaces remain unresolved. All non-review content, partial coverage, 23 gaps and 16 requests are unchanged. Read-only owner checks demonstrate that the current Kato L1 Hecke scalar r-1 contradicts the required r'-1 and yields the wrong linear Euler coefficient; a GH.1 good-model parenthetical also needs clarification. These files are outside the live issue's edit list, although queue completion requires their verdicts. This is a blocked scope checkpoint, not a completed queue job; see report and handoff."
+  "session": "codex-z0r0ow",
+  "notes": "Codex (GPT-6), session codex-z0r0ow: independent bounded round-2 area-fix review following the newer codex-Ra2LGa REV-FIX-RT-AREA-iwasawa-3~3 review, preserved entirely in reviewHistory together with every older audit. Findings /4 and /31 remain adequate consumer corrections: geometric Hodge theory after C5 is still an unaccepted owner proposal and exact request; C5 owns the pair comparison and SF.6 etale/Betti transport. Current signature inspection confirms both comparison edge laws, unit/product compatibility and period_torsor consumption of its product structure, both multiplicative representations, ProductCompatible and PeriodComparison. Preserve the preceding negative reconstruction verdict: the relative Beck preservation adapter, typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. All non-review content and supplier requests are unchanged. Full source/library audits and unchanged Lean receipts remain attributed to preceding reviewers. The six omitted queue-required packets and PEL Suggested path still await scope authorization; see report/handoff."
  },
  "reviewHistory": [
   {
@@ -16308,6 +16308,13 @@
    "date": "2026-10-10",
    "session": "codex-fwRLjE",
    "notes": "Codex (GPT-6), session codex-fwRLjE: independent bounded round-2 area-fix review following the entire newer REV-FIX-RT-AREA-iwasawa-3~3 review, preserved unchanged in reviewHistory. Findings /4 and /31 are adequate consumer corrections: the geometric Hodge owner after C5 remains an unaccepted proposal and exact request; C5 supplies the pair comparison while SF.6 supplies etale/Betti transport. Fresh signature inspection confirms PeriodComparison pullback, connecting-map, unit/product laws and period_torsor consumption of P, M1, M2, ProductCompatible and PeriodComparison. Preserve the preceding negative file-level verdict: the relative Beck preservation adapter, typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. Full audits and elaboration receipts remain attributed to preceding reviewers; this review introduces no source, node, supplier construction or proof-closure claim. The six further queue-required packets and PEL Suggested remain outside the live issue scope and await explicit authorization; see report/handoff."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
+   "date": "2026-10-10",
+   "session": "codex-Ra2LGa",
+   "notes": "Fresh independent bounded review following REV-FIX-RT-AREA-iwasawa-3~2 the codex-I3ds2G Motives-only checkpoint, and the intervening codex-fwRLjE algebraic-geometry review, archived unchanged in reviewHistory. All eight findings/verifier decisions and fix rounds checked against public primary sources. The six existing Motives supplier corrections, including the period_torsor comparison/product arguments and rank-one Tate nonvanishing, are accepted; 32 API and 18 example contracts checked and unchanged full-file Lean elaboration passed. No new mathematical or Lean correction was needed here. Preserve the separate REV-FIX-RT-AREA-geomlanglands~2 needs_changes verdict: relative Beck preservation and typed reconstruction interfaces remain unresolved. All non-review content, partial coverage, 23 gaps and 16 requests are unchanged. Read-only owner checks demonstrate that the current Kato L1 Hecke scalar r-1 contradicts the required r'-1 and yields the wrong linear Euler coefficient; a GH.1 good-model parenthetical also needs clarification. These files are outside the live issue's edit list, although queue completion requires their verdicts. This is a blocked scope checkpoint, not a completed queue job; see report and handoff."
   }
  ],
  "fixes": {
