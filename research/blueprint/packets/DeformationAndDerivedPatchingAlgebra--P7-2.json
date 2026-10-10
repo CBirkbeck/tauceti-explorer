@@ -6,7 +6,7 @@
     "DeformationAndDerivedPatchingAlgebra:P7"
   ],
   "status": "complete",
-  "summary": "This follow-up supplies the module-category comparisons and coefficient operations needed beyond the accepted finite free minimal-complex plan. Derived objects, all-module Tor-amplitude, completed infinite rank flat representatives, signed perfect duality, convergent coefficient spectral sequences and compatible coefficient-tower actions have distinct contracts. Generic enhancement, completion, inverse limits, topology and geometric duality retain their existing owners.",
+  "summary": "A target-level module comparison pass beyond the accepted finite free minimal-complex plan: all-module Tor-amplitude, complete flat complexes, signed perfect duality, strict R-linear coefficient towers and convergent coefficient spectral sequences. Native and current upstream generic tensor/Hom and lower-tier derived completion are imported. P7 owns the algebraic strict tower and discrete E/O-adjoint comparisons moved down from higher-tier completed cohomology.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,287 +16,308 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Localization of integer cochain complexes of an abelian category at quasi-isomorphisms; HasDerivedCategory is explicitly supplied.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:HomologicalComplex.Acyclic",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
         "provides": "Acyclic means exact at every degree; in an abelian module category this is equivalent to all homology objects being zero.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:HomologicalComplex.tensorObj",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/Monoidal.lean",
         "provides": "The direct-sum total tensor complex for a complex shape with tensor signs and the required graded coproducts.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CochainComplex.mappingCone",
         "kind": "def",
-        "module": "Mathlib/Algebra/Homology/MappingCone.lean",
+        "module": "Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean",
         "provides": "The cochain mapping cone in a preadditive category with the needed biproducts.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CochainComplex.isKProjective_of_projective",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/HomotopyCategory/KProjective.lean",
         "provides": "A complex strictly zero above d with projective objects in every degree is K-projective.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CochainComplex.IsKProjective.Qh_map_bijective",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/KProjective.lean",
         "provides": "For a K-projective source, homotopy-category morphisms to any complex map bijectively to derived-category morphisms.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.Flat.of_projective",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Every projective module over a commutative ring is flat.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:ModuleCat.extendScalars",
         "kind": "def",
         "module": "Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean",
         "provides": "For an arbitrary commutative ring homomorphism R→S, sends M to S tensor_R M and maps to scalar extensions.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CategoryTheory.Tor",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
         "provides": "Natural-number indexed left derived tensor bifunctor, deriving its SECOND module argument; categorical projective resolutions are required.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CategoryTheory.Tor'",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Monoidal/Tor.lean",
         "provides": "The alternate tensor left-derived functor deriving its FIRST argument; the pinned file does not compare it with Tor.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:DerivedCategory.homologyFunctor",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
         "provides": "Integer-degree homology functor from the actual derived category to its abelian category.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:DerivedCategory.singleFunctor",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Places an object of the abelian category in the specified integer cochain degree.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.Flat.projective_of_finitePresentation",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Flat/EquationalCriterion.lean",
         "provides": "A finitely presented flat module over any commutative ring is projective.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.finitePresentation_of_surjective",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
         "provides": "A surjective linear image of a finitely presented module is finitely presented if its kernel is finitely generated.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "tauceti:TauCeti.linearHomComplex",
         "kind": "def",
         "module": "TauCeti/Algebra/Homology/LinearHomComplex/Basic.lean",
         "provides": "For cochain complexes in an R-linear preadditive category, the ModuleCat R-valued product Hom complex with signed differential d_G f−(−1)^n f d_F.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "tauceti:TauCeti.forget₂LinearHomComplexIso",
         "kind": "def",
         "module": "TauCeti/Algebra/Homology/LinearHomComplex/Basic.lean",
         "provides": "Forgetting R-linearity recovers the native additive-group-valued HomComplex, with identity comparison on each cochain module.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "tauceti:TauCeti.koszulBraiding",
         "kind": "def",
         "module": "TauCeti/Algebra/Homology/Monoidal/Braiding.lean",
         "provides": "The chain tensor symmetry multiplies degree-(i,j) summands by (−1)^(ij); inverse swaps the factors.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "tauceti:TauCeti.koszulSymmetricCategory",
         "kind": "instance",
         "module": "TauCeti/Algebra/Homology/Monoidal/Braiding.lean",
         "provides": "The native integer module cochain tensor is symmetric with its Koszul braiding.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.dual_projective",
         "kind": "instance",
         "module": "Mathlib/LinearAlgebra/Dual/Lemmas.lean",
         "provides": "The dual of a FINITE projective module is projective; the finite-generation hypothesis is in the surrounding section.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.dual_finite",
         "kind": "instance",
         "module": "Mathlib/LinearAlgebra/Dual/Lemmas.lean",
         "provides": "The dual of a finite projective module is finite.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.evalEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
         "provides": "Evaluation is a linear equivalence M≃Dual(Dual M) for reflexive M; the finite-projective reflexivity instance is supplied by Dual/Lemmas.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:dualTensorHomEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "For finite projective M and arbitrary N, Dual M tensor N≃Hom(M,N), with pure tensor f tensor n sent to m↦f(m)n.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:DerivedCategory.triangleOfSES_distinguished",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/ShortExact.lean",
         "provides": "A short exact sequence of native integer cochain complexes yields a distinguished triangle after localization.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:DerivedCategory.HomologySequence.exact₂",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
         "provides": "Homology is exact at the middle object of a distinguished triangle in every integer degree.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.Flat.iff_rTensor_injective",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Flat/Tensor.lean",
         "provides": "Flatness over a commutative ring is equivalent to injectivity of tensoring every finitely generated ideal inclusion.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.IsLocalRing.linearIndependent_of_flat",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/LocalRing/Module.lean",
         "provides": "For an arbitrary index type, lifts to a flat module over a local ring of a linearly independent residue family are linearly independent. No finite-module hypothesis is used.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Module.finitePresentation_of_finite",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
         "provides": "Over a Noetherian ring, every finite module is finitely presented.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:IsAdicComplete",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Separatedness and completeness of an R-module for the powers of a fixed ideal I; this is not derived completeness.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:AdicCompletion",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The native inverse-limit algebraic adic completion of a module, with its quotient coordinates.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:AdicCompletion.ofLinearEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "For an I-adically complete module M, the canonical map M→AdicCompletion I M is an R-linear equivalence.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "For Noetherian R and finite M, AdicCompletion I R tensor_R M≃AdicCompletion I M over the completed ring.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CategoryTheory.E₂CohomologicalSpectralSequence",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
         "provides": "Native category of integer-bigraded cohomological pages starting at page two, with differential bidegree (r,1−r) and next-page homology isomorphisms; the structure contains no abutment or convergence data.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Representation.invariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Invariants.lean",
         "provides": "The submodule of elements fixed by every group element, without invertibility of the group order.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Representation.Coinvariants",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
         "provides": "The native quotient by the span of ρ(g)x−x, for a monoid representation.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Representation.Coinvariants.lift",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
         "provides": "A linear map constant on the action descends to the native coinvariant quotient, with the generator formula and uniqueness.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The contragredient representation on the module dual, g acting by precomposition with ρ(g⁻¹).",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:Representation.asModule",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "The module type synonym associated to a representation, with its group-algebra action and linear equivalence to the original carrier.",
-        "checked": "Full declaration statement read in the source at the recorded pinned commit; the provides field records its applicable hypotheses."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:CategoryTheory.HasExactColimitsOfShape.domain_of_functor",
         "module": "Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Basic.lean",
         "kind": "lemma",
         "provides": "For F:C→D preserving and reflecting finite limits and preserving J-colimits, with finite limits and J-colimits in C and exact J-colimits in D, transports exact J-colimits to C. ModuleCat R applies this to forget₂ to AddCommGrpCat; its native AB5 instance was read in ModuleCat/AB.lean and synthesized successfully in the native probe.",
-        "checked": "Full statement read at the recorded pinned Mathlib commit."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:AdicCompletion.of_bijective_iff",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "kind": "lemma",
         "provides": "The canonical map to adic completion is bijective if and only if the module is IsAdicComplete.",
-        "checked": "Full statement read at the recorded pinned Mathlib commit."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
         "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
         "kind": "lemma",
         "provides": "For a Noetherian local commutative ring, Artinianity is equivalent to nilpotence of its maximal ideal.",
-        "checked": "Full statement read at the recorded pinned Mathlib commit."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
       },
       {
         "ref": "mathlib:isArtinian_of_fg_of_artinian'",
         "module": "Mathlib/RingTheory/Artinian/Module.lean",
         "kind": "instance",
         "provides": "Every finite module over an Artinian ring is Artinian.",
-        "checked": "Full statement read at the recorded pinned Mathlib commit."
+        "checked": "Independently read in full at the recorded pinned commit on 2026-10-10; hypotheses and conventions agree with the provides contract."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.linearYoneda",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Linear/Yoneda.lean",
+        "provides": "For an R-linear preadditive category C, X maps to the ModuleCat R-valued presheaf Y↦Hom_C(Y,X); morphisms in the opposite source act by precomposition. Specialize C=ModuleCat O and X=E/O.",
+        "checked": "Full declaration and its additive instance read at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.Baer.injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/Injective.lean",
+        "provides": "For an R-module Q satisfying Module.Baer R Q, gives Module.Injective R Q and extension of linear maps across arbitrary injective module maps; the module universe is explicit.",
+        "checked": "Full declaration and the definitions Module.Baer and Module.Injective read at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.HasExactLimitsOfShape.domain_of_functor",
+        "kind": "lemma",
+        "module": "Mathlib/CategoryTheory/Abelian/GrothendieckAxioms/Basic.lean",
+        "provides": "Pulls exact limits of shape J through a functor preserving and reflecting finite colimits and preserving J-limits. The native AB4Star instance of ModuleCat R uses this for discrete products via the forgetful functor to AddCommGrpCat, so products of module short exact sequences are exact.",
+        "checked": "Full statement (lines 107–124) and its use in Mathlib/Algebra/Category/ModuleCat/AB.lean (lines 37–39) read at Mathlib 082e2d3 on 2026-10-10."
       }
     ]
   },
@@ -311,7 +332,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definitions 15.60.1, 15.60.13; Lemmas 15.60.2–8, 10, 12, 14–16 and their proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0A5W",
@@ -323,7 +349,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition of derived Hom; Lemmas 15.75.1–6 and proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0A66",
@@ -335,7 +366,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.75.2 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0651",
@@ -347,7 +383,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition 15.68.1; Lemmas 15.68.2–18 and relevant proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0656",
@@ -359,7 +400,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition 15.76.1; Lemmas 15.76.2–11,15,17 and Remark 15.76.16"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "064N",
@@ -371,7 +417,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition 15.66.1; Lemmas 15.66.2–12,17 and proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "064Q",
@@ -383,7 +434,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition 15.66.1"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "064V",
@@ -395,7 +451,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.66.6"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "064X",
@@ -407,7 +468,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.66.8 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "061Y",
@@ -419,7 +485,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Examples 15.63.1–4 and constructions"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "051G",
@@ -431,7 +502,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 10.101.2 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0ATK",
@@ -443,7 +519,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.100.3 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "064J",
@@ -455,7 +536,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.59.4 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "00M5",
@@ -467,7 +553,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 10.75.8 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0658",
@@ -479,7 +570,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 15.76.2 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "058Z",
@@ -491,7 +587,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemmas 10.85.1–3 and Theorem 10.85.4, all proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "058T",
@@ -503,7 +604,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Definition 10.84.1, Lemmas 10.84.2–3, Theorems 10.84.4–5, all proofs and correction comments"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "CG18",
@@ -515,7 +621,13 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "§7.2, Lemmas 7.5–7.7 and the coefficient-complex passage"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version.",
+        "pages": "PDF pp. 100–102"
+      }
     },
     {
       "id": "BCGP21",
@@ -527,7 +639,13 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "§7.8, Lemmas 7.8.5–7.8.6 and Remark 7.8.7"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version.",
+        "pages": "PDF pp. 213–214"
+      }
     },
     {
       "id": "BCGP25",
@@ -539,7 +657,13 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "§7.2, finite coefficient, action and augmentation hypotheses; §7.3, perfect-complex inputs; Lemma 7.4.11 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version.",
+        "pages": "PDF pp. 161–163 and 172"
+      }
     },
     {
       "id": "BP26",
@@ -551,7 +675,13 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "§2.3.12, Proposition 2.3.13 and proof; §2.6.5–2.6.8"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version.",
+        "pages": "PDF pp. 17 and 21–22"
+      }
     },
     {
       "id": "Pilloni20",
@@ -563,7 +693,13 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "§2.1–2.3, complete flat modules, Propositions 2.2.1–2.2.2, Lemma 2.3.1 and Proposition 2.3.1 with proofs"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version.",
+        "pages": "PDF pp. 7–11"
+      }
     },
     {
       "id": "091N",
@@ -575,7 +711,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemmas 15.93.1–25, proofs and correction comments; generic constructions are supplier inputs, not new P7 nodes"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0922",
@@ -587,7 +728,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Proposition 15.96.2 and proof"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0BKN",
@@ -599,7 +745,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemmas 20.37.1–2 and Remark 20.37.3; terminal ringed-space specialization"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "0132",
@@ -611,7 +762,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 12.25.3 and correction comments"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     },
     {
       "id": "012W",
@@ -623,7 +779,12 @@
       "accessDate": "2026-10-05",
       "readSections": [
         "Lemma 12.24.11, full proof and correction comments"
-      ]
+      ],
+      "independentReview": {
+        "date": "2026-10-10",
+        "sha256Matched": true,
+        "scope": "Cited statements and proof passages; same public bytes as the recorded source version."
+      }
     }
   ],
   "nodes": [
@@ -636,17 +797,20 @@
       "title": "K-flat module complexes",
       "declaration": "TauCeti.DerivedCoefficient.IsKFlat",
       "kind": "definition",
-      "statement": "For a commutative ring R and an integer cochain complex C of R-modules, IsKFlat(C) means that for every acyclic integer cochain complex E of R-modules the native direct-sum total complex E tensor_R C is acyclic. There is no boundedness or termwise-flatness hypothesis in the predicate.",
+      "statement": "For a commutative ring R and an integer cochain complex C of R-modules, IsKFlat(C) means that for every acyclic integer cochain complex E of R-modules the native direct-sum total complex E tensor_R C is acyclic. There is no boundedness or termwise-flatness hypothesis in the predicate. This is the native ModuleCat adapter for SmoothRep.IsKFlat at the trivial group; the upstream definition is the owner of the generic construction.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the existing acyclic predicate and the native signed direct-sum tensor complex; quantify over all complexes in one fixed module universe."
+        "Use the existing acyclic predicate and the native signed direct-sum tensor complex; quantify over all complexes in one fixed module universe.",
+        "Transport the upstream predicate through SmoothRep R {1}≃ModuleCat R and the signed tensor comparison; prove the displayed all-acyclic-complex criterion agrees with the transported predicate."
       ],
       "acceptance": [
         "An acyclic complex of nonflat terms need not be K-flat."
       ],
       "prerequisites": [
         "mathlib:HomologicalComplex.Acyclic",
-        "mathlib:HomologicalComplex.tensorObj"
+        "mathlib:HomologicalComplex.tensorObj",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/dg-enhancement"
       ],
       "sources": [
         {
@@ -759,7 +923,8 @@
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat",
         "mathlib:CochainComplex.mappingCone",
         "mathlib:HomologicalComplex.tensorObj",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-cone-comparison"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-cone-comparison",
+        "mathlib:DerivedCategory.HomologySequence.exact₂"
       ],
       "sources": [
         {
@@ -935,7 +1100,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-preserves-quasiiso",
-        "EnhancedDerivedSheaves:E1"
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements"
       ],
       "sources": [
         {
@@ -1028,10 +1194,10 @@
       "title": "Module specialization of the derived tensor bifunctor",
       "declaration": "TauCeti.DerivedCoefficient.derivedTensor",
       "kind": "construction",
-      "statement": "For every commutative ring R, derivedTensor is an additive bifunctor D(R)→(D(R)→D(R)) on the native derived category of ModuleCat R. Its value is Q(P tensor_R T) for unbounded K-flat replacements P of X and T of Y; morphisms descend from the homotopy category localization. The supplier E1 owns the generic enhanced tensor construction; this node is its module-category comparison with the native chain tensor and localization.",
+      "statement": "For every commutative ring R, derivedTensor is an additive bifunctor D(R)→(D(R)→D(R)) on the native derived category of ModuleCat R. Its value is Q(P tensor_R T) for unbounded K-flat replacements P of X and T of Y; morphisms descend from the homotopy category localization. Current upstream SmoothRepresentationsOfLocalGroups SR.0d already owns the derived tensor at the trivial group; this node transports it to ModuleCat R and compares the native chain tensor and localization.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the requested ModuleCat realization of E1 replacements and enhanced tensor. Compare its tensor on K-flat objects with the native signed chain tensor. The localization universal property and kflat-quasiiso-arbitrary-factor produce a bifunctor and a natural comparison, independent of choices."
+        "Use the trivial-group equivalence in current upstream SR.0d, its exact derived-category comparison and signed monoidal tensor–Hom structure. Transport the existing derived tensor bifunctor to the native module derived category. Compare with native localization and K-flat chain tensor representatives. No new generic derived operation is proposed."
       ],
       "acceptance": [
         "The output is an object of the actual D(R), with actual morphisms, rather than a family of homology modules."
@@ -1041,8 +1207,8 @@
         "mathlib:HomologicalComplex.tensorObj",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-quasiiso-arbitrary-factor",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-tensor",
-        "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
-        "EnhancedDerivedSheaves:E1"
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/dg-enhancement"
       ],
       "sources": [
         {
@@ -1206,7 +1372,9 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-tensor",
-        "mathlib:HomologicalComplex.tensorObj"
+        "mathlib:HomologicalComplex.tensorObj",
+        "tauceti:TauCeti.koszulBraiding",
+        "tauceti:TauCeti.koszulSymmetricCategory"
       ],
       "sources": [
         {
@@ -1242,7 +1410,8 @@
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-basechange",
         "mathlib:ModuleCat.extendScalars",
-        "mathlib:DerivedCategory.Q"
+        "mathlib:DerivedCategory.Q",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-representative-comparison"
       ],
       "sources": [
         {
@@ -1701,7 +1870,8 @@
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-bounded-flat",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-bottom-syzygy",
-        "EnhancedDerivedSheaves:E1"
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements"
       ],
       "sources": [
         {
@@ -1728,6 +1898,7 @@
       "statement": "If X has Tor-amplitude [a,b] over R, derivedExtension(f)(X) has Tor-amplitude [a,b] over S for every f:R→S.",
       "hypotheses": [],
       "proofSteps": [
+        "If a>b, the amplitude condition and the tensor unit force X=0, so its extension is zero. Otherwise use the flat representative supported in the nonempty interval [a,b].",
         "Extend a flat representative supported in [a,b]; its terms remain flat over S and its support is unchanged."
       ],
       "acceptance": [
@@ -1808,7 +1979,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-exact",
-        "mathlib:DerivedCategory.homologyFunctor"
+        "mathlib:DerivedCategory.homologyFunctor",
+        "mathlib:DerivedCategory.HomologySequence.exact₂"
       ],
       "sources": [
         {
@@ -2144,7 +2316,8 @@
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-pseudo-finite-order",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-triangle-cone",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-triangle-middle",
-        "mathlib:DerivedCategory.Q"
+        "mathlib:DerivedCategory.Q",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-shift"
       ],
       "sources": [
         {
@@ -2424,10 +2597,10 @@
       "title": "Module realization of enhanced derived Hom",
       "declaration": "TauCeti.DerivedCoefficient.derivedHom",
       "kind": "construction",
-      "statement": "derivedHom is a bifunctor D(R)^op→(D(R)→D(R)) valued in the native module derived category. It is the requested ModuleCat realization of the E1 internal Hom: compute the R-linear product Hom complex from a source complex to an unbounded K-injective target representative. This node supplies the comparison with native localization and R-linearity, while E1 owns replacements and generic internal Hom.",
+      "statement": "derivedHom is a bifunctor D(R)^op→(D(R)→D(R)) valued in the native module derived category. It is the native-module transport of the current upstream SmoothRep.derivedInternalHom at the trivial group: compute the R-linear product Hom complex from a source complex to an unbounded K-injective target representative. This node supplies the comparison with native localization and R-linearity, while the upstream roadmap owns the generic derived construction.",
       "hypotheses": [],
       "proofSteps": [
-        "Import the precise E1 module realization and unbounded K-injective replacements. Transfer its internal Hom to native D(ModuleCat R); the forgetful comparison to the native HomComplex pins the differential and R-module structure."
+        "Use the trivial-group equivalence in current upstream SR.0d, its exact derived-category comparison and signed monoidal tensor–Hom structure. Transport the existing derived internal Hom to the native module derived category. Compare with native localization and Tau Ceti linearHomComplex into K-injective targets. No new generic derived operation is proposed."
       ],
       "acceptance": [
         "Internal Hom is an object in D(R); its H^0 recovers the module of derived morphisms."
@@ -2436,7 +2609,9 @@
         "mathlib:DerivedCategory.Q",
         "tauceti:TauCeti.linearHomComplex",
         "tauceti:TauCeti.forget₂LinearHomComplexIso",
-        "EnhancedDerivedSheaves:E1"
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/dg-enhancement"
       ],
       "sources": [
         {
@@ -2786,10 +2961,11 @@
       "title": "Tensor with a finite projective dual computes native linear Hom",
       "declaration": "TauCeti.DerivedCoefficient.chain_tensor_hom",
       "kind": "comparison",
-      "statement": "For a bounded finite projective P and arbitrary complex E, there is a natural chain isomorphism E tensor Hom^•(P,R)≅Hom^•(P,E), using the native Koszul symmetry and contraction conventions.",
+      "statement": "For a bounded finite projective P and arbitrary complex E, there is a natural chain isomorphism E tensor Hom^•(P,R)≅Hom^•(P,E), using the native Koszul symmetry and contraction conventions. On E^q tensor Dual(P^p), in total degree q−p, send e tensor f to the map x↦f(x)e, with no additional sign in this ordering.",
       "hypotheses": [],
       "proofSteps": [
-        "There are finitely many P degrees, so degreewise Hom products are finite and match tensor direct sums. The native dualTensorHomEquiv supplies each module contraction. Choose the Koszul signs forced by ordering E before the dual factor and verify the two differential contributions on homogeneous summands. The signed contraction equation is a recorded refinement gap."
+        "Boundedness of P makes every Hom product finite. Use native dualTensorHomEquiv and the module tensor symmetry to identify each summand by e tensor f↦(x↦f(x)e).",
+        "The target differential has d_Eϕ−(−1)^(q−p)ϕd_P. The tensor differential contributes d_E e tensor f and (−1)^q e tensor d_Dual f; because d_Dual f=(−1)^(p+1)f d_P, the second coefficient is (−1)^(q+p+1)=(−1)^(q−p+1). Thus the contractions assemble to a chain isomorphism, natural in both factors."
       ],
       "acceptance": [
         "The statement holds for unbounded E, but requires finite projectivity and boundedness of P."
@@ -3213,7 +3389,7 @@
       "sources": [
         {
           "sourceId": "CG18",
-          "locator": "Lemma 7.5, spanning induction",
+          "locator": "Lemma 7.5, spanning induction; PDF pp. 100–101",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3244,7 +3420,7 @@
       "sources": [
         {
           "sourceId": "CG18",
-          "locator": "Lemma 7.5, independence induction",
+          "locator": "Lemma 7.5, independence induction; PDF pp. 100–101",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3278,7 +3454,7 @@
       "sources": [
         {
           "sourceId": "CG18",
-          "locator": "Lemma 7.5",
+          "locator": "Lemma 7.5; PDF pp. 100–101",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3311,7 +3487,7 @@
       "sources": [
         {
           "sourceId": "CG18",
-          "locator": "Lemma 7.6 and proof, finite free algebra argument",
+          "locator": "Lemma 7.6 and proof, finite free algebra argument; PDF pp. 101–102",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3344,7 +3520,7 @@
       "sources": [
         {
           "sourceId": "CG18",
-          "locator": "Lemma 7.6",
+          "locator": "Lemma 7.6; PDF pp. 101–102",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3450,7 +3626,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "§2.2, definition of C_flat(R)",
+          "locator": "§2.2, definition of C_flat(R); PDF pp. 8–9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3530,7 +3706,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Lemma 2.3.1",
+          "locator": "Lemma 2.3.1; PDF pp. 10–11",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3565,7 +3741,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proof of Proposition 2.3.1, cancellation step",
+          "locator": "Proof of Proposition 2.3.1, cancellation step; PDF pp. 10–11",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3599,7 +3775,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proof of Proposition 2.3.1, minimal subcomplex claim",
+          "locator": "Proof of Proposition 2.3.1, minimal subcomplex claim; PDF pp. 10–11",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3681,7 +3857,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proposition 2.2.1",
+          "locator": "Proposition 2.2.1; PDF p. 9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3716,7 +3892,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proposition 2.2.2, cone argument",
+          "locator": "Proposition 2.2.2, cone argument; PDF p. 9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3752,7 +3928,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proposition 2.2.2",
+          "locator": "Proposition 2.2.2; PDF p. 9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3785,7 +3961,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proposition 2.3.1, represented endomorphism transfer",
+          "locator": "Proposition 2.3.1, represented endomorphism transfer; PDF pp. 10–11",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3820,7 +3996,7 @@
       "sources": [
         {
           "sourceId": "BCGP21",
-          "locator": "Lemma 7.8.5, proof",
+          "locator": "Lemma 7.8.5, proof; PDF p. 213",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3854,7 +4030,7 @@
       "sources": [
         {
           "sourceId": "BCGP21",
-          "locator": "Lemma 7.8.5(1)–(2)",
+          "locator": "Lemma 7.8.5(1)–(2); PDF p. 213",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3870,24 +4046,26 @@
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:P7"
       ],
-      "title": "Pontryagin duality turns a finite free kernel into an adjoint cokernel",
-      "declaration": "TauCeti.DerivedCoefficient.dvr_pontryagin_adjoint",
+      "title": "Algebraic E/O duality turns a finite free kernel into an adjoint cokernel",
+      "declaration": "TauCeti.DerivedCoefficient.dvr_quotient_adjoint",
       "kind": "comparison",
-      "statement": "For complete DVR O with fraction field E, finite free O-modules M,N and φ:M→N, the continuous O-linear E/O-dual of φ tensor E/O is its O-linear adjoint Dual_O(N)→Dual_O(M). The continuous E/O-dual of ker(φ tensor E/O) is coker(φ^*). Use CC.3 normalization to compare this with the Z_p Pontryagin dual, including its character or codifferent twist.",
+      "statement": "For a complete DVR O with fraction field E, finite free O-modules M,N and φ:M→N, D_O(ker(φ tensor_O E/O))≅coker(φ*:Dual_O N→Dual_O M), naturally in φ. This is O-linear E/O duality on discrete modules. A comparison with the Z_p Pontryagin dual requires additional arithmetic hypotheses and normalization and belongs to a later roadmap.",
       "hypotheses": [],
       "proofSteps": [
-        "Import CC.3 exact duality, End_O(E/O)≅O and finite free evaluation. Compute on a finite basis to identify the dual map with the adjoint; exact contravariant duality identifies the kernel dual with the cokernel."
+        "Apply exact Hom_O(−,E/O) to 0→ker(φ tensor E/O)→M tensor E/O→N tensor E/O. Finite free evaluation identifies the dual map with φ*. Restriction to the kernel induces the asserted cokernel isomorphism."
       ],
       "acceptance": [
         "The bare Hom_O(H^0(P),O) is not substituted for the E/O-kernel dual."
       ],
       "prerequisites": [
-        "CompletedCohomologyPartII:CC.3"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-dual",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-injective",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-free-quotient-dual"
       ],
       "sources": [
         {
           "sourceId": "BCGP21",
-          "locator": "Lemma 7.8.6",
+          "locator": "Lemma 7.8.6; PDF p. 213",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -3906,10 +4084,10 @@
       "title": "Integral specialization via E/O coefficient cohomology",
       "declaration": "TauCeti.DerivedCoefficient.dual_degree_zero_dvr",
       "kind": "theorem",
-      "statement": "Let O be a complete DVR with fraction field E, R an O-algebra and P a finite projective R-complex supported in [0,l]. For an O-algebra map R→O, H^0(perfectDual(QP)) tensor_R O identifies with the continuous O-linear E/O-dual of H^0(P tensor_R E/O), with the CC.3 normalization for a Pontryagin interpretation.",
+      "statement": "Let O be a complete DVR with fraction field E, R an O-algebra and P a finite projective R-complex supported in [0,l]. For an O-algebra map R→O, H^0(perfectDual(QP)) tensor_R O identifies with the algebraic O-linear E/O-dual of H^0(P tensor_R E/O).",
       "hypotheses": [],
       "proofSteps": [
-        "The specialized terms are finite projective over local O and hence finite free. The degree-zero E/O-cohomology is the kernel of its first differential. Apply dvr-pontryagin-adjoint and the cokernel presentation."
+        "The specialized terms are finite projective over local O and hence finite free. The degree-zero E/O-cohomology is the kernel of its first differential. Apply the algebraic dvr_quotient_adjoint comparison and the cokernel presentation."
       ],
       "acceptance": [
         "For P=[O --π→ O] in degrees 0,1 the left side is O/π; the E/O-kernel dual gives O/π, whereas Dual_O(H^0(P)) is zero."
@@ -3922,7 +4100,7 @@
       "sources": [
         {
           "sourceId": "BCGP21",
-          "locator": "Lemma 7.8.5(3) and Remark 7.8.7",
+          "locator": "Lemma 7.8.5(3) and Remark 7.8.7; PDF pp. 213–214",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -4060,7 +4238,7 @@
       "title": "K-flat quotient levels compute derived coefficients",
       "declaration": "TauCeti.DerivedCoefficient.quotient_tower_derived_comparison",
       "kind": "comparison",
-      "statement": "For K-flat C, level n of coefficientQuotientTower(C,I), viewed as an R/I^(n+1)-complex, represents derivedExtension(R→R/I^(n+1))(Q_R C). The comparisons commute with quotient transitions after scalar restriction to R.",
+      "statement": "For K-flat C, level n of coefficientQuotientTower(C,I), viewed as an R/I^(n+1)-complex, represents derivedExtension(R→R/I^(n+1))(Q_R C). The comparisons commute with quotient transitions after scalar restriction to R. The native extension-of-scalars model is also identified, after restriction from R/I^(n+1) to R, with Q of the level of coefficientQuotientTower(C,I), and these isomorphisms commute with all quotient transitions.",
       "hypotheses": [],
       "proofSteps": [
         "The standard tensor-quotient isomorphism identifies (R/I^(n+1)) tensor C with C/I^(n+1)C. Apply the K-flat representative comparison; its naturality identifies transitions."
@@ -4071,7 +4249,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-quotient-tower",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-representative-comparison"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-representative-comparison",
+        "mathlib:ModuleCat.extendScalars"
       ],
       "sources": [
         {
@@ -4163,17 +4342,18 @@
       "title": "Surjective strict coefficient towers compute derived limits",
       "declaration": "TauCeti.DerivedCoefficient.surjective_tower_derived_limit",
       "kind": "comparison",
-      "statement": "For an inverse tower C_n of R-module cochain complexes with surjective transitions in every degree, Q_R(lim_n C_n) identifies naturally with the CC.2 derived inverse limit of Q_R(C_n). In particular this applies to coefficientQuotientTower(C,I).",
+      "statement": "For a strict inverse tower C_n of R-module cochain complexes with surjective transitions in every degree, Q_R(lim_n C_n)≅Rlim_str(C), naturally for strict tower maps. In particular this applies to coefficientQuotientTower(C,I).",
       "hypotheses": [],
       "proofSteps": [
-        "Import the native-module realization of the derived inverse limit from CC.2. Exact module products and degreewise surjectivity make 1−shift on the degreewise product complexes surjective; its kernel is the strict limit. The resulting short exact sequence identifies the kernel complex with the shifted cone defining the supplier derived limit. The R-linear comparison with the R02.1 additive-group model is recorded as a refinement gap."
+        "Surjective successive transitions make degreewise 1−shift surjective: choose x_0 and recursively lift x_n−y_n to x_(n+1). Its kernel complex is the strict limit.",
+        "The resulting short exact sequence of R-complexes identifies the kernel with Cone(1−shift)[−1] after localization. Every map is R-linear; compare with the R02.1 additive-group model after forgetting. The module naturality adapter is retained as a refinement gap."
       ],
       "acceptance": [
         "Surjectivity on terms does not imply surjectivity on cohomology transitions."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-quotient-tower",
-        "CompletedCohomologyPartII:CC.2",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-inverse-limit",
+        "mathlib:DerivedCategory.triangleOfSES_distinguished",
         "ArithmeticGaloisDuality:R02.1/milnor-sequence"
       ],
       "sources": [
@@ -4201,7 +4381,8 @@
       "statement": "For a termwise-surjective countable tower C_n of R-complexes, there is a natural short exact sequence of R-modules 0→lim^1 H^(j−1)(C_n)→H^j(lim C_n)→lim H^j(C_n)→0. The lim and lim^1 terms use the kernel and cokernel of 1−shift on module products, agreeing after forgetting with R02.1.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the supplier Milnor sequence and its product kernel-cokernel construction. Every map is R-linear, so retain the module structure; naturality of the comparison identifies the middle with homology of the strict limit. The module upgrade is the same recorded refinement as surjective-tower-derived-limit."
+        "The one-minus-shift triangle yields the long exact homology sequence. Exact module products identify its homology maps with 1−shift on the cohomology tower; isolate the kernel/cokernel short exact sequence.",
+        "Use the surjective strict-limit comparison for the middle term, and compare the R-linear sequence after forgetting with R02.1. Naturality of the maps is part of the recorded module-realization refinement."
       ],
       "acceptance": [
         "The first term is retained unless an independent Mittag–Leffler argument kills it."
@@ -4209,7 +4390,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-surjective-tower-derived-limit",
         "ArithmeticGaloisDuality:R02.1/milnor-sequence",
-        "ArithmeticGaloisDuality:R02.1/lim-one"
+        "ArithmeticGaloisDuality:R02.1/lim-one",
+        "mathlib:DerivedCategory.HomologySequence.exact₂"
       ],
       "sources": [
         {
@@ -4305,7 +4487,7 @@
       "title": "Native perfect complexes compare with generic derived completion",
       "declaration": "TauCeti.DerivedCoefficient.perfect_derived_completion_comparison",
       "kind": "comparison",
-      "statement": "For Noetherian R, ideal I and perfect X, the DD.1 derived completion of X is naturally isomorphic to the CC.2 derived limit of its derived coefficient objects X tensor_R^L R/I^(n+1). If R is I-adically complete, the completion unit X→completion_I(X) is an isomorphism.",
+      "statement": "For Noetherian R, ideal I and perfect X, the DD.1 derived completion of X is naturally isomorphic to the P7 strict derived limit of the quotient tower of any bounded finite projective representative of X, each level representing X tensor_R^L R/I^(n+1) after restriction to R. If R is I-adically complete, the completion unit X→completion_I(X) is an isomorphism.",
       "hypotheses": [],
       "proofSteps": [
         "Import DD.1 Noetherian ideal-power comparison; it owns the Koszul/pro-object proof. Compute all finite coefficient objects on a bounded finite projective model, then use the strict surjective tower comparison. Over complete R, the finite-module completion isomorphism identifies the unit with the identity model map."
@@ -4314,12 +4496,14 @@
         "The ideal-power formula is restricted to Noetherian R; a merely finitely generated ideal does not justify it."
       ],
       "prerequisites": [
-        "DerivedDeRhamCohomology:DD.1",
-        "CompletedCohomologyPartII:CC.2",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-tower-derived-comparison",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-surjective-tower-derived-limit",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-complex-limit",
-        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object"
+        "DeformationAndDerivedPatchingAlgebra:P7/perfect-object",
+        "DerivedDeRhamCohomology:DD.1/derived-completeness",
+        "DerivedDeRhamCohomology:DD.1/derived-completion",
+        "DerivedDeRhamCohomology:DD.1/ordinary-quotient-completion",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-inverse-limit"
       ],
       "sources": [
         {
@@ -4352,10 +4536,11 @@
         "An arbitrary noncomplete object can have zero residue: the fraction field stalk over a DVR is the counterexample."
       ],
       "prerequisites": [
-        "DerivedDeRhamCohomology:DD.1",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-pseudo-triangle",
-        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama"
+        "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
+        "DerivedDeRhamCohomology:DD.1/derived-completeness",
+        "DerivedDeRhamCohomology:DD.1/derived-completion"
       ],
       "sources": [
         {
@@ -4393,7 +4578,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "§7.2, compatible finite-quotient ring actions",
+          "locator": "§7.2, compatible finite-quotient ring actions; PDF pp. 161–163",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -4478,7 +4663,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "§7.2 ring action compatibility; Stacks 0BKN Milnor naturality",
+          "locator": "§7.2 ring action compatibility; Stacks 0BKN Milnor naturality; PDF pp. 161–163",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -4569,7 +4754,8 @@
       "statement": "For a complex C strictly zero above b and an R-module B, construct a native E₂ cohomological spectral sequence E with E₂^(p,q)=Tor_(−p)^R(H^q(C),B) for p≤0, zero for p>0, differential d_r:E_r^(p,q)→E_r^(p+r,q−r+1), and naturality for chain maps and module maps. This construction is the filtered coefficient double complex, not a declaration asserting arbitrary pages have an abutment.",
       "hypotheses": [],
       "proofSteps": [
-        "Resolve B projectively in nonpositive cochain degrees and filter the signed total of C^q tensor P^p by p. Compute the first vertical homology using flatness of P^p, then horizontal homology using its projective resolution of B. Store the page-homology isomorphisms in the native SpectralSequence structure. Lift B-maps to resolutions and use homotopy independence to obtain natural maps of pages. The filtered-complex page construction and lift-independence adapters are recorded refinement gaps."
+        "Resolve B projectively in nonpositive cochain degrees and filter the signed total of C^q tensor P^p by p. Compute the first vertical homology using flatness of P^p, then horizontal homology using its projective resolution of B. Store the page-homology isomorphisms in the native SpectralSequence structure. Lift B-maps to resolutions and use homotopy independence to obtain natural maps of pages. The filtered-complex page construction and lift-independence adapters are recorded refinement gaps.",
+        "The maps of filtered complexes are additive in each variable; their induced maps on cycles, boundaries and pages preserve sums. Record this explicitly before asserting a unital ring action on pages."
       ],
       "acceptance": [
         "On Tor_i(H^j(C),B), the total degree is j−i, with p=−i and q=j."
@@ -4623,6 +4809,11 @@
           "name": "TauCeti.DerivedCoefficient.coefficientSpectralSequence_map_comp",
           "role": "functoriality",
           "statement": "Composition gives composition on every page."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.coefficientSpectralSequence_map_add",
+          "role": "functoriality",
+          "statement": "For fixed identity of B, the page morphism associated to f+g is the sum of the morphisms associated to f and g; similarly in the coefficient variable with the chain identity fixed."
         }
       ],
       "tests": [
@@ -4741,7 +4932,9 @@
         "Apply spectral-sequence naturality to each chain endomorphism and identity of B. Identity/composition and additivity yield the ring laws. The filtered-total maps give compatibility with the homology filtration; the tower commuting equations give transition compatibility."
       ],
       "acceptance": [
-        "An action specified only on H^*(C) is not a strict chain action for this declaration."
+        "An action specified only on H^*(C) is not a strict chain action for this declaration.",
+        "The map-composition equation alone is insufficient: additive page maps and invariant abutment submodules must also be supplied.",
+        "Choose the same invariant abutment filtration as in convergence and require the induced action on its graded quotient to commute with the stable-page comparison isomorphism."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-sequence",
@@ -4854,7 +5047,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "§2.2, C_flat(R) and cones in Proposition 2.2.2",
+          "locator": "§2.2, C_flat(R) and cones in Proposition 2.2.2; PDF pp. 8–9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -4888,7 +5081,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "§2.2, C_flat(R) tensor computations",
+          "locator": "§2.2, C_flat(R) tensor computations; PDF pp. 8–9",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -4923,7 +5116,7 @@
       "sources": [
         {
           "sourceId": "Pilloni20",
-          "locator": "Proposition 2.3.1, residue cohomology identification",
+          "locator": "Proposition 2.3.1, residue cohomology identification; PDF pp. 10–11",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5025,7 +5218,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "§7.2, action compatibility diagrams",
+          "locator": "§7.2, action compatibility diagrams; PDF pp. 161–163",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5059,7 +5252,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "Lemma 7.4.11(1)",
+          "locator": "Lemma 7.4.11(1); PDF p. 172",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5092,7 +5285,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "Lemma 7.4.11(2)",
+          "locator": "Lemma 7.4.11(2); PDF p. 172",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5127,7 +5320,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "Lemma 7.4.11(3)",
+          "locator": "Lemma 7.4.11(3); PDF p. 172",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5163,7 +5356,7 @@
       "sources": [
         {
           "sourceId": "BCGP25",
-          "locator": "Lemma 7.4.11(4), first isomorphism",
+          "locator": "Lemma 7.4.11(4), first isomorphism; PDF p. 172",
           "match": "The mathematical statement above specifies the module-category specialization and any additional hypotheses used by this node."
         }
       ],
@@ -5208,23 +5401,296 @@
         "namespace": "TauCeti.DerivedCoefficient"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-injective",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "The fraction quotient is an injective DVR module",
+      "declaration": "TauCeti.DerivedCoefficient.dvr_quotient_injective",
+      "kind": "lemma",
+      "statement": "For any DVR O with fraction field E, E/O is an injective O-module in the fixed module universe. Completeness and finiteness of other modules are not needed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Every ideal of a DVR is principal. For a nonzero generator a and a map (a)→E/O, divisibility of E/O supplies y with ay equal to the image of a; r↦ry extends the map. The zero ideal is immediate.",
+        "Apply the native Baer criterion. This proves exactness of Hom_O(−,E/O), rather than presupposing continuous or Pontryagin duality."
+      ],
+      "acceptance": [
+        "This is a proposed algebraic module comparison, with no implementation claim."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Baer.injective"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "Lemma 7.8.6, PDF pp. 213–214",
+          "match": "The algebraic exact duality used there follows here from the DVR Baer argument; no topological generalization is attributed to the paper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/DerivedCoefficient/Duality",
+        "namespace": "TauCeti.DerivedCoefficient"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-endomorphism",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Endomorphisms of the fraction quotient",
+      "declaration": "TauCeti.DerivedCoefficient.dvr_quotient_endomorphism",
+      "kind": "comparison",
+      "statement": "For a complete DVR O with fraction field E, scalar multiplication gives a ring isomorphism O≅End_O(E/O). Without completeness the endomorphism ring is the maximal-ideal completion of O.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Choose a uniformizer π. The π^n-torsion in E/O is generated by π^(−n) modulo O and is canonically identified with O/(π^n) after this choice. An endomorphism restricts to multiplication by a_n on that cyclic module.",
+        "Restriction compatibility gives a_(n+1) mod π^n=a_n. Conversely a compatible family acts on the union of the torsion submodules, which is all of E/O. Composition is coordinatewise scalar multiplication. Use native adic completeness to identify the inverse limit with O; the resulting scalar map is independent of π."
+      ],
+      "acceptance": [
+        "This is a proposed algebraic module comparison, with no implementation claim."
+      ],
+      "prerequisites": [
+        "mathlib:AdicCompletion.ofLinearEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "Lemma 7.8.6, PDF pp. 213–214",
+          "match": "This algebraic endomorphism computation supplies the complete-DVR finite free adjoint argument used in the source."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/DerivedCoefficient/Duality",
+        "namespace": "TauCeti.DerivedCoefficient"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-dual",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Discrete algebraic fraction-quotient dual",
+      "declaration": "TauCeti.DerivedCoefficient.quotientDualFunctor",
+      "kind": "construction",
+      "statement": "For a commutative domain O with fraction field E, let D_O(M)=Hom_O(M,E/O) with pointwise O-module structure. Use the native linear Yoneda presheaf at E/O to obtain D_O:ModuleCat O^op→ModuleCat O; D_O(f)(g)=g∘f. Domains and targets can be given discrete topology if a continuous interpretation is desired. This construction does not assert Pontryagin duality for arbitrary DVRs.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Specialize CategoryTheory.linearYoneda to ModuleCat O and its object E/O. This is a specialization of native Hom, not a new generic dual functor.",
+        "The DVR injectivity lemma makes D_O exact; the complete-DVR endomorphism comparison gives the evaluation tests below."
+      ],
+      "acceptance": [
+        "This is a proposed algebraic module comparison, with no implementation claim."
+      ],
+      "prerequisites": [
+        "mathlib:CategoryTheory.linearYoneda",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-injective",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-endomorphism"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "Lemmas 7.8.5(3), 7.8.6 and Remark 7.8.7, PDF pp. 213–214",
+          "match": "The source kernel dual is realized here as an algebraic E/O-valued Hom module; a Z_p-character normalization is separate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/DerivedCoefficient/Duality",
+        "namespace": "TauCeti.DerivedCoefficient"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+      "api": [
+        {
+          "name": "TauCeti.DerivedCoefficient.quotientDual_map",
+          "role": "simp",
+          "statement": "Precomposition sends g:N→E/O to g∘f for f:M→N."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.quotientDual_map_comp",
+          "role": "functoriality",
+          "statement": "D_O reverses composition and preserves identities, as the native functor on the opposite category."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.quotientDual_exact",
+          "role": "structure",
+          "statement": "For a DVR, D_O takes a short exact sequence to a short exact sequence in reverse order."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.quotientDual_evaluate",
+          "role": "equivalence",
+          "statement": "Evaluation at 1 identifies D_O(O) with E/O."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DerivedCoefficient.test_quotient_dual_zero",
+          "kind": "degenerate",
+          "statement": "D_O(0)=0."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.test_quotient_dual_residue",
+          "kind": "computation",
+          "statement": "Over a DVR O, D_O(O/m)≅O/m; it does not vanish as Hom_O(O/m,O) does."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.test_quotient_dual_fraction",
+          "kind": "characterisation",
+          "statement": "Over a complete DVR, D_O(E/O)≅O by scalar multiplication, rather than E/O."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P7 finite free DVR coefficient specialization",
+          "how": "Supply the algebraic comparison before completed-cohomology applications in tier 12."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-free-quotient-dual",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "Finite free fraction-quotient evaluation",
+      "declaration": "TauCeti.DerivedCoefficient.finite_free_quotient_dual",
+      "kind": "comparison",
+      "statement": "For complete DVR O, fraction field E and finite free O-module M, D_O(M tensor_O E/O)≅Dual_O(M), naturally in M. The element f corresponds to the map m tensor z↦f(m)z. Under this comparison the dual of φ tensor E/O is the ordinary O-linear adjoint φ*.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For a finite basis, tensor distributes over the finite direct sum and native Hom gives the finite product of End_O(E/O). Replace each endomorphism factor by O.",
+        "The displayed formula is basis independent and directly proves naturality under φ; use the native tensor–Hom adjunction and the scalar endomorphism comparison."
+      ],
+      "acceptance": [
+        "This is a proposed algebraic module comparison, with no implementation claim."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-dual",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-endomorphism"
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "Lemma 7.8.6, PDF pp. 213–214",
+          "match": "The finite free adjoint computation is used before identifying the kernel dual with a cokernel."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/DerivedCoefficient/Duality",
+        "namespace": "TauCeti.DerivedCoefficient"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-inverse-limit",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P7",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "title": "R-linear derived limit of strict complex towers",
+      "declaration": "TauCeti.DerivedCoefficient.derivedInverseLimit",
+      "kind": "construction",
+      "statement": "For a strict countable inverse tower C in ModuleCat R-valued integer cochain complexes, define a functor Rlim_str:(N^op→Cpx R)→D(R). It sends C to Q(Cone(1−shift:product C_n→product C_n)[−1]), with maps induced by strict natural transformations of towers. The component of 1−shift at n is x_n−transition(x_(n+1)). This does not claim a functor on diagrams in the ordinary triangulated category D(R).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Form degreewise products of module complexes. The strict transition maps define an R-linear chain endomorphism 1−shift. A tower natural transformation gives a commuting square and hence a functorial map of these strict mapping cones.",
+        "Use the native AB4Star instance of ModuleCat, obtained via HasExactLimitsOfShape.domain_of_functor, for exact products. Thus homology commutes with these products and products preserve objectwise quasi-isomorphisms; the induced cone map is a quasi-isomorphism.",
+        "Exact module products show invariance under objectwise quasi-isomorphisms. Forgetting scalar structures agrees with the lower-tier R02.1 product construction. Generic enhanced limits remain with their existing owner; this is the strict module realization."
+      ],
+      "acceptance": [
+        "This is a proposed algebraic module comparison, with no implementation claim."
+      ],
+      "prerequisites": [
+        "mathlib:CochainComplex.mappingCone",
+        "mathlib:DerivedCategory.Q",
+        "mathlib:DerivedCategory.triangleOfSES_distinguished",
+        "ArithmeticGaloisDuality:R02.1/lim-one",
+        "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+        "mathlib:CategoryTheory.HasExactLimitsOfShape.domain_of_functor"
+      ],
+      "sources": [
+        {
+          "sourceId": "0BKN",
+          "locator": "Lemma 20.37.1; Lemma 20.37.2 proof, one-point module specialization",
+          "match": "The product 1−shift triangle and Milnor sequence give the strict module model; no functorial cones in an ordinary triangulated category are assumed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Homology/DerivedCoefficient/CoefficientTowers",
+        "namespace": "TauCeti.DerivedCoefficient"
+      },
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+      "api": [
+        {
+          "name": "TauCeti.DerivedCoefficient.derivedInverseLimit_model",
+          "role": "characterisation",
+          "statement": "Its value is the localization of the strict one-minus-shift cone shifted by −1."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.derivedInverseLimit_map_id",
+          "role": "functoriality",
+          "statement": "Identity natural transformations act by the identity."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.derivedInverseLimit_map_comp",
+          "role": "functoriality",
+          "statement": "Composition of strict tower transformations is preserved."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.derivedInverseLimit_quasiiso",
+          "role": "compatibility",
+          "statement": "An objectwise quasi-isomorphism of strict towers induces an isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DerivedCoefficient.test_derived_limit_zero",
+          "kind": "degenerate",
+          "statement": "The zero tower has zero derived limit."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.test_derived_limit_constant",
+          "kind": "compatibility",
+          "statement": "A constant tower with identity transitions has derived limit Q(C)."
+        },
+        {
+          "name": "TauCeti.DerivedCoefficient.test_derived_limit_zero_transitions",
+          "kind": "non-example",
+          "statement": "A tower with every proper transition zero has zero derived limit, even when its terms are nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P7 surjective towers and completion",
+          "how": "Supply the algebraic comparison before completed-cohomology applications in tier 12."
+        }
+      ]
     }
   ],
   "requests": [
     {
       "supplier": "EnhancedDerivedSheaves:E1",
-      "need": "Realize the existing unbounded ringed-site replacement and enhancement nodes on the terminal ringed site with ring R, and identify the realization with native DerivedCategory(ModuleCat R) and its explicit localization. Supply unbounded flat-term K-flat replacements P→C, unbounded K-injective replacements C→J, and a bounded above projective representative zero above b whenever H^i(X)=0 for i>b. Include functorial comparisons and universe hypotheses; these are not finite free replacement claims.",
+      "need": "Realize EnhancedDerivedSheaves:E1/k-injective-and-k-flat-replacements on the terminal ringed site with ring R and identify its localization with native D(ModuleCat R). In addition to the existing unbounded replacement statement, provide a replacement P→C whose terms are flat, and a projective representative strictly zero above b when H^i(X)=0 for i>b. State sizes, comparison maps and the stronger termwise-flatness and support conditions. Do not reconstruct generic tensor/Hom already in current upstream SR.0d.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-quasiiso-arbitrary-factor",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-flat-representative",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-hom"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-flat-representative"
       ]
     },
     {
-      "supplier": "EnhancedDerivedSheaves:E1",
-      "need": "Supply the module-realized enhanced derived tensor/internal Hom with their localization comparison, additive maps, signed exactness and tensor-Hom adjunction. Identify its internal Hom with the native R-linear product Hom complex into a K-injective target. The existing generic tensor node supplies the enhanced tensor direction; P7 constructs the native-module adapters only.",
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+      "need": "Current upstream SR.0d already plans SmoothRep.IsKFlat, derivedTensor, derivedInternalHom and unbounded resolutions. Specialize at the trivial discrete group, transport through SmoothRep R {1}≃ModuleCat R and compare with native module complexes, Q, TauCeti.linearHomComplex and the Koszul monoidal structure. Retain their existing generic owner; supply the ModuleCat transport and additive tensor–Hom adjunction only. The atlas still registers this supplier as SR.0:derived-extension; current upstream renames its layer SR.0d. The finer dg-enhancement node is cited directly, with its conditional tensor construction retained as an external obligation.",
       "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-hom"
       ]
@@ -5239,23 +5705,8 @@
       ]
     },
     {
-      "supplier": "CompletedCohomologyPartII:CC.3",
-      "need": "Supply exact continuous O-linear E/O duality for complete DVR O, finite free evaluation, End_O(E/O)≅O, compact/discrete topology and contragredient maps. Identify with the Z_p Pontryagin dual only after specifying the character or codifferent normalization, and retain opposite ring actions.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-pontryagin-adjoint"
-      ]
-    },
-    {
-      "supplier": "CompletedCohomologyPartII:CC.2",
-      "need": "Supply a functorial countable derived inverse limit in native D(ModuleCat R), with its product 1−shift shifted-cone model, natural tower maps, and comparison to the R02.1 additive-group Milnor model. P7 uses strict termwise-surjective quotient complexes; CC.2 retains all generic topology, completed cohomology, continuous actions and arbitrary tower machinery.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-surjective-tower-derived-limit",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-derived-completion-comparison"
-      ]
-    },
-    {
       "supplier": "DerivedDeRhamCohomology:DD.1",
-      "need": "Supply derived I-completeness, the reflective completion functor and its unit in the native module realization. In the Noetherian case identify completion with the derived inverse limit of X tensor^L R/I^(n+1), functorially and compatibly with the unit. Supply the localization-Hom criterion and closure under triangles giving completeness of pseudo-coherent objects over complete R. DD.1 owns the generic Koszul/pro-object and derived Nakayama proof; P7 supplies the local perfect-model comparisons.",
+      "need": "The existing DD.1/derived-completeness, DD.1/derived-completion and DD.1/ordinary-quotient-completion nodes supply the generic mathematics. Identify their native ModuleCat realization and unit with the P7 strict quotient-tower model on bounded finite projective representatives over Noetherian R, naturally in representatives. Preserve the localization-Hom criterion and the Noetherian restriction; no new generic completion is planned.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-derived-completion-comparison",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-pseudo-derived-nakayama"
@@ -5271,14 +5722,12 @@
         "Finite-order triangle lifting and cohomology diagrams: Add the t-structure orthogonality lifting lemma through an m-approximation for a finite free complex zero below m+1, a strict K-projective lift, and the cone cohomology diagram giving isomorphisms above m and an epimorphism at m. Name their precise native comparison maps.",
         "Descending finite free attachments and compatible union: Refine the cycle-generator attachment to a partial model, finite generation of the residual kernel/cokernel at the new degree, and the degreewise stabilization of the descending union giving one bounded above finite free quasi-isomorphic model. The source and corrected indices are identified; the individual adapter declarations are still required.",
         "Linear Hom homology versus shifted homotopy morphisms: Add the R-linear equivalence from H^n(linearHomComplex(P,E)) to native homotopy-category maps P→E[n], compatible with the forgetful HomComplex comparison and the K-projective derived localization bijection.",
-        "Signed finite-projective chain contraction: Specify the homogeneous contraction sign for E tensor Hom(P,R)→Hom(P,E), verify its two differential contributions, and package the finite-product/direct-sum module isomorphisms. Native module contraction and Koszul symmetry are available; the chain equation is not yet a cited library declaration.",
         "Kaplansky transfinite support decomposition: Refine countable closure of coordinate supports under a retract idempotent, the well-ordered successor/limit recursion, inherited projectivity of successor factors, and the transfinite direct-sum equivalence. The exact full source proof was read in Stacks 058T; no countable-generation assumption is put on the original projective module.",
         "Kaplansky local support-minimization basis change: Name the finite-support-minimum lemma across all free bases, the elementary basis change eliminating a redundant coefficient, and the local matrix determinant/unit calculation used to split off the finite free summand containing an element.",
-        "R-linear strict-limit and Milnor realization: Upgrade the R02.1 additive-group product 1−shift construction and CC.2 realization to R-linear chain maps, prove the termwise-surjective shifted-cone/strict-kernel comparison, and transport the exact sequence as R-modules with tower naturality.",
+        "R-linear strict-limit and Milnor realization: Refine the P7 strict module one-minus-shift cone, its objectwise quasi-isomorphism invariance and its termwise-surjective strict-kernel comparison. Transport the exact R02.1 sequence to R-modules with natural tower maps; no higher-tier CC.2 input is assumed.",
         "Native filtered coefficient pages and map independence: Refine the filtered total complex into native SpectralSequence pages with explicit cycles/boundaries quotients and next-page homology isomorphisms. Add comparison-map lifts between chosen projective B-resolutions and homotopy independence on pages. Do not assume the native page structure already contains the filtered construction.",
         "Finite filtered homology convergence: Name the stable cycles/boundaries to gr^p H^n equivalence, prove finite exhaustiveness/separatedness and naturality of the induced filtration, and verify the uniform stable-page bound max(2,b−n+2). The finite-diagonal estimate is supplied here; the abutment comparison still needs these lemmas.",
-        "Obtain the six supplier contracts in requests and compare their native realizations; keep their generic constructions with their owners.",
-        "Elaborate the full suggested file once the pinned Tau Ceti Homology module artifacts are available; this pass validates only the supported native Mathlib portion."
+        "Supply the 4 lower-tier realization or extension contracts in requests; compare native models and units without duplicating the generic owners."
       ]
     }
   ],
@@ -5314,13 +5763,6 @@
       ]
     },
     {
-      "title": "Signed finite-projective chain contraction",
-      "detail": "Specify the homogeneous contraction sign for E tensor Hom(P,R)→Hom(P,E), verify its two differential contributions, and package the finite-product/direct-sum module isomorphisms. Native module contraction and Koszul symmetry are available; the chain equation is not yet a cited library declaration.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-chain-tensor-hom"
-      ]
-    },
-    {
       "title": "Kaplansky transfinite support decomposition",
       "detail": "Refine countable closure of coordinate supports under a retract idempotent, the well-ordered successor/limit recursion, inherited projectivity of successor factors, and the transfinite direct-sum equivalence. The exact full source proof was read in Stacks 058T; no countable-generation assumption is put on the original projective module.",
       "neededBy": [
@@ -5336,10 +5778,11 @@
     },
     {
       "title": "R-linear strict-limit and Milnor realization",
-      "detail": "Upgrade the R02.1 additive-group product 1−shift construction and CC.2 realization to R-linear chain maps, prove the termwise-surjective shifted-cone/strict-kernel comparison, and transport the exact sequence as R-modules with tower naturality.",
+      "detail": "Refine the P7 strict module one-minus-shift cone, its objectwise quasi-isomorphism invariance and its termwise-surjective strict-kernel comparison. Transport the exact R02.1 sequence to R-modules with natural tower maps; no higher-tier CC.2 input is assumed.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-surjective-tower-derived-limit",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-module-tower-milnor"
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-module-tower-milnor",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-inverse-limit"
       ]
     },
     {
@@ -5502,16 +5945,21 @@
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-01",
       "source": "Pilloni20",
       "kind": "misprint",
-      "locator": "Author copy §2.1, Lemma 2.1.2 proof, PDF p. 8",
+      "locator": "Author copy §2.2, Proposition 2.2.1 proof, PDF p. 9",
       "printed": "m_R^n/m_R^(n−1)",
       "correction": "Use m_R^(n−1)/m_R^n in the exact sequence.",
       "reason": "The printed quotient has the smaller ideal in the numerator and does not define the required successive layer.",
       "affects": "the proof",
-      "known": "Previously recorded PAPER-PILLONI-20/E6; the downloaded author copy still prints it.",
+      "known": "Previously recorded PAPER-PILLONI-20/E6 with an incorrect Lemma 2.1.2 locator. The reversal occurs in Proposition 2.2.1; Lemma 2.1.2 on PDF p. 8 has the correct quotient.",
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the corrected Proposition 2.2.1 locator: the proof needs the successive maximal-ideal layer. The original attribution to Lemma 2.1.2 is rejected; that lemma prints the correct order.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-02",
@@ -5526,22 +5974,32 @@
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Proposition 2.2.2: acyclicity after residue change is the hypothesis on the cone of f; the vanishing argument must be applied to that cone.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-03",
       "source": "Pilloni20",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Author copy §2.3, Lemma 2.3.1 proof, PDF p. 10",
       "printed": "R^I",
-      "correction": "Use the m-adic completion of the direct sum R^(I), not of the unrestricted product R^I.",
-      "reason": "For I infinite and R a field, the product does not have the standard coordinate vectors as a vector-space basis. Residue lifts canonically act on the free direct sum.",
+      "correction": "Interpret the completed free module as the m-adic completion of the DIRECT SUM indexed by I. Do not interpret R^I as the unrestricted product.",
+      "reason": "Residue basis lifts define a map from the free direct sum and extend to its completion. If R^I denotes a product, the claim already fails for an infinite index set over a field. The source notation is ambiguous; this review does not assert the author intended the product.",
       "affects": "the proof",
       "known": "Previously recorded PAPER-PILLONI-20/E8; scope is the author copy.",
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a notation ambiguity and a necessary direct-sum interpretation, rather than evidence of the author intending a false product theorem. Residue basis vectors do not span an infinite product over a field.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-04",
@@ -5556,7 +6014,12 @@
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the remaining map has domain indexed by I″ and codomain indexed by J″, fixing columns and rows respectively.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-05",
@@ -5571,7 +6034,12 @@
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the exact fetched Stacks version: the cochain cycle kernel is in degree n→n+1, not n→n−1.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-06",
@@ -5586,7 +6054,12 @@
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the top-degree finite module supplies only an m-approximation; it cannot imply unrestricted pseudo-coherence of lower cohomology.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-07",
@@ -5595,13 +6068,18 @@
       "locator": "Online Stacks Lemma 15.76.3 proof, accessed 5 October 2026",
       "printed": "E^(d−1)→E^d",
       "correction": "In the displayed bottom cokernel use E^(−d−1)→E^(−d).",
-      "reason": "The preceding support bound is −d≤i≤d; the smart truncation is at its bottom degree −d.",
+      "reason": "The resolution is indexed in nonpositive cochain degrees E^(−i). The bottom truncation module for F_d is therefore the cokernel at degree −d, followed by E^(−d+1). There is no preceding symmetric support bound in this proof.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the nonpositive resolution requires coker(E^(−d−1)→E^(−d)); the positive-degree cokernel cannot give the displayed finite resolution.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P7II-08",
@@ -5616,7 +6094,12 @@
       "searched": [
         "The public source version identified in sourceVersions and its correction comments or author page.",
         "Existing accepted paper extraction sourceIssues and the predecessor P7 packet; no correction is silently assumed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the previous tensor bound is −r, and the Milnor sequence preserves vanishing below −r. The printed i<r contradicts even a nonzero degree-zero complete module for r=1.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P7-2"
+      }
     }
   ],
   "sourceVersions": [
@@ -5838,9 +6321,615 @@
     }
   ],
   "scopeNotes": [
-    "This is a completed coverage pass, not a claim of closed proof chains or of implementation. Every node remains unchecked.",
-    "All generic enhancement, completion, inverse limits, topological basis and continuous dual constructions retain their named owners.",
-    "Source passages were read at the stated public versions; sourceIssues for author copies do not claim collation with an inaccessible publisher PDF.",
-    "The full Kaplansky local theorem is included because the accepted CG18 route assigns it to P7, even though its Artinian local specialization suffices for the paper application."
-  ]
+    "This is a complete target-level review pass, with P7 planned and explicitly open refinements and supplier realization requests; no node is claimed implemented.",
+    "Current detail.json sets every roadmap to target level. Small proof steps remain sketches; existing mathematical infrastructure gaps are retained precisely.",
+    "Current upstream SR.0d owns generic derived tensor/Hom and K-flat constructions; P7 contains native module adapters. DD.1 owns generic completion, R02.1 owns additive-group lim-one/Milnor and L0 owns the requested complete-local topological basis extension.",
+    "P7 is tier 10 and CompletedCohomologyPartII tier 12. The strict module tower and discrete E/O duality move to P7; topology, completed cohomology and arithmetic Pontryagin normalization stay with the later roadmap.",
+    "Public source bytes were independently checked on 2026-10-10 and match the recorded hashes. Author-copy errata do not claim publisher-PDF collation.",
+    "The full Kaplansky local theorem is retained at its source generality; Artinianity is required only for the flat-to-free specialization."
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "SmoothRepresentationsOfLocalGroups",
+      "detail": "At current upstream commit 670582c502e1d4497d9ccd492b36c67028ef6666, README SR.0d and Suggested.lean already plan K-flat derived tensor/internal Hom, including trivial-group torsion tests. P7 imports these constructions and asks for the native ModuleCat transport; no upstream files are edited."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P7-2",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 118 nodes, all 44 baseline declarations at the pinned commits, all 27 public source versions, eight source issues, supplier scopes, APIs, tests, current upstream overlap and tier order. Corrected native module transports, strict derived limits, discrete E/O duality, signs, dependencies and source locators; added five target-level nodes. Full suggested file elaborates with only the intended admitted-proof warnings. Acceptance is of a complete planning pass, not closure: P7 remains planned with nine explicit gaps and four supplier contracts. The reader document is outside this review issue scope; exact assembly amendments are recorded in the report and handoff.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat",
+        "verdict": "corrected",
+        "note": "Reuse the current upstream K-flat predicate at the trivial group; native unbounded ModuleCat adapter and stronger replacement requirements are explicit contracts."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-stalk-flat",
+        "verdict": "verified",
+        "note": "Flat stalk exactness is the length-zero source case, with arbitrary integer shift."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-cone",
+        "verdict": "corrected",
+        "note": "Added native cone homology exactness to justify all three K-flat implications."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-filtered-colimit",
+        "verdict": "verified",
+        "note": "Filtered exact colimits commute with tensor and homology in ModuleCat; no boundedness is imposed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-bounded-above-flat",
+        "verdict": "verified",
+        "note": "Brutal lower truncations and the filtered union prove the bounded-above flat statement."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-bounded-above-projective",
+        "verdict": "verified",
+        "note": "Native K-projectivity of a projective bounded-above complex is cited separately; it is not inferred from K-flatness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-preserves-quasiiso",
+        "verdict": "verified",
+        "note": "Tensor-cone comparison makes the acyclic-cone criterion applicable to quasi-isomorphisms."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-quasiiso-arbitrary-factor",
+        "verdict": "corrected",
+        "note": "Added the finer unbounded replacement supplier; replacing the arbitrary other factor is essential."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-basechange",
+        "verdict": "verified",
+        "note": "Scalar extension associativity tests acyclicity against arbitrary S-complexes; no flatness of S is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-kflat-tensor",
+        "verdict": "verified",
+        "note": "Associativity tests K-flatness of the total tensor against each acyclic complex."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-tensor",
+        "verdict": "corrected",
+        "note": "Corrected ownership: generic derived tensor belongs to current upstream SR.0d; only the module transport is planned here."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-representative-comparison",
+        "verdict": "verified",
+        "note": "One K-flat factor and the arbitrary-factor comparison remove the second replacement naturally."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-exact",
+        "verdict": "verified",
+        "note": "Native cone and signed shift comparisons establish exactness in both variables."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-coherence",
+        "verdict": "corrected",
+        "note": "Added native Koszul braiding and symmetry prerequisites for the claimed coherence identities."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
+        "verdict": "corrected",
+        "note": "Added one-K-flat comparison; output keeps the S-module structure under arbitrary coefficient maps."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-extension-preserves-perfect",
+        "verdict": "verified",
+        "note": "Base change of the bounded finite projective model proves perfectness without flatness of the algebra map."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-extension-preserves-pseudo",
+        "verdict": "verified",
+        "note": "Base change of a finite free approximation proves pseudo-coherence without flatness of the algebra map."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-stalk-comparison",
+        "verdict": "verified",
+        "note": "Native second-variable Tor uses negative cochain degrees; the missing reindexing/flat-resolution adapters remain an explicit gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-balanced",
+        "verdict": "verified",
+        "note": "The symmetric derived tensor comparison balances the two native Tor conventions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-cone-comparison",
+        "verdict": "verified",
+        "note": "The actual signed tensor-cone chain comparison is the input for exactness, rather than an assumed property of arbitrary cones."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude",
+        "verdict": "verified",
+        "note": "All module stalks are quantified; three tests include nonflat torsion and an empty interval."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-flat-criterion",
+        "verdict": "verified",
+        "note": "Tor_1 against every module detects flatness; finite testing is not silently substituted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-bounded-flat",
+        "verdict": "verified",
+        "note": "The finite flat total complex is supported in exactly the prescribed interval."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-bottom-syzygy",
+        "verdict": "verified",
+        "note": "The coker of the differential into the bottom degree is the flat syzygy; native dimension shifting remains explicitly open."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-flat-representative",
+        "verdict": "corrected",
+        "note": "The source needs termwise-flat replacement and strict upper support; these strengthened supplier requirements are now stated."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-basechange",
+        "verdict": "corrected",
+        "note": "Added the zero-object case when a>b, before using the nonempty bounded flat representative argument."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-retract",
+        "verdict": "verified",
+        "note": "Functorial tensor sends a retract to a retract, so vanishing outside the interval passes to the summand."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-triangle-middle",
+        "verdict": "corrected",
+        "note": "Added native homology exactness; the middle term inherits the common outer amplitude interval."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-amplitude-triangle-cone",
+        "verdict": "verified",
+        "note": "The cone interval has lower bound min(a-1,c) and upper bound max(b-1,d), using the cochain shift convention."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-pseudo-finite-order",
+        "verdict": "verified",
+        "note": "Finite-order approximation uses isomorphisms above m and an epimorphism at m; tests distinguish the boundary degree."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-triangle-cone",
+        "verdict": "verified",
+        "note": "The shifted approximation/cone lifting is source-supported, with orthogonality and strict-lift adapters recorded as a gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-triangle-middle",
+        "verdict": "verified",
+        "note": "Triangle rotation and the finite-order cone rule give the middle-term estimate with the required one-degree adjustment."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-top-finite",
+        "verdict": "verified",
+        "note": "The top approximation supplies finite generators of H^m, with exact surjectivity at the boundary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-all-orders-model",
+        "verdict": "verified",
+        "note": "Compatible descending attachments give a single bounded-above finite free model; the stabilization adapters remain recorded."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-pseudo-triangle",
+        "verdict": "verified",
+        "note": "All finite-order conditions and their triangle estimates give pseudo-coherent triangle closure."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-retract",
+        "verdict": "corrected",
+        "note": "Added the finite-order shift prerequisite used by the retract argument."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-pseudo-retract",
+        "verdict": "verified",
+        "note": "Applying the finite-order retract result at every m establishes pseudo-coherent retract closure."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-projective-interval",
+        "verdict": "verified",
+        "note": "Finite free approximations plus a flat bottom syzygy and finite presentation give the exact finite projective interval."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-pseudo-finite-tor",
+        "verdict": "verified",
+        "note": "Both directions keep pseudo-coherence and finite Tor-amplitude, rather than replacing either by cohomological boundedness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-triangle",
+        "verdict": "verified",
+        "note": "Triangle rotation combines pseudo-coherence and finite Tor-amplitude to preserve perfectness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-retract",
+        "verdict": "verified",
+        "note": "Retracts preserve both defining conditions for perfectness, without an idempotent-completeness shortcut."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-minimal-support-amplitude",
+        "verdict": "verified",
+        "note": "The imported finite local minimal model has zero residue differential, so its term support equals the residue amplitude."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-one-ideal-sequence",
+        "verdict": "verified",
+        "note": "The ideal Tor exact sequence is the actual tensor triangle homology segment; its terminal Tor_0 term is ordinary tensor."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-hom",
+        "verdict": "corrected",
+        "note": "Corrected ownership to the upstream derived internal Hom module transport; added derived tensor as the adjunction input."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-hom-projective-comparison",
+        "verdict": "verified",
+        "note": "Native linear Hom and K-projective localization provide the route; the R-linear shifted Hom-homology equivalence remains a gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-dual",
+        "verdict": "verified",
+        "note": "The dual is RHom(X,R[0]); its API and tests preserve the native module and cochain signs."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-projective-support",
+        "verdict": "verified",
+        "note": "The reflected finite projective terms have strict support [-b,-a]."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-dual-perfect",
+        "verdict": "verified",
+        "note": "Finite projectivity of each dual term gives perfectness of the reflected bounded complex."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-chain-bidual-sign",
+        "verdict": "verified",
+        "note": "The degree-n evaluation factor (-1)^n is required by the native Hom differential."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-bidual",
+        "verdict": "verified",
+        "note": "Signed chain evaluation descends to the natural perfect bidual comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-chain-tensor-hom",
+        "verdict": "corrected",
+        "note": "Resolved the old sign gap: with E tensor Dual(P) ordering, evaluation f(x)e has no extra sign; the two differentials agree degreewise."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-tensor-hom",
+        "verdict": "verified",
+        "note": "The signed chain contraction gives the natural perfect tensor-Hom comparison for arbitrary E."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-amplitude",
+        "verdict": "verified",
+        "note": "A finite projective model in [a,b] gives dual amplitude [-b,-a]."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-basechange",
+        "verdict": "verified",
+        "note": "Finite projective termwise duals commute with arbitrary base change; flatness of the target algebra is not required."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-hom-basechange",
+        "verdict": "verified",
+        "note": "The perfect tensor-Hom formula supplies arbitrary base change in the first perfect argument."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-tensor-perfect",
+        "verdict": "verified",
+        "note": "Tensoring the two finite projective models yields another finite projective model with summed support."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-projective-countable-decomposition",
+        "verdict": "verified",
+        "note": "Kaplansky applies to arbitrary rank via countable support closure; the transfinite support adapter gap is retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-local-free-summand",
+        "verdict": "verified",
+        "note": "The finite free summand containing a chosen element uses the local support-minimization argument, recorded as an adapter gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-countable-local-projective-free",
+        "verdict": "verified",
+        "note": "A countable exhaustion by split finite free summands gives a free basis of the countably generated projective module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-local-projective-free",
+        "verdict": "verified",
+        "note": "Combine countable projective decomposition with the countable local result; no finite-generation assumption is added."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-nilpotent-residue-spanning",
+        "verdict": "verified",
+        "note": "Nilpotence replaces the finite Nakayama hypothesis for arbitrary-rank residue lifts."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-nilpotent-flat-free",
+        "verdict": "verified",
+        "note": "Flatness plus local residue independence upgrades the nilpotent spanning family to a basis."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-lifts-span-quotients",
+        "verdict": "corrected",
+        "note": "The DVR quotient spanning induction reduces the error by one power of the uniformizer, at arbitrary rank."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-lifts-independent-quotients",
+        "verdict": "corrected",
+        "note": "Torsion-freeness permits cancellation of a uniformizer in the independence induction."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-torsionfree-quotient-free",
+        "verdict": "corrected",
+        "note": "The lifted residue family is a basis modulo every positive uniformizer power, with no finite-rank hypothesis."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-algebra-residue-free",
+        "verdict": "corrected",
+        "note": "The finite free algebra residue argument lifts a module basis and uses its finite O-basis to test independence."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-group-coefficient-free",
+        "verdict": "corrected",
+        "note": "CG18 group-algebra freeness is the finite free algebra specialization; the group may be noncommutative."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-noetherian-finite-cohomology-pseudo",
+        "verdict": "verified",
+        "note": "Noetherian finite cohomology and upper boundedness give finite free descending attachments; the construction adapters remain explicit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-noetherian-perfect-criterion",
+        "verdict": "verified",
+        "note": "Both global finite-Tor and local bounded-residue criteria retain the Noetherian hypothesis; the missing local Lean statement was added."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-complex",
+        "verdict": "corrected",
+        "note": "Terms may have infinite rank, but the complex has finite strict support and every term is flat and adically complete."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-morphism-splitting",
+        "verdict": "corrected",
+        "note": "The matrix splitting needs completed free direct sums and column-null convergence, not the current DVR Banach theorem alone."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-disk-cancellation",
+        "verdict": "corrected",
+        "note": "An invertible differential block splits a native contractible disk while keeping the complementary complex complete flat."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-minimal-model",
+        "verdict": "corrected",
+        "note": "A chosen finite cancellation process gives a deformation retract; no functorial canonical choice is asserted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-residual-perfect",
+        "verdict": "corrected",
+        "note": "The minimal residue terms have finite rank, so completeness identifies them with finite free modules in the same interval."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-residual-acyclic",
+        "verdict": "corrected",
+        "note": "A zero residue minimal complex vanishes by the complete flat basis theorem and gives a contraction of the original."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-residual-quasiiso",
+        "verdict": "corrected",
+        "note": "Apply the residual-acyclic criterion to the complete flat mapping cone."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-transfer-composition",
+        "verdict": "corrected",
+        "note": "Insertion of the deformation-retract homotopy proves multiplicativity only in the homotopy/derived categories."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-degree-zero-cokernel",
+        "verdict": "corrected",
+        "note": "The degree-zero dual is a cokernel and ordinary tensor is right exact; no general cohomology/base-change theorem is used."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-degree-zero-field",
+        "verdict": "corrected",
+        "note": "Over a field, exact duality identifies the cokernel with the dual of the kernel, giving both BCGP residue/field cases."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-pontryagin-adjoint",
+        "verdict": "corrected",
+        "note": "Replaced the unjustified general-DVR Pontryagin input by exact algebraic E/O duality and finite free adjoints; the old id is retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dual-degree-zero-dvr",
+        "verdict": "corrected",
+        "note": "The DVR specialization uses discrete native Hom into E/O; topological character normalization is no longer assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-module-complete",
+        "verdict": "verified",
+        "note": "The native finite-Noetherian completion equivalence proves completeness of finite modules over a complete Noetherian ring."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-quotient-tower",
+        "verdict": "verified",
+        "note": "The coefficient tower is formed degreewise at finite quotients before taking any limits; three tests distinguish coefficient order and transitions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-tower-derived-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the comparison to use restriction to the common R-category, and added the actual map on 1 tensor x."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-tower-homotopy",
+        "verdict": "verified",
+        "note": "Compatible chain homotopies descend to quotient levels, including the degree-shift signs."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-complex-limit",
+        "verdict": "verified",
+        "note": "Finite complete terms give a chain isomorphism from the complex to its strict coefficient limit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-surjective-tower-derived-limit",
+        "verdict": "corrected",
+        "note": "Restricted derived limit to strict complex towers, with the product-cone model and strict-kernel comparison explicitly required."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-module-tower-milnor",
+        "verdict": "corrected",
+        "note": "Native R-linear Milnor sequence is a module realization of lower-tier R02.1, not an upward CC.2 dependency."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-length-cohomology-ml",
+        "verdict": "verified",
+        "note": "Finite length makes each descending chain of images stabilize and gives Mittag-Leffler, without surjectivity on cohomology."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-coefficient-cohomology-limit",
+        "verdict": "verified",
+        "note": "The finite-length ML proof kills lim-one; the omitted lim-one-zero Lean statement was added."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-derived-completion-comparison",
+        "verdict": "corrected",
+        "note": "Added finer DD completion dependencies and an explicit completion-unit isomorphism; comparison is on strict representatives."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-pseudo-derived-nakayama",
+        "verdict": "corrected",
+        "note": "Added finer DD completeness/constructor inputs, the localization-Hom criterion and morphism detection; ordinary completeness alone is not substituted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-strict-tower-action",
+        "verdict": "corrected",
+        "note": "The action uses actual unital chain-endomorphism ring maps and all transition squares; tests reject nonunital or noncommuting actions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-strict-action-limit-milnor",
+        "verdict": "corrected",
+        "note": "Strict chain actions induce limit actions and commute with every map of the R-linear Milnor sequence."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-homotopy-system-limit",
+        "verdict": "verified",
+        "note": "A compatible family of degreewise homotopies induces a strict-limit homotopy componentwise."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tensor-finite-diagonals",
+        "verdict": "verified",
+        "note": "For total degree n, n-b<=p<=0 and n<=q<=b give finite diagonals even for an unbounded-below C."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-sequence",
+        "verdict": "corrected",
+        "note": "Added pagewise additivity in both variables to the native filtered construction; resolution comparison/homotopy independence remains a gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-convergence",
+        "verdict": "verified",
+        "note": "The stated finite filtration bounds and stable-page bound follow from the diagonal estimate; stable-cycle comparison is recorded as a gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat",
+        "verdict": "verified",
+        "note": "Flat coefficient Tor vanishing concentrates the second page in one column and yields the actual edge isomorphism."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-actions",
+        "verdict": "corrected",
+        "note": "Added typed unital page-action ring maps, stable abutment filtration and graded equivariance; page additivity supplies distributivity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-tor-amplitude-shift",
+        "verdict": "verified",
+        "note": "The cochain convention H^i(X[n])=H^(i+n)(X) gives interval [a-n,b-n]."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-mpseudo-shift",
+        "verdict": "verified",
+        "note": "Shifting the finite free approximation gives (m-n)-pseudo-coherence, with the same boundary surjection convention."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-cone",
+        "verdict": "corrected",
+        "note": "Finite direct sums and shifts of complete flat terms prove cone closure."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-kflat",
+        "verdict": "corrected",
+        "note": "Finite strict support allows the bounded-above flat K-flat theorem to apply."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-complete-flat-minimal-residue",
+        "verdict": "corrected",
+        "note": "Zero minimal residue differential identifies each residue term with the original residue cohomology via the deformation retract."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-dual-model",
+        "verdict": "verified",
+        "note": "The reflected differential is (-1)^(n+1) times the adjoint of d^(-n-1), matching native linearHomComplex."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-E2",
+        "verdict": "verified",
+        "note": "The projective coefficient resolution gives Tor_(-p) on page two, with zero terms for p>0 and q>b."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-strict-action-limit",
+        "verdict": "corrected",
+        "note": "The strict limit universal property constructs the unique unital chain action; the source locator now includes PDF pages."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-projective-group-invariants-norm",
+        "verdict": "corrected",
+        "note": "The unnormalized subgroup norm spans invariants of a projective group module even in residue characteristic dividing its order."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-projective-group-coset-trace",
+        "verdict": "corrected",
+        "note": "Left-coset trace on H-invariants is representative-independent and surjects onto G-invariants for projective group modules."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-projective-group-invariants-basechange",
+        "verdict": "corrected",
+        "note": "The free regular-module computation passes to projective summands and gives arbitrary base-change compatibility."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coinvariant-dual-invariant",
+        "verdict": "corrected",
+        "note": "The universal property of coinvariants gives invariant duals with the native contragredient action for arbitrary modules."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-projective-dual-coinvariant",
+        "verdict": "verified",
+        "note": "The rendered source subscript is coinvariants of the dual; projectivity gives restriction to the dual of invariants without inverting |H|."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-injective",
+        "verdict": "added",
+        "note": "Added: every nonzero DVR ideal is principal, E/O is divisible, so the native Baer criterion gives injectivity in the fixed universe."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-dvr-quotient-endomorphism",
+        "verdict": "added",
+        "note": "Added: pi^n-torsion in E/O is O/pi^n, with compatible scalar endomorphisms; the inverse limit is O exactly under completeness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-quotient-dual",
+        "verdict": "added",
+        "note": "Added: native linear Yoneda realizes Hom_O(-,E/O), with precomposition, linearity, exactness and three tests including the scalar endomorphism computation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-finite-free-quotient-dual",
+        "verdict": "added",
+        "note": "Added: evaluate a finite basis against E/O and use its scalar endomorphism ring; this gives the natural adjoint comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-inverse-limit",
+        "verdict": "added",
+        "note": "Added: strict tower transformations induce functorial product/cone maps; native exact module products give quasi-isomorphism invariance, with three discriminating tower tests."
+      }
+    ]
+  }
 }
