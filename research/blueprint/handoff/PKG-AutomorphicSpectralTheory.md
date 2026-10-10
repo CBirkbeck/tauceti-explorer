@@ -1,51 +1,206 @@
 # PKG-AutomorphicSpectralTheory — blocked checkpoint
 
-Issue: #7893. Worker: Codex (GPT-6), session `codex-H2kYpP`, 10 October 2026.
-Branch: `codex-H2kYpP-automorphic-spectral-package`.
-Claim: [6093805437](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6093805437).
-Bot confirmation: [6093806570](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6093806570).
-This continues the merged checkpoints through #8223, including #8211's
-Hilbert-sum repair. Only the package README, Suggested file and this note change.
+Issue: #7893. Worker: Codex (GPT-6), session `codex-qnGs7I`, 10 October 2026.
+Branch: `codex-qnGs7I-automorphic-spectral-package`.
+Claim: [6094096625](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094096625).
+Bot confirmation: [6094097592](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094097592).
+This continues the merged checkpoints through #8238. Only the package README,
+Suggested file and this handoff change.
 
 ## Status and reason completion is blocked
 
-This is a checkpoint, not a completed package. The authoritative inputs are
-unchanged from #8223. Review `REV-AutomorphicSpectralTheory~2` accepts a
-**target-level inventory**: seven planned stages, zero closed stages, 190 nodes,
-223 API items and 219 tests, with 52 gaps and 22 supplier requests. Acceptance
-has not supplied the seven explicitly omitted target signatures or eight omitted
-API signatures listed below.
+This is a checkpoint. The authoritative packet, reader and original suggested
+input remain unchanged. Review `REV-AutomorphicSpectralTheory~2` accepted the
+**target inventory**, with 190 targets, 223 API items, 219 tests, 52 gaps and
+22 supplier requests. All seven stages are planned; none is closed. That verdict
+does not validate an unrestricted Lean prototype or supply its omitted carriers.
 
-PROTOCOL §§13 and 20 require the package's theorem signatures, APIs and tests.
-The issue explicitly says: “Change no packet; if the plan has a mistake,
-describe it in the handoff note.” Completing the genuine source-qualified
-interfaces and resolving their ownership requires edits outside this issue's
-allowed deliverables. Reintroducing assertions about arbitrary operators,
-transforms or kernels would reinstate the false prototypes removed by the
-accepted review. A zero local intertwiner cannot satisfy normalized unitary
-inversion; a generic transform need not have the Paley–Wiener image; a generic
-kernel need not have the spatial parameter-conjugation symmetry.
+[PROTOCOL §§13 and 20](../PROTOCOL.md) require genuine theorem signatures,
+APIs and tests for the package. The issue says: “Change no packet; if the plan
+has a mistake, describe it in the handoff note.” Several required interfaces
+need specification and ownership changes outside the allowed deliverables:
 
-The AS-to-ET prerequisite conflict also persists: AS is tier 13, ET tier 14.
-The ordinary orbital-integral/pseudo-coefficient inputs must acquire a lower-tier
-owner; stabilization stays with ET. Calling the absent higher-tier result an
-input contract does not resolve the dependency. The exact general-Levi local
-induction requested from AF is also absent: minimal-parabolic induction of a
-finite-dimensional W and an SF category do not construct that family.
+- AS is tier 13; ET is tier 14. Ordinary orbital-integral and pseudo-coefficient
+  inputs used in AS.6 must have a lower-tier owner. Stabilization stays in ET.
+  Treating the higher-tier result as an input does not repair this dependency.
+- AF's actual reviewed principal-series supplier is minimal-parabolic with
+  finite-dimensional inducing W. Its generic SF category does not construct the
+  requested general-Levi compact-picture induced family, including K∩M
+  covariance, half-modulus, finite K-types, holomorphy and induction in stages.
+- The full rational-coset, local-normalization, real Paley–Wiener and modular
+  spatial-kernel interfaces listed below still lack the source-qualified
+  supplier contracts needed by the package.
 
-The historical B1–B4 continuation/Fourier blockers were resolved in the earlier
-revision; do not reopen them. The blockers here are the recorded full-carrier,
-source and ownership obligations. Metadata remains absent; add
-`topic = "math.NT"` only when the complete package checklist holds.
+This pass additionally found ten AS.6 prototypes whose comments mentioned
+necessary source hypotheses but whose signatures did not encode them. Some
+specializations asserted 1=0. They are removed, with explicit omission comments,
+instead of being passed to implementation as universal theorems. There are now
+**13 omitted target signatures and 12 omitted API signatures**; the full
+mathematical targets remain in the README. Further inherited universal
+prototypes are identified below and still require correction.
 
-## New repair: truthful Eisenstein sum APIs
+Metadata remains absent intentionally. `issues.py:deliverables_complete` regards
+a package as complete once all output paths exist; adding `metadata.toml` here
+would incorrectly send this incomplete package to review. Add
+`topic = "math.NT"` only after the full checklist holds. The historical B1–B4
+continuation/Fourier blockers were resolved earlier; do not reopen them.
+
+## New repair: AS.6 source hypotheses cannot live only in comments
+
+All names below are relative to `TauCeti.AutomorphicSpectral`. Each former
+signature is replaced by a comment naming the actual missing mathematical
+objects. The README keeps the full source theorem, rather than weakening its
+mathematics to the numerical compatibility model.
+
+| Removed signature | Why its former universal statement fails; required interface |
+| --- | --- |
+| `automorphic_kernel.operator` | An identity map cannot be represented by an independently chosen zero kernel. Supply the actual arithmetic quotient, measures, right convolution and smooth test domain. |
+| `coarse_truncated_kernel.decomposition` | Zero class summands cannot have an independent total 1. Construct both class kernels from the same test and supply absolute integrated convergence. |
+| `coarse_truncated_kernel.levi_translation` | An arbitrary constant J=1, with zero shifted/cone functions, contradicts the identity. Supply rational Levi constant terms and Γ′ cone integrals. |
+| `coarse_trace_identity` | Independent singleton geometric/spectral totals 0 and 1 differ. Use one test, coherent class-integral families and sufficiently regular truncation. |
+| `gm_family.regularized_sum` | A one-member constant family with arbitrary denominator θ(z)=z has a pole at 0. Supply actual relative coroots, covolumes, parabolic adjacency and θ coherence. |
+| `gm_splitting` | Independent productValue=1 and zero partial functions give 1=0. Supply partial families, prime transforms, Levi restrictions and determinant coefficients. |
+| `fine_geometric_expansion` | Independent total=1 and zero coefficients/integrals contradict the formula. Supply arithmetic coefficients, (M,S)-classes, weighted distributions and the common test. |
+| `fine_spectral_expansion` | Zero integrands cannot sum to an independent total 1; arbitrary integrands need not be integrable. Supply the discrete inducing spectrum, normalized weighted characters and the common Hecke test. |
+| `invariant_trace_formula` | A zero geometric sequence cannot stabilize at an independent I=1. Supply invariantized distributions, common test/coefficient data and the spectral tail estimates. |
+| `compact_trace_specialization` | On a scalar Hilbert space, a zero operator and a unit diagonal kernel have different traces; an infinite-dimensional identity is not trace class. Supply the actual compact quotient and convolution kernel/operator pair. |
+
+Five new Lean counterexamples prove the identity/zero-kernel mismatch, the
+zero-sum/nonzero-total mismatch, unequal singleton trace totals, false independent
+splitting and false stabilization. They contain no admissions. They reject the
+former signatures, not the arithmetic source theorems.
+
+## New compatible two-chamber product calculation
+
+`gm_family.product` now proves both fields: native `AnalyticOnNhd.mul` proves
+analyticity, and the two wall equalities prove wall compatibility. Its former
+construction used admissions for those fields.
+
+`gm_family.rank_one_product` proves, for two analytic chambers with θ±(z)=±z,
+common wall values c₀,d₀ and the existing regularized zero values,
+
+```text
+(cd)_M = c_M d₀ + c₀ d_M.
+```
+
+The proof applies the inherited `rank_one` zero-value theorem, the native
+derivative product rule and the two wall equalities. It does not assert the full
+Levi splitting formula or introduce partial-family/determinant carriers.
+
+The new `affineFamily b a₊ a₋` has members b+a±z and wall value b; its analytic
+and wall fields are proved. `affineFamily_zeroValue` derives a₊−a₋. Five proved
+positive examples check the general coefficient, equal-slope zero, coefficient
+2 from slopes 3,1, normalized product addition, and an unnormalized product:
+wall values 2,5 and slopes (3,1),(7,4) give 2·5+2·3=16. In particular, multiplying
+regularized values alone would give 6 and is not the product rule.
+
+The isolated `#print axioms` check reports only `propext`, `Classical.choice`
+and `Quot.sound` for `product` and `affineFamily`. The product-value theorem
+**does depend on `sorryAx`**, through the inherited admitted rank-one theorem
+and zero-value carrier. Its new proof body has no admission; this does not prove
+the inherited principal-value construction or the full Arthur theorem.
+
+README AS.6.7 retains the coroot/covolume denominator and full smooth real
+parameter-space statement. AS.6.8 adds the compatible two-chamber calculation
+and checks, with printed page numbers. Introductory prose was shortened to
+stay under 200,000 bytes without removing targets, API names or test names.
+
+## Fresh validation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  exit 0, zero errors/warnings; 190 targets (36 definitions, 37 constructions,
+  117 theorems), 223 API items, 219 tests, 38 planets, 32 baseline declarations,
+  52 gaps, 22 requests, seven planned stages and zero closed stages.
+- `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
+  **exit 0; 790 warnings, all `declaration uses sorry`; zero errors and zero
+  other warnings.** The inherited #8238 receipt was 801 such warnings. Removing
+  ten declarations and proving the product fields accounts for the decrease;
+  elaborating remaining admitted assertions does not establish their validity.
+  The only subsequent Lean-file edit was to its introductory comment.
+- The standalone adapter/counterexample check passed with eight inherited
+  `sorry` warnings and no errors or other warnings. The joined check started
+  after it finished. Available memory was 97 GB before the joined check. Both
+  used the shared wrapper at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
+  and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; no language server,
+  build/update/cache operation or compilation in the read-only upstream ran.
+- A namespace-aware inventory stripping nested Lean comments finds
+  **177/190 active target names**, **211/223 active API names**, all **219
+  specification-test markers** in their inherited order and **245 active
+  examples** (235 inherited, ten added). Ten named declarations were removed
+  and three were added, exactly those described above. Presence alone does
+  not certify the remaining restricted sketches.
+- README: **190 target blocks, 199,976 UTF-8 bytes**. Every input target,
+  API name and test name remains in its own target block.
+- Intake `check-files`: three changed deliverables, zero problems.
+  `git diff --check` is clean. No files outside the issue deliverables change.
+- The packet, reader and original suggested input retain the hashes at the
+  end of this note. Supplier contracts and read-only checkouts are unchanged.
+
+## Exact active-signature omissions
+
+Names are relative to `TauCeti.AutomorphicSpectral`.
+
+| Target signatures | Required supplied interface |
+| --- | --- |
+| `eisenstein_convergence`, `cuspidal_constant_term` | Rational parabolic cosets, normalized adelic induction, coherent Haar/quotient measures, finite smooth vectors, positive chamber, rational Bruhat indexing and Weyl transport. |
+| `pseudo_eisenstein_l2`, `pseudo_eisenstein_inner_product` | Genuine cuspidal summation and intertwiners, contour/Fourier measures, finite-dimensional Paley–Wiener sections and separate fixed-centre versus full-height quotient conventions. Retain −overline(wλ). |
+| `local_normalization` | Genuine local induced spaces and meromorphic intertwiners, rank-one factors and Weyl/induction compatibility; keep unitary, tempered and hyperspecial clauses separate. |
+| `real_invariant_paley_wiener`, `real_operator_paley_wiener` | General-Levi real induction, actual Hecke/Paley–Wiener topological carriers, all four Clozel–Delorme image conditions and Arthur's differentiated coefficient relations. |
+| `coarse_trace_identity`, `gm_splitting`, `fine_geometric_expansion`, `fine_spectral_expansion`, `invariant_trace_formula`, `compact_trace_specialization` | The AS.6 source-qualified carriers and coherence listed in the new-repair table. |
+
+The twelve omitted API signatures are:
+
+```text
+convergent_intertwiner.intertwines
+convergent_intertwiner.identity
+convergent_intertwiner.holomorphic_chamber
+local_intertwiner.meromorphic_coefficients
+arthur_truncation.local_finite
+spectral_multiplier.support
+automorphic_kernel.operator
+coarse_truncated_kernel.decomposition
+coarse_truncated_kernel.levi_translation
+gm_family.regularized_sum
+weighted_orbital_integral.splitting
+dit_91.kernelSymmetry
+```
+
+`identity_quotient` remains only the point-quotient model. Other omissions require
+an actual local integral, locally finite truncation, finite-radius inverse
+transform, two-place quotient/Levi and spatial modular-kernel interfaces. Keep
+omission comments until genuine carriers are supplied; do not hide the missing
+mathematics in opaque `Prop` fields or assume the desired conclusion.
+
+## Remaining inherited signatures require correction
+
+This pass did not validate every inherited assertion. In particular, the following
+still quantify over unrelated inputs while essential source conditions occur only
+in comments; do not treat their current types as faithful implementation targets:
+
+- AS.5: `franke_graded_isomorphism`, `weighted_finite_character_acyclic`,
+  `constant_term_resolution`, `franke_comparison`, `gl_sl_cuspidal_diagram` and
+  `franke_schwermer_support`. Arbitrary modules need not be isomorphic, arbitrary
+  complexes need not be acyclic, and arbitrary dimensions need not satisfy the
+  parity formula. Genuine AF/ALS source carriers and comparison maps are needed.
+- Function-field AS.6: `yu_025`, `yu_038.continueInT`, `yu_050`, `yu_051`,
+  `yu_052`, `yu_054` and `yu_055`. The last four still contain independent
+  numerical values, and `yu_050` treats an arbitrary function as having a
+  removable singularity. The complex-torus, root-family, kernel and degree
+  carriers must be integrated and all hypotheses encoded in the signatures.
+
+These are unfinished packaging obligations, not newly accepted theorems or a
+claim that all other inherited types are sound. The existing five numerical
+counterexamples also explain why analogous unrestricted total-value templates
+cannot be retained in the function-field suffix.
+
+## Preserve the Eisenstein adapters from #8238
 
 The inherited `eisenstein_series` is a numerical weighted `tsum` over any
 `r : J → G` and `InductionData`. Its three API signatures previously asserted
 linearity, automorphy and right equivariance without the necessary hypotheses.
 A comment about the intended chamber did not restrict those signatures.
 
-The package now proves three conditional numerical adapters:
+The preceding checkpoint proved three conditional numerical adapters:
 
 - `eisenstein_series.linear` requires summability of the two vector summands.
   It uses native `Summable.mul_left`, `Summable.tsum_add` and `tsum_mul_left`.
@@ -61,7 +216,7 @@ The package now proves three conditional numerical adapters:
 
 No opaque proposition or new generic owner is introduced. The standalone
 `#print axioms` checks for `linear` and `automorphic` list only `propext`,
-`Classical.choice` and `Quot.sound`, with no `sorryAx`. All three new adapter
+`Classical.choice` and `Quot.sound`, with no `sorryAx`. All three adapter
 proof bodies and all three added examples contain no admissions; this does not
 certify the admitted induction construction or the full automorphic theorem.
 
@@ -77,7 +232,7 @@ The proved examples distinguish the complete-coset use from an arbitrary list:
 3. The same full two-element orbit satisfies the new automorphy API using the
    swap equivalence, with both covariance hypotheses proved.
 
-README AS.1.2 preserves the full source theorem and the original three named
+README AS.1.2 retains the full source theorem and the original three named
 specification tests, explains the adapter hypotheses and adds the three checks.
 Its locator now identifies Arthur §7 equation (7.1), printed p.33, and
 Lemma 7.1, printed p.34. Introductory prose was shortened to stay within the
@@ -86,67 +241,6 @@ Lemma 7.1, printed p.34. Introductory prose was shortened to stay within the
 **Still needed:** the actual rational coset carrier, representative covariance,
 normalized inducing action and chamber theorem supplying these hypotheses.
 The numerical adapters do not construct those suppliers.
-
-## Fresh validation
-
-- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
-  exit 0, zero errors/warnings; 190 nodes (36 definitions, 37 constructions,
-  117 theorems), 223 API items, 219 tests, 38 planets, 32 baseline declarations,
-  52 gaps, 22 requests, seven planned stages and zero closed stages.
-- Final `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
-  **exit 0; 801 warnings, all `declaration uses sorry`; zero errors and zero
-  other warnings.** The inherited file compiled with 804 such warnings before
-  this repair. Elaborating admitted roadmap assertions is not proving them.
-- The standalone repair also elaborated with zero errors or other warnings;
-  its one `sorry` warning belonged to its isolated provisional induction
-  construction. The joined check ran only after that check finished.
-- Available memory was 107 GB before the final joined check. All checks used
-  the shared wrapper sequentially at Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`. No language server, Lake
-  build/update/cache operation or build in the read-only upstream was started.
-- A namespace-aware active inventory, removing nested Lean comments, finds
-  **183/190 target names**, **215/223 API names**, all **219 specification-test
-  markers**, and **235 active examples** (232 inherited, three added).
-  All 798 inherited named declarations and all ordered inherited markers remain.
-  The missing names are exactly the lists below. Name presence alone does not
-  establish the source fidelity of a restricted compatibility sketch.
-- The README has **190 target blocks** and **199,993 UTF-8 bytes**. Every input
-  target, API name and test name occurs in its corresponding target block.
-  Further additions require shortening prose, not dropping targets.
-- Intake `check-files` passes on the three changed deliverables;
-  `git diff --check` is clean. The packet, reader, original suggested input,
-  supplier contracts and read-only checkouts are unchanged.
-
-## Exact active-signature omissions
-
-Names are relative to `TauCeti.AutomorphicSpectral`.
-
-| Target signatures | Required supplied interface |
-| --- | --- |
-| `eisenstein_convergence`, `cuspidal_constant_term` | Rational parabolic cosets, normalized adelic induction, coherent Haar/quotient measures, finite smooth vectors, positive chamber, rational Bruhat indexing and Weyl transport. |
-| `pseudo_eisenstein_l2`, `pseudo_eisenstein_inner_product` | Genuine cuspidal summation and intertwiners, contour/Fourier measures, finite-dimensional Paley–Wiener sections and separate fixed-centre versus full-height quotient conventions. Retain −overline(wλ). |
-| `local_normalization` | Genuine local induced spaces and meromorphic intertwiners, rank-one factors and Weyl/induction compatibility; keep unitary, tempered and hyperspecial clauses separate. |
-| `real_invariant_paley_wiener`, `real_operator_paley_wiener` | General-Levi real induction, actual Hecke/Paley–Wiener topological carriers, all four Clozel–Delorme image conditions and Arthur's differentiated coefficient relations. |
-
-The eight missing API signatures are:
-
-```text
-convergent_intertwiner.intertwines
-convergent_intertwiner.identity
-convergent_intertwiner.holomorphic_chamber
-local_intertwiner.meromorphic_coefficients
-arthur_truncation.local_finite
-spectral_multiplier.support
-weighted_orbital_integral.splitting
-dit_91.kernelSymmetry
-```
-
-`identity_quotient` remains only the point-quotient model. Other omissions require
-an actual local integral, locally finite truncation, finite-radius inverse
-transform, two-place quotient/Levi and spatial modular-kernel interfaces. Keep
-these omission comments until genuine carriers are supplied; do not conceal
-missing data in opaque `Prop` fields.
 
 ## Ownership and supplier worklist retained from preceding checkpoints
 
@@ -229,43 +323,54 @@ supplier contracts before rescheduling completion of this package.
 
 ## Sources, upstream and pinned-library checks
 
-Freshly read Arthur, *An Introduction to the Trace Formula*, §7 equation (7.1),
-printed p.33, and Lemma 7.1, printed p.34, in the
-[Clay PDF](https://www.claymath.org/library/cw/arthur/pdf/62.pdf).
-The source uses the full rational parabolic coset space, finite discrete inducing
-vectors and the positive chamber; the generic numerical sum alone has none of
-those restrictions. Repository prose is authored; no source passage or
-section-by-section source summary was copied.
+Fresh source checks used Arthur, *An Introduction to the Trace Formula*, in the
+[Clay PDF](https://www.claymath.org/library/cw/arthur/pdf/62.pdf):
+§17 definition and Lemma 17.1, pp.93–94; Lemmas 17.4–17.6 and equations
+(17.8), (17.12)–(17.14), pp.97–101; §14 Theorem 14.1, pp.74–77; §16
+(16.1), pp.88–89; §19 Corollary 19.3 and (19.10), p.115; §21 Theorem 21.6
+and Corollary 21.7, pp.137–138, including Remarks 3–4; §23 Theorem 23.4
+and (23.11)–(23.13), pp.151–153; §1 (1.2), p.8, and §16 (16.1)″, p.90.
+The downloaded public PDF's SHA-256 was
+`2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510`.
+The fine spectral omission preserves the a_M^L determinant correction recorded
+in the authoritative packet's sourceIssues; it does not add a new source-errata
+job or assume joint absolute convergence in all spectral variables.
 
-Read current upstream **OperatorTheory** and **RepresentationTheory/CompactGroups**
-READMEs in full; inspected the relevant SelfAdjointSpectralTheory and
-OperatorIdeals owner declarations. Read the AS reviewed library audit, the AF
-principal-series and SF-category statements, the AS general-Levi request and the
-tier ordering. Current upstream receipt:
+Read the native pinned statements `AnalyticOnNhd.mul` in
+`Mathlib.Analysis.Analytic.Constructions` and `deriv_fun_mul`/`deriv_mul` in
+`Mathlib.Analysis.Calculus.Deriv.Mul`. The proof uses the lambda-form rule
+`deriv_fun_mul` and supplies differentiability from analyticity for each member.
+
+Read the current upstream CompactGroups and OperatorIdeals READMEs in full,
+the OperatorTheory overview and relevant operator-ideal signatures. Read the
+AS library audit, AF principal-series/SF-category suppliers, AS general-Levi
+request and tier ordering. Current upstream receipt:
 `8c72a04753b11cab07fa593cc38ceaa7c0515380`; current Tau Ceti:
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Both checkouts were read only.
-Current Tau Ceti's continuous intertwiner and holomorphic weighted Eisenstein
-interfaces were inspected; they do not supply general adelic induction families.
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The read-only library's
+continuous intertwiners and classical holomorphic Eisenstein construction do
+not supply the requested general adelic family.
 
-The native sum declarations used in this repair were read at the pinned source
-in `Mathlib.Topology.Algebra.InfiniteSum.Basic` and
-`Mathlib.Topology.Algebra.InfiniteSum.Ring`: `Equiv.tsum_eq`,
-`Summable.tsum_add`, `Summable.mul_left`, and `tsum_mul_left`.
-The preceding checkpoints read native Hilbert-sum/resolvent/adjoint declarations
-and Arthur §12 Lemma 12.4/equation (12.4), pp.64–66, and DIT §8 equations
-(8.2)–(8.4), pp.973–974. Those are preserved provenance, not fresh source readings
-of this pass. No fresh reading of Fay or Hejhal is claimed. No restricted book,
-source passage or private path was copied into the repository.
+The preceding checkpoints' source provenance remains: Arthur §7 (7.1), p.33,
+Lemma 7.1, p.34; §12 Lemma 12.4/(12.4), pp.64–66; DIT §8 (8.2)–(8.4),
+pp.973–974, and Appendix A (A.2), p.977. Their native Hilbert-sum, sum-reindexing,
+resolvent, adjoint and Nevanlinna repairs are retained above. Those are inherited
+source readings, not fresh readings of this pass. No fresh reading of Franke,
+Yu, Fay or Hejhal is claimed. The maintainer's library index was read; no
+restricted book was needed. Repository mathematics is in our own words; no
+source passage, section-by-section source summary, restricted file or private
+path was copied into it.
 
 ## Resume
 
-First integrate source-qualified plan/supplier revisions for the exact omissions,
-the ownership moves, the AS.1.10 associate-class interface and `dit_113`
-continuation mismatch. Then wire their genuine carriers into the joined file,
-check remaining restricted compatibility sketches, finish page locators that
-still only name sections/equations and add metadata when the whole checklist
-holds. Keep the proved native adapters and all counterexample tests. This pass
-has not independently reviewed every inherited assertion for source fidelity.
+First authorize and integrate source-qualified plan/supplier revisions for the
+ownership moves, the omitted interfaces, AS.1.10's associate-class carrier and
+`dit_113`'s continuation mismatch. A further package-only job cannot change
+those authoritative contracts. Then encode all genuine hypotheses, including
+the AS.5 and function-field signatures flagged above, before claiming a complete
+package. Keep the proved native adapters and counterexamples. Finish remaining
+page locators, rerun the joined Lean check, and add metadata only after every
+package requirement holds. The numerical rank-one adapter is useful validation,
+not a substitute for general-Levi family regularization/descent.
 
 Immutable authoritative-input SHA-256 receipts, verified unchanged this pass:
 
