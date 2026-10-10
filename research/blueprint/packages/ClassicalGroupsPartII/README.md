@@ -340,6 +340,9 @@ elements fixed by every permutation and every pair flip.
 - `flipWeight`: The additive lattice involution (m,u)↦(m+u_i,u[i:=−u_i]).
 - `permLaurent`: The induced Z-algebra automorphism permuting z_i and fixing t.
 - `flipLaurent`: The induced Z-algebra automorphism exchanging z_i and t/z_i and fixing t.
+- `permLaurent_monomial`, `flipLaurent_monomial`: On every monomial, the algebra automorphism is induced by the corresponding explicit lattice automorphism, including negative exponents.
+- `flipLaurent_involutive`, `flipLaurent_commute`, `permLaurent_flip`: Pair flips square to the identity, commute with one another, and are relabelled by conjugation with a permutation.
+- `centralDegree_weyl`: Every permutation and pair flip preserves the scalar degree 2m+Σu_i.
 - `invariantSubring`: The Subring of L_g whose elements are fixed by every permLaurent σ and flipLaurent i.
 - `mem_invariantSubring`: Membership is precisely fixedness under these two families of generators.
 
@@ -632,6 +635,13 @@ These comparisons are established before highest-weight classification.
 1. Polynomial quotient and determinant localization commute with scalar extension, giving the specified Hopf algebra comparison for K/F. Use the actual Comodule.baseChange with both coefficient and module base-changed.
 2. Choose bases of the finite-dimensional modules. Equivariance of a linear map is a finite system of linear equations: matrix coaction coefficients span a finite-dimensional subspace of O_g(F). Flat scalar extension commutes with this kernel.
 3. Apply the same kernel argument to each weight equation. Faithful field extension detects zero and exactness; an invertible equivariant map after extension forces an equivariant isomorphism over F: use the nonempty invertible locus in the finite-dimensional Hom space over the infinite field F. This argument does not depend on the classification.
+
+**API.**
+
+- `coordinateBaseChange`, `scalarExtendCoordinates`: Identify the extended coordinate Hopf algebra and underlying module with K⊗_F O_g(F) and K⊗_F M respectively.
+- `scalarExtend_coaction`, `scalarExtend_map`: Under those identifications the coaction is the native Comodule.baseChangeCoact, and a morphism sends a⊗m to a⊗f(m).
+- `homBaseChange_tmul`: The canonical Hom comparison sends a⊗f to a times the scalar-extended morphism f.
+- `scalarExtend_reflectsIso`, `homAndWeightBaseChange`: Reflect invertibility and object isomorphisms, detect zero maps, and give the Hom and weight-space comparisons for every characteristic-zero K/F.
 
 **Consequences to check.** This is not fullness of the scalar-extension functor: Hom(1,1)=Q maps into C, not onto C. The standard and multiplier character polynomials retain their integer coefficients after extension.
 
