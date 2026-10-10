@@ -1,131 +1,117 @@
-# Geometric Satake package checkpoint
+# Geometric Satake roadmap package
 
-Codex, session `codex-9gdOOK`, 9 October 2026. Refs #7473.
-The bot confirmed the claim in [its reply](https://github.com/CBirkbeck/tauceti-explorer/issues/7473#issuecomment-6073686881).
+Codex, session `codex-rrQYJE`, 10 October 2026. Refs #7473.
+The bot confirmed the claim in [its reply](https://github.com/CBirkbeck/tauceti-explorer/issues/7473#issuecomment-6091487980).
 
 ## Submission state
 
-This is a checkpoint, not a completed package. The full `Suggested.lean`
-cannot be elaborated because the existing build at the pinned Mathlib revision
-lacks the required compiled Tau Ceti imports. `WORKERS.md` forbids building
-Mathlib or Tau Ceti, and no existing build with those imports and the correct
-Mathlib pin was found. The mathematical reader and joined suggested file are
-saved for continuation.
+The package of the accepted target-level plan is complete and ready for its
+independent package review. The previous checkpoint's missing compiled Tau Ceti
+imports are now available in the shared build. The full `Suggested.lean`
+elaborates at both required pins. `metadata.toml` contains `topic = "math.NT"`.
 
-`metadata.toml` is deliberately absent. The package branch of
-`deliverables_complete` in `research/blueprint/issues.py` treats the existence
-of every output as completion; it does not inspect a package's Lean result or
-this note. Creating metadata now would send an unvalidated package to review as
-complete. When the full file passes, create the one-line file
-`topic = "math.NT"` and replace this checkpoint state with the successful check.
+This is a roadmap specification with admitted prototypes, not a formalisation
+or a claim that the accepted plan's supplier gaps are closed. The accepted GS0
+and GS3 packets plan every layer and record the geometric supplier obligations;
+those obligations remain explicit in the reader and omission comments, as
+PROTOCOL.md sections 0, 13 and 20 require. No packet or supplier roadmap changed.
 
-## Saved work
+## Changes in this continuation
 
-- `research/blueprint/packages/GeometricSatakeAndFusion/README.md` is the
-  thematic reader: introduction, dependency boundaries, conventions, all five
-  layers, existing library vocabulary, and a bibliography distinguishing the
-  source editions. It contains all 94 accepted target statements and their
-  hypotheses, all 120 API entries, all target source locators, and every target
-  prerequisite. Shared GS3–GS4 hypotheses are stated once at the start of GS3.
-  Internal prerequisites link to results; a prefix table expands external
-  prerequisites to exact roadmap IDs. It is 197,312 UTF-8 bytes, below 200 KB.
-- `research/blueprint/packages/GeometricSatakeAndFusion/Suggested.lean` retains
-  the entire accepted assembly from its first import onward, byte for byte
-  apart from surrounding whitespace. The single introductory note now makes
-  the mathematical reader authoritative and states the supplier/omission
-  boundaries. All 99 named test contracts remain, including the accepted
-  explicit omissions where geometric hypotheses cannot yet be typed. This
-  count is of contracts, not a claim that every contract is an executable
-  example or that a `sorry` example proves its assertion.
-- No accepted packet, assembly reader, source issue, supplier roadmap or atlas
-  file was changed. There is no mathematical change to the accepted plan.
+- Retained the thematic reader with all 94 target statements, hypotheses,
+  sources and prerequisites, and all 120 API entries. Its introduction,
+  conventions, five layers, dependency boundaries and source editions remain.
+- Cited current upstream `AlgebraicVectorBundles`, L0A–L0C, for ordinary module
+  sheaf tensor/pullback, finite locally free sheaves, rank-one identification
+  with `InvertibleSheaf`, and exterior-power determinants. Its actual README
+  and suggested signatures provide these operations. The Witt-resolution
+  descent and positivity applications remain here; they do not re-plan the
+  general operations.
+- Made `satakeFibre`'s object and morphism assignments the actual module direct
+  sum and `DirectSum.lmap`. Its functor laws remain admitted.
+- Added a finite set of degrees, zero modules outside it, and degreewise
+  `Module.Finite`/`Module.Projective` hypotheses to
+  `satakeFibre_finite_projective` and the `fibre_existing_module` example.
+  Without these inputs the arbitrary-functor signature conflicts with the
+  existing unbounded-cohomology non-example. Added joint faithfulness of the
+  family of degreewise functors to `satakeFibre_faithful`.
+- Explained the algebraic interface in the README. The geometric target still
+  **proves** the finite-support, projectivity and faithfulness inputs using the
+  Satake constant-term filtration, split-kernel lifting and conservativity.
+  Neither the added inputs nor the direct-sum construction substitutes for
+  that geometric proof or for local constancy on the leg base.
+- Made the omitted geometric hypotheses adjacent to both split-kernel and
+  split-cokernel signatures explicit. Their lifting assertions concern the
+  flat-perverse ULA Satake category, not arbitrary additive categories.
+- Retained all 99 named test contracts, including precise omissions where the
+  geometric carriers cannot yet be typed. A contract count does not assert
+  that every contract has a complete geometric Lean statement or a proved test.
 
-The reader preserves the important qualifications: Cartier completion and
-ordinary length at coincident legs; independent Witt projectivity and the
-representable lower boundary; the canonical-model determinant comparison;
-the corrected rank-two right factor and its nonuniqueness; one-leg ULA
-comparison and disjoint-leg cell calculus; integral flat exact Satake;
-early convolution before fusion; parity-corrected symmetry; MC.6 as the sole
-abstract reconstruction owner; the additional characteristic-two modular
-Hom/top-cycle and tilting inputs; the Prasad–Yu exception and adjoint reduction;
-the half-Tate/Drinfeld orientation obligation; all-prime perfect-complex
-extension with containment rather than full faithfulness; and the extra
-nonsplit Frobenius/relative-weight comparison. These mathematical obligations
-remain explicit rather than being silently assumed.
+The package's direct-sum corrections should also be carried to the assembly
+suggested file when its owner next edits it. This job cannot change that path.
+The new `AlgebraicVectorBundles` citation identifies the current upstream owner
+for the ordinary operations; general supplier plans should import it as well.
 
 ## Validation
 
 Pinned revisions: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
 Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Read `WORKERS.md`, both protocols, `UPSTREAM_GUIDE.md`, the issue, the reviewed
-library audit, the accepted GS0 and GS3 packets and their assembly, and the
-upstream ReductiveGroups and SemisimpleAlgebras roadmaps in full. Read the
-actual pinned statements of all 47 distinct baseline declarations. Inspected
-the primary FS, Zhu and Prasad–Yu sources for the rank-one, finite-model and
-integral-recovery qualifications. No source passage or private library file
-was copied into the deliverables.
+The shared build's 5,477 Tau Ceti Lean source files were compared byte for byte
+with that commit: zero mismatches. All 33 distinct Mathlib modules named in the
+accepted baseline records likewise match their pinned commit. The four native
+Tau Ceti imports were retained and loaded; no imports, pins or geometric blocks
+were removed to obtain elaboration.
 
-Both accepted inputs passed their checkers with zero errors and warnings:
+Read the worker instructions, both protocols, upstream guide, issue, accepted
+inputs and their assembly, and the reviewed library audit. Read upstream
+`ReductiveGroups` and `RepresentationTheory/SemisimpleAlgebras` in full. Checked
+the nine newer upstream roadmap areas' suggested files for overlapping targets,
+and read the relevant `AlgebraicVectorBundles` signatures. Current upstream
+roadmaps were checked at `cb8dda51b498dc00183d100031b631dfb58ea5e1`; the current
+Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The current library includes initial Fargues–Fontaine orbit-space topology;
+GS0 imports the relative-curve supplier rather than constructing that topology.
+
+Read FS VI.7.10–VI.7.11, pp. 222–223, for the fibre-functor conditions, and
+VI.11.1–VI.11.3, pp. 235–237, for the integral rank-one qualification. The reader
+retains the accepted characteristic-two replacement and its strengthened
+modular Hom/top-cycle and tilting supplier requirements. Its other source and
+supplier qualifications remain those of the accepted plan. No source passage,
+private library file or machine-local path is part of the deliverables.
+
+Both commands passed with zero errors and zero warnings:
 
 ```text
 python3 scripts/check_blueprint.py research/blueprint/packets/GeometricSatakeAndFusion--GS0.json
 python3 scripts/check_blueprint.py research/blueprint/packets/GeometricSatakeAndFusion--GS3.json
 ```
 
-A scratch correspondence check passed for every statement, every hypothesis
-(including the shared hypotheses), every API, all 99 test names in the Lean
-file, source locators, and prerequisites. It also checked all 106 unique
-result/source anchors and their internal links, the reader's byte limit and
-absence of programme-process vocabulary, unchanged accepted Lean contents,
-unique imports in one import block, and the acyclic internal prerequisite
-graph. The whole reader was read for mathematical scope and flow.
-The submission `intake.py check-files` check also passed for all three saved
-deliverables, with no prohibited paths.
+Correspondence checks found all 94 target anchors, all 120 API names in both
+reader and suggested file, and all 99 test names in the suggested file. Every
+definition/construction retains at least three test contracts. All 106 reader
+anchors are unique and internal links resolve. The reader is 198,074 UTF-8
+bytes and contains no programme-process vocabulary. All 40 imports are unique.
+The four target paragraphs differing from their packet statements replace
+process terms with timeless mathematical wording without changing scope.
 
-The required final command was run with more than 20 GB of available memory:
+With 103 GB available, the required full command passed:
 
 ```text
 lean-check research/blueprint/packages/GeometricSatakeAndFusion/Suggested.lean
 ```
 
-**Result: exit 1, before declaration elaboration.** The error is that the object
-file for `TauCeti.AlgebraicGeometry.LineBundle.Basic` does not exist. All four
-Tau Ceti imports lack built objects in that pinned build:
+**Result: exit 0, zero errors, 280 warnings, all `declaration uses sorry`.**
+This validates elaboration of the entire package file, including its native
+Tau Ceti blocks, at the required pins. It does not validate admitted proofs.
 
-```text
-TauCeti.AlgebraicGeometry.LineBundle.Basic
-TauCeti.Algebra.AlgebraicGroup.Representation.Tannaka.GroupFunctor
-TauCeti.AlgebraicGeometry.AffineGroupScheme.Basic
-TauCeti.AlgebraicGeometry.AffineGroupScheme.Reductive
-```
+`intake.py check-files` and `git diff --check` passed for the four allowed
+deliverables. No build, library update or language server was started. No
+running Lean process or scratch artifact is needed for the independent review.
 
-An auxiliary scratch projection passed `lean-check` with **exit 0, 263 warnings,
-all `declaration uses sorry`, and no errors**. It removed those four imports,
-the `geometric-determinant-line` block, the `h-descent-and-fibral-criterion`
-block, and the entire `section GroupComparison` through its matching end.
-Each removed result block ended at the next result header. All other code was
-unchanged. This checks only the Mathlib portions; it does **not** validate the
-full file, the removed Tau-dependent statements or their tests. The projection
-and logs were scratch files and are not part of the submission.
+## Next step
 
-## Resume
-
-1. Obtain an already compiled shared build at both pinned revisions with all
-   four imports available. Do not build either library, change pins, weaken
-   imports or replace imported geometry to evade the check. Existing builds
-   found with the required objects used other Mathlib revisions and are not
-   valid substitutes.
-2. Run the full required `lean-check` command. Fix any declaration errors
-   exposed after import loading, retaining the accepted mathematical
-   specification and documenting unexpressible hypotheses honestly. Record
-   exit zero and only `sorry` warnings before treating the package as done.
-3. Recheck target/API/test correspondence and reader size if any declaration
-   or statement is changed. Add `metadata.toml` with `topic = "math.NT"`.
-4. Update this handoff, submit the completed package on the continuation
-   worker's own claimed branch, and leave intake and independent review to
-   the swarm automation.
-
-No running Lean process or language server is left by this worker. Nothing in
-the scratch directory is needed to resume; the accepted inputs and these
-deliverables contain the necessary specification and continuation instructions.
+Independent package review should run the same full Lean command and assess the
+package against the accepted mathematical plan and upstream guidance. No
+package continuation is needed. The maintainer and the supplier owners retain
+the accepted plan's explicitly named geometric refinements and source repairs.

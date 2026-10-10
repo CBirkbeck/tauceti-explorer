@@ -35,6 +35,7 @@ below; merely having its abstract carrier is insufficient.
 | `RelativeFarguesFontaine:RF4:G-torsors`, `RF4:vector-bundles` | Effective completed-system descent and Beauville–Laszlo gluing; uniform-rank algebraization of compatible finite projectives; punctured A_inf torsor extension; the uniform Banach finite-projectivity and bounded-lattice fibre-detection criteria. Finite-thickening descent alone does not algebraize the completed system. |
 | `ReductiveGroupsPartII:RG2.0`, `RG2.0a`, `RG2.1`, `RG2.3`, `RG2.4`, `RG2.5` | Integral-point topology and lattice preservation over the completed maximal unramified coefficient DVR; Weil restriction; relative Lie weights; integral and parahoric models, Greenberg jets and smooth lifting; affine Weyl, Cartan, Iwasawa and rank-one convolution data; pinned integral dual groups, central maps and finite pinned Weil action. The closed-immersion theorem of Prasad–Yu belongs to RG2.3 with its exact characteristic-two exception. |
 | Tau Ceti `ReductiveGroups`, layers 3, 6, 7 and 9 | Components and sufficiently high Frobenius images; finite-type characteristic-zero reductivity; subgroups and normalizers of SL₂; integral pinned Chevalley–Demazure groups and classification by based root datum. Import the existing absolute theory before its relative extensions. |
+| Tau Ceti `AlgebraicVectorBundles`, L0A–L0C | Tensor and pullback for module sheaves, finite locally free sheaves and their rank-one identification with `InvertibleSheaf`, and exterior-power determinants. Import these operations; the Witt-resolution descent and positivity arguments are the applications constructed here. |
 | `SchemeAndStackFoundations:SF.0`–`SF.5` | Pfp perfect schemes and algebraic spaces, finite models and Greenberg realization; effective smooth quotients and finite boundary pushouts; finite-model trace comparison; proper connected-fibre bundle descent; Witt descent, local models and bounded fibre products; positivity, Keel's criterion, Stein contraction and Frobenius-power sections. General line-bundle positivity is constructed there. |
 | `VStackSheavesAndLisseCategories:VS0`, `VS1`, `VS3`; `DiamondSixOperations:S2`–`S6` | Enhanced Artin quotient descent and bounded proper correspondences; ULA and hyperbolic localization with monodromicity and coefficient hypotheses; complete congruence filtrations and ordinary-cohomology continuity; perfect locally constant Drinfeld realization with its Tate character; relative duality and enhanced coefficient comparison. Representable diamond operations alone do not cover quotient-stack maps. |
 | `EnhancedDerivedSheaves:E3`, `E5:presentability` | Coherent composition of pull–push kernels and filtered support extension; the generated Ind t-structure with accessibility and small generators. Pairwise associators in a homotopy category do not give this coherence. |
@@ -564,7 +565,7 @@ Checks: For λ=(1,0,…), the line is O(1) on the projective Grassmannian; λ=0 
 
 **References:** [BS](#source-bs), 6.11 and 8.8, pp. 25, 33–34.
 
-**Prerequisites:** [Descent on Witt resolution fibres](#h-descent-and-fibral-criterion); [Witt Demazure filtration space](#witt-demazure-resolution); `SF:SF.3`; `K:Z.3`.
+**Prerequisites:** [Descent on Witt resolution fibres](#h-descent-and-fibral-criterion); [Witt Demazure filtration space](#witt-demazure-resolution); Tau Ceti `AlgebraicVectorBundles`, L0A–L0C; `SF:SF.3`; `K:Z.3`.
 
 ### Positivity, projectivity and integral families
 
@@ -1069,6 +1070,8 @@ Checks: A ULA object in the wrong perverse degree is excluded; Λ/ℓ over Λ=Z/
 Hypotheses: Bounded support; A Satake; locally constant finite projectivity is part of the result.
 
 Construction and proof: Use proper support, CT filtration and flat-perverse recognition. On each connected component of Gr_G, the shifted constant-term graded pieces of a Satake object are concentrated in degrees of the same parity. Hence the finite filtration spectral sequence degenerates. The graded cohomology modules are finite projective, so successive module extensions split locally and give finite-projective cohomology and exactness; this argument does not claim a canonical splitting. For a morphism with a split total-cohomology kernel, the constant-term filtration identifies its perverse kernel as ULA and flat; apply the split-kernel clause of VI.7.10, and its analogous split-cokernel clause. For F(f)=0 the kernel is all F(A), hence split: conservation makes the kernel map an isomorphism, proving f=0 and faithfulness. Keep the filtration until GS3 tensor comparison.
+
+For the algebraic direct-sum interface, specify a finite set of cohomological degrees, zero modules outside it, and finite projectivity in each degree. Specify joint faithfulness of the degreewise functors to deduce faithfulness of their sum. The geometric argument above proves these inputs for Satake objects; neither conclusion holds for an arbitrary family of module-valued functors.
 
 The interface must include:
 

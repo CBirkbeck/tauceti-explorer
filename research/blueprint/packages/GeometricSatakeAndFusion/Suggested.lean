@@ -647,18 +647,33 @@ example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] 
 
 /-! GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor
 F^I(A)=⊕_i H^iRπ_*(A|Gr^I_G) is a locally constant sheaf of finite projective Λ-modules on the leg base. It is exact, faithful and conservative on Satake objects. It has the semi-infinite filtration whose graded pieces are shifted constant terms; over a general base this does not yet give a canonical splitting or a switch-invariant tensor identification. If ker F(f)→F(A) is split, f:A→B has a kernel in Satake and F preserves it; if F(B)→coker F(f) is split, the analogous cokernel exists and is preserved. These split conditions are essential over integral coefficients and do not make Satake abelian.
-Prototype boundary: S must be the actual Satake category and H the geometric cohomology functors. Finite support in degree and the CT filtration hypotheses are omitted from the finite-projectivity/faithfulness signatures. No canonical splitting or tensor identification is stated. -/
+Prototype boundary: The direct-sum core below applies to a family H of module-valued functors. Its finite-projectivity lemma has explicit finite-support and degreewise finite-projectivity inputs; its faithfulness lemma requires joint faithfulness of H. In the geometric target S is the actual Satake category: the CT filtration and split-kernel lifting prove these inputs, rather than assume them. That geometric deduction, local constancy on the leg base, and exactness require the supplier carriers and are omitted. No canonical splitting or tensor identification is stated. -/
 def satakeFibre (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) : S ⥤ ModuleCat.{u} R :=
-  by sorry
+  { obj := fun A => ModuleCat.of R (⨁ i : ℤ, (H i).obj A)
+    map := fun f => ModuleCat.ofHom (DirectSum.lmap (fun i => ((H i).map f).hom))
+    map_id := by sorry
+    map_comp := by sorry }
 
 /-- API: The fibre at A is the direct sum of all integer-degree cohomology modules; bounded support makes only finitely many degrees nonzero. -/
 theorem satakeFibre_cohomology (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) : Nonempty ((satakeFibre R S H).obj A ≅ ModuleCat.of R (⨁ i : ℤ, (H i).obj A)) := by sorry
 
-/-- API: The total cohomology module is finite and projective over the coefficient ring. -/
-theorem satakeFibre_finite_projective (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) : Module.Finite R ((satakeFibre R S H).obj A) ∧ Module.Projective R ((satakeFibre R S H).obj A) := by sorry
+/-- API core: A finitely supported family of finite projective cohomology modules
+has finite projective total cohomology. The Satake filtration must supply the inputs. -/
+theorem satakeFibre_finite_projective (R : Type u) [CommRing R] (S : Type u)
+    [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) (degrees : Finset ℤ)
+    (hzero : ∀ i, i ∉ degrees → Subsingleton ((H i).obj A))
+    (hfinite : ∀ i ∈ degrees, Module.Finite R ((H i).obj A))
+    (hprojective : ∀ i ∈ degrees, Module.Projective R ((H i).obj A)) :
+    Module.Finite R ((satakeFibre R S H).obj A) ∧
+      Module.Projective R ((satakeFibre R S H).obj A) := by sorry
 
-/-- API: Conservative exact constant terms imply that total cohomology is a faithful functor on Satake. -/
-theorem satakeFibre_faithful (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) : (satakeFibre R S H).Faithful := by sorry
+/-- API core: Joint faithfulness of the degreewise functors gives faithfulness
+of their direct sum. In Satake this input uses split-kernel lifting and conservativity. -/
+theorem satakeFibre_faithful (R : Type u) [CommRing R] (S : Type u)
+    [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R)
+    (hjoint : ∀ {A B : S} (f g : A ⟶ B),
+      (∀ i, (H i).map f = (H i).map g) → f = g) :
+    (satakeFibre R S H).Faithful := by sorry
 
 /-- Unit test `fibre_torus_rank_one` (computation): A torus skyscraper with one rank-one cohomology module has total cohomology R. -/
 example (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) (j : ℤ) (hj : (H j).obj A ≅ ModuleCat.of R R) (hz : ∀ i, i ≠ j → (H i).obj A ≅ ModuleCat.of R PUnit) : Nonempty ((satakeFibre R S H).obj A ≅ ModuleCat.of R R) := by sorry
@@ -666,8 +681,14 @@ example (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S �
 /-- Unit test `fibre_zero` (degenerate): If all cohomology modules vanish, total cohomology is the zero module. -/
 example (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) (hz : ∀ i, (H i).obj A ≅ ModuleCat.of R PUnit) : Nonempty ((satakeFibre R S H).obj A ≅ ModuleCat.of R PUnit) := by sorry
 
-/-- Unit test `fibre_existing_module` (compatibility): The fibre functor targets existing ModuleCat, and projectivity is the existing Module.Projective predicate. -/
-example (R : Type u) [CommRing R] (S : Type u) [Category.{v} S] (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) : Module.Projective R ((satakeFibre R S H).obj A) := by sorry
+/-- Unit test `fibre_existing_module` (compatibility): For finitely supported
+finite projective cohomology, projectivity uses the existing Module.Projective predicate. -/
+example (R : Type u) [CommRing R] (S : Type u) [Category.{v} S]
+    (H : ℤ → S ⥤ ModuleCat.{u} R) (A : S) (degrees : Finset ℤ)
+    (hzero : ∀ i, i ∉ degrees → Subsingleton ((H i).obj A))
+    (hfinite : ∀ i ∈ degrees, Module.Finite R ((H i).obj A))
+    (hprojective : ∀ i ∈ degrees, Module.Projective R ((H i).obj A)) :
+    Module.Projective R ((satakeFibre R S H).obj A) := by sorry
 
 /-! GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram
 The two-step Hecke stack has maps a:Hck×^{L⁺G}Hck→Hck×Hck (an L⁺G-torsor) and b to Hck (composition of modifications). On bounded support b is ind-proper with proper finite bounds. Define A⋆B=Rb_*a*(A⊠B), equivalently Rb_! for those bounds. Composition in the enhanced correspondence 2-category and Ind-extension give a coherent ambient monoidal structure with the unit supported on the trivial modification.
@@ -696,14 +717,18 @@ example (lam μ : ℤ) : torusConvolutionLabels {lam} {μ} = {lam+μ} := by sorr
 /-- Unit test `convolution_twisted_diagram` (compatibility): The typed object formula keeps both a-star descent and b-star pushforward; substituting the external product alone does not satisfy it. -/
 example (D DP DC : Type u) [Category.{v} D] [Category.{v} DP] [Category.{v} DC] (box : D ⥤ D ⥤ DP) (astar : DP ⥤ DC) (bstar : DC ⥤ D) (A B : D) : ((heckeConvolution D DP DC box astar bstar).obj A).obj B = bstar.obj (astar.obj ((box.obj A).obj B)) := by sorry
 
-/-- API: Split kernel lifting in FS VI.7.10, including preservation of its universal cone. -/
+/-- API: Split kernel lifting in FS VI.7.10, including preservation of its universal cone.
+Omitted geometric condition: S is the flat-perverse ULA Satake category, and H
+is its geometric cohomology. An arbitrary additive category need not have this kernel. -/
 theorem satakeFibre_kernel (R : Type u) [CommRing R] (S : Type u)
     [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
     [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
     [IsSplitMono (kernel.ι ((satakeFibre R S H).map f))] :
     HasKernel f ∧ PreservesLimit (parallelPair f 0) (satakeFibre R S H) := by sorry
 
-/-- API: Split cokernel lifting in FS VI.7.10, including preservation of its universal cocone. -/
+/-- API: Split cokernel lifting in FS VI.7.10, including preservation of its universal cocone.
+Omitted geometric condition: S is the flat-perverse ULA Satake category, and H
+is its geometric cohomology. An arbitrary additive category need not have this cokernel. -/
 theorem satakeFibre_cokernel (R : Type u) [CommRing R] (S : Type u)
     [Category.{v} S] [Preadditive S] (H : ℤ → S ⥤ ModuleCat.{u} R)
     [∀ i : ℤ, (H i).Additive] (A B : S) (f : A ⟶ B)
