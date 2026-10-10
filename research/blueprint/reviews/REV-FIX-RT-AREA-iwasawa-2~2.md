@@ -1,178 +1,262 @@
-# Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
+# Independent correction review — REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex, session `codex-VFmAUK`, 10 October 2026. Refs #6219.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6101616259).
-I did none of fixer `claude-6ZAIEy`'s work. This continues the completed
-bounded six-finding review by `codex-2zOJTT`. The input report and its
-attributed earlier checks remain available at
-[the input commit](https://github.com/CBirkbeck/tauceti-explorer/blob/331ab9424e8e40925f5053a1bb7ee53f8930d99c/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
-The complete earlier packet audits retain their original reviewers and checked
-arrays. The fresh checks below concern the correction contracts and their
-supplier boundaries.
+Codex, session `codex-Kjdk5C`, 10 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6101824276).
+I did none of the fixes by `claude-6ZAIEy` and took no other job.
+This review checks the six finding contracts against the sources, corrections,
+selected interfaces and present library ownership. It follows `codex-VFmAUK` and `codex-2zOJTT`;
+its report remains at the
+[input commit](https://github.com/CBirkbeck/tauceti-explorer/blob/70b3060ef/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+The earlier exhaustive packet audits remain attributed to their reviewers.
+I am not claiming a second exhaustive audit of these four large packets.
 
-## Verdicts
-
-| Finding | Verdict | Boundary retained |
+| Finding | Decision | Qualification |
 | --- | --- | --- |
-| /1 Morita Gamma and Gross–Koblitz | L3 accepted for the bounded corrections | Dwork coefficients and trace comparison remain exact RD.6 requests; whole L3 elaboration has the dependency failure below. |
-| /2 Ferrero–Greenberg | L3-2 accepted receipt prepared | Differentiation and arithmetic nonvanishing retain separate suppliers; installation is pending scope authorization. |
-| /3 Fontaine–Messing–Kato comparison | D.1 accepted receipt prepared | CS.0–CS.3 remain proposed external producers; installation is pending scope authorization. |
-| /4 Character orders and presentation algebra | PMIA needs_changes | Five generic L6 nodes require current native Fitting/stable-transpose reuse. |
-| /5 Finite slope for complexes | Existing LAD routing retained | Compact finite-window contracts preserve the solid-localization and Stein comparison gaps. |
-| /6 Alleged duplicate main-conjecture route | Verifier's rejection retained | Accepted RS-16 explicitly preserves the two independent proof methods. |
+| /1 Morita Gamma and Gross–Koblitz | Accept the L3 correction contract | RD.6 coefficient/splitting inputs remain requests; the shared build cannot resolve L3's sibling imports. |
+| /2 Ferrero–Greenberg | Accept; receipt prepared for L3-2 | Differentiation and arithmetic nonvanishing remain separate inputs. Scope approval is needed to install this receipt. |
+| /3 Classical syntomic comparison | Accept; receipt prepared for D.1 | Integral/open producer closure is not supplied by the proper rational comparison. Scope approval is needed to install this receipt. |
+| /4 Character orders and transpose | PMIA needs_changes | Source repairs are supported, but five generic nodes duplicate present Tau Ceti results. |
+| /5 Finite slope for complexes | Retain the LAD supplier boundary | Bounded Banach representatives do not supply full solid analytic localization. |
+| /6 Main-conjecture proof routes | Retain the verifier's rejection | The historical Hecke/congruence proofs and cyclotomic Euler-system proof remain independent. |
 
-The authorized changes replace only `review` and append each complete former
-review to `reviewHistory` in L3 and PMIA. All mathematics, source records, APIs,
-tests, coverage, gaps, requests, Lean files and older history remain unchanged.
-The two other receipts are prepared for the queue's additional packet outputs.
-Their complete 79- and 72-entry prior audits will be archived whole on
-installation. No link map or restructuring proposal is under review.
+## Source and interface findings
 
-## /1: Gamma and the chosen Gauss normalization
+### /1 — Morita Gamma and Gross–Koblitz
 
-Freshly read Morita §1, Lemma 1/Theorem 1, printed pp.255–256, and
-Gross–Koblitz §1, (1.2), (1.5), (1.6), Theorem 1.7, pp.570–571.
-Both scanned formula pages were inspected as images. The selected packet
-contracts use the signed natural product, with Gamma_p(0)=1 and Gamma_p(1)=-1,
-and its continuous unit-valued extension. Translation multiplies by -x at
-units and by -1 at nonunits. The finite congruence retains the dyadic
-exponent-two exception and the construction's stronger precision buffer.
+Read Morita §1, Lemma 1 and Theorem 1, printed pp.255–256;
+Gross–Koblitz §1, equations (1.2), (1.5), (1.6) and Theorem 1.7,
+pp.570–571; Robert's estimates and Theorem 4, pp.167–168.
+The scanned Morita and Gross–Koblitz pages and Robert's displayed formula
+were inspected as images as well as the available text layers.
 
-The Gauss sum keeps the source's minus sign. The chosen root satisfies
-pi^(p-1)=-p and the second-order congruence in the integer ring. A principal
-ideal in the fraction field would lose that constraint. Gross–Koblitz's
-original theorem has odd-prime and nonzero-character scope. Its root and
-negative-sum contracts are correctly distinguished from the separately
-sourced Robert formulation and its exponent-zero case. The older attributed
-Robert analysis remains in the input report. The packet retains the exact
-Dwork coefficient and splitting/trace inputs instead of deriving them from
-the formula's name. Acceptance concerns finding /1's correction contract.
+The signed natural product omits multiples of p and gives values 1 at zero
+and −1 at one. Its continuous extension takes values in the native unit group.
+Translation has multiplier −x on units and −1 on nonunits. The packet's
+buffered congruence is sufficient for all primes: the unbuffered dyadic
+period-four claim fails between arguments 1 and 5 modulo four.
+The selected natural-product, buffered-congruence, continuous-extension and
+recurrence contracts keep the signs and the two branches. Their tests reject
+the unsigned product and the unit-only recurrence.
 
-## /2: Ferrero–Greenberg
+The chosen Gross–Koblitz root must satisfy the squared-root-ideal congruence
+inside the integral ring. Divisibility in the fraction field would impose no
+normalization. The source uses the negative Gauss sum; its original theorem
+has odd-prime and nonzero-exponent restrictions. Robert's theorem allows all
+primes and exponent zero, whose negative Gauss value is one. The L3 root and
+Robert comparison contracts distinguish these statements. The coefficient
+bound, actual splitting identity and chosen-root/trace compatibility remain
+RD.6 supplier requirements; a named Gamma formula does not prove them.
 
-Freshly read Zhao §1.2, p.461, Theorem 4.1 and (4.1)–(4.6), pp.471–473,
-and Appendices A–B, pp.473–474. The selected L3-2 nodes use primitive odd chi,
-conductor N>1 prime to p, compatible embeddings, log_p(p)=0, and the even
-chi*omega branch; the dyadic omega has conductor four. The derivative has
-direct chi weights and the correction
-(1-chi(p))*B_(1,chi)*log_p(N). The simplified exceptional formula requires
-chi(p)=1. Exact order one requires the independently recorded nonvanishing
-input.
+### /2 — Ferrero–Greenberg
 
-The permutation uses positive representatives a in {1,...,N} and
-m=a+hN, with iota(m)=h+1+(N-a)(B-1)/N. Its congruence and filtration
-identities agree with Appendix A. The strict Gamma/count endpoint agrees
-with the corrected B.2 contract recorded as E37. Differentiation still
-requires uniform bounds and coefficient limits. The five gaps, eight
-requests and planned L3 coverage are preserved. These checks support the
-prepared accepted fix receipt and follow the archived full 79-node audit.
+Read Zhao §1.2, printed p.461; Theorem 4.1 and equations (4.1)–(4.6),
+pp.471–473; Appendices A–B, pp.473–474. The general convention includes
+p=2, with omega_2 of conductor four. The character is primitive and odd,
+with conductor N>1 prime to p; the coefficient embeddings and logarithm
+normalization must be compatible.
 
-## /3: Classical syntomic comparison
+The chi*omega branch derivative is the directly chi-weighted log-Gamma sum
+plus `(1-chi(p))*B_(1,chi)*log_p(N)`. Removing the second term requires
+chi(p)=1. The packet separates that exceptional case from the general
+identity, and neither identity by itself proves nonvanishing or order one.
+Its differentiation contract still requires uniform bounds and coefficient
+limits, rather than differentiating an unqualified pointwise limit.
 
-Freshly read Ertl–Niziol v2 §§2.1–2.2, pp.4–8, especially Theorem 2.2,
-p.7; Colmez–Niziol v4 Corollary 3.16, p.37; and Nekovar–Niziol v5
-Remark 2.14, p.14, and Proposition 4.13, pp.53–54.
-The selected D.1 contracts distinguish the undivided p^r-phi fibre U
-from the divided 1-phi_r fibre D. Omega:U→D has legs (p^r,id), and
-tau:D→U has legs (id,p^r); their composites are p^r. Omega preserves
-products. The modified twist includes the specified factorial factor.
+The strict count at a positive integer x is `x-1-V_p(x-1)`; its zero value
+is separately fixed. For B=p^(fn)>1 congruent to one modulo N, write
+m=a+hN with 1≤a≤N. The FG permutation is
+`h+1+(N-a)*(B-1)/N`. Multiplication by N identifies its residue with m
+modulo B, preserving the p-power divisibility filtration. The strict Gamma
+endpoint avoids Appendix B.2's inclusive-endpoint discrepancy, retained as
+E37. These corrections are supported. All five gaps and eight requests stay
+open; the full earlier 79-entry audit is preserved with its original author.
 
-The exact integral divided comparison uses 0≤i≤r≤p-2. The undivided
-comparison retains bounded p-power error and its source-dependent bounds.
-The rational exponential is an isomorphism through i≤r-1 and injective
-at i=r. Its boundary transport uses omega's rational inverse, the p^-r
-quotient-coordinate scaling and the Bloch–Kato coboundary sign. The integral
-contracts assert no inverse. Nine gaps, twenty requests, seventeen source
-issues and all eight planned stages remain. CS.0–CS.3 are external proposed
-producers; the proper rational CP.4 anchor does not supply the full integral
-open theory. These checks support the prepared accepted fix receipt and
-follow the archived full 72-node audit.
+### /3 — Divided and undivided syntomic comparison
 
-## /4: Character orders, minors and transpose
+Read Ertl–Niziol v2 §§2.1–2.2, pp.4–8, particularly Theorem 2.2, p.7;
+Colmez–Niziol v4 Corollary 3.16, p.37, and Theorem 5.4, p.54;
+Nekovar–Niziol v5 Remark 2.14, p.14, and Proposition 4.13, pp.53–54.
 
-Freshly read Dasgupta–Kakde v3 §§2.2–2.3, pp.15–18, the proof of
-Lemma 3.9, pp.25–26, §6.1/Lemma 6.1, p.40, and Appendix B.2,
-Lemma B.4/(171), p.93. R_Psi is the character-evaluation image. Sharp
-lands in the inverse-character ring. Cardinality statements retain regular
-determinants and finite-index/finite-quotient hypotheses. E17's repaired
-image proof uses the right higher adjugate identity and the embedded
-preimage. Transpose retains presentation dependence, projective correction
-factors and coefficient transport. The source identities support those
-repairs.
+The divided fibre D uses `1-phi_r`; the undivided fibre U uses `p^r-phi`.
+Omega goes U→D with legs (p^r,id), and tau goes D→U with legs (id,p^r).
+Both composites multiply by p^r. Multiplicativity is supplied for omega,
+not asserted indiscriminately for tau. The modified twist has the factor
+`(p^a*a!)^-1`, where r=(p−1)a+b and 0≤b<p−1.
 
-Current Tau Ceti supplies generic mathematics still planned by five L6 nodes:
+Exact divided comparison has range 0≤i≤r≤p−2. The undivided comparison
+retains bounded p-power error and the different constants and base-field
+hypotheses of its sources. The rational exponential is an isomorphism for
+i≤r−1 and injective for i=r, not generally surjective there. Rational
+boundary transport uses omega's inverse, the p^-r coordinate scaling and
+the Nekovar–Niziol coboundary sign. These distinctions survive in the D.1
+contracts; no integral inverse is inferred.
 
-- `higher-fitting-ideal` and `higher-fitting-independence`: import
-  `TauCeti.fittingIdeal` and `fittingIdeal_eq_minorsIdeal_ker`.
-- `relation-minors-add-generator`: reconcile with the native kernel/minors
-  API, retaining any required adapter for an arbitrary family. The native
-  kernel formula requires an actual finite-free surjection onto the module.
-- `higher-fitting-base-change`: import `fittingIdeal_baseChange`, whose
-  commutative-algebra statement requires no flatness assumption.
-- `transpose-stable-equivalence`: import
-  `AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`, preserving its
-  opposite scalar structure and ordered dual correction factors.
+The CS.0–CS.3 producer contracts are still external proposals. CP.4 is the
+proper rational anchor, not a substitute for integral/open construction.
+Nine gaps, twenty requests, seventeen source issues and eight planned stages
+remain. The earlier complete 72-entry audit is preserved and attributed.
 
-A coherent revision must reconcile consumers, L4, both StableReduction
-requests, the reader and suggested interfaces together. Preserve the
-non-generating-family, deficient-relation and nonflat controls, arithmetic
-order/index results, and contragredient conventions. The reader lies outside
-this review's file scope. The existing needs_changes verdict identifies that
-coordinated revision and completes this review portion.
+### /4 — Character orders, relation minors and transpose
 
-## /5 and /6: Established supplier boundaries
+Read Dasgupta–Kakde v3 §§2.2–2.3, pp.15–18; Lemma 3.9,
+pp.25–26; §6.1/Lemma 6.1, p.40; Appendix B.2/Lemmas B.4–B.6,
+pp.93–94. The relevant arithmetic hypotheses include odd p, finite abelian
+G and a finite-extension valuation ring containing the character values.
 
-Freshly read BCGP21 v3 §6.1.1, p.139, and Lemma 6.3.14/Theorem 6.3.16,
-p.152; BCGP25 v1 Definition 2.2.17, p.21, and §4.6.46/Remark 4.6.47,
-p.94. Compactness is through a bounded projective Banach representative.
-The product of degreewise Fredholm series belongs to that representative;
-cohomology determines invariant spectral support. BCGP25 uses analytic-ring
-coefficients, a Stein exhaustion and derived f_*f^* localization with inverse
-limits. Its construction is stronger than monoid inversion. LAD's accepted
-plan records the Stein/inner-restriction and full solid-localization inputs
-as gaps. That routing is retained, with LAD unchanged and its complete audit
-attributed to its reviewer.
+The character order is the image of joint evaluation, rather than the whole
+product of coefficient rings or an automatically Gorenstein order.
+Sharp transports it to the inverse-character order; only an inverse-stable
+character set gives an endomorphism. The cube-root counterexample in the
+packet tests this distinction. Square-presentation size, regular determinant
+and finite quotient/index assumptions are retained in the cardinality claims.
 
-For /6, reread accepted `RS-16.result.json` at `IntegralIwasawaTheory:I.5`.
-It explicitly keeps independent Mazur–Wiles and odd-prime totally-real
-Wiles Hecke/congruence proofs, including their lattice and divisibility
-inputs. The cyclotomic Euler-system proof is another method. The verifier's
-rejected finding and the absence of a replacement supplier edge remain right.
+The Lemma 3.9 repair supplies an actual image preimage: apply the right
+higher-adjugate identity to the selected square submatrix, then embed its
+columns into the full matrix. The paper's left-multiplication display alone
+does not prove preservation of the image. E17 remains recorded. The excess-
+generator identity is equation (171) in this version, not (175).
+Transpose remains attached to a presentation; opposite/contragredient actions
+and the ordered projective-dual factors must accompany stable equivalence.
 
-## Libraries and upstream boundaries
+These source repairs hold, but the current library supplies mathematics that
+five generic L6 nodes still plan. A coordinated revision must:
 
-Read the reviewed AUDIT-24/AUDIT-26 coverage for the relevant L3, L6 and D.2
-layers. At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, freshly read
+- Replace `higher-fitting-ideal` and `higher-fitting-independence` with
+  `TauCeti.fittingIdeal` and `fittingIdeal_eq_minorsIdeal_ker`, and adapt the
+  finite-presentation matrix interface as needed.
+- Reconcile `relation-minors-add-generator` with the native kernel-minors
+  interface. Preserve any adapter for a family that does not generate M;
+  the native formula requires an actual surjection onto its module.
+- Use `TauCeti.fittingIdeal_baseChange` for `higher-fitting-base-change`.
+  Its commutative-algebra statement requires no flatness.
+- Use `AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` for
+  `transpose-stable-equivalence`, transporting the opposite action and
+  ordered dual correction factors to the arithmetic coefficient order.
+
+Update L4, the consumers, both StableReduction requests, the reader and the
+suggested interfaces together. Keep deficient relations, redundant generators,
+nonflat base change, arithmetic index computations and contragredient tests.
+The reader is outside this review's permitted files, so this migration cannot
+be completed coherently here. PMIA therefore receives needs_changes, which
+is a completed negative review result, independent of the dispatch blocker.
+All eighteen gaps and three requests remain recorded.
+
+### /5 and /6 — Supplier and proof-route boundaries
+
+Read BCGP21 v3 §6.1.1, p.139, Lemma 6.3.14 and Theorem 6.3.16,
+pp.152–153; BCGP25 v1 Definition 2.2.17, p.21, and §4.6.46 /
+Remarks 4.6.47–4.6.49, pp.93–95. LAD's current contracts distinguish a
+bounded projective Banach representative with degreewise compact operators
+from invariant cohomological spectral support. The nonalternating Fredholm
+product depends on the chosen representative; contractible summands can
+change that product without supplying spectral support. A finite perfect
+window's derived scalar comparison does not yield unrestricted underived
+cohomology base change.
+
+Full solid finite slope uses the analytic localization f_*f^*, analytic-ring
+coefficients and the affinoid inverse-limit construction. Monoid inversion
+alone is weaker. LAD explicitly retains the missing solid/topological and
+Stein/inner-restriction comparisons as gaps and imports the generic Stein
+owner. This bounded review retains that routing and leaves LAD unchanged.
+
+Read the accepted `RS-16.result.json` decision for `IntegralIwasawaTheory:I.5`.
+It keeps both Mazur–Wiles and odd-prime totally-real Wiles Hecke/congruence
+proofs, including their lattices and divisibility inputs, independently of
+the cyclotomic Euler-system method. The verifier's rejection of finding /6
+is consistent with that decision; no replacement supplier edge is warranted.
+
+Conflict resolution incorporated the latest preceding checkpoint, which was
+absent from the initial clone. Its review metadata was archived intact;
+parsed comparison confirmed no mathematical changes to either packet.
+
+## Libraries and ownership
+
+Read the reviewed AUDIT-24/AUDIT-26 coverage before checking current ownership.
+At pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, inspected
 `PadicInt.isUnit_iff`, `not_isUnit_iff`, `norm_natCast_eq_one_iff`,
 `norm_lt_one_iff_dvd`, `denseRange_natCast`,
-`ContinuousMap.unitsOfForallIsUnit` and `DenseRange.equalizer`, including
-ambient assumptions. The continuous unit lift uses a complete normed ring;
-the dense equalizer uses a Hausdorff codomain.
-At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, read the native
-transpose quotient and its opposite/base-scalar actions and quotient maps.
+`ContinuousMap.unitsOfForallIsUnit` and `DenseRange.equalizer` with their
+binders. The continuous unit lift needs a complete normed ring; uniqueness
+from density needs a Hausdorff codomain.
 
-Read current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`:
+Read the transpose source at Tau Ceti pin
+`f790474821cf4256814db967cb154e7af3d0c369`, including its dual quotient,
+opposite and base scalar structures, `mk`, kernel/surjectivity statements
+and `lift`. At current Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, read
 `RingTheory/FittingIdeal/Basic.lean:331–357`,
-`RingTheory/FittingIdeal/BaseChange.lean:125–140`, and
+`RingTheory/FittingIdeal/BaseChange.lean:125–145` and
 `Algebra/Module/AuslanderReiten/StableTranspose.lean:72–98`.
-Fitting ideals apply to finite modules, with arbitrary commutative-algebra
-base change. Stable transpose works over an arbitrary ring, with exact
-surjective projective presentations and no finiteness assumption.
-Git object checks confirm all three files are absent at the programme pin.
-These inputs belong to the current library and are not attributed to f790474.
-The read-only current TauCetiRoadmap checkout is
-`81207c7f16d5abf770f13a7d2bdcdb465c030787`; StableReduction and
-ArithmeticDirichletSeries boundaries and their suggested interfaces were
-consulted. No generic upstream carrier was planned or changed.
+Fitting ideals use finite modules; the kernel formula takes a finite-free
+surjection. Stable transpose allows an arbitrary ring and exact projective
+presentations without finiteness. Its factors are Dual(P0×Q1) and
+Dual(P1×Q0), with opposite-linear equivalence. Verified that all three new
+files are absent at f790474; the current results are not attributed to the pin.
 
-## Public source provenance
+Checked current TauCetiRoadmap
+`81207c7f16d5abf770f13a7d2bdcdb465c030787`, including StableReduction,
+ArithmeticDirichletSeries and QuiverRepresentations interfaces. Read these
+checkouts without modifying or building them. Existing generic carriers
+remain imports; the historical pinned absence of Fitting ideals does not
+justify planning them again against current main.
 
-All ten public PDFs were fetched on 10 October 2026; their hashes match the
-input report's versions. Fresh readings are scoped above. Prior exhaustive
-source readings and finite diagnostics remain attributed to their sessions.
-No book or copied source passage was used in the changes.
+## Validation, edits and dispatch scope
 
-| Public source | SHA-256 |
+Only L3 and PMIA review metadata changed. Appended each entire former review
+unchanged to reviewHistory before replacing it, keeping all older entries.
+No mathematical statement, source issue, prerequisite, API, test, coverage,
+gap, request or Lean file changed. The L3-2 and D.1 receipts are prepared;
+the full 79- and 72-entry audits will be archived intact when authorized.
+There are no source excerpt fields in the four packets. No link map or
+restructuring proposal is an input to this job.
+
+All four actual packet checks report zero errors. L3 retains 26 short-API
+warnings; the others report no warnings. These full-packet API-depth concerns
+are inherited, not resolved by acceptance of the bounded correction contract.
+Parsed equality excluding review/reviewHistory and exact archival-history
+checks passed. The intake file screen and whitespace check passed.
+The checker's default declaration index was unavailable, so its baseline
+checks cover reference form. The selected declaration statements were read
+directly as described above; this is not a fresh indexed audit of every
+baseline entry in these packets. Read-only substitution of the prepared
+receipts at their actual packet paths also passes both packet checkers and
+makes the unchanged completion predicate True; no file was substituted on disk.
+
+Sequential `lean-check` runs used the existing pinned shared build, with over
+20 GB available before each run. No library build, update, cache download or
+language server was started.
+
+| Suggested file | Result in this session |
+| --- | --- |
+| L3 | Exit 1: unknown module prefix `research` before body elaboration |
+| L3-2 | Exit 0: 111 `sorry` warnings, no other diagnostics |
+| D.1 | Exit 0: 307 `sorry` warnings, no other diagnostics |
+| PMIA | Exit 0: 1,075 `sorry` warnings, no other diagnostics |
+
+L3 imports sibling atlas prototypes absent from the shared module search
+path. This review does not remove dependencies to conceal that failure.
+Finite diagnostics passed for 160 Gamma recurrence pairs, 144 buffered
+congruences, 208 strict counts, fifteen FG permutations with 7,142,370
+p-power filtration checks, three Fitting controls and 729 right-adjugate
+preimages (297 singular). These finite checks are not mathematical proofs.
+No Lean process from this session remains running.
+
+The live issue explicitly permits only L3 and PMIA packet edits. The queue
+and unchanged `issues.deliverables_complete` additionally require this job's
+review records in L3-2 and D.1. WORKERS.md's instruction, “Edit only the files
+the issue names, plus your own scratch space,” forbids installing those
+otherwise completed receipts without authorization. The user has been asked
+to authorize those two concrete metadata-only updates. No answer has arrived.
+The actual completion predicate remains False. The handoff records the exact
+receipts and the installation checks; no queue, predicate, issue or label has
+been changed. This is a blocked checkpoint pending scope authorization.
+
+## Public source versions
+
+Read on 10 October 2026. No book was used and no source passage is copied
+into these deliverables. Locators above refer to the following public PDFs.
+
+| Source | SHA-256 |
 | --- | --- |
 | [morita](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
 | [gross-koblitz](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf) | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
@@ -184,46 +268,3 @@ No book or copied source passage was used in the changes.
 | [dasgupta-kakde](https://arxiv.org/pdf/2010.00657v3) | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 | [bcgp21](https://arxiv.org/pdf/1812.09269v3) | `7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed` |
 | [bcgp25](https://arxiv.org/pdf/2502.20645v1) | `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c` |
-
-## Validation
-
-All four actual packets pass `scripts/check_blueprint.py`: zero errors.
-L3 retains 26 inherited short-API warnings; the other three have none.
-These advisories concern the inherited full packet, and its open coverage
-and supplier obligations remain explicit. No source excerpt field was added.
-Parsed equality excluding review/reviewHistory, complete archived-review
-preservation and absence of excerpt fields pass for both installed receipts.
-Both omitted packets remain exactly equal to the input commit. There are no Lean
-source changes.
-
-Fresh sequential `lean-check` runs used the existing pinned build with
-sufficient memory checked before each run:
-
-| Suggested file | Result |
-| --- | --- |
-| L3 | Exit 1 before body elaboration: unknown module prefix `research`. |
-| L3-2 | Exit 0; 111 `sorry` warnings only. |
-| D.1 | Exit 0; 307 `sorry` warnings only. |
-| PMIA | Exit 0; 1,075 `sorry` warnings only. |
-
-L3 imports sibling atlas prototype modules absent from the shared build's
-compiled module tree. The imports were retained. No Lake build, update,
-cache fetch or Lean language server was run. All Lean processes from this
-session ended. The accepted L3 verdict is explicitly a bounded correction
-review, without a whole-file compilation or closure claim.
-
-## Remaining scope authorization
-
-The live issue names L3 and PMIA; the current queue also lists L3-2 and D.1.
-The unchanged `issues.deliverables_complete` predicate requires this job's
-reviewer in all four packets. It currently returns False. Both additional
-receipts are prepared. They archive complete original audits and change no
-mathematics; simulated reads at their actual paths make the unchanged
-predicate return True.
-
-[WORKERS.md](../WORKERS.md) says: “Edit only the files the issue names, plus
-your own scratch space.” The live issue repeats the restriction. Authorization
-for the two extra queue-owned packet updates was requested with the concrete
-review-only changes. It remains pending, so neither update is installed.
-No queue, issue, label or completion rule was changed. The handoff retains
-the exact receipts and installation/preservation checks.
