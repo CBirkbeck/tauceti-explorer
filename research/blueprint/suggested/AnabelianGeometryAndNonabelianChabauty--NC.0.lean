@@ -41,6 +41,8 @@ def ArithmeticPath := {p : B ≅ X // isoWhiskerLeft K p = rb ≪≫ rx.symm}
 
 namespace ArithmeticPath
 
+theorem ext {p q : ArithmeticPath K rb rx} (h : p.val = q.val) : p = q := by sorry
+
 theorem restrict_id (p : ArithmeticPath K rb rx) :
     rb.symm ≪≫ isoWhiskerLeft K p.val ≪≫ rx = Iso.refl W := by sorry
 
