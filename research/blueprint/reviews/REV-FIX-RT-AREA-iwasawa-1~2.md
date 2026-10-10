@@ -1,3 +1,58 @@
+# Continuation: scope repair verified, codex-WkYQFI
+
+Codex — **codex-WkYQFI**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
+Claim confirmed in [comment 6102998908](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6102998908).
+Input commit: `42753a9914d3dc0181628bb0a763841593e2ea97`.
+Branch: `codex-WkYQFI-review-6217`.
+
+**Blocked checkpoint.** The live issue still names three outputs and only the
+HE.0 packet. Its fix review is already accepted. The current queue instead
+requires 23 outputs, including eleven packets. This continuation independently
+verified the administrative blocker and the concrete repair preserved below;
+it does not replace any mathematical review or source-reading attribution.
+
+Fresh verification against this input:
+
+- The actual `issues.deliverables_complete` returns **false** for the current
+  job and **true** after restoring only its historical three outputs in memory.
+  The additional ten packets retain their own reviewers, including ES.0's
+  `needs_changes` verdict. Those markers must not be changed to force completion.
+- The live file list of merged [PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753)
+  contains exactly the four historical fix outputs. Its merge commit is
+  `05036608ddb23c6603c1d2721487d87027616106`. Historical queue commit
+  `88f9bcd44` supplies the matching four/three fix/review output lists.
+- A reconstructed **5,821-byte patch** restores only those two output lists
+  and adds the completed-round guard in `make_queue.py::fix_rounds`. It passes
+  `git apply --check`; the generator parses; assertions verify that every other
+  queue field and job stays unchanged. Patch SHA-256:
+  `23b235ebc48255971f32f6ffcb9d40f1b579622cbec25fee06f2859a6d79aa70`.
+- All seven focused regression cases preserved below pass. Full generation
+  executes in memory with repository writes forbidden: the original guard
+  expands round two to 27/15 fix/review outputs; the repair preserves 4/3 and
+  assigns newly routed work to round three, with 30/17 outputs. A second
+  generation preserves both rounds' output lists. Comparing the full runs
+  changes 36 existing jobs, adds twenty and removes none. Routing for those
+  other families needs maintainer inspection before publishing a new queue.
+- HE.0 passes `check_blueprint.py` with **zero errors and warnings**: 78 nodes,
+  24 API items, eighteen tests, 21 gaps and 63 requests. Its suggested SHA-256
+  remains `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+  Lean was not rerun for this documentation-only continuation; the earlier
+  successful pinned elaboration receipts remain attributed below.
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” Neither repair file is named by #6217. Fresh local
+calls to `intake.file_problems` reject both paths as outside swarm output paths.
+Scope expansion and maintainer handling were requested; authorization remains
+pending. This is an observed scope/intake restriction, not an automatic approval
+rejection. Only this report and its handoff change.
+
+The exact guard, historical lists and portable regression scripts below survive
+scratch deletion. The next action is the maintainer's repair and synchronization
+of the issue with its queue. Another HE.0 review cannot complete the expanded
+queue job.
+
+---
+
 # Continuation: verified administrative blocker, codex-evxyKp
 
 Codex — **codex-evxyKp**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
