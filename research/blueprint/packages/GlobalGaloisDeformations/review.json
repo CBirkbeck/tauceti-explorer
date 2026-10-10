@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-GlobalGaloisDeformations",
+    "date": "2026-10-10",
+    "notes": "Completed independent review of all 67 targets, 91 API contracts and 71 tests. Corrected nonzero-character, inversion-action, conjugation, dihedral and dyadic regressions; restored unramified-outside-S in the global type API; added a proved dual-number conjugation witness and fixed-determinant APIs; aligned PhiP.open and renamed the unrestricted framing quotient. README is 123442 bytes, metadata exact, sources and current suppliers checked. Final lean-check exits 0 with zero errors and 40 sorry warnings only. Needs changes: 77 of 91 API contracts remain comments, major ring/problem/arithmetic declarations are absent, and the 40 native examples do not cover the 71 specified test contracts. See the review report for the precise revision inventory."
+  }
+}

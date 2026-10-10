@@ -150,7 +150,7 @@ Fix the standard residual G-module V̄ = kⁿ and its basis β. A module deforma
 
 - `moddef_residue`: Def^mod_ρ̄(𝔽) is a singleton.
 - `moddef_rank_one`: For n = 1 and ρ̄ = χ̄, Def^mod(A) = {χ̃ψ : ψ ∈ Hom_cont(G, 1 + m_A)} for a fixed lift χ̃.
-- `moddef_needs_iota`: For ρ̄ = 1 ⊕ 1 and A = 𝔽[ε], the lifts diag(1 + εx, 1) and diag(1, 1 + εx) give G-modules that are isomorphic (swap the basis vectors) but not isomorphic as deformations, because the swap is not compatible with ι.
+- `moddef_needs_iota`: For ρ̄ = 1 ⊕ 1, A = 𝔽[ε] and a nonzero continuous additive character x : G → (𝔽,+), the lifts diag(1 + εx, 1) and diag(1, 1 + εx) give isomorphic G-modules by swapping basis vectors, but distinct deformations with the specified residual identification ι. Strict conjugation fixes their first-order matrices; the swap does not reduce to the identity.
 
 **Sources.** [Kisin](#ref-kisin-lectures), Lecture 1, (1.1.1), p. 1.
 
@@ -320,7 +320,7 @@ For a profinite group G and prime p, define Φₚ(G) by finiteness of Hom_cont(�
 
 - `phiP_Zp`: ℤ_p satisfies Φ_p.
 - `phiP_open`: If G satisfies Φ_p, so does every open subgroup.
-- `phiP_not_of_Hom`: (∏_ℕ ℤ/p) ⋊ ℤ/2, p odd, has Hom(G, 𝔽_p) = 0 but fails Φ_p.
+- `phiP_not_of_Hom`: Let G = (∏_ℕ ℤ/p) ⋊ ℤ/2 with the involution acting by inversion and p odd. Then Hom_cont(G, (𝔽_p,+)) = 0, but the open subgroup ∏_ℕ ℤ/p has infinitely many continuous coordinate characters, so G fails Φ_p.
 
 **Sources.** [Gee](#ref-gee-mlt-2022), §3.1, p. 12; [Kisin](#ref-kisin-lectures), Lecture 1, (1.2), p. 1, and Exercise 1, p. 4.
 
@@ -450,7 +450,7 @@ For G_v satisfying Φₚ and residual ρ̄_v, define a local deformation problem
 
 - `defProblem_unrestricted`: All lifts form a deformation problem.
 - `defProblem_residue`: (𝔽, ρ̄_v) belongs to every deformation problem.
-- `defProblem_not_conj_stable`: {ρ : ρ(σ) is upper triangular} for fixed σ is not Γ̂₂-stable, so not a deformation problem.
+- `defProblem_not_conj_stable`: Take G = ℤ/2 with generator σ, A = 𝔽₃[ε], D = diag(1,−1), ρ(σ) = D and b = 1 + εE₂₁. Then b reduces to 1 and bDb⁻¹ = D + 2εE₂₁ has a nonzero lower-left entry. Thus this particular upper-triangular condition is not strict-conjugation-stable.
 
 **Sources.** [Gee](#ref-gee-mlt-2022), Definition 3.16, p. 14.
 
@@ -611,7 +611,7 @@ For F′/F finite and S′ the places above S, restriction defines the contravar
 
 - `resRing_id`: Restriction along the identity is the identity map.
 - `resRing_comp_apply`: For H′ → H → G, resRing_{H′→G} = resRing_{H→G} ∘ resRing_{H′→H}.
-- `resRing_not_flat`: For p odd, G = ℤ_p ⋊ {±1}, H = ℤ_p, n = 1, ρ̄ = 1: resRing is 𝒪⟦Y⟧ → 𝒪, Y ↦ 0, which is not flat.
+- `resRing_not_flat`: For p odd, let G = ℤ_p ⋊ {±1} with inversion action, H = ℤ_p, n = 1 and ρ̄ = 1. Then resRing is 𝒪⟦Y⟧ → 𝒪, Y ↦ 0, which is finite and not flat.
 
 **Sources.** [Gee](#ref-gee-mlt-2022), §3.25, p. 18; [KW final](#ref-kw2-2009), §10.1, proof of Theorem 10.1, p. 91.
 
@@ -809,7 +809,7 @@ Keep three rank-two hypotheses separate: absolute irreducibility on G_{F(ζ_p)};
 **Unit tests.** These are mathematical regression cases, including examples that reject an incorrect definition.
 
 - `sl2F4_not_solvable`: SL_2(𝔽_4) ≅ A_5 is not solvable.
-- `dihedral_not_cyclotomic_irred`: Ind from F(√p*) is absolutely irreducible but reducible on G_{F(ζ_p)}.
+- `dihedral_not_cyclotomic_irred`: For odd p, assume K = F(√p*) is a proper quadratic subfield of F(ζ_p), and choose a character θ of G_K with θ ≠ θᶜ. Then Ind_{G_K}^{G_F} θ is absolutely irreducible but splits on G_{F(ζ_p)}, so it fails the cyclotomic irreducibility hypothesis.
 - `cyclotomic_irred_p2_trivial`: For p = 2, (1) is plain absolute irreducibility, since F(ζ_2) = F.
 - `allowed_dihedral_adjoint_sign_line`: Over 𝔽₅ the standard S₃ representation satisfies the KW cyclotomic hypothesis in the stated ℚ example, while k·J⊊ad⁰ is a nonzero invariant sign line; matrix calculations verify J≠0, trJ=0, conjugation and properness, and the residual matrix-span determinant −3.
 
@@ -980,7 +980,7 @@ For p odd write B for the condition-specific local tensor ring, d = 3|S|, h for 
 
 - `twSystem_h_zero`: h = 0: the system is constant.
 - `twSystem_specialisation`: Killing y_1, …, y_h recovers R̄^{□,ψ}_S.
-- `twSystem_not_p2`: For p = 2 the fixed-determinant rings do not form such a system (the dual Selmer group is not killed); use dyadic-patching-data.
+- `twSystem_not_p2`: The odd-p construction does not extend by substituting p = 2: in the nonsolvable dyadic setting, distinct-eigenvalue Frobenius elements fail to detect the Ad⁰/Z constituent. Use the determinant-on-S rings and the counts in dyadic-patching-data, rather than assert that every characteristic-two dual Selmer group is nonzero.
 
 **Sources.** [KW final](#ref-kw2-2009), proof of Proposition 9.2, (∗∗), p. 82; [Gee](#ref-gee-mlt-2022), after Proposition 5.10, p. 39.
 
@@ -1032,14 +1032,14 @@ In the ACC setting, assume F a number field, continuous absolutely irreducible r
 **API.** Use the following interfaces in `TauCeti.GaloisDeformation`, together with extensionality and the coefficient-map identity/composition laws where relevant.
 
 - `GlobalDeformationProblem` (structure): (ρ̄, S, {Λ_v}, {D_v}) with D_v strict-conjugation-stable quotient-represented subfunctors.
-- `GlobalDeformationProblem.IsOfType` (constructor): ρ|G_{F_v} ∈ D_v(A) for all v ∈ S.
+- `GlobalDeformationProblem.IsOfType` (constructor): ρ is unramified outside S and ρ|G_{F_v} ∈ D_v(A) for all v ∈ S.
 - `GlobalDeformationProblem.framedDef` (constructor): The functor D^T_𝒮 of T-framed deformations of type 𝒮 on CNL_Λ.
 
 **Unit tests.** These are mathematical regression cases, including examples that reject an incorrect definition.
 
-- `problem_unrestricted`: With all D_v unrestricted, type 𝒮 is no condition.
+- `problem_unrestricted`: Among lifts already factoring through G_{F,S}, unrestricted D_v impose no further condition; they do not remove the unramified-outside-S requirement.
 - `isOfType_strictEquiv`: Type 𝒮 is preserved by strict equivalence.
-- `fixed_matrix_not_problem`: Fixing ρ(σ) is not conjugation-stable.
+- `fixed_matrix_not_problem`: For the 𝔽₃[ε] example in defProblem_not_conj_stable, the prescription ρ(σ) = diag(1,−1) fails strict-conjugation-stability. Prescribing a central matrix such as 1 does not give this counterexample.
 
 **Sources.** [ACC arXiv v2](#ref-acc-2018), §6.2.1, Definition 6.2.2, p. 136.
 
