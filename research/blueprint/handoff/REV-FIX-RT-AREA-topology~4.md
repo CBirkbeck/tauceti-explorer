@@ -1,101 +1,79 @@
-# Latest continuation: scope blocker unchanged
+# REV-FIX-RT-AREA-topology~4: blocked scope continuation
 
-Issue #6521; Codex (GPT-6), session `codex-UWo6fC`; 10 October 2026.
-Claim comment 6101120522 was confirmed in bot comment 6101121725.
-Branch `codex-UWo6fC-review-topology`. Continues merged PR #8563. One job only.
+Issue #6521; Codex (GPT-6), session `codex-hUFc7X`; 10 October 2026.
+Claim comment 6101249235 confirmed by bot comment 6101250334.
+Branch `codex-hUFc7X-review-topology`. Continues merged checkpoint PR #8570.
+This worker did none of the fixes or original plans. One job only.
 
-The live issue still lists three supplier packets, while the queue completion
-check requires five. Independently ran that check: actual queue **False**;
-live-issue-only copy **True**. The review prompt is absent. The already
-completed bounded supplier reviews do not need another full repetition.
+## What changed
 
-Fresh checks of Polylogarithms, HabiroNahmSeries and QSeries all pass with
-zero errors/warnings. Reconfirmed the four reader discrepancies, the Taylor
-scaling and cross-ratio calculation, and QT's missing exact tetrahedron-volume
-prerequisite. The detailed inherited evidence and resume steps below remain
-applicable. No packet, suggested file, queue, reader or source was modified.
-Lean was not rerun because no suggested declaration changed; the preceding
-worker's successful checks remain explicitly attributed in the report.
+Only this handoff and the review report. Added fresh source verification of
+the cross-ratio/orientation conversion and the Kontsevich scaling, all-five
+packet checker results, current read-only upstream owner checks, and an
+in-memory experiment identifying the minimum queue-completion repair.
+Packet review objects, mathematical content and suggested files are unchanged.
+The prior three supplier reviews are already complete: Polylogarithms and
+Habiro accepted, QSeries needs_changes for four reader discrepancies.
+Earlier source and Lean evidence remains explicitly attributed in the report.
 
-Requested explicit authorization for the four additional queue paths; no answer
-has arrived. This run is blocked by WORKERS.md's issue-file restriction, not
-its eight-hour allowance. Only the report and this handoff change. Before
-assigning another continuation, reconcile the live issue and queue or authorize
-the four paths below. The QSeries reader needs its own separate authorization.
-No scratch file is required to resume.
+## Minimum remaining authorization: two packet paths
 
----
+The live issue lists three packets, while the queue requires five.
+WORKERS.md restricts edits to the issue-listed files. The missing paths are:
 
-# REV-FIX-RT-AREA-topology~4 handoff
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`;
+- `research/blueprint/packets/Polylogarithms--P.2.json`.
 
-Issue #6521; Codex (GPT-6), session `codex-YXWpoE`; 10 October 2026.
-Claim comment 6100896895 confirmed by github-actions.
-Branch `codex-YXWpoE-review-topology`. Continues checkpoint PR #8542.
-This worker did none of the fixes or original work under review. One job only.
+No Lean edit or reader edit is required to finish the bounded review.
+The actual `issues.py:deliverables_complete` returns False. The same unmodified
+function with just these two verdicts provided through an in-memory path
+reader returns True. No files or completion logic were changed to test this.
+This narrows earlier handoffs' requests for four or five paths: authorize just
+these two packets, or reconcile the live issue and queue before another run.
+A scope request remains unanswered. The blocker is scope, not run time.
 
-## Completed authorized work
+## Resume after authorization
 
-Replaced the report with an attributed review of all 27 bounded fix dispositions;
-confirmed source hypotheses, ownership, library restrictions and exact arithmetic.
-Updated all three live-issue packet review objects, preserving predecessors in
-reviewHistory: Polylogarithms accepted; HabiroNahmSeries accepted; QSeries
-needs_changes because its reader needs four precise synchronizations outside scope.
-No mathematical statement, API, test, prerequisite, gap, request, coverage or
-signature changed. No source excerpts exist in the edited packets.
+Read the report's newest section, "Minimum completion repair established".
+Confirm the files still match it, preserve their previous full reviews in
+reviewHistory, then record bounded verdicts with reviewer
+`independent-review-REV-FIX-RT-AREA-topology~4` and the actual review date:
 
-Fresh check_blueprint runs pass with zero errors/warnings on all three packets
-(75/109/537 nodes; 19/22/22 gaps; 21/9/25 requests). Fresh sequential lean-check
-runs exit 0 with only sorry warnings: Polylogarithms 462, HabiroNahmSeries 441,
-QSeries 1469. All three import Mathlib only; checked at exact Mathlib 082e2d3.
-Memory before checks: 102 GB available. No background check remains.
+- P.2: accepted for /7's single owner and explicit GeometricTopology 7/8 imports;
+  keep its two gaps, three requests and predecessor full-review qualifications.
+- QT: needs_changes for /7's missing exact
+  `Polylogarithms:P.2/hyperbolic-volume` prerequisite and geometric
+  carrier/order/orientation comparison. Keep all eight gaps and nineteen
+  requests, especially G4/G5. A bounded negative verdict finishes the review;
+  fixing the mathematics is not required for completion.
 
-The report records public source versions/hashes and fresh reads. Pinned statement
-checks cover AnalyticOnNhd, PosDef, framed oriented PD codes, the Jones braid
-representation and Gaussian density law. Current upstream 3c18d9f and current
-Tau Ceti were inspected read-only; no Lake command ran there.
+The report records all 27 fix dispositions and complete correction contracts.
+Do not repeat only the three already-completed supplier checks. Do not edit
+queue/completion code to hide the mismatch. No upstream or generated data edit.
 
-## Blocker: fix the authorization, not the supplier reviews
+If mathematical corrections are also authorized, the QT sign conversion must
+transport vertex order, orientation and manifold incidence signs together.
+For the same finite ordered vertices, rQ=1/rP and D(1/z)=-D(z); at (2,3,5,7),
+the ratios are 6/5 and 5/6. An odd vertex permutation already reverses signed
+volume; do not introduce a second unsupported sign. Keep the supplier's early
+ideal-region gap and the consumer's geometric comparison request.
 
-WORKERS.md requires editing only issue-listed files. The live issue omits these
-four queue outputs:
+The QSeries reader is outside the queue and live issue. It may remain under
+needs_changes. A separate authorization enables its four corrections: add
+the ninth scalar additive-cocycle export; specify inverse eta multiplier on
+the lower branch; use c_n/(24^n n!) with first coefficients
+1,23/24,1681/1152,257543/82944; replace its obsolete no-nodes QT.7 account.
+The trefoil normalization qualification and broader proof gaps remain.
 
-- research/blueprint/packets/ArithmeticQuantumTopology.json
-- research/blueprint/suggested/ArithmeticQuantumTopology.lean
-- research/blueprint/packets/Polylogarithms--P.2.json
-- research/blueprint/suggested/Polylogarithms--P.2.lean
+## Validation in this continuation
 
-Required authorization was requested asynchronously and remains pending. The
-actual queue completion predicate returns False; restricting it to the live
-issue outputs returns True. Both additional packets have different reviewers.
-The queue prompt is absent. Neither queue nor completion logic was changed.
-A needs_changes verdict counts as a completed bounded review.
+All five check_blueprint runs pass with 0 errors and 0 warnings. Node/gap/request
+counts: Polylogarithms 75/19/21; Habiro 109/22/9; QSeries 537/22/25;
+QT 106/8/19; P.2 14/2/3. Fresh public source versions and SHA-256 hashes are in
+the report. Current upstream and Tau Ceti were read-only. No new baseline
+claims, library build, language server or Lake operation. Lean was not rerun:
+no suggested file changed, and previous successful runs remain attributed.
 
-This checkpoint is caused by the scope blocker, not the eight-hour limit.
-Reconcile the issue/queue file lists or authorize those four paths before assigning
-another continuation. Do not repeat the completed three supplier checks alone.
-
-## Exact remaining work after authorization
-
-Finish the bounded extra packet reviews, retaining their earlier full reviews
-in history: QT findings /1–/16 and P.2 /7. Preserve QT's eight gaps/nineteen
-requests and P.2's two gaps/three requests.
-
-QT.5/volume-and-chern-simons imports P.2 tetrahedron volume in its statement but
-omits the exact node. Add Polylogarithms:P.2/hyperbolic-volume to prerequisites,
-retaining its geometric comparison request and G4/G5. State the carrier and
-ordered-orientation comparison: P.2 normalizes (infinity,0,1,z), QT normalizes
-(0,infinity,1,z). For a fixed ordered quadruple rQ=1/rP and D(1/z)=-D(z).
-Transport the vertex order, orientation and manifold incidence signs together;
-swapping the first two vertices already changes the signed volume. Avoid a
-second unsupported minus sign. The report gives an exact rational sample.
-A bounded needs_changes verdict may be used if this consumer comparison remains.
-
-The QSeries reader requires separate path authorization for its four corrections:
-ninth QM.5 additive-cocycle export; inverse eta multiplier on lower branch;
-Taylor scaling c_n/(24^n n!); and obsolete no-nodes QT.7 account. First Taylor
-coefficients: 1,23/24,1681/1152,257543/82944. Trefoil qualification is already
-present. Keep broader blueprint objections and analytical supplier gaps intact.
-A negative bounded verdict does not require unauthorized reader edits.
-
-The versioned report/handoff contain all required evidence and instructions;
-no continuation depends on scratch files, which are removed after PR creation.
+All resume evidence is in the report and this handoff. No scratch artifact is
+needed; scratch is removed after submission. This is a blocked checkpoint,
+not a completed job. Reconcile scope before assigning another continuation.

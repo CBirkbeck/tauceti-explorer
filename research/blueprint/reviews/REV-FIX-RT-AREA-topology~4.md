@@ -294,3 +294,128 @@ checkpoint, not another completed review or a time-budget stop. Only this
 report and the job handoff change; all packet verdicts and mathematical
 deliverables remain as received. Resume with the exact actions in the handoff
 once the issue scope and queue scope agree.
+
+
+## Continuation: minimum completion repair established
+
+Codex (GPT-6), session `codex-hUFc7X`, 10 October 2026. Claim comment
+6101249235 was confirmed in bot comment 6101250334. This session did none
+of the fixes or original plans under review. The checkout includes checkpoint
+[PR #8570](https://github.com/CBirkbeck/tauceti-explorer/pull/8570).
+The earlier source and Lean checks above remain attributed to their workers.
+
+**The remaining authorization needed for queue completion is only two packet
+paths.** No suggested-file or reader edit is necessary to finish a bounded
+review with explicit negative verdicts. This narrows the earlier request for
+four queue outputs: the two suggested files already exist and the completion
+predicate does not require changing them. QSeries can keep `needs_changes`
+for its four reader discrepancies. Correcting that reader is separate work;
+its exclusion from this review's scope does not prevent a completed verdict.
+
+The live issue still omits both additional packets:
+
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`;
+- `research/blueprint/packets/Polylogarithms--P.2.json`.
+
+Fresh read-only evaluation of the real `issues.py:deliverables_complete`
+returns **False** for the actual job and **True** for its live-issue-only
+output list. A virtual path reader then supplied, in memory only, this job's
+reviewer identity and a bounded verdict for those two packets. The actual
+unmodified predicate returned **True**. It read every other output from the
+checkout. No file, queue entry, checker or issue body was modified by this
+experiment. Thus two review-object updates suffice to complete the queue;
+there is no reason to require reader corrections or renewed signature work
+before those bounded verdicts can be submitted.
+
+### Exact bounded dispositions ready for the extra paths
+
+For **Polylogarithms--P.2**, the proposed bounded verdict is **accepted** for
+finding /7's ownership and geometric-import correction. Its
+`milnor-angle-volume` prerequisites explicitly name GeometricTopology layers
+7 and 8. The early ideal-region carrier and map-level Borel-normalization
+obligations remain its two gaps, with three requests. This verdict would
+follow, and preserve in history, the full
+`independent-review-REV-Polylogarithms--P.2` review. It does not replace that
+full mathematical audit with a new one or discharge its assembly obligations.
+
+For **ArithmeticQuantumTopology**, the proposed bounded verdict is
+**needs_changes**. The concrete remaining defect in finding /7 is that
+`QT.5/volume-and-chern-simons` says it imports the tetrahedron formula but
+omits the exact existing prerequisite
+`Polylogarithms:P.2/hyperbolic-volume`. The carrier/order/orientation
+comparison must also be explicit. Preserve the existing P.2 geometric
+comparison request and all eight gaps and nineteen requests, especially
+G4/G5. This verdict would follow, and preserve in history, the full
+`independent-review-REV-ArithmeticQuantumTopology~2` review. The other bounded
+consumer and upstream dispositions remain as recorded in the 27-finding
+table above; none is silently promoted to a proof.
+
+Both proposed objects would name
+`independent-review-REV-FIX-RT-AREA-topology~4`, date `2026-10-10`, and notes
+identifying this bounded continuation and its predecessor. They have **not**
+been written into the unauthorized packets. A subsequent authorized reviewer
+must check the files still match these conditions before recording them.
+A negative QT verdict already finishes the review; making its mathematical
+correction first is unnecessary for queue completion.
+
+### Newly checked source and correction details
+
+Freshly retrieved the public source versions below and read the indicated
+passages on 10 October 2026. All statements here are authored descriptions;
+no source passage is included in the deliverables.
+
+| Source | Fresh reading | SHA-256 |
+|---|---|---|
+| [Zagier, The Dilogarithm Function](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf) | I.3, equations (3), (5), p. 11; I.4, equations (7)–(8), pp. 13–14 | `05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0` |
+| [Neumann, Extended Bloch group, v2](https://arxiv.org/pdf/math/0307092v2) | Theorem 2.6 and section 3, pp. 420–421 | `de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650` |
+| [Zagier, Vassiliev invariants and a strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf) | Section 2, Theorem 3 and equation (24), p. 952; section 6, transformation theorem (39), pp. 958–959 | `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e` |
+| [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf) | Introduction, p. 2; Examples 3–5, pp. 10–12 | `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf` |
+
+The ordered cross-ratio definitions freshly read in Zagier and Neumann give,
+for distinct finite vertices, `rQ(T) = 1/rP(T)`. At `(2,3,5,7)` exact rational
+arithmetic gives `rP=6/5` and `rQ=5/6`. An odd vertex permutation also negates
+Zagier's oriented dilogarithmic volume. The consumer must transport vertex
+order, orientation and incidence signs together, using the actual geometric
+carrier comparison; applying an extra minus sign after that transport would
+reverse the correction. Merely adding the missing graph edge does not prove
+this comparison. Neumann's regulator has imaginary part Vol and real part
+minus CS modulo the stated period, consistent with the existing QT formula.
+
+For the QSeries reader correction, the intended normalized formal series is
+`exp(-t/24) F(exp(-t)) = sum_n c_n(1) t^n/(24^n n!)`.
+Equation (24) and Theorem 3, p. 952, distinguish the integer Glaisher numbers
+from its ordinary coefficients. Exact rational calculation again yields
+`1, 23/24, 1681/1152, 257543/82944`. The reader's value-formula paragraph and
+acceptance test must use this scaling. Its export table must include
+`QM.5/quantum-modular-cocycle`, with identity-normalized lower-boundary
+factor and scalar additive cocycle; it gives no generic matrix theorem.
+The Kontsevich export must specify the inverse eta multiplier on that
+branch, with the T/S values already in the packet. Finally, its restructuring
+paragraph must describe the existing QT.7 knot plan and QM.5-to-QT.7 supplier
+direction rather than saying QT.7 has no nodes. These four corrections remain
+unapplied because the reader path is unauthorized.
+
+Read the current upstream GeometricTopology and DifferentialGeometry relevant
+signatures, read-only at `81207c7f16d5abf770f13a7d2bdcdb465c030787`, and
+inspected the current Tau Ceti checkout at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. DifferentialGeometry 3.3 already
+owns compactly supported flow homogeneity in its boundaryless finite-dimensional
+setting; 5.3 owns compactly supported C1-form Stokes with outward-first boundary
+orientation. The upstream owner qualifications in the earlier report stand.
+No new baseline claim or absence claim is made here, and no Lake command ran
+in the read-only environment.
+
+Fresh `check_blueprint.py` runs on **all five** packets report **zero errors
+and zero warnings**. Counts are Polylogarithms 75/19/21, HabiroNahmSeries
+109/22/9, QSeries 537/22/25, QT 106/8/19, and P.2 14/2/3
+(nodes/gaps/requests). Read the relevant suggested-file specifications,
+including their explicit omission boundaries; no suggested declaration
+changed and Lean was not rerun. Previous elaboration results retain their
+attribution. No checker pass is treated as mathematical closure.
+
+The required scope question was submitted during this session. No answer
+has arrived. The only changed files are this report and the handoff.
+This is a **blocked checkpoint**, not a completed queue review or an exhausted
+time budget. Authorize the two packet paths above or reconcile the issue with
+its queue before assigning another continuation; another unchanged
+three-supplier audit cannot complete the job.
