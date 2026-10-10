@@ -1,0 +1,87 @@
+# REV-FIX-RT-RS-01
+
+**Verdict: needs changes in both files.** This is a completed independent review of FIX-RT-RS-01, following REV-RS-01 and the verified findings of REV-RT-RS-01. Reviewer: Codex, session `codex-onjkce`, 10 October 2026, [issue #5706](https://github.com/CBirkbeck/tauceti-explorer/issues/5706). I did not write the proposal, its earlier review, the red team, its verification or the fixes by Claude `claude-jBSCUj`.
+
+The supplier split and proposed links survive this review. I corrected several formulas, hypotheses and misleading proposal sentences in the two permitted JSON files. Finding /30 still lacks settled ownership across the R07/R06 boundary. Its two overlaps now have an explicit referral, but a referral is not a supplier contract. Neither review object certifies a complete P7 blueprint: its status remains `partial`, with 16 recorded gaps and no closed stage.
+
+## Remaining decision
+
+Resolve RT-RS-01/30 once, in the R07 family, and reflect that decision in the RS-01 PadicHodgeTheory record and P7 restructure entries 8 and 12:
+
+- **Fontaine–Laffaille:** R07.3/fl-admissibility and R06.4/small-weight-admissibility currently plan the same rational admissibility theorem. R07.3/fl-lattice-correspondence consumes the former, and R07.3 already precedes R06.4. The verifier permits either keeping the proof in early R07.3 with R06.4 an import interface, or splitting R07.3 and placing its dependent suffix after R06.4. Choose one and identify the proof supplier and forwarded consumers. An unsplit R06.4 → R07.3 return import is cyclic.
+- **Colmez–Fontaine:** R07.4/semistable-finite-height currently proves the general weakly-admissible-implies-admissible implication as well as its specific Kisin comparison. The general theorem must have one supplier. Distinguish R06.2's statement interface from the R06.3 proof placement proposed in P7 entry 8, then give R07.4 the usable import and preserve its finite-height construction/comparison. An interface proposition alone supplies no proof.
+
+The original finding allowed referral of **both** overlaps to the R07 restructuring. The fix report referred only the Fontaine–Laffaille issue and left an unconditional R06.4 assignment immediately before its caveat. I removed that contradiction and recorded both outstanding obligations. The verified request for an explicit owner remains unfulfilled; I have not silently selected an external proof route or changed the R07 packet, which is outside this issue's deliverables. A follow-up can address this bounded decision without repeating the other 31 finding checks.
+
+## Finding-by-finding assessment
+
+“Pass” below means the correction is right as a restructuring instruction. It does not mean that the corresponding member blueprint has already implemented all relocated nodes. Findings /25, /26 and /29 were rejected by the verifier and need no red-team repair.
+
+| Finding | Assessment | Reason / correction |
+|---|---|---|
+| /1 | Pass | AI.2 owns the module structure package used by its own BKF specialization; AI.5 imports it and owns the complex specialization package. This removes the proposed AI.2 return dependency on AI.5. |
+| /2 | Pass | CP.2 owns the good-reduction lattice identification and late agreement. CP.3 retains its independent deformation construction and supplies CP.2; its early construction need not use the downstream good-reduction theorem. |
+| /3 | Pass | CR.3:Frobenius-isogeny explicitly supplies Proposition 13.21 to AI.5 and CP.2/CP.5. Its contract includes nonproper smooth affine inputs, the nonnoetherian crystalline base and the distinction between a fixed residue section and a canonical DVR section. |
+| /4 | Pass after correction | AI.3 has the required locally noetherian scope. I separated the classical Witt sheaf from BMS1's derived-p-completed sheaf, rather than silently equating them. Rational period sheaves remain downstream. |
+| /5 | Pass | Coherence of finite-length Witt vectors and the finite-presentation transfer package are assigned to AI.0. The CP.0 record becomes an import adapter, not an unsupported supplier. |
+| /6 | Pass | AI.0 supplies x, W-tilde, its kernel Q, the localization at (p), the flat generic-tilt specialization and the characteristic-zero cyclotomic unit. These are constructions distinct from CP.0's normalization identifications. |
+| /7 | Pass | CP.0 explicitly retains its uniformizer construction. Its BMS map uses the p-th power of the Teichmüller uniformizer and Frobenius on W(k); the residue map also uses Frobenius. No late AI.7/R07.4 input is imposed on CP.0. |
+| /8 | Pass | CP.0's former generic inputs are assigned upstream to AI.0 and its integral branch; the moved module and complex proofs must cite these owners. The record preserves supplier provenance rather than treating stage-level reachability as completed node relocation. |
+| /9 | Pass after correction | AI.5 owns the generic complex lemma; CP.5 retains its geometric application and length monotonicity. I restored rational freeness in Corollaries 4.15/4.17 and the full perfectness, coefficient and adjacent-degree conditions in 4.18–4.20. |
+| /10 | Pass | The invented R06.4 supplier for CP.5 is withdrawn. CP.5 compares with R07.3/R07.4 integral objects and has the R07.3 import path. |
+| /11 | Pass after correction | R06.1 imports cyclotomic coefficients/criterion from AI.0:integral and the PD structure from CR.0. I clarified the criterion's index-1 Witt coordinate and corrected the false claim that μ generates ker θ at p = 2. The classical generator and rational refinements remain at R06.1. |
+| /12 | Pass | CP.3 supplies the constant-coefficient comparison and agreement. P8 retains the lisse-sheaf and family extension. Its application imports that agreement; no late P8 → CP.2 supplier is introduced. |
+| /13 | Pass after correction | The primitive comparison has an early P8:local-rational owner with the required ancestors and an AI.5 consumer link. I removed the obsolete CP.3:primitive proposal and explicitly included the finite-free lisse coefficient version and the inverse-limit obligations. Missing nodes and the late K(π,1) node relocation remain documented continuation work. |
+| /14 | Pass | CP.3 → AI.6 supplies the independent deformation. AI.6 owns the semistable/log-crystalline comparison with it; CP.4 imports the resulting compatibility. The cyclic alternative CP.4 → AI.6 is absent. |
+| /15 | Pass | CR.6 owns monodromy and change of uniformizer; CP.4 transports the formula through its normalized period-ring map. Construction and compatibility have separate owners. |
+| /16 | Pass | PR.8 supplies its realizations to CP.4, which owns their agreement with the semistable route. Cartier type, perfect log prism and Kummer-étale scope remain explicit. |
+| /17 | Pass | CR.0 builds the envelope and Witt reduction from library carriers, with a conditional regular-generator calculation. AI.0:integral applies it and proves its specialized coefficient normalization. CR.0 acquires no AI.0 return dependency. |
+| /18 | Pass, alternative repair | DD.4 owns the regular/lci derived de Rham–PD comparison. CR.0 supplies the classical envelope. The current DD.0 draft imports CR.0, so adding the suggested reverse dependency would close a cycle; the alternative meets the finding without adding it. |
+| /19 | Pass after correction | PR.4 supplies the logarithm and Chern classes to CP.6. I corrected its domain to the Tate module of the quotient ring's units and replaced broad class references with construction numbers and the crystalline/étale specialization scope. |
+| /20 | Pass | PerfectoidSpaces P1 owns the integral/Tate comparison; Q0 applies it. Bounded integral elements in the converse and a nonzerodivisor uniformizer are retained. |
+| /21 | Pass | The historical review is explicitly corrected for additional duplicate suppliers, node forwarding and reachability. Its old acceptance is preserved as history; the new review does not repeat its unrestricted endorsement. |
+| /22 | Pass | R06.1 → CP.4 directly records the B_st and normalized B_st → B_dR supplier. This records an existing transitive input. |
+| /23 | Pass | CP.0 retains twist/scalar-extension compatibility on cohomology and complexes. It imports the coefficient-level comparisons from the two AI.0 branches. |
+| /24 | Pass | The corrected reports distinguish direct edges from transitive reachability, and CP.3 → CP.5 is explicit. Present graph measurements below replace reliance on the fixer's older counts. |
+| /25 | Rejected finding; no repair required | Owner instructions need not already be generated as atlas nodes. Nevertheless the enlarged AI.5 contract now records the precise source hypotheses instead of relying only on retained CP supplier records. |
+| /26 | Rejected finding; no repair required | Constructing a geometric counterexample once and using it as a regression case in several consumers is compatible with the protocol. No second construction owner was added. |
+| /27 | Pass | CP.5 retains the Česnavičius–Koshikawa semistable torsion inequalities and lattice theorem, their ramification factors and torsion assumptions. The two-degree condition is retained for lattice recovery; this is not an all-model unconditional theorem. |
+| /28 | Pass after correction | CP.1 owns O_C agreement and AI.7 its S-valued specialization agreement; PR.6 supplies generic uniqueness. I required symmetric monoidal and Hodge–Tate structure-map compatibility for BS Theorem 18.2 and excluded its unsupported application to a nonperfect S-prism. |
+| /29 | Rejected finding; no repair required | The clarified CP.2 contract uses period invariants to identify its geometric realization; the general period/admissibility theory belongs to R06.2. A later application is not a second construction. |
+| /30 | Needs changes | Both external overlaps are now recorded without a contradictory owner reversal, but the proof supplier/interface decisions described above remain open. |
+| /31 | Pass | PR.2 owns the derived prismatic extension and initiality package; Q2 imports it. Weak initiality with a retract is distinguished from the stronger regular-quotient/qrsp initiality assertions. |
+| /32 | Pass | Pinned FontaineTheta and BDeRham locators end within their actual files. Their carriers are present; principality and the DVR identification are still mathematical obligations, not library results. |
+
+## Public sources checked
+
+Reading was directed at the findings and changed contracts, not a claim to reconstruct every proof in these papers. Page numbers are the printed numbers in the linked versions. All repository prose here is original paraphrase; no source passage or source-by-source chapter summary is reproduced.
+
+| Public source | Evidence used |
+|---|---|
+| [Bhatt–Morrow–Scholze, Integral p-adic Hodge theory, v3](https://arxiv.org/pdf/1602.03148v3) | Example 3.16 and Lemmas 3.20–3.21, pp. 25–27; coherence/transfer, pp. 28–30; module/complex specialization, §4.2, pp. 35–40; Lemma 4.26 and §4.4, pp. 41–43; Definition 5.4 and Theorem 5.7, pp. 46–47; Propositions 13.21/13.23, pp. 116–117; Theorems 14.3/14.5/14.6, pp. 120–121. |
+| [Scholze, author version](https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeTheory.pdf) and [erratum](https://people.mpim-bonn.mpg.de/scholze/pAdicHodgeErratum.pdf) | Integral sheaves and perfectoid evaluations, §§4–6, pp. 21–38; Theorem 5.1, p. 28, Corollary 5.11, p. 34; Theorem 8.4 and its integral/limit argument, pp. 48–49. Read the three-page erratum: corrected covers and completion are binding. |
+| [Bhatt–Scholze, Prisms and prismatic cohomology, v4](https://arxiv.org/pdf/1905.08229v4) | Construction 7.6 through Proposition 7.10, pp. 56–59; Notation 18.1 and Theorem 18.2, pp. 122–124. |
+| [Bhatt–Lurie, Absolute prismatic cohomology, v1](https://arxiv.org/pdf/2201.06120v1) | Construction 2.7.4, pp. 34–35; first Chern classes and their comparison, Constructions 7.5.1/7.5.3/7.5.4 and Remark 7.5.5, pp. 181–183; the characteristic-class context, Proposition 8.2.5, p. 192. |
+| [Bhatt, p-adic derived de Rham cohomology, v1](https://arxiv.org/pdf/1204.6560v1) | Theorem 3.27, p. 13; Lemmas 3.37–3.39 and Corollary 3.40, pp. 16–17. Flat Z/p^n-algebras and the relevant regular/lci hypotheses are not discarded. |
+| [Česnavičius–Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145) | Deformation comparison and compatibility, Theorem 6.6/Proposition 6.8, pp. 66–67; §§7–8, pp. 68–74; monodromy normalization and crystalline base change, §9.1/Proposition 9.2, pp. 74–75. |
+| [Brinon–Conrad, CMI notes](https://math.stanford.edu/~conrad/papers/notes.pdf) | Proposition 4.4.3 and Example 4.4.4, pp. 58–59. The criterion uses r_1, not r_0. The p = 2 sentence of the example conflicts with the cyclotomic factorization: the multiplier φ⁻¹(μ) is a nonunit for every prime, so μ cannot generate ker θ. The corrected acceptance case tests this explicitly. |
+
+For the last correction, reduction modulo p identifies φ⁻¹(μ) with ε^(1/p) − 1, whose positive valuation is 1/(p−1). Since ξ_ε is a nonzero generator in the domain A_inf and μ = ξ_ε φ⁻¹(μ), cancellation proves the non-generator assertion also at p = 2. This avoids importing the erroneous example as a test oracle. A public BMS source/version record and the paraphrased source issue PadicHodgeTheory/E40 were added to P7 for this acceptance case.
+
+## Libraries and upstream boundary
+
+I checked the reviewed AUDIT-37/38 results alongside `data/library-coverage.json`, and read the relevant declarations at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. In Mathlib, `WittVector.map` is the coefficientwise ring map (Basic.lean, lines 253–267). FontaineTheta.lean, lines 118–213, requires prime p, p nonunit and p-adic completeness, with modulo-p Frobenius surjectivity for the surjectivity theorem. BDeRham.lean, lines 1–98, provides the completion/localization carriers; its localization uses the multiplicative set generated by kernel generators, so the classical interpretation requires the missing principality result. Extension/Cotangent/Basic.lean, lines 35–100, supplies a presentation-level map, not the full derived cotangent complex. No additional library theorem is assumed from a declaration name alone.
+
+**Upstream notes.** I read the complete current AdicSpaces and LocalGaloisGroups READMEs and inspected their relevant suggested declarations, at TauCetiRoadmap commit `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`. AdicSpaces already plans generic perfectoid/Witt A_inf coefficients for its Fargues–Fontaine construction; RS-01's imported generic carrier boundary must be preserved. LocalGaloisGroups plans the local cyclotomic character, and the current Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` already defines it, proves continuity and gives its abelianized factorization in FieldTheory/Galois/AbsoluteGaloisGroup/Cyclotomic/Character.lean. The specialized choice of ε here does not authorize rebuilding that character. No upstream file was edited and no build was run there.
+
+## Validation and its limits
+
+- `check_restructure.py`: passes. The final proposal has 22 layer records, 31 links and 21 owners; only CP.0 and CP.5 are narrowed.
+- `check_blueprint.py`: zero errors and warnings at the pinned baseline. P7 retains 242 nodes, 579 API items, 324 definition unit tests and 29 requests. The new source id resolves. API names and definition tests are unchanged; one theorem acceptance case was corrected.
+- Independent read-only assembly using `scripts/build.py` and replacing promoted RS-01 in memory: 5,054 edge-incident vertices; 15,110 edges before and 15,116 after; both graphs acyclic. All 31 requested links have evidence in the application, 28 are inserted at its application point, and none is skipped. Six are absent from the final promoted baseline graph; other overlays already supply the remainder.
+- The assembled graph plus raw restructuring and link-map proposals is acyclic (5,103 edge-incident vertices, 15,343 edges). AI.3, A1–A2, H0 and PerfectoidSpaces P0/P3/P7 all reach P8:local-rational. Adding P7's projected node-prerequisite edges retains acyclicity.
+- I also added each current member draft packet's projected prerequisite edges separately. Existing cycles occur in some other drafts, including the AI.0/integral pair and DD.0/CR.0 chains. None contains one of the six new final assembled edges. This does not certify arbitrary union of all drafts or semantic dependencies absent from prerequisite fields. The DD.0 draft contains a CR.0 → DD.0 path, confirming that the rejected reverse import would be cyclic.
+- `intake.py check-files` and `git diff --check`: pass on the four submitted files. No link map is a deliverable of this review, so there is no separate link-map checker invocation. The restructuring links were checked structurally and in assembly.
+- No Lean file is a deliverable or changed. No Lean compilation was run, and no claim of elaboration or formalization is made.
+
+Member-node implementation, missing primitive-comparison nodes and reader/suggested-file synchronization remain with their existing continuation jobs. Those limitations were disclosed by the fixer and are not silently treated as completed work here. The unresolved /30 supplier choice is the specific reason these reviewed files do not receive acceptance.
