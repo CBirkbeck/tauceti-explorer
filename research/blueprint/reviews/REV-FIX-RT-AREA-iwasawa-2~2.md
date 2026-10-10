@@ -1,3 +1,106 @@
+# Independent continuation — codex-iSC2Iz
+
+Codex, session `codex-iSC2Iz`, 10 October 2026. Refs #6219.
+Input atlas: `3a07447e7197edbc9e1feda7deaa7c36ecbab776`.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097589642).
+This reviewer did none of the fixes and claimed only this job.
+
+**Checkpoint: scope authorization is required to finish.** The freshly reread
+live issue names L3 and PMIA packets; the unchanged queue also requires L3-2
+and D.1 receipts. [WORKERS.md](../WORKERS.md) permits edits only to named
+files and scratch. Authorization for the two missing packet paths was requested
+while the independent work continued; it has not been received. No packet,
+review history, Lean file or queue entry was changed. This report and its
+handoff are the only submitted changes.
+
+The real `issues.deliverables_complete(job)` returns **False**. A fresh scratch
+overlay with exactly the two proposed packet edits returns **True**. Both drafts
+pass the packet checker. The entire D.1 prior review, including all 72 checked
+entries, is preserved unchanged in the proposed `reviewHistory`. Both drafts
+preserve every gap, request, sourceIssue and coverage entry. The sole
+non-review edit replaces E34 with `DirichletPadicLFunctions/E37` in the Zhao
+locator of `rjw2-fg-log-antidifference`; its mathematical statement is unchanged.
+The concrete records retained below reproduce these edits after scratch deletion:
+replace their session by `codex-iSC2Iz` and remove “Proposed” only when installing.
+
+## Bounded findings checked in this continuation
+
+The original findings, verifier and round-two fix report were read. These checks
+concern the fix contracts, not a new full review of the four large packets.
+
+1. **Gamma/Gross–Koblitz:** read the eight selected L3 contracts and their APIs,
+   tests and prerequisites. Morita §1, Lemma 1/Theorem 1 pp.255–256 confirms
+   signed interpolation and both recurrence branches. The dyadic natural
+   products at 1 and 5 differ modulo four, so the excluded congruence remains
+   necessary. Gross–Koblitz §1 (1.2), (1.5), Theorem 1.7 pp.570–571 requires
+   the negative Gauss sum and normalized root; Robert's separate all-prime
+   Theorem 4 p.168 and preceding dyadic estimate do not close the RD.6 inputs.
+2. **Ferrero–Greenberg:** read all 29 selected L3-2 root/derivative contracts.
+   Zhao §1.2 p.461, §4 Theorem 4.1 and (4.1)–(4.6) pp.471–473 supports
+   the all-prime scope, prime-to-p conductor, even branch and conductor term.
+   Appendix B.2 p.474 has the endpoint discrepancy already correctly repaired
+   in the packet's statement; its E37 locator remains to install. The formula
+   does not supply the separate arithmetic nonvanishing theorem.
+3. **Syntomic:** read the four D.2 consumer contracts and their prerequisites,
+   APIs and tests against Ertl–Nizioł §§2.1–2.2 pp.4–8, Colmez–Nizioł
+   Corollary 3.16 p.37/Theorem 5.4 p.54, and Nekovář–Nizioł Remark 2.14
+   p.14/Proposition 4.13 pp.53–54. Directed divided/undivided maps, factorial
+   twist, exact divided range through p−2, bounded undivided range and rational
+   exponential scale/sign remain distinct. CS.0–CS.3 construction stays external.
+4. **DK algebra:** read v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26,
+   §5.2 p.34, §6.1 p.40, §7.2.9 p.49, Appendix A.3–A.4 pp.85–86 and
+   B.2 pp.93–94 against the selected L6 statements. Evaluation-image rings,
+   changing character sets, regular determinants and the corrected right-sided
+   adjugate argument remain appropriate. Retain the existing PMIA
+   `needs_changes`: five generic contracts duplicate current native Fitting
+   and stable-transpose APIs. This continuation does not claim a fresh audit
+   of every L6 API/test or migrate the reader, which is outside the issue scope.
+5. **Finite slopes:** checked LAD's finite-perfect model, strict equivariant
+   homotopy, derived base change, classical/solid finite windows and the two
+   associated gaps. The stronger homotopy-category and solid localization
+   suppliers remain unresolved; the routing does not assert their closure.
+   This was a packet-boundary check, not a fresh source audit of LAD.
+6. **Main-conjecture routes:** RS-16's I.5 decision and independent review keep
+   the Mazur–Wiles/Wiles and Euler-system proof routes separately. Retain the
+   verifier's rejection of their proposed collapse.
+
+## Library and validation evidence
+
+Read the reviewed coverage entries for L3, L6, D.2 and I.5. They describe the
+older pins and do not override current built declarations. Current roadmap
+main is `e255659f8eb50cd472809d9d565c8f755acffd84`; current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read current Fitting Basic/BaseChange
+and StableTranspose contracts, plus the StableReduction and QuiverRepresentations
+roadmap boundaries. `TauCeti.fittingIdeal_baseChange` needs no flatness;
+`TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` works over the
+opposite ring for arbitrary projective presentations. Retain scalar transport,
+matrix/kernel and finite-projective adapters rather than rebuilding generic
+results. The transpose and dual-base-change source files at Tau Ceti `f790474`
+match the shared build byte for byte; all three newer modules are absent at
+that pin.
+
+All eight freshly retrieved public PDF hashes match the table below. Scanned
+Morita/Gross–Koblitz/Robert formulas were inspected visually. No Robert book
+or uncleared book was read and no source passage was added to the repository.
+
+All four actual packets pass `check_blueprint.py`: L3 has zero errors and
+26 inherited short-API warnings; the other three have zero errors/warnings.
+Both proposed packets have zero errors/warnings. Four sequential `lean-check`
+attempts give L3-2 110, D.1 307 and PMIA 1,075 proof-placeholder warnings only.
+L3 fails before its body with unknown module prefix `research`, because the
+shared build lacks its repository-local imports. Lean sources are unchanged;
+no compiler remains running.
+
+Do not redispatch this unchanged scope to another reviewer. The next useful
+step is authorization of the two omitted packet paths, followed by installing
+the preserved proposals and requiring the real completion predicate to return
+True. PMIA's negative verdict is valid review completion and is separate from
+this intake blocker. See the [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-2~2.md).
+
+---
+
+## Preceding reports, retained with original attribution
+
 # Independent continuation — codex-ACNEuH
 
 Codex, session `codex-ACNEuH`, 10 October 2026. Refs #6219.

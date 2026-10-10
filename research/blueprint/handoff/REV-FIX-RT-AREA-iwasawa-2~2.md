@@ -1,88 +1,65 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — resolve scope before redispatch
+# REV-FIX-RT-AREA-iwasawa-2~2 — scope-blocked checkpoint
 
-Codex, session `codex-ACNEuH`, 10 October 2026.
-[Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097375898).
-Input: `bd62adda22331a1426e1fb48512837fe587e5cee`. One job; none of its
-fixes was this reviewer's work.
+Codex, session `codex-iSC2Iz`, 10 October 2026. Refs #6219.
+Input `3a07447e7197edbc9e1feda7deaa7c36ecbab776`.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097589642).
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records fresh
-bounded checks of the eight L3 contracts, 29 L3-2 contracts, four D.2 consumers
-and 50 PMIA L6 contracts, plus LAD's relevant routing/gaps and RS-16's I.5
-decision. It preserves both concrete proposed review objects and the preceding
-reports with their original attribution. It does not claim a complete fresh
-audit of any whole packet. The actual completion predicate remains False; a
-fresh two-packet draft overlay makes it True. Packet reviews/history and all
-mathematical deliverables are unchanged. Do not refresh the same two named
-reviews to try to finish the job.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records fresh bounded
+source checks, current/pinned library checks, four original packet validations,
+two draft validations and four sequential Lean attempts. It retains the exact
+proposed review objects, node selections, source links and earlier reviews
+with their original attribution. No packet, Lean file or queue was modified.
+The original completion predicate is False; a two-packet scratch overlay is
+True. All gaps/requests/sourceIssues/coverage stay unchanged. The proposed D.1
+archive preserves the complete preceding review, including its 72 checked
+entries. Scratch is removed after PR opening; no resumption step needs it.
 
-Fresh current roadmap main is `e255659f8eb50cd472809d9d565c8f755acffd84`;
-current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-The native Fitting and stable-transpose reuse requirement persists.
-All four packet checks, two overlay checks and four sequential Lean attempts
-were repeated. The proposed D.1 archive retains all 72 prior checked entries.
-No queue mutation, owner move, Lean edit or packet receipt refresh was made.
-Both omitted packet drafts preserve every gap, request, sourceIssue and
-coverage entry. The only non-review change is the E37 locator below.
+## Resolve before redispatch
 
-## The blocking condition
+The live issue omits two packet paths that its queue requires. Authorization
+was requested and has not arrived. [WORKERS.md](../WORKERS.md) says:
+“Edit only the files the issue names, plus your own scratch space.”
+Correct the live issue scope or explicitly authorize these paths before a
+fresh process resumes. Do not refresh the already correctly named L3/PMIA
+receipts or change the queue to bypass the completion rule.
 
-The live issue names only the L3 and PMIA packets. The unchanged queue also
-requires L3-2 and D.1 fix-review records. [WORKERS.md](../WORKERS.md) says:
-“Edit only the files the issue names, plus your own scratch space.” Explicit
-authorization for the two omitted packet paths was requested while independent
-checks continued; no reply arrived. No extra Lean-file edit is needed.
+1. `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`:
+   install the report's accepted bounded fix review with reviewer
+   `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`. Update session/date and
+   remove “Proposed” when installing. Archive any previous full review.
+   In `DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference`, replace only
+   E34 by `DirichletPadicLFunctions/E37` in the Zhao source locator. Keep
+   the existing strict endpoint and Gamma argument. Preserve all five gaps,
+   eight requests and the sourceIssue; keep the arithmetic nonvanishing
+   suppliers separate.
+2. `research/blueprint/packets/PadicHodgeRegulators--D.1.json`:
+   first append the entire current
+   `independent-review-REV-PadicHodgeRegulators--D.1~2` review unchanged to
+   `reviewHistory`, including all 72 checked entries. Install the report's
+   accepted fix receipt, explicitly bounded to the four D.2 consumers.
+   Preserve 17 sourceIssues, nine gaps, twenty requests and eight planned
+   stages. Do not imply a fresh complete regulator review or CS producer closure.
+3. Run all four packet checkers and `intake.py check-files` for changed paths.
+   Import `research/blueprint/issues.py`, load the unchanged job from
+   `queue.json`, and require `deliverables_complete(job)` on the real checkout
+   to return True before calling the job complete. No extra Lean edit is needed.
 
-`issues.deliverables_complete` on the actual queue returns **False**. A scratch
-overlay changing only these two packets returns **True**. Both proposed packets
-pass the checker. PMIA's `needs_changes` is a completed review verdict and is
-not the cause of the scope failure. Correct the live issue scope or explicitly
-authorize the two paths below before redispatch. Queue mutation to bypass the
-completion predicate is not a solution.
+In this run L3-2, D.1 and PMIA elaborate with respectively 110, 307 and 1,075
+proof-placeholder warnings only. L3 fails at the unavailable repository-local
+`research` imports in the isolated shared build. No compilation remains running.
+Packet prose must say “proof-placeholder warnings”; the checker rejects Lean's
+admitted-proof token in packet prose.
 
-## Concrete remaining edits after authorization
+## Separate mathematical revision
 
-1. `packets/DirichletPadicLFunctions--L3-2.json`: in node
-   `DirichletPadicLFunctions:L3/rjw2-fg-log-antidifference`, change the Zhao
-   locator's E34 to `DirichletPadicLFunctions/E37`. Keep the strict endpoint,
-   Gamma argument, proof and sourceIssue verdict unchanged. Use the concrete proposed record in the report to install an
-   accepted review by `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`, dated
-   on the continuation's day, explicitly bounded to the 29 root/derivative
-   contracts in the report. Record the all-prime hypotheses, conductor term,
-   dyadic normalization and separate nonvanishing suppliers. Preserve all
-   five gaps, eight requests and the sourceIssue; archive any existing whole
-   review before replacement.
-2. `packets/PadicHodgeRegulators--D.1.json`: archive the current entire
-   `independent-review-REV-PadicHodgeRegulators--D.1~2` in `reviewHistory`,
-   including all 72 `checked` entries. Install an accepted review with this
-   fix-review id, bounded to D.2 `log-syntomic-complex`,
-   `fontaine-messing-kato-period-map`, `small-twist-comparison`,
-   `syntomic-exponential`. Record the divided/undivided maps, factorial twist,
-   exact small-weight and bounded undivided ranges, rational exponential
-   scale/sign and external CS.0–CS.3 producers. Preserve 17 sourceIssues,
-   nine gaps, twenty requests and eight planned stages. Do not imply a new
-   complete regulator audit or producer closure.
-3. Run all four packet checkers and intake checks. Load the unchanged job
-   from `research/blueprint/queue.json`, import `research/blueprint/issues.py`
-   and call `deliverables_complete(job)` against the real repository.
-   Require True before calling the submission complete. Suggested files need
-   no edit for these receipts. Their original checks in this run were PMIA
-   1,075, L3-2 110 and D.1 307 `sorry` warnings only; L3 fails at local imports.
-
-Scratch drafts and logs are removed after PR opening. These instructions and
-the report reproduce the proposed edits without scratch dependencies. Review
-notes in packet JSON should say “proof-placeholder warnings”: the checker
-rejects the token used by Lean for admitted proofs in packet prose.
-
-## Mathematical follow-up, distinct from this scope blocker
-
-PMIA still needs coordinated reuse of current native Fitting and stable
-transpose APIs. Migrate five generic L6 nodes, their direct consumers, both
-StableReduction requests, L4 comparison, reader and suggested interfaces
-together. The five ids and exact native contracts are in the report. Keep
-matrix/kernel and finite-projective scalar/range adapters, order computations,
+Retain PMIA's existing `needs_changes` review. Migrate the five generic L6
+nodes `higher-fitting-ideal`, `relation-minors-add-generator`,
+`higher-fitting-independence`, `higher-fitting-base-change`, and
+`transpose-stable-equivalence` to the current native APIs together with their
+consumers, both StableReduction requests, L4 comparison, reader and suggested
+interfaces. Exact contracts and current commits are retained in the report.
+Keep matrix/kernel, opposite-ring/scalar and finite-projective adapters,
 nonflat/deficient-relation controls and rank/nontriviality hypotheses. The
-reader is outside this review scope, so retain `needs_changes` rather than
-performing an inconsistent partial migration. CS producers and LAD's stronger
-homotopy/solid inputs remain explicit gaps; RS-16's independent proof routes
-remain separate. No mathematical owner was moved in this run.
+reader is outside this review scope; a partial migration is inappropriate.
+PMIA's negative verdict already constitutes a completed review and does not
+cause the intake scope failure. No mathematical owner was moved in this run.
