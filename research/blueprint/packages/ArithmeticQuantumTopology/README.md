@@ -1881,9 +1881,9 @@ The ledger records exact knot/root/normalization/representation/shape-field data
 
 <a id="qt-7-proved-cases-conjectures-and-the-executable-boundary"></a>
 
-### The labelling discipline, and what the suggested Lean file contains
+### Provenance and comparison boundaries
 
-All eight accepted QT stages are decomposed here. The suggested Lean file states concrete algebraic linking-matrix predicates, Laurent-polynomial colored-Jones interfaces, flattening charts, qualified linear NZ equations/Hessians, a prescribed-contour Faddeev strip integral, figure-eight root descendants and the conditional matrix-cocycle identity. It does not encode an arbitrary relation quotient as the extended Bloch group, arbitrary matrices as ideal triangulations, or arbitrary functions as quantum invariants. Missing geometric/ribbon/complete-integral structures are named in the omission inventory with the corresponding gap/request. Generic completions, Gaussian theory, K₃/Bloch theory, quantum modularity and cusped geometry remain supplier-owned. QT Part II’s two-variable/MMR/relative-Habiro route follows QT.2 under the accepted split.
+The ledger records each output’s status. Geometric comparisons require their stated carriers. The two-variable/MMR/relative-Habiro route is Part II, over QT.2.
 
 **Prerequisites.** [The comparisons with the Habiro ring that are actually proved, and the ones that are not](#qt-6-what-is-exported-to-the-habiro-roadmaps); [A reproducible ledger linking the four kinds of data, for two knots](#qt-7-the-example-ledger).
 
@@ -1921,7 +1921,7 @@ For a knot with a finite set P_K of isolated boundary-parabolic SL₂(ℂ) repre
 
 ### Denominator cocycle
 
-For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds≠0, set λγ(x)=c/[s(cr+ds)]. It is independent of the sign of the matrix representative. Whenever γ′x and γγ′x are finite, λ_(γγ′)(x)=λγ(γ′x)+λγ′(x). The corresponding diagonal twist exp(Ṽσ λγ(x)), Ṽσ=Vσ/(2πi), combines with |cx+d|^κσ to give the GZ tweaked automorphy factor. The rational pole exclusions are part of the domain.
+For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds≠0, set λγ(x)=c/[s(cr+ds)]. Whenever γ′x and γγ′x are finite, λ_(γγ′)(x)=λγ(γ′x)+λγ′(x). For fixed data vσ=Vσ/(2πi), κσ₀=3/2 and κσ=0 otherwise, put j̃γ(x)=diagσ(exp(vσλγ(x))|cx+d|^κσ). Its positive real-power base gives nonzero entries and a GL lift; j̃_(γγ′)(x)=j̃γ(γ′x)j̃γ′(x). Diagonality allows GZ (4.15)’s reversed order. Negating γ leaves λ and j̃ unchanged. The Lean formula accepts fixed volumes and real weights; the preceding target supplies their knot interpretation.
 
 **Prerequisites.** [Representation-indexed knot series](#qt-7-representation-indexed-perturbative-family); `QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-cocycle`.
 
@@ -1931,6 +1931,8 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 - `denominatorCocycle_comp`: The additive composition identity with both pole exclusions.
 - `tweakedAutomorphy`: The diagonal exp(Ṽσλγ)|cx+d|^κσ.
 - `tweakedAutomorphy_comp`: The factors compose on the common pole-free domain.
+- `tweakedAutomorphyEntry`: A scalar entry, nonzero off the pole, with composition and sign invariance.
+- `tweakedAutomorphyGL`: The native GL lift; its matrix coercion and composition agree with the diagonal formula.
 
 **Unit tests.**
 
@@ -1938,8 +1940,13 @@ For γ=(a b;c d)∈PSL₂(ℤ), x=r/s∈ℚ in lowest terms with s>0 and cr+ds�
 - `lambda_S_one`: For S=(0 −1;1 0), λ_S(1)=1.
 - `lambda_S_zero`: x=0 is excluded from λ_S because Sx is infinite.
 - `lambda_sign`: γ and −γ give the same λ.
+- `lambda_S_two_thirds`: λ_S(2/3)=1/6, rather than 3/2.
+- `tweaked_T`: Every entry is 1 and both the diagonal and GL factor are the identity.
+- `tweaked_S_one`: Each entry at S,1 is exp(vσ), independently of κσ; both matrix carriers have that diagonal.
+- `tweaked_S_two_thirds`: At weight zero the entry is exp(vσ/6).
+- `tweaked_sign`: Negating S leaves the entries and diagonal unchanged; S,0 admits no pole-free GL lift.
 
-**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.1, equation (3.5) and Lemma 3.1, p. 16; use E11 correction.
+**Sources.** [Knots, perturbative series and quantum modularity](https://arxiv.org/abs/2111.06645v3), §3.1, equation (3.5) and Lemma 3.1, p. 16 (subtract the second fraction in the displayed proof); §4.2, equations (4.14)–(4.15), p. 30.
 
 <a id="qt-7-generalized-quantum-modularity"></a>
 
