@@ -1,102 +1,98 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-oYbkOx`, 10 October 2026; issue
+Codex (GPT-6), session `codex-zSS4E1`, 10 October 2026; issue
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-One confirmed claim and one checkpoint. **The live issue review is finished;
-queue completion is blocked by the issue/queue scope mismatch.**
+One bot-confirmed claim and one checkpoint. **The authorized two-packet
+review is finished; the queue cannot finish within the live issue's scope.**
 
-L3 is accepted within the fix scope. PMIA needs coordinated reuse of current
+L3 is accepted within the fixes. PMIA needs coordinated migration to current
 Tau Ceti's generic Fitting and transpose APIs. The
-[report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records all six dispositions,
-fresh public source locators/hashes, pinned/current native hypotheses,
-compiler diagnostics and the attributed prior L6 ledger. Archived the two
-codex-6EmRVa receipts in `reviewHistory`; changed no mathematical node,
-source-issue verdict, request, baseline or suggested signature.
+[review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records all six
+finding dispositions, fresh public-source locators/hashes, current/pinned
+native interfaces, final checker/compiler results and the retained
+codex-KQjyXV L6 ledger. Archived codex-oYbkOx's two receipts in
+`reviewHistory`. Mathematical nodes, pins, requests, source-issue reviews
+and suggested files are unchanged.
 
-## Resolve scope before another dispatch
+## Resolve the dispatch mismatch
 
-The live issue authorizes five files, covering only L3 and PMIA. The queue
-also requires the L3-2 and D.1 packets/suggested files. A read-only call to
-`issues.deliverables_complete` returns True for the live five-file scope and
-False for the nine-file queue scope: L3-2 has no review object, while D.1 has
-another independent review id. A `needs_changes` verdict counts as a
-completed review, so PMIA's verdict is not this administrative blocker.
+The live issue names these five deliverables: this job's report, the L3 and
+PMIA packets, and their suggested files. `queue.json` requires nine outputs,
+adding:
+
+- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
+- `research/blueprint/suggested/DirichletPadicLFunctions--L3-2.lean`
+- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
+- `research/blueprint/suggested/PadicHodgeRegulators--D.1.lean`
+
+A fresh read-only `issues.deliverables_complete` call returns True for the
+live five-file scope and False for the nine-file queue scope. `needs_changes`
+is a completed review verdict; PMIA's verdict does not cause this mismatch.
+L3-2 has no top-level review, and D.1 has the newer independent
+`independent-review-REV-PadicHodgeRegulators--D.1~2` regulator review, not this
+fix-review id.
 
 [WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue names,
 plus your own scratch space.” Requested authorization for the four extra
-paths; no answer arrived. No extra file, queue entry, issue body or label was
-changed. Reconcile the issue and queue, or authorize the two additional
-scoped reviews, before redispatching. Repeating the same two receipts cannot
-complete the queue.
+paths; no answer arrived. Those files, the queue, issue body and labels
+were not edited. Before redispatching, either reconcile the issue's scope
+with the queue or authorize the additional scoped fix reviews. Another
+refresh of the same two receipts cannot complete the queue.
 
-The report links codex-6EmRVa's retained, read-only L3-2/D.1 preflight. Use it
-as prior evidence, not a new audit by this session. Preserve D.1's newer
-independent regulator/source-issue reviews when installing any later scoped
-fix receipt. Ferrero–Greenberg nonvanishing and CS.0–CS.3 remain external;
-prototype elaboration does not close them.
+## Fresh preparation for an authorized continuation
 
-## New compiler evidence and reproduction
+Read all 29 L3-2 `rjw2-gk-*`/`rjw2-fg-*` contracts and four D.1 integral/open
+syntomic contracts without editing them. Fresh Zhao/Gross and EN/CN/NN
+source checks are recorded with public URLs and PDF hashes in the report.
+EN Proposition 2.1 supplies the small-weight truncation of the divided
+complex; Theorem 2.2 then supports its nearby-cycle comparison. The
+normalized exponential remains ω_Q⁻¹δ_D; the raw undivided boundary carries
+a p^r factor. The Ferrero–Greenberg formula retains its conductor term,
+branch and character orientation. Its nonvanishing input and CS.0–CS.3
+remain external.
 
-PMIA's full suggested file elaborated with 1,075 proof-placeholder warnings
-only. Standalone L3 stops at unresolved repository-local imports. To examine
-its whole body without a dependency build, concatenate the suggested bodies
-PMIA, L0, L1, L2, L3 in that order into a scratch Lean file. Collect/deduplicate
-their Mathlib/TauCeti import commands at the top and remove their original
-library/repository-local import commands. Retain all other text. The report
-records exact input hashes and atlas input commit.
+Full standalone `lean-check` passes: L3-2 has 110 proof-placeholder warnings
+only; D.1 has 307. Their packet checkers have no errors or warnings. These
+are fresh prototype checks, not implementations or new independent full
+regulator/source reviews. Preserve D.1's complete existing regulator review
+in history if a later authorized pass installs the scoped fix receipt, and
+preserve all source-issue verdicts.
 
-The unmodified assembly processes every L3 declaration with no L3 errors,
-but has supplier errors, including 46 repeated `p✝` unknown-constant
-diagnostics at L1 line 1883. A first scratch-only correction reveals a
-natural-number filter inference error in the newly parsed L1 declaration.
-The required supplier changes are:
+## Reproduce the L3 diagnostic
+
+PMIA's complete suggested file elaborates with 1,075 proof-placeholder
+warnings only. Standalone L3 stops at repository-local `research` imports.
+The fresh full-body diagnostic elaborates with 7,177 proof-placeholder
+warnings only under scratch-only supplier corrections. Concatenate bodies
+PMIA, L0, L1, L2 and L3 in order; deduplicate library imports at the top and
+remove original library/repository import commands. The report gives the
+input and assembled hashes. Apply these corrections only in scratch until
+the supplier owners are authorized to repair their files:
 
 - L1 `smoothedResidue_carry`, original lines 1753–1758: close the first
-  conjunct after `(N : ℤ)` before `∧`, and give its residue-count filter binder
-  the explicit natural-number type `fun i : ℕ => ...`.
-- L2, original lines 3854 and 3856: reconcile/remove the unused `d` notation
-  referring to undefined `eisensteinTwistedDenominator`, and its unused `S`
-  notation. These lie in `SuggestedEisensteinAwayTests`; do not invent a new
-  denominator to mask the error.
-- L1 line 1883: expand `variable [IsBoundedSMul Z K]` to the explicit types
-  `variable [IsBoundedSMul ℤ_[p] ℚ_[p]]`. The repeated unknown-constant
-  diagnostics use `error(lean.unknownIdentifier)`, so a search for only
-  `error:` misses them. Count both diagnostic formats.
-- L1 lines 1976–1977, `unit_denominator_quinary`: after the above correction,
-  the concrete p-adic types need `Fact (Nat.Prime 5)`. Add a local instance
-  proved by `norm_num` before this example; no new proof placeholder is
-  needed. The expanded-notation run otherwise finishes with only three
-  diagnostics for this missing instance and 7,176 proof-placeholder warnings.
+  conjunct after `(N : ℤ)` and type the filter binder `fun i : ℕ => ...`.
+- L1 line 1883: expand `[IsBoundedSMul Z K]` to
+  `[IsBoundedSMul ℤ_[p] ℚ_[p]]`.
+- L1 before `unit_denominator_quinary`, original lines 1976–1977: supply a
+  local `Fact (Nat.Prime 5)` instance proved by `norm_num`.
+- L2 original lines 3854 and 3856: remove the unused `d` notation referring
+  to undefined `eisensteinTwistedDenominator` and the unused `S` notation.
 
-No supplier repository file was edited: both are outside this issue.
-The final assembled diagnostic with all five supplier corrections exits 0
-with 7,177 proof-placeholder warnings only. L3 and PMIA bodies are unchanged.
-This is conditional prototype elaboration; the original standalone L3 file
-still lacks dependency artifacts and its original suppliers still need repair.
-The report records the final diagnostic hash and all original input hashes.
-All checks ran sequentially through `lean-check` after memory checks. No
-language server, Lake project/dependency build, or current-main build was
-started. No Lean process remains at submission.
+Both suppliers are outside the issue. This session reproduced the final
+corrected assembly, not each earlier failing intermediate experiment. The
+original L3 file still lacks dependency artifacts and the supplier sources
+still need repair. All Lean runs were sequential through `lean-check` at
+the pinned libraries after memory checks. No Lean process remains running.
 
 ## PMIA migration boundary
 
-At current Tau Ceti a91d3aa, the four generic L6 Fitting nodes, their direct
-consumers, both StableReduction requests, the L4 comparison and
-reader/signatures need coordinated migration. Retain the concrete
-matrix-column/kernel-minor adapter and discriminating tests. Derive the
-transpose zero-relation and split-identity changes from native
-`compFstEquiv`, `prodMapEquiv` and `quotientEquiv`, preserving their range and
-scalar obligations. Projective base change and arbitrary-presentation stable
-comparison remain separate work.
-
-These new native APIs are absent at f790474; keep the old/current boundary
-explicit. The reader is outside the live issue. The report gives exact
-native declarations/hypotheses, and existing packet `upstreamNotes` retains
-the full migration inventory. Do not silently change pins or rebuild native
-carriers.
-
-Both packet checkers pass (L3: 26 inherited short-API warnings; PMIA: none),
-and all 57 L6 test names occur in the suggested file. The report distinguishes
-selected fresh source checks from the historical 50-node audit ledger. All
-needed continuation evidence is committed or linked; public PDFs and scratch
-are disposable. No source passage or restricted book was copied.
+Current read-only Tau Ceti `a91d3aa` supplies the generic all-degree Fitting
+carrier, arbitrary base change, and transpose quotient/direct-sum/zero-relation
+equivalences. The report gives actual native hypotheses and confirms those
+new APIs are absent at f790474. Coordinate the four generic Fitting nodes,
+direct consumers, StableReduction requests, L4 comparison and reader/signatures.
+Retain the matrix-column/kernel-minor adapter and discriminating tests.
+Derive zero-relation and identity-summand changes using `compFstEquiv`,
+`prodMapEquiv` and the split identity theorem. `quotientEquiv` requires its
+range and scalar obligations. Projective base change and arbitrary-presentation
+stable comparison remain separate work.
