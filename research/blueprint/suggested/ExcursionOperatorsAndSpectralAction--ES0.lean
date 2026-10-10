@@ -16,8 +16,9 @@ True conclusion, arbitrary Prop-valued structure field, or ordinary-category
 alias is used to pretend that the missing enhanced construction exists.
 
 Revision 2 independent review (REV-ExcursionOperatorsAndSpectralAction--ES0~2,
-2026-10-09) completed with needs_changes: 35 node, 16 API and 18 test
-signatures remain omitted. Eight packet nodes have corrected supplier or test
+2026-10-09) completed with needs_changes. Revision 3 supplies the generic
+support_coefficient_change signature; 34 node, 16 API and 18 test signatures
+remain omitted. Eight packet nodes have corrected supplier or test
 contracts; the corresponding reader is synchronized. The dual-number exact
 sequence tests the generic lemma in D(R), where its endpoint k need not be
 compact; the compact nilpotent example instead uses the central R action on
@@ -25,7 +26,8 @@ Perf(k) through R -> k. Named current VS/HS planning contracts do not supply
 the missing executable enhanced types.
 
 This is a partial revision checkpoint. The declarations below express ordinary
-observations and the generic pretriangulated support theorem. In particular,
+observations, the generic pretriangulated support theorem and the flat
+endomorphism-kernel coefficient comparison. In particular,
 ordinary quotient-action triviality is not a substitute for coherent enhanced
 equivariant descent. The orbit
 factorization uses actual functors and natural isomorphisms, while its higher
@@ -39,13 +41,16 @@ import Mathlib.CategoryTheory.Linear.LinearFunctor
 import Mathlib.RingTheory.Spectrum.Prime.Basic
 import Mathlib.RingTheory.Spectrum.Prime.RingHom
 import Mathlib.RingTheory.Ideal.Maps
+import Mathlib.RingTheory.Flat.Basic
 import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.CategoryTheory.Triangulated.Pretriangulated
 import Mathlib.Algebra.Category.ModuleCat.Basic
 import Mathlib.Algebra.DualNumber
+import Mathlib.Data.ZMod.Basic
 
 open CategoryTheory
 open scoped IsMulCommutative
+open scoped TensorProduct
 
 namespace TauCetiBlueprint.Excursion
 
@@ -360,12 +365,35 @@ section SupportComparisons
 variable {R S : Type*} [CommRing R] [CommRing S]
 variable {C D : Type*} [Category C] [Category D] [Preadditive C] [Preadditive D]
 
-/-- The compatible-action containment does not need flatness.
-The stronger endomorphism tensor comparison remains a supplier-dependent signature. -/
+/-- Compatible actions carry an annihilator into the new annihilator.
+No flatness or endomorphism tensor comparison is required. -/
+lemma centralAnnihilator_map_le (a : R →+* CatCenter C) (b : S →+* CatCenter D)
+    (φ : R →+* S) (F : C ⥤ D) [F.Additive]
+    (h : ∀ r X, (b (φ r)).app (F.obj X) = F.map ((a r).app X)) (X : C) :
+    Ideal.map φ (centralAnnihilator a X) ≤ centralAnnihilator b (F.obj X) := by
+  sorry
+
+/-- The compatible-action containment does not need flatness. -/
 lemma centralSupport_map (a : R →+* CatCenter C) (b : S →+* CatCenter D)
     (φ : R →+* S) (F : C ⥤ D) [F.Additive]
     (h : ∀ r X, (b (φ r)).app (F.obj X) = F.map ((a r).app X)) (X : C) :
     centralSupport b (F.obj X) ⊆ (PrimeSpectrum.comap φ) ⁻¹' centralSupport a X := by
+  sorry
+
+/-- Flat tensoring preserves the kernel of evaluation at the identity.
+The module structures are the evaluated central scalar actions, expressed by
+ha and hb. The supplied S-linear comparison carries the tensor identity to
+the identity of Y; it does not assume the desired annihilator equality.
+Geometric scalar extension must supply this comparison at the claimed object. -/
+lemma support_coefficient_change [Algebra R S] [Module.Flat R S]
+    (a : R →+* CatCenter C) (b : S →+* CatCenter D) (X : C) (Y : D)
+    [Module R (End X)] [Module S (End Y)]
+    (ha : ∀ r : R, ((a r).app X : End X) = r • (1 : End X))
+    (hb : ∀ s : S, ((b s).app Y : End Y) = s • (1 : End Y))
+    (e : S ⊗[R] End X ≃ₗ[S] End Y)
+    (he : e (1 ⊗ₜ[R] (1 : End X)) = (1 : End Y)) :
+    centralAnnihilator b Y = Ideal.map (algebraMap R S) (centralAnnihilator a X) ∧
+    centralSupport b Y = (PrimeSpectrum.comap (algebraMap R S)) ⁻¹' centralSupport a X := by
   sorry
 
 /-- The ring-theoretic half of localization; this does not construct a telescope. -/
@@ -396,6 +424,33 @@ example :
   sorry
 
 end ModuleSupportExamples
+
+-- support_coefficient_change_requires_End_comparison: even for the flat identity
+-- ring map, replacing the scalar module by zero changes its annihilator.
+-- The additive zero functor is compatible with scalar actions. Thus those
+-- hypotheses alone cannot imply equality, without the endomorphism comparison.
+example :
+    centralAnnihilator (Linear.toCatCenter ℤ (ModuleCat ℤ)) (ModuleCat.of ℤ ℤ) = ⊥ ∧
+    centralAnnihilator (Linear.toCatCenter ℤ (ModuleCat ℤ))
+      (ModuleCat.of ℤ (Fin 0 → ℤ)) = ⊤ := by
+  sorry
+
+-- support_coefficient_change_requires_flatness: ℚ tensored with ℤ/2 is zero.
+-- Its degree-zero End tensor comparison is therefore an equivalence to End(0)
+-- preserving the identity, yet the annihilator grows from zero to the unit ideal.
+example :
+    let X := ModuleCat.of ℚ ℚ
+    let Y := ModuleCat.of (ZMod 2) (Fin 0 → ZMod 2)
+    let a : ℤ →+* CatCenter (ModuleCat ℚ) :=
+      (Linear.toCatCenter ℚ (ModuleCat ℚ)).comp (Int.castRingHom ℚ)
+    let b := Linear.toCatCenter (ZMod 2) (ModuleCat (ZMod 2))
+    (¬ Module.Flat ℤ (ZMod 2)) ∧
+    (∃ e : (ZMod 2) ⊗[ℤ] End X ≃ₗ[ZMod 2] End Y,
+      e (1 ⊗ₜ[ℤ] (1 : End X)) = (1 : End Y)) ∧
+    centralAnnihilator a X = ⊥ ∧ centralAnnihilator b Y = ⊤ ∧
+    Ideal.map (Int.castRingHom (ZMod 2)) (centralAnnihilator a X) ≠
+      centralAnnihilator b Y := by
+  sorry
 
 section EllipticObservation
 variable {H : Type*} [Group H] (S : Subgroup H) (Z : Subgroup S) [Z.Normal]
@@ -977,7 +1032,9 @@ annihilates B.
 
 ExcursionOperatorsAndSpectralAction:ES4/support-coefficient-change
 Proposed declaration: support_coefficient_change
-OMITTED HIGHER SIGNATURE: the exact types are not supplied at the pins.
+The full generic flat-kernel statement is declared above, together with the
+unconditional ideal containment and support containment. Its geometric
+instantiation must supply the actual degree-zero End tensor comparison.
 Given compatible central actions for a ring map R->S and an exact scalar-extension functor A |->
 A_S, the ideal Ann_R(A)S annihilates A_S, hence Supp_S(A_S) is contained in the inverse image of
 Supp_R(A). If S is flat over R and the natural degree-zero endomorphism base-change map End(A)

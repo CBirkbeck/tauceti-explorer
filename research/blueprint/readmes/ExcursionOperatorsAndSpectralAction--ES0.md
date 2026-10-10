@@ -1,6 +1,6 @@
 # Excursion operators and the spectral action: ES0–ES4
 
-This is a **partial revision 2 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, four explicit gaps and sixteen open supplier requests. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
+This is a **partial revision 3 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, four explicit gaps and fifteen open supplier requests, with one supplied import contract retained. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
 
 The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256. The original 7 October reading receipt is retained; revision 2 reread the specific ranges recorded below on 9 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The revision also read the upstream ReductiveGroups and SemisimpleAlgebras roadmaps in full for declaration, proof and API density.
 
@@ -1332,24 +1332,28 @@ Given compatible central actions for a ring map R->S and an exact scalar-extensi
 Hypotheses and interfaces:
 
 - The End comparison is an explicit supplier hypothesis, not inferred for every lisse object.
+- For the generic degree-zero statement, the End modules use the evaluated central scalar actions. The comparison is S-linear and sends 1 tensor id_A to id_(A_S). These are data and scalar-compatibility hypotheses, not an assumed equality of annihilators.
 
 Construction or proof:
 
-1. Apply the comparison functor to an annihilating central transformation.
-2. For the equality case tensor the kernel sequence R->End(A) with the flat S module.
-3. Identify the resulting evaluation map S->End(A_S) and use the inverse-image formula for Spec.
+1. Apply the additive comparison functor to an annihilating central transformation. The image ideal lies in the new annihilator; this gives the unconditional support containment.
+2. Write evaluation R->End(A) as LinearMap.toSpanSingleton at id_A. Its kernel is Ann_R(A). Apply Module.Flat.lTensor_exact to the kernel inclusion followed by this evaluation map.
+3. Identify S tensor_R R with S. The image of the tensor kernel inclusion is the extended ideal Ideal.map(R->S)(Ann_R(A)). S-linearity and the identity condition on the supplied End comparison identify tensor evaluation with s->s id_(A_S), whose kernel is Ann_S(A_S).
+4. Use PrimeSpectrum.preimage_comap_zeroLocus, Ideal.map and zeroLocus_span to obtain the equality of supports.
 
 Acceptance:
 
 - Keep the flatness and actual endomorphism comparison hypotheses in the equality statement.
 - For reduction modulo ell do not assert equality merely from exactness of the categorical action.
-- The suggested compatible-action functor statement centralSupport_map encodes the unconditional containment only. The flat endomorphism-tensor comparison and resulting equality are still absent from Lean.
+- The suggested centralAnnihilator_map_le and centralSupport_map state unconditional compatible-action containment. support_coefficient_change states flat annihilator and support equality with a genuine identity-preserving End tensor equivalence.
+- Over the flat identity map on Z, the scalar module Z and the zero module have annihilators zero and the unit ideal: compatible additive functors alone do not supply an End comparison.
+- For Z->Z/2, Q tensors to zero and its End tensor comparison preserves the identity, but the annihilator grows from zero to the unit ideal. This checks that the equality theorem retains flatness.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.comap`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.comap`, `mathlib:Module.Flat`, `mathlib:Module.Flat.lTensor_exact`, `mathlib:LinearMap.toSpanSingleton`, `mathlib:Ideal.map`, `mathlib:PrimeSpectrum.preimage_comap_zeroLocus`, `mathlib:PrimeSpectrum.zeroLocus_span`, `mathlib:ZMod`.
 
-Source: IX.5.2 p. 329; X.0.1 pp. 339–340. Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses. zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry.
+Source: IX.5.2 p. 329; X.0.1 pp. 339–340. Roadmap-added elementary support comparison. The stronger equality is deliberately qualified by the exact algebraic kernel hypotheses. zeroLocus, mem_zeroLocus, zeroLocus_mul, zeroLocus_inf, zeroLocus_radical. Supplies the existing closed-set and radical ideal operations used by this central support, not enhanced sheaf geometry. Module.Flat; Module.Flat.lTensor_exact, lines 107–116 and 320–350 at the recorded pin. Existing flat tensor exactness supplies the algebraic kernel step; no new general flatness or tensor-product theory is planned in ES. Definition 10.39.1, Section 10.39, tag 00H9. The flatness condition preserves exact module sequences. Applied to evaluation at the identity it gives the stated conditional annihilator comparison, a roadmap deduction rather than a separately named source theorem.
 
-Lean signature status: Full signature omitted pending actual supplier types.
+Lean signature status: Full generic degree-zero flat-kernel statement declared; geometric End tensor comparison and enhanced instantiation remain supplier inputs.
 
 ### Central localization and component summands
 
@@ -1645,7 +1649,7 @@ Independent verdict: confirmed. Independently reread the proof square on printed
 
 ## Pinned library baseline
 
-The revision 2 independent review reread all 27 baseline declarations. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
+The revision 2 independent review reread the original 27 baseline declarations. Revision 3 adds seven source-checked declarations for flat coefficient comparison and its examples, for 34 in total. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
 
 - `mathlib:CategoryTheory.CatCenter` — The ordinary center consists of natural endomorphisms of the identity functor. This is the ordinary Bernstein center in VIII.4.1, already provided at the pin; ES plans its enhanced degree-zero counterpart and comparison. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.app` — Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. (Mathlib/CategoryTheory/Center/Basic.lean)
@@ -1675,6 +1679,14 @@ The revision 2 independent review reread all 27 baseline declarations. Their sta
 - `mathlib:DualNumber` — The trivial square-zero extension of a coefficient ring by itself; its distinguished epsilon has zero first coordinate. (Mathlib/Algebra/DualNumber.lean)
 - `mathlib:TrivSqZeroExt.fstHom` — The algebra projection from a trivial square-zero extension to its first coordinate; supplies the central action through the residue field in the nilpotent test. (Mathlib/Algebra/TrivSqZeroExt/Basic.lean)
 
+- `mathlib:Module.Flat` — Flatness of a module over a commutative ring, used as an explicit hypothesis for endomorphism kernel base change. (Mathlib/RingTheory/Flat/Basic.lean)
+- `mathlib:Module.Flat.lTensor_exact` — Tensoring an exact pair of linear maps with a flat module preserves exactness, without universe restrictions on the other modules. (Mathlib/RingTheory/Flat/Basic.lean)
+- `mathlib:LinearMap.toSpanSingleton` — The linear map r to r times a fixed module element; evaluation at the identity has this form under the stated scalar compatibility. (Mathlib/LinearAlgebra/Span/Basic.lean)
+- `mathlib:Ideal.map` — Extension of an ideal is the ideal generated by its ring-map image, used for both annihilator containment and equality. (Mathlib/RingTheory/Ideal/Maps.lean)
+- `mathlib:PrimeSpectrum.preimage_comap_zeroLocus` — Inverse image of a zero locus under comap equals the zero locus of the image of its defining set. (Mathlib/RingTheory/Spectrum/Prime/RingHom.lean)
+- `mathlib:PrimeSpectrum.zeroLocus_span` — A set and its generated ideal have the same zero locus; combined with Ideal.map this converts ideal extension into inverse-image support. (Mathlib/RingTheory/Spectrum/Prime/Basic.lean)
+- `mathlib:ZMod` — The integer residue ring; ZMod 2 supplies the nonflat coefficient map in the support acceptance example. (Mathlib/Data/ZMod/Defs.lean)
+
 ## Supplier contracts
 
 - `EnhancedDerivedSheaves:E5:abstract`: Enhanced exact endofunctor/mapping categories, Lambda-linear E_2 endomorphisms of the identity and their commutative pi_0, coherent finite-set action anima; no equivalence of underlying types substitutes for a higher equivalence.
@@ -1688,7 +1700,7 @@ The revision 2 independent review reread all 27 baseline declarations. Their sta
 - `LanglandsParameterStacks:LP4`: The general affine-quotient Ind module-category/compact comparison used by X.1.2, and the algebraic base-change interfaces. Retain VIII.5.1 generation/module comparison, but remove the duplicated Chapter X action universality as resolved by the verifier.
 - `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`: Smooth categories over the allowed rings and scalar transport along a chosen abstract Qbar_ell-to-C field isomorphism, with an explicit center transport equivalence.
 - `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`: Enhanced derived smooth category and its heart, with the supplied stratum equivalence and ordinary-heart restriction of enhanced central transformations.
-- `SmoothRepresentationsOfLocalGroups:SR.1`: Define the abelian Lambda-linear Bernstein center as CatCenter(Sm_Lambda(G(E))). Identify it with the inverse limit of centers of pro-p Hecke corners when pro-orders are units, and prove ell-adic separatedness for Z_ell[sqrt(q)]. SR.1 owns this ordinary abelian target; enhanced restriction/heart comparison is ES0’s (verifier’s correction to RT finding 9).
+- `SmoothRepresentationsOfLocalGroups:SR.1` (supplied upstream import): Import the existing upstream SmoothRepresentationsOfLocalGroups SR.0 smooth-centre and SR.1 bernstein-centre-corners/l-adic-separatedness targets, with the cofinal invertible-pro-order and separated coefficient hypotheses. No ordinary smooth-center definition or corner theorem is planned again in ES. The enhanced restriction/heart comparison remains ES0 work.
 - `SmoothRepresentationsOfLocalGroups:SR.2`: Whittaker datum (B,U,psi), generic character and compact induction from closed U(E) with support compact modulo U(E), including intertwining under isomorphism of data. This is distinct from compact induction from compact open pro-p levels.
 - `SmoothRepresentationsOfLocalGroups:SR.3`: Complex Bernstein block center description and its field-transport dictionary; characteristic-zero supercuspidal block/Ext decomposition used in X.2, with finite fixed-center hypotheses retained.
 - `VStackSheavesAndLisseCategories:VS3`: Identify the eligible relative scalar-extension category of D_lis with the geometric coefficient-change category, including the exact derived reduction range. No unrestricted Perf/D_lis tensor identity is assumed.
@@ -1708,7 +1720,7 @@ Reread the current LP2 invariant-function-and-independence node on 2026-10-09: i
 
 ### Enhanced signatures at the pins
 
-The blocking section 13 deficit is explicit: 35 node names, 16 API names and 18 test labels have no executable declaration/example. The seven named node forms and 22 named APIs that do exist generally express ordinary observations. support_exact_operations now states the genuine generic pretriangulated theorem with real Hom exactness and shift compatibility. Its Bun_G instantiation still needs E5/HS. The E5 packet is partial and exports no Lean declarations for a Lambda-linear stable infinity-category, enhanced exact functor mapping objects, Ind mapping-object comparisons or coherent action anima. LP has no supplied derived stacky Perf interface. Implementing these foundations is supplier work outside this issue’s four authorized paths. Resume with those actual interfaces; conditions that cannot be stated must be omitted under section 13 rather than replaced by arbitrary proposition fields.
+The blocking section 13 deficit is explicit: 34 node names, 16 API names and 18 test labels have no executable declaration/example. The eight named node forms and 22 named APIs that do exist generally express ordinary observations. support_exact_operations now states the genuine generic pretriangulated theorem with real Hom exactness and shift compatibility. Its Bun_G instantiation still needs E5/HS. The E5 packet is partial and exports no Lean declarations for a Lambda-linear stable infinity-category, enhanced exact functor mapping objects, Ind mapping-object comparisons or coherent action anima. LP has no supplied derived stacky Perf interface. Implementing these foundations is supplier work outside this issue’s four authorized paths. Resume with those actual interfaces; conditions that cannot be stated must be omitted under section 13 rather than replaced by arbitrary proposition fields. Revision 3 adds the full generic flat support-coefficient-change signature and the unconditional ideal containment. Its S-linear End tensor equivalence preserves the identity; flatness is explicit. Two ModuleCat examples distinguish missing comparison and missing flatness. The actual geometric End comparison remains requested.
 
 ### DVR representation filtration
 
@@ -1724,13 +1736,13 @@ LP1 supplies the deformation complex and local Tate duality statement. The proof
 
 ## Suggested Lean and validation
 
-The generic support theorem now takes actual distinguished triangles, additive shifts with explicit central compatibility, biproducts and retracts; it no longer assumes the desired annihilator-product containment. Separate signatures state the Hom factorization and product containment, compatible-functor support inclusion, and the principal radical/power criterion. Concrete scalar-module examples compute free and dual-number support. These improvements do not supply enhanced categories, derived stacky Perf, coherent action anima, elliptic algebraic centralizers or localization telescopes.
+The generic support theorem now takes actual distinguished triangles, additive shifts with explicit central compatibility, biproducts and retracts; it no longer assumes the desired annihilator-product containment. Separate signatures state the Hom factorization and product containment, compatible-functor support inclusion, and the principal radical/power criterion. Concrete scalar-module examples compute free and dual-number support. These improvements do not supply enhanced categories, derived stacky Perf, coherent action anima, elliptic algebraic centralizers or localization telescopes. Revision 3 adds the full generic flat support-coefficient-change signature and the unconditional ideal containment. Its S-linear End tensor equivalence preserves the identity; flatness is explicit. Two ModuleCat examples distinguish missing comparison and missing flatness. The actual geometric End comparison remains requested.
 
 The completed revision 2 independent review retains `needs_changes`. The original review is preserved in the packet history. Its signature-coverage finding remains open: all 42 mathematical targets are specified, but the named register is prose and cannot count as Lean declarations. No empty proposition fields or ordinary aliases are introduced to claim higher coverage.
 
-The executable inventory has seven proposed node names, 22 proposed API names and 15 examples carrying 13 of the 31 proposed test labels; three extra examples support the ordinary observations. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
+The executable inventory has eight proposed node names, 22 proposed API names and 17 examples carrying 13 of the 31 proposed test labels; Five extra examples support ordinary observations and coefficient-hypothesis checks. The two new examples do not substitute for the missing enhanced definition tests. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
 
-The suggested file elaborated through `lean-check` with exit 0 and only 48 `sorry` warnings. It imports the exact pinned Mathlib; the shared TauCeti checkout differs from the recorded pin but is unused. The packet checker result is recorded in the handoff. No theorem is claimed proved.
+The suggested file elaborated through `lean-check` with exit 0 and only 52 `sorry` warnings. It imports the exact pinned Mathlib; the shared TauCeti checkout differs from the recorded pin but is unused. The packet checker result is recorded in the handoff. No theorem is claimed proved.
 
 ## Structural proposals and verification
 
@@ -1772,3 +1784,7 @@ Preserved 23 correct checkpoint node identifiers. The three removed duplicates a
 - `ExcursionOperatorsAndSpectralAction:ES0:classical-center/the-classical-center-as-a-limit-over-levels` → `SmoothRepresentationsOfLocalGroups:SR.1`: The verifier assigns the ordinary smooth-center/Hecke-corner theorem to SR.1.
 
 The independently confirmed author-copy source issue E1 is retained above. Its supplier correction is now resolved in LP2; the review’s mathematical and ownership corrections remain in force.
+
+## Current upstream import receipt
+
+Read README SR.0.4 and SR.1.3, and Suggested.lean SmoothRep/SmoothCentre (lines 285–343), at upstream commit dea8191cc6047d6142a65872ebce6eeeb841a29b on 2026-10-10. SmoothCentre is an actual ordinary CatCenter signature. The Hecke-corner and separatedness targets are supplied in the README, not claimed to be executable declarations in Suggested.lean. Enhanced geometric comparison types are not exported by this upstream roadmap. See the [upstream reader](https://github.com/TauCetiProject/TauCetiRoadmap/blob/dea8191cc6047d6142a65872ebce6eeeb841a29b/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md) and [suggested forms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/dea8191cc6047d6142a65872ebce6eeeb841a29b/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/Suggested.lean). The stage request record is retained as a supplied import so its consumers resolve; it is excluded from the fifteen open requests.
