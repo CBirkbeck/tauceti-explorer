@@ -1,48 +1,61 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-kzvvtA`, 10 October 2026.
-Branch: `codex-kzvvtA-langlands-parameter-stacks`.
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094231982)
-confirms this session's [claim comment 6094230904](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094230904).
-None of the manager's priority issues appeared in the complete 760-issue
-available inventory at selection. This available focus package followed the
-WORKERS fallback order. Only this job was claimed.
+Worker: Codex (GPT-6), session `codex-3VAiJf`, 10 October 2026.
+Branch: `codex-3VAiJf-langlands-parameter-stacks`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094403507)
+confirms this session's [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094402405).
+None of the manager's priority issues was available. No eligible top job or
+finished-plan focus review preceded this focus package in the WORKERS fallback
+order. Only this job was claimed.
 
 ## Outcome and next effective action
 
-**Incomplete: blocked by supplier signature contracts and upstream ownership
-reconciliation.** The supplier deficit remains. There is also a new change since
-the previous checkpoint: current upstream SmoothRepresentationsOfLocalGroups
-now owns several common parameter and excursion targets that the accepted
-consumer plan still plans here. The correspondence below gives a concrete
-plan-owner correction. Issue #7909 forbids the packet edits needed to reconcile
-it. The stopping reason is this scope boundary, not the eight-hour time limit
-or a requirement to implement admitted proofs first.
+**Incomplete: blocked by supplier signature contracts and the packet ownership
+correction outside this issue's scope.** This checkpoint improves both package
+files rather than repeating an unchanged supplier audit:
 
-This checkpoint changes only this handoff, adding the upstream correspondence
-and expanding the demonstrated omission inventory to seven families. The
-inherited package README and Suggested.lean are unchanged. No mathematical
-source passage is reproduced. No accepted gap,
-review or packet status is changed. The accepted plan is a complete target-level
-pass with five gaps and sixteen requests; its eight stages are `planned`, none
-`closed`. Acceptance of that planning pass does not supply the omitted signatures.
+- The README imports the common targets now owned by current upstream
+  SmoothRepresentationsOfLocalGroups SR.6.1–SR.6.3. The boundary table and individual
+  targets distinguish those inputs from the condensed, all-depth and enhanced
+  LP extensions. Ordinary vector-bundle operations are attributed to
+  AlgebraicVectorBundles L0–L2.
+- Suggested.lean adds `WeilConvention.geometricDegree` and `tateCharacter`,
+  seven comparison lemma signatures and seven named examples. The degree
+  conversion negates the imported arithmetic homomorphism, preserves its actual
+  inertia kernel and commutes with restriction. The scaling is q to arithmetic
+  degree, hence q to minus geometric degree. It gives q at arithmetic Frobenius
+  and q⁻¹ at geometric Frobenius. It constructs no second Weil carrier or
+  semidirect-product inversion API.
+- The final prototype elaborates with zero errors and 276 warnings, all `sorry`.
+  This verifies the signatures present; it does not provide the missing enhanced
+  signatures or prove the admitted statements.
 
-**Next effective action:** reconcile the accepted LP plan with the new SR.6 owner
-targets below, and route the E0/E3/E5 coherent-interface repairs to their existing
-owner, including the SF.1/S.1 derived quotient-stack descent interfaces. Then
-resume specialization in this package. Repeating an unchanged supplier
-audit or adding more ordinary group examples will not finish the package.
-There is no need to prove the supplier theorems before exporting faithful
-signatures and equations. Their hypotheses and coherent structures must be
-expressible.
+The inherited ordinary cocycle and affine prototypes still contain local
+copies of interfaces now owned by SR.6.1. Their migration to owner imports must
+follow the accepted-plan correction; this checkpoint does not claim that their
+presence satisfies the no-duplication rule. Their additional LP comparisons
+must survive that migration.
+
+**Next effective action:** correct the accepted LP packet to import the SR.6
+owner targets in the correspondence below, and export faithful E0/E3/E5
+coherent interfaces from their existing owner, including SF.1/S.1 enhanced
+quotient-stack descent. Then specialize them in this package. More ordinary
+group examples or another unchanged audit will not fill the missing signatures.
+The owners need to express their hypotheses, coherent structures and equations;
+proving the admitted owner theorems is not a prerequisite for this package.
 
 Issue #7909 permits only the package's three files and this handoff, and explicitly
 forbids packet edits. PROTOCOL §§13 and 20 require the plan's definition, API and
-test signatures; §15 assigns the general enhanced foundations to their existing
-owners. Rebuilding those foundations here exceeds this job's scope. Replacing
-them with unconstrained propositions or ordinary categories cannot discharge
-the enhanced statements.
+test signatures; §15 assigns general enhanced foundations to their existing
+owners. Rebuilding those foundations here exceeds this job's scope. Unconstrained
+propositions or ordinary categories cannot discharge the enhanced statements.
+The stopping reason is this scope boundary, not the eight-hour time limit.
+
+No accepted gap, review or packet status is changed. The accepted plan is a
+complete target-level pass with five gaps and sixteen requests; its eight stages
+are `planned`, none `closed`. Acceptance of that pass does not supply the omitted
+signatures.
 
 `metadata.toml` remains absent. The actual `issues.deliverables_complete`
 implementation first requires every output path, then treats packages as complete
@@ -52,8 +65,8 @@ misclassify this unfinished package. When completion is justified, write
 
 ## Concrete signature deficit checked in this run
 
-Read the full statements, hypotheses and direct prerequisites of these seven
-accepted targets, and compare every API/test name with both package files.
+Rechecked the full statements, hypotheses, direct prerequisites, API entries
+and tests of these seven accepted targets against the package files.
 All 35 API entries and 23 tests below occur in the README and none occurs in
 Suggested.lean; their root carrier names are also absent. This is a minimum
 demonstrated deficit, not a full signature audit. A name's presence elsewhere
@@ -116,8 +129,8 @@ compactness and Ind-completion are `True` (141/145); coherent action has
 `True` fields (168–170); animation is `True` and animated algebras are `Unit`
 (189/199). These signatures do not express the required contracts.
 
-Inspected the prefix and explicit omission inventory of
-`suggested/EnhancedDerivedSheaves--E0.lean`. Its meaningful
+The preceding checkpoint inspected the prefix and explicit omission inventory
+of `suggested/EnhancedDerivedSheaves--E0.lean`. Its meaningful
 prefix provides repleteness and weak contractibility, from E2. Its closing note
 explicitly omits the other 66 signatures, including the general infinity-category
 operations. E3 is part of the E0–E4 packet; there is no separate E3 suggested
@@ -125,9 +138,11 @@ file in this checkout.
 
 The E5 owner issue [#720](https://github.com/CBirkbeck/tauceti-explorer/issues/720)
 has open [PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009).
-Inspected head: `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`.
-Read its description, relevant signature blocks and complete `signatureOmissions`.
-It improves carriers but does not close this deficit:
+This session verified that it remains open at the unchanged head
+`b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`. The following inspection of its
+signature blocks and `signatureOmissions` was carried forward from the preceding
+checkpoint, not claimed as a new independent review. It improves carriers but
+does not close this deficit:
 
 - `SymMonData` (lines 91–100) has an actual projection, but fibre comparisons
   are `HEquiv`, defined as equivalences of homotopy categories. Cocartesian,
@@ -147,20 +162,20 @@ This is inspection of owner work, not a second claim or an independent review.
 
 ## New upstream ownership reconciliation
 
-Since the preceding checkpoint's TauCetiRoadmap commit
-`8c72a04753b11cab07fa593cc38ceaa7c0515380`, current main advanced to
-`0a56d1b5303c26887a4042db834f46d9079ac593`. The intervening changes are in
-SmoothRepresentationsOfLocalGroups' README and Suggested.lean. Read the complete
-SR.6.1–SR.6.3 target statements (README lines 2975–3126) and the crossed-cocycle
-declarations (Suggested.lean lines 1497–1633). This is an ownership comparison,
+Current TauCetiRoadmap main is
+`0a56d1b5303c26887a4042db834f46d9079ac593`. Rechecked the complete SR.6.1–SR.6.3
+target statements (README lines 3134–3286) and the crossed-cocycle declarations
+(Suggested.lean lines 1497–1633). This is an ownership comparison,
 not a review of the upstream roadmap or a claim that its admitted theorems are
 formalised.
 
 The stable upstream references are
 [SR.6 README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0a56d1b5303c26887a4042db834f46d9079ac593/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#layer-sr6-finite-wild-parameters-center-images-and-stability)
 and [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0a56d1b5303c26887a4042db834f46d9079ac593/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/Suggested.lean).
-Plan-owner action under PROTOCOL §15: import these common targets, then retain
-only LP-specific extensions. In this table, LP2e means
+The package README now records these imports. Plan-owner action under
+PROTOCOL §15: reconcile the packet with those imports, then retain only
+LP-specific extensions and migrate the ordinary prototype copies. In this table,
+LP2e means
 `LP2:excursion-presentation` and LP2i means `LP2:integral-invariants`.
 
 | Accepted LP target or shared part | Current upstream owner | Reconciliation boundary |
@@ -171,9 +186,13 @@ only LP-specific extensions. In this table, LP2e means
 | LP2e `excursion-algebra-and-universal-homeomorphism`, coefficient-function part of `excursion-datum` | SR.6.3 `excursion-algebra` | Reuse the finite-wild free-group invariant-ring colimit and excursion tuples/coefficient identities. The accepted LP construction for arbitrary Γ and its enhanced Hecke-operator realization still require their additional interfaces. |
 | LP2e `universal-homeomorphism`; invariant-ring consequence of LP2i `integral-invariant-theorem` | SR.6.3 `excursion-invariant-comparison` | Import the universal homeomorphism, rational isomorphism and good-ℓ integral ring comparison. The IndPerf colimit theorem, higher cohomology and all-coefficient base change are stronger LP targets, not supplied by this ring statement. |
 
-SR.6.2 also has finite-wild strata and reductive-centralizer targets. Compare
-those individually with the LP1 wild-piece targets during the same plan-owner
-pass; no blanket equivalence has been established here. SR.6.3 does not supply
+SR.6.2 `wild-strata` gives fixed-depth finite wild-cocycle strata after the
+stated integral-closure base change, with smooth centralizers, split reductive
+neutral components and constant component groups. The README imports that
+fixed-depth input. LP1.2 additionally glues over all wild cutoffs; fixed-depth
+finiteness alone does not prove all-depth finiteness. Compare the remaining
+centralizer and slice targets individually during the packet-owner pass.
+SR.6.3 does not supply
 the enhanced Hecke centre, derived parameter stack, good-filtration t-structure,
 induced-perfect category or universal representation bundles. Its new ownership
 therefore changes what LP should import without closing the enhanced supplier
@@ -197,12 +216,16 @@ ordinary stable quotient categories. This is not an exhaustive audit of either
 library. The reviewed library audit remains an input, not evidence that current
 upstream has no additional owner targets.
 
-Read Fargues–Scholze, [*Geometrization of the local Langlands correspondence*](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+Earlier checkpoints read Fargues–Scholze, [*Geometrization of the local Langlands correspondence*](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
 Proposition VIII.2.1 and its animated deformation setup, printed p.281;
 §VIII.4 setup and Theorem VIII.4.1, pp.290–292; Theorem VIII.5.1 and its
 reduction, pp.293–294; Definition VIII.5.4, pp.294–295; and the separation and
-tensor statements VIII.5.5–VIII.5.7, pp.295–296. The Hecke construction requires
-finite-set compatibility; the good-filtration and induced-perfect arguments
+tensor statements VIII.5.5–VIII.5.7, pp.295–296. This session read
+Definition VIII.1.1 and the proof of Theorem VIII.1.3,
+pp.278–280, for the relatively discrete coefficients and geometric-Frobenius
+convention, and reread the VIII.4 construction and VIII.5.1–VIII.5.8, pp.290–296.
+The Hecke construction requires finite-set compatibility; the good-filtration
+and induced-perfect arguments
 operate in the stable enhanced Ind category and use its module/duality structure.
 The ordinary sheaf or homotopy-category carrier alone does not express these
 full contracts. The accepted LP2 target explicitly requests the stable version.
@@ -213,7 +236,8 @@ No restricted source was needed.
 ## Preserved ordinary work
 
 These interfaces were inherited, not authored or reproved in this session.
-They remain unchanged pending ownership reconciliation. Where SR.6 owns the
+They are preserved, with the new degree/scaling adapter inserted separately,
+pending migration to the owner imports. Where SR.6 owns the
 same structure, replace local duplication by an owner import; retain only the
 additional comparison or extension:
 
@@ -284,7 +308,8 @@ Two inherited plan-owner corrections remain outside this issue: the
 characteristic-two swapping example obstructs the prime-to-characteristic
 order of P (FS VIII.5.18, p.308), not a separate π₁ condition; Lafforgue
 Proposition 10.8 needs pp.138–139. The package already retains these corrections.
-After owner repairs, specialize the seven demonstrated missing families first,
+After owner repairs and packet reconciliation, specialize the seven demonstrated
+missing families first,
 then audit every remaining target/API/test and dependency. Add metadata only
 when the whole package meets §20.
 
@@ -295,17 +320,23 @@ when the whole package meets §20.
   31 planets, 31 baseline declarations, eight planned stages, five gaps,
   sixteen requests.
 - `lean-check packages/LanglandsParameterStacks/Suggested.lean`: exit 0,
-  261 warnings, all `declaration uses sorry`; zero errors and no other warnings.
-  Available memory before launch: 112 GB. The shared wrapper completed.
+  276 warnings, all `declaration uses sorry`; zero errors and no other warnings.
+  Available memory before launch: 106 GB. The shared wrapper completed.
   Elaboration checks included signatures, not omitted interfaces or admitted
   proofs. Pins: Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
   `f790474821cf4256814db967cb154e7af3d0c369`.
-- README inventory: 174,503 bytes; 79 target headings, 79 source blocks,
-  79 prerequisite blocks; all 140 API names and 90 test names occur.
+- Pinned declarations read for the new adapter: `MonoidHom`'s pointwise inverse
+  instance, `inv_apply` and `inv_comp` in Algebra/Group/Hom/Basic, and the
+  `Multiplicative` multiplication/additive-degree conversion in
+  Algebra/Group/TypeTags/Basic. The inverse homomorphism is valid because the
+  target is commutative; it does not invert the source Weil group.
+- README inventory: 182,035 bytes; 79 target headings, 79 source blocks,
+  79 prerequisite blocks; all 140 accepted API names and 90 accepted test names
+  occur. The new adapter adds its explicitly listed API and seven examples.
   Name inventory alone does not establish signature fidelity.
-- Scoped intake `check-files`: one changed handoff, zero problems.
-  `git diff --check`: passed. Package and input files are unchanged.
+- Scoped intake `check-files`: three changed deliverables, zero problems.
+  `git diff --check`: passed. No packet, supplier or read-only upstream file changed.
 
 SHA-256 receipts, paths relative to `research/blueprint`:
 
@@ -314,8 +345,8 @@ SHA-256 receipts, paths relative to `research/blueprint`:
 | packets/LanglandsParameterStacks.json | `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087` |
 | suggested/EnhancedDerivedSheaves--E0.lean | `81fa4b84036cb09987d5421e0c26f39533777b3ca1be14e605f0d4cacb4864c7` |
 | suggested/EnhancedDerivedSheaves--E5.lean | `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c` |
-| packages/LanglandsParameterStacks/README.md | `fc35c096a480a4e771ec2396f9e00391d46dbadb512f2c822c116bbb741e0d1a` |
-| packages/LanglandsParameterStacks/Suggested.lean | `ed8d8e138e6ef9947f66923b472d57b1f348e4577c5c175882d996ef8fc87f3a` |
+| packages/LanglandsParameterStacks/README.md | `b48575f35cafaf98bed09c34cb2d39fa082d6c7af8c183a94dfecf33c447b257` |
+| packages/LanglandsParameterStacks/Suggested.lean | `5aac601d7d9418e78389b142acf509675639cbbdb4e30459ba422b54527c4d80` |
 
 No library build, Lake update/cache command, language server or read-only-tree
 mutation ran. No compilation remains running. All continuation information is

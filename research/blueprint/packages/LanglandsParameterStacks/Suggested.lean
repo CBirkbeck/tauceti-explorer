@@ -211,6 +211,91 @@ theorem generatorEquiv_symm (α : FreeGroup I →* MulAut H) (g : I → H) :
 end CrossedCocycle
 end FreeCrossed
 
+/-! ## LP0.4: arithmetic-to-geometric degree conversion
+
+ClassFieldTheory supplies the Weil group and its arithmetic degree; SR.6.1
+supplies its finite-wild discretization. These formulas use an imported degree
+map without constructing another Weil group. The integral Frobenius and
+semidirect-product inversion interfaces belong to SR.6.1.
+-/
+namespace WeilConvention
+variable {W : Type u} [Group W]
+
+/-- The geometric degree is the negative of the arithmetic degree.
+`Multiplicative ℤ` records additive integer degree as a group homomorphism. -/
+def geometricDegree (arithmeticDegree : W →* Multiplicative ℤ) :
+    W →* Multiplicative ℤ := arithmeticDegree⁻¹
+
+theorem geometricDegree_apply (d : W →* Multiplicative ℤ) (w : W) :
+    (geometricDegree d w).toAdd = -(d w).toAdd := by sorry
+
+theorem geometricDegree_involutive (d : W →* Multiplicative ℤ) :
+    geometricDegree (geometricDegree d) = d := by sorry
+
+theorem geometricDegree_ker (d : W →* Multiplicative ℤ) :
+    (geometricDegree d).ker = d.ker := by sorry
+
+theorem geometricDegree_comp {V : Type v} [Group V]
+    (d : W →* Multiplicative ℤ) (f : V →* W) :
+    geometricDegree (d.comp f) = (geometricDegree d).comp f := by sorry
+
+theorem geometricDegree_frobenius (d : W →* Multiplicative ℤ) (F : W)
+    (hF : (d F).toAdd = 1) :
+    (geometricDegree d F).toAdd = -1 ∧
+      (geometricDegree d F⁻¹).toAdd = 1 := by sorry
+
+/-- For a unit representing the residue cardinality, the scaling character is
+q to the arithmetic degree, equivalently q to minus the geometric degree. -/
+def tateCharacter {K : Type v} [CommRing K]
+    (d : W →* Multiplicative ℤ) (q : Kˣ) : W →* Kˣ where
+  toFun w := q ^ (d w).toAdd
+  map_one' := by sorry
+  map_mul' := by sorry
+
+theorem tateCharacter_geometric {K : Type v} [CommRing K]
+    (d : W →* Multiplicative ℤ) (q : Kˣ) (w : W) :
+    tateCharacter d q w = q ^ (-(geometricDegree d w).toAdd) := by sorry
+
+theorem tateCharacter_comp {V : Type w} [Group V]
+    {K : Type v} [CommRing K] (d : W →* Multiplicative ℤ)
+    (q : Kˣ) (f : V →* W) :
+    tateCharacter (d.comp f) q = (tateCharacter d q).comp f := by sorry
+
+-- degree_geometric_frobenius: an arithmetic generator has geometric degree -1.
+example :
+    (geometricDegree (MonoidHom.id (Multiplicative ℤ))
+      (Multiplicative.ofAdd (1 : ℤ))).toAdd = -1 ∧
+    (geometricDegree (MonoidHom.id (Multiplicative ℤ))
+      (Multiplicative.ofAdd (-1 : ℤ))).toAdd = 1 := by sorry
+
+-- degree_inertia: the conversion keeps the actual degree-zero subgroup.
+example (d : W →* Multiplicative ℤ) (w : W) :
+    w ∈ (geometricDegree d).ker ↔ w ∈ d.ker := by sorry
+
+-- degree_zero: unramified degree zero is preserved, including the zero map.
+example : geometricDegree (1 : W →* Multiplicative ℤ) = 1 := by sorry
+
+-- tate_geometric_frobenius: q=3 gives q^{-1} at geometric Frobenius.
+example :
+    (tateCharacter (MonoidHom.id (Multiplicative ℤ))
+      (Units.mk0 (3 : ℚ) (by norm_num)) (Multiplicative.ofAdd (-1 : ℤ)) : ℚ) =
+      1 / 3 := by sorry
+
+-- tate_arithmetic_frobenius: the arithmetic generator gives q.
+example :
+    (tateCharacter (MonoidHom.id (Multiplicative ℤ))
+      (Units.mk0 (3 : ℚ) (by norm_num)) (Multiplicative.ofAdd (1 : ℤ)) : ℚ) =
+      3 := by sorry
+
+-- tate_inertia: all degree-zero elements act with scaling one.
+example {K : Type v} [CommRing K] (d : W →* Multiplicative ℤ)
+    (q : Kˣ) (w : W) (hw : w ∈ d.ker) : tateCharacter d q w = 1 := by sorry
+
+-- tate_zero_degree: the entire character is trivial for the zero degree map.
+example {K : Type v} [CommRing K] (q : Kˣ) :
+    tateCharacter (1 : W →* Multiplicative ℤ) q = 1 := by sorry
+end WeilConvention
+
 /-! ## LP1.1: actual affine cocycle equations
 
 The group model is imported: `WithConv (C →ₐ[R] B)` is the existing Hopf
