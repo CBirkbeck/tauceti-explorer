@@ -1,207 +1,107 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-uaDzfI`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-uaDzfI-gl2-package`.
-Status: **partial; required accepted-plan repair exceeds this issue's paths**.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095214231).
+Worker: Codex (GPT-6), session `codex-x5SzE5`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-x5SzE5-gl2-package`.
+Status: **partial; accepted-plan repair outside the permitted deliverables is required**.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095316094).
 Only this job was claimed. None of the manager's priority issues was available;
-no top issue or focus plan/package review was available. This focus package
-followed WORKERS.md's fallback order.
+there was no available top job or eligible focus plan/package review. This focus
+package follows WORKERS.md's fallback order.
 
-## Latest verification: codex-uaDzfI
+## Decision and resumption gate
 
-Completion remains blocked, but the inherited routing diagnosis needs a
-correction: an accepted higher-tier target already specifies the full
-finite-local character-extension theorem. Do not create another independent
-copy of it. The R17.3 packet's statement that no Atlas stage owns the theorem
-must be reconciled with this target when an authorized repair job edits the
-plans.
+The current accepted plans and upstream/library revisions have not changed
+since the preceding checkpoint. The package cannot be completed by editing its
+four authorized paths. The issue explicitly requires **“Change no packet; if
+the plan has a mistake, describe it in the handoff note.”** This run therefore
+records the blocker and preserves the mathematical deliverables. It does not
+repeat source research as though another reading could install the missing
+supplier or move ownership in the accepted plans.
 
-| Existing target | Exact supply and unresolved prerequisite |
+Before another package continuation, repair the accepted supplier/consumer
+contracts below, with their reader and suggested interfaces. The allowed
+package paths do not include those files. WORKERS.md's bottom-up dependency
+rule and PROTOCOL.md §§3, 15 and 20 require exact supplier contracts and one
+owner; changing only a package prerequisite label cannot reconcile the plans.
+
+## Independently checked blocking contracts
+
+| Contract read in the current checkout | Why it does not finish this package |
 | --- | --- |
-| `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension` in `packets/PotentialModularityAndCompatibleSystems--R23.1.json` | Finite-order continuous characters on the full product of finitely many local multiplicative groups extend to a finite-order idele-class character. Auxiliary ramification and increased order are permitted. The proof uses S-unit congruence separation, a finite ray-class quotient and divisible roots of unity. The packet still has an **open** ClassFieldTheory Layer 12 request explicitly including the congruence/S-unit argument. |
+| `GL2AutomorphicRepresentationsAndTransfer:R17.5/finite-hecke-extension` in `packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json` | Its domain is the quotient of **n-torsion ideles**, with a complex-place condition. It does not prescribe characters on full local multiplicative groups, including their uniformizers. |
+| `R17.5/tunnell-primitive-globalization` and `R17.5/prescribed-local-induction` in that same accepted packet | Their statements explicitly need the full-local character-extension input. The packet itself records that missing theorem in its local–global character gap. The CM induction target additionally needs existence and compatibility of its infinity type. |
+| `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension` in `packets/PotentialModularityAndCompatibleSystems--R23.1.json` | This accepted target does state full-local finite-order extension, permitting auxiliary ramification and increased order. It has an **open** CFT Layer 12 request for the congruence/S-unit and finite-ray-quotient proof inputs. It is in **tier 22**, while GL2 is in **tier 15**, so importing it as currently owned would create an upward dependency. |
+| Current `ClassFieldTheory` README, §1, explicit scope exclusions | Prescribed local abelian extensions and Grunwald–Wang are excluded. Global existence is not itself the arbitrary-local-character prescription contract. No change to this upstream roadmap is made here. |
+| `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` | Starts with an existing global Hecke character and identifies its ray-class factorization. It does not construct one from local data. |
+| `HeckeCharacter.exists_modulus_finitePart_eq_one` and `HeckeCharacter.exists_modulus_finiteComponent_eq_one` | Also start with an existing global character and find congruence depths it kills. They do not prescribe its full local components. |
+| `HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` | Requires an existing Hecke character and a matching infinity type. It does not establish their existence. |
+| `unitsCongruenceSubgroup_finiteIndex` | A supplied modulus gives a finite-index integer-unit subgroup. The missing Chevalley contract starts with an arbitrary finite-index S-unit subgroup and constructs a modulus supported away from the specified places. The directions and domains differ. |
 
-That packet's review is accepted by
-`independent-review-REV-PotentialModularityAndCompatibleSystems--R23.1~2`,
-dated 2026-10-08. Acceptance does not close the supplier request.
-`upstream/CaraianiNewton.md` places this owner in **tier 22**, while GL2 is
-in **tier 15**. Therefore GL2 cannot import it in its present location under
-WORKERS.md's bottom-up rule. Merely replacing the GL2 prerequisite by that
-node id would introduce an upward dependency. The target and its proof
-inputs must be assigned to GL2 itself or one lower-tier owner, and the higher
-consumer must import that owner. No such move was performed in this run.
+These are direct statement checks, not an exhaustive audit of the current
+library. The twelve reviewed AUDIT-14 entries were consulted; their historical
+absence claims are not claims about the newer source checkout. The inherited
+Suggested.lean's omission blocks and its proved ℚ₂ character tests agree with
+the domain distinction above. They are not signatures of the missing theorems.
 
-### Concrete repair scope for the manager
+The four upward edges were enumerated directly from R17.3. The tier order is
+`upstream/CaraianiNewton.md`: GL2 tier 15, AutomorphicGaloisRepresentations
+tier 18, PotentialModularityAndCompatibleSystems tier 22.
 
-The following changes are outside #7901's four permitted deliverables. They
-identify the accepted-plan work that must be authorized before another package
-continuation can resolve these blockers.
-
-| Plan to reconcile | Required edit |
-| --- | --- |
-| `packets/PotentialModularityAndCompatibleSystems--R23.1.json`, node `R23.1/cht-character-extension` | Preserve its full-local domain, finite-image conclusion, auxiliary ramification and optional p-primary refinement. Assign the theorem to GL2 itself or a single owner below tier 15; turn this higher target into an import/application and reconcile its open CFT Layer 12 request with the exact congruence supplier. Update its reader and suggested interface consistently. |
-| `packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json`, nodes `R17.5/tunnell-primitive-globalization` and `R17.5/prescribed-local-induction` | Import the relocated full-local finite-character theorem, not `R17.5/finite-hecke-extension`, whose domain is idele torsion. The one-place quasi-character consequence and CM infinity-type existence/compatibility remain separate proof inputs. Update the existing character gap and corresponding reader/suggested omission blocks after exact closure is established. |
-| The shared lower-tier congruence owner | Install the general finitely generated multiplicative-subgroup/S-unit contract with the finite set of primes to avoid, using the corrected Chevalley proof obligations below. Reconcile the existing PA.2 determinant application and Shimura CM norm-kernel request with this same owner. CFT global abelian existence alone does not supply the contract. |
-| `packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json`, nodes `R17.6/rt-technical-lemma` and `R17.6/weight-two-witness` | Reconcile the four R19 imports with the three provisional lower classical attachment/conductor targets below, including their construction proofs. The corresponding AutomorphicGaloisRepresentations consumer must import the lower owner; README-only renaming does not move ownership. |
-
-The exact four upward edges, independently enumerated from the packet, are:
-
-| Consumer | Current higher prerequisite |
+| Consumer | Current higher-tier prerequisite |
 | --- | --- |
 | `R17.6/rt-technical-lemma` | `AutomorphicGaloisRepresentations:R19.4/conductor-and-local-factors-classical` |
 | `R17.6/rt-technical-lemma` | `AutomorphicGaloisRepresentations:R19.1/weight-one-artin-representation` |
 | `R17.6/rt-technical-lemma` | `AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
 | `R17.6/weight-two-witness` | `AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
 
-### Fresh source and library evidence
+## Required repair scope
 
-Read Clozel–Harris–Taylor, *Automorphy for some l-adic lifts of automorphic
-mod l Galois representations*, published PMIHES 108 (2008), Lemma 4.1.1 and
-its complete proof, printed p. 116, and Lemma 4.1.2 and its proof, p. 117,
-from the [publisher PDF](https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf)
-on 2026-10-10. SHA-256:
-`9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c`.
-The printed Lemma 4.1.1 gives a continuous extension of finite-order local
-data; it does not explicitly state finite order of the output. The accepted
-node records the finite-order strengthening as a derivation through a finite
-quotient. The source proof invokes congruence separation before extending the
-character on an open subgroup. Thus this source and higher target provide a
-useful repair route, but neither makes the exact lower supplier already exist.
-No source passage is reproduced here.
+1. Reconcile the existing higher CHT character target with **one** owner in
+   GL2 or below tier 15. Preserve the full local domain, finite-image output,
+   auxiliary ramification, increased-order allowance and p-primary refinement.
+   Supply the finitely generated multiplicative-subgroup/S-unit congruence
+   theorem, including the finite set of primes to avoid. Reconcile the PA.2
+   determinant application and Shimura CM norm-kernel need with this same
+   owner. The corrected proof proposals below are continuation material.
+2. Repair both R17.5 consumers' prerequisites and the corresponding higher
+   R23.1/R23.2 requests and interfaces. Keep the single-place quasi-character
+   consequence and CM infinity-type existence/compatibility explicit; the
+   finite-order theorem alone does not supply the latter.
+3. Reconcile the four R19 edges with the three provisional lower classical
+   attachment/conductor targets already named in the package README. Attach
+   their eigenprojector, symmetric-power, coefficient-descent and integral
+   ramified comparison proof inputs; update the higher consumers to import
+   the lower owner. A README-only rename is not an ownership move.
+4. Resolve the other inherited closure requirements listed below against
+   exact supplier contracts. Fixing the character theorem alone is insufficient.
 
-Current read-only revisions checked:
-TauCetiRoadmap `cd03e06852a13216ad246d0623492c4beac39af2`,
-Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`,
-Mathlib `6b7abb3c7686292736be2955bd3eb9ebf63b456a`.
-Read GlobalNumberFields and ReductiveGroups READMEs in full, CFT §1's
-prescribed-extension exclusion, and GlobalNumberFields' Hecke/infinity-type
-suggested interfaces. Read all twelve reviewed AUDIT-14 layer entries; their
-historical baseline absence statements do not describe the newer library.
+No ownership move, supplier insertion or accepted-plan edit was performed.
 
-Read current-source statements of
-`HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter`,
-`HeckeCharacter.exists_modulus_finitePart_eq_one`,
-`HeckeCharacter.exists_modulus_finiteComponent_eq_one`,
-`HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` and
-`unitsCongruenceSubgroup_finiteIndex`. The character theorems start with an
-already supplied global character. The final instance starts with a modulus
-and proves finite index; it does not start with an arbitrary finite-index
-S-unit subgroup and produce a modulus away from S. None of these statements
-supplies the missing construction. Targeted statement/name searches across
-current roadmaps, arithmetic library sources and Atlas packets located the
-higher CHT node above; they are not an exhaustive all-target library audit.
+## Fresh validation and preserved deliverables
 
-### Fresh validation and preserved work
-
-- Both `check_blueprint.py` checks pass with zero errors and warnings:
-  R16.1 has 55 nodes, eight gaps, 32 requests; R17.3 has 57 nodes, eight gaps,
-  35 requests. Neither has a closed stage.
+- Both `check_blueprint.py` checks exit 0 with **zero errors and warnings**.
+  R16.1: 55 nodes, eight gaps, 32 requests; R17.3: 57 nodes, eight gaps,
+  35 requests. All twelve stages are `planned`, none `closed`. A `complete`
+  planning pass under §0 does not establish mathematical closure.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
-  exits 0: zero errors, 144 warnings, all `declaration uses sorry`, and zero
-  other warnings. Available memory before compilation was 110 GB. It ran in
-  the existing pinned shared build (Tau Ceti f790474 / Mathlib 082e2d3), not
-  either read-only current checkout. The compiler finished.
-- The package README, Suggested.lean and both GL2 packets match the unchanged
-  fingerprints below. Only this handoff changes. Metadata remains absent;
-  completion must not be inferred from the successful Lean elaboration.
-- Scoped intake `check-files` and `git diff --check` pass;
-  `issues.deliverables_complete` remains False.
-
-The inherited Chevalley/Patrikis proof proposals and their receipts below
-are preserved as continuation material; their PDFs were not reread in this
-run. The package's existing native repairs and proved character-domain tests
-are retained. All resumption information is in this handoff and the
-repository; the next worker needs no scratch file.
-
-## Decision and required action
-
-The issue requires **“Change no packet; if the plan has a mistake, describe it
-in the handoff note.”** Its permitted paths are the package's three files and
-this note. The accepted R17.3 plan has no exact eligible supplier for the
-full-local character-existence theorem used by its two R17.5 consumers. The higher-tier
-CHT target identified above must be reconciled with one lower owner, and those
-accepted prerequisites need repairs in files outside this package.
-PROTOCOL.md §§3, 15 and 20 require precise, nonduplicated supplier contracts. This is a scope blocker; more compilation
-or another package continuation against these unchanged inputs will not
-resolve it.
-
-Before rescheduling this package, reconcile the existing higher CHT target
-with the general congruence and prescribed-character contracts below at one
-lower-tier owner. Attach the exact proof prerequisites and reconcile both
-GL2 consumers and the PA.2/Shimura CM uses.
-Repair the four upward R19 edges as well. The other recorded gaps need their
-own exact supplier contracts; fixing the character theorem alone does not
-finish the package. Alternatively, explicitly authorize the corresponding
-plan repair, including the supplier and consumer paths. An owner name without
-a statement and proof chain is insufficient.
-
-The checkpoint consolidates the handoff: repeated continuation narratives are
-removed, while the conditional finite-quotient construction, corrected
-cyclotomic/Kummer proof obligations, source receipts, remaining-gap list and
-downward attachment proposals are retained below. No mathematical package
-file or accepted plan was changed. The retained primary-source proposals are
-historical work, not primary sources reread or newly certified in this run.
-
-## Current verification of the blocker
-
-The preceding checkpoint checked these roadmap and library revisions:
-TauCetiRoadmap `0a56d1b5303c26887a4042db834f46d9079ac593`,
-Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-GlobalNumberFields and ReductiveGroups READMEs were read, together with the
-relevant GlobalNumberFields Suggested.lean and ClassFieldTheory scope.
-The reviewed AUDIT-14 entries were consulted; their historical absence claims
-are not claims about the newer library.
-
-The following **actual current-source statements** were read in
-`TauCeti/NumberTheory/NumberField/Global/`. They do not supply the missing
-existence direction:
-
-| Interface | Contract read | Missing input |
-| --- | --- | --- |
-| `HeckeCharacter/FiniteOrder.lean:80`, `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` | An already supplied Hecke character has finite order iff it comes from some ray-class character. | Constructing a global character from prescribed local characters. |
-| `HeckeCharacter/FiniteComponent.lean:150`, `HeckeCharacter.exists_modulus_finiteComponent_eq_one` | For a supplied global character, choose congruence depths annihilated by its finite components. | Existence and uniformizer values. |
-| `HeckeCharacter/UnitCompatibility.lean:144`, `HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` | Given a global character and a matching algebraic infinity type, its embedding monomial vanishes on suitable congruence units. | Existence of that initial global character. |
-| `RayClass/Finite.lean:82`, `unitsCongruenceSubgroup_finiteIndex` | The integer-unit subgroup for a given modulus has finite index. | Starting from an arbitrary finite-index S-unit subgroup and producing a modulus supported away from S. |
-| GlobalNumberFields Layers 7, 9–10 | Ray quotients, characters of supplied quotients, infinity-type classification and compatibility. | Full-local prescribed-component existence. |
-
-The two accepted consumers were read: `R17.5/tunnell-primitive-globalization`
-needs full local quasi-character prescription; `R17.5/prescribed-local-induction`
-needs finite-order correction preserving its compatible CM infinity type.
-Unit or torsion restrictions alone do not supply either contract. The package
-already has proved ℚ₂ examples distinguishing the trivial and unramified
-quadratic characters on uniformizers, although their unit restrictions agree.
-It honestly omits the unsupplied theorem signatures.
-
-R17.3 still has four upward prerequisites: `R17.6/rt-technical-lemma` uses
-R19.1's weight-one and higher-weight attachments and R19.4's classical
-conductor comparison; `R17.6/weight-two-witness` uses the higher-weight
-attachment. The provisional downward contracts below are not installed
-changes to those edges.
-
-## Validation and preserved deliverables
-
-- Both `python3 scripts/check_blueprint.py` runs exit 0, zero errors and
-  warnings. R16.1: 55 nodes, eight gaps, 32 requests; R17.3: 57 nodes, eight
-  gaps, 35 requests. Both have zero closed stages. Their `complete` status
-  denotes a completed planning pass under §0, not mathematical closure.
-- `lean-check` on the existing package Suggested.lean exits 0: 144 warnings,
-  all declaration uses of `sorry`, zero errors and other warnings. Memory
-  available before compilation: 110 GB. The check finished; no process was
-  left running. The shared helper is configured for Tau Ceti `f790474` and
-  Mathlib `082e2d3`; the Mathlib source revision read directly was
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`. No Lake command ran in the
-  read-only current checkouts.
-- Package README remains 199,985 bytes; Suggested.lean remains 83,998 bytes.
-  Preserve the matrix K₀/K₁ and fixed-space interfaces, newvector/Whittaker
-  repairs, Hilbert tensor action, projective lift interfaces, existing
-  newform carrier, GL₂(𝔽₃) section and proved character domain tests. The
-  assembled suggested input is stale; do not regenerate from it.
-- `metadata.toml` remains absent. The package completion predicate otherwise
-  marks the package complete by file existence. Once the mathematics and
-  faithful signatures are complete, add `topic = "math.NT"` and rerun checks.
-- Scoped intake and `git diff --check` pass. Only this authorized handoff is
-  edited; `issues.deliverables_complete` remains **False**. No source passage,
-  source file or private path is committed.
+  exits **0**: zero errors, 144 warnings, all `declaration uses sorry`, zero
+  other warnings. Available memory before compilation was 110 GB. The check
+  finished in the shared pinned build (Tau Ceti `f790474`, Mathlib `082e2d3`);
+  no Lake command ran in the read-only current checkouts. Compilation verifies
+  the inherited partial signatures, not its omitted theorem interfaces.
+- Current source revisions checked: TauCetiRoadmap
+  `cd03e06852a13216ad246d0623492c4beac39af2`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. They match the preceding run.
+- Only this handoff changes. README remains 199,985 bytes; Suggested.lean
+  remains 83,998 bytes. Preserve the matrix K₀/K₁ interfaces, newvector and
+  Whittaker repairs, Hilbert tensor action, projective lifts, existing newform
+  carrier, GL₂(𝔽₃) section and proved character-domain tests. The assembled
+  suggested input is stale; do not regenerate the package from it.
+- `metadata.toml` remains absent, and `issues.deliverables_complete` is
+  **False**. Add `topic = "math.NT"` after the mathematics and faithful
+  interfaces are complete; file existence otherwise marks the package complete.
+- Scoped intake `check-files` and `git diff --check` pass. No private path,
+  source file or source passage is committed. Nothing is left running.
 
 Unchanged SHA-256 fingerprints:
 
@@ -219,6 +119,7 @@ the papers or certify their complete proof chains.
 
 | Source | Locations inspected by predecessors | SHA-256 |
 | --- | --- | --- |
+| [Clozel–Harris–Taylor, published PMIHES 108 (2008)](https://pmihes.centre-mersenne.org/item/10.1007/s10240-008-0016-1.pdf) | Lemma 4.1.1 and proof, printed p. 116; Lemma 4.1.2 and proof, p. 117. Read by codex-uaDzfI; its printed extension statement does not explicitly state finite order, which the higher target derives via a finite quotient. | `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c` |
 | Chevalley, *Deux Théorèmes d'Arithmétique* (1951) | Theorem 1, printed p. 36; proof pp. 36–39, cyclotomic calculation p. 38. | `c8ca4e2dac91b20836adaf90ac5300f7dd197bb8f7145d5c422791d436358493` |
 | Patrikis, author revision dated 31 July 2016 | §2.3, Lemmas 2.3.1 and 2.3.6, printed pp. 28, 30–31. | `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81` |
 | [Casselman, *On some results of Atkin and Lehner* (1973)](https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf) | Printed pp. 302 and 306: subgroup/central-character convention and fixed-level dimension corollary. | `7f91ebae1a8f5e695800f4afb9fc06d0e2ea0b3a476751a31a7c8c3f38ad537d` |
