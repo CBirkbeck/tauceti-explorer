@@ -371,11 +371,11 @@ theorem binaryResultant_mul_right {m n₁ n₂ : ℕ} {F G₁ G₂ : MvPolynomia
       binaryResultant m n₁ F G₁ * binaryResultant m n₂ F G₂ := sorry
 
 /-- `DY.0/binary-form-factorisation`: over an algebraically closed field a nonzero binary form of
-degree `n` is a product of `n` linear forms. -/
+degree `n` is a nonzero scalar times a product of `n` linear forms, including degree zero. -/
 theorem exists_prod_linear_of_isHomogeneous {K : Type*} [Field K] [IsAlgClosed K] {n : ℕ}
     {G : MvPolynomial (Fin 2) K} (hG : G.IsHomogeneous n) (hG0 : G ≠ 0) :
-    ∃ ℓ : Fin n → Fin 2 → K, (∀ i, ℓ i ≠ 0) ∧
-      G = ∏ i, (MvPolynomial.C (ℓ i 0) * MvPolynomial.X 0 + MvPolynomial.C (ℓ i 1) *
+    ∃ c : K, c ≠ 0 ∧ ∃ ℓ : Fin n → Fin 2 → K, (∀ i, ℓ i ≠ 0) ∧
+      G = MvPolynomial.C c * ∏ i, (MvPolynomial.C (ℓ i 0) * MvPolynomial.X 0 + MvPolynomial.C (ℓ i 1) *
         MvPolynomial.X 1) := sorry
 
 /-- `DY.0/binary-resultant-eq-zero-iff`: over a field, for `d ≥ 1` and forms of degree `d`, the
@@ -1157,10 +1157,11 @@ variable (R : Type*) [CommRing R] [IsDomain R] [ValuationRing R] [Algebra R K]
 namespace RationalMap
 
 /-- `f` has good reduction over the valuation ring `R` if it has a lift with coefficients in `R`
-whose resultant is a unit of `R`. -/
+with a unit coefficient and whose resultant is a unit of `R`. -/
 def HasGoodReduction (f : RationalMap K) : Prop :=
   ∃ F : Fin 2 → MvPolynomial (Fin 2) R,
     (∀ i, (F i).IsHomogeneous f.degree) ∧
+    (∃ i m, IsUnit ((F i).coeff m)) ∧
     IsUnit (binaryResultant f.degree f.degree (F 0) (F 1)) ∧
     ∃ G : HomogeneousLift K f.degree, mk G = f ∧
       ∀ i, G.forms i = MvPolynomial.map (algebraMap R K) (F i)
@@ -1175,7 +1176,7 @@ theorem degree_reduction (f : RationalMap K) (hf : f.HasGoodReduction R) :
 
 theorem hasGoodReduction_one : (1 : RationalMap K).HasGoodReduction R := sorry
 
-theorem hasGoodReduction_ofPolynomial_iff (p : Polynomial R) (hp : p ≠ 0) :
+theorem hasGoodReduction_ofPolynomial_iff (p : Polynomial R) (hp : 1 ≤ p.natDegree) :
     (ofPolynomial (p.map (algebraMap R K))).HasGoodReduction R ↔ IsUnit p.leadingCoeff := sorry
 
 theorem hasGoodReduction_map_units (γ : GL (Fin 2) R) :
@@ -1278,6 +1279,11 @@ example (f : RationalMap ℚ_[2]) (hf : f.toRatFunc = RatFunc.X ^ 2 / 2) :
     IsConj f (RationalMap.ofPolynomial (Polynomial.X ^ 2)) ∧ ¬ f.HasGoodReduction ℤ_[2] ∧
       (RationalMap.ofPolynomial (Polynomial.X ^ 2 : Polynomial ℚ_[2])).HasGoodReduction ℤ_[2] :=
   sorry
+
+/-- Unit test `TauCeti.ArithmeticDynamics.RationalMap.hasGoodReduction_constant_two`:
+constants have good reduction even when their polynomial leading coefficient is a nonunit. -/
+example : (RationalMap.ofPolynomial (Polynomial.C (2 : ℚ_[2]))).HasGoodReduction ℤ_[2] ∧
+    ¬ IsUnit (2 : ℤ_[2]) := sorry
 
 end GoodReduction
 
@@ -1878,7 +1884,7 @@ theorem exists_pos_mul_le_sup_abv_eval (hd : 1 ≤ d) : ∃ c > 0, ∀ x : Fin 2
     c * (⨆ i, v (x i)) ^ d ≤ ⨆ i, v (F.eval x i) := sorry
 
 /-- `DY.2/lift-norm-of-good-reduction` (Baker–Rumely, Lemma 3.9). -/
-theorem sup_abv_eval_eq_of_goodReduction (hv : IsNonarchimedean v)
+theorem sup_abv_eval_eq_of_goodReduction (hd : 1 ≤ d) (hv : IsNonarchimedean v)
     (hint : ∀ i m, v ((F.forms i).coeff m) ≤ 1)
     (hres : v (binaryResultant d d (F.forms 0) (F.forms 1)) = 1) (x : Fin 2 → K) :
     (⨆ i, v (F.eval x i)) = (⨆ i, v (x i)) ^ d := sorry
@@ -1943,6 +1949,13 @@ theorem finite_setOf_escapeRate_ne {k : Type*} [Field k] [NumberField k] (G : Ho
     (hd : 2 ≤ d) {x : Fin 2 → k} (hx : x ≠ 0) :
     {w : NumberField.FinitePlace k | escapeRate w.1 G x ≠ 0 ∨ (⨆ i, w.1 (x i)) ≠ 1}.Finite :=
   sorry
+
+/-- A polynomial orbit can escape while this nonmonic homogeneous lift has negative escape rate. -/
+example (G : HomogeneousLift ℂ_[2] 2)
+    (hG : G.forms = ![X 0 ^ 2 - X 0 * X 1, C (2 : ℂ_[2]) * X 1 ^ 2])
+    (z : ℂ_[2]) (hz : z ^ 2 = 2) :
+    escapeRate (NormedField.toAbsoluteValue ℂ_[2]) G ![z, 1] = -Real.log 2 / 4 ∧
+      ¬ BddAbove (Set.range fun n : ℕ ↦ ‖(fun w : ℂ_[2] ↦ (w ^ 2 - w) / 2)^[n] z‖) := sorry
 
 end EscapeRate
 
@@ -2425,13 +2438,13 @@ theorem canonicalMeasure_conj [IsAlgClosed K] [IsUltrametricDist K] [CompleteSpa
 /-- `DY.2/canonical-measure-of-good-reduction` and `DY.2/good-reduction-of-canonical-measure`. -/
 theorem canonicalMeasure_eq_dirac_gauss_iff [IsAlgClosed K] [IsUltrametricDist K] [CompleteSpace K]
     (R : Type*) [CommRing R] [IsDomain R] [ValuationRing R] [Algebra R K] [IsFractionRing R K]
-    (hR : ∀ a : R, ‖algebraMap R K a‖ ≤ 1) (f : RationalMap K) (hf : 2 ≤ f.degree) :
+    (hR : ∀ x : K, ‖x‖ ≤ 1 ↔ ∃ a : R, algebraMap R K a = x) (f : RationalMap K) (hf : 2 ≤ f.degree) :
     canonicalMeasure f = Measure.dirac (gauss K) ↔ f.HasGoodReduction R := sorry
 
 /-- `DY.2/potential-good-reduction-iff-point-mass`. -/
 theorem canonicalMeasure_isPointMass_iff [IsAlgClosed K] [IsUltrametricDist K] [CompleteSpace K]
     (R : Type*) [CommRing R] [IsDomain R] [ValuationRing R] [Algebra R K] [IsFractionRing R K]
-    (hR : ∀ a : R, ‖algebraMap R K a‖ ≤ 1) (f : RationalMap K) (hf : 2 ≤ f.degree) :
+    (hR : ∀ x : K, ‖x‖ ≤ 1 ↔ ∃ a : R, algebraMap R K a = x) (f : RationalMap K) (hf : 2 ≤ f.degree) :
     (∃ ξ : Line K, IsTypeII ξ ∧ canonicalMeasure f = Measure.dirac ξ) ↔
       ∃ γ : (RationalMap K)ˣ, (γ : RationalMap K).degree = 1 ∧
         (((γ⁻¹ : (RationalMap K)ˣ) : RationalMap K) * f * (γ : RationalMap K)).HasGoodReduction R := sorry
@@ -2619,7 +2632,8 @@ the linear form `P 1 · X − P 0 · Y` in `F` (Mathlib's `multiplicity`, junk v
 noncomputable def binaryFormOrder (F : MvPolynomial (Fin 2) K) (P : Fin 2 → K) : ℕ :=
   multiplicity (MvPolynomial.C (P 1) * MvPolynomial.X 0 - MvPolynomial.C (P 0) * MvPolynomial.X 1) F
 
-theorem binaryFormOrder_eq_zero_iff {F : MvPolynomial (Fin 2) K} (hF : F ≠ 0) {P : Fin 2 → K}
+theorem binaryFormOrder_eq_zero_iff {F : MvPolynomial (Fin 2) K} {D : ℕ}
+    (hhom : F.IsHomogeneous D) (hF : F ≠ 0) {P : Fin 2 → K}
     (hP : P ≠ 0) : binaryFormOrder F P = 0 ↔ MvPolynomial.eval P F ≠ 0 := sorry
 
 theorem binaryFormOrder_mul {F G : MvPolynomial (Fin 2) K} (hF : F ≠ 0) (hG : G ≠ 0)
@@ -2664,6 +2678,10 @@ example (P : Fin 2 → ℚ) (hP : P ≠ 0) : binaryFormOrder (1 : MvPolynomial (
 zero at `[1 : 1]` (order one, not two). -/
 example : binaryFormOrder (MvPolynomial.X 0 ^ 2 - MvPolynomial.X 1 ^ 2 : MvPolynomial (Fin 2) ℚ)
     ![1, 1] = 1 := sorry
+
+/-- Evaluation at a single vector is insufficient without homogeneity. -/
+example : binaryFormOrder (MvPolynomial.X 0 - 1 : MvPolynomial (Fin 2) ℚ) ![1, 1] = 0 ∧
+    MvPolynomial.eval ![1, 1] (MvPolynomial.X 0 - 1 : MvPolynomial (Fin 2) ℚ) = 0 := sorry
 
 /-! ### Factorisation of binary forms (node `DY.3/binary-form-divisibility-criterion`) -/
 
@@ -2959,7 +2977,8 @@ theorem periodicMultiplicity_profile (F : HomogeneousLift K d) (hd : 2 ≤ d)
         (periodicMultiplicity F (r * ringChar K ^ padicValNat (ringChar K) (k / r)) ![0, 1] : ℤ)
       else 1 := sorry
 
-/-- The profile values `B(a) = a(r·pᵃ)` are `≥ 2`, nondecreasing, and in characteristic `p > 0`
+/-- For `p > 0` the profile values `B(a) = a(r·pᵃ)` are `≥ 2` and nondecreasing;
+in characteristic zero use the constant profile `B(a) = a(r)`. Positive characteristic values
 satisfy `B(a + 1) ≥ 2·B(a) − 1` (part of node `DY.3/multiplicity-profile-at-a-fixed-point`). -/
 theorem periodicMultiplicity_profile_growth (F : HomogeneousLift K d) (hd : 2 ≤ d)
     (h0 : MvPolynomial.eval ![0, 1] (F.forms 0) = 0)
@@ -2968,7 +2987,8 @@ theorem periodicMultiplicity_profile_growth (F : HomogeneousLift K d) (hd : 2 �
     let r := orderOf (cycleMultiplier (RationalMap.mk F) (Projectivization.mk K ![0, 1] (by simp)))
     let p := ringChar K
     2 ≤ periodicMultiplicity F r ![0, 1] ∧
-      periodicMultiplicity F (r * p ^ a) ![0, 1] ≤ periodicMultiplicity F (r * p ^ (a + 1)) ![0, 1] ∧
+      (0 < p → periodicMultiplicity F (r * p ^ a) ![0, 1] ≤
+        periodicMultiplicity F (r * p ^ (a + 1)) ![0, 1]) ∧
       (0 < p → 2 * periodicMultiplicity F (r * p ^ a) ![0, 1] ≤
         periodicMultiplicity F (r * p ^ (a + 1)) ![0, 1] + 1) := sorry
 
@@ -3757,6 +3777,8 @@ structure AnalyticLine (K : Type) [Field K] where
   absv : AbsoluteValue (AlgebraicClosure K) ℝ
   /-- The type I points: `P¹(K̄) → P¹_v^an`, `x ↦ ι_v x`, `∞ ↦ ∞`. -/
   embed : OnePoint (AlgebraicClosure K) → carrier
+  /-- All type I points over `C_v`, including those outside the image of `K̄`. -/
+  isClassical : carrier → Prop
   /-- The kernel `δ_v` (Hsia kernel relative to `∞`). -/
   kernel : carrier → carrier → ℝ
   /-- The circle measure `m_{a,r,v}`: arc length on `|z - a| = r` (infinite `v`), the Dirac mass at
@@ -3785,7 +3807,8 @@ noncomputable def potential (μ : Measure L.carrier) (z : L.carrier) : ℝ :=
 /-- The mutual energy `(μ, ν)_v = -∫∫ log δ_v dμ dν`, the diagonal of type I points omitted
 (stand-in for TB.6). -/
 noncomputable def energy (μ ν : Measure L.carrier) : ℝ :=
-  -∫ p, Set.indicator {p : L.carrier × L.carrier | ¬(p.1 = p.2 ∧ p.1 ∈ Set.range L.embed)}
+  -∫ p, Set.indicator {p : L.carrier × L.carrier | p.1 ≠ L.infty ∧ p.2 ≠ L.infty ∧
+      ¬(p.1 = p.2 ∧ L.isClassical p.1)}
     (fun p => Real.log (L.kernel p.1 p.2)) p ∂(μ.prod ν)
 
 /-- The energy `(μ - ν, μ - ν)_v` of a difference, expanded bilinearly. -/
@@ -3994,8 +4017,20 @@ theorem AnalyticLine.potential_regularised (v : NumberFieldPlace K) {F : Finset 
 
 theorem AnalyticLine.energy_circle_circle (v : NumberFieldPlace K) (x y : AlgebraicClosure K) {r : ℝ}
     (hr : 0 < r) :
-    (Lv[v]).energy ((Lv[v]).circle x r : Measure _) ((Lv[v]).circle y r : Measure _) =
+    (Lv[v]).energy ((Lv[v]).circle x r : Measure _) ((Lv[v]).circle y r : Measure _) ≤
       -Real.log (max ((Lv[v]).absv (x - y)) r) := sorry
+
+/-- At a finite place the disc formula is an equality. -/
+theorem AnalyticLine.energy_circle_circle_finite (v : NumberField.FinitePlace K)
+    (x y : AlgebraicClosure K) {r : ℝ} (hr : 0 < r) :
+    (Lv[Sum.inr v]).energy ((Lv[Sum.inr v]).circle x r : Measure _)
+      ((Lv[Sum.inr v]).circle y r : Measure _) =
+        -Real.log (max ((Lv[Sum.inr v]).absv (x-y)) r) := sorry
+
+/-- Distinct overlapping circles rule out centre evaluation at an infinite place. -/
+example (v : NumberField.InfinitePlace K) :
+    (Lv[Sum.inl v]).energy ((Lv[Sum.inl v]).circle 0 1 : Measure _)
+      ((Lv[Sum.inl v]).circle 1 1 : Measure _) < 0 := sorry
 
 theorem AnalyticLine.regularised_hasContinuousPotential (v : NumberFieldPlace K)
     {F : Finset (AlgebraicClosure K)} (hF : F.Nonempty) {r : ℝ} (hr : 0 < r) :
@@ -4350,8 +4385,9 @@ noncomputable def negLogNormX1 (φ₀ : AdelicMetric K) (v : NumberFieldPlace K)
 
 /-- The norm `z ↦ ‖x₁(z)‖_v` of the continuous metric of TB.6 described by `φ`. -/
 noncomputable def toContinuousMetric (φ₀ : AdelicMetric K) (v : NumberFieldPlace K)
-    (z : (Lv[v]).carrier) : ℝ :=
-  Real.exp (-φ₀.negLogNormX1 v z)
+    (z : (Lv[v]).carrier) : ℝ := by
+  classical
+  exact if z = (Lv[v]).infty then 0 else Real.exp (-φ₀.negLogNormX1 v z)
 
 /-! Curvature (`DY.4/curvature-measures-of-an-adelic-metric`). -/
 
@@ -4794,7 +4830,7 @@ def IsGenericSequence {X : Type*} [TopologicalSpace X] (x : ℕ → X) : Prop :=
   ∀ Z : Set X, IsClosed Z → Z ≠ Set.univ → {n | x n ∈ Z}.Finite
 
 theorem isGenericSequence_iff_finite_fibres (X : AlgebraicGeometry.Scheme) [AlgebraicGeometry.IsIntegral X]
-    (hX : topologicalKrullDim X = 1) (x : ℕ → X) (hx : ∀ n, IsClosed ({x n} : Set X)) :
+    [TopologicalSpace.NoetherianSpace X] (hX : topologicalKrullDim X = 1) (x : ℕ → X) (hx : ∀ n, IsClosed ({x n} : Set X)) :
     IsGenericSequence x ↔ ∀ y, {n | x n = y}.Finite := sorry
 
 theorem IsGenericSequence.comp_strictMono {X : Type*} [TopologicalSpace X] {x : ℕ → X} (hx : IsGenericSequence x)
@@ -4815,7 +4851,7 @@ example {X : Type*} [TopologicalSpace X] (y : X) (hy : IsClosed ({y} : Set X))
 /-- Unit test `test_isGenericSequence_injective_curve`: an injective sequence of closed points of an integral
 curve is generic. -/
 example (X : AlgebraicGeometry.Scheme) [AlgebraicGeometry.IsIntegral X]
-    (hX : topologicalKrullDim X = 1) (x : ℕ → X) (hx : ∀ n, IsClosed ({x n} : Set X))
+    [TopologicalSpace.NoetherianSpace X] (hX : topologicalKrullDim X = 1) (x : ℕ → X) (hx : ∀ n, IsClosed ({x n} : Set X))
     (hinj : Function.Injective x) : IsGenericSequence x := sorry
 
 /-- Unit test `test_not_isGenericSequence_line`: a sequence inside a proper closed subset (a line in the
@@ -5033,7 +5069,8 @@ theorem azPairing_sq_eq (g : RationalMap K) (hg : 2 ≤ g.degree) :
 theorem azPairing_iterate (f g : RationalMap K) (hf : 2 ≤ f.degree) {n : ℕ} (hn : 1 ≤ n) :
     azPairing (f ^ n) g = azPairing f g := sorry
 
-theorem azPairing_conj (f g : RationalMap K) (γ : PGL(2, K)) :
+theorem azPairing_conj (f g : RationalMap K) (hf : 2 ≤ f.degree) (hg : 2 ≤ g.degree)
+    (γ : PGL(2, K)) :
     azPairing (γ • f) (γ • g) = azPairing f g := sorry
 
 /-- **Definition `DY.4/local-dynamical-energy`.** `E_v(f, g) = ½(µ_f - µ_g, µ_f - µ_g)_v`. -/
@@ -5056,7 +5093,8 @@ theorem localEnergy_nonneg (f g : RationalMap K) (v : NumberFieldPlace K) :
 theorem localEnergy_comm (f g : RationalMap K) (v : NumberFieldPlace K) :
     localEnergy f g v = localEnergy g f v := sorry
 
-theorem localEnergy_conj (f g : RationalMap K) (γ : PGL(2, K)) (v : NumberFieldPlace K) :
+theorem localEnergy_conj (f g : RationalMap K) (hf : 2 ≤ f.degree) (hg : 2 ≤ g.degree)
+    (γ : PGL(2, K)) (v : NumberFieldPlace K) :
     localEnergy (γ • f) (γ • g) v = localEnergy f g v := sorry
 
 theorem azPairing_eq_sum_localEnergy (f g : RationalMap K) :
@@ -5969,10 +6007,11 @@ is Jones's `(X - α)` being `f`-stable. -/
 example {K : Type u} [Field K] (f : K[X]) (α : K) :
     IsStableAt f α ↔ ∀ n, 1 ≤ n → Irreducible ((X - C α).comp (f.comp^[n] X)) := sorry
 
-/-- `(f, α)` is eventually stable over `K`: the number of irreducible factors of `fⁿ - α`, counted
-with multiplicity, is bounded in `n`. -/
+/-- `(f, α)` is eventually stable over `K`: all `fⁿ - α` are nonzero and their number of
+irreducible factors, counted with multiplicity, is bounded in `n`. -/
 def IsEventuallyStableAt {K : Type u} [Field K] (f : K[X]) (α : K) : Prop :=
-  ∃ B : ℕ, ∀ n, (UniqueFactorizationMonoid.factors (f.comp^[n] X - C α)).card ≤ B
+  (∀ n, f.comp^[n] X - C α ≠ 0) ∧
+    ∃ B : ℕ, ∀ n, (UniqueFactorizationMonoid.factors (f.comp^[n] X - C α)).card ≤ B
 
 namespace IsStableAt
 
@@ -5981,7 +6020,8 @@ theorem isEventuallyStableAt {K : Type u} [Field K] {f : K[X]} {α : K}
 
 end IsStableAt
 
-theorem isEventuallyStableAt_iff_of_le {K : Type u} [Field K] (f : K[X]) (α : K) (N : ℕ) :
+theorem isEventuallyStableAt_iff_of_le {K : Type u} [Field K] (f : K[X])
+    (hf : 0 < f.natDegree) (α : K) (N : ℕ) :
     IsEventuallyStableAt f α ↔ ∃ B : ℕ, ∀ n, N ≤ n →
       (UniqueFactorizationMonoid.factors (f.comp^[n] X - C α)).card ≤ B := sorry
 
@@ -5998,6 +6038,10 @@ iterate of `x² - 16/9` over `ℚ` has four irreducible factors. -/
 example :
     (UniqueFactorizationMonoid.factors
       ((X ^ 2 - C (16 / 9) : ℚ[X]).comp^[3] X - C 0)).card = 4 := sorry
+
+/-- Unit test `TauCeti.ArithmeticDynamics.IsEventuallyStableAt.test_zero_polynomial`: the
+zero polynomial has no factorization for this definition. -/
+example : ¬ IsEventuallyStableAt (0 : ℚ[X]) 0 := sorry
 
 /-! ### The adjusted critical orbit of a quadratic polynomial -/
 
@@ -7382,7 +7426,8 @@ theorem legendrePairing_le_of_smallPoints (δ : ℝ)
 /-- `DY.6/legendre-uniform-joint-small-points` (Theorem 8.1). -/
 theorem legendreSmallPoints_uniform :
     ∃ (B : ℕ) (b : ℝ), 0 < b ∧ ∀ t₁ t₂ : AlgebraicClosure ℚ, t₁ ≠ t₂ → t₁ ≠ 0 → t₁ ≠ 1 →
-      t₂ ≠ 0 → t₂ ≠ 1 → (legendreSmallPoints b t₁ t₂).ncard ≤ B := sorry
+      t₂ ≠ 0 → t₂ ≠ 1 →
+        (legendreSmallPoints b t₁ t₂).Finite ∧ (legendreSmallPoints b t₁ t₂).ncard ≤ B := sorry
 
 /-- The torsion images `π(E_t^tors) = x(E_t^tors)` of the Legendre curve over `ℂ`. -/
 def legendreTorsionImages (t : ℂ) : Set (ℙ ℂ (Fin 2 → ℂ)) :=
@@ -7403,7 +7448,8 @@ theorem exists_algHom_algebraicClosure_ne_zero (R : Type*) [CommRing R] [IsDomai
 /-- `DY.6/legendre-uniform-common-torsion-images` (Theorem 1.4; published Theorem 1.5). -/
 theorem legendre_uniform_common_torsion_images :
     ∃ B : ℕ, ∀ t₁ t₂ : ℂ, t₁ ≠ t₂ → t₁ ≠ 0 → t₁ ≠ 1 → t₂ ≠ 0 → t₂ ≠ 1 →
-      (legendreTorsionImages t₁ ∩ legendreTorsionImages t₂).ncard ≤ B := sorry
+      (legendreTorsionImages t₁ ∩ legendreTorsionImages t₂).Finite ∧
+        (legendreTorsionImages t₁ ∩ legendreTorsionImages t₂).ncard ≤ B := sorry
 
 /-- `DY.6/common-torsion-images-three-common-branch-values` (Corollary 8.2). -/
 theorem common_torsion_images_three_branch_values :
@@ -7412,6 +7458,8 @@ theorem common_torsion_images_three_branch_values :
       haveI := Classical.decEq ℂ
       (standardProjection (W := W₁.toAffine) γ₁ '' {P | 2 • P = 0} ∩
           standardProjection (W := W₂.toAffine) γ₂ '' {P | 2 • P = 0}).ncard = 3 →
+        (standardProjection (W := W₁.toAffine) γ₁ '' {P | IsOfFinAddOrder P} ∩
+          standardProjection (W := W₂.toAffine) γ₂ '' {P | IsOfFinAddOrder P}).Finite ∧
         (standardProjection (W := W₁.toAffine) γ₁ '' {P | IsOfFinAddOrder P} ∩
           standardProjection (W := W₂.toAffine) γ₂ '' {P | IsOfFinAddOrder P}).ncard ≤ B := sorry
 
@@ -7820,25 +7868,34 @@ theorem criticalHeight_comparable_moduliHeight (d : ℕ) (hd : 2 ≤ d) :
 is `α = 1`, `β = 0`). -/
 theorem polynomial_orbits_on_line {K : Type*} [Field K] [CharZero K] (α β x₀ y₀ : K) (hα : α ≠ 0)
     (f g : K[X]) (hdeg : f.natDegree = g.natDegree) (h2 : 2 ≤ f.natDegree)
-    (hinf : {mn : ℕ × ℕ | (fun y => g.eval y)^[mn.2] y₀ =
-      α * (fun x => f.eval x)^[mn.1] x₀ + β}.Infinite) :
+    (hinf : {q : K × K | (∃ m : ℕ, q.1 = (fun x => f.eval x)^[m] x₀) ∧
+      (∃ n : ℕ, q.2 = (fun y => g.eval y)^[n] y₀) ∧ q.2 = α * q.1 + β}.Infinite) :
     ∃ k ≥ 1, (fun p => g.comp p)^[k] (C α * X + C β) = C α * (fun p => f.comp p)^[k] X + C β :=
   sorry
 
 /-- `DY.6/polynomial-lines-dynamical-mordell-lang` (Ghioca–Tucker–Zieve Theorem 1.4). -/
 theorem polynomial_lines_dynamical_mordell_lang {K : Type*} [Field K] [CharZero K] (f g : K[X])
     (x₀ y₀ u v w : K) (huv : u ≠ 0 ∨ v ≠ 0)
-    (hinf : {n : ℕ | u * (fun x => f.eval x)^[n] x₀ + v * (fun y => g.eval y)^[n] y₀ = w}.Infinite) :
+    (hinf : (Set.range (fun n : ℕ =>
+      ((fun x => f.eval x)^[n] x₀, (fun y => g.eval y)^[n] y₀)) ∩
+        {q : K × K | u * q.1 + v * q.2 = w}).Infinite) :
     (∃ k ≥ 1, ∀ a b : K, u * a + v * b = w →
         u * (fun x => f.eval x)^[k] a + v * (fun y => g.eval y)^[k] b = w) ∧
       IsFiniteUnionAP
         {n : ℕ | u * (fun x => f.eval x)^[n] x₀ + v * (fun y => g.eval y)^[n] y₀ = w} :=
   sorry
 
+/-- Repeated return times alone do not imply that two polynomial maps have a common iterate:
+`0` is fixed for both `X²` and `X²+X`, although their iterates differ. -/
+example : {mn : ℕ × ℕ | ((fun x : ℚ => x ^ 2)^[mn.1] 0) =
+    ((fun x : ℚ => x ^ 2 + x)^[mn.2] 0)}.Infinite ∧
+    ¬ ∃ k ≥ 1, (fun p : ℚ[X] => (X ^ 2).comp p)^[k] X =
+      (fun p : ℚ[X] => (X ^ 2 + X).comp p)^[k] X := sorry
+
 /-! ### Lech–Cassels embedding: elementary prime selection and precise endpoints
 
-The finite field-presentation, independent-perturbation and embedding-transport gaps
-are recorded in the packet. These signatures do not assert proof closure.
+The remaining finite field-presentation and embedding-transport gaps
+are recorded in the packet; the independent perturbation chain is now explicit. These signatures do not assert proof closure.
 -/
 
 /-- DY.6/schur-prime-avoiding; Cassels's elementary addendum to Lemma 2. -/
