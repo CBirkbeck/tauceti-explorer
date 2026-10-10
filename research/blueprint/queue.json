@@ -22427,8 +22427,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisDuality",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisDuality.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #349"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #349",
+   "finishedAt": "2026-10-10T02:20:59Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations",
@@ -47038,8 +47039,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48702,7 +48703,8 @@
     "PKG-HeckeStacksAndLocalShtukas~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeckeStacksAndLocalShtukas~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7933"
   },
   {
    "id": "PKG-HeegnerPointEulerSystems",
@@ -48935,7 +48937,8 @@
     "PKG-IgusaVarietiesAndTorsionConcentration~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7935"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -80000,8 +80003,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81309,8 +81312,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
