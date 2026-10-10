@@ -6170,17 +6170,27 @@ theorem localise.category {G : D.Graded} {P : D.ProductStructure G}
         Nonempty (X ⊗ tensorNatPow ((category.ofRep (T.extend τ hτ)).obj (f₀, 0)) n ≅
           (localise.categoryIncl T τ hτ).obj Y) := sorry
 
-/-- `A(D, T)` is the localisation `A^eff_χ` of `A^eff = A(D^eff, T)` at `χ` (HMS Proposition
-B.22). -/
-theorem localise.coalgebra {G : D.Graded} {P : D.ProductStructure G}
-    (M : T.GradedMultiplicative G P)
-    (P' : (D.localise mul f₀).ProductStructure (localise.graded D mul f₀ G))
-    (M' : (T.extend τ hτ).GradedMultiplicative _ P')
-    (φ : letI := T.coalgebraCommRing M; letI := (T.extend τ hτ).coalgebraCommRing M'
-      T.coalgebra →+* (T.extend τ hτ).coalgebra) :
-    letI := T.coalgebraCommRing M; letI := (T.extend τ hτ).coalgebraCommRing M'
-    letI := φ.toAlgebra
-    IsLocalization.Away (T.chi f₀) (T.extend τ hτ).coalgebra := sorry
+/- MC.5/diagram-localisation, API Diagram.localise.coalgebra (HMS Proposition B.22,
+pp.25–26): the coefficient algebra localizes through the canonical map induced by the
+effective-diagram inclusion, with the induced product structure. Its typed coefficient-map
+interface is still missing. The former signature quantified over an arbitrary ring homomorphism
+and its toAlgebra, which does not state this theorem. Keep this API as an explicit prototype gap
+until the canonical map and compatible multiplication are supplied. -/
+
+/-- Unit test `Diagram.localise.noncanonical_map`: evaluating the polynomial coordinate at 1
+inside the Laurent ring sends it to a unit but kills the nonzero polynomial X-1. A localization
+at powers of X over the domain Q[X] is injective, so this map cannot be its structure map.
+The three discriminating identities below are proved without an admitted proof. -/
+example :
+    let φ : Polynomial ℚ →+* LaurentPolynomial ℚ :=
+      Polynomial.eval₂RingHom (algebraMap ℚ (LaurentPolynomial ℚ)) 1
+    φ Polynomial.X = 1 ∧ φ (Polynomial.X - 1) = 0 ∧
+      (Polynomial.X - 1 : Polynomial ℚ) ≠ 0 := by
+  dsimp
+  refine ⟨by simp, by simp, ?_⟩
+  intro h
+  have hc := congrArg (fun p : Polynomial ℚ => p.coeff 1) h
+  norm_num [Polynomial.coeff_one] at hc
 
 end Diagram
 

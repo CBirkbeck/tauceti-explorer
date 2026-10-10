@@ -5832,7 +5832,7 @@
     {
      "name": "Diagram.localise.coalgebra",
      "role": "compatibility",
-     "statement": "A(D, T) is the localisation A^eff_chi."
+     "statement": "Using the canonical coefficient map induced by the effective-diagram inclusion and the induced compatible multiplication, A(D,T) is the localization A^eff_chi. The typed canonical map is still a suggested-signature gap; an arbitrary ring homomorphism does not qualify."
     }
    ],
    "uses": [
@@ -5869,6 +5869,11 @@
      "name": "unit_vertex_localisation",
      "kind": "degenerate",
      "statement": "For f_0 the unit vertex, T(f_0) = R, chi = 1 and A = A^eff."
+    },
+    {
+     "name": "Diagram.localise.noncanonical_map",
+     "kind": "non-example",
+     "statement": "The ring homomorphism Q[t] -> Q[t,t^-1] obtained by evaluating t at 1 sends t to a unit but kills the nonzero polynomial t-1. Since powers of t are regular in Q[t], a localization structure map at t must be injective. Thus even a unit image of the generator does not make an arbitrary map the canonical localization map."
     }
    ]
   },
@@ -13987,6 +13992,13 @@
     "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
    ],
    "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
+  },
+  {
+   "title": "Diagram localization needs its typed canonical coefficient map",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.5/diagram-localisation"
+   ],
+   "detail": "Independent REV-FIX-RT-AREA-iwasawa-3~3: the packet requires the canonical coefficient map A^eff -> A induced by the effective-diagram inclusion (HMS Proposition B.22, pp.25–26), but the former Diagram.localise.coalgebra prototype concluded IsLocalization for any ring homomorphism phi and phi.toAlgebra. This unsupported universal signature has been removed. Supply the typed map induced on the finite endomorphism-dual colimit, with its inclusion compatibility and the induced localized product/multiplicative representation. Then state IsLocalization at chi for that map. Do not assume the localization conclusion as the compatibility hypothesis. The proved polynomial-to-Laurent evaluation-at-one example has a unit generator image and a nonzero kernel, distinguishing an arbitrary map from localization. Existing product/interface and reconstruction gaps remain."
   }
  ],
  "requests": [
@@ -15301,9 +15313,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-10",
-  "notes": "Codex (GPT-6), session codex-uc4o8L: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full in reviewHistory. Findings /4 and /31: the proposed geometric-Hodge owner and typed comparison supplier boundaries are adequate. Pullback, connecting-map, unit/product and Tate rank-one conditions remain explicit. Keep the newer negative reconstruction verdict: relative Beck preservation/adapter obligations, typed reconstruction carriers and 15 API/four theorem prototype defects remain unresolved. The area corrections do not repair them. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers. Mathematical fields, prior histories and supplier requests are preserved; this review claims no formalisation or proof closure."
+  "notes": "Codex (GPT-6), session codex-kvRxoX: independent bounded third-round Iwasawa fix review, following the independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 verdict archived unchanged here and the preceding codex-Ra2LGa checkpoint. The six MC.5/MC.6 suppliers retain effective-then-Tate-localized periods, the typed comparison, product compatibility and rank-one nonvanishing. A fresh signature audit found Diagram.localise.coalgebra wrongly quantified over an arbitrary ring homomorphism despite the packet requiring the canonical map. Retired that unsupported signature, sharpened its existing API contract, added a proved discriminating polynomial-to-Laurent example and an explicit typed-map gap. The comparison/period-point correction is otherwise adequate; full Lean verification is recorded in the report. Preserve the negative reconstruction verdict: relative Beck preservation adapter, typed carriers and fifteen API/four theorem prototype objections remain unresolved. All earlier histories, gaps, requests, coverage and other nodes remain. Findings /1–/7 were inspected as owner handoffs; Kato's r versus r-prime Hecke scalar and the GH.1 model parenthetical still need authorized repair. Queue completion is blocked because the live issue excludes both owner packet/Lean pairs required by its outputs. See report/handoff; no proof closure is claimed."
  },
  "reviewHistory": [
   {
@@ -16321,6 +16333,12 @@
    "date": "2026-10-10",
    "session": "codex-z0r0ow",
    "notes": "Codex (GPT-6), session codex-z0r0ow: independent bounded round-2 area-fix review following the newer codex-Ra2LGa REV-FIX-RT-AREA-iwasawa-3~3 review, preserved entirely in reviewHistory together with every older audit. Findings /4 and /31 remain adequate consumer corrections: geometric Hodge theory after C5 is still an unaccepted owner proposal and exact request; C5 owns the pair comparison and SF.6 etale/Betti transport. Current signature inspection confirms both comparison edge laws, unit/product compatibility and period_torsor consumption of its product structure, both multiplicative representations, ProductCompatible and PeriodComparison. Preserve the preceding negative reconstruction verdict: the relative Beck preservation adapter, typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. All non-review content and supplier requests are unchanged. Full source/library audits and unchanged Lean receipts remain attributed to preceding reviewers. The six omitted queue-required packets and PEL Suggested path still await scope authorization; see report/handoff."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-10",
+   "notes": "Codex (GPT-6), session codex-uc4o8L: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full in reviewHistory. Findings /4 and /31: the proposed geometric-Hodge owner and typed comparison supplier boundaries are adequate. Pullback, connecting-map, unit/product and Tate rank-one conditions remain explicit. Keep the newer negative reconstruction verdict: relative Beck preservation/adapter obligations, typed reconstruction carriers and 15 API/four theorem prototype defects remain unresolved. The area corrections do not repair them. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers. Mathematical fields, prior histories and supplier requests are preserved; this review claims no formalisation or proof closure."
   }
  ],
  "fixes": {
