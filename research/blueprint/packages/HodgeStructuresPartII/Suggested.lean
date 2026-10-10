@@ -1,3 +1,14 @@
+/-
+# HodgeStructuresPartII: representative target signatures
+
+This file is not the roadmap and is not exhaustive; `README.md` is definitive.
+Suggested names, signatures, APIs and examples help contributors and reviewers
+agree on Lean interfaces. These forms distinguish affine operators and fibre or
+coordinate calculations from global variations and analytic correspondences.
+Parameters, ordered tensor powers, determinant conventions and coefficient
+comparisons are explicit. Admitted bodies claim no implementation.
+-/
+
 import Mathlib.Algebra.Algebra.Bilinear
 import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
 import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
@@ -107,17 +118,6 @@ import TauCeti.Geometry.Hodge.PeriodDomain
 import TauCeti.Geometry.Hodge.Polarization
 import TauCeti.Geometry.Hodge.Structure
 import TauCeti.LinearAlgebra.BilinearForm.Isometry
-
-/-!
-# HodgeStructuresPartII: representative target signatures
-
-This file is not the roadmap and is not exhaustive; `README.md` is definitive.
-Suggested names, signatures, APIs and examples help contributors and reviewers
-agree on Lean interfaces. These forms distinguish affine operators and fibre or
-coordinate calculations from global variations and analytic correspondences.
-Parameters, ordered tensor powers, determinant conventions and coefficient
-comparisons are explicit. Admitted bodies claim no implementation.
--/
 
 namespace TauCetiRoadmap.HodgeStructuresPartII
 
