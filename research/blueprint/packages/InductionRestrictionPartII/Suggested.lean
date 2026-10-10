@@ -2391,5 +2391,257 @@ theorem order96_reduced_multiplier :
     Nonempty (reduced_multiplier order96_outside_involutions ≃+ ZMod 2) := by sorry
 end Order96Type
 
+/-! ## RS.6: the nineteen odd abelian marked table fixtures
+
+Wood (2019), introduction pp.378–379 and §8.2, Table 2, p.419.
+The ambient group and outside marking are fixed before the cover is selected.
+The finite cover in each row is a proof target, not a supplied certificate.
+-/
+
+section AbelianTableFixtures
+variable (A : Type) [CommGroup A]
+
+-- This is the factor swap on A × A, not inversion on each ambient factor.
+def table_factor_swap : Two →* MulAut (A × A) := by sorry
+lemma table_factor_swap_apply (t : Two) (p : A × A) :
+    table_factor_swap A t p = if t = 1 then p else (p.2, p.1) := by sorry
+
+abbrev TableWreath := (A × A) ⋊[table_factor_swap A] Two
+
+instance table_wreath_fintype [Fintype A] : Fintype (TableWreath A) :=
+  Fintype.ofEquiv ((A × A) × Two) SemidirectProduct.equivProd.symm
+
+-- The actual embedded subgroup contains both components (a,a⁻¹,t).
+-- Commutativity of A is required for closure under multiplication.
+def table_antidiagonal : Subgroup (TableWreath A) := by sorry
+lemma table_antidiagonal_mem (w : TableWreath A) :
+    w ∈ table_antidiagonal A ↔ w.left.2 = w.left.1⁻¹ := by sorry
+
+abbrev AbelianTableType := table_antidiagonal A
+
+instance abelian_table_fintype [Fintype A] : Fintype (AbelianTableType A) :=
+  Fintype.ofFinite _
+
+def table_embedding : AbelianTableType A →* TableWreath A :=
+  (table_antidiagonal A).subtype
+
+def table_projection : AbelianTableType A →* Two :=
+  SemidirectProduct.rightHom.comp (table_embedding A)
+
+def table_outside : Set (AbelianTableType A) :=
+  {x | table_projection A x ≠ 1 ∧ orderOf x = 2}
+
+lemma table_outside_mem (x : AbelianTableType A) :
+    x ∈ table_outside A ↔ x.val.right ≠ 1 ∧ orderOf x = 2 := by sorry
+
+lemma table_projection_surjective : Function.Surjective (table_projection A) := by sorry
+
+-- The parametrization fixes the multiplication; an order alone is insufficient.
+def table_coordinates : AbelianTableType A ≃ A × Two := by sorry
+lemma table_coordinates_apply (x : AbelianTableType A) :
+    table_coordinates A x = (x.val.left.1, x.val.right) := by sorry
+lemma table_coordinates_mul (x y : AbelianTableType A) :
+    table_coordinates A (x*y) =
+      (x.val.left.1 * (if x.val.right = 1 then y.val.left.1 else y.val.left.1⁻¹),
+        x.val.right * y.val.right) := by sorry
+
+-- This map is the first factor of the actual index-two kernel embedding.
+def table_kernel_first : (table_projection A).ker →* A := by sorry
+lemma table_kernel_first_apply (k : (table_projection A).ker) :
+    table_kernel_first A k = k.val.val.left.1 := by sorry
+lemma table_kernel_first_surjective : Function.Surjective (table_kernel_first A) := by sorry
+
+lemma abelian_table_marking [Fintype A] (hodd : Odd (Nat.card A)) :
+    Subgroup.closure (table_outside A) = ⊤ ∧
+      (∀ x y : AbelianTableType A, x ∈ table_outside A → y ∈ table_outside A →
+        IsConj x y) ∧
+      (∀ a x : AbelianTableType A, x ∈ table_outside A → a*x*a⁻¹ ∈ table_outside A) := by
+  sorry
+
+lemma abelian_table_card [Fintype A] :
+    Nat.card (AbelianTableType A) = 2 * Nat.card A := by sorry
+
+-- Three checks of the ambient action.
+example (p : A × A) : table_factor_swap A 1 p = p := by sorry
+example (p : A × A) :
+    table_factor_swap A (Multiplicative.ofAdd (1 : ZMod 2)) p = (p.2,p.1) := by sorry
+example (p : A × A) :
+    table_factor_swap A (Multiplicative.ofAdd (1 : ZMod 2))
+      (table_factor_swap A (Multiplicative.ofAdd (1 : ZMod 2)) p) = p := by sorry
+
+-- Three checks distinguish the anti-diagonal, the marking and oddness.
+example : (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)) : TableWreath A)
+    ∈ table_antidiagonal A := by sorry
+example : (⟨(Multiplicative.ofAdd (1 : ZMod 3), Multiplicative.ofAdd (1 : ZMod 3)), 1⟩ :
+    TableWreath C3) ∉ table_antidiagonal C3 := by sorry
+example : (⟨(Multiplicative.ofAdd (1 : ZMod 3), Multiplicative.ofAdd (2 : ZMod 3)), 1⟩ :
+    TableWreath C3) ∈ table_antidiagonal C3 := by sorry
+-- At even order C₂, the outside involution generates only one C₂ factor.
+example : Subgroup.closure (table_outside Two) ≠ ⊤ := by sorry
+
+-- Three boundary checks of the outside set and its native projection.
+example : (1 : AbelianTableType A) ∉ table_outside A := by sorry
+example (x : AbelianTableType A) :
+    x ∈ table_outside A ↔ table_projection A x ≠ 1 := by sorry
+example (x : AbelianTableType C3) (hx : x ∈ table_outside C3) :
+    orderOf x = 2 ∧ table_projection C3 x = Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+
+-- Three simultaneous checks of coordinates, embedding and projection.
+-- The nonidentity C₃ coordinate separates the first factor from its inverse.
+example : table_coordinates C3 (1 : AbelianTableType C3) = (1,1) ∧
+    (table_embedding C3 1).left = (1,1) ∧ table_projection C3 1 = 1 := by sorry
+example :
+    let a := Multiplicative.ofAdd (1 : ZMod 3)
+    let x := (table_coordinates C3).symm (a,1)
+    (table_embedding C3 x).left = (a,a⁻¹) ∧
+      (table_embedding C3 x).right = 1 ∧ table_projection C3 x = 1 := by sorry
+example :
+    let a := Multiplicative.ofAdd (1 : ZMod 3)
+    let t := Multiplicative.ofAdd (1 : ZMod 2)
+    let x := (table_coordinates C3).symm (a,t)
+    (table_embedding C3 x).left = (a,a⁻¹) ∧
+      (table_embedding C3 x).right = t ∧ table_projection C3 x = t ∧
+      x ∈ table_outside C3 := by sorry
+
+-- Three first-factor checks; inversion and constant maps fail the last two.
+example : table_kernel_first C3 1 = 1 := by sorry
+example (k : (table_projection C3).ker)
+    (hk : table_coordinates C3 k.val = (Multiplicative.ofAdd (1 : ZMod 3),1)) :
+    table_kernel_first C3 k = Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+example (k : (table_projection C3).ker)
+    (hk : table_coordinates C3 k.val = (Multiplicative.ofAdd (2 : ZMod 3),1)) :
+    table_kernel_first C3 k = Multiplicative.ofAdd (2 : ZMod 3) := by sorry
+
+-- The cyclic carrier agrees with the pinned dihedral model, including the
+-- reflection marking. DihedralGroup n has order 2n, rather than n.
+def abelian_table_dihedral (n : ℕ) :
+    AbelianTableType (Multiplicative (ZMod n)) ≃* DihedralGroup n := by sorry
+-- Mathlib writes reflections as sr i = s*r i, so the reflection index
+-- is negated relative to the left inversion semidirect-product coordinate.
+lemma abelian_table_dihedral_apply (n : ℕ) (x : AbelianTableType (Multiplicative (ZMod n))) :
+    abelian_table_dihedral n x =
+      if x.val.right = 1 then DihedralGroup.r (Multiplicative.toAdd x.val.left.1)
+      else DihedralGroup.sr (-Multiplicative.toAdd x.val.left.1) := by sorry
+lemma abelian_table_dihedral_outside (n : ℕ) :
+    abelian_table_dihedral n '' table_outside (Multiplicative (ZMod n)) =
+      Set.range (DihedralGroup.sr : ZMod n → DihedralGroup n) := by sorry
+
+-- Three convention checks of the dihedral equivalence.
+example : abelian_table_dihedral 3 1 = DihedralGroup.r 0 := by sorry
+example : abelian_table_dihedral 3
+    ((table_coordinates C3).symm (Multiplicative.ofAdd (1 : ZMod 3),1)) =
+      DihedralGroup.r 1 := by sorry
+example : abelian_table_dihedral 3
+    ((table_coordinates C3).symm
+      (Multiplicative.ofAdd (1 : ZMod 3),Multiplicative.ofAdd (1 : ZMod 2))) =
+      DihedralGroup.sr (2 : ZMod 3) := by sorry
+
+end AbelianTableFixtures
+
+section TableRowCertificates
+variable {F : Type} [Group F] [Fintype F] (c : Set F)
+variable (B : Type) [AddCommGroup B]
+
+-- Native certificate output for a row. The cover lives on an explicit finite
+-- enumeration. The displayed equation fixes the quotient isomorphism on
+-- every integral class; no input field assumes the computed multiplier.
+-- As with reduction_certificate, the proof fields are precise laws on maps.
+structure table_row_certificate where
+  coverOrder : ℕ
+  coverGroup : Group (Fin coverOrder)
+  projection : letI := coverGroup; Fin coverOrder →* F
+  cover : letI := coverGroup; reduction_certificate projection c
+  quotient : letI := coverGroup
+    projection.ker ⧸ certificate_relation_subgroup cover ≃* Multiplicative B
+  reduced : reduced_multiplier c ≃+ B
+  quotient_on_class : letI := coverGroup
+    ∀ z : IntegralMultiplier F,
+      quotient (QuotientGroup.mk (Additive.toMul (cover.classMap z))) =
+        Multiplicative.ofAdd (reduced (QuotientAddGroup.mk z))
+
+-- Three discrimination checks of the row output.
+example : Nonempty (table_row_certificate (∅ : Set (Multiplicative (ZMod 1))) (ZMod 1)) := by
+  sorry
+example : ¬ Nonempty (table_row_certificate (∅ : Set Four) (ZMod 1)) := by sorry
+example : ¬ Nonempty (table_row_certificate (table_outside C3) (ZMod 3)) := by sorry
+
+end TableRowCertificates
+
+-- Wood (2019), Table 2, p.419: C_3, dihedral order 6, reduced multiplier 1.
+theorem table_row_01 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 3))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_5, dihedral order 10, reduced multiplier 1.
+theorem table_row_02 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 5))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_7, dihedral order 14, reduced multiplier 1.
+theorem table_row_03 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 7))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_9, dihedral order 18, reduced multiplier 1.
+theorem table_row_04 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 9))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_11, dihedral order 22, reduced multiplier 1.
+theorem table_row_06 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 11))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_13, dihedral order 26, reduced multiplier 1.
+theorem table_row_09 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 13))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_15, dihedral order 30, reduced multiplier 1.
+theorem table_row_10 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 15))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_17, dihedral order 34, reduced multiplier 1.
+theorem table_row_11 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 17))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_19, dihedral order 38, reduced multiplier 1.
+theorem table_row_12 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 19))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_21, dihedral order 42, reduced multiplier 1.
+theorem table_row_14 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 21))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_23, dihedral order 46, reduced multiplier 1.
+theorem table_row_15 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 23))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_25, dihedral order 50, reduced multiplier 1.
+theorem table_row_18 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 25))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_27, dihedral order 54, reduced multiplier 1.
+theorem table_row_20 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 27))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_29, dihedral order 58, reduced multiplier 1.
+theorem table_row_26 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 29))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: C_31, dihedral order 62, reduced multiplier 1.
+theorem table_row_27 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 31))) (ZMod 1)) := by sorry
+
+-- Wood (2019), Table 2, p.419: inversion on the specified odd abelian kernel.
+theorem table_row_05 :
+    Nonempty (table_row_certificate (table_outside (C3 × C3)) (ZMod 3)) := by sorry
+
+-- Wood (2019), Table 2, p.419: inversion on the specified odd abelian kernel.
+theorem table_row_19 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 5) × Multiplicative (ZMod 5))) (ZMod 5)) := by sorry
+
+-- Wood (2019), Table 2, p.419: inversion on the specified odd abelian kernel.
+theorem table_row_21 :
+    Nonempty (table_row_certificate (table_outside (Multiplicative (ZMod 9) × C3)) (ZMod 3)) := by sorry
+
+-- Wood (2019), Table 2, p.419: inversion on the specified odd abelian kernel.
+theorem table_row_25 :
+    Nonempty (table_row_certificate (table_outside (Fin 3 → C3)) (Fin 3 → ZMod 3)) := by sorry
+
 end TauCeti.ReducedSchur
 end
