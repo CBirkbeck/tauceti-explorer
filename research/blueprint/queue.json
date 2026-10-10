@@ -41267,7 +41267,8 @@
     "BP-PELModuli~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PELModuli~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7077"
   },
   {
    "kind": "blueprint",
@@ -43514,8 +43515,9 @@
    ],
    "revisionOf": "BP-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7306"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7306",
+   "finishedAt": "2026-10-10T10:16:25Z"
   },
   {
    "priority": 2,
