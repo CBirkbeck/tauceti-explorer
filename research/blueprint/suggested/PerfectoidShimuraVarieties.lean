@@ -920,3 +920,17 @@ example (Z : Matrix g g ℤ_[p]) (hZ : Zᵀ = Z) :
 
 end PadicDistance
 end TauCeti.HodgeTate
+
+/-! ## Independent revision review: exceptional finite pairing level and cusp-fan calculation
+
+The first example is the residue-unit input to finiteLevel_fixed_similitude_g1 at p=2,m=1.
+It states no geometric model. The second gives the cone-membership obstruction in
+toroidal_hecke_needs_refinement: for a cone containing both axis rays, the third rank-one ray
+has off-diagonal magnitude at most the smaller diagonal. The transformed ray fails that bound.
+No analytic toroidal carrier is introduced. -/
+
+example (u : (ZMod 2)ˣ) : u = 1 := sorry
+
+example : let Q : Matrix (Fin 2) (Fin 2) ℤ := !![4, -2; -2, 1]
+    Q = Matrix.vecMulVec (![2, -1] : Fin 2 → ℤ) (![2, -1] : Fin 2 → ℤ) ∧
+      Q 1 1 < |Q 0 1| := by decide
