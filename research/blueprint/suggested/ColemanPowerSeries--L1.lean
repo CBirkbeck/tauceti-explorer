@@ -14,6 +14,7 @@ import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
 import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Norm.Basic
 import Mathlib.RingTheory.Trace.Basic
+import Mathlib.LinearAlgebra.Vandermonde
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
@@ -175,6 +176,7 @@ lemma correctedNorm_iterate (r : ℕ) (f : B[O]ˣ) :
     ((M^[r]) f : B[O]) = (Σ[σ.symm]^[r]) ((norm O p)^[r] (f : B[O])) := sorry
 lemma correctedNorm_fixed (f : B[O]ˣ) : M f = f ↔ norm O p (f : B[O]) = Σ[σ] (f : B[O]) := sorry
 include hσc hσic in
+-- Independent input to projector fixedness and interpolation compactness.
 lemma correctedNorm_continuous : Continuous M := sorry
 include hσ in
 lemma iteration_precision (a b : ℕ) (hab : b ≤ a) (f : B[O]ˣ) :
@@ -193,6 +195,7 @@ include hCompact hσc hσic in
 lemma unit_space_compact : CompactSpace B[O]ˣ ∧ CompactSpace Fix := sorry
 
 local notation "L" => normLimit p O σ hO hAdic hσ hσc hσic
+-- Convergence is in native Units topology: both values and inverse values converge.
 lemma normLimit_tendsto (f : B[O]ˣ) :
     Filter.Tendsto (fun r : ℕ => (M^[r]) f) Filter.atTop (𝓝 (L f).1) := sorry
 lemma normLimit_precision (f : B[O]ˣ) (r : ℕ) :
@@ -246,7 +249,11 @@ end Tests
 end Coefficients
 
 /- Coleman Theorem 11 in a receiving ring. The translated constant is generally
-nonzero: native HasEval, rather than formal HasSubst, licenses this evaluation. -/
+nonzero: native HasEval, rather than formal HasSubst, licenses this evaluation.
+For the determinant comparison, send each multiplication-matrix entry a to
+map ρ (Φ a). Evaluation of the basis expansion gives V A = diagonal(e) V,
+where V is the Vandermonde matrix at C(ξ^i)Y. Its determinant is nonzero in
+S[[T]]; take determinants and cancel there. No fraction-series topology is used. -/
 section RootProduct
 variable (p : ℕ) [Fact p.Prime] (O : Type) [CommRing O] [IsDomain O]
 variable [Algebra ℤ_[p] O] [Module.Free ℤ_[p] O] [Module.Finite ℤ_[p] O]

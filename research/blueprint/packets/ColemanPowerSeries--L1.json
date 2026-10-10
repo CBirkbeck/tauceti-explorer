@@ -169,6 +169,13 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "provides": "The determinant of the n-th power of a finite square matrix over a commutative ring equals the n-th power of its determinant.",
         "checked": "Statement and section hypotheses read in the exact pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Matrix.det_vandermonde_ne_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Vandermonde.lean",
+        "provides": "For a finite Vandermonde matrix over an integral domain, its determinant is nonzero exactly when its point function is injective. This supplies cancellation in S[[T]] without inverting p.",
+        "checked": "Statement and ambient commutative-ring/domain hypotheses independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-10; the Suggested file imports this module."
       }
     ]
   },
@@ -183,7 +190,7 @@
       "accessed": "2026-10-10",
       "readSections": [
         "Introduction, Theorem A, pp.91–92",
-        "§I, Lemma 2a, pp.94–95",
+        "§II, Lemma 2a, pp.95–96; Theorem 4, Corollary 5 and Lemma 6, pp.98–99",
         "§III, Theorem 8, pp.100–101",
         "§IV, Theorem 11, Corollary 12, Lemma 13, Proposition 14, Theorems 15–16 and Corollary 17, pp.102–106"
       ],
@@ -622,8 +629,8 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12 and Lemma 13, pp.102–103",
-          "match": "The trace is the additive counterpart of the norm and gives the divisibility used in the norm congruence."
+          "locator": "§II, Theorem 4 and Corollary 5(i), p.98; Lemma 6, p.99",
+          "match": "Coleman constructs the continuous additive division-point sum and its field-trace evaluation identity. Native matrix trace realizes that operator in the multiplicative specialization; Lemma 6 supplies integral divisibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -712,8 +719,8 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12 and Lemma 13(i), pp.102–103",
-          "match": "The integral trace divisibility underlies norm improvement. The coordinate computation extends the parent’s base-valued formula. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-trace-coordinates. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+          "locator": "§II, Theorem 4, p.98, and Lemma 6, p.99",
+          "match": "The additive division-point sum becomes p times the zeroth cyclotomic coordinate. The displayed finite-basis calculation establishes the specialized formula and the divisibility in Lemma 6."
         }
       ],
       "implementationStatus": "unchecked",
@@ -751,13 +758,15 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries",
         "mathlib:DenseRange.equalizer",
-        "ColemanPowerSeries:L1/unramified-norm-continuous"
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice"
       ],
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12(ii), p.102; comparison with parent normalized-trace formula",
-          "match": "Coleman’s additive division-point sum is the integral trace. Identification with the measure-theoretic normalization uses the parent comparison and the coefficient-extension input, not a new definition of ψ."
+          "locator": "§II, Theorem 4, p.98; worker comparison with the independently supplied PMIA operator",
+          "match": "The additive division-point sum is the integral trace. The identification with p times the measure-theoretic ψ is the displayed density argument, using the independently requested polynomial action and continuity; Coleman does not state a PMIA comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -821,9 +830,9 @@
         "S is a complete Hausdorff DVR receiving O injectively and continuously, with an adic topology in which ξ−1 is topologically nilpotent. ξ has order p; the translated series ξ^iY−1 satisfy native HasEval in S[[T]], and the constant-series coefficient homomorphism is continuous."
       ],
       "proofSteps": [
-        "Extend the multiplication matrix along ρ.",
-        "Evaluate the basis at the p translated points using convergent evaluation first in S[[T]]. Then extend coefficients to (Frac S)[[T]]. The Vandermonde determinant is a product of distinct root differences and powers of Y, hence is invertible in this coefficient extension.",
-        "Diagonalization there gives the translated values as diagonal entries. Take determinants and descend to S[[T]] using coefficient-map injectivity. Evaluation is never manufactured in a field with an artificial linear topology."
+        "Let A_f be the basis multiplication matrix with each entry a sent to map(ρ)(Φ(a)). Let x_i=C(ξ^i)Y in S[[T]], V=Matrix.vandermonde(x), and e_i=eval₂Hom(C∘ρ,x_i−1)(f). Evaluating the basis expansion of fY^j gives V A_f=diag(e_i) V. The scalar identity eval₂Hom(C∘ρ,x_i−1)(Φ(a))=map(ρ)(Φ(a)) follows from native aeval_subst and ξ^p=1.",
+        "The x_i are distinct: distinct powers of the primitive root give distinct nonzero constant-series differences, and multiplication by the unit Y preserves this. In the domain S[[T]], Matrix.det_vandermonde_ne_zero_iff gives det(V)≠0.",
+        "Take determinants in the matrix identity and cancel the nonzero det(V) in S[[T]]. RingHom.map_det identifies det(A_f) with map(ρ)(Φ(Nf)). The determinant of the diagonal matrix is the product of all p translated values, including i=0. No localization or topology on a fraction-series field is required."
       ],
       "acceptance": [
         "For a complete ramified integral receiving ring S containing O and a primitive p-th root ξ, with continuous coefficient map ρ, the identity map(ρ)(Φ(Nf))=∏_(i<p) t_i(map(ρ)f) holds, where t_i is native adic substitution T↦ξ^iY−1. Each such substitution is defined only in S[[T]], with ξ^i−1 topologically nilpotent."
@@ -832,13 +841,15 @@
         "ColemanPowerSeries:L1/unramified-basis",
         "ColemanPowerSeries:L1/unramified-norm",
         "tauceti:PowerSeries.aeval_subst",
-        "mathlib:PowerSeries.eval₂Hom"
+        "mathlib:PowerSeries.eval₂Hom",
+        "mathlib:Matrix.det_vandermonde_ne_zero_iff",
+        "mathlib:RingHom.map_det"
       ],
       "sources": [
         {
           "sourceId": "Coleman1979",
           "locator": "§IV, Theorem 11, p.102",
-          "match": "This is the defining division-point product in Coleman, specialized to the multiplicative formal group. The determinant comparison reuses the parent Vandermonde argument over the correct receiving ring. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/root-translation-multiplication-matrix, ColemanPowerSeries:L1/coleman-norm-root-product. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+          "match": "Coleman Theorem 11 gives the division-point product. The displayed native finite-basis argument proves the integral determinant realization after coefficient extension, using Vandermonde determinant cancellation in S[[T]]."
         }
       ],
       "implementationStatus": "unchecked",
@@ -919,7 +930,7 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Lemma 13(ii), p.103; see also Sharifi §5.4, proof of Proposition 5.4.6, p.145",
+          "locator": "§IV, equation (2) in the proof of Lemma 13(ii), p.103; Sharifi §5.4, proof of Proposition 5.4.6, p.145",
           "match": "Coleman’s corrected congruence includes the arithmetic coefficient Frobenius. This fixes the omitted coefficient action in the inspected secondary calculation. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-residue-identity. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
         }
       ],
@@ -957,7 +968,7 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Lemma 13(ii), p.103",
+          "locator": "§IV, Lemma 13(i), p.103",
           "match": "The norm of an element congruent to one gains one uniformizer power; the explicit determinant expansion proves the needed integral statement. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-improves-one-congruence. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
         }
       ],
@@ -995,7 +1006,7 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Lemma 13(ii), p.103",
+          "locator": "§IV, Lemma 13(i), p.103; worker application to a unit ratio",
           "match": "The near-one congruence becomes a contracting congruence on unit ratios."
         }
       ],
@@ -1034,8 +1045,8 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Proposition 14 and Corollary 17, pp.104–106",
-          "match": "The projection and interpolation are topological. Finite matrices establish the continuity needed here in the source’s coefficient topology."
+          "locator": "§IV, Theorem 11, p.102; §II, Theorem 4, p.98",
+          "match": "Coleman constructs continuous norm and additive trace operators. The displayed coordinate-matrix proof supplies continuity of the native integral realizations in the coefficient topology."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1103,7 +1114,7 @@
         {
           "name": "TauCetiRoadmap.ColemanUnramified.correctedNorm_continuous",
           "role": "structure",
-          "statement": "M is continuous."
+          "statement": "M is continuous; supplied by unramified-corrected-norm-continuous."
         }
       ],
       "tests": [
@@ -1291,8 +1302,8 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§I, Lemma 2a, pp.94–95; §IV, Proposition 14, p.104",
-          "match": "Compactness and the source coefficient topology supply a closed unit carrier for the interpolation argument. The finite-unramified case is a compact coefficient product."
+          "locator": "§II, Lemma 2a, pp.95–96; §IV, Proposition 14, p.104",
+          "match": "The source uses bounded-series convergence and the norm-fixed subgroup. For finite unramified coefficients the displayed compact-product and closed-unit argument supplies compactness; Lemma 2a itself is a convergence criterion, not a compactness theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1322,13 +1333,14 @@
         "For fixed inputs the iterates are constant, proving the retraction property. Continuity is established by the separately promoted uniform-precision lemma."
       ],
       "acceptance": [
-        "Construct Lσ:Bˣ→*B^(N=Σ) by the coefficientwise limit of M^r(f). This is a multiplicative continuous retraction onto the Frobenius norm-fixed subgroup."
+        "Construct Lσ:Bˣ→*B^(N=Σ) by the coefficientwise limit of M^r(f). This is a multiplicative retraction onto the Frobenius norm-fixed subgroup."
       ],
       "prerequisites": [
         "ColemanPowerSeries:L1/unramified-iteration-precision",
         "ColemanPowerSeries:L1/unramified-norm-continuous",
         "ColemanPowerSeries:L1/unramified-unit-space-compact",
-        "ColemanPowerSeries:L1/unramified-fixed-units"
+        "ColemanPowerSeries:L1/unramified-fixed-units",
+        "ColemanPowerSeries:L1/unramified-corrected-norm-continuous"
       ],
       "sources": [
         {
@@ -1416,7 +1428,8 @@
         "ColemanPowerSeries:L1/unramified-iteration-precision",
         "ColemanPowerSeries:L1/unramified-norm-limit",
         "ColemanPowerSeries:L1/unramified-norm-continuous",
-        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "ColemanPowerSeries:L1/unramified-norm-limit-convergence"
       ],
       "sources": [
         {
@@ -1459,7 +1472,11 @@
         "ColemanPowerSeries:L1/unramified-scalar-algebra",
         "mathlib:PowerSeries.eval₂Hom",
         "mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries",
-        "mathlib:DenseRange.equalizer"
+        "mathlib:DenseRange.equalizer",
+        "ColemanPowerSeries:L0/unramified-coefficient-level",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius-inclusion",
+        "ColemanPowerSeries:L0/unramified-coefficient-series-point"
       ],
       "sources": [
         {
@@ -1500,13 +1517,16 @@
       "prerequisites": [
         "ColemanPowerSeries:L1/unramified-basis",
         "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-relative-degree",
+        "ColemanPowerSeries:L0/unramified-coefficient-relative-minpoly",
+        "ColemanPowerSeries:L0/unramified-coefficient-integral-basis"
       ],
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12, p.102",
-          "match": "Coleman’s finite-level norm and trace identities specialize the division-point algebra. The matrix lemma supplies an integral proof over the actual coefficient compositum. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/arithmetic-multiplication-matrix. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
+          "locator": "§IV, Corollary 12(ii), p.102; §II, Corollary 5(i), p.98",
+          "match": "These are the norm and trace evaluation identities. The displayed entrywise basis calculation proves their common integral matrix specialization; the source does not state this matrix lemma separately."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1542,12 +1562,13 @@
         "ColemanPowerSeries:L1/unramified-norm",
         "mathlib:RingHom.map_det",
         "tauceti:TauCeti.Algebra.normUnits",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-unit-norm"
       ],
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12(i), p.102",
+          "locator": "§IV, Corollary 12(ii), p.102",
           "match": "This is the actual norm/evaluation compatibility, rather than an assumed interpolation equation."
         }
       ],
@@ -1582,12 +1603,13 @@
       "prerequisites": [
         "ColemanPowerSeries:L1/unramified-evaluation-matrix",
         "ColemanPowerSeries:L1/unramified-trace",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-integral-basis"
       ],
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Corollary 12(ii), p.102",
+          "locator": "§II, Corollary 5(i), p.98",
           "match": "The division-point sum is the finite-level trace. It is integral before any normalized ψ comparison."
         }
       ],
@@ -1662,7 +1684,9 @@
         "ColemanPowerSeries:L1/unramified-norm-evaluation",
         "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
         "ColemanPowerSeries:L0",
-        "tauceti:TauCeti.Algebra.normUnits"
+        "tauceti:TauCeti.Algebra.normUnits",
+        "ColemanPowerSeries:L0/unramified-coefficient-unit-limit",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius"
       ],
       "sources": [
         {
@@ -1787,7 +1811,9 @@
         "ColemanPowerSeries:L1/unramified-norm-evaluation",
         "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
         "ColemanPowerSeries:L1/unramified-corrected-norm",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-unit-limit",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius-inclusion"
       ],
       "sources": [
         {
@@ -1829,7 +1855,9 @@
       "prerequisites": [
         "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
         "ColemanPowerSeries:L1/unramified-iteration-precision",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-integral-basis",
+        "ColemanPowerSeries:L0/unramified-coefficient-residue"
       ],
       "sources": [
         {
@@ -1874,7 +1902,9 @@
         "ColemanPowerSeries:L1/unramified-norm-continuous",
         "ColemanPowerSeries:L1/unramified-evaluation-separation",
         "ColemanPowerSeries:L0",
-        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "ColemanPowerSeries:L0/unramified-coefficient-series-point",
+        "ColemanPowerSeries:L1/unramified-corrected-norm-continuous"
       ],
       "sources": [
         {
@@ -2019,7 +2049,8 @@
         "ColemanPowerSeries:L1/unramified-unit-space-compact",
         "ColemanPowerSeries:L0",
         "mathlib:Continuous.homeoOfEquivCompactToT2",
-        "ColemanPowerSeries:L1/unramified-twisted-evaluation"
+        "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "ColemanPowerSeries:L0/unramified-coefficient-unit-limit"
       ],
       "sources": [
         {
@@ -2061,7 +2092,9 @@
         "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
         "ColemanPowerSeries:L1/unramified-norm-frobenius",
         "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius",
+        "ColemanPowerSeries:L0/unramified-coefficient-frobenius-inclusion"
       ],
       "sources": [
         {
@@ -2190,7 +2223,7 @@
       "sources": [
         {
           "sourceId": "Coleman1979",
-          "locator": "§IV, Lemma 13(ii) and equation (2), p.103",
+          "locator": "§IV, Lemma 13(i) and equation (2), p.103; worker induction",
           "match": "This states the iterated near-one estimate explicitly, completing the unramified variants of the parent congruence package. Parent proof models (not assumed O-valued theorems): ColemanPowerSeries:L1/coleman-norm-iterated-improvement. The displayed proof establishes the coefficient variant from its listed native and supplier inputs."
         }
       ],
@@ -2225,7 +2258,8 @@
         "ColemanPowerSeries:L1/unramified-norm-limit",
         "ColemanPowerSeries:L1/unramified-norm-limit-precision",
         "ColemanPowerSeries:L1/unramified-corrected-norm",
-        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "ColemanPowerSeries:L1/unramified-corrected-norm-continuous"
       ],
       "sources": [
         {
@@ -2258,14 +2292,16 @@
       "proofSteps": [
         "Apply the independently supplied complete-DVR Weierstrass factorization f=p^μ P v, with P distinguished and v a unit.",
         "The factors p^μ and ε_n(v) are nonzero in O_n, so a zero of ε_n(f) forces P(π_n)=0.",
-        "The supplied nonzero minimal polynomial of π_n over E has degree d_n=p^n(p−1), tending to infinity. For any nonzero P, a root at π_n forces that minimal polynomial to divide its coefficient image in E[X]. Its degree then cannot exceed degree P. Once d_n>degree P, this is impossible."
+        "The L0 integral power basis has generator π_n and dimension d_n, so its fraction-field minimal polynomial has degree d_n=p^n(p−1), tending to infinity. If P(π_n)=0, this minimal polynomial divides the coefficient image of P in E[X], forcing d_n≤degree P. Once d_n>degree P this is impossible."
       ],
       "acceptance": [
         "For every nonzero f∈B, ε_n(f) is nonzero for all sufficiently large n."
       ],
       "prerequisites": [
         "PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization",
-        "ColemanPowerSeries:L0"
+        "ColemanPowerSeries:L0/unramified-coefficient-degree",
+        "ColemanPowerSeries:L0/unramified-coefficient-integral-basis",
+        "ColemanPowerSeries:L0/unramified-coefficient-series-point"
       ],
       "sources": [
         {
@@ -2280,6 +2316,87 @@
         "namespace": "TauCetiRoadmap.ColemanUnramified",
         "declaration": "TauCetiRoadmap.ColemanUnramified.evaluation_eventually_nonzero"
       }
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-corrected-norm-continuous",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Continuity of the corrected one-step norm",
+      "kind": "lemma",
+      "statement": "M=Σ⁻¹N:Bˣ→Bˣ is continuous for the coefficientwise p-adic topology.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "The norm and coefficientwise σ⁻¹ are continuous on native series. The units topology is induced by value and inverse value; inversion on source units and the monoid-homomorphism inverse identity make both target coordinates continuous.",
+        "Compose the resulting continuous unit maps. The finite iterates M^r are continuous by induction."
+      ],
+      "acceptance": [
+        "M=Σ⁻¹N:Bˣ→Bˣ is continuous for the coefficientwise p-adic topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, Theorem 11, p.102, equations (2)–(4), p.103",
+          "match": "Worker proof of this property of the Frobenius-corrected integral norm, using the specified native maps and precision estimates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.correctedNorm_continuous"
+      },
+      "addedBy": "REV-ColemanPowerSeries--L1"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/unramified-norm-limit-convergence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Convergence to the corrected projector",
+      "kind": "lemma",
+      "statement": "For every f∈Bˣ, M^r(f) tends to the underlying unit of Lσ(f) as r tends to infinity.",
+      "hypotheses": [
+        "p is a prime. E/ℚ_p is finite unramified; O is its native integer ring, a compact complete DVR finite free over ℤ_p with maximal ideal pO. The topology on B=O[[T]] is coefficientwise p-adic. Y=1+T and Φ(f)=f(Y^p−1) fixes coefficients. The scalar algebra on the second B has structural map Φ, not the ordinary self-algebra. All norms and traces are base-valued.",
+        "σ:O≃ₐ[ℤ_p]O is the canonical arithmetic p-Frobenius: its residue action is x↦x^p. Σ applies σ coefficientwise. σ is continuous, preserves p-power ideals, and fixes ℤ_p. It is not the q-power residue Frobenius when [E:ℚ_p]>1."
+      ],
+      "proofSteps": [
+        "The constructor selects the unique limits of the coefficientwise Cauchy sequences. Iteration precision is uniform in the coefficient index; completeness supplies each limit.",
+        "The constant coefficient is unit-valued modulo p for all iterates, hence its limit is a unit. In a local ring, its inverse is continuous on the open-and-closed unit set. Coefficients of the inverse series are finite polynomial expressions in finitely many coefficients and the inverse constant coefficient. Thus inverse values converge coefficientwise too, giving convergence in native Units topology, not merely convergence of values."
+      ],
+      "acceptance": [
+        "For every f∈Bˣ, M^r(f) tends to the underlying unit of Lσ(f) as r tends to infinity."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/unramified-norm-limit",
+        "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Coleman1979",
+          "locator": "§IV, equations (3)–(4), p.103, Proposition 14, p.104",
+          "match": "Worker proof of this property of the Frobenius-corrected integral norm, using the specified native maps and precision estimates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanUnramified",
+        "namespace": "TauCetiRoadmap.ColemanUnramified",
+        "declaration": "TauCetiRoadmap.ColemanUnramified.normLimit_tendsto"
+      },
+      "addedBy": "REV-ColemanPowerSeries--L1"
     }
   ],
   "requests": [
@@ -2291,7 +2408,8 @@
         "ColemanPowerSeries:L1/unramified-coordinates-surjective",
         "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
         "ColemanPowerSeries:L1/unramified-unit-space-compact",
-        "ColemanPowerSeries:L1/unramified-interpolation-existence"
+        "ColemanPowerSeries:L1/unramified-interpolation-existence",
+        "ColemanPowerSeries:L1/unramified-norm-limit-convergence"
       ],
       "status": "open"
     },
@@ -2300,13 +2418,14 @@
       "need": "Canonical arithmetic p-Frobenius σ of finite unramified E/ℚ_p and its restriction to O, continuity, σ(p)=p, and residue action x↦x^p. The current library has this beyond the pinned baseline; use the roadmap input rather than replan it.",
       "neededBy": [
         "ColemanPowerSeries:L1/unramified-norm-residue-frobenius",
-        "ColemanPowerSeries:L1/unramified-iteration-precision"
+        "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "ColemanPowerSeries:L1/unramified-corrected-norm-continuous"
       ],
       "status": "open"
     },
     {
       "supplier": "ColemanPowerSeries:L0",
-      "need": "Specialize the existing native cyclotomic tower to finite unramified E: E_n=adjoin_E ζ_n, O_n=integralClosure O E_n, exact root orders p^(n+1), compatible roots, π_n, inclusion-induced scalar algebras, complete compact Hausdorff p-adic target topology, native continuous eval₂Hom, d_n=p^n(p−1), minimal polynomial degree of π_n, integral relative power basis ζ_(n+1)^i of rank p, norm/trace comparison with fraction fields, and bounded polynomial lifts of each unit. Extend σ to σ_n fixing all ζ_n, commuting with inclusions and relative norms. Supply the actual equalizer subgroup U∞ and its native product topology; it is not a new L1 carrier. This is the finite unramified specialization of L0 arithmetic, not the parent L4 abstract coefficient tensor quotient.",
+      "need": "Reuse L0 unramified-coefficient-level, -degree, -integral-basis, -unit-norm, -frobenius, -frobenius-inclusion, -unit-limit and -series-point; they already plan the arithmetic tower, roots, degree, Frobenius and norm equalizer. Remaining specialization interface: transport their valuation-ring objects to integralClosure O E_n by LocalFieldsRamification integerRing_eq_integralClosure, with coherent inclusion/scalar/valuation/topology instances; continuous native eval₂Hom in the coefficient topology; the relative integral basis ζ_(n+1)^i (i<p), refined from the relative minimal polynomial X^p−ζ_n and total ramification; native integral norm/trace agreement with field norms/traces and σ_n commutation with relative norms; polynomial unit lifts at π_n with unit constant term. These adapters must be checked on the actual fields, not supplied by an uncharacterized carrier or an assumed L1 evaluation square. The accepted L0 G1 receiver/basis refinement remains open; existing absolute-basis nodes are not the relative-basis adapter.",
       "neededBy": [
         "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
         "ColemanPowerSeries:L1/unramified-evaluation-matrix",
@@ -2317,8 +2436,7 @@
         "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
         "ColemanPowerSeries:L1/unramified-interpolation-existence",
         "ColemanPowerSeries:L1/unramified-interpolation-homeomorphism",
-        "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant",
-        "ColemanPowerSeries:L1/unramified-evaluation-eventually-nonzero"
+        "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant"
       ],
       "status": "open"
     },
@@ -2357,8 +2475,8 @@
       "locator": "SharifiNotes, §5.4, Theorem 5.4.9, printed p.145; PDF hash recorded above",
       "printed": "Authored description: the stated interpolation argument uses a root of order p^n while the earlier tower convention makes E_n the field generated by a root of order p^(n+1).",
       "correction": "Use ζ_(p^(n+1))−1 at level n throughout the interpolation statement, or reindex the tower and every associated norm formula consistently.",
-      "reason": "At n=0 the displayed root of order one gives evaluation at zero in O; it cannot represent every unit of the degree p−1 level E_0. Coleman’s original Theorem A uses its compatible level-zero nontrivial division point.",
-      "known": "No published correction located in the inspected PDF, current author HTML, or the searched author-site results; independent review must confirm this version-specific finding.",
+      "reason": "At p=3 and n=0, the displayed root of order one gives evaluation at zero in O. It cannot represent every unit of the degree-two field E_0=E(ζ_3). Coleman’s original Theorem A uses its compatible level-zero nontrivial division point. The dyadic first layer happens to be trivial, but does not repair the stated every-prime indexing.",
+      "known": "No published correction located in the inspected PDF, current author HTML, or the searched author-site results.",
       "searched": [
         "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
         "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
@@ -2366,7 +2484,12 @@
         "Author-site searches for Theorem 5.4.9 errata and Coleman interpolation indexing"
       ],
       "affects": "a stated result",
-      "source": "SharifiNotes"
+      "source": "SharifiNotes",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the exact recorded PDF: the root exponent in Theorem 5.4.9 differs from the tower indexing in Notation 5.4.1. The level-zero evaluation counterexample and Coleman Theorem A, pp.91–92, confirm the corrected indexing.",
+        "by": "REV-ColemanPowerSeries--L1"
+      }
     },
     {
       "id": "ColemanPowerSeries/E-L1-2",
@@ -2375,14 +2498,19 @@
       "printed": "Authored description: the division-point product in the proof is indexed by the nonidentity p-th roots only.",
       "correction": "Include the identity root: the product is over i=0,…,p−1.",
       "reason": "For a constant c the native rank-p determinant is c^p. A product with only p−1 factors gives c^(p−1). The defining identity and Coleman Theorem 11 include all p roots.",
-      "known": "No published correction located in the inspected author PDF or current author HTML; independent review must confirm.",
+      "known": "No published correction located in the inspected author PDF or current author HTML.",
       "searched": [
         "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
         "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
         "https://eudml.org/doc/142657"
       ],
       "affects": "the proof",
-      "source": "SharifiNotes"
+      "source": "SharifiNotes",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at printed p.144 of the exact recorded PDF. A constant gives p−1 factors in the proof but p factors in the definition/rank-p norm; Coleman Theorem 11, p.102, includes the identity division point.",
+        "by": "REV-ColemanPowerSeries--L1"
+      }
     },
     {
       "id": "ColemanPowerSeries/E-L1-3",
@@ -2391,14 +2519,19 @@
       "printed": "Authored description: a congruence correctly using the coefficient Frobenius is followed by identification with coefficient-fixed substitution of the original series.",
       "correction": "The final substitution is Φ(Σf), not Φ(f). The next line and the stated proposition already use the corrected coefficient action: Nf≡Σf.",
       "reason": "A residue coefficient c outside 𝔽_p satisfies c^p≠c. Testing a Teichmüller constant rejects the last displayed identification. Coleman Lemma 13 and equation (2) retain the coefficient action.",
-      "known": "No published correction located in the inspected author PDF or current author HTML; independent review must confirm.",
+      "known": "No published correction located in the inspected author PDF or current author HTML.",
       "searched": [
         "https://math.ucla.edu/~sharifi/notes/iwasawa-ch05.html",
         "https://math.ucla.edu/~sharifi/notes/iwasawa.pdf",
         "https://eudml.org/doc/142657"
       ],
       "affects": "the proof",
-      "source": "SharifiNotes"
+      "source": "SharifiNotes",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at printed p.145 of the exact recorded PDF: the final identification drops the coefficient Frobenius. A residue coefficient outside the prime field distinguishes the two expressions; Coleman equation (2), p.103, retains the Frobenius.",
+        "by": "REV-ColemanPowerSeries--L1"
+      }
     }
   ],
   "sourceVersions": [
@@ -2414,5 +2547,223 @@
       "read": "2026-10-10",
       "sha256": "99b3a36201cecf55045da6913d462cacdb8dff83bff5860c5883ab7ea824bd32"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ColemanPowerSeries--L1",
+    "date": "2026-10-10",
+    "notes": "Independent source, exact-pin baseline, supplier, target coverage, API/test, native-carrier and topology review. Corrected Coleman additive/norm/precision locators, integral root-product matrix proof, precise L0/PMIA imports and constructor acceptance. Promoted two used API properties, with signatures already present. All source findings independently confirmed. Planned, not closed: four precise supplier requests remain, including the accepted L0 arithmetic receiver refinement and the PMIA coefficient-topology adapter. All proofs and constructions remain unchecked specifications.",
+    "checked": [
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-scalar-algebra",
+        "verdict": "verified",
+        "note": "Zero-constant substitution fixes O and gives the required scalar action, rather than the ordinary rank-one self-algebra."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-coordinates-injective",
+        "verdict": "verified",
+        "note": "Finite free Zp-coefficient projections commute with the Zp-valued substitution and basis vectors; the accepted parent injectivity applies componentwise."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-coordinates-surjective",
+        "verdict": "verified",
+        "note": "Only finitely many coefficient components are reassembled; parent coordinate surjectivity supplies each without tensor-completion assumptions."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-basis",
+        "verdict": "verified",
+        "note": "Bijective assembly gives the stated native rank-p basis in the explicitly induced module; carry test distinguishes the scalar convention."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-coordinates-homeomorphism",
+        "verdict": "verified",
+        "note": "Finite-output coefficient continuity and compact-to-Hausdorff inversion justify coordinate continuity in the product topology."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm",
+        "verdict": "verified",
+        "note": "Native determinant norm is evaluated with the rank-p basis, excluding the non-finite fallback and ordinary self-algebra."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-trace",
+        "verdict": "corrected",
+        "note": "Native base-valued trace and the explicit scalar module are correct; replaced unrelated norm references by Theorem 4 and Corollary 5."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-trace-coordinates",
+        "verdict": "corrected",
+        "note": "Each nonzero carry shift has zero diagonal, leaving p times the zeroth coordinate; corrected additive-operator locators."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-trace-psi",
+        "verdict": "corrected",
+        "note": "The independent polynomial action plus continuity and density proves tau=p psi without dividing by p; exact PMIA imports added, topology adapter remains open."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-frobenius",
+        "verdict": "verified",
+        "note": "Coefficient Frobenius fixes the basis vectors and transforms the multiplication matrix entrywise, so determinant naturality applies."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-root-product",
+        "verdict": "corrected",
+        "note": "Corrected scalar entry map to map(rho) composed with Phi. Vandermonde nonzero-determinant cancellation works inside the native integral receiver; no fraction-series topology is needed."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-phi-reflection",
+        "verdict": "verified",
+        "note": "Reduction gives injective T-to-T^p expansion; p-torsion freeness permits the inductive coefficient division for every precision."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-residue-frobenius",
+        "verdict": "corrected",
+        "note": "Reduction of the rank-p matrix yields det(M)^p=(Sigma f)^p; the residue series domain gives equality. Located equation (2) precisely."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-near-one-gain",
+        "verdict": "corrected",
+        "note": "The determinant linear term has an additional p from the trace; higher terms have 2r>=r+1, including p=2. Corrected locator to Lemma 13(i)."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-congruence-gain",
+        "verdict": "corrected",
+        "note": "A unit ratio reduces to near-one gain; multiplying its norm by a unit preserves precision. Corrected source part."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-continuous",
+        "verdict": "corrected",
+        "note": "Each matrix entry is a continuous coordinate of multiplication; finite determinant and trace polynomials are continuous. Corrected direct source locators."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-corrected-norm",
+        "verdict": "corrected",
+        "note": "Units.map of the native norm followed by inverse coefficient Frobenius is a monoid homomorphism; the named continuity result is now a direct input node."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-iteration-precision",
+        "verdict": "verified",
+        "note": "The initial residue equality gives one digit, and repeated unit-congruence gain gives b+1 digits for a>=b, including b=0."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-fixed-units",
+        "verdict": "verified",
+        "note": "The native equalizer is a subgroup of series units; inverse Frobenius identifies it with M-fixed points. Dyadic sign and nontrivial Teichmuller tests are correct."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-unit-space-compact",
+        "verdict": "corrected",
+        "note": "Compact coefficient products and a clopen unit-constant condition give native Units compactness; continuity closes the fixed subgroup. Clarified that Lemma 2a is not itself a compactness theorem."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-limit",
+        "verdict": "corrected",
+        "note": "Complete coefficient limits retain a unit constant, yield multiplicativity and fixedness by continuity. Added direct continuity input and removed forward continuity assertion from constructor acceptance."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-limit-precision",
+        "verdict": "corrected",
+        "note": "Closed coefficient ideals pass iteration precision to the limit; now directly imports the convergence property."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-evaluation-frobenius",
+        "verdict": "corrected",
+        "note": "Polynomial identities extend by continuous evaluation and density; imported actual L0 Frobenius/root and inclusion statements while retaining the precise topology adapter."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-evaluation-matrix",
+        "verdict": "corrected",
+        "note": "Basis expansion specializes entrywise with the actual relative power basis. Existing absolute L0 basis is cited separately from the still-needed relative refinement."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-evaluation",
+        "verdict": "corrected",
+        "note": "Determinant specialization gives the integral norm square and field comparison; source is Corollary 12(ii), not (i). Actual L0 unit-norm node is imported."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-trace-evaluation",
+        "verdict": "corrected",
+        "note": "Diagonal matrix entries specialize to the native trace; the correct source is Corollary 5(i), not the norm corollary."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-evaluation-separation",
+        "verdict": "verified",
+        "note": "Apply eventual nonvanishing to the difference. No false accumulation-at-zero assertion for cyclotomic roots is used."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-twisted-evaluation",
+        "verdict": "corrected",
+        "note": "Norm evaluation followed by inverse nth Frobenius gives the actual tower norm equation; imported L0 equalizer/Frobenius nodes. Level-zero and dyadic signs agree."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-twisted-evaluation-injective",
+        "verdict": "verified",
+        "note": "Frobenius inverses are injective; coordinate equality reduces to evaluation separation."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-iterated-lift-evaluation",
+        "verdict": "corrected",
+        "note": "Each descent applies the norm and one inverse Frobenius, reducing the twist exponent from m to n. L0 norm and inclusion inputs are explicit."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-finite-precision-interpolation",
+        "verdict": "corrected",
+        "note": "At level 2r the exact iterate has exponent 2r−n>=r, so the error is p^(r+1); one additional step gives the same approximate-fixed bound. Unit polynomial lift remains a characterized adapter."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-interpolation-existence",
+        "verdict": "corrected",
+        "note": "A cofinal convergent subnet of compact units has exact prescribed evaluations as scalar p-power errors vanish; continuity of M passes fixedness. Added the direct M-continuity and actual evaluation-point inputs."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-interpolation-equivalence",
+        "verdict": "verified",
+        "note": "Unique interpolation proves surjectivity of the injective evaluation homomorphism; native multiplicative equivalence supplies the intended inverse orientation."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-interpolation-homeomorphism",
+        "verdict": "corrected",
+        "note": "Continuous coordinate evaluation gives a compact-to-Hausdorff bijection. Actual L0 equalizer topology is imported; no sup-norm topology is assumed."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-interpolation-frobenius-equivariant",
+        "verdict": "corrected",
+        "note": "Evaluation intertwines coefficient and finite-level Frobenius; uniqueness proves equivariance. Imported the exact existing L0 Frobenius and inclusion nodes."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-base-coefficient-comparison",
+        "verdict": "verified",
+        "note": "Canonical coefficient/tower identifications and sigma=id reduce native norm/trace and uniquely characterized limit/interpolant to the accepted parent, without claiming parent implementation."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-preserves-precision",
+        "verdict": "verified",
+        "note": "Phi fixes p, so basis coordinates and multiplication matrices preserve p^r ideals; the determinant polynomial preserves congruence without requiring units."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-iterated-near-one-gain",
+        "verdict": "corrected",
+        "note": "Induct on m using near-one gain and preservation of p-power ideals by inverse Frobenius; corrected source part."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-limit-continuous",
+        "verdict": "corrected",
+        "note": "A finite coefficient neighborhood is controlled by a continuous finite iterate and the uniform error estimate. The finite-iterate continuity now has a direct node."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-evaluation-eventually-nonzero",
+        "verdict": "corrected",
+        "note": "Independent complete-DVR WPT and the existing L0 generator/dimension data bound all possible zero levels. Removed the unnecessary generic L0 request and made the minpoly deduction explicit."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-corrected-norm-continuous",
+        "verdict": "added",
+        "note": "Promoted the already-typed API property used for projector fixedness and interpolation compactness; continuity is justified in native Units topology."
+      },
+      {
+        "nodeId": "ColemanPowerSeries:L1/unramified-norm-limit-convergence",
+        "verdict": "added",
+        "note": "Promoted the already-typed API limit property used by the precision theorem; explicitly checks inverse-value convergence in native Units topology."
+      }
+    ]
+  }
 }
