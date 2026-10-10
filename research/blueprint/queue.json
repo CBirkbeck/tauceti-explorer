@@ -38742,8 +38742,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6928"
+   "state": "pending",
+   "note": "released on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -41380,7 +41380,8 @@
     "BP-PerfectoidShimuraVarieties~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7079"
   },
   {
    "kind": "blueprint",
@@ -41581,8 +41582,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology--PR.8",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.8~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7002"
+   "state": "external",
+   "note": "claimed on GitHub issue #7002"
   },
   {
    "priority": 2,
@@ -43507,7 +43508,8 @@
    ],
    "revisionOf": "BP-ModularityAndLanglandsExtensions",
    "prompt": "research/blueprint/prompts/BP-ModularityAndLanglandsExtensions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7306"
   },
   {
    "priority": 2,
@@ -46774,8 +46776,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47102,8 +47104,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48224,8 +48226,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48883,8 +48885,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80075,8 +80077,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81384,8 +81386,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
