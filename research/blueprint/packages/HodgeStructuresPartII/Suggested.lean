@@ -216,6 +216,59 @@ example :
   funext i
   fin_cases i <;> simp [Matrix.single, Matrix.vecHead]
 
+/- A filtration-preserving frame change e₂' = e₂ + x e₁ becomes
+u₂' = u₂ + xt u₁ on the Rees chart. Columns of B are the new basis in the
+old one, so component columns change by B⁻¹, in agreement with the later
+s' = Gs convention. The connection matrix is B⁻¹AB + tB⁻¹δ(B).
+These native matrix calculations test the restriction/descent contract;
+they do not provide a global Rees object or its fibre identifications. -/
+
+private abbrev x : Coeff := MvPolynomial.X 0
+private abbrev t : Coeff := MvPolynomial.X 1
+
+private def basisChange : Matrix (Fin 2) (Fin 2) Coeff := !![1, x * t; 0, 1]
+private def basisChangeInv : Matrix (Fin 2) (Fin 2) Coeff := !![1, -(x * t); 0, 1]
+private def changedMatrix : Matrix (Fin 2) (Fin 2) Coeff :=
+  !![-(x * t), t ^ 2 * (1 - x ^ 2); 1, x * t]
+
+/-- The filtered shear induces an invertible polynomial Rees frame change. -/
+example : basisChangeInv * basisChange = 1 ∧ basisChange * basisChangeInv = 1 := by
+  constructor <;> funext i j <;> fin_cases i <;> fin_cases j <;>
+    simp [basisChange, basisChangeInv, Matrix.mul_apply]
+
+/-- Relative differentiation supplies the correction t² in the upper-right entry. -/
+example : changedMatrix = basisChangeInv * chart.matrix 0 * basisChange +
+    t • (basisChangeInv * basisChange.map (MvPolynomial.pderiv 0)) := by
+  funext i j
+  simp only [changedMatrix, basisChange, basisChangeInv, chart,
+    Matrix.add_apply, Matrix.smul_apply, Matrix.mul_apply, Matrix.map_apply,
+    Fin.sum_univ_two]
+  fin_cases i <;> fin_cases j <;> simp [x, t, Matrix.single]
+  all_goals ring
+
+/-- At t = 0 the shear is the identity on the graded object. -/
+example (a : ℚ) :
+    changedMatrix.map (MvPolynomial.eval (![a, 0])) = !![0, 0; 1, 0] := by
+  funext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [changedMatrix, x, t, Matrix.map_apply]
+
+/-- At t = 1 the ordinary connection retains the derivative of the frame. -/
+example (a : ℚ) :
+    changedMatrix.map (MvPolynomial.eval (![a, 1])) = !![-a, 1 - a ^ 2; 1, a] := by
+  funext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [changedMatrix, x, t, Matrix.map_apply]
+
+/-- Pure conjugation has the wrong unit fibre, although the zero fibre agrees. -/
+example :
+    (changedMatrix.map (MvPolynomial.eval (![0, 1]))) 0 1 = 1 ∧
+    ((basisChangeInv * chart.matrix 0 * basisChange).map
+      (MvPolynomial.eval (![0, 1]))) 0 1 = 0 := by
+  simp only [changedMatrix, basisChange, basisChangeInv, chart,
+    Matrix.map_apply, Matrix.mul_apply, Fin.sum_univ_two]
+  simp [x, t, Matrix.single]
+
 end SplitReesChecks
 
 -- test: Connection.test_operator_zero_section

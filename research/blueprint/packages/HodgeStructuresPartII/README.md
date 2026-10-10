@@ -242,9 +242,13 @@ For the affine finite-projective input, [BF22], §2.2.1, Proposition 2.2.6 and R
 
 As a worked chart take O=Q[x], E=Oe₁⊕Oe₂, ∇e₁=e₂ dx and ∇e₂=0. Put Fᵖ=E for p≤0, F¹=Oe₁ and Fᵖ=0 for p≥2. The Rees module is free over O[t] on u₁=t⁻¹e₁ and u₂=e₂. In this weighted basis the relative operator D=t∇ satisfies D(u₁)=u₂ dx, D(u₂)=0 and D(xu₁)=(x u₂+t u₁)dx. Its fibre at zero therefore has a nonzero square-zero Higgs matrix E21; at one it recovers the original connection, and localization identifies u₁ with t⁻¹e₁. The scalar correction retains one power of t. These chart computations give checks on the required fibre and descent comparisons.
 
+Change the filtered frame by e₁′=e₁ and e₂′=e₂+xe₁. The new Rees frame is u₁′=u₁ and u₂′=u₂+xtu₁. Its basis-column matrix is B=((1,xt),(0,1)), so the new component column is B⁻¹s. With A=E21 and δ=∂/∂x, the matrix of the same operator is A′=B⁻¹AB+tB⁻¹δ(B)=((−xt,t²(1−x²)),(1,xt)). This is the basis-column form of the earlier component-gauge formula. At t=0 the frame change becomes the identity and A′ remains E21; at t=1 it gives ((−x,1−x²),(1,x)), retaining the derivative of the ordinary frame. In particular, at x=0,t=1 the upper-right entry is 1, while B⁻¹AB alone gives 0. This calculation is a deduction of the parameter Leibniz rule in [EGa], §4.2, pp.23–24, on the finite Rees chart supported by [BF22], Remark 2.2.8, p.17. It tests compatibility between changing a filtration splitting and specializing its operator; neither agreement of graded fibres nor equality of ranks establishes that compatibility.
+
 **Checks.**
+
 - The worked two-step filtration has symbol [e₁]↦[e₂]dx and positive ordered bound 2. The zero-fibre matrix must remain nonzero; multiplying its weighted-basis matrix by t would lose that symbol.
 - Compare D(xu₁)=x u₂+t u₁ with the zero-fibre value x u₂ and the unit-fibre value x e₂+e₁. The unit-fibre operator is additive and satisfies the ordinary Leibniz rule.
+- The filtered shear and its inverse must give the displayed A′ on every restricted chart. A pure-conjugation transition passes the zero-fibre check but fails the unit-fibre value at x=0.
 - Setting F²=F¹ in this example violates Griffiths transversality at degree two.
 - For the one-step filtration Fᵖ=E when p≤0 and Fᵖ=0 when p>0, the graded Higgs field is zero, the unit fibre recovers the original connection, and the localized comparison recovers its scalar extension after rescaling by t⁻¹. The rank-zero Rees object has zero fibres. Check the tensor and quotient comparisons in both cases.
 - Relative differentiation sends t to zero. Absolute differentiation sends t to dt and fails the parameter-constancy hypothesis.
