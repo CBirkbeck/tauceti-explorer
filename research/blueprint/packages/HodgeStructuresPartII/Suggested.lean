@@ -130,6 +130,94 @@ theorem Connection.operator_leibniz (c : Connection F V) (i : Fin d) (a : R) (s 
     c.operator i (a • s) = a • c.operator i s + (lam * F.delta i a) • s := sorry
 theorem Connection.operator_zero (i : Fin d) (s : V → R) :
     (Connection.zero (F := F) (V := V)).operator i s = fun v => lam * F.delta i (s v) := sorry
+/- A split two-step Rees chart
+
+For `F¹ = O e₁` in `O e₁ ⊕ O e₂` and `∇e₁ = e₂ dx`, the Rees basis is
+`u₁ = t⁻¹e₁`, `u₂ = e₂`. Its relative parameter operator has matrix `E₂₁`,
+not `t E₂₁`: `D u₁ = u₂`, `D u₂ = 0`, and `D(xu₁) = x u₂ + t u₁`.
+The following computations concern that free chart; they do not construct a
+Rees sheaf, a fibre isomorphism or its descent data.
+-/
+namespace SplitReesChecks
+
+private abbrev Coeff := MvPolynomial (Fin 2) ℚ
+
+/-- The differential is in the x direction; the Rees parameter t is relative constant. -/
+private def relativeFrame : Frame ℚ Coeff 1 (MvPolynomial.X 1) where
+  delta := fun _ => MvPolynomial.pderiv 0
+  commute := by intro i j a; rfl
+  constant := by intro i; simp [MvPolynomial.pderiv_X]
+
+/-- The two-step Rees chart in its weighted basis, with u₁ in degree −1. -/
+private def chart : Connection relativeFrame (Fin 2) :=
+  ⟨fun _ => Matrix.single 1 0 1⟩
+
+/-- First vector in the weighted Rees basis. -/
+private def u₁ : Fin 2 → Coeff := ![1, 0]
+/-- Second vector in the weighted Rees basis. -/
+private def u₂ : Fin 2 → Coeff := ![0, 1]
+
+/-- Relative forms kill t, whereas absolute differentiation in t sends it to one. -/
+example : relativeFrame.delta 0 (MvPolynomial.X 1) = 0 ∧
+    MvPolynomial.pderiv 1 (MvPolynomial.X 1 : Coeff) = 1 := by
+  simp [relativeFrame, MvPolynomial.pderiv_X]
+
+/-- The first weighted basis vector has a nonzero image even at t = 0. -/
+example : chart.operator 0 u₁ = u₂ := by
+  rw [Connection.operator_apply]
+  funext i
+  fin_cases i <;> simp [chart, relativeFrame, u₁, u₂, Matrix.single,
+    Matrix.vecHead]
+
+/-- The second weighted basis vector is horizontal. -/
+example : chart.operator 0 u₂ = 0 := by
+  rw [Connection.operator_apply]
+  funext i
+  fin_cases i <;> simp [chart, relativeFrame, u₂, Matrix.single,
+    Matrix.vecHead, Matrix.vecTail]
+
+/-- The correction term carries exactly one t. -/
+example : chart.operator 0 ((MvPolynomial.X 0 : Coeff) • u₁) =
+    (MvPolynomial.X 0 : Coeff) • u₂ + (MvPolynomial.X 1 : Coeff) • u₁ := by
+  rw [Connection.operator_apply]
+  funext i
+  fin_cases i <;> simp [chart, relativeFrame, u₁, u₂, Matrix.single,
+    Matrix.vecHead]
+
+/-- The zero-fibre matrix is nonzero and has square zero; its ordered bound is two. -/
+example : (chart.matrix 0) ^ 2 = 0 ∧ chart.matrix 0 ≠ 0 := by
+  constructor
+  · funext i j
+    fin_cases i <;> fin_cases j <;>
+      simp [chart, pow_two, Matrix.mul_apply, Matrix.single]
+  · intro h
+    have hentry := congrArg (fun A : Matrix (Fin 2) (Fin 2) Coeff => A 1 0) h
+    simp [chart, Matrix.single] at hentry
+
+/-- At parameter one the differential correction is u₁, with coefficient matrix E₂₁. -/
+example :
+    let F := Frame.polynomial (k := ℚ) 1 1
+    let c : Connection F (Fin 2) := ⟨fun _ => Matrix.single 1 0 1⟩
+    c.operator 0 ((MvPolynomial.X 0 : MvPolynomial (Fin 1) ℚ) • ![1, 0]) =
+      ![1, MvPolynomial.X 0] := by
+  dsimp only
+  rw [Connection.operator_apply, Frame.polynomial_delta]
+  funext i
+  fin_cases i <;> simp [Matrix.single, Matrix.vecHead]
+
+/-- At parameter zero the derivative term disappears but the graded field remains. -/
+example :
+    let F := Frame.polynomial (k := ℚ) 1 0
+    let c : Connection F (Fin 2) := ⟨fun _ => Matrix.single 1 0 1⟩
+    c.operator 0 ((MvPolynomial.X 0 : MvPolynomial (Fin 1) ℚ) • ![1, 0]) =
+      ![0, MvPolynomial.X 0] := by
+  dsimp only
+  rw [Connection.operator_apply]
+  funext i
+  fin_cases i <;> simp [Matrix.single, Matrix.vecHead]
+
+end SplitReesChecks
+
 -- test: Connection.test_operator_zero_section
 example (c : Connection F V) (i : Fin d) : c.operator i 0 = 0 := sorry
 -- test: Connection.test_operator_unit
