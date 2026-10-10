@@ -44,11 +44,14 @@ The accepted packet, reader input and original suggested file are unchanged.
    IntegralHeckeAndGaloisDeterminants roadmap, layers 1 and 4 and §1.3. Its
    determinant definition/reconstruction is not replanned here.
 
-`metadata.toml` is deliberately removed. Intake currently treats a package as
-complete when all its output paths exist, including the handoff. Keeping the
-old metadata while adding this handoff would incorrectly finish revision 2.
-Restore exactly `topic = "math.NT"` only after the complete correspondence gate
-is met. This deletion records a checkpoint; it does not change the topic.
+`metadata.toml` retains `topic = "math.NT"`. The initial submission removed it
+because intake treats a package as complete when all output paths exist,
+including the new handoff. The submission check rejected that deletion:
+`.github/workflows/swarm-check.yml` allows no deleted deliverables.
+The file is restored and PR #8151 is a **draft checkpoint for the maintainer**,
+so automatic intake cannot falsely complete revision 2. A maintainer must record
+this submission as partial when taking it in. The topic file is not evidence
+that the full correspondence gate has passed.
 
 ## Why the job cannot yet be completed within its authorized files
 
@@ -121,7 +124,7 @@ Then proceed in this order:
    specialization, then the local-condition factorization. Field points do not
    discharge this work.
 5. Recheck the review's full 66-target/90-API/66-test correspondence, elaborate,
-   and restore metadata only upon completion. Leave the existing independent
+   and submit the package as complete only upon full correspondence. Leave the existing independent
    `review.json` for the next reviewer to replace.
 
 The accepted packet's 12 gaps and 51 requests were not edited or claimed closed.
@@ -166,7 +169,7 @@ pins, including their hypotheses.
   was started, and no Lean process is left running.
 - README: 145,211 bytes, all mathematical target sections retained. No process
   history added to the roadmap; no source excerpts or private paths.
-- `git diff --check`: pass. Intake file validation is recorded in the PR.
+- `git diff --check`: pass. Intake file validation: four authorized paths, zero problems. The initial CI failed only because deleting metadata is forbidden; it is restored on the same branch. No Lean statement changed in this correction.
 
 All information needed to resume is here and in the retained package/review.
 Disposable scratch files are not inputs to the next worker.
