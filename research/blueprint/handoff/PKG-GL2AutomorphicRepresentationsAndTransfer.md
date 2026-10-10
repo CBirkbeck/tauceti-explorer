@@ -1,9 +1,9 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-xK2btW`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-xK2btW-gl2-package`.
+Worker: Codex (GPT-6), session `codex-VMhu6Z`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-VMhu6Z-gl2-package`.
 Status: **partial; blocked by unresolved mathematical supplier contracts in the accepted plan**.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096025153).
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096281852).
 This session claimed only this job. None of the manager's priority issues
 was available; this available focus package was selected under WORKERS.md.
 
@@ -11,9 +11,12 @@ was available; this available focus package was selected under WORKERS.md.
 
 The inherited blockers were independently checked against the accepted plans,
 the tier order, current upstream scope and five current library statements.
-Both accepted GL2 plans and both current upstream source revisions are unchanged
-from the preceding checkpoint. No mathematical target was added and no claim
-of closure was made. Only this handoff changes in this submission; preserve the
+Both accepted GL2 plans and the current Tau Ceti library revision are unchanged
+from the preceding checkpoint. Current TauCetiRoadmap has advanced; the six
+changed files concern AdelicAlgebraicGroups, ReductiveGroupsPartII and
+IntegralHeckeAndGaloisDeterminants. Neither GlobalNumberFields nor
+ClassFieldTheory changed. The relevant character contracts remain unchanged.
+No mathematical target was added and no claim of closure was made. Only this handoff changes in this submission; preserve the
 package README and Suggested.lean, including all predecessors' substantive repairs.
 
 The binding issue instruction is: **“Change no packet; if the plan has a
@@ -32,7 +35,12 @@ The decisive checks are:
    **Local–global extension of characters (Chevalley's congruence theorem for
    S-units)** gap still names `R17.5/tunnell-primitive-globalization` and
    `R17.5/prescribed-local-induction` as consumers. These are actual source-proof
-   inputs, not merely unavailable Lean types.
+   inputs, not merely unavailable Lean types. Patrikis, *Variations on a theme
+   of Grothendieck*, Lemma 2.3.6, printed pp. 30–31 (PDF pp. 34–35), was
+   checked directly: its input is exactly this torsion quotient. A
+   uniformizer lies outside the local torsion subgroup; the package's proved
+   `unramifiedQuadraticTwo` test is trivial on torsion but takes value −1
+   on 2. Torsion restrictions cannot determine the required full-local twist.
 2. The higher `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`
    has the needed full-local finite-character conclusion, but its request to
    ClassFieldTheory Layer 12 is still `open` and explicitly requires the S-unit
@@ -81,19 +89,28 @@ This is a routing recommendation, not a change to queue files or issue labels.
   their recorded mathematical gaps.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
   exits successfully: 144 warnings, all `declaration uses sorry`, no errors
-  and no other warnings. Available memory before the check was 111 GB. The
+  and no other warnings. Available memory before the check was 108 GB. The
   shared checker used the atlas pins, Mathlib `082e2d3` and Tau Ceti `f790474`.
   No build or Lake command ran in either current read-only source tree.
 - The twelve GL2 entries of the reviewed `AUDIT-14` library audit were read.
   These historical audit entries are distinct from the current statement
   checks above.
 - Current read-only revisions: TauCetiRoadmap
-  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; Tau Ceti
+  `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; Tau Ceti
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-- No primary paper was newly read in this continuation. The receipts and
-  proof proposals below remain attributed to their earlier sessions.
+- New primary-source receipt: Patrikis, *Variations on a theme of
+  Grothendieck*, revision dated 31 July 2016, Lemma 2.3.6 and its proof,
+  printed pp. 30–31 (PDF pp. 34–35), read 2026-10-10 from the
+  [author's PDF](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf).
+  SHA-256: `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81`,
+  matching the accepted packet's source version. This receipt verifies the
+  torsion-domain contract, not the proposed Chevalley supplier proof. Other
+  source receipts and proof proposals below remain attributed to their
+  earlier sessions.
 - `metadata.toml` is still absent; `issues.deliverables_complete` is false.
-  This is a checkpoint and is not ready for package review.
+  This is a checkpoint and is not ready for package review. Adding the
+  metadata alone would make the existence-based package intake mark all
+  deliverables complete without repairing these mathematical contracts.
 - Scoped intake file/scope checks and `git diff --check` pass. The only
   changed repository file is this job's handoff; no source passage or private
   path is included. No Lean process remains running.
