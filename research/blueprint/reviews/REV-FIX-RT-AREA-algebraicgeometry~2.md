@@ -1,3 +1,28 @@
+# Continuation of the independent area-fix review
+
+Codex (GPT-6), session `codex-8gNtJ0`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6102125914). This session wrote none of the fixes. Only this job was claimed.
+
+**Blocked checkpoint.** The live issue still names five packet pairs while dispatch requires eleven. An explicit user-input question requesting the seven missing paths remains unanswered. [WORKERS.md](../WORKERS.md) restricts edits to issue-named files. No missing-path candidate has been applied. The actual checkout still fails dispatch completeness; the validated read-only candidate overlay satisfies it. The report and handoff carry the concrete patch recipe and scope request.
+
+One correction was made within the permitted SchemeAndStackFoundations packet. For findings /15–17, its alteration gap and rescope proposal now give the precise additional path present in the assembled stage graph:
+
+SF.4 → PrismaticCohomology PR.1 → PerfectoidQuotients Q2 → Q4 → AdicEtaleGeometry A3 → RelativeFarguesFontaine RF0:integral-Y → VectorBundlesAndIsocrystals VB0 → FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2 → PELModuli M2 → M6 → StableReductionPartII MC.4.
+
+The previous proposal mentioned this route only in broader unreviewed research packets. The direct read-only reconstruction uses `scripts.build.assemble(require_distances=False)`, assembled `stageEdges` and `requires`, plus draft roadmap `requires`, and retains only edges with known stage endpoints. It contains 15,478 distinct stage edges; deleting precisely the six named SF.5 forwarding inputs leaves 15,472. Every displayed prismatic-path edge survives, including when AbelianSchemes A4 is excluded. The two previously recorded DerivedDeRhamCohomology DD.5 branches also survive. The displayed branches are examples of the obstruction, not an exhaustive cut prescription. A reverse MC.4 → SF.4 edge therefore still creates a cycle. No graph edge, mathematical node, source decision, API, test or supplier request was changed. The preceding SF review was archived in full; its accepted bounded verdict is retained. All other packet reviews are unchanged.
+
+Fresh validation in this continuation:
+
+- All eleven current packets and six missing-review candidates pass the exact pinned-index checker: zero errors and warnings.
+- All seven candidate paths are queue-owned and pass intake content checks. Their predecessor reviews and earlier histories are preserved exactly, as are all supplier requests.
+- The repaired PEL candidate elaborates with exit 0 and 784 admission warnings only. SHA-256: `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`. This adds `hpprime : p.Prime` after the natural-number prime parameter. The candidate remains scratch-only.
+- The ten other Suggested-file hashes match the preceding checkpoint’s complete receipts below. Those elaborations were not repeated here. ShimuraData’s inherited failing receipt and the three negative packet verdicts remain valid review boundaries.
+- Lan Definition 1.2.5.4 and Corollaries 1.2.5.6–7, pp.90–91; de Jong §2.24, p.62; and Stacks Theorems 16.13.1–2, Tags 07QY/07QZ, were directly reread. They support the prime restriction, all-genus/at-least-three-marked cover range, smooth-open versus stable-boundary distinction, and original-base henselian approximation versus pointed étale approximation. No source passage enters the repository.
+- The reviewed library-audit records, exact-pin `NumberField.discr` and `IsLocalization.algEquivOfAlgEquiv` statements, and current upstream AlgebraicVectorBundles and StableReduction supplier boundaries were reread. No baseline citation or upstream plan was added.
+
+The inherited decisions for all 32 findings and the full preceding receipts follow, attributed to their original session. Their statements about direct checks refer to that session. The present checkpoint supersedes its graph enumeration with the known-stage-endpoint reconstruction above; the obstruction and bounded completion verdicts are unchanged.
+
+## Preserved preceding report — codex-CwcQzj
+
 # Independent review of FIX-RT-AREA-algebraicgeometry~2
 
 Codex (GPT-6), session `codex-CwcQzj`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6101939205). This session authored none of the fixes under review and claimed only this job. None of the manager-priority issues was available at selection. This continuation follows codex-AtxPdd’s checkpoint [#8599](https://github.com/CBirkbeck/tauceti-explorer/pull/8599). The inherited mathematical finding decisions and exhaustive node/source audits remain attributed to the predecessor reports and packet review histories, including codex-yj5Z0S’s [#8575](https://github.com/CBirkbeck/tauceti-explorer/pull/8575).
