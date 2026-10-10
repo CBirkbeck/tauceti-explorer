@@ -1,45 +1,63 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Worker: Codex (GPT-6), session `codex-GaPc7K`; issue #7901; 2026-10-10.
-Branch: `codex-GaPc7K-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6098644381).
+Worker: Codex (GPT-6), session `codex-WjrJMq`; issue #7901; 2026-10-10.
+Branch: `codex-WjrJMq-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6098811543).
 
 **Partial, source/proof blocked.** The original JPSS nonnormal cubic note
-remains unreadable through the public catalogue, and the accessible alternative
-requires a convergence argument not yet verified. Neither weak cubic existence
-nor the stronger all-place comparison is certified closed. Metadata remains
-absent; do not mistake this checkpoint for a finished package. No second job
-was claimed. All forty manager-priority issues were unavailable when checked;
-this was an eligible focus package under WORKERS.md.
+remains inaccessible from the public catalogue. The accessible Mao–Rallis
+replacement requires general-discriminant local matching and a quantitative
+convergence argument that have not been established. Its weak transfer does
+not supply Carayol's all-place comparison. Metadata remains absent; this is
+not a finished package. No second job was claimed. The forty manager-priority
+issues were unavailable; this was an eligible focus package under WORKERS.md.
 
 ## This continuation
 
-The conductor target now uses the classical modular-curve tower directly.
-Carayol explicitly includes F=Q with parabolic cohomology, cusp modifications
-and the parabolic Picard–Lefschetz calculation. The inherited demand for a
-separate compact-quaternionic bridge was therefore incorrect. The reader
-replaces it with the actual rank-two multiplicity, normalization kernel,
-monodromy and trace requirements. The odd-prime comparison needed by RT at
-ell=2 uses ordinary cases and does not depend on extraordinary dyadic cubic
-transfer. The full general comparison retains that extra dependency.
+The cubic-transfer target now gives the explicit norm and trace-quadratic
+calculation in the basis (1,t,t²) of Q[t]/(t³−2). Suggested.lean contains
+`pureCubicMatrix`, `pureCubicNorm`, `pureCubicQuadratic`, their formula lemmas
+and both critical-point phase expansions. All these new proofs are closed,
+without `sorry`. Eleven concrete fixtures check the identity matrix, generator
+cube, a basis entry, three norm values, three quadratic values, the Gram
+determinant and the nonsquare residue modulo eight. They establish the
+algebraic correction to the local field germ, not stationary phase or
+transfer. Each new definition has at least three discriminating examples
+or formula tests; the full cubic-transfer carrier remains explicitly omitted.
 
-A further proof boundary is exposed: Langlands Proposition7.12 gives a ramified
-stalk/dual-stalk Lefschetz formula without proving it. The exact curve
-specialization is now a subsidiary target, rather than an assumed theorem.
-The lower point-counting TraceFormula roadmap explicitly excludes arbitrary
-correspondences, so its Frobenius trace theorem alone is insufficient.
+The quadratic part at C=−1 is −Q, whereas at C=1 it is Q. The Gram determinant
+is −27, one quarter of the polynomial discriminant −108. In Q₂ its square
+class is −3, detected by the absence of a square root of 5 in Z/8. Thus the
+field case cannot discard the Hilbert-symbol factors. This gives machine-
+checked algebraic receipts for the correction formerly recorded only as a
+candidate. The general local analytic matching remains open.
 
-Suggested.lean updates the corresponding omission explanation. No Lean
-signature or proof changed. Concise wording of the congruence-subgroup tests
-preserves their conditions and examples while keeping README below200KB.
-All112 accepted targets and all122 headings survive; no input packet changed.
+Mao–Rallis2000 §3.2 pp.180–182 was examined specifically for convergence.
+Equation(27)'s vectorwise vertical decay and the asserted uniform L¹ bound
+on the truncated remainder do not, by themselves, give the exchange of limit
+and spectral integral invoked with Fatou. A common integrable majorant or
+uniform integrability with tight spectral tails, including the basis sum,
+is still required. The referred paper *On a cubic lifting* concerns the
+threefold cover of SL₂; its publisher endpoint returned an HTML access page,
+not a readable PDF. This reference alone is not a substitute base-change
+proof. Author and catalogue searches again found no readable JPSS note.
 
-The sections below preserve earlier research receipts and mathematical resume
-points, updated where this continuation changes their conclusions. They do
-not claim that this worker reread every earlier source. Inherited additions
-include Chevalley/full-local character prescription, highly ramified converse,
-all-place Artin upgrade, Brauer/integral solvable lift and parabolic realization.
-Continue from the package, never the stale assembled801KB Suggested file.
+The reader's introduction was compressed without dropping normalization
+conditions, to accommodate the new subsidiary calculation below 200,000
+bytes. All 112 accepted targets and 122 original target headings remain. No input
+packet or other roadmap was changed.
+
+Earlier mathematical receipts and resume points follow. They are inherited
+unless this continuation explicitly says otherwise; this worker did not
+reread all earlier sources. Full current GlobalNumberFields and
+RepresentationTheory/ModularInduction READMEs were read before editing, and
+the GL₂ reviewed library audit was inspected. ModularInduction explicitly
+excludes Brauer characters and general DVR lifts, so the inherited Fong–Swan
+addition is not duplicated there. GlobalNumberFields' cubic proper-ideal
+fixture does not supply the norm-phase calculation. The current newer
+roadmaps and library were searched for this calculation; the actual pinned
+matrix determinant/trace statements were read. Continue from this package,
+not the stale assembled Suggested file.
 
 ## Character prescription: complete target-level route, arithmetic proofs planned
 
@@ -381,9 +399,10 @@ pair factors does not prove the missing cubic theorem. Ginzburg–Rallis–Soudr
 G2 cubic correspondence and the triple cover of SL2 are likewise not ordinary
 GL2 nonnormal base change.
 
-The following are our own candidate calculations, **unverified**, removed from
-the reader as separate targets. They preserve useful leads without certifying
-a repaired proof:
+The following preserves the local and global proof leads. The pure-cubic
+matrix, norm, quadratic and phase identities in item 2 are now proved in the
+suggested file; their general analytic extension and the other calculations
+remain unverified. They do not certify a repaired transfer proof:
 
 1. Use the ordinary rank-eight oscillator: over a splitting field the
    symplectic space is the tensor product of three standard two-dimensional
@@ -488,7 +507,7 @@ certify those recorded gaps. The following is the current disposition:
    stated; do not manufacture `Prop` fields or arbitrary carriers. Add the
    one-line math.NT metadata only when the package is complete and rerun checks.
 
-Do not regenerate from the stale assembled 801 KB Suggested file. It contains
+Do not regenerate from the stale assembled Suggested file. It contains
 false unrestricted arbitrary-carrier transfers removed by earlier repairs.
 Continue from this package, the individual accepted packets and the reviewed
 library audit. Do not append this entire handoff to the next one; replace it
@@ -496,32 +515,35 @@ with an updated current account preserving the mathematical receipts.
 
 ## Current validation and library audit
 
-- Full `lean-check` exited0:154 warnings, all declaration-uses-sorry, no errors.
-  Available memory before compile101GB. No declaration changed afterward.
+- Final full `lean-check` exited0:154 warnings, all declaration-uses-sorry, no errors.
+  Available memory before final compile102GB. No Lean declaration changed afterward. The new norm-phase fragment also
+  passed its isolated check without warnings.
   No language server or Lake build/update/cache was started; nothing remains
   compiling. Pinned Mathlib `082e2d37e8`, Tau Ceti `f790474`.
 - Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
-  Their55+57 nodes remain under matching reader headings; all122 headings
+  Their55+57 nodes remain under matching reader headings; all122 target headings
   match the starting package's heading set. Packet hashes are below.
 - Current read-only roadmaps: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
   current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  The reviewed GL2 library audit and full ClassFieldTheory and
-  GlobalNumberFields readers were inspected. No existing target is replanned.
+  The reviewed GL2 library audit and full GlobalNumberFields and
+  ModularInduction readers were inspected in this continuation; the earlier
+  ClassFieldTheory reading is inherited. No existing target is replanned.
   The earlier pinned declaration receipts in the package remain unchanged.
-- Upstream proposal#196 is still open at the same head noted above. Its
-  TraceFormula boundary and relevant comparison/base-change statements were
-  checked. These are proposed suppliers, not files on current main.
+- The earlier audit recorded upstream proposal#196 open at the head noted
+  above and inspected its TraceFormula boundary and comparison/base-change
+  statements. This continuation did not repeat that remote-status check. These are proposed suppliers, not files on current main.
 - Read-only trees were not modified or built. Public papers were held only
   in scratch; cleared books were never copied. No source passage appears
   in the deliverables.
 - Scoped `intake.py check-files`:3 files,0 problems. `git diff --check`:pass.
-  Reader:199,955 bytes, below200KB. All122 starting headings and112 accepted slugs survive.
+  Reader:199,983 bytes, below200KB. All122 starting target headings and112 accepted slugs survive.
 
 ## Primary-source receipts
 
 Bibliographic URLs and locators are in the reader. The following preserves
-earlier source checksums; this continuation additionally read Carayol1986,
-Mao–Rallis2000 and the Langlands1973 author copy. Public files are not retained
+earlier source checksums; this continuation obtained Carayol1986 and read Mao–Rallis2000, with particular
+attention to its local field germ and convergence proof. The earlier
+Langlands1973 and other source readings remain inherited. Public files are not retained
 in the repository. Access date:2026-10-10. The cleared BH copy is identified
 by the maintainer's index, not an alternate internet copy.
 
