@@ -28,6 +28,7 @@ import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.Topology.Connected.PathConnected
 import Mathlib.Topology.Constructions
+import Mathlib.LinearAlgebra.Matrix.Transvection
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.LinearAlgebra.TensorProduct.Basic
@@ -110,7 +111,15 @@ def handleSlide (A : Matrix (Fin n) (Fin n) ℤ) (i j : Fin n) : Matrix (Fin n) 
 theorem linkingMatrix_congr_of_handleSlide (A : Matrix (Fin n) (Fin n) ℤ)
     (hA : A.IsSymm) {i j : Fin n} (hij : i ≠ j) :
     IsUnit (1 + Matrix.single j i (1 : ℤ)).det ∧
-      handleSlide A i j i i = A i i + A j j + 2 * A i j := sorry
+      handleSlide A i j i i = A i i + A j j + 2 * A i j := by
+  constructor
+  · change IsUnit (Matrix.transvection j i (1 : ℤ)).det
+    rw [Matrix.det_transvection_of_ne j i hij.symm]
+    exact isUnit_one
+  · have hsym : A j i = A i j := congr_fun (congr_fun hA i) j
+    simp [handleSlide, Matrix.transpose_add, Matrix.transpose_single,
+      Matrix.add_mul, Matrix.mul_add, hsym]
+    ring
 
 -- linkingMatrix_hopf
 example : ¬ IsAlgebraicallySplit !![(0 : ℤ), 1; 1, 0] := sorry
@@ -126,7 +135,30 @@ example : IsAlgebraicallySplit !![(0 : ℤ)] ∧ ¬ IsAdmissible !![(0 : ℤ)] :
 -- not_isAdmissible_hopf
 example : ¬ IsAdmissible !![(1 : ℤ), 1; 1, 1] := sorry
 -- framing_of_handleSlide
-example : handleSlide !![(0 : ℤ), 1; 1, 0] 0 1 0 0 = 2 := sorry
+example : handleSlide !![(0 : ℤ), 1; 1, 0] 0 1 0 0 = 2 := by
+  norm_num [handleSlide, Matrix.mul_apply, Fin.sum_univ_two, Matrix.single_apply,
+    Matrix.one_apply]
+
+-- An ordinary slide can leave the admissible class; it is not a band slide.
+example : IsAdmissible (1 : Matrix (Fin 2) (Fin 2) ℤ) ∧
+    ¬ IsAdmissible (handleSlide 1 (0 : Fin 2) 1) := by
+  constructor
+  · constructor
+    · intro i j hij
+      simp [hij]
+    · intro i
+      exact Or.inl (by simp)
+  · intro h
+    have hoff := h.1 0 1 (by decide)
+    norm_num [handleSlide, Matrix.mul_apply, Fin.sum_univ_two, Matrix.single_apply,
+      Matrix.one_apply] at hoff
+
+-- Without symmetry the new diagonal contains A_ij + A_ji, not 2 A_ij.
+example : handleSlide !![(0 : ℤ), 1; 0, 0] 0 1 0 0 = 1 ∧
+    handleSlide !![(0 : ℤ), 1; 0, 0] 0 1 0 0 ≠
+      (0 : ℤ) + 0 + 2 * 1 := by
+  norm_num [handleSlide, Matrix.mul_apply, Fin.sum_univ_two, Matrix.single_apply,
+    Matrix.one_apply]
 end LinkingMatrices
 
 /-! A framing regression against the pinned native braid presentation.
