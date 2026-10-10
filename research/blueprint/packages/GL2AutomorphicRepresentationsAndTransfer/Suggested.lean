@@ -93,7 +93,7 @@ Omitted declaration names: TauCeti.GL2Blueprint.compactComparison, TauCeti.GL2Bl
 -/
 section LocalRepresentation
 variable {G V : Type*} [Group G] [AddCommGroup V] [Module ℂ V]
-/- Signature omissions: The SR.2/SR.3/SR.5 irreducible admissible GL₂(F) class carrier and its K₁(pⁿ) fixed spaces are absent, so an arbitrary representation, module or class map cannot satisfy these classification and newvector statements; conductorExponent with its API and the unramified test remain below as true fragments.
+/- Signature omissions: The SR.2/SR.3/SR.2.3 irreducible admissible GL₂(F) class carrier and its K₁(pⁿ) fixed spaces are absent, so an arbitrary representation, module or class map cannot satisfy these classification and newvector statements; conductorExponent with its API and the unramified test remain below as true fragments.
 README targets: R16.2/local-classification, R16.2/newvector-level-exists, R16.2/newvector-conductor, R16.2/casselman-newvector.
 Omitted declaration names: TauCeti.GL2Blueprint.localClassification, TauCeti.GL2Blueprint.newvectorLevelExists, TauCeti.GL2Blueprint.casselmanNewvector.
 Full source-level tests awaiting the same carriers: TauCeti.GL2Blueprint.conductor_steinberg, TauCeti.GL2Blueprint.conductor_ramified_steinberg.
@@ -127,7 +127,7 @@ example (ρ : Representation ℂ G V) (K : ℕ → Subgroup G)
     conductorExponent ρ K hex = 0 := by sorry
 
 /-- A normalized element of an actual one-dimensional fixed submodule.
-ell must be SR.5's chosen Whittaker functional restricted to that line. -/
+ell must be SR.2.3/whittaker-functionals' chosen Whittaker functional restricted to that line. -/
 def normalizedNewvector (L : Submodule ℂ V) (ell : L →ₗ[ℂ] ℂ)
     (hdim : Module.finrank ℂ L = 1) (hell : ell ≠ 0) : L := by sorry
 lemma normalizedNewvector_fixed (ρ : Representation ℂ G V) (K : Subgroup G)
@@ -176,14 +176,20 @@ example (α β : ℂ) : sphericalValues α β 1 = α + β := by sorry
 example (α β : ℂ) : sphericalValues α β 2 = α ^ 2 + α * β + β ^ 2 := by sorry
 -- TauCeti.GL2Blueprint.sphericalValues_collision
 example : sphericalValues 1 1 2 = 3 := by sorry
-/- Signature omissions: The SR.2/SR.3/SR.4/SR.5 irreducible smooth GL₂(F) class, its K₀(p) and GL₂(O) fixed spaces, the Iwahori–Hecke algebra with its relations, the Kirillov model and the type Hom-multiplicity are absent, so arbitrary modules, rings or multiplicity functions cannot satisfy these local identities.
+/- Signature omissions: The SR.2/SR.3/SR.4/SR.2.3 irreducible smooth GL₂(F) class, its K₀(p) and GL₂(O) fixed spaces, the Iwahori–Hecke algebra with its relations, the Kirillov model and the type Hom-multiplicity are absent, so arbitrary modules, rings or multiplicity functions cannot satisfy these local identities.
 README targets: R16.2/iwahori-oldforms, R16.2/iwahori-center, R16.2/supercuspidal-kirillov, R16.2/henniart-unicity.
 Omitted declaration names: TauCeti.GL2Blueprint.iwahoriOldforms, TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
 -/
--- Missing: f is a surjection in the fixed-central-character smooth category,
--- π is supercuspidal; unrestricted/mod-p projectivity is not the assertion.
-theorem supercuspidalProjective {P A B : Type*} (f : A → B)
-    (hf : Function.Surjective f) (g : P → B) : ∃ h : P → A, f ∘ h = g := by sorry
+/- Signature omission: TauCeti.GL2Blueprint.supercuspidalProjective.
+README target: R16.2/supercuspidal-projective.
+The morphism to be lifted is linear and GL₂(F)-equivariant, the epimorphism
+belongs to SR.0's smooth category with the same fixed central character,
+and the source is supercuspidal over characteristic-zero coefficients.
+For DLB17 footnote 52 (p. 64), F = ℚp and the central character is trivial.
+The fixed-character category and its supercuspidal predicate are not available
+at the pin. Arbitrary functions and a set-theoretic section of a surjection
+do not express this projectivity statement.
+-/
 end Spherical
 
 section CDT
@@ -677,7 +683,17 @@ induction applications consume the analytic input.
 -- which imports the cubic transfer and Artin automorphy from here; it is not restated.
 end BCTheorems
 
-/- Signature omissions: Character extension needs the idele class group of a number field, its n-torsion quotient and the complex-place condition, and residual lifting needs a totally real field, a continuous absolutely irreducible solvable r̄ and an adequate integral coefficient ring; over arbitrary groups and rings both existence claims are false.
+/- Signature omissions: The torsion-idele character extension needs the idele
+class group of a number field, the quotient μ_n(F)\μ_n(𝔸_F) and the complex-place
+condition. It is not extension with prescribed characters on full F_v×, as
+needed by R17.5/tunnell-primitive-globalization and prescribed-local-induction.
+The latter also requires compatible CM infinity types. Current Tau Ceti has
+HeckeCharacter and finiteComponent, but these carriers are absent at the pin;
+the current library's factorization of an existing finite-order character
+through a ray class group is not the simultaneous prescription theorem.
+Residual lifting needs a totally real field, a continuous absolutely
+irreducible solvable r̄ and an adequate integral coefficient ring; over
+arbitrary groups and rings both existence claims are false.
 README targets: R17.5/finite-hecke-extension, R17.5/odd-residual-lift.
 Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
 -/
