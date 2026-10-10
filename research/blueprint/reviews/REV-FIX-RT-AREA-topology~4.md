@@ -1,3 +1,67 @@
+# Scope verification for topology fix review round 4
+
+Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
+`codex-UkVFGL`, 10 October 2026; atlas base `ab8350eab`.
+Claim comment 6100455348 was confirmed by bot comment 6100456483.
+This worker did none of the fixes under review and claimed only this job.
+
+**Checkpoint: completion is blocked by the live issue's file scope.** This
+continuation verifies the blocker in [PR #8533](https://github.com/CBirkbeck/tauceti-explorer/pull/8533)
+and preserves its mathematical review below, attributed to its author.
+It does not repeat or replace that review. No packet or suggested declaration
+changed, and no verdict was assigned to an unauthorized packet.
+
+The live issue was read again after claim confirmation. Its deliverables are
+this report, the three base supplier packets and their suggested files.
+WORKERS.md's binding rule is: “Edit only the files the issue names, plus your
+own scratch space.” The queue additionally names these four deliverables:
+
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`
+- `research/blueprint/suggested/ArithmeticQuantumTopology.lean`
+- `research/blueprint/packets/Polylogarithms--P.2.json`
+- `research/blueprint/suggested/Polylogarithms--P.2.lean`
+
+Fresh read-only evaluation of `research/blueprint/issues.py:deliverables_complete`
+on the actual queue entry returns **False**. Evaluating the same predicate on
+that entry with only the live issue's outputs returns **True**. The queue
+prompt does not exist. The false result is caused by the two additional
+packets' reviewer identities, not by the QSeries `needs_changes` verdict:
+the predicate explicitly permits a completed negative review.
+
+The three issue-listed packets retain this review job's bounded verdicts:
+Polylogarithms accepted, HabiroNahmSeries accepted, QSeries needs_changes.
+Fresh `check_blueprint.py` runs on all three return zero errors and warnings
+(75, 109 and 537 nodes). There are no link maps or restructuring proposals
+among this issue's deliverables. The prior session's successful Lean checks
+are preserved as prior evidence; Lean was not rerun because no signature or
+import changed. No library build, update, cache command or language server ran.
+
+Fresh source spot checks confirm the existing separation between the ordered
+tetrahedron formula and its manifold sum (Zagier, *The Dilogarithm Function*,
+I.4 (7)–(9), printed pp. 13–14), and between a scalar analytic discrepancy and
+the discontinuous knot example (Zagier, *Quantum modular forms*, introductory
+definition and cocycle law, p. 2; Example 5, p. 12). These support the inherited
+owner boundaries; they do not constitute a new full source audit.
+Public sources: [Dilogarithm](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf)
+and [Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf),
+accessed 10 October 2026. Current upstream GeometricTopology and
+DifferentialGeometry were inspected read-only at
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`; forms, Stokes and abstract
+corner-boundary interfaces retain their existing owner. No upstream edits
+or Lake command ran there.
+
+Scope authorization was requested during this continuation and remains
+pending. Completion requires authorization for the four paths above, or an
+issue/queue reconciliation by the maintainer. This worker does not alter
+queue logic, silently expand scope, or mark the outstanding review complete.
+The handoff gives the precise continuation. Another supplier re-audit alone
+cannot remove this blocker.
+
+---
+
+The following is the preceding session's report, retained as inherited
+evidence. Its “fresh” checks refer to session `codex-zoCY4t`, not this run.
+
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
