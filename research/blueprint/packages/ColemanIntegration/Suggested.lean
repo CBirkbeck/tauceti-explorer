@@ -941,6 +941,20 @@ theorem weil_weight_product_ne_one {q : ℕ} (hq : 1 < q) {n m : ℕ} (hm : 0 < 
 -- `L1.9`: not stated; needs good-reduction pairs with
 -- their dagger algebras and rigid cohomology (AdicSpacesPartII:F1, PadicDifferentialEquations-
 -- AndRigidCohomology:RD.0, RD.4, RD.5, RD.6).
+-- Its algebraic comparison also uses AdicSpacesPartII:R3 proper GAGA and
+-- quasi-Stein acyclicity, and JacobianChallenge Layer B's curve duality with
+-- the relative-differential/canonical-sheaf identification. README L1.9 gives
+-- the constant-coefficient Laurent homotopy and Cech construction (BC 1991,
+-- Theorem 3.1, Corollaries 2.6 and 3.7). These are genuine cohomology carriers;
+-- an arbitrary vector-space equivalence would not state the geometric result.
+-- goodReduction_algebraicDeRhamEquiv: H^1_dR(Y_K/K) ≃ₗ[K] Omega+/dA+,
+-- induced by restriction; it commutes with finite scalar extension, pullback
+-- of pairs and residues. goodReduction_deRham_finrank: dimension = 2*g+r-1,
+-- where r is the degree of finite etale D, including nonsplit divisors.
+-- Tests goodReduction_comparison_affineLine (dimension 0),
+-- goodReduction_comparison_multiplicativeGroup (dimension 1, class dt/t),
+-- goodReduction_comparison_ellipticPuncture (dimension 2, but global log
+-- forms have dimension 1): not stated; need the actual curve cohomologies.
 
 end Datum
 
@@ -2889,6 +2903,15 @@ end Regulator
 --   not stated; needs algebraic K-theory K_{2n-1}^{(n)} of number fields and of p-adic rings,
 --   de Jeu's map H^1(M̃_n(F)) → K_{2n-1}(F)_ℚ (L3.Fa) and Besser's syntomic
 --   regulator (L3.Fb).
+-- The geometric syntomic complex in L3.Fb uses the native shifted cone of
+-- 1-phi*/q^n on the filtered rigid complex, with d(a,b)=(da,(1-phi*/q^n)a-db).
+-- BDJ Definition 4.6 (published p.892) normalizes [(0,epsilon)] by applying
+-- (1-phi*/q^n)^(-1) to [epsilon] for n >= i > dim X. On Spec R with phi*=id
+-- this is epsilon/(1-q^(-n)). Taking [epsilon] alone changes the regulator.
+-- Its point, unit-logarithm and zero-weight rejection tests remain unstated
+-- until these genuine cohomology and relative Chern-character carriers exist.
+-- BDJ Theorems 1.10(2), 1.12 are on published pp.871,872. The relativity
+-- signs are fixed once in each weight (Remark 1.7), not separately per symbol.
 -- padicBeilinsonConjecture (L3.16): not stated;
 --   needs K_{2n-1}(k)_E, Beilinson's and the syntomic regulators, and coefficient-valued
 --   complex and p-adic Artin L-functions. The complex finite-image theory is imported from
