@@ -80,7 +80,7 @@ The component idempotents for Q are integral even when ℓ divides |Q|. The fini
 
 Use [`MonoidHom`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean), [`Subgroup`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean), [`SemidirectProduct`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/SemidirectProduct.lean) and [`FreeGroup`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/FreeGroup/Basic.lean) directly for the ordinary group constructions. The nonabelian Čech carrier [`CategoryTheory.PresheafOfGroups.OneCocycle`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean) already supplies cocycles and their equivalence relation on a cover; SF.1 gives the bridge from crossed group cocycles to torsor descent. Use [`Subalgebra`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Algebra/Subalgebra/Basic.lean) for a coaction equalizer and `CommRingCat` colimits for the ordinary ring universal property. [`MonoidAlgebra.of`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MonoidAlgebra/Defs.lean) is the group-basis map used by the trace adapter, and [`Equiv.Perm.cycleFactorsFinset`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Perm/Cycle/Factors.lean) supplies the nontrivial cycles; fixed one-cycles must still be included.
 
-[`Representation`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean) is an abstract group action on a module. Rational regularity and finite-projective coefficient conditions need the reductive representation interface. [`groupCohomology`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean) is abstract group cohomology; Tau Ceti's `ContinuousCohomology.continuousCohomologyFunctor` is the continuous abelian coefficient functor. Neither supplies nonabelian parameters or the Weil duality theorem. Tau Ceti's `fixedSubgroup` gives fixed points of an abstract endomorphism, with membership F(g)=g, and supports the point-group checks in the cyclic fixed-locus argument.
+[`Representation`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Basic.lean) is an abstract group action on a module. The ordinary excursion signature uses `Module.Finite` and `Module.Projective` for finite-projectivity; algebraic regularity needs the reductive representation interface. [`groupCohomology`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean) is abstract group cohomology; Tau Ceti's `ContinuousCohomology.continuousCohomologyFunctor` is the continuous abelian coefficient functor. Neither supplies nonabelian parameters or the Weil duality theorem. Tau Ceti's `fixedSubgroup` gives fixed points of an abstract endomorphism, with membership F(g)=g, and supports the point-group checks in the cyclic fixed-locus argument.
 
 [`AlgebraicGeometry.Scheme`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Scheme.lean), [`MvPolynomial`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Basic.lean), [`Module.Flat`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean) and [`RingTheory.Sequence.IsRegular`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Regular/RegularSequence.lean) supply the scheme, equation, flatness and regular-sequence vocabulary. [`Algebra.Extension.H1Cotangent`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Extension/Cotangent/Basic.lean) is the degree-one kernel in a naive presentation, rather than the full cotangent complex. [`PrimeSpectrum.isHomeomorph_comap`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Homeomorph.lean) turns a nil-kernel, power-lifting ring map into a homeomorphism; universal homeomorphism requires the same argument after every base change. [`Module.Free`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FreeModule/Basic.lean) requires a separate finite-rank hypothesis in Weil duality.
 
@@ -1189,9 +1189,11 @@ The API should provide:
 
 - `ExcursionDatum.operator`: The natural endomorphism S_D, with its class in π₀End(id_C) for a stable infinity-category.
 
-- `ExcursionDatum.reindex`: Reindex tuples and pull back the representation; the resulting operator is unchanged.
+- `ExcursionDatum.reindex`: For f:I→J, pull the representation back along J-tuples→I-tuples and specify a tuple γ:J→Γ. The operator comparison requires the old tuple to equal γ∘f; with this compatibility the operator is unchanged.
 
 - `ExcursionDatum.tensor`: External tensor product on I⊔J with tensor α,β and concatenated tuple.
+
+The ordinary linear-algebra signature in Suggested.lean requires `Fintype I`, `Module.Finite R V` and `Module.Projective R V`. Its external tensor uses Mathlib's existing `Representation.tprod`, with finite-projectivity supplied by `Module.Finite.tensorProduct` and `Module.Projective.tensorProduct`. The functional β⊗β′ is followed by the canonical identification R⊗R≃R. The algebraic regularity of the representation and the enhanced Hecke operator still require the imported interfaces above.
 
 Unit tests:
 
@@ -1200,6 +1202,8 @@ Unit tests:
 - `datum_zero_alpha`: If α=0 then S_D=0.
 
 - `datum_tensor_operator`: For external tensor products S_{D⊗D′}=S_D S_D′.
+
+Ordinary coefficient checks also retain the two ordered tuple entries under tensor product, check a compatible fold Fin 1⊔Fin 1→Fin 1, and compute the product of the scalar coefficients 2 and 3 as 6. These test the linear-algebra construction; the categorical operator tests require the enhanced Hecke carrier.
 
 **Needs:** [SR.6.3][SR63]; [LP2e.13](#lp2e13-categorical-hecke-data); **ReductiveGroupsPartII, RG2.5**; `Representation` (Mathlib); `CategoryTheory.CatCenter` (Mathlib).
 
@@ -1227,6 +1231,8 @@ The API should provide:
 
 - `excursionMatrixCoefficient.reindex`: Pullback of f agrees with reindexing the datum.
 
+- `excursionMatrixCoefficient.tensor`: On a concatenated tuple g⊔g′, the external tensor coefficient is f_D(g)f_D′(g′).
+
 Unit tests:
 
 - `coefficient_unit`: For V=1 and α=β=id the coefficient is 1.
@@ -1236,6 +1242,8 @@ Unit tests:
 - `coefficient_product`: External tensor product gives the product of the two matrix coefficients.
 
 - `coefficient_biinvariant`: For diagonal a,b∈H, f_D(a g_i b)=f_D(g_i).
+
+The ordinary Suggested.lean checks `coefficient_product_normalization` over ℚ with scalar coefficients 2 and 3, distinguishing multiplication from addition and from a constant unit. `coefficient_tensor_tuple` retains distinct Γ=ℤ tuple entries 2 and 3, detecting an exchanged or duplicated leg. `coefficient_reindex_fold` first gives both legs the common tuple 5 and then folds; `coefficient_fold_tuple` verifies the required tuple compatibility. The symbolic reindexing and tensor equations hold for arbitrary point-group tuples, independently of these scalar fixtures. Regularity, canonical presentation and categorical operator independence retain the stronger imported representation hypotheses.
 
 **Needs:** [SR.6.3][SR63]; [LP2e.14](#lp2e14-excursion-data); **ReductiveGroupsPartII, RG2.5**.
 

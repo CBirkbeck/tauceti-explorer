@@ -116,29 +116,53 @@ this run rechecked the whole package and the source distinctions, without
 rerunning those isolated reports.
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-snGzVD`, 10 October 2026.
-Branch: `codex-snGzVD-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6096910473).
+Worker: Codex (GPT-6), session `codex-LQHe2n`, 10 October 2026.
+Branch: `codex-LQHe2n-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097138012).
 
 **Incomplete: completion requires changes to supplier contracts and the accepted
-plan outside this issue's deliverables.** This checkpoint changes only this
-handoff. The package README and Suggested.lean remain unchanged. No second job
-was claimed.
+plan outside this issue's deliverables.** This checkpoint adds finite-projective
+ordinary excursion-data reindexing, external tensors, coefficient laws and
+concrete checks; it also synchronizes README §§LP2e.14–15. No second job was
+successfully claimed.
 
 ## Work and stopping condition
 
-None of the manager's priority issues was available when checked individually.
-The full available-swarm listing had no eligible top job and one focus package,
-this job, selected under WORKERS.md's fallback order. The bot confirmed the
-session's claim before work began.
+The manager's list had no available issue in the available-swarm listing.
+A claim attempt on #5702 lost to another worker before work began. Under the
+fallback order this focus package was then claimed, with bot confirmation.
+Only this package and its handoff have been changed.
 
-Independently checked the inherited obstruction against the current upstream
-roadmaps and library, the LP and IHG plans, the E5 signatures and primary
-sources. Re-ran both packet checkers and package elaboration. Extracted the
-existing identity-component fixtures unchanged into a scratch Lean file and
-checked four axiom reports. Added the absent-API inventory below, alongside
-the absent-test inventory, and consolidated the previous handoff's mathematical
-worklist and proof receipts into this one document.
+Read the worker and blueprint/expansion protocols, upstream guide, issue,
+accepted inputs, inherited handoff and the reviewed library audit. Inspected
+current upstream supplier declarations and primary sources to check the
+obstructions below, rather than treating previous checkpoint conclusions as
+sufficient. Read AlgebraicVectorBundles and ReductiveGroups READMEs in full.
+
+The useful local extension is the ordinary linear-algebra part of FS
+Definition VIII.4.2 and the proof of Proposition VIII.4.1 (pp.291–292):
+
+- `ExcursionDatum` now requires finite I and finite-projective V through
+  Mathlib's existing `Fintype`, `Module.Finite` and `Module.Projective`.
+- `ExcursionDatum.reindex` pulls back the representation along J-tuples→I-tuples;
+  `reindex_tuple` records the tuple-compatibility hypothesis required for an
+  operator comparison. A newly chosen tuple does not automatically preserve
+  the old operator.
+- `ExcursionDatum.tensor` uses `Representation.tprod`, tensor α, the functional
+  β⊗β′ followed by `TensorProduct.lid`, and the ordered concatenated tuple.
+  Mathlib's `Module.Finite.tensorProduct` and `Module.Projective.tensorProduct`
+  supply closure, rather than a second tensor representation construction.
+- The two matrix-coefficient comparison laws have actual proofs. The
+  `coefficient_product` test is present. Named rational tests distinguish
+  2×3=6 from addition or a unit, retain distinct tuple entries 2 and 3, and
+  fold only after specifying the common tuple 5. The fold-compatibility
+  equation is checked separately. `ExcursionDatum.scalar` supplies the
+  trivial-representation fixtures.
+
+This remains an ordinary point-group representation interface. Algebraic
+regularity, canonical matrix-coefficient presentations and categorical Hecke
+operators are not supplied by it. Existing genuine base-change, nonflat
+reduction and identity-component proof fixtures have been preserved.
 
 The issue says “Change no packet; if the plan has a mistake, describe it in the
 handoff note.” Its only allowed outputs are the three package files and this
@@ -148,23 +172,23 @@ The owner changes below cannot be made inside those outputs. This is a
 specification obstruction, independent of the eight-hour limit; implementation
 of an already adequate supplier is not the stopping condition.
 
-The LP plan's accepted `complete` status denotes a finished target-level pass:
-it still has 79 nodes, 140 API items, 90 tests, eight planned stages, zero closed
-stages, five gaps and sixteen requests. Its review expressly retains G1–G4,
-G6, supplier extensions and omitted enhanced signatures. The package issue's
-premise that the plan is complete does not establish those missing contracts.
+The accepted LP packet still has 79 nodes, 140 API items, 90 tests, eight
+planned stages, zero closed stages, five gaps and sixteen requests. Its review
+retains G1–G4, G6, supplier extensions and omitted enhanced signatures.
+Structural acceptance does not supply the missing contracts.
 
-## Contracts that must change before resuming
+## Contracts that must change before completion
 
 Current upstream roadmap revision inspected:
-`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
+`8acc80159cfd301db68bde9393a52668efdd8c8c`.
 Current native Tau Ceti revision inspected:
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-These differ from the pinned elaboration baseline. Read
-AlgebraicVectorBundles and ReductiveGroups READMEs in full, the IHG §0.7
-README and its relevant suggested signatures, all eight LP library-audit
-records, and the named consuming/supplying nodes. A name search in the native
-library found no declarations named `DerivedParameterStack`,
+These differ from the pinned elaboration baseline. IHG, AlgebraicVectorBundles
+and ReductiveGroups have no diff from the preceding handoff's upstream revision
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`. Read IHG §0.7 and its relevant
+suggested signatures, all eight LP library-audit records, and named
+consuming/supplying nodes. The inherited limited native-library name search
+found no declarations named `DerivedParameterStack`,
 `ProjectedPseudocharacter`, `IndInfty`, `SymMonInftyCat`, `AnimatedAlg`,
 `ReductivePseudocharacter` or `InvariantCoordinateInput`; this is a limited
 name search, not a comprehensive audit of the newer library.
@@ -185,7 +209,7 @@ LP3's good-prime generation hypothesis.
 
 ## Primary-source verification and concrete distinction
 
-Freshly fetched the author PDFs on 2026-10-10 and inspected Quast,
+This session read the author PDFs through the browser and inspected Quast,
 *Deformations of G-valued pseudocharacters*, Definition 3.1 (p.11),
 Lemmas 3.4–3.5 (pp.12–13), and Theorem 3.7 with the opening reconstruction
 argument (pp.13–14). Tuple invariants and reconstructed conjugacy classes use
@@ -195,13 +219,16 @@ orbit closedness does not identify their orbit sets.
 Inspected Fargues–Scholze, *Geometrization of the local Langlands
 correspondence*, the coefficient convention and Definition VIII.1.1 (p.278),
 Propositions VIII.3.7–VIII.3.8 and their proof discussion (pp.288–290).
+Also read Definition VIII.4.2 and the proof of Proposition VIII.4.1
+(pp.291–292) for the new ordinary coefficient constructions.
 The local invariant tuples use H-conjugation in H⋊Q with a prescribed
 component projection. Continuity of the reconstructed cocycle requires its
 own finite-anchor argument; relatively discrete coefficients also impose
 finite-type Z_l-module bounds on profinite test sets.
 
 These are targeted source checks, not a new audit of every auxiliary proof.
-No new source erratum is asserted. Source receipts:
+No new source erratum is asserted. The following SHA-256 receipts are
+retained from the preceding worker's fetch, not fresh hash checks in this run:
 
 - [Quast author PDF](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
   SHA-256 `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
@@ -218,8 +245,8 @@ separates those generator values, but component switching sends it to
 (x⁻¹,0). The component idempotent (1,0) is invariant under both actions.
 Its prescribed value does not restore the lost coordinate.
 
-Fresh isolated elaboration of these unchanged fixtures has no errors or
-warnings. Axiom reports for `lifts_not_h_conjugate`,
+The preceding checkpoint's isolated elaboration of these unchanged fixtures
+had no errors or warnings. Its axiom reports for `lifts_not_h_conjugate`,
 `whole_group_invariants_equal`, `coordinate_h_invariant` and
 `coordinate_not_switch_invariant` contain only `propext`, `Classical.choice`
 and `Quot.sound`, with no `sorryAx`. These are verified boundary checks,
@@ -228,10 +255,12 @@ not a generic reconstruction or pseudocharacter implementation.
 ## Signature inventory for resumption
 
 A fresh screen compared all 140 API names and 90 test names in the accepted
-LP packet with the whole package Suggested.lean, including comments. The
-following 43 API entries have even their final name component absent as a
-word token; the following 43 test identifiers are absent. This is a
-conservative absence worklist, not a signature-coverage certificate. A common
+LP packet against the whole Suggested.lean, including comments. The following
+42 API entries have even their final name component absent as a word token;
+42 test identifiers remain absent after adding `coefficient_product`.
+`ExcursionDatum.operator` remains absent as a declaration, although the new
+reindexing comment contains the word “operator”. This is a conservative
+absence worklist, not a signature-coverage certificate. A common
 name such as `unit`, `map` or `tensor` elsewhere in the file cannot certify an
 API entry, and a name appearing only in a comment cannot certify a test.
 Check the exact statements in the cited node after the owner contracts change.
@@ -251,7 +280,6 @@ Every target suffix in the tables is relative to `LanglandsParameterStacks:`.
 | `LP2:excursion-presentation/complete-reducibility` | `IsStronglyReductive`, `IsAbsolutelyGCompletelyReducible`, `IsStronglyGIrreducible` |
 | `LP2:semisimple-characters/semisimple-parameters-and-closed-orbits` | `IsSemisimpleParameter`, `IsSemisimpleParameter.leviCriterion`, `IsSemisimpleParameter.GL` |
 | `LP2:excursion-presentation/categorical-hecke-datum` | `CategoricalHeckeDatum`, `CategoricalHeckeDatum.create`, `CategoricalHeckeDatum.annihilate` |
-| `LP2:excursion-presentation/excursion-datum` | `ExcursionDatum.operator` |
 | `LP2:excursion-presentation/invariant-function-and-independence` | `excursionMatrixCoefficient.canonicalPresentation`, `excursionMatrixCoefficient.operatorIndependent` |
 | `LP2:semisimple-characters/reductive-pseudocharacters` | `ProjectedPseudocharacter.ofLift` |
 | `LP2:semisimple-characters/GL-trace-pseudocharacters` | `GroupTraceAdapter.equiv` |
@@ -274,7 +302,6 @@ Every target suffix in the tables is relative to `LanglandsParameterStacks:`.
 | `LP2:semisimple-characters/semisimple-parameters-and-closed-orbits` | `semisimple_split_GL`, `semisimple_unipotent` |
 | `LP2:excursion-presentation/categorical-hecke-datum` | `hecke_empty_set`, `hecke_fold`, `hecke_zero_category` |
 | `LP2:excursion-presentation/excursion-datum` | `datum_zero_alpha`, `datum_tensor_operator` |
-| `LP2:excursion-presentation/invariant-function-and-independence` | `coefficient_product` |
 | `LP2:semisimple-characters/reductive-pseudocharacters` | `projected_rank_one`, `projected_conjugate`, `projected_unipotent` |
 | `LP3/good-filtration-t-structure` | `good_torus`, `good_zero`, `good_induced`, `good_shift_sign` |
 | `LP3/induced-perfect-complexes` | `induced_point`, `induced_trivial_group`, `induced_retract`, `induced_not_all_bad_prime` |
@@ -296,7 +323,7 @@ though their final name components occur elsewhere in the file:
 | --- | --- |
 | Extended wild parameters | `ExtendedWildParameter.forget` |
 | Derived parameter stack | `DerivedParameterStack.framed` |
-| Categorical Hecke datum | `CategoricalHeckeDatum.unit`, `CategoricalHeckeDatum.reindex` |
+| Categorical Hecke datum | `CategoricalHeckeDatum.unit`, `CategoricalHeckeDatum.reindex`, `ExcursionDatum.operator` |
 | Induced perfect complexes | `InducedPerfectComplexes.pullback` |
 | Mapping approximation | `ParameterMappingApproximation.compare` |
 | Universal representation bundles | `UniversalRepresentationBundle.unit`, `UniversalRepresentationBundle.tensor`, `UniversalRepresentationBundle.reindex`, `UniversalRepresentationBundle.act`, `UniversalRepresentationBundle.baseChange` |
@@ -390,37 +417,43 @@ SHA-256 `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`.
 
 - `check_blueprint.py` for LP and IHG: both exit 0, zero errors and warnings.
   These structural checks do not certify the semantic supplier contracts.
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  no errors; 291 warnings, all `declaration uses sorry`, no other warnings.
-  Available memory before the check: 102 GB.
-- Extracted identity-component fixtures: no errors or warnings, the four
-  axiom reports listed above exclude `sorryAx`. Available memory: 106 GB.
+- Final `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, no errors; 291 warnings, all `declaration uses sorry`, no other
+  warnings. Available memory before the final check: 86 GB.
+- The isolated matrix-coefficient section also elaborates. Its five warnings
+  are the inherited unit, evaluation, unit/zero coefficient and bi-invariance
+  proofs, all `sorry`. Nine axiom reports exclude `sorryAx`: `scalar`,
+  `reindex`, `tensor`, both coefficient comparison theorems and all four named
+  `MatrixCoefficientChecks` tests. Their only axioms are `propext`,
+  `Classical.choice` and `Quot.sound`. Available memory: 88 GB.
 - Managed elaboration baseline advertised by `lean-check`: Tau Ceti
   `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The prepared Tau Ceti build
-  has no `.git`; the advertised pin is not a new source-tree git receipt.
-- Scoped intake file check: one authorized handoff, zero problems.
-  `git diff --check` passes.
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The Mathlib source-tree git
+  revision agrees. The prepared Tau Ceti build has no `.git`; its advertised
+  pin is not a new source-tree git receipt.
+- Scoped intake check: three authorized files, zero problems.
+  `git diff --check` passes. README is 191851 bytes, within the 200 KB limit.
 
-Unchanged input and artifact SHA-256 receipts:
+Unchanged input and final artifact SHA-256 receipts:
 
 | File | Bytes | SHA-256 |
 | --- | ---: | --- |
 | LP packet | 375204 | `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087` |
 | IHG packet | 891679 | `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b` |
 | E5 suggested input | 10410 | `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c` |
-| Package README | 190005 | `ceb36494a6fe337cb48864709601906287d0d2c6f23758bc6fdaf7043f6dc6a3` |
-| Package Suggested.lean | 120143 | `405fc32238436643e5590a9f0d0766127c1b8952e65c00908c3d94477d86ebdd` |
+| Package README | 191851 | `894abc8701db52f1ffaffccde1146c753d38f9608ffe0ca42a7878f90003058f` |
+| Package Suggested.lean | 127901 | `7d455c73c4813aa6e83d5117f2e40d9a8bd2970ee4e739601e2e789c6b7782ac` |
 
 `metadata.toml` remains absent. Its intended content is `topic = "math.NT"`;
 add it when the package meets its mathematical and signature obligations.
 `issues.deliverables_complete` currently checks existence of package output
 paths, so adding it to this incomplete package would misclassify the job.
 
-Resume only once owner-authorized changes supply the contracts above. Compare
-statements and carriers, then reconcile all 79 targets, 140 APIs and 90 tests;
-check dependency order and the README's 200 KB limit, add metadata, run Lean
-and scoped intake checks, and submit the complete package. All resumption
+For completion, obtain owner-authorized changes supplying the contracts above,
+then reconcile all 79 targets, 140 APIs and 90 tests. Check dependency order,
+keep the README within 200 KB, add metadata, run Lean and scoped intake checks,
+and submit the complete package. Additional ordinary signatures may be filled
+independently, but cannot discharge the supplier obstruction. All resumption
 information is in this handoff; no scratch file is needed. No owner file or
 read-only tree was edited, no private book was used, no Lake build/update/cache
 command or language server ran, and all Lean checks have finished.
