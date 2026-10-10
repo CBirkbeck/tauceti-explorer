@@ -6170,12 +6170,140 @@ theorem localise.category {G : D.Graded} {P : D.ProductStructure G}
         Nonempty (X ⊗ tensorNatPow ((category.ofRep (T.extend τ hτ)).obj (f₀, 0)) n ≅
           (localise.categoryIncl T τ hτ).obj Y) := sorry
 
-/- MC.5/diagram-localisation, API Diagram.localise.coalgebra (HMS Proposition B.22,
-pp.25–26): the coefficient algebra localizes through the canonical map induced by the
-effective-diagram inclusion, with the induced product structure. Its typed coefficient-map
-interface is still missing. The former signature quantified over an arbitrary ring homomorphism
-and its toAlgebra, which does not state this theorem. Keep this API as an explicit prototype gap
-until the canonical map and compatible multiplication are supplied. -/
+/-- Restricting the specified extension along f ↦ (f,0) recovers T, naturally on edges.
+This is the unit-tensor identification, not an arbitrary isomorphism of fibres. -/
+def Rep.extend_restrictIso : T ≅ (T.extend τ hτ).restrict (localise.incl D mul f₀) := sorry
+
+/-- The image of a finite effective diagram in the degree-zero copy. -/
+def localise.finiteImage (S : Finset D.V) : Finset (D.localise mul f₀).V := by
+  classical
+  exact S.image (localise.incl D mul f₀).obj
+
+/-- Restrict an endomorphism family to the degree-zero copy, using extend_restrictIso. -/
+def localise.finiteEndRestrict (S : Finset D.V) :
+    (T.extend τ hτ).endRing (localise.finiteImage (D := D) (mul := mul) (f₀ := f₀) S) →ₐ[R] T.endRing S := sorry
+
+/-- The finite restriction is conjugation by the canonical unit-tensor identification. -/
+theorem localise.finiteEndRestrict_apply (S : Finset D.V)
+    (a : (T.extend τ hτ).endRing (localise.finiteImage (D := D) (mul := mul) (f₀ := f₀) S)) (f : S) :
+    (localise.finiteEndRestrict T τ hτ S a).val f =
+      ((T.extend_restrictIso τ hτ).inv.app f.1).hom.hom ∘ₗ
+        a.val ⟨(f.1, 0), by
+          classical
+          exact Finset.mem_image.mpr ⟨f.1, f.2, rfl⟩⟩ ∘ₗ
+        ((T.extend_restrictIso τ hτ).hom.app f.1).hom.hom := sorry
+
+/-- Dual restriction on finite pieces induces the canonical coefficient map on the colimit. -/
+def localise.coefficientMapLinear : T.coalgebra →ₗ[R] (T.extend τ hτ).coalgebra := sorry
+
+/-- The colimit map is fixed on every finite coefficient, hence cannot be chosen arbitrarily. -/
+theorem localise.coefficientMapLinear_colimit (S : Finset D.V)
+    (x : Module.Dual R (T.endRing S)) :
+    localise.coefficientMapLinear T τ hτ (T.colimit S x) =
+      (T.extend τ hτ).colimit (localise.finiteImage (D := D) (mul := mul) (f₀ := f₀) S)
+        ((localise.finiteEndRestrict T τ hτ S).toLinearMap.dualMap x) := sorry
+
+section MultiplicativeLocalization
+
+variable {G : D.Graded} {P : D.ProductStructure G}
+
+/-- The weak product of Definition B.18 and Remark B.19: (f,n)×(g,m)=(f×g,n+m).
+The product paths, symmetry, associators and unit are induced from P. -/
+def localise.product (P : D.ProductStructure G) (f₀ : D.V) :
+    (D.localise P.mul f₀).ProductStructure (localise.graded D P.mul f₀ G) := sorry
+
+/-- Fix the vertex product of the extension, rather than accepting an unrelated product. -/
+theorem localise.product_mul (f g : D.V) (n m : ℤ) :
+    (localise.product P f₀).mul (f,n) (g,m) = (P.mul f g,n+m) := sorry
+
+variable (M : T.GradedMultiplicative G P)
+    (hf₀ : Module.finrank R (T.obj f₀) = 1)
+
+/-- The extended multiplicative structure of Lemma B.21, induced from M and rank-one tensor
+powers, including the source's signs. It is not an independently supplied structure. -/
+def localise.multiplicative :
+    (T.extend (fun f => M.τ f f₀) hf₀).GradedMultiplicative
+      (localise.graded D P.mul f₀ G) (localise.product P f₀) := sorry
+
+/-- The specified extension of a unital representation is unital. -/
+theorem localise.multiplicative_unital (hM : M.Unital) : (localise.multiplicative T M hf₀).Unital := sorry
+
+/-- Promote the canonical linear coefficient map to a ring homomorphism for the induced
+products. Its underlying map is exactly the finite-dual colimit map above. -/
+def localise.coefficientMap (hM : M.Unital) :
+    letI := T.coalgebraCommRing M
+    letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+      (localise.multiplicative T M hf₀)
+    T.coalgebra →+* (T.extend (fun f => M.τ f f₀) hf₀).coalgebra :=
+  letI := T.coalgebraCommRing M
+  letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+    (localise.multiplicative T M hf₀)
+  { toFun := localise.coefficientMapLinear T (fun f => M.τ f f₀) hf₀
+    map_one' := sorry
+    map_mul' := sorry
+    map_zero' := sorry
+    map_add' := sorry }
+
+/-- HMS Proposition B.22(2): the localization algebra structure uses this canonical map.
+No localization hypothesis or arbitrary ring homomorphism is passed in. -/
+theorem localise.coalgebra (hM : M.Unital) :
+    letI := T.coalgebraCommRing M
+    letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+      (localise.multiplicative T M hf₀)
+    letI := (localise.coefficientMap T M hf₀ hM).toAlgebra
+    IsLocalization.Away (T.chi f₀) (T.extend (fun f => M.τ f f₀) hf₀).coalgebra := sorry
+
+/-- Unit test Diagram.localise.coefficientMap_finite: each named finite coefficient has
+its prescribed image; agreement only on chi would not determine the map. -/
+example (hM : M.Unital) (S : Finset D.V) (x : Module.Dual R (T.endRing S)) :
+    letI := T.coalgebraCommRing M
+    letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+      (localise.multiplicative T M hf₀)
+    localise.coefficientMap T M hf₀ hM (T.colimit S x) =
+      (T.extend (fun f => M.τ f f₀) hf₀).colimit (localise.finiteImage (D := D) (mul := P.mul) (f₀ := f₀) S)
+        ((localise.finiteEndRestrict T (fun f => M.τ f f₀) hf₀ S).toLinearMap.dualMap x) := by
+  exact localise.coefficientMapLinear_colimit T (fun f => M.τ f f₀) hf₀ S x
+
+/-- Unit test Diagram.localise.coefficientMap_inverse: the canonical image of chi has
+both inverse identities in the localized coefficient ring. -/
+example (hM : M.Unital) :
+    letI := T.coalgebraCommRing M
+    letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+      (localise.multiplicative T M hf₀)
+    ∃ y : (T.extend (fun f => M.τ f f₀) hf₀).coalgebra,
+      localise.coefficientMap T M hf₀ hM (T.chi f₀) * y = 1 ∧
+      y * localise.coefficientMap T M hf₀ hM (T.chi f₀) = 1 := by
+  let _ := T.coalgebraCommRing M
+  let _ := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+    (localise.multiplicative T M hf₀)
+  let _ := (localise.coefficientMap T M hf₀ hM).toAlgebra
+  let _ := localise.coalgebra T M hf₀ hM
+  refine ⟨IsLocalization.Away.invSelf (T.chi f₀), ?_, ?_⟩
+  · exact IsLocalization.Away.mul_invSelf (T.chi f₀)
+  · rw [mul_comm]
+    exact IsLocalization.Away.mul_invSelf (T.chi f₀)
+
+/-- Unit test Diagram.localise.coefficientMap_unit: localizing at an already invertible
+coefficient changes no algebra; the canonical map itself is bijective. -/
+example (hM : M.Unital) :
+    letI := T.coalgebraCommRing M
+    letI := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+      (localise.multiplicative T M hf₀)
+    IsUnit (T.chi f₀) → Function.Bijective (localise.coefficientMap T M hf₀ hM) := by
+  let _ := T.coalgebraCommRing M
+  let _ := (T.extend (fun f => M.τ f f₀) hf₀).coalgebraCommRing
+    (localise.multiplicative T M hf₀)
+  let _ := (localise.coefficientMap T M hf₀ hM).toAlgebra
+  let _ := localise.coalgebra T M hf₀ hM
+  intro hχ
+  let _ : IsLocalization (Submonoid.powers (T.chi f₀)) T.coalgebra :=
+    IsLocalization.of_le_isUnit (by
+      rw [Submonoid.powers_le]
+      exact hχ)
+  exact IsLocalization.bijective (M := Submonoid.powers (T.chi f₀))
+    (localise.coefficientMap T M hf₀ hM) (by ext x; rfl)
+
+end MultiplicativeLocalization
 
 /-- Unit test `Diagram.localise.noncanonical_map`: evaluating the polynomial coordinate at 1
 inside the Laurent ring sends it to a unit but kills the nonzero polynomial X-1. A localization
