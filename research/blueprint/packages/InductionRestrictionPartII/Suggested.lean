@@ -13,6 +13,7 @@ import Mathlib.Algebra.Field.ZMod
 import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.GroupTheory.Commutator.Basic
 import Mathlib.GroupTheory.Torsion
+import Mathlib.GroupTheory.GroupAction.Defs
 import Mathlib.GroupTheory.GroupAction.Hom
 import Mathlib.Algebra.Torsor.Defs
 import Mathlib.LinearAlgebra.Finsupp.LSum
@@ -1162,6 +1163,339 @@ lemma centralizer_generator_relations (S : GroupExtension A E G)
     Subgroup.closure {a : A | ∃ d : InertiaClasses c, ∃ y ∈ T d,
       a = centralizer_commutator_hom S hc (rep d).val y} := by sorry
 end CentralizerGenerators
+
+section DegreeOrbits
+variable {B D : Type} [Group B]
+-- The action parameter is the actual power-class permutation representation.
+@[instance_reducible] def coordinate_lattice_action (ρ : B →* Equiv.Perm D) : MulAction B (D →₀ ℤ) where
+  smul b m := degree_permutation (ρ b) m
+  one_smul := by sorry
+  mul_smul := by sorry
+abbrev degree_orbit_set (ρ : B →* Equiv.Perm D) :=
+  letI := coordinate_lattice_action ρ
+  MulAction.orbitRel.Quotient B (D →₀ ℤ)
+def degree_orbit_set_mk (ρ : B →* Equiv.Perm D) (m : D →₀ ℤ) : degree_orbit_set ρ :=
+  letI := coordinate_lattice_action ρ
+  Quotient.mk (MulAction.orbitRel B (D →₀ ℤ)) m
+lemma degree_orbit_set_eq (ρ : B →* Equiv.Perm D) (m k : D →₀ ℤ) :
+    degree_orbit_set_mk ρ m = degree_orbit_set_mk ρ k ↔
+      ∃ b : B, k = degree_permutation (ρ b) m := by sorry
+lemma degree_orbit_set_slice [Fintype D] (ρ : B →* Equiv.Perm D)
+    (n M : ℕ) (b : B) :
+    degree_orbit_set_mk ρ '' {m : D →₀ ℤ | (fun d => m d) ∈ bounded_degree_slice n M} =
+    (fun m => degree_orbit_set_mk ρ (degree_permutation (ρ b) m)) ''
+      {m : D →₀ ℤ | (fun d => m d) ∈ bounded_degree_slice n M} := by sorry
+-- Relating the orbit to the actual evaluation of an equivariant twist.
+lemma degree_orbit_set_generator_change {T : Type} [Torsor B T]
+    (ρ : B →* Equiv.Perm D) :
+    letI := coordinate_lattice_action ρ
+    ∀ (f : cyclotomic_twist B T (D →₀ ℤ)) (t₀ t₁ : T),
+      degree_orbit_set_mk ρ (f t₀) = degree_orbit_set_mk ρ (f t₁) := by sorry
+-- degree_orbit_set_test_1
+example (ρ : B →* Equiv.Perm (Fin 0)) : Subsingleton (degree_orbit_set ρ) := by sorry
+-- C₃'s two nonidentity conjugacy classes have exactly this C₂ permutation action.
+def two_class_power_permutation : Multiplicative (ZMod 2) →* Equiv.Perm (Fin 2) := by sorry
+lemma two_class_power_permutation_nontrivial :
+    two_class_power_permutation (Multiplicative.ofAdd 1) = Equiv.swap 0 1 := by sorry
+-- degree_orbit_set_test_2
+example : degree_orbit_set_mk two_class_power_permutation
+    (Finsupp.single 0 1 + Finsupp.single 1 4) =
+    degree_orbit_set_mk two_class_power_permutation
+      (Finsupp.single 0 4 + Finsupp.single 1 1) := by sorry
+-- degree_orbit_set_test_3
+example : degree_orbit_set_mk two_class_power_permutation
+    (Finsupp.single 0 1 + Finsupp.single 1 4) ≠
+    degree_orbit_set_mk two_class_power_permutation
+      (Finsupp.single 0 2 + Finsupp.single 1 3) := by sorry
+end DegreeOrbits
+
+section FixedCoordinateOrbits
+variable {D : Type}
+@[instance_reducible] def cyclic_coordinate_action (σ : Equiv.Perm D) : MulAction (Multiplicative ℤ) D where
+  smul z d := (σ ^ Multiplicative.toAdd z) d
+  one_smul := by sorry
+  mul_smul := by sorry
+abbrev PowerClassOrbits (σ : Equiv.Perm D) :=
+  letI := cyclic_coordinate_action σ
+  MulAction.orbitRel.Quotient (Multiplicative ℤ) D
+def power_class_orbit_mk (σ : Equiv.Perm D) (d : D) : PowerClassOrbits σ :=
+  letI := cyclic_coordinate_action σ
+  Quotient.mk (MulAction.orbitRel (Multiplicative ℤ) D) d
+def power_fixed_degree_orbits [Fintype D] (σ : Equiv.Perm D) :
+    power_fixed_degree σ ≃+ (PowerClassOrbits σ → ℤ) := by sorry
+lemma power_fixed_degree_orbits_apply [Fintype D] (σ : Equiv.Perm D)
+    (m : power_fixed_degree σ) (d : D) :
+    power_fixed_degree_orbits σ m (power_class_orbit_mk σ d) = m.val d := by sorry
+lemma power_fixed_degree_weighted_sum [Fintype D] (σ : Equiv.Perm D)
+    [Fintype (PowerClassOrbits σ)] (m : power_fixed_degree σ) :
+    ∑ d, m.val d = ∑ O : PowerClassOrbits σ,
+      (Nat.card {d : D // power_class_orbit_mk σ d = O} : ℤ) *
+        power_fixed_degree_orbits σ m O := by sorry
+end FixedCoordinateOrbits
+
+section TwistedDegreeSlices
+variable {B T X D : Type} [Group B] [Torsor B T] [MulAction B X]
+    [Fintype D] [MulAction B (D → ℤ)]
+-- Instantiate X with the actual projection kernel and deg with its equivariant degree map.
+def bounded_degree_kernel_slice (deg : X →[B] (D → ℤ)) (n M : ℕ) : Set X :=
+  deg ⁻¹' bounded_degree_slice n M
+def bounded_degree_twisted_slice (deg : X →[B] (D → ℤ)) (n M : ℕ) :
+    Set (cyclotomic_twist B T X) :=
+  {f | ∀ t : T, f t ∈ bounded_degree_kernel_slice deg n M}
+lemma bounded_degree_slice_preimage (deg : X →[B] (D → ℤ)) (n M : ℕ) :
+    bounded_degree_twisted_slice (T := T) deg n M =
+      cyclotomic_twist_map deg ⁻¹'
+        {f : cyclotomic_twist B T (D → ℤ) | ∀ t : T, f t ∈ bounded_degree_slice n M} := by sorry
+lemma bounded_degree_twisted_slice_evaluation (deg : X →[B] (D → ℤ)) (n M : ℕ)
+    (hinv : ∀ b : B, ∀ m : D → ℤ,
+      b • m ∈ bounded_degree_slice n M ↔ m ∈ bounded_degree_slice n M)
+    (t₀ : T) (f : cyclotomic_twist B T X) :
+    f ∈ bounded_degree_twisted_slice deg n M ↔
+      cyclotomic_twist_evaluation t₀ f ∈ bounded_degree_kernel_slice deg n M := by sorry
+end TwistedDegreeSlices
+
+section MarkedActionComparisons
+variable {A E G A' E' : Type} [CommGroup A] [Group E] [Group G]
+    [CommGroup A'] [Group E'] {c : Set G}
+    (M : marked_extension A E G c) (M' : marked_extension A' E' G c)
+    (φ : E ≃* E') (hover : M'.extension.rightHom.comp φ.toMonoidHom = M.extension.rightHom)
+def marked_coordinate_comparison :
+    cover_fiber_product M.extension.rightHom c ≃*
+      cover_fiber_product M'.extension.rightHom c := by
+  have := hover
+  sorry
+lemma marked_coordinate_comparison_val (p : cover_fiber_product M.extension.rightHom c) :
+    (marked_coordinate_comparison M M' φ hover p).val = (φ p.val.1, p.val.2) := by sorry
+lemma discrete_action_marked_isomorphism (hmark : ∀ x : c, φ (M.marking x) = M'.marking x) (n : ℕ) (hn : 0 < n)
+    (hE : ∀ e : E, e^n = 1) (hE' : ∀ e : E', e^n = 1) (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+    (α : (ZMod n)ˣ) (p : cover_fiber_product M.extension.rightHom c) :
+    marked_coordinate_comparison M M' φ hover (discrete_action M n hn hE hG hpow α p) =
+      discrete_action M' n hn hE' hG hpow α (marked_coordinate_comparison M M' φ hover p) := by
+  have := hmark
+  sorry
+end MarkedActionComparisons
+
+section FiniteLevel
+variable {A E G : Type} [CommGroup A] [Group E] [Group G] [Finite G]
+    {c : Set G} (M : marked_extension A E G c)
+-- The finite reduced multiplier supplies hA by the integral transfer theorem.
+-- This explicit assumption is essential for arbitrary marked central models.
+lemma marked_cover_order_square_exponent (hA : ∀ a : A, a ^ Nat.card G = 1) (e : E) :
+    e ^ (Nat.card G)^2 = 1 := by sorry
+lemma finite_level_action (n : ℕ) (hn : 0 < n)
+    (hE : ∀ e : E, e^n = 1) (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+    (hA : ∀ a : A, a ^ Nat.card G = 1) (α β : (ZMod n)ˣ)
+    (hcongr : (α : ZMod n).val % (Nat.card G)^2 = (β : ZMod n).val % (Nat.card G)^2) :
+    discrete_action M n hn hE hG hpow α = discrete_action M n hn hE hG hpow β := by sorry
+end FiniteLevel
+
+section DiscreteActionExamples
+variable {G : Type} [Group G]
+def identity_marked_extension (c : Set G)
+    (hc : ∀ g x : G, x ∈ c → g*x*g⁻¹ ∈ c) :
+    marked_extension (Multiplicative (ZMod 1)) G G c := by sorry
+lemma identity_marked_extension_projection (c : Set G)
+    (hc : ∀ g x : G, x ∈ c → g*x*g⁻¹ ∈ c) :
+    (identity_marked_extension c hc).extension.rightHom = MonoidHom.id G := by sorry
+lemma identity_marked_extension_mark (c : Set G)
+    (hc : ∀ g x : G, x ∈ c → g*x*g⁻¹ ∈ c) (x : c) :
+    (identity_marked_extension c hc).marking x = x.val := by sorry
+lemma c2_exponent_four : ∀ g : Multiplicative (ZMod 2), g^4 = 1 := by sorry
+lemma c2_involution_power_closed : ∀ α : (ZMod 4)ˣ,
+    ∀ x ∈ ({Multiplicative.ofAdd (1 : ZMod 2)} : Set (Multiplicative (ZMod 2))),
+      finite_power 4 α x ∈ ({Multiplicative.ofAdd (1 : ZMod 2)} : Set (Multiplicative (ZMod 2))) := by sorry
+-- discrete_action_test_2: this is the graph model of U(C₂,c) ≃ ℤ.
+example (α : (ZMod 4)ˣ)
+    (p : cover_fiber_product (identity_marked_extension
+      {Multiplicative.ofAdd (1 : ZMod 2)} (comm_singleton_closed _)).extension.rightHom
+      {Multiplicative.ofAdd (1 : ZMod 2)}) :
+    discrete_action (identity_marked_extension {Multiplicative.ofAdd (1 : ZMod 2)}
+      (comm_singleton_closed _)) 4 (by decide) c2_exponent_four c2_exponent_four
+        c2_involution_power_closed α p = p := by sorry
+
+def s3_transpositions : Set (Equiv.Perm (Fin 3)) := {g | orderOf g = 2}
+lemma s3_transpositions_closed : ∀ g x : Equiv.Perm (Fin 3),
+    x ∈ s3_transpositions → g*x*g⁻¹ ∈ s3_transpositions := by sorry
+lemma s3_exponent_six : ∀ g : Equiv.Perm (Fin 3), g^6 = 1 := by sorry
+lemma s3_transpositions_power_closed : ∀ α : (ZMod 6)ˣ, ∀ x ∈ s3_transpositions,
+    finite_power 6 α x ∈ s3_transpositions := by sorry
+-- discrete_action_test_3: nonmultiplicativity is tested on actual fiber-product elements.
+example : ∃ p r : cover_fiber_product
+    (identity_marked_extension s3_transpositions s3_transpositions_closed).extension.rightHom
+    s3_transpositions,
+    cover_fiber_projection _ s3_transpositions p = Equiv.swap 0 1 ∧
+    cover_fiber_projection _ s3_transpositions r = Equiv.swap 1 2 ∧
+    discrete_action (identity_marked_extension s3_transpositions s3_transpositions_closed)
+      6 (by decide) s3_exponent_six s3_exponent_six s3_transpositions_power_closed (-1) (p*r) ≠
+    discrete_action (identity_marked_extension s3_transpositions s3_transpositions_closed)
+      6 (by decide) s3_exponent_six s3_exponent_six s3_transpositions_power_closed (-1) p *
+    discrete_action (identity_marked_extension s3_transpositions s3_transpositions_closed)
+      6 (by decide) s3_exponent_six s3_exponent_six s3_transpositions_power_closed (-1) r := by sorry
+end DiscreteActionExamples
+
+section ActualFixedFibers
+variable {A E G : Type} [CommGroup A] [Group E] [Group G]
+    {c : Set G} (M : marked_extension A E G c)
+-- This fiber is a subset of the actual marked pullback, not a formal square equation.
+def marked_degree_fiber (g : G) (m : InertiaClasses c →₀ ℤ) :
+    Set (cover_fiber_product M.extension.rightHom c) :=
+  {p | cover_fiber_projection M.extension.rightHom c p = g ∧
+    Multiplicative.toAdd (cover_fiber_degree M.extension.rightHom c p) = m}
+lemma square_obstruction_compatibility (g : G) (m : InertiaClasses c →₀ ℤ) :
+    (marked_degree_fiber M g m).Nonempty ↔
+      degree_to_abelianization c (Multiplicative.ofAdd m) = Abelianization.of g := by sorry
+lemma marked_degree_fiber_incompatible (g : G) (m : InertiaClasses c →₀ ℤ)
+    (h : degree_to_abelianization c (Multiplicative.ofAdd m) ≠ Abelianization.of g) :
+    marked_degree_fiber M g m = ∅ := by sorry
+-- square_obstruction_test_3: C₂'s odd marked class cannot occur with degree zero,
+-- even though the identity cover has zero square obstruction.
+example : marked_degree_fiber (identity_marked_extension
+    {Multiplicative.ofAdd (1 : ZMod 2)} (comm_singleton_closed _))
+    (Multiplicative.ofAdd (1 : ZMod 2)) 0 = ∅ := by sorry
+
+variable (n : ℕ) (hn : 0 < n) (hE : ∀ e : E, e^n = 1) (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+def fixed_degree_fiber (α : (ZMod n)ˣ) (g : G) (m : InertiaClasses c →₀ ℤ) :
+    Set (cover_fiber_product M.extension.rightHom c) :=
+  {p | p ∈ marked_degree_fiber M g m ∧ discrete_action M n hn hE hG hpow α p = p}
+lemma fixed_degree_fiber_inverse (α : (ZMod n)ˣ) (g : G) (m : InertiaClasses c →₀ ℤ) :
+    fixed_degree_fiber M n hn hE hG hpow α⁻¹ g m =
+      fixed_degree_fiber M n hn hE hG hpow α g m := by sorry
+
+variable [Fintype (InertiaClasses c)] (hinv : ∀ x : c, x.val^2 = 1)
+    (rep : InertiaClasses c → c) (hrep : ∀ d, inertia_class_mk c (rep d) = d)
+    (g : G) (hg : g^2 = 1) (Y : E) (hY : M.extension.rightHom Y = g)
+def fiber_square_representative (m : InertiaClasses c →₀ ℤ) : A :=
+  involution_lift_square M.extension g hg Y hY *
+    ∏ d, (marked_square_column M hinv rep d)^(-m d)
+lemma fiber_square_class (m : InertiaClasses c →₀ ℤ) :
+    TauCeti.elementaryTwoQuotientMk (fiber_square_representative M hinv rep g hg Y hY m) =
+      square_obstruction (involution_lift_square M.extension g hg Y hY)
+        (marked_square_column M hinv rep) (fun d => m d) := by sorry
+-- q is a positive integer representative; no q<n assumption is needed.
+lemma fixed_fiber_equation (q : ℕ) (hrep : ∀ d, inertia_class_mk c (rep d) = d)
+    (hq : 1 < q) (hodd : Odd q) (hqn : Nat.Coprime q n)
+    (m : InertiaClasses c →₀ ℤ) (h : A)
+    (p : cover_fiber_product M.extension.rightHom c)
+    (hp : p.val = (Y * M.extension.inl h, Multiplicative.ofAdd m)) :
+    discrete_action M n hn hE hG hpow (ZMod.unitOfCoprime q hqn) p = p ↔
+      h^(q-1) = (fiber_square_representative M hinv rep g hg Y hY m)^(-((q-1)/2 : ℤ)) := by
+  have := hrep
+  sorry
+open scoped Classical in
+include hrep in
+lemma all_fixed_fibers [Finite A] (q : ℕ) (hq : 1 < q) (hodd : Odd q)
+    (hqn : Nat.Coprime q n) (m : InertiaClasses c →₀ ℤ) :
+    Nat.card {p // p ∈ fixed_degree_fiber M n hn hE hG hpow (ZMod.unitOfCoprime q hqn) g m} =
+      if degree_to_abelianization c (Multiplicative.ofAdd m) = Abelianization.of g ∧
+        (fiber_square_representative M hinv rep g hg Y hY m)^((q-1)/2) ∈
+          (powMonoidHom (α := A) (q-1)).range
+      then Nat.card (powMonoidHom (α := A) (q-1)).ker else 0 := by
+  classical
+  have := hrep
+  sorry
+include hinv rep hrep in
+lemma odd_parity_fiber [Finite A] (q : ℕ) (hq : 1 < q) (hodd : Odd q)
+    (hqn : Nat.Coprime q n) (x : c) (m : InertiaClasses c →₀ ℤ)
+    (hm : ∀ d, Odd (m d) ↔ d = inertia_class_mk c x) :
+    Nat.card {p // p ∈ fixed_degree_fiber M n hn hE hG hpow
+      (ZMod.unitOfCoprime q hqn) x.val m} =
+      Nat.card (powMonoidHom (α := A) (q-1)).ker := by
+  have := hinv
+  have := hrep
+  sorry
+include hinv rep hrep in
+lemma even_parity_fiber [Finite A] (q : ℕ) (hq : 1 < q) (hodd : Odd q)
+    (hqn : Nat.Coprime q n) (m : InertiaClasses c →₀ ℤ) (hm : ∀ d, Even (m d)) :
+    Nat.card {p // p ∈ fixed_degree_fiber M n hn hE hG hpow
+      (ZMod.unitOfCoprime q hqn) 1 m} =
+      Nat.card (powMonoidHom (α := A) (q-1)).ker := by
+  have := hinv
+  have := hrep
+  sorry
+end ActualFixedFibers
+
+section MarkingChangeAction
+variable {A E G : Type} [CommGroup A] [Group E] [Group G] {c : Set G}
+def class_central_factor (a : InertiaClasses c → A) :
+    Multiplicative (InertiaClasses c →₀ ℤ) →* A := by sorry
+lemma class_central_factor_apply (a : InertiaClasses c → A) (m : InertiaClasses c →₀ ℤ) :
+    class_central_factor a (Multiplicative.ofAdd m) = m.prod (fun d z => (a d)^z) := by sorry
+variable (M M' : marked_extension A E G c) (hext : M'.extension = M.extension)
+    (a : InertiaClasses c → A)
+    (ha : ∀ x : c, M'.marking x = M.marking x * M.extension.inl (a (inertia_class_mk c x)))
+def marking_coordinate_comparison :
+    cover_fiber_product M.extension.rightHom c ≃*
+      cover_fiber_product M'.extension.rightHom c := by
+  have := hext
+  have := a
+  sorry
+lemma marking_coordinate_comparison_val (p : cover_fiber_product M.extension.rightHom c) :
+    (marking_coordinate_comparison M M' hext a p).val =
+      (p.val.1 * M.extension.inl (class_central_factor a p.val.2), p.val.2) := by sorry
+include ha in
+lemma discrete_action_choice (n : ℕ) (hn : 0 < n) (hE : ∀ e : E, e^n = 1)
+    (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+    (α : (ZMod n)ˣ) (p : cover_fiber_product M.extension.rightHom c) :
+    marking_coordinate_comparison M M' hext a (discrete_action M n hn hE hG hpow α p) =
+      discrete_action M' n hn hE hG hpow α (marking_coordinate_comparison M M' hext a p) := by sorry
+end MarkingChangeAction
+
+section KernelDegreeAction
+variable {A E G : Type} [CommGroup A] [Group E] [Group G] {c : Set G}
+    (M : marked_extension A E G c) (n : ℕ) (hn : 0 < n)
+    (hE : ∀ e : E, e^n = 1) (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+def power_class_representation : (ZMod n)ˣ →* Equiv.Perm (InertiaClasses c) where
+  toFun := power_class_permutation c n hn hG hpow
+  map_one' := by sorry
+  map_mul' := by sorry
+@[instance_reducible] def kernel_power_action :
+    MulAction (ZMod n)ˣ (cover_fiber_projection M.extension.rightHom c).ker where
+  smul α k := kernel_action_aut M n hn hE hG hpow α k
+  one_smul := by sorry
+  mul_smul := by sorry
+@[instance_reducible] def coordinate_function_action {B D : Type} [Group B]
+    (ρ : B →* Equiv.Perm D) : MulAction B (D → ℤ) where
+  smul b m := fun d => m ((ρ b).symm d)
+  one_smul := by sorry
+  mul_smul := by sorry
+def kernel_degree_equivariant :
+    letI := kernel_power_action M n hn hE hG hpow
+    letI := coordinate_function_action (power_class_representation n hn hG hpow)
+    (cover_fiber_projection M.extension.rightHom c).ker →[(ZMod n)ˣ] (InertiaClasses c → ℤ) := by
+  letI := kernel_power_action M n hn hE hG hpow
+  letI := coordinate_function_action (power_class_representation n hn hG hpow)
+  exact {
+    toFun := fun k d => Multiplicative.toAdd (cover_fiber_degree M.extension.rightHom c k.val) d
+    map_smul' := by sorry }
+end KernelDegreeAction
+
+section ThreeCycleClassAction
+abbrev C3 := Multiplicative (ZMod 3)
+def c3_nonidentity : Set C3 := {x | x ≠ 1}
+lemma c3_exponent : ∀ x : C3, x^3 = 1 := by sorry
+lemma c3_power_closed : ∀ α : (ZMod 3)ˣ, ∀ x ∈ c3_nonidentity,
+    finite_power 3 α x ∈ c3_nonidentity := by sorry
+def c3_class_equiv : InertiaClasses c3_nonidentity ≃ Fin 2 := by sorry
+lemma c3_class_equiv_generator :
+    c3_class_equiv (inertia_class_mk c3_nonidentity
+      ⟨Multiplicative.ofAdd 1, by change (1 : ZMod 3) ≠ 0; decide⟩) = 0 := by sorry
+lemma c3_class_equiv_inverse :
+    c3_class_equiv (inertia_class_mk c3_nonidentity
+      ⟨Multiplicative.ofAdd 2, by change (2 : ZMod 3) ≠ 0; decide⟩) = 1 := by sorry
+def c3_units_equiv : (ZMod 3)ˣ ≃* Multiplicative (ZMod 2) := by sorry
+lemma c3_units_equiv_inverse : c3_units_equiv (-1) = Multiplicative.ofAdd 1 := by sorry
+-- Thus the two-class orbit tests above are the actual C₃ power action in these coordinates.
+lemma c3_power_coordinate (α : (ZMod 3)ˣ) :
+    two_class_power_permutation (c3_units_equiv α) =
+      (c3_class_equiv.symm.trans
+        (power_class_permutation c3_nonidentity 3 (by decide) c3_exponent c3_power_closed α)).trans
+        c3_class_equiv := by sorry
+end ThreeCycleClassAction
 
 end TauCeti.ReducedSchur
 end
