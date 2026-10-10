@@ -32,7 +32,7 @@ Current Tau Ceti also supplies `SmoothLinkEmbedding`, with disjoint smooth circl
 
 Use GeometricTopology layer 4's framed oriented link presentations and Seifert convention: A_ii=f_i, A_ij=lk(L_i,L_j) for i≠j, with symmetry and crossing-sign/writhe compatibility. FramedOrientedGaussCode describes one knot; FramedMarkovBraid has component framings, but MarkovEquiv forgets them.
 
-The identity braid framed by 0 or 1 has equal, Markov equivalent forgotten presentations. Its coefficient matrices [0] and [1] fail and satisfy admissibility, respectively: no predicate on the forgotten braid recovers it. This check uses the native framing field; linking numbers and framed transport come from layer 4.
+The identity braid framed by 0 or 1 has equal forgotten presentations but opposite admissibility: its coefficient matrix is [0] or [1]. No predicate on the forgotten braid recovers this distinction. Layer 4 supplies linking numbers and framed transport.
 
 **Depends on.** [GeometricTopology — layer-4-knot-theory-done-properly-owned-here][GT4]; `TauCeti.FramedMarkovBraid`; `TauCeti.MarkovEquiv`; `TauCeti.BasedOrientedGaussCode.writhe`.
 
@@ -104,7 +104,7 @@ L is admissible iff its linking matrix is diagonal with diagonal entries in {1,�
 
 ### Kirby moves and the Fenn-Rourke move
 
-Import Kirby equivalence (isotopy, split ±1-unknot stabilization and band-dependent handle slides) and Fenn–Rourke twisting from GeometricTopology layer 5 or its Part II. Slides with different bands can share a matrix. For symmetric A and i≠j, P=I+E_ji gives PᵀAP with ii-entry A_ii+A_jj+2A_ij.
+Import Kirby and Fenn–Rourke calculus from GeometricTopology layer 5 or its Part II. Retain the slide band: different bands can share a matrix. For symmetric A and i≠j, P=I+E_ji gives PᵀAP and ii-entry A_ii+A_jj+2A_ij. Mathlib’s `Matrix.det_transvection_of_ne` gives det P=1.
 
 **Depends on.** [GeometricTopology — layer-5-dehn-surgery][GT5]; [Framed links and linking matrix][AQT01]; [Surgery on a framed link and the homology of the result][AQT06].
 
@@ -120,7 +120,9 @@ Import Kirby equivalence (isotopy, split ±1-unknot stabilization and band-depen
 
 - `kirbyEquiv_empty_unknot_one`: The empty link and the plus-one-framed unknot are Kirby equivalent, since one blow-down relates them.
 - `framing_of_handleSlide`: Sliding L_1 over L_2 in the 0-framed Hopf link changes the framing of the first component by f_2 + 2 lk = 0 + 2, which pins the sign convention.
-- `not_kirbyEquiv_of_ne_homology`: Two framed links whose cokernels are non-isomorphic groups are not Kirby equivalent, since surgery is invariant; the 0-framed and 3-framed unknots are a non-example pair.
+- `not_kirbyEquiv_of_ne_homology`: The 0-framed and 3-framed unknots are not Kirby equivalent: their homology cokernels differ.
+- Sliding the diagonal matrix I₂ gives [[2,1],[1,1]], which is not admissible.
+- For nonsymmetric [[0,1],[0,0]], the new diagonal is 1, whereas the symmetric formula gives 2.
 
 **Sources.** [Habiro, refined Kirby calculus][AQT61], §2.1 Definition 1, p. 1289; §2.3 Lemma 2.2, p. 1291; §5, p. 1309.
 
