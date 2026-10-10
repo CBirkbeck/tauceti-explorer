@@ -2,7 +2,7 @@
 
 This roadmap constructs the complex Shimura tower and its canonical models from a pure Shimura datum. It begins with arithmetic stabilizers and the actual diagonal rational quotient, proves algebraicity through the automorphic compactification, formulates special-point reciprocity, constructs the Siegel model from the theorem of complex multiplication, and separates the abelian-type inheritance argument from the general conjugation argument. The final descent step requires a continuous system of algebraic comparisons. The mathematical objects, named declarations, proof routes and tests specified here are the definitive plan; the accompanying suggested file only prototypes signatures supported by the pinned libraries.
 
-The packet is a complete **target-level planning pass**, with 69 declaration nodes, 58 API items, 29 discriminating test specifications and 41 planets. All eight stages are planned; none is closed. Nineteen explicit proof/carrier refinements and twenty supplier requests identify the inputs that must be certified to close the stages. This means that every scoped target has a route ending in the audited libraries, an existing supplier node, a requested supplier stage or a named gap. It does not mean that the theorem proofs or their advanced Lean signatures have been implemented. Every declaration retains unchecked implementation status. The bibliography distinguishes passages actually inspected from primary arguments that the gap register requires.
+The packet is a complete **target-level planning pass**, with 69 declaration nodes, 58 API items, 29 discriminating test specifications and 41 planets. All eight stages are planned; none is closed. Nineteen explicit proof/carrier refinements and eighteen supplier requests identify the inputs that must be certified to close the stages. This means that every scoped target has a route ending in the audited libraries, an existing supplier node, a requested supplier stage or a named gap. It does not mean that the theorem proofs or their advanced Lean signatures have been implemented. Every declaration retains unchecked implementation status. The bibliography distinguishes passages actually inspected from primary arguments that the gap register requires.
 
 ## Conventions and ownership
 
@@ -514,7 +514,7 @@ The construction or proof follows this route:
 
 1. Use the boundary interpolation and normal analytic compactification to construct high-weight point-separating forms and the holomorphic projective map (BB §§10.6–10.8).
 2. BB §§10.9–10.11 construct a finitely generated integrally closed graded subring from a finite separating system and its normalization, and identify its projective spectrum with the analytic compactification. This subring is not by definition the entire admissible ring A.
-3. Identify a suitable Veronese of the admissible ring with the full section ring of the resulting ample automorphic sheaf/power, using the analytic section comparison and projective GAGA/section-ring finite generation. Certify this exact identification in the recorded proof refinement; do not infer finite generation of all A merely from the existence of a finitely generated subring.
+3. In the range with no three-dimensional Q-normal subgroup, BB Theorem 10.14 identifies the full holomorphic automorphic ring and proves finite generation via algebraic coherent sheaves on the projective realization. For modular-curve factors prove the corresponding identification with cusp-regular logarithmic canonical sections, then handle products and finite arithmetic quotients. These full-ring identifications remain the recorded proof refinement; existence of a finite separating subring alone does not establish them.
 4. Check Proj invariance under positive Veronese and finite arithmetic invariants, retaining the tensor and character conventions fixed in analytic-automorphic-ring.
 
 Direct inputs: `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V2/poincare-eisenstein`, `ComplexComparisonPartII:C2`, `ComplexComparisonPartII:C4`.
@@ -526,7 +526,7 @@ Acceptance checks:
 Sources:
 
 - [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.12–3.13(c), pp.38–39. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
-- [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11), §§10.6–10.11, pp.521–523. Supports finite separating forms, normalized finite subring and projective realization. Identification with the full admissible section ring is a separate recorded refinement.
+- [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11), §§10.6–10.11 and Theorem 10.14, pp.521–524. The earlier sections construct the normalized finite separating subring and its projective realization. Theorem 10.14 supplies full-ring finite generation under its additional exclusion of three-dimensional Q-normal subgroups; the modular-curve and mixed-factor cases need the recorded separate comparison.
 
 Atlas planet: **Baily–Borel projective realization**.
 
@@ -578,6 +578,7 @@ Acceptance checks:
 Sources:
 
 - [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), 3.13(b)–(c), p.39. The passage supplies the stated target; the proof sketch identifies specializations and explicit gaps rather than treating the source as an axiom.
+- [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11), Proposition 3.15, p.478; Theorem 10.14, pp.523–524. These give boundary codimension and extension of holomorphic automorphic sections under the sufficient hypothesis excluding three-dimensional Q-normal subgroups. SVI gives the sharper split-PGL₂ exception used in this target; the two hypotheses are not identified.
 
 ### Level maps on minimal compactifications
 
@@ -639,11 +640,11 @@ For torsion-free arithmetic Γ^eff in Hol(D)^+ and a smooth finite-type C-scheme
 
 The construction or proof follows this route:
 
-1. Choose a smooth projective compactification with simple normal-crossing boundary from R09.7d. Its local inclusions are punctured polydisks.
+1. Import R09.7/snc-compactification for the quasi-projective source: it preserves S and gives a smooth projective compactification with strict-SNC boundary. Its étale coordinate charts become local holomorphic charts by C0; the open inclusion is locally a punctured polydisk.
 2. Apply extension, glue by uniqueness, and algebraize the proper graph using C4. Restrict to S.
 3. For a general smooth separated finite-type source use quasi-projective opens and scheme descent. For nonseparated source the same local gluing works whenever the holomorphic map and analytification are available.
 
-Direct inputs: `ShimuraVarieties:V3/borel-extension`, `AlgebraicModuliForArithmeticGeometry:R09.7d`, `ComplexComparisonPartII:C4`, `ShimuraVarieties:V2/baily-borel`.
+Direct inputs: `ShimuraVarieties:V3/borel-extension`, `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification`, `ComplexComparisonPartII:C4`, `ShimuraVarieties:V2/baily-borel`, `ComplexComparisonPartII:C0`.
 
 Acceptance checks:
 
@@ -652,7 +653,7 @@ Acceptance checks:
 
 Sources:
 
-- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Theorem 3.14 and proof, pp.39–40. Supports borel algebraicity. Choose a smooth projective compactification with simple normal-crossing boundary from R09.7d. Its local inclusions are punctured polydisks.
+- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Theorem 3.14 and proof, pp.39–40. The proof reduces to a smooth projective SNC compactification and local punctured-polydisk extension. The existing R09.7/snc-compactification supplies the algebraic compactification, while C0 supplies the analytic chart comparison.
 
 Atlas planet: **Borel algebraicity theorem**.
 
@@ -710,10 +711,10 @@ For neat normal K′⊂K, the finite group K/K′ acts algebraically on Sh_{K′
 The construction or proof follows this route:
 
 1. At neat source algebraize translations by Borel into another neat source.
-2. Import invariant affine quotients and invariant ample linearizations/finite quotients from the scheme-theoretic supplier; verify the quotient analytic comparison.
+2. Import SF.1/finite-group-quotient for scheme existence, invariant affine covers and the free finite étale torsor case. Since the source is quasi-projective over C, every finite orbit lies in an affine open. Request only the additional descended ample-power/quasi-projectivity API, and use C0 for the quotient analytic comparison.
 3. Normality is preserved by finite invariants; characterize normalization componentwise and use common refinement.
 
-Direct inputs: `ShimuraVarieties:V3/algebraic-data-maps`, `ShimuraVarieties:V1/holomorphic-level-maps`, `ShimuraVarieties:V3/unique-algebraization`, `tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites`, `AlgebraicModuliForArithmeticGeometry:R09.3`.
+Direct inputs: `ShimuraVarieties:V3/algebraic-data-maps`, `ShimuraVarieties:V1/holomorphic-level-maps`, `ShimuraVarieties:V3/unique-algebraization`, `tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites`, `SchemeAndStackFoundations:SF.1/finite-group-quotient`, `SchemeAndStackFoundations:SF.1`, `ComplexComparisonPartII:C0`.
 
 Acceptance checks:
 
@@ -722,7 +723,7 @@ Acceptance checks:
 
 Sources:
 
-- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Remark 3.13(a), p.39; neat tower p.58; finite quotient supplied by R09.3. Supports algebraic finite quotients and normalization. At neat source algebraize translations by Borel into another neat source.
+- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Remark 3.13(a), p.39; neat tower p.58; general finite quotient imported from SF.1/finite-group-quotient. Supports algebraic finite quotients and normalization. At neat source algebraize translations by Borel into another neat source.
 
 Atlas planet: **Finite quotient algebraization**.
 
@@ -921,7 +922,7 @@ Discriminating unit-test specifications:
 
 Sources:
 
-- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Definition 12.8, p.114 and Proposition 12.10, p.115. Supports canonical-model condition. Take the model over the actual cocharacter reflex field and the analytic comparison; quantify over actual torus subdata, not a free set of points.
+- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Definition 12.8, p.114 and Definition 12.10, p.115. Supports canonical-model condition. Take the model over the actual cocharacter reflex field and the analytic comparison; quantify over actual torus subdata, not a free set of points.
 
 Atlas planet: **Canonical model**.
 
@@ -937,7 +938,7 @@ The construction or proof follows this route:
 2. Use the actual finite torus double quotient as the Galois set, not just its cardinality.
 3. Transport its complex point equivalence and verify all torus special-pair reciprocity maps by norm functoriality.
 
-Direct inputs: `ShimuraVarieties:V4/reciprocity-finite-action`, `ShimuraVarieties:V4/canonical-model`, `tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites`, `AlgebraicModuliForArithmeticGeometry:R09.3`.
+Direct inputs: `ShimuraVarieties:V4/reciprocity-finite-action`, `ShimuraVarieties:V4/canonical-model`, `tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites`.
 
 Uses that determine the API:
 
@@ -975,10 +976,10 @@ For the specific AGHMP torus T=Res_{E/Q}G_m/ker(N_{F/Q}), distinguished cocharac
 The construction or proof follows this route:
 
 1. Use the §3.1 computation that the reflex norm is the quotient map.
-2. Construct the quotient stack through the stack supplier and compute the coarse quotient Galois set.
-3. Verify common-refinement independence. Keep stabilizer data at non-neat level; the generic scheme alone cannot encode it.
+2. Import SF.1/quotient-stack and quotient-stack-algebraic for the finite constant group action, retaining inertia. SF.1/finite-quotient-coarse identifies its coarse scheme with the finite quotient Galois set S_K; the finite étale S_{K′} is affine, so its orbit-cover hypothesis holds.
+3. At a common neat normal refinement the intermediate free level action is a finite étale torsor. Apply SF.1/stack-presentation, or the quotient-stack torsor description, to compare the presentations. Keep stabilizer data at non-neat level; the generic scheme alone cannot encode it.
 
-Direct inputs: `ShimuraVarieties:V4/torus-model`, `ShimuraVarieties:V4/reflex-norm`, `AlgebraicModuliForArithmeticGeometry:R09.4`, `AlgebraicModuliForArithmeticGeometry:R09.5`.
+Direct inputs: `ShimuraVarieties:V4/torus-model`, `ShimuraVarieties:V4/reflex-norm`, `SchemeAndStackFoundations:SF.1/quotient-stack`, `SchemeAndStackFoundations:SF.1/quotient-stack-algebraic`, `SchemeAndStackFoundations:SF.1/finite-quotient-coarse`, `SchemeAndStackFoundations:SF.1/stack-presentation`.
 
 Acceptance checks:
 
@@ -1186,11 +1187,11 @@ Let A/k have full CM by O_E with the action defined over k, let k/Q be Galois co
 
 The construction or proof follows this route:
 
-1. Specialize the endomorphism action; the good-reduction Tate comparison identifies Frobenius with an E-linear scalar.
-2. The full CM centralizer, endomorphism comparison and integrality place the scalar in O_E; the detailed positive-characteristic Hom comparison is a supplier request, not a rank-one linear-algebra shortcut.
-3. Polarization identifies the conjugate product with q.
+1. Specialize the defined O_E-action to the good reduction and use A4/etale-tate-module to identify the prime-to-p rational Tate module with that of the generic fibre. It remains rank one over E⊗Q_ℓ; q-power Frobenius commutes with the action defined over the residue field.
+2. Let C be the centralizer of E in End⁰ of the reduction. A6/hom-is-free-of-finite-rank gives finite dimension and injects C⊗Q_ℓ into End_{E⊗Q_ℓ}(V_ℓ)=E⊗Q_ℓ. Thus dim_Q C≤dim_Q E; since E⊂C, C=E and Frobenius belongs to E. Only scalar-extended Hom injectivity is used, with ℓ different from the residue characteristic; no Tate surjectivity or lifting of all special-fibre endomorphisms is assumed.
+3. A6/characteristic-polynomial-on-tate-module makes the Frobenius endomorphism integral over Z, so its element of E lies in O_E. The compatible polarization and Rosati conjugation give ππbar=q.
 
-Direct inputs: `ShimuraVarieties:V5/cm-tate-rank-one`, `ShimuraVarieties:V5/cm-potential-good-reduction`, `AbelianSchemesAndArithmeticModuli:A3`, `AbelianSchemesAndArithmeticModuli:A6`.
+Direct inputs: `ShimuraVarieties:V5/cm-tate-rank-one`, `ShimuraVarieties:V5/cm-potential-good-reduction`, `AbelianSchemesAndArithmeticModuli:A3`, `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A4/etale-tate-module`, `AbelianSchemesAndArithmeticModuli:A6/relative-hom-and-normal-extension`, `AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
 
 Acceptance checks:
 
@@ -1198,7 +1199,8 @@ Acceptance checks:
 
 Sources:
 
-- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Lemma 10.9 and proof, p.103. Supports cm frobenius endomorphism. Specialize the endomorphism action; the good-reduction Tate comparison identifies Frobenius with an E-linear scalar.
+- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf), Lemma 10.8 and Lemma 10.9 with proof, p.103. The centralizer calculation identifies the specialized CM algebra inside all rational endomorphisms; the Frobenius lemma then gives integrality and the polarization norm.
+- [J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Theorem 2.1(a) and proof, p.16; Corollary 1.5, p.6. Prime-to-characteristic scalar-extended Hom injectivity bounds the centralizer by the rank-one E-linear Tate endomorphisms. The calculation needs injectivity, not a general Tate full-faithfulness theorem.
 
 ### Shimura–Taniyama Frobenius calculation
 
@@ -1964,9 +1966,9 @@ Consumers: `ShimuraVarieties:V4/reflex-norm`, `ShimuraVarieties:V7/simple-connec
 
 ### ComplexComparisonPartII:C0
 
-Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the CA.0 ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2.
+Analytification of locally finite-type complex schemes as locally ringed spaces, including nonreduced spaces; compatibility with products, open and closed immersions, étale local isomorphisms and smooth manifolds; faithful analytic comparison of morphisms and invariant local finite quotients. The missing analytic category and gluing carrier are specified in the CA.0 ownership proposal and gap, rather than assumed to be in PR196 or retired LI.2. Apply the étale/smooth chart comparison to strict-SNC boundary coordinates, and identify analytification of a finite group quotient with the analytic quotient.
 
-Consumers: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V3/borel-extension`, `ShimuraVarieties:V3/unique-algebraization`.
+Consumers: `ShimuraVarieties:V1/analytic-structure`, `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V3/borel-extension`, `ShimuraVarieties:V3/unique-algebraization`, `ShimuraVarieties:V3/borel-algebraicity`, `ShimuraVarieties:V3/finite-quotient-algebraization`.
 
 ### ComplexComparisonPartII:C2
 
@@ -1982,7 +1984,7 @@ Consumers: `ShimuraVarieties:V2/baily-borel`, `ShimuraVarieties:V2/minimal-level
 
 ### tauceti:TauCetiRoadmap/ModularCurves#layer-0-scheme-theoretic-prerequisites
 
-Import Layer 0D’s already specified equivalence between finite continuous absolute-Galois sets and finite étale field schemes, with products and morphisms. Import Layer 0C’s invariant affine quotient/free-action gluing API. A general finite-group quotient of a normal quasi-projective characteristic-zero scheme still needs an invariant ample line bundle and invariant affine cover; request that exact extension from the algebraic-moduli owner rather than repeating the finite Galois-set construction in V4.
+Import Layer 0D’s already specified equivalence between finite continuous absolute-Galois sets and finite étale field schemes, with products and morphisms. Import Layer 0C’s invariant affine quotient/free-action API through SF.1/finite-group-quotient. The general orbit-cover quotient construction is already planned by SF.1; only its descended ample-power/quasi-projectivity extension remains requested there.
 
 Consumers: `ShimuraVarieties:V3/finite-quotient-algebraization`, `ShimuraVarieties:V4/torus-model`.
 
@@ -1994,27 +1996,9 @@ Consumers: `ShimuraVarieties:V4/geometric-artin`, `ShimuraVarieties:V4/reciproci
 
 ### AlgebraicModuliForArithmeticGeometry:R09.3
 
-Faithful base change and effective continuous quasi-projective descent of schemes/morphisms, including Milne 1999 Theorem 1.1 under infinite transcendence degree and its finite rigidifying-point criterion. Descend invariant closed images and finite quotient towers with compatible maps. Also expose the general characteristic-zero quasi-projective finite-group quotient through an invariant ample line bundle and invariant affine open cover; current 0C alone does not assert that general result.
+Faithful base change and effective continuous quasi-projective descent of schemes/morphisms, including Milne 1999 Theorem 1.1 under infinite transcendence degree and its finite rigidifying-point criterion. Descend invariant closed images and finite quotient towers with compatible maps. Ordinary finite-group quotient existence is imported from SF.1/finite-group-quotient, rather than requested here.
 
-Consumers: `ShimuraVarieties:V3/finite-quotient-algebraization`, `ShimuraVarieties:V4/torus-model`, `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V6/hodge-inheritance`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraVarieties:V7/continuous-descent`, `ShimuraVarieties:V7/general-canonical`.
-
-### AlgebraicModuliForArithmeticGeometry:R09.4
-
-Finite group quotient stacks with actual inertia and common-normal-refinement equivalence, for the AGHMP generic torus stack.
-
-Consumers: `ShimuraVarieties:V4/aghmp-stack-comparison`.
-
-### AlgebraicModuliForArithmeticGeometry:R09.5
-
-Existence and finite quotient description of the coarse moduli scheme for the specific AGHMP finite-inertia torus stack; distinguish it from the stack.
-
-Consumers: `ShimuraVarieties:V4/aghmp-stack-comparison`.
-
-### AlgebraicModuliForArithmeticGeometry:R09.7d
-
-For smooth quasi-projective schemes in characteristic zero, a smooth projective compactification whose boundary is a simple normal-crossing divisor, including the local punctured-polydisk charts after analytification. General smooth sources reduce by quasi-projective open covers.
-
-Consumers: `ShimuraVarieties:V3/borel-algebraicity`.
+Consumers: `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V6/hodge-inheritance`, `ShimuraVarieties:V6/central-isogeny-descent`, `ShimuraVarieties:V7/continuous-descent`, `ShimuraVarieties:V7/general-canonical`.
 
 ### PELModuli:M3
 
@@ -2026,7 +2010,7 @@ Consumers: `ShimuraVarieties:V5/weight-one-algebraization`, `ShimuraVarieties:V5
 
 Dual abelian schemes, rational polarizations and Rosati involutions, with E-conjugation compatibility and functorial alternating pairings. Separate positive rational similitudes from integral polarization degree.
 
-Consumers: `ShimuraVarieties:V5/cm-abelian-variety`, `ShimuraVarieties:V5/cm-polarization-level`.
+Consumers: `ShimuraVarieties:V5/cm-abelian-variety`, `ShimuraVarieties:V5/cm-polarization-level`, `ShimuraVarieties:V5/cm-frobenius`.
 
 ### AbelianSchemesAndArithmeticModuli:A3
 
@@ -2048,9 +2032,15 @@ Consumers: `ShimuraVarieties:V5/weight-one-algebraization`, `ShimuraVarieties:V5
 
 ### AbelianSchemesAndArithmeticModuli:A6
 
-Endomorphism-algebra semisimplicity, full-CM action/rank-one Betti consequences, rigidity and spreading of endomorphisms, and specialization of CM endomorphisms. For the Frobenius proof, supply the positive-characteristic rational Hom/Tate comparison or the precise Milne 10.8 substitute showing Frobenius lies in the specialized CM algebra; do not assume all geometric special-fibre endomorphisms lift.
+Endomorphism-algebra semisimplicity, full-CM action/rank-one Betti consequences, and rigidity and number-field spreading of endomorphisms. The Frobenius proof instead imports the existing all-characteristic scalar-extended Hom injectivity, finite-rank, characteristic-polynomial and normal-base extension nodes; no stronger positive-characteristic Tate theorem is requested.
 
-Consumers: `ShimuraVarieties:V5/cm-abelian-variety`, `ShimuraVarieties:V5/cm-tate-rank-one`, `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V5/cm-frobenius`, `ShimuraVarieties:V5/siegel-special-cm`.
+Consumers: `ShimuraVarieties:V5/cm-abelian-variety`, `ShimuraVarieties:V5/cm-tate-rank-one`, `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V5/siegel-special-cm`.
+
+### SchemeAndStackFoundations:SF.1
+
+Extend the existing finite-group-quotient node with the characteristic-zero quasi-projectivity output: for a finite action on a normal quasi-projective scheme, tensor the translates of an ample bundle, take a power whose stabilizers act trivially, descend it to an ample bundle on the quotient, and expose the finite quotient/normality comparison. The invariant affine cover and scheme quotient existence are already provided by that node.
+
+Consumers: `ShimuraVarieties:V3/finite-quotient-algebraization`.
 
 ## Remaining proof and carrier refinements
 
@@ -2076,13 +2066,13 @@ Required by: `ShimuraVarieties:V0/stabilizer-arithmetic`, `ShimuraVarieties:V1/h
 
 ### G4. Baily–Borel proof and carrier interfaces
 
-The primary §§3.5–3.7, 4.8–4.11 and 8.2–8.9 now specify rational normalizers, Satake neighborhoods and the all-type analytic boundary predicate. Remaining refinements are the complete adapted-domain/classification and reduction-topology interfaces; §§6–7 normal-majorant convergence inequalities; §9 analyticity criterion and local normal models; §§10.9–10.11 identification of the full admissible Veronese section ring, rather than only its finite separating subring; Koecher extension; and finite-index boundary-map/ring-integrality proofs. The read OCR loses signs in some displays: the canonical pullback convention is stated independently, but estimates must be checked in a legible primary copy before source-proof closure. No missing boundary definition is concealed in this proof gap.
+The primary §§3.5–3.7, 4.8–4.11 and 8.2–8.9 now specify rational normalizers, Satake neighborhoods and the all-type analytic boundary predicate. Remaining refinements are the complete adapted-domain/classification and reduction-topology interfaces; §§6–7 normal-majorant convergence inequalities; §9 analyticity criterion and local normal models; full admissible Veronese section-ring comparison, using Theorem 10.14 in its no-three-dimensional-Q-normal-subgroup range and a separate cusp/logarithmic-canonical and mixed-factor argument outside that range; §§10.9–10.11 alone give only the finite separating subring; Koecher extension; and finite-index boundary-map/ring-integrality proofs. The read OCR loses signs in some displays: the canonical pullback convention is stated independently, but estimates must be checked in a legible primary copy before source-proof closure. No missing boundary definition is concealed in this proof gap.
 
 Required by: `ShimuraVarieties:V2/rational-boundary`, `ShimuraVarieties:V2/satake-compactness`, `ShimuraVarieties:V2/analytic-automorphic-ring`, `ShimuraVarieties:V2/poincare-eisenstein`, `ShimuraVarieties:V2/normal-analytic-compactification`, `ShimuraVarieties:V2/automorphic-finite-generation`, `ShimuraVarieties:V2/baily-borel`, `ShimuraVarieties:V2/koecher`, `ShimuraVarieties:V2/minimal-level-extension`.
 
 ### G5. Borel multivariable extension proof source
 
-SVI 3.15 cites Borel/Kwack rather than proving the metric big-Picard argument. Obtain the original algebraicity paper or a full public proof and certify the extension across (Δ*)ʳ×Δˢ with torsion-free effective target. Projective SNC source compactification is separately requested from R09.7d.
+SVI 3.15 cites Borel/Kwack rather than proving the metric big-Picard argument. Obtain the original algebraicity paper or a full public proof and certify the extension across (Δ*)ʳ×Δˢ with torsion-free effective target. Projective SNC source compactification is imported from the existing R09.7/snc-compactification node; C0 still supplies the local analytic chart comparison.
 
 Required by: `ShimuraVarieties:V3/borel-extension`, `ShimuraVarieties:V3/borel-algebraicity`.
 
@@ -2094,9 +2084,9 @@ Required by: `ShimuraVarieties:V3/definable-target-comparison`, `ShimuraVarietie
 
 ### G7. Full CM spreading and specialization inputs
 
-Certify the finite moduli/rigidity proof that every full product-CM complex abelian variety with finitely specified tensors/level descends to a number field, and the A6 positive-characteristic Hom/Tate comparison used to identify Frobenius with E. Integral eigenspace splitting in the unramified Frobenius calculation is over O_{k,P}, not globally O_k, as the published author erratum corrects.
+Certify the finite moduli/rigidity proof that every full product-CM complex abelian variety with finitely specified tensors/level descends to a number field. Integral eigenspace splitting in the unramified Frobenius calculation is over O_{k,P}, not globally O_k, as the published author erratum corrects. The centralizer part of cm-frobenius now imports existing A4/A6 nodes and is not a missing positive-characteristic Hom theorem.
 
-Required by: `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V5/cm-frobenius`, `ShimuraVarieties:V5/shimura-taniyama`.
+Required by: `ShimuraVarieties:V5/cm-number-field-model`, `ShimuraVarieties:V5/shimura-taniyama`.
 
 ### G8. Connected canonical symmetry and coherence
 
@@ -2130,7 +2120,7 @@ Required by: `ShimuraVarieties:V7/rank-one-subdata`, `ShimuraVarieties:V7/marked
 
 ### G13. General quasi-projective finite quotient API
 
-ModularCurves Layer 0D already explicitly plans the finite-continuous-Galois-set/finite-étale-field-scheme equivalence; V4 imports it. The remaining extension is the invariant ample line bundle and invariant affine-cover quotient API for a general finite-group action on a normal quasi-projective characteristic-zero scheme, supplied once by the algebraic-moduli owner. Current Layer 0C states affine/free-action cases, so it alone is not the general quotient theorem.
+ModularCurves Layer 0D already plans finite-continuous-Galois-set descent. SF.1/finite-group-quotient already supplies the general finite group quotient and invariant affine cover, with every finite orbit in an affine open; the quasi-projective C-scheme source satisfies this hypothesis. The remaining SF.1 extension is descent of a suitable invariant ample power and the quasi-projectivity/normality output, not a second quotient-existence construction.
 
 Required by: `ShimuraVarieties:V3/finite-quotient-algebraization`.
 
@@ -2190,7 +2180,7 @@ At assembly move the existing V8/disjoint-special-reflex-fields and the conditio
 
 ## Source corrections and scope
 
-The source-finding ledger retains thirteen confirmed findings and one rejected finding. Descriptions below are in our own words; the cited locators identify the source evidence. E8 is a rejected convention-specific source-error claim, while the analytic foundation still requires nilpotent scheme-valued GAGA.
+The source-finding ledger retains fourteen confirmed findings and one rejected finding. Descriptions below are in our own words; the cited locators identify the source evidence. E8 is a rejected convention-specific source-error claim, while the analytic foundation still requires nilpotent scheme-valued GAGA.
 
 ### ShimuraVarieties/E1
 
@@ -2202,7 +2192,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The proof computes the finite centre and its Galois action and explicitly proves injectivity for H¹(k,Z). The displayed scan has the author’s handwritten Z corrections.
 
-**Independent verdict:** Confirmed in the annotated scan at p.250: the handwritten correction replaces G by its centre Z. The recorded restriction excluding Aₙ for n≥4 is essential; no unrestricted H¹(k,G) assertion is imported.
+**Independent verdict:** The annotated p.250 display uses Z(G), and its proof computes the centre; the exclusion of Aₙ for n≥4 remains essential.
 
 **Known correction and search:** Author’s annotated scan, https://jmilne.org/math/articles/1983a.pdf; the V7 issue explicitly requires this correction. Annotated author PDF p.250; author article list; roadmap V7 source correction instruction.
 
@@ -2216,7 +2206,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The erratum §1.6 gives distinct definable structures and morphisms without finite Siegel containment. The V3 alternative uses only the corrected symmetric/Hodge case.
 
-**Independent verdict:** Confirmed against the cited author manuscript and its public erratum: maximal-compact dependence and Cartan compatibility are missing from the broad functoriality claim. The packet’s fixed K∞ and corrected maps respect the erratum. This verdict is scoped to those author files, not an unread version of record.
+**Independent verdict:** The full author erratum requires the chosen maximal compact and Cartan-compatible maps. The broad manuscript functoriality claim exceeds that corrected range.
 
 **Known correction and search:** Bakker–Klingler–Tsimerman, author erratum, https://benjamin-bakker.github.io/DefArithErr.pdf, Theorem 1.2. Author manuscript Theorem 1.1; full author erratum §§1.1–1.6.
 
@@ -2230,7 +2220,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The codomain is an arbitrary torus group, whose values admit multiplication, not addition. For G_m with μ(t)=tⁿ the Weil-restriction norm is ∏ρ ρ(a)ⁿ; summation is not a homomorphism and need not be invertible.
 
-**Independent verdict:** Confirmed at SVI p.114: the displayed expressions are written as sums although their values lie in multiplicative torus groups. The composition of Weil restriction and norm gives products; μ(t)=t detects the convention.
+**Independent verdict:** SVI p.114 writes sums in a multiplicative torus. Weil restriction followed by norm is the product of conjugate cocharacter values, as the split G_m example checks.
 
 **Known correction and search:** new SVI author version formulas (60)–(61), p.114; existing ShimuraVarieties--V8 sourceIssues (same correction recorded); author xnotes index searched.
 
@@ -2244,7 +2234,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The preceding assertion assumes existence for G₁. The following kernel is explicitly that of the source-to-target map; quotienting the already-target model would assume the conclusion and give the wrong tower.
 
-**Independent verdict:** Confirmed at SVI p.127: the sentence repeats G₂ in the source quotient. The isogeny goes from G₁ to G₂, so the quotient source is the G₁ model. The node uses the corrected source.
+**Independent verdict:** In SVI 14.16(b) the isogeny starts at G₁, so the quotient construction must start with its model. The repeated G₂ would assume the target model exists.
 
 **Known correction and search:** new SVI author version p.127; author xnotes index searched; Deligne 1979 2.7.11 cited by source but its full extension construction remains a recorded source gap.
 
@@ -2258,7 +2248,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The article defines art as the inverse of rec. An automorphism of order greater than two detects the sign; the change-of-lift lemma and stated quasi-isogeny formula both use art.
 
-**Independent verdict:** Confirmed at 2007c p.22: Remark 3.11(a) says rec where Theorem 3.10 and Proposition 3.9 use art. Since those maps are inverses, a class of order greater than two distinguishes the error. Fixed-s quasi-isogeny uniqueness uses art.
+**Independent verdict:** The fixed-idele formula in 2007c Theorem 3.10 uses art, while Remark 3.11(a) changes the name to rec. An Artin class of order greater than two distinguishes these inverse maps.
 
 **Known correction and search:** new Author article Theorem 3.10/Remark 3.11; https://www.jmilne.org/math/articles/2007c.html erratum (corrects §2.1, not this line).
 
@@ -2272,7 +2262,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** Splitting E⊗k does not split O_E⊗O_k globally: conjugate roots can coincide modulo ramified primes. Localization at the unramified prime gives the needed étale eigenspaces. The V5 Frobenius proof requests this localized comparison.
 
-**Independent verdict:** Confirmed by the public author correction on 2007c.html and by the integral eigenspace argument: O_E⊗O_k does not split globally at ramified primes; localization at the chosen good unramified prime is required.
+**Independent verdict:** The author correction and the unramified local eigenspace argument require O_{k,P}. A global O_k decomposition would fail at other ramified primes.
 
 **Known correction and search:** Author erratum https://www.jmilne.org/math/articles/2007c.html. Public author erratum opened 6 October 2026; author PDF proof of Theorem 2.1.
 
@@ -2286,7 +2276,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** Remark 1.3(a) exhibits noneffective noncontinuous systems; a cocycle law by itself does not imply effectivity. V7 separates cocycle, finite rigidification, continuity and descent.
 
-**Independent verdict:** Confirmed in Descent Remark 1.3(c), with the explicit noncontinuous noneffective counterexamples in Remark 1.3(a). Theorem 1.1 and Corollary 1.2 supply the replacement criterion; cocycle, rigidity and continuity remain separate nodes.
+**Independent verdict:** Descent Remark 1.3(c) explicitly identifies the omitted continuity condition; Remark 1.3(a) shows that a cocycle alone does not give an effective model.
 
 **Known correction and search:** Milne, Descent for Shimura varieties (1999), Theorem 1.1 and Corollary 1.2 explicitly replace the older lemma. Entire 1999 author version §§1–2; Remark 1.3(c) explicit correction.
 
@@ -2300,7 +2290,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The projective analytic fat point with local ring C[ε]/(ε²) cannot analytify a geometrically-reduced variety. The CA.0 carrier must nevertheless include it for GAGA and general analytification.
 
-**Independent verdict:** Rejected as an established error against this source: the fat-point counterexample uses the broader nonreduced CA.0 category, whereas SVI Remark 3.9 specifies zero sets with a natural ringed-space structure and cites Shafarevich’s convention without explicitly saying O_U/(f₁,…,f_r). The review has not established that a nonreduced fat point belongs to that source category. The reduced-versus-scheme qualification is necessary for the new carrier, but it does not by itself prove SVI’s convention-specific statement false. This rejection makes no claim that Chow/GAGA excludes nilpotents.
+**Independent verdict:** SVI Remark 3.9 does not explicitly put nonreduced quotient local rings in its analytic category. The proposed fat point therefore does not establish an error within that convention. The broader CA.0 category still needs schemes and nilpotent GAGA.
 
 **Known correction and search:** new SVI author version pp.35–38; ComplexComparisonPartII C0–C4 packet targets; author xnotes index searched.
 
@@ -2314,7 +2304,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** For residue characteristic p, tame inertia has quotient ∏_{ℓ≠p} Z_ℓ(1); its infinite pro-ℓ quotients exclude a finite-index pro-p subgroup. Rank-one CM inertia becomes trivial after semistable extension because E⊗Q_ℓ is reduced and (ρ(σ)−1)²=0. The theorem survives; the printed step fails.
 
-**Independent verdict:** The printed claim is about absolute inertia. Its tame pro-ℓ quotient gives a direct counterexample for ℓ≠p; the corrected packet proof supplies the missing geometric input instead of assuming finiteness from compactness.
+**Independent verdict:** Absolute inertia has an infinite tame pro-ℓ quotient for every ℓ≠p, preventing a finite-index pro-p subgroup. The semistable square-zero inertia argument repairs potential good reduction.
 
 **Known correction and search:** new The revised SVI author PDF and author xnotes/svi.html index; official-site search for Proposition 10.5 inertia/pro-p errata; older author svi2005.pdf and 2005aX.pdf repeat the sentence. No correction located.
 
@@ -2328,7 +2318,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The previous sentence already obtains the connected abelian-type models by 14.16. Passing from them to the full tower is exactly the equivalence in 14.15. V6/abelian-canonical explicitly imports connected-full-equivalence.
 
-**Independent verdict:** The scopes of 14.15 and 14.16 identify the mistaken final cross-reference unambiguously. No mathematical target changes.
+**Independent verdict:** The final p.127 step restores full models from connected canonical structures, which is Theorem 14.15. Proposition 14.16 only supplies connected products and isogenies.
 
 **Known correction and search:** new SVI pp.126–128 and author xnotes/svi.html index; official-site search for corrections to the 14.15/14.16 cross-reference. No correction located.
 
@@ -2342,7 +2332,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The Tate representation of the abelian variety defined over K is of Gal(Qbar/K); its commutation with the defined E-action is what places its image in (E⊗Q_ℓ)×. There is no corresponding absolute-Q representation of that A without descent data.
 
-**Independent verdict:** The proposition’s base field is K and the E-linearity argument uses the K-defined action. The corrected V5 proof restricts to that base explicitly.
+**Independent verdict:** The Tate representation of A/K is defined on Gal(Qbar/K). Its E-linearity requires the action to be defined over K and does not supply a representation over Q.
 
 **Known correction and search:** new SVI Proposition 10.5 and author xnotes/svi.html index; official-site search for its Gal/inertia correction; older svi2005.pdf and 2005aX.pdf also use the absolute-Q group. No correction located.
 
@@ -2356,7 +2346,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** In SU(4,1) over Q for Q(i)/Q with diagonal compact maximal torus, the noncompact ±α block subgroup Hα has derived SU(1,1)≅SL₂ and a positive-dimensional central torus. Its derived rational subgroup is normal, proper and noncentral, even though its semisimple factor is split at every finite place. Thus the literal assertion about this full reductive Hα is false. Independently, the primary 1979 Russian text states perfection in Theorem 1, p.279, and still calls simplicity modulo centre a conjecture on p.282. The central target is abelian, so perfection is the relevant weaker input, but the marked-torus passage is not supplied by citing it.
 
-**Independent verdict:** The full reductive Hα has a proper noncentral derived normal subgroup in the displayed unitary example. The actual cited paper supplies perfection of SL₁(D) and explicitly leaves its stronger simplicity question open; the packet now records the missing comparison as a proof gap without weakening the main target.
+**Independent verdict:** The full reductive root subgroup contains a central torus and has a proper noncentral derived normal subgroup in the stated SU(4,1) example. The cited 1979 theorem supplies semisimple perfection, and p.282 still discusses simplicity as a conjecture. The remaining marked-torus bridge is correctly a gap.
 
 **Known correction and search:** new The annotated 1983 scan pp.252–254 and author 1983a.html/add/1983a.pdf comments (no correction to this sentence located). The public 1988aT author transcription repeats a simplicity claim in its analogous argument. The cited 1979 Russian published original on the coauthor’s UVA page, Theorem 1 p.279 and final discussion p.282; Math-Net catalogue identifies Dokl. Akad. Nauk SSSR 247:2, 279–282.
 
@@ -2370,7 +2360,7 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The public author erratum specifies the corrected Corvallis pages. This fixes source navigation, without changing a mathematical target.
 
-**Independent verdict:** The public author erratum specifies the corrected Corvallis pages. This fixes source navigation, without changing a mathematical target.
+**Independent verdict:** The handwritten correction on the introduction and the public author erratum both give the Langlands reference as pp.232–233.
 
 **Known correction and search:** Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section) The public author scan at the printed page and the full 1983a.html Erratum section, read 2026-10-06.
 
@@ -2384,9 +2374,23 @@ The source-finding ledger retains thirteen confirmed findings and one rejected f
 
 **Reason:** The public author erratum removes this duplicate factor. The packet’s comparison target retains one finite-adelic group, consistently with Theorem 1.1.
 
-**Independent verdict:** The public author erratum removes this duplicate factor. The packet’s comparison target retains one finite-adelic group, consistently with Theorem 1.1.
+**Independent verdict:** The introduction displays a duplicated finite-adelic target factor, which the public author erratum deletes; the marked comparison has one such target.
 
 **Known correction and search:** Public author erratum: https://www.jmilne.org/math/articles/1983a.html (Erratum section) The public author scan at the printed page and the full 1983a.html Erratum section, read 2026-10-06.
+
+### ShimuraVarieties/E15
+
+**Verdict: confirmed.** [J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf), Corollary 1.5, p.6, third commutant in the statement; author PDF dated 23 May 2007.
+
+**Finding as formulated:** F
+
+**Correction or qualification:** The rational-endomorphism commutant is E, the full CM algebra, rather than F.
+
+**Reason:** The hypotheses embed E in End⁰(A). The third paragraph of the proof bounds the commutant dimension using its prime-to-characteristic Tate realization and concludes that the commutant equals E. The printed F disagrees with that conclusion.
+
+**Independent verdict:** The page image prints F as the third commutant, while the proof concludes C=E by the two dimension inequalities. The corrected Frobenius proof uses this E-centralizer calculation.
+
+**Known correction and search:** new; the public author erratum at https://www.jmilne.org/math/articles/2007c.html records only the localized-base correction to Theorem 2.1. Author PDF Corollary 1.5 and complete proof, p.6, text and page image; full public author erratum 2007c.html, read 2026-10-10.
 
 ## Pinned library and prototyping boundary
 
@@ -2406,30 +2410,30 @@ The suggested file has two genuine native slices. The group-action slice retains
 
 ## Sources and inspected portions
 
-The inherited author-copy reads and hashes are dated 6 October 2026. The primary Baily–Borel OCR reproduction and current upstream adelic roadmap were read on 10 October 2026. The OCR is adequate for the stated extension predicate and its prose conventions, but illegible display signs and the remaining proof estimates still need a legible primary copy. No source passage is reproduced here.
+The reviewer independently reread these public copies on 10 October 2026 and matched all eleven PDF digests to the packet. The primary Baily–Borel OCR reproduction identifies the extension predicate and ring conventions, but illegible displays and remaining proof estimates still need a legible primary copy. The listed portions describe audit scope, rather than a reproduction of source text.
 
-- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf). Revised 16 September 2017. Read: 2026-10-06. Inspected: §3 arithmetic groups, Baily–Borel and Borel; §5 finite components and analytic levels; §§10–11 CM reduction and reciprocity; §§12–14 canonical models, density, descent, Siegel/Hodge/abelian type and general-data reduction. Inherited digest: `f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e`.
+- [J. S. Milne, Introduction to Shimura varieties](https://jmilne.org/math/xnotes/svi.pdf). Revised 16 September 2017. Read: 2026-10-10. Inspected: §3 arithmetic groups, Baily–Borel and Borel; §5 finite components and analytic levels; §§10–11 CM reduction and reciprocity; §§12–14 canonical models, density, descent, Siegel/Hodge/abelian type and general-data reduction. Verified digest: `f637e61735ff9cf9730c43d978d8f05185685a37d5e1920fc3347061c83d7c7e`.
 
-- [J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf). Author article 2007c. Read: 2026-10-06. Inspected: §2 pp.16–18 Frobenius/valuation proof with author localized-base erratum; §3 pp.19–24 ideal form Theorem 3.2, geometric Artin convention, norm-kernel lemmas, Theorem 3.10 and polarization formula 3.11(c). Inherited digest: `cec3ce6ffa0761aecf50e3b095a517ba96e4e525c545a80f9a3b39f518dc7607`.
+- [J. S. Milne, The fundamental theorem of complex multiplication](https://jmilne.org/math/articles/2007c.pdf). Author article 2007c. Read: 2026-10-10. Inspected: Corollary 1.5 and its proof, p.6: scalar-extended Hom injectivity and the CM centralizer dimension argument; the printed third commutant has an E/F misprint. §2 pp.16–18 Frobenius/valuation proof with author localized-base erratum; §3 pp.19–24 ideal form Theorem 3.2, geometric Artin convention, norm-kernel lemmas, Theorem 3.10 and polarization formula 3.11(c). Verified digest: `cec3ce6ffa0761aecf50e3b095a517ba96e4e525c545a80f9a3b39f518dc7607`.
 
-- [J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf). Progress in Mathematics 35 (1983), pp.239–265; annotated author scan. Read: 2026-10-06. Inspected: Page images inspected: pp.239–244 (notation, marked comparison and finite étale rigidity); pp.245–254 (weak comparison, uniformization, S-arithmetic recovery, corrected Lemma 3.8, reduction and A1 root subgroups); pp.255–262 (special-point comparison, completed symmetry, Theorems 6.3, 7.1, 7.2); p.263 connected-tower appendix. Scan has no usable extracted text. Inherited digest: `36caf35ff4759b920f26cff9f59f23b6f65ff689022522e1757462703dab2b42`.
+- [J. S. Milne, The action of an automorphism of C on a Shimura variety and its special points](https://jmilne.org/math/articles/1983a.pdf). Progress in Mathematics 35 (1983), pp.239–265; annotated author scan. Read: 2026-10-10. Inspected: Page images inspected: pp.239–244 (notation, marked comparison and finite étale rigidity); pp.245–254 (weak comparison, uniformization, S-arithmetic recovery, corrected Lemma 3.8, reduction and A1 root subgroups); pp.255–262 (special-point comparison, completed symmetry, Theorems 6.3, 7.1, 7.2); p.263 connected-tower appendix. Scan has no usable extracted text. Verified digest: `36caf35ff4759b920f26cff9f59f23b6f65ff689022522e1757462703dab2b42`.
 
-- [J. S. Milne, Descent for Shimura varieties](https://jmilne.org/math/articles/1999cP.pdf). Michigan Mathematical Journal 46 (1999); author version dated 22 September 1998. Read: 2026-10-06. Inspected: Entire §§1–2, especially Theorem 1.1, Corollary 1.2, Lemma 2.2 and Theorem 2.3; Remark 1.3(c) corrects missing continuity. Inherited digest: `9ce47be2db53ea4f97e548c47933c07f06f2cb4de37f31e836b77d241e4e34b5`.
+- [J. S. Milne, Descent for Shimura varieties](https://jmilne.org/math/articles/1999cP.pdf). Michigan Mathematical Journal 46 (1999); author version dated 22 September 1998. Read: 2026-10-10. Inspected: Entire §§1–2, especially Theorem 1.1, Corollary 1.2, Lemma 2.2 and Theorem 2.3; Remark 1.3(c) corrects missing continuity. Verified digest: `9ce47be2db53ea4f97e548c47933c07f06f2cb4de37f31e836b77d241e4e34b5`.
 
-- [B. Bakker, B. Klingler, J. Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArith.pdf). Author manuscript of JAMS (2020). Read: 2026-10-06. Inspected: Introduction arithmetic varieties and definable comparison; §4.6 Theorems 4.12–4.13 and graph proof. Other Hodge-locus targets are outside this job. Inherited digest: `b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e`.
+- [B. Bakker, B. Klingler, J. Tsimerman, Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArith.pdf). Author manuscript of JAMS (2020). Read: 2026-10-10. Inspected: Introduction arithmetic varieties and definable comparison; §4.6 Theorems 4.12–4.13 and graph proof. Other Hodge-locus targets are outside this job. Verified digest: `b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e`.
 
-- [B. Bakker, B. Klingler, J. Tsimerman, Erratum: Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArithErr.pdf). Author erratum. Read: 2026-10-06. Inspected: Entire §§1.1–1.6: maximal-compact dependence, corrected Theorem 1.2 and Cartan-compatible Hodge-manifold functoriality; pure period-map consequences remain valid. Inherited digest: `86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7`.
+- [B. Bakker, B. Klingler, J. Tsimerman, Erratum: Tame topology of arithmetic quotients and algebraicity of Hodge loci](https://benjamin-bakker.github.io/DefArithErr.pdf). Author erratum. Read: 2026-10-10. Inspected: Entire §§1.1–1.6: maximal-compact dependence, corrected Theorem 1.2 and Cartan-compatible Hodge-manifold functoriality; pure period-map consequences remain valid. Verified digest: `86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7`.
 
-- [F. Andreatta, E. Z. Goren, B. Howard, K. Madapusi Pera, Faltings heights of abelian varieties with complex multiplication](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf). Annals of Mathematics 187 (2018), pp.391–531. Read: 2026-10-06. Inspected: §3.1 pp.415–416: quotient torus, reflex norm, finite étale Galois-set construction and distinction between schemes at neat level and quotient stacks. §3.2 integral-model boundary read, not planned in V4. Inherited digest: `e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb`.
+- [F. Andreatta, E. Z. Goren, B. Howard, K. Madapusi Pera, Faltings heights of abelian varieties with complex multiplication](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf). Annals of Mathematics 187 (2018), pp.391–531. Read: 2026-10-10. Inspected: §3.1 pp.415–416: quotient torus, reflex norm, finite étale Galois-set construction and distinction between schemes at neat level and quotient stacks. §3.2 integral-model boundary read, not planned in V4. Verified digest: `e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb`.
 
-- [J. S. Milne and K.-y. Shih, Langlands’s construction of the Taniyama group](https://jmilne.org/math/articles/1982c.pdf). LNM 900 (1982), pp.229–260; author scan. Read: 2026-10-06. Inspected: Page images: introduction pp.229–230 (sign, Serre character lattice), §§2–3 transition pp.242–243 (extension, Weil group and class formation). The remaining extension construction is a precisely recorded supplier gap. Inherited digest: `a445a74d39559277971c090a677fc83a0b155813e802a4662765442ca8c0b700`.
+- [J. S. Milne and K.-y. Shih, Langlands’s construction of the Taniyama group](https://jmilne.org/math/articles/1982c.pdf). LNM 900 (1982), pp.229–260; author scan. Read: 2026-10-10. Inspected: Page images: introduction pp.229–230 (sign, Serre character lattice), §§2–3 transition pp.242–243 (extension, Weil group and class formation). The remaining extension construction is a precisely recorded supplier gap. Verified digest: `a445a74d39559277971c090a677fc83a0b155813e802a4662765442ca8c0b700`.
 
-- [J. S. Milne and K.-y. Shih, Conjugates of Shimura varieties](https://jmilne.org/math/articles/1982d.pdf). LNM 900 (1982), pp.280–356; author scan. Read: 2026-10-06. Inspected: Page images: introduction pp.280–281 (Taniyama torsor and contracted-product twist), §8 pp.340–341 (connected symmetry), §9 pp.342–345 (reduction). Inherited digest: `c090098f609fd489a08778968eba653ecd8b67d7ad48e167381f6cc671c86b63`.
+- [J. S. Milne and K.-y. Shih, Conjugates of Shimura varieties](https://jmilne.org/math/articles/1982d.pdf). LNM 900 (1982), pp.280–356; author scan. Read: 2026-10-10. Inspected: Page images: introduction pp.280–281 (Taniyama torsor and contracted-product twist), §8 pp.340–341 (connected symmetry), §9 pp.342–345 (reduction). Verified digest: `c090098f609fd489a08778968eba653ecd8b67d7ad48e167381f6cc671c86b63`.
 
-- [B. Conrad, Semistable reduction for abelian varieties](https://math.stanford.edu/~conrad/DarmonCM/2011Notes/SemistableReduction.pdf). Public Darmon CM notes (2011 directory). Read: 2026-10-06. Inspected: Theorem 4.2, p.9; Theorem 5.5 and Remark 5.6, pp.17–18; Proposition 6.5 and global torsion-field consequence, pp.23–24. These corroborate the existing NeronModels R11.3 supplier used to repair the CM inertia argument. Inherited digest: `bfbad9fc883b2a6ac6e5f842abc664c2ebc84c348b9d80fa4ca6313b37e28173`.
+- [B. Conrad, Semistable reduction for abelian varieties](https://math.stanford.edu/~conrad/DarmonCM/2011Notes/SemistableReduction.pdf). Public Darmon CM notes (2011 directory). Read: 2026-10-10. Inspected: Theorem 4.2, p.9; Theorem 5.5 and Remark 5.6, pp.17–18; Proposition 6.5 and global torsion-field consequence, pp.23–24. These corroborate the existing NeronModels R11.3 supplier used to repair the CM inertia argument. Verified digest: `bfbad9fc883b2a6ac6e5f842abc664c2ebc84c348b9d80fa4ca6313b37e28173`.
 
-- [V. P. Platonov and A. S. Rapinchuk, On the group of rational points of three-dimensional groups](https://uva.theopenscholar.com/files/ixqrlw/files/doklady_r_247_8.pdf). Dokl. Akad. Nauk SSSR 247:2 (1979), pp.279–282; Russian published original hosted by the coauthor. Read: 2026-10-06. Inspected: Page images: introduction and Theorem 1, p.279; proof conclusion and final simplicity-conjecture discussion, p.282. These check the precise result cited in Milne 1983 §3.10; the full perfection proof still requires supplier transcription. Inherited digest: `383739c32a4df0c626923f989acd050ad68f588250f823effcd450cdd72a2b50`.
+- [V. P. Platonov and A. S. Rapinchuk, On the group of rational points of three-dimensional groups](https://uva.theopenscholar.com/files/ixqrlw/files/doklady_r_247_8.pdf). Dokl. Akad. Nauk SSSR 247:2 (1979), pp.279–282; Russian published original hosted by the coauthor. Read: 2026-10-10. Inspected: Page images: introduction and Theorem 1, p.279; proof conclusion and final simplicity-conjecture discussion, p.282. These check the precise result cited in Milne 1983 §3.10; the full perfection proof still requires supplier transcription. Verified digest: `383739c32a4df0c626923f989acd050ad68f588250f823effcd450cdd72a2b50`.
 
-- [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11). Annals of Mathematics 84:3 (1966), pp.442–528; published article, OCR reproduction. Read: 2026-10-10. Inspected: §§1.8–1.11, pp.454–457, and §3.3(ii), pp.470–472: adapted unbounded realizations, projection and ambient Jacobian factors. §§3.5–3.7, pp.472–474: rational normalizers and arithmetic boundary quotients; §§4.8–4.11, pp.482–484: Satake topology, good neighborhoods, incidence and compactness. §§8.1–8.9, pp.509–514: induced boundary bundles, local and global integral forms, coordinate independence, restriction and product factors. §§9.6–9.7, pp.517–518, and §§10.4–10.11, pp.520–523: portions of normality and projective realization; full convergence estimates, analyticity-criterion proof and complete section-ring identification remain refinements. [Primary article reproduction read](https://paperzz.com/doc/6992794/compactification-of-arithmetic-quotients-of-bounded-symme...).
+- [W. L. Baily, Jr. and A. Borel, Compactification of arithmetic quotients of bounded symmetric domains](https://annals.math.princeton.edu/1966/84-3/p11). Annals of Mathematics 84:3 (1966), pp.442–528; published article, OCR reproduction. Read: 2026-10-10. Inspected: §§1.8–1.11, pp.454–457, and §3.3(ii), pp.470–472: adapted unbounded realizations, projection and ambient Jacobian factors. §§3.5–3.7, pp.472–474: rational normalizers and arithmetic boundary quotients; Proposition 3.15, p.478: boundary codimension under the no-three-dimensional-Q-normal-subgroup hypothesis; §§4.8–4.11, pp.482–484: Satake topology, good neighborhoods, incidence and compactness. §§8.1–8.9, pp.509–514: induced boundary bundles, local and global integral forms, coordinate independence, restriction and product factors. §§9.6–9.7, pp.517–518, and §§10.4–10.11, pp.520–523: portions of normality and projective realization; full convergence estimates, analyticity-criterion proof and complete section-ring identification remain refinements. Theorem 10.14, pp.523–524: full holomorphic section-ring finite generation under the exclusion of three-dimensional Q-normal subgroups; this does not close the modular-curve/mixed-factor comparison. [Primary article reproduction read](https://paperzz.com/doc/6992794/compactification-of-arithmetic-quotients-of-bounded-symme...).
 
 - [Tau Ceti Project, Adelic algebraic groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/dea8191cc6047d6142a65872ebce6eeeb841a29b/TauCetiRoadmap/AdelicAlgebraicGroups/README.md). TauCetiRoadmap main at dea8191cc6047d6142a65872ebce6eeeb841a29b. Read: 2026-10-10. Inspected: §§3.4, 4.1, 4.3–4.5 and Suggested.lean declaration Reduction.levelArithmetic_commensurable_pair: level commensurability, neat existence, local/global simply connected inputs, integral abelianization lifts and class-set abelianization. These are roadmap specifications, not implementation claims.

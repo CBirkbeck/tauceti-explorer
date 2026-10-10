@@ -280,6 +280,7 @@ TauCeti.Shimura.normal_analytic_compactification — On the compact Satake quoti
 
 ShimuraVarieties:V2/automorphic-finite-generation
 TauCeti.Shimura.automorphic_finite_generation — The analytic graded C-algebra A(Γ) is finitely generated (after the chosen common positive tensor power), and sufficiently divisible high-weight sections realize Γ\D* as a closed analytic subspace of projective space. Its graded projective spectrum gives the same compactification.
+Proof interface: BB 10.14 is restricted to no three-dimensional Q-normal subgroup. Cusp/logarithmic-canonical and mixed-factor section-ring comparisons remain refinements.
 
 ShimuraVarieties:V2/baily-borel
 TauCeti.Shimura.baily_borel — Every finite-level analytic Shimura variety has a normal quasi-projective C-scheme algebraization, smooth at neat level, with open immersion into its normal projective minimal compactification. Analytification identifies the compactification with the compact rational Satake quotient and identifies its algebraic boundary strata with the analytic arithmetic boundary quotients.
@@ -295,6 +296,7 @@ TauCeti.Shimura.borel_extension — Let D be Hermitian symmetric and Γ^eff a to
 
 ShimuraVarieties:V3/borel-algebraicity
 TauCeti.Shimura.borel_algebraicity — For torsion-free arithmetic Γ^eff in Hol(D)^+ and a smooth finite-type C-scheme S, every holomorphic map S^an→(Γ^eff\D)^an is algebraic. First prove the quasi-projective-source case; then glue over a quasi-projective Zariski open cover. Do not extend this assertion to every coarse torsion target.
+Supplier interface: import AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification; C0 compares its étale coordinates with punctured-polydisk charts.
 
 ShimuraVarieties:V3/unique-algebraization
 TauCeti.Shimura.unique_algebraization — Any two smooth finite-type C-scheme algebraizations of the same neat arithmetic analytic quotient are uniquely isomorphic through the prescribed analytic identity. This uniqueness concerns algebraization, distinct from reflex-field uniqueness of canonical models owned by V8.
@@ -304,6 +306,7 @@ TauCeti.Shimura.algebraic_data_maps — Holomorphic maps of data between neat-le
 
 ShimuraVarieties:V3/finite-quotient-algebraization
 TauCeti.Shimura.finite_quotient_algebraization — For neat normal K′⊂K, the finite group K/K′ acts algebraically on Sh_{K′,C}; its geometric quotient exists as a normal quasi-projective C-scheme and analytifies to Sh_K^an. Quotients through two sublevels agree via common refinement. The source at K′ is the normalization of the target in its corresponding finite function-field extensions componentwise; finite étaleness holds when the effective target action is free.
+Supplier interface: import SchemeAndStackFoundations:SF.1/finite-group-quotient. Only descended ample powers and quasi-projectivity/normality remain requested from SF.1.
 
 ShimuraVarieties:V3/definable-target-comparison
 TauCeti.Shimura.definable_target_comparison — For a torsion-free effective arithmetic Hermitian quotient Γ\D and a fixed maximal compact K∞ defining its symmetric realization, the R_an,exp structure extending its corrected arithmetic R_alg structure agrees through the Baily–Borel algebraization with the definable structure induced by the C-scheme. This comparison is certified independently of Borel algebraicity.
@@ -354,6 +357,7 @@ Test TauCeti.Shimura.CanonicalModel.not_arbitrary_subset (non-example): For T=G_
 
 ShimuraVarieties:V4/torus-model
 TauCeti.Shimura.torusModel — The finite continuous Gal(Qbar/E)-set T(Q)\T(A_f)/K from reciprocity corresponds to a finite étale E-scheme S_K. Its complex points identify with Sh_K(T,{h}), and the constructed Galois action makes it a canonical model. This is the coarse scheme at every K; the AGHMP non-neat quotient stack is a separate object.
+Supplier interface: ModularCurves Layer 0D supplies the finite Galois-set/finite étale construction; no general infinite-automorphism descent theorem is required here.
 API TauCeti.Shimura.torusModel.points (equivalence): S_K(Qbar)≃T(Q)\T(A_f)/K as Galois sets, with the prescribed action.
 API TauCeti.Shimura.torusModel.level (functoriality): For K′⊂K the double-quotient projection induces a finite étale morphism, compatible with identity/composition.
 API TauCeti.Shimura.torusModel.translate (functoriality): Right translation by a∈T(A_f) is defined over E and commutes with reciprocity.
@@ -366,6 +370,7 @@ Test TauCeti.Shimura.torusModel.trivial (degenerate): For the trivial torus ever
 
 ShimuraVarieties:V4/aghmp-stack-comparison
 TauCeti.Shimura.aghmp_stack_comparison — For the specific AGHMP torus T=Res_{E/Q}G_m/ker(N_{F/Q}), distinguished cocharacter and neat normal K′⊂K, the generic CM Shimura stack is [S_{K′}/(K/K′)]. Its coarse space is S_K, independent of K′; at neat K it is the finite étale scheme above. At non-neat K retain its finite isotropy, rather than identify the stack with its coarse point set. The integral maximal-level model and CM Hodge lattices belong to the CM/integral owners.
+Supplier interfaces: SF.1/quotient-stack, quotient-stack-algebraic, finite-quotient-coarse and stack-presentation; finite affine torus models meet their orbit hypotheses.
 
 ShimuraVarieties:V4/special-existence
 TauCeti.Shimura.special_existence — Every pure datum has an actual special point, obtained from a rational maximal torus compact modulo the appropriate centre. Such points are dense in X in its real topology, hence their images are Zariski dense in each complex algebraized component.
@@ -400,6 +405,7 @@ TauCeti.Shimura.cm_potential_good_reduction — A full CM abelian variety over a
 
 ShimuraVarieties:V5/cm-frobenius
 TauCeti.Shimura.cm_frobenius — Let A/k have full CM by O_E with the action defined over k, let k/Q be Galois containing all conjugates of E, and let P be a good reduction prime of residue cardinality q. The q-power Frobenius of the reduction is represented by π∈O_E under the specialized CM action, with ππbar=q for a compatible polarization.
+Proof interface: import A4/etale-tate-module and A6/relative-hom-and-normal-extension, hom-is-free-of-finite-rank, characteristic-polynomial-on-tate-module. Scalar-extended Hom injectivity bounds the CM centralizer dimension; no Tate surjectivity is needed.
 
 ShimuraVarieties:V5/shimura-taniyama
 TauCeti.Shimura.shimura_taniyama — Under the preceding good-reduction/maximal-order/Galois-field hypotheses, for every v|p put H_v={φ:E→k:φ⁻¹P=v}. The Frobenius π satisfies ord_v(π)/ord_v(q)=|Φ∩H_v|/|H_v|. Equivalently the principal ideal (π) is the product over φ∈Φ of φ⁻¹(N_{k/φE}P), and agrees with the reflex norm of N_{k/E*}P. State the ramified-prime formula using normalized valuations; the clean unramified ideal proof suffices for the subsequent prime-generation argument.
