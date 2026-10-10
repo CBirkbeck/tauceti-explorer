@@ -275,11 +275,50 @@ For the inertial class s of an irreducible supercuspidal π of GL₂(F), there i
 
 A supercuspidal complex representation of GL₂(F) with fixed smooth central character ω is projective in the abelian category of smooth representations on which the center acts by ω. The DLB application is F=ℚp, ω=1, and characteristic-zero L coefficients with the required scalar extension. This does not assert projectivity in the unrestricted smooth category or in a mod-p category.
 
-**Hypotheses.** Fixed central character; characteristic zero; the category is SR.0’s fixed-character subcategory.
+Concretely, let F be a finite extension of ℚp with its local-field topology,
+G=GL₂(F), and Z its scalar center. Let π, σ and τ be complex representations
+of G, each with open stabilizers for every vector, and with
+ρ(zI)v=ω(z)v for the same character ω:F×→ℂ× with open kernel. Require π to
+be irreducible and admissible: its invariants under every compact open subgroup
+are finite-dimensional. Its supercuspidal condition can be expressed intrinsically
+on this carrier. For v∈π and every linear functional λ whose stabilizer under
+the contragredient action is open, the image of
+{g∈G : λ(π(g)v)≠0} in G/Z has compact closure. This is the
+compact-mod-center matrix-coefficient characterization; it only tests functionals
+in the smooth dual. It imposes no normed or locally analytic topology on π.
 
-**Prerequisites.** R16.2/henniart-unicity; SR `SR.0:abelian-category`; SR `SR.3`.
+For any surjective G-equivariant complex-linear map q:σ→τ and any
+G-equivariant complex-linear map f:π→τ, construct a G-equivariant complex-linear
+map h:π→σ with q∘h=f. Surjectivity of an underlying map of sets is insufficient
+to discharge the conclusion: the lift must belong to the existing space of
+intertwining maps. Taking τ=π and f the identity gives the splitting of every
+surjection onto π. The source π is admissible and supercuspidal; the other two
+smooth representations need neither be irreducible nor admissible.
 
-**Sources.** [dlb17], p. 64, footnote 52.
+The proof uses the supercuspidal block decomposition from SR.3.2 and its
+matrix-coefficient projector, together with the fixed-character subcategory of
+SR.0. Before fixing the central character, the unramified twisting direction
+allows extensions. Fixing ω reduces this direction to the finitely many
+unramified twists with trivial square on the center; in characteristic zero the
+resulting relation has distinct roots. The fixed-character supercuspidal block
+is therefore semisimple, which gives the stated lift. Keep the DLB L-coefficient
+version and its scalar-descent requirement visible in the Kirillov comparison;
+the complex statement alone is not that descent theorem.
+
+**Hypotheses.** Fixed smooth central character; complex coefficients; F/ℚp finite;
+smoothness of all three representations; admissibility, irreducibility and the
+compact-mod-center coefficient condition for π. The category is SR.0’s
+fixed-character subcategory.
+
+**Prerequisites.** R16.2/henniart-unicity; SmoothRepresentationsOfLocalGroups
+`SR.0:abelian-category`, `SR.3a.1:compact-representations` and
+`SR.3.2:cuspidal-splitting`. This target specializes their complex smooth
+representation theory to the fixed-character GL₂ category.
+
+**Sources.** [dlb17], p. 64, footnote 52, for the fixed-character projectivity
+application. [bz76], Theorem 3.21, pp. 34–35, for the coefficient
+characterization; Theorem 2.44, p. 28, and Proposition 3.28, pp. 36–37,
+for the decomposition used by the supercuspidal block argument.
 
 <a id="r16-2-cdt-vexing-type"></a>
 
@@ -1645,6 +1684,7 @@ Let E/F be a finite solvable Galois extension with the prescribed local completi
 [casselman73]: https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf "On some results of Atkin and Lehner"
 [nt26]: https://arxiv.org/pdf/2212.03595v2 "Symmetric power functoriality for Hilbert modular forms"
 [dlb17]: https://arxiv.org/pdf/1509.00606v2 "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique"
+[bz76]: https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/B-Zel-RepsGL-Usp.pdf "Representations of the group GL(n, F), where F is a non-archimedean local field"
 [bm02]: https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf "Multiplicités modulaires et représentations de GL₂(ℤp) et de Gal(Q̄p/Qp), Appendix: Sur l’unicité des types pour GL₂"
 [cdt99]: https://math.stanford.edu/~conrad/papers/cdtmaster.pdf "Modularity of certain potentially Barsotti–Tate Galois representations"
 [cg18]: https://math.uchicago.edu/~fcale/papers/CG.pdf "Modularity lifting beyond the Taylor–Wiles method"
@@ -1680,6 +1720,7 @@ Let E/F be a finite solvable Galois extension with the prescribed local completi
 - **[casselman73]** William Casselman, *On some results of Atkin and Lehner*. Math. Ann. 201 (1973), 301–314, public Göttingen scan.
 - **[nt26]** James Newton and Jack A. Thorne, *Symmetric power functoriality for Hilbert modular forms*. Annals 203 (2026); arXiv 2212.03595v2 author version.
 - **[dlb17]** Gabriel Dospinescu and Arthur-César Le Bras, *Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique*. Annals 186 (2017); arXiv 1509.00606v2.
+- **[bz76]** I. N. Bernstein and A. V. Zelevinsky, *Representations of the group GL(n, F), where F is a non-archimedean local field*. Russian Math. Surveys 31:3 (1976), 1–68; English article on Bernstein’s publication page, with printed pagination.
 - **[bm02]** Christophe Breuil, Ariane Mézard; appendix by Guy Henniart, *Multiplicités modulaires et représentations de GL₂(ℤp) et de Gal(Q̄p/Qp), Appendix: Sur l’unicité des types pour GL₂*. Duke 115 (2002), author manuscript.
 - **[cdt99]** Brian Conrad, Fred Diamond and Richard Taylor, *Modularity of certain potentially Barsotti–Tate Galois representations*. JAMS 12 (1999), author manuscript.
 - **[cg18]** Frank Calegari and David Geraghty, *Modularity lifting beyond the Taylor–Wiles method*. Inventiones (2018), author PDF.
@@ -1707,6 +1748,6 @@ Let E/F be a finite solvable Galois extension with the prescribed local completi
 - **[rt83]** Jonathan D. Rogawski and Jerrold B. Tunnell, *On Artin L-functions associated to Hilbert modular forms of weight one*. Invent. Math. 74 (1983), 1–42, GDZ article scan (43 PDF pages: cover + pp. 1–42), read through the GDZ OCR pages gdzocr/PPN356556735_0074/00000007–00000048 and page images.
 - **[ds74]** Pierre Deligne and Jean-Pierre Serre, *Formes modulaires de poids 1*. Ann. Sci. École Norm. Sup. (4) 7 (1974), 507–530, published Numdam scan.
 - **[tunnell81]** Jerrold Tunnell, *Artin's conjecture for representations of octahedral type*. Bull. Amer. Math. Soc. (N.S.) 5 (1981), no. 2, 173–175 (research announcement); AMS PDF with OCR text layer.
-- **[jpss79]** Hervé Jacquet, Ilja I. Piatetski-Shapiro and Joseph Shalika, *Automorphic forms on GL(3). II*. Ann. of Math. (2) 109 (1979), 213–258; scan on H. Jacquet's Columbia page without text layer (visual transcription of pp. 253–255 kept as scratch/src/jpss79/jpss79.txt).
+- **[jpss79]** Hervé Jacquet, Ilja I. Piatetski-Shapiro and Joseph Shalika, *Automorphic forms on GL(3). II*. Ann. of Math. (2) 109 (1979), 213–258; scan on H. Jacquet's Columbia page without text layer; locators use printed pagination.
 - **[tunnell78]** Jerrold B. Tunnell, *On the local Langlands conjecture for GL(2)*. Inventiones Mathematicae 46 (1978), 179–200; GDZ scan of the article (LOG_0017 of PPN356556735_0046, 23 pages including a GDZ cover sheet, so PDF page = printed page − 177), read with the GDZ OCR pages 00000185–00000206 and against the page images of pp. 182–183.
 - **[ddt]** Henri Darmon, Fred Diamond and Richard Taylor, *Fermat's Last Theorem*. Author version dated September 9, 2007 (167 pp., printed page = PDF page) of the article in Elliptic Curves, Modular Forms & Fermat's Last Theorem (Hong Kong, 1993), International Press, 1997, 2–140; theorem numbers as in this version.

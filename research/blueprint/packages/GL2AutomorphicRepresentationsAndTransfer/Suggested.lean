@@ -44,6 +44,9 @@ import TauCeti.NumberTheory.ModularForms.Newforms.Newform
 import TauCeti.RepresentationTheory.ClassicalGroups.SymmetricPower
 import TauCeti.RepresentationTheory.ProjectiveRepresentation.SchurMultiplier
 import Mathlib.LinearAlgebra.PiTensorProduct.Finite
+import Mathlib.Topology.Algebra.Group.Matrix
+import Mathlib.Topology.Algebra.Group.Quotient
+import Mathlib.NumberTheory.Padics.PadicNumbers
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -180,17 +183,49 @@ example : sphericalValues 1 1 2 = 3 := by sorry
 README targets: R16.2/iwahori-oldforms, R16.2/iwahori-center, R16.2/supercuspidal-kirillov, R16.2/henniart-unicity.
 Omitted declaration names: TauCeti.GL2Blueprint.iwahoriOldforms, TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
 -/
-/- Signature omission: TauCeti.GL2Blueprint.supercuspidalProjective.
-README target: R16.2/supercuspidal-projective.
-The morphism to be lifted is linear and GL₂(F)-equivariant, the epimorphism
-belongs to SR.0's smooth category with the same fixed central character,
-and the source is supercuspidal over characteristic-zero coefficients.
-For DLB17 footnote 52 (p. 64), F = ℚp and the central character is trivial.
-The fixed-character category and its supercuspidal predicate are not available
-at the pin. Arbitrary functions and a set-theoretic section of a surjection
-do not express this projectivity statement.
--/
 end Spherical
+
+section SupercuspidalProjectivity
+variable {p : ℕ} [Fact p.Prime]
+variable {F : Type*} [NontriviallyNormedField F] [NormedAlgebra ℚ_[p] F]
+    [FiniteDimensional ℚ_[p] F] [CompleteSpace F]
+variable {V W X : Type*} [AddCommGroup V] [Module ℂ V]
+    [AddCommGroup W] [Module ℂ W] [AddCommGroup X] [Module ℂ X]
+
+/-- R16.2/supercuspidal-projective on the existing representation carriers.
+Smoothness means open vector stabilizers, admissibility means finite-dimensional
+compact-open invariants, and supercuspidality uses compact-mod-center matrix
+coefficients against the smooth dual. The latter two conditions are required
+only of π. Every representation has the same scalar central character ω.
+The conclusion lifts an equivariant linear map through a surjective equivariant
+linear map. There is no topology on the coefficient modules in this smooth
+category. The separate L-coefficient DLB descent interface is not asserted here. -/
+theorem supercuspidalProjective
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (σ : Representation ℂ (GeneralLinearGroup (Fin 2) F) W)
+    (τ : Representation ℂ (GeneralLinearGroup (Fin 2) F) X)
+    [Representation.IsIrreducible π]
+    (ω : Fˣ →* ℂˣ) (hω : IsOpen (ω.ker : Set Fˣ))
+    (hπsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hσsm : ∀ w : W, IsOpen {g | σ g w = w})
+    (hτsm : ∀ x : X, IsOpen {g | τ g x = x})
+    (hπcent : ∀ z v, π (GeneralLinearGroup.scalar (Fin 2) z) v = (ω z : ℂ) • v)
+    (hσcent : ∀ z w, σ (GeneralLinearGroup.scalar (Fin 2) z) w = (ω z : ℂ) • w)
+    (hτcent : ∀ z x, τ (GeneralLinearGroup.scalar (Fin 2) z) x = (ω z : ℂ) • x)
+    (hπadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hπcusp : ∀ (v : V) (ell : V →ₗ[ℂ] ℂ),
+      IsOpen {g : GeneralLinearGroup (Fin 2) F | ∀ w, ell (π g w) = ell w} →
+      IsCompact (closure ((QuotientGroup.mk : GeneralLinearGroup (Fin 2) F →
+        GeneralLinearGroup (Fin 2) F ⧸ Subgroup.center (GeneralLinearGroup (Fin 2) F)) ''
+          {g | ell (π g v) ≠ 0})))
+    (q : Representation.IntertwiningMap σ τ) (hq : Function.Surjective q)
+    (f : Representation.IntertwiningMap π τ) :
+    ∃ lift : Representation.IntertwiningMap π σ, q.comp lift = f := by sorry
+
+end SupercuspidalProjectivity
 
 section CDT
 variable {G H V : Type*} [Group G] [Group H] [AddCommGroup V] [Module ℂ V]
