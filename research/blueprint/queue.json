@@ -38910,8 +38910,9 @@
    ],
    "revisionOf": "BP-CrystallineCohomology--CR.0",
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6951"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6951",
+   "finishedAt": "2026-10-10T04:37:02Z"
   },
   {
    "priority": 2,
@@ -39569,8 +39570,9 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES0~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES0~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7953"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7953",
+   "finishedAt": "2026-10-10T04:37:04Z"
   },
   {
    "kind": "blueprint",
@@ -40952,7 +40954,8 @@
     "BP-LefschetzPencilsAndVanishingCycles--LPV.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-LefschetzPencilsAndVanishingCycles--LPV.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7073"
   },
   {
    "kind": "blueprint",
@@ -42273,7 +42276,8 @@
     "BP-ShimuraVarieties--V0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraVarieties--V0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7092"
   },
   {
    "kind": "blueprint",
@@ -46734,8 +46738,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47062,8 +47066,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7893"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48184,8 +48188,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48843,8 +48847,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80035,8 +80039,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
