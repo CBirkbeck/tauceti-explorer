@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-GeneralizedHeegnerCycles",
+    "date": "2026-10-10",
+    "notes": "Completed independent package review of all 82 targets, 66 API items and 58 named tests against both accepted packets; checked upstream form, source editions/locators, ownership and dependency interfaces, native library reuse, prototype signatures, process language and exact math.NT metadata. Corrected seven missing source page locators and the degree-zero Sym/Ind rank explanation in README. Fresh lean-check exited 0 with 239 sorry warnings and no errors or other warnings; code unchanged afterward. Needs changes: reconcile the Kuga-Sato geometry/classical-projector/lattice owners; provide named relative Lubin-Tate, Yager and two-variable regulator supplier targets; and construct the nonsplit auxiliary-form/variable-weight adapter for GH.8.16 with its integral leading-class unit and source-qualified local/non-torsion inputs. Honest arithmetic signature omissions are not replaced by vacuous stand-ins. See research/blueprint/reviews/REV-PKG-GeneralizedHeegnerCycles.md for evidence and precise revision instructions."
+  }
+}

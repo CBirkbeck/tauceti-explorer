@@ -486,7 +486,7 @@ For p∤2N m!, invert the remaining f-projector denominator and choose the speci
 
 ### GH.1.9: Character-projected Heegner class
 
-For CH’s canonical CM A/H_K and B=Res_{H_K/K}A, use the literal full symmetric-power module S=Sym^{2r−2}T_p(B)(1−r)⊗O_F, after the required coefficient extension. For an anticyclotomic χ of type (j,−j), −r<j<r, conductor c₀p^s with (c₀,Np)=1, choose the finite-order anticyclotomic χ_t of the same conductor, unique up to a Hilbert class character, so χ is a coefficient summand of S⊗χ_t. Apply its G_K-equivariant projector to the twisted finite-level class to define z_{f,χ,c}∈H¹(K_c,T⊗χ), as in (4.6), for c divisible by the conductor. The separately weighted corestriction (4.7) defines z_{f,χ}∈H¹(K,T⊗χ). Do not identify S with Ind_{G_H_K}^{G_K}Sym^{2r−2}T_p(A)(1−r): the printed isomorphism has unequal ranks (the rank distinction below). Integral projectors and the inclusion of the original A-coefficient class require the CM.1 coefficient adapter.
+For CH’s canonical CM A/H_K and B=Res_{H_K/K}A, use the literal full symmetric-power module S=Sym^{2r−2}T_p(B)(1−r)⊗O_F, after the required coefficient extension. For an anticyclotomic χ of type (j,−j), −r<j<r, conductor c₀p^s with (c₀,Np)=1, choose the finite-order anticyclotomic χ_t of the same conductor, unique up to a Hilbert class character, so χ is a coefficient summand of S⊗χ_t. Apply its G_K-equivariant projector to the twisted finite-level class to define z_{f,χ,c}∈H¹(K_c,T⊗χ), as in (4.6), for c divisible by the conductor. The separately weighted corestriction (4.7) defines z_{f,χ}∈H¹(K,T⊗χ). Do not identify S with Ind_{G_H_K}^{G_K}Sym^{2r−2}T_p(A)(1−r): already at m=0 the full symmetric power has rank 1, whereas the induced module has rank h=[H_K:K], so they differ when h>1. Integral projectors and the inclusion of the original A-coefficient class require the CM.1 coefficient adapter.
 
 **Hypotheses and conventions.**
 
@@ -703,7 +703,7 @@ At a good unramified local model AJ_et(Δ) is crystalline and hence lies in H¹_
 
 **Prerequisites.** [GH.0.9: Good model comparison for the CM product](#cm-product-good-model); [GH.1.8: Integral Abel–Jacobi comparison](#integral-abel-jacobi-comparison); **SelmerIwasawaCohomology**, **L4** — bloch kato condition; **SelmerIwasawaCohomology**, **L2** — condition propagation; **PadicHodgeTheory**, **R06.5**.
 
-**Sources.** **CH22**, §7.3, Lemma 7.5 and Proposition 7.6, p.31; **CH erratum**, Second correction, entire one-page erratum.
+**Sources.** **CH22**, §7.3, Lemma 7.5 and Proposition 7.6, p.31; **CH erratum**, Second correction, p. 1.
 
 <a id="local-condition-at-p-and-the-castella-hsieh-corrections"></a>
 
@@ -723,7 +723,7 @@ For the specialized anticyclotomic Heegner Euler system in CH Proposition 7.8, t
 
 **Prerequisites.** [GH.2.4: Finite local Abel–Jacobi class](#finite-local-abel-jacobi-class); [GH.2.2: Complex conjugation of Heegner classes](#cycle-conjugation); **PadicHodgeRegulators**, **L3**.
 
-**Sources.** **KO**, §2.4, Condition 2.3, p. 13; §4, Lemma 4.7 p.42; Lemma 4.10 pp.44–45; (4.47) p.44 and (4.49)–(4.50) p.45; **CH erratum**, Second correction.
+**Sources.** **KO**, §2.4, Condition 2.3, p. 13; §4, Lemma 4.7 p.42; Lemma 4.10 pp.44–45; (4.47) p.44 and (4.49)–(4.50) p.45; **CH erratum**, Second correction, p. 1.
 
 <a id="layer-gh-3"></a>
 
@@ -1193,7 +1193,7 @@ For the CH anticyclotomic ring-class p-tower, the eventual dimension is dim_F Se
 
 **Prerequisites.** [GH.6.1: Anticyclotomic nonvanishing](#anticyclotomic-nonvanishing); [GH.6.2: Rank-one Selmer consequence](#selmer-rank-one); [GH.6.3: Rank-zero Selmer consequence](#selmer-rank-zero); **SelmerIwasawaCohomology**, **L3** — iwasawa shapiro; **HeegnerPointEulerSystems**, **HE.0** — ring class tower quotients.
 
-**Sources.** **CH22**, §6, Theorem 6.3, p.27; **CH erratum**, First correction.
+**Sources.** **CH22**, §6, Theorem 6.3, p.27; **CH erratum**, First correction, p. 1.
 
 <a id="selmer-parity"></a>
 
@@ -1571,7 +1571,7 @@ Let F/L be a finite abelian extension defining a compatible family of the preced
 
 **Prerequisites.** [GH.8.2: Abel--Jacobi and Kummer classes under the modular quotient](#modular-quotient-kummer); **HeegnerPointEulerSystems**, **HE.3** — kummer classes and the modified selmer conditions; Mathlib: `LinearMap`; [GH.1](#layer-gh-1); [GH.3](#layer-gh-3).
 
-**Sources.** **CH22**, Section 5.2, character specialization after equation (5.1) and Lemma 5.4.
+**Sources.** **CH22**, Section 5.2, character specialization after equation (5.1) and Lemma 5.4, p. 23.
 
 <a id="positive-conductor-stabilization"></a>
 
@@ -1749,7 +1749,7 @@ Let R be a commutative ring, M_n,N_n R-modules, f_n:M_n->N_n and g_n:N_n->M_n li
 
 **Prerequisites.** [GH.1](#layer-gh-1); [GH.3](#layer-gh-3); **HeegnerPointEulerSystems**, **HE.3** — kummer classes and the modified selmer conditions; Mathlib: `LinearMap`.
 
-**Sources.** **CH22**, Section 5.2, equation (5.1) and the preceding integral inverse-limit construction.
+**Sources.** **CH22**, Section 5.2, equation (5.1) and the preceding integral inverse-limit construction, p. 23.
 
 <a id="uniform-coherent-lift"></a>
 
@@ -1773,7 +1773,7 @@ Let M_n,N_n be R-module inverse systems with transitions mu_n and nu_n. Suppose 
 
 **Prerequisites.** [GH.8.10: A common reverse comparison bounds the tower kernel](#uniform-coherent-kernel-bound); [GH.1](#layer-gh-1); [GH.3](#layer-gh-3); **HeegnerPointEulerSystems**, **HE.3** — kummer classes and the modified selmer conditions; Mathlib: `LinearMap`.
 
-**Sources.** **CH22**, Section 5.2, equation (5.1) and its integral inverse-limit carrier.
+**Sources.** **CH22**, Section 5.2, equation (5.1) and its integral inverse-limit carrier, p. 23.
 
 <a id="unbounded-denominators-counterexample"></a>
 
@@ -1792,7 +1792,7 @@ Take M_n=Z with transition multiplication by 2, N_n=Z with identity transitions,
 
 **Prerequisites.** Mathlib: `LinearMap`; Mathlib: `Int.natAbs_le_of_dvd_ne_zero`.
 
-**Sources.** **CH22**, Section 5.2, equation (5.1), order of integral inverse limit and coefficient extension.
+**Sources.** **CH22**, Section 5.2, equation (5.1), order of integral inverse limit and coefficient extension, p. 23.
 
 <a id="primitive-character-stabilization"></a>
 
