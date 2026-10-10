@@ -1,11 +1,11 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-StxrNw`, 10 October 2026,
-input `cb3d5cac2`, branch `codex-StxrNw-review-iwasawa-6219`. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099522761).
-The finding verdicts are complete. The live issue still omits two required
-review receipts, so this submission remains a checkpoint. See the final
-continuation for fresh validation and the exact scope correction needed.
+Latest continuation: Codex, session `codex-5QRLqC`, 10 October 2026.
+Refs #6219. [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099767639).
+This continuation verifies the dispatch blocker and prepares the exact missing
+receipts; it does not repeat or claim the preceding source audits. The review
+cannot finish within the live issue's authorized file scope. See the final
+continuation and handoff for the completion test and bounded resume action.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -568,3 +568,77 @@ and needs_changes respectively. This is a blocked checkpoint, with the two
 missing receipts specified in the handoff; the negative PMIA verdict is
 not the completion blocker. Correct the issue scope before another unchanged
 continuation is assigned.
+
+## Continuation by codex-5QRLqC: verified dispatch blocker
+
+This session did none of fixer `claude-6ZAIEy`'s work. No manager-priority
+issue was available. The available `top` review #6219 was read in full,
+claimed, and reread after the bot confirmed this session's comment.
+The live issue body was unchanged between those readings.
+
+Read the six findings, their verification verdicts, the round-2 fixes,
+the preceding review report and handoff, and the actual completion predicate
+in `research/blueprint/issues.py`. The two issue-named packets already carry
+this job's reviewer: L3 is accepted and PMIA needs_changes. The latter is a
+completed negative review verdict, not the reason the job remains incomplete.
+The existing source-by-source verdicts and their original session attribution
+are preserved. No new source reading or full mathematical audit is claimed.
+
+Fresh direct readings of the current native declarations confirm the
+previous report's PMIA migration requirement: `TauCeti.fittingIdeal` and
+`fittingIdeal_eq_minorsIdeal_ker` in `RingTheory/FittingIdeal/Basic.lean`
+(lines 343 and 350), `fittingIdeal_baseChange` in `BaseChange.lean`
+(line 134), and
+`AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` in
+`Algebra/Module/AuslanderReiten/StableTranspose.lean` (line 91).
+Their checkout is still `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`;
+the roadmap checkout is still `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`.
+These are current-library checks, not new claims about the programme pin.
+No partial PMIA migration was made.
+
+### Concrete receipt changes and scope
+
+The queue's outputs include two additional packets:
+
+- `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`;
+- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`.
+
+The live issue omits both from its deliverables and files under review.
+WORKERS.md requires: “Edit only the files the issue names, plus your own
+scratch space.” Explicit authorization for the two prepared receipt changes
+was requested from this run's user; it has not been received. The question
+remains pending. Neither packet was edited.
+
+The proposed patches replace only each top-level review with a bounded
+accepted receipt naming `independent-review-REV-FIX-RT-AREA-iwasawa-2~2`
+and archive the complete prior review in `reviewHistory`. Whole-object
+assertions confirm preservation of every other field, all preceding history,
+and the prior reviews' 79 and 72 checked entries respectively. The bounded
+contracts are recorded in the handoff and in the earlier finding discussions;
+the patches do not solve supplier gaps or perform an additional source audit.
+
+Fresh calls to the actual `issues.deliverables_complete` function establish:
+
+- **Actual files: False.** The two omitted packets still name their own
+  preceding independent review jobs.
+- **Dry run with only the prepared receipts substituted: True.** A path
+  adapter supplies the two scratch candidates while every other output
+  resolves to its real existing path. No repository snapshot, queue change,
+  fabricated verdict, or predicate replacement is used.
+
+### Validation and checkpoint
+
+All four actual packets pass `check_blueprint.py` with zero errors.
+L3 retains 26 inherited short-API warnings; L3-2, D.1 and PMIA have none.
+No packet, review history or suggested file was changed in this continuation.
+The prior Lean results remain attributed to the sessions that ran them:
+L3's shared `research` import is unresolved, while L3-2, D.1 and PMIA
+elaborated with only `sorry` warnings. No Lean run was repeated for these
+report/handoff changes, and no process is left running.
+
+This submission is a **blocked checkpoint**, consisting only of the report
+and handoff. To finish, correct the live issue's scope or explicitly authorize
+the two receipt installations. Then preserve the complete prior audits,
+install the bounded receipts, run all four packet checks and the intake file
+screen, and require the actual completion predicate to return True. Another
+unchanged whole-source review is unnecessary for this dispatch repair.
