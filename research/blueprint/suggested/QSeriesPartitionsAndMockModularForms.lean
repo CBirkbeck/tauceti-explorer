@@ -3875,7 +3875,7 @@ example (E : ModularForm (gamma0GL 1) (2 - (2 - 12)))
         65520 / 691 := sorry
 
 /-- Unit test `maassPoincare_seed_test`: `ψ_m = e(-mτ) - Γ(k-1, 4πmv) e(-mτ)/(k-2)!`. -/
-example (m : ℕ) (k : ℤ) (hk : 4 ≤ k) (τ : ℍ) :
+example (m : ℕ) (hm : 1 ≤ m) (k : ℤ) (hk : 4 ≤ k) (τ : ℍ) :
     maassPoincareSeed m k τ = fourierMode (-m) 1 τ -
       (upperIncompleteGamma (k - 1) (4 * π * m * τ.im) : ℂ) * fourierMode (-m) 1 τ /
         ((k - 2).toNat.factorial : ℂ) := sorry
@@ -4714,9 +4714,10 @@ def realAnalyticResidue (f g : ℂ → ℂ) (u : ℂ) (s : ℕ) : ℂ :=
   limUnder (𝓝[≠] u) fun w ↦
     ((s - 1).factorial : ℂ)⁻¹ * (wirtingerDerivLocalQM3^[s - 1] (fun v ↦ f v * (v - u) ^ s * g v)) w
 
-theorem realAnalyticResidue_eq_residue {f g : ℂ → ℂ} {u : ℂ} {s : ℕ} {r : ℝ} (hr : 0 < r)
+theorem realAnalyticResidue_eq_residue {f g : ℂ → ℂ} {u : ℂ} {s : ℕ} (hs : 1 ≤ s) {r : ℝ} (hr : 0 < r)
     (hf : DifferentiableOn ℂ f (Metric.ball u r))
-    (hg : DifferentiableOn ℂ (fun v ↦ (v - u) ^ s * g v) (Metric.ball u r))
+    (hg : ∃ G : ℂ → ℂ, DifferentiableOn ℂ G (Metric.ball u r) ∧
+      ∀ v ∈ Metric.ball u r, v ≠ u → G v = (v - u) ^ s * g v)
     {ρ : ℝ} (hρ : 0 < ρ) (hρr : ρ < r) :
     realAnalyticResidue f g u s = (2 * π * I)⁻¹ * ∮ z in C(u, ρ), f z * g z := sorry
 
@@ -4726,9 +4727,10 @@ theorem realAnalyticResidue_simple {f g : ℂ → ℂ} {u : ℂ} (hf : Continuou
 
 /-- Unit test `realAnalyticResidue_holomorphic_test`: for holomorphic `f` it is the classical
 residue. -/
-example {f g : ℂ → ℂ} {u : ℂ} {s : ℕ} {r : ℝ} (hr : 0 < r)
+example {f g : ℂ → ℂ} {u : ℂ} {s : ℕ} (hs : 1 ≤ s) {r : ℝ} (hr : 0 < r)
     (hf : DifferentiableOn ℂ f (Metric.ball u r))
-    (hg : DifferentiableOn ℂ (fun v ↦ (v - u) ^ s * g v) (Metric.ball u r))
+    (hg : ∃ G : ℂ → ℂ, DifferentiableOn ℂ G (Metric.ball u r) ∧
+      ∀ v ∈ Metric.ball u r, v ≠ u → G v = (v - u) ^ s * g v)
     {ρ : ℝ} (hρ : 0 < ρ) (hρr : ρ < r) :
     realAnalyticResidue f g u s = (2 * π * I)⁻¹ * ∮ z in C(u, ρ), f z * g z := sorry
 
@@ -4758,7 +4760,10 @@ theorem meromorphicJacobi_eq_sum (m : ℕ) (hm : 1 ≤ m) {ϕ : ℂ → ℂ → 
     (hP : ∀ u ∈ P, ∃ x y : ℝ, x ∈ Set.Ioo 0 1 ∧ y ∈ Set.Ioo 0 1 ∧ u = p + x * τ + y)
     (hmero : ∀ z, MeromorphicAt (fun z ↦ ϕ z τ) z)
     (hpoles : ∀ z, (∀ u ∈ P, NotInLattice (z - u) τ) → DifferentiableAt ℂ (fun z ↦ ϕ z τ) z)
-    (horder : ∀ u ∈ P, DifferentiableAt ℂ (fun z ↦ (z - u) ^ s u * ϕ z τ) u)
+    (hs : ∀ u ∈ P, 1 ≤ s u)
+    (horder : ∀ u ∈ P, ∃ r : ℝ, 0 < r ∧ ∃ G : ℂ → ℂ,
+      DifferentiableOn ℂ G (Metric.ball u r) ∧
+      ∀ v ∈ Metric.ball u r, v ≠ u → G v = (v - u) ^ s u * ϕ v τ)
     {z : ℂ} (hz : ∀ u ∈ P, NotInLattice (z - u) τ) :
     ϕ z τ = ∑ l ∈ Finset.range (2 * m), meromorphicThetaCoeff m ϕ τ p P s l * thetaIndexLocal m l z τ -
       2 * π * I * ∑ u ∈ P,
@@ -4989,7 +4994,7 @@ example (i : Fin 3) : DifferentiableOn ℂ (fun τ ↦ seventhOrderShadow τ i) 
 /-! ### The fifth-order mock theta functions (Zwegers §4.4)
 
 `A = (5 0; 0 -2)`, `c₁ = (2, 5)`, `c₂ = (-2, 5)`; `B(c₁, c₂) = -70` and
-`Q(c₁) = Q(c₂) = -15`, so `c₁` and `c₂` lie in the same component of the positive
+`Q(c₁) = Q(c₂) = -15`, so `c₁` and `c₂` lie in the same component of the negative
 cone, which is what the indefinite theta machinery needs. -/
 
 /-- The indefinite quadratic form of the fifth-order functions. -/
@@ -5290,8 +5295,10 @@ theorem indexThirteenCoefficients_shadow (l : ℤ) (hl : 0 ≤ l ∧ l < 26) (τ
 example (τ : ℍ) :
     Tendsto (fun z ↦ z * indexThirteenPhi z τ) (𝓝[≠] (0 : ℂ)) (𝓝 (-128 / π)) := sorry
 
-/-- Unit test `indexThirteen_index_test`: the sum runs over 26 classes. -/
-example : (Finset.range 26).card = 26 := rfl
+/-- Unit test `indexThirteen_index_test`: the quotient has the index-13 elliptic factor. -/
+example (τ : ℍ) (z : ℂ) (hz : NotInLattice z τ) :
+    indexThirteenPhi (z + τ) τ =
+      cexp (-26 * π * I * ((τ : ℂ) + 2 * z)) * indexThirteenPhi z τ := sorry
 
 /-- Unit test `indexThirteen_T_test`: the phase at `l=1` has denominator 26. -/
 example (τ : ℍ) : indexThirteenCoefficients 1 ((τ : ℂ) + 1) =
@@ -5715,8 +5722,9 @@ example (N : ℕ) (a : ℕ → ℂ) :
 
 /-- Unit test `TauCeti.QSeries.eichlerIntegral.test_delta_coeff`: the `q²`-coefficient of `Δ̃` is
 `τ(2)/2¹¹ = −3/256`. -/
-example : (((((1 + 1 : ℕ) : ℝ) / (1 : ℕ)) ^ (1 - (12 : ℝ)) : ℝ) : ℂ) * (-24 : ℂ) = -3 / 256 :=
-  sorry
+example (τ : ℂ) :
+    eichlerIntegral 12 1 (fun n ↦ if n = 2 then -24 else 0) τ =
+      (-3 / 256) * Complex.exp (4 * π * Complex.I * τ) := sorry
 
 /-- Unit test `TauCeti.QSeries.eichlerIntegral.test_eta_normalisation`: Zagier's `η̃` is
 `√24` times the weight-`1/2` Eichler integral of `η`. -/
@@ -5745,7 +5753,7 @@ def shimuraFactorLocal (k : ℝ) (γ : SL(2, ℤ)) : ℂ :=
 (MetaplecticAutomorphicForms MP.7): holomorphy, the transformation law for `γ ∈ Γ₀(N)` with `d > 0`,
 and exponential decay at every cusp. -/
 def IsShimuraCuspFormLocal (k : ℝ) (N : ℕ) (f : ℂ → ℂ) : Prop :=
-  DifferentiableOn ℂ f {τ | 0 < τ.im} ∧
+  0 < N ∧ DifferentiableOn ℂ f {τ | 0 < τ.im} ∧
   (∀ γ : SL(2, ℤ), (N : ℤ) ∣ γ 1 0 → 0 < γ 1 1 → ∀ τ : ℂ, 0 < τ.im →
       shimuraFactorLocal k γ * (((γ 1 0 : ℤ) : ℂ) * τ + γ 1 1) ^ (-(k : ℂ)) * f (moebiusC γ τ) =
         f τ) ∧
@@ -5796,13 +5804,12 @@ theorem nonholomorphicEichlerIntegral_path {k : ℝ} {N : ℕ} {f : ℂ → ℂ}
 non-holomorphic Eichler integral. -/
 example (k : ℝ) (τ : ℂ) : nonholomorphicEichlerIntegral k 0 τ = 0 := sorry
 
-/-- Unit test `TauCeti.QSeries.nonholomorphicEichlerIntegral.test_single_term`: one exponential. -/
+/-- Unit test `TauCeti.QSeries.nonholomorphicEichlerIntegral.test_single_term`: one exponential,
+testing the actual construction and its normalization. -/
 example {k : ℝ} (hk : (1 : ℝ) / 2 ≤ k) {τ : ℂ} (hτ : τ.im < 0) :
-    ∫ y in Set.Ioi (0 : ℝ), Complex.exp (2 * π * Complex.I * (starRingEnd ℂ τ + Complex.I * y)) *
-      (starRingEnd ℂ τ + Complex.I * y - τ) ^ ((k : ℂ) - 2) * Complex.I =
-      Complex.I ^ ((k : ℂ) - 1) * (2 * π : ℂ) ^ (1 - (k : ℂ)) *
-        Complex.exp (2 * π * Complex.I * τ) *
-          upperIncompleteGammaLocal ((k : ℂ) - 1) (4 * π * |τ.im|) := sorry
+    nonholomorphicEichlerIntegral k (fun w ↦ Complex.exp (2 * π * Complex.I * w)) τ =
+      (Complex.Gamma ((k : ℂ) - 1))⁻¹ * Complex.exp (2 * π * Complex.I * τ) *
+        upperIncompleteGammaLocal ((k : ℂ) - 1) (4 * π * |τ.im|) := sorry
 
 /-- Unit test `TauCeti.QSeries.nonholomorphicEichlerIntegral.test_not_holomorphic`: the
 non-holomorphic Eichler integral of `e^{2πiw}` is not complex differentiable on `H⁻`. -/
@@ -5843,15 +5850,11 @@ theorem eichlerPeriodIntegral_linear {k : ℝ} {N : ℕ} {f g : ℂ → ℂ}
 /-- Unit test `TauCeti.QSeries.eichlerPeriodIntegral.test_zero`: `r_{0,α} = 0`. -/
 example (k : ℝ) (α : ℝ) (z : ℂ) : eichlerPeriodIntegral k 0 α z = 0 := sorry
 
-/-- Unit test `TauCeti.QSeries.eichlerPeriodIntegral.test_self_difference`: `r_{f,α} − r_{f,α} = 0`,
-the empty arc. -/
-example (k : ℝ) (f : ℂ → ℂ) (α : ℝ) (z : ℂ) :
-    eichlerPeriodIntegral k f α z - eichlerPeriodIntegral k f α z = 0 ∧
-      (∫ s in (0 : ℝ)..1, f (cuspArc α α s) * (cuspArc α α s - z) ^ ((k : ℂ) - 2) *
-        ((α - α : ℝ) + Complex.I * (1 - 2 * s))) =
-      ∫ s in (0 : ℝ)..1, f (α + Complex.I * (s * (1 - s))) *
-        ((α : ℂ) + Complex.I * (s * (1 - s)) - z) ^ ((k : ℂ) - 2) * (Complex.I * (1 - 2 * s)) :=
-  sorry
+/-- Unit test `TauCeti.QSeries.eichlerPeriodIntegral.test_single_exponential`: at weight 2,
+`r_{exp(2πiw),α}(z) = exp(2πiα)`, testing the normalization and orientation. -/
+example (α : ℝ) (z : ℂ) :
+    eichlerPeriodIntegral 2 (fun w ↦ Complex.exp (2 * π * Complex.I * w)) α z =
+      Complex.exp (2 * π * Complex.I * α) := sorry
 
 /-- Unit test `TauCeti.QSeries.eichlerPeriodIntegral.test_sub_nonholomorphic`: the period integral
 differs from `f*` by the integral from `α` to `z̄`. -/
@@ -5924,7 +5927,8 @@ theorem mellin_asymptotic_transfer {F : ℝ → ℂ} (hF : ContinuousOn F (Set.I
     (hmero : DifferentiableOn ℂ G ({s : ℂ | β ≤ s.re} \ (poles : Set ℂ)))
     (hpoles : ∀ a ∈ poles, β < a.re ∧
       Tendsto (fun s => (s - a) * G s) (𝓝[≠] a) (𝓝 (res a)))
-    (hdecay : ∃ C : ℝ, ∀ s : ℂ, β ≤ s.re → 1 ≤ ‖s‖ → s ∉ poles → ‖G s‖ ≤ C * ‖s‖ ^ (-r)) :
+    (hdecay : ∀ c : ℝ, β < c → ∃ C T : ℝ, 0 < T ∧ ∀ s : ℂ,
+      β ≤ s.re → s.re ≤ c → T ≤ |s.im| → ‖G s‖ ≤ C * ‖s‖ ^ (-r)) :
     (fun x : ℝ => F x - ∑ a ∈ poles, res a * (x : ℂ) ^ (-a)) =O[𝓝[>] 0]
       fun x : ℝ => ((x ^ (-β) : ℝ) : ℂ) := sorry
 
@@ -5977,7 +5981,10 @@ theorem eichlerIntegral_isQuantumModularForm {k : ℝ} (hk : ∃ m : ℕ, k = m 
       HasSum (fun n : ℕ => a (n + 1) * Complex.exp (2 * π * Complex.I * ((n + 1 : ℕ) : ℂ) * w))
         (f w)) :
     IsQuantumModularForm (CongruenceSubgroup.Gamma0 N) (2 - k)
-      (fun γ => chiMinusFour (γ 1 1) * shimuraFactorLocal (2 - k) γ)
+      (fun γ ↦ if 0 < γ 1 1 then
+        chiMinusFour (γ 1 1) * shimuraFactorLocal (2 - k) γ
+      else chiMinusFour ((-γ) 1 1) * shimuraFactorLocal (2 - k) (-γ) *
+        Complex.exp ((if 0 < γ 1 0 then -(π * Complex.I) else π * Complex.I) * (2 - k)))
       (fun x : ℚ => radialLimit (eichlerIntegral k 1 a) x) := sorry
 
 /-- Bringmann–Rolen Corollary 1.2: `Q_f(x) = L_f(e^{2πix}; k − 1)` is quantum modular. -/
@@ -5988,7 +5995,10 @@ theorem twistedLValue_isQuantumModularForm {k : ℝ} (hk : ∃ m : ℕ, k = m + 
         (f w)) (Lval : ℚ → ℂ → ℂ) (hL : ∀ x, Differentiable ℂ (Lval x))
     (hLs : ∀ x : ℚ, ∀ s : ℂ, k / 2 + 2 < s.re → Lval x s = twistedLSeriesLocal a x s) :
     IsQuantumModularForm (CongruenceSubgroup.Gamma0 N) (2 - k)
-      (fun γ => chiMinusFour (γ 1 1) * shimuraFactorLocal (2 - k) γ)
+      (fun γ ↦ if 0 < γ 1 1 then
+        chiMinusFour (γ 1 1) * shimuraFactorLocal (2 - k) γ
+      else chiMinusFour ((-γ) 1 1) * shimuraFactorLocal (2 - k) (-γ) *
+        Complex.exp ((if 0 < γ 1 0 then -(π * Complex.I) else π * Complex.I) * (2 - k)))
       (fun x : ℚ => Lval x ((k : ℂ) - 1)) := sorry
 
 /-! ### Kontsevich's strange series, the sum of tails and the strange identity -/
@@ -6146,11 +6156,14 @@ theorem kontsevichValue_eq_sum (α : ℚ) {N : ℕ} (hN : 12 ∣ N) (hN0 : 0 < N
         Complex.exp (2 * π * Complex.I * α * ((m : ℂ) ^ 2 - 1) / 24) := sorry
 
 /-- Kontsevich's `φ` is a quantum modular form of weight `3/2` on `SL(2, ℤ)` (Zagier, Topology 40,
-§6), with the multiplier inverse to that of `η` on the lower boundary branch, and the explicit
+§6), with the inverse eta values at S/T and the negative-real-cut sign correction at c=0,d<0, and the explicit
 `S`-law `φ(x) + (ix)^{−3/2}φ(−1/x) = g(x)` with `g` smooth and real-analytic off `0`. -/
 theorem kontsevichPhi_isQuantumModularForm :
-    (∃ ε : SL(2, ℤ) → ℂ, ε ModularGroup.T = Complex.exp (-(2 * π * Complex.I / 24)) ∧
-      ε ModularGroup.S = Complex.exp (2 * π * Complex.I / 8) ∧
+    (let ε : SL(2, ℤ) → ℂ := fun γ ↦
+      if γ 1 0 = 0 ∧ γ 1 1 < 0 then -(etaMultiplier γ)⁻¹ else (etaMultiplier γ)⁻¹
+     ε ModularGroup.T = Complex.exp (-(2 * π * Complex.I / 24)) ∧
+      ε ModularGroup.S = Complex.exp (2 * π * Complex.I / 8) ∧ ε (-1) = -Complex.I ∧
+      QuantumCocycleCondition ⊤ (3 / 2) ε ∧
       IsQuantumModularForm ⊤ (3 / 2) ε kontsevichPhi) ∧
     ∃ g : ℝ → ℂ, ContDiff ℝ (⊤ : ℕ∞) g ∧ AnalyticOnNhd ℝ g ({0}ᶜ) ∧
       ∀ x : ℚ, x ≠ 0 → kontsevichPhi x +
@@ -7266,7 +7279,7 @@ theorem IsInvariantForm.orthogonal_weightSpace {ω : ConformalVector A} {θ : A.
     B v w = 0 := sorry
 
 theorem IsInvariantForm.adjoint_zeroMode {ω : ConformalVector A} {θ : A.Aut}
-    {B : LinearMap.BilinForm k V} (hB : IsInvariantForm ω θ B) {u : V} (hu0 : ω.L 0 u = u)
+    {B : LinearMap.BilinForm k V} (hB : IsInvariantForm ω θ B) (hθ : θ ω.ω = ω.ω) {u : V} (hu0 : ω.L 0 u = u)
     (hu : ∀ n : ℤ, 1 ≤ n → ω.L n u = 0) (v w : V) :
     B (A.nprod u 0 v) w = -B v (A.nprod (θ u) 0 w) := sorry
 
@@ -8374,8 +8387,15 @@ noncomputable def cartanElement (α : Fin 2 → ℤ) : monsterLieAlgebra V B ε 
 
 /-- The action of `G ≤ Aut(V, ω, (·,·))` by graded Lie algebra automorphisms (a group
 homomorphism into the Lie algebra automorphisms). -/
-noncomputable def action {G : Type*} [Group G] (ρ : G →* IsMoonshineModule.formAut V B) (g : G) :
-    monsterLieAlgebra V B ε ≃ₗ⁅ℝ⁆ monsterLieAlgebra V B ε := sorry
+noncomputable def action {G : Type*} [Group G] (ρ : G →* IsMoonshineModule.formAut V B) :
+    G → (monsterLieAlgebra V B ε ≃ₗ⁅ℝ⁆ monsterLieAlgebra V B ε) := sorry
+
+@[simp] theorem action_one {G : Type*} [Group G] (ρ : G →* IsMoonshineModule.formAut V B) :
+    action V B ε ρ 1 = LieEquiv.refl := sorry
+
+theorem action_mul {G : Type*} [Group G] (ρ : G →* IsMoonshineModule.formAut V B)
+    (g h : G) : action V B ε ρ (g * h) =
+      (action V B ε ρ h).trans (action V B ε ρ g) := sorry
 
 /-- Unit test `TauCeti.QSeries.monsterLieAlgebra.finrank_one_one`: `dim m_{(1,1)} = 196884`,
 `dim m_{(1,-1)} = 1`. -/
@@ -8960,7 +8980,7 @@ end QM6File
 /-! ## QM.2 continuation: singular odd-prime root sums
 These are suggested signatures, not implementations. The reader is definitive.
 The A_k comparison retains the explicit Selberg/Fischer bridge gap in the packet.
-All seven new nodes remain unchecked; the finite arithmetic is separated from that bridge. -/
+The finite arithmetic is separated from that bridge; the review status is recorded in the packet. -/
 namespace TauCeti.QSeries
 open scoped BigOperators
 
