@@ -43968,7 +43968,8 @@
    ],
    "revisionOf": "BP-FiniteFieldsAndCharacterSums--FF.1",
    "prompt": "research/blueprint/prompts/BP-FiniteFieldsAndCharacterSums--FF.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6515"
   },
   {
    "priority": 2,
@@ -46516,7 +46517,8 @@
     "PKG-AbelianVarietiesIsogenousToNoJacobian"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AbelianVarietiesIsogenousToNoJacobian.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7597"
   },
   {
    "id": "PKG-AdelicAlgebraicGroups",
@@ -48282,8 +48284,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48494,8 +48496,9 @@
     "PKG-GlobalGaloisDeformations"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GlobalGaloisDeformations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7605"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7605",
+   "finishedAt": "2026-10-10T16:32:06Z"
   },
   {
    "id": "PKG-HabiroCohomologyFoundations",
@@ -79986,8 +79989,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80151,8 +80154,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80374,8 +80377,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -80900,8 +80903,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -81461,8 +81464,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -82355,8 +82358,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -84552,8 +84555,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
