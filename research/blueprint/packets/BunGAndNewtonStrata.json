@@ -12,7 +12,7 @@
   "BunGAndNewtonStrata:BG3",
   "BunGAndNewtonStrata:BG4"
  ],
- "summary": "Revision 2 preserves all 98 reviewed target IDs and preceding source corrections. Current upstream ReductiveGroups Part II supplies integral fundamental groups and z-extension foundations, which BG imports. This continuation types Frobenius on the native finite rational comodule fibre functor, reconstructs its trivialized tensor family through native Tannaka duality, compares all conjugator arrows and identifies tensor automorphisms with point sigma-stabilizers. The untrivialized exact isocrystal comparison and analytic FF/v-stack supplier interfaces remain unavailable under G08. This is a partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
+ "summary": "Revision 2 preserves all 98 reviewed target IDs, the independent needs_changes review and preceding source corrections. It imports current upstream ReductiveGroups foundations. This continuation makes the affine smooth-group filtered splitting proof explicit, supplies the coefficient-family arc-descent route and distinguishes HK22’s current normal-base theorem from its earlier version. The ordinary unitary flag proof now cites the read cocharacter and Hodge–Tate arguments with their actual version hypotheses. Generic relative representability, the unramified PEL comparison and analytic FF/v-stack supplier carriers remain open. This is a blocked partial checkpoint: no stage is closed and all implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -531,6 +531,90 @@
    "accessed": "2026-10-10",
    "readSections": [
     "§1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, including Theorems2.6,2.11 and2.12; §2.11.3–2.11.4 pp.42–43. §2.5 restricts the closure discussion to equal characteristic."
+   ]
+  },
+  {
+   "id": "Zie15",
+   "title": "Graded and filtered fiber functors on Tannakian categories",
+   "authors": "Paul Ziegler",
+   "edition": "arXiv:1111.1981v4; printed page equals PDF page. Not collated with the 2015 journal edition.",
+   "url": "https://arxiv.org/pdf/1111.1981v4",
+   "sha256": "742e6ecb5be56cb3fc7c1b48a944ae0fdba91a0e8546f3ff61f6b6f57054ea9f",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "Theorem1.3 p.2 and the Tannakian hypotheses in §§1–2 pp.1–5; Theorem4.6 and Definitions4.7–4.11 pp.22–23; Lemma4.12, Theorems4.13–4.16 and Lemmas4.17–4.22 pp.23–25; Proposition4.24, Lemma4.25 and Theorem4.26 with their proofs pp.26–27. The general fpqc-splitting proof in §5 is not claimed expanded."
+   ]
+  },
+  {
+   "id": "Iva23",
+   "title": "Arc-descent for the perfect loop functor and p-adic Deligne–Lusztig spaces",
+   "authors": "Alexander B. Ivanov",
+   "edition": "arXiv:2003.04399v3, 3 September 2021; printed page equals PDF page. Not collated with the 2023 journal edition.",
+   "url": "https://arxiv.org/pdf/2003.04399v3",
+   "sha256": "83407106dc3be635594040a9f6cab1a956aa05c0b05611b36e75067e65af549a",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§§2.1.1–2.1.2 pp.5–6, coefficient and finite-field Frobenius setup in both characteristics; Theorem5.1 and its proof route p.11; Corollary5.6 p.13; Lemmas5.8–5.9 and Proposition5.10 with their proofs pp.14–15. Perfectoid almost descent and the sousperfectoid comparison are retained as supplier inputs."
+   ]
+  },
+  {
+   "id": "Ans22",
+   "title": "Extending torsors on the punctured Spec(A_inf)",
+   "authors": "Johannes Anschütz",
+   "edition": "arXiv:1804.06356v2, 21 October 2020; printed page equals PDF page. Not collated with the 2022 journal edition.",
+   "url": "https://arxiv.org/pdf/1804.06356v2",
+   "sha256": "27c2e6fef2d1fd82ad825b087dbf19b1cd496b8bfc7a60ce6bdba8deaca08354",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§11, Lemmas11.1–11.3 and Theorem11.4 with proofs pp.33–36. Theorem9.10 on the rank-one punctured period ring and Steinberg Theorem7.1 are identified external inputs, not newly expanded here."
+   ]
+  },
+  {
+   "id": "HK22",
+   "title": "Point counting on Igusa varieties for function fields",
+   "authors": "Paul Hamacher, Wansu Kim",
+   "edition": "arXiv:2208.01069v5, 21 August 2025; printed page equals PDF page. The normal-base hypothesis differs from v1.",
+   "url": "https://arxiv.org/pdf/2208.01069v5",
+   "sha256": "f060ee365ba1b6ba50b0c39cc086e1d87726643228ad001d6aa64fe7f54bb5c2",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "Theorem1.1 p.2; §2.1 p.5 and §2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8 and Theorem2.11 with proof p.9. The latter two require a perfect normal base. Zink’s effective-lattice input and the tensor-line orbit-lifting step remain explicit proof obligations."
+   ]
+  },
+  {
+   "id": "Wed99",
+   "title": "Ordinariness in good reductions of Shimura varieties of PEL-type",
+   "authors": "Torsten Wedhorn",
+   "edition": "Published Ann. Sci. École Norm. Sup. 32 (1999), 575–618; printed page = PDF page + 573.",
+   "url": "https://www.numdam.org/article/ASENS_1999_4_32_5_575_0.pdf",
+   "sha256": "2d44cd511bd311580b110296ad118b39f2ede4173b7db68adbab188a9b7f57ba",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§1.6, Theorem1.6.3 and its first proof part pp.584–585 (PDF11–12); §§2.3.1–2.3.2, split and unramified unitary cocharacter calculations pp.588–589 (PDF15–16). The density theorem’s deformation proof in Chapters3–4 is not newly expanded."
+   ]
+  },
+  {
+   "id": "CGH20",
+   "title": "Shimura varieties at level Gamma_1(p^infinity) and Galois representations",
+   "authors": "Ana Caraiani, Daniel R. Gulotta, Chi-Yun Hsu, Christian Johansson, Lucia Mocz, Emanuel Reinecke, Sheng-Chi Shih",
+   "edition": "arXiv:1804.00136v2, 25 July 2019; printed page equals PDF page. Published Compositio version not collated.",
+   "url": "https://arxiv.org/pdf/1804.00136v2",
+   "sha256": "11d2c275c5dcf3bd715de9e4dc95ebcdb9884259cd7bc4fec01294b4bbf6cdc7",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "§3.3, Proposition3.3.2 and proof pp.30–31. CS24’s Proposition3.3.8 locator is not the number in this read version. The source’s global hypothesis that p splits completely in the CM field is retained; extending its local closed-flag argument to the unramified CS24 datum is a separate comparison obligation."
+   ]
+  },
+  {
+   "id": "Sch15",
+   "title": "On torsion in the cohomology of locally symmetric varieties",
+   "authors": "Peter Scholze",
+   "edition": "Published Annals of Mathematics 182 (2015), 945–1066; printed page = PDF page + 944.",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+   "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "Lemma3.3.6 and Remark3.3.7 with proof pp.1006–1007 (PDF62–63); Lemma3.3.15 p.1011 (PDF67); Lemmas3.3.19–3.3.20 and their argument p.1013 (PDF69). The earlier canonical-subgroup and Hodge–Tate comparison inputs are not newly expanded."
    ]
   }
  ],
@@ -2515,13 +2599,14 @@
    ],
    "title": "Families of G-isocrystals",
    "kind": "definition",
-   "statement": "For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.",
+   "statement": "For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism σ^*P≃P. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
     "Use the coefficient-ring and Frobenius construction from the linear supplier.",
-    "Form equivariant torsors and their isomorphisms; pullback acts on both the torsor and its descent datum."
+    "Form equivariant torsors and their isomorphisms; pullback acts on both the torsor and its descent datum.",
+    "The coefficient-ring torsor category has arc-descent by Ans22 Lemma11.3, using Iva23 Proposition5.10 and reflection of exactness along arc-covers. Frobenius isomorphisms and their coherence descend through its fully faithful morphism descent."
    ],
    "acceptance": [
     "Do not identify all family morphisms with bundle morphisms."
@@ -2537,6 +2622,11 @@
      "sourceId": "FS",
      "locator": "I.2 pp.10-11",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "Ans22",
+     "locator": "Lemma11.3 pp.34–35 and Theorem11.4 pp.35–36",
+     "match": "Supplies arc-descent for coefficient-ring G-torsors and their v-local triviality; this is a general scheme tensor-descent input, distinct from relative FF bundle descent."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2613,24 +2703,48 @@
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Use coefficient-ring torsor v-local triviality and v-descent, then the twisted loop quotient.",
-    "Use the representation Newton criterion and integral κ-local-constancy to construct locally closed loci.",
-    "Apply the family isotriviality theorem in the source’s cited HK22 general case to identify each stratum."
+    "Use Iva23 Lemma5.9/Proposition5.10 for arc-descent of coefficient vector bundles in both characteristics. Ans22 Lemma11.3 extends this to G-torsors by exact tensor reconstruction: exactness is reflected because the coefficient-ring map meets every maximal ideal (Iva23 Corollary5.6). Descend the Frobenius isomorphism using full faithfulness. Arc-descent implies v-descent independently of κ-local-constancy.",
+    "Ans22 Theorem11.4 trivializes the underlying coefficient-ring torsor v-locally. Its proof reduces to absolutely integrally closed finite-rank valuation rings, uses Steinberg in rank0, the punctured-period-ring extension theorem in rank1, and valuation-ring excision/induction in higher rank. These are supplier inputs, not consequences of schematic torsor descent alone. The resulting presentation is LG/Ad_σ LG.",
+    "Only after descent, use Newton semicontinuity and the separately proved family κ-local-constancy to construct the locally closed constant-class loci. The κ argument is not a premise of the descent proof.",
+    "Cover a constant-class locus in the v-topology by spectra of products of perfect normal valuation rings. Choose a connected smooth affine O_E-model of G using the existing RG2.3 parahoric-group-scheme input, as required by HK22 §2.1. On each normal affine piece use HK22 v5 Proposition2.10 and Theorem2.11: separate the least slope by Φ=π^(−r)φ^s, obtain an effective lattice, trivialize its étale part on a profinite étale cover, then reconstruct G from a tensor line in a faithful representation. Retain Zink’s lattice bound and the tensor-line orbit-lifting step as G04 proof obligations.",
+    "On these charts the Isom sheaf is a torsor for the locally profinite J_b(E), and descent identifies the v-stratum with [*/J_b(E)] over any perfect base. The current HK22 theorem requires normality; this route does not claim a profinite étale trivialization over every non-normal perfect base. It gives neither the algebraic classifying stack [*/J_b] nor the positive-kernel automorphism group of a curve bundle."
    ],
    "acceptance": [
-    "This named theorem is planned; the three cited original proof interiors are precise source gaps."
+    "The arc-descent argument is independent of the later family κ-local-constancy argument.",
+    "Apply current HK22 only over perfect normal charts. An arbitrary-perfect-base profinite étale statement cannot be read off from its v1 version or from v-local isotriviality.",
+    "The original source arguments are now located and read; the exact lattice, tensor-line orbit-lifting and analytic comparison supplier refinements remain G04."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
     "DiamondsAndVStacks:D3",
-    "AlgebraicModuliForArithmeticGeometry:R09.3"
+    "AlgebraicModuliForArithmeticGeometry:R09.3",
+    "BunGAndNewtonStrata:BG1/family-kottwitz-local-constancy",
+    "VectorBundlesAndIsocrystals:VB0",
+    "DiamondsAndVStacks:D2",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "ReductiveGroupsPartII:RG2.3"
    ],
    "sources": [
     {
      "sourceId": "FS",
      "locator": "TheoremI.2.1 p.11",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "Iva23",
+     "locator": "Corollary5.6 p.13; Lemmas5.8–5.9 and Proposition5.10 pp.14–15",
+     "match": "Coefficient vector-bundle arc-descent, via perfectoid descent and the sousperfectoid comparison, in both characteristics."
+    },
+    {
+     "sourceId": "Ans22",
+     "locator": "Lemmas11.2–11.3 and Theorem11.4 pp.34–36",
+     "match": "Exact tensor torsor arc-descent and v-local triviality; the valuation-ring and rank-one extension inputs are retained explicitly."
+    },
+    {
+     "sourceId": "HK22",
+     "locator": "v5 Proposition2.10 p.8 and Theorem2.11 p.9; v1 Theorem1.4 p.3/2.11 p.8 compared in sourceVersions",
+     "match": "Current isotriviality and the Isom torsor are stated for perfect normal bases. Applying them on valuation-ring v-covers supplies the v-local stratum identification without upgrading it to arbitrary-base profinite étale triviality."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3883,15 +3997,19 @@
    "kind": "construction",
    "statement": "For a reductive G/K, scheme X/K and Q-filtered G-fibre functor E, let H=Aut_G(E), its inner group over X. For λ≥0, H^≥λ consists of automorphisms whose difference from1 raises every represented filtration by at least λ. H^≥0 is parabolic with unipotent radical H^>0; the groups are smooth, Lie H^≥λ=(ad E)^≥λ, and for λ>0 the quotient H^≥λ/H^>λ is the vector group (ad E)^≥λ/(ad E)^>λ.",
    "hypotheses": [
-    "Global conventions in the reader apply; additional restrictions are stated in the contract."
+    "The underlying functor is an exact K-linear tensor fibre functor for finite rational representations of a reductive G/K, associated to a G-torsor on X.",
+    "The descending Q-filtration is exhaustive, separated and locally has finitely many jumps on each representation; its steps are subbundles with locally free graded pieces, and it is exact and tensor-compatible.",
+    "Splitting is asserted on affine open charts, followed by étale trivialization of the smooth underlying torsor; no global splitting over an arbitrary scheme is assumed."
    ],
    "proofSteps": [
-    "Use étale-local splitting of Q-filtered fibre functors and torsors.",
-    "In the split chart apply the cocharacter root-weight decomposition; descend smooth closed subgroups and Lie gradings.",
-    "Tau Ceti supplies dynamic point-group parabolic and Levi splitting only; relative scheme representability remains in the requested group-form input."
+    "On an affine chart, choose a tensor generator and clear its finitely many rational weight denominators. Exact tensor generation extends the same denominator to all representations. Rescale to a Z-filtration; a chosen threshold λ can be included in the denominator. The underlying automorphism group is an inner form of reductive G, hence smooth. Zie15 Theorem1.3/4.15 therefore splits the filtration on that chart, rather than merely after an fpqc cover.",
+    "Trivialize the G-torsor étale locally. The splitting is then a rational cocharacter D→G. Apply the relative cocharacter/root-weight calculation from the group owner to represent the filtration-preserving parabolic, its positive radical and the higher raising subgroups. Their Lie algebras are the corresponding filtered adjoint subbundles.",
+    "At λ>0, the map g↦g−1 on associated gradeds is additive: the product error raises the filtration by 2λ>λ. Zie15 Proposition4.24 and Lemma4.25 give the vector-group quotient after rescaling; its Lie bundle identifies it with gr^λ(ad E). At λ=0 retain the reductive Levi quotient instead.",
+    "Descend the represented closed subgroup schemes and their Lie/graded identifications along the étale charts, compatibly with arbitrary scheme pullback. The generic relative representability and rational-cocharacter calculation are the RG layer7/G02 supplier refinement; native field point subgroups alone do not prove them."
    ],
    "acceptance": [
-    "A field of point-subgroup data alone cannot represent this relative group scheme."
+    "A field of point-subgroup data alone cannot represent this relative group scheme.",
+    "Do not replace the affine smooth-group splitting input by the general fpqc splitting theorem, or infer a global splitting on non-affine X."
    ],
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/pure-inner-twisting",
@@ -3907,6 +4025,11 @@
      "sourceId": "FS",
      "locator": "PropositionIII.5.2 p.105",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "Zie15",
+     "locator": "Theorem1.3 p.2; §4.3, Theorems4.14–4.16 pp.24–25 and Proposition4.24/Lemma4.25/Theorem4.26 pp.26–27",
+     "match": "Supplies the affine smooth-group splitting and positive filtered vector-quotient argument for Z-filtrations. The finite-generator denominator reduction to Q-filtrations is stated explicitly in the proof outline."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3936,6 +4059,11 @@
      "name": "TauCeti.BunG.FilteredAutomorphism.pullback",
      "role": "functoriality",
      "statement": "Scheme pullback commutes with H, its filtration and vector-group quotients."
+    },
+    {
+     "name": "TauCeti.BunG.FilteredAutomorphism.localSplit",
+     "role": "constructor",
+     "statement": "There is an affine open cover on which the filtered fibre functor splits; after an étale trivialization of its underlying torsor the splitting is a rational cocharacter D→G. This assertion is compatible with restriction and does not assert a global splitting on X."
     }
    ],
    "tests": [
@@ -3953,6 +4081,16 @@
      "name": "TauCeti.BunG.FilteredAutomorphism.testZeroWeight",
      "kind": "non-example",
      "statement": "At λ=0 the reductive Levi quotient is not generally an additive vector group."
+    },
+    {
+     "name": "TauCeti.BunG.FilteredAutomorphism.testRationalJump",
+     "kind": "computation",
+     "statement": "For GL_2 with ordered basis of weights 0,3/2, H^≥0 is lower triangular and H^>0 is its one-dimensional lower unipotent radical. H^≥1/H^>1 is trivial, H^≥(3/2)/H^>(3/2) is G_a, and H^≥2 is trivial. Clearing denominator2 preserves these thresholds."
+    },
+    {
+     "name": "TauCeti.BunG.FilteredAutomorphism.testNonAffine",
+     "kind": "non-example",
+     "statement": "On P^1_K, the Euler filtration 0→O(−1)→O^2→O(1)→0 defines a filtered GL_2 fibre functor with smooth underlying group, but no global splitting: O^2 is not O(−1)⊕O(1). It splits on affine opens. Thus the affine hypothesis cannot be dropped."
     }
    ],
    "uses": [
@@ -5372,14 +5510,15 @@
    ],
    "title": "Unitary ordinary flag locus",
    "kind": "theorem",
-   "statement": "In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The original Wedhorn and CGH comparison inputs are explicitly retained as source gaps.",
+   "statement": "In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The read original arguments identify the split/unramified cocharacter calculation and ambient Siegel rational-period criterion. Transport to this unramified unitary datum remains the exact PEL comparison in G07; the read CGH preprint assumes p splits completely.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Use the rational reflex cocharacter and the unramified ordinary theorem.",
-    "Apply the actual local p-divisible/flag ordinary comparison of CGH Proposition3.3.8.",
-    "A locally profinite diamond has Krull dimension0."
+    "Use the rational reflex cocharacter and BG1’s ordinary-class theorem. Wed99 Theorem1.6.3 pp.584–585 and §§2.3.1–2.3.2 pp.588–589 compute the split and unramified unitary averages; in the balanced inert unitary case the signature is half the height, so the average has only ordinary slopes. The full Shimura density theorem is not needed to identify the maximum B-class.",
+    "In the ambient Siegel datum, Sch15 Lemma3.3.6 and Remark3.3.7 pp.1006–1007 identify rank-one ordinary points by Q_p-rational Hodge–Tate filtration: the kernel of the integral Hodge–Tate map is the Tate module of the maximal multiplicative subgroup, so rationality forces its maximal possible rank. Specializations and the neighborhood argument of Lemmas3.3.15/3.3.19 pass to arbitrary adic points.",
+    "CGH20 arXiv v2 Proposition3.3.2 p.31 restricts this criterion through the closed PEL flag immersion into the Siegel flag and the corresponding forgetful moduli map. This is the actual locator in the read version; the Proposition3.3.8 cited by CS24 is not used as an unread proof. Verify the same local closed-flag and Hodge–Tate compatibility for the CS24 unramified unitary datum through IG.0. Do not import CGH20’s globally split-p hypothesis as a theorem for all unramified p.",
+    "Identify the sub-v-sheaf, not only its C-valued points, with the locally profinite rational-point diamond Fℓ(Q_p). D4 then gives Krull dimension0. The datum-specific comparison and full diamond signature remain G07/G08."
    ],
    "acceptance": [
     "The corresponding basic flag stratum is the open one; ordinary is the maximum index, not the basic index."
@@ -5396,6 +5535,21 @@
      "sourceId": "CS24",
      "locator": "AfterTheorem2.7.3 p.33",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "Wed99",
+     "locator": "Theorem1.6.3 pp.584–585; §§2.3.1–2.3.2 pp.588–589",
+     "match": "Ordinary/reflex-field criterion and the explicit split/balanced unramified unitary cocharacter calculation; no new expansion of the global density proof."
+    },
+    {
+     "sourceId": "CGH20",
+     "locator": "arXiv1804.00136v2 Proposition3.3.2 pp.30–31",
+     "match": "Ordinary Hodge–Tate preimage via the closed PEL/Siegel flag comparison. The source assumes completely split p; the broader unramified transport is explicitly separate."
+    },
+    {
+     "sourceId": "Sch15",
+     "locator": "Lemma3.3.6 and Remark3.3.7 pp.1006–1007; Lemmas3.3.15/3.3.19 pp.1011/1013",
+     "match": "Ambient Siegel ordinary/rational Hodge–Tate criterion, including the direct multiplicative-subgroup argument and the extension to non-rank-one adic points."
     }
    ],
    "implementationStatus": "unchecked",
@@ -7239,7 +7393,7 @@
   {
    "id": "G02",
    "title": "Relative reductive-group and Tannakian descent refinements",
-   "detail": "Expand the generic inner-form descent and scheme/analytic tensor-torsor representability arguments, including fpqc versus étale comparison, split filtered fibre functors (FS III.5.2 cites Ziegler Theorem1.3, not read here), relative smooth parabolic/radical representability and elliptic-torus transfer. The upstream field group category and dynamic point subgroups supply only their stated pieces. Route generic additions to ReductiveGroups; BG keeps its curve-specific conclusions. Ans19 Theorem3.11 also invokes the reductive invariant-theory/Haboush tensor argument; this non-routine input must be supplied by the rational representation owner rather than called an elementary tensor reduction.",
+   "detail": "The affine filtered splitting input has now been read: Zie15 Theorem1.3/4.15 needs an affine base and pro-smooth underlying automorphism group; for the reductive finite-type case that group is smooth. The proof outline clears rational weights on a local tensor generator, splits on affine charts, then trivializes the torsor étale locally. Proposition4.24/Lemma4.25 describe the positive vector quotients. What remains is the generic relative scheme/analytic tensor-torsor and filtered-group representability interface, rational-cocharacter root calculation and effective descent, together with generic inner-form descent and elliptic-torus transfer. Native dynamic field point subgroups do not provide these represented relative objects. Route the generic additions to ReductiveGroups; BG keeps its curve-specific conclusions. Ans19 Theorem3.11 also needs the non-routine reductive invariant-theory/Haboush tensor argument from the rational representation owner. No global non-affine splitting is assumed.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "BunGAndNewtonStrata:BG0/sigma-centralizer-J-b",
@@ -7263,7 +7417,7 @@
   {
    "id": "G04",
    "title": "G-isocrystal family descent and stratification refinements",
-   "detail": "The local sigma-conjugacy category and effective perfect-algebra family descent are specified, but the modern family-stack proof cited by FS I.2 (Ivanov 2023 and Hamacher–Kim 2022) was not read. Expand the v-local conjugation/descent argument and its locally closed constant-class loci. Do not use scheme κ-local-constancy to prove the v-descent premise on which it depends. For the new topology route, construct the analytic isocrystal comparison and expand GIZ26 Theorem7.13 (meromorphic comparison on products of points) in this owner. Its proof uses BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these are not supplied by the schematic family definition alone.",
+   "detail": "The formerly unread family-stack inputs are now located: Iva23 Lemma5.9/Proposition5.10, Ans22 Lemma11.3/Theorem11.4, and HK22 v5 Proposition2.10/Theorem2.11. The first two give an arc-descent proof independent of κ-local-constancy and coefficient-torsor v-triviality; the latter gives Isom torsors over perfect normal bases. FS cites HK22 v1 Theorem1.4, which had no normality hypothesis; v5 adds it. Use normal valuation-ring v-covers for the arbitrary-perfect-base v-stratum equivalence, without claiming arbitrary-base profinite étale trivialization. Expand the remaining exact inputs: perfectoid almost/sousperfectoid descent, rank-one punctured-period-ring torsor extension and valuation excision, Zink’s effective-lattice bound, slope-zero finite étale fixed sections, and tensor-line orbit lifting for the actual automorphism group. The schematic family κ theorem is a later input to stratification, not to descent. GIZ26 Theorem7.13 meromorphic comparison still needs BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these analytic inputs are not supplied by the schematic family definition.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
     "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent",
@@ -7294,7 +7448,7 @@
   {
    "id": "G07",
    "title": "Unitary flag dimension and ordinary comparison interiors",
-   "detail": "The datum and CS24 Theorem2.7.3 statement/proof route were checked, but the original Wedhorn Theorem1.6.3 and CGH+ Proposition3.3.8 proof interiors were not read. Expand the central-leaf/period-fibre dimension comparison and the ordinary rational-point identification for this unitary datum; do not generalize its d−d_b formula to arbitrary reductive flags.",
+   "detail": "The ordinary source boundary is narrowed by reading Wed99 Theorem1.6.3 and its split/balanced unramified unitary calculation, CGH20 arXiv v2 Proposition3.3.2 (the actual read locator), and Sch15 Lemma3.3.6/Remark3.3.7/Lemma3.3.19. The rank-one rational Hodge–Tate criterion and its specialization argument are explicit. CGH20 assumes p splits completely; extend its local closed-flag/forgetful PEL compatibility to the CS24 unramified unitary datum and identify the entire sub-v-sheaf with the rational-point diamond. Separately expand the central-leaf/period-fibre comparison yielding Krull dimension d−d_b; this is not a consequence of the ordinary criterion or upper semicontinuity. Published CGH numbering is not claimed collated, and Wedhorn’s global density deformation proof is not newly expanded.",
    "neededBy": [
     "BunGAndNewtonStrata:BG3/unitary-flag-stratum-dimension",
     "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus"
@@ -7477,7 +7631,7 @@
  "requests": [
   {
    "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
-   "need": "Use the existing étale/fpqc descent of affine morphisms, torsors and locally free modules. Do not infer the relative filtered reductive-group representability theorem from algebraic-space descent alone; its missing foundation is G02.",
+   "need": "Use the existing étale/fpqc descent of affine morphisms, torsors and locally free modules. Do not infer the relative filtered reductive-group representability theorem from algebraic-space descent alone; its missing foundation is G02. For families, the specific coefficient-ring arc-descent is Ans22 Lemma11.3: reconstruct torsors from exact tensor functors and reflect exactness using Iva23 Corollary5.6, not an assumed faithfully flat coefficient-ring map.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent",
@@ -7497,11 +7651,12 @@
   },
   {
    "supplier": "DiamondsAndVStacks:D2",
-   "need": "Use D2 only for pro-étale/v sites. Analytic-adic/diamond étale comparison is the separately read D6/etale-site-comparison; strictly totally disconnected covers and geometric lifting come from D1. The curve/Div^1 comparison remains the RF2/G05 refinement. D6’s read analytic comparison assumes a Z_p base; the equal-characteristic counterpart remains G05.",
+   "need": "Use D2 only for pro-étale/v sites. Analytic-adic/diamond étale comparison is the separately read D6/etale-site-comparison; strictly totally disconnected covers and geometric lifting come from D1. The curve/Div^1 comparison remains the RF2/G05 refinement. D6’s read analytic comparison assumes a Z_p base; the equal-characteristic counterpart remains G05. The family descent route also uses the perfect-scheme v-site and normal valuation-ring covers; Iva23 Lemma5.9 gives the stronger perfectoid arc-descent input. Do not identify this site with the perfectoid base of Bun_G.",
    "neededBy": [
     "BunGAndNewtonStrata:BG2:uniformization/curve-etale-base-site",
     "BunGAndNewtonStrata:BG2:uniformization/strictly-disconnected-torsors",
-    "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting"
+    "BunGAndNewtonStrata:BG2:uniformization/grassmannian-point-lifting",
+    "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
    ]
   },
   {
@@ -7582,7 +7737,7 @@
   },
   {
    "supplier": "IgusaVarietiesAndTorsionConcentration:IG.0",
-   "need": "Use its unitary PEL signatures, integral model and comparison of the local B-class with the p-divisible-group Newton stratum of dimension d_b=<2ρ,ν_b>. BG3 constructs the flag Newton strata and proves their dimension d−d_b for precisely this unitary datum. IG.0 imports BG0/BG1 general B(G), κ, ν, J_b and acceptable classes; avoid an edge back from BG1 to PEL geometry.",
+   "need": "Use its unitary PEL signatures, integral model and comparison of the local B-class with the p-divisible-group Newton stratum of dimension d_b=<2ρ,ν_b>. BG3 constructs the flag Newton strata and proves their dimension d−d_b for precisely this unitary datum. IG.0 imports BG0/BG1 general B(G), κ, ν, J_b and acceptable classes; avoid an edge back from BG1 to PEL geometry. Export the local Hodge–Tate compatibility of the unitary-to-Siegel forgetful map and closed flag immersion at every unramified p in this datum. The read CGH20 v2 Proposition3.3.2 proves its comparison under completely split p; BG cannot silently widen that hypothesis. Sch15 Lemma3.3.6/Remark3.3.7 supplies the ambient ordinary/rational-period criterion.",
    "neededBy": [
     "BunGAndNewtonStrata:BG3/unitary-flag-stratum-dimension",
     "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus"
@@ -7619,11 +7774,12 @@
   },
   {
    "supplier": "ReductiveGroupsPartII:RG2.3",
-   "need": "Import the connected parahoric and positive-loop/fixer structures already planned by upstream RG2.3, preserving the distinction between a parahoric and G(O_L). Request only the precise integral-conjugacy/lifting refinements used by KZ Proposition2.3.3: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors remain G10. Extended-Weyl double-coset structure is imported from upstream RG2.4.",
+   "need": "Import the connected parahoric and positive-loop/fixer structures already planned by upstream RG2.3, preserving the distinction between a parahoric and G(O_L). Request only the precise integral-conjugacy/lifting refinements used by KZ Proposition2.3.3: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors remain G10. Extended-Weyl double-coset structure is imported from upstream RG2.4. For HK22 §2.1 and Theorem2.11, import the existing connected smooth affine O_E-model with generic fibre G from its parahoric-group-scheme target; no new integral-model theory is planned in BG.",
    "neededBy": [
     "BunGAndNewtonStrata:BG1/straight-weyl-classification",
     "BunGAndNewtonStrata:BG1/ordinary-integral-conjugacy",
-    "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus"
+    "BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus",
+    "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
    ]
   },
   {
@@ -7703,9 +7859,10 @@
   },
   {
    "supplier": "VectorBundlesAndIsocrystals:VB0",
-   "need": "Export the finite-dimensional isocrystal tensor category over a general local coefficient field E, semilinear descent and change-of-trivialization, with rank-one π^m slope m. No reductive B(G) theory is imported from this linear stage. Export the compatible local algebraic closures, the embedding into the coefficient algebraic closure, arithmetic Frobenius and degree-r unramified fixed fields. Global-v choices of the Shimura paper are not used in the local targets.",
+   "need": "Export the finite-dimensional isocrystal tensor category over a general local coefficient field E, semilinear descent and change-of-trivialization, with rank-one π^m slope m. No reductive B(G) theory is imported from this linear stage. Export the compatible local algebraic closures, the embedding into the coefficient algebraic closure, arithmetic Frobenius and degree-r unramified fixed fields. Global-v choices of the Shimura paper are not used in the local targets. For the perfect-algebra family application, supply the effective-lattice bound and slope-zero finite étale fixed-section construction used in HK22 v5 Lemmas2.8–2.9/Proposition2.10. Its profinite étale isotriviality requires a perfect normal base; the BG v-stack application handles other perfect bases only after normal v-covers.",
    "neededBy": [
-    "BunGAndNewtonStrata:BG0/families-of-g-isocrystals"
+    "BunGAndNewtonStrata:BG0/families-of-g-isocrystals",
+    "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
    ],
    "routedItems": [
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22/galois-and-closure-conventions",
@@ -7828,7 +7985,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02.",
+   "need": "Use the existing rational representation/comodule category, rigid exact tensor structure, tensor-functor torsor reconstruction and faithful-representation descent. Export the upstream definitions rather than replacing them by abstract representations of G(E). Relative analytic/scheme representability beyond the existing field category is separately recorded in gap G02. The HK22 v5 Theorem2.11 application additionally requires faithful tensor-line stabilizer reconstruction over the coefficient ring and local lifting for the actual automorphism-group orbit, preserving all tensors; a GL of the ambient Hom space is insufficient to state that lifting input.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/structure-group-and-tensor-descent",
@@ -7837,12 +7994,13 @@
     "BunGAndNewtonStrata:BG2:smooth-Artin/isom-sheaf-representability",
     "BunGAndNewtonStrata:BG4/chart-jacobian-positivity",
     "BunGAndNewtonStrata:BG1/slope-protorus",
-    "BunGAndNewtonStrata:BG1/representation-detects-dominance"
+    "BunGAndNewtonStrata:BG1/representation-detects-dominance",
+    "BunGAndNewtonStrata:BG0/isocrystal-family-v-descent"
    ]
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-   "need": "Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are imported from existing upstream RG2.1.5, with only the remaining G01 refinements requested. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer.",
+   "need": "Use existing Borels, maximal tori, parabolics, Levi factors and based root/Galois data. Generic pure-inner descent, elliptic torus transfer and filtered relative group-scheme representability need the extension in G02; generic z-extensions are imported from existing upstream RG2.1.5, with only the remaining G01 refinements requested. Exact routed refinements: elliptic maximal tori modulo the center; rational transfer of a maximal torus of an inner Levi and its existence for quasi-split or elliptic cases; descent of Galois-invariant parabolic classes and rational Levi factors. These additions are G02, not claimed built in the field layer. The filtered refinement is precise: represent Aut^⊗ of a filtered G-torsor over any K-scheme, its parabolic and positive raising subgroups, Lie subbundles and positive vector quotients, with base change. Zie15 Theorem1.3/4.15 supplies splitting on affine charts because the underlying reductive inner form is smooth; clear Q-weight denominators on a tensor generator before applying it. Relative rational-cocharacter representability/descent remains additional work, and global non-affine splitting is excluded.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
@@ -10121,20 +10279,108 @@
     "Definition III.2.1 and Theorem III.2.2, printed pp.89–90 (PDF pp.89–90)."
    ],
    "note": "Codex codex-vADPRt read these passages to check Frobenius on rational representations and the trivialization boundary. Native point reconstruction is supplied by the pinned library. This does not assert another full-source audit or published-edition collation; all statements use own words."
+  },
+  {
+   "source": "Zie15",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1111.1981v4",
+   "read": "2026-10-10",
+   "sha256": "742e6ecb5be56cb3fc7c1b48a944ae0fdba91a0e8546f3ff61f6b6f57054ea9f",
+   "sections": [
+    "Theorem1.3 p.2 and the Tannakian hypotheses in §§1–2 pp.1–5; Theorem4.6 and Definitions4.7–4.11 pp.22–23; Lemma4.12, Theorems4.13–4.16 and Lemmas4.17–4.22 pp.23–25; Proposition4.24, Lemma4.25 and Theorem4.26 with their proofs pp.26–27. The general fpqc-splitting proof in §5 is not claimed expanded."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "Iva23",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2003.04399v3",
+   "read": "2026-10-10",
+   "sha256": "83407106dc3be635594040a9f6cab1a956aa05c0b05611b36e75067e65af549a",
+   "sections": [
+    "§§2.1.1–2.1.2 pp.5–6, coefficient and finite-field Frobenius setup in both characteristics; Theorem5.1 and its proof route p.11; Corollary5.6 p.13; Lemmas5.8–5.9 and Proposition5.10 with their proofs pp.14–15. Perfectoid almost descent and the sousperfectoid comparison are retained as supplier inputs."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "Ans22",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1804.06356v2",
+   "read": "2026-10-10",
+   "sha256": "27c2e6fef2d1fd82ad825b087dbf19b1cd496b8bfc7a60ce6bdba8deaca08354",
+   "sections": [
+    "§11, Lemmas11.1–11.3 and Theorem11.4 with proofs pp.33–36. Theorem9.10 on the rank-one punctured period ring and Steinberg Theorem7.1 are identified external inputs, not newly expanded here."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "HK22",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2208.01069v5",
+   "read": "2026-10-10",
+   "sha256": "f060ee365ba1b6ba50b0c39cc086e1d87726643228ad001d6aa64fe7f54bb5c2",
+   "sections": [
+    "Theorem1.1 p.2; §2.1 p.5 and §2.5 p.6; Lemmas2.8–2.9 pp.7–8; Proposition2.10 p.8 and Theorem2.11 with proof p.9. The latter two require a perfect normal base. Zink’s effective-lattice input and the tensor-line orbit-lifting step remain explicit proof obligations."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "HK22",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2208.01069v1",
+   "read": "2026-10-10",
+   "sha256": "6005d63c5f5b37b70cfb107429ccb92e61b5f739c745b2acf6da144cc5189cc5",
+   "sections": [
+    "Theorem1.4 p.3, Proposition2.10 pp.7–8 and Theorem2.11 p.8 compared with v5."
+   ],
+   "note": "FS I.2.1 footnote3 cites this Theorem1.4. The v1 statement allowed an arbitrary perfect base and attempted a non-normal reduction; v5 Theorem1.1/2.11 requires normality and omits that reduction. The packet uses the current normal-base result on valuation-ring v-covers, without claiming arbitrary-base profinite étale triviality."
+  },
+  {
+   "source": "Wed99",
+   "kind": "published",
+   "url": "https://www.numdam.org/article/ASENS_1999_4_32_5_575_0.pdf",
+   "read": "2026-10-10",
+   "sha256": "2d44cd511bd311580b110296ad118b39f2ede4173b7db68adbab188a9b7f57ba",
+   "sections": [
+    "§1.6, Theorem1.6.3 and its first proof part pp.584–585 (PDF11–12); §§2.3.1–2.3.2, split and unramified unitary cocharacter calculations pp.588–589 (PDF15–16). The density theorem’s deformation proof in Chapters3–4 is not newly expanded."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "CGH20",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1804.00136v2",
+   "read": "2026-10-10",
+   "sha256": "11d2c275c5dcf3bd715de9e4dc95ebcdb9884259cd7bc4fec01294b4bbf6cdc7",
+   "sections": [
+    "§3.3, Proposition3.3.2 and proof pp.30–31. CS24’s Proposition3.3.8 locator is not the number in this read version. The source’s global hypothesis that p splits completely in the CM field is retained; extending its local closed-flag argument to the unramified CS24 datum is a separate comparison obligation."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
+  },
+  {
+   "source": "Sch15",
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v182-n3-p03-p.pdf",
+   "read": "2026-10-10",
+   "sha256": "ebac854f47381c19a987b43b59d2c05cad55c3186c4d8cde067a7be0d06cbd16",
+   "sections": [
+    "Lemma3.3.6 and Remark3.3.7 with proof pp.1006–1007 (PDF62–63); Lemma3.3.15 p.1011 (PDF67); Lemmas3.3.19–3.3.20 and their argument p.1013 (PDF69). The earlier canonical-subgroup and Hodge–Tate comparison inputs are not newly expanded."
+   ],
+   "note": "Only the listed passages and proof arguments were read. Published-edition collation is claimed only where the edition explicitly says published."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
   "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures. Continuation codex-vADPRt adds native finite-comodule coefficient Frobenius, trivialized tensor families and their native Tannakian reconstruction, actual tensor arrows/category equivalence and tensor-Aut/point-stabilizer comparison. The untrivialized exact isocrystal category and Steinberg comparison remain supplier obligations. Continuation codex-pUspDa adds native integral cyclic coinvariants, the range-of-τ−id formula, unique sigma-class Kottwitz descent, native naturality/surjectivity and an actual abelian quotient equivalence with identity/sign controls. Reductive/local-field instantiation remains explicit supplier work. Continuation codex-CxGyYK updates only the omitted filtered-group, family-descent and ordinary-flag contracts and their source hypotheses; it adds no elaborated geometric target signatures.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
    "warnings": "Only admitted-proof declaration warnings (175); no errors or other warnings.",
-   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent.",
-   "agent": "Codex — codex-pUspDa"
+   "limitation": "Checks typed native algebraic, numerical and categorical interfaces, including integral cyclic coinvariants, sigma-class descent and abelian quotient controls. It does not elaborate the omitted analytic geometry, general-E Newton map, local Frobenius/Galois instantiation, untrivialized exact isocrystal comparison or reductive centralizer descent. The new affine-splitting and rational/non-affine controls remain explicit omission-register contracts, rather than typed examples.",
+   "agent": "Codex — codex-CxGyYK"
   }
  },
  "upstreamNotes": [
@@ -10151,6 +10397,11 @@
    "owner": "ReductiveGroupsPartII:RG2.1",
    "commit": "8acc80159cfd301db68bde9393a52668efdd8c8c",
    "note": "Rechecked current main README and Suggested.lean for kottwitz-homomorphism: upstream owns the representative homomorphism, torus and z-extension construction. Its README explicitly states local σ-equivariance without a Lean target. BG consumes the homomorphism and requests precisely that missing instantiation; it now types the integral sigma-class descent. AlgebraicVectorBundles README and current Tau Ceti were also inspected for the missing analytic supplier categories; no replacement was found."
+  },
+  {
+   "owner": "ReductiveGroupsPartII:RG2.1",
+   "commit": "e255659f8eb50cd472809d9d565c8f755acffd84",
+   "note": "Read current ReductiveGroups, ReductiveGroupsPartII RG2.1.5 and AlgebraicVectorBundles plus the current Tau Ceti library. The representative Kottwitz map remains supplied; the local sigma-equivariance paragraph still lacks a full Lean target. The scheme bundle roadmap does not supply relative analytic FF bundles. No current replacement for the omitted exact isocrystal structures, actual perfectoid v-site, ArtinVStack or analytic Jacobian/cohomological predicates was found. No upstream files were modified or lake commands run there."
   }
  ],
  "review": {
