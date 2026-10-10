@@ -824,6 +824,37 @@ Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular cha
 
 The native finite, flat, locally finitely presented and surjective signatures for D each assume the corresponding property of [e]:A→A. These are transfers to products, with the abelian-scheme theorem supplying the hypotheses at e=2g−2≠0. They do not assert a multiplication-isogeny theorem for an arbitrary group object. The helper maps are checked on a single factor, a zero translation and a diagonal tuple; D is also checked at e=1 and e=0, where the latter kills its tails. In the Jacobian application A is commutative, so D preserves the group law; finite locally free multiplication gives the required isogeny without an invertibility assumption on e. See also [Yuan, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), proof of Theorem 4.17(5) p. 98.
 
+The product transfer must identify the schemes and their morphisms. Separate the head to obtain H:A^{n+1}_S≅A×_S A^n_S. Its forward map sends (a₀,…,a_n) to (a₀,(a₁,…,a_n)); its inverse reassembles that tuple, in order. Then D≫H=H≫(id_A×[e]^n). This is an equality of S-morphisms. Stability under products and invariance under isomorphism transfer each geometric property of [e] to D. For n=0 the tail fibre power is the terminal object over S, and D is identity without any multiplication hypothesis.
+
+The represented-point map D_T is a group homomorphism on (Hom_S(T,A))^{n+1} when A is commutative. Keep that hypothesis on the group-homomorphism interface: powering an arbitrary noncommutative group does not preserve multiplication. These are actual test-scheme morphisms, and the homomorphisms commute with precomposition T′→T. For every S′→S, transport D through the canonical finite-product base-change comparison; it is then exactly the tail multiplication on A_{S′}. Neither naturality statement is restricted to reduced bases.
+
+**Companion API for the product decomposition.**
+
+- `RelativeJacobian.TailMultiplication.headTailIso`: The S-scheme isomorphism H just described, including its inverse.
+- `RelativeJacobian.TailMultiplication.headTailIso_first`: Projection to A after H is the original coordinate 0.
+- `RelativeJacobian.TailMultiplication.headTailIso_tail`: Tail coordinate i after H is original coordinate i+1.
+- `RelativeJacobian.TailMultiplication.headTailIso_inverse`: Reassembling a:T→A and a tail tuple q gives the tuple with head a and tail q.
+- `RelativeJacobian.TailMultiplication.split`: The identity D≫H=H≫(id_A×[e]^n) on the actual fibre powers.
+
+**Unit tests for the product decomposition.**
+
+- `RelativeJacobian.TailMultiplication.headTailIso.test_singleton` (degenerate): H maps a one-coordinate tuple (a) to (a,()) with its terminal empty tail.
+- `RelativeJacobian.TailMultiplication.headTailIso.test_pair` (computation): H sends (a,b) to (a,(b)), preserving the coordinate order and doing no integer scaling.
+- `RelativeJacobian.TailMultiplication.headTailIso.test_inversePair` (compatibility): H⁻¹ sends (a,(b)) back to (a,b), with the maps interpreted on every test scheme.
+
+**Companion API for tail multiplication on represented points.**
+
+- `RelativeJacobian.TailMultiplication.points`: For commutative A, the homomorphism D_T fixes the head and sends each tail to its e-th power; its bundled homomorphism laws give preservation of the identity and multiplication.
+- `RelativeJacobian.TailMultiplication.represented`: The morphism D represents D_T: the tuple q followed by D is the tuple D_T(q).
+- `RelativeJacobian.TailMultiplication.natural`: D_{T′}(h*q)=h*D_T(q) for every h:T′→T, where h* means precomposition in each coordinate.
+- `RelativeJacobian.TailMultiplication.baseChange`: The image of D under S′→S agrees with the D of A_{S′} after the canonical finite-product comparison.
+
+**Unit tests for tail multiplication on represented points.**
+
+- `RelativeJacobian.TailMultiplication.points.test_double` (computation): At e=2, D_T(a,b)=(a,b²); the head is not squared.
+- `RelativeJacobian.TailMultiplication.points.test_negative` (computation): At e=−1, D_T fixes the head and inverts every tail.
+- `RelativeJacobian.TailMultiplication.points.test_zero` (degenerate): At e=0, D_T fixes the head and replaces every tail by the identity; zero multiplication is not treated as a general isogeny.
+
 **Checks.** For m=1 D is identity. In characteristic dividing 2g−2, D is finite but need not be étale.
 
 ## JC6. Stable Hodge bundles and determinant lines

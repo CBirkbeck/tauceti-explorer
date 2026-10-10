@@ -19,6 +19,9 @@ JC5.3 takes the earlier section-free difference morphism; JC5.4 takes both.
 JC5.5 represents the triangular coordinate equivalence by a scheme isomorphism.
 JC5.6 states the coordinate factorization given the earlier Abel-difference
 identity and transfers native morphism properties of integer multiplication.
+Its tail map is identified with identity times the tailwise multiplication by
+a native scheme isomorphism; represented-point homomorphisms, naturality and
+arbitrary-base-change comparisons accompany that decomposition.
 
 The identification of these inputs with the geometric constructions of JC2
 and JC5.1, and the supplier's multiplication theorem, remain required. Their
@@ -351,6 +354,110 @@ lemma first (n : ℕ) (e : ℤ) :
 lemma tail (n : ℕ) (e : ℤ) (i : Fin (n + 1)) (hi : i ≠ 0) :
     TailMultiplication (A := A) n e ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
       Pi.π (fun _ : Fin (n + 1) ↦ A) i ^ e := by
+  sorry
+
+/-- Separate the head from the tail as actual fibre-power schemes over S. -/
+def headTailIso (n : ℕ) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ A) ≅ A ⨯ (∏ᶜ fun _ : Fin n ↦ A) where
+  hom := prod.lift (Pi.π (fun _ : Fin (n + 1) ↦ A) 0)
+    (Pi.lift (fun i : Fin n ↦ Pi.π (fun _ : Fin (n + 1) ↦ A) i.succ))
+  inv := Pi.lift (Fin.cases prod.fst
+    (fun i : Fin n ↦ prod.snd ≫ Pi.π (fun _ : Fin n ↦ A) i))
+  hom_inv_id := by sorry
+  inv_hom_id := by sorry
+
+omit [GrpObj A] in
+lemma headTailIso_first (n : ℕ) :
+    (headTailIso (A := A) n).hom ≫ prod.fst =
+      Pi.π (fun _ : Fin (n + 1) ↦ A) 0 := by
+  sorry
+
+omit [GrpObj A] in
+lemma headTailIso_tail (n : ℕ) (i : Fin n) :
+    (headTailIso (A := A) n).hom ≫ prod.snd ≫ Pi.π (fun _ : Fin n ↦ A) i =
+      Pi.π (fun _ : Fin (n + 1) ↦ A) i.succ := by
+  sorry
+
+omit [GrpObj A] in
+lemma headTailIso_inverse (n : ℕ) (a : T ⟶ A) (q : Fin n → (T ⟶ A)) :
+    prod.lift a (Pi.lift q) ≫ (headTailIso (A := A) n).inv =
+      Pi.lift (Fin.cases a q) := by
+  sorry
+
+/-- The decomposition identifies D with identity × the product of [e].
+Finite, flat, presentation and surjectivity transfers use product stability
+and invariance under this isomorphism, rather than just a pointwise formula. -/
+lemma split (n : ℕ) (e : ℤ) :
+    TailMultiplication (A := A) n e ≫ (headTailIso (A := A) n).hom =
+      (headTailIso (A := A) n).hom ≫
+        prod.map (𝟙 A) (CategoryTheory.Limits.Pi.map
+          (fun _ : Fin n ↦ ((𝟙 A) ^ e : A ⟶ A))) := by
+  sorry
+
+/-- On actual T-valued points D is a group homomorphism when A is commutative.
+This condition matters: integer powers need not preserve a noncommutative law. -/
+def points [IsCommMonObj A] (n : ℕ) (e : ℤ) :
+    (Fin (n + 1) → (T ⟶ A)) →* (Fin (n + 1) → (T ⟶ A)) where
+  toFun q i := if i = 0 then q 0 else q i ^ e
+  map_one' := by sorry
+  map_mul' := by sorry
+
+lemma represented [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    (q : Fin (n + 1) → (T ⟶ A)) :
+    Pi.lift q ≫ TailMultiplication (A := A) n e =
+      Pi.lift (points (T := T) n e q) := by
+  sorry
+
+lemma natural [IsCommMonObj A] {U : Over S} (h : U ⟶ T) (n : ℕ) (e : ℤ)
+    (q : Fin (n + 1) → (T ⟶ A)) :
+    points (T := U) n e (fun i ↦ h ≫ q i) =
+      fun i ↦ h ≫ points (T := T) n e q i := by
+  sorry
+
+/-- Arbitrary base change preserves D with the finite-product comparison. -/
+lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) (e : ℤ) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (TailMultiplication (A := A) n e) ≫
+        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
+      (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom ≫
+        TailMultiplication (A := (Over.pullback f).obj A) n e := by
+  sorry
+
+-- headTailIso.test_singleton: the empty tail is the terminal fibre power.
+omit [GrpObj A] in
+example (a : T ⟶ A) :
+    Pi.lift (fun _ : Fin 1 ↦ a) ≫ (headTailIso (A := A) 0).hom =
+      prod.lift a (Pi.lift (fun i : Fin 0 ↦ Fin.elim0 i)) := by
+  sorry
+
+-- headTailIso.test_pair: order and absence of scaling in the decomposition.
+omit [GrpObj A] in
+example (a b : T ⟶ A) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else b) ≫ (headTailIso (A := A) 1).hom =
+      prod.lift a (Pi.lift (fun _ : Fin 1 ↦ b)) := by
+  sorry
+
+-- headTailIso.test_inversePair: recover the original head and tail, in order.
+omit [GrpObj A] in
+example (a b : T ⟶ A) :
+    prod.lift a (Pi.lift (fun _ : Fin 1 ↦ b)) ≫ (headTailIso (A := A) 1).inv =
+      Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else b) := by
+  sorry
+
+-- points.test_double: the head stays unchanged when the tails are squared.
+example [IsCommMonObj A] (a b : T ⟶ A) :
+    points (T := T) 1 2 (fun i : Fin 2 ↦ if i = 0 then a else b) =
+      fun i : Fin 2 ↦ if i = 0 then a else b * b := by
+  sorry
+
+-- points.test_negative: negative integer multiplication inverts the tails.
+example [IsCommMonObj A] (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
+    points (T := T) n (-1) q = fun i ↦ if i = 0 then q 0 else (q i)⁻¹ := by
+  sorry
+
+-- points.test_zero: zero multiplication fixes the head and kills each tail.
+example [IsCommMonObj A] (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
+    points (T := T) n 0 q = fun i ↦ if i = 0 then q 0 else 1 := by
   sorry
 end TailMultiplication
 
