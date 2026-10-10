@@ -38421,8 +38421,9 @@
     "BP-AutomorphicFormsOnReductiveGroups~3"
    ],
    "prompt": "research/blueprint/prompts/REV-AutomorphicFormsOnReductiveGroups~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7952"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7952",
+   "finishedAt": "2026-10-10T08:26:20Z"
   },
   {
    "kind": "blueprint",
@@ -38741,8 +38742,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6928"
+   "state": "external",
+   "note": "claimed on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -46771,8 +46772,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48221,8 +48222,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -81381,8 +81382,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
