@@ -38787,7 +38787,8 @@
     "BP-BunGAndNewtonStrata~2"
    ],
    "prompt": "research/blueprint/prompts/REV-BunGAndNewtonStrata~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7032"
   },
   {
    "kind": "blueprint",
@@ -46811,8 +46812,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48174,8 +48175,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ErdosProgressionPowers.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7538"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7538",
+   "finishedAt": "2026-10-10T14:21:42Z"
   },
   {
    "id": "REV-PKG-ErdosProgressionPowers",
@@ -80123,8 +80125,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81433,8 +81435,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
