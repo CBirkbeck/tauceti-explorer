@@ -83,7 +83,7 @@ def symmetricSpace.connectedVariant (KA0 KA : Subgroup G) (h : KA0 ≤ KA) :
 
 /-- Genuine quotient test: the split-centre correction makes GL₁/ℚ a point.
 Every nonzero real scalar is a sign times a positive scalar, so KA = G. -/
--- test: symmetricSpace_GL1 (r₁=1, r₂=0 specialization; full test in catalogue)
+-- adapter-test: symmetricSpace_GL1 (r₁=1, r₂=0 specialization; full test in catalogue)
 example : Subsingleton (symmetricSpace ℝˣ ⊤) := by sorry
 
 /-- The exact GL₂ stabilizer of i, including positive real scalars. -/
@@ -378,14 +378,34 @@ theorem smul_eq_trace {M : Type u} [AddCommGroup M] (ρ : Representation ℤ G M
     ((basis U ℤ g 1 • m : Representation.invariants (ρ.comp U.subtype)) : M) =
       ∑ r ∈ reps, ρ r m := by sorry
 
--- signature: LocallySymmetric.Hecke.invariantsFunctor
-def invariantsFunctor : Rep.{v} ℤ G ⥤ ModuleCat.{v} (HeckeRing (⊤ : Submonoid G) U ℤ) := by sorry
-
+/-- The carrier is the actual invariant submodule, with the convolution action above. -/
 def invariantsObject (M : Rep.{v} ℤ G) :
-    ModuleCat.{v} (HeckeRing (⊤ : Submonoid G) U ℤ) := by sorry
+    ModuleCat.{v} (HeckeRing (⊤ : Submonoid G) U ℤ) :=
+  letI : Module ℤ M.V := M.hV2
+  letI := invariantsModule U M.ρ
+  ModuleCat.of _ (Representation.invariants (M.ρ.comp U.subtype))
+
+/-- Restrict the given intertwiner; linearity for convolution is the obligation. -/
+def invariantsMap {M N : Rep.{v} ℤ G} (f : M ⟶ N) :
+    invariantsObject U M ⟶ invariantsObject U N := by
+  letI : Module ℤ M.V := M.hV2
+  letI : Module ℤ N.V := N.hV2
+  letI := invariantsModule U M.ρ
+  letI := invariantsModule U N.ρ
+  exact ModuleCat.ofHom {
+    toFun := fun m => ⟨f.hom m, by sorry⟩
+    map_add' := by sorry
+    map_smul' := by sorry }
+
+-- signature: LocallySymmetric.Hecke.invariantsFunctor
+def invariantsFunctor : Rep.{v} ℤ G ⥤ ModuleCat.{v} (HeckeRing (⊤ : Submonoid G) U ℤ) where
+  obj := invariantsObject U
+  map := invariantsMap U
+  map_id := by sorry
+  map_comp := by sorry
 
 def invariantsFunctor_objIso (M : Rep.{v} ℤ G) :
-    (invariantsFunctor U).obj M ≅ invariantsObject U M := by sorry
+    (invariantsFunctor U).obj M ≅ invariantsObject U M := Iso.refl _
 
 -- signature: LocallySymmetric.Hecke.one_smul
 theorem one_smul {M : Type u} [AddCommGroup M] (ρ : Representation ℤ G M)
