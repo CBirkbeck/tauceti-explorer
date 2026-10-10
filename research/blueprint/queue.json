@@ -35559,7 +35559,8 @@
    ],
    "avoidAccountOf": "BP-ColemanPowerSeries--L0",
    "prompt": "research/blueprint/prompts/REV-ColemanPowerSeries--L0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6430"
   },
   {
    "id": "BP-ColemanPowerSeries--L1",
@@ -37532,7 +37533,8 @@
     "DESIGN-StableReductionPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-StableReductionPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6395"
   },
   {
    "kind": "design",
@@ -43141,7 +43143,8 @@
    ],
    "revisionOf": "BP-AnalyticNumberTheory--AN.8",
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6512"
   },
   {
    "priority": 2,
@@ -48330,8 +48333,9 @@
     "PKG-GL2AutomorphicRepresentationsAndTransfer"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7929"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7929",
+   "finishedAt": "2026-10-10T18:23:37Z"
   },
   {
    "id": "PKG-GeneralizedHeegnerCycles",
@@ -49117,8 +49121,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7592"
+   "state": "external",
+   "note": "claimed on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49299,8 +49303,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80175,8 +80179,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81485,8 +81489,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
