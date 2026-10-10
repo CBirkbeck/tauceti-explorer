@@ -15331,8 +15331,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ArithmeticDirichletSeriesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3451"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3451",
+   "finishedAt": "2026-10-10T21:38:09Z"
   },
   {
    "id": "REV-DESIGN-ArithmeticDirichletSeriesPartII",
@@ -31508,7 +31509,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticDynamics",
    "prompt": "research/blueprint/prompts/REV-ArithmeticDynamics.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #530"
   },
   {
    "id": "BP-ArithmeticQuantumTopology",
