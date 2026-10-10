@@ -1,6 +1,6 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-09; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-10; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
 
 **Where it stands.** The `top` label covers tiers 1–4. SchemeAndStackFoundations (TauCetiRoadmap #779) and PadicMeasuresIwasawaAlgebras (#780) are open pull requests under review. ReductiveGroupsPartII, AdelicAlgebraicGroups and SmoothRepresentationsOfLocalGroups are in their final check and go up in one pull request (A), with IntegralHeckeAndGaloisDeterminants stacked on it (A′): one pull request instead of the three the tiers alone would suggest, because the three were gated together and cite each other. The adic package (AdicEtaleGeometry, AdicSpacesPartII, DiamondsAndVStacks, PerfectoidSpaces) is in its final check as the planned merged package (B). The remaining tier 3–4 roadmaps (GeometryOfNumbersAndQuadraticArithmetic, EnhancedDerivedSheaves, AlgebraicModuliForArithmeticGeometry, LocallyAnalyticDistributions, DiophantineApproximationAndTranscendence) are on the explorer board as package and fix jobs.
 
@@ -19,14 +19,14 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 1
 
 - **FoundationsAndLibraryIntegration** — Foundations, existing libraries, and proof integrity. No plan yet · package not yet · CN needs 5/6 layers
-- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: final check, pull request A** · move down: AlgebraicModuliForArithmeticGeometry (1)
-- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open**
+- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: pull request #785 open** · move down: AlgebraicModuliForArithmeticGeometry (1)
+- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open**
 
 ## Tier 2
 
-- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: final check, pull request A** · move down: ModularCurvesPartII (2)
+- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: pull request #785 open** · move down: ModularCurvesPartII (2)
 - **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 3/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #779 open** · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
-- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 1/2 accepted · package not yet · CN needs 10/11 layers · **Tau Ceti: final check, pull request A** · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
+- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 1/2 accepted · package not yet · CN needs 10/11 layers · **Tau Ceti: pull request #785 open** · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
 
 ## Tier 3
 
@@ -47,23 +47,23 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 5
 
-- **ComplexComparisonPartII** — Complex Comparison PartII. Plan 0/1 accepted · package not yet · CN needs 6/7 layers
-- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 0/1 accepted · package not yet · CN needs 3/8 layers · move down: ComputationalNumberTheory (1), AnalyticNumberTheory (1) · cites outside the 94: KTheoryLowDegrees (3), K2SymbolsBrauer (3), QSeriesPartitionsAndMockModularForms (3), ArithmeticDynamics (2)
+- **ComplexComparisonPartII** — Complex Comparison PartII. Plan 1/1 accepted · package not yet · CN needs 6/7 layers
+- **ClassicalArithmeticCompletion** — Classical arithmetic, sequences, polynomials and reciprocity. Plan 0/1 accepted · package not yet · CN needs 3/8 layers · cites outside the 94: KTheoryLowDegrees (3), K2SymbolsBrauer (3), QSeriesPartitionsAndMockModularForms (3), ArithmeticDynamics (2)
 
 ## Tier 6
 
-- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 0/1 accepted · package not yet · CN needs 3/7 layers
-- **AbelianSchemesAndArithmeticModuli** — Abelian Schemes And Arithmetic Moduli. Plan 0/1 accepted · package not yet · CN needs 6/7 layers · move down: FiniteFlatGroupsAndIntegralPadicHodgeTheory (3), ArithmeticGaloisRepresentations (3)
+- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 1/1 accepted · package not yet · CN needs 3/7 layers · cites outside the 94: InductionRestrictionPartII (14)
+- **AbelianSchemesAndArithmeticModuli** — Abelian Schemes And Arithmetic Moduli. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · move down: FiniteFlatGroupsAndIntegralPadicHodgeTheory (3), ArithmeticGaloisRepresentations (1)
 
 ## Tier 7
 
-- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
+- **ArithmeticGaloisRepresentations** — Arithmetic Galois representations and conductors. Plan 8/8 accepted · package not yet · CN needs 6/7 layers · move down: NeronModelsAndSemistableAbelianVarieties (8), PadicHodgeTheory (7), AutomorphicLFunctionsAndLocalFactors (4), ArithmeticGaloisDuality (1) · cites outside the 94: FunctionFieldArithmetic (1)
 
 ## Tier 8
 
 - **Merged package:** ArithmeticGaloisDuality + SelmerIwasawaCohomology
-  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 0/1 accepted · package not yet · CN needs 7/8 layers
-  - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 0/1 accepted · package not yet · CN needs 3/5 layers · cites outside the 94: EulerSystemsCyclotomicMainConjecture (3), IntegralIwasawaTheory (2)
+  - **ArithmeticGaloisDuality** — Global Galois duality and compact coefficients. Plan 0/1 accepted · package not yet · CN needs 7/8 layers · cites outside the 94: FunctionFieldArithmetic (6)
+  - **SelmerIwasawaCohomology** — Selmer groups, continuous integral cohomology, and Iwasawa cohomology. Plan 1/1 accepted · package not yet · CN needs 3/5 layers · cites outside the 94: IntegralIwasawaTheory (1)
 - **NeronModelsAndSemistableAbelianVarieties** — Néron models and semistable abelian varieties. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · move down: PadicHodgeTheory (2) · cites outside the 94: NeronModelsAndSemistableAbelianVarietiesPartII (1)
 
 ## Tier 9
