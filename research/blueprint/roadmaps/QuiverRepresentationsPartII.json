@@ -1,0 +1,143 @@
+{
+  "id": "QuiverRepresentationsPartII",
+  "title": "Quiver representations, path algebras, and Gabriel’s theorem, Part II: multisegment duality",
+  "area": "representations",
+  "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+  "summary": "Starting from finite type-A interval classification, this roadmap constructs integer graded nilpotent pairs and opposite-degree commuting operators over the complex numbers. Generic ranks produce multisegment duality; admissible images give ramified truncation. Weighted inclusion chains and monotone grid paths compute adjacent dual counts and prove additivity for the canonical maximal split. The resulting operations supply general-linear newform comparisons and unipotent induction through the existing representation-theoretic classification interface.",
+  "readme": "Integer intervals keep their full multiplicities. VN raises degree, WL lowers degree, and a shift by c has V(c)_a=V_(a−c). The polynomial Zariski topology is separate from the usual topology of C. Parent QuiverRepresentations Layers 1,2,5 provide interval classification. The elementary adjacent rank formula is proved by block coordinates, finite chain decomposition and path weights. Representation classification and general Aubert duality remain existing-owner inputs. Every stage is planned, with the exact geometric and representation interface gaps recorded in the packet.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations",
+    "EndoscopicTransferAndUnitaryTraceComparison"
+  ],
+  "stages": [
+    {
+      "key": "MS.0",
+      "title": "Integer multisegments and maximal peeling",
+      "description": "Adapt the parent’s finite type-A interval carrier to integer endpoints and finite multisets. Pin inclusive endpoints, singleton deletion under right truncation, degree dimensions and total length. Construct the multisegment of distinct inclusion-maximal intervals, taking one copy of each, and its multiplicity-sensitive remainder.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"
+      ]
+    },
+    {
+      "key": "MS.1",
+      "title": "Graded operators, shifts and images",
+      "description": "Model finite support integer graded complex vector spaces and degree +1 VN / degree −1 WL operators. Compare with finite type-A representations and reverse orientation. Construct standard interval blocks, graded isomorphisms, shifts and actual image pairs; prove the truncation/image dictionary and reconstruction from graded dimension and the unshifted VN image.",
+      "requires": [
+        "QuiverRepresentationsPartII:MS.0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-1-representations-of-a-quiver-as-kq-modules",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-5-gabriels-theorem-the-ade-classification"
+      ]
+    },
+    {
+      "key": "MS.2",
+      "title": "Centralizers and generic multisegment duality",
+      "description": "Construct the opposite-degree commuting subspaces. Prove the block coefficient parameterization and both image restriction surjectivity statements. Put the polynomial Zariski topology on finite dimensional coordinate spaces and derive a simultaneous maximal-rank open locus. Plan the finite-orbit conormal symmetry input explicitly and use it to prove generic commuting duality is involutive. The geometric dimension/constructibility bridge is an identified gap, not a generic black box.",
+      "requires": [
+        "QuiverRepresentationsPartII:MS.1"
+      ]
+    },
+    {
+      "key": "MS.3",
+      "title": "Admissible images and ramified truncation",
+      "description": "Construct admissible commuting triples and the induced VN operator on Im L. Prove Lemma 3.4’s dense open image-admissible locus, then simultaneous genericity for restrictions of the same L on every iterated Im N. Define ram(m)=dual(truncate(dual(m))) and identify it with the VN type on Im L. Prove that ram and right truncation commute, keeping the VN shift −1 explicit.",
+      "requires": [
+        "QuiverRepresentationsPartII:MS.2"
+      ]
+    },
+    {
+      "key": "MS.4",
+      "title": "Weighted chains and adjacent ranks",
+      "description": "Construct the full cut submultisegment meeting [a,a+1], the weighted inclusion-chain maximum, and the occurrence endpoint poset. Prove finite Dilworth and matching rank in this special matrix pattern. Construct monotone grid paths from (a+1,a) to (1,r); show their maximum weight is the chain maximum and prove the adjacent Knight–Zelevinsky formula: dual intervals containing [a,a+1] have count Card(m_a)−E_a(m). No formula for higher powers is assumed.",
+      "requires": [
+        "QuiverRepresentationsPartII:MS.0",
+        "QuiverRepresentationsPartII:MS.2"
+      ]
+    },
+    {
+      "key": "MS.5",
+      "title": "Maximal split and newform interfaces",
+      "description": "Prove right truncation commutes with maximal peeling, prove the weighted chain decrement, and deduce Proposition 2.7 only for the canonical maximal split. Check repeated intervals and the rank-17 source example. Export the ramified multisegment and split identity to the general-linear newform and unipotent-induction consumers. Import the representation-theoretic identification with Zelevinsky duality from early ET.6 classification, reconciled with current upstream smooth-representation targets; its pinned carrier/signature is an explicit interface gap.",
+      "requires": [
+        "QuiverRepresentationsPartII:MS.1",
+        "QuiverRepresentationsPartII:MS.3",
+        "QuiverRepresentationsPartII:MS.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "AKY",
+      "title": "Local newforms for the general linear groups over a non-archimedean local field",
+      "authors": "Hiraku Atobe, Satoshi Kondo, Seidai Yasuda",
+      "edition": "arXiv:2110.09070v4 (28 September 2022); published Forum of Mathematics, Pi 10 (2022), e24, 1–56, DOI 10.1017/fmp.2022.17",
+      "url": "https://arxiv.org/pdf/2110.09070v4",
+      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "§§2.1,2.3–2.5, arXiv pp.7–13 (published pp.6–12)",
+        "§§3.1–3.3, Lemmas 3.1–3.4, Proposition 3.5, Lemma 3.6, Proposition 3.7 and proof of Proposition 2.7, arXiv pp.14–22 (published pp.13–21)"
+      ],
+      "accessNote": "Locators below use the printed arXiv v4 page numbers. Published locators in inherited source findings are separately identified. The Cambridge version-of-record browser request exceeded the retrieval limit; the current worker does not claim a fresh full published-text collation."
+    },
+    {
+      "id": "MW",
+      "title": "Sur l’involution de Zelevinski",
+      "authors": "Colette Mœglin, Jean-Loup Waldspurger",
+      "edition": "Journal für die reine und angewandte Mathematik 372 (1986), 136–177; DOI 10.1515/crll.1986.372.136",
+      "url": "https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002204061",
+      "sha256": "49198255b00bc0c005649794a809383c15c87f9c8afbf545b4a692764f4589f0",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "Introduction p.136; II.1–II.2 pp.148–150",
+        "Lemma II.4 and its coefficient recurrence pp.160–161; Lemma II.5 pp.161–162",
+        "Proposition II.6 proof pp.162–169 and Corollary II.7 p.169"
+      ],
+      "accessNote": "The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. No general representation-theoretic argument outside the scoped passages is treated as checked."
+    },
+    {
+      "id": "Z98",
+      "title": "Multisegment duality, canonical bases and total positivity",
+      "authors": "Andrei Zelevinsky",
+      "edition": "Documenta Mathematica, Extra Volume ICM 1998, III, 409–417",
+      "url": "https://ems.press/content/book-chapter-files/27254?nt=1",
+      "sha256": "e609bb40f4aeb41bf0c86c5902dd31a50e202d90c4b70dedcc55f5507175a015",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "§2 p.410, generic rank definition",
+        "§3, Theorem 1, pp.410–411; §5 p.412, algorithm conventions"
+      ],
+      "accessNote": "Theorem 1 restates the Knight–Zelevinsky rank formula. The present packet proves only its adjacent special case by independent centralizer/matching arguments. The full 1996 Knight–Zelevinsky article was not obtained and is not claimed read."
+    },
+    {
+      "id": "DIL",
+      "title": "18.997 Topics in Combinatorial Optimization, Lecture 6",
+      "authors": "Michel Goemans; scribe Joungkeun Lim",
+      "edition": "MIT, 26 February 2004, lecture pages 6-1–6-4",
+      "url": "https://ocw.mit.edu/courses/18-997-topics-in-combinatorial-optimization-spring-2004/72c5d7935dea64f0e2773ad376f83d5d_co_lec6.pdf",
+      "sha256": "b8ba9e30e36dccc3cead26847ad62d56200406d0035d9374f3806f5fbf943ce3",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "Theorem 3 and its inductive proof pp.6-1–6-2",
+        "Split-poset matching/chain-partition argument p.6-3; weighted discussion p.6-4"
+      ],
+      "accessNote": "The first inductive Dilworth proof supplies the finite-poset theorem. The proof here does not import the lecture’s Edmonds-polytope argument for Kőnig’s theorem."
+    },
+    {
+      "id": "Z81",
+      "title": "p-adic analog of the Kazhdan–Lusztig hypothesis",
+      "authors": "Andrei V. Zelevinskii",
+      "edition": "Funktsionalnyi Analiz i ego Prilozheniya 15:2 (1981), 9–21; English translation Functional Analysis and Its Applications 15, 83–92, DOI 10.1007/BF01082279",
+      "url": "https://www.mathnet.ru/eng/faa1707",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "§4.3 and Proposition 4.4, original Russian printed p.20, continuing p.21"
+      ],
+      "accessNote": "MathNet’s public original PDF was read with browser extraction at PDF pages 12–13; direct download returned 403, so no hash is recorded. The English formula transcription at https://math.soimeme.org/~arunram/Resources/PAAOTKLHDuality.html was used to check notation. The quoted Pyasetskii theorem is identified, not assumed to be in the pinned libraries."
+    }
+  ],
+  "status": "draft"
+}
