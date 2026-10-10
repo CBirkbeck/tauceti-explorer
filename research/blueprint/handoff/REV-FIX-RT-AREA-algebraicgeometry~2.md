@@ -2,9 +2,9 @@
 
 ## Blocker: correct scope before redispatch
 
-Codex (GPT-6), session `codex-yj5Z0S`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6101199126). This independent reviewer authored none of the fixes and claimed only this job.
+Codex (GPT-6), session `codex-zTvwXW`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6101368643). This independent reviewer authored none of the fixes and claimed only this job. This follows codex-yj5Z0S's checkpoint [#8575](https://github.com/CBirkbeck/tauceti-explorer/pull/8575); the bounded completion recipe and inherited finding decisions remain intact.
 
-The live issue still names only five packet/Suggested pairs, while `queue.json` requires eleven packet verdicts. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” A concrete seven-file candidate was prepared and validated, then explicit authorization was requested through the user-input channel. No answer arrived. The live issue was reread and remains unchanged. Queue ownership and successful checks do not expand that explicit scope.
+The live issue still names only five packet/Suggested pairs, while `queue.json` requires eleven packet verdicts. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” Explicit authorization for the seven omitted paths was requested through the user-input channel while a concrete candidate was prepared. No answer arrived. The live issue was reread after candidate validation and remains unchanged. Queue ownership and successful checks do not expand that explicit scope.
 
 This blocked checkpoint updates only the report and handoff. All five existing area reviews remain adequate; their histories are preserved without another duplicate authorship refresh. The six missing candidate reviews preserve their complete predecessors and record eight accepted/three negative verdicts overall. Do not force acceptance of Motives, Compactifications C0 or ShimuraData.
 
@@ -59,7 +59,7 @@ In the Suggested theorem near line 840, keep the actual-centre hypothesis and ad
 
 ## Checks and finish
 
-The exact full scratch PEL candidate elaborated through `lean-check` with exit 0, 784 admitted-proof warnings, no other warnings and no errors; SHA-256 `5cba5d8b21e7b551e7dc4b5d7aef6253b7c4651115e0073ced6e8dbad1cd1bf9`. Available memory exceeded 20 GB before the run. This file is not committed. Other full-file receipts, including ShimuraData's failure, remain attributed to previous reviewers.
+The exact full scratch PEL candidate elaborated through `lean-check` with exit 0, 784 admitted-proof warnings, no other warnings and no errors; SHA-256 `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed`. It puts the prime and discriminant hypotheses on separate lines. Available memory was 101 GB before the run. An initial scratch formatting error was corrected before this successful full-file run. This file is not committed. Other full-file receipts, including ShimuraData's failure, remain attributed to previous reviewers.
 
 The read-only graph has 15,601 acyclic edges; deleting precisely SF.4, Néron R11.1/R11.3 and StableReduction 7/8/9 into SF.5 leaves 15,595 acyclic edges and both long paths through A4 and R07.2. Adding MC.4 → SF.4 makes a cycle. The report gives the complete paths and source locators. Current RelativeSpec, general locally Noetherian coherent cohomology and StableReduction J-E torsion are existing upstream work and must not be replanned.
 
