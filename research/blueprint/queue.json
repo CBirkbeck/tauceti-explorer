@@ -33708,8 +33708,9 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P8",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P8.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6270"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6270",
+   "finishedAt": "2026-10-10T18:56:29Z"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--P9",
@@ -33873,7 +33874,8 @@
    ],
    "followUpOf": "BP-DeformationAndDerivedPatchingAlgebra--P7",
    "prompt": "research/blueprint/prompts/BP-DeformationAndDerivedPatchingAlgebra--R03.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6322"
   },
   {
    "id": "REV-DeformationAndDerivedPatchingAlgebra--R03.3",
@@ -35588,8 +35590,9 @@
    ],
    "followUpOf": "BP-ColemanPowerSeries",
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries--L1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6479"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6479",
+   "finishedAt": "2026-10-10T18:56:32Z"
   },
   {
    "id": "REV-ColemanPowerSeries--L1",
@@ -37185,7 +37188,8 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6353"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.1",
@@ -49127,8 +49131,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -80185,8 +80189,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81495,8 +81499,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -82389,8 +82393,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -84586,8 +84590,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
