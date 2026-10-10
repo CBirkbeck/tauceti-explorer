@@ -1,3 +1,9 @@
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Analysis.Normed.Module.FiniteDimension
+import Mathlib.Geometry.Manifold.MFDeriv.Defs
+import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
+import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action
+import TauCeti.AlgebraicGeometry.Modules.TensorProduct
 import Mathlib.Algebra.Module.Equiv.Basic
 import Mathlib.Algebra.Module.Submodule.Range
 import Mathlib.Algebra.Group.TypeTags.Basic
@@ -21,8 +27,9 @@ is definitive. These declarations suggest Lean names and signatures; a `sorry`
 is an unproved placeholder.
 
 The elaborated definitions use the existing SlashAction, linear-equivalence,
-Scheme.Modules and section-map interfaces. They include normalized functional
-automorphy factors, the inverse-factor slash adapter, arithmetic Hilbert weights,
+Scheme.Modules, complex-manifold differentiability and section-map interfaces.
+They include normalized holomorphic automorphy factors, their functional forgetting,
+the inverse-factor slash adapter, arithmetic Hilbert weights,
 and sections of a supplied coefficient on a supplied model. The Fourier–Jacobi
 examples use the existing short-complex monicity, prime-filtration induction,
 adic completion, power-series and trace APIs. They do not construct a Shimura
@@ -47,18 +54,11 @@ whose scalar law is semilinear.
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
-The following Tau Ceti modules provide the three baseline checks indicated
-below. No declaration in this file depends on them. They are commented out
-because the shared Mathlib build has no compiled objects for these modules;
-restore the imports and checks together in a build providing them at the pin.
--- import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Prime.Basic
--- import TauCeti.NumberTheory.ModularForms.HeckeSlash.Nebentypus.Action
--- import TauCeti.AlgebraicGeometry.Modules.TensorProduct
 -/
 
 /-! ## Automorphy factors, weights and section maps: automorphy factors, Hilbert weights and supplied sections -/
 
-open scoped MatrixGroups ModularForm
+open scoped MatrixGroups ModularForm Manifold
 open CategoryTheory
 
 noncomputable section
@@ -172,8 +172,8 @@ example {G X R V : Type*} [Monoid G] [MulAction G X]
       (fun _ g x ↦ (u x).symm.trans (u (g • x))) (by sorry) (by sorry)).map () g f x =
       u x ((u (g • x)).symm (f (g • x))) := by sorry
 
--- Test helpers only: two noncommuting automorphisms of Q², with their actual inverse maps.
-private def shearX : (ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ) where
+-- Test helpers only: two noncommuting automorphisms of a two-dimensional vector space, with their actual inverse maps.
+private def shearX {K : Type*} [Field K] : (K × K) ≃ₗ[K] (K × K) where
   toFun p := (p.1 + p.2, p.2)
   invFun p := (p.1 - p.2, p.2)
   left_inv := by sorry
@@ -181,7 +181,7 @@ private def shearX : (ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ) where
   map_add' := by sorry
   map_smul' := by sorry
 
-private def shearY : (ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ) where
+private def shearY {K : Type*} [Field K] : (K × K) ≃ₗ[K] (K × K) where
   toFun p := (p.1, p.1 + p.2)
   invFun p := (p.1, p.2 - p.1)
   left_inv := by sorry
@@ -260,11 +260,11 @@ end AutomorphicBundles.Test
 namespace AutomorphicBundles
 
 /- These are the actually expressible parts of the definition contracts. The missing
-Shimura, holomorphic, compactification and canonical-coefficient conditions are
+Shimura, compactification and canonical-coefficient conditions are
 omitted, explicitly, rather than replaced by uninterpreted proposition fields. -/
 
 /-- The algebraic forgetting of the holomorphic factor: its laws are concrete equations. -/
-structure AutomorphyFactor (β G X R V : Type*) [Monoid G] [MulAction G X]
+structure FunctionalAutomorphyFactor (β G X R V : Type*) [Monoid G] [MulAction G X]
     [Semiring R] [AddCommMonoid V] [Module R V] where
   coefficient : β → G → X → (V ≃ₗ[R] V)
   normalized : ∀ k x, coefficient k 1 x = LinearEquiv.refl R V
@@ -275,50 +275,50 @@ section FactorAPI
 variable {β G X R V : Type*} [Monoid G] [MulAction G X]
     [Semiring R] [AddCommMonoid V] [Module R V]
 
-theorem AutomorphyFactor_one (J : AutomorphyFactor β G X R V) (k : β) (x : X) :
+theorem FunctionalAutomorphyFactor_one (J : FunctionalAutomorphyFactor β G X R V) (k : β) (x : X) :
     J.coefficient k 1 x = LinearEquiv.refl R V := by sorry
 
-theorem AutomorphyFactor_mul (J : AutomorphyFactor β G X R V)
+theorem FunctionalAutomorphyFactor_mul (J : FunctionalAutomorphyFactor β G X R V)
     (k : β) (g h : G) (x : X) :
     J.coefficient k (g * h) x =
       (J.coefficient k h x).trans (J.coefficient k g (h • x)) := by sorry
 
 /-- Gauge change in the forgotten functional coefficient; holomorphy is omitted. -/
-def AutomorphyFactor_change_frame (J : AutomorphyFactor β G X R V)
-    (u : X → (V ≃ₗ[R] V)) : AutomorphyFactor β G X R V where
+def FunctionalAutomorphyFactor_change_frame (J : FunctionalAutomorphyFactor β G X R V)
+    (u : X → (V ≃ₗ[R] V)) : FunctionalAutomorphyFactor β G X R V where
   coefficient k g x := ((u x).symm.trans (J.coefficient k g x)).trans (u (g • x))
   normalized := by sorry
   cocycle := by sorry
 
-def AutomorphyFactor_forget (J : AutomorphyFactor β G X R V) :
+def FunctionalAutomorphyFactor_forget (J : FunctionalAutomorphyFactor β G X R V) :
     β → G → X → (V ≃ₗ[R] V) := J.coefficient
 
-theorem AutomorphyFactor_ext (J K : AutomorphyFactor β G X R V)
+theorem FunctionalAutomorphyFactor_ext (J K : FunctionalAutomorphyFactor β G X R V)
     (h : ∀ k g x, J.coefficient k g x = K.coefficient k g x) : J = K := by sorry
 
-theorem AutomorphyFactor_change_frame_id (J : AutomorphyFactor β G X R V) :
-    AutomorphyFactor_change_frame J (fun _ ↦ LinearEquiv.refl R V) = J := by sorry
+theorem FunctionalAutomorphyFactor_change_frame_id (J : FunctionalAutomorphyFactor β G X R V) :
+    FunctionalAutomorphyFactor_change_frame J (fun _ ↦ LinearEquiv.refl R V) = J := by sorry
 
-theorem AutomorphyFactor_change_frame_comp (J : AutomorphyFactor β G X R V)
+theorem FunctionalAutomorphyFactor_change_frame_comp (J : FunctionalAutomorphyFactor β G X R V)
     (u v : X → (V ≃ₗ[R] V)) :
-    AutomorphyFactor_change_frame (AutomorphyFactor_change_frame J u) v =
-      AutomorphyFactor_change_frame J (fun x ↦ (u x).trans (v x)) := by sorry
+    FunctionalAutomorphyFactor_change_frame (FunctionalAutomorphyFactor_change_frame J u) v =
+      FunctionalAutomorphyFactor_change_frame J (fun x ↦ (u x).trans (v x)) := by sorry
 
--- AutomorphicBundles.AutomorphyFactor_test_unit (functional forgetting)
+-- AutomorphicBundles.FunctionalAutomorphyFactor_test_unit (functional forgetting)
 example (k : β) (g : G) (x : X) :
-    let J : AutomorphyFactor β G X R V :=
+    let J : FunctionalAutomorphyFactor β G X R V :=
       { coefficient := fun _ _ _ ↦ LinearEquiv.refl R V
         normalized := by sorry
         cocycle := by sorry }
     J.coefficient k g x = LinearEquiv.refl R V := by sorry
 
--- AutomorphicBundles.AutomorphyFactor_test_frame (functional forgetting)
+-- AutomorphicBundles.FunctionalAutomorphyFactor_test_frame (functional forgetting)
 example (u : X → (V ≃ₗ[R] V)) (k : β) (g : G) (x : X) :
-    let J : AutomorphyFactor β G X R V :=
+    let J : FunctionalAutomorphyFactor β G X R V :=
       { coefficient := fun _ _ _ ↦ LinearEquiv.refl R V
         normalized := by sorry
         cocycle := by sorry }
-    (AutomorphyFactor_change_frame J u).coefficient k g x =
+    (FunctionalAutomorphyFactor_change_frame J u).coefficient k g x =
       (u x).symm.trans (u (g • x)) := by sorry
 end FactorAPI
 
@@ -327,23 +327,23 @@ end AutomorphicBundles
 namespace AutomorphicBundles.Test
 open AutomorphicBundles
 
--- AutomorphicBundles.AutomorphyFactor_test_order (functional forgetting)
+-- AutomorphicBundles.FunctionalAutomorphyFactor_test_order (functional forgetting)
 example :
-    let J : AutomorphyFactor Unit ((ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ)) (ℚ × ℚ) ℚ (ℚ × ℚ) :=
+    let J : FunctionalAutomorphyFactor Unit ((ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ)) (ℚ × ℚ) ℚ (ℚ × ℚ) :=
       { coefficient := fun _ g _ ↦ g
         normalized := by sorry
         cocycle := by sorry }
     J.coefficient () (shearX * shearY) (0, 0) (1, 0) = (2, 1) ∧
       J.coefficient () (shearY * shearX) (0, 0) (1, 0) = (1, 1) := by sorry
 
--- AutomorphicBundles.AutomorphyFactor_test_shift (functional forgetting)
+-- AutomorphicBundles.FunctionalAutomorphyFactor_test_shift (functional forgetting)
 example :
     let t : Multiplicative (ZMod 2) := Multiplicative.ofAdd 1
     let u : Multiplicative (ZMod 2) → ((ℚ × ℚ) ≃ₗ[ℚ] (ℚ × ℚ)) :=
       fun x ↦ if x = 1 then LinearEquiv.refl ℚ (ℚ × ℚ) else shearX
-    let J : AutomorphyFactor Unit (Multiplicative (ZMod 2))
+    let J : FunctionalAutomorphyFactor Unit (Multiplicative (ZMod 2))
         (Multiplicative (ZMod 2)) ℚ (ℚ × ℚ) :=
-      AutomorphyFactor_change_frame
+      FunctionalAutomorphyFactor_change_frame
         { coefficient := fun _ _ _ ↦ LinearEquiv.refl ℚ (ℚ × ℚ)
           normalized := by sorry
           cocycle := by sorry } u
@@ -353,6 +353,150 @@ example :
 end AutomorphicBundles.Test
 
 namespace AutomorphicBundles
+
+section HolomorphicFactors
+variable {β G E X V : Type*} [Monoid G] [MulAction G X]
+  [NormedAddCommGroup E] [NormedSpace ℂ E] [FiniteDimensional ℂ E]
+  [TopologicalSpace X] [ChartedSpace E X] [IsManifold (𝓘(ℂ, E)) 1 X]
+  [NormedAddCommGroup V] [NormedSpace ℂ V] [FiniteDimensional ℂ V]
+
+/-- A normalized complex-linear cocycle with genuine holomorphy in the base point.
+Finite-dimensionality makes pointwise holomorphy equivalent to a holomorphic GL-valued factor. -/
+structure AutomorphyFactor (β G E X V : Type*) [Monoid G] [MulAction G X]
+    [NormedAddCommGroup E] [NormedSpace ℂ E] [FiniteDimensional ℂ E]
+    [TopologicalSpace X] [ChartedSpace E X] [IsManifold (𝓘(ℂ, E)) 1 X]
+    [NormedAddCommGroup V] [NormedSpace ℂ V] [FiniteDimensional ℂ V]
+    extends FunctionalAutomorphyFactor β G X ℂ V where
+  holomorphic : ∀ k g v,
+    MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ coefficient k g x v)
+
+def AutomorphyFactor_forget
+    (J : AutomorphyFactor β G E X V) : FunctionalAutomorphyFactor β G X ℂ V :=
+  J.toFunctionalAutomorphyFactor
+
+-- Explicit finite-dimensional holomorphy, rather than an opaque proposition.
+def AutomorphyFactor_change_frame
+    (J : AutomorphyFactor β G E X V)
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x))
+    (u : X → V ≃ₗ[ℂ] V)
+    (hu : ∀ v, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ u x v)) :
+    AutomorphyFactor β G E X V where
+  coefficient k g x := ((u x).symm.trans (J.coefficient k g x)).trans (u (g • x))
+  normalized := by sorry
+  cocycle := by sorry
+  holomorphic := by sorry
+
+theorem AutomorphyFactor_forget_change_frame (J : AutomorphyFactor β G E X V)
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x))
+    (u : X → V ≃ₗ[ℂ] V)
+    (hu : ∀ v, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ u x v)) :
+    AutomorphyFactor_forget (AutomorphyFactor_change_frame J hAction u hu) =
+      FunctionalAutomorphyFactor_change_frame (AutomorphyFactor_forget J) u := by sorry
+
+theorem AutomorphyFactor_one (J : AutomorphyFactor β G E X V) (k : β) (x : X) :
+    J.coefficient k 1 x = LinearEquiv.refl ℂ V := by sorry
+
+theorem AutomorphyFactor_mul (J : AutomorphyFactor β G E X V)
+    (k : β) (g h : G) (x : X) :
+    J.coefficient k (g * h) x =
+      (J.coefficient k h x).trans (J.coefficient k g (h • x)) := by sorry
+
+theorem AutomorphyFactor_ext (J K : AutomorphyFactor β G E X V)
+    (h : ∀ k g x, J.coefficient k g x = K.coefficient k g x) : J = K := by sorry
+
+theorem AutomorphyFactor_inverse_holomorphic (J : AutomorphyFactor β G E X V)
+    (k : β) (g : G) (v : V) :
+    MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ (J.coefficient k g x).symm v) := by sorry
+
+theorem AutomorphyFactor_change_frame_id (J : AutomorphyFactor β G E X V)
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x)) :
+    AutomorphyFactor_change_frame J hAction (fun _ ↦ LinearEquiv.refl ℂ V)
+      (by sorry) = J := by sorry
+
+theorem AutomorphyFactor_change_frame_comp (J : AutomorphyFactor β G E X V)
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x))
+    (u v : X → V ≃ₗ[ℂ] V)
+    (hu : ∀ w, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ u x w))
+    (hv : ∀ w, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ v x w)) :
+    AutomorphyFactor_change_frame (AutomorphyFactor_change_frame J hAction u hu)
+      hAction v hv =
+    AutomorphyFactor_change_frame J hAction (fun x ↦ (u x).trans (v x))
+      (by sorry) := by sorry
+
+-- The inverse-factor slash formula preserves complex differentiability.
+theorem AutomorphyFactor_slash_holomorphic (J : AutomorphyFactor β G E X V)
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x))
+    (k : β) (g : G) (f : X → V)
+    (hf : MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) f) :
+    MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V))
+      ((slashActionOfAutomorphyFactor J.coefficient J.normalized J.cocycle).map k g f) := by sorry
+
+-- AutomorphicBundles.AutomorphyFactor_test_unit
+example (k : β) (g : G) (x : X) :
+    let J : AutomorphyFactor β G E X V :=
+      { coefficient := fun _ _ _ ↦ LinearEquiv.refl ℂ V
+        normalized := by sorry
+        cocycle := by sorry
+        holomorphic := by sorry }
+    J.coefficient k g x = LinearEquiv.refl ℂ V := by sorry
+
+-- AutomorphicBundles.AutomorphyFactor_test_frame
+example
+    (hAction : ∀ g : G, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, E)) (fun x : X ↦ g • x))
+    (u : X → V ≃ₗ[ℂ] V)
+    (hu : ∀ w, MDifferentiable (𝓘(ℂ, E)) (𝓘(ℂ, V)) (fun x ↦ u x w))
+    (k : β) (g : G) (x : X) :
+    let J : AutomorphyFactor β G E X V :=
+      { coefficient := fun _ _ _ ↦ LinearEquiv.refl ℂ V
+        normalized := by sorry
+        cocycle := by sorry
+        holomorphic := by sorry }
+    (AutomorphyFactor_change_frame J hAction u hu).coefficient k g x =
+      (u x).symm.trans (u (g • x)) := by sorry
+end HolomorphicFactors
+
+-- AutomorphicBundles.AutomorphyFactor_test_holomorphy
+-- The exponential of the conjugate gives a functional cocycle but fails holomorphy
+-- after gauge change for the sign action; normalization and cocycle alone permit it.
+example : ¬ ∃ J : AutomorphyFactor Unit (ℂ ≃ₗ[ℂ] ℂ) ℂ ℂ ℂ,
+    ∀ g z, J.coefficient () g z =
+      ((LinearEquiv.smulOfUnit
+          (Units.mk0 (Complex.exp (starRingEnd ℂ z)) (Complex.exp_ne_zero _))).symm.trans
+        (LinearEquiv.refl ℂ ℂ)).trans
+          (LinearEquiv.smulOfUnit
+            (Units.mk0 (Complex.exp (starRingEnd ℂ (g z))) (Complex.exp_ne_zero _))) := by sorry
+
+
+namespace Test
+
+-- AutomorphicBundles.AutomorphyFactor_test_order
+example :
+    let J : AutomorphyFactor Unit ((ℂ × ℂ) ≃ₗ[ℂ] (ℂ × ℂ))
+        (ℂ × ℂ) (ℂ × ℂ) (ℂ × ℂ) :=
+      { coefficient := fun _ g _ ↦ g
+        normalized := by sorry
+        cocycle := by sorry
+        holomorphic := by sorry }
+    J.coefficient () (shearX * shearY) (0, 0) (1, 0) = (2, 1) ∧
+      J.coefficient () (shearY * shearX) (0, 0) (1, 0) = (1, 1) := by sorry
+
+-- AutomorphicBundles.AutomorphyFactor_test_shift
+-- A holomorphic, point-dependent gauge for the sign action.
+example :
+    let u : ℂ → ℂ ≃ₗ[ℂ] ℂ := fun z ↦
+      LinearEquiv.smulOfUnit (Units.mk0 (Complex.exp z) (Complex.exp_ne_zero z))
+    let J : AutomorphyFactor Unit (ℂ ≃ₗ[ℂ] ℂ) ℂ ℂ ℂ :=
+      AutomorphyFactor_change_frame
+        { coefficient := fun _ _ _ ↦ LinearEquiv.refl ℂ ℂ
+          normalized := by sorry
+          cocycle := by sorry
+          holomorphic := by sorry }
+        (by sorry) u (by sorry)
+    let t : ℂ ≃ₗ[ℂ] ℂ := LinearEquiv.neg ℂ
+    J.coefficient () (t * t) 1 1 = 1 ∧
+      ((J.coefficient () t 1).trans (J.coefficient () t 1)) 1 ≠ 1 := by sorry
+
+end Test
 
 /-- Arithmetic embedding-labelled weights, with actual integer parity equations. -/
 structure HilbertArithmeticWeight (ι : Type*) [Fintype ι] where
@@ -442,10 +586,10 @@ end
 /- Existing infrastructure: reuse it, do not redeclare it. -/
 #check ModularForm.trace
 #check CuspForm.trace
--- #check HeckeRing.GL2.heckeRingHomCharSpace  -- Tau Ceti; see the note on Tau Ceti imports
--- #check AlgebraicGeometry.Scheme.Modules.tensorProduct  -- Tau Ceti; see the note on Tau Ceti imports
+#check HeckeRing.GL2.heckeRingHomCharSpace
+#check AlgebraicGeometry.Scheme.Modules.tensorProduct
 #check AlgebraicGeometry.tilde.isoTop
--- #check HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime  -- Tau Ceti; see the note on Tau Ceti imports
+#check HeckeRing.GL2.twistedHeckeSlashSum_diagCosetGamma0_of_prime
 #check PowerSeries.isUnit_iff_constantCoeff
 #check CategoryTheory.ShortComplex.mono_τ₂_of_exact_of_mono
 #check IsNoetherianRing.exists_relSeries_isQuotientEquivQuotientPrime

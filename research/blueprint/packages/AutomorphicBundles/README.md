@@ -46,7 +46,12 @@ Fourier–Jacobi expansions. The following inputs have separate owners.
 | `AdelicAlgebraicGroups:AA.4` | Double-coset correspondences, degrees and the Cartesian square with its product hypothesis |
 | `AlgebraicModularFormsAndSerreWeights:R15.1`, `R15.2` | Modular Hodge line, Tate normalization, all-weight analytic comparison, integral q-expansion principle and modular Hecke operators |
 | Tau Ceti ClassicalGroups layers 2–3 | Schur construction and complex highest-weight representations |
+| Tau Ceti AlgebraicVectorBundles L0B–L0C, L1B, L2B | Finite locally free sheaves, tensor/dual and polynomial operations, relative Spec and geometric total spaces |
 | `HodgeTateAndCanonicalSubgroups:T6:comparison` | Logarithmic finite-dimensional de Rham/Hodge–Tate comparison and its compact-support version |
+
+The underlying algebraic vector-bundle category and its operations are imported from
+Tau Ceti AlgebraicVectorBundles. The associated-coefficient functor identifies these operations
+with operations on representations; it does not construct a second vector-bundle category.
 
 Generic algebraic torsors and contracted products, central quotient tori,
 tensor-stabilizer representability and rational/integral representation theory
@@ -153,6 +158,7 @@ are the starting points, with the limited scope shown.
 | Interface | Use |
 |---|---|
 | Mathlib `SlashAction`, `LinearEquiv.trans`, `trans_symm`, `symm_apply_eq`, `automorphismGroup`, `applyDistribMulAction` | Normalized linear cocycles and the existing indexed right action |
+| Mathlib `MDifferentiable`, `FiniteDimensional`, `Complex.exp_ne_zero` | Holomorphy of finite-dimensional complex coefficients and invertible exponential frames |
 | Mathlib `UpperHalfPlane.denom_ne_zero`, `denom_cocycle`, `denom_cocycle'`; `ModularForm.SL_slash_apply`, `slash_action_eq'_iff`, `smul_slash` | Scalar GL₂ convention comparison, including determinant-sign semilinearity |
 | Mathlib `ModularForm`, `CuspForm`, `UpperHalfPlane.qExpansion`, `ModularForm.qExpansion_injective`, `ModularForm.isCuspForm_iff_coeffZero_eq_zero` | Analytic scalar objects; the constant-coefficient cusp criterion here is the full-level case |
 | Mathlib `ModularForm.trace`, `CuspForm.trace` | Unnormalized analytic sums at finite relative index; geometric trace is a separate construction |
@@ -1197,8 +1203,12 @@ define a holomorphic linear factor J:Γ×X→GL_ℂ(V) by holomorphy in x, J(1,x
 J(gh,x)=J(g,hx)J(h,x). Its sections satisfy f(gx)=J(g,x)f(x). Canonical extension and cusp
 growth are additional conditions in the specified boundary frame: holomorphic extension and
 membership in the reduced boundary ideal, respectively. Frame change u gives
-J′(g,x)=u(gx)J(g,x)u(x)⁻¹. The functional Lean form keeps the concrete linear equations and
-omits the unavailable holomorphic carrier.
+J′(g,x)=u(gx)J(g,x)u(x)⁻¹. Use a finite-dimensional complex manifold for X and require
+complex differentiability of x↦J(k,g,x)v for every weight k, element g and vector v.
+The underlying `FunctionalAutomorphyFactor` retains just normalization and the shifted cocycle,
+so the holomorphic and purely functional constructions have distinct carriers. Frame change
+and preservation of holomorphic sections additionally require every base-action map x↦gx to
+be holomorphic.
 
 **API.**
 
@@ -1206,19 +1216,24 @@ omits the unavailable holomorphic carrier.
 - `AutomorphyFactor_mul`: J(gh,x)=J(g,hx)∘J(h,x), with the indicated shifted base point.
 - `AutomorphyFactor_change_frame`: A holomorphic frame change u gives J′(g,x)=u(gx)J(g,x)u(x)⁻¹ and an isomorphic coefficient.
 - `AutomorphyFactor_forget`: Forgetting holomorphy yields the normalized linear cocycle input for the existing SlashAction adapter.
-- `AutomorphyFactor_ext`: Two normalized functional factors with identical coefficient maps at every (k,g,x) are equal; the law proofs carry no extra data. The holomorphic refinement additionally retains its declared analytic hypotheses.
-- `AutomorphyFactor_change_frame_id`: Gauge change by the constant identity frame returns the original normalized functional factor.
+- `AutomorphyFactor_ext`: Two holomorphic factors with identical coefficient maps at every (k,g,x) are equal; normalization, cocycle and holomorphy proofs carry no extra data.
+- `AutomorphyFactor_change_frame_id`: Gauge change by the constant identity frame returns the original holomorphic factor.
 - `AutomorphyFactor_change_frame_comp`: Changing first by u and then by v equals changing by x↦v(x)∘u(x). This is the displayed order of frame composition, not its reverse.
+- `AutomorphyFactor_forget_change_frame`: Forgetting a holomorphic gauge change agrees with gauge change of the underlying functional factor.
+- `AutomorphyFactor_inverse_holomorphic`: For each fixed k,g,v, the function x↦J(k,g,x)⁻¹v is holomorphic; finite-dimensionality and pointwise invertibility are retained.
+- `AutomorphyFactor_slash_holomorphic`: For a holomorphic base action and holomorphic f, the inverse-factor SlashAction sends f to a holomorphic function.
 
 **Tests.**
 
 - `AutomorphyFactor_test_unit`: The constant identity coefficient is normalized and satisfies the shifted cocycle.
-- `AutomorphyFactor_test_frame`: For any invertible frame function u, J(g,x)=u(gx)u(x)⁻¹ satisfies the shifted cocycle.
-- `AutomorphyFactor_test_order`: For Q² let Sx(a,b)=(a+b,b), Sy(a,b)=(a,a+b). The constant functional factor J(g,x)=g for the evaluation action of GL(Q²) has J(SxSy,x)(1,0)=(2,1) and J(SySx,x)(1,0)=(1,1). Reversing coefficient composition fails this test.
-- `AutomorphyFactor_test_shift`: On C₂ acting on itself by left multiplication, choose frames u(1)=id and u(t)=Sx on Q². Gauge-changing the identity factor gives J(t²,1)(0,1)=(0,1), whereas the unshifted square J(t,1)²(0,1)=(2,1). Thus the base-point shift is necessary.
+- `AutomorphyFactor_test_frame`: For a holomorphic base action and holomorphic invertible frame u, J(g,x)=u(gx)u(x)⁻¹ is holomorphic and satisfies the shifted cocycle.
+- `AutomorphyFactor_test_order`: For ℂ² let Sx(a,b)=(a+b,b), Sy(a,b)=(a,a+b). The holomorphic factor J(g,x)=g for the evaluation action of GL(ℂ²) has J(SxSy,x)(1,0)=(2,1) and J(SySx,x)(1,0)=(1,1). Reversing coefficient composition fails this test.
+- `AutomorphyFactor_test_shift`: For the sign action t(z)=−z on ℂ, change the identity factor by u(z)v=exp(z)v. Then J(t²,1)(1)=1, whereas J(t,1)²(1)=exp(−4)≠1. Thus even a holomorphic frame needs the base-point shift.
+- `AutomorphyFactor_test_holomorphy`: The invertible frame u(z)v=exp(conj(z))v gives a normalized functional cocycle for the same linear action. At t its coefficient is exp(−2conj(z)), so no holomorphic factor can have these coefficient maps.
 
 **Prerequisites.** B0 `analyticCoefficient`; B0 `sectionsEquivariant`; B3 `canonicalExtension`; B3
-`subcanonicalExtension`; `mathlib:LinearEquiv.trans`.
+`subcanonicalExtension`; `mathlib:LinearEquiv.trans`; `mathlib:MDifferentiable`;
+`mathlib:FiniteDimensional`; `mathlib:Complex.exp_ne_zero`.
 
 **Sources.** [LanIntro], §4.2.7, pp.49–50.
 
@@ -2252,6 +2267,12 @@ restrictions); B1 `hodgeCanonicalPrincipalBundle`; B2 `etaleCoefficientLocalSyst
 These interfaces connect the targets above to their geometric and algebraic
 foundations. They specify the mathematics required from each owner, rather
 than treating a supplier's title as a theorem with unrestricted hypotheses.
+
+**Algebraic vector bundles (Tau Ceti AlgebraicVectorBundles).** Import its L0B–L0C
+finite locally free sheaves, tensor/dual and polynomial operations, L1B relative-Spec
+anti-equivalence, and L2B geometric vector bundles and total-space equivalence.
+The automorphic constructions take values in these categories. Their representation
+tensor comparisons and geometric descent are the additional coefficient structures.
 
 **Reductive-group direction (`ReductiveGroupsPartII`).** Supply algebraic
 principal torsors and contracted products with finite locally free
