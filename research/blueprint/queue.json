@@ -25586,12 +25586,13 @@
     "REV-RS-04"
    ],
    "prompt": "research/blueprint/prompts/BP-FunctionFieldArithmetic.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #732"
+   "note": "deliverables arrived from an external worker on issue #732",
+   "finishedAt": "2026-10-10T20:48:39Z"
   },
   {
    "id": "REV-FunctionFieldArithmetic",
@@ -37182,7 +37183,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.0",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6310"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.1",
@@ -80217,8 +80219,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81527,8 +81529,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84618,8 +84620,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
