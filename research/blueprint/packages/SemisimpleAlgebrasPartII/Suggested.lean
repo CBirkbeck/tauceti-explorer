@@ -33,7 +33,12 @@ import Mathlib.Tactic.Ring
 set_option maxHeartbeats 800000
 universe u
 namespace SemisimpleAlgebrasPartII
-open scoped TensorProduct Quaternion
+open scoped TensorProduct Quaternion Matrix.Module
+
+noncomputable abbrev divisionColumnModule {K D L : Type*} [Field K] [DivisionRing D]
+    [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
+    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) : Module D (Fin n → L) :=
+  Module.compHom (Fin n → L) ρ.toRingHom
 
 section FieldArithmetic
 variable {K : Type u} [Field K]
@@ -130,8 +135,12 @@ theorem divisionModuleDimension (D L : Type u) [DivisionRing D] [Field L]
     [Algebra K L] [FiniteDimensional K L]
     (e : (L ⊗[K] D) ≃ₐ[L]
       Matrix (Fin (TauCeti.Algebra.deg K D)) (Fin (TauCeti.Algebra.deg K D)) L) :
+    let ρ : D →ₐ[K]
+        Matrix (Fin (TauCeti.Algebra.deg K D)) (Fin (TauCeti.Algebra.deg K D)) L :=
+      (e.restrictScalars K).toAlgHom.comp Algebra.TensorProduct.includeRight
     ∃ s : Module D (Fin (TauCeti.Algebra.deg K D) → L),
       letI := s
+      s = divisionColumnModule (TauCeti.Algebra.deg K D) ρ ∧
       IsScalarTower K D (Fin (TauCeti.Algebra.deg K D) → L) ∧
       Module.Finite D (Fin (TauCeti.Algebra.deg K D) → L) ∧
       Module.finrank K (Fin (TauCeti.Algebra.deg K D) → L) =
@@ -169,7 +178,7 @@ theorem sameCyclicIndex (α β : BrauerGroup.{u,u} K)
   sorry
 
 -- The field homomorphism uses the normalized full comparison described in SA.1.
--- The native signatures below do not yet expose that missing supplier's normalization.
+-- Its cohomology equation uses the chosen closure and coefficient identifications.
 noncomputable def brauerCorestriction (K L : Type u) [Field K] [Field L]
     [Algebra K L] [FiniteDimensional K L] [Algebra.IsSeparable K L] :
     BrauerGroup.{u,u} L →* BrauerGroup.{u,u} K := by
@@ -326,12 +335,6 @@ theorem nilpotentSupportBoundary :
   sorry
 
 -- Restricted matrix-column action and polynomial boundary (SA.0, SA.3).
-open scoped Matrix.Module TensorProduct
-noncomputable abbrev divisionColumnModule {K D L : Type*} [Field K] [DivisionRing D]
-    [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
-    (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) : Module D (Fin n → L) :=
-  Module.compHom (Fin n → L) ρ.toRingHom
-
 theorem divisionColumnAction {K D L : Type*} [Field K] [DivisionRing D]
     [Field L] [Algebra K D] [Algebra K L] (n : ℕ)
     (ρ : D →ₐ[K] Matrix (Fin n) (Fin n) L) (a : D) (v : Fin n → L) (i : Fin n) :

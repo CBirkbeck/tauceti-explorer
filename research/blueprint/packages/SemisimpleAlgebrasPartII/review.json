@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-SemisimpleAlgebrasPartII",
+    "date": "2026-10-10",
+    "notes": "Completed independent review of all 55 accepted targets, 30 API items and 31 tests against the entire package, current upstream suppliers, pinned baseline statements and available cited source passages. Corrected divisionModuleDimension to return the actual restricted-column action induced by its splitting, added GS section 4.4 pages 95–99, fixed BB rank rendering and removed a progress comment. Independent lean-check before and after the signature correction exited 0 with 66 sorry warnings, no errors and no other warnings. Needs changes: 23 target signatures, 14 API signatures and 13 planned tests remain absent; native corestriction lacks its normalized defining comparison and embedding independence; the relative Cartier supplier still needs a named owner. The GS institutional book PDF could not be retrieved; detailed locators remain inherited from the accepted design review, with the added section range verified from the publisher contents. See the review report for the complete correspondence and revision requirements."
+  }
+}
