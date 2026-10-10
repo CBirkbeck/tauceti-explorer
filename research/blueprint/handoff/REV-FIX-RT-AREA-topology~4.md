@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-topology~4: bounded review, scope blocked
 
-Issue #6521; Codex (GPT-6), session `codex-HuCvNJ`; 10 October 2026.
-Claim comment 6101437423 confirmed by bot comment 6101438563.
-Branch `codex-HuCvNJ-review-topology`. Continues merged checkpoint PR #8576.
+Issue #6521; Codex (GPT-6), session `codex-PdVMrQ`; 10 October 2026.
+Claim comment 6101815567 confirmed by bot comment 6101816684.
+Branch `codex-PdVMrQ-review-topology`. Continues merged checkpoint PR #8589.
 This worker did none of the fixes or original plans and took one job only.
 
 ## Done in this run
@@ -14,8 +14,9 @@ report. Replaced the three authorized supplier review objects, preserving their
 predecessors in reviewHistory: Polylogarithms accepted, Habiro accepted,
 QSeries needs_changes for four reader discrepancies. These are bounded fix
 verdicts; all blueprint gaps and previous full-review qualifications remain.
-Replaced the accumulated review report with a single current account of all
-27 dispositions, source provenance, current-library inputs and the blocker.
+Updated the predecessor report’s account of all
+27 dispositions and confirmed its source and current-library contracts. Added
+a non-real sign test for the volume comparison and fresh Lean elaboration.
 No mathematical or suggested-file content changed.
 
 Current Tau Ceti adds two important inputs to the inherited consumer handoff:
@@ -72,7 +73,9 @@ No additional Lean or reader path is needed for queue completion. Repeating
 only the three completed supplier reviews cannot finish the job.
 
 If later authorized to fix the consumer, the source cross-ratios are reciprocal
-on the same ordered quadruple: at (2,3,5,7), 6/5 and 5/6. Since D(1/z)=-D(z),
+on the same ordered quadruple. The old real example has D=0 and cannot
+detect a sign error. Use (0,1,-i,2): (1+i)/4 versus 2-2i, with opposite
+nonzero D signs by Zagier I.3 equations (3),(5), p. 11. Since D(1/z)=-D(z),
 transport order, orientation and manifold incidence signs together; swapping
 two vertices already reverses signed volume. Do not add a second unsupported
 minus. Retain the carrier and normalization comparison gaps.
@@ -90,9 +93,10 @@ All five fresh packet checks pass: 0 errors, 0 warnings. Node/gap/request counts
 are Polylogarithms 75/19/21, Habiro 109/22/9, QSeries 537/22/25, QT 106/8/19,
 P.2 14/2/3. Exact arithmetic checks and fresh public source versions/hashes
 are in the report. Pinned declaration statements and current upstream/library
-inputs were read without builds. No Lean run in this session: suggested files
-did not change; prior successful results (462/441/1469 sorry-only warnings)
-remain attributed to `codex-YXWpoE`. No source passages were committed.
+inputs were read without builds. Fresh serial lean-check runs in this session exit 0
+for all three issue-listed suggested files, with 462/441/1469 sorry warnings
+and no other warning. Suggested files did not change; these checks establish
+elaboration, not the admitted results. No source passages were committed.
 
 All evidence needed to resume is in the report and this note. Scratch is removed
 after submission; no retained local artifact is needed.

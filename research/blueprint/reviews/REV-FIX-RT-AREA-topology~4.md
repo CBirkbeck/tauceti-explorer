@@ -1,10 +1,10 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-HuCvNJ`, 10 October 2026. Claim comment 6101437423 was confirmed by
-bot comment 6101438563. This worker did none of the fixes or original plans
+`codex-PdVMrQ`, 10 October 2026. Claim comment 6101815567 was confirmed by
+bot comment 6101816684. This worker did none of the fixes or original plans
 under review and claimed one job only. Continues merged checkpoint
-[PR #8576](https://github.com/CBirkbeck/tauceti-explorer/pull/8576).
+[PR #8589](https://github.com/CBirkbeck/tauceti-explorer/pull/8589).
 
 **Blocked checkpoint: every issue-listed supplier has a bounded verdict;
 two queue-required packet review updates remain outside the live issue's
@@ -18,9 +18,10 @@ was requested and has not arrived. The blocker is file scope, not run time.
 | QSeriesPartitionsAndMockModularForms | needs_changes | /13's scalar ownership is correct; four reader discrepancies remain outside scope. |
 
 Replaced those three review objects with this session's independent findings
-and preserved their predecessor objects in `reviewHistory`. Rewrote this report
-and the handoff into a single current account. Recorded newly inspected current
-Tau Ceti inputs in the /5 and /7 handoffs. Mathematical nodes, APIs, tests,
+and preserved their predecessor objects in `reviewHistory`. Updated the predecessor report
+and handoff with this run’s evidence. Confirmed current
+Tau Ceti inputs in the /5 and /7 handoffs, independently elaborated all three
+suggested files, and added a non-real convention test for /7. Mathematical nodes, APIs, tests,
 prerequisites, gaps, requests, suggested declarations and upstream files were
 not changed. These verdicts assess the assigned fixes, not the whole blueprints.
 The predecessor full-review qualifications remain in history.
@@ -56,8 +57,17 @@ class*, v2, §3, printed pp. 420–421. Its coordinate normalizes
 - `rQ(a,b,c,d) = (c-b)(d-a)/((c-a)(d-b))`.
 
 Cancellation gives `rQ(T) = 1/rP(T) = rP(swapFirstTwo(T))`. At the exact
-rational quadruple `(2,3,5,7)`, these values are `6/5`, `5/6`, `5/6`.
-Zagier I.3 equation (3) gives `D(1/z) = -D(z)`. Thus the consumer must state
+rational quadruple `(2,3,5,7)`, these values are `6/5`, `5/6`, `5/6`,
+but both Bloch–Wigner values vanish there, so that example cannot detect a
+wrong sign. A stronger exact test uses `T=(0,1,-i,2)`: `rP(T)=(1+i)/4`,
+`rQ(T)=2-2i`, and `rP(swapFirstTwo(T))=2-2i`. Neither ratio is 0 or 1.
+Zagier I.3 equations (3), (5) give `D(1/z)=-D(z)` and positivity in the
+upper half-plane, so the first value has positive D and its reciprocal has
+negative D. This supplies a sign-sensitive test for the proposed carrier
+comparison. Independent numerical integration of each dilogarithm gives
+approximately `0.6190336014842515` and `-0.6190336014842512`; those decimals
+are a diagnostic, with the source identities supplying the exact argument.
+Thus the consumer must state
 the geometric carrier comparison, transport vertex order and orientation
 together, and carry that transport into the manifold incidence signs.
 Transposing the first two vertices already reverses oriented volume; a second
@@ -185,7 +195,7 @@ and `Matrix.PosDef`; the former requires analyticity in a neighborhood of each
 point of the set, and the latter strict positivity on every nonzero vector.
 Fresh Tau Ceti reads at `f790474821cf4256814db967cb154e7af3d0c369` covered
 `FramedOrientedPDCode`, `TemperleyLieb.jones` and
-`Probability.multivariateGaussian_eq_withDensity`. The Gaussian density
+`TauCeti.multivariateGaussian_eq_withDensity`. The Gaussian density
 comparison requires PosDef and supplies no formal Gaussian operator or density
 law at singular covariance. These checks concern the assigned interfaces,
 not every unchanged declaration in the three blueprints.
@@ -247,18 +257,20 @@ All five fresh `scripts/check_blueprint.py` runs pass with 0 errors and
 | ArithmeticQuantumTopology | 106 | 8 | 19 |
 | Polylogarithms--P.2 | 14 | 2 | 3 |
 
-Checked the relevant packet statements, prerequisites, APIs/tests and suggested
+Freshly checked the relevant packet statements, prerequisites, APIs/tests and suggested
 interfaces: P.2's geometric theorem remains unstated until its carrier exists;
 HB.4's polynomial bracket is explicitly narrower than HB.8's required formal
 completed-ring bracket; QM.5's cocycle predicate includes epsilon(1)=1 and its
 Kontsevich theorem specifies the lower-branch inverse eta multiplier. Exact
-rational calculations verify the cross-ratios, the four scaled Taylor
+rational calculations verify both real and non-real cross-ratios, the four scaled Taylor
 coefficients and the figure-eight matrix's null vector reported above.
 
-No suggested file changed, so Lean was not rerun in this session. The latest
-successful Lean results are inherited from session `codex-YXWpoE`: exit 0 for
-all three base files, with 462, 441 and 1469 sorry warnings respectively and no
-other warning. This review does not relabel those runs as fresh. There are no
+Fresh serial `lean-check` runs in this session exit 0 for all three issue-listed
+suggested files. Polylogarithms produces 462 sorry warnings, HabiroNahmSeries
+441, and QSeriesPartitionsAndMockModularForms 1469; no other warnings or
+errors occur. Available memory was checked before elaboration. No suggested
+file changed. These results supersede the inherited compile evidence for
+these unchanged files, and do not prove their admitted statements. There are no
 assigned link maps or restructuring proposals requiring their checkers.
 
 The public source portions cited in /7, /11, /13 and /2 above were freshly read
