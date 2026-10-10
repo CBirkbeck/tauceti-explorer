@@ -33756,7 +33756,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--P9",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--P9.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6271"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.1",
@@ -80027,8 +80028,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80192,8 +80193,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80941,8 +80942,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
@@ -81502,8 +81503,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84593,8 +84594,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
