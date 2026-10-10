@@ -12,15 +12,17 @@ The representation category Rep_E(G) means finite-dimensional rational algebraic
 
 The slope protorus D has character group Q. A rank-one isocrystal with Frobenius π^m has isocrystal slope m and produces O(−m). For dominant Newton vectors the bundle convention is ν_bundle=w₀(−ν_isocrystal); the first Chern invariant is −κ. For GL_n we order slopes in decreasing order and compare partial sums with equal total. Dominance uses positive **coroots** in a rational cocharacter space.
 
-We use b′=g b σ(g)⁻¹ for sigma conjugacy. The inverse-g convention in several sources gives the same quotient. The representative Kottwitz map takes values in π₁(G)_I; the class invariant takes values in the full Galois coinvariants π₁(G)_Γ. Rational averaging relates κ⊗1 to ν, and loses integral torsion. The order on B(G) fixes κ and increases dominant ν. Its topology satisfies [b]≤[b′] exactly when E_b′ is in the closure of E_b; a basic point generalizes to more unstable points in its κ fibre. A rational Newton orbit need not have an E-rational representative inside G. Its central morphism inside J_b does descend for every b.
+We use b′=g b σ(g)⁻¹ for sigma conjugacy. The inverse-g convention in several sources gives the same quotient. The representative Kottwitz map takes values in π₁(G)_I; the class invariant takes values in the full Galois coinvariants π₁(G)_Γ. Rational averaging relates κ⊗1 to ν, and loses integral torsion. The order on B(G) fixes κ and increases dominant ν. GIZ26 v3 Theorem7.18 (pp.51–53), together with the schematic order comparison, supplies the topology in both characteristics. Its topology satisfies [b]≤[b′] exactly when E_b′ is in the closure of E_b; a basic point generalizes to more unstable points in its κ fibre. A rational Newton orbit need not have an E-rational representative inside G. Its central morphism inside J_b does descend for every b.
 
 For the bundle moduli, tildeJ_b is the full automorphism v-group. Its positive Banach–Colmez kernel has dimension ⟨2ρ,ν_b⟩; the stratum has the negative dimension. The chart uses the opposite extension filtration and negative-slope extension spaces. The framed chart is not an absolute diamond, although its punctured complement is locally spatial and its map to the point is representable in locally spatial diamonds. The chart quotient is an Artin v-stack. These absolute and relative assertions are distinct. For ℓ-cohomological assertions fix a prime ℓ≠p. The separate finite-coefficient curve comparison treats p-torsion by tilting and Artin–Schreier theory.
 
 The required general z-extension foundation is requested once as proposed ReductiveGroupsPartII RG2.6. Its contracts are induced-torus central kernels, simply connected derived group, induced-torus resolutions and lattice exactness. The current RG2.5 concerns dual/L-group data and supplies none of these conclusions by itself. BG1 owns the B-set consequences; ET.0 owns the relevant cohomology. The algebraic BG0/BG1 classification uses no analytic RF4 patching. The whole-stack Artin proof uses uniformization, open Schubert cells and VS0, and the chart proof then consumes VS1. This order keeps those proofs independent of Satake and sheaf-category compact generation.
 
+The abelianized Weil construction is restricted to the stated p-adic setting. Its discrete coefficient points are taken in L^sep with the natural Weil action, including inertia; L itself is insufficient. For isocrystal slope λ, A_λ=End_Φ(D_λ) has arithmetic Brauer invariant −λ. The bundle has slope −λ; right-module Morita uses Hom(E_b,E) with precomposition and inverse M⊗_A E_b. FS’s Hom(E,E_b) convention uses left modules. The one-third test detects the sign; one-half does not.
+
 ## Stage targets
 
-The declarations below specify definitions, APIs, proof chains and discriminating tests. Every implementation status is unchecked. The pass plans every target in all seven stages; the precise proof and formulation refinements at the end determine the follow-up work before any stage can be called closed.
+The declarations below specify definitions, APIs, proof chains and discriminating tests. Every implementation status is unchecked. All 98 reviewed target IDs are retained. This revision is partial: exact supplier proof interiors, the exact comparison proof interiors and full geometric Lean signatures remain open. No stage is closed.
 
 | Stage | Planned declarations | Planets |
 |---|---:|---:|
@@ -44,7 +46,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Definition: TauCeti.BunG.GBundle.** For a sousperfectoid E-space X and connected reductive G/E, a G-bundle is an exact E-linear tensor functor from finite rational representations Rep_E(G) to finite locally free bundles on X. Arrows are tensor natural isomorphisms. Exactness means preservation of bundle short exact sequences, not an arbitrary functor or abstract action of G(E).
 
-**Prerequisites.** [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB1](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB1](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
 
 **Proof/construction.** (1) Use the rational representation category supplied by ReductiveGroups and the exact tensor category of vector bundles supplied by VB1. (2) Construct the groupoid by retaining tensor isomorphisms and the specified exact structure.
 
@@ -56,6 +60,7 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 | TauCeti.BunG.GBundle.evaluate | projection | For each rational representation V, evaluate a G-bundle to a bundle of rank dim_E V; tensor and dual comparisons are natural. |
 | TauCeti.BunG.GBundle.tensorIso | characterisation | An isomorphism consists of invertible natural maps preserving the unit and tensor constraints. |
 | TauCeti.BunG.GBundle.pullback | functoriality | For f:Y→X, bundle pullback gives f* on G-bundles, with coherent identity and composition isomorphisms. |
+| TauCeti.BunG.GBundle.tensorIso_ext | extensionality | Two tensor natural isomorphisms are equal if their components agree on every finite rational representation. |
 
 **Discriminating unit tests.**
 
@@ -67,7 +72,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** GL_n gives rank-n vector bundles and their isomorphisms.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), After III.1.1 p.88.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), After III.1.1 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** G-bundle.
 
@@ -77,13 +84,17 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.GTorsorsThreeDescriptions.** For X sousperfectoid over E and reductive G/E, geometric étale-locally trivial G-torsors, étale sheaf G-torsors, and G-bundles are naturally equivalent categories. Hence their isomorphism classes identify with H¹_et(X,G). The scheme version is fpqc/fppf, with étale comparison for smooth G; do not transplant a scheme statement to an arbitrary adic space.
 
-**Prerequisites.** [G-bundles as exact tensor functors](#g-bundle); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [CategoryTheory.Equivalence](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Equivalence.lean); [TauCeti.Tannaka.fgPointTensorIsoEquiv](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [G-bundles as exact tensor functors](#g-bundle); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [CategoryTheory.Equivalence](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Equivalence.lean); [TauCeti.Tannaka.fgPointTensorIsoEquiv](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/Equivalence.lean).
 
 **Proof/construction.** (1) Apply SW19.5.2 in the sousperfectoid setting; sections and associated bundles give the first two functors. (2) Recover the torsor from the tensor functor using the regular representation as a filtered colimit; exactness gives faithful flatness. (3) Use smooth torsor descent for the fpqc/étale comparison on schemes.
 
 **Acceptance.** GL_n frame bundles and G_m line bundles. The 2020 SW scheme theorem is19.5.1; the adic theorem is19.5.2.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.1.1 p.88; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Theorems19.5.1 and19.5.2, printed178-180.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.1.1 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Theorems19.5.1 and19.5.2, printed178-180. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="structure-group-and-tensor-descent"></a>
 
@@ -91,13 +102,17 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.StructureGroupAndTensorDescent.** For a morphism f:G→H of connected reductive E-groups, extending a G-bundle is precomposition by restriction Rep(H)→Rep(G); it agrees with contracted product of torsors, commutes with base change and respects identity/composition. Tensor isomorphisms descend effectively for étale covers. Reconstruction by any faithful rational representation with its defining tensors gives the same torsor.
 
-**Prerequisites.** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md).
 
 **Proof/construction.** (1) Transport contracted products and effective smooth torsor descent across the comparison. (2) Tensor restriction composes contravariantly; torsor extension composes covariantly. (3) Use the regular representation reconstruction to compare faithful presentations.
 
 **Acceptance.** Determinant GL_n→G_m gives the determinant line. No use of RF4 patching occurs in this node.
 
-**Sources.** [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proof19.5.2 printed179-180; [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 printed33.
+**Sources.** [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proof19.5.2 printed179-180. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 printed33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="g-isocrystals-and-B-of-G"></a>
 
@@ -105,7 +120,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Definition: TauCeti.BunG.GIsocrystal.** A G-isocrystal over L=breve E is an exact E-linear tensor functor Rep_E(G)→Isoc_E, with tensor isomorphisms as arrows. After trivializing its underlying L-fibre functor, Frobenius is bσ for b∈G(L). Steinberg triviality over L permits such a trivialization; it is a choice, not part of the definition.
 
-**Prerequisites.** [VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [WittVector.Isocrystal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Isocrystal.lean); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [VectorBundlesAndIsocrystals:VB0/tensor-and-dual-slopes](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [WittVector.Isocrystal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Isocrystal.lean); [CategoryTheory.Functor.Monoidal](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Monoidal/Functor.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
 
 **Proof/construction.** (1) Use the exact tensor category of finite E-isocrystals from VB0. (2) Apply the reductive fibre-functor/torsor dictionary over L and Steinberg vanishing; changing the trivialization changes b by sigma conjugation.
 
@@ -128,7 +145,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** Underlying vector spaces are over L, not E.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.1 p.89; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Definition22.4.1 printed208.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.1 p.89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Definition22.4.1 printed210 (PDF220). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** G-isocrystal.
 
@@ -137,6 +156,8 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 ### Kottwitz set B(G)
 
 **Definition: TauCeti.BunG.SigmaClass.** B(G)=G(L)/~ where b~bprime iff bprime=g b σ(g)^−1 for some g∈G(L). Here σ is arithmetic q-Frobenius fixing E and its uniformizer. This orbit quotient is the set of isomorphism classes of G-isocrystals; the groupoid itself retains automorphisms.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [Subgroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean); [MulEquiv](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Equiv/Defs.lean).
 
@@ -161,7 +182,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** Both g b σ(g)^−1 and g^−1 b σ(g) conventions give the same orbit relation.
 
-**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.1 p.4.
+**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.1 p.4. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
 
 **Atlas planet:** Kottwitz set.
 
@@ -171,7 +194,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Construction: TauCeti.BunG.SigmaCentralizer.** For b∈G(L), J_b is the reductive E-group representing A↦{g∈G(A⊗_E L):g b=b σ(g)}. Its L-base change is the centralizer M_b of ν_b. It is an inner form of the corresponding Levi in the quasi-split inner form G*, and is an inner form of G* precisely when b is basic. Descent uses the semilinear action Ad(b)σ on M_b.
 
-**Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [TauCeti.ReductiveAffineGroupSchemeCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean); [Subgroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [TauCeti.ReductiveAffineGroupSchemeCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean); [Subgroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Subgroup/Defs.lean); [Existence of decent representatives](#existence-of-decent-representative).
 
 **Proof/construction.** (1) Construct ν_b from the representation slope grading, giving the Levi centralizer after base change. (2) Restrict Ad(b)σ to this centralizer; decency makes descent effective over a finite unramified extension. (3) Use reductive-group descent to represent the fixed-point functor and compare its rational points with tensor automorphisms.
 
@@ -194,7 +219,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** For b=1, J_b(E)=G(E). For a simple rank-h slope a/h block, J_b is D_(a/h)^×; multiplicity m gives GL_m(D), not a division algebra of rank mh.
 
-**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Sections4.3-4.4 pp.267-268; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), 1.2.12 printed14.
+**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Sections4.3–4.4 pp.268–269. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), 1.2.12 printed14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Sigma-centralizer.
 
@@ -204,13 +231,17 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Lemma: TauCeti.BunG.SigmaCentralizerConjugacy.** If bprime=g b σ(g)^−1 then conjugation h↦g h g^−1 induces an E-group isomorphism J_b≅J_bprime and identifies their tensor automorphism actions. The transport is compatible with products of changes of trivialization.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b).
 
 **Proof/construction.** (1) Substitute the twisted-conjugacy equation into the pointwise fixed equation. (2) Apply representability and descent to identify the natural functor isomorphism.
 
 **Acceptance.** The map on J_b(E) uses g, not σ(g), on both sides.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 p.6.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
 
 <a id="decent-representative"></a>
 
@@ -218,7 +249,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Definition: TauCeti.BunG.DecentRepresentative.** For a positive integer r and b∈G(L), require rν_b to be integral and (bσ)^r=(rν_b)(π)σ^r in G(L)⋊<σ>. Equivalently b σ(b)⋯σ^(r−1)(b)=(rν_b)(π), exactly r factors. A decent representative admits finite unramified descent; the definition excludes r=0.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) State the integral slope homomorphism and the semidirect-product equation. (2) Use the fixed equation and slope functoriality for finite unramified descent; source misprint E1 is corrected.
 
@@ -241,7 +274,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** Rank-one π^m is1-decent.
 
-**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Definition2.3 p.819; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 equations and decency p.6.
+**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Definition2.3 p.819. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.2 equations and decency p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Decent representative.
 
@@ -251,19 +286,25 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.ExistenceOfDecentRepresentative.** Every class of B(G) has a decent representative for some sufficiently divisible positive r. In the mixed-characteristic GLX setting r can be enlarged so G is quasi-split over E_r and the representative has the chosen dominant Newton map.
 
-**Prerequisites.** [Decent representative](#decent-representative); [Kottwitz set B(G)](#sigma-conjugacy-quotient); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Decent representative](#decent-representative); [Kottwitz set B(G)](#sigma-conjugacy-quotient); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Use the slope cocharacter, a splitting extension and the Kottwitz descent construction. (2) Enlarge r to clear slope denominators and descent periods. (3) Conjugate over E_r to the chosen chamber; dominance here requires the quasi-split base change.
 
 **Acceptance.** For a coprime slope a/h simple block choose a period divisible by h.
 
-**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Paragraph4 after Definition2.3 p.819; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Section4.3 printed213-214.
+**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Paragraph4 after Definition2.3 p.819. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Section4.3 printed213-214. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="defect"></a>
 
 ### Defect of a sigma class
 
 **Definition: TauCeti.BunG.Defect.** For the connected reductive local group G and its algebraic sigma-centralizer J_b, def_G(b)=rank_E G−rank_E J_b as an integer. The ranks are split ranks over E, not absolute ranks over L and not dimensions of topological point groups.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
@@ -287,7 +328,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** GL_n slope blocks give n−sum of their division-module multiplicities.
 
-**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.2 p.5.
+**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section2.2 p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="pure-inner-twisting"></a>
 
@@ -295,13 +338,17 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.PureInnerTwisting.** For a group sheaf H on a site and an H-torsor T, put H_T=Aut_H(T). The bitorsor T induces an equivalence between H-torsors and H_T-torsors by S↦Isom_H(S,T), with the inverse contracted product. Applied on the curve, this is an equivalence of the actual torsor groupoids, not just of isomorphism classes.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Construct the left/right commuting bitorsor actions and the evaluation/counit isomorphisms. (2) Descend the local trivializations to establish quasi-inverse functors.
 
 **Acceptance.** An untrivialized torsor does not yield a canonical isomorphism H_T≅H.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.1 p.100.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.1 p.100. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="basic-inner-form-bundle-equivalence"></a>
 
@@ -309,33 +356,43 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.BasicInnerFormBundleEquivalence.** For basic b, the curve group Aut_G(E_b) is J_b×_E X. Pure inner twisting therefore gives Bun_G≃Bun_(J_b), compatible with perfectoid base change and carrying E_b to the trivial J_b-bundle.
 
-**Prerequisites.** [Pure inner twisting of torsors](#pure-inner-twisting); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Pure inner twisting of torsors](#pure-inner-twisting); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Basic sigma class](#basic-class).
 
 **Proof/construction.** (1) For a basic slope cocharacter the adjoint isocrystal has only slope0; its bundle is the descended J_b group. (2) Apply the torsor equivalence relatively.
 
 **Acceptance.** For nonbasic b the curve automorphism group has a nonconstant positive part; this statement does not apply.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.2 andIII.4.3 pp.100-101.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.4.2 andIII.4.3 pp.100-101. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="division-algebra-morita"></a>
 
 ### Division-algebra Morita comparison
 
-**Comparison: TauCeti.BunG.DivisionAlgebraMorita.** For a simple isocrystal of slope λ=a/h and division algebra D_λ/E of invariant λ, J_b≅D_λ^×. Twisting GL_h-bundles by E_b identifies them with bundles of rank1 right D_λ-modules; m copies give GL_m(D_λ). The comparison is Morita/torsor equivalence, not an E-group isomorphism GL_h≅D_λ^×.
+**Comparison: TauCeti.BunG.DivisionAlgebraMorita.** For a simple isocrystal D(a,h) of slope λ=a/h, gcd(a,h)=1 and h>0, set A_λ=End_Φ(D(a,h)). Under the arithmetic Frobenius/Brauer convention of VB0, A_λ≅D_{−λ} has invariant −λ mod Z, and J_b≅A_λ^×. The associated bundle is O(−λ); the natural End comparison identifies A_λ with its endomorphism algebra. Twisting gives an equivalence between rank-h vector bundles and locally free rank-one right (A_λ⊗_E O_X)-modules via E↦Hom(E_b,E), with right action by precomposition. Its inverse is M↦M⊗_(A_λ⊗O_X)E_b, where E_b is a left A_λ-module. For m copies the automorphism group is GL_m(A_λ). This is a Morita/torsor equivalence.
 
-**Prerequisites.** [Basic inner form equivalence](#basic-inner-form-bundle-equivalence); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** The local field and arithmetic Frobenius conventions of VB0 apply; λ is the isocrystal slope, so the bundle slope is −λ. Right modules use Hom(E_b,E); the Hom(E,E_b) functor in FS Example III.4.4 uses left modules.
 
-**Proof/construction.** (1) Use End of a simple slope block from VB0 and its induced curve Azumaya algebra. (2) Apply basic inner twisting and the module/torsor dictionary.
+**Prerequisites.** [Basic inner form equivalence](#basic-inner-form-bundle-equivalence); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB2:classification/bundle-endomorphism-comparison](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
-**Acceptance.** The quaternion slope1/2 example has h=2; its E-points differ from GL_2(E).
+**Proof/construction.** (1) Import the simple-block endomorphism presentation and its arithmetic Brauer invariant from the separate VB0 nodes; its parameter is the bundle slope −λ. (2) Use the simple-block bundle endomorphism comparison, then apply basic inner twisting and the explicit right-module Hom/tensor adjunction.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.4 p.101.
+**Acceptance.** For isocrystal slope 1/3 the bundle slope is −1/3 and inv_E(A_λ)=2/3 mod Z, rather than 1/3. The quaternion slope 1/2 example cannot distinguish the signs. The chosen Hom functor is covariant in E and right A_λ-linear by precomposition; exchanging the Hom arguments exchanges sidedness.
+
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.4 pp.101-102. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="families-of-g-isocrystals"></a>
 
 ### Families of G-isocrystals
 
 **Definition: TauCeti.BunG.GIsocrystalFamily.** For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [G-isocrystals](#g-isocrystals-and-B-of-G); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md); [VectorBundlesAndIsocrystals:VB0](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
@@ -360,7 +417,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** Do not identify all family morphisms with bundle morphisms.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), I.2 pp.10-11.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), I.2 pp.10-11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Families of G-isocrystals.
 
@@ -370,13 +429,17 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Theorem: TauCeti.BunG.IsocrystalFamilyVDescent.** The G-isocrystal family prestack is a v-stack on perfect F_q-schemes. It has locally closed geometric-class strata indexed by B(G), each equivalent to [*/J_b(E)] for the locally profinite rational-point group. This is the family stack statement of FS I.2.1; the algebraic classifying stack [*/J_b] and the bundle stratum with its full automorphisms are different objects.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Families of G-isocrystals](#families-of-g-isocrystals); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md).
 
 **Proof/construction.** (1) Use coefficient-ring torsor v-local triviality and v-descent, then the twisted loop quotient. (2) Use the representation Newton criterion and integral κ-local-constancy to construct locally closed loci. (3) Apply the family isotriviality theorem in the source’s cited HK22 general case to identify each stratum.
 
 **Acceptance.** This named theorem is planned; the three cited original proof interiors are precise source gaps.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremI.2.1 p.11.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremI.2.1 p.11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="finite-frobenius-norm-centralizer"></a>
 
@@ -384,19 +447,25 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Comparison: TauCeti.BunG.FiniteFrobeniusNormCentralizer.** For the degree-r unramified extension K_0/Q_p, δ∈G(K_0), σ^r=id, and γ=δσ(δ)⋯σ^(r−1)(δ), the algebraic twisted centralizer functor defined by δσ(g)=gδ becomes Z_G(γ) after base change to K_0. Extending the coefficient field from degree r to degree rn defines I_(p,n); after extension to L its centralizer is Z_G(γ^n). The norm of δ^n is not substituted for this iterated twisted product. This finite-period comparison is distinct from the infinite-coefficient Newton Levi J_δ.
 
-**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [AlgebraicModuliForArithmeticGeometry:R09.3](../../../content/campaign/AlgebraicModuliForArithmeticGeometry/README.md).
 
 **Proof/construction.** (1) Iterate the twisted equation r times to obtain centralization of γ. (2) On Z_G(γ), Ad(δ)σ has period r; perform finite Galois descent. (3) Compare the point functors after K_0 base change. (4) For the enlarged coefficient field, (δσ)^(rn)=γ^nσ^(rn); apply the same finite descent.
 
 **Acceptance.** No general equality Z_G(γ)=Z_G(ν_b) is asserted.
 
-**Sources.** [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Section2.1.2 printed29.
+**Sources.** [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Section2.1.2 printed29. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
 
 <a id="central-newton-on-J"></a>
 
 ### Central Newton morphism of the centralizer
 
 **Construction: TauCeti.BunG.CentralNewtonOnJ.** For every b∈G(L), the slope morphism ν_b, viewed in the center of its geometric centralizer, descends through the defining Frobenius descent datum to an E-rational central morphism ν_(b,J):D→J_b. No rational representative of ν_b inside G is needed. For a positive multiple N clearing its denominators, Nν_(b,J) is an integral cocharacter and U_π=(Nν_(b,J))(π) belongs to J_b(E).
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Decent representative](#decent-representative).
 
@@ -420,7 +489,9 @@ Construct the rational tensor descriptions and the sigma-conjugacy quotient. Ide
 
 **Acceptance.** Check its construction without the rational-Newton-in-G hypothesis.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 p.175.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 p.175. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 ## BG1 — Kottwitz and Newton invariants
 
@@ -432,21 +503,27 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.FamilyKottwitzLocalConstancy.** For an F_q-scheme S with a G-isocrystal family, the function s↦κ(E_s) in π_1(G)_Γ is locally constant. Perfectifying S preserves the relevant topology. Analytify the family to the curve and apply bundle κ-local-constancy; this establishes the routed FS III.2.8 assertion without assuming it in the family v-descent proof.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Families of G-isocrystals](#families-of-g-isocrystals); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) After perfection write a Frobenius family on Spec R and associate the map Spd(R,R)→Bun_G, as in FS III.2.8. (2) Pull back the clopen κ fibres along that map. (3) Apply SW Proposition18.3.1, the bijection between clopen subsets of Spd(R,R) and Spec R; this proves scheme-topological local constancy. No commuting support or valuation map is assumed.
 
 **Acceptance.** Do not create a dependency from bundle κ-local-constancy back to this corollary.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIII.2.8 pp.92-93; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition18.3.1 §18.3.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIII.2.8 pp.92-93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Berkeley Lectures on p-adic Geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Proposition18.3.1 §18.3. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="abelianized-kottwitz-set"></a>
 
 ### Abelianized Kottwitz set
 
-**Definition: TauCeti.BunG.AbelianizedClass.** For E p-adic, B_ab(G)=H^1(W_E,[Gsc(L)→G(L)]) with the natural crossed-module action. The abelianization map comes from [1→G]→[Gsc→G]. A maximal torus complex [Tsc→T] and center complex [Zsc→Z] are homotopy-equivalent coefficient models, not replacements of G by an arbitrary abelian group.
+**Definition: TauCeti.BunG.AbelianizedClass.** For E p-adic, B_ab(G)=H^1(W_E,[Gsc(L^sep)→G(L^sep)]) with the natural crossed-module action. The abelianization map comes from [1→G]→[Gsc→G]. A maximal torus complex [Tsc→T] and center complex [Zsc→Z] are homotopy-equivalent coefficient models, not replacements of G by an arbitrary abelian group.
 
-**Prerequisites.** [Kottwitz set B(G)](#sigma-conjugacy-quotient); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
+
+**Prerequisites.** [Kottwitz set B(G)](#sigma-conjugacy-quotient); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Import continuous crossed-module cohomology and the actual simply connected covering from their owners. (2) Construct the canonical abelianization and compare the torus and center complexes.
 
@@ -455,8 +532,8 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 | Declaration | Role | Contract |
 |---|---|---|
 | TauCeti.BunG.AbelianizedClass.abelianize | functoriality | Send a sigma class to its crossed-module H^1 class. |
-| TauCeti.BunG.AbelianizedClass.torusModel | equivalence | Replace the crossed module by [Tsc(L)→T(L)] for a maximal torus. |
-| TauCeti.BunG.AbelianizedClass.centerModel | equivalence | Replace it by [Zsc(L)→Z(L)]. |
+| TauCeti.BunG.AbelianizedClass.torusModel | equivalence | Replace the crossed module by [Tsc(L^sep)→T(L^sep)] for a maximal torus. |
+| TauCeti.BunG.AbelianizedClass.centerModel | equivalence | Replace it by [Zsc(L^sep)→Z(L^sep)]. |
 | TauCeti.BunG.AbelianizedClass.map | functoriality | Reductive homomorphisms and compatible simply connected lifts induce the abelianized map. |
 
 **Discriminating unit tests.**
@@ -469,7 +546,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Restriction to p-adic E keeps finite diagonalizable groups étale.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 pp.93-94.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 pp.93-94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="slope-protorus"></a>
 
@@ -477,7 +556,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.SlopeProtorus.** Let D be the E-protorus with character group Q. A homomorphism D→G is a compatible rational cocharacter, not a single integral cocharacter. For each representation its weight grading records all rational isocrystal slopes.
 
-**Prerequisites.** [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Construct D as the inverse limit of G_m under positive power maps. (2) Use the character-group anti-equivalence to identify Hom(D,T) with X_*(T)⊗Q.
 
@@ -500,7 +581,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Denominator h requires an h-fold integral representative.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions and1.1.1 p.5.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions and1.1.1 p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="algebraic-fundamental-group"></a>
 
@@ -508,7 +591,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.AlgebraicPiOne.** For a geometric maximal torus T of connected reductive G, π_1(G)=X_*(T)/ZΦ∨, with its canonical Γ_E-action; identify different T using conjugacy and Weyl invariance of the quotient. Form integral inertia coinvariants π_1(G)_I and full Galois coinvariants π_1(G)_Γ, retaining torsion.
 
-**Prerequisites.** [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [RootPairing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Defs.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [RootPairing](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/RootSystem/Defs.lean).
 
 **Proof/construction.** (1) Construct the coroot quotient and prove that Weyl reflections act trivially. (2) Descend its action independently of the geometric torus; distinguish inertia and Frobenius quotients.
 
@@ -531,7 +616,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Do not replace integral coinvariants by their rationalization.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions p.5; [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section2.2 p.818.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Notational conventions p.5. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section2.2 p.818. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Algebraic fundamental group.
 
@@ -541,7 +628,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.NewtonSpace.** N(G) is the Γ_E-fixed set of G(bar E)-conjugacy classes of D→G. For a quasi-split inner form G*, choose a rational Borel and torus and identify it with Γ-fixed dominant rational cocharacters. Define ν≤νprime when νprime−ν is a nonnegative rational combination of positive coroots in the chosen chamber; the central projection is consequently equal.
 
-**Prerequisites.** [Rational slope protorus](#slope-protorus); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Rational slope protorus](#slope-protorus); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use the quasi-split rational chamber and the action on the based root datum. (2) Compare orbit representatives in that chamber; transport the order across an inner twisting.
 
@@ -564,7 +653,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** On GL_n compare descending slopes by partial sums with equal total.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.1 pp.5-6; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Section2.1 pp.165-166.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.1 pp.5-6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Section2.1 pp.165-166 (PDF14-15). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="galois-average"></a>
 
@@ -572,7 +663,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Construction: TauCeti.BunG.HodgeInvariants.** For a geometric conjugacy class {μ}, choose its dominant representative μ* in a quasi-split inner form. Put μ♯=[μ*] in π_1(G)_Γ and μ◇=|Γ·μ*|^−1 sum over the finite orbit. The latter is dominant and Γ-fixed. Rational averaging gives (π_1(G)⊗Q)_Γ≅(π_1(G)⊗Q)^Γ and δ(μ◇)=average(μ♯⊗1); it is not an integral averaging isomorphism.
 
-**Prerequisites.** [Algebraic fundamental group](#algebraic-fundamental-group); [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Algebraic fundamental group](#algebraic-fundamental-group); [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Choose the finite quotient through which the based-root action and μ orbit factor. (2) Average in the rational vector space; change of inner twisting changes the representative by conjugacy. (3) Prove invariance, idempotence and compatibility with the coroot quotient.
 
@@ -595,7 +688,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Keep μ♯ integral even when μ◇ is fractional.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 pp.7-8.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 pp.7-8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="newton-and-kottwitz-maps"></a>
 
@@ -603,7 +698,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Construction: TauCeti.BunG.Invariants.** There are functorial maps ν:B(G)→N(G) and κ:B(G)→π_1(G)_Γ. The Newton morphism is the slope grading in every rational representation. The representative homomorphism tildeκ:G(L)→π_1(G)_I is the torus valuation map extended through a z-extension; composing with Frobenius coinvariants gives κ. Their rational images agree: δ(ν_b)=average(κ(b)⊗1).
 
-**Prerequisites.** [Kottwitz set B(G)](#sigma-conjugacy-quotient); [Newton orbit space and rational dominance](#newton-orbit-space); [Algebraic fundamental group](#algebraic-fundamental-group); [Galois averaging and Hodge invariants](#galois-average); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Kottwitz set B(G)](#sigma-conjugacy-quotient); [Newton orbit space and rational dominance](#newton-orbit-space); [Algebraic fundamental group](#algebraic-fundamental-group); [Galois averaging and Hodge invariants](#galois-average); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Construct the slope morphism using Dieudonné–Manin and tensor compatibility. (2) Construct the torus representative map, then descend along the induced central torus of a z-extension using its exact π_1 sequence. (3) Check sigma-conjugacy invariance and the rational compatibility square.
 
@@ -627,7 +724,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** For GL_n, κ=v(det b) and ν is the descending slope tuple.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 equations1.1.2.1 and1.1.2.3 pp.6-7; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Theorem1.15 p.163.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 equations1.1.2.1 and1.1.2.3 pp.6-7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Theorem1.15 p.163. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Newton and Kottwitz invariants.
 
@@ -637,13 +736,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.StraightWeylClassification.** For the local Iwahori–Weyl group with its specified Frobenius and parahoric root datum, the map from σ-straight σ-conjugacy classes of Weyl elements to B(G) is a bijection and preserves κ and dominant Newton points. For w, choose n killing the finite Weyl/Frobenius action and write wσ(w)⋯σ^(n−1)(w)=t_λ; ν_w=λ/n. The straightness criterion is length(w)=<2ρ_Σ,ν_w^dom>. Generic affine Weyl groups, lengths and Adm(μ) belong to RG2.4.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Import the actual local extended Weyl datum and its lift to G(L). (2) Prove independence of an allowed n and compatibility of invariant maps. (3) Use the cited He14 straight-class theorem; its original proof remains a named source gap.
 
 **Acceptance.** The rational translation normalization divides by n, not by the residue-field degree.
 
-**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Sections2.1.3-2.1.4 and2.2.1 pp.6-8.
+**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Section2.2.2 p.10, with the σ-straight definitions in Sections2.1.3-2.1.4 pp.7-8. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Straight Weyl classification.
 
@@ -653,13 +756,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.ClassificationByTwoInvariants.** The map (ν,κ):B(G)→N(G)×π_1(G)_Γ is injective. For basic classes, κ restricts to a bijection B(G)_basic≅π_1(G)_Γ; their Newton point is the central rational representative determined by κ⊗1. Injectivity of ν alone is false.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Reduce to the centralizer of the Newton map and its basic class classification. (2) Apply the basic Kottwitz bijection there and the injectivity statement of Kot97.
 
 **Acceptance.** Quadratic norm-one torus gives equal ν and unequal κ.
 
-**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Theorem4.13 and Proposition5.1 pp.272,277; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.3 pp.6-7.
+**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section4.13 pp.274-275 (injectivity), Section4.4 pp.268-269 (basic bijection), and Section5.1 pp.278-280. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.3 pp.6-7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="basic-class"></a>
 
@@ -667,7 +774,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.Basic.** A class is basic when its Newton morphism factors through Z(G), equivalently every adjoint representation slope is0. This definition applies to all connected reductive inner forms, independently of a rational representative choice.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [Kottwitz classification by both invariants](#classification-by-two-invariants).
 
 **Proof/construction.** (1) Use centrality of the slope morphism and tensor functoriality to identify the adjoint criterion.
 
@@ -690,13 +799,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Basic is isoclinic for GL_n, not necessarily slope0.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 p.6.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2 p.6. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="partial-order-on-B-of-G"></a>
 
 ### Newton partial order with Kottwitz fibre
 
 **Definition: TauCeti.BunG.NewtonOrder.** Define [b]≤[c] iff κ(b)=κ(c) and ν_b≤ν_c in the coroot order on N(G). Classification by both invariants makes this a partial order. The ν-only relation in KMPS is a preorder across all of B(G), and becomes a partial order on each κ fibre.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Newton orbit space and rational dominance](#newton-orbit-space).
 
@@ -721,7 +834,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Order orientation is fixed once for specialization, flag stratification and charts.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.2 p.89; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section4.1 p.7.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.2 p.89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section4.1 p.7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Newton partial order.
 
@@ -731,19 +846,25 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.RepresentationDetectsDominance.** For Γ-invariant rational cocharacter classes, ν≤νprime iff for every rational representation the descending slope tuples have the corresponding positive-coroot majorization; totals agree. Basic classes are minimal among the classes with the same rational central projection. Passing to B(G) additionally requires equality of integral κ.
 
-**Prerequisites.** [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules).
 
 **Proof/construction.** (1) Reduce using dominant weights and highest weights of rational representations. (2) Separate the central character equality from the semisimple coroot inequalities.
 
 **Acceptance.** A faithful representation alone does not establish the full equivalence without a weight-detection argument.
 
-**Sources.** [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Lemma2.2 and Proposition2.4 pp.165-166.
+**Sources.** [On the classification and specialization of F-isocrystals with additional structure](https://www.numdam.org/article/CM_1996__103_2_153_0.pdf), Lemma2.2 and Proposition2.4 pp.165-166. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="admissible-pair"></a>
 
 ### Acceptable classes B(G,{μ})
 
 **Definition: TauCeti.BunG.Acceptable.** For a geometric cocharacter class {μ}, set B(G,{μ})={ [b] : κ(b)=μ♯ and N_ξ(ν_b)≤μ◇ }. ξ is an inner twisting to the quasi-split form used for the dominant average. Both conditions are required. Acceptable describes the local invariant set; it does not assert existence of a period point or weak admissibility.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Galois averaging and Hodge invariants](#galois-average); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Newton partial order with Kottwitz fibre](#partial-order-on-B-of-G).
 
@@ -754,10 +875,10 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 | Declaration | Role | Contract |
 |---|---|---|
 | TauCeti.BunG.Acceptable.mem_iff | characterisation | Membership is full κ equality and Newton bound. |
-| TauCeti.BunG.Acceptable.basic | constructor | The unique basic class of κ=μ♯ lies in B(G,{μ}). |
-| TauCeti.BunG.Acceptable.finite | other | The acceptable subset is finite. |
+| TauCeti.BunG.Acceptable.basic | constructor | The unique basic class of κ=μ♯ lies in B(G,{μ}). API prerequisites: [Finiteness and the basic acceptable member](#admissible-finiteness-and-basic). |
+| TauCeti.BunG.Acceptable.finite | other | The acceptable subset is finite. API prerequisites: [Finiteness and the basic acceptable member](#admissible-finiteness-and-basic). |
 | TauCeti.BunG.Acceptable.torus_iff | simp | For T, membership is κ_T(b)=μ♯; the Newton equality follows. |
-| TauCeti.BunG.Acceptable.product | equivalence | Acceptable sets for a product factor with the component bounds. |
+| TauCeti.BunG.Acceptable.product | equivalence | Acceptable sets for a product factor with the component bounds. API prerequisites: [Products and unramified restriction of scalars](#product-and-unramified-norm). |
 
 **Discriminating unit tests.**
 
@@ -769,7 +890,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Apply μ inverse in the CS flag convention.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 conditions1.1.5.1-2 p.8; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.3 p.10.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.5 conditions1.1.5.1-2 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.3 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Acceptable Newton classes.
 
@@ -779,23 +902,29 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.LeviNewtonFormula.** For quasi-split G/Q_p and a rational standard Levi M, a basic class b_M with κ_M(b_M)=μ_M♯ has Newton point the corresponding element of (X_*(Z_M)⊗Q)^Γ. If μ_M and μ have the same image in π_1(G), its image in B(G) is acceptable for μ precisely when its G-dominant Newton point is bounded by μ◇. The M-dominant and G-dominant representatives can differ by a Weyl conjugation.
 
-**Prerequisites.** [Basic sigma class](#basic-class); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Basic sigma class](#basic-class); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Project the basic invariant through the rational center isomorphism for M. (2) Use the functorial π_1 map and take G-dominant Newton representatives.
 
 **Acceptance.** For a nonbasic G-class several distinct basic Levi classes can map to it; their Levi κ values need not coincide.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.12 p.10; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.12 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="ordinary-class"></a>
 
 ### Ordinary Newton class
 
-**Definition: TauCeti.BunG.Ordinary.** An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. Every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.
+**Definition: TauCeti.BunG.Ordinary.** An acceptable class is μ-ordinary when its transferred dominant Newton point equals μ◇. Classification makes such a class unique if it exists. Its existence is guaranteed for quasi-split G; it is not automatic for a general inner form. For either characteristic, every B(G,{μ}) has a unique maximum, which need not satisfy ordinary equality.
 
-**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Kottwitz classification by both invariants](#classification-by-two-invariants).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Proof/construction.** (1) Define equality with the actual Hodge average, retaining acceptability. (2) Use injectivity of (ν,κ) for uniqueness; use KZ’s quasi-split existence argument. (3) Import the unique-maximum theorem of He–Nie, with its combinatorial proof interior identified as a gap.
+**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Kottwitz classification by both invariants](#classification-by-two-invariants); [Unique maximum of acceptable classes](#acceptable-unique-maximum).
+
+**Proof/construction.** (1) Define equality with the actual Hodge average, retaining acceptability. (2) Use injectivity of (ν,κ) for uniqueness; use KZ’s quasi-split existence argument. (3) Import the general-field maximum deduction from the characteristic-independent He–Nie root-datum theorem; retain its specific RG2.4 and convex-proof obligations.
 
 **API.**
 
@@ -817,7 +946,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** The μ-ordinary predicate and maximum are separate contracts.
 
-**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.4 and Remark2.2.5 p.10; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.3.15 p.20.
+**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Definition2.2.4 and Remark2.2.5 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.3.15 p.20. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Ordinary Newton class.
 
@@ -825,15 +956,19 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 ### Unique maximum of acceptable classes
 
-**Theorem: TauCeti.BunG.AcceptableUniqueMaximum.** For connected reductive G over a nonarchimedean local field and a geometric class {μ}, B(G,{μ}) has a unique maximal element for the fixed-κ Newton order. The maximum is ordinary exactly when its Newton point equals μ◇. No quasi-split hypothesis is attached to unique maximality.
+**Theorem: TauCeti.BunG.AcceptableUniqueMaximum.** For a connected reductive group G over any nonarchimedean local field E with finite residue field, and a geometric conjugacy class {μ}, B(G,{μ}) has a unique maximum for the fixed-integral-κ Newton order. It is ordinary exactly when its Newton point equals μ◇. The general-field assertion is derived from the characteristic-independent root-datum theorem HN18 Theorem1.1(1) and the local straight-class/invariant comparison; it is not attributed to HN18 Theorem0.1 outside that theorem’s p-adic scope.
 
-**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Hypotheses.** G/E is connected reductive, E is a nonarchimedean local field of either characteristic, and {μ} is a geometric cocharacter conjugacy class. No quasi-split hypothesis. Use the actual local affine root datum and Frobenius action from RG2.4. Retain the full integral κ fibre while removing central inertia torsion for the numerical root-datum calculation.
 
-**Proof/construction.** (1) Use the He–Nie combinatorial maximal-element theorem for the acceptable Newton set. (2) Apply finiteness and the fixed-κ order; compare the maximal point with μ◇.
+**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Kottwitz classification by both invariants](#classification-by-two-invariants).
+
+**Proof/construction.** (1) Import the local Iwahori–Weyl datum, Frobenius and geometric cocharacter projection. He16 §2.2 permits both characteristics; its §2.4 comparison preserves κ and Newton points before the equal-characteristic restriction in §2.5. (2) By StraightWeylClassification and two-invariant injectivity, the acceptable B(G) fibre identifies as a poset with the acceptable Newton values in the corresponding affine datum, at the fixed integral κ. (3) For the finite central inertia-torsion subgroup K of the Iwahori–Weyl translation lattice, project to the torsion-free datum. Right exactness of σ-coinvariants identifies the kernel of the projected κ map with the image of K_σ. A lift with the wrong integral κ is corrected by a central torsion element; its Newton value is unchanged. Thus this numerical projection preserves the acceptable Newton set within the chosen κ fibre, without replacing κ by its rationalization. (4) The resulting based reduced root datum and finite-order alcove-preserving affine Frobenius satisfy HN18 §1.3–§1.4. Pass to its adjoint datum using §2.1; express the affine action as an alcove stabilizer times a linear diagram action as in §2.2. (5) Apply HN18 Theorem1.1(1). Its proof (§2.3–§2.5) uses the orbit-weight integrality criterion of Lemma2.5 and the largest allowed orbit-weight bounds to construct a Newton value ν. Chai Theorem6.5 gives the least dominant majorant of those bounds, and Lemma6.2(i) shows every acceptable value is ≤ν. These external convex/root proof inputs remain explicit G06/RG2.4 obligations. (6) Lift back to the chosen integral κ as above and then to B(G). Two-invariant injectivity gives a unique class, and order compatibility makes it dominate every acceptable class. This field-independent transfer is our deduction from the cited root-datum theorem, not a claim that the paper’s p-adic Appendix A states an equal-characteristic theorem. (7) Compare the resulting Newton value with μ◇ to characterize ordinary equality. Unique maximality does not assert ordinary existence for nonsplit inner forms.
 
 **Acceptance.** In a nonsplit inner form maximality alone does not imply ordinary equality.
 
-**Sources.** [On the acceptable elements](https://arxiv.org/pdf/1408.5836), Theorem0.1 pp.1-2; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Remark2.2.5 p.10.
+**Sources.** [On the acceptable elements](https://arxiv.org/pdf/1408.5836), §§1.1–1.4 pp.2–4, Theorem1.1(1) p.4; §§2.1–2.5 pp.4–8; Appendix A pp.20–22. The root-datum maximum theorem has no field parameter. The p-adic group theorem and Appendix are kept within their stated scope; the general-field transfer and fixed-κ central-torsion argument are explicit deductions in this proof sketch.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §2.2 pp.22–24 and §2.4, Theorem2.6 pp.25–26. Supplies the local Iwahori–Weyl and invariant-preserving class comparison for a general local field. This citation precedes the equal-characteristic-only schematic closure discussion.; [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Remark2.2.5 p.10. Supplies the p-adic application and the distinction between a maximum and an ordinary class.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="ordinary-straight-translation"></a>
 
@@ -841,13 +976,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.OrdinaryStraightTranslation.** Every ordinary class has a representative lifting a σ-straight translation t_μprime with μprime in the relative Weyl orbit of the projected μ. Such a translation has μprime central in the rational Newton Levi. If μprime=w(μ) with μ the projection of an absolute dominant cocharacter μtilde, the compatible absolute lift w(μtilde) is central in that Levi. The absolute/relative projection and Frobenius are part of the supplied root datum.
 
-**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Apply the straightness equality to compare the coroot pairings with the Newton centralizer. (2) Use the compatible absolute lift and averaging to force the remaining Levi root pairings to vanish. (3) Use ordinary equality and the straight-class bijection to choose the translation representative.
 
 **Acceptance.** Centrality is in the Newton Levi, not necessarily in G.
 
-**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemmas2.1.7,2.1.9 and2.2.6 pp.7,9.
+**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemma2.2.6 p.10, using Lemma2.1.7 p.8 and Lemma2.1.9 p.9 (arXiv v2). Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="ordinary-derived-isogeny"></a>
 
@@ -855,13 +994,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.OrdinaryDerivedIsogeny.** If f:G→Gprime induces an isogeny of derived groups and sends μ to μprime, the ordinary class exists for (G,μ) iff it exists for (Gprime,μprime). For b∈B(G,{μ}), b is ordinary iff f(b) is ordinary. The proof compares the noncentral root data and restores the central equality from acceptability.
 
-**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Ordinary Newton class](#ordinary-class); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Compare the dominant Newton points modulo the center using the derived isogeny. (2) The rational κ compatibility fixes the central component, so equality lifts. (3) For existence use the compatible straight translation and Kottwitz class.
 
 **Acceptance.** The morphism need not be an isomorphism on centers; this is why full acceptability is retained.
 
-**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemma2.2.8 p.10.
+**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Lemma2.2.8 p.10. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="ordinary-integral-conjugacy"></a>
 
@@ -869,13 +1012,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.OrdinaryIntegralConjugacy.** In the KZ local setup with the specified connected parahoric model, if b is μ-ordinary and lies in the union of μ-admissible parahoric double cosets, b lies in the double coset of a σ-straight translation t_μprime for μprime in W_0μ. It is σ-conjugate to the chosen translation lift by an element of G(O_breveF). The claim is for elements satisfying the integral double-coset hypothesis, not every representative of the ordinary class.
 
+**Hypotheses.** Use KZ §2.1: F a nonarchimedean local field, connected reductive G/F, a σ-stable alcove, its Iwahori model I, and a specified connected parahoric model G_script with subgroup W_J. Require b to lie in both the μ-admissible parahoric double-coset union and the ordinary class. Here G_script(O_breveF) is the parahoric subgroup, not the rational points of G.
+
 **Prerequisites.** [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
-**Proof/construction.** (1) Use Adm(μ) and the ordinary Newton equality to force the translation cell. (2) Reduce the remaining factor through the Levi and its unipotent radical, applying the Frobenius/Lang argument in the parahoric model.
+**Proof/construction.** (1) Use He–Rapoport Theorem6.1(b) to σ-conjugate b by the specified parahoric into an Iwahori cell indexed by a minimal W_J coset representative. He16 Theorem6.1 puts that index in Adm(μ). (2) Use He–Zhou Theorem4.1 to find a σ-straight x below that index whose Iwahori cell meets the ordinary class, and He14 Theorem3.5 to identify its class. The ordinary equality and KZ Lemma2.2.6 force x=t_μprime; admissible length comparison forces the original index to equal x. (3) Apply He14 Proposition4.5: the Iwahori double coset of a σ-straight lift is a single σ-conjugacy orbit under I(O_breveF). Composing the two integral conjugators proves (2). These non-routine imported inputs remain the precise G10 obligations.
 
 **Acceptance.** A conjugate by an arbitrary G(L) element can leave the admissible integral double coset.
 
-**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Proposition2.3.3 pp.11-12.
+**Sources.** [Independence of l for Frobenius conjugacy classes attached to abelian varieties](https://arxiv.org/pdf/2103.09945v2), Proposition2.3.3 pp.11-12. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="product-and-unramified-norm"></a>
 
@@ -883,13 +1030,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Comparison: TauCeti.BunG.ProductAndUnramifiedNorm.** B(G1×G2)=B(G1)×B(G2), compatibly with ν,κ,defect and acceptable bounds. For E/F unramified of degree d and G=Res_(E/F)H, after decomposing G(breveF) into d factors, Nm(b)=b_0 σ(b_1)⋯σ^(d−1)(b_(d−1)) gives B(G,σ)≅B(H,σ_E). The bound on H is the sum of the component cocharacters, with the chosen factor identifications. J_b^G≅Res_(E/F)J_Nm(b)^H and the F/E split-rank defects agree.
 
-**Prerequisites.** [Defect of a sigma class](#defect); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Defect of a sigma class](#defect); [Acceptable classes B(G,{μ})](#admissible-pair); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Write the Frobenius cycle on the d factors and eliminate d−1 factors by sigma conjugation. (2) Compare the surviving semilinear operator and centralizer. (3) Use Shapiro on π_1 and sum the Hodge components; compare ρ pairings with the precise normalized Newton tuple.
 
 **Acceptance.** Do not multiply the defect by d; restriction of scalars preserves the appropriate local split rank.
 
-**Sources.** [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Remark3.6 and Lemma3.7 p.459; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equations6.5.2-6.5.3 p.288.
+**Sources.** [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Remark3.6 and Lemma3.7 p.459. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equations6.5.2-6.5.3 p.288. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="basic-levi-fibre-uniqueness"></a>
 
@@ -897,13 +1048,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.BasicLeviFibreUniqueness.** For a basic G-class and a σ-stable standard Levi, its intersection with the Levi has at most one Levi σ-conjugacy class. For a nonbasic G-class the corresponding uniqueness assertion is false; the Levi-dominant Newton vector can be a Weyl conjugate of the G-dominant vector and Levi κ must be checked separately.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Basic Levi Newton formula](#levi-newton-formula); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use the basic central Newton vector and the integral Levi invariant compatibility. (2) Apply the corrected GHN basic-only uniqueness statement cited by He. (3) Keep the nonbasic Levi invariant obstruction for ADLV consumers; do not import a false general uniqueness lemma.
 
 **Acceptance.** In GL_3, different allocations of slopes to unequal Levi blocks can give different Levi κ while mapping to the same G-class.
 
-**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Theorem6.3 footnote and Section6.2 pp.13-14.
+**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Theorem6.3 footnote and Section6.2 pp.13-14. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="gl-minuscule-quasisplit-centralizer"></a>
 
@@ -911,13 +1066,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.GlMinusculeQuasisplitCentralizer.** For GL_n over a p-adic field L and μ(t)=diag(t repeated n−q,1 repeated q), exactly one class in B(GL_n/L,{μ^−1}) has quasi-split J_b: the ordinary class diag(π^−1 repeated n−q,1 repeated q). The extension to the CS17 unramified restrictions of scalars uses the cocharacter supported at one noncentral embedding. No implication quasi-split J_b⇒ordinary is claimed for arbitrary reductive data.
 
-**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Ordinary Newton class](#ordinary-class); [Products and unramified restriction of scalars](#product-and-unramified-norm); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Ordinary Newton class](#ordinary-class); [Products and unramified restriction of scalars](#product-and-unramified-norm); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Acceptability confines slopes to [−1,0]. (2) A nonintegral slope introduces a nontrivial division algebra factor in J_b and prevents quasi-splitness. (3) κ fixes the multiplicities of the integral slopes−1 and0. (4) For Res use the single-embedding norm-bound normalization from the source.
 
 **Acceptance.** For an arbitrary cocharacter with more integral slopes, a quasi-split centralizer need not select the ordinary class.
 
-**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Lemma5.5.8 and preceding footnote p.748.
+**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Lemma5.5.8 and preceding footnote p.748. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="admissible-finiteness-and-basic"></a>
 
@@ -925,13 +1084,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.AdmissibleFinitenessAndBasic.** B(G,{μ}) is finite and has exactly one basic member, characterized by κ=μ♯. That member is its minimum for the Newton order. For μ=0 it is the only member. For tori the whole acceptable set is this singleton.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Basic sigma class](#basic-class); [Representations detect Newton dominance](#representation-detects-dominance).
 
 **Proof/construction.** (1) Use the finite coroot interval and denominator constraints from classification. (2) Apply basic minimality at the rational projection of μ♯. (3) For a torus there are no nonzero coroots, so κ determines the class.
 
 **Acceptance.** Zero bound cannot contain a noncentral positive-coroot displacement with the same central projection.
 
-**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.4 and6.6 pp.287-288; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.6 p.8.
+**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.4 and6.6 pp.287-288. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.6 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="rational-newton-witness"></a>
 
@@ -939,7 +1102,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.RationalNewtonWitness.** A rational-Newton witness for [b] is a Q_p-rational homomorphism ν_G([b]):D→G in the G(L)-conjugacy class of ν_b, with a specified conjugator. It exists when G is quasi-split or [b] is basic; the KMPS constructions that require it retain this hypothesis for general inner forms.
 
-**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [Basic sigma class](#basic-class).
 
 **Proof/construction.** (1) Record the actual representative and conjugacy equation. (2) For quasi-split groups choose the Γ-fixed dominant member; for basic classes descend the central morphism.
 
@@ -950,7 +1115,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 | TauCeti.BunG.RationalNewtonWitness.quasiSplit | constructor | Build the unique B-dominant rational representative for quasi-split G. |
 | TauCeti.BunG.RationalNewtonWitness.basic | constructor | A basic class has a central rational representative. |
 | TauCeti.BunG.RationalNewtonWitness.levi | projection | Return Z_G(ν_G([b])) as an E-defined Levi. |
-| TauCeti.BunG.RationalNewtonWitness.centralOnJ | projection | Transport the central Newton morphism to J_b, retaining the inner identification. |
+| TauCeti.BunG.RationalNewtonWitness.centralOnJ | projection | Transport the central Newton morphism to J_b, retaining the inner identification. API prerequisites: [Central Newton morphism of the centralizer](#central-newton-on-J). |
 
 **Discriminating unit tests.**
 
@@ -962,7 +1127,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Galois invariance of an orbit is weaker than having a rational representative in G.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.3 condition1.1.3.1 p.7.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.3 condition1.1.3.1 p.7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="minuscule-basic-levi-lift"></a>
 
@@ -970,13 +1137,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.MinusculeBasicLeviLift.** For a connected reductive G/Q_p, a rational Levi M containing a maximal torus T, a G-minuscule μ∈X_*(T), and basic b_M whose image lies in B(G,{μ}), some w in the absolute Weyl group W(G,T) makes b_M∈B(M,{wμ}). For quasi-split G the proof first treats unramified models, then replaces the based-root averaging datum by an unramified datum; the general case transports the rational Levi to G*.
 
-**Prerequisites.** [Basic Levi Newton formula](#levi-newton-formula); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Basic Levi Newton formula](#levi-newton-formula); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Use Wintenberger Cartan realization, Iwasawa reduction and Mazur inequality in the unramified case. (2) Require equality of the integral π_1(G) class in the Satake reduction; minuscule dominance alone is insufficient. (3) Use the torsion-free kernel of π_1(M)_Γ→π_1(G)_Γ and the matching Galois averages for the unramified replacement. (4) Transport a rational parabolic and its rational Levi by the inner twisting; basic κ and ν are compatible.
 
 **Acceptance.** GL_3 with M=GL_1×GL_2, μ=(0,1,0), b_M=diag(p,1,1) needs the absolute Weyl swap; N_G(M)/M is trivial.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Proposition1.1.13 and Corollary1.1.15 pp.10-12; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Corollary1.1.15 p.11.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Proposition1.1.13 and Corollary1.1.15 pp.10-12. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Corollary1.1.15 p.11. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="torus-norm-description"></a>
 
@@ -984,13 +1155,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.TorusNormDescription.** For a torus T/E, κ:B(T)≅X_*(T)_Γ and ν of the class κ^−1([λ]) is the rational Γ-average of λ. Kottwitz’s finite splitting-field norm construction gives a representative after choosing the splitting extension, the unramified coefficient field and the valuation normalization of its uniformizer; these choices do not change the resulting class.
 
-**Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Galois averaging and Hodge invariants](#galois-average); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Kottwitz classification by both invariants](#classification-by-two-invariants); [Galois averaging and Hodge invariants](#galois-average); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Apply the valuation/cocharacter description over a splitting extension. (2) Use norm maps and Shapiro to descend the cocharacter class. (3) Identify Newton slopes through all characters with the normalized Galois average.
 
 **Acceptance.** For a quadratic norm-one torus, two integral κ classes have Newton0.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.4 p.7; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Sections2.4-2.8 pp.208-210.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), 1.1.2.4 p.7. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Sections2.4-2.8 pp.208-210. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="torus-special-pair"></a>
 
@@ -998,7 +1173,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Definition: TauCeti.BunG.TorusSpecial.** For T⊂G a maximal torus over Q_p, an acceptable pair ([b],{μ}) is T-special if there exists μ_T∈X_*(T) in {μ} such that the unique class of B(T) with κ_T=[μ_T] maps to [b]. For tori admissibility is determined by κ, and the Newton point is the Galois average of μ_T. This packages local specialness, not a global CM point.
 
-**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Torus norm and Newton average](#torus-norm-description); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Torus norm and Newton average](#torus-norm-description); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Use the torus Kottwitz bijection to define the class from the cocharacter. (2) State its image equality in B(G) as the witness, rather than asserting arbitrary torus specialness.
 
@@ -1009,7 +1186,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 | TauCeti.BunG.TorusSpecial.mk | constructor | Package μ_T, its conjugacy class and its torus-class image equation. |
 | TauCeti.BunG.TorusSpecial.witness | projection | Recover μ_T and the B(T) class. |
 | TauCeti.BunG.TorusSpecial.newton | compatibility | The mapped class has Newton orbit the image of average(μ_T). |
-| TauCeti.BunG.TorusSpecial.ellipticBasic | constructor | For elliptic T a basic acceptable pair has a T-special witness. |
+| TauCeti.BunG.TorusSpecial.ellipticBasic | constructor | For elliptic T a basic acceptable pair has a T-special witness. API prerequisites: [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image). |
 
 **Discriminating unit tests.**
 
@@ -1021,7 +1198,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** The witness fixes both the cocharacter orbit and full κ.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Definition1.1.7 p.8.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Definition1.1.7 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="elliptic-torus-basic-image"></a>
 
@@ -1029,13 +1208,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.EllipticTorusBasicImage.** If T⊂G is elliptic modulo Z(G), the image of B(T)→B(G) is exactly B(G)_basic. For every basic acceptable pair ([b],{μ}) and every μ_T∈X_*(T) in {μ}, the image of κ_T^−1([μ_T]) is [b]. Thus every such pair is T-special; this argument requires no minuscule hypothesis.
 
-**Prerequisites.** [Torus-special acceptable pair](#torus-special-pair); [Basic sigma class](#basic-class); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Torus-special acceptable pair](#torus-special-pair); [Basic sigma class](#basic-class); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Ellipticity makes the rational average of every cocharacter central in G, so the image is basic. (2) The integral cocharacter quotient maps surjectively to π_1(G)_Γ, giving surjectivity onto basic classes. (3) For μ_T in the given geometric orbit the image κ is μ♯; basic-class uniqueness identifies it with [b].
 
 **Acceptance.** A split nonelliptic torus in GL_2 also produces nonbasic classes.
 
-**Sources.** [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Proposition5.3 printed215; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.8 p.8.
+**Sources.** [Isocrystals with additional structure](https://www.numdam.org/article/CM_1985__56_2_201_0.pdf), Proposition5.3 printed215. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Lemma1.1.8 p.8. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="transferred-torus-specialness"></a>
 
@@ -1043,19 +1226,25 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.TransferredTorusSpecialness.** Under a rational Newton witness, a G-minuscule acceptable pair and a rational transfer j:Tprime→M_[b] of a maximal torus of J_b, the pair is j(Tprime)-special. There is μ_Tprime in the prescribed geometric class whose Galois average equals the central morphism ν_(b,J). Such a transfer exists if G is quasi-split or Tprime is elliptic; geometric conjugacy alone is not a transfer.
 
-**Prerequisites.** [Rational Newton representative](#rational-newton-witness); [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Torus-special acceptable pair](#torus-special-pair); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Rational Newton representative](#rational-newton-witness); [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Torus-special acceptable pair](#torus-special-pair); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md); [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image).
 
 **Proof/construction.** (1) Conjugate the Newton representative and transferred torus together; centralize its maximal split subtorus to obtain a rational Levi M. (2) The explicit representative mh·b·σ(mh)^−1 lies in M(L) and is basic there. (3) Apply the corrected absolute-Weyl-group Levi lift and the elliptic-torus specialness theorem in M. (4) Transport the average equality through the chosen J_b inner identification.
 
 **Acceptance.** The statement retains the rational transfer witness in the non-quasi-split case.
 
-**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.16 and Corollary1.1.17 pp.12-13.
+**Sources.** [Honda-Tate theory for Shimura varieties](https://math.berkeley.edu/~swshin/HT.pdf), Section1.1.16 and Corollary1.1.17 pp.12-13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="abelianization-identification"></a>
 
 ### Abelianized classes equal fundamental coinvariants
 
-**Theorem: TauCeti.BunG.AbelianizationIdentification.** For p-adic E there is a canonical B_ab(G)≅π_1(G)_Γ under which B(G)→B_ab(G) is κ. In a maximal-torus model this is coker(B(Tsc)→B(T)), using H^2(W_E,Tsc(L))=0 and the torus Kottwitz descriptions.
+**Theorem: TauCeti.BunG.AbelianizationIdentification.** For p-adic E there is a canonical B_ab(G)≅π_1(G)_Γ under which B(G)→B_ab(G) is κ. In a maximal-torus model this is coker(B(Tsc)→B(T)), using H^2(W_E,Tsc(L^sep))=0 and the torus Kottwitz descriptions.
+
+**Hypotheses.** E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
 
 **Prerequisites.** [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Torus norm and Newton average](#torus-norm-description); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
 
@@ -1063,7 +1252,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** Finite π_1 torsion survives the comparison.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.11 p.94.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.11 p.94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="rational-kottwitz-surjectivity"></a>
 
@@ -1071,19 +1262,25 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.RationalKottwitzSurjectivity.** The restriction tildeκ:G(E)→(π_1(G)_I)^σ is surjective for connected reductive G over the nonarchimedean local field E. Its target is Frobenius invariants in inertia coinvariants, not π_1(G)_Γ. For the unramified Q_p model in Kisin17 Lemma4.6.4, J_b(Q_p)→π_1(G)^Γ is surjective for every b; the basic tame vH24 case also follows by inner-form compatibility and the rational quotient map.
 
-**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
 
 **Proof/construction.** (1) For G(E), reduce to tori and simply connected derived groups using a z-extension and the exact invariant lattice sequence. (2) For unramified J_b, use Kisin’s local abelianized H^0 comparison and Levi invariant surjection, with local simply connected H^1 vanishing supplied separately. (3) Do not generalize the J_b target without the stated group hypotheses.
 
 **Acceptance.** A ramified torus can have different invariant and coinvariant groups.
 
-**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section7.7 pp.300-301; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Lemma4.6.4 printed93; [Mod p points on Shimura varieties of parahoric level](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf), Corollary3.4.6 proof printed37.
+**Sources.** [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section7.7 pp.300-301. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of abelian type](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf?download=1), Lemma4.6.4 printed93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Mod p points on Shimura varieties of parahoric level](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf), Corollary3.4.6 proof printed37. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="component-kottwitz-coset"></a>
 
 ### Component Kottwitz coset
 
 **Construction: TauCeti.BunG.ComponentCoset.** For b∈G(L) and a bound μ with compatible full κ, let c_(b,μ)={x∈π_1(G)_I:(σ−1)x=tildeκ(μ(π))−tildeκ(b)}. Compatibility in π_1(G)_Γ makes this a nonempty affine coset under (π_1(G)_I)^σ. This is an affine set of components, with no distinguished origin before a choice.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Acceptable classes B(G,{μ})](#admissible-pair).
 
@@ -1096,7 +1293,7 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 | TauCeti.BunG.ComponentCoset.mem_iff | characterisation | A component x solves the stated difference equation. |
 | TauCeti.BunG.ComponentCoset.nonempty | universal-property | The Γ-coinvariant compatibility is equivalent to nonemptiness. |
 | TauCeti.BunG.ComponentCoset.translate | structure | Invariant classes act freely and transitively on the fibre. |
-| TauCeti.BunG.ComponentCoset.liftZExtension | other | A z-extension and lifted b,μ give a surjective map of affine component cosets. |
+| TauCeti.BunG.ComponentCoset.liftZExtension | other | A z-extension and lifted b,μ give a surjective map of affine component cosets. API prerequisites: [Bounded lifting through a z-extension](#z-extension-bounded-lifting). |
 
 **Discriminating unit tests.**
 
@@ -1108,7 +1305,9 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Acceptance.** The generic affine fibre is represented honestly in the suggested file.
 
-**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section1.1 equations1.1-1.2 and Section2.2 pp.813-814,818.
+**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Section1.1 equations(1.3)-(1.4) p.807; Section2.2 p.818. Independently checked in the recorded public source version on 2026-10-07; the node retains the stated scope and conventions.
+
+**Lean formulation.** typed-pointwise-core; These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage. Full carrier obligations: G08.
 
 <a id="z-extension-bounded-lifting"></a>
 
@@ -1116,13 +1315,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.ZExtensionBoundedLifting.** For a z-extension 1→Z→Gtilde→G→1 with induced torus Z, every cocharacter class μ lifts after choosing maximal tori. Given b∈B(G,{μ}) and a chosen lift μtilde, there is btilde∈B(Gtilde,{μtilde}) above b; the induced map of component cosets is surjective. Projection to the adjoint group gives B(G,{μ})≅B(Gad,{μad}) with the fixed central invariant.
 
-**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Component Kottwitz coset](#component-kottwitz-coset); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Acceptable classes B(G,{μ})](#admissible-pair); [Component Kottwitz coset](#component-kottwitz-coset); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Lift μ using the exact cocharacter sequence of the induced torus. (2) Use the adjoint acceptable-set bijection to choose btilde with the specified κ and Newton bound. (3) Lift differences in the affine coset using invariant-lattice surjectivity and H^1(E,Z)=0.
 
 **Acceptance.** An arbitrary central torus lacks the induced-torus cohomological vanishing used here.
 
-**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Lemma3.16 p.829; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equation6.5.1 p.287.
+**Sources.** [The connected components of affine Deligne-Lusztig varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf), Lemma3.16 p.829. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Isocrystals with additional structure II](https://people.dm.unipi.it/maffei/didattica/male/lacci/Kottwitz.pdf), Section6.5 equation6.5.1 p.287. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="connected-center-basic-inner-forms"></a>
 
@@ -1130,13 +1333,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.ConnectedCenterBasicInnerForms.** If Z(G) is a connected torus, B(G)_basic→B(Gad)_basic≅H^1(E,Gad) is surjective. The map sends a basic class to the inner form J_b. The assertion does not assume this surjectivity for groups with disconnected center.
 
-**Prerequisites.** [Basic sigma class](#basic-class); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Basic sigma class](#basic-class); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
 
 **Proof/construction.** (1) Apply Kottwitz central-torus extension surjectivity to 1→Z(G)→G→Gad→1. (2) Use its restriction to the basic subsets; for an adjoint group basic Newton is0 and basic classes identify with H^1.
 
 **Acceptance.** For SL_n, the finite center prevents invoking this connected-torus proposition.
 
-**Sources.** [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), Proposition10.4 printed50-51.
+**Sources.** [B(G) for all local and global fields](https://arxiv.org/pdf/1401.5728), Proposition10.4 printed50-51. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="general-levi-newton-comparison"></a>
 
@@ -1144,13 +1351,17 @@ Construct integral π₁ and its coinvariants alongside the rational slope orbit
 
 **Theorem: TauCeti.BunG.GeneralLeviNewtonComparison.** Let M_J be a σ-stable standard Levi of a quasi-split based local group G and let b_M∈M_J(L) map to b∈B(G). Its M_J-dominant Newton point ν_M is Weyl-conjugate to ν_G and ν_G−ν_M is a nonnegative rational sum of simple G-coroots. If κ_M(b_M)=κ_M(t^λσ(η)) in the situation of He §6.2, then λ◇−ν_M belongs to the rational span of the J-coroots. This comparison does not require b or b_M to be basic.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Newton orbit space and rational dominance](#newton-orbit-space); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
 
 **Proof/construction.** (1) Newton functoriality identifies the geometric orbit; choose the dominant representatives in the two chambers. (2) Use Weyl chamber dominance for the first difference and the fundamental-group projection for the J-coroot span conclusion.
 
 **Acceptance.** The separate basic-Levi uniqueness theorem retains its basic hypothesis.
 
-**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13.
+**Sources.** [Cordial elements and dimensions of affine Deligne-Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), Section6.2 p.13. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 ## BG2:uniformization — The stack and its cover
 
@@ -1162,7 +1373,9 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Construction: TauCeti.BunG.CurveEtaleBase.** For S∈Perf_k, define τ:(X_S)_et→S_et through (X_S)_et≅(X_S^diamond)_et≅(Div^1_S)_et and the projection Div^1×S→S. Equivalently τ* sends étale T/S to X_T/X_S. This is a site morphism; no geometric projection X_S→S is postulated.
 
-**Prerequisites.** [RelativeFarguesFontaine:RF2](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [RelativeFarguesFontaine:RF2](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D6/etale-site-comparison](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Import the curve/divisor étale-site equivalences. (2) Compose their inverse with the continuous functor induced by the divisor projection; check finite limits and cover preservation.
 
@@ -1179,13 +1392,15 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 - **TauCeti.BunG.CurveEtaleBase.testGeometric** (compatibility): For geometric S, the comparison is the curve/local-field cohomology comparison.
 - **TauCeti.BunG.CurveEtaleBase.testTrivialSheaf** (degenerate): The zero finite sheaf has zero derived pushforward.
-- **TauCeti.BunG.CurveEtaleBase.testNoProjection** (non-example): τ is not obtained by assuming an algebraic or adic X_S→S projection.
+- **TauCeti.BunG.CurveEtaleBase.testCoproduct** (compatibility): For T=S⊔S in S_et, τ*(T) is X_S⊔X_S over X_S, with the two inclusions preserved. This checks the actual inverse-image site functor.
 
 **Uses.** FS III.2.12: Computes derived pushforward of finite coefficients. FS III.2.13: Builds the sheaf of crossed-module curve classes.
 
 **Acceptance.** The missing curve projection is precisely why this site construction is used.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 p.94.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.2.4.2 p.94. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="curve-torsion-cohomology"></a>
 
@@ -1193,13 +1408,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Comparison: TauCeti.BunG.CurveTorsionCohomology.** For p-adic E, S∈Perf_k and a locally constant finite abelian sheaf F on Spa(E)_et, Rτ*(F|X_S) is the constant complex RΓ_et(Spa E,F). For algebraically closed perfectoid C the comparison is an isomorphism in all degrees. Prime-to-p coefficients use Kummer and p coefficients use Artin–Schreier after tilting.
 
-**Prerequisites.** [Curve-to-base étale site morphism](#curve-etale-base-site); [DiamondEtaleCohomology:C1](../../../content/campaign/DiamondEtaleCohomology/README.md); [RelativeFarguesFontaine:RF0:annuli](../../../content/campaign/RelativeFarguesFontaine/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Curve-to-base étale site morphism](#curve-etale-base-site); [DiamondEtaleCohomology:C1](../../../content/campaign/DiamondEtaleCohomology/README.md); [RelativeFarguesFontaine:RF0:annuli](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D6/etale-site-comparison](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Apply proper base change along Div^1_S→S and reduce to geometric S. (2) After tilting to equal characteristic, annihilate cohomology on finite separable extensions using Kummer or Artin–Schreier. (3) Use Galois descent and the continuous direct limit over finite field extensions.
 
 **Acceptance.** The argument is an actual cohomology computation, not a field in the definition of τ.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(i) pp.94-95.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(i) pp.94-95. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="bun-g-as-v-stack"></a>
 
@@ -1207,7 +1426,9 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Construction: TauCeti.BunG.Bun.** For S∈Perf_k, Bun_G(S) is the groupoid of G-bundles on X_S, with pullback along perfectoid maps. Effective v-descent for vector bundles and the rational tensor description make it a v-stack. On affinoid S the algebraic and adic curve descriptions agree by GAGA. The moduli keeps bundle isomorphisms, rather than quotienting them out.
 
-**Prerequisites.** [G-bundles as exact tensor functors](#g-bundle); [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [G-bundles as exact tensor functors](#g-bundle); [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Apply v-descent for bundle evaluations and tensor constraints. (2) Use GAGA on each affinoid curve to identify the scheme and adic torsor groupoids.
 
@@ -1220,6 +1441,8 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 | TauCeti.BunG.Bun.ofIsocrystal | constructor | An exact tensor G-isocrystal gives the constant bundle E_b on every X_S. |
 | TauCeti.BunG.Bun.isomSheaf | projection | The diagonal fibre is the v-sheaf Isom of two G-bundles. |
 | TauCeti.BunG.Bun.gaga | equivalence | For affinoid S compare algebraic and analytic curve torsor categories. |
+| TauCeti.BunG.Bun.pullback_id | simp | Pullback of G-bundles along id_S is naturally tensor-isomorphic to the identity functor, with its unit coherence. |
+| TauCeti.BunG.Bun.pullback_comp | compatibility | For U→T→S, pullback along the composite is naturally tensor-isomorphic to successive pullback, with the associativity coherence. |
 
 **Discriminating unit tests.**
 
@@ -1231,7 +1454,9 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Acceptance.** Pullback preserves the unit and composition coherences.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionIII.1.2 p.88.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionIII.1.2 p.88. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Moduli of G-bundles.
 
@@ -1241,13 +1466,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.BunGSmallness.** Bun_G is a small v-stack. For an ω_1-cofiltered inverse system of affinoid perfectoids with limit S, Bun_G(S) is the filtered colimit of the groupoids Bun_G(S_i), and its Isom sheaves have the same limit property. Hence bundles and arrows descend to topologically countably generated coefficient algebras, giving a set-sized cover.
 
-**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [RelativeFarguesFontaine:RF0:annuli](../../../content/campaign/RelativeFarguesFontaine/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB2:ampleness/gaga-equivalence](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [RelativeFarguesFontaine:RF0:annuli](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Descend Cauchy sequences and interval period-ring elements through the ω_1-cofiltered limit. (2) Descend vector bundles, tensor data and arrows. (3) Take the disjoint union over a set of countably generated perfectoid algebras and bundle objects.
 
 **Acceptance.** A claim of an arbitrary filtered-limit equivalence would be stronger than the source.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.1.3 pp.88-89.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.1.3 pp.88-89. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="points-are-B-of-G"></a>
 
@@ -1255,13 +1484,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.PointsAreBOfG.** For complete algebraically closed nonarchimedean C/k, b↦E_b gives a bijection B(G)→Bun_G(C)/≅ and consequently B(G)≅|Bun_G|. The slope grading identifies isocrystals with HN-graded bundles; positive-slope H^1 vanishing splits the filtered tensor functor. It does not identify the ungraded groupoids or all their morphisms.
 
-**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [Kottwitz set B(G)](#sigma-conjugacy-quotient); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB2:classification](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [Kottwitz set B(G)](#sigma-conjugacy-quotient); [VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB2:classification](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Lift the bundle tensor functor canonically to HN-filtered bundles; verify exactness, including the equal-characteristic argument of Ans19. (2) Identify the graded slope category with Isoc_E via VB2 and VB0. (3) The torsor of tensor splittings is unipotent with positive vector-bundle graded pieces; H^1 vanishing trivializes it. (4) Use the geometric-point equivalence relation for small v-stacks to identify |Bun_G|.
 
 **Acceptance.** GL_n recovers the vector-bundle slope multiset; positive Hom spaces remain in the ungraded bundle category.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.2 pp.89-90; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem3.11 and proof pp.14-16.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.2 pp.89-90. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem3.11 and proof pp.14-16. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Geometric bundle classification.
 
@@ -1271,13 +1504,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.HnSignAndSemicontinuity.** For E_b, its bundle HN class is ν_b*=w_0(−ν_b) and c_1(E_b)=−κ(b). The HN class ν* on |Bun_G| is upper semicontinuous: specialization can increase the upper-concave HN polygon. Detect the reductive order on rational representations using RR96 Lemma2.2 and VB4 relative semicontinuity.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Geometric classification of G-bundles](#points-are-B-of-G); [Representations detect Newton dominance](#representation-detects-dominance); [VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Apply the linear slope sign convention under each representation. (2) Use RR96’s representation criterion to pass from the vector-bundle HN polygons to the reductive class.
 
 **Acceptance.** For b=π^m in G_m, E_b=O(−m), fixing both the Newton and degree signs.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.3 and preceding paragraph p.91.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.3 and preceding paragraph p.91. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="strictly-disconnected-torsors"></a>
 
@@ -1285,13 +1522,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.StrictlyDisconnectedTorsors.** Every pro-étale H-torsor on a strictly totally disconnected perfectoid S is trivial when H is a first-countable locally profinite group. Such torsors on arbitrary S are represented by perfectoid spaces as the inverse limit over compact open subgroups. First countability supplies the countable nested system used to choose compatible sections.
 
-**Prerequisites.** [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D1/strictly-totally-disconnected](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D1/universally-open-std-cover](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D3/locally-profinite-torsors](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Reduce to a compact open subgroup after splitting the étale quotient cover. (2) Choose a countable cofinal system of open normal subgroups and compatible sections of the finite étale quotients. (3) Use separated étale descent and the perfectoid inverse-limit construction.
 
 **Acceptance.** A generic torsor on an arbitrary perfectoid base need not be globally trivial.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.2.5 and LemmaIII.2.6 p.92.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.2.5 and LemmaIII.2.6 p.92. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="geometrically-trivial-locus"></a>
 
@@ -1299,13 +1540,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.GeometricallyTrivialLocus.** Bun_G^1 is open and [*/G(E)]→Bun_G^1 is an equivalence, where G(E) has its locally profinite topology and torsors are pro-étale. Prove openness before κ-local-constancy: on strictly disconnected bases the ν=0 locus yields E-local systems; their continuous fibre functor is a reductive torsor over C^0(π_0S,E), whose triviality is open by henselian local rings.
 
-**Prerequisites.** [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [VectorBundlesAndIsocrystals:VB4](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [VectorBundlesAndIsocrystals:VB4](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Use VB4’s equivalence of geometrically trivial bundles with E-local systems. (2) On a strictly disconnected base trivialize each local system, preserving its tensor structure. (3) Henselian continuity makes triviality of the fibre-functor torsor an open condition. (4) Identify the automorphism sheaf of the trivial bundle with the constant locally profinite G(E) sheaf.
 
 **Acceptance.** The entire ν=0 locus can contain nontrivial torsion κ; it is not automatically Bun_G^1.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.4 pp.91-92.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.4 pp.91-92. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Trivial bundle locus.
 
@@ -1313,15 +1558,19 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 ### Diagonalizable Weil–curve comparison
 
-**Comparison: TauCeti.BunG.DiagonalizableCurveCohomology.** For p-adic E and diagonalizable D/E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,D) is constant with value H^1(W_E,D(L)). For algebraically closed perfectoid C, H^i(W_E,D(L))≅H^i_et(X_C,D), 0≤i≤2. The natural map comes from the curve étale site to discrete W_E-sets. Use 1→D^0→D→π_0(D)→1 and retain all finite component contributions.
+**Comparison: TauCeti.BunG.DiagonalizableCurveCohomology.** For p-adic E and diagonalizable D/E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,D) is constant with value H^1(W_E,D(L^sep)). For algebraically closed perfectoid C, H^i(W_E,D(L^sep))≅H^i_et(X_C,D), 0≤i≤2. The natural map comes from the curve étale site to discrete W_E-sets. Use 1→D^0→D→π_0(D)→1 and retain all finite component contributions.
+
+**Hypotheses.** E is p-adic; L^sep denotes a separable algebraic closure of L=breve E (the overline of breve E in FS), with its natural W_E-action. Continuous Weil cohomology uses these discrete coefficient groups, not only L-rational points.
 
 **Prerequisites.** [Constant torsion cohomology on the curve](#curve-torsion-cohomology); [Geometrically trivial open locus](#geometrically-trivial-locus); [Torus norm and Newton average](#torus-norm-description); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
 
 **Proof/construction.** (1) For tori apply geometric classification and translate the neutral fibre using the Picard stack. (2) Use torsion comparison for finite π_0(D), which is étale in characteristic0. (3) Use the Weil-torus H^2 vanishing and compare the long exact sequences through degree2.
 
-**Acceptance.** Do not silently apply this proof to μ_p in equal characteristic.
+**Acceptance.** Do not silently apply this proof to μ_p in equal characteristic. For E=Q_p with p odd, μ_p(L)={1}, while μ_p(L^sep) has p elements with its natural nontrivial inertia action. The coefficient functor must retain this action.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(ii), comparison morphism and RemarkIII.2.14 pp.94-97.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.12(ii), comparison morphism and RemarkIII.2.14 pp.94-97. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="crossed-module-curve-classes"></a>
 
@@ -1329,13 +1578,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.CrossedModuleCurveClasses.** For p-adic E, the pro-étale sheaf associated to T/S↦H^1_et(X_T,[Gsc→G]) is constant with value B_ab(G). The comparison identifies the curve abelianization of a bundle with its κ class.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Abelianized classes equal fundamental coinvariants](#abelianization-identification); [Diagonalizable Weil–curve comparison](#diagonalizable-curve-cohomology); [EndoscopicTransferAndUnitaryTraceComparison:ET.0](../../../content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md).
 
 **Proof/construction.** (1) Use the homotopy-equivalent center complex [Zsc→Z]. (2) Apply diagonalizable comparisons in degrees1 and2 to its long exact sequence. (3) Compare the curve and Weil abelianization maps; this is the second, p-adic-only proof of κ-local-constancy.
 
 **Acceptance.** The first uniformization proof of κ-local-constancy remains independent of this second comparison proof.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.13 p.96.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.2.13 p.96. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="grassmannian-point-lifting"></a>
 
@@ -1343,13 +1596,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Lemma: TauCeti.BunG.GrassmannianPointLifting.** For strictly totally disconnected S=Spa(R,R+) over Spa(E) and s∈S, Gr_G(R)→Gr_G(K(s)) is surjective. Split G after a finite field extension embedded in R, use the Cartan decomposition, and lift G(B_dR^+(K(s))) through successive nilpotent thickenings by smoothness and Lie algebra surjectivity.
 
-**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [RelativeFarguesFontaine:RF2:untilts](../../../content/campaign/RelativeFarguesFontaine/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D2](../../../content/campaign/DiamondsAndVStacks/README.md); [RelativeFarguesFontaine:RF2:untilts](../../../content/campaign/RelativeFarguesFontaine/README.md); [DiamondsAndVStacks:D1/strictly-totally-disconnected](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D1/universally-open-std-cover](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Use the clopen-component argument to get R→K(s) surjective. (2) Lift group points using henselian smooth lifting. (3) Lift the positive period-ring points by the complete filtration and successive Lie corrections.
 
 **Acceptance.** This supplies relative lifting from the fixed-point uniformization theorem.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.2 p.98.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.2 p.98. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="beauville-laszlo-surjectivity"></a>
 
@@ -1357,13 +1614,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.BeauvilleLaszloSurjectivity.** The modification map BL:Gr_G→Bun_G is a surjection of pro-étale stacks and hence of v-stacks. Over a geometric point and a chosen untilt, every G-bundle can be modified at its untilt point to a trivial bundle. Relatively, lift that modification on a strictly disconnected base and use the geometrically trivial open locus to trivialize it near the given point.
 
-**Prerequisites.** [RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice](../../../content/campaign/RelativeFarguesFontaine/README.md); [Geometrically trivial open locus](#geometrically-trivial-locus); [Grassmannian point lifting](#grassmannian-point-lifting); [Geometric classification of G-bundles](#points-are-B-of-G); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice](../../../content/campaign/RelativeFarguesFontaine/README.md); [Geometrically trivial open locus](#geometrically-trivial-locus); [Grassmannian point lifting](#grassmannian-point-lifting); [Geometric classification of G-bundles](#points-are-B-of-G); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Apply Anschütz’s geometric-point modification theorem for arbitrary connected reductive G. (2) Lift the modification by the Grassmannian point-lifting lemma. (3) On its open trivial locus split the locally profinite torsor and choose a trivialization. (4) Descend the local modifications along the pro-étale cover.
 
 **Acceptance.** RF4:G-torsors owns patching and the map; BG2 owns this surjectivity argument.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.1 p.98; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem6.5 p.30.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.1 p.98. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Reductive group schemes over the Fargues-Fontaine curve](https://arxiv.org/pdf/1703.00700), Theorem6.5 p.30. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Beauville–Laszlo uniformization.
 
@@ -1373,13 +1634,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Lemma: TauCeti.BunG.CentralTorusGrassmannianSurjectivity.** For a central extension Gtilde→G with torus kernel Z, Gr_Gtilde→Gr_G is surjective as a v-sheaf. After a splitting field, split maximal-torus cocharacters lift; on Schubert cells compare the unipotent factors and the central torus lattice. Generic Schubert geometry is imported from GS0.
 
-**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Pass v-locally to a splitting field. (2) Lift the Schubert cocharacter through the exact torus lattice map and lift the root-group coordinates. (3) Descend the local lifts to obtain v-surjectivity.
 
 **Acceptance.** Unlike rational-point z-extension lifting, this geometric statement needs a torus kernel but not an induced torus.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.5 p.99.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.3.5 p.99. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="central-torus-bundle-surjectivity"></a>
 
@@ -1387,13 +1652,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Lemma: TauCeti.BunG.CentralTorusBundleSurjectivity.** For a central extension Gtilde→G with torus kernel Z, Bun_Gtilde→Bun_G is a v-surjection. Bun_Z acts by central tensor product and Bun_G is its quotient stack; the action is a quasi-torsor before surjectivity is proved.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Beauville–Laszlo uniformization](#beauville-laszlo-surjectivity); [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Structure group and tensor descent](#structure-group-and-tensor-descent); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Lift a bundle to a Grassmannian point by BL, then lift that point along the central-torus map. (2) Identify its ambiguity with a Z-bundle via the contracted product and descend.
 
 **Acceptance.** No circular use of κ-local-constancy is made in this proof.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.10 and proof afterIII.3.5 pp.93,99.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIII.2.10 and proof afterIII.3.5 pp.93,99. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="semicontinuity-and-local-constancy"></a>
 
@@ -1401,13 +1670,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.SemicontinuityAndLocalConstancy.** κ:|Bun_G|→π_1(G)_Γ is locally constant, with the discrete topology on its integral target. Together with HN semicontinuity this makes |Bun_G|→B(G) continuous for the Newton-order topology. The proof for every local E uses central-torus bundle surjectivity, z-extensions and induced tori; the crossed-module proof is a second proof for p-adic E.
 
-**Prerequisites.** [Central-torus bundle surjectivity](#central-torus-bundle-surjectivity); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Central-torus bundle surjectivity](#central-torus-bundle-surjectivity); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) Reduce by a z-extension to simply connected derived group, then to G/Gder. (2) Resolve that torus by an induced torus and use central-torus bundle surjectivity. (3) For induced tori integral κ is torsion-free and determined by ν; the torus order is equality, so semicontinuity implies local constancy.
 
 **Acceptance.** The norm-one torus torsion classes show why directly using ν for all tori fails.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.7 and first proof pp.92-93.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.2.7 and first proof pp.92-93. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Kottwitz local constancy.
 
@@ -1417,27 +1690,35 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Comparison: TauCeti.BunG.GrassmannianKottwitzSign.** For split G, GS0’s decomposition Gr_G=∐_(α∈π_1G) Gr_G^α has each component a filtered union of proper Schubert closures with [μ]=α. On the modification map, κ(BL(x))=−α. For nonsplit G, use geometric π_1 with Galois descent and then its Γ-coinvariant image in Bun_G. A component decomposition alone does not prove uniformization or bundle connectedness.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice](../../../content/campaign/RelativeFarguesFontaine/README.md); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy).
 
 **Proof/construction.** (1) Import the geometric connected-component theorem, its Schubert exhaustion and the nonsplit descent from GS0. (2) Evaluate on a cocharacter modification to fix the minus sign. (3) Use locally constant κ and connected Schubert pieces to extend the equality.
 
 **Acceptance.** For G_m, the lattice ξ^m produces O(m) with κ=−m under the fixed BL convention.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.6(ii)-(iii) pp.99-100; [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Proposition1.21 p.427.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.3.6(ii)-(iii) pp.99-100. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.; [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Proposition1.21 p.427. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="newton-topology-homeomorphism"></a>
 
-### Viehmann Newton topology theorem
+### Newton topology theorem in both characteristics
 
-**Theorem: TauCeti.BunG.NewtonTopologyHomeomorphism.** The bijection |Bun_G|→B(G) is a homeomorphism when B(G) has the specialization order [b]≤[bprime] iff E_bprime lies in the closure of E_b. Thus closed upper Newton unions and open lower unions are determined by the fixed-κ order. The assertion was a conjecture in FS III.2.15 and is a theorem in Viehmann; its full proof is a separate proof-interior obligation.
+**Theorem: TauCeti.BunG.NewtonTopologyHomeomorphism.** For every nonarchimedean local field E and connected reductive G/E, the geometric-class bijection |Bun_G|→B(G) is a homeomorphism for the topology whose closed subsets are upward closed in the fixed-κ Newton order. Equivalently, [b]≤[bprime] iff E_bprime lies in the closure of E_b. Mixed characteristic follows from Viehmann. In equal characteristic, combine the schematic closure theorem with the schematic/analytic topology comparison of Gleason–Ivanov–Zillinger; the comparison alone does not identify geometric specialization with the combinatorial order.
 
-**Prerequisites.** [Geometric classification of G-bundles](#points-are-B-of-G); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Newton partial order with Kottwitz fibre](#partial-order-on-B-of-G).
+**Hypotheses.** E is a nonarchimedean local field of either characteristic, with finite residue field; G/E is connected reductive, with no quasi-split or unramified hypothesis. Use GIZ26 arXiv v3: its §2 and Remark2.1 allow both characteristics. He16 §2.5 restricts the schematic closure discussion to equal characteristic; use Vie21 for the mixed-characteristic route.
 
-**Proof/construction.** (1) Use the established continuous bijection from FS. (2) Apply Viehmann’s realization of the specialization relations to prove the inverse continuous. (3) Expand the proof interior from section6 before claiming a lemma-level closed plan.
+**Prerequisites.** [Geometric classification of G-bundles](#points-are-B-of-G); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Newton partial order with Kottwitz fibre](#partial-order-on-B-of-G); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [ReductiveGroupsPartII:RG2.4](../../../content/campaign/ReductiveGroupsPartII/README.md).
+
+**Proof/construction.** (1) Use geometric point classification and HN semicontinuity to obtain the continuous bijection with the stated reversed specialization convention. (2) In mixed characteristic, use Vie21 Theorem1.1 with its finite-Q_p-extension hypothesis. (3) In equal characteristic, He16 Theorems1.29 and2.12 identify the schematic specialization order with equal integral κ and Newton dominance. Import the straight-class and affine-Bruhat proof inputs through RG2.4, retaining inertia torsion. (4) GIZ26 Lemma7.17 reduces continuity to finite bounded loci and specialization chains. Its Theorem7.18 identifies schematic and analytic isocrystal specialization and reverses Bun_G specialization. (5) For that comparison, realize adjacent schematic specializations on perfect rank-one valuation rings (GIZ26 Proposition2.17). Theorem3.16 identifies the v-descent limit over Spd(Vhat,Vhat) with bundles on Y_(0,∞]; it does not assert that every arbitrary bundle on the open period space extends. Apply the separate PR24 Proposition2.1.3 and FS II.2.14 classification inputs to this schematic-family-induced boundary bundle. Use Theorem7.13 on products of geometric points for the reverse implication. These interiors remain G04/G06 obligations.
 
 **Acceptance.** The basic point is more general than unstable points with the same κ.
 
-**Sources.** [On Newton strata in the B_dR^+-Grassmannian](https://arxiv.org/pdf/2101.07510), Theorem1.1 and preceding topology convention p.2; [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ConjectureIII.2.15 p.97.
+**Sources.** [Meromorphic vector bundles on the Fargues–Fontaine curve](https://arxiv.org/pdf/2307.00887v3), §2 and Remark2.1 pp.6–7; §7.3, Lemma7.17 and Theorem7.18 pp.50–53. The recorded v3 permits both characteristics and compares schematic/analytic specialization with reversed bundle specialization; identifying this with the κ/ν order also needs the schematic closure theorem.; [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386v3), §1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, Theorem2.12 p.28. The straight-class order is equality of integral κ plus Newton dominance; the schematic closure theorem is used within the equal-characteristic restriction of §2.5.; [On Newton strata in the B_dR^+-Grassmannian](https://arxiv.org/pdf/2101.07510), Theorem1.1 and topology convention p.2. Supplies the mixed-characteristic case, for E a finite extension of Q_p.; [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ConjectureIII.2.15 p.97. Records the original general-field topology assertion; the theorem is supplied by the later sources, not this conjecture.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Newton topology theorem.
 
@@ -1447,13 +1728,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.ModificationNewtonBound.** For G/Q_p and any geometric cocharacter class μ, a geometric point of Gr_(G,μ) modifying the trivial bundle determines b∈B(G,{μ^−1}). For GL_n the bundle Newton tuple is dominated by its relative-position tuple with matching total degree; translate through ν_bundle=w_0(−ν_isocrystal). The full κ equality is μ^−1♯.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice](../../../content/campaign/RelativeFarguesFontaine/README.md); [Geometric classification of G-bundles](#points-are-B-of-G); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Acceptable classes B(G,{μ})](#admissible-pair); [Representations detect Newton dominance](#representation-detects-dominance); [GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness](../../../content/campaign/GeometricSatakeAndFusion/README.md).
 
 **Proof/construction.** (1) For GL_n use exterior powers to reduce to a bound on the first slope and determinant degree. (2) Compute the determinant line modification to establish the equality of totals. (3) Use RR96’s representation criterion for G and the component-sign comparison for κ.
 
 **Acceptance.** The inverse Hodge class is essential in the CS convention.
 
-**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.3 and Lemma3.5.4 pp.687-689.
+**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.3 and Lemma3.5.4 pp.687-689. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="minuscule-modification-image"></a>
 
@@ -1461,13 +1746,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Theorem: TauCeti.BunG.MinusculeModificationImage.** For minuscule μ over Q_p, the map from the flag variety Fℓ_(G,μ)≅Gr_(G,μ) to B(G,{μ^−1}) is surjective on geometric classes. This is stronger than the invariant containment for all μ and uses the Rapoport existence result recalled by CS17 Remark3.5.8.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Newton bound for a modification](#modification-newton-bound); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [Acceptable classes B(G,{μ})](#admissible-pair).
 
 **Proof/construction.** (1) Use the minuscule flag/Grassmannian identification supplied by GS0. (2) Apply Rapoport PropositionA.9 for every acceptable class; its original proof is an explicit gap, not inferred from containment.
 
 **Acceptance.** A nonempty acceptable index set alone does not produce a flag point.
 
-**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Remark3.5.8 p.689.
+**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Remark3.5.8 p.689. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="de-rham-quotient-group-class"></a>
 
@@ -1475,13 +1764,17 @@ Form Bun_G as a small groupoid-valued v-stack. Establish geometric-point classif
 
 **Comparison: TauCeti.BunG.DeRhamQuotientGroupClass.** In Liu–Zhu Corollary4.9, the tensor functor has domain Rep_(Q_p)(G^c), where G^c=G/Z_G^s. At a classical point embedded into C_p, its de Rham comparison defines compatible B_dR^+ lattices. The Fargues tensor modification construction therefore gives a class in B(G^c_(Q_p)). Producing a class in B(G_(Q_p)) requires a chosen compatible lift or additional G-level tensor data. No canonical lift is claimed.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [RelativeFarguesFontaine:RF4:G-torsors/modification-of-G-bundle-by-lattice](../../../content/campaign/RelativeFarguesFontaine/README.md); [Geometric classification of G-bundles](#points-are-B-of-G); [Central-torus bundle surjectivity](#central-torus-bundle-surjectivity).
 
 **Proof/construction.** (1) Apply de Rham comparison at the point in every rational G^c representation. (2) Use the exact tensor lattice-to-bundle functor from RF4 and classify the resulting curve bundle. (3) Retain the correct coefficient group; central-torus v-surjectivity is local existence and supplies no canonical G-level lift.
 
 **Acceptance.** The reviewed PAPER-LIU-ZHU-17/G22 qualification is retained.
 
-**Sources.** [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 and Remark4.1(iii) pp.33-34.
+**Sources.** [Rigidity and a Riemann-Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3), Corollary4.9 and Remark4.1(iii) pp.33-34. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 ## BG2:smooth-Artin — The whole smooth Artin stack
 
@@ -1493,13 +1786,17 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Theorem: TauCeti.BunG.IsomSheafRepresentability.** For G-bundles E1,E2 over X_S, Isom_G(E1,E2) is a locally spatial diamond over S. For vector bundles the surjection locus and isomorphism locus are open subdiamonds of BC(E1∨⊗E2). For general reductive G, a Chevalley faithful representation with its stabilizer line presents Isom_G as finite closed compatibility conditions inside products of these linear Isom diamonds.
 
-**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) For a linear map the support of the cokernel is closed and has closed image in S; surjectivity is its open complement. (2) Isomorphisms require both a map and its dual to be surjective. (3) Apply the actual rational Chevalley stabilizer presentation and stability of locally spatial diamonds under finite limits.
 
 **Acceptance.** The faithful representation includes its defining tensor constraints; arbitrary GL_n isomorphisms need not preserve G.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIV.1.20 and proof ofIV.1.19 pp.112-113.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), LemmaIV.1.20 and proof ofIV.1.19 pp.112-113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="bun-g-is-smooth-artin"></a>
 
@@ -1507,13 +1804,17 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Theorem: TauCeti.BunG.BunGIsSmoothArtin.** For ℓ≠p, Bun_G is an ℓ-cohomologically smooth Artin v-stack of ℓ-dimension0. The disjoint union over Galois cocharacter orbits of [G(E)\Gr_(G,μbar)] maps to Bun_G by a separated cohomologically smooth surjection. These are open Schubert cells, not their generally singular closures.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Smallness of Bun_G](#bun-g-smallness); [Beauville–Laszlo uniformization](#beauville-laszlo-surjectivity); [Geometrically trivial open locus](#geometrically-trivial-locus); [Locally spatial Isom diagonal](#isom-sheaf-representability); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md).
 
 **Proof/construction.** (1) The diagonal is locally spatial by the Isom theorem. (2) After an untilt, each fibre is the open locus of fixed-relative-position modifications that are geometrically trivial. (3) Use GS0 open-cell cohomological smoothness, and independent BL uniformization for surjectivity. (4) The source quotient is smooth over [*/G(E)] with dimension<2ρ,μ>, and the map has the same relative dimension; subtract them to obtain dimension0. (5) Import VS0 Artin descent, separatedness and locally profinite classifying-stack charts; no GS4, VS1 or VS4 is used.
 
 **Acceptance.** For infinite locally profinite G(E), *→[*/G(E)] is not used as a cohomologically smooth atlas.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIV.1.19 pp.112-113.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIV.1.19 pp.112-113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Smooth Artin moduli stack.
 
@@ -1523,13 +1824,17 @@ Use the Isom sheaves for the diagonal and the quotients of open Schubert cells f
 
 **Theorem: TauCeti.BunG.ConnectedComponents.** κ induces π_0(Bun_G)≅π_1(G)_Γ. Every nonempty open substack contains a basic point: restrict to a finite T_0 Newton region, take an open point, and compare the whole-stack dimension0 with the stratum dimension −<2ρ,ν_b> to force central ν_b.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Cohomological smoothness of Bun_G](#bun-g-is-smooth-artin); [Cohomological dimension of Newton strata](#stratum-dimension); [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [Kottwitz classification by both invariants](#classification-by-two-invariants); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md).
 
 **Proof/construction.** (1) Use the finite T_0 open-point lemma with the discrete κ coordinate. (2) An open stratum has the ambient dimension0, so its positive-root pairing vanishes and b is basic. (3) The basic κ bijection makes each fibre connected; two disjoint nonempty open pieces would each have to contain its unique basic point.
 
 **Acceptance.** Torsion components such as split PGL_n’s Z/n are included.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIV.1.23 and LemmaIV.1.24 pp.113-114.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), CorollaryIV.1.23 and LemmaIV.1.24 pp.113-114. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Connected components of Bun_G.
 
@@ -1542,6 +1847,8 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 ### HN-graded G-bundles
 
 **Construction: TauCeti.BunG.HNGraded.** Bun_G^(HN-split)(S) consists of exact rational tensor functors into Q-graded bundles on X_S with weight-λ piece everywhere semistable of bundle slope λ. For b, use the slope-reversed grading of E_b. Forgetting the grading lands in Bun_G. The graded automorphism group scheme is the constant curve group J_b×X_S.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Algebraic sigma-centralizer](#sigma-centralizer-J-b).
 
@@ -1566,7 +1873,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** Weights refer to bundle slopes, not the original isocrystal slopes.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** HN-graded G-bundles.
 
@@ -1576,13 +1885,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.HnGradedClassification.** The natural map ∐_b[*/J_b(E)]→Bun_G^(HN-split) is an equivalence. The graded fibre is locally isomorphic to E_b^gr and its Isom torsor is a J_b-bundle geometrically trivial at the chosen point; openness and locally profinite torsor triviality make it locally constant.
 
-**Prerequisites.** [HN-graded G-bundles](#hn-graded-g-bundles); [Geometrically trivial open locus](#geometrically-trivial-locus); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [HN-graded G-bundles](#hn-graded-g-bundles); [Geometrically trivial open locus](#geometrically-trivial-locus); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Use local constancy of the filtration type and relative HN graded semistability. (2) Apply the trivial-locus theorem to the J_b Isom torsor. (3) Descend the local objects with their graded automorphisms.
 
 **Acceptance.** This is an equivalence of graded groupoids, stronger than geometric point classification.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.4.7 pp.102-103. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="filtered-automorphism-group-scheme"></a>
 
@@ -1590,7 +1903,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Construction: TauCeti.BunG.FilteredAutomorphism.** For a reductive G/K, scheme X/K and Q-filtered G-fibre functor E, let H=Aut_G(E), its inner group over X. For λ≥0, H^≥λ consists of automorphisms whose difference from1 raises every represented filtration by at least λ. H^≥0 is parabolic with unipotent radical H^>0; the groups are smooth, Lie H^≥λ=(ad E)^≥λ, and for λ>0 the quotient H^≥λ/H^>λ is the vector group (ad E)^≥λ/(ad E)^>λ.
 
-**Prerequisites.** [Pure inner twisting of torsors](#pure-inner-twisting); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [TauCeti.Cocharacter.parabolic](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean); [TauCeti.Cocharacter.leviGroupExtension](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Pure inner twisting of torsors](#pure-inner-twisting); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [TauCeti.Cocharacter.parabolic](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/Parabolic.lean); [TauCeti.Cocharacter.leviGroupExtension](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Dynamic/LeviDecomposition/Basic.lean); [TauCeti.FGPointRepresentationCat](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Equivalence.lean); [TauCeti.FGPointRepresentationCat.instRigidCategory](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/Representation/Comodule/Monoidal.lean).
 
 **Proof/construction.** (1) Use étale-local splitting of Q-filtered fibre functors and torsors. (2) In the split chart apply the cocharacter root-weight decomposition; descend smooth closed subgroups and Lie gradings. (3) Tau Ceti supplies dynamic point-group parabolic and Levi splitting only; relative scheme representability remains in the requested group-form input.
 
@@ -1614,7 +1929,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** A field of point-subgroup data alone cannot represent this relative group scheme.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.2 p.105.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.2 p.105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="full-automorphism-v-group"></a>
 
@@ -1622,7 +1939,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Construction: TauCeti.BunG.FullAutomorphism.** For b, tildeJ_b(S)=Aut_(X_S)(E_b). Every automorphism preserves HN; its action on the associated graded gives a split exact sequence 1→tildeJ_b^>0→tildeJ_b→J_b(E)→1, with tildeJ_b=tildeJ_b^>0⋊J_b(E). For positive bundle slope λ the graded quotient is BC((ad E_b)^λ); it corresponds to the isocrystal slope −λ. The connected kernel is generally nonzero for nonbasic b.
 
-**Prerequisites.** [Classification of HN-graded bundles](#hn-graded-classification); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Algebraic sigma-centralizer](#sigma-centralizer-J-b).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Classification of HN-graded bundles](#hn-graded-classification); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Take global sections of the filtered relative automorphism group. (2) Use H^1 vanishing of positive bundle pieces to make the quotient maps surjective. (3) The canonical graded isocrystal action splits the projection; identify π_0 with J_b(E).
 
@@ -1646,7 +1965,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** The GL_2 O⊕O(1) kernel is BC(O(1)).
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Full bundle automorphism group.
 
@@ -1656,13 +1977,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.PositiveAutomorphismKernel.** tildeJ_b^>0 is a successive extension of positive Banach–Colmez spaces, represented by a locally spatial diamond. For ℓ≠p it is cohomologically smooth of dimension sum_(λ>0) λ·rank((ad E_b)^λ)=<2ρ,ν_b>. Its connectedness identifies π_0 tildeJ_b=J_b(E). All dimensions use the isocrystal dominant ν_b with the slope reversal already incorporated.
 
-**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [ReductiveGroupsPartII:RG2.1](../../../content/campaign/ReductiveGroupsPartII/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Induct over the finite positive filtration and use BC positive-slope smoothness, connectedness and H^1 vanishing. (2) Apply additivity of ℓ-dimension to the extension tower. (3) Compute the positive adjoint root weights as the 2ρ pairing.
 
 **Acceptance.** For O⊕O(1), the kernel dimension is1; its quotient classifying stack has dimension−1.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.1 pp.104-105. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="quasi-split-opposite-parabolic"></a>
 
@@ -1670,19 +1995,25 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Comparison: TauCeti.BunG.QuasiSplitOppositeParabolic.** For quasi-split G and a dominant rational ν_b, M_b=Z_G(ν_b), P_b^− is the parabolic with nonpositive ν_b weights. The curve group Q=E_(b_M)×^(M_b)P_b^− has tildeJ_b(S)=Q(X_S) and positive kernel Γ(X_S,R_uQ). The opposite sign reflects the slope-reversing isocrystal-to-bundle functor.
 
-**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [Rational Newton representative](#rational-newton-witness); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [VectorBundlesAndIsocrystals:VB1/isocrystal-to-bundle-functor](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Use the rational Newton representative to put b in its Levi. (2) Identify the HN-preserving inner parabolic with the twist of P_b^−. (3) Take curve sections and compare its unipotent root bundles with the positive HN pieces.
 
 **Acceptance.** For GL_2 O⊕O(1), the positive section is the O(1) upper entry.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.5.1.1 pp.105-106.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), III.5.1.1 pp.105-106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="semistable-locus-and-basic-strata"></a>
 
 ### Semistable locus and basic strata
 
 **Construction: TauCeti.BunG.Semistable.** Bun_G^ss is the full substack where every geometric fibre has central Newton morphism. It is open; κ decomposes it into open and closed basic strata and Bun_G^ss≃∐_(b basic)[*/J_b(E)]. Each basic stratum is neutralized by its chosen E_b; the locally profinite topology on J_b(E) is retained.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Basic sigma class](#basic-class); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Geometrically trivial open locus](#geometrically-trivial-locus); [Basic inner form equivalence](#basic-inner-form-bundle-equivalence).
 
@@ -1707,7 +2038,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** Basic does not imply isomorphism to the trivial G-bundle.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.4.5 p.102.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremIII.4.5 p.102. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Semistable bundle locus.
 
@@ -1716,6 +2049,8 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 ### Torus bundle Picard stack
 
 **Construction: TauCeti.BunG.TorusPicard.** For a torus T, Bun_T is a Picard stack fitting into 0→[*/T(E)]→Bun_T→X_*(T)_Γ→0. Every κ-fibre is a T(E)-banded gerbe neutralized by a choice of representative b of its class. A multiplicative splitting exists when a group section of T(L)→B(T) is chosen, for example when B(T) is torsion-free. It is not asserted canonically for a torus with torsion coinvariants.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [Torus norm and Newton average](#torus-norm-description); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
@@ -1740,7 +2075,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** A set-wise neutralization of each fibre is weaker than a Picard splitting.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.6 p.102.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleIII.4.6 p.102. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="stratum-is-classifying-stack"></a>
 
@@ -1748,13 +2085,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.StratumIsClassifyingStack.** For every b, Bun_G^b is the locally closed full substack of bundles geometrically isomorphic to E_b and Bun_G^b≃[*/tildeJ_b]. The map to [*/J_b(E)] has the canonical section induced by the semidirect splitting. For basic b the kernel vanishes; for nonbasic b it must be retained.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Full bundle automorphism v-group](#full-automorphism-v-group); [Classification of HN-graded bundles](#hn-graded-classification); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Constant HN type gives a relative filtered tensor functor. (2) Use the graded classification to trivialize its graded Isom torsor locally. (3) Positive filtered H^1 vanishing lifts a graded isomorphism to a filtered one. (4) Thus *→Bun_G^b is a v-surjection whose relation is exactly tildeJ_b.
 
 **Acceptance.** A positive-dimensional stabilizer changes both the stratum geometry and its dimension.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.3 p.106.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIII.5.3 p.106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Newton stratum classifying stack.
 
@@ -1764,13 +2105,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Lemma: TauCeti.BunG.AutomorphismTorsorReduction.** Over affinoid perfectoid S, every tildeJ_b-torsor is induced from a J_b(E)-torsor and is representable in locally spatial diamonds; the reduction follows from H^1_v vanishing for the positive Banach–Colmez graded pieces. This is an existence of reduction, not a canonical equivalence of all torsor groupoids.
 
-**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Full bundle automorphism v-group](#full-automorphism-v-group); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Reduce successive positive extensions using affinoid v-H^1 vanishing. (2) Apply perfectoid representability of locally profinite torsors.
 
 **Acceptance.** Different reductions can have positive-kernel automorphisms; do not collapse them.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.5.4 p.106.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), RemarkIII.5.4 p.106. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="stratum-dimension"></a>
 
@@ -1778,13 +2123,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.StratumDimension.** For ℓ≠p, Bun_G^b is a cohomologically smooth Artin v-stack of ℓ-dimension −<2ρ,ν_b>. The fibre over [*/J_b(E)] has the smooth cover * of relative dimension <2ρ,ν_b>; the rational-point classifying stack has dimension0.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Full classifying-stack description of a stratum](#stratum-is-classifying-stack); [Positive automorphism kernel geometry](#positive-automorphism-kernel); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md).
 
 **Proof/construction.** (1) Use the full kernel and its positive BC filtration to compute the dimension of the relative classifying stack. (2) Add the dimension0 of [*/J_b(E)] from VS0’s locally profinite classifying-stack theorem.
 
 **Acceptance.** The O⊕O(1) stratum has dimension−1 despite its algebraic J_b being a torus.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIV.1.22 p.113.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionIV.1.22 p.113. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Newton stratum dimension.
 
@@ -1793,6 +2142,8 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 ### Newton strata of a minuscule flag variety
 
 **Construction: TauCeti.BunG.FlagNewton.** For G/Q_p, minuscule μ and its reflex field E_μ, let Fℓ_(G,μ) be the adic/diamond flag variety and E(x) the modification of the trivial G-bundle at the untilt. Define Fℓ_(G,μ)^b as its fibre over Bun_G^b. The point map is independent of algebraically closed residue-field extension, is constant along rank-one generalization, and has image B(G,{μ^−1}).
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Minuscule modification image](#minuscule-modification-image); [Full classifying-stack description of a stratum](#stratum-is-classifying-stack); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
 
@@ -1818,7 +2169,9 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Acceptance.** The definition uses the actual flag moduli, supplied by GS0.
 
-**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Definition3.5.6 pp.689-690.
+**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Definition3.5.6 pp.689-690. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Flag Newton strata.
 
@@ -1828,13 +2181,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.FlagStrataSemicontinuity.** The flag Newton strata are locally closed and partially proper, their upper unions Fℓ^≥b are closed, and the basic stratum is open. The bundle HN polygon is upper semicontinuous under specialization, with κ fixed by μ^−1. CS17 Proposition3.5.7 prints lower semicontinuity; the retained E35 correction uses the upper-polygon and closed-upper-union convention.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Newton strata of a minuscule flag variety](#flag-newton-strata); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [Finiteness and the basic acceptable member](#admissible-finiteness-and-basic); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Pull back HN semicontinuity and the constant κ bound. (2) Use the finite acceptable indexing set and representation inequalities to identify the closed upper unions. (3) Partial properness follows from the flag diamond and the fixed-class locally closed condition in the source’s adic sense.
 
 **Acceptance.** No general dimension formula is asserted for every reductive minuscule flag datum.
 
-**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.7 and Corollary3.5.9 pp.689-690.
+**Sources.** [On the generic part of the cohomology of compact unitary Shimura varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p01-p.pdf), Proposition3.5.7 and Corollary3.5.9 pp.689-690. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="unitary-flag-stratum-dimension"></a>
 
@@ -1842,13 +2199,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.UnitaryFlagStratumDimension.** For the CS24 Section2.1 quasi-split unitary similitude datum on F^(2n) with its standard skew-hermitian form, self-dual O_F-lattice and signatures(n,n), at p unramified in F, let d=n²[F+:Q]. Its flag strata have Krull dimension d−d_b, where d_b=<2ρ,ν_b> is IG.0’s dimension of the corresponding Igusa variety. This is the specific unitary dimension statement of Theorem2.7.3, not a general dimension formula deduced solely from upper semicontinuity.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Closed upper flag Newton unions](#flag-strata-semicontinuity); [Cohomological dimension of Newton strata](#stratum-dimension); [IgusaVarietiesAndTorsionConcentration:IG.0](../../../content/campaign/IgusaVarietiesAndTorsionConcentration/README.md); [GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness](../../../content/campaign/GeometricSatakeAndFusion/README.md).
 
 **Proof/construction.** (1) Identify the PEL p-divisible-group Newton index with the BL bundle index, retaining μ inverse. (2) Import the unitary local deformation and Igusa dimension calculation from IG.0. (3) Apply the CS17/CS24 local period-fibre calculation to transfer the codimension to the flag stratum; the general relative-dimension-to-Krull comparison requires the stated datum and remains a proof-interior expansion.
 
 **Acceptance.** The dimensions concern |Fℓ^b|, not the negative ℓ-dimension of Bun_G^b.
 
-**Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), Section2.1 pp.11-12 and Theorem2.7.3 p.33.
+**Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), Section2.1 pp.11-12 and Theorem2.7.3 p.33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="unitary-ordinary-flag-locus"></a>
 
@@ -1856,13 +2217,17 @@ Identify HN-graded objects, the filtered relative automorphism group and its glo
 
 **Theorem: TauCeti.BunG.UnitaryOrdinaryFlagLocus.** In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The original Wedhorn and CGH comparison inputs are explicitly retained as source gaps.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Unitary flag Newton dimensions](#unitary-flag-stratum-dimension); [Ordinary Newton class](#ordinary-class); [IgusaVarietiesAndTorsionConcentration:IG.0](../../../content/campaign/IgusaVarietiesAndTorsionConcentration/README.md); [ReductiveGroupsPartII:RG2.3](../../../content/campaign/ReductiveGroupsPartII/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Use the rational reflex cocharacter and the unramified ordinary theorem. (2) Apply the actual local p-divisible/flag ordinary comparison of CGH Proposition3.3.8. (3) A locally profinite diamond has Krull dimension0.
 
 **Acceptance.** The corresponding basic flag stratum is the open one; ordinary is the maximum index, not the basic index.
 
-**Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), AfterTheorem2.7.3 p.33.
+**Sources.** [On the generic part of the cohomology of non-compact unitary Shimura varieties](https://arxiv.org/pdf/1909.01898v2), AfterTheorem2.7.3 p.33. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 ## BG4 — Local charts and specialization geometry
 
@@ -1873,6 +2238,8 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 ### Opposite filtered-bundle chart
 
 **Construction: TauCeti.BunG.FilteredChart.** M(S) consists of G-bundles E on X_S with an increasing, separated and exhaustive Q-filtration on every rational representation, exact and tensor-compatible, whose weight-λ graded piece is semistable of bundle slope λ. This is opposite to the decreasing HN filtration. The associated graded map to Bun_G^(HN-split) decomposes M=∐_b M_b and gives q_b:M_b→[*/J_b(E)] and π_b:M_b→Bun_G.
+
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
 **Prerequisites.** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [Classification of HN-graded bundles](#hn-graded-classification); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D3](../../../content/campaign/DiamondsAndVStacks/README.md).
 
@@ -1898,7 +2265,9 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Acceptance.** The GL_n graded slopes increase with filtration index.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionV.3.2 and ExampleV.3.3 pp.173-174.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), DefinitionV.3.2 and ExampleV.3.3 pp.173-174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Filtered bundle chart.
 
@@ -1908,13 +2277,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Comparison: TauCeti.BunG.QuasiSplitParabolicChart.** For quasi-split G and a rational dominant Newton representative, let M_b=Z_G(ν_b) and P_b be its parabolic with nonnegative ν_b weights. Then M_b(chart)=Bun_(P_b)×_(Bun_(M_b))Bun_(M_b)^(b_M), with the Levi basic summand identified as [*/J_b(E)]. Use the source’s positive Newton parabolic; it is opposite to the curve-HN automorphism parabolic.
 
-**Prerequisites.** [Opposite filtered-bundle chart](#filtered-bundle-chart); [Rational Newton representative](#rational-newton-witness); [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Opposite filtered-bundle chart](#filtered-bundle-chart); [Rational Newton representative](#rational-newton-witness); [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory).
 
 **Proof/construction.** (1) A filtered fibre functor of the fixed type is the corresponding P_b reduction. (2) The graded semistable condition is precisely the basic Levi bundle condition. (3) Transport the diagram through the rational cocharacter filtration dictionary.
 
 **Acceptance.** For a nonsplit inner form this particular rational parabolic presentation is not asserted.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.4 p.174.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.4 p.174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="chart-over-classifying-stack"></a>
 
@@ -1922,13 +2295,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Theorem: TauCeti.BunG.ChartOverClassifyingStack.** q_b:M_b→[*/J_b(E)] is partially proper, representable in locally spatial diamonds, and ℓ-cohomologically smooth of relative dimension <2ρ,ν_b> for ℓ≠p. After graded framing it is a successive torsor under negative Banach–Colmez v-sheaves, namely H^1 of the negative curve-slope pieces of the opposite unipotent group. The framed v-sheaf itself is not an absolute diamond; its punctured complement is locally spatial, and the representability assertion is relative.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Opposite filtered-bundle chart](#filtered-bundle-chart); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md).
 
 **Proof/construction.** (1) The framed chart is the H^<0 torsor moduli on the curve. (2) Filter H^<0 by its negative vector-bundle quotients, giving the H^1 extension tower. (3) Use the relative BC supplier’s partial properness, representability and smoothness; add dimensions.
 
 **Acceptance.** Absolute tildeM_b need not be a diamond even though tildeM_b→* is representable in locally spatial diamonds.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.5 p.174.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.5 p.174. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Negative Banach–Colmez chart.
 
@@ -1938,13 +2315,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Theorem: TauCeti.BunG.SectionAndSpatialComplement.** The split section [*/J_b(E)]→M_b is closed and is exactly the locus whose underlying bundle is geometrically E_b. Its framed preimage is the origin. The open complement tildeM_b°=tildeM_b minus {origin} is a spatial diamond. The unsplit extensions satisfy [bprime]≤[b] and can be strictly smaller.
 
-**Prerequisites.** [Negative Banach–Colmez tower of a chart](#chart-over-classifying-stack); [Classification of HN-graded bundles](#hn-graded-classification); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Negative Banach–Colmez tower of a chart](#chart-over-classifying-stack); [Classification of HN-graded bundles](#hn-graded-classification); [HN sign and semicontinuity](#hn-sign-and-semicontinuity); [VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) An extension is Newton-bounded by its split graded object, so the equal-class locus is closed. (2) There the opposite filtration and HN filtration are transverse, giving a graded splitting. (3) At the first nonzero extension step, the punctured negative BC space is an absolute diamond; combine the finite tower and the properness argument to get spatiality.
 
 **Acceptance.** For the GL_2 example, the origin gives O⊕O(1); nonzero extension gives the rank2 O(1/2) block.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Spatial chart complement.
 
@@ -1954,13 +2335,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Theorem: TauCeti.BunG.ContractingChartAction.** For sufficiently divisible N>0, the central Newton morphism in J_b gives U_π=ν_(b,J)^N(π)∈J_b(E). It contracts the framed extension tower to the origin. On tildeM_b° the Z-action has the source’s escaping property and tildeM_b°/U_π^Z→* is proper. This is ordinary properness, not merely partial properness.
 
-**Prerequisites.** [Split section and spatial chart complement](#section-and-spatial-complement); [Decent representative](#decent-representative); [Central Newton morphism of the centralizer](#central-newton-on-J); [VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Split section and spatial chart complement](#section-and-spatial-complement); [Decent representative](#decent-representative); [Central Newton morphism of the centralizer](#central-newton-on-J); [VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [DiamondsAndVStacks:D4](../../../content/campaign/DiamondsAndVStacks/README.md); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Choose a finite descent coefficient field and an integral Newton multiple. (2) At the first nonzero negative extension piece, U_π acts by a positive power of π; negative iterations escape each quasicompact open. (3) Apply the contraction/fixed-point lemma from the VB4 supplier and projectivized BC properness to the tower.
 
 **Acceptance.** The quotient is proper only after removal of the fixed origin.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), PropositionV.3.6 pp.175-176. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="chart-jacobian-positivity"></a>
 
@@ -1968,13 +2353,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Lemma: TauCeti.BunG.ChartJacobianPositivity.** After S→Bun_G corresponds to E, the fibre M×_(Bun_G)S is the open subfunctor of sections of E×^GFl→X_S having semistable graded pieces of their specified slopes. Fl is the disjoint union of projective filtration varieties. Along these sections its tangent bundle has a finite filtration with semistable positive-slope quotients, so the section lies in VS1’s cohomologically smooth locus.
 
-**Prerequisites.** [Opposite filtered-bundle chart](#filtered-bundle-chart); [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [ReductiveGroups · layer 7 structure theory](../../../content/tau-ceti/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups · layer 1 representations  comodules](../../../content/tau-ceti/ReductiveGroups/README.md#layer-1-representations--comodules); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
 
-**Proof/construction.** (1) Identify rational tensor filtrations with sections of the flag scheme. (2) Use semistable openness on each graded piece. (3) Calculate tangent root weights and convert to positive bundle slopes. (4) Apply the actual Jacobian section-space theorem, including its smooth quasi-projective curve scheme hypotheses.
+**Prerequisites.** [Opposite filtered-bundle chart](#filtered-bundle-chart); [Semistable locus and basic strata](#semistable-locus-and-basic-strata); [ReductiveGroups#layer-7-structure-theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-7-structure-theory); [ReductiveGroups#layer-1-representations--comodules](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md#layer-1-representations--comodules); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
+
+**Proof/construction.** (1) Work componentwise on the projective filtration varieties. Their associated flag bundles admit the projective embeddings required by VS1; verify this hypothesis before applying its section criterion. (2) Identify rational tensor filtrations with sections of the flag scheme. (3) Use semistable openness on each graded piece. (4) Calculate tangent root weights and convert to positive bundle slopes. (5) Apply the actual Jacobian section-space theorem, including its smooth quasi-projective curve scheme hypotheses.
 
 **Acceptance.** Tangent positivity is the reason the late chart theorem uses VS1.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof ofTheoremV.3.7 p.177.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Proof ofTheoremV.3.7 p.177. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 <a id="chart-to-bun-g"></a>
 
@@ -1982,13 +2371,17 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Theorem: TauCeti.BunG.ChartToBunG.** π_b:M_b→Bun_G is separated, partially proper, representable in locally spatial diamonds and ℓ-cohomologically smooth of relative dimension <2ρ,ν_b>. Its open image is exactly the points whose corresponding bundles specialize to E_b; in the fixed-κ order this is {[bprime]:[bprime]≤[b]}. The charts cover Bun_G, since every b lies in its own chart image.
 
-**Prerequisites.** [Positive tangent criterion for the filtered chart](#chart-jacobian-positivity); [Negative Banach–Colmez tower of a chart](#chart-over-classifying-stack); [Contracting chart action and proper quotient](#contracting-chart-action); [Cohomological smoothness of Bun_G](#bun-g-is-smooth-artin); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md).
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
+**Prerequisites.** [Positive tangent criterion for the filtered chart](#chart-jacobian-positivity); [Negative Banach–Colmez tower of a chart](#chart-over-classifying-stack); [Contracting chart action and proper quotient](#contracting-chart-action); [Cohomological smoothness of Bun_G](#bun-g-is-smooth-artin); [VStackSheavesAndLisseCategories:VS1/jacobian-criterion](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [VStackSheavesAndLisseCategories:VS0](../../../content/campaign/VStackSheavesAndLisseCategories/README.md); [DiamondsAndVStacks:D5/relative-representability](../../../content/campaign/DiamondsAndVStacks/README.md).
 
 **Proof/construction.** (1) Apply the section-space Jacobian criterion for representability, partial properness, separatedness and smoothness. (2) Subtract dim Bun_G=0 from dim M_b to compute relative dimension. (3) The split section contains the b-stratum; openness of the image includes every generalization of b. (4) The contracting action degenerates every chart point to the split section, proving the reverse inclusion.
 
 **Acceptance.** For κ=1 in GL_2, the chart of slopes1,0 contains its basic generalization1/2,1/2.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremV.3.7 p.177.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), TheoremV.3.7 p.177. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 **Atlas planet:** Smooth specialization chart.
 
@@ -1998,17 +2391,21 @@ A chart parametrizes the opposite filtered extensions of E_b. Prove its map to t
 
 **Application: TauCeti.BunG.Gl2ExtensionChart.** For graded bundle O⊕O(1), tildeM_b=BC(O(−1)[1]) parametrizes framed extensions 0→O→E→O(1)→0. E is either split or the simple rank2 slope1/2 bundle. The fibres of π_b are open subspaces of (BC(E) minus {0})/E× of nowhere-vanishing sections giving the prescribed quotient.
 
+**Hypotheses.** Global conventions in the reader apply; additional restrictions are stated in the contract.
+
 **Prerequisites.** [Smooth specialization neighborhoods](#chart-to-bun-g); [VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB2:classification](../../../content/campaign/VectorBundlesAndIsocrystals/README.md); [VectorBundlesAndIsocrystals:VB4](../../../content/campaign/VectorBundlesAndIsocrystals/README.md).
 
 **Proof/construction.** (1) Identify Ext^1 with the negative BC H^1 of O(−1). (2) Use the rank2 bundle classification and determinant degree1. (3) Describe a filtration by a nowhere-vanishing section, and import the saturated-section open condition.
 
 **Acceptance.** The split point has full positive automorphism kernel; the framed chart extension direction has negative slope.
 
-**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.1 p.173.
+**Sources.** [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), ExampleV.3.1 p.173. The cited passage supplies the stated contract; qualifications and source corrections are retained in the node.
+
+**Lean formulation.** full-signature-omitted; The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores. Full carrier obligations: G08.
 
 ## Exact supplier contracts
 
-Each contract imports the supplier’s own general theory. The named consumer declarations identify why the statement is required. A request does not claim the supplier has already implemented its theorem.
+Every request below imports an existing target or asks its owner for a precise extension. API consequences retain their later prerequisites without making the underlying definition cyclic.
 
 ### R01 — AlgebraicModuliForArithmeticGeometry:R09.3
 
@@ -2024,37 +2421,37 @@ Use proper base change under the prime-to-p finite-coefficient hypotheses, inclu
 
 ### R03 — DiamondsAndVStacks:D2
 
-Use étale sites of locally spatial diamonds, the curve/Div^1 local comparison, and strictly totally disconnected geometric point lifting.
+Use D2 only for pro-étale/v sites. Analytic-adic/diamond étale comparison is the separately read D6/etale-site-comparison; strictly totally disconnected covers and geometric lifting come from D1. The curve/Div^1 comparison remains the RF2/G05 refinement. D6’s read analytic comparison assumes a Z_p base; the equal-characteristic counterpart remains G05.
 
 **Consumers:** [Curve-to-base étale site morphism](#curve-etale-base-site); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [Grassmannian point lifting](#grassmannian-point-lifting).
 
 ### R04 — DiamondsAndVStacks:D3
 
-Use small v-stacks, sheafification, groupoids, torsors and descent, including FS III.2.5 for locally profinite group torsors. Export SW18.3.1 clopen comparison for Spd(R,R); no valuation/support commuting map is used.
+Use D3/locally-profinite-torsors and the actual effective-descent results. Small v-stacks come from D4, groupoid stack quotients from D0. SW18.3.1 clopen comparison is a requested refinement, not supplied by a valuation/support commuting map.
 
 **Consumers:** [Pure inner twisting of torsors](#pure-inner-twisting); [Families of G-isocrystals](#families-of-g-isocrystals); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Kottwitz invariant in isocrystal families](#family-kottwitz-local-constancy); [Curve-to-base étale site morphism](#curve-etale-base-site); [Moduli v-stack Bun_G](#bun-g-as-v-stack); [Smallness of Bun_G](#bun-g-smallness); [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [Geometrically trivial open locus](#geometrically-trivial-locus); [Central-torus bundle surjectivity](#central-torus-bundle-surjectivity); [Torus bundle Picard stack](#torus-picard-stack); [Full classifying-stack description of a stratum](#stratum-is-classifying-stack); [Reduction of full automorphism torsors](#automorphism-torsor-reduction); [Opposite filtered-bundle chart](#filtered-bundle-chart).
 
 ### R05 — DiamondsAndVStacks:D4
 
-Use spatiality, closed/open loci, properness, geometric points and quotients by the escaping Z-action. The formalism must distinguish a diamond from a quotient stack and partial from ordinary properness.
+Use D4 for diamonds, small v-stacks, underlying spaces and open substacks. D5 supplies spatiality and relative representability; D6 supplies analytic étale comparison. The escaping-Z-action and ordinary/partial properness criteria used by BG4 are requested refinements (G12), not conclusions of D4 alone.
 
 **Consumers:** [Locally spatial Isom diagonal](#isom-sheaf-representability); [Contracting chart action and proper quotient](#contracting-chart-action); [Newton strata of a minuscule flag variety](#flag-newton-strata); [Closed upper flag Newton unions](#flag-strata-semicontinuity); [Unitary ordinary flag locus](#unitary-ordinary-flag-locus).
 
 ### R06 — EndoscopicTransferAndUnitaryTraceComparison:ET.0
 
-Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic extensions come from proposed RG2.6; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition.
+Use local reductive Galois/Weil cohomology, crossed modules [Gsc→G], quasi-isomorphisms with [Tsc→T] and [Zsc→Z], abelianization and simply connected local H^1 vanishing. Request the degree-two Weil torus vanishing and point-to-curve comparison compatibility in G03. Generic extensions come from proposed RG2.6; do not construct a second B(G), κ, ν, J_b or acceptable-class theory. Export the identification H^1(E,H)≅(π_1(H)_Γ)_tors for connected reductive local H, using the BG1 Kottwitz invariant, rather than a second invariant definition. Coefficients in the FS Weil complexes are G(L^sep), T(L^sep), etc., with the natural continuous W_E-action on discrete groups, not only L-rational points.
 
 **Consumers:** [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Abelianized classes equal fundamental coinvariants](#abelianization-identification); [Diagonalizable Weil–curve comparison](#diagonalizable-curve-cohomology); [Constant crossed-module curve classes](#crossed-module-curve-classes); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [Basic classes and adjoint torsors with connected center](#connected-center-basic-inner-forms).
 
 ### R07 — GeometricSatakeAndFusion:GS0:Schubert-smoothness/open-cell-stabilizer-and-smoothness
 
-Use smoothness and stabilizer computation for open minuscule Schubert cells and the quotient presentation of the flag variety; do not assert smoothness of a Schubert closure.
+Use the read open-cell stabilizer/congruence quotient theorem for all dominant μ, hence cohomological smoothness of open Schubert cells. For minuscule μ deduce the flag quotient by P_μ^− from the congruence description; retain finite splitting-field descent for nonsplit G. Schubert closures need not be smooth.
 
 **Consumers:** [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Cohomological smoothness of Bun_G](#bun-g-is-smooth-artin); [Minuscule modification image](#minuscule-modification-image); [Newton strata of a minuscule flag variety](#flag-newton-strata); [Unitary flag Newton dimensions](#unitary-flag-stratum-dimension).
 
 ### R08 — GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness
 
-Use Schubert exhaustion/properness, the geometric loop/Grassmannian connected-component identification with the appropriate π_1 coinvariants, and cocharacter lattice representatives, including nonsplit descent. Zhu Proposition1.21 and its Kottwitz torus-functor argument belong to GS0; BG2 proves only the sign under BL.
+Import the current general-E Schubert exhaustion and properness contract, including its Galois-stable nonsplit bounds. It does not state the exact Grassmannian π_1 connected-component identification or its torus lattice representatives. Request that separate component refinement from GS0, with the appropriate inertia/Galois coinvariants and nonsplit descent, supported by Zhu Proposition1.21 and FS III.3.6; BG2 proves the sign under BL. This request does not replan the existing Schubert bounds.
 
 **Consumers:** [Grassmannian point lifting](#grassmannian-point-lifting); [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Grassmannian components and Kottwitz sign](#grassmannian-kottwitz-sign); [Newton bound for a modification](#modification-newton-bound).
 
@@ -2072,13 +2469,13 @@ Export split-rank and relative-root interfaces for the reductive group and its c
 
 ### R11 — ReductiveGroupsPartII:RG2.3
 
-Export the connected parahoric model, its positive loop group, its extended-Weyl double-coset parametrization and the integral conjugacy/lifting input used by KZ Proposition2.3.3. Preserve the distinction between a parahoric and G(O_L) in the hypotheses.
+Export the connected parahoric model, its positive loop group, its extended-Weyl double-coset parametrization and the integral conjugacy/lifting input used by KZ Proposition2.3.3. Preserve the distinction between a parahoric and G(O_L) in the hypotheses. Exact KZ Proposition2.3.3 inputs: He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, He14 Theorem3.5 and Proposition4.5; their proof interiors are G10, not a routine Lang lemma.
 
 **Consumers:** [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Integral conjugacy of an ordinary admissible element](#ordinary-integral-conjugacy); [Unitary ordinary flag locus](#unitary-ordinary-flag-locus).
 
 ### R12 — ReductiveGroupsPartII:RG2.4
 
-Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences.
+Export extended affine Weyl groups, Newton vectors from finite twisted products, σ-straight elements with ℓ(w)=<2ρ,ν_w>, the μ-admissible Bruhat subset and Levi/Iwasawa/Cartan reduction with integral π_1 compatibility. Supply the KMPS Wintenberger realization, Satake reduction and unramified Mazur input as local Cartan facts; BG1 owns only their Newton-class consequences. For the general-field maximum, supply the characteristic-independent reduced affine datum and finite-order Frobenius comparison, plus central inertia-torsion removal/restoration at fixed κ using right exactness of σ-coinvariants. Expand the HN18 Lemma2.5 and Chai convex-majorant inputs there; BG1 owns the resulting B(G,{μ}) maximum.
 
 **Consumers:** [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Unique maximum of acceptable classes](#acceptable-unique-maximum); [Straight Weyl comparison with B(G)](#straight-weyl-classification); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [Integral conjugacy of an ordinary admissible element](#ordinary-integral-conjugacy); [Levi fibre over a basic G-class](#basic-levi-fibre-uniqueness); [Grassmannian point lifting](#grassmannian-point-lifting); [Newton comparison for a Levi representative](#general-levi-newton-comparison).
 
@@ -2126,7 +2523,7 @@ Export the finite-dimensional isocrystal tensor category over a general local co
 
 ### R20 — VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals
 
-Use Dieudonné–Manin decomposition, rational slope denominator multiplicities and End of simple slope a/h as the division algebra of invariant a/h; retain the right-module convention.
+Use this node only for Dieudonné–Manin decomposition and slope denominator multiplicities. End_Φ(D(a,h)) and its invariant are supplied by the separate VB0/endomorphism-division-algebra and VB0/brauer-invariant-sign nodes; its invariant is −a/h in the arithmetic convention. The curve comparison is VB2:classification/bundle-endomorphism-comparison. Right modules use Hom(E_b,E).
 
 **Consumers:** [Division-algebra Morita comparison](#division-algebra-morita); [Geometric classification of G-bundles](#points-are-B-of-G); [Quasi-split centralizer in the GL minuscule case](#gl-minuscule-quasisplit-centralizer); [Rational slope protorus](#slope-protorus); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps).
 
@@ -2168,13 +2565,13 @@ Use geometric-point classification of vector bundles and the slope/degree normal
 
 ### R27 — VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces
 
-Use relative positive/negative Banach–Colmez spaces with their section/extension interpretation, dimensions, connectedness and ℓ-cohomological smoothness; no full reductive automorphism group is supplied by BC alone.
+Use the actual two-term [E1→E0] relative Banach–Colmez theorem for representability, partial properness, punctured properness and cohomological smoothness under its negative/positive hypotheses. Dimensions come separately from positive-range-dimension. Positive-kernel connectedness and passage through reductive filtered extension towers remain precise refinements G12.
 
 **Consumers:** [Geometric classification of G-bundles](#points-are-B-of-G); [Full bundle automorphism v-group](#full-automorphism-v-group); [Positive automorphism kernel geometry](#positive-automorphism-kernel); [Full classifying-stack description of a stratum](#stratum-is-classifying-stack); [Reduction of full automorphism torsors](#automorphism-torsor-reduction); [Locally spatial Isom diagonal](#isom-sheaf-representability); [Negative Banach–Colmez tower of a chart](#chart-over-classifying-stack); [Rank-two extension chart](#gl2-extension-chart).
 
 ### R28 — VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC
 
-Use properness of the projectivized negative-extension/BC quotient with its explicit origin removed, as needed for FS V.3.6. Retain ordinary properness in addition to partial properness.
+The read node gives punctured properness for H^0 section BC(E), not by itself for negative H^1 extension spaces. Use the separately read families-of-banach-colmez-spaces theorem for negative bundles placed in degree −1. Passage from these linear factors to the entire reductive extension tower and its contracting Z-quotient remains G12.
 
 **Consumers:** [Split section and spatial chart complement](#section-and-spatial-complement); [Contracting chart action and proper quotient](#contracting-chart-action); [Rank-two extension chart](#gl2-extension-chart).
 
@@ -2186,7 +2583,7 @@ Use positive bundle H^1 vanishing, local-system detection, and the contraction/e
 
 ### R30 — VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting
 
-Use tensor-compatible relative HN filtration, pro-étale local splitting and the equivalence of everywhere slope-zero bundles with E-local systems. Keep slope signs as bundle slopes.
+Use relative-HN-filtration-and-proetale-splitting only for constant-polygon HN filtrations and local splitting. The everywhere-slope-zero local-system equivalence is the separate VB4/slope-zero-local-systems node, and local positive H^1 vanishing is VB4/relative-cohomology-vanishing, with its precise base-change and affinoid restrictions.
 
 **Consumers:** [Geometric classification of G-bundles](#points-are-B-of-G); [HN-graded G-bundles](#hn-graded-g-bundles); [Classification of HN-graded bundles](#hn-graded-classification); [Full bundle automorphism v-group](#full-automorphism-v-group); [Full classifying-stack description of a stratum](#stratum-is-classifying-stack); [Opposite filtered-bundle chart](#filtered-bundle-chart); [Split section and spatial chart complement](#section-and-spatial-complement); [Positive tangent criterion for the filtered chart](#chart-jacobian-positivity).
 
@@ -2214,7 +2611,87 @@ Ownership-extension request: add proposed stage RG2.6 after the current RG2.5. S
 
 **Consumers:** [Basic Levi Newton formula](#levi-newton-formula); [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Elliptic tori and basic acceptable classes](#elliptic-torus-basic-image); [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Ordinary straight translation and Levi centrality](#ordinary-straight-translation); [Ordinary classes under a derived isogeny](#ordinary-derived-isogeny); [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Central-torus Grassmannian surjectivity](#central-torus-grassmannian-surjectivity); [Local constancy of bundle Kottwitz invariant](#semicontinuity-and-local-constancy); [Algebraic fundamental group](#algebraic-fundamental-group); [Newton orbit space and rational dominance](#newton-orbit-space); [Galois averaging and Hodge invariants](#galois-average); [Newton and Kottwitz invariants](#newton-and-kottwitz-maps); [Torus norm and Newton average](#torus-norm-description); [Rational-point Kottwitz surjectivity](#rational-kottwitz-surjectivity); [Bounded lifting through a z-extension](#z-extension-bounded-lifting); [Basic classes and adjoint torsors with connected center](#connected-center-basic-inner-forms).
 
+### R35 — VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra
+
+Import End_Φ(D(a,h)) with Π^h=π^(−a), Πx=σ(x)Π under arithmetic Frobenius.
+
+**Consumers:** [Division-algebra Morita comparison](#division-algebra-morita).
+
+### R36 — VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign
+
+Import the arithmetic local Brauer invariant and opposite-algebra sign; the endomorphism parameter is the bundle slope −a/h.
+
+**Consumers:** [Division-algebra Morita comparison](#division-algebra-morita).
+
+### R37 — VectorBundlesAndIsocrystals:VB2:classification/bundle-endomorphism-comparison
+
+Import End_Φ(D(a,h))≅End(O(−a/h)) on each simple block, not full faithfulness between arbitrary slopes.
+
+**Consumers:** [Division-algebra Morita comparison](#division-algebra-morita).
+
+### R38 — VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems
+
+Import the tensor equivalence for bundles whose every geometric HN slope is zero, with perfectoid base change; degree zero alone is insufficient.
+
+**Consumers:** [Geometrically trivial open locus](#geometrically-trivial-locus); [Classification of HN-graded bundles](#hn-graded-classification); [Full bundle automorphism v-group](#full-automorphism-v-group); [Reduction of full automorphism torsors](#automorphism-torsor-reduction).
+
+### R39 — VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing
+
+Import positive H^1 vanishing étale locally, universally on affinoid perfectoid bases after the specified cover; use it to split positive automorphism/graded lifting obstructions.
+
+**Consumers:** [Classification of HN-graded bundles](#hn-graded-classification); [Full bundle automorphism v-group](#full-automorphism-v-group).
+
+### R40 — VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension
+
+Import dimension deg(E0)−deg(E1) in the positive/negative range, and in particular deg(E) for positive section BC.
+
+**Consumers:** [Positive automorphism kernel geometry](#positive-automorphism-kernel).
+
+### R41 — DiamondsAndVStacks:D6/etale-site-comparison
+
+Import the equivalence of étale sites between an analytic adic space and its diamond; the curve/Div^1 equivalence is a further RF2/G05 input. The read supplier is for analytic adic spaces over Z_p; an equal-characteristic counterpart is requested in G05 rather than inferred from that statement.
+
+**Consumers:** [Curve-to-base étale site morphism](#curve-etale-base-site); [Constant torsion cohomology on the curve](#curve-torsion-cohomology).
+
+### R42 — DiamondsAndVStacks:D1/strictly-totally-disconnected
+
+Import the definition and geometric-component description; combine with universally-open-std-cover for the local lifting arguments.
+
+**Consumers:** [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors); [Grassmannian point lifting](#grassmannian-point-lifting).
+
+### R43 — DiamondsAndVStacks:D3/locally-profinite-torsors
+
+Import pro-étale presentation of locally profinite torsors, then use split étale covers on strictly totally disconnected bases.
+
+**Consumers:** [Pro-étale torsors on strictly disconnected bases](#strictly-disconnected-torsors).
+
+### R44 — DiamondsAndVStacks:D4/small-v-sheaves-and-small-v-stacks
+
+Import smallness by a set-sized presentation of v-stacks; do not cite D3 as the definition of smallness.
+
+**Consumers:** [Moduli v-stack Bun_G](#bun-g-as-v-stack); [Smallness of Bun_G](#bun-g-smallness).
+
+### R45 — DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products
+
+Import groupoid quotient stacks and their two-fibre products to formulate Bun_G and its descent.
+
+**Consumers:** [Moduli v-stack Bun_G](#bun-g-as-v-stack).
+
+### R46 — DiamondsAndVStacks:D5/relative-representability
+
+Import the relative notion of representability in locally spatial diamonds, distinguishing absolute diamondhood from representable maps.
+
+**Consumers:** [Full bundle automorphism v-group](#full-automorphism-v-group); [Positive automorphism kernel geometry](#positive-automorphism-kernel); [Locally spatial Isom diagonal](#isom-sheaf-representability); [Split section and spatial chart complement](#section-and-spatial-complement); [Smooth specialization neighborhoods](#chart-to-bun-g).
+
+### R47 — VectorBundlesAndIsocrystals:VB4
+
+Supply the linear period-space comparison V_Y(F)≃Vect(Y_F), functorial for F=Spd(Vhat,Vhat) arising from complete perfect rank-one valuation bases, as in GIZ26 Theorem3.16 and Remark3.15 pp.16–17. Here V_Y is the v-descent limit of Vect(Y_X), and Y_F=Y_(0,∞]. This is not unrestricted extension of every bundle from Y_(0,∞) to Y_(0,∞]. The topology proof separately uses PR24 Proposition2.1.3 and FS II.2.14 to classify the induced boundary bundle; retain these precise inputs and GIZ26 Remark2.1 on both characteristics. BG0/BG2 owns the structured meromorphic comparison; VB4 supplies this linear comparison only.
+
+**Consumers:** [Newton topology theorem in both characteristics](#newton-topology-homeomorphism).
+
 ## Refinements required for closure
+
+The packet remains partial. Planned target contracts and successfully typed pointwise cores do not certify closed proof chains.
 
 ### G01 — Generic z-extension foundation
 
@@ -2224,33 +2701,33 @@ Proposed RG2.6 is absent from the integrated stage catalogue. Its existence/exac
 
 ### G02 — Relative reductive-group and Tannakian descent refinements
 
-Expand the generic inner-form descent and scheme/analytic tensor-torsor representability arguments, including fpqc versus étale comparison, split filtered fibre functors (FS III.5.2 cites Ziegler Theorem1.3, not read here), relative smooth parabolic/radical representability and elliptic-torus transfer. The upstream field group category and dynamic point subgroups supply only their stated pieces. Route generic additions to ReductiveGroups; BG keeps its curve-specific conclusions.
+Expand the generic inner-form descent and scheme/analytic tensor-torsor representability arguments, including fpqc versus étale comparison, split filtered fibre functors (FS III.5.2 cites Ziegler Theorem1.3, not read here), relative smooth parabolic/radical representability and elliptic-torus transfer. The upstream field group category and dynamic point subgroups supply only their stated pieces. Route generic additions to ReductiveGroups; BG keeps its curve-specific conclusions. Ans19 Theorem3.11 also invokes the reductive invariant-theory/Haboush tensor argument; this non-routine input must be supplied by the rational representation owner rather than called an elementary tensor reduction.
 
-**Consumers:** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Finite Frobenius norm centralizer](#finite-frobenius-norm-centralizer); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [Specialness for a transferred centralizer torus](#transferred-torus-specialness).
+**Consumers:** [Tannakian description of analytic torsors](#g-torsors-three-descriptions); [Algebraic sigma-centralizer](#sigma-centralizer-J-b); [Finite Frobenius norm centralizer](#finite-frobenius-norm-centralizer); [Filtered torsor automorphism group schemes](#filtered-automorphism-group-scheme); [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Geometric classification of G-bundles](#points-are-B-of-G).
 
 ### G03 — Weil crossed-module proof interior
 
-Read and decompose Borovoi/Serre inputs establishing the abelian crossed-module comparison and H^2(W_E,Tsc(bar E))=0. FS III.2.11 states these cohomological ingredients; this pass does not claim to have read their original proofs. ET.0 is the cohomological owner. Check the coefficient topologies and naturality of the W_E-to-curve map.
+Read and decompose Borovoi/Serre inputs establishing the abelian crossed-module comparison and H^2(W_E,Tsc(L^sep))=0. FS III.2.11 states these cohomological ingredients; this pass does not claim to have read their original proofs. ET.0 is the cohomological owner. Check the coefficient topologies and naturality of the W_E-to-curve map. Here L^sep is the overline of breve E, with the natural W_E-action and discrete coefficient topology; include inertia, in particular for μ_p over Q_p.
 
 **Consumers:** [Abelianized Kottwitz set](#abelianized-kottwitz-set); [Abelianized classes equal fundamental coinvariants](#abelianization-identification); [Diagonalizable Weil–curve comparison](#diagonalizable-curve-cohomology); [Constant crossed-module curve classes](#crossed-module-curve-classes).
 
 ### G04 — G-isocrystal family descent and stratification refinements
 
-The local sigma-conjugacy category and effective perfect-algebra family descent are specified, but the modern family-stack proof cited by FS I.2 (Ivanov 2023 and Hamacher–Kim 2022) was not read. Expand the v-local conjugation/descent argument and its locally closed constant-class loci. Do not use scheme κ-local-constancy to prove the v-descent premise on which it depends.
+The local sigma-conjugacy category and effective perfect-algebra family descent are specified, but the modern family-stack proof cited by FS I.2 (Ivanov 2023 and Hamacher–Kim 2022) was not read. Expand the v-local conjugation/descent argument and its locally closed constant-class loci. Do not use scheme κ-local-constancy to prove the v-descent premise on which it depends. For the new topology route, construct the analytic isocrystal comparison and expand GIZ26 Theorem7.13 (meromorphic comparison on products of points) in this owner. Its proof uses BL uniformization, parahoric BKF/shtuka comparison and proper quasi-pro-étale Isom descent; these are not supplied by the schematic family definition alone.
 
-**Consumers:** [Families of G-isocrystals](#families-of-g-isocrystals); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Kottwitz invariant in isocrystal families](#family-kottwitz-local-constancy).
+**Consumers:** [Families of G-isocrystals](#families-of-g-isocrystals); [Isocrystal-family v-descent and strata](#isocrystal-family-v-descent); [Kottwitz invariant in isocrystal families](#family-kottwitz-local-constancy); [Newton topology theorem in both characteristics](#newton-topology-homeomorphism).
 
 ### G05 — Curve étale comparison refinements
 
-FS III.2.12 proof was read. Expand its curve/divisor étale-site equivalence, geometric-point punctured-period-domain computation and continuous finite-extension descent. C1 supplies only its actual prime-to-p proper-base-change scope; formalize the p-torsion Artin–Schreier/tilting step separately. This is not obtained by citing C5 j! exchange or RF3 line bundles.
+FS III.2.12 proof was read. Expand its curve/divisor étale-site equivalence, geometric-point punctured-period-domain computation and continuous finite-extension descent. C1 supplies only its actual prime-to-p proper-base-change scope; formalize the p-torsion Artin–Schreier/tilting step separately. This is not obtained by citing C5 j! exchange or RF3 line bundles. The read D6 étale-site-comparison has a Z_p base; its equal-characteristic analogue for general E is a further exact supplier refinement.
 
 **Consumers:** [Curve-to-base étale site morphism](#curve-etale-base-site); [Constant torsion cohomology on the curve](#curve-torsion-cohomology); [Diagonalizable Weil–curve comparison](#diagonalizable-curve-cohomology); [Constant crossed-module curve classes](#crossed-module-curve-classes).
 
 ### G06 — Newton topology and maximal-element proof interiors
 
-Viehmann Theorem1.1 and He–Nie Theorem0.1 were read as exact statements and their proof routes identified. Refine Viehmann §6 specialization realization and the He–Nie combinatorial maximum proof into lemma-level declarations before claiming these two chains closed.
+The source-level equal-characteristic coverage defects are repaired: the maximum now has an explicit derivation from HN18 Theorem1.1(1) and He16 §2.4, with central inertia torsion restored at fixed integral κ; topology uses GIZ26 v3 Theorem7.18 with He16 in equal characteristic and Vie21 in mixed characteristic. Full proof interiors remain open. For the maximum, expand the reduced-root/adjoint transfer, orbit-weight integrality (HN18 Lemma2.5), and Chai Theorem6.5/Lemma6.2(i) convex-majorant inputs through RG2.4. For topology, expand GIZ26 Proposition2.17, Theorem3.16 and its external boundary-bundle classification inputs, and Theorem7.13 through G04 and the exact VB4 request. No closed proof chain is claimed.
 
-**Consumers:** [Viehmann Newton topology theorem](#newton-topology-homeomorphism); [Unique maximum of acceptable classes](#acceptable-unique-maximum).
+**Consumers:** [Newton topology theorem in both characteristics](#newton-topology-homeomorphism); [Unique maximum of acceptable classes](#acceptable-unique-maximum).
 
 ### G07 — Unitary flag dimension and ordinary comparison interiors
 
@@ -2272,7 +2749,7 @@ Liu–Zhu Remark4.1(iii) is used through the reviewed G^c qualification. The tar
 
 ### G10 — Levi coinvariant and Cartan refinements
 
-Expand the torsion-free kernel π_1(M)_Γ→π_1(G)_Γ used in KMPS Proposition1.1.13, the unramified replacement/triality averaging, and the Wintenberger–Satake–Mazur local Cartan ingredients through the requested root/Cartan owner. Do not treat absolute Weyl transport as N_G(M)/M.
+Expand the torsion-free kernel π_1(M)_Γ→π_1(G)_Γ used in KMPS Proposition1.1.13, the unramified replacement/triality averaging, and the Wintenberger–Satake–Mazur local Cartan ingredients through the requested root/Cartan owner. Do not treat absolute Weyl transport as N_G(M)/M. For KZ Proposition2.3.3 expand the specific He–Rapoport6.1(b), He16 Theorem6.1, He–Zhou4.1, and He14 Theorem3.5/Proposition4.5 inputs listed in the corrected proof sketch.
 
 **Consumers:** [Minuscule basic Levi lifting](#minuscule-basic-levi-lift); [Specialness for a transferred centralizer torus](#transferred-torus-specialness); [Integral conjugacy of an ordinary admissible element](#ordinary-integral-conjugacy).
 
@@ -2282,11 +2759,17 @@ The author/preprint versions of KMPS, KZ, LZ17, CS24 and Kisin17 are recorded wi
 
 **Consumers:** All 31 named consumers are listed in the packet.
 
+### G12 — Exact supplier boundaries for Schubert components and filtered BC towers
+
+The current GS0 Schubert-bound node already treats general E and nonsplit bounds by splitting and Galois descent; reuse it. It does not state the exact π_1 connected-component comparison, which remains the separate GS0 refinement. Projectivized BC properness concerns H^0, while negative H^1 extensions use the two-term BC family theorem. The reductive extension-tower contraction/escaping/proper-Z-quotient argument and positive automorphism-kernel connectedness need the separately requested linear/diamond refinements. D4 smallness alone supplies neither spatiality nor properness; retain D5 and the missing proper-quotient criterion.
+
+**Consumers:** [Grassmannian point lifting](#grassmannian-point-lifting); [Grassmannian components and Kottwitz sign](#grassmannian-kottwitz-sign); [Positive automorphism kernel geometry](#positive-automorphism-kernel); [Split section and spatial chart complement](#section-and-spatial-complement); [Contracting chart action and proper quotient](#contracting-chart-action).
+
 ## Suggested file and pinned baseline
 
 The suggested file contains concrete generic group and rational-slope cores. SigmaClass and ComponentCoset have the stated abstract algebraic types; the point stabilizer, finite product, GL_n slope conditions and numerical examples have explicitly restricted types. The full geometric declarations are named in an omission register because their target carriers and predicates require the requested suppliers. A register entry is neither a Lean declaration nor an elaborated theorem. G08 specifies those formulation obligations. No opaque substitute for a perfectoid space, tensor equivalence, representability theorem or smoothness proposition is introduced.
 
-The concrete prototype elaborated on 2026-10-07 with exit code 0 and only admitted-proof warnings. This checks the explicitly restricted Mathlib cores; the full signatures in the omission register were not elaborated. Tau Ceti baseline declarations were read at their pinned commit but were not imported from the shared build, whose Tau Ceti HEAD differs.
+The concrete prototype elaborated on 2026-10-10 with exit code 0 and only declaration-uses-sorry warnings. This checks the explicitly restricted Mathlib cores and the new map, stabilizer-conjugacy, twisted-norm and affine-fibre equivalence signatures. The full geometric signatures in the omission register were not elaborated. Tau Ceti baseline declarations were read at their pinned commit; this file imports only individual Mathlib modules.
 
 Mathlib is pinned to 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti to f790474821cf4256814db967cb154e7af3d0c369. The source-checked baseline is:
 
@@ -2520,7 +3003,7 @@ All 148 items from the twelve issue-routed extractions have a named declaration 
 
 ## Source versions and corrections
 
-Every source entry records its acquired URL, SHA-256 and the specific read sections. Author copies and preprints are distinguished from published versions. The packet contains literal excerpts of at most 300 characters at each source locator. The published-text collation obligations are G11.
+Every source entry records its acquired URL, SHA-256 and the specific read sections. Author copies and preprints are distinguished from published versions. All statements and proof sketches are in our own words, with theorem, section and page locators. Legacy excerpts have been removed; the checker-required `printed` fields contain labelled paraphrases, not source transcriptions. Original review read dates remain provenance of that review; this revision does not claim to have reread every source. The published-text collation obligations are G11.
 
 ### FS — Geometrization of the local Langlands correspondence
 
@@ -2640,16 +3123,34 @@ Theorem1.1 and topology convention p.2; proof route in section6 is a precise pro
 
 Xuhua He, Sian Nie. [preprint](https://arxiv.org/pdf/1408.5836). Read 2026-10-07. SHA-256: 8377c0a45eb02125f819d30dffd64cc8209bda6208dec9e2b3989edf4569fe02.
 
-Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1.
+Theorem0.1 and proof roadmap pp.1-2; combinatorial proof interiors are a named gap. arXiv v2 dated2016-10-20; KZ calls the published result Theorem1.1. Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1. Revision 2: §§1.1–1.4 pp.2–4, Theorem1.1(1); §§2.1–2.5 pp.4–8 and Appendix A pp.20–22 read on 2026-10-10. Chai external inputs are not claimed read. The general-field transfer is an explicit deduction, not a quotation of Theorem0.1.
+
+### GIZ26 — Meromorphic vector bundles on the Fargues–Fontaine curve
+
+Ian Gleason, Alexander B. Ivanov, Felix Zillinger. [arXiv:2307.00887v3, 14 May 2026; 62-page PDF, printed page equals PDF page.](https://arxiv.org/pdf/2307.00887v3). Read 2026-10-10. SHA-256: 78855695f8654374174073434eca08297751d397786b3abf29e367c9cc2cff23.
+
+§2 and Remark2.1 pp.6–7; §7.3 pp.50–53, including Lemma7.17 and Theorem7.18 and its proof; Lemma7.11, Corollary7.12 and Theorem7.13 pp.45–47. Boundary-extension and external proof inputs remain G04/G06.
+
+### He16 — Hecke algebras and p-adic groups
+
+Xuhua He. [arXiv:1511.01386v3, 21 November 2016; survey version, not collated with the published edition cited by KZ.](https://arxiv.org/pdf/1511.01386v3). Read 2026-10-10. SHA-256: f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc.
+
+§1.10.5, Theorem1.29 pp.20–21; §§2.2 and2.4–2.6 pp.22,25–28, including Theorems2.6,2.11 and2.12; §2.11.3–2.11.4 pp.42–43. §2.5 restricts the closure discussion to equal characteristic.
 
 ### Corrections used by the declarations
 
-- **BunGAndNewtonStrata/E01 (LZ17, gap):** The tensor construction explicitly available in the preceding paragraph yields a class in B(G^c_Qp). To assert a class in B(G_Qp), supply a G-level lift and prove its existence/choice properties, or assume G=G^c. Locator: arXiv1602.06282v3; Remark4.1(iii),PDF34. Confirmed finding PAPER-LIU-ZHU-17/E10.
-- **BunGAndNewtonStrata/E02 (GLX, error):** The torus quotient has target X_*(T)_I. The map onward to pi1(G)_I can have a coroot kernel. Prove rational Kottwitz surjectivity by its actual theorem (cited Zhou5.18), not this exact sequence. Locator: ProofLemma3.16(2),(3.23),p830; published57-page version, rendered page inspected unless stated otherwise. Confirmed finding PAPER-GLEASON-LIM-XU-26/E03.
-- **BunGAndNewtonStrata/E03 (CS17, misprint):** Read "upper semicontinuous" in both places, for the partial order ⪯ on B(G) defined on p. 677. That is, every point x has a neighbourhood on which b(·) ⪯ b(x). Since the image is the finite set B(G, µ^{−1}) by part (2), and κ is constant on it, this is equivalent to the following: for every b ∈ B(G), the set {x : b ⪯ b(x)} is closed. Corollary 3.5.9 (p. 690) and Theorem 1.11 (p. 655) use the proposition in exactly this form. Locator: §3.5, Proposition 3.5.7(1), p. 689, and the same word in its proof, p. 690 (also in arXiv v1). Confirmed finding PAPER-CARAIANI-SCHOLZE-17/E35.
-- **BunGAndNewtonStrata/E04 (KMPS, misprint):** c b σ(b) ··· σ^{r−1}(b) σ^r(c)^{−1} = c(rν_b)(p)c^{−1}. Locator: (1.1.2.2), p.6, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. Confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E1.
-- **BunGAndNewtonStrata/E05 (KMPS, error):** Replace N_G(M)/M by the absolute Weyl group W(G, T) of a maximal torus T ⊂ M with μ ∈ X_*(T), as in Proposition 1.1.13. Equivalently: some G(Q̄_p)-conjugate μ′ of μ factoring through T makes ([b_M], {μ′}) M-admissible. Locator: Corollary 1.1.15 and its proof, pp.11–12, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated. Confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E2.
-- **BunGAndNewtonStrata/E06 (KMPS, error):** Uniqueness holds by (1.1.2.3); existence does not. Assume G_{Q_p} quasi-split, in which case [b_μ] exists and satisfies (1.1.3.1) (C02, N16); otherwise assume that [b_μ] exists and satisfies (1.1.3.1). Corollaries 1.3.16 and 1.3.18 and Theorem 3 of the Introduction need the same hypothesis. Also: Theorem 3 (and Corollary 1.3.16): 'Suppose G_{Q_p} is quasi-split. If the special fibre of S is locally integral then the μ-ordinary locus is dense in the special fibre.' This matches the abstract and Theorems 4–5. Alternatively, keep G general but assume that a class [b_μ] with N_ξ(ν̄_G([b_μ])) = μ̄^{-1} exists, and in §1.3.15 replace 'There is a unique [b_μ]' by 'If G_{Q_p} is quasi-split, there is a unique [b_μ]' (it can fail otherwise, e.g. G_{Q_p} = D^×). Record as an additional locator of ledger E8, not as a separate entry. Locator: §1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated; also Introduction, Theorem 3, p.3 (the introduction's form of Corollary 1.3.16 / §1.3.15, p.20). Confirmed finding PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8.
-- **BunGAndNewtonStrata/E07 (KZ, misprint):** Use positive coroots in the rational cocharacter space. Locator: §2.2.3 in arXiv2103.09945v2, printed10; the current Harvard author copy has the same phrase. Final Annals version not collated.. The bounded correction search and the two read versions are recorded in the packet; the claim is confined to their wording.
+- **BunGAndNewtonStrata/E01 (LZ17, gap):** The available de Rham tensor data determines a class for G^c. A class for G requires additional lifting data and a proof of its choice properties, or the hypothesis G=G^c. Locator: arXiv1602.06282v3; Remark4.1(iii),PDF34.
 
-The planets are the definitions and named results marked in each layer, at most six in any stage. All other declarations remain part of the development. The coverage records keep each stage planned with its exact remaining refinements and supplier contracts.
+- **BunGAndNewtonStrata/E02 (GLX, error):** The torus valuation quotient is the inertia-coinvariant cocharacter lattice of T. Its map to π_1(G)_I can have a coroot kernel, so rational Kottwitz surjectivity requires the separate theorem. Locator: ProofLemma3.16(2),(3.23),p830; published57-page version, rendered page inspected unless stated otherwise.
+
+- **BunGAndNewtonStrata/E03 (CS17, misprint):** For the order fixed on B(G), the Newton map is upper semicontinuous: locally b(y)≤b(x). Its finite image has constant κ, so upper unions are closed. This agrees with Corollary3.5.9 and Theorem1.11. Locator: §3.5, Proposition 3.5.7(1), p. 689, and the same word in its proof, p. 690 (also in arXiv v1).
+
+- **BunGAndNewtonStrata/E04 (KMPS, misprint):** Decency uses exactly r factors b,σ(b),…,σ^(r−1)(b). After a change of representative by c, the last inverse is σ^r(c)^−1 and the right side is the conjugate by c of the integral Newton value. Locator: (1.1.2.2), p.6, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated.
+
+- **BunGAndNewtonStrata/E05 (KMPS, error):** Transport the cocharacter by the absolute Weyl group of a maximal torus in M. The quotient N_G(M)/M need not contain the required Weyl element; use the absolute-conjugacy conclusion of Proposition1.1.13. Locator: Corollary 1.1.15 and its proof, pp.11–12, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated.
+
+- **BunGAndNewtonStrata/E06 (KMPS, error):** The ordinary class is unique if it exists. For a quasi-split p-adic group its existence follows from the supplied theorem; for general inner forms existence must be assumed and can fail for a division-algebra multiplicative group. Density claims therefore need this existence or quasi-split hypothesis in addition to local integrality. Locator: §1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated; also Introduction, Theorem 3, p.3 (the introduction's form of Corollary 1.3.16 / §1.3.15, p.20).
+
+- **BunGAndNewtonStrata/E07 (KZ, misprint):** Dominance in rational cocharacter space uses nonnegative combinations of positive coroots. Roots have the wrong ambient lattice. Locator: §2.2.3 in arXiv2103.09945v2, printed10; the current Harvard author copy has the same phrase. Final Annals version not collated..
+
+The 30 planets retain their reviewed names and stage ownership. Coverage is partial for BG1 and BG2, and planned for the other stages; none is closed. The independent needs_changes review remains in the packet for the next reviewer.
