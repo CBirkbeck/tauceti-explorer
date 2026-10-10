@@ -24369,8 +24369,8 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-10",
-    "session": "codex-X15WW9",
-    "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Finding /8: the two NC.5 requests assign NS(A)=Pic(A)/Pic0(A), its injection into symmetric Hom(A,A∨) and Picard rank to A2, with finite generation from the A6 field Hom input. SF.3 has no competing construction. Freshly read the relevant library-audit target and exact requests; these are requested interfaces, not implemented Neron–Severi or quadratic Chabauty theory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+    "session": "codex-XnOZ0w",
+    "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire preceding codex-X15WW9 review, preserved unchanged in reviewHistory. Finding /8: fresh inspection of the relevant coverage target and both NC.5 requests confirms that A2 supplies NS(A)=Pic(A)/Pic0(A), the injection into symmetric Hom and Picard rank, with finite generation from A6. SF.3 does not duplicate the construction. These are exact supplier requests rather than implemented Neron–Severi or quadratic Chabauty theory. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Acceptance concerns the area fixes and exact requests. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
   },
   "independentReviewAudit": {
     "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty",
@@ -27845,6 +27845,13 @@
       "date": "2026-10-10",
       "session": "codex-zz1p9S",
       "notes": "Codex: bounded independent area-fix continuation following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2; the complete preceding review is preserved in reviewHistory. Finding /8: NC.5 imports the Neron–Severi quotient, symmetric-Hom injection, finite generation and Picard rank from A2, with A6 supplying finite generation. SF.3 plans no competing construction. The reviewed library audit confirms that the pin lacks the Neron–Severi group. These are supplier requests, not completed quadratic Chabauty proofs. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "session": "codex-X15WW9",
+      "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Finding /8: the two NC.5 requests assign NS(A)=Pic(A)/Pic0(A), its injection into symmetric Hom(A,A∨) and Picard rank to A2, with finite generation from the A6 field Hom input. SF.3 has no competing construction. Freshly read the relevant library-audit target and exact requests; these are requested interfaces, not implemented Neron–Severi or quadratic Chabauty theory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
     }
   ]
 }
