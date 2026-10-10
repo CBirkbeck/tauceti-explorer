@@ -1,9 +1,9 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-zUVzWI
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-EzcgWr
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-zUVzWI`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6096719066).
-Branch: `codex-zUVzWI-hodge-package`. No manager-priority issue was available;
+Codex (GPT-6), session `codex-EzcgWr`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6096860068).
+Branch: `codex-EzcgWr-hodge-package`. No manager-priority issue was available;
 the available focus package followed WORKERS.md's fallback ordering. Only
 this job was claimed.
 
@@ -41,12 +41,40 @@ with O=Q, Ω¹=Q, Ω²=0 and d=0, D(q)=q is flat and nonzero, while
 Ω¹_(Q/Q)=0 cannot surject onto Ω¹. This consumer input lies outside the
 supplier's affine hypotheses. It does not construct the missing global
 comparison. The rank-two Rees/frame-change witnesses and remaining
-G2/G4–G7 requirements are retained in the continuation below.
+G2/G4–G7 requirements are retained below. No new Lean proof is added.
 
 ## Change and current-library boundary
 
-Corrected the README's claim that finite locally free duality was only
-available on charts. The current library already exports global duality in
+This run corrects the remaining assertion that general sheaf exterior and
+symmetric power carriers must still be supplied. Read in full the current
+[`Sheaf/ExteriorPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/ExteriorPower.lean),
+[`Sheaf/SymmetricPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/SymmetricPower.lean)
+and their two presheaf implementations. Reuse these objects:
+
+- `SheafOfModules.exteriorPower R n` and `symmetricPower R n` sheafify
+  sectionwise powers after forgetting to module presheaves. They require a
+  category C, topology J, a commutative-ring sheaf R, sheaf composition along
+  `forget₂ CommRingCat RingCat`, `HasWeakSheafify J AddCommGrpCat` and
+  `J.WEqualsLocallyBijective AddCommGrpCat`. These power constructions do not
+  require `SmallCategory C`, unlike the cited closed-monoidal duality setup.
+- `exteriorPowerIso` and `symmetricPowerIso` identify that sheafification;
+  the `_map` laws identify morphisms. The zero/one natural isomorphisms give
+  the structure sheaf and original module sheaf, with component formulas.
+- `PresheafOfModulesOfCommRing.exteriorPower_obj_map_mk` restricts each
+  wedge factor. `coe_symmetricPower_obj_map_apply` computes restriction via
+  the semilinear symmetric-algebra map. These are presheaf formulas before
+  sheafification; they do not identify arbitrary sheaf sections with powers
+  of section modules.
+
+No finite-local-freeness closure, strong pullback, determinant-gluing or
+horizontal-operator theorem is asserted from these four files. The README
+now cites the native carriers and leaves those precise comparisons with
+their suppliers. Removed a duplicate layer overview and shortened introductory
+prose to stay below 200 KB; all nine layers and mathematical targets remain.
+No replacement power carrier was added to Suggested.lean.
+
+Preserve the preceding checkpoint's correction: finite locally free
+duality is already available globally under explicit hypotheses. The current library already exports global duality in
 [`Sheaf/Dualizable.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/Dualizable.lean#L74):
 
 - `SheafOfModules.isIso_dualTensorIhom_of_isLocallyFree` makes
@@ -65,17 +93,19 @@ available on charts. The current library already exports global duality in
   Native tensor closure is
   `TauCeti.SheafOfModules.isMonoidal_isFiniteLocallyFree` in `LocallyFree.lean`.
 
-Read these statements and proofs, their finite-free-chart descent, the native
-local invertibility criterion, and the closed/rigid comparison APIs. Reuse
-these coefficient objects; do not plan another global dual carrier. The
-inherited G2 notes below are superseded on this point. They remain applicable
-to the exterior/determinant operations and operator comparisons: H.0 still
+This run re-read the global dual comparison and its proof; the full
+closed/rigid and iterated-slice API reads are inherited from the preceding
+checkpoint. Reuse
+these coefficient objects; do not plan another global dual carrier. The remaining
+G2 work concerns finite-local-freeness, determinant and pullback comparisons
+and differential operators: H.0 still
 constructs the dual connection, horizontal evaluation, curvature transport
 and the required differential-site pullback laws. This narrows G2 without
 closing G1/G3 or establishing the remaining global comparisons.
 
-These modules are newer than the managed pinned build; `Dualizable.lean` is
-absent there. Suggested.lean is unchanged. Current APIs are cited at the
+The native duality and power modules cited here are newer than the managed
+pinned build. `Dualizable.lean`, `ExteriorPower.lean` and `SymmetricPower.lean`
+are absent there. Suggested.lean is unchanged. Current APIs are cited at the
 public revision, and the older-pin elaboration does not test their imports.
 The existing native tensor equality and restriction citations are retained.
 No replacement coefficient declaration or duplicate supplier was added.
@@ -90,7 +120,7 @@ ordinary filtered module sheaves. This is an interface comparison, not an
 exhaustive absence audit. Existing reviewed HodgeStructures L0–L3 linear
 algebra remains an import.
 
-## Sources, verification and resumption
+## Sources and validation
 
 Re-read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
 and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF). Their
@@ -106,7 +136,7 @@ The preceding checkpoint recorded PDF SHA-256
 this run read the online PDF and did not obtain a new file hash.
 No source passage was copied into the repository.
 
-Atlas base: `0cde07aa7`.
+Atlas base: `a5958be6611f727169080a415ef60de1c726936d`.
 Read-only TauCetiRoadmap: `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
 Read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 No Lake command ran in either read-only tree.
@@ -122,81 +152,49 @@ mathematical audit of H.1–H.8. The decisive input SHA-256 receipts are:
 | `packets/HodgeStructuresPartII--H.0.json` | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
 | `packets/CrystallineCohomology--CR.0.json` | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
 | `packets/DerivedDeRhamCohomology.json` | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
+| `packages/HodgeStructuresPartII/README.md` | `ad226b4c2b8e7a9e1d1dcf487e207b89226df9fd68a5ff7991f859df97f2c585` |
+| `packages/HodgeStructuresPartII/Suggested.lean` | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
 
 `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
 exited 0: zero errors, 1619 `declaration uses sorry` warnings, zero other
-warnings. Available memory before launch was 100 GB. Managed build pins:
+warnings. Available memory before launch was 101 GB. Managed build pins:
 Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. The latter is the managed build's
 recorded pin, not a freshly obtained Git HEAD. No Lean process remains from
 this run.
 
-README is 199570 bytes, below the 200 KB limit. Suggested.lean is unchanged.
+README is 199933 bytes, below the 200 KB limit. Suggested.lean is unchanged.
 Metadata remains absent because this is an unfinished checkpoint; intended
 topic on completion is `math.AG`. After the owner repairs, reconcile the
 omitted signatures with the native G2 exports, finish the remaining
 G2/G4–G7 contracts and the full target/signature/API/test audit before adding
 metadata. Scoped intake on the two edited deliverables and `git diff --check`
-passed. The retained continuation provides the detailed witnesses, rejected shortcuts
+passed. The sections below provide the detailed witnesses, rejected shortcuts
 and remaining signature inventory; no disposable scratch file is required.
 
----
+## Input inventory
 
-# Inherited continuation record — codex-FxDbWE
+All ten Hodge inputs are marked complete with accepted reviews; parent and
+continuation counts overlap. No coverage entry is closed.
 
-Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-FxDbWE`, 10 October 2026.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095594766).
-Branch: `codex-FxDbWE-hodge-package`. None of the manager's priority issues
-was in the available-swarm listing. This available focus package followed
-WORKERS' fallback ordering. Only this job was claimed.
-
-## Result and next action
-
-**Blocked by owner specifications; the package is incomplete.** Independently
-re-reading the H.0 consumers and continuation gaps, CR.1's complete connection
-definition/API and DD.1's filtered/Rees targets confirms the inherited G1/G3
-mismatch. The current upstream roadmaps include material beyond the atlas
-snapshot, but neither the inspected upstream interfaces nor the current native library
-supplies these exact missing contracts. The consumer and supplier packet hashes
-are unchanged. H.0's accepted review expressly retains seven gaps and four
-requests and calls the layer planned, not closed.
-
-Route owner-authorized repairs to CR.1 and DD.1, then reconcile H.0's supplier
-references. Issue #7491 authorizes only the three package artifacts and this
-handoff, forbids packet edits, and directs plan mistakes here. PROTOCOL §§3,
-15 and 20 require exact prerequisites, one owner for shared constructions and
-fidelity to the plan. Duplicating the missing shared mathematics within this
-package would leave those contracts inconsistent. This is a missing supplier
-specification, rather than an implementation wait for a sufficient target.
-No ownership move is made in this checkpoint.
-
-| Repair owner | Present export | Required H.0 comparison |
-| --- | --- | --- |
-| CR.1 | `integrable-connection` covers affine quotients of Kähler differentials and the small crystalline site under PD hypotheses. | `ordinary-fiber` needs the same additive operator, exterior extensions, curvature, horizontal maps and descent on arbitrary supplied differential ringed sites. |
-| DD.1 | `filtered-modules` and `rees-description` describe enhanced derived diagrams, graded derived fibres and localization. | `rees-parameter` and `rees-specialization` need an ordinary finite locally split module sheaf, actual zero/unit/localized fibres, finite local freeness, naturality and descent, with operator-compatible H.0 comparisons. |
-
-This run strengthens the existing G1 acceptance witness in README and
-Suggested.lean. `NonUniversalDifferentialChecks.no_kaehler_quotient` proves
-that no Q-linear map from the native `KaehlerDifferential Q Q` to Q is
-surjective; its named example applies the obstruction to every proposed
-quotient map. The proof uses the pinned Mathlib subsingleton theorem at the
-identity algebra map, linearity at zero and 0≠1. It has no admitted proof.
-The four existing coordinate checks continue to describe a flat nonzero
-operator on the supplied one-form module. Together these distinguish the
-requested calculus from the present CR.1 hypothesis without creating a
-second ordinary-connection carrier.
-
-Metadata remains absent, so intake must regard this as a checkpoint. The
-intended topic on completion is `math.AG`. G1/G3 repairs alone do not finish
-the remaining G2/G4–G7 or all-layer audit. No packet, owner contract, review
-verdict or metadata is changed.
+| Input | Nodes | Gaps | Requests | Coverage |
+| --- | ---: | ---: | ---: | --- |
+| Parent | 569 | 13 | 5 | H.0 partial; H.1–H.8 not_read |
+| H.0 continuation | 7 | 7 | 4 | planned |
+| H.1 | 36 | 11 | 18 | planned |
+| H.2 | 33 | 19 | 14 | planned |
+| H.3 | 43 | 5 | 23 | planned |
+| H.4 | 30 | 6 | 3 | planned |
+| H.5 | 73 | 13 | 16 | planned |
+| H.6 | 32 | 6 | 7 | planned |
+| H.7 | 31 | 7 | 12 | planned |
+| H.8 | 31 | 5 | 11 | planned |
 
 ## Exact blocking contracts and acceptance witnesses
 
 The witnesses and proved checks below are inherited work, chiefly recorded
-by `codex-tOBD6n`; the native Kähler obstruction above is the new proof in
-this checkpoint. The global sheaf comparisons remain unproved.
+by `codex-tOBD6n`; the native Kähler obstruction was added by `codex-FxDbWE`,
+not by this run. The global sheaf comparisons remain unproved.
 
 **G1: ordinary connections on the supplied calculus.** The consumer
 `H.0/ordinary-fiber` asks for the λ=1 category on an arbitrary commutative
@@ -275,9 +273,10 @@ checks:
 ## Other continuation requirements and preserved work
 
 - **G2 — sheaf operations:** import the actual underived sheaf tensor powers,
-  dual, exterior, determinant, symmetric quotients and endomorphism carriers;
-  require local generation, restriction-compatible equality detection, descent
-  and pullback coherence. Tensoring global section modules does not calculate
+  dual, exterior, symmetric and endomorphism carriers under their exact
+  hypotheses. Finish finite-local-freeness, determinant and quotient
+  comparisons, local generation, restriction-compatible equality detection,
+  descent and pullback coherence. Tensoring global section modules does not calculate
   sheaf tensor sections. The 36 omitted global parent signatures and their
   API/tests remain conditional on these carriers and G1/G3.
 - **G4 — determinant:** allow locally varying rank or a specified determinant
@@ -334,96 +333,6 @@ Checks grouping and worked examples, declaration docstrings, precise omission
 lists and current-library/bottom-up prerequisite checks for every target.
 This checkpoint does not certify H.1–H.8 or the remaining H.0 targets.
 
-## Fresh source and current-library checks
-
-Atlas input: `1e146cc34` (own job branch fast-forwarded before editing).
-Read-only upstream roadmaps: `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`.
-Current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-
-Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs,
-including their exact sheaf, exterior and connection boundaries. The suggested
-interface and reviewed HodgeStructures L0–L3 audit reads below are inherited
-from the preceding checkpoint.
-The first roadmap supplies scheme-level tensor, finite locally free dual,
-exterior, determinant and pullback comparisons. The second's `CurvatureForm`
-is a carrier for smooth real manifold bundle-valued forms. Existing pure/mixed
-Hodge linear algebra and period points are inputs to reuse. None of these
-checks produces the missing G1/G3 export. No Lake command ran in these trees.
-
-The preceding checkpoint read the native sheaf tensor implementation and its
-ambient sheafification hypotheses; that detailed source read was not repeated
-in this run: `TauCeti.SheafOfModules.tensorProduct`,
-`tensorProduct_val` and `tensorProductIso` use sheafification of the presheaf
-tensor. This is useful G2 infrastructure, not all the requested exterior,
-descent or connection contracts. Mathlib's `reesAlgebra`/`mem_reesAlgebra_iff`
-and Tau Ceti's `reesAlgebra.grade`/`mem_grade_iff` concern the ideal-power
-polynomial Rees algebra. They do not supply the finite filtered module sheaf.
-This run re-screened native connection/Rees names and read the pinned Kähler
-subsingleton theorem used by the added check. These boundary checks are not an
-exhaustive all-target library audit.
-
-Re-opened [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
-and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on 2026-10-10.
-The crystal-to-connection construction uses the small crystalline site over a
-PD scheme over Z_(p), with p locally nilpotent on X. It does not specify an
-arbitrary supplied differential-site connection. Read Bhatt's
-[*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-Proposition 2.2.6 and its inverse (printed p.16) and Remarks 2.2.7–2.2.8
-(printed pp.16–17). The finite-projective affine specialization supports an
-ordinary Rees extension by its owner; the required site and comparison
-contracts remain to be specified. No source passage is reproduced.
-
-## Input inventory and validation
-
-All ten Hodge inputs are marked complete with accepted reviews; parent and
-continuation counts overlap. No coverage entry is closed.
-
-| Input | Nodes | Gaps | Requests | Coverage |
-| --- | ---: | ---: | ---: | --- |
-| Parent | 569 | 13 | 5 | H.0 partial; H.1–H.8 not_read |
-| H.0 continuation | 7 | 7 | 4 | planned |
-| H.1 | 36 | 11 | 18 | planned |
-| H.2 | 33 | 19 | 14 | planned |
-| H.3 | 43 | 5 | 23 | planned |
-| H.4 | 30 | 6 | 3 | planned |
-| H.5 | 73 | 13 | 16 | planned |
-| H.6 | 32 | 6 | 7 | planned |
-| H.7 | 31 | 7 | 12 | planned |
-| H.8 | 31 | 5 | 11 | planned |
-
-- `python3 scripts/check_blueprint.py` on the parent Hodge input and H.0
-  continuation: both invocations exited 0, with zero errors and zero warnings.
-  The other eight Hodge inputs and the two supplier packets were unchanged;
-  their successful twelve-file validation in the preceding checkpoint is
-  inherited evidence, not a new check. Structural validation does not close
-  their recorded gaps.
-- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
-  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, zero
-  other warnings. The managed build uses Tau Ceti f790474 / Mathlib 082e2d3.
-  The new theorem and its example add no admission. This elaboration does not
-  construct the missing global carriers or compare their operators.
-- The isolated native Kähler obstruction proof was checked against Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`; its axiom diagnostic contained
-  `propext`, `Classical.choice`, `Quot.sound`, and no `sorryAx`. The initial
-  local-instance style warning was corrected by using a local `let` instance.
-- Scoped intake `check-files` on README, Suggested.lean and this handoff:
-  three files, zero problems. `git diff --check` passed. Only these three
-  files are edited. README is 194436 bytes and Suggested.lean is
-  814843 bytes. No packet or metadata is changed; no Lean check is left
-  running at submission.
-
-SHA-256 receipts, relative to `research/blueprint`; inputs retain the preceding
-checkpoint hashes and package artifacts reflect the additional check:
-
-| File | SHA-256 |
-| --- | --- |
-| packets/HodgeStructuresPartII--H.0.json | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
-| packets/CrystallineCohomology--CR.0.json | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
-| packets/DerivedDeRhamCohomology.json | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
-| packages/DerivedDeRhamCohomology/README.md | `f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5` |
-| packages/HodgeStructuresPartII/README.md | `44612b0fa6bcfbfc2768dba51fbd07e397717eb3e7d3533eeb7ad6e639b4f432` |
-| packages/HodgeStructuresPartII/Suggested.lean | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
-
 ## Resume sequence
 
 1. Obtain owner-authorized CR.1 and DD.1 repairs satisfying the G1/G3 equations
@@ -431,6 +340,8 @@ checkpoint hashes and package artifacts reflect the additional check:
 2. Resolve the remaining continuation contracts and audit all planned targets
    against the current upstream and library, preserving the existing proofs
    and the distinctions between local coordinates and intrinsic sheaf objects.
+   Reconcile the 36 omitted global signatures with native tensor, dual and
+   power APIs rather than reintroducing duplicate carriers.
 3. Finish the package reader/signatures, repeat the managed Lean and structural
    checks, and add metadata only when the complete package meets PROTOCOL §20.
 
