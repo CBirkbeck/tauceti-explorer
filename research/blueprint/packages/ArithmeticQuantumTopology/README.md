@@ -38,18 +38,18 @@ The identity braid framed by 0 or 1 has equal forgotten presentations but opposi
 
 **API.**
 
-- `linkingMatrix`: linkingMatrix L is a symmetric integer matrix indexed by the components of L.
-- `linkingMatrix_symm`: linkingMatrix L is symmetric: its (i,j) and (j,i) entries agree.
-- `linkingMatrix_diag`: The (i,i) entry of linkingMatrix L is the framing of the i-th component.
-- `IsAlgebraicallySplit`: IsAlgebraicallySplit L holds when every off-diagonal entry of linkingMatrix L vanishes.
-- `linkingMatrix_of_move`: The linking matrix is unchanged by the moves of the chosen carrier, so it is an invariant of the framed link type.
+- `linkingMatrix`: Symmetric integer matrix indexed by L’s components.
+- `linkingMatrix_symm`: A_ij=A_ji.
+- `linkingMatrix_diag`: A_ii=f_i.
+- `IsAlgebraicallySplit`: Every off-diagonal entry vanishes.
+- `linkingMatrix_of_move`: The chosen framed presentation moves preserve A.
 
 **Tests.**
 
-- `linkingMatrix_unknot`: The linking matrix of the 0-framed unknot is the 1-by-1 zero matrix.
-- `linkingMatrix_hopf`: The linking matrix of the 0-framed Hopf link is [[0,1],[1,0]], which is not diagonal, so the Hopf link is not algebraically split.
-- `linkingMatrix_blackboard`: For a diagram with the blackboard framing, the diagonal entry of the linking matrix is the writhe of that component; this distinguishes the Seifert normalisation from the blackboard one.
-- `not_algebraicallySplit_of_det_ne`: A two-component link whose linking matrix has a nonzero off-diagonal entry is not algebraically split; in particular the Hopf link is a non-example.
+- `linkingMatrix_unknot`: The 0-framed unknot gives [0].
+- `linkingMatrix_hopf`: The 0-framed Hopf link gives [[0,1],[1,0]], hence is not algebraically split.
+- `linkingMatrix_blackboard`: Blackboard framing gives each component’s writhe on the diagonal, distinguishing it from Seifert framing.
+- `not_algebraicallySplit_of_det_ne`: A nonzero off-diagonal entry rules out algebraic splitting, as for the Hopf link.
 
 **Sources.** [Habiro, refined Kirby calculus][AQT61], §2.3, pp. 1290–1291 (PDF pp. 6–7), linking matrices.
 
@@ -71,9 +71,9 @@ Import integral Dehn surgery on a framed link L in oriented S³: the meridian of
 
 **Tests.**
 
-- `surgery_empty_eq_sphere`: Surgery on the empty link is the 3-sphere, so the invariant of the empty presentation must be the invariant of the 3-sphere.
-- `surgery_unknot_pm_one`: Surgery on the plus-one-framed unknot is again the 3-sphere: a definition that gave a different manifold here would be wrong.
-- `homology_surgery_unknot_p`: Surgery on the p-framed unknot has first homology cyclic of order the absolute value of p; for p = 0 this is infinite cyclic, so that presentation is not an integral homology sphere.
+- `surgery_empty_eq_sphere`: Empty surgery is S³, fixing its invariant’s normalization.
+- `surgery_unknot_pm_one`: The plus-one-framed unknot yields S³.
+- `homology_surgery_unknot_p`: The p-framed unknot gives H₁=ℤ/pℤ, infinite cyclic at p=0.
 
 **Sources.** [Habiro 2008][H06], §10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2.
 
@@ -104,23 +104,26 @@ L is admissible iff its linking matrix is diagonal with diagonal entries in {1,�
 
 ### Kirby moves and the Fenn-Rourke move
 
-Import Kirby and Fenn–Rourke calculus from GeometricTopology layer 5 or its Part II. Retain the slide band: different bands can share a matrix. For symmetric A and i≠j, P=I+E_ji gives PᵀAP and ii-entry A_ii+A_jj+2A_ij. Mathlib’s `Matrix.det_transvection_of_ne` gives det P=1.
+Import Kirby and Fenn–Rourke calculus from GeometricTopology layer 5 or its Part II. Retain the slide band: different bands can share a matrix. For symmetric A and i≠j, P=I+E_ji gives PᵀAP and ii-entry A_ii+A_jj+2A_ij. Mathlib’s `Matrix.det_transvection_of_ne` gives det P=1. On column vectors, the induced map coker A→coker(PᵀAP) sends [x] to [Pᵀx]: surjectivity of P gives im(AP)=im A. This works for singular A without a symmetry hypothesis; symmetry is needed only for the diagonal formula. Habiro writes φAφᵀ, so P=φᵀ.
 
 **Depends on.** [GeometricTopology — layer-5-dehn-surgery][GT5]; [Framed links and linking matrix][AQT01]; [Surgery on a framed link and the homology of the result][AQT06].
 
 **API.**
 
-- `IsKirbyMove`: IsKirbyMove L L' holds when L' is obtained from L by one blow-up, blow-down or handle slide.
-- `IsFennRourkeMove`: IsFennRourkeMove L L' holds when L' is obtained from L by one Fenn-Rourke twist.
-- `surgery_eq_of_isKirbyMove`: A Kirby move does not change the surgered manifold up to orientation-preserving homeomorphism.
+- `IsKirbyMove`: One blow-up, blow-down or handle slide relates L and L'.
+- `IsFennRourkeMove`: One Fenn–Rourke twist relates L and L'.
+- `surgery_eq_of_isKirbyMove`: A Kirby move gives an orientation-preserving homeomorphism of surgeries.
 - `linkingMatrix_congr_of_handleSlide`: A handle slide changes the linking matrix by congruence with a unimodular matrix.
+- `linkingMatrixCokernelCongr`: For integral A and unimodular P, coker A≃ₗ[ℤ]coker(PᵀAP). Its `mk` API sends [x] to [Pᵀx]; `linkingMatrixCokernel_handleSlide` specializes to P=I+E_ji, i≠j.
 - `kirbyEquiv`: kirbyEquiv is the equivalence relation generated by isotopy and Kirby moves.
 
 **Tests.**
 
-- `kirbyEquiv_empty_unknot_one`: The empty link and the plus-one-framed unknot are Kirby equivalent, since one blow-down relates them.
-- `framing_of_handleSlide`: Sliding L_1 over L_2 in the 0-framed Hopf link changes the framing of the first component by f_2 + 2 lk = 0 + 2, which pins the sign convention.
-- `not_kirbyEquiv_of_ne_homology`: The 0-framed and 3-framed unknots are not Kirby equivalent: their homology cokernels differ.
+- `kirbyEquiv_empty_unknot_one`: One blow-down relates the empty link and plus-one-framed unknot.
+- `framing_of_handleSlide`: The 0-framed Hopf slide adds f₂+2lk=2 to the first framing.
+- `not_kirbyEquiv_of_ne_homology`: The 0-framed and 3-framed unknots have different H₁, hence are not Kirby equivalent.
+- Cokernel transport at rank zero is the empty equivalence; P=I fixes each representative. For A=diag(0,1), P=[[1,0],[1,1]] sends [e₂] to [(1,1)]. Both entries of every new relation agree, so Pe₂=e₂ is not a new relation: omitting the transpose fails to descend.
+- A=[1], P=[2] gives PᵀAP=[4]: its image excludes 1, testing the unimodularity hypothesis.
 - Sliding the diagonal matrix I₂ gives [[2,1],[1,1]], which is not admissible.
 - For nonsymmetric [[0,1],[0,0]], the new diagonal is 1, whereas the symmetric formula gives 2.
 
