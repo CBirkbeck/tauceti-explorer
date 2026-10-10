@@ -51,7 +51,7 @@ Tests:
 - `zero_fibre`: If every fibre is zero, M contains the unique section.
 - `fundamental_change`: Adding measurable limits of finite rational combinations to a fundamental sequence leaves M unchanged.
 
-Source: S1, §2 Definition 1 and Example 4.
+Source: S1, §2 Definition 1, pp.2–3; Example 4, p.4.
 
 Uses: B1.
 
@@ -76,7 +76,7 @@ Tests:
 - `two_atoms`: For μ=aδ₀+bδ₁ with a,b>0, ‖(v₀,v₁)‖²=a‖v₀‖²+b‖v₁‖².
 - `null_singleton`: Changing a section on a μ-null singleton leaves its class unchanged even when its value changes.
 
-Source: S1, §4 Definition26, p.13; Theorem27, pp.13–14, p.3.
+Source: S1, §4 Definition 26, p.13; Theorem 27, pp.13–14.
 
 Uses: AS.0.1; B1; B3.
 
@@ -100,7 +100,7 @@ Tests:
 - `null_change`: Changing A on a null set induces the same operator.
 - `unbounded_multiplier`: Multiplication by the real coordinate on L²(ℝ) has no bounded extension agreeing almost everywhere on all compactly supported vectors.
 
-Source: S1, §2 Definition2; §4 Definition26 and Theorem27, p.3.
+Source: S1, §2 Definition 2, p.3; §4 Definition 26, p.13; Theorem 27, pp.13–14.
 
 Uses: AS.0.2.
 

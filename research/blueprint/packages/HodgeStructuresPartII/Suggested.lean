@@ -1,4 +1,5 @@
 import Mathlib
+import Mathlib.RingTheory.Kaehler.Basic
 import TauCeti.AlgebraicTopology.LocalCoefficient
 import TauCeti.Geometry.Hodge.Polarization
 import TauCeti.Geometry.Hodge.Mixed.Basic
@@ -377,6 +378,26 @@ example : connection.IsFlat ∧ connection.operator 0 ≠ 0 := ⟨flat, operator
 example (a : ℚ) (s : Fin 1 → ℚ) :
     connection.operator 0 (a • s) = a • connection.operator 0 s := by
   rw [operator_eq, operator_eq]
+
+/-- The supplied nonzero one-form module is not a quotient of Ω¹_(ℚ/ℚ).
+This checks the differential-module hypothesis independently of any connection
+operator or general-site comparison. -/
+theorem no_kaehler_quotient :
+    ¬ ∃ f : KaehlerDifferential ℚ ℚ →ₗ[ℚ] ℚ, Function.Surjective f := by
+  let : Subsingleton (KaehlerDifferential ℚ ℚ) :=
+    KaehlerDifferential.subsingleton_of_surjective ℚ ℚ (by
+      intro q
+      exact ⟨q, rfl⟩)
+  rintro ⟨f, hf⟩
+  obtain ⟨w, hw⟩ := hf 1
+  have hz : w = 0 := Subsingleton.elim _ _
+  rw [hz, map_zero] at hw
+  exact zero_ne_one hw
+
+-- test: NonUniversalDifferentialChecks.test_no_kaehler_quotient
+example (f : KaehlerDifferential ℚ ℚ →ₗ[ℚ] ℚ) : ¬ Function.Surjective f := by
+  intro hf
+  exact no_kaehler_quotient ⟨f, hf⟩
 
 end NonUniversalDifferentialChecks
 

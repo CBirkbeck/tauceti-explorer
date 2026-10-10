@@ -18,6 +18,7 @@ import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Data.Matrix.Basis
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Rat.Lemmas
+import Mathlib.Data.Rat.Cast.Order
 import Mathlib.RingTheory.Coprime.Lemmas
 import Mathlib.Tactic.LinearCombination
 import Mathlib.GroupTheory.FreeAbelianGroup
@@ -4173,5 +4174,279 @@ example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
   exact ⟨hX2, by rw [hX, mul_zero]⟩
 
 end NZContractions
+
+end TauCeti.QuantumTopology
+
+/- QT.7 — native Taylor signatures for the figure-eight descendants.
+GZ §4.3, equation (4.5), pp. 25–26; §7.1, equations (7.1), (7.3)–(7.5),
+pp. 52–53. The exact low-degree controls come from finite coefficient expansion.
+The Habiro completion and its Taylor comparison remain HC.1/HC.2 suppliers.
+These algebraic series do not provide the knot matrix's nontrivial shape-field rows.
+-/
+namespace TauCeti.QuantumTopology
+namespace DescendantTaylor
+
+/-- The actual unit q=1+t, with integral inverse. -/
+def q (R : Type*) [CommRing R] : (PowerSeries R)ˣ where
+  val := 1 + PowerSeries.X
+  inv := PowerSeries.invOfUnit (1 + PowerSeries.X) 1
+  val_inv := PowerSeries.mul_invOfUnit _ 1 (by simp)
+  inv_val := PowerSeries.invOfUnit_mul _ 1 (by simp)
+
+variable {R : Type*} [CommRing R]
+
+@[simp] theorem q_val : (q R : PowerSeries R) = 1 + PowerSeries.X := rfl
+
+/-- Integer exponents are powers of a unit; no Laurent denominator is lost. -/
+def qpow (m : ℤ) : PowerSeries R := ↑(q R ^ m)
+
+@[simp] theorem qpow_zero : qpow (R := R) 0 = 1 := by simp [qpow]
+@[simp] theorem qpow_one : qpow (R := R) 1 = 1 + PowerSeries.X := by simp [qpow]
+@[simp] theorem qpow_add (a b : ℤ) :
+    qpow (R := R) (a + b) = qpow a * qpow b := by simp [qpow, zpow_add]
+
+@[simp] theorem qpow_constant (m : ℤ) :
+    PowerSeries.constantCoeff (qpow (R := R) m) = 1 := by
+  let f := Units.map (PowerSeries.constantCoeff (R := R)).toMonoidHom
+  have hq : f (q R) = 1 := by
+    apply Units.ext
+    simp [f, q]
+  have h := congrArg Units.val (map_zpow f (q R) m)
+  rw [hq, one_zpow] at h
+  exact h
+
+def term (m : ℤ) (n : ℕ) : PowerSeries ℤ :=
+  (∏ j ∈ range n, (1 - qpow (R := ℤ) (j + 1))) *
+    (∏ j ∈ range n, (1 - qpow (R := ℤ) (-(j + 1)))) * qpow (m * n)
+
+theorem term_dvd (m : ℤ) (n : ℕ) :
+    (PowerSeries.X : PowerSeries ℤ) ^ (2 * n) ∣ term m n := sorry
+
+theorem term_coeff_zero (m : ℤ) (n d : ℕ) (hd : d < 2 * n) :
+    PowerSeries.coeff d (term m n) = 0 := sorry
+
+@[simp] theorem term_zero (m : ℤ) : term m 0 = 1 := by simp [term]
+
+theorem term_one (m : ℤ) :
+    term m 1 = -(PowerSeries.X ^ 2) * qpow (m - 1) := sorry
+
+end DescendantTaylor
+
+/-- Knot-specific Taylor series in t=q−1, defined by its stabilized finite coefficients.
+The comparison with the imported scalar Habiro completion is a separate obligation. -/
+def figureEightDescendantTaylor (m : ℤ) : PowerSeries ℤ :=
+  PowerSeries.mk fun d => ∑ n ∈ range (d / 2 + 1),
+    PowerSeries.coeff d (DescendantTaylor.term m n)
+
+theorem figureEightDescendantTaylor_coeff (m : ℤ) (d N : ℕ) (hd : d < 2 * N) :
+    PowerSeries.coeff d (figureEightDescendantTaylor m) =
+      PowerSeries.coeff d (∑ n ∈ range N, DescendantTaylor.term m n) := sorry
+
+theorem figureEightDescendantTaylor_recurrence (m : ℤ) :
+    DescendantTaylor.qpow (m + 1) * figureEightDescendantTaylor (m + 1) +
+      (1 - 2 * DescendantTaylor.qpow m) * figureEightDescendantTaylor m +
+      DescendantTaylor.qpow (m - 1) * figureEightDescendantTaylor (m - 1) = 1 := sorry
+
+@[simp] theorem figureEightDescendantTaylor_constant (m : ℤ) :
+    PowerSeries.constantCoeff (figureEightDescendantTaylor m) = 1 := by
+  simp [figureEightDescendantTaylor, DescendantTaylor.term]
+
+@[simp] theorem figureEightDescendantTaylor_linear (m : ℤ) :
+    PowerSeries.coeff 1 (figureEightDescendantTaylor m) = 0 := by
+  simp [figureEightDescendantTaylor, DescendantTaylor.term]
+
+theorem figureEightDescendantTaylor_quadratic (m : ℤ) :
+    PowerSeries.coeff 2 (figureEightDescendantTaylor m) = -1 := sorry
+
+theorem figureEightDescendantTaylor_cubic (m : ℤ) :
+    PowerSeries.coeff 3 (figureEightDescendantTaylor m) = 1 - m := sorry
+
+/-- The third entry of the trivial first row, over Q[[t]], with the required factor 1/2. -/
+def figureEightHalfRowTaylor : PowerSeries ℚ :=
+  (1 / 2 : ℚ) •
+    (DescendantTaylor.qpow 1 *
+      PowerSeries.map (Int.castRingHom ℚ) (figureEightDescendantTaylor 1) -
+    DescendantTaylor.qpow (-1) *
+      PowerSeries.map (Int.castRingHom ℚ) (figureEightDescendantTaylor (-1)))
+
+def figureEightFirstRowTaylor : Fin 3 → PowerSeries ℚ :=
+  ![1, PowerSeries.map (Int.castRingHom ℚ) (figureEightDescendantTaylor 0),
+    figureEightHalfRowTaylor]
+
+theorem figureEightHalfRowTaylor_double :
+    (2 : ℚ) • figureEightHalfRowTaylor =
+      PowerSeries.map (Int.castRingHom ℚ)
+        (DescendantTaylor.qpow 1 * figureEightDescendantTaylor 1 -
+          DescendantTaylor.qpow (-1) * figureEightDescendantTaylor (-1)) := sorry
+
+theorem figureEightHalfRowTaylor_constant :
+    PowerSeries.coeff 0 figureEightHalfRowTaylor = 0 := sorry
+
+theorem figureEightHalfRowTaylor_linear :
+    PowerSeries.coeff 1 figureEightHalfRowTaylor = 1 := sorry
+
+theorem figureEightHalfRowTaylor_quadratic :
+    PowerSeries.coeff 2 figureEightHalfRowTaylor = -1 / 2 := sorry
+
+theorem figureEightHalfRowTaylor_cubic :
+    PowerSeries.coeff 3 figureEightHalfRowTaylor = -3 / 2 := sorry
+
+theorem figureEightHalfRowTaylor_not_integral :
+    ¬ ∃ f : PowerSeries ℤ, PowerSeries.map (Int.castRingHom ℚ) f =
+      figureEightHalfRowTaylor := by
+  rintro ⟨f, hf⟩
+  have hc : ((PowerSeries.coeff (R := ℤ) 2 f : ℤ) : ℚ) = -1 / 2 := by
+    have h := congrArg (PowerSeries.coeff 2) hf
+    simpa [figureEightHalfRowTaylor_quadratic] using h
+  have hr : (2 : ℚ) * ((PowerSeries.coeff (R := ℤ) 2 f : ℤ) : ℚ) = -1 := by rw [hc]; norm_num
+  have hz : (2 : ℤ) * PowerSeries.coeff 2 f = -1 := by exact_mod_cast hr
+  omega
+
+namespace DescendantTaylor
+
+/-- The source convention q=exp(-h), expressed as t=q-1 for formal substitution. -/
+def expMinusOne : PowerSeries ℚ := PowerSeries.rescale (-1) (PowerSeries.exp ℚ) - 1
+
+@[simp] theorem expMinusOne_constant :
+    PowerSeries.constantCoeff expMinusOne = 0 := by
+  unfold expMinusOne
+  rw [map_sub, map_one, ← PowerSeries.coeff_zero_eq_constantCoeff_apply,
+    PowerSeries.coeff_rescale, PowerSeries.coeff_exp]
+  norm_num
+
+theorem expMinusOne_hasSubst : PowerSeries.HasSubst expMinusOne :=
+  PowerSeries.HasSubst.of_constantCoeff_zero' expMinusOne_constant
+
+theorem qpow_subst_exp (m : ℤ) :
+    PowerSeries.subst expMinusOne (qpow (R := ℚ) m) =
+      PowerSeries.rescale (-(m : ℚ)) (PowerSeries.exp ℚ) := sorry
+
+end DescendantTaylor
+
+/-- The descendant Taylor series transported to the exact q=exp(-h) convention. -/
+def figureEightDescendantHSeries (m : ℤ) : PowerSeries ℚ :=
+  PowerSeries.subst DescendantTaylor.expMinusOne
+    (PowerSeries.map (Int.castRingHom ℚ) (figureEightDescendantTaylor m))
+
+def figureEightHalfRowHSeries : PowerSeries ℚ :=
+  PowerSeries.subst DescendantTaylor.expMinusOne figureEightHalfRowTaylor
+
+theorem figureEightDescendantHSeries_constant (m : ℤ) :
+    PowerSeries.constantCoeff (figureEightDescendantHSeries m) = 1 := by
+  change MvPowerSeries.constantCoeff (PowerSeries.subst DescendantTaylor.expMinusOne
+    (PowerSeries.map (Int.castRingHom ℚ) (figureEightDescendantTaylor m))) = 1
+  rw [PowerSeries.constantCoeff_subst_of_constantCoeff_zero
+    DescendantTaylor.expMinusOne_constant]
+  rw [← PowerSeries.coeff_zero_eq_constantCoeff_apply, PowerSeries.coeff_map,
+    PowerSeries.coeff_zero_eq_constantCoeff_apply, figureEightDescendantTaylor_constant]
+  simp
+
+theorem figureEightDescendantHSeries_linear (m : ℤ) :
+    PowerSeries.coeff 1 (figureEightDescendantHSeries m) = 0 := sorry
+
+theorem figureEightDescendantHSeries_quadratic (m : ℤ) :
+    PowerSeries.coeff 2 (figureEightDescendantHSeries m) = -1 := sorry
+
+theorem figureEightDescendantHSeries_cubic (m : ℤ) :
+    PowerSeries.coeff 3 (figureEightDescendantHSeries m) = m := sorry
+
+theorem figureEightDescendantHSeries_recurrence (m : ℤ) :
+    PowerSeries.rescale (-(m + 1 : ℚ)) (PowerSeries.exp ℚ) *
+        figureEightDescendantHSeries (m + 1) +
+      (1 - 2 * PowerSeries.rescale (-(m : ℚ)) (PowerSeries.exp ℚ)) *
+        figureEightDescendantHSeries m +
+      PowerSeries.rescale (-(m - 1 : ℚ)) (PowerSeries.exp ℚ) *
+        figureEightDescendantHSeries (m - 1) = 1 := sorry
+
+theorem figureEightDescendantHSeries_symmetry (m : ℤ) :
+    PowerSeries.rescale (-1) (figureEightDescendantHSeries m) =
+      figureEightDescendantHSeries (-m) := sorry
+
+theorem figureEightDescendantHSeries_zero_odd (n : ℕ) :
+    PowerSeries.coeff (2 * n + 1) (figureEightDescendantHSeries 0) = 0 := sorry
+
+theorem figureEightHalfRowHSeries_low :
+    PowerSeries.coeff 0 figureEightHalfRowHSeries = 0 ∧
+      PowerSeries.coeff 1 figureEightHalfRowHSeries = -1 ∧
+      PowerSeries.coeff 2 figureEightHalfRowHSeries = 0 := sorry
+
+theorem figureEightHalfRowHSeries_cubic :
+    PowerSeries.coeff 3 figureEightHalfRowHSeries = 11 / 6 := sorry
+
+-- descendant_Taylor_constant
+example (m : ℤ) : PowerSeries.coeff 0 (figureEightDescendantTaylor m) = 1 := by
+  rw [PowerSeries.coeff_zero_eq_constantCoeff_apply, figureEightDescendantTaylor_constant]
+-- descendant_Taylor_linear
+example (m : ℤ) : PowerSeries.coeff 1 (figureEightDescendantTaylor m) = 0 :=
+  figureEightDescendantTaylor_linear m
+-- descendant_Taylor_cubic
+example : PowerSeries.coeff 3 (figureEightDescendantTaylor 1) = 0 ∧
+    PowerSeries.coeff 3 (figureEightDescendantTaylor (-1)) = 2 := by
+  constructor <;> rw [figureEightDescendantTaylor_cubic] <;> norm_num
+-- descendant_Taylor_boundary_term
+example : DescendantTaylor.qpow 1 * figureEightDescendantTaylor 1 -
+    figureEightDescendantTaylor 0 +
+    DescendantTaylor.qpow (-1) * figureEightDescendantTaylor (-1) = 1 := by
+  have h := figureEightDescendantTaylor_recurrence 0
+  norm_num at h
+  simpa [sub_eq_add_neg] using h
+-- descendant_Taylor_finite_precision
+example (m : ℤ) : PowerSeries.coeff 5 (figureEightDescendantTaylor m) =
+    PowerSeries.coeff 5 (∑ n ∈ range 3, DescendantTaylor.term m n) :=
+  figureEightDescendantTaylor_coeff m 5 3 (by decide)
+-- descendant_half_row_not_integral
+example : ¬ ∃ f : PowerSeries ℤ, PowerSeries.map (Int.castRingHom ℚ) f =
+    figureEightFirstRowTaylor 2 := by
+  simpa [figureEightFirstRowTaylor] using figureEightHalfRowTaylor_not_integral
+-- descendant_half_row_linear
+example : PowerSeries.coeff 1 (figureEightFirstRowTaylor 2) = 1 := by
+  simpa [figureEightFirstRowTaylor] using figureEightHalfRowTaylor_linear
+-- descendant_half_row_quadratic
+example : PowerSeries.coeff 2 (figureEightFirstRowTaylor 2) = -1 / 2 := by
+  simpa [figureEightFirstRowTaylor] using figureEightHalfRowTaylor_quadratic
+-- descendant_first_row_constant
+example : (fun j => PowerSeries.coeff 0 (figureEightFirstRowTaylor j)) = ![1, 1, 0] := by
+  ext j
+  fin_cases j <;> simp [figureEightFirstRowTaylor, figureEightHalfRowTaylor_constant]
+-- descendant_q_negative_power
+example : DescendantTaylor.qpow (R := ℤ) (-1) * (1 + PowerSeries.X) = 1 := by
+  rw [← DescendantTaylor.qpow_one, ← DescendantTaylor.qpow_add]
+  norm_num
+-- descendant_h_convention
+example : PowerSeries.coeff 3 (figureEightDescendantHSeries 1) = 1 ∧
+    PowerSeries.coeff 3 (figureEightDescendantHSeries (-1)) = -1 := by
+  constructor <;> rw [figureEightDescendantHSeries_cubic] <;> norm_num
+-- descendant_half_row_h_sign
+example : PowerSeries.coeff 1 figureEightHalfRowHSeries = -1 :=
+  figureEightHalfRowHSeries_low.2.1
+-- descendant_half_row_h_quadratic
+example : PowerSeries.coeff 2 figureEightHalfRowHSeries = 0 :=
+  figureEightHalfRowHSeries_low.2.2
+
+-- descendant_h_normalization
+example (m : ℤ) : PowerSeries.constantCoeff (figureEightDescendantHSeries m) = 1 :=
+  figureEightDescendantHSeries_constant m
+-- descendant_h_quadratic
+example : PowerSeries.coeff 2 (figureEightDescendantHSeries 0) = -1 :=
+  figureEightDescendantHSeries_quadratic 0
+-- descendant_h_odd
+example : PowerSeries.coeff 7 (figureEightDescendantHSeries 0) = 0 :=
+  figureEightDescendantHSeries_zero_odd 3
+-- descendant_half_row_h_cubic
+example : PowerSeries.coeff 3 figureEightHalfRowHSeries = 11 / 6 :=
+  figureEightHalfRowHSeries_cubic
+-- descendant_summand_zero
+example (m : ℤ) : DescendantTaylor.term m 0 = 1 := DescendantTaylor.term_zero m
+-- descendant_summand_one
+example (m : ℤ) : DescendantTaylor.term m 1 =
+    -(PowerSeries.X ^ 2) * DescendantTaylor.qpow (m - 1) := DescendantTaylor.term_one m
+-- descendant_summand_two
+example (m : ℤ) : PowerSeries.coeff 3 (DescendantTaylor.term m 2) = 0 :=
+  DescendantTaylor.term_coeff_zero m 2 3 (by decide)
+-- descendant_exp_substitution_low
+example : PowerSeries.coeff 1 DescendantTaylor.expMinusOne = -1 ∧
+    PowerSeries.coeff 2 DescendantTaylor.expMinusOne = 1 / 2 ∧
+    PowerSeries.coeff 3 DescendantTaylor.expMinusOne = -1 / 6 := by
+  norm_num [DescendantTaylor.expMinusOne, PowerSeries.coeff_rescale, Nat.factorial]
 
 end TauCeti.QuantumTopology

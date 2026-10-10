@@ -39,6 +39,40 @@ The package remains incomplete; `metadata.toml` is intentionally absent because
 as complete without inspecting its mathematical coverage. Add the intended
 `topic = "math.NT"` only when the whole package is ready.
 
+## Previous affine-interface checkpoint retained
+
+That checkpoint reached main after this clone's initial snapshot. During PR
+submission, the current main changes were merged into this branch. Its README
+and Lean additions are retained alongside this run's regression fixture; its
+source-reading claims below belong to the earlier worker.
+
+Session `codex-PuvOdI`’s merged checkpoint [#8311](https://github.com/CBirkbeck/tauceti-explorer/pull/8311) completed the ordinary affine interface of LP2e.1 in README and Suggested.lean:
+
+- `ParameterInvariantAlgebra` now specializes Mathlib's `AlgHom.equalizer`
+  rather than defining a second equalizer. Read its native submodule comparison.
+- Added equivariant restriction of coordinate maps, its value equation,
+  identity and composition. Two actual commuting coaction squares are required.
+- Added `ParameterCoarseQuotient` as the actual `AlgebraicGeometry.Spec` of the
+  invariant algebra, its quotient map, descent to affine targets and uniqueness
+  among scheme morphisms with the specified composite. Inflation has the
+  correct contravariant direction and a commuting quotient square.
+- Added the canonical tensor base-change homomorphism and invariant comparison,
+  their pure-tensor equations, and the algebra isomorphism under
+  `Module.Flat R S`. This follows from exactness, independently of good primes;
+  nonflat parameter-specific comparison remains a separate target.
+- Added suggested checks for affine unique descent, the invariant inclusion,
+  trivial coaction, self-base-change and a nonflat failure. For the sign action
+  of C₂ on Z[x], mod-2 reduction makes x invariant although x is outside the
+  image of the extended invariant algebra. This is a check of the general
+  equalizer adapter, not a connected-reductive GIT counterexample.
+
+That worker reports reading the relevant pinned statements of `AlgHom.equalizer`, `AlgHom.liftEquiv`,
+`Module.Flat.lTensor_exact`, `Module.Flat.lTensor_preserves_injective_linearMap`,
+`Spec.homEquivAlgHom` and the affine spectrum comparison before using them.
+That worker also reports reading BHKT Proposition 3.10(iv), pp.15–16, and FS VIII.3, pp.285–290, for the
+flat and coarse quotient conventions. Its suggested signatures elaborated;
+their roadmap proofs use `sorry`. No formalisation is claimed.
+
 ## Blocking supplier contracts, freshly inspected
 
 The stopping condition is a mathematical contract mismatch outside this
@@ -168,7 +202,8 @@ shadow do not express the enhanced target. Preserve the following contracts:
   denominator and embedded invariant dual centre.
 
 E0/E5 and SF.1/S.1 own the enhanced category, animation, descent and QCoh/Perf
-foundations. The inherited E5 supplier warning reports monoidal coCartesian
+foundations. The inherited E5 supplier warning, repeated by session `codex-PuvOdI`, reports
+monoidal coCartesian
 and Segal fields declared as `True` and `CAlg` declared as `Unit` in the prefix
 inspected by session `codex-7brC83`; it also reports that
 `SSet.Quasicategory` alone does not supply the needed enhanced operations.
@@ -211,7 +246,7 @@ Other inherited plan repairs to retain:
 - `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
   zero errors, zero warnings. No packet was changed.
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, zero errors, 276 warnings, all `declaration uses sorry`; no other warnings.
+  exit 0, zero errors, 295 warnings, all `declaration uses sorry`; no other warnings.
   Available memory before the final compilation was 111 GB. This checks the
   declarations present; geometric and enhanced signatures remain omitted.
 - The standalone regression fixture was checked with lean-check: exit 0, zero
@@ -230,16 +265,20 @@ Other inherited plan repairs to retain:
   SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`;
   [Quast](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
   SHA-256 `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
-  Both match the accepted packet. Source readings are scoped above; no full
+  Both match the accepted packet. The earlier affine-interface worker also
+  reports [BHKT](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf),
+  SHA-256 `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`.
+  That receipt is retained from #8311 and was not re-fetched here.
+  Source readings are scoped above; no full
   source audit, new source erratum or private-book use is claimed.
 - Unchanged LP input SHA-256:
   `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
 - Unchanged atlas IHG input SHA-256:
   `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`.
-- README.md: 183535 bytes, SHA-256
-  `fbdb8e4b56f93d34bd0c5fb1fdfc2c6c7238d0bd294626e8f0faef0b3cce961c`.
-- Suggested.lean: 101859 bytes, SHA-256
-  `421ca26396ddb3821f1e2b472fad98f74c779d5b3912e0143b45a9e9c46d277b`.
+- README.md: 187959 bytes, SHA-256
+  `01c7217b31482abcf474c05473fba53f8cb5e69397de2ca7334b942d4b20fd11`.
+- Suggested.lean: 110186 bytes, SHA-256
+  `3bc56bc25a5ddc7f4c96c3793c27f6cbdefb9ce6c75a6224d32eacb2388a12a1`.
 
 Only the two package artifacts and this handoff changed. No owner file or
 read-only tree was edited; no Lake build/update/cache command or language server

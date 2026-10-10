@@ -14,6 +14,7 @@ import TauCeti.NumberTheory.Multiquadratic.FundamentalDiscriminant.Basic
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.MeasureTheory.Function.L2Space
+import Mathlib.MeasureTheory.Function.LpSeminorm.Count
 import Mathlib.MeasureTheory.Integral.Prod
 import Mathlib.MeasureTheory.Integral.DominatedConvergence
 import Mathlib.Analysis.Calculus.ParametricIntegral
@@ -252,7 +253,7 @@ theorem apply_mk (s : SquareSections M μ) (t : SquareSections N μ)
     (ht : ∀ x, t.val x = A x (s.val x)) :
     decomposable_operator M N μ A hA hB (direct_integral.mk M μ s) = direct_integral.mk N μ t := by sorry
 
-theorem norm_eq_essSup : ENNReal.ofReal ‖decomposable_operator M N μ A hA hB‖ =
+theorem norm_eq_essSup [SigmaFinite μ] : ENNReal.ofReal ‖decomposable_operator M N μ A hA hB‖ =
     essSup (fun x => ENNReal.ofReal ‖A x‖) μ := by sorry
 
 theorem adjoint (A' : ∀ x, (K x).Carrier →L[ℂ] (H x).Carrier)
@@ -6242,4 +6243,56 @@ example : ¬ ∃ g : ℂ → ℂ, AnalyticAt ℂ g 0 ∧
     tendsto_const_nhds.congr' hmul.symm
   have : (0 : ℂ) = 1 := tendsto_nhds_unique hlim hOne
   norm_num at this
+-- These checks use native scalar L² and do not invoke admitted field constructions.
+/-- An infinite atom defeats the unrestricted direct-integral norm formula. -/
+abbrev infiniteAtom : Measure ℝ := (∞ : ℝ≥0∞) • Measure.dirac 0
+
+/-- Every finite-L² class vanishes on the infinite atom. -/
+theorem infiniteAtom_lp_zero (f : Lp ℂ 2 infiniteAtom) : f = 0 := by
+  have hfinite := (Lp.memLp f).2
+  have hpoint : f 0 = 0 := by
+    by_contra h
+    dsimp only [infiniteAtom] at hfinite
+    rw [eLpNorm_smul_measure_of_ne_zero (by simp),
+      eLpNorm_dirac f 0 (by norm_num)] at hfinite
+    have hn : ‖f 0‖ₑ ≠ 0 := by simpa using h
+    norm_num at hfinite
+    simp [hn] at hfinite
+  apply Lp.ext
+  change ∀ᵐ x ∂(∞ : ℝ≥0∞) • Measure.dirac (0 : ℝ), f x = (0 : Lp ℂ 2 infiniteAtom) x
+  rw [Measure.ae_ennreal_smul_measure_iff (by simp)]
+  have hzero := (Lp.coeFn_zero ℂ 2 infiniteAtom)
+  change ∀ᵐ x ∂(∞ : ℝ≥0∞) • Measure.dirac (0 : ℝ),
+    (0 : Lp ℂ 2 infiniteAtom) x = 0 at hzero
+  rw [Measure.ae_ennreal_smul_measure_iff (by simp)] at hzero
+  filter_upwards [ae_eq_dirac (a := (0 : ℝ)) f, hzero] with x hx hz
+  rw [hx, hz, hpoint]
+  rfl
+
+example : essSup (fun _ : ℝ => (1 : ℝ≥0∞)) infiniteAtom = 1 := by
+  apply essSup_const
+  intro h
+  have := congrArg (fun μ : Measure ℝ => μ Set.univ) h
+  simp [infiniteAtom] at this
+
+example : ¬ SigmaFinite infiniteAtom := by
+  intro h
+  have := h
+  have := measure_singleton_lt_top (μ := infiniteAtom) (a := (0 : ℝ))
+  simp [infiniteAtom] at this
+
+example : ENNReal.ofReal ‖ContinuousLinearMap.id ℂ (Lp ℂ 2 infiniteAtom)‖ ≠
+    essSup (fun _ : ℝ => (1 : ℝ≥0∞)) infiniteAtom := by
+  have : Subsingleton (Lp ℂ 2 infiniteAtom) :=
+    ⟨fun f g => (infiniteAtom_lp_zero f).trans (infiniteAtom_lp_zero g).symm⟩
+  have hid : ContinuousLinearMap.id ℂ (Lp ℂ 2 infiniteAtom) = 0 := by
+    ext1 f
+    exact Subsingleton.elim _ _
+  rw [hid]
+  simp only [norm_zero, ENNReal.ofReal_zero]
+  rw [essSup_const]
+  · norm_num
+  · intro h
+    have := congrArg (fun μ : Measure ℝ => μ Set.univ) h
+    simp [infiniteAtom] at this
 end TauCeti.AutomorphicSpectral.signatureChecks
