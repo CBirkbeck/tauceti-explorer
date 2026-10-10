@@ -785,7 +785,7 @@ Use the direct r=3 case and the r=5,7 bases. In r=6 or r≥8 introduce a third c
 
 <a id="one-cubic-bases"></a>
 
-**One-subspace cubic base certificates.** For r=5,7 there exist a codimension 3 L, suitably chosen distinct double supports on L and r+1 distinct ambient double supports outside L, and a transverse length 2 scheme at a further support on L when r=5, with no nonzero cubic containing L and satisfying these conditions. Certificate ranks are 56 and 120; openness gives the corresponding general configurations.
+**One-subspace cubic base certificates.** For r=5 there exist a codimension 3 subspace L, three distinct double supports on L, six distinct ambient double supports outside L, and a length 2 scheme η⊂2Q at a further support Q∈L with length(η∩L)=1, such that no nonzero cubic contains L and satisfies these conditions. For r=7 the corresponding configuration has seven distinct double supports on L and eight distinct ambient double supports outside L, with no remainder scheme. Certificate ranks are 56 and 120; openness gives the corresponding general configurations.
 
 Choose integer subspace frames and support vectors in the prescribed incidences for dimensions 5,7. Build the homogeneous derivative constraints together with value constraints at integer sample points on each space, and any specified remainder-direction constraints. A full-column minor has nonzero residue modulo 101, giving ranks 56,120. These are necessary conditions for a containing cubic, so full column rank excludes it; openness yields the general assertion.
 
@@ -827,7 +827,7 @@ The remainder assertion gives the critical floor independence. When δ_r>0, enla
 
 <a id="quartic-five"></a>
 
-**Quartic P⁵ critical certificate.** There is a distinct21-point configuration in P⁵ whose homogeneous quartic first-derivative constraint matrix has full rank 126. Therefore21 general double points impose independent quartic conditions.
+**Quartic P⁵ critical certificate.** There is a configuration of 21 distinct points in P⁵ whose homogeneous quartic first-derivative constraint matrix has full rank 126. Therefore 21 general double points impose independent quartic conditions.
 
 At 21 distinct integer supports in P⁵, an integer homogeneous quartic derivative matrix has a 126-minor nonzero modulo 101. This reaches both the source and target dimensions. Lift the determinant and use rank openness to obtain the general quartic assertion.
 
