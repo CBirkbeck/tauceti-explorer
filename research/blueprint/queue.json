@@ -15357,7 +15357,8 @@
    "avoidAccountOf": "DESIGN-ArithmeticDirichletSeriesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArithmeticDirichletSeriesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3495"
   },
   {
    "id": "DESIGN-ExcursionOperatorsAndSpectralActionPartII",
@@ -15819,8 +15820,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuiverRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3462"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3462",
+   "finishedAt": "2026-10-10T21:49:27Z"
   },
   {
    "id": "REV-DESIGN-QuiverRepresentationsPartII",
