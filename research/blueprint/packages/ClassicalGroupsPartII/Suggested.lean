@@ -107,6 +107,25 @@ def permLaurent {g : ℕ} (σ : Equiv.Perm (Fin g)) : Laurent g ≃ₐ[ℤ] Laur
 
 def flipLaurent {g : ℕ} (i : Fin g) : Laurent g ≃ₐ[ℤ] Laurent g := by sorry
 
+lemma permLaurent_monomial {g : ℕ} (σ : Equiv.Perm (Fin g)) (wt : Weight g) :
+    permLaurent σ (monomial wt) = monomial (permWeight σ wt) := by sorry
+
+lemma flipLaurent_monomial {g : ℕ} (i : Fin g) (wt : Weight g) :
+    flipLaurent i (monomial wt) = monomial (flipWeight i wt) := by sorry
+
+lemma flipLaurent_involutive {g : ℕ} (i : Fin g) (f : Laurent g) :
+    flipLaurent i (flipLaurent i f) = f := by sorry
+
+lemma flipLaurent_commute {g : ℕ} (i j : Fin g) (f : Laurent g) :
+    flipLaurent i (flipLaurent j f) = flipLaurent j (flipLaurent i f) := by sorry
+
+lemma permLaurent_flip {g : ℕ} (σ : Equiv.Perm (Fin g)) (i : Fin g) (f : Laurent g) :
+    permLaurent σ (flipLaurent i f) = flipLaurent (σ i) (permLaurent σ f) := by sorry
+
+lemma centralDegree_weyl {g : ℕ} (wt : Weight g) :
+    (∀ σ : Equiv.Perm (Fin g), centralDegree g (permWeight σ wt) = centralDegree g wt) ∧
+    (∀ i : Fin g, centralDegree g (flipWeight i wt) = centralDegree g wt) := by sorry
+
 def invariantSubring (g : ℕ) : Subring (Laurent g) := by sorry
 
 lemma mem_invariantSubring {g : ℕ} (f : Laurent g) :
@@ -349,6 +368,23 @@ def coordinateBaseChange (F : Type v) [Field F] [CharZero F]
     (K : Type u) [Field K] [CharZero K] [Algebra F K] (g : ℕ) [Fact (0 < g)] :
     coordinateHopfAlgebra K g ≃ₐc[K] (K ⊗[F] coordinateHopfAlgebra F g) := by sorry
 
+def scalarExtendCoordinates {F : Type v} [Field F] [CharZero F] [Algebra F K]
+    (M : RatRep F g) :
+    (scalarExtend F K g).obj M ≃ₗ[K] (K ⊗[F] M) := by sorry
+
+lemma scalarExtend_coaction {F : Type v} [Field F] [CharZero F] [Algebra F K]
+    (M : RatRep F g) (w : (scalarExtend F K g).obj M) :
+    TensorProduct.map (scalarExtendCoordinates M).toLinearMap
+      (coordinateBaseChange F K g).toLinearMap
+      (TauCeti.Comodule.coact (R := K) (C := coordinateHopfAlgebra K g) w) =
+        TauCeti.Comodule.baseChangeCoact (R := F) (H := coordinateHopfAlgebra F g) K
+          (scalarExtendCoordinates M w) := by sorry
+
+lemma scalarExtend_map {F : Type v} [Field F] [CharZero F] [Algebra F K]
+    (M N : RatRep F g) (f : M ⟶ N) (a : K) (m : M) :
+    scalarExtendCoordinates N ((scalarExtend F K g).map f
+      ((scalarExtendCoordinates M).symm (a ⊗ₜ[F] m))) = a ⊗ₜ[F] f m := by sorry
+
 def baseChange (K : Type u) [Field K] [CharZero K] (g : ℕ) [Fact (0 < g)] :
     RatRep ℚ g ⥤ RatRep K g := scalarExtend ℚ K g
 
@@ -359,7 +395,7 @@ instance baseChangeMonoidal : (baseChange K g).Monoidal := by sorry
 instance baseChangeBraided : (baseChange K g).Braided := by sorry
 
 def baseChangeCoordinates (M : RatRep ℚ g) :
-    (baseChange K g).obj M ≃ₗ[K] (K ⊗[ℚ] M) := by sorry
+    (baseChange K g).obj M ≃ₗ[K] (K ⊗[ℚ] M) := scalarExtendCoordinates M
 
 instance scalarExtendAdditive {F : Type v} [Field F] [CharZero F] [Algebra F K] :
     (scalarExtend F K g).Additive := by sorry
@@ -374,6 +410,14 @@ def homBaseChange {F : Type v} [Field F] [CharZero F] [Algebra F K]
     (M N : RatRep F g) :
     (K ⊗[F] (M ⟶ N)) →ₗ[K]
       ((scalarExtend F K g).obj M ⟶ (scalarExtend F K g).obj N) := by sorry
+
+lemma homBaseChange_tmul {F : Type v} [Field F] [CharZero F] [Algebra F K]
+    (M N : RatRep F g) (a : K) (f : M ⟶ N) :
+    homBaseChange (K := K) M N (a ⊗ₜ[F] f) = a • (scalarExtend F K g).map f := by sorry
+
+lemma scalarExtend_reflectsIso {F : Type v} [Field F] [CharZero F] [Algebra F K]
+    {M N : RatRep F g} (f : M ⟶ N) :
+    IsIso ((scalarExtend F K g).map f) ↔ IsIso f := by sorry
 
 lemma homAndWeightBaseChange {F : Type v} [Field F] [CharZero F] [Algebra F K]
     (M N : RatRep F g) :
