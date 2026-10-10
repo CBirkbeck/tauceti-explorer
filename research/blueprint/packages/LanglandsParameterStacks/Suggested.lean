@@ -43,6 +43,8 @@ import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Algebra.Polynomial.Laurent
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.RingTheory.Nilpotent.Defs
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.Algebra.Module.Projective
@@ -1921,6 +1923,129 @@ example (f : Polynomial (ZMod 2)) (u : (ZMod 2)ˣ) :
     Polynomial.eval₂ Polynomial.C (u.val • Polynomial.X) f = f := by sorry
 end ScalingCoaction
 
+/-! ## Coarse quotient test: a nonclosed SL₂ orbit
+
+For Γ = ℤ with trivial action, framed cocycles are SL₂ itself. The concrete
+coordinate algebra below is Q[a,b,c,d]/(ad-bc-1). Invariance is tested by the
+universal conjugation coaction, rather than by invariance on rational points.
+Fargues–Scholze §VIII.3.1, pp.285–287, identifies the coarse fibre with the
+closed orbit; diag(t,t⁻¹) degenerates the upper unipotent to the identity.
+-/
+namespace CoarseSL2Checks
+noncomputable section
+
+abbrev Variables := Fin 2 × Fin 2
+abbrev Polynomials := MvPolynomial Variables ℚ
+
+def determinantRelation : Polynomials :=
+  MvPolynomial.X (0, 0) * MvPolynomial.X (1, 1) -
+    MvPolynomial.X (0, 1) * MvPolynomial.X (1, 0) - 1
+
+def relations : Ideal Polynomials := Ideal.span {determinantRelation}
+abbrev Coordinates := Polynomials ⧸ relations
+
+def coordinate (i j : Fin 2) : Coordinates :=
+  Ideal.Quotient.mkₐ ℚ relations (MvPolynomial.X (i, j))
+
+def universal : Matrix (Fin 2) (Fin 2) Coordinates := coordinate
+
+theorem universal_det : universal.det = 1 := by sorry
+
+def universalLeft : Matrix (Fin 2) (Fin 2) (Coordinates ⊗[ℚ] Coordinates) :=
+  fun i j =>
+    (Algebra.TensorProduct.includeLeft :
+      Coordinates →ₐ[ℚ] Coordinates ⊗[ℚ] Coordinates) (coordinate i j)
+
+def universalRight : Matrix (Fin 2) (Fin 2) (Coordinates ⊗[ℚ] Coordinates) :=
+  fun i j =>
+    (Algebra.TensorProduct.includeRight :
+      Coordinates →ₐ[ℚ] Coordinates ⊗[ℚ] Coordinates) (coordinate i j)
+
+/-- The first factor is the conjugating element; the second is the parameter. -/
+def conjugation : Coordinates →ₐ[ℚ] Coordinates ⊗[ℚ] Coordinates :=
+  Ideal.Quotient.liftₐ relations
+    (MvPolynomial.aeval (fun ij : Variables =>
+      (universalLeft * universalRight * universalLeft.adjugate) ij.1 ij.2))
+    (by sorry)
+
+def projection : Coordinates →ₐ[ℚ] Coordinates ⊗[ℚ] Coordinates :=
+  Algebra.TensorProduct.includeRight
+
+theorem conjugation_coordinate (i j : Fin 2) :
+    conjugation (coordinate i j) =
+      (universalLeft * universalRight * universalLeft.adjugate) i j := by sorry
+
+variable {K : Type u} [Field K] [Algebra ℚ K]
+
+/-- Evaluation at a determinant-one matrix respects the coordinate relation. -/
+def evaluate (g : Matrix.SpecialLinearGroup (Fin 2) K) : Coordinates →ₐ[ℚ] K :=
+  Ideal.Quotient.liftₐ relations
+    (MvPolynomial.aeval (fun ij : Variables => g ij.1 ij.2)) (by sorry)
+
+theorem evaluate_coordinate (g : Matrix.SpecialLinearGroup (Fin 2) K) (i j : Fin 2) :
+    evaluate g (coordinate i j) = g i j := by sorry
+
+theorem conjugation_evaluate (h g : Matrix.SpecialLinearGroup (Fin 2) K)
+    (f : Coordinates) :
+    Algebra.TensorProduct.lift (evaluate h) (evaluate g)
+      (fun _ _ => Commute.all _ _) (conjugation f) =
+      evaluate (h * g * h⁻¹) f := by sorry
+
+def unipotent : Matrix.SpecialLinearGroup (Fin 2) K :=
+  ⟨!![1, 1; 0, 1], by sorry⟩
+
+/-- Polynomial curve through the unipotent orbit, with identity at t = 0. -/
+def degeneration : Coordinates →ₐ[ℚ] Polynomial K :=
+  Ideal.Quotient.liftₐ relations
+    (MvPolynomial.aeval (fun ij : Variables =>
+      (!![1, Polynomial.X ^ 2; 0, 1] : Matrix (Fin 2) (Fin 2) (Polynomial K))
+        ij.1 ij.2)) (by sorry)
+
+-- coarse_not_orbit_set: equality on the entire algebraic invariant algebra,
+-- and failure of conjugacy, over every characteristic-zero field.
+example :
+    (evaluate (unipotent (K := K))).comp
+      (ParameterInvariantAlgebra.inclusion (R := ℚ) (A := Coordinates)
+        (B := Coordinates ⊗[ℚ] Coordinates) conjugation projection) =
+    (evaluate (1 : Matrix.SpecialLinearGroup (Fin 2) K)).comp
+      (ParameterInvariantAlgebra.inclusion (R := ℚ) (A := Coordinates)
+        (B := Coordinates ⊗[ℚ] Coordinates) conjugation projection) ∧
+    ¬ ∃ h : Matrix.SpecialLinearGroup (Fin 2) K, h * unipotent * h⁻¹ = 1 := by
+  sorry
+
+-- Every invariant function is constant along the degeneration, including t = 0.
+example (f : ParameterInvariantAlgebra (R := ℚ) (A := Coordinates)
+    (B := Coordinates ⊗[ℚ] Coordinates) conjugation projection) :
+    degeneration (K := K) f.val =
+      Polynomial.C (evaluate (1 : Matrix.SpecialLinearGroup (Fin 2) K) f.val) := by
+  sorry
+
+def diagonal (t : Kˣ) : Matrix.SpecialLinearGroup (Fin 2) K :=
+  ⟨!![(t : K), 0; 0, ((t⁻¹ : Kˣ) : K)], by sorry⟩
+
+-- The two endpoints are the distinct framed parameters in one coarse fibre.
+example :
+    (Polynomial.eval₂AlgHom (AlgHom.id ℚ K) 0 (fun _ => Commute.all _ _)).comp
+      (degeneration (K := K)) = evaluate (1 : Matrix.SpecialLinearGroup (Fin 2) K) ∧
+    (Polynomial.eval₂AlgHom (AlgHom.id ℚ K) 1 (fun _ => Commute.all _ _)).comp
+      (degeneration (K := K)) = evaluate (unipotent (K := K)) := by sorry
+
+-- Off the origin the curve is the conjugation by diag(t,t⁻¹).
+example (t : Kˣ) :
+    diagonal t * unipotent * (diagonal t)⁻¹ =
+      (⟨!![1, (t : K) ^ 2; 0, 1], by sorry⟩ :
+        Matrix.SpecialLinearGroup (Fin 2) K) := by sorry
+
+example (t : Kˣ) :
+    (Polynomial.eval₂AlgHom (AlgHom.id ℚ K) (t : K)
+      (fun _ => Commute.all _ _)).comp
+      (degeneration (K := K)) =
+    evaluate (⟨!![1, (t : K) ^ 2; 0, 1], by sorry⟩ :
+      Matrix.SpecialLinearGroup (Fin 2) K) := by sorry
+
+end
+end CoarseSL2Checks
+
 section Reducibility
 variable {G : Type u} [Group G]
 
@@ -2220,6 +2345,35 @@ theorem invariantCoordinateTransport_val {Δ : Type} [Group Δ]
 
 end
 end FreeCocycleIndex
+
+/-! The torus check uses the imported Hopf algebra of G_m and the actual
+free-cocycle coaction. Its Γ-action is trivial; it does not identify fixed
+functions under G_m(R) with scheme invariants. -/
+namespace CoarseTorusChecks
+noncomputable section
+variable (R : Type) [CommRing R]
+variable {Γ : Type} [Group Γ]
+
+abbrev action : Γ →* IntegralCocycleScheme.CoordinateAut
+    (R := R) (C := LaurentPolynomial R) := 1
+
+-- coarse_torus: conjugation is trivial as an algebraic coaction on G_m^n.
+example (a : FreeCocycleIndex Γ) :
+    FreeCocycleIndex.gaugeAction (action R) a =
+      (Algebra.TensorProduct.includeRight :
+        FreeCocycleIndex.coordinates (R := R) (C := LaurentPolynomial R) a →ₐ[R]
+          LaurentPolynomial R ⊗[R]
+            FreeCocycleIndex.coordinates (R := R) (C := LaurentPolynomial R) a) := by
+  sorry
+
+-- The resulting affine quotient map itself is an isomorphism.
+example (a : FreeCocycleIndex Γ) :
+    IsIso (ParameterCoarseQuotient.quotientMap (R := R)
+      (FreeCocycleIndex.gaugeAction (action R) a)
+      Algebra.TensorProduct.includeRight) := by sorry
+
+end
+end CoarseTorusChecks
 
 section Excursion
 noncomputable section

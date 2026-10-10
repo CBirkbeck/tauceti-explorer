@@ -921,6 +921,35 @@ Checks for the affine and coefficient interfaces:
   acting group; it does not assert a connected-reductive counterexample or
   replace the parameter-specific good-prime hypotheses.
 
+**Closed-orbit test by regular functions.** For Γ=ℤ with trivial action and
+H=SL₂ over a characteristic-zero field K, framed cocycles are determined by
+one determinant-one matrix. Use the coordinate algebra
+A=ℚ[a,b,c,d]/(ad−bc−1), with its conjugation coaction
+δ:A→A⊗_ℚ A. The first universal matrix is the conjugating element, and the
+second is the parameter; on matrix entries δ is the pullback of
+(g,x)↦gx adj(g). The determinant relation makes adj(g)=g⁻¹. An algebra map
+A→K given by a matrix evaluates every regular function; restricting it to
+the equalizer of δ and 1⊗(−) gives the point of the coarse quotient.
+
+Let U have rows (1,1) and (0,1). The curve U(t) with rows (1,t²) and (0,1)
+has U(1)=U and U(0)=1. For t≠0 it is the conjugate of U by diag(t,t⁻¹).
+Thus an algebraically invariant regular function restricts to a constant
+polynomial on this curve: it has the same value for every nonzero t in the
+infinite field K, hence also at t=0. The two evaluation homomorphisms on A^H
+are therefore equal. However U cannot be conjugate to 1, since conjugating 1
+always gives 1 and U has a nonzero upper-right entry. This tests equality of
+the entire invariant evaluation, rather than only equality of traces. The
+coordinate coaction and the curve give a concrete instance of the orbit
+specialization in Fargues–Scholze Proposition VIII.3.2, pp.286–287.
+
+For the torus test, use the existing Hopf algebra ℚ[t,t⁻¹] (or its counterpart
+over any coefficient ring R) for G_m. In the free-group instance Γ=F_n with
+trivial action, the framed space is G_m^n. The universal conjugation coaction
+is exactly the insertion into the parameter tensor factor, so its equalizer
+is the full coordinate algebra and the coarse quotient map is an
+isomorphism. This verifies the scheme coaction, including points over
+coefficient algebras, rather than only the action of R-valued points.
+
 The API should provide:
 
 - `ParameterInvariantAlgebra`: Mathlib's `AlgHom.equalizer` of the algebraic coaction A→A⊗O(H) and a↦a⊗1, as a subalgebra of A=O(Z¹); taking fixed elements only under H(base) is insufficient.
