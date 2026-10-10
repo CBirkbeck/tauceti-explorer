@@ -12,8 +12,8 @@
   "RankZeroOneBSD:BSD.6",
   "RankZeroOneBSD:BSD.6a"
  ],
- "status": "partial",
- "summary": "Part 1 (BSD.0–BSD.6a) of the plan for Elliptic curves, Part II: rank-zero and rank-one Birch–Swinnerton-Dyer theory, extending Tau Ceti's Elliptic curves roadmap as RS-30 decided. BSD.0 defines the actual L-function of E/ℚ as the unique entire extension of Mathlib's Euler product (through modularity, EllipticCurveModularity R29.6, and Tau Ceti's LSeries.HasEntireExtension), its completed form and root number, the analytic rank and leading coefficient on that continuation, root-number parity, the Euler factors and root number of quadratic twists, the factorisation L(E/K,s) = L(E,s)L(E^K,s), and the congruent-number root numbers. BSD.1 builds the restriction, trace and twist maps on points over a quadratic field, rank splitting with its 2-power lattice index and regulator comparison, odd-primary Selmer/Sha decomposition, the bounded 2-primary comparison, descent of Sha finiteness, Tamagawa and period comparisons, and the odd-part comparison of BSD quotients over K and over ℚ. BSD.2 owns the residue and nonvanishing argument of Bump–Friedberg–Hoffstein (importing MP.8's genus-two analysis), Friedberg–Hoffstein's prescribed local conditions and the selection of Heegner and auxiliary fields. BSD.3–BSD.4 prove, for every E/ℚ, that analytic rank r ≤ 1 implies rank r and finite Sha (Gross–Zagier through GZ.8 and Kolyvagin through HE.7, with the complex-conjugation sign argument), and plan Kato's independent rank-zero route and p-part upper bound. BSD.5 proves rationality and positivity of the leading term, defines the Heegner index and the rational BSD defect with its valuation formula and isogeny invariance, and plans the Gross–Zagier index formula, the Ribet–Takahashi degree comparison and the definite congruence-period identity requested by HE.6. BSD.6 and BSD.6a plan the named prime-part theorems with their exact source hypotheses: Skinner–Urban/Skinner in rank zero (ordinary and multiplicative p), BSTW's signed main conjecture in rank zero at supersingular p, Jetchev–Skinner–Wan in rank one, and Castella's corrected Theorem A′, with the anticyclotomic control, the BDP divisibility, the BSTW zeta element and its reciprocity laws, and Castella's corrected Theorem 1.1. Every confirmed red-team finding handed to the job is handled by a node or a request. Nothing is claimed formalised. Independent review: needs_changes. Clear corrections are applied; recorded source, supplier and prototype gaps prevent acceptance. BSD.1 and BSD.6a are partial, and the reader requires synchronization.",
+ "status": "complete",
+ "summary": "Target-level plan for eight stages, as EllipticCurves Part II under accepted RS-30. Retains 68 reviewed nodes and all accepted ids; supplies actual period-lattice/fractional-ideal and continuous signed Iwasawa carriers, API and examples; source and integral proof refinements are explicit gaps and owner requests. All eight stages are planned, none closed; all implementation statuses remain unchecked.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -409,6 +409,90 @@
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
     "provides": "The finite function-field degree of an isogeny, defined by Module.finrank over fieldPullback.fieldRange.",
     "checked": "Declaration and surrounding variables independently read at Tau Ceti f790474, 2026-10-06."
+   },
+   {
+    "ref": "mathlib:NumberField.instAdmissibleAbsValues",
+    "kind": "instance",
+    "module": "Mathlib/NumberTheory/Height/NumberField.lean",
+    "provides": "Finite/infinite normalized absolute values of a number field, with the product formula.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:NumberField.totalWeight_eq_finrank",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/Height/NumberField.lean",
+    "provides": "The height total weight is the degree over ℚ; relative heights divide by this weight to obtain absolute heights.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Height/NumberField.lean",
+    "provides": "Northcott over a fixed number field for logarithmic affine height; the same file supplies multiplicative-height Northcott and its logarithmic instance.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:Matrix.det_mul",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "For finite square matrices over a commutative ring, det(AB)=det(A)det(B).",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:Matrix.det_transpose",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "Transposition preserves the determinant.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:AddSubgroup.index_eq_natAbs_det",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Finite/CardQuotient.lean",
+    "provides": "For ℤ-bases of the ambient free group and subgroup with the same finite index set, subgroup index is the absolute basis-change determinant.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:IsZLattice",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
+    "provides": "A ℤ-submodule spanning its real vector space; discreteness is a separate instance.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:ZLattice.covolume",
+    "kind": "definition",
+    "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+    "provides": "Real-valued Haar covolume of an actual discrete full ℤ-lattice.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:ZLattice.covolume_pos",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+    "provides": "Positive covolume for a discrete full lattice with Haar measure.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:FractionalIdeal.absNorm",
+    "kind": "definition",
+    "module": "Mathlib/RingTheory/FractionalIdeal/Norm.lean",
+    "provides": "Multiplicative rational-valued norm including denominators for fractional ideals over a Dedekind domain finite free over ℤ.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "mathlib:FractionalIdeal.absNorm_eq_zero_iff",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/FractionalIdeal/Norm.lean",
+    "provides": "The fractional norm vanishes exactly for the zero ideal; invertible differential ideals have positive norm.",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.H1",
+    "kind": "definition",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+    "provides": "Continuous one-cocycles modulo continuous coboundaries for a topological group with continuous additive action. Use compact topology for T_pE and forced discrete topology for E[p∞].",
+    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
    }
   ]
  },
@@ -433,9 +517,8 @@
    "url": "https://arxiv.org/abs/1407.1093v1",
    "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988",
    "readSections": [
-    "§1 (Theorems A, B, C and the outline)",
-    "§3.1 proof of Theorem A",
-    "§3.2 proof of Theorem B (control at γ − 1, local terms at p)"
+    "§1, Theorems A–C, pp.1–3, and §3.1, pp.19–20: distinct good-ordinary versus multiplicative main-conjecture hypotheses and integral Hida/Fitting deduction.",
+    "§3.2, pp.20–24, equations(3.2.1)–(3.2.7): finite Selmer control, cancellation of the squared anomalous factor and the p-local Tamagawa term."
    ]
   },
   {
@@ -470,7 +553,8 @@
    "sha256": "18e05982cdb2ac57cd7fcdc4791e5db8bff2945755653a5b76dd94377ed11ecf",
    "readSections": [
     "§1 (Theorems 1.1–1.5, Theorem 1.14, Remark 1.4 and the outline of §§3–10)",
-    "§9.3.2, Proposition9.18 and proof pp.83–84; Theorem1.14 p.7 and Proposition1.19 p.8"
+    "§9.3.2, Proposition9.18 and proof pp.83–84; Theorem1.14 p.7 and Proposition1.19 p.8",
+    "§6.6.2, Theorems6.25–6.26, p.68, and §9.3.2 Proposition9.18, pp.83–84, directly read 2026-10-10"
    ]
   },
   {
@@ -516,8 +600,8 @@
    "url": "https://www.numdam.org/item/AST_2004__295__117_0.pdf",
    "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
    "readSections": [
-    "§14 (Theorem 14.2 and Corollary 14.3)",
-    "Printed p.235, Theorem14.2(2), including its CM reference to §15"
+    "§14.1–14.3, printed pp.234–236: continuous Bloch–Kato local conditions, all-prime finiteness and almost-all vanishing including CM.",
+    "§15.19–15.21, printed pp.266–267: CM lattice comparison and almost-all residual irreducibility; the full CM Euler-system proof is an exact L4 export."
    ]
   },
   {
@@ -540,7 +624,7 @@
    "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
    "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
    "readSections": [
-    "Chapter V §2, pp. 311–312 (Theorem (2.1), (2.2) Conjecture and (2.3), examples N = 11 and N = 65), through the verified extraction PAPER-GROSS-ZAGIER-86 and the excerpts verified by GrossZagierAndArithmeticHeights GZ.8"
+    "Chapter V §2, printed pp.310–312: period and height identity, conditional index conjectures, N=11 and N=65 examples; directly read page images 2026-10-10."
    ]
   },
   {
@@ -551,9 +635,8 @@
    "url": "https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf",
    "sha256": "60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32",
    "readSections": [
-    "§1, p. 236 (Conjecture 1.2, Theorem 1.3, the example X₀(37)/w₃₇) and §2, p. 237, read from the page images",
-    "Proposition 5.4 through the excerpts verified by HeegnerPointEulerSystems HE.0",
-    "Proposition5.3, printed p.243, read directly from page image"
+    "§1, printed pp.235–237: Theorem1.3, conditional Conjecture1.2 and 37a example.",
+    "§5, Proposition5.3, printed p.243: normalized Fricke eigenvalue and Heegner conjugation modulo torsion. Both locators read directly from page images, 2026-10-10."
    ]
   },
   {
@@ -615,7 +698,8 @@
    "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/253/8639-CJM_05_03_A02.pdf",
    "sha256": "5a6978afcb2fad9ce4b13a88f9a93ffb77c700082f383f0b6e20980b5e3f7e76",
    "readSections": [
-    "§§2.3–3.5,6.1.6,7.2–7.4; printed p.427 misprint"
+    "§§2.3–3.5,6.1.6,7.2–7.4; printed p.427 misprint",
+    "§§7.1–7.4, pp.420–428, directly read 2026-10-10; distinguish geometric period (7.1.b) from congruence period (7.3.e)."
    ]
   },
   {
@@ -639,6 +723,29 @@
    "readSections": [
     "Proposition2.4.5; §6 opening,Theorems6.1.1,6.5.1"
    ]
+  },
+  {
+   "id": "fouquet-ochiai",
+   "title": "Control theorems for Selmer groups of nearly ordinary deformations",
+   "authors": "Olivier Fouquet and Tadashi Ochiai",
+   "url": "https://www.math.titech.ac.jp/top/~ochiai/ControlF-O.pdf",
+   "sha256": "ed908e9b9c5facbf47acc326e51239d97f8dc03d3d52f7387a9851e5f5b178c1",
+   "readSections": [
+    "§2.1.4, Lemma2.14, pp.12–13: constancy of local automorphic type within a branch; not a Rankin/Katz factorization theorem."
+   ],
+   "edition": "Author-hosted ControlF-O.pdf; pagination of this copy, accessed 2026-10-10"
+  },
+  {
+   "id": "fouquet-wan-v3",
+   "title": "The Iwasawa Main Conjecture for universal families of modular motives",
+   "authors": "Olivier Fouquet and Xin Wan",
+   "url": "https://arxiv.org/abs/2107.13726v3",
+   "sha256": "39cee6cec8a5d56baf5c0b19dd892a571bc7945eab281d6ec9a9c14fa70294ee",
+   "readSections": [
+    "Theorem1.6, pp.6–7: stronger auxiliary local condition than Skinner’s elliptic theorem.",
+    "Theorem4.41, p.58: integral reverse divisibility with exact nonsplit-special/ramification hypotheses; Corollary7.21 and Lemma7.22, p.89: Rankin/Katz/class-number factorization and integrality."
+   ],
+   "edition": "arXiv:2107.13726v3 (8 April 2022)"
   }
  ],
  "sourceVersions": [
@@ -651,67 +758,67 @@
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/1407.1093v1",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/1704.06608v2",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "23e3ab4e9d99ceba88d3aaf0fa0612b60ac728086f82555f951f4e1853323081"
   },
   {
    "kind": "author copy",
    "url": "https://web.math.ucsb.edu/~castella/Birch-erratum.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "c04dff16c27bc3ca4f4e235e366fcd4c95a43cfb9215f75a2584dfeb7114edcf"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/2409.01350v2",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "18e05982cdb2ac57cd7fcdc4791e5db8bff2945755653a5b76dd94377ed11ecf"
   },
   {
    "kind": "published",
    "url": "https://wstein.org/papers/bib/bump-friedberg-hoffstein-nonvanishing.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "d50ad2f11c992591de90f2cea59489ac436cce455e140e6eebf5053f49819f2c"
   },
   {
    "kind": "published",
    "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/2506.03465v2",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/1407.1099v1",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "50123dc1fb271f610f02c8b38527873a8b382f346994074e7db8aae6a00f5412"
   },
   {
    "kind": "published",
    "url": "https://www.numdam.org/item/AST_2004__295__117_0.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d"
   },
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/math/0610694v1",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "42962ab1de00924170e7cc02f95a0ebb967ec979a76823298014eb8511243d04"
   },
   {
    "kind": "published",
    "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/253/8639-CJM_05_03_A02.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "5a6978afcb2fad9ce4b13a88f9a93ffb77c700082f383f0b6e20980b5e3f7e76"
   },
   {
@@ -723,15 +830,29 @@
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/2303.04373v2",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90"
   },
   {
    "source": "gross-kolyvagin",
    "kind": "published",
    "url": "https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32"
+  },
+  {
+   "source": "fouquet-ochiai",
+   "kind": "author copy",
+   "url": "https://www.math.titech.ac.jp/top/~ochiai/ControlF-O.pdf",
+   "read": "2026-10-10",
+   "sha256": "ed908e9b9c5facbf47acc326e51239d97f8dc03d3d52f7387a9851e5f5b178c1"
+  },
+  {
+   "source": "fouquet-wan-v3",
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/2107.13726v3",
+   "read": "2026-10-10",
+   "sha256": "39cee6cec8a5d56baf5c0b19dd892a571bc7945eab281d6ec9a9c14fa70294ee"
   }
  ],
  "nodes": [
@@ -1811,7 +1932,7 @@
     "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
     "tauceti:WeierstrassCurve.Affine.PointModTorsion",
     "mathlib:Module.finrank",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+    "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField"
    ],
    "sources": [
     {
@@ -1843,7 +1964,8 @@
     "Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩.",
     "Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r.",
     "Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K.",
-    "Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (GZ.0/gram-determinant-rescaling)."
+    "Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (GZ.0/gram-determinant-rescaling).",
+    "Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so no removed GZ.0 gram-determinant node is needed. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; GZ.0 supplies the x-height/relative-height normalization transport."
    ],
    "acceptance": [
     "Rank one, r₋ = 0, a = 0: Reg_BSD(E/K) = 2·Reg_BSD(E/ℚ).",
@@ -1853,12 +1975,17 @@
     "RankZeroOneBSD:BSD.1/quadratic-point-maps",
     "RankZeroOneBSD:BSD.1/rank-splitting",
     "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
-    "GrossZagierAndArithmeticHeights:GZ.0/gram-determinant-rescaling",
     "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
     "tauceti:WeierstrassCurve.Affine.neronTatePairing",
     "tauceti:WeierstrassCurve.Affine.regulator",
     "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+    "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
+    "mathlib:Matrix.det_mul",
+    "mathlib:Matrix.det_transpose",
+    "mathlib:AddSubgroup.index_eq_natAbs_det",
+    "mathlib:NumberField.instAdmissibleAbsValues",
+    "mathlib:NumberField.totalWeight_eq_finrank",
+    "mathlib:NumberField.finite_setOfPred_logHeight₁_le"
    ],
    "sources": [
     {
@@ -1930,7 +2057,8 @@
     "RankZeroOneBSD:BSD.1/quadratic-point-maps",
     "RankZeroOneBSD:BSD.1/torsion-comparison",
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-    "ArithmeticGaloisDuality:R02.4/restricted-product-cohomology"
+    "ArithmeticGaloisDuality:R02.4/restricted-product-cohomology",
+    "tauceti:TauCeti.ContCohomology.H1"
    ],
    "sources": [
     {
@@ -1968,7 +2096,8 @@
    "prerequisites": [
     "RankZeroOneBSD:BSD.1/quadratic-point-maps",
     "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+    "tauceti:TauCeti.ContCohomology.H1"
    ],
    "sources": [
     {
@@ -2003,7 +2132,8 @@
    ],
    "prerequisites": [
     "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+    "tauceti:TauCeti.ContCohomology.H1"
    ],
    "sources": [
     {
@@ -2071,18 +2201,18 @@
    ],
    "title": "The period of E over an imaginary quadratic field and its comparison",
    "kind": "construction",
-   "statement": "For E/ℚ elliptic with Néron differential ω and K imaginary quadratic of discriminant D, the period of E/K is Ω_{E/K} := N_{K/ℚ}(𝔞_ω) · 2∫_{E(ℂ)} |ω ∧ ω̄|, where 𝔞_ω is the fractional ideal with 𝔞_ω·ω = Ω¹(Néron model of E over 𝓞_K). Comparison: Ω_{E/K} · |D|^{−1/2} and Ω_E · Ω_{E^K} (real periods with all real components) agree up to a power of 2 and the norm of the Néron-lattice change at primes dividing (D, N); when (D, 2N) = 1 the ideal 𝔞_ω is 𝓞_K and Ω_E·Ω_{E^K} = 2^e·|D|^{−1/2}·Ω_{E/K} with e ∈ ℤ determined by c∞(E), c∞(E^K) and the shape of the period lattice.",
+   "statement": "For E/ℚ elliptic, choose a global minimal Néron differential ω, and an imaginary quadratic field K of discriminant D. Let Λ_ω⊂ℂ be the image of H₁(E(ℂ),ℤ) under integration of ω, a discrete full ℤ-lattice. Let 𝔞_ω be the invertible fractional ideal of 𝓞_K satisfying 𝔞_ω·ω=e*Ω¹ of the Néron model. Define Ω_{E/K}=N(𝔞_ω)·4 covol(Λ_ω), where the covolume uses ordinary Euclidean Haar measure on ℂ. This equals the complex-place factor N(𝔞_ω)·2∫|ω∧ω̄| in the BSD period. If δ=[Λ_ω:Λ_ω^real+Λ_ω^imag]∈{1,2} and the twist pulls its Néron differential back to uω/√D, then Ω_E Ω_{E^K}√|D|/Ω_{E/K}=c∞(E)c∞(E^K)|u|δ/(4N(𝔞_ω)). For (D,2N)=1 the ideal is the unit ideal and u is dyadic, giving a power of two. In general the ratio is rational and is a p-unit when p∤2ND.",
    "hypotheses": [
-    "K imaginary quadratic. The exact power of 2 is fixed in the proof from the real-component counts; the comparison at odd primes needs no such bookkeeping."
+    "K imaginary quadratic; fix the minimal differential and the twist isomorphism. The norm is the absolute fractional-ideal norm, including denominators. The ratio formula retains differential changes and both real component counts; an exact dyadic exponent and the dyadic Tamagawa formula belong to the recorded dyadic refinement."
    ],
    "proofSteps": [
-    "Néron differentials: if ℓ ∤ 2D, the minimal model of E over ℤ_ℓ stays minimal over 𝓞_{K,w}, so 𝔞_ω is supported on primes dividing 2D (NeronModelsAndSemistableAbelianVarieties R11.6/semistable-differential-basechange and equation-minimal-differential).",
-    "The twist E^K has the Néron differential ω_{E^K} = u·√D^{−1}·ω over K for an explicit u ∈ ℤ[1/2D]^× from its minimal model.",
-    "Write the period lattice of ω as Λ_ω; ∫_{E(ℂ)}|ω∧ω̄| = 2·covol(Λ_ω), Ω_E = c∞(E)·(least positive real period) and Ω_{E^K} is the corresponding real period of √D^{−1}ω, i.e. |D|^{−1/2} times the least imaginary period of Λ_ω up to the index of Λ_ω^+ ⊕ Λ_ω^− in Λ_ω (1 or 2).",
-    "Combine: Ω_E Ω_{E^K} |D|^{1/2} = 2^e covol(Λ_ω), and Ω_{E/K} = 4 covol(Λ_ω) when 𝔞_ω = 𝓞_K."
+    "Import the integrated homology period lattice from GZ.0 and the invertible Néron differential module from R11.6. Represent them by Submodule ℤ ℂ with DiscreteTopology/IsZLattice ℝ and a unit in FractionalIdeal (𝓞_K)⁰ K. Use native ZLattice.covolume and FractionalIdeal.absNorm; do not choose arbitrary real-valued period data.",
+    "Complex uniformization identifies the integral of |ω∧ω̄| with twice the Euclidean covolume; the extra complex-place factor two in JSW (7.1.b) gives four times that covolume. Positivity follows from the lattice and invertible ideal.",
+    "Conjugation gives real and imaginary rank-one sublattices; their rectangular lattice has index δ=1 or 2. Its area is the product of the least real and imaginary periods, hence δ times covol(Λ_ω). Include c∞ for the full real periods of both curves and the absolute twist differential multiplier u.",
+    "R11.6’s local minimal differential/base-change comparison identifies 𝔞_ω and u. Away from 2ND their valuations vanish. When (D,2N)=1, 𝔞_ω=1 and u has only dyadic valuation. Substitute into the displayed rational ratio; the all-prime dyadic exponent is a refinement, not an input to an odd-primary identity."
    ],
    "acceptance": [
-    "Odd-part identity: for p ∤ 2DN, ord_p(Ω_E Ω_{E^K} |D|^{1/2}) = ord_p(Ω_{E/K}) in the sense of the rational ratio (JSW (7.3.e) up to ℤ_(p)^× multiples)."
+    "For the unit differential ideal Ω_{E/K}=4 covol(Λ_ω)>0. For p∤2ND the actual rational real/twist/quadratic-period ratio has valuation zero. JSW (7.3.e) concerns the congruence period; it is not a source for this geometric lattice identity."
    ],
    "prerequisites": [
     "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
@@ -2092,18 +2222,23 @@
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
     "tauceti:TauCeti.Isogeny",
-    "tauceti:TauCeti.Isogeny.degree"
+    "tauceti:TauCeti.Isogeny.degree",
+    "mathlib:IsZLattice",
+    "mathlib:ZLattice.covolume",
+    "mathlib:ZLattice.covolume_pos",
+    "mathlib:FractionalIdeal.absNorm",
+    "mathlib:FractionalIdeal.absNorm_eq_zero_iff"
    ],
    "sources": [
     {
-     "sourceId": "jsw",
-     "locator": "Conjecture 7.1.1, (7.1.b), p. 42",
-     "match": "The definition of Ω_{E/F}."
+     "sourceId": "jsw-published",
+     "locator": "§7.1, (7.1.b), printed p.421",
+     "match": "The number-field BSD period and the fractional differential ideal."
     },
     {
-     "sourceId": "jsw",
-     "locator": "§7.3.2, (7.3.e), p. 44",
-     "match": "The odd-part period comparison."
+     "sourceId": "gross-zagier-86",
+     "locator": "Chapter V §2, printed pp.310–312, particularly p.312 period identity",
+     "match": "Complex Néron differential norm versus real/twist periods, with differential and component normalization transported explicitly."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2111,7 +2246,7 @@
     {
      "name": "WeierstrassCurve.quadraticPeriod",
      "role": "constructor",
-     "statement": "Ω_{E/K} for K imaginary quadratic, as N(𝔞_ω)·2∫_{E(ℂ)}|ω∧ω̄|."
+     "statement": "Ω_{E/K}=N(𝔞_ω)·4 covol(Λ_ω), with actual full period lattice and invertible fractional differential ideal."
     },
     {
      "name": "WeierstrassCurve.quadraticPeriod_pos",
@@ -2126,7 +2261,7 @@
     {
      "name": "WeierstrassCurve.realPeriod_mul_twist_eq",
      "role": "relation",
-     "statement": "Ω_E · Ω_{E^K} · |D|^{1/2} = 2^e · Ω_{E/K} for (D, 2N) = 1, with e explicit."
+     "statement": "For (D,2N)=1, Ω_E Ω_{E^K}√|D|=2^e Ω_{E/K} for an integer e; compute e from c∞, the rectangular lattice index and the twist differential multiplier, as in the displayed exact ratio."
     },
     {
      "name": "WeierstrassCurve.padicValRat_period_ratio",
@@ -2141,7 +2276,7 @@
     {
      "name": "WeierstrassCurve.quadraticPeriod_eq_norm_mul_covolume",
      "role": "relation",
-     "statement": "quadraticPeriod E K = N(𝔞_ω) * (4*covol(Λ_ω)), with the actual Néron differential lattice and period lattice supplied by their owners."
+     "statement": "quadraticPeriod E K = FractionalIdeal.absNorm(𝔞_ω) · (4·ZLattice.covolume Λ_ω volume); the norm is rational before casting to ℝ."
     }
    ],
    "uses": [
@@ -2155,7 +2290,7 @@
     },
     {
      "where": "RankZeroOneBSD:BSD.6",
-     "how": "the period relation (7.3.e) in the p-part arguments"
+     "how": "Convert the geometric number-field period and, separately, the congruence-period identity JSW (7.3.e) in prime-part arguments."
     }
    ],
    "tests": [
@@ -2167,7 +2302,7 @@
     {
      "name": "WeierstrassCurve.period_ratio_rational",
      "kind": "characterisation",
-     "statement": "Ω_E Ω_{E^K}|D|^{1/2}/Ω_{E/K} ∈ ℚ^× and its odd part is 1 when (D, 2N) = 1."
+     "statement": "For (D,2N)=1, the real/twist/quadratic-period ratio is a nonzero rational power of two. This tests agreement with the complex covolume and all real components."
     },
     {
      "name": "WeierstrassCurve.quadraticPeriod_not_half_covolume",
@@ -2179,7 +2314,8 @@
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/BSD",
     "namespace": "WeierstrassCurve"
    },
-   "reviewNotes": "Removed the unsupported universal Ω_K≠Ω_E² test and the vacuous existential covolume signature. The actual period-lattice/Néron-ideal carriers are still placeholders, so the construction is not fully prototyped."
+   "reviewNotes": "Removed the unsupported universal Ω_K≠Ω_E² test and the vacuous existential covolume signature. The actual period-lattice/Néron-ideal carriers are still placeholders, so the construction is not fully prototyped.",
+   "revisionNotes": "Actual native lattice/ideal carriers and all seven API/three test signatures now elaborate. Corrected the previous conflation of JSW congruence periods with the quadratic geometric period."
   },
   {
    "id": "RankZeroOneBSD:BSD.1/odd-part-bsd-over-K",
@@ -2462,10 +2598,10 @@
    ],
    "title": "Nonvanishing central twists with arbitrary prescribed local behaviour (Friedberg–Hoffstein)",
    "kind": "theorem",
-   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform with trivial character and (S, π, η) a local prescription (heegner-local-conditions) in which π may require primes to be split, inert or ramified, compatible with root number +1 for the twists: every admissible D coprime to N has w(f ⊗ χ_D) = +1. Then there are infinitely many admissible fundamental discriminants D with L(1, f ⊗ χ_D) ≠ 0.",
+   "statement": "Let f ∈ S₂(Γ₀(N)) be a newform with trivial character and (S, π, η) a local prescription (heegner-local-conditions) in which π may require primes to be split, inert or ramified. Assume admissible discriminants exist and the prescription is compatible with the actual local root-number formula: every admissible D, including those ramified at a conductor prime, has w(f ⊗ χ_D) = +1. Then there are infinitely many admissible fundamental discriminants D with L(1, f ⊗ χ_D) ≠ 0.",
    "hypotheses": [
     "Compatibility with sign +1 is necessary: a twist of sign −1 has vanishing central value.",
-    "The theorem is Friedberg–Hoffstein, Annals 142 (1995), Theorem B; the paper is not publicly available and was not read for this plan (recorded gap); the statement is taken in the form JSW applies it.",
+    "The target is the prescribed-local nonvanishing theorem cited by JSW from Friedberg–Hoffstein, Annals142 (1995), Theorem B. Its original full text was not acquired for this plan; direct verification of this stated range remains a source obligation.",
     "The local prescription has admissible discriminants and actual local twist sign +1; ramified conductor prescriptions cannot be justified by a statement quantified only over coprime D."
    ],
    "proofSteps": [
@@ -2489,7 +2625,8 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "reviewNotes": "Friedberg–Hoffstein Theorem B itself was not acquired, and the packet infers arbitrary ramified prescriptions from a narrower coprime root formula. Preserved the theorem as an unverified target with a precise source/hypothesis gap."
+   "reviewNotes": "Friedberg–Hoffstein Theorem B itself was not acquired, and the packet infers arbitrary ramified prescriptions from a narrower coprime root formula. Preserved the theorem as an unverified target with a precise source/hypothesis gap.",
+   "revisionNotes": "Replaced vacuous coprime-only sign compatibility by nonempty prescriptions with the actual sign at every admissible discriminant, including ramified conductor cases. No claim about public availability is made; direct source verification remains a gap."
   },
   {
    "id": "RankZeroOneBSD:BSD.2/heegner-field-selection",
@@ -2988,7 +3125,7 @@
    "statement": "For every elliptic curve E/ℚ with analyticRank E ≤ 1, leadingTerm E > 0: L(E, 1) > 0 if the analytic rank is 0, and L′(E, 1) > 0 if it is 1. Positivity rests on the nonnegativity of central values L(1/2, π ⊗ χ) ≥ 0 for cuspidal π on PGL₂/ℚ and quadratic χ (Waldspurger), requested from GrossZagierAndArithmeticHeights GZ.5, together with the sign of the Gross–Zagier formula.",
    "hypotheses": [
     "analyticRank E ≤ 1.",
-    "The nonnegativity input is RT-AREA-iwasawa-1/16's missing statement; modular symbols give only rationality, not sign."
+    "The nonnegativity input is the requested quadratic central-value nonnegativity theorem; modular symbols give only rationality, not sign."
    ],
    "proofSteps": [
     "Rank zero: L(E, 1) = L(1/2, π_E) ≥ 0 by the requested Waldspurger nonnegativity (χ trivial), and L(E,1) ≠ 0.",
@@ -3203,7 +3340,7 @@
    "kind": "theorem",
    "statement": "In the setting of heegner-index, with heights relative to K in the x-height normalisation: ĥ_K(y_K) = (I_K^free)² · Reg_BSD(E/K). If moreover rank E(ℚ) = 1 and rank E^K(ℚ) = 0 (the case of BSD.3), then Reg_BSD(E/K) = 2·Reg_BSD(E/ℚ)/4^a with 2^a = [E(K)/tors : res(E(ℚ)/tors)] ∈ {1, 2}, so ĥ_K(y_K) = 2·(I_K^free)²·Reg_BSD(E/ℚ)/4^a.",
    "hypotheses": [
-    "rank E(K) = 1; K-relative heights (GZ.0 gap on the number-field instance)."
+    "rank E(K)=1; y_K non-torsion, with finite index; use K-relative x-height, namely twice the pinned (O)-height, and Mathlib’s number-field absolute-value/Northcott instances."
    ],
    "proofSteps": [
     "In a rank-one lattice the regulator is the height of a generator, and ĥ is quadratic: ĥ_K(y_K) = (I^free)² ĥ_K(generator).",
@@ -3216,7 +3353,10 @@
     "RankZeroOneBSD:BSD.5/heegner-index",
     "RankZeroOneBSD:BSD.1/quadratic-regulator-comparison",
     "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
-    "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height"
+    "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+    "mathlib:NumberField.instAdmissibleAbsValues",
+    "mathlib:NumberField.totalWeight_eq_finrank",
+    "mathlib:NumberField.finite_setOfPred_logHeight₁_le"
    ],
    "sources": [
     {
@@ -3302,7 +3442,7 @@
    "statement": "Let g ∈ S₂(Γ₀(N)) be a newform with trivial character and Hecke field with ring O, 𝔭 | p ≥ 5 a prime of O with p ∤ N, ρ̄_{g,𝔭} : G_ℚ → GL₂(k₀) surjective, and N = N⁺N⁻ with N⁻ squarefree with an odd number of prime factors (the definite quaternion algebra of discriminant N⁻), satisfying Pollack–Weston's hypothesis CR (in particular ρ̄ ramified at every ℓ | N⁻ with ℓ ≡ ±1 mod p, and the nonsquarefree alternatives of Hypothesis ♥ when N is not squarefree). Let η_g(N) be the congruence number of g at full level and ξ_g(N⁺, N⁻) the self-pairing of a primitive integral eigenfunction on the definite quaternion algebra. Then ord_𝔭 (η_g(N)/ξ_g(N⁺, N⁻)) = Σ_{ℓ|N⁻} t_g(ℓ), where t_g(ℓ) = length_{O_𝔭} Φ(A_g/ℚ_ℓ)_𝔭 is the 𝔭-part of the Tamagawa (component-group) factor at ℓ.",
    "hypotheses": [
     "The hypotheses are those of HeegnerPointEulerSystems HE.6/ribet-takahashi-tamagawa-comparison, which consumes this node; its contract forbids HE.6, rank-zero BSD, Jochnowitz congruences and the final Heegner-index result as inputs.",
-    "This node is the early export the HE.0 review requested (proposed sub-layer BSD.3a, recorded in restructure); it depends only on Néron-model character groups and the GL₂ transfer."
+    "This is an early export (proposed sub-layer BSD.3a); it depends only on Néron-model character groups and the GL₂ transfer."
    ],
    "proofSteps": [
     "Character groups: for N₁N₂ with N₂ having an even number of primes, the character group X̂_r(J) of the Shimura curve Jacobian's toric part at r | N⁻ is free of rank one over the localised Hecke algebra under CR (Pollack–Weston Theorem 6.2, from NeronModelsAndSemistableAbelianVarieties R11.4/characters-graph-homology, R11.4/integral-monodromy-pairing).",
@@ -3409,7 +3549,7 @@
     "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
     "mathlib:padicValRat",
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
    ],
    "sources": [
@@ -3687,8 +3827,8 @@
    "kind": "theorem",
    "statement": "Let E/ℚ be elliptic with good ordinary or multiplicative reduction at a prime p ≥ 3, E[p] irreducible, and a prime q ≠ p of multiplicative reduction at which E[p] is ramified. If ellipticL E 1 ≠ 0 then padicValRat p (bsdDefect E) = 0, i.e. ord_p #Ш(E/ℚ)[p^∞] = ord_p (L(E,1)/(Ω_E ∏_ℓ c_ℓ(E))).",
    "hypotheses": [
-    "The hypotheses are JSW Theorem 7.2.1(ii) and Skinner Theorem C, kept exactly; the residual hypothesis is the Skinner–Urban form (q ∥ N with ρ̄ ramified at q), not the stronger FW 1.6 form (RT-AREA-iwasawa-1/14).",
-    "Multiplicative p (p ∥ N): the main conjecture is Skinner's Theorem A for p | N, and in the split case the exceptional-zero inputs (Greenberg–Stevens, L(V_f) ≠ 0) are used (RT-AREA-iwasawa-1/4); good ordinary p: Skinner–Urban plus Kato."
+    "The hypotheses are JSW Theorem 7.2.1(ii) and Skinner Theorem C, kept exactly; the residual hypothesis is the Skinner–Urban form (q ∥ N with ρ̄ ramified at q), not the stronger FW 1.6 form.",
+    "Multiplicative p (p ∥ N): the main conjecture is Skinner's Theorem A for p | N, and in the split case the exceptional-zero inputs (Greenberg–Stevens, L(V_f) ≠ 0) are used; good ordinary p: Skinner–Urban plus Kato."
    ],
    "proofSteps": [
     "Main conjecture Ch_Λ(X) = (L_f) in Λ: for p ∤ N, Skinner–Urban's Theorem in the SU/Skinner Theorem A (p ∤ N) form (requested from ModularIwasawaMainConjectures L1); for p ∥ N, Skinner's Theorem A deduced from the p ∤ N case through Hida families and Fitting ideals (requested as a new ModularIwasawaMainConjectures layer beside L1).",
@@ -4035,7 +4175,8 @@
     "RankZeroOneBSD:BSD.1/tamagawa-base-change",
     "ModularIwasawaMainConjectures:L0",
     "SelmerIwasawaCohomology:L3",
-    "ArithmeticGaloisDuality:R02.4"
+    "ArithmeticGaloisDuality:R02.4",
+    "tauceti:TauCeti.ContCohomology.H1"
    ],
    "sources": [
     {
@@ -4098,16 +4239,20 @@
    ],
    "title": "The two-variable zeta element of an elliptic curve over an imaginary quadratic field (BSTW)",
    "kind": "construction",
-   "statement": "Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery.",
+   "statement": "Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).",
    "hypotheses": [
     "p>2 good supersingular and a_p=0 (explicit also at p=3); (D_L,N)=1, p split and E[p](L)=0. The embedding fixes v; signs •∈{+,−} use the actual Kobayashi/Pollack normalization.",
-    "RT/30 ordinary ownership is KatoEulerSystems proposed L5, requested at its present nearest L4 stage. BSD.6a owns the signed §6 construction and signed §9.3.2 comparison only."
+    "Ordinary ownership is KatoEulerSystems proposed L5, requested at its present nearest L4 stage. BSD.6a owns the signed §6 construction and signed §9.3.2 comparison only.",
+    "Fix the Néron differential, both Betti sign bases and the Gauss-sum normalization of BSTW6.26; for the integral refinement require irr_ℚ and integral primitive differential/Betti bases. Cyclotomic comparison is made over ℚ_p unless these lattice hypotheses have been discharged.",
+    "BSTW §§2.2.4–2.2.5, printed pp.13–14, defines the cohomological lattice T_g with determinant χ_cyc⁻¹. Its twist T_g(1) is compared with V_pE through modularity and the polarization; an integral comparison with T_pE must track the modular-parametrization lattice index and chosen differential/Betti bases. The geometric coefficient here is T_pE, not T_pE(1)."
    ],
    "proofSteps": [
     "Import Kato’s actual classes/norm relations and the ordinary owner’s CM-family base construction; PadicFamilies L4, not merely its eigencurve L1, must supply the CM family specialization.",
+    "Apply the R29.4 modular Tate-module comparison and polarization to transport T_g(1) to V_pE; prove the integral lattice/basis comparison required by 6.26(ii) before claiming an equality over ℤ_p. Keep all lattice indices in the normalization.",
     "Carry out BSTW §6’s supersingular signed construction with the integral two-variable local maps, using the rank-one cohomology statement and no global congruence equality as a construction assumption.",
     "Prove both local reciprocity laws with a common integral normalization; one-variable rational PHR maps require the requested signed/unramified two-variable extension and normalization proof.",
-    "Nonzero analytic images imply nonzero zeta class. Preserve local conditions and lattice under the specified cyclotomic projections, not arbitrary changes of the quadratic field."
+    "Nonzero analytic images imply nonzero zeta class. Preserve local conditions and lattice under the specified cyclotomic projections, not arbitrary changes of the quadratic field.",
+    "Construct the cyclotomic target independently as continuous-H¹ inverse limits. BSTW6.26(i), printed p.68, compares specialization with the normalized two-class combination; apply the same-field ± character projectors of §3.3 under Shapiro. A quotient of two-variable cohomology is related by a control theorem and is not its definition."
    ],
    "acceptance": [
     "Its images under the two explicit reciprocity laws are the nonzero p-adic L-functions L^•_p(E/L) and L^Gr_p(E/L), so Z^•(E/L) ≠ 0 (BSTW Remark 1.15(ii))."
@@ -4124,7 +4269,9 @@
     "KatoEulerSystems:L4",
     "PadicFamilies:L4",
     "PadicHodgeRegulators:L4",
-    "AutomorphicPadicLFunctions:L3"
+    "AutomorphicPadicLFunctions:L3",
+    "tauceti:TauCeti.ContCohomology.H1",
+    "EllipticCurveModularity:R29.4/tate-module-comparison"
    ],
    "sources": [
     {
@@ -4136,6 +4283,16 @@
      "sourceId": "bstw",
      "locator": "Remark 1.15(ii), printed p. 7",
      "match": "Nonvanishing."
+    },
+    {
+     "sourceId": "bstw",
+     "locator": "§6.6.2, Theorems6.25–6.26, printed p.68; §3.3",
+     "match": "Signed construction, common normalization and rational cyclotomic comparison with the two Kato classes; integral refinement requires the selected basis hypotheses."
+    },
+    {
+     "sourceId": "bstw",
+     "locator": "§§2.2.4–2.2.5, printed pp.13–14; Theorem6.26(ii), printed p.68",
+     "match": "Cohomological lattice and determinant convention, with the separate integral specialization hypotheses."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4163,12 +4320,12 @@
     {
      "name": "TauCeti.BSD.bstwZetaElement_cyclotomic",
      "role": "compatibility",
-     "statement": "Its image under the projection to the cyclotomic ℤ_p-extension of ℚ is Kato's zeta element up to the Euler factors of BSTW §10."
+     "statement": "In ℚ_p⊗H¹_Iw(K_cyc,T_pE), cyclotomic projection of Z^• equals c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of the two Kato classes from BSTW§3.3/6.26(i). No identification with a single class is asserted."
     },
     {
      "name": "TauCeti.BSD.bstwZetaElement_twist",
      "role": "functoriality",
-     "statement": "Compatible with the specified twist/character projections in BSTW(1.3)–(1.8), after identifying representations, coefficient lattices and Euler factors. No canonical map between unrelated fields L is asserted."
+     "statement": "Apply the same-field ± quadratic-character projectors to the cyclotomic equality of 6.26(i); under Shapiro they give the specified g and g⊗χ_K eigenspaces with their differential/Betti/Gauss-sum factors."
     }
    ],
    "uses": [
@@ -4194,17 +4351,17 @@
     {
      "name": "TauCeti.BSD.bstwZetaElement_cyclotomic_test",
      "kind": "compatibility",
-     "statement": "Under the source’s cyclotomic projection and both local non-torsion conditions (nv), the specialized class has the stated Kato/CM-twist projections with their exact Euler factors; this is not an identification of a single class with two unrelated classes."
+     "statement": "The same-field character projections of the cyclotomic class agree with those of the independently supplied normalized two-Kato-class combination. Use rational coefficients as in 6.26(i)."
     },
     {
      "name": "TauCeti.BSD.bstwZetaElement_requires_split",
      "kind": "non-example",
-     "statement": "If p is inert in L the construction does not apply: the two-variable signed Coleman maps of BSTW need p = 𝔭𝔭̄ split, and no element is asserted."
+     "statement": "The actual split-prime datum has distinct v and v̄: if v=w then v̄≠w. A repeated prime fails this input condition and cannot give both local maps."
     },
     {
      "name": "TauCeti.BSD.bstwZetaElement_reciprocity_square",
      "kind": "degenerate",
-     "statement": "At the trivial character the signed Coleman law specializes at v, while the Greenberg logarithm law specializes at v̄; both keep their Euler/period factors. They are not the square of one map at one prime."
+     "statement": "Constant-coefficient specialization sends Col_v(loc_v Z^•) to the constant term of L_p^• and Log_v̄(loc_v̄ Z^•) to the constant term of L_p^Gr in R₀. The two equality targets are distinct and retain their source normalization."
     }
    ],
    "planet": {
@@ -4214,7 +4371,8 @@
     "module": "TauCeti/NumberTheory/Iwasawa/BSTWZetaElement",
     "namespace": "TauCeti.BSD"
    },
-   "reviewNotes": "Restricted ownership to the supersingular element and corrected the two primes and CM-family supplier. Six API names/four tests were only comments; their actual arithmetic carrier/signatures are still missing."
+   "reviewNotes": "Restricted ownership to the supersingular element and corrected the two primes and CM-family supplier. Six API names/four tests were only comments; their actual arithmetic carrier/signatures are still missing.",
+   "revisionNotes": "The six named API items and four examples are declarations, with actual continuous inverse-limit cohomology, split primes, Λ/Λ^ur and local signed domains. Desired reciprocity is proved by theorem placeholders, never carried as assumptions defining Z."
   },
   {
    "id": "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
@@ -4413,7 +4571,8 @@
     "(a) Use the higher-weight integral Kolyvagin bound added in this packet, retaining the augmentation-prime case, C1=C2=0 proof and corrected generalized Heegner local conditions. Combine the BCK comparison, exact GH reciprocity, FW reverse divisibility and APL anticyclotomic Rankin/Katz-to-BDP projection. Prove the Σ-imprimitive version via JSW3.4.2/6.1.6 with matching factors.",
     "(b) Shapiro's lemma and H⁰(K, M_g) = H⁰(K_∞, A_g) = 0 give H¹(G_{K,S}, M_g[ϖ^m]) ≅ H¹(G_{K,S}, M_g)[ϖ^m]; the local kernel at 𝔭 is H⁰(K_𝔭, M_g)/ϖ^m, zero when H⁰(K_𝔭, A_g[ϖ]) = 0.",
     "(c) Greenberg's general results (as in Hsieh–Lei and Skinner Proposition 2.3.3).",
-    "CGS6.5.1 is for T_pE and gives its displayed bound over Λ[1/p]. Prove the extension to T_g, rather than assuming it. Correct the erratum’s second C2=0 to C1=0 and discharge it via Cha05/large-image input. The nonexistent FO12 Cor7.2.1 is not a supplier."
+    "CGS6.5.1 is for T_pE and gives its displayed bound over Λ[1/p]. Prove the extension to T_g, rather than assuming it. Correct the erratum’s second C2=0 to C1=0 and discharge it via Cha05/large-image input. The nonexistent FO12 Cor7.2.1 is not a supplier.",
+    "For FW4.41, verify absolute residual irreducibility over K, the crystalline p-local alternative, a nonsplit q∥M, and that every nonsplit conductor prime is ramified special with the prescribed unramified twist; otherwise the source gives only the inclusion away from pullbacks of cyclotomic height-one primes. The cyclic Heegner ideal and residual/local-type comparison must discharge these hypotheses explicitly. Apply FW7.21 with its class-number and Katz factors before the Σ projection; FO2.14 is only the local-type input."
    ],
    "acceptance": [
     "For g of weight 2 congruent to the p-stabilised form of E, (b) needs E(ℚ_p)[p] = 0: this is where hypothesis (iv) of Theorem 1.1 enters."
@@ -4446,6 +4605,21 @@
      "sourceId": "castella-erratum",
      "locator": "Remark after Theorem A′, p. 2",
      "match": "Why E(ℚ_p)[p] = 0 is needed."
+    },
+    {
+     "sourceId": "castella-erratum",
+     "locator": "Lemma2.2, p.3",
+     "match": "The no-proper-finite-index-submodule statement concerns the discrete Selmer group."
+    },
+    {
+     "sourceId": "fouquet-ochiai",
+     "locator": "Lemma2.14, pp.12–13",
+     "match": "Transfers the special local type between arithmetic specializations; supplies no Rankin/Katz factorization."
+    },
+    {
+     "sourceId": "fouquet-wan-v3",
+     "locator": "Theorem4.41, p.58; Corollary7.21, p.89",
+     "match": "Distinct reverse divisibility and Rankin/Katz factorization inputs, with their integral and local hypotheses retained."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4548,7 +4722,7 @@
    ],
    "title": "BSTW supersingular rank-one p-part",
    "kind": "theorem",
-   "statement": "Let E/ℚ be semistable with analyticRank E=1, and p>2 a good supersingular prime with a_p=0 (explicit when p=3). Then v_p(bsdDefect E)=0. The same holds for twists in BSTW1.3’s coprime ordinary-support range. This direct endpoint does not assert the old JSW auxiliary-twist proof applies outside that range.",
+   "statement": "Let E/ℚ be semistable with analyticRank E=1, and p>2 a good supersingular prime with a_p=0 (explicit when p=3). Then v_p(bsdDefect E)=0. The same holds for twists in BSTW1.3’s coprime ordinary-support range. This direct endpoint does not assert the JSW auxiliary-twist proof applies outside that range.",
    "hypotheses": [
     "Exactly BSTW1.5 rank-one hypotheses, with the Néron period and BSD regulator normalization. No residual irreducibility is added to the source endpoint."
    ],
@@ -4626,14 +4800,6 @@
    "neededBy": [
     "RankZeroOneBSD:BSD.0/completed-l-function",
     "RankZeroOneBSD:BSD.0/analytic-rank"
-   ]
-  },
-  {
-   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
-   "need": "Mordell–Weil over number fields with the free quotient PointModTorsion and the canonical height, Néron–Tate pairing and regulator (already in Tau Ceti), plus a number-field AdmissibleAbsValues instance so that K-relative heights over quadratic K are defined.",
-   "neededBy": [
-    "RankZeroOneBSD:BSD.1/rank-splitting",
-    "RankZeroOneBSD:BSD.1/quadratic-regulator-comparison"
    ]
   },
   {
@@ -4904,7 +5070,7 @@
   },
   {
    "supplier": "AutomorphicCongruences:L2",
-   "need": "RT/15 exact FW Theorem4.41 reverse divisibility and Corollary7.21 Rankin/Katz/Hida factorization with class-number, period and local factors. The erratum’s FO12 Cor7.2.1 does not exist; do not route this factorization to L5a.",
+   "need": "RT/15 exact FW Theorem4.41 reverse divisibility and Corollary7.21 Rankin/Katz/Hida factorization with class-number, period and local factors. The erratum’s FO12 Cor7.2.1 does not exist; do not route this factorization to L5a. Retain absolute residual irreducibility over K, crystalline p-local alternative, q∥M nonsplit, and all nonsplit primes ramified-special with the specified twist for the fully integral inclusion; outside that range retain the excluded pullback height-one primes.",
    "neededBy": [
     "RankZeroOneBSD:BSD.6a/castella-higher-weight-input"
    ]
@@ -4937,6 +5103,36 @@
    "neededBy": [
     "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part"
    ]
+  },
+  {
+   "supplier": "GrossZagierAndArithmeticHeights:GZ.0",
+   "need": "Construct the actual integration image of H₁(E(ℂ),ℤ) for a global minimal Néron differential as a discrete full Submodule ℤ ℂ. Export its real/imaginary rank-one sublattices, index δ∈{1,2}, covolume/complex-integral factor two, and full real-component period comparison; use native IsZLattice/ZLattice.covolume rather than new real-valued data. This specializes the complex uniformization/real-period development; no new generic lattice theory is planned.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.1/quadratic-period"
+   ]
+  },
+  {
+   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+   "need": "Export the invertible fractional ideal 𝔞_ω=(e*Ω¹)/ω for E base-changed to 𝓞_K, relative to its rational global minimal differential, and the rational twist differential multiplier u. Use FractionalIdeal.absNorm with denominators. Prove local unit/valuation comparisons away from 2ND, and 𝔞_ω=1 with dyadic u when (D,2N)=1.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.1/quadratic-period"
+   ]
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L3",
+   "need": "Export the embedded cofinal cyclotomic/anticyclotomic compositum tower, compact T_pE continuous-H¹ corestriction system and completed semilocal localizations with the same transitions. Export the independent cyclotomic tower, projection and same-field character projectors under Shapiro. Prove the Λ-coefficient quotient comparison with its Tor/control hypotheses; do not define cyclotomic H¹ as that quotient. Use the existing TauCeti.ContCohomology.H1 and current Tau Ceti Tate-module implementation.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element",
+    "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture-comparison"
+   ]
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of 6.25–6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
+    "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element"
+   ]
   }
  ],
  "coverage": [
@@ -4944,17 +5140,15 @@
    "stageId": "RankZeroOneBSD:BSD.0",
    "status": "planned",
    "remaining": [
-    "Prove the dyadic congruent-number trace/root table from the original Birch–Stephens computation or an acquired local epsilon-factor formula; the public full text was not acquired in this review.",
+    "Prove the dyadic congruent-number trace/root table from the original Birch–Stephens computation or an acquired local epsilon-factor formula; the public full text was not acquired for this plan.",
     "Odd, dyadic Artin–Schreier and ramified trace/base-change cases are already represented at target level; do not require a lemma-level split in this target-level job."
    ]
   },
   {
    "stageId": "RankZeroOneBSD:BSD.1",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "The exact power of 2 in the period comparison Ω_E Ω_{E^K}|D|^{1/2} versus Ω_{E/K}, and the 2-part of the Tamagawa comparison at ramified and dyadic places (recorded gap); every odd-primary statement is planned.",
-    "K-relative heights wait for a number-field instance of Tau Ceti's height machinery (GZ.0 gap).",
-    "Replace real-valued period-lattice/differential-ideal placeholders by genuine owner carriers and signatures (review gap); narrow or separately prove every broader Tamagawa/defect comparison outside split p."
+    "Compute the exact dyadic period exponent and dyadic/ramified 2-primary Tamagawa corrections for BSD.8/BSD.9. All target carriers and odd-primary comparisons are planned; number-field height instances are already at the pin."
    ]
   },
   {
@@ -4992,24 +5186,24 @@
    "status": "planned",
    "remaining": [
     "The main-conjecture inputs are requested from ModularIwasawaMainConjectures (L0, L1 and the proposed p ∥ N layer), PadicFamilies L3 (Greenberg–Stevens) and DiophantineApproximationAndTranscendence DT.5 (Barré-Sirieix–Diaz–Gramain–Philibert); the p-part theorems are planned on top of them.",
-    "Discharge the JSW μ, degree, local/Tamagawa and Kolyvagin hypotheses. The old supersingular auxiliary-twist route and Castella ramified-q rank-zero deduction remain gaps; the added direct BSTW1.5 semistable rank-one node does not repair those arguments."
+    "Discharge the JSW μ, degree, local/Tamagawa and Kolyvagin hypotheses. The supersingular auxiliary-twist route and Castella ramified-q rank-zero deduction remain gaps; the direct BSTW1.5 semistable rank-one node does not repair those arguments."
    ]
   },
   {
    "stageId": "RankZeroOneBSD:BSD.6a",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "Supply actual signed Iwasawa cohomology/local-map carriers and six API/four example signatures (currently only comment names).",
-    "Prove the added signed Proposition9.18 node; source prints only the ordinary proof. Ordinary element/reciprocity/comparison are requested from KatoEulerSystems proposed L5, not replanned.",
-    "Prove the added higher-weight integral Kolyvagin bound and Σ-imprimitive projection with the exact C1/C2/local hypotheses; FW factorization belongs AC L2, FO local type R21.3, projection APL L3h.",
-    "Discharge the recorded Selmer/Fitting/control, μ/exceptional-prime and additive-range gaps before identifying the suppliers with the claimed integral endpoint."
+    "Prove the signed Proposition9.18 node; source prints only the ordinary proof. Ordinary element/reciprocity/comparison are requested from KatoEulerSystems proposed L5, not replanned.",
+    "Prove the higher-weight integral Kolyvagin bound and Σ-imprimitive projection with the exact C1/C2/local hypotheses; FW factorization belongs AC L2, FO local type R21.3, projection APL L3h.",
+    "Discharge the recorded Selmer/Fitting/control, μ/exceptional-prime and additive-range gaps before identifying the suppliers with the claimed integral endpoint.",
+    "The actual continuous inverse-limit/signed-local signatures and all six API/four examples are supplied; refine the integral image, Selmer-control and normalization proofs through the exact owner requests."
    ]
   }
  ],
  "gaps": [
   {
    "title": "Friedberg–Hoffstein Theorem B not read",
-   "detail": "Friedberg–Hoffstein, Nonvanishing theorems for automorphic L-functions on GL(2), Annals of Math. 142 (1995), Theorem B, is used through JSW's citation only; the public full text was not acquired in this review. Its statement (arbitrary prescribed local conditions compatible with sign +1) and the double-cover construction must be read and checked before RankZeroOneBSD:BSD.2/prescribed-local-conditions-value-branch is proved.",
+   "detail": "Friedberg–Hoffstein, Nonvanishing theorems for automorphic L-functions on GL(2), Annals of Math. 142 (1995), Theorem B, is used through JSW's citation only; the public full text was not acquired for this plan. Its statement (arbitrary prescribed local conditions compatible with sign +1) and the double-cover construction must be read and checked before RankZeroOneBSD:BSD.2/prescribed-local-conditions-value-branch is proved.",
    "neededBy": [
     "RankZeroOneBSD:BSD.2/prescribed-local-conditions-value-branch",
     "RankZeroOneBSD:BSD.2/auxiliary-fields-for-prime-parts"
@@ -5026,25 +5220,10 @@
    ]
   },
   {
-   "title": "Number-field heights at the pinned Tau Ceti",
-   "detail": "K-relative canonical heights over imaginary quadratic K need an AdmissibleAbsValues instance for number fields, which Tau Ceti f790474 lacks (the GZ.0 gap); BSD.1/quadratic-regulator-comparison and BSD.5/heegner-index-height-formula are stated for that instance.",
-   "neededBy": [
-    "RankZeroOneBSD:BSD.1/quadratic-regulator-comparison",
-    "RankZeroOneBSD:BSD.5/heegner-index-height-formula"
-   ]
-  },
-  {
    "title": "Birch–Stephens dyadic root numbers not read",
-   "detail": "The values w_2(E^(n)) for E : y² = x³ − x and n mod 8 are taken from Birch–Stephens (Topology 5, 1966) through Burungale–Tian's footnote 2; the public full text was not acquired in this review, and the local computation (or Rohrlich's formula for dyadic potentially good reduction) must be read before RankZeroOneBSD:BSD.0/congruent-number-root-numbers is proved.",
+   "detail": "The values w_2(E^(n)) for E : y² = x³ − x and n mod 8 are taken from Birch–Stephens (Topology 5, 1966) through Burungale–Tian's footnote 2; the public full text was not acquired for this plan, and the local computation (or Rohrlich's formula for dyadic potentially good reduction) must be read before RankZeroOneBSD:BSD.0/congruent-number-root-numbers is proved.",
    "neededBy": [
     "RankZeroOneBSD:BSD.0/congruent-number-root-numbers"
-   ]
-  },
-  {
-   "title": "Period geometry carrier and signatures",
-   "detail": "BSD.1/quadratic-period needs the actual period lattice of a Néron differential and its covolume, plus the fractional differential ideal and norm. The suggested file uses explicit real-valued data placeholders; these must be replaced by the owner interfaces, not by an arbitrary existential positive real. Exact dyadic comparison remains separately recorded.",
-   "neededBy": [
-    "RankZeroOneBSD:BSD.1/quadratic-period"
    ]
   },
   {
@@ -5066,20 +5245,8 @@
    ]
   },
   {
-   "title": "Signed arithmetic signatures and control",
-   "detail": "The suggested file still has six BSTW API names and four unit tests only in a comment, and omits named arithmetic/Selmer theorems whose genuine carriers have no owner interface at the pin. Supply actual continuous Iwasawa/Selmer carriers, signed two-variable maps and exact local hypotheses; then add signatures/examples. A generic Prop parameter or an arbitrary class specified by its images cannot repair this.",
-   "neededBy": [
-    "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element",
-    "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
-    "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture",
-    "RankZeroOneBSD:BSD.6a/bstw-rank-zero-p-part",
-    "RankZeroOneBSD:BSD.6a/castella-anticyclotomic-main-conjecture",
-    "RankZeroOneBSD:BSD.6a/castella-higher-weight-input"
-   ]
-  },
-  {
    "title": "Castella higher-weight integral extension and Σ comparison",
-   "detail": "Prove the extension of CGS v2 6.5.1 from elliptic T_pE to self-dual ordinary T_g, including the augmentation prime and C1=C2=0 under residual irreducibility. Acquire/verify Cha05 Theorem2/Matar–Nekovář0.9 for C1 and CGLS Remark3.3.5 for C2. Separately prove the Σ-imprimitive APL projection and FW/BCK/local-type hypotheses. Do not infer this from the elliptic rational theorem or from the words “in the same way”.",
+   "detail": "Prove the extension of CGS v2 6.5.1 from elliptic T_pE to self-dual ordinary T_g, including the augmentation prime and C1=C2=0 under residual irreducibility. Acquire/verify Cha05 Theorem2/Matar–Nekovář0.9 for C1 and CGLS Remark3.3.5 for C2. Separately prove the Σ-imprimitive APL projection and FW/BCK/local-type hypotheses. Do not infer this from the elliptic rational theorem or from the words “in the same way”. Discharge FWv3 4.41’s all-nonsplit ramified-special and absolute residual hypotheses explicitly; its unrestricted version excludes pullbacks of cyclotomic height-one primes.",
    "neededBy": [
     "RankZeroOneBSD:BSD.6a/castella-higher-weight-input",
     "RankZeroOneBSD:BSD.6a/castella-anticyclotomic-main-conjecture"
@@ -5090,6 +5257,17 @@
    "detail": "BSTW v2 pp.83–84 prints the ordinary proof and leaves the supersingular case to the reader. BSD owns the full signed Poitou–Tate/rank/image argument and cyclotomic (nv) specialization. Record this as a source proof gap until written, as RT/30 requires.",
    "neededBy": [
     "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture-comparison"
+   ]
+  },
+  {
+   "title": "Integral signed Selmer/image and cyclotomic control hypotheses",
+   "detail": "The signed cohomology and local-map signatures are supplied. Discharge the exact integral Coleman/logarithm image indices, CLW/Wan excluded height-one primes, μ hypotheses and both cyclotomic local non-torsion conditions (nv) in the BSD.6a proof. Continuous H¹ and derived Iwasawa descent supply carriers/global base change; they do not by themselves prove these Selmer control results. Requests to PHR L4, SIC L3, APL L3/L3h and duality R02.4 identify the missing exports. The R29.4 comparison must also match BSTW’s cohomological T_g(1) with geometric T_pE, including the integral lattice index; rational representation comparison alone is insufficient.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
+    "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture",
+    "RankZeroOneBSD:BSD.6a/bstw-rank-zero-p-part",
+    "RankZeroOneBSD:BSD.6a/anticyclotomic-selmer-control",
+    "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element"
    ]
   }
  ],
@@ -5139,7 +5317,7 @@
    "source": "jsw-published",
    "kind": "misprint",
    "locator": "Published CJM5 (2017),p.427, sentence immediately after(7.4.c)",
-   "printed": "⟨z_K′,z_K′⟩_NT = m_K′ Reg(E/K′)",
+   "printed": "The explanatory sentence after (7.4.c) uses the lattice index linearly in the height/regulator relation, although (7.4.c) itself uses its square.",
    "correction": "Use the square of the free index: ⟨z,z⟩=(m_free)² Reg. In this odd-primary application the full index has the same p-part because p-torsion vanishes.",
    "reason": "Quadratic height scales by the square of the lattice index; equation(7.4.c) on the same page already has m². This is a missing square, not evidence that the endpoint is false.",
    "affects": "nothing",
@@ -5296,13 +5474,14 @@
    "roadmaps": [
     "RankZeroOneBSD"
    ],
-   "note": "The issue excludes the reader document from writable paths. It remains stale relative to this review’s formulas, supplier ownership and coverage. The review/handoff enumerate required reader synchronization before acceptance; no Tau Ceti roadmap or atlas data was edited."
+   "note": "Cumulative stage check on 2026-10-10: atlas 1,365 vertices/3,458 edges is acyclic; atlas plus this packet’s projected prerequisites and exact requests has 3,527 edges and BSD.4↔BSD.5. Applying proposed BSD.0a, BSD.3a and signed BSD.6z placements together, with ordinary Kato L5 before both consumers, gives 1,369 vertices/3,549 edges and no cycle. The internal 68-node/177-edge graph is acyclic. This checks atlas plus this packet and listed early-placement edges, not every other packet’s internals or unimplemented supplier proofs. No atlas mutation is made."
   },
   {
    "roadmaps": [
-    "RankZeroOneBSD"
+    "GrossZagierAndArithmeticHeights",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
    ],
-   "note": "Independent cumulative graph check: the current atlas has no cyclic component; adding the packet’s projected prerequisites creates BSD.4↔BSD.5. The original BSD.3a and revised signed BSD.6z proposals do not remove it. An early BSD.0a rationality export is now proposed and must be applied cumulatively. The packet’s internal 68-node/177-edge graph is acyclic. With BSD.0a, BSD.3a and signed BSD.6z projected together, the 3,544-edge atlas-plus-packet graph has no cyclic component. This checks the listed graph and proposed placements, not unimplemented supplier/request internals."
+   "note": "At Mathlib082e2d3, NumberTheory/Height/NumberField.lean already gives NumberField.instAdmissibleAbsValues, totalWeight_eq_finrank and Northcott. Remove any missing-number-field-instance gap in GZ.0; retain its genuine x-height/(O)-height and field-relative normalization comparison. Current Tau Ceti also has the compact Tate module and continuous Galois representation (TateModule/Basic and Galois); the prototype reconstructs this imported carrier only because those newer declarations are absent at the fixed pin."
   }
  ],
  "redTeamFindings": [
@@ -5678,5 +5857,27 @@
     "note": "Added the exact direct rank-one BSTW endpoint and its supersingular GZ/control requests; this does not repair the old wider twist proof."
    }
   ]
+ },
+ "revision": {
+  "job": "BP-RankZeroOneBSD--BSD.0~2",
+  "author": "Codex (GPT-6)",
+  "session": "codex-Lm4QNs",
+  "date": "2026-10-10",
+  "notes": "Historical independent review object is preserved unchanged. Revision addresses its corrections, replaces the two missing carrier interfaces, synchronizes the reader and verifies elaboration against the pins. Exact proof/source refinements are retained, not asserted established.",
+  "verification": {
+   "packetCheck": "0 errors, 0 warnings",
+   "suggestedLean": "Elaborated with lean-check at the pinned Mathlib/Tau Ceti; only the standard placeholder-proof warnings. All 78 API declarations and 37 named examples are present.",
+   "stageGraph": {
+    "atlas": {
+     "nodes": 1365,
+     "edges": 3458
+    },
+    "proposal": true,
+    "nodes": 1369,
+    "edges": 3549,
+    "acyclic": true
+   },
+   "reviewPreserved": true
+  }
  }
 }

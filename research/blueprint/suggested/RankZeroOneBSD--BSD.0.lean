@@ -13,18 +13,30 @@ import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.NumberTheory.NumberField.Discriminant.Defs
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
 import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.Quotient.Defs
+import Mathlib.Algebra.Module.ZLattice.Covolume
+import Mathlib.NumberTheory.NumberField.FractionalIdeal
+import Mathlib.RingTheory.FractionalIdeal.Norm
+import Mathlib.NumberTheory.Height.NumberField
 import Mathlib.NumberTheory.Padics.PadicVal.Basic
 import TauCeti.NumberTheory.LSeries.EntireExtension
 import TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist
 import TauCeti.AlgebraicGeometry.EllipticCurve.GaloisDescent
 import TauCeti.AlgebraicGeometry.EllipticCurve.Isogeny.Degree
 
+import TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree
+import TauCeti.FieldTheory.KrullTopology
+import Mathlib.FieldTheory.AlgebraicClosure
+import Mathlib.FieldTheory.Galois.Basic
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.WittVector.Basic
+
 /-!
 # Elliptic curves, Part II: rank-zero and rank-one BSD — suggested declarations (BSD.0–BSD.6a)
 
-This file is not the roadmap and is not exhaustive. The independently reviewed packet
-(`research/blueprint/packets/RankZeroOneBSD--BSD.0.json`) records corrections; the reader
-document is definitive and still needs the revisions listed in `REV-RankZeroOneBSD--BSD.0.md`.
+This file is not the roadmap and is not exhaustive. The reader document
+(`research/blueprint/readmes/RankZeroOneBSD--BSD.0.md`) is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names and signatures. Every proof is
 `sorry`; nothing here is claimed formalised.
 
@@ -42,10 +54,11 @@ roadmap document; only those whose statements are expressible against the pinned
 these placeholders are stated here.
 -/
 
+
 noncomputable section
 
 open Complex Filter Topology
-open scoped ArithmeticFunction TensorProduct
+open scoped ArithmeticFunction TensorProduct NumberField nonZeroDivisors
 
 namespace WeierstrassCurve
 
@@ -72,7 +85,7 @@ def tamagawaProduct (E : WeierstrassCurve ℚ) : ℕ := sorry
 def localRootNumber (E : WeierstrassCurve ℚ) (p : ℕ) : ℤˣ := sorry
 
 /-- PLACEHOLDER for `Reg_BSD(E/ℚ) = 2 ^ rank · regulator` (GrossZagierAndArithmeticHeights GZ.0),
-which needs a number-field `AdmissibleAbsValues` instance absent at the pin. -/
+with the number-field height instance of Mathlib.NumberTheory.Height.NumberField. -/
 def bsdRegulator (E : WeierstrassCurve ℚ) : ℝ := sorry
 
 /-- The order of the rational torsion subgroup. -/
@@ -482,19 +495,33 @@ theorem finrank_point_quadratic :
         Module.finrank ℚ (ℚ ⊗[ℤ] ((E.quadraticTwist K)⁄ℚ).toAffine.Point) := by
   sorry
 
-/-- PLACEHOLDER for the covolume of the period lattice of the global minimal Néron
-differential (GrossZagierAndArithmeticHeights GZ.0). Its geometric carrier/API is still missing. -/
-def neronPeriodCovolume (E : WeierstrassCurve ℚ) : ℝ := sorry
+/-- Imported GZ.0 interface: the image of integral first homology under integration of a
+global minimal Néron differential. The owner constructs this lattice from complex
+uniformization; it is not an arbitrary positive real. -/
+def neronPeriodLattice (E : WeierstrassCurve ℚ) [E.IsElliptic] : Submodule ℤ ℂ := sorry
 
-/-- PLACEHOLDER for the norm of the Néron differential ideal over `𝓞_K` (NeronModels R11.6).
-Its ideal and base-change API are still missing; this real number is not a formalisation. -/
-def neronDifferentialIdealNorm (E : WeierstrassCurve ℚ) (K : Type*) [Field K] [NumberField K] : ℝ :=
-  sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] :
+    DiscreteTopology (neronPeriodLattice E) := by sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] :
+    IsZLattice ℝ (neronPeriodLattice E) := by sorry
+
+def neronPeriodCovolume (E : WeierstrassCurve ℚ) [E.IsElliptic] : ℝ :=
+  ZLattice.covolume (neronPeriodLattice E) MeasureTheory.volume
+
+/-- Imported R11.6 interface: the invertible fractional ideal `a` defined by
+`a · ω = e*Ω¹` for the Néron model over `𝓞 K`, relative to the chosen rational minimal
+differential. Its norm uses Mathlib's fractional-ideal norm, including denominators. -/
+def neronDifferentialIdeal (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type*) [Field K] [NumberField K] : (FractionalIdeal (𝓞 K)⁰ K)ˣ := sorry
+
+def neronDifferentialIdealNorm (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type*) [Field K] [NumberField K] : ℝ :=
+  (FractionalIdeal.absNorm (neronDifferentialIdeal E K).val : ℝ)
 
 /-- BSD.1/quadratic-period: `Ω_{E/K} = N(𝔞_ω) · 2 ∫_{E(ℂ)} |ω ∧ ω̄|`, hence four times the
-period-lattice covolume when the differential ideal has norm one. The imported geometric data
-remain explicit placeholders, so this is only a partial prototype. -/
-def quadraticPeriod (E : WeierstrassCurve ℚ) (K : Type*) [Field K] [NumberField K] : ℝ :=
+period-lattice covolume when the differential ideal has norm one. -/
+def quadraticPeriod (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type*) [Field K] [NumberField K] : ℝ :=
   neronDifferentialIdealNorm E K * (4 * neronPeriodCovolume E)
 
 theorem quadraticPeriod_eq_norm_mul_covolume :
@@ -507,12 +534,12 @@ theorem quadraticPeriod_pos [NumberField.IsTotallyComplex K] : 0 < quadraticPeri
 /-- With `𝔞_ω = 𝓞_K`, the period is four times the covolume of the actual Néron period lattice.
 Deriving norm one from coprimality needs the requested Néron base-change comparison. -/
 theorem quadraticPeriod_eq_covolume [NumberField.IsTotallyComplex K]
-    (hnorm : neronDifferentialIdealNorm E K = 1) :
+    (hideal : neronDifferentialIdeal E K = 1) :
     quadraticPeriod E K = 4 * neronPeriodCovolume E := by
   sorry
 
 theorem realPeriod_mul_twist_eq [NumberField.IsTotallyComplex K]
-    (h : IsCoprime (2 * NumberField.discr K) E.conductor) :
+    (h : IsCoprime (NumberField.discr K) (2 * E.conductor)) :
     ∃ e : ℤ, E.realPeriod * (E.quadraticTwist K).realPeriod *
       Real.sqrt |(NumberField.discr K : ℝ)| = (2 : ℝ) ^ e * quadraticPeriod E K := by
   sorry
@@ -534,8 +561,9 @@ example [NumberField.IsTotallyComplex K] : 0 < quadraticPeriod E K := by
   sorry
 
 /-- Test `WeierstrassCurve.period_ratio_rational`. -/
-example [NumberField.IsTotallyComplex K] (h : IsCoprime (2 * NumberField.discr K) E.conductor) :
-    ∃ q : ℚ, E.realPeriod * (E.quadraticTwist K).realPeriod *
+example [NumberField.IsTotallyComplex K] (h : IsCoprime (NumberField.discr K) (2 * E.conductor)) :
+    ∃ (e : ℤ) (q : ℚ), q ≠ 0 ∧ q = (2 : ℚ) ^ e ∧
+      E.realPeriod * (E.quadraticTwist K).realPeriod *
       Real.sqrt |(NumberField.discr K : ℝ)| / quadraticPeriod E K = q := by
   sorry
 
@@ -660,9 +688,9 @@ end Defect
 /-! ## BSD.6 — named prime-part theorems
 
 Each is the statement `padicValRat p (bsdDefect E) = 0` under the source's hypotheses. The
-residual and local hypotheses (irreducibility of `E[p]`, reduction types, ramification of
-`E[p]` at an auxiliary prime, `E(ℚ_p)[p] = 0`) involve objects not yet in the libraries and are
-spelled out in the roadmap document; they are not replaced by `Prop` placeholders here. -/
+residual and local hypotheses use geometric torsion points, inertia and reduction data.
+Their named signatures appear below, after the signed-cohomology section supplies the
+coefficient carrier. The reader states the full source ranges. -/
 
 end WeierstrassCurve
 
@@ -841,23 +869,330 @@ example (y : (E⁄K).toAffine.Point) (hy : addOrderOf y = 0)
 
 end HeegnerIndex
 
-/-! ## BSD.6a — the supersingular BSTW two-variable zeta element (unresolved prototype)
+/-! ## BSD.6a — signed BSTW classes and genuine arithmetic carriers
 
-The carrier of `Z^•(E/L)` — the two-variable Iwasawa cohomology `H¹_{rel,∘}(𝓞_L[1/p], T(1) ⊗̂ Λ_L)`
-with signed local conditions (SelmerIwasawaCohomology L3, PadicHodgeRegulators L4) — is not in
-the pinned libraries, and an abstract stand-in would make the reciprocity statements false for
-arbitrary data. The planned declarations are therefore recorded here by name only, with their
-statements in the corrected packet (BSD.6a/bstw-two-variable-zeta-element). BSTW Theorem1.14
-uses `Col_v` and `Log_v̄`, with different primes. Ordinary zeta elements are imported from the
-Kato supplier, and the CM-family input belongs to PadicFamilies L4.
-The six API names and four tests below are comments, not Lean declarations or examples.
-PROTOCOL §13 remains unmet for this construction; the review marks BSD.6a partial:
-
-* `TauCeti.BSD.bstwZetaElement`, `TauCeti.BSD.bstwZetaElement_ne_zero`,
-  `TauCeti.BSD.bstwZetaElement_col`, `TauCeti.BSD.bstwZetaElement_log`,
-  `TauCeti.BSD.bstwZetaElement_cyclotomic`, `TauCeti.BSD.bstwZetaElement_twist`;
-* tests `TauCeti.BSD.bstwZetaElement_ne_zero_test`, `TauCeti.BSD.bstwZetaElement_cyclotomic_test`,
-  `TauCeti.BSD.bstwZetaElement_requires_split`, `TauCeti.BSD.bstwZetaElement_reciprocity_square`.
+Supplier fixtures below import the continuous cochain carrier already at the pin, the Tate
+module now in current Tau Ceti, and SIC L3 / PHR L4's tower and local maps. They do not define
+a class by prescribing its analytic images. The zeta construction and its reciprocity laws
+are separate declarations. BSTW §§2.2.4–2.2.5 uses cohomological `T_g` with determinant
+χ_cyc⁻¹. The R29.4 modular comparison and polarization identify `T_g(1)` with `V_pE`.
+Its integral lattice index and primitive bases are a separate normalization obligation
+(6.26(ii)); our geometric coefficient is `T_pE`, not `T_pE(1)`.
 -/
+
+open scoped NumberField WeierstrassCurve
+
+abbrev Qbar := AlgebraicClosure ℚ
+abbrev GalQ := Qbar ≃ₐ[ℚ] Qbar
+local instance : DecidableEq Qbar := Classical.decEq _
+
+/-- Pin-compatible spelling of current Tau Ceti's elliptic Tate module, imported from
+EllipticCurves Layer 2. Each coordinate is an actual geometric torsion point. -/
+def EllipticTate (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : Type :=
+  {x : ℕ → (E⁄Qbar).toAffine.Point //
+    ∀ n, p ^ n • x n = 0 ∧ p • x (n + 1) = x n}
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : AddCommGroup (EllipticTate E p) := by sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) [Fact p.Prime] :
+    Module ℤ_[p] (EllipticTate E p) := by sorry
+/-- Product of the discrete finite torsion-level topologies, restricted to the inverse limit. -/
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) : TopologicalSpace (EllipticTate E p) := by sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) :
+    IsTopologicalAddGroup (EllipticTate E p) := by sorry
+
+/-- SIC L3's diagonal cofinal tower: the compositum of the nth cyclotomic and
+anticyclotomic layers over K, embedded in the fixed algebraic closure of Q. -/
+def twoVariableLayer (K : Type) [Field K] [NumberField K] (p n : ℕ) :
+    IntermediateField ℚ Qbar := sorry
+
+abbrev globalGroup (K : Type) [Field K] [NumberField K] (p n : ℕ) :=
+  (twoVariableLayer K p n).fixingSubgroup
+
+/-- An actual pair of distinct primes, not two names for the same local condition. -/
+structure SplitPrimeData (K : Type) [Field K] [NumberField K] (p : ℕ) where
+  v : Ideal (𝓞 K)
+  vbar : Ideal (𝓞 K)
+  prime_v : v.IsPrime
+  prime_vbar : vbar.IsPrime
+  distinct : v ≠ vbar
+  factorization : Ideal.span {(p : 𝓞 K)} = v * vbar
+
+inductive SignedSign | plus | minus
+  deriving DecidableEq
+
+/-- PHR L4/SIC L3 interface: decomposition group of the prime above w chosen by the
+fixed p-adic embedding and its conjugate, at the nth finite layer. -/
+def localGroup (K : Type) [Field K] [NumberField K] (p n : ℕ)
+    (w : Ideal (𝓞 K)) : Subgroup GalQ := sorry
+
+/-- Coordinatewise Galois action, restricted along the subgroup inclusion. -/
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) (G : Subgroup GalQ) :
+    DistribMulAction G (EllipticTate E p) := by sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) (G : Subgroup GalQ) :
+    ContinuousSMul G (EllipticTate E p) := by sorry
+
+abbrev finiteH1 (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p n : ℕ) :=
+  TauCeti.ContCohomology.H1 (globalGroup K p n) (EllipticTate E p)
+abbrev localH1 (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p n : ℕ) (w : Ideal (𝓞 K)) :=
+  TauCeti.ContCohomology.H1 (localGroup K p n w) (EllipticTate E p)
+
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (K : Type) [Field K] [NumberField K]
+    (p n : ℕ) [Fact p.Prime] : Module ℤ_[p] (finiteH1 E K p n) := by sorry
+instance (E : WeierstrassCurve ℚ) [E.IsElliptic] (K : Type) [Field K] [NumberField K]
+    (p n : ℕ) [Fact p.Prime] (w : Ideal (𝓞 K)) :
+    Module ℤ_[p] (localH1 E K p n w) := by sorry
+
+/-- Imported corestriction, including the fixed coefficient-lattice identification. -/
+def corestriction (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p n : ℕ) [Fact p.Prime] :
+    finiteH1 E K p (n + 1) →ₗ[ℤ_[p]] finiteH1 E K p n := sorry
+
+def localCorestriction (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p n : ℕ) [Fact p.Prime]
+    (w : Ideal (𝓞 K)) : localH1 E K p (n + 1) w →ₗ[ℤ_[p]] localH1 E K p n w := sorry
+
+/-- Continuous H¹, with corestriction-compatible coordinates. -/
+def IwasawaH1 (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p : ℕ) [Fact p.Prime] :
+    Submodule ℤ_[p] (∀ n, finiteH1 E K p n) where
+  carrier := {x | ∀ n, corestriction E K p n (x (n + 1)) = x n}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+def LocalIwasawaH1 (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p : ℕ) [Fact p.Prime] (w : Ideal (𝓞 K)) :
+    Submodule ℤ_[p] (∀ n, localH1 E K p n w) where
+  carrier := {x | ∀ n, localCorestriction E K p n w (x (n + 1)) = x n}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+/-- Chosen cyclotomic and anticyclotomic generators identify the completed group algebra
+with this power-series ring. R₀ = W(F̄_p) is the completed maximal unramified coefficient ring. -/
+abbrev Lambda2 (p : ℕ) [Fact p.Prime] := MvPowerSeries (Fin 2) ℤ_[p]
+abbrev R0 (p : ℕ) [Fact p.Prime] := WittVector p (AlgebraicClosure (ZMod p))
+abbrev Lambda2ur (p : ℕ) [Fact p.Prime] := MvPowerSeries (Fin 2) (R0 p)
+
+variable (E : WeierstrassCurve ℚ) [E.IsElliptic]
+variable (K : Type) [Field K] [NumberField K] [DecidableEq K]
+variable (p : ℕ) [Fact p.Prime]
+
+instance : Module (Lambda2 p) (IwasawaH1 E K p) := by sorry
+instance (w : Ideal (𝓞 K)) : Module (Lambda2 p) (LocalIwasawaH1 E K p w) := by sorry
+instance : IsScalarTower ℤ_[p] (Lambda2 p) (IwasawaH1 E K p) := by sorry
+instance (w : Ideal (𝓞 K)) : IsScalarTower ℤ_[p] (Lambda2 p) (LocalIwasawaH1 E K p w) := by sorry
+
+/-- Restriction at finite levels, descended to the inverse limit. -/
+def localization (w : Ideal (𝓞 K)) :
+    IwasawaH1 E K p →ₗ[Lambda2 p] LocalIwasawaH1 E K p w := sorry
+/-- Unramified local conditions away from p, from SIC L3. -/
+def unramifiedAwayP : Submodule (Lambda2 p) (IwasawaH1 E K p) := sorry
+/-- Kernel of the signed Coleman map at the conjugate prime, from PHR L4. -/
+def signedLocalCondition (s : SignedSign) (w : Ideal (𝓞 K)) :
+    Submodule (Lambda2 p) (LocalIwasawaH1 E K p w) := sorry
+
+def RelaxedSignedH1 (S : SplitPrimeData K p) (s : SignedSign) :
+    Submodule (Lambda2 p) (IwasawaH1 E K p) :=
+  unramifiedAwayP E K p ⊓
+    (signedLocalCondition E K p s S.vbar).comap (localization E K p S.vbar)
+
+/-- The first regulator is defined on all local H¹ at v. -/
+def signedColeman (S : SplitPrimeData K p) (s : SignedSign) :
+    LocalIwasawaH1 E K p S.v →ₗ[Lambda2 p] Lambda2 p := sorry
+/-- The second regulator has the signed local domain at vbar and unramified coefficients.
+The coefficient extension is encoded as a Zp-linear map here. -/
+instance : Module ℤ_[p] (Lambda2ur p) := by sorry
+def signedLogarithm (S : SplitPrimeData K p) (s : SignedSign) :
+    signedLocalCondition E K p s S.vbar →ₗ[ℤ_[p]] Lambda2ur p := sorry
+
+def signedLocalization (S : SplitPrimeData K p) (s : SignedSign) :
+    RelaxedSignedH1 E K p S s →ₗ[ℤ_[p]] signedLocalCondition E K p s S.vbar := sorry
+
+/-- Analytic owner APL L3: the signed Rankin measure, independently constructed. -/
+def signedRankinL (E : WeierstrassCurve ℚ) (S : SplitPrimeData K p) (s : SignedSign) : Lambda2 p := sorry
+/-- Analytic owner APL L3: the Greenberg Rankin measure, independently constructed.
+Its BDP projection is a different export. -/
+def greenbergRankinL (E : WeierstrassCurve ℚ) (S : SplitPrimeData K p) : Lambda2ur p := sorry
+
+/-- Arithmetic hypotheses of BSTW1.14/§6, without a reciprocity-law assumption. -/
+structure SignedBSTWHypotheses (S : SplitPrimeData K p) : Prop where
+  odd : 2 < p
+  good : ¬ p ∣ E.conductor
+  trace_zero : E.LFunction p = 0
+  coprime : IsCoprime (NumberField.discr K) E.conductor
+  van : Submodule.torsionBy ℤ (E⁄K).toAffine.Point (p : ℤ) = ⊥
+
+variable (S : SplitPrimeData K p) (s : SignedSign) (h : SignedBSTWHypotheses E K p S)
+
+/-- BSD.6a/bstw-two-variable-zeta-element: the signed construction of BSTW §6. -/
+def bstwZetaElement [Algebra.IsQuadraticExtension ℚ K] [NumberField.IsTotallyComplex K]
+    (h : SignedBSTWHypotheses E K p S) : RelaxedSignedH1 E K p S s := sorry
+
+variable [Algebra.IsQuadraticExtension ℚ K] [NumberField.IsTotallyComplex K]
+
+theorem bstwZetaElement_ne_zero : bstwZetaElement E K p S s h ≠ 0 := by sorry
+
+theorem bstwZetaElement_col :
+    signedColeman E K p S s
+      (localization E K p S.v (bstwZetaElement E K p S s h).val) =
+      signedRankinL K p E S s := by sorry
+
+theorem bstwZetaElement_log :
+    signedLogarithm E K p S s
+      (signedLocalization E K p S s (bstwZetaElement E K p S s h)) =
+      greenbergRankinL K p E S := by sorry
+
+/-- The cyclotomic coefficient quotient (set the anticyclotomic variable to zero). -/
+abbrev LambdaCyc (p : ℕ) [Fact p.Prime] := PowerSeries ℤ_[p]
+/-- SIC L3's cyclotomic tower over K, embedded in Qbar. -/
+def cyclotomicLayer (K : Type) [Field K] [NumberField K] (p n : ℕ) :
+    IntermediateField ℚ Qbar := sorry
+abbrev cyclotomicFiniteH1 (E : WeierstrassCurve ℚ) [E.IsElliptic]
+    (K : Type) [Field K] [NumberField K] (p n : ℕ) :=
+  TauCeti.ContCohomology.H1 (cyclotomicLayer K p n).fixingSubgroup (EllipticTate E p)
+instance (n : ℕ) : Module ℤ_[p] (cyclotomicFiniteH1 E K p n) := by sorry
+def cyclotomicCorestriction (n : ℕ) :
+    cyclotomicFiniteH1 E K p (n + 1) →ₗ[ℤ_[p]] cyclotomicFiniteH1 E K p n := sorry
+/-- Actual continuous cohomology in the cyclotomic tower. Identification with a coefficient
+quotient is a control theorem with Tor hypotheses, not the definition of this group. -/
+def CyclotomicH1 : Submodule ℤ_[p] (∀ n, cyclotomicFiniteH1 E K p n) where
+  carrier := {x | ∀ n, cyclotomicCorestriction E K p n (x (n + 1)) = x n}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+/-- Rational coefficients are essential in BSTW6.26(i). -/
+abbrev RationalCyclotomicH1 := ℚ_[p] ⊗[ℤ_[p]] CyclotomicH1 E K p
+
+def cyclotomicProjection : IwasawaH1 E K p →ₗ[ℤ_[p]] CyclotomicH1 E K p := sorry
+/-- BSTW3.3's combination of the two Beilinson–Kato classes z_g and z_(g⊗χ_K),
+with the chosen differential/Betti bases and the factor c^s g(χ_K)^(-1) of 6.26.
+This is a supplied Kato construction, not the projection of bstwZetaElement by definition. -/
+def normalizedKatoCombination (s : SignedSign) : RationalCyclotomicH1 E K p := sorry
+
+theorem bstwZetaElement_cyclotomic :
+    (1 : ℚ_[p]) ⊗ₜ[ℤ_[p]]
+      cyclotomicProjection E K p (bstwZetaElement E K p S s h).val =
+      normalizedKatoCombination E K p s := by sorry
+
+/-- Compatibility with the same-field quadratic eigenspace projection. The target and map
+are the actual eigenspaces under Shapiro (SIC L3); no unrelated-field morphism is asserted. -/
+def quadraticCharacterProjection (ε : ℤˣ) :
+    RationalCyclotomicH1 E K p →ₗ[ℚ_[p]] RationalCyclotomicH1 E K p := sorry
+
+theorem bstwZetaElement_twist (ε : ℤˣ) :
+    quadraticCharacterProjection E K p ε
+      ((1 : ℚ_[p]) ⊗ₜ[ℤ_[p]]
+        cyclotomicProjection E K p (bstwZetaElement E K p S s h).val) =
+      quadraticCharacterProjection E K p ε (normalizedKatoCombination E K p s) := by sorry
+
+/-- Test TauCeti.BSD.bstwZetaElement_ne_zero_test. -/
+example : bstwZetaElement E K p S s h ≠ 0 := by sorry
+
+/-- Test TauCeti.BSD.bstwZetaElement_cyclotomic_test: the same-field character projections
+of 6.26 identify a combination of the two Kato classes, not either class alone. -/
+example (ε : ℤˣ) :
+    quadraticCharacterProjection E K p ε
+      ((1 : ℚ_[p]) ⊗ₜ[ℤ_[p]]
+        cyclotomicProjection E K p (bstwZetaElement E K p S s h).val) =
+      quadraticCharacterProjection E K p ε (normalizedKatoCombination E K p s) := by sorry
+
+/-- Test TauCeti.BSD.bstwZetaElement_requires_split: a repeated prime cannot serve as
+both places of the source construction. -/
+example (w : Ideal (𝓞 K)) (hw : S.v = w) : S.vbar ≠ w := by sorry
+
+/-- Test TauCeti.BSD.bstwZetaElement_reciprocity_square: independent constant terms
+specialize the Coleman law at v and the logarithm law at vbar. -/
+example :
+    MvPowerSeries.constantCoeff
+      (signedColeman E K p S s
+        (localization E K p S.v (bstwZetaElement E K p S s h).val)) =
+      MvPowerSeries.constantCoeff (signedRankinL K p E S s) ∧
+    MvPowerSeries.constantCoeff
+      (signedLogarithm E K p S s
+        (signedLocalization E K p S s (bstwZetaElement E K p S s h))) =
+      MvPowerSeries.constantCoeff (greenbergRankinL K p E S) := by sorry
+
+end TauCeti.BSD
+
+/-! ## Named BSD.6 endpoints against geometric residual representations
+
+These imported interfaces belong to ArithmeticGaloisRepresentations R01.1/R01.3 and
+EllipticCurves Layer 2. They are not extra definitions owned by this roadmap. The
+residual carrier consists of actual geometric p-torsion points. Squarefree conductor
+expresses semistability over Q; conductor valuation one expresses multiplicative
+reduction. The BSTW signatures below give the semistable specialization; the reader
+also specifies its ordinary-support twist range. -/
+namespace TauCeti.BSD
+
+open WeierstrassCurve
+local instance : DecidableEq Qbar := Classical.decEq _
+local instance (p : ℕ) [Fact p.Prime] : DecidableEq ℚ_[p] := Classical.decEq _
+variable (E : WeierstrassCurve ℚ) [E.IsElliptic] (p : ℕ) [Fact p.Prime]
+
+/-- Imported elliptic p-torsion subgroup. -/
+def residualPoints : AddSubgroup (E⁄Qbar).toAffine.Point where
+  carrier := {P | p • P = 0}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  neg_mem' := by sorry
+instance : Module (ZMod p) (residualPoints E p) := by sorry
+/-- Imported coordinatewise action on E[p]. -/
+def residualAction : GalQ →* (residualPoints E p ≃ₗ[ZMod p] residualPoints E p) := sorry
+/-- Imported inertia at q, for a fixed embedding of Qbar into Qbar_q. -/
+def residualInertia (q : ℕ) : Subgroup GalQ := sorry
+
+/-- Imported irreducibility predicate: no proper nonzero Galois-stable linear subspace. -/
+abbrev residualIrreducible : Prop :=
+  ∀ W : Submodule (ZMod p) (residualPoints E p),
+    (∀ σ : GalQ, ∀ x ∈ W, residualAction E p σ x ∈ W) → W = ⊥ ∨ W = ⊤
+
+/-- BSD.6/rank-zero-ordinary-multiplicative-p-part, Skinner Theorem C. -/
+theorem rankZero_ordinary_multiplicative_p_part
+    (hp : 3 ≤ p) (hgood : (¬ p ∣ E.conductor ∧ ¬ (p : ℤ) ∣ E.LFunction p) ∨
+      (p ∣ E.conductor ∧ ¬ p ^ 2 ∣ E.conductor))
+    (hirr : residualIrreducible E p)
+    (hq : ∃ q : ℕ, q.Prime ∧ q ≠ p ∧ q ∣ E.conductor ∧ ¬ q ^ 2 ∣ E.conductor ∧
+      ∃ σ : residualInertia q, residualAction E p σ.val ≠ 1)
+    (hL : E.ellipticL 1 ≠ 0) : padicValRat p E.bsdDefect = 0 := by sorry
+
+/-- BSD.6/rank-zero-supersingular-p-part: BSTW1.5, semistable r=0 specialization. -/
+theorem rankZero_supersingular_p_part (hp : 2 < p) (hss : Squarefree E.conductor)
+    (hgood : ¬ p ∣ E.conductor) (hap : E.LFunction p = 0)
+    (hL : E.analyticRank = 0) : padicValRat p E.bsdDefect = 0 := by sorry
+
+/-- BSD.6/jsw-lower-bound: the lower bound for Sha gives nonpositive defect valuation. -/
+theorem jsw_lower_bound (hp : 3 ≤ p) (hss : Squarefree E.conductor)
+    (hgood : ¬ p ∣ E.conductor) (hirr : residualIrreducible E p)
+    (hap : p = 3 → (p : ℤ) ∣ E.LFunction p → E.LFunction p = 0)
+    (hrank : E.analyticRank = 1) : padicValRat p E.bsdDefect ≤ 0 := by sorry
+
+/-- BSD.6/jsw-upper-bound: the upper bound for Sha gives nonnegative defect valuation. -/
+theorem jsw_upper_bound (hp : 3 ≤ p) (hss : Squarefree E.conductor)
+    (hgood : ¬ p ∣ E.conductor) (hirr : residualIrreducible E p)
+    (hap : p = 3 → (p : ℤ) ∣ E.LFunction p → E.LFunction p = 0)
+    (hrank : E.analyticRank = 1) : 0 ≤ padicValRat p E.bsdDefect := by sorry
+
+/-- BSD.6/jsw-rank-one-p-part, JSW Theorem1.2.1. -/
+theorem jsw_rankOne_p_part (hp : 3 ≤ p) (hss : Squarefree E.conductor)
+    (hgood : ¬ p ∣ E.conductor) (hirr : residualIrreducible E p)
+    (hap : p = 3 → (p : ℤ) ∣ E.LFunction p → E.LFunction p = 0)
+    (hrank : E.analyticRank = 1) : padicValRat p E.bsdDefect = 0 := by sorry
+
+/-- BSD.6/bstw-rank-one-p-part: BSTW1.5, semistable r=1 specialization. -/
+theorem bstw_rankOne_p_part (hp : 2 < p) (hss : Squarefree E.conductor)
+    (hgood : ¬ p ∣ E.conductor) (hap : E.LFunction p = 0)
+    (hrank : E.analyticRank = 1) : padicValRat p E.bsdDefect = 0 := by sorry
+
+/-- BSD.6/castella-multiplicative-rank-one-p-part: erratum Theorem A'.
+Nonsplit multiplicative q has a_q=-1. No global semistability is assumed. -/
+theorem castella_multiplicative_rankOne_p_part (hp : 3 < p)
+    (hmult : p ∣ E.conductor ∧ ¬ p ^ 2 ∣ E.conductor)
+    (hirr : residualIrreducible E p)
+    (hq : ∃ q : ℕ, q.Prime ∧ q ≠ p ∧ q ∣ E.conductor ∧ ¬ q ^ 2 ∣ E.conductor ∧
+      E.LFunction q = -1 ∧ ∃ σ : residualInertia q, residualAction E p σ.val ≠ 1)
+    (htors : ∀ P : (E⁄ℚ_[p]).toAffine.Point, p • P = 0 → P = 0)
+    (hrank : E.analyticRank = 1) : padicValRat p E.bsdDefect = 0 := by sorry
 
 end TauCeti.BSD
