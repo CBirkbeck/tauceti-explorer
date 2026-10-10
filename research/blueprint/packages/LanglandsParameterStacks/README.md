@@ -207,7 +207,9 @@ open and closed; that assertion belongs to LP1.2.
 For a continuous cocycle on a topological group with compact wild subgroup
 and T₁ target, `finiteWild_iff_finite_range` identifies an open wild cocycle
 kernel with a finite image on that subgroup. An open subgroup has finite
-index in a compact group, and the cocycle is constant on its right cosets.
+index in a compact group, and the cocycle is constant on its left cosets xU.
+The cocycle kernel is a subgroup even for a nontrivial action; neither
+normality of P nor triviality of the action on P is needed for this comparison.
 Conversely, continuity into a finite subspace of a T₁ space makes the fibre
 of the identity open. This is the topological comparison used by
 `wild_finite_image`. The pro-p and ℓ-adic coefficient argument is still
@@ -225,9 +227,14 @@ alone does not prove that assertion.
 - The unit cocycle for C₂ acting by negation on the additive group ℤ kills
   the whole source, but that action does not factor through the trivial
   quotient. Dropping the action-kernel hypothesis is therefore invalid.
-- The finite-image equivalence uses compactness of the wild subgroup,
-  continuity of the cocycle and T₁ separation. It imposes no finiteness
-  condition on the image of geometric Frobenius.
+- The finite-image equivalence applies to every compact subgroup, including
+  nonnormal subgroups and nontrivial actions, with a continuous cocycle and
+  T₁ target. It imposes no finiteness condition on geometric Frobenius.
+- For the identity cocycle of the discrete group ℤ, the kernel {0} is open
+  but the image is infinite. Compactness cannot be dropped.
+- For the identity cocycle of C₂ with indiscrete topology on both groups,
+  the image is finite and the cocycle is continuous, but its kernel is not
+  open. T₁ separation cannot be dropped.
 
 
 The API should provide:
