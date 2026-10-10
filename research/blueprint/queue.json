@@ -46707,8 +46707,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -46801,7 +46801,8 @@
    ],
    "revisionOf": "PKG-AutomorphicBundles",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7890"
   },
   {
    "id": "REV-PKG-AutomorphicBundles~2",
@@ -48151,8 +48152,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48222,8 +48223,9 @@
     "PKG-GeneralizedHeegnerCycles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GeneralizedHeegnerCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7930"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7930",
+   "finishedAt": "2026-10-10T01:28:09Z"
   },
   {
    "id": "PKG-GenericDoublePointInterpolation",
@@ -48758,7 +48760,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HilbertModularVarietiesAndShimuraCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7906"
   },
   {
    "id": "REV-PKG-HilbertModularVarietiesAndShimuraCurves",
@@ -48801,8 +48804,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -79984,8 +79987,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81293,8 +81296,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
