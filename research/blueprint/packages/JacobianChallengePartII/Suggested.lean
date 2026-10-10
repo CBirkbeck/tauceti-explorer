@@ -2,6 +2,9 @@ import Mathlib.AlgebraicGeometry.Group.Abelian
 import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
 import Mathlib.CategoryTheory.Limits.Shapes.FiniteProducts
 import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
+import Mathlib.CategoryTheory.Limits.Preserves.Shapes.BinaryProducts
+import Mathlib.AlgebraicGeometry.Morphisms.Flat
+import Mathlib.AlgebraicGeometry.Morphisms.FinitePresentation
 
 /-!
 # Relative Jacobians: suggested interfaces
@@ -10,14 +13,21 @@ This file is not the roadmap and is not exhaustive. README.md is definitive.
 The statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. Every proof here is intentionally admitted.
 
-The represented-point triangular coordinate equivalence and its representing
-fibre-power scheme isomorphism have native signatures.
-The remaining geometric targets are recorded below with their mathematical
-contracts, API and tests. Their relative Picard, abelian-scheme, duality and
-algebraic-equivalence types cannot yet be expressed at the pinned baseline.
-Those contracts are omitted from executable declarations under the roadmap's
-prototyping convention. Elaborating this file checks only the native portion;
-it does not check the omitted geometric signatures.
+The JC5 coordinate constructions use native schemes, group objects and fibre
+products. JC5.2 takes the earlier canonical Abel morphism as a typed input;
+JC5.3 takes the earlier section-free difference morphism; JC5.4 takes both.
+JC5.5 represents the triangular coordinate equivalence by a scheme isomorphism.
+JC5.6 states the coordinate factorization given the earlier Abel-difference
+identity and transfers native morphism properties of integer multiplication.
+
+The identification of these inputs with the geometric constructions of JC2
+and JC5.1, and the supplier's multiplication theorem, remain required. Their
+relative Picard and abelian-scheme types cannot yet be expressed at the pinned
+baseline. The full geometric contracts, API and tests remain recorded below;
+the other targets also require duality and algebraic-equivalence interfaces.
+Those unavailable signatures are omitted under the prototyping convention.
+Elaborating this file checks the native portion and its explicit hypotheses;
+it does not check the omitted geometric signatures or prove the admitted laws.
 -/
 
 -- JC5.5: Yuan, Theorem 4.17(5), proof p. 99 (21 August 2024 manuscript).
@@ -135,6 +145,268 @@ example (n : ℕ) (f : T ⟶ A) :
   sorry
 
 end TriangularCoordinateEquivalence
+end RelativeJacobian
+
+/-!
+JC5.2–JC5.4. The inputs c = i_ω and d = j come from JC5.1 and JC2.6;
+no relative Picard or abelian-scheme construction is repeated here.
+Yuan, Theorem 2.10(3), p. 37; §4.6.2, pp. 98–99 (21 August 2024 manuscript).
+The explicit coordinate definitions also appear in arXiv:2108.05625v4,
+§4.6.2, pp. 96–98 (30 April 2024). DGH arXiv:2001.10276v3, §6.1, p. 25.
+-/
+
+namespace RelativeJacobian
+universe u
+variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
+
+/-- JC5.2, using the canonical Abel morphism from JC5.1. -/
+def UniversalShift (canonicalAbel : X ⟶ A) : A ⨯ X ⟶ A ⨯ A :=
+  prod.lift prod.fst (prod.fst * (prod.snd ≫ canonicalAbel))
+
+namespace UniversalShift
+lemma value (c : X ⟶ A) (y : T ⟶ A) (x : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift c = prod.lift y (y * (x ≫ c)) := by
+  sorry
+lemma overJ (c : X ⟶ A) : UniversalShift c ≫ prod.fst = prod.fst := by
+  sorry
+lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (c : X ⟶ A) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (UniversalShift c) ≫
+        (PreservesLimitPair.iso (Over.pullback f) A A).hom =
+      (PreservesLimitPair.iso (Over.pullback f) A X).hom ≫
+        UniversalShift ((Over.pullback f).map c) := by
+  sorry
+-- test_zeroShift
+example (c : X ⟶ A) (x : T ⟶ X) :
+    prod.lift (1 : T ⟶ A) x ≫ UniversalShift c =
+      prod.lift (1 : T ⟶ A) (x ≫ c) := by
+  sorry
+-- The geometric test_genusOne requires the canonical-bundle identification.
+-- Its expressible group-law consequence: zero canonical Abel gives a diagonal shift.
+example (y : T ⟶ A) (x : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift (1 : X ⟶ A) = prod.lift y y := by
+  sorry
+-- test_firstCoordinate
+example (c : X ⟶ A) (y : T ⟶ A) (x x' : T ⟶ X) :
+    prod.lift y x ≫ UniversalShift c ≫ prod.fst =
+      prod.lift y x' ≫ UniversalShift c ≫ prod.fst := by
+  sorry
+end UniversalShift
+
+/-- JC5.3, using the section-free difference morphism from JC2.6. -/
+def FaltingsZhang (m : ℕ) (difference : X ⨯ X ⟶ A) :
+    (∏ᶜ fun _ : Fin (m + 1) ↦ X) ⟶ (∏ᶜ fun _ : Fin m ↦ A) :=
+  Pi.lift (fun i ↦ prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
+    (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ difference)
+
+namespace FaltingsZhang
+lemma coordinate (m : ℕ) (d : X ⨯ X ⟶ A) (i : Fin m) :
+    FaltingsZhang m d ≫ Pi.π (fun _ : Fin m ↦ A) i =
+      prod.lift (Pi.π (fun _ : Fin (m + 1) ↦ X) 0)
+        (Pi.π (fun _ : Fin (m + 1) ↦ X) i.succ) ≫ d := by
+  sorry
+lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (m : ℕ) (d : X ⨯ X ⟶ A) :
+    (Over.pullback f).map (FaltingsZhang m d) ≫
+        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin m ↦ A)).hom =
+      (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (m + 1) ↦ X)).hom ≫
+        FaltingsZhang m
+          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
+  sorry
+/-- The degree-one pointed comparison is an equality of actual scheme morphisms. -/
+lemma pointed (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
+    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
+    (P : ⊤_ (Over S) ⟶ X) (hP : P ≫ abel = 1) (x : Fin m → (T ⟶ X)) :
+    Pi.lift (Fin.cases (terminal.from T ≫ P) x) ≫ FaltingsZhang m d =
+      Pi.lift (fun i ↦ x i ≫ abel) := by
+  sorry
+lemma proper (m : ℕ) (d : X ⨯ X ⟶ A)
+    [IsProper (piObj (fun _ : Fin (m + 1) ↦ X)).hom]
+    [IsSeparated (piObj (fun _ : Fin m ↦ A)).hom] :
+    IsProper (FaltingsZhang m d).left := by
+  sorry
+-- test_one
+example (d : X ⨯ X ⟶ A) (x₀ x₁ : T ⟶ X) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₀ else x₁) ≫
+        FaltingsZhang 1 d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
+      prod.lift x₀ x₁ ≫ d := by
+  sorry
+-- test_diagonal, using the diagonal-zero law of the supplied difference morphism.
+example (m : ℕ) (d : X ⨯ X ⟶ A)
+    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) :
+    Pi.lift (fun _ : Fin (m + 1) ↦ x) ≫ FaltingsZhang m d =
+      Pi.lift (fun _ : Fin m ↦ (1 : T ⟶ A)) := by
+  sorry
+-- test_originChange, applied to each degree-one Abel morphism via JC2.6.pointed.
+example (m : ℕ) (d : X ⨯ X ⟶ A) (abel : X ⟶ A)
+    (hd : d = (prod.snd ≫ abel) / (prod.fst ≫ abel))
+    (x : Fin (m + 1) → (T ⟶ X)) :
+    Pi.lift x ≫ FaltingsZhang m d =
+      Pi.lift (fun i : Fin m ↦ (x i.succ ≫ abel) / (x 0 ≫ abel)) := by
+  sorry
+end FaltingsZhang
+
+/-- JC5.4, with m = n + 1 and the source order X^m × A. -/
+def ShiftedFaltingsZhang (n : ℕ) (canonicalAbel : X ⟶ A) (difference : X ⨯ X ⟶ A) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
+  Pi.lift (fun i ↦ if i = 0 then
+    ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ canonicalAbel) * prod.snd
+    else prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
+      (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ difference)
+
+namespace ShiftedFaltingsZhang
+lemma first (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
+    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) 0 =
+      ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0) ≫ c) * prod.snd := by
+  sorry
+lemma tail (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
+    (i : Fin (n + 1)) (hi : i ≠ 0) :
+    ShiftedFaltingsZhang n c d ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
+      prod.lift (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) 0)
+        (prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ d := by
+  sorry
+lemma baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ)
+    (c : X ⟶ A) (d : X ⨯ X ⟶ A) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (ShiftedFaltingsZhang n c d) ≫
+        (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
+      (PreservesLimitPair.iso (Over.pullback f) (piObj (fun _ : Fin (n + 1) ↦ X)) A).hom ≫
+        prod.map (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ X)).hom
+          (𝟙 ((Over.pullback f).obj A)) ≫
+        ShiftedFaltingsZhang n ((Over.pullback f).map c)
+          ((PreservesLimitPair.iso (Over.pullback f) X X).inv ≫ (Over.pullback f).map d) := by
+  sorry
+-- test_one
+example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin 1 ↦ x)) y ≫
+        ShiftedFaltingsZhang 0 c d ≫ Pi.π (fun _ : Fin 1 ↦ A) 0 =
+      (x ≫ c) * y := by
+  sorry
+-- test_sign
+example (c : X ⟶ A) (d : X ⨯ X ⟶ A) (x₁ x₂ : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun i : Fin 2 ↦ if i = 0 then x₁ else x₂)) y ≫
+        ShiftedFaltingsZhang 1 c d ≫ Pi.π (fun _ : Fin 2 ↦ A) 1 =
+      prod.lift x₁ x₂ ≫ d := by
+  sorry
+-- test_diagonal
+example (n : ℕ) (c : X ⟶ A) (d : X ⨯ X ⟶ A)
+    (hd : prod.lift (𝟙 X) (𝟙 X) ≫ d = 1) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin (n + 1) ↦ x)) y ≫ ShiftedFaltingsZhang n c d =
+      Pi.lift (fun i ↦ if i = 0 then (x ≫ c) * y else 1) := by
+  sorry
+end ShiftedFaltingsZhang
+end RelativeJacobian
+
+/-!
+JC5.6. The canonical Abel-difference identity is an input from JC2.2;
+finite locally free nonzero multiplication is imported from the A3 supplier.
+Yuan, proof of Theorem 4.17(5), p. 99 (21 August 2024 manuscript),
+and p. 98 in arXiv:2108.05625v4 (30 April 2024).
+-/
+
+namespace RelativeJacobian
+universe u
+variable {S : Scheme.{u}} {A X T : Over S} [GrpObj A]
+
+/-- JC5.6: the tuple of all shifted canonical Abel coordinates. -/
+def ShiftedCanonicalPower (n : ℕ) (c : X ⟶ A) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ X) ⨯ A ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
+  Pi.lift (fun i ↦ ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ c) * prod.snd)
+
+namespace ShiftedCanonicalPower
+lemma coordinate (n : ℕ) (c : X ⟶ A) (i : Fin (n + 1)) :
+    ShiftedCanonicalPower n c ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
+      ((prod.fst ≫ Pi.π (fun _ : Fin (n + 1) ↦ X) i) ≫ c) * prod.snd := by
+  sorry
+
+-- The single coordinate retains the canonical shift.
+example (c : X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin 1 ↦ x)) y ≫ ShiftedCanonicalPower 0 c ≫
+      Pi.π (fun _ : Fin 1 ↦ A) 0 = (x ≫ c) * y := by
+  sorry
+
+-- Zero translation gives the product of canonical Abel morphisms.
+example (n : ℕ) (c : X ⟶ A) (x : Fin (n + 1) → (T ⟶ X)) :
+    prod.lift (Pi.lift x) (1 : T ⟶ A) ≫ ShiftedCanonicalPower n c =
+      Pi.lift (fun i ↦ x i ≫ c) := by
+  sorry
+
+-- A diagonal source gives the same shifted image in every coordinate.
+example (n : ℕ) (c : X ⟶ A) (x : T ⟶ X) (y : T ⟶ A) :
+    prod.lift (Pi.lift (fun _ : Fin (n + 1) ↦ x)) y ≫ ShiftedCanonicalPower n c =
+      Pi.lift (fun _ ↦ (x ≫ c) * y) := by
+  sorry
+end ShiftedCanonicalPower
+
+/-- JC5.6: fix the head and apply the given integer multiplication to each tail. -/
+def TailMultiplication (n : ℕ) (e : ℤ) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ A) ⟶ (∏ᶜ fun _ : Fin (n + 1) ↦ A) :=
+  Pi.lift (fun i ↦ if i = 0 then Pi.π (fun _ : Fin (n + 1) ↦ A) 0
+    else Pi.π (fun _ : Fin (n + 1) ↦ A) i ^ e)
+
+namespace TailMultiplication
+lemma first (n : ℕ) (e : ℤ) :
+    TailMultiplication (A := A) n e ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) 0 =
+      Pi.π (fun _ : Fin (n + 1) ↦ A) 0 := by
+  sorry
+lemma tail (n : ℕ) (e : ℤ) (i : Fin (n + 1)) (hi : i ≠ 0) :
+    TailMultiplication (A := A) n e ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i =
+      Pi.π (fun _ : Fin (n + 1) ↦ A) i ^ e := by
+  sorry
+end TailMultiplication
+
+/-- The JC2 difference identity gives the JC5.6 equality as an S-morphism.
+In the geometric application e = 2g - 2 and c = i_ω. -/
+lemma shifted_power_factorization [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    (c : X ⟶ A) (d : X ⨯ X ⟶ A)
+    (hdegree : (prod.snd ≫ c) / (prod.fst ≫ c) = d ^ e) :
+    ShiftedCanonicalPower n c ≫ (TriangularCoordinateEquivalence.schemeIso (A := A) n).hom =
+      ShiftedFaltingsZhang n c d ≫ TailMultiplication (A := A) n e := by
+  sorry
+
+/-- Product stability transfers the supplier's finite multiplication theorem to D. -/
+lemma TailMultiplication.finite [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    [IsFinite (((𝟙 A) ^ e : A ⟶ A).left)] :
+    IsFinite (TailMultiplication (A := A) n e).left := by
+  sorry
+
+/-- The flatness part is transferred separately; it does not assert étaleness. -/
+lemma TailMultiplication.flat [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    [Flat (((𝟙 A) ^ e : A ⟶ A).left)] :
+    Flat (TailMultiplication (A := A) n e).left := by
+  sorry
+
+/-- Finite-presentation stability is needed alongside finiteness and flatness. -/
+lemma TailMultiplication.finitePresentation [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    [LocallyOfFinitePresentation (((𝟙 A) ^ e : A ⟶ A).left)] :
+    LocallyOfFinitePresentation (TailMultiplication (A := A) n e).left := by
+  sorry
+
+/-- Surjectivity of D imports surjectivity of the supplier's multiplication isogeny. -/
+lemma TailMultiplication.surjective [IsCommMonObj A] (n : ℕ) (e : ℤ)
+    [Surjective (((𝟙 A) ^ e : A ⟶ A).left)] :
+    Surjective (TailMultiplication (A := A) n e).left := by
+  sorry
+
+-- The m = 1 factorization has no tail isogeny.
+example (e : ℤ) : TailMultiplication (A := A) 0 e = 𝟙 _ := by
+  sorry
+
+-- The m = 2 tail keeps its positive integer scaling; it is not just the coordinate change.
+example (e : ℤ) (a b : T ⟶ A) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else b) ≫ TailMultiplication (A := A) 1 e =
+      Pi.lift (fun i : Fin 2 ↦ if i = 0 then a else b ^ e) := by
+  sorry
+
+-- Multiplication by one is identity on every factor.
+example (n : ℕ) : TailMultiplication (A := A) n 1 = 𝟙 _ := by
+  sorry
+
+-- Multiplication by zero collapses the tails, so no general isogeny theorem is asserted at e = 0.
+example (n : ℕ) (q : Fin (n + 1) → (T ⟶ A)) :
+    Pi.lift q ≫ TailMultiplication (A := A) n 0 =
+      Pi.lift (fun i ↦ if i = 0 then q 0 else 1) := by
+  sorry
+
 end RelativeJacobian
 
 /- GEOMETRIC INTERFACE JC0.1
@@ -412,7 +684,9 @@ For g>1, ω_{X/S} has relative degree 2g−2, so i_ω(x)=[(2g−2)Γ_x−ω_{X/S
 Hypotheses: README.md standing smooth-family conventions.
 -/
 
-/- GEOMETRIC INTERFACE JC5.2
+/- GEOMETRIC IDENTIFICATION JC5.2
+The native UniversalShift uses c = i_ω from JC5.1; its canonical identification
+and the genus-one canonical-bundle test require the earlier geometric interface.
 For g>1, τ:J×_S X→J×_S J is (y,x)↦(y,y+i_ω(x)); it is a morphism over the first J-factor and has no global-section hypothesis.
 Hypotheses: README.md standing smooth-family conventions.
 API RelativeJacobian.UniversalShift.value: τ(y,x)=(y,y+(2g−2)[x]−ω).
@@ -423,7 +697,9 @@ TEST RelativeJacobian.UniversalShift.test_genusOne: The asserted finite canonica
 TEST RelativeJacobian.UniversalShift.test_firstCoordinate: Changing x leaves the first coordinate y fixed on every test scheme.
 -/
 
-/- GEOMETRIC INTERFACE JC5.3
+/- GEOMETRIC IDENTIFICATION JC5.3
+The native FaltingsZhang uses d = j from JC2.6. The pointed and origin-change
+signatures explicitly assume the earlier Abel-difference comparison.
 For m≥1, FZ_m:X^{m+1}_S→J^m_S sends (x₀,…,x_m) to (j(x₀,x₁),…,j(x₀,x_m)). It is defined without a section and without a maximal-variation hypothesis.
 Hypotheses: README.md standing smooth-family conventions.
 API RelativeJacobian.FaltingsZhang.coordinate: The r-th coordinate is [x_r]−[x₀], for 1≤r≤m.
@@ -435,7 +711,9 @@ TEST RelativeJacobian.FaltingsZhang.test_diagonal: The small diagonal maps to th
 TEST RelativeJacobian.FaltingsZhang.test_originChange: With any degree-one α, all coordinates equal i_α(x_r)−i_α(x₀), independent of α.
 -/
 
-/- GEOMETRIC INTERFACE JC5.4
+/- GEOMETRIC IDENTIFICATION JC5.4
+The native ShiftedFaltingsZhang uses n + 1 = m, c = i_ω and d = j.
+Its source order is X^m × J and its tail differences are unscaled.
 For g>1 and m≥1, τ_m:X^m_S×_S J→J^m_S sends (x₁,…,x_m,y) to (i_ω(x₁)+y,j(x₁,x₂),…,j(x₁,x_m)). The source order, first shift and unscaled remaining differences are part of the definition.
 Hypotheses: README.md standing smooth-family conventions.
 API RelativeJacobian.ShiftedFaltingsZhang.first: The first coordinate is (2g−2)[x₁]−ω+y.
@@ -446,7 +724,10 @@ TEST RelativeJacobian.ShiftedFaltingsZhang.test_sign: For m=2 the second coordin
 TEST RelativeJacobian.ShiftedFaltingsZhang.test_diagonal: If all x_r=x₁, every tail coordinate is0 and the first remains i_ω(x₁)+y.
 -/
 
-/- GEOMETRIC INTERFACE JC5.6
+/- GEOMETRIC IDENTIFICATION JC5.6
+The native factorization assumes the JC2 identity for c = i_ω, d = j, e = 2g−2.
+The multiplication properties above are conditional transfers; the nonzero
+finite locally free isogeny theorem still comes from the abelian-scheme supplier.
 Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular change R on J^m, R∘B_m=D∘τ_m, where D fixes the first coordinate and multiplies each tail by 2g−2. This equality holds as S-morphisms; D is a finite locally free isogeny for g>1.
 Hypotheses: README.md standing smooth-family conventions.
 -/
