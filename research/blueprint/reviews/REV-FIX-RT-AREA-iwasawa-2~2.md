@@ -282,6 +282,74 @@ and queue or explicitly authorize the additional scoped reviews before
 redispatching. Repeating the two named receipts cannot complete the nine-file
 queue job.
 
+## Continuation: codex-ac6ca2, 10 October 2026
+
+This addition follows the codex-KFM47z checkpoint above. It does not refresh
+its receipts or relabel its audits as this session's work. Input atlas commit:
+`cabfe85ce2235d244e6c1f6f66e569f263ae6924`.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6094532065).
+This reviewer did none of the fixes under review.
+
+Re-read every original finding, verifier disposition and round-two fix. Fresh
+selected primary-source checks of Morita §1 pp.255–256, Gross–Koblitz §1
+pp.570–571, Zhao §1.2 p.461 and §4 pp.471–474, EN §§2.1–2.2 pp.4–8,
+CN §5.1.2 p.54, NN Remark 2.14 p.14 and Proposition 4.13 pp.53–54,
+and the DK locations listed above support the retained bounded dispositions.
+The downloaded PDF hashes match the preceding source tables. This is neither
+a fresh full-packet audit nor a fresh audit of the LAD or cyclotomic endpoint.
+No additional mathematical correction is claimed from those rereads.
+
+Two additional exact matrix controls check the DK correction without assuming
+invertibility, injectivity or a field:
+
+- **280 higher-adjugate preimage cases.** Over the integers and modulo
+  4, 6, 8 and 9, use rectangular matrices with m rows and m+2 columns,
+  1≤m≤4, four samples per size and every 0≤r≤m. Select m columns J,
+  form the complementary-minor adjugate with the packet's row/column
+  orientation, apply it to a vector, and extend by zero along J.
+  Direct compound-matrix multiplication returns det(A_J) times the vector
+  in every case. The explicit matrix ((1,2),(0,3)) sends the adjugate
+  preimage (−2,1) of (0,1) to (0,3). This retains the right-sided identity
+  needed in the corrected DK Lemma 3.9 argument, pp.25–26.
+- **108 rectangular block-minor ideal cases over the integers.** For
+  1≤n,p,m≤3 and four samples per triple, form the relation matrix
+  ((Ψ,−X),(0,φ)) with Ψ of size n×p and φ of size m×m.
+  The gcd of its maximal minors equals abs(det φ) times the gcd of the
+  n-minors of Ψ. Empty sets of maximal minors generate the zero ideal.
+  Singular lower blocks and deficient relation counts are included.
+  This checks the concrete block argument for DK Lemma 2.6, p.18.
+
+These are finite arithmetic diagnostics, not proofs of the general results.
+The sampling uses a Python random generator with seed 6219; preimage matrix
+and vector entries lie in [−4,4], block entries in [−3,3]. Determinants are
+computed by signed permutation sums, separately from the matrix products.
+All cases pass.
+
+A fresh direct `lean-check` of the original PMIA suggested file succeeds:
+1,075 `sorry` warnings, no other warnings and no errors. L3 and PMIA packet
+checkers report zero errors (L3 retains its 26 inherited short-API warnings).
+The earlier conditional L3 assembly and omitted-module elaborations remain
+credited to the preceding checkpoint; this session did not repeat them.
+Suggested files and mathematical packet data remain unchanged.
+
+Fresh current-main reads confirm the existing native-reuse objection.
+`TauCeti.fittingIdeal` requires finite generation, not finite presentation;
+`fittingIdeal_eq_minorsIdeal_ker` and
+`Submodule.minorsIdeal_ker_eq_of_surjective` use actual surjections from
+finite free modules. `Submodule.minorsIdeal_prod_top` shifts by the native
+finrank, so a fixed-size Fin n translation still needs the nontrivial-ring
+case split. The suggested migration must retain these hypotheses and its
+matrix adapters. No current-main declaration is assigned to the pinned build.
+
+**Still blocked on scope.** The live issue was fetched again after these
+checks and still lists five outputs. Its instructions and WORKERS.md permit
+no edits to the four omitted paths. Authorization was requested while useful
+read-only work continued; no response has arrived. The unaltered nine-output
+queue completion predicate remains False. No receipt refresh can resolve
+that mismatch. This checkpoint changes only this report and the handoff;
+it is not a completed review submission. The prepared L3-2 locator correction
+and scoped L3-2/D.1 receipts remain the exact next work after authorization.
+
 ## Retained prior L6 audit ledger
 
 Each node has prefix `PadicMeasuresIwasawaAlgebras:L6/`. The following ledger is retained from Codex session codex-KQjyXV's independent audit, not claimed as a new full audit by this continuation. Implementation remains unchecked.
