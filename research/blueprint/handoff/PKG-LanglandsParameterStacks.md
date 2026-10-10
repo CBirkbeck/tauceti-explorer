@@ -1,33 +1,75 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
-Issue: #7909. Worker: Codex (GPT-6), session `codex-kKj5K3`.
+Issue: #7909. Worker: Codex, session `codex-XDEuv3`.
 Date: 2026-10-10. The claim was confirmed by the swarm bot against comment
-6092865951. This continues the merged checkpoints #8167 and #8186.
+6093067320. This continues the merged checkpoints #8167, #8186 and #8197.
 
 ## Outcome
 
-This is a checkpoint, **not a completed package**. The continuation replaces
-LP2's arbitrary supplied ring diagram with the actual free-cocycle coordinate
-and scheme-invariant diagrams of a commutative Hopf coefficient model. Its
-excursion algebra is now a colimit in commutative **R-algebras**, with canonical
-group transport and a canonical comparison to the represented cocycle scheme.
-The submitted signatures elaborate with only `sorry` warnings. Compilation
-certifies neither proofs nor agreement with the still absent enhanced targets.
+This is a checkpoint, **not a completed package**. This continuation replaces
+LP0's arbitrary enhancement denominator with the actual invariant dual centre
+and gives the centre and quotient identifications, with their characteristic
+maps and required hypotheses. It corrects the ordinary wild-restriction and
+centralizer examples to use the framed lift p↦(1,p), and transports quotient
+representations under dual-group conjugation. The submitted signatures
+elaborate with only `sorry` warnings. This certifies their Lean forms, not their
+proofs or the still absent enhanced/condensed targets.
 
 The README retains all 79 targets, 140 accepted API items and 90 accepted
-definition/construction tests. New explanatory paragraphs spell out the word
-maps, scheme coactions, coefficient-algebra colimit and comparison. The
-accepted packet, original reader and original suggested file were not edited.
-No source passage, source file or section-by-section source summary is included.
+definition/construction tests. Its new paragraphs explain the intrinsic
+denominator, fixed-centre identification, trivial Weil-centre hypothesis and
+conjugation equations. The accepted packet, original reader and original
+suggested file were not edited. No source passage, source file or
+section-by-section source summary is included.
 
 `metadata.toml` remains absent: the queue uses existence of all output paths
 to detect package completion, and adding it would misclassify this checkpoint.
 When all required signatures are present, its content is `topic = "math.NT"`.
 
-## New interfaces and their characteristic equations
+## New LP0 group interfaces
 
-The new LP2 block follows `section FreeIndex`, before `section Pseudocharacters`
-in the package's Suggested.lean. It uses the existing imported convolution
+The new block follows `section TwistedCentralizer` in the package's
+Suggested.lean. It uses Mathlib's actual semidirect product, centres and group
+quotients. It plans no second reductive-group or admissible-parameter theory.
+
+- `WildEnhancement.standardWild` is `inr.comp P.subtype`; its projection is
+  the wild inclusion. With trivial P-action on H, its intrinsic twisted
+  centralizer is the entire L-group. A nonexample shows why the constant
+  homomorphism cannot replace this framed lift when P is nontrivial.
+- `invariantDualCenter` is precisely the subgroup of central h∈H satisfying
+  α(w)(h)=h for every w. `dualCenterEmbedding` maps it into the actual centre
+  of the twisted centralizer by h↦(h,1), with an injectivity statement.
+- `denominator` is that embedding's image, not a caller-selected subgroup.
+  `wildEnhancementGroup` is the centre modulo that image. `mk_eq_one` states
+  that a representative is killed exactly when its ambient value is (h,1)
+  for an invariant dual-centre element; `mk_dualCenter` is the forward case.
+- `dualCentralizer` is the subgroup of H whose embedded points commute with
+  ρ(P). `fixedCentralizerCenter` takes its centre and imposes commutation
+  with the extending φ(W). `centerEquiv` identifies the intrinsic centre
+  with this subgroup, assuming φ has the identity Weil projection, restricts
+  to ρ, and Z(W)=1. Its value equation fixes the identification h↦(h,1),
+  and `centerEquiv_denominator` fixes the denominator correspondence.
+- `wildEnhancementGroup.centerIdentification` descends that identification
+  to a quotient equivalence; its equation on `mk` fixes the descended map.
+- `conjugateWild`, `centralizerConjugateEquiv` and `centerConjugateEquiv`
+  are dual-group conjugations by (h,1). They fix the embedded invariant dual
+  centre, so `wildEnhancementGroup.conjugateEquiv` is defined on quotients,
+  with an equation on every centre representative. `transportRep` pulls a
+  quotient representation across the inverse equivalence.
+
+The enhancement examples test the trivial framed lift, annihilation of the
+invariant dual centre, and evaluation of a transported quotient representation.
+An additional example with H=1 and W=ℤ shows that triviality of the enhancement
+quotient fails without the trivial-Weil-centre hypothesis. These are admitted
+signature examples. The full accepted restriction and conjugation tests for
+representations from S_φ are **not yet supplied**: they require the actual
+complex admissible-parameter and algebraic identity-component carrier. Do not
+count the group-level examples as completing that interface.
+
+## Inherited LP2 work
+
+Checkpoint #8197 added the LP2 block following `section FreeIndex`, before
+`section Pseudocharacters` in the package's Suggested.lean. It uses the existing imported convolution
 group of Hopf points, and the previous checkpoint's algebraic action and affine
 cocycle equations. It introduces no replacement reductive-group model or
 second generic pseudocharacter theory.
@@ -69,7 +111,7 @@ trivial action. The existing C₂-negation and torus inversion tests retain the
 nontrivial-action checks. These are signatures with admitted proofs, not
 implemented mathematical tests.
 
-The new ordinary raw-colimit statement is the ordinary presentation argument
+The inherited ordinary raw-colimit statement is the ordinary presentation argument
 of FS §VIII.3.2, p.287. It does not assert the animated comparison of
 Proposition VIII.3.5, the equivariant IndPerf comparison of Theorem VIII.3.6,
 universal homeomorphism, invariant base change, or continuity. Those retain
@@ -126,7 +168,7 @@ packet and the README; symbol counts do not certify agreement.
 | Targets | Remaining work |
 | --- | --- |
 | LP0 condensed parameters | Actual relatively discrete coefficient functors, natural coefficient maps and finite-type module conditions; full matrix criterion and finite-wild existence/continuity signatures. The ordinary continuous LParameter remains a shadow. |
-| LP0 wild enhancements | Weil/L-group projection, finite wild image, canonical central identification, quotient representations, conjugacy transport, admissible complex extensions with SL₂ and restriction of enhancements. |
+| LP0 wild enhancements | The intrinsic quotient, canonical centre identification and quotient-representation conjugation now have group-level signatures. Still provide the actual admissible complex W_F×SL₂(C) carrier, finite wild image, S_φ with its algebraic identity-component denominator, restriction from S_φ and its naturality, and extended wild parameters. WildInertialParameter itself remains an ordinary extendibility shadow, without the admissibility or prescribed-projection condition. |
 | LP1 affine specialization | Specialize the existing affine equations to the owner dual-group Hopf algebra and finite-wild Weil presentation; actual condensed point comparison and the accepted `scheme_l_adic` test. |
 | LP1 derived parameters | Animated quotient descent, classical truncation, perfect pullback, continuous derived Weil cochains and duality, full cotangent dual with shift/Tate twist, coherent support and relative Hochschild action. |
 | LP1 Weil–Deligne | General pinned-dual cocycles and Lie(H)-valued monodromy, geometric degree, quasi-unipotent/logarithmic comparison; current signatures are split GLₙ shadows. |
@@ -160,36 +202,50 @@ obstructs the prime-to-characteristic order of P, not a separate π₁ condition
 ## Reading and validation
 
 This continuation read the current upstream ReductiveGroups and
-AlgebraicVectorBundles READMEs in full, inspected DGAInfinity's suggested
-forms, the E5 supplier and the reviewed audit of LP0–LP4. Earlier checkpoints'
-broader source and 31-baseline readings remain inherited work, not additional
-readings claimed here.
+AlgebraicVectorBundles READMEs in full, the E5 suggested file in full, the
+accepted plan and LP0–LP4 library audit, and the existing package signature
+file. Searches checked current Tau Ceti and upstream suggested files for
+replacement enhanced interfaces. Earlier checkpoints' broader source and
+31-baseline readings remain inherited work, not additional readings claimed
+here.
 
-For the new excursion construction, FS §VIII.3.2 and Definition VIII.3.4,
-p.287, and Propositions VIII.3.5–VIII.3.7 with their arguments, pp.288–289,
-were read from the author-hosted Geometrization PDF. Its SHA-256 is
-`9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`,
-matching the accepted version. No restricted book was needed.
+For the new wild-enhancement construction, KSS §1.20–§1.21, equation (1.1),
+pp.8–9, were read from the public arXiv PDF, identifier `1611.02667`. Its SHA-256
+is `1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092`,
+matching the accepted source. The KSS instance retains quasi-split classical
+groups, odd residual characteristic, complex coefficients and admissible
+extensions; no wild local Langlands conjecture is asserted. The new abstract
+group identities isolate only the algebraic hypotheses actually used. No
+restricted book was needed.
 
-Shared-build source files were compared byte-for-byte with git objects at
-Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174`: Tau Ceti PointsFunctor and
-FunctorOfPoints, and Mathlib CommAlgCat/Basic, FreeGroup/Basic,
-Limits/Shapes/Products, Limits/HasLimits, HopfAlgebra/MonoidAlgebra,
-Bialgebra/Basic and TensorProduct/Maps. The point-functor, algebra-category,
-colimit and free-group universal-property declarations used here were read at
-that baseline. The shared build is not a git clone, so the comparison used
-pinned git objects from the read-only library trees.
+This continuation read Mathlib's SemidirectProduct, Subgroup/Center,
+QuotientGroup/Defs and RepresentationTheory/Basic declarations at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, and compared those source files
+byte-for-byte with the shared build. Inherited baseline checks from #8197
+cover Tau Ceti PointsFunctor and FunctorOfPoints at
+`f790474821cf4256814db967cb154e7af3d0c369`, and Mathlib CommAlgCat/Basic,
+FreeGroup/Basic, Limits/Shapes/Products, Limits/HasLimits,
+HopfAlgebra/MonoidAlgebra, Bialgebra/Basic and TensorProduct/Maps. The shared
+build is not a git clone; comparisons used pinned git objects in the read-only
+library trees.
+
+Checkpoint #8197 read FS §VIII.3.2 and Definition VIII.3.4, p.287, and
+Propositions VIII.3.5–VIII.3.7 with their arguments, pp.288–289, from the
+author-hosted Geometrization PDF, SHA-256
+`9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+That is the source of the inherited LP2 construction, not a new reading
+claimed in this continuation.
 
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  **exit 0**, 204 warnings, all `declaration uses sorry`; zero errors and
+  **exit 0**, 232 warnings, all `declaration uses sorry`; zero errors and
   zero other warning classes. This checks the submitted forms, not the omitted
   enhanced/condensed ones.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
   zero errors and zero warnings; accepted input unchanged.
 - README audit: 79 target headings, 79 source blocks, 79 prerequisite blocks;
   all 140 API names and 90 test names remain. All headings and the 147 internal
-  links are unchanged; README size is 164,821 bytes, below 200 KB.
+  links are unchanged; README size is 166,267 bytes, below 200 KB. This is a
+  coverage audit, not certification of the missing signatures.
 - `python3 research/blueprint/intake.py check-files` on the three changed
   deliverables: three files, zero problems.
 - `git diff --check`: passed.

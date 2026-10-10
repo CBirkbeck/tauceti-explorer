@@ -291,6 +291,12 @@ Set S_ρ=Z(C_{{}^LG}(ρ))/Z(H)^{W_F}. Via a chosen φ, the numerator is Z(C_H(ρ
 
 **Build.** Take centres of the split extension, noting the projection of any central element to W_F is trivial. The centre commutes also with φ(SL₂), hence lies in the parameter centralizer. Inflating a representation of S_φ and restricting kills Z(H)^{W_F}.
 
+The denominator is the image of the specified invariant dual centre, rather than a supplied arbitrary central subgroup. On the semidirect-product model it is the inclusion z↦(z,1), with z∈Z(H) and w·z=z for every w∈W_F. Its image lies in the centre of the twisted centralizer without a choice of extending parameter. The quotient map kills precisely this image.
+
+A chosen extending parameter gives an identification of the numerator with the elements of Z(C_H(ρ)) fixed by conjugation with φ(W_F). The characteristic equation sends h to (h,1), and the identification carries the embedded Z(H)^{W_F} to that same subgroup on the fixed-centre side. Thus it descends to the stated quotient equivalence. Triviality of Z(W_F) is a hypothesis of this numerator identification: a central element must first be shown to project to 1. It is not a property of an arbitrary ambient group.
+
+Conjugating ρ by h∈H transports the twisted centralizer by conjugation with (h,1). The induced map of centres fixes every embedded invariant dual-centre element, so it descends to an S_ρ equivalence characterized on quotient representatives. For ρ(p)=(1,p), with trivial wild action, the twisted centralizer is the whole L-group. Its centre is exactly the invariant dual centre because Z(W_F)=1, so its enhancement quotient is trivial. A constant homomorphism p↦1 loses the prescribed projection; it cannot serve as this test when P_F is nontrivial.
+
 The API should provide:
 
 - `wildEnhancementGroup`: The quotient of the intrinsic twisted centralizer centre.

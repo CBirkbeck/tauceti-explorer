@@ -595,8 +595,12 @@ def conjugate (g : L) (ρ : WildInertialParameter (L := L) i) :
 theorem conjugate_val (g : L) (ρ : WildInertialParameter (L := L) i) (p : P) :
     (conjugate (i := i) g ρ).val p = g * ρ.val p * g⁻¹ := by sorry
 
--- wild_inertial_trivial
-example : (ofLanglands (i := i) (1 : W →* L)).val = (1 : P →* L) := by sorry
+-- wild_inertial_trivial: the ordinary framed restriction is (1,p).
+-- Admissibility of the extending complex parameter is still a supplier input.
+example {H : Type z} [Group H] (α : W →* MulAut H) (J : Subgroup W) :
+    (ofLanglands (i := J.subtype)
+      (SemidirectProduct.inr : W →* SemidirectProduct H W α)).val =
+        SemidirectProduct.inr.comp J.subtype := by sorry
 
 -- wild_inertial_conjugate
 example (g : L) (φ ψ : W →* L) (hψ : ∀ w, ψ w = g * φ w * g⁻¹) :
@@ -647,9 +651,6 @@ def twistedWildCentralizer.splitEquiv (φ : W →* L) (hπ : π.comp φ = Monoid
     twistedWildCentralizer P π ρ ≃*
       SemidirectProduct ↥(Subgroup.centralizer (Set.range ρ) ⊓ π.ker) W α := by sorry
 
--- wild_centralizer_trivial
-example : twistedWildCentralizer P π (1 : P →* L) = ⊤ := by sorry
-
 -- wild_centralizer_kernel
 example (g : L) (hg : π g = 1) :
     g ∈ twistedWildCentralizer P π ρ ↔ ∀ p : P, g * ρ p = ρ p * g := by sorry
@@ -661,10 +662,227 @@ example (φ : W →* L) (hπ : π.comp φ = MonoidHom.id W)
       φ w ∉ Subgroup.centralizer (Set.range ρ) := by sorry
 end TwistedCentralizer
 
-/-- The quotient carrier, with the intrinsic central subgroup supplied explicitly.
-The missing identification with Z(H)^W is not encoded by a placeholder field. -/
-def wildEnhancementGroup {L : Type u} [Group L] (C : Subgroup L)
-    (Z : Subgroup (Subgroup.center C)) [Z.Normal] := (Subgroup.center C) ⧸ Z
+/-! ## LP0.7–LP0.8: the framed wild lift and its intrinsic enhancement quotient
+
+These are the abstract-group forms of KSS §1.21, equation (1.1), p.8.
+The actual complex dual group, admissibility, and the identity component of the
+parameter centralizer remain inputs of RG2.5. The invariant dual centre below
+is determined by the action; it is not an arbitrary denominator subgroup.
+-/
+namespace WildEnhancement
+variable {H : Type u} {W : Type v} [Group H] [Group W]
+variable (α : W →* MulAut H) (P : Subgroup W) [P.Normal]
+
+abbrev LGroup := SemidirectProduct H W α
+
+/-- The trivial dual component is (1,p), retaining the prescribed projection. -/
+def standardWild : P →* LGroup α := SemidirectProduct.inr.comp P.subtype
+
+theorem standardWild_projection :
+    (SemidirectProduct.rightHom : LGroup α →* W).comp (standardWild α P) =
+      P.subtype := by sorry
+
+-- wild_centralizer_trivial: the source's framed lift, not the constant map.
+example (hP : ∀ p : P, α p.val = 1) :
+    twistedWildCentralizer P
+      (SemidirectProduct.rightHom : LGroup α →* W) (standardWild α P) = ⊤ := by sorry
+
+-- A constant map has the wrong wild projection when P is nontrivial.
+example [Nontrivial P] :
+    (SemidirectProduct.rightHom : LGroup α →* W).comp (1 : P →* LGroup α) ≠
+      P.subtype := by sorry
+
+/-- Z(H)^W, with invariance under the specified action. -/
+def invariantDualCenter : Subgroup H where
+  carrier := {h | h ∈ Subgroup.center H ∧ ∀ w : W, α w h = h}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+theorem invariantDualCenter_mem (h : H) : h ∈ invariantDualCenter α ↔
+    h ∈ Subgroup.center H ∧ ∀ w : W, α w h = h := by sorry
+
+variable (ρ : P →* LGroup α)
+
+abbrev centralizer := twistedWildCentralizer P
+  (SemidirectProduct.rightHom : LGroup α →* W) ρ
+
+/-- z↦(z,1) lies in the centre of the intrinsic twisted centralizer. -/
+def dualCenterEmbedding : invariantDualCenter α →*
+    Subgroup.center (centralizer α P ρ) where
+  toFun z := ⟨⟨SemidirectProduct.inl z.val, by sorry⟩, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+theorem dualCenterEmbedding_val (z : invariantDualCenter α) :
+    (dualCenterEmbedding α P ρ z).val.val = SemidirectProduct.inl z.val := by sorry
+
+theorem dualCenterEmbedding_injective :
+    Function.Injective (dualCenterEmbedding α P ρ) := by sorry
+
+/-- The denominator is exactly the image of the invariant dual centre. -/
+def denominator : Subgroup (Subgroup.center (centralizer α P ρ)) :=
+  (dualCenterEmbedding α P ρ).range
+
+instance denominator_normal : (denominator α P ρ).Normal := by sorry
+
+theorem denominator_mem (z : Subgroup.center (centralizer α P ρ)) :
+    z ∈ denominator α P ρ ↔ ∃ h : invariantDualCenter α,
+      z.val.val = SemidirectProduct.inl h.val := by sorry
+
+/-- The actual dual-group centralizer, viewed inside H rather than all of LGroup. -/
+def dualCentralizer : Subgroup H :=
+  (Subgroup.centralizer (Set.range ρ)).comap SemidirectProduct.inl
+
+variable (φ : W →* LGroup α)
+
+/-- Z(C_H(ρ)) fixed by conjugation with the extending Weil parameter. -/
+def fixedCentralizerCenter : Subgroup (dualCentralizer α P ρ) where
+  carrier := {h | h ∈ Subgroup.center (dualCentralizer α P ρ) ∧
+    ∀ w : W, φ w * SemidirectProduct.inl h.val * (φ w)⁻¹ =
+      SemidirectProduct.inl h.val}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+/-- The invariant dual centre is contained in this fixed centre for every extension. -/
+def dualCenterToFixed : invariantDualCenter α →*
+    fixedCentralizerCenter α P ρ φ where
+  toFun z := ⟨⟨z.val, by sorry⟩, by sorry⟩
+  map_one' := by sorry
+  map_mul' := by sorry
+
+def fixedDenominator : Subgroup (fixedCentralizerCenter α P ρ φ) :=
+  (dualCenterToFixed α P ρ φ).range
+
+instance fixedDenominator_normal : (fixedDenominator α P ρ φ).Normal := by sorry
+
+/-- Triviality of Z(W) is essential: only then does every numerator element
+project to 1 and have an underlying element of H. -/
+def centerEquiv
+    (hφ : (SemidirectProduct.rightHom : LGroup α →* W).comp φ = MonoidHom.id W)
+    (hρ : φ.comp P.subtype = ρ) (hW : Subgroup.center W = ⊥) :
+    Subgroup.center (centralizer α P ρ) ≃*
+      fixedCentralizerCenter α P ρ φ := by sorry
+
+theorem centerEquiv_val
+    (hφ : (SemidirectProduct.rightHom : LGroup α →* W).comp φ = MonoidHom.id W)
+    (hρ : φ.comp P.subtype = ρ) (hW : Subgroup.center W = ⊥)
+    (z : Subgroup.center (centralizer α P ρ)) :
+    SemidirectProduct.inl ((centerEquiv α P ρ φ hφ hρ hW z).val.val) =
+      z.val.val := by sorry
+
+theorem centerEquiv_denominator
+    (hφ : (SemidirectProduct.rightHom : LGroup α →* W).comp φ = MonoidHom.id W)
+    (hρ : φ.comp P.subtype = ρ) (hW : Subgroup.center W = ⊥)
+    (z : invariantDualCenter α) :
+    centerEquiv α P ρ φ hφ hρ hW (dualCenterEmbedding α P ρ z) =
+      dualCenterToFixed α P ρ φ z := by sorry
+
+/-- Dual-group conjugation keeps the Weil projection. -/
+def conjugateWild (h : H) : P →* LGroup α :=
+  (MulAut.conj (SemidirectProduct.inl h : LGroup α)).toMonoidHom.comp ρ
+
+def centralizerConjugateEquiv (h : H) : centralizer α P ρ ≃*
+    centralizer α P (conjugateWild α P ρ h) := by sorry
+
+theorem centralizerConjugateEquiv_val (h : H) (g : centralizer α P ρ) :
+    (centralizerConjugateEquiv α P ρ h g).val =
+      (SemidirectProduct.inl h : LGroup α) * g.val *
+        (SemidirectProduct.inl h : LGroup α)⁻¹ := by sorry
+
+def centerConjugateEquiv (h : H) :=
+  Subgroup.centerCongr (centralizerConjugateEquiv α P ρ h)
+
+theorem centerConjugateEquiv_denominator (h : H) (z : invariantDualCenter α) :
+    centerConjugateEquiv α P ρ h (dualCenterEmbedding α P ρ z) =
+      dualCenterEmbedding α P (conjugateWild α P ρ h) z := by sorry
+end WildEnhancement
+
+/-- S_ρ=Z(C_L(ρ))/Z(H)^W, using the intrinsic centre inclusion. -/
+def wildEnhancementGroup {H : Type u} {W : Type v} [Group H] [Group W]
+    (α : W →* MulAut H) (P : Subgroup W) [P.Normal]
+    (ρ : P →* WildEnhancement.LGroup α) :=
+  Subgroup.center (WildEnhancement.centralizer α P ρ) ⧸
+    WildEnhancement.denominator α P ρ
+
+namespace wildEnhancementGroup
+variable {H : Type u} {W : Type v} [Group H] [Group W]
+variable (α : W →* MulAut H) (P : Subgroup W) [P.Normal]
+variable (ρ : P →* WildEnhancement.LGroup α)
+
+instance : Group (wildEnhancementGroup α P ρ) :=
+  inferInstanceAs (Group (Subgroup.center (WildEnhancement.centralizer α P ρ) ⧸
+    WildEnhancement.denominator α P ρ))
+
+def mk : Subgroup.center (WildEnhancement.centralizer α P ρ) →*
+    wildEnhancementGroup α P ρ := QuotientGroup.mk' _
+
+theorem mk_dualCenter (z : WildEnhancement.invariantDualCenter α) :
+    mk α P ρ (WildEnhancement.dualCenterEmbedding α P ρ z) = 1 := by sorry
+
+theorem mk_eq_one (z : Subgroup.center (WildEnhancement.centralizer α P ρ)) :
+    mk α P ρ z = 1 ↔ ∃ h : WildEnhancement.invariantDualCenter α,
+      z.val.val = SemidirectProduct.inl h.val := by sorry
+
+def centerIdentification (φ : W →* WildEnhancement.LGroup α)
+    (hφ : (SemidirectProduct.rightHom : WildEnhancement.LGroup α →* W).comp φ =
+      MonoidHom.id W)
+    (hρ : φ.comp P.subtype = ρ) (hW : Subgroup.center W = ⊥) :
+    wildEnhancementGroup α P ρ ≃*
+      WildEnhancement.fixedCentralizerCenter α P ρ φ ⧸
+        WildEnhancement.fixedDenominator α P ρ φ := by sorry
+
+theorem centerIdentification_mk (φ : W →* WildEnhancement.LGroup α)
+    (hφ : (SemidirectProduct.rightHom : WildEnhancement.LGroup α →* W).comp φ =
+      MonoidHom.id W)
+    (hρ : φ.comp P.subtype = ρ) (hW : Subgroup.center W = ⊥)
+    (z : Subgroup.center (WildEnhancement.centralizer α P ρ)) :
+    centerIdentification α P ρ φ hφ hρ hW (mk α P ρ z) =
+      QuotientGroup.mk' (WildEnhancement.fixedDenominator α P ρ φ)
+        (WildEnhancement.centerEquiv α P ρ φ hφ hρ hW z) := by sorry
+
+def conjugateEquiv (h : H) : wildEnhancementGroup α P ρ ≃*
+    wildEnhancementGroup α P (WildEnhancement.conjugateWild α P ρ h) := by sorry
+
+theorem conjugateEquiv_mk (h : H)
+    (z : Subgroup.center (WildEnhancement.centralizer α P ρ)) :
+    conjugateEquiv α P ρ h (mk α P ρ z) =
+      mk α P (WildEnhancement.conjugateWild α P ρ h)
+        (WildEnhancement.centerConjugateEquiv α P ρ h z) := by sorry
+
+def transportRep {K : Type w} [CommRing K] {V : Type z}
+    [AddCommGroup V] [Module K V] (h : H)
+    (χ : Representation K (wildEnhancementGroup α P ρ) V) :
+    Representation K
+      (wildEnhancementGroup α P (WildEnhancement.conjugateWild α P ρ h)) V :=
+  χ.comp (conjugateEquiv α P ρ h).symm.toMonoidHom
+
+-- wild_enhancement_trivial_rho: requires the Weil centre to be trivial.
+example (hP : ∀ p : P, α p.val = 1) (hW : Subgroup.center W = ⊥) :
+    Subsingleton (wildEnhancementGroup α P (WildEnhancement.standardWild α P)) := by sorry
+
+-- wild_enhancement_center_quotient: the inflated representation kills Z(H)^W.
+example {K : Type w} [CommRing K] {V : Type z} [AddCommGroup V] [Module K V]
+    (χ : Representation K (wildEnhancementGroup α P ρ) V)
+    (c : WildEnhancement.invariantDualCenter α) :
+    χ (mk α P ρ (WildEnhancement.dualCenterEmbedding α P ρ c)) = LinearMap.id := by sorry
+
+-- wild_enhancement_conjugacy: transport agrees on every centre representative.
+-- Naturality for the restriction from S_φ still needs its complex owner carrier.
+example {K : Type w} [CommRing K] {V : Type z} [AddCommGroup V] [Module K V]
+    (χ : Representation K (wildEnhancementGroup α P ρ) V)
+    (h : H) (z : Subgroup.center (WildEnhancement.centralizer α P ρ)) :
+    transportRep α P ρ h χ
+      (mk α P (WildEnhancement.conjugateWild α P ρ h)
+        (WildEnhancement.centerConjugateEquiv α P ρ h z)) =
+          χ (mk α P ρ z) := by sorry
+
+-- Trivial wild image alone does not justify triviality if the ambient centre is nontrivial.
+example : ¬ Subsingleton (wildEnhancementGroup
+    (1 : Multiplicative ℤ →* MulAut Unit) (⊥ : Subgroup (Multiplicative ℤ))
+      (WildEnhancement.standardWild (1 : Multiplicative ℤ →* MulAut Unit) ⊥)) := by sorry
+end wildEnhancementGroup
 
 section Invariants
 variable {R : Type u} {A : Type v} [CommRing R] [CommRing A] [Algebra R A]
