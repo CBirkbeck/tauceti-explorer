@@ -38677,7 +38677,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked /13 scalar cocycle and the QT.7 matrix-extension route against Zagier definition/cocycle p. 2 and Examples 4-5 pp. 11-13. The four reader discrepancies remain: missing ninth export, inverse eta multiplier, scaled Taylor coefficients, and obsolete QT.7 account. Reader editing is outside this issue. Preserve broader blueprint objections in history. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /13: the scalar additive cocycle and inverse-eta lower-boundary convention are supplied by QM.5, while knot matrix laws belong to QT.7 or the explicitly requested general extension. The four reader discrepancies remain (ninth export, inverse multiplier, Taylor scaling, obsolete QT.7 status); reader edits are outside the listed issue scope. Broader blueprint objections remain in history. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -41484,6 +41484,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked /13: nine QM.5 scalar exports, normalized nonzero additive cocycle with epsilon(1)=1, lower-boundary inverse eta multiplier, and QT.7 matrix contracts routed to QSeries Part II. Read Zagier Quantum modular forms definition/cocycle p. 2 and examples 3-5 pp. 10-13, strange identity section 6 pp. 958-959, Lawrence-Zagier Theorems 1-2 p. 98 and section 4 pp. 102-104. Exact rational expansion reconfirms coefficients 1,23/24,1681/1152,257543/82944, not the unscaled Glaisher integers. Reader still omits the ninth export, names the wrong multiplier, misstates the Taylor scaling, and calls current QT.7 unwritten. Reader editing is outside this job. Earlier broad blueprint/automorphic objections remain binding, preserved in reviewHistory. No mathematical declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 1469 admitted-proof warnings. See the report for exact remaining corrections."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked /13 scalar cocycle and the QT.7 matrix-extension route against Zagier definition/cocycle p. 2 and Examples 4-5 pp. 11-13. The four reader discrepancies remain: missing ninth export, inverse eta multiplier, scaled Taylor coefficients, and obsolete QT.7 account. Reader editing is outside this issue. Preserve broader blueprint objections in history. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }

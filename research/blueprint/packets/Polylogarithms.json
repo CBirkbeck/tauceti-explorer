@@ -6845,7 +6845,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-10",
-  "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /7 supplier ownership, metric/model requests and ordered tetrahedron identity against Zagier Dilogarithm I.4 pp. 13-14. Preserve the explicit ideal-region gap. Current QT consumer omits the exact hyperbolic-volume prerequisite; correction is outside the issue scope and recorded in the report. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /7: P.2 is the single ideal-tetrahedron-volume owner, with explicit metric/model suppliers and ideal-region gap. Zagier I.4 (7)-(9), pp. 13-14, supports the ordered normalization. QT volume node still needs the exact supplier edge and a documented ordered-sign conversion; its correction is outside the listed issue scope. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7278,6 +7278,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-10",
    "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked assigned finding /7: P.2 owns the ordered ideal-tetrahedron volume identity, QT.5 consumes its manifold sum, and GeometricTopology layers 7-8 supply the metric/model. Read Goncharov math/0207036v3 introduction item 5 p. 7 and section 6 p. 53; Zagier Dilogarithm I.4 pp. 13-14. The early ideal-region/boundary gap remains explicit; current upstream Riemannian volume is existing work. No mathematical declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 462 admitted-proof warnings. This is the assigned fix review, not a full re-review of unrelated P.1/P.3 declarations. Previous review is preserved in reviewHistory. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-10",
+   "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /7 supplier ownership, metric/model requests and ordered tetrahedron identity against Zagier Dilogarithm I.4 pp. 13-14. Preserve the explicit ideal-region gap. Current QT consumer omits the exact hyperbolic-volume prerequisite; correction is outside the issue scope and recorded in the report. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }

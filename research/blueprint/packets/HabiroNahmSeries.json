@@ -2200,7 +2200,7 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Section 2.5, equations (110)-(111), printed p. 28 (arXiv v2; formula crosses PDF pages 28 and 31)",
+          "locator": "Section 2.5, equations (110)-(111), printed p. 28 (arXiv v2)",
           "match": "Defines the completed-domain formal bracket and its normalized integral interpretation; the algebraic construction does not require analytic positivity."
         },
         {
@@ -5076,12 +5076,12 @@
         "The m-periodicity in k is a theorem, proved by a change of variables in the Gaussian integration, and is what makes the sum over the classes well defined."
       ],
       "proofSteps": [
-        "Define the regularised factors psi_{k,z,zeta}(w,x) by removing from the logarithm of the infinite Pochhammer symbol its polar term, its linear term, its quadratic term and the explicit sum of logarithms, as in GSWZ equation (Psikdef).",
+        "Define the regularised factors psi_{k,z,zeta}(w,x) by removing from the logarithm of the infinite Pochhammer symbol its polar term, its linear term, its quadratic term and the explicit sum of logarithms, as in GSWZ equation (114), printed p. 29 (arXiv v2).",
         "Check that the result lies in 1 + x times the ring of series in w, w^3/x and x, which is the domain of the formal Gaussian integration.",
         "Define Lambda(t) and check that its determinant is the discriminant up to the explicit monomial in z.",
         "Define I_{A,m,k} by the displayed formula for k in Z^N, and the collection as the sum over the representatives k in {0, ..., m-1}^N; that this is the sum over residue classes, and the m-periodicity itself, are HB.8/periodicity-of-the-gaussian-integrals, proved afterwards from this definition by the change of variables w to w + h with the Galois action multiplying z^{1/m} by zeta_m.",
         "Define the collection as the sum over the classes and record that the exponential prefactor is independent of k.",
-        "Define the refined objects CS_{A,m,k} of GSWZ equation (FGIcong), which are the pieces in which the integrality improves, and record the relation CS_{A,1,0}(t,zeta_{m'}+x) = Phi^FGI_A(t^{m'}, zeta_{m'}+x)."
+        "Define the refined objects CS_{A,m,k} of GSWZ equation (126), printed p. 31 (arXiv v2), which are the pieces in which the integrality improves, and record the relation CS_{A,1,0}(t,zeta_{m'}+x) = Phi^FGI_A(t^{m'}, zeta_{m'}+x) from equation (127) on the same page."
       ],
       "acceptance": [
         "For m = 1 the sum has one term and the collection is the classical perturbative series of Chern-Simons theory attached to A.",
@@ -5110,6 +5110,11 @@
           "sourceId": "gswz",
           "locator": "Section 2.5, equations (115)-(116), printed p. 29 (arXiv v2)",
           "match": "Identifies the critical points with the deformed Nahm solution and gives the critical-value function used in the Gaussian prefactor."
+        },
+        {
+          "sourceId": "gswz",
+          "locator": "Section 2.5, equations (114), (126)-(127), printed pp. 29 and 31 (arXiv v2)",
+          "match": "Equation (114) specifies the regularized Pochhammer factor. Equations (126)-(127) define the congruence refinement with a coprime auxiliary order and identify its m=1 specialization; these are the two constructions used in the proof outline."
         }
       ],
       "implementationStatus": "unchecked",
@@ -9665,7 +9670,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /11 formal versus analytic hypotheses and six exports, including HB.8 G1/G2 and HB.9 finite-etale/Kummer/integral-gluing restrictions. GZ section 3 pp. 4-6 and GSWZ section 2.5 pp. 28-30 support the interfaces. Corrected HB.8/fgi-collection to numbered equations (115)-(119), Definition 2.11 and printed pp. 29-30, in our own words. No mathematical contract changed. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /11: the six exports separate positive-definite analytic Nahm asymptotics from symmetric-invertible formal Gaussian brackets, and preserve HB.8/HB.9 normalization, Kummer and integral-gluing obligations. Corrected HB.8 proof-outline source labels to GSWZ (114), (126)-(127), added their page/source support, and removed an inaccurate parenthetical page account from the HB.4 (110)-(111) locator. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -10268,6 +10273,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked /11 and all six QT.6 exports with GZ Theorem 3.1 pp. 5-6, GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, section 2.5 equations (110)-(111) p. 28, Remark 4.2 (233) p. 48, section 4.5 pp. 54-55. Corrected internal TeX source locators for the formal Gaussian bracket and radial theorem, and the equation (21) page; support descriptions use our own words. Preserved formal nondegeneracy versus analytic positivity, HB.8 G1/G2, Kummer descent/orientation, excluded primes, full finite-etale coefficients and all-order integral gluing. Pinned covariance theorem requires PosSemidef; density law requires PosDef; neither proves formal integration. Exact figure-eight kernel/delta algebra rechecked. No API, theorem hypothesis, gap or suggested declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 441 admitted-proof warnings. Previous review preserved; see the report."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /11 formal versus analytic hypotheses and six exports, including HB.8 G1/G2 and HB.9 finite-etale/Kummer/integral-gluing restrictions. GZ section 3 pp. 4-6 and GSWZ section 2.5 pp. 28-30 support the interfaces. Corrected HB.8/fgi-collection to numbered equations (115)-(119), Definition 2.11 and printed pp. 29-30, in our own words. No mathematical contract changed. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }
