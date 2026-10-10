@@ -87,6 +87,41 @@
         "module": "TauCeti/RingTheory/Derivation/DualNumber.lean",
         "provides": "The equivalence between derivations and algebra-map lifts to actual dual numbers with fixed first projection.",
         "checked": "Declaration and enclosing binders read in the pinned source; starts at line 71."
+      },
+      {
+        "ref": "tauceti:TauCeti.proPKernel",
+        "kind": "def",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+        "provides": "The native intersection of open normal subgroups with p-group quotient; its normality instance supplies the actual maximal-pro-p quotient carrier.",
+        "checked": "Independent review read the declaration and enclosing binders at the pinned commit; starts at line 82. The source file was also compared byte for byte with the pinned GitHub raw file."
+      },
+      {
+        "ref": "tauceti:TauCeti.isClosed_proPKernel",
+        "kind": "instance",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+        "provides": "The pro-p kernel is closed for a topological group. Apply this to the closed residual kernel; its image in the ambient profinite group is closed by compactness.",
+        "checked": "Independent review read the declaration and enclosing binders at the pinned commit; starts at line 129. The source file was also compared byte for byte with the pinned GitHub raw file."
+      },
+      {
+        "ref": "tauceti:TauCeti.map_proPKernel_eq",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+        "provides": "A continuous multiplicative equivalence carries the pro-p kernel onto the target pro-p kernel. Conjugation on the residual kernel therefore makes its pro-p kernel normal in the ambient group.",
+        "checked": "Independent review read the declaration and enclosing binders at the pinned commit; starts at line 186. The source file was also compared byte for byte with the pinned GitHub raw file."
+      },
+      {
+        "ref": "tauceti:TauCeti.proPKernel_le_ker",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+        "provides": "A continuous homomorphism to a profinite pro-p group kills the pro-p kernel. Apply it to the restriction of a lift with target the finite matrix congruence kernel.",
+        "checked": "Independent review read the declaration and enclosing binders at the pinned commit; starts at line 318. The source file was also compared byte for byte with the pinned GitHub raw file."
+      },
+      {
+        "ref": "tauceti:TauCeti.existsUnique_continuousMonoidHom_maximalProPQuotient",
+        "kind": "theorem",
+        "module": "TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean",
+        "provides": "Every continuous homomorphism to a profinite pro-p group factors uniquely and continuously through the native maximal-pro-p quotient.",
+        "checked": "Independent review read the declaration and enclosing binders at the pinned commit; starts at line 379. The source file was also compared byte for byte with the pinned GitHub raw file."
       }
     ]
   },
@@ -180,7 +215,7 @@
       "proofSteps": [
         "Convert a labelled quotient into an algebra augmentation by residue_algebraMap. Conversely the kernel of a surjection from a local ring to a field is its unique maximal ideal. Both composites preserve actual ring carriers and maps, giving category equivalences.",
         "Use the universal property of the actual equalizer fibre product in R03.1, not a product of underlying functor values. Preservation of the augmentation makes the same pullback supply SF.4 comparison maps.",
-        "Transport h_R and the dual-number object. Tau Ceti derivationToDualNumberEquivLift identifies the actual fibre of the projection on algebra homomorphisms with derivations; R03.1 cotangent-dual-derivations identifies this with the relative cotangent dual. Do not substitute the absolute Mathlib CotangentSpace in mixed characteristic.",
+        "Transport h_R and the dual-number object. Tau Ceti derivationToDualNumberEquivLift identifies the actual fibre of the projection on algebra homomorphisms with derivations; R03.1 cotangent-dual-derivations identifies this with the relative cotangent dual. Do not substitute the absolute Mathlib CotangentSpace in mixed characteristic. Use the supplier’s congruence argument modulo m_ΛR+m_R²; Stacks Lemma 4.5 (06SC) has an incorrect exact-generator step, already recorded as DeformationAndDerivedPatchingAlgebra/E5.",
         "Import Schlessinger Theorem 2.11 through SF.4/schlessinger-theorem. The finite tangent hypothesis is on F; it cannot be deduced from an arbitrary functor having values in sets. Hull maps need not be injective. In the broader Stacks residue-field setting one also needs injectivity of Der_Λ(k,k)→T_F. Here Λ→k is surjective, so every Λ-derivation of k is zero and that condition is automatic.",
         "For a prorepresenting pair, use the formal-element Yoneda correspondence and the positive Artinian quotient tower for uniqueness of the compatible map. For hulls use SF.4/hull, which only gives existence of a compatible isomorphism."
       ],
@@ -224,6 +259,7 @@
       },
       "declarations": [
         "TauCeti.DeformationAlgebra.coefficientEquivalence",
+        "TauCeti.DeformationAlgebra.completeCoefficientEquivalence",
         "TauCeti.DeformationAlgebra.tangentEquivRelativeDual"
       ]
     },
@@ -509,8 +545,8 @@
         },
         {
           "sourceId": "StacksFormal",
-          "locator": "Definition 8.1 (06HG) p. 20; Lemma 8.2 (06HH) pp. 20–21; Lemma 8.7 (06HM) pp. 22–23; Definition 9.1 (06HP), Remark 9.2 (06HQ) and Lemma 9.3 (0DYL) p. 24; Lemma 9.4 (0DZK) pp. 24–25",
-          "match": "Small-extension testing, smoothness composition and the represented ring criterion in the classical case."
+          "locator": "Definition 8.1 (06HG) p. 20; Lemma 8.2 (06HH) pp. 20–21; Lemma 8.6 (06HL) pp. 21–22; Lemma 8.7 (06HM) pp. 22–23; Definition 9.1 (06HP), Remark 9.2 (06HQ) and Lemma 9.3 (0DYL) p. 24; Lemma 9.4 (0DZK) pp. 24–25",
+          "match": "Small-extension testing and smoothness composition; Lemma 8.6 gives the represented ring/power-series criterion, and Lemma 9.3 specializes smooth objects to power-series rings in the classical case."
         }
       ],
       "implementationStatus": "unchecked",
@@ -520,6 +556,7 @@
       },
       "declarations": [
         "TauCeti.DeformationAlgebra.smooth_prorep_iff",
+        "TauCeti.DeformationAlgebra.smooth_prorep_series_iff",
         "TauCeti.DeformationAlgebra.unobstructed_hull_iff"
       ]
     },
@@ -679,7 +716,7 @@
         {
           "sourceId": "StacksObstructions",
           "locator": "Definition 98.22.1 (tag 07YG) and Example 98.22.4 (tag 07YI), online section 98.22, accessed 2026-10-10",
-          "match": "Tensor-valued natural obstruction theories and relation evaluation; the local completed presentation with minimality is the specialization proved here."
+          "match": "Definition 98.22.1 supplies obstruction functors on kernel modules and their naturality and lifting criterion; Example 98.22.4 evaluates polynomial relations modulo changes of variable lifts. Neither asserts a fixed finite tensor obstruction space in general. Here completed evaluation and tangent minimality kill the change terms on socle kernels, giving Hom_k(E,I), and finite duality supplies E*⊗_k I."
         },
         {
           "sourceId": "Gee2022",
@@ -931,12 +968,12 @@
         {
           "sourceId": "Gee2022",
           "locator": "Lemma 3.13 p. 13; Proposition 3.24(2) p. 18",
-          "match": "Relation bounds for universal deformation presentations. Its arithmetic obstruction calculation is supplied by the Galois owners."
+          "match": "Lemma 3.13 bounds minimal relations by the arithmetic obstruction space; Proposition 3.24(2) identifies the tangent variable count. Arithmetic finiteness and obstruction calculations are supplied by the Galois owners. The abstract tensor-contraction argument is proved in this node."
         },
         {
           "sourceId": "StacksObstructions",
           "locator": "Definition 98.22.1 (tag 07YG)",
-          "match": "The complete natural tensor obstruction interface used by the abstract argument."
+          "match": "Completeness and kernel naturality of obstruction functors. A fixed finite tensor space for socle kernels is an additional hypothesis here, recorded in the SF.4 request; Definition 98.22.1 alone does not supply it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -950,7 +987,8 @@
       "declarations": [
         "TauCeti.DeformationAlgebra.relationDualInjection",
         "TauCeti.DeformationAlgebra.relation_bound",
-        "TauCeti.DeformationAlgebra.zero_obstruction_hull_series"
+        "TauCeti.DeformationAlgebra.zero_obstruction_hull_series",
+        "TauCeti.DeformationAlgebra.relation_bound_generators"
       ]
     },
     {
@@ -1028,6 +1066,26 @@
           "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_not_prorep",
           "role": "characterisation",
           "statement": "The explicit self-pullback pair proves H4 fails; F is not prorepresentable."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitAutomorphism",
+          "role": "constructor",
+          "statement": "The continuous k-algebra automorphism of k[[X]] given by substitution X↦X+X², with invertible linear term."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitAutomorphism_X",
+          "role": "simp",
+          "statement": "The automorphism sends the native series variable X to X+X²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitAutomorphismHom",
+          "role": "compatibility",
+          "statement": "The automorphism as a residue-preserving coefficient endomorphism of the one-variable complete object."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitMap_automorphism",
+          "role": "relation",
+          "statement": "Precomposing any Artinian coefficient point with the automorphism leaves its principal-unit orbit unchanged; it fixes the hull formal element."
         }
       ],
       "tests": [
@@ -1045,6 +1103,11 @@
           "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_pullback",
           "kind": "non-example",
           "statement": "In k[t]/t³×_{k[t]/t²}k[t]/t³ the orbits of (t,t) and (t,t+t²) are distinct even though both component orbits agree."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_automorphism_nontrivial",
+          "kind": "non-example",
+          "statement": "The compatible automorphism X↦X+X² is not the identity over any field: its degree-two coefficient differs from that of X. Together with orbit-map invariance this rules out a uniqueness assertion for compatible hull isomorphisms."
         }
       ],
       "uses": [
@@ -1075,7 +1138,7 @@
         "Apply ProfiniteProPGroups Layer 4, free-profinite universal property, at each finite matrix quotient to extend the chosen generator matrices. Uniqueness makes these extensions compatible. The quotient-limit comparison gives U and its continuity.",
         "Generate J by every entry U(w)−1 for w in the actual closed kernel, including profinite relators. Residual compatibility gives J⊆m_S. R03.1/complete-quotient supplies R□. Continuity and the quotient universal property descend U to Γ.",
         "For a continuous lift on A, series evaluation from the generator coordinates takes every profinite relation to zero. Conversely any map R□→A supplies the descended continuous representation. Generator uniqueness makes the two operations inverse and proves naturality. The finite tangent bound follows from the series cotangent.",
-        "For the extended conclusion, filter the finite congruence kernel GL_n(A)→GL_n(k) by powers of m_A. Successive quotients are additive matrix spaces in characteristic p, so the kernel is a finite p-group. The maximal-pro-p universal property kills H in every lift. The pro-p kernel is characteristic in ker ρ̄, so H is closed normal in Γ. The quotient Γ/H is an extension of the finite residual image by the finitely generated maximal pro-p quotient; lift finite kernel generators and finite quotient generators to obtain a finite topological generating set. Apply the direct construction."
+        "For the extended conclusion, filter the finite congruence kernel GL_n(A)→GL_n(k) by powers of m_A. Successive quotients are additive matrix spaces in characteristic p, so the kernel is a finite p-group. Apply the pinned TauCeti.proPKernel_le_ker and the native continuous factorization theorem to kill H in every lift. The pinned map_proPKernel_eq applies to conjugation on ker ρ̄, and isClosed_proPKernel plus compactness makes H closed normal in Γ. The quotient Γ/H is an extension of the finite residual image by the finitely generated maximal pro-p quotient; lift finite kernel generators and finite quotient generators to obtain a finite topological generating set. Apply the direct construction. Import the generating-set calculus from ProfiniteProPGroups Layer 3, without reconstructing the maximal-pro-p kernel."
       ],
       "acceptance": [
         "For Γ trivial, R□ is Λ and the universal representation is trivial.",
@@ -1092,7 +1155,12 @@
         "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets"
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+        "tauceti:TauCeti.proPKernel",
+        "tauceti:TauCeti.isClosed_proPKernel",
+        "tauceti:TauCeti.map_proPKernel_eq",
+        "tauceti:TauCeti.proPKernel_le_ker",
+        "tauceti:TauCeti.existsUnique_continuousMonoidHom_maximalProPQuotient"
       ],
       "sources": [
         {
@@ -1145,7 +1213,12 @@
         {
           "name": "TauCeti.DeformationAlgebra.continuousFramed_proP_reduction",
           "role": "compatibility",
-          "statement": "Every lift kills the image of the pro-p kernel of ker ρ̄; if its maximal pro-p quotient is finitely generated, this reduces to the finite-generator construction."
+          "statement": "Every Artinian fixed-basis lift kills the image in Γ of the native pro-p kernel of ker ρ̄."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramed_proP_represents",
+          "role": "universal-property",
+          "statement": "If the native maximal pro-p quotient of ker ρ̄ has a finite topological generating set, construct a complete coefficient ring naturally prorepresenting continuous framed lifts, without assuming Γ itself has a finite generating tuple."
         }
       ],
       "tests": [
@@ -1195,7 +1268,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "need": "Characteristic maximal-pro-p kernel and its continuous factorization universal property; finite topological generating sets. Import the current upstream roadmap contract; do not plan a second group object.",
+      "need": "Topological finite-generating-set calculus for pro-p groups and finite extensions, used to pass from finite generation of the native maximal-pro-p quotient of ker ρ̄ to a generating tuple for Γ/H. The pro-p kernel, closedness, invariance under continuous automorphisms and continuous factorization are already pinned Tau Ceti declarations and are cited directly.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability"
       ]
@@ -1243,7 +1316,12 @@
       "searched": [
         "The author’s Lecture 1 PDF, including Exercise 1 on p. 4.",
         "The author’s Harvard homepage and preprints listing, accessed 2026-10-10; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in §1.2 p. 1 and Exercise 1 p. 4. The open index-two product of cyclic p-groups has independent continuous coordinate characters, while conjugation by inversion forces each character of the full semidirect product to vanish for odd p. The omitted open-subgroup quantifier is necessary.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E2",
@@ -1258,7 +1336,12 @@
       "searched": [
         "The four-page author Lecture 1 PDF and its matrix formulas.",
         "The author’s Harvard homepage and preprints listing, accessed 2026-10-10; no corrected version or separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the displayed matrix construction on p. 2. Each row and column index ranges over n values; there are n² entries per generator. The source assigns n² values to each index.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.2"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E3",
@@ -1273,7 +1356,34 @@
       "searched": [
         "Published scan, Proposition 2.5 and Notation 2.6 p. 211 and Remark 2.10 p. 212, visually checked.",
         "Public title-and-author erratum search and AMS publication search on 2026-10-10; no separate correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on printed p. 212 and compared with p. 211: Notation 2.6 has no parts (ii) or (iii), whereas Proposition 2.5 has exactly the composition and cancellation statements used. Remark 2.10 and Lemma 2.10 both occur on p. 212; their repeated number is preserved in the locators.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.2"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E5",
+      "source": "StacksFormal",
+      "kind": "error",
+      "locator": "Lemma 4.5, tag 06SC, proof p. 11 in the Formal Deformation Theory PDF version ed88ff78 compiled 14 July 2026; also online Lemma 90.4.5, accessed 2026-10-10",
+      "printed": "After choosing representatives of a relative cotangent basis, the proof uses them to express every maximal-ideal element as an exact linear combination in S.",
+      "correction": "Use a congruence modulo m_ΛS+m_S². A Λ-derivation into the residue field kills both summands, so the congruence supplies the required vanishing and finiteness argument.",
+      "reason": "For Λ=S=Z_p, the relative cotangent space is zero and the chosen list is empty, while p is a nonzero maximal-ideal element. The asserted exact expression would make it zero. The lemma remains true; R03.1/cotangent-dual-derivations supplies the corrected congruence argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "The recorded Stacks chapter PDF and the current tag 06SC, including its zero public comments, accessed 2026-10-10; the exact-expression step persists.",
+        "The accepted R03.1 packet already records this as DeformationAndDerivedPatchingAlgebra/E5 with a confirmed review. The canonical finding id is reused here; this is not a new distinct erratum."
+      ],
+      "alreadyRecordedIn": "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.1.json",
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--R03.2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the proof in the recorded PDF and current online tag. The empty relative basis for Λ=S=Z_p contradicts the exact-expression step at p. Derivations kill m_ΛS and m_S², so the corrected congruence restores the argument. This agrees with the existing R03.1/E5 finding.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.2"
+      }
     }
   ],
   "ownershipNotes": [
@@ -1305,5 +1415,63 @@
       "read": "2026-10-10",
       "detail": "The public FLT discussion identifies de Smit–Lenstra as the direction of separate universal Galois deformation-ring work. This is a lead for the arithmetic consumers, not a baseline theorem or a source proof used by this packet."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.2",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all ten nodes, all source locators and four source issues (including the existing R03.1/E5 finding added to this packet), all sixteen final pinned baseline declarations, R03.1/SF.4 supplier contracts, current upstream and library ownership, API/tests and Lean signatures. Corrected source-match precision, added native maximal-pro-p citations, and completed the complete-coefficient comparison signature and hull-automorphism API/test. Complete planning pass accepted; R03.2 remains planned, not closed, with the full natural socle-extension supplier gap and ownership reconciliation explicit. Suggested elaborates at the pinned baseline with only admitted-proof warnings. No implementation is claimed.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "verdict": "corrected",
+        "note": "Read the R03.1 and SF.4 supplier statements and the classical Schlessinger/Stacks locators; residue labels, relative cotangents, nonzero principal small extensions and hull/prorepresenting uniqueness are compatible. Added the missing complete-coefficient equivalence signature alongside the Artinian one; its supplier boundary is genuinely Noetherian and adically complete, without an Artinian hypothesis. Made both classical category structures expose exactly augmentation-preserving algebra maps, identities and composition, rather than leaving the Artinian Hom field hidden in a placeholder. Confirmed the Stacks 06SC proof error already recorded as R03.1/E5; the supplier’s congruence argument is the valid input."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+        "verdict": "verified",
+        "note": "The relative cotangent basis and continuous series evaluation produce a surjection with kernel in m_S²+m_ΛS. Checked the base, DVR residue and redundant-variable tests; absolute tangent minimality is not asserted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/framed-matrix-equations",
+        "verdict": "verified",
+        "note": "Native GL, free-word evaluation and finite-variable series carriers match the pinned declarations. Noetherianity handles an infinite relation set. Checked the empty, zero-generator and two characteristic-dependent involution cases."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/smooth-functor-ring-comparison",
+        "verdict": "corrected",
+        "note": "Added the direct Stacks Lemma 8.6 power-series locator and the already prototyped smooth_prorep_series_iff declaration. Small-extension factorization and hull smoothness justify both equivalences."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-relation-space",
+        "verdict": "verified",
+        "note": "The actual quotient J/m_SJ, its labelled k-action, finite dimension and Nakayama generating property are correct. The nonminimal presentation test prevents confusing presentation relations with intrinsic obstructions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+        "verdict": "corrected",
+        "note": "Clarified that Stacks provides general obstruction functors, not automatically a fixed finite tensor space. The minimal completed presentation proves the specialization: evaluation is independent because m_B kills the kernel, zero exactly when the point lifts, and natural in extension squares."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/universal-artinian-test-extension",
+        "verdict": "verified",
+        "note": "Pinned Artin–Rees gives J∩m_S^N⊆m_SJ for large N. The resulting Artinian socle extension has kernel E and identity relation obstruction; every nonzero linear quotient has a nonliftable point. The zero-kernel case and cofinal compatibility are covered."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/relation-bound",
+        "verdict": "corrected",
+        "note": "Separated Gee’s relation bound from the tangent variable count and clarified the additional tensor hypothesis beyond Stacks 07YG; listed the already prototyped generator bound. Pullback completeness, Artinian kernel pushouts and tensor contraction give an injection E*→O. The explicit SF.4 gap remains."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/hull-without-prorepresentability",
+        "verdict": "corrected",
+        "note": "Verified the principal-unit hull and genuine self-pullback counterexample in every characteristic. Added the substitution automorphism API, its coefficient-map and orbit-invariance signatures, and a nonidentity test so the nonunique hull-isomorphism target is represented in Suggested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability",
+        "verdict": "corrected",
+        "note": "Added five confirmed pinned maximal-pro-p declarations and narrowed the Layer 3 request to generation calculus. Closed profinite relators, finite matrix quotient limits, natural point evaluation and congruence-kernel reduction justify both representing conclusions. Current upstream groups are imported, not planned again."
+      }
+    ]
+  }
 }

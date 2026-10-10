@@ -73,6 +73,14 @@ instance : CategoryTheory.Category (Artinian Λ k ρ) where
   comp_id := by intros; apply Hom.ext; ext; rfl
   assoc := by intros; apply Hom.ext; ext; rfl
 
+instance : CategoryTheory.Category (Complete Λ k ρ) where
+  Hom A B := Hom A.toLocal B.toLocal
+  id A := Hom.id A.toLocal
+  comp f g := Hom.comp g f
+  id_comp := by intros; apply Hom.ext; ext; rfl
+  comp_id := by intros; apply Hom.ext; ext; rfl
+  assoc := by intros; apply Hom.ext; ext; rfl
+
 /-- SF.4's augmentation presentation, without imposing the already consequential kernel identity. -/
 structure ClassicalArtin where
   Carrier : Type u
@@ -88,7 +96,38 @@ attribute [instance] ClassicalArtin.ring ClassicalArtin.localRing
 structure ClassicalHom (A B : ClassicalArtin (Λ := Λ) (k := k) (ρ := ρ)) where
   alg : A.Carrier →ₐ[Λ] B.Carrier
   augmentation : ∀ x, B.augmentation (alg x) = A.augmentation x
-instance : CategoryTheory.Category (ClassicalArtin (Λ := Λ) (k := k) (ρ := ρ)) := by sorry
+instance : CategoryTheory.Category (ClassicalArtin (Λ := Λ) (k := k) (ρ := ρ)) where
+  Hom A B := ClassicalHom A B
+  id A := ⟨AlgHom.id Λ A.Carrier, fun _ => rfl⟩
+  comp f g := ⟨g.alg.comp f.alg, fun x => (g.augmentation _).trans (f.augmentation _)⟩
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+
+/-- SF.4's complete augmentation boundary, without an Artinian hypothesis. -/
+structure ClassicalComplete where
+  Carrier : Type u
+  [ring : CommRing Carrier]
+  [localRing : IsLocalRing Carrier]
+  [algebra : Algebra Λ Carrier]
+  [noetherian : IsNoetherianRing Carrier]
+  [complete : IsAdicComplete (IsLocalRing.maximalIdeal Carrier) Carrier]
+  augmentation : Carrier →+* k
+  surjective : Function.Surjective augmentation
+  base_residue : augmentation.comp (algebraMap Λ Carrier) = ρ
+attribute [instance] ClassicalComplete.ring ClassicalComplete.localRing
+  ClassicalComplete.algebra ClassicalComplete.noetherian ClassicalComplete.complete
+structure ClassicalCompleteHom
+    (A B : ClassicalComplete (Λ := Λ) (k := k) (ρ := ρ)) where
+  alg : A.Carrier →ₐ[Λ] B.Carrier
+  augmentation : ∀ x, B.augmentation (alg x) = A.augmentation x
+instance : CategoryTheory.Category (ClassicalComplete (Λ := Λ) (k := k) (ρ := ρ)) where
+  Hom A B := ClassicalCompleteHom A B
+  id A := ⟨AlgHom.id Λ A.Carrier, fun _ => rfl⟩
+  comp f g := ⟨g.alg.comp f.alg, fun x => (g.augmentation _).trans (f.augmentation _)⟩
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
 
 variable (Λ k ρ) [IsLocalRing Λ] [IsNoetherianRing Λ]
   [IsAdicComplete (IsLocalRing.maximalIdeal Λ) Λ]
@@ -202,6 +241,9 @@ variable (Λ k : Type u) [CommRing Λ] [Field k] (ρ : Λ →+* k)
 
 /-- R03.2/coefficient-and-functor-comparison. -/
 def coefficientEquivalence : Artinian Λ k ρ ≌ ClassicalArtin (Λ := Λ) (k := k) (ρ := ρ) := by sorry
+
+def completeCoefficientEquivalence :
+    Complete Λ k ρ ≌ ClassicalComplete (Λ := Λ) (k := k) (ρ := ρ) := by sorry
 
 def tangentEquivRelativeDual (R : Complete Λ k ρ) :
     (represented R).obj (dualObject (Λ := Λ) (k := k) (ρ := ρ)) ≃
@@ -776,6 +818,23 @@ def principalUnitOrbitMap : represented (fieldSeriesComplete K 1) ⟶ principalU
     (⟨f.alg (MvPowerSeries.X (0 : Fin 1)), by sorry⟩ : IsLocalRing.maximalIdeal A.Carrier))
   naturality := by sorry
 
+/-- A compatible hull automorphism need not be the identity. -/
+def principalUnitOrbitAutomorphism :
+    MvPowerSeries (Fin 1) K ≃ₐ[K] MvPowerSeries (Fin 1) K := by sorry
+
+theorem principalUnitOrbitAutomorphism_X :
+    principalUnitOrbitAutomorphism K (MvPowerSeries.X (0 : Fin 1)) =
+      MvPowerSeries.X (0 : Fin 1) + (MvPowerSeries.X (0 : Fin 1)) ^ 2 := by sorry
+
+def principalUnitOrbitAutomorphismHom :
+    Hom (fieldSeriesComplete K 1).toLocal (fieldSeriesComplete K 1).toLocal :=
+  ⟨(principalUnitOrbitAutomorphism K).toAlgHom, by sorry⟩
+
+theorem principalUnitOrbitMap_automorphism (A : Artinian K K (RingHom.id K))
+    (f : Hom (fieldSeriesComplete K 1).toLocal A.toLocal) :
+    (principalUnitOrbitMap K).app A (Hom.comp f (principalUnitOrbitAutomorphismHom K)) =
+      (principalUnitOrbitMap K).app A f := by sorry
+
 def principalUnitOrbit_hull : Hull (fieldSeriesComplete K 1) (principalUnitOrbitFunctor K) := {
   map := principalUnitOrbitMap K
   smooth := by sorry
@@ -783,6 +842,9 @@ def principalUnitOrbit_hull : Hull (fieldSeriesComplete K 1) (principalUnitOrbit
 
 theorem principalUnitOrbit_not_prorep :
     ¬ ∃ R : Complete K K (RingHom.id K), Nonempty (represented R ≅ principalUnitOrbitFunctor K) := by sorry
+
+-- TauCeti.DeformationAlgebra.principalUnitOrbit_automorphism_nontrivial
+example : principalUnitOrbitAutomorphism K ≠ AlgEquiv.refl := by sorry
 
 -- TauCeti.DeformationAlgebra.principalUnitOrbit_zero
 example : Subsingleton ((principalUnitOrbitFunctor K).obj
