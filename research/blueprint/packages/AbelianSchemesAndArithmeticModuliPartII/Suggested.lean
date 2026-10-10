@@ -1,6 +1,10 @@
 import Mathlib.GroupTheory.FreeGroup.Basic
 import Mathlib.GroupTheory.Solvable
 import Mathlib.GroupTheory.Index
+import Mathlib.GroupTheory.DoubleCoset
+import Mathlib.Data.Set.Card
+import Mathlib.NumberTheory.NumberField.Discriminant.Defs
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.Analysis.Calculus.ContDiff.Defs
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
@@ -399,6 +403,69 @@ theorem powerSumReconstruction (q g : ℕ) (P Q : Polynomial ℤ)
     P = Q := by
   sorry
 
+/-- The power-sum count concerns actual integer polynomials, independently of
+the later isogeny-class carrier. LT, Lemma 2.1, v1 p.5; the interval count uses
+the README's enlarged constant and its explicit reciprocity hypothesis. -/
+theorem weilPolynomialCount (q g : ℕ) (hq : 2 ≤ q) (hg : 1 ≤ g) :
+    let W : Set (Polynomial ℤ) := {P | P.Monic ∧ P.natDegree = 2 * g ∧
+      P.coeff 0 = (q : ℤ) ^ g ∧
+      (∀ i ≤ g, P.coeff i = (q : ℤ) ^ (g - i) * P.coeff (2 * g - i)) ∧
+      ∀ z : ℂ, (P.map (Int.castRingHom ℂ)).eval z = 0 → ‖z‖ = Real.sqrt (q : ℝ)}
+    W.Finite ∧ (W.ncard : ℝ) ≤ ((4 * g + 1 : ℕ) : ℝ) ^ g *
+      (q : ℝ) ^ (((g * (g + 1) : ℕ) : ℝ) / 4) := by
+  sorry
+
+/-! F4: the abstract counting step uses native group actions and double cosets.
+The restricted-product lattice realization supplies these finite-index hypotheses;
+it is not replaced by a private lattice or adelic carrier. -/
+
+/-- For a monic minimal polynomial the absolute derivative resultant is
+the absolute polynomial discriminant. Lee, §§2.1,3.1–3.2, pp.3,5–6. -/
+theorem weilGeneratorDiscriminantBound {K : Type*} [Field K] [NumberField K]
+    (p : ℕ) (hp : p.Prime) (π : NumberField.RingOfIntegers K)
+    (hgen : IntermediateField.adjoin ℚ {(π : K)} = ⊤)
+    (hweil : ∀ σ : K →+* ℂ, ‖σ (π : K)‖ = Real.sqrt (p : ℝ)) :
+    let P := minpoly ℤ (π : K)
+    let d := Module.finrank ℚ K
+    |(NumberField.discr K : ℝ)| ≤ |((Polynomial.resultant P P.derivative : ℤ) : ℝ)| ∧
+      |((Polynomial.resultant P P.derivative : ℤ) : ℝ)| ≤
+        (2 * Real.sqrt (p : ℝ)) ^ (d * (d - 1)) := by
+  sorry
+
+/-- Ordered pairs exclude equal values while retaining root occurrences.
+The product stays a positive integer even for repeated roots.
+Lee, §3.2(11), pp.5–6; the README uses the coarse ordered-root bound. -/
+theorem orderedRootProductBound (q m : ℕ) (hq : 1 ≤ q)
+    (P : Polynomial ℤ) (hP : P.Monic) (hdeg : P.natDegree = m)
+    (roots : Fin m → ℂ)
+    (hroots : P.map (Int.castRingHom ℂ) =
+      ∏ i, (Polynomial.X - Polynomial.C (roots i)))
+    (hmod : ∀ i, ‖roots i‖ = Real.sqrt (q : ℝ)) :
+    let D : ℝ := ‖∏ i, ∏ j,
+      if roots i ≠ roots j then roots i - roots j else (1 : ℂ)‖
+    (∃ d : ℕ, 0 < d ∧ D = (d : ℝ)) ∧
+      D ≤ (2 * Real.sqrt (q : ℝ)) ^ (m * (m - 1)) := by
+  sorry
+
+/-- Abstract form of the conditional local-to-rational orbit bound.
+LT, §3.2(15),(20)–(21),(28), v1 pp.11,14,16; coarse counting adaptation.
+Finiteness is explicit because native cardinalities and indices can be zero
+for infinite quotients. -/
+theorem rationalOrbitCount {G X : Type*} [Group G] [MulAction G X]
+    (Γ K₀ : Subgroup G) (D h : ℕ)
+    [Finite (MulAction.orbitRel.Quotient G X)]
+    [Finite (DoubleCoset.Quotient (Γ : Set G) (K₀ : Set G))]
+    (horbits : Nat.card (MulAction.orbitRel.Quotient G X) ≤ D ^ 2)
+    (hclasses : Nat.card (DoubleCoset.Quotient (Γ : Set G) (K₀ : Set G)) = h)
+    (hstab : ∀ x : X, ∃ a : G,
+      let K := K₀.map (MulAut.conj a).toMonoidHom
+      MulAction.stabilizer G x ≤ K ∧
+        ((MulAction.stabilizer G x).subgroupOf K).FiniteIndex ∧
+        (MulAction.stabilizer G x).relIndex K ≤ D) :
+    Finite (MulAction.orbitRel.Quotient Γ X) ∧
+      Nat.card (MulAction.orbitRel.Quotient Γ X) ≤ D ^ 3 * h := by
+  sorry
+
 end AbelianArithmetic
 
 /-! P1: signatures requiring the preceding owner interfaces. -/
@@ -459,7 +526,7 @@ Source: [KS: KS], Theorem 2.15 and its proof, PDF pp.18–19
 /- Signature omitted: Finite and completed Poincaré sheaves
 Needs actual formal sheaves and inverse systems on the parent relative group/Poincaré carriers; a polynomial coefficient surrogate would not state this assertion.
 
-Mathematical target: For a coherent sheaf F on a smooth group G with unit ideal J, construct its unit completion from the inverse system F ⊗ O_G/J^(n+1), restricted to the unit space. For A, put P^(n) = (id_A × π∨^(n))_*(P|_(A×A∨^(n))) and P̂ = lim_n P^(n). Perform the same construction on A♮ to obtain P♮^(n), P̂♮ and their integrable relative connections. The rigidifications identify degree zero with O_A, give compatible unit sections, and identify the associated-graded kernels with π^*Sym^n(ω_A∨) and π^*Sym^n(H), respectively. Construct the maps P^(n) → P♮^(n) and the finite-level change-of-coefficient comparison along the formal map A♮ → A∨. All limits use the specified finite pushforwards; tensor interchange with an arbitrary inverse limit is a separate assertion.
+Mathematical target: For a coherent sheaf F on a smooth group G with unit ideal J, construct its unit completion from the inverse system F ⊗ O_G/J^(n+1), restricted to the unit space, and compare it with pullback to the formal completion. For A, put P^(n) = (id_A × π∨^(n))_*(P|_(A×A∨^(n))) and P̂ = lim_n P^(n). Perform the same construction on A♮ to obtain P♮^(n), P̂♮ and their integrable relative connections. The rigidifications identify degree zero with O_A. For n≥1, prove the truncation sequences 0 → π^*Sym^n(ω_A∨) → P^(n) → P^(n−1) → 0 and 0 → π^*Sym^n(H) → P♮^(n) → P♮^(n−1) → 0. Their compatible unit sections induce O_S → e^*P̂ ≃ O_Â∨ and O_S → e^*P̂♮ ≃ O_Â♮. Construct the unit-compatible maps P^(n) → P♮^(n) and identify P♮^(n) with P^(n) ⊗_(O_(A×A∨^(n))) O_(A×A♮^(n)). All limits use the specified finite pushforwards; tensor interchange with an arbitrary inverse limit is a separate assertion.
 API signature omitted: AbelianArithmetic.completedPoincare_truncate
   P_hat→P(n) is the projection to the n-th infinitesimal dual neighborhood, and similarly for P♮.
 API signature omitted: AbelianArithmetic.completedPoincare_unit
@@ -543,7 +610,7 @@ Source: [KS: KS], Notation 5.1 and Proposition 5.9, PDF pp.55–56,59–60
 /- Signature omitted: Ordinary infinitesimal trivialization and projected connection
 Needs the CM model, ordinary connected torsion and completed base-change/sheaf interfaces; Cp coefficients alone do not represent these geometric data.
 
-Mathematical target: In the ordinary CM setting over O_Cp, let C_n = A[𝔭_Σ^n]. Its formal filtered union is Â, while coordinate rings have the inverse-limit direction. Dual étaleness of [𝔭_Σ^n] permits the diagonal torsion splitting over A × C_n. Passing compatibly to the limit trivializes P̂ on Â with coefficient ring O_((A×A∨)^∧). The first levels become O_Â ⊗ (O_Cp ⊕ ω_A∨) and O_Â ⊗ (O_Cp ⊕ H). Moments give integral injections into the corresponding completed invariant-tensor coefficient modules. On the Cp generic fibre these are isomorphisms. Construct the Hodge retraction r of i : P̂ → P̂♮ and show that r ∇ i becomes the ordinary differential on the formal coefficient ring. The [p]_# calculation eliminates the unwanted Hodge component; the symbol for the retraction is distinct from the prime p.
+Mathematical target: In the ordinary CM setting over O_Cp, let C_n = A[𝔭_Σ^n]. Its formal filtered union is Â, while coordinate rings have the inverse-limit direction. Dual étaleness of [𝔭_Σ^n] permits the diagonal torsion splitting over A × C_n. Passing compatibly to the limit trivializes P̂ on Â with coefficient ring O_((A×A∨)^∧). The first levels become O_Â ⊗ (O_Cp ⊕ ω_A∨) and O_Â ⊗ (O_Cp ⊕ H). Moments give integral injections into the corresponding completed invariant-tensor coefficient modules. On the Cp generic fibre these are isomorphisms; on that fibre construct the Hodge retraction r of i : P̂ → P̂♮ and show that r ∇ i becomes the ordinary differential on the formal coefficient ring. The [p]_# calculation eliminates the unwanted Hodge component; the symbol for the retraction is distinct from the prime p.
 Source: [KS: KS], Proposition 5.9, equations(5.2.1)–(5.2.4), Lemma 5.11, PDF pp.59–61
 -/
 /- Signature omitted: Torsion translations of the ordinary trivialization
@@ -1111,18 +1178,8 @@ Needs the unit algebraic group, restricted-product lattice action, integral orde
 Mathematical target: Let K₀=Q(√p), D₀/K₀ the quaternion algebra ramified at both real places and split at every finite place, and d≥2. With maximal finite compact U₀,d=∏_v GL_(2d)(O_(K₀,v)), reduced norm identifies GL_d(D₀)(K₀)\GL_d(D₀)(A_(K₀,fin))/U₀,d with the narrow ideal class group Cl⁺(K₀). For each CM field K_i, determinant identifies GL_(n_i)(K_i)\GL_(n_i)(A_(K_i,fin))/GL_(n_i)(Ohat_(K_i)) with Cl(K_i). Their product gives the mixed class set. The d=1 quaternion factor remains its own class set; d=0 omits it.
 Source: [LT: LT], §3.2.2(21), v1 p.14, maximal-compact and narrow-class conventions
 -/
-/- Signature omitted: Discriminant and ordered-root bounds
-Needs the unit algebraic group, restricted-product lattice action, integral orders and level double quotients from AA and GN.2 on the genuine realization space.
 
-Mathematical target: If K=Q(π), π is an integral p-Weil number of degree d, then |D_K|≤|disc minpoly(π)|≤(2√p)^(d(d−1)). More generally, for a monic integral polynomial of degree m all of whose root occurrences λ_i have modulus √p, the positive integer D_*=|∏_{i,j:λ_i≠λ_j}(λ_i−λ_j)| satisfies D_*≤(2√p)^{m(m−1)}. Unequal root values retain occurrence multiplicities; the ordinary discriminant may vanish.
-Source: [Lee: Lee], §2.1 and §3.1–3.2, PDF pp.3,5–6, especially equation(11)
--/
-/- Signature omitted: Conditional rational-orbit bound from local lattices
-Needs the unit algebraic group, restricted-product lattice action, integral orders and level double quotients from AA and GN.2 on the genuine realization space.
 
-Mathematical target: Let a group G_f with subgroup Γ act on a lattice space X, with at most D_*² G_f-orbits. Suppose h=#(Γ\G_f/K₀)<∞ for a fixed compact level K₀. For every orbit representative M assume Stab(M)=∏S_{M,ℓ}, contained in K_M=∏H_{M,ℓ}=a_M K₀ a_M⁻¹ with a_M∈G_f, equality S_{M,ℓ}=H_{M,ℓ} away from finitely many primes, and ∏[H_{M,ℓ}:S_{M,ℓ}]≤D_*. Then Γ\X is finite and #Γ\X≤D_*³h. If the relevant Weil-lattice tuple satisfies these assumptions and D_*≤(2√p)^{m(m−1)}, the resulting conditional bound is #Γ\X≤(2√p)^{3m(m−1)}h.
-Source: [LT: LT], §3.2(15),(20)–(21),(28), v1 pp.11,14,16; coarse orbit-count adaptation
--/
 /- Signature omitted: Coarse prime-field isomorphism count at fixed adelic level
 Needs the unit algebraic group, restricted-product lattice action, integral orders and level double quotients from AA and GN.2 on the genuine realization space.
 
@@ -1183,12 +1240,7 @@ Source: [LT: LT], §§5.3–5.5, equations(39),(51)–(56), v1 pp.26–33
 
 /-! F6: signatures requiring the preceding owner interfaces. -/
 
-/- Signature omitted: Counting Weil polynomials by power sums
-Needs the genuine Weil-polynomial/isogeny/isomorphism or principal-polarization counting carrier and the uniform quantitative hypotheses specified in the README.
 
-Mathematical target: For q≥2 and g≥1, the number of monic q-reciprocal integer polynomials (q^gP(X)=X^(2g)P(q/X)) of degree 2g with constant q^g and all roots of absolute value √q is at most (4g+1)^g q^(g(g+1)/4).
-Source: [LT: LT], Lemma 2.1 and proof, v1 p.5, power-sum counting adaptation
--/
 /- Signature omitted: Asymptotic count of isogeny classes
 Needs the genuine Weil-polynomial/isogeny/isomorphism or principal-polarization counting carrier and the uniform quantitative hypotheses specified in the README.
 
