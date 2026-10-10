@@ -1488,6 +1488,8 @@ Unit tests:
 
 - `trace_linear_extension`: For distinct γ,δ, extension satisfies T(2[γ]−[δ])=2τ(γ)−τ(δ); a multiplicative extension would fail this adapter.
 
+- `trace_extension_not_multiplicative`: On A=ℚ and Γ=1, the A-linear extension of the constant group function τ=2 has T(1·1)=2 but T(1)T(1)=4. This check applies to the underlying function-extension operation before imposing pseudocharacter axioms. It separates that operation from an algebra homomorphism, which cannot extend arbitrary group functions.
+
 **Needs:** [`MonoidAlgebra`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MonoidAlgebra/Defs.lean) (Mathlib); `MonoidAlgebra.of` (Mathlib); `Equiv.Perm.cycleFactorsFinset` (Mathlib); **IntegralHeckeAndGaloisDeterminants, IHG.0/pseudocharacter**.
 
 **Source:** [Lafforgue][Lafforgue-shtukas], Remark11.8, pp.143–144.
