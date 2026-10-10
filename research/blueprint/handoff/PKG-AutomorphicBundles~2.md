@@ -43,12 +43,17 @@ was claimed, and no packet, assembly, review, atlas file or upstream file was ed
    free sheaves, tensor/dual and polynomial operations, relative Spec and
    geometric total spaces. Those foundations are not re-planned here.
 
-`metadata.toml` has deliberately been removed. `issues.deliverables_complete`
-uses output existence for package jobs, without inspecting geometric closure.
-Leaving all four outputs present would incorrectly finish this blocked revision.
-The intended final metadata remains exactly `topic = "math.NT"`; restore that
-one line only when the package actually satisfies section 20. The existing
-`review.json` remains unchanged with its `needs_changes` verdict.
+`metadata.toml` retains exactly `topic = "math.NT"`. The submission workflow
+rejected an initial attempt to withhold it because submissions may not delete
+deliverables. That deletion has been reversed. `issues.deliverables_complete`
+uses output existence for package jobs, without inspecting geometric closure;
+with the inherited package outputs and this required handoff present, its result
+is true even though this job is incomplete. Therefore the PR is a **draft
+checkpoint**, the route WORKERS.md leaves to the maintainer. Do not send it
+through automatic complete-package intake. The maintainer must handle the
+checkpoint and continuation explicitly, or retain the draft until the owning
+planning work supplies the missing carriers. The existing `review.json` remains
+unchanged with its `needs_changes` verdict.
 
 ## Earliest blocker and current upstream evidence
 
@@ -174,6 +179,7 @@ Then replace the geometric comment inventory with constructors, named API
 signatures and discriminating tests on the resulting carriers. Preserve the
 concrete holomorphic factor and its functional forgetting. Reconcile all
 remaining declarations with the README and re-run the full pinned elaboration.
-Restore `metadata.toml` only on actual completion, retaining the independent
-review file for its next reviewer. All resumption information is committed here;
+Keep the independent review file for its next reviewer. The maintainer must
+handle this draft as a checkpoint, and it must remain a draft until the package
+can safely enter complete-package intake. All resumption information is committed here;
 no scratch file is needed by a later worker.
