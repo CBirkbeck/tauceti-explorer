@@ -12,13 +12,13 @@
     "ShimuraCompactifications:C4",
     "ShimuraCompactifications:C5"
   ],
-  "status": "complete",
+  "status": "partial",
   "title": "Analytic toric geometry, Part II: arithmetic toroidal compactifications",
   "extends": "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
   ],
-  "summary": "Target-level planning pass for all eight unchanged stages of the RS-32 arithmetic toroidal Part II. The seventeen correct checkpoint nodes are retained and extended through arithmetic fans, mixed boundary data, characteristic-zero gluing/descent, toroidal maps and coefficient vanishing, relative polarized effectivity, and good-prime integral toroidal/minimal PEL models. Routed normalization, Koecher, ordinary/formal, finite-etale cover and good-boundary exports have distinct hypotheses. Complete means every target is represented, not implemented or gap-free; all nodes remain unchecked, and supplier/proof/signature gaps are explicit.",
+  "summary": "Revision checkpoint for the eight unchanged stages of the RS-32 arithmetic toroidal Part II. All 90 independently corrected target nodes, 119 API items and 92 tests are retained and synchronized in the reader; every declaration remains unchecked and all eight stages remain planned. Native uniform affine base change and local arithmetic-fan/refinement prototypes extend the seven existing coefficient-algebra signatures. Full geometric prototypes remain unfinished because the actual analytic, algebraic-space, torsor and degeneration supplier interfaces are unavailable at the pin. This is a partial checkpoint, with explicit signature coverage, 21 gaps and 37 supplier requests, rather than a completed revision.",
   "restructureBinding": {
     "proposal": "research/blueprint/restructure/RS-32.result.json",
     "blobSha": "52d2af138644bbe7cee5047005352b8b216539a4",
@@ -369,6 +369,18 @@
       "sha256": "e0ecf94c74332660867965dc9877836ef97f2a03161c53b5f0ff1a1a7f616b04",
       "accessDate": "2026-10-06",
       "accessNote": "Linked from the author academic bibliography; all three numbered corrections read. Publisher version not compared."
+    },
+    {
+      "id": "FALTINGS-CHAI-1990",
+      "title": "Degeneration of Abelian Varieties",
+      "authors": "Gerd Faltings and Ching-Li Chai",
+      "edition": "Ergebnisse der Mathematik und ihrer Grenzgebiete, third series, volume 22, Springer, 1990; maintainer-cleared reference copy",
+      "accessDate": "2026-10-10",
+      "readSections": [
+        "Chapter I, Definitions 2.1 and 2.3, Propositions 2.7 and 2.9, Theorem 2.10 and Corollary 2.11, printed pp. 7–13 (PDF pp. 19–25)",
+        "Chapter V, Propositions 2.1–2.2 and the construction in Theorem 2.3, printed pp. 149–152 (PDF pp. 161–164); the direct theta proof in section 3 was not read"
+      ],
+      "accessNote": "Selected passages read in the cleared reference copy. This restricted source has no freely readable URL here. No source file or extracted passage is included in the repository. Earlier proof references, the direct theta construction and the level-group extension leaves remain explicit."
     }
   ],
   "sourceVersions": [
@@ -3538,9 +3550,9 @@
         "Use Lan's constructible etale sheaf setting; no locally constant character lattice is assumed across a rank jump."
       ],
       "proofSteps": [
-        "Construct fibrewise maximal tori and the specialization-compatible character sheaf.",
-        "Apply the relative homomorphism identification of Lan 3.3.1.9; the character map is contravariant.",
-        "Check the torus and abelian specializations and etale descent. The general sheaf theorem quoted from Faltings–Chai requires its missing supplier proof."
+        "Faltings–Chai I.2.9 extends a generic subtorus over a normal base. On the DVR test bases its characters specialize by the quotient map from special to generic characters.",
+        "Use the sheaf construction of I.2.10: sections are fibrewise Galois-invariant characters satisfying the DVR specialization condition. The proof uses reduction to a reduced finite-type base, conductor gluing and Noetherian induction; its auxiliary descent and torus-rigidity inputs must be supplied by the owners.",
+        "Compare this sheaf with Lan 3.3.1.9 and check the contravariant torus-to-semi-abelian Hom identification and arbitrary base change. A constructible sheaf may have jumping rank; it is not silently replaced by a local system."
       ],
       "acceptance": [
         "For G=T, the comparison is the native contravariant character-lattice Hom.",
@@ -3555,6 +3567,11 @@
           "sourceId": "LAN-2021",
           "locator": "3.3.1.8–3.3.1.10, printed pp. 192–193",
           "match": "Character sheaf and torus-to-semi-abelian Hom comparison."
+        },
+        {
+          "sourceId": "FALTINGS-CHAI-1990",
+          "locator": "Chapter I, Proposition 2.9, Theorem 2.10 and Corollary 2.11, printed pp. 11–13 / PDF pp. 23–25",
+          "match": "Directly inspected character-sheaf construction, specialization and constant-rank global-extension consequence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3962,9 +3979,9 @@
         "Retain normality of S, dense U and the semi-abelian family hypotheses of Lan 3.3.1.5 / Faltings–Chai I.2.7."
       ],
       "proofSteps": [
-        "Apply the scheme extension theorem quoted by Lan to an etale chart of the normal base.",
-        "Use uniqueness on the dense restriction to verify the descent cocycle and descend the homomorphism.",
-        "Check identities and composition by the same uniqueness. The cited Faltings–Chai proof is an explicit unread source leaf."
+        "Faltings–Chai I.2.7 reduces the Noetherian normal scheme case to DVRs by the closure of the generic graph, the valuative criterion and Stein factorization. The geometric-fibre graph is determined by torsion, not by properness of the semi-abelian scheme.",
+        "Over a DVR, extend maps to the abelian part using the connected Neron model. For a split torus target the divisor of the multiplicative function is vertical; compatibility with the group law forces its multiplicity to vanish. The general case uses the torus extension and semistable base change.",
+        "Use dense-open uniqueness for identities, composition and the etale descent cocycle. The locally Noetherian version is obtained on Noetherian opens; the algebraic-space version still needs the actual descent supplier. The source proof was read, but its Neron, torsion and graph/Stein formal interfaces are still requested."
       ],
       "acceptance": [
         "The restriction is a bijection on actual homomorphisms.",
@@ -3984,6 +4001,11 @@
           "sourceId": "BP-2026",
           "locator": "Lemma 4.2.2, printed p. 43",
           "match": "Routed use of the extension theorem."
+        },
+        {
+          "sourceId": "FALTINGS-CHAI-1990",
+          "locator": "Chapter I, Proposition 2.7 and proof, printed pp. 9–11 / PDF pp. 21–23",
+          "match": "Normal Noetherian dense-open Hom extension; the proof separates graph reduction, abelian target, torus target and general extension cases."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4905,7 +4927,7 @@
       "proofSteps": [
         "Apply the theta/polarized-family construction quoted in Lan 7.2.1.1 to produce sections separating the required degeneration data.",
         "Use properness and the boundary chart comparison to obtain a uniform positive generating power.",
-        "Retain the Faltings–Chai V.2.1 proof as an unread input request; source assertion alone does not close the theta-generation proof."
+        "Faltings–Chai V.2.1, printed p. 149, was read: it reduces to Moret-Bailly IX.2.1 and explains the role of theta constants. Its direct theta proof in V.3 and the cited Moret-Bailly theorem were not read; these remain the requested generation inputs. The Siegel statement is not by itself the full PEL extension."
       ],
       "acceptance": [
         "A uniform positive power is relatively generated.",
@@ -4924,6 +4946,11 @@
           "sourceId": "LAN-2021",
           "locator": "Proposition 7.2.1.1 and 7.2.1.2, printed pp. 540–541",
           "match": "Semiampleness and degree-zero/isotriviality criterion."
+        },
+        {
+          "sourceId": "FALTINGS-CHAI-1990",
+          "locator": "Chapter V, Proposition 2.1, printed p. 149 / PDF p. 161; Theorem 2.3 construction, pp. 150–152 / PDF pp. 162–164",
+          "match": "Siegel Hodge semiampleness and the Stein/section-ring minimal construction, with the original theorem reference separated from the unread direct theta proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6207,7 +6234,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Relative Spec of graded quasi-coherent character-line algebras; ordinary localization/closed ideal and arbitrary coefficient base change; generic valuative properness and relative-affine morphism criteria; smooth/log differential coordinates, finite group order-invertible etaleness and schematic/fibrewise density. Native quotient/ideal arithmetic already in this owner is imported, not replanned. Checkpoint interface retained: Reuse generic coordinate-algebra quotients/localizations, relative Spec of quasi-coherent algebras with its universal property and base change, base change of closed intersections, smooth polynomial/Laurent charts, smooth composition and etale locality. Supply the local sheaf test for schematic density from injectivity of localization, and the open-map density argument. Existing monoid algebras and ideal quotients remain native carriers. No tensor/inverse-limit interchange is requested.",
+      "need": "Relative Spec of graded quasi-coherent character-line algebras; ordinary localization/closed ideal and arbitrary coefficient base change; generic valuative properness and relative-affine morphism criteria; smooth/log differential coordinates, finite group order-invertible etaleness and schematic/fibrewise density. Native quotient/ideal arithmetic already in this owner is imported, not replanned. Checkpoint interface retained: Reuse generic coordinate-algebra quotients/localizations, relative Spec of quasi-coherent algebras with its universal property and base change, base change of closed intersections, smooth polynomial/Laurent charts, smooth composition and etale locality. Supply the local sheaf test for schematic density from injectivity of localization, and the open-map density argument. Existing monoid algebras and ideal quotients remain native carriers. No tensor/inverse-limit interchange is requested. Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already has CategoryTheory.CommMon.relativeSpec, CategoryTheory.CommMon.relativeSpecToBase and CategoryTheory.CommMon.relativeSpecIsoSpec (with the TauCeti.AlgebraicGeometry.relativeSpec functor on QuasicoherentAlgebra) in AlgebraicGeometry/RelativeSpec. Adopt those declarations through the existing owner, with graded subalgebra and arbitrary-base-change comparisons; never reconstruct relative Spec here. Those modules are absent at this job’s f790474 pin.",
       "neededBy": [
         "ShimuraCompactifications:C0/relative-torus-embedding",
         "ShimuraCompactifications:C0/relative-face-open",
@@ -6438,7 +6465,8 @@
       "status": "planned",
       "remaining": [
         "Arithmetic admissibility/effective stabilizers and simultaneous smooth/projective construction proof leaves; uniform arbitrary-ring/torsor gluing with the requested native geometric interfaces.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6446,7 +6474,8 @@
       "status": "planned",
       "remaining": [
         "AMRT arithmetic reduction and constructible/strict boundary representation APIs; special mixed canonical torsor models supplied for descent.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6454,7 +6483,8 @@
       "status": "planned",
       "remaining": [
         "Nonreduced analytic carrier integration, controlled quotient-neighbourhood proof, algebraic-space/GAGA and special mixed canonical descent interfaces.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6462,7 +6492,8 @@
       "status": "planned",
       "remaining": [
         "The same mixed boundary canonical supplier and dense-special-point descent proof, retaining the V8.general fields.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6470,7 +6501,8 @@
       "status": "planned",
       "remaining": [
         "Integral Cech/KKMS vanishing and exact coefficient/adic comparison; Klingen boundary factorization; no false subcanonical pullback or ordinary inverse-limit shortcut.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6478,15 +6510,17 @@
       "status": "planned",
       "remaining": [
         "Specified reflex-field/compositum descent of the full compatible map/span interface through the same special mixed supplier.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
       "stageId": "ShimuraCompactifications:C4",
       "status": "planned",
       "remaining": [
-        "Relative effectivity/theta proof leaves, R11.3 local ownership interface, Faltings–Chai Hom extension, exact Tate/log-Kodaira–Spencer and boundary-level normalization interfaces.",
-        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented."
+        "Relative effectivity/theta proof leaves, R11.3 local ownership interface, the native normal-base Hom/character-sheaf and etale-descent APIs (Faltings–Chai I.2 source proofs now read), exact Tate/log-Kodaira–Spencer and boundary-level normalization interfaces.",
+        "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     },
     {
@@ -6495,14 +6529,15 @@
       "remaining": [
         "Good-model approximation, non-neat branch/component descent, theta/B5 minimal identification, normalized integral coefficient/positivity proofs, ordinary/formal Hartogs and etale cohomology owner inputs.",
         "Geometric declaration/API/test signatures listed in the suggested-file omission ledger need actual supplier carriers. No stage is closed or implemented.",
-        "Distinguish same-fan good-prime finite normalization from Lan's projective normalized blow-up; supply the ramified lattice-collection interior/minimal models and the explicit formal toroidal-to-minimal structure-sheaf comparison."
+        "Distinguish same-fan good-prime finite normalization from Lan's projective normalized blow-up; supply the ramified lattice-collection interior/minimal models and the explicit formal toroidal-to-minimal structure-sheaf comparison.",
+        "Revision checkpoint: complete target planning is retained, but the required full geometric prototypes remain unfinished; local and affine specializations are identified in suggestedCoverage."
       ]
     }
   ],
   "gaps": [
     {
       "title": "Native geometric signatures and supplier carrier interfaces",
-      "detail": "The native coefficient-algebra signatures remain valid. Advanced arithmetic-fan, torsor, mixed-boundary, analytic quotient, formal degeneration, integral-model and cohomology signatures require actual supplier carriers and their requested API. Every omitted declaration/API/test is enumerated by its exact packet name in the suggested-file ledger. No arbitrary Prop or conclusion-as-field object stands for a missing definition.",
+      "detail": "Seven coefficient-algebra nodes have full typed signatures. Added native affine coefficient-change and local arithmetic-fan/refinement components, with explicit action, orbit representatives, compact-intersection predicates and finite-overlap hypothesis. These local components do not provide global cusp/adelic restrictions. The 83 remaining full node signatures still require the actual anchor dual-monoid/gluing or torsor, mixed-boundary, analytic, formal, algebraic-space and cohomology supplier interfaces. ComplexComparisonPartII explicitly omits its analytic carrier at the pin; SF.1 has an algebraic-space prototype but no pinned import. Every full omitted contract is retained in the ledger. Replanning another owner or hiding missing geometry in an opaque proposition would violate the protocol.",
       "neededBy": [
         "ShimuraCompactifications:C0",
         "ShimuraCompactifications:C1",
@@ -6570,7 +6605,7 @@
     },
     {
       "title": "Semi-abelian extension and quasi-finite flatness proof",
-      "detail": "Faltings–Chai I.2.7 and the constructible-character theorem cited by Lan were not inspected in the original book. Supply the normal-base generic Hom extension and the extra quasi-finite/flat group argument for the exact boundary isogeny family. The Tate rank-loss example proves that a finite-flat-kernel strengthening is false. Faltings–Chai chapter V finite-flat cyclic level-group extension quoted in Pilloni 2012 4.1.2 was also not inspected. It extends the group with its generic identification, not necessarily its inclusion into the semi-abelian identity component.",
+      "detail": "Faltings–Chai I.2.7 and its proof, I.2.9–2.11 and the character-sheaf proof were inspected in the cleared copy on 10 October 2026. The remaining inputs are the actual semi-abelian/non-split-torus, constructible etale sheaf, Neron, torsion and graph/Stein/descent interfaces. The extra quasi-finite/flat group argument for the particular boundary isogeny and chapter V finite-flat cyclic level-group extension cited in Pilloni 2012 remain unread leaves. The Tate rank-loss example still excludes a finite-flat-kernel strengthening.",
       "neededBy": [
         "ShimuraCompactifications:C4/constructible-character-sheaf",
         "ShimuraCompactifications:C4/homomorphism-extension",
@@ -6595,7 +6630,7 @@
     },
     {
       "title": "Hodge theta generation and minimal constant terms",
-      "detail": "Lan quotes Faltings–Chai V.2.1 for Hodge semiampleness; that proof was not inspected. Supply the theta-generation input, graded finite-generation/Stein interfaces and B5 constant-term identification, keeping B5 downstream of early toroidal properness. Coarse Hodge Q-line descent requires the stated auxiliary level/stabilizer check.",
+      "detail": "Faltings–Chai V.2.1 and the Stein/section-ring construction in V.2.3 were read in the cleared copy. V.2.1 quotes Moret-Bailly IX.2.1; that proof and the direct theta construction in V.3 remain unread. Supply the PEL theta-generation input, graded finite-generation/Stein interfaces and B5 constant terms, keeping B5 downstream of early toroidal properness. Coarse Hodge Q-line descent still requires auxiliary level/stabilizer checks.",
       "neededBy": [
         "ShimuraCompactifications:C5/hodge-semiampleness",
         "ShimuraCompactifications:C5/graded-section-finite-generation",
@@ -6646,7 +6681,7 @@
     },
     {
       "title": "Version-of-record and source collation boundary",
-      "detail": "Hashes and exact read sections identify every inspected PDF. Pink/Pilloni/Boxer–Pilloni/Yuan and arXiv BCGP texts were not collated against their publishers. Yuan's requested author copy refused connection; arXiv v4 is used with its own date. Supporting AMRT, KKMS, Faltings–Chai and Lan [17]/Lan–Stroh original proofs remain the specific leaves above; no complete book reading or publisher-wide error claim is made.",
+      "detail": "Hashes and exact read sections identify every inspected PDF. Pink/Pilloni/Boxer–Pilloni/Yuan and arXiv BCGP texts were not collated against their publishers. Yuan's requested author copy refused connection; arXiv v4 is used with its own date. Supporting AMRT, KKMS, the uninspected Faltings–Chai passages and Lan [17]/Lan–Stroh original proofs remain the specific leaves above; no complete book reading or publisher-wide error claim is made. Selected Faltings–Chai I.2 and V.2 passages were read in the cleared reference copy for this revision; no complete-book reading is claimed.",
       "neededBy": [
         "ShimuraCompactifications:C0",
         "ShimuraCompactifications:C1",
@@ -6958,6 +6993,10 @@
     {
       "finding": "R11.3 local interface",
       "detail": "The accepted RS-32 direction is preserved but the current local Raynaud node verbally requires early C4. A local supplier ownership repair is requested before relative C4 consumes it; no global acyclicity is claimed from the packet-local check."
+    },
+    {
+      "finding": "Current toric and relative-Spec library boundary, checked 2026-10-10",
+      "detail": "At current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, IsIntegralLattice.realCharacter and dualSemigroup, affineToricScheme, Fan.algebraicRealization/affineToricChartι and CategoryTheory.CommMon.relativeSpec/relativeSpecToBase/relativeSpecIsoSpec and the TauCeti.AlgebraicGeometry.relativeSpec functor are implemented. Their actual sources and current AnalyticToricGeometry/AlgebraicVectorBundles roadmaps were read. The finite complex supplier and relative Spec are imported work, not new targets. These modules are absent at the f790474 pin; they are not added as pinned baselines. Uniform arbitrary coefficients, actual torsor-weight subalgebras, arithmetic quotients and supplier comparisons remain the extension targets."
     }
   ],
   "review": {
@@ -7417,5 +7456,333 @@
         "note": "Added the previously missing Lan projective normalized-blowup key construction, with exact H^p-neat/lattice-collection/projective-fan hypotheses, five API items, three tests and explicit ramified-input/completion proof gaps."
       }
     ]
+  },
+  "suggestedCoverage": {
+    "session": "codex-g4Y4t6",
+    "date": "2026-10-10",
+    "status": "partial",
+    "fullNodes": [
+      "ShimuraCompactifications:C0/face-projection",
+      "ShimuraCompactifications:C0/face-projection-coeff",
+      "ShimuraCompactifications:C0/face-projection-section",
+      "ShimuraCompactifications:C0/face-projection-kernel",
+      "ShimuraCompactifications:C0/face-quotient",
+      "ShimuraCompactifications:C0/face-projection-coefficient-change",
+      "ShimuraCompactifications:C0/face-kernel-coefficient-change"
+    ],
+    "partialNodes": [
+      "ShimuraCompactifications:C0/arithmetic-admissible-fan",
+      "ShimuraCompactifications:C0/compatible-common-refinement",
+      "ShimuraCompactifications:C0/arbitrary-ring-toric-charts"
+    ],
+    "fullApi": [
+      "AddMonoidAlgebra.faceProjection_eq_comapDomain",
+      "AddMonoidAlgebra.faceProjection_single_mem",
+      "AddMonoidAlgebra.faceProjection_single_not_mem",
+      "AddMonoidAlgebra.faceProjection_coeff",
+      "AddMonoidAlgebra.faceProjection_comp_inclusion",
+      "AddMonoidAlgebra.faceProjection_coefficient_change",
+      "AddMonoidAlgebra.faceQuotientEquiv_mk",
+      "AddMonoidAlgebra.faceQuotientEquiv_symm_single",
+      "AddMonoidAlgebra.faceQuotientEquiv_coeff",
+      "AddMonoidAlgebra.faceQuotient_mk_eq_iff",
+      "Toric.affineChart_baseChange"
+    ],
+    "partialApi": [
+      "ArithmeticFan.ext",
+      "ArithmeticFan.toFiniteFan",
+      "ArithmeticFan.support",
+      "ArithmeticFan.commonRefinement_le",
+      "ArithmeticFan.commonRefinement_universal",
+      "ArithmeticFan.commonRefinement_support"
+    ],
+    "fullTests": [
+      "AddMonoidAlgebra.faceProjection_zero_test",
+      "AddMonoidAlgebra.faceProjection_positive_test",
+      "AddMonoidAlgebra.faceProjection_nilpotent_test",
+      "AddMonoidAlgebra.faceProjection_laurent_test",
+      "AddMonoidAlgebra.faceQuotient_zero_test",
+      "AddMonoidAlgebra.faceQuotient_positive_test",
+      "AddMonoidAlgebra.faceQuotient_nilpotent_test",
+      "AddMonoidAlgebra.faceQuotient_laurent_test",
+      "Toric.affineChart_ray_Z4_test",
+      "Toric.affineChart_zero_test",
+      "Toric.affineChart_valuation_test",
+      "Toric.affineChart_nilpotent_test"
+    ],
+    "partialTests": [
+      "ArithmeticFan.zero_test",
+      "ArithmeticFan.finite_test",
+      "ArithmeticFan.origin_test",
+      "ArithmeticFan.support_test",
+      "ArithmeticFan.commonRefinement_self_test"
+    ],
+    "remainingFullNodes": [
+      "ShimuraCompactifications:C0/relative-torus-embedding",
+      "ShimuraCompactifications:C0/relative-face-open",
+      "ShimuraCompactifications:C0/relative-regular-coordinates",
+      "ShimuraCompactifications:C0/relative-stratum-quotient",
+      "ShimuraCompactifications:C0/relative-boundary-coordinates",
+      "ShimuraCompactifications:C0/arithmetic-admissible-fan",
+      "ShimuraCompactifications:C0/compatible-common-refinement",
+      "ShimuraCompactifications:C0/smooth-projective-refinement",
+      "ShimuraCompactifications:C0/arbitrary-ring-toric-charts",
+      "ShimuraCompactifications:C0/relative-fan-properness",
+      "ShimuraCompactifications:C1/mixed-boundary-datum",
+      "ShimuraCompactifications:C1/boundary-mixed-hodge-structure",
+      "ShimuraCompactifications:C1/boundary-torsor-tower",
+      "ShimuraCompactifications:C1/cusp-label",
+      "ShimuraCompactifications:C1/arithmetic-stabilizer",
+      "ShimuraCompactifications:C1/boundary-incidence",
+      "ShimuraCompactifications:C2/partial-boundary-charts",
+      "ShimuraCompactifications:C2/quotient-separation",
+      "ShimuraCompactifications:C2/arithmetic-gluing",
+      "ShimuraCompactifications:C2/normal-open-dense",
+      "ShimuraCompactifications:C2/compactness-properness",
+      "ShimuraCompactifications:C2/smooth-normal-crossings",
+      "ShimuraCompactifications:C2/projective-algebraization",
+      "ShimuraCompactifications:C2/minimal-boundary-map",
+      "ShimuraCompactifications:C2/canonical-toroidal-model",
+      "ShimuraCompactifications:C2.general/general-toroidal-descent",
+      "ShimuraCompactifications:C3/refinement-map",
+      "ShimuraCompactifications:C3/level-datum-functoriality",
+      "ShimuraCompactifications:C3/hecke-span",
+      "ShimuraCompactifications:C3/choice-comparison",
+      "ShimuraCompactifications:C3/toric-structure-sheaf-vanishing",
+      "ShimuraCompactifications:C3/refinement-structure-sheaf",
+      "ShimuraCompactifications:C3/refinement-higher-structure-sheaf",
+      "ShimuraCompactifications:C3/refinement-boundary-ideal",
+      "ShimuraCompactifications:C3/coherent-cohomology-invariance",
+      "ShimuraCompactifications:C3/partial-ordinary-formal-invariance",
+      "ShimuraCompactifications:C3/klingen-correspondence-compactification",
+      "ShimuraCompactifications:C3/klingen-correspondence-acyclicity",
+      "ShimuraCompactifications:C3.general/general-map-descent",
+      "ShimuraCompactifications:C4/semi-abelian-scheme",
+      "ShimuraCompactifications:C4/constructible-character-sheaf",
+      "ShimuraCompactifications:C4/poincare-extension-classification",
+      "ShimuraCompactifications:C4/polarized-degeneration-data",
+      "ShimuraCompactifications:C4/mumford-quotient",
+      "ShimuraCompactifications:C4/degeneration-effectivity",
+      "ShimuraCompactifications:C4/formal-universal-degeneration",
+      "ShimuraCompactifications:C4/homomorphism-extension",
+      "ShimuraCompactifications:C4/endomorphism-extension",
+      "ShimuraCompactifications:C4/boundary-level-comparison",
+      "ShimuraCompactifications:C4/extended-isogeny-kernel",
+      "ShimuraCompactifications:C4/tate-degeneration-comparison",
+      "ShimuraCompactifications:C4/tate-log-kodaira-spencer",
+      "ShimuraCompactifications:C5/good-algebraic-model",
+      "ShimuraCompactifications:C5/etale-chart-relation",
+      "ShimuraCompactifications:C5/integral-toroidal-space",
+      "ShimuraCompactifications:C5/formal-completion",
+      "ShimuraCompactifications:C5/valuative-properness",
+      "ShimuraCompactifications:C5/neat-boundary-intersection-smooth",
+      "ShimuraCompactifications:C5/neat-boundary-open-fiberwise-dense",
+      "ShimuraCompactifications:C5/neat-stratum-closure-component",
+      "ShimuraCompactifications:C5/neat-stratum-closure-proper",
+      "ShimuraCompactifications:C5/neat-strata-detect-geometric-components",
+      "ShimuraCompactifications:C5/nonneat-boundary-descent",
+      "ShimuraCompactifications:C5/log-kodaira-spencer",
+      "ShimuraCompactifications:C5/hodge-semiampleness",
+      "ShimuraCompactifications:C5/graded-section-finite-generation",
+      "ShimuraCompactifications:C5/integral-minimal-space",
+      "ShimuraCompactifications:C5/minimal-hodge-ampleness",
+      "ShimuraCompactifications:C5/open-quasiprojectivity",
+      "ShimuraCompactifications:C5/higher-level-toroidal-normalization",
+      "ShimuraCompactifications:C5/normalized-chart-finiteness",
+      "ShimuraCompactifications:C5/integral-coefficient-extension",
+      "ShimuraCompactifications:C5/normalized-koecher",
+      "ShimuraCompactifications:C5/siegel-koecher-arbitrary-coefficients",
+      "ShimuraCompactifications:C5/ordinary-koecher",
+      "ShimuraCompactifications:C5/hilbert-siegel-boundary-codimension",
+      "ShimuraCompactifications:C5/formal-hilbert-siegel-koecher",
+      "ShimuraCompactifications:C5/prime-Q-subgroup-extension",
+      "ShimuraCompactifications:C5/prime-Q-generator-cover",
+      "ShimuraCompactifications:C5/siegel-canonical-bundle",
+      "ShimuraCompactifications:C5/good-boundary-cohomology-export",
+      "ShimuraCompactifications:C4/semiabelian-tate-module",
+      "ShimuraCompactifications:C5/projective-normalized-blowup"
+    ],
+    "remainingApi": [
+      "TauCeti.Toric.Relative.embedding_trivialization",
+      "TauCeti.Toric.Relative.embedding_baseChange",
+      "TauCeti.Toric.Relative.embedding_torusAction",
+      "TauCeti.Toric.Relative.embedding_zeroCone",
+      "TauCeti.Toric.Relative.embedding_changeTrivialization",
+      "TauCeti.Toric.Relative.embedding_homEquiv",
+      "ArithmeticFan.restrict",
+      "Toric.finiteFan_baseChange",
+      "Toric.finiteFan_anchor",
+      "Toric.finiteFan_torusAction",
+      "Toric.finiteFan_glue_hom",
+      "MixedBoundaryDatum.pureQuotient",
+      "MixedBoundaryDatum.weightFiltration",
+      "MixedBoundaryDatum.conjugation",
+      "MixedBoundaryDatum.h_finiteFibers",
+      "MixedBoundaryDatum.ext",
+      "BoundaryMHS.weight_adjoint",
+      "BoundaryMHS.hodge_boundary_eq",
+      "BoundaryMHS.map",
+      "BoundaryMHS.native_filtrations",
+      "BoundaryTorsor.torusCharacters",
+      "BoundaryTorsor.abelianQuotient",
+      "BoundaryTorsor.levelChange",
+      "CuspLabel.representative_invariant",
+      "CuspLabel.cone_transport",
+      "CuspLabel.finite",
+      "CuspLabel.mk",
+      "CuspLabel.eq_iff",
+      "PartialBoundaryChart.openTorsor",
+      "PartialBoundaryChart.faceOpen",
+      "PartialBoundaryChart.anchor",
+      "PartialBoundaryChart.glue_hom",
+      "ToroidalSpace.chart",
+      "ToroidalSpace.interior",
+      "ToroidalSpace.strata",
+      "ToroidalSpace.chart_overlap",
+      "ToroidalSpace.descend_hom",
+      "ToroidalCanonicalModel.interior",
+      "ToroidalCanonicalModel.boundaryCompletion",
+      "ToroidalCanonicalModel.descent_cocycle",
+      "ToroidalCanonicalModel.unique",
+      "ToroidalRefinement.interior",
+      "ToroidalRefinement.comp",
+      "ToroidalRefinement.proper",
+      "ToroidalRefinement.id",
+      "ToroidalHeckeSpan.openRestriction",
+      "ToroidalHeckeSpan.commonRefinement",
+      "ToroidalHeckeSpan.boundaryMap",
+      "KlingenToroidalCorrespondence.t1_open",
+      "KlingenToroidalCorrespondence.t2_open",
+      "KlingenToroidalCorrespondence.fanComparison",
+      "SemiAbelianScheme.baseChange",
+      "SemiAbelianScheme.characterSheaf",
+      "SemiAbelianScheme.abelianEmbedding",
+      "SemiAbelianScheme.constantRankExtension",
+      "SemiAbelianScheme.ofGroup",
+      "SemiAbelianScheme.ext",
+      "PolarizedDegenerationData.extension",
+      "PolarizedDegenerationData.baseChange",
+      "PolarizedDegenerationData.localRaynaud",
+      "PolarizedDegenerationData.period_pairing",
+      "PolarizedDegenerationData.genericOneMotive",
+      "PolarizedDegenerationData.iso_iff",
+      "PolarizedDegenerationData.toAmple",
+      "MumfordDegeneration.genericFibre",
+      "MumfordDegeneration.formalCompletion",
+      "MumfordDegeneration.fanComparison",
+      "UniversalDegeneration.character",
+      "UniversalDegeneration.genericPEL",
+      "UniversalDegeneration.faceRestriction",
+      "GoodCuspModel.formalComparison",
+      "GoodCuspModel.openPEL",
+      "GoodCuspModel.embeddings",
+      "IntegralToroidalModel.openImmersion",
+      "IntegralToroidalModel.universalSemiAbelian",
+      "IntegralToroidalModel.chart",
+      "IntegralToroidalModel.genericComparison",
+      "IntegralToroidalModel.descend_hom",
+      "IntegralMinimalModel.fromToroidal",
+      "IntegralMinimalModel.fanIndependent",
+      "IntegralMinimalModel.genericComparison",
+      "IntegralMinimalModel.levelMap",
+      "IntegralMinimalModel.structureSheaf",
+      "NormalizedToroidalModel.finiteMap",
+      "NormalizedToroidalModel.openNormalization",
+      "NormalizedToroidalModel.chartIntegralClosure",
+      "NormalizedToroidalModel.refinement",
+      "NormalizedToroidalModel.desc",
+      "PrimeQGeneratorCover.torsor",
+      "PrimeQGeneratorCover.openLevel",
+      "PrimeQGeneratorCover.baseChange",
+      "PrimeQGeneratorCover.isomSections",
+      "SemiAbelianTateModule.exact",
+      "SemiAbelianTateModule.primewise",
+      "SemiAbelianTateModule.map",
+      "SemiAbelianTateModule.splitTorus",
+      "SemiAbelianTateModule.torsionProjection",
+      "ProjectiveToroidalModel.toMinimal",
+      "ProjectiveToroidalModel.completion",
+      "ProjectiveToroidalModel.auxiliaryIndependent",
+      "ProjectiveToroidalModel.refinement",
+      "ProjectiveToroidalModel.valuativeExtension"
+    ],
+    "remainingTests": [
+      "TauCeti.Toric.Relative.embedding_rankOne_test",
+      "TauCeti.Toric.Relative.embedding_zeroCone_test",
+      "TauCeti.Toric.Relative.embedding_lineDual_test",
+      "TauCeti.Toric.Relative.embedding_nilpotentBase_test",
+      "ArithmeticFan.quadrant_refinement_test",
+      "ArithmeticFan.commonRefinement_level_test",
+      "MixedBoundaryDatum.siegel2_rank1_test",
+      "MixedBoundaryDatum.pure_test",
+      "MixedBoundaryDatum.hodge_test",
+      "MixedBoundaryDatum.radical_center_test",
+      "BoundaryMHS.pure_test",
+      "BoundaryMHS.siegel2_test",
+      "BoundaryMHS.graded_test",
+      "BoundaryTorsor.siegel2_klingen_test",
+      "BoundaryTorsor.siegel2_siegel_test",
+      "BoundaryTorsor.nontrivial_test",
+      "CuspLabel.modular_test",
+      "CuspLabel.representative_test",
+      "CuspLabel.component_test",
+      "PartialBoundaryChart.zero_test",
+      "PartialBoundaryChart.rankOne_test",
+      "PartialBoundaryChart.nilpotent_test",
+      "ToroidalSpace.compact_interior_test",
+      "ToroidalSpace.modular_q_test",
+      "ToroidalSpace.anchor_test",
+      "ToroidalCanonicalModel.empty_boundary_test",
+      "ToroidalCanonicalModel.baseChange_C_test",
+      "ToroidalCanonicalModel.modular_cusp_test",
+      "ToroidalRefinement.identity_test",
+      "ToroidalRefinement.star_test",
+      "ToroidalRefinement.anchor_test",
+      "ToroidalHeckeSpan.identity_test",
+      "ToroidalHeckeSpan.q_power_test",
+      "ToroidalHeckeSpan.refinement_test",
+      "KlingenToroidalCorrespondence.t1_test",
+      "KlingenToroidalCorrespondence.t2_test",
+      "KlingenToroidalCorrespondence.empty_test",
+      "SemiAbelianScheme.abelian_test",
+      "SemiAbelianScheme.splitTorus_test",
+      "SemiAbelianScheme.tate_rank_test",
+      "SemiAbelianScheme.additive_test",
+      "PolarizedDegenerationData.rankZero_test",
+      "PolarizedDegenerationData.tate_test",
+      "PolarizedDegenerationData.local_test",
+      "PolarizedDegenerationData.negative_test",
+      "MumfordDegeneration.rankZero_test",
+      "MumfordDegeneration.tate_test",
+      "MumfordDegeneration.refinement_test",
+      "UniversalDegeneration.rankZero_test",
+      "UniversalDegeneration.tate_test",
+      "UniversalDegeneration.representative_test",
+      "GoodCuspModel.rankZero_test",
+      "GoodCuspModel.tate_test",
+      "GoodCuspModel.twoEmbeddings_test",
+      "IntegralToroidalModel.interior_test",
+      "IntegralToroidalModel.modular_test",
+      "IntegralToroidalModel.badPrime_test",
+      "IntegralMinimalModel.interior_test",
+      "IntegralMinimalModel.modular_test",
+      "IntegralMinimalModel.fan_test",
+      "NormalizedToroidalModel.identity_test",
+      "NormalizedToroidalModel.tate_ramification_test",
+      "NormalizedToroidalModel.open_test",
+      "NormalizedToroidalModel.smoothness_test",
+      "PrimeQGeneratorCover.Q3_test",
+      "PrimeQGeneratorCover.Q2_test",
+      "PrimeQGeneratorCover.open_test",
+      "PrimeQGeneratorCover.noninvertible_test",
+      "SemiAbelianTateModule.Gm_test",
+      "SemiAbelianTateModule.abelian_test",
+      "SemiAbelianTateModule.product_test",
+      "SemiAbelianTateModule.transitions_test",
+      "ProjectiveToroidalModel.rankZero_test",
+      "ProjectiveToroidalModel.blowup_test",
+      "ProjectiveToroidalModel.stabilization_test"
+    ],
+    "boundary": "Local fixed-cusp API and general finite-fan/negative-functional regressions do not discharge global cusp compatibility or the explicit quadrant instance. The affine tests and coefficient square use the actual native scheme/ring carriers. All ledger entries continue to denote outstanding full contracts."
   }
 }
