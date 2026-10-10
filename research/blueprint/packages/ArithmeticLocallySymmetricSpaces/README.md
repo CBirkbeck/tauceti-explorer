@@ -1,0 +1,2415 @@
+# Arithmetic locally symmetric spaces and their cohomology
+
+This roadmap develops arithmetic quotients of reductive symmetric spaces and
+their cohomology with local coefficients. Its main constructions are the
+Borel–Serre compactification, the ordinary, compactly supported and boundary
+complexes, and compatible finite-level Hecke correspondences. Boundary
+calculations, orientation-sensitive duality, comparison with automorphic forms
+and finite-cover descent make these constructions usable in arithmetic
+applications.
+
+The basic examples are modular curves and compact quaternionic quotients.
+Higher-rank boundary strata explain why a compactification and its supported
+complexes must be developed together. Integral coefficients retain torsion,
+derived coefficient change and stabilizer cohomology; characteristic-zero
+comparisons use algebraic coefficient representations.
+
+## Scope and existing owners
+
+AdelicAlgebraicGroups supplies rational and adelic points, split centres,
+arithmetic groups, reduction theory, level quotients, neat refinements and
+level correspondences (AA.1–AA.4). Its quotient carrier is specialized here;
+the arithmetic double quotient is not reconstructed independently. LieGroups,
+Layer 9, supplies Cartan, Iwasawa and KAK decompositions. The first layer below
+identifies their arithmetic symmetric-space consequences and the split-centre
+and real-component conventions.
+
+AlgebraicTopology supplies local coefficients, relative singular chains, CW
+models, finite-cover transfer and Poincaré–Lefschetz duality (Stages 2, 4, 5
+and 6). DifferentialGeometry supplies differential forms, orientations and the
+de Rham theorem (Layers 0, 2, 6 and 8). Its de Rham comparison has real constant
+coefficients; this roadmap constructs the flat-bundle comparison and the
+compatibilities with arithmetic correspondences. The groupoid/sheaf comparison
+and supported equivariant models are additional mathematical targets here,
+not consequences of having separate chain and sheaf-cohomology types.
+
+IntegralHeckeAndGaloisDeterminants owns derived Hecke images, ghost ideals,
+finite local factors and idempotent localization (IHG.2), spherical Hecke
+polynomials (IHG.3a), and residual Galois-type predicates (IHG.3b). Those
+constructions are applied to arithmetic complexes. SmoothRepresentationsOfLocalGroups
+owns locally profinite representations, Haar convolution, parabolic induction,
+modulus characters and Satake transforms (SR.0–SR.4).
+
+AutomorphicFormsOnReductiveGroups, AF.1a, supplies the absolute algebraic and
+relative Lie-cochain complexes, the parabolic Kostant modules and invariant
+forms. AF.3 supplies cuspidal representation spaces; AF.4 supplies algebraic
+weights and cohomological representation theory. This roadmap owns the
+arithmetic Betti comparison, the automorphic comparison and the finite-level
+cohomological applications. The arithmetic nilmanifolds needed for boundary
+fibres are constructed in ALS.2 using unipotent reduction theory from AA.3.
+Their filtered or additive-combinatorial generalizations are outside its scope.
+
+Franke's comparison and the cuspidal-support decomposition used here are
+targets of ALS.5. The characteristic-zero Galois comparisons needed to exclude
+proper cuspidal supports are also ALS.5 obligations, with their scope specified
+below. The residual attachment used in the GL_n boundary theorem remains an
+explicit hypothesis; the theorem does not construct that attachment.
+
+ALS.6 concerns finite covers and their residual finite-group actions. It
+exports descent and refinement maps. Level-system assemblies, completed
+cohomology, derived limits and continuous profinite cohomology belong to their
+respective completed-cohomology owners.
+
+## Conventions
+
+Let F be a number field, G a connected reductive F-group and
+𝐆 = Res_{F/ℚ} G. Write F_∞ = F⊗ℚℝ. The maximal **ℚ-split central torus** of
+𝐆 is A_𝐆; put A_∞ = A_𝐆(ℝ)°. A Cartan involution fixes K_∞. The spaces are
+
+    X^G = G(F_∞)/(K_∞ A_∞),
+    X_K = G(F)\(X^G × G(𝔸_F^∞)/K).
+
+The central directions are removed once. Replacing K_∞ by K_∞° gives the
+connected-compact covering that occurs in cohomological representation theory.
+All real components are retained in X_K. For GL₂(ℝ), positive determinant acts
+holomorphically on the upper half-plane and negative determinant acts
+antiholomorphically.
+
+For g in the finite adelic group, right translation is
+r_g : X_{gKg⁻¹} → X_K, [x,h] ↦ [x,hg]. Consequently r_g after r_h is r_{hg},
+with the appropriate conjugated source level. A level inclusion K′⊂K gives
+π_{K′,K}. The group in the g-component is Γ_{g,K}=G(F)∩gKg⁻¹.
+Arithmetic properness uses Borel–Serre Theorem 9.3 on the split-centre quotient;
+discreteness in the full archimedean group does not prove projected discreteness.
+
+The rational-intersection neatness of AA.4 provides the free arithmetic action.
+It must be distinguished from neatness imposed on every adelic element.
+Neatness does not imply orientability. The orientation local system o_K is kept
+throughout; for GL_m/F the character is sign(Norm(det))^(m−1).
+
+For coefficients in a commutative ring R, V has commuting G(F) and K_S
+actions. The slice action on Γ_{g,K} is
+
+    ρ_Γ(γ) = ρ_{G(F)}(γ) ρ_{K_S}((g⁻¹γg)_S).
+
+There is no inverse on the K_S factor alone. For a lifted loop ending at
+δ(ℓ)x₀, Tau Ceti's loop product g*h means h followed by g. Thus δ takes values
+in Γᵐᵒᵖ and monodromy is ρ_Γ(δ(ℓ)⁻¹). This inverts the entire slice action.
+The noncommuting matrix tests below fix the order.
+
+At arbitrary level choose a neat normal refinement K₀⊂K and Q=K/K₀. Construct
+the supported equivariant complexes on the compactification of X_{K₀} in
+D(R[Q]); their derived Q-invariants give the complexes at K. Intersections
+of refinements and composition of derived invariants supply independence of
+K₀. Underlying R-perfectness does not imply R[Q]-perfectness: freeness of the
+full-level action is needed. Modular stabilizers can produce unbounded
+cohomology. Averaging, or a stated derived-invariants comparison, is needed
+for coefficient change at arbitrary level.
+
+Hecke rings use Mathlib's HeckeCoset and Tau Ceti's convolution ring. For
+UgU=⊔g_iU, the action on invariants sums g_i·v over distinct right cosets.
+The degree is [U:U∩gUg⁻¹]; Subgroup.relIndex takes the subgroup being indexed
+as its second argument. A ring map H⊗R→End_{D(R)}(C), an action in D(R[Q]),
+and a strict object of D(H⊗R[Q]) carry different data. A strict lift needs
+the coherent enhancement and its forgetful comparison.
+
+Parabolic integration has vol(U_N)=1 and uses the integral unnormalized
+Satake map. For the upper Borel of GL₂ at hyperspecial level,
+
+    S(T_p) = p[diag(p,1)] + [diag(1,p)],
+    δ_B^(1/2) S(T_p) = p^(1/2)([diag(p,1)] + [diag(1,p)]).
+
+The single-term formula belongs to the positive Iwahori monoid and requires
+both product decompositions. Global strata retain all transported parabolic
+levels. The distinguished g=1 component describes the entire induced stratum
+only when the stated Iwasawa equality holds.
+
+Complexes are cohomologically graded, with C_c→C→B→C_c[1]. If d=dim X^G,
+
+    RHom_R(C_c(V),R) ≅ C(V^∨⊗o_K)[d].
+
+Boundary duality uses d−1. Dualizing the triangle reverses its arrows; its
+comparison is the inverse rotation of the shifted dual-coefficient triangle,
+including the negative rotated connecting arrow. Hecke adjunction inverts
+double cosets and exchanges 𝔪 with 𝔪^∨. These conventions also apply on each
+transported open boundary stratum, with its own dimension and orientation.
+
+## Library vocabulary and dependency order
+
+Use the existing quotient actions, ProperlyDiscontinuousSMul, ContractibleSpace,
+ModelWithCorners, IsCoveringMap, Rep, groupCohomology, CochainComplex,
+DerivedCategory and IsIdempotentComplete. Module.Projective and Module.Flat
+express the coefficient hypotheses. CongruenceSubgroup.Gamma0 and Gamma1
+provide the SL₂ integral specializations; their projective analogues must
+retain the scalar quotient.
+
+TauCeti.LocalCoefficientSystem is a fundamental-groupoid functor to ModuleCat.
+Its pullback, constantFunctor and monodromyRepresentation are reused.
+TauCeti.CoveringSpace.monodromyEquivalence classifies Type-valued covers under
+path-connectedness, local path-connectedness and semilocal simple connectedness;
+it does not identify arithmetic sheaf descent with linear local coefficients.
+TopPair.singularChainComplexFunctor supplies relative chains.
+HeckeCosetModule.instRingHeckeRing supplies convolution. The dynamic parabolic
+TauCeti.Cocharacter.parabolic and leviDecompositionMulEquiv supply their
+algebraic subgroup constructions, rather than arbitrary Lie subgroups.
+
+Implement the target dependency graph, rather than treating the numbered
+layers as indivisible steps. Geometry and supported complexes precede the
+conditional finite-cell construction; finite triangulation makes that model
+effective and then gives coefficient change. The orientation and finite-level
+duality prefix is used in boundary gluing before the characteristic-zero
+comparison. The boundary triangle is used in the duality-triangle comparison.
+The AF.4 weight and relative-cohomology inputs precede the arithmetic
+characteristic-zero applications. In particular the two boundary spectral
+sequences below have different support conventions and cannot be interchanged.
+
+## ALS.0: Symmetric spaces, arithmetic quotients and local geometry
+
+<a id="cartan-involution"></a>
+
+### Cartan involutions of real reductive groups
+
+Let H be a connected linear algebraic group over ℝ, with complex conjugation g ↦ ḡ on H(ℂ). An
+involution θ of H, as an algebraic group over ℝ, is a Cartan involution if the twisted real form
+H^(θ)(ℝ) = {g ∈ H(ℂ) : g = θ(ḡ)} is compact. For a connected reductive group G over a number field F
+we apply this to H = (Res_{F/ℚ} G)_ℝ, so that H(ℝ) = G(F_∞) = ∏_{v|∞} G(F_v); a Cartan involution of
+G(F_∞) is a product of Cartan involutions of the factors G_{F_v}. Its fixed group K_θ = G(F_∞)^θ is
+the associated maximal compact subgroup (see maximal-compact-subgroup).
+
+**Hypotheses.** H connected linear algebraic group over ℝ (reductive for existence); G connected reductive over a
+number field F
+
+**API.**
+
+- `LocallySymmetric.IsCartanInvolution`: The predicate on an involution θ of G_ℝ: the twisted real form G^(θ)(ℝ) is compact.
+- `LocallySymmetric.IsCartanInvolution.exists`: Every connected reductive group over ℝ has a Cartan involution (Satake; Milne Theorem 1.16).
+- `LocallySymmetric.IsCartanInvolution.conj`: Any two Cartan involutions θ, θ′ of G differ by ad(g) for some g ∈ G(ℝ): θ′ = ad(g) ∘ θ ∘ ad(g)⁻¹.
+- `LocallySymmetric.IsCartanInvolution.transposeInverse`: If G ⊂ GL_n is stable under g ↦ gᵗ, then g ↦ (gᵗ)⁻¹ restricts to a Cartan involution of G; for G =
+GL_n it is Cartan with fixed group O(n).
+- `LocallySymmetric.IsCartanInvolution.prod`: For G = G₁ × G₂, θ₁ × θ₂ is Cartan if and only if θ₁ and θ₂ are; for Res_{F/ℚ}G Cartan involutions
+are products over v | ∞.
+- `LocallySymmetric.IsCartanInvolution.killing`: For a semisimple real group, the induced involution is Cartan iff (X, Y) ↦ −B(X, dθ(Y)) is positive
+definite. For a reductive group this criterion tests only the derived subgroup; compactness of the
+twisted central torus is a separate condition.
+
+**Discriminating checks.**
+
+- `cartanInvolution_GL_transposeInverse` (computation): For G = GL_n over ℝ, θ(g) = (gᵗ)⁻¹ is a Cartan involution and G(ℝ)^θ = O(n).
+- `cartanInvolution_SL2_adjoint` (computation): For G = SL_2 and θ = ad((0, 1; −1, 0)), the twisted form is SU(2), compact (Milne Example 1.15), so
+θ is Cartan.
+- `cartanInvolution_compact_id` (degenerate): If G(ℝ) is compact (e.g. G = SO(n) or a norm-one torus), the identity is a Cartan involution and the
+only one.
+- `not_cartanInvolution_id_GL2` (non-example): The identity of GL_2 is not a Cartan involution: its twisted form is GL_2(ℝ), which is not compact.
+
+**Prerequisites.** `mathlib:Matrix.GeneralLinearGroup`; [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
+
+**Sources.** [[milne]](#source-milne), §1, Cartan involutions, definition (9), p. 15; [[milne]](#source-milne), §1, Theorem 1.16, p. 15.
+
+<a id="maximal-compact-subgroup"></a>
+
+### Maximal compact subgroups from Cartan involutions
+
+Let G be connected reductive over a number field F and θ a Cartan involution of G(F_∞). Then K_∞ =
+G(F_∞)^θ is a maximal compact subgroup of G(F_∞), it meets every connected component of G(F_∞),
+every compact subgroup of G(F_∞) is contained in a G(F_∞)-conjugate of K_∞, and with 𝔭 the
+(−1)-eigenspace of dθ on 𝔤 = Lie G(F_∞), the map K_∞ × 𝔭 → G(F_∞), (k, X) ↦ k·exp X, is a
+diffeomorphism.
+
+**Hypotheses.** G connected reductive over F; θ a Cartan involution of G(F_∞)
+
+**Discriminating checks.**
+
+- GL_n(ℝ): K_∞ = O(n) meets both components; polar decomposition GL_n(ℝ) = O(n)·exp(Sym_n).
+- GL_n(ℂ): K_∞ = U(n), connected.
+
+**Prerequisites.** [Cartan involutions of real reductive groups](#cartan-involution); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions).
+
+**Sources.** [[milne]](#source-milne), §1, Example 1.17(d), p. 15; [[nt16]](#source-nt16), §3.1, after Definition 3.1, p. 40; [[bs73]](#source-bs73), §§1.4, 1.6–1.7, pp. 440–443.
+
+<a id="symmetric-space"></a>
+
+### The symmetric space of G with the split-centre correction
+
+Let G be connected reductive over a number field F, 𝐆 = Res_{F/ℚ} G, A_𝐆 the maximal ℚ-split torus
+in the centre of 𝐆 and A_∞ = A_𝐆(ℝ)°. Fix a Cartan involution θ with maximal compact K_∞ = G(F_∞)^θ.
+The symmetric space of G is X^G = G(F_∞)/K_∞A_∞, a homogeneous space for the left action of G(F_∞)
+whose point stabilizers are the conjugates g K_∞ A_∞ g⁻¹. Equivalently X^G is the space of type S−Q
+for 𝐆 in the sense of Borel–Serre: the isotropy groups are K·S(ℝ) with S a maximal ℚ-split torus of
+the radical normalized by K. It is independent of θ up to G(F_∞)-equivariant isomorphism, and d_G =
+dim X^G = dim G(F_∞) − dim K_∞ − dim A_∞. The split-centre correction is part of the definition: for
+GL_n, X = GL_n(F_∞)/K_∞ℝ^×_{>0} (ACC+ writes K_∞ℝ^×, which agrees since −1 ∈ K_∞).
+
+**Hypotheses.** G connected reductive over a number field F; A_𝐆 the maximal ℚ-split central torus of Res_{F/ℚ} G
+
+**API.**
+
+- `LocallySymmetric.symmetricSpace`: X^G = G(F_∞)/K_∞A_∞ as a topological space (smooth manifold) with its left G(F_∞)-action.
+- `LocallySymmetric.symmetricSpace.basepoint`: The base point x₀ = [1] with stabilizer K_∞A_∞.
+- `LocallySymmetric.symmetricSpace.stabilizer_eq`: Stab(g·x₀) = g K_∞A_∞ g⁻¹ for all g ∈ G(F_∞).
+- `LocallySymmetric.symmetricSpace.isoOfCartan`: For Cartan involutions θ, θ′ = ad(h)θad(h)⁻¹ the map gK_θA_∞ ↦ g h⁻¹K_θ′A_∞ is a G(F_∞)-equivariant
+diffeomorphism.
+- `LocallySymmetric.symmetricSpace.dim_eq`: dim X^G = dim G(F_∞) − dim K_∞ − dim A_∞; e.g. 2 for GL_2/ℚ, 3 for GL_2 over an imaginary quadratic
+field, n(n+1)/2 − 1 for GL_n/ℚ.
+- `LocallySymmetric.symmetricSpace.prod`: X^{G₁×G₂} ≅ X^{G₁} × X^{G₂} equivariantly when A_{G₁×G₂} = A_{G₁} × A_{G₂}.
+- `LocallySymmetric.symmetricSpace.connectedVariant`: X̃^G = G(F_∞)/K_∞°A_∞ with the covering X̃^G → X^G whose deck group is π_0(K_∞) = π_0(G(F_∞)); for
+GL_{2,ℚ}, X̃ = ℍ^± (Scholze's X̃_K uses this variant).
+
+**Discriminating checks.**
+
+- `symmetricSpace_GL2_Q` (computation): For G = GL_{2,ℚ}, X^G ≅ ℍ (upper half-plane) G(ℝ)-equivariantly, with g acting by z ↦ (az+b)/(cz+d)
+if det g > 0 and z ↦ (az̄+b)/(cz̄+d) if det g < 0; dim X = 2.
+- `symmetricSpace_GL1` (degenerate): For G = GL_{1,F}, X^G = (F⊗ℝ)^×/(K_∞ℝ_{>0}) ≅ ℝ^{r₁+r₂−1}; it is a point exactly when F is ℚ or
+imaginary quadratic.
+- `symmetricSpace_SL2_compat` (compatibility): For G = SL_{2,ℚ}, X^G = SL_2(ℝ)/SO(2) is identified with Mathlib's UpperHalfPlane through g ↦ g·i,
+equivariantly for the Möbius action.
+- `symmetricSpace_not_without_centre` (non-example): Without the split-centre factor, GL_2(ℝ)/O(2) ≅ ℍ × ℝ_{>0} has dimension 3 and every γ ∈ GL_2(ℤ)
+acts trivially on the ℝ_{>0} factor (|det γ| = 1), so Γ\(GL_2(ℝ)/O(2)) ≅ (Γ\ℍ) × ℝ_{>0} has infinite
+volume; for the anisotropic unit group of a definite quaternion algebra the quotient would be
+noncompact.
+
+**Prerequisites.** [Cartan involutions of real reductive groups](#cartan-involution); [Maximal compact subgroups from Cartan involutions](#maximal-compact-subgroup); `AdelicAlgebraicGroups:AA.2/split-centre`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Definition 3.1, p. 40; [[acc23]](#source-acc23), §2.1.1, pp. 909–910.
+
+<a id="symmetric-space-contractible"></a>
+
+### The symmetric space is contractible with proper action
+
+X^G is diffeomorphic to Euclidean space of dimension d_G: with 𝔞_G = Lie A_∞ ⊂ 𝔭, the map 𝔭/𝔞_G →
+X^G, X ↦ exp(X)·x₀, is a diffeomorphism. In particular X^G is contractible and orientable. The
+induced action of G(F_∞)/A_∞ is proper, with compact point stabilizers K_∞A_∞/A_∞ and their
+conjugates. A subgroup Γ acts properly discontinuously with finite stabilizers if its image in
+G(F_∞)/A_∞ is discrete and its kernel Γ ∩ A_∞ is finite. Discreteness of Γ in G(F_∞) and Γ ∩ A_∞ = 1
+alone do not imply this projected discreteness.
+
+**Hypotheses.** For the subgroup consequence: the image of Γ in G(F_∞)/A_∞ is discrete and Γ ∩ A_∞ is finite.
+
+**Discriminating checks.**
+
+- dim X^G = d_G and X^G is homeomorphic to ℝ^{d_G}; GL_2/ℚ gives ℍ ≅ ℝ².
+- SL_2(ℤ) acts properly discontinuously on ℍ with stabilizer of i of order 4 (order 2 modulo ±1).
+
+**Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); [Maximal compact subgroups from Cartan involutions](#maximal-compact-subgroup); [LieGroups, layer 9 the cartan iwasawa and kak decompositions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LieGroups/README.md#layer-9-the-cartan-iwasawa-and-kak-decompositions); `mathlib:ContractibleSpace`; `mathlib:ProperlyDiscontinuousSMul`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, after Definition 3.1, p. 40; [[acc23]](#source-acc23), §2.1.1, p. 910; [[bs73]](#source-bs73), §2.4, pp. 444–447.
+
+<a id="locally-symmetric-space"></a>
+
+### The arithmetic locally symmetric space X_K
+
+For a compact open subgroup K ⊂ G(A_F^∞) put X_K = X^G_K = G(F)\(X^G × G(A_F^∞)/K), with G(F) acting
+diagonally (through G(F) → G(F_∞) on X^G) and the quotient topology. Write 𝔛_G = G(F)\(X^G ×
+G(A_F^∞)^δ), with G(A_F^∞) discrete, a right G(A_F^∞)-space with X_K = 𝔛_G/K. Right translation by g
+∈ G(A_F^∞) induces homeomorphisms r_g : X_{gKg⁻¹} → X_K, [x, h] ↦ [x, hg], and for K′ ⊂ K the
+projection π_{K′,K} : X_{K′} → X_K. Under X^G × G(A_F^∞)/K = G(A_F)/K_∞A_∞K, X_K is the level
+quotient of AdelicAlgebraicGroups AA.4 for the archimedean subgroup K_∞A_∞.
+
+**Hypotheses.** K ⊂ G(A_F^∞) compact open
+
+**API.**
+
+- `LocallySymmetric.X`: X_K = G(F)\(X^G × G(A^∞)/K) as a topological space.
+- `LocallySymmetric.X.mk`: The class [x, g] ∈ X_K of (x, g) ∈ X^G × G(A^∞).
+- `LocallySymmetric.X.mk_eq_mk_iff`: [x, g] = [x′, g′] iff there are γ ∈ G(F), k ∈ K with x′ = γx and g′ = γ g k.
+- `LocallySymmetric.X.translate`: r_g : X_{gKg⁻¹} → X_K, [x, h] ↦ [x, hg], a homeomorphism with r_1 = id and r_g ∘ r_h = r_{hg}.
+- `LocallySymmetric.X.levelMap`: π_{K′,K} : X_{K′} → X_K for K′ ⊂ K, with π_{K,K} = id, π_{K′,K} ∘ π_{K″,K′} = π_{K″,K}, and r_g ∘ π
+= π ∘ r_g.
+- `LocallySymmetric.X.equivLevelQuotient`: X_K ≃ AA.4's level quotient G(F)\G(A_F)/K_∞A_∞K, compatibly with right translations.
+
+**Discriminating checks.**
+
+- `X_GL1_Q` (computation): For G = GL_{1,ℚ} and K = Ẑ^×, X_K is a single point: ℚ^×\(pt × A_f^×/Ẑ^×) = ℚ^×\(ℚ^×_{>0}·Ẑ^×)/Ẑ^×
+is one class.
+- `X_trivialGroup` (degenerate): For G trivial, X_K is a point for the unique K.
+- `X_GL2_levelOne` (compatibility): For G = GL_{2,ℚ} and K = GL_2(Ẑ), X_K ≅ GL_2(ℤ)\ℍ = (SL_2(ℤ)\ℍ)/(z ↦ −z̄) as topological spaces (one
+component since det GL_2(Ẑ) = Ẑ^× and A_f^× = ℚ^×_{>0}Ẑ^×), where ℍ is identified with
+GL_2(ℝ)/O(2)ℝ_{>0} as in symmetricSpace_GL2_Q.
+- `X_not_coarse_of_discrete` (non-example): X_K is not G(F)\G(A_F^∞)/K (a finite set): forgetting X^G loses all positive-dimensional topology;
+for GL_{2,ℚ} and K = GL_2(Ẑ) that set is a point while X_K is the modular curve.
+
+**Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); `AdelicAlgebraicGroups:AA.4/level-quotient`; `AdelicAlgebraicGroups:AA.3/arithmetic-subgroup-of-level`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.1, p. 910; [[nt16]](#source-nt16), §3.1, p. 41.
+
+<a id="component-decomposition"></a>
+
+### Finite decomposition of X_K into arithmetic quotients
+
+Let K ⊂ G(A_F^∞) be compact open and g_1, …, g_s representatives of the finite set G(F)\G(A_F^∞)/K.
+Put Γ_i = G(F) ∩ g_iKg_i⁻¹, viewed in G(F_∞). Then [x] ↦ [x, g_i] on the i-th summand is a
+homeomorphism ⊔_{i=1}^s Γ_i\X^G ≅ X_K. The stabilizer of [x, g_i] in the G(F)-action on X^G ×
+G(A^∞)/K is identified with Stab_{Γ_i}(x) = Γ_i ∩ Stab_{G(F_∞)}(x); changing g_i to γ g_i k replaces
+Γ_i by γΓ_iγ⁻¹. The connected components of X_K are the images Γ_i\X^G.
+
+**Hypotheses.** K compact open in G(A_F^∞)
+
+**Discriminating checks.**
+
+- GL_{2,ℚ}, K = K(N) principal level N ≥ 3: the components are indexed by GL_2(ℚ)\GL_2(A_f)/K(N) ≅
+Ẑ^×/(±1·det K(N)) = (ℤ/N)^×/±1, so there are φ(N)/2 of them, each Γ(N)\ℍ.
+- Anisotropic G: every Γ_i\X^G is compact (AdelicAlgebraicGroups:AA.3/arithmetic-quotient-compact).
+
+**Prerequisites.** [The arithmetic locally symmetric space X_K](#locally-symmetric-space); [The symmetric space is contractible with proper action](#symmetric-space-contractible); `AdelicAlgebraicGroups:AA.3/component-decomposition`; `AdelicAlgebraicGroups:AA.3/class-number-finite`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Lemma 3.2(1), p. 42; [[acc23]](#source-acc23), §2.1.1, p. 910.
+
+<a id="proper-action-stabilizers"></a>
+
+### Proper discontinuity and finite stabilizers at arbitrary level
+
+For every compact open K and g ∈ G(A^∞), Γ_{g,K} = G(F) ∩ gKg⁻¹ is a discrete subgroup of G(F_∞)
+acting properly discontinuously on X^G. Precisely: the G(F)-action on X^G × G(A^∞)/K is properly
+discontinuous; the stabilizer of (x, hK) is Γ_{h,K} ∩ Stab_{G(F_∞)}(x), a finite group; and the
+finite central subgroup Z_K = Z(F) ∩ K_∞A_∞K lies in every stabilizer and acts trivially. Hence X_K
+is the coarse quotient of the action groupoid 𝒳_K (AdelicAlgebraicGroups
+AA.4/level-quotient-groupoid for K_∞A_∞), whose automorphism groups are these finite stabilizers; at
+points with trivial stabilizer X_K is locally homeomorphic to X^G.
+
+**Hypotheses.** K compact open
+
+**Discriminating checks.**
+
+- For G = SL_{2,ℚ} and K = SL_2(Ẑ), Γ = SL_2(ℤ) and the stabilizer of i has order 4, with central
+kernel {±1}. For G = GL_{2,ℚ} at GL_2(Ẑ), the full stabilizer has order 8, including
+orientation-reversing elements.
+- At neat level all stabilizers are trivial (neat-level-manifold).
+
+**Prerequisites.** [Finite decomposition of X_K into arithmetic quotients](#component-decomposition); [The symmetric space is contractible with proper action](#symmetric-space-contractible); `AdelicAlgebraicGroups:AA.4/level-quotient-groupoid`; `AdelicAlgebraicGroups:AA.1/rational-points-discrete`; `mathlib:ProperlyDiscontinuousSMul`; `mathlib:CategoryTheory.ActionCategory`; `AdelicAlgebraicGroups:AA.3/real-siegel-finite-overlap`; `AdelicAlgebraicGroups:AA.3/real-siegel-finite-cover`; [The Borel–Serre partial compactification X̄^G](#borel-serre-bordification).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[cg18]](#source-cg18), §9, before §9.0.1 (arXiv v2), pp. 84–85 (arXiv pagination); [[bs73]](#source-bs73), §§9.1–9.3, Theorem 9.3, pp. 474–476.
+
+<a id="neat-level-manifold"></a>
+
+### At neat level X_K is a manifold and each component is a K(Γ, 1)
+
+Let K be neat (AdelicAlgebraicGroups AA.4/neat-level). Then every Γ_{g,K} is torsion-free, meets A_∞
+trivially and acts freely and properly discontinuously on X^G; G(F) × K^δ acts freely and properly
+discontinuously on X^G × G(A^∞)^δ: every point has a neighbourhood U with γU·k ∩ U = ∅ for (γ,k) ≠
+(1,1); X^G × G(A^∞)/K → X_K is a covering map; X_K is a smooth manifold of dimension d_G, each
+component Γ_i\X^G is an Eilenberg–MacLane space K(Γ_i, 1); and for K′ ⊂ K normal, π_{K′,K} : X_{K′}
+→ X_K is a finite covering with free K/K′-action (a Galois covering on each component when X_{K′} is
+connected over it).
+
+**Hypotheses.** K neat
+
+**Discriminating checks.**
+
+- For N ≥ 3, the principal level K(N) ⊂ GL_2(Ẑ) is neat and X_{K(N)} is a disjoint union of φ(N)/2
+copies of Γ(N)\ℍ, each a punctured surface with free fundamental group.
+- K_0(N) ⊂ GL_2(Ẑ) is never neat: −I ∈ GL_2(ℚ) ∩ K_0(N) has eigenvalue −1; it lies in Z_K and acts
+trivially, which is why stabilizers are computed with Z_K.
+
+**Prerequisites.** [Proper discontinuity and finite stabilizers at arbitrary level](#proper-action-stabilizers); `AdelicAlgebraicGroups:AA.4/neat-level`; `AdelicAlgebraicGroups:AA.4/neat-torsion-free`; `AdelicAlgebraicGroups:AA.4/level-covering-map`; `AdelicAlgebraicGroups:AA.4/level-action-free-at-neat`; `mathlib:IsCoveringMap`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[acc23]](#source-acc23), §2.1.1, p. 910.
+
+<a id="neatness-iwahori-criterion"></a>
+
+### Two pro-v Iwahori factors of distinct residue characteristic force neatness
+
+Let K = ∏_v K_v ⊂ GL_n(Ô_F) be compact open and suppose there are finite places v, v′ of F with
+distinct residue characteristics q ≠ q′ such that K_v = Iw_{v,1} and K_{v′} = Iw_{v′,1} (pro-v
+Iwahori subgroups, standard-level-subgroups). Then K is neat. More generally the conclusion holds
+whenever K_v and K_{v′} are pro-q and pro-q′ groups with q ≠ q′ whose elements have all eigenvalues
+≡ 1 modulo the maximal ideal.
+
+**Hypotheses.** v, v′ finite places with distinct residue characteristics
+
+**Discriminating checks.**
+
+- K with K_2 = Iw_{2,1}, K_3 = Iw_{3,1} and K_v = GL_n(O_v) elsewhere is neat.
+- One pro-v factor does not suffice: for F = ℚ, n = 2 and K = Iw_{3,1}·∏_{p≠3}GL_2(Z_p), K ∩ GL_2(ℚ)
+contains elements of order 3 such as (1, 1; −3, −2) (trace −1, determinant 1, ≡ unipotent upper
+triangular mod 3), so K is not neat.
+
+**Prerequisites.** [Standard level subgroups: Iwahori, Γ0, Γ1, Γp and Taylor–Wiles levels](#standard-level-subgroups); `AdelicAlgebraicGroups:AA.4/neat-level`; `AdelicAlgebraicGroups:AA.4/neat-element`.
+
+**Sources.** [[acc23]](#source-acc23), §6.5.1, Lemma 6.5.2, p. 1062; [[acc23]](#source-acc23), §6.5.1, proof of Lemma 6.5.2, p. 1062.
+
+<a id="standard-level-subgroups"></a>
+
+### Standard level subgroups: Iwahori, Γ0, Γ1, Γp and Taylor–Wiles levels
+
+Let v be a finite place of F with ring of integers O_v, uniformizer ϖ_v, residue field k_v. (i) Iw_v
+⊂ GL_n(O_v) is the subgroup of matrices upper triangular mod ϖ_v and Iw_{v,1} ⊂ Iw_v the pro-v
+Iwahori, unipotent upper triangular mod ϖ_v; Iw_v/Iw_{v,1} ≅ (k_v^×)^n. (ii) For n = 2 and c ≥ 1,
+inside PGL_2(O_v): Γ_0(v^c) = {g ≡ (1 ∗; 0 ∗) mod ϖ_v^c}, Γ_1(v^c) = {g ≡ (1 ∗; 0 1) mod ϖ_v^c},
+Γ_p(v^c) = {g ≡ (1 ∗; 0 d) mod ϖ_v^c with d of p-power order}. (iii) For PGL_n with n ≥ 2, the (1,
+n−1)-parahoric K_0(v) = image of {g ∈ GL_n(O_v) : g stabilizes a fixed line ℓ ⊂ k_v^n mod ϖ_v}, i.e.
+g ≡ (1 ∗; 0 GL_{n−1}) mod ϖ_v, and its normal subgroup K_1(v) = {g ≡ (1 ∗; 0 SL_{n−1})} with
+K_0(v)/K_1(v) ≅ k_v^×. (iv) For a finite set Q of places and a level K with K_v maximal at v ∈ Q,
+K_0(Q) and K_1(Q) replace K_v by K_0(v), K_1(v) for v ∈ Q; K_1(Q) ⊂ K_0(Q) is normal with quotient
+Δ_Q = ∏_{v∈Q} k_v^×; Y_0(Q) = X_{K_0(Q)}, Y_1(Q) = X_{K_1(Q)}. For Δ a quotient of Δ_Q, K_Δ(Q) is
+the preimage of ker(Δ_Q → Δ) and Y_Δ(Q) = X_{K_Δ(Q)}.
+
+**Hypotheses.** v a finite place of F; Q a finite set of finite places at which K is maximal; n ≥ 2 for the PGL_n
+Taylor–Wiles quotient formula; PGL_1 is treated separately.
+
+**API.**
+
+- `LocallySymmetric.iwahori`: Iw_v as a compact open subgroup of GL_n(O_v), with Iw_v ⊃ Iw_{v,1} = iwahoriOne.
+- `LocallySymmetric.gamma0`: Γ_0(v^c) as a compact open subgroup of PGL_2(O_v), equivalently upper-triangular reduction modulo
+ϖ_v^c; the normalized projective representative has top-left entry 1.
+- `LocallySymmetric.taylorWilesLevel`: K_0(Q) ⊃ K_1(Q) for a finite set Q of places where K is maximal, and the subgroup K_Δ(Q) for a
+quotient Δ of Δ_Q.
+- `LocallySymmetric.taylorWilesLevel.quotientEquiv`: K_1(Q) is normal in K_0(Q) and K_0(Q)/K_1(Q) ≅ Δ_Q = ∏_{v∈Q} k_v^×.
+- `LocallySymmetric.iwahori.index`: [GL_n(O_v) : Iw_v] = #(GL_n/B)(k_v) and [Iw_v : Iw_{v,1}] = (q_v − 1)^n.
+- `LocallySymmetric.iwahori.eq_parahoric`: Iw_v and K_0(v) are the O_v-points of the parahoric group schemes of ReductiveGroupsPartII RG2.3 for
+the standard alcove and the (1, n−1) facet.
+- `LocallySymmetric.iwahoriOne`: Iw_{v,1} is the inverse image of the upper unipotent subgroup under reduction GL_n(O_v) → GL_n(k_v);
+it is normal in Iw_v, and the diagonal reduction identifies Iw_v/Iw_{v,1} with (k_v^×)^n.
+- `LocallySymmetric.gamma1`: Γ_1(v^c) ⊂ PGL_2(O_v) is the image of matrices whose lower-left entry is 0 and whose diagonal
+entries agree modulo ϖ_v^c; equivalently normalize the top-left entry to 1 and require lower-right
+entry 1.
+- `LocallySymmetric.gammaP`: Γ_p(v^c) ⊂ Γ_0(v^c) is the inverse image of the p-primary subgroup of (O_v/ϖ_v^c)^× under the ratio
+of diagonal entries; Γ_1 is the kernel of that ratio. For c=1, Γ_p/Γ_1 is the p-primary subgroup of
+k_v^×.
+
+**Discriminating checks.**
+
+- `iwahori_index_GL2` (computation): [GL_2(Z_p) : Iw_p] = p + 1 (Iw_p is the stabilizer of a line in F_p²).
+- `gamma0_eq_congruenceSubgroup` (compatibility): For F = ℚ and v = p, intersecting the GL_2-preimage of the projective Γ_0(p^c) with SL_2(ℤ) gives
+Mathlib CongruenceSubgroup.Gamma0 (p^c). For projective Γ_1 the diagonal entries are a common unit a
+with a² ≡ 1 mod p^c. For odd p this gives ±Gamma1; for p = 2 and c ≥ 3 extra solutions occur (e.g. a
+= 3 mod 8), so the unqualified ±Gamma1 assertion fails.
+- `taylorWiles_quotient_trivial_n1` (degenerate): For Q = ∅, Δ_Q is trivial and K_0(Q) = K_1(Q) = K. For PGL_1 the ambient group is trivial and so is
+its level quotient; the formula Δ_Q = ∏ k_v^× applies only to n ≥ 2.
+- `gammaP_ne_gamma1` (non-example): For c = 1, [Γ_p(v) : Γ_1(v)] is the p-primary part of q_v − 1; the inclusion is strict iff p divides
+q_v − 1. For example p = 3, q_v = 7 gives index 3; p = 3, q_v = 5 gives equality. It is not the
+prime-to-p part.
+
+**Prerequisites.** [The arithmetic locally symmetric space X_K](#locally-symmetric-space); `ReductiveGroupsPartII:RG2.3`; `mathlib:Matrix.GeneralLinearGroup`.
+
+**Sources.** [[cg18]](#source-cg18), §5.2.1 (arXiv v2), pp. 56–57 (arXiv pagination); [[cg18]](#source-cg18), §9.0.1 (published §9.1), pp. 84–85 (arXiv pagination); [[cg20]](#source-cg20), §3.1 (appendix §A.3.1), pp. 4–7 (arXiv pagination).
+
+<a id="orientation-local-system"></a>
+
+### The orientation local system of X_K and its character
+
+For compact open K, the orientation local system o_K on X_K is the descent of the G(F_∞)-equivariant
+orientation sheaf of X^G: the orientation character ε : G(F_∞) → {±1} sends g to the sign of
+det(dg_{x₀} composed with the parallel transport back), equivalently ε(g) = sign det(Ad(g) | 𝔭/𝔞_G)
+computed after moving g into K_∞A_∞ by the Cartan decomposition (ε is trivial on the identity
+component and ε(k) = sign det(Ad(k)|𝔭) for k ∈ K_∞). Then o_K = (X^G × G(A^∞)/K × ℤ(ε))/G(F) with
+G(F) acting on ℤ(ε) through ε, a rank-one local system of ℤ-modules on the orbifold X_K; at neat
+level it is the orientation local system of the manifold X_K of Tau Ceti's AlgebraicTopology stage
+6. For G = Res_{F/ℚ}GL_m, ε(γ) = sign(N_{F/ℚ} det γ)^{m−1} for γ ∈ GL_m(F).
+
+**Hypotheses.** K compact open (orbifold local system); neat K for the manifold statement
+
+**API.**
+
+- `LocallySymmetric.orientationCharacter`: ε : G(F_∞) → {±1}, the action of G(F_∞) on the orientations of X^G.
+- `LocallySymmetric.orientationSystem`: o_K, the rank-one local system on X_K descended from ℤ(ε).
+- `LocallySymmetric.orientationSystem.monodromy`: On Γ_i\X^G, the coefficient action is ε|Γ_i. Fix the endpoint convention of localSystem.monodromy: a
+lifted loop ends at δ(ℓ)x₀, and its Tau Ceti monodromy is ε(δ(ℓ)⁻¹)=ε(δ(ℓ)).
+- `LocallySymmetric.orientationSystem.pullback`: π_{K′,K}^* o_K ≅ o_{K′} and r_g^* o_K ≅ o_{gKg⁻¹}.
+- `LocallySymmetric.orientationSystem.eq_manifold`: At neat level o_K is isomorphic to the orientation local system of the manifold X_K from Tau Ceti's
+AlgebraicTopology stage 6.
+- `LocallySymmetric.orientationCharacter_GL`: For G = Res_{F/ℚ}GL_m, ε(γ) = sign(N_{F/ℚ}(det γ))^{m−1}.
+
+**Discriminating checks.**
+
+- `orientationCharacter_GL2_Q` (computation): For G = GL_{2,ℚ}, ε(g) = sign det g: diag(−1, 1) acts on ℍ by z ↦ −z̄, reversing orientation.
+- `orientationCharacter_connected` (degenerate): If G(F_∞) is connected (e.g. GL_n or PGL_n over an imaginary CM field), ε is trivial and o_K ≅ ℤ for
+every K.
+- `orientationSystem_GL_formula` (characterisation): For γ ∈ GL_m(O_F), ε(γ) = sign(N_{F/ℚ} det γ)^{m−1}; for m odd ε is trivial. Distinguish neatness
+over F from neatness of the restriction of scalars over ℚ: take F=ℚ(√5), u=682+305√5 with N(u)=−1,
+and γ=diag(u,1). At v=(11,√5−7) and w=(31,√5−6), u reduces to 1. Principal congruence at v and w,
+maximal integral level elsewhere, is F-neat by the two-distinct-residue-characteristics criterion,
+contains γ, and has ε(γ)=−1. The same γ is not neat in Res_{F/ℚ}GL_2: its eigenvalues over ℚ include
+u and its conjugate u′, whose product is −1.
+- `orientation_not_trivial_at_neat_PGL2` (non-example): Neat level does not force orientability: for G = PGL_{2,ℚ} and K = K(5)K(13)∏_{p≠5,13}PGL_2(Z_p),
+the class of (57, 455; 455, 3632) (det −1) lies in Γ_{1,K} and ε of it is −1 (see
+nonorientable-neat-example).
+
+**Prerequisites.** [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); [The symmetric space is contractible with proper action](#symmetric-space-contractible); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `tauceti:TauCeti.LocalCoefficientSystem`; `tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, after Definition 3.1, p. 40; [[nt16]](#source-nt16), §3.1, p. 41.
+
+<a id="nonorientable-neat-example"></a>
+
+### A nonorientable neat arithmetic quotient for PGL_2 over ℚ
+
+Let G = PGL_{2,ℚ}, so X^G ≅ ℍ with PGL_2(ℝ) acting holomorphically for det > 0 and
+antiholomorphically for det < 0. Let K = K(5)·K(13)·∏_{p≠5,13} PGL_2(Z_p) with K(p) = ker(PGL_2(Z_p)
+→ PGL_2(F_p)). Then K is neat, and γ = [(57, 455; 455, 3632)] ∈ PGL_2(ℚ) (det = −1, the matrix ≡
+57·I mod 65 with 57² ≡ −1 mod 65) lies in Γ_{1,K} = PGL_2(ℚ) ∩ K and reverses orientation. Hence the
+component Γ_{1,K}\ℍ of X_K is a nonorientable surface and o_K is nontrivial. In contrast, at the
+non-neat level GL_2(Ẑ) for GL_{2,ℚ}, the orbifold X_K has nontrivial orientation character det on
+GL_2(ℤ), while every neat level of GL_{2,ℚ} gives an orientable X_K. For GL_m over F the same norm
+argument applies when each arithmetic subgroup is neat for Res_{F/ℚ}GL_m as an algebraic group over
+ℚ: then N_{F/ℚ} det γ = 1. Neatness defined using faithful F-representations of GL_m alone does not
+imply this stronger hypothesis; the real-quadratic regression in orientationSystem_GL_formula is
+F-neat and orientation-reversing.
+
+**Discriminating checks.**
+
+- The adjoint eigenvalues of γ are −λ², 1, −λ⁻² with λ > 1 the positive eigenvalue of the matrix; they
+generate the torsion-free group ⟨−λ²⟩, so γ is neat although det γ < 0.
+- The index-two subgroup Γ_{1,K} ∩ ker ε gives the orientation double cover of the component, which is
+orientable.
+
+**Prerequisites.** [The orientation local system of X_K and its character](#orientation-local-system); [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); `AdelicAlgebraicGroups:AA.4/neat-element`; [Two pro-v Iwahori factors of distinct residue characteristic force neatness](#neatness-iwahori-criterion).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[milne]](#source-milne), §1, Example 1.17(b), p. 15.
+
+## ALS.1: Arithmetic coefficients and Betti complexes
+
+<a id="arithmetic-local-system"></a>
+
+### Arithmetic local systems from coefficient modules
+
+Let R be a commutative ring, S a finite set of finite places, K = K_S K^S a compact open subgroup
+and V an R-module with commuting actions of G(F) and of K_S (an R[G(F) × K_S]-module), finite free
+(or finite projective) over R. Pull V back from a point to a G(F) × G^S × K_S-equivariant sheaf on
+X^G × G(A^∞)^δ (G(F) acting through its action on V, G^S trivially, K_S through its action on V),
+descend along the free G(F)-action to a G^S × K_S-equivariant sheaf V on 𝔛_G, and, for K neat, along
+the free K-action to a sheaf V_K on X_K. Concretely V_K is the sheaf of locally constant sections of
+G(F)\(X^G × G(A^∞) × V)/K → X_K with commuting left G(F)-action and right K-action (x,g,v) ↦
+(γx,γgk,γ·k_S⁻¹·v); this is not written as a left action of G(F) × K with its ordinary product law.
+On the component Γ_i\X^G it is the local system with Γ_i-equivariant coefficient representation Γ_i
+→ Aut_R(V), γ ↦ ρ_{G(F)}(γ)ρ_{K_S}((g_i⁻¹γg_i)_S). Fix x₀ and lift a loop ℓ at its image in Γ_i\X^G
+from x₀ to δ(ℓ)x₀. Tau Ceti multiplies loops by g*h=h followed by g, so δ is an antihomomorphism to
+Γ_i (a homomorphism to Γ_iᵐᵒᵖ). In the diagonal associated bundle (γx,ρ_Γ(γ)v)∼(x,v), parallel
+transport sends v to ρ_Γ(δ(ℓ)⁻¹)v. This inverts the entire slice representation, not only the K_S
+factor, and is a homomorphism for Tau Ceti’s multiplication. Two cases are used: V an R[K_S]-module
+with trivial G(F)-action (p-adic weights, NT16's M_G), and V an R[G(F)]-module with trivial
+K_S-action (rational representations); for an algebraic representation the two agree after inverting
+p.
+
+**Hypotheses.** R commutative; V finite projective over R; K neat for the sheaf on X_K; arbitrary K for the
+equivariant sheaf on 𝔛_G
+
+**API.**
+
+- `LocallySymmetric.localSystem`: V ↦ V_K, the sheaf on X_K (neat K), and V ↦ V_𝔛, the G^S × K_S-equivariant sheaf on 𝔛_G (any K).
+- `LocallySymmetric.localSystem.stalk`: The stalk of V_K at [x, g] is identified with V; changing the representative by (γ, k) acts by
+γ·k_S⁻¹.
+- `LocallySymmetric.localSystem.monodromy`: Fix x₀ and lift a loop ℓ at its image in Γ_i\X^G from x₀ to δ(ℓ)x₀. Tau Ceti multiplies loops by
+g*h=h followed by g, so δ is an antihomomorphism to Γ_i (a homomorphism to Γ_iᵐᵒᵖ). In the diagonal
+associated bundle (γx,ρ_Γ(γ)v)∼(x,v), parallel transport sends v to ρ_Γ(δ(ℓ)⁻¹)v. This inverts the
+entire slice representation, not only the K_S factor, and is a homomorphism for Tau Ceti’s
+multiplication.
+- `LocallySymmetric.localSystem.map`: An R[G(F) × K_S]-linear map V → W induces V_K → W_K, functorially (identity and composition), exact
+in V.
+- `LocallySymmetric.localSystem.tensor`: (V ⊗_R W)_K ≅ V_K ⊗_R W_K and Hom_R(V, W)_K ≅ ℋom(V_K, W_K); in particular (V^∨)_K ≅ ℋom(V_K, R).
+- `LocallySymmetric.localSystem.pullback`: π_{K′,K}^* V_K ≅ V_{K′} for K′ ⊂ K and r_g^* V_K ≅ V_{gKg⁻¹} with the action of g_S on V when g ∈
+G_S.
+- `LocallySymmetric.localSystem.constant`: For V = R with trivial actions, V_K is the constant sheaf R (Tau Ceti's constantFunctor on each
+component).
+
+**Discriminating checks.**
+
+- `localSystem_trivial` (degenerate): For V = R with trivial G(F)- and K_S-actions, V_K ≅ the constant sheaf R_{X_K}.
+- `localSystem_monodromy_GL1` (computation): For G = GL_{1,F} with F real quadratic and V = R(χ), χ the sign of the first real embedding on F^×,
+the monodromy on the circle O_F^{×}∩K\ℝ is χ of a generator; it is −1 exactly when the generator is
+negative at that embedding.
+- `localSystem_eq_LocalCoefficientSystem` (compatibility): At neat level the construction gives TauCeti.LocalCoefficientSystem via the above whole-inverse
+endpoint convention. For K-factor matrices A=(1,1;0,1), B=(1,0;1,1), AB≠BA and (AB)⁻¹=B⁻¹A⁻¹≠A⁻¹B⁻¹;
+the convention still gives a homomorphism, whereas inverting only one factor in the ordinary slice
+product fails.
+- `localSystem_not_constant_of_trivial_stalk` (non-example): A rank-one system may have trivial stalks and nontrivial monodromy. At non-neat GL_2(Ẑ), R(sign det)
+is an orbifold coefficient system; it is not asserted to descend to a local system on the coarse
+quotient. A manifold example is the real-quadratic GL_1 sign character in localSystem_monodromy_GL1.
+
+**Prerequisites.** [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); [The arithmetic locally symmetric space X_K](#locally-symmetric-space); `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`; `tauceti:TauCeti.LocalCoefficientSystem`; `tauceti:TauCeti.LocalCoefficientSystem.monodromyRepresentation`; `tauceti:TauCeti.CoveringSpace.monodromyEquivalence`; [AlgebraicTopology, stage 2 relative singular chains and homology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-2-relative-singular-chains-and-homology).
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, p. 910; [[acc23]](#source-acc23), §2.1.2, pp. 910–911; [[nt16]](#source-nt16), §2.3, Lemma 2.17(2), p. 22.
+
+<a id="betti-complexes"></a>
+
+### Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models
+
+For compact open K choose a normal finite-index neat K₀⊂K, put Q=K/K₀, Y=X_{K₀} and let Ȳ=X̄_{K₀} be
+its compact Borel–Serre closure with the Q-action and equivariant coefficient extension V̄. The
+objects C=RΓ(Ȳ,V̄), C_c=RΓ(Ȳ,j_!V), C_∂=RΓ(∂Ȳ,i^*V̄) live in D(R[Q]), obtained from equivariant
+sheaves before forgetting Q. Define RΓ(X_K,V)=RΓ(Q,C), RΓ_c(X_K,V)=RΓ(Q,C_c), RΓ(∂X̄_K,V)=RΓ(Q,C_∂).
+At neat K these agree with ordinary sheaf cohomology and compact support by free descent and the
+interior homotopy equivalence. At arbitrary K they compute groupoid cohomology, not coarse
+cohomology; group invariants are derived and can be unbounded. For K′⊲K choose K₀⊂K′ and define
+RΓ_{K/K′}(X_{K′},V)=RΓ(K′/K₀,C) in D(R[K/K′]) using the equivariant derived functor, with analogous
+support and boundary objects. Intersecting two choices of K₀ and composing derived invariants gives
+canonical choice-independence and refinement compatibilities. For ordinary cohomology this agrees
+with NT16’s discrete equivariant model RΓ(K,RΓ(𝔛_G,V_𝔛)).
+
+**Hypotheses.** R commutative; V finite projective over R
+
+**API.**
+
+- `LocallySymmetric.RΓ`: RΓ(X_K,V)=RΓ(Q,RΓ(Ȳ,V̄)) in D(R), Q=K/K₀ for a neat normal refinement; naturally identified with the
+ordinary NT16 equivariant invariant-sections model.
+- `LocallySymmetric.RΓc`: RΓ_c(X_K,V)=RΓ(Q,RΓ(Ȳ,j_!V)) in D(R), independent of the chosen neat normal refinement by
+equivariant finite-cover descent; at neat K this is ordinary compact support.
+- `LocallySymmetric.RΓrel`: For K₀⊂K′⊲K, RΓ_{K/K′}(X_{K′},V)=RΓ(K′/K₀,RΓ(Ȳ,V̄)) in D(R[K/K′]); the residual action is retained
+in the equivariant derived construction.
+- `LocallySymmetric.RΓ.isoSheafCohomology`: For neat K, RΓ(X_K, V) ≅ RΓ(X_K, V_K) (sheaf cohomology, Mathlib's Sheaf.H in degree i).
+- `LocallySymmetric.RΓrel.forget`: The image of RΓ_{K/K′}(X_{K′}, V) under D(R[K/K′]) → D(R) is RΓ(X_{K′}, V).
+- `LocallySymmetric.RΓc.forgetSupports`: The natural map RΓ_c(X_K, V) → RΓ(X_K, V).
+- `LocallySymmetric.RΓ.map`: V ↦ RΓ(X_K, V) and V ↦ RΓ_c(X_K, V) are triangulated functors of V (short exact sequences of
+coefficient modules give triangles).
+
+**Discriminating checks.**
+
+- `RΓ_point` (degenerate): If X_K is a finite set of points (G a torus with T(ℝ)/A_∞ compact), RΓ(X_K, V) = ⊕_{x} V^{Stab(x)}
+concentrated in degree 0 for |Stab(x)| invertible in R.
+- `H1_modularCurve_levelGamma1_5` (computation): For G = SL_{2,ℚ} (A_G trivial) at the neat level giving Γ_1(5)\ℍ (a sphere minus four cusps), H^0 =
+R, H^1 ≅ R^3, H^i = 0 for i ≥ 2, and H^1_c ≅ R^3, H^2_c ≅ R.
+- `RΓ_eq_groupCohomology_levelOne` (compatibility): For G = SL_{2,ℚ} and K = SL_2(Ẑ), H^i(X_K, ℤ) is group cohomology H^i(SL_2(ℤ), ℤ): ℤ, 0, ℤ/12, 0,
+ℤ/12, … (2-periodic from degree 2), not the cohomology of the coarse space SL_2(ℤ)\ℍ ≅ ℂ.
+- `RΓ_ne_coarse` (non-example): At non-neat level H^*(X_K, ℤ) differs from the singular cohomology of the coarse quotient: for
+SL_2(ℤ), H^2(X_K, ℤ) = ℤ/12 while H^2(SL_2(ℤ)\ℍ, ℤ) = 0.
+
+**Prerequisites.** [Arithmetic local systems from coefficient modules](#arithmetic-local-system); `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`; `mathlib:DerivedCategory`; `mathlib:CategoryTheory.Sheaf.H`; [Proper discontinuity and finite stabilizers at arbitrary level](#proper-action-stabilizers); [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); `SchemeAndStackFoundations:SF.2/linearized-sheaf`; `SchemeAndStackFoundations:SF.2/enough-injectives`; `SchemeAndStackFoundations:SF.2/invariants-acyclic`; `SchemeAndStackFoundations:SF.2/support`; `SchemeAndStackFoundations:SF.2/localization`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, p. 911; [[nt16]](#source-nt16), §3.1, Corollary 3.3, p. 42; [[acc23]](#source-acc23), §2.1.2, p. 911; [[cn23]](#source-cn23), §2.1.2, after Proposition 2.1.3, p. 11.
+
+<a id="sheaf-singular-comparison"></a>
+
+### Sheaf cohomology of arithmetic local systems agrees with singular cochains
+
+For neat K and V finite projective, there are natural isomorphisms in D(R) RΓ(X_K, V_K) ≅ C^•(X_K;
+V_K) and RΓ_c(X_K, V_K) ≅ C^•_c(X_K; V_K) := colim_C C^•(X_K, X_K ∖ C; V_K) (C compact), where C^•
+are the singular cochains with local coefficients of Tau Ceti's AlgebraicTopology stages 2 and 6;
+they are compatible with pullback along level maps and translations, with the forget-supports map,
+and, on X̄_K (ALS.2), with the relative cochains of the pair (X̄_K, ∂X̄_K). Equivalently, writing X̃
+= X^G × G(A^∞)/K′ for the universal-cover side, RΓ(X_K, V_K) ≅ Hom_{ℤ[Γ_i]}(C_•(X^G), V) on each
+component.
+
+**Hypotheses.** K neat; V finite projective over R
+
+**Discriminating checks.**
+
+- For X_K compact the compactly supported comparison reduces to the absolute one.
+- For a connected orientable noncompact surface Γ\ℍ and constant coefficients R, H^2_c(Γ\ℍ,R)=R and
+H^2(Γ\ℍ,R)=0 on both sides. Without orientability, the first formula requires the orientation
+coefficient system o_R instead of constant R. For the nonorientable neat PGL_2 example and R=ℚ,
+H^2_c(Γ\ℍ,ℚ)=0, not ℚ.
+
+**Prerequisites.** [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); [AlgebraicTopology, stage 2 relative singular chains and homology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-2-relative-singular-chains-and-homology); [AlgebraicTopology, stage 4 cw pairs cellular homology and cofibrations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-4-cw-pairs-cellular-homology-and-cofibrations); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `mathlib:AlgebraicTopology.singularChainComplexFunctor`; `tauceti:TopPair.singularChainComplexFunctor`.
+
+**Sources.** [[sella]](#source-sella), Introduction, main Theorem, pp. 2 (arXiv pagination); [[acc23]](#source-acc23), §2.1.2, proof of Lemma 2.1.7, p. 912.
+
+<a id="group-cohomology-comparison"></a>
+
+### Betti cohomology as group cohomology of the arithmetic groups
+
+For every compact open K (neat or not) and V finite projective over R there is a natural isomorphism
+RΓ(X_K, V) ≅ ⊕_{i=1}^s RΓ(Γ_i, V), with Γ_i = G(F) ∩ g_iKg_i⁻¹ acting on V by γ ↦
+ρ_{G(F)}(γ)ρ_{K_S}((g_i⁻¹γg_i)_S), as the slice representation of arithmetic-local-system and
+RΓ(Γ_i, −) group cohomology (Mathlib's groupCohomology in each degree). At neat level each Γ_i\X^G
+is a K(Γ_i, 1) and this is the comparison of the sheaf cohomology of the local system with group
+cohomology. In particular H^*(X_K, V) is the orbifold cohomology of X_K, and differs from the
+cohomology of the coarse quotient by terms killed by the orders of the stabilizers: if every
+stabilizer order is invertible in R, H^*(X_K, V) ≅ H^*(Γ\X^G, (π_*V)^stabilizer). When stabilizer
+orders are invertible, the invariant pushforward to the coarse quotient is generally a constructible
+sheaf; it is a local system only under an additional descent condition such as trivial stabilizer
+action on the fibres.
+
+**Hypotheses.** V finite projective over R
+
+**Discriminating checks.**
+
+- H^*(SL_2(ℤ), ℤ) = ℤ, 0, ℤ/12, 0, ℤ/12, … (2-periodic from degree 2), unbounded although SL_2(ℤ)\ℍ is
+a surface.
+- With R = ℤ[1/6] the same orbifold has H^0 = R and H^i = 0 for i > 0, the cohomology of the coarse
+space ℂ.
+
+**Prerequisites.** [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [Finite decomposition of X_K into arithmetic quotients](#component-decomposition); [The symmetric space is contractible with proper action](#symmetric-space-contractible); `mathlib:groupCohomology`; `mathlib:Rep`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, proof of Lemma 2.1.7, p. 912; [[cg18]](#source-cg18), §5.2, arithmetic quotients (arXiv v2), pp. 55–56 (arXiv pagination).
+
+<a id="finite-complex-model"></a>
+
+### Bounded finite projective models from a finite equivariant cell structure
+
+Suppose the Borel–Serre closure of X^G × G(A^∞)^δ has a G(F) × K-invariant cell structure with
+finitely many cell orbits and trivial cell stabilizers for the full group G(F) × K, as at good neat
+K. For K′ open normal in K, its cellular chains C_• are bounded finite free ℤ[G(F) × K]-modules. For
+finite projective R-coefficients V, RΓ_{K/K′}(X_{K′}, V) is computed by Hom_{ℤ[G(F)×K′]}(C_•, V), a
+bounded finite projective R[K/K′]-complex. Hence it is perfect over R[K/K′]; for K′ = K, RΓ(X_K, V)
+is perfect over R with amplitude in [0,d_G]. The analogous relative cell model computes RΓ_c.
+Freeness only for G(F) × K′ does not imply perfectness over R[K/K′] when K has stabilizers.
+
+**Hypotheses.** Finite G(F) × K-invariant cell structure, free for the full group G(F) × K; good neat K supplies the
+arithmetic case.; K′ open normal in K (so K/K′ is finite).; V finite projective over R.
+
+**Discriminating checks.**
+
+- For K′ = K neat, RΓ(X_K, V) is a perfect complex of R-modules with amplitude [0, d_G].
+- For R = ℤ and V = ℤ, H^*(X_K, ℤ) is finitely generated in each degree.
+
+**Prerequisites.** [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [Sheaf cohomology of arithmetic local systems agrees with singular cochains](#sheaf-singular-comparison); [AlgebraicTopology, stage 4 cw pairs cellular homology and cofibrations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-4-cw-pairs-cellular-homology-and-cofibrations); `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`; `mathlib:Module.Projective`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, Lemma 2.1.7, p. 912; [[acc23]](#source-acc23), §2.1.2, proof of Lemma 2.1.7, p. 912.
+
+<a id="coefficient-change"></a>
+
+### Derived coefficient change and the universal-coefficient spectral sequence
+
+Let R be noetherian, R → R′ a ring map, K neat and V a finite projective R-module with
+R[G(F)×K_S]-action (or, more generally, a bounded complex of such of uniform Tor-amplitude in [a,
+b]). Then (i) RΓ(X_K, V) ⊗^L_R R′ ≅ RΓ(X_K, V ⊗_R R′) and RΓ_c(X_K, V) ⊗^L_R R′ ≅ RΓ_c(X_K, V ⊗_R
+R′) naturally in D(R′), compatibly with level maps; (ii) there is a convergent spectral sequence
+E_2^{i,j} = Tor^R_{−i}(H^j(X_K, V), R′) ⇒ H^{i+j}(X_K, V ⊗_R R′), with every Tor term present; for
+R′ = R/ϖ^m and R a discrete valuation ring it degenerates to the short exact sequences 0 → H^j(X_K,
+V)/ϖ^m → H^j(X_K, V/ϖ^m) → H^{j+1}(X_K, V)[ϖ^m] → 0. Torsion-free cochains do not imply torsion-free
+cohomology: H^{j+1}(X_K, V)[ϖ^m] can be nonzero.
+
+**Hypotheses.** R noetherian; K neat; V finite projective over R, or a bounded complex of such with Tor-amplitude in
+[a, b]
+
+**Discriminating checks.**
+
+- V = ℤ, R′ = F_p: 0 → H^j(X_K, ℤ)/p → H^j(X_K, F_p) → H^{j+1}(X_K, ℤ)[p] → 0.
+- If H^*(X_K, V) is R-free, coefficient change commutes with cohomology.
+
+**Prerequisites.** [Bounded finite projective models from a finite equivariant cell structure](#finite-complex-model); [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`; `mathlib:Module.Flat`; `mathlib:DerivedCategory`; [Finite triangulations and finiteness of Betti cohomology](#borel-serre-finite-triangulation).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Proposition 3.7(2), p. 48; [[nt16]](#source-nt16), §3.1, proof of Proposition 3.7, p. 49.
+
+<a id="level-pullback"></a>
+
+### Pullback and translation on Betti complexes
+
+For K′ ⊂ K compact open and g ∈ G(A^∞) define in D(R): the pullback π^*_{K′,K} : RΓ(X_K, V) →
+RΓ(X_{K′}, V) (restriction of derived invariants from K to K′, equal to sheaf pullback along
+π_{K′,K} at neat level), and the translation r_g^* : RΓ(X_K, V) → RΓ(X_{gKg⁻¹}, V) induced by the
+isomorphism of equivariant sheaves V_𝔛 ≅ g^*V_𝔛 (for g ∈ G^S; for g_S ≠ 1 one needs V to carry a
+compatible action of a monoid containing g_S). They satisfy π^*_{K″,K′} ∘ π^*_{K′,K} = π^*_{K″,K},
+r_h^* ∘ r_g^* = r_{hg}^*, r_k^* = id for k ∈ K, and r_g^* ∘ π^* = π^* ∘ r_g^*; the same maps exist
+on RΓ_c (proper level maps at neat level) and on RΓ_{K/K′}.
+
+**Hypotheses.** K′ ⊂ K compact open; g ∈ G^S, or V with a compatible monoid action at S
+
+**API.**
+
+- `LocallySymmetric.RΓ.pullback`: π^*_{K′,K} : RΓ(X_K, V) → RΓ(X_{K′}, V), with pullback_id and pullback_comp.
+- `LocallySymmetric.RΓ.translate`: r_g^* : RΓ(X_K, V) → RΓ(X_{gKg⁻¹}, V) with translate_one, translate_mul and translate_of_mem (r_k^*
+= id for k ∈ K).
+- `LocallySymmetric.RΓ.translate_pullback`: r_g^* ∘ π^*_{K′,K} = π^*_{gK′g⁻¹, gKg⁻¹} ∘ r_g^*.
+- `LocallySymmetric.RΓ.pullback_eq_sheafPullback`: At neat level π^* is the sheaf pullback along π_{K′,K} and r_g^* the pullback along r_g.
+- `LocallySymmetric.RΓc.pullback`: The same maps on RΓ_c (level maps are proper at neat level), commuting with forget-supports.
+
+**Discriminating checks.**
+
+- `pullback_H0` (computation): In degree 0, π^*_{K′,K} : R^{π_0(X_K)} → R^{π_0(X_{K′})} is the map induced by π_0(π_{K′,K}) (each
+component pulled back to the union of the components over it).
+- `translate_of_mem` (degenerate): For k ∈ K, r_k^* = id on RΓ(X_K, V).
+- `pullback_injective_rational` (characterisation): If K is neat and [K : K′] is invertible in R then π^* is split injective on H^*, with left inverse
+[K : K′]⁻¹·(trace) (see ALS.3/level-trace).
+- `pullback_not_iso` (non-example): π^* is not an isomorphism in general: for GL_{2,ℚ}, π^* : H^1(X_{K(3)}, ℚ) → H^1(X_{K(9)}, ℚ) has a
+nonzero cokernel (the genus grows).
+
+**Prerequisites.** [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [The arithmetic locally symmetric space X_K](#locally-symmetric-space); [AlgebraicTopology, stage 2 relative singular chains and homology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-2-relative-singular-chains-and-homology); `tauceti:TauCeti.LocalCoefficientSystem.pullback`.
+
+**Sources.** [[nt16]](#source-nt16), §2.3, after Proposition 2.18, p. 27; [[acc23]](#source-acc23), §2.1.2, p. 911.
+
+## ALS.2: Borel–Serre corners and boundary strata
+
+<a id="geodesic-action-boundary-face"></a>
+
+### Geodesic action and the boundary face e(P)
+
+Let 𝐆 = Res_{F/ℚ}G and P a rational parabolic subgroup of 𝐆 (equivalently an F-parabolic of G) with
+unipotent radical N_P and Levi quotient L_P = P/N_P. Let S_P be the maximal ℚ-split central torus of
+the Levi quotient L_P, modulo the image of the maximal ℚ-split central torus of 𝐆 (equivalently the
+split-radical quotient Rd(P)/(R_u(P)·Rd(𝐆)) in NT16's convention), and A_P = S_P(ℝ)°. For x ∈ X^G
+let L′_x ⊂ P_ℝ be the unique Levi subgroup stable under the Cartan involution attached to the
+maximal compact subgroup of Stab(x). The geodesic action of A_P on X^G is a • x = a_x·x with a_x ∈
+L′_x(ℝ) the lift of a; it is free, commutes with P(ℝ) and with the action of P(ℚ). The boundary face
+is e(P) = A_P\X^G, a space of type S−Q for P, with e(P) ≅ N_P(ℝ) × X_{L_P} (X_{L_P} the symmetric
+space of L_P with its own split centre already removed) via a choice of horospherical
+trivialization; transport the P(ℝ)-action to this product (the Levi action includes the conjugation
+action on N_P); dim e(P) = d_G − dim A_P. For P = 𝐆, e(𝐆) = X^G.
+
+**Hypotheses.** P a rational parabolic subgroup of Res_{F/ℚ}G, including G for the whole-group face; proper P for a
+boundary face.
+
+**API.**
+
+- `LocallySymmetric.BorelSerre.geodesicAction`: The action A_P × X^G → X^G, (a, x) ↦ a • x.
+- `LocallySymmetric.BorelSerre.geodesicAction_free`: The geodesic action is free and proper, and commutes with the left action of P(ℝ).
+- `LocallySymmetric.BorelSerre.face`: e(P) = A_P\X^G with its P(ℝ)-action (a space of type S−Q for P).
+- `LocallySymmetric.BorelSerre.faceEquiv`: A horospherical trivialization identifies e(P) with N_P(ℝ) × X_{L_P}; transport the P(ℝ)-action to
+this product, including the Levi conjugation action on N_P.
+- `LocallySymmetric.BorelSerre.face_conj`: For γ ∈ 𝐆(ℚ)=G(F), x ↦ γx induces e(P) ≅ e(γPγ⁻¹) compatibly with the geodesic actions.
+- `LocallySymmetric.BorelSerre.face_dim`: dim e(P) = d_G − dim A_P.
+
+**Discriminating checks.**
+
+- `face_SL2_borel` (computation): For SL_{2,ℚ} and the upper triangular Borel B, e(B) ≅ N_B(ℝ) ≅ ℝ (X_{L_B} is a point) and dim e(B) =
+2 − 1 = 1.
+- `face_whole_group` (degenerate): For P = 𝐆, A_P = 1 (in this convention A_𝐆 is already divided out) and e(𝐆) = X^G.
+- `face_GL3_minimal` (computation): For GL_{3,ℚ} and the Borel B, A_B ≅ ℝ_{>0}², X^G has dimension 5 and e(B) ≅ N_B(ℝ) (a Heisenberg
+group, dimension 3) has dimension 5 − 2 = 3.
+- `geodesicAction_ne_leftAction` (non-example): The geodesic action is not the left action of A_P ⊂ P(ℝ) through a fixed Levi: for SL_{2,ℚ} the left
+action of diag(a, a⁻¹) on ℍ, z ↦ a²z, moves horizontally displaced points along rays through 0,
+whereas the geodesic action moves every point vertically.
+
+**Prerequisites.** [The symmetric space of G with the split-centre correction](#symmetric-space); [Cartan involutions of real reductive groups](#cartan-involution); `AdelicAlgebraicGroups:AA.3/horospherical-decomposition`; `AdelicAlgebraicGroups:AA.3/minimal-parabolic-data`; `tauceti:TauCeti.Cocharacter.parabolic`; `tauceti:TauCeti.Cocharacter.leviDecompositionMulEquiv`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 41; [[nt16]](#source-nt16), §3.1, p. 41; [[jm02]](#source-jm02), §7.3, p. 483; [[bs73]](#source-bs73), §§3.2–3.9, pp. 448–452.
+
+<a id="borel-serre-bordification"></a>
+
+### The Borel–Serre partial compactification X̄^G
+
+As a set X̄^G=⊔_{P rational parabolic, including G} e(P), with e(G)=X^G. For Δ_P the simple relative
+roots, let Ā_P=(0,∞]^{Δ_P}; reciprocals of the root coordinates identify it analytically with
+[0,∞)^{Δ_P}. The associated corner X^G(P)=X^G×^{A_P}Ā_P is an analytic manifold with corners and
+equals ⊔_{Q⊇P}e(Q). If P⊂Q, the root-factorization A_P=A_{P,Q}×A_Q gives the analytic open embedding
+X^G(Q)→X^G(P) of Borel–Serre 5.3. Glue these embeddings: X^G(P)∩X^G(Q)=X^G(R), where R is the
+smallest rational parabolic containing P and Q (R may be G). This is an atlas of open corners, with
+cocycle identities from the root-factorizations. The interior is X^G; closure(e(P))=⊔_{Q⊂P}e(Q), and
+e(P) meets closure(e(Q)) exactly when P⊂Q. The rational action extends analytically by
+γe(P)=e(γPγ⁻¹). The inclusion of the interior is a homotopy equivalence, so X̄^G is contractible.
+Set 𝔛̄_G=G(F)\(X̄^G×G(A^∞)^δ), X̄_K=G(F)\(X̄^G×G(A^∞)/K), with boundary the union of
+proper-parabolic faces.
+
+**Hypotheses.** G connected reductive over F
+
+**API.**
+
+- `LocallySymmetric.BorelSerre.bordification`: X̄^G as a topological space (manifold with corners) containing X^G as an open dense subset.
+- `LocallySymmetric.BorelSerre.corner`: X^G(P)=⊔_{Q⊇P}e(Q)≅X^G×^{A_P}Ā_P is open; X(P)∩X(Q)=X(R) for the smallest rational parabolic R
+containing P,Q. Nested embeddings are analytic and satisfy the cocycle identity.
+- `LocallySymmetric.BorelSerre.boundary`: ∂X̄^G = ⊔_{P proper} e(P), closed in X̄^G.
+- `LocallySymmetric.BorelSerre.closure_face`: The closure of e(P) in X̄^G is ⊔_{Q ⊂ P} e(Q).
+- `LocallySymmetric.BorelSerre.smul`: 𝐆(ℚ)=G(F) acts analytically on X̄^G extending its action on X^G, with γ·e(P) = e(γPγ⁻¹).
+- `LocallySymmetric.BorelSerre.contractible`: X̄^G is contractible and the inclusion X^G → X̄^G is a homotopy equivalence.
+- `LocallySymmetric.BorelSerre.adelic`: X̄_K = G(F)\(X̄^G × G(A^∞)/K) and ∂X̄_K, with the open immersion j_K : X_K → X̄_K.
+
+**Discriminating checks.**
+
+- `bordification_SL2` (computation): For SL_{2,ℚ}, ∂X̄ = ⊔_{c∈ℙ¹(ℚ)} e(P_c) with each e(P_c) ≅ ℝ, and SL_2(ℤ)\∂X̄ is a single circle (one
+cusp, the circle N(ℤ)\N(ℝ)).
+- `bordification_anisotropic` (degenerate): If G is anisotropic over F (no proper F-parabolics), X̄^G = X^G and ∂X̄^G = ∅.
+- `bordification_interior` (characterisation): The interior is X^G and e(P) has codimension |Δ_P| in X^G(P). For two distinct minimal parabolics of
+SL₂, their open corners intersect in X^G=X^G(G), although their boundary faces are disjoint.
+- `bordification_ne_onePoint` (non-example): X̄_K is not the one-point (or Baily–Borel) compactification: for a modular curve each cusp is
+replaced by a circle, so the boundary has Euler characteristic 0 and H^1(∂X̄_K, ℤ) has rank equal to
+the number of cusps.
+
+**Prerequisites.** [Geodesic action and the boundary face e(P)](#geodesic-action-boundary-face); `mathlib:ModelWithCorners`; `mathlib:ContractibleSpace`; `AdelicAlgebraicGroups:AA.3/positive-root-coordinates`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.1, p. 910; [[jm02]](#source-jm02), §7.3, p. 483; [[jm02]](#source-jm02), §7.4, Proposition 7.4, p. 484; [[bs73]](#source-bs73), §§5.1–5.3, 7.1–7.6, pp. 455–459, 463–465.
+
+<a id="borel-serre-quotient-compact"></a>
+
+### Compactness of the Borel–Serre quotient and the interior homotopy equivalence
+
+Every arithmetic subgroup Γ ⊂ 𝐆(ℚ) acts properly discontinuously on X̄^G with compact Hausdorff
+quotient Γ\X̄^G. Consequently, for every compact open K, X̄_K is compact Hausdorff; if K is neat,
+X̄_K is a compact smooth manifold with corners with interior X_K and boundary ∂X̄_K, and the
+inclusion j_K : X_K → X̄_K is a homotopy equivalence. At neat K, ∂X̄_K = X̄_K ∖ X_K is a compact
+topological manifold of dimension d_G − 1; its original corner strata give a finite stratification,
+rather than a smooth boundary obtained by treating intersecting faces as disjoint (empty iff G is
+F-anisotropic modulo centre).
+
+**Hypotheses.** Γ arithmetic; K compact open; neat for the manifold-with-corners statement
+
+**Discriminating checks.**
+
+- For a modular curve Γ(N)\ℍ, the Borel–Serre compactification is a compact surface with one boundary
+circle per cusp.
+- For G F-anisotropic modulo centre, X_K is already compact.
+
+**Prerequisites.** [The Borel–Serre partial compactification X̄^G](#borel-serre-bordification); [Finite decomposition of X_K into arithmetic quotients](#component-decomposition); [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); `AdelicAlgebraicGroups:AA.3/real-siegel-finite-cover`; `AdelicAlgebraicGroups:AA.3/finitely-many-cusps`; `AdelicAlgebraicGroups:AA.3/real-siegel-finite-overlap`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.1, p. 910; [[jm02]](#source-jm02), §7.4, Proposition 7.4, p. 484; [[bs73]](#source-bs73), Theorem 9.3 and §9.5, pp. 474–476.
+
+<a id="borel-serre-finite-triangulation"></a>
+
+### Finite triangulations and finiteness of Betti cohomology
+
+For neat K, X̄_K admits a finite triangulation, and it pulls back to a G(F) × K-invariant
+triangulation of X̄^G × G(A^∞) with finitely many orbits of simplices and free action of G(F) × K′
+for every neat K′ ⊂ K. Consequently: (i) X_K has the homotopy type of a finite CW complex; (ii) for
+K′ ⊂ K normal and both neat and V finite projective over a noetherian ring R, RΓ_{K/K′}(X_{K′}, V)
+and RΓ_{c,K/K′}(X_{K′}, V) are perfect in D(R[K/K′]) and RΓ(X_K, V), RΓ_c(X_K, V), RΓ(∂X̄_K, V) are
+perfect in D(R); (iii) H^*(X_K, V) and H^*_c(X_K, V) are finitely generated R-modules, zero outside
+[0, d_G].
+
+**Hypotheses.** K neat (K′ ⊂ K normal and neat); R noetherian; V finite projective over R
+
+**Discriminating checks.**
+
+- H^*(X_K, ℤ) is finitely generated for every neat K.
+- For SL_2(ℤ)-level the orbifold cohomology is not bounded (group-cohomology-comparison), so neatness
+is needed for (ii).
+
+**Prerequisites.** [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); [Bounded finite projective models from a finite equivariant cell structure](#finite-complex-model); [AlgebraicTopology, stage 4 cw pairs cellular homology and cofibrations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-4-cw-pairs-cellular-homology-and-cofibrations); `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`; [GeometricTopology, layer 11 triangulations pl structures and collapse](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md#layer-11-triangulations-pl-structures-and-collapse).
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, proof of Lemma 2.1.7, p. 912; [[acc23]](#source-acc23), §2.1.2, Lemma 2.1.4, p. 911; [[bs73]](#source-bs73), §11.1, pp. 481–483.
+
+<a id="boundary-stratification"></a>
+
+### The stratification of the Borel–Serre boundary by parabolic classes
+
+Let P_1, …, P_s represent the G(F)-conjugacy classes of proper F-parabolic subgroups of G. For a
+rational parabolic P put 𝔛_P = P(F)\(e(P) × P(A^∞)^δ) and, for compact open K, X^P_K = P(F)\(e(P) ×
+G(A^∞)/K). The maps j_{P_i} : Ind_{P_i^∞}^{G^∞} 𝔛_{P_i} = P_i(F)\(G(A^∞) × e(P_i)) → ∂𝔛̄_G are
+G(A^∞)-equivariant locally closed immersions and ⊔_i Ind 𝔛_{P_i} → ∂𝔛̄_G is a continuous bijection;
+at level K, ⊔_i X^{P_i}_K → ∂X̄_K is a continuous bijection onto a finite stratification by locally
+closed strata, the stratum of P lying in the closure of that of Q iff P is conjugate into Q. For P
+maximal, X^P_K is open in ∂X̄_K. X^P_K decomposes further over P(F)\G(A^∞)/K into quotients Γ_P\e(P)
+with Γ_P = P(F) ∩ gKg⁻¹.
+
+**Hypotheses.** K compact open
+
+**API.**
+
+- `LocallySymmetric.BorelSerre.stratum`: X^P_K = P(F)\(e(P) × G(A^∞)/K) with its locally closed immersion j_P : X^P_K → ∂X̄_K (depending only
+on the G(F)-class of P up to isomorphism).
+- `LocallySymmetric.BorelSerre.stratum_bijective`: ⊔_{i} X^{P_i}_K → ∂X̄_K is a continuous bijection, P_i running over representatives of G(F)-classes
+of proper parabolics.
+- `LocallySymmetric.BorelSerre.stratum_closure`: The closure of the stratum of P is the union of the strata of the parabolics conjugate into P.
+- `LocallySymmetric.BorelSerre.stratum_isOpen_of_maximal`: For P maximal, j_P is an open immersion.
+- `LocallySymmetric.BorelSerre.stratum_components`: X^P_K ≅ ⊔_{g ∈ P(F)\G(A^∞)/K} Γ_{P,g}\e(P) with Γ_{P,g} = P(F) ∩ gKg⁻¹.
+
+**Discriminating checks.**
+
+- `stratum_SL2_cusps` (computation): For SL_{2,ℚ} at neat level K, the strata are the cusps of X_K, each a circle Γ_N\N(ℝ) ≅ ℝ/ℤ·h (h the
+cusp width).
+- `stratum_anisotropic_empty` (degenerate): If G has no proper F-parabolic, there are no strata and ∂X̄_K = ∅.
+- `stratum_GL3_poset` (characterisation): For GL_{3,F} there are three classes of proper parabolics (two maximal, one Borel); the Borel
+stratum lies in the closure of both maximal strata, which are open in ∂X̄_K.
+- `stratum_not_disjoint_union_topologically` (non-example): ∂X̄_K is not the topological disjoint union of the strata: for GL_3 the closure of a maximal stratum
+meets the Borel stratum, so the bijection ⊔ X^{P_i}_K → ∂X̄_K is not a homeomorphism.
+
+**Prerequisites.** [The Borel–Serre partial compactification X̄^G](#borel-serre-bordification); [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); `AdelicAlgebraicGroups:AA.3/finitely-many-cusps`; `AdelicAlgebraicGroups:AA.3/parabolic-double-cosets-finite`; `AdelicAlgebraicGroups:AA.3/minimal-parabolic-data`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, before Lemma 3.10, p. 50; [[nt16]](#source-nt16), §3.1, Lemma 3.10(2), p. 51; [[acc23]](#source-acc23), §2.4.1, p. 941.
+
+<a id="stratum-nilmanifold-fibration"></a>
+
+### Boundary strata fibre over Levi quotients with nilmanifold fibres
+
+Let P = M ⋉ N be a rational parabolic. Distinguish the P-space Y^P_L = P(F)\(e(P) × P(A^∞)/L) from
+the induced G-stratum X^P_K of boundary-stratification. The latter decomposes over representatives g
+of P(A^∞)\G(A^∞)/K as a disjoint union of Y^P_{L_g}, where L_g = P(A^∞) ∩ gKg⁻¹. For each good neat
+L_g decomposed as L_{M,g} ⋉ L_{N,g}, the projection e(P) ≅ N(ℝ) × X_M → X_M induces a proper
+submersion Y^P_{L_g} → X^M_{L_{M,g}}. Here X_M already has its own split centre removed. On an
+arithmetic component the fibre is the compact nilmanifold Γ_{N,g}\N(ℝ); its monodromy is induced by
+the extension 1 → Γ_{N,g} → Γ_{P,g} → Γ_{M,g} → 1. The local system R^qπ_*V has stalk H^q(Γ_{N,g},
+V). A global stratum with multiple g is not assigned one untransported Levi base. Nondecomposed
+levels require a separate comparison after refinement.
+
+**Hypotheses.** Each transported P-level L_g used in the fibration is good, neat and decomposed with respect to P =
+M ⋉ N.
+
+**Discriminating checks.**
+
+- For SL_{2,ℚ} and P = B, M = T is a torus with X_M a point and the stratum is the circle Γ_N\N(ℝ).
+- For GL_3 and the Borel, fibres are Heisenberg nilmanifolds of dimension 3 over a point.
+
+**Prerequisites.** [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Geodesic action and the boundary face e(P)](#geodesic-action-boundary-face); [Arithmetic nilmanifold fibres](#stratum-nilmanifold-fibration); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `AdelicAlgebraicGroups:AA.3/unipotent-class-number-one`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, p. 43; [[hr]](#source-hr), §4.2.1, p.25, before (4.2) (arXiv:1405.6513v2).
+
+<a id="stratification-spectral-sequence"></a>
+
+### The stratification filtration of ∂X̄_K and its spectral sequence
+
+Let B=∂X̄_K at neat K. For p≥0 set Z_p=union of strata of relative parabolic rank ≥p+1, with Z_0=B
+and Z_{r+1}=∅, and U_p=Z_p\Z_{p+1}. Put O_p=B\Z_{p+1}, O_{−1}=∅, F_p=RΓ_c(O_p,V), A_p=RΓ_c(U_p,V).
+Open/closed localization gives F_{p−1}→F_p→A_p→F_{p−1}[1]. Its exact couple has
+D_1^{p,q}=H^{p+q}_c(O_p,V), E_1^{p,q}=⊕_{rk P=p+1}H^{p+q}_c(X^P_K,V), i of bidegree (1,−1), j of
+bidegree (0,0), k of bidegree (−1,2). Thus d_r has bidegree (−r,r+1), and finite convergence gives
+H^{p+q}(B,V) with the filtration induced by the O_p. Reindexing (s,t)=(−p,q+2p) preserves s+t=p+q
+and gives the usual differential bidegree (r,1−r). Separately, for G=Res_{F/ℚ}GL_N with F totally
+real, the ordinary closed-cover/flag resolution of Harder–Raghuram §4.1 gives E_1^{p,q}=⊕_{[P],rk
+P=p+1}H^q(X^P_K,V)⇒H^{p+q}(B,V), d_1:(p,q)→(p+1,q). Order maximal standard parabolics; its d_1 is
+the alternating restriction to intersections, with sign (−1)^j when the j-th vertex is deleted.
+Compactified strata and all arithmetic translates/transported levels are included in this
+resolution; a single untransported Γ_P is not the global stratum. The two sequences have different
+indexing and maps and are not identified by relabelling their E_1 pages. Both constructions are
+finite, natural in coefficients and compatible with level maps and translations.
+
+**Hypotheses.** K neat; V a sheaf (local system) on ∂X̄_K
+
+**API.**
+
+- `LocallySymmetric.BorelSerre.stratFiltration`: The closed filtration Z_k of ∂X̄_K by unions of strata of parabolic rank ≥ k + 1.
+- `LocallySymmetric.BorelSerre.stratSpectralSequence`: The spectral sequence E_1^{p,q} = ⊕_{rk P = p+1} H^{p+q}_c(X^P_K, V) ⇒ H^{p+q}(∂X̄_K, V).
+- `LocallySymmetric.BorelSerre.stratSpectralSequence_d1`: For the compact-support exact couple, d₁:E₁^{p,q}→E₁^{p−1,q+2} is j∘k, the connecting map of
+F_{p−1}→F_p→A_p followed by its quotient to A_{p−1}; it goes from higher-rank to lower-rank strata
+with total degree +1.
+- `LocallySymmetric.BorelSerre.stratSpectralSequence_map`: Natural in V and compatible with π_{K′,K} and r_g.
+- `LocallySymmetric.BorelSerre.mayerVietorisSpectralSequence`: For Res_{F/ℚ}GL_N with F totally real the ordinary flag/closed-cover sequence has E₁^{p,q}=⊕_{rk
+P=p+1}H^q(X^P_K,V), d₁ of bidegree (1,0), with alternating restriction signs (−1)^j from deletion in
+the ordered maximal-parabolic simplex. Its global strata include all transported levels.
+
+**Discriminating checks.**
+
+- `stratSS_SL2` (computation): For SL_{2,ℚ} at neat level with c cusps, E_1 = E_∞ = ⊕_{c} H^*(S^1, V), so H^0(∂X̄_K, ℤ) = ℤ^c and
+H^1(∂X̄_K, ℤ) = ℤ^c for trivial V.
+- `stratSS_empty` (degenerate): For G F-anisotropic the filtration is empty and the spectral sequence is zero.
+- `stratSS_rank_one_collapse` (characterisation): If the F-rank of G modulo centre is 1, all proper parabolics are minimal and maximal, the strata are
+closed and open, and H^*(∂X̄_K, V) = ⊕_P H^*(X^P_K, V).
+- `stratSS_E1_not_complex` (non-example): For rank ≥2 the compact-support d₁ is a localization connecting map of degree (−1,2), while the
+ordinary GL_N flag d₁ is an alternating restriction of degree (1,0). The ordinary degree-zero
+restriction from a connected maximal stratum to a nonempty incident Borel stratum sends 1 to 1.
+Neither E₁ page alone is asserted to be the boundary cohomology.
+
+**Prerequisites.** [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [AlgebraicTopology, stage 2 relative singular chains and homology](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-2-relative-singular-chains-and-homology); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality).
+
+**Sources.** [[nt16]](#source-nt16), §4, proof of Lemma 4.4, p. 56; [[nt16]](#source-nt16), §3.1, Lemma 3.10(1), p. 51; [[hr]](#source-hr), §4.1, pp. 23–24, sign σ(P,Q) and d₁ formula.
+
+## ALS.3: Finite-level Hecke actions and correspondences
+
+<a id="hecke-action-on-invariants"></a>
+
+### Hecke rings acting on invariants and on derived invariants
+
+Let Δ be a group, or a submonoid of an ambient group G, and U ⊂ Δ a subgroup of G with (Δ, U) a
+Hecke pair (IsHeckeTriple Δ U U), and 𝕋(Δ, U) = 𝕋 Δ U ℤ the Hecke ring (Mathlib's HeckeRing with Tau
+Ceti's convolution ring structure). For a ℤ[Δ]-module M define the 𝕋(Δ, U)-module structure on M^U
+by [UαU]·m = Σ_i α_i m where UαU = ⊔_i α_iU; equivalently [UαU] acts as M^U → M^{U∩αUα⁻¹} → M^U, m ↦
+α·m followed by the trace tr_{U/U∩αUα⁻¹}. This defines a left exact functor Γ_U : Mod(ℤ[Δ]) →
+Mod(𝕋(Δ, U)) whose composite with the forgetful functor is U-invariants, and its right derived
+functor RΓ_U : D⁺(ℤ[Δ]) → D⁺(𝕋(Δ, U)) lifts RΓ(U, −). For a locally profinite G and compact open U,
+𝕋(G, U) is the ring H(G, U) of compactly supported U-biinvariant ℤ-valued functions under
+convolution for the Haar measure with vol(U) = 1; over R, H(G, U) ⊗ R.
+
+**Hypotheses.** (Δ, U) a Hecke pair: U and αUα⁻¹ commensurable for α ∈ Δ; in the monoid case Δ is a submonoid of an
+ambient group G and U is contained in Δ (as required by the pinned IsHeckeTriple)
+
+**API.**
+
+- `LocallySymmetric.Hecke.invariantsModule`: M^U is a module over 𝕋(Δ, U) via [UαU]·m = Σ α_i m.
+- `LocallySymmetric.Hecke.smul_eq_trace`: [UαU]·m = tr_{U/U∩αUα⁻¹}(α·m) for m ∈ M^U.
+- `LocallySymmetric.Hecke.invariantsFunctor`: Γ_U : Mod(ℤ[Δ]) ⥤ Mod(𝕋(Δ, U)), left exact, with Γ_U ⋙ forget = U-invariants.
+- `LocallySymmetric.Hecke.derivedInvariants`: RΓ_U : D⁺(ℤ[Δ]) → D⁺(𝕋(Δ, U)) with forget ∘ RΓ_U ≅ RΓ(U, −).
+- `LocallySymmetric.Hecke.one_smul`: [U1U]·m = m.
+- `LocallySymmetric.Hecke.eq_heckeAlgebra`: For G locally profinite and U compact open, 𝕋(G, U) ≅ H(G, U) (compactly supported U-biinvariant
+functions, vol(U) = 1), [UαU] ↦ 1_{UαU}.
+
+**Discriminating checks.**
+
+- `hecke_one_smul` (degenerate): [U1U] acts as the identity on M^U, and for Δ = U the functor Γ_U is ordinary invariants.
+- `hecke_Tp_permutation` (computation): For Δ = GL_2(ℚ_p), U = GL_2(Z_p) and M = ℤ[Δ/U] (formal sums of lattices in ℚ_p²), T_p = [U diag(p,
+1) U] sends the U-fixed element [Z_p²] to Σ [L′] over the p + 1 lattices L′ ⊂ Z_p² with Z_p²/L′ ≅
+F_p (the cosets α_iU of U diag(p,1) U).
+- `hecke_degree_eq_index` (compatibility): On the trivial module M = ℤ, [UαU] acts by the degree #(UαU/U) = [U : U ∩ αUα⁻¹] (Tau Ceti's
+HeckeCoset.degree_eq_relIndex).
+- `hecke_not_pointwise` (non-example): The action is not α·m for a single representative: on M = ℤ[Δ/U] with Δ = GL_2(ℚ_p), applying only
+diag(p, 1) gives one lattice, not the sum of p + 1.
+
+**Prerequisites.** `mathlib:IsHeckeTriple`; `mathlib:HeckeCoset`; `mathlib:HeckeRing`; `tauceti:HeckeCosetModule.instRingHeckeRing`; `tauceti:HeckeCoset.degree_eq_relIndex`; `SmoothRepresentationsOfLocalGroups:SR.1`; `mathlib:DerivedCategory`.
+
+**Sources.** [[nt16]](#source-nt16), §2.2.1, Lemma 2.3, p. 8 (arXiv v1 numbering of pages); [[nt16]](#source-nt16), §2.2.1, (2.5), pp. 13 (published).
+
+<a id="derived-hecke-action"></a>
+
+### The Hecke action on RΓ(X_K, V) in the derived category
+
+Let S be finite, K=K_SK^S compact open, R commutative and V finite projective with commuting G(F)
+and K_S actions. Derived equivariant invariant sections give a ring homomorphism
+T_K:H(G^S,K^S)⊗R→End_{D(R)}(RΓ(X_K,V)), and analogous homomorphisms for compact support,
+compactification and boundary. All coefficient/support maps intertwine these endomorphisms in D(R).
+In the discrete NT16 setup the derived left-exact Hecke-invariants functor of
+hecke-action-on-invariants also provides a lift to D⁺(H⊗R); its comparison with a chosen geometric
+equivariant model must use the derived-composite acyclicity, not just equality on cohomology. For
+K′⊲K with K′^S=K^S the relative object lives in D(R[K/K′]), and H⊗R acts through End_{D(R[K/K′])};
+applying derived K/K′ invariants recovers T_K. This relative endomorphism action is the ACC+
+(2.1.5)–(2.1.6) conclusion. A strict lift to D(H⊗R[K/K′]) requires the additional compatible
+enhancement specified here. The same distinction holds for monoid Hecke actions with compatible
+coefficient actions.
+
+**Hypotheses.** K = K_SK^S compact open; V finite projective over R with R[G(F) × K_S]-action
+
+**API.**
+
+- `LocallySymmetric.heckeObject`: The object RΓ(X_K,V) with its ring homomorphism H⊗R→End_D(R); the discrete derived Hecke-invariants
+construction supplies a D(H⊗R) lift whose forgetful object is identified by the injective-resolution
+comparison.
+- `LocallySymmetric.heckeAction`: T_K : H(G^S, K^S) ⊗ R →+* End_{D(R)}(RΓ(X_K, V)).
+- `LocallySymmetric.heckeAction_c`: The same for RΓ_c(X_K, V), RΓ(X̄_K, V) and RΓ(∂X̄_K, V).
+- `LocallySymmetric.heckeActionRel`: H⊗R→End_{D(R[K/K′])}(RΓ_{K/K′}(X_{K′},V)), recovering heckeAction after RΓ(K/K′,−). A compatible
+strict D(H⊗R[K/K′]) lift is an enhancement obligation, not a consequence of this homomorphism alone.
+- `LocallySymmetric.heckeAction_one`: T_K([K]) = id.
+- `LocallySymmetric.heckeAction_natural`: For a coefficient-linear V→W, the induced morphism in D(R) intertwines T_K(t) for every t; it is a
+morphism of D(H⊗R) objects when the specified compatible lift is used.
+
+**Discriminating checks.**
+
+- `heckeAction_one` (degenerate): T_K([K]) is the identity of RΓ(X_K, V).
+- `heckeAction_H0` (computation): For V = R, on H^0(X_K, R) = Fun(G(F)\G(A^∞)/K, R) the operator [KgK] is f ↦ (x ↦ Σ_i f(x g_i)) with
+KgK = ⊔ g_iK.
+- `heckeAction_modularCurve_Tp` (compatibility): For GL_{2,ℚ}, K = K_1(N), p ∤ N and V = ℂ, T_K([K diag(p,1) K]) on H^1(X_K, ℂ) agrees, under the
+Eichler–Shimura isomorphism, with the classical T_p on weight-two forms (normalised by the right
+coset decomposition).
+- `heckeAction_not_on_cochains` (non-example): The geometric formulas give operators up to chain homotopy on a chosen singular cochain complex. A
+ring homomorphism to End_D(R) does not by itself specify a strict D(H⊗R) lift; the latter needs the
+equivariant-derived-invariants construction and its comparison.
+
+**Prerequisites.** [Hecke rings acting on invariants and on derived invariants](#hecke-action-on-invariants); [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes); [The Borel–Serre partial compactification X̄^G](#borel-serre-bordification); `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`; `EnhancedDerivedSheaves:E1`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, (2.1.3), p. 911; [[acc23]](#source-acc23), §2.1.2, p. 911; [[nt16]](#source-nt16), §2.3, Proposition 2.18, pp. 24 (published); [[cn23]](#source-cn23), §2.1.2, Proposition 2.1.3, Lemma 2.1.5 and footnote 5, pp. 10–11.
+
+<a id="hecke-operator-formula"></a>
+
+### Hecke operators as correspondences: representative independence
+
+For g ∈ G^S put K_g = K ∩ gKg⁻¹ and let p_1 = π_{K_g,K} : X_{K_g} → X_K and p_2 = π_{g⁻¹K_gg,K} ∘
+r_g : X_{K_g} → X_{g⁻¹K_gg} → X_K (AdelicAlgebraicGroups AA.4/hecke-correspondence). For neat K, the
+image of [KgK] under T_K equals θ(g) = p_{1*} ∘ (p_1^*V ≅ p_2^*V) ∘ p_2^*, the composite RΓ(X_K, V)
+→ RΓ(X_{K_g}, p_2^*V) ≅ RΓ(X_{K_g}, p_1^*V) → RΓ(X_K, V) with p_{1*} the trace of the finite
+covering p_1 (level-trace). It depends only on the double coset KgK. On singular cochains
+(sheaf-singular-comparison) and for KgK = ⊔_i g_iK it is given by summing the translates by the g_i
+of the pulled-back cochain.
+
+**Hypotheses.** K neat; g ∈ G^S
+
+**Discriminating checks.**
+
+- deg p_1 = [K : K_g] = #(KgK/K) at neat level (AA.4/hecke-degree-double-coset).
+- For g ∈ K, θ(g) = id.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [Trace along level maps and the groupoid correction](#level-trace); [Pullback and translation on Betti complexes](#level-pullback); [Sheaf cohomology of arithmetic local systems agrees with singular cochains](#sheaf-singular-comparison); `AdelicAlgebraicGroups:AA.4/hecke-correspondence`; `AdelicAlgebraicGroups:AA.4/hecke-degree-double-coset`.
+
+**Sources.** [[nt16]](#source-nt16), §2.3, after Proposition 2.18, pp. 24 (published); [[nt16]](#source-nt16), §2.3, Lemma 2.19, pp. 24 (published).
+
+<a id="level-trace"></a>
+
+### Trace along level maps and the groupoid correction
+
+For K′ ⊂ K compact open define the trace π_{K′,K*} : RΓ(X_{K′}, V) → RΓ(X_K, V) as the corestriction
+(transfer) RΓ(K′, M) → RΓ(K, M) applied to M = RΓ(𝔛_G, V_𝔛), the derived version of m ↦ Σ_{k ∈ K/K′}
+k·m. At neat level it is the trace of the finite covering π_{K′,K} (Tau Ceti AlgebraicTopology stage
+5 transfer; adjunction π_! = π_*, π^! = π^*), and the same construction gives traces on RΓ_c and
+RΓ(∂X̄). Then π_* ∘ π^* = [K : K′] on RΓ(X_K, V) for every K′ ⊂ K, and π^* ∘ π_* = Σ_{k ∈ K/K′}
+r_k^* for K′ normal in K. At non-neat level the trace is the corestriction of group cohomology of
+the Γ_i (ALS.1/group-cohomology-comparison), and on cohomology of the coarse quotients the degrees
+acquire the stabilizer weights of AdelicAlgebraicGroups AA.4/level-map-fibre-mass: the fibre of π
+over x has Σ_{y↦x} 1/|Γ_y| = [K : K′]/|Γ_x| (up to the central correction).
+
+**Hypotheses.** K′ ⊂ K compact open
+
+**API.**
+
+- `LocallySymmetric.RΓ.trace`: π_{K′,K*} : RΓ(X_{K′}, V) → RΓ(X_K, V), the corestriction / covering trace.
+- `LocallySymmetric.RΓ.trace_pullback`: π_* ∘ π^* = [K : K′]·id.
+- `LocallySymmetric.RΓ.pullback_trace`: For K′ ⊲ K, π^* ∘ π_* = Σ_{k ∈ K/K′} r_k^*.
+- `LocallySymmetric.RΓ.trace_comp`: π_{K′,K*} ∘ π_{K″,K′*} = π_{K″,K*}.
+- `LocallySymmetric.RΓ.trace_eq_coveringTransfer`: At neat level the trace is the transfer of the finite covering X_{K′} → X_K (Tau Ceti
+AlgebraicTopology stage 5).
+- `LocallySymmetric.RΓ.trace_c`: Traces on RΓ_c and RΓ(∂X̄), compatible with forget-supports and restriction to the boundary.
+
+**Discriminating checks.**
+
+- `trace_pullback_H0` (computation): On H^0(X_K, R) = Fun(π_0(X_K), R), π_*π^* is multiplication by [K : K′].
+- `trace_self` (degenerate): For K′ = K, π_* = id.
+- `trace_eq_transfer` (compatibility): At neat level and in degree 0, π_* sends f to x ↦ Σ_{y ∈ π⁻¹(x)} f(y), the covering transfer of AT
+stage 5.
+- `trace_coarse_fails` (non-example): On coarse quotients the naive degree is wrong: for SL_2(ℤ) ⊃ Γ(2)·{±1} with quotient S_3, the fibre
+of ℍ/Γ(2) → ℍ/SL_2(ℤ) over the image of i has 3 points, not [PSL_2(ℤ) : Γ̄(2)] = 6; the weighted
+count Σ 1/|Γ_y| = 6/|Γ̄_i| = 3 is the correct one.
+
+**Prerequisites.** [Pullback and translation on Betti complexes](#level-pullback); [Betti cohomology as group cohomology of the arithmetic groups](#group-cohomology-comparison); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `AdelicAlgebraicGroups:AA.4/level-map-fibre-mass`; `tauceti:TauCeti.card_fiber_orbitOfCosetTranslate_mul_cardStabilizerOnOrbit`; `mathlib:Subgroup.relIndex`; `EnhancedDerivedSheaves:E1`; [Betti complexes RΓ(X_K, V), RΓ_c(X_K, V) and their equivariant models](#betti-complexes).
+
+**Sources.** [[nt16]](#source-nt16), §2.3, after Proposition 2.18, pp. 24 (published); [[acc23]](#source-acc23), §2.1.2, (2.1.6), p. 912.
+
+<a id="hecke-composition"></a>
+
+### Composition of Hecke correspondences, coherence and change of level
+
+The endomorphism action T_K:H(G^S,K^S)⊗R→End_{D(R)}(RΓ(X_K,V)) preserves Tau Ceti convolution: if
+[KgK][KhK]=Σ_jc_j[Kγ_jK], then θ(g)∘θ(h)=Σ_jc_jθ(γ_j). The equality is in End_{D(R)} even when the
+complex has a compatible D(H⊗R) lift: multiplication by a general noncentral Hecke element is not
+H-linear. For a commutative acting Hecke algebra (or central elements), the individual operators are
+H-linear and the equality also holds in D(H⊗R). For K′⊂K with K′^S=K^S, pullback and trace
+intertwine all these operators; the coherent enhancement lifts those maps simultaneously, with their
+Mackey/composition identities. The same statements for compact support and boundary use the
+compactified equivariant support model and trace. At non-neat level the endomorphism identities hold
+on groupoid complexes; a stronger strict lift is the specified enhancement obligation, not a
+consequence of an action on each H^i.
+
+**Hypotheses.** K compact open; neat for the correspondence description
+
+**Discriminating checks.**
+
+- [KgK]·[Kg⁻¹K] contains [K] with coefficient [K : K ∩ gKg⁻¹]. For G=S₃ and K={1}, H=R[S₃] acts on its
+left regular module: left multiplication by (12) fails to commute with left multiplication by (23),
+so is not an H-linear endomorphism.
+- For GL_2 and p ∤ level, T_p² = T_{p²} + (p + 1)S_p with S_p = [K diag(p, p) K] (classical relation).
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [Hecke operators as correspondences: representative independence](#hecke-operator-formula); [Trace along level maps and the groupoid correction](#level-trace); `tauceti:HeckeCosetModule.instRingHeckeRing`; `AdelicAlgebraicGroups:AA.4/hecke-cartesian`.
+
+**Sources.** [[nt16]](#source-nt16), §2.2.1, Lemma 2.3(1), pp. 12–13 (published); [[acc23]](#source-acc23), §2.1.2, (2.1.5)–(2.1.6), pp. 911–912.
+
+<a id="hecke-support-boundary-compatibility"></a>
+
+### Hecke compatibility with supports, boundary, coefficients and cup products
+
+The maps RΓ_c(X_K, V) → RΓ(X_K, V) → RΓ(∂X̄_K, V) and the restriction RΓ(X̄_K, V) → RΓ(∂X̄_K, V) are
+morphisms in D(R) intertwining every Hecke endomorphism, and lift to D(H(G^S,K^S)⊗R) when the
+compatible discrete enhancement is used; so are the coefficient maps of ALS.1 (induced by
+R[G(F)×K_S]-linear V → W, and the base change isomorphisms of ALS.1/coefficient-change). For cup
+products: π^* is multiplicative, the trace satisfies the projection formula π_*(π^*a ∪ b) = a ∪
+π_*b, and for a class c ∈ H^0(X_K, W) represented by a G^S-equivariant map R → H^0(𝔛_G, W)(χ) with
+character χ of G^S, cup product with c satisfies c ∪ T(t)(x) = T(f_χ(t))(c ∪ x) (character-twist).
+In general T(t) is not a ring endomorphism of H^*(X_K, R). Coefficient base-change isomorphisms here
+have exactly ALS.1/coefficient-change’s neatness/perfectness hypotheses; arbitrary-level derived
+invariants require the extra averaging or base-change comparison stated at boundary-triangle.
+
+**Hypotheses.** K neat for the cup-product statements
+
+**Discriminating checks.**
+
+- T_p is not multiplicative on H^*(X_K, ℚ) for modular curves: T_p(1) = (p + 1)·1 in H^0, while
+T_p(1·1) = T_p(1).
+- The forget-supports map H^1_c → H^1 for modular curves is Hecke-equivariant with image the interior
+cohomology.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [Trace along level maps and the groupoid correction](#level-trace); [Derived coefficient change and the universal-coefficient spectral sequence](#coefficient-change); [The Borel–Serre partial compactification X̄^G](#borel-serre-bordification); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `EnhancedDerivedSheaves:E1`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, before Proposition 3.7, p. 48; [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55.
+
+<a id="discrete-topological-comparison"></a>
+
+### Topological and discrete set-ups give the same Hecke actions
+
+Let 𝔛^top_G be 𝔛_G with G(A^∞) carrying its locally profinite topology (the limit lim_K X_K), and
+𝔛^dis_G = G(F)\(X^G × G(A^∞)^δ), with π_dis : 𝔛^dis_G → 𝔛^top_G. (i) The square of derived functors
+D⁺Sh_{G^S×K_S}(𝔛^top) → D⁺_sm(G^S × K_S, R) → D⁺(H(G^S, K^S) ⊗ R) and D⁺Sh_{G^S×K_S}(𝔛^top) →
+D⁺Sh_{K}(𝔛^top) ≃ D⁺Sh(X_K) → D⁺(R) commutes compatibly with the forgetful functor (CN23 Proposition
+2.1.3). (ii) RΓ(𝔛^top, −) has bounded cohomological dimension: R^iΓ(𝔛^top, 𝔉) = 0 for i > dim X_K
+(CN23 Lemma 2.1.4). (iii) RΓ(K, −) ∘ RΓ(𝔛^top, −) ≅ RΓ(K^dis, −) ∘ RΓ(𝔛^dis, −) ∘ π_dis^* as
+functors to D⁺(H(G^S, K^S) ⊗ R); in particular both set-ups give the same Hecke actions on
+RΓ_{(c)}(X_K, V) (CN23 Lemma 2.1.5).
+
+**Hypotheses.** K neat (good); R commutative; The finite levels used in the CN23 sheaf/descent comparisons are good
+in the sense of §2.1.1; compact-open or normality alone is not asserted to suffice.
+
+**Discriminating checks.**
+
+- For V = R both set-ups give the same T_p on H^1 of a modular curve.
+- Smoothness: in the topological set-up, H^i(𝔛^top, V) is a smooth G^S × K_S-representation.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); `SmoothRepresentationsOfLocalGroups:SR.0`; `SchemeAndStackFoundations:key/equivariant-sheaf-cohomology`.
+
+**Sources.** [[cn23]](#source-cn23), §2.1.2, Proposition 2.1.3, pp. 10–11 (arXiv pagination); [[cn23]](#source-cn23), §2.1.2, Lemma 2.1.4, pp. 11 (arXiv pagination); [[cn23]](#source-cn23), §2.1.2, Lemma 2.1.5, pp. 11 (arXiv pagination).
+
+<a id="derived-hecke-algebra"></a>
+
+### The derived Hecke algebra T^S(K, V) of an arithmetic complex
+
+Let O be the ring of integers of a finite extension E/ℚ_p, S ⊃ S_p finite with K_v hyperspecial for
+v ∉ S, and T^S = H(G^S, K^S) ⊗_ℤ O, a commutative O-algebra. For neat K and V a finite O-module with
+O[K_S]-action, write T^S(K, V) for the image of T^S in End_{D(O)}(RΓ(X_K, V)) (ACC+'s T^S(K, λ) for
+V = V_λ; NT16's T^S(C^•)); similarly T^S_c(K, V) for RΓ_c and T^S_∂(K, V) for RΓ(∂X̄_K, V). It is a
+commutative finite O-algebra with surjections T^S(K, V) → T^S(H^*(X_K, V)) with nilpotent kernel,
+and for V finite free over O, T^S(K, V) ≅ lim_N T^S(K, V/ϖ^N). It is the instance of
+IntegralHeckeAndGaloisDeterminants IHG.2/derived-hecke-image for the complex RΓ(X_K, V).
+
+**Hypotheses.** K neat with K_v hyperspecial for v ∉ S; V finite over O
+
+**API.**
+
+- `LocallySymmetric.derivedHeckeAlgebra`: T^S(K, V) := image of T^S → End_{D(O)}(RΓ(X_K, V)), with variants for RΓ_c and RΓ(∂X̄_K, V).
+- `LocallySymmetric.derivedHeckeAlgebra.commRing`: T^S(K, V) is a commutative O-algebra, finite as an O-module.
+- `LocallySymmetric.derivedHeckeAlgebra.toCohomology`: The surjection T^S(K, V) → T^S(H^*(X_K, V)), with nilpotent kernel (index of nilpotence ≤ d_G + 1).
+- `LocallySymmetric.derivedHeckeAlgebra.limit`: T^S(K, V) ≅ lim_N T^S(K, V/ϖ^N) for V O-flat.
+- `LocallySymmetric.derivedHeckeAlgebra.eq_derivedHeckeImage`: T^S(K, V) is IHG.2's derived Hecke image of the complex RΓ(X_K, V) with its T^S-action.
+- `LocallySymmetric.derivedHeckeAlgebra.maximalIdeals_finite`: T^S(K, V) has finitely many maximal ideals, all with residue field finite over k.
+
+**Discriminating checks.**
+
+- `derivedHeckeAlgebra_zeroComplex` (degenerate): If RΓ(X_K, V) = 0 then T^S(K, V) = 0.
+- `derivedHeckeAlgebra_GL1` (computation): For G=GL₁/ℚ, principal level K(3)={u∈Ẑ×:u≡1 mod 3}, and constant O-coefficients, X_K is one point
+with trivial arithmetic stabilizer and the derived Hecke image is O. At the non-neat level Ẑ× the
+same assertion requires 2 invertible in O; otherwise the C₂ stabilizer gives higher groupoid
+cohomology. More generally a finite component group C acting regularly on functions has image O[C],
+not a product of copies of O. General number fields can have positive-dimensional unit tori, so
+degree-zero finite-set cohomology is not asserted for GL₁/F.
+- `derivedHeckeAlgebra_surj_cohomology` (characterisation): The map T^S(K, V) → T^S(H^*(X_K, V)) is surjective with nilpotent kernel; it can fail to be
+injective (an endomorphism of a complex can act by zero on cohomology without being zero).
+- `derivedHeckeAlgebra_ne_cohomologyAlgebra` (non-example): Generic derived-image test: over a DVR O with residue field k, the perfect complex C = k[0] ⊕ k[1]
+has a nonzero off-diagonal ghost in Hom_D(O)(k,k[1]) = Ext^1_O(k,k). Its square is zero and it acts
+as zero on cohomology. Let T = O[ε]/(ε²) send ε to this ghost; the derived image has nonzero
+nilpotent kernel over its cohomological image. This tests the generic IHG.2 input, not an asserted
+arithmetic realization. A lone complex [O →(ϖ) O] is quasi-isomorphic to one k and does not provide
+that ghost.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [Finite triangulations and finiteness of Betti cohomology](#borel-serre-finite-triangulation); `IntegralHeckeAndGaloisDeterminants:IHG.2` (derived images, ghosts, local factors and localization); `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`.
+
+**Sources.** [[nt16]](#source-nt16), §3.2, p. 51; [[nt16]](#source-nt16), §3.2, p. 52; [[nt16]](#source-nt16), §3.2, Lemma 3.12, p. 53.
+
+<a id="character-twist"></a>
+
+### Twisting Hecke algebras and coefficients by a character of det
+
+Let G = GL_{n,F}, K ⊂ GL_n(A_F^∞) good and ψ : G_F → O^× a continuous character with ψ∘Art_{F_v}
+trivial on det(K_v) for all v ∉ S. Define f_ψ : H(G^S, K^S) ⊗_ℤ O → H(G^S, K^S) ⊗_ℤ O by f_ψ(f)(g) =
+ψ(Art_F(det g))⁻¹ f(g); it is an O-algebra isomorphism with inverse f_{ψ⁻¹}. If K_v = GL_n(O_{F_v})
+for v ∉ S, then f_ψ(T_{v,i}) = ψ(Frob_v)^{−i} T_{v,i}, and for a maximal ideal 𝔪 ⊂ T^S, 𝔪(ψ) :=
+f_ψ(𝔪). For an O[K_S]-module V, V(ψ^{−1,S}) is V with g ∈ G^S additionally acting by ψ(det g)⁻¹ (on
+the equivariant sheaf on 𝔛_G). More generally, for any G and a character χ : G(A^∞) → O^× trivial on
+G(F) and K^S, f_χ(f)(g) = χ(g)⁻¹f(g).
+
+**Hypotheses.** ψ continuous, ψ∘Art_{F_v} trivial on det(K_v) for v ∉ S
+
+**API.**
+
+- `LocallySymmetric.twistHecke`: f_ψ : H(G^S, K^S) ⊗ O ≃ₐ H(G^S, K^S) ⊗ O, f ↦ (g ↦ ψ(Art_F(det g))⁻¹ f(g)).
+- `LocallySymmetric.twistHecke_T`: f_ψ(T_{v,i}) = ψ(Frob_v)^{−i} T_{v,i} for v ∉ S with K_v hyperspecial.
+- `LocallySymmetric.twistHecke_mul`: f_ψ ∘ f_{ψ′} = f_{ψψ′} and f_1 = id.
+- `LocallySymmetric.twistMaximalIdeal`: 𝔪(ψ) = f_ψ(𝔪) for maximal ideals of T^S.
+- `LocallySymmetric.twistCoefficients`: V ↦ V(ψ^{−1,S}), the coefficient module with G^S acting through ψ(det)⁻¹.
+
+**Discriminating checks.**
+
+- `twistHecke_trivial` (degenerate): f_1 = id.
+- `twistHecke_T_GL1` (computation): For n = 1, T_{v,1} = [ϖ_v K_v] and f_ψ(T_{v,1}) = ψ(Frob_v)⁻¹ T_{v,1}.
+- `twistHecke_mul` (characterisation): f_ψ is an O-algebra automorphism with f_ψ ∘ f_{ψ⁻¹} = id.
+- `twistHecke_not_identity_on_maximalIdeals` (non-example): For a fixed O-valued eigensystem φ with residue eigenvalues in k = O/ϖ, if ψ(Frob_v) ≠ 1 in k and
+φ(T_{v,1}) ≠ 0, twisting changes that eigenvalue and its k-valued eigensystem. For residue fields
+larger than k, two changed eigensystems can be Frobenius-conjugate and define the same maximal
+ideal; nontrivial ψ alone does not prove that every such ideal moves.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); `tauceti:HeckeCosetModule.instRingHeckeRing`.
+
+**Sources.** [[acc23]](#source-acc23), §2.2.20, p. 933; [[acc23]](#source-acc23), §2.2.20, p. 933.
+
+<a id="twisting-isomorphism"></a>
+
+### Twisting RΓ(X_K, V) by a character, and its Hecke algebras
+
+Let G = GL_{n,F}, K ⊂ GL_n(A_F^∞) good, S ⊃ S_p, and ψ : G_F → O^× continuous with (1) ψ∘Art_{F_v}
+trivial on det(K_v) for every finite v ∤ p, and (2) some m = (m_τ) ∈ ℤ^{Hom(F,E)} with
+ψ(Art_{F_v}(k)) = ∏_{τ ∈ Hom_{ℚ_p}(F_v, E)} τ(k)^{−m_τ} for all v | p and k ∈ det(K_v). Let O(m) be
+the rank-one O[K_p]-module on which k acts by ∏_τ τ(det k)^{m_τ}. Then for every finite free
+O[K_S]-module V there is an isomorphism RΓ(X_K, V) ≅ RΓ(X_K, V ⊗ O(m)) in D(O), equivariant for
+H(G^S, K^S) ⊗ O acting in the usual way on the source and through f_ψ on the target. If K_v =
+GL_n(O_{F_v}) for v ∉ S, f_ψ descends to an isomorphism T^S(K, V) ≅ T^S(K, V ⊗ O(m)), and 𝔪 is in
+the support of H^*(X_K, V) iff 𝔪(ψ) is in the support of H^*(X_K, V ⊗ O(m)). (ACC+ states this for V
+= V_λ, where V_λ ⊗ O(m) = V_{λ+μ} with μ_τ = (m_τ, …, m_τ).)
+
+**Hypotheses.** G = GL_{n,F}; K good; ψ satisfying (1) and (2)
+
+**Discriminating checks.**
+
+- ψ = 1, m = 0 gives the identity.
+- For n = 1, twisting permutes the Hecke eigensystems in cohomology by ψ∘Art_F; the space need not be
+a finite set for general F.
+
+**Prerequisites.** [Twisting Hecke algebras and coefficients by a character of det](#character-twist); [Hecke compatibility with supports, boundary, coefficients and cup products](#hecke-support-boundary-compatibility); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra).
+
+**Sources.** [[acc23]](#source-acc23), §2.2.20, Proposition 2.2.23, p. 933; [[acc23]](#source-acc23), §2.2.20, proof of Proposition 2.2.23, p. 934; [[acc23]](#source-acc23), §2.2.20, Corollary 2.2.24, pp. 934–935.
+
+<a id="degeneracy-old-forms"></a>
+
+### Degeneracy maps at Γ0(x)-level and the old-space splitting
+
+Let G = PGL_{2,F}, K a level and x ∉ S a place with K_x = PGL_2(O_x); let K_0(x) ⊂ K be the
+Γ_0(x)-level at x (standard-level-subgroups), Y = X_K, Y_0(x) = X_{K_0(x)}. The two degeneracy maps
+Y_0(x) → Y (π and π ∘ r_{diag(ϖ_x, 1)}) induce φ : H^*(Y, A)^2 → H^*(Y_0(x), A) (sum of the two
+pullbacks) and φ^∨ : H^*(Y_0(x), A) → H^*(Y, A)^2 (the two traces), for A = O/ϖ^n, and φ^∨ ∘ φ =
+(N(x)+1, T_x; T_x, N(x)+1), with determinant (N(x)+1)² − T_x². If 𝔪 is a maximal ideal with T_x² −
+(1 + N(x))² ∉ 𝔪 (e.g. x a Taylor–Wiles prime: N(x) ≡ 1 mod p and the Frobenius eigenvalues α_x ≠
+β_x, α_xβ_x ≡ 1), then φ^∨ ∘ φ is invertible after localization at 𝔪 and H^*(Y_0(x), A)_𝔪 ≅ H^*(Y,
+A)^2_𝔪 ⊕ W for a T-stable W, and H^*(Y_0(x), A)_{𝔪̃} ≅ H^*(Y, A)_{𝔪̃} ⊕ W_{𝔪̃} for 𝔪̃ = (𝔪, U_x −
+α_x).
+
+**Hypotheses.** G = PGL_{2,F}; K_x maximal; T_x² − (1+N(x))² ∉ 𝔪 for the splitting
+
+**Discriminating checks.**
+
+- For F = ℚ and A = ℂ this is the classical decomposition of H^1(Γ_0(Nx)) into the two copies of old
+forms plus new forms.
+- If x is not Taylor–Wiles (α_x = β_x), φ^∨φ need not be invertible at 𝔪.
+
+**Prerequisites.** [Trace along level maps and the groupoid correction](#level-trace); [Hecke operators as correspondences: representative independence](#hecke-operator-formula); [Composition of Hecke correspondences, coherence and change of level](#hecke-composition); [Standard level subgroups: Iwahori, Γ0, Γ1, Γp and Taylor–Wiles levels](#standard-level-subgroups).
+
+**Sources.** [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination); [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination).
+
+## ALS.4: Boundary complexes and Eisenstein localization
+
+<a id="boundary-triangle"></a>
+
+### The boundary exact triangle RΓ_c → RΓ → RΓ_∂
+
+For every compact open K and V finite projective with R[G(F) × K_S]-action there is an exact
+triangle RΓ_c(X_K, V) → RΓ(X_K, V) → RΓ(∂X̄_K, V) → RΓ_c(X_K, V)[1] in D(R) with Hecke-equivariant
+arrows and connecting map; the compatible enhanced model lifts the whole triangle, not three
+independent Hecke actions, functorial in V (R[G(F)×K_S]-linear maps) and in the level (pullbacks and
+traces of ALS.1/level-pullback and ALS.3/level-trace), and compatible with coefficient change at
+neat K under ALS.1/coefficient-change; for general K this compatibility requires |K/K₀| invertible
+in both coefficient rings or the derived-invariants base-change hypothesis, and is not automatic. It
+is obtained from j_!j^*V → V → i_*i^*V on X̄^G × G(A^∞) and the identification RΓ(X̄_K, V) ≅ RΓ(X_K,
+V) given by the homotopy equivalence j_K.
+
+**Hypotheses.** K compact open (neat for the sheaf-theoretic description)
+
+**Discriminating checks.**
+
+- For a modular curve (GL_{2,ℚ}, neat K) with c cusps: 0 → H^0 → H^0(∂) = ℤ^c → H^1_c → H^1 → H^1(∂) =
+ℤ^c → H^2_c → 0 on each component.
+- For G anisotropic, RΓ(∂X̄_K, V) = 0 and RΓ_c = RΓ.
+
+**Prerequisites.** [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); [Hecke compatibility with supports, boundary, coefficients and cup products](#hecke-support-boundary-compatibility); [Trace along level maps and the groupoid correction](#level-trace); [Derived coefficient change and the universal-coefficient spectral sequence](#coefficient-change); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `EnhancedDerivedSheaves:E1`.
+
+**Sources.** [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55; [[nt16]](#source-nt16), §4, after Theorem 4.2, p. 55.
+
+<a id="parabolic-hecke-maps"></a>
+
+### Restriction to P, integration along N and the unnormalized Satake map
+
+For a local reductive G, P=M⋉N and compact open U with G=PU, U_P=U∩P=U_N⋊U_M, restriction
+r_P:H(G,U)→H(P,U_P) and integration r_M(f)(m)=∫_N f(mn)dn (vol(U_N)=1) are algebra homomorphisms,
+and their composite S is the integral unnormalized Satake map (NT16 Lemmas 2.4 and 2.7). A separate
+monoid form uses both Iwahori decomposition product bijections U_N×U_M×U_Nbar→U and the reversed
+order. Define Δ_M by mU_Nm⁻¹⊂U_N and U_Nbar⊂mU_Nbar m⁻¹, Δ=U_NΔ_MU_Nbar and Δ_P=Δ∩P. ACC+ Lemmas
+2.1.10–2.1.11 give r_P:H(Δ,U)→H(Δ_P,U_P), r_M:H(Δ_P,U_P)→H(Δ_M,U_M) and
+S([UmU])=[U_N:mU_Nm⁻¹][U_MmU_M]=|δ_P(m)|⁻¹[U_MmU_M] for m∈Δ_M. This single-term formula is confined
+to the positive Iwahori-monoid branch. At hyperspecial U the transform has the full usual sum; its
+relation to normalized Satake is δ_P^{1/2}S, with q-half coefficients adjoined separately. Parabolic
+induction and its derived invariants compare through r_P under the NT16 hypotheses.
+
+**Hypotheses.** For the full Hecke algebra: G(F_v)=P(F_v)U and U_P=U_N⋊U_M.; For the single-term monoid basis
+formula: both Iwahori product decompositions and m in Δ_M with the stated N and opposite-N
+positivity.
+
+**API.**
+
+- `LocallySymmetric.Hecke.restrictParabolic`: r_P : H(G, U) →ₐ H(P, U_P), restriction of functions.
+- `LocallySymmetric.Hecke.integrateUnipotent`: r_M : H(P, U_P) →ₐ H(M, U_M), integration along N with vol(U_N) = 1.
+- `LocallySymmetric.Hecke.satakeUnnormalized`: S = r_M ∘ r_P : H(G, U) →ₐ H(M, U_M).
+- `LocallySymmetric.Hecke.satakeUnnormalized_basis`: In the ACC+ positive Iwahori-monoid setting (both Iwahori product decompositions, Δ_M positivity and
+Δ=U_NΔ_MU_Nbar), S([UmU])=|δ_P(m)|⁻¹[U_MmU_M]. This is not a single-term formula for the
+hyperspecial spherical transform.
+- `LocallySymmetric.Hecke.satake_compat_normalized`: For hyperspecial U, S agrees with SmoothRepresentationsOfLocalGroups SR.4's Satake transform
+composed with the δ_P^{−1/2} twist (the q-half normalization specified separately).
+- `LocallySymmetric.Hecke.parabolicInduction_invariants`: For V = Ind_{P}^{G} W, V^U ≅ r_P^*(W^{U_P}) as H(G, U)-modules (NT16 Lemma 2.4(3)), and RΓ_U Ind ≅
+r_P^* RΓ_{U_P} (NT16 Corollary 2.6).
+
+**Discriminating checks.**
+
+- `satake_GL2_Tp` (computation): For GL_2, upper Borel B, U = GL_2(Z_p) and S(f)(t) = ∫_N f(tn)dn with vol(N(Z_p)) = 1: S(T_p) =
+p·[diag(p,1)] + [diag(1,p)] in H(T(ℚ_p),T(Z_p)).
+- `satake_one` (degenerate): S([U]) = [U_M], and for P = G, S = id.
+- `satake_compat_SR4` (compatibility): δ_B^{1/2}·S(T_p) = p^{1/2}([diag(p,1)] + [diag(1,p)]), the normalized Satake transform of SR.4
+(after inverting p^{1/2}).
+- `satake_unnormalized_not_W_invariant` (non-example): For p > 1, p[diag(p,1)] + [diag(1,p)] is not invariant under swapping diagonal entries;
+δ_B^{1/2}·S(T_p) is Weyl-invariant.
+
+**Prerequisites.** [Hecke rings acting on invariants and on derived invariants](#hecke-action-on-invariants); `SmoothRepresentationsOfLocalGroups:SR.2`; `SmoothRepresentationsOfLocalGroups:SR.4`; `ReductiveGroupsPartII:RG2.4`.
+
+**Sources.** [[nt16]](#source-nt16), §2.2.3, Lemma 2.4(1), pp. 13–14 (published); [[nt16]](#source-nt16), §2.2.4, Lemma 2.7(1), pp. 16–17 (published); [[acc23]](#source-acc23), §2.1.9, after Lemma 2.1.11, p. 914.
+
+<a id="boundary-stratum-hecke-comparison"></a>
+
+### Hecke action on boundary strata through parabolic restriction
+
+Let P=M⋉N be a proper rational parabolic and K a good neat level. Write the induced G-stratum
+X^P_K=⊔_g Y^P_{L_g}, g∈P(A^∞)\G(A^∞)/K, L_g=P(A^∞)∩gKg⁻¹; for decomposed L_g=L_{M,g}⋉L_{N,g} use its
+own Levi base X^M_{L_{M,g}}. Restriction RΓ(∂X̄_K,B)→RΓ(X^P_K,B) is Hecke-equivariant for the
+induced parabolic action. For P maximal extension by zero RΓ_c(X^P_K,B)→RΓ(∂X̄_K,B) followed by
+restriction is the forget-supports map. At the distinguished component g=1 with G^S=P^SK^S and K_P
+decomposed, evaluation on that component identifies the induced-invariants action with pullback
+through r_P. For a coefficient direct summand A⊂B^{K_{N,S}}, the projection to the Levi and this
+inclusion give i:r_M^*RΓ(X^M_{K_M},A)→RΓ(Y^P_{K_P},B), with a splitting s after forgetting the Hecke
+action, s∘i=1 (NT16 Proposition 3.4). If G^S≠P^SK^S, evaluation is only the split morphism of ACC+
+Lemma 2.1.14; it is not an identification of the entire induced stratum with Y^P_{K_P}. Other
+components use the transported levels and corresponding coefficient actions. Consequently all global
+stratum formulas must be summed/induced across g, and the split Levi summand has Hecke action
+through S=r_M∘r_P.
+
+**Hypotheses.** K neat and decomposed with respect to P = M ⋉ N; P maximal for p
+
+**Discriminating checks.**
+
+- For GL₂/ℚ, upper Borel B and hyperspecial U, the Hecke action on cusp-circle H⁰ uses
+S(T_ℓ)=ℓ[diag(ℓ,1)]+[diag(1,ℓ)], giving 1+ℓ on constant functions.
+- If B has trivial K_{N,S}-invariants complement, (ii) applies with A = B.
+
+**Prerequisites.** [Restriction to P, integration along N and the unnormalized Satake map](#parabolic-hecke-maps); [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); `SmoothRepresentationsOfLocalGroups:SR.2`.
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Proposition 3.8(2), p. 49; [[nt16]](#source-nt16), §3.1, Proposition 3.4, pp. 44–45 (published); [[acc23]](#source-acc23), §2.1.14, p. 916.
+
+<a id="nomizu-van-est"></a>
+
+### Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology
+
+Let N be a unipotent group over ℚ, 𝔫_E=Lie(N)⊗ℚE, Γ_N⊂N(ℚ) an arithmetic lattice, E a number field,
+and V a finite-dimensional algebraic representation of N_E. Rational Nomizu comparison, extended to
+E, gives H*(𝔫_E,V)≅H*(Γ_N,V), equivalently the local-system cohomology of Γ_N\N(ℝ). After an
+embedding E→ℂ this is the comparison by the invariant V-valued differential-form complex with its
+coefficient action. If N is the unipotent radical of a rational parabolic P=M⋉N and V extends to an
+algebraic P_E-representation, its Lie cohomology carries the algebraic M_E-action. The fixed
+nilmanifold comparison is equivariant for the normalizer of Γ_N in M(ℚ); other commensurator
+elements require transported lattices and their pullback/trace maps. No integral or mod-p
+Nomizu–Kostant comparison is asserted.
+
+**Hypotheses.** E a number field of characteristic zero; the E-linear rational comparison is meant before any
+optional complex embedding; V a finite-dimensional algebraic N_E-representation; Γ_N arithmetic in
+N(ℚ), hence a lattice in N(ℝ); For the Levi-equivariance statement, N is the unipotent radical of
+the rational parabolic P=M⋉N and V extends to an algebraic P_E-representation.
+
+**Discriminating checks.**
+
+- N = 𝔾_a, Γ_N = ℤ, V = E with trivial action: H^0 = H^1 = E, matching H^*(𝔫, E) for the
+one-dimensional abelian 𝔫.
+- N = 𝔾_a and V = Sym^k(E²) restricted to the upper unipotent: H^0(𝔫, V) and H^1(𝔫, V) are
+one-dimensional (highest and lowest weight lines).
+
+**Prerequisites.** [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); [Arithmetic nilmanifold fibres](#stratum-nilmanifold-fibration); `AutomorphicFormsOnReductiveGroups:AF.1a`; `mathlib:groupCohomology`.
+
+**Sources.** [[hr]](#source-hr), §4.2.1, pp.25–26 (arXiv:1405.6513v2).
+
+<a id="boundary-stratum-cohomology-formula"></a>
+
+### Cohomology of a boundary stratum via van Est and Kostant
+
+Let G be connected reductive over F, P=M⋉N proper, K good neat, E a number field that splits
+𝐆=Res_{F/ℚ}G and contains all embeddings of F, and V_λ the irreducible algebraic 𝐆_E-representation
+of dominant integral highest weight λ for a fixed split Borel and torus. For each transported
+decomposed level L_g from stratum-nilmanifold-fibration, Leray/Hochschild–Serre gives
+E₂^{a,b}=H^a(X^M_{L_{M,g}},H^b(𝔫,V_λ)~)⇒H^{a+b}(Y^P_{L_g},V_λ), by Nomizu–van Est. Kostant
+identifies H^b(𝔫,V_λ)=⊕_{w∈W^P,ℓ(w)=b}V^M_{w(λ+ρ)−ρ}; this describes the E₂ page for general
+reductive G and does not assert degeneration. For 𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois
+containing F, Harder–Raghuram §4.2, (4.2) and Proposition 4.3 supply the degeneration and the
+natural cohomological decomposition H^q(X^P_K,V_λ)=⊕_g⊕_{w∈W^P}H^{q−ℓ(w)}(X^M_{L_{M,g}},V^M_{w·λ}),
+with the transported-component and real-component invariants of that source. Over all levels this is
+its algebraic unnormalized induction from π₀(P(ℝ))×P(A^∞) to π₀(G(ℝ))×G(A^∞). At eligible
+hyperspecial components the Hecke action is through the integral unnormalized S=r_M∘r_P; conversion
+to normalized induction multiplies by the explicit modulus half-character. A general reductive
+direct-sum/derived splitting requires a separate Levi-equivariant nilpotent-cochain formality
+theorem; E₂ degeneration alone would give only an associated graded, not a canonical splitting. No
+integral Kostant decomposition is asserted.
+
+**Hypotheses.** F a number field; E/ℚ a finite characteristic-zero splitting field for 𝐆=Res_{F/ℚ}G containing all
+embeddings of F; Fix the split torus and Borel over E and a dominant integral highest weight λ; P
+and its Levi are compatible with these choices; K neat and decomposed at the transported levels; The
+cited natural direct-sum decomposition and real-component induction of Harder–Raghuram are used for
+𝐆=Res_{F/ℚ}GL_N with F totally real and E/ℚ Galois containing F. General reductive G uses the E₂
+spectral sequence unless a separate splitting theorem is supplied.
+
+**Discriminating checks.**
+
+- GL_{2,ℚ}, P = B, λ = (k, 0): W^B = {1, s}, H^0(𝔫, V_λ) = E(k, 0), H^1(𝔫, V_λ) = E(−1, k + 1), so
+each cusp contributes the characters (k,0) in degree 0 and (−1, k+1) in degree 1.
+- λ = 0: H^*(𝔫,E) = ⊕_{w∈W^P} V^M_{w·0}[−ℓ(w)]. These are irreducible Levi representations, not
+generally one-dimensional characters; for a Borel M is a torus and the character notation E(w·0) is
+valid.
+
+**Prerequisites.** [Nomizu–van Est: cohomology of unipotent arithmetic groups is Lie algebra cohomology](#nomizu-van-est); [Hecke action on boundary strata through parabolic restriction](#boundary-stratum-hecke-comparison); [Restriction to P, integration along N and the unnormalized Satake map](#parabolic-hecke-maps); [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); `AutomorphicFormsOnReductiveGroups:AF.1a`; `SmoothRepresentationsOfLocalGroups:SR.2`.
+
+**Sources.** [[hr]](#source-hr), §4.2.1, (4.2), p.26 (arXiv:1405.6513v2); [[hr]](#source-hr), §4.2.3, (4.5), p.27 (arXiv:1405.6513v2); [[hr]](#source-hr), §4.2.1, Proposition 4.3, p.26 (arXiv:1405.6513v2).
+
+<a id="levi-hochschild-serre"></a>
+
+### The integral Leray–Hochschild–Serre spectral sequence of a stratum
+
+For neat decomposed K and P=M⋉N, write X^P_K=⊔_gY^P_{L_g}, with all levels and arithmetic groups
+transported as in stratum-nilmanifold-fibration. For each component the discrete extension
+1→Γ_{N,g}→Γ_{P,g}→Γ_{M,g}→1 gives E₂^{a,b}=H^a(Γ_{M,g},H^b(Γ_{N,g},V))⇒H^{a+b}(Γ_{P,g},V),
+equivalently the Leray sequence on the Levi base with the indicated local coefficient sheaf. Sum
+these sequences across g. They are Hecke-compatible through the induced parabolic action and the r_M
+comparison where its hypotheses hold. Coefficient base change is a derived map of spectral
+sequences, retaining Tor terms; it is not an isomorphism of E₂ pages without flatness. In the
+special NT16 Lemma 4.5 setting, N is an F-unipotent group, Γ_N is a congruence subgroup N(F)∩U_N,
+and k has the stated p-residue coefficients with trivial N-action. The comparison with U_{N,S} uses
+the discrete groups and the arithmetic acyclicity argument in that lemma. The pro-p topology of
+U_{N,S} does not by itself identify its continuous cohomology with this discrete cohomology; no
+general discrete/profinite comparison is claimed here.
+
+**Hypotheses.** K neat and decomposed; V finite projective
+
+**Discriminating checks.**
+
+- For GL_{2,ℚ}, P = B: Γ_N ≅ ℤ, E_2^{a,b} = H^a(pt, H^b(ℤ, V)), giving H^0 and H^1 of the cusp circle
+as invariants and coinvariants of the unipotent monodromy on V.
+- In characteristic 0, over a number field E splitting the group and for V=V_λ irreducible of dominant
+integral highest weight, the E_2 page is the Kostant–van Est formula.
+
+**Prerequisites.** [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration); [Hecke action on boundary strata through parabolic restriction](#boundary-stratum-hecke-comparison); `mathlib:groupCohomology`; [Betti cohomology as group cohomology of the arithmetic groups](#group-cohomology-comparison); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent).
+
+**Sources.** [[nt16]](#source-nt16), §4, Lemma 4.5, p. 56; [[hr]](#source-hr), §4.2.1, p.25, before (4.2) (arXiv:1405.6513v2).
+
+<a id="boundary-gluing-convergence"></a>
+
+### Gluing over strata: convergence and Hecke compatibility of the boundary spectral sequence
+
+The compact-support exact couple of stratification-spectral-sequence is Hecke-equivariant, finite
+and convergent, with d_r:(p,q)→(p−r,q+r+1). Each global term is the sum/induction over its
+transported P-spaces. Exact localization of this finite filtration shows: if H^*_c(X^P_K,V)_𝔪=0 for
+every proper P, then H^*(∂X̄_K,V)_𝔪=0. If only open maximal-parabolic strata survive, extension by
+zero identifies their direct sum of compact-support complexes with the localized boundary complex.
+To deduce the compact-support hypothesis from ordinary-stratum vanishing at neat level over a field,
+use the individual early Verdier duality and Hecke-adjoint nodes: H^*(X^P_K,V^∨⊗o_P)_{𝔪^∨}=0 implies
+H^*_c(X^P_K,V)_𝔪=0, where 𝔪^∨ is transported through the inverse-double-coset involution. Over O
+first reduce coefficients modulo ϖ, use this field duality and finite-perfectness, then derived
+Nakayama. Ordinary vanishing for V at 𝔪 is sufficient only when an additional argument supplies the
+required dual-coefficient/inverse-ideal vanishing (as in NT16 Lemmas 4.1 and 4.4). For Res_{F/ℚ}GL_N
+with F totally real the separate ordinary flag sequence also converges, with alternating-restriction
+d₁:(p,q)→(p+1,q); it is not substituted for the support argument in NT16’s proof.
+
+**Hypotheses.** K neat; 𝔪 a maximal ideal of T^S
+
+**Discriminating checks.**
+
+- If no stratum has 𝔪 in its support, the boundary vanishes at 𝔪.
+- For F-rank one the spectral sequence is a direct sum (ALS.2 test stratSS_rank_one_collapse).
+
+**Prerequisites.** [The stratification filtration of ∂X̄_K and its spectral sequence](#stratification-spectral-sequence); [Hecke action on boundary strata through parabolic restriction](#boundary-stratum-hecke-comparison); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality).
+
+**Sources.** [[nt16]](#source-nt16), §4, proof of Lemma 4.4, p. 56; [[acc23]](#source-acc23), §2.4, Theorem 2.4.2 proof, p. 942.
+
+<a id="localization-at-maximal-ideal"></a>
+
+### Localizing perfect Hecke complexes at a maximal ideal
+
+Let C be a perfect complex of O-modules with a homomorphism T^S → End_{D(O)}(C) and T^S(C) its
+(commutative, finite) image. For a maximal ideal 𝔪 ⊂ T^S(C) let e_𝔪 ∈ T^S(C) be the idempotent of
+the factor T^S(C)_𝔪 in T^S(C) = ∏_𝔪 T^S(C)_𝔪. Since idempotents split in D(O), C ≅ C_𝔪 ⊕ C′ with e_𝔪
+acting as the projector onto C_𝔪, unique up to unique isomorphism; T^S(C)_𝔪 ≅ T^S(C_𝔪) and H^*(C)_𝔪
+≅ H^*(C_𝔪). For a maximal ideal 𝔪 of T^S, C_𝔪 := C_{𝔪T^S(C)} (zero if 𝔪 is not in the support).
+Localization is functorial for T^S-equivariant maps between such complexes, exact (carries exact
+triangles of T^S-complexes to exact triangles), and commutes with coefficient change O → O/ϖ^m.
+
+**Hypotheses.** O a complete discrete valuation ring; C perfect
+
+**API.**
+
+- `LocallySymmetric.heckeLocalize`: C ↦ C_𝔪, the e_𝔪-summand of a perfect T^S-complex, with inclusion and projection maps.
+- `LocallySymmetric.heckeLocalize.cohomology`: H^*(C_𝔪) ≅ H^*(C)_𝔪 as T^S-modules.
+- `LocallySymmetric.heckeLocalize.heckeAlgebra`: T^S(C_𝔪) ≅ T^S(C)_𝔪.
+- `LocallySymmetric.heckeLocalize.triangle`: Localization carries T^S-equivariant exact triangles to exact triangles (e.g. the boundary
+triangle).
+- `LocallySymmetric.heckeLocalize.eq_zero_iff`: C_𝔪 = 0 iff 𝔪 is not in the support of H^*(C).
+- `LocallySymmetric.heckeLocalize.reduction`: (C ⊗^L O/ϖ^m)_𝔪 ≅ C_𝔪 ⊗^L O/ϖ^m.
+
+**Discriminating checks.**
+
+- `heckeLocalize_unsupported` (degenerate): If 𝔪 ∉ Supp H^*(C), then C_𝔪 ≅ 0.
+- `heckeLocalize_module` (compatibility): If C = M[0] for a finite T^S-module M, C_𝔪 = M_𝔪[0], the localization of commutative algebra.
+- `heckeLocalize_sum` (characterisation): C ≅ ⊕_𝔪 C_𝔪 over the finitely many maximal ideals of T^S(C).
+- `heckeLocalize_not_tensor` (non-example): A ring homomorphism T^S→End_D(O)(C) does not itself specify a strict cochain T^S-action. With a
+specified compatible lift to D(T^S), derived tensor with T^S_𝔪 computes localization. The geometric
+relative ring action alone does not provide this lift.
+
+**Prerequisites.** [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); `IntegralHeckeAndGaloisDeterminants:IHG.2` (derived images, ghosts, local factors and localization); `mathlib:CategoryTheory.IsIdempotentComplete`; `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`.
+
+**Sources.** [[nt16]](#source-nt16), §3.2, p. 52; [[nt16]](#source-nt16), §3.2, p. 52.
+
+<a id="eisenstein-maximal-ideal"></a>
+
+### Galois type, Eisenstein and non-Eisenstein maximal ideals
+
+Let G = GL_{m,F}, S ⊃ S_p, T^S = T^S_{GL_m} generated by T_v^i (i = 1, …, m) and (T_v^m)⁻¹, v ∉ S. A
+perfect T^S-complex C of O-modules is of S-Galois type if for each maximal ideal 𝔪 ⊂ T^S(C) there is
+a continuous semisimple ρ̄_𝔪 : G_{F,S} → GL_m(T^S(C)/𝔪) with det(X − ρ̄_𝔪(Frob_v)) = X^m −
+T_v^1X^{m−1} + … + (−1)^j q_v^{j(j−1)/2}T_v^jX^{m−j} + … + (−1)^m q_v^{m(m−1)/2}T_v^m for all v ∉ S.
+Then 𝔪 is Eisenstein if ρ̄_𝔪 is absolutely reducible and non-Eisenstein otherwise; C is Eisenstein
+if all its maximal ideals are. For PGL_2 over an imaginary quadratic F (CG18), a maximal ideal 𝔪 of
+the Hecke algebra T_Q is Eisenstein if T_λ − 2 ∈ 𝔪 for all but finitely many primes λ splitting
+completely in some fixed abelian extension of F; both definitions agree when ρ̄_𝔪 exists (reducible
+semisimple ρ̄ with determinant conditions forces T_λ ≡ 2 on a density-one set of split λ).
+
+**Hypotheses.** G = GL_m (Galois definition); G = PGL_2 over imaginary quadratic F (CG18 definition)
+
+**API.**
+
+- `LocallySymmetric.IsGaloisType`: A perfect T^S-complex C is of S-Galois type: residual representations ρ̄_𝔪 with the displayed
+Frobenius characteristic polynomials exist for all 𝔪.
+- `LocallySymmetric.IsEisenstein`: 𝔪 is Eisenstein: ρ̄_𝔪 is absolutely reducible (for C of S-Galois type).
+- `LocallySymmetric.IsEisenstein.of_cohomology`: S-Galois type and the Eisenstein property of C depend only on H^*(C) with its T^S-action.
+- `LocallySymmetric.IsEisensteinCG`: CG18's notion for PGL_2/F: T_λ − 2 ∈ 𝔪 for almost all λ split in a fixed abelian extension.
+- `LocallySymmetric.IsEisenstein.iff_CG`: For PGL_2 over imaginary quadratic F with ρ̄_𝔪 existing, the two notions agree.
+
+**Discriminating checks.**
+
+- `eisenstein_H0` (computation): For GL_2, the constant-functions eigensystem on H^0 has T_v^1 = 1 + q_v and T_v^2 = 1. Its Hecke
+polynomial is X² − (1+q_v)X + q_v = (X−1)(X−q_v), so the associated residual representation is
+reducible. The cyclotomic character or its inverse is fixed by the Frobenius convention; T_v^2 = q_v
+would give the wrong determinant q_v².
+- `eisenstein_GL1` (degenerate): For m = 1 every maximal ideal of S-Galois type is non-Eisenstein (one-dimensional representations
+are irreducible).
+- `eisenstein_iff_CG_PGL2` (compatibility): For PGL_2 over imaginary quadratic F, ρ̄_𝔪 reducible ⇔ T_λ − 2 ∈ 𝔪 for almost all λ split in a fixed
+abelian extension (CG18 Definition 5.5).
+- `nonEisenstein_not_vanishing` (non-example): Non-Eisenstein in the Hecke sense of a single group does not by itself kill boundary cohomology: for
+groups whose Levi subgroups carry cuspidal cohomology (e.g. the Siegel parabolic of U(n,n) with Levi
+Res_{F/F⁺}GL_n), boundary cohomology localized at a non-Eisenstein 𝔪̃ can be nonzero (ACC+ Theorem
+2.4.2).
+
+**Prerequisites.** [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); `mathlib:Matrix.GeneralLinearGroup`; `IntegralHeckeAndGaloisDeterminants:IHG.3a–IHG.3b` (Hecke polynomials and residual Galois type).
+
+**Sources.** [[nt16]](#source-nt16), §4, p. 54; [[cg18]](#source-cg18), §5.3, Definition 5.5 (arXiv v2), pp. 57 (arXiv pagination).
+
+<a id="boundary-eigenvalue-criterion"></a>
+
+### Boundary vanishing by an eigenvalue argument
+
+Let K be neat and decomposed with respect to the standard parabolics, V finite projective over O and
+𝔪 ⊂ T^S_G a maximal ideal. For every proper P=M⋉N and every transported component g of the global
+P-stratum, use its actual level L_g, Levi level L_{M,g}, and lattice Γ_{N,g}. For W=V⊗k at 𝔪 and
+also W=(V⊗k)^∨⊗o_{P,g} at the inverse-double-coset ideal 𝔪^∨, impose the following eigenvalue
+exclusion: no maximal ideal 𝔪_M in the support of any Levi complex RΓ(X^M_{L_{M,g}},A), with A a
+finite local-coefficient subquotient arising from H^b(Γ_{N,g},W), pulls back through the
+unnormalized Satake map to the corresponding G-ideal. Then RΓ(∂X̄_K,V)_𝔪=0 and
+RΓ_c(X_K,V)_𝔪→RΓ(X_K,V)_𝔪 is an isomorphism. The dual exclusion can equivalently be replaced by
+direct vanishing of every compact-support stratum complex at 𝔪. It is not inferred from the ordinary
+exclusion alone. These are actual conditions on all transported Levi eigensystems; the label
+non-Eisenstein alone proves nothing.
+
+**Hypotheses.** K neat and decomposed; the stated ordinary and dual/inverse-ideal exclusions for every proper
+parabolic and every transported component, or the stated direct compact-support alternative
+
+**Discriminating checks.**
+
+- In the PGL₂/ℚ trivial-coefficient case where every cusp component has the trivial torus eigensystem,
+T_ℓ acts on cusp H⁰ by 1+ℓ in the stated normalization. Exclusion of this eigensystem and its
+dual/inverse counterpart kills the cusps. At levels with nontrivial torus characters, exclude all
+occurring character eigensystems; a test against 1+ℓ alone is insufficient.
+- For GL_n this is the mechanism of NT16 Theorem 4.2.
+
+**Prerequisites.** [Gluing over strata: convergence and Hecke compatibility of the boundary spectral sequence](#boundary-gluing-convergence); [The integral Leray–Hochschild–Serre spectral sequence of a stratum](#levi-hochschild-serre); [The boundary exact triangle RΓ_c → RΓ → RΓ_∂](#boundary-triangle); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Restriction to P, integration along N and the unnormalized Satake map](#parabolic-hecke-maps); [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality).
+
+**Sources.** [[nt16]](#source-nt16), §4, Lemma 4.4, p. 55; [[acc23]](#source-acc23), §2.4, p. 941.
+
+<a id="gln-boundary-eisenstein"></a>
+
+### Boundary cohomology of GL_n is Eisenstein
+
+Let F be a number field, G = GL_{n,F}, S ⊃ S_p, U ∈ J_{G,U^S} (neat, U_v = GL_n(O_{F_v}) for v ∉ S).
+Assume ♠: for every 1 ≤ m ≤ n and every such level for GL_m, RΓ(X^U_{GL_m}, k) is of S-Galois type
+(the ordinary-coefficient Galois attachment is supplied outside this roadmap). In addition assume
+the orientation-compatible form of this input: for every such GL_m level and finite smooth
+k[U_S]-module B, RΓ(X^U_{GL_m}, B^∨⊗o_U) is of S-Galois type with the same rank-m unnormalized
+Hecke-polynomial convention. At orientable levels this extra condition follows from the ordinary
+finite-coefficient input; at general real-place levels it is an explicit additional hypothesis, not
+a consequence of neatness. Then for every smooth O[U_S]-module A, finite over O, RΓ(∂X̄^U_G, A) is
+Eisenstein; hence for every non-Eisenstein maximal ideal 𝔪 ⊂ T^S(RΓ(X^U_G, A)), (RΓ_c(X^U_G, A))_𝔪 →
+(RΓ(X^U_G, A))_𝔪 is a quasi-isomorphism. Variants: (a) for G = PGL_{n,F}, F imaginary CM, at the
+levels Y(K), Y_0(Q), Y_1(Q) of CG18 §9 and O/ϖ^n coefficients, if r̄_𝔪 is absolutely irreducible
+then H^*(∂Y_?, O/ϖ^n)_𝔪 = 0; (b) for PGL_2 over imaginary quadratic F and non-Eisenstein 𝔪 in the
+sense of CG18 Definition 5.5, H_i(Y_0(Q), μ)_𝔪 ≅ H_i^{BM}(Y_0(Q), μ)_𝔪 (CG18 Lemma 5.9(3)).
+
+**Hypotheses.** ♠ (Galois type for GL_m, m ≤ n); U neat, hyperspecial outside S; Orientation-compatible Galois type
+for the dual coefficient system B^∨⊗o_U at every GL_m level used in the induction
+
+**Discriminating checks.**
+
+- For GL_{2,ℚ} and modular curves, H^*(∂X̄_K)_𝔪 = 0 for every 𝔪 with ρ̄_𝔪 irreducible, so interior and
+compactly supported cohomology agree at 𝔪.
+- For n = 1 the boundary is empty.
+
+**Prerequisites.** [Boundary vanishing by an eigenvalue argument](#boundary-eigenvalue-criterion); [Galois type, Eisenstein and non-Eisenstein maximal ideals](#eisenstein-maximal-ideal); [Hecke action on boundary strata through parabolic restriction](#boundary-stratum-hecke-comparison); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra); [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality).
+
+**Sources.** [[nt16]](#source-nt16), §4, Theorem 4.2, p. 55; [[cg20]](#source-cg20), §3.1, proof of Theorem 3.2 (appendix A.4), pp. 5–7 (arXiv pagination); [[cg18]](#source-cg18), Lemma 5.9(3) (arXiv v2), pp. 59–61 (arXiv pagination).
+
+<a id="siegel-stratum-localization"></a>
+
+### Localized boundary cohomology of U(n, n) is the Siegel stratum
+
+Let F be CM with maximal totally real subfield F⁺, G̃ the quasi-split unitary group U(n, n) over F⁺
+with Siegel parabolic P = G ⋉ U, G = Res_{F/F⁺}GL_n, K̃ good and decomposed with respect to P, K =
+K̃ ∩ G(A^∞_{F⁺}), S = S^c. Let 𝔪 ⊂ T^S(K, λ) be non-Eisenstein and 𝔪̃ = S^*(𝔪) ⊂ T̃^S. Then for
+every λ̃ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)} there is a natural T̃^S-equivariant isomorphism RΓ(X̃^P_{K̃},
+Ṽ_λ̃)_𝔪̃ ≅ RΓ(∂X̃_{K̃}, Ṽ_λ̃)_𝔪̃ in D(O): after localization only the Siegel stratum contributes.
+The proof uses the Galois representations attached to Hecke eigensystems in the cohomology of the
+Levi subgroups (S-Galois type for Res_{F/F⁺}GL_m, m ≤ n), as in gln-boundary-eisenstein.
+
+**Hypotheses.** F CM; K̃ good and decomposed; 𝔪 non-Eisenstein; Galois type for the Levi factors
+
+**Discriminating checks.**
+
+- n = 1: G̃ = U(1,1), the Siegel parabolic is the Borel and the boundary is its stratum.
+- The hypothesis on 𝔪 cannot be dropped: an Eisenstein 𝔪 receives contributions from the Borel
+stratum.
+
+**Prerequisites.** [Gluing over strata: convergence and Hecke compatibility of the boundary spectral sequence](#boundary-gluing-convergence); [Boundary cohomology of GL_n is Eisenstein](#gln-boundary-eisenstein); [Galois type, Eisenstein and non-Eisenstein maximal ideals](#eisenstein-maximal-ideal); [Restriction to P, integration along N and the unnormalized Satake map](#parabolic-hecke-maps); [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality).
+
+**Sources.** [[acc23]](#source-acc23), §2.4.1, Theorem 2.4.2, pp. 941–942; [[acc23]](#source-acc23), §2.4.1, proof of Theorem 2.4.2, p. 942.
+
+## ALS.5:finite-level-duality: Finite-level duality with orientation coefficients
+
+<a id="corner-boundary-bridge"></a>
+
+### X̄_K as a compact topological manifold with boundary
+
+For neat K, round X̄_K by Douady–Hérault Theorem and Definition 6.2: a positive boundary-defining
+product function and a strictly outward vector field give a smooth manifold with boundary on the
+same underlying topological space, whose smooth structure agrees away from corners of depth ≥2.
+Proposition 4.2 supplies the topological collar of the full boundary; choices alter the smoothing,
+not the underlying pair (X̄_K,∂X̄_K). Its interior is X_K and its boundary is a closed topological
+(d_G−1)-manifold. The orientation system extends from the interior and restricts to the boundary
+orientation system via the outward-normal convention, with a fixed sign if the inward normal is used
+instead. Thus AlgebraicTopology stage 6 Poincaré–Lefschetz duality applies. Naturality of pair
+cohomology, orientation sheaves and finite-cover transfers uses the original topological pair; it
+does not require a functorial smoothing choice.
+
+**Hypotheses.** K neat
+
+**Discriminating checks.**
+
+- For a modular curve, X̄_K is a compact surface with boundary circles.
+- For G anisotropic, X̄_K = X_K is closed and the bridge is the identity.
+
+**Prerequisites.** [Compactness of the Borel–Serre quotient and the interior homotopy equivalence](#borel-serre-quotient-compact); [The orientation local system of X_K and its character](#orientation-local-system); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `mathlib:ModelWithCorners`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.1, p. 910; [[nt16]](#source-nt16), §3.1, Proposition 3.7(1), pp. 48 (published); [[dh73]](#source-dh73), Propositions 4.2–4.3, Proposition 6.1, Theorem and Definition 6.2, pp. 487–489.
+
+<a id="verdier-poincare-duality"></a>
+
+### Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist
+
+Let K be neat, R noetherian, d = d_G, and V a bounded complex of finite projective R-modules with
+R[G(F) × K_S]-action (a perfect coefficient complex); V^∨ = Hom_R(V, R). Then there is a natural
+isomorphism in D(R) RHom_R(RΓ_c(X_K, V), R) ≅ RΓ(X_K, V^∨ ⊗ o_K)[d], and likewise RHom_R(RΓ(X_K, V),
+R) ≅ RΓ_c(X_K, V^∨ ⊗ o_K)[d] and, for the closed (d−1)-manifold ∂X̄_K, RHom_R(RΓ(∂X̄_K, V), R) ≅
+RΓ(∂X̄_K, V^∨ ⊗ o_K)[d − 1]. These are natural in V, compatible with coefficient change R → R′
+(ALS.1/coefficient-change) and with pullback along level maps (π^* dual to the trace π_*). In each
+degree they give the universal-coefficient sequences 0 → Ext^1_R(H^{d−i+1}_c(X_K, V), R) → H^i(X_K,
+V^∨ ⊗ o_K) → Hom_R(H^{d−i}_c(X_K, V), R) → 0 when R is a Dedekind domain. When X_K is orientable
+(e.g. G(F_∞) connected) o_K may be omitted, as in NT16 Proposition 3.7 and ACC+ Proposition 2.2.21.
+The same oriented-manifold argument gives RHom_R(RΓ_c(Y^P_{L_g},V),R)≅RΓ(Y^P_{L_g},V^∨⊗o_{P,g})[d_P]
+for each good neat transported P-space of boundary-stratification, with d_P=dim e(P) and its own
+orientation system. Apply the generic E1 manifold Verdier comparison on that open stratum; do not
+treat a nonreductive parabolic as a reductive G.
+
+**Hypotheses.** K neat; R noetherian; V a bounded complex of finite projective R-modules
+
+**Discriminating checks.**
+
+- For a modular curve (orientable surface, d = 2) H^2_c(X_K, R) ≅ R per component and H^1_c is dual to
+H^1.
+- For a nonorientable closed surface Σ, H^2(Σ, ℤ) = ℤ/2 but H^2(Σ, o) = ℤ.
+
+**Prerequisites.** [X̄_K as a compact topological manifold with boundary](#corner-boundary-bridge); [Bounded finite projective models from a finite equivariant cell structure](#finite-complex-model); [Derived coefficient change and the universal-coefficient spectral sequence](#coefficient-change); [Finite triangulations and finiteness of Betti cohomology](#borel-serre-finite-triangulation); `EnhancedDerivedSheaves:E1`; [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `DeformationAndDerivedPatchingAlgebra:P7/perfect-object`; [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Boundary strata fibre over Levi quotients with nilmanifold fibres](#stratum-nilmanifold-fibration).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Proposition 3.7(1), p. 48; [[acc23]](#source-acc23), §2.2.20, Proposition 2.2.21, p. 932.
+
+<a id="duality-pairings"></a>
+
+### Evaluation, cup-product and relative duality pairings
+
+For neat K, R noetherian and V as in verdier-poincare-duality, define the cup-product pairings ⟨·,·⟩
+: H^i_c(X_K, V) × H^{d−i}(X_K, V^∨ ⊗ o_K) → H^d_c(X_K, o_K) → R (cup product with the evaluation V ⊗
+V^∨ → R, then the trace given by the fundamental class of the orientation local system) and the
+relative pairing H^i(X̄_K, ∂X̄_K; V) × H^{d−i}(X̄_K; V^∨ ⊗ o_K) → R, identified with the first
+through RΓ_c(X_K) ≅ RΓ(X̄_K, ∂X̄_K) and RΓ(X_K) ≅ RΓ(X̄_K); and the boundary pairing H^i(∂X̄_K, V) ×
+H^{d−1−i}(∂X̄_K, V^∨ ⊗ o_K) → R. These pairings are the evaluations of the isomorphisms of
+verdier-poincare-duality; over a field they are perfect.
+
+**Hypotheses.** K neat; R noetherian
+
+**API.**
+
+- `LocallySymmetric.dualityPairing`: ⟨·,·⟩ : H^i_c(X_K, V) × H^{d−i}(X_K, V^∨ ⊗ o_K) → R.
+- `LocallySymmetric.dualityPairing_relative`: The relative pairing on (X̄_K, ∂X̄_K) and the boundary pairing on ∂X̄_K.
+- `LocallySymmetric.dualityPairing_perfect`: Over a field the pairings are perfect.
+- `LocallySymmetric.dualityPairing_pullback_trace`: ⟨π^*x, y⟩_{K′} = ⟨x, π_*y⟩_K for K′ ⊂ K (pullback adjoint to trace).
+- `LocallySymmetric.dualityPairing_eq_evaluation`: The pairing is the evaluation of RHom(RΓ_c(X_K, V), R) ≅ RΓ(X_K, V^∨ ⊗ o_K)[d] on cohomology.
+
+**Discriminating checks.**
+
+- `pairing_surface_H0H2` (computation): For a connected modular curve X_K and a field k, H^0(X_K, k) × H^2_c(X_K, k) → k is (a, b) ↦ a·∫b,
+perfect with both sides k.
+- `pairing_compact_case` (degenerate): If X_K is compact (G anisotropic), H^i_c = H^i and the pairing is classical Poincaré duality on a
+closed manifold.
+- `pairing_pullback_trace` (characterisation): ⟨π^*x, y⟩_{K′} = ⟨x, π_*y⟩_K for K′ ⊂ K neat.
+- `pairing_needs_orientation` (non-example): Without the twist by o_K the pairing H^2_c(X_K, F_3) × H^0(X_K, F_3) → F_3 vanishes identically on
+the nonorientable component of ALS.0's PGL_2 example, since H^2_c of a nonorientable surface with
+F_3 coefficients is 0.
+
+**Prerequisites.** [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [X̄_K as a compact topological manifold with boundary](#corner-boundary-bridge); [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality).
+
+**Sources.** [[nt16]](#source-nt16), §4, proof of Lemma 4.1, p. 54.
+
+<a id="hecke-adjoint-duality"></a>
+
+### Hecke adjoints: inverse double cosets and restriction/corestriction
+
+Under verdier-poincare-duality the transpose of the operator [Kg⁻¹K] on RHom_R(RΓ_c(X_K, V), R)
+corresponds to [KgK] on RΓ(X_K, V^∨ ⊗ o_K) for g ∈ G^S, i.e. ⟨x, [KgK]y⟩ = ⟨[Kg⁻¹K]x, y⟩ (the
+orientation character contributes nothing because g ∈ G^S acts on 𝔛_G through G(A^∞) and the
+orientation of X^G is untouched); equivalently, the duality is equivariant when H(G^S, K^S) acts on
+the left through the anti-involution ι([KgK]) = [Kg⁻¹K]. Restriction and corestriction are adjoint:
+⟨π^*x, y⟩ = ⟨x, π_*y⟩. For GL_n with K_v = GL_n(O_{F_v}), T_v^i acting on H^* corresponds to
+T_v^{n−i}(T_v^n)⁻¹ on H^*_c, and ι descends to an isomorphism T^S(RΓ_c(X_K, V)) ≅ T^S(RΓ(X_K, V^∨ ⊗
+o_K)) with 𝔪 ↦ 𝔪^∨ = ι(𝔪). On transported P-spaces the same adjoint argument pairs compact and
+ordinary dual-coefficient cohomology with o_{P,g}; rational component maps pull back the local
+orientation sheaf, and the finite adelic correspondence preserves its archimedean factor.
+
+**Hypotheses.** K neat; g ∈ G^S
+
+**Discriminating checks.**
+
+- For GL_2: T_v on H^* is dual to T_v S_v⁻¹ on H^*_c, S_v = T_v^2.
+- For g ∈ K, both sides are the identity.
+
+**Prerequisites.** [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Evaluation, cup-product and relative duality pairings](#duality-pairings); [Hecke operators as correspondences: representative independence](#hecke-operator-formula); [Trace along level maps and the groupoid correction](#level-trace); [The derived Hecke algebra T^S(K, V) of an arithmetic complex](#derived-hecke-algebra).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Proposition 3.7(3), p. 48; [[acc23]](#source-acc23), §2.2.20, Corollary 2.2.22, p. 932; [[nt16]](#source-nt16), §4, proof of Lemma 4.1, p. 54.
+
+<a id="duality-triangle-compatibility"></a>
+
+### Duality, the boundary triangle and coefficient change
+
+For neat K write C_c(V)→C(V)→B(V)→C_c(V)[1] for the boundary triangle and D=RHom_R(−,R).
+Contravariant duality gives D B(V)→D C(V)→D C_c(V)→D B(V)[1]. Early duality identifies these terms
+with B(V^∨⊗o)[d−1]→C_c(V^∨⊗o)[d]→C(V^∨⊗o)[d]→B(V^∨⊗o)[d]. This is the inverse rotation of the
+shifted boundary triangle, with the negative rotated connecting arrow prescribed by the
+triangulated-category sign convention. It is Hecke-equivariant after applying the
+inverse-double-coset anti-involution ι on the dual side. For perfect complexes it commutes with
+derived coefficient change and with localization, exchanging 𝔪 and 𝔪^∨; in particular
+D(C_c(V)_𝔪)≅C(V^∨⊗o)_{𝔪^∨}[d].
+
+**Hypotheses.** K neat; R noetherian
+
+**Discriminating checks.**
+
+- For a modular curve the dual of the boundary sequence H^0 → H^0(∂) → H^1_c is H^1 → H^1(∂) → H^2_c.
+- For G anisotropic the triangle degenerates and the statement is ordinary Poincaré duality.
+
+**Prerequisites.** [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality); [The boundary exact triangle RΓ_c → RΓ → RΓ_∂](#boundary-triangle); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Derived coefficient change and the universal-coefficient spectral sequence](#coefficient-change).
+
+**Sources.** [[nt16]](#source-nt16), §3.1, Proposition 3.7(2), p. 48; [[acc23]](#source-acc23), §2.2.20, p. 932.
+
+<a id="non-neat-duality"></a>
+
+### Duality at non-neat level: stabilizer hypotheses
+
+Let K be arbitrary and K′ ⊂ K normal, neat and of finite index, with K′^S = K^S. The equivariant
+complex RΓ_{K/K′}(X_{K′},V) is perfect over R after forgetting the finite-group action; it is not
+generally perfect over R[K/K′] unless the full K-action is free (e.g. K neat). Derived finite-group
+invariants compute orbifold RΓ(X_K,V). If |K/K′| is invertible in R, averaging makes this a direct
+summand of the finite projective R-complex at K′, and yields finite-level duality
+RHom_R(RΓ_c(X_K,V),R) ≅ RΓ(X_K,V^∨ ⊗ o_K)[d], Hecke-equivariantly, for the corresponding groupoid
+support model. Invertibility of |K/K′| is sufficient and is not equivalent to invertibility of all
+stabilizer orders. Without such a hypothesis orbifold cohomology can be unbounded. Use the
+compactified equivariant support model of betti-complexes. A point with stabilizer C_p over F_p
+gives H^*(C_p,F_p) in arbitrarily high degrees, testing the omitted modular averaging hypothesis.
+
+**Hypotheses.** K′ ⊂ K normal and neat; |K/K′| invertible in R for the duality
+
+**Discriminating checks.**
+
+- For SL_2(ℤ) and R = ℤ[1/6]: RΓ(X_K, R) = R[0] and RΓ_c(X_K, R) = R[−2], dual with d = 2.
+- For R = F_2 or F_3 at level SL_2(Ẑ) the cohomology is unbounded.
+
+**Prerequisites.** [Poincaré–Verdier duality for X_K with perfect coefficients and orientation twist](#verdier-poincare-duality); [Finite triangulations and finiteness of Betti cohomology](#borel-serre-finite-triangulation); [Betti cohomology as group cohomology of the arithmetic groups](#group-cohomology-comparison); [Trace along level maps and the groupoid correction](#level-trace); `EnhancedDerivedSheaves:E1`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, Lemma 2.1.7, p. 912; [[cg20]](#source-cg20), §3.1, proof of Lemma 3.1 (appendix), pp. 5–6 (arXiv pagination).
+
+## ALS.5: Characteristic-zero and automorphic comparisons
+
+<a id="early-duality-reexport"></a>
+
+### The early finite-level duality as an input to the characteristic-zero comparison
+
+The characteristic-zero comparisons of ALS.5 are compatible with the early structures: for neat K
+and a finite-dimensional complex algebraic representation V of 𝐆, (i) the de Rham isomorphism of
+de-rham-comparison carries the cup-product pairing of ALS.5:finite-level-duality/duality-pairings on
+H^*_c × H^{d−*} to the pairing (α, β) ↦ ∫_{X_K} α ∧ β of compactly supported and arbitrary closed
+forms (with the evaluation V ⊗ V^∨ → ℂ and the orientation twist), (ii) pullbacks and traces along
+level maps correspond to pullback and fibre-integration of forms, and (iii) Hecke operators
+correspond to the correspondence action on forms. No new duality is constructed here: the duality,
+pairings and adjoints are those of ALS.5:finite-level-duality.
+
+**Hypotheses.** K neat; V a finite-dimensional complex representation of 𝐆
+
+**Discriminating checks.**
+
+- For a modular curve, ⟨α, β⟩ = ∫ α ∧ β on H^1_c × H^1 of weight-two forms.
+- For compact X_K this is classical Poincaré duality of de Rham cohomology.
+
+**Prerequisites.** [Evaluation, cup-product and relative duality pairings](#duality-pairings); [Hecke adjoints: inverse double cosets and restriction/corestriction](#hecke-adjoint-duality); [Betti, de Rham and relative Lie algebra cohomology in characteristic zero](#de-rham-comparison).
+
+**Sources.** [[acc23]](#source-acc23), §2.2.20, Proposition 2.2.21, p. 932; [[franke]](#source-franke), Abstract, pp. 181.
+
+<a id="de-rham-comparison"></a>
+
+### Betti, de Rham and relative Lie algebra cohomology in characteristic zero
+
+Let 𝔞_G = Lie(A_∞)⊗ℝℂ and 𝔪_G = Lie(G(F_∞))⊗ℝℂ / 𝔞_G. Use the central-character-twisted function
+space whose diagonal A_∞ action with V is trivial, so the coefficient module descends to 𝔪_G. Let K
+be neat and V a finite-dimensional complex (or real) algebraic representation of 𝐆 = Res_{F/ℚ}G,
+with associated flat bundle 𝒱 on X_K. Then there are natural isomorphisms H^*(X_K, V) ≅
+H^*_{dR}(X_K, 𝒱) ≅ H^*(Ω^•(X^G × G(A^∞)/K, V)^{G(F)}) ≅ H^*(𝔪_G, K_∞; C^∞(G(F)\G(A_F)/K) ⊗ V) (with
+A_∞ acting on C^∞ through the central character twist making the A_∞-action compatible),
+Hecke-equivariant for H(G^S, K^S), compatible with level maps, and similarly H^*_c(X_K, V) with
+compactly supported forms. The last isomorphism identifies G(F)-invariant V-valued forms on X^G ×
+G(A^∞)/K with (𝔪_G, K_∞)-cochains Hom_{K_∞}(∧^•(𝔤/(𝔨 + 𝔞_G)), C^∞ ⊗ V)
+(AutomorphicFormsOnReductiveGroups AF.1a/invariant-forms-complex and relative-lie-cochain-complex).
+This constructs the arithmetic topological-to-smooth comparison.
+
+**Hypotheses.** K neat; V finite-dimensional complex algebraic representation
+
+**Discriminating checks.**
+
+- On a connected SL₂ modular component and V=Sym^k ℂ², the comparison computes H¹ by V-valued
+differential forms; its cuspidal subspace is the holomorphic/antiholomorphic Eichler–Shimura pair
+and ordinary cohomology also has its Eisenstein part. For the full GL₂ quotient keep the
+real-component and central-character invariants.
+- For G anisotropic and V = ℂ, H^*(X_K, ℂ) = H^*(𝔪_G, K_∞; C^∞(G(F)\G(A)/K)).
+
+**Prerequisites.** [Sheaf cohomology of arithmetic local systems agrees with singular cochains](#sheaf-singular-comparison); [Arithmetic local systems from coefficient modules](#arithmetic-local-system); [At neat level X_K is a manifold and each component is a K(Γ, 1)](#neat-level-manifold); `AutomorphicFormsOnReductiveGroups:AF.1a/invariant-forms-complex`; `AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex`; [AlgebraicTopology, stage 6 cohomology products and manifold duality](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-6-cohomology-products-and-manifold-duality); `DifferentialGeometry`, Layers 0, 6 and 8 (forms and de Rham comparison).
+
+**Sources.** [[franke]](#source-franke), Introduction and §7.4, pp. 255–256; [[cg20]](#source-cg20), §3.1, proof of Lemma 3.1 (appendix), pp. 5–6 (arXiv pagination).
+
+<a id="automorphic-comparison"></a>
+
+### Franke's comparison with automorphic forms
+
+Use 𝔪_G and the central-character convention of de-rham-comparison, with the split-centre directions
+removed. For K neat and V a finite-dimensional complex algebraic representation, the inclusion of
+the space 𝒜(G)^K of K-invariant automorphic forms (with the central twist fixed by V) into
+C^∞(G(F)\G(A_F)/K) induces an isomorphism H^*(𝔪_G, K_∞; 𝒜(G)^K ⊗ V) ≅ H^*(𝔪_G, K_∞; C^∞ ⊗ V), hence
+H^*(X_K, V) ≅ H^*(𝔪_G, K_∞; 𝒜(G)^K ⊗ V), Hecke-equivariantly. Franke's filtration of 𝒜(G) by
+cuspidal support gives a decomposition H^*(X_K, V) = ⊕_{{P}} H^*_{{P}}(X_K, V) over associate
+classes of parabolics, with the summand of {G} the cuspidal cohomology. Construct the comparison and
+its support decomposition in this layer, using the AF.1a cochains and AF.3 automorphic coefficient
+spaces.
+
+**Hypotheses.** K neat; V finite-dimensional complex algebraic representation
+
+**Discriminating checks.**
+
+- For G anisotropic modulo centre there are no proper rational parabolics, so all automorphic forms
+with the prescribed central character are cuspidal and the cohomological comparison yields the
+Matsushima decomposition. Automorphic forms are also Z(𝔤)-finite; they are not identified with all
+K_∞-finite smooth functions.
+- For GL_{2,ℚ}, the {B}-summand of H^1(X_K, ℂ) is the Eisenstein cohomology spanned by Eisenstein
+series classes.
+
+**Prerequisites.** [Betti, de Rham and relative Lie algebra cohomology in characteristic zero](#de-rham-comparison).
+
+**Sources.** [[franke]](#source-franke), §7.4, Theorem 18, pp. 255–256; [[acc23]](#source-acc23), §2.4.9, proof of Theorem 2.4.10, p. 949.
+
+<a id="cuspidal-cohomology"></a>
+
+### Cuspidal cohomology
+
+Use 𝔪_G and the central-character convention of de-rham-comparison, with the split-centre directions
+removed. For K neat and V a finite-dimensional complex algebraic representation of 𝐆, H^*_cusp(X_K,
+V) := ⊕_π m(π) H^*(𝔪_G, K_∞; π_∞ ⊗ V) ⊗ (π^∞)^K, the sum over cuspidal automorphic representations π
+of G(A_F) with central character on A_∞ inverse to that of V, m(π) the cuspidal multiplicity. The
+inclusion of cusp forms into automorphic forms induces an injective, Hecke-equivariant map
+H^*_cusp(X_K, V) → H^*(X_K, V) (Borel), whose image lies in the interior cohomology H^*_! = im(H^*_c
+→ H^*); it is the {G}-summand of Franke's decomposition (automorphic-comparison).
+
+**Hypotheses.** K neat
+
+**API.**
+
+- `LocallySymmetric.cuspidalCohomology`: H^*_cusp(X_K, V) as a Hecke-module with its map to H^*(X_K, V).
+- `LocallySymmetric.cuspidalCohomology_injective`: The map H^*_cusp(X_K, V) → H^*(X_K, V) is injective and Hecke-equivariant.
+- `LocallySymmetric.cuspidalCohomology_le_interior`: Its image lies in the interior cohomology im(H^*_c(X_K, V) → H^*(X_K, V)).
+- `LocallySymmetric.cuspidalCohomology_decomp`: H^*_cusp(X_K, V) = ⊕_π m(π)H^*(𝔪_G, K_∞; π_∞ ⊗ V) ⊗ (π^∞)^K.
+- `LocallySymmetric.cuspidalCohomology_eq_franke`: H^*_cusp is the {G}-summand of Franke's decomposition (automorphic-comparison).
+
+**Discriminating checks.**
+
+- `cuspidal_GL2_weight2` (computation): For the connected SL₂ component Γ₁(N)\ℍ with N≥5, constant ℂ coefficients and genus g, dim H¹_cusp=2
+dim S₂(Γ₁(N))=2g. For a full GL₂ adelic quotient the real-component/central-character invariants
+must also be included; no unconditional componentwise GL₂ two-dimensional formula is asserted.
+- `cuspidal_torus` (degenerate): For G a torus, H^*_cusp(X_K, V) = H^*(X_K, V).
+- `cuspidal_le_interior` (characterisation): Cuspidal cohomology maps into interior cohomology; for the connected modular curve Γ₁(N)\ℍ with
+constant ℂ coefficients, both degree-one images have dimension 2g.
+- `cuspidal_ne_ordinary` (non-example): For Γ₁(5)\ℍ (genus zero, four cusps), H¹_cusp=H¹_!=0 but H¹(X,ℂ)=ℂ³. This disproves a definition of
+cuspidal cohomology as all ordinary cohomology. No strict interior-inclusion claim is made using
+Saito–Kurokawa lifts, which are cuspidal CAP forms.
+
+**Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); [Franke comparison and cuspidal support](#automorphic-comparison); `AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex`; `AutomorphicFormsOnReductiveGroups:AF.3/cuspidal-spectrum-discrete`.
+
+**Sources.** [[acc23]](#source-acc23), §2.4.9, proof of Theorem 2.4.10, p. 949; [[franke]](#source-franke), §7.4, after Theorem 18, pp. 255–256.
+
+<a id="clozel-cohomological-gln"></a>
+
+### Regular algebraic cuspidal representations of GL_n contribute to cohomology
+
+Let F be totally real or CM and π a cuspidal automorphic representation of GL_n(A_F) with π_∞
+regular L-algebraic, unramified outside S. Then π′ = π|·|^{(n+1)/2} is regular C-algebraic, i.e.
+cohomological: there is an algebraic representation ξ of Res_{F/ℚ}GL_n over ℂ ≅ Q̄_p (extending to
+Res_{O_F/ℤ}GL_n over Z̄_p) such that π′ occurs (its Hecke eigensystem away from S appears) in
+H^i(X̃_K, M_{ξ,K}) ⊗_{Z̄_p} ℂ for some sufficiently small K = K_SK^S and some i, where X̃_K =
+GL_n(F)\[(GL_n(F⊗ℝ)/ℝ_{>0}K_∞°) × GL_n(A_{F,f})/K] (equal to X_K for F CM, a (ℤ/2)^{[F:ℚ]}-cover for
+F totally real); after choosing a quadratic character η : A_F^×/F^× → {±1} with prescribed
+archimedean components, π′ ⊗ (η∘det) occurs in H^i(X_K, M_{ξ,K}) ⊗ ℂ.
+
+**Hypotheses.** F totally real or CM; π cuspidal with π_∞ regular L-algebraic
+
+**Discriminating checks.**
+
+- n = 1: an algebraic Hecke character contributes to H^0(X_K, ξ).
+- n = 2, F = ℚ: a weight-k eigenform contributes to H^1(X_K, Sym^{k−2}) (Eichler–Shimura).
+
+**Prerequisites.** [Cuspidal cohomology](#cuspidal-cohomology); [Franke's comparison with automorphic forms](#automorphic-comparison); `AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight`; `AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic`; `AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation`; [The symmetric space of G with the split-centre correction](#symmetric-space).
+
+**Sources.** [[sch15]](#source-sch15), §V.4, proof of Corollary V.4.2 (Annals Corollary 5.4.2); [[sch15]](#source-sch15), §V.4, proof of Corollary V.4.2.
+
+<a id="non-eisenstein-degree-range"></a>
+
+### Rational cohomology localized at a non-Eisenstein ideal is cuspidal and lives in [q₀, q₀ + l₀]
+
+Let F be an imaginary CM field with maximal totally real subfield F⁺, fix ι : Q̄_p ≅ ℂ, let q₀ = [F⁺
+: ℚ]n(n−1)/2 and l₀ = [F⁺ : ℚ]n − 1, K ⊂ GL_n(A_F^∞) good and V_λ the O-lattice of highest weight λ.
+(1) If π is cuspidal regular algebraic of weight ιλ with (π^∞)^K ≠ 0, the Hecke eigensystem of
+(ι⁻¹π^∞)^K factors through T^S → T^S(K, λ). (2) If 𝔪 ⊂ T^S(K, V_λ) is a maximal ideal with ρ̄_𝔪
+(assumed to exist, i.e. RΓ(X_K, V_λ) of S-Galois type) absolutely irreducible, then H^j(X_K,
+V_λ)_𝔪[1/p] ≠ 0 only for j ∈ [q₀, q₀ + l₀], and if one of these groups is nonzero all are; and every
+homomorphism f : T^S(K, V_λ)_𝔪 → Q̄_p is the eigensystem of (ι⁻¹π^∞)^K for a cuspidal regular
+algebraic π of weight ιλ, with r_ι(π) residually ≅ ρ̄_𝔪.
+
+**Hypotheses.** F imaginary CM; K good; RΓ(X_K, V_λ) of S-Galois type with ρ̄_𝔪 absolutely irreducible
+
+**Discriminating checks.**
+
+- n = 1: q₀ = 0, l₀ = [F⁺:ℚ] − 1, the dimension of the unit-rank torus X_K components.
+- n = 2, F imaginary quadratic: [q₀, q₀ + l₀] = [1, 2], the cuspidal range of Bianchi threefolds.
+
+**Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); [Cuspidal cohomology](#cuspidal-cohomology); [Galois type, Eisenstein and non-Eisenstein maximal ideals](#eisenstein-maximal-ideal); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Characteristic-zero Galois comparisons](#characteristic-zero-galois-comparisons); `AutomorphicFormsOnReductiveGroups:AF.4/algebraic-weight`; `AutomorphicFormsOnReductiveGroups:AF.4/c-l-algebraic`; `AutomorphicFormsOnReductiveGroups:AF.4/cohomological-representation`; `AutomorphicFormsOnReductiveGroups:AF.4/borel-wallach-tempered-range`.
+
+**Sources.** [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.10(2), p. 948; [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.10(2), p. 948.
+
+<a id="unitary-middle-degree"></a>
+
+### Middle-degree rational cohomology of U(n, n) at 𝔪̃ is semisimple and cuspidal
+
+Let F be CM containing an imaginary quadratic field, G̃ = U(n, n) over F⁺, ρ half the sum of the
+positive roots of Res_{F⁺/ℚ}G̃ (an element of X^*(Res_{F⁺/ℚ}T) ⊗ ℚ, T ⊂ G̃ the diagonal torus; ρ is
+generally half-integral, while w(λ̃+ρ)−ρ is integral), ι : Q̄_p ≅ ℂ, and λ̃ ∈ (ℤ^{2n}_+)^{Hom(F⁺,E)}
+such that for every w ∈ W^P (Kostant representatives for the Siegel parabolic) there is no cuspidal
+automorphic representation of GL_n(A_F) of weight ιλ_w, λ_w = w(λ̃ + ρ) − ρ viewed as a GL_n/F
+weight through the Siegel-Levi identification Res_{F/ℚ}GL_n ⊂ Res_{F⁺/ℚ}G̃ (the corresponding torus
+character lattices identify (ℤ^{2n})^{Hom(F⁺,E)} with (ℤ^n)^{Hom(F,E)}). Let 𝔪̃ ⊂ T̃^S be a maximal
+ideal in the support of H^*(X̃_{K̃}, Ṽ_λ̃) such that ρ̄_𝔪̃ is a direct sum of two n-dimensional
+absolutely irreducible representations of G_F, S=S^c containing the p-adic places, such that for
+every v∉S of residue characteristic ℓ, either no ℓ-adic place belongs to S and ℓ is unramified in F,
+or ℓ splits in an imaginary quadratic subfield of F, and d = ½ dim_ℝ X̃ = n²[F⁺ : ℚ]. Then
+H^d(X̃_{K̃}, Ṽ_λ̃)_𝔪̃[1/p] is a semisimple T̃^S[1/p]-module, and every homomorphism
+T̃^S(H^d(X̃_{K̃}, Ṽ_λ̃)_𝔪̃) → Q̄_p is the eigensystem of (ι⁻¹π̃^∞)^{K̃} for a cuspidal regular
+algebraic π̃ of G̃(A_{F⁺}) of weight ιλ̃.
+
+**Hypotheses.** F CM containing an imaginary quadratic field; the weight condition on λ_w; ρ̄_𝔪̃ a sum of two
+n-dimensional absolutely irreducibles
+
+**Discriminating checks.**
+
+- n = 1: G̃ = U(1,1), d = [F⁺:ℚ], middle degree of a product of hyperbolic planes-type quotients.
+- If ρ̄_𝔪̃ has three constituents the conclusion can fail (Eisenstein contributions).
+
+**Prerequisites.** [Franke's comparison with automorphic forms](#automorphic-comparison); [Cuspidal cohomology](#cuspidal-cohomology); [Cohomology of a boundary stratum via van Est and Kostant](#boundary-stratum-cohomology-formula); [Localized boundary cohomology of U(n, n) is the Siegel stratum](#siegel-stratum-localization); [Characteristic-zero Galois comparisons](#characteristic-zero-galois-comparisons).
+
+**Sources.** [[acc23]](#source-acc23), §2.4.9, Theorem 2.4.11, p. 951; [[acc23]](#source-acc23), §2.4.9, proof of Theorem 2.4.11, p. 951.
+
+## ALS.6: Finite covers and descent
+
+<a id="finite-level-descent"></a>
+
+### Finite-level descent along a normal inclusion of levels
+
+Let K′⊲K compact open, differing only at places in S′, and V finite projective with the needed
+commuting coefficient actions. The relative compactified equivariant construction gives
+C_{K′/K}=RΓ_{K/K′}(X_{K′},V) in D(R[K/K′]), with a ring homomorphism
+H(G^{S∪S′},K^{S∪S′})⊗R→End_{D(R[K/K′])}(C_{K′/K}). There is a natural isomorphism
+RΓ(K/K′,C_{K′/K})≅RΓ(X_K,V) in D(R), intertwining all these Hecke operators; its forgetful image is
+RΓ(X_{K′},V). The same statements hold for compact support and boundary using betti-complexes,
+compatibly with their exact triangle. For K″⊂K′ with both K″ and K′ normal in K choose a common neat
+normal refinement inside K″: the two iterated derived-invariants identifications agree with direct
+K/K″ descent, including the relative residual actions. If full K is good neat, the free full-level
+finite cell model proves perfectness over R[K/K′] (R noetherian). If only K′ is neat, only
+underlying R-perfectness is asserted. The stronger strict D(H⊗R[K/K′]) lift is an explicit
+enhancement request. This node exports finite-level descent and refinement maps; the
+completed-cohomology roadmap owns assembly into level systems.
+
+**Hypotheses.** K′ ⊲ K, equal away from a finite set S′; K neat for group-ring perfectness; K′ neat suffices for
+perfectness over R after forgetting the action
+
+**Discriminating checks.**
+
+- K′ = K: RΓ_{K/K} = RΓ(X_K, V).
+- For K/K′ of order invertible in R, RΓ(X_K, V) = RΓ(X_{K′}, V)^{K/K′}.
+
+**Prerequisites.** [The Hecke action on RΓ(X_K, V) in the derived category](#derived-hecke-action); [Trace along level maps and the groupoid correction](#level-trace); [The boundary exact triangle RΓ_c → RΓ → RΓ_∂](#boundary-triangle); [Finite triangulations and finiteness of Betti cohomology](#borel-serre-finite-triangulation); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `EnhancedDerivedSheaves:E1`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, (2.1.5)–(2.1.6), pp. 911–912; [[acc23]](#source-acc23), §2.1.2, Lemma 2.1.7, p. 912.
+
+<a id="finite-cover-hochschild-serre"></a>
+
+### The finite-cover Hochschild–Serre spectral sequence with Hecke action
+
+In the situation of finite-level-descent there is a convergent first-quadrant spectral sequence
+E_2^{i,j} = H^i(K/K′, H^j(X_{K′}, V)) ⇒ H^{i+j}(X_K, V), natural in V, functorial for inclusions of
+such pairs, and equivariant for H(G^{S∪S′}, K^{S∪S′}) ⊗ R acting on both sides (Hecke operators at
+places where K and K′ agree); likewise for H^*_c and H^*(∂X̄), compatibly with the maps of the
+boundary triangle, and the edge maps are π^* (E_2^{0,j} ← H^j) and restriction/corestriction
+identities hold (res ∘ cor = Σ_{k∈K/K′} k, cor ∘ res = [K : K′]). At neat level it is the
+Cartan–Leray spectral sequence of the regular covering X_{K′} → X_K; at non-neat level K it computes
+the groupoid cohomology of X_K. If |K/K′| is invertible in R it degenerates: H^*(X_K, V) =
+H^*(X_{K′}, V)^{K/K′}.
+
+**Hypotheses.** as in finite-level-descent
+
+**Discriminating checks.**
+
+- Y_1(Q) → Y_0(Q) with group Δ_Q: E_2^{i,j} = H^i(Δ_Q, H^j(Y_1(Q), V)).
+- For K/K′ of order prime to p and V = O/ϖ^n, H^*(X_K) = H^*(X_{K′})^{K/K′}.
+
+**Prerequisites.** [Finite-level descent along a normal inclusion of levels](#finite-level-descent); [Trace along level maps and the groupoid correction](#level-trace); [AlgebraicTopology, stage 5 bundles covers products and finite cover descent](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/AlgebraicTopology/README.md#stage-5-bundles-covers-products-and-finite-cover-descent); `mathlib:groupCohomology`.
+
+**Sources.** [[cg20]](#source-cg20), §3.1, proof of Theorem 3.2 (appendix A.4), pp. 5–7 (arXiv pagination); [[cg18]](#source-cg18), §9, Lemma 9.6, proof (arXiv v2), pp. 88–90 (arXiv pagination).
+
+<a id="lowest-degree-descent"></a>
+
+### The lowest nonvanishing localized degree descends along a p-group cover
+
+Let K′ ⊂ K be as in finite-level-descent, k a field of characteristic p, V a k[G(F)×K_{S∪S′}]-module
+finite over k, and 𝔪 a maximal ideal of the Hecke algebra away from S ∪ S′ (and from the places
+where K′ ≠ K), possibly enlarged by operators U_x commuting with the K/K′-action. Let i be the least
+degree with H^i(X_{K′}, V)_𝔪 ≠ 0. If K/K′ is a p-group, or more generally K/K′ acts on H^i(X_{K′},
+V)_𝔪 through a p-group quotient, then H^i(X_K, V)_𝔪 ≠ 0 and H^j(X_K, V)_𝔪 = 0 for j < i. In
+particular, for the Taylor–Wiles covers of standard-level-subgroups the statement applies to Y_Δ(Q)
+→ Y_0(Q) for Δ the maximal p-power quotient of Δ_Q (not to Y_1(Q) → Y_0(Q) itself unless Δ_Q is a
+p-group or its prime-to-p part acts trivially after localization), as in the corrected form of
+CG20's argument.
+
+**Hypotheses.** k of characteristic p; K/K′ acting on H^i(X_{K′}, V)_𝔪 through a p-group
+
+**Discriminating checks.**
+
+- K/K′ = ℤ/p, V = F_p: the lowest localized degree is the same at both levels.
+- Counterexample to the unrestricted statement: for K/K′ of order prime to p acting on H^i(X_{K′})_𝔪
+through a nontrivial character, the invariants vanish and H^i(X_K)_𝔪 can be 0.
+
+**Prerequisites.** [The finite-cover Hochschild–Serre spectral sequence with Hecke action](#finite-cover-hochschild-serre); [Localizing perfect Hecke complexes at a maximal ideal](#localization-at-maximal-ideal); [Standard level subgroups: Iwahori, Γ0, Γ1, Γp and Taylor–Wiles levels](#standard-level-subgroups).
+
+**Sources.** [[cg20]](#source-cg20), §3.1, proof of Theorem 3.2 (appendix A.4), pp. 5–7 (arXiv pagination); [[cg20]](#source-cg20), §3.1, Theorem 3.2 (appendix A.4), pp. 5–7 (arXiv pagination).
+
+<a id="tower-acceptance-tests"></a>
+
+### Finite-cover acceptance tests for modular and compact quotients
+
+(i) Modular curves: for G = SL_{2,ℚ} (or GL_{2,ℚ}), N ≥ 3 and a prime p ∤ N, K′ = K(Np) ⊂ K = K(N)
+is normal with K/K′ ≅ SL_2(F_p) (resp. GL_2(F_p) on the whole adelic cover; determinant-one
+subgroups stabilize individual components); the finite-cover Hochschild–Serre spectral sequence for
+X_{K′} → X_K with ℚ-coefficients degenerates, H^1(X_K, ℚ) = H^1(X_{K′}, ℚ)^{K/K′}, compatibly with
+T_ℓ (ℓ ∤ Np), with H^1_c and with the boundary circles (cusps of X_{K′} over a cusp of X_K form a
+K/K′-set with stabilizers the upper unipotent subgroup); dim H^1 = 2g + c − 1 per component. (ii)
+Compact quotients: for G = D^×/ℚ^× with D an indefinite quaternion algebra over ℚ, ramified at a
+nonempty set of primes, every X_K is compact (no proper ℚ-parabolics), ∂X̄_K = ∅, RΓ_c = RΓ, and for
+neat K′ ⊲ K the spectral sequence of finite-cover-hochschild-serre with F_ℓ-coefficients, ℓ ∤
+|K/K′|, degenerates to H^*(X_K, F_ℓ) = H^*(X_{K′}, F_ℓ)^{K/K′}, while for ℓ | |K/K′| nontrivial
+differentials and higher group cohomology can occur.
+
+**Discriminating checks.**
+
+- The compactified modular curve X(7) has genus 3 and 24 cusps; its open component Y(7) has dim
+H^1(Y(7),ℚ) = 2·3+24−1 = 29. For p∤7, H^1(Y(7),ℚ) ≅ H^1(Y(7p),ℚ)^{SL_2(F_p)} for the SL_2 tower.
+- For D of discriminant 6, the Shimura curve X_K at maximal level has genus 0 and H^1(X_K, ℚ) = 0.
+
+**Prerequisites.** [The finite-cover Hochschild–Serre spectral sequence with Hecke action](#finite-cover-hochschild-serre); [The boundary exact triangle RΓ_c → RΓ → RΓ_∂](#boundary-triangle); [The stratification of the Borel–Serre boundary by parabolic classes](#boundary-stratification); [Finite decomposition of X_K into arithmetic quotients](#component-decomposition); `AdelicAlgebraicGroups:AA.3/arithmetic-quotient-compact`; `mathlib:CongruenceSubgroup.Gamma0`; `mathlib:CongruenceSubgroup.Gamma1`; `mathlib:UpperHalfPlane`.
+
+**Sources.** [[acc23]](#source-acc23), §2.1.2, (2.1.6), p. 912; [[nt16]](#source-nt16), §1, p. 1 (Introduction).
+
+<a id="characteristic-zero-galois-comparisons"></a>
+
+## Supporting comparison for the characteristic-zero applications
+
+The cuspidal-support exclusion uses characteristic-zero Galois systems, in
+addition to the residual representations assumed at maximal ideals. Develop
+the following comparison as the supporting input to the last two ALS.5
+targets. Its polynomial conventions are those of IHG.3a and the unnormalized
+Satake maps of ALS.4.
+
+For a cohomological cuspidal π of GL_m over a CM field F and an isomorphism
+ι:ℚ̄_p≅ℂ, attach a continuous semisimple r_ι(π) of dimension m. At v above a
+rational prime ℓ≠p unramified in F, where π is unramified above ℓ, the
+representation is unramified and its geometric-Frobenius polynomial is the
+unnormalized Hecke polynomial evaluated on ι⁻¹π_v. This is the GL_m input to
+the proper-Levi argument of non-eisenstein-degree-range.
+
+For a ξ-cohomological cuspidal π of U(m,m)/F⁺, with F CM containing an
+imaginary quadratic field, produce an isobaric parameter of GL_{2m}/F whose
+discrete conjugate-self-dual constituents have total degree 2m. It matches
+unramified base change at rational primes unramified in F and π, and matches
+the split-place identification at primes split in the chosen imaginary
+quadratic subfield. Its infinitesimal character is that of (ξ⊗ξ)^∨. The
+resulting r_ι(π) is continuous and semisimple of degree 2m, has the indicated
+Hecke polynomials away from p, is de Rham above p, and has labelled weights
+{λ̃_{τ,1}+2m−1,…,λ̃_{τ,2m}} for the highest weight λ̃ of ι⁻¹(ξ⊗ξ)^∨.
+At the split places its Frobenius-semisimplified Weil–Deligne representation
+matches the normalized local Langlands parameter. The local Langlands,
+classical parameter and p-adic comparison inputs must have precisely this
+normalization; a torsion attachment alone does not give these conclusions.
+
+Use the parabolic induction normalization to compare each proper-support
+eigensystem with the sum of the Galois systems of its GL and unitary Levi
+constituents, including the modulus and cyclotomic twists. After reduction,
+this must give the constituent exclusion used in non-eisenstein-degree-range
+and unitary-middle-degree. For the latter, a Levi
+∏Res_{F/F⁺}GL_{n_i}×U(m−s,m−s), s=Σn_i, has at least three residual
+constituents unless (r,s) is (1,m) or (0,0). The two irreducible residual
+m-dimensional blocks exclude the other cases. The Siegel case is excluded
+by the weight hypothesis, through the actual Kostant modules. Compatibility
+of reductions is an essential theorem, not a conclusion of a shared name for
+the maximal ideal.
+
+**Prerequisites.** AF.3 cuspidal representation spaces; AF.4 cohomological
+representations; IHG.1 determinant reconstruction; IHG.3a Hecke polynomials;
+the parabolic Satake and Kostant comparisons specified above. These finite-level
+application statements require the classical GL and unitary parameter
+constructions and their local comparisons.
+
+**Sources.** [acc23](#source-acc23), Theorems 2.3.2–2.3.3, pp.935–937,
+and the proofs of Theorems 2.4.10–2.4.11, pp.949–953.
+
+## References
+
+<a id="source-acc23"></a>
+
+**[acc23]** P. B. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. V. Le Hung, J. Newton, P. Scholze, R. Taylor, J. A. Thorne. *Potential automorphy over CM fields*. Annals of Mathematics 197 (2023), 897–1113; author copy with Annals pagination. [Source](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf).
+
+<a id="source-nt16"></a>
+
+**[nt16]** J. Newton, J. A. Thorne. *Torsion Galois representations over CM fields and Hecke algebras in the derived category*. Forum of Mathematics, Sigma 4 (2016), e21. Locators carrying published pp.40–58 refer to the journal version. [Source](https://doi.org/10.1017/fms.2016.16).
+
+<a id="source-jm02"></a>
+
+**[jm02]** L. Ji, R. MacPherson. *Geometry of compactifications of locally symmetric spaces*. Annales de l’Institut Fourier 52 (2002), 457–559. [Source](http://www.numdam.org/item/AIF_2002__52_2_457_0.pdf).
+
+<a id="source-cg18"></a>
+
+**[cg18]** F. Calegari, D. Geraghty. *Modularity lifting beyond the Taylor–Wiles method*. Inventiones Mathematicae 211 (2018), 297–433. Section and page locators here use arXiv:1207.4224v2; its §9.0.1 is published §9.1. [Source](https://arxiv.org/abs/1207.4224).
+
+<a id="source-cg20"></a>
+
+**[cg20]** F. Calegari, D. Geraghty, M. Harris. *Bloch–Kato conjectures for automorphic motives (appendix to Calegari–Geraghty, Minimal modularity lifting for nonregular symplectic representations)*. arXiv:1907.08694, §§3.1 and its proofs; the published appendix uses §A.3.1 and Theorem A.4. [Source](https://arxiv.org/abs/1907.08694).
+
+<a id="source-cn23"></a>
+
+**[cn23]** A. Caraiani, J. Newton. *On the modularity of elliptic curves over imaginary quadratic fields*. arXiv:2301.10509v3. [Source](https://arxiv.org/abs/2301.10509v3).
+
+<a id="source-sch15"></a>
+
+**[sch15]** P. Scholze. *On torsion in the cohomology of locally symmetric varieties*. Annals of Mathematics 182 (2015), 945–1066; arXiv:1306.2070 uses Corollary V.4.2 for published Corollary 5.4.2. [Source](https://arxiv.org/abs/1306.2070).
+
+<a id="source-milne"></a>
+
+**[milne]** J. S. Milne. *Introduction to Shimura varieties*. Notes, 16 September 2017. [Source](https://www.jmilne.org/math/xnotes/svi.pdf).
+
+<a id="source-sella"></a>
+
+**[sella]** Y. Sella. *Comparison of sheaf cohomology and singular cohomology*. arXiv:1602.06674v3, main theorem p.2. [Source](https://arxiv.org/abs/1602.06674).
+
+<a id="source-hr"></a>
+
+**[hr]** G. Harder, A. Raghuram. *Eisenstein cohomology for GL_N and ratios of critical values of Rankin–Selberg L-functions*. arXiv:1405.6513v2 (28 June 2015), especially §4.1 pp.23–24 and §§4.2.1–4.2.3 pp.25–27. [Source](https://arxiv.org/abs/1405.6513v2).
+
+<a id="source-franke"></a>
+
+**[franke]** J. Franke. *Harmonic analysis in weighted L2-spaces*. Annales scientifiques de l’École Normale Supérieure (4) 31 (1998), 181–279; §7.4, Theorem 18, pp.255–256. [Source](https://www.numdam.org/item/10.1016/s0012-9593%2898%2980015-3.pdf).
+
+<a id="source-bs73"></a>
+
+**[bs73]** A. Borel, J.-P. Serre. *Corners and arithmetic groups*. Commentarii Mathematici Helvetici 48 (1973), 436–483. [Source](https://www.e-periodica.ch/iiif/com-001:1973:48::32/manifest).
+
+<a id="source-dh73"></a>
+
+**[dh73]** A. Douady, L. Hérault. *Arrondissement des variétés à coins — Appendice à Corners and arithmetic groups*. Commentarii Mathematici Helvetici 48 (1973), 484–489. [Source](https://www.e-periodica.ch/iiif/com-001:1973:48::33/manifest).
