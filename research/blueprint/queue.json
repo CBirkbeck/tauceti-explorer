@@ -49102,8 +49102,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-InductionRestrictionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7592"
+   "state": "pending",
+   "note": "released on GitHub issue #7592"
   },
   {
    "id": "REV-PKG-InductionRestrictionPartII",
@@ -49284,8 +49284,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -79995,8 +79995,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6217"
+   "state": "pending",
+   "note": "released on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -80160,8 +80160,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -80383,8 +80383,8 @@
     "FIX-RT-AREA-iwasawa-3~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5869"
+   "state": "pending",
+   "note": "released on GitHub issue #5869"
   },
   {
    "id": "RT-AREA-langlands-1",
@@ -81470,8 +81470,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -83064,8 +83064,8 @@
     "FIX-RT-AREA-ktheory-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5542"
+   "state": "pending",
+   "note": "released on GitHub issue #5542"
   },
   {
    "id": "RT-AREA-ktheory-2",
