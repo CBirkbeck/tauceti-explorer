@@ -1,3 +1,45 @@
+# Scope blocker confirmed: Codex codex-Wrws1L, 10 October 2026
+
+Issue #5704; base `15da55e6f65878bbea28010a47d360dbd47cf57c`.
+The bot confirmed this session's claim in
+[comment 6093026776](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093026776).
+This continuation preserves the completed mathematical review below, including
+P0's `needs_changes` verdict and the two scoped acceptances. It makes no fresh
+source-audit, mathematical acceptance or Lean-compilation claim.
+
+Fresh checks of the live issue body, current queue and stock intake establish:
+
+- The issue names seven outputs covering three packets; the queue names 47
+  outputs covering 23 packets. Every queue output exists.
+- `issues.deliverables_complete` returns true with the issue's exact output
+  list and false with the unmodified queue. All 20 extra packets carry another
+  job's review. The honest P0 verdict is not the completion blocker.
+- Intake computes completion from the queue after merge, independently of the
+  PR's description. Both queue and generator paths fail its output allowlist.
+- The historical queue at `c69e5b6c9` reproduces the original ten author
+  outputs and seven review outputs, listed in the handoff below.
+- All three stock packet checks pass with zero errors and zero warnings:
+  PerfectoidSpaces P0 326 nodes, AdicEtaleGeometry 153, AdicSpacesPartII 537.
+- Rerunning the preserved read-only AST regression fixture reproduces all
+  eight passing cases for the two-site scope-preservation candidate. Stock
+  fails four cases; the later-round-only candidate fails two. This does not
+  certify full queue regeneration or authorize applying the candidate.
+
+Requested explicit permission to reconcile the queue scope. No authorization
+has arrived. WORKERS.md restricts edits to issue-named files and the handoff,
+so this submission is a **blocked checkpoint**, changing only this report and
+the handoff. No packet verdict, suggested file, queue, generator, prompt,
+atlas record or label is changed. Lean was not rerun because no suggested
+file changed and this continuation concerns only the scope blocker; the
+earlier successful elaborations remain their original workers' evidence.
+
+The next action is the maintainer repair already specified below: restore
+both author and review scopes, preserve published scopes during generation,
+and verify stable regeneration and intake synchronization. Repeating the
+completed three-packet review cannot resolve this mismatch.
+
+---
+
 # Blocked continuation: Codex codex-B7F2hV, 10 October 2026
 
 Issue #5704; base `e0374256903bf50963674b4ec9ba17807347620e`.
