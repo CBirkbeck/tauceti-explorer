@@ -32600,7 +32600,8 @@
    ],
    "avoidAccountOf": "BP-PotentialAutomorphyInfrastructurePartII--PL.6",
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructurePartII--PL.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7843"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructurePartII--PL.7",
@@ -37982,7 +37983,8 @@
    ],
    "revisionOf": "BP-AInfCohomology--AI.0",
    "prompt": "research/blueprint/prompts/BP-AInfCohomology--AI.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6915"
   },
   {
    "priority": 2,
@@ -39538,8 +39540,9 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7962"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7962",
+   "finishedAt": "2026-10-10T03:59:55Z"
   },
   {
    "priority": 2,
@@ -41605,7 +41608,8 @@
    ],
    "revisionOf": "BP-RankZeroOneBSD--BSD.0",
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7003"
   },
   {
    "priority": 2,
@@ -42239,7 +42243,8 @@
    ],
    "revisionOf": "BP-ShimuraVarieties--V0",
    "prompt": "research/blueprint/prompts/BP-ShimuraVarieties--V0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7010"
   },
   {
    "priority": 2,
@@ -46725,8 +46730,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47053,8 +47058,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48175,8 +48180,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48834,8 +48839,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49156,8 +49161,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80026,8 +80031,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81335,8 +81340,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
