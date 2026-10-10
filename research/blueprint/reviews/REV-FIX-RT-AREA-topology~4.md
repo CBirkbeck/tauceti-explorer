@@ -1,157 +1,121 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-dN8Riv`, 10 October 2026. Atlas base
-`aa195923d` (Queue: record swarm intake).
+`codex-DfXYPy`, 10 October 2026; atlas base `334197e7d`.
+Claim confirmed by the bot for comment 6099600179.
 
-This continues [PR #8459](https://github.com/CBirkbeck/tauceti-explorer/pull/8459),
-retaining the earlier independent audit and its source evidence. This session
-rechecked the supplier interfaces and made the citation correction below; it
-did not repeat the whole audit of unrelated declarations. The reviewed fix was
-`FIX-RT-AREA-topology~4`, Codex `codex-BLPWxk`,
-[PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873), merge
-`c1b39075`. I did none of that fix, its predecessors, the red team,
-verification, or the blueprints/assemblies examined here.
+This continues [PR #8487](https://github.com/CBirkbeck/tauceti-explorer/pull/8487).
+The reviewed fix is `FIX-RT-AREA-topology~4`, Codex `codex-BLPWxk`,
+[PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873).
+This session did none of that fix, its predecessors, the original blueprints,
+red team or finding verification. It claimed only this review.
 
-The three supplier reviews named in the issue are complete. All 27 assigned
-findings are accounted for below. A `needs_changes` verdict completes the
-review; it identifies a correction rather than promising an unfinished audit.
-The local queue also demands two packet reviews outside the issue's writable
-scope. That conflict, described at the end, prevents completion of the queue job.
+The three reviews named in the issue are complete. The queue additionally
+requires two packet reviews outside the issue's writable scope; that unresolved
+scope conflict makes this submission a **checkpoint**, rather than a completed
+queue job. A `needs_changes` verdict itself completes a bounded review.
 
-| Packet | Bounded fix-review verdict | Reason |
+| Listed packet | Bounded verdict | Reason |
 |---|---|---|
-| Polylogarithms | **accepted** | Correct single owner for tetrahedron volume and geometric prerequisites; ideal-region supplier gap remains explicit. |
-| HabiroNahmSeries | **accepted** | Formal and analytic exports retain distinct hypotheses; corrected public equation/page locators. |
-| QSeriesPartitionsAndMockModularForms | **needs_changes** | Correct scalar owner and matrix-extension route; reader still disagrees at the four locations below. Broader blueprint rejections remain binding. |
+| Polylogarithms | accepted | P.2 owns the ideal-tetrahedron formula and explicitly requests its missing geometric carrier. |
+| HabiroNahmSeries | accepted | The six exports retain their separate formal/analytic and arithmetic hypotheses; numbered source locators corrected below. |
+| QSeriesPartitionsAndMockModularForms | needs_changes | Scalar ownership is correct, but the reader still has four concrete discrepancies. |
 
-Each new top-level review names this job and session. The overwritten reviews
-from PR #8459 are preserved in `reviewHistory`, alongside the earlier full
-blueprint and fix reviews. No stage is promoted to closed, no gap/request is
-removed, and no suggested declaration changes.
+These are verdicts on the assigned fixes, not new acceptances of all unrelated
+blueprint declarations. Prior reviews are preserved in `reviewHistory`.
+All statements, hypotheses, APIs, tests, planets, coverage, gaps and requests
+are retained. No suggested declaration changed and nothing is claimed formalised.
 
-## /7: tetrahedron volume
+## Fresh source and contract checks
 
-Rechecked `P.2/hyperbolic-volume`: it imports GeometricTopology layers 7 and 8
-and has matching requests for their metric/model interfaces. Its ordered
-cross-ratio is `r(∞,0,1,z)=z`; positive imaginary part gives positive ordered
-volume. Goncharov, introduction item 5, p. 7 and §6, p. 53, and Zagier,
-Dilogarithm I.4, pp. 13–14, equations (7)–(9), support the sign and supplier
-boundary. P.2 proves the tetrahedron identity; QT.5 assembles the manifold sum.
-There is no reverse QT.5 prerequisite.
+**Finding /7.** Read Zagier, *The Dilogarithm*, I.4, equations (7)–(9), printed
+pp. 13–14, alongside Goncharov's introduction item 5, p. 7, and §6, p. 53.
+P.2 owns the ordered tetrahedron identity and QT.5 assembles manifold sums.
+GeometricTopology supplies the model and metric foundations; its volume API
+does not provide the ideal-boundary/oriented-region carrier. The latter remains
+an explicit gap. The reviewed P.2 part's Milnor-angle proof route remains
+independent of that missing geometric interface. Its earlier Milnor source
+reading is retained evidence; this session did not retrieve Milnor's Appendix
+and makes no fresh reading claim for it.
 
-The accepted P.2 part contains the Milnor/Lobachevsky proof route, separate
-from the early ideal-boundary/measurable-region gap. Existing volume and
-Mostow interfaces alone do not construct that region or its orientation.
-The current library's Riemannian measure and isometry invariance are existing
-work to import, not new atlas targets. No mathematical edit was needed here.
-The P.2 part was inspected read-only; its full independent acceptance was not
-replaced. The AMS Milnor PDF returned HTTP 403 in this session, so I do not
-claim a fresh reading of its Appendix. Its earlier source reading remains the
-evidence for that citation.
+The exact missing QT edge is still present as a defect: the current
+`ArithmeticQuantumTopology:QT.5/volume-and-chern-simons` statement imports the
+P.2 tetrahedron identity, but its prerequisites omit
+`Polylogarithms:P.2/hyperbolic-volume`. Its open P.2 request is not a substitute
+for the exact existing supplier under PROTOCOL §3. After scope authorization,
+add that node id, retaining G4/G5 and the geometric comparison request.
 
-## /11: formal Gaussian data and Habiro exports
+Also document the ordered-sign conversion. P.2 normalizes `(∞,0,1,z)` to z;
+QT normalizes `(0,∞,1,z)` to z. On the same ordered quadruple the two raw
+cross-ratios are reciprocal, so `D(1/z) = -D(z)`. Exchanging the first two
+vertices changes the ordered-volume sign. The imported equality must therefore
+specify the corresponding vertex-order/orientation conversion. This observation
+does not by itself prove that either independently chosen convention is wrong.
+The consumer files were inspected read-only.
 
-Rechecked the six exact exports: Euler–Maclaurin, formal Gaussian integration,
-radial asymptotics, HB.8's Gaussian collection, its qualified identification,
-and HB.9 module membership. QT.5 supplies the geometric example, QT.6 owns
-NZ comparisons/topological invariance/state-integral choices, and QT.7 owns
-knot modularity. The base Habiro machinery does not take QT.6/QT.7 as premises.
+**Finding /11.** Read GZ §1's analytic setup and §3, equations (13)–(21),
+printed pp. 4–6, and GSWZ §1.8 and §2.5, equations (110)–(127), pp. 28–31.
+The analytic radial theorem requires positive-definite rational A, its positive
+real solution, an odd root order prime to a quadratic denominator, and specified
+branches. The formal Gaussian bracket instead uses an invertible symmetric
+Hessian over a rational algebra and a completion that makes each coefficient
+finite. The figure-eight matrix has kernel `(1,-1)`; it is not an analytic
+positive-definite example. The NZ-to-Nahm dictionary retains the integral and
+unimodular conditions on B. No formal bracket proves knot invariance or an
+analytic remainder estimate.
 
-The figure-eight matrix kills `(1,-1)` and cannot satisfy analytic positive
-definiteness. GZ Theorem 3.1, pp. 5–6, uses positive-definite rational data,
-a distinguished positive real solution, and an odd root order coprime to a
-quadratic denominator. GSWZ §1.8, pp. 15–17, makes the formal NZ comparison
-under its separate integral/unimodular conditions. The formal Gaussian
-operator instead uses a symmetric invertible Hessian over a Q-algebra with
-the completed domain controlling coefficientwise finiteness. Neither a
-probability measure nor a formal bracket supplies the other's analytic theorem.
+Checked all six HB.10 exports against their actual supplier nodes: HB.4's
+Euler–Maclaurin remainder, formal bracket and radial expansion; HB.8's Gaussian
+collection and qualified identification; HB.9's coefficient-module membership.
+HB.8 G1/G2 and the HB.9 signed Kummer, auxiliary coprimality, coefficient
+transfer, full finite étale algebra/HB.7 descent and integral-gluing obligations
+remain. The numerical figure-eight and module-membership assertions are not
+promoted to topological or scalar-ring statements.
 
-HB.8/HB.9's controlling refinements retain G1 prefactor reconciliation, G2
-uniform regularity, the correct jet and auxiliary coprime order, coefficientwise
-Kummer descent, signed Kummer orientation, excluded primes, coefficient
-transfer and all-order integral gluing. The full quadratic finite étale
-`B=R[T]/(δT²−1)`, including split components and HB.7 descent, is retained.
-The knot consumer's G6 imports these obligations. Membership is not an
-unconditional scalar-ring or topological-invariance consequence.
+Corrections made in the base Habiro packet:
 
-The preceding checkpoint's small source/numerical/comment corrections are
-retained. The material reader export omissions were already resolved; its
-controlling refinements and comparison maps remain explicit. A later authorized
-reader synchronization should carry the updated locators below.
+- In `HB.8/fgi-collection`, replace the proof-outline label `Psikdef` by
+  equation (114), printed p. 29, and `FGIcong` by equation (126), printed
+  p. 31. Identify the stated m=1 specialization with equation (127).
+- Add the source-support entry for (114), (126)–(127), using our own words.
+- In `HB.4/formal-gaussian-integration`, remove the incorrect claim that
+  (110)–(111) cross PDF pages 28 and 31; both are on printed p. 28.
 
-Correction made **in this session**, in the base Habiro packet:
+These are locator corrections. No mathematical assertion or Lean signature changes.
 
-- `HB.8/fgi-collection`: replace the internal TeX label `Ikdef` in its
-  statement by equation (118). Its sources now cite GSWZ §2.5, Definition
-  2.11, equations (117)–(119), printed pp. 29–30; the periodicity paragraph
-  after (119), p. 30; and the critical potential/value in (115)–(116), p. 29.
-  The support descriptions use our own words. The periodicity proof remains
-  an obligation, and G1/G2 still control normalization and regularity.
+**Finding /13.** Read Zagier, *Quantum modular forms*, p. 2 and Examples 3–5,
+pp. 10–13, and Lawrence–Zagier §3, Theorems 1–2, p. 98, and §4's multiplier
+comparison. QM.5 supplies the scalar real-analytic discrepancy and additive
+cocycle. Nonzero normalized factors exclude the identically-zero factor; the
+Kontsevich example retains the inverse eta multiplier for its lower-boundary
+branch. QT.7's knot matrices and conjectural asymptotic laws are separate from
+that scalar predicate. The requested general matrix extension remains open;
+calling a discontinuous knot cocycle quantum modular supplies no analytic proof.
+The WRT/false-theta comparisons retain QT.3/QT.4 and HC.3/HC.4 normalization
+inputs and their analytic comparison obligations.
 
-The preceding checkpoint's HB.4 numbered-equation/page corrections are
-retained. This change alters no hypothesis, API, dependency or suggested
-signature, and closes no mathematical gap.
+Four reader corrections remain outside this issue's listed deliverables:
 
-## /13: scalar periods and matrix cocycles
+1. At the export table near line 2964, add the ninth scalar additive-cocycle
+   contract (`QM.5/quantum-modular-cocycle`).
+2. Near line 2972, specify the inverse eta multiplier on the lower branch.
+3. Near lines 2818 and 2987, distinguish Glaisher's scaled c_n from the Taylor
+   coefficients c_n/(24^n n!). The first four Taylor coefficients are
+   1, 23/24, 1681/1152, 257543/82944, not the four unscaled integers.
+4. Near lines 4166–4168, replace the unwritten/no-nodes QT.7 account with the
+   current consumer plan and its QM.5 → QT.7 direction.
 
-Rechecked all nine QM.5 scalar export contracts, including the additive period
-cocycle. Its factor is nonzero and normalized by `ε(1)=1`, ruling out the zero
-factor counterexample. Half-integral weights retain the lower-boundary branch.
-The Kontsevich function uses the inverse eta multiplier for that convention;
-the explicit generator values agree. These clarifications were made in
-PR #8436, not in this session.
-
-Zagier, Quantum modular forms p. 2 and Examples 3–5, pp. 10–13, distinguish
-scalar periods from the knot matrix construction. Lawrence–Zagier Theorems
-1–2, p. 98, compare the rescaled WRT invariant with its analytic radial function
-and formal expansion; §4, pp. 102–104 has the vector transformation law.
-The packet retains the subgroup/multiplier qualifications and the separate
-QT.3/QT.4 and HC.3/HC.4 comparison inputs. Algebraic evaluation is not an
-unqualified analytic limit.
-
-The missing general matrix-valued multiplicative cocycle interface is explicitly
-routed to `QSeriesPartitionsAndMockModularForms, Part II where this general
-interface is absent`. QT.7 owns its knot matrices and their comparisons.
-Common pole-free domains, branch-aware weights and analytic extension criteria
-remain obligations. The supplier direction QM.5 → QT.7 is acyclic with
-QT.4 → QM.5. A conditional knot composition law does not close the generic gap.
-
-The reader still needs four concrete corrections (it is outside this job):
-
-1. In the export table beginning near line 2964, add the ninth scalar additive
-   cocycle contract. The eight existing rows do not include it.
-2. At line 2972, specify the inverse eta multiplier with the lower-boundary
-   convention, rather than the eta multiplier.
-3. At the value-formula account near line 2818 and acceptance test at line
-   2987, distinguish Glaisher's scaled `c_n` from the Taylor coefficient
-   `c_n/(24^n n!)`. The unscaled integers are not the coefficients of
-   `e^{-t/24}F(e^{-t})`.
-4. At lines 4166–4168, remove the assertions that QT.7 has no nodes and is a
-   prospective consumer. Its current accepted packet has 106 nodes; use its
-   existing owner split and the QM.5 → QT.7 direction.
-
-The trefoil row already requires the color, orientation and normalization
-comparison. The older report's objection to that row remains withdrawn.
-The native-form, fifth-order coordinate and proof/supplier objections of the
-broader independent blueprint/automorphic reviews remain binding; this bounded
-review does not overwrite them with a whole-packet acceptance.
-
-Exact independent arithmetic reconfirms the first four normalized strange
-coefficients as `1, 23/24, 1681/1152, 257543/82944`. Expand each product through
-degree three and multiply by `exp(-t/24)` using rational arithmetic; products
-with index above three have higher t-adic order and do not contribute.
-Multiplication by `24^n n!` recovers `1,23,1681,257543`. A separate computation
-in `Q[z]/(z²-z+1)` gives `(1-2z)z=2-z` and `(1-2z)²=-3`, reconfirming the
-figure-eight formal datum without asserting a manifold-volume theorem.
+The trefoil comparison is already qualified. Broader native-form, fifth-order
+and proof/supplier objections from earlier independent reviews remain in
+history; this bounded verdict does not discharge them.
 
 ## All 27 assigned findings
 
-For consumer/upstream files outside the issue, **handoff accepted** means the
-correction has the right owner/hypotheses. It does not mean the missing proof
-has been implemented or that this session replaced the owner's full review.
-QT's current accepted packet, its requests and eight gaps were inspected
-read-only. The prior full blueprint acceptance remains in force.
+Read all assigned claims, verification verdicts and the round-four fix report.
+The following dispositions retain the preceding independent audit, supplemented
+by the fresh /7, /11 and /13 checks above. “Handoff accepted” assesses the
+owner/contract disposition; it is not an implementation claim or replacement
+of an out-of-scope packet's independent review.
 
 | Finding | Verdict and reason |
 |---|---|
@@ -186,141 +150,80 @@ read-only. The prior full blueprint acceptance remains in force.
 The eleven upstream dispositions remain maintainer notes. No upstream roadmap,
 live atlas data, extract, link map or restructuring-result file was edited.
 
-## Retained evidence from the preceding independent audit
+## Baseline, existing owners and validation
 
-The preceding reviewer recorded reading WORKERS, PROTOCOL, expansion protocol and UPSTREAM_GUIDE; the fix report
-and all assigned claims/verification dispositions; the preceding checkpoint;
-the relevant supplier nodes/refinements/readers and current consumer requests.
-Reviewed the relevant AUDIT-30, AUDIT-14 and AUDIT-15 records before deciding
-ownership. This is a bounded review of the assigned fixes, not an assertion
-that all unrelated declarations in the three large packets were audited anew.
+Read the reviewed AUDIT-30 P.2, AUDIT-14 HB.4/HB.8/HB.10 and AUDIT-15 QM.5
+entries in `data/library-coverage.json` before assessing ownership.
 
-Confirmed shared Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; read
-`AnalyticOnNhd`, `Matrix.PosDef`, `Matrix.PosDef.det_pos` and `TopPair` there.
-At Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`, independently checked
-`FramedOrientedPDCode` (Basic.lean:129), `TauCeti.covMatrix_multivariateGaussian`
-(Multivariate.lean:55; positive-semidefinite covariance),
-`TauCeti.multivariateGaussianPDFReal_def` (Density.lean:83) and
-`TauCeti.multivariateGaussian_eq_withDensity` (Density.lean:166;
-positive-definite covariance). Their three shared files match the pinned raw
-files byte for byte. The density formula alone does not give a density law at
-a singular covariance or an algebraic formal Gaussian theorem.
+Fresh pinned-source checks confirmed the shared Mathlib commit
+`082e2d37e8b0463410cdb532e111cd43d5a66174`; read `AnalyticOnNhd` and
+`Matrix.PosDef` in their source files. Fetched the raw Tau Ceti files at
+`f790474821cf4256814db967cb154e7af3d0c369` and compared them byte for byte
+with the shared sources before reading `FramedOrientedPDCode`,
+`TauCeti.covMatrix_multivariateGaussian`, `TauCeti.multivariateGaussianPDFReal_def`
+and `TauCeti.multivariateGaussian_eq_withDensity`. The covariance theorem
+requires positive semidefiniteness; the density law requires positive
+definiteness. The density's defining formula is not a density-law theorem
+for a singular covariance, and none supplies algebraic formal integration.
 
-The preceding reviewer read TauCetiRoadmap at `670582c502e1d4497d9ccd492b36c67028ef6666`:
-complete AlgebraicTopology and Completed/UniversalCovers READMEs and relevant
-GeometricTopology/DifferentialGeometry layers/signatures. In particular, checked
-arbitrary-pair relative homotopy, connected-manifold homogeneity and
-`integralTopForm_mextDeriv`'s actual hypotheses. Current Tau Ceti at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` implements `riemannianVolume` and
-`RiemannianIsometry.measurePreserving_riemannianVolume`; its latter interface
-requires Lindelöf spaces and continuous Riemannian metrics. No Lake command
-was run in that read-only environment.
+Read current TauCetiRoadmap at
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`: relevant GeometricTopology,
+AlgebraicTopology and DifferentialGeometry documents/signatures. Current Tau
+Ceti's Riemannian volume and isometry-invariance source was also read.
+Manifold forms/Stokes, abstract corner boundaries and connected-manifold
+homogeneity already have upstream owners. No library or upstream roadmap was
+edited, and no Lake command was run in the read-only environment.
 
-The preceding reviewer recorded fresh source readings on 10 October. The source table records the
-exact versions/locators checked, in our own words. No source passage or
-restricted book was copied into the repository.
+Public sources retrieved on 10 October 2026 and inspected for the bounded
+checks above:
 
-| Source | Results checked | PDF SHA-256 |
-|---|---|---|
-| [Goncharov, math/0207036v3](https://arxiv.org/pdf/math/0207036v3) | Introduction item 5, p. 7; §6 normalization, p. 53. | `ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db` |
-| [Garoufalidis–Zagier, 1812.07690v1](https://arxiv.org/pdf/1812.07690v1) | §1 positive-definite setup, pp. 2–4; §3 Theorem 3.1, pp. 5–6. | `c8e810047d40b52ffc139553e8c9833853675f139070f3d1d4cf365267ae5b66` |
-| [GSWZ, 2412.04241v2](https://arxiv.org/pdf/2412.04241v2) | Theorem 5, p. 14; §1.8, pp. 15–17; §2.5, (110)–(111), p. 28; Remark 4.2, (233), p. 48; §4.5, pp. 54–55. | `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9` |
-| [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf) | Definition/cocycle, p. 2; Example 4, (28)–(30), pp. 11–12; Example 5 boundary, pp. 12–13. | `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf` |
-| [Zagier, strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf) | §6 Theorem, (37)–(39), pp. 958–959. | `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e` |
-| [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf) | §3 Theorems 1–2, p. 98; §4, (15)–(18), pp. 102–104. | `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543` |
-| [Habiro, math/0605314v1](https://arxiv.org/pdf/math/0605314v1) | §9 Theorem 9.4, p. 34; §10 Theorems 10.1–10.2, p. 35; §11 Lemma 11.2, p. 38. | `5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc` |
-| [Habiro, refined Kirby calculus, math/0509039v2](https://arxiv.org/pdf/math/0509039v2) | §5 Corollary 5.1 and proof, pp. 1309–1310. | `d30d9c69b652aa58539d2398f1a8424c968188d94cc2098ee462dd4e53a13416` |
-| [Zagier, Dilogarithm](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf) | I.4, pp. 13–14, equations (7)–(9), ordered tetrahedron/manifold volume. | `05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0` |
-
-All three edited packets pass `python3 scripts/check_blueprint.py` with
-**zero errors/warnings** (75, 109 and 537 nodes). Their gaps remain 19, 22
-and 22. No `excerpt` field is present. No link-map/restructuring-result file is
-a deliverable here. Intake file checks and `git diff --check` pass.
-
-The preceding reviewer’s sequential `lean-check` runs in the prescribed shared build all returned
-exit 0. Available memory exceeded 100 GB. No language server/build/cache/update
-command was started. The only warnings were admitted proofs:
-
-| Suggested file | Warnings, all `sorry` |
+| Source | PDF SHA-256 |
 |---|---|
-| Polylogarithms.lean | 462 |
-| HabiroNahmSeries.lean | 441 |
-| QSeriesPartitionsAndMockModularForms.lean | 1,469 |
-| Polylogarithms--P.2.lean (read-only) | 52 |
-| ArithmeticQuantumTopology.lean (read-only) | 65 |
+| [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf) | `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf` |
+| [GSWZ, The Habiro ring of a number field, v2](https://arxiv.org/pdf/2412.04241v2) | `308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9` |
+| [Garoufalidis–Zagier, Nahm asymptotics, v1](https://arxiv.org/pdf/1812.07690v1) | `c8e810047d40b52ffc139553e8c9833853675f139070f3d1d4cf365267ae5b66` |
+| [Lawrence–Zagier, Modular forms and quantum invariants](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf) | `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543` |
+| [Zagier, The Dilogarithm](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf) | `05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0` |
+| [Goncharov, Arakelov motivic complexes, v3](https://arxiv.org/pdf/math/0207036) | `ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db` |
 
-The two additional read-only packet validators also report zero errors/warnings
-(14 and 106 nodes). Their compilation validates signatures, not the admitted
-proofs or gap closure. Those checks do not authorize changing their reviews.
+Fresh `python3 scripts/check_blueprint.py` checks of the three listed packets
+report **zero errors and warnings**, with 75/109/537 nodes, 19/22/22 gaps and
+21/9/25 requests. All implementation statuses remain unchecked; no source
+excerpt field is present. Intake path/content checks and `git diff --check`
+pass. Semantic comparison confirms only the two cited Habiro source/proof-outline
+records and review metadata changed; previous reviews are retained.
 
-## Fresh checks and read-only consumer observation
+No Lean file changed in this session. The preceding #8487 reviewer recorded
+successful sequential `lean-check` runs with only `sorry` warnings:
+Polylogarithms 462, HabiroNahmSeries 441, QSeries 1,469. Earlier retained
+read-only evidence records P.2 part 52 and QT 65. These are prior compilation
+results, not fresh runs or proofs. Recompilation is unnecessary for JSON source
+locators and review metadata; no language server, build, update or cache was run.
 
-This session retrieved the same public PDFs listed above and checked their
-SHA-256 values. Freshly re-read GZ §3, equations (13)–(21), pp. 4–6; GSWZ
-§2.5, equations (110)–(119), pp. 28–30; Zagier's quantum-modular definition
-and cocycle, p. 2, and Examples 4–5, pp. 11–13; and Dilogarithm I.4,
-equations (7)–(9), pp. 13–14. Other table locators retain their preceding-audit
-attribution. The AMS Milnor Appendix remained inaccessible (HTTP 403).
+## Blocking scope mismatch and next action
 
-Read the current relevant AlgebraicTopology, GeometricTopology and
-DifferentialGeometry targets/signatures at TauCetiRoadmap main
-`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`; current Tau Ceti remains
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Existing volume, forms/Stokes,
-corner boundaries and manifold homogeneity retain their upstream owners.
-Fresh pinned checks confirmed the three Tau Ceti files listed above match
-`f790474` byte for byte. The covariance/density hypotheses remain distinct.
-
-Fresh packet checks for the three authorized suppliers report zero errors and
-warnings (75/109/537 nodes). Fresh sequential `lean-check` runs all exit 0,
-with only `sorry` warnings: Polylogarithms 462, HabiroNahmSeries 441, QSeries
-1,469. Available memory exceeded 100 GB; no suggested file changed. The two
-extra packets and suggested files remain untouched; their checks in the prior
-section are earlier evidence, not new compilation claims.
-
-A new read-only observation affects finding /7's consumer, rather than the
-accepted supplier. `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`
-explicitly uses the tetrahedron identity but lists only Bloch–Wigner descent,
-not `Polylogarithms:P.2/hyperbolic-volume`. No QT prerequisite references the
-latter node, and the open P.2 request alone does not create that edge. Under
-PROTOCOL §3 an existing exact supplier must be named as a prerequisite.
-After authorization, add that exact node id to the volume theorem's
-prerequisites. Preserve the open geometric comparison request and G4/G5;
-this edge supplies a planned identity, not a proof of geometric gap closure.
-Check the ordered-vertex/sign translation between the QT shape interface and
-P.2 as part of that correction; their written normalizations differ. This
-report does not infer a sign error merely from different cross-ratio choices.
-
-## Completion blocker and concrete continuation
-
-The GitHub issue names the three base supplier packets, their three suggested
-files and this report. Its full instructions repeat that file scope.
-[WORKERS.md](../WORKERS.md) says: “Edit only the files the issue names, plus
-your own scratch space.” The queue's eleven outputs additionally include:
+The GitHub issue and full instructions allow only this report, three base
+supplier packets and their three suggested files.
+[WORKERS.md](../WORKERS.md) explicitly says: “Edit only the files the issue
+names, plus your own scratch space.” The queue additionally lists four paths:
 
 - `research/blueprint/packets/ArithmeticQuantumTopology.json`
 - `research/blueprint/suggested/ArithmeticQuantumTopology.lean`
 - `research/blueprint/packets/Polylogarithms--P.2.json`
 - `research/blueprint/suggested/Polylogarithms--P.2.lean`
 
-Their prompt file is absent. `issues.py:deliverables_complete` requires this
-job's reviewer identity on every packet output. The extra packets still carry
-the accepted full reviews `REV-ArithmeticQuantumTopology~2` and
-`REV-Polylogarithms--P.2`. Thus the issue's seven-output completion predicate
-passes, while the queue's eleven-output predicate fails. Do not modify queue
-or intake logic to hide that mismatch.
+The queue prompt is absent. `issues.py:deliverables_complete` requires this
+job's reviewer identity on all five packet outputs, so the seven-output
+issue predicate passes while the eleven-output queue predicate fails.
+The extra packets retain their accepted full independent reviews; this worker
+did not alter them or the completion logic.
 
-This session requested explicit authorization for the four extra paths and
-prepared their read-only contract checks and the exact missing dependency above. Authorization has not
-arrived. The submission therefore remains a checkpoint blocked on scope,
-not a run-time limit or an incomplete review of the authorized suppliers.
-The existing full blueprint reviews were not silently replaced.
-
-Once authorization is explicit, independently review the current QT /1–/16
-corrected contracts and P.2's /7 Milnor-angle route, preserve their full
-acceptances in history, and record bounded fix-review verdicts naming this job.
-Their eight/nineteen and two/three gap/request counts must survive; no stage
-should become closed. The earlier read-only checks establish that the unchanged
-signatures elaborate; rerun only if they change. The AMS access limitation should be resolved
-before claiming a fresh reading of Milnor's Appendix. Reader synchronization
-remains a separate authorized job and does not prevent a completed review
-verdict of `needs_changes`.
+Explicit authorization for the four extra paths was requested in this session
+and has not arrived. Further listed-file rechecks cannot remove this blocker.
+Resolve the file scope before continuing: either authorize the queue outputs,
+or align the queue with the actual issue deliverables. Once authorized, finish
+the bounded QT /1–/16 and P.2 /7 reviews, preserving prior full reviews in
+history; add the exact QT volume prerequisite and document its ordered-sign
+conversion. Preserve QT's eight gaps/nineteen requests and P.2's two gaps/three
+requests. Reader synchronization remains a separate job and does not invalidate
+a completed `needs_changes` review. No next worker needs scratch files.
