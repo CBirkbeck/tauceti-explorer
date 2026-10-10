@@ -1004,7 +1004,7 @@ Unit tests:
 
 - `parity_square_map_test_1` (degenerate): a(0)=0 and s(0)=0.
 - `parity_square_map_test_2` (computation): For S₃ transpositions and its identity reduced cover, V=U=F₂, a=id, B=0 and s=0.
-- `parity_square_map_test_3` (non-example): For a group with two classes having the same abelianized image, a(e₁+e₂)=0 even though e₁+e₂≠0.
+- `parity_square_map_test_3` (non-example): For distinct classes with the same abelianized image, a(e₁+e₂)=0 even though e₁+e₂≠0. In S₆ the class of a transposition and the class of three disjoint transpositions give an explicit example: their cycle types differ and both have odd sign.
 
 Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
 
@@ -1016,9 +1016,11 @@ Construction and proof route: The abelianization condition is a(ε)=a(v_g). Over
 
 Needs: RS.4, the parity and lift-square maps; RS.4, square-class obstruction of a fiber.
 
+A signature includes either the identity with lift 1, or an actual x∈c with its marked lift. Write v_g=0 in the first case and v_g=e_[x] in the second. For an integer degree m, let ε(m)_d be m_d reduced modulo 2. The signature square is the kernel element extracted from the square of this chosen lift. The equivalence with ε(m)+v_g∈ker a uses the actual degree-to-abelianization map, and the square-obstruction identity uses the actual extension's marked square columns. Each chosen representative x_d must belong to its indexed conjugacy class.
+
 Checks: Use a signature translate; ker a alone only describes the g=1 case.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ### Joint parity constraint map
 
@@ -1041,7 +1043,7 @@ Unit tests:
 - `joint_parity_map_test_2` (computation): For a=0,s=id on F₂ and B_t=0, kerL_t=0; when B_t=B, kerL_t=F₂.
 - `joint_parity_map_test_3` (non-example): Using only a misses the obstruction in the first of those cases.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ### Surviving parities form an affine kernel coset
 
@@ -1051,9 +1053,11 @@ Construction and proof route: Membership combines a compatibility equation and t
 
 Needs: RS.4, joint parity constraint map; RS.4, compatible parities and their obstruction; RS.4, two-adic criterion for fiber survival.
 
-Checks: For integer-degree counts retain nonnegative lower bounds and an exact total degree separately.
+Instantiate L_t with the existing involution abelianization map and the lift-square map of the marked extension. For every integer degree m, the actual fixed subset of the pullback over (g,m) is nonempty exactly when ε(m)+v_g∈ker L_t. The fixed subset then has cardinality |ker(a↦a^{q−1})|. This specializes to the reduced-cover model, where A is the reduced multiplier; it also holds for any finite central marked model. The conditions are q>1, q odd, and q coprime to a positive common exponent n of the cover and G. No upper bound q<n is required.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Checks: Lower bounds on coordinates and an exact total degree enter the subsequent integer-degree count. They are not hypotheses of the fixed-fiber criterion itself.
+
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ### Ranks count surviving parities
 
@@ -1063,9 +1067,11 @@ Construction and proof route: Translation preserves cardinality; use rank-nullit
 
 Needs: RS.4, surviving parities form an affine kernel coset; `LinearMap.finrank_range_add_finrank_ker` (Mathlib); `Module.card_eq_pow_finrank` (Mathlib).
 
+For t=0 the exact-threshold set is the entire translated kernel of L_0. For t>0 it is the translated kernel of L_t with the translated kernel of L_{t−1} removed. On a compatible actual degree fiber this condition is equivalent to threshold β(g,m)=t. The kernels are nested because B_{t−1}⊆B_t, so ordinary natural-number subtraction gives the stated histogram. Translation identifies the parity counts for any two signatures, independently of the chosen representative lifts.
+
 Checks: A translated coset can have a different weight enumerator despite equal cardinality.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ### Weight enumerator of a surviving parity coset
 
@@ -1087,7 +1093,7 @@ Unit tests:
 - `parity_weight_enumerator_test_2` (computation): For N=1,N₀=0, C={0} gives 1 and C={1} gives X.
 - `parity_weight_enumerator_test_3` (non-example): Those two cosets have equal cardinality but unequal polynomials; signature counts cannot be identified by cardinality alone.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ### Independent class images eliminate the obstruction
 
@@ -1097,9 +1103,11 @@ Construction and proof route: Surjectivity and basis independence give an isomor
 
 Needs: RS.4, the parity and lift-square maps; RS.4, compatible parities and their obstruction; RS.4, surviving parities form an affine kernel coset.
 
+State independence on the actual elements [x_d] in Additive(G^ab), using the elementary-2 module structure supplied by generation by involutions. The bijectivity of a identifies degree compatibility with ε(m)=v_g. The square-obstruction class is then zero, and for every allowed q the actual fixed fiber is nonempty with |A[q−1]| elements. Generation, valid class representatives, finiteness of A, and the common exponent hypotheses remain explicit; independence does not replace any of them.
+
 Checks: No condition on the size of the reduced multiplier is needed.
 
-Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1, equation (6), Remark 4.2, printed pp.400–401 (PDF pp.24–25).
+Source: Derived from Wood’s fixed-fiber equation in *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.1 and equation (6), printed pp.400–401 (PDF pp.24–25), by the square-class and finite-vector-space arguments above. The affine-kernel and histogram formulas are consequences developed here, rather than separately numbered results in that paper.
 
 ## RS.5: Coprime semidirect products and compatible covers
 

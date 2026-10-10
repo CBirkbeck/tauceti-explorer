@@ -471,6 +471,8 @@ lemma torsion_image_filtration_mono (t u : ℕ) (h : t ≤ u) :
     torsion_image_filtration (A := A) t ≤ torsion_image_filtration u := by sorry
 -- torsion_image_filtration_test_2
 example : torsion_image_filtration (A := Multiplicative (ZMod 8)) 2 = ⊥ ∧
+    torsion_image_filtration (A := Multiplicative (ZMod 8)) 0 = ⊥ ∧
+    torsion_image_filtration (A := Multiplicative (ZMod 8)) 1 = ⊥ ∧
     torsion_image_filtration (A := Multiplicative (ZMod 8)) 3 = ⊤ := by sorry
 -- torsion_image_filtration_test_3
 example (a : Multiplicative (ZMod 8)) (h : a^2=1) :
@@ -1066,8 +1068,6 @@ lemma parity_square_map_quotient [Fintype (InertiaClasses c)]
     (v : InertiaClasses c → ZMod 2) :
     parity_square_map M hinv rep v = ∑ d, v d •
       TauCeti.elementaryTwoQuotientMk (marked_square_column M hinv rep d) := by sorry
--- parity_square_map_test_1
-example [Fintype (InertiaClasses c)] : parity_square_map M hinv rep 0 = 0 := by sorry
 end LiftSquares
 
 section InvolutionDegrees
@@ -1496,6 +1496,232 @@ lemma c3_power_coordinate (α : (ZMod 3)ˣ) :
         (power_class_permutation c3_nonidentity 3 (by decide) c3_exponent c3_power_closed α)).trans
         c3_class_equiv := by sorry
 end ThreeCycleClassAction
+
+section SignatureParityFibers
+variable {A E G : Type} [CommGroup A] [Group E] [Group G]
+    {c : Set G} [Fintype (InertiaClasses c)]
+    (M : marked_extension A E G c) (hgen : Subgroup.closure c = ⊤)
+    (hinv : ∀ x : c, x.val^2 = 1)
+    (rep : InertiaClasses c → c) (hrep : ∀ d, inertia_class_mk c (rep d) = d)
+
+-- none denotes the identity signature; some x denotes the signature of x ∈ c.
+def signature_element (x : Option c) : G := x.elim 1 Subtype.val
+def signature_lift (x : Option c) : E := x.elim 1 M.marking
+include hinv in
+lemma signature_involution (x : Option c) : (signature_element x)^2 = 1 := by
+  have := hinv
+  sorry
+lemma signature_lift_over (x : Option c) :
+    M.extension.rightHom (signature_lift M x) = signature_element x := by sorry
+def signature_parity (x : Option c) : InertiaClasses c → ZMod 2 := by
+  classical
+  exact x.elim 0 (fun y => Pi.single (inertia_class_mk c y) 1)
+def degree_parity (m : InertiaClasses c →₀ ℤ) : InertiaClasses c → ZMod 2 :=
+  fun d => (m d : ZMod 2)
+def signature_square (x : Option c) : A :=
+  involution_lift_square M.extension (signature_element x) (signature_involution hinv x)
+    (signature_lift M x) (signature_lift_over M x)
+lemma signature_square_identity : signature_square M hinv none = 1 := by sorry
+include hrep in
+lemma signature_square_marked (x : c) :
+    TauCeti.elementaryTwoQuotientMk (signature_square M hinv (some x)) =
+      TauCeti.elementaryTwoQuotientMk (marked_square_column M hinv rep
+        (inertia_class_mk c x)) := by
+  have := hrep
+  sorry
+
+-- A joint map built from the actual class images and the actual extension's squares.
+def signature_joint_map (t : ℕ) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    (InertiaClasses c → ZMod 2) →ₗ[ZMod 2]
+      Additive (Abelianization G) ×
+        (TauCeti.ElementaryTwoQuotient A ⧸ torsion_image_filtration (A := A) t) := by
+  letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+  exact joint_parity_map (involution_parity_map c hgen (fun x hx => hinv ⟨x, hx⟩))
+    (parity_square_map M hinv rep) (torsion_image_filtration (A := A) t)
+
+include hrep in
+theorem affine_compatible_parities (x : Option c) (m : InertiaClasses c →₀ ℤ) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    (degree_to_abelianization c (Multiplicative.ofAdd m) =
+        Abelianization.of (signature_element x) ↔
+      degree_parity m + signature_parity x ∈
+        LinearMap.ker (involution_parity_map c hgen (fun y hy => hinv ⟨y, hy⟩))) ∧
+    square_obstruction (signature_square M hinv x) (marked_square_column M hinv rep)
+        (fun d => m d) =
+      parity_square_map M hinv rep (degree_parity m + signature_parity x) := by
+  have := hrep
+  sorry
+
+-- parity_square_map_test_1 tests both maps on the same native parity space.
+example : involution_parity_map c hgen (fun x hx => hinv ⟨x, hx⟩) 0 = 0 ∧
+    parity_square_map M hinv rep 0 = 0 := by sorry
+
+variable [Finite A] (n : ℕ) (hn : 0 < n)
+    (hE : ∀ e : E, e^n = 1) (hG : ∀ g : G, g^n = 1)
+    (hpow : ∀ α : (ZMod n)ˣ, ∀ x ∈ c, finite_power n α x ∈ c)
+
+include hrep in
+lemma actual_two_adic_survival (q : ℕ) (hq : 1 < q) (hodd : Odd q)
+    (hqn : Nat.Coprime q n) (x : Option c) (m : InertiaClasses c →₀ ℤ) :
+    (fixed_degree_fiber M n hn hE hG hpow (ZMod.unitOfCoprime q hqn)
+      (signature_element x) m).Nonempty ↔
+    degree_to_abelianization c (Multiplicative.ofAdd m) =
+        Abelianization.of (signature_element x) ∧
+      obstruction_threshold (fiber_square_representative M hinv rep
+        (signature_element x) (signature_involution hinv x)
+        (signature_lift M x) (signature_lift_over M x) m) + 1 ≤
+          (q-1).factorization 2 := by
+  have := hrep
+  sorry
+
+include hrep in
+theorem surviving_parities (q : ℕ) (hq : 1 < q) (hodd : Odd q)
+    (hqn : Nat.Coprime q n) (t : ℕ) (ht : (q-1).factorization 2 = t+1)
+    (x : Option c) (m : InertiaClasses c →₀ ℤ) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    ((fixed_degree_fiber M n hn hE hG hpow (ZMod.unitOfCoprime q hqn)
+        (signature_element x) m).Nonempty ↔
+      degree_parity m + signature_parity x ∈
+        LinearMap.ker (signature_joint_map M hgen hinv rep t)) ∧
+    (degree_parity m + signature_parity x ∈
+        LinearMap.ker (signature_joint_map M hgen hinv rep t) →
+      Nat.card {p // p ∈ fixed_degree_fiber M n hn hE hG hpow
+        (ZMod.unitOfCoprime q hqn) (signature_element x) m} =
+          Nat.card (powMonoidHom (α := A) (q-1)).ker) := by
+  have := hrep
+  sorry
+
+lemma signature_rank_parity_count (t : ℕ) (x : Option c) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    Nat.card {v : InertiaClasses c → ZMod 2 // v + signature_parity x ∈
+      LinearMap.ker (signature_joint_map M hgen hinv rep t)} =
+    2 ^ (Fintype.card (InertiaClasses c) - Module.finrank (ZMod 2)
+      (LinearMap.range (signature_joint_map M hgen hinv rep t))) := by sorry
+
+lemma signature_parity_count_equal (t : ℕ) (x y : Option c) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    Nat.card {v : InertiaClasses c → ZMod 2 // v + signature_parity x ∈
+      LinearMap.ker (signature_joint_map M hgen hinv rep t)} =
+    Nat.card {v : InertiaClasses c → ZMod 2 // v + signature_parity y ∈
+      LinearMap.ker (signature_joint_map M hgen hinv rep t)} := by sorry
+
+include hrep in
+lemma signature_threshold_exact (t : ℕ) (x : Option c) (m : InertiaClasses c →₀ ℤ) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    (degree_to_abelianization c (Multiplicative.ofAdd m) =
+        Abelianization.of (signature_element x) ∧
+      obstruction_threshold (fiber_square_representative M hinv rep
+        (signature_element x) (signature_involution hinv x)
+        (signature_lift M x) (signature_lift_over M x) m) = t) ↔
+    degree_parity m + signature_parity x ∈
+        LinearMap.ker (signature_joint_map M hgen hinv rep t) ∧
+      (t = 0 ∨ degree_parity m + signature_parity x ∉
+        LinearMap.ker (signature_joint_map M hgen hinv rep (t-1))) := by
+  have := hrep
+  sorry
+
+-- The previous kernel is excluded only for positive thresholds: K_{-1}=0.
+lemma signature_threshold_histogram (t : ℕ) (x : Option c) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    Nat.card {v : InertiaClasses c → ZMod 2 //
+      v + signature_parity x ∈ LinearMap.ker (signature_joint_map M hgen hinv rep t) ∧
+      (t = 0 ∨ v + signature_parity x ∉
+        LinearMap.ker (signature_joint_map M hgen hinv rep (t-1)))} =
+    2 ^ (Fintype.card (InertiaClasses c) - Module.finrank (ZMod 2)
+        (LinearMap.range (signature_joint_map M hgen hinv rep t))) -
+      if t = 0 then 0 else
+        2 ^ (Fintype.card (InertiaClasses c) - Module.finrank (ZMod 2)
+          (LinearMap.range (signature_joint_map M hgen hinv rep (t-1)))) := by sorry
+
+include hrep in
+theorem independent_classes
+    (hind : letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+      LinearIndependent (ZMod 2)
+      (fun d => Additive.ofMul (Abelianization.of (rep d).val))) :
+    letI := involution_abelianization_module c hgen (fun x hx => hinv ⟨x, hx⟩)
+    Function.Bijective (involution_parity_map c hgen (fun x hx => hinv ⟨x, hx⟩)) ∧
+    (∀ (x : Option c) (m : InertiaClasses c →₀ ℤ),
+      (degree_to_abelianization c (Multiplicative.ofAdd m) =
+          Abelianization.of (signature_element x) ↔ degree_parity m = signature_parity x) ∧
+      (degree_parity m = signature_parity x →
+        square_obstruction (signature_square M hinv x) (marked_square_column M hinv rep)
+          (fun d => m d) = 0)) ∧
+    (∀ (q : ℕ) (hq : 1 < q) (hodd : Odd q) (hqn : Nat.Coprime q n)
+        (x : Option c) (m : InertiaClasses c →₀ ℤ),
+      degree_parity m = signature_parity x →
+        (fixed_degree_fiber M n hn hE hG hpow (ZMod.unitOfCoprime q hqn)
+          (signature_element x) m).Nonempty ∧
+        Nat.card {p // p ∈ fixed_degree_fiber M n hn hE hG hpow
+          (ZMod.unitOfCoprime q hqn) (signature_element x) m} =
+            Nat.card (powMonoidHom (α := A) (q-1)).ker) := by
+  have := hind
+  have := hrep
+  sorry
+end SignatureParityFibers
+
+section ParitySquareExamples
+local instance : Fintype (InertiaClasses s3_transpositions) := Fintype.ofFinite _
+lemma s3_transpositions_generate : Subgroup.closure s3_transpositions = ⊤ := by sorry
+lemma s3_transpositions_involutions (x : s3_transpositions) : x.val^2 = 1 := by sorry
+local instance : Module (ZMod 2) (Additive (Abelianization (Equiv.Perm (Fin 3)))) :=
+  involution_abelianization_module s3_transpositions s3_transpositions_generate
+    (fun x hx => s3_transpositions_involutions ⟨x, hx⟩)
+-- parity_square_map_test_2: the actual S₃ maps, after identifying their coordinates.
+example (rep : InertiaClasses s3_transpositions → s3_transpositions)
+    (hrep : ∀ d, inertia_class_mk s3_transpositions (rep d) = d) :
+    ∃ e : InertiaClasses s3_transpositions ≃ Fin 1,
+    ∃ eab : Additive (Abelianization (Equiv.Perm (Fin 3))) ≃+ ZMod 2,
+    Subsingleton (TauCeti.ElementaryTwoQuotient (Multiplicative (ZMod 1))) ∧
+    ∀ v : InertiaClasses s3_transpositions → ZMod 2,
+      eab (involution_parity_map s3_transpositions s3_transpositions_generate
+        (fun x hx => s3_transpositions_involutions ⟨x, hx⟩) v) = v (e.symm 0) ∧
+      parity_square_map (identity_marked_extension s3_transpositions s3_transpositions_closed)
+        s3_transpositions_involutions rep v = 0 := by
+  have := hrep
+  sorry
+end ParitySquareExamples
+
+section RepeatedClassImages
+variable {G : Type} [Group G] {c : Set G} [Fintype (InertiaClasses c)]
+    [DecidableEq (InertiaClasses c)] (hgen : Subgroup.closure c = ⊤)
+    (hinv : ∀ x ∈ c, x^2 = 1) (x y : c)
+-- parity_square_map_test_3: distinct class coordinates need not be independent.
+example (hclass : inertia_class_mk c x ≠ inertia_class_mk c y)
+    (hab : Abelianization.of x.val = Abelianization.of y.val) :
+    involution_parity_map c hgen hinv
+      (Pi.single (inertia_class_mk c x) 1 + Pi.single (inertia_class_mk c y) 1) = 0 ∧
+    (Pi.single (inertia_class_mk c x) 1 + Pi.single (inertia_class_mk c y) 1 :
+      InertiaClasses c → ZMod 2) ≠ 0 := by
+  have := hclass
+  have := hab
+  sorry
+end RepeatedClassImages
+
+section DistinctInvolutionClassesExample
+-- In S₆ a transposition and three disjoint transpositions are distinct classes
+-- with the same nonzero abelianized image. This realizes the preceding test.
+def s6_involutions : Set (Equiv.Perm (Fin 6)) := {g | orderOf g = 2}
+lemma s6_involutions_generate : Subgroup.closure s6_involutions = ⊤ := by sorry
+lemma s6_involutions_square (x : Equiv.Perm (Fin 6)) (hx : x ∈ s6_involutions) :
+    x^2 = 1 := by sorry
+local instance : Fintype (InertiaClasses s6_involutions) := Fintype.ofFinite _
+local instance : DecidableEq (InertiaClasses s6_involutions) := Classical.decEq _
+def s6_single_transposition : s6_involutions := ⟨Equiv.swap 0 1, by sorry⟩
+def s6_triple_transposition : s6_involutions :=
+  ⟨Equiv.swap 0 1 * Equiv.swap 2 3 * Equiv.swap 4 5, by sorry⟩
+example :
+    inertia_class_mk s6_involutions s6_single_transposition ≠
+        inertia_class_mk s6_involutions s6_triple_transposition ∧
+    Abelianization.of s6_single_transposition.val =
+        Abelianization.of s6_triple_transposition.val ∧
+    involution_parity_map s6_involutions s6_involutions_generate s6_involutions_square
+      (Pi.single (inertia_class_mk s6_involutions s6_single_transposition) 1 +
+        Pi.single (inertia_class_mk s6_involutions s6_triple_transposition) 1) = 0 ∧
+    (Pi.single (inertia_class_mk s6_involutions s6_single_transposition) 1 +
+      Pi.single (inertia_class_mk s6_involutions s6_triple_transposition) 1 :
+      InertiaClasses s6_involutions → ZMod 2) ≠ 0 := by sorry
+end DistinctInvolutionClassesExample
 
 end TauCeti.ReducedSchur
 end
