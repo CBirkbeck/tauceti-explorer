@@ -32,6 +32,7 @@ import Mathlib.Algebra.Category.Ring.Colimits
 import Mathlib.Algebra.Category.CommAlgCat.Basic
 import Mathlib.AlgebraicGeometry.AffineScheme
 import Mathlib.RingTheory.FinitePresentation
+import Mathlib.RingTheory.Flat.Basic
 import Mathlib.RingTheory.HopfAlgebra.MonoidAlgebra
 import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.Algebra.Polynomial.Laurent
@@ -1277,13 +1278,8 @@ variable {R : Type u} {A : Type v} [CommRing R] [CommRing A] [Algebra R A]
 For the group-scheme instance B is A ⊗ O(H), δ is the coaction and ι is
 the canonical map. Their geometric construction is supplied by RG/SF.1.
 Invariants of the abstract group H(R) do not suffice over finite fields. -/
-def ParameterInvariantAlgebra (δ ι : A →ₐ[R] B) : Subalgebra R A where
-  carrier := {a | δ a = ι a}
-  zero_mem' := by sorry
-  one_mem' := by sorry
-  add_mem' := by sorry
-  mul_mem' := by sorry
-  algebraMap_mem' := by sorry
+abbrev ParameterInvariantAlgebra (δ ι : A →ₐ[R] B) : Subalgebra R A :=
+  AlgHom.equalizer δ ι
 
 namespace ParameterInvariantAlgebra
 variable (δ ι : A →ₐ[R] B)
@@ -1306,6 +1302,90 @@ theorem lift_unique {C : Type z} [CommRing C] [Algebra R C]
     (f : C →ₐ[R] A) (hf : ∀ c, δ (f c) = ι (f c))
     (g : C →ₐ[R] ParameterInvariantAlgebra δ ι)
     (hg : (inclusion δ ι).comp g = f) : g = lift δ ι f hf := by sorry
+
+/-- Restrict an equivariant coordinate map to the existing equalizers.
+For an inflation map, `g` is the map on the action-coordinate algebra. -/
+def map {A' B' : Type*} [CommRing A'] [CommRing B']
+    [Algebra R A'] [Algebra R B'] (δ' ι' : A' →ₐ[R] B')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι) :
+    ParameterInvariantAlgebra δ ι →ₐ[R] ParameterInvariantAlgebra δ' ι' :=
+  lift δ' ι' (f.comp (inclusion δ ι)) (by sorry)
+
+theorem map_val {A' B' : Type*} [CommRing A'] [CommRing B']
+    [Algebra R A'] [Algebra R B'] (δ' ι' : A' →ₐ[R] B')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι)
+    (a : ParameterInvariantAlgebra δ ι) :
+    (map δ ι δ' ι' f g hδ hι a).val = f a.val := by sorry
+
+theorem map_id :
+    map δ ι δ ι (AlgHom.id R A) (AlgHom.id R B) (by ext; rfl) (by ext; rfl) =
+      AlgHom.id R (ParameterInvariantAlgebra δ ι) := by sorry
+
+theorem map_comp {A' B' A'' B'' : Type*}
+    [CommRing A'] [CommRing B'] [CommRing A''] [CommRing B'']
+    [Algebra R A'] [Algebra R B'] [Algebra R A''] [Algebra R B'']
+    (δ' ι' : A' →ₐ[R] B') (δ'' ι'' : A'' →ₐ[R] B'')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (f' : A' →ₐ[R] A'') (g' : B' →ₐ[R] B'')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι)
+    (hδ' : δ''.comp f' = g'.comp δ') (hι' : ι''.comp f' = g'.comp ι') :
+    (map δ' ι' δ'' ι'' f' g' hδ' hι').comp (map δ ι δ' ι' f g hδ hι) =
+      map δ ι δ'' ι'' (f'.comp f) (g'.comp g) (by sorry) (by sorry) := by sorry
+
+variable (S : Type*) [CommRing S] [Algebra R S]
+
+/-- Scalar extension of a coordinate homomorphism, over the actual tensor algebra. -/
+noncomputable def baseChangeHom (f : A →ₐ[R] B) :
+    S ⊗[R] A →ₐ[S] S ⊗[R] B :=
+  (AlgHom.liftEquiv R S A (S ⊗[R] B))
+    ((Algebra.TensorProduct.includeRight : B →ₐ[R] S ⊗[R] B).comp f)
+
+theorem baseChangeHom_tmul (f : A →ₐ[R] B) (s : S) (a : A) :
+    baseChangeHom S f (s ⊗ₜ[R] a) = s ⊗ₜ[R] f a := by sorry
+
+/-- The canonical comparison exists for every scalar extension. Flatness is
+needed for the bijectivity theorem, not for this map or its formula. -/
+noncomputable def baseChangeMap :
+    S ⊗[R] ParameterInvariantAlgebra δ ι →ₐ[S]
+      ParameterInvariantAlgebra (baseChangeHom S δ) (baseChangeHom S ι) := by sorry
+
+theorem baseChangeMap_tmul (s : S) (a : ParameterInvariantAlgebra δ ι) :
+    (baseChangeMap δ ι S (s ⊗ₜ[R] a)).val = s ⊗ₜ[R] a.val := by sorry
+
+/-- Tensor exactness identifies the equalizer after flat scalar extension.
+This does not need the good-prime generation theorem. -/
+theorem baseChangeMap_bijective [Module.Flat R S] :
+    Function.Bijective (baseChangeMap δ ι S) := by sorry
+
+noncomputable def flatBaseChange [Module.Flat R S] :
+    S ⊗[R] ParameterInvariantAlgebra δ ι ≃ₐ[S]
+      ParameterInvariantAlgebra (baseChangeHom S δ) (baseChangeHom S ι) :=
+  AlgEquiv.ofBijective (baseChangeMap δ ι S) (baseChangeMap_bijective δ ι S)
+
+theorem flatBaseChange_tmul [Module.Flat R S]
+    (s : S) (a : ParameterInvariantAlgebra δ ι) :
+    (flatBaseChange δ ι S (s ⊗ₜ[R] a)).val = s ⊗ₜ[R] a.val := by sorry
+
+-- flat_identity: R is flat over itself, with the same invariant coordinate.
+example (a : ParameterInvariantAlgebra δ ι) :
+    (flatBaseChange δ ι R (1 ⊗ₜ[R] a)).val = 1 ⊗ₜ[R] a.val := by sorry
+
+-- flat_trivial_coaction: the full coordinate algebra remains the equalizer.
+example (ι : A →ₐ[R] B) :
+    ParameterInvariantAlgebra (baseChangeHom S ι) (baseChangeHom S ι) = ⊤ := by sorry
+
+-- flat_nonflat_reduction: the C₂ sign action over ℤ becomes trivial mod 2.
+-- This tests the general equalizer adapter, not connected-reductive GIT.
+example :
+    let τ : Polynomial ℤ →ₐ[ℤ] Polynomial ℤ := Polynomial.aeval (-Polynomial.X)
+    let δ := baseChangeHom (ZMod 2) τ
+    let ι := baseChangeHom (ZMod 2) (AlgHom.id ℤ (Polynomial ℤ))
+    let x : ZMod 2 ⊗[ℤ] Polynomial ℤ := 1 ⊗ₜ[ℤ] Polynomial.X
+    x ∈ ParameterInvariantAlgebra δ ι ∧
+      ¬ ∃ z : ZMod 2 ⊗[ℤ] ParameterInvariantAlgebra τ (AlgHom.id ℤ (Polynomial ℤ)),
+        (baseChangeMap τ (AlgHom.id ℤ (Polynomial ℤ)) (ZMod 2) z).val = x := by sorry
 end ParameterInvariantAlgebra
 
 -- coarse_trivial_group, and the torus case when its action is trivial.
@@ -1317,6 +1397,84 @@ example (δ ι : A →ₐ[R] B) {C : Type z} [CommRing C] [Algebra R C]
     ∃! g : C →ₐ[R] ParameterInvariantAlgebra δ ι,
       (ParameterInvariantAlgebra.inclusion δ ι).comp g = f := by sorry
 end Invariants
+
+section CoarseGeometry
+open AlgebraicGeometry
+variable {R A B : Type u} [CommRing R] [CommRing A] [CommRing B]
+  [Algebra R A] [Algebra R B] (δ ι : A →ₐ[R] B)
+
+/-- The affine coarse quotient of one represented piece, using its supplied
+scheme coaction. Finite generation and closed-orbit classification are separate. -/
+noncomputable def ParameterCoarseQuotient : Scheme :=
+  Spec (CommRingCat.of (ParameterInvariantAlgebra δ ι))
+
+namespace ParameterCoarseQuotient
+noncomputable def quotientMap :
+    Spec (CommRingCat.of A) ⟶ ParameterCoarseQuotient δ ι :=
+  Spec.map (CommRingCat.ofHom (ParameterInvariantAlgebra.inclusion δ ι).toRingHom)
+
+noncomputable def lift {D : Type u} [CommRing D] [Algebra R D]
+    (f : D →ₐ[R] A) (hf : ∀ x, δ (f x) = ι (f x)) :
+    ParameterCoarseQuotient δ ι ⟶ Spec (CommRingCat.of D) :=
+  Spec.map (CommRingCat.ofHom (ParameterInvariantAlgebra.lift δ ι f hf).toRingHom)
+
+theorem quotientMap_lift {D : Type u} [CommRing D] [Algebra R D]
+    (f : D →ₐ[R] A) (hf : ∀ x, δ (f x) = ι (f x)) :
+    quotientMap δ ι ≫ lift δ ι f hf = Spec.map (CommRingCat.ofHom f.toRingHom) := by sorry
+
+theorem lift_unique {D : Type u} [CommRing D] [Algebra R D]
+    (f : D →ₐ[R] A) (hf : ∀ x, δ (f x) = ι (f x))
+    (g : ParameterCoarseQuotient δ ι ⟶ Spec (CommRingCat.of D))
+    (hg : quotientMap δ ι ≫ g = Spec.map (CommRingCat.ofHom f.toRingHom)) :
+    g = lift δ ι f hf := by sorry
+
+/-- Apply to the coordinate pullback of a finite-wild inclusion. The two
+equivariance squares must be supplied by that inclusion's coaction theorem. -/
+noncomputable def inflate {A' B' : Type u} [CommRing A'] [CommRing B']
+    [Algebra R A'] [Algebra R B'] (δ' ι' : A' →ₐ[R] B')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι) :
+    ParameterCoarseQuotient δ' ι' ⟶ ParameterCoarseQuotient δ ι :=
+  Spec.map (CommRingCat.ofHom
+    (ParameterInvariantAlgebra.map δ ι δ' ι' f g hδ hι).toRingHom)
+
+theorem inflate_quotientMap {A' B' : Type u} [CommRing A'] [CommRing B']
+    [Algebra R A'] [Algebra R B'] (δ' ι' : A' →ₐ[R] B')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι) :
+    quotientMap δ' ι' ≫ inflate δ ι δ' ι' f g hδ hι =
+      Spec.map (CommRingCat.ofHom f.toRingHom) ≫ quotientMap δ ι := by sorry
+
+theorem inflate_id :
+    inflate δ ι δ ι (AlgHom.id R A) (AlgHom.id R B) (by ext; rfl) (by ext; rfl) =
+      𝟙 (ParameterCoarseQuotient δ ι) := by sorry
+
+theorem inflate_comp {A' B' A'' B'' : Type u}
+    [CommRing A'] [CommRing B'] [CommRing A''] [CommRing B'']
+    [Algebra R A'] [Algebra R B'] [Algebra R A''] [Algebra R B'']
+    (δ' ι' : A' →ₐ[R] B') (δ'' ι'' : A'' →ₐ[R] B'')
+    (f : A →ₐ[R] A') (g : B →ₐ[R] B')
+    (f' : A' →ₐ[R] A'') (g' : B' →ₐ[R] B'')
+    (hδ : δ'.comp f = g.comp δ) (hι : ι'.comp f = g.comp ι)
+    (hδ' : δ''.comp f' = g'.comp δ') (hι' : ι''.comp f' = g'.comp ι') :
+    inflate δ' ι' δ'' ι'' f' g' hδ' hι' ≫ inflate δ ι δ' ι' f g hδ hι =
+      inflate δ ι δ'' ι'' (f'.comp f) (g'.comp g) (by sorry) (by sorry) := by sorry
+
+-- coarse_affine_universal: a scheme morphism has exactly one descended map.
+example {D : Type u} [CommRing D] [Algebra R D]
+    (f : D →ₐ[R] A) (hf : ∀ x, δ (f x) = ι (f x)) :
+    ∃! g : ParameterCoarseQuotient δ ι ⟶ Spec (CommRingCat.of D),
+      quotientMap δ ι ≫ g = Spec.map (CommRingCat.ofHom f.toRingHom) := by sorry
+
+-- coarse_identity_coordinate: the universal invariant inclusion descends to identity.
+example : lift δ ι (ParameterInvariantAlgebra.inclusion δ ι) (by
+    intro x
+    exact x.property) = 𝟙 (ParameterCoarseQuotient δ ι) := by sorry
+
+-- coarse_trivial_group: an identity coaction makes the quotient map an isomorphism.
+example (ι : A →ₐ[R] B) : IsIso (quotientMap ι ι) := by sorry
+end ParameterCoarseQuotient
+end CoarseGeometry
 
 section ScalingCoaction
 /-- O(A¹×G_m) is the Laurent polynomial ring over O(A¹). -/

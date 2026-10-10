@@ -784,9 +784,78 @@ For each finite-wild affine scheme X=Z¹(W,H), let A=O(X) and define X//H=Spec(A
 
 **Build.** Form the algebraic coaction equaliser defining A^H. It is a subalgebra, and an invariant affine map factors uniquely through it. Use geometric reductivity for finite generation and the geometric quotient properties; compatible clopen decompositions give the maps for changing wild kernels.
 
+**Affine interface.** Use Mathlib's `AlgHom.equalizer` for the pair δ,ι:A→B,
+where δ is the scheme coaction and ι inserts the coordinate in the tensor
+algebra with the other factor equal to one. The two tensor-factor orders are
+identified by the tensor symmetry. The name `ParameterInvariantAlgebra`
+specializes this existing equalizer; it introduces no second equalizer
+construction. Its underlying module is the kernel of the R-linear map δ−ι.
+For I=eq(δ,ι), the coarse affine scheme is Spec I and the map Spec A→Spec I
+is the spectrum of I↪A. An invariant affine morphism Spec A→Spec D has an
+R-algebra pullback f:D→A satisfying δf=ιf. Restricting f to I gives its unique
+descent Spec I→Spec D. The composite with the quotient map is the original
+morphism, as an equality of scheme morphisms. Mathlib's
+`AlgebraicGeometry.Spec.homEquivAlgHom` transports this statement to morphisms
+over Spec R. The uniqueness remains valid among all scheme morphisms with the
+specified composite, since the invariant inclusion is injective on rings.
+An arbitrary affine target is treated by its canonical affine spectrum
+comparison. The construction of Spec I does not require finite generation;
+finite type and closed-orbit classification require the following quotient
+theorems.
+
+If an inclusion of parameter pieces has coordinate pullback f:A→A′, provide
+its coaction-coordinate map g:B→B′ and both commuting squares
+δ′f=gδ and ι′f=gι. Then f restricts to I→I′. Taking spectra gives the map
+Spec I′→Spec I, with a commuting quotient-map square. This orientation is the
+orientation of the supplied scheme inclusion: it is opposite to the
+coordinate homomorphism. `ParameterInvariantAlgebra.map_val` identifies the
+restricted map with f on every invariant. Identity and composition hold for
+these maps and for `ParameterCoarseQuotient.inflate`. At a wild cutoff they
+are applied to the inclusion of the piece trivial on P into the piece trivial
+on P′ for P′⊂P, with the equivariance supplied by LP1.2.
+
+**Flat coefficient interface.** For an R-algebra S, extend a homomorphism
+f:A→B to the S-algebra homomorphism f_S:S⊗_R A→S⊗_R B characterized by
+f_S(s⊗a)=s⊗f(a). There is always a comparison
+
+\[
+ \kappa_S:S\otimes_R\operatorname{eq}(\delta,\iota)
+       \longrightarrow\operatorname{eq}(\delta_S,\iota_S),
+ \qquad s\otimes a\longmapsto s\otimes a.
+\]
+
+`ParameterInvariantAlgebra.baseChangeMap` is this map, with the displayed
+equation after the target inclusion. Under `Module.Flat R S`, it is bijective;
+`flatBaseChange` is the resulting S-algebra isomorphism, retaining the same
+equation. Flatness preserves the exact sequence I→A→B whose second arrow is
+δ−ι, and preserves the injectivity of I→A. This proves the assertion directly
+from `Module.Flat.lTensor_exact` and
+`Module.Flat.lTensor_preserves_injective_linearMap`. For a group-scheme
+coaction, tensor associativity identifies this equalizer with the coaction
+invariants of the base-changed action. In the DVR application of LP2e.2, this
+is the flat comparison of BHKT Proposition 3.10(iv), pp.15–16. The calculation
+has no good-prime hypothesis; arbitrary nonflat coefficient change in LP2i.2
+uses its stronger, parameter-specific good-filtration theorem.
+
+Checks for the affine and coefficient interfaces:
+
+- The invariant inclusion I→A descends to the identity of Spec I, and an
+  invariant f:D→A gives exactly one scheme morphism whose composite is Spec f.
+- For δ=ι, the quotient map is an isomorphism of affine schemes. This tests
+  the actual morphism, in addition to identifying its coordinate ring.
+- With S=R, the flat comparison sends 1⊗a to 1⊗a. For a trivial coaction
+  every scalar extension still has the full coordinate algebra as equalizer.
+- As a check of the general equalizer comparison, let the constant group C₂
+  act on ℤ[x] by x↦−x. Its invariant algebra is ℤ[x²]. After reducing modulo
+  2 the action is trivial, and x is invariant; x is not in the image of
+  F₂⊗_ℤℤ[x²]. Thus `baseChangeMap` exists but is not surjective here.
+  This example concerns the general coaction equalizer, with a disconnected
+  acting group; it does not assert a connected-reductive counterexample or
+  replace the parameter-specific good-prime hypotheses.
+
 The API should provide:
 
-- `ParameterInvariantAlgebra`: The equaliser of the algebraic coaction A→A⊗O(H) and a↦a⊗1, as a subalgebra of A=O(Z¹); taking fixed elements only under H(base) is insufficient.
+- `ParameterInvariantAlgebra`: Mathlib's `AlgHom.equalizer` of the algebraic coaction A→A⊗O(H) and a↦a⊗1, as a subalgebra of A=O(Z¹); taking fixed elements only under H(base) is insufficient.
 
 - `ParameterCoarseQuotient`: Its spectrum, separately on each affine finite-wild piece.
 
@@ -796,7 +865,7 @@ The API should provide:
 
 - `ParameterCoarseQuotient.inflate`: Shrinking P gives the compatible coarse map; identity and composition.
 
-- `ParameterInvariantAlgebra.flatBaseChange`: For the DVR hypotheses of the next construction, flat base change commutes with invariants.
+- `ParameterInvariantAlgebra.flatBaseChange`: For the DVR hypotheses of the next construction, the canonical comparison `baseChangeMap` is an algebra isomorphism for flat coefficient change, with the pure-tensor equation above.
 
 - `ParameterInvariantAlgebra.mem_iff`: An element belongs to the invariant subalgebra exactly when its coaction equals a↦a⊗1.
 
