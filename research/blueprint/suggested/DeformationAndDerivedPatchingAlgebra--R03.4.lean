@@ -1,23 +1,44 @@
-import Mathlib
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
+These suggested Lean forms help contributors and reviewers converge on names and signatures.
+-/
+
+import Mathlib.RingTheory.AdicCompletion.Functoriality
+import Mathlib.RingTheory.AdicCompletion.Noetherian
+import Mathlib.RingTheory.AdicCompletion.LocalRing
+import Mathlib.RingTheory.AdicCompletion.RingHom
+import Mathlib.RingTheory.Finiteness.Cardinality
+import Mathlib.RingTheory.Noetherian.Basic
+import Mathlib.RingTheory.HopkinsLevitzki
+import Mathlib.RingTheory.LocalRing.Quotient
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Basic
+import Mathlib.FieldTheory.IsAlgClosed.Basic
+import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+import Mathlib.RingTheory.MvPowerSeries.Inverse
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.Data.ZMod.Basic
 
 /-!
 # R03.4: finiteness and characteristic-zero points
 
-Suggested declarations only. Every proof is admitted. Mathlib-only imports allow checking at
+Suggested declarations only. Planned theorem proofs are admitted. Mathlib-only imports allow checking at
 082e2d37e8b0463410cdb532e111cd43d5a66174; this file does not import the predecessor's
 Tau Ceti-dependent file. The five accepted algebraic point lemmas are dependencies by packet ID.
 
 The constructed finite-local-field integer-ring point has no unconditional signature here:
-LocalFieldsRamification Layer 0 must first supply the induced valuation/topology on the actual
-IntermediateField and its integer-ring comparison. The adapter below uses an actual AlgEquiv,
-not a proposition standing for that missing construction. Likewise the Artinian lifting input
+Current Tau Ceti and LocalFieldsRamification Layer 0 provide the induced valuation/topology on the
+actual IntermediateField and its integer-ring comparison at newer pins. Packaging must reuse them
+and check the explicit maximal-adic topology adapter. The historical-pin adapter below uses an
+actual AlgEquiv. Likewise the Artinian lifting input
 below quantifies concrete AlgHoms and their reductions; R03.1 must derive it from smoothness
 in the complete-local coefficient category after the necessary residue-field base change.
 -/
 
 namespace TauCeti.R034
 
-/-- residual-fibre-finite-over-complete-subring; finite free completeness is an R03.1 input. -/
+/-- residual-fibre-finite-over-complete-subring. Finite-free precompleteness follows from
+the pinned finite-coordinate completion equivalence; current Tau Ceti has IsPrecomplete.pi. -/
 theorem finite_of_finite_residual_fibre
     {A B : Type*} [CommRing A] [IsLocalRing A]
     [IsAdicComplete (IsLocalRing.maximalIdeal A) A]
@@ -28,7 +49,7 @@ theorem finite_of_finite_residual_fibre
   sorry
 
 /-- completed-residual-fibre-criterion. The induced completed-ring map is explicit.
-Noetherianity of the target completion remains an explicit hypothesis here. -/
+Noetherianity of the target completion is supplied by R03.1/completion-noetherian. -/
 theorem finite_completed_of_finite_residual_fibre
     {A B : Type*} [CommRing A] [IsLocalRing A] [IsNoetherianRing A]
     [CommRing B] [IsLocalRing B] [IsNoetherianRing B]
@@ -36,7 +57,6 @@ theorem finite_completed_of_finite_residual_fibre
       (AdicCompletion (IsLocalRing.maximalIdeal B) B)]
     [IsLocalHom (algebraMap (AdicCompletion (IsLocalRing.maximalIdeal A) A)
       (AdicCompletion (IsLocalRing.maximalIdeal B) B))]
-    [IsNoetherianRing (AdicCompletion (IsLocalRing.maximalIdeal B) B)]
     [Module.Finite (AdicCompletion (IsLocalRing.maximalIdeal A) A)
       ((AdicCompletion (IsLocalRing.maximalIdeal B) B) ⧸
         (IsLocalRing.maximalIdeal (AdicCompletion (IsLocalRing.maximalIdeal A) A)).map
@@ -65,12 +85,12 @@ theorem finite_of_faithful_module
     [Module.Finite S M] [FaithfulSMul R M] : Module.Finite S R := by
   sorry
 
-/-- finite-maximal-power-quotients, used in the finite-image argument's algebraic tail. -/
-theorem finite_maximal_power_quotient
+-- Pinned Mathlib already supplies this theorem and a ResidueField-based local instance.
+example
     {R : Type*} [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
     [Finite (R ⧸ IsLocalRing.maximalIdeal R)] (n : ℕ) :
     Finite (R ⧸ (IsLocalRing.maximalIdeal R) ^ n) := by
-  sorry
+  exact Ideal.finite_quotient_pow (IsNoetherian.noetherian _) n
 
 /-- finite-local-ring-of-dimension-zero. No completeness is required. -/
 theorem finite_of_dimension_zero
@@ -106,13 +126,16 @@ theorem exists_integral_point_of_not_nilpotent
          ∃ f : A →ₐ[O] integralClosure O E, IsLocalHom f.toRingHom) := by
   sorry
 
-/-- local-hom-continuous-for-maximal-adic-topologies. -/
-theorem continuous_local_hom
+-- This local specialization of native adic uniform continuity needs no new theorem.
+example
     {A B : Type*} [CommRing A] [CommRing B] [IsLocalRing A] [IsLocalRing B]
     (f : A →+* B) [IsLocalHom f] :
     @Continuous A B (IsLocalRing.maximalIdeal A).adicTopology
       (IsLocalRing.maximalIdeal B).adicTopology f := by
-  sorry
+  let : WithIdeal A := ⟨IsLocalRing.maximalIdeal A⟩
+  let : WithIdeal B := ⟨IsLocalRing.maximalIdeal B⟩
+  exact (WithIdeal.uniformContinuous_of_map_le (f := f)
+    (IsLocalRing.map_maximalIdeal_le f)).continuous
 
 /-- Native adapter for integer-ring-point-with-topology; construction of S and e is supplied upstream. -/
 theorem local_point_of_integralClosure_equiv

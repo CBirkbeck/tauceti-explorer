@@ -6,7 +6,7 @@
     "DeformationAndDerivedPatchingAlgebra:R03.4"
   ],
   "status": "complete",
-  "summary": "Complete scoped planning pass with fifteen declaration-sized additions. Imports the accepted P7 algebraic point nodes; splits completed residual-fibre finiteness, the faithful patched-module argument, finite-cardinality trace tail, nonnilpotent-uniformizer criterion, integer-ring topology transport and framed local continuous lifting. All stage targets are planned with two precise supplier requests and two gaps. No implementation or proof closure is claimed.",
+  "summary": "Complete scoped planning pass with thirteen declaration-sized additions and five accepted P7 imports. Reuses pinned finite ideal-power quotients and adic uniform continuity, derives finite-free precompleteness from the pinned completion API, and imports R03.1 completion Noetherianity. The finite unframed arithmetic theorem and framing presentation stay with their owners. Two explicit interface gaps remain; no implementation or proof closure is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -16,273 +16,329 @@
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
         "provides": "An R-linear map from an I-precomplete module to an I-Hausdorff module is surjective if its composite with the quotient by I is surjective; no finiteness of the target is assumed.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsHausdorff.of_map",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Under an algebra and scalar tower, I mapped into J and J-Hausdorffness imply I-Hausdorffness.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsHausdorff.of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
         "provides": "A finite module over a Noetherian local ring is Hausdorff for any proper ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsLocalRing.map_maximalIdeal_le",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
         "provides": "A local ring map sends the source maximal ideal into the target maximal ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.exists_fin'",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
         "provides": "A finite module has a surjection from a finite coordinate module Fin n → R.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.of_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
         "provides": "Finite generation descends along a surjective semilinear map, with the declared coefficient ring homomorphism.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.quotient",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
         "provides": "Quotients of finite modules remain finite, with the scalar tower explicitly required.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.finite_of_finite",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
         "provides": "A finite module over a ring of finite cardinality has finite cardinality.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.finite_iff_finite",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
         "provides": "Over a finite coefficient ring, module finiteness and finite cardinality are equivalent.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "A finite module over a Noetherian ring is Noetherian.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isNoetherian_linearMap",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "Hom_R(N,M) is Noetherian when M is Noetherian and N finite; used for End_S(M).",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.of_injective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "A module admitting an injective linear map into a Noetherian module is finite; the semilinear version requires inverse coefficient maps.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Algebra.lsmul",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Tower.lean",
         "provides": "The scalar action gives an algebra homomorphism into module endomorphisms; scalar towers and commuting actions are required.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
         "provides": "A Noetherian commutative ring of Krull dimension at most zero is Artinian.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
         "provides": "For a Noetherian local commutative ring, Artinianity is equivalent to nilpotence of its maximal ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Ring.krullDimLE_zero_iff",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "Dimension at most zero is equivalent to every prime being maximal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Ring.krullDimLE_iff",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
         "provides": "The KrullDimLE class is equivalent to the inequality for ringKrullDim.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Finite.isField_of_domain",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/IntegralDomain.lean",
         "provides": "A commutative domain of finite cardinality is a field.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.Quotient.maximal_of_isField",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
         "provides": "A field quotient forces its defining ideal to be maximal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
-      },
-      {
-        "ref": "mathlib:Finite.of_ideal_quotient",
-        "kind": "lemma",
-        "module": "Mathlib/RingTheory/Ideal/Quotient/Basic.lean",
-        "provides": "A ring is finite if an ideal and its quotient are finite.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
         "provides": "An irreducible element of a DVR generates its maximal ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:nilpotent_iff_mem_prime",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Nilpotent/Lemmas.lean",
         "provides": "An element is nilpotent precisely when it lies in every prime ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.hasBasis_nhds_zero_adic",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
         "provides": "Powers of I form the basis of neighborhoods of zero for I.adicTopology.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsAdicComplete.liftAlgHom",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
         "provides": "A compatible family of algebra homomorphisms to all I-power quotients lifts to an algebra homomorphism into an I-adically complete ring.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:IsAdicComplete.mkₐ_comp_liftAlgHom",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/AdicCompletion/RingHom.lean",
         "provides": "The reduction of the lifted algebra map at each level equals that level map.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isLocalHom_of_comp",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
         "provides": "If a composite ring homomorphism reflects units then its first map reflects units.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
         "provides": "A power series over a ring is a unit exactly when its constant coefficient is a unit.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:MvPowerSeries.coeff_X_pow",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
         "provides": "The coefficient of X_s^n at a multi-index is 1 at the corresponding single index and 0 elsewhere.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Algebra.finite_iff_isIntegral_and_finiteType",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/IntegralClosure/IsIntegralClosure/Basic.lean",
         "provides": "A module-finite algebra is integral and of finite type; conversely integral and finite type gives module finiteness.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.trans",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
         "provides": "Module finiteness composes along the explicitly compatible scalar tower.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.maximalIdeal_eq_map",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
         "provides": "For a Noetherian local source, the maximal ideal of its completion is the image of its maximal ideal.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.isLocalRing_of_fg",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
         "provides": "Completion of a local ring with finitely generated maximal ideal is local.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.isAdicComplete_of_fg",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
         "provides": "Such a completion is complete for its maximal ideal; the theorem does not assert Noetherianity of the completion.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isArtinianRing_iff_krullDimLE_zero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
         "provides": "For a Noetherian commutative ring, Artinianity is equivalent to dimension at most zero; supplies both directions of the dimension test.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isNoetherian_of_tower",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "Noetherianity passes upward along a scalar tower, so an O-Noetherian finite algebra is Noetherian over itself.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:isNoetherian_def",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
         "provides": "Every submodule of a Noetherian module is finitely generated; in particular every ideal power in a Noetherian ring.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:MvPowerSeries.constantCoeff",
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
         "provides": "The native constant coefficient ring homomorphism; composing with the coefficient map gives the zero-variable point.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:MvPowerSeries.constantCoeff_C",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
         "provides": "Constant coefficient evaluation fixes constants, furnishing the required algebra-hom compatibility.",
-        "checked": "Statement and ambient hypotheses read in the source at the recorded Mathlib pin; 2026-10-05."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.of_restrictScalars_finite",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
         "provides": "If M is finite over R, then it is finite over an acting semiring A whenever the R/A/M scalar tower is compatible. Used to pass from O to its residue field on the special fibre.",
-        "checked": "Statement and ambient hypotheses read at the pinned commit on 2026-10-05, lines 298–303."
+        "checked": "Name, statement and ambient hypotheses independently read at the recorded Mathlib pin; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Ideal.finite_quotient_pow",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Index.lean",
+        "provides": "For a finitely generated ideal I in a commutative ring with finite R/I, every R/I^n has finite cardinality, including n=0.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 101; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.piEquivFin",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+        "provides": "The completion of Fin n → R is linearly equivalent over the completed ring to Fin n → AdicCompletion I R.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 340; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.piEquivFin_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+        "provides": "The finite product equivalence agrees with the coordinatewise completion map.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 362; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.map_of",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
+        "provides": "Completion of a linear map takes the canonical image of x to the canonical image of its value.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 187; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "For an I-precomplete module the canonical map into its completion is surjective.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 656; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:AdicCompletion.of_surjective_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Surjectivity of the canonical map into the completion is equivalent to I-precompleteness.",
+        "checked": "Statement and ambient hypotheses independently read at the recorded Mathlib pin; line 639; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Submodule.fg_span",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Basic.lean",
+        "provides": "A submodule spanned by a finite set is finitely generated.",
+        "checked": "Name, statement and ambient hypotheses independently read at the Mathlib pin; line 37; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.finite_def",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "Module finiteness is equivalent to finite generation of the top submodule.",
+        "checked": "Name, statement and ambient hypotheses independently read at the Mathlib pin; line 128; 2026-10-10."
+      },
+      {
+        "ref": "mathlib:WithIdeal.uniformContinuous_of_map_le",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+        "provides": "A commutative ring map carrying the preferred source ideal into the preferred target ideal is uniformly continuous in their adic topologies; no completeness or Noetherianity is required.",
+        "checked": "Name, statement and ambient hypotheses independently read at the Mathlib pin; lines 238–265; 2026-10-10."
       }
     ]
   },
@@ -295,7 +351,9 @@
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
       "sha256": "95f772d331c3d70ac6cc7b6990e1c4cf5e6186600f10748d6934b6fe9e7bf591",
       "readSections": [
-        "surjective_of_mkQ_comp_surjective and ambient variables, line 448"
+        "surjective_of_mkQ_comp_surjective and ambient variables, line 448",
+        "AdicCompletion.map_of, lines 187–188",
+        "AdicCompletion.pi and finite-product equivalences, lines 235–364"
       ]
     },
     {
@@ -306,7 +364,8 @@
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Basic.lean",
       "sha256": "ea71c61be774fd579bad7f9faa3477a8cbc637daa36832c0813d733fe02703ba",
       "readSections": [
-        "IsHausdorff.of_map and ambient variables, line 80"
+        "IsHausdorff.of_map and ambient variables, line 80",
+        "AdicCompletion.of_surjective_iff and of_surjective, lines 639–657"
       ]
     },
     {
@@ -356,7 +415,9 @@
         "Module.Finite.of_surjective and ambient variables, line 247",
         "Module.Finite.quotient and ambient variables, line 261",
         "Module.Finite.trans and ambient variables, line 366",
-        "Module.Finite.of_restrictScalars_finite and ambient variables, line 298"
+        "Module.Finite.of_restrictScalars_finite and ambient variables, line 298",
+        "Module.Finite.of_finite, lines 238–240",
+        "Submodule.fg_span, lines 37–38"
       ]
     },
     {
@@ -462,7 +523,8 @@
       "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
       "sha256": "7a9d03e2065576a3f08da00120e618b5076d8e143497239830366e80fe7de92e",
       "readSections": [
-        "Ideal.hasBasis_nhds_zero_adic and ambient variables, line 98"
+        "Ideal.hasBasis_nhds_zero_adic and ambient variables, line 98",
+        "WithIdeal and uniformContinuous_of_map_le, lines 238–265"
       ]
     },
     {
@@ -535,9 +597,9 @@
       "readSections": [
         "§2.1 pp.5–6: coefficient category",
         "§2.2 Proposition 2.1 pp.7–8: framed comparison and small extensions",
-        "§4.1 Corollary 4.7 pp.45–46: finite unframed ring and characteristic-zero point",
+        "§4.2 Corollary 4.7 pp.45–46: finite unframed ring and characteristic-zero point",
         "§9.1 end of proof, p.88: faithful patched module and variable specializations",
-        "§9.2 Proposition 9.3 pp.89–90",
+        "§9.1.3 Proposition 9.3, statement pp.83–84 and faithful-module argument p.88",
         "§10.1 Theorem 10.1 pp.90–92: restriction, finite mod-p image, finiteness"
       ]
     },
@@ -545,7 +607,7 @@
       "id": "KWearly",
       "title": "On Serre’s reciprocity conjecture for 2-dimensional mod p representations of the Galois group of Q",
       "authors": "Chandrashekhar Khare; Jean-Pierre Wintenberger",
-      "edition": "arXiv:math/0412076 PDF retrieved 2026-10-05, Lemma 2.4 p.10. This version is not the published Lemma 3.6 and its numbering is not substituted silently.",
+      "edition": "arXiv:math/0412076 PDF independently retrieved 2026-10-10, Lemma 2.4 p.10. Its numbering is distinct from the published Lemma 3.6.",
       "url": "https://arxiv.org/pdf/math/0412076",
       "sha256": "bbb14357e34811b1a3459ef62d61be9e9803c21a63613da9469088c16ee17274",
       "readSections": [
@@ -557,10 +619,10 @@
       "id": "LFR",
       "title": "Local fields and ramification: accepted Tau Ceti roadmap",
       "authors": "Tau Ceti roadmap contributors",
-      "edition": "Repository source at the worker checkout, Layer 0; roadmap ownership, not a library implementation.",
-      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/tau-ceti/LocalFieldsRamification/README.md",
+      "edition": "TauCetiRoadmap e255659f8eb50cd472809d9d565c8f755acffd84; current Layer 0 supplier, with implemented finite-extension inputs in current Tau Ceti. Distinct from the historical library baseline.",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/e255659f8eb50cd472809d9d565c8f755acffd84/TauCetiRoadmap/LocalFieldsRamification/README.md",
       "readSections": [
-        "Whole document; in particular Layer 0 finite extensions I–III and intermediate-field adapters"
+        "Whole atlas snapshot README; current Layer 0 README lines 1–230 and Suggested.lean lines 95–425, including actual intermediate-field structures and integer-ring comparison."
       ]
     },
     {
@@ -572,6 +634,28 @@
       "sha256": "ce511ff7d53f22d21f2f9ee85d8ccf173aff76f85b03126692d94d5df1fea72b",
       "readSections": [
         "isNoetherian_def and ambient variables, line 76"
+      ]
+    },
+    {
+      "id": "MB22",
+      "title": "Mathlib/RingTheory/Ideal/Quotient/Index.lean",
+      "authors": "Andrew Yang",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/Quotient/Index.lean",
+      "sha256": "ea3fa95f1bb20a23fef9d1db13d56d761724001a684edab2ded45dbec0082398",
+      "readSections": [
+        "Ideal.finite_quotient_pow and ambient variables, lines 32–33 and 99–108"
+      ]
+    },
+    {
+      "id": "MB23",
+      "title": "Mathlib/RingTheory/Finiteness/Defs.lean",
+      "authors": "Johan Commelin",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Finiteness/Defs.lean",
+      "sha256": "0f8bfdc780efe93d11d1256896a310bd32111114ddba302adfaa42596186d760",
+      "readSections": [
+        "Module.finite_def and ambient variables, lines 123–130"
       ]
     }
   ],
@@ -591,18 +675,23 @@
         "The residual fibre is finite-dimensional; its equality with k_B is not assumed."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1",
         "mathlib:surjective_of_mkQ_comp_surjective",
         "mathlib:IsHausdorff.of_map",
         "mathlib:IsHausdorff.of_isLocalRing",
         "mathlib:IsLocalRing.map_maximalIdeal_le",
         "mathlib:Module.Finite.exists_fin'",
-        "mathlib:Module.Finite.of_surjective"
+        "mathlib:Module.Finite.of_surjective",
+        "mathlib:AdicCompletion.piEquivFin",
+        "mathlib:AdicCompletion.piEquivFin_apply",
+        "mathlib:AdicCompletion.map_of",
+        "mathlib:AdicCompletion.of_surjective",
+        "mathlib:AdicCompletion.of_surjective_iff"
       ],
       "proofSteps": [
-        "Choose finitely many lifts in B of a generating family of B/m_A B and form the A-linear map A^r→B. Its composite with the quotient is surjective.",
-        "Import finite-free m_A-precompleteness from R03.1. Since m_A B⊆m_B, Noetherian local separation of B over B and IsHausdorff.of_map give m_A-Hausdorffness as an A-module.",
-        "Apply the pinned topological Nakayama surjectivity theorem, then finite generation descends from A^r. No assertion of finite B over A is used in the separation argument."
+        "Choose finitely many lifts in B of generators of B/m_A B and form the A-linear map A^r→B. Its composite with the quotient is surjective.",
+        "For finite-free precompleteness, use piEquivFin to identify completion(A^r) with completion(A)^r. Choose a preimage in A of each coordinate using of_surjective. The identities piEquivFin_apply and map_of show that their tuple maps to the original completion element. Injectivity of the equivalence and of_surjective_iff give precompleteness of A^r. In current Tau Ceti this step is already IsPrecomplete.pi and must be reused.",
+        "Since m_A B⊆m_B, Noetherian local separation of B over B and IsHausdorff.of_map give m_A-Hausdorffness as an A-module. The finite B-module used here is B itself, not a hypothesized finite A-module.",
+        "Apply surjective_of_mkQ_comp_surjective, then Module.Finite.of_surjective. No target completeness or coefficient-map injection is used."
       ],
       "acceptance": [
         "Test B=A, B=A/I for a proper ideal, and B=A[[X]]: the first two satisfy the criterion; the last has infinite residual fibre.",
@@ -612,7 +701,17 @@
         {
           "sourceId": "MB1",
           "locator": "surjective_of_mkQ_comp_surjective (line 448)",
-          "match": "Derived ring specialization of the existing module surjectivity theorem; finite-free completeness is an explicit owner input."
+          "match": "Derived ring specialization of native topological Nakayama; the finite-coordinate precompleteness step follows from the same pinned completion API."
+        },
+        {
+          "sourceId": "MB1",
+          "locator": "AdicCompletion.piEquivFin, piEquivFin_apply and map_of, lines 340–364 and 187–188",
+          "match": "Finite-coordinate transport supplies the source precompleteness without a new planned library lemma."
+        },
+        {
+          "sourceId": "MB2",
+          "locator": "AdicCompletion.of_surjective_iff and of_surjective, lines 639–657",
+          "match": "Converts the coordinatewise surjectivity argument into precompleteness."
         }
       ],
       "implementationStatus": "unchecked",
@@ -628,25 +727,27 @@
       "realises": [
         "DeformationAndDerivedPatchingAlgebra:R03.4"
       ],
-      "statement": "Let A,B be Noetherian local commutative rings. Put Â=completion of A at m_A and B̂=completion of B at m_B. Given a local algebra map Â→B̂, assume B̂ is Noetherian and B̂/m_Â B̂ is finite over Â. Then B̂ is finite over Â. If the input is a local map A→B, its induced completed map and the residual-fibre comparison are supplied by R03.1.",
+      "statement": "Let A,B be Noetherian local commutative rings and let Â,B̂ be their maximal-ideal completions. Given a local algebra map Â→B̂ with B̂/m_Â B̂ finite over Â, B̂ is finite over Â. Noetherianity of B̂ is imported from R03.1/completion-noetherian. For an initial local map A→B, the induced completed map and comparison of residual fibres remain explicit R03.1 interface obligations.",
       "hypotheses": [
         "The algebra structure between completions is specified, not inferred from two independent algebra structures.",
-        "Noetherianity of B̂ is explicit until supplied by R03.1; completeness and locality alone do not supply it."
+        "Noetherianity of B̂ follows from the accepted R03.1 completion theorem applied to the finitely generated maximal ideal of B; it is not inferred from completeness alone."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
         "mathlib:AdicCompletion.isLocalRing_of_fg",
         "mathlib:AdicCompletion.maximalIdeal_eq_map",
         "mathlib:AdicCompletion.isAdicComplete_of_fg",
-        "DeformationAndDerivedPatchingAlgebra:R03.1"
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "mathlib:isNoetherian_def"
       ],
       "proofSteps": [
-        "Use baseline locality and maximal-ideal completeness for Â and B̂.",
+        "Use baseline locality and maximal-ideal completeness for Â and B̂. Use R03.1/completion-noetherian for B̂: m_B is finitely generated and B/m_B is Noetherian.",
         "Apply the preceding residual-fibre criterion to the declared local map of completions.",
         "To use a map A→B, import its continuous extension and the comparison B̂/m_A B̂≅B/m_A B when the latter is finite-dimensional; this comparison is an owner obligation, not an extra hypothesis erased in a prototype."
       ],
       "acceptance": [
-        "The Lean signature keeps Noetherianity of B̂ and its algebra structure visible.",
+        "The Lean signature specifies the local algebra map between completions. It does not separately assume Noetherianity of B̂, whose planned supplier is cited directly.",
         "A completion does not make the infinite residual fibre of A[[X]] finite."
       ],
       "sources": [
@@ -676,11 +777,13 @@
         "mathlib:Module.Finite.quotient",
         "mathlib:Module.finite_iff_finite",
         "mathlib:IsDiscreteValuationRing.irreducible_iff_uniformizer",
-        "mathlib:Module.Finite.of_restrictScalars_finite"
+        "mathlib:Module.Finite.of_restrictScalars_finite",
+        "mathlib:Submodule.fg_span",
+        "mathlib:Module.finite_def"
       ],
       "proofSteps": [
         "For finite A, quotient finiteness descends and scalars factor through k, so the special fibre is a finite k-module and hence a finite set.",
-        "For a finite special fibre, finite cardinality gives finite generation over O. Apply the residual-fibre criterion and replace m_O A by πA."
+        "For a finite special fibre, its whole carrier is a finite spanning set over O. Submodule.fg_span and Module.finite_def give finite generation over O. Apply the residual-fibre criterion and replace m_O A by πA. The finite coefficient ring is required only in the forward implication."
       ],
       "acceptance": [
         "O/π² is allowed and is not flat.",
@@ -692,6 +795,16 @@
           "sourceId": "MB5",
           "locator": "Module.finite_iff_finite (line 78)",
           "match": "The conversion is made over the finite residue field, rather than over the infinite DVR."
+        },
+        {
+          "sourceId": "MB6",
+          "locator": "Submodule.fg_span, lines 37–38",
+          "match": "A finite carrier gives a finite spanning set over O; no finite-cardinality hypothesis on O is needed."
+        },
+        {
+          "sourceId": "MB23",
+          "locator": "Module.finite_def, lines 128–130",
+          "match": "Identifies a finite spanning set with module finiteness."
         }
       ],
       "implementationStatus": "unchecked",
@@ -741,44 +854,6 @@
       }
     },
     {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
-      "title": "Finite quotients by powers of the maximal ideal",
-      "kind": "lemma",
-      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
-      "realises": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4"
-      ],
-      "statement": "If R is Noetherian local and k_R has finite cardinality, then R/m_R^n has finite cardinality for every n≥0.",
-      "hypotheses": [
-        "Noetherian local R; finite residue field.",
-        "n=0 is included and gives the zero ring."
-      ],
-      "prerequisites": [
-        "mathlib:isNoetherian_of_isNoetherianRing_of_finite",
-        "mathlib:Module.Finite.of_surjective",
-        "mathlib:Module.finite_of_finite",
-        "mathlib:Finite.of_ideal_quotient",
-        "mathlib:isNoetherian_def"
-      ],
-      "proofSteps": [
-        "Induct on n. Each ideal m_R^n is finitely generated because R is Noetherian.",
-        "The kernel of R/m^(n+1)→R/m^n is m^n/m^(n+1). Choose generators of m^n; their images give a surjection from a finite power of k_R onto this kernel, since m annihilates it. This quotient presentation also specifies the kernel identification.",
-        "A finite kernel and finite quotient give a finite middle ring by Finite.of_ideal_quotient."
-      ],
-      "acceptance": [
-        "n=0 gives one element; n=1 gives the prescribed residue field.",
-        "For k[[X]], the quotient by (X)^n is finite although the ring itself is infinite."
-      ],
-      "sources": [
-        {
-          "sourceId": "MB5",
-          "locator": "Module.finite_of_finite (line 72)",
-          "match": "Finitely generated layers annihilated by m are finite over the finite residue field."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
       "id": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-dimension-zero",
       "title": "A zero-dimensional Noetherian local ring with finite residue field is finite",
       "kind": "lemma",
@@ -792,13 +867,14 @@
         "Completeness and a coefficient-field embedding are not required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
         "mathlib:IsNoetherianRing.isArtinianRing_of_krullDimLE_zero",
-        "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal"
+        "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
+        "mathlib:Ideal.finite_quotient_pow",
+        "mathlib:isNoetherian_def"
       ],
       "proofSteps": [
         "Dimension zero and Noetherianity give Artinianity by the pinned theorem.",
-        "Its maximal ideal is nilpotent. Choose n with m^n=0 and identify R with R/m^n. Apply finite-maximal-power-quotients."
+        "Its maximal ideal is nilpotent. Choose n with m^n=0 and identify R with R/m^n. Noetherianity makes m finitely generated; Ideal.finite_quotient_pow supplies finite cardinality of the quotient directly."
       ],
       "acceptance": [
         "Nonreduced rings such as Z/9Z satisfy the conclusion.",
@@ -809,6 +885,11 @@
           "sourceId": "MB9",
           "locator": "IsNoetherianRing.isArtinianRing_of_krullDimLE_zero (line 161)",
           "match": "Adds finite cardinality by the finite maximal-ideal filtration; does not replan the existing Artinianity theorem."
+        },
+        {
+          "sourceId": "MB22",
+          "locator": "Ideal.finite_quotient_pow, lines 101–107",
+          "match": "Reuses the existing quotient-power theorem instead of planning another finite-filtration lemma."
         }
       ],
       "implementationStatus": "unchecked"
@@ -923,42 +1004,8 @@
       "sources": [
         {
           "sourceId": "KWII",
-          "locator": "§4.1 Corollary 4.7, printed pp.45–46",
+          "locator": "§4.2 Corollary 4.7, printed pp.45–46",
           "match": "The source uses finiteness and positive dimension to choose a generic prime avoiding p; our formulation allows any uniformizer."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
-      "title": "Continuity of a local map in the maximal-adic topologies",
-      "kind": "lemma",
-      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
-      "realises": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4"
-      ],
-      "statement": "Every local ring homomorphism f:A→B between commutative local rings is continuous when A and B have their respective maximal-ideal adic topologies.",
-      "hypotheses": [
-        "The topologies are explicitly m_A-adic and m_B-adic.",
-        "No completeness, Noetherianity or finite generation is needed."
-      ],
-      "prerequisites": [
-        "mathlib:IsLocalRing.map_maximalIdeal_le",
-        "mathlib:Ideal.hasBasis_nhds_zero_adic"
-      ],
-      "proofSteps": [
-        "Locality gives f(m_A)⊆m_B. Multiplicativity gives f(m_A^n)⊆m_B^n for every n.",
-        "Use the pinned neighborhood bases at zero to prove continuity there, and translate by additivity to every point."
-      ],
-      "acceptance": [
-        "The conclusion does not apply to arbitrary independently assigned topologies.",
-        "For a compatible local-field integer topology, first import the equality with the maximal-adic topology."
-      ],
-      "sources": [
-        {
-          "sourceId": "MB15",
-          "locator": "Ideal.hasBasis_nhds_zero_adic (line 98)",
-          "match": "Specializes the native adic neighborhood basis to both maximal ideals."
         }
       ],
       "implementationStatus": "unchecked"
@@ -974,21 +1021,23 @@
       "statement": "Let K be a characteristic-zero nonarchimedean local field, O=𝒪[K], Ω an algebraically closed K-extension, and A a finite local O-algebra with 1≤dim A. There is a finite E:IntermediateField K Ω, equipped with the induced finite-extension valuation and topology from LocalFieldsRamification Layer 0, and a local continuous O-algebra map A→𝒪[E]. The source has its maximal-adic topology and 𝒪[E] its induced local-field topology. Its residue field is allowed to extend that of A.",
       "hypotheses": [
         "The actual integer-ring comparison is an O-algebra equivalence integralClosure(O,E)≃𝒪[E].",
-        "The finite-extension topology is constructed on E, not postulated as an arbitrary topology."
+        "The finite-extension topology is constructed on E, not postulated as an arbitrary topology.",
+        "The coefficient map O→A is local, as in the inherited point theorem."
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
-        "mathlib:isLocalHom_of_comp"
+        "mathlib:isLocalHom_of_comp",
+        "mathlib:WithIdeal.uniformContinuous_of_map_le",
+        "mathlib:IsLocalRing.map_maximalIdeal_le"
       ],
       "proofSteps": [
         "Apply the accepted algebraic point theorem with O=𝒪[K].",
-        "Import the actual finite intermediate-field topology, valuation, completeness and integer-ring comparison. Compose the point with the O-algebra equivalence; equivalences reflect units, so locality is preserved.",
-        "Use the local-map continuity lemma and the supplier equality of the integer-ring topology with its maximal-adic topology."
+        "Reuse the actual finite IntermediateField structures already implemented in current Tau Ceti and exposed by LocalFieldsRamification Layer 0. Compose the algebraic point with the inverse of integerRingEquivIntegralClosure, with the O-algebra structure specified. Equivalences reflect units, so locality is preserved.",
+        "Derive the agreement of the induced integer-ring topology with its maximal-adic topology from the supplier maximal-ideal-power neighborhood basis, then specialize native adic uniform continuity using the local-map maximal-ideal inclusion. A named transport interface and its compatibility with the historical baseline are still to be checked."
       ],
       "acceptance": [
-        "The prototype supplies only the genuine AlgEquiv transport adapter. The unconditional constructed-valuation signature remains an exact supplier obligation.",
+        "At the historical pins the prototype checks only transport through a genuine AlgEquiv. Current Tau Ceti provides the field structures and integer-ring comparison; upstream packaging must reuse them and complete the explicit topology adapter.",
         "For Z₃[t]/(t²−18), any point forces the unit t/3 to have square 2; a target residue field equal to F₃ is impossible."
       ],
       "sources": [
@@ -1052,12 +1101,16 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-lift-tower",
+        "mathlib:WithIdeal.uniformContinuous_of_map_le",
+        "mathlib:IsLocalRing.map_maximalIdeal_le"
       ],
       "proofSteps": [
-        "The successor kernels m′^n/m′^(n+1), n≥1, are square-zero; for a DVR they are one-dimensional over its residue field. Import the complete-local smooth lifting interface at these small extensions.",
-        "Choose f_1 and recursively choose f_(n+1) lifting f_n. Composite quotient compatibility at all m≤n follows by induction; add the unique level-0 map. This is dependent recursive choice, not independent levelwise choice.",
-        "Apply the native complete-target lift. Its A-algebra structure ensures the extension of f. Apply locality at level 1 and the adic continuity lemma."
+        "Use R03.1/positive-truncation for the Artinian quotients and small successor maps, and continuous-formal-smoothness for lifting in the declared residue-labelled category. The finite residue change and starting point must first make this the actual target category. For a DVR the positive successor kernels are one-dimensional over its residue field.",
+        "Starting with the given local level-1 point, use R03.1/compatible-lift-tower for dependent recursive choice of local successor lifts. The supplier gives compatibility after all composites and preserves the initial point; add the unique level-0 map.",
+        "Apply the native complete-target lift. Its A-algebra structure ensures the extension of f. Apply locality at level 1 and the native adic continuity theorem."
       ],
       "acceptance": [
         "The native signature exposes the concrete AlgHom successor-lifting quantifier; it does not define a new Prop containing the desired conclusion.",
@@ -1091,14 +1144,15 @@
       ],
       "prerequisites": [
         "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
-        "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
         "mathlib:isLocalHom_of_comp",
         "mathlib:MvPowerSeries.constantCoeff",
-        "mathlib:MvPowerSeries.constantCoeff_C"
+        "mathlib:MvPowerSeries.constantCoeff_C",
+        "mathlib:WithIdeal.uniformContinuous_of_map_le",
+        "mathlib:IsLocalRing.map_maximalIdeal_le"
       ],
       "proofSteps": [
         "Compose e with constant-coefficient evaluation and then f. Constant-coefficient evaluation is A-linear and multiplicative by the native API.",
-        "The power series unit criterion and locality of f show that the composite reflects units. Apply local-map continuity."
+        "The power series unit criterion and locality of f show that the composite reflects units. Apply native adic uniform continuity with the maximal ideals."
       ],
       "acceptance": [
         "For d=0 this is the base point.",
@@ -1153,16 +1207,15 @@
   "requests": [
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
-      "need": "Supply finite-free m_A-adic completeness over a complete local A; Noetherianity of maximal-ideal completions of Noetherian local rings; the induced local algebra map of completions and its residual-fibre comparison when B/m_A B is finite-dimensional. Also supply the formally smooth complete-local lifting interface after finite residue extension, including the starting residue point and local lifts for the O′/m′^(n+1)→O′/m′^n small extensions. These are separate exports, not a single predicate storing the conclusion.",
+      "need": "For a local map A→B of Noetherian local rings, export the induced local algebra map Â→B̂ and the residual-fibre comparison B̂/m_Â B̂≃B/m_A B when B/m_A B is finite-dimensional. Reuse R03.1/completion-noetherian; finite-free precompleteness is supplied by pinned completion transport and by current Tau Ceti, not requested anew. For formally smooth lifting, adapt the already planned continuous-formal-smoothness, positive-truncation and compatible-lift-tower exports to the actual quotient category after a finite residue-field extension, including the chosen starting residue point and local successor maps.",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
         "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
         "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
-      "need": "For the actual finite IntermediateField E/K supplied by the predecessor, construct its induced finite-extension topology and valuation, completeness and IsNonarchimedeanLocalField, compatible integer-ring algebra structure, the O-algebra equivalence integralClosure(O,E)≃𝒪[E], and equality of the integer-ring topology with its maximal-adic topology. Reuse Layer 0 intermediate-field adapters. No general finite-extension theory is defined here.",
+      "need": "Reuse current Tau Ceti finiteIntermediateFieldNormedField, finiteIntermediateFieldValuativeRel, finiteIntermediateFieldTopology, finiteIntermediateField_isNonarchimedeanLocalField and integerRingEquivIntegralClosure for the actual E:IntermediateField K Ω. Export the comparison between the induced integer-ring topology and its maximal-adic topology from Layer 0 neighborhood bases, preserving the O-algebra structure. Check the constructed point signature against these current modules when packaging; they are not baseline declarations at the historical pins.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
       ]
@@ -1170,17 +1223,16 @@
   ],
   "gaps": [
     {
-      "title": "Complete-local foundational exports remain supplier work",
-      "detail": "The R03.1 exports in the request are mathematically specified and needed for the unqualified complete-base and induced-completion versions; they are not yet implemented in the pins. In particular the LocalRing completion file proves locality and completeness, not the Noetherianity claimed by its informal header.",
+      "title": "Completion and residue-change interface obligations",
+      "detail": "The finite-free source is justified by pinned primitives and completion Noetherianity is already planned in R03.1. The remaining exports are the induced local completed map with its finite residual-fibre comparison, and the adaptation of fixed-residue formal smoothness to the actual finite residue extension and initial point. The concrete successor-lifting theorem is conditional on these inputs; it does not derive their existence.",
       "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
         "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
         "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting"
       ]
     },
     {
-      "title": "Actual integer-ring and topology transport",
-      "detail": "LocalFieldsRamification Layer 0 must supply the finite-intermediate-field structures and comparison. The native adapter signature elaborates once the genuine AlgEquiv is supplied; it does not construct that comparison. The new request is attached to integer-ring-point-with-topology, not to the inherited algebraic point theorem.",
+      "title": "Current-library integer-ring topology adapter",
+      "detail": "The finite intermediate-field structures and integer-ring equivalence already exist in current Tau Ceti, at a newer Mathlib pin. They must be imported when packaging. The comparison of the induced integer-ring topology with the maximal-adic topology, its O-algebra compatibility and the full constructed-point signature still need an explicit checked adapter. The historical-pin suggested file elaborates only the algebraic equivalence transport; no new finite-extension theory is planned.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
       ]
@@ -1191,9 +1243,9 @@
       "stageId": "DeformationAndDerivedPatchingAlgebra:R03.4",
       "status": "planned",
       "remaining": [
-        "Implement the proposed declarations and the inherited point lemmas; all proof bodies remain unchecked.",
-        "Obtain the R03.1 completion and residue-compatible smooth-lifting exports.",
-        "Obtain LocalFieldsRamification Layer 0 finite-intermediate-field structures and topology/integers comparison."
+        "Implement the proposed declarations and inherited point lemmas; their proof bodies remain unchecked.",
+        "Export the induced local completion map and finite residual-fibre comparison, and instantiate the residue-compatible smooth-lifting inputs using the existing R03.1 nodes.",
+        "Package against current Tau Ceti finite-intermediate-field and integer-ring APIs and check the explicit maximal-adic topology adapter."
       ],
       "notes": "Target closure is a planning closure: completed finiteness, finite-over-subring criteria and framed/local points all have explicit chains. The unframed finite-image theorem and the arithmetic applications are owned by PotentialModularityAndCompatibleSystems R24.1/R24.2."
     }
@@ -1201,7 +1253,11 @@
   "upstreamNotes": [
     {
       "roadmap": "LocalFieldsRamification",
-      "note": "Attach its existing Layer 0 intermediate-field comparison to the new integer-ring topology consumer; the algebraic point needs no topology. The promotion should derive this prerequisite stage path. No upstream roadmap edits are made."
+      "note": "Current Layer 0 and current Tau Ceti already provide the finite intermediate-field structures and integer-ring comparison. Reuse those implementations, complete the explicit topology adapter, and do not create new finite-extension targets here."
+    },
+    {
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "note": "R03.1/completion-noetherian and the three smooth-lifting nodes are exact suppliers. Reconcile the reader during assembly: replace finite-maximal-power-quotients and local-hom-continuous-for-maximal-adic-topologies by their pinned library results and remove the obsolete finite-free supplier request. This review edits only its authorized packet and suggested file."
     }
   ],
   "imports": [
@@ -1224,6 +1280,22 @@
     {
       "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-points-from-finiteness-and-dimension",
       "reason": "Accepted P7 algebraic point chain, reused without changing its statement or implementation status."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+      "reason": "Accepted R03.1 statement read independently; imported without replanning its theorem."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
+      "reason": "Accepted R03.1 statement read independently; imported without replanning its theorem."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+      "reason": "Accepted R03.1 statement read independently; imported without replanning its theorem."
+    },
+    {
+      "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-lift-tower",
+      "reason": "Accepted R03.1 statement read independently; imported without replanning its theorem."
     }
   ],
   "ownership": {
@@ -1234,14 +1306,16 @@
   },
   "suggestedLean": {
     "path": "research/blueprint/suggested/DeformationAndDerivedPatchingAlgebra--R03.4.lean",
-    "correspondence": "Fourteen direct theorem signatures and one native integer-ring transport adapter, plus nine discrimination examples. The integer-ring-point-with-topology target awaits its actual upstream constructed valuation/topology signature. The framed lifting signature exposes the concrete successor-lifting contract supplied by R03.1.",
+    "correspondence": "Twelve direct theorem signatures and one native integer-ring transport adapter, nine admitted discrimination examples, and two proved pinned-library reuse examples for quotient powers and local-map continuity. The integer-ring target still needs its current-library constructed valuation/topology adapter. The framed lifting signature exposes the concrete initial-point and local successor-lifting contract.",
     "implementationStatus": "unchecked",
     "elaboration": {
-      "date": "2026-10-05",
-      "method": "lean-check on existing shared build; Mathlib-only import",
+      "date": "2026-10-10",
+      "method": "lean-check in the existing shared pinned build; individual Mathlib imports",
       "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "exitCode": 0,
-      "warnings": "Only declarations using admitted proofs. No theorem proved; no Tau Ceti import or finite-extension constructor checked."
+      "warnings": "22 declaration-uses-admitted-proof warnings only. The two native library-reuse examples are proved; all thirteen proposed theorem signatures and nine discrimination examples still have admitted proofs.",
+      "fileSha256": "a5bd6475ed4ab48aae520126da08e7c3185ba8e63a31cf59f6f02804b9f6d89c",
+      "limitations": "No current Tau Ceti import or constructed finite-local-field point checked at the newer pins. Elaboration checks signatures, not proof sketches or unimplemented suppliers."
     }
   },
   "inheritedPlanets": [
@@ -1250,5 +1324,145 @@
       "name": "Characteristic-zero points",
       "reason": "Reuse the accepted P7 display; no second planet for the nonnilpotent reformulation."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "KWII",
+      "accessed": "2026-10-10",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "versionNote": "Author final preprint, UCLA proofs.pdf; publication Invent. Math. 178 (2009), 505–586. Locators below use printed author-preprint pages, not journal pagination."
+    },
+    {
+      "sourceId": "KWearly",
+      "accessed": "2026-10-10",
+      "sha256": "bbb14357e34811b1a3459ef62d61be9e9803c21a63613da9469088c16ee17274",
+      "versionNote": "arXiv:math/0412076 PDF independently retrieved 2026-10-10, Lemma 2.4 p.10. Its numbering is distinct from the published Lemma 3.6."
+    }
+  ],
+  "sourceIssues": [],
+  "libraryCoveredTargets": [
+    {
+      "formerNodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
+      "ref": "mathlib:Ideal.finite_quotient_pow",
+      "note": "The pinned LocalRing/Quotient module already specializes this result as a finite maximal-power quotient instance. Removed the duplicate planned lemma and rewired its consumer; the suggested file contains a proved library-reuse example."
+    },
+    {
+      "formerNodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
+      "ref": "mathlib:WithIdeal.uniformContinuous_of_map_le",
+      "note": "Locality supplies the maximal-ideal map inclusion. The pinned theorem gives the stronger uniform-continuity conclusion, so this local specialization is a proved reuse example, not a new planned lemma."
+    }
+  ],
+  "currentLibraryReuse": {
+    "checked": "2026-10-10",
+    "roadmapCommit": "e255659f8eb50cd472809d9d565c8f755acffd84",
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "mathlibCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+    "baselineNote": "These implementations inform reuse at upstream packaging. They are not asserted to exist or elaborate at the historical packet pins.",
+    "declarations": [
+      {
+        "ref": "IsPrecomplete.pi; IsAdicComplete.pi",
+        "module": "TauCeti/RingTheory/AdicCompletion/Pi.lean",
+        "usedBy": [
+          "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring"
+        ]
+      },
+      {
+        "ref": "TauCeti.finiteIntermediateFieldNormedField; TauCeti.finiteIntermediateFieldValuativeRel; TauCeti.finiteIntermediateFieldTopology; TauCeti.finiteIntermediateField_isNonarchimedeanLocalField",
+        "module": "TauCeti/NumberTheory/LocalField/FiniteExtension/IntermediateField.lean",
+        "usedBy": [
+          "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
+        ]
+      },
+      {
+        "ref": "TauCeti.integerRingEquivIntegralClosure",
+        "module": "TauCeti/NumberTheory/LocalField/FiniteExtension/Basic.lean",
+        "usedBy": [
+          "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology"
+        ]
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.4",
+    "date": "2026-10-10",
+    "notes": "Independently checked all fifteen original nodes, all thirty-nine original baseline entries, the source locators and the accepted suppliers. Removed two library-covered lemmas, retained thirteen justified proposed nodes, and confirmed all forty-seven resulting baseline citations. Corrected the KW II Corollary 4.7 and Proposition 9.3 section locators, obsolete finite-free request, completion Noetherianity dependency, cardinal finiteness conversion, current-library reuse and explicit interface gaps. No new nodes or source mistakes in the scoped arguments. Accepted as a complete planning pass with two recorded interface gaps, not as implemented or proof-closed mathematics.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/residual-fibre-finite-over-complete-subring",
+        "verdict": "corrected",
+        "note": "Removed the obsolete finite-free supplier request. Pinned finite-coordinate completion transport supplies precompleteness; current Tau Ceti already has the product instance. Target separation is over B itself, so no desired A-finiteness is assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/completed-residual-fibre-criterion",
+        "verdict": "corrected",
+        "note": "Imported the exact accepted R03.1/completion-noetherian node and removed redundant completion Noetherianity from the signature. The induced completed map and finite residual-fibre comparison remain explicitly requested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-dvr-algebra-iff-finite-special-fibre",
+        "verdict": "corrected",
+        "note": "Added finite spanning-set prerequisites for the reverse implication. The forward cardinality conversion is over the finite residue field; no finiteness of the DVR or flatness of the algebra is inferred."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finiteness-of-deformation-rings-criteria",
+        "verdict": "verified",
+        "note": "KW II §9.1.3 p.88 supplies the motivating faithful-module argument. The action embeds R into the Noetherian S-module End_S(M); all scalar-tower and commuting-action hypotheses are retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-dimension-zero",
+        "verdict": "corrected",
+        "note": "Replaced the duplicate quotient-power prerequisite by Ideal.finite_quotient_pow and finite generation of the maximal ideal. Artinianity and nilpotence reduce the ring to one finite quotient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-local-ring-of-finite-prime-quotients",
+        "verdict": "verified",
+        "note": "KW early Lemma 2.4 p.10 contains this algebraic tail. Finite prime quotients are fields, all primes are maximal, and the finite residue field and dimension-zero criterion give cardinal finiteness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/dimension-one-iff-nonnilpotent-uniformizer",
+        "verdict": "verified",
+        "note": "The accepted nilpotent-uniformizer theorem and pinned Artinian/dimension equivalences give both directions. Finiteness over the DVR supplies Noetherianity; locality puts the uniformizer in the maximal ideal."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/characteristic-zero-point-of-nonnilpotent-uniformizer",
+        "verdict": "verified",
+        "note": "Read the accepted P7 point statement and the Corollary 4.7 argument at printed pp.45–46. The reformulation preserves the finite algebra, characteristic-zero fraction field and commuting scalar towers; neither topology nor a fixed target residue field is added."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/integer-ring-point-with-topology",
+        "verdict": "corrected",
+        "note": "Made coefficient locality explicit and recorded the current implemented intermediate-field structures and integer-ring equivalence. The historical-pin signature is only AlgEquiv transport; the current-library topology adapter is an honest recorded gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/compatible-artinian-limit-is-local",
+        "verdict": "verified",
+        "note": "The native reduction identity at level 1 and isLocalHom_of_comp prove unit reflection of the native lift. Existence and all reduction identities are reused, not replanned; level 0 alone would be insufficient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-artinian-lifting",
+        "verdict": "corrected",
+        "note": "Imported the three exact R03.1 smooth-lifting nodes. Their fixed-residue category does not automatically contain a finite residue extension: the starting point and compatible local successor contract remain explicit inputs and a supplier adaptation request."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/framed-point-from-power-series-presentation",
+        "verdict": "corrected",
+        "note": "Replaced the proposed continuity lemma by the stronger native adic theorem. An actual algebra equivalence and the native constant-coefficient unit criterion produce the point, even when E is incomplete and d=0."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/positive-framing-is-not-module-finite",
+        "verdict": "verified",
+        "note": "A positive variable would be integral in a finite algebra. Its monic polynomial relation has coefficient 1 at the top variable degree, contradicting zero. Nontriviality and positive variable count are essential and explicit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/finite-maximal-power-quotients",
+        "verdict": "corrected",
+        "note": "Removed this duplicate planned lemma and rewired its consumers to mathlib:Ideal.finite_quotient_pow. A proved library-reuse example retains the exact specialization in the suggested file."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.4/local-hom-continuous-for-maximal-adic-topologies",
+        "verdict": "corrected",
+        "note": "Removed this duplicate planned lemma and rewired its consumers to mathlib:WithIdeal.uniformContinuous_of_map_le. A proved library-reuse example retains the exact specialization in the suggested file."
+      }
+    ]
+  }
 }
