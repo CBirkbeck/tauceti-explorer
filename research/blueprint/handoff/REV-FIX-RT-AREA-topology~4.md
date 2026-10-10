@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-topology~4 handoff
 
-Issue #6521; Codex (GPT-6), session `codex-In9gJI`; 10 October 2026.
-Claim comment 6099886919 confirmed by bot comment 6099888178.
-Branch `codex-In9gJI-review-topology`; base `0d2178b78`. Continues PR #8494.
+Issue #6521; Codex (GPT-6), session `codex-zoCY4t`; 10 October 2026.
+Claim comment 6100227475 confirmed by bot comment 6100228903.
+Branch `codex-zoCY4t-review-topology`; base `6f841d1b2`. Continues PR #8516.
 This worker did none of the reviewed fix, original blueprints, red team or
 verification. Only this job was claimed.
 
@@ -15,11 +15,14 @@ reviews remain in history; this run does not discharge unrelated blueprint
 objections. No statements, proof outlines, hypotheses, APIs, tests, planets,
 coverage, gaps, requests or Lean declarations changed.
 
-Added one Zagier author-hosted source and one support entry to
-Polylogarithms:P.2/hyperbolic-volume: I.3 (5), p. 11, I.4 (7)–(9), pp. 13–14,
-for the ordered cross-ratio, tetrahedron sign and manifold sum. Source URLs,
-PDF hashes and fresh bounded reads are in the report. Prior Milnor/Goncharov
-readings remain prior evidence, not fresh reads in this run.
+Confirmed the preceding worker's Zagier source/support entry at
+Polylogarithms:P.2/hyperbolic-volume: I.3 (3),(5), p. 11, I.4 (7)–(9), pp. 13–14.
+Fresh Neumann arXiv v2 §3, pp. 420–421, independently confirms the consumer's
+different shape convention. The report now records the exact reciprocal and
+vertex-transposition equations, with a public URL and PDF hash. Neumann
+Theorems 2.6 and 14.2, pp. 420 and 465–466, confirm the extended-regulator and
+complete finite-volume restrictions. Prior Milnor/Goncharov readings remain
+prior evidence; the public Milnor PDF returned 403 in this run.
 
 Fresh packet checks pass with zero errors/warnings for all five inspected
 packets; three issue-listed packets have 75/109/537 nodes. Fresh sequential
@@ -49,7 +52,10 @@ the queue predicate fails. Scope authorization was requested during this run
 and has not arrived. This is a checkpoint blocked on scope, not the time limit
 or incomplete listed-supplier checks. Do not alter queue/completion logic to
 make the job appear complete. Align the issue with the queue or authorize
-those four paths before another audit.
+those four paths before another audit. Re-reading the live issue after this
+claim confirmed the seven-path scope. Repeating the same supplier audit does
+not resolve the blocker; the maintainer should settle the paths before
+releasing this job again.
 
 ## Concrete continuation after authorization
 
@@ -62,9 +68,11 @@ that identity but its graph omits it. Keep G4/G5 and the geometric request.
 
 Document vertex-order/orientation conversion: P.2 normalizes
 (infinity,0,1,z) to z; QT normalizes (0,infinity,1,z) to z. For the same ordered
-quadruple the raw cross-ratios are reciprocal; D(1/z)=-D(z), and swapping the
-first two vertices reverses ordered volume. Neither convention is thereby
-proved wrong; the import must translate them.
+quadruple the raw cross-ratios are reciprocal: rQ(T)=1/rP(T)=rP(swapFirstTwo(T)).
+D(1/z)=-D(z), and swapping the first two vertices reverses P.2's signed
+volume. Name the geometric carrier comparison and transport vertex order,
+orientation and incidence signs consistently; do not introduce a second
+unjustified sign. Neither convention is thereby proved wrong.
 
 The QSeries reader separately needs the ninth additive-cocycle export near
 2964, inverse eta multiplier near 2972, Taylor scaling c_n/(24^n n!) near

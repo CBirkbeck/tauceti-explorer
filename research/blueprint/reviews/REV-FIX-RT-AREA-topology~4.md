@@ -1,10 +1,10 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-In9gJI`, 10 October 2026; atlas base `0d2178b78`.
-The bot confirmed claim comment 6099886919 in comment 6099888178.
+`codex-zoCY4t`, 10 October 2026; atlas base `6f841d1b2`.
+The bot confirmed claim comment 6100227475 in comment 6100228903.
 
-This continues [PR #8494](https://github.com/CBirkbeck/tauceti-explorer/pull/8494).
+This continues [checkpoint PR #8516](https://github.com/CBirkbeck/tauceti-explorer/pull/8516).
 The reviewed fix is `FIX-RT-AREA-topology~4`, session `codex-BLPWxk`,
 [PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873).
 This worker did none of that fix, its predecessors, the original blueprints,
@@ -31,7 +31,7 @@ formalised.
 
 ## Fresh checks and correction
 
-### Tetrahedron identity: finding /7
+### Tetrahedron identity and consumer convention: finding /7
 
 Read Zagier, *The Dilogarithm Function*, I.3 equation (5), printed p. 11,
 and I.4 equations (7)–(9), printed pp. 13–14. The cross-ratio on the ordered
@@ -42,10 +42,11 @@ alone does not supply the ideal-boundary oriented-region interface. That
 explicit gap remains. Earlier Milnor/Goncharov readings remain attributed
 prior evidence; this run did not retrieve or freshly read those sources.
 
-Added one author-hosted Zagier source record to Polylogarithms and one support
-entry on `Polylogarithms:P.2/hyperbolic-volume`, with those equation/page
-locators and our own description of the vertex order and sign. No mathematical
-contract changed.
+Confirmed the preceding worker's author-hosted Zagier source record and support
+entry on `Polylogarithms:P.2/hyperbolic-volume`, including those equation/page
+locators and the description of the vertex order and sign. This run changes
+review metadata and records the independently checked consumer comparison;
+no mathematical contract changed.
 
 Read-only inspection confirms that
 `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons` imports the tetrahedron
@@ -54,12 +55,30 @@ its prerequisites. An open geometric request does not replace this existing
 exact supplier. After scope authorization, add that prerequisite, retaining
 G4/G5 and the geometric comparison request.
 
-The consumer also needs an explicit ordered-sign conversion. P.2 normalizes
-(infinity, 0, 1, z) to z; QT normalizes (0, infinity, 1, z) to z. On the same
-ordered quadruple their raw cross-ratios are reciprocal, and D(1/z) = -D(z).
-Switching the first two vertices changes the ordered-volume sign. Specify the
-vertex-order/orientation conversion when importing the equality. This does
-not establish that either independently chosen convention is wrong.
+Freshly read Neumann, *Extended Bloch group and the Cheeger–Chern–Simons
+class*, arXiv v2, §3, printed pp. 420–421. Its shape convention is the one
+QT uses. For four distinct finite vertices, write P.2's cross-ratio as
+`rP(a,b,c,d) = (a-c)(b-d)/((a-d)(b-c))` and Neumann's as
+`rQ(a,b,c,d) = (c-b)(d-a)/((c-a)(d-b))`. Direct cancellation gives
+`rQ(T) = 1/rP(T) = rP(swapFirstTwo(T))`; the identities extend to ideal
+vertices by the projective convention. In particular, P.2 normalizes
+(infinity, 0, 1, z), whereas QT normalizes (0, infinity, 1, z).
+Zagier I.3 equation (3), p. 11, gives `D(1/z) = -D(z)`.
+
+The consumer must name the carrier comparison and translate the ordered
+vertices and orientation together. An odd transposition reverses P.2's
+signed volume. Carry that conversion consistently into the incidence signs
+of the manifold sum; applying both a vertex transposition and an additional
+unjustified minus sign would undo the conversion. These are distinct source
+conventions, and this check does not establish that either convention is
+wrong. The missing exact prerequisite and the comparison remain actionable
+corrections in the additional queue-listed QT paths.
+
+Neumann's Theorem 2.6, p. 420, and Theorem 14.2, pp. 465–466, independently
+confirm the extended-Bloch/Rogers route and the complete finite-volume
+manifold restriction in the read-only consumer. They do not supply its
+requested geometric carrier or a canonical lift from the ordinary Bloch
+group. The latter still retains flattening, transfer and torsion obligations.
 
 ### Gaussian and arithmetic exports: finding /11
 
@@ -148,7 +167,7 @@ implemented results.
 | /26 | Upstream note accepted: CW approximation/compression, weak-equivalence homology invariance and degree-one Hurewicz need exact supplier contracts. |
 | /29 | Upstream note accepted: internal topology order and external suppliers/consumers require maintainer coordination. |
 | /33 | Upstream note accepted: UniversalCovers/current library owns absolute higher-homotopy maps and transport; AlgebraicTopology owns relative comparisons. |
-| /81 | Upstream note accepted: GeometricTopology retains handles/gluing/rounding; current DifferentialGeometry 5.5 already owns abstract corner boundaries and face orientations. |
+| /81 | Upstream note accepted: GeometricTopology retains handles/gluing/rounding; its current layer 1 already imports DifferentialGeometry 5.5's abstract corner boundaries and face orientations. Do not request a second owner for those interfaces. |
 | /82 | Upstream note accepted: support-sensitive isotopy extension/gluing remains separate; DifferentialGeometry 3.3 already owns connected-manifold homogeneity under its precise hypotheses. |
 | /87 | Upstream note accepted: GeometricTopology layer 9 still misattributes surface mapping classes to layer 3; cite surface classification and an actual Morse/triangulation existence route. |
 | /91 | Upstream note accepted: internal dependency/unlock corrections need coordination; current layer 7 already imports Riemannian volume and HopfRinow. |
@@ -186,6 +205,7 @@ Public PDFs retrieved on 10 October 2026 for this run's bounded reads:
 | [Garoufalidis–Zagier, v1](https://arxiv.org/pdf/1812.07690v1) | `c8e810047d40b52ffc139553e8c9833853675f139070f3d1d4cf365267ae5b66` |
 | [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf) | `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543` |
 | [Habiro, v1](https://arxiv.org/pdf/math/0605314v1) | `5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc` |
+| [Neumann, v2](https://arxiv.org/pdf/math/0307092v2) | `de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650` |
 
 Fresh packet checks of the three listed suppliers report zero errors and
 warnings: 75/109/537 nodes, 19/22/22 gaps and 21/9/25 requests. Read-only
@@ -209,6 +229,7 @@ reviewer's identity on all five packet outputs: the issue's seven-output
 predicate passes, while the queue's eleven-output predicate fails.
 
 Authorization for the four extra paths was requested but has not arrived.
+The live issue was re-read after the claim and still lists only seven paths.
 The extra packets retain their original independent reviews. Neither queue
 nor completion logic was changed. Resolve issue/queue scope before another
 worker repeats the supplier audit. Once authorized, finish the bounded QT
