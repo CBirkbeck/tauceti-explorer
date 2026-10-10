@@ -6060,6 +6060,73 @@
         "liveIssueScope": true,
         "method": "deliverables_complete with the current job outputs and with the live issue’s three deliverables"
       }
+    },
+    "independentFixReviewScopeCheck": {
+      "session": "codex-mVQR9r",
+      "date": "2026-10-10",
+      "findings": [
+        "RT-AREA-iwasawa-1/2",
+        "RT-AREA-iwasawa-1/8",
+        "RT-AREA-iwasawa-1/9",
+        "RT-AREA-iwasawa-1/10"
+      ],
+      "sourceRetrieval": [
+        {
+          "sourceId": "howard",
+          "url": "https://arxiv.org/pdf/1202.6340v1",
+          "read": "2026-10-10",
+          "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a"
+        },
+        {
+          "sourceId": "skinner",
+          "url": "https://arxiv.org/pdf/1407.1093v1",
+          "read": "2026-10-10",
+          "sha256": "02d176d8fd52b0159eecb448f4bea89bd29bdf73f3095a686d52ad96c0a9b988"
+        },
+        {
+          "sourceId": "zanarella",
+          "url": "https://arxiv.org/pdf/1908.09197v1",
+          "read": "2026-10-10",
+          "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f"
+        },
+        {
+          "sourceId": "zhang",
+          "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf",
+          "read": "2026-10-10",
+          "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+          "note": "Version of record read in the maintainer-cleared library; file and passages were not copied."
+        }
+      ],
+      "baseline": "All 13 cited Mathlib statements read at 082e2d37e8b0463410cdb532e111cd43d5a66174; current upstream elliptic/ modular curve boundaries and local/profinite arithmetic prototypes inspected read-only.",
+      "graph": {
+        "indexedNodes": 30589,
+        "duplicateIds": [],
+        "reachableNodes": 4234,
+        "HE0Cycles": [],
+        "cleanCount": 6,
+        "zhangCount": 13,
+        "he8Count": 62,
+        "he8ToHE6": [],
+        "zhangToClean": [],
+        "outsideZhangConsumers": [],
+        "periodToHeegner": []
+      },
+      "packetChecker": "0 errors, 0 warnings",
+      "sourceIssueChecker": "10 source issues, 24 version receipts, 0 problems; a schema check, not an independent rereading of all ten errata.",
+      "lean": {
+        "exitCode": 0,
+        "warningCount": 114,
+        "warnings": "All declarations use admissions; no other warnings or errors.",
+        "sha256": "9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b"
+      },
+      "scopeCheck": {
+        "liveIssuePacketCount": 1,
+        "liveQueuePacketCount": 11,
+        "liveIssueDeliverablesComplete": true,
+        "queueDeliverablesComplete": false,
+        "clarification": "Requested in this session; no answer at the time of the checkpoint.",
+        "remaining": "Ten additional independent verdicts, after authorizing their scope, or reconciliation of the queue with the live issue."
+      }
     }
   },
   "reviewHistory": [
@@ -6518,63 +6585,101 @@
           "note": "/9. Route 5 of PAPER-CALEGARI-GERAGHTY-20 plans Serre’s theorem for E/K with End=Z for large p and puts effective bounds, uniformity and small ℓ out of scope; Bogomolov’s homothety theorem appears only on Serre’s route for abelian surfaces. The requests, gap and structure proposal say this correctly."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
+      "date": "2026-10-10",
+      "notes": "Independent continuation review by Codex — codex-TRbVPK for issue #6217, following Claude claude-yM8YCo’s accepted review of 2026-10-07 and the HE.0 round-two review of 2026-10-06. This session authored none of FIX-RT-AREA-iwasawa-1~2 or its inputs. All four findings affecting the live issue’s HE.0 deliverable (/2, /8, /9, /10) are correctly addressed as source-backed imports, exact requests and recorded restructuring gaps. Corrected the primitivity statement, hypotheses, proof and prerequisite to use Howard systems over K and all Zanarella inputs, and retained 5≤p in its Lean signature. Added independent confirmations of E9 and E10. All 13 pinned Mathlib baseline statements were read; the six definition/construction APIs and 18 tests have suggested-file counterparts. The exact HE.6 partition and its current dependency claims were checked across the packet index and atlas stage graph; the current HE.8 family has 62 nodes and no HE.6 dependency. check_blueprint reports 0 errors and 0 warnings; lean-check elaborates with 114 admission warnings only. Acceptance is of the HE.0 fixes, with the 21 gaps and 63 supplier requests preserved, not of a closed or implemented roadmap. The queue’s additional ten packets are outside the live issue’s authorized file list and have no verdict from this session; the mismatch is recorded in the review report and handoff.",
+      "checked": [
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
+          "verdict": "verified",
+          "note": "/10: Howard Definition1.2.3 and Theorem1.7.5, arXiv v1 pp.7,21. The actual system keeps its cyclic tensor and bottom class. The existing gap on extending local χ to global cohomology remains explicit; this review does not certify that construction as implemented."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
+          "verdict": "verified",
+          "note": "/10: Howard §1.3 H.0–H.2 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. The actual Tate-lattice checks import ES.5/howard-hypotheses and retain full Tate surjectivity."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
+          "verdict": "verified",
+          "note": "/10: Howard §1.3 H.3–H.5 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. Cartesian propagation, the symmetric conjugation-twisted Weil pairing and conjugate local orthogonality remain distinct requirements."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+          "verdict": "verified",
+          "note": "/10: Howard TheoremA, Theorem1.6.1 and Theorem1.6.5, arXiv v1 pp.2,16,18–19. Applies ES.5’s self-dual DVR decomposition and inequality to the corrected Heegner system, without importing a core-rank-one theorem over Q."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
+          "verdict": "verified",
+          "note": "/10: Corrected in place to use Howard systems over K and the exact ES.5 request, not ES.5/divisibility-invariants over Q. Zanarella Definition2.3.2, Proposition2.3.3 and Theorem2.3.6, arXiv v1 pp.19–20, require both dual hypothesis lists, p>4, 𝓛⊇𝓛_s(T) and κ_1≠0. The statement, proof and Lean comment agree; the signature now retains 5≤p."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
+          "verdict": "verified",
+          "note": "/2: Zhang Theorem2.1 pp.203–204, Lemma3.3 p.215, and (4.7)–(4.9) pp.218–219. The exact-level and quaternionic transports are requested separately from the weaker R20.2 criterion; R17.3 supplies rational global JL, and R18.3 owns the Shimura-set realization."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
+          "verdict": "verified",
+          "note": "/8: Zhang Theorem7.1 and proof pp.231–233; Skinner TheoremsA/B arXiv v1 pp.1–2, Theorem2.5.2 and integrality argument pp.15–16, and §3.2 pp.20–21. The repaired input uses residual irreducibility and the tame rank-one coinvariant element, retaining p∤D_K for the quadratic-twist argument."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
+          "verdict": "verified",
+          "note": "/2 and /8: Zhang Theorem6.5 and proof pp.230–231 with (4.8)–(4.9) pp.218–219. The eigenfunction is realized through R17.3/R18.3 with the fixed period and congruence normalization, not through automorphic induction."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
+          "verdict": "verified",
+          "note": "/8: Zhang §6.3 pp.228–229 and Theorem6.4 pp.229–230. The geometric component length is over K_ℓ; the nonsquarefree proof requires the stated Ribet–Takahashi/Khare/Helm inputs. The BSD.3a import remains accompanied by an exact supplier request; its current prerequisite closure contains no Heegner node."
+        },
+        {
+          "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
+          "verdict": "verified",
+          "note": "/9: Accepted OpenImageTheoremsForAbelianVarieties route in PAPER-CALEGARI-GERAGHTY-20 and the Part II design handoff. HE.7 imports the general image theory and keeps only the Heegner error-constant application. Missing all-p/adelic and GL₂-type uniform exports remain requested."
+        }
+      ]
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-1~2",
     "date": "2026-10-10",
-    "notes": "Independent continuation review by Codex — codex-TRbVPK for issue #6217, following Claude claude-yM8YCo’s accepted review of 2026-10-07 and the HE.0 round-two review of 2026-10-06. This session authored none of FIX-RT-AREA-iwasawa-1~2 or its inputs. All four findings affecting the live issue’s HE.0 deliverable (/2, /8, /9, /10) are correctly addressed as source-backed imports, exact requests and recorded restructuring gaps. Corrected the primitivity statement, hypotheses, proof and prerequisite to use Howard systems over K and all Zanarella inputs, and retained 5≤p in its Lean signature. Added independent confirmations of E9 and E10. All 13 pinned Mathlib baseline statements were read; the six definition/construction APIs and 18 tests have suggested-file counterparts. The exact HE.6 partition and its current dependency claims were checked across the packet index and atlas stage graph; the current HE.8 family has 62 nodes and no HE.6 dependency. check_blueprint reports 0 errors and 0 warnings; lean-check elaborates with 114 admission warnings only. Acceptance is of the HE.0 fixes, with the 21 gaps and 63 supplier requests preserved, not of a closed or implemented roadmap. The queue’s additional ten packets are outside the live issue’s authorized file list and have no verdict from this session; the mismatch is recorded in the review report and handoff.",
+    "notes": "Independent continuation by Codex — codex-mVQR9r, following codex-TRbVPK’s accepted HE.0 fix review of 2026-10-10. Re-read the four HE.0 fix contracts (/2,/8,/9,/10), the confirmed findings, round-two fix report and current supplier statements. Independently read Zhang Theorem 2.1, §6.3, Theorems 6.4–6.5 and 7.1–7.2 in the version of record; Howard Definition 1.2.3, H.0–H.5 and Theorems 1.6.1/1.6.5; Skinner Theorems A/B and §2.5; Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6. The fixes remain correct within their stated supplier gaps; no new mathematical correction is needed. Read all 13 pinned Mathlib declarations. Re-ran the declaration closure (30,589 indexed nodes, no duplicate ids, no reachable HE.0 cycle), HE.6 partition (6 clean/13 Zhang), HE.8 independence (62 nodes), and period independence. check_blueprint has 0 errors/warnings; source-issue schema/version checks have 0 problems; lean-check exits 0 with 114 warnings, all admission warnings. Acceptance is only of the HE.0 fixes, preserving 21 gaps, 63 requests and unchecked status. The live issue still authorizes only HE.0 while the live queue requires ten additional reviews; those have no verdict from this session. A scope clarification remains unanswered; the report and handoff document this completion blocker.",
     "checked": [
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.5/finite-singular-comparison-and-the-corrected-kolyvagin-system",
-        "verdict": "verified",
-        "note": "/10: Howard Definition1.2.3 and Theorem1.7.5, arXiv v1 pp.7,21. The actual system keeps its cyclic tensor and bottom class. The existing gap on extending local χ to global cohomology remains explicit; this review does not certify that construction as implemented."
-      },
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.5/actual-tate-hypotheses-h0-h2",
-        "verdict": "verified",
-        "note": "/10: Howard §1.3 H.0–H.2 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. The actual Tate-lattice checks import ES.5/howard-hypotheses and retain full Tate surjectivity."
-      },
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.5/actual-local-hypotheses-h3-h5",
-        "verdict": "verified",
-        "note": "/10: Howard §1.3 H.3–H.5 and Theorem1.6.5 proof, arXiv v1 pp.8–9,18–19. Cartesian propagation, the symmetric conjugation-twisted Weil pairing and conjugate local orthogonality remain distinct requirements."
-      },
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
-        "verdict": "verified",
-        "note": "/10: Howard TheoremA, Theorem1.6.1 and Theorem1.6.5, arXiv v1 pp.2,16,18–19. Applies ES.5’s self-dual DVR decomposition and inequality to the corrected Heegner system, without importing a core-rank-one theorem over Q."
-      },
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
-        "verdict": "verified",
-        "note": "/10: Corrected in place to use Howard systems over K and the exact ES.5 request, not ES.5/divisibility-invariants over Q. Zanarella Definition2.3.2, Proposition2.3.3 and Theorem2.3.6, arXiv v1 pp.19–20, require both dual hypothesis lists, p>4, 𝓛⊇𝓛_s(T) and κ_1≠0. The statement, proof and Lean comment agree; the signature now retains 5≤p."
-      },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-cohomological-congruence",
         "verdict": "verified",
-        "note": "/2: Zhang Theorem2.1 pp.203–204, Lemma3.3 p.215, and (4.7)–(4.9) pp.218–219. The exact-level and quaternionic transports are requested separately from the weaker R20.2 criterion; R17.3 supplies rational global JL, and R18.3 owns the Shimura-set realization."
+        "note": "/2: Rechecked the exact-level contract against Zhang Theorem 2.1, pp.203–204. Its rational JL and integral transport requirements remain separate."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-rank-zero-over-K",
         "verdict": "verified",
-        "note": "/8: Zhang Theorem7.1 and proof pp.231–233; Skinner TheoremsA/B arXiv v1 pp.1–2, Theorem2.5.2 and integrality argument pp.15–16, and §3.2 pp.20–21. The repaired input uses residual irreducibility and the tame rank-one coinvariant element, retaining p∤D_K for the quadratic-twist argument."
-      },
-      {
-        "nodeId": "HeegnerPointEulerSystems:HE.6/zhang-jochnowitz-special-value",
-        "verdict": "verified",
-        "note": "/2 and /8: Zhang Theorem6.5 and proof pp.230–231 with (4.8)–(4.9) pp.218–219. The eigenfunction is realized through R17.3/R18.3 with the fixed period and congruence normalization, not through automorphic induction."
+        "note": "/8: Rechecked Zhang Theorem 7.1, pp.231–232, Skinner Theorems A/B pp.1–2 and the integral argument pp.15–16. The repaired prime-to-discriminant restriction and integral conditions remain explicit."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.6/ribet-takahashi-tamagawa-comparison",
         "verdict": "verified",
-        "note": "/8: Zhang §6.3 pp.228–229 and Theorem6.4 pp.229–230. The geometric component length is over K_ℓ; the nonsquarefree proof requires the stated Ribet–Takahashi/Khare/Helm inputs. The BSD.3a import remains accompanied by an exact supplier request; its current prerequisite closure contains no Heegner node."
+        "note": "/8: Rechecked Zhang §6.3 and Theorem 6.4, pp.228–230. The geometric component-group and nonsquarefree supplier requirements remain exact requests. The period export has no Heegner prerequisite."
       },
       {
         "nodeId": "HeegnerPointEulerSystems:HE.7/non-cm-open-image-application",
         "verdict": "verified",
-        "note": "/9: Accepted OpenImageTheoremsForAbelianVarieties route in PAPER-CALEGARI-GERAGHTY-20 and the Part II design handoff. HE.7 imports the general image theory and keeps only the Heegner error-constant application. Missing all-p/adelic and GL₂-type uniform exports remain requested."
+        "note": "/9: Ownership contract remains assigned to the image-theory Part II; all-prime/adelic and GL₂-type gaps remain recorded. This is an ownership check, not a new proof of the general open-image theorem."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/clean-rank-one-descent-theorem-A",
+        "verdict": "verified",
+        "note": "/10: Howard Theorems 1.6.1 and 1.6.5, pp.16–19, agree with the ES.5 theorem and actual hypothesis verification. No new general descent theorem is planned here."
+      },
+      {
+        "nodeId": "HeegnerPointEulerSystems:HE.6/primitivity-versus-nonzero",
+        "verdict": "verified",
+        "note": "/10: Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6, pp.19–20, agree with the current statement, prime bound and exact ES.5 request."
       }
     ]
   }

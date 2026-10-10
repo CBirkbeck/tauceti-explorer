@@ -1,69 +1,62 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-1~2
 
-Issue #6217; Codex — `codex-TRbVPK`; 10 October 2026.
-Branch: `codex-TRbVPK-review-6217`.
+Issue #6217; Codex — `codex-mVQR9r`; 10 October 2026.
+Branch: `codex-mVQR9r-review-6217`.
 
 ## Status
 
-**Blocked checkpoint.** The live issue's HE.0 review is finished and accepted.
-Completion of the queue job needs a scope reconciliation, not another HE.0
-review. The previous PR #7275 also completed HE.0 but was taken as a checkpoint.
+**Blocked checkpoint.** The live issue's HE.0 fix review is complete and
+accepted. The bot confirmed this session's claim. A scope clarification was
+requested in the session but no answer arrived before submission.
 
-The live issue lists only the HE.0 packet/suggested file and the review report.
-The local queue and live main queue list eleven packets. The intake's
-`deliverables_complete` requires the current job's reviewer marker in all eleven,
-but WORKERS.md restricts edits to files named by the issue. The remaining ten
-cannot be stamped without independent review and authorization of their scope.
-A scope clarification was requested during this run and had no answer when the
-checkpoint was prepared. No queue, bot, labels, atlas edges or supplier files
-were changed.
+The live issue names the HE.0 packet, its suggested file and the review report.
+The local queue and freshly read live main queue instead require eleven packets
+and all their suggested files. WORKERS.md restricts edits to issue-named files.
+The remaining ten packets cannot receive this job's verdict without an
+independent fix review within authorized scope. They and the queue are untouched.
 
-## Completed work and evidence
+## Work completed
 
-- Independently checked the four HE.0 findings /2, /8, /9 and /10 against the
-  red-team verification, round-two fix, exact primary passages and supplier
-  statements. The report gives each verdict and the remaining supplier boundaries.
-- Corrected `HE.6/primitivity-versus-nonzero`: removed the Mazur–Rubin-over-Q
-  dependency, pointed the proof to the requested Howard-over-K primitivity
-  definition/formula, stated both dual H.0–H.5 lists, the prime-set condition,
-  nonzero bottom class and p≥5, and synchronized its Lean comment. The suggested
-  signature now retains `5 ≤ p`.
-- Added independent confirmations of source issues E9/E10. E9's explanation
-  now uses the read Elkies source and an explicit finite p=5 matrix subgroup;
-  it does not depend on an unchecked LMFDB record. The report gives the subgroup
-  calculation. Neither issue claims a counterexample to Zhang's main theorem.
-- Read all thirteen baseline declarations at the exact Mathlib pin, the
-  reviewed library audit, current upstream roadmaps and read-only Tau Ceti.
-  Generic Tate, pairing, Kummer, image and self-dual results remain imports.
-- Checked the current declaration graph (30,584 unique nodes): no reachable
-  HE.0 cycle; exact six/thirteen HE.6 partition; no outside Zhang consumer;
-  no Zhang-to-clean dependency; no period-to-Heegner dependency. The current
-  HE.8 family has 62 nodes and no HE.6 dependency. The proposed sub-layers and
-  stale-edge removal still need the maintainer's action.
-- Updated the packet review and preserved both prior accepted reviews. Full
-  new receipts/check results are in
-  `verification.independentFixReviewContinuation`; the report uses source URLs,
-  locators and paraphrases, with no copied source passages.
+- Independently rechecked findings /2, /8, /9 and /10 in the current HE.0 packet,
+  confirmed red-team verification, round-two fix report, current suppliers and
+  primary sources. The prior corrections remain sound. No mathematical or Lean
+  signature change was necessary.
+- Read Zhang Theorem 2.1, §6.3 and Theorems 6.4–6.5/7.1–7.2 in the version of
+  record; Howard Definition 1.2.3, H.0–H.5 and Theorems 1.6.1/1.6.5; Skinner
+  Theorems A/B and §2.5; Zanarella Definition 2.3.2, Proposition 2.3.3 and
+  Theorem 2.3.6. The report gives public URLs/locators; packet receipts give hashes.
+- Read all thirteen Mathlib baseline statements at the exact pin; inspected
+  current upstream elliptic/modular curve and local/profinite arithmetic
+  boundaries and the current Tau Ceti degeneracy operator read-only.
+- Rechecked the current graph: 30,589 unique nodes, no reachable HE.0 cycle;
+  six clean/thirteen Zhang HE.6 nodes; 62 HE.8-family nodes with no HE.6 input;
+  no outside Zhang consumer; no period-to-Heegner dependency.
+- Preserved prior reviews and added this continuation's HE.0 verdict/receipts.
+  All 21 gaps, 63 requests and unchecked implementation statuses remain.
+- Reproduced the blocker with `issues.deliverables_complete`: false for the
+  actual queue job, true for an in-memory copy with the live issue's three outputs.
 
-Final validation: `check_blueprint.py` gives zero errors/warnings;
-`check_issues`/`versions_checked` give zero problems for ten issues and 24
-receipts; intake `check-files` gives zero problems for the four changed files.
-`lean-check` exits 0 with 114 warnings, all `sorry`, at Mathlib
-082e2d37e8b0463410cdb532e111cd43d5a66174. Suggested-file SHA-256:
-9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b.
-All 78 statement comments and 120 node/API/test name records are accounted for. The
-prototype still explicitly omits unexpressible supplier conditions. The packet
-retains 21 gaps and 63 requests; this is a fix-review acceptance, not closure
-or implementation.
+Validation: `check_blueprint.py` reports zero errors/warnings; source-issue
+schema/version checks report zero problems for ten issues and 24 receipts.
+Intake file checks report zero problems for the three changed files;
+`git diff --check` passes.
+`lean-check` exits 0 with 114 warnings, all `sorry`, at the pinned Mathlib.
+Suggested-file SHA-256:
+`9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+The suggested file is unchanged. No Lean process or language server remains.
 
-## Where to resume
+## Resume after reconciling scope
 
-First reconcile the issue and queue. If the intended job is HE.0 only, the
-maintainer needs to remove the other ten packet/suggested pairs from this job's
-outputs; all authorized deliverables are finished. If all eleven are intended,
-update the live issue's deliverables/full instructions, then independently
-review the following ten packets and their suggested files before assigning
-this job's reviewer marker:
+For HE.0-only scope, align this queue job's outputs with the live issue:
+
+1. `research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md`
+2. `research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`
+3. `research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean`
+
+If the queue's broader scope is intended, authorize the following ten packet
+and suggested-file pairs in the live issue, then independently check their
+relevant findings from `RT-AREA-iwasawa-1.result.json`, its verification and
+`.fixes-2.md`, before recording this job's verdict:
 
 1. HeegnerPointEulerSystems--HE.7s
 2. GrossZagierAndArithmeticHeights--GZ.0
@@ -76,18 +69,12 @@ this job's reviewer marker:
 9. EulerSystemsAndKolyvaginSystems--ES.8
 10. KatoEulerSystems
 
-Their existing independent reviews are retained. Do not treat this report as
-a review of them or replace their markers without checking the fixes. Use
-`RT-AREA-iwasawa-1.result.json`, its verification and `.fixes-2.md` to establish
-which additional findings each packet carries.
+ES.0 currently needs changes; the other nine have accepted reviews by other
+jobs. Neither fact replaces this fix review. Do not stamp unreviewed packets.
 
-The HE.0 reader is not an issue deliverable. Its regeneration needs the expanded
-scope or a separate authorized job: this run changed the primitivity node, and
-the previous review already left the reader behind on the primitivity request
-and BSD.4 cycle descriptions. Regenerate it from the accepted packet rather
-than copying historical prose from the old report.
-
-Source receipts and all necessary mathematical notes are in the packet/report.
-Scratch can be deleted after opening the pull request. The maintainer-cleared
-Zhang source remains solely in the shared library; no file or passage was copied.
-No Lean process or language server remains running.
+The reader is also outside the live issue's scope. Its regeneration remains
+needed after scope reconciliation, as recorded in the previous handoff.
+The inherited report is preserved below the latest continuation for its full
+mathematical notes. All information needed to resume is in that report and the
+packet; scratch can be deleted. No source file or passage was copied into the
+repository, and the cleared Zhang copy remains in the shared library.
