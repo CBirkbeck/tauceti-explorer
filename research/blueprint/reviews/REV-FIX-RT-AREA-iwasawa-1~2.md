@@ -1,3 +1,133 @@
+# Current continuation: completed-round scope changes during generation
+
+Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217),
+Codex session **codex-VP0eYQ**, 10 October 2026. The bot confirmed this
+session's claim in [comment 6099702505](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6099702505).
+Input commit: `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`.
+
+**Blocked checkpoint: the completed HE.0 review requires a queue-scope repair,
+not another mathematical review of HE.0.** This continuation independently
+reproduces the administrative blocker and identifies a generator repair point.
+It preserves every earlier mathematical verdict, correction and source-reading
+receipt below. No packet or suggested file receives a new review stamp.
+
+## Current boundary and completion checks
+
+The live issue, re-read after claim confirmation, authorizes three outputs:
+this report, the HE.0 packet and its suggested file. The local queue and a
+fresh read of the queue on GitHub main instead both list twenty-three outputs:
+this report, eleven packets and eleven suggested files. All twenty-three files
+exist. Running the actual `issues.deliverables_complete` on the queue job
+returns **false**; restricting an in-memory copy to the live issue's three
+outputs returns **true**.
+
+The ten additional packets retain nine accepted reviews and ES.0's
+`needs_changes` review, each attributed to its own review job. Their different
+reviewer markers make this job's completion check fail. ES.0's verdict itself
+does not explain the failure: the predicate accepts `needs_changes` when the
+reviewer marker matches. Existing reviews are not a substitute for this job's
+unperformed extra fix reviews.
+
+[WORKERS.md](../WORKERS.md) requires editing only issue-named files. A scope
+question was submitted during this run. Until the scope is reconciled, the
+ten extra packet reviews and the queue are outside this continuation's edit
+scope. Their exact names remain listed in the handoff.
+
+## Historical scope and the generator path
+
+The actual round-two fix was submitted in
+[PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753), merged as
+`88f9bcd44`. Its checked-in queue records four fix outputs: the round-two
+fix report and HE.0's packet, reader and suggested file. The corresponding
+review has the same three outputs the live issue still names. The current
+queue retrospectively assigns forty outputs to that completed fix and
+twenty-three to its pending review.
+
+The relevant path is `make_queue.py::fix_rounds`, specifically the assignment
+to `made` when advancing to an existing following round. The initial completed
+round keeps `previous_outputs`, but a following historical round is reused
+only when **neither** newly routed `missing` files **nor** a send-back exists.
+As more blueprints finish, `missing` becomes nonempty; the guard rejects the
+existing completed round, and `current_outputs` is rebuilt with those new
+files. Its review then inherits the expanded `promotable` list. This explains
+both the expanded completed fix and the review/issue mismatch.
+
+A read-only replay of that exact function, with historical output lists and
+the current routed files/states, gives:
+
+| Replay | Round-two fix outputs | Round-two review outputs | Round-three fix outputs |
+|---|---:|---:|---:|
+| Existing guard | 40 | 23 | No round generated |
+| Preserve a following completed historical round | 4 | 3 | 40 |
+
+In the second replay only the guard is changed in memory: a following round
+whose state is `done` keeps its historical outputs even when new files have
+arrived. The additional work then gets a distinct following fix/review rather
+than being attributed retrospectively to round two. This is evidence for the
+repair direction, not a change to the generator or an end-to-end validation of
+its other families.
+
+## Maintainer repair and regression case
+
+Restore round two's historical four-output fix scope and three-output review
+scope, and preserve the scope of completed following rounds in the generator.
+Both steps matter: changing the guard alone cannot recover historical scope
+from the already expanded forty-output queue entry. Regenerate and confirm
+that the round-two review's predicate returns true. Give any newly routed
+blueprints a separate fix/review round with matching issue instructions.
+
+The regression case is a completed report-only round one, a completed
+HE.0-only round two, and newly finished supplier/consumer blueprints. Assert
+that round two keeps its four outputs and its review its three outputs;
+the newly routed files belong to a subsequent round. Check this across two
+generations so the restored scope stays stable. The current expanded queue
+alone cannot provide the historical fixture: use the actual fix's commit.
+
+The following reproduces this continuation's completion comparison without
+writing files; run it from the repository root:
+
+```python
+import importlib.util
+import json
+
+spec = importlib.util.spec_from_file_location("issues", "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+jobs = json.load(open("research/blueprint/queue.json"))["jobs"]
+job = next(j for j in jobs if j["id"] == "REV-FIX-RT-AREA-iwasawa-1~2")
+authorized = [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
+    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
+    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
+]
+print("queue scope:", issues.deliverables_complete(job))
+print("live scope:", issues.deliverables_complete(dict(job, outputs=authorized)))
+```
+
+For the generator replay, extract the `fix_rounds` function with Python's AST
+from the current `make_queue.py`, provide `previous_jobs`/`previous_outputs`
+from `git show 88f9bcd44:research/blueprint/queue.json`, and use current queue
+states and the round-two fix's current outputs except its red-team report as
+`blueprints`. Stub `add` to collect jobs and the prompt templates to empty
+strings; read packet review objects normally. Invoke it for
+`RT-AREA-iwasawa-1` with the original report-only first-round output. Compare
+the original guard with the in-memory condition
+`states.get(following) == "done" or (following in states and not (missing or sent_back))`.
+No full queue generation, synchronization or promotion was run.
+
+## Validation and attribution
+
+The HE.0 packet checker, using the pinned declaration index, reports zero
+errors and warnings: 78 nodes, 24 API items, eighteen tests, 21 gaps and 63
+requests. This validates its schema and references; it is not a fresh
+mathematical review. No source was fetched or reread in this administrative
+continuation. Lean was not rerun for these documentation changes; the earlier
+successful elaboration and its attribution remain below. No mathematical
+statement, packet, source receipt, reader, Lean file, automation file or queue
+was edited. The submission contains only this report and its handoff.
+
+---
+
 # Independent fix review: codex-kEnFR2, 10 October 2026
 
 Issue #6217; reviewer Codex — `codex-kEnFR2`. This session did none of the
