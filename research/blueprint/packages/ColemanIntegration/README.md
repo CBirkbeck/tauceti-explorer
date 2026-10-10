@@ -41,6 +41,8 @@ continuous rational nonnegative scalar multiplication, which p-adic fields lack.
 |---|---|
 | Dagger algebras, weak completions, rational localizations, differentials, scalar extension, identity principle and integral étale Taylor estimates | `AS-F1`: AdicSpacesPartII:F1 |
 | Generic fibres, specialization, tubes and residue-disc coordinates | `AS-R2`: AdicSpacesPartII:R2 |
+| Proper rigid GAGA and quasi-Stein acyclicity | `AS-R3`: AdicSpacesPartII:R3:proper-gaga, quasi-stein-theorems-a-b |
+| Curve cohomology, Riemann–Roch and Serre duality, including the differential/canonical-sheaf identification | Tau Ceti's JacobianChallenge, Layer B |
 | Laurent annulus rings, restriction maps, norms and local-field valuation facts | `PH-P7`: PadicHodgeTheory:P7:annulus-foundations |
 | Frobenius lifting and finite-order coefficient-field linear algebra | `RD0`: PadicDifferentialEquationsAndRigidCohomology:RD.0 |
 | Rigid cohomology, finite-dimensionality, lift independence and weights | `RD4–RD6`: PadicDifferentialEquationsAndRigidCohomology:RD.4–RD.6 |
@@ -85,7 +87,8 @@ on Jacobians belong to EffectiveDiophantineMethods:ED.4.
   power series.
 
 The order is L0 → L1 → L2 → L3; numbered targets follow dependency order.
-Source abbreviations resolve in the reference list.
+Source abbreviations resolve in the reference list. Each dependency line ends
+with source citations; shared hypothesis contracts apply wherever cited.
 
 
 ## L0. Power series, residues and logarithm branches
@@ -98,7 +101,7 @@ Use Mathlib’s analytic and formal-series carriers. Termwise integration preser
 
 **Given:** K is a field with a nontrivial ultrametric norm and CharZero K. No completeness is needed.
 
-**From:** IsUltrametricDist, padicValNat, CharZero. **Source:** [^1], [^2].
+**From:** IsUltrametricDist, padicValNat, CharZero.; [^1], [^2].
 
 ### L0.2. The normalised formal primitive of a power series
 
@@ -122,19 +125,15 @@ Let A be a commutative ring which is a Q-algebra. The normalised formal primitiv
 - primitive (mk fun n => (-1 : A)^n) = PowerSeries.log A (Mathlib's formal logarithm of 1 + X).
 - Over ZMod p there is no g with d/dX g = X^(p-1): the coefficient of X^(p-1) in d/dX g is p * coeff p g = 0. Hence the Q-algebra hypothesis cannot be dropped.
 
-**From:** PowerSeries.derivative, PowerSeries.log. **Source:** [^3], [^4].
+**From:** PowerSeries.derivative, PowerSeries.log.; [^3], [^4].
 
 **L0.3. The derivative of the normalised formal primitive in characteristic zero.** Let A be a commutative Q-algebra and f in A[[X]]. Then d/dX (primitive f) = f and primitive (d/dX f) = f - C(constantCoeff f), where d/dX is Mathlib's PowerSeries.derivative.
 
-**Given:** A is a commutative Q-algebra.
-
-**From:** L0.2, PowerSeries.coeff_derivative, PowerSeries.derivative_log_mul_one_add_X. **Source:** [^5].
+**From:** L0.2, PowerSeries.coeff_derivative, PowerSeries.derivative_log_mul_one_add_X.; [^5].
 
 **L0.4. Uniqueness of the formal primitive with given constant term.** Let A be a commutative Q-algebra, f in A[[X]] and c in A. A power series g satisfies d/dX g = f and constantCoeff g = c if and only if g = C c + primitive f.
 
-**Given:** A is a commutative Q-algebra (in particular additively torsion free).
-
-**From:** L0.3, PowerSeries.derivative.ext. **Source:** [^6].
+**From:** L0.3, PowerSeries.derivative.ext.; [^6].
 
 ### L0.5. Radius-loss estimate for termwise integration
 
@@ -142,13 +141,13 @@ For complete nontrivially normed ultrametric K of characteristic zero, R(primiti
 
 **Given:** K complete, nontrivially normed, ultrametric, characteristic zero; in particular every complete subfield of C_p. rho > 0 is a real number; radii are compared in ENNReal as in Mathlib's FormalMultilinearSeries.radius.
 
-**From:** L0.1, L0.2, FormalMultilinearSeries.radius, FormalMultilinearSeries.ofScalars, PowerSeries.IsRestricted, PowerSeries.gaussNorm. **Source:** [^5], [^1].
+**From:** L0.1, L0.2, FormalMultilinearSeries.radius, FormalMultilinearSeries.ofScalars, PowerSeries.IsRestricted, PowerSeries.gaussNorm.; [^5], [^1].
 
 **L0.6. Termwise integration fails on the closed disc.** Let K be a complete ultrametric field of characteristic zero with |p| < 1 for the prime p (for example any complete subfield of C_p). The series f := sum_{k>=0} p^k X^(p^k - 1) is restricted at 1 (it lies in the Tate algebra K<X>, since |p^k|→0), but primitive f = sum_{k>=0} X^(p^k) is not restricted at 1 and does not converge at X = 1. Hence d : K<X>→K<X> dX is not surjective, whereas every f restricted at some rho > 1 (the dagger algebra) and every f analytic on the open unit disc has a primitive of the same kind (L0.5 (c)).
 
 **Given:** |p| < 1 in K.
 
-**From:** L0.2, L0.4, PowerSeries.IsRestricted. **Source:** [^5], [^1].
+**From:** L0.2, L0.4, PowerSeries.IsRestricted.; [^5], [^1].
 
 ### L0.7. Analytic functions on an open disc
 
@@ -173,7 +172,7 @@ For complete nontrivially normed ultrametric K and 0<r≤∞, O_K(D⁻(a,r)) is 
 - Constant functions lie in discAnalytic K a r for r, including r = infinity.
 - The geometric series z↦sum z^n is in discAnalytic C_p 0 1 but its coefficient sequence is not PowerSeries.IsRestricted at 1 (not in the Tate algebra).
 
-**From:** HasFPowerSeriesOnBall, Metric.ball, HasFPowerSeriesOnBall.fderiv, FormalMultilinearSeries.radius_le_radius_derivSeries, HasFPowerSeriesAt.eq_formalMultilinearSeries, AnalyticOnNhd, PowerSeries.IsRestricted, LA1, L0.1, Metric.eball. **Source:** [^7], [^8], [^6].
+**From:** HasFPowerSeriesOnBall, Metric.ball, HasFPowerSeriesOnBall.fderiv, FormalMultilinearSeries.radius_le_radius_derivSeries, HasFPowerSeriesAt.eq_formalMultilinearSeries, AnalyticOnNhd, PowerSeries.IsRestricted, LA1, L0.1, Metric.eball.; [^7], [^8], [^6].
 
 ### L0.8. The unique primitive with chosen base value on an open disc
 
@@ -181,19 +180,17 @@ Let K be a complete nontrivially normed ultrametric field of characteristic zero
 
 **Given:** [^C1] b lies in the open disc D^-(a, r).
 
-**From:** L0.7, L0.2, L0.3, L0.5, HasFPowerSeriesOnBall.fderiv, HasFPowerSeriesAt.eq_formalMultilinearSeries. **Source:** [^6], [^4].
+**From:** L0.7, L0.2, L0.3, L0.5, HasFPowerSeriesOnBall.fderiv, HasFPowerSeriesAt.eq_formalMultilinearSeries.; [^6], [^4].
 
 **L0.9. Locally analytic primitives are unique only up to locally constant functions.** On any nonempty open U⊆C_p, locally analytic functions with zero derivative are exactly the locally constant ones. Nonconstant examples exist, such as indicators of clopen discs. Given a locally analytic primitive F, all such primitives are F+LC(U), an infinite-dimensional affine space. A fixed value determines a whole-disc analytic primitive on D⁻(0,1) (L0.8), but does not determine a locally analytic primitive, including on P¹(C_p)∖{0,1,∞}.
 
-**Given:** U open in C_p, nonempty.
-
-**From:** L0.7, L0.8, AnalyticOnNhd, IsLocallyConstant, LA1. **Source:** [^9], [^10].
+**From:** L0.7, L0.8, AnalyticOnNhd, IsLocallyConstant, LA1.; [^9], [^10].
 
 **L0.10. Convergence of the logarithm series on the open unit disc.** Let K be a complete nontrivially normed ultrametric field of characteristic zero (for example C_p or a finite extension of Q_p). The Tau Ceti series NormedSpace.logOneAddSeries K K has radius at least 1, the Tau Ceti function log(1 + u) := NormedSpace.logOneAdd K K u equals sum_{n>=1} (-1)^(n+1) u^n/n for ||u|| < 1, satisfies HasFPowerSeriesOnBall (logOneAdd K K) (logOneAddSeries K K) 0 1, and its derivative is 1/(1 + u) on the open unit disc. (Tau Ceti proves the radius bound only under ContinuousSMul Q>=0 K, which fails for p-adic fields; this lemma supplies the ultrametric case.)
 
 **Given:** K complete, nontrivially normed, ultrametric, CharZero.
 
-**From:** L0.1, NormedSpace.logOneAdd, NormedSpace.logOneAddSeries, NormedSpace.hasFPowerSeriesOnBall_logOneAdd, FormalMultilinearSeries.radius, HasFPowerSeriesOnBall, PowerSeries.derivative_log_mul_one_add_X. **Source:** [^11], [^12].
+**From:** L0.1, NormedSpace.logOneAdd, NormedSpace.logOneAddSeries, NormedSpace.hasFPowerSeriesOnBall_logOneAdd, FormalMultilinearSeries.radius, HasFPowerSeriesOnBall, PowerSeries.derivative_log_mul_one_add_X.; [^11], [^12].
 
 ### L0.11. The residue of a differential on an annulus
 
@@ -216,7 +213,7 @@ Let K be a complete subfield of C_p, e in K a centre, 0≤r < s≤infinity, and 
 - annulusResidue A 0 = 0, and on a full disc (no negative powers) every residue is 0.
 - For |c - e|≥s the form dz/(z - c) is analytic on A with residue 0, although as a rational form it has a pole with residue 1: the residue on A is not the algebraic residue at a chosen point.
 
-**From:** PH-P7, LaurentSeries, IsUltrametricDist, L0.10. **Source:** [^13], [^6].
+**From:** PH-P7, LaurentSeries, IsUltrametricDist, L0.10.; [^13], [^6].
 
 ### L0.12. A differential on an annulus is exact exactly when its residue vanishes
 
@@ -224,19 +221,19 @@ Let K be a complete subfield of C_p (or any complete ultrametric field of charac
 
 **Given:** [^C1] A an open annulus or the end germ of a residue disc.
 
-**From:** L0.11, L0.1, L0.5, PH-P7. **Source:** [^14], [^6].
+**From:** L0.11, L0.1, L0.5, PH-P7.; [^14], [^6].
 
 **L0.13. The logarithm series is a homomorphism on principal units.** Let K be as in L0.10. For ||u|| < 1 and ||v|| < 1, log(1 + u) + log(1 + v) = log((1 + u)(1 + v)) (note ||u + v + uv|| < 1). Hence u↦log(1 + u) is a continuous group homomorphism from the principal units 1 + m_K to (K, +), and it vanishes at every root of unity lying in 1 + m_K.
 
 **Given:** [^C1]
 
-**From:** L0.10, L0.8. **Source:** [^15].
+**From:** L0.10, L0.8.; [^15].
 
 **L0.14. Every element of C_p^x has a power that is p^m times a principal unit.** For x in C_p^x there are integers N≥1 and m such that ||x^N p^(-m) - 1|| < 1. For such pair, m/N = v_p(x) := -log_p ||x||, so v_p(x) lies in Q and ||C_p^x|| = p^Q. The same holds in every complete subfield K of C_p that is finite over Q_p, with x^N p^(-m) in 1 + m_K.
 
 **Given:** C_p is Mathlib's PadicComplex p; its norm restricts to |p| = 1/p.
 
-**From:** PadicComplex, PadicAlgCl, spectralNorm, PadicComplexInt, Real.logb, PH-P7. **Source:** [^12].
+**From:** PadicComplex, PadicAlgCl, spectralNorm, PadicComplexInt, Real.logb, PH-P7.; [^12].
 
 ### L0.15. The branches log_a of the p-adic logarithm
 
@@ -263,19 +260,17 @@ Fix a prime p and a in C_p. The branch log_a : C_p^x→C_p is defined by log_a(x
 - On the open ball of radius 1 around 1 the branch equals Tau Ceti's NormedSpace.logOneAdd composed with u↦1 + u.
 - The series sum (-1)^(n+1) (x - 1)^n/n diverges at x = p, so no branch is given by one power series on C_p^x.
 
-**From:** L0.10, L0.13, L0.14, NormedSpace.logOneAdd, PadicComplex. **Source:** [^12], [^15], [^16].
+**From:** L0.10, L0.13, L0.14, NormedSpace.logOneAdd, PadicComplex.; [^12], [^15], [^16].
 
 **L0.16. Changing the branch of the logarithm.** For a, b in C_p and x in C_p^x: log_b(x) - log_a(x) = (b - a) v_p(x), where v_p(x) = -log_p ||x|| in Q. In particular all branches agree on the units O_{C_p}^x (and on 1 + m_{C_p}), and log_a = log_p + a v_p with log_p the Iwasawa branch.
 
-**Given:** a, b in C_p; x≠0.
-
-**From:** L0.15, L0.14, Real.logb. **Source:** [^17], [^18].
+**From:** L0.15, L0.14, Real.logb.; [^17], [^18].
 
 **L0.17. Compatibility of the branches with automorphisms and finite extensions.** (a) For continuous field automorphism sigma of C_p, every a in C_p and x in C_p^x: log_(sigma(a))(sigma(x)) = sigma(log_a(x)); in particular the Iwasawa branch commutes with every such sigma. (b) For a finite extension K of Q_p inside C_p and a in K, log_a(K^x) is contained in K, and log_a restricted to K^x is the unique homomorphism K^x→K that agrees with the series on 1 + m_K and sends p to a. (c) Hence the logarithms of all finite (algebraic) extensions of Q_p obtained this way are compatible under inclusion: the restriction of log_a from L^x to K^x is log_a of K for K inside L.
 
 **Given:** a in C_p; for (b) and (c), K and L are finite over Q_p inside C_p and a lies in K.
 
-**From:** L0.15, L0.14, L0.10. **Source:** [^19].
+**From:** L0.15, L0.14, L0.10.; [^19].
 
 ### L0.18. The Iwasawa logarithm log_p
 
@@ -297,13 +292,11 @@ The Iwasawa branch of the p-adic logarithm is log_p := log_0 (L0.15): the unique
 - iwasawaLog commutes with every continuous Q_p-automorphism sigma of C_p. If sigma(a)≠a, then log_a does not commute with sigma, as evaluation at p shows. An algebraic a with a nontrivial conjugate gives a discriminating example; no assertion about the fixed field of all automorphisms is needed.
 - padicLogBranch p 1 agrees with iwasawaLog on units but padicLogBranch p 1 p = 1≠0.
 
-**From:** L0.15, L0.16, L0.17. **Source:** [^19], [^12].
+**From:** L0.15, L0.16, L0.17.; [^19], [^12].
 
 **L0.19. Local expansion of log_a and its derivative.** For x_0 in C_p^x and z in D^-(x_0, |x_0|) (so |z| = |x_0|): log_a(z) = log_a(x_0) + log(1 + (z - x_0)/x_0), with log the series of L0.10. Hence the restriction of log_a to D^-(x_0, |x_0|) lies in O(D^-(x_0, |x_0|)) (L0.7) with derivative 1/z; log_a is locally analytic on C_p^x with d log_a = dz/z. Every open disc in C_p^x lies in a sphere |z| = const, so log_a is analytic on every such disc; its failure to be a single analytic function shows only on annuli (L0.21).
 
-**Given:** a in C_p, x_0≠0.
-
-**From:** L0.15, L0.13, L0.7, L0.10. **Source:** [^12], [^13].
+**From:** L0.15, L0.13, L0.7, L0.10.; [^12], [^13].
 
 ### L0.20. Functions with logarithmic terms on an annulus
 
@@ -327,13 +320,13 @@ Let A = A(e; r, s) be an open annulus (or the end germ R_e of a residue disc) ov
 - rho_a(l) = log_a(z - e) is not rho_a of any element of O_K(A): dz/(z - e) has residue 1 (L0.12).
 - rho_b(l)-rho_a(l)=(b-a)v_p(z-e). It is locally constant, and for a!=b it is nonconstant on A(0;p^(-2),1), which contains circles of two different valuations.
 
-**From:** L0.11, L0.15, L0.19, L0.10, PH-P7, L0.17. **Source:** [^6], [^12].
+**From:** L0.11, L0.15, L0.19, L0.10, PH-P7, L0.17.; [^6], [^12].
 
 **L0.21. The logarithm is transcendental over functions on an annulus.** Let A = A(e; r, s) with 0 ≤ r < s and a in C_p. If f_0, ..., f_n in O_K(A) satisfy sum_k f_k(z) log_a(z - e)^k = 0 for all z in A(C_p), then all f_k = 0. Equivalently the realisation rho_a of L0.20 is injective.
 
 **Given:** 0 ≤ r < s, so that A contains circles of more than one radius; K complete subfield of C_p.
 
-**From:** L0.12, L0.20, L0.19, PH-P7. **Source:** [^12].
+**From:** L0.12, L0.20, L0.19, PH-P7.; [^12].
 
 ### L0.22. Logarithmic primitives on an annulus
 
@@ -341,13 +334,13 @@ Let A be an open annulus (or end germ) over a complete subfield K of C_p. The de
 
 **Given:** K complete subfield of C_p; A an open annulus or end germ; a a branch for the realisation.
 
-**From:** L0.12, L0.20, L0.21, L0.11. **Source:** [^6], [^13].
+**From:** L0.12, L0.20, L0.21, L0.11.; [^6], [^13].
 
 **L0.23. How a change of branch changes logarithmic primitives.** For F=sum f_k l^k in O_K(A)[l], rho_b(F)(z)=sum f_k(z)(log_a(z-e)+(b-a)v_p(z-e))^k. Choose for f dt the coefficient primitive with constant coefficient0 and logarithmic coefficient res_A(f dt), using the same additive normalization in both branches. Its branch difference is res_A(f dt)(b-a)v_p(z-e), constant on each circle. It is nonconstant when res_A(f dt)(b-a)!=0 and the annulus contains two different radii in p^Q. A zero-residue differential has branch-independent primitives under this common normalization; arbitrary primitives can also differ by constants.
 
 **Given:** a, b in C_p.
 
-**From:** L0.16, L0.20, L0.22. **Source:** [^18], [^17].
+**From:** L0.16, L0.20, L0.22.; [^18], [^17].
 
 **L0.24. A logarithm bound on a geometric sequence.** For c≠0 and every natural m, |L(c p^m)|≤max(|L(c)|,|a|).
 
@@ -356,13 +349,13 @@ Let A be an open annulus (or end germ) over a complete subfield K of C_p. The de
 **Tests.**
 - At p=2 and branch parameter a=1, |L(2^m)|≤1 for natural m.
 
-**From:** L0.15, IsUltrametricDist.norm_natCast_le_one, PadicComplex.isNonarchimedean. **Source:** [^20].
+**From:** L0.15, IsUltrametricDist.norm_natCast_le_one, PadicComplex.isNonarchimedean.; [^20].
 
 **L0.25. Logarithm of a geometric quotient.** For c≠0 and every n, L(c q_n/(1+q_n))=L(c)+(n+1)a−L(1+q_n).
 
 **Given:** [^C2] [^C3] c∈C_p is nonzero.
 
-**From:** L0.15, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** L0.15, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 ## L1. Frobenius continuation and Coleman functions
 
@@ -389,7 +382,7 @@ Fix finite K/Q_p⊆C_p, with integers O_K, uniformizer π and residue field F_q.
 - (P^1, {0, infinity} u mu_p) over Z_p[mu_p] is not a good-reduction pair: all p-th roots of unity reduce to 1.
 - (P^1_{Z_p}, {infinity}) is a good-reduction pair with Y = A^1, one end and no residue class of D other than infinity.
 
-**From:** AlgebraicGeometry.Scheme, AlgebraicGeometry.Smooth, AlgebraicGeometry.IsProper, AlgebraicGeometry.IsFinite, AlgebraicGeometry.Etale, AlgebraicGeometry.IsAffine. **Source:** [^21], [^22], [^23].
+**From:** AlgebraicGeometry.Scheme, AlgebraicGeometry.Smooth, AlgebraicGeometry.IsProper, AlgebraicGeometry.IsFinite, AlgebraicGeometry.Etale, AlgebraicGeometry.IsAffine.; [^21], [^22], [^23].
 
 ### L1.2. Wide open neighbourhoods and the dagger algebra
 
@@ -413,13 +406,13 @@ For a good-reduction pair, X_an is the generic fibre of its formal completion, w
 - For (P^1, {infinity}), wideOpen r = D^-(0, 1/r) and the dagger algebra is the ring of power series restricted at some rho > 1.
 - The tube ]A^1_k[ = D(0, 1) is not a wide open: its ring of functions, the Tate algebra, has non-exact differentials (L0.6), while every differential on the dagger algebra of A^1 is exact (L0.5).
 
-**From:** L1.1, AS-F1, AS-R2, L0.6, L0.5. **Source:** [^6], [^24], [^12].
+**From:** L1.1, AS-F1, AS-R2, L0.6, L0.5.; [^6], [^24], [^12].
 
 **L1.3. Residue discs are open discs and ends are annuli.** An integral parameter at a lift of x identifies ]x[ with D⁻(0,1); at e∈D it identifies ]e[∩W_r with A(0;r,1). Changes of parameter have t′=v+ut+Σ_(j≥2)a_jt^j, |v|<1, |u|=1, |a_j|≤1. If both vanish at the same section, v=0 and t′=ut(1+h), |h|<1. Construct differential-compatible restrictions res_x:A⁺→O(D⁻(0,1)) and res_e:A⁺→R_e. Parameter changes preserve these rings, residues and logarithmic end rings.
 
 **Given:** (X, D) a good-reduction pair; x a point of X_k(F_p-bar).
 
-**From:** L1.1, L1.2, AS-R2, L0.7, L0.11, L0.20. **Source:** [^22], [^6], [^25], [^26].
+**From:** L1.1, L1.2, AS-R2, L0.7, L0.11, L0.20.; [^22], [^6], [^25], [^26].
 
 ### L1.4. Locally analytic functions with logarithmic ends
 
@@ -443,7 +436,7 @@ For branch a, define A_loc^a(Y)=∏_(x∈X_k(F̄_p))A_log^a(x), with O(]x[) at o
 - For (P^1, {infinity}): LocAn is the product of O(]x[) over x in F_p-bar and R_inf[l_inf].
 - iota_(a,b) is the identity on the image of A+(Y) and on every component at a residue disc of Y_k.
 
-**From:** L1.1, L1.2, L1.3, L0.7, L0.20, L0.8, L0.22, L0.15. **Source:** [^6], [^27], [^28].
+**From:** L1.1, L1.2, L1.3, L0.7, L0.20, L0.8, L0.22, L0.15.; [^6], [^27], [^28].
 
 ### L1.5. Frobenius lifts on a wide open
 
@@ -467,17 +460,17 @@ For residue field F_q, a Frobenius lift is a K-algebra endomorphism φ:A⁺→A�
 - z↦p z and z↦z^p + 1 are not Frobenius lifts of P^1 minus {0, 1, infinity}: their reductions are not the p-power map.
 - The fixed points of (z↦z^p)^m on the residue discs of U = P^1 minus {0, 1, infinity} are the roots of unity of order dividing p^m - 1 other than 1.
 
-**From:** L1.1, L1.2, L1.4, L0.15, L0.16, AlgHom.IsArithFrobAt, RD0, AS-F1. **Source:** [^29], [^6], [^30].
+**From:** L1.1, L1.2, L1.4, L0.15, L0.16, AlgHom.IsArithFrobAt, RD0, AS-F1.; [^29], [^6], [^30].
 
 **L1.6. Teichmueller points of residue discs.** Let phi be a Frobenius lift on a good-reduction pair (X, D) over O_K with residue field F_q, and x in Y_k(F_(q^m)). Then phi^m maps ]x[ into itself and has a unique fixed point b_x in ]x[, the Teichmueller point of ]x[ (for phi); phi(b_x) = b_(F(x)). For P^1 minus {0, 1, infinity} and phi(z) = z^p the Teichmueller point of ]x[ is the Teichmueller lift of x, a root of unity of order prime to p.
 
 **Given:** x has coordinates in F_(q^m).
 
-**From:** L1.5, L1.3. **Source:** [^31], [^32], [^33].
+**From:** L1.5, L1.3.; [^31], [^32], [^33].
 
 ### L1.7. Frobenius-structured unipotent datum
 
-A Frobenius datum is (φ,ω_1,…,ω_r,M,g), with φ*ω_i=Σ_j M_ijω_j+dg_i, M∈M_r(K), g∈(A⁺)^r. Require H0:ker(d:A⁺→Ω⁺)=K; H1:η=dh+Σ_i c_iω_i with c unique and h unique modulo K; Hi:restriction of functions and differentials to every ordinary disc is injective; Hw:for n,m≥1, (M^(⊗n))^m has no eigenvalue 1, equivalently no nonempty eigenvalue product is a root of unity. L1.6 supplies general existence; L1.28 gives the punctured-line datum.
+A Frobenius datum is (φ,ω_1,…,ω_r,M,g), with φ*ω_i=Σ_j M_ijω_j+dg_i, M∈M_r(K), g∈(A⁺)^r. Require H0:ker(d:A⁺→Ω⁺)=K; H1:η=dh+Σ_i c_iω_i with c unique and h unique modulo K; Hi:restriction of functions and differentials to every ordinary disc is injective; Hw:for n,m≥1, (M^(⊗n))^m has no eigenvalue 1, equivalently no nonempty eigenvalue product is a root of unity. L1.9 supplies general existence; L1.29 gives the punctured-line datum.
 
 **Given:** (X,D) good-reduction over O_K; φ K-linear. Require (H0),(H1),(Hi) after extending the datum and realization to C_p; this coefficient-base-change input does not follow from arbitrary K-data.
 
@@ -496,35 +489,73 @@ A Frobenius datum is (φ,ω_1,…,ω_r,M,g), with φ*ω_i=Σ_j M_ijω_j+dg_i, M�
 - For (P^1, {infinity}) the datum has r = 0: H^1_dR+ = 0 and every differential is exact.
 - Replacing (dz/z, dz/(z - 1)) by (dz/z, dz/(z(z - 1))) gives M' = P (p I) P^(-1) = p I again.
 
-**From:** L1.2, L1.5, Module.End.HasEigenvalue, Derivation, Module.Free. **Source:** [^34], [^6].
+**From:** L1.2, L1.5, Module.End.HasEigenvalue, Derivation, Module.Free.; [^34], [^6].
 
 **L1.8. Products of Weil numbers of positive weight are not roots of unity.** Let q be a power of p and lambda_1, ..., lambda_n algebraic numbers such that for embedding into C, |lambda_i| = q^(w_i/2) with w_i≥1. Then for m≥1, (lambda_1 ... lambda_n)^m≠1. Consequently if M is a matrix whose eigenvalues are Weil q-numbers of weights 1 and 2, then (M^(tensor n))^m has no eigenvalue 1 for n, m≥1, i.e. hypothesis (Hw) of L1.7 holds.
 
-**Given:** The lambda_i are Weil q-numbers of positive weight.
-
-**From:** Module.End.HasEigenvalue, LinearMap.charpoly. **Source:** [^35], [^36].
+**From:** Module.End.HasEigenvalue, LinearMap.charpoly.; [^35], [^36].
 
 ### L1.9. Every good-reduction pair carries a Frobenius datum
 
-Let (X, D) be a good-reduction pair over O_K (K finite over Q_p, residue field F_q). Then (X, D) carries a Frobenius-structured datum (L1.7): a Frobenius lift phi exists; H^1_dR+(Y) = Omega+(Y)/dA+(Y), which is the Monsky-Washnitzer (rigid) cohomology H^1_rig(Y_k/K), is finite dimensional, of dimension 2g + #D(K-bar) - 1 with a basis of algebraic differentials on Y_K, and its Frobenius does not depend on the lift; ker d = K on A+(Y); the identity principle (Hi) holds on the connected wide opens; and the eigenvalues of the K-linear Frobenius are Weil q-numbers of weights 1 (from H^1 of X_k) and 2 (from the residues along D), so (Hw) holds by L1.8. All inputs except the last step are imported; the comparison with algebraic de Rham cohomology and the dimension formula are a separate proof obligation.
+Let (X, D) be a good-reduction pair over O_K (K finite over Q_p, residue field F_q). Then (X, D) carries a Frobenius-structured datum (L1.7): a Frobenius lift phi exists; H^1_dR+(Y) = Omega+(Y)/dA+(Y), which is the Monsky-Washnitzer (rigid) cohomology H^1_rig(Y_k/K), is finite dimensional, of dimension 2g + #D(K-bar) - 1 with a basis of algebraic differentials on Y_K, and its Frobenius does not depend on the lift; ker d = K on A+(Y); the identity principle (Hi) holds on the connected wide opens; and the eigenvalues of the K-linear Frobenius are Weil q-numbers of weights 1 (from H^1 of X_k) and 2 (from the residues along D), so (Hw) holds by L1.8.
 
-**Given:** (X, D) a good-reduction pair over O_K with K finite over Q_p.
+The algebraic comparison is the restriction-induced K-linear equivalence
+`goodReduction_algebraicDeRhamEquiv` from H¹_dR(Y_K/K) to Ω⁺/dA⁺.
+Construct it for constant coefficients by the following argument. On a
+puncture disc with parameter t, use the log complex O→O·dt/t. For a Laurent
+one-form Σ_n a_n t^n dt/t, its negative part has primitive
+Σ_(n<0) (a_n/n)t^n. Division by n preserves convergence on every strictly
+smaller annulus by L0.1 and L0.12. Projection to nonnegative powers and this
+homotopy identify the log-disc, punctured-disc and fringe-annulus complexes;
+the surviving local classes are K in degree zero and K·dt/t in degree one.
+These are homotopies of complexes, not multiplicative constant-term maps.
+Algebraically the same finite principal-part calculation removes higher
+poles. Proper GAGA on X_K compares the coherent log complexes. Cover X_K^an
+by a strict neighbourhood and the disjoint puncture discs; quasi-Stein
+acyclicity and the Čech double complex give the comparison on the whole
+curve. Pass to the cofinal neighbourhood limit and the RD4
+Monsky–Washnitzer comparison. Split D over a finite extension when necessary;
+finite scalar extension and faithful descent preserve the comparison.
 
-**From:** L1.1, L1.2, L1.5, L1.7, L1.8, RD0, RD4, RD5, RD6, AS-F1. **Source:** [^37], [^35], [^38].
+For r=dim_K Γ(D_K,O)=#D(K-bar), the log-complex spectral sequence gives
+0→H⁰(X_K,Ω¹(log D))→H¹_dR(Y_K)→H¹(X_K,O)→0:
+global functions are constants, and H¹(Ω¹(log D))=0 by Serre duality and
+H⁰(O(−D))=0. Riemann–Roch gives dim H⁰(Ω¹(log D))=g+r−1, hence
+`goodReduction_deRham_finrank`: dim H¹=2g+r−1. Since Y_K is affine, classes
+have global algebraic differential representatives. This does not make
+those representatives logarithmic when g>0. Import curve duality and the
+canonical-sheaf/differential identification from JacobianChallenge Layer B;
+its existing Weil-differential duality alone does not identify Ω¹ with that
+canonical sheaf. Reuse Tau Ceti's
+`SchemeWeilDivisor.eulerCharBelow_sheaf_eq_relativeDegree_add_one_sub_genus`
+and `cohomologyOneDualEquivCohomologyZero`, after a finite extension supplying
+a rational point.
+
+**API/tests.** The comparison commutes with finite scalar extension,
+restriction and pullback of pairs, and the local residue maps. Required
+examples are A¹ (g=0,r=1, dimension 0), G_m (g=0,r=2, dimension 1, class
+dt/t) and a genus-one curve minus one rational point (dimension 2, although
+global log forms have dimension 1). For a nonsplit finite étale D use its
+degree r, not its number of K-rational points. Sources: BC Theorem 2.4 and
+Corollary 2.6, §§2–3, pp.8–14,17–18; the constant-coefficient curve argument
+uses its Theorem 3.1 with exponent zero and Čech proof of Corollary 3.7.
+BC works over an algebraically closed complete field. Apply its local argument
+over a finite splitting extension using AS-F1's finite-base-change contract.
+Its non-Liouville and overconvergence conditions hold for the trivial connection.
+
+**From:** L1.1, L1.2, L1.5, L1.7, L1.8, L0.1, L0.12, RD0, RD4, RD5, RD6, AS-F1:log-de-rham-complex, dagger-de-rham-finite-field-extension, AS-R2, AS-R3, JacobianChallenge Layer B.; [^37], [^35], [^38], BC §§2–3, pp.8–18.
 
 **L1.10. Solving Frobenius equations along finite orbits.** Let S be a set with a bijection F : S→S all of whose orbits are finite, V a finite-dimensional vector space over a field L, and T in End_L(V) such that T^m - 1 is invertible for m≥1. Then for e : S→V there is a unique c : S→V with c(F(s)) = T(c(s)) + e(s) for all s in S. On the orbit of s of length m it is c(s) = (1 - T^m)^(-1) sum_{j=0}^{m-1} T^(m-1-j) e(F^j(s)). Semilinear form (Besser's Lemma 1): if sigma is an automorphism of L of finite order r and M is a matrix with 1 - sigma^(r-1)(M) ... sigma(M) M invertible, then x↦sigma(x) - M x is bijective on L^n.
 
 **Given:** F bijective with finite orbits (for S = X_k(F_p-bar) every point is defined over a finite field). No eigenvalue of T in an algebraic closure is a root of unity.
 
-**From:** Function.IsPeriodicPt, Function.minimalPeriod, Module.End.HasEigenvalue, RD0. **Source:** [^39], [^40].
+**From:** Function.IsPeriodicPt, Function.minimalPeriod, Module.End.HasEigenvalue, RD0.; [^39], [^40].
 
 ### L1.11. Dwork's principle of continuation along Frobenius
 
 Let (phi, omega, M, g) be a Frobenius-structured datum on (X, D), a a branch, N≥1 and T in M_N(K) such that T^m - 1 is invertible for all m≥1. (a) Uniqueness: if G in (A_loc^a)^N satisfies dG = 0 and phi^* G - T G is a constant vector C in C_p^N, then G is constant, G = (1 - T)^(-1) C. (b) Existence: for G_0 in (A_loc^a)^N and R in (A_loc^a)^N with d(phi^* G_0 - T G_0 - R) = 0 there is a unique locally constant c in LC^N with phi^*(G_0 + c) - T (G_0 + c) = R. (c) Polynomial form (Coleman): if G in A_loc^a has dG = 0 and P(phi^*) G is constant for a polynomial P in K[t] with no root of unity among its roots, then G is constant.
 
-**Given:** The datum's Frobenius lift phi; T without root-of-unity eigenvalues.
-
-**From:** L1.7, L1.10, L1.5, L1.4, L1.1. **Source:** [^41], [^6], [^42].
+**From:** L1.7, L1.10, L1.5, L1.4, L1.1.; [^41], [^6], [^42].
 
 ### L1.12. The unipotent word algebra
 
@@ -549,15 +580,13 @@ For a commutative K-algebra A, derivation d:A→Ω and ω_1,…,ω_r∈Ω, defin
 - For r = 0 the word algebra is A with D = d.
 - With concatenation instead of shuffle, D would send L [e_1] * L [e_1] = L [e_1, e_1] to omega_1 L [e_1] instead of 2 omega_1 L [e_1]: the shuffle product is forced by the Leibniz rule.
 
-**From:** FreeMonoid, Finsupp, Derivation, Module.Free. **Source:** [^43], [^44], [^45].
+**From:** FreeMonoid, Finsupp, Derivation, Module.Free.; [^43], [^44], [^45].
 
 ### L1.13. Every form with word-algebra coefficients has a primitive
 
 Let (phi, omega, M, g) be a Frobenius-structured datum and U = U(A+(Y); omega). (a) D : U→U (x) Omega+ is surjective, and more precisely maps U_(<= n+1) onto U_(<= n) (x) Omega+. (b) ker D = K L_empty. (c) The primitive is computed recursively: for f in A+(Y) and eta in Omega+ write f eta = dh + sum c_i omega_i (H1); then f L_w eta = D(h L_w + sum c_i L_(e_i w)) - h D L_w, and h D L_w has shorter words. This is the exactness of the Coleman de Rham complex at one-forms in the direct setting.
 
-**Given:** Hypotheses (H0) and (H1) of L1.7.
-
-**From:** L1.7, L1.12. **Source:** [^46], [^6].
+**From:** L1.7, L1.12.; [^46], [^6].
 
 ### L1.14. Local horizontal sections on residue discs and ends
 
@@ -581,7 +610,7 @@ For a datum and ordinary b∈]x[, construct the unique A⁺-algebra map λ_(x,b)
 - If the germ lies in C_p[[t]] (no l, no negative powers) then CT is its value at t = 0 (Besser-Furusho constant term).
 - CT(t^-1)=CT(t)=0 while CT(t^-1*t)=1. Thus CT on R_e[l] is not an algebra homomorphism, and tangential word normalization must use the nonnegative-power regular-log subalgebra.
 
-**From:** L1.7, L1.12, L1.3, L1.4, L0.8, L0.22. **Source:** [^47], [^48], [^49].
+**From:** L1.7, L1.12, L1.3, L1.4, L0.8, L0.22.; [^47], [^48], [^49].
 
 ### L1.15. Frobenius on the word algebra
 
@@ -603,7 +632,7 @@ Let (phi, omega, M, g) be a datum and fix a base point fixed by phi: either a Te
 - For the same datum, phi^# L [e_1] = p L [e_1] + log((z^p - 1)/(z - 1)^p), with log u of constant term 0 at the end 0 (u(0) = 1 for odd p; u(0) = -1 and log(-1) = 0 for p = 2).
 - phi^# L[e_0,e_1] differs from p^2 L[e_0,e_1] by pH, where dH=g_1 dz/z and rho(H)=p(Li_2(z)-p^-2 Li_2(z^p)). Hence rho(pH)=p^2 Li_2^(p)(z); the correction cannot be discarded.
 
-**From:** L1.5, L1.6, L1.7, L1.12, L1.13, L1.14. **Source:** [^50], [^34].
+**From:** L1.5, L1.6, L1.7, L1.12, L1.13, L1.14.; [^50], [^34].
 
 ### L1.16. Realisation of the word algebra by Frobenius continuation
 
@@ -611,7 +640,7 @@ Let (phi, omega, M, g) be a Frobenius-structured datum on (X, D), a in C_p a bra
 
 **Given:** A datum satisfying (H0), (H1), (Hw); a in C_p; a phi-fixed base point. A tangential base point must satisfy the regular-log and pullback-normalization hypotheses of L1.15; ordinary Teichmueller bases do not need those end hypotheses.
 
-**From:** L1.7, L1.11, L1.13, L1.14, L1.15, L1.4, L0.8, L0.22, L1.10. **Source:** [^51], [^52], [^53].
+**From:** L1.7, L1.11, L1.13, L1.14, L1.15, L1.4, L0.8, L0.22, L1.10.; [^51], [^52], [^53].
 
 ### L1.17. Coleman functions
 
@@ -637,7 +666,7 @@ Let (X, D) be a good-reduction pair with a Frobenius-structured datum (phi, omeg
 - For p≥3, the element of LocAn equal to log_a z + 1 on the residue disc of 2 and to log_a z elsewhere has d = dz/z but is not a Coleman function.
 - A Coleman function with dF = 0 is a constant.
 
-**From:** L1.16, L1.4, L1.7, L1.12, L1.14. **Source:** [^17], [^6], [^54].
+**From:** L1.16, L1.4, L1.7, L1.12, L1.14.; [^17], [^6], [^54].
 
 ### L1.18. Coleman's uniqueness principle
 
@@ -645,7 +674,7 @@ Let a datum on (X, D) be given and F in A_Col^a(Y). If F vanishes on a nonempty 
 
 **Given:** A datum satisfying (H0), (H1), (Hi); coefficients extended to C_p.
 
-**From:** L1.7, L1.14, L1.16, L1.17, L0.7, L1.13, AS-F1. **Source:** [^55], [^56], [^57].
+**From:** L1.7, L1.14, L1.16, L1.17, L0.7, L1.13, AS-F1.; [^55], [^56], [^57].
 
 ### L1.19. The Coleman integral
 
@@ -671,7 +700,7 @@ For F∈A_Col,≤n and η∈Ω⁺, define ∫Fη=ρ(D⁻¹(ρ⁻¹(F)η)) in A_C
 - For p odd, int_2^(2+p) dz/z = logOneAdd (p/2), the disc integral.
 - For p≥5 the locally analytic primitive log_a z + (indicator of the residue disc of 2) of dz/z gives log_a 2 - log_a 3 + 1 between 3 and 2, whereas int_3^2 dz/z = log_a(2/3): an arbitrary locally analytic primitive does not compute the Coleman integral.
 
-**From:** L1.13, L1.16, L1.17, L1.18, L1.15, L0.8, L0.22. **Source:** [^58], [^59], [^60], [^6].
+**From:** L1.13, L1.16, L1.17, L1.18, L1.15, L0.8, L0.22.; [^58], [^59], [^60], [^6].
 
 ### L1.20. Coleman integration is characterised by Frobenius equivariance
 
@@ -679,13 +708,13 @@ After extending a Frobenius datum and its hypotheses to C_p, there is a unique C
 
 **Given:** A datum; a in C_p.
 
-**From:** L1.7, L1.11, L1.19, L1.18. **Source:** [^61], [^6], [^62].
+**From:** L1.7, L1.11, L1.19, L1.18.; [^61], [^6], [^62].
 
 **L1.21. Taylor expansion along two nearby Frobenius lifts.** Assume an integral étale coordinate t with Ω⁺=A⁺dt and uniform divided-derivative bounds on strict neighborhoods at Taylor radius R>|π|. For equal-q lifts φ,φ′ and finite-depth y, prove convergence of Y=Σ_(j≥0)(φ′*t−φ*t)^jφ#(∂^j y)/j! and ρ(y)(φ′z)=ρ(Y)(z). Hence φ′* preserves the Coleman image. Prove the same result for two maps with equal reduction under the corresponding pulled-back divided-derivative bounds. Freeness of Ω⁺ alone does not supply these analytic bounds.
 
 **Given:** Integral étale t, Ω⁺=A⁺dt; AS-F1 uniform divided-derivative bounds on strict neighborhoods at R>|π|, compatible with restriction. Same reduction bounds coordinate increments by |π| on the tube and by <R on an enlargement. Cross-map use requires the target coordinate and pulled-back coefficient bounds.
 
-**From:** L1.5, L1.12, L1.15, L1.16, L0.1, L0.7, AS-F1. **Source:** [^63], [^64].
+**From:** L1.5, L1.12, L1.15, L1.16, L0.1, L0.7, AS-F1.; [^63], [^64].
 
 ### L1.22. Independence of the Frobenius lift
 
@@ -693,25 +722,21 @@ Let (phi, omega, M, g) and (phi', omega, M', g') be data on (X, D) that differ i
 
 **Given:** L1.21's coordinate and bounds; lifts with the same q. Equality of normalized realizations requires a common fixed ordinary base or a tangential base satisfying regular-log/CT-pullback hypotheses. Equality of images and integrals does not.
 
-**From:** L1.16, L1.17, L1.18, L1.21, L1.7, RD4, L1.6, L1.14. **Source:** [^61], [^6], [^65].
+**From:** L1.16, L1.17, L1.18, L1.21, L1.7, RD4, L1.6, L1.14.; [^61], [^6], [^65].
 
 **L1.23. Branch independence principle.** For a, b in C_p: the isomorphism iota_(a,b) : A_loc^a→A_loc^b of L1.4 maps A_Col^a onto A_Col^b and iota_(a,b) o int_(a) = int_(b) o tau_(a,b) modulo constants; in the direct construction rho^b = iota_(a,b) o rho^a. Consequently the values of Coleman functions at points of the tube ]Y_k[ do not depend on the branch (a branch-independent region); only the end components, realised with log_a(t_e), do.
 
 **Given:** A datum; a, b in C_p.
 
-**From:** L1.4, L1.16, L1.17, L1.5, L0.23. **Source:** [^66], [^67].
+**From:** L1.4, L1.16, L1.17, L1.5, L0.23.; [^66], [^67].
 
 **L1.24. Cohomological and analytic Frobenius pullback agree.** Let a datum on (X, D) be given. (a) For g in A+(Y) and x in X_k(F_p-bar): res_x(phi^* g) = phi^*(res_(F(x)) g), i.e. pulling back functions on the wide open and pulling back their restrictions to residue discs agree. (b) For eta in Omega+(Y) and x, y in one residue disc: int_(phi(x))^(phi(y)) eta = int_x^y phi^* eta (tiny integrals). (c) The class of phi^* eta in H^1_dR+, which is the cohomological pullback, is M^T applied to the class of eta, and depends only on the Frobenius of Y_k (L1.22 (a)). Together these are the comparison between cohomological and local analytic pullback of the roadmap.
 
-**Given:** A datum on (X, D).
-
-**From:** L1.5, L1.3, L1.7, L0.8, L1.22. **Source:** [^68], [^63].
+**From:** L1.5, L1.3, L1.7, L0.8, L1.22.; [^68], [^63].
 
 ### L1.25. The projective line minus zero, infinity and roots of unity
 
 Let N≥1 with p not dividing N, O = Z_p[mu_N] (unramified over Z_p) and K_N = Q_p(mu_N) inside C_p. The punctured line is U_N := P^1_O minus ({0, infinity} u mu_N); (P^1_O, D_N = {0, infinity} u mu_N) is a good-reduction pair (L1.1) because the N-th roots of unity have distinct reductions. U_1 = P^1 minus {0, 1, infinity}. Residue classes: P^1(F_p-bar) = {0, infinity} u F_p-bar^x, with ends at 0, infinity and at the zeta in mu_N; local parameters t_0 = z, t_inf = 1/z, t_zeta = z - zeta; wide opens W_r = {r < |z| < 1/r, |z - zeta| > r for all zeta in mu_N}; dagger algebra A+(U_N) = weak completion of O[z, z^(-1), (z^N - 1)^(-1)] tensored with K_N (AS-F1).
-
-**Given:** p prime, N≥1, p does not divide N.
 
 **API.**
 - `puncturedLine`: puncturedLine p N : the good-reduction pair (P^1_O, {0, infinity} u mu_N) for p not dividing N.
@@ -729,13 +754,13 @@ Let N≥1 with p not dividing N, O = Z_p[mu_N] (unramified over Z_p) and K_N = Q
 - For N = p the pair is not of good reduction (L1.1 test goodReductionPair_mu_p).
 - The fibre of z↦z^N over 1 is mu_N, the removed points of U_N other than 0 and infinity.
 
-**From:** L1.1, L1.2, AS-F1, rootsOfUnity, IsPrimitiveRoot. **Source:** [^69], [^62].
+**From:** L1.1, L1.2, AS-F1, rootsOfUnity, IsPrimitiveRoot.; [^69], [^62].
 
 **L1.26. Mittag-Leffler decomposition on the punctured line.** Every f in A+(U_N) has a unique decomposition f = f_inf(z) + f_0(1/z) + sum_{zeta in mu_N} f_zeta(1/(z - zeta)) with f_inf in K_N[[T]] and f_0, f_zeta in T K_N[[T]], all restricted at some common rho > 1 (PowerSeries.IsRestricted); conversely every such sum lies in A+(U_N). The expansion on each residue disc and on each end is obtained by expanding the pieces, and (Hi) holds: an element vanishing on one residue disc of the tube, or as a germ at one end, is zero.
 
 **Given:** [^C4]
 
-**From:** L1.25, AS-F1, L0.7, L0.11, PowerSeries.IsRestricted. **Source:** [^70], [^12].
+**From:** L1.25, AS-F1, L0.7, L0.11, PowerSeries.IsRestricted.; [^70], [^12].
 
 ### L1.27. The de Rham cohomology of the punctured line
 
@@ -743,13 +768,13 @@ For U_N: (H0) ker(d : A+(U_N)→Omega+(U_N)) = K_N; (H1) every eta = f dz in Ome
 
 **Given:** [^C4]
 
-**From:** L1.25, L1.26, L0.5, L0.1, L0.11, L0.12. **Source:** [^6], [^71].
+**From:** L1.25, L1.26, L0.5, L0.1, L0.11, L0.12.; [^6], [^71].
 
 **L1.28. The Frobenius z↦z^p on the punctured line.** Put K_N=Q_p(mu_N), q=#k_N=p^f. The K_N-linear map phi(z)=z^q is an arithmetic Frobenius lift on U_N. Since zeta^q=zeta for zeta in mu_N, phi*(dz/z)=q dz/z and phi*(dz/(z-zeta))=q dz/(z-zeta)+d log u_zeta, with u_zeta=(z^q-zeta)/(z-zeta)^q. The numerator difference is divisible by p in O_N[z]; log u_zeta belongs to A+(U_N), converging on |z-zeta|>p^(-1/q), with ||u_zeta-1||<=|p|/|z-zeta|^q for |z|<=1 and <=|p|/|z| for |z|>1. At 0, log u_zeta=0. Separately, the auxiliary analytic p-power map on C_p-valued functions has the formula p dz/(z-eta_0)+d log((z^p-zeta)/(z-eta_0)^p), eta_0^p=zeta. It permutes end labels and can be iterated f times to recover the q-map; for f>1 it is not AlgHom.IsArithFrobAt over O_N.
 
 **Given:** p does not divide N; q is the cardinality of the residue field of K_N, so q=p^f and zeta^q=zeta for all zeta in mu_N.
 
-**From:** L1.25, L1.26, L1.27, L1.5, L0.10, L0.13. **Source:** [^62], [^30].
+**From:** L1.25, L1.26, L1.27, L1.5, L0.10, L0.13.; [^62], [^30].
 
 ### L1.29. The Frobenius datum of the punctured line
 
@@ -757,13 +782,11 @@ For q=#k_N=p^f, (A+(U_N),omega=(dz/z,(dz/(z-zeta))_zeta),phi(z)=z^q,M=qI,g=(0,(l
 
 **Given:** [^C4]
 
-**From:** L1.7, L1.25, L1.26, L1.27, L1.28. **Source:** [^32], [^72].
+**From:** L1.7, L1.25, L1.26, L1.27, L1.28.; [^32], [^72].
 
 ### L1.30. Coleman functions on the thrice-punctured line
 
-For p∤N and branch a, define A_Col^a(U_N)=ρ^a(U(U_N))⊆A_loc^a(U_N), using letters e_0 for dz/z and e_ζ for dz/(z−ζ), ζ∈μ_N, and the datum L1.28. Normalize at the tangent at 0 by CT_0ρ(L_w)=0 for w≠∅. Then L_(e_0)=log_a z, L_(e_1)=log_a(1−z), and −L_(e_0^(k−1)e_1)=Li_k. N=1 gives Furusho's Coleman ring on P¹∖{0,1,∞}, with the stated simple-pole and coordinate hypotheses satisfied.
-
-**Given:** p prime not dividing N; a in C_p.
+For p∤N and branch a, define A_Col^a(U_N)=ρ^a(U(U_N))⊆A_loc^a(U_N), using letters e_0 for dz/z and e_ζ for dz/(z−ζ), ζ∈μ_N, and the datum L1.29. Normalize at the tangent at 0 by CT_0ρ(L_w)=0 for w≠∅. Then L_(e_0)=log_a z, L_(e_1)=log_a(1−z), and −L_(e_0^(k−1)e_1)=Li_k. N=1 gives Furusho's Coleman ring on P¹∖{0,1,∞}, with the stated simple-pole and coordinate hypotheses satisfied.
 
 **API.**
 - `PuncturedLine.colemanFunctions`: PuncturedLine.colemanFunctions p N a : the subalgebra A_Col^a(U_N) of LocAn.
@@ -784,7 +807,7 @@ For p∤N and branch a, define A_Col^a(U_N)=ρ^a(U(U_N))⊆A_loc^a(U_N), using l
 - On D^-(0, 1), -iteratedIntegral (e_0^(k-1) e_1) = sum z^n/n^k, whose coefficients are those of the complex Li_k (L0.F).
 - For p≥3, log_a z + (indicator of the residue disc of 2) has differential dz/z and is not in A_Col^a(U_1).
 
-**From:** L1.29, L1.16, L1.17, L1.12, L1.14, L1.18, L1.22, L1.23, L0.F. **Source:** [^73], [^48], [^74].
+**From:** L1.29, L1.16, L1.17, L1.12, L1.14, L1.18, L1.22, L1.23, L0.F.; [^73], [^48], [^74].
 
 ### L1.31. The primitive from the tangential base point at zero
 
@@ -807,13 +830,11 @@ For F in A_Col^a(U_N) and eta in Omega+(U_N), the based primitive int_0^z F eta 
 - basedPrimitive 0 = 0.
 - No Coleman primitive G of dz/z has G(0) = 0: G = log_a z + c has no value at 0, so the value normalisation cannot replace the constant term.
 
-**From:** L1.30, L1.19, L1.14. **Source:** [^60], [^48].
+**From:** L1.30, L1.19, L1.14.; [^60], [^48].
 
 **L1.32. Expansions on the removed residue discs.** Let U_alg be the subalgebra of U(U_N) with coefficients in the regular functions K_N[z, z^(-1), (z^N - 1)^(-1)] (functions of algebraic origin). For y in U_alg and s in {0, infinity} u mu_N, the actual realized end germ rho(y)_s extends to the whole punctured residue disc: it lies in O(D^-(s, 1) minus {s})[l_s] with only finitely many negative powers of t_s; hence rho(y) extends to a locally analytic function on ]s[ minus {s} and can be evaluated there. In particular Li_k restricted to ]1[ lies in O(]1[)[log_a(z - 1)] and can be evaluated at the p-power roots of unity different from 1, and L_w is analytic at 0 with value 0 when the last letter of w is not e_0.
 
-**Given:** p does not divide N; y of algebraic origin.
-
-**From:** L1.30, L1.14, L0.22, L0.20. **Source:** [^75], [^76].
+**From:** L1.30, L1.14, L0.22, L0.20.; [^75], [^76].
 
 ### L1.33. Tube of the four-punctured line
 
@@ -833,19 +854,19 @@ For v in C_p define specialUnitTube(v)={z: |z|=|z−1|=|z−v|=1}. For |v|=|1−
 - specialUnitTube(1)=puncturedTube(p,1).
 - For p=2,v=2, |v| is not1, so the geometric separated-section hypothesis fails even though specialUnitTube(2) remains a defined set.
 
-**From:** PadicComplex, L1.3. **Source:** [^77].
+**From:** PadicComplex, L1.3.; [^77].
 
 **L1.34. Separated four-point good-reduction model.** The pair (P¹_(O_K), D_v) with D_v the disjoint union of the sections 0,1,v,infinity is a good-reduction pair. Its affine complement is Spec O_K[z,1/(z(z−1)(z−v))]; its differentials are free on dz. Its wide opens are W_r(v)={r<|z|<r⁻¹, |z−1|>r, |z−v|>r}, 0<r<1. Its tube is specialUnitTube(v).
 
 **Given:** [^C5]
 
-**From:** L1.1, L1.2, L1.33. **Source:** [^77].
+**From:** L1.1, L1.2, L1.33.; [^77].
 
 **L1.35. Principal parts at four separated punctures.** Write A_v=A†(P¹ minus {0,1,v,infinity}). Every f in A_v has a unique decomposition f=f_infinity(z)+f_0(1/z)+f_1(1/(z−1))+f_v(1/(z−v)), where f_infinity is a power series and each finite-puncture series has zero constant coefficient; all four are restricted at some common radius rho>1. Conversely each such expression lies in A_v. Restriction of A_v and A_v dz to any nonempty residue disc is injective.
 
 **Given:** [^C5]
 
-**From:** L1.34, L0.7, L0.11, PowerSeries.IsRestricted, AS-F1. **Source:** [^77].
+**From:** L1.34, L0.7, L0.11, PowerSeries.IsRestricted, AS-F1.; [^77].
 
 ### L1.36. Residue coordinates on the four-punctured line
 
@@ -853,19 +874,19 @@ For A_v, ker(d)=K and every differential eta in A_v dz has a unique residue vect
 
 **Given:** [^C5]
 
-**From:** L1.35, L0.5, L0.1, L0.12, AS-F1. **Source:** [^77].
+**From:** L1.35, L0.5, L0.1, L0.12, AS-F1.; [^77].
 
 **L1.37. Small error in the q-power Frobenius polynomial.** For each c in {0,1,v}, E_c(Z)=Z^q−c−(Z−c)^q has every coefficient in the maximal ideal of O_K and degree less than q. Thus there is a real delta<1 bounding the norms of all coefficients of the three E_c. On W_s(v), |E_c(z)/(z−c)^q|≤delta/s^q whenever0<s<1. For c=0 the error is zero.
 
 **Given:** [^C5]
 
-**From:** L1.34, FiniteField.pow_card, sub_pow_char_pow, PadicComplex.isNonarchimedean. **Source:** [^77].
+**From:** L1.34, FiniteField.pow_card, sub_pow_char_pow, PadicComplex.isNonarchimedean.; [^77].
 
 **L1.38. Overconvergent Frobenius logarithmic corrections.** The K-linear q-power map phi(z)=z^q induces an endomorphism of A_v. For c in {0,1,v}, u_c=(z^q−c)/(z−c)^q is an overconvergent unit with a canonical convergent log(u_c) in A_v; log(u_0)=0. One has phi*(dz/(z−c))=q dz/(z−c)+d log(u_c). This asserts convergence near the tube, not on all of the punctured residue disc.
 
 **Given:** [^C5]
 
-**From:** L1.37, L0.10, L0.13, AS-F1. **Source:** [^77].
+**From:** L1.37, L0.10, L0.13, AS-F1.; [^77].
 
 ### L1.39. Frobenius datum for an arbitrary separated fourth point
 
@@ -873,25 +894,25 @@ For the four-punctured line over finite K, the forms dz/z,dz/(z−1),dz/(z−v),
 
 **Given:** [^C5]
 
-**From:** L1.7, L1.36, L1.35, L1.38, L1.16, L1.18. **Source:** [^77].
+**From:** L1.7, L1.36, L1.35, L1.38, L1.16, L1.18.; [^77].
 
 **L1.40. Integral argument maps on the four-punctured line.** The four nonconstant maps z, v/z, v(z−1)/(z(v−1)), (1−z)/(1−v) extend to O_K-automorphisms of P¹ whose restriction sends Y_v=P¹ minus {0,1,v,infinity} into U_1=P¹ minus {0,1,infinity}. The constant map v also maps Y_v into U_1. Preimages of the ordered target punctures(0,1,infinity) are respectively(0,1,infinity), (infinity,v,0), (1,v,0), (1,v,infinity). Each nonconstant map sends specialUnitTube(v) into puncturedTube(p,1).
 
 **Given:** [^C5]
 
-**From:** L1.34, L1.33, L1.25, norm_div. **Source:** [^77].
+**From:** L1.34, L1.33, L1.25, norm_div.; [^77].
 
 **L1.41. Whole-disc composition in a fractional local coordinate.** Let F(c+s)=Σ a_m s^m be one power series converging on |s|<1 in C_p. For |u|≤1 and |b|≤1, F(c+u t/(1+b t)) is one power series on |t|<1. Its constant coefficient is a_0 and, for n≥1, its coefficient is Σ_(1≤m≤n) a_m u^m (−b)^(n−m) binom(n−1,m−1). For each 0<r<R<1 choose C_R with |a_m|R^m≤C_R; the composed coefficients c_n satisfy |c_n|r^n≤C_R(r/R)^n. In particular the ordinary target-disc function pulls back on the whole source disc, including its centre.
 
 **Given:** p is any prime; c,u,b∈C_p; |u|≤1 and |b|≤1. F has one expansion on the whole target disc, not merely local analyticity.
 
-**From:** L0.7, FormalMultilinearSeries.ofScalars, HasFPowerSeriesOnBall, HasFPowerSeriesAt.comp, hasFPowerSeriesOnBall_inv_one_add, IsUltrametricDist.norm_natCast_le_one. **Source:** [^78].
+**From:** L0.7, FormalMultilinearSeries.ofScalars, HasFPowerSeriesOnBall, HasFPowerSeriesAt.comp, hasFPowerSeriesOnBall_inv_one_add, IsUltrametricDist.norm_natCast_le_one.; [^78].
 
 **L1.42. Pullback at an additional source end.** For genus-zero good-reduction pairs (P¹,D′) and (P¹,D) over O_K, let f be an integral fractional-linear automorphism with f^−1(D)⊆D′. At a source end e′ whose reduction maps into the ordinary target locus Y_k, an ordinary target component H∈O(]f(e′)[) pulls back to H∘f∈O(]e′[), and hence to its Laurent end germ in A_loc^a(Y′). At ends mapping to target ends use the existing logarithmic parameter substitution. These component maps define the usual f# on A_loc and commute with differentiation. Together with the inherited Taylor/Frobenius argument they permit L1.43 for these maps, even when an additional source end maps to an ordinary target point.
 
 **Given:** K/Q_p finite; disjoint reduction for both divisors and Frobenius data on both pairs. The O_K matrix of f has unit determinant and f⁻¹(D)⊆D′; extend coefficients and branch to C_p. This genus-zero free-differential case requires L1.21's cross-map bounds. Local germ composition supplies only the component check; general gluing is separate.
 
-**From:** L1.41, L1.4, L1.14, L1.21, L1.11, L0.20, L0.15, L0.10, L1.15, L1.16. **Source:** [^79].
+**From:** L1.41, L1.4, L1.14, L1.21, L1.11, L0.20, L0.15, L0.10, L1.15, L1.16.; [^79].
 
 ### L1.43. Pullback of Coleman functions
 
@@ -899,13 +920,13 @@ Let f*:A⁺(Y)→A⁺(Y′) reduce to a morphism Y′_k→Y_k and map ends to en
 
 **Given:** Data on both pairs, f as stated, and L1.21's integral coordinates/uniform same-reduction cross-map bounds on source and target strict neighborhoods. Punctured-line maps meet these hypotheses. The extra genus-zero case uses L1.42's integral matrix/divisor conditions, without an ends-to-ends assumption.
 
-**From:** L1.17, L1.19, L1.21, L1.11, L1.22, L1.16, L1.42, L1.10, L1.13, L1.18. **Source:** [^80], [^81], [^82].
+**From:** L1.17, L1.19, L1.21, L1.11, L1.22, L1.16, L1.42, L1.10, L1.13, L1.18.; [^80], [^81], [^82].
 
 **L1.44. Local coordinates of the four argument maps.** Fix |v|=|1−v|=1 and write f_0(z)=z, f_1(z)=v/z, f_2(z)=v(z−1)/(z(v−1)), f_3(z)=(1−z)/(1−v). At the source points (0,1,v,∞), with parameters (z,z−1,z−v,1/z), the target values are respectively (0,1,v,∞), (∞,v,1,0), (∞,0,1,v/(v−1)), (1/(1−v),0,1,∞). For each entry use target parameter w at0, w−1 at1, 1/w at∞, and w−c at a regular value c. Every resulting coordinate is u t/(1+b t). The rows (u;b) are (1,1,1,1;0,0,0,0), (1/v,−v,−1/v,v;0,1,1/v,0), ((1−v)/v,v/(v−1),1/(v(v−1)),−v/(v−1);−1,1,1/v,0), (−1/(1−v),1/(v−1),1/(v−1),v−1;0,0,0,−1). All |u|=1 and |b|≤1; every regular target value is a special unit. Thus the parameter map preserves |t| and gives an automorphism of the open unit disc.
 
 **Given:** p is any prime, including2; v∈C_p is a special unit; 0<|t|<1 for formulas using t^−1. These local algebra/norm identities do not require v algebraic. The scheme/Frobenius use still takes v in a finite extension.
 
-**From:** L1.40, L1.41, L0.15, L0.10, norm_div. **Source:** [^83].
+**From:** L1.40, L1.41, L0.15, L0.10, norm_div.; [^83].
 
 ## L2. Coleman polylogarithms and functional equations
 
@@ -925,7 +946,7 @@ On C_p, `dilogEvaluation a` sends [x] to the actual D^a(x), using L2.69 (`dilogE
 
 **Tests.** Before quotienting: [0]=[1]=0, [2]≠0, [2]+[1/2]≠0 over ℚ. In the pre-Bloch group: the signed (4,2) expression is zero, removed points are zero, and [2] transports to [2] in ℂ. In the tensor quotient: 1⊗u=u⊗1=0, 2(−1⊗−1)=0, but −1⊗−1≠0 over ℚ (detected by the sign pairing modulo 2). For δ: the (4,2) expression maps to zero, δ[2]=2⊗(−1), and δ[0]=0. In B: [2]+[−1] belongs, zero belongs, and every element has zero boundary. Each transport map preserves zero, generators (or the displayed complement element), and identity transport. Evaluation sends zero and the (4,2) expression to zero and agrees for branches on [x]+[1−x]. The branch pairing kills diagonals and 1⊗u; on C_3 it sends 3⊗4 to log_a(4)/2.
 
-**From:** `FreeAbelianGroup.of`, `.lift`, `QuotientAddGroup.mk'`, `.lift`, `TensorProduct`, `Submodule.span`, `Submodule.mkQ`, L0.15–L0.16, L2.18, L2.69. **Source:** DJ §3, p.7 (integral carriers and boundary), Prop.2.10, pp.6–7 and proof pp.14–15 (p-adic relations and branch formula). Projective/infinity comparison: the field-algebra development below and L2.70.
+**From:** `FreeAbelianGroup.of`, `.lift`, `QuotientAddGroup.mk'`, `.lift`, `TensorProduct`, `Submodule.span`, `Submodule.mkQ`, L0.15–L0.16, L2.18, L2.69.; DJ §3, p.7 (integral carriers and boundary), Prop.2.10, pp.6–7 and proof pp.14–15 (p-adic relations and branch formula). Projective/infinity comparison: the field-algebra development below and L2.70.
 
 **Projective API.** Use `Point K = Projectivization K (Fin 2 → K)` for any field K. `finitePoint x=[x:1]`, `infinity=[1:0]`, and `detPair(v,w)=v₀w₁−v₁w₀`. Prove `finitePoint_injective`, `finitePoint_ne_infinity`, `exists_finitePoint_iff`; `detPair_swap`, `detPair_smul`, `detPair_eq_zero_iff` identify nonzero vectors with the same projective point exactly when their determinant vanishes. Define `crossRatio(a,b,c,d)=Δ(a,b)Δ(c,d)/(Δ(a,d)Δ(c,b))` on representatives. Nonzero rescaling cancels; total division assigns zero at zero denominators, outside the analytic locus. `crossRatio_mk` gives this formula for any nonzero homogeneous vectors; `crossRatio_finite` gives (a−b)(c−d)/((a−d)(c−b)). The four `crossRatio_infinity_first`, `crossRatio_infinity_second`, `crossRatio_infinity_third`, `crossRatio_infinity_fourth` formulas are (c−d)/(c−b), (c−d)/(a−d), (a−b)/(a−d), (a−b)/(c−b).
 
@@ -937,7 +958,7 @@ For an injective four-tuple, `crossRatio_admissible` proves both denominator det
 
 **Projective tests.** For `finitePoint`: [0:1], 1≠0, and equality iff x=y. For `infinity`: [1:0], exclusion of [0:1], and [7:0]=∞ over ℚ. For `detPair`: Δ((1,0),(0,1))=1 with reverse −1; Δ((2,4),(3,6))=0; Δ((2,0),(0,3))=6. For `crossRatio` over ℚ: r(∞,0,1,3)=−2, r(0,1,2,3)=−1/3, and independently rescaled representatives (2,0),(0,3),(5,5),(21,7) still give −2. Further tests put ∞ second, third, fourth in (0,1,3), giving 2/3,1/3,−1/2; a collision a=d gives the excluded total value 0. For `coordinateMap`: zero, (2,3) under ℚ→ℂ, and identity on every vector. For `fieldMap`: [2:1], ∞, and noncollapse of 2,3 under ℚ→ℂ. For `normalizedFive`: positions 0,3 are ∞,x; (2,3) is injective; (2,2) fails. Its (2,3) cyclic ratios are (−1,−1/3,−1,−1/2,−1/2). Test the negative scalar-defect equality before vanishing, the C_2 cyclic sum of these five values, and the rational (4,2) configuration through ℚ→C_p for prime and branch.
 
-**From:** `Projectivization.mk`, `.rep`, `.mk_rep`, `.mk_eq_mk_iff'`, `.map`, `.map_mk`, `.linearIndependent_pair_iff_ne`, field arithmetic, L2.18, L2.69 and the Bloch evaluation above. **Source:** FPZ §6, Definition 6.2/Proposition 6.3, pp.19–20; Theorems 6.4–6.5, pp.20–21; Propositions 6.7/6.9, pp.21–22, specialized to fields. Our r is 1 minus FPZ's convention. The cyclic-to-scalar calculation is the explicit deduction above, not a theorem attributed to FPZ or to W §4.
+**From:** `Projectivization.mk`, `.rep`, `.mk_rep`, `.mk_eq_mk_iff'`, `.map`, `.map_mk`, `.linearIndependent_pair_iff_ne`, field arithmetic, L2.18, L2.69 and the Bloch evaluation above.; FPZ §6, Definition 6.2/Proposition 6.3, pp.19–20; Theorems 6.4–6.5, pp.20–21; Propositions 6.7/6.9, pp.21–22, specialized to fields. Our r is 1 minus FPZ's convention. The cyclic-to-scalar calculation is the explicit deduction above, not a theorem attributed to FPZ or to W §4.
 
 ### L2.1. The polylogarithm power series on the open unit disc of C_p
 
@@ -964,13 +985,13 @@ For k∈ℤ use the rational series polylogSeries k=Σ_(n≥1)X^n/n^k in C_p. It
 - For k ≥ 0 the family n ↦ (1 + p)^n / n^k is not summable in ℂ_[p]: the series gives no value on the residue disc of 1.
 - For |z| < 1: polylogSer p 1 z = −NormedSpace.logOneAdd ℂ_[p] ℂ_[p] (−z).
 
-**From:** L0.F, L0.15, PadicComplex, FormalMultilinearSeries.radius, HasFPowerSeriesOnBall, PowerSeries, NormedSpace.logOneAdd, NormedSpace.logOneAdd_eq_tsum. **Source:** [^84], [^85], [^86].
+**From:** L0.F, L0.15, PadicComplex, FormalMultilinearSeries.radius, HasFPowerSeriesOnBall, PowerSeries, NormedSpace.logOneAdd, NormedSpace.logOneAdd_eq_tsum.; [^84], [^85], [^86].
 
 **L2.2. In which residue disc a root of unity lies.** Let ζ ∈ C_p be a root of unity of exact order N ≥ 2. If N = p^r with r ≥ 1, then |ζ − 1| = p^{−1/(p^{r−1}(p−1))} < 1: ζ lies in the residue disc of 1, with |ζ − 1| > p^{−1/(p−1)} if and only if r ≥ 2 and |ζ − 1| = p^{−1/(p−1)} for r = 1. If N is not a power of p, then |ζ| = |ζ − 1| = 1: ζ and 1 − ζ are units, ζ lies in a residue disc of U = P¹ ∖ {0,1,∞}, and v(1 − ζ) = 0. For c ∈ (Z/NZ)^× the same holds for ζ^c, with |1 − ζ^c| = |1 − ζ|. When p ∤ N and K ⊂ C_p is a finite extension of Q_p containing ζ, ζ is the Teichmüller representative of its reduction (the roots of unity of order prime to p in K are the image of the Teichmüller lift of the residue field of K).
 
 **Given:** N ≥ 2 the exact order of ζ; p prime.
 
-**From:** PadicComplex, IsPrimitiveRoot, IsPrimitiveRoot.prod_one_sub_pow_eq_order, Polynomial.cyclotomic, Polynomial.eval_one_cyclotomic_prime_pow, Polynomial.eval_one_cyclotomic_not_prime_pow, TauCeti.teichmuller, TauCeti.range_teichmuller. **Source:** [^87], [^88], [^89].
+**From:** PadicComplex, IsPrimitiveRoot, IsPrimitiveRoot.prod_one_sub_pow_eq_order, Polynomial.cyclotomic, Polynomial.eval_one_cyclotomic_prime_pow, Polynomial.eval_one_cyclotomic_not_prime_pow, TauCeti.teichmuller, TauCeti.range_teichmuller.; [^87], [^88], [^89].
 
 ### L2.3. Existence and uniqueness of Coleman's polylogarithms
 
@@ -978,13 +999,13 @@ On U=P¹∖{0,1,∞}, for branch a and k≥1 construct the unique Coleman sequen
 
 **Given:** a∈C_p, p prime, k≥1; L1 integration on (P¹,{0,1,∞}) over Z_p with dz/z, dz/(1−z). In (iii), the base 0 is outside U, but Li_(j−1)dz/z is regular there since Li_(j−1)(0)=0; this agrees with L2.6's tangential normalization.
 
-**From:** L2.1, L0.15, L1.30, L1.31, L1.19, L1.18, L1.22, L0.21, L0.22. **Source:** [^85], [^90], [^91], [^92], [^93].
+**From:** L2.1, L0.15, L1.30, L1.31, L1.19, L1.18, L1.22, L0.21, L0.22.; [^85], [^90], [^91], [^92], [^93].
 
 **L2.4. The polylogarithms on the punctured residue discs of 1 and ∞.** For k≥1 define λ_k=Li_k^a+log(z)^(k−1)log_a(1−z)/(k−1)! near 1. It extends branch independently to D⁻(1,1), with λ_1=0, dλ_k=λ_(k−1)dz/z+log(z)^(k−1)dz/((k−1)!(z−1)) for k≥2, and λ_2(z)=λ_2(1)−Li_2^ser(1−z). At infinity Li_k^a is polynomial in log_a(1/z) with coefficients analytic on D⁻(0,1) in 1/z. These end expansions, the whole ordinary residue-disc series and Li_k^ser near 0 give unique locally analytic continuation to C_p∖{1}, satisfying dLi_k^a=Li_(k−1)^a dz/z.
 
 **Given:** a ∈ C_p, k ≥ 1. log_a(1 − z) = log_a(z − 1) since log_a(−1) = 0 for branch. A(D) is the ring of analytic functions on the open disc D (convergent power series), A(annulus) the ring of convergent Laurent series on the annulus.
 
-**From:** L2.3, L2.1, L0.15, L1.30, L0.8, L0.21, L0.22, L1.32. **Source:** [^75], [^94], [^95], [^96].
+**From:** L2.3, L2.1, L0.15, L1.30, L0.8, L0.21, L0.22, L1.32.; [^75], [^94], [^95], [^96].
 
 ### L2.5. Coleman's p-adic polylogarithm Li_k^a
 
@@ -1017,7 +1038,7 @@ Define Li_0^a=z/(1−z). For k≥1 use the normalized Coleman function on C_p∖
 - padicPolylog p a k 0 = 0 for all k, and padicPolylog p a 0 z = z/(1 − z).
 - For |z| < 1: padicPolylog p a 1 z = −NormedSpace.logOneAdd ℂ_[p] ℂ_[p] (−z).
 
-**From:** L2.3, L2.4, L2.1, L0.15. **Source:** [^85], [^97], [^98], [^99], [^100].
+**From:** L2.3, L2.4, L2.1, L0.15.; [^85], [^97], [^98], [^99], [^100].
 
 ### L2.6. The base-point normalisation at zero is the tangential one
 
@@ -1025,13 +1046,11 @@ If the end germ of F has F=Σ_i f_i(z)log_a(z)^i with f_i analytic on D⁻(0,1),
 
 **Given:** a ∈ C_p; k ≥ 1; λ ∈ C_p^×. The regularisation uses the local parameter z at 0; changing the parameter to z·h(z) with h(0) = λ^{−1} is the same as changing the tangent vector.
 
-**From:** L2.3, L2.4, L2.5, L1.30, L1.18, L0.15. **Source:** [^101], [^102], [^60], [^90].
+**From:** L2.3, L2.4, L2.5, L1.30, L1.18, L0.15.; [^101], [^102], [^60], [^90].
 
 **L2.7. The differential recursion z·(d/dz)Li_k = Li_{k−1}.** For a ∈ C_p, k ≥ 1 and z ∈ C_p ∖ {1}, the function Li^a_k : C_p ∖ {1} → C_p is differentiable at z (in the sense of HasDerivAt over C_p), with derivative Li^a_{k−1}(z)/z if z ≠ 0 and 1 if z = 0; in particular z·(Li^a_k)'(z) = Li^a_{k−1}(z) everywhere on C_p ∖ {1}, and (Li^a_1)'(z) = 1/(1 − z).
 
-**Given:** a ∈ C_p; k ≥ 1; z ≠ 1.
-
-**From:** L2.5, L2.4, L2.3, L2.1, L0.15, HasDerivAt, L0.19. **Source:** [^103], [^104], [^105].
+**From:** L2.5, L2.4, L2.3, L2.1, L0.15, HasDerivAt, L0.19.; [^103], [^104], [^105].
 
 ### L2.8. The distribution relation
 
@@ -1039,15 +1058,13 @@ For branch parameter a ∈ C_p, every k ≥ 0, every m ≥ 1 and every z ∈ C_p
 
 **Given:** a ∈ C_p; k ≥ 0; m ≥ 1; z ∈ C_p with z^m ≠ 1 (z = 0 allowed). The same branch a on both sides; log_a(ζ) = 0 for roots of unity, so no branch term appears.
 
-**From:** L2.5, L2.7, L2.4, L2.3, L2.1, L0.15, L1.30, L1.17, L1.43, L1.18, IsPrimitiveRoot, HasFPowerSeriesAt.eq_zero_of_eventually, HasFPowerSeriesOnBall.changeOrigin, L0.21. **Source:** [^106], [^107], [^108].
+**From:** L2.5, L2.7, L2.4, L2.3, L2.1, L0.15, L1.30, L1.17, L1.43, L1.18, IsPrimitiveRoot, HasFPowerSeriesAt.eq_zero_of_eventually, HasFPowerSeriesOnBall.changeOrigin, L0.21.; [^106], [^107], [^108].
 
 ### L2.9. The inversion relation
 
 For branch parameter a ∈ C_p, every k ≥ 0 and every z ∈ C_p ∖ {0, 1}: Li^a_k(z) + (−1)^k·Li^a_k(1/z) = −log_a(z)^k/k!. Consequences: (i) for |z| > 1, Li^a_k(z) = (−1)^{k+1}Li_k^ser(1/z) − log_a(z)^k/k!, the explicit form of Li^a_k on the residue disc of ∞; (ii) for k≥1 and every root of unity ζ ≠ 1, Li^a_k(ζ^{−1}) = (−1)^{k+1}Li^a_k(ζ) (log_a ζ = 0); (iii) Li^{(p),a}_k(1/z) = (−1)^{k+1}Li^{(p),a}_k(z) whenever z^p ≠ 1. The right side has no Bernoulli-polynomial term, unlike the complex inversion formula of L2.Fa, because there is no 2πi in C_p.
 
-**Given:** a ∈ C_p, the same branch on both sides; k ≥ 0; z ∉ {0, 1}.
-
-**From:** L2.8, L2.5, L2.7, L2.4, L2.1, L0.15, L1.30, L1.18, L1.43, L0.21. **Source:** [^109], [^110], [^111].
+**From:** L2.8, L2.5, L2.7, L2.4, L2.1, L0.15, L1.30, L1.18, L1.43, L0.21.; [^109], [^110], [^111].
 
 ### L2.10. Dependence of the polylogarithms on the branch of the logarithm
 
@@ -1055,13 +1072,13 @@ Let a, b ∈ C_p, β := a − b = log_a(p) − log_b(p), and v = v_p (v(p) = 1),
 
 **Given:** a, b ∈ C_p arbitrary; k ≥ 1; z ≠ 1 (for k ≥ 2 also z = 1, where both sides vanish).
 
-**From:** L2.9, L2.4, L2.5, L2.3, L2.2, L0.15, L1.30, L0.16, L1.23. **Source:** [^112], [^113], [^114], [^115].
+**From:** L2.9, L2.4, L2.5, L2.3, L2.2, L0.15, L1.30, L0.16, L1.23.; [^112], [^113], [^114], [^115].
 
 **L2.11. The limit at z = 1 and the p-adic zeta values.** (a) For k ≥ 2, every branch a and every subfield L ⊂ C_p of finite ramification index over Q_p (L need not be complete or of finite degree), Li^a_k(z) → λ_k(1) as z → 1 with z ∈ L ∖ {1}; the limit ζ_p(k) := λ_k(1) is independent of a and L, and Li^a_k(1) := ζ_p(k) makes Li^a_k continuous on every such L. For k = 1 there is no such limit: Li^a_1(1 − p^n) = −na and Li^a_1(1 − p^n(1 + p)) = −na − log(1 + p), so for a = 0 the two sequences have the different limits 0 and −log(1 + p) ≠ 0. (b) ζ_p(k) = 0 for even k ≥ 2. (c) For k ≥ 2 the distribution relation holds for all z ∈ C_p: Σ_{ζ∈μ_m}Li^a_k(ζz) = m^{1−k}Li^a_k(z^m); in particular Σ_{ζ∈μ_m}Li^a_k(ζ) = m^{1−k}ζ_p(k), Σ_{ζ∈μ_m, ζ≠1}Li^a_k(ζ) = (m^{1−k} − 1)ζ_p(k), and for p odd ζ_p(k) = Li_k(−1)/(2^{1−k} − 1). (d) λ_2(z) = −Li_2^ser(1 − z) on D⁻(1,1).
 
 **Given:** k ≥ 2 in (a)-(d); L ⊂ C_p with e(L/Q_p) < ∞; p prime (for the formula with Li_k(−1), p odd so that −1 is not in the residue disc of 1).
 
-**From:** L2.4, L2.5, L2.8, L2.9, L2.10, L0.15. **Source:** [^116], [^117], [^118], [^97], [^119].
+**From:** L2.4, L2.5, L2.8, L2.9, L2.10, L0.15.; [^116], [^117], [^118], [^97], [^119].
 
 ### L2.12. Local antiderivatives do not determine Li_k: the ambiguity and a non-example
 
@@ -1069,7 +1086,7 @@ For k≥2, consider primitives F of Li_(k−1)^a dz/z with F(0)=0, whole-disc an
 
 **Given:** k ≥ 2 (for k = 1 there is no integration constant: Li^a_1 = −log_a(1 − z)); a ∈ C_p.
 
-**From:** L2.8, L2.5, L2.3, L1.18, L0.21, L0.22. **Source:** [^120], [^108], [^121].
+**From:** L2.8, L2.5, L2.3, L1.18, L0.21, L0.22.; [^120], [^108], [^121].
 
 ### L2.13. The modified polylogarithm as an integral rigid function off the residue disc of 1
 
@@ -1097,13 +1114,13 @@ For k∈ℤ put ℓ_k=Σ_(n≥1,p∤n)t^n/n^k and f_(k,m)=(1−t^(p^m))⁻¹Σ_(
 - For p odd, modPolylogLimit p 1 (−1) = −(1 − 1/p)·log(2) ≠ −log(2) = Li_1(−1): ℓ_k is not the restriction of Li_k to X_0.
 - The expansion of ℓ_k in s = t/(1 − t) is a power series with coefficients in ℤ_[p] that is restricted (PowerSeries.IsRestricted 1) — the Mathlib notion of a Tate-algebra element.
 
-**From:** L2.1, AdicCompletion, Localization.Away, PadicInt, PowerSeries, PowerSeries.IsRestricted, AS-F1. **Source:** [^122], [^123], [^124], [^125].
+**From:** L2.1, AdicCompletion, Localization.Away, PadicInt, PowerSeries, PowerSeries.IsRestricted, AS-F1.; [^122], [^123], [^124], [^125].
 
 **L2.14. Overconvergence of the modified polylogarithm: the series g_k(v).** Put v := 1/(1 − z); it identifies P¹ ∖ D⁻(1,1) with the closed disc |v| ≤ 1 (z = 0 ↦ v = 1, z = ∞ ↦ v = 0, the residue disc of 1 ↦ |v| > 1). Define g_0(v) := v − 1 − (v − 1)^p/(v^p − (v − 1)^p) and, for k ≥ 1, g_k(v) := ∫_1^v g_{k−1}(w)·dw/(w(w − 1)). Then for k ≥ 0: g_k is a power series in v with coefficients in Q_p converging on the open disc D⁻(0, p^{1/(p−1)}) (radius at least p^{1/(p−1)}; for k = 0 exactly, the poles being v = (1 − ζ)^{−1}, ζ ∈ μ_p ∖ {1}); g_k(0) = g_k(1) = 0; g_k(1 − v) = (−1)^{k+1}g_k(v); g_1(v) = p^{−1}·log(±(v^p − (v − 1)^p)) with the sign making the argument a principal unit; and ℓ_k(z) = g_k(1/(1 − z)) for all z ∈ P¹ ∖ D⁻(1,1), where ℓ_k is L2.13.
 
 **Given:** k ≥ 0; p prime; D⁻(0, p^{1/(p−1)}) = {v ∈ C_p : |v| < p^{1/(p−1)}}.
 
-**From:** L2.13, L2.2, L0.8, HasFPowerSeriesOnBall, FormalMultilinearSeries.radius. **Source:** [^126], [^125], [^127].
+**From:** L2.13, L2.2, L0.8, HasFPowerSeriesOnBall, FormalMultilinearSeries.radius.; [^126], [^125], [^127].
 
 ### L2.15. Coleman's Frobenius relation for the polylogarithms
 
@@ -1111,7 +1128,7 @@ For k≥0, every branch a and |z−1|>p^(−1/(p−1)), prove Li_k^a(z)−p^(−
 
 **Given:** a ∈ C_p; k ≥ 0; |z − 1| > p^{−1/(p−1)} (so z^p ≠ 1 and z ≠ 1). The bound is sharp: g_0 has poles at v = (1 − ζ)^{−1}, ζ ∈ μ_p ∖ {1}.
 
-**From:** L2.13, L2.14, L2.5, L2.4, L2.7, L2.1, L1.30, L1.18, L1.22, L0.21, L0.22, L1.15. **Source:** [^126], [^100], [^128], [^127].
+**From:** L2.13, L2.14, L2.5, L2.4, L2.7, L2.1, L1.30, L1.18, L1.22, L0.21, L0.22, L1.15.; [^126], [^100], [^128], [^127].
 
 ### L2.16. An elementary characterisation of the polylogarithms
 
@@ -1119,7 +1136,7 @@ Let 𝒞^a consist of functions on C_p∖{1} represented by one series on every 
 
 **Given:** a ∈ C_p; k ≥ 0; the class 𝒞^a depends on the branch only through log_a on the punctured discs of 1 and ∞.
 
-**From:** L2.15, L2.4, L2.5, L2.7, L2.12, L0.21, L0.22, HasFPowerSeriesOnBall.changeOrigin, HasFPowerSeriesAt.eq_zero_of_eventually, L0.7. **Source:** [^129], [^130], [^131].
+**From:** L2.15, L2.4, L2.5, L2.7, L2.12, L0.21, L0.22, HasFPowerSeriesOnBall.changeOrigin, HasFPowerSeriesAt.eq_zero_of_eventually, L0.7.; [^129], [^130], [^131].
 
 ### L2.17. Compatibility with automorphisms and embeddings of the coefficients
 
@@ -1127,94 +1144,78 @@ For continuous automorphism σ of C_p, σ(Li_k^a(z))=Li_k^(σa)(σz), σ(ζ_p(k)
 
 **Given:** σ a continuous ring automorphism of C_p; a ∈ C_p; k ≥ 0; z ≠ 1.
 
-**From:** L2.4, L2.5, L2.10, L2.1, L0.15, L2.16, L0.17. **Source:** [^132], [^133], [^134], [^135].
+**From:** L2.4, L2.5, L2.10, L2.1, L0.15, L2.16, L0.17.; [^132], [^133], [^134], [^135].
 
 **L2.18. The p-adic dilogarithm D and its two-term, branch and Frobenius identities.** Define D^a(z)=Li_2^a(z)+log_a z·log_a(1−z)/2 for z≠0,1. Prove Li_2^a(z)+Li_2^a(1−z)=−log_a z·log_a(1−z), D^a(1−z)=D^a(1/z)=−D^a(z), and dD^a=(log_a z dlog(1−z)−log_a(1−z)dlog z)/2. Branch change is D^a−D^b=(a−b)(v(z)log_b(1−z)−v(1−z)log_b z)/2. Thus D is branch independent on special units and nontrivial roots, where D(ζ)=Li_2(ζ). On |z−1|>p^(−1/(p−1)), D^a(z)−p⁻²D^a(z^p)=Li_2^(p),a(z)−log_a z·Li_1^(p),a(z)/2, branch-free rigid analytic on U's residue discs; for tame ζ this equals ℓ_2(ζ). Prove σD^a(z)=D^(σa)(σz) for continuous σ.
 
 **Given:** a, b ∈ C_p; z ∉ {0, 1}; v = v_p.
 
-**From:** L2.9, L2.10, L2.11, L2.17, L2.15, L2.5, L2.7, L1.30, L1.18, L1.22, L0.15, L1.43. **Source:** [^136], [^137], [^138].
+**From:** L2.9, L2.10, L2.11, L2.17, L2.15, L2.5, L2.7, L1.30, L1.18, L1.22, L0.15, L1.43.; [^136], [^137], [^138].
 
 **L2.19. The two rational substitutions in Abel's identity.** For x,u in C_p with |x|<1 and |u|<1, put v=u(1-x)/(1-xu), w=x(1-u)/(1-xu). Then |1-x|=|1-u|=|1-xu|=1, 1-v=(1-u)/(1-xu), 1-w=(1-x)/(1-xu), |v|=|u| and |w|=|x|. Thus every displayed denominator is nonzero, and v,w are in the open unit disc. If x,u are nonzero, then x,u,xu,v,w are all different from 0 and 1. Zero x or u is permitted in the norm and rational identities.
 
-**Given:** p prime; x,u in C_p; |x|<1 and |u|<1.
-
-**From:** L2.1. **Source:** [^139].
+**From:** L2.1.; [^139].
 
 **L2.20. Coefficient bounds for the Abel substitutions.** For fixed u in C_p with |u|<1, there exist coefficients c_n,d_n such that Li_2^ser(u(1-x)/(1-ux))=sum_n c_n x^n and Li_2^ser(x(1-u)/(1-ux))=sum_n d_n x^n for |x|<1. The sums converge absolutely in norm. One has |c_n|≤C_u := sum_{m>=1} m^2 |u|^m < infinity, d_0=0, and |d_n|≤n^2 for all n. In particular both functions admit a single scalar power series on the entire open unit disc, not just separate local series.
-
-**Given:** p prime; u in C_p; |u|<1; Li_2^ser is the existing L2 power-series function.
 
 **Tests.**
 - For u=0 the v-composite is zero and the w-composite is Li_2^ser(x).
 
-**From:** L2.19, L2.1, FormalMultilinearSeries.ofScalars_norm, FormalMultilinearSeries.le_radius_of_bound, summable_norm_pow_mul_geometric_of_norm_lt_one, HasFPowerSeriesOnBall. **Source:** [^139].
+**From:** L2.19, L2.1, FormalMultilinearSeries.ofScalars_norm, FormalMultilinearSeries.le_radius_of_bound, summable_norm_pow_mul_geometric_of_norm_lt_one, HasFPowerSeriesOnBall.; [^139].
 
 **L2.21. One-disc analyticity of the Abel difference.** For fixed |u|<1 define v(x)=u(1-x)/(1-xu), w(x)=x(1-u)/(1-xu), A(x)=-Li_1^ser(x), B=-Li_1^ser(u), C(x)=-Li_1^ser(xu), P=A-C, Q=B-C. The function F(x)=Li_2^ser(x)+Li_2^ser(u)-Li_2^ser(xu)-Li_2^ser(v(x))-Li_2^ser(w(x))-P(x)Q(x) has a FormalMultilinearSeries S with HasFPowerSeriesOnBall F S 0 1. All functions here are understood only on |x|<1; their total-function values outside that disc are irrelevant.
 
-**Given:** p prime; |u|<1; the definition of F is notation within the assertion, not a new function carrier.
-
-**From:** L2.20, L2.1, L0.7, HasFPowerSeriesOnBall, FormalMultilinearSeries.le_radius_of_bound. **Source:** [^139].
+**From:** L2.20, L2.1, L0.7, HasFPowerSeriesOnBall, FormalMultilinearSeries.le_radius_of_bound.; [^139].
 
 **L2.22. Abel's dilogarithm identity on the open unit bidisc.** For |x|<1 and |u|<1 in C_p, including zero values, set v=u(1-x)/(1-xu), w=x(1-u)/(1-xu). Then Li_2^ser(x)+Li_2^ser(u)-Li_2^ser(xu)-Li_2^ser(v)-Li_2^ser(w)=(Li_1^ser(x)-Li_1^ser(xu))(Li_1^ser(u)-Li_1^ser(xu)). Equivalently the right side is P Q with P=log(1-x)-log(1-xu), Q=log(1-u)-log(1-xu), using the ordinary principal-unit series.
-
-**Given:** p prime; |x|<1 and |u|<1; no nonzero condition and no branch choice needed in the statement.
 
 **Tests.**
 - At x=0 and any |u|<1 both sides of the ordinary identity equal zero.
 - The wrong-sign residual has XU coefficient 2, which is nonzero in C_2 as well as every C_p.
 
-**From:** L2.21, L2.19, L2.1, L0.15, L0.8, HasFPowerSeriesOnBall.fderiv, HasFPowerSeriesAt.eq_formalMultilinearSeries. **Source:** [^139].
+**From:** L2.21, L2.19, L2.1, L0.15, L0.8, HasFPowerSeriesOnBall.fderiv, HasFPowerSeriesAt.eq_formalMultilinearSeries.; [^139].
 
 **L2.23. Cancellation of the two branch logarithms.** For nonzero |x|,|u|<1 and any branch log_a on C_p, write v=u(1-x)/(1-xu), w=x(1-u)/(1-xu), L=log_a x, M=log_a u, A=log_a(1-x), B=log_a(1-u), C=log_a(1-xu), P=A-C, Q=B-C. Then log_a(xu)=L+M, log_a v=M+P, log_a(1-v)=Q, log_a w=L+Q, log_a(1-w)=P, and [LA+MB-(L+M)C-(M+P)Q-(L+Q)P]/2=-P Q.
 
 **Given:** p prime; x,u nonzero with norms below 1; log_a is the existing normalized branch; 2 is invertible in C_p, also when p=2.
 
-**From:** L2.19, L0.15. **Source:** [^139].
+**From:** L2.19, L0.15.; [^139].
 
 **L2.24. The five-term dilogarithm relation on nested discs.** For branch a, any prime p and x,y in C_p with 0<|y|<|x|<1, D^a(x)-D^a(y)+D^a(y/x)-D^a((1-x^(-1))/(1-y^(-1)))+D^a((1-x)/(1-y))=0. Here D^a is the existing L2 dilogarithm; all five arguments are different from 0 and 1.
-
-**Given:** p prime; a in C_p; y!=0, |y|<|x| and |x|<1. No finite-extension or bounded-ramification hypothesis.
 
 **Tests.**
 - At p=2, (x,y)=(2,8) satisfies the relation for branch.
 - At p=5, (x,y)=(5,25) satisfies the relation for branch.
 
-**From:** L2.22, L2.23, L2.19, L2.18, L2.5. **Source:** [^139].
+**From:** L2.22, L2.23, L2.19, L2.18, L2.5.; [^139].
 
 ### L2.25. Polylogarithm values at roots of unity of order prime to p
 
 Let ζ ∈ C_p be a root of unity of order N ≥ 2 with p ∤ N, let f be the order of p in (Z/NZ)^× (so ζ^{p^f} = ζ and Q_p(ζ) is unramified of degree f), and k ≥ 1. For branch a: (a) Li^a_k(ζ) − p^{−k}Li^a_k(ζ^p) = ℓ_k(ζ) (the Frobenius relation at a point with φ(ζ) = ζ^p), hence Li^a_k(ζ) = (1 − p^{−kf})^{−1}·Σ_{i=0}^{f−1} p^{−ik}ℓ_k(ζ^{p^i}) = p^k(p^{kf} − 1)^{−1}Σ_{i=0}^{f−1}p^{(f−1−i)k}ℓ_k(ζ^{p^i}); in particular Li^a_k(ζ) does not depend on a and lies in Q_p(ζ); (b) Li_k(ζ) ∈ p^k·Z_p[ζ] (for k = 1: Li_1(ζ) = −log(1 − ζ) ∈ pZ_p[ζ]); (c) p^{−k}Li_k(ζ) ≡ −li_k(σ(ζ))/(1 − ζ) mod p, where σ(ζ) := ζ^{p^{f−1}} is the root of unity with σ(ζ)^p = ζ and li_k(x) := Σ_{b=1}^{p−1}x^b/b^k (Besser's finite polylogarithm); equivalently p^{−k}Li_k(ζ^p) ≡ −li_k(ζ)/(1 − ζ)^p mod p; (d) Li_k(ζ^{−1}) = (−1)^{k+1}Li_k(ζ).
 
-**Given:** ζ a root of unity of order N ≥ 2, p ∤ N; k ≥ 1; a ∈ C_p arbitrary.
-
-**From:** L2.15, L2.13, L2.2, L2.9, L2.5, TauCeti.teichmuller. **Source:** [^140], [^141], [^142], [^143].
+**From:** L2.15, L2.13, L2.2, L2.9, L2.5, TauCeti.teichmuller.; [^140], [^141], [^142], [^143].
 
 **L2.26. Values at points of finite extensions of Q_p.** Let K ⊂ C_p be a finite extension of Q_p and a ∈ K. Then Li^a_k(K ∖ {1}) ⊂ K for k ≥ 0, Li^{(p),a}_k maps {z ∈ K : z^p ≠ 1} into K, and ζ_p(k) ∈ Q_p for k ≥ 2. For a ∈ Q_p (in particular the Iwasawa branch) and K Galois over Q_p, τ(Li^a_k(z)) = Li^a_k(τ z) for z ∈ K ∖ {1} and τ ∈ Gal(K/Q_p).
 
-**Given:** K finite over Q_p; a ∈ K; k ≥ 0.
-
-**From:** L2.25, L2.9, L2.11, L2.17, L2.4, L2.7, L2.1, L0.15, TauCeti.teichmuller, L0.17. **Source:** [^137], [^144].
+**From:** L2.25, L2.9, L2.11, L2.17, L2.4, L2.7, L2.1, L0.15, TauCeti.teichmuller, L0.17.; [^137], [^144].
 
 ### L2.27. Polylogarithm values at roots of unity of p-power order
 
 For primitive ζ of order p^r, r≥1, Li_1^a(ζ)=−log_a(1−ζ), branch difference is −(a−b)/(p^(r−1)(p−1)), and the primitive-root sum is −a. Nontrivial character sums cancel this difference. For k≥2, Li_k^a(ζ)=λ_k(ζ)∈Q_p(ζ), independently of a. If r≥2 and k≥0, Li_k^a(ζ)−p^(−k)Li_k^a(ζ^p)=g_k(1/(1−ζ)). For k≥2, Σ_(c=1)^(p−1)Li_k(ζ_p^c)=(p^(1−k)−1)ζ_p(k), and Σ_(η∈μ_(p^r))Li_k(η)=p^(r(1−k))ζ_p(k). For k≥1, Li_k(ζ⁻¹)=(−1)^(k+1)Li_k(ζ). Prove Galois equivariance for k≥2, and for k=1 when a∈Q_p.
 
-**Given:** ζ of exact order p^r, r ≥ 1; a, b ∈ C_p; k as indicated.
-
-**From:** L2.2, L2.4, L2.10, L2.15, L2.14, L2.11, L2.9, L2.17, L2.26, Polynomial.eval_one_cyclotomic_prime_pow, L0.15. **Source:** [^145], [^113], [^126].
+**From:** L2.2, L2.4, L2.10, L2.15, L2.14, L2.11, L2.9, L2.17, L2.26, Polynomial.eval_one_cyclotomic_prime_pow, L0.15.; [^145], [^113], [^126].
 
 **L2.28. The expansion of Li_k((1+T)ε) at a root of unity and its logarithmic growth.** For a root ε of order N≥2 that is not a p-power, P_(k,ε)(T)=Li_k^a(ε(1+T)) belongs to Q_p(ε)[[T]]∩R⁺ independently of a. Its constant is Li_k(ε), P_(0,ε)=ε(1+T)/(1−ε(1+T))=A_ε−1, A_ε∈Z_p[ε][[T]], and ∂P_k=P_(k−1). For n≥1, v_p(c_n)≥−k⌊log_p n⌋−C, C=max(0,−min_(1≤j≤k)v_p Li_j(ε)); C=0 for tame ε. Hence |c_n|≤p^C n^k. For nontrivial primitive θ, G(θ⁻¹)⁻¹Σ_c θ⁻¹(c)P_(k,ε^c) has the same logarithmic growth, ∂^k equal to RJW's F_θ, and constant G⁻¹Σ_c θ⁻¹(c)Li_k(ε^c). For N=p^r, the expression λ_k(ε(1+T))−log(1+T)^(k−1)log_a(1−ε(1+T))/(k−1)! has a singularity at T=ε⁻¹−1 inside |T|<1. The distinct singularities in its character sum do not cancel; neither expression lies in R⁺.
 
 **Given:** ε of order N≥2; a∈C_p; k≥0; R⁺={Σc_nT^n: |c_n|r^n→0 for r<1} (RJW Remark 3.39); growth order h means |c_n|=O(n^h). In (b), θ primitive of conductor N makes the Gauss sum nonzero. The all-branch (a) uses |ε−1|=1 on the whole disc.
 
-**From:** L2.2, L2.5, L2.4, L2.10, L2.7, L2.25, L2.26, L0.21, L0.22, PowerSeries, PowerSeries.IsRestricted, gaussSum, DirichletCharacter. **Source:** [^146], [^7], [^147], [^148].
+**From:** L2.2, L2.5, L2.4, L2.10, L2.7, L2.25, L2.26, L0.21, L0.22, PowerSeries, PowerSeries.IsRestricted, gaussSum, DirichletCharacter.; [^146], [^7], [^147], [^148].
 
 **L2.29. Norm and trace compatibilities: sums over conjugate roots of unity.** For primitive ε of order N≥2, k≥1 (a∈Q_p if k=1), prove σLi_k(ε)=Li_k(ε^(c_σ)) and trace equal to the Galois-orbit sum. For tame N, Frobenius c=p generates the group; Tr Li_1^a(ε)=−log_a Norm(1−ε). For k≥2 the sum over all primitive roots is ζ_p(k)Σ_(d|N)μ(N/d)d^(1−k)=ζ_p(k)N^(1−k)∏_(ℓ|N)(1−ℓ^(k−1)). For k=1 it is −log_a Φ_N(1), giving −a for N=p^r, −log ℓ for N=ℓ^s with ℓ≠p, and 0 otherwise. If M|N have the same prime divisors, the sum over c≡c_0 mod M is (N/M)^(1−k)Li_k^a(ε^(c_0N/M)). Include adjacent p-power levels.
 
 **Given:** ε primitive of order N ≥ 2; k ≥ 1; a ∈ Q_p when k = 1 in (a); in (b) for k ≥ 2 the value Li_k(1) = ζ_p(k).
 
-**From:** L2.17, L2.26, L2.11, L2.8, L2.2, Polynomial.eval_one_cyclotomic_prime_pow, Polynomial.eval_one_cyclotomic_not_prime_pow, IsPrimitiveRoot, L0.15. **Source:** [^97], [^149].
+**From:** L2.17, L2.26, L2.11, L2.8, L2.2, Polynomial.eval_one_cyclotomic_prime_pow, Polynomial.eval_one_cyclotomic_not_prime_pow, IsPrimitiveRoot, L0.15.; [^97], [^149].
 
 ### L2.30. The complex polylogarithm at roots of unity, compared with the p-adic one
 
@@ -1222,7 +1223,7 @@ For k≥2, the principal complex value Li_k^C(e^(2πix))=Σ_(n≥1)e^(2πinx)/n^
 
 **Given:** k ≥ 2 in (a) except for the last sentence; x real; N ≥ 1.
 
-**From:** L2.Fa, L2.9, L2.25, L2.18, HurwitzZeta.expZeta, HurwitzZeta.hasSum_expZeta_of_one_lt_re, ZMod.LFunction, ZMod.LFunction_stdAddChar_eq_expZeta, HurwitzZeta.cosZeta_two_mul_nat, HurwitzZeta.sinZeta_two_mul_nat_add_one, Complex.hasSum_taylorSeries_neg_log. **Source:** [^150], [^149], [^151].
+**From:** L2.Fa, L2.9, L2.25, L2.18, HurwitzZeta.expZeta, HurwitzZeta.hasSum_expZeta_of_one_lt_re, ZMod.LFunction, ZMod.LFunction_stdAddChar_eq_expZeta, HurwitzZeta.cosZeta_two_mul_nat, HurwitzZeta.sinZeta_two_mul_nat_add_one, Complex.hasSum_taylorSeries_neg_log.; [^150], [^149], [^151].
 
 ### L2.31. Scalar five-term dilogarithm expression
 
@@ -1251,73 +1252,73 @@ For the fixed branch a define R_a(x,y)=D^a(x)−D^a(y)+D^a(y/x)−D^a((1−x⁻�
 - At p=5, R_a(5,30)=0: |5|=|30|=1/5 but |5−30|=1/25.
 - At p=5, R_a(5,6)=0: 5 is close to0 and6 is close to1.
 
-**From:** L2.18. **Source:** [^152].
+**From:** L2.18.; [^152].
 
 **L2.32. Admissibility of the five dilogarithm arguments.** For an admissible pair x,y, all three additional arguments A=y/x, B=(1−x)/(1−y), C=(1−x⁻¹)/(1−y⁻¹)=AB are different from0 and1.
 
 **Given:** [^C6] [^C7]
 
-**From:** . **Source:** [^152].
+**From:** .; [^152].
 
 **L2.33. Exchange of the two scalar inputs.** For admissible x,y, R_a(y,x)=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.31, L2.32, L2.18. **Source:** [^152].
+**From:** L2.31, L2.32, L2.18.; [^152].
 
 **L2.34. Simultaneous complementation of the inputs.** For admissible x,y, R_a(1−x,1−y)=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.31, L2.32, L2.18. **Source:** [^152].
+**From:** L2.31, L2.32, L2.18.; [^152].
 
 **L2.35. Simultaneous inversion of the inputs.** For admissible x,y, R_a(x⁻¹,y⁻¹)=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.31, L2.32, L2.18. **Source:** [^152].
+**From:** L2.31, L2.32, L2.18.; [^152].
 
 **L2.36. Dilation by the first input.** For admissible x,y, R_a(x⁻¹,y/x)=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.31, L2.32, L2.18. **Source:** [^152].
+**From:** L2.31, L2.32, L2.18.; [^152].
 
 **L2.37. Moving the first input to the origin.** For admissible x,y, R_a(x/(x−1),(y−x)/(1−x))=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.34, L2.36. **Source:** [^152].
+**From:** L2.34, L2.36.; [^152].
 
 **L2.38. Fractional transformation of both inputs.** For admissible x,y, R_a(x/(x−1),y/(y−1))=−R_a(x,y).
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.35, L2.34. **Source:** [^152].
+**From:** L2.35, L2.34.; [^152].
 
 **L2.39. Five-term relation across small and large norms.** If 0<|x|<1<|y|, then R_a(x,y)=0.
 
 **Given:** [^C6] [^C7] x≠0, |x|<1 and1<|y|; the other admissibility conditions follow.
 
-**From:** L2.33, L2.36, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv. **Source:** [^152].
+**From:** L2.33, L2.36, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv.; [^152].
 
 **L2.40. Five-term relation on two separated residue discs.** If 0<|x|<1 and0<|1−y|<1, then R_a(x,y)=0.
 
 **Given:** [^C6] [^C7] x≠0, |x|<1, y≠1 and |1−y|<1.
 
-**From:** L2.38, L2.39, PadicComplex.isNonarchimedean, norm_div, norm_inv. **Source:** [^152].
+**From:** L2.38, L2.39, PadicComplex.isNonarchimedean, norm_div, norm_inv.; [^152].
 
 **L2.41. Five-term relation for an equal-norm collision.** If0<|x|=|y|<1 and0<|x−y|<|x|, then R_a(x,y)=0.
 
 **Given:** [^C6] [^C7] x≠0, |x|<1, |y|=|x|, x≠y and |x−y|<|x|.
 
-**From:** L2.37, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv. **Source:** [^152].
+**From:** L2.37, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv.; [^152].
 
 **L2.42. Norm reduction when the first input is small.** For an admissible pair with |x|<1, either R_a(x,y)=0, or there exist admissible u,v with |v|=|1−v|=1 such that R_a(x,y)=R_a(u,v) or R_a(x,y)=−R_a(u,v).
 
 **Given:** [^C6] [^C7] |x|<1.
 
-**From:** L2.39, L2.40, L2.41, L2.33, L2.36, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv. **Source:** [^152].
+**From:** L2.39, L2.40, L2.41, L2.33, L2.36, L2.24, PadicComplex.isNonarchimedean, norm_div, norm_inv.; [^152].
 
 ### L2.43. Exhaustive scalar reduction to special units
 
@@ -1325,7 +1326,7 @@ For admissible pair x,y, either R_a(x,y)=0, or there exist admissible u,v with |
 
 **Given:** [^C6] [^C7]
 
-**From:** L2.42, L2.35, L2.34, L2.33, PadicComplex.isNonarchimedean, norm_div, norm_inv. **Source:** [^152].
+**From:** L2.42, L2.35, L2.34, L2.33, PadicComplex.isNonarchimedean, norm_div, norm_inv.; [^152].
 
 ### L2.44. Special-unit sufficiency for the scalar five-term theorem
 
@@ -1333,31 +1334,31 @@ For a fixed branch a, assume the special-unit subcase: R_a(u,v)=0 for admissible
 
 **Given:** [^C6] [^C7] For admissible u,v with |v|=|1−v|=1, the special-unit scalar identity R_a(u,v)=0 is supplied as an explicit hypothesis.
 
-**From:** L2.43. **Source:** [^152].
+**From:** L2.43.; [^152].
 
 **L2.45. Logarithmic coordinates of the five argument maps.** For admissible x,v in C_p, write X=log_a x, U=log_a(1−x), V=log_a v, W=log_a(1−v), H=log_a(x−v), and alpha=dx/x, beta=dx/(x−1), gamma=dx/(x−v). For the ordered arguments x,v,v/x,v(x−1)/(x(v−1)),(1−x)/(1−v), the pairs(log f,log(1−f)) are (X,U),(V,W),(V−X,H−X),(V+U−X−W,H−X−W),(U−W,H−W). Their differential pairs are(alpha,beta),(0,0),(−alpha,gamma−alpha),(beta−alpha,gamma−alpha),(beta,gamma).
 
 **Given:** p is prime; a in C_p is any branch parameter; x,v are different from0,1 and x≠v. No special-unit or algebraicity assumption is needed.
 
-**From:** L2.32, L0.15, L0.19, HasDerivAt. **Source:** [^77].
+**From:** L2.32, L0.15, L0.19, HasDerivAt.; [^77].
 
 **L2.46. Vanishing differential of the scalar five-term defect.** For branch a and every admissible pair x,v in C_p, HasDerivAt (x↦R_a(x,v)) 0 holds at x, where R_a is the existing scalar fiveTermDefect. This is a differential statement on the admissible open locus; global vanishing is not asserted.
 
 **Given:** p is prime; a in C_p is any branch parameter; x,v are different from0,1 and x≠v.
 
-**From:** L2.31, L2.45, L2.18, HasDerivAt. **Source:** [^77].
+**From:** L2.31, L2.45, L2.18, HasDerivAt.; [^77].
 
 **L2.47. Local analyticity of the actual polylogarithm.** For natural k and z≠1, the function Li_k^a is analytic at z over ℂ_p.
 
 **Given:** [^C8] [^C9]
 
-**From:** L2.5, L2.4, L2.1. **Source:** [^153].
+**From:** L2.5, L2.4, L2.1.; [^153].
 
 **L2.48. Weight one and the fixed logarithm branch.** For z≠1, the actual weight-one polylogarithm satisfies Li_1^a(z)=−L(1−z).
 
 **Given:** [^C8] [^C9]
 
-**From:** L2.5. **Source:** [^153].
+**From:** L2.5.; [^153].
 
 **L2.49. Continuity of the Coleman dilogarithm.** For z≠0,1, the existing Coleman dilogarithm D^a is continuous at z as an ℂ_p-valued function.
 
@@ -1366,7 +1367,7 @@ For a fixed branch a, assume the special-unit subcase: R_a(u,v)=0 for admissible
 **Tests.**
 - For p=2 and every branch, D^a is continuous at 2.
 
-**From:** L2.47, L2.48, L2.18, AnalyticAt.continuousAt. **Source:** [^153].
+**From:** L2.47, L2.48, L2.18, AnalyticAt.continuousAt.; [^153].
 
 **L2.50. Continuity of the five-term expression.** The actual scalar function (x,y)↦R_a(x,y) is continuous on the admissible open set A⊂ℂ_p².
 
@@ -1375,7 +1376,7 @@ For a fixed branch a, assume the special-unit subcase: R_a(u,v)=0 for admissible
 **Tests.**
 - For p=2 and every branch, (x,y)↦R_a(x,y) is continuous at (2,8).
 
-**From:** L2.31, L2.32, L2.49. **Source:** [^153].
+**From:** L2.31, L2.32, L2.49.; [^153].
 
 **L2.51. The special-unit admissible locus is open.** The set S={(x,y)∈A: |y|=|1−y|=1} is open in ℂ_p².
 
@@ -1386,13 +1387,13 @@ For a fixed branch a, assume the special-unit subcase: R_a(u,v)=0 for admissible
 - At p=5, (2,2) does not belong to S.
 - At p=3, (0,2) does not belong to S.
 
-**From:** PadicComplex.isUltrametricDist, IsUltrametricDist.isOpen_sphere, isOpen_ne_fun. **Source:** [^153].
+**From:** PadicComplex.isUltrametricDist, IsUltrametricDist.isOpen_sphere, isOpen_ne_fun.; [^153].
 
 **L2.52. Algebraic pairs are dense in the special-unit locus.** Let e:PadicAlgCl(p)²→ℂ_p² be the pair of canonical completion embeddings. Then S⊆closure(S∩range(e)). Thus admissible algebraic pairs with special-unit second coordinate approximate every pair in S while retaining those conditions.
 
 **Given:** [^C8] [^C9]
 
-**From:** L2.51, PadicComplex, UniformSpace.Completion.denseRange_coe₂, Dense.open_subset_closure_inter. **Source:** [^153].
+**From:** L2.51, PadicComplex, UniformSpace.Completion.denseRange_coe₂, Dense.open_subset_closure_inter.; [^153].
 
 ### L2.53. Reduction to algebraic special-unit inputs
 
@@ -1400,25 +1401,25 @@ Fix a branch. Assume R_a(e(u),e(v))=0 for u,v in the existing PadicAlgCl(p) whos
 
 **Given:** [^C8] [^C9]
 
-**From:** L2.50, L2.52, L2.44, Set.EqOn.of_subset_closure. **Source:** [^153].
+**From:** L2.50, L2.52, L2.44, Set.EqOn.of_subset_closure.; [^153].
 
 **L2.54. The normalized polylogarithm at zero.** For natural k, Li_k^a(0)=0.
 
 **Given:** [^C2] [^C3]
 
-**From:** L2.5, L2.1. **Source:** [^20].
+**From:** L2.5, L2.1.; [^20].
 
 **L2.55. Dilogarithm limit under a bounded-log hypothesis.** Let u_n→0 in C_p, with u_n≠0 eventually, and suppose there is a real M with |L(u_n)|≤M eventually. Then D^a(u_n)→0.
 
 **Given:** [^C2] [^C3] u is a sequence; convergence, eventual nonvanishing and the eventual real norm bound on L(u_n) are explicit hypotheses.
 
-**From:** L2.47, L2.54, L0.19, L2.18, AnalyticAt.continuousAt, Filter.isBoundedUnder_le_mul_tendsto_zero. **Source:** [^20].
+**From:** L2.47, L2.54, L0.19, L2.18, AnalyticAt.continuousAt, Filter.isBoundedUnder_le_mul_tendsto_zero.; [^20].
 
 **L2.56. Dilogarithm along a scaled geometric sequence.** For c≠0 in C_p, D^a(c q_n)→0 as n→∞.
 
 **Given:** [^C2] [^C3] c∈C_p is nonzero; c and a need not be algebraic.
 
-**From:** L0.24, L2.55, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** L0.24, L2.55, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 **L2.57. Dilogarithm along a geometric quotient.** For c≠0 in C_p, D^a(c q_n/(1+q_n))→0 as n→∞.
 
@@ -1427,7 +1428,7 @@ Fix a branch. Assume R_a(e(u),e(v))=0 for u,v in the existing PadicAlgCl(p) whos
 **Tests.**
 - At p=2, D^a(2^(n+1)/(1+2^(n+1))) tends to zero for branch a.
 
-**From:** L0.25, L0.19, L2.55, IsUltrametricDist.norm_natCast_le_one, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Filter.Tendsto.div, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** L0.25, L0.19, L2.55, IsUltrametricDist.norm_natCast_le_one, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Filter.Tendsto.div, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 **L2.58. Admissibility near the boundary point one.** For v≠0,1, the pairs (1+q_n,v) are admissible for all sufficiently large n.
 
@@ -1436,7 +1437,7 @@ Fix a branch. Assume R_a(e(u),e(v))=0 for u,v in the existing PadicAlgCl(p) whos
 **Tests.**
 - At p=3 the pair (1+3^(n+1),2) is admissible for n.
 
-**From:** tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 **L2.59. The five-term expression on the boundary sequence.** For v≠0,1 and every n, R_a(1+q_n,v)=−D^a(−q_n)−D^a(v)+D^a(v/(1+q_n))−D^a((v/(v−1))q_n/(1+q_n))+D^a(q_n/(v−1)).
 
@@ -1445,7 +1446,7 @@ Fix a branch. Assume R_a(e(u),e(v))=0 for u,v in the existing PadicAlgCl(p) whos
 **Tests.**
 - At p=3 and n=0: R_a(4,2)=−D^a(−3)−D^a(2)+D^a(1/2)−D^a(3/2)+D^a(3).
 
-**From:** L2.31, L2.18, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** L2.31, L2.18, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 ### L2.60. Vanishing limit of the five-term expression
 
@@ -1456,13 +1457,13 @@ For v∈C_p with v≠0,1, R_a(1+q_n,v)→0.
 **Tests.**
 - For v≠0,1 and any δ∈C_p, R_a(1+q_n,v)+δ tends to δ. A nonzero added constant survives the boundary test even though it does not change a derivative.
 
-**From:** L2.59, L2.58, L2.56, L2.57, L2.49, Filter.Tendsto.div, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'. **Source:** [^20].
+**From:** L2.59, L2.58, L2.56, L2.57, L2.49, Filter.Tendsto.div, tendsto_pow_atTop_nhds_zero_of_norm_lt_one, Padic.norm_p_lt_one, PadicComplex.norm_extends'.; [^20].
 
 **L2.61. Determination of a constant by the boundary limit.** For v≠0,1 and C∈C_p, if R_a(1+q_n,v)=C for all sufficiently large n, then C=0.
 
 **Given:** [^C2] [^C3] v≠0,1 and an actual eventual equality R_a(1+q_n,v)=C are supplied.
 
-**From:** L2.60, tendsto_nhds_unique_of_eventuallyEq. **Source:** [^20].
+**From:** L2.60, tendsto_nhds_unique_of_eventuallyEq.; [^20].
 
 ### L2.62. Reduction to algebraic constancy on a punctured line
 
@@ -1470,7 +1471,7 @@ Fix a branch and let e:PadicAlgCl(p)→C_p be the canonical completion embedding
 
 **Given:** [^C2] [^C3] The stated constancy on all admissible algebraic first coordinates is an explicit hypothesis; constancy only on the special-unit tube is insufficient.
 
-**From:** L2.58, L2.61, L2.53, PadicComplex.coe_eq, PadicComplex.coe_natCast. **Source:** [^20].
+**From:** L2.58, L2.61, L2.53, PadicComplex.coe_eq, PadicComplex.coe_natCast.; [^20].
 
 **L2.63. A logarithmic Laurent end determines its punctured disc.** Let L be the actual logarithm branch. Suppose f and g each have a finite polynomial expansion in L(z−c), with Laurent coefficients converging absolutely at every real radius 0<ρ<1, as in the existing IsLogLaurentNear. If for some 0≤r<1 one has f(z)=g(z) whenever r<|z−c|<1, then f(z)=g(z) for 0<|z−c|<1. A germ equality means such equality on an outer annulus; it is not merely agreement on a finite collection of points.
 
@@ -1479,31 +1480,31 @@ Fix a branch and let e:PadicAlgCl(p)→C_p be the canonical completion embedding
 **Tests.**
 - The indicator of |z|<|p| has no IsLogLaurentNear expansion at0, although it is locally constant and vanishes on its outer end.
 
-**From:** L0.21, L0.20, L2.16, PH-P7. **Source:** [^154].
+**From:** L0.21, L0.20, L2.16, PH-P7.; [^154].
 
 **L2.64. A logarithmic Laurent end determines the disc at infinity.** Let f,g satisfy the existing IsLogLaurentAtInfty for the same branch. If for some 0≤r<1 they agree whenever r<|1/z|<1, then they agree for |z|>1. This compares the functions on the entire punctured residue disc of∞.
 
 **Given:** p is any prime; a∈C_p; L=log_a; 0≤r<1; both expansions converge at every parameter radius0<ρ<1.
 
-**From:** L2.63, L2.16, norm_inv. **Source:** [^155].
+**From:** L2.63, L2.16, norm_inv.; [^155].
 
 **L2.65. Whole-disc expansions of the scalar defect.** For any special unit v∈C_p and branch L, the function z↦R_a(z,v) has an IsLogLaurentNear expansion at each of0,1,v and an IsLogLaurentAtInfty expansion at∞. The logarithmic degree is finite; each Laurent coefficient converges on the whole punctured parameter disc. These statements concern the actual dilogD and fiveTermDefect defined here, not an abstract replacement.
 
 **Given:** p is any prime; a∈C_p; L=log_a; |v|=|1−v|=1. No algebraicity restriction is needed for these local expansions.
 
-**From:** L1.44, L1.41, L2.4, L2.5, L2.18, L2.31, L0.19, L0.15, L0.10. **Source:** [^83].
+**From:** L1.44, L1.41, L2.4, L2.5, L2.18, L2.31, L0.19, L0.15, L0.10.; [^83].
 
 **L2.66. Coleman membership of the scalar defect.** Let v lie in a finite extension K/Q_p and satisfy |v|=|1−v|=1. In the existing Coleman algebra for the four-punctured pair Y_v, the element H_v=f_0^*D−D(v)+f_1^*D−f_2^*D+f_3^*D has, on every ordinary source disc, the actual values R_a(z,v), and at every source end the germ of the function R_a(·,v). It is a Coleman function of depth at most2. The equality at regular-image additional ends uses the ordinary-series restriction of L1.42.
 
 **Given:** K is finite over Q_p; v∈K is a special unit; a∈C_p is arbitrary. The four-puncture Frobenius datum and the actual Li_2 and logarithm branches are those already planned; no new Coleman carrier is introduced.
 
-**From:** L1.42, L1.43, L1.17, L1.39, L1.40, L2.3, L2.18, L2.31, L2.65. **Source:** [^156].
+**From:** L1.42, L1.43, L1.17, L1.39, L1.40, L2.3, L2.18, L2.31, L2.65.; [^156].
 
 **L2.67. One Coleman constant for the scalar defect.** For the Coleman element H_v of five-term-defect-coleman there exists one C_v∈C_p with H_v=C_v in A_Col^a(Y_v), hence in every component of A_loc. Thus the actual scalar defect is C_v on every ordinary residue disc and its germ at each of0,1,v,∞ is the constant C_v. The same constant is used in all components.
 
 **Given:** K/Q_p finite; v∈K special unit; arbitrary branch a∈C_p. H_v is the actual pullback realization supplied by five-term-defect-coleman.
 
-**From:** L2.66, L2.46, L1.18, L1.17, L1.16. **Source:** [^157].
+**From:** L2.66, L2.46, L1.18, L1.17, L1.16.; [^157].
 
 ### L2.68. Constancy of the actual defect for an algebraic special unit
 
@@ -1511,7 +1512,7 @@ Let v be in PadicAlgCl(p), embedded into C_p, and |v|=|1−v|=1. For branch ther
 
 **Given:** p is any prime, including2; v is algebraic over Q_p; a∈C_p is arbitrary. The actual dilogD and fiveTermDefect are used throughout.
 
-**From:** L2.67, L2.65, L2.63, L2.64, L1.34, L2.26. **Source:** [^83].
+**From:** L2.67, L2.65, L2.63, L2.64, L1.34, L2.26.; [^83].
 
 ### L2.69. The scalar five-term dilogarithm identity
 
@@ -1523,7 +1524,7 @@ For primep, every brancha∈C_p and every x,y∈C_p with x,y≠0,1 and x≠y, th
 - For any branch onC_3 the scalar defectR_a(4,2) is0.
 - For a special unitζ∈C_2 withζ²+ζ+1=0, the scalar defectR_a(2,ζ) is0 for branch.
 
-**From:** L2.68, L2.62. **Source:** [^158].
+**From:** L2.68, L2.62.; [^158].
 
 ### L2.70. The five-term relation for the p-adic dilogarithm
 
@@ -1531,21 +1532,21 @@ For x,y∈C_p∖{0,1}, x≠y, the scalar relation is D^a(x)−D^a(y)+D^a(y/x)−
 
 **Given:** a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p prime.
 
-**From:** L2.18, L2.11, L2.4, L2.9, L1.17, L1.43, L1.18, L2.24, L2.Fb, L2.44, L1.39, L1.40, L2.46, L2.53, L2.62, L2.69. **Source:** [^159], [^160], [^161], [^139].
+**From:** L2.18, L2.11, L2.4, L2.9, L1.17, L1.43, L1.18, L2.24, L2.Fb, L2.44, L1.39, L1.40, L2.46, L2.53, L2.62, L2.69.; [^159], [^160], [^161], [^139].
 
 **L2.71. Twisted sums Σ_c θ^{−1}(c)Li_k(ε^c) for primitive characters.** For nontrivial θ mod N, primitive ε and k≥1, set S_k^a=Σ_cθ⁻¹(c)Li_k^a(ε^c), G=Σ_cθ⁻¹(c)ε^c. Prove branch independence, S(ε^b)=θ(b)S(ε) for units b, and the primitive-character Gauss identity G(ε^b)=θ(b)G(ε) for all residues b. Thus S/G is root independent. Parity gives S=−θ(−1)(−1)^kS, vanishing unless θ(−1)=(−1)^(k+1). If θ is primitive and N≠p or k≥2, Σ_cθ⁻¹(c)Li_k^(p),a(ε^c)=(1−θ(p)p^(−k))S, taking θ(p)=0 for p|N. Continuous automorphisms transform both sums compatibly with θ, ε and a, and transform the quotient accordingly.
 
 **Given:** θ nontrivial modulo N ≥ 2 (primitive where stated); ε primitive N-th root of unity; k ≥ 1; for (d) with N = p, k ≥ 2 (Li_1(1) is undefined).
 
-**From:** L2.10, L2.9, L2.11, L2.17, L2.2, L2.5, DirichletCharacter, DirichletCharacter.IsPrimitive, gaussSum, gaussSum_mulShift_of_isPrimitive, L3.9. **Source:** [^162], [^163], [^164].
+**From:** L2.10, L2.9, L2.11, L2.17, L2.2, L2.5, DirichletCharacter, DirichletCharacter.IsPrimitive, gaussSum, gaussSum_mulShift_of_isPrimitive, L3.9.; [^162], [^163], [^164].
 
 ## L3. Positive integer L-values and regulators
 
 Use geometric measures away from the disc of one, and pole-cancelled smoothing on that disc. Negative moments yield the character sum with its Euler factor and Teichmüller twist. Keep the scalar formula, the complex comparison, and the motivic regulator interpretation distinct: the final interpretation requires the stated regulator and realization interfaces.
 
-**L3.Fa. Cyclotomic motivic input.** Construct the de Jeu symbol complexes M̃•_(n)(F), their localization maps and comparison to the Adams-weight n part of K_(2n−1)(F)_ℚ under the hypotheses of BDJ Theorem 1.6. Construct [ζ]_n for n≥2, ζ≠1 and prove the cyclotomic eigenspace spanning statements used in BBdJR Proposition 4.17. These include the relative K-theory, localization and symbol relations, rather than only a name for K-groups. Sources: BDJ §§1,3; Theorems 1.6, 1.10 and 1.12, pp.870–877; BBdJR §4, Proposition 4.17, pp.21–22.
+**L3.Fa. Cyclotomic motivic input.** Construct the de Jeu symbol complexes M̃•_(n)(F), their localization maps and comparison to the Adams-weight n part of K_(2n−1)(F)_ℚ under the hypotheses of BDJ Theorem 1.6. Construct [ζ]_n for n≥2, ζ≠1 and prove the cyclotomic eigenspace spanning statements used in BBdJR Proposition 4.17. These include the relative K-theory, localization and symbol relations, rather than only a name for K-groups. Sources: BDJ §§1,3; Theorems 1.6, 1.10 and 1.12, pp.870–872; §3, pp.879–889; BBdJR §4, Proposition 4.17, pp.21–22.
 
-**L3.Fb. Regulator input.** Construct rigid syntomic regulators with the target identification of BDJ Definition 4.6. For special units prove reg([x]_n)=±(n−1)!L_n^mod(x), with the source's sign and normalization, by the multi-relative K-theory, relative Chern-class and integration-down construction of BDJ §§3–7. Include the Gros comparison and its Euler factor before using L3.37. Sources: BDJ Theorem 1.10(2), pp.874–875, Theorem 1.12, pp.875–877; BBdJR Theorem 4.14 and Remark 4.16, pp.20–21.
+**L3.Fb. Regulator input.** Construct rigid syntomic regulators with the target identification of BDJ Definition 4.6, p.892. Its modified syntomic model is Cone(FⁿRΓ_rig → RΓ_rig)[−1], with map 1−φ*/qⁿ and differential d(a,b)=(da,(1−φ*/qⁿ)a−db). For n≥i>dim X, the normalized map sends [(0,ε)] to (1−φ*/qⁿ)⁻¹[ε] in H^(i−1)_rig/Fⁿ; taking [ε] without this inverse changes the normalization. Include functoriality, relative cones, cup products and the relative Chern character, then the integration-down and special-symbol computation before proving reg([x]_n)=±(n−1)!L_n^mod(x). On Spec R with φ*=id on K, tests require (0,ε)↦ε/(1−q^(−n)), the weight-one regulator of a unit to be log(unit), and exclusion of the inverse normalization when n=0 and φ*=id. Fix the relativity signs uniformly in n, as BDJ Remark 1.7 requires; the ± in L3.15 is this single sign, not an independent sign per symbol. Include the Gros comparison and its Euler factor before L3.37. Sources: BDJ Theorem 1.10(2), p.871, Theorem 1.12 and Remark 1.13, p.872, §§3–7 and Appendix A, pp.879–923; BBdJR Theorem 4.14 and Remark 4.16, pp.20–21.
 
 **L3.Fc. Complex regulator input.** Construct the Beilinson regulator pairing and its coefficient and Galois functoriality. Prove the Borel rank and idempotent dimension statement used in L3.16, and the cyclotomic regulator determinants used in L3.36. Sources: BBdJR Definitions 3.5–3.6, Proposition 3.12 and §4, Proposition 4.17, pp.10–14,21–22.
 
@@ -1555,13 +1556,13 @@ Use geometric measures away from the disc of one, and pole-cancelled smoothing o
 
 **Given:** p odd, with RJW Definition 5.15's ω and ⟨x⟩=ω⁻¹(x)x; D>1 gives nontrivial η and bounded μ_η by Theorem 5.7 (D=1: L3.2). k≥1; 1_(Z_p×)x^(−k) is continuous on Z_p.
 
-**From:** DP2, DP3. **Source:** [^165], [^166], [^167].
+**From:** DP2, DP3.; [^165], [^166], [^167].
 
 **L3.2. p-adic L-values at positive integers for pure p-power conductor, through the smoothed measure.** Let p be an odd prime, chi a nontrivial primitive Dirichlet character of conductor p^n (n≥1) with values in a finite extension L of Q_p, and k≥1 an integer. Let b > 1 be an integer prime to p with chi(b) b^{1-k}≠1 (such b exist: x→chi(x) x^{1-k} is a nontrivial continuous character of Z_p^x and the positive integers prime to p are dense in Z_p^x). Let mu_b in Lambda(Z_p) be the measure with Amice transform F_b(T) = 1/T - b/((1+T)^b - 1) (RJW Definition 4.5) and mu_{chi,b} = (mu_b)_chi its twist by chi. Then L_p(chi*omega^{1-k}, k) = (chi(b) b^{1-k} - 1)^{-1} int_{Z_p^x} x^{-k} . mu_{chi,b}.
 
 **Given:** p odd with RJW's ω,⟨x⟩; cond(χ)=p^n, n≥1, D=1. RJW Lemma 5.12's F_χ is not a bounded-measure transform here. Choose integer b>1, p∤b, χ(b)b^(1−k)≠1.
 
-**From:** DP1, DP2, DP3, PM3. **Source:** [^168], [^169], [^170].
+**From:** DP1, DP2, DP3, PM3.; [^168], [^169], [^170].
 
 ### L3.3. The geometric measure mu_w of a point outside the residue disc of 1
 
@@ -1587,13 +1588,13 @@ Let K be a finite extension of Q_p inside C_p and w in K with |w|≤1 and |w - 1
 - For |w| < 1, mu_w = sum_{n>=1} w^n delta_n, and int_{Z_p^x} x^{-k} . mu_w = sum_{n>=1, p not | n} w^n n^{-k}.
 - For w = zeta_p a primitive p-th root of unity the coefficients w^m (1-w)^{-m-1} have absolute value p^{(m+1)/(p-1)}, unbounded, so the formula defines no measure: the pure p-power conductor case needs the smoothed measure.
 
-**From:** PM2, AbstractMeasure, AbstractMeasure.amiceTransform, AbstractMeasure.injective_amiceTransform. **Source:** [^171], [^172], [^173].
+**From:** PM2, AbstractMeasure, AbstractMeasure.amiceTransform, AbstractMeasure.injective_amiceTransform.; [^171], [^172], [^173].
 
 **L3.4. mu_theta as a Gauss-sum combination of geometric measures.** Let theta = chi*eta be primitive of conductor N = D p^n with D > 1 and p not dividing D, L as in L3.1, eps_N in L a primitive N-th root of unity and G(theta^{-1}) = sum_{c in (Z/NZ)^x} theta^{-1}(c) eps_N^c. For c in (Z/NZ)^x, |eps_N^c| = |eps_N^c - 1| = 1, and mu_theta = G(theta^{-1})^{-1} sum_c theta^{-1}(c) mu_{eps_N^c}; equivalently F_theta(T) = G(theta^{-1})^{-1} sum_c theta^{-1}(c) Li_0((1+T) eps_N^c).
 
 **Given:** D > 1: every eps_N^c reduces to a nontrivial root of unity of order D, so it lies outside the residue disc of 1. The Gauss sum and F_theta are formed with the same root eps_N.
 
-**From:** DP0, DP2, L3.3, MulChar.sum_eq_zero_of_ne_one, AbstractMeasure.injective_amiceTransform. **Source:** [^174], [^175].
+**From:** DP0, DP2, L3.3, MulChar.sum_eq_zero_of_ne_one, AbstractMeasure.injective_amiceTransform.; [^174], [^175].
 
 ### L3.5. Taylor expansions of Coleman's polylogarithms on a residue disc as Amice transforms
 
@@ -1618,65 +1619,51 @@ For |w|≤1, |w−1|=1 in finite K/Q_p and k≥0, the Taylor series F̃_w^(k)(T)
 - For |w| < 1, Ftilde^{(k)}_w = sum_{n>=1} w^n (1+T)^n/n^k.
 - For w = zeta_p (in the residue disc of 1) the Taylor series of Li_1(w(1+T)) at 0 has radius |zeta_p - 1| = p^{-1/(p-1)} < 1, so it is not in R^+.
 
-**From:** L2.5, L2.4, L3.3, LA1, PowerSeries.derivative, PowerSeries.IsRestricted, L2.7, L2.28, L0.17, L2.26. **Source:** [^176], [^177], [^178], [^179].
+**From:** L2.5, L2.4, L3.3, LA1, PowerSeries.derivative, PowerSeries.IsRestricted, L2.7, L2.28, L0.17, L2.26.; [^176], [^177], [^178], [^179].
 
 **L3.6. Negative moments on Z_p^x through a locally analytic primitive.** Let K be a finite extension of Q_p, mu in Lambda(Z_p) (x) K a bounded measure, k≥0, and Ftilde in R^+ subset K[[T]] with ((1+T) d/dT)^k Ftilde = A_mu. Let lambda in D^la(Z_p, K) be the distribution with A_lambda = Ftilde. Then x^k lambda = mu, and int_{Z_p^x} x^{-k} . mu = lambda(1_{Z_p^x}) = ((1 - phi o psi) Ftilde)(0) = Ftilde(0) - p^{-1} sum_{xi in mu_p} Ftilde(xi - 1), where Ftilde(xi - 1) is the value of the convergent series at the point xi - 1 of the open unit disc. The value does not depend on the choice of Ftilde.
 
-**Given:** mu bounded; Ftilde in R^+ with the k-fold derivative condition.
-
-**From:** LA1, PM2. **Source:** [^180], [^181], [^182].
+**From:** LA1, PM2.; [^180], [^181], [^182].
 
 ### L3.7. Negative moments of the geometric measure are modified polylogarithms
 
 Let K be a finite extension of Q_p and w in K with |w|≤1 and |w - 1| = 1. For integer k≥1, int_{Z_p^x} x^{-k} . mu_w = Li_k(w) - p^{-k} Li_k(w^p), where Li_k is Coleman's polylogarithm (for any branch; the right side is branch independent). For |w| < 1 both sides equal sum_{n>=1, p not | n} w^n n^{-k}.
 
-**Given:** |w|≤1, |w - 1| = 1, w in a finite extension of Q_p. k≥1.
-
-**From:** L3.5, L3.6, L3.3, L2.8, L2.5. **Source:** [^171], [^183], [^184].
+**From:** L3.5, L3.6, L3.3, L2.8, L2.5.; [^171], [^183], [^184].
 
 **L3.8. Negative moments of the geometric measure as limits of finite sums.** For w as in L3.3 and every integer k: int_{Z_p^x} x^{-k} . mu_w = lim_{r→infinity} (1 - w^{p^r})^{-1} sum_{0 < a < p^r, p not | a} a^{-k} w^a in K, and the r-th term differs from the limit by an element of absolute value at most p^{-r}. Consequently the negative moments of mu_w are the values at w of BHYY's rigid analytic function Li_k^{(p)} on {|t|≤1, |1 - t| = 1} (BHYY Lemma 3.3 and Proposition 3.4 with F = Q).
 
-**Given:** w as in L3.3; k any integer.
-
-**From:** L3.3, PM2. **Source:** [^171], [^185].
+**From:** L3.3, PM2.; [^171], [^185].
 
 **L3.9. Sums of a primitive character along the fibres of reduction vanish.** Let theta be a primitive Dirichlet character modulo N with values in an integral domain, M a proper divisor of N, and f any function on (Z/MZ)^x. Then sum_{c in (Z/NZ)^x} theta(c) f(c mod M) = 0. In particular, if p | N and eps_N is a primitive N-th root of unity, then sum_{c in (Z/NZ)^x} theta^{-1}(c) g(eps_N^{pc}) = 0 for function g on mu_{N/p}.
 
-**Given:** theta primitive of conductor N; M | N, M≠N.
-
-**From:** DirichletCharacter.IsPrimitive, DirichletCharacter.factorsThrough_iff_ker_unitsMap, ZMod.unitsMap, ZMod.unitsMap_surjective, sum_hom_units_eq_zero. **Source:** [^186], [^187].
+**From:** DirichletCharacter.IsPrimitive, DirichletCharacter.factorsThrough_iff_ker_unitsMap, ZMod.unitsMap, ZMod.unitsMap_surjective, sum_hom_units_eq_zero.; [^186], [^187].
 
 **L3.10. The Euler factor from the p-th power map on roots of unity.** Let theta be a nontrivial primitive Dirichlet character of conductor N with values in a field of characteristic 0, eps_N a primitive N-th root of unity, k an integer and f a function on the roots of unity. Then sum_{c in (Z/NZ)^x} theta^{-1}(c) f(eps_N^{pc}) = theta(p) sum_{c} theta^{-1}(c) f(eps_N^c), with theta(p) = 0 when p | N; hence sum_c theta^{-1}(c) (f(eps_N^c) - p^{-k} f(eps_N^{pc})) = (1 - theta(p) p^{-k}) sum_c theta^{-1}(c) f(eps_N^c).
 
 **Given:** theta primitive of conductor N; f arbitrary (in the application f = Li_k, and eps_N^{pc}≠1 whenever the tame part D > 1).
 
-**From:** L3.9, DirichletCharacter.IsPrimitive. **Source:** [^188].
+**From:** L3.9, DirichletCharacter.IsPrimitive.; [^188].
 
 **L3.11. Independence of the choice of primitive root of unity.** Let theta be a nontrivial primitive character of conductor N with values in a field F of characteristic 0 containing mu_N, f any function from mu_N to F, eps a primitive N-th root of unity and eps' = eps^a with a in (Z/NZ)^x. Write G_eps(theta^{-1}) = sum_c theta^{-1}(c) eps^c. Then G_eps(theta^{-1})≠0 and G_{eps'}(theta^{-1})^{-1} sum_c theta^{-1}(c) f(eps'^c) = G_eps(theta^{-1})^{-1} sum_c theta^{-1}(c) f(eps^c).
 
-**Given:** theta primitive of conductor N, nontrivial.
-
-**From:** DP0, gaussSum, gaussSum_mulShift_eq, AddChar.zmodChar. **Source:** [^189].
+**From:** DP0, gaussSum, gaussSum_mulShift_eq, AddChar.zmodChar.; [^189].
 
 **L3.12. The complex polylogarithm on the unit circle and the exponential zeta function.** For integer k≥2 and every real a: Li_k(e^{2 pi i a}) = sum_{n>=1} e^{2 pi i a n} n^{-k} = expZeta(a, k), where Li_k is the principal-branch complex polylogarithm of L0.F and L2.Fa and expZeta is HurwitzZeta.expZeta.
 
 **Given:** k≥2 (for k = 1 the series converges only conditionally; that case is RJW Theorem 6.1(i), supplied by DP3).
 
-**From:** L2.Fa, HurwitzZeta.expZeta, HurwitzZeta.hasSum_expZeta_of_one_lt_re. **Source:** [^76], [^190].
+**From:** L2.Fa, HurwitzZeta.expZeta, HurwitzZeta.hasSum_expZeta_of_one_lt_re.; [^76], [^190].
 
 ### L3.13. The complex formula L(theta, k) through polylogarithms at roots of unity
 
 Let theta be a nontrivial primitive complex Dirichlet character of conductor N≥2 and G(theta^{-1}) = sum_{c in (Z/NZ)^x} theta^{-1}(c) e^{2 pi i c/N} (gaussSum with ZMod.stdAddChar). For s in C, L(theta, s) = G(theta^{-1})^{-1} sum_{c in (Z/NZ)^x} theta^{-1}(c) expZeta(c/N, s), with L(theta, s) = DirichletCharacter.LFunction. Hence for integer k≥1, L(theta, k) = G(theta^{-1})^{-1} sum_c theta^{-1}(c) Li_k(e^{2 pi i c/N}) with the principal-branch complex polylogarithm (RJW Theorem 6.7(i)).
 
-**Given:** theta primitive of conductor N≥2 (so theta(0) = 0 and theta^{-1} vanishes on non-units).
-
-**From:** DirichletCharacter.LFunction, DirichletCharacter.LFunction_eq_LSeries, ZMod.LFunction_dft, DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum, ZMod.dft_dft, ZMod.dft_comp_neg, gaussSum, ZMod.stdAddChar, ZMod.toAddCircle, HurwitzZeta.expZeta, L3.12, DP0, DP3, L2.Fa. **Source:** [^191], [^192], [^193].
+**From:** DirichletCharacter.LFunction, DirichletCharacter.LFunction_eq_LSeries, ZMod.LFunction_dft, DirichletCharacter.IsPrimitive.fourierTransform_eq_inv_mul_gaussSum, ZMod.dft_dft, ZMod.dft_comp_neg, gaussSum, ZMod.stdAddChar, ZMod.toAddCircle, HurwitzZeta.expZeta, L3.12, DP0, DP3, L2.Fa.; [^191], [^192], [^193].
 
 ### L3.14. The modified p-adic polylogarithm of the syntomic regulator
 
 For n≥2 and a branch log = log_lambda, the modified p-adic polylogarithm L^mod_n : C_p minus {0, 1}→C_p is L^mod_n(z) := sum_{j=0}^{n-1} (B_j/j!) Li_{n-j}(z) log(z)^j, with B_j the Bernoulli numbers (t/(e^t - 1) = sum B_j t^j/j!, B_1 = -1/2; bernoulli) and Li_m Coleman's polylogarithms for the same branch. It satisfies L^mod_n(z) + (-1)^n L^mod_n(1/z) = 0, L^mod_n(z^m) = m^{n-1} sum_{zeta^m = 1} L^mod_n(zeta z) for z^m≠0, 1, and L^mod_n(zeta) = Li_n(zeta) for root of unity zeta≠1.
-
-**Given:** n≥2; the same branch for log and the Li_m; z≠0, 1.
 
 **API.**
 - `padicRegulatorPolylog`: L^mod_n(z) = sum_{j<n} (B_j/j!) Li_{n-j}(z) log(z)^j.
@@ -1694,7 +1681,7 @@ For n≥2 and a branch log = log_lambda, the modified p-adic polylogarithm L^mod
 - For the Iwasawa branch and z = p + p^2, L^mod_2(z) - Li_2(z) = (1/2) log(1 + p) log(1 - p - p^2)≠0: L^mod_n is not Li_n away from roots of unity.
 - Zagier's complex single-valued P_n (L3.Fc) uses coefficients 2^j B_j/j! and log|z|; at roots of unity both reduce to Li_n up to taking real or imaginary parts.
 
-**From:** L2.5, L2.8, L0.18, bernoulli, L2.9. **Source:** [^194], [^195], [^196].
+**From:** L2.5, L2.8, L0.18, bernoulli, L2.9.; [^194], [^195], [^196].
 
 ### L3.15. The syntomic regulator of cyclotomic elements
 
@@ -1702,7 +1689,7 @@ Let F be a number field, O the localisation of O_F at a prime above p, K a compl
 
 **Given:** n≥2; zeta a root of unity different from 1. The target H^1_syn(Spec R, n) is identified with K by the normalisation of Besser-de Jeu (Definition 4.6 and the following discussion).
 
-**From:** L3.14, L3.Fb, L3.Fa, L2.8, L2.17, L2.25. **Source:** [^197], [^198], [^199].
+**From:** L3.14, L3.Fb, L3.Fa, L2.8, L2.17, L2.25.; [^197], [^198], [^199].
 
 ### L3.16. The p-adic Beilinson conjecture for Artin motives over Q, as a proposition
 
@@ -1724,13 +1711,13 @@ For finite Galois k/Q with group G, number field E, idempotent π∈E[G], n≥2 
 - k = Q(i), pi = (1 + c)/2, n = 2: dim E[G]pi = 1 but pi K_3(Q(i))_E = K_3(Q)_E = 0, so the proposition is not formed.
 - k totally real and n even: pi K_{2n-1}(k)_E = 0 for pi (Borel), so no instance exists.
 
-**From:** L3.Fc, L3.Fb, L3.Fd, DP3, L3.Fa. **Source:** [^200], [^201], [^202].
+**From:** L3.Fc, L3.Fb, L3.Fd, DP3, L3.Fa.; [^200], [^201], [^202].
 
 **L3.17. Unit denominator for a rotated smoothing series.** Write Q_b(Z)=sum_(0<=i<b) Z^i and R_b(Z)=sum_(0<=i<b-1)(b-1-i)Z^i as finite-polynomial notation, and W=w(1+T). Then |Q_b(w)|=1, and every coefficient of Q_b(W) and R_b(W) has norm at most one. Hence Q_b(W) is a unit in O_K[[T]]. The norm assertions hold more generally in an ultrametric normed field when |b|=1 and |w-1|<1; Q_b and R_b are explanatory finite sums, not new generic polynomial carriers.
 
 **Given:** [^C10]
 
-**From:** IsUltrametricDist, PowerSeries.isUnit_iff_constantCoeff, geom_sum_mul, DP1. **Source:** [^203].
+**From:** IsUltrametricDist, PowerSeries.isUnit_iff_constantCoeff, geom_sum_mul, DP1.; [^203].
 
 ### L3.18. The pole-cancelled rotated smoothing transform
 
@@ -1761,43 +1748,39 @@ With the finite sums Q_b and R_b of rotated-smoothing-denominator, define G_(b,w
 - At p=3,b=3,w=1, coeff_1 G=-2/3 has norm 3>1. The prime-to-p condition is necessary for the integral coefficient bound.
 - At p=3,b=2,w=4, the regularized transform agrees with the separate reciprocal formula, whose constant denominators are 3 and 15.
 
-**From:** L3.17, DP1, PowerSeries.mul_inv_cancel, PowerSeries.constantCoeff_inv, PowerSeries.coeff_inv, PowerSeries.coeff_mul, PowerSeries.isRestricted_iff', PowerSeries.inv_eq_zero, geom_sum_mul. **Source:** [^204].
+**From:** L3.17, DP1, PowerSeries.mul_inv_cancel, PowerSeries.constantCoeff_inv, PowerSeries.coeff_inv, PowerSeries.coeff_mul, PowerSeries.isRestricted_iff', PowerSeries.inv_eq_zero, geom_sum_mul.; [^204].
 
 **L3.19. Integral coefficients of the rotated transform.** If |b|=1 and |w-1|<1 in a complete ultrametric normed field K, every coefficient of G_(b,w) has norm at most one.
 
 **Given:** [^C11]
 
-**From:** L3.17, L3.18, PowerSeries.coeff_inv, PowerSeries.coeff_mul. **Source:** [^205].
+**From:** L3.17, L3.18, PowerSeries.coeff_inv, PowerSeries.coeff_mul.; [^205].
 
 **L3.20. Convergence of the rotated transform on the open unit disc.** Under the same norm hypotheses, G_(b,w) is restricted at every real radius 0<=rho<1, hence lies in R^+.
 
 **Given:** [^C11]
 
-**From:** L3.19, PowerSeries.isRestricted_iff', IsUltrametricDist. **Source:** [^206].
+**From:** L3.19, PowerSeries.isRestricted_iff', IsUltrametricDist.; [^206].
 
 **L3.21. Evaluation of the rotated transform including its removable point.** Under the same norm hypotheses, for |t|<1, G_(b,w)(t)=R_b(w(1+t))/Q_b(w(1+t)). In characteristic zero, when w(1+t)=1 this value is (b-1)/2; the two separate reciprocal terms must not be evaluated there.
 
 **Given:** [^C11]
 
-**From:** L3.20, L3.17, L3.18, PowerSeries.mul_inv_cancel. **Source:** [^207].
+**From:** L3.20, L3.17, L3.18, PowerSeries.mul_inv_cancel.; [^207].
 
 **L3.22. Comparison with the separate reciprocal formula away from the centre.** For b>=1 and w in a field K with w!=1 and w^b!=1, the explicit G_(b,w) equals (w(1+T)-1)^(-1)-b*(w^b(1+T)^b-1)^(-1) in K[[T]]. These hypotheses ensure both separate denominators have nonzero constant coefficient. They hold for w a nontrivial p-power root of unity and b prime to p. This identity is not extended to w=1.
 
-**Given:** K is a field, b>=1, w!=1 and w^b!=1; no convergence hypothesis is needed for this algebraic comparison.
-
-**From:** L3.18, geom_sum_mul, PowerSeries.mul_inv_cancel. **Source:** [^208].
+**From:** L3.18, geom_sum_mul, PowerSeries.mul_inv_cancel.; [^208].
 
 **L3.23. Amice transform of the rotated smoothing measure.** Let mu_b be the actual DP1/smoothed-measure, extended to O_K by the bounded coefficient-extension interface of PM2. For |w-1|<1, multiplication by the continuous character x->w^x gives a bounded measure w^x mu_b with Amice transform G_(b,w) of rotated-smoothed-transform. In particular w=1 recovers the existing F_b, and the derivative of the smoothed-polylog expansion must use G_(b,w), also at its centre.
 
 **Given:** [^C10]
 
-**From:** L3.18, L3.21, DP1, PM2, HasFPowerSeriesAt.eq_formalMultilinearSeries. **Source:** [^209].
+**From:** L3.18, L3.21, DP1, PM2, HasFPowerSeriesAt.eq_formalMultilinearSeries.; [^209].
 
 **L3.24. The twisted smoothed measure as a combination of rotated smoothed measures.** Let chi be primitive of conductor p^n (n≥1), eps = eps_{p^n} a primitive p^n-th root of unity in L, G(chi^{-1}) = sum_c chi^{-1}(c) eps^c, and b > 1 an integer prime to p. For c in (Z/p^nZ)^x the measure (eps^c)^x mu_b (multiplication by the continuous function x→eps^{cx}, defined because |eps^c - 1| < 1) has Amice transform F_b((1+T) eps^c - 1), and mu_{chi,b} = (mu_b)_chi = G(chi^{-1})^{-1} sum_{c in (Z/p^nZ)^x} chi^{-1}(c) (eps^c)^x mu_b.
 
-**Given:** n≥1 and chi primitive of conductor p^n. b > 1 is an integer prime to p.
-
-**From:** DP0, DP1, DP2, PM2, AbstractMeasure.injective_amiceTransform, L3.23, L3.22. **Source:** [^210], [^211].
+**From:** DP0, DP1, DP2, PM2, AbstractMeasure.injective_amiceTransform, L3.23, L3.22.; [^210], [^211].
 
 ### L3.25. The smoothed polylogarithm on the residue disc of 1
 
@@ -1823,19 +1806,15 @@ For b>1 prime to p, set Φ_b^(k)(z)=−Li_k(z)+b^(1−k)Li_k(z^b)+(b−1)log(z)^
 - For k≥1 neither -Li_k(z) nor b^{1-k} Li_k(z^b) alone is analytic on D^-(1,1): each contains -+(log z)^{k-1} log_lambda(1 - z)/(k-1)!.
 - Phi^{(k)}_b computed with log_lambda and with the Iwasawa branch coincide.
 
-**From:** L2.5, L2.4, L0.18, LA1, PM2, L2.11, L0.16, DP1, L3.21, L3.23. **Source:** [^212], [^213], [^214].
+**From:** L2.5, L2.4, L0.18, LA1, PM2, L2.11, L0.16, DP1, L3.21, L3.23.; [^212], [^213], [^214].
 
 **L3.26. The distribution relation for the smoothed polylogarithm on the residue disc of 1.** For b > 1 prime to p and k≥0: sum_{xi in mu_p} Phi^{(k)}_b(xi w) = p^{1-k} Phi^{(k)}_b(w^p) for w in D^-(1,1), including w in mu_p.
 
-**Given:** b > 1 an integer prime to p; k≥0.
-
-**From:** L3.25, L2.8, L0.18. **Source:** [^215], [^216].
+**From:** L3.25, L2.8, L0.18.; [^215], [^216].
 
 **L3.27. Negative moments of the rotated smoothed measure.** Let b > 1 be an integer prime to p, w in D^-(1,1) lying in a finite extension K of Q_p, and k≥1. Then int_{Z_p^x} x^{-k} . (w^x mu_b) = Phi^{(k)}_b(w) - p^{-k} Phi^{(k)}_b(w^p). In particular, at w = 1, int_{Z_p^x} x^{-k} . mu_b = (1 - p^{-k}) Phi^{(k)}_b(1).
 
-**Given:** b > 1 prime to p; w in the residue disc of 1; k≥1.
-
-**From:** L3.25, L3.6, L3.26, DP1, L3.23. **Source:** [^217].
+**From:** L3.25, L3.6, L3.26, DP1, L3.23.; [^217].
 
 ### L3.28. Coleman's formula for the p-adic L-values L_p(theta omega^{1-k}, k)
 
@@ -1843,15 +1822,13 @@ For odd p, nontrivial primitive θ of conductor N≥2, primitive ε_N and charac
 
 **Given:** p odd (RJW's L_p is defined for odd p). theta nontrivial primitive of conductor N = D p^n, any D≥1 prime to p and n≥0. k≥1 an integer. Li_k for the Iwasawa branch; the right side is the same for branch (L3.35).
 
-**From:** L3.1, L3.2, L3.4, L3.24, L3.7, L3.27, L3.10, L3.9, L3.11, L3.25, L2.5, L0.18, PadicComplex, L2.25, L2.27, L2.26, L2.18. **Source:** [^218], [^163], [^193].
+**From:** L3.1, L3.2, L3.4, L3.24, L3.7, L3.27, L3.10, L3.9, L3.11, L3.25, L2.5, L0.18, PadicComplex, L2.25, L2.27, L2.26, L2.18.; [^218], [^163], [^193].
 
 ### L3.29. Coleman's formula for the trivial character
 
 For p odd and every integer k≥2: L_p(omega^{1-k}, k) = int_{Z_p^x} x^{1-k} . zeta_p = (1 - p^{-k}) Li_k(1), where Li_k(1) is the limit of Coleman's Li_k(z) as z→1 inside any finitely ramified extension of Q_p (L2.11).
 
-**Given:** p odd, k≥2.
-
-**From:** L3.27, L3.25, DP1, DP3, PM3, L2.4, L2.11. **Source:** [^219], [^213].
+**From:** L3.27, L3.25, DP1, DP3, PM3, L2.4, L2.11.; [^219], [^213].
 
 ### L3.30. Coleman's formula for L_p(theta, k) itself, in the normalisation of RJW
 
@@ -1859,7 +1836,7 @@ Let p be odd, theta = chi*eta a Dirichlet character as in RJW Definition 5.18, k
 
 **Given:** p odd; k≥1; for trivial psi, k≥2 (at k = 1 the trivial component has the pole of RJW Theorem 7.1).
 
-**From:** L3.28, L3.29, DP3. **Source:** [^220], [^221].
+**From:** L3.28, L3.29, DP3.; [^220], [^221].
 
 ### L3.31. k = 1 recovers Leopoldt's formula and the complex value at s = 1
 
@@ -1867,7 +1844,7 @@ At k = 1, L3.28 is RJW Theorem 6.1(ii): L_p(theta, 1) = -(1 - theta(p) p^{-1}) G
 
 **Given:** theta nontrivial primitive of conductor N; p odd.
 
-**From:** L3.28, L3.13, L2.5, L0.18, DP3. **Source:** [^222], [^76].
+**From:** L3.28, L3.13, L2.5, L0.18, DP3.; [^222], [^76].
 
 ### L3.32. Comparison with the locally analytic distribution argument of RJW §6.2
 
@@ -1875,7 +1852,7 @@ At k=1 and tame part D>1, RJW's F̃_θ=−G⁻¹Σ_cθ⁻¹(c)log((1+T)ε_N^c−
 
 **Given:** k≥1; theta nontrivial primitive.
 
-**From:** L3.5, L3.6, L3.7, L3.27, L3.25, L3.4, L3.28, DP3, LA1. **Source:** [^223], [^224], [^212].
+**From:** L3.5, L3.6, L3.7, L3.27, L3.25, L3.4, L3.28, DP3, LA1.; [^223], [^224], [^212].
 
 ### L3.33. Comparison with the bounded-measure argument of Bannai-Hagihara-Yamada-Yamamoto
 
@@ -1883,7 +1860,7 @@ For N not a p-power, identify BHYY's negative moments with ∫_(Z_p^×)x^(−k)d
 
 **Given:** w in a finite extension of Q_p, |w|≤1, |w - 1| = 1; k any integer for BHYY's side, k≥1 for the distribution side.
 
-**From:** L3.7, L3.8, L3.28, L2.5, L2.8, L2.15. **Source:** [^225], [^127].
+**From:** L3.7, L3.8, L3.28, L2.5, L2.8, L2.15.; [^225], [^127].
 
 ### L3.34. Coleman's polylogarithms versus arbitrary locally analytic solutions
 
@@ -1891,7 +1868,7 @@ Perturbing Li_k by δ1_U, δ≠0, on a disc containing one ε_N^(c_0) and no oth
 
 **Given:** p odd, theta nontrivial primitive, k≥1.
 
-**From:** L3.28, L3.5, L1.18, L2.4, L2.8. **Source:** [^226], [^227].
+**From:** L3.28, L3.5, L1.18, L2.4, L2.8.; [^226], [^227].
 
 ### L3.35. Independence of the root of unity, the branch and the Frobenius lift
 
@@ -1899,7 +1876,7 @@ The formula is independent of the primitive root, branch and Frobenius lift. Roo
 
 **Given:** theta nontrivial primitive, k≥1.
 
-**From:** L3.28, L3.11, L1.18, L0.18, L2.10, L2.17, L0.16, L1.22. **Source:** [^214], [^227].
+**From:** L3.28, L3.11, L1.18, L0.18, L2.10, L2.17, L0.16, L1.22.; [^214], [^227].
 
 ### L3.36. Parts (1)-(3) of the p-adic Beilinson conjecture for Dirichlet motives
 
@@ -1907,7 +1884,7 @@ The formula is independent of the primitive root, branch and Frobenius lift. Roo
 
 **Given:** N≥2; chi(-1) = (-1)^{n-1}; E contains the values of chi. p odd for the odd-prime normalization. The published p=2 case is a target under the dyadic normalization, not claimed to follow from the odd-prime formula.
 
-**From:** L3.28, L3.13, L3.29, L3.15, L3.16, L3.Fa, L3.Fc, DP0. **Source:** [^228], [^229].
+**From:** L3.28, L3.13, L3.29, L3.15, L3.16, L3.Fa, L3.Fc, DP0.; [^228], [^229].
 
 ### L3.37. Coleman's formula as a formula for syntomic regulators
 
@@ -1915,7 +1892,7 @@ Let theta be a nontrivial primitive Dirichlet character of conductor N≥2, n≥
 
 **Given:** p odd; n≥2; the sign is the one of L3.15.
 
-**From:** L3.28, L3.15, L3.10, L3.Fb. **Source:** [^230], [^198].
+**From:** L3.28, L3.15, L3.10, L3.Fb.; [^230], [^198].
 
 ## Shared assumptions
 
@@ -2425,3 +2402,4 @@ References identify sources or frameworks for the elementary deductions. The fou
 - **DJ:** Rob de Jeu, [Describing all multivariable functional equations of dilogarithms](https://arxiv.org/abs/2007.11014v1), arXiv:2007.11014v1, 21 July 2020.
 
 - **FPZ:** Xander Faber, Keith Pardue, David Zelinsky, [Cross-Ratios of Scheme-Valued Points](https://arxiv.org/abs/2012.03073v1), arXiv:2012.03073v1, 5 December 2020.
+- **BC:** Francesco Baldassarri, joint work with Bruno Chiarellotto, [Algebraic versus rigid cohomology with logarithmic coefficients: the 1-dimensional example](https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/0773-02.pdf), RIMS Kôkyûroku 773 (1991), pp.7–21.
