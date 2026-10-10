@@ -1,6 +1,182 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Worker: Codex (GPT-6), session `codex-MLFfva`, 10 October 2026.
+Branch: `codex-MLFfva-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094936904)
+confirms this session's claim. The manager-priority list had no available issue;
+this available focus package followed WORKERS' fallback order. Only this job
+was claimed. This submission is an incomplete checkpoint, not a completed package.
+
+## What changed and what must happen next
+
+This session changes only this handoff. Independently verified the accepted LP
+consumer, the actual IHG continuity supplier, current upstream SR.6 and IHG
+interfaces, E0/E5 signatures and the actual E5 PR head. The authoritative LP
+input and both package artifacts are unchanged. The previous checkpoint's
+current-roadmap receipt is superseded: the supplied read-only upstream tree
+is now at `cd03e06852a13216ad246d0623492c4beac39af2`, whose latest change types
+SR's carriers and targets. Native Tau Ceti remains at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+**Resume after an authorized supplier/consumer repair, not another elaboration
+of these unchanged artifacts.** The sufficient evidence for stopping is the
+explicit unresolved mathematical contract G4, together with G1/G6's owner
+registration and dependency reconciliation. Missing implementations of adequately
+specified theorems are not a stopping condition. E5's missing faithful signatures
+are an additional package-completeness deficit, not the sole reason to stop.
+
+The issue authorizes the package's three files and this handoff, and explicitly
+requires that plan mistakes be described here rather than changing a packet.
+PROTOCOL sections 3, 13, 15 and 20 require exact suppliers, faithful signatures,
+single ownership and a complete package. The owner extensions and LP prerequisite
+reconciliation below require edits outside these four authorized paths. Repeating
+them as LP foundations or asserting the desired result as an input does not
+repair the owner contracts. No ownership move is made by this checkpoint.
+
+### Verified continuity blocker and its repair contract
+
+Read every field of LP's
+`LP2:semisimple-characters/characteristic-zero-continuity`, G4 and its IHG request,
+and the complete IHG `IHG.1/reductive-valued-continuity` node.
+
+| Interface | Actual scope inspected | Missing output needed by LP |
+| --- | --- | --- |
+| Atlas IHG.1/reductive-valued-continuity | Split **connected** reductive H/Z; profinite source; algebraically closed characteristic-zero field with a rank-one valuation topology. | H-conjugation on J=H⋊Q with prescribed finite quotient, and preservation of locally finite-type Z_l coefficient modules for the relatively discrete condensed convention. |
+| Current upstream IHG, README §0.7; `ReductivePseudocharacter.IsContinuous`, `continuous_ofRepresentation`, `continuous_dense_ext` in Suggested.lean | Continuity of invariant-coordinate evaluations; a continuous representation with continuous invariant evaluation yields a continuous pseudocharacter; dense equality extends with Hausdorff coefficients. | The converse reconstruction-continuity statement in the preceding row. The forward constructor cannot justify it. |
+| FS Proposition VIII.3.8, printed p.290, with the coefficient convention in Chapter VIII/§VIII.1, pp.277–278 | The local classification requires maps of condensed sets with relatively discrete coefficients; its proof invokes finite anchors from Lafforgue. | A supplier contract implementing that coefficient argument, rather than replacing condensed continuity by arbitrary valuation continuity. |
+
+An owner repair must export the following statement and its genuine coefficient
+interface, then an authorized LP repair must replace the presently insufficient
+supplier reference:
+
+- Start from a split pinned H, finite Q acting through the specified algebraic
+  automorphisms, J=H⋊Q, a prescribed source-to-Q map, and the actual invariant
+  coordinate algebras for **H-conjugation**, not J-conjugation. Retain generalized
+  reductive algebraic reconstruction as the algebraic input.
+- From compatible relatively discrete condensed invariant evaluations, obtain
+  the condensed semisimple parameter with that projection. On compact inertia,
+  the finite-anchor coordinate lifting must preserve locally finite-type Z_l
+  coefficient modules. The discrete Weil degree direction is handled by cosets
+  and the crossed law. No finite image of the full Weil group is assumed.
+- State the rank-one-valued specialization separately, with its actual topology;
+  it cannot replace the previous coefficient conclusion. Include restriction,
+  coefficient transport and conjugacy independence of the resulting maps.
+
+Useful discriminating checks for that authorized repair are already required
+by LP: Q=1 recovers the connected case; a nontrivial finite action retains the
+prescribed Q projection and twisted gauge formula; infinite-image continuous
+inertia characters into Z_l-units and unramified characters with infinite
+cyclic Frobenius image remain permitted. These are repair requirements, not
+newly proved results or new targets of this package.
+
+Freshly fetched Lafforgue's *Chtoucas pour les groupes réductifs et
+paramétrisation de Langlands globale*, arXiv:1209.5352v10. Proposition 11.7
+starts on printed p.143 and its final continuity proof is on pp.146–147.
+The proposition admits disconnected H with split neutral component, but uses
+continuous functions valued in a finite extension E of Q_l. The proof obtains
+coordinate surjectivity by a closed anchor orbit and reductivity of its
+centralizer. This supplies the disconnected anchor argument; the ordinary
+E-valued statement alone is not the requested general relatively discrete
+condensed interface. FS's proof uses that argument in its local setting.
+No source error or new erratum is asserted here.
+
+## Enhanced signatures and current upstream ownership
+
+Read the full E0 and E5 suggested files. E0's genuine replete/weakly-contractible
+prefix expressly omits the infinity-category operations. E5's checked-in
+`SymMonInftyCat` has True-valued projection, coCartesian and Segal fields;
+`CAlg`/`AnimatedAlg` are Unit-valued. Its Ind, stable, presentability and
+coherent-action sketches do not encode the corresponding conditions.
+
+Freshly inspected [PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009),
+which remains open at `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`.
+Its `SymMonData` has an actual projection but only a homotopy-category Segal
+comparison. `PresentableData` records cardinal/generator data without the full
+accessibility and small-colimit conditions. `RightTensoredData` expressly omits
+coherent-action and colimit-preservation axioms; module comparison is on
+homotopy categories. `CoherentActionData` records a family without the needed
+higher coherence. The head improves the quasicategory carriers but does not
+supply the whole LP interface. This was dependency inspection, not an independent
+review or a second claimed job.
+
+Read FS Definition VIII.5.4, pp.294–295, and the definition and bar proof in
+§VIII.5.2/Proposition VIII.5.8, pp.295–296. The good-filtration truncations act
+on IndPerf and need not preserve Perf. The bar argument uses enhanced tensor,
+module and duality operations. Keep dualizable quotient-stack perfect complexes
+distinct from compact objects of its unrestricted derived category; they can
+differ in positive characteristic. Ordinary bundle tensors and a triangulated
+homotopy category do not express these interfaces.
+
+Read current **ReductiveGroups** and **AlgebraicVectorBundles** READMEs in full,
+and SR.6.1–SR.6.3 target statements. Read the actual native
+`SheafOfModules.tensorProduct`/`tensorProductIso` and Hopf
+`pointsFunctor`/`mapPoints` statements, plus pinned Mathlib
+`SSet.Quasicategory` (the inner horn-filling predicate). The ordinary sheaf
+tensor is sheafification of the presheaf tensor; the Hopf points functor is
+coefficient-algebra functorial. Neither exports animated quotient-stack Perf
+or a finite-Q condensed reconstruction theorem. The reviewed LP library audit
+was read separately. A bounded search of the current native/upstream sources
+found no replacement for the indicated enhanced carriers; this is not a full
+library audit. No Lake command ran in the current read-only trees.
+
+The existing SR.6 ownership table and the remaining seven-family signature
+inventory below remain the continuation worklist. Current SR.6 imports its
+arithmetic-Frobenius finite-wild model and specifies the ordinary cocycle scheme,
+excursion algebra and invariant comparison. Preserve LP's continuous/condensed,
+arbitrary-group and enhanced extensions; migrate the common ordinary work to
+owner citations when an authorized plan repair reconciles the target inventory.
+Do not reconstruct those current upstream targets inside LP.
+
+## Fresh validation and receipts
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`
+  exited 0 with zero errors/warnings: 79 nodes, 140 API items, 90 tests,
+  31 planets, 31 baseline declarations, five gaps, sixteen requests, eight
+  planned stages and zero closed stages. Read the accepted review's actual
+  notes: it accepts a target-level planning pass retaining those gaps.
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`
+  exited 0: zero errors, 276 warnings, all `declaration uses sorry`, and no
+  other warnings. Available memory before compilation was 107 GB. The managed
+  pinned build is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` /
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. No check remains running.
+  Elaboration checks only the signatures present, not missing targets or proofs.
+- A fresh nested-comment/line-comment-stripped scan found none of the seven
+  previously recorded target families' 35 API names or 23 test names in active
+  Lean text. The exact inventory remains below. No complete signature audit
+  is claimed by this limited scan.
+- `python3 research/blueprint/intake.py check-files
+  research/blueprint/handoff/PKG-LanglandsParameterStacks.md` passed with one
+  file and zero problems. `git diff --check` passed. This submission changes
+  only this handoff; metadata remains absent. Add
+  `topic = "math.NT"` when a complete package can be submitted.
+
+Source receipts for public files fetched/read on 2026-10-10:
+
+| Source | URL | SHA-256 |
+| --- | --- | --- |
+| Fargues–Scholze | [Author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf) | `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905` |
+| Lafforgue, arXiv v10 | [arXiv PDF](https://arxiv.org/pdf/1209.5352) | `b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295` |
+
+The unchanged LP, package and E0/E5 artifact receipts match those in the retained
+record below. The inspected atlas IHG packet has SHA-256
+`1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`.
+No baseline declaration, source-error verdict or independent review was changed.
+The library index was read; no restricted source was needed or copied. All
+mathematical descriptions here are in our own words. Everything needed by the
+next worker is here and in the repository; scratch files are disposable.
+
+---
+
+# Retained predecessor record — codex-xhVuQP
+
+This historical record preserves the exact omissions and all remaining work.
+Its validation and current-upstream receipts describe that earlier session;
+the fresh receipts and narrower audit claims above take precedence.
+
+# PKG-LanglandsParameterStacks — blocked checkpoint
+
+Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
 Worker: Codex (GPT-6), session `codex-xhVuQP`, 10 October 2026.
 Branch: `codex-xhVuQP-langlands-parameter-stacks`.
 [Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094628032)
