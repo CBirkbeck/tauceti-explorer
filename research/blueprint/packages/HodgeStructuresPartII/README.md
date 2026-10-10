@@ -62,6 +62,25 @@ therefore inputs to H.0. The native `SheafOfModules.ihom_obj` identifies
 internal Hom with the sheafification of the presheaf internal Hom. This does
 not identify tensor sections with tensors of global sections.
 
+Slice restriction also has native tensor and internal-Hom comparisons. Under
+the preceding small-site and sheafification hypotheses,
+`SheafOfModules.overFunctorMonoidal` and `overFunctorBraided` make restriction
+to the site over X strong symmetric monoidal. The defining comparison
+`TauCeti.SheafOfModules.overTensorProductIso` identifies
+(M⊗N)|X with M|X⊗N|X. The natural isomorphism
+`SheafOfModules.overIhomIso` identifies Hom(M,N)|X with Hom(M|X,N|X),
+for arbitrary M and N. In `overIhomComparison_ev`, evaluation after applying
+the comparison in the internal-Hom factor equals restricted evaluation after
+the restriction tensorator. The native `SheafOfModules.overDualIso` then
+identifies Hom(M,O)|X with Hom(M|X,O|X); `overDualIso_hom` pins this map
+by the internal-Hom comparison and the unit comparison. These declarations
+are in `TensorProduct/Restriction/Basic.lean`, `Monoidal.lean` and
+[`Closed.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Restriction/Closed.lean)
+under the same native module directory. Use these
+slice-restriction laws to compare operators on common refinements. Arbitrary
+base-change and stalk comparisons retain their own hypotheses; dualizability
+and finite locally free closure require their additional interfaces.
+
 Finite free charts also have a native exact pairing:
 `TauCeti.SheafOfModules.exactPairingFree`, `ihomFreeIso` and `dualFreeIso`
 in `Dual.lean`. The evaluation on two basis sections is their Kronecker

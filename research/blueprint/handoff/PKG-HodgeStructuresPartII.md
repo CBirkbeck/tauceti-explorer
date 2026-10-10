@@ -1,138 +1,144 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-TJMWsx
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-vrgljW
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-TJMWsx`, 10 October 2026.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095759536).
-Branch: `codex-TJMWsx-hodge-package`. No issue in the manager's priority list
-was available in the available-swarm listing. This focus package was selected
-under WORKERS' fallback ordering. Only this job was claimed.
+Codex (GPT-6), session `codex-vrgljW`, 10 October 2026.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095904691).
+Branch: `codex-vrgljW-hodge-package`.
+None of the manager's priority issues appeared in the available-swarm listing;
+this available focus package followed WORKERS' fallback order. Only this job
+was claimed.
 
 ## Outcome and required intervention
 
-**The package remains blocked by incompatible owner specifications.** This
-session independently read the exact H.0 ordinary-fibre/Rees consumer nodes,
-the CR.1 integrable-connection definition, its hypotheses, proof route, API,
-tests and uses, and DD.1's filtered-module/Rees definitions. Their contracts
-retain the mismatches described below. The issue's statement that the plan is
-complete means a target-level pass was accepted; H.0's review explicitly
-retains seven gaps and four requests and does not assert closure.
+**Blocked: the consuming and supplying specifications remain incompatible.**
+This run independently read the complete statement, hypotheses, proof route,
+API, tests and uses of CR.1's integrable connection, DD.1's filtered module
+and Rees statements, and the parent H.0 ordinary-fibre/Rees consumers.
+The three decisive input hashes below are unchanged. H.0's accepted review
+explicitly retains seven gaps and four requests and accepts a target-level
+planning pass, not closure.
 
-Issue #7491 says: "Change no packet; if the plan has a mistake, describe it in
-the handoff note." PROTOCOL §§3, 15 and 20 require exact supplying statements,
-a single owner and a faithful package. Completion requires owner repairs,
-which are outside this issue's deliverables. Widening a citation in the
-package, silently narrowing H.0, or introducing a second Rees/ordinary
-connection carrier would not resolve the accepted contracts.
+Issue #7491 restricts edits to the package and this note and says:
+"Change no packet; if the plan has a mistake, describe it in the handoff note."
+PROTOCOL §§3, 15 and 20 require an exact supplying statement, one owner and
+a faithful package. Completion needs repairs at the existing owners followed
+by reconciliation of the H.0 references. It cannot be achieved by giving the
+owner citation a broader meaning or constructing a second shared carrier here.
+This is a missing supplier contract, not a wait for implementation of a
+sufficient target.
 
-The decisive pair of comparisons is:
-
-| Consumer | Owner statement actually read | Required repair |
+| Consumer | Present owner contract | Required owner repair |
 | --- | --- | --- |
-| `HodgeStructuresPartII:H.0/ordinary-fiber` | `CrystallineCohomology:CR.1/integrable-connection` assumes an affine quotient of Kähler differentials, or the small crystalline site over a PD base with p locally nilpotent. Its Hodge use expressly specializes to ordinary Kähler forms. | Export the same additive operators, exterior extensions, curvature, horizontal morphisms and restriction/descent on arbitrary supplied commutative ringed differential sites. Preserve the affine/crystalline specializations. |
-| `HodgeStructuresPartII:H.0/rees-parameter`, `rees-specialization` | `DerivedDeRhamCohomology:DD.1/filtered-modules`, `rees-description` specify enhanced derived filtrations, derived graded quotients and localization. | Export the ordinary bounded locally split finite module-sheaf Rees construction, its finite local freeness, zero/unit/localized fibres, naturality and descent. H.0 then supplies the connection and operator comparisons on that carrier. |
+| `HodgeStructuresPartII:H.0/ordinary-fiber` | `CrystallineCohomology:CR.1/integrable-connection`: affine quotients of Kähler differentials and the small crystalline site under PD-base/local nilpotence hypotheses. Its Hodge use specializes to ordinary Kähler forms. | General commutative ringed differential sites with supplied exterior calculus: additive connection, all exterior extensions, curvature, horizontal maps and restriction/descent, retaining affine/crystalline specializations. |
+| `HodgeStructuresPartII:H.0/rees-parameter`, `rees-specialization` | `DerivedDeRhamCohomology:DD.1/filtered-modules`, `rees-description`: enhanced derived filtrations, graded derived quotient and localization. | Ordinary bounded locally split finite module-sheaf Rees construction, local freeness, zero/unit/localized fibre maps, tensor/quotient compatibility, naturality and descent. H.0 adds the connection and operator comparisons on this imported carrier. |
 
-The nonuniversal-calculus witness is already proved in Suggested.lean:
-O=Q, supplied Ω¹=Q, Ω²=0, d=0 and D=id is flat and nonzero. There is
-no surjective Q-linear map Ω¹_(Q/Q)→Q. Re-read the actual pinned
-`KaehlerDifferential.subsingleton_of_surjective` proof and the inherited
-`NonUniversalDifferentialChecks` proof; neither uses an admitted theorem.
-Thus the missing G1 generality has a concrete obstruction, beyond a name
-search or an unavailable implementation.
+The inherited G1 witness is still decisive: on the one-point site take O=Q,
+Ω¹=Q, Ω²=0 and d=0. Then D=id on E=Q is nonzero and flat, yet Ω¹_(Q/Q)=0
+cannot surject onto the supplied Ω¹. Re-read the existing
+`NonUniversalDifferentialChecks` proofs and the actual pinned
+`KaehlerDifferential.subsingleton_of_surjective` proof; the obstruction does
+not use an admitted result. It establishes a generality mismatch, beyond a
+name search. The inherited record below gives the exact operator, exterior,
+Rees and acceptance contracts required of the repair.
 
-## Work completed in this session
+## Work completed in this run
 
-The package README now records usable native general-site infrastructure
-more precisely. It names the closed symmetric monoidal and additive tensor
-instances, internal-Hom/sheafification identification, finite free exact
-pairing and dual isomorphisms, and the finite-free-chart internal-Hom closure
-statement, retaining their site/sheafification hypotheses. This narrows what
-G2 still needs and prevents these existing APIs being planned a second time.
-It does not assert global finite locally free duality from a chart statement.
+The README now names existing native slice-restriction APIs, narrowing G2:
 
-These declaration statements were read in the current native source tree:
+- `SheafOfModules.overFunctorMonoidal` and `overFunctorBraided` make slice
+  restriction strong symmetric monoidal.
+- `TauCeti.SheafOfModules.overTensorProductIso` identifies the restriction of
+  a tensor sheaf with the tensor of the restrictions.
+- `SheafOfModules.isIso_overIhomComparison` and `overIhomIso` identify the
+  restriction of internal Hom with internal Hom of the restrictions for
+  arbitrary source and target sheaves, with no finite-source hypothesis.
+- `overIhomComparison_ev` characterizes the comparison by evaluation;
+  `overDualIso` and `overDualIso_hom` give the internal-Hom dual restriction
+  map and its unit compatibility.
 
-- `TauCeti.SheafOfModules.monoidalCategory`, `symmetricCategory`,
-  `monoidalClosed`, `monoidalPreadditive`;
-- `SheafOfModules.ihom_obj` and the native internal-Hom dual;
-- `TauCeti.SheafOfModules.exactPairingFree`, `ihomFreeIso`, `dualFreeIso`,
-  their basis-evaluation/coevaluation laws;
-- `TauCeti.isFiniteLocallyFree_ihom_chart` (a theorem on the over-site,
-  not a global duality theorem).
+Read their statements and proofs in `TensorProduct/Restriction/Basic.lean`
+and `Closed.lean`, and the monoidal/braided instances and defining comparison
+in `Restriction/Monoidal.lean`. Also read all of
+`TensorProduct/FiniteLocallyFree.lean`: its finite-free and source-chart
+closure results do not yet export global finite locally free duality.
+The README distinguishes slice restriction, arbitrary base change, stalk
+comparison and dualizability. These native restriction comparisons should be
+consumed when G2 is repaired, rather than reconstructed.
 
-These modules are ahead of the managed atlas build: that build's source
-snapshot does not contain the inspected `Monoidal.lean`, `Closed.lean`,
-`Dual.lean` or `FiniteLocallyFree.lean` tensor modules. No new import or
-signature is invented at the older pins. The README addition is an inventory
-of existing current APIs for the resuming owner audit, not a claim that the
-managed build contains them. The existing Suggested.lean is unchanged.
+These modules are present in the current read-only Tau Ceti snapshot and
+absent from the managed atlas build's source snapshot. The README links to
+the inspected current source at its exact commit. No new import or signature
+is invented at the older atlas pins. Suggested.lean is unchanged; this
+inventory does not close the omitted global contracts.
 
-Read the full current AlgebraicVectorBundles and DifferentialGeometry READMEs
-and the relevant Suggested.lean interfaces. The first owns scheme-level
-finite locally free dual/exterior/determinant operations; the second's
-curvature carrier is a smooth real bundle-valued form. Neither supplies the
-arbitrary ringed differential-site ordinary connection or finite filtered
-module-sheaf Rees interface. Read the HodgeStructures L0–L3 reviewed audit
-and re-read the native pinned pure/mixed/period-point structure statements.
-Their existing linear algebra remains imported.
-
-Current read-only snapshots are unchanged from the preceding checkpoint:
-TauCetiRoadmap `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`,
-Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Atlas starting commit: `feb04d4533423b11b745e2ea04edc5ac2dadeb3a`.
-No Lake command ran in either read-only tree.
+Read the full current AlgebraicVectorBundles and DifferentialGeometry
+READMEs and their relevant suggested interfaces. Their scheme-level
+polynomial operations and smooth real bundle-valued curvature carrier do not
+supply G1/G3's general-site contracts. Read the reviewed HodgeStructures
+L0–L3 library audit and the pinned native pure/mixed structure statements;
+the linear algebra stays imported. A byte comparison confirms the managed
+`Hodge/Structure.lean` agrees with the recorded Tau Ceti pin.
 
 Re-opened [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
-and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on 2026-10-10:
-the connection construction concerns the crystalline site with the PD-base
-and local nilpotence assumptions. Read Bhatt's
+and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on 2026-10-10.
+The crystal connection uses the small crystalline site over a PD scheme
+with p locally nilpotent on X. Read Bhatt's
 [*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-Proposition 2.2.6 with its inverse on printed p.16 and Remarks 2.2.7–2.2.8
-on pp.16–17. The ordinary affine finite-projective case is supported by
-Remark 2.2.8; it provides a proof route for the DD.1 extension, without
-supplying the missing ringed-site export. No source passage was copied.
+Proposition 2.2.6 and its inverse on printed p.16, and Remarks 2.2.7–2.2.8 on
+pp.16–17. Remark 2.2.8 supports the ordinary finite-projective affine case;
+it gives an owner repair route, without specifying the needed general
+ringed-site export. PDF SHA-256:
+`a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`.
+No source passage was copied to the repository.
+
+Snapshots read: atlas start `7f169c54b`; current TauCetiRoadmap
+`201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; current Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran in the
+read-only trees. The atlas baseline remains Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369` and Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`.
 
 ## Fresh validation
 
 - `python3 scripts/check_blueprint.py` on all ten Hodge inputs and the CR.0
-  and DD supplier inputs: all twelve exited 0, with zero errors and warnings.
-  This is structural validation; their recorded mathematical gaps remain.
+  and DD supplier inputs: all twelve exited 0, zero errors and warnings.
+  This validates their structure, not their mathematical closure.
 - `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
   exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, zero
-  other warnings. The managed build uses the atlas Tau Ceti f790474 / Mathlib
-  082e2d3 pins. Suggested.lean was unchanged. This does not prove the missing
-  global comparisons. Memory was checked before compilation; no Lean
-  process remains running.
+  other warnings. Memory was checked before compiling; no check remains
+  running. This does not establish the missing global comparisons.
 - Scoped intake `check-files` on README and this handoff: two files, zero
-  problems. `git diff --check` passed. These are the only changed files.
-- README is 196005 bytes, below the 200 KB limit.
-  No packet, review, suggested signature or metadata was changed.
+  problems. `git diff --check` passed. Only those two deliverables changed.
+- README is 197364 bytes, within the 200 KB cap.
 
-Current package SHA-256 receipts, relative to `research/blueprint`:
+Current receipts, relative to `research/blueprint`:
 
 | File | SHA-256 |
 | --- | --- |
-| packages/HodgeStructuresPartII/README.md | `838a32cdbc6e0f85855ec14ddc360cec64235f71b1adb51ffeeece8b6470e2f8` |
+| packets/HodgeStructuresPartII--H.0.json | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
+| packets/CrystallineCohomology--CR.0.json | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
+| packets/DerivedDeRhamCohomology.json | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
+| packages/HodgeStructuresPartII/README.md | `f72301014a2ad3039024d53b53c22227e3e6eff0f1fc68c4bea76cae862d0c26` |
 | packages/HodgeStructuresPartII/Suggested.lean | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
-
 
 ## Where to resume
 
-1. Repair CR.1 and DD.1 at their owners, with the exact comparisons and
-   witnesses in the inherited record below; reconcile the consuming H.0
-   references. This is the first required external change. Re-running this
-   package job against unchanged contracts cannot complete it.
-2. Use the current native closed/sheaf chart APIs above to audit G2, keeping
-   generic sheaf operators distinct from affine matrix coordinates. Complete
-   G4–G7 and the all-layer target-fidelity audit recorded below.
-3. Finish the reader/signatures against the repaired accepted plan, repeat
+1. Repair CR.1 and DD.1 at their owners and reconcile H.0's supplier
+   references. This is the first required external change. Repeating this
+   package job against unchanged contracts cannot finish it.
+2. Consume the current native tensor/closed/free-chart/restriction APIs to
+   complete G2. Complete G4–G7 and the all-layer target-fidelity audit,
+   preserving the inherited witnesses, omissions and honest distinctions
+   between chart computations and intrinsic sheaf comparisons.
+3. Finish the README/signatures against the repaired plan, repeat the
    structural and managed Lean checks, and add `topic = "math.AG"` metadata
-   when the package satisfies §20. Metadata is still absent here: this
-   submission is a checkpoint, never a completed package.
+   when the complete package meets §20. Metadata remains absent here; this
+   is a blocked checkpoint, not a completed package.
 
-The continuation record below preserves earlier mathematical witnesses,
-omitted signatures and unfinished all-layer work. Its descriptions of changes
-and validation belong to that earlier session, not this run. All necessary
-resumption information is in this note and the repository; scratch is disposable.
+No ownership move was made. The detailed continuation record below preserves
+prior mathematical witnesses, omitted signatures and unfinished all-layer
+work. Its descriptions of changes and validation belong to the earlier
+session, not this run. Nothing in disposable scratch is needed for resumption.
 
 ---
 
