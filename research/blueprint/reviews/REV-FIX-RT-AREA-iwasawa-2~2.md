@@ -1,8 +1,8 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-obfCnR`, 10 October 2026,
-input `8747873f6`, branch `codex-obfCnR-review-iwasawa`. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099253387).
+Latest continuation: Codex, session `codex-StxrNw`, 10 October 2026,
+input `cb3d5cac2`, branch `codex-StxrNw-review-iwasawa-6219`. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099522761).
 The finding verdicts are complete. The live issue still omits two required
 review receipts, so this submission remains a checkpoint. See the final
 continuation for fresh validation and the exact scope correction needed.
@@ -443,3 +443,128 @@ The actual `issues.deliverables_complete` function still returns **False**.
 A precise negative PMIA verdict does finish its part of a review; it is not
 the completion blocker. Correct the dispatch or explicitly authorize the two
 receipts before another worker is assigned this unchanged issue.
+
+## Continuation by codex-StxrNw
+
+This session did none of fixer `claude-6ZAIEy`'s work. The report follows the
+`codex-obfCnR` continuation. Both issue-named packets archive their preceding
+review objects whole and replace only review metadata. Parsed-object checks
+confirm that every mathematical and planning field and all preceding review
+history are identical. No suggested file or other roadmap was edited. The
+older whole-packet audits remain attributed to their original reviewers;
+this is a bounded independent review of the six findings.
+
+### Fresh source and contract checks
+
+1. **/1 — accepted within the retained suppliers.** Read the scanned formula
+   images in Morita §1, Lemma 1/Theorem 1, pp.255–256 and Gross–Koblitz §1,
+   (1.2), (1.5), (1.6), Theorem 1.7, pp.570–571. Compared L3's signed strict
+   product, buffered congruence, native continuous unit-valued lift and both
+   recurrence branches. The chosen-root congruence is integral, the Gauss
+   sum has the negative convention, and the original theorem assumes odd p
+   and nonzero exponent. Also read Robert 2001 Theorems 2–4, pp.162,165,168,
+   with the coefficient estimates pp.167–168. The separate all-prime route
+   includes the dyadic estimate. RD.6's actual coefficient bounds and
+   trace-splitting identity remain obligations; these readings do not
+   construct that producer or recheck the entire analytic proof.
+2. **/2 — bounded correction supported.** Read Zhao §1.2 p.461, §4,
+   Theorem 4.1 and (4.1)–(4.6), pp.471–473, Appendices A–B pp.473–474.
+   Checked the seven selected L3-2 count, permutation, antidifference,
+   coefficient differentiation and derivative contracts. Primitive odd chi
+   has conductor N>1 prime to p; the chi-omega branch includes the dyadic
+   convention. Common logarithms and embeddings, the general correction
+   term and the strict Gamma endpoint are retained. The shorter identity
+   requires chi(p)=1. E37 records the inclusive endpoint defect; arithmetic
+   nonvanishing and simple-zero suppliers remain separate. The prepared
+   receipt preserves the preceding complete 79-entry audit, all five gaps
+   and eight requests.
+3. **/3 — bounded consumer correction supported.** Read Ertl–Nizioł v2
+   §§2.1–2.2 pp.4–8, Colmez–Nizioł v4 Corollary 3.16 p.37/Theorem 5.4
+   p.54, and Nekovář–Nizioł v5 Remark 2.14 p.14/Proposition 4.13
+   pp.53–54. The four D.2 consumers retain distinct divided/undivided
+   fibres, directed omega/tau legs and their scalar composites, factorial
+   twist, exact divided range through p−2, bounded undivided comparison,
+   and rational exponential boundary scaling/sign. CS.0–CS.3 remain proposed
+   external producers; CP.4 supplies only the proper rational anchor. The
+   prepared receipt preserves the preceding 72-entry audit, nine gaps,
+   twenty requests, seventeen source issues and eight planned stages.
+4. **/4 — source corrections supported; PMIA needs changes.** Read
+   Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26,
+   §6.1/Lemma 6.1 p.40, Appendix B.2 (171)–(173) pp.93–94. The joint
+   character-evaluation image is the order, not the entire product; no
+   Gorenstein premise is silently added. Inversion targets the inverse
+   character order, and transpose comparison retains opposite/contragredient
+   scalars and the particular square presentation. The rectangular
+   right-adjugate preimage supplies the determinant annihilation directly,
+   including singular submatrices; E17/E18 remain explicit source issues.
+   Directly read the four current native Fitting/stable-transpose statements
+   identified above at Tau Ceti commit
+   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. They supply the generic targets
+   with weaker finiteness assumptions; Fitting base change does not require
+   flatness. The five-node migration and coordinated consumer, request,
+   reader and suggested-interface revision described above remain necessary.
+   Non-generating-family and deficient-relation adapters, arithmetic order
+   calculations and opposite-scalar transport remain real work. The newer
+   modules are absent from programme pin `f790474`; its reviewed absence
+   audit must not be treated as an absence in the current library.
+5. **/5 — restricted routing supported; full comparison remains a gap.**
+   Read BCGP21 v3 §6.1.1 p.139 and Theorem 6.3.16/proof pp.152–153;
+   BCGP25 v1 Definition 2.2.17 p.21 and §§4.6.46–4.6.49 pp.93–95.
+   Compared LAD L4 coverage and its two explicit homotopy/slope and
+   Stein/solid gaps. A degreewise compact representative's nonalternating
+   product differs from invariant cohomological support. Strict compact
+   finite windows do not prove arbitrary homotopy-equivariant base change.
+   The full solid functor uses derived analytic coefficients and an inverse
+   limit over affinoid exhaustions; ordinary monoid inversion is insufficient.
+   These boundaries remain explicit; no LAD edit is in this issue's scope.
+6. **/6 — verifier rejection upheld.** Read accepted RS-16's I.5 decision
+   and its matching reader entry. Both independent Mazur–Wiles and
+   odd-prime totally-real Wiles Hecke/congruence routes are retained.
+   A cyclotomic Euler-system route does not replace their proof inputs.
+
+Read the relevant reviewed L3, D.2 and L6 library coverage, the current
+ArithmeticDirichletSeries, StableReduction and QuiverRepresentations
+interfaces, and the selected pinned native p-adic, Teichmüller, transpose,
+dual-base-change and matrix-adjugate declarations. No new baseline citation
+or planned result was introduced. The ten public PDFs were fetched again;
+all hashes agree with the source-version table above. Formula images were
+used where extraction omits equations. No Robert book or other uncleared
+book was read, and no source passage was added to the repository.
+
+### Fresh validation and completion boundary
+
+All four packet checks pass with zero errors. L3 has 26 inherited short-API
+warnings; L3-2, D.1 and PMIA have none. Four sequential whole-file
+`lean-check` runs against the pinned shared build give:
+
+| Suggested file | Result |
+| --- | --- |
+| DirichletPadicLFunctions--L3 | exit 1: unresolved imported `research` module prefix; body not elaborated |
+| DirichletPadicLFunctions--L3-2 | exit 0: 111 `sorry` warnings only |
+| PadicHodgeRegulators--D.1 | exit 0: 307 `sorry` warnings only |
+| PadicMeasuresIwasawaAlgebras | exit 0: 1,075 `sorry` warnings only |
+
+Memory was sufficient, every process finished, and no library build, update,
+cache fetch or language server was started. The L3 failure is not repaired
+by deleting its shared-carrier imports or duplicating their definitions.
+
+Fresh finite falsification controls pass: 204 Gamma recurrence checks,
+60 buffered congruences and the unbuffered dyadic modulus-4 counterexample;
+6,561 rectangular right-adjugate preimages, including 2,673 vector checks
+on 891 singular submatrices; twelve directed syntomic composite/rational
+scaling checks; and the acyclic identity-pair counterexample to raw Fredholm
+product invariance. They are finite controls, not proofs of analytic or
+arithmetic suppliers.
+
+The actual `issues.deliverables_complete` predicate still returns **False**.
+The queue requires this review's verdict in L3-2 and D.1, but the live issue
+omits both files. WORKERS.md's rule, “Edit only the files the issue names,
+plus your own scratch space,” prevents installing them without an explicit
+scope correction. Concrete review-only receipts were prepared and offered
+for authorization; no authorization has arrived. Their parsed mathematical
+objects are unchanged and each complete previous review is archived whole.
+The issue-named L3 and PMIA receipts have been installed, retaining accepted
+and needs_changes respectively. This is a blocked checkpoint, with the two
+missing receipts specified in the handoff; the negative PMIA verdict is
+not the completion blocker. Correct the issue scope before another unchanged
+continuation is assigned.
