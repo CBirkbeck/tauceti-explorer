@@ -1,4 +1,101 @@
-# PKG-InductionRestrictionPartII — blocked checkpoint
+# PKG-InductionRestrictionPartII — blocked checkpoint, current re-audit
+
+Issue #7592. Worker: Codex (GPT-6), session `codex-pCU38r`, 2026-10-10.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101928498)
+was confirmed by the bot for this session. This continues the merged checkpoint
+[#8598](https://github.com/CBirkbeck/tauceti-explorer/pull/8598).
+One job was claimed; no second job will be taken. This is a blocked checkpoint,
+not a completed package and not a timeout. Only this handoff changes.
+
+## Current result and required next action
+
+The accepted input still explicitly leaves two suppliers unassigned. The
+package issue's assertion that the plan is complete does not discharge them:
+the packet has status `complete` in the sense of a finished planning pass,
+six `planned` stages, zero `closed` stages, five gaps and one request.
+PROTOCOL §20 requires the package's targets to have named prerequisite chains.
+The job also says that the accepted plan is the source of truth, forbids packet
+edits, and directs mistakes in the plan to this handoff. Consequently a package
+worker cannot remove these gaps by assigning new target ownership in that
+packet. The admitted native signatures already in the package specify the
+required mathematics; successful elaboration does not assign its owner.
+
+**Before another package run, amend the accepted plan to assign the two
+contracts below, or provide exact existing supplier layers and the native
+comparison interfaces they require.** The concrete proposed amendment in the
+inherited record below is still applicable. No request for permission is
+pending, and no mathematical theorem has been declared false.
+
+| Accepted-plan boundary | Consuming targets | Exact missing assignment |
+| --- | --- | --- |
+| Natural integral homological bridge — supplier unassigned | 12 nodes, from `RS.1/reduced-cover` through `RS.6/odd-index-two-reduction` | Arbitrary-abelian-coefficient integral UCT on native group (co)homology, natural Ext injection and oriented evaluation; central-extension homological five-term exactness; finite homology consequences; coprime degree-two edge with the incoming d₃ accounted for. The existing transfer construction is reused. |
+| Conjugacy of complements over a cyclic coprime quotient | `RS.5/admissible-inertia-classes` | Finite H,C of coprime orders, C cyclic, and K ≤ H⋊C projecting bijectively onto C imply K is conjugate to the standard C-complement by one element of H. No solvability hypothesis on H is assumed. |
+
+The other three recorded gaps are distinguished from these ownership blockers:
+the ordinary cover has a named parent owner; finite certificate constructions
+are targets of RS.6; and native signatures have already been expanded in the
+package. They do not justify inventing a supplier for either unassigned
+contract. Adding `metadata.toml` would represent this as a finished package, so
+it remains absent.
+
+## Fresh upstream and baseline checks
+
+The current read-only roadmap checkout is at
+`81207c7f16d5abf770f13a7d2bdcdb465c030787`; its Tau Ceti dependency is at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command was run there.
+The InductionRestriction and SemisimpleAlgebras READMEs were read in full.
+Relevant Suggested signatures, AlgebraicTopology Stages 5–6, and
+ProfiniteCohomology's five-term interfaces were also inspected.
+
+- **InductionRestriction, Layer 7:** its ordinary representation-group target
+  is the named parent input. Its Suggested file's `schurMultiplier` is
+  H²(G,kˣ), not the arbitrary-coefficient integral UCT or an integral
+  homological extension sequence. It is not widened here.
+- **AlgebraicTopology, Stage 6:** the UCT is on singular chains and cochains.
+  A comparison from those carriers to native bar group (co)homology would need
+  an actual target; a shared UCT formula is not that comparison.
+- **ProfiniteCohomology, Layer 5:** its sequence is the continuous
+  cohomological inflation–restriction sequence. Its direction and carriers do
+  not supply H₂(E,ℤ) → H₂(G,ℤ) → A → Eᵃᵇ → Gᵃᵇ or the homological
+  semidirect-product edge. No inappropriate citation was substituted.
+- **Current transfer:** the exact statement of
+  `TauCeti.groupHomology.transfer_comp_map_subtype_id` in
+  `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean` was
+  read. Transfer followed by inclusion is index times identity in all
+  degrees. This is already reused in the inherited package; it does not
+  provide UCT, extension transgression or complement conjugacy.
+- **Pinned Schur–Zassenhaus:** the statement of
+  `Subgroup.exists_right_complement'_of_coprime` in
+  `Mathlib/GroupTheory/SchurZassenhaus.lean` was read at the shared pin. Its
+  conclusion is existence of a complement; it contains no conjugacy clause.
+- **Reviewed library audit:** there is no direct Part II entry. The adjacent
+  R17.5 and MP.1 audit evidence assigns factor sets and projective lifting to
+  the parent Layer 7, without supplying the missing integral bridge.
+
+The checks did not identify an exact current supplier that changes either
+accepted-plan boundary. The prior source readings, proof routes, calculations,
+ownership proposal and conventions are preserved below for the planning
+amendment. Their attribution and numerical additions belong to the prior
+session, not this one.
+
+## Verification in this session
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
+  passed with zero errors and warnings: 109 nodes, 124 API items, 96 tests,
+  30 planets, 30 baseline declarations, five gaps and one request. No packet
+  content was changed.
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+  exited 0: 670 warnings, all `declaration uses sorry`, no errors and no other
+  warnings. The memory preflight had 100 GiB available. No language server,
+  library build, update or cache download was started; nothing is left running.
+- The inherited package README and Suggested file are unchanged. Their
+  SHA-256 hashes are respectively
+  `919907f5c82678c279d6723eacf7c331f490237f1614fa1be9cb1274100191ac` and
+  `9151ddf2e8835b89cf66492904029d62c1e70ab6912875bc9266c266d15fa7f0`.
+  The accepted packet hash is
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
+
+## Inherited implementation record — session codex-pCwOIS
 
 Issue #7592. Worker: Codex (GPT-6), session `codex-pCwOIS`, 2026-10-10.
 The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101646310)
