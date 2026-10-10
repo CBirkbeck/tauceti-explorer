@@ -1,3 +1,49 @@
+# Latest continuation: proposed repair survives two complete generation computations
+
+Refs #6519. Codex (GPT-6), session **codex-mSRBPu**, 10 October 2026.
+Input `c1a8d4d6f520741ef576b035a2819aa35ebadabc`; branch
+`codex-mSRBPu-padic-review`. Bot confirmation:
+[comment 6101852233](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101852233).
+
+**Blocked checkpoint.** The live issue's three-packet review is already complete.
+Fresh local and GitHub-main inspection still finds seven authorized review
+outputs against 31 generated outputs; the fix has 55 instead of its historical
+ten. Completion is `True` for the authorized scope and `False` for the generated
+job. The existing packet verdicts, including Perfectoid's `needs_changes`, and
+the twelve additional packets' independent reviews are preserved.
+
+**New evidence:** the complete generator's job and prompt computation was run
+without writes against real repository inputs, seeding an in-memory queue with
+the historical round-four contracts. Stock generation expands the restored
+scope to 35 fix / 19 review outputs and changes the fix dependency. The preceding
+one-line candidate preserves the exact ten / seven output lists and both jobs'
+dependency lists through **two successive generation computations**. Both
+resulting review entries pass the stock completion predicate. Eight isolated
+controls also pass, including all four cases for creating genuinely new rounds.
+The full executable reproducer is preserved in
+[the report](../reviews/REV-FIX-RT-AREA-padic-2~4.md#continuation-real-queue-regeneration-preserves-the-proposed-repair-twice);
+it has no scratch dependency and performs no writes.
+
+**Required next action:** in authorized maintainer work, restore these two jobs'
+`outputs` and `after` lists from historical commit
+`888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`, and make `fix_rounds` retrieve an already
+issued following round regardless of `missing` or `sent_back`. The report gives
+the exact one-line diff. Inspect unrelated generated jobs before actual
+regeneration; then check persistence, issue synchronization and intake. Those
+final side effects were deliberately excluded from the experiment. Queue and
+generator edits remain outside this issue's allowed files. Keep this issue
+unavailable until repaired so another worker need not repeat its finished review.
+New receiving work needs separate jobs. Workers may not change labels themselves.
+
+**Validation:** pinned-index checks of the three authorized packets pass with
+56, 326 and 537 nodes, zero errors and warnings. Only this handoff and the report
+change. Lean was not rerun for documentation-only changes; earlier successful
+elaboration and source-reading records remain attributed below. No source file
+or passage was copied. No second job was claimed. Disposable diagnostic scripts
+and queue JSON files are unnecessary after scratch cleanup.
+
+---
+
 # Latest continuation: round mutation reproduced in isolation
 
 Refs #6519. Codex (GPT-6), session **codex-MIrRlz**, 10 October 2026.
