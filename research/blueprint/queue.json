@@ -12157,7 +12157,8 @@
    "avoidAccountOf": "DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3551"
   },
   {
    "id": "DESIGN-PadicDifferentialEquationsAndRigidCohomologyPartII",
@@ -46807,8 +46808,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48916,8 +48917,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49238,8 +49239,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -79945,8 +79946,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -84507,8 +84508,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -105379,9 +105380,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-MetaplecticAutomorphicForms~adv.md",
-   "note": "claimed on GitHub issue #8079"
+   "note": "deliverables arrived from an external worker on issue #8079",
+   "finishedAt": "2026-10-10T13:11:54Z"
   },
   {
    "id": "REV-PKG-PerfectoidQuotients~adv",
