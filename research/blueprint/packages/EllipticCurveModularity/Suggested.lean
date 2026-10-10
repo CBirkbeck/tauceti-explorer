@@ -20,6 +20,13 @@ representations of a newform, and the ℚ-curves `X₀(N)`, `J₀(N)`, `A_f` wit
 these (each docstring names the owner); they are restated only as typed stand-ins, a `def` of a type, a number, a
 representation or a morphism whose body is `sorry`, so that this roadmap's own signatures can be typed. None is a
 `Prop`-valued placeholder, and no statement is `True`. The owner's definition governs.
+
+Later Tau Ceti versions supply `WeierstrassCurve.torsionGaloisAction`,
+`WeierstrassCurve.tateModuleGaloisRepresentation`,
+`WeierstrassCurve.nonempty_linearEquiv_tateModule`, and
+`TauCeti.det_tateModuleGaloisRepresentation`. Replace the corresponding pinned-baseline
+interfaces with that native substrate and extend scalars for the rational Tate module;
+this roadmap does not plan those constructions again.
 -/
 import Mathlib.AlgebraicGeometry.EllipticCurve.LFunction
 import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
@@ -659,9 +666,9 @@ example : ∃ Λ : ℂ → ℂ, Differentiable ℂ Λ ∧
 
 /-
 `EllipticCurveModularity:R29.6/what-theoreme-4-asserts-and-its-scope` records Serre's Théorème 5 (abelian varieties
-over ℚ with real multiplication) as a separately scoped target. Its statement needs abelian varieties with
-endomorphism structure and their conductors, which neither pinned library has and no interface above supplies; it
-is therefore not stated here.
+over ℚ with real multiplication) as a separately scoped target. The pinned Tau Ceti library has abelian varieties
+and their endomorphism rings. Its abelian-variety conductor and real-multiplication compatible-system interfaces
+are not supplied here, so this companion is specified in the README rather than stated in this file.
 -/
 
 /-! ## Unit examples
