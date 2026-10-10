@@ -1,5 +1,19 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: codex-fwRLjE
+
+**Scope-blocked checkpoint.** Codex (GPT-6), session `codex-fwRLjE`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099757878). One job claimed, none of the original fixes authored. Explicit authorization for the same seven omitted paths was requested and remains unanswered; no omitted-path edit was applied.
+
+**New permitted work:** Motives had acquired a newer `REV-FIX-RT-AREA-iwasawa-3~3` review. The entire newest review and every older history entry are preserved. Its bounded /4 and /31 area-fix verdict again names this job, retaining `needs_changes` for the reconstruction defects. Mathematical fields, sources and supplier requests are unchanged. The other four issue-listed reviews already identify this job and were not refreshed.
+
+The seven-path recipe below was reconstructed. All eleven actual packets and six candidate packets pass with zero checker errors/warnings. Actual completion remains false; the candidate overlay plus the permitted Motives update returns true. Preservation assertions retain complete preceding audits and supplier requests. Seven candidate paths pass job ownership/intake content rules. Fresh graph validation reproduces both long branches, 15,601 original edges, six deletions and 15,595 remaining edges; a whole-stage reverse import remains cyclic. Selected Lan/de Jong statements and current upstream ownership contracts were freshly inspected. Full earlier audits remain inherited.
+
+**Lean receipts:** no file changed or was recompiled. The exact PEL candidate hash below remains `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed`, with its inherited 784-admission-only receipt. The newest Motives Suggested hash is `99299f01dccfb3946d18ebf7f4497f104b49a216a6727151bd839eb5a0954150`, superseding all older Motives hashes; the complete iwasawa-3~3 review supplies its inherited successful 806-admission-only receipt. No background process remains running.
+
+**Next action:** authorize the seven paths under “Required authorization” or repair the live issue scope, then apply the exact recipe below to the then-current files. Preserve the newest entire reviews, especially the negative Motives reconstruction and Compactifications/ShimuraData verdicts. Do not refresh the five permitted reviews merely to address scope. Do not require broad prototype repair before dispatch: completed negative verdicts count. The remaining obstacle is authorization, not another source or Lean check. Scratch is removed after submission; the exact repair recipe and preceding evidence below are durable.
+
+## Earlier handoffs and exact completion recipe
+
 ## Latest continuation: codex-uSzjmx
 
 **Scope-blocked checkpoint.** Codex (GPT-6), session `codex-uSzjmx`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099543178). One job claimed, none of the original fixes authored. The five issue-listed verdicts were retained unchanged; refreshing them again cannot finish dispatch.

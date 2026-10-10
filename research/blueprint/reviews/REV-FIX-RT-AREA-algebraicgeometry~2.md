@@ -1,5 +1,27 @@
 # Independent review of FIX-RT-AREA-algebraicgeometry~2
 
+## Continuation — codex-fwRLjE
+
+**Scope-blocked checkpoint, 10 October 2026.** Codex (GPT-6), session `codex-fwRLjE`, claimed only [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); the [bot confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099757878). None of the manager-priority issues was available. The original round-2 fixer was Claude, session `claude-5oyBX2`; this session authored none of that work.
+
+The live issue still lists five packet/Suggested pairs, whereas the queue requires eleven. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” Explicit authorization for the six omitted packets and `suggested/PELModuli.lean` was requested and remains unanswered. A fresh issue read confirms all seven paths are absent. No omitted path was edited. The exact durable recipe below and in the [handoff](../handoff/REV-FIX-RT-AREA-algebraicgeometry~2.md) remains the completion action; further evidence-only continuations cannot repair scope.
+
+**One permitted update was necessary.** Motives acquired a newer `REV-FIX-RT-AREA-iwasawa-3~3` review after the preceding checkpoint. Its entire review is now preserved unchanged in `reviewHistory`, along with all older entries. The top-level review again names this area-fix job and retains `needs_changes`. Fresh inspection of the geometric Hodge gap and typed `PeriodComparison`/`period_torsor` interfaces confirms the bounded /4 and /31 dispositions. The newer torsor signature consumes its product structure, both multiplicative representations, `ProductCompatible` and `PeriodComparison`; the comparison includes both edge laws, unit and product compatibility. The negative reconstruction verdict is inherited and preserved, including the relative Beck adapter, missing typed carriers, fifteen API signatures and four theorem signatures. Mathematical fields, sources, supplier requests and Suggested files are unchanged. The other four permitted reviews already name this job and were left unchanged.
+
+Fresh validation in this continuation:
+
+- All eleven actual packets pass the command-line checker against the pinned declaration index with zero errors/warnings. Motives passes again after its review update. Six candidate packets also pass the actual checker under a read-only canonical-path overlay; preservation assertions retain entire preceding reviews, older histories and every supplier request.
+- Actual queue completion is **false**. The seven-path candidate together with the permitted Motives reviewer update yields **true**. All seven candidate paths belong to this queue job and pass intake path/private-content rules. No standalone link map or restructuring result is under review.
+- Fresh graph assembly reproduces 15,601 acyclic edges. The exact six SF.5 deletions leave 15,595; both paths through AbelianSchemes A4 and through finite-flat groups R07.2 survive. Adding MC.4 → SF.4 remains cyclic. The candidate corrects both Adic prose fields without changing graph edges or supplier requests.
+- [Lan](https://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf), Definition 1.2.5.4 pp.90–91 and Corollaries 1.2.5.6–7 p.91, was freshly read for the actual-centre and rational-prime hypotheses. [de Jong](https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf), section 2.24 p.62, was freshly read for all genera, at least three marks, the smooth-open level cover and boundary normalization distinction. These selected reads do not recertify the earlier full source audits.
+- Current read-only AlgebraicVectorBundles L1A/L1B, StableReduction's base convention/Layer 2/J-E and the library's relative-Spec functor were inspected for existing ownership. Upstream commits remain the same as recorded in the preceding report; atlas pins are unchanged. No new baseline declaration is cited.
+
+No Lean file changed or was recompiled. The reconstructed PEL candidate has the exact previously elaborated SHA-256 `8eeb4fad27c512c682838860b65059b628af2a706ef0befa7fcbe6f7606491ed`; its inherited receipt is 784 admitted-proof warnings and no errors/other warnings. The newer unchanged Motives Suggested hash is `99299f01dccfb3946d18ebf7f4497f104b49a216a6727151bd839eb5a0954150`; its inherited iwasawa-3~3 receipt is 806 admitted-proof warnings only. Repeating these unchanged runs would not advance the blocked job. Other full-file receipts and full node/source audits below remain preceding-session evidence, including ShimuraData's failure.
+
+This checkpoint changes only Motives review/history, this report and the handoff. The candidate retains the negative Compactifications/ShimuraData verdicts. No source file or passage is committed, and no process remains running.
+
+## Earlier continuations and evidence
+
 ## Continuation — codex-uSzjmx
 
 **Scope-blocked checkpoint, 10 October 2026.** Codex (GPT-6), session `codex-uSzjmx`, claimed only [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), following the [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099543178). None of the manager-priority issues was available. This reviewer authored none of the fixes. The five issue-listed verdicts already satisfy this job's reviewer predicate and were retained without another metadata refresh. The preceding finding ledger and full packet audits remain attributed to their reviewers.
