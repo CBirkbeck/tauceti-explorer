@@ -1,73 +1,73 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex, session `codex-PBcwtj`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-PBcwtj-gl2-package`.
+Worker: Codex, session `codex-dBDnXM`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-dBDnXM-gl2-package`.
 Status: **partial; required accepted-plan repair exceeds this issue's paths**.
-Claim confirmed by the bot after [comment 6094847052](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6094847052).
+Claim confirmed by the bot after [comment 6095019009](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095019009).
 Only this job was claimed. None of the manager's priority issues was available;
-another worker won the claim on the available focus review #7087. This focus
-package was selected among the next equal-rank candidates under WORKERS.md.
+there was no available top or focus plan/package review. This focus package
+was selected among the next equal-rank candidates under WORKERS.md.
 
-## Latest verification: codex-PBcwtj
+## Latest verification: codex-dBDnXM
 
-The blocker persists after the upstream update. The current TauCetiRoadmap
-checkout is now `cd03e06852a13216ad246d0623492c4beac39af2`, rather than the
-previous checkpoint's `0a56d1b5303c26887a4042db834f46d9079ac593`. The intervening
-commit extends `SmoothRepresentationsOfLocalGroups/Suggested.lean`; it does not
-install the missing global character-existence contract. Current Tau Ceti is
-still `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No command built or changed
-either current checkout.
+The recorded scope blocker is unchanged. Read-only current TauCetiRoadmap is
+`cd03e06852a13216ad246d0623492c4beac39af2` and current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, the same revisions checked by the
+preceding session. This session read GlobalNumberFields and ReductiveGroups
+READMEs in full, ClassFieldTheory's explicit exclusion of prescribed local
+abelian extensions, the GlobalNumberFields character/infinity-type suggested
+statements, and the four actual library statements in the table below.
+The reviewed AUDIT-14 coverage of all twelve layers was read at
+`data/library-coverage.json`; it describes the historical pinned baseline,
+not the newer current library.
 
-This session read GlobalNumberFields and ReductiveGroups READMEs in full;
-ClassFieldTheory's explicit ownership/exclusion section; GlobalNumberFields'
-Layer 9 and infinity-type suggested declarations; and the four current-library
-statements in the table below. Their directions matter: factoring an existing
-character through a ray class group does not construct one with prescribed
-components; finite index of a congruence subgroup does not say an arbitrary
-finite-index S-unit subgroup contains such a subgroup supported away from S.
-The reviewed AUDIT-14 records for this roadmap were also read, as historical
-baseline evidence rather than evidence about the newer library.
+The accepted R17.3 consumers `R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction` still require characters on the **full**
+local multiplicative groups. The existing global-character factorization and
+congruence-unit statements start with an already supplied global character
+or a modulus. Neither constructs a global character from prescribed local
+characters, nor produces a modulus away from S starting with an arbitrary
+finite-index S-unit subgroup. GlobalNumberFields Layers 1, 7, 9 and 10 do not
+state that missing existence direction. The packet records this exact gap and
+its absent owner. The package's proved uniformizer/unit/torsion tests expose
+why restricting the prescription to units or torsion loses information.
 
-The accepted R17.3 nodes `R17.5/tunnell-primitive-globalization` and
-`R17.5/prescribed-local-induction` still require the full multiplicative group
-of each specified completion, including uniformizers. Their listed
-GlobalNumberFields Layers 1, 7, 9 and 10 do not state the required existence
-theorem, and the packet's gap explicitly records the missing owner. The four
-R19 prerequisites listed under **Downward ownership moves** are also still
-present. These are checked mathematical inputs, not a request to wait for
-their Lean implementations.
+The four upward prerequisites were re-enumerated directly from R17.3:
+`rt-technical-lemma` imports R19.1's weight-one and higher-weight attachments
+and R19.4's classical conductor comparison; `weight-two-witness` imports the
+higher-weight attachment. The upstream order still places GL2 in tier 15 and
+AutomorphicGaloisRepresentations in tier 18. Installing one shared character
+owner and reconciling these four edges requires authoritative plan edits,
+which #7901 expressly prohibits. This is a specification/ownership blocker;
+future implementation of an already specified theorem is not the issue.
 
-Fresh primary-source check: Chevalley's publisher PDF was fetched on
-2026-10-10 from the public URL under **Repair proposal**; its SHA-256 matches
-the receipt below. Theorem **1**, printed p. 36, was read in the page image
-(the text extraction misreads the number as 7). It states that for a finitely
-generated subgroup E of a number field's multiplicative group, a positive
-integer m, and a specified rational integer b, a rational modulus prime to b
-forces congruent elements of E to be m-th powers in E. Taking m to be the
-exponent of E/E′ and b divisible by the rational primes below S gives the
-proposed finite-index subgroup contract. This confirms the source and
-generality of that contract; it does not install its owning plan or certify
-the inherited complete proof decomposition. The finite-character construction
-below remains conditional on that supplier.
+Fresh validation:
 
-Checks rerun in this session:
-
-- Both packet checks pass with zero errors and warnings: 55/57 nodes,
+- Both packet checks exit 0, with zero errors and warnings: 55/57 nodes,
   8/8 gaps, 32/35 requests and zero closed stages.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
-  exits 0, with 144 declaration-use-of-`sorry` warnings, zero errors and zero
-  other warnings. Available memory before the check was 105 GB. The helper
-  finished; no compiler remains running.
-- The package README and Suggested.lean and both packets retain the SHA-256
-  fingerprints below. Only this handoff changes. The missing metadata file
-  continues to identify this submission as an incomplete checkpoint.
+  exits 0: 144 warnings, all `declaration uses sorry`, zero errors and zero
+  other warnings. Available memory before the check was 111 GB. The shared
+  helper completed; no compiler remains running. It used the pinned shared
+  build, not either read-only current checkout.
+- SHA-256 checks confirm both packets and the package README/Suggested.lean
+  match the fingerprints below. Only this handoff changes. Metadata remains
+  absent, so the package is correctly classified as an incomplete checkpoint.
+- Scoped intake reports one authorized file and zero problems; `git diff --check`
+  passes, and `issues.deliverables_complete` remains False.
 
-**Queue action needed:** route the shared character theorem and its proof
-chain to an authorized lower-tier plan-repair job, and repair the four upward
-R19 edges before offering this unchanged package as another continuation.
-The other recorded gaps also require their precise supplier contracts.
-The worker cannot make those edits within #7901's permitted paths and must
-not manufacture a supplier citation or mark the package complete.
+The primary-source receipts and conditional repair proposals below are
+inherited; this session did not reread their PDFs or certify their complete
+proof chains. The preceding session independently read Chevalley's Theorem 1,
+printed p. 36, from the publisher PDF and confirmed its receipt. That reading
+supports the proposed contract but does not install an owning plan.
+
+**Queue action needed:** route the shared character-existence contract and
+its proof chain to an authorized lower-tier plan-repair job; install the
+classical attachment/conductor owners and reconcile the four upward edges.
+Then check each remaining gap's exact supplier before rescheduling completion.
+Repeated package-only continuations against these unchanged inputs cannot
+perform those repairs. The full resume list and preserved repairs follow.
 
 ## Decision and required action
 
