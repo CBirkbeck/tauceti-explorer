@@ -49,21 +49,21 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 StableReductionPartII.md is definitive. These suggested Lean forms help
 contributors and reviewers converge on names and signatures.
 
-CHECKPOINT: the polynomial node ring, its actual ideal and dual, the two
-cokernel maps, arbitrary coefficient tensor comparisons, flat ambient ideal/Hom/quotient
-transport and actual noetherian module completion now have canonical
-packet entries and prototype ledgers. The complete file is checked using an
-existing pinned Mathlib build. The fifteen elementary proof bodies and nine
-proved examples belong to the historical revision cef4c2085eddbf723e9050f7d4924924d593a0e3.
-Current suggested bodies are admitted sketches under PROTOCOL section 13.
-The canonical ε:J→ₗ[R]R and K:R→ₗ[A]R are named on the inherited carriers.
-Their actual native proofs and 16 examples survive in immutable 5e2a9a938035;
-this complete sketch is checked separately and does not certify geometry.
-The current exact-file receipt and separate canonical splitting proof archive are distinguished
-in the handoff; their elaboration
-does not certify those proofs or provide geometric supplier types.
-See handoff/DESIGN-StableReductionPartII.md for hashes and precise boundaries.
+The polynomial nodal chart uses the actual ideal, dual, signed cokernel maps,
+coefficient tensor comparisons and native projective-resolution Ext interfaces.
+Finite-projective completed coefficients have explicit tensor/limit and
+original-ring Hom comparisons. The reader specifies their exact hypotheses.
+Ordinary and relative stable reflexivity, original-ring and completed-ring Hom,
+and finite-projective and arbitrary completed coefficients remain distinct.
 
+The historical native-proof archives and receipts retain their original scope.
+The current suggested bodies are admitted sketches under PROTOCOL section 13.
+Elaboration checks expressible signatures; it does not supply the geometric
+types, admitted proofs or mathematical supplier closure.
+Current upstream AlgebraicVectorBundles L0B–L0C supplies the ordinary sheaf
+determinant. Stack descent, ordered clutching signs and Deligne pairing use
+their separate supplier contracts. See the reader for all layer targets,
+APIs, tests, source locators and precise remaining obligations.
 The algebraic-stack, pointed-family, invertible-sheaf and relative-Picard
 interfaces must come from the suppliers before those signatures can be written.
 No arbitrary Prop field or axiom is used to impersonate any missing object.
@@ -5929,9 +5929,9 @@ test: LevelPicardParameter.dualNumbers
 -/
 
 /-
-FINAL REVIEW (2026-10-05, codex-UE02jn): needs_changes. The current packet
-and review report record corrected four/five-parameter triangle and generic
-evaluation-image statements. The definitive reader still contains obsolete
-versions and requires an authorized synchronization before acceptance.
-This comment does not supply the missing geometric types or prove closure.
+READER REVISION (2026-10-10, codex-zFb7Lk): all existing targets synchronized.
+The triangle imposes four parameters; its genus-one boundary uses a fifth.
+Section positivity uses the generic evaluation image; surface positivity uses
+the positive twist. Exact Picard lift/tangent contracts remain explicit omissions.
+The packet preserves the earlier independent verdict for the next reviewer.
 -/

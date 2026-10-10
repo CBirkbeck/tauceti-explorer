@@ -13,7 +13,7 @@
     "StableReductionPartII:MC.7"
   ],
   "status": "complete",
-  "summary": "Finished 528-declaration planning pass under PROTOCOL section 0; completed independent review records needs_changes. All eight stages and the six-consumer moduli-curves key remain partial, with explicit mathematical owner boundaries. The native polynomial Hom/Ext and finite-projective completion adapters are preserved; ordinary versus relative stable reflexivity, original-R versus completed-ring Hom and finite-projective versus arbitrary completed coefficients remain distinct. Exact early relative Picard/Jacobian, H²_fppf obstruction and stable Hodge targets are imported from their existing owners. Missing arbitrary-base descent, pointed hull/formal-Proj, integral boundary, positivity/Deligne pairing, strong Torelli/topology and all-characteristic compactified Torelli proofs remain precise gaps. The reader still contains substantive obsolete assertions and requires an authorized synchronization job before acceptance. No mathematical closure, implementation or library-wide absence is claimed.",
+  "summary": "Finished revision of the existing 528-target planning pass. The reader gives all eight layers in dependency order, with the current exact statements, hypotheses, proof routes, APIs, discriminating tests, source locators and consumer contracts. The four/five-parameter genus-one locus, generic evaluation-image positivity, positive surface twist, fixed integral determinant degree, exact early Picard/Hodge imports and Pic(T)-torsors of lifts agree throughout. All eight stages and the six-consumer key remain partial with twenty mathematical gaps, 140 supplier requests and explicit geometric prototype omissions. Current upstream AlgebraicVectorBundles supplies ordinary determinants; moduli-specific descent and ordered clutching comparisons remain scoped inputs. Historical independent review is retained for the next reviewer. No new target, acceptance verdict or implementation claim is introduced.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2474,13 +2474,18 @@
       "id": "blr-relative-picard-LwkQQl",
       "title": "Néron Models",
       "authors": "Siegfried Bosch; Werner Lütkebohmert; Michel Raynaud",
-      "edition": "Springer, 1990; public scan of printed pp.170–261, selected passages only",
-      "url": "https://archive.math.arizona.edu/cais/scans/BLR-Neron_Models/neron4.pdf",
+      "edition": "Springer, 1990, first edition; inherited selected-page locators, publisher bibliography checked 2026-10-10",
+      "url": "https://link.springer.com/book/10.1007/978-3-642-51438-8",
       "readSections": [
-        "§8.1 Leray discussion pp.202–203 and Proposition4 with rigidification proof pp.204–205 (scan PDF17–18); §8.4 Theorem1(a) and proof pp.231–232, Proposition2 p.232 (PDF31–32); §9.3 Theorem1 and proof p.252 (PDF42); §9.4 Proposition4 and proof pp.260–261 (PDF46). Other BLR sections and cited transitive proofs were not read in this pass."
+        "Inherited review receipt only: §8.1 pp.202–205, §8.4 pp.231–232, §9.3 p.252 and §9.4 pp.260–261. This revision reads exact supplier statements and public Yuan/DGH interfaces; BLR full text is not newly read."
       ],
-      "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
-      "accessDate": "2026-10-05"
+      "accessDate": "2026-10-10",
+      "historicalCopy": {
+        "reader": "Codex — codex-LwkQQl",
+        "date": "2026-10-05",
+        "sha256": "88610c3ffba4eeaec738bb635a54a12c7fd6f4c69597045914feb6f33da284aa",
+        "scope": "Inherited selected-page receipt; no full text acquired or read in revision #6378."
+      }
     },
     {
       "id": "av-moduli-consumer-LwkQQl",
@@ -3015,7 +3020,7 @@
         },
         {
           "where": "StableReductionPartII:MC.4/finite-degree-equations",
-          "how": "Let S be a noetherian scheme and f:X→S a stable genus-g family with g≥2. On each quasi-compact finite-type parameter family, choose a common sufficiently large d such that Symᵈ(f_*ω³)→f_*ω^{3d} is surjective and its degree-d kernel determines every tricanonically embedded geometric fibre. For the moduli application S is finite type over a field. The bound may depend on the family, and d=2 is not assumed."
+          "how": "Let S be a noetherian scheme and f:X→S a stable genus-g family with g≥2. On each quasi-compact finite-type parameter family, choose a common sufficiently large d such that Symᵈ(f_*ω³)→f_*ω^{3d} is surjective and its degree-d kernel determines every tricanonically embedded geometric fibre. For the moduli application S is a proper finite-type scheme cover of the coarse moduli space over Z; the same relative Serre argument applies over Z and over a field. The bound may depend on the family, and d=2 is not assumed."
         }
       ],
       "planet": {
@@ -7217,7 +7222,7 @@
         },
         {
           "where": "StableReductionPartII:MC.6/jacobian-hodge-comparison",
-          "how": "For a smooth proper genus-g family f:C→S whose relative Jacobian J/S exists with base change, the canonical Lie comparison Lie(J/S)≅R¹f_*O_C dualizes to f_*ω_{C/S}≅e*Ω¹_{J/S}. Taking determinants identifies the curve Hodge line with the ppav Hodge line."
+          "how": "For g≥2 and N≥3 over the fixed pairing base B=Spec Z[1/N,ζ_N], let τ:M_g[N]→A_g[N] be smooth full-level Torelli. The canonical comparison of its universal families identifies τ* of the ppav Hodge bundle with f_*ω of the universal curve; its determinant identifies τ* of the ppav Hodge line with the curve Hodge line. Pullback along every T→M_g[N], including nonreduced T, respects these comparisons and their identity/composition isomorphisms."
         }
       ],
       "planet": {
@@ -7241,8 +7246,8 @@
         "SchemeAndStackFoundations:SF.5"
       ],
       "proofSteps": [
-        "Apply the generic determinant functor to the finite locally free Hodge bundle.",
-        "Use its naturality and tensor/determinant identities for descent."
+        "On a scheme atlas, apply the existing AlgebraicVectorBundles L0C fixed-rank determinant functor to the rank-g Hodge bundle, including its rank-zero convention and coherent pullback comparisons.",
+        "Descend the determinant along the Hodge bundle base-change cocycle. The stack descent and ordered exact-sequence determinant comparison remain supplier contracts; no generic determinant construction is planned again."
       ],
       "acceptance": [
         "The line and the vector bundle are different for g≥2."
@@ -7321,7 +7326,7 @@
         },
         {
           "where": "StableReductionPartII:MC.6/jacobian-hodge-comparison",
-          "how": "For a smooth proper genus-g family f:C→S whose relative Jacobian J/S exists with base change, the canonical Lie comparison Lie(J/S)≅R¹f_*O_C dualizes to f_*ω_{C/S}≅e*Ω¹_{J/S}. Taking determinants identifies the curve Hodge line with the ppav Hodge line."
+          "how": "For g≥2 and N≥3 over the fixed pairing base B=Spec Z[1/N,ζ_N], let τ:M_g[N]→A_g[N] be smooth full-level Torelli. The canonical comparison of its universal families identifies τ* of the ppav Hodge bundle with f_*ω of the universal curve; its determinant identifies τ* of the ppav Hodge line with the curve Hodge line. Pullback along every T→M_g[N], including nonreduced T, respects these comparisons and their identity/composition isomorphisms."
         },
         {
           "where": "StableReductionPartII:MC.6/compactified-torelli",
@@ -7334,7 +7339,24 @@
       ],
       "planet": {
         "name": "Hodge determinant"
-      }
+      },
+      "upstreamImports": [
+        {
+          "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+          "layers": [
+            "L0B",
+            "L0C"
+          ],
+          "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+          "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/Suggested.lean",
+          "locator": "README L0B–L0C; Suggested.lean lines248–379",
+          "provides": "Finite locally free sheaves and locally constant rank, duals, symmetric/exterior powers, the determinant object and fixed-rank determinant functor, with coherent pullback comparisons on schemes.",
+          "usedBy": [
+            "StableReductionPartII:MC.5/hodge-determinant"
+          ],
+          "boundary": "Apply on scheme atlases and descend with the stack owner. The ordered exact-sequence determinant comparison, its clutching signs and line-valued determinant-of-cohomology/Deligne pairing are separate contracts. The ordinary determinant is imported, never rebuilt here. Current upstream stages are absent from the atlas snapshot; this metadata records the exact owner without inventing a pinned declaration or an unresolved indexed stage id."
+        }
+      ]
     },
     {
       "id": "StableReductionPartII:MC.5/hodge-forgetting",
@@ -31793,7 +31815,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Chow first-Chern classes, lci GRR in the required stack/atlas setting, pushforward of c₁(ω)², intersection degrees and numerical pullback/descent. Nef-vector-bundle and line-valued Deligne-pairing constructions are NOT claimed present in this stage. Consumer: The Hodge determinant line. Required use: Apply the generic determinant functor to the finite locally free Hodge bundle. Use its naturality and tensor/determinant identities for descent.",
+      "need": "Import the ordinary finite-locally-free determinant and its coherent pullback comparisons from current upstream AlgebraicVectorBundles L0B–L0C. Supply only the remaining atlas/stack line descent and ordered short-exact-sequence determinant comparison det E≅det E₁⊗det E₂, with exchange sign (−1)^{rs}; use this comparison for clutching. SF.5 does not supply the missing line-valued determinant-of-cohomology or Deligne pairing. No ordinary determinant functor is requested anew.",
       "neededBy": [
         "StableReductionPartII:MC.5/hodge-determinant"
       ]
@@ -31996,28 +32018,28 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
-      "need": "Proper flat nodal-curve cohomology/base change, relative invertible dualizing sheaf and Serre duality, curve Riemann–Roch, degree criteria for ampleness and vanishing, m≥2 pluricanonical vanishing and m≥3 very ampleness, relative Proj and polarized descent, with log-pointed variants where requested. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. On a minimal smooth surface over a base of genus≥2, a negative quotient after Frobenius and Serre duality forces H¹ of a negative pluricanonical twist to have dimension≥2. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
+      "need": "Proper flat nodal-curve cohomology/base change, relative invertible dualizing sheaf and Serre duality, curve Riemann–Roch, degree criteria for ampleness and vanishing, m≥2 pluricanonical vanishing and m≥3 very ampleness, relative Proj and polarized descent, with log-pointed variants where requested. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. After finite base covers and Frobenius, write the negative quotient as f_*ω^m→(ω_B^m⊗L)^{-1}, with L very ample. The projection formula and low-degree Leray injection force H¹(X,ω_X^m⊗f*L) to have dimension≥g(B)≥2 on the smooth minimal general-type surface. This is the positive twist ω_X^m(D), where D is a reduced union of smooth fibres in |f*L|. Crepant rational-double-point resolution and smooth exceptional-curve contraction require separate pushforward comparisons; no false canonical-sheaf pullback identity is used. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
       "neededBy": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
-      "need": "Surface/model input for nodal traits and blowups in the stable-reduction programme; exact rational-double-point resolution and pluricanonical pushforward requirements remain a source-verification gap rather than an assertion that the parent already proves them. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. On a minimal smooth surface over a base of genus≥2, a negative quotient after Frobenius and Serre duality forces H¹ of a negative pluricanonical twist to have dimension≥2. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
+      "need": "Surface/model input for nodal traits and blowups in the stable-reduction programme; exact rational-double-point resolution and pluricanonical pushforward requirements remain a source-verification gap rather than an assertion that the parent already proves them. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. After finite base covers and Frobenius, write the negative quotient as f_*ω^m→(ω_B^m⊗L)^{-1}, with L very ample. The projection formula and low-degree Leray injection force H¹(X,ω_X^m⊗f*L) to have dimension≥g(B)≥2 on the smooth minimal general-type surface. This is the positive twist ω_X^m(D), where D is a reduced union of smooth fibres in |f*L|. Crepant rational-double-point resolution and smooth exceptional-curve contraction require separate pushforward comparisons; no false canonical-sheaf pullback identity is used. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
       "neededBy": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
-      "need": "Semistable/model input used in reducing nodal surface families; the named surface-vanishing theorem is outside this supplier and stays a separate gap. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. On a minimal smooth surface over a base of genus≥2, a negative quotient after Frobenius and Serre duality forces H¹ of a negative pluricanonical twist to have dimension≥2. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
+      "need": "Semistable/model input used in reducing nodal surface families; the named surface-vanishing theorem is outside this supplier and stays a separate gap. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. After finite base covers and Frobenius, write the negative quotient as f_*ω^m→(ω_B^m⊗L)^{-1}, with L very ample. The projection formula and low-degree Leray injection force H¹(X,ω_X^m⊗f*L) to have dimension≥g(B)≥2 on the smooth minimal general-type surface. This is the positive twist ω_X^m(D), where D is a reduced union of smooth fibres in |f*L|. Crepant rational-double-point resolution and smooth exceptional-curve contraction require separate pushforward comparisons; no false canonical-sheaf pullback identity is used. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
       "neededBy": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Chow first-Chern classes, lci GRR in the required stack/atlas setting, pushforward of c₁(ω)², intersection degrees and numerical pullback/descent. Nef-vector-bundle and line-valued Deligne-pairing constructions are NOT claimed present in this stage. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. On a minimal smooth surface over a base of genus≥2, a negative quotient after Frobenius and Serre duality forces H¹ of a negative pluricanonical twist to have dimension≥2. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
+      "need": "Chow first-Chern classes, lci GRR in the required stack/atlas setting, pushforward of c₁(ω)², intersection degrees and numerical pullback/descent. Nef-vector-bundle and line-valued Deligne-pairing constructions are NOT claimed present in this stage. Consumer: Nefness with smooth generic fibre. Required use: Resolve the isolated rational double points and preserve pluricanonical pushforwards. After finite base covers and Frobenius, write the negative quotient as f_*ω^m→(ω_B^m⊗L)^{-1}, with L very ample. The projection formula and low-degree Leray injection force H¹(X,ω_X^m⊗f*L) to have dimension≥g(B)≥2 on the smooth minimal general-type surface. This is the positive twist ω_X^m(D), where D is a reduced union of smooth fibres in |f*L|. Crepant rational-double-point resolution and smooth exceptional-curve contraction require separate pushforward comparisons; no false canonical-sheaf pullback identity is used. Apply the Mumford–Ekedahl surface vanishing bound: zero except possibly characteristic2,m=2, where it is≤1. Use finite base covers and spreading out to remove the base-genus and characteristic-zero restrictions. All these nonroutine surface inputs are the positivity-extension gap.",
       "neededBy": [
         "StableReductionPartII:MC.4/smooth-generic-direct-image-nef"
       ]
@@ -32177,7 +32199,7 @@
       "status": "partial",
       "remaining": [
         "Resolve stable-family/descent types and the locally Noetherian-to-arbitrary-scheme extension; supply the real Lean moduli-pseudofunctor signatures.",
-        "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; the completed review records the unresolved mathematical owner and reader-synchronization boundaries.",
+        "Discharge the owned key sample exports via MC.2 supplier nodes, and express all added API/tests once the geometric types exist. Initial MC.0 source passages have been independently checked; the mathematical owner obligations remain open.",
         "Supply the actual marking/projection/smooth-restriction geometric Lean types for the four added universal-curve API/test omissions. Native scheme pullback/topology primitives are read and imported; they do not provide effective fppf object descent."
       ]
     },
@@ -32200,7 +32222,7 @@
         "Prove Knudsen Appendix Proposition 6 with both coefficient and chart completions, including arbitrary completed-coefficient modules; inspect and discharge the cited Bourbaki III.5.4.4 input and Proposition 7 exercise. Finite-projective tensor/limit interchange and the existing Hom_R comparison do not establish arbitrary-module Hom/Ext or universally acyclic completion.",
         "Identify Hom over the completed chart ring from the completed section ideal and its dual, and prove the actual change-of-rings comparison with the existing Hom_R compatible quotient families. Supply the justified higher Ext comparison and exact hypotheses for faithful reflection.",
         "Keep the surjective map from the completed chart tensor over the original coefficient ring to the tensor over the completed coefficient ring distinct; establish injectivity only under justified hypotheses. The finite quotient equivalences and finite-projective limit comparisons do not prove it for arbitrary completed-coefficient modules.",
-        "Identify the pointed completed-local hull, including collision and node charts and the rigid genus-one embedding, with the polynomial model. Expand every nonroutine family comparison into declaration-sized inputs.",
+        "Identify the pointed completed-local hull, including collision and node charts and the rigid genus-one embedding, with the polynomial model. Prove the stated family comparison contracts with their exact hypotheses; smaller proof steps remain in their sketches.",
         "Globalize the actual section-ideal, dual and quotient constructions by coefficient-compatible sheaf descent, and prove finite-presentation/noetherian approximation over arbitrary schemes before applying contraction/expansion to all families.",
         "Supply the missing pointed-family and moduli type interfaces, contraction/expansion inverse and base-change coherence, all stable-pair smooth/proper Deligne–Mumford conclusions, genus-zero cross-ratio and compactification, genus-one base and rational-tail contraction. All parent and foundational requests and source-version/locator obligations remain required.",
         "Discharge the explicit formal-Proj/flatness transfer and old-mark collision contracts; prove the rigid triangle family recovery with four fixed smoothing parameters and the fifth elliptic boundary parameter. Added higher-genus boundary divisors include old-section collisions, not only the old-boundary inverse image."
@@ -32211,7 +32233,7 @@
       "status": "partial",
       "remaining": [
         "Discharge the exact integral relative node-choice, stack-normalization and smoothing-conormal descent contracts; characteristic-zero source statements and consumer graph-invariant calculations are now read but do not prove the Z-interface.",
-        "Supply actual stack, marking-line and clutching Lean interfaces, including the ten added API contracts and empty-boundary test in their specified bases. Discharge the listed integral owner contracts and transitive mathematical inputs; the completed independent review verifies this conditional plan and records the reader contradiction separately."
+        "Supply actual stack, marking-line and clutching Lean interfaces, including the ten added API contracts and empty-boundary test in their specified bases. Discharge the listed integral owner contracts and transitive mathematical inputs; the integral owner contracts and geometric type interfaces remain open."
       ]
     },
     {
@@ -32399,7 +32421,7 @@
         "StableReductionPartII:MC.5/integral-noether",
         "StableReductionPartII:MC.5/semi-canonical-noether"
       ],
-      "detail": "A generic determinant-of-cohomology/Deligne-pairing construction on proper flat nodal curves, pullback and its c₁ pushforward identity are required in addition to SF.5 rational Chow GRR. Deligne’s determinant paper and Moret-Bailly Noether1989 were not acquired. Propose a foundational/Arakelov Part II with an unmetrized algebraic core, retaining exact integral tensor powers."
+      "detail": "A generic determinant-of-cohomology/Deligne-pairing construction on proper flat nodal curves, pullback and its c₁ pushforward identity are required in addition to SF.5 rational Chow GRR. Deligne’s determinant paper and Moret-Bailly Noether1989 were not acquired. Propose a foundational/Arakelov Part II with an unmetrized algebraic core, retaining exact integral tensor powers. Ordinary finite-locally-free exterior powers and determinants with scheme pullback comparisons are already owned by current upstream AlgebraicVectorBundles L0C. Only their stack descent/ordered exact-sequence comparison and the distinct determinant-of-cohomology/Deligne-pairing input remain here."
     },
     {
       "title": "All-characteristic compactified Torelli",
@@ -32670,18 +32692,6 @@
         "StableReductionPartII:MC.4/projective-coarse"
       ],
       "detail": "The local logical route is repaired by the direct finite-degree-equations prerequisite. Its exact relative Serre generation/vanishing, fibre-ideal flatness, pluricanonical base-change and fixed-line openness interfaces still need verified SF.0/parent suppliers, as in the existing foundational gap. On one quasi-compact noetherian integral parameter family over Z, relative Serre generation and vanishing for the ideal sheaf of the relative tricanonical embedding give a common degree d. The ambient projective bundle and curve are flat, hence the ideal pulls back to each fibre ideal; the degree-d equations generate it. The multiplication quotient is surjective and the stable pluricanonical direct images have arbitrary-base-change comparisons. After applying the fixed-degree determinant criterion on every geometric fibre, fixed-line openness of relative ampleness spreads this one determinant over Spec Z. Preserve these qualifications; do not replace them by a maximum of varying fibrewise exponents."
-    },
-    {
-      "title": "Definitive reader contradicts the corrected packet",
-      "neededBy": [
-        "StableReductionPartII:MC.2/rigid-triangle-embedding",
-        "StableReductionPartII:MC.2/genus-one-base",
-        "StableReductionPartII:MC.4/dualizing-section-degree",
-        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
-        "StableReductionPartII:MC.7/level-picard-parameter",
-        "StableReductionPartII:MC.7/picard-triples-comparison"
-      ],
-      "detail": "The definitive research/blueprint/readmes/StableReductionPartII.md is outside issue 3619 deliverables. At the rigid-triangle and genus-one-base blocks it still imposes three smoothing parameters and adds a fourth, whereas Knudsen II p.179 and the corrected packet impose four and add a fifth. Its dualizing-section-degree proof still asserts the special-fibre R¹-vanishing refuted by E12, and its smooth-generic nef proof uses a negative twist where the packet uses the positive surface twist. Its level-Picard blocks retain stale field/stage imports, omit the Pic(T)-torsor and dual-number tests and cite Yuan §4.5 instead of §4.3.2. An authorized reader synchronization must apply all cumulative correction ledgers, current exact supplier contracts, source locators, APIs/tests, consumer routes and counts. These are unresolved document contradictions, not a rejection of partial stages or future implementations. Final independent review is needs_changes until this synchronization and a focused consistency check are completed."
     }
   ],
   "sourceIssues": [
@@ -33630,7 +33640,7 @@
   "prototypeCoverage": {
     "status": "partial",
     "compiled": true,
-    "reason": "The final 5,937-line Mathlib-only suggested file elaborates at the pinned Mathlib with zero errors and 875 intentional admission warnings only. The exact current inventory is450 expressed/78 omitted nodes, 365/97 unique APIs and 356/76 unique tests. All 251 omissions are explicit comments. Historical mathematical signature/proof receipts keep their attribution; this final comment-only edit preserves declaration positions and signatures. Elaboration does not prove admitted bodies, the omitted geometric types, completed-ring Hom/Ext, arbitrary completed-coefficient comparison or transitive closure. The completed independent review records needs_changes because the definitive reader still contradicts the corrected packet.",
+    "reason": "The expressed signatures and all 251 named geometric omissions are preserved. The inventory remains450 expressed/78 omitted nodes,365/97 unique APIs and356/76 unique tests. Reader and suggested comment contracts now agree on the corrected geometry and exact supplier scopes. Fresh revision compilation is recorded separately; historical native proof and signature receipts keep their original attribution. Elaboration does not prove admitted bodies, supply omitted geometry or establish transitive closure.",
     "expressedNodes": [
       "StableReductionPartII:MC.2/binary-node-form",
       "StableReductionPartII:MC.2/node-factorization-products",
@@ -38712,7 +38722,22 @@
       ],
       "qualification": "Expression-list bookkeeping only: packet declarationName/API names match existing declarations; test tags are immediately followed by actual typed examples. Header hashes and lines identify the matched signatures in the freshly compiled suggested file. Inherited source/type adequacy reviews remain attributed to their workers; this does not re-prove admitted statements or finish semantic signature matching. Both api and API omission-kind spellings are treated as API entries, preserving historical records."
     },
-    "previousFinalReviewReason": "Predecessor codex-FiMKR8 recorded: The entire existing 5,735-line Mathlib-only suggested file elaborates with zero errors and only 870 intentional admission warnings. This checks its expressed signatures and tests; 207 inherited geometric omissions remain. The predecessor admission-free native archive and its proof receipts retain their original attribution and source hashes. This pass adds no declarations or proof bodies. Its fresh compilation receipt does not prove the missing completed-ring Hom/Ext, arbitrary completed-coefficient, pointed-family, sheaf or moduli interfaces. Review continuation codex-g0hY4x adds ten explicit geometric omissions for the owned sample API and projective-frame twist test; this change is comment-only in the suggested file and does not provide geometric signatures. Review continuation codex-G2QhrF adds ten further geometric API omissions and one degenerate graph test, also comments only; formal-Proj transfer and integral boundary/deformation-line descent remain explicit gaps. Review continuation codex-0Sbfnu adds thirteen geometric API and three test omissions, in comments only; corrected mathematical routes and remaining supplier obligations are recorded in the packet/report. The codex-0Sbfnu Mathlib-only file elaborated with 870 intentional admission warnings and no other warnings. Review continuation codex-J80wsc added five typed API sketches and recorded 875 intentional admission warnings. Review continuation codex-KKjBS6 adds three geometric APIs and one test as explicit comment omissions, seven individual native imports and ten complete-type name checks; its fresh 5,912-line elaboration has zero errors and only 875 intentional admission warnings. These checks do not express the omitted moduli interfaces. Review continuation codex-LwkQQl replaces stale Picard-family requests with exact supplier imports and scopes Hodge comparison to smooth full-level Torelli. One new lifting API and two discriminating Picard tests remain explicit omissions; no geometric signature or proof body is added. The codex-LwkQQl inventory reconciliation registers36 existing declarations,83 existing APIs and76 existing typed tagged tests omitted from the inherited expression lists. This is expression bookkeeping, not new formalization, proof closure or a fresh semantic audit of every signature."
+    "previousFinalReviewReason": "Predecessor codex-FiMKR8 recorded: The entire existing 5,735-line Mathlib-only suggested file elaborates with zero errors and only 870 intentional admission warnings. This checks its expressed signatures and tests; 207 inherited geometric omissions remain. The predecessor admission-free native archive and its proof receipts retain their original attribution and source hashes. This pass adds no declarations or proof bodies. Its fresh compilation receipt does not prove the missing completed-ring Hom/Ext, arbitrary completed-coefficient, pointed-family, sheaf or moduli interfaces. Review continuation codex-g0hY4x adds ten explicit geometric omissions for the owned sample API and projective-frame twist test; this change is comment-only in the suggested file and does not provide geometric signatures. Review continuation codex-G2QhrF adds ten further geometric API omissions and one degenerate graph test, also comments only; formal-Proj transfer and integral boundary/deformation-line descent remain explicit gaps. Review continuation codex-0Sbfnu adds thirteen geometric API and three test omissions, in comments only; corrected mathematical routes and remaining supplier obligations are recorded in the packet/report. The codex-0Sbfnu Mathlib-only file elaborated with 870 intentional admission warnings and no other warnings. Review continuation codex-J80wsc added five typed API sketches and recorded 875 intentional admission warnings. Review continuation codex-KKjBS6 adds three geometric APIs and one test as explicit comment omissions, seven individual native imports and ten complete-type name checks; its fresh 5,912-line elaboration has zero errors and only 875 intentional admission warnings. These checks do not express the omitted moduli interfaces. Review continuation codex-LwkQQl replaces stale Picard-family requests with exact supplier imports and scopes Hodge comparison to smooth full-level Torelli. One new lifting API and two discriminating Picard tests remain explicit omissions; no geometric signature or proof body is added. The codex-LwkQQl inventory reconciliation registers36 existing declarations,83 existing APIs and76 existing typed tagged tests omitted from the inherited expression lists. This is expression bookkeeping, not new formalization, proof closure or a fresh semantic audit of every signature.",
+    "revisionCompilation": {
+      "file": "research/blueprint/suggested/StableReductionPartII.lean",
+      "lines": 5937,
+      "sha256": "3e1a5468cce90495b52a71e44a54d9d7d17602eb691b87f6dc58f21b7836089f",
+      "diagnosticsSha256": "49330e565c1c22e34689c2a4fe8c6098ee539b25ed8026b5f70ab8381798eafc",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 875,
+      "admissionWarnings": 875,
+      "otherWarnings": 0,
+      "availableGiB": 102,
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+      "scope": "Mathlib-only imports at the pinned Mathlib. Expressed types elaborate; admitted bodies and geometric omissions are not proved. Mathematical code and declaration line positions are preserved."
+    }
   },
   "upstreamImportEncoding": {
     "status": "canonical",
@@ -39410,6 +39435,42 @@
       "sha256": "fa320b35fc8b063ac09335da85ed133329dfbef1357b78f22d0a8d58ad5107a1",
       "scope": "Fresh Introduction pp.1–2 and §2.1 pp.4–5 text, with rendered p.4 boundary normalization formulas. Stable stack, tautological maps and graph-quotient interfaces only; no cohomology proof or integral normalization closure claimed.",
       "use": "Exact relative Picard supplier composition and six moduli-key consumer export review."
+    },
+    {
+      "sourceId": "knudsen2",
+      "reader": "Codex — codex-zFb7Lk",
+      "date": "2026-10-10",
+      "url": "https://journals.msp.org/mscand/article/download/1622/1621/1653",
+      "sha256": "18e04bbf5c24a460ff10e965ebf665ea0229378c6a9521bd279909476012e230",
+      "scope": "Fresh rendered Figure4 and Theorem2.7 proof, printed p.179/PDF19: four fixed smoothing branches and fifth genus-one boundary parameter; family recovery is a separate obligation.",
+      "use": "Revision #6378 source/hypothesis corroboration and reader synchronization; original mathematical review attribution retained."
+    },
+    {
+      "sourceId": "clm",
+      "reader": "Codex — codex-zFb7Lk",
+      "date": "2026-10-10",
+      "url": "https://chngr.github.io/assets/mgbar.pdf",
+      "sha256": "5314dd91d8957fc775ea40e30d9a9cc12159fd5b61a5f0d2640c41b18f19a829",
+      "scope": "Fresh author-copy PDF/printed pp.24–26 and30–31: positive surface twist and Leray injection, Corollary6.6 invalid special-fibre vanishing step, relative Serre multiplication and Theorem7.2 varying-exponent issue. No fresh reading of generic §§2–4 or transitive surface proofs.",
+      "use": "Revision #6378 source/hypothesis corroboration and reader synchronization; original mathematical review attribution retained."
+    },
+    {
+      "sourceId": "yuan-author-http",
+      "reader": "Codex — codex-zFb7Lk",
+      "date": "2026-10-10",
+      "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+      "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
+      "scope": "Fresh author-copy §4.3.2 pp.73–75: degree-d triples, multiplier convention and relative Picard parameter; arbitrary-base line-lift assertions use exact supplier contracts rather than an unqualified triples representability claim.",
+      "use": "Revision #6378 source/hypothesis corroboration and reader synchronization; original mathematical review attribution retained."
+    },
+    {
+      "sourceId": "dgh",
+      "reader": "Codex — codex-zFb7Lk",
+      "date": "2026-10-10",
+      "url": "https://arxiv.org/pdf/2001.10276v3",
+      "sha256": "5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4",
+      "scope": "Fresh arXiv v3 §6.1 pp.23–24: chosen characteristic-zero level component, universal curve, relative Jacobian/Torelli Cartesian square and absence of a universal marked section; no integral theorem inferred from this passage.",
+      "use": "Revision #6378 source/hypothesis corroboration and reader synchronization; original mathematical review attribution retained."
     }
   ],
   "coefficientChangeContinuation": {
@@ -46653,6 +46714,179 @@
         "problems": 0
       },
       "gitDiffCheck": "clean"
+    }
+  },
+  "currentUpstreamImports": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layers": [
+        "L0B",
+        "L0C"
+      ],
+      "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/Suggested.lean",
+      "locator": "README L0B–L0C; Suggested.lean lines248–379",
+      "provides": "Finite locally free sheaves and locally constant rank, duals, symmetric/exterior powers, the determinant object and fixed-rank determinant functor, with coherent pullback comparisons on schemes.",
+      "usedBy": [
+        "StableReductionPartII:MC.5/hodge-determinant"
+      ],
+      "boundary": "Apply on scheme atlases and descend with the stack owner. The ordered exact-sequence determinant comparison, its clutching signs and line-valued determinant-of-cohomology/Deligne pairing are separate contracts. The ordinary determinant is imported, never rebuilt here. Current upstream stages are absent from the atlas snapshot; this metadata records the exact owner without inventing a pinned declaration or an unresolved indexed stage id."
+    }
+  ],
+  "readerRevision": {
+    "job": "DESIGN-StableReductionPartII~2",
+    "issue": 6378,
+    "worker": "Codex — codex-zFb7Lk",
+    "date": "2026-10-10",
+    "status": "complete",
+    "incomingNodes": 528,
+    "newNodes": 0,
+    "nodeBudget": 300,
+    "resolvedGap": {
+      "title": "Definitive reader contradicts the corrected packet",
+      "neededBy": [
+        "StableReductionPartII:MC.2/rigid-triangle-embedding",
+        "StableReductionPartII:MC.2/genus-one-base",
+        "StableReductionPartII:MC.4/dualizing-section-degree",
+        "StableReductionPartII:MC.4/smooth-generic-direct-image-nef",
+        "StableReductionPartII:MC.7/level-picard-parameter",
+        "StableReductionPartII:MC.7/picard-triples-comparison"
+      ],
+      "resolution": "Rebuilt the entire reader from the current target contracts, retaining exact shared setups, all cumulative corrections, API/tests, locators, consumer exports and supplier boundaries. A correspondence check expands the shared setups and compares every target contract."
+    },
+    "copiedUseCorrections": [
+      {
+        "node": "StableReductionPartII:MC.1/tricanonical-hilbert",
+        "consumer": "StableReductionPartII:MC.4/finite-degree-equations"
+      },
+      {
+        "node": "StableReductionPartII:MC.5/hodge-bundle",
+        "consumer": "StableReductionPartII:MC.6/jacobian-hodge-comparison"
+      },
+      {
+        "node": "StableReductionPartII:MC.5/hodge-determinant",
+        "consumer": "StableReductionPartII:MC.6/jacobian-hodge-comparison"
+      }
+    ],
+    "surfaceRequestCorrections": [
+      115,
+      116,
+      117,
+      118
+    ],
+    "upstreamOwnership": {
+      "roadmap": "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "layers": [
+        "L0B",
+        "L0C"
+      ],
+      "document": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "suggested": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3c18d9fbfceed0dc5c1edb1070a3927152d19e28/TauCetiRoadmap/AlgebraicVectorBundles/Suggested.lean",
+      "locator": "README L0B–L0C; Suggested.lean lines248–379",
+      "provides": "Finite locally free sheaves and locally constant rank, duals, symmetric/exterior powers, the determinant object and fixed-rank determinant functor, with coherent pullback comparisons on schemes.",
+      "usedBy": [
+        "StableReductionPartII:MC.5/hodge-determinant"
+      ],
+      "boundary": "Apply on scheme atlases and descend with the stack owner. The ordered exact-sequence determinant comparison, its clutching signs and line-valued determinant-of-cohomology/Deligne pairing are separate contracts. The ordinary determinant is imported, never rebuilt here. Current upstream stages are absent from the atlas snapshot; this metadata records the exact owner without inventing a pinned declaration or an unresolved indexed stage id."
+    },
+    "mathematicalClosure": false,
+    "historicalReviewPreserved": true,
+    "sourceScope": "Four bounded public-paper checks and publisher metadata; inherited source reviews and exact supplier contracts retained. BLR full text not acquired or reread.",
+    "remaining": "All eight stages partial; twenty mathematical gaps,140 requests,78 node omissions,97 unique API omissions and76 unique test omissions. Next independent review checks synchronization; follow-up work discharges the stated owner contracts, not new fine-grained algebra nodes.",
+    "validation": {
+      "targets": 528,
+      "correspondence": {
+        "statement": 528,
+        "hypotheses": 846,
+        "proofSteps": 911,
+        "acceptance": 903,
+        "api name": 470,
+        "api statement": 470,
+        "tests name": 433,
+        "tests statement": 433,
+        "sourceId": 705,
+        "locator": 705,
+        "match": 705,
+        "prerequisite": 2056,
+        "use where": 322,
+        "use how": 322,
+        "declarationName": 407
+      },
+      "sharedSetups": 9,
+      "anchors": 581,
+      "localLinks": 3151,
+      "ownGraphVertices": 528,
+      "ownGraphEdges": 1211,
+      "inventory": {
+        "node": {
+          "expressed": 450,
+          "omitted": 78
+        },
+        "API": {
+          "expressed": 365,
+          "omitted": 97
+        },
+        "test": {
+          "expressed": 356,
+          "omitted": 76
+        }
+      },
+      "nodeContractsPreserved": [
+        "statement",
+        "hypotheses",
+        "prerequisites",
+        "api",
+        "tests",
+        "planet",
+        "sources",
+        "implementationStatus",
+        "declarationName"
+      ],
+      "historicalReviewPreserved": true,
+      "baselinePreserved": true,
+      "sourceIssuesPreserved": 14,
+      "consumerRoutesPreserved": 26,
+      "LeanMathematicalCodePreserved": true,
+      "readerSha256": "06333b58ddde7b203e4fab09733483390dbe533052eaac4a13c8010c362cb769",
+      "readerBytes": 1818166
+    },
+    "compilation": {
+      "file": "research/blueprint/suggested/StableReductionPartII.lean",
+      "lines": 5937,
+      "sha256": "3e1a5468cce90495b52a71e44a54d9d7d17602eb691b87f6dc58f21b7836089f",
+      "diagnosticsSha256": "49330e565c1c22e34689c2a4fe8c6098ee539b25ed8026b5f70ab8381798eafc",
+      "exit": 0,
+      "errors": 0,
+      "warnings": 875,
+      "admissionWarnings": 875,
+      "otherWarnings": 0,
+      "availableGiB": 102,
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "command": "lean-check research/blueprint/suggested/StableReductionPartII.lean",
+      "scope": "Mathlib-only imports at the pinned Mathlib. Expressed types elaborate; admitted bodies and geometric omissions are not proved. Mathematical code and declaration line positions are preserved."
+    },
+    "readerCheckMethod": "Expand the nine named setup references, locate each unique Target block, and compare statement, hypotheses, proof steps, acceptance guards, API/test names and statements, direct prerequisites, uses and source ids/locators/matches against its packet node. Reconcile every local anchor, all expressed/omitted inventory sets and the own-node DAG. Compare mathematical Lean code after removing comments and compare incoming/current node contracts, baseline and review objects.",
+    "validatorSha256": "3c948165e0c2a228ef4d515cf6b0303efe3fab0821fd7cc16c37155f4926ed63",
+    "currentUpstreamRead": {
+      "roadmapCommit": "3c18d9fbfceed0dc5c1edb1070a3927152d19e28",
+      "libraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "documents": [
+        "StableReduction README and Suggested.lean",
+        "JacobianChallenge README and Suggested.lean",
+        "AlgebraicVectorBundles README L0B–L0C and Suggested.lean lines220–379"
+      ],
+      "newRoadmapScreen": [
+        "AlgebraicVectorBundles",
+        "DifferentialGeometry",
+        "IntegralLattices",
+        "LocalGaloisGroups",
+        "OperatorTheory (all eight part suggested files)",
+        "OrthogonalSpinGroups",
+        "PeripheralActions",
+        "ProfiniteArithmetic",
+        "RealAlgebraicGeometry"
+      ],
+      "scope": "Read-only ownership check. The bounded algebraic-geometry keyword screen found no new moduli-curve supplier in the other newer roadmaps. Current AbelianVariety is field-shaped. No lake command run in the current upstream environment."
     }
   }
 }
