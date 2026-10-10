@@ -22403,9 +22403,10 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #675"
+   "note": "deliverables arrived from an external worker on issue #675",
+   "finishedAt": "2026-10-10T00:43:14Z"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -47794,8 +47795,9 @@
     "PKG-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7514"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7514",
+   "finishedAt": "2026-10-10T00:43:16Z"
   },
   {
    "id": "PKG-EllipticCurveModularityImaginaryQuadratic",
@@ -48035,7 +48037,8 @@
     "PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7927"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -48440,7 +48443,8 @@
     "PKG-HabiroCohomologyFoundations~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7931"
   },
   {
    "id": "PKG-HabiroCyclotomicCompletions",
@@ -48787,8 +48791,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -79966,8 +79970,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
