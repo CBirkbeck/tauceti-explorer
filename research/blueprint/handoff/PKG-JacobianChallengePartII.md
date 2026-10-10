@@ -1,16 +1,16 @@
 # PKG-JacobianChallengePartII — blocked package checkpoint
 
-Refs #7593. Worker: Codex (GPT-6), session `codex-u1FdEf`,
-10 October 2026. Branch: `codex-u1FdEf-jacobian-package`.
-The bot confirmed [claim comment 6100808589](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100808589)
-in [comment 6100810020](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100810020).
+Refs #7593. Worker: Codex (GPT-6), session `codex-9yBWqB`,
+10 October 2026. Branch: `codex-9yBWqB-jacobian-package`.
+The bot confirmed [claim comment 6100973910](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100973910)
+in [comment 6100975093](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6100975093).
 This is the only job claimed in this run. No issue on the manager's priority
 list was available; this package was the first eligible fallback kind.
 
 ## Result and blocking dependencies
 
-**Checkpoint: two required supplier packages remain absent.** This run changes
-only this handoff, updating the supplier revision state and content receipts,
+**Blocked checkpoint: two required supplier packages remain absent.** This run changes
+only this handoff, updating the upstream ownership check and supplier scheduling evidence,
 rechecking the two-packet internal dependency graph, and retaining the source
 limits, proof worklist and target correspondence. The mathematical
 README and Suggested.lean are unchanged. No source proof or omitted geometric
@@ -39,6 +39,19 @@ The queue entry for `PKG-JacobianChallengePartII` currently has `after: []`.
 The maintainer should gate #7593 on the supplier prerequisites above to prevent
 another unchanged blocking continuation. This worker has changed no queue,
 issue label or supplier file.
+
+## Supplier scheduling evidence
+
+The complete GitHub listing of package directories contains neither
+`AbelianSchemesAndArithmeticModuli` nor `StableReductionPartII`. The local
+queue has no `PKG-AbelianSchemesAndArithmeticModuli` entry at all; its only
+abelian-scheme package entry is the distinct Part II consumer. Thus waiting
+for a currently claimed parent package is not a resolution path: the
+maintainer needs to arrange that parent package as well as gate this job.
+The available label on #7593 does not establish supplier closure. This is
+another blocked package continuation, after checkpoints #8479, #8510,
+#8522, #8532, #8539 and #8555 (six preceding checkpoints). No second job is
+claimed, and no queue entry or label is changed by this worker.
 
 ## Ownership and dependency boundaries
 
@@ -71,12 +84,17 @@ symplectic component and still supply its integral smooth universal curve.
 ## Current upstream and library boundary checks
 
 This continuation read the current upstream JacobianChallenge and
-AlgebraicVectorBundles READMEs in full. Earlier assembly inspected their
-Suggested.lean files and upstream StableReduction Layer 2 and its J-B/SR-2
-contract; those latter inspections are inherited, not repeated here.
+AlgebraicVectorBundles READMEs in full, inspected their Suggested.lean
+interfaces, and reread upstream StableReduction's supplier-contract table
+and coherent-curve-theory boundary. The field Jacobian Suggested.lean
+contains no executable target. The vector-bundle suggested interface supplies
+finite locally free dual/determinant shapes, rather than an abelian scheme
+or fine-level moduli scheme.
 The upstream checkout is
-`3c18d9fbfceed0dc5c1edb1070a3927152d19e28` and contains neither missing
-supplier. Pointed field Jacobians stay with JacobianChallenge; JC6.2 and
+`81207c7f16d5abf770f13a7d2bdcdb465c030787` and contains neither missing
+supplier. Its roadmaps now occupy top-level directories; the old nested
+`TauCetiRoadmap/<Name>` filesystem location no longer applies.
+Pointed field Jacobians stay with JacobianChallenge; JC6.2 and
 JC6.3 import finite locally free duals and determinants from
 AlgebraicVectorBundles L0B and L0C. Relative nodal Gorenstein duality,
 coherent cohomology/base change and fibrewise relative ampleness stay with
@@ -117,7 +135,7 @@ Lake.
   source correctness or geometric typechecking.
 - `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
   **exit 0, no errors, nine warnings, all `declaration uses sorry`**.
-  Available memory was 98 GB before this single check. The shared Mathlib
+  Available memory was 100 GB before this single check. The shared Mathlib
   pin was `082e2d37e8`; no Tau Ceti module is imported by this file. No language
   server, project, build, update or cache download was started.
 - `metadata.toml` remains absent because this package is incomplete. Its
@@ -132,10 +150,11 @@ Lake.
 The two supplier packet Git blob ids match GitHub's default-branch content
 listing: `84b26b1831f0e62fdceb7d84a771862c2e1bd63b` for the parent and
 `e8429524de9692de5328036810b499140fb93c53` for StableReductionPartII.
-The stable-reduction packet has changed since the preceding checkpoint;
-its exact two MC.4 supplier statements and their Jacobian prerequisites were
-read again. The abelian-scheme parent packet and both saved Jacobian package
-files remain byte-for-byte identical to the preceding checkpoint.
+Both supplier packets match the preceding checkpoint's SHA-256 receipts.
+The exact two MC.4 supplier statements and their Jacobian prerequisites were
+read again. The accepted Jacobian packet and both saved package files also
+remain byte-for-byte identical to that checkpoint. Current upstream has
+changed, so its ownership check was repeated against the new commit.
 Fresh SHA-256 receipts are:
 
 | File | SHA-256 |
@@ -184,7 +203,9 @@ inside this package to manufacture typed names.
 
 ## Resume when the supplier boundary changes
 
-1. Obtain the AbelianSchemesAndArithmeticModuli parent package and the
+1. Before assigning this package again, arrange the missing parent package
+   job and gate #7593 on both supplier packages. Then obtain the
+   AbelianSchemesAndArithmeticModuli parent package and the
    reconciled, independently accepted and packaged StableReductionPartII
    MC.4 supplier. Match their actual layer contracts and signed conventions;
    keep MC.4 out of JC0–JC5.
