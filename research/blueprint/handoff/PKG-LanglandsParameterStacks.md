@@ -1,3 +1,153 @@
+# PKG-LanglandsParameterStacks — current blocked checkpoint
+
+Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Worker: Codex (GPT-6), session `codex-vFnWeA`, 10 October 2026.
+Branch: `codex-vFnWeA-langlands-parameter-stacks`.
+The bot confirmed claim comment
+[6094054178](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094054178)
+for this session. This continues checkpoint
+[#8241](https://github.com/CBirkbeck/tauceti-explorer/pull/8241).
+Only this job was claimed. No manager-priority issue appeared in the complete
+762-issue available inventory. The top fallback was a red-team fix review,
+excluded under the manager's instruction to reserve that work for upstream
+follow-ups; this was an available focus package.
+
+## Result and scope
+
+**Blocked checkpoint, not a completed package.** This continuation independently
+verified the missing supplier contracts and checked the open supplier PR as
+well as main. It changes only this handoff. The inherited README and suggested
+file remain as submitted in #8241, retaining the ordinary affine/group
+constructions and their explicit limitations. No source passage is recorded.
+
+The obstacle concerns mathematical signatures, not proving supplier theorems:
+`DerivedParameterStack`, `CategoricalHeckeDatum`, `goodFiltrationTStructure`,
+`InducedPerfectComplexes` and `UniversalRepresentationBundle` cannot be given
+the full accepted interfaces using the current owner contracts. For example,
+all three of the first names occur in the README but none occurs in the package
+Lean file. Successful elaboration therefore does not certify signature coverage.
+
+PROTOCOL sections 13 and 20 require these signatures and meaningful conditions;
+section 15 assigns the general enhanced foundations to their existing owners.
+The issue permits edits only to this package and handoff. Completing E0/E5 or
+constructing another general enhancement here would exceed that scope. This is
+a blocker under the run's checkpoint rule, not a time-limit checkpoint.
+
+`metadata.toml` remains absent. `issues.deliverables_complete` checks existence
+of every output before its kind-specific checks; supplying the final missing
+path would classify this unfinished package as complete. Once the full package
+is ready, its content is `topic = "math.NT"`.
+
+## Current main evidence
+
+Read the complete E5 and E0 suggested files. E5 still supplies:
+
+- `SymMonInftyCat` with `True` instead of a projection, coCartesian condition
+  and Segal condition; `CAlg` has the `Unit` carrier (lines 77–104).
+- Stability, compactness, Ind-completion and coherent group actions with
+  `True` conditions (lines 112–170).
+- Animation with a `True` condition and animated algebras with the `Unit`
+  carrier (lines 189–199).
+
+E0's elaborated prefix supplies ordinary repleteness and weak contractibility;
+its closing note explicitly omits the infinity-category interfaces. There is
+no EnhancedDerivedSheaves package in this checkout.
+
+Read the accepted LP gaps, all enhancement/descent supplier requests, the
+specific targets above and the eight LP library-audit rows. In particular:
+
+- LP1's derived mapping stack needs E5 animation/abstract, SF.1 and S.1. Its
+  classical-points and perfect-pullback comparisons are part of its API.
+- LP2's categorical Hecke datum needs coherent finite-set exact monoidal
+  functors, equivariant endofunctors and the enhanced operator centre.
+- LP3's good-filtration and induced-perfect targets need stable enhanced
+  Perf/IndPerf, with the actual induced/Weyl representation supplier.
+- LP4 needs enhanced representation bundles and a coherent IndPerf module
+  equivalence; ordinary sheaves or abstract group representations do not
+  supply these targets.
+
+Read current upstream ReductiveGroups and AlgebraicVectorBundles READMEs in
+full, and inspected relevant AlgebraicVectorBundles and DGAInfinity signature
+search results. The former develops ordinary sheaf tensor/dual and relative
+Spec; the latter develops DG/A-infinity operations. A bounded search for
+animation, quasicategories, stable infinity categories and the E5 carrier names
+across current upstream Lean files and current Tau Ceti found no replacement.
+This is not an exhaustive audit of either library.
+
+Read-only commits are unchanged from #8241:
+TauCetiRoadmap `8c72a04753b11cab07fa593cc38ceaa7c0515380`;
+Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+No Lake command ran in either tree.
+
+## New supplier-PR evidence and action needed
+
+The E5 owner issue [#720](https://github.com/CBirkbeck/tauceti-explorer/issues/720)
+is submitted in the still-open
+[PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009), whose inspected
+head is `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`. This is owner work, not a
+second job claimed or a reviewed input imported by this continuation.
+
+Read its PR description, handoff, relevant added signature blocks and
+`signatureOmissions` in its packet diff. This PR replaces many old vacuous
+prototypes with genuine quasicategory data. It does **not** yet discharge LP's
+signature requirement:
+
+- `SymMonData` records a projection and fibre data, but its Segal comparisons
+  are homotopy-category equivalences. The cocartesian/inner-fibration,
+  mapping-space and higher coherence conditions remain explicitly omitted.
+- `CoherentActionData` records a base and family, without the missing coherent
+  action contract. Base identification and transition coherence are among
+  the declared omissions.
+- Its Ind and module-base-change outputs use quasicategory data and
+  homotopy-category comparisons. Stability, presentability, compact generation,
+  preservation conditions and module-linearity are explicitly omitted.
+- The animated-algebra output uses a quasicategory carrier rather than `Unit`,
+  but its full supporting coherent/model predicates still require the E0/E3
+  supplier interfaces identified by that PR.
+
+Thus merging #8009 alone would improve the available prototypes but would not
+by itself authorize treating G3 as resolved. The owner-side next action is to
+settle those E0/E3/E5 contracts, then expose stable exact monoidal functors,
+coherent group actions, Ind/module universal properties and animation/descent
+with their actual conditions. Definitions and signatures suffice; proof
+implementation is not required before this package can specialize them.
+Keep the general work with the existing owners and review it there.
+
+Resume by rechecking #8009 and the E0/E3 interfaces, then follow the detailed
+remaining-interface table and source receipts in the inherited handoff below.
+G1, G4 and G6 also remain; G2 is a source-level open question and must not be
+replaced by a stronger all-prime independence claim. The obsolete FixedSubgroup
+object-file complaint in accepted G3 is not the current obstacle: its existing
+import elaborates successfully.
+
+## Validation in this continuation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
+  zero errors, zero warnings. Unchanged accepted input: 79 nodes, 140 API items,
+  90 tests, 31 planets, 31 baseline declarations, eight planned stages, five
+  gaps and 16 requests.
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0; 261 warnings, every warning `declaration uses sorry`; zero errors
+  and no other warning class. Available memory before compilation: 108 GB.
+  This verifies the inherited signatures, not the missing enhanced targets.
+- Unchanged README: 174,503 bytes and 79 target headings, below 200 KB.
+- Intake file check and `git diff --check`: passed for the handoff-only change.
+
+No new mathematical source or baseline-declaration claim was added. Historical
+source and pinned-declaration readings below remain the previous workers'
+receipts, not new readings claimed by this continuation. No restricted source
+was needed. No library build, cache operation, language server or background
+compile remains. All information needed after scratch deletion is in this note
+and the inherited package.
+
+---
+
+# Inherited checkpoint #8241 — codex-6NFfZ0
+
+The following preserves the earlier ordinary-interface work, detailed remaining
+interfaces and source receipts. Its checks and claims belong to that session;
+the current continuation's results are recorded above.
+
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
