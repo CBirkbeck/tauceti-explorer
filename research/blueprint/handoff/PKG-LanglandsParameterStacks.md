@@ -1,32 +1,50 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-7brC83`, 10 October 2026.
-Branch: `codex-7brC83-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095132377).
-No manager-priority issue was available at selection; the available focus package
-was selected after the top review #5702 had been claimed by another session.
-Only this job was claimed. **This is an incomplete, blocked checkpoint.**
+Worker: Codex (GPT-6), session `codex-PuvOdI`, 10 October 2026.
+Branch: `codex-PuvOdI-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095577912).
+None of the manager-priority issues was available at selection. No eligible
+finished-plan review preceded this focus package. Only this job was claimed.
+**This is an incomplete, blocked checkpoint.**
 
 ## This session's concrete progress
 
-Added an identity-component invariant check to README LP2c.1 and its rational
-unit calculation `projected_identity_component_shadow` to Suggested.lean.
-For H=G_m, Q=C₂ acting by inversion, Γ=ℤ and trivial η, the lifts with generator
-values (2,1) and (1/2,1) are semisimple and not H-conjugate, but are J-conjugate
-for J=H⋊Q. The Laurent coordinate on the identity component, extended by zero,
-is H-invariant and separates them. Whole-J invariant families cannot separate
-them, including after imposing the same η. This illustrates an existing target's
-H-conjugation convention; it introduces no new owner or geometric construction.
-The suggested example checks only the rational conjugation, inversion and
-coordinate calculation. A separate scratch proof of that exact statement
-elaborated with no `sorry`, errors or warnings.
+Completed the ordinary affine interface of LP2e.1 in README and Suggested.lean:
 
-Replaced the previous handoff's duplicated continuation notes and contradictory
-current-tree receipts with this worklist. The accepted LP packet is unchanged.
-The package remains incomplete; `metadata.toml` is intentionally absent because
-`issues.deliverables_complete` otherwise treats a package with every output path
-as complete without inspecting its mathematical coverage. Add the intended
+- `ParameterInvariantAlgebra` now specializes Mathlib's `AlgHom.equalizer`
+  rather than defining a second equalizer. Read its native submodule comparison.
+- Added equivariant restriction of coordinate maps, its value equation,
+  identity and composition. Two actual commuting coaction squares are required.
+- Added `ParameterCoarseQuotient` as the actual `AlgebraicGeometry.Spec` of the
+  invariant algebra, its quotient map, descent to affine targets and uniqueness
+  among scheme morphisms with the specified composite. Inflation has the
+  correct contravariant direction and a commuting quotient square.
+- Added the canonical tensor base-change homomorphism and invariant comparison,
+  their pure-tensor equations, and the algebra isomorphism under
+  `Module.Flat R S`. This follows from exactness, independently of good primes;
+  nonflat parameter-specific comparison remains a separate target.
+- Added suggested checks for affine unique descent, the invariant inclusion,
+  trivial coaction, self-base-change and a nonflat failure. For the sign action
+  of C₂ on Z[x], mod-2 reduction makes x invariant although x is outside the
+  image of the extended invariant algebra. This is a check of the general
+  equalizer adapter, not a connected-reductive GIT counterexample.
+
+Read the relevant pinned statements of `AlgHom.equalizer`, `AlgHom.liftEquiv`,
+`Module.Flat.lTensor_exact`, `Module.Flat.lTensor_preserves_injective_linearMap`,
+`Spec.homEquivAlgHom` and the affine spectrum comparison before using them.
+Read BHKT Proposition 3.10(iv), pp.15–16, and FS VIII.3, pp.285–290, for the
+flat and coarse quotient conventions. The suggested signatures elaborate;
+their roadmap proofs use `sorry`. No formalisation is claimed.
+
+The previous checkpoint's identity-component example remains: H=G_m,
+Q=C₂ acting by inversion, Γ=Z and trivial η, with generator values (2,1) and
+(1/2,1). Whole-J invariants cannot distinguish those H-conjugacy classes.
+It was not newly added or independently proved in this session.
+
+The accepted LP packet is unchanged. `metadata.toml` remains intentionally
+absent: `issues.deliverables_complete` otherwise treats every output path's
+existence as completion, despite missing mathematical coverage. Add
 `topic = "math.NT"` only when the whole package is ready.
 
 ## Blocking supplier contracts, freshly inspected
@@ -121,9 +139,9 @@ Preserve the current SR.6 ownership already recorded in the package README:
 | Excursion algebra and coefficient identities | SR.6.3 excursion-algebra | Arbitrary-source extensions and enhanced operator realization |
 | Universal homeomorphism and invariant comparison | SR.6.3 excursion-invariant-comparison | Enhanced colimit, cohomology and stronger base change |
 
-Read the current SR.6.1–SR.6.3 target statements in this session. SR.6.2 wild
-strata are finite at one fixed cutoff, not across all depths. No ownership move
-was made. The ordinary local prototypes still need migration to actual owner
+SR.6.2 wild strata are finite at one fixed cutoff, not across all depths.
+No ownership move was made. This ownership table is retained from the
+previous checkpoint; the new affine adapters do not duplicate these targets. The ordinary local prototypes still need migration to actual owner
 imports when the accepted LP plan is reconciled.
 
 The inherited minimum missing-signature inventory remains:
@@ -156,11 +174,9 @@ shadow do not express the enhanced target. Preserve the following contracts:
   denominator and embedded invariant dual centre.
 
 E0/E5 and SF.1/S.1 own the enhanced category, animation, descent and QCoh/Perf
-foundations. Read the checked-in E5 prefix: its monoidal coCartesian and Segal
+foundations. Freshly read the checked-in E5 prefix: its monoidal coCartesian and Segal
 fields are `True`, and `CAlg` is `Unit`; those cannot be imported as the actual
-structures. A metadata check on PR #8009 still finds it OPEN at
-`b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`, the same head inspected by the previous
-worker. This session did not re-review that PR. Read pinned `SSet.Quasicategory`:
+structures. Read pinned `SSet.Quasicategory`:
 it supplies inner horn filling, not those enhanced operations. Read the ordinary
 AlgebraicVectorBundles and ReductiveGroups READMEs in full for the required
 upstream style and boundaries. The current native sheaf tensor is ordinary
@@ -199,35 +215,35 @@ Other inherited plan repairs to retain:
 - `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
   zero errors, zero warnings. No packet was changed.
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, zero errors, 277 warnings, all `declaration uses sorry`; no other warnings.
-  Available memory before compilation was 113 GB. This checks the declarations
-  present, not the omitted geometric and enhanced signatures.
-- The new rational-unit statement was independently proved in scratch and checked
-  with lean-check: exit 0, zero warnings, no `sorry`. That proof is not a new
-  repository implementation.
+  exit 0, zero errors, 296 warnings, all `declaration uses sorry`; no other warnings.
+  Available memory before compilation was 109 GB. This verifies signatures
+  present, not the omitted geometric and enhanced signatures or their proofs.
 - Scoped intake `check-files`: three authorized files, zero problems.
   `git diff --check`: passed.
 - Managed compilation pins are Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
   `f790474821cf4256814db967cb154e7af3d0c369`. The latter is the wrapper's advertised
   prepared build, not a fresh git receipt: the prepared Tau Ceti directory has
-  no `.git`. Current read-only upstream is
-  `cd03e06852a13216ad246d0623492c4beac39af2`; current read-only native Tau Ceti is
+  no `.git`. Current read-only upstream inspected at
+  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; current read-only native Tau Ceti at
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-- Source receipts fetched on 2026-10-10: [FS](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
-  SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`;
-  [Quast](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
-  SHA-256 `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
-  Both match the accepted packet. Source readings are scoped above; no full
+- Public sources fetched on 2026-10-10:
+  [FS](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), SHA-256
+  `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`;
+  [BHKT](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0223/0001/ACTA-2019-0223-0001-a001.pdf), SHA-256
+  `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`;
+  [Quast](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf), SHA-256
+  `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
+  All match the accepted packet. Source readings are scoped above; no full
   source audit, new source erratum or private-book use is claimed.
 - Unchanged LP input SHA-256:
   `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
-- README: 183182 bytes, SHA-256
-  `534f5ed76734d0e39511ae7c721deb203300a31a0d943290ac9cbdddc06ab22a`.
-- Suggested.lean: 97841 bytes, SHA-256
-  `d86fe069c04f7dbb31e895750deb4a6cef8d15dc8219d4d76172165c5de8a418`.
+- README.md: 187606 bytes, SHA-256
+  `17a40f2907ba80c123946e08a3d8a0c2c1fd823dcee507d2a08af1238783ddd9`.
+- Suggested.lean: 106168 bytes, SHA-256
+  `c436811dff79478b9bb2c1c38a5832508bcaa7fa95402cd0b2a9c9bba53a698a`.
 
 Only the two package artifacts and this handoff changed. No owner file or
 read-only tree was edited; no Lake build/update/cache command or language server
-ran. Both lean-check processes finished. All continuation information is above;
+ran. All lean-check processes finished. All continuation information is above;
 no scratch file is needed by the next worker.
