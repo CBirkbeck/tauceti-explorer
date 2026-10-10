@@ -1,6 +1,116 @@
 # PKG-AutomorphicSpectralTheory — checkpoint
 
-Issue: #7893. Current worker: Codex, session `codex-BHt5mH`, 10 October 2026.
+Issue: #7893. Current worker: Codex, session `codex-0rbj0G`, 10 October 2026.
+Claim confirmed by the bot on comment 6093015843. Branch:
+`codex-0rbj0G-automorphic-spectral-package`.
+
+## Current pass: normalized special-function consumers
+
+This remains a checkpoint. Seven target signatures and eight API signatures
+are still absent, as enumerated below; the accepted plan has supplier and tier
+conflicts that this issue forbids us to edit. No metadata was added: intake
+would otherwise recognize all three package files as a complete deliverable.
+The category remains `math.NT` when the package can actually be completed.
+This pass fixes a separate concrete defect in the existing prototype and
+preserves the earlier native resolvent/Nevanlinna work.
+
+1. `SpecialFunctions` previously contained four arbitrary functions, despite
+   its comment claiming they were the actual supplier functions. Its comparison
+   theorems could therefore assert Bessel and completed-zeta identities for
+   a wrong normalization, or even a constant-zero supplier. It now requires
+   explicit defining equations: I/J use QM.2's principal-power regularized
+   hypergeometric formulas; K uses the existing AL.0 Mellin integral; completed
+   zeta agrees with Mathlib's `completedRiemannZeta`. These are mathematical
+   equality contracts, not unspecified proposition fields or a second general
+   special-function library. The adapter still needs wiring to the owners when
+   their modules are available; it does not settle QM's upstream tier conflict.
+2. Four checks cover completed-zeta reflection, I at order/argument zero,
+   positive-argument J at order 1/2, and positive-argument K at order 1/2.
+   Reflection has a proof from native `completedRiemannZeta_one_sub`; the three
+   Bessel checks have admitted proofs. The additional proved theorem
+   `SpecialFunctions.completedZeta_not_zero` uses the native residue at 1
+   to exclude the zero adapter. Reflection alone would not exclude zero.
+3. `dit_113` now assumes y>0 and Re(ν+1/2)>0. The existing `whittakerW`
+   is the initial convergent integral, not its meromorphic continuation.
+   DIT11 Appendix A, (A.2), printed p.977 imposes
+   Re(ν±μ+1/2)>0; at μ=0 this is exactly the new restriction. At ν=−1/2
+   the zero-endpoint integrand has a nonintegrable power, so the totalized
+   integral cannot stand in for continued W. The README distinguishes the
+   initial comparison from continuation and exceptional-parameter limits.
+   **Plan-owner action:** the accepted packet's unrestricted `dit_113` target
+   must be reconciled with a genuine continued-W carrier. Do not remove the
+   hypothesis from this integral-based prototype to reproduce that target.
+4. Repeated introductory wording was shortened to retain every named target
+   while fitting the README ceiling. All inherited active named declarations
+   and all input test markers remain; this was checked against the base commit.
+
+## Current validation and source receipts
+
+- README: 199,979 UTF-8 bytes, below the 200,000-byte ceiling with 21 bytes
+  spare. It still names all 190 targets; additions will require shortening
+  prose rather than discarding targets, APIs or tests.
+- Suggested file: 183/190 target declarations and 215/223 API declarations;
+  all 219 input specification-test markers; 229 active examples (225 inherited,
+  four added). Counts use a namespace-aware inventory after removing nested
+  comments and recognizing declaration attributes. Name presence alone does
+  not establish fidelity to the full mathematical contract.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  exit 0, zero errors and warnings; 190 nodes, 223 API items, 219 tests,
+  seven planned stages, zero closed stages, 52 gaps, 22 requests. No plan input
+  was edited.
+- Intake `check-files` on the three changed deliverables: zero problems.
+  `git diff --check`: clean. Only the two package files and this handoff changed.
+- `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
+  exit 0; 806 warnings, all `declaration uses sorry`; zero errors or other
+  warnings. Memory exceeded 20 GB before each check; elaborations ran
+  sequentially in the shared pinned build. Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`. No Lake build/update/cache
+  command or language server was started. Admitted assertions are not proved.
+
+Read the pinned `RegularizedHypergeometric.lean` definition and the completed
+zeta reflection/residue statements, and the actual QM.2 I/J and AL.0 K
+suggested definitions. Public normalization locators:
+[DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2),
+[10.25.2](https://dlmf.nist.gov/10.25.E2),
+[10.32.10](https://dlmf.nist.gov/10.32.E10).
+DIT11 Appendix A's initial-integral conditions and Bessel comparisons were
+read directly at printed p.977 from the
+[Annals PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n2-p08-p.pdf).
+SHA-256: `8f2b8ed3518fe69f08a72ef0ed3311d30523042335d4bd0e1ffd82d84459a010`.
+No source passages or restricted books were copied into the repository.
+
+Current upstream roadmap checkout:
+`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. They were read only.
+The nearby InductionRestriction and OperatorIdeals documents were read;
+AF.1's accepted principal-series and SF-representation nodes were checked,
+with SR's smooth-induction prototype. AF's principal series still induces
+finite-dimensional data from a minimal parabolic. An SF category declaration
+and SR's algebraic-coinduction smooth-vector construction do not provide the
+required holomorphic general-Levi real family for the two Paley–Wiener
+signatures. The recorded AS/ET upward tier conflict likewise remains.
+
+## Resume here
+
+Arrange an authorized plan revision covering the exact seven target/eight API
+omissions and ownership moves in the preserved handoff below. Also reconcile
+`dit_113` with continued W and its exceptional parameters. Then consume the
+actual supplier carriers in the joined prototype, check every remaining
+compatibility sketch against its source, finish the locator/page audit, and
+add metadata only when the complete package requirements hold. This pass
+checks the special-function consumer contract; it does not claim a fidelity
+review of every other inherited prototype. Keep the new normalization checks
+and the actual native zeta/resolvent proofs.
+
+## Preserved handoff from the preceding checkpoint
+
+The remainder records the preceding worker's work and validation, not new
+checks performed by this worker. Its inventory and warning totals are
+superseded by the current totals above; its omission/ownership list remains
+applicable.
+
+Issue: #7893. Preceding worker: Codex, session `codex-BHt5mH`, 10 October 2026.
 Claim confirmed by the bot on comment 6092652810. Branch:
 `codex-BHt5mH-automorphic-spectral-package`.
 This continues the merged `codex-iL0y8y` checkpoint (PR #8173).

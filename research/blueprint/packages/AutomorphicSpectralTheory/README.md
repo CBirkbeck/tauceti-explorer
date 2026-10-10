@@ -1,22 +1,22 @@
 # Automorphic spectral theory and trace distributions
 
-Construct the unitary decomposition of automorphic L², its Eisenstein wave packets, weighted cohomology and trace distributions. Modular kernels and everywhere-unramified function-field GLₙ formulas test measures, residues and normalizations under their separate hypotheses.
+Construct automorphic L² decomposition, Eisenstein wave packets, weighted cohomology and trace distributions; modular kernels and unramified function-field GLₙ formulas test their normalizations.
 
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** supplies projection measures, bounded Borel calculus and self-adjoint partial operators; **OperatorIdeals** supplies Schatten, Hilbert–Schmidt and compactness APIs. Here add measurable multiplicities, direct integrals, general L² kernels and complex trace. Use Mathlib's `LinearPMap` with Tau Ceti's adjoint/resolvent APIs. **CompactGroups** supplies Peter–Weyl and continuous compact-group kernels; noncompact groups still need smoothing estimates.
+**SelfAdjointSpectralTheory** supplies projection measures, Borel calculus and self-adjoint partial operators; **OperatorIdeals** supplies Schatten and Hilbert–Schmidt theory. Add measurable multiplicities, direct integrals, L² kernels and complex trace, using native `LinearPMap` adjoints/resolvents. **CompactGroups** supplies Peter–Weyl and compact-group kernels; noncompact groups require smoothing estimates.
 
-**AdelicAlgebraicGroups** (AA.0–AA.3) supplies adelic topology, quotient measures, heights and reduction theory; **ReductiveGroupsPartII** supplies local reductive structure. **SmoothRepresentationsOfLocalGroups** (SR.1–SR.4) supplies Hecke algebras, normalized induction, admissibility and spherical data. Extend these with rational global Bruhat indexing and analytic intertwiner estimates.
+**AdelicAlgebraicGroups** AA.0–AA.3 supplies adelic topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** supplies local reductive structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 supplies Hecke algebras, normalized induction, admissibility and spherical data. Add rational global Bruhat indexing and analytic intertwiner estimates.
 
-**AutomorphicFormsOnReductiveGroups** (AF.0–AF.3) supplies adelic functions, real representations, restricted tensor products, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** (ALS.5) supplies the cohomology comparison. **AutomorphicLFunctionsAndLocalFactors** (AL.0–AL.3) supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. GL×classical, exterior/symmetric and Asai factors need additional interfaces below.
+**AutomorphicFormsOnReductiveGroups** AF.0–AF.3 supplies adelic functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 supplies the cohomology comparison. **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`; GL×classical, exterior/symmetric and Asai factors require extensions.
 
-Stabilization, endoscopy and Galois applications consume this theory. Needed orbital integrals and classical local packets precede spectral construction; rank-one I/J-Bessel, Laplacian and Eisenstein inputs precede arithmetic applications.
+Stabilization, endoscopy and Galois applications consume this theory. Orbital integrals and local packets precede spectral construction; rank-one analytic inputs precede arithmetic applications.
 
 ## Conventions and order
 
-Hilbert spaces are complete and complex; inner products conjugate the first variable. Direct-integral sections are identified almost everywhere and have a countable fundamental sequence. Projection measures are strongly countably additive. Trace is restricted to trace-class operators; diagonal kernel formulas require a specified representative or factorization.
+Hilbert spaces are complete and complex, with conjugate-first inner products. Direct-integral sections have a countable fundamental sequence and agree almost everywhere. Projection measures are strongly countably additive. Trace requires trace class; diagonal kernels require a specified representative or factorization.
 
-Induction uses δ_P^(1/2), or a^(ν+ρ_P), and AA.0/AA.2 quotient measures. Weyl denominators, covolumes and stabilizer cardinalities are explicit. The spectral resolvent (A−zI)⁻¹ is the negative of the native (zI−A)⁻¹. Stone uses U(t)=exp(itA), with complex generator iA.
+Induction uses δ_P^(1/2), or a^(ν+ρ_P), and AA.0/AA.2 quotient measures. Weyl denominators, covolumes and stabilizer cardinalities are explicit. The spectral resolvent (A−zI)⁻¹ is minus the native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
 Standing assumptions for Yu, DIT and Gross–Zagier targets and tests:
 
@@ -27,9 +27,11 @@ Standing assumptions for Yu, DIT and Gross–Zagier targets and tests:
 For F=y^(k/2)f, the coefficient and unitary-weight operators satisfy
 Δ_classical f=y^(−k/2)(Δ_unitary F+(k²/4−k/2)F); at k=1/2 the shift is −3/16. Green sums use Γ₀(N)/{±I}, whereas Eisenstein sums use Γ_∞\Γ.
 
-Build AS.0, then AS.1–AS.2, AS.3 and AS.4. AS.5 adds AF/ALS cochains. The real Paley–Wiener and multiplier targets form an independent local prefix of AS.6: they use AS.0 and AF.1 representations, not global automorphic occurrence or orbital distributions. Their compact picture must cover arbitrary Levi SF data with K∩M covariance, half-modulus normalization, finite K-types, holomorphic parameters and induction in stages. Trace targets require convergent quotient-centralizer orbital integrals, pseudo-coefficients and Bernstein-component finite-place trace images. Modular-core applications require oriented quadratic cycles and their genus-character signs.
+Build AS.0, AS.1–AS.2, AS.3, AS.4 in order; AS.5 adds AF/ALS cochains. AS.6's local Paley–Wiener/multiplier prefix uses AS.0 and AF.1: general Levi SF compact pictures, K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent quotient-centralizer orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores need oriented quadratic cycles with genus-character signs.
 
-Names are relative to `TauCeti.AutomorphicSpectral`; API/test leaf names extend the displayed target name. AS.k.j refers to a target below; AA, SR, AF, AL and ALS denote the suppliers above. B labels name native library declarations, and S labels name bibliography entries.
+Names are relative to `TauCeti.AutomorphicSpectral`; API/test leaf names extend their target. AS.k.j names a target; AA/SR/AF/AL/ALS name suppliers; B labels name library declarations and S labels bibliography entries.
+
+`SpecialFunctions` is a consumer comparison interface. I/J agree with QM.2's principal-power regularized ₀F̃₁ formulas, with arguments +y²/4 and −y²/4 respectively; K agrees with AL.0's Mellin integral; Λ agrees with Mathlib `completedRiemannZeta`. Require these equations for the supplied functions. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10); the named suppliers own these functions.
 
 ## AS.0 — Hilbert fields, vector analysis and rank-one kernels
 
@@ -150,7 +152,7 @@ Uses: the stated native analytic/Hilbert-space interfaces.
 
 Consume Tau Ceti's `exists_isFiniteMeasure_eq_nevanlinnaKernel_add`: a holomorphic F with Im F≥0 on the upper half-plane has F(z)=a+bz+∫(1+tz)/(t−z)dρ(t), with ρ finite positive, a=Re F(i) and b≥0. Convert by dν=(1+t²)dρ to F(z)=a+bz+∫[(t−z)⁻¹−t/(1+t²)]dν; establish uniqueness in this convention. For resolvents, identify b=0 and finite mass by the asymptotic at i∞; polarize to reconstruct the spectral measure.
 
-Adapter API: `weightedMeasure`, `weighted_mass` and `integral_conversion` preserve positivity, identify ∫(1+t²)⁻¹dν=ρ(ℝ), and equate the two integrals with integrability. Tests: ρ=0 gives ν=0; ρ=δ₂ gives ν=5δ₂; that ν has weighted mass 1. These detect incorrect density factors.
+Adapter API: `weightedMeasure` preserves positivity; `weighted_mass` gives ∫(1+t²)⁻¹dν=ρ(ℝ); `integral_conversion` equates the integrable kernels. Tests: ρ=0 gives ν=0; ρ=δ₂ gives ν=5δ₂ and weighted mass 1.
 
 Assume: The sign is the resolvent convention (A−z)⁻¹; a resolvent written (z−A)⁻¹ has the opposite sign.
 
@@ -520,9 +522,9 @@ Uses: B7; B8; B9.
 
 `dit_113`
 
-I_ν(y)=2^(−2ν−1/2)Γ(ν+1)⁻¹y^(−1/2)M_{0,ν}(2y), and K_ν(y)=√(π/(2y))W_{0,ν}(2y). Use these to reconcile every factor2√y in weight-zero expansions.
+For y>0 and Re(ν+1/2)>0, I_ν(y)=2^(−2ν−1/2)Γ(ν+1)⁻¹y^(−1/2)M_{0,ν}(2y) and K_ν(y)=√(π/(2y))W_{0,ν}(2y). Beyond this initial integral range, use continued W and exceptional-parameter limits; a divergent totalized integral is not W. Reconcile every factor2√y in weight-zero expansions.
 
-Source: S22, DIT11 AppendixA, p977.
+Source: S22, DIT11 Appendix A, (A.1)–(A.2) and the Bessel comparisons, p.977.
 
 Uses: B7; B8; B9; rank-one special-function input contract; AL.0/bessel-k; I-Bessel rank-one definition; AS.0.26.
 

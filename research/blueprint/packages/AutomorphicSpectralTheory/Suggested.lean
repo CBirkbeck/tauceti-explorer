@@ -924,13 +924,55 @@ end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
 universe u v w
-/- Imported special-function interfaces: the Bessel and completed-L-function definitions
-belong to QM.2/AL, not AS. These functions are arguments until those modules are available. -/
+/-- Consumer adapter for the supplied special functions, not a second special-function
+library. The I/J equations are QM.2's regularized-hypergeometric characterizations
+(DLMF 10.25.2 and 10.2.2); K uses AL.0/bessel-k's actual Mellin integral.
+The completed scalar zeta is the native Mathlib function, including its totalized values.
+Each proof field states an equation, so arbitrary functions cannot satisfy this interface.
+Import the supplier declarations when their modules are available and discharge these
+comparison equations there. This adapter neither constructs their theory nor supplies
+adelic geometry, inducing representations or modular continuation. -/
 structure SpecialFunctions where
   besselI : ℂ → ℝ → ℂ
   besselJ : ℂ → ℝ → ℂ
   besselK : ℂ → ℝ → ℂ
   completedZeta : ℂ → ℂ
+  besselI_eq : ∀ (nu : ℂ) (y : ℝ), besselI nu y =
+    ((y : ℂ) / 2) ^ nu * Complex.regularizedHGFun 0 {nu + 1} ((y : ℂ) ^ 2 / 4)
+  besselJ_eq : ∀ (nu : ℂ) (y : ℝ), besselJ nu y =
+    ((y : ℂ) / 2) ^ nu * Complex.regularizedHGFun 0 {nu + 1} (-((y : ℂ) ^ 2) / 4)
+  besselK_eq : ∀ (nu : ℂ) (y : ℝ), besselK nu y =
+    (1 / 2 : ℂ) * ∫ u : ℝ in Set.Ioi 0,
+      Complex.exp (-(y : ℂ) * ((u : ℂ) + (u : ℂ)⁻¹) / 2) *
+        Complex.exp (nu * (Real.log u : ℂ)) / (u : ℂ)
+  completedZeta_eq : ∀ s : ℂ, completedZeta s = completedRiemannZeta s
+
+namespace SpecialFunctions
+-- Compatibility and small-case checks reject a rescaled, zero or wrong-branch adapter.
+example (B : SpecialFunctions) (s : ℂ) :
+    B.completedZeta (1 - s) = B.completedZeta s := by
+  simpa only [B.completedZeta_eq] using completedRiemannZeta_one_sub s
+
+/-- The native residue already excludes the zero completed-zeta function. -/
+theorem completedZeta_not_zero (B : SpecialFunctions) :
+    ¬ ∀ s : ℂ, B.completedZeta s = 0 := by
+  intro h
+  have hz : (fun s : ℂ => (s - 1) * completedRiemannZeta s) = fun _ => (0 : ℂ) := by
+    funext s
+    rw [← B.completedZeta_eq s, h s, mul_zero]
+  have ht : Tendsto (fun _ : ℂ => (0 : ℂ)) (𝓝[≠] (1 : ℂ)) (𝓝 (1 : ℂ)) := by
+    simpa only [hz] using completedRiemannZeta_residue_one
+  have h01 : (0 : ℂ) = 1 := tendsto_nhds_unique tendsto_const_nhds ht
+  exact zero_ne_one h01
+
+example (B : SpecialFunctions) : B.besselI 0 0 = 1 := by sorry
+
+example (B : SpecialFunctions) (y : ℝ) (hy : 0 < y) :
+    B.besselJ (1 / 2) y = (Real.sqrt (2 / (Real.pi * y)) * Real.sin y : ℝ) := by sorry
+
+example (B : SpecialFunctions) (y : ℝ) (hy : 0 < y) :
+    B.besselK (1 / 2) y = (Real.sqrt (Real.pi / (2 * y)) * Real.exp (-y) : ℝ) := by sorry
+end SpecialFunctions
 
 /-- Positive-base complex power used throughout the specializations. -/
 def rpowC (x : ℝ) (s : ℂ) : ℂ := Complex.exp (s * Real.log x)
@@ -997,9 +1039,11 @@ example (t : ℝ) (ht : 0 < t) :
 
 end dit_112
 
-/-- Bessel arguments are the actual QM.2 functions; their identification is omitted until
-that carrier is integrated, not asserted for an arbitrary SpecialFunctions value. -/
-theorem dit_113 (B : SpecialFunctions) (nu : ℂ) (y : ℝ) (hy : 0 < y) :
+/-- Initial-integral Whittaker/Bessel comparison against the normalized supplier adapter.
+The W integral at mu=0 needs Re(nu+1/2)>0 (DIT11 Appendix A, (A.2), p.977).
+Continuation to other orders requires a continued W carrier, not its divergent integral. -/
+theorem dit_113 (B : SpecialFunctions) (nu : ℂ) (y : ℝ) (hy : 0 < y)
+    (hnu : 0 < (nu + 1 / 2).re) :
     B.besselI nu y = rpowC 2 (-2 * nu - 1 / 2) / Complex.Gamma (nu + 1) *
       rpowC y (-1 / 2) * dit_112 0 nu (2 * y) ∧
     B.besselK nu y = (Real.sqrt (Real.pi / (2 * y)) : ℂ) * whittakerW 0 nu (2 * y) := by sorry
