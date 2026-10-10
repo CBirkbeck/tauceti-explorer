@@ -1513,9 +1513,10 @@ theorem figureEightDescendantAtRoot_recurrence (m : ℤ) (N : ℕ) (q : ℂ)
 example (m : ℤ) : figureEightDescendantAtRoot (m + 1) 1 1 -
     figureEightDescendantAtRoot m 1 1 + figureEightDescendantAtRoot (m - 1) 1 1 = 1 := sorry
 
-/-! QT.7: rational pole exclusions and conditional matrix cocycle algebra.
-The knot matrices are not defined by an arbitrary function: this is only the
-explicit algebraic transport interface they must satisfy once supplied. -/
+/-! QT.7: the rational denominator cocycle and its explicit diagonal factor.
+The volumes and weights are supplied representation data; these formulas do
+not construct the representation-indexed knot matrices. GZ (arXiv:2111.06645v3),
+§3.1, (3.5), Lemma 3.1, p. 16; §4.2, (4.14)–(4.15), p. 30. -/
 abbrev SL₂ := Matrix.SpecialLinearGroup (Fin 2) ℤ
 
 def rationalPoleFree (γ : SL₂) (x : ℚ) : Prop := (γ 1 0 : ℚ) * x + γ 1 1 ≠ 0
@@ -1530,6 +1531,146 @@ theorem denominatorCocycle_comp (γ η : SL₂) (x : ℚ)
     (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
     denominatorCocycle (γ * η) x =
       denominatorCocycle γ (rationalMobius η x) + denominatorCocycle η x := sorry
+
+theorem rationalPoleFree_mobius (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    rationalPoleFree γ (rationalMobius η x) := sorry
+
+theorem rationalMobius_comp (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    rationalMobius (γ * η) x = rationalMobius γ (rationalMobius η x) := sorry
+
+theorem denominatorCocycle_neg (γ : SL₂) (x : ℚ) :
+    denominatorCocycle (-γ) x = denominatorCocycle γ x := by
+  simp only [denominatorCocycle, Matrix.SpecialLinearGroup.coe_neg, Matrix.neg_apply,
+    Int.cast_neg, neg_mul, ← neg_add, mul_neg, neg_div_neg_eq]
+
+-- lambda_T, lambda_S_one, lambda_S_zero, lambda_sign, and a denominator check.
+example (x : ℚ) : denominatorCocycle ModularGroup.T x = 0 := by
+  simp [denominatorCocycle, ModularGroup.T]
+
+example : denominatorCocycle ModularGroup.S 1 = 1 := by
+  norm_num [denominatorCocycle, ModularGroup.S]
+
+example : ¬ rationalPoleFree ModularGroup.S 0 := by
+  norm_num [rationalPoleFree, ModularGroup.S]
+
+example : denominatorCocycle (-ModularGroup.S) (2 / 3) =
+    denominatorCocycle ModularGroup.S (2 / 3) := denominatorCocycle_neg _ _
+
+example : denominatorCocycle ModularGroup.S (2 / 3) = 1 / 6 := by
+  norm_num [denominatorCocycle, ModularGroup.S]
+
+/-- The entry exp(v λγ(x)) |cx+d|^κ. The real power uses a positive base
+on the pole-free domain, so it introduces no complex logarithm branch.
+In the knot application v = V/(2πi), and κ is 3/2 on the trivial representation
+and zero on the other representations. -/
+def tweakedAutomorphyEntry (v : ℂ) (κ : ℝ) (γ : SL₂) (x : ℚ) : ℂ :=
+  Complex.exp (v * (denominatorCocycle γ x : ℂ)) *
+    (Real.rpow |(γ 1 0 : ℝ) * (x : ℝ) + γ 1 1| κ : ℂ)
+
+theorem tweakedAutomorphyEntry_ne_zero (v : ℂ) (κ : ℝ) (γ : SL₂) (x : ℚ)
+    (hx : rationalPoleFree γ x) : tweakedAutomorphyEntry v κ γ x ≠ 0 := by
+  change (γ 1 0 : ℚ) * x + γ 1 1 ≠ 0 at hx
+  have hreal : (γ 1 0 : ℝ) * (x : ℝ) + γ 1 1 ≠ 0 := by exact_mod_cast hx
+  apply mul_ne_zero (Complex.exp_ne_zero _)
+  exact_mod_cast (ne_of_gt (Real.rpow_pos_of_pos (abs_pos.mpr hreal) κ))
+
+theorem tweakedAutomorphyEntry_comp (v : ℂ) (κ : ℝ) (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    tweakedAutomorphyEntry v κ (γ * η) x =
+      tweakedAutomorphyEntry v κ γ (rationalMobius η x) *
+        tweakedAutomorphyEntry v κ η x := sorry
+
+theorem tweakedAutomorphyEntry_neg (v : ℂ) (κ : ℝ) (γ : SL₂) (x : ℚ) :
+    tweakedAutomorphyEntry v κ (-γ) x = tweakedAutomorphyEntry v κ γ x := by
+  simp only [tweakedAutomorphyEntry, denominatorCocycle_neg,
+    Matrix.SpecialLinearGroup.coe_neg, Matrix.neg_apply, Int.cast_neg,
+    neg_mul, ← neg_add, abs_neg]
+
+/-- The source's diagonal factor, with fixed volumes and weights across γ. -/
+def tweakedAutomorphy {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ : SL₂) (x : ℚ) : Matrix (Fin n) (Fin n) ℂ :=
+  Matrix.diagonal fun i => tweakedAutomorphyEntry (v i) (κ i) γ x
+
+theorem tweakedAutomorphy_comp {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    tweakedAutomorphy v κ (γ * η) x =
+      tweakedAutomorphy v κ γ (rationalMobius η x) * tweakedAutomorphy v κ η x := by
+  simp only [tweakedAutomorphy, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  exact tweakedAutomorphyEntry_comp (v i) (κ i) γ η x hη hγη
+
+theorem tweakedAutomorphy_neg {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ : SL₂) (x : ℚ) : tweakedAutomorphy v κ (-γ) x = tweakedAutomorphy v κ γ x := by
+  simp only [tweakedAutomorphy, tweakedAutomorphyEntry_neg]
+
+theorem tweakedAutomorphy_det_ne_zero {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ : SL₂) (x : ℚ) (hx : rationalPoleFree γ x) :
+    (tweakedAutomorphy v κ γ x).det ≠ 0 := by
+  rw [tweakedAutomorphy, Matrix.det_diagonal]
+  exact Finset.prod_ne_zero_iff.mpr (fun i _ => tweakedAutomorphyEntry_ne_zero (v i) (κ i) γ x hx)
+
+def tweakedAutomorphyGL {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ : SL₂) (x : ℚ) (hx : rationalPoleFree γ x) : Matrix.GeneralLinearGroup (Fin n) ℂ :=
+  Matrix.GeneralLinearGroup.mkOfDetNeZero (tweakedAutomorphy v κ γ x)
+    (tweakedAutomorphy_det_ne_zero v κ γ x hx)
+
+theorem tweakedAutomorphyGL_coe {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ : SL₂) (x : ℚ) (hx : rationalPoleFree γ x) :
+    (tweakedAutomorphyGL v κ γ x hx : Matrix (Fin n) (Fin n) ℂ) =
+      tweakedAutomorphy v κ γ x := rfl
+
+theorem tweakedAutomorphyGL_comp {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    tweakedAutomorphyGL v κ (γ * η) x hγη =
+      tweakedAutomorphyGL v κ γ (rationalMobius η x) (rationalPoleFree_mobius γ η x hη hγη) *
+        tweakedAutomorphyGL v κ η x hη := by
+  apply Units.ext
+  exact tweakedAutomorphy_comp v κ γ η x hη hγη
+
+-- Translation has factor one; inversion at one retains the volume exponential.
+example (v : ℂ) (κ : ℝ) (x : ℚ) : tweakedAutomorphyEntry v κ ModularGroup.T x = 1 := by
+  simp [tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.T]
+
+example (v : ℂ) (κ : ℝ) : tweakedAutomorphyEntry v κ ModularGroup.S 1 = Complex.exp v := by
+  norm_num [tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.S]
+
+-- The nonintegral input detects omission of den(x) in λ.
+example (v : ℂ) : tweakedAutomorphyEntry v 0 ModularGroup.S (2 / 3) =
+    Complex.exp (v / 6) := by
+  norm_num [tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.S, div_eq_mul_inv]
+
+example (v : ℂ) (κ : ℝ) : tweakedAutomorphyEntry v κ (-ModularGroup.S) 1 =
+    tweakedAutomorphyEntry v κ ModularGroup.S 1 := tweakedAutomorphyEntry_neg _ _ _ _
+
+example {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ) (x : ℚ) :
+    tweakedAutomorphy v κ ModularGroup.T x = 1 := by
+  simp [tweakedAutomorphy, tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.T]
+
+example {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ) :
+    tweakedAutomorphy v κ ModularGroup.S 1 = Matrix.diagonal (fun i => Complex.exp (v i)) := by
+  norm_num [tweakedAutomorphy, tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.S]
+
+example {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ) :
+    tweakedAutomorphy v κ (-ModularGroup.S) 1 = tweakedAutomorphy v κ ModularGroup.S 1 :=
+  tweakedAutomorphy_neg _ _ _ _
+
+example {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ) (x : ℚ)
+    (hx : rationalPoleFree ModularGroup.T x) : tweakedAutomorphyGL v κ ModularGroup.T x hx = 1 := by
+  apply Units.ext
+  change tweakedAutomorphy v κ ModularGroup.T x = (1 : Matrix (Fin n) (Fin n) ℂ)
+  simp [tweakedAutomorphy, tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.T]
+
+example {n : ℕ} (v : Fin n → ℂ) (κ : Fin n → ℝ)
+    (hx : rationalPoleFree ModularGroup.S 1) :
+    (tweakedAutomorphyGL v κ ModularGroup.S 1 hx : Matrix (Fin n) (Fin n) ℂ) =
+      Matrix.diagonal (fun i => Complex.exp (v i)) := by
+  rw [tweakedAutomorphyGL_coe v κ ModularGroup.S 1 hx]
+  norm_num [tweakedAutomorphy, tweakedAutomorphyEntry, denominatorCocycle, ModularGroup.S]
 
 -- Conditional ordered transport identity; the generic interface is requested from QM.5.
 def matrixTransport {n : ℕ} (J : ℚ → Matrix.GeneralLinearGroup (Fin n) ℂ)

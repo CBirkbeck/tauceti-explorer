@@ -1,24 +1,25 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex, session `codex-MNQaDU`, issue #7889, 2026-10-10.
-Continues `codex-1R2Vs9` (PR #8210), following PRs #8192 and #8154.
+Worker: Codex (GPT-6), session `codex-c2or2X`, issue #7889, 2026-10-10.
+Continues `codex-MNQaDU` (PR #8222), following PRs #8210, #8192 and #8154.
 
 This is **partial**, not a completed package. The README is assembled; the Lean
-file is a compiled subset, now also including the native cyclotomic color
-inverse limit, finite-coordinate maps, explicit twist elements and even-color
-evaluation characters. The finite formal-color interfaces from PR #8210 remain.
+file is a compiled subset, now also including the explicit QT.7 diagonal
+automorphy factor, its pole-free GL lift and composition/sign APIs. The native
+color inverse limit, twists and finite formal-color interfaces remain.
 Missing supplier carriers prevent the full signatures
 required by PROTOCOL §20. No packet, review verdict or supplier file was changed.
 
 ## What is saved
 
 - `research/blueprint/packages/ArithmeticQuantumTopology/README.md`: all 106
-  accepted targets, grouped by their actual parent QT.0–QT.7. It retains every
-  statement and explicit hypothesis, all 221 API entries and 169 named tests
-  across all kinds (206 API entries and 159 tests belong to definitions and
-  constructions), and every numbered/page source locator. It omits process
+  accepted targets, grouped by their actual parent QT.0–QT.7. It retains the
+  mathematical hypotheses, all original 221 API entries and 169 named tests,
+  plus two API entries and five tests for the explicit automorphy factor.
+  Every numbered/page source locator remains. The procedural application
+  paragraph is replaced by its mathematical comparison boundary. It omits process
   narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,770 bytes, below the 200 KB ceiling. Comparison obligations
+  document is 199,939 bytes, below the 200 KB ceiling. Comparison obligations
   and conjectures remain visibly distinct from established source results.
 - `Suggested.lean`: the input's concrete native interfaces, without the long
   commented inventory masquerading as signatures, plus genuine meromorphic
@@ -45,7 +46,7 @@ WORKERS forbids replanning another owner. This issue permits editing neither
 GeometricTopology nor the other supplier plans.
 
 The read-only current upstream was checked at TauCetiRoadmap
-`dea8191cc6047d6142a65872ebce6eeeb841a29b` and Tau Ceti
+`8c72a04753b11cab07fa593cc38ceaa7c0515380` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`:
 
 1. `TauCetiRoadmap/GeometricTopology/Suggested.lean` contains schematic comments,
@@ -85,7 +86,43 @@ No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native color-completion addition in this checkpoint
+## Native QT.7 addition in this checkpoint
+
+Garoufalidis–Zagier arXiv:2111.06645v3 was read directly at §3.1, equation
+(3.5), Lemma 3.1 and (3.7), p. 16; §4.2, equations (4.14)–(4.15), p. 30.
+PDF SHA-256:
+`2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de`.
+The accepted E11 correction is retained: the second fraction in the displayed
+proof of Lemma 3.1 must be subtracted. Its stated additive cocycle is unchanged.
+
+- `tweakedAutomorphyEntry` is the actual scalar expression
+  exp(v λγ(x)) times the real power |cx+d|^κ, coerced to ℂ. Here v=V/(2πi)
+  in the knot application. Fixed representation volumes and weights are
+  parameters; this does not replace the missing knot representation family.
+- `tweakedAutomorphy` is that expression's diagonal matrix. Nonvanishing on
+  `rationalPoleFree` gives `tweakedAutomorphyGL`, using Mathlib's native
+  `GeneralLinearGroup.mkOfDetNeZero`. The matrix coercion is definitionally
+  the diagonal formula. No complex-power branch is introduced.
+- The composition API requires both the intermediate and composite rational
+  image to be finite. `rationalPoleFree_mobius` and `rationalMobius_comp` name
+  the domain/action obligations. Scalar, diagonal and GL factors compose in
+  the order used by `matrixTransport`; the source's reverse order agrees
+  because these factors are diagonal.
+- Sign invariance of λ and the scalar/diagonal factor, scalar nonvanishing
+  and the determinant lift have proofs. The action and scalar composition
+  obligations still use `sorry`; diagonal and GL composition derive from
+  the scalar obligation. Fourteen concrete examples are proved: T has factor
+  one, S at one has factor exp(v), S at zero is outside the domain, and
+  λ_S(2/3)=1/6 gives exp(v/6) at weight zero. The sign and both matrix carriers
+  have corresponding checks.
+
+Pinned Mathlib statements read before use: special-linear negation and the
+native `ModularGroup.S/T`, matrix diagonal multiplication/determinant,
+`GeneralLinearGroup.mkOfDetNeZero`, and positivity of `Real.rpow`.
+The conditional knot-matrix transport is retained; the new diagonal factors
+do not establish real analyticity or quantum modularity for any knot.
+
+## Native color-completion addition inherited from PR #8222
 
 Habiro arXiv:math/0605314v1 was read directly at §8.1, Lemma 8.1 and
 (8.1), p. 28; §8.2, pp. 29–30; and §9.1, Propositions 9.1–9.2,
@@ -260,7 +297,7 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
 | QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square | Instantiate ordinary pre-Bloch supplier and its convention comparisons; actual strong/geometric flattening and Pachner interface; regulator branch/period comparison; number-field Bloch and K₃ torsion comparison |
 | QT.6 | Linear NZ/Hessian formulas, full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum, formal Gaussian vertex series and move invariance; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
-| QT.7 | Finite figure-eight root sums/descendants, denominator cocycle, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
+| QT.7 | Finite figure-eight root sums/descendants, denominator cocycle and pole-free action API, explicit scalar/diagonal/GL automorphy factors with composition and sign APIs, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
 
 These are not all external tasks. Quantum completed tensors/PBW/cores and
 the knot-specific series are this roadmap's own work. Their native prototypes
@@ -288,11 +325,14 @@ be added and the package submitted as complete.
 
 ## Sources and validation
 
-This run read the current SemisimpleAlgebras and GrothendieckEulerForms
-readers in full and the actual GeometricTopology suggested file and link/slope
-library interfaces. PR #8192 records reading GeometricTopology and the spectral
-interfaces in its earlier audit. The reviewed library catalogue has no
-ArithmeticQuantumTopology row.
+This run read the current GeometricTopology and
+OperatorTheory/SelfAdjointSpectralTheory roadmaps and suggested files, and the
+actual smooth-link, isotopy, slope and framed-Markov library statements.
+TauCetiRoadmap advanced from `dea8191cc6047d6142a65872ebce6eeeb841a29b`
+during this run; neither inspected owner directory changed at the final commit
+above. The reviewed library catalogue has no ArithmeticQuantumTopology row.
+PR #8222 records its SemisimpleAlgebras/GrothendieckEulerForms reads;
+PR #8192 records its earlier geometric/spectral audit.
 The inherited checkpoint records rereading the input's 24 baseline declaration
 statements in the supplied pinned sources, including the total Bochner integral, ordinary Hopf structure,
 rigid/braided category APIs, cyclotomic positivity, framed braid boundary,
@@ -311,9 +351,19 @@ needed; scratch PDFs/texts are not retained.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
   **0 errors, 0 warnings**, unchanged input.
 - Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
-  **exit 0, 0 errors, 234 warnings**, all `declaration uses sorry`. Available memory
-  was 111 GB before the final check. Only the supplied shared checker was used.
-- Exact-rational smoke checks of the completion/twist formulas: **1,311 passed**,
+  **exit 0, 0 errors, 237 warnings**, all `declaration uses sorry`. Available memory
+  was 106 GB before the final check. Mathlib's build commit is the exact pinned
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. Only `lean-check` was used.
+- Exact rational action/domain/denominator/sign checks: **79,812 passed**,
+  over all 52 determinant-one integer matrices with entries in [−2,2] and all
+  31 reduced rationals r/s with −5≤r≤5 and 1≤s≤4, excluding the two poles.
+  Each checks the Mobius denominator product, action composition and additive
+  λ formula. **239,436** complex factor compositions passed for
+  (v,κ)=(0.37+0.2i,0), (−0.4+1.1i,3/2), (0.2−0.1i,−3/4), at relative/absolute
+  tolerance 5×10⁻¹². The small S/T cases and the incorrect dropped-denominator
+  value 3/2 are separate controls. These are finite checks, not proofs of the
+  remaining `sorry` declarations.
+- PR #8222 recorded exact-rational completion/twist checks: **1,311 passed**,
   at v=2, 3/2 and 3, color pairs m,n=0,…,6, precisions 1,…,9 and even-color
   parameters p=0,…,8. They check the product formula, tail ideals, prime/tilde
   rescaling, twist inverses modulo each tail, even-character values and
@@ -322,9 +372,10 @@ needed; scratch PDFs/texts are not retained.
 - PR #8210 recorded **606** finite-color generator, divided-power, tensor and
   trace checks; this run retains those declarations without rerunning its
   now-deleted scratch script.
-- README assertion audit: 106 unique target anchors plus 8 layer anchors; every
-  exact target statement, separate hypothesis, API specification, test and
-  source locator is retained; size and excluded process-vocabulary checks pass.
+- README assertion audit: the same 106 unique target anchors plus 8 layer
+  anchors, in their original order; all original 221 API names and 169 test
+  names retained; updated source locators and size checked. Only the
+  procedural application paragraph and the cocycle target's explanation change.
 - `python3 research/blueprint/intake.py check-files` on the three changed files:
   **3 files, 0 problems**. Exact issue-output scope and `git diff --check` pass;
   only this job's permitted outputs and handoff are submitted.
