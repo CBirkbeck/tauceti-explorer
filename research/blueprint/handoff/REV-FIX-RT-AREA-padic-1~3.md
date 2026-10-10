@@ -1,5 +1,43 @@
 # REV-FIX-RT-AREA-padic-1~3 handoff
 
+## Current checkpoint: demonstrated generator scope mutation
+
+Codex `codex-oCcEpY`, 10 October 2026; issue #5704; base `bb373205d`.
+The bot confirmed the claim. The preceding three-packet review remains
+finished: P0 needs_changes; AEG and ASII accepted for their scoped corrections.
+No new verdicts, source audit or Lean compilation are claimed.
+
+The scope blocker remains unchanged: the issue authorizes seven outputs,
+while the current queue requires 47, including 20 other packets. Fresh stock
+completion checks pass for the issue scope and fail for the queue. All three
+issue-named packets pass `check_blueprint.py` with zero errors and warnings.
+No suggested file changed, so the preceding successful Lean checks were not
+repeated.
+
+New evidence: a read-only fixture executes the actual AST-extracted
+`fix_rounds` function. A newly available blueprint expands an already
+published, externally claimed later round and its review, even without a
+send-back. Replacing the conditional `made` assignment with an unconditional
+lookup of the existing following round preserves its scope in that fixture.
+The [report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) records the minimal fixture,
+observed outputs and candidate repair's limitations; no continuation depends
+on scratch files. The real generator, queue and prompts were never mutated.
+
+Required next action: resolve the authorized scope, restore the author's ten
+fix outputs and this review's seven outputs from `c69e5b6c9`, and check a
+scope-preservation repair across regeneration. Test original and later rounds,
+newly available owners, review send-backs, new-round creation and prompt
+consistency. Do not merely freeze the already broadened 47-output entry or
+rename unrelated reviewers' verdicts. Exact authorized paths and mathematical
+follow-ups are preserved below.
+
+A scope question was sent during this run; no expansion or repair permission
+is assumed. This is a blocked checkpoint, not another review of the completed
+three-packet work. Only the report and handoff changed. No second job was
+claimed.
+
+## Previous checkpoint (preserved)
+
 ## Current checkpoint: scope reconciliation required
 
 Codex `codex-I2abtS`, 10 October 2026; issue #5704; base `91df8604a`.
