@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-KatoEulerSystems",
+    "date": "2026-10-10",
+    "notes": "Completed fixing review for #7936. Corrected separate level prime-set hypotheses, native regular-scalar torsion-freeness, three source locators including recovered KK3 Theorem 4.3.1, and unnecessary critical-family dependencies; added nineteen examples. All forty accepted targets retained. Suggested.lean compiled with exit 0 and 132 sorry warnings only. Public fifteen-target source sample, author-flagged uncertainties, current TauCetiRoadmap/Completed and Tau Ceti nonduplication, all twenty-one definitions and adversarial mathematics checked. Not draft-ready: exact D.2, unstaged early CM, nonsplit-image, open-curve/full-level, modular/parabolic/twist, period, de Rham/integral/dyadic, control and full-algebra support exports remain unclosed; critical-family construction is conditional and Kato has no assigned upstream tier. See the review report and handoff for exact suppliers and consumers."
+  }
+}
