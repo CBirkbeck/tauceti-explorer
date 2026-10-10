@@ -23,6 +23,7 @@ import Mathlib.GroupTheory.Perm.Cycle.Factors
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Tactic.FinCases
 import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Group
 import Mathlib.GroupTheory.Perm.Sign
 import Mathlib.Topology.Algebra.Group.Basic
 import Mathlib.Topology.Algebra.Group.Quotient
@@ -82,11 +83,14 @@ theorem map_inv (c : CrossedCocycle α) (x : Γ) :
 
 def unit (α : Γ →* MulAut H) : CrossedCocycle α where
   toFun := fun _ => 1
-  map_mul' := by sorry
+  map_mul' := by intro x y; simp
 
 def gauge (c : CrossedCocycle α) (h : H) : CrossedCocycle α where
   toFun := fun x => h * c x * (α x h)⁻¹
-  map_mul' := by sorry
+  map_mul' := by
+    intro x y
+    simp only [c.map_mul', map_mul, _root_.map_inv, MulAut.mul_apply]
+    group
 
 theorem gauge_one (c : CrossedCocycle α) : c.gauge 1 = c := by sorry
 
@@ -96,7 +100,9 @@ theorem gauge_mul (c : CrossedCocycle α) (h k : H) :
 def restrict {Δ : Type w} [Group Δ] (c : CrossedCocycle α) (f : Δ →* Γ) :
     CrossedCocycle (α.comp f) where
   toFun := fun x => c (f x)
-  map_mul' := by sorry
+  map_mul' := by
+    intro x y
+    simpa only [map_mul, MonoidHom.comp_apply] using c.map_mul' (f x) (f y)
 
 def map {K : Type w} [Group K] {β : Γ →* MulAut K}
     (c : CrossedCocycle α) (f : H →* K)
@@ -931,6 +937,87 @@ theorem subgroup_inf (P V : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
     exact ⟨⟨hp, hc, hη⟩, hv⟩
   · rintro ⟨⟨hp, hc, hη⟩, hv⟩
     exact ⟨⟨hp, hv⟩, hc, hη⟩
+
+/-- A cutoff of the fixed-projection lift is unchanged by changing its framing. -/
+theorem subgroup_gauge (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) (h : H) :
+    subgroup β η P (c.gauge h) = subgroup β η P c := by
+  ext x
+  rw [mem_subgroup, mem_subgroup]
+  constructor
+  · rintro ⟨hp, hc, hη⟩
+    have hval : h * c x * h⁻¹ = 1 := by
+      simpa [CrossedCocycle.gauge, hη] using hc
+    have hcx : c x = 1 := by
+      have := congrArg (fun y : H => h⁻¹ * y * h) hval
+      simpa [mul_assoc] using this
+    exact ⟨hp, hcx, hη⟩
+  · rintro ⟨hp, hc, hη⟩
+    exact ⟨hp, by simp [CrossedCocycle.gauge, hc, hη], hη⟩
+
+/-- The chosen subgroup is the largest subgroup of P killing the lift. -/
+theorem le_subgroup_iff (P V : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    V ≤ subgroup β η P c ↔
+      V ≤ P ∧ V ≤ η.ker ∧ ∀ x : Γ, x ∈ V → c x = 1 := by
+  constructor
+  · intro hv
+    exact ⟨fun x hx => ((mem_subgroup β η P c x).mp (hv hx)).1,
+      fun x hx => ((mem_subgroup β η P c x).mp (hv hx)).2.2,
+      fun x hx => ((mem_subgroup β η P c x).mp (hv hx)).2.1⟩
+  · rintro ⟨hp, hη, hc⟩ x hx
+    exact (mem_subgroup β η P c x).mpr ⟨hp hx, hc x hx, hη hx⟩
+
+/-- Restricting the source pulls back the cutoff, without requiring injectivity. -/
+theorem subgroup_restrict {Δ : Type z} [Group Δ] (f : Δ →* Γ)
+    (P : Subgroup Γ) (c : CrossedCocycle (β.comp η)) :
+    subgroup β (η.comp f) (P.comap f) (c.restrict f) =
+      (subgroup β η P c).comap f := by
+  ext x
+  simp only [mem_subgroup, Subgroup.mem_comap, CrossedCocycle.restrict,
+    MonoidHom.comp_apply]
+
+-- cutoff_gauge_twisted: gauge can change the cocycle's identity fibre;
+-- the fixed-projection lift still has exactly the same cutoff.
+example :
+    let G := Equiv.Perm (Fin 3)
+    let c := CrossedCocycle.unit (MulAut.conj : G →* MulAut G)
+    let h := Equiv.swap (0 : Fin 3) 1
+    let x := Equiv.swap (1 : Fin 3) 2
+    c x = 1 ∧ c.gauge h x ≠ 1 ∧
+      subgroup MulAut.conj (MonoidHom.id G) ⊤ (c.gauge h) =
+        subgroup MulAut.conj (MonoidHom.id G) ⊤ c := by
+  dsimp only
+  refine ⟨rfl, ?_, subgroup_gauge _ _ _ _ _⟩
+  change
+    Equiv.swap (0 : Fin 3) 1 *
+        ((MulAut.conj (Equiv.swap (1 : Fin 3) 2)) (Equiv.swap (0 : Fin 3) 1))⁻¹ ≠ 1
+  decide
+
+-- cutoff_nontrivial_kernel: a proper nonidentity kernel must be retained,
+-- rather than selecting an arbitrary smaller subgroup that also kills c.
+example :
+    let G := Multiplicative (ZMod 4)
+    let c : CrossedCocycle ((1 : Unit →* MulAut G).comp (1 : G →* Unit)) :=
+      {toFun := fun x => x ^ 2
+       map_mul' := by intro x y; simp [mul_pow]}
+    Multiplicative.ofAdd (2 : ZMod 4) ∈
+      subgroup (1 : Unit →* MulAut G) (1 : G →* Unit) ⊤ c ∧
+    Multiplicative.ofAdd (1 : ZMod 4) ∉
+      subgroup (1 : Unit →* MulAut G) (1 : G →* Unit) ⊤ c := by
+  dsimp only
+  simp only [mem_subgroup, Subgroup.mem_top, true_and]
+  decide
+
+-- cutoff_restrict_kernel: the inverse image of an identity cutoff can be
+-- the entire new source when restriction kills the prescribed projection.
+example :
+    let f : Multiplicative ℤ →* Unit := 1
+    let c := CrossedCocycle.unit (1 : Unit →* MulAut Unit)
+    subgroup (1 : Unit →* MulAut Unit) ((MonoidHom.id Unit).comp f)
+      ((⊥ : Subgroup Unit).comap f) (c.restrict f) = ⊤ := by
+  dsimp only
+  ext x
+  simp [mem_subgroup, CrossedCocycle.restrict, CrossedCocycle.unit]
+
 
 -- cutoff_fixed_projection: even a trivial action and unit cocycle cannot
 -- discard a nontrivial prescribed Q-projection.
