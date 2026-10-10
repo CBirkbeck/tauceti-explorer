@@ -700,6 +700,18 @@
     "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
     "provides": "The native category of modules over a ring, reused for the zero-hull non-example. ModuleCat/Biproducts.lean supplies HasFiniteBiproducts through the existing finite-products instance; no replacement category or biproduct construction is planned.",
     "checked": "Definition in Basic.lean and the HasFiniteBiproducts instance in Biproducts.lean read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-10, REV-FIX-RT-AREA-geomlanglands~2."
+   },
+   {
+    "ref": "mathlib:IsLocalization.of_le_isUnit",
+    "module": "Mathlib/RingTheory/Localization/Basic.lean",
+    "provides": "If the localization submonoid consists of units, the original ring is itself a localization. Reused to compare the canonical coefficient map at an already invertible chi.",
+    "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex (GPT-6), codex-xVALZ8, 2026-10-10."
+   },
+   {
+    "ref": "mathlib:IsLocalization.bijective",
+    "module": "Mathlib/RingTheory/Localization/Basic.lean",
+    "provides": "A ring map between two localizations of the same ring and submonoid is bijective when it commutes with their structure maps. Reused for the canonical coefficient-map unit test.",
+    "checked": "Actual statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex (GPT-6), codex-xVALZ8, 2026-10-10."
    }
   ],
   "abstractReconstructionAudit": {
@@ -5784,7 +5796,7 @@
     {
      "sourceId": "HMS.2014",
      "locator": "Appendix B, Definition B.18 (p. 24)",
-     "match": "The localised diagram, literally (the source writes gamma for c)."
+     "match": "Vertex and edge construction of the localization; c denotes the source’s connecting edge."
     },
     {
      "sourceId": "HMS.2014",
@@ -5793,8 +5805,8 @@
     },
     {
      "sourceId": "HMS.2014",
-     "locator": "Appendix B, Proposition B.22 (p. 25)",
-     "match": "The two conclusions, literally."
+     "locator": "Appendix B, Proposition B.22 (pp. 25-26)",
+     "match": "The category localization and canonical coefficient-algebra localization; the proof computes the colimit transition as multiplication by chi."
     }
    ],
    "implementationStatus": "unchecked",
@@ -5832,7 +5844,62 @@
     {
      "name": "Diagram.localise.coalgebra",
      "role": "compatibility",
-     "statement": "Using the canonical coefficient map induced by the effective-diagram inclusion and the induced compatible multiplication, A(D,T) is the localization A^eff_chi. The typed canonical map is still a suggested-signature gap; an arbitrary ring homomorphism does not qualify."
+     "statement": "For the canonical coefficientMap induced by dual finite endomorphism restriction and the induced localized multiplicative structure, its ring-map algebra structure makes A(D,T) the localization of A^eff at chi. The suggested signature assumes unitality and a rank-one localization fibre; it takes neither an arbitrary ring map nor the localization conclusion as input."
+    },
+    {
+     "name": "Diagram.Rep.extend_restrictIso",
+     "role": "compatibility",
+     "statement": "The specified extension restricts naturally to T along the degree-zero diagram inclusion, using the unit-tensor identification."
+    },
+    {
+     "name": "Diagram.localise.finiteImage",
+     "role": "data",
+     "statement": "The finite image of an effective vertex set under the degree-zero inclusion."
+    },
+    {
+     "name": "Diagram.localise.finiteEndRestrict",
+     "role": "functoriality",
+     "statement": "Restriction of finite localized endomorphism families to the effective finite diagram is an R-algebra homomorphism."
+    },
+    {
+     "name": "Diagram.localise.finiteEndRestrict_apply",
+     "role": "compatibility",
+     "statement": "Each component of finite endomorphism restriction is conjugation by extend_restrictIso; the restriction map is tied to the specified extension."
+    },
+    {
+     "name": "Diagram.localise.coefficientMapLinear",
+     "role": "constructor",
+     "statement": "The canonical linear map from the effective coefficient coalgebra to the localized coefficient coalgebra, induced by dual finite endomorphism restriction on the filtered colimit."
+    },
+    {
+     "name": "Diagram.localise.coefficientMapLinear_colimit",
+     "role": "compatibility",
+     "statement": "On every finite dual coefficient x, the canonical map equals its dual-restriction image followed by the named localized colimit inclusion. This determines the map on the whole coefficient coalgebra."
+    },
+    {
+     "name": "Diagram.localise.product",
+     "role": "structure",
+     "statement": "The localized weak product structure is induced from the effective product, including product paths, symmetry, associators and unit."
+    },
+    {
+     "name": "Diagram.localise.product_mul",
+     "role": "simp",
+     "statement": "The induced vertex product sends (f,n),(g,m) to (f x g,n+m)."
+    },
+    {
+     "name": "Diagram.localise.multiplicative",
+     "role": "structure",
+     "statement": "The specified rank-one extension carries the graded multiplicative structure induced from the effective representation, with its signs and tensor-power identifications."
+    },
+    {
+     "name": "Diagram.localise.multiplicative_unital",
+     "role": "compatibility",
+     "statement": "If the effective multiplicative representation is unital, its specified induced extension is unital."
+    },
+    {
+     "name": "Diagram.localise.coefficientMap",
+     "role": "constructor",
+     "statement": "For the unital effective representation and its induced localized products, promote coefficientMapLinear to a ring homomorphism. Its underlying function remains the finite-dual colimit map, so its choice is independent of a supplied arbitrary homomorphism."
     }
    ],
    "uses": [
@@ -5874,6 +5941,21 @@
      "name": "Diagram.localise.noncanonical_map",
      "kind": "non-example",
      "statement": "The ring homomorphism Q[t] -> Q[t,t^-1] obtained by evaluating t at 1 sends t to a unit but kills the nonzero polynomial t-1. Since powers of t are regular in Q[t], a localization structure map at t must be injective. Thus even a unit image of the generator does not make an arbitrary map the canonical localization map."
+    },
+    {
+     "name": "Diagram.localise.coefficientMap_finite",
+     "kind": "compatibility",
+     "statement": "On a named finite coefficient, the ring map agrees with dual endomorphism restriction followed by the localized colimit map. Agreement on chi alone would not fix images of other coefficients."
+    },
+    {
+     "name": "Diagram.localise.coefficientMap_inverse",
+     "kind": "identity",
+     "statement": "The canonical image of chi has an inverse satisfying both product identities in the localized coefficient ring."
+    },
+    {
+     "name": "Diagram.localise.coefficientMap_unit",
+     "kind": "degenerate",
+     "statement": "If chi is already a unit in the effective coefficient ring, the canonical coefficient map itself is bijective."
     }
    ]
   },
@@ -13992,13 +14074,6 @@
     "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
    ],
    "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
-  },
-  {
-   "title": "Diagram localization needs its typed canonical coefficient map",
-   "neededBy": [
-    "MotivesAndAlgebraicCycles:MC.5/diagram-localisation"
-   ],
-   "detail": "Independent REV-FIX-RT-AREA-iwasawa-3~3: the packet requires the canonical coefficient map A^eff -> A induced by the effective-diagram inclusion (HMS Proposition B.22, pp.25–26), but the former Diagram.localise.coalgebra prototype concluded IsLocalization for any ring homomorphism phi and phi.toAlgebra. This unsupported universal signature has been removed. Supply the typed map induced on the finite endomorphism-dual colimit, with its inclusion compatibility and the induced localized product/multiplicative representation. Then state IsLocalization at chi for that map. Do not assume the localization conclusion as the compatibility hypothesis. The proved polynomial-to-Laurent evaluation-at-one example has a unit generator image and a nonzero kernel, distinguishing an arbitrary map from localization. Existing product/interface and reconstruction gaps remain."
   }
  ],
  "requests": [
@@ -15313,9 +15388,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-3~3",
   "date": "2026-10-10",
-  "notes": "Codex (GPT-6), session codex-f0fT1p: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (Codex (GPT-6), session codex-AtxPdd), archived in full and unchanged in reviewHistory. Findings /4 and /31: geometric Hodge decomposition remains a precise supplier request; the typed Betti/de Rham comparison retains pullback, connecting-map, unit, product and Tate conditions. Preserve the newer Iwasawa review, including its canonical coefficient-map correction and gap and proved polynomial-to-Laurent evaluation-at-one example. Relative Beck preservation/adapter obligations, typed reconstruction carriers, fifteen API and four theorem prototype defects remain unresolved and require a separate revision. Fresh exact-pin packet validation passes. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers; their hashes were freshly compared. Mathematical fields, previous histories and supplier requests are preserved. No formalisation or proof closure is claimed."
+  "notes": "Codex (GPT-6), session codex-xVALZ8: independent bounded review of the third Iwasawa fix round. Finding /8 retains the effective period presentation, Tate localization, typed unital/product-compatible comparison and rank-one nonvanishing inputs. The previously missing canonical coefficient-map prototype is supplied on the finite endomorphism-dual colimit, tied to the induced localized products, with a localization statement for that map and three discriminating examples. The full suggested file elaborates at the pinned baseline; proofs of these new interfaces remain admitted. Remove only that precise signature gap. Preserve all 23 earlier gaps, 16 requests and prior reviews. The separate negative reconstruction verdict, relative Beck preservation adapter, typed reconstruction carriers and fifteen API/four theorem defects remain unresolved. The preceding algebraic-geometry review (codex-f0fT1p), fetched before submission, is archived unchanged; its earlier codex-AtxPdd review remains in history. No stage or mathematics is claimed implemented or proof-closed; selected source and current upstream/library reads are recorded in the review report."
  },
  "reviewHistory": [
   {
@@ -16351,6 +16426,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
    "date": "2026-10-10",
    "notes": "Codex (GPT-6), session codex-AtxPdd: independent bounded round-2 area-fix review, following independent-review-REV-FIX-RT-AREA-iwasawa-3~3, archived unchanged in reviewHistory. Findings /4 and /31 retain the exact geometric-Hodge supplier request and the typed, unital, product-compatible Betti/de Rham comparison. Preserve the newer Iwasawa review's canonical coefficient-map correction and gap, its proved discriminating example, and the negative relative reconstruction decision. Relative Beck preservation/adapter obligations, typed reconstruction carriers, fifteen API and four theorem prototype defects remain unresolved. The area fixes do not repair these separate defects. The current full Suggested file elaborated through lean-check with exit 0 and 805 admitted-proof warnings only; this does not close proofs or the recorded gaps. Earlier complete node/source/library audits and unchanged Lean receipts remain attributed to their named reviewers. No mathematics is claimed implemented or proof-closed."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-10",
+   "notes": "Codex (GPT-6), session codex-f0fT1p: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (Codex (GPT-6), session codex-AtxPdd), archived in full and unchanged in reviewHistory. Findings /4 and /31: geometric Hodge decomposition remains a precise supplier request; the typed Betti/de Rham comparison retains pullback, connecting-map, unit, product and Tate conditions. Preserve the newer Iwasawa review, including its canonical coefficient-map correction and gap and proved polynomial-to-Laurent evaluation-at-one example. Relative Beck preservation/adapter obligations, typed reconstruction carriers, fifteen API and four theorem prototype defects remain unresolved and require a separate revision. Fresh exact-pin packet validation passes. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers; their hashes were freshly compared. Mathematical fields, previous histories and supplier requests are preserved. No formalisation or proof closure is claimed."
   }
  ],
  "fixes": {

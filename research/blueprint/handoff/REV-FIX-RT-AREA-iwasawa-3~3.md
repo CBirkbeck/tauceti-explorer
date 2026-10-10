@@ -1,111 +1,124 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-3~3
 
-Refs #5869. Codex (GPT-6), session `codex-kvRxoX`, 10 October 2026.
-The bot confirmed the claim after the session's /claim comment.
-Initial checkout: `0339ede22bf7a801e863028435d340d6ab2c0f03`.
-Synchronized before editing to `e760b5eb86b00b323b8e2d104317e3f0b1a60e98`.
+Refs #5869. Codex (GPT-6), session `codex-xVALZ8`, 10 October 2026.
+Claim confirmed for comment 6103080946. Initial checkout:
+`2c95d0676ff2064366ce7f1120da575b7417c608`.
+Rebased before submission onto `2f72a720f` and retained the intervening
+algebraic-geometry review (codex-f0fT1p) unchanged in history.
+Its update changed no mathematical fields or Lean signatures.
+Branch: `codex-xVALZ8-review-5869`. No second job claimed.
 
-**Blocked checkpoint. Resolve the issue/queue scope before reassigning.**
-The live issue allows the report and Motives packet/Lean pair. The queue
-also requires GH.0 and Kato packet/Lean pairs. [WORKERS.md](../WORKERS.md)
+**Blocked checkpoint: reconcile the live issue's scope with the queue before
+reassigning.** The issue permits the review report and Motives packet/Lean
+pair. The queue also requires GH.0 and Kato pairs. [WORKERS.md](../WORKERS.md)
 says: “Edit only the files the issue names, plus your own scratch space.”
-A clarification request received no scope extension. No second job was
-claimed and no out-of-scope deliverable was edited.
+I requested a four-file scope extension while doing the permitted work;
+none was received. The arithmetic owner pairs were inspected read-only,
+not edited or given this job's verdict.
 
-## Work completed
+## Completed permitted work
 
-The [review](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) records dispositions
-for all eight verified findings, selected fresh primary-source reads and
-receipts, the six Motives supplier contracts (32 API records and 19 named
-examples), actual pinned declarations and current upstream ownership.
+The [review](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) gives all eight
+finding dispositions, source receipts, the exact arithmetic-owner repairs
+and the source-specific scalar calculation. It follows the prior
+checkpoints and the intervening algebraic-geometry review. It is a bounded
+fix review, not a fresh audit of every packet node.
 
-The effective/Tate-localized period presentation, typed comparison,
-good-pair products and rank-one nonvanishing contracts survive the bounded
-review. The preceding workers' period-torsor repair is confirmed. A fresh
-MC.5 signature audit found a separate defect: the algebra-localization
-theorem accepted any ring homomorphism despite the canonical map required
-by the packet. This session retires that unsupported signature, clarifies
-its API contract, adds a proved polynomial-to-Laurent counterexample and
-records the missing typed coefficient-map interface as a new gap. The
-revised full suggested file elaborates; the remaining admitted proofs
-remain admitted.
+The missing canonical coefficient-map prototype is now supplied in
+MC.5/diagram-localisation. It uses the specified extension's degree-zero
+identification, finite endomorphism restriction with a component equation,
+and dual restriction on the coefficient colimit. Its finite-colimit
+compatibility fixes the map on every coefficient. The localized product
+and multiplicative representation are induced from the effective ones.
+The ring-map promotion takes explicit unitality, and the localization
+statement uses that map's algebra structure. No arbitrary homomorphism or
+localization hypothesis is substituted.
 
-The Motives top-level reviewer is now
-`independent-review-REV-FIX-RT-AREA-iwasawa-3~3`, with overall verdict
-`needs_changes`. The latest algebraic-geometry verdict is archived exactly
-in reviewHistory. The independent reconstruction block remains:
-relative Beck preservation adapter, typed reconstruction carriers and the
-fifteen API/four theorem prototype objections. All 23 earlier gaps, the
-16 requests and previous history entries are preserved. The only mathematical-record edits clarify that one API, append
-its test and append the new gap; every other node and field remains.
+Three named examples check finite-coefficient compatibility, both inverse
+identities and bijectivity when chi is already a unit. Their proofs use the
+named supplier contracts and existing Mathlib results; the supplier
+construction/proof obligations themselves remain admitted. The proved
+polynomial-to-Laurent counterexample to the arbitrary-map contract remains.
 
-## Resume only after the scope is reconciled
+The precise missing-signature gap is removed. All 23 earlier gaps, 16
+requests, other 181 nodes, coverage and implementation statuses remain
+unchanged. Two actually read Mathlib localization contracts are added to
+the baseline records. The preceding review is appended unchanged to
+reviewHistory. The new top-level marker is
+`independent-review-REV-FIX-RT-AREA-iwasawa-3~3`, still `needs_changes`:
+the relative Beck preservation adapter, typed reconstruction carriers and
+fifteen API/four theorem defects from the independent geomlanglands review
+remain real obligations. No stage or proof is closed.
 
-1. The manager must authorize the following four additional deliverables in
-   the live issue, or align the queue with the intended Motives-only review:
-   `packets/GeneralizedHeegnerCycles--GH.0.json`,
-   `suggested/GeneralizedHeegnerCycles--GH.0.lean`,
-   `packets/KatoEulerSystems.json`,
-   `suggested/KatoEulerSystems.lean` (all relative to research/blueprint).
-   Do not change their review markers or remove queue outputs merely to
-   make the completion predicate pass.
-2. In Kato's `L1/hecke-and-diamond-equivariance-of-the-moment-map`, restore
-   the Hecke exponent r′−1 in its statement and acceptance item 0. The
-   rendered Kato Lemma 8.8, p.185 confirms it. With the inverse diamond
-   scalar ell^(r′−1−r), the inverse Hecke scalar ell^(−(r′−1)) gives
-   ell^(−r). The current r−1 gives ell^(r′−2r); at k=4,r=1,r′=2 it yields
-   1 rather than ell⁻¹. Add that transport test and inspect the generic
-   Lean scalar instantiation. Keep the correct central-diamond exponent
-   k−2−2r and quadratic Euler exponent k−1−2r. Preserve the earlier
-   owner review in history when superseding its assertion.
-3. In the GH.0 packet's `GH.1/p-adic-abel-jacobi-map`, clarify hypothesis 0:
-   supply smooth proper models independently and restrict p∤cNd_K to
-   BDP's canonical conductor application. The product-model node already
-   does this; preserve its positive and bad-twist tests. Read BDP §2.2,
-   p.1060, §3.2, p.1067, and Conrad's appendix, pp.1139–1140.
-4. With that authorization, finish the bounded independent review of both
-   owner pairs, preserve their other gaps/history, record this job's
-   verdicts, and run their packet/Lean checks. Their read-only inspection
-   here is not their completed review.
-5. In Motives, supply the canonical coefficient map on the finite
-   endomorphism-dual colimit induced by the effective-diagram inclusion,
-   with its inclusion compatibility and induced localized multiplication.
-   Restate `Diagram.localise.coalgebra` for that map. Its former arbitrary
-   φ signature has been retired, rather than treated as a correct theorem.
-   The new `Diagram.localise.noncanonical_map` example proves that evaluation
-   at t=1 into Q[t,t⁻¹] has a unit image of t and a nonzero kernel t−1;
-   localization at t in the domain Q[t] must be injective. HMS Proposition
-   B.22, pp.25–26 supplies the canonical construction, and pinned Mathlib
-   `IsLocalization.injective_iff_isRegular` supplies the model inference.
-6. An authorized reader refresh remains separate: synchronize the later
-   period-torsor witnesses, period-point rank-one annotation, updated
-   formal-period locator and current reconstruction verdict. The six main
-   statements are already present.
-7. Preserve existing ownership: MC.6 supplies the effective presentation,
-   Tate localization and torsor; PS.2 owns integration and ev(L)=2πi.
-   C5 still owes the geometric pair comparison. Abstract Hodge structures
-   and known-Hopf reconstruction have existing upstream implementations.
+The effective/localized period presentation, typed unital/product-compatible
+comparison and rank-one Tate nonvanishing contracts survive the selected
+review. MC.6 remains their owner; PS.2 owns integration and ev(L)=2pi i.
+The current upstream ReductiveGroups and completed HodgeStructures
+READMEs were read in full, with relevant Suggested forms and current
+library checks. Known-Hopf reconstruction and abstract Hodge structures
+are existing suppliers, not replacements for the missing geometric pair
+comparison or arbitrary-neutral reconstruction. Neither upstream checkout
+was changed or built.
 
-## Verification
+## Exact resumption work
 
-- Packet checker with the pinned declaration index: exit 0, 0 errors and
-  0 warnings; 182 nodes, 451 counted APIs, 256 counted tests, 47 planets
-  and 109 baseline declarations. Eight coverage entries; no stage closed.
-- Full revised `lean-check`: exit 0, 805 warnings, all
-  `declaration uses sorry`, no other diagnostics. Mathlib pin
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  Revised suggested-file SHA-256:
-  `d9b40f1c5e008129bd3faaefc0a17f2cc252febc6af1e9ded8adfe914077fd27`.
-  The new example has actual proofs; existing admitted obligations remain.
-- Parsed preservation verifies every other node and field, all prior gaps
-  and the whole previous history, with the preceding review appended unchanged.
-  The revised packet has 24 gaps; the original 23 are unchanged.
-- Scope and whitespace checks pass. Dispatcher completion is false:
-  GH.0 and Kato name their respective previous reviewers, rather than this
-  job. A needs_changes verdict for Motives alone cannot close this queue job.
+1. Obtain authorization for these four additional deliverables, or have the
+   manager align the queue with the intended Motives-only scope:
+   `research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json`,
+   `research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean`,
+   `research/blueprint/packets/KatoEulerSystems.json`,
+   `research/blueprint/suggested/KatoEulerSystems.lean`.
+2. With that scope, independently finish the arithmetic-owner review and
+   preserve their previous verdicts in history. In Kato's
+   `L1/hecke-and-diamond-equivariance-of-the-moment-map`, replace r−1 by
+   r′−1 in the statement and acceptance item 0. Lemma 8.8, p.185 visibly
+   has the prime. Keep central-diamond exponent k−2−2r. Add the transport
+   test: inverse Hecke exponent −(r′−1) plus inverse-first-diamond
+   exponent r′−1−r equals −r. At k=4,r=1,r′=2,ell=2 the wrong coefficient
+   is 1 and the right one is 1/2. `chernHeckeDiamond` currently takes a
+   generic scalar; it does not check this arithmetic instantiation.
+3. In GH.0's `GH.1/p-adic-abel-jacobi-map`, hypothesis 0 must make smooth
+   proper models independent inputs and restrict p∤cNd_K to BDP's
+   canonical conductor application. Read §2.2, p.1060, §3.2, p.1067 and
+   Conrad's appendix, pp.1139–1140. The product-model supplier and Lean
+   comment already distinguish them; retain the positive/bad-twist tests.
+4. Run the owner packet checks and `lean-check` after authorized repairs,
+   record genuine verdicts under this review-job marker, then check
+   `issues.py:deliverables_complete`. Do not change markers merely to
+   satisfy dispatch, and do not delete queue outputs.
+5. Separate authorized supplier work must address the surviving Motives
+   reconstruction obligations. A reader refresh also remains outside this
+   issue: later period-torsor witnesses, period-point rank-one annotation,
+   locator and reconstruction verdict require synchronization.
 
-The report contains source URLs, locators, hashes and the scalar calculation.
-Scratch is disposable; no future worker depends on it. No source passage or
-restricted file was copied into the repository. Read-only upstream checkouts
-were not modified or built. No background process, manual merge, promotion,
-label change or issue closure is part of this submission.
+The mathematical source reads and hashes are in the report; none of this
+resumption depends on disposable scratch or source passages.
+
+## Verification receipts
+
+- `python3 scripts/check_blueprint.py
+  research/blueprint/packets/MotivesAndAlgebraicCycles.json --index
+  <pinned declarations.tsv>`: exit 0, zero errors and warnings; 182 nodes,
+  462 counted API items, 259 tests, 47 planets, 111 baseline declarations,
+  23 gaps and 16 requests. Eight stages remain in scope; none is closed.
+- `lean-check research/blueprint/suggested/MotivesAndAlgebraicCycles.lean`:
+  exit 0, 816 warnings, all `declaration uses sorry`, no other diagnostics.
+  Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+  Suggested-file SHA-256:
+  `58c6c3094a4f3b524beb0a99c82c69b692c183403dfc19d6ce6429492c48fdeb`.
+- Parsed preservation passes: one supplier changed; all other nodes and
+  unrelated fields, original 23 gaps and requests retained; old history
+  retained with the preceding review appended unchanged. The baseline
+  adds only the two read localization declarations.
+- `git diff --check` passes; edits stay within issue deliverables plus this
+  always-required handoff. Submission-file validation passes.
+- Dispatch predicate: false. GH.0 still names
+  `independent-review-REV-GeneralizedHeegnerCycles--GH.0~2`, and Kato names
+  `independent-review-REV-KatoEulerSystems~2`. Their accepted markers are
+  attributed prior work, not this job's independent review.
+
+No restricted source was needed, no source passage was written into the
+repository, and no manual merge, promotion, label change or issue closure
+was performed. Lean processes finished before submission. Scratch is
+removed after opening the PR; no later worker needs it.
