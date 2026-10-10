@@ -22312,9 +22312,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #673"
+   "note": "released on GitHub issue #673"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -24922,9 +24922,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #719"
+   "note": "released on GitHub issue #719"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E0",
@@ -24970,9 +24970,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EnhancedDerivedSheaves--E5.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #720"
+   "note": "released on GitHub issue #720"
   },
   {
    "id": "REV-EnhancedDerivedSheaves--E5",
@@ -29233,9 +29233,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #982"
+   "note": "released on GitHub issue #982"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -34249,8 +34249,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6284"
+   "state": "pending",
+   "note": "released on GitHub issue #6284"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.3",
@@ -34296,8 +34296,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6285"
+   "state": "pending",
+   "note": "released on GitHub issue #6285"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.4",
@@ -34560,8 +34560,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6334"
+   "state": "pending",
+   "note": "released on GitHub issue #6334"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.2",
@@ -36740,7 +36740,8 @@
    ],
    "avoidAccountOf": "BP-AnabelianGeometryAndNonabelianChabauty--NC.1",
    "prompt": "research/blueprint/prompts/REV-AnabelianGeometryAndNonabelianChabauty--NC.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6299"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.2",
@@ -37390,7 +37391,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticStatistics--ST.4",
    "prompt": "research/blueprint/prompts/REV-ArithmeticStatistics--ST.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6314"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.5",
@@ -47655,8 +47657,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CrystallineLocalGlobalCompatibilityCM.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7462"
+   "state": "pending",
+   "note": "released on GitHub issue #7462"
   },
   {
    "id": "REV-PKG-CrystallineLocalGlobalCompatibilityCM",
@@ -80246,8 +80248,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81123,8 +81125,8 @@
     "FIX-RT-AREA-langlands-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7451"
+   "state": "pending",
+   "note": "released on GitHub issue #7451"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -81556,8 +81558,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
