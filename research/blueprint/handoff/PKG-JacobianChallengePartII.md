@@ -1,22 +1,33 @@
 # PKG-JacobianChallengePartII — blocked package checkpoint
 
-Refs #7593. Worker: Codex (GPT-6), session `codex-m7fMYr`,
-10 October 2026. Branch: `codex-m7fMYr-jacobian-package`.
-The bot confirmed [claim comment 6101496141](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101496141)
-in [comment 6101497337](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101497337).
-This is the only job claimed in this run. None of the manager's listed issues
-was available; this package was the first eligible fallback kind.
+Refs #7593. Worker: Codex (GPT-6), session `codex-jwecba`,
+10 October 2026. Branch: `codex-jwecba-jacobian-package`.
+The bot confirmed [claim comment 6101759889](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101759889)
+in [comment 6101761117](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6101761117).
+This continuation holds the same claim and submits only this job.
 
 ## Result and remaining supplier boundary
 
-**Blocked checkpoint with a native JC5.5 improvement.** This continuation adds
-the scheme isomorphism representing the triangular coordinate equivalence,
-its two Hom-coordinate comparisons, an arbitrary-base-change signature and
-three scheme-morphism examples. The README explains the actual fibre-power
-construction and its inverse. These declarations elaborate using native
-schemes, group objects and products at the pinned Mathlib baseline. The other
-47 geometric targets still have honest omission records, rather than native
-signatures. The packet, suppliers, queue and issue labels are unchanged.
+**Blocked checkpoint with native JC5.2–JC5.4 constructions and a JC5.6
+factorization signature.** The shift, Faltings–Zhang and shifted Faltings–Zhang
+maps now use actual morphisms and fibre-power schemes in Over(S). Their
+canonical Abel and section-free difference morphisms are typed inputs from
+JC5.1 and JC2.6. Their API and tests include arbitrary-base-change comparisons,
+the pointed comparison and native properness hypotheses. The earlier JC5.5
+scheme isomorphism is reused. JC5.6 has the actual shifted-power and tail maps,
+a coordinate identity with the earlier degree-difference equality as an
+explicit hypothesis, and conditional native finite/flat/presentation/surjective
+transfers from integer multiplication.
+
+These additions do not construct the geometric inputs or the supplier's
+nonzero multiplication isogeny. The file still has **43 targets represented
+solely by omission records**, four partial geometric-identification records
+for JC5.2–JC5.4/JC5.6, and the fully expressible generic JC5.5 coordinate
+interface. In particular the genus-one canonical-bundle identification remains
+omitted; its expressible zero-Abel consequence is an additional example.
+Elaboration checks the native signatures, not the missing geometry or the
+admitted proofs. No substitute Picard scheme, empty predicate, point-set model
+or duplicate general abelian-scheme construction was added.
 
 Both required supplier packages remain absent from the local directories and
 GitHub main's complete package listing, freshly checked on 10 October 2026.
@@ -26,7 +37,7 @@ native interface in the current Tau Ceti library.
 | Required supplier | Current state | What completion needs |
 | --- | --- | --- |
 | `AbelianSchemesAndArithmeticModuli:A1–A3` | Its 89-node parent plan is independently accepted, dated 2026-10-09. The parent package is absent. | Package arbitrary-base abelian schemes and rigidity (A1), dual/Poincaré/polarization interfaces (A2), and nonzero finite locally free multiplication (A3); match the contracts to JC1–JC5 and JC7. |
-| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | Its revised 528-node plan is now **accepted**, dated 2026-10-10, by `independent-review-REV-DESIGN-StableReductionPartII~2`. Review [#6395](https://github.com/CBirkbeck/tauceti-explorer/issues/6395) is `state:done`; revision [#6378](https://github.com/CBirkbeck/tauceti-explorer/issues/6378) is `state:submitted`. Its package is absent. | Package the fixed symplectic component over Z[1/N,ζ_N] with its smooth universal curve, as part of the coupled bundle described below. The earlier rejection and reader-reconciliation gate are resolved. |
+| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | Its revised 528-node plan is accepted, dated 2026-10-10, by `independent-review-REV-DESIGN-StableReductionPartII~2`. Its package is absent. | Package the fixed symplectic component over Z[1/N,ζ_N] with its smooth universal curve, as part of the coupled bundle described below. The earlier revision gate is resolved. |
 
 WORKERS.md, **Upstream tiers**, permits package citations only to Mathlib,
 Tau Ceti, the package's own layers, its declared bundle and lower-tier packages.
@@ -34,7 +45,9 @@ Its earlier sentence permits tightly coupled roadmaps to go upstream together
 as a bundle. The issue allows only this package's three deliverables and this
 handoff. Writing either missing supplier, or changing the bundle/queue, lies
 outside this issue's deliverables. An accepted target-level plan is not a
-packaged supplier and does not remove this boundary.
+packaged supplier and does not remove this boundary. The job cannot be completed
+within this run without that external scheduling and supplier work, so this
+submission is a checkpoint; `metadata.toml` remains absent.
 
 ## Scheduling correction: package the coupled pair together
 
@@ -54,8 +67,8 @@ together, and arrange the missing AbelianSchemesAndArithmeticModuli parent
 package and the bundle's other external suppliers first.
 
 A fresh topological sort of the explicit internal prerequisites in the two
-plans visits all 576 nodes (48 Jacobian and 528 stable-reduction nodes), with
-no cycle. This scoped test establishes neither external supplier closure nor
+plans visits all 576 nodes (48 Jacobian and 528 stable-reduction nodes)
+and 1,313 explicit node prerequisite edges, with no cycle. This scoped test establishes neither external supplier closure nor
 absence of a cycle elsewhere in the atlas. The MC.4 dependency stays in JC7;
 it cannot enter JC0–JC5.
 
@@ -95,7 +108,7 @@ that layout through GitHub's contents API and retained the README's valid
 public links; local layout does not justify rewriting them.
 
 Current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Read the full pinned `AbelianVariety/Basic.lean`: `AbelianVariety K` requires a field
+Read the full pinned and current `AbelianVariety/Basic.lean`: `AbelianVariety K` requires a field
 and a group object over Spec K, rather than an arbitrary-base abelian scheme.
 Searching its algebraic-geometry sources found no `AbelianScheme`,
 `RelativePicard`, `PicardScheme`, `DualAbelian` or `PoincareBundle`
@@ -105,56 +118,75 @@ library audit. Neither read-only upstream tree was used to run Lake.
 
 ## Saved deliverables and fresh validation
 
-- README is 81,912 bytes. Exact-string correspondence finds all 48 accepted
-  target statements in JC0–JC7, all 60 API names and all 52 test names. Its four
-  definitions and thirteen constructions each retain at least three tests.
-  Preserve the corrected packet's cohomological Brauer interpretation, negative
-  self-Poincaré sign, arbitrary-alpha formulas, stable Hodge scope and arbitrary
+- README is 86,222 bytes. Exact-string correspondence finds all 48 accepted
+  target statements, all 60 API names and all 52 test names. Its four
+  definitions and thirteen constructions retain at least three tests each.
+  Suggested.lean contains the same names, either as declarations/examples in
+  their namespaces or as honest geometric omission records. Preserve the
+  corrected packet's cohomological Brauer interpretation, negative self-Poincaré
+  sign, arbitrary-alpha formulas, stable Hodge scope and arbitrary
   universal-curve pullbacks. The older reader was not regenerated after the
-  independent review's 19 contract corrections; the packet governs.
-- Suggested.lean is 35,461 bytes. JC5.5 retains its native group-object
-  Hom-valued triangular equivalence, with five API lemmas and three examples.
-  `TriangularCoordinateEquivalence.schemeIso` now gives the representing
-  isomorphism of actual finite products in `Over S`, hence fibre-power schemes.
-  Its inverse multiplies by the head on the right, so it needs no commutativity.
-  Two coordinate lemmas compare its forward and inverse maps with the earlier
-  equivalence. `schemeIso_baseChange` uses `PreservesProduct.iso` and the
-  transported `Functor.grpObjObj` instance for any new-base morphism.
-  Three additional examples test the one-factor identity, two-factor inverse
-  and small diagonal; the immutable packet's original tests are unchanged.
-  The other **47 geometric targets remain comment records**, with their contracts,
-  APIs and tests. Compiling comments does not check those signatures. No empty
-  predicate or replacement point-set type was introduced.
-- Read the actual Hom-group and precomposition laws, finite-product
-  `piObj`/`Pi.π`/`Pi.lift`/`Pi.lift_π`/`Pi.hom_ext`,
-  `PreservesProduct.iso`, `Functor.grpObjObj` and the Cartesian pullback
-  instances at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  These supply actual morphism groups, fibre-power products and transported
-  group objects, rather than a substitute point-set model.
+  independent review's 19 corrections; the packet governs.
+- Suggested.lean is 48,954 bytes. The native JC5 additions and their precise
+  input boundaries are described above and in the README. The first shift
+  uses source order A×X; the shifted fibre-power map uses X^m×A with m=n+1.
+  FZ uses source coordinates 0 and i.succ, so its differences have the prescribed
+  sign. The factorization's tail map raises each tail morphism to e, fixing
+  its head. It does not erase the factor e=2g−2. The helper B and D definitions
+  each have at least three native examples. All geometric contract records
+  are retained, including the supplier-dependent tests.
+- Freshly read the native Hom-group/precomposition laws, finite-product
+  universal property, binary/finite product comparisons, pullback group-object
+  transport, and `AlgebraicGeometry.IsProper.of_comp` at Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. Native morphism properties are
+  `IsFinite`, `Flat`, `LocallyOfFinitePresentation` and `Surjective`.
+  The conditional product transfers are signatures with admitted proofs;
+  no finite locally free multiplication theorem was proved here.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
   **0 errors, 0 warnings**; 48 nodes, 60 API items, 52 tests, 24 planets,
   14 gaps and 13 requests; all eight stages planned, none closed.
 - `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
-  **exit 0, sixteen warnings, all `declaration uses sorry`; no errors or other
-  warnings**. Available memory was 98 GB before this single check. It uses the
-  existing shared pinned build; the file imports Mathlib and no Tau Ceti module.
-  No language server, new project, build, update or cache download was started,
-  and no compile remains running.
-- A separate disposable native sanity check also elaborated with only `sorry`
-  warnings. In it the Hom-equivalence inverse fields and both scheme-isomorphism
-  inverse fields were discharged by group cancellation and `Pi.hom_ext`.
-  The scheme proof reduces projections with `Pi.lift_π`, then uses
-  `MonObj.comp_mul`/`GrpObj.comp_div` and `div_mul_cancel`/
-  `mul_div_cancel_right`; neither proof assumes commutativity. This verifies
-  the coordinate formulas, not the omitted geometry or the admitted API.
-  Suggested.lean intentionally retains admitted roadmap proofs.
-- `metadata.toml` remains absent because this is a blocked, incomplete package.
-  Add exactly `topic = "math.AG"` and a newline only when the package contract
-  is met. Do not promote this checkpoint as a completed package.
-- `python3 research/blueprint/intake.py check-files` on the saved README,
-  Suggested.lean and this handoff: **three files, zero problems**.
-  `git diff --check` is clean; only this issue's README, Suggested.lean and
-  handoff change.
+  **exit 0, fifty warnings, all `declaration uses sorry`; no errors or other
+  warnings**. Available memory was 101 GB before this single check. It used the
+  existing pinned build, Mathlib `082e2d3` and Tau Ceti `f790474`; the file
+  imports Mathlib and no Tau Ceti module. No language server, new project,
+  build, update or cache download was started. No compile remains running.
+- A disposable native sanity file also elaborated successfully. In it the
+  triangular equivalence and scheme-isomorphism inverse fields, the new
+  coordinate and test identities, all three new base-change lemmas, the pointed
+  comparison, native properness and the factorization were discharged with
+  actual proofs. `#print axioms` for the factorization, three base-change
+  lemmas and properness listed only `propext`, `Classical.choice` and
+  `Quot.sound`, with no `sorryAx`. The supplier property transfers remain
+  admitted even there. This verifies the elementary native algebra and
+  comparisons, not the canonical geometric identifications. The roadmap file
+  intentionally retains `sorry` proofs as PROTOCOL §13 requests.
+- `metadata.toml` remains absent. Add exactly `topic = "math.AG"` and a newline
+  only when the full package contract is met. Do not promote this checkpoint
+  as a completed package.
+- `python3 research/blueprint/intake.py check-files` on README, Suggested.lean
+  and this handoff: **three files, zero problems**.
+  `git diff --check` is clean; only these three authorized files change.
+
+The native sanity proofs reduce equality of fibre-power morphisms with
+`Pi.hom_ext` and `Pi.lift_π`. Binary-product composition requires
+`prod.comp_lift_assoc` after reassociation. Base-change proofs use
+`Functor.map_mul`, product projections and the following comparison: mapping
+`prod.lift p q` equals the lift of the two mapped morphisms followed by
+`(PreservesLimitPair.iso F X X).inv`. Prove that comparison by composing with
+its `.hom` and checking both projections. The FZ properness proof transfers
+the source's `IsProper` instance through `Over.w`, then applies
+`IsProper.of_comp` to the target structure morphism.
+
+The factorization proof is especially short after projection. The head
+simplifies directly. In a non-head coordinate, simplify with
+`GrpObj.comp_div`, `GrpObj.comp_zpow` and `mul_div_mul_right_eq_div`, then
+precompose the supplied equality
+`(prod.snd ≫ c) / (prod.fst ≫ c) = d ^ e`
+with `prod.lift (prod.fst ≫ p₀) (prod.fst ≫ pᵢ)` on X^{n+1}×A. This fixes the
+source order, sign and positive tail scaling without relying on an admitted
+API lemma. These proof routes suffice to reproduce the checks; no subsequent
+worker needs the disposable scratch files.
 
 ## Receipts and inherited source limits
 
@@ -170,16 +202,30 @@ earlier revision gate is resolved. Current SHA-256 receipts follow; paths are re
 | `packets/JacobianChallengePartII.json` | `2da73e3c0831882d8ce8aafb9ac0d468cfefdf784ef8e25b5651a5347d37f275` |
 | `packets/AbelianSchemesAndArithmeticModuli.json` | `768adc69448c575ea3b07e4631d532c5177bc7572d030e3e3420bd8d6f67b3ff` |
 | `packets/StableReductionPartII.json` | `423a7fe842942862b21c2167a1f2791717ac9d972e3b9de5697c6f496370ffaf` |
-| `packages/JacobianChallengePartII/README.md` | `103fd6ff777ddaea54abbd12fc3721379f551d9583fcfe7063d1307e52c4501a` |
-| `packages/JacobianChallengePartII/Suggested.lean` | `1ff13b5293256199c0a47d04ce3e9c9bb001cd1f79889f6ee668c8204ef9a42a` |
+| `packages/JacobianChallengePartII/README.md` | `751cb25d2df6add023ddbcaa435e3f428e15c9e36598fc916a2ee7c6d79b2f8f` |
+| `packages/JacobianChallengePartII/Suggested.lean` | `402615c7e00217bcfb8f055f48391dd6d473d1a3bfb6a5674051c8997fb6038c` |
 
-The following source receipts and limits are inherited from the initial
-assembly, not reading performed by this continuation. DGH arXiv:2001.10276v3
-§6.1, pp.23–25, was read and its hash matched the accepted source receipt.
-Milne's 12 June 2021 notes §8, Theorem 8.1 and family discussion, pp.27–28,
-were inspected. Yuan's exact 21 August 2024, 126-page manuscript URL was
-unreachable then; its claims and locators remain those of the independent
-review. Annals 203 (2026), pp.15–119, uses different pagination.
+Fresh reading in this continuation:
+
+| Source actually read | Locators | SHA-256 |
+| --- | --- | --- |
+| [DGH arXiv:2001.10276v3](https://arxiv.org/pdf/2001.10276v3) | §6.1 pp.23–25, including equations (6.3)–(6.5), properness and the pointed fibre comparison | `5fc8e86f53ee43e9d18e8239a8db986bff74115ddb947abef4902a72dde338a4` |
+| [Yuan arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), 30 April 2024, 125 pages | §2.2.1 pp.29–30; Theorem 2.10 and proof pp.37–39; §4.6.2, Theorem 4.17 and proof pp.96–98 | `a4e4c3d79e0912b62961a4b45b08e1e5c6957b0b64af7da74647c8ff9361e11e` |
+
+The DGH hash matches the accepted source receipt. The supplementary Yuan
+version directly supplies the shift, section-free difference, fibre-power
+coordinates and triangular factorization used in the new native signatures.
+Its maximal-variation and dimension hypotheses belong to the nondegeneracy
+conclusions, not to these algebraic constructions. No arithmetic nondegeneracy
+theorem is added here.
+
+Yuan's exact 21 August 2024, 126-page manuscript URL remained unreachable in
+this run. Its accepted claims and original locators are preserved; the README
+labels supplementary arXiv-v4 locators separately. Annals 203 (2026), pp.15–119,
+has different pagination. Neither the arXiv copy nor the journal metadata is
+passed off as the exact manuscript. Milne's 12 June 2021 notes §8, Theorem 8.1
+and family discussion pp.27–28 remain inherited reading from the initial
+assembly, not fresh reading by this continuation.
 
 BLR is absent from the cleared private-library index. This continuation did
 not obtain or read another copy. Its accepted printed locators remain
@@ -235,7 +281,7 @@ boundary above.
 | Bi-Picard lifting retains the other projection condition | JC4.6, JC4.7 |
 | Axis-normalized square comparison proof | JC4.9 |
 | Stable relative duality and determinant API | JC6.1, JC6.2, JC6.3 |
-| Prototype interfaces absent at the pinned baseline | All targets except JC5.5 |
+| Prototype interfaces absent at the pinned baseline | 43 solely omitted targets; canonical-input identifications in JC5.2–JC5.4 and the geometric supplier theorem in JC5.6 |
 
 For the relative representability/properness chain retain BLR 8.2/1, 8.2/5,
 8.4/2–3, 9.2/13, 9.3/5 and MFK 6.9 as exact proof inputs. The pointed
@@ -252,8 +298,10 @@ determinant. Do not substitute geometric-point tests for any of these proofs.
 
 The numbering follows prerequisite order inside each layer: local degree
 constancy precedes the degree components; properness precedes the abelian-scheme
-conclusion. No target is dropped. The native item is JC5.5; all other items
-have an honest geometric interface record in Suggested.lean.
+conclusion. No target is dropped. JC5.5 has the native generic coordinate
+interface. JC5.2–JC5.4 and JC5.6 now have native portions with explicit earlier
+inputs and retained geometric-identification records. The other 43 targets
+have honest geometric omission records in Suggested.lean.
 
 | Package target | Accepted node suffix | Kind |
 | --- | --- | --- |

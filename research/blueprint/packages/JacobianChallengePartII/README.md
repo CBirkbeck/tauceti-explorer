@@ -49,7 +49,7 @@ The [algebraic vector bundles roadmap](https://github.com/TauCetiProject/TauCeti
 
 Use Mathlib's schemes, slice category Over(S), native morphism properties and fppf topology. Tau Ceti's `InvertibleSheaf`, `InvertibleSheaf.tensorProduct`, `LineBundleClass`, `SchemeWeilDivisor.relativeDegree`, `Scheme.Modules.Cohomology` and field `AbelianVariety` supply the initial objects. `LineBundleClass` at the stated baseline is a commutative monoid of isomorphism classes; inverses and the actual Picard group are supplied by the parent theory. Abstract module-sheaf cohomology supplies neither proper pushforward nor relative duality. Mathlib's `CommRing.Pic` concerns invertible modules over a ring and does not supply a relative Picard scheme.
 
-The coordinate change in JC5 can already be expressed directly on Hom(T,A). Mathlib's `CategoryTheory.Hom.group` and `CategoryTheory.GrpObj.comp_div` give the group law and naturality under precomposition. This is the represented functor of points of the actual scheme object, including its values on infinitesimal test schemes.
+The coordinate constructions in JC5 use native morphisms in Over(S). Mathlib's `CategoryTheory.Hom.group`, `CategoryTheory.MonObj.comp_mul`, `CategoryTheory.GrpObj.comp_div` and `CategoryTheory.GrpObj.comp_zpow` give the group law and its compatibility with precomposition. The finite products `piObj`, `Pi.π` and `Pi.lift` express actual fibre powers. Arbitrary base change uses the comparison isomorphisms `PreservesLimitPair.iso` and `PreservesProduct.iso`, with the pulled-back group object supplied by `Functor.grpObjObj`. Their represented points include infinitesimal test schemes.
 
 ## Layer order
 
@@ -711,6 +711,8 @@ For g>1, τ:J×_S X→J×_S J is (y,x)↦(y,y+i_ω(x)); it is a morphism over th
 
 **Construction and comparison.** Take id_J×i_ω and apply addition in the second J coordinate. Verify the first projection is unchanged.
 
+For the native signature, take A and X in Over(S), a group object on A, and an S-morphism c:X→A. Define `UniversalShift c` by its projections p₁ and p₁·(p₂∘c). In the geometric application A=J and c=i_ω from JC5.1. The signature takes that morphism as an input; the canonical bundle and its degree remain part of the earlier construction. The product comparison identifies a pulled-back shift with the shift of the pulled-back c. These are morphism equalities over the new base. The same algebraic operation with c=0 gives (y,x)↦(y,y); this group-law check supplements the geometric genus-one test below, whose canonical-bundle identification belongs to JC5.1. See also [Yuan, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), §2.2.1 p. 29 and Theorem 2.10(3) p. 37.
+
 **API.**
 
 - `RelativeJacobian.UniversalShift.value`: τ(y,x)=(y,y+(2g−2)[x]−ω).
@@ -732,6 +734,8 @@ For m≥1, FZ_m:X^{m+1}_S→J^m_S sends (x₀,…,x_m) to (j(x₀,x₁),…,j(x�
 **Source.** [Yuan](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), §4.6.2 preceding Theorem 4.17 p. 98 and proof p. 99; [Dimitrov–Gao–Habegger](https://arxiv.org/pdf/2001.10276v3), §6.1 equation(6.3) and paragraph after(6.5) p. 25.
 
 **Construction and comparison.** Use the actual fibre-power projections and form each difference coordinate. Use the product universal property to assemble the morphism. Check base change through the fibre-power comparisons.
+
+The native definition takes the section-free difference d:X×_S X→A as its input and uses `Fin (m+1)` for the source and `Fin m` for the target. Coordinate i of the target uses source coordinates 0 and i.succ, in that order. The pointed comparison assumes d(x,y)=a(y)−a(x) and a(P)=0 for the supplied pointed Abel morphism a. The origin-change check uses the same difference identity for every degree-one Abel morphism; choosing an origin is unnecessary in the definition. A base extension transports d through the inverse binary-product comparison before forming the new tuple. For properness, apply Mathlib's `AlgebraicGeometry.IsProper.of_comp` to the target structure morphism: properness of the source over S and separatedness of A^m over S are the precise native inputs. The construction and comparison are also described in [Yuan, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), §4.6.2 pp. 96–98; DGH's §6.1 p. 25 gives the proper arbitrary-base-change map.
 
 **API.**
 
@@ -757,6 +761,8 @@ For g>1 and m≥1, τ_m:X^m_S×_S J→J^m_S sends (x₁,…,x_m,y) to (i_ω(x₁
 **Source.** [Yuan](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), §4.6.2 preceding Theorem 4.17 p. 98 and proof p. 99.
 
 **Construction and comparison.** Assemble the first coordinate from addition and i_ω. Assemble the remaining coordinates from j and use the product universal property.
+
+Write m=n+1 in the native signature, so the first coordinate exists without a separate nonempty-index proof. The source is the binary product of the X fibre power with A. With c=i_ω and d=j supplied by JC5.1 and JC2.6, its head is c(x₁)+y and coordinate r>1 is d(x₁,x_r). The base-change equality includes both the binary-product comparison for X^m×A and the finite-product comparison for X^m; it preserves this source order and compares the maps over the whole new base. The one-factor, two-factor sign and diagonal tests below have native forms for these inputs. See also [Yuan, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), §4.6.2, definition preceding Theorem 4.17 p. 97 and proof p. 98.
 
 **API.**
 
@@ -813,6 +819,10 @@ Let B_m(x₁,…,x_m,y)=(i_ω(x₁)+y,…,i_ω(x_m)+y). After the triangular cha
 **Source.** [Yuan](http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), proof of Theorem 4.17(5) p. 99.
 
 **Construction and comparison.** Evaluate the triangular map on every test scheme. Subtract the common first coordinate: i_ω(x_r)−i_ω(x₁)=(2g−2)j(x₁,x_r). Apply the nonzero multiplication theorem to the tail factors. Do not identify τ_m itself with the tuple of all shifted canonical Abel coordinates.
+
+`ShiftedCanonicalPower n c` gives B_{n+1} and `TailMultiplication n e` gives D on the actual fibre powers. In Mathlib's multiplicative notation, the earlier difference identity is (p₂∘c)/(p₁∘c)=d^e in Hom(X×_S X,A). With this equality as an explicit input, `shifted_power_factorization` states B≫R=τ≫D as a morphism in Over(S). Substituting c=i_ω, d=j and e=2g−2 gives the displayed geometric identity. Projection to the head preserves c(x₁)+y; projection to a tail cancels the common y and applies the supplied difference identity. The positive scaling is retained in D.
+
+The native finite, flat, locally finitely presented and surjective signatures for D each assume the corresponding property of [e]:A→A. These are transfers to products, with the abelian-scheme theorem supplying the hypotheses at e=2g−2≠0. They do not assert a multiplication-isogeny theorem for an arbitrary group object. The helper maps are checked on a single factor, a zero translation and a diagonal tuple; D is also checked at e=1 and e=0, where the latter kills its tails. In the Jacobian application A is commutative, so D preserves the group law; finite locally free multiplication gives the required isogeny without an invertibility assumption on e. See also [Yuan, arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), proof of Theorem 4.17(5) p. 98.
 
 **Checks.** For m=1 D is identity. In characteristic dividing 2g−2, D is finite but need not be étale.
 
@@ -910,7 +920,7 @@ In a stable nodal family, invariant differentials use the generalized semi-abeli
 
 ## References and locator conventions
 
-- Xinyi Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*, author manuscript dated 21 August 2024, 126 pages. All Yuan page numbers above refer to that manuscript: §2.2.1–2.2.2, pp. 29–32; Theorem 2.10 and proof, pp. 37–39; Lemma 3.4 and proof, pp. 43–44; §4.6.2, Theorem 4.17 and proof, pp. 98–99; §A.3, p. 109; §A.4, Theorem A.3 and proof, pp. 110–111. Published as [Annals of Mathematics 203 (2026), 15–119](https://annals.math.princeton.edu/2026/203-1/p02); the manuscript page numbers are not publisher page numbers.
+- Xinyi Yuan, *Arithmetic bigness and a uniform Bogomolov-type result*, author manuscript dated 21 August 2024, 126 pages. Unless explicitly labelled arXiv v4, Yuan page numbers above refer to that manuscript: §2.2.1–2.2.2, pp. 29–32; Theorem 2.10 and proof, pp. 37–39; Lemma 3.4 and proof, pp. 43–44; §4.6.2, Theorem 4.17 and proof, pp. 98–99; §A.3, p. 109; §A.4, Theorem A.3 and proof, pp. 110–111. The supplementary [arXiv:2108.05625v4](https://arxiv.org/pdf/2108.05625v4), dated 30 April 2024, has 125 pages: its §4.6.2, Theorem 4.17 and proof are on pp. 96–98. Published as [Annals of Mathematics 203 (2026), 15–119](https://annals.math.princeton.edu/2026/203-1/p02); these manuscript page numbers are not publisher page numbers.
 - Vesselin Dimitrov, Ziyang Gao and Philipp Habegger, [*Uniformity in Mordell–Lang for curves*, arXiv:2001.10276v3](https://arxiv.org/pdf/2001.10276v3), §6.1, pp. 23–25, especially (6.3) and (6.5). These locators use the 49-page arXiv version.
 - Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud, *Néron Models*, Springer, 1990. Locators use printed pages: §8.1, pp. 202–205 (Leray and Proposition 4); §8.4, Theorem 1 and proof, pp. 231–232; §9.3, Theorem 1 and proof, p. 252; §9.4, Theorem 1, p. 259 and Proposition 4, pp. 260–261. The relative representability/properness route uses the auxiliary results cited by those proofs.
 - J. S. Milne, [*Jacobian Varieties*, notes dated 12 June 2021](https://www.jmilne.org/math/xnotes/JVs.pdf), §8, Theorem 8.1 and the family/base-change discussion, pp. 27–28. This gives the family context and the distinction between actual classes and relative sections. Use the exact supplier scope for every family theorem above.
