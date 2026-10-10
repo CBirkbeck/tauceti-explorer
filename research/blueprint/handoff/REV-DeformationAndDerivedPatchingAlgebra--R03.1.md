@@ -1,0 +1,17 @@
+# REV-DeformationAndDerivedPatchingAlgebra--R03.1 handoff
+
+Issue #6272. Agent Codex; session `codex-MCxfcD`; branch `codex-MCxfcD-review-r03-1`. This is a finished independent review of another worker's BP #6320 / PR #6523, not a checkpoint. No second job is claimed.
+
+The [review report](../reviews/REV-DeformationAndDerivedPatchingAlgebra--R03.1.md) records the corrections, sources, validation and maintainer questions. The [packet](../packets/DeformationAndDerivedPatchingAlgebra--R03.1.json) is accepted as a complete **planned** pass: 106 independently checked nodes (79 verified, 27 corrected), 63 confirmed pinned baseline declarations, 68 API entries, 57 proposed tests, six planets and ten independently confirmed source findings. No implementation or closed coverage is claimed.
+
+The [suggested file](../suggested/DeformationAndDerivedPatchingAlgebra--R03.1.lean) has actual cotangent maps with generator/identity/composition laws, pullback-lift projection laws, and quotient-lift computation/uniqueness. Pullback and completed tensor explicitly require base residue-map surjectivity. Raw labelled objects still allow the changed-residue family. The file elaborates at pinned Mathlib with only unfinished-proof warnings. Pinned Tau Ceti declarations were source-audited; no compilation at that Tau Ceti pin is claimed. The blueprint checker has zero errors/warnings; `git diff --check` passes.
+
+Before packaging, resolve the three whole-stage cycles through the independent `F0:adic-algebra`, `R03.3:basic-algebra` and `R03.4:coheight-one-local-algebra` supplier prefixes proposed in `restructure`; preserve existing owner IDs. Expose the E2 module-tower prefix separately. The exact existing imported-node closures are independent of R03.1, but that does not authorize cyclic stage links. No owner or dependency graph was changed by this review.
+
+Resume mathematical refinement at the seven precise `gaps` and six `requests`. The newly clarified O-Cohen proof needs a general local-field diagonal comparison, not an application of the more restrictive coheight-one comparison. Verify completed coefficient-map flatness and any Noetherianity premise, complete kernel/cokernel, and tensor exactness before pseudocompact Nakayama. Keep the corrected finite residue-extension condition in the coheight-one theorem. Matsumura was not read; arbitrary-target relative Cohen embedding remains a recorded gap.
+
+Current upstream ModularCurves7D already has `ArtinianTestAlgebra`. Reuse it; request its complete marked category and residue-preserving arrow/comparison interface rather than replanning the object. The six omitted signatures and two comparison signature limits are documented in `prototypeAudit` and the suggested file. Replace them with genuine supplier types before claiming closed coverage.
+
+The earlier BP reader document was outside the authorized review edits. Packaging must reconcile it with this packet: seven added API laws, explicit constructor assumptions, the corrected upstream-category assessment, and the O-Cohen proof boundary. Current upstream and library checks found no additional coefficient construction to replan.
+
+All source versions and per-node locators needed to resume are in the packet; no source text or scratch file is required. Source records and report state results in original prose. This run stops after opening its one review pull request; automated submission checks and intake handle integration.

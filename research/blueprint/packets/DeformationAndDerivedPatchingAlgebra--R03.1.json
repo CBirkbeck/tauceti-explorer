@@ -16,441 +16,819 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Defs.lean",
         "provides": "The ideal of nonunits in a commutative local ring.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 30."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 30.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsArtinianRing",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Artinian/Defs.lean",
         "provides": "Descending chain condition on ideals.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 66."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 66.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsNoetherianRing",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
         "provides": "Ascending chain condition on ideals.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 196."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 196.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsAdicComplete",
         "kind": "class",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Separated and precomplete modules for the powers of an ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 56."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 56.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsLocalHom",
         "kind": "class",
         "module": "Mathlib/Algebra/Group/Units/Hom.lean",
         "provides": "A multiplicative homomorphism that reflects units.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 270."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 270.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsLocalRing.maximalIdeal_comap",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
         "provides": "Comap of the maximal ideal along a local ring homomorphism.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 95."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 95.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Ideal.hasBasis_nhds_zero_adic",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
         "provides": "The powers of an ideal form a neighbourhood basis for its adic topology.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 98."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 98.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:TrivSqZeroExt",
         "kind": "def",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "Native trivial square-zero extension with genuine multiplication.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 69."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 69.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:TrivSqZeroExt.fstHom",
         "kind": "def",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "The algebra-homomorphism projection to the coefficient ring.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 883."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 883.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:TrivSqZeroExt.isUnit_iff_isUnit_fst",
         "kind": "theorem",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "Units are exactly elements with unit first coordinate.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 756."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 756.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
         "provides": "For a Noetherian local ring, Artinianity is equivalent to nilpotence of the maximal ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 184."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 184.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:isSimpleModule_iff_quot_maximal",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/SimpleModule/Basic.lean",
         "provides": "A simple module is a quotient by a maximal ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 165."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 165.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:isFiniteLength_iff_isNoetherian_isArtinian",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/FiniteLength.lean",
         "provides": "Finite length is equivalent to both chain conditions.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:exists_compositionSeries_of_isNoetherian_isArtinian",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/FiniteLength.lean",
         "provides": "A module with both chain conditions has a finite composition series.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 50."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 50.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AlgHom.equalizer",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
         "provides": "The actual equalizer subalgebra of two algebra homomorphisms.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 1030."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 1030.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AlgHom.fst",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Prod.lean",
         "provides": "First projection of product algebras.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 63."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 63.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AlgHom.snd",
         "kind": "def",
         "module": "Mathlib/Algebra/Algebra/Prod.lean",
         "provides": "Second projection of product algebras.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 67."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 67.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:isArtinian_of_tower",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Artinian/Module.lean",
         "provides": "Artinianity ascends through a scalar tower when it holds over the smaller scalar ring.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 369."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 369.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "For a Noetherian ring and a finite module, completion equals tensoring with the completed base.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 328."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 328.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsAdicComplete.map_algebraMap_iff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "Completion for an ideal and its algebra-map image are equivalent.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 713."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 713.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.ofAlgEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
         "provides": "A complete ring is canonically algebra-isomorphic to its adic completion.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 431."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 431.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Ideal.Quotient.lift",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "Factor a ring homomorphism through an ideal contained in its kernel.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 144."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 144.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.of_bijective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The canonical map to completion is bijective on a complete separated module.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 669."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 669.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:RingHom.quotientKerEquivOfSurjective",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "The first-isomorphism ring equivalence for a surjective homomorphism.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 89."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 89.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Ideal.Cotangent",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Cotangent.lean",
         "provides": "The native quotient I/I² with quotient-ring scalar action.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 42."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 42.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsLocalRing.CotangentSpace",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Ideal/Cotangent.lean",
         "provides": "Native maximal-ideal cotangent space, with finite-dimensional instance for Noetherian local rings.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 305."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 305.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsLocalRing.CotangentSpace.span_image_eq_top_iff",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/Cotangent.lean",
         "provides": "Nakayama equivalence between cotangent spanning and maximal-ideal spanning.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 336."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 336.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:surjective_of_mk_map_comp_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
         "provides": "Surjectivity modulo an ideal implies surjectivity for precomplete source and separated target.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 458."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 458.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsHausdorff.of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
         "provides": "Finite modules over a Noetherian local ring are separated for every proper ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 26."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 26.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MvPowerSeries.isUnit_iff_constantCoeff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Inverse.lean",
         "provides": "A power series is a unit exactly when its constant coefficient is a unit.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 138."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 138.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MvPowerSeries.mem_map_C_iff_of_fg",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Ideal.lean",
         "provides": "For a finitely generated coefficient ideal, coefficientwise membership equals membership in its power-series extension.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 70."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 70.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MvPowerSeries.WithPiTopology.continuous_coeff",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/PiTopology.lean",
         "provides": "Coefficient projections are continuous for the scoped native product topology.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 119."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 119.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MvPowerSeries.eval₂Hom",
         "kind": "def",
         "module": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
         "provides": "Continuous coefficient homomorphism and a HasEval family give a power-series ring homomorphism.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 228."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 228.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MvPowerSeries.aeval_unique",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
         "provides": "Uniqueness of continuous algebra-homomorphism evaluation on the variables.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 324."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 324.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.isAdicComplete",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Completeness.lean",
         "provides": "Completion of a module for a finitely generated ideal is complete and separated.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 184."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 184.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Algebra.TensorProduct.lift",
         "kind": "def",
         "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
         "provides": "The native universal algebra homomorphism out of a tensor product.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 155."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 155.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:isLocalRing_of_isAdicComplete_maximal",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
         "provides": "A ring complete for a maximal ideal is local.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 49."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 49.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Descent.lean",
         "provides": "Faithfully flat tensor base change reflects finite generation, without a Noetherian hypothesis.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 36."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 36.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Finite.base_change",
         "kind": "instance",
         "module": "Mathlib/RingTheory/TensorProduct/Finite.lean",
         "provides": "Tensor base change preserves finite generation.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 80."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 80.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Ideal.FG.of_FG_map_of_faithfullyFlat",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Descent.lean",
         "provides": "Finite generation of an ideal descends through a faithfully flat algebra.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 50."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 50.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.flat_of_isNoetherian",
         "kind": "instance",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "The adic completion of a Noetherian base ring is flat; this does not assume arbitrary flat algebras are Noetherian.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 379."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 379.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.iff_lTensor_injective'",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Flat/Tensor.lean",
         "provides": "Flatness is tested by preservation of injectivity for finitely generated ideals.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat.iff_flat_and_proper_ideal",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
         "provides": "Faithful flatness is flatness plus nonvanishing quotient by each proper ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 73.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.lTensor_preserves_injective_linearMap",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Flat tensoring preserves injectivity of linear maps.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 131."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 131.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Filtration.lean",
         "provides": "Native Artin–Rees for a submodule of a finite module over a Noetherian ring.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 388."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 388.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Finite",
         "kind": "class",
         "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
         "provides": "Finite generation of a module.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 117."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 117.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsDiscreteValuationRing",
         "kind": "class",
         "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
         "provides": "Native DVR predicate.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 58."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 58.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:RingHom.FormallySmooth.of_flat_of_ker_eq_map_of_square_zero",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Smooth/Quotient.lean",
         "provides": "Native lifting of formal smoothness through a square-zero base ideal and a flat map.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 217."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 217.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:WittVector.quotientPEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/WittVector/Complete.lean",
         "provides": "For perfect k, the native Witt quotient by p is k.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 105."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 105.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.surjective_evalₐ",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Algebra.lean",
         "provides": "Every finite-level completion projection is surjective without finite generation of the ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 157."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 157.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:AdicCompletion.map_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
         "provides": "Completion sends a surjective linear map to a surjection without Noetherian hypotheses.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 72."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 72.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
         "provides": "Flat local maps between local rings are faithfully flat.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 60."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 60.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:IsHausdorff",
         "kind": "class",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The intersection of the powers acting on a separated module is zero.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 46."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 46.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:WittVector.isDiscreteValuationRing",
         "kind": "instance",
         "module": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
         "provides": "The native Witt ring of a perfect field is a DVR.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 149."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 149.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:MaximalSpectrum.toPiLocalizationEquiv",
         "kind": "def",
         "module": "Mathlib/RingTheory/Spectrum/Prime/Topology.lean",
         "provides": "A ring with discrete prime spectrum is canonically the product of its localizations at maximal ideals.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 770."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 770 (the maximal-spectrum declaration, distinguished from the prime-spectrum declaration at line 801).",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:surjective_of_mkQ_comp_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Functoriality.lean",
         "provides": "Linear topological Nakayama: surjectivity modulo I plus completeness of the source and separatedness of the target implies surjectivity.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 448."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 448.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:WittVector.p_nonzero",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/WittVector/Identities.lean",
         "provides": "The prime p is nonzero in native Witt vectors of a nontrivial characteristic-p ring.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 88."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 88.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:PerfectClosure.of",
         "kind": "def",
         "module": "Mathlib/FieldTheory/PerfectClosure.lean",
         "provides": "Native embedding into the perfect closure of a characteristic-p field.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 387."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 387.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Module.Flat.flat_iff_torsion_eq_bot_of_isBezout",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Flat/TorsionFree.lean",
         "provides": "Over a Bezout domain, a module is flat precisely when its torsion submodule vanishes; used over a Cohen DVR.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 93."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 93.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Algebra.IsGeometricallyReduced",
         "kind": "class",
         "module": "Mathlib/RingTheory/Nilpotent/GeometricallyReduced.lean",
         "provides": "Native geometric-reducedness class; for a field extension this expresses arbitrary separability, without a finite-type restriction.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 54."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 54.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "mathlib:Derivation",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Derivation/Basic.lean",
         "provides": "Native base-linear derivation with its genuine Leibniz law and coefficient module actions.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 45."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 45.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "tauceti:MvPowerSeries.hasEval_of_mem",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean",
         "provides": "Finite families in an adic ideal satisfy native HasEval; completeness is imposed separately for the evaluation homomorphism.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 212."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 212.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       },
       {
         "ref": "tauceti:MvPowerSeries.eval₂_sub_constantCoeff_mem",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean",
         "provides": "Adic evaluation differs from the mapped constant coefficient by an element of the target adic ideal.",
-        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 182."
+        "checked": "Statement and surrounding binders read at the pinned commit; declaration starts at line 182.",
+        "independentReview": {
+          "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+          "date": "2026-10-10",
+          "result": "confirmed",
+          "note": "Declaration and enclosing hypotheses independently read; module bytes matched the exact recorded GitHub pin."
+        }
       }
     ]
   },
@@ -1034,7 +1412,7 @@
         },
         {
           "name": "TauCeti.Coeff.Local.test_unit_lift",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Every nonzero c∈k lifts to a unit in A."
         }
       ],
@@ -1111,7 +1489,7 @@
         },
         {
           "name": "TauCeti.Coeff.Hom.test_comp_residue",
-          "kind": "functoriality",
+          "kind": "compatibility",
           "statement": "Composites preserve the same residue map."
         },
         {
@@ -1486,7 +1864,7 @@
         },
         {
           "name": "TauCeti.Coeff.Local.split_test_product",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "The product of any two pure infinitesimal vectors is zero."
         },
         {
@@ -1733,7 +2111,7 @@
         },
         {
           "name": "TauCeti.Coeff.Extension.Small.test_annihilator_required",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "The dual-number augmentation k⊕k→k is small; the augmentation k[X]/(X³)→k is not small."
         }
       ],
@@ -1992,7 +2370,8 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/small-extension",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/small-kernel-in-maximal"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/small-kernel-in-maximal",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-residue-module"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -2256,6 +2635,16 @@
           "name": "TauCeti.Coeff.Artinian.pullback_ext",
           "role": "extensionality",
           "statement": "Maps to P are equal when both projections agree."
+        },
+        {
+          "name": "TauCeti.Coeff.Artinian.pullbackLift_fst",
+          "role": "simp",
+          "statement": "Composing the paired lift with the first projection returns its first given morphism."
+        },
+        {
+          "name": "TauCeti.Coeff.Artinian.pullbackLift_snd",
+          "role": "simp",
+          "statement": "Composing the paired lift with the second projection returns its second given morphism."
         }
       ],
       "tests": [
@@ -2266,7 +2655,7 @@
         },
         {
           "name": "TauCeti.Coeff.Artinian.pullback_test_dual",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "(k⊕k)×_k(k⊕k) has a two-dimensional square-zero maximal ideal."
         },
         {
@@ -2418,6 +2807,16 @@
           "name": "TauCeti.Coeff.Complete.quotientLift",
           "role": "universal-property",
           "statement": "A coefficient morphism killing I factors uniquely through A/I."
+        },
+        {
+          "name": "TauCeti.Coeff.Complete.quotientLift_mk",
+          "role": "simp",
+          "statement": "The factor map evaluated on the quotient class of a is the original map evaluated on a."
+        },
+        {
+          "name": "TauCeti.Coeff.Complete.quotientLift_unique",
+          "role": "universal-property",
+          "statement": "Any quotient morphism whose composite with quotientMk is the given morphism equals quotientLift."
         }
       ],
       "tests": [
@@ -2428,7 +2827,7 @@
         },
         {
           "name": "TauCeti.Coeff.Complete.quotient_test_maximal",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Quotient by m_A is the labelled residue field k."
         },
         {
@@ -2555,7 +2954,7 @@
         },
         {
           "name": "TauCeti.Coeff.Complete.truncation_test_square_zero",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "The kernel of A_(n+1)→A_n is square-zero for all n≥0; it need not be one-dimensional."
         }
       ],
@@ -2782,7 +3181,22 @@
         {
           "name": "TauCeti.Coeff.RelativeCotangent.map",
           "role": "functoriality",
-          "statement": "Commuting coefficient morphism squares induce k-linear maps on relative cotangent spaces."
+          "statement": "A commuting square of coefficient morphisms defines a specified k-linear map on the relative quotients, with generator, identity and composition laws."
+        },
+        {
+          "name": "TauCeti.Coeff.RelativeCotangent.map_mk",
+          "role": "simp",
+          "statement": "The map induced by a commuting square sends the class of x to the class of its target-side image."
+        },
+        {
+          "name": "TauCeti.Coeff.RelativeCotangent.map_id",
+          "role": "functoriality",
+          "statement": "The identity square induces the identity linear map."
+        },
+        {
+          "name": "TauCeti.Coeff.RelativeCotangent.map_comp",
+          "role": "functoriality",
+          "statement": "The map of a composite of commuting squares is the composite of their linear maps."
         }
       ],
       "tests": [
@@ -2793,7 +3207,7 @@
         },
         {
           "name": "TauCeti.Coeff.RelativeCotangent.test_split",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "t*_(k⊕kⁿ/k)=kⁿ, with the induced coordinate classes."
         },
         {
@@ -3037,7 +3451,7 @@
         },
         {
           "name": "TauCeti.Coeff.Complete.powerSeries_test_variable",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Every variable has residue zero; the constant series 1 has residue 1."
         },
         {
@@ -3128,7 +3542,7 @@
         },
         {
           "name": "TauCeti.Coeff.Complete.powerSeriesEval_test_zero",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Evaluation of all variables at zero is f composed with constantCoeff."
         },
         {
@@ -3323,7 +3737,7 @@
       "proofSteps": [
         "Start with zero coefficients and residual z at level zero.",
         "At each stage apply the stated approximation property to the current residual and add its finite correction to the coefficients.",
-        "Ideal closure retains the residual in K; the next-power approximation gives the induction invariant."
+        "The stated approximation property keeps the next residual in K and in the next ideal power; use that property for the induction invariant."
       ],
       "acceptance": [
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
@@ -3570,7 +3984,7 @@
         },
         {
           "name": "TauCeti.Coeff.Complete.tensor_test_series",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Λ[[X]]⊗̂_Λ Λ[[Y]]≃Λ[[X,Y]], with maximal ideal (m_Λ,X,Y)."
         },
         {
@@ -3768,7 +4182,8 @@
       ],
       "prerequisites": [
         "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
-        "mathlib:Module.Finite"
+        "mathlib:Module.Finite",
+        "mathlib:Module.Flat.lTensor_preserves_injective_linearMap"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -3922,7 +4337,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion",
         "mathlib:Module.FaithfullyFlat.iff_flat_and_proper_ideal",
-        "mathlib:AdicCompletion.isAdicComplete"
+        "mathlib:AdicCompletion.isAdicComplete",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-comparison"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -4201,7 +4617,7 @@
         },
         {
           "name": "TauCeti.Coeff.ResidueExtension.test_series",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "Given k⊂K, k[[X]]→K[[X]] with coefficient inclusion satisfies the extension data and maximal ideal (X)."
         },
         {
@@ -4646,7 +5062,7 @@
         },
         {
           "name": "TauCeti.Coeff.Hom.formallySmooth_test_series",
-          "kind": "small-case",
+          "kind": "computation",
           "statement": "A→A[[X₁,…,X_n]] is formally smooth, including n=0."
         },
         {
@@ -4922,7 +5338,7 @@
       ],
       "proofSteps": [
         "Use the algebraically closed field perfectness instance and the native Witt complete-DVR structures.",
-        "Translate a labelled quotient isomorphism into the equivalent actual residue map q with its kernel equation.",
+        "Reuse the upstream ArtinianTestAlgebra data: its actual Witt algebra map, residue surjection and maximal-kernel equation match the general Artinian objects. For the complete category, import the type and arrows promised in the upstream README when exposed; do not create a second Witt-specialized category.",
         "The forgetful object and morphism assignments are inverse. This is the RS08 boundary comparison, without redefining an elliptic deformation problem."
       ],
       "acceptance": [
@@ -5019,7 +5435,7 @@
       "sources": [
         {
           "sourceId": "PQ-24",
-          "locator": "Lemma5.15, first proof paragraph",
+          "locator": "Lemma5.15, first proof paragraph; printed pp.38–39",
           "match": "The source assumption is on the completion, not on A or on finite generation of its maximal ideal."
         }
       ],
@@ -5167,7 +5583,9 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-comparison",
         "EnhancedDerivedSheaves:E2",
-        "mathlib:IsHausdorff"
+        "mathlib:IsHausdorff",
+        "mathlib:IsHausdorff.of_isLocalRing",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -5243,7 +5661,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/module-chevalley",
         "DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-comparison",
-        "DeformationAndDerivedPatchingAlgebra:R03.1/series-presentation"
+        "DeformationAndDerivedPatchingAlgebra:R03.1/series-presentation",
+        "mathlib:surjective_of_mkQ_comp_surjective"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -5288,7 +5707,7 @@
       "sources": [
         {
           "sourceId": "KW-II-09",
-          "locator": "Proposition2.2(ii), generic quotient calculation",
+          "locator": "Proposition2.2(ii), generic quotient calculation; printed pp.9–10",
           "match": "Worker explicit finite-jet identification preceding the regular-coordinate comparison."
         }
       ],
@@ -5328,7 +5747,7 @@
       "sources": [
         {
           "sourceId": "KW-II-09",
-          "locator": "Proposition2.2(ii), finite free tensor quotients",
+          "locator": "Proposition2.2(ii), finite free tensor quotients; printed pp.9–10",
           "match": "This argument uses maximal-adic cofinality of saturated jets; it does not silently replace it by P-adic cofinality."
         }
       ],
@@ -5367,7 +5786,7 @@
       "sources": [
         {
           "sourceId": "KW-II-09",
-          "locator": "Proposition2.2(ii), domain assertion",
+          "locator": "Proposition2.2(ii), domain assertion; printed pp.9–10",
           "match": "The worker extends only the point-based domain argument. The full finite-p-adic generic regularity conclusion is an R03.4 consumer."
         }
       ],
@@ -5484,7 +5903,7 @@
       "sources": [
         {
           "sourceId": "ANS-JAHNKE-22",
-          "locator": "Theorem4.1 and Corollary6.5",
+          "locator": "Theorem 4.1, printed pp.8–9; Corollary 6.5, printed p.14",
           "match": "Purely inseparable perfect-hull change uses the embedding process, not the separable Cohen homomorphism theorem6.2."
         }
       ],
@@ -5861,7 +6280,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
         "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
-        "EnhancedDerivedSheaves:E2"
+        "EnhancedDerivedSheaves:E2",
+        "DeformationAndDerivedPatchingAlgebra:R03.4"
       ],
       "library": {
         "module": "TauCeti/RingTheory/Deformation/Coefficients",
@@ -5890,15 +6310,14 @@
         "O is a finite-p-adic integer ring; R is CNL_O(k); A is finite type over R; κ(p) is a characteristic-p local field; Λ is the specified O-Cohen ring."
       ],
       "proofSteps": [
-        "O-flatness of Λ, localization flatness and native completion flatness give the relevant flat coefficient map.",
-        "Reduce modulo the O-uniformizer and apply the preceding characteristic-p comparison.",
-        "Lift the variable and coefficients; pseudocompact module Nakayama with a verified separated kernel upgrades the reduction isomorphism. This precise comparison step is not supplied by finite-module Nakayama alone."
+        "O-flatness of Λ and localization give a flat map A_p→B_q before completion. The flatness and coefficient compatibility after q-adic completion are part of the required diagonal-completion interface; native Noetherian completion flatness alone cannot be applied before its base hypotheses are verified.",
+        "Reduce modulo the O-uniformizer. Use the general diagonal comparison for a Noetherian local k-algebra with specified characteristic-p local-field residue κ, without assuming the coheight-one contraction hypotheses of local-field-coefficient-completion. This precise additional input remains in the recorded comparison gap.",
+        "Lift the diagonal variable and construct the coefficient-compatible map completion(A_p)[[T]]→completion(B_q). Pseudocompact Nakayama requires completeness of its kernel and cokernel and the needed tensor exactness; these are included in the same gap, rather than replaced by finite-module Nakayama."
       ],
       "acceptance": [
         "Check every displayed hypothesis; the proposed declaration has exactly the indicated source and target."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.1/local-field-coefficient-completion",
         "DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion",
         "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
         "EnhancedDerivedSheaves:E2"
@@ -5986,7 +6405,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
-      "need": "Expose the already planned Witt coefficient category, its residue marking and local arrows, for the identity-on-underlying-data comparison with the general R03.1 category. This is an interface request only; no new elliptic moduli or universal deformation ring is planned here.",
+      "need": "Current ModularCurves Suggested.lean already exposes ArtinianTestAlgebra with actual Witt algebra map, labelled residue map and kernel equation. Reuse that object data for the Artinian specialization. Expose its residue-preserving arrows and the complete-category type promised by README §7D to state the category comparison. No replacement test-algebra definition, elliptic moduli or universal deformation ring belongs here.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.1/modular-curves-coefficient-comparison"
       ]
@@ -6017,7 +6436,7 @@
         "Gap 4: Relative Cohen structure with prescribed representatives in an arbitrary complete target. André §4.4(1) invokes Matsumura Theorems29.5–29.6. The private book is unavailable. Anscombe–Jahnke Theorem6.2 and6.7 give Cohen-to-Cohen maps with p-basis representatives, not embeddings into an arbitrary complete Noetherian local R′ containing the prescribed image of C(k). This precise relative embedding theorem is unestablished; no claim that Cohen-to-Cohen homomorphisms alone supply it.",
         "Gap 5: Regular point coordinates and tensor generic-fibre interfaces. The complete point-based domain proof reduces to an independent regular-coordinate theorem in R03.3. Its exact node was not found in P7; the request records variables and quotient compatibility. KW Proposition2.2(i) and global regularity of the generic fibre for finite Q_p bases belong to R03.4 and are not supplied by the arbitrary-DVR point argument.",
         "Gap 6: Teichmüller embedding-process algebra and perfect Cohen comparison. Anscombe–Jahnke Theorem4.1 and Corollary6.5 supply the exact mathematical statements, freshly read. Their p-basis, representative and pre-Cohen directed-union infrastructure has no native interface found at the pins and has not been decomposed to lemmas here. This is an explicit refinement gap for the perfect-hull map, not a use of separable lifting across a purely inseparable extension.",
-        "Gap 7: Local-field diagonal completions and pseudocompact coefficient comparison. BIP23 Lemmas3.35–3.37, pp.24–25, are read in the published version. The proof imports [9,Lemmas3.3.4–3.3.5], the one-element differential p-basis diagonal calculation, and topological Nakayama for pseudocompact modules. The finite-type native smooth-field theorem and finite-module Nakayama do not provide these interfaces. Their exact relative coefficient-completion comparison, including separated kernel and actual maps, remains unestablished here.",
+        "Gap 7: Local-field diagonal completions and pseudocompact coefficient comparison. BIP23 Lemmas3.35–3.37, pp.24–25, are read in the published version. The proof imports [9,Lemmas3.3.4–3.3.5], the one-element differential p-basis diagonal calculation, and topological Nakayama for pseudocompact modules. The finite-type native smooth-field theorem and finite-module Nakayama do not provide these interfaces. Their exact relative coefficient-completion comparison, including separated kernel and actual maps, remains unestablished here. In the O-Cohen case, reduction needs the general comparison for a Noetherian local k-algebra with labelled local-field residue; coheight one of a contraction is not an assumed hypothesis. Establish completed coefficient-map flatness (including any Noetherianity premise), completeness of kernel and cokernel, and tensor exactness before applying pseudocompact Nakayama. Do not infer this reduction directly from the narrower coheight-one statement.",
         "Resolve the three whole-stage supplier cycles through the proposed independent F0, R03.3 and R03.4 prefixes; confirm the E2 module-tower link and the upstream Witt category interface.",
         "Refine the unresolved source inputs to independently reviewed supplier declarations, restate the six omitted prototype signatures using their actual types, and implement the planned proofs before claiming source_decomposed or closed coverage."
       ]
@@ -6078,7 +6497,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.1/ocohen-coefficient-completion",
         "DeformationAndDerivedPatchingAlgebra:R03.1/finite-residue-coefficient-completion"
       ],
-      "detail": "BIP23 Lemmas3.35–3.37, pp.24–25, are read in the published version. The proof imports [9,Lemmas3.3.4–3.3.5], the one-element differential p-basis diagonal calculation, and topological Nakayama for pseudocompact modules. The finite-type native smooth-field theorem and finite-module Nakayama do not provide these interfaces. Their exact relative coefficient-completion comparison, including separated kernel and actual maps, remains unestablished here."
+      "detail": "BIP23 Lemmas3.35–3.37, pp.24–25, are read in the published version. The proof imports [9,Lemmas3.3.4–3.3.5], the one-element differential p-basis diagonal calculation, and topological Nakayama for pseudocompact modules. The finite-type native smooth-field theorem and finite-module Nakayama do not provide these interfaces. Their exact relative coefficient-completion comparison, including separated kernel and actual maps, remains unestablished here. In the O-Cohen case, reduction needs the general comparison for a Noetherian local k-algebra with labelled local-field residue; coheight one of a contraction is not an assumed hypothesis. Establish completed coefficient-map flatness (including any Noetherianity premise), completeness of kernel and cokernel, and tensor exactness before applying pseudocompact Nakayama. Do not infer this reduction directly from the narrower coheight-one statement."
     }
   ],
   "sourceIssues": [
@@ -6094,7 +6513,12 @@
       "known": "new",
       "searched": [
         "Downloaded current Stacks tag and section comments on 5 October 2026; no correction of this phrase found there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. Take Λ=k′=F_p and A=M=k=F_(p²). The Λ-length of M is two; k′ is the subfield, not the extension.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E2",
@@ -6108,7 +6532,12 @@
       "known": "new",
       "searched": [
         "Downloaded current Stacks tag and section comments on 5 October 2026; no correction of this phrase found there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. The numerator is m_S and the denominator is f(m_R)S+m_S²; its orientation is forced by these actual ideals.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E3",
@@ -6122,7 +6551,12 @@
       "known": "new",
       "searched": [
         "Downloaded current Stacks tag and section comments on 5 October 2026; no correction of this phrase found there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. The lemma begins with f:B→A and concludes that this map is surjective; no A→B has been specified.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E4",
@@ -6136,7 +6570,12 @@
       "known": "new",
       "searched": [
         "Downloaded current Stacks tag and section comments on 5 October 2026; no correction of this phrase found there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. The setup embeds the base residue k′ into the specified object residue k. Lemma90.3.11 immediately preceding the proof uses this same orientation.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E5",
@@ -6150,7 +6589,12 @@
       "known": "new",
       "searched": [
         "Downloaded current Stacks tag and section comments on 5 October 2026; no correction of this phrase found there."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. Set Λ=S=Z_p. The relative cotangent space is zero, so the chosen list x_i is empty; the asserted equality would force a=p to be zero. The corrected congruence suffices because derivations vanish on base multiples and on products of maximal-ideal elements. The finiteness statement remains true.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E6",
@@ -6164,7 +6608,12 @@
       "known": "new",
       "searched": [
         "The downloaded UCLA author copy and the authors’ paper page; bounded web search for Khare–Wintenberger II §2.1 erratum on 5 October 2026 found no correction. Finding is scoped to that author copy."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. The preceding sentence states the injective functor-map property of a closed immersion. Injectivity on dual numbers dualizes to surjectivity on cotangent spaces and then to surjectivity of the ring map.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E7",
@@ -6178,7 +6627,12 @@
       "known": "new",
       "searched": [
         "Published Numdam PDF, statements6.2 and6.7 and their diagrams; bounded web search for Anscombe–Jahnke Cohen rings erratum on 5 October 2026 found no correction."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. The theorem and its diagram specify Φ_k:k₂→l₂; the source residue k₂ need not equal the target residue l₂.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E8",
@@ -6192,7 +6646,50 @@
       "known": "Already recorded and corrected in the atlas as PAPER-BOCKLE-IYENGAR-PASKUNAS-23/E11; this packet carries that corrected statement, without claiming an independent review.",
       "searched": [
         "Published Cambridge PDF, §3.10 and full Lemmas3.35–3.37; existing PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json finding E11 and its verified correction inspected on 5 October 2026. No assertion of a published corrigendum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked at the recorded locator on 10 October 2026. Finite type does not force finite residue extension at an arbitrary prime: take R=F_p[[t]], A=R[x], p=p₀=(0). Then κ(p)=F_p((t))(x) is transcendental over κ(p₀)=F_p((t)). In the diagonal residue calculation the independent p-basis directions t and x give at least two cotangent directions, contradicting the printed one-variable comparison when completion(A_p) is a field.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E9",
+      "source": "STACKS-06GB",
+      "kind": "misprint",
+      "locator": "Lemma 90.3.12, proof of (2), online tag 06GB",
+      "printed": "The differentials of C are labelled relative to k.",
+      "correction": "The differentials in this argument are relative to Λ.",
+      "reason": "The constructed C is a Λ-subalgebra, with a map C→k; no k-algebra structure on C is supplied. The diagram and the universal derivation are relative to Λ.",
+      "affects": "nothing",
+      "known": "No correction identified in the current tag comments; no claim of an exhaustive external erratum search.",
+      "searched": [
+        "Current Stacks tag 06GB mathematical text and its four section comments, 10 October 2026."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The constructed C is a Λ-subalgebra, with a map C→k; no k-algebra structure on C is supplied. The diagram and the universal derivation are relative to Λ.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E10",
+      "source": "STACKS-06GB",
+      "kind": "misprint",
+      "locator": "Lemma 90.3.12, proof of (4), online tag 06GB",
+      "printed": "The proof calls the map essentially surjective.",
+      "correction": "Use the defined term essential surjection.",
+      "reason": "The definition is a condition on surjective ring maps, whereas essentially surjective is a property of functors. The surrounding implication is otherwise valid.",
+      "affects": "nothing",
+      "known": "No correction identified in the current tag comments; no claim of an exhaustive external erratum search.",
+      "searched": [
+        "Current Stacks tag 06GB mathematical text and its four section comments, 10 October 2026."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The definition is a condition on surjective ring maps, whereas essentially surjective is a property of functors. The surrounding implication is otherwise valid.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1"
+      }
     }
   ],
   "restructure": [
@@ -6237,7 +6734,7 @@
         "tauceti:TauCetiRoadmap/ModularCurves",
         "DeformationAndDerivedPatchingAlgebra"
       ],
-      "note": "RS08 assigns general fixed-residue CNL/Artinian categories to R03.1. ModularCurves7D already owns the Witt coefficient category and universal elliptic deformation object. Its comparison needs access to its existing marked category type and local arrows, not a replacement category or elliptic-moduli construction. No upstream roadmap or link is edited."
+      "note": "RS08 assigns general fixed-residue CNL/Artinian categories to R03.1. ModularCurves7D already owns the Witt coefficient category and universal elliptic deformation object. Its comparison needs access to its existing marked category type and local arrows, not a replacement category or elliptic-moduli construction. No upstream roadmap or link is edited. Independent review of current upstream §7D and Suggested.lean finds ArtinianTestAlgebra already present as a structure; the complete category and its arrow/category interface are still not available as concrete declarations there. Preserve this ownership when exposing the comparison."
     }
   ],
   "sourceVersions": [
@@ -6564,7 +7061,7 @@
     "omittedTheorems": [
       {
         "name": "TauCeti.Coeff.Complete.modularCurves_witt_comparison",
-        "reason": "The upstream marked Witt coefficient category type is not exposed at the pinned library."
+        "reason": "Current upstream ArtinianTestAlgebra object data exist; the complete marked category type and residue-preserving arrow/category interface needed for this two-category comparison are not exposed at the pinned library."
       },
       {
         "name": "TauCeti.Coeff.Complete.tensor_isDomain_at_regular_point",
@@ -6590,7 +7087,8 @@
     "signatureLimits": [
       "Completion.flat_finite_compare prototypes the underlying R-linear equivalence with values on the canonical simple tensors; the definitive target includes its canonical completed coefficient-module compatibility.",
       "Completion.local_field_basechange prototypes the corrected underlying ring equivalence. The definitive target also specifies the completion(A_p)-algebra structure and its canonical maps.",
-      "Local category, both full subcategories, all 19 definition/construction declarations, their 61 named API entries and all 57 test examples are present. Native ring constructions and residue equations carry genuine data; proof fields and theorem proofs are explicitly unfinished."
+      "Local category, both full subcategories, all 19 definition/construction declarations, their 68 named API entries and all 57 test examples are present. Native ring constructions and residue equations carry genuine data; proof fields and theorem proofs are explicitly unfinished.",
+      "The raw labelled-object structures also support the changed-residue family used later. Classical pullback and completed-tensor constructors explicitly require surjectivity of the base residue map; their maps and universal properties inherit this assumption."
     ]
   },
   "targetInventory": [
@@ -8017,7 +8515,7 @@
       "file": "research/blueprint/papers/PAPER-ANDRE-18-B.result.json",
       "id": "PAPER-ANDRE-18-B/cohen-parameter-presentation",
       "name": "Presenting B as a finite extension of an unramified power series ring",
-      "locator": "§4.2, p.86 (“Le choix d'une suite sécante maximale x de B avec x_1 = p^2 permet d'écrire B comme extension finie de A := Λ[[T_1,…,T_n]]”)",
+      "locator": "§4.2, printed p.86, finite parameter presentation",
       "routeRead": "Existing paper-extraction item read as an ownership lead; only the source passages listed in sources.readSections were freshly read.",
       "disposition": "supplier-or-baseline",
       "provides": [
@@ -8116,5 +8614,766 @@
         "DeformationAndDerivedPatchingAlgebra:R03.1/modular-curves-coefficient-comparison"
       ]
     }
-  ]
+  ],
+  "reviewSourceAudit": {
+    "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+    "date": "2026-10-10",
+    "versions": [
+      {
+        "sourceId": "STACKS-06GC",
+        "url": "https://stacks.math.columbia.edu/tag/06GC",
+        "sha256": "ea607f4ea465275c06302f9c12d40096ccc986cd8d8b2422209fb730079674a6",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GW",
+        "url": "https://stacks.math.columbia.edu/tag/06GW",
+        "sha256": "77f889299b0903da234a899ee7d6c05d6a33e72f7e4e104577b2be43e1abd5e9",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GV",
+        "url": "https://stacks.math.columbia.edu/tag/06GV",
+        "sha256": "b9a7463bfe9a1dddf2c8bd43a6f33f5a26d45869162defc4caf2447fe33b29f1",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GB",
+        "url": "https://stacks.math.columbia.edu/tag/06GB",
+        "sha256": "e38b161769045a84449795932c27a44c7028dec828eaeaad0f9abf1fa74a0d1c",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GD",
+        "url": "https://stacks.math.columbia.edu/tag/06GD",
+        "sha256": "e453b856d2d3e2f9f31141b54ed6d501dcc41a5e868dae621a30c689ab8f34ee",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GE",
+        "url": "https://stacks.math.columbia.edu/tag/06GE",
+        "sha256": "e83197b3122ba54712d8fa20554187dd4d0e82eb4324cde0145d32f93dce12c2",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GG",
+        "url": "https://stacks.math.columbia.edu/tag/06GG",
+        "sha256": "e5c300c6cf1bf56b835f082c3687f377a1521474c60cfd1011d29bf0a9242f6e",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GH",
+        "url": "https://stacks.math.columbia.edu/tag/06GH",
+        "sha256": "814edc2f625a80b568c6597b1af83ff840939434f88a3fe29238c297996bbe0f",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0BNH",
+        "url": "https://stacks.math.columbia.edu/tag/0BNH",
+        "sha256": "48d4456ce8bb7d5d085a560f835144928d123fad39cfb9608f76476044f0e422",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06SC",
+        "url": "https://stacks.math.columbia.edu/tag/06SC",
+        "sha256": "59e0ce85801fd1d8c3cdcf4cb4bea4c7af2f4addefb3f40a74d7214c5682f66d",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06GZ",
+        "url": "https://stacks.math.columbia.edu/tag/06GZ",
+        "sha256": "24066e2e1cbdff1e2e891ad010f0408ce84366ec3a727d3d480dbfaf54282bf4",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06HF",
+        "url": "https://stacks.math.columbia.edu/tag/06HF",
+        "sha256": "cdd5cbe30b43e0bbb61e498cb85df4bd3f2c055c406840f09216eaad5902c35d",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-032A",
+        "url": "https://stacks.math.columbia.edu/tag/032A",
+        "sha256": "64908f97f4f655771b34e21058ea92a979cc8971c2a57da3dbcafb7d7eaddc2a",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-05GH",
+        "url": "https://stacks.math.columbia.edu/tag/05GH",
+        "sha256": "33b178f794134985a1df2072d3988d6a0f6a61fc24f9bd0fece3a8a8df31e43b",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06H1",
+        "url": "https://stacks.math.columbia.edu/tag/06H1",
+        "sha256": "31bad7168fbcbec18d6140e567453c1b2702044372a02baf6610057db6f37cca",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06SB",
+        "url": "https://stacks.math.columbia.edu/tag/06SB",
+        "sha256": "999c4c7635f43b97f4b222c04f2f2e09d088a476eb526364625dadfcc244492f",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "ANDRE-18",
+        "url": "https://www.numdam.org/item/10.1007/s10240-017-0097-9.pdf",
+        "sha256": "34da107d0b96149d9a6779ec1694a0cbb096136d021114b59427024ef3d47053",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-03C3",
+        "url": "https://stacks.math.columbia.edu/tag/03C3",
+        "sha256": "efb150b87c5a1237ddc23bf48384d396fcb39a73aa2b583936d5d04c33ffffda",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06LD",
+        "url": "https://stacks.math.columbia.edu/tag/06LD",
+        "sha256": "694faa30724618eccbb2a746ee15dd4784ad41d306ba82510ae5bd7b3a8e8135",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0327",
+        "url": "https://stacks.math.columbia.edu/tag/0327",
+        "sha256": "2c95dc138efd129d2f2ed4d61f0def6511d0bd2f4dd258cb454d194f097983b4",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0328",
+        "url": "https://stacks.math.columbia.edu/tag/0328",
+        "sha256": "453ae98215083d3075d8d3ae77f7c982a5b12ea18524f4ecf6d4c99a40b09752",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0323",
+        "url": "https://stacks.math.columbia.edu/tag/0323",
+        "sha256": "9d6b732c706275cda63bd18865b0c7b7723a65d02bd1b8765ed2d6efa0730e86",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "PQ-24",
+        "url": "https://arxiv.org/pdf/2404.14622",
+        "sha256": "eaa8fba90704e412df15917bfb6496f6b8d36c605af2570413ff55876842ed7c",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06SD",
+        "url": "https://stacks.math.columbia.edu/tag/06SD",
+        "sha256": "e30b6f423fcc81da5bf7d0f8aacb046beed6d310a39bc7ed7aa346513ed15dc3",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "KW-II-09",
+        "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+        "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-06SE",
+        "url": "https://stacks.math.columbia.edu/tag/06SE",
+        "sha256": "49796995b3841a306fee2daf21c5dc935a0022685dd54905846880a680770642",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "BHATT-18",
+        "url": "https://arxiv.org/pdf/1608.08882v2",
+        "sha256": "08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "ANS-JAHNKE-22",
+        "url": "https://www.numdam.org/item/10.5802/cml.84.pdf",
+        "sha256": "f9405fb8e3ee2408d71db8aa46e362c4d4eff403dd1084a3a7bef6b9708d93f7",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0319",
+        "url": "https://stacks.math.columbia.edu/tag/0319",
+        "sha256": "2b1669245dd4a412e4093d4c9d3a1c86ec40a753058a243c307bef969c0f5ab2",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0394",
+        "url": "https://stacks.math.columbia.edu/tag/0394",
+        "sha256": "39b91fe85327edb30cbda51ca7e6df137c8242de786759b335749e621c9f4119",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-07N9",
+        "url": "https://stacks.math.columbia.edu/tag/07N9",
+        "sha256": "15cb550b8ce55ef2814fb0d73eaeb46d6052e2e3d34925e2243b9d780010ebcf",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-032D",
+        "url": "https://stacks.math.columbia.edu/tag/032D",
+        "sha256": "afbcc0e261df0b9759edad8080703a663e002fadde8ae1981aa4ffa34c05c6b9",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "BIP-23",
+        "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S2050508623000252",
+        "sha256": "7cfc0e539d38bf3ea5751b19e2f7d0715bdb5fcfca97ad291e3aa1b689c4b43b",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "BCGP-25",
+        "url": "https://arxiv.org/pdf/2502.20645v1",
+        "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0322",
+        "url": "https://stacks.math.columbia.edu/tag/0322",
+        "sha256": "c39a49c37d682b07b6ce72c305dc94bfd057f58f64fefbd41e4dfeaab75aedab",
+        "sameBytesAsInput": true
+      },
+      {
+        "sourceId": "STACKS-0598",
+        "url": "https://stacks.math.columbia.edu/tag/0598",
+        "sha256": "286342c96e5ceb606f6f70421aed30345ffb76b077c2ebc5eeace3eb4d79317f",
+        "sameBytesAsInput": true
+      }
+    ],
+    "note": "All 36 cited public sources retrieved and the mathematical passages used by the nodes independently read. Seven PDF versions match the input byte for byte. Stacks HTML differs at page-generation level; current mathematical statements and proofs were inspected. Original sourceVersions preserved as author provenance. No private book used."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.1",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 106 nodes, all 63 pinned baseline declarations, 36 public source versions, 68 API items, 57 tests, six planets, imported closures and current upstream/library ownership. Corrected 27 nodes, test-kind metadata, a source locator and prototype base-residue assumptions; added seven operational API signatures and confirmed ten source issues. Accepted as a complete planned pass with seven explicit gaps, six requests and pending supplier-prefix rescopings; no claim of closed coverage or implemented proofs. Suggested Lean elaborated at the recorded Mathlib pin with only proof-hole warnings. See the review report for corrections, source bounds and validation.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-local-algebra",
+        "verdict": "corrected",
+        "note": "The labelled residue surjection and its maximal-kernel equation encode the classical fixed-residue objects of Stacks 90.3.1; native local rings and algebras are reused. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/residue-preserving-morphism",
+        "verdict": "corrected",
+        "note": "Residue equality is imposed on actual algebra homomorphisms. Identity, composition and extensionality preserve that equality and give the intended arrows. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/morphism-is-local",
+        "verdict": "verified",
+        "note": "A residue-preserving arrow detects units through the target and source residue fields, proving the local-hom condition without an extra axiom."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/morphism-maximal-comap",
+        "verdict": "verified",
+        "note": "Taking kernels of the residue equality yields precisely the native maximal-ideal comap equation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/morphism-continuous",
+        "verdict": "verified",
+        "note": "Locality sends each maximal-ideal power into the corresponding target power, which is exactly continuity for the selected adic topologies."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "verdict": "verified",
+        "note": "The full Artinian subcategory has genuine arrows; square-zero examples and the non-Artinian series example distinguish its objects from the complete subcategory."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "verdict": "verified",
+        "note": "Noetherianity and separated maximal-adic completeness are retained independently; the Artinian inclusion follows from nilpotence, not an added finiteness condition on k."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/split-square-zero-object",
+        "verdict": "corrected",
+        "note": "The native trivial square-zero extension has a finite-dimensional nilpotent kernel, correct residue, and the multiplication required by the test examples. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/nilpotent-extension",
+        "verdict": "verified",
+        "note": "The predicate uses surjectivity and nilpotence of the actual kernel; the zero-kernel boundary is intentionally admitted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/square-zero-extension",
+        "verdict": "verified",
+        "note": "The actual squared kernel is zero; the identity case and dual-number counterexample distinguish it from the small-extension predicate."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/small-extension",
+        "verdict": "corrected",
+        "note": "The source maximal ideal annihilates a nonzero principal kernel. Nonzero excludes the identity, and principal excludes a two-dimensional split kernel. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/small-kernel-in-maximal",
+        "verdict": "verified",
+        "note": "A proper kernel of a surjective map between nontrivial local objects lies in the source maximal ideal."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/small-square-zero",
+        "verdict": "verified",
+        "note": "An annihilated kernel contained in the maximal ideal has zero square; this implication does not conversely identify all square-zero maps as small."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/square-zero-nilpotent",
+        "verdict": "verified",
+        "note": "Exponent two supplies nilpotence, with the zero ideal also allowed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-surjection-nilpotent",
+        "verdict": "verified",
+        "note": "The Artinian source maximal ideal is nilpotent and contains the kernel, so every such surjection is nilpotent."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-simple-restriction",
+        "verdict": "verified",
+        "note": "A simple factor is the source residue field; the fixed base residue label identifies the restricted simple module with k."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-finite-base-length",
+        "verdict": "verified",
+        "note": "A finite composition series gives finite base length. No field cardinality bound is used in the classical equal-residue case."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/small-kernel-dimension",
+        "verdict": "corrected",
+        "note": "The labelled residue-module action is required here. A nonzero principal annihilated ideal and a one-dimensional k-kernel give equivalent data. Corrections: Added direct prerequisite DeformationAndDerivedPatchingAlgebra:R03.1/labelled-residue-module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/surjection-socle-filtration",
+        "verdict": "verified",
+        "note": "Successively removing nonzero socle layers terminates by finite length, and each layer has the residue-field scalar action."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/socle-basis-small-refinement",
+        "verdict": "verified",
+        "note": "Refining a socle layer by a finite k-basis gives one-dimensional annihilated successive kernels."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/surjection-small-factorization",
+        "verdict": "verified",
+        "note": "The socle refinement gives a finite composition of small surjections, with the identity represented by an empty factorization."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback-locality",
+        "verdict": "verified",
+        "note": "Units in the equalizer are detected componentwise; the shared surjective base residue map supplies every paired residue, even without a surjective leg."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback-artinian",
+        "verdict": "verified",
+        "note": "The equalizer is a base submodule of the product of two finite-length modules, so its own ring is Artinian."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback",
+        "verdict": "corrected",
+        "note": "The native algebra equalizer supplies the pullback carrier. Projection equations plus extensionality now make its paired lift operational. Corrections: Added operational API laws and matching suggested signatures. Normalized test kinds to the protocol vocabulary. The suggested constructor now explicitly binds surjectivity of the base residue map; an unused section instance alone was absent from its elaborated signature."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/pullback-small-extension",
+        "verdict": "verified",
+        "note": "The pulled-back kernel is the original one-dimensional annihilated kernel, and surjectivity of the projection follows by lifting through the small leg."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient-completeness",
+        "verdict": "verified",
+        "note": "Finite quotient modules over the complete Noetherian source are complete; the proper quotient ideal gives its maximal-adic topology by cofinality."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient",
+        "verdict": "corrected",
+        "note": "The quotient uses an actual ideal inside the maximal ideal and inherits residue and algebra maps; factor computation and uniqueness are now explicit. Corrections: Added operational API laws and matching suggested signatures. Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation-artinian",
+        "verdict": "verified",
+        "note": "Positive maximal powers give proper finite-length quotients. Index n means exponent n+1, so n=0 remains the residue field."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+        "verdict": "corrected",
+        "note": "The actual quotient objects and transition maps are compatible with reductions; the test at n=0 prevents an accidental zero-ring truncation. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
+        "verdict": "verified",
+        "note": "Completeness identifies the ring with the compatible tower of its positive quotients, and the comparison respects ring operations and labelled maps."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/quotient-factor-artinian",
+        "verdict": "verified",
+        "note": "Nilpotence of the Artinian target maximal ideal kills a sufficiently high source power; the native quotient universal property supplies the unique factor."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-residue-module",
+        "verdict": "verified",
+        "note": "An annihilated module descends through the labelled residue quotient. Equal residue lifts act equally, which supplies the scalar independence and tower tests."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent",
+        "verdict": "corrected",
+        "note": "The relative quotient is a quotient of the maximal ideal rather than of the entire ring; the induced square map now has generator and functorial laws. Corrections: Added operational API laws and matching suggested signatures. Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
+        "verdict": "verified",
+        "note": "The native finite absolute cotangent space surjects onto this quotient; transporting its residue scalars preserves finite dimension."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-surjectivity",
+        "verdict": "verified",
+        "note": "Relative cotangent surjectivity generates the target maximal ideal by Nakayama; source precompleteness and target proper-ideal separation then give ring surjectivity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/maximal-series-ideal",
+        "verdict": "verified",
+        "note": "The power-series unit criterion and the finite variable ideal identify the maximal ideal, including the coefficient maximal ideal in mixed characteristic."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/maximal-series-topology",
+        "verdict": "verified",
+        "note": "Finite low-degree coefficient constraints are exactly maximal-power congruences; their two-way cofinality identifies the product and maximal-adic topologies."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/coefficient-power-series",
+        "verdict": "corrected",
+        "note": "This is a coefficient-category adapter for the native finite-variable series ring, with the constant-coefficient residue and the established topology comparison. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
+        "verdict": "corrected",
+        "note": "Native evaluation applies to maximal-ideal arguments after the topology comparison. Constant and variable equations, locality and uniqueness form the wrapper API. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/series-cotangent-basis",
+        "verdict": "verified",
+        "note": "Killing the coefficient maximal ideal and all terms of degree at least two leaves exactly the finitely many variable classes."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/series-presentation",
+        "verdict": "verified",
+        "note": "The chosen variable images span the relative cotangent space; the cotangent surjectivity criterion gives the continuous power-series quotient presentation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/mixed-adic-series-membership",
+        "verdict": "verified",
+        "note": "The binomial expansion of the coefficient and variable ideals, together with the imported order criterion, gives the exact low-degree coefficient condition."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/graded-noetherian-from-finite-ideal",
+        "verdict": "verified",
+        "note": "Chosen finite degree-one generators give a polynomial quotient over the Noetherian residue quotient, proving graded Noetherianity without assuming R Noetherian."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completion-correction-sequence",
+        "verdict": "corrected",
+        "note": "The approximation hypothesis already supplies membership of the next residual in K and in the next ideal power. The corrected sketch invokes this exact induction invariant. Corrections: Clarified that the approximation hypothesis, rather than an unstated ideal-closure argument, retains membership in K."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completion-correction-limit",
+        "verdict": "verified",
+        "note": "Finite sums of convergent correction coefficients generate the limiting element; the hypothesis that the chosen generators lie in K gives the reverse inclusion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completion-noetherian",
+        "verdict": "verified",
+        "note": "The filtered correction argument proves completion Noetherianity conditional on the precisely requested initial-ideal lifting interface, which remains gap 1."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-residue-quotient",
+        "verdict": "verified",
+        "note": "The ordinary tensor quotient by the two extended maximal ideals is k because both labelled residue maps agree over the surjective coefficient base."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-local-noetherian",
+        "verdict": "verified",
+        "note": "The completion ideal is finitely generated and its quotient is a field; the preceding completion-Noetherian argument and native local criterion provide the required hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/complete-coefficient-tensor",
+        "verdict": "corrected",
+        "note": "The generic F0 completion supplies the carrier; this node adds the special fixed-residue local and Noetherian structures, with the comparison gap retained. Corrections: Normalized test kinds to the protocol vocabulary. The suggested constructor now explicitly binds surjectivity of the base residue map; an unused section instance alone was absent from its elaborated signature."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-coefficient-pushout",
+        "verdict": "verified",
+        "note": "The ordinary tensor lift extends into a complete target and preserves the labelled residue. Uniqueness gives the pushout in the coefficient category."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-symmetry",
+        "verdict": "verified",
+        "note": "Swapping factors preserves the completion ideal; the pushout property supplies inverse coefficient morphisms."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-associativity",
+        "verdict": "verified",
+        "note": "The three-factor pushout property gives associativity and compatibility with each factor map, rather than choosing unrelated ring equivalences."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-presentation",
+        "verdict": "verified",
+        "note": "Finite power-series quotient presentations of the factors give the combined-variable presentation; coefficient ideals and their extensions are retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/flat-tensor-artin-rees-cofinality",
+        "verdict": "corrected",
+        "note": "Native Artin–Rees gives the induced submodule filtration. Flat tensoring preserves its injections and exactness, and the two stated containments prove cofinality. Corrections: Added direct prerequisite mathlib:Module.Flat.lTensor_preserves_injective_linearMap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-exact",
+        "verdict": "verified",
+        "note": "The left quotient transitions are surjective; the requested countable exact-limit and cofinality interfaces give completed exactness, without requiring S Noetherian."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-comparison",
+        "verdict": "verified",
+        "note": "A finite presentation of M and the preceding exactness compare finite direct sums of completions, producing the canonical finite-module comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/flat-algebra-completion",
+        "verdict": "verified",
+        "note": "Apply the finite-ideal tensor injection criterion to the comparison and the completed finite exact sequence; no Noetherian assumption on S is inserted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/faithful-flat-algebra-completion",
+        "verdict": "corrected",
+        "note": "The finite comparison identifies closed fibres of the completion with those of S when I lies in the Jacobson radical; the native flat-plus-proper-ideal criterion then gives faithfulness. Corrections: Added direct prerequisite DeformationAndDerivedPatchingAlgebra:R03.1/flat-completion-finite-comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-factor-tensor-comparison",
+        "verdict": "verified",
+        "note": "A finite factor makes the ordinary tensor finite over the other complete factor. Cofinality of the two maximal filtrations and native finite-module completeness give the comparison without flatness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completed-tensor-finite-exactness",
+        "verdict": "verified",
+        "note": "A flat coefficient factor preserves the finite short exact sequence, and the resulting finite modules over its complete Noetherian ring are already complete."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/monogenic-residue-extension",
+        "verdict": "verified",
+        "note": "Polynomial localization handles a transcendental residue generator, while a monic quotient handles an algebraic one. Neither case needs separability."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/transfinite-residue-extension",
+        "verdict": "verified",
+        "note": "A well-ordered generating set and native directed colimits extend the monogenic construction; the intermediate flat local algebra is explicitly not asserted Noetherian."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/completed-residue-extension-exists",
+        "verdict": "verified",
+        "note": "Completing the intermediate flat algebra at the finitely generated extended maximal ideal gives the requested Noetherian faithfully flat ring, conditional on gap 1 and the flat-completion interfaces."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/residue-extension-data",
+        "verdict": "corrected",
+        "note": "Specified residue-extension data retain the actual local faithfully flat map and maximal-ideal equality. The construction remains a choice, with no canonical extension functor asserted. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/residue-extension-finite-generation",
+        "verdict": "verified",
+        "note": "Native finite-generation base change and faithfully flat descent give the two directions for arbitrary modules; finite residue dimension is not substituted for module finiteness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/strict-cohen-ring",
+        "verdict": "verified",
+        "note": "Strict Cohen data require characteristic zero and maximal ideal (p), so ramified DVRs and truncated Cohen rings are correctly excluded; Witt construction assumes perfect residue."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/strict-cohen-existence",
+        "verdict": "verified",
+        "note": "The p-adic integer residue-extension construction is flat with maximal ideal (p); injectivity of multiplication by p and the principal-maximal criterion give a strict Cohen ring."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-truncated-smooth",
+        "verdict": "verified",
+        "note": "The native square-zero smoothness lift applies inductively after flatness of the truncated Cohen ring; arbitrary-field prime-field smoothness is explicitly retained as gap 3."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-compatible-tower",
+        "verdict": "verified",
+        "note": "Formal smoothness lifts inside the diagram with the previous truncation map, so the chosen maps form a compatible tower rather than unrelated finite-level lifts."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-coefficient-map",
+        "verdict": "verified",
+        "note": "The compatible tower yields a continuous local coefficient map, and a nonzero DVR kernel would contain a power of p; injectivity is asserted only with the stated extra condition."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-series-presentation",
+        "verdict": "verified",
+        "note": "The coefficient map and finite relative cotangent basis give the surjection from a Cohen power-series ring; its actual kernel is finitely generated by source Noetherianity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-relative-separable-compatibility",
+        "verdict": "verified",
+        "note": "André §4.4(1), p.87 asserts the compatible relative coefficient embeddings. The arbitrary-target, prescribed-representative input is kept as gap 4; Cohen-to-Cohen homomorphisms alone do not supply it."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
+        "verdict": "corrected",
+        "note": "The predicate states both equations for an actual ring-side diagram lift and its contravariant represented-functor boundary; small factorization gives its all-surjection API. Corrections: Normalized test kinds to the protocol vocabulary."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/series-small-lifting",
+        "verdict": "verified",
+        "note": "Lift each variable through the Artinian surjection; its residue forces maximal-ideal membership, allowing native continuous evaluation with both diagram equations."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cotangent-truncation-identification",
+        "verdict": "verified",
+        "note": "The first relative square-zero quotients are identified over the common base using the chosen cotangent basis; this is the precise initial lift needed in the smooth-series argument."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-lift-tower",
+        "verdict": "verified",
+        "note": "Recursive lifting through successive positive truncations preserves the preceding map and the coefficient restriction at every level."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formally-smooth-series",
+        "verdict": "verified",
+        "note": "The compatible reverse map and cotangent surjectivity give inverse evaluation maps. The theorem uses continuous small-extension smoothness, not algebraic finite-type smoothness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/quotient-fibre-surjectivity",
+        "verdict": "verified",
+        "note": "Surjectivity on maximal powers lets a lift of the first coordinate be adjusted to the required second coordinate in the Artinian fibre product."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/compatible-complete-lifting",
+        "verdict": "verified",
+        "note": "The fibre-product adjustment constructs a compatible tower of lifts through a complete surjection; the quotient-limit comparison checks both equations on the limit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/modular-curves-coefficient-comparison",
+        "verdict": "corrected",
+        "note": "Current upstream ArtinianTestAlgebra already carries the matching Witt/residue data. The complete category and arrow comparison remain an owner interface request, and elliptic deformation objects remain upstream-owned. Corrections: Corrected the upstream interface assessment: ArtinianTestAlgebra already exists, while the full complete-category and arrow comparison still needs its owner interface."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cofinal-parameter-powers",
+        "verdict": "verified",
+        "note": "A pigeonhole bound on exponents proves the stated two inclusions; their cofinality identifies the Artinian parameter-quotient limit, including the zero-variable case."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/noetherian-completion-artinian-quotients",
+        "verdict": "corrected",
+        "note": "Paškūnas–Quast Lemma 5.15, pp.38–39 supplies the completion of a local ring with Artinian truncations; the finite maximal-ideal hypothesis is preserved despite non-Noetherian A. Corrections: Added printed page locator."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-ideal-quotient-after-completion",
+        "verdict": "verified",
+        "note": "Finite Artinian kernel systems are Mittag–Leffler; the requested limit exactness identifies the quotient kernel with I times the completion, avoiding an unjustified non-Noetherian finite-module comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cotangent-dual-derivations",
+        "verdict": "verified",
+        "note": "Residue actions kill the two denominator summands; subtracting a base lift defines the inverse derivation from the quotient functional, and only congruence is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-cotangent-direct-sum",
+        "verdict": "verified",
+        "note": "The tensor pushout identifies lifts to dual numbers with pairs of factor lifts; finite-dimensional duality gives the cotangent direct sum with the inclusion maps specified."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/module-chevalley",
+        "verdict": "corrected",
+        "note": "Finite-module completeness and separated finite quotients justify the stable-image inverse-limit proof of Chevalley. The native hypotheses and the E2 interface are retained directly. Corrections: Added direct prerequisite mathlib:IsHausdorff.of_isLocalRing. Added direct prerequisite mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/embedded-subring-topology",
+        "verdict": "verified",
+        "note": "Injectivity and target separation make the contracted maximal-power intersection zero; Chevalley and locality give both directions of topology comparison."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/saturated-point-jets",
+        "verdict": "corrected",
+        "note": "Saturated point jets have zero intersection and nilpotent augmentation ideal; finite quotient completeness, linear topological Nakayama and DVR torsion-freeness give finite freeness. Corrections: Added direct prerequisite mathlib:surjective_of_mkQ_comp_surjective."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/generic-point-jets",
+        "verdict": "corrected",
+        "note": "Localization of a contracted power recovers the point-ideal power, and its nilpotent local quotient is unchanged by localization at the point. Corrections: Added printed page locator."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-point-jets",
+        "verdict": "corrected",
+        "note": "Finite-factor comparisons give the actual tensor quotients; finite freeness, the pigeonhole nilpotence bound and maximal-adic cofinality prove the stated separated jet system. Corrections: Added printed page locator."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/tensor-domain-point",
+        "verdict": "corrected",
+        "note": "The point-local regular-coordinate interface identifies the generic jet limit with a series domain. The embedding argument extends to arbitrary complete DVRs, while global generic regularity remains an R03.4 consumer and gap 5 is explicit. Corrections: Added printed page locator."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/adic-hom-pro-comparison",
+        "verdict": "verified",
+        "note": "A finite presentation and Artin–Rees compare the intrinsic and induced Hom filtrations; the E2 pro-isomorphism criterion is still required, rather than finite-level bijectivity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/adic-hom-lim-one",
+        "verdict": "verified",
+        "note": "The quotient Hom tower has surjective transitions; pro-isomorphism invariance yields lim-one vanishing without falsely asserting surjectivity of the target Hom tower."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-perfect-hull-map",
+        "verdict": "corrected",
+        "note": "Anscombe–Jahnke Theorem 4.1, pp.8–9 and Corollary 6.5, p.14 give the perfect-hull Cohen embedding process. Its missing p-basis infrastructure stays gap 6, and purely inseparable change is not treated as separable lifting. Corrections: Made the two perfect-hull source page locators explicit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/perfect-residue-completed-basechange",
+        "verdict": "verified",
+        "note": "Flat faithful ordinary base change has residue the perfect hull; the established completion and finite-module comparison give the local coefficient extension. Reducedness is expressly a separate supplier question."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/cofinal-ideal-completions",
+        "verdict": "verified",
+        "note": "Mutually cofinal ideal-power filtrations yield inverse quotient-limit maps whose composites are identities; no Noetherianity is required."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-local-completion",
+        "verdict": "verified",
+        "note": "The finite local closed fibre is Artinian, giving cofinal maximal filtrations; native finite-module completion comparison then gives finiteness over the completed base."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-algebra-artinian-factors",
+        "verdict": "verified",
+        "note": "The native Artinian localization-product equivalence uses discrete prime spectrum, which Artinian quotients supply; maximal-spectrum indices and reduction maps are compatible."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-algebra-completion-product",
+        "verdict": "verified",
+        "note": "The fixed finite quotient decomposition passes to limits through the E2 finite-product interface, and finite local cofinality identifies the factors with maximal-adic completions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-domain-algebra-local",
+        "verdict": "verified",
+        "note": "Native finite-module completeness and the preceding finite product decompose S; its domain condition rules out multiple nonzero factors and gives locality and completeness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/equal-characteristic-section",
+        "verdict": "verified",
+        "note": "The Cohen smoothness induction works in arbitrary complete separated local positive-characteristic rings; p=0 forces the limiting coefficient map to factor through its labelled residue field."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/primary-quotient-finite",
+        "verdict": "verified",
+        "note": "A maximal-primary ideal contains a maximal power, so the imported finite-length statement gives finite residue-field dimension through the specified coefficient section."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/parameter-evaluation-finite",
+        "verdict": "verified",
+        "note": "The finite residue-quotient basis lifts to a map from a finite free series module; cofinality supplies separation and native linear topological Nakayama gives module finiteness without claiming ring surjectivity."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/local-field-coefficient-completion",
+        "verdict": "corrected",
+        "note": "The finite residue extension corrects BIP Lemma 3.35; the coheight-one field supplier is now a direct prerequisite. The diagonal comparison remains gap 7 and does not follow from finite type alone. Corrections: Added direct prerequisite DeformationAndDerivedPatchingAlgebra:R03.4."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/ocohen-coefficient-completion",
+        "verdict": "corrected",
+        "note": "BIP Lemma 3.36 retains the relative O-Cohen convention. The corrected outline explicitly requires general local-field diagonal reduction and completed-flatness/kernel/cokernel interfaces, rather than applying the narrower preceding statement. Corrections: Removed the unsupported reduction to the more restrictive preceding theorem and qualified completed flatness; the missing general diagonal and kernel/cokernel interfaces remain explicit in gap 7."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.1/finite-residue-coefficient-completion",
+        "verdict": "verified",
+        "note": "BIP Lemma 3.37 has a zero-dimensional diagonal in both finite separable coefficient cases, so no new variable appears; actual coefficient-map compatibility remains part of gap 7."
+      }
+    ]
+  }
 }

@@ -362,12 +362,23 @@ theorem mk_eq_zero (b : IsLocalRing.maximalIdeal B) : mk f b = 0 ↔
     b.val ∈ (IsLocalRing.maximalIdeal A).map f.toAlgHom.toRingHom ⊔
       IsLocalRing.maximalIdeal B ^ 2 := by sorry
 
-/-- The map API specifies values on quotient generators; no unnamed map is assumed. -/
-theorem map {A' B' : Local O k ρ} (f' : Hom A' B')
+/-- The induced map is available as data, with its quotient computation exposed below. -/
+def map {A' B' : Local O k ρ} (f' : Hom A' B')
     (a : Hom A A') (b : Hom B B') (hsq : Hom.comp b f = Hom.comp f' a) :
-    ∃ L : RelativeCotangent f →ₗ[k] RelativeCotangent f',
-      ∀ x : IsLocalRing.maximalIdeal B,
-        L (mk f x) = mk f' ⟨b.toAlgHom x, by sorry⟩ := by sorry
+    RelativeCotangent f →ₗ[k] RelativeCotangent f' := by sorry
+
+theorem map_mk {A' B' : Local O k ρ} (f' : Hom A' B')
+    (a : Hom A A') (b : Hom B B') (hsq : Hom.comp b f = Hom.comp f' a)
+    (x : IsLocalRing.maximalIdeal B) :
+    map f f' a b hsq (mk f x) = mk f' ⟨b.toAlgHom x, by sorry⟩ := by sorry
+
+theorem map_id : map f f (Hom.id A) (Hom.id B) (by sorry) = LinearMap.id := by sorry
+
+theorem map_comp {A' B' A'' B'' : Local O k ρ} (f' : Hom A' B') (f'' : Hom A'' B'')
+    (a : Hom A A') (b : Hom B B') (a' : Hom A' A'') (b' : Hom B' B'')
+    (hsq : Hom.comp b f = Hom.comp f' a) (hsq' : Hom.comp b' f' = Hom.comp f'' a') :
+    map f f'' (Hom.comp a' a) (Hom.comp b' b) (by sorry) =
+      (map f' f'' a' b' hsq').comp (map f f' a b hsq) := by sorry
 
 -- RelativeCotangent.test_identity
 example (A : Local O k ρ) : Subsingleton (RelativeCotangent (Hom.id A)) := by sorry
@@ -393,9 +404,8 @@ end Extension.Small
 
 namespace Artinian
 variable {A B C : Artinian O k ρ}
-variable [Fact (Function.Surjective ρ)]
 
-def pullback (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal) : Artinian O k ρ := by
+def pullback [Fact (Function.Surjective ρ)] (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal) : Artinian O k ρ := by
   let P := AlgHom.equalizer
     (f.toAlgHom.comp (AlgHom.fst O A.Carrier B.Carrier))
     (g.toAlgHom.comp (AlgHom.snd O A.Carrier B.Carrier))
@@ -407,6 +417,8 @@ def pullback (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal) : Artin
     residue_surjective := by sorry
     ker_residue := by sorry
     residue_algebraMap := by sorry }
+
+variable [Fact (Function.Surjective ρ)]
 
 def pullbackFst (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal) :
     Hom (pullback f g).toLocal A.toLocal := {
@@ -438,6 +450,16 @@ def pullbackLift {D : Local O k ρ} (f : Hom A.toLocal C.toLocal) (g : Hom B.toL
                 map_mul' := by sorry
                 commutes' := by sorry }
   residue_apply := by sorry }
+
+theorem pullbackLift_fst {D : Local O k ρ}
+    (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal)
+    (h : Hom D A.toLocal) (i : Hom D B.toLocal) (hc : Hom.comp f h = Hom.comp g i) :
+    Hom.comp (pullbackFst f g) (pullbackLift f g h i hc) = h := by sorry
+
+theorem pullbackLift_snd {D : Local O k ρ}
+    (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal)
+    (h : Hom D A.toLocal) (i : Hom D B.toLocal) (hc : Hom.comp f h = Hom.comp g i) :
+    Hom.comp (pullbackSnd f g) (pullbackLift f g h i hc) = i := by sorry
 
 theorem pullback_ext {D : Local O k ρ} (f : Hom A.toLocal C.toLocal) (g : Hom B.toLocal C.toLocal)
     (h i : Hom D (pullback f g).toLocal)
@@ -488,6 +510,17 @@ theorem quotient_residue (I : Ideal A.Carrier) (hI : I ≤ IsLocalRing.maximalId
 def quotientLift {B : Local O k ρ} (I : Ideal A.Carrier) (hI : I ≤ IsLocalRing.maximalIdeal A.Carrier)
     (f : Hom A.toLocal B) (hf : ∀ a ∈ I, f.toAlgHom a = 0) :
     Hom (A.quotient I hI).toLocal B := ⟨Ideal.Quotient.liftₐ I f.toAlgHom hf, by sorry⟩
+
+theorem quotientLift_mk {B : Local O k ρ} (I : Ideal A.Carrier)
+    (hI : I ≤ IsLocalRing.maximalIdeal A.Carrier) (f : Hom A.toLocal B)
+    (hf : ∀ a ∈ I, f.toAlgHom a = 0) (a : A.Carrier) :
+    (A.quotientLift I hI f hf).toAlgHom (Ideal.Quotient.mk I a) = f.toAlgHom a := by sorry
+
+theorem quotientLift_unique {B : Local O k ρ} (I : Ideal A.Carrier)
+    (hI : I ≤ IsLocalRing.maximalIdeal A.Carrier) (f : Hom A.toLocal B)
+    (hf : ∀ a ∈ I, f.toAlgHom a = 0) (g : Hom (A.quotient I hI).toLocal B)
+    (hg : Hom.comp g (A.quotientMk I hI) = f) :
+    g = A.quotientLift I hI f hf := by sorry
 
 -- Complete.quotient_test_zero
 example : Function.Bijective (A.quotientMk ⊥ bot_le).toAlgHom := by sorry
@@ -607,7 +640,6 @@ example {B : Complete O k ρ} (n : ℕ) (i : Fin n)
     (e : Hom (A.powerSeries n).toLocal B.toLocal) : e.toAlgHom (MvPowerSeries.X i) ≠ 1 := by sorry
 
 variable (B : Complete O k ρ)
-variable [Fact (Function.Surjective ρ)]
 
 def tensorIdeal : Ideal (A.Carrier ⊗[O] B.Carrier) :=
   (IsLocalRing.maximalIdeal A.Carrier).map (Algebra.TensorProduct.includeLeft :
@@ -623,7 +655,7 @@ def tensorResidueOrdinary : A.Carrier ⊗[O] B.Carrier →+* k := by
   exact (Algebra.TensorProduct.lift a b (by sorry)).toRingHom
 
 /-- This is only the CNL packing of AdicSpacesPartII:F0's native completion. -/
-def tensor : Complete O k ρ := by
+def tensor [Fact (Function.Surjective ρ)] : Complete O k ρ := by
   let T := A.Carrier ⊗[O] B.Carrier
   let J := A.tensorIdeal B
   letI : IsNoetherianRing (AdicCompletion J T) := by sorry
@@ -636,6 +668,8 @@ def tensor : Complete O k ρ := by
     residue_surjective := by sorry
     ker_residue := by sorry
     residue_algebraMap := by sorry }
+
+variable [Fact (Function.Surjective ρ)]
 
 def tensorInl : Hom A.toLocal (A.tensor B).toLocal := {
   toAlgHom := {
