@@ -1,3 +1,130 @@
+# PKG-HodgeStructuresPartII — blocked checkpoint (codex-O0ziZK)
+
+Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Agent: Codex (GPT-6), session `codex-O0ziZK`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6092143282).
+No manager-priority issue was available; this was an eligible focus package.
+Only this job was claimed. Status remains partial; this is not an upstream-ready
+package. The receipt below supersedes earlier claims about H.7 signature coverage.
+
+## Correction made
+
+The previous file's twenty named H.7 results omitted essential hypotheses from
+their Lean statements while explaining those omissions in comments. Several
+then assert false claims for arbitrary receiving data. Comments cannot restrict
+a theorem's quantifiers. Removed that entire result block and its now-unused
+private coordinate/Gram helpers. The README's precise mathematical targets,
+hypotheses, locators and earlier checks remain unchanged. A short H.7 closing
+comment names the omitted signatures, as PACKAGE_REVIEW permits. No packet or
+supplier was edited; no generic Prop or replacement variation was introduced.
+
+Added six README negative controls and seven native Lean `example`s with complete
+proofs (one control uses two examples, for image equality and nonclosedness).
+These examples do not depend on admitted geometric results:
+
+| Statement family checked | Instance / result | Correction |
+| --- | --- | --- |
+| Rough-function membership | Empty receiving set excludes every function | Removed `flatNorm_roughMonomial`, `movingNorm_roughMonomial`, `hodgeEntry_roughPolynomial`; the actual coefficient algebra and norm hypotheses are required. |
+| Strict determinant comparison | Positive-rank zero matrix gives 0<0 | Removed `determinantWeight_bound` and `uniformReducedness`; the positive Hodge metric and adapted-basis estimates are required. |
+| Row reducedness | Entry −1 gives 1≤−C for C>0 | Removed `curvewiseReducedness`; an arbitrary real matrix is insufficient. |
+| Finite Siegel containment | Empty indexing type cannot cover a point image | Removed `deepSiegelContainment` and `positiveHeightSiegelCover`; use the actual same-K arithmetic family. |
+| Closedness / algebraicity | Inclusion (0,1)→R has precisely that nonclosed image | Removed `specialImage_closedAnalytic` and `specialPullback_algebraic`; arbitrary maps and subsets are insufficient. |
+| Exceptional-locus conclusion | All proper subsets of Unit are empty | Removed `hodgeLocus_algebraicity`; an arbitrary whole-base locus cannot be such a union. |
+| Gram formula | Arbitrary basis and labels need not refine the Hodge filtration | Removed `gramDeterminant_formulas`; adaptation and denominator nonvanishing must be expressed. |
+| Definability / tensor classification | Arbitrary language, maps, fibre families and subsets do not encode the source hypotheses | Removed `sectorLift_definable`, `localPeriod_definable`, `globalPeriod_definable`, `specialImage_definable`, `localTensorLocus_analytic`, `exceptionalSpecial_preimage`, `rationalSpecial_countability`, `compactTargetPeriod_definable`. |
+
+The last two rows are hypothesis audits, not completed Lean counterexample
+constructions. This pass concerns the H.7 named-result block only; it is not an
+adversarial certification of the remaining 1,623 admitted declarations.
+
+## Concrete blockers and distinction from permitted omissions
+
+A missing Lean prototype alone does not block packaging. PACKAGE_REVIEW explicitly
+permits such signatures to be absent while their exact statements remain in the
+README. Likewise, `ShimuraData:D3/variation` DOES state the mathematical real or
+rational variation contract. Its incomplete suggested carrier is not by itself
+proof that the mathematical variation definition is missing. Its
+`IntegralVariationFibers` still lacks scalar-extension agreement and naturality
+in the prototype; do not use that record to instantiate H.7's integral variation.
+
+Two independently checked plan gaps are different: the cited owner statements
+do not cover the mathematical contracts this package consumes.
+
+- H.0 part gap G1 and its request to `CrystallineCohomology:CR.1` require ordinary
+  integrable connections on arbitrary supplied commutative ringed differential
+  sites, including restriction/gluing and comparison of exterior extensions.
+  `CrystallineCohomology--CR.0.json`, node `CR.1/integrable-connection`, states an
+  affine quotient-differential construction and a crystalline-site sheaf version.
+  Its stated hypotheses are not those of the requested arbitrary site. Current
+  AlgebraicVectorBundles and DifferentialGeometry do not supply this missing
+  arbitrary-site comparison. Native sheaf tensor operations must be reused.
+- H.0 gap G3 and its request to `DerivedDeRhamCohomology:DD.1` require an ordinary
+  finite locally split Rees sheaf, local freeness, and operator-compatible
+  specializations at t=0, t=1 and t inverted. The accepted owner nodes
+  `DD.1/filtered-modules` and `DD.1/rees-description` state enhanced derived
+  filtered diagrams and a derived graded Rees equivalence. They do not state
+  the requested underived finite locally free sheaf comparisons. An additional
+  exact comparison target is needed, not an implementation of an existing one.
+
+The H.0 review explicitly accepts a target-level planning pass with these gaps;
+its stage is planned, not closed. Resolving the owner contracts requires edits
+outside #7491's allowed deliverables. The issue's accepted-plan premise therefore
+does not establish dependency closure. This checkpoint is for a scope blocker,
+not expiration of this run's time. `metadata.toml` remains absent so intake does
+not mistake this partial correction for a completed package.
+
+## Validation and source receipt
+
+- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`:
+  whole-file exit 0; zero errors; 1,623 warnings, all `declaration uses sorry`;
+  zero other warnings. All seven new native checks have complete proofs.
+- Mathlib build HEAD verified as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  Compared all 5,477 `TauCeti/**/*.lean` source blobs at
+  `f790474821cf4256814db967cb154e7af3d0c369` with the shared build: zero missing,
+  zero differing. Used read-only Git manifests; no dependency copy/build.
+  Available memory was 100 GB before elaboration.
+- All ten unchanged Hodge input packets: `scripts/check_blueprint.py`, zero
+  errors and warnings each. These structural checks do not prove closure.
+- README is 187,159 bytes, below the issue's 200 KB limit. `git diff --check`
+  and `research/blueprint/intake.py check-files` pass. Only the package README,
+  Suggested.lean and this handoff change.
+- Read the binding worker/protocol/upstream guidance and package-form rules,
+  reviewed Hodge library audit, current Completed/HodgeStructures and
+  Completed/UniversalCovers; inspected the relevant current algebraic vector
+  bundle, differential-form and native Hodge declarations. Current read-only
+  roadmap HEAD at verification: `d6f707516e7ede3181dac4b2420ba25c0799d22d`;
+  current library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- Fresh primary reading: [BKT20 published PDF](https://par.nsf.gov/servlets/purl/10200187),
+  Theorems 1.3, 1.5, 1.6, pp.920–922; Definition 4.4 and Lemma 4.5, pp.929–930;
+  §§4.4–4.6, pp.930–934; §5, pp.933–934. Confirmed the polarized-variation,
+  coefficient-algebra, homogeneous-vector and adapted-basis hypotheses, and
+  individual special pullbacks. SHA-256
+  `b7cf457907c30c9dc1c349637e74027ce4ef038a2e0f646b7685f571d367e058`.
+  [BKT23 author erratum](https://benjamin-bakker.github.io/DefArithErr.pdf),
+  §§1.1–1.6, pp.1–4, Theorem 1.2 and Corollary 1.3: fixed-K and Cartan-compatible
+  quotient functoriality. SHA-256
+  `86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7`.
+  No restricted source was used; no source passage was copied.
+
+## Resume after the owner contracts are resolved
+
+Preserve the native H.5 additions from the previous receipt and these proved H.7
+negative controls. Do not restore the twenty H.7 theorems with arbitrary receiving
+data: either state every geometric hypothesis using the owners' actual carriers
+or retain the permitted omissions. Complete the semantic audit of ALL remaining
+signatures, especially blocks with comments saying conditions are omitted. Finish
+upstream-form conversion (outer namespace, theorem declarations, one module
+note, short omissions, prose/API/Checks per definition and layer dependencies);
+the inherited large file still has historical inventory comments and `lemma`s.
+These form defects are not certified as fixed by this checkpoint. Add metadata
+only when the dependency and complete-package conditions hold, then repeat the
+whole-file check. Everything needed to resume is in the repository and the public
+sources linked above; scratch files are disposable.
+
+---
+
+# Previous continuation receipt (codex-Z9BBS5)
+
 # PKG-HodgeStructuresPartII — checkpoint handoff
 
 Status: partial, blocked on missing supplier interfaces; not a completed package.

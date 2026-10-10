@@ -14615,231 +14615,74 @@ example : exceptionalHodgeLocus (id : Fin 2 → Fin 2)
     ({true} : Set Bool) = {0} := by
   sorry
 
-/-! ## Named results, with explicit receiving-data boundaries -/
+/-! ### Receiving data must satisfy the geometric hypotheses
 
--- Local coordinate encoding only. LD.6 owns the general graph/atlas theory.
-private def coordinateGraph {a b : ℕ} (A : Set (Fin a → ℝ))
-    (f : (Fin a → ℝ) → Fin b → ℝ) : Set ((Fin a ⊕ Fin b) → ℝ) :=
-  {x | (fun i => x (Sum.inl i)) ∈ A ∧
-    ∀ j, x (Sum.inr j) = f (fun i => x (Sum.inl i)) j}
+An arbitrary set of functions is not the restricted-analytic Laurent algebra;
+an arbitrary matrix is not a positive Hodge metric; an arbitrary map is not a
+period map. The following negative controls distinguish these cases without
+assuming any geometric supplier. The global targets are stated in README.md.
+-/
 
-private def complexCoordinates {n : ℕ} (x : (Fin n ⊕ Fin n) → ℝ) : Fin n → ℂ :=
-  fun i => ⟨x (Sum.inl i), x (Sum.inr i)⟩
+/-- Membership in the rough-function class needs its actual construction. -/
+example {n : ℕ} (f : (Fin n → ℂ) → ℝ) :
+    f ∉ (∅ : Set ((Fin n → ℂ) → ℝ)) := by
+  simp
 
--- H.3 period-domain real chart and H.6 polarized unipotent nilpotent-orbit,
--- polynomial exponential/action, compact analytic buffer and LD.6 R_an,exp
--- structure conditions are omitted. `L` is their receiving real language.
-theorem sectorLift_definable {n d : ℕ} (L : FirstOrder.Language) [L.Structure ℝ]
-    (R η : ℝ) (hR : 0 ≤ R) (hη : 0 < η)
-    (Φ : (Fin n → ℂ) → Fin d → ℝ) :
-    (Set.univ : Set ℝ).Definable L
-      {x : ((Fin n ⊕ Fin n) ⊕ Fin d) → ℝ |
-        complexCoordinates (fun i => x (Sum.inl i)) ∈ boundedSector n R η ∧
-        ∀ j, x (Sum.inr j) = Φ (complexCoordinates (fun i => x (Sum.inl i))) j} := by
-  sorry
+/-- Zero rank has determinant one; a zero matrix of positive rank does not. -/
+example (C : ℝ) :
+    ¬ ((∏ i : Fin 1, (0 : Matrix (Fin 1) (Fin 1) ℝ) i i) <
+      C * Matrix.det (0 : Matrix (Fin 1) (Fin 1) ℝ)) := by
+  simp
 
-private def initialCrossGram {W : Type*} {m : ℕ} (B : W → W → ℂ)
-    (v w : Fin m → W) (j : Fin (m + 1)) : ℂ :=
-  Matrix.det (fun a b : Fin j.val =>
-    B (v ⟨a.val, lt_of_lt_of_le a.isLt (Nat.le_of_lt_succ j.isLt)⟩)
-      (w ⟨b.val, lt_of_lt_of_le b.isLt (Nat.le_of_lt_succ j.isLt)⟩))
+/-- Positive definiteness is needed even for the one-dimensional row bound. -/
+example (C : ℝ) (hC : 0 < C) : ¬ |(-1 : ℝ)| ≤ C * (-1) := by
+  simp only [abs_neg, abs_one, mul_neg_one]
+  linarith
 
-private def replaceVector {W : Type*} {m : ℕ} (v : Fin m → W)
-    (j : Fin m) (u : W) : Fin m → W := fun i => if i = j then u else v i
+/-- An empty proposed family of Siegel sets cannot cover a nonempty image. -/
+example (f : Unit → Unit) (siegel : Empty → Set Unit) (F : Finset Empty) :
+    f () ∉ ⋃ j ∈ F, siegel j := by
+  simp
 
-section GramFormula
-variable {V W : Type*} [AddCommGroup V] [AddCommGroup W] [Module ℂ W]
-variable {ι : V →ₗ[ℤ] W} {hC : IsBaseChange ℂ ι} {k : ℤ}
--- b receives γ applied to the H.6 adapted basis; p receives its sorted Hodge
--- labels. Their adaptation to the pure filtration is OMITTED, not expressed
--- as an invented Prop carrier. Exterior pairings are represented by native
--- cross-Gram determinants, so both numerator factors have concrete types.
-theorem gramDeterminant_formulas {m : ℕ} (hs : HodgeStructure hC k)
-    (P : Polarization hC hs) (b : Basis (Fin m) ℂ W) (p : Fin m → ℤ) (u v : W) :
-    let B : W → W → ℂ := fun x y => P.Q x (latticeConj hC y)
-    (∀ j : Fin (m + 1), initialCrossGram B b b j ≠ 0) ∧
-    hodgeFormFunction (fun _ : Unit => P) () u v =
-      ∑ j : Fin m,
-        Complex.I ^ (2 * p j - k) *
-          initialCrossGram B (replaceVector b j u) b
-            ⟨j.val + 1, Nat.succ_lt_succ j.isLt⟩ *
-          initialCrossGram B b (replaceVector b j v)
-            ⟨j.val + 1, Nat.succ_lt_succ j.isLt⟩ /
-          (initialCrossGram B b b j.castSucc *
-            initialCrossGram B b b ⟨j.val + 1, Nat.succ_lt_succ j.isLt⟩) := by
-  sorry
-end GramFormula
+/-- The set-theoretic special-image operation also accepts nonclosed images. -/
+example : specialHodgeImage (fun x : Set.Ioo (0 : ℝ) 1 => (x : ℝ)) =
+    Set.Ioo (0 : ℝ) 1 := by
+  ext x
+  simp [specialHodgeImage]
 
-section RoughForms
-variable {n : ℕ} {V W : Type*} [AddCommGroup V] [AddCommGroup W] [Module ℂ W]
-variable {ι : V →ₗ[ℤ] W} {hC : IsBaseChange ℂ ι} {k : ℤ}
-variable (hs : (Fin n → ℂ) → HodgeStructure hC k)
-variable (P : (z : Fin n → ℂ) → Polarization hC (hs z))
+/-- Closedness does not follow from the underlying image construction. -/
+example : ¬ IsClosed (specialHodgeImage
+    (fun x : Set.Ioo (0 : ℝ) 1 => (x : ℝ))) := by
+  have h : specialHodgeImage (fun x : Set.Ioo (0 : ℝ) 1 => (x : ℝ)) =
+      Set.Ioo (0 : ℝ) 1 := by
+    ext x
+    simp [specialHodgeImage]
+  rw [h, isClosed_Ioo_iff]
+  norm_num
 
--- H.6 nonzero homogeneous splitting and squared-norm asymptotic conditions,
--- and LD.6's precise fraction-algebra/rough-monomial identification, omitted.
--- roughMonomial is the supplied SET of actual real-valued functions; it is
--- not a new placeholder proposition or local definition of that theory.
-theorem flatNorm_roughMonomial (roughMonomial : Set ((Fin n → ℂ) → ℝ))
-    (u : W) (hu : u ≠ 0) :
-    (fun z => (hodgeFormFunction P z u u).re) ∈ roughMonomial := by
-  sorry
+/-- On a one-point base every proper subset is empty. -/
+example {I : Type*} (Z : I → Set Unit) (hZ : ∀ i, Z i ≠ Set.univ) :
+    (⋃ i, Z i) = ∅ := by
+  apply Set.eq_empty_iff_forall_notMem.mpr
+  intro x hx
+  obtain ⟨i, hi⟩ := Set.mem_iUnion.mp hx
+  apply hZ i
+  apply Set.eq_univ_of_forall
+  intro y
+  have hy : y = x := Subsingleton.elim _ _
+  simpa only [hy] using hi
 
--- γ receives the H.6 negative-Lie correction. Homogeneity, compact-buffer
--- and uniform deep-height comparison conditions, and the LD.6 membership
--- identification, omitted. These conditions also apply to exterior powers.
-theorem movingNorm_roughMonomial (roughMonomial : Set ((Fin n → ℂ) → ℝ))
-    (γ : (Fin n → ℂ) → W →ₗ[ℂ] W) (u : W) (hu : u ≠ 0) :
-    (fun z => (hodgeFormFunction P z (γ z u) (γ z u)).re) ∈ roughMonomial := by
-  sorry
-
--- LD.6 supplies this SUBRING as its repaired localization g/d, where d is a
--- Laurent polynomial with monomial size; H.6 and H.3 hypotheses are omitted.
--- Arbitrary fraction-field denominators must not instantiate this supplier.
-theorem hodgeEntry_roughPolynomial
-    (roughPolynomial : Subring ((Fin n → ℂ) → ℂ)) (u v : W) :
-    (fun z => hodgeFormFunction P z u v) ∈ roughPolynomial := by
-  sorry
-end RoughForms
-
--- b is the Gram matrix in the fixed rational weight-adapted basis. H.3
--- determinant-one faithful representation and H.6 centered-weight estimate
--- conditions are omitted. No integral or fixed-diagonal-order claim is made.
-theorem determinantWeight_bound {n m : ℕ}
-    (b : (Fin n → ℂ) → Matrix (Fin m) (Fin m) ℝ) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ C Y : ℝ, 1 < C ∧ 0 < Y ∧
-      ∀ z ∈ orderedSector n R Y, (∏ i, b z i i) < C * Matrix.det (b z) := by
-  sorry
-
--- τ receives a rational positive-slope test curve (after finite cover); b
--- receives the real Hodge matrix. These H.6/LD.6 source conditions, positive
--- definiteness and the fixed rational-basis determinant bound are omitted.
-theorem curvewiseReducedness {n m : ℕ}
-    (b : (Fin n → ℂ) → Matrix (Fin m) (Fin m) ℝ)
-    (τ : ℂ → Fin n → ℂ) (A : Set ℂ) :
-    ∃ C : ℝ, 0 < C ∧ ∀ s ∈ A, ∀ i j, |b (τ s) i j| ≤ C * b (τ s) i i := by
-  sorry
-
--- H.6 adapted rational basis and LD.6 wider-strip repaired curve transfer,
--- positive definite real Hodge matrix and polynomial-ring conditions omitted.
--- The three AA.3 reducedness inequalities are displayed rather than replaced
--- by a locally invented Reduced predicate. The permutation is finite data.
-theorem uniformReducedness {n m : ℕ}
-    (b : (Fin n → ℂ) → Matrix (Fin m) (Fin m) ℝ) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ C Y : ℝ, 1 < C ∧ 0 < Y ∧ ∀ z ∈ orderedSector n R Y,
-      ∃ σ : Equiv.Perm (Fin m),
-        (∀ i j, |b z (σ i) (σ j)| < C * b z (σ i) (σ i)) ∧
-        (∀ i j, i < j → b z (σ i) (σ i) < C * b z (σ j) (σ j)) ∧
-        (∏ i, b z (σ i) (σ i)) < C * Matrix.det (b z) := by
-  sorry
-
--- D receives the H.3 domain and siegel the AA.3 family for ONE canonical K_t.
--- Integral VHS, faithful derived representation, Cartan compatibility, rational
--- Siegel set and metric inverse-image conditions omitted. J is not finite.
-theorem deepSiegelContainment {n : ℕ} {D J : Type*}
-    (Φ : (Fin n → ℂ) → D) (siegel : J → Set D) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ Y : ℝ, 0 < Y ∧ ∃ F : Finset J, ∀ z ∈ orderedSector n R Y,
-      Φ z ∈ ⋃ j ∈ F, siegel j := by
-  sorry
-
--- Same fixed-K supplier as above, PLUS compact parameter and partial-boundary
--- chart transport hypotheses omitted. This is stronger than the deep result;
--- bounded lower heights cannot be handled by compactness in z coordinates.
-theorem positiveHeightSiegelCover {n : ℕ} {D J : Type*}
-    (Φ : (Fin n → ℂ) → D) (siegel : J → Set D) (R η : ℝ)
-    (hR : 0 ≤ R) (hη : 0 < η) :
-    ∃ F : Finset J, ∀ z ∈ boundedSector n R η, Φ z ∈ ⋃ j ∈ F, siegel j := by
-  sorry
-
--- U receives one buffered mixed punctured/unpunctured SNC chart in real
--- coordinates. Integral polarized variation, fixed-K tame quotient, finite
--- cover, period map, R_an,exp and atlas conditions omitted (G1/G2/G3/G4).
-theorem localPeriod_definable {a b : ℕ} (L : FirstOrder.Language) [L.Structure ℝ]
-    (U : Set (Fin a → ℝ)) (Φ : (Fin a → ℝ) → Fin b → ℝ) :
-    (Set.univ : Set ℝ).Definable L (coordinateGraph U Φ) := by
-  sorry
-
--- S_i and Φ_i receive each source/target chart restriction of the global map.
--- Smooth quasi-projectivity, the SNC finite cover, polarized integral VHS and
--- canonical fixed-K target/finite-atlas identifications omitted. This local
--- graph signature is applied in EVERY pair of charts of that supplied atlas.
-theorem globalPeriod_definable {a b : ℕ} (L : FirstOrder.Language) [L.Structure ℝ]
-    (S_i : Set (Fin a → ℝ)) (Φ_i : (Fin a → ℝ) → Fin b → ℝ) :
-    (Set.univ : Set ℝ).Definable L (coordinateGraph S_i Φ_i) := by
-  sorry
-
--- f_i receives a compatible pure rational Hodge morphism in canonical real
--- charts; the language here is the requested R_alg language. Those conditions
--- and fixed-K Cartan-compatible quotient functoriality are omitted.
-theorem specialImage_definable {a b : ℕ} (L : FirstOrder.Language) [L.Structure ℝ]
-    (T_i : Set (Fin a → ℝ)) (f_i : (Fin a → ℝ) → Fin b → ℝ) :
-    (Set.univ : Set ℝ).Definable L (f_i '' T_i) := by
-  sorry
-
--- X/Y receive the pure Hodge manifold carriers, f a Hodge morphism. Kernel/
--- image factorization, proper arithmetic immersion and Remmert conditions
--- omitted. The baseline has no general analytic-subset carrier; only CLOSEDNESS
--- is typed here. Analyticity is a conclusion omission, expressly part of G7,
--- and must be added using C0/C4; closedness is not its replacement.
-theorem specialImage_closedAnalytic {X Y : Type*} [TopologicalSpace Y] (f : X → Y) :
-    IsClosed (specialHodgeImage f) := by
-  sorry
-
--- U receives a complex chart and hs its holomorphic flat-trivialized tensor
--- filtration. Holomorphic bundle, rational embedding and flatness conditions
--- omitted. As above, ANALYTICITY cannot yet be typed and is listed in G7.
-theorem localTensorLocus_analytic {U T W : Type*} [TopologicalSpace U]
-    [AddCommGroup W] [Module ℂ W] {ω : Conjugation W} {k : ℤ}
-    (hs : U → HodgeStructureOn W ω k) (r : T → W) (t : T) :
-    IsClosed (tensorHodgeLocus hs r t) := by
-  sorry
-
--- π, locus, generic receive the universal-cover tensor data above. Φ receives
--- the genuine period map, special the H.3 strict-subdatum family. Generic MT,
--- tensor/subdatum correspondence and lift/level hypotheses omitted. Identity
--- images are excluded by the SUPPLIER, not by an arbitrary Prop flag here.
-theorem exceptionalSpecial_preimage {U S T D J : Type*}
-    (π : U → S) (locus : T → Set U) (generic : Set T)
-    (Φ : S → D) (special : J → Set D) :
-    exceptionalHodgeLocus π locus generic = ⋃ j, Φ ⁻¹' special j := by
-  sorry
-
--- family receives precisely the relevant rational strict special images.
--- Rational finite-dimensional tensor enumeration and subdatum/level hypotheses
--- omitted. The conclusion is countability of SUBSETS, not definable indexing.
-theorem rationalSpecial_countability {D : Type*} (family : Set (Set D)) :
-    family.Countable := by
-  sorry
-
--- S receives the algebraic Zariski space underlying the smooth quasi-projective
--- complex variety, and W the complex-point subset of a special pullback. Its
--- native analytic/algebraic comparison carrier is missing. Period definability,
--- analyticity, LD.6 definable Chow and complex-point/Zariski comparison omitted.
--- Only ZARISKI CLOSEDNESS is typed; reduced algebraic structure/comparison and
--- analytic hypotheses must be added using the supplied carriers (gap G7).
-theorem specialPullback_algebraic {S : Type*} [TopologicalSpace S] (W : Set S) :
-    IsClosed W := by
-  sorry
-
--- S receives the variety's Zariski space. Its complex-point/scheme comparison,
--- polarized integral variation, generic datum and strict-special indexing are
--- omitted. IsClosed BELOW MEANS ZARISKI CLOSED, never ordinary real closedness.
--- Reduced algebraic subvariety structures are a conclusion omission (G7).
--- Indexing by a COUNTABLE TYPE allows an empty family when the locus is empty.
-theorem hodgeLocus_algebraicity {S : Type*} [TopologicalSpace S] (HL : Set S) :
-    ∃ (I : Type) (_ : Countable I) (Z : I → Set S),
-      (∀ i, IsClosed (Z i) ∧ IsIrreducible (Z i) ∧ Z i ≠ Set.univ) ∧ HL = ⋃ i, Z i := by
-  sorry
-
--- Compact arithmetic target, neat congruence level, H.6 quasi-unipotence and
--- finite-monodromy extension, SNC compactification and canonical R_an atlas
--- conditions omitted. L receives R_an rather than R_an,exp. This applies to
--- every pair of charts of the global period map after finite-cover descent.
-theorem compactTargetPeriod_definable {a b : ℕ} (L : FirstOrder.Language)
-    [L.Structure ℝ] (S_i : Set (Fin a → ℝ))
-    (Φ_i : (Fin a → ℝ) → Fin b → ℝ) :
-    (Set.univ : Set ℝ).Definable L (coordinateGraph S_i Φ_i) := by
-  sorry
+/- The following signatures require the constructed variation, its adapted
+basis and norm estimates, the actual restricted-analytic coefficient algebra,
+and the canonical arithmetic/analytic comparison interfaces:
+sectorLift_definable, gramDeterminant_formulas, flatNorm_roughMonomial,
+movingNorm_roughMonomial, hodgeEntry_roughPolynomial, determinantWeight_bound,
+curvewiseReducedness, uniformReducedness, deepSiegelContainment,
+positiveHeightSiegelCover, localPeriod_definable, globalPeriod_definable,
+specialImage_definable, specialImage_closedAnalytic, localTensorLocus_analytic,
+exceptionalSpecial_preimage, rationalSpecial_countability,
+specialPullback_algebraic, hodgeLocus_algebraicity, compactTargetPeriod_definable.
+Their exact hypotheses and conclusions remain in README.md. -/
 
 end TauCeti.Hodge.Tame
 

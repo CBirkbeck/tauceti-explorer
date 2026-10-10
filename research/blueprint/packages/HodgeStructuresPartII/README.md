@@ -614,6 +614,24 @@ For each special image Y, global definability and independent closed analyticity
 
 Tests distinguish a generic tensor from a nongeneric one, zero and nonzero weights, an explicit Tate shift, identity versus strict special images, monodromy transitions and a countable union that is not definable. The canonical finite real-algebraic domain atlas, tensor/subdatum classification, kernel/image Hodge factorization and proper-image interfaces are required H.3 extensions. Native sets, subrings and first-order `Set.Definable` predicates do not by themselves define o-minimality, R_an,exp or the algebraic/analytic complex-point comparison.
 
+
+### Examples: hypotheses on the receiving data
+
+The rough-function, reducedness, finite-containment and algebraicity conclusions above apply to their constructed geometric inputs. They do not extend to an arbitrary set of functions, matrix family, image or subset. The following native checks make these boundaries explicit; they accompany the definition checks above.
+
+**Checks.**
+
+- An arbitrary real-valued function is not a member of the empty set of functions. Thus a receiving set alone cannot stand for the restricted-analytic rough-monomial class, even when the vector whose norm is evaluated is nonzero.
+- For the zero one-by-one real matrix, the product of diagonal entries and its determinant are both zero, so the strict determinant bound would read 0<0 for every C. This differs from the rank-zero convention det=1 and tests the positive-definite metric hypothesis.
+- For the one-by-one matrix with entry −1 and every C>0, the row bound would read 1≤−C, which fails. An arbitrary matrix family cannot replace the real positive Hodge metric.
+- An empty indexing type gives an empty finite union of proposed Siegel sets; it cannot contain the image of a point. Finiteness of the chosen subfamily is a conclusion about the specified same-K arithmetic family, not about arbitrary receiving subsets.
+- The underlying `specialHodgeImage` of the inclusion (0,1)→R is exactly (0,1), which is not closed. Closed analyticity therefore uses the pure Hodge morphism, its arithmetic factorization and proper-image theorem, rather than the set-theoretic image operation alone.
+- On a one-point base every proper subset is empty, so any union of proper subsets is empty. The whole base cannot satisfy the exceptional-locus conclusion with arbitrary input locus; removing generic tensors and using the genuine tensor/subdatum comparison are essential.
+
+### Dependencies
+
+This layer uses the common polarized integral variation and represented period geometry of H.2–H.3, the adapted splitting and uniform buffered norm estimates of H.6, the fixed canonical-K arithmetic reduction and quotient contracts, the repaired LD.6 coefficient algebra and curve transfer, and the analytic/algebraic complex-point comparisons stated above. A native set, matrix or first-order language is only an underlying carrier; it does not supply these structures or their hypotheses.
+
 ## H.8 — Real Noether–Lefschetz interfaces
 
 This layer exports geometric derivative, real open-cone and integral divisor interfaces. `RealSurfacePeriodIndex` owns the application families, their vanishing calculations, equivariant lifts and Brauer argument. The general complex kernel-cone theorem is retained separately from the real conclusion.
