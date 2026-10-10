@@ -1,3 +1,140 @@
+# PKG-LanglandsParameterStacks — supplier-blocked checkpoint
+
+Issue: #7909. Worker: Codex, session `codex-iI7Iog`.
+Date: 2026-10-10. Branch: `codex-iI7Iog-langlands-parameter-stacks`.
+The bot confirmed comment 6093502858 in
+[claim confirmation 6093503708](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6093503708).
+Continues the merged checkpoints through #8214. This section is the current
+handoff; the historical notes below retain earlier mathematical work.
+
+## Outcome and changes
+
+This is a **blocked checkpoint**, not a completed package. The completion
+obstacle is a missing supplier signature contract, rather than Lean errors,
+memory, missing object files, or exhaustion of the eight-hour run.
+
+Corrected all 34 links to current upstream roadmap directories in the package
+README: eight ClassFieldTheory, six LocalFieldsRamification, two DGAInfinity
+and eighteen ReductiveGroups links. Each now includes the repository's
+`TauCetiRoadmap/` directory. All four destinations exist in the current
+read-only upstream checkout. The target statements, hypotheses, API, tests,
+source annotations and mathematical prerequisites are unchanged.
+
+The existing Suggested.lean was independently re-elaborated. No new Lean
+signatures were added. There is no change to the accepted packet, reader or
+original suggested file, and no source file or source passage is submitted.
+
+## Concrete completion obstacle
+
+Read `research/blueprint/suggested/EnhancedDerivedSheaves--E5.lean` in full.
+Its documented notions are required by the accepted LP plan, but the following
+suggested interfaces do not express their documented conditions:
+
+| Supplier interface and location | What is missing from its suggested form | First affected LP interfaces |
+| --- | --- | --- |
+| E5 `SymMonInftyCat`, lines 77–81; `CAlg`, line 104 | The map to finite pointed sets, coCartesian property and Segal condition are replaced by `True`; the algebra-object carrier is `Unit`. There is no usable coherent monoidal/algebra-object contract. | `CategoricalHeckeDatum` and its unit, reindexing, creation and annihilation API; `UniversalRepresentationBundle.tensor` and `.act`. |
+| E5 `IsStable`, lines 112–115 | Zero objects, fibres/cofibres and their agreement are replaced by `True`, on an ordinary category. This does not supply a stable infinity category. | `goodFiltrationTStructure` and `InducedPerfectComplexes`, including their shift, cone and retract tests. |
+| E5 `IsCompactObject` and `IndInfty`, lines 141–145 | Both have `True` as their type. They express neither compactness nor the enhanced Ind-completion and its universal property. | `DerivedParameterStack.perfectPullback`, `InducedPerfectComplexes.moduleFunctor`, LP4 generation and the parameter IndPerf module comparison. |
+| E5 `PSigma`, line 189; `AnimatedAlg`, line 199 | The animation construction is replaced by `True`, and animated algebras by `Unit`. No animated algebra/mapping-stack signature can be specialized faithfully. | `DerivedParameterStack`, its framed/quotient construction and the free-group and gauge examples. |
+
+The general foundations belong to E5, E0, SF.1, DD.0 and S.1 as the accepted
+plan's requests specify. The package issue allows edits only to this package
+and its handoff. [PROTOCOL §15](../PROTOCOL.md#15-build-on-existing-roadmaps-never-duplicate)
+requires a single owner, so building a second general enhancement or animation
+inside this package is outside its scope.
+[PROTOCOL §13](../PROTOCOL.md#13-the-suggested-lean-file) permits honest omission
+of conditions that cannot yet be stated and forbids vacuous substitutes. Those
+omissions are already acknowledged in this package's Lean header. They cannot
+satisfy the full definition/API/test deliverable required by
+[PROTOCOL §20](../PROTOCOL.md#20-roadmap-packages).
+
+This is not a request to implement the supplier proofs first. Faithful supplier
+signatures, characteristic equations and comparisons, with admitted proofs,
+would allow package work to resume. The current `True`/`Unit` stand-ins do not.
+Ordinary cocycle rings, topological group parameters or triangulated homotopy
+categories do not encode the missing enhanced constructions.
+
+## Checks of possible replacements
+
+Read current upstream ReductiveGroups and AlgebraicVectorBundles READMEs in
+full. Inspected the current AlgebraicVectorBundles and DGAInfinity suggested
+interfaces. AlgebraicVectorBundles supplies sheaf/module and relative-Spec
+interfaces on schemes; it does not supply animated quotient stacks or stable
+IndPerf. DGAInfinity supplies DG/A-infinity signatures; it does not supply the
+E5 enhancement/animation contract. These existing owners are to be imported,
+not planned again.
+
+Searched all current upstream roadmaps and completed roadmaps and the current
+Tau Ceti source for the enhanced carriers, animation, quasicategories and
+relatively discrete coefficients. The two infinity-category mentions located
+in SmoothRepresentationsOfLocalGroups explicitly give the enhanced-sheaf
+roadmaps ownership. No faithful replacement for the contracts above was found.
+Read-only upstream commit: `dea8191cc6047d6142a65872ebce6eeeb841a29b`.
+Current Tau Ceti commit: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+Read the accepted packet's review, scope, coverage, requests and five gaps,
+and the reviewed library audit for all eight LP stages. Its eight stages are
+planned, not closed. The audit does not identify an existing full enhanced
+carrier that can remove this blocker. This continuation does not claim a new
+verification of the 31 baseline declarations or the seven mathematical sources;
+the earlier verification remains recorded below and in the accepted review.
+No restricted book was needed.
+
+## Resume instructions for the manager and next worker
+
+1. Route the E5 signature correction to that existing owner, with the E0,
+   SF.1, DD.0 and S.1 comparisons required by the accepted requests. The table
+   identifies concrete absent declarations, rather than a request for a
+   replacement enhancement in LP. Resolve G1's integral highest-weight and
+   reductive supplier extensions with their existing owners as well.
+2. Retain the existing ordinary/affine signatures as the comparisons to the
+   new full interfaces. Add the accepted enhanced definition/API/test
+   signatures only when their supplier contract expresses the mathematical
+   conditions. Start with `DerivedParameterStack` and `CategoricalHeckeDatum`,
+   then the good-filtration and induced-perfect interfaces, then LP4.
+3. G4 still requires the finite-Q characteristic-zero continuity argument
+   preserving the relatively discrete finite-type coefficient convention.
+   The finite-coordinate discrete-inertia lemmas do not prove that extension.
+   G6 still requires owner-side field-GIT and dependency reconciliation.
+   G2 is the source's open question about torsion-sensitive independence,
+   which the package already states with its precise boundary; no invented
+   independence theorem should replace it.
+4. Run `lean-check` after specializing the actual supplier interfaces, check
+   all accepted API/test names and target statements, and add
+   `metadata.toml` with `topic = "math.NT"` only when packaging is complete.
+
+The metadata file remains absent. `issues.deliverables_complete` checks that
+all output paths exist before accepting a package as finished; creating it
+now would misclassify the unchanged missing-signature checkpoint as complete.
+No issue label was changed by hand. The manager should resolve the supplier
+contracts before sending another worker to finish these same missing
+signatures; further ordinary examples alone cannot discharge them.
+
+## Current validation
+
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, 262 warnings, all `declaration uses sorry`; zero errors and no other
+  warning classes. Elaborated at Mathlib `082e2d3` and Tau Ceti `f790474`.
+  This checks the admitted signature file, not proofs or omitted targets.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
+  zero errors and zero warnings. The accepted input is unchanged.
+- README inventory: 79 target headings, 79 source blocks, 79 prerequisite
+  blocks, all 140 accepted API names and all 90 accepted test names retained.
+  The inventory confirms prose coverage, not missing Lean signatures.
+- All 34 corrected upstream links resolve to the four existing directory
+  paths in the current upstream checkout. README size: 171,648 bytes.
+- Intake `check-files`: two changed deliverables, zero problems.
+- `git diff --check`: passed.
+- No library build, Lake update, cache download or language server was started.
+  The single elaboration finished; no background process remains.
+
+The remaining work and its entry points are recorded here and in the historical
+notes. Scratch contains no information that a continuation needs to preserve.
+
+---
+
+## Historical checkpoint through #8214
+
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue: #7909. Worker: Codex, session `codex-eMVz7a`.
