@@ -1,127 +1,210 @@
-# PKG-LanglandsParameterStacks — blocked checkpoint
+# PKG-LanglandsParameterStacks — supplier gate checkpoint
 
-## Current status, 10 October 2026
+## Current result, 10 October 2026
 
-Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-XmWbDj`.
-Branch: `codex-XmWbDj-langlands-parameter-stacks`.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098007348);
-[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098008718).
-Work began after the bot confirmed the claim. None of the manager's forty
-priority issues appeared in the available swarm issue list. After screening
-the permitted fallback kinds and the top/focus ordering, this focus package
-was selected. Only this job was claimed.
+Codex (GPT-6), session `codex-U3hXjn`, issue
+[#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Branch: `codex-U3hXjn-langlands-parameter-stacks`.
+Starting atlas commit: `eb108a9e85cfb105b10457721c1ebe902328b868`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098130386)
+was explicitly [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098131528)
+for this session by github-actions before work began.
+The issue was reread after confirmation. The selection list contained 735
+available swarm issues and none of the manager's forty priority numbers.
+No eligible top plan/package review or planning job appeared in that list;
+this was one of the two eligible focus packages. Only #7909 was claimed.
 
-**Incomplete; blocked by supplier specifications outside the four authorized
-paths.** The E5 enhanced interfaces and the generic identity-component
-invariant construction still do not specify the objects required by LP.
-This issue does not authorize changing those owners or the accepted LP packet.
-The accepted review certifies a target-level planning pass with recorded gaps
-and omitted enhanced signatures; it does not certify a closed package plan.
-Metadata remains absent so that output-existence checks do not mark this
-incomplete package complete. No ownership move or new claim was made.
+**Blocked checkpoint; the roadmap package is incomplete.** This run changes
+only this handoff. The package README and Suggested.lean remain unchanged,
+and metadata remains absent. The existing suggested file elaborates, but
+three independently checked targets alone still lack fifteen named API
+entries and ten unit tests. The general enhanced suppliers needed to state
+those interfaces are not adequate at the current inputs.
 
-## Changes in this checkpoint
+The issue's scope says: “Change no packet; if the plan has a mistake, describe
+it in the handoff note.” WORKERS.md's deliverable-only rule and PROTOCOL
+§§3, 13, 15 and 20 therefore prevent this package job from filling the
+owner's general theory or replacing the accepted plan's enhanced targets
+with ordinary categories. Completion needs an authorized owner repair and
+reconciliation of the LP supplier requests. The package does not require
+implemented supplier proofs; it requires non-vacuous specifications and
+suggested interfaces that can express the stated targets and tests.
 
-The ordinary group-algebra function extension in `GroupTraceAdapter` now has
-proofs of additivity and scalar linearity, its basis evaluation, and both
-restriction/extension inverse laws. The normalization and two-term linearity
-examples also have proofs. These replace six `sorry` proof bodies and add
-`restrict_extend`.
+## Independently checked E5 gate
 
-The new `trace_extension_not_multiplicative` example uses the constant function
-2 on the trivial group over Q: its linear extension evaluates 1·1 to 2,
-whereas the product of the two evaluations is 4. The README records this as a
-check of the underlying function-extension operation before pseudocharacter
-axioms are imposed. It does not assert that this function is a pseudocharacter.
+Read the complete current E5 suggested file, the corresponding packet's
+construction statements, gaps and coverage, and its handoff. The supplied
+packet `EnhancedDerivedSheaves--E5.json` is **partial**, has **no review
+object**, and contains 22 nodes, ten gaps and sixteen requests. Its three
+consumed substages are partial; the cotangent/spectra boundary stages are
+not_read. This is not an accepted closed supplier plan.
 
-This only proves the correspondence between group functions and linear
-functionals on the ordinary group algebra. It does not establish the full
-IHG pseudocharacter carrier, polarized identities or the required
-`GroupTraceAdapter.equiv`. Keep that entry in the missing-signature worklist.
-The existing geometric, semidirect-product and coefficient-change fixtures
-are retained.
+The LP packet's three E5 requests have the following direct incidence counts:
 
-## Blockers independently checked in this run
+| Supplier substage | Direct consumer entries | Required export |
+| --- | ---: | --- |
+| E5:abstract | 7 | Stable symmetric monoidal enhanced categories, exact functors, coherent actions and idempotent closure |
+| E5:animation | 8 | Animated algebras, derived mapping/quotient stacks, quotient-stack QCoh and Perf with descent |
+| E5:presentability | 19 | Enhanced Ind, linear tensor/module categories, category-valued Kan extension and module base change |
 
-- E5 still uses `True` for the monoidal fibration and Segal conditions,
-  stability, presentability and coherent actions; `Unit` for `CAlg` and
-  `AnimatedAlg`; and a proof of `True` for `IndInfty`. Its quasi-category
-  carrier does not repair these missing enhanced interfaces.
-- Current upstream IHG §0.7 and its suggested signatures use one Hopf algebra
-  for tuple points and conjugating points. LP needs tuple group J=H⋊Q with
-  conjugation by H, hence O[J^n]^H. Neither substituting J nor substituting H
-  in that single-group contract gives this input. Upstream IHG explicitly
-  scopes its reductive applications to connected groups: this is an intended
-  narrower contract, not an upstream error to repair here. The atlas IHG
-  prototype accepts an arbitrary ring diagram rather than constructing the
-  needed invariant diagram from separate group/subgroup data. Assign a
-  generalized extension once in the generic owner through an authorized
-  repair; do not duplicate that theory inside LP.
-- Read all eight LP entries in the reviewed library audit. Read current
-  upstream AlgebraicVectorBundles and DifferentialGeometry READMEs; ordinary
-  scheme vector bundles do not provide enhanced quotient-stack Perf. A
-  limited declaration-text screen of the native library found no declarations
-  for `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `DerivedParameterStack`,
-  `CategoricalHeckeDatum`, `InvariantCoordinateInput` or
-  `ReductivePseudocharacter`. This screen is not a comprehensive library audit.
-- Reopened [Fargues–Scholze's author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
-  Theorem VIII.4.1 (p.291) and VIII.5.1–VIII.5.2 (p.293), for the categorical
-  datum and enhanced module comparison. Reopened
-  [Quast's author PDF](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
-  §3.1, Definition 3.1 (p.11), for identity-component invariants, reindexing
-  and ordered multiplication. These were browser inspections, not fresh
-  downloads or hash receipts. No source passage or private book was copied.
+These are **25 distinct LP consumers**, not 34 distinct targets. The count
+comes from the request `neededBy` lists and does not include transitive users.
 
-A roadmap does not require every supplier theorem to be implemented. It does
-require adequate non-vacuous specifications and usable suggested interfaces.
-Those are missing here and cannot be supplied by edits to these package paths.
-The exact owner gates and retained inventory below explain where to resume.
+The E5 suggested file supplies a genuine quasicategory carrier, but its
+`SymMonInftyCat` fields for the map to finite pointed sets, coCartesian lifts
+and Segal condition are proofs of `True`. `CAlg` and `AnimatedAlg` return
+`Unit`; `IndInfty` returns a proof of `True`. Stability, presentability and
+coherent actions similarly lack the mathematical conditions in their types.
+These are explicit source-interface gaps, not faithful enhanced objects to
+import into LP. In particular the E5 packet itself records the missing
+monoidal Ind/module constructions and tensor/module base-change comparisons.
 
-## Validation and receipts
+The following scoped signature inventory was checked against both the LP
+packet and the package README, then against the entire package suggested file:
 
-- Full `lean-check` on the package Suggested.lean: exit 0, no errors,
-  286 warnings, all `declaration uses sorry`, no other diagnostics. Available
-  memory before elaboration was 98 GB. This verifies the retained signatures
-  and examples; it does not certify omitted enhanced signatures.
-- An isolated check of the same trace section passes. `#print axioms` for
-  `extendFunction`, `extend_basis`, `restrict_extend` and `extend_restrict`
-  lists only `propext`, `Classical.choice` and `Quot.sound`, with no `sorryAx`.
-  Other planned declarations in that section retain their recorded `sorry`s.
-- The managed build advertises Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib source revision is
-  `082e2d37e8b0463410cdb532e111cd43d5a66174`. Read the coefficient,
-  finite-support sum and induction declarations used by the proofs at this pin.
-- LP packet checker: exit 0, zero errors or warnings; 79 nodes, 140 API items,
-  90 tests, 31 planets, five gaps, sixteen requests, eight planned stages and
-  no closed stage. Structural validity does not close the recorded gaps.
-- Scoped intake `check-files` and `git diff --check` pass for the three changed
-  authorized files. No supplier, packet, campaign or data file is changed.
-- Current read-only roadmap revision:
-  `670582c502e1d4497d9ccd492b36c67028ef6666`; native Tau Ceti revision:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither was edited or built.
-- Package README: 192694 bytes; SHA-256
-  `82cd627d281459fd163411f0986d82bb12365ad6302f551db349d71593a761be`.
-- Suggested.lean: 130588 bytes; SHA-256
-  `e715f1da933448bd2e8acb1c83343f68e5ddbad5ca3da60377be9bc11b116730`.
-- Unchanged LP packet: 375204 bytes; SHA-256
-  `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
-- Unchanged E5 input: 10410 bytes; SHA-256
-  `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c`.
+| LP target | Absent named API entries | Absent unit tests |
+| --- | --- | --- |
+| LP1/derived-parameter-stack | DerivedParameterStack; framed; forgetFraming; classicalPoints; perfectPullback | derived_stack_trivial_group; derived_stack_free_group; derived_stack_gauge |
+| LP3/induced-perfect-complexes | InducedPerfectComplexes; pullback; retract; moduleFunctor; minimal | induced_point; induced_trivial_group; induced_retract; induced_not_all_bad_prime |
+| LP3/mapping-approximation | ParameterMappingApproximation; compare; finiteTorsor; leftKan; ind | approx_point; approx_coproduct; approx_bad_prime |
 
-No scratch file is needed for resumption. No language server or background
-compile remains. After authorized owner/plan repairs, reconcile every target,
-API and test against actual signatures, retain the proved examples and the
-README size limit, and add `topic = "math.NT"` metadata only on completion.
+The subordinate names in each API cell belong to its displayed namespace.
+All fifteen full API names and ten test identifiers are absent even as text
+in the package suggested file. This is a **lower bound for three targets**,
+not a new complete audit of all 79 targets. The wider inherited inventory
+below remains to be reconciled.
 
-## Inherited resumption record
+### Source checks and repair acceptance
 
-The remainder preserves the detailed gates and inventory from the
-[immutable preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/cd3293a621c3b3fc1ae0c3168bd61ad2b6fc41f0/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
-Its references to fresh inspections, absence counts and unchanged proof work
-refer to that preceding checkpoint. They are not new certifications by this
-session; the current checks and new trace proofs are recorded above. No old
-source hash is claimed as a newly verified receipt.
+Freshly downloaded and read Fargues–Scholze's
+[author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+accessed 2026-10-10; SHA-256
+`9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
+This run read Proposition VIII.2.1 and its proof, p.281; the induced-perfect
+definition and Proposition VIII.5.8 with proof, pp.295–296; Proposition
+VIII.5.11 and its proof, pp.297–298; §VIII.5.4 and Proposition VIII.5.20 with
+proof, pp.311–312; and the integral setup and Propositions X.3.1–X.3.3,
+pp.348–350. It does not claim to have read the entire book or all cited proofs.
+
+These locators support the following indispensable distinctions in the LP
+statements, all expressed here in our own words:
+
+- The parameter deformation problem is defined on animated coefficient
+  algebras. The framed and unframed versions differ by the gauge quotient;
+  a point-valued ordinary cocycle type cannot state their derived comparison.
+- Induced perfectness is closure under cones and retracts of the classifying
+  stack pullbacks. The source's bar criterion is an isomorphism in IndPerf;
+  its proof uses derived tensor, dualizability and the module-category
+  comparison. For connected PGL_l over an algebraically closed field of
+  characteristic l, the unit skyscraper is perfect but fails induced
+  perfectness by VIII.5.11. An interface defining the induced category to be
+  all Perf would fail this required test.
+- Map^Sigma is a category-valued extension from finite base sets carrying
+  torsors. Its notation does not furnish a representing stack. VIII.5.20
+  gives an induced essential image on a free-group input, with equivalence
+  under the stated fundamental-group prime restriction; the proof uses
+  Barr–Beck and module base change. The finite base condition does not make
+  the total torsor finite for an infinite source group.
+
+**Owner repair gate:** complete E5's actual enhanced monoidal/stable,
+animation and Ind/module interfaces, including the requested quotient-stack
+QCoh/Perf exports with SF.1 and S.1 descent. Give typed pullback, gauge,
+closure, linear tensor, module base-change and category-valued left Kan
+extension comparisons. Reconcile LP's existing three requests to those
+exports. Then restore the fifteen signatures and ten tests above on the
+same carriers, preserving the bad-prime non-example. Further LP requests
+and inherited gates still need checking; this gate is necessary, not a
+claim that it is sufficient for completion.
+
+## Current upstream and library boundary
+
+Read current **AlgebraicVectorBundles** and **DGAInfinity** READMEs in full,
+with their suggested interfaces inspected. AlgebraicVectorBundles L0–L2
+supplies scheme sheaf operations and structured total spaces. DGAInfinity
+Layers 5–6 specify derived modules and perfect DG envelopes, and Layer 8
+specifies Hochschild operations. Neither document specifies the E5
+animation, derived fpqc quotient-stack and coherent category-valued
+left-Kan-extension contracts above. Preserve these suppliers rather than
+replanning their material inside LP.
+
+Read pinned Mathlib `SSet.Quasicategory` and `DerivedCategory` statements.
+The former imposes inner horn filling; the latter is the ordinary categorical
+localization of cochain complexes at quasi-isomorphisms, with a triangulated
+structure. Neither declaration supplies the requested full E5 exports.
+Also read the current native sheaf tensor interface: its site-level
+sheafification construction is an ordinary coefficient operation to reuse.
+
+A bounded declaration-text screen across the current native Tau Ceti tree
+and current upstream Suggested.lean files found no occurrences of the eight
+names SymMonInftyCat, AnimatedAlg, IndInfty, DerivedParameterStack,
+CategoricalHeckeDatum, InducedPerfectComplexes, ParameterMappingApproximation
+and UniversalRepresentationBundle. This name screen is not an exhaustive
+absence proof. All eight LP entries of the reviewed library audit were read;
+none supplies the missing enhanced contracts.
+
+Read the atlas IHG ordinary `InvariantCoordinateInput`, `InvariantEvaluation`
+and `ReductivePseudocharacter` signatures. They take an arbitrary coordinate
+ring diagram and explicitly omit its full algebraic-group invariant
+identification. This limited reading does not re-certify the inherited IHG
+reconstruction or identity-component gate below. IHG is an atlas owner with
+a package; do not mistake that package for an additional roadmap found in
+the supplied current upstream checkout.
+
+Current read-only upstream roadmap revision:
+`670582c502e1d4497d9ccd492b36c67028ef6666`.
+Current native Tau Ceti revision:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Neither tree was edited or built.
+
+## Validation and unchanged inputs
+
+- Package `lean-check`: exit 0, **286 warnings, all declaration uses sorry**;
+  zero errors and no other warnings. Available memory before launch was
+  99 GB. The unchanged signatures and examples pass; the omitted signatures
+  are not checked by that success.
+- LP packet checker: zero errors/warnings; 79 nodes, 140 API entries, 90 tests,
+  five gaps, sixteen requests, eight planned stages and no closed stage.
+- E5 packet checker: zero errors/warnings; 22 nodes, ten gaps, sixteen
+  requests and no planned or closed stage.
+- Scoped intake `check-files`: one handoff file, zero problems;
+  `git diff --check` passes. Only the authorized handoff is changed.
+- The managed driver identifies Tau Ceti baseline
+  `f790474821cf4256814db967cb154e7af3d0c369`. Its Mathlib source Git revision
+  was independently read as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  This is distinguished from the current native revisions above.
+
+Paths in the following table are relative to `research/blueprint/`:
+
+| Unchanged file | SHA-256 |
+| --- | --- |
+| packets/LanglandsParameterStacks.json | e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087 |
+| packets/EnhancedDerivedSheaves--E5.json | 2412db1f717b23d8c6f3864f153b9bdd909d3855cb81d08a2b081f177840f022 |
+| suggested/EnhancedDerivedSheaves--E5.lean | e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c |
+| packages/LanglandsParameterStacks/README.md | 82cd627d281459fd163411f0986d82bb12365ad6302f551db349d71593a761be |
+| packages/LanglandsParameterStacks/Suggested.lean | e715f1da933448bd2e8acb1c83343f68e5ddbad5ca3da60377be9bc11b116730 |
+
+README is 192694 bytes; Suggested.lean is 130588 bytes. Preserve the earlier
+proved trace-function extension and inverse laws, actual invariant-algebra
+coefficient map, nonflat reduction example, and excursion coefficient
+fixtures. Their prior proof/axiom receipts and complete resumption inventory
+are retained in the
+[immutable preceding handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/eb108a9e85cfb105b10457721c1ebe902328b868/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+Those isolated checks were not rerun here.
+
+After owner repairs, reconcile all 79 targets, 140 API entries and 90 tests,
+then add `topic = "math.NT"` metadata and rerun the package checks. Metadata
+remains absent because `issues.deliverables_complete` otherwise recognizes
+this package by output existence and would classify it as complete.
+
+No source passage or private book was copied, no supplier/plan file was
+edited, and no language server or background compile remains. No scratch
+artifact is needed for resumption.
+
+## Inherited detailed worklist
+
+The record below is preserved from the preceding checkpoint. Its historical
+source readings, absence counts and proof receipts are not new certifications
+by this session. The fresh checks above supersede its current-status claims.
 
 ## Supplier obstruction and exact restart gates
 
