@@ -115,9 +115,11 @@ It leaves to other roadmaps, and consumes from them:
   (`Pic^τ` and the identity component).
 - **AbelianSchemesAndArithmeticModuli** A1 (abelian schemes over a base, rigidity, homomorphisms,
   products), A2 (the dual abelian scheme and the Poincaré biextension) and A3 (finite flat
-  torsion, isogenies, the Weil pairing on torsion and Tate modules, `p`-divisible groups).
+  torsion, isogenies and the Weil pairing), together with A4/etale-tate-module,
+  A4/p-divisible-group, A4/abelian-h1-de-rham and A4/universal-vector-extension (integral Tate modules, the minimal
+  Barsotti–Tate tower, degree-one de Rham cohomology and its vector-extension comparison).
 - **ArithmeticGaloisRepresentations** R01.2 (decomposition and inertia groups, quasi-unipotence,
-  the Weil–Deligne representation and its local Euler factor), R01.3 (Artin and Swan conductors
+  the Weil–Deligne carrier, its prime-to-residue construction and local Euler factor), R01.3 (Artin and Swan conductors
   with the monodromy term, residual conductors, the elliptic conductor and Ogg's formula) and
   R01.6 (Tate modules of abelian varieties, the Weil pairing on Tate modules, the good-reduction
   Frobenius polynomial, the local Euler factor of an abelian variety and its comparison with
@@ -219,7 +221,7 @@ layer.
    have value `1/5`, and those of `1, 2` have value `2/5`. Here `u` is normalised by the
    valuation pairing of the Raynaud `1`-motive, so a split Tate curve gives `[ord(q)]`.
    The prime-to-residue inertia formula uses the `1`-motive quotient projection in 4.3;
-   its identification with the Weil-pairing quotient remains a comparison gap there.
+   the Weil-pairing quotient is its negative, with the pairing order specified in 4.3.
    The biextension obstruction equals the positive inverse pairing (4.6). No integral unimodularity is assumed.
 8. **Dual graphs.** The dual graph of a nodal curve is a finite connected multigraph: vertices
    the components of the normalisation, edges the nodes, loops and parallel edges allowed, with a
@@ -318,8 +320,8 @@ open subgroups.
 SF.0 §5 (henselisation of pairs, T053–T067), §6 (Nagata and excellent rings, finiteness of
 normalisation, `Excellence.IsExcellentRing`, T079–T085, T148–T157), §7 (Zariski's main theorem),
 SF.1c (T178–T188), SF.2f (Brauer groups), SF.3 (T353–T355, T361), SF.4b (T376–T385), SF.4c
-(T386–T393), SF.4d (T398–T403). AlgebraicModuli T526, T527, T539, T543. AbelianSchemes A1–A3 as
-described above. ArithmeticGaloisRepresentations R01.2 (inertia, quasi-unipotence, Weil–Deligne
+(T386–T393), SF.4d (T398–T403). AlgebraicModuli T526, T527, T539, T543. AbelianSchemes A1–A3 and the A4 targets named above, with their specified
+prime-to-characteristic and henselian/perfect-field restrictions. ArithmeticGaloisRepresentations R01.2 (inertia, quasi-unipotence, Weil–Deligne
 representations and their local Euler factors), R01.3 (Artin and Swan conductors, residual
 conductors, Ogg's formula in every residue characteristic, which consumes 2.7, StableReduction Layer 5 and 2.9),
 R01.6 (Tate modules of abelian varieties, the Weil pairing on Tate modules, the good-reduction
@@ -1003,23 +1005,74 @@ printed corank `2g − (2t + a)` in the source is a misprint for `2g − (t + 2a
 action and isogeny compatibility); `AbelianSchemesAndArithmeticModuli:A3` (finite flat torsion
 subgroup schemes).
 
+Also construct `FiniteFlatToricFiltration` over a henselian `R`, for every positive integer
+`m`, **without** requiring `m` invertible in `K`. Let `F_m` be the finite flat part of
+`M⁰[m]` in the henselian quasi-finite decomposition. The lifted toric torsion `P_m` is a
+multiplicative-type finite flat subgroup of `F_m`, of rank `m^t`; `F_m` has rank
+`m^(t+2a)`, and `H_m := F_m/P_m` has rank `m^(2a)`. Its generic fibre is a subgroup
+of `A[m]`, whose quotient `Q_m` extends étale over `R` and has rank `m^t`.
+Prove `FiniteFlatToricFiltration.toric_inclusion`, `finite_inclusion`, `quotient_exact`,
+`transition` (the multiplication-kernel maps for divisibility of levels), `completion`
+and `special_fibre`. Over the completion, 3.13 identifies `P_m,F_m,H_m` with
+`T_R[m],G[m],B[m]`, and 3.14 identifies `Q_m` with `Y/mY`; over an incomplete
+henselian trait these finite group schemes are defined directly, without claiming a
+Raynaud abelian scheme `B` over `R`.
+
+Construct the finite part using the quasi-finite torsion kernel of multiplication on
+`M⁰`; its special fibre is finite because the identity fibre is semi-abelian, and flatness
+follows from the smooth ambient model and the fibrewise finite kernel. Henselian
+quasi-finite decomposition isolates the finite flat part. For the toric lift, the special-fibre inclusion `T_k[m] → (F_m)_k` dualises
+to an étale quotient of `D((F_m)_k)`. Lift that quotient and its map uniquely over
+the henselian finite `R`-scheme `D(F_m)`, then Cartier-dualise; its dual is `P_m`.
+This uses henselian lifting of finite étale targets, without imposing a connected/étale
+decomposition over an imperfect residue field. Compare after faithfully flat completion. Faltings–Chai II §2, pp. 34–36, III Corollaries 7.3–7.4, p. 77, and
+SGA 7 IX §9.6, pp. 436–437, supply the filtered finite-group-scheme and duality
+construction. *Additional needs:* SchemeAndStackFoundations SF.0 §7 (henselian
+quasi-finite decomposition and flat descent); AbelianSchemesAndArithmeticModuli
+A3 (finite flat quotients and Cartier duality), A4/p-divisible-group (compatible towers).
+This is the finite flat supplier for the equal-characteristic residue-prime comparison
+in 4.3; it is separate from the rank-`2g` Tate module of geometric points.
+
 **Checks.**
 
-- For a split Tate curve (`g = t = 1`, `a = 0`) the finite part has rank one and the quotient
-  rank one; a corank of zero would be wrong.
+- For a split Tate curve (`g = t = 1`, `a = 0`) the Tate-module finite part has rank one
+  and the Tate-module quotient rank one; a corank of zero would be wrong.
 - For good reduction `T_t = 0` and `T_f = T_ℓ(A)`.
 - For an abelian surface with `t = 1`, `a = 1` the ranks are `1 ⊂ 3 ⊂ 4`.
+- At `m = 1` all finite group schemes are trivial (rank one); for `g = 0` the
+  same holds at every positive level. `m = 0` is excluded, since for `g > 0`
+  its generic multiplication kernel is all of `A` and is not finite.
+- In equal characteristic `p`, a split Tate curve has `P_p = F_p = μ_p`, `H_p = 0`
+  and `Q_p = ℤ/p`, with total generic rank `p²`. The geometric points of `μ_p`
+  form the trivial group; they do not compute its scheme rank `p`.
+- Good supersingular elliptic reduction in characteristic `p` has `F_p = H_p = A[p]`
+  of rank `p²`, `P_p = Q_p = 0`, although `A[p](K̄)` is trivial.
 
 ### 3.6 Weil orthogonality
 
-Under the hypotheses of 3.5, prove `Orthogonality`: for the Weil pairing
+Under the Tate-module hypotheses of 3.5, in particular `ℓ ≠ char K`, prove `Orthogonality`: for the Weil pairing
 `T_ℓ(A) × T_ℓ(A^∨) → ℤ_ℓ(1)`, the finite part `T_f(A)` is the exact annihilator of the toric part
 `T_t(A^∨)`, and `T_ℓ(A)/T_f(A)` is dual to `T_t(A^∨)` with the Tate twist (Conrad, Theorem 5.5 and
-proof, pp. 18–20). For `ℓ = char k` in mixed characteristic the proof uses the full faithfulness
-of the generic fibre functor on `p`-divisible groups over `R` and Cartier duality, which is part
-of this target; it does not use inertia invariants at the residue prime. *Needs:* 3.5;
-`ArithmeticGaloisRepresentations:R01.6` and `AbelianSchemesAndArithmeticModuli:A3` for the
-integral Weil pairing with its dual and Tate twist.
+proof, pp. 18–20). For `ℓ = char k` in mixed characteristic, take inverse limits of the following finite flat
+comparison; inertia invariants are not used. Prove `FiniteFlatOrthogonality` for the
+finite flat filtration of 3.5 at every positive `m`: under the perfect Cartier-dual
+Weil pairing of generic group schemes `A[m] × A^∨[m] → μ_m`, the annihilator of
+`F_m(A)_K` is exactly `P_m(A^∨)_K`, and
+`A[m]/F_m(A)_K ≅ D(P_m(A^∨)_K)`. The induced duality between
+`H_m(A)_K` and `H_m(A^∨)_K` extends over `R`.
+Prove `FiniteFlatOrthogonality.bidirectional`, `quotient_duality`, `transition` and
+`completion`. Over the completion use the dual Raynaud extensions and their torsion
+(Faltings–Chai II §2, pp. 34–36, III Corollary 7.4, p. 77); equality of closed subgroup
+schemes and the finite flat duality descend faithfully flatly. This works when `m` is
+divisible by `char K` as well: Cartier duality is a duality of group schemes, not of
+their geometric point groups. At primes invertible in `K`, inverse limits recover
+`Orthogonality`, including the Tate twist. SGA 7 IX (9.6.1)–(9.6.2), pp. 436–437,
+uses these partial extensions for all coefficient primes. Its further recovery of the
+whole filtration from the generic BT system alone invokes Tate full faithfulness;
+that extra recovery is not a premise of the finite-level construction here.
+*Needs:* 3.5; `ArithmeticGaloisRepresentations:R01.6` and
+`AbelianSchemesAndArithmeticModuli:A3` for the integral Weil pairing and Cartier duality;
+A4/p-divisible-group for transitions.
 
 **Checks.**
 
@@ -1027,6 +1080,11 @@ integral Weil pairing with its dual and Tate twist.
 - For a principally polarised `A` the pairing identifies `T_ℓ(A)/T_f` with the dual of `T_t`.
 - Saturation and the Tate twist are kept before reducing modulo `ℓ`: the reduction of `T_f` is
   the finite part of `A[ℓ]`, not merely a subspace of the same dimension.
+- For good reduction, `F_m = A[m]` annihilates exactly the zero toric group.
+- For a split Tate curve in characteristic `p` at `m = p`, the duality
+  `D(μ_p) = ℤ/p` gives the period quotient. Replacing `μ_p` by its one geometric
+  point would give the wrong dual quotient.
+- At `m = 1` both the pairing and every group are trivial; biduality still holds.
 
 ### 3.7 Unipotence of inertia of exponent two
 
@@ -1181,48 +1239,79 @@ and then `SemistableReduction.henselization_iff` of 3.1.
 
 ### 3.13 The Raynaud extension
 
-Let `R` be complete with `char k > 0` and `A` semistable. Prove `RaynaudExtensionComparison`: the
-maximal torus `T` of the special fibre `M_k⁰` lifts uniquely to a formal torus `𝒯` in the formal
-completion `M̂⁰` of the identity model along its special fibre, the quotient `M̂⁰/𝒯` is a formal
-abelian scheme `ℬ̂`, and the extension `0 → 𝒯 → M̂⁰ → ℬ̂ → 0` algebraises to an extension
-`0 → T_R → G → B → 0` of an abelian scheme `B` over `R` by a torus `T_R` over `R`, the Raynaud
-extension of `A` (Raynaud 1994, §4.2 (i)–(iv), pp. 302–303; Theorem 4.2.2, p. 304;
-Definition 4.2.3, p. 305). The formal completion, the lifting of tori and abelian schemes along
-nilpotent thickenings, and the algebraisation theorem are SchemeAndStackFoundations SF.4b
-inputs; the comparison between `M̂⁰` and `Ĝ` is the content here. The generic fibre of `G` is
-not `A`, and no rigid generic fibre is assumed. *Needs:* 2.4, 3.1; SchemeAndStackFoundations
-SF.4b (formal schemes, formal completion, algebraisation).
+Let `R` be a complete discrete valuation ring, with arbitrary residue characteristic, and
+`A` semistable. Prove `RaynaudExtensionComparison`: the maximal torus `T` of the special fibre
+`M_k⁰` lifts uniquely to a formal torus `𝒯` in the completion `M̂⁰` along the special fibre;
+the quotient is a formal abelian scheme `ℬ̂`; and the extension
+`0 → 𝒯 → M̂⁰ → ℬ̂ → 0` algebraises to `0 → T_R → G → B → 0`, with `B` an abelian scheme
+and `T_R` a torus over `R`. Prove `RaynaudExtension.formal_identity` (`Ĝ ≅ M̂⁰`),
+`special_fibre`, `unique` (unique isomorphism respecting the formal comparison), `dual_abelian`
+(the abelian quotient for `A^∨` is `B^∨`) and `unramified_basechange`. Faltings–Chai,
+Chapter II §§1–3, pp. 33–37, gives the formal construction, algebraisation and duality over
+complete normal bases without a residue-characteristic restriction; Chapter III §8 and
+Proposition 8.1, pp. 77–78, identifies its semi-abelian model with the Néron identity model.
+Raynaud 1994, §4.2(i–iv), pp. 302–303, Theorem 4.2.2 and Definition 4.2.3, pp. 304–305,
+gives the same comparison when `char k > 0`.
+
+For the construction, lift the torus through nilpotent thickenings, form the proper formal
+quotient and lift an ample bundle to algebraise it. Extensions of `B` by `T_R` are described
+by maps from `X^*(T_R)` to `B^∨`; this algebraises the extension and proves uniqueness.
+Split the character lattice after a finite étale cover and descend this canonical comparison,
+retaining the residue Galois action. The comparison concerns the identity model: `G_K` is
+not `A`, and this target does not identify completions of the full Néron model.
+*Needs:* 2.4, 3.1; SchemeAndStackFoundations SF.4b (formal completion, proper formal
+algebraisation with an ample bundle, étale descent); AbelianSchemesAndArithmeticModuli A2
+(duality and the classification of torus extensions).
 
 **Checks.**
 
 - For good reduction `T = 0` and `G = B` is the abelian scheme.
-- For a split Tate curve `G = 𝔾_m` over `R` and `B = 0`.
+- For a split Tate curve `G = 𝔾_m` over `R` and `B = 0`, also over `ℂ[[π]]` with
+  period `q = π⁵`; the residue-characteristic-zero case has the same formal identity comparison.
 - The comparison concerns the identity model only: the component group of `M` is invisible in
   `M̂⁰`, and a statement identifying `Ĝ` with the completion of the full model is false whenever
   `Φ_A ≠ 0`.
 
 ### 3.14 Polarised uniformisation
 
-Under the hypotheses of 3.13, prove `RigidUniformisation`: the rigid analytic space `A^an` is the
-quotient of `G^an` by an étale-locally-constant lattice `Y` of rank `t`, that is, there is an
-exact sequence `0 → Y → G^an → A^an → 0` of rigid analytic groups, and the strict `1`-motive
-`[Y → G]` has `A` as its generic realisation (Raynaud 1994, §4.2 (i)–(iv) and Theorem 4.2.2,
-pp. 302–304; §4.3, pp. 308–309). For a polarisation `λ : A → A^∨`, the induced map
-`Y → X^*(T)` and the trivialisation of the pulled-back Poincaré biextension give an integral
-pairing on `Y × Y` (the valuation of the Poincaré trivialisation) that is symmetric and positive
-definite (SGA 7 I, Exposé IX, Theorem 10.4(b), p. 444). When the torus is not split, `Y` is a
-Galois lattice and the statement is obtained by descent; a chosen constant split lattice is not
-the general case. The rigid-analytic quotient and the lattice are the Bosch–Lütkebohmert
-uniformisation inputs cited by Raynaud; they are part of this target, together with the
-positivity of the polarised pairing, which §4.5 of the source does not prove. *Needs:* 2.4,
-3.13; AdicSpaces (the rigid generic fibre of a formal scheme is AdicSpacesPartII:F0 material
-used through 3.13); the `1`-motive carrier `[Y → G]` and its dual are defined here as data, not
-imported.
+Under the hypotheses of 3.13, prove `RigidUniformisation`: `A^an` is the quotient of `G^an`
+by an unramified Galois lattice `Y` of rank `t`, with exact sequence
+`0 → Y → G^an → A^an → 0`. Define its `RaynaudOneMotive` as the data
+`[iota : Y → G_K]`, including the extension `0 → T_R → G → B → 0`, the character lattice
+`X := X^*(T_R)`, the maps `Y → B` and `X → B^∨`, and the Poincaré trivialisation recording
+`iota`. Here `Y = X_{A^∨}` and `X = X_A`; these are residue Galois lattices, not chosen
+constant groups. Its API is `period_projection` (the torsion cone projects to `Y/nY`),
+`torsion_exact` (`0 → G_K[n] → A[n] → Y/nY → 0` for every `n > 0` as finite flat
+**generic-fibre** group schemes), `torsion_transition`, `dual` (exchange `X,Y` and `B,B^∨`),
+`bidual`, `weil_toric_period` (the toric/period evaluation duality with its order as in 4.3)
+and `unramified_descent`. This does not assert that all of `A[n]` extends to a finite flat
+group over `R`.
+
+Faltings–Chai, Chapter II Theorem 6.2 and Remark 6.3, pp. 51–52, and Chapter III
+Theorem 7.1, Corollaries 7.2–7.4 and §8, pp. 76–78, supply the degeneration data, torsion,
+duality and analytic quotient in every residue characteristic. In their notation the extension
+class is `-c` and the actual period is the inverse Poincaré trivialisation `tau⁻¹`; use the
+divisor pairing `B(y,x)` of Corollary 7.3, which is positive under a polarisation. These
+inversions must accompany any translation to the period notation here. Raynaud 1994,
+§2.4.1, p. 298, §3.1, p. 299, §4.2 and Theorem 4.2.2, pp. 302–304, and §4.3, pp. 308–309,
+gives the dual motive, torsion cone and valuation formulation for positive residue characteristic.
+
+For a polarisation `lambda : A → A^∨`, prove `RaynaudOneMotive.polarized_positive`: the
+contravariant map `lambda^* : Y → X` makes `u(y,lambda^* z)` symmetric and positive definite
+over `ℝ`. Obtain positivity from the positivity condition on the degeneration data
+(Faltings–Chai II 6.2–6.3), rather than from a sign-unspecified inertia operator. Construct
+the analytic quotient after an unramified splitting extension and descend the period embedding
+and quotient; constant split lattices are auxiliary choices. *Needs:* 2.4, 3.13; AdicSpaces
+and AdicSpacesPartII F0 (rigid generic fibres and analytic group quotients);
+AbelianSchemesAndArithmeticModuli A2–A3 (Poincaré duality and finite flat torsion).
 
 **Checks.**
 
 - For a split Tate curve `Y = q^ℤ ⊂ 𝔾_m^an` has rank one and the pairing is `ord(q)`.
-- For good reduction `Y = 0` and `A^an = B^an`.
+  At `q = π⁵`, the class `(1,q^{1/n})` projects to `1 mod n`, and the toric class
+  `(0,ζ_n)` projects to zero. Reversing the period projection changes the sign in 4.3.
+- For good reduction `Y = 0` and `A^an = B^an`; the torsion exact sequence reduces to
+  `G_K[n] ≅ A[n]`. At `n = 1` every torsion term is zero; `n = 0` is excluded.
 - For a nonsplit torus the lattice `Y` is not constant: its Galois action is nontrivial, and a
   construction with a constant lattice would give the wrong abelian variety.
 
@@ -1321,7 +1410,9 @@ Let `R` be henselian and `A` semistable, with toric character lattices `X_A := X
 `X_{A^∨} := X^*(T_{A^∨})` (2.4 applied to `A` and its dual). Construct
 `IntegralMonodromyPairing`, the bilinear map `u : X_{A^∨} × X_A → ℤ` obtained from the valuation
 of the trivialisation of the Poincaré biextension on the Raynaud extensions (Raynaud 1994,
-§4.3, pp. 308–309, for the valuation construction over the completion; descent to the henselian
+§4.3, pp. 308–309, for positive residue characteristic, and Faltings–Chai III
+Corollary 7.3 and §8, pp. 77–78, in all residue characteristics, for the valuation
+construction over the completion; descent to the henselian
 trait is part of this target; SGA 7 I, Exposé IX, Theorem 10.4, p. 444, for an integral
 pairing defined from monodromy). Prove
 `NeronMonodromy.bilinear`, `adjoint` (`u♯ : X_{A^∨} → Hom(X_A, ℤ)`), `non_degenerate` (`u♯` is
@@ -1337,8 +1428,9 @@ torus comparison of 3.3), `functorial` (for `f : A → B`, `y ∈ X_{A^∨}` and
 `u_A(y, f^* x) = u_B((f^∨)^* y, x)`) and `zero_torus` (zero lattices give the zero pairing with
 zero cokernel). In Lean, the lattice-level objects are `LatticePairing.adjoint`,
 `componentGroup` (the cokernel of `u♯`) and `rankOne n`, the pairing `(y, x) ↦ n·x·y` on
-`ℤ × ℤ`. *Needs:* 2.4, 3.13; `AbelianSchemesAndArithmeticModuli:A3` (dual abelian variety,
-Poincaré biextension); the dual `1`-motive data of 3.14.
+`ℤ × ℤ`. *Needs:* 2.4, 3.13; `AbelianSchemesAndArithmeticModuli:A2` (dual abelian variety and Poincaré biextension),
+A3 (finite flat torsion and Cartier duality), A4/p-divisible-group (the full BT tower);
+the dual `1`-motive data of 3.14.
 
 For `ℓ ≠ char k`, the dual `1`-motive identifies its period lattice
 `Y` with `X_{A^∨}` and its torus character lattice with `X_A` (Raynaud 1994,
@@ -1364,20 +1456,74 @@ curve. `TateMonodromy.operator` records this integral arithmetic witness. Its AP
 `operator_apply`, `operator_square_zero`, and the zero, basis-image and nonzero/square-zero
 Checks in `Suggested.lean`.
 
-**Comparison gap.** The positive valuation convention is fixed by the Tate test below.
-The sign relating this convention to the operator defined by `σ − 1` is not supplied by
-merely citing SGA 7 IX, Theorem 10.4: Illusie, *Grothendieck and vanishing cycles*, Theorem
-4.1 and footnote 12, p. 95, gives a negative polarised form for that operator and points
-out the sign issue in SGA 7. The remaining target `prime_adic` requires an explicit signed identification of
-the Weil-pairing quotient with `β_ℓ`; Raynaud’s positive formula above fixes the
-Kummer direction but does not by itself establish that Weil-pairing identification.
-The coefficient-prime construction also needs its own comparison, rather than applying
-the prime-to-residue tame formula at `ℓ = char k`. There is also a supplier-generality gap:
-3.13–3.14 use Raynaud’s positive-residue-characteristic hypotheses, whereas the target
-here allows `char k = 0`. Werner, §3, pp. 209–210, states the uniformisation and valuation
-construction without that restriction, but the formal-identity comparison and its
-descent to the henselian trait must be supplied in this case as part of `prime_adic`.
-The cokernel is unchanged by negating the pairing.
+Prove the signed comparison `prime_adic` in two parts. Write the Weil pairing additively
+as `e_A : T_ℓ(A) × T_ℓ(A^∨) → ℤ_ℓ(1)`, with biduality convention
+`e_{A^∨}(w,v) = -e_A(v,w)`. The toric duality from 3.14 gives
+
+```text
+e_{A^∨}(t,v) = evaluation(t,beta_ℓ(v)),   t ∈ T_ℓ(T_{A^∨}).
+alpha_ℓ(v)(t) := e_A(v,t) = -evaluation(t,beta_ℓ(v)).
+alpha_ℓ = -beta_ℓ : T_ℓ(A)/T_ℓ(G) ≅ Y ⊗ ℤ_ℓ.
+N(v) = iota_ℓ((u♯ ⊗ ℤ_ℓ)(beta_ℓ(v))) in T_ℓ(T)(-1).
+u_Weil,ℓ := N ∘ alpha_ℓ⁻¹ = -(u♯ ⊗ ℤ_ℓ).
+```
+
+In the expression for `N`, untwist the toric inclusion:
+`T_ℓ(T)(-1) = Hom(X_A,ℤ_ℓ)`. The preceding inertia formula still uses `beta_ℓ` and the
+positive Kummer character; replacing `beta_ℓ` by `alpha_ℓ` also replaces `u♯` by `-u♯`.
+Derive `alpha_ℓ = -beta_ℓ` at finite torsion level from the evaluation duality and biduality,
+then pass to the limit (Faltings–Chai III Corollary 7.4, p. 77). This explains the negative
+polarised form in Illusie, formulas (4.3)–(4.11), pp. 94–95, Theorem 4.1 and footnote 12,
+p. 95: his Weil quotient and the positive period quotient have opposite orientations.
+Both twists and the order of the pairing are essential. In the ordered toric/period basis,
+`e((a,b),(c,d)) = ad-bc`, so `alpha(a,b) = -b` while `beta(a,b) = b`.
+The arithmetic APIs `TateMonodromy.periodProjection`, `weilForm`, `weilQuotient`,
+`weilQuotient_eq_neg_periodProjection` and `operator_eq_weil_coordinates` record this witness.
+
+At `p = char k > 0`, use `prime_adic_finite_flat`, not the tame inertia formula. For each
+`m = p^r`, `r ≥ 1`, use the toric, finite and quotient pieces of the finite flat torsion
+and their Cartier-dual partial extensions from `FiniteFlatToricFiltration` and `FiniteFlatOrthogonality` in 3.5–3.6.
+The generic three-step extension has
+an obstruction class in the quotient of generic extensions by integral extensions.
+On strict henselisation its character pushouts lie in
+`H¹(K,μ_m)/H¹(R,μ_m) ≅ (K^×/(K^×)^m)/(R^×/(R^×)^m) ≅ ℤ/mℤ`, where the last map is
+`ord_π mod m`. This is fppf Kummer cohomology even in equal characteristic `p`; it does not
+replace `μ_m` by its geometric points. SGA 7 I, Exposé IX, Lemma 9.4.3,
+Corollary 9.4.4 and (9.4.5), pp. 428–430, constructs this obstruction and its valuation map;
+§§9.5–9.6, formulas (9.5.4)–(9.5.5), pp. 433–438, applies it to the filtered torsion.
+
+The levelwise comparison target is explicit: with the **period** quotient, the obstruction
+on `y ⊗ x` is `u(y,x) mod m`; with the Weil quotient it is `-u(y,x) mod m`.
+Prove it by representing the generic torsion as the pullback of `[m] : G_K → G_K` along
+`iota : Y → G_K`. Push out the **torus part** by `x`, keeping its extension of `B` and its Poincaré line.
+The points in `B` and `B^∨` extend over `R` by properness; their Poincaré line is an
+invertible `R`-module. Choose an integral generator and express the period trivialisation
+as a nonzero scalar in `K`; changing the generator multiplies it by a unit. Dividing
+by the integral partial extensions therefore gives its Kummer class modulo units.
+This step does not assume that `x` extends to a character of `G`. Its image is its valuation
+modulo `m` (Faltings–Chai III Corollary 7.3, p. 77). Cartier duality supplies the evaluation
+identification of the quotient, and switching to `alpha = -beta` supplies the same minus sign
+as above. Prove `prime_adic_transition` under reduction `ℤ/p^{r+1} → ℤ/p^r`; taking the
+inverse limit gives `u_period,p = u♯ ⊗ ℤ_p` and `u_Weil,p = -u♯ ⊗ ℤ_p`.
+The comparison uses finite flat group schemes in equal characteristic, and Barsotti–Tate
+systems in mixed characteristic. It does not assert an isomorphism from the full Tate module
+of geometric points in characteristic `p` to those systems.
+
+Prove `henselian_valuation_descent`: these integral maps, initially computed over the
+completion and a splitting étale cover, define a unique residue-Galois-equivariant pairing
+on the original henselian trait. Construct the finite-level obstruction there by §9.4,
+descend it using §9.4.6, p. 430, and compare after completion, which preserves the residue
+field, units-versus-valuation quotient and the normalisation `ord(π)=1`.
+All reductions of the completed integral pairing therefore agree with the original
+finite-level maps. They determine its integral coefficients uniquely, and the uniqueness
+makes it Galois equivariant and independent of the splitting cover. This descends the
+pairing; it does not require an algebraic period lattice in `G(K)` over an incomplete `K`.
+For `char k = 0`, all primes use the prime-to-residue construction and the all-characteristic
+formal comparison of 3.13–3.14. The finite-level Kummer valuation argument also works for
+arbitrary `m > 0` there. Faltings–Chai II §§1–3, pp. 33–37, and III §8, pp. 77–78,
+supply this completed comparison. The resulting all-prime integral map has the
+non-degeneracy and functoriality asserted by SGA 7 IX, Theorem 10.4, p. 444, with its sign
+translated as above.
 
 **Checks.**
 
@@ -1386,6 +1532,17 @@ The cokernel is unchanged by negating the pairing.
   `[mn]` on `X_{A^∨}`, with value `mn > 0` at `(1, 1)`.
 - `ramification_test` — a base change of ramification index `e` changes the Tate pairing from
   `n` to `en`.
+- `weil_sign_test` — at `n = 5`, `e((1,0),(0,1)) = 1` and
+  `e((0,1),(1,0)) = -1`; `beta(0,1) = 1`, `alpha(0,1) = -1`, while
+  `N(0,1) = (5,0)`. Thus the period map is `[5]` and the Weil-coordinate map is `[-5]`.
+  At `(2,3)` the quotients are `beta = 3`, `alpha = -3`, and both kill `(0,0)`.
+  At `n = 1,2` the same sign remains, and at `n = 0` both operators are zero.
+  The two-term Weil values at `(2,3),(5,-7)` and in reverse order are `-29` and `29`;
+  an equal pair or a zero vector gives zero.
+- `coefficient_two_test` — the levelwise period class for valuation `5` is `1` in `ℤ/4`,
+  whereas the Weil class is `3`; both reduce to `1` in `ℤ/2`. Testing only mod `2`
+  would miss the sign. At level `1` both classes vanish. This computation uses the
+  valuation quotient of fppf Kummer classes, also for `k = 𝔽₂`.
 - `good_test` (degenerate) — good reduction has zero lattices and the zero pairing, not a
   positive-rank pairing. The adjoint is `y ↦ (x ↦ u(y, x))`: for `rankOne 5`,
   evaluating at `y = 1`, `x = 2` gives `10`; `rankOne 1` gives the ordinary product,
@@ -1660,7 +1817,8 @@ Let `R` be excellent and henselian and `ℓ ≠ char k`. Prove `NeronOggShafarev
 (Conrad, §4, discussion before Proposition 4.3, pp. 9–10; Theorem 5.8, pp. 20–22; SGA 7 I, Exposé IX,
 Theorem 10.4, p. 444). Good reduction makes the prime-to-`char k` torsion finite étale over `R`,
 hence unramified. Conversely an unramified action is unipotent, so `A` is semistable by 3.11; the
-monodromy pairing of 4.3 is then zero, its nondegeneracy forces `t = 0`, and `A` has good
+monodromy pairing of 4.3 is then zero: in the signed comparison `u_Weil,ℓ = -u♯ ⊗ ℤ_ℓ`,
+vanishing of inertia forces vanishing of the integral pairing. Its nondegeneracy forces `t = 0`, and `A` has good
 reduction by `toric_zero` of 3.1. The identification of the inertia operator of 3.7 with the
 monodromy pairing of 4.3 is part of this target. The statement concerns the whole `ℓ`-adic
 representation; triviality on one torsion level `A[N]` is a different hypothesis (3.12). For a
@@ -1743,6 +1901,34 @@ the dual: `V_p(A)` is the homological Tate module and `H¹_ét(A_{K̄}, ℚ_p)` 
 `D_cris(H¹)` is the dual Dieudonné module with the opposite Hodge weights. *Needs:* 1.8, 1.10, 3.1,
 3.10, 3.13, 3.14; Mathlib `BDeRham`, `WittVector.fontaineTheta`.
 
+Also define `PadicWeilDeligneRealization` on potentially semistable representations
+of `G_K`. Its input is `D_pst(V)` over `P₀ = Frac W(k̄)`, obtained as the union of the
+inertia-open fixed modules in `B_st ⊗ V`; retain the semilinear Galois descent action,
+`σ`-linear invertible `φ` and `N_p φ = p φ N_p`. If `q = p^f` and `deg_ar(w)` is the
+arithmetic Weil degree of R01.2, define
+
+```text
+r_p(w) = w ∘ φ^(-f deg_ar(w)),    N = e N_p.
+```
+
+The two semilinear scalar actions cancel. Since `w` commutes with `N_p`, this gives
+`r_p(w) N r_p(w)^(-1) = q^(deg_ar(w)) N`, the supplied `WeilDeligneRep` relation.
+For geometric degree `d`, `deg_ar(w) = -d`; after semistable descent the crystalline
+Frobenius contribution is therefore `φ^(fd)`. Prove
+`PadicWeilDeligneRealization.linear`, `monodromy_relation`, `map_id`, `map_comp`,
+`exact`, `tensor`, `dual`, `restrict` (under finite local extensions),
+`semistable_inertia_trivial` and `geometric_frobenius`. At a ramified extension
+`K' / K`, `restrict` keeps the Weil action and identifies the monodromy only up to
+the specified scalar `e(K'/ℚ_p)/e(K/ℚ_p)`; use `iso_smul_monodromy` for the
+normalised Weil–Deligne isomorphism. The unscaled `N_p` restriction is literal.
+Use Fontaine, Exposé VIII, §1.1.1, pp. 322–323, §1.3.5, p. 329, Theorem 2.3.2,
+pp. 336–337, and §2.3.7, pp. 339–340. The scalar field is `P₀`, not necessarily `ℚ_p`;
+compare representations after extension to a common algebraically closed characteristic-zero
+field. R01.2 supplies the carrier and its scalar-extension, restriction and
+`iso_smul_monodromy` API, while the residue-prime construction is owned here.
+Thus changing from `N_p` to `e N_p` preserves the rational Weil–Deligne isomorphism class,
+without discarding the integral normalisation of 4.3.
+
 **Checks.**
 
 - `B_st^{N=0} = B_cris`, and `N(1) = 0`; identifying the two rings would lose the
@@ -1757,6 +1943,14 @@ the dual: `V_p(A)` is the homological Tate module and `H¹_ét(A_{K̄}, ℚ_p)` 
   For `q = π⁵` and ramification index `e = 2`, the toric/period coefficient is `5`
   for `N`, and `5/2` for `N_p`; multiplying the latter by `e` gives `5`. This
   distinguishes the two valuation normalisations.
+- For the good-reduction cohomological Tate twist `ℚ_p(-1)`, `N = 0` and
+  `φ^f = q`; its geometric Frobenius is `q`, not `q⁻¹`. For the unit object it is `1`,
+  and for the zero module the trace is `0`.
+- On the split Tate cohomological graded basis, geometric Frobenius is `diag(1,2)`
+  at `q = 2`, and take `N = [[0,5],[0,0]]`. Then `(NF)₀₁ = 10` and `(FN)₀₁ = 5`,
+  so `FNF⁻¹ = N/2`; the arithmetic relation with factor `2` cannot be copied to a
+  geometric lift. With nonsplit action `F = diag(-1,-2)` the two entries are `-10,-5`
+  and the same relation holds. The zero-monodromy case gives both entries `0`.
 - At the residue prime the inertia invariants of `V_p(A)` are not the finite part of 3.5; the
   crystalline predicate, not unramifiedness, detects good reduction.
 
@@ -2077,33 +2271,112 @@ EllipticCurves Layer 1; SchemeAndStackFoundations T361.
 
 Let `F` be a number field and `A` an abelian variety over `F`. Prove
 `StrictCompatibleSystemExport`: for `0 ≤ i ≤ 2 dim A`, the representations
-`H^i_ét(A_F̄, ℚ_ℓ) = Λ^i H¹` form a strictly compatible system of `ℚ`-rational Weil–Deligne
-representations, pure of weight `i`, with the Weil–Deligne conventions of
+`H^i_ét(A_F̄, ℚ_ℓ) = Λ^i H¹`, after extension to `ℚ̄_ℓ`, form a strictly compatible
+system defined over `ℚ`, pure of weight `i`, with the Weil–Deligne conventions of
 `ArithmeticGaloisRepresentations:R01.2`; `H¹` is the dual of the homological Tate module, and
 for an abelian surface the `GSp₄` multiplier of `H¹` is `ε_ℓ^{-1}`
 (Boxer–Calegari–Gee–Pilloni 2021, Proposition 2.8.1, Definition 2.8.2 and Remark 2.8.3,
-pp. 194–195; the printed `dim X` is `dim A`). The inputs are 3.10 and 3.14 for the local
+pp. 194–195; the printed `dim X` is `dim A`). Here the local parameter is a
+Weil–Deligne representation over `ℚ̄`, with isomorphism class invariant under
+`Aut(ℚ̄/ℚ)`, whose scalar extensions give all Frobenius-semisimplified local
+realisations. This is the geometric compatibility of Noot 2013 §2.3, p. 254,
+and Fontaine Exposé VIII §§2.4.1–2.4.2, p. 342; it does not assert a chosen
+representation on a `ℚ`-vector space. The inputs are 3.10 and 3.14 for the local
 description at places of bad reduction through the strict `1`-motive, 5.3 at places above `ℓ`,
-and the `ℓ`-independence of 5.6; the compatibility across `ℓ` at the coefficient prime (Noot,
-Saito's base-change argument) is part of this target. *Needs:* 3.10, 3.14, 5.3, 5.6;
-`ArithmeticGaloisRepresentations:R01.2`.
+and the `ℓ`-independence of 5.6; the coefficient-prime trace comparison and
+Saito's base-change argument are built below. *Needs:* 3.10, 3.14, 5.3, 5.6;
+`ArithmeticGaloisRepresentations:R01.1` (character comparison), `R01.2`.
 
-**Source gap.** The statement of BCGP Proposition 2.8.1 and its references were checked,
-and Noot 2013, Corollary 2.7, pp. 256–257, supplies the `ℓ ≠ p` strict-`1`-motive input.
-The original coefficient-prime input, Noot 2017, Corollary 2.2, has not been independently
-collated: the public author page supplies an abstract but no manuscript. Its exact statement
-and hypotheses remain a source input to verify; neither the abstract nor the prime-to-residue
-Corollary 2.7 supplies the missing coefficient-prime comparison.
+Build `semistable_trace_comparison` first. Let `K/ℚ_p` be finite with residue field
+`k = 𝔽_q`, let `A/K` be semistable, and let `g ∈ W_K` have geometric Frobenius degree
+`d > 0`. For every coefficient prime, including `p`, the cohomological Weil–Deligne
+realisation has an equivariant filtration whose graded pieces are
 
-Include `semistable_trace_descent` with this explicit argument (BCGP Proposition 2.8.1,
-proof, pp. 194–195): for a local Weil element `g` of positive Frobenius degree, let `I₀`
-be the kernel on inertia of the Weil–Deligne representation at a prime different from
-the residue characteristic. It is open in inertia and normalised by `g`. The closed subgroup
-generated by `g` and `I₀` is open in the local Galois group and gives a finite extension
-whose Weil group contains `g`. On its inertia the original Tate representation is unipotent,
-so 3.11 gives semistable reduction. The semistable coefficient-prime comparison would then
-make the trace of this same `g` independent of the coefficient prime; this is the
-trace-descent step used by BCGP. It remains conditional on the uncollated Noot input above.
+```text
+weight 0: Y^∨ ⊗ ℚ_ℓ,
+weight 1: H¹_ét(B_k̄,ℚ_ℓ),
+weight 2: X_A ⊗ ℚ_ℓ(-1).
+```
+
+At `ℓ = p`, replace the middle piece by `H¹_cris(B_k/W(k))[1/p]` in the
+`K₀`-semilinear realisation, and then apply `PadicWeilDeligneRealization` of 5.3
+using the carrier of ArithmeticGaloisRepresentations R01.2. The lattice pieces retain their unramified Galois
+action; the geometric Frobenius convention makes the last piece carry the factor `q^d`.
+The construction of these **maps and Frobenius actions**, not only their dimensions, is a
+subtarget of `semistable_trace_comparison`: use the period boundary injection
+`Hom(Y,K) → H¹_dR(A)`, restriction to `H¹_dR(G)`, the pullback from `B` and restriction
+to `T`. Coleman–Iovita, arXiv math/9701229v1, Chapter I §2(i), pp. 9–10, gives the first
+exact sequence and residue maps; §2(ii), pp. 11–12, gives Frobenius on `Hom(Y,K)` and
+`0 → H¹(B) → H¹(G) → H¹(T) → 0`. Their introduction, pp. 2–3, identifies this
+filtered Frobenius–monodromy realisation with `D_st(V_p(A))^*`, as used in 5.3.
+These constructions are functorial: split the torus and lattice over a finite unramified
+extension, keep the action of its Galois group on each map and descend, using the
+comparison/descent in 5.3. This retains nonsplit Frobenius eigenvalues.
+
+Consequently the full trace, for `ℓ ≠ p` and for `ℓ = p`, is
+
+```text
+tr(r_ℓ(g)) = tr(g | Y^∨⊗ℚ) + tr(Frob_q^d | H¹(B)) + q^d tr(g | X_A⊗ℚ).
+```
+
+The middle trace is independent of the cohomology theory: Katz–Messing, Theorem 1,
+pp. 74–75, compares crystalline and prime-to-`p` étale Frobenius polynomials of smooth
+projective varieties over finite fields; apply it to the abelian variety `B`, then take
+powers by Newton identities. The lattice terms are integral representations independent
+of `ℓ`. On the prime-to-residue side, 3.5 and Raynaud 1994, §§4.7.3–4.7.4, p. 317,
+gives exactly the same three terms after cohomological duality. Additivity of trace in
+the filtration proves the coefficient-prime comparison, including the weight-two toric term which
+is absent from the local Euler factor. Unit parts of periods can change extensions and
+the chosen logarithmic splitting, but do not change these graded Frobenius actions.
+
+Prove `semistable_trace_descent` for arbitrary `A/K` with the same positive-degree `g`
+(BCGP 2021, Proposition 2.8.1, proof, pp. 194–195). Choose one prime `ℓ₀ ≠ p` and let
+`I₀ = ker(r_ℓ₀|I_K)`, an open subgroup of inertia normalised by `g`. The closure
+`H = closure⟨g,I₀⟩` is open in `G_K`: its image in the residue Galois group is
+`d·Ẑ`, and `H∩I_K = I₀`. Indeed the closure of the cyclic group generated by `g` maps
+isomorphically onto `d·Ẑ` (multiplication by nonzero `d` on `Ẑ` is injective); hence it
+has no additional inertia kernel. The fixed field `K'` is a finite extension, `g ∈ W_K'`,
+and the original `ℓ₀`-adic inertia on `I_K'` is unipotent. Thus 3.11 gives semistability
+over `K'`, and `semistable_trace_comparison` compares the trace of this **same element**
+`g` at every prime. Functoriality of the Weil–Deligne construction under finite extension
+(R01.2 for `ℓ ≠ p`, `PadicWeilDeligneRealization.restrict` for `ℓ = p`) identifies these traces with those over `K`; no replacement of `g` by an
+arbitrarily chosen Frobenius lift is allowed. This argument is local and requires no
+global field realisation of `K'`.
+
+Finally prove `pure_WD_export`: the monodromy map is a rational isomorphism between
+weights `2` and `0` by 4.3 and 5.3, while the abelian piece has weight `1`; hence the
+semistable realisations at every prime are pure of weight `1`. Purity descends from a
+finite extension (raising Frobenius eigenvalues to a positive power preserves their
+weights, and the monodromy isomorphisms survive scalar extension). Noot 2013,
+§2.3, p. 254, and Corollary 2.7, pp. 256–257, supply a common Frobenius-semisimple
+geometric Weil–Deligne isomorphism class, defined over `ℚ` in the preceding sense,
+for the prime-to-residue realisations. The positive-degree trace
+comparison identifies its semisimple Weil representation with the coefficient-prime one.
+For the character step, the traces of `j·Frob^n` are known for every inertia element `j`
+and `n > 0`; the characteristic polynomial of invertible Frobenius gives a recurrence
+with nonzero constant term, extending equality to `n = 0` and negative `n`. Brauer–Nesbitt
+then applies in characteristic zero (ArithmeticGaloisRepresentations R01.1). This spells
+out the character argument used in BCGP Proposition 2.8.1. Purity then determines the nilpotent
+operator up to isomorphism (BCGP Lemma 2.5.1, p. 189, consumed through R01.2).
+Thus the same geometric parameter and its `Aut(ℚ̄/ℚ)`-invariance work at `p` as well; equality of traces alone
+is not asserted to determine monodromy. Exterior powers give weight `i` and all `H^i`.
+*Additional needs:* AbelianSchemesAndArithmeticModuli A4/universal-vector-extension and
+A4/abelian-h1-de-rham for the degree-one de Rham maps in the displayed construction;
+the Frobenius realisation of the good abelian quotient in 5.3. Include
+`good_abelian_frobenius_polynomial` here: the characteristic polynomial of the `q`-power
+Frobenius on this realisation of `B` equals its prime-to-`p` cohomological polynomial.
+Identify the proper good-reduction Frobenius in Coleman–Iovita §2(ii), p. 12, with the
+crystalline Frobenius and apply Katz–Messing Theorem 1; this is the degree-one
+abelian special case, not the general crystalline comparison theorem.
+Mathlib `Matrix.trace`, `Matrix.det_fin_two`, exterior powers and characteristic polynomials
+supply the linear algebra.
+
+The rank-one calculation is `SemistableTrace.toricFrobenius q delta d`, the diagonal
+matrix `diag(delta,q^d delta)` on the period/torus graded pieces; in the geometric
+elliptic instances `delta = 1` or `-1` is the action of the **chosen element** `g` on
+both lattices. Its API is `toricFrobenius_trace`, `toricFrobenius_det`, `degree_zero`
+and `zero_action`, together with `frobenius_monodromy_relation` for
+`N_n = [[0,n],[0,0]]`, namely `N_n F = q^d (F N_n)`; it is an arithmetic witness for the full trace formula.
 
 **Checks.**
 
@@ -2111,6 +2384,19 @@ trace-descent step used by BCGP. It remains conditional on the uncollated Noot i
 - For an elliptic curve the system at `i = 1` is the dual of the Tate-module system, with
   determinant `ε_ℓ^{-1}`.
 - At a place of good reduction the Weil–Deligne representation is unramified with `N = 0`.
+- For split multiplicative reduction at `q = 2`, `d = 1`, the full trace is `1+2 = 3`,
+  whereas the trace on `ker N` used for the local Euler factor is `1`. For the nonsplit
+  case with `delta = -1` the full trace is `-3` and the kernel trace is `-1`.
+  `SemistableTrace` records the matrices and determinants `2` in both cases.
+- At `q = 2`, `d = 2`, a nonsplit Frobenius generator has `delta = (-1)^2 = 1`, so
+  the full trace is `5`. At degree zero the arithmetic matrix has trace `2 delta`,
+  but the open-subgroup argument excludes `d = 0`: an inertia element can generate a
+  subgroup whose residue image is zero and therefore has infinite index.
+- Rank-zero lattice and abelian pieces give trace zero; for a split rank-one toric
+  piece plus a good elliptic quotient of Frobenius trace `a`, the full trace is `1+a+q`.
+  At `q = 2`, `a = 1`, it is `4`, while the invariant trace is `2`.
+  The arithmetic value `q = 1` gives coincident toric eigenvalue weights and is excluded
+  from the geometric purity argument since a finite residue field has `q ≥ 2`.
 
 ### 6.11 Semistable ordinary reduction
 
@@ -2120,7 +2406,8 @@ it is semistable (3.1) and the abelian quotient `B` of `M_k⁰` is an ordinary a
 a purely toric fibre has `B = 0` and is ordinary. Prove that the `p`-primary finite and toric
 parts of 3.5 (through `p`-divisible groups, not inertia invariants) give the connected–étale
 decomposition of the `p`-divisible group of `B`. *Needs:* 2.3, 3.1, 3.5, 3.6;
-`AbelianSchemesAndArithmeticModuli:A3` (ordinary `p`-divisible groups of abelian varieties).
+`AbelianSchemesAndArithmeticModuli:A4/p-divisible-group` (the connected–étale BT tower)
+and its ordinary specialisation in A4/ordinary-serre-tate-coordinates.
 
 **Checks.**
 
@@ -2263,7 +2550,7 @@ Layer 1; StableReduction Layer 7; SchemeAndStackFoundations T361;
   `2g − (2t + a)` and should read `2g − (t + 2a) = t`; the inference at p. 21 from equal rational
   fixed spaces to equal finite-level torsion is not valid and is replaced in 3.11.
 - A. Grothendieck, *Groupes de monodromie en géométrie algébrique I* (SGA 7 I), Exposé IX,
-  Lecture Notes in Mathematics 288, Springer, 1972: §1 (pp. 321–324), Theorem 10.4 (p. 444),
+  Lecture Notes in Mathematics 288, Springer, 1972: §1 (pp. 321–324), §§9.4–9.6 (pp. 427–438), Theorem 10.4 (p. 444),
   Theorem 11.5 and §11.6 (pp. 455–456), Theorem 12.1 (pp. 465–467), §§12.3–12.5 (pp. 469–475).
 - M. Raynaud, *1-motifs et monodromie géométrique*, Astérisque 223 (1994), 295–319: §4.2
   (pp. 302–305), §4.3 (pp. 308–309), Propositions 4.6.1 and 4.7.4 (pp. 315–317).
@@ -2294,7 +2581,7 @@ Layer 1; StableReduction Layer 7; SchemeAndStackFoundations T361;
   projective line*, author manuscript of 10 February 1997: Proposition 10.3 and proof, pp. 18–20.
 - J. S. Milne, *Jacobian varieties*, revised author notes: Theorem 10.1 and proof, pp. 33–35.
 - R. Noot, *The system of representations of the Weil–Deligne group associated to an abelian variety*,
-  Algebra & Number Theory 7 (2013): Corollary 2.7, pp. 256–257.
+  Algebra & Number Theory 7 (2013): §2.3, p. 254, Corollary 2.7, pp. 256–257.
 - L. Illusie, *Grothendieck and vanishing cycles*, Annales de la Faculté des Sciences de
   Toulouse 30 (2021): Theorem 4.1 and footnote 12, p. 95; §4.3, pp. 97–98.
 - P. Deligne and D. Mumford, *The irreducibility of the space of curves of given genus*,
@@ -2303,6 +2590,16 @@ Layer 1; StableReduction Layer 7; SchemeAndStackFoundations T361;
   local; construction d'un anneau de Barsotti–Tate*, Annals of Mathematics 115 (1982), 529–577;
   and *Le corps des périodes p-adiques*, Astérisque 223 (1994), 59–111;
   *Représentations p-adiques semi-stables*, same volume, 113–184, §§3.1, 3.8–3.9,
-  5.1.1–5.1.7 and the following theorem (pp. 136–137, 142–143, 155–158).
+  5.1.1–5.1.7 and the following theorem (pp. 136–137, 142–143, 155–158);
+  *Représentations ℓ-adiques potentiellement semi-stables*, same volume, 321–347:
+  §§1.1.1, 1.3.5, Theorem 2.3.2 and §2.3.7 (pp. 322–323, 329, 336–337, 339–340),
+  §§2.4.1–2.4.2, p. 342; [public scan](https://www.numdam.org/item/AST_1994__223__321_0.pdf).
 - R. Coleman and A. Iovita, *The Frobenius and monodromy operators for curves and abelian
-  varieties*, Duke Mathematical Journal 97 (1999), 171–215.
+  varieties*, Duke Mathematical Journal 97 (1999), 171–215; [public author version](https://arxiv.org/pdf/math/9701229v1),
+  introduction pp. 2–3 and Chapter I §2, pp. 9–12.
+- G. Faltings and C.-L. Chai, *Degeneration of Abelian Varieties*, Ergebnisse der Mathematik
+  22, Springer, 1990: Chapter II §§1–3, pp. 33–37, Theorem 6.2 and Remark 6.3,
+  pp. 51–52; Chapter III Theorem 7.1, Corollaries 7.2–7.4 and §8, pp. 76–78.
+- N. Katz and W. Messing, *Some consequences of the Riemann hypothesis for varieties over
+  finite fields*, Inventiones mathematicae 23 (1974), 73–77: Theorem 1, pp. 74–75;
+  [author-hosted scan](https://web.math.princeton.edu/~nmk/old/katzmessing.pdf).
