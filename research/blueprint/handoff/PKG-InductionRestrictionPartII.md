@@ -1,6 +1,93 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
-## Current session: codex-VBtAuA
+## Current session: codex-o84xKi
+
+Issue #7592. Worker: Codex (GPT-6), session `codex-o84xKi`, 2026-10-10.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6102756494).
+This continues the merged checkpoint [#8627](https://github.com/CBirkbeck/tauceti-explorer/pull/8627).
+None of the manager's priority issues was `state:available`; the package was
+selected from the fallback queue. This session claimed one job only.
+
+### Disposition and required input change
+
+**Blocked checkpoint.** The accepted source-of-truth plan still has two
+unassigned prerequisite contracts. The package's admitted signatures and
+proof routes do not resolve that ownership decision. The issue expressly
+requires: "Change no packet; if the plan has a mistake, describe it in the
+handoff note." Its editable files therefore cannot supply the planning
+amendment required by PROTOCOL sections 3, 15 and 20.
+
+The exact unresolved inputs are `gaps[0]`, the natural integral homological
+bridge needed by twelve targets, and `gaps[4]`, cyclic coprime complement
+conjugacy needed by `RS.5/admissible-inertia-classes`. The review is accepted
+but explicitly retains five gaps and one request; `complete` means a finished
+planning pass, not mathematical closure. All six stages are `planned` and
+none is `closed`. Parent InductionRestriction Layer 7 is assigned the ordinary
+cover input, and expressly is not assigned the general bridge.
+
+Resume with the concrete five-row planning amendment preserved below: assign
+native arbitrary-coefficient UCT, oriented extension transgression and
+five-term exactness, finite homology consequences, the coprime degree-two edge
+including its incoming d₃, and cyclic complement conjugacy to actual owner
+layers. The proposed RS.1/RS.5 assignments are proposals, not decisions made
+by this package. Reconcile the accepted plan and its documents, then reconcile
+the package and add `topic = "math.GR"` to metadata when section 20 is met.
+The finite certificate and native-interface gaps also remain explicit.
+
+**Queue action for the maintainer:** remove this package from eligibility
+until the ownership amendment exists. Repeating a package-only job cannot
+change the prohibited source packet. No labels were changed in this session.
+
+### Fresh checks and supplier screen
+
+- Current read-only TauCetiRoadmap is
+  `070dc2becd74419e76303ede84b465ed4a69461f`, one commit beyond the preceding
+  checkpoint's `81207c7`. That commit changes only
+  SmoothRepresentationsOfLocalGroups's README and Suggested file; it does not
+  introduce either supplier. Current Tau Ceti remains
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command was run there.
+- InductionRestriction and SemisimpleAlgebras READMEs were read, and current
+  roadmap/library searches were followed by statement inspection. Parent
+  Layer 7 owns ordinary covers. AlgebraicTopology Stage 6 supplies singular
+  UCT, not the native extension maps; ProfiniteCohomology explicitly excludes
+  the Hochschild–Serre spectral sequence and supplies a cohomological
+  five-term sequence. No exact replacement for either unassigned contract
+  was found in this screen.
+- Current `TauCeti.ChainComplex.kronecker_bijective` requires `[Injective Y]`
+  (Algebra/Homology/Kronecker, line 177); `TopCat.singularKroneckerEquiv`
+  requires `[Injective M]` (AlgebraicTopology/Cohomology/Kronecker, lines
+  85–88). Neither is the arbitrary-coefficient Ext sequence. Current
+  `TauCeti.FactorSet.characterTransgression_injective_iff_range_inl_le_commutator_of_separates`
+  (GroupTheory/GroupExtension/Character, line 148) concerns kernel characters
+  and a separation hypothesis, not native integral homological transgression.
+- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`
+  (Transfer/Basic, lines 107–109) supplies the reusable index formula.
+  Pinned `Subgroup.exists_right_complement'_of_coprime`
+  (Mathlib/GroupTheory/SchurZassenhaus, lines 277–292) supplies existence,
+  with no conjugacy conclusion. The adjacent reviewed audit entries R17.5
+  and MP.1 concern projective lifting and factor sets, not these contracts;
+  there is no direct Part II audit entry.
+- `check_blueprint.py` passed: 109 nodes, 124 API items, 96 tests, 30 planets,
+  30 baseline declarations; zero errors and warnings. Five gaps, one request
+  and six planned stages remain.
+- `lean-check` on the package Suggested file exited 0 with 670 warnings,
+  all `declaration uses sorry`, and no other diagnostics. Memory preflight
+  showed 101 GiB available. Mathlib source HEAD is
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; the shared helper documents
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` as its build pin.
+  The check finished; no language server, build, update or cache download ran.
+- The source packet remains unchanged, SHA-256
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
+  Only this handoff changes. README and Suggested are preserved, and metadata
+  remains absent. Source readings and finite calculations in the inherited
+  record below remain attributed to their original sessions, not rerun here.
+- `intake.py check-files` passed for the sole changed handoff: one allowed
+  file and zero problems. `git diff --check` passed.
+
+Nothing in scratch is required to resume. The preserved amendment, native
+interface requirements and finite-model details below are the handoff.
+
+## Prior checkpoint: codex-VBtAuA
 
 Issue #7592. Worker: Codex (GPT-6), session `codex-VBtAuA`, 2026-10-10.
 The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6102606624).
