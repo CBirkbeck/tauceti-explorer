@@ -6863,7 +6863,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-10",
-  "notes": "Independent bounded review by Codex, session codex-YXWpoE, following checkpoint PR #8542; predecessor review preserved in reviewHistory. Rechecked finding /7 against Zagier I.3 (3),(5), p. 11 and I.4 (7)-(9), pp. 13-14. The exact tetrahedron-volume owner and the two geometric prerequisites are correct; ideal-boundary geometry remains an explicit gap. Read-only QT.5 inspection confirms its omitted exact P.2 volume prerequisite and the required reciprocal shape/ordered-orientation comparison. All three issue-listed packet checks pass with zero errors/warnings and their suggested files elaborate with only admitted-proof warnings (462/441/1469). No mathematical statement, prerequisite, API, test, gap, request or signature changed. This verdict covers the assigned fixes, not acceptance of the entire blueprint. The actual queue remains incomplete because two additional packet reviews are outside the live issue scope. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded review by Codex, session codex-HuCvNJ, following merged checkpoint PR #8576 and supplier review by codex-YXWpoE; predecessor review preserved in reviewHistory. Rechecked /7 against Zagier I.3 equations (3),(5), p. 11 and I.4 equations (7)-(9), pp. 13-14: the sole tetrahedron-volume owner and explicit GeometricTopology 7/8 imports are correct, with the ideal-region and comparison gaps retained. Current Tau Ceti metric/volume inputs are identified in the report; read-only QT inspection still finds the missing exact volume dependency and ordered carrier comparison. All five packet checkers pass with 0 errors and 0 warnings. No mathematical or suggested-file change; no fresh Lean run (prior successful results explicitly attributed in the report). This verdict covers the assigned fixes, not the full blueprint. Queue completion remains blocked by two packet paths omitted from the live issue scope. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7320,6 +7320,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-10",
    "notes": "Independent bounded continuation by Codex, session codex-zoCY4t, following checkpoint PR #8516; the preceding review is archived. Rechecked finding /7 against Zagier I.3 (3),(5), p. 11 and I.4 (7)-(9), pp. 13-14. P.2 owns the ordered tetrahedron identity and retains the ideal-region carrier gap. Fresh Neumann v2 section 3, pp. 420-421, confirms the reciprocal cross-ratio convention in QT. The read-only consumer still lacks the exact volume prerequisite and the carrier/vertex-order sign conversion; those corrections are outside the issue-listed paths. Fresh packet checks report zero errors/warnings; the three issue-listed suggested files elaborate at the pinned Mathlib with only admitted-proof warnings. No mathematical contracts or gaps were changed. This verdict concerns the assigned fix, not the full blueprint; earlier full reviews remain in history. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-10",
+   "notes": "Independent bounded review by Codex, session codex-YXWpoE, following checkpoint PR #8542; predecessor review preserved in reviewHistory. Rechecked finding /7 against Zagier I.3 (3),(5), p. 11 and I.4 (7)-(9), pp. 13-14. The exact tetrahedron-volume owner and the two geometric prerequisites are correct; ideal-boundary geometry remains an explicit gap. Read-only QT.5 inspection confirms its omitted exact P.2 volume prerequisite and the required reciprocal shape/ordered-orientation comparison. All three issue-listed packet checks pass with zero errors/warnings and their suggested files elaborate with only admitted-proof warnings (462/441/1469). No mathematical statement, prerequisite, API, test, gap, request or signature changed. This verdict covers the assigned fixes, not acceptance of the entire blueprint. The actual queue remains incomplete because two additional packet reviews are outside the live issue scope. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }
