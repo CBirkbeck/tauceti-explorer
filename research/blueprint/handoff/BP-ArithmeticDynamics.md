@@ -1,5 +1,131 @@
 # Handoff — BP-ArithmeticDynamics
 
+## Completed planning pass — 10 October 2026
+
+Agent: Codex (GPT-6), session `codex-SXV6c2`; issue #1023; branch
+`codex-SXV6c2-arithmetic-dynamics`. The bot confirmed
+[claim comment 6102090848](https://github.com/CBirkbeck/tauceti-explorer/issues/1023#issuecomment-6102090848),
+and the live issue was reread after confirmation. This is the completion of the
+bounded blueprint pass, submitted for independent review. It is neither an
+implementation nor an independent review of the inherited mathematics.
+
+### What changed
+
+The issue explicitly instructs a worker inheriting more than 300 nodes to add
+none, reconcile the deliverables and set the packet to complete. The inherited
+packet already has 415 nodes. This pass therefore preserves every node object,
+including its statement, prerequisites, proof sketch, API, tests, planet and
+unchecked implementation status. It also preserves all 46 source records,
+47 source findings, the source-version records, 429 baseline citations,
+17 gaps, 26 requests and five restructuring proposals.
+
+- Set packet status to `complete`. This marks the end of this planning pass;
+  no layer is closed and no theorem is certified as formalised.
+- Record DY.0, DY.1, DY.4 and DY.5 as `planned` under the target-level coverage
+  rule. Requested suppliers and named gaps are permitted leaves of a plan.
+  DY.5's selected image/index targets already have nodes; additional survey
+  results are explicitly identified as extensions, rather than a reason to
+  require every theorem of those sources in this stage.
+- Keep DY.2, DY.3 and DY.6 `partial`, with exact missing statements and proof
+  inputs. Give all seven layers explicit remaining lists. Replace obsolete
+  demands for one node per source estimate with verification and expansion of
+  target proof sketches. The unresolved Lech presentation and transport
+  contracts remain open, while the inherited parameter/residue/Hensel chain
+  stays discharged at planning level.
+- Correct the reader's stale 410-node/403-citation/DY.6-88 counts, add the
+  target-to-node map and mirror all remaining lists. Source readings retain
+  their earlier dates and provenance; this pass makes no fresh source-reading,
+  published-version collation or source-error claim.
+- Import the pinned Tau Ceti elliptic canonical height, absolute Galois group
+  and permutation wreath product directly. Replace the locally reconstructed
+  elliptic height in the Lattès and specialization signatures with native
+  `Point.canonicalHeight`. State the existing DY.1 Tate-limit comparison on
+  that carrier, including the factor two, with zero, torsion and multiplication
+  by three acceptance examples. Use native carriers for the wreath recursion
+  and arboreal representation. No packet node or new mathematical target is added.
+
+### Inventory and validation
+
+**415 nodes:** 69 definitions, 23 constructions, 155 lemmas, 148 theorems,
+9 comparisons and 11 applications. There are **627 API items**, **359 packet
+unit tests**, **406 typed Lean examples**, **42 planets**, **429 pinned
+baseline declarations**, **17 gaps** and **26 requests**. Layer counts are
+39, 29, 55, 68, 66, 65 and 93 for DY.0 through DY.6 respectively.
+
+Checks run on the final deliverables:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticDynamics.json --json`
+  uses the supplied declaration index at the required Mathlib/Tau Ceti pins:
+  **zero errors and zero warnings**, four planned stages, zero closed stages.
+- `lean-check research/blueprint/suggested/ArithmeticDynamics.lean`:
+  **exit 0**, **1,181 declaration-uses-sorry warnings**, no other Lean diagnostics.
+  The wrapper uses the existing shared pinned build; no library build, update,
+  cache download or language server was started.
+- Compared all inherited node objects, source records, gaps, requests,
+  baseline records, restructuring proposals and source-version records for
+  exact JSON equality. The only packet changes are pass status/summary,
+  coverage and the normalization migration note.
+- All 92 definitions/constructions retain an API and at least three packet
+  tests. All 359 qualified test names and all 627 API names (qualified or in
+  their local namespace form) occur in the suggested file. This name check
+  does not replace independent review of the statements or assertions.
+- Checked the authorized four-file diff and whitespace. No source excerpt,
+  restricted source file or scratch log is included in the submission.
+
+Read WORKERS, PROTOCOL, the expansion protocol, UPSTREAM_GUIDE, the complete
+live issue, campaign scope, seven reviewed AUDIT-08 rows and inherited handoff.
+The two upstream style documents are Completed/EffectiveBounds and
+ArithmeticDirichletSeries. Screened the nine roadmap additions named in
+WORKERS, including nested Suggested files, against the dynamical, Berkovich,
+moduli and potential-theory targets. Their current main is commit
+`81207c7f16d5abf770f13a7d2bdcdb465c030787`. The existing native elliptic-height
+implementation is used, and no supplier roadmap or native library is changed.
+The library access index was read; no restricted book was fetched or copied.
+
+### Baseline migration observation (`upstreamNotes`)
+
+The required Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369` defines
+`Point.canonicalHeight` at half the naive x-coordinate Tate limit. Current
+Tau Ceti commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` instead uses the full
+limit, in `CanonicalHeight/Basic.lean`. This is a convention change, not an
+upstream error. The packet's comparison factors and the suggested signatures
+are consistent with the required pin and elaborate there. A package using
+current upstream must adapt DY.1's elliptic and DY.6's Lattès/specialization
+factors to that convention, while continuing to import the native height.
+
+### Where the independent reviewer and follow-ups resume
+
+Start from the current coverage records and reader's target map, not the old
+checkpoint status below. Review the target-level scope, all supplier/gap leaves,
+source hypotheses and the native-carrier comparison signatures. Do not add
+nodes to this 415-node pass. No stage is claimed closed.
+
+- **DY.0, planned:** receive the SF.0 projective-line/morphism interface and
+  resolve scheme-level GIT moduli; the set quotient does not supply a scheme.
+- **DY.1, planned:** receive RP.0's general height machine and check normalization
+  when the upstream baseline changes. The P¹ and native elliptic inputs remain distinct.
+- **DY.2, partial:** plan Fatou/Julia carriers and support statements; resolve
+  the Riemann-sphere Laplacian, maximal-entropy-measure and Zieve-proof gaps.
+- **DY.3, partial:** supply dynatomic scheme/curve models and genus interfaces,
+  the Morton 3-cycle reduction and complex-dynamics inputs, and receive the
+  exact-arithmetic, bounded-height and certified-point-list requests.
+- **DY.4, planned:** resolve G1–G5 and receive TB.1/TB.6/RP.0 inputs. The P¹
+  equidistribution theorem does not prove the general-variety/moduli endpoints.
+- **DY.5, planned:** receive its six supplier interfaces and verify finite-level
+  and inverse-limit compatibility. Broader PCF, positive-characteristic,
+  rational-function and prime-density results are separately scoped extensions.
+- **DY.6, partial:** finish the arbitrary-field Lech presentation and embedding
+  transport; verify the named degeneration, variation, critical-height and
+  orbit-intersection proof inputs; extend specialization to the required
+  general base; receive TB.0/SF.0/RP.0 interfaces. Keep conjectures as statements
+  or explicit conditional parameters.
+
+The earlier checkpoints below are provenance and contain superseded counts and
+status labels. Their precise mathematical contracts remain useful; their
+historical reading/check receipts are not new receipts of this session.
+
+## Earlier checkpoints
+
 ## Independent-parameter and Hensel checkpoint — 27 September 2026
 
 Agent: Codex, session `codex-hjdg0j`; issue #1023. Claim comment 5853960443

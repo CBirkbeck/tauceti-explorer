@@ -5,6 +5,7 @@ Packet: `research/blueprint/packets/ArithmeticDynamics.json`. Suggested Lean fil
 `research/blueprint/suggested/ArithmeticDynamics.lean`. Handoff: `research/blueprint/handoff/BP-ArithmeticDynamics.md`.
 
 The roadmap goes from the iteration of a single rational map to the arithmetic of families.
+
 - **DY.0 and DY.1** set up self-maps of the projective line by coprime forms, and the Call–Silverman canonical height.
 - **DY.2** localises the height into escape rates and canonical measures, and treats reduction.
 - **DY.3** counts periodic and preperiodic points through dynatomic polynomials.
@@ -16,24 +17,45 @@ The roadmap goes from the iteration of a single rational map to the arithmetic o
 Conjectures (uniform boundedness, dynamical Lehmer, general dynamical Mordell–Lang and André–Oort) are stated as
 conjectures and never consumed.
 
-**Status: partial.** DY.0, DY.1 and DY.4 are source decomposed. DY.2, DY.3, DY.5 and DY.6 are partial, each with a
-precise `remaining` list in the packet's coverage record. The packet has:
-- 410 nodes, 627 API items and 359 definition/construction unit tests;
-- 403 declarations of the pinned libraries cited;
-- 47 mistakes in its sources recorded;
-- 17 gaps and 26 requests to other roadmaps.
+**Status: complete planning pass; independent review required.** The inherited packet exceeds the protocol’s
+approximately 300-node planning budget, so this pass adds no nodes. DY.0, DY.1, DY.4 and DY.5 are planned at target level.
+DY.2, DY.3 and DY.6 remain partial. No stage is closed. The precise remaining work for all seven layers is recorded
+[below](#coverage-and-remaining-work) and in the packet’s coverage records. The packet has:
+
+- 415 nodes, 627 API items and 359 definition/construction unit tests;
+- 429 declarations of the pinned libraries cited;
+- 47 inherited source findings, with their recorded provenance;
+- 42 planets, 17 gaps and 26 requests to other roadmaps.
+
+All node implementation statuses remain unchecked. Elaboration of the suggested signatures with `sorry` establishes
+compatibility with the pinned libraries; it does not establish their mathematical conclusions.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
 | Layer | Status | Nodes | Planets |
 |---|---|---|---|
-| DY.0 | source decomposed | 39 | Preperiodic point; Resultant of a rational map; Rational map of ℙ¹; Moduli space M_d; Milnor's M₂ ≅ 𝔸²; Good reduction |
-| DY.1 | source decomposed | 29 | Tate's limit; Canonical height on ℙ¹; Call–Silverman canonical height; Zero canonical height iff preperiodic; Northcott for preperiodic points; Canonical height of a divisorial eigenclass |
+| DY.0 | planned | 39 | Preperiodic point; Resultant of a rational map; Rational map of ℙ¹; Moduli space M_d; Milnor's M₂ ≅ 𝔸²; Good reduction |
+| DY.1 | planned | 29 | Tate's limit; Canonical height on ℙ¹; Call–Silverman canonical height; Zero canonical height iff preperiodic; Northcott for preperiodic points; Canonical height of a divisorial eigenclass |
 | DY.2 | partial | 55 | Homogeneous escape rate; Local canonical height; Local decomposition of the canonical height; Multiplier of a periodic cycle; Periods of points under good reduction; Canonical measure |
 | DY.3 | partial | 68 | Effectivity of dynatomic cycles; Dynatomic polynomial; Dynatomic curve Y₁(n); Northcott finiteness of preperiodic points; Certified enumeration of preperiodic points; Uniform boundedness conjecture |
-| DY.4 | source decomposed | 66 | Adelic measure; Equidistribution of small points on P¹; Arakelov–Zhang pairing; Yuan's equidistribution theorem; Dynamical equidistribution; Vanishing of the dynamical pairing |
-| DY.5 | partial | 65 | Automorphism group of a rooted tree; Preimage tree; Arboreal Galois representation; Stoll's maximality criterion; Jones's ramification criterion; Odoni's theorem |
-| DY.6 | partial | 88 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
+| DY.4 | planned | 66 | Adelic measure; Equidistribution of small points on P¹; Arakelov–Zhang pairing; Yuan's equidistribution theorem; Dynamical equidistribution; Vanishing of the dynamical pairing |
+| DY.5 | planned | 65 | Automorphism group of a rooted tree; Preimage tree; Arboreal Galois representation; Stoll's maximality criterion; Jones's ramification criterion; Odoni's theorem |
+| DY.6 | partial | 93 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
+
+### Target map
+
+The identifiers below name existing packet nodes; `DY.n/…` abbreviates `ArithmeticDynamics:DY.n/…`.
+The detailed definitions, hypotheses, APIs, tests and proof sketches appear in the layer sections.
+
+| Layer | Target endpoints and carriers | Boundary of the current plan |
+|---|---|---|
+| DY.0 | `forward-orbit`, `preperiodic-point`, `rational-map-of-the-projective-line`, `rational-map-action-on-points`, `conjugacy-of-rational-maps`, `resultant-of-a-rational-map`, `good-reduction-of-a-rational-map` | Native iteration and projective points are inputs. The morphism comparison requests SF.0; scheme-level moduli have a GIT gap. |
+| DY.1 | `tate-limit`, `canonical-height-on-the-projective-line`, `canonical-height`, `zero-canonical-height-iff-preperiodic`, `canonical-height-of-multiplication-on-an-abelian-variety`, `tate-limit-of-elliptic-doubling` | The general-variety height machine is requested from RP.0. The elliptic comparison uses the pinned native height and its factor of two. |
+| DY.2 | `escape-rate`, `local-canonical-height`, `local-decomposition-of-canonical-height`, `periods-under-good-reduction`, `canonical-measure` | TB.0/TB.1 supplies the analytic carrier. Julia-support statements are missing; complex measures and the sharp period bound have recorded gaps. |
+| DY.3 | `dynatomic-polynomial`, `formal-and-exact-period`, `dynatomic-cycle-effective`, `finiteness-of-bounded-degree-preperiodic-points`, `rational-preperiodic-enumeration-over-a-number-field` | Formal period and effective enumeration are explicit. Scheme/curve models, genus and the Morton 3-cycle reduction remain incomplete; certificates are requested from CN.0/ED.0/ED.3/ED.4. |
+| DY.4 | `adelic-measure`, `adelic-metrized-line-bundle-on-p1`, `generic-sequence`, `equidistribution-for-semipositive-adelic-line-bundles`, `dynamical-equidistribution`, `dynamical-arakelov-zhang-pairing` | The P¹ theorem has local potential-theory suppliers. The general-variety and moduli endpoints retain G1–G4; multiplicity averages retain G5. |
+| DY.5 | `preimage-tree`, `arboreal-galois-representation`, `arboreal-representation-continuous`, `arboreal-image-inverse-limit`, `stoll-maximality-criterion`, `jones-ramification-criterion`, `worked-example-x-squared-plus-one` | The selected image/index targets have nodes and supplier requests. Broader PCF, positive-characteristic, rational-function and density results are separate extensions, never implied by the example. |
+| DY.6 | `specialization-of-rational-maps`, `specialization-of-canonical-heights`, `power-map`, `lattes-map`, `legendre-uniform-common-torsion-images`, `etale-dynamical-mordell-lang` | Specialization is on the t-line. General-base variation and the arbitrary-field Lech presentation/transport are incomplete; all conjectures are statement-only. |
 
 ## What this roadmap owns, and what it imports
 
@@ -58,8 +80,8 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 
 ## Sources
 
-Every source is freely available and was opened and read; the sections read, and the SHA-256 of each file, are in the
-packet. Silverman's *The Arithmetic of Dynamical Systems* and Baker–Rumely's book are not public; public papers and lecture
+The packet retains the earlier workers’ source-reading records: exact public versions, sections, read dates and
+SHA-256 hashes. This completion pass preserves that provenance and does not claim a fresh reading or collation of those sources. Silverman's *The Arithmetic of Dynamical Systems* and Baker–Rumely's book are not public; public papers and lecture
 notes replace them.
 
 - **`call-silverman-1993`** — Gregory S. Call and Joseph H. Silverman, *Canonical heights on varieties with morphisms*. Compositio Math. 89 (1993), no. 2, 163–205; Numdam scan, read 2026-09-24 <https://www.numdam.org/item/CM_1993__89_2_163_0.pdf>.
@@ -4024,6 +4046,60 @@ The following declarations of the pinned libraries are used as they stand (state
 
 ---
 
+## Coverage and remaining work
+
+A planned layer may still depend on requested interfaces or recorded gaps. The following lists mirror the packet;
+completion of this planning pass closes none of these mathematical obligations.
+
+### DY.0 — planned
+
+- Resolve the recorded geometric-invariant-theory gap for scheme-level moduli, SL₂ quotients and critically marked families; the current M_d(K) carrier is a set quotient, not a substitute for a geometric quotient scheme.
+- Receive the SF.0 projective-line scheme and point/morphism compatibility requested by rational-map-to-scheme-endomorphism; retain the set-level homogeneous-form API as its input.
+
+### DY.1 — planned
+
+- Receive the RP.0 general-variety height-machine and Northcott interfaces used by the polarised and divisorial-eigenclass endpoints. The projective-line construction and its zero-height criterion use the pinned native Weil-height carrier.
+- Check the pinned elliptic comparison against the imported Tau Ceti canonical height: the naive x-coordinate Tate limit is twice Point.canonicalHeight at f790474. The suggested file states this comparison directly on that library carrier; an upstream baseline change requires rechecking the normalization.
+
+### DY.2 — partial
+
+- Berkovich Fatou and Julia sets and the support theorem supp µ_{f,v} = J_{f,Ber} (DeMarco–Krieger–Ye §2.4, p. 9; Benedetto's notes §4.4 and §6.4, Propositions 4.22–4.24, 6.20, 6.23, Corollary 6.25), with the classical Julia set over ℂ and supp µ_{f,∞} = J_f, are not yet planned in this layer.
+- The archimedean nodes rest on two recorded gaps (the measure-valued Laplacian on the Riemann sphere; Lyubich–Freire–Lopes–Mañé): once suppliers are fixed, cite their nodes in DY.2/archimedean-canonical-measure, DY.2/archimedean-canonical-measure-properties and DY.2/archimedean-canonical-measure-is-maximal-entropy-measure.
+- Verify the recorded Zieve exponent-bound endpoint against a cleared or public proof of the second-order argument; until then its proof remains the named source-access gap, independent of Hutz’s weaker bound.
+
+### DY.3 — partial
+
+- Open requests: ComputationalNumberTheory:CN.0 (exact number-field carrier with decidable equality on ℙ¹) and EffectiveDiophantineMethods:ED.0 (certified bounded-height enumeration) for the number-field enumeration; EffectiveDiophantineMethods:ED.3 (Mordell–Weil and rank-zero point lists: C₀(5), C₁(3₂), E11, E15, E17, E24, E40, Morton's Y² = 4X³ − 11X² + 8X, the X₁(13), X₁(16), X₁(18) models, Stoll's saturation) and EffectiveDiophantineMethods:ED.4 (Chabauty for C₀(5), C₁(3₂), X₀^dyn(6)).
+- Gap: the complex-dynamics inputs (Thurston's contraction principle, kneading sequences) for ArithmeticDynamics:DY.3/unicritical-dynatomic-curve-smooth-irreducible.
+- Check the joint prototype’s DY.0/DY.1/DY.2 interface compatibility: homogeneous-form maps and their resultants, bounded-degree Northcott, and the comparison of a cycle multiplier with the linear coefficient of a germ. These interfaces are present in the same packet and suggested file; this is a proof-level compatibility check, not an unmerged-part dependency.
+- Genus formulas for C₁(N), C₀(N) (FPS §2, after Bousch and Morton 1996) and the smooth projective models X₁(n), X₀(n) are named but not planned: they need curve theory (normalisation, genus) from SchemeAndStackFoundations:SF.3 or the Tau Ceti algebraic-curves roadmap.
+- Morton 1992, Theorem 3 (at most one rational 3-cycle) is consumed as a statement through the ED.3 request for Y² = 4X³ − 11X² + 8X; the reduction from Φ₃ to that curve (Morton 1992, §§2–3) is not decomposed.
+
+### DY.4 — planned
+
+- Resolve G1–G4: global adelic line bundles and arithmetic intersections, Yuan’s arithmetic bigness input, quasi-projective equidistribution, and bifurcation currents. These are explicit gaps beneath the general-variety and moduli endpoints; the P¹ adelic-measure theorem does not discharge them.
+- Resolve G5 (bounded multiplicity excess for periodic points) for periodic-point-average-with-multiplicity; the distinct-point equidistribution theorem alone does not prove that statement.
+- Receive the requested TB.1/TB.6 local potential theory, semipositive model metrics and normalized local measures, and the RP.0 general-variety height interfaces.
+
+### DY.5 — planned
+
+- Receive the six recorded supplier interfaces used by the stage nodes, including Hilbert irreducibility from IG.2 and the requested Tau Ceti field/Galois-group infrastructure. Check finite-level and inverse-limit compatibility on the native carriers.
+- Jones survey Theorem 3.1 (post-critically finite maps over global fields of characteristic 0 or > d have [Aut(T_∞) : G_∞] = ∞): needs Aitken–Hajir–Maire Theorem 1.1 / Cullinan–Hajir finite ramification of K_∞ for PCF maps and Ihara's theorem (topological finite generation by conjugacy classes of G_{K,S}); not decomposed. AHM Theorem 1.1 itself (K_∞/K finitely ramified iff PCF) is covered only through discriminant-of-iterate.
+- Jones survey Theorem 2.4 (Jones 2008, finite index for monic quadratic f ∈ ℤ[x], not PCF, 0 strictly preperiodic, all iterates irreducible): its proof uses Siegel's theorem on S-integral points of the genus ≥ 1 curves ry² = f²(x); not decomposed (Siegel's theorem is not in the atlas plan of DY.5's suppliers).
+- Juul Theorem 1.1 in positive characteristic ((d, p) ≠ (2, 2), including the generic rational function Φ): the wild-ramification and indecomposability arguments of Juul Lemma 2.12, Corollary 2.9 and Theorem 3.7 for p | d are not decomposed; odoni-generic-theorem is planned in characteristic 0 only.
+- Rational functions beyond the comparison node rational-map-preimage-tree: the Jones–Manes discriminant and maximality results for quadratic rational functions (survey (6), Theorem 3.7 of [25]) are not planned.
+- The density theorems of the survey §4 and Jones 2008 §§2–3, 5 (Galois processes, martingale convergence, zero density of prime divisors of orbits) are outside the stage text and are not planned; they would consume the Chebotarev density theorem (Tau Ceti Chebotarev roadmap) and probability (martingale convergence).
+
+### DY.6 — partial
+
+- Complete the two remaining Lech–Cassels contracts: the arbitrary-field primitive-element presentation with integral marked numerators/denominators and evaluation identities; and extension/transport of the injective parameter fraction-field map to the whole field. DY.6/lech-independent-hensel-specialization now decomposes all residue, algebraic-independence, Hensel-root, degree and denominator-unit steps from a supplied generically separable integral equation. Do not reintroduce these discharged parameter/root obligations into the presentation gap.
+- Decompose the other proofs recorded as gaps: Cohen structure theorem (BGT Proposition 2.1), DeMarco–Faber/Favre degeneration, DeMarco–Wang–Ye Proposition 1.4 and Theorem 1.2, Tate's theorem, McMullen's theorem and Silverman's moduli-height comparison, and the Bilu–Tichy/Ritt/Benedetto inputs of Ghioca–Tucker–Zieve.
+- Verify and expand the proof sketch of critical-height-is-a-moduli-height using Ingram’s Lemmas 7–12 (Green-function estimates and the lower bound via multipliers). Keep these internal estimates within the target’s proof sketch; do not add one node per estimate.
+- Verify and expand the proof sketch of polynomial-variation-of-canonical-height using Ingram’s local estimates (§§2–4), retaining their place, growth and specialization hypotheses.
+- Extend DY.6/specialization-of-canonical-heights from the t-line over a number field to a smooth projective base curve over a global height field (Call–Silverman Theorem 4.1 in general), as Ghioca–Tucker–Zieve §6 needs.
+- Verify the DeMarco–Krieger–Ye archimedean target proof sketches against §5, equations (5.1)–(5.8), with the DY.4 local-energy and TB.0 hybrid-space inputs. Replace the broad DY.4 stage prerequisite by the specific existing nodes for Zhang’s inequality, Fili’s metric, the energy product formula and the heights h_{F,η} wherever the proof uses them; no per-equation nodes are required.
+- Receive the requested TB.0 (Berkovich line, hybrid space), SF.0 (quasi-projective varieties, spreading out) and RP.0 (ample Weil heights on M_d) inputs.
+
 ## Gaps
 
 Each of these is something this packet could not establish from the sources read. None is papered over,
@@ -4196,11 +4272,12 @@ The stage edges EffectiveDiophantineMethods:ED.0 → ArithmeticDynamics:DY.5 and
 
 ## Checks
 
-    python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticDynamics.json --index <pinned declaration index>
+    python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticDynamics.json --json
 
-Zero errors and zero warnings. The suggested Lean file elaborates against Mathlib `082e2d3` with `lake env lean`;
-its only messages are `declaration uses 'sorry'` warnings. Every API item and unit test of the packet occurs in it
-under its packet name.
+Zero errors and zero warnings. The suggested Lean file elaborates through `lean-check` against Mathlib `082e2d3` and Tau Ceti `f790474`;
+its only messages are `declaration uses 'sorry'` warnings. It imports the native elliptic canonical height,
+permutation wreath product and absolute Galois group. Every API item is represented by its local or qualified name, and every packet unit test is indexed by its
+qualified name; interfaces awaiting suppliers are explicitly marked.
 
 ### Pinned declarations for the independent-parameter and Hensel chain
 
