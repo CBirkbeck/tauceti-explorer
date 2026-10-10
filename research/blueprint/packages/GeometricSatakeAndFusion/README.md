@@ -1,8 +1,7 @@
 # Geometric Satake over the Fargues–Fontaine curve
 
-The aim is to construct the integral geometric Satake equivalence from bounded
-modifications of bundles, and to make its tensor structure, coefficient changes,
-Weil action and functoriality usable independently. The geometric input is the
+Construct the integral geometric Satake equivalence from bounded bundle
+modifications, with its tensor structure, coefficient changes and Weil action. The geometric input is the
 Beilinson–Drinfeld Grassmannian over the divisor space of the relative
 Fargues–Fontaine curve. Its Witt vector special fibre supplies projective models
 and dimension calculations. Universally locally acyclic, flat perverse sheaves
@@ -171,7 +170,7 @@ Use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821c
 | `mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair` | For every F-split parallel pair, its coequalizer exists in the source category. |
 | `mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair` | F preserves coequalizers of every F-split parallel pair. |
 | `mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair` | F reflects coequalizers of every F-split parallel pair. |
-| `mathlib:CategoryTheory.Limits.HasColimit` | Mere existence of a colimit cocone for the diagram (lines 94–98); colimit chooses its object by the dual definition at lines 180–182. Gives the underlying module only, not a Hopf structure. |
+| `mathlib:CategoryTheory.Limits.HasColimit` | Existence of a colimit cocone; colimit chooses its object. Gives the underlying module only, not a Hopf structure. |
 | `tauceti:TauCeti.reductiveAffineGroupSchemeProperty` | Object property on finite-type affine group schemes over a field, transported from the reductive coordinate Hopf-algebra property. |
 
 For compact prerequisite references, the following prefixes expand to roadmap IDs. The part after the prefix is the exact layer and result ID, including its sublayer when present. References within this roadmap link directly to the mathematical result.
@@ -195,6 +194,16 @@ For compact prerequisite references, the following prefixes expand to roadmap ID
 | `FF` | `FiniteFlatGroupsAndIntegralPadicHodgeTheory` |
 | `PH` | `PadicHodgeTheory` |
 
+<a id="supplier-calculus"></a>
+
+The following abbreviations denote the full lists of supplier results:
+
+| Calculus | Prerequisites |
+| --- | --- |
+| smooth diamond calculus | `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth` |
+| dual six-operation calculus | `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek` |
+| proper pushforward calculus | `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change` |
+
 ## GS0. Modification spaces and Schubert geometry
 
 ### Loop quotients and ordered divisors
@@ -207,15 +216,21 @@ Begin with completed rings and effective torsor descent. The Hecke quotient reta
 
 Hypotheses: Z affine; d≥1; integral G is a split reductive O_E-model; generic G/E can be ramified.
 
-Construction and proof: Import completed rings, their functoriality and v-descent from RF2.
+Proof: Import completed rings, their functoriality and v-descent from RF2.
 
-The interface must include:
+API:
 
 - `positiveLoopSpace_eval`: At a completed ring A, the positive loop space is the affine functor of points F(A); the full loop space uses A[1/ξ].
 - `positiveLoopSpace_map`: A ring map induces the map F(f); identity and composition agree with those in the affine functor.
 - `positiveLoopSpace_map_comp`: Positive loop maps compose in the same order as ring maps.
 
-**References:** [FS](#source-fs), VI.1.5, p. 192.
+Tests:
+
+- `loop_gm_units`: For G_m the evaluation at A agrees with the unit group of A.
+- `loop_trivial`: The trivial affine group has one loop at every ring.
+- `loop_affine_evaluation`: Evaluate the existing CommRingCat affine functor at the specified ring.
+
+**Sources:** [FS](#source-fs), VI.1.5, p. 192.
 
 **Prerequisites:** `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor`; `RF:RF2:integral-divisors/product-equation-and-affineness`; `RG:RG2.3`; `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `DVS:D6/pre-adic-topological-comparison`.
 
@@ -225,19 +240,24 @@ The interface must include:
 
 Hypotheses: The same divisor basis and group-model conditions as loop spaces.
 
-Construction and proof: Use RF2 finite-thickening descent together with RF4 effective descent/algebraization of compatible completed finite-projective modules (uniform rank and continuity), then transfer through the faithful exact tensor description to G-torsors. The completed-ring conclusion is not supplied by RF2 finite-thickening descent alone. Trivialize torsors étale-locally using the geometric DVR and smooth finite-level lifting/spreading. Changes of the two trivializations give the double quotient; keep automorphisms, rather than taking only isomorphism classes.
+Proof: Use RF2 finite-thickening descent together with RF4 effective descent/algebraization of compatible completed finite-projective modules (uniform rank and continuity), then transfer through the faithful exact tensor description to G-torsors. The completed-ring conclusion is not supplied by RF2 finite-thickening descent alone. Trivialize torsors étale-locally using the geometric DVR and smooth finite-level lifting/spreading. Changes of the two trivializations give the double quotient; keep automorphisms, rather than taking only isomorphism classes.
 
-The interface must include:
+API:
 
 - `localHeckeAction_formula`: The double action is (h₁,h₂)·g=h₁gh₂⁻¹, and the quotient is an action groupoid.
 - `localHeckeAction_groupoid`: For the double action, the local quotient uses Mathlib ActionCategory with its Groupoid instance.
 - `localHeckeAction_unit_stabilizer`: The automorphism labels of the identity are exactly pairs (h,h), retaining the diagonal positive-loop group.
 
-Checks: At the trivial modification automorphisms are the diagonal L⁺G; for the trivial group the stack is the base.
+Tests:
 
-**References:** [FS](#source-fs), VI.1.6–VI.1.7, p. 193.
+- `hecke_trivial_group`: For the trivial group there is one modification and one automorphism.
+- `hecke_identity_automorphisms`: In Multiplicative ℤ, the nonidentity diagonal label (1,1) fixes the identity modification; an orbit set loses it.
+- `hecke_double_action`: For G=H, (h,1) sends the identity to h, whereas (1,h) sends it to h inverse.
 
-**Prerequisites:** [Positive and full loop spaces](#loop-groups-and-local-hecke); `RF:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; `RF:RF4:G-torsors`; `RG:RG2.3`; `mathlib:CategoryTheory.ActionCategory`; `RF:RF2:untilts`.
+
+**Sources:** [FS](#source-fs), VI.1.6–VI.1.7, p. 193.
+
+**Prerequisites:** [Loop spaces](#loop-groups-and-local-hecke); `RF:RF2:integral-divisors/v-descent-of-bundles-on-the-divisor`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; `RF:RF4:G-torsors`; `RG:RG2.3`; `mathlib:CategoryTheory.ActionCategory`; `RF:RF2:untilts`.
 
 <a id="grassmannian"></a>
 
@@ -245,16 +265,22 @@ Checks: At the trivial modification automorphisms are the diagonal L⁺G; for th
 
 Hypotheses: Integral and generic group and divisor conventions as above.
 
-Construction and proof: Use the same effective torsor descent as Hck_G.
+Proof: Use the same effective torsor descent as Hck_G.
 
-The interface must include:
+API:
 
 - `grassmannianQuotient_eq`: The trivialized local presentation is the existing right-coset carrier G/H; H need not be normal.
 - `grassmannianQuotient_mk`: Every full loop gives its right-coset class and hence a trivialized modification.
 - `grassmannianQuotient_eq_iff`: Two trivializations define the same point precisely when g⁻¹g′ lies in H.
 - `grassmannianQuotient_unit`: The unit section is the class of the identity full loop.
 
-**References:** [FS](#source-fs), VI.1.8–VI.1.9, pp. 193–194.
+Tests:
+
+- `grassmannian_zero`: The unit section is the coset of the identity full loop.
+- `grassmannian_all_subgroup`: When H=G, the local quotient has exactly one point.
+- `grassmannian_non_normal`: Use Mathlib G/H for arbitrary H, without normality.
+
+**Sources:** [FS](#source-fs), VI.1.8–VI.1.9, pp. 193–194.
 
 **Prerequisites:** [Local Hecke stack](#local-hecke-stack); `RF:RF4:G-torsors`; `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `DVS:D6/pre-adic-topological-comparison`.
 
@@ -264,9 +290,9 @@ The interface must include:
 
 Hypotheses: Split integral model; restrict to generic Y/X for a general G/E.
 
-Construction and proof: Import divisor addition, disjointness and completion base change from RF2.
+Proof: Import divisor addition, disjointness and completion base change from RF2.
 
-**References:** [FS](#source-fs), VI.2.6 and preceding discussion, pp. 199–200.
+**Sources:** [FS](#source-fs), VI.2.6 and preceding discussion, pp. 199–200.
 
 **Prerequisites:** [Beilinson–Drinfeld Grassmannian](#grassmannian); `RF:RF2:integral-divisors/addition-and-disjoint-divisor-loci`; `RF:RF2:untilts/divisor-completion-base-change`.
 
@@ -280,17 +306,23 @@ Generic properness is established before special-fibre projectivity. Affine flag
 
 Hypotheses: μ dominant; μ−λ is a sum of positive coroots with the same π₁-class. General G/E descends its Galois-stable orbit of bounds.
 
-Construction and proof: Import Cartan decomposition and its functorial descent from RG2.4.
+Proof: Import Cartan decomposition and its functorial descent from RG2.4.
 
-The interface must include:
+API:
 
 - `dominanceBound_iff`: For GL_n, dominance means equal total degree and every initial partial sum of ν at most the corresponding sum of μ.
 - `dominanceBound_refl`: Every dominant cocharacter lies in its own bound.
 - `dominanceBound_trans`: Bounds are nested by transitivity of the dominance relation.
 
-**References:** [FS](#source-fs), VI.2.2–VI.2.3, pp. 196–197.
+Tests:
 
-**Prerequisites:** [Beilinson–Drinfeld Grassmannian](#grassmannian); `RG:RG2.4`; `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`; `DVS:D6/pre-adic-diamondification`; `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `DVS:D6/pre-adic-topological-comparison`.
+- `bound_zero_component`: For a torus of rank one the bound is equality, not the usual integer order.
+- `bound_gl2`: GL₂ coweight (1,1) is below (2,0).
+- `bound_wrong_degree`: The cocharacter (1,0) is not below (2,0), despite its smaller partial sums.
+
+**Sources:** [FS](#source-fs), VI.2.2–VI.2.3, pp. 196–197.
+
+**Prerequisites:** [Beilinson–Drinfeld Grassmannian](#grassmannian); `RG:RG2.4`; [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`; `DVS:D6/pre-adic-diamondification`; `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `DVS:D6/pre-adic-topological-comparison`.
 
 <a id="generic-galois-descent"></a>
 
@@ -298,11 +330,11 @@ The interface must include:
 
 Hypotheses: Generic divisors on Y or X; μ̄ a finite Galois orbit.
 
-Construction and proof: Import finite étale/v-descent of affine group data.
+Proof: Import finite étale/v-descent of affine group data.
 
-**References:** [FS](#source-fs), VI.2 opening and VI.8 final paragraphs, pp. 196, 226.
+**Sources:** [FS](#source-fs), VI.2 opening and VI.8 final paragraphs, pp. 196, 226.
 
-**Prerequisites:** [Generic Schubert bounds](#schubert-bounds-and-properness); `RG:RG2.3`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
+**Prerequisites:** [Generic Schubert bounds](#schubert-bounds-and-properness); `RG:RG2.3`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
 
 <a id="affine-flag-demazure"></a>
 
@@ -310,17 +342,23 @@ Construction and proof: Import finite étale/v-descent of affine group data.
 
 Hypotheses: Parahoric models and affine Weyl group from RG2.3–RG2.4.
 
-Construction and proof: Construct torsor quotients and their changes of trivialization.
+Proof: Construct torsor quotients and their changes of trivialization.
 
-The interface must include:
+API:
 
 - `demazureChains_points`: The point core consists of chains x₀,…,x_r with each consecutive pair in the specified simple-step relation.
 - `demazureChains_endpoint`: Multiplication forgets the intermediate flags and keeps the endpoints.
 - `demazureChains_base_change`: A map of flag spaces preserving each simple-step relation acts on every vertex of a Demazure chain.
 
-**References:** [FS](#source-fs), VI.5.1–VI.5.7, pp. 209–211.
+Tests:
 
-**Prerequisites:** [Beilinson–Drinfeld Grassmannian](#grassmannian); `RG:RG2.3`; `RG:RG2.4`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`; [Witt affine flags and components](#parahoric-ind-projectivity).
+- `demazure_empty`: An empty chain is one flag; its two endpoints coincide.
+- `demazure_one_step`: A one-step chain is the given simple-step incidence relation.
+- `demazure_not_product`: An empty step relation forces an empty chain space, even if X is nonempty.
+
+**Sources:** [FS](#source-fs), VI.5.1–VI.5.7, pp. 209–211.
+
+**Prerequisites:** [Beilinson–Drinfeld Grassmannian](#grassmannian); `RG:RG2.3`; `RG:RG2.4`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`; [Witt affine flags and components](#parahoric-ind-projectivity).
 
 ### Divisor mapping spaces and finite loop charts
 
@@ -332,11 +370,11 @@ The separated étale lift lemma transfers étale coordinates on a smooth scheme 
 
 Hypotheses: E is a nonarchimedean local field with residue F_q; the integral divisor base is Div^d_𝒴, so untilts over O_E including special-characteristic legs are allowed. D_T is the pullback effective Cartier divisor on 𝒴_T. The degree d is finite; repeated legs retain their Cartier multiplicities. The map D′→D_S is separated étale. No reductive group, coefficient ring or ℓ≠p hypothesis is needed.
 
-Construction and proof: Use v-descent for separated étale perfectoid spaces to reduce S to a strictly totally disconnected cover (DiamondsAndVStacks:D3/etale-and-finite-etale-are-v-stacks; FS cites Sch17a Proposition 9.7). Exhaust D′ by increasing quasicompact opens and work with one such open. On each geometric fibre, D_S up to nilpotents is the finite disjoint union of its distinct geometric O_E-untilt supports. A separated étale D′ over this fibre is a disjoint union of open subspaces. Spread these fibrewise descriptions to a neighbourhood, using the étale local structure theorem and the étale-site comparison (FS cites Sch17a Proposition 11.23 and Lemma 15.6), and glue the resulting local representing spaces. For the reduced case D′⊂D_S open, the representing locus is the complement of the image of |D_S|\|D′| under |D_S|→|S|. This is open because that support map is closed. Its inclusion into S represents exactly the lift functor. Descent and gluing give the separated étale S′→S and the natural universal property. Uniqueness follows from Yoneda.
+Proof: Use v-descent for separated étale perfectoid spaces to reduce S to a strictly totally disconnected cover (DiamondsAndVStacks:D3/etale-and-finite-etale-are-v-stacks; FS cites Sch17a Proposition 9.7). Exhaust D′ by increasing quasicompact opens and work with one such open. On each geometric fibre, D_S up to nilpotents is the finite disjoint union of its distinct geometric O_E-untilt supports. A separated étale D′ over this fibre is a disjoint union of open subspaces. Spread these fibrewise descriptions to a neighbourhood, using the étale local structure theorem and the étale-site comparison (FS cites Sch17a Proposition 11.23 and Lemma 15.6), and glue the resulting local representing spaces. For the reduced case D′⊂D_S open, the representing locus is the complement of the image of |D_S|\|D′| under |D_S|→|S|. This is open because that support map is closed. Its inclusion into S represents exactly the lift functor. Descent and gluing give the separated étale S′→S and the natural universal property. Uniqueness follows from Yoneda.
 
 Checks: For D′=D_S, the represented functor is final over S and S′≃S. For d>0 and D′ empty, every geometric fibre has a nonempty divisor, so the represented functor is empty and S′ is empty; for d=0, D_T is empty and S′≃S. Over a geometric base with r distinct support points, D′ a disjoint union of n labelled copies of D_S has n^r lifts; coincident legs do not create additional choices.
 
-**References:** [FS](#source-fs), Lemma VI.1.13 and proof, printed/PDF p. 196.
+**Sources:** [FS](#source-fs), Lemma VI.1.13 and proof, printed/PDF p. 196.
 
 **Prerequisites:** `RF:RF0:integral-Y/untilt-functor-of-points`; `RF:RF2:integral-divisors/div-d-moduli-v-sheaf`; `RF:RF2:integral-divisors/product-equation-and-affineness`; `RF:RF2:untilts`; `DVS:D1/strictly-totally-disconnected`; `DVS:D3/etale-and-finite-etale-are-v-stacks`; `DVS:D5/local-structure-of-etale-maps`; `DVS:D6/etale-site-comparison`; `RF:RF2:integral-divisors`.
 
@@ -346,11 +384,11 @@ Checks: For D′=D_S, the represented functor is final over S and S′≃S. For 
 
 Hypotheses: D_S affinoid on the chosen basis; ℓ≠p.
 
-Construction and proof: For affine space, pull back to the ordered-leg cover and filter the map by d successive affine-space diamonds of the corresponding untilts; each layer has dimension n.
+Proof: For affine space, pull back to the ordered-leg cover and filter the map by d successive affine-space diamonds of the corresponding untilts; each layer has dimension n.
 
-**References:** [FS](#source-fs), VI.1.12–VI.1.13, pp. 195–196.
+**Sources:** [FS](#source-fs), VI.1.12–VI.1.13, pp. 195–196.
 
-**Prerequisites:** `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `RG:RG2.3`; [Separated étale lifts over an effective divisor](#etale-over-divisor); `RF:RF2:untilts`.
+**Prerequisites:** `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `RG:RG2.3`; [Separated étale lifts over an effective divisor](#etale-over-divisor); `RF:RF2:untilts`.
 
 <a id="congruence-filtration-and-graded-pieces"></a>
 
@@ -358,11 +396,11 @@ Construction and proof: For affine space, pull back to the ordered-leg cover and
 
 Hypotheses: G split reductive O_E-model; ℓ≠p; I is the ideal of the degree-d divisor.
 
-Construction and proof: Linearize the group law modulo successive powers of I using smoothness of G.
+Proof: Linearize the group law modulo successive powers of I using smoothness of G.
 
-**References:** [FS](#source-fs), VI.1.10–VI.1.11, pp. 194–195.
+**Sources:** [FS](#source-fs), VI.1.10–VI.1.11, pp. 194–195.
 
-**Prerequisites:** [Positive and full loop spaces](#loop-groups-and-local-hecke); `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:untilts/cartier-filtration-and-breuil-kisin-lines`; `RG:RG2.1`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
+**Prerequisites:** [Loop spaces](#loop-groups-and-local-hecke); `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:untilts/cartier-filtration-and-breuil-kisin-lines`; `RG:RG2.1`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
 
 <a id="truncated-positive-loops"></a>
 
@@ -370,17 +408,23 @@ Construction and proof: Linearize the group law modulo successive powers of I us
 
 Hypotheses: Split smooth integral model; degree-d divisor; ℓ≠p.
 
-Construction and proof: Use smooth lifting across nilpotent thickenings to identify the quotient, not only its naive pointwise image.
+Proof: Use smooth lifting across nilpotent thickenings to identify the quotient, not only its naive pointwise image.
 
-The interface must include:
+API:
 
 - `truncatedPositiveLoop_eval`: The finite loop quotient evaluates F on the ring A/I^m, rather than the subgroup ker(F(A)→F(A/I^m)).
 - `truncatedPositiveLoop_reduction`: Reduction of a positive loop gives a point in the m-th quotient; smoothness makes this locally surjective.
 - `truncatedPositiveLoop_transition`: For a≤b, reduction modulo I^b maps to reduction modulo I^a.
 
-**References:** [FS](#source-fs), VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the later bounded-action application.
+Tests:
 
-**Prerequisites:** [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); `RG:RG2.3`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
+- `truncation_one`: At m=1 the quotient is G(A/I), not the congruence kernel.
+- `truncation_trivial_group`: Every finite quotient of the trivial group is trivial.
+- `truncation_ring_quotient`: The ring input is Mathlib Ideal.Quotient, preserving the ideal and its exponent.
+
+**Sources:** [FS](#source-fs), VI.1.10–VI.1.11, pp. 194–195; VI.2.8, p. 201, for the later bounded-action application.
+
+**Prerequisites:** [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); `RG:RG2.3`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`.
 
 ### Open cells, action truncation and minuscule flags
 
@@ -392,11 +436,11 @@ Compute stabilizers with the opposite-parabolic convention and derive dimensions
 
 Hypotheses: G split for the computation; μ dominant; ℓ≠p. Integral statement requires the reductive model.
 
-Construction and proof: Compute L⁺G∩μ(ξ)L⁺Gμ(ξ)⁻¹ in a faithful representation; in GL_n, the upper entry A_ij is divisible by ξ^{k_i−k_j}.
+Proof: Compute L⁺G∩μ(ξ)L⁺Gμ(ξ)⁻¹ in a faithful representation; in GL_n, the upper entry A_ij is divisible by ξ^{k_i−k_j}.
 
-**References:** [FS](#source-fs), VI.2.4–VI.2.5, pp. 198–200; IV.1.18, p. 112.
+**Sources:** [FS](#source-fs), VI.2.4–VI.2.5, pp. 198–200; IV.1.18, p. 112.
 
-**Prerequisites:** [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); [Truncated positive loop groups](#truncated-positive-loops); [Galois descent of bounded modifications](#generic-galois-descent); `RG:RG2.1`; `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `RF:RF4:vector-bundles`.
+**Prerequisites:** [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); [Truncated positive loop groups](#truncated-positive-loops); [Galois descent of bounded modifications](#generic-galois-descent); `RG:RG2.1`; [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `RF:RF4:vector-bundles`.
 
 <a id="truncation-of-the-loop-action"></a>
 
@@ -404,9 +448,9 @@ Construction and proof: Compute L⁺G∩μ(ξ)L⁺Gμ(ξ)⁻¹ in a faithful rep
 
 Hypotheses: Split G; dominant μ; finite Schubert bound.
 
-Construction and proof: Use normality of the congruence kernel and the stabilizer weight calculation on the open orbit.
+Proof: Use normality of the congruence kernel and the stabilizer weight calculation on the open orbit.
 
-**References:** [FS](#source-fs), VI.2.8, p. 201.
+**Sources:** [FS](#source-fs), VI.2.8, p. 201.
 
 **Prerequisites:** [Open Schubert cell smoothness](#open-cell-stabilizer-and-smoothness); [Truncated positive loop groups](#truncated-positive-loops); `RG:RG2.1`.
 
@@ -416,9 +460,9 @@ Construction and proof: Use normality of the congruence kernel and the stabilize
 
 Hypotheses: Generic characteristic-zero untilt; minuscule μ; ℓ≠p for the smoothness consequence.
 
-Construction and proof: The stabilizer filtration has no additional fibre when μ is minuscule.
+Proof: The stabilizer filtration has no additional fibre when μ is minuscule.
 
-**References:** [CS](#source-cs), 3.4.4–3.4.6, pp. 685–686.
+**Sources:** [CS](#source-cs), 3.4.4–3.4.6, pp. 685–686.
 
 **Prerequisites:** [Open Schubert cell smoothness](#open-cell-stabilizer-and-smoothness); `RG:RG2.1`; `RF:RF4:vector-bundles`; `PH:P8:local-rational`.
 
@@ -435,17 +479,22 @@ Construct the lattice functor and its proper perfect algebraic-space bounds befo
 
 Hypotheses: The two pole bounds on a lattice are locally uniform; coefficients perfect; quotient type has fixed total length.
 
-Construction and proof: Use finite projectivity and bounded denominators to define the functor.
+Proof: Use finite projectivity and bounded denominators to define the functor.
 
-The interface must include:
+API:
 
 - `WittLattice_module`: A lattice is a finite projective B-submodule of K^n whose K-span is the whole module.
 - `WittLattice_standard`: The image of B^n in K^n gives the standard lattice when B→K is injective.
 - `WittLattice_ext`: Lattices are equal when their embedded submodules are equal; finite-projectivity proofs carry no extra moduli.
 
-Checks: For n=1 lattices are p^aW(R) locally on components; Λ=W(R)^n is the unit.
+Tests:
 
-**References:** [BS](#source-bs), 8.1 and 9.4–9.5, pp. 32, 36–37.
+- `lattice_rank_zero`: There is only one rank-zero lattice.
+- `lattice_standard_field`: Over B=K the standard lattice agrees with the top Submodule of K^n.
+- `lattice_span`: Exclude the zero rank-one submodule over a nonzero field.
+
+
+**Sources:** [BS](#source-bs), 8.1 and 9.4–9.5, pp. 32, 36–37.
 
 **Prerequisites:** `mathlib:WittVector`; `mathlib:PerfectRing`; `mathlib:Module.Projective`; `RF:RF0:integral-Y/ramified-coefficient-comparison`; `SF:SF.4`; `RG:RG2.3`; `mathlib:Module.Finite`.
 
@@ -455,17 +504,22 @@ Checks: For n=1 lattices are p^aW(R) locally on components; Λ=W(R)^n is the uni
 
 Hypotheses: R perfect; a uniform p-power kills Q; the isogeny-cokernel criterion is projective dimension at most one, including Q=0.
 
-Construction and proof: Import projective module algebra, Fitting-ideal tests and reducedness of perfect rings from SF.
+Proof: Import projective module algebra, Fitting-ideal tests and reducedness of perfect rings from SF.
 
-The interface must include:
+API:
 
 - `wittTypeBound_dominance`: The quotient-type relation is GL_n dominance after embedding nonnegative parts in the integer coweight lattice.
 - `wittTypeBound_columns`: The i-th graded quotient has rank equal to the number of parts λ_j exceeding i.
 - `wittTypeBound_closed_under_dominance`: A lower quotient type remains in any larger bound.
 
-Checks: For Q=W(k)/p²⊕W(k)/p the type is (2,1), rows (2,1); a different total length is never a dominance comparison.
+Tests:
 
-**References:** [BS](#source-bs), 7.1–7.9, pp. 27–32.
+- `witt_type_zero`: The zero bound admits only zero nonnegative quotient parts.
+- `witt_type_210`: For λ=(2,1,0), the successive column ranks are two and one.
+- `witt_type_not_component_order`: (1,0,0) is not below (2,1,0): the total lengths differ.
+
+
+**Sources:** [BS](#source-bs), 7.1–7.9, pp. 27–32.
 
 **Prerequisites:** [Witt lattice functor](#witt-lattice-functor-and-representability); `SF:SF.0`; `mathlib:Module.Projective`.
 
@@ -475,15 +529,21 @@ Checks: For Q=W(k)/p²⊕W(k)/p the type is (2,1), rows (2,1); a different total
 
 Hypotheses: The isomorphism uses a choice of lifting; h>N, not h=N. Nonperfect Greenberg test rings use the ring scheme of O_E/ϖ^h, not a naive tensor formula.
 
-Construction and proof: Import Greenberg realization and perfect finite models from SF.
+Proof: Import Greenberg realization and perfect finite models from SF.
 
-The interface must include:
+API:
 
 - `jetDeterminantLocus_mem`: The matrix jet lies on the determinant locus when det(A)=uπ^N for a unit u; the finite truncation and bound h>N are retained in the application.
 - `jetDeterminantLocus_right_invariance`: Right multiplication by an invertible matrix preserves the determinant locus.
 - `jetDeterminantLocus_ring_map`: A ring map takes the determinant locus to the corresponding locus with the image uniformizer.
 
-**References:** [Zhu](#source-zhu), 1.9–1.11, pp. 418–421.
+Tests:
+
+- `jet_level_zero`: For N=0 the determinant is a unit.
+- `jet_identity`: The identity matrix is in the N=0 locus.
+- `jet_zero_excluded`: A zero rank-one matrix is excluded at N=0 over a nonzero field.
+
+**Sources:** [Zhu](#source-zhu), 1.9–1.11, pp. 418–421.
 
 **Prerequisites:** [Witt lattice functor](#witt-lattice-functor-and-representability); `SF:SF.0`; `RG:RG2.3`.
 
@@ -493,9 +553,9 @@ The interface must include:
 
 Hypotheses: Zhu published edition; perfect fields/rings; integral model assumptions pinned.
 
-Construction and proof: Use the affine jet presentation and effective quotient theorem A.29.
+Proof: Use the affine jet presentation and effective quotient theorem A.29.
 
-**References:** [Zhu](#source-zhu), 1.12, 1.19–1.20; A.29–A.31, pp. 421, 425–426, 476–477.
+**Sources:** [Zhu](#source-zhu), 1.12, 1.19–1.20; A.29–A.31, pp. 421, 425–426, 476–477.
 
 **Prerequisites:** [Zhu finite-jet presentation](#zhu-finite-jet-presentation); [Witt Demazure filtration space](#witt-demazure-resolution); `SF:SF.1`; `RG:RG2.3`.
 
@@ -509,17 +569,22 @@ Filtration resolutions supply the connected-fibre descent criterion. Choose the 
 
 Hypotheses: λ sorted nonnegative; total length fixed; all quotient maps respect the Witt action; zero λ gives the vanishing locus.
 
-Construction and proof: Use SF’s perfected Quot/Grassmann bundles to choose a locally free quotient Q/pQ→G of rank n_λ(0), and recurse on ker(Q→G) with λ shifted by one column. Q/pQ itself can have larger rank on lower-type fibres; it is not the chosen quotient G. BS 7.13 gives image, uniqueness and properness. Zhu 1.13–1.18 gives the lattice-chain presentation, including reversed dual bounds for reversed chains. BS 8.6 produces a smooth projective finite-type model for the global tower.
+Proof: Use SF’s perfected Quot/Grassmann bundles to choose a locally free quotient Q/pQ→G of rank n_λ(0), and recurse on ker(Q→G) with λ shifted by one column. Q/pQ itself can have larger rank on lower-type fibres; it is not the chosen quotient G. BS 7.13 gives image, uniqueness and properness. Zhu 1.13–1.18 gives the lattice-chain presentation, including reversed dual bounds for reversed chains. BS 8.6 produces a smooth projective finite-type model for the global tower.
 
-The interface must include:
+API:
 
 - `wittFiltration_eval`: The typed filtration consists of a decreasing chain of submodules starting at M and ending at zero.
 - `wittFiltration_piece`: Evaluation gives the i-th submodule in the chain.
 - `wittFiltration_ext`: Two filtration points are equal if all their submodules agree.
 
-Checks: λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian. For λ=(2,1,0) and Q=k³ killed by p, choose a rank-two quotient of Q/pQ=k³; its kernel line varies in P², giving the boundary fibre. Replacing the chosen quotient by all of Q/pQ would lose this fibre.
+Tests:
 
-**References:** [BS](#source-bs), 7.10–7.13 and 8.4–8.6, pp. 29–34.
+- `filtration_length_zero`: A length-zero filtration forces the module to be zero.
+- `filtration_one_step`: A length-one filtration has first piece top and all later pieces zero.
+- `filtration_direction`: The filtration decreases; increasing kernels of p must first be reverse-indexed.
+
+
+**Sources:** [BS](#source-bs), 7.10–7.13 and 8.4–8.6, pp. 29–34.
 
 **Prerequisites:** [Witt torsion module types](#witt-types-and-bounds); `SF:SF.0`; `SF:SF.1`; `CR:CR.1`.
 
@@ -529,9 +594,9 @@ Checks: λ=0 gives the unit; λ=(1^r) is the perfected ordinary Grassmannian. Fo
 
 Hypotheses: Nonempty geometric fibres; Q an isogeny cokernel.
 
-Construction and proof: Apply BS 7.14 to filtered Grassmann incidence parameters; reverse the increasing kernels of multiplication by p to match its decreasing-filtration convention.
+Proof: Apply BS 7.14 to filtered Grassmann incidence parameters; reverse the increasing kernels of multiplication by p to match its decreasing-filtration convention.
 
-**References:** [BS](#source-bs), 7.13–7.14, pp. 30–32; [Zhu](#source-zhu), Lemma 1.18, pp. 424–425.
+**Sources:** [BS](#source-bs), 7.13–7.14, pp. 30–32; [Zhu](#source-zhu), Lemma 1.18, pp. 424–425.
 
 **Prerequisites:** [Witt Demazure filtration space](#witt-demazure-resolution); `SF:SF.0`; `SF:SF.3`.
 
@@ -541,9 +606,9 @@ Construction and proof: Apply BS 7.14 to filtered Grassmann incidence parameters
 
 Hypotheses: Proper surjective pfp perfect morphism; geometric connectedness alone is the weaker sufficient criterion, not an equivalence with Rψ_*O=O.
 
-Construction and proof: Import BS 4.1 and 6.1, 6.8, 6.13 from SF rather than reproduce their general theory.
+Proof: Import BS 4.1 and 6.1, 6.8, 6.13 from SF rather than reproduce their general theory.
 
-**References:** [BS](#source-bs), 6.1, 6.8, 6.13 and 8.5, pp. 21–26, 33.
+**Sources:** [BS](#source-bs), 6.1, 6.8, 6.13 and 8.5, pp. 21–26, 33.
 
 **Prerequisites:** [Fibres of the Witt resolution](#connected-cohomological-fibres); `SF:SF.4`; `SF:SF.3`.
 
@@ -553,17 +618,22 @@ Construction and proof: Import BS 4.1 and 6.1, 6.8, 6.13 from SF rather than rep
 
 Hypotheses: Positive quotient convention W(R)^n/Λ; determinant of a sublattice would reverse the line.
 
-Construction and proof: Refine filtrations to full flag towers as in BS 6.11 and 8.8.
+Proof: Refine filtrations to full flag towers as in BS 6.11 and 8.8.
 
-The interface must include:
+API:
 
 - `geometricDeterminantLine_pullback`: On the Demazure resolution, the pulled-back line is the tensor product of the determinants of the graded quotients, with the positive quotient convention.
 - `geometricDeterminantLine_unique`: Fibre-trivial descent is unique through the fully faithful pullback of invertible sheaves.
 - `geometricDeterminantLine_lower_bound`: Restriction to a lower bound agrees with that bound’s determinant line.
 
-Checks: For λ=(1,0,…), the line is O(1) on the projective Grassmannian; λ=0 gives the trivial line.
+Tests:
 
-**References:** [BS](#source-bs), 6.11 and 8.8, pp. 25, 33–34.
+- `determinant_zero`: The zero bound has the trivial invertible sheaf.
+- `determinant_existing_carrier`: geometricDeterminantLine has the existing InvertibleSheaf carrier.
+- `determinant_quotient_sign`: On a one-step quotient Grassmannian the line is the quotient determinant, with positive sign.
+
+
+**Sources:** [BS](#source-bs), 6.11 and 8.8, pp. 25, 33–34.
 
 **Prerequisites:** [Descent on Witt resolution fibres](#h-descent-and-fibral-criterion); [Witt Demazure filtration space](#witt-demazure-resolution); Tau Ceti `AlgebraicVectorBundles`, L0A–L0C; `SF:SF.3`; `K:Z.3`.
 
@@ -577,13 +647,13 @@ Strict positivity on curves and the boundary calculation feed Keel’s theorem o
 
 Hypotheses: Finite-type models fixed up to Frobenius; a_i integers with successive domination; effective divisors interpreted on these models.
 
-Construction and proof: Use BS 8.9 and Grassmann-bundle induction for weighted ampleness and explicit nonvanishing sections.
+Proof: Use BS 8.9 and Grassmann-bundle induction for weighted ampleness and explicit nonvanishing sections.
 
 Checks: For a one-step projective Grassmannian the line has degree one on a Schubert line.
 
-**References:** [BS](#source-bs), 8.9–8.11, pp. 34–35.
+**Sources:** [BS](#source-bs), 8.9–8.11, pp. 34–35.
 
-**Prerequisites:** [Geometric determinant line](#geometric-determinant-line); `SF:SF.5`.
+**Prerequisites:** [Determinant line](#geometric-determinant-line); `SF:SF.5`.
 
 <a id="ampleness-via-keel"></a>
 
@@ -591,11 +661,11 @@ Checks: For a one-step projective Grassmannian the line has degree one on a Schu
 
 Hypotheses: Use BS’s geometric determinant construction. Keel’s criterion, exceptional locus and Frobenius extension/descent are imported from SF.5; pfp/model theory from SF.0.
 
-Construction and proof: Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1. The determinant is ample on boundary pieces; Keel’s union lemma and strict curve positivity make it ample on the boundary. Keel’s restriction criterion then makes ψ*L semiample because its exceptional locus lies there. Take its Stein contraction on a finite model. Strict curve positivity and fibre triviality identify its equivalence relation with the Demazure quotient; hence the contraction is Gr_{≤λ}. Its descended line is ample.
+Proof: Induct on dominance. Realize the lower boundary as an iterated finite pushout of lower bounds along closed intersections, importing the missing representability argument from SF.1. The determinant is ample on boundary pieces; Keel’s union lemma and strict curve positivity make it ample on the boundary. Keel’s restriction criterion then makes ψ*L semiample because its exceptional locus lies there. Take its Stein contraction on a finite model. Strict curve positivity and fibre triviality identify its equivalence relation with the Demazure quotient; hence the contraction is Gr_{≤λ}. Its descended line is ample.
 
 Checks: No Zhu representability input in this independent route; λ=(1) recovers projective space.
 
-**References:** [BS](#source-bs), §8.4, Theorem 8.3 (statement p. 32; proof pp. 35–36), Lemmas 8.9–8.11 (pp. 34–35).
+**Sources:** [BS](#source-bs), §8.4, Theorem 8.3 (statement p. 32; proof pp. 35–36), Lemmas 8.9–8.11 (pp. 34–35).
 
 **Prerequisites:** [Positivity of the determinant line](#determinant-positivity); [Descent on Witt resolution fibres](#h-descent-and-fibral-criterion); `SF:SF.1`; `SF:SF.5`.
 
@@ -605,9 +675,9 @@ Checks: No Zhu representability input in this independent route; λ=(1) recovers
 
 Hypotheses: Coordinate perfection is a direct Frobenius colimit; Mathlib Perfection is an inverse-limit carrier and is not cited for this construction. Trace/cycle normalizations require a fixed model.
 
-Construction and proof: Import Zhu A.3, A.15–A.17 and BS 3 from SF.0–SF.1.
+Proof: Import Zhu A.3, A.15–A.17 and BS 3 from SF.0–SF.1.
 
-**References:** [SW](#source-sw), 20.3.1–20.3.4, p. 185.
+**Sources:** [SW](#source-sw), 20.3.1–20.3.4, p. 185.
 
 **Prerequisites:** [Witt lattice functor](#witt-lattice-functor-and-representability); `SF:SF.0`; `SF:SF.1`; `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `DVS:D6/pre-adic-diamondification`.
 
@@ -617,11 +687,11 @@ Construction and proof: Import Zhu A.3, A.15–A.17 and BS 3 from SF.0–SF.1.
 
 Hypotheses: Fixed integral reductive model; unramified cocharacter reflex extensions in SW 20.3–20.5; no ramified reductive O_E-model asserted.
 
-Construction and proof: Use SW 20.3.2 for the torsor/étale quotient description and the explicit characteristic-p comparison.
+Proof: Use SW 20.3.2 for the torsor/étale quotient description and the explicit characteristic-p comparison.
 
-**References:** [SW](#source-sw), 20.3.6 and 20.5.4, pp. 186, 190.
+**Sources:** [SW](#source-sw), 20.3.6 and 20.5.4, pp. 186, 190.
 
-**Prerequisites:** [Projectivity of the Witt Grassmannian](#ampleness-via-keel); [Perfect models and étale realization](#perfect-model-and-etale-comparison); [Ordered legs and divisor base change](#ordered-leg-base-change); [Generic Schubert bounds](#schubert-bounds-and-properness); `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`.
+**Prerequisites:** [Projectivity of the Witt Grassmannian](#ampleness-via-keel); [Perfect models and étale realization](#perfect-model-and-etale-comparison); [Ordered legs and divisor base change](#ordered-leg-base-change); [Generic Schubert bounds](#schubert-bounds-and-properness); [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`.
 
 ### Parahoric spaces and canonical models
 
@@ -633,11 +703,11 @@ Use inertia coinvariants for geometric component labels and retain residual Frob
 
 Hypotheses: Parahoric/Iwahori notions supplied by RG2.3; inertia I, not the full absolute Galois group, labels geometric components.
 
-Construction and proof: Use the faithful representation with quasi-affine quotient and Zhu 1.20.
+Proof: Use the faithful representation with quasi-affine quotient and Zhu 1.20.
 
 Checks: For a torus the geometric flag space is the discrete inertia-coinvariant coweight scheme with Frobenius action.
 
-**References:** [SW](#source-sw), 21.1.1–21.1.4, pp. 191–192.
+**Sources:** [SW](#source-sw), 21.1.1–21.1.4, pp. 191–192.
 
 **Prerequisites:** [Original perfect algebraic-space construction](#zhu-original-algebraic-space); [Projectivity of the Witt Grassmannian](#ampleness-via-keel); `RG:RG2.3`; `RG:RG2.4`.
 
@@ -647,13 +717,13 @@ Checks: For a torus the geometric flag space is the discrete inertia-coinvariant
 
 Hypotheses: Quasiparahoric models and component maps as in SW 21.2–21.5; minuscule hypothesis only for the closure comparisons.
 
-Construction and proof: Import Anschütz’s extension/triviality of torsors on punctured A_inf from RF4:G-torsors.
+Proof: Import Anschütz’s extension/triviality of torsors on punctured A_inf from RF4:G-torsors.
 
 Checks: For a torus the integral flag is the diamondification of the integral coweight scheme; special labels are inertia coinvariants.
 
-**References:** [SW](#source-sw), 21.2.1–21.2.3, 21.4.3, 21.5.1, pp. 192–197.
+**Sources:** [SW](#source-sw), 21.2.1–21.2.3, 21.4.3, 21.5.1, pp. 192–197.
 
-**Prerequisites:** [Witt affine flags and components](#parahoric-ind-projectivity); `RF:RF4:G-torsors`; `RG:RG2.3`; `RG:RG2.4`; `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`.
+**Prerequisites:** [Witt affine flags and components](#parahoric-ind-projectivity); `RF:RF4:G-torsors`; `RG:RG2.3`; `RG:RG2.4`; [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`.
 
 <a id="canonical-witt-models"></a>
 
@@ -661,17 +731,22 @@ Checks: For a torus the integral flag is the diamondification of the integral co
 
 Hypotheses: Fix model and Frobenius levels; do not infer normal Cohen–Macaulayness of every canonical Schubert model (Conjecture III). Dieudonné/crystal and p-divisible-group theory is imported.
 
-Construction and proof: Use Zhu B.4’s codimension and Serre-criterion argument for the matrix complete intersection, with the SF model API. Descend the normalized jet quotient using SF effective quotients; use twisted transitions as in B.6. Import B.7–B.9’s Dieudonné realization from the p-divisible-group owner and check the pullback of the Hodge determinant; the sketch-only comparison remains an explicit proof obligation.
+Proof: Use Zhu B.4’s codimension and Serre-criterion argument for the matrix complete intersection, with the SF model API. Descend the normalized jet quotient using SF effective quotients; use twisted transitions as in B.6. Import B.7–B.9’s Dieudonné realization from the p-divisible-group owner and check the pullback of the Hodge determinant; the sketch-only comparison remains an explicit proof obligation.
 
-The interface must include:
+API:
 
 - `canonicalWittModel_transition`: A sufficiently deep finite-jet level has a transition to a shallower canonical model; compatibility can require a Frobenius twist.
 - `canonicalWittModel_normalized_quotient`: The canonical model is identified with the normalized jet quotient, not an arbitrary scheme having the same perfection.
 - `canonicalWittModel_perfection`: Its scheme perfection is the specified Witt Schubert bound.
 
-Checks: For N=0 the canonical model is a point; a canonical model is not an arbitrary deperfection.
+Tests:
 
-**References:** [Zhu](#source-zhu), B.4–B.9, pp. 484–486.
+- `canonical_model_zero`: The N=0 canonical bound is Spec k, over the specified perfect coefficient field.
+- `canonical_model_rank_one`: For GL₁ and N<h the canonical bound is Spec k, representing p^N W(k).
+- `canonical_model_not_choice`: The dual-number F₂ algebra has ε≠0 with ε²=0, forgotten by perfection; a shared perfection does not determine a finite model.
+
+
+**Sources:** [Zhu](#source-zhu), B.4–B.9, pp. 484–486.
 
 **Prerequisites:** [Zhu finite-jet presentation](#zhu-finite-jet-presentation); [Witt Demazure filtration space](#witt-demazure-resolution); `SF:SF.0`; `SF:SF.1`; `SF:SF.4`; `FF:R07.2`; `FF:R07.6`; `CR:CR.1`; `CR:CR.7`.
 
@@ -681,11 +756,14 @@ Checks: For N=0 the canonical model is a point; a canonical model is not an arbi
 
 Hypotheses: p>2; finite Witt truncation h=3; correct order g̃=Ã⁻¹X̃ and determinant det X=p²[λ]⁻¹.
 
-Construction and proof: Use the projective-bundle extension E/p and its splitting to identify the resolution model. Use the determinant equations B.3.1 to solve uniquely for x,y,z on the locus det(X₁) invertible, then saturate by the right GL₂(W₃)-action. Repair the displayed inverse order in B.11. The rank-two adjugate argument below proves integrality of the chosen right factor Ã⁻¹X̃ and its unit determinant. The remaining refinement is the typed truncated-Witt and jet-torsor interface; the jet torsor then identifies the open chart. Choose a Witt lift X̃ as in Remark 1.11 and let Ã be the displayed Teichmüller matrix, so det(Ã)=p². For the corrected factor g̃=Ã⁻¹X̃, use X̃* Ã≡0 mod p² and adj(X̃* Ã)=Ã* X̃ in rank two. Thus p⁻² Ã* X̃ is integral. The determinant has the form det(X̃)=p²u with u∈W(R)× reducing to λ⁻¹; hence det(g̃)=u is a unit. Reducing this chosen factor modulo p³ gives X=Ag. The factor g can depend on the chosen lift and the stabilizer of A; B.11 asserts uniqueness of the cone representative A, not uniqueness or lift-independence of g. The remaining task is to express existence and the induced jet-torsor/quotient compatibility in the supplier’s truncated-Witt interface.
+Proof: Use the projective-bundle extension E/p and its splitting to identify the resolution model. Use the determinant equations B.3.1 to solve uniquely for x,y,z on the locus det(X₁) invertible, then saturate by the right GL₂(W₃)-action. Repair the displayed inverse order in B.11. The rank-two adjugate argument below proves integrality of the chosen right factor Ã⁻¹X̃ and its unit determinant. The remaining refinement is the typed truncated-Witt and jet-torsor interface; the jet torsor then identifies the open chart. Choose a Witt lift X̃ as in Remark 1.11 and let Ã be the displayed Teichmüller matrix, so det(Ã)=p². For the corrected factor g̃=Ã⁻¹X̃, use X̃* Ã≡0 mod p² and adj(X̃* Ã)=Ã* X̃ in rank two. Thus p⁻² Ã* X̃ is integral. The determinant has the form det(X̃)=p²u with u∈W(R)× reducing to λ⁻¹; hence det(g̃)=u is a unit. Reducing this chosen factor modulo p³ gives X=Ag. The factor g can depend on the chosen lift and the stabilizer of A; B.11 asserts uniqueness of the cone representative A, not uniqueness or lift-independence of g. The remaining task is to express existence and the induced jet-torsor/quotient compatibility in the supplier’s truncated-Witt interface.
 
-Checks: At x=y=z=0, A=p·Id has determinant p² and maps to the unique closed orbit.
+Tests:
 
-**References:** [Zhu](#source-zhu), B.10–B.11, pp. 486–488.
+- `rank_two_right_factor_not_unique`: Over ℤ/27, A=3·Id and g=Id+9E₁₂ satisfy Ag=A, det g=1, g≠Id. Zhu B.11 specifies A uniquely, not g.
+
+
+**Sources:** [Zhu](#source-zhu), B.10–B.11, pp. 486–488.
 
 **Prerequisites:** [Canonical determinant models](#canonical-witt-models); [Zhu finite-jet presentation](#zhu-finite-jet-presentation); `SF:SF.0`.
 
@@ -699,19 +777,24 @@ Normalization removes the standard-lattice determinant factor. Section growth an
 
 Hypotheses: The ordinary geometric determinant on filtered torsion modules agrees with the imported determinant calculus; the normalization factor is retained. This does not assert an honest LG-linearization.
 
-Construction and proof: Reduce the ramified coefficient module to W(R)^{ne} using a fixed coefficient basis, then use the GL_{ne} bound and determinant line.
+Proof: Reduce the ramified coefficient module to W(R)^{ne} using a fixed coefficient basis, then use the GL_{ne} bound and determinant line.
 
-The interface must include:
+API:
 
 - `normalizedDeterminant_trivial`: At the standard lattice, the normalized determinant line is the tensor unit.
 - `normalizedDeterminant_comparison`: Normalization retains the inverse standard-lattice determinant factor.
 - `normalizedDeterminant_translation`: Translation gives a line from the base tensored with the original line; the compatible lines form a central extension rather than an honest action on the line.
 
-Checks: For the standard lattice the normalized line is canonically trivial; translation by the identity gives the identity extension element.
+Tests:
 
-**References:** [BS](#source-bs), 10.1 and discussion through 10.4, pp. 37–39.
+- `normalized_standard`: The standard lattice has normalized determinant R.
+- `normalized_zero_quotient`: Two zero truncation quotients have the unit determinant.
+- `normalized_tensor_carrier`: Tensor products and determinant duals use existing ModuleCat and TensorProduct.
 
-**Prerequisites:** [Geometric determinant line](#geometric-determinant-line); [Projectivity of the Witt Grassmannian](#ampleness-via-keel); `RF:RF0:integral-Y/ramified-coefficient-comparison`; `K:Z.3`.
+
+**Sources:** [BS](#source-bs), 10.1 and discussion through 10.4, pp. 37–39.
+
+**Prerequisites:** [Determinant line](#geometric-determinant-line); [Projectivity of the Witt Grassmannian](#ampleness-via-keel); `RF:RF0:integral-Y/ramified-coefficient-comparison`; `K:Z.3`.
 
 <a id="sections-on-witt-bounds"></a>
 
@@ -719,9 +802,9 @@ Checks: For the standard lattice the normalized line is canonically trivial; tra
 
 Hypotheses: Pass to fixed finite models and arbitrarily large Frobenius powers of their ample lines. This gives no answer to BS Question 10.6 about canonical modules or embeddings.
 
-Construction and proof: Use SF’s section-colimit description of line bundles on perfections.
+Proof: Use SF’s section-colimit description of line bundles on perfections.
 
-**References:** [BS](#source-bs), 10.5 and 10.6, pp. 39–40.
+**Sources:** [BS](#source-bs), 10.5 and 10.6, pp. 39–40.
 
 **Prerequisites:** [Normalized determinant on SL_n lattices](#sl-determinant-normalization); `SF:SF.5`; `SF:SF.0`.
 
@@ -731,15 +814,21 @@ Construction and proof: Use SF’s section-colimit description of line bundles o
 
 Hypotheses: Admissible sets and affine Bruhat order from RG2.4; integral v-sheaf local-model existence/functoriality is an imported refinement, not inferred from Satake. Use the connected parahoric/local-model hypotheses of GLX §3.2 and §3.3 (Lemmas 3.3–3.4) and van Hoften §2.2.6–§2.2.15. Van Hoften §2.2.15 states the perfect local-model interpretation for minuscule μ; GLX §3.2 supplies the non-minuscule extension. A generic group homomorphism without an integral parahoric model morphism is not covered.
 
-Construction and proof: Use finite Bruhat unions and the representable flag spaces.
+Proof: Use finite Bruhat unions and the representable flag spaces.
 
-The interface must include:
+API:
 
 - `admissibleFlagLocus_mem`: A flag lies in the admissible locus precisely when it is in one of the finitely many admissible Schubert strata.
 - `admissibleFlagLocus_mono`: Increasing the admissible label set enlarges the locus.
 - `admissibleFlagLocus_map`: An ambient flag morphism whose local-model comparison sends all admissible strata into the target locus restricts to the admissible locus.
 
-**References:** [GLX](#source-glx), §3.2 and §3.3, Lemmas 3.3–3.4, pp. 822–823; [vH](#source-vh), §2.2.14–§2.2.15, pp. 15–16.
+Tests:
+
+- `admissible_empty`: The empty label set gives the empty locus.
+- `admissible_singleton`: A singleton label gives exactly its Schubert stratum.
+- `admissible_nonlabel`: Exclude points in no admissible stratum, including wrong components.
+
+**Sources:** [GLX](#source-glx), §3.2 and §3.3, Lemmas 3.3–3.4, pp. 822–823; [vH](#source-vh), §2.2.14–§2.2.15, pp. 15–16.
 
 **Prerequisites:** [Witt affine flags and components](#parahoric-ind-projectivity); `RG:RG2.4`; `SF:SF.4`.
 
@@ -749,15 +838,21 @@ The interface must include:
 
 Hypotheses: Relative position and Demazure product from RG2.4. The bounded twisted product is not an untwisted Cartesian product.
 
-Construction and proof: Construct the fibre-product incidence and its projection from the affine flag moduli.
+Proof: Construct the fibre-product incidence and its projection from the affine flag moduli.
 
-The interface must include:
+API:
 
 - `flagIncidence_points`: Two-step incidence consists of (x,z,y) with (x,z) in the first relative-position orbit and (z,y) in the second.
 - `flagIncidence_projection`: The product projection forgets z and returns (x,y).
 - `flagIncidence_fibre`: The fibre over (x,y) is the set of middle flags satisfying both relative-position conditions.
 
-**References:** [He](#source-he), 5.3–5.4, pp. 9–12.
+Tests:
+
+- `incidence_identity_left`: If the first relation is the diagonal, z is uniquely x.
+- `incidence_empty`: An empty first relation gives empty incidence.
+- `incidence_no_unrestricted_middle`: For both diagonal relations, a middle flag different from x cannot occur.
+
+**Sources:** [He](#source-he), 5.3–5.4, pp. 9–12.
 
 **Prerequisites:** [Witt affine flags and components](#parahoric-ind-projectivity); `RG:RG2.4`; `SF:SF.0`; `SF:SF.1`.
 
@@ -767,11 +862,11 @@ The interface must include:
 
 Hypotheses: Nonempty fibres and bounded pfp models; ordinary and Demazure products kept distinct. Adjoint transfer is componentwise and needs the corrected GHN hypothesis. He’s standing geometric setting is a simple quasi-split group over the local field (§2.2); any transfer to other groups must use the componentwise comparison with its stated hypotheses.
 
-Construction and proof: Use rank-one A¹/G_m convolution strata and induction on affine reduced words, as in GH10 2.4–2.5 cited by He 5.6.
+Proof: Use rank-one A¹/G_m convolution strata and induction on affine reduced words, as in GH10 2.4–2.5 cited by He 5.6.
 
 Checks: For u=v=s, ℓ(s)=1 and s*s=s: the Demazure fibre has dimension at least one, while the ordinary-product fibre lower bound is one.
 
-**References:** [He](#source-he), 5.6 and proof 5.5, pp. 10–12.
+**Sources:** [He](#source-he), 5.6 and proof 5.5, pp. 10–12.
 
 **Prerequisites:** [Relative-position flag correspondences](#flag-incidence-correspondences); `RG:RG2.4`; `SF:SF.0`; `SF:SF.4`.
 
@@ -788,11 +883,11 @@ Semicontinuity produces the closed weight filtrations used for constant terms. A
 
 Hypotheses: S=Spa(R,R⁺) is affinoid perfectoid over F_q; E is a nonarchimedean local field with residue field F_q. Fix n≥1 ordered O_E-untilts S_i^♯=Spa(R_i^♯,R_i^{♯+}), with repetitions allowed, and primitive generators ξ_i of ker(θ_i:W_{O_E}(R⁺)→R_i^{♯+}). Choose a pseudouniformizer ϖ of R. Put ξ=∏_i ξ_i, B⁺=lim_k W_{O_E}(R⁺)[1/[ϖ]]/(ξ^k), and B=B⁺[1/ξ]. These are the actual Cartier-completed period rings; ξ need not be a uniformizer when legs coincide. For s∈|S| use the corresponding completed residue-field pair (K(s),K(s)⁺) and the induced ring map B⁺→B_s⁺. Its distinct geometric untilt supports give the finite product of complete DVRs; repeated supports do not create new product factors. Use ordinary module length over that product, allowing infinity.
 
-Construction and proof: For each i, let S_i be the closed locus in S where the image of f in the i-th untilt R_i^♯ vanishes. Away from their finite union, f is a unit in every geometric completed DVR factor, so ℓ_f=0. On S_i, pull back to that closed locus and divide f by its regular Cartier generator ξ_i. For f_i=f/ξ_i the geometric module length is ℓ_f=ℓ_{f_i}+1, with ∞+1=∞. This counts that one degree-one divisor even if some other legs coincide. Induct on m. In each closed S_i the bad locus ℓ_f>m is the bad locus ℓ_{f_i}>m−1, closed by induction; their finite union is the complement of the required open sublevel locus. The case m=0 is the unit locus described in the first step.
+Proof: For each i, let S_i be the closed locus in S where the image of f in the i-th untilt R_i^♯ vanishes. Away from their finite union, f is a unit in every geometric completed DVR factor, so ℓ_f=0. On S_i, pull back to that closed locus and divide f by its regular Cartier generator ξ_i. For f_i=f/ξ_i the geometric module length is ℓ_f=ℓ_{f_i}+1, with ∞+1=∞. This counts that one degree-one divisor even if some other legs coincide. Induct on m. In each closed S_i the bad locus ℓ_f>m is the bad locus ℓ_{f_i}>m−1, closed by induction; their finite union is the complement of the required open sublevel locus. The case m=0 is the unit locus described in the first step.
 
 Checks: A unit f has length zero on every fibre; f=0 has infinite length on every nonempty geometric divisor fibre. For one geometric leg and f=ξ_1^a, the length is a. For ξ=ξ_1^n at a coincident n-tuple, length(B_s⁺/ξ)=n, not one. For distinct supports, length is the sum of the DVR-factor lengths; no DVR assertion is made about the whole product.
 
-**References:** [FS](#source-fs), Lemma VI.3.3 and full proof, printed p. 204; setup in Lemma VI.3.2, printed p. 203.
+**Sources:** [FS](#source-fs), Lemma VI.3.3 and full proof, printed p. 204; setup in Lemma VI.3.2, printed p. 203.
 
 **Prerequisites:** `RF:RF2:integral-divisors/product-equation-and-affineness`; `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:integral-divisors/addition-and-disjoint-divisor-loci`; `RF:RF2:untilts/divisor-completion-base-change`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; `RF:RF2:untilts`.
 
@@ -802,11 +897,11 @@ Checks: A unit f has length zero on every fibre; f=0 has infinite length on ever
 
 Hypotheses: S=Spa(R,R⁺) is affinoid perfectoid over F_q; E is a nonarchimedean local field with residue field F_q. Fix n≥1 ordered O_E-untilts S_i^♯=Spa(R_i^♯,R_i^{♯+}), with repetitions allowed, and primitive generators ξ_i of ker(θ_i:W_{O_E}(R⁺)→R_i^{♯+}). Choose a pseudouniformizer ϖ of R. Put ξ=∏_i ξ_i, B⁺=lim_k W_{O_E}(R⁺)[1/[ϖ]]/(ξ^k), and B=B⁺[1/ξ]. These are the actual Cartier-completed period rings; ξ need not be a uniformizer when legs coincide. For s∈|S| use the corresponding completed residue-field pair (K(s),K(s)⁺) and the induced ring map B⁺→B_s⁺. Its distinct geometric untilt supports give the finite product of complete DVRs; repeated supports do not create new product factors. Use ordinary module length over that product, allowing infinity. Relative position uses the sum of the valuations on the distinct geometric DVR factors, with the convention that for L_s⊂B_s⁺ it is length(B_s⁺/L_s). The image of tensor base change is used, not an unproved injectivity of L⊗B_s⁺→B_s. L is finitely generated, open and bounded in the displayed ξ-adic sense. These hypotheses imply only finitely many relative-position values; local principality is the conclusion, not an input.
 
-Construction and proof: Multiply L by a power of ξ to reduce to L⊂B⁺. This changes every relative-position value by the same constant (the degree n times that power), so it preserves the claimed semicontinuity and constant-position criterion. At a point s, B_s⁺ is a finite product of DVRs and L_s is a free rank-one ideal. After localizing S, choose l∈L whose image generates L_s. Apply length-semicontinuity to l: near s the length of B_t⁺/(l_t) is at most the length at s. Since B⁺l⊂L, the relative position of L_t is at most that of B_t⁺l. Thus the relative-position sublevel loci are open; taking complements gives closed loci of position at least m. If the position is constant, the containment B⁺l⊂L has equal geometric fibre positions nearby and is an equality there; the generator gives a local trivialization. The ring/lattice fibre-detection step is supplied by RF4’s stated finite-projectivity and fibre-detection extension, not inferred from an arbitrary ring map. These local identifications make L a line bundle.
+Proof: Multiply L by a power of ξ to reduce to L⊂B⁺. This changes every relative-position value by the same constant (the degree n times that power), so it preserves the claimed semicontinuity and constant-position criterion. At a point s, B_s⁺ is a finite product of DVRs and L_s is a free rank-one ideal. After localizing S, choose l∈L whose image generates L_s. Apply length-semicontinuity to l: near s the length of B_t⁺/(l_t) is at most the length at s. Since B⁺l⊂L, the relative position of L_t is at most that of B_t⁺l. Thus the relative-position sublevel loci are open; taking complements gives closed loci of position at least m. If the position is constant, the containment B⁺l⊂L has equal geometric fibre positions nearby and is an equality there; the generator gives a local trivialization. The ring/lattice fibre-detection step is supplied by RF4’s stated finite-projectivity and fibre-detection extension, not inferred from an arbitrary ring map. These local identifications make L a line bundle.
 
 Checks: L=B⁺ has constant position zero and is a line bundle. L=ξ^aB⁺ has constant total position na, including coincident legs. The closed-locus direction is position≥m; the open-locus direction is position≤m. They are not interchanged. Constancy gives local rank-one projectivity, not a chosen global generator; no assertion is made for a merely pointwise specified or non-finitely-generated submodule.
 
-**References:** [FS](#source-fs), Lemma VI.3.2 and full proof, printed pp. 203–204; relative-position convention immediately before the lemma.
+**Sources:** [FS](#source-fs), Lemma VI.3.2 and full proof, printed pp. 203–204; relative-position convention immediately before the lemma.
 
 **Prerequisites:** [Semicontinuity of completed divisor length](#length-semicontinuity); `RF:RF2:integral-divisors/completed-rings-B-plus-and-B`; `RF:RF2:untilts/divisor-completion-base-change`; `RF:RF2:untilts/geometric-divisor-complete-dvr`; `RF:RF4:vector-bundles`.
 
@@ -816,19 +911,24 @@ Checks: L=B⁺ has constant position zero and is a line bundle. L=ξ^aB⁺ has c
 
 Hypotheses: G split for labels; bounded quasicompact Schubert support; coefficients killed by an integer prime to p initially, with derived adic passage supplied by L0. The cocenter degree is the sum of the combined local cocharacters over distinct geometric supports, counted once each. At collisions the ordered-leg labels add first; the support multiplicity is not an additional weight.
 
-Construction and proof: Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3). In that reduction use ordinary product-DVR length, as in VI.3.2, rather than the extra multiplicity weighting in the description before VI.3.1. Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound. Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks.
+Proof: Use RG’s parabolic/Levi and Iwasawa decompositions on geometric points. For the locally closed strata and their closed weight-bound unions, reduce via a faithful representation, maximal parabolics and exterior powers to an image submodule of a rank-one period module; apply lattice-relative-position-semicontinuity (FS VI.3.2), whose proof uses length-semicontinuity (VI.3.3). In that reduction use ordinary product-DVR length, as in VI.3.2, rather than the extra multiplicity weighting in the description before VI.3.1. Verify FS IV.6.1’s finite attracting/repelling decomposition on each bound. Import the diamond hyperbolic-localization theorem, base change, duality and ULA preservation from VS1; apply it to the maps of Hecke stacks.
 
-The interface must include:
+API:
 
 - `constantTerm_formula`: The plus constant-term functor is q-plus pullback followed by p-plus shriek pushforward.
 - `constantTerm_minus_comparison`: On bounded monodromic complexes the plus formula is naturally isomorphic to q-minus exceptional pullback followed by p-minus star pushforward.
 - `constantTerm_map_comp`: Constant term preserves composition of morphisms as a genuine functor.
 
-Checks: For G=T the constant term is the identity; plus and minus formulas need monodromicity. For two coincident G_m legs with labels (1,0), the combined lattice tB⁺ has degree one, even though the product Cartier equation is t². A second multiplicity factor would incorrectly give degree two.
+Tests:
 
-**References:** [FS](#source-fs), VI.3.1–VI.3.5, pp. 201–206.
+- `ct_torus`: For G=T with identity correspondence, constant term is the identity functor.
+- `ct_point_evaluation`: The plus formula evaluates to p-shriek of q-star on every object.
+- `ct_order`: Composition agrees with Mathlib Functor.comp in pullback-then-pushforward order.
 
-**Prerequisites:** [Generic Schubert bounds](#schubert-bounds-and-properness); `RG:RG2.4`; `VS:VS0/artin-v-stack-definition`; `VS:VS1`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `AC:L0/derived-I-complete-etale-category`; `AC:L0/adic-coefficient-limit`; `AC:L0/completed-tensor-and-colimits`; `AC:L0/six-operations-for-adic-coefficients`; `VS:VS0`; [Semicontinuity of lattice position](#lattice-relative-position-semicontinuity); `VS:VS1/hyperbolic-localization`; `VS:VS1/braden-theorem`; `VS:VS1/hyperbolic-base-change-duality-and-ula`.
+
+**Sources:** [FS](#source-fs), VI.3.1–VI.3.5, pp. 201–206.
+
+**Prerequisites:** [Generic Schubert bounds](#schubert-bounds-and-properness); `RG:RG2.4`; `VS:VS0/artin-v-stack-definition`; `VS:VS1`; [dual six-operation calculus](#supplier-calculus); `AC:L0/derived-I-complete-etale-category`; `AC:L0/adic-coefficient-limit`; `AC:L0/completed-tensor-and-colimits`; `AC:L0/six-operations-for-adic-coefficients`; `VS:VS0`; [Semicontinuity of lattice position](#lattice-relative-position-semicontinuity); `VS:VS1/hyperbolic-localization`; `VS:VS1/braden-theorem`; `VS:VS1/hyperbolic-base-change-duality-and-ula`.
 
 <a id="semi-infinite-affineness"></a>
 
@@ -836,9 +936,9 @@ Checks: For G=T the constant term is the identity; plus and minus formulas need 
 
 Hypotheses: Split group; fixed perfect field; nonempty for the dimension assertion; integral coefficient freeness does not follow from cycle counting.
 
-Construction and proof: Use the faithful representation and a highest-weight determinant section to express the semi-infinite weight condition as a nonvanishing locus (VI.3.7).
+Proof: Use the faithful representation and a highest-weight determinant section to express the semi-infinite weight condition as a nonvanishing locus (VI.3.7).
 
-**References:** [FS](#source-fs), VI.3.7–VI.3.8, pp. 205–207.
+**Sources:** [FS](#source-fs), VI.3.7–VI.3.8, pp. 205–207.
 
 **Prerequisites:** [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); [Projectivity of the Witt Grassmannian](#ampleness-via-keel); `RF:RF4:G-torsors`; `RG:RG2.1`; `SF:SF.5`.
 
@@ -848,11 +948,11 @@ Construction and proof: Use the faithful representation and a highest-weight det
 
 Hypotheses: Rational ℓ-adic coefficients; IC perverse normalization [⟨2ρ,μ⟩]; choose model; no assertion of a canonical integral cycle basis.
 
-Construction and proof: Use semi-infinite dimensions and the rational concentration theorem.
+Proof: Use semi-infinite dimensions and the rational concentration theorem.
 
 Checks: The nonempty torus case has one component and weight dimension one.
 
-**References:** [Zhu](#source-zhu), 2.8–2.9, pp. 434–436; A.3.3, pp. 479–480.
+**Sources:** [Zhu](#source-zhu), 2.8–2.9, pp. 434–436; A.3.3, pp. 479–480.
 
 **Prerequisites:** [Affine semi-infinite intersections](#semi-infinite-affineness); [Rational special-fibre weights](#rational-weight-concentration); `EDC:EDC.5/intersection-complex`; [Perfect models and étale realization](#perfect-model-and-etale-comparison).
 
@@ -866,13 +966,13 @@ Deep prounipotent kernels are removed using ordinary-cohomology continuity. Cons
 
 Hypotheses: Closed congruence filtration as in FS VI.4.1, with the filtered spatial ball-subgroup/inverse-limit presentation used in its proof; action factors at a finite level. Λ is killed by n prime to p. The adic extension is levelwise with compatible derived coefficient limits, not an unrestricted p-torsion assertion.
 
-Construction and proof: Descend along S→[H^{<m}\S] to reduce to a trivially acting deep kernel. Use the section to reduce equivariant descent to full faithfulness of pullback on complexes. Compute ordinary cohomology RΓ(S,A)→RΓ(S×H,A), using Postnikov towers, spatial ball subgroups H_j and their finite quotients H_j^{<r}. Apply Sch17a 14.9 continuity and ordinary cohomology of relative balls. Descend the equivalence through the action nerve and apply finite bounded-action factorization. Affine-space compact support is Λ(−d)[−2d], so it is not unshifted acyclicity.
+Proof: Descend along S→[H^{<m}\S] to reduce to a trivially acting deep kernel. Use the section to reduce equivariant descent to full faithfulness of pullback on complexes. Compute ordinary cohomology RΓ(S,A)→RΓ(S×H,A), using Postnikov towers, spatial ball subgroups H_j and their finite quotients H_j^{<r}. Apply Sch17a 14.9 continuity and ordinary cohomology of relative balls. Descend the equivalence through the action nerve and apply finite bounded-action factorization. Affine-space compact support is Λ(−d)[−2d], so it is not unshifted acyclicity.
 
 Checks: A vector group has only the trivial bounded prime-to-p equivariant local system; this fails as an unrestricted p-torsion assertion.
 
-**References:** [FS](#source-fs), VI.4.1, pp. 207–208.
+**Sources:** [FS](#source-fs), VI.4.1, pp. 207–208.
 
-**Prerequisites:** [Finite truncation of bounded actions](#truncation-of-the-loop-action); [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); `DSO:S4/cohomologically-smooth`; `DSO:S4/smooth-composition`; `DSO:S4/smooth-stable-under-base-change`; `DSO:S4/smooth-descent-along-smooth-surjection`; `DSO:S5/ball-smooth`; `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `AC:L0/derived-I-complete-etale-category`; `AC:L0/adic-coefficient-limit`; `AC:L0/completed-tensor-and-colimits`; `AC:L0/six-operations-for-adic-coefficients`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `VS:VS1`.
+**Prerequisites:** [Finite truncation of bounded actions](#truncation-of-the-loop-action); [Congruence filtration of positive loops](#congruence-filtration-and-graded-pieces); [smooth diamond calculus](#supplier-calculus); `DSO:S5/analytic-smooth-is-cohomologically-smooth`; `AC:L0/derived-I-complete-etale-category`; `AC:L0/adic-coefficient-limit`; `AC:L0/completed-tensor-and-colimits`; `AC:L0/six-operations-for-adic-coefficients`; [dual six-operation calculus](#supplier-calculus); `VS:VS1`.
 
 <a id="constant-term-conservativity"></a>
 
@@ -880,9 +980,9 @@ Checks: A vector group has only the trivial bounded prime-to-p equivariant local
 
 Hypotheses: Bounded support and monodromic/positive-loop equivariance; prime-to-p coefficients.
 
-Construction and proof: Use the closed semi-infinite filtration and choose an extremal nonzero stratum.
+Proof: Use the closed semi-infinite filtration and choose an extremal nonzero stratum.
 
-**References:** [FS](#source-fs), VI.4.2, pp. 208–209.
+**Sources:** [FS](#source-fs), VI.4.2, pp. 208–209.
 
 **Prerequisites:** [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); [Prounipotent equivariance invariance](#prounipotent-equivariance); [Galois descent of bounded modifications](#generic-galois-descent).
 
@@ -892,15 +992,21 @@ Construction and proof: Use the closed semi-infinite filtration and choose an ex
 
 Hypotheses: Support can be locally bounded on the base; a fixed bound is used in each argument. General ULA and stack formalism imported from VS1.
 
-Construction and proof: Use the smooth truncated positive-loop quotient charts and VS1’s ULA descent.
+Proof: Use the smooth truncated positive-loop quotient charts and VS1’s ULA descent.
 
-The interface must include:
+API:
 
 - `ulaHeckeCategory_finite_action`: The typed equivariant-object core is Action DU H, where DU is the supplied ULA category and H is a finite jet group on the chosen bound.
 - `ulaHeckeCategory_forget`: Forget positive-loop equivariance to the underlying ULA object, keeping its intertwining morphisms.
 - `ulaHeckeCategory_trivial_action`: A ULA object has the trivial finite-jet action whenever this is the desired equivariance.
 
-**References:** [FS](#source-fs), VI.6.1–VI.6.5, pp. 211–214.
+Tests:
+
+- `ula_trivial_group`: For the trivial group, an equivariant object has no additional automorphism labels.
+- `ula_intertwining`: Equivariant morphisms intertwine every group element.
+- `ula_action_identity`: The finite-jet action obeys the existing Action identity law.
+
+**Sources:** [FS](#source-fs), VI.6.1–VI.6.5, pp. 211–214.
 
 **Prerequisites:** [Prounipotent equivariance invariance](#prounipotent-equivariance); [Affine flags and Demazure spaces over Spd O_C](#affine-flag-demazure); `VS:VS1/ula-for-artin-v-stacks`; [Finite truncation of bounded actions](#truncation-of-the-loop-action); `mathlib:Action`.
 
@@ -910,13 +1016,16 @@ The interface must include:
 
 Hypotheses: Split G and Borel for labels; the disjoint-leg restriction is essential for the complete cell calculus.
 
-Construction and proof: For the forward direction, hyperbolic localization preserves ULA and proper torus pushforward on a bounded support remains ULA. For the converse, reduce to a strictly totally disconnected base and split G, and use the ULA diagonal-duality map of IV.2.23 on a bounded finite-dimensional quotient chart. By conservativity of CT for G×G it suffices to apply CT_{B⁻×B}; compatibility with exterior tensor products and hyperbolic duality IV.6.13 identifies the result with the same ULA criterion for CT_B(A). The final perfect locally constant pushforward criterion uses IV.2.28. Apply the one-leg cellwise criterion VI.6.5 and its closure consequence VI.6.6 one leg at a time on the disjoint locus for VI.6.8. The arbitrary collision version of those cell-functor closure assertions is not claimed.
+Proof: For the forward direction, hyperbolic localization preserves ULA and proper torus pushforward on a bounded support remains ULA. For the converse, reduce to a strictly totally disconnected base and split G, and use the ULA diagonal-duality map of IV.2.23 on a bounded finite-dimensional quotient chart. By conservativity of CT for G×G it suffices to apply CT_{B⁻×B}; compatibility with exterior tensor products and hyperbolic duality IV.6.13 identifies the result with the same ULA criterion for CT_B(A). The final perfect locally constant pushforward criterion uses IV.2.28. Apply the one-leg cellwise criterion VI.6.5 and its closure consequence VI.6.6 one leg at a time on the disjoint locus for VI.6.8. The arbitrary collision version of those cell-functor closure assertions is not claimed.
 
-Checks: No claim that all four cell functors preserve ULA over an arbitrary collision family.
+Tests:
 
-**References:** [FS](#source-fs), VI.6.4–VI.6.6, VI.6.8, pp. 212–215.
+- `perfect_complex_cohomology_not_projective`: For R=ℤ/4, H¹(R —2→ R)=R/(2) is not projective, although the complex is perfect.
 
-**Prerequisites:** [ULA Hecke complexes](#ula-sheaves-on-the-hecke-stack); [Conservativity of constant terms](#constant-term-conservativity); `VS:VS1`; `VS:VS1/ula-for-artin-v-stacks`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `mathlib:DerivedCategory`; `mathlib:Module.Finite`; `mathlib:Module.Projective`; `VS:VS1/ula-dualizability-criterion`; `VS:VS1/hyperbolic-base-change-duality-and-ula`; `VS:VS1/perfect-local-systems`; `VS:VS1/ula-relative-adjoints-and-calculus`.
+
+**Sources:** [FS](#source-fs), VI.6.4–VI.6.6, VI.6.8, pp. 212–215.
+
+**Prerequisites:** [ULA Hecke complexes](#ula-sheaves-on-the-hecke-stack); [Conservativity of constant terms](#constant-term-conservativity); `VS:VS1`; `VS:VS1/ula-for-artin-v-stacks`; [dual six-operation calculus](#supplier-calculus); `mathlib:DerivedCategory`; `mathlib:Module.Finite`; `mathlib:Module.Projective`; `VS:VS1/ula-dualizability-criterion`; `VS:VS1/hyperbolic-base-change-duality-and-ula`; `VS:VS1/perfect-local-systems`; `VS:VS1/ula-relative-adjoints-and-calculus`.
 
 <a id="integral-family-comparison"></a>
 
@@ -924,11 +1033,11 @@ Checks: No claim that all four cell functors preserve ULA over an arbitrary coll
 
 Hypotheses: Algebraically closed complete untilt C; split integral model; bounded quasicompact support; prime-to-p/derived adic coefficients.
 
-Construction and proof: Use the cellwise locally constant perfect criterion, whose restriction over the strictly local trait is an equivalence.
+Proof: Use the cellwise locally constant perfect criterion, whose restriction over the strictly local trait is an equivalence.
 
 Checks: An arbitrary non-ULA complex is not transported by this equivalence; split model fixed throughout.
 
-**References:** [FS](#source-fs), VI.6.7, p. 214; VI.7.4, pp. 217–219.
+**Sources:** [FS](#source-fs), VI.6.7, p. 214; VI.7.4, pp. 217–219.
 
 **Prerequisites:** [ULA recognition by constant terms](#ula-constant-term-criterion); [Integral bounded Grassmannian families](#integral-family-bounded-properness); `AC:L1/char-p-scheme-diamond-and-comparison-functor`; `AC:L3/rf-shriek-comparison-27-4`; `EDC:EDC.5/perverse-recollement`; `AC:L3/full-faithfulness-27-2`; `AC:L3/commutation-and-adjoints-27-1-27-3`.
 
@@ -942,15 +1051,21 @@ Construct the relative t-structure from the cell dimensions and geometric-fibre 
 
 Hypotheses: Use distinct local factors at collisions; bounded support and locally finite Schubert stratification. Stable enhancement and presentability are imported from EDS.
 
-Construction and proof: Use the stable enhanced category and Lurie HA 1.4.4.11 to generate the aisle and right orthogonal.
+Proof: Use the stable enhanced category and Lurie HA 1.4.4.11 to generate the aisle and right orthogonal.
 
-The interface must include:
+API:
 
 - `relativePerverse_le`: On ULA complexes, the nonpositive aisle is detected by the normalized torus constant term in nonpositive ordinary degrees.
 - `relativePerverse_ge`: On ULA complexes, the nonnegative aisle is detected by normalized torus constant term in nonnegative ordinary degrees.
 - `relativePerverse_existing_heart`: Its heart is the intersection of the two degree-zero aisles, using Mathlib TStructure.heart.
 
-**References:** [FS](#source-fs), VI.7.1–VI.7.4, pp. 215–219.
+Tests:
+
+- `perverse_torus`: For a torus, normalized CT is identity and relative perversity is ordinary perversity.
+- `perverse_zero`: The zero object belongs to the relative perverse heart.
+- `perverse_shifted_cell`: A smooth d-cell uses Λ[d]; normalized torus constant term is in degree zero.
+
+**Sources:** [FS](#source-fs), VI.7.1–VI.7.4, pp. 215–219.
 
 **Prerequisites:** [Affine semi-infinite intersections](#semi-infinite-affineness); [One-leg ULA special/generic comparison](#integral-family-comparison); `EDC:EDC.5/perverse-t-structure`; `EDC:EDC.5/perverse-recollement`; `EDS:E5:abstract/stable-infinity-category`; `EDS:E5:presentability/ind-completion`; `EDS:E5:presentability`; `mathlib:CategoryTheory.Triangulated.TStructure`; `AC:L3/full-faithfulness-27-2`; `AC:L3/commutation-and-adjoints-27-1-27-3`; `EDC:EDC.5`.
 
@@ -960,9 +1075,9 @@ The interface must include:
 
 Hypotheses: Finite bounded charts and positive-loop equivariance; ordinary scheme perverse input is EDC.5, not EDC.7.
 
-Construction and proof: Use FS 7.3: for a connected cohomologically smooth map with section, H⁰Rf_*f*A→H⁰A is an isomorphism in the connective range.
+Proof: Use FS 7.3: for a connected cohomologically smooth map with section, H⁰Rf_*f*A→H⁰A is an isomorphism in the connective range.
 
-**References:** [FS](#source-fs), VI.7.2–VI.7.4, pp. 216–219.
+**Sources:** [FS](#source-fs), VI.7.2–VI.7.4, pp. 216–219.
 
 **Prerequisites:** [Relative perverse t-structure](#relative-perverse-t-structure); [Conservativity of constant terms](#constant-term-conservativity); [Finite truncation of bounded actions](#truncation-of-the-loop-action); `EDC:EDC.5/affine-perverse-artin-vanishing`; `AC:L3/rf-shriek-comparison-27-4`; [Affine semi-infinite intersections](#semi-infinite-affineness); `EDC:EDC.5`.
 
@@ -972,17 +1087,22 @@ Construction and proof: Use FS 7.3: for a connected cohomologically smooth map w
 
 Hypotheses: Prime-to-p torsion rings and compatible adic systems; the ordinary tensor test uses every module, not just Λ itself.
 
-Construction and proof: Use t-exact conservative shifted CT and its compatibility with derived coefficient tensors.
+Proof: Use t-exact conservative shifted CT and its compatibility with derived coefficient tensors.
 
-The interface must include:
+API:
 
 - `flatPerverse_iff`: An object is flat perverse when it is in the heart and remains there after derived coefficient tensor with every R-module.
 - `flatPerverse_module`: On the one-point torus, coefficient flatness is Module.Flat: tensoring any injective linear map stays injective.
 - `flatPerverse_heart`: A flat-perverse object belongs to the Mathlib t-structure heart.
 
-Checks: Over Z/ℓ² the module Λ/ℓ has higher Tor and is not coefficient-flat.
+Tests:
 
-**References:** [FS](#source-fs), VI.7.7, pp. 220–221.
+- `flat_perverse_zero`: The zero object is flat perverse when coefficient tensors preserve zero.
+- `flat_module_field`: Every vector space over a coefficient field is flat.
+- `flat_module_integral_nonexample`: ℤ/2 is not flat over ℤ, despite concentration in degree zero.
+
+
+**Sources:** [FS](#source-fs), VI.7.7, pp. 220–221.
 
 **Prerequisites:** [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct); [ULA recognition by constant terms](#ula-constant-term-criterion); `mathlib:Module.Flat`; `mathlib:Module.Projective`; `mathlib:Module.Flat.iff_lTensor_preserves_injective_linearMapₛ`; `EDC:EDC.5`.
 
@@ -996,17 +1116,23 @@ Standard and costandard objects and their comparison map are integral constructi
 
 Hypotheses: One-leg base, split model; IC has perverse normalization [d_μ], not [2d_μ].
 
-Construction and proof: Apply cell ULA calculus and perverse gluing.
+Proof: Apply cell ULA calculus and perverse gluing.
 
-The interface must include:
+API:
 
 - `standardCostandard_formula`: The standard and costandard objects are perverse H⁰ of j-shriek and j-star of the shifted constant local system Λ[d], respectively.
 - `standardCostandard_map`: Adjunction gives the standard-to-costandard map; its perverse image is the IC object.
 - `standardCostandard_restriction`: Both restrict to the same normalized local system on the open cell.
 
-**References:** [FS](#source-fs), VI.7.5 and VI.7.9, pp. 219–222.
+Tests:
 
-**Prerequisites:** [Flat perverse objects](#flat-perverse-objects); [ULA recognition by constant terms](#ula-constant-term-criterion); [Relative perverse t-structure](#relative-perverse-t-structure); `EDC:EDC.5/affine-perverse-artin-vanishing`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `EDC:EDC.5`.
+- `standard_zero_cell`: For identity inclusions and d=0, both objects are isomorphic to Λ via the zero-shift comparison.
+- `standard_open_restriction`: The costandard object restricts to Λ[d] on its own cell.
+- `standard_h0_normalization`: Δ=pH⁰j_!Λ[d]: shift before extension and perverse H⁰; ordinary unshifted H⁰ is incorrect.
+
+**Sources:** [FS](#source-fs), VI.7.5 and VI.7.9, pp. 219–222.
+
+**Prerequisites:** [Flat perversity](#flat-perverse-objects); [ULA recognition by constant terms](#ula-constant-term-criterion); [Relative perverse t-structure](#relative-perverse-t-structure); `EDC:EDC.5/affine-perverse-artin-vanishing`; [dual six-operation calculus](#supplier-calculus); `EDC:EDC.5`.
 
 <a id="standard-costandard-torsion-bound"></a>
 
@@ -1014,11 +1140,11 @@ The interface must include:
 
 Hypotheses: Rational statement requires decomposition/parity and connected stabilizers; the integral category is not semisimple.
 
-Construction and proof: Import EDC.7’s rational proper direct-image decomposition and parity on Demazure generators.
+Proof: Import EDC.7’s rational proper direct-image decomposition and parity on Demazure generators.
 
 Checks: The assertion does not set a=0 and does not make integral extensions split.
 
-**References:** [FS](#source-fs), VI.7.5 end and proof, pp. 219–220; [Zhu](#source-zhu), Lemma 2.1 and its proof, printed pp. 429–430.
+**Sources:** [FS](#source-fs), VI.7.5 end and proof, pp. 219–220; [Zhu](#source-zhu), Lemma 2.1 and its proof, printed pp. 429–430.
 
 **Prerequisites:** [Standard and costandard objects](#standard-costandard-objects); `EDC:EDC.7/proper-direct-image-decomposition`; `RG:RG2.3`; [Perfect models and étale realization](#perfect-model-and-etale-comparison); `mathlib:PadicInt`.
 
@@ -1028,11 +1154,11 @@ Checks: The assertion does not set a=0 and does not make integral extensions spl
 
 Hypotheses: k algebraically closed; rational coefficients only; CT normalization uses compact support.
 
-Construction and proof: Use Zhu 2.11’s minuscule flag and quasi-minuscule parahoric P¹ resolution; retain the section-at-infinity term missing in 2.2.13.
+Proof: Use Zhu 2.11’s minuscule flag and quasi-minuscule parahoric P¹ resolution; retain the section-at-infinity term missing in 2.2.13.
 
 Checks: For the SL₃ highest root, the zero-weight dimension is two; the missing infinity contribution would give the wrong answer.
 
-**References:** [Zhu](#source-zhu), 2.7 and 2.11–2.17, pp. 434, 436–440.
+**Sources:** [Zhu](#source-zhu), 2.7 and 2.11–2.17, pp. 434, 436–440.
 
 **Prerequisites:** [Affine semi-infinite intersections](#semi-infinite-affineness); [Affine flags and Demazure spaces over Spd O_C](#affine-flag-demazure); [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); `EDC:EDC.5/semismall-pushforward-perverse`; `RG:RG2.4`.
 
@@ -1049,19 +1175,24 @@ Intersect bounded ULA complexes with flat perversity. Total cohomology is finite
 
 Hypotheses: Split integral or generic descended setting; all three conditions are required.
 
-Construction and proof: Intersect the ULA subcategory with the relative perverse heart and the all-module flatness condition.
+Proof: Intersect the ULA subcategory with the relative perverse heart and the all-module flatness condition.
 
-The interface must include:
+API:
 
 - `satakeCategory_full_subcategory`: Satake is the full subcategory of the supplied bounded ULA category whose underlying object is flat perverse.
 - `satakeCategory_inclusion`: The full-subcategory inclusion forgets only the Satake flat-perverse condition and is fully faithful.
 - `satakeCategory_morphisms`: A Satake morphism is the same underlying ULA morphism; no separate morphism condition is imposed.
 
-Checks: A ULA object in the wrong perverse degree is excluded; Λ/ℓ over Λ=Z/ℓ² is excluded by flatness; the unit lies in Satake.
+Tests:
 
-**References:** [FS](#source-fs), VI.7.8–VI.7.9, pp. 221–222.
+- `satake_zero`: A zero ULA object whose underlying object is zero belongs to Satake.
+- `satake_inclusion_fully_faithful`: The inclusion is full and faithful, using Mathlib ObjectProperty.FullSubcategory morphisms.
+- `satake_wrong_degree`: A ULA object outside the relative perverse heart is excluded from Satake.
 
-**Prerequisites:** [ULA Hecke complexes](#ula-sheaves-on-the-hecke-stack); [Flat perverse objects](#flat-perverse-objects); [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct); `mathlib:CategoryTheory.Triangulated.TStructure.Heart`; `mathlib:CategoryTheory.ObjectProperty.FullSubcategory`.
+
+**Sources:** [FS](#source-fs), VI.7.8–VI.7.9, pp. 221–222.
+
+**Prerequisites:** [ULA Hecke complexes](#ula-sheaves-on-the-hecke-stack); [Flat perversity](#flat-perverse-objects); [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct); `mathlib:CategoryTheory.Triangulated.TStructure.Heart`; `mathlib:CategoryTheory.ObjectProperty.FullSubcategory`.
 
 <a id="satake-fibre-functor"></a>
 
@@ -1069,11 +1200,11 @@ Checks: A ULA object in the wrong perverse degree is excluded; Λ/ℓ over Λ=Z/
 
 Hypotheses: Bounded support; A Satake; locally constant finite projectivity is part of the result.
 
-Construction and proof: Use proper support, CT filtration and flat-perverse recognition. On each connected component of Gr_G, the shifted constant-term graded pieces of a Satake object are concentrated in degrees of the same parity. Hence the finite filtration spectral sequence degenerates. The graded cohomology modules are finite projective, so successive module extensions split locally and give finite-projective cohomology and exactness; this argument does not claim a canonical splitting. For a morphism with a split total-cohomology kernel, the constant-term filtration identifies its perverse kernel as ULA and flat; apply the split-kernel clause of VI.7.10, and its analogous split-cokernel clause. For F(f)=0 the kernel is all F(A), hence split: conservation makes the kernel map an isomorphism, proving f=0 and faithfulness. Keep the filtration until GS3 tensor comparison.
+Proof: Use proper support, CT filtration and flat-perverse recognition. On each connected component of Gr_G, the shifted constant-term graded pieces of a Satake object are concentrated in degrees of the same parity. Hence the finite filtration spectral sequence degenerates. The graded cohomology modules are finite projective, so successive module extensions split locally and give finite-projective cohomology and exactness; this argument does not claim a canonical splitting. For a morphism with a split total-cohomology kernel, the constant-term filtration identifies its perverse kernel as ULA and flat; apply the split-kernel clause of VI.7.10, and its analogous split-cokernel clause. For F(f)=0 the kernel is all F(A), hence split: conservation makes the kernel map an isomorphism, proving f=0 and faithfulness. Keep the filtration until GS3 tensor comparison.
 
 For the algebraic direct-sum interface, specify a finite set of cohomological degrees, zero modules outside it, and finite projectivity in each degree. Specify joint faithfulness of the degreewise functors to deduce faithfulness of their sum. The geometric argument above proves these inputs for Satake objects; neither conclusion holds for an arbitrary family of module-valued functors.
 
-The interface must include:
+API:
 
 - `satakeFibre_cohomology`: The fibre at A is the direct sum of all integer-degree cohomology modules; bounded support makes only finitely many degrees nonzero.
 - `satakeFibre_finite_projective`: The total cohomology module is finite and projective over the coefficient ring.
@@ -1081,11 +1212,17 @@ The interface must include:
 - `satakeFibre_kernel`: If ker F(f)→F(A) is a split inclusion, f has a Satake kernel and F carries its universal cone to the module kernel.
 - `satakeFibre_cokernel`: If F(B)→coker F(f) is a split projection, f has a Satake cokernel and F carries its universal cocone to the module cokernel.
 
-Checks: For a torus skyscraper at λ, F is Λ of rank one; a noncanonical filtration splitting is not advertised as canonical.
+Tests:
 
-**References:** [FS](#source-fs), VI.7.10–VI.7.11, pp. 222–223.
+- `fibre_torus_rank_one`: A torus skyscraper with one rank-one cohomology module has total cohomology R.
+- `fibre_zero`: If all cohomology modules vanish, total cohomology is the zero module.
+- `fibre_existing_module`: Finite projective total cohomology uses ModuleCat and Module.Projective.
+- `fibre_unbounded_nonexample`: One ℚ in every integer degree has infinite-dimensional direct sum despite degreewise finite projectivity.
 
-**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Conservativity of constant terms](#constant-term-conservativity); [Flat perverse objects](#flat-perverse-objects); `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`; `mathlib:Module.Projective`; `AC:L0/rational-constructible-coefficients`; `mathlib:Module.Finite`; `EDC:EDC.5`.
+
+**Sources:** [FS](#source-fs), VI.7.10–VI.7.11, pp. 222–223.
+
+**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Conservativity of constant terms](#constant-term-conservativity); [Flat perversity](#flat-perverse-objects); [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`; `mathlib:Module.Projective`; `AC:L0/rational-constructible-coefficients`; `mathlib:Module.Finite`; `EDC:EDC.5`.
 
 <a id="satake-verdier-duality"></a>
 
@@ -1093,11 +1230,11 @@ Checks: For a torus skyscraper at λ, F is Λ of rank one; a noncanonical filtra
 
 Hypotheses: ULA, flat perverse and bounded proper support; the normalization depends on the chosen parabolic.
 
-Construction and proof: Use ULA dualizability and biduality from VS1.
+Proof: Use ULA dualizability and biduality from VS1.
 
-**References:** [FS](#source-fs), VI.7.12–VI.7.13, pp. 223–224.
+**Sources:** [FS](#source-fs), VI.7.12–VI.7.13, pp. 223–224.
 
-**Prerequisites:** [Satake cohomology functor](#satake-fibre-functor); [Flat perverse objects](#flat-perverse-objects); `VS:VS1`; `VS:VS1/ula-for-artin-v-stacks`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `RG:RG2.1`; `VS:VS1/ula-dualizability-criterion`; `VS:VS1/hyperbolic-base-change-duality-and-ula`; `VS:VS1/ula-relative-adjoints-and-calculus`.
+**Prerequisites:** [Cohomology](#satake-fibre-functor); [Flat perversity](#flat-perverse-objects); `VS:VS1`; `VS:VS1/ula-for-artin-v-stacks`; [dual six-operation calculus](#supplier-calculus); `RG:RG2.1`; `VS:VS1/ula-dualizability-criterion`; `VS:VS1/hyperbolic-base-change-duality-and-ula`; `VS:VS1/ula-relative-adjoints-and-calculus`.
 
 ### Proper correspondences and rational semismallness
 
@@ -1109,18 +1246,24 @@ Convolution descends the twisted external product through the intermediate torso
 
 Hypotheses: Use the stack quotient, not a naive product; derived external tensor over Λ; bounds required for pushforward. General correspondence coherence is supplied by EDS and VS0.
 
-Construction and proof: Build the stack of three torsors and two punctured isomorphisms; multiplication composes them.
+Proof: Build the stack of three torsors and two punctured isomorphisms; multiplication composes them.
 
-The interface must include:
+API:
 
 - `heckeConvolution_obj`: A⋆B is b-star of a-pullback of the derived external product of A and B, with b proper on the chosen bounds.
 - `heckeConvolution_associator`: The coherent correspondence calculus supplies the associator for convolution.
 - `heckeConvolution_unit`: The unit is the identity-modification kernel and its left and right unit maps are isomorphisms.
 - `torusConvolutionLabels`: On a torus, convolution support is the Minkowski sum of the two finite coweight supports.
 
-**References:** [FS](#source-fs), VI.8 opening, pp. 224–225.
+Tests:
 
-**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Local Hecke stack](#local-hecke-stack); [Integral bounded Grassmannian families](#integral-family-bounded-properness); [Relative-position flag correspondences](#flag-incidence-correspondences); `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`; `VS:VS0/artin-v-stack-definition`; `EDS:E5:presentability/universal-property-of-ind`; `EDS:E3`; `VS:VS0`; `DSO:S2/exchange-pasting-coherence`.
+- `convolution_unit`: Convolving with the identity kernel returns the other kernel.
+- `convolution_torus_labels`: For a torus, two skyscraper labels convolve to the skyscraper at their sum.
+- `convolution_twisted_diagram`: A⋆B=b_*a*(A⊠B); omitting either a* or b_* fails this formula.
+
+**Sources:** [FS](#source-fs), VI.8 opening, pp. 224–225.
+
+**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Local Hecke stack](#local-hecke-stack); [Integral bounded Grassmannian families](#integral-family-bounded-properness); [Relative-position flag correspondences](#flag-incidence-correspondences); [dual six-operation calculus](#supplier-calculus); [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`; `VS:VS0/artin-v-stack-definition`; `EDS:E5:presentability/universal-property-of-ind`; `EDS:E3`; `VS:VS0`; `DSO:S2/exchange-pasting-coherence`.
 
 <a id="convolution-associativity-and-unit"></a>
 
@@ -1128,11 +1271,11 @@ The interface must include:
 
 Hypotheses: Enhanced coherence, rather than equality of iterated objects; proper finite bounds and derived tensors.
 
-Construction and proof: Use the common three-step Hecke stack and proper base-change/projection-formula isomorphisms.
+Proof: Use the common three-step Hecke stack and proper base-change/projection-formula isomorphisms.
 
-**References:** [FS](#source-fs), VI.8 opening, pp. 224–225.
+**Sources:** [FS](#source-fs), VI.8 opening, pp. 224–225.
 
-**Prerequisites:** [Ambient Hecke convolution](#convolution-diagram); `EDS:E3`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `DSO:S2/exchange-pasting-coherence`; `VS:VS0`.
+**Prerequisites:** [Ambient Hecke convolution](#convolution-diagram); `EDS:E3`; [dual six-operation calculus](#supplier-calculus); `DSO:S2/exchange-pasting-coherence`; `VS:VS0`.
 
 <a id="rational-special-fibre-convolution"></a>
 
@@ -1140,11 +1283,11 @@ Construction and proof: Use the common three-step Hecke stack and proper base-ch
 
 Hypotheses: k algebraically closed; dominant bounds; rational coefficients; no integral coefficient-flatness inferred from this statement.
 
-Construction and proof: Use the lattice-chain Demazure and bounded proper map.
+Proof: Use the lattice-chain Demazure and bounded proper map.
 
 Checks: For minuscule one-step bounds, twisted convolution still need not be the product of the two flag varieties.
 
-**References:** [Zhu](#source-zhu), 2.1.2 and 2.2–2.4, pp. 431–432.
+**Sources:** [Zhu](#source-zhu), 2.1.2 and 2.2–2.4, pp. 431–432.
 
 **Prerequisites:** [Ambient Hecke convolution](#convolution-diagram); [Rational special-fibre weights](#rational-weight-concentration); [Witt Demazure filtration space](#witt-demazure-resolution); `EDC:EDC.5/semismall-pushforward-perverse`; `AC:L3/rf-shriek-comparison-27-4`.
 
@@ -1158,11 +1301,11 @@ ULA preservation and elementary two-leg collision estimates prove convolution cl
 
 Hypotheses: Finite proper bounds; derived tensor; split and generic descended versions.
 
-Construction and proof: Use the VS1 ULA criterion as adjointability of kernels, including the proper-relative IV.2.24 variant.
+Proof: Use the VS1 ULA criterion as adjointability of kernels, including the proper-relative IV.2.24 variant.
 
-**References:** [FS](#source-fs), VI.8.1(i), p. 225.
+**Sources:** [FS](#source-fs), VI.8.1(i), p. 225.
 
-**Prerequisites:** [Ambient Hecke convolution](#convolution-diagram); `VS:VS1/ula-for-artin-v-stacks`; `VS:VS1`; `DSO:S3/upper-shriek`; `DSO:S3/adjunction-calculus`; `DSO:S3/verdier-duality-lower-shriek`; `DSO:S2/lower-shriek`; `DSO:S2/lower-shriek-base-change`; `DSO:S2/projection-formula`; `VS:VS1/kernel-correspondence-category`; `VS:VS1/ula-relative-adjoints-and-calculus`.
+**Prerequisites:** [Ambient Hecke convolution](#convolution-diagram); `VS:VS1/ula-for-artin-v-stacks`; `VS:VS1`; [dual six-operation calculus](#supplier-calculus); [proper pushforward calculus](#supplier-calculus); `DSO:S2/projection-formula`; `VS:VS1/kernel-correspondence-category`; `VS:VS1/ula-relative-adjoints-and-calculus`.
 
 <a id="convolution-perverse-nonpositive"></a>
 
@@ -1170,11 +1313,11 @@ Construction and proof: Use the VS1 ULA criterion as adjointability of kernels, 
 
 Hypotheses: Coefficient derived tensor and correct cell dimensions; this elementary family is distinct from the coherent symmetric fusion construction of VI.9.
 
-Construction and proof: Use ordered legs, partial-diagonal excision and the defining cell inequalities to reduce the arbitrary bounded inputs to shifted cell constants. Their one-leg ULA property is supplied by VI.6.5.
+Proof: Use ordered legs, partial-diagonal excision and the defining cell inequalities to reduce the arbitrary bounded inputs to shifted cell constants. Their one-leg ULA property is supplied by VI.6.5.
 
 Checks: A collision is tested by summed cocharacters; the proof has a geometric family but not a symmetric monoidal Satake theorem.
 
-**References:** [FS](#source-fs), VI.8.1(ii), pp. 225–226.
+**Sources:** [FS](#source-fs), VI.8.1(ii), pp. 225–226.
 
 **Prerequisites:** [ULA preservation by convolution](#convolution-ula); [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct); [Ordered legs and divisor base change](#ordered-leg-base-change); [Integral bounded Grassmannian families](#integral-family-bounded-properness); [ULA Hecke complexes](#ula-sheaves-on-the-hecke-stack); [ULA recognition by constant terms](#ula-constant-term-criterion).
 
@@ -1184,11 +1327,11 @@ Checks: A collision is tested by summed cocharacters; the proof has a geometric 
 
 Hypotheses: All Satake conditions retained; coefficients need not be fields.
 
-Construction and proof: ULA follows from VI.8.1(i). Apply the nonpositive result to A,B and their relative Verdier duals.
+Proof: ULA follows from VI.8.1(i). Apply the nonpositive result to A,B and their relative Verdier duals.
 
-**References:** [FS](#source-fs), VI.8.1(iii), pp. 225–226.
+**Sources:** [FS](#source-fs), VI.8.1(iii), pp. 225–226.
 
-**Prerequisites:** [ULA preservation by convolution](#convolution-ula); [Nonpositive perverse convolution](#convolution-perverse-nonpositive); [Verdier duality of Satake objects](#satake-verdier-duality); [Flat perverse objects](#flat-perverse-objects).
+**Prerequisites:** [ULA preservation by convolution](#convolution-ula); [Nonpositive perverse convolution](#convolution-perverse-nonpositive); [Verdier duality of Satake objects](#satake-verdier-duality); [Flat perversity](#flat-perverse-objects).
 
 <a id="satake-rigidity"></a>
 
@@ -1196,9 +1339,9 @@ Construction and proof: ULA follows from VI.8.1(i). Apply the nonpositive result
 
 Hypotheses: Proper bounded support; ULA; use both left and right rigid structures in the library. No symmetry or fibre-functor monoidality is assumed.
 
-Construction and proof: Apply FS IV.2.24 to the bounded Hecke kernel, using the proper target.
+Proof: Apply FS IV.2.24 to the bounded Hecke kernel, using the proper target.
 
-**References:** [FS](#source-fs), VI.8.2, p. 226; IV.2.24, pp. 125–126.
+**Sources:** [FS](#source-fs), VI.8.2, p. 226; IV.2.24, pp. 125–126.
 
 **Prerequisites:** [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); [Verdier duality of Satake objects](#satake-verdier-duality); `VS:VS1`; `mathlib:CategoryTheory.RigidCategory`; `VS:VS1/kernel-correspondence-category`; `VS:VS1/ula-relative-adjoints-and-calculus`.
 
@@ -1208,9 +1351,9 @@ Construction and proof: Apply FS IV.2.24 to the bounded Hecke kernel, using the 
 
 Hypotheses: Split integral model; chosen C and k̄; the comparison is not asserted for arbitrary multi-leg collision ULA categories.
 
-Construction and proof: Use t-exact base change and the all-module tensor criterion on the ULA equivalence.
+Proof: Use t-exact base change and the all-module tensor criterion on the ULA equivalence.
 
-**References:** [FS](#source-fs), VI.6.7, VI.7.4–VI.7.8 and VI.8, pp. 214, 217–226.
+**Sources:** [FS](#source-fs), VI.6.7, VI.7.4–VI.7.8 and VI.8, pp. 214, 217–226.
 
 **Prerequisites:** [One-leg ULA special/generic comparison](#integral-family-comparison); [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct); [Duals of Satake objects](#satake-rigidity); [Associativity and unit of convolution](#convolution-associativity-and-unit); `AC:L3/rf-shriek-comparison-27-4`; `AC:L3/full-faithfulness-27-2`; `AC:L3/commutation-and-adjoints-27-1-27-3`.
 
@@ -1227,30 +1370,35 @@ Restriction away from cross-block collisions is fully faithful on the stated cat
 
 **Disjoint-leg locus** (`disjointLegLocus`). For a finite set I partitioned by b:I→K, define U_b ⊂ (Div¹_X)^I by x_i ≠ x_j whenever b(i) ≠ b(j). It allows coincidences inside one block. Pull the existing local Hecke stack and Satake category back to U_b; denote restriction by j_b*. On U_b, completion along the union of block divisors is the product of the block completions, giving the factorization of Grassmannians and local Hecke stacks.
 
-Construction and proof: Use the divisor product equation and invertibility of distinct divisor ideals to split the completed rings, then the loop quotient and torsor descriptions.
+Proof: Use the divisor product equation and invertibility of distinct divisor ideals to split the completed rings, then the loop quotient and torsor descriptions.
 
-The interface must include:
+API:
 
 - `disjointLegLocus`: For b:I→K and X=Div¹_X, U_b is the subfunctor of X^I satisfying the cross-block inequality.
 - `disjointLegLocus_mem`: A geometric tuple x lies in U_b iff b(i)≠b(j) implies x_i≠x_j for all i,j.
 - `disjointLegLocus_reindex`: A bijection of leg sets carries U_b to U_{b∘e}, compatibly with identity and composition.
 - `disjointLegLocus_baseChange`: Pullback of U_b under S→(Div¹_X)^I is precisely the same cross-block condition on S.
 
-Checks: One block gives the whole leg base. Singleton blocks exclude every collision, while a two-element block allows its internal diagonal.
+Tests:
 
-**References:** [FS](#source-fs), VI.9 pp226–227; VI.0 p189.
+- `test_disjoint_oneBlock`: A constant block map gives U_b=X^I.
+- `test_disjoint_twoSingletons`: For two singleton blocks, U_b={(x,y):x≠y}.
+- `test_disjoint_internalCollision`: For blocks {1,2},{3}, (x,x,y) with x≠y is allowed.
 
-**Prerequisites:** `RF:RF2:integral-divisors/product-equation-and-affineness`; `RF:RF2:untilts/div1-moduli-and-properness`; [Positive and full loop spaces](#loop-groups-and-local-hecke); [Ordered legs and divisor base change](#ordered-leg-base-change); [Local Hecke stack](#local-hecke-stack).
+
+**Sources:** [FS](#source-fs), VI.9 pp226–227; VI.0 p189.
+
+**Prerequisites:** `RF:RF2:integral-divisors/product-equation-and-affineness`; `RF:RF2:untilts/div1-moduli-and-properness`; [Loop spaces](#loop-groups-and-local-hecke); [Ordered legs and divisor base change](#ordered-leg-base-change); [Local Hecke stack](#local-hecke-stack).
 
 <a id="disjoint-leg-factorization-and-full-faithfulness"></a>
 
 **Restriction across collision diagonals** (`restriction_fullyFaithful`). For the blockwise disjoint inclusion j_b, restriction j_b*:Sat^I_G(Λ)→Sat_G(U_b,Λ) is fully faithful, and so is restriction of finite projective local systems on the leg base. Every Satake object satisfies A ≅ pH⁰(Rj_b*j_b*A). This is uniqueness and reconstruction for objects already extending; full faithfulness alone asserts no essential surjectivity.
 
-Construction and proof: Filter the complement by smooth partial diagonals of positive ℓ-codimension. Purity makes their i*i! on locally constant perfect complexes lie in degrees ≥2.
+Proof: Filter the complement by smooth partial diagonals of positive ℓ-codimension. Purity makes their i*i! on locally constant perfect complexes lie in degrees ≥2.
 
 Checks: For two legs the diagonal has codimension one and contributes starting in degree two. A codimension-zero closed component would invalidate the argument; arbitrary restrictions of arbitrary categories are not fully faithful.
 
-**References:** [FS](#source-fs), Proposition VI.9.3 pp227–228.
+**Sources:** [FS](#source-fs), Proposition VI.9.3 pp227–228.
 
 **Prerequisites:** [Disjoint-leg locus](#disjoint-leg-locus); [Relative perverse t-structure](#relative-perverse-t-structure); [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); [Satake category](#satake-category-and-fibre-functor); `VS:VS1`; [Equivariant perverse descent and constant terms](#perverse-descent-and-shifted-ct).
 
@@ -1258,18 +1406,23 @@ Checks: For two legs the diagonal has codimension one and contributes starting i
 
 **Satake support parity** (`supportParity`). The parity of a Schubert tuple μ• is ε(μ•)=Σ_i⟨2ρ,μ_i⟩ mod 2 in Z/2. Differences along dominance are sums of coroots, whose pairing with 2ρ is even, so parity is constant on a connected-component stratum and defines an open-and-closed even/odd decomposition of the local Hecke stack. For mixed-parity objects use their canonical summands. The correction scalar for homogeneous A,B is (-1)^{ε(A)ε(B)}.
 
-Construction and proof: Use ⟨2ρ,α∨⟩=2 for each simple coroot and dominance differences to prove constancy on closure relations.
+Proof: Use ⟨2ρ,α∨⟩=2 for each simple coroot and dominance differences to prove constancy on closure relations.
 
-The interface must include:
+API:
 
 - `supportParity`: The degree sum reduced modulo two, equivalently the dimension parity on each component.
 - `supportParity_dominance`: Comparable dominant Schubert tuples have equal parity.
 - `supportParity_union`: Parity on a disjoint union is the sum of the two parities in Z/2.
 - `fusionSign`: For e,f∈Z/2, the correction is (-1)^{ef}; it is a bicharacter.
 
-Checks: An odd-dimensional minuscule Schubert object is odd even when its ungraded fibre has even rank. Parity is additive; an odd/odd swap has scalar -1.
+Tests:
 
-**References:** [FS](#source-fs), VI.9 pp228–229.
+- `test_parity_unit`: The zero-cocharacter unit has parity zero.
+- `test_sign_oddOdd`: The correction on two odd summands is -1.
+- `test_sign_evenOdd`: Even/odd correction is +1; in characteristic two the two signs coincide.
+
+
+**Sources:** [FS](#source-fs), VI.9 pp228–229.
 
 **Prerequisites:** `RG:RG2.5`; [Generic Schubert bounds](#schubert-bounds-and-properness); `mathlib:RootPairing`.
 
@@ -1277,9 +1430,9 @@ Checks: An odd-dimensional minuscule Schubert object is odd even when its ungrad
 
 **Fusion product and ordinary symmetry** (`fusionProduct`). For blocks I=⊔_a I_a and A_a∈Sat^{I_a}_G(Λ), use the chain of modifications E_0→⋯→E_k, projections p_a to the a-th modification and composition m. Define the fusion object *_{a}A_a=Rm_*(⊗_a p_a*A_a). The construction is ULA, bounded and flat perverse and restricts to ⊠_a A_a on U_b. It is independent of the order by full faithfulness. Pull back along the duplicated-leg diagonal to obtain the tensor product on Sat^I. Modify its geometric commutativity by (-1)^{ε(A)ε(B)}. This gives a symmetric monoidal structure refining the existing convolution, with total cohomology F^I strong symmetric monoidal into ordinary, ungraded finite projective Weil representations.
 
-Construction and proof: Construct the proper chain-composition correspondence, whose restriction to disjoint blocks is an isomorphism. ULA stability comes from the IV.2 correspondence criterion. Apply constant terms: their total pushforward is locally constant perfect and agrees on the disjoint locus with the degree-zero finite-projective exterior product. Density and VI.7.7 imply flat perversity. Use VI.9.3 for uniqueness of associativity, commutativity and unit comparisons; all relations hold after disjoint restriction. Total cohomology carries the geometric flip to the graded Koszul flip. The component correction cancels that sign and preserves hexagon, involution and unit laws.
+Proof: Construct the proper chain-composition correspondence, whose restriction to disjoint blocks is an isomorphism. ULA stability comes from the IV.2 correspondence criterion. Apply constant terms: their total pushforward is locally constant perfect and agrees on the disjoint locus with the degree-zero finite-projective exterior product. Density and VI.7.7 imply flat perversity. Use VI.9.3 for uniqueness of associativity, commutativity and unit comparisons; all relations hold after disjoint restriction. Total cohomology carries the geometric flip to the graded Koszul flip. The component correction cancels that sign and preserves hexagon, involution and unit laws.
 
-The interface must include:
+API:
 
 - `fusionProduct`: The proper chain-composition pushforward for a finite ordered partition.
 - `fusionProduct_restrict`: Its restriction to U_b is canonically the exterior tensor product.
@@ -1287,11 +1440,16 @@ The interface must include:
 - `fusionBraiding`: Geometric block permutation multiplied on homogeneous summands by (-1)^{ε(A)ε(B)}.
 - `fibreFusionIso`: F(A*B) ≅ F(A)⊗F(B), respecting the ordinary symmetry, unit and associativity constraints.
 
-Checks: For one block recover A itself, and tensor with the zero-modification unit is the original object. Odd/odd braiding is the negative of the geometric flip; after F it is the ordinary flip. The construction uses neither rational decomposition nor rational reductivity.
+Tests:
 
-**References:** [FS](#source-fs), Definition/Proposition VI.9.4 pp228–230.
+- `test_fusion_unit`: Fusion with the unit is isomorphic to the original object.
+- `test_fusion_disjoint`: On distinct divisors fusion is the exterior product, with no diagonal extension summand.
+- `test_fusion_oddSymmetry`: On odd/odd objects F sends corrected braiding to the ordinary flip; uncorrected braiding is its negative if 2 is invertible.
 
-**Prerequisites:** [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); [Satake support parity](#support-parity); [Ambient Hecke convolution](#convolution-diagram); [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); `VS:VS1/ula-dualizability-criterion`; [Satake category](#satake-category-and-fibre-functor); `mathlib:CategoryTheory.SymmetricCategory`; `mathlib:CategoryTheory.Functor.Braided`; [Satake cohomology functor](#satake-fibre-functor); [Associativity and unit of convolution](#convolution-associativity-and-unit).
+
+**Sources:** [FS](#source-fs), Definition/Proposition VI.9.4 pp228–230.
+
+**Prerequisites:** [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); [Satake support parity](#support-parity); [Ambient Hecke convolution](#convolution-diagram); [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); `VS:VS1/ula-dualizability-criterion`; [Satake category](#satake-category-and-fibre-functor); `mathlib:CategoryTheory.SymmetricCategory`; `mathlib:CategoryTheory.Functor.Braided`; [Cohomology](#satake-fibre-functor); [Associativity and unit of convolution](#convolution-associativity-and-unit).
 
 ### Finite sets, Weil realization and duality
 
@@ -1301,9 +1459,9 @@ Collision maps merge fibres of finite sets and insert units for empty fibres. Th
 
 **CoCartesian finite-set functoriality** (`collisionFunctor`). For a map α:I→J, let Δ_α:(Div¹)^J→(Div¹)^I repeat the j-th divisor on its inverse-image block. Pull back along Gr^I_G ×_(Div¹)^I (Div¹)^J → Gr^I_G and push forward along the natural closed immersion Gr^I_G ×_(Div¹)^I (Div¹)^J ↪ Gr^J_G. Descending the required loop equivariance defines α_!:Sat^I→Sat^J; the closed immersion is on Grassmannians, not on quotient Hecke stacks. This merges each fibre of α and inserts unit modifications at empty fibres. For permutations it relabels legs, and for disjoint unions it respects exterior fusion. Canonical identity and composition comparisons satisfy the finite-set coherence relations. Together with exterior fusion they give the coCartesian family of symmetric monoidal Satake categories over finite sets.
 
-Construction and proof: Use the diagonal base-change square and its closed Grassmannian immersion to define pull-push, check loop equivariance and descend to the Satake categories. Directly check compositional base change; do not replace this diagram by a closed immersion of quotient Hecke stacks. Compare composite collision orders on the locus of distinct relevant divisors and use VI.9.3 to extend the comparison uniquely. Every coherence diagram reduces to the same disjoint-locus permutation/composition identity; include empty fibres with the unit. Use the imported operadic language to package these comparisons.
+Proof: Use the diagonal base-change square and its closed Grassmannian immersion to define pull-push, check loop equivariance and descend to the Satake categories. Directly check compositional base change; do not replace this diagram by a closed immersion of quotient Hecke stacks. Compare composite collision orders on the locus of distinct relevant divisors and use VI.9.3 to extend the comparison uniquely. Every coherence diagram reduces to the same disjoint-locus permutation/composition identity; include empty fibres with the unit. Use the imported operadic language to package these comparisons.
 
-The interface must include:
+API:
 
 - `collisionFunctor`: The functor α_! associated to any map α:I→J, including empty fibres.
 - `collisionFunctor_id`: The identity-map functor is canonically isomorphic to identity.
@@ -1312,43 +1470,48 @@ The interface must include:
 - `collisionFunctor_union`: Disjoint union of maps commutes with exterior fusion, including its corrected permutations.
 - `collisionFunctor_unitInsertion`: An unused target leg is assigned the zero-modification tensor unit.
 
-Checks: Three legs colliding successively agree with their single simultaneous collision. Permutation inverse/identity comparisons are inverse, and inserting then forgetting a unit leg is identity.
+Tests:
 
-**References:** [FS](#source-fs), VI.9 pp226–227, including the footnote p227; Proposition VI.9.4 pp228–229.
+- `test_collision_threeLegs`: The two successive three-leg merging orders have the canonical associativity comparison and commuting pentagon.
+- `test_collision_permutation`: A transposition composed with itself gives the identity comparison.
+- `test_collision_emptyFibre`: ∅→{1} sends the coefficient unit to the zero modification.
 
-**Prerequisites:** [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); `RF:RF2:integral-divisors/product-equation-and-affineness`; `EDS:E5:abstract/symmetric-monoidal-infinity-category`; [Positive and full loop spaces](#loop-groups-and-local-hecke); [Ordered legs and divisor base change](#ordered-leg-base-change); [Beilinson–Drinfeld Grassmannian](#grassmannian).
+
+**Sources:** [FS](#source-fs), VI.9 pp226–227, including the footnote p227; Proposition VI.9.4 pp228–229.
+
+**Prerequisites:** [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); `RF:RF2:integral-divisors/product-equation-and-affineness`; `EDS:E5:abstract/symmetric-monoidal-infinity-category`; [Loop spaces](#loop-groups-and-local-hecke); [Ordered legs and divisor base change](#ordered-leg-base-change); [Beilinson–Drinfeld Grassmannian](#grassmannian).
 
 <a id="drinfeld-fibre-realization"></a>
 
 **Weil realization of total cohomology** (`drinfeldFibreRealization`). For every finite I, finite projective local systems on (Div¹_X)^I are equivalent to continuous finite projective Λ-representations of W_E^I. Under this equivalence F^I is total cohomology on the Grassmannian over its leg base. It is faithful and conservative and has the inherited split-exact behaviour of VI.7.10, is symmetric monoidal for corrected fusion, and has the collision/permutation coherences. The Drinfeld statement is for locally constant perfect complexes, not all étale complexes or an assertion that fundamental groups commute with products.
 
-Construction and proof: Import IV.7.3 in its DLc form. Restrict to finite-projective local systems in degree zero to obtain VI.9.2.
+Proof: Import IV.7.3 in its DLc form. Restrict to finite-projective local systems in degree zero to obtain VI.9.2.
 
 Checks: For I=∅ the target is finite projective Λ-modules. For singleton I the action is the local Weil action, and for multiple legs the source is W_E^I, not its diagonal copy.
 
-**References:** [FS](#source-fs), Proposition VI.9.2 p226; Proposition IV.7.3 pp165–166 (full faithfulness begins p164).
+**Sources:** [FS](#source-fs), Proposition VI.9.2 p226; Proposition IV.7.3 pp165–166 (full faithfulness begins p164).
 
-**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `VS:VS1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`; `RF:RF2:untilts/div1-moduli-and-properness`; `mathlib:Representation`; `mathlib:Module.Projective`; [Satake cohomology functor](#satake-fibre-functor).
+**Prerequisites:** [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `VS:VS1`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`; `RF:RF2:untilts/div1-moduli-and-properness`; `mathlib:Representation`; `mathlib:Module.Projective`; [Cohomology](#satake-fibre-functor).
 
 <a id="symmetric-constant-term"></a>
 
 **Symmetric constant terms** (`constantTermFusionIso`). For a parabolic P with Levi M, CT_P[deg_P]:Sat^I_G(Λ)→Sat^I_M(Λ) is symmetric monoidal for corrected fusion, commutes with F^I, and is transitive for nested parabolics with the sum of the degree shifts. It respects arbitrary finite-set collision functors, disjoint unions and permutations, with identity, composition and transitivity coherences. The degree is componentwise ⟨2ρ_G−2ρ_M,μ⟩; omission of it changes the weight degrees.
 
-Construction and proof: Use VI.7.13 for landing, degrees and transitivity. Off the collision diagonals the assertion is Künneth and blockwise hyperbolic localization.
+Proof: Use VI.7.13 for landing, degrees and transitivity. Off the collision diagonals the assertion is Künneth and blockwise hyperbolic localization.
 
-**References:** [FS](#source-fs), Proposition VI.9.6 p230; VI.7.13 pp223–224; [Zhu](#source-zhu), Proposition 2.36 and the following paragraph, p454.
+**Sources:** [FS](#source-fs), Proposition VI.9.6 p230; VI.7.13 pp223–224; [Zhu](#source-zhu), Proposition 2.36 and the following paragraph, p454.
 
-**Prerequisites:** [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); `RG:RG2.5`; [Verdier duality of Satake objects](#satake-verdier-duality); [Satake cohomology functor](#satake-fibre-functor).
+**Prerequisites:** [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Restriction across collision diagonals](#disjoint-leg-factorization-and-full-faithfulness); `RG:RG2.5`; [Verdier duality of Satake objects](#satake-verdier-duality); [Cohomology](#satake-fibre-functor).
 
 <a id="fusion-verdier-duality"></a>
 
 **Fusion and Verdier duality** (`fusionVerdierComparison`). The inversion/reversal sw* is symmetric monoidal for fusion and F^I sw* ≅ F^I. Verdier duality D is a contravariant symmetric monoidal involution, D sw* ≅ sw* D and F^I D ≅ (F^I)^∨. The internal tensor dual of A is sw*D(A). These identifications retain their evaluation, coevaluation and finite-set coherence data; sw* itself need not be identity.
 
-Construction and proof: VI.8.2 supplies convolution duals before fusion; VI.7.12 supplies F(D A)=F(A)^∨.
+Proof: VI.8.2 supplies convolution duals before fusion; VI.7.12 supplies F(D A)=F(A)^∨.
 
 Checks: A torus weight μ is inverted by sw* and internal dual, with the corresponding dual local system. The PGL2 minuscule case distinguishes a symmetric Verdier pairing from the alternating SL2 pairing used in VI.12.
 
-**References:** [FS](#source-fs), Corollary VI.9.5 pp229–230; VI.8.2 pp225–226.
+**Sources:** [FS](#source-fs), Corollary VI.9.5 pp229–230; VI.8.2 pp225–226.
 
 **Prerequisites:** [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); [Satake category](#satake-category-and-fibre-functor); `mathlib:CategoryTheory.LeftRigidCategory`; [Verdier duality of Satake objects](#satake-verdier-duality); [Duals of Satake objects](#satake-rigidity).
 
@@ -1363,9 +1526,9 @@ Verify bounded adjunctions and all three F-split coequalizer conditions, then ap
 
 **Bounded left adjoints** (`boundedLeftAdjoint`). Let W_i⊂X_*(T)^+ be a finite downward-closed Galois-stable bound for each leg and C_W⊂Sat^I its full bounded-support category. The restriction F_W:C_W→Rep_{W_E^I}^{fp}(Λ) has a left adjoint L_W. Put X_W=L_W(1). For each finite projective Weil representation V, L_W(V)≅X_W⊗V (the LocSys action), naturally in V and the bounds. For product bounds, X_{W•} is the fusion product of the singleton X_{W_i}. These are Satake generators, not their dual coordinate coalgebras.
 
-Construction and proof: Reduce to Λ killed by ℓ^c and single-leg bounds using fusion. On the perverse category apply the adjoint functor theorem to total cohomology.
+Proof: Reduce to Λ killed by ℓ^c and single-leg bounds using fusion. On the perverse category apply the adjoint functor theorem to total cohomology.
 
-The interface must include:
+API:
 
 - `boundedLeftAdjoint`: The functor L_W left adjoint to F_W.
 - `boundedLeftAdjunction`: Hom(L_W V,A) ≅ Hom(V,F_W A), naturally in V and A, with triangle identities.
@@ -1374,29 +1537,35 @@ The interface must include:
 - `boundedGenerator_fusion`: For product bounds the generator is the fusion of singleton generators.
 - `boundedGenerator_enlarge`: For W⊂W′, representability gives X_W′→X_W after the bounded objects are included in Satake. The dual fibre map is (F X_W)^∨→(F X_W′)^∨, the forward arrow in the coordinate-coalgebra diagram.
 
-**References:** [FS](#source-fs), Proposition VI.10.1 pp230–232.
+Tests:
 
-**Prerequisites:** [Weil realization of total cohomology](#drinfeld-fibre-realization); [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Generic Schubert bounds](#schubert-bounds-and-properness); `EDS:E5:presentability/presentable-categories`; `mathlib:CategoryTheory.Adjunction`; [Standard and costandard objects](#standard-costandard-objects); [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); [Satake cohomology functor](#satake-fibre-functor).
+- `test_generator_zeroBound`: For a bound containing only weight zero, the generator is the unit with fibre Λ.
+- `test_generator_productBound`: Singleton generators fuse to the product-bound generator, preserving adjunction maps.
+- `test_generator_dualOrientation`: H_W=(F_W X_W)∨. For W⊂W′, H_W→H_W′ is dual to X_W′→X_W.
+
+**Sources:** [FS](#source-fs), Proposition VI.10.1 pp230–232.
+
+**Prerequisites:** [Weil realization of total cohomology](#drinfeld-fibre-realization); [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Generic Schubert bounds](#schubert-bounds-and-properness); `EDS:E5:presentability/presentable-categories`; `mathlib:CategoryTheory.Adjunction`; [Standard and costandard objects](#standard-costandard-objects); [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); [Cohomology](#satake-fibre-functor).
 
 <a id="relative-tannaka-hypotheses"></a>
 
 **Relative Tannaka hypotheses for Satake** (`relativeTannakaHypotheses`). With A=Rep_{W_E^I}^{fp}(Λ), C=Sat^I_G(Λ), corrected tensor and F^I, verify the hypotheses of MC.6 relative reconstruction: A is rigid symmetric, C is symmetric A-linear, F is strong symmetric A-linear and conservative, C admits coequalizers of F-split pairs and F reflects and preserves these coequalizers, and bounded full subcategories form a filtered cover stable under the A-action and those coequalizers, with restricted F represented by X_W. Sat^I over a general ring is not asserted to be an abelian category.
 
-Construction and proof: F-split diagrams are split after total cohomology. VI.7.10 constructs the relevant kernel/cokernel Satake objects when fibres split or are direct summands, so their coequalizers remain flat perverse and their fibres give the split quotient. Bounds remain bounded under those coequalizers and the LocSys action; enlargement makes the cover filtered. Apply the bounded adjunction to produce the finite-piece monad. Check preservation as well as reflection for the executable MC adapter; the source leaves preservation implicit, so preservation is a separate proof obligation.
+Proof: F-split diagrams are split after total cohomology. VI.7.10 constructs the relevant kernel/cokernel Satake objects when fibres split or are direct summands, so their coequalizers remain flat perverse and their fibres give the split quotient. Bounds remain bounded under those coequalizers and the LocSys action; enlargement makes the cover filtered. Apply the bounded adjunction to produce the finite-piece monad. Check preservation as well as reflection for the executable MC adapter; the source leaves preservation implicit, so preservation is a separate proof obligation.
 
 Checks: The relative base A retains all Weil local systems; it is not replaced by Vect or assumed semisimple. A nonsplit exact sequence of finite projective coefficient modules is not treated as an unrestricted cokernel construction in Satake.
 
-**References:** [FS](#source-fs), VI.10.2–10.3 pp232–235; VI.7.10 pp222–223.
+**Sources:** [FS](#source-fs), VI.10.2–10.3 pp232–235; VI.7.10 pp222–223.
 
-**Prerequisites:** [Bounded left adjoints](#tannakian-left-adjoint); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Fusion and Verdier duality](#fusion-verdier-duality); [Satake category](#satake-category-and-fibre-functor); [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); `MC:MC.6/relative-finite-piece-reconstruction`; `MC:MC.6/relative-coalgebra-assembly`; `MC:MC.6/relative-bialgebra-reconstruction`; `MC:MC.6/relative-rigid-antipode`; `mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair`; `mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair`; `mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair`; [Satake cohomology functor](#satake-fibre-functor).
+**Prerequisites:** [Bounded left adjoints](#tannakian-left-adjoint); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Fusion and Verdier duality](#fusion-verdier-duality); [Satake category](#satake-category-and-fibre-functor); [Closure of Satake under convolution](#convolution-preserves-satake-and-dualizability); `MC:MC.6/relative-finite-piece-reconstruction`; `MC:MC.6/relative-coalgebra-assembly`; `MC:MC.6/relative-bialgebra-reconstruction`; `MC:MC.6/relative-rigid-antipode`; `mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair`; `mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair`; `mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair`; [Cohomology](#satake-fibre-functor).
 
 <a id="geometric-coordinate-hopf-algebra"></a>
 
 **Geometric Satake coordinate Hopf algebra** (`satakeCoordinateHopf`). Apply the imported MC.6 relative reconstruction to Satake. In Ind(A), define H^I_Λ=colim_W (F_W X_W)^∨. It has a canonical commutative bialgebra structure from tensor products and an antipode from Satake rigidity. The comparison is a symmetric equivalence Sat^I_G(Λ)≃Comod_{A,underlying A}(H^I_Λ). Forgetting W_E^I gives an ordinary flat coordinate Hopf algebra and hence an affine flat group scheme G^∨,I_Λ. This reconstructs H from the Satake category; the baseline known-Hopf tensorAutFunctor is only a compatibility comparison once H is constructed.
 
-Construction and proof: Use the four exact MC.6 results for finite-piece reconstruction, filtered coalgebra assembly, multiplication and antipode. Their abstract constructions belong to MC.6. Each dual fibre is finite projective; its filtered colimit is flat. Tensor compatibility yields commutativity and unit/counit; rigidity supplies the antipode equations. The comparison restricts to comodules whose underlying object lies in A, precisely retaining finite projectivity and continuous Weil action. Compare with the existing known-Hopf reconstruction only after extending to a field where its hypotheses hold. Apply the corrected VI.10.2 wording: obtain a bialgebra first, then an antipode on H under rigidity; do not apply an inverse to the base category A.
+Proof: Use the four exact MC.6 results for finite-piece reconstruction, filtered coalgebra assembly, multiplication and antipode. Their abstract constructions belong to MC.6. Each dual fibre is finite projective; its filtered colimit is flat. Tensor compatibility yields commutativity and unit/counit; rigidity supplies the antipode equations. The comparison restricts to comodules whose underlying object lies in A, precisely retaining finite projectivity and continuous Weil action. Compare with the existing known-Hopf reconstruction only after extending to a field where its hypotheses hold. Apply the corrected VI.10.2 wording: obtain a bialgebra first, then an antipode on H under rigidity; do not apply an inverse to the base category A.
 
-The interface must include:
+API:
 
 - `satakeCoordinateHopf`: H^I_Λ is the filtered colimit of dual bounded-generator fibres, with its commutative Hopf structure.
 - `satakeCoaction`: Every A has its functorial H-coaction on F^I(A).
@@ -1404,9 +1573,14 @@ The interface must include:
 - `satakeCoordinateHopf_tensor`: Tensor of coactions uses the Hopf multiplication, and the unit coaction uses its unit.
 - `satakeCoordinateHopf_antipode`: The coaction on the internal dual is obtained using the antipode; both antipode identities hold.
 
-Checks: Weight-zero bounds contribute the coefficient unit; a split torus gives Λ[X_*(T)]. The antipode restricts to e^μ↦e^{-μ} for a torus. The group over Λ is affine flat; finite type and reductivity require separate arguments.
+Tests:
 
-**References:** [FS](#source-fs), Propositions VI.10.2–VI.10.3 pp232–235.
+- `test_hopf_trivialGroup`: For the trivial G, H=Λ and the geometric affine group is the trivial group.
+- `test_hopf_torus`: For split T, H=Λ[X_*(T)], with Δ(e^μ)=e^μ⊗e^μ and counit(e^μ)=1.
+- `test_hopf_torusAntipode`: e^μ maps to e^(−μ); identity fails for nonzero G_m weights.
+
+
+**Sources:** [FS](#source-fs), Propositions VI.10.2–VI.10.3 pp232–235.
 
 **Prerequisites:** [Relative Tannaka hypotheses for Satake](#relative-tannaka-hypotheses); `MC:MC.6/relative-coalgebra-assembly`; `MC:MC.6/relative-bialgebra-reconstruction`; `MC:MC.6/relative-rigid-antipode`; `EDS:E5:presentability/ind-completion`; `mathlib:HopfAlgebra`; `mathlib:Bialgebra`; `tauceti:TauCeti.AffineGroupSchemeCat`; `tauceti:TauCeti.Tannaka.tensorAutFunctor`; `tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor`; `mathlib:CategoryTheory.Limits.HasColimit`.
 
@@ -1414,11 +1588,11 @@ Checks: Weight-zero bounds contribute the coefficient unit; a split torus gives 
 
 **Multileg and coefficient reconstruction** (`multilegCoefficientReconstruction`). There are canonical Hopf isomorphisms H^I_Λ≅⊗_{i∈I}H^{i}_Λ and H^I_Λ⊗_ΛΛ′≅H^I_{Λ′} for the source coefficient changes. They commute with leg permutations, fusion/collision maps, comultiplication, counit and antipode. First work modulo ℓ^c, assemble compatible levels to construct H_{Z_ℓ} and its affine flat group, and recover torsion coefficient rings by base change. Prime-to-p finite coefficient decompositions are assembled componentwise. This is an ℓ-adic reconstruction theorem, not an integral decomposition theorem.
 
-Construction and proof: The product formula for X_W in VI.10.1 gives the dual tensor formula on finite pieces; pass to filtered colimits.
+Proof: The product formula for X_W in VI.10.1 gives the dual tensor formula on finite pieces; pass to filtered colimits.
 
-**References:** [FS](#source-fs), VI.10.3 pp234–235; VI.11.1 proof p235.
+**Sources:** [FS](#source-fs), VI.10.3 pp234–235; VI.11.1 proof p235.
 
-**Prerequisites:** [Bounded left adjoints](#tannakian-left-adjoint); [Geometric Satake coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Satake category](#satake-category-and-fibre-functor); `mathlib:Module.Flat`; [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); [Satake cohomology functor](#satake-fibre-functor).
+**Prerequisites:** [Bounded left adjoints](#tannakian-left-adjoint); [Coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Satake category](#satake-category-and-fibre-functor); `mathlib:Module.Flat`; [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); [Cohomology](#satake-fibre-functor).
 
 ### Geometric rational semisimplicity and Witt Tannaka
 
@@ -1428,9 +1602,9 @@ Forget arithmetic Weil data before applying geometric rational semisimplicity. E
 
 **Geometric rational semisimplicity** (`rationalSemisimplicity`). After forgetting Weil descent and taking a geometric splitting fibre, the rational Satake category is the direct sum over dominant μ of copies of finite-dimensional Q_ℓ-vector spaces generated by the simple IC_μ. For each bounded object the sum is finite. Convolution of the IC objects is semisimple. EDC.7 is applied on finite-type proper models/resolutions of bounded Witt Schubert perfections over an algebraic closure of a finite field and transported through perfection and the integral-family comparison. No semisimplicity of Weil representations, integral Satake objects or mod-ℓ Satake objects follows.
 
-Construction and proof: Use VI.6.7 to transport geometric Satake to the Witt fibre. Equivariance and connected Schubert stabilizers make simple equivariant local systems constant, so simples are IC_μ.
+Proof: Use VI.6.7 to transport geometric Satake to the Witt fibre. Equivariance and connected Schubert stabilizers make simple equivariant local systems constant, so simples are IC_μ.
 
-**References:** [FS](#source-fs), VI.7.5 pp219–221; VI.11.1 proof pp235–236; [Zhu](#source-zhu), Lemma 2.1 p430 and Proposition 2.2 p432; context pp430–432.
+**Sources:** [FS](#source-fs), VI.7.5 pp219–221; VI.11.1 proof pp235–236; [Zhu](#source-zhu), Lemma 2.1 p430 and Proposition 2.2 p432; context pp430–432.
 
 **Prerequisites:** [One-leg ULA special/generic comparison](#integral-family-comparison); [Generic Schubert bounds](#schubert-bounds-and-properness); [Relative perverse t-structure](#relative-perverse-t-structure); [Satake category](#satake-category-and-fibre-functor); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); `EDC:EDC.7`; [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound); [One-leg Satake equivalence](#one-leg-satake-comparison); [Perfect models and étale realization](#perfect-model-and-etale-comparison).
 
@@ -1438,13 +1612,13 @@ Construction and proof: Use VI.6.7 to transport geometric Satake to the Witt fib
 
 **Reductivity of the generic Satake group** (`genericFibreReductivity`). The geometric generic fibre G^∨_{Q_ℓ} is a connected reductive group of finite type. Finite dominant-monoid generators give a tensor generator (including its dual), so MC.6/DM 2.20 gives finite type. For every nontrivial IC highest weight the highest weights nμ in tensor powers grow, ruling out a nontrivial finite tensor hull; MC.6/DM 2.22 gives connectedness. Having established finite type and connectedness, use geometric semisimplicity and the characteristic-zero reductivity criterion from the existing ReductiveGroups owner. DM 2.23 also expresses the semisimplicity criterion as proreductivity; no additional general pro-group theorem is assigned to the upstream finite-type stage.
 
-Construction and proof: Choose finite generators for dominant weights, and use the highest-weight constituent IC_{μ+ν} of convolution to generate all simples by tensor operations/subquotients.
+Proof: Choose finite generators for dominant weights, and use the highest-weight constituent IC_{μ+ν} of convolution to generate all simples by tensor operations/subquotients.
 
 Checks: For G a split torus the group is its dual torus, not a semisimple group. Semisimplicity alone would allow disconnected or infinite proreductive groups; the preceding two recognition steps are necessary.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp235–236; [DM](#source-dm), Proposition 2.20, Corollary 2.22 and Proposition 2.23 pp24–27; [Zhu](#source-zhu), §2.5 p454, first paragraph.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp235–236; [DM](#source-dm), Proposition 2.20, Corollary 2.22 and Proposition 2.23 pp24–27; [Zhu](#source-zhu), §2.5 p454, first paragraph.
 
-**Prerequisites:** [Geometric rational semisimplicity](#rational-semisimplicity); [Geometric Satake coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); `MC:MC.6/tannaka-finiteness-recognition`; `MC:MC.6/tannaka-connectedness-recognition`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`; `RG:RG2.5`; `tauceti:TauCeti.reductiveAffineGroupSchemeProperty`.
+**Prerequisites:** [Geometric rational semisimplicity](#rational-semisimplicity); [Coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); `MC:MC.6/tannaka-finiteness-recognition`; `MC:MC.6/tannaka-connectedness-recognition`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`; `RG:RG2.5`; `tauceti:TauCeti.reductiveAffineGroupSchemeProperty`.
 
 <a id="witt-rational-tannakian-category"></a>
 
@@ -1452,11 +1626,11 @@ Checks: For G a split torus the group is its dual torus, not a semisimple group.
 
 Hypotheses: E is a finite extension of Q_p with residue field F_q; k is an algebraic closure of F_q; O = W(k) ⊗_{W(F_q)} O_E, the integers of the completed maximal unramified extension of E, which is totally ramified over W(k). G is a split connected reductive group over O_E, and also denotes its base change to O. ℓ ≠ p, and Q̄_ℓ is the union of the finite extensions of Q_ℓ. Zhu allows any algebraically closed k and any finite totally ramified F over W(k)[1/p]. For k an algebraic closure of F_p every such F is the completed maximal unramified extension of a finite extension E of Q_p (finite extensions of the completion of the henselian field Q_p^ur come from finite extensions of Q_p^ur), and every reductive group over the strictly henselian ring O is split, so the comparison route covers Zhu's setting for this k. For a larger algebraically closed k it is not covered here (proof obligation "Zhu's equivalence outside the FS comparison").
 
-Construction and proof: Zhu's ring W_O(R) = W(R) ⊗_{W(k)} O equals W(R) ⊗_{W(F_q)} O_E, so his Gr_G is the Witt vector affine Grassmannian of G over k. Over Spd k the local Hecke stack has the Witt Grassmannian as its underlying diamond, and Scholze's full embedding of étale sheaves on perfect schemes identifies its perverse objects with Zhu's L⁺G-equivariant perverse sheaves (FS p219). Compatibility with convolution, the unit and duals comes from the one-leg comparison result, and with total cohomology from the Satake cohomology functor.
+Proof: Zhu's ring W_O(R) = W(R) ⊗_{W(k)} O equals W(R) ⊗_{W(F_q)} O_E, so his Gr_G is the Witt vector affine Grassmannian of G over k. Over Spd k the local Hecke stack has the Witt Grassmannian as its underlying diamond, and Scholze's full embedding of étale sheaves on perfect schemes identifies its perverse objects with Zhu's L⁺G-equivariant perverse sheaves (FS p219). Compatibility with convolution, the unit and duals comes from the one-leg comparison result, and with total cohomology from the Satake cohomology functor.
 
-**References:** [Zhu](#source-zhu), §2 opening p429; §2.1.1 p430; §2.5 p454, first paragraph; [FS](#source-fs), VI.7 p219 after the proof of Proposition VI.7.4; Remark I.2.14 p17.
+**Sources:** [Zhu](#source-zhu), §2 opening p429; §2.1.1 p430; §2.5 p454, first paragraph; [FS](#source-fs), VI.7 p219 after the proof of Proposition VI.7.4; Remark I.2.14 p17.
 
-**Prerequisites:** [One-leg Satake equivalence](#one-leg-satake-comparison); [One-leg ULA special/generic comparison](#integral-family-comparison); `AC:L0/rational-constructible-coefficients`; [Satake cohomology functor](#satake-fibre-functor); [Duals of Satake objects](#satake-rigidity); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Geometric rational semisimplicity](#rational-semisimplicity); [Reductivity of the generic Satake group](#generic-fibre-reductivity); [Multileg and coefficient reconstruction](#multileg-and-coefficient-reconstruction); `MC:MC.6/neutral-tannaka-reconstruction`; [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound).
+**Prerequisites:** [One-leg Satake equivalence](#one-leg-satake-comparison); [One-leg ULA special/generic comparison](#integral-family-comparison); `AC:L0/rational-constructible-coefficients`; [Cohomology](#satake-fibre-functor); [Duals of Satake objects](#satake-rigidity); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Geometric rational semisimplicity](#rational-semisimplicity); [Reductivity of the generic Satake group](#generic-fibre-reductivity); [Coefficient reconstruction](#multileg-and-coefficient-reconstruction); `MC:MC.6/neutral-tannaka-reconstruction`; [Rational parity and integral torsion bounds](#standard-costandard-torsion-bound).
 
 
 ## GS4. Integral identification, normalization and functoriality
@@ -1469,55 +1643,55 @@ The generic rank-one calculation identifies the root datum. Integral identificat
 
 **Torus and rank-one identification** (`torusRankOneIdentification`). For a split torus T, Sat_T is the category of finitely supported X_*(T)-graded finite projective Weil representations and G^∨_T is its dual torus. Constant terms give a closed immersion of this torus into G^∨_G. For G=PGL₂ the minuscule Schubert variety is P¹, its fibre is Z_ℓ⊕Z_ℓ(-1) with torus weights ±1, and the generic fibre G^∨_{Q_ℓ} is SL(Q_ℓ⊕Q_ℓ(-1)) with geometric root line Q_ℓ(1). The integral and special-fibre statement is the separate result rank-one-integral-identification. For general semisimple rank one recover the central/component grading by the diagonalizable group with character group π₁(G), which can have torsion.
 
-Construction and proof: The torus calculation is the character grading and group-algebra Hopf computation. For each top Schubert weight its rank-one weight quotient gives the closed torus immersion.
+Proof: The torus calculation is the character grading and group-algebra Hopf computation. For each top Schubert weight its rank-one weight quotient gives the closed torus immersion.
 
 Checks: For G=G_m the weight n gives the character z↦z^n. For G=PGL₂ the generic group is SL₂, not PGL₂: the minuscule representation is two-dimensional with weights ±1. For G=PGL₂ the component group Z/2 corresponds to μ₂, which is diagonalizable and not a torus.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp235–237; [Zhu](#source-zhu), §2.5 p454, second paragraph.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp235–237; [Zhu](#source-zhu), §2.5 p454, second paragraph.
 
-**Prerequisites:** [Symmetric constant terms](#symmetric-constant-term); [Fusion and Verdier duality](#fusion-verdier-duality); [Multileg and coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Reductivity of the generic Satake group](#generic-fibre-reductivity); `RG:RG2.5`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `mathlib:RootPairing`.
+**Prerequisites:** [Symmetric constant terms](#symmetric-constant-term); [Fusion and Verdier duality](#fusion-verdier-duality); [Coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Reductivity of the generic Satake group](#generic-fibre-reductivity); `RG:RG2.5`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `mathlib:RootPairing`.
 
 <a id="rank-one-integral-identification"></a>
 
 **Integral rank-one identification** (`rankOneIntegralIdentification`). For G = PGL₂ and every ℓ ≠ p, the representation on the fibre Z_ℓ⊕Z_ℓ(-1) of the minuscule object is an isomorphism G^∨_{Z_ℓ} ≅ SL(Z_ℓ⊕Z_ℓ(-1)). Its special fibre G^∨_{F_ℓ} → SL₂ is surjective. The image H contains the diagonal torus T and its irreducibles are separated by highest weights in Z≥0; for ℓ odd this forces H = SL₂ (VI.11.2). For ℓ = 2 these properties leave the case that the reduced subgroup of H is the normalizer N(T), with H inside a Frobenius preimage of N(T). That case is excluded because Hom(1, B₁^{⋆n}) over F₂ has the characteristic-zero dimension for every n, while a Frobenius preimage of N(T) has more invariants in a suitable V^{⊗n}. For a split G of semisimple rank one the integral identification follows through G → G_ad ≅ PGL₂ and the component grading. The characteristic-two invariant-count route is a specified replacement: it uses the strengthened LP3 and GS2:correspondences dependencies, and its geometric identification remains the named rank-one special-fibre proof obligation.
 
-Construction and proof: Reduce G^∨ modulo ℓ and work after faithfully flat extension to an algebraic closure k of F_ℓ; surjectivity of the special-fibre map descends. Let H be the image of G^∨_k in SL₂. Every irreducible representation of G^∨_k is a simple Satake object B_μ of highest weight μ, so the irreducibles of H are separated by highest weights in Z≥0. Replace H by its image H′ under a high power r of the Frobenius isogeny: H′ is reduced, contains T and is a quotient of H, so its irreducibles pull back to irreducibles of H with highest weights multiplied by ℓ^r; and H′ = SL₂ forces H = SL₂ by dimension. The identity component of the smooth group H′ is T, a Borel or SL₂ by the structure theory of SL₂. T and the Borels have irreducibles of negative highest weight; if H′° = T then H′ ⊂ N(T). For ℓ odd the sign character of N(T) is a second irreducible of highest weight 0, so H′ = SL₂. For ℓ = 2, if H′ = N(T), then H lies in H_a, the preimage of N(T) under the a-th Frobenius power, for some a ≥ 0. Put n = 6·2^a − 2. The SL₂ tilting factorization gives T(n) ≅ A ⊗ T(4)^{[a]}, where A = T(2^{a+1} − 2). For a ≥ 1 the Steinberg-square description A ≅ St_a ⊗ St_a and self-duality identify A^{G_a} with End_{G_a}(St_a) = k; the resulting line has trivial SL₂ action. For a = 0 use A = T(0) directly. Hence T(n)^{G_a} ≅ T(4)^{[a]} and T(n)^{H_a} ≅ T(4)^{N(T)}. The character of T(4) is the sum of the characters of ∇(4) and ∇(2): its weight-zero space has dimension two, so the involution w has a nonzero fixed vector in characteristic two, but T(4)^{SL₂} = 0 because its good filtration has no ∇(0). Thus T(n)^{SL₂} = 0 as well. The highest-weight summand T(n) of the tilting module V^{⊗n} supplies extra H-invariants. For V^{⊗n} the ∇(0)-multiplicity is the characteristic-zero trivial multiplicity. The Steinberg-kernel and good-filtration facts are explicit LP3 obligations, not consequences of a prime-to-ℓ generation theorem. Require the following coefficient-independent geometric calculation from GS2:correspondences, strengthening rational semismallness. For even n, the n-step minuscule PGL₂ convolution space is a smooth iterated (perfected) P¹ bundle of dimension n, its proper convolution map is semismall, and the base-point fibre has dimension at most n/2. Proper duality identifies Hom(1, B₁^{⋆n}) with its degree-n Borel–Moore homology, up to the harmless Tate twist. Top-dimensional cycles give a free coefficient module with basis the n/2-dimensional irreducible components, so the F₂ dimension equals the Q_ℓ dimension. Transport this identification through the one-leg comparison and use the rational rank-one calculation for the latter dimension. Since the reconstructed group acts through H, this contradicts the extra invariants of the preceding step and gives H = SL₂. This source-to-supplier adapter remains the explicit rank-one proof obligation; Zhu Proposition 2.3 provides the semismall dimension bound, not the asserted modular Hom identification. The map G^∨_{Z_ℓ} → SL₂ is an isomorphism on generic fibres and surjective on special fibres, so on coordinate rings it is injective modulo ℓ and an isomorphism after inverting ℓ; the flat-module lemma VI.11.3 makes it an isomorphism. For semisimple rank one use G → G_ad ≅ PGL₂ and refine the component grading.
+Proof: Reduce G^∨ modulo ℓ and work after faithfully flat extension to an algebraic closure k of F_ℓ; surjectivity of the special-fibre map descends. Let H be the image of G^∨_k in SL₂. Every irreducible representation of G^∨_k is a simple Satake object B_μ of highest weight μ, so the irreducibles of H are separated by highest weights in Z≥0. Replace H by its image H′ under a high power r of the Frobenius isogeny: H′ is reduced, contains T and is a quotient of H, so its irreducibles pull back to irreducibles of H with highest weights multiplied by ℓ^r; and H′ = SL₂ forces H = SL₂ by dimension. The identity component of the smooth group H′ is T, a Borel or SL₂ by the structure theory of SL₂. T and the Borels have irreducibles of negative highest weight; if H′° = T then H′ ⊂ N(T). For ℓ odd the sign character of N(T) is a second irreducible of highest weight 0, so H′ = SL₂. For ℓ = 2, if H′ = N(T), then H lies in H_a, the preimage of N(T) under the a-th Frobenius power, for some a ≥ 0. Put n = 6·2^a − 2. The SL₂ tilting factorization gives T(n) ≅ A ⊗ T(4)^{[a]}, where A = T(2^{a+1} − 2). For a ≥ 1 the Steinberg-square description A ≅ St_a ⊗ St_a and self-duality identify A^{G_a} with End_{G_a}(St_a) = k; the resulting line has trivial SL₂ action. For a = 0 use A = T(0) directly. Hence T(n)^{G_a} ≅ T(4)^{[a]} and T(n)^{H_a} ≅ T(4)^{N(T)}. The character of T(4) is the sum of the characters of ∇(4) and ∇(2): its weight-zero space has dimension two, so the involution w has a nonzero fixed vector in characteristic two, but T(4)^{SL₂} = 0 because its good filtration has no ∇(0). Thus T(n)^{SL₂} = 0 as well. The highest-weight summand T(n) of the tilting module V^{⊗n} supplies extra H-invariants. For V^{⊗n} the ∇(0)-multiplicity is the characteristic-zero trivial multiplicity. The Steinberg-kernel and good-filtration facts are explicit LP3 obligations, not consequences of a prime-to-ℓ generation theorem. Require the following coefficient-independent geometric calculation from GS2:correspondences, strengthening rational semismallness. For even n, the n-step minuscule PGL₂ convolution space is a smooth iterated (perfected) P¹ bundle of dimension n, its proper convolution map is semismall, and the base-point fibre has dimension at most n/2. Proper duality identifies Hom(1, B₁^{⋆n}) with its degree-n Borel–Moore homology, up to the harmless Tate twist. Top-dimensional cycles give a free coefficient module with basis the n/2-dimensional irreducible components, so the F₂ dimension equals the Q_ℓ dimension. Transport this identification through the one-leg comparison and use the rational rank-one calculation for the latter dimension. Since the reconstructed group acts through H, this contradicts the extra invariants of the preceding step and gives H = SL₂. This source-to-supplier adapter remains the explicit rank-one proof obligation; Zhu Proposition 2.3 provides the semismall dimension bound, not the asserted modular Hom identification. The map G^∨_{Z_ℓ} → SL₂ is an isomorphism on generic fibres and surjective on special fibres, so on coordinate rings it is injective modulo ℓ and an isomorphism after inverting ℓ; the flat-module lemma VI.11.3 makes it an isomorphism. For semisimple rank one use G → G_ad ≅ PGL₂ and refine the component grading.
 
 Checks: The normalizer of the diagonal torus in SL₂ over F₂, and its preimage under the Frobenius isogeny, both have irreducibles of highest weights 0, 1, 2, …, each once; torus containment and injectivity of highest weights cannot tell them from SL₂ at ℓ = 2. For a = 0 the count is n = 4: (V^{⊗4})^{N(T)} is three-dimensional (w permutes the six weight-zero basis tensors freely), against two SL₂-invariants and two characteristic-zero invariants. A map of flat Z_ℓ-modules that is injective modulo ℓ and an isomorphism after inverting ℓ is an isomorphism; injectivity modulo ℓ alone is not enough.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp236–237; Lemmas VI.11.2–VI.11.3 p237; [DH](#source-dh), §1, Lemma 1.1 p3 and Lemma 1.4 p4; §5 p18, Steinberg-square discussion; [Zhu](#source-zhu), Proposition 2.3 and Remark 2.4 p432; §2.1 pp431–432.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp236–237; Lemmas VI.11.2–VI.11.3 p237; [DH](#source-dh), §1, Lemma 1.1 p3 and Lemma 1.4 p4; §5 p18, Steinberg-square discussion; [Zhu](#source-zhu), Proposition 2.3 and Remark 2.4 p432; §2.1 pp431–432.
 
-**Prerequisites:** [Torus and rank-one identification](#torus-and-rank-one-identification); [Multileg and coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Geometric Satake coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Ambient Hecke convolution](#convolution-diagram); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `LP:LP3`; `mathlib:Module.Flat`; `GeometricSatakeAndFusion:GS2:correspondences`; [One-leg Satake equivalence](#one-leg-satake-comparison).
+**Prerequisites:** [Torus and rank one](#torus-and-rank-one-identification); [Coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Ambient Hecke convolution](#convolution-diagram); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`; `LP:LP3`; `mathlib:Module.Flat`; `GeometricSatakeAndFusion:GS2:correspondences`; [One-leg Satake equivalence](#one-leg-satake-comparison).
 
 <a id="generic-root-datum"></a>
 
 **Weight torus and generic root datum** (`genericRootDatum`). Under the torus inclusion, weight-functor grading identifies X^*(T^∨)=X_*(T). The stabilizer of the cohomological grading is the maximal torus and the weight filtration defines a Borel. The symmetric constant-term maps for minimal Levis identify each simple coroot of G with a simple root of G^∨ and each simple root with its coroot; their Weyl reflections agree. Convex-hull bounds for weights of IC_μ exclude additional roots. Thus G^∨_{Q_ℓ} has the dual root datum and its generic pinning has root line Q_ℓ(1).
 
-Construction and proof: Use the weight grading and highest-weight line to identify the torus and chosen positive filtration.
+Proof: Use the weight grading and highest-weight line to identify the torus and chosen positive filtration.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp237–238; [Zhu](#source-zhu), §2.5 pp454–455, after Proposition 2.36.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp237–238; [Zhu](#source-zhu), §2.5 pp454–455, after Proposition 2.36.
 
-**Prerequisites:** [Torus and rank-one identification](#torus-and-rank-one-identification); [Symmetric constant terms](#symmetric-constant-term); [Reductivity of the generic Satake group](#generic-fibre-reductivity); [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); `RG:RG2.5`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
+**Prerequisites:** [Torus and rank one](#torus-and-rank-one-identification); [Symmetric constant terms](#symmetric-constant-term); [Reductivity of the generic Satake group](#generic-fibre-reductivity); [Semi-infinite strata and constant terms](#semi-infinite-orbits-and-hyperbolic-localization); `RG:RG2.5`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
 <a id="integral-recovery-and-adjoint-reduction"></a>
 
 **Integral recovery and the adjoint reduction** (`integralRecovery`). The generic dual identification extends to an isomorphism G^∨_{Z_ℓ}≅Ĝ_{Z_ℓ} for every ℓ≠p. Over the completed maximal unramified extension, the dual torus and rank-one Levi integral images generate Ĝ(Z̆_ℓ); this maximal bounded subgroup preserves a lattice in every finite-dimensional generic representation. The associated finite-type images recover the integral model via the RG2.3 Prasad–Yu closed-immersion criterion and VI.11.3 flat-module injection. At ℓ=2 first perform this step for G_ad, whose dual is simply connected, and then recover the original G from its component/central grading. One cannot apply Prasad–Yu directly to an arbitrary dual group in characteristic two.
 
-Construction and proof: Use integral CT Levi maps and the dual torus to obtain the full hyperspecial/maximal bounded subgroup; include the torus separately for semisimple rank zero. Import the generation/Iwasawa result from RG2.4 and integral-points topology from RG2.0. Extend a generic faithful representation using a preserved lattice. The map from Ĝ to its finite-type schematic image is generically a closed immersion. PY applies if ℓ≠2 or the generic fibre over an algebraic closure has no normal algebraic subgroup isomorphic to SO_{2n+1}; simple connectedness suffices. For G_ad this exception is absent. Surjectivity on integral points and the flat-module lemma force equality of coordinate rings. Reconstruct arbitrary G by refining the component grading, as in the rank-one/central argument.
+Proof: Use integral CT Levi maps and the dual torus to obtain the full hyperspecial/maximal bounded subgroup; include the torus separately for semisimple rank zero. Import the generation/Iwasawa result from RG2.4 and integral-points topology from RG2.0. Extend a generic faithful representation using a preserved lattice. The map from Ĝ to its finite-type schematic image is generically a closed immersion. PY applies if ℓ≠2 or the generic fibre over an algebraic closure has no normal algebraic subgroup isomorphic to SO_{2n+1}; simple connectedness suffices. For G_ad this exception is absent. Surjectivity on integral points and the flat-module lemma force equality of coordinate rings. Reconstruct arbitrary G by refining the component grading, as in the rank-one/central argument.
 
 Checks: The theorem includes ℓ=2 when p≠2 and includes groups whose dual has torsion fundamental group. The torus case does not rely on a nonexistent rank-one Levi. Generic equality by itself would also allow defective integral models; this proof uses integral points and the closed-immersion theorem.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp238–239; Lemma VI.11.4 p238; [PY](#source-py), Corollary 1.3 pp2–3; proof §5.4 p12.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp238–239; Lemma VI.11.4 p238; [PY](#source-py), Corollary 1.3 pp2–3; proof §5.4 p12.
 
-**Prerequisites:** [Weight torus and generic root datum](#generic-root-datum); [Torus and rank-one identification](#torus-and-rank-one-identification); [Integral rank-one identification](#rank-one-integral-identification); [Multileg and coefficient reconstruction](#multileg-and-coefficient-reconstruction); `RG:RG2.3`; `RG:RG2.0`; `RG:RG2.4`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `mathlib:Module.Flat`.
+**Prerequisites:** [Generic root datum](#generic-root-datum); [Torus and rank one](#torus-and-rank-one-identification); [Integral rank-one identification](#rank-one-integral-identification); [Coefficient reconstruction](#multileg-and-coefficient-reconstruction); `RG:RG2.3`; `RG:RG2.0`; `RG:RG2.4`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`; `mathlib:Module.Flat`.
 
 <a id="dual-group-identification"></a>
 
 **Canonical pinned dual identification** (`dualGroupIdentification`). There is a canonical W_E-equivariant isomorphism G^∨_Λ≅Ĝ_Λ^{geom} for the prime-to-p torsion and compatible ℓ-adic coefficients above. The geometric pinning identifies each simple root line with Λ(1); it carries the cyclotomic Weil action as well as the action on the pinned dual root datum. The isomorphism is independent of a chosen splitting pinning of G and descends from a finite Galois splitting extension to nonsplit G. It is an integral theorem and uses no exclusion on the order of π₁(Ĝ).
 
-Construction and proof: Initially identify split pinned groups by the integral torus/rank-one calculation. Vary the pinning over its flag/pinning parameter family.
+Proof: Initially identify split pinned groups by the integral torus/rank-one calculation. Vary the pinning over its flag/pinning parameter family.
 
-**References:** [FS](#source-fs), Theorem VI.11.1 p235 and canonical-pinning/descent proof pp238–239.
+**Sources:** [FS](#source-fs), Theorem VI.11.1 p235 and canonical-pinning/descent proof pp238–239.
 
 **Prerequisites:** [Integral recovery and the adjoint reduction](#integral-recovery-and-adjoint-reduction); [Symmetric constant terms](#symmetric-constant-term); [Weil realization of total cohomology](#drinfeld-fibre-realization); `RG:RG2.5`; `VS:VS1`.
 
@@ -1531,21 +1705,21 @@ The rational Witt theorem uses the generic identification. The integral theorem 
 
 Hypotheses: E is a finite extension of Q_p with residue field F_q; k is an algebraic closure of F_q; O = W(k) ⊗_{W(F_q)} O_E, the integers of the completed maximal unramified extension of E, which is totally ramified over W(k). G is a split connected reductive group over O_E, and also denotes its base change to O. ℓ ≠ p, and Q̄_ℓ is the union of the finite extensions of Q_ℓ. Zhu allows any algebraically closed k and any finite totally ramified F over W(k)[1/p]. For k an algebraic closure of F_p every such F is the completed maximal unramified extension of a finite extension E of Q_p (finite extensions of the completion of the henselian field Q_p^ur come from finite extensions of Q_p^ur), and every reductive group over the strictly henselian ring O is split, so the comparison route covers Zhu's setting for this k. For a larger algebraically closed k it is not covered here (proof obligation "Zhu's equivalence outside the FS comparison"). Dominance on coweights uses nonnegative integer combinations of positive coroots; Rep_{Q̄_ℓ}(Ĝ) means algebraic representations on finite-dimensional Q̄_ℓ-vector spaces, with no Weil action.
 
-Construction and proof: The generic root datum result identifies the root datum of the Tannakian group of the rational Witt category with the dual root datum, with its torus, Borel and simple root lines; the isomorphism theorem for pinned split groups gives Aut^⊗(H*) ≅ Ĝ over Q̄_ℓ. Neutral Tannaka reconstruction turns this into S with forget ∘ S ≅ H*. Only the generic fibre is used: the integral rank-one identification, integral recovery and the ℓ = 2 input are not prerequisites. For (a): transport the symmetric constant term for B through the one-leg comparison and to Q̄_ℓ; it commutes with the fibre functors. Uniqueness: H*_T is faithful, so the monoidal structure on CT is determined by the monoidal isomorphism H*_T ∘ CT ≅ H*. Symmetry: the commutativity constraints on both sides are detected by H*, as in the uniqueness part of Zhu's Proposition 2.21. The torus case identifies Rep(T̂) with graded spaces, so CT is restriction to T̂. For (b) and (c): the stabilizer of the cohomological filtration is B̂ by the generic root datum result. The weights of IC_μ lie in the convex hull of Wμ and μ occurs once, since S_μ ∩ Gr_{≤μ} is irreducible of dimension ⟨2ρ, μ⟩ by the Mirković–Vilonen count; so S(IC_μ) is the irreducible module of highest weight μ by the characteristic-zero highest-weight classification. For (b): the semi-infinite filtration is split by the weight functors (Zhu Corollary 2.10, with the weight-filtration argument stated here, or the symmetric constant-term result, through F ≅ F_T ∘ CT_B[deg]), so by (a) it corresponds to the sums of the weight spaces V(λ′) over λ′ ≥ λ, which are B̂-stable because the root groups of B̂ raise weights by positive coroots of G. Zhu's own route to the same identification (torus case, Proposition 2.36 by torus-equivariant cohomology, then the maximal torus and Borel argument of Mirković–Vilonen §7) uses his monoidal structure on H* and his Gelfand commutativity constraint (§§2.3–2.4). That independent construction belongs to GeometricSatakeAndFusionPartII; the equivalence here uses the fusion construction.
+Proof: The generic root datum result identifies the root datum of the Tannakian group of the rational Witt category with the dual root datum, with its torus, Borel and simple root lines; the isomorphism theorem for pinned split groups gives Aut^⊗(H*) ≅ Ĝ over Q̄_ℓ. Neutral Tannaka reconstruction turns this into S with forget ∘ S ≅ H*. Only the generic fibre is used: the integral rank-one identification, integral recovery and the ℓ = 2 input are not prerequisites. For (a): transport the symmetric constant term for B through the one-leg comparison and to Q̄_ℓ; it commutes with the fibre functors. Uniqueness: H*_T is faithful, so the monoidal structure on CT is determined by the monoidal isomorphism H*_T ∘ CT ≅ H*. Symmetry: the commutativity constraints on both sides are detected by H*, as in the uniqueness part of Zhu's Proposition 2.21. The torus case identifies Rep(T̂) with graded spaces, so CT is restriction to T̂. For (b) and (c): the stabilizer of the cohomological filtration is B̂ by the generic root datum result. The weights of IC_μ lie in the convex hull of Wμ and μ occurs once, since S_μ ∩ Gr_{≤μ} is irreducible of dimension ⟨2ρ, μ⟩ by the Mirković–Vilonen count; so S(IC_μ) is the irreducible module of highest weight μ by the characteristic-zero highest-weight classification. For (b): the semi-infinite filtration is split by the weight functors (Zhu Corollary 2.10, with the weight-filtration argument stated here, or the symmetric constant-term result, through F ≅ F_T ∘ CT_B[deg]), so by (a) it corresponds to the sums of the weight spaces V(λ′) over λ′ ≥ λ, which are B̂-stable because the root groups of B̂ raise weights by positive coroots of G. Zhu's own route to the same identification (torus case, Proposition 2.36 by torus-equivariant cohomology, then the maximal torus and Borel argument of Mirković–Vilonen §7) uses his monoidal structure on H* and his Gelfand commutativity constraint (§§2.3–2.4). That independent construction belongs to GeometricSatakeAndFusionPartII; the equivalence here uses the fusion construction.
 
 Checks: For a split torus T, S is the equivalence between X_*(T)-graded spaces and representations of T̂, with CT the identity. For G = PGL₂ the minuscule object goes to the standard representation of SL₂, with CT_{±μ} one-dimensional. For G = GL_n and μ = (1,0,…,0) the closed Schubert variety is P^{n−1}; S(IC_μ) is the standard representation, with the n coordinate weights each of multiplicity one. With the Koszul-signed symmetry instead of the parity-corrected one, the reconstruction would give a supergroup, not Ĝ.
 
-**References:** [Zhu](#source-zhu), Theorem 0.3 p408 ; Corollary 2.22 p444; §2.5 pp454–455; §0.5 p412; [FS](#source-fs), Remark I.2.14 p17; VI introduction pp188–189.
+**Sources:** [Zhu](#source-zhu), Theorem 0.3 p408 ; Corollary 2.22 p444; §2.5 pp454–455; §0.5 p412; [FS](#source-fs), Remark I.2.14 p17; VI introduction pp188–189.
 
-**Prerequisites:** [Rational Witt Satake category as a neutral Tannakian category](#witt-rational-tannakian-category); [Weight torus and generic root datum](#generic-root-datum); [Torus and rank-one identification](#torus-and-rank-one-identification); [Symmetric constant terms](#symmetric-constant-term); [One-leg Satake equivalence](#one-leg-satake-comparison); [Mirković–Vilonen intersections](#semi-infinite-intersections-and-mv-cycles); [Rational special-fibre weights](#rational-weight-concentration); `MC:MC.6/neutral-tannaka-reconstruction`; `RG:RG2.5`; `LP:LP3`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
+**Prerequisites:** [Rational Witt category](#witt-rational-tannakian-category); [Generic root datum](#generic-root-datum); [Torus and rank one](#torus-and-rank-one-identification); [Symmetric constant terms](#symmetric-constant-term); [One-leg Satake equivalence](#one-leg-satake-comparison); [MV intersections](#semi-infinite-intersections-and-mv-cycles); [Rational special-fibre weights](#rational-weight-concentration); `MC:MC.6/neutral-tannaka-reconstruction`; `RG:RG2.5`; `LP:LP3`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
 <a id="normalized-satake-equivalence"></a>
 
 **Normalized integral Satake equivalence** (`normalizedSatakeEquivalence`). Choose r∈Λ× with r²=q and the associated half Tate local system. Let χ_Tate be the Weil character of the geometric root line Λ(1) under IV.7.3 and κ its chosen square root. The half twist on a sheaf stalk has geometric Frobenius eigenvalue r^{-1}; identifying that stalk convention with κ under Drinfeld realization requires the explicit convention comparison. Put t_G(w)=(2ρ̂_G)(κ(w)) in Ĝ (projected to Ĝ_ad for conjugation). The geometric action is Ad(t_G(w)) composed with the usual pinned action. The semidirect comparison (g,w)↦(g t_G(w),w) identifies the geometrically twisted semidirect group with the pinned one. Combining it with reconstruction gives Sat^I_G(Λ)≃Rep^{fp,cont}_Λ((Ĝ⋊W_E)^I). Equivalently an algebraic representation of (Ĝ⋊Q)^I, for a finite quotient Q through which the pinned action factors, gives its normalized Satake object; Q is not substituted for all continuous Weil representations.
 
-Construction and proof: Use the root-line action in VI.11.1 to express geometric versus pinned action through the adjoint cocharacter 2ρ̂, without requiring ρ̂ itself to be a cocharacter of Ĝ. The identity t(wv)=t(w)·w(t(v)) verifies the semidirect multiplication comparison. Tensor and dual compatibility follow from the Hopf comparison and corrected fusion. Transport the chosen half twist and Frobenius convention through the Drinfeld equivalence. The precise stalk-action versus parameter-action orientation must be verified through the supplier interface.
+Proof: Use the root-line action in VI.11.1 to express geometric versus pinned action through the adjoint cocharacter 2ρ̂, without requiring ρ̂ itself to be a cocharacter of Ĝ. The identity t(wv)=t(w)·w(t(v)) verifies the semidirect multiplication comparison. Tensor and dual compatibility follow from the Hopf comparison and corrected fusion. Transport the chosen half twist and Frobenius convention through the Drinfeld equivalence. The precise stalk-action versus parameter-action orientation must be verified through the supplier interface.
 
-The interface must include:
+API:
 
 - `normalizedSatakeEquivalence`: The strong symmetric equivalence with continuous finite-projective representations of the usual pinned Weil semidirect group.
 - `normalizedSatakeObject`: The inverse equivalence applied to a representation V of (Ĝ⋊Q)^I.
@@ -1554,21 +1728,26 @@ The interface must include:
 - `normalizedSatake_dual`: S_{V∨} is the internal dual sw*D(S_V).
 - `normalizationCocycle`: t_G(w)=(2ρ̂_G)(κ(w)); the cocycle identity gives the semidirect comparison.
 
-Checks: For PGL₂ the normalized minuscule object is IC(P¹)=Λ[1](1/2) and its two Frobenius eigenvalues are r^{-1},r. For a torus 2ρ̂=0, so normalization leaves its weight characters unchanged. Changing r to -r changes the odd-component half twists by the central parity element (2ρ̂)(-1).
+Tests:
 
-**References:** [FS](#source-fs), Theorem VI.0.2 p190; VI.11.1 p235; IX.2 p321.
+- `test_normalized_torus`: For T=G_m, weight n is the point object on component n, with no ρ twist.
+- `test_normalized_pgl2`: The SL₂ standard representation gives Λ[1](1/2) on the PGL₂ minuscule P¹, with eigenvalues r⁻¹,r.
+- `test_normalized_rootChoice`: Replacing r by −r changes odd-component half twists by −1.
 
-**Prerequisites:** [Canonical pinned dual identification](#dual-group-identification); [Geometric Satake coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [Multileg and coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Weil realization of total cohomology](#drinfeld-fibre-realization); [Fusion and Verdier duality](#fusion-verdier-duality); `RG:RG2.5`; `mathlib:CategoryTheory.Functor.Monoidal`; `mathlib:Representation`.
+
+**Sources:** [FS](#source-fs), Theorem VI.0.2 p190; VI.11.1 p235; IX.2 p321.
+
+**Prerequisites:** [Pinned dual group](#dual-group-identification); [Coordinate Hopf algebra](#geometric-coordinate-hopf-algebra); [Coefficient reconstruction](#multileg-and-coefficient-reconstruction); [Weil realization of total cohomology](#drinfeld-fibre-realization); [Fusion and Verdier duality](#fusion-verdier-duality); `RG:RG2.5`; `mathlib:CategoryTheory.Functor.Monoidal`; `mathlib:Representation`.
 
 <a id="levi-naturality"></a>
 
 **Levi naturality and normalization** (`leviNaturality`). For P with Levi M, CT_P[deg_P] intertwines geometric Satake with restriction along M̂^{geom}→Ĝ^{geom}. Under the chosen normalized semidirect comparisons, the map from the pinned M-group to the pinned G-group is (m,w)↦(ι(m)t_M(w)^{-1}t_G(w),w). Here t_G/t_M=(2ρ̂_G−2ρ̂_M)(κ(w)) centralizes M̂. Nested Levis multiply these correction cocycles and their degree shifts add. Thus this is a naturality theorem with a specified Weil correction, not unqualified restriction along the untwisted inclusion.
 
-Construction and proof: Transport the geometric CT map through the two explicit semidirect comparison isomorphisms; multiply the two cocycles in the common torus.
+Proof: Transport the geometric CT map through the two explicit semidirect comparison isomorphisms; multiply the two cocycles in the common torus.
 
-**References:** [FS](#source-fs), VI.9.6 p230; VI.11.1 pp238–240; IX.7.1 p334.
+**Sources:** [FS](#source-fs), VI.9.6 p230; VI.11.1 pp238–240; IX.7.1 p334.
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [Symmetric constant terms](#symmetric-constant-term); [Weight torus and generic root datum](#generic-root-datum); `RG:RG2.5`.
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [Symmetric constant terms](#symmetric-constant-term); [Generic root datum](#generic-root-datum); `RG:RG2.5`.
 
 ### Group maps, products, restriction of scalars and inversion
 
@@ -1578,45 +1757,45 @@ Track component gradings for adjoint-isomorphism maps and the permutation of con
 
 **Naturality for adjoint-isomorphism maps** (`adjointIsomorphismNaturality`). For f:G′→G inducing an isomorphism on adjoint groups, componentwise pushforward of the corresponding bounded Grassmannian sheaves intertwines normalized Satake with restriction along the dual map Ĝ→Ĝ′. Component refinements, central characters, Weyl actions, tensor constraints, half twists and finite-set collisions commute with this comparison. This includes central isogenies and the adjoint reduction used for integral recovery; no inverse equivalence for a general central isogeny is asserted.
 
-Construction and proof: The map of Grassmannians is a componentwise isomorphism; its essential change is the map of component gradings. Pushforward corresponds to forgetting/refining the appropriate dual central character.
+Proof: The map of Grassmannians is a componentwise isomorphism; its essential change is the map of component gradings. Pushforward corresponds to forgetting/refining the appropriate dual central character.
 
-**References:** [FS](#source-fs), VI.11.1 proof pp237–239; IX.6.1 pp330–331.
+**Sources:** [FS](#source-fs), VI.11.1 proof pp237–239; IX.6.1 pp330–331.
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [Torus and rank-one identification](#torus-and-rank-one-identification); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `RG:RG2.5`; [Positive and full loop spaces](#loop-groups-and-local-hecke); [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [Torus and rank one](#torus-and-rank-one-identification); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `RG:RG2.5`; [Loop spaces](#loop-groups-and-local-hecke); [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
 
 <a id="product-naturality"></a>
 
 **Product naturality** (`productNaturality`). For G=G₁×G₂ the external product of Grassmannian sheaves and normalized Satake identify Ĝ with Ĝ₁×Ĝ₂ and carry V₁⊠V₂ to S_{V₁}⊠S_{V₂}. Tensor, fibre, root pinning, Weil action and all finite-set operations agree. This is a statement for external products and their induced categorical comparison, not a claim every representation is itself an external tensor product.
 
-Construction and proof: The loop/torsor and bounded Schubert constructions split as products; Künneth splits total cohomology and constant terms.
+Proof: The loop/torsor and bounded Schubert constructions split as products; Künneth splits total cohomology and constant terms.
 
-**References:** [FS](#source-fs), IX.6.2 p331; VI.10.3 pp234–235.
+**Sources:** [FS](#source-fs), IX.6.2 p331; VI.10.3 pp234–235.
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `RG:RG2.5`; [Positive and full loop spaces](#loop-groups-and-local-hecke); [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); `RG:RG2.5`; [Loop spaces](#loop-groups-and-local-hecke); [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
 
 <a id="weil-restriction-naturality"></a>
 
 **Weil restriction naturality** (`weilRestrictionNaturality`). For a finite separable E′/E and G=Res_{E′/E}G′, the dual pinned group is the product of conjugates of Ĝ′ indexed by embeddings E′→Ē, with its permutation Weil action. After pullback to the E′ divisor base, the closed Grassmannian immersion for the chosen embedding and proper pushforward implement the representation procedure: project to Ĝ′, inflate from Ĝ′⋊W_{E′} to Ĝ⋊W_{E′}, then induce to Ĝ⋊W_E. This comparison is compatible with total cohomology, tensor/collision coherences and the two field-specific half twists; it is not an equivalence replacing W_E by W_{E′} without induction.
 
-Construction and proof: Import the group-scheme Weil restriction and its pinned dual permutation datum. Use the pullback of the divisor leg base and the chosen-embedding closed Grassmannian immersion. The proper pushforward is finite-index induction on Weil representations by the Drinfeld realization, matching IX.6.3. Track residue degree f via q_{E′}=q_E^f and compatible half-root choices. Construct the finite-set/tensor comparisons through the geometric correspondences, not by claiming induction is strong monoidal on arbitrary representations; its compatibility uses the particular Hecke/factorization diagram.
+Proof: Import the group-scheme Weil restriction and its pinned dual permutation datum. Use the pullback of the divisor leg base and the chosen-embedding closed Grassmannian immersion. The proper pushforward is finite-index induction on Weil representations by the Drinfeld realization, matching IX.6.3. Track residue degree f via q_{E′}=q_E^f and compatible half-root choices. Construct the finite-set/tensor comparisons through the geometric correspondences, not by claiming induction is strong monoidal on arbitrary representations; its compatibility uses the particular Hecke/factorization diagram.
 
 Checks: For E′=E the construction is identity. For a quadratic induced torus the two geometric character factors are permuted by W_E; forgetting that permutation fails. Half roots must satisfy r_{E′}=r_E^f when compatible normalization is claimed.
 
-**References:** [FS](#source-fs), IX.6.3 pp331–332.
+**Sources:** [FS](#source-fs), IX.6.3 pp331–332.
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Positive and full loop spaces](#loop-groups-and-local-hecke); `RG:RG2.5`; `RG:RG2.0a`; [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Loop spaces](#loop-groups-and-local-hecke); `RG:RG2.5`; `RG:RG2.0a`; [Beilinson–Drinfeld Grassmannian](#grassmannian); [Generic Schubert bounds](#schubert-bounds-and-properness).
 
 <a id="chevalley-involution"></a>
 
 **Chevalley involution with its inner sign** (`chevalleyInvolution`). Under canonical dual identification, sw* acts by Ad(ρ̂(-1))∘θ on Ĝ, where θ is the pinned Chevalley involution with lattice action μ↦−w₀μ and ρ̂(-1) is evaluated in the adjoint dual torus. It commutes with the geometric Weil action. Internal dual is sw*D, not sw* alone. The inner correction affects the canonical tensor/fibre comparison although it disappears after quotienting dual parameters by conjugacy.
 
-Construction and proof: Reduce via adjoint-isomorphism maps to the simply connected dual and then by rank-one constant terms to PGL₂.
+Proof: Reduce via adjoint-isomorphism maps to the simply connected dual and then by rank-one constant terms to PGL₂.
 
 Checks: For PGL₂ the root-line sign is -1, so omitting ρ̂(-1) gives the wrong fibre comparison when 2 is invertible. For a torus w₀=1 and θ inverts characters; for coefficients of characteristic two the inner signs reduce to one.
 
-**References:** [FS](#source-fs), Proposition VI.12.1 and proof pp239–241.
+**Sources:** [FS](#source-fs), Proposition VI.12.1 and proof pp239–241.
 
-**Prerequisites:** [Canonical pinned dual identification](#dual-group-identification); [Normalized integral Satake equivalence](#normalized-satake-equivalence); [Fusion and Verdier duality](#fusion-verdier-duality); [Symmetric constant terms](#symmetric-constant-term); [Torus and rank-one identification](#torus-and-rank-one-identification); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
+**Prerequisites:** [Pinned dual group](#dual-group-identification); [Normalized equivalence](#normalized-satake-equivalence); [Fusion and Verdier duality](#fusion-verdier-duality); [Symmetric constant terms](#symmetric-constant-term); [Torus and rank one](#torus-and-rank-one-identification); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`.
 
 ### Extension to perfect representation complexes
 
@@ -1626,9 +1805,9 @@ Apply the all-prime relative classifying-stack base-change and stable completion
 
 **Perfect-complex Satake extension** (`perfectSatakeFunctor`). Fix ℓ≠p, a finite quotient Q of W_E through which the pinned action on Ĝ factors, and a Z_ℓ[r]-algebra Λ with r²=q. Compose normalized Satake on finite projective representations of (Ĝ⋊Q)^I with A↦D(A)^∨, using Verdier duality relative to Hck^I_G→[(Div¹)^I/L⁺G]. This is an exact Rep_Λ(Q^I)-linear monoidal functor into the enhanced local Hecke convolution category D■(Hck^I_G,Λ). Using LP3 highest-weight base change and LP4 the universal stable completion of the finite-projective exact representation category, extend it uniquely to a Perf(BQ^I_Λ)-linear exact monoidal functor Perf(B(Ĝ⋊Q)^I_Λ)→D■(Hck^I_G,Λ), coherent in I. Its fusion comparisons give symmetry on the Satake image. Its values lie in the stable idempotent closure of these Satake kernels. Equality with that closure, full faithfulness, and an equivalence with the whole enhanced category are not supplied by this extension theorem.
 
-Construction and proof: First define the exact representation functor over Z_ℓ[r] and compose with relative Verdier dual followed by internal dual. The enhanced target convolution uses pullback, tensor and π♮, which have the required infinity-category coherence. Import the relative highest-weight base-change equivalence Perf(B(Ĝ⋊Q)^I_{Z_ℓ[r]}) ⊗_{Perf(BQ^I_{Z_ℓ[r]})} Perf(BQ^I_Λ) ≅ Perf(B(Ĝ⋊Q)^I_Λ). Import the free stable/idempotent completion universal property for exact finite-projective representations, then extend the kernel functor and its finite-set comparisons uniquely. The general all-prime LP3/LP4 inputs are required; restricted parameter-stack generation is insufficient. The free stable/idempotent completion gives containment of the image in the stable idempotent closure of the representation kernels. It does not lift arbitrary enhanced morphisms or idempotents, so it does not prove equality of that closure with the essential image.
+Proof: First define the exact representation functor over Z_ℓ[r] and compose with relative Verdier dual followed by internal dual. The enhanced target convolution uses pullback, tensor and π♮, which have the required infinity-category coherence. Import the relative highest-weight base-change equivalence Perf(B(Ĝ⋊Q)^I_{Z_ℓ[r]}) ⊗_{Perf(BQ^I_{Z_ℓ[r]})} Perf(BQ^I_Λ) ≅ Perf(B(Ĝ⋊Q)^I_Λ). Import the free stable/idempotent completion universal property for exact finite-projective representations, then extend the kernel functor and its finite-set comparisons uniquely. The general all-prime LP3/LP4 inputs are required; restricted parameter-stack generation is insufficient. The free stable/idempotent completion gives containment of the image in the stable idempotent closure of the representation kernels. It does not lift arbitrary enhanced morphisms or idempotents, so it does not prove equality of that closure with the essential image.
 
-The interface must include:
+API:
 
 - `perfectSatakeFunctor`: The exact Perf(BQ^I)-linear monoidal functor on Perf(B(Ĝ⋊Q)^I).
 - `perfectSatake_onRepresentation`: On a finite-projective representation V its value is D(S_V)^∨ in local enhanced convolution.
@@ -1637,11 +1816,16 @@ The interface must include:
 - `perfectSatake_finiteSets`: The extension of all collision, permutation and unit comparisons has the same composition coherences.
 - `perfectSatake_unique`: Restriction along the representation embedding identifies the space of exact linear monoidal extensions with that of exact linear monoidal representation functors. A specified coherent isomorphism of restriction functors extends uniquely in this sense; agreement of object values alone is insufficient.
 
-Checks: A degree-zero finite projective V goes to D(S_V)^∨ with the specified relative duality. The coefficient unit maps to the convolution unit and a shift V[1] maps to the kernel shift. The statement holds at ℓ dividing π₁(Ĝ) torsion or |Q|; it uses none of the spectral-action exclusions.
+Tests:
 
-**References:** [FS](#source-fs), IX.2 p321.
+- `test_perfect_unit`: The trivial representation gives the convolution unit.
+- `test_perfect_shift`: V[1] maps to D(S_V)∨[1].
+- `test_perfect_badPrimeAllowed`: For G=SL₂ and ℓ=2≠p, dual PGL₂ has π₁ of order two; the extension still applies.
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Fusion and Verdier duality](#fusion-verdier-duality); `LP:LP3`; `LP:LP4`; `EDS:E5:abstract/stable-infinity-category`; `EDS:E5:abstract/exact-functors`; `EDS:E5:abstract/idempotent-completion`; `EDS:E5:abstract/symmetric-monoidal-infinity-category`; `VS:VS3`; `DSO:S6`.
+
+**Sources:** [FS](#source-fs), IX.2 p321.
+
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [CoCartesian finite-set functoriality](#finite-set-functoriality-and-constant-terms); [Fusion and Verdier duality](#fusion-verdier-duality); `LP:LP3`; `LP:LP4`; `EDS:E5:abstract/stable-infinity-category`; `EDS:E5:abstract/exact-functors`; `EDS:E5:abstract/idempotent-completion`; `EDS:E5:abstract/symmetric-monoidal-infinity-category`; `VS:VS3`; `DSO:S6`.
 
 
 ## GS4. Frobenius traces and classical spherical Satake
@@ -1654,9 +1838,9 @@ Use Frobenius-equivariant finite-type models and the existing constructible trac
 
 **Normalized Frobenius function** (`normalizedTraceFunction`). Assume G is unramified with a reductive O_E-model and hyperspecial K=G(O_E), and work rationally over a field L containing Q_ℓ and a chosen r with r²=q. A bounded Satake object A with a specified Frobenius descent structure is represented on its finite-type special-fibre model. For homogeneous support parity ε(A), define τ_A(g)=(-1)^{ε(A)} Σ_i(-1)^i Tr(Frob_q;H^i(A_{ḡ})); add this over even/odd summands. Geometric Frobenius acts on L(1) by q^{-1}; for the explicit IC formulas use the canonical Frobenius descent of the constant sheaf on the open Schubert stratum, and the sheaf IC_μ is normalized as j_{!*}L[d_μ](d_μ/2), d_μ=⟨2ρ,μ⟩, using r^{-d_μ} for the half twist. The function is K-biinvariant with bounded double-coset support. A geometric object without Frobenius descent has no specified trace function.
 
-Construction and proof: Use the finite-type special-fibre model and Frobenius-equivariant constructible realization, rather than counting points of an arbitrary diamond.
+Proof: Use the finite-type special-fibre model and Frobenius-equivariant constructible realization, rather than counting points of an arbitrary diamond.
 
-The interface must include:
+API:
 
 - `normalizedTraceFunction`: The parity-corrected alternating geometric Frobenius stalk trace of a Frobenius-descended Satake object.
 - `normalizedTrace_add`: Direct sums add trace functions, with parity correction applied separately to the two component summands.
@@ -1664,19 +1848,24 @@ The interface must include:
 - `normalizedTrace_biinvariant`: Values are constant on K-double cosets and vanish outside finitely many bounded relative positions.
 - `normalizedTrace_minuscule`: For a minuscule μ with canonical constant-sheaf IC Frobenius descent, τ_{IC_μ}=r^{-d_μ}1_{Kμ(π)K}; scaling the descent scales this function.
 
-Checks: The zero-weight object gives the characteristic function of K. For a split torus weight μ the function is the characteristic function of μ(π)K. For odd minuscule d, the uncorrected alternating trace is negative; the normalized function has leading coefficient r^{-d}. These formulas use the canonical constant-sheaf/IC Frobenius descent; scaling that descent scales the trace.
+Tests:
 
-**References:** [Zhu](#source-zhu), §2.2 pp434–436, equations (2.2.7)–(2.2.10); [Gross](#source-gross), §3 pp6–8, (3.3), (3.4), (3.6), (3.13); §8 pp15–16 for choices of normalization.
+- `test_trace_unit`: With canonical descent, τ_unit=1_K with coefficient +1.
+- `test_trace_torusWeight`: For G_m, weight n and canonical descent, τ=1_{πⁿO_E×}.
+- `test_trace_oddMinuscule`: For PGL₂, d=1 and canonical IC Frobenius descent, τ=r⁻¹1_{Kμ(π)K}; the raw trace has the opposite sign.
 
-**Prerequisites:** [Satake support parity](#support-parity); [One-leg ULA special/generic comparison](#integral-family-comparison); [Normalized integral Satake equivalence](#normalized-satake-equivalence); `SF:SF.2`; `SR:SR.4`; [Perfect models and étale realization](#perfect-model-and-etale-comparison).
+
+**Sources:** [Zhu](#source-zhu), §2.2 pp434–436, equations (2.2.7)–(2.2.10); [Gross](#source-gross), §3 pp6–8, (3.3), (3.4), (3.6), (3.13); §8 pp15–16 for choices of normalization.
+
+**Prerequisites:** [Satake support parity](#support-parity); [One-leg ULA special/generic comparison](#integral-family-comparison); [Normalized equivalence](#normalized-satake-equivalence); `SF:SF.2`; `SR:SR.4`; [Perfect models and étale realization](#perfect-model-and-etale-comparison).
 
 <a id="trace-convolution"></a>
 
 **Frobenius trace and convolution** (`traceConvolution`). Normalize Haar measure on G(E) by vol(K)=1. For Frobenius-descended rational Satake objects, τ_{A*B}=τ_A*τ_B, where the right side is spherical Hecke convolution with this measure; unit maps to 1_K. The same assertion holds for the existing convolution via its fusion comparison. This is additive on the Grothendieck group of the exact Frobenius-descended category, not an equivalence between all Weil sheaves and arbitrary functions.
 
-Construction and proof: On the finite-type bounded convolution correspondence use Künneth for stalk tensor traces and the proper/compact-support Frobenius trace formula for pushforward. The rational point sum matches double-coset convolution with vol(K)=1.
+Proof: On the finite-type bounded convolution correspondence use Künneth for stalk tensor traces and the proper/compact-support Frobenius trace formula for pushforward. The rational point sum matches double-coset convolution with vol(K)=1.
 
-**References:** [Zhu](#source-zhu), §2.1 pp430–433 and §2.2 pp434–436; [Gross](#source-gross), §2–§3 pp3–7, measure convention quoted in §3.
+**Sources:** [Zhu](#source-zhu), §2.1 pp430–433 and §2.2 pp434–436; [Gross](#source-gross), §2–§3 pp3–7, measure convention quoted in §3.
 
 **Prerequisites:** [Normalized Frobenius function](#normalized-frobenius-function); [Fusion product and ordinary symmetry](#fusion-product-and-sign-rule); [Ambient Hecke convolution](#convolution-diagram); `SF:SF.2`; `SR:SR.4`; [Perfect models and étale realization](#perfect-model-and-etale-comparison).
 
@@ -1684,11 +1873,11 @@ Construction and proof: On the finite-type bounded convolution correspondence us
 
 **Frobenius trace and normalized constant terms** (`traceConstantTerm`). In the split case choose B=TN and dn on N(E) with vol(N(O_E))=1. The classical transform imported from SR.4 is S(f)(t)=δ_B(t)^{1/2}∫_N f(tn)dn, where δ_B(λ(π))^{1/2}=q^{-⟨ρ,λ⟩}. For a Frobenius-descended normalized IC object, S(τ_A) is the weight-by-weight Frobenius character of its normalized cohomology fibre, with the shifted constant-term degree ⟨2ρ,λ⟩ and the matching half Tate normalization included. Here normalized fibre means the weight fibre of the transported normalized dual representation: the geometric cohomological Weil twist must be undone; it is not the unmodified ungraded total-cohomology trace. The corresponding statement for a Levi uses deg_P and the difference ρ_G−ρ_M. For unramified nonsplit G descend this formula using the relative Weyl/Frobenius datum supplied by SR.4; the split integral over N is not copied verbatim with absolute weights.
 
-Construction and proof: The compact-support trace formula on each semi-infinite weight intersection turns CT into the N-integral. Cohomological degree shift gives (-1)^{deg}, and the normalized half twist and Haar modulus give q^{-⟨ρ,λ⟩}. Apply Zhu (2.2.7)–(2.2.10) to the IC weight calculation. Track ordinary character rather than a supercharacter using the parity correction. For nonsplit unramified groups use the Frobenius-equivariant model and relative SR.4 transform; the exact descent/source adapter is an additional proof obligation.
+Proof: The compact-support trace formula on each semi-infinite weight intersection turns CT into the N-integral. Cohomological degree shift gives (-1)^{deg}, and the normalized half twist and Haar modulus give q^{-⟨ρ,λ⟩}. Apply Zhu (2.2.7)–(2.2.10) to the IC weight calculation. Track ordinary character rather than a supercharacter using the parity correction. For nonsplit unramified groups use the Frobenius-equivariant model and relative SR.4 transform; the exact descent/source adapter is an additional proof obligation.
 
 Checks: For a split torus N=1 and δ=1, so the transform is identity on weight indicators. For a split minuscule μ, the coefficient of each extremal weight matches the normalized representation character; omitting the half twist inserts q^{⟨ρ,μ⟩}.
 
-**References:** [Gross](#source-gross), §3 pp6–8, equations (3.4), (3.5), (3.6); [Zhu](#source-zhu), §2.2 pp434–436, equations (2.2.7)–(2.2.10).
+**Sources:** [Gross](#source-gross), §3 pp6–8, equations (3.4), (3.5), (3.6); [Zhu](#source-zhu), §2.2 pp434–436, equations (2.2.7)–(2.2.10).
 
 **Prerequisites:** [Normalized Frobenius function](#normalized-frobenius-function); [Symmetric constant terms](#symmetric-constant-term); [Levi naturality and normalization](#levi-naturality); `SF:SF.2`; `SR:SR.4`; `RG:RG2.5`.
 
@@ -1696,13 +1885,13 @@ Checks: For a split torus N=1 and δ=1, so the transform is identity on weight i
 
 **Classical and geometric Satake comparison** (`classicalSatakeComparison`). For the unramified/hyperspecial finite-field setting, the diagram from Frobenius-descended rational Satake objects to spherical Hecke functions by τ and to normalized dual representations by Satake commutes with the SR.4 spherical transform and Frobenius character on the dual torus. In the split IC basis with its canonical constant-sheaf Frobenius descent, S(τ_{IC_μ})=χ_μ and S(1_{Kμ(π)K})=q^{⟨ρ,μ⟩}χ_μ plus lower dominant characters; for minuscule μ the lower terms vanish. The nonsplit statement uses the appropriate Frobenius-twisted/relative character datum of SR.4. Both constructions precede this comparison; none of integral reconstruction, rational reductivity, SR.4 or fusion depends on it.
 
-Construction and proof: Use the normalized trace/constant-term equality to identify all weight coefficients with the dual character, then apply the already constructed SR.4 isomorphism. The IC leading term is r^{-d_μ} times the top double-coset indicator, so the triangular comparison agrees with Gross (3.9)–(3.13) and Zhu (2.2.7)–(2.2.10). Descend the commuting diagram with Frobenius and the pinned action in the unramified nonsplit case. The nonsplit Frobenius/relative-weight comparison is an additional proof obligation; Gross supplies the split calculation.
+Proof: Use the normalized trace/constant-term equality to identify all weight coefficients with the dual character, then apply the already constructed SR.4 isomorphism. The IC leading term is r^{-d_μ} times the top double-coset indicator, so the triangular comparison agrees with Gross (3.9)–(3.13) and Zhu (2.2.7)–(2.2.10). Descend the commuting diagram with Frobenius and the pinned action in the unramified nonsplit case. The nonsplit Frobenius/relative-weight comparison is an additional proof obligation; Gross supplies the split calculation.
 
 Checks: For G_m and weight n both paths give z^n. For PGL₂ minuscule μ, S(r^{-1}1_{Kμ(π)K}) is the SL₂ standard character z+z^{-1}. An unnormalized odd perverse trace would give its negative and fails the comparison.
 
-**References:** [Gross](#source-gross), §3 pp7–8, Proposition 3.6 and (3.13); [Zhu](#source-zhu), §2.2 pp434–436, (2.2.7)–(2.2.10).
+**Sources:** [Gross](#source-gross), §3 pp7–8, Proposition 3.6 and (3.13); [Zhu](#source-zhu), §2.2 pp434–436, (2.2.7)–(2.2.10).
 
-**Prerequisites:** [Normalized integral Satake equivalence](#normalized-satake-equivalence); [Frobenius trace and convolution](#trace-convolution); [Frobenius trace and normalized constant terms](#trace-constant-term); [Geometric rational semisimplicity](#rational-semisimplicity); `SR:SR.4`.
+**Prerequisites:** [Normalized equivalence](#normalized-satake-equivalence); [Frobenius trace and convolution](#trace-convolution); [Frobenius trace and normalized constant terms](#trace-constant-term); [Geometric rational semisimplicity](#rational-semisimplicity); `SR:SR.4`.
 
 ## Sources and editions
 

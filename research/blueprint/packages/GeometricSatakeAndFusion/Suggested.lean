@@ -124,7 +124,11 @@ theorem localHeckeAction_formula (G : Type u) [Group G] (H : Subgroup G) (h : H 
 theorem localHeckeAction_unit_stabilizer (G : Type u) [Group G] (H : Subgroup G) (h : H × H) : @SMul.smul (H × H) G (localHeckeAction G H).toSMul h 1 = 1 ↔ h.1 = h.2 := by sorry
 
 /-- Unit test `hecke_trivial_group` (degenerate): For the trivial group there is one modification and one automorphism. -/
-example (h : PUnit × PUnit) : h.1 = h.2 := by sorry
+example :
+    letI := localHeckeAction PUnit (⊤ : Subgroup PUnit)
+    Subsingleton (ActionCategory ((⊤ : Subgroup PUnit) × (⊤ : Subgroup PUnit)) PUnit) ∧
+      ∀ x : ActionCategory ((⊤ : Subgroup PUnit) × (⊤ : Subgroup PUnit)) PUnit,
+        Subsingleton (x ⟶ x) := by sorry
 
 /-- Unit test `hecke_identity_automorphisms` (non-example): For the additive integers encoded multiplicatively, the identity modification retains nontrivial diagonal automorphisms; the quotient is not the orbit set. -/
 example :
@@ -135,7 +139,11 @@ example :
         (localHeckeAction (Multiplicative ℤ) H).toSMul (h,h) 1 = 1 := by sorry
 
 /-- Unit test `hecke_double_action` (computation): For G=H, (h,1) sends the identity to h, whereas (1,h) sends it to h inverse. -/
-example (G : Type u) [Group G] (h : (⊤ : Subgroup G)) : @SMul.smul (((⊤ : Subgroup G)) × ((⊤ : Subgroup G))) G (localHeckeAction G ⊤).toSMul (h,1) 1 = (h : G) := by sorry
+example (G : Type u) [Group G] (h : (⊤ : Subgroup G)) :
+    @SMul.smul ((⊤ : Subgroup G) × (⊤ : Subgroup G)) G
+      (localHeckeAction G ⊤).toSMul (h,1) 1 = (h : G) ∧
+    @SMul.smul ((⊤ : Subgroup G) × (⊤ : Subgroup G)) G
+      (localHeckeAction G ⊤).toSMul (1,h) 1 = (h : G)⁻¹ := by sorry
 
 /-! GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian
 Gr_G(S) classifies a G-torsor on Spec B⁺_D(S) with a B_D-trivialization. It is a small v-sheaf and the étale sheafification of LG/L⁺G. Its map to Hck_G fixes the second torsor as trivial.
@@ -311,7 +319,7 @@ example (K : Type u) [Field K] : (0 : Matrix (Fin 1) (Fin 1) K) ∉ jetDetermina
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/witt-demazure-resolution
 Construction clarification (BS 7.11, pp.29–30): choose Q/pQ→G of rank n_lam(0) and recurse on ker(Q→G). Q/pQ itself can have larger rank on lower-type fibres; for lam=(2,1,0), Q=k³ gives the P² family of rank-two quotients.
 For Q of type ≤lam, Dem_lam(Q) classifies Q=Q₀⊃Q₁⊃⋯⊃0 with Q_i/Q_{i+1} locally free over R of rank n_lam(i). The global resolution Gr̃_lam classifies a lattice together with such a filtration of W(R)^n/Λ. It is a proper pfp perfect scheme obtained by successive perfected Grassmannian bundles. Its image is Gr_{≤lam}; over exact type the filtration is the p-adic filtration and the map is an isomorphism.
-Prototype boundary: The submodule-chain core omits prescribed locally free quotient ranks, annihilation by p, perfect-scheme representability and its lattice map. These conditions are written in the packet, not replaced by unknown proposition fields. -/
+Prototype boundary: The submodule-chain core omits prescribed locally free quotient ranks, annihilation by p, perfect-scheme representability and its lattice map. These conditions are specified in the roadmap document. -/
 def wittFiltration (R : Type u) [CommRing R] (M : Type u) [AddCommGroup M] [Module R M] (r : ℕ) : Type u :=
   {F : ℕ → Submodule R M // Antitone F ∧ F 0 = ⊤ ∧ ∀ i, r ≤ i → F i = ⊥}
 
@@ -352,7 +360,8 @@ theorem geometricDeterminantLine_lower_bound (X Y : AlgebraicGeometry.Scheme.{u}
 example (X : AlgebraicGeometry.Scheme.{u}) : Nonempty (geometricDeterminantLine X [] ≅ TauCeti.AlgebraicGeometry.InvertibleSheaf.trivial X) := by sorry
 
 /-- Unit test `determinant_existing_carrier` (compatibility): The descended geometric line uses Tau Ceti InvertibleSheaf, rather than a rank-one module at a point. -/
-example (X : AlgebraicGeometry.Scheme.{u}) (lam : List ℕ) : TauCeti.AlgebraicGeometry.InvertibleSheaf X := by sorry
+example (X : AlgebraicGeometry.Scheme.{u}) (lam : List ℕ) :
+    TauCeti.AlgebraicGeometry.InvertibleSheaf X := geometricDeterminantLine X lam
 
 /-- Unit test `determinant_quotient_sign` (computation): On a one-step quotient Grassmannian, the descended line pulls back to the graded quotient determinant; its sign is the quotient sign. -/
 example (X : AlgebraicGeometry.Scheme.{u}) (oneStepDet : TauCeti.AlgebraicGeometry.InvertibleSheaf X) : Nonempty (geometricDeterminantLine X [1] ≅ oneStepDet) := by sorry
@@ -423,7 +432,8 @@ example (R : Type u) [CommRing R] (M₀ : ModuleCat.{u} R) : Nonempty (normalize
 example (R : Type u) [CommRing R] : Nonempty (normalizedDeterminant R (ModuleCat.of R PUnit) (ModuleCat.of R PUnit) ≅ ModuleCat.of R R) := by sorry
 
 /-- Unit test `normalized_tensor_carrier` (compatibility): Tensor products and determinant duals use existing ModuleCat and TensorProduct. -/
-example (R : Type u) [CommRing R] (M M₀ : ModuleCat.{u} R) : ModuleCat.{u} R := by sorry
+example (R : Type u) [CommRing R] (M M₀ : ModuleCat.{u} R) :
+    ModuleCat.{u} R := normalizedDeterminant R M M₀
 
 /-! GeometricSatakeAndFusion:GS0:Witt-geometry/bounded-admissible-flags
 For a parahoric 𝓚 and a dominant cocharacter class μ, the admissible locus A_{𝓚,μ} is the finite closed union of affine Schubert strata labelled by the parahoric image of Adm(μ). Its reduced perfect structure is determined by geometric points. Under a morphism of parahoric models f:𝓚₁→𝓚₂ sending μ₁ to μ₂, the map of affine flags carries A_{𝓚₁,μ₁} into A_{𝓚₂,μ₂}.
@@ -612,8 +622,10 @@ def standardCostandard_map (D DC : Type u) [Category.{v} D] [Category.{v} DC] [H
 /-- API: Both restrict to the same normalized local system on the open cell. -/
 theorem standardCostandard_restriction (D DC : Type u) [Category.{v} D] [Category.{v} DC] [HasShift DC ℤ] (jshriek jstar : DC ⥤ D) (jpull : D ⥤ DC) (h0 : D ⥤ D) (constant : DC) (d : ℤ) : Nonempty (jpull.obj (standardCostandard D DC jshriek jstar h0 constant d).1 ≅ constant⟦d⟧) := by sorry
 
-/-- Unit test `standard_zero_cell` (degenerate): For a point cell with identity inclusions the pair is the same constant object. -/
-example (D : Type u) [Category.{v} D] [HasShift D ℤ] (A : D) : standardCostandard D D (𝟭 D) (𝟭 D) (𝟭 D) A 0 = (A,A) := by sorry
+/-- Unit test `standard_zero_cell` (degenerate): For identity inclusions and dimension zero, both objects are isomorphic to the constant object. HasShift provides a zero-shift isomorphism, not object equality. -/
+example (D : Type u) [Category.{v} D] [HasShift D ℤ] (A : D) :
+    Nonempty ((standardCostandard D D (𝟭 D) (𝟭 D) (𝟭 D) A 0).1 ≅ A) ∧
+    Nonempty ((standardCostandard D D (𝟭 D) (𝟭 D) (𝟭 D) A 0).2 ≅ A) := by sorry
 
 /-- Unit test `standard_open_restriction` (computation): The costandard object restricts to Λ[d] on its own cell. -/
 example (D DC : Type u) [Category.{v} D] [Category.{v} DC] [HasShift DC ℤ] (jshriek jstar : DC ⥤ D) (jpull : D ⥤ DC) (h0 : D ⥤ D) (constant : DC) (d : ℤ) : Nonempty (jpull.obj (standardCostandard D DC jshriek jstar h0 constant d).2 ≅ constant⟦d⟧) := by sorry
@@ -640,7 +652,8 @@ def satakeCategory_morphisms (R : Type u) [CommRing R] (D : Type u) [Category.{v
 example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (tensor : ModuleCat.{u} R → D ⥤ D) (DU : Type u) [Category.{v} DU] (forgetULA : DU ⥤ D) (A : DU) (hA : forgetULA.obj A = 0) (htensor : ∀ M, (tensor M).obj (0 : D) = 0) : flatPerverse R D t tensor (forgetULA.obj A) := by sorry
 
 /-- Unit test `satake_inclusion_fully_faithful` (compatibility): Morphisms agree with those in the existing Mathlib ObjectProperty full-subcategory construction. -/
-example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (tensor : ModuleCat.{u} R → D ⥤ D) (DU : Type u) [Category.{v} DU] (forgetULA : DU ⥤ D) : ((ObjectProperty.ι ((fun A : DU => flatPerverse R D t tensor (forgetULA.obj A)) : ObjectProperty DU))).Faithful := by sorry
+example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (tensor : ModuleCat.{u} R → D ⥤ D) (DU : Type u) [Category.{v} DU] (forgetULA : DU ⥤ D) : ((ObjectProperty.ι ((fun A : DU => flatPerverse R D t tensor (forgetULA.obj A)) : ObjectProperty DU))).Full ∧
+      ((ObjectProperty.ι ((fun A : DU => flatPerverse R D t tensor (forgetULA.obj A)) : ObjectProperty DU))).Faithful := by sorry
 
 /-- Unit test `satake_wrong_degree` (non-example): A ULA object outside the relative perverse heart is excluded from Satake. -/
 example (R : Type u) [CommRing R] (D : Type u) [Category.{v} D] [Preadditive D] [HasZeroObject D] [HasShift D ℤ] [∀ n : ℤ, (shiftFunctor D n).Additive] [Pretriangulated D] (t : Triangulated.TStructure D) (tensor : ModuleCat.{u} R → D ⥤ D) (DU : Type u) [Category.{v} DU] (forgetULA : DU ⥤ D) (A : DU) (h : ¬ t.heart (forgetULA.obj A)) : ¬ flatPerverse R D t tensor (forgetULA.obj A) := by sorry
@@ -709,7 +722,10 @@ theorem heckeConvolution_unit (D DP DC : Type u) [Category.{v} D] [Category.{v} 
 def torusConvolutionLabels (A B : Set ℤ) : Set ℤ := by sorry
 
 /-- Unit test `convolution_unit` (degenerate): Convolving with the identity kernel returns the other kernel. -/
-example (D : Type u) [Category.{v} D] [MonoidalCategory D] (A : D) : (𝟙_ D) ⊗ A ≅ A := by sorry
+-- Omitted: unit is the identity-modification kernel of this geometric correspondence.
+example (D DP DC : Type u) [Category.{v} D] [Category.{v} DP] [Category.{v} DC]
+    (box : D ⥤ D ⥤ DP) (astar : DP ⥤ DC) (bstar : DC ⥤ D) (unit A : D) :
+    ((heckeConvolution D DP DC box astar bstar).obj unit).obj A ≅ A := by sorry
 
 /-- Unit test `convolution_torus_labels` (computation): For a torus, two skyscraper labels convolve to the skyscraper at their sum. -/
 example (lam μ : ℤ) : torusConvolutionLabels {lam} {μ} = {lam+μ} := by sorry
@@ -1103,7 +1119,7 @@ def collisionFunctor_unitInsertion (n : ℕ) :
   by sorry
 
 -- test_collision_threeLegs: the two different 3→2→1 merging orders.
--- Their canonical comparison is induced by collisionFunctor_comp. The packet's
+-- Their canonical comparison is induced by collisionFunctor_comp. The
 -- fusion pentagon still needs the geometric associator and its enhanced coherence.
 example :
     collisionFunctor Sat (![0, 0, 1] : Fin 3 → Fin 2) ⋙
