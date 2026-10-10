@@ -37090,8 +37090,9 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.4",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6309"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6309",
+   "finishedAt": "2026-10-10T10:36:57Z"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.0",
@@ -41616,7 +41617,8 @@
     "BP-PrismaticCohomology--PR.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.8~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7084"
   },
   {
    "kind": "blueprint",
@@ -47114,8 +47116,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -48895,8 +48897,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80087,8 +80089,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81396,8 +81398,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84484,8 +84486,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
