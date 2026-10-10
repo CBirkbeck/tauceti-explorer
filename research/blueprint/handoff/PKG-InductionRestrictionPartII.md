@@ -1,5 +1,109 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
+## Current session: codex-VBtAuA
+
+Issue #7592. Worker: Codex (GPT-6), session `codex-VBtAuA`, 2026-10-10.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6102606624).
+This continues the merged checkpoint [#8620](https://github.com/CBirkbeck/tauceti-explorer/pull/8620).
+None of the manager's forty priority issues was available in the initial
+`swarm`/`state:available` screen; this package was selected by the fallback
+order. One job was claimed and no second job was taken.
+
+### Disposition
+
+**Blocked on the accepted plan's ownership boundary.** This is an input-state
+blocker, not a timeout. Only this handoff changes. The mathematical package
+files are preserved and `metadata.toml` remains absent; this submission does
+not claim a complete package.
+
+The source-of-truth packet still explicitly contains these two unassigned
+inputs, checked afresh in this session:
+
+- `gaps[0]`, **Natural integral homological bridge — supplier unassigned**:
+  native arbitrary-abelian-coefficient UCT with its natural Ext injection,
+  oriented evaluation, homological extension transgression and five-term
+  exactness, finite integral homology consequences, and the coprime degree-two
+  edge including the incoming d₃. Twelve named targets consume this gap.
+- `gaps[4]`, **Conjugacy of complements over a cyclic coprime quotient**:
+  finite coprime H,C with C cyclic, permitting nonabelian H; this is needed by
+  `InductionRestrictionPartII:RS.5/admissible-inertia-classes`.
+
+The packet's accepted review explicitly retains five gaps and one request.
+Its `complete` status records a completed planning pass, and all six stages
+are `planned`; no stage is closed. The ordinary-cover request has an owner
+(parent InductionRestriction Layer 7), unlike the two contracts above.
+The finite certificate and native-signature gaps also remain recorded; this
+session does not certify that their inherited prototypes discharge them.
+
+Issue #7592 restricts changes to package files and this handoff and forbids
+changing the source packet. Assigning these missing owners here would replace
+the accepted plan rather than package it. The concrete planning amendment
+below remains the resumption point: assign the contracts to RS.1/RS.5 or to
+exact existing supplier layers, reconcile the source documents, then finish
+the package and add its metadata. Suspend package eligibility until the
+ownership amendment is made to avoid another identical package-only run.
+No label was changed and no approval question is pending.
+
+### Fresh supplier and baseline checks
+
+The read-only current roadmap checkout remains
+`81207c7f16d5abf770f13a7d2bdcdb465c030787`, and current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. InductionRestriction and
+SemisimpleAlgebras READMEs were read in full. A search across current roadmap
+READMEs/Suggested files and current Tau Ceti source files found no exact
+supplier that resolves the two contracts. No Lake command was run in either
+read-only checkout.
+
+The relevant statements were inspected, not inferred from their names:
+
+- Parent InductionRestriction Layer 7 and its Suggested file provide factor
+  sets, their cohomological multiplier and ordinary representation groups;
+  they do not assign the general native integral homological bridge.
+- AlgebraicTopology Stage 6's UCT is in the singular theory. Current
+  `TopCat.singularKroneckerEquiv` has `[Injective M]` (Cohomology/Kronecker,
+  lines 85–88), and `TauCeti.ChainComplex.kronecker_bijective` has
+  `[Injective Y]` (Algebra/Homology/Kronecker, lines 175–178). These do not
+  give the required arbitrary-coefficient Ext sequence.
+- ProfiniteCohomology expressly excludes the Hochschild–Serre spectral
+  sequence. Its five-term sequence and the LocalGaloisGroups uses of that
+  sequence concern cohomology, rather than the required homological bridge.
+- Pinned `Subgroup.exists_right_complement'_of_coprime`
+  (Mathlib/GroupTheory/SchurZassenhaus, lines 277–292) concludes complement
+  existence. Its conclusion contains no conjugacy statement.
+- Current `TauCeti.groupHomology.transfer_comp_map_subtype_id`
+  (Transfer/Basic, lines 107–109) supplies transfer followed by inclusion as
+  index times identity. Reuse it; the missing bridge must not duplicate it.
+
+The reviewed library audit has no direct Part II entry. Its adjacent R17.5
+and MP.1 entries cover projective lifting and factor-set classification;
+they do not establish either missing contract.
+
+### Verification in this session
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
+  exited 0: 109 nodes, 124 API items, 96 unit tests, 30 planets, 30 baseline
+  declarations; zero errors and warnings. Five gaps, one request and six
+  planned stages remain. This validates the packet format, not closure.
+- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+  exited 0 with 670 warnings, all `declaration uses sorry`; no errors or
+  other warnings. Memory preflight: 100 GiB available. The helper documents
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; its Mathlib source
+  HEAD was confirmed as `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  The check has finished. No language server, build, update or cache download
+  was started. Compilation is expressibility evidence, not implementation.
+- The unchanged source packet SHA-256 is
+  `85af7815c4223c6b160f957e001598afb66ae1aaa84ddbea6995008ed72519c5`.
+  The finite certificate calculations and source readings in the inherited
+  record below are attributed to those sessions and were not rerun here.
+- `python3 research/blueprint/intake.py check-files research/blueprint/handoff/PKG-InductionRestrictionPartII.md`
+  passed: one allowed file, zero problems. `git diff --check` passed.
+
+Nothing in scratch is required to resume; preserve the amendment and native
+interface requirements below. The next useful work is the planning amendment,
+not another package signature inventory.
+
+## Inherited checkpoint: codex-SVIq8X
+
 Issue #7592. Worker: Codex (GPT-6), session `codex-SVIq8X`, 2026-10-10.
 The bot confirmed the [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6102154051).
 This continues the merged checkpoint [#8610](https://github.com/CBirkbeck/tauceti-explorer/pull/8610).
