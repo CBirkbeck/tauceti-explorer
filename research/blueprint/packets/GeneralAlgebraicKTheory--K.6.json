@@ -190,12 +190,13 @@
       "id": "Quillen.HigherI.1973",
       "title": "Higher algebraic K-theory I",
       "authors": "Daniel Quillen",
-      "edition": "Published chapter in Lecture Notes in Mathematics341 (1973), pp.85–147; Rochester-hosted scan of that chapter. Printed and PDF page pairs are recorded explicitly.",
+      "edition": "Rochester-hosted scan of Higher algebraic K-theory I, Lecture Notes in Mathematics 341 (1973), publication pp.85–147. Each page has separate typescript and publication numbering; PDF54–59 has typescript130–135 and publication138–143.",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf",
       "sha256": "5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04",
       "accessed": "2026-10-02",
       "readSections": [
-        "§8.1–§8.3, printed pp.130–135/PDF54–59: regularity, canonical resolution, coefficient projectivity, regular filtration and the noncommutative ring projective line. Text read in full; §8.3 formulas independently inspected in the p.135 image. Other sections of this scan have not been reread for this fix."
+        "§8.1–§8.3, typescript pp.130–135 / publication pp.138–143 / PDF pp.54–59: regularity, canonical resolution, coefficient projectivity, regular filtration and the noncommutative ring projective line. Text read in full; §8.3 formulas independently inspected in the typescript p.135 / publication p.143 image. Other sections of this scan have not been reread for this fix.",
+        "Independent review 2026-10-10: §8.1–8.3 re-read, publication pp.138–143 / PDF pp.54–59; noncommutative chart calculations in the packet were checked against the stated adaptation and the regularity proof, without treating a commutative-scheme theorem as the ring proof."
       ]
     },
     {
@@ -363,12 +364,12 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.1.3 (Example 2.1.3), printed p. 69 (PDF p. 77)",
-          "match": "The definition and the swindle. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition and the swindle"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise I.1.8 (Cone Ring), printed p. 5 (PDF p. 13)",
-          "match": "The cone ring; it is an exercise, not an item I.1.8. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The cone ring; it is an exercise, not an item I.1.8"
         }
       ],
       "implementationStatus": "unchecked",
@@ -479,7 +480,7 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1.1 (Definition 4.1.1), printed p. 210 (PDF p. 218)",
-          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition"
         }
       ],
       "implementationStatus": "unchecked",
@@ -588,17 +589,17 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1 (Definition 4.1), printed p. 210 (PDF p. 218)",
-          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.7 (Fundamental Theorem for K0 3.7), printed p. 206 (PDF p. 214)",
-          "match": "The first negative group from the Fundamental Theorem for K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The first negative group from the Fundamental Theorem for K0"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1.1, the paragraph after the definition, printed p. 210 (PDF p. 218)",
-          "match": "K_{−n} = Lⁿ K_0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "K_{−n} = Lⁿ K_0"
         }
       ],
       "implementationStatus": "unchecked",
@@ -720,22 +721,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1, 'The projective line over a ring', printed p. 370 (PDF p. 378)",
-          "match": "The gluing category and its vector bundles. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The gluing category and its vector bundles"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1, the same paragraph, printed p. 370 (PDF p. 378)",
-          "match": "The direct image functors. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The direct image functors"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1, the same paragraph and the next, printed pp. 370 to 371 (PDF pp. 378 to 379)",
-          "match": "The comparison for commutative R (S.5's, not used here) and the functors u_i. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The comparison for commutative R (S.5's, not used here) and the functors u_i"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5.4, proof, printed p. 371 (PDF p. 379)",
-          "match": "The twists and the Koszul sequence. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The twists and the Koszul sequence"
         }
       ],
       "implementationStatus": "unchecked",
@@ -869,31 +870,31 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5.4 (Theorem 1.5.4) and the sentence before it, printed p. 371 (PDF p. 379)",
-          "match": "The theorem. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The theorem"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5.4, proof, printed p. 371 (PDF p. 379)",
-          "match": "The Koszul relation, and the reduction to the proof of V.1.5. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The Koszul relation, and the reduction to the proof of V.1.5"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.1.3, printed p. 375 (PDF p. 383)",
-          "match": "The gluing-category proof is left as an exercise, with a pointer to Quillen that was not followed. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The gluing-category proof is left as an exercise, with a pointer to Quillen that was not followed"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5.2 (Lemma 1.5.2) with its proof, printed p. 369 (PDF p. 377)",
-          "match": "The Mumford-regular filtration, for a projective bundle over a scheme; the node adapts it. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The Mumford-regular filtration, for a projective bundle over a scheme; the node adapts it"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.1.5, the proof of Theorem 1.5, printed p. 370 (PDF p. 378)",
-          "match": "The triangularity argument, for a projective bundle over a scheme; the node adapts it. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The triangularity argument, for a projective bundle over a scheme; the node adapts it"
         },
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.3 Theorem3.1, printed p.135/PDF59",
+          "locator": "§8.3 Theorem3.1, typescript p.135 / publication p.143 / PDF p.59",
           "match": "Primary source for the arbitrary associative-ring result. All omitted chart checks used here are supplied in the prerequisite nodes."
         }
       ],
@@ -935,22 +936,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.4.4 (Example 7.4.4), printed p. 133 (PDF p. 141)",
-          "match": "The Nil category and the split forgetful functor. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The Nil category and the split forgetful functor"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.7, printed p. 324 (PDF p. 332)",
-          "match": "The Nil spectrum and the Nil groups in every degree. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The Nil spectrum and the Nil groups in every degree"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.8.2 (Lemma 7.8.2) with its proof, printed p. 138 (PDF p. 146)",
-          "match": "The equivalence with t-torsion modules. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The equivalence with t-torsion modules"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.8.1 (Example 3.8.1), printed p. 207 (PDF p. 215)",
-          "match": "The non-zero Nil group of a truncated polynomial ring, used as a unit test. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The non-zero Nil group of a truncated polynomial ring, used as a unit test"
         }
       ],
       "implementationStatus": "unchecked",
@@ -1067,37 +1068,37 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.7.1 (Theorem 7.1) and the paragraph after it, printed pp. 420 to 421 (PDF pp. 428 to 429)",
-          "match": "Sequence (a), for S = T, and the indirect proof this node follows. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "Sequence (a), for S = T, and the indirect proof this node follows"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.7.1.1 (Caveat 7.1.1), printed p. 421 (PDF p. 429)",
-          "match": "Why the connective sequence stops at K_0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Why the connective sequence stops at K_0"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.3.14, printed p. 399 (PDF p. 407)",
-          "match": "The identification of the support term with the torsion category. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The identification of the support term with the torsion category"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.7.3 (Corollary 7.7.3), printed p. 137 (PDF p. 145)",
-          "match": "The reduction from H_S to H_{1,S}, in degree zero; the same resolution argument gives every degree. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The reduction from H_S to H_{1,S}, in degree zero; the same resolution argument gives every degree"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.3.13, printed p. 399 (PDF p. 407)",
-          "match": "K(P¹_R) through modules with short resolutions. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "K(P¹_R) through modules with short resolutions"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.7.5, printed p. 429 (PDF p. 437)",
-          "match": "Sequence (b): the torsion objects on P¹_R. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "Sequence (b): the torsion objects on P¹_R"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.7.5(b)–(c), printed p. 429 (PDF p. 437)",
-          "match": "Sequence (b): the fibration, stated for an associative ring as an exercise (s = 1/t). Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "Sequence (b): the fibration, stated for an associative ring as an exercise (s = 1/t)"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1180,27 +1181,27 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1 (Theorem 8.1), printed p. 430 (PDF p. 438)",
-          "match": "The theorem. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The theorem"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1, proof, printed p. 430 (PDF p. 438)",
-          "match": "The localisation sequence the proof starts from. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The localisation sequence the proof starts from"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1, proof, continued, printed p. 430 (PDF p. 438)",
-          "match": "The map on the summand K_n(R). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The map on the summand K_n(R)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1, proof, end, printed p. 430 (PDF p. 438)",
-          "match": "The splitting and the conclusion. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The splitting and the conclusion"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.5.3 (Proposition 3.5.3), printed p. 205 (PDF p. 213)",
-          "match": "The classical degree-zero case, an acceptance test. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The classical degree-zero case, an acceptance test"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1241,22 +1242,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
-          "match": "The theorem (the bracket is the source's). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The theorem (the bracket is the source's)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2, proof, printed p. 431 (PDF p. 439)",
-          "match": "The ladder. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The ladder"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2, proof, continued, printed p. 431 (PDF p. 439)",
-          "match": "Exactness in positive degrees. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "Exactness in positive degrees"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.5.1 (Example 3.5.1), printed p. 388 (PDF p. 396)",
-          "match": "The vanishing of the transfer. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The vanishing of the transfer"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1301,17 +1302,17 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2, proof, the splitting, printed p. 431 (PDF p. 439)",
-          "match": "The splitting and the formula. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The splitting and the formula"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise V.8.1, printed p. 434 (PDF p. 442)",
-          "match": "The boundary formula, for the general central nonzerodivisor. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The boundary formula, for the general central nonzerodivisor"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise IV.1.23, printed p. 276 (PDF p. 284)",
-          "match": "Pairings of fibrations commute with the boundaries (the exercise's displayed diagram, which the text layer does not carry). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Pairings of fibrations commute with the boundaries (the exercise's displayed diagram, which the text layer does not carry)"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1352,32 +1353,32 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.6 (Fundamental Theorem for K1 3.6), printed p. 205 (PDF p. 213)",
-          "match": "Degree one, in the classical form. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "Degree one, in the classical form"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.7 (Fundamental Theorem for K0 3.7), printed p. 206 (PDF p. 214)",
-          "match": "Degree zero. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Degree zero"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.3.7, proof, printed p. 206 (PDF p. 214)",
-          "match": "The two-variable argument. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The two-variable argument"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1.2 (Example 4.1.2), printed p. 210 (PDF p. 218)",
-          "match": "Every negative group is contracted. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Every negative group is contracted"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.2 (Proposition 4.2), printed p. 211 (PDF p. 219)",
-          "match": "The closure properties the induction uses. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The closure properties the induction uses"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1.1, the paragraph after the definition, printed p. 210 (PDF p. 218)",
-          "match": "Bass's groups are the iterated contractions of K_0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Bass's groups are the iterated contractions of K_0"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1422,22 +1423,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
-          "match": "The theorem (the bracket is the source's). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The theorem (the bracket is the source's)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.1 (Theorem 8.1), printed p. 430 (PDF p. 438)",
-          "match": "The identification of the N-terms with Nil. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The identification of the N-terms with Nil"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
-          "match": "The regular case. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The regular case"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2, proof, printed p. 431 (PDF p. 439)",
-          "match": "The non-positive degrees come from Bass's contraction. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The non-positive degrees come from Bass's contraction"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1478,17 +1479,17 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4 (Definition 4.4), printed p. 213 (PDF p. 221)",
-          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4, axioms (3)–(4), printed p. 213 (PDF p. 221)",
-          "match": "The last two axioms, checked against the node's list. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The last two axioms, checked against the node's list"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.4.1 (Example 4.4.1), printed p. 214 (PDF p. 222)",
-          "match": "Bass's groups satisfy the axioms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Bass's groups satisfy the axioms"
         }
       ],
       "implementationStatus": "unchecked",
@@ -1600,22 +1601,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.3 (Theorem 4.3), printed pp. 212–213 (PDF pp. 220–221)",
-          "match": "The theorem; the displayed sequence follows on p. 213. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The theorem; the displayed sequence follows on p. 213"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4, the paragraph before Theorem 4.3, printed p. 212 (PDF p. 220)",
-          "match": "The proof by contraction. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The proof by contraction"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.2.6 (Theorem 2.6), printed p. 195 (PDF p. 203)",
-          "match": "The K_1–K_0 part, imported from K.5. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The K_1–K_0 part, imported from K.5"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.3.1 (Example 4.3.1), printed p. 213 (PDF p. 221)",
-          "match": "Dayton's example, an acceptance test. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Dayton's example, an acceptance test"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1661,27 +1662,27 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.1 (Definition 10.1), printed p. 349 (PDF p. 357)",
-          "match": "The construction. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The construction"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.2 (Fundamental Theorem 10.2), printed p. 349 (PDF p. 357)",
-          "match": "The first desuspension. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The first desuspension"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10, before Theorem 10.2, printed p. 349 (PDF p. 357)",
-          "match": "The comparison map is a product with the class of x. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The comparison map is a product with the class of x"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357)",
-          "match": "The iteration (the corollary's last clause carries the misprint recorded as E1). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The iteration (the corollary's last clause carries the misprint recorded as E1)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.4 (Definition 10.4), printed p. 350 (PDF p. 358)",
-          "match": "The Bass spectrum. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The Bass spectrum"
         }
       ],
       "implementationStatus": "unchecked",
@@ -1789,22 +1790,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10, the opening paragraph, printed p. 349 (PDF p. 357)",
-          "match": "The purpose: the negative homotopy is Bass's groups (the source's own spelling kept). Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The purpose: the negative homotopy is Bass's groups (the source's own spelling kept)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.3, proof, printed p. 350 (PDF p. 358)",
-          "match": "The identification in degree −k, through multiplication by x. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The identification in degree −k, through multiplication by x"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.4 (Definition 10.4), last sentence, printed p. 350 (PDF p. 358)",
-          "match": "The homotopy groups of the Bass spectrum. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The homotopy groups of the Bass spectrum"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.4 (Theorem 8.4), printed p. 432 (PDF p. 440)",
-          "match": "The topological Fundamental Theorem the first step uses. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The topological Fundamental Theorem the first step uses"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1857,27 +1858,27 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.10.1 (Definition 10.1), printed p. 349 (PDF p. 357)",
-          "match": "The cofibration sequence whose naturality in R lets the contraction pass to relative spectra. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The cofibration sequence whose naturality in R lets the contraction pass to relative spectra"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "Exercise IV.10.1, printed p. 351 (PDF p. 359)",
-          "match": "The source's route to the same conclusion, through the classical K_0(I); this node replaces that identification, which is U.6's, by K.5's degree-zero excision. Prose verbatim from the text layer of the author-hosted PDF, with the words that layer drops elided (…); formulas transcribed."
+          "match": "The source's route to the same conclusion, through the classical K_0(I); this node replaces that identification, which is U.6's, by K.5's degree-zero excision"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.2.2.1 (Remark 2.2.1), printed p. 193 (PDF p. 201)",
-          "match": "The classical degree-one surjectivity, and why injectivity is not claimed. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The classical degree-one surjectivity, and why injectivity is not claimed"
         },
         {
           "sourceId": "CMM.2021",
           "locator": "Theorem 4.33, p. 35",
-          "match": "The Milnor-square hypotheses, for associative rings. Verbatim from the text layer of the arXiv v2 PDF."
+          "match": "Milnor-square hypotheses for associative rings."
         },
         {
           "sourceId": "CMM.2021",
           "locator": "Proposition 4.34, proof, p. 35",
-          "match": "The use of this node: the proof needs only that the fibre 𝔽 of 𝕂(R, I) → 𝕂(S, J) is concentrated in degrees ≥ 0. Verbatim from the text layer of the arXiv v2 PDF, whose text layer drops the blackboard-bold font; 𝕂 and 𝔽 are restored from the proof's first sentence, which names F and 𝔽 as the fibres of the connective and the nonconnective maps. Bass's Theorem XII.8.3 was not read."
+          "match": "The proof uses the comparison fibre of nonconnective relative K-theories being concentrated in nonnegative degrees. Bass Theorem XII.8.3 remains an unread input."
         },
         {
           "sourceId": "CMM.2021",
@@ -1922,17 +1923,17 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "III.4.1, after Definition 4.1, printed p. 210 (PDF p. 218)",
-          "match": "The vanishing itself, stated by the source; the packet had not cited it. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The vanishing itself, stated by the source; the packet had not cited it"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
-          "match": "The vanishing of the N-terms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The vanishing of the N-terms"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "I.3.7.1 (Definition 3.7.1), printed p. 23 (PDF p. 31)",
-          "match": "The definition of regular; the packet's 'II.6.5 and I.3.7.1' merged two places. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition of regular; the packet's 'II.6.5 and I.3.7.1' merged two places"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1981,22 +1982,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7 (Theorem 2.7), printed p. 75 (PDF p. 83)",
-          "match": "The structure theorem. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The structure theorem"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7.1 (Corollary 2.7.1), printed p. 76 (PDF p. 84)",
-          "match": "Degree zero. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Degree zero"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2.7.2 (Example 2.7.2), printed p. 76 (PDF p. 84)",
-          "match": "The matrix ring. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The matrix ring"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.3.5 (Morita Invariance 6.3.5), printed p. 321 (PDF p. 329)",
-          "match": "All degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "All degrees"
         }
       ],
       "implementationStatus": "unchecked",
@@ -2104,17 +2105,17 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.1.1 (Definition 9.1.1), printed p. 158 (PDF p. 166)",
-          "match": "The data a K-theory is built from. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The data a K-theory is built from"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.7 (Theorem 9.7, Approximation Theorem), printed p. 167 (PDF p. 175)",
-          "match": "The invariance statement at the level of Waldhausen categories, which is what the enhancement hypothesis provides. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The invariance statement at the level of Waldhausen categories, which is what the enhancement hypothesis provides"
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definition 11.1 and Proposition 11.15, pp. 20 and 22",
-          "match": "Derived invariance for maps of Frobenius pairs: the hypothesis is a map of models, not a bare triangulated equivalence. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Derived invariance for maps of Frobenius pairs: the hypothesis is a map of models, not a bare triangulated equivalence"
         }
       ],
       "implementationStatus": "unchecked"
@@ -2163,22 +2164,22 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.2, the paragraph after Example 2.1.3, printed p. 69 (PDF p. 77)",
-          "match": "Products in degree zero; the connective statement is the early ring node's and is quoted so that the boundary is visible. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Products in degree zero; the connective statement is the early ring node's and is identified to specify the boundary"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.4 (Elementary properties 6.4), printed p. 321 (PDF p. 329)",
-          "match": "Products in all non-negative degrees, the connective statement imported from the early ring node. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Products in all non-negative degrees, the connective statement imported from the early ring node"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.4, the filtered-colimit clause, printed p. 321 (PDF p. 329)",
-          "match": "Filtered colimits in all non-negative degrees, the connective statement imported from the early ring node. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Filtered colimits in all non-negative degrees, the connective statement imported from the early ring node"
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 6.3 and Corollary 6.4, pp. 13–14",
-          "match": "Filtered colimits in non-positive degrees, stated in K.6/additivity-and-colimits-for-negative-K and cited here. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Filtered colimits in non-positive degrees, stated in K.6/additivity-and-colimits-for-negative-K and cited here"
         }
       ],
       "implementationStatus": "unchecked"
@@ -2228,27 +2229,27 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7, 'Products', and Lemma 7.4, printed p. 132 (PDF p. 140)",
-          "match": "The definition and the pairing on K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The definition and the pairing on K0"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.9.5.2 (Definition 9.5.2), printed p. 165 (PDF p. 173)",
-          "match": "The Waldhausen version (the pairing of spectra is IV.8.11, not here). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The Waldhausen version (the pairing of spectra is IV.8.11, not here)"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
-          "match": "The tensor product. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The tensor product"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.6.6 (Definition 6.6), printed p. 322 (PDF p. 330)",
-          "match": "Higher products for exact categories. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Higher products for exact categories"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
-          "match": "The pairing of spectra. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The pairing of spectra"
         }
       ],
       "implementationStatus": "unchecked",
@@ -2375,12 +2376,12 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.10 (Theorem 1.10, Loday), printed p. 266 (PDF p. 274)",
-          "match": "Graded commutativity; the packet cited 'IV.1 and the product structure (PDF p. 302)' with a formula that is not in the source. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Graded commutativity; the packet cited 'IV.1 and the product structure (PDF p. 302)' with a formula that is not in the source"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
-          "match": "Multiplication by the class of the variable. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Multiplication by the class of the variable"
         }
       ],
       "implementationStatus": "unchecked"
@@ -2423,12 +2424,12 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "V.3.12 (Projection Formula 3.12), printed p. 395 (PDF p. 403)",
-          "match": "The projection formula for the transfer. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The projection formula for the transfer"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
-          "match": "The spectrum-level pairing the compatibilities are statements about. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The spectrum-level pairing the compatibilities are statements about"
         }
       ],
       "implementationStatus": "unchecked"
@@ -2468,15 +2469,16 @@
         {
           "sourceId": "Kbook.2013",
           "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
-          "match": "The K0 comparison. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "The K0 comparison"
         },
         {
           "sourceId": "Kbook.2013",
           "locator": "III.1.1.1 (Example 1.1.1, SK1), printed p. 180 (PDF p. 188)",
-          "match": "Units in K1; [u] + [u⁻¹] = [u u⁻¹] = 0 since K1 is additive in the product of units. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+          "match": "Units in K1; [u] + [u⁻¹] = [u u⁻¹] = 0 since K1 is additive in the product of units"
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "proposedParentStageId": "GeneralAlgebraicKTheory:K.7:products"
     },
     {
       "id": "GeneralAlgebraicKTheory:K.6/frobenius-pairs",
@@ -2517,12 +2519,12 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§3.3 to 3.5, pp. 8 to 9",
-          "match": "The definitions, verbatim; the ligature and accent damage of the scan has been repaired without changing a word."
+          "match": "The definitions."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.3 and Definition 5.4, p. 11",
-          "match": "The standing example and the definition it feeds, verbatim."
+          "match": "The standing example and the definition it feeds."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2634,17 +2636,17 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 4.2, p. 9",
-          "match": "The flasqueness of the envelope with its proof, verbatim."
+          "match": "The flasqueness of the envelope with its proof."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§4.1, Definition 4.3, Proposition 4.4 and Definition 4.7, pp. 9 to 10",
-          "match": "The envelope, the functor F, its properties and the suspension, verbatim."
+          "match": "The envelope, the functor F, its properties and the suspension."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 4.8, p. 10",
-          "match": "The verification that the flasque route satisfies the axioms, verbatim."
+          "match": "The verification that the flasque route satisfies the axioms."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2755,12 +2757,12 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definition 1.1, Facts 1.2, Set-up 1.3 and Definition 1.4, pp. 4 to 5",
-          "match": "The set-up and the definition, verbatim."
+          "match": "The set-up and the definition."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.5, p. 11",
-          "match": "The degree-zero identification, verbatim."
+          "match": "The degree-zero identification."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2868,12 +2870,12 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 1.6, Theorem 1.7, Corollary 1.8 and Remark 1.9, pp. 5 to 6",
-          "match": "The localisation theorem with its corollary and the obstruction remark, verbatim."
+          "match": "The localisation theorem with its corollary and the obstruction remark."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§5.5, p. 11",
-          "match": "The instance for exact categories and the localisation example, verbatim."
+          "match": "The instance for exact categories and the localisation example."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2911,7 +2913,7 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 6.1, Corollary 6.2, Lemma 6.3 and Corollary 6.4, pp. 13 to 14",
-          "match": "Additivity and the colimit statements, verbatim."
+          "match": "Additivity and the colimit statements."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2957,17 +2959,17 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Definitions 11.1 and 11.4, Lemma 11.3, pp. 20 to 21",
-          "match": "The construction of the spectrum, verbatim."
+          "match": "The construction of the spectrum."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 11.7, p. 21",
-          "match": "The computation of the homotopy groups, verbatim."
+          "match": "The computation of the homotopy groups."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 11.10 and §11.13, pp. 21–22",
-          "match": "Localisation at the spectrum level and the instance for exact categories, verbatim."
+          "match": "Localisation at the spectrum level and the instance for exact categories."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
@@ -3020,27 +3022,27 @@
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Theorem 7.1, the ring and additive-category clauses, pp. 14 to 15",
-          "match": "The ring and additive-category clauses, verbatim; the scheme clause between them (Thomason's groups of a quasi-compact quasi-separated scheme) is SchemeKTheoryOperations S.5's and is elided here."
+          "match": "The ring and additive-category clauses; the scheme clause between them (Thomason's groups of a quasi-compact quasi-separated scheme) is SchemeKTheoryOperations S.5's and is elided here."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Proof of Theorem 7.1, the ring case, p. 15",
-          "match": "The ring case is deduced from the additive-category case and Karoubi's comparison, verbatim."
+          "match": "The ring case is deduced from the additive-category case and Karoubi's comparison."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Remark 7.2, p. 15",
-          "match": "The alternative route through the noncommutative projective line, verbatim."
+          "match": "The alternative route through the noncommutative projective line."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "Lemma 8.1 and Corollary 8.2, p. 15",
-          "match": "The presentation of the first negative group, verbatim."
+          "match": "The presentation of the first negative group."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
           "locator": "§9, Examples 9.5 and 9.6, Conjecture 9.7 and Remark 9.8, pp. 16 to 17",
-          "match": "The vanishing theorems, the regular case and the conjecture, verbatim."
+          "match": "The vanishing theorems, the regular case and the conjecture."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3070,7 +3072,7 @@
       "sources": [
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.3, printed p.135/PDF59, displayed sequence after Theorem3.1",
+          "locator": "§8.3, typescript p.135 / publication p.143 / PDF p.59, displayed sequence after Theorem3.1",
           "match": "Read text and image. This is Quillen’s explicitly written two-chart sequence, with the packet’s right-module convention."
         }
       ],
@@ -3103,7 +3105,7 @@
       "sources": [
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.1 Lemma1.1(d), printed p.130/PDF54; Lemma1.12 with proof, p.133/PDF57; §8.3 p.135/PDF59",
+          "locator": "§8.1 Lemma1.1(d), typescript p.130 / publication p.138 / PDF p.54; Lemma1.12 with proof, typescript p.133 / publication p.141 / PDF p.57; §8.3 typescript p.135 / publication p.143 / PDF p.59",
           "match": "The packet spells out the central-variable chart adaptation of Quillen’s proof, including arbitrary-module tensoring, finite presentation and flatness. Quillen leaves the noncommutative adaptation checks to the reader."
         }
       ],
@@ -3137,7 +3139,7 @@
       "sources": [
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.1 Lemmas1.2,1.3,1.7, printed p.131/PDF55; Lemma1.13 p.133/PDF57; §8.3 p.135/PDF59",
+          "locator": "§8.1 Lemmas1.2,1.3,1.7, typescript p.131 / publication p.139 / PDF p.55; Lemma1.13 typescript p.133 / publication p.141 / PDF p.57; §8.3 typescript p.135 / publication p.143 / PDF p.59",
           "match": "Read the proofs. In rank2 they reduce to the displayed two-chart Koszul sequence and its Čech long exact sequence."
         }
       ],
@@ -3170,7 +3172,7 @@
       "sources": [
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.1 construction1.9–1.11, printed p.132/PDF56; Lemma1.14 p.134/PDF58; §8.3 p.135/PDF59",
+          "locator": "§8.1 construction1.9–1.11, typescript p.132 / publication p.140 / PDF p.56; Lemma1.14 typescript p.134 / publication p.142 / PDF p.58; §8.3 typescript p.135 / publication p.143 / PDF p.59",
           "match": "Rank2 adaptation is expanded explicitly; the coefficient projectivity and exactness are checked rather than hidden inside ExerciseV.1.3."
         }
       ],
@@ -3264,7 +3266,7 @@
       "sources": [
         {
           "sourceId": "Quillen.HigherI.1973",
-          "locator": "§8.2 Lemma2.2 with proof, printed p.134/PDF58; §8.3 p.135/PDF59",
+          "locator": "§8.2 Lemma2.2 with proof, typescript p.134 / publication p.142 / PDF p.58; §8.3 typescript p.135 / publication p.143 / PDF p.59",
           "match": "The adjacent inclusion inverse is specified in the packet’s MR(n) convention, which is the negative of Quillen’s indexing."
         }
       ],
@@ -4467,7 +4469,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.4–4.5,chapter pp32–33/combinedPDFp224–225",
+          "locator": "Definitions III.4.4–4.4.2 and Theorem III.4.5 with its boundary diagram, printed pp.213–214 / combined PDF pp.221–222",
           "match": "Full uniqueness proof and its boundary diagram read. The earlier packet sentence denying uniqueness is corrected."
         }
       ],
@@ -4745,8 +4747,8 @@
         "D is supported in0,…,n after a shift; the homotopy convention is gf−id=dh+hd. The idempotent uses f,g,h and d_D, not the uncorrected fg."
       ],
       "proofSteps": [
-        "Construct C′_i=⊕_(j≤i)D_j with differential d′. On its finite blocks use diagonal fg or1−fg according to parity; adjacent block is (−1)^(j+k)d_D when j=k+1, and the lower blocks are (−1)^(k+1)fh^(k−j)g for j<k. The matrix is printed in Ranicki119. The identities for chain maps and h give(d′)²=0.",
-        "The inclusion with final component f and the row (h^ig,h^(i−1)g,…,g) give inverse chain equivalences V⇄C′. The source’s matrix k′ with identity on the first i blocks is the second homotopy (p120).",
+        "The input convention is gf−id=dh+hd. Set H=−h, giving id−gf=dH+Hd, before using Ranicki’s matrices. Construct C′_i=⊕_(j≤i)D_j with alternating block differentials p and 1−p. In the even-degree matrix p, the diagonal on D_j is fg for even j and 1−fg for odd j; the adjacent block D_(j+1)→D_j is (−1)^(j+1)d_D; the block D_j→D_k for j<k is (−1)^(j+1)fH^(k−j)g. Entries farther above the diagonal vanish. Use the displayed matrices in Proposition3.1, pp118–119, rather than the earlier proof sketch’s incomplete degree signs. The chain-map and homotopy identities give the two consecutive composites zero.",
+        "With the same H convention, the inclusion with final component f and the row (H^ig,H^(i−1)g,…,g) give inverse chain equivalences V⇄C′. The identity blocks in the second homotopy are as in the proof on p120; transport the homotopies consistently when returning to the input h convention.",
         "For i≥n every C′_i=F and d′ alternates p,1−p, so(d′)²=0 gives p²=p. Truncate at n with top idempotent p for even n and1−p for odd n. The maps identity in lower degrees and this top idempotent are inverse chain equivalences to the finite idempotent complex E.",
         "Euler summation gives [E]=[F,p]−[D_odd]. This is valid also for A⊂U: every matrix entry of p has source/target in A because f,g compose through D, and A is full."
       ],
@@ -4801,6 +4803,11 @@
           "name": "parity_matters",
           "kind": "non-example",
           "statement": "For odd top degree use1−p; replacing it by p changes the Euler formula."
+        },
+        {
+          "name": "homotopy_sign_changes_matrix",
+          "kind": "non-example",
+          "statement": "A non-strict domination with gf−id=dh+hd uses H=−h in the displayed projector. Substituting h without this change reverses the odd homotopy blocks and need not give p²=p."
         }
       ],
       "uses": [
@@ -5129,7 +5136,7 @@
     {
       "kind": "propose-split",
       "title": "K.7's product construction is needed before K.6",
-      "detail": "The Bass delooping (K-book IV.10) and the splitting of the Fundamental Theorem in positive degrees (V.8.2, Ex. V.8.1) use the external product with the class [t] ∈ K_1(ℤ[t,t⁻¹]), and K.7/products-from-biexact-functors is the only owner of that pairing (RT-AREA-ktheory-1/4). The pairing needs only K.1, K.2:plus, K.4:construction, StableHomotopyKTheory H.5:spectra and H.5:S-delooping, all upstream of K.6, but the atlas orders K.6 → K.7. Proposal: an early stage K.7:products holding K.7/products-from-biexact-functors (its parent), with edges K.2:plus, K.4:construction, H.5:spectra, H.5:S-delooping → K.7:products → K.6, and the rest of K.7 after K.6 as now. Until that stage exists the node keeps its parent K.7, and K.6/nonconnective-spectrum and K.6/multiplication-by-t-splits-the-boundary cite it directly; the node graph is acyclic, because the pairing node depends on no node of K.6."
+      "detail": "The Bass delooping (K-book IV.10) and the splitting of the Fundamental Theorem in positive degrees (V.8.2, Ex. V.8.1) use the external product with the class [t] ∈ K_1(ℤ[t,t⁻¹]), and K.7/products-from-biexact-functors is the only owner of that pairing (RT-AREA-ktheory-1/4). The pairing needs only K.1, K.2:plus, K.4:construction, StableHomotopyKTheory H.5:spectra and H.5:S-delooping, all upstream of K.6, but the atlas orders K.6 → K.7. Proposal: an early stage K.7:products holding K.7/products-from-biexact-functors (its parent), with edges K.2:plus, K.4:construction, H.5:spectra, H.5:S-delooping → K.7:products → K.6, and the rest of K.7 after K.6 as now. Until that stage exists the node keeps its parent K.7, and K.6/nonconnective-spectrum and K.6/multiplication-by-t-splits-the-boundary cite it directly; the node graph is acyclic, because the pairing node depends on no node of K.6. Independent review 2026-10-10: the same early stage includes biexact-S-grid, biexact-stabilized-pairing, biexact-pairing-coherence and unit-multiplication-and-K0-tensor-comparison as well as the products-from-biexact-functors aggregator. The unit/K₀ adapter uses only the early product and pinned SplitK0 and must not force its localization consumers to import late K.7. These are proposals pending maintainer application."
     }
   ],
   "sourceIssues": [
@@ -5249,9 +5256,9 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-    "date": "2026-09-30",
-    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-GeneralAlgebraicKTheory--K.6. Corrected handedness, nonzero-ring tests, the MR/VB splitting argument, and the map from the entire Nil category; added its explicit natural resolution. Restricted Morita product claims and positive matrix size; exposed the missing nonunital matrix continuity adapter. Noncommutative P¹ resolution/localization, Karoubi comparison, early products and several True-valued prototypes remain inadequate for /4, /17–/19. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Reviewed the noncommutative right-module P¹/Nil, Karoubi cone/index, Frobenius localization and nonunital matrix-continuity decompositions for /4, /17–/19. Corrected Quillen’s dual pagination and the K-book uniqueness locator; corrected Ranicki projector blocks and homotopy sign, with a distinguishing nonexample; included the unit/K₀ adapter in the proposed early product stage. /4 remains open because the early product stage is not applied and current K.6/K.7 parents are cyclic. Preserve the explicit Keller and finite-Artin K₃ supplier gaps. Future spectrum/triangulated signatures remain comments, not elaborated statements. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
   },
   "reviewHistory": [
     {
@@ -5371,6 +5378,12 @@
           "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+      "date": "2026-09-30",
+      "notes": "Codex session codex-J6LwjP; follows independent-review-REV-GeneralAlgebraicKTheory--K.6. Corrected handedness, nonzero-ring tests, the MR/VB splitting argument, and the map from the entire Nil category; added its explicit natural resolution. Restricted Morita product claims and positive matrix size; exposed the missing nonunital matrix continuity adapter. Noncommutative P¹ resolution/localization, Karoubi comparison, early products and several True-valued prototypes remain inadequate for /4, /17–/19. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
     }
   ]
 }

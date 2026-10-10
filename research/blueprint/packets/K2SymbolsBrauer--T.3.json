@@ -4057,7 +4057,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.11.1(a) (PDF p. 234)",
-     "match": "The theorem with its hypotheses, verbatim."
+     "match": "The theorem with its hypotheses."
     },
     {
      "sourceId": "Kbook.2013",
@@ -4309,7 +4309,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.7 (PDF p. 230)",
-     "match": "The definition, verbatim (Keune and Loday's, modifying Milnor's)."
+     "match": "The definition."
     },
     {
      "sourceId": "Kbook.2013",
@@ -4853,7 +4853,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.2.2 (PDF p. 241)",
-     "match": "The definition by the conic, verbatim ('1 2' is the printed 1/2); bilinearity is cited to O'Meara."
+     "match": "The definition by the conic; bilinearity is cited to O'Meara."
     },
     {
      "sourceId": "Kbook.2013",
@@ -5028,7 +5028,7 @@
     {
      "sourceId": "Milne.CFT.4.03",
      "locator": "III Proposition 3.6 and its proof, p. 109",
-     "match": "The character-evaluation identity of proof step 2, verbatim (formula transcribed from the text layer); Milne gives no proof of his own, so the identity is an import, not a decomposed step."
+     "match": "The character-evaluation identity of proof step 2; Milne gives no proof of his own, so the identity is an import, not a decomposed step."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6083,9 +6083,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
-  "date": "2026-10-07",
-  "notes": "Codex session codex-q3tan1, independent of fixer codex-DWTl3R. The five original red-team repairs remain sound. Revision 2 supplies sound source-level decompositions for the arbitrary-field Milnor/Quillen comparison, K.3 degree-one boundary/right action, mixed normalization, integer word/kernel generation, and local/Chern signs. Corrected missing request-consumer prerequisites, residue restriction-transfer degree dependencies, the exact local character-evaluation request, a stale suggested-file signature inventory, and the zero-ideal relative test. One older obligation remains unresolved: general all-degree norm/residue closure imports generic complete-DVR norm and finite-base-change length support from LocalFieldsRamification Layer 3, whose stated local-field scope has finite residue fields. A stronger request plus upstreamNote does not satisfy PROTOCOL §3. Added an explicit gap and coverage remainder; maintainer must identify an exact in-scope supplier or route a Part II under §15. The four previously retained gaps remain outside these fixes. Previous review preserved verbatim in reviewHistory. Validation and full-file Lean limitation are documented in research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md; no formalization or live promotion is claimed."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2 (2026-10-07), preserved in reviewHistory. Verified the retained norm/transfer, right-boundary, mixed-normalization and local/Chern convention decompositions for /9, /12, /26–/28 and /32. Corrected four actual elaboration failures in the dual-number detector by providing its local commutative-ring and quotient instances. /12 and /28 remain open: LocalFieldsRamification Layer 3 covers nonarchimedean local fields with finite residue fields, whereas the requested complete-DVR lattice/norm/length results require arbitrary residue fields; Q((t))→Q((s)), t=s², is outside that supplier. An exact general supplier or Part II routing is still required. Restricted source records remain historical, not newly verified. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
  },
  "reviewHistory": [
   {
@@ -6397,6 +6397,12 @@
    "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3",
    "date": "2026-10-02",
    "notes": "Codex session codex-rtOQ9t; independent of fixer codex-a71f92 (PR #5603). All five confirmed RT-BP-K2SymbolsBrauer--T.3 fixes are sound at planning/signature level: guarded relative D3 and its actual differential detector; conditional m=1 real factor and full first-root regression; units-only real Hilbert comparison plus zero-input non-example; arbitrary valued embeddings with positive residue-map index and a separate trivial-restriction case; direct degree-two residue/tame-symbol equality. However the earlier independent-review-REV-FIX-RT-AREA-ktheory-1 objections remain: source/decompose general Milnor/Quillen and norm-residue proofs, identify the upstream degree-one DVR boundary supplier, establish mixed-inseparable normalization finiteness and K2(Z) upper generation, and fix source-backed local/Chern normalizations. This review confirms the five specific repairs without treating them as completion of those broader fixes. Earlier review preserved verbatim in reviewHistory; 11 gaps and 29 requests remain. Public source pages and six added pinned declarations checked; finite-ring/ramification controls and pinned-index checker passed (0 errors/0 warnings). No mathematical edits. Suggested Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3.md."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2",
+   "date": "2026-10-07",
+   "notes": "Codex session codex-q3tan1, independent of fixer codex-DWTl3R. The five original red-team repairs remain sound. Revision 2 supplies sound source-level decompositions for the arbitrary-field Milnor/Quillen comparison, K.3 degree-one boundary/right action, mixed normalization, integer word/kernel generation, and local/Chern signs. Corrected missing request-consumer prerequisites, residue restriction-transfer degree dependencies, the exact local character-evaluation request, a stale suggested-file signature inventory, and the zero-ideal relative test. One older obligation remains unresolved: general all-degree norm/residue closure imports generic complete-DVR norm and finite-base-change length support from LocalFieldsRamification Layer 3, whose stated local-field scope has finite residue fields. A stronger request plus upstreamNote does not satisfy PROTOCOL §3. Added an explicit gap and coverage remainder; maintainer must identify an exact in-scope supplier or route a Part II under §15. The four previously retained gaps remain outside these fixes. Previous review preserved verbatim in reviewHistory. Validation and full-file Lean limitation are documented in research/blueprint/reviews/REV-FIX-RT-BP-K2SymbolsBrauer--T.3~2.md; no formalization or live promotion is claimed."
   }
  ],
  "upstreamNotes": [

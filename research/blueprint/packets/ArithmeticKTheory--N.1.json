@@ -1402,7 +1402,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.9 (PDF p. 333; book p. 325)",
-     "match": "Quillen's theorem, verbatim; with 'finite over Z' it covers 𝓞_F, and this node derives the S-integer case from it."
+     "match": "Quillen's theorem; with 'finite over Z' it covers 𝓞_F, and this node derives the S-integer case from it."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1698,7 +1698,7 @@
     {
      "sourceId": "Sun.2016",
      "locator": "p. 5 (arXiv:1604.04700v1)",
-     "match": "The definition of J(V) with its order, verbatim (spacing of the text layer kept)."
+     "match": "The definition of J(V) with its order."
     },
     {
      "sourceId": "Kahn.2014",
@@ -1856,7 +1856,7 @@
     {
      "sourceId": "Kahn.2014",
      "locator": "4.3.3, Theorem (arXiv:1108.2441v3, p. 17)",
-     "match": "The E¹ term, verbatim up to the typesetting of the direct sum; for X = Spec A with A Dedekind the torsion-free sheaves are the projectives (4.2.7)."
+     "match": "The E¹ term; for X = Spec A with A Dedekind the torsion-free sheaves are the projectives (4.2.7)."
     },
     {
      "sourceId": "Kahn.2014",
@@ -1916,7 +1916,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
-     "match": "The criterion with both hypotheses, verbatim (reference numbers kept, cross-reference tags dropped); the source gives no proof, which is decomposed here from Kahn's rank spectral sequence."
+     "match": "The criterion with both hypotheses; the source gives no proof, which is decomposed here from Kahn's rank spectral sequence."
     },
     {
      "sourceId": "Kahn.2014",
@@ -2024,7 +2024,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.9 (PDF p. 333; book p. 325)",
-     "match": "The theorem, verbatim; this node states its number-field half. 'Finite over Z' makes R a ring of integers."
+     "match": "The theorem; this node states its number-field half. 'Finite over Z' makes R a ring of integers."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2085,7 +2085,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18 (PDF p. 279; book p. 271)",
-     "match": "Borel's theorem, verbatim with its cases display written on one line; imported from R.3 with A = F."
+     "match": "Borel's theorem; imported from R.3 with A = F."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2233,7 +2233,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513)",
-     "match": "The combined statement, verbatim, with a misprint: 'the groups K_n(F) are finite when n is even and nonzero' must read K_n(O_S) (K_2(Q) is infinite); see source issue. The odd half is right for F by Soulé's theorem and is stated here for O_S."
+     "match": "The combined statement, with a misprint: 'the groups K_n(F) are finite when n is even and nonzero' must read K_n(O_S) (K_2(Q) is infinite); see source issue. The odd half is right for F by Soulé's theorem and is stated here for O_S."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2419,7 +2419,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.7, Definition 1.7 (PDF p. 476; book p. 468)",
-     "match": "The Tate twist µ(i), verbatim; g^i(ζ) = ζ^{χ(g)^i}."
+     "match": "The Tate twist µ(i); g^i(ζ) = ζ^{χ(g)^i}."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2429,7 +2429,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1, Definition 2.1, second half (PDF p. 477)",
-     "match": "Cyclicity, the notation w_i(F) only for a finite group, and the product formula, verbatim."
+     "match": "Cyclicity, the notation w_i(F) only for a finite group, and the product formula."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2480,17 +2480,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2, Proposition 2.2 (PDF pp. 478–479; book pp. 470–471)",
-     "match": "The proposition, verbatim (a ≤ ∞ kept); the cases (a)–(c) follow on PDF p. 479."
+     "match": "The proposition; the cases (a)–(c) follow on PDF p. 479."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2, the proof (PDF p. 479)",
-     "match": "The first step of the proof, verbatim."
+     "match": "The first step of the proof."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.2, Example 2.2.2 (PDF p. 479)",
-     "match": "The cyclotomic example, verbatim."
+     "match": "The cyclotomic example."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2613,12 +2613,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, after Example 2.2.2 (PDF p. 479; book p. 471)",
-     "match": "The definition, verbatim; 'two involutions' is a misprint for three (source issue)."
+     "match": "The definition; 'two involutions' is a misprint for three (source issue)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, after Proposition 2.3 (PDF p. 479)",
-     "match": "Which fields are exceptional, verbatim; correct for number fields and for Q_2 and its subfields, not for R (source issue)."
+     "match": "Which fields are exceptional; correct for number fields and for Q_2 and its subfields, not for R (source issue)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2658,7 +2658,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2, Example 2.1.2 (PDF p. 478; book p. 470)",
-     "match": "The values for even i, verbatim; all are correct except w_10, which is 264 (source issue)."
+     "match": "The values for even i; all are correct except w_10, which is 264 (source issue)."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2673,7 +2673,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, after Birch-Tate Conjecture 8.6 (PDF p. 523; book p. 515)",
-     "match": "The value 24 in the Birch-Tate example, verbatim."
+     "match": "The value 24 in the Birch-Tate example."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2715,12 +2715,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.1, Lemma 2.2.1 (PDF p. 479; book p. 471)",
-     "match": "The criterion, verbatim."
+     "match": "The criterion."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.2.1, the proof (PDF p. 479)",
-     "match": "The proof, verbatim; its last clause has a misprint ('exponent i' for 'exponent dividing i')."
+     "match": "The proof; its last clause has a misprint ('exponent i' for 'exponent dividing i')."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2763,7 +2763,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, Exercise 2.1 (PDF p. 482; book p. 474)",
-     "match": "The ℓ-primary finiteness, verbatim; the vanishing for large ℓ, which the global statement needs, is derived from Proposition 2.2(c) in the proof steps."
+     "match": "The ℓ-primary finiteness; the vanishing for large ℓ, which the global statement needs, is derived from Proposition 2.2(c) in the proof steps."
     },
     {
      "sourceId": "Kbook.2013",
@@ -2811,12 +2811,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, Proposition 2.3 (PDF p. 479; book p. 471)",
-     "match": "The proposition and case (a), verbatim."
+     "match": "The proposition and case (a)."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.3, Proposition 2.3 (PDF p. 479)",
-     "match": "Cases (b)–(d), verbatim."
+     "match": "Cases (b)–(d)."
     },
     {
      "sourceId": "Kbook.2013",
@@ -3182,17 +3182,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1, Definition 2.1, first half (PDF p. 477; book p. 469)",
-     "match": "The definition, verbatim."
+     "match": "The definition."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.7.1 (PDF p. 476; book p. 468)",
-     "match": "The identification the definition uses, verbatim."
+     "match": "The identification the definition uses."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.1.2 (PDF p. 478)",
-     "match": "The non-injectivity for Q, verbatim."
+     "match": "The non-injectivity for Q."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3241,27 +3241,27 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, Harris-Segal Theorem 2.5 (PDF p. 481; book p. 473)",
-     "match": "The theorem for the field, verbatim."
+     "match": "The theorem for the field."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, Harris-Segal Theorem 2.5, continued (PDF p. 481)",
-     "match": "The ring form, verbatim."
+     "match": "The ring form."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5, the proof (PDF p. 481)",
-     "match": "The first reduction of the proof, verbatim."
+     "match": "The first reduction of the proof."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.1.5.2 (PDF p. 475; book p. 467)",
-     "match": "The input from Harris and Segal's theorem, verbatim."
+     "match": "The input from Harris and Segal's theorem."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.5.1, Remark 2.5.1 (PDF p. 482; book p. 474)",
-     "match": "The exceptional case, verbatim."
+     "match": "The exceptional case."
     },
     {
      "sourceId": "Kbook.2013",
@@ -5519,9 +5519,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.1. Scoped review of /1, /3, /7–/10: number-field rank-filtration/building and nonfree-projective contracts, S-integer rank ranges, order certificates and supplier ownership are correct after correcting m≥1 and Q₀≃terminal. Named unresolved suppliers and later area-2 work are preserved; this is not a full reaudit of the latter or closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of the round-two repairs for /1, /3, /7–/10: rank filtration, orientation twist and nonfree-projective contracts; S-integer degree ranges; certificate ownership with independent upper/lower bounds; finite w₂ and independent K₂ finiteness. Preserved explicit unfinished suppliers and unrelated gaps; source match descriptions now use own words. This partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
  },
  "reviewHistory": [
   {
@@ -5751,6 +5751,12 @@
      "note": "Weibel 2006 Theorem A: index at most two, with the special-field exception that the K-book omits."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-ArithmeticKTheory--N.1. Scoped review of /1, /3, /7–/10: number-field rank-filtration/building and nonfree-projective contracts, S-integer rank ranges, order certificates and supplier ownership are correct after correcting m≥1 and Q₀≃terminal. Named unresolved suppliers and later area-2 work are preserved; this is not a full reaudit of the latter or closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }

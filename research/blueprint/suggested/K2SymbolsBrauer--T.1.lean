@@ -1,4 +1,11 @@
 /-
+Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
+The actual declarations elaborate with lean-check at the recorded pinned libraries.
+The only warnings are uses of sorry. Future signatures and tests left in comments were not
+elaborated. This is a prototype, not a formalization. The review report records its
+scope and unresolved work. Earlier compilation records apply to their earlier text.
+-/
+/-
 Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541: Codex codex-5ebb6f (2026-10-02)
 and Claude claude-HJaFqR (2026-10-06). Awaits independent review.
 This file is not the roadmap and is not exhaustive: the packet and its reader document are
@@ -59,6 +66,8 @@ import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
 import Mathlib.GroupTheory.IsPerfect
 import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.Subgroup.Center
+import Mathlib.GroupTheory.Perm.Sign
+import Mathlib.Data.ZMod.Basic
 import Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality
 
 /- REV-FIX-RT-AREA-ktheory-1: enable the scoped group commutator instance
@@ -605,9 +614,11 @@ example (q : E →* Q) (hq : Function.Surjective q) :
 example (q : E →* Q) (n : ℕ) (a b : Fin n → E) :
     Finsupp.single a (1 : ℤ) - Finsupp.single b 1 ∈ ((barMap q).f n).hom.ker ↔
       q ∘ a = q ∘ b := by sorry
-/- Test bar_kernel_nonsurjective: for the unique map 1→C₂, the degree-one
-pushforward misses the basis element of the nonidentity of C₂. Its finite
-group carrier is Multiplicative (ZMod 2), with the trivial source group. -/
+-- Test bar_kernel_nonsurjective: the unique C₁→C₂ map misses this basis element.
+example : Finsupp.single
+    (fun _ : Fin 1 => Multiplicative.ofAdd (1 : ZMod 2)) (1 : ℤ) ∉
+    ((barMap (1 : Multiplicative (ZMod 1) →* Multiplicative (ZMod 2))).f 1).hom.range :=
+  by sorry
 
 /-- The mixed commutator subgroup inside ker(q), rather than [ker(q),ker(q)]. -/
 def mixedCommutator (q : E →* Q) : Subgroup q.ker :=
@@ -656,12 +667,28 @@ theorem fiveTerm_maps (q : E →* Q) (x : q.ker) :
 -- Test five_term_identity
 example (x : intHomology E 2) :
     transgression (MonoidHom.id E) (fun x => ⟨x, rfl⟩) x = 0 := by sorry
-/- Test five_term_abelian_extension: C₄→C₂ has middle quotient C₂ whose
-nonidentity class maps to 2 in C₄; quotientAbMap is reduction modulo 2.
-Test five_term_noncentral: S₃→C₂ has middle quotient zero whereas N_ab=C₃.
-These require the concrete finite-group identifications, not an arbitrary
-type substituted for a group or an assumed isomorphism.
-Test five_term_positive_sign: the example below uses +d(lift). -/
+example : Subsingleton (mixedCoinvariants (MonoidHom.id E)) ∧
+    (∀ x, intHomologyMap (MonoidHom.id E) 2 x = x) ∧
+    (∀ x, quotientAbMap (MonoidHom.id E) x = x) := by sorry
+/-- The concrete cyclic quotient used by the five-term test. -/
+def cyclicFourToTwo : Multiplicative (ZMod 4) →* Multiplicative (ZMod 2) :=
+  (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)).toAddMonoidHom.toMultiplicative
+
+-- Test five_term_abelian_extension: identify both maps, including the element 2.
+example : ∃ (mid : mixedCoinvariants cyclicFourToTwo ≃+ ZMod 2)
+    (src : Additive (Abelianization (Multiplicative (ZMod 4))) ≃+ ZMod 4)
+    (dst : Additive (Abelianization (Multiplicative (ZMod 2))) ≃+ ZMod 2),
+    (∀ x, src (mixedToAb cyclicFourToTwo x) = 2 * (mid x).val) ∧
+    (∀ x, dst (quotientAbMap cyclicFourToTwo x) =
+      ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2) (src x)) := by sorry
+
+-- Test five_term_noncentral: the sign quotient is the concrete S₃→C₂ model.
+example : Subsingleton (mixedCoinvariants
+    (Equiv.Perm.sign : Equiv.Perm (Fin 3) →* ℤˣ)) ∧
+    Nat.card (Abelianization
+      (Equiv.Perm.sign : Equiv.Perm (Fin 3) →* ℤˣ).ker) = 3 := by sorry
+
+-- Test five_term_positive_sign: the example below uses +d(lift).
 example (q : E →* Q) (hq : Function.Surjective q)
     (z : (integralBar Q).X 2) (hz : (integralBar Q).d 2 1 z = 0)
     (lift : (integralBar E).X 2) (hlift : (barMap q).f 2 lift = z)

@@ -386,17 +386,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, the paragraph 'Bernoulli numbers' before Lemma 2.4, printed p. 472 (PDF p. 480)",
-     "match": "The source's convention and its first values, verbatim; the node re-indexes them. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The source's convention and its first values; the node re-indexes them"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2, same paragraph, printed p. 472 (PDF p. 480)",
-     "match": "The denominator facts, in the source's indexing (its B_k = arithmetic B_{2k}). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The denominator facts, in the source's indexing (its B_k = arithmetic B_{2k})"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "match": "The Kummer-congruence refinement and the example 5 | B_5 (arithmetic B_10 = 5/66). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The Kummer-congruence refinement and the example 5 | B_5 (arithmetic B_10 = 5/66)"
     }
    ],
    "implementationStatus": "unchecked",
@@ -521,7 +521,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4 (Lemma 2.4) and the recall of 2.1.2 before it, printed p. 472 (PDF p. 480)",
-     "match": "The value over the rationals, verbatim, in the source's indexing. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The value over the rationals, in the source's indexing"
     }
    ],
    "implementationStatus": "unchecked",
@@ -641,7 +641,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1 (Example 2.4.1, Irregular Primes), printed p. 472 (PDF p. 480)",
-     "match": "The definition, Iwasawa's equivalent form and the list, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The definition, Iwasawa's equivalent form and the list"
     }
    ],
    "implementationStatus": "unchecked",
@@ -751,17 +751,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, printed p. 472 (PDF p. 480)",
-     "match": "The criterion, verbatim, in the source's indexing, with its reference for the proof. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The criterion, in the source's indexing, with its reference for the proof"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, the sentence after the criterion, printed p. 472 (PDF p. 480)",
-     "match": "Its consequence through Kummer's congruences, verbatim, with the source's reference. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "Its consequence through Kummer's congruences, with the source's reference"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.2.4.1, the historical remark, printed p. 472 (PDF p. 480)",
-     "match": "The context, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The context"
     }
    ],
    "implementationStatus": "unchecked",
@@ -806,12 +806,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8.1 (Remark 10.8.1), printed p. 532 (PDF p. 540)",
-     "match": "The theorem and the numerical remark, verbatim, in the source's indexing. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The theorem and the numerical remark, in the source's indexing"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.4.2 (Example 10.4.2), printed p. 530 (PDF p. 538)",
-     "match": "The eigenspace bookkeeping, verbatim; the packet had cited it as 10.4.1. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The eigenspace bookkeeping; the packet had cited it as 10.4.1"
     }
    ],
    "implementationStatus": "unchecked"
@@ -906,17 +906,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522)",
-     "match": "The statement itself, for all K_{2i}, with the three inputs (Pic, |S| = 1, Br = 0); the packet did not cite it. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The statement itself, for all K_{2i}, with the three inputs (Pic, |S| = 1, Br = 0); the packet did not cite it"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1 (Classical Data), (8.1.1), printed p. 513 (PDF p. 521)",
-     "match": "The Brauer sequence the argument uses. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The Brauer sequence the argument uses"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538)",
-     "match": "The analogous statement over the integers. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The analogous statement over the integers"
     }
    ],
    "implementationStatus": "unchecked",
@@ -963,17 +963,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538)",
-     "match": "The first two statements, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The first two statements"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.6 (Theorem 10.6), printed p. 531 (PDF p. 539)",
-     "match": "The module statement, verbatim: the polynomial ring is on β^{ℓ−1}. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The module statement: the polynomial ring is on β^{ℓ−1}"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.6, the case ℓ = 5, printed p. 532 (PDF p. 540)",
-     "match": "The worked example, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The worked example"
     }
    ],
    "implementationStatus": "unchecked"
@@ -1020,17 +1020,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8 (Vandiver's Conjecture 10.8), printed p. 532 (PDF p. 540)",
-     "match": "The conjecture and the equivalence, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The conjecture and the equivalence"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.1, the paragraph before Table 10.1.1, printed p. 527 (PDF p. 535)",
-     "match": "The unconditional statement and the equivalence, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The unconditional statement and the equivalence"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.8.2 (Historical Remark 10.8.2), printed p. 532 (PDF p. 540)",
-     "match": "The historical remark, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The historical remark"
     }
    ],
    "implementationStatus": "unchecked"
@@ -1073,7 +1073,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.6, the worked case of the rationals, printed p. 515 (PDF p. 523)",
-     "match": "The shape of a certified example: three independently known numbers. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The shape of a certified example: three independently known numbers"
     }
    ],
    "implementationStatus": "unchecked",
@@ -1195,7 +1195,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.10.1.1 (Table 10.1.1) and its note, printed p. 528 (PDF p. 536)",
-     "match": "The first column of the table (transcribed) and its note, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The first column of the table (transcribed) and its note"
     }
    ],
    "implementationStatus": "unchecked"
@@ -1242,7 +1242,7 @@
     {
      "sourceId": "Browkin.2000",
      "locator": "§2, Notation (p. 1668)",
-     "match": "The filtration, its exhaustion and the induced graded residue. Prose verbatim from the publisher's text layer; sub- and superscripts transcribed."
+     "match": "The filtration, its exhaustion and the induced graded residue"
     },
     {
      "sourceId": "Browkin.2000",
@@ -1252,7 +1252,7 @@
     {
      "sourceId": "ZhangXu.2016",
      "locator": "§2, Preliminaries (p. 1524)",
-     "match": "The ordering of the places by norm. Verbatim from the publisher's text layer."
+     "match": "Tate orders the places by norm, determining which prime supports occur in the earlier unit group."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1387,22 +1387,22 @@
     {
      "sourceId": "Browkin.2000",
      "locator": "§3, Theorem 1 (p. 1668)",
-     "match": "Part (a), verbatim. Browkin states it without proof and cites Tate's appendix to Bass–Tate (Lecture Notes in Mathematics 342, 1973, pp. 429–446), which was not obtained; proof steps 1–3 are written for this packet from the statement, using Browkin's Remark 1 (β(C) = k^×) as the first half of step 2."
+     "match": "Part (a). Browkin states it without proof and cites Tate's appendix to Bass–Tate (Lecture Notes in Mathematics 342, 1973, pp. 429–446), which was not obtained; proof steps 1–3 are written for this packet from the statement, using Browkin's Remark 1 (β(C) = k^×) as the first half of step 2."
     },
     {
      "sourceId": "Browkin.2000",
      "locator": "§3.2, Lemma 4 (p. 1671)",
-     "match": "Part (b) in the imaginary quadratic form, verbatim; stated without proof."
+     "match": "Part (b) in the imaginary quadratic form; stated without proof."
     },
     {
      "sourceId": "ZhangXu.2016",
      "locator": "§2, Lemma 2.2 (p. 1525)",
-     "match": "Part (b) for a general number field, verbatim (Zhang–Xu index the place as v_{m+1}); they cite Tate's letter to Iwasawa for the proof, which step 4 writes out."
+     "match": "Part (b) for a general number field; they cite Tate's letter to Iwasawa for the proof, which step 4 writes out."
     },
     {
      "sourceId": "Browkin.2000",
      "locator": "§2, Notation (p. 1668)",
-     "match": "Part (c), verbatim."
+     "match": "Part (c)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1452,17 +1452,17 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226)",
-     "match": "The statement and its attribution to Tate, verbatim."
+     "match": "The statement and its attribution to Tate."
     },
     {
      "sourceId": "Browkin.2000",
      "locator": "§1, Introduction (p. 1667)",
-     "match": "The attribution of the Gaussian case to Tate, verbatim: ℤ[i] is a Euclidean imaginary quadratic ring."
+     "match": "The attribution of the Gaussian case to Tate: ℤ[i] is a Euclidean imaginary quadratic ring."
     },
     {
      "sourceId": "Browkin.2000",
      "locator": "§1, Introduction (p. 1667)",
-     "match": "The shape of Tate's argument, verbatim. Tate's own computation for ℤ[i] (in his appendix to Bass–Tate) was not obtained: the sets C, G and W of steps 2–4 and the inequalities are this packet's application of N.8/tate-criterion, written out in full."
+     "match": "The shape of Tate's argument. Tate's own computation for ℤ[i] (in his appendix to Bass–Tate) was not obtained: the sets C, G and W of steps 2–4 and the inequalities are this packet's application of N.8/tate-criterion, written out in full."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1511,12 +1511,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.5.3 (Corollary 5.3), printed p. 488 (PDF p. 496)",
-     "match": "The structure theorem in both cases, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The structure theorem in both cases"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226)",
-     "match": "Tate's vanishing for Z[i] and the other rings, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "Tate's vanishing for Z[i] and the other rings"
     }
    ],
    "implementationStatus": "unchecked"
@@ -1565,12 +1565,12 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "VI.8.1 (Classical Data), printed p. 513 (PDF p. 521)",
-     "match": "The degree-zero and degree-one formulas. The printed rank r2 + |S| − 1 is wrong for fields with real places (it gives rank 0 for Z[1/p]); the node uses the correct rank r1 + r2 + |S| − 1 = 1, recorded as ArithmeticKTheory/E1. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The degree-zero and degree-one formulas. The printed rank r2 + |S| − 1 is wrong for fields with real places (it gives rank 0 for Z[1/p]); the node uses the correct rank r1 + r2 + |S| − 1 = 1, recorded as ArithmeticKTheory/E1"
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244)",
-     "match": "The sequence for the integers, which is one of the two compared. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The sequence for the integers, which is one of the two compared"
     },
     {
      "sourceId": "Kbook.2013",
@@ -1616,7 +1616,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244)",
-     "match": "The decomposition that makes the check, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+     "match": "The decomposition that makes the check"
     }
    ],
    "implementationStatus": "unchecked"
@@ -1670,17 +1670,17 @@
     {
      "sourceId": "ZhangXu.2016",
      "locator": "§3, Theorem 3.7 (p. 1536)",
-     "match": "The theorem and the reduction to unit symbols, verbatim from the publisher's text layer."
+     "match": "The theorem and the reduction to unit symbols from the publisher's text layer."
     },
     {
      "sourceId": "ZhangXu.2016",
      "locator": "§3, proof of Theorem 3.7 (p. 1537)",
-     "match": "The 2-rank step, verbatim; proof step 7 derives the formula's value from Tate's Theorem (6.2)."
+     "match": "The 2-rank step; proof step 7 derives the formula's value from Tate's Theorem (6.2)."
     },
     {
      "sourceId": "ZhangXu.2016",
      "locator": "§3.4, Theorem 3.3 (p. 1529)",
-     "match": "Condition (1) for the large places, verbatim; Theorems 3.4–3.6 are summarised in proof steps 4–5."
+     "match": "Condition (1) for the large places; Theorems 3.4–3.6 are summarised in proof steps 4–5."
     },
     {
      "sourceId": "Tate.1976",
@@ -1746,7 +1746,7 @@
     {
      "sourceId": "Kbook.2013",
      "locator": "III.6.8 (Theorem 6.8), printed p. 239 (PDF p. 247)",
-     "match": "The same statement for every field, proved there through Hilbert's Theorem 90 for K₂; this packet imports the number-field case from MotivicEtaleKTheory M.3, Tate's arithmetic route. Prose verbatim from the text layer."
+     "match": "The same statement for every field, proved there through Hilbert's Theorem 90 for K₂; this packet imports the number-field case from MotivicEtaleKTheory M.3, Tate's arithmetic route"
     },
     {
      "sourceId": "Kbook.2013",
@@ -1864,7 +1864,7 @@
     "ArithmeticKTheory:N.8/real-quadratic-upper-generation",
     "ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate"
    ],
-   "detail": "The 25/16 rounding bound recorded for ℚ(ζ₅) does not prove that its residue representatives lie in U_m, an explicit hypothesis of Tate’s criterion. For a place of norm 11, the nonzero integer 2 has norm 16 within the bound, but is supported at the later inert prime (2). The construction must specify the selection of a full set C_m ⊆ U_m, handle equal-norm ordering, establish condition (3), and expose the finite data and checks used in Theorems 3.4 and 3.6. This reviewer obtained neither the AMS publisher PDF nor an equivalent public full text on 7 October 2026 (HTTP 403); its quoted locators and tables are therefore inherited fixer evidence, not independently verified. NEXT SOURCE ACTION: obtain and read Zhang–Xu §§2–3, decompose the U_m-compatible representative selection and finite verification into checkable obligations, and then re-review the resulting unit-symbol generation. Alternatively independently validate the direct real-quadratic route retained at commit 52d782e2, noted in RT-AREA-ktheory-1.fixes-2.md; it is not adopted or certified by this review."
+   "detail": "The 25/16 rounding bound recorded for ℚ(ζ₅) does not prove that its residue representatives lie in U_m, an explicit hypothesis of Tate’s criterion. For a place of norm 11, the nonzero integer 2 has norm 16 within the bound, but is supported at the later inert prime (2). The construction must specify the selection of a full set C_m ⊆ U_m, handle equal-norm ordering, establish condition (3), and expose the finite data and checks used in Theorems 3.4 and 3.6. This reviewer obtained neither the AMS publisher PDF nor an equivalent public full text on 7 October 2026 (HTTP 403); its quoted locators and tables are therefore inherited fixer evidence, not independently verified. NEXT SOURCE ACTION: obtain and read Zhang–Xu §§2–3, decompose the U_m-compatible representative selection and finite verification into checkable obligations, and then re-review the resulting unit-symbol generation. Alternatively independently validate the direct real-quadratic route retained at commit 52d782e2, noted in RT-AREA-ktheory-1.fixes-2.md; it is not adopted or certified by this review. Independent area review, 2026-10-10: the multiplication matrix of 2 in the power basis 1,ζ,ζ²,ζ³ is 2I₄, hence Norm(2)=16. Since 16<275/16=(25/16)·11 and 2 has order four modulo 5, the inert prime (2) has norm 16 and is later than a norm-11 place. This checks the stated norm-bound obstruction. It does not assert that a specified rounding algorithm necessarily selects 2; the source’s missing selection argument must be read and checked separately."
   },
   {
    "title": "Finite-coefficient Bott-module input for the regular-prime consequence has no supplier stage",
@@ -1976,9 +1976,9 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~2",
-  "date": "2026-10-07",
-  "notes": "Codex session codex-Xjl89s, independent of fixer Claude claude-UNu5Ve (PR #6707), following independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7 (preserved in reviewHistory). Both original findings remain repaired: honest suggested contracts and sole Vandiver owner IntegralIwasawaTheory L3. Gaussian span independently verified; Tate criterion proof corrected for positive words and a generator only principal after localization. The real-quadratic restriction/transfer and two-torsion reduction are valid once cyclotomic vanishing is supplied. needs_changes remains because the reported 25/16 representative bound does not establish C_m ⊆ U_m, and the public Zhang–Xu full text and finite tables could not be independently checked. Added a precise generation/source gap and restored N.8 to planned coverage. Expressible suggested names, tests and ArithmeticData corrected. See research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md for source evidence, corrections and final validation."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~2 (2026-10-07), preserved in reviewHistory. The Gaussian certificate, real-quadratic restriction/transfer reduction, and sole Vandiver owner are preserved. /11 remains unresolved: the 25/16 norm bound does not establish C_m⊆U_m, the compatible representative-selection proof and finite Zhang–Xu data are not independently accessible, and Skalba remains an input gap. Independently checked Norm(2)=16, the norm-11 diagnostic and inertness of 2; this does not assert that a particular rounding algorithm selects 2. The upper bound for Q(sqrt(5)) remains conditional on the missing cyclotomic generation proof. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
  },
  "sourceVersions": [
   {
@@ -2090,6 +2090,12 @@
    "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7",
    "date": "2026-10-02",
    "notes": "Codex session codex-rtOQ9t, independent of fixer codex-a71f92 (PR #5594). Both RT-BP-ArithmeticKTheory--N.7 findings are addressed: remaining True/unstated-Prop/arbitrary-eigenspace placeholders removed; actual cyclotomic residue quotient gives unit order l-1 under primality alone; unavailable interfaces carry precise mathematical contracts; Vandiver predicate has sole owner IntegralIwasawaTheory L3 with a request and an acyclic import. Corrected Vandiver packet prose to label the 2013 verification/order bounds historical and quantify joint K4i(Z) vanishing against the global conjecture at every odd prime. Seven added pinned baseline declarations and primary source pages checked; pinned checker 0 errors/0 warnings, 24 internal edges and L3 import overlay acyclic; finite residue/Bernoulli/Bott controls passed. Follows independent-review-REV-FIX-RT-AREA-ktheory-1, preserved verbatim in history. Overall needs_changes remains because N.8 still lacks independent Gaussian span and Q(sqrt(5)) upper-generation proofs; its lower bound and Birch-Tate numerical equality cannot replace these. All N.8 nodes, suggested bytes, four gaps, ten requests and provenance preserved. Lean not compiled: no existing build at both pins. Report: research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7.md."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~2",
+   "date": "2026-10-07",
+   "notes": "Codex session codex-Xjl89s, independent of fixer Claude claude-UNu5Ve (PR #6707), following independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7 (preserved in reviewHistory). Both original findings remain repaired: honest suggested contracts and sole Vandiver owner IntegralIwasawaTheory L3. Gaussian span independently verified; Tate criterion proof corrected for positive words and a generator only principal after localization. The real-quadratic restriction/transfer and two-torsion reduction are valid once cyclotomic vanishing is supplied. needs_changes remains because the reported 25/16 representative bound does not establish C_m ⊆ U_m, and the public Zhang–Xu full text and finite tables could not be independently checked. Added a precise generation/source gap and restored N.8 to planned coverage. Expressible suggested names, tests and ArithmeticData corrected. See research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~2.md for source evidence, corrections and final validation."
   }
  ]
 }

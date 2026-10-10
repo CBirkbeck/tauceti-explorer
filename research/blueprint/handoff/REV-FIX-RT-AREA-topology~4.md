@@ -1,95 +1,91 @@
 # REV-FIX-RT-AREA-topology~4 handoff
 
-Issue #6521; Codex (GPT-6), session `codex-adGaRg`; 10 October 2026.
-Claim confirmed for comment 6098618689. Branch
-`codex-adGaRg-review-topology`; atlas base
-`fc29fda2f2c6120221f6e8beea78e7e9436c8fca`.
-Continues PR #8436, after #8425, #8414, #8353 and #6944.
-This session did none of FIX-RT-AREA-topology~4, its predecessors,
-red team/verification, or the reviewed blueprints/assemblies.
+Issue #6521; Codex (GPT-6), session `codex-dN8Riv`; 10 October 2026.
+Claim confirmed for comment 6099316779. Branch
+`codex-dN8Riv-review-topology`; atlas base `aa195923d`.
+Continues PR #8459. This session did none of the reviewed fix, its predecessors,
+red team/verification, or original blueprints/assemblies. Only #6521 claimed.
 
 ## Completed authorized work
 
-All 27 assigned findings are accounted for in the report. The three issue-named
-bounded reviews are complete: Polylogarithms accepted; HabiroNahmSeries accepted;
-QSeriesPartitionsAndMockModularForms needs_changes. Preserve broader blueprint
-rejections and all gaps/requests. A needs_changes verdict completes a review.
-The overwritten PR #8436 reviews are retained in reviewHistory.
+All 27 findings retain explicit dispositions in the report. The three
+issue-named bounded reviews are complete: Polylogarithms accepted;
+HabiroNahmSeries accepted; QSeriesPartitionsAndMockModularForms needs_changes.
+A needs_changes verdict completes a review. The previous top-level reviews
+are archived in reviewHistory; broader blueprint objections, all gaps,
+requests and planned coverage remain. No suggested declaration changed.
 
-Freshly checked public sources, actual pinned declarations, current upstream
-owners and exact rational strange/figure-eight computations. New corrections
-are provenance edits in Habiro HB.4: the formal Gaussian construction cites
-GSWZ (110)-(111), printed p. 28, and GZ (13)-(14), p. 4; the radial theorem cites
-GZ Theorem 3.1 (18)-(21), pp. 5-6; Kummer equation (21) is on p. 6, not p. 5.
-Replaced the relevant claims of verbatim transcription by our support descriptions.
-No theorem hypothesis, API or suggested declaration changed.
+Fresh correction: HB.8/fgi-collection now cites GSWZ §2.5, Definition 2.11,
+equations (117)–(119), printed pp. 29–30, the following periodicity paragraph,
+and critical-value equations (115)–(116), p. 29. Replaced internal TeX labels
+and claims of verbatim transcription with source support in our own words.
+No hypothesis, normalization obligation, API or dependency changed.
 
-The QSeries reader remains outside this issue and queue. Correct separately:
-add the ninth scalar cocycle export near line 2964; specify the lower-boundary
-inverse eta multiplier at 2972; correct the Taylor coefficient scaling near
-2818 and 2987; remove the unwritten/no-nodes QT.7 account at 4166-4168.
-The trefoil comparison is already qualified. Preserve native-form, fifth-order
-and proof/supplier objections from its full blueprint/automorphic reviews.
+Freshly checked the relevant GZ/GSWZ, quantum-modular and dilogarithm
+interfaces; public PDF hashes agree with the preceding report. Other source
+readings in its evidence table are explicitly attributed to the earlier audit.
+Milnor's AMS Appendix remains inaccessible (HTTP 403); do not claim a fresh
+reading from this run. Current upstream main is
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`; current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The relevant volume,
+forms/Stokes, corner and homogeneity interfaces are owned there. Nothing was
+edited or built in the read-only upstream environment. Pinned Gaussian and
+PDCode files match f790474; covariance needs PosSemidef and density law PosDef.
 
-Three edited packet validators: zero errors/warnings, 75/109/537 nodes.
-All five suggested files were checked sequentially with lean-check at the
-shared pinned build; every exit code is 0 and every warning is sorry:
-Polylogarithms 462, HabiroNahmSeries 441, QSeries 1469, read-only P.2 part 52,
-read-only ArithmeticQuantumTopology 65. The two read-only packet validators
-also pass (14/106 nodes). Memory exceeded 100 GB. No background process remains.
-Intake file checks and git diff --check pass. No source excerpt field is present.
-The source versions/hashes and exact checks are in the report; no next step
-requires disposable scratch files.
+Fresh checks: the three packet validators report zero errors/warnings
+(75/109/537 nodes). Sequential lean-check runs at the prescribed shared pinned
+build all exit 0 with only sorry warnings: Polylogarithms 462, HabiroNahmSeries
+441, QSeries 1469. Memory exceeded 100 GB. Extra-file compilation/check results
+in the report are retained earlier evidence. No next step needs scratch files.
 
-## Current upstream and preserved ownership
+## Concrete correction found in read-only QT inspection
 
-TauCetiRoadmap main: `670582c502e1d4497d9ccd492b36c67028ef6666`;
-current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Read complete AlgebraicTopology and Completed/UniversalCovers READMEs plus
-relevant DG/GT targets and actual signatures. AlgebraicTopology Stage 8.1 prose
-still restricts relative homotopy to NDR pairs, while Suggested.lean 341-343
-takes arbitrary BasedTopPair. DG already owns forms/Stokes, abstract corner
-boundaries and connected-manifold homogeneity; current Tau Ceti implements
-Riemannian volume/isometry invariance. Do not plan these again. The eleven
-upstream dispositions remain maintainer notes; no upstream file was edited.
-Pinned Gaussian covariance accepts PosSemidef; the density law needs PosDef.
-The density formula alone gives no formal Gaussian theorem.
+Finding /7's supplier is sound, but current
+`ArithmeticQuantumTopology:QT.5/volume-and-chern-simons` explicitly uses the
+P.2 tetrahedron identity without listing
+`Polylogarithms:P.2/hyperbolic-volume` as a prerequisite. The current QT graph
+contains no edge to that exact supplier. Its broad open P.2 request is not a
+substitute under PROTOCOL §3. After authorization, add the exact node id to
+that theorem's prerequisites. Keep the geometric comparison request and
+G4/G5 open; adding a planned theorem edge does not close their gaps. Also
+check the ordered-vertex/sign translation between QT's shape coordinate and
+P.2: their written normalizations differ, which by itself proves no sign error.
+This gives a specific continuation rather than another complete supplier audit.
 
-## Blocking scope mismatch — next action
+## Remaining reader corrections (separate scope)
 
-The fresh GitHub issue and its full instructions name exactly the report,
-three base supplier packets and their three suggested files. WORKERS.md says:
+The QSeries reader must add the ninth scalar cocycle export near line 2964,
+name the lower-boundary inverse eta multiplier at 2972, fix Taylor scaling
+near 2818/2987, and remove the obsolete unwritten/no-nodes QT.7 statement near
+4166–4168. The trefoil comparison is already qualified. Preserve its broader
+native-form, fifth-order and proof/supplier objections. Reader edits are
+outside both this issue and its queue outputs.
+
+## Blocking scope mismatch
+
+The GitHub issue and its full instructions name only this report, three base
+supplier packets and their three suggested files. WORKERS.md explicitly says:
 “Edit only the files the issue names, plus your own scratch space.”
-The local queue additionally requires:
+The queue additionally requires four files:
 
 - research/blueprint/packets/ArithmeticQuantumTopology.json
 - research/blueprint/suggested/ArithmeticQuantumTopology.lean
 - research/blueprint/packets/Polylogarithms--P.2.json
 - research/blueprint/suggested/Polylogarithms--P.2.lean
 
-The queue prompt is absent. issues.py:deliverables_complete requires this job's
-reviewer on all five packets. The extra pair still has accepted full reviews by
-REV-ArithmeticQuantumTopology~2 and REV-Polylogarithms--P.2. An actual predicate
-check gives true for the GitHub seven-output scope and false for the queue's
-eleven-output scope. Do not alter queue/intake data to bypass the mismatch.
+The queue prompt is absent. issues.py:deliverables_complete requires this
+job's reviewer on all five packets, while the extra packets have accepted
+full reviews by REV-ArithmeticQuantumTopology~2 and REV-Polylogarithms--P.2.
+The seven-output GitHub predicate passes and the eleven-output queue predicate
+fails. Do not alter queue/intake logic to hide that mismatch.
 
-This session asked the user for explicit authorization of those four paths;
-no answer arrived before checkpoint submission. Do not repeat the whole
-supplier audit as the first next step: reconcile this file scope with the
-manager. The checkpoint is blocked by scope, not by time or unfinished
-review of the three authorized packets.
+Explicit authorization was requested during this run and has not arrived.
+The PR is therefore a checkpoint blocked on file scope. Resolve that scope
+with the manager before repeating any mathematical audit. After authorization,
+independently finish the QT /1–/16 and P.2 /7 bounded reviews, make the precise
+QT dependency correction above, preserve their full reviews in history, and
+record this job's bounded verdicts. Keep QT's 8 gaps/19 requests and P.2's
+2 gaps/3 requests. Resolve Milnor access before claiming a fresh Appendix
+reading. Earlier unchanged signatures already elaborate.
 
-Concrete continuation after authorization: independently review the current
-QT /1-/16 corrected consumer contracts and P.2's /7 Milnor-angle volume route,
-archive their accepted full reviews in history, then set bounded fix-review
-verdicts naming this job. Preserve QT's 8 gaps/19 requests and P.2's 2 gaps/3
-requests, with all stages planned rather than closed. Read-only validators and
-Lean already pass; rerun only if mathematical declarations change. The Milnor
-AMS PDF returned HTTP 403 this session; resolve access before claiming a new
-reading of its Appendix (earlier accepted source reading remains recorded).
-A source-statement cross-check of the sign/metric convention is available in
-Zagier Dilogarithm I.4 pp. 13-14, author-hosted public version listed in the report.
-Reader synchronization remains separate and does not prevent completion of
-this review with needs_changes.
-
-Only #6521 was claimed. Submit this run's single checkpoint PR and stop.
+Submit this run's single checkpoint PR and stop; do not claim another job.

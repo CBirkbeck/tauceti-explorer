@@ -496,7 +496,8 @@
         "Theorem 1.5.1 with its proof note (printed p. 30) and Outlook 1.5.15 (printed pp. 40-41)",
         "Proposition 1.6.21, Remark 1.6.22 and Corollary 1.6.23 (printed pp. 55-57): the length-one free resolution over a free group and the vanishing of its homology in degrees at least two",
         "Theorem 3.2.12 and Remark 3.2.14 (printed pp. 123-124): the Hochschild-Serre spectral sequence and its naturality, stated without construction",
-        "Theorem 3.2.18 with its proof (printed pp. 129-132): Hopf's formula from the Hochschild-Serre spectral sequence"
+        "Theorem 3.2.18 with its proof (printed pp. 129-132): Hopf's formula from the Hochschild-Serre spectral sequence",
+        "REV-FIX-RT-AREA-ktheory-1~2, 2026-10-10: independently read Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125 / PDF pp.131–133. These give statements and naturality, not a spectral-sequence construction. The four quotient-bar nodes instead supply their own chain-kernel proof."
       ]
     },
     {
@@ -522,7 +523,8 @@
       "readSections": [
         "FIX-RT-AREA-ktheory-1~2, Codex codex-5ebb6f: §6.8.1–6.8.3 printed195–196/PDF36–37 text; p.196 independently rendered as image. Printed198/PDF39 Hopf computation and printed200/PDF41 perfect Hopf-extension lemma and opening of UCE existence read as text. This revision proves only the trivial-integral-coefficient five-term sequence directly from the pinned bar complex and generic exact homology sequence; it does not claim to have decomposed the full Grothendieck spectral sequence.",
         "Example6.8.4 printed196, read text/image: its first sentence lacks a coefficient-triviality qualification; recorded as E-central-subgroup-coefficients. Its integral-coefficient application is unaffected."
-      ]
+      ],
+      "accessNote": "Historical source record from the preceding fix, retained for its sourceIssues attribution. This review did not consult this uncleared book scan. The four current quotient-bar node citations have been replaced by public author lecture notes and their explicitly independent bar-chain proof."
     }
   ],
   "nodes": [
@@ -4104,9 +4106,9 @@
       ],
       "sources": [
         {
-          "sourceId": "Weibel.HA.Groups",
-          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125 / PDF pp.131–133",
+          "match": "These public notes state the Hochschild–Serre spectral sequence, its quotient conjugation action and naturality. They do not construct the sequence. The proofSteps here give a separate direct derivation of its trivial-integral five-term part from the pinned bar differential, kernel complex and generic homology exact sequence; no spectral-sequence construction is inferred from the notes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4207,9 +4209,9 @@
       ],
       "sources": [
         {
-          "sourceId": "Weibel.HA.Groups",
-          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125 / PDF pp.131–133",
+          "match": "These public notes state the Hochschild–Serre spectral sequence, its quotient conjugation action and naturality. They do not construct the sequence. The proofSteps here give a separate direct derivation of its trivial-integral five-term part from the pinned bar differential, kernel complex and generic homology exact sequence; no spectral-sequence construction is inferred from the notes."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4231,7 +4233,7 @@
         "Apply the pinned ShortExact.δ and homology_exact₁–₃ to 0→L(q)→C(E)→C(Q)→0 in degrees2 and1. Because H₀(L(q))=0, its long exact sequence ends with a surjection H₁(E)→H₁(Q).",
         "Replace H₁(L(q)) by N/[E,N] using the explicit isomorphism. Replace H₁(E),H₁(Q) by abelianisations using the pinned generator formulas. The inclusion and quotient maps agree on all bar1-generators.",
         "For a 2-cycle z of C(Q), choose a 2-chain z̃ of C(E) mapping to z. Then ∂z̃ lies in L₁ and δ[z] is its class under the specified isomorphism. The pinned ShortExact.δ_apply has this positive sign. Two lifts differ by an element of L₂, so their boundaries differ by an L-boundary. If z changes by ∂w for w in C₃(Q), lift w to C₃(E) and change z̃ by its boundary; its next boundary is unchanged because ∂²=0. Any other lift again differs by L₂. Thus the map is well defined.",
-        "The result is the five-term sequence stated in Weibel6.8.3, proved here directly at chain level. It does not infer injectivity from freeness until the following free-presentation specialization."
+        "This directly constructs the trivial-integral five-term part of the Hochschild–Serre sequence stated in Löh, Theorem 3.2.12; the map and its positive sign are fixed by the chain-level derivation here. It does not infer injectivity from freeness until the following free-presentation specialization."
       ],
       "acceptance": [
         "The transgression is the canonical positive connecting map, and exactness includes the H₂(Q) term.",
@@ -4250,9 +4252,9 @@
       ],
       "sources": [
         {
-          "sourceId": "Weibel.HA.Groups",
-          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125 / PDF pp.131–133",
+          "match": "These public notes state the Hochschild–Serre spectral sequence, its quotient conjugation action and naturality. They do not construct the sequence. The proofSteps here give a separate direct derivation of its trivial-integral five-term part from the pinned bar differential, kernel complex and generic homology exact sequence; no spectral-sequence construction is inferred from the notes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4340,9 +4342,9 @@
       ],
       "sources": [
         {
-          "sourceId": "Weibel.HA.Groups",
-          "locator": "§6.8, Low Degree Terms6.8.3, printed p.196/PDF37; read text and image 2026-10-02",
-          "match": "The integral trivial-coefficient five-term result. The packet gives a direct kernel-of-bar-chains proof rather than claiming that this argument is printed in the source; differential and connecting-map conventions are checked against the pinned Lean statements."
+          "sourceId": "Loeh.GroupCohomology.2019",
+          "locator": "Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125 / PDF pp.131–133",
+          "match": "These public notes state the Hochschild–Serre spectral sequence, its quotient conjugation action and naturality. They do not construct the sequence. The proofSteps here give a separate direct derivation of its trivial-integral five-term part from the pinned bar differential, kernel complex and generic homology exact sequence; no spectral-sequence construction is inferred from the notes."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4705,10 +4707,10 @@
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-    "date": "2026-09-30",
-    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of /30: the four new quotient-bar nodes give an explicit integral kernel-complex proof of the five-term sequence, mixed commutators, positive connecting sign and naturality using the actual pinned homology maps. Replaced their uncleared-book proof citations with public Löh statement/naturality locators and explicitly distinguished the worker chain-level derivation. Added actual nonsurjective C₁→C₂, C₄→C₂ map, S₃ sign-quotient and identity tests; retained older source and plus-construction gaps without certifying them. This partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
   },
   "reviewHistory": [
     {
@@ -4943,6 +4945,12 @@
           "note": "Separated stable perfectness from finite perfectness; generator commutators pass through the colimit (III.5.1 relations/5.5)."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+      "date": "2026-09-30",
+      "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
     }
   ]
 }

@@ -1,3 +1,10 @@
+/-
+Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
+The actual declarations elaborate with lean-check at the recorded pinned libraries.
+The only warnings are uses of sorry. Future signatures and tests left in comments were not
+elaborated. This is a prototype, not a formalization. The review report records its
+scope and unresolved work. Earlier compilation records apply to their earlier text.
+-/
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.BigOperators.Group.List.Basic
 import Mathlib.Algebra.Ring.Units
@@ -2691,6 +2698,9 @@ example :
     let y : R := DualNumber.eps
     let I : Ideal R := Ideal.span {x * y}
     let z : I := ⟨x * y, by exact Ideal.subset_span (by simp)⟩
+    letI : CommRing R := inferInstance
+    letI : I.IsTwoSided := inferInstance
+    letI : CommRing (R ⧸ I) := inferInstance
     letI : Module R Ω[(R ⧸ I)⁄ℤ] := Module.compHom _ (Ideal.Quotient.mk I)
     ∃ coord : (I ⊗[R] Ω[(R ⧸ I)⁄ℤ]) ≃+ (ZMod 3 × ZMod 3),
       coord (-(z ⊗ₜ KaehlerDifferential.D ℤ (R ⧸ I) (Ideal.Quotient.mk I x))) = (2, 0) ∧

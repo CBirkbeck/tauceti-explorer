@@ -1,13 +1,19 @@
+/-
+Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
+The actual declarations elaborate with lean-check at the recorded pinned libraries.
+There are no warnings. Future signatures and tests left in comments were not
+elaborated. This is a prototype, not a formalization. The review report records its
+scope and unresolved work. Earlier compilation records apply to their earlier text.
+-/
 import TauCeti.CategoryTheory.GrothendieckGroup.Exact
 import TauCeti.Algebra.Category.ModuleCat.CartanMap
 
 /-
 Current revision: FIX-RT-AREA-ktheory-1~2, issue #5541.
-Codex codex-5ebb6f, 2026-10-02; merged by Claude claude-HJaFqR, 2026-10-06. Awaits
-independent review. NOT COMPILED: `lean-check` stops at the import
-TauCeti.CategoryTheory.GrothendieckGroup.Exact, whose .olean the shared build at the
-Mathlib pin does not have; the imports were moved above the module docstring, which Lean
-requires, but no declaration below has been elaborated.
+Codex codex-5ebb6f, 2026-10-02; merged by Claude claude-HJaFqR, 2026-10-06. Independent review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ,
+2026-10-10: this file elaborates with lean-check at both recorded pins. Its actual
+declarations use existing library carriers; future signatures in comments have not
+been elaborated.
 Earlier revision/compilation records below belong to their earlier text only.
 The reader and JSON packet define the full roadmap. New future-carrier signatures
 are comments until their suppliers exist; none asserts a completed Lean proof.
@@ -27,7 +33,7 @@ file contains no proposition-valued substitutes for them.
 
 Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Not compiled: no existing build at both pins was identified.
+Current compilation is recorded above; earlier uncompiled status is superseded.
 -/
 
 noncomputable section
@@ -618,7 +624,8 @@ For p:K₀(C,v)↠G define w_p by f:A→B ∈w_p iff p[B]=p[A]. For a cofibratio
 -/
 /-
 def classWeakEquivalences (A : ExtensionClosedCofinalWaldhausenSubcategory W) : MorphismProperty C :=
-  fun X Y f => W.weakEquivalences f ∧ classOf X = classOf Y in cokernel (k0Map A.inclusion)
+  fun X Y _f => classOf X = classOf Y in cokernel (k0Map A.inclusion)
+-- This is the enlarged weak class, rather than its intersection with the original weak class.
 -/
 
 /- Planning API:
@@ -773,15 +780,16 @@ theorem localizationBoundaryProduct_left (y : KGroup m R) (x : KGroup n (localiz
 
 /-!
 GeneralAlgebraicKTheory:K.3/one-step-resolution-comma
-For a resolving full exact P⊂H, closed under extensions and kernels of admissible epimorphisms, and with P-epimorphisms onto every H-object, QP→QH is a homotopy equivalence.
+Let P be a replete full subcategory of an essentially small exact category H, with the induced exact structure. Suppose P is extension closed, every H-admissible subobject of a P-object lies in P, and every H-object admits an H-admissible epimorphism from a P-object. Then QP→QH induces a homotopy equivalence on classifying spaces.
 -/
 /-
+-- OneStepResolvingSubcategory includes all H-admissible subobjects of P-objects.
 def oneStepResolutionQEquiv (h : OneStepResolvingSubcategory P H) : |nerve (QCat P)| ≃ₕ* |nerve (QCat H)|
 -/
 
 /-!
 GeneralAlgebraicKTheory:K.3/bounded-resolution-filtration
-Under the resolving hypotheses, H_n={M:resolution length≤n by P} is extension closed, H_n⊂H_(n+1) satisfies the one-step theorem, and K(P)≃K(H) if every H-object has finite P-resolution.
+Under the ordinary resolving kernel condition and admissible P-covers, the resolution-length subcategories H_n are extension closed. The stronger one-step subobject condition holds for H_n inside H_(n+1). Their filtered union yields K(P)≃K(H) when every object has finite P-resolution.
 -/
 /-
 def finiteResolutionKEquiv (h : ResolvingSubcategory P H)

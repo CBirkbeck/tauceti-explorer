@@ -1,11 +1,13 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-adGaRg`, 10 October 2026. Atlas base
-`fc29fda2f2c6120221f6e8beea78e7e9436c8fca`.
+`codex-dN8Riv`, 10 October 2026. Atlas base
+`aa195923d` (Queue: record swarm intake).
 
-This continues [PR #8436](https://github.com/CBirkbeck/tauceti-explorer/pull/8436),
-after checkpoints #8425, #8414, #8353 and #6944. The reviewed fix was
+This continues [PR #8459](https://github.com/CBirkbeck/tauceti-explorer/pull/8459),
+retaining the earlier independent audit and its source evidence. This session
+rechecked the supplier interfaces and made the citation correction below; it
+did not repeat the whole audit of unrelated declarations. The reviewed fix was
 `FIX-RT-AREA-topology~4`, Codex `codex-BLPWxk`,
 [PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873), merge
 `c1b39075`. I did none of that fix, its predecessors, the red team,
@@ -24,7 +26,7 @@ scope. That conflict, described at the end, prevents completion of the queue job
 | QSeriesPartitionsAndMockModularForms | **needs_changes** | Correct scalar owner and matrix-extension route; reader still disagrees at the four locations below. Broader blueprint rejections remain binding. |
 
 Each new top-level review names this job and session. The overwritten reviews
-from PR #8436 are preserved in `reviewHistory`, alongside the earlier full
+from PR #8459 are preserved in `reviewHistory`, alongside the earlier full
 blueprint and fix reviews. No stage is promoted to closed, no gap/request is
 removed, and no suggested declaration changes.
 
@@ -78,21 +80,18 @@ retained. The material reader export omissions were already resolved; its
 controlling refinements and comparison maps remain explicit. A later authorized
 reader synchronization should carry the updated locators below.
 
-Corrections made **in this session**, all in the base Habiro packet:
+Correction made **in this session**, in the base Habiro packet:
 
-- `HB.4/formal-gaussian-integration`: replace the internal TeX bracket label by
-  GSWZ §2.5, equations (110)–(111), printed p. 28; the equation spans PDF pages
-  28 and 31 because of inserted figure pages. Replace the GZ TeX labels by
-  §3, equations (13)–(14), p. 4. The statement now also names (110).
-- `HB.4/radial-asymptotic-expansion`: use GZ Theorem 3.1, equations (18)–(21),
-  pp. 5–6, rather than internal labels. Describe the supporting hypotheses in
-  our own words instead of claiming a verbatim transcription.
-- `HB.4/kummer-invariance-of-the-expansion`: correct the location of (21) from
-  p. 5 to p. 6. Likewise extend the GZ locator of
-  `HB.4/simplified-form-and-the-unit` to pp. 5–6.
+- `HB.8/fgi-collection`: replace the internal TeX label `Ikdef` in its
+  statement by equation (118). Its sources now cite GSWZ §2.5, Definition
+  2.11, equations (117)–(119), printed pp. 29–30; the periodicity paragraph
+  after (119), p. 30; and the critical potential/value in (115)–(116), p. 29.
+  The support descriptions use our own words. The periodicity proof remains
+  an obligation, and G1/G2 still control normalization and regularity.
 
-These are provenance corrections; no theorem hypothesis or mathematical API
-changes. The source's unresolved coefficient-descent issue remains recorded.
+The preceding checkpoint's HB.4 numbered-equation/page corrections are
+retained. This change alters no hypothesis, API, dependency or suggested
+signature, and closes no mathematical gap.
 
 ## /13: scalar periods and matrix cocycles
 
@@ -162,7 +161,7 @@ read-only. The prior full blueprint acceptance remains in force.
 | /4 | **Handoff accepted.** General Drinfeld–Jimbo/core, parity, colors and WRT interfaces are named; G2 retains generic universal-invariant/highest-weight needs. Rank one does not supply every Lie type. |
 | /5 | **Handoff accepted.** The Jones comparison and G3 retain variable/mirror/framing/root conventions. A Temperley–Lieb representation alone supplies no Markov trace. |
 | /6 | **Handoff accepted.** P.1/P.2 supply dilogarithm/regulator identities; V.3/V.4/V.6 supply groups, comparisons and certified elements. V.5 computations are not a regulator supplier. |
-| /7 | **Supplier fix accepted.** P.2 is the single tetrahedron-volume owner, importing metric/model geometry; QT.5 owns manifold sums. The early region gap remains. |
+| /7 | **Supplier fix accepted; consumer edge needs correction.** P.2 is the single tetrahedron-volume owner, importing metric/model geometry; QT.5 owns manifold sums. The early region gap remains. The current QT volume node omits the exact P.2 theorem from its prerequisites; see the read-only observation below. |
 | /8 | **Handoff accepted.** Cusped face-pairing/completeness/finite-volume geometry is requested. G4 keeps connectivity/rigidity/trace-field conditions; closed Mostow material is insufficient. |
 | /9 | **Handoff accepted.** Extended pre-Bloch/kernel, flattenings and Rogers comparison are specified. G5 retains cut-cover, transfer and torsion conditions; no canonical lift follows from ordinary descent. |
 | /10 | **Handoff accepted.** NZ/root-refined data, formal series, invariance and integral-Nahm comparison are named. G6 preserves unimodularity, coefficients, parity, normalization and actual HB refinements. |
@@ -187,9 +186,9 @@ read-only. The prior full blueprint acceptance remains in force.
 The eleven upstream dispositions remain maintainer notes. No upstream roadmap,
 live atlas data, extract, link map or restructuring-result file was edited.
 
-## Evidence and validation
+## Retained evidence from the preceding independent audit
 
-Read WORKERS, PROTOCOL, expansion protocol and UPSTREAM_GUIDE; the fix report
+The preceding reviewer recorded reading WORKERS, PROTOCOL, expansion protocol and UPSTREAM_GUIDE; the fix report
 and all assigned claims/verification dispositions; the preceding checkpoint;
 the relevant supplier nodes/refinements/readers and current consumer requests.
 Reviewed the relevant AUDIT-30, AUDIT-14 and AUDIT-15 records before deciding
@@ -207,7 +206,7 @@ positive-definite covariance). Their three shared files match the pinned raw
 files byte for byte. The density formula alone does not give a density law at
 a singular covariance or an algebraic formal Gaussian theorem.
 
-Read current TauCetiRoadmap at `670582c502e1d4497d9ccd492b36c67028ef6666`:
+The preceding reviewer read TauCetiRoadmap at `670582c502e1d4497d9ccd492b36c67028ef6666`:
 complete AlgebraicTopology and Completed/UniversalCovers READMEs and relevant
 GeometricTopology/DifferentialGeometry layers/signatures. In particular, checked
 arbitrary-pair relative homotopy, connected-manifold homogeneity and
@@ -217,7 +216,7 @@ arbitrary-pair relative homotopy, connected-manifold homogeneity and
 requires Lindelöf spaces and continuous Riemannian metrics. No Lake command
 was run in that read-only environment.
 
-Public sources were freshly read on 10 October. The source table records the
+The preceding reviewer recorded fresh source readings on 10 October. The source table records the
 exact versions/locators checked, in our own words. No source passage or
 restricted book was copied into the repository.
 
@@ -238,7 +237,7 @@ All three edited packets pass `python3 scripts/check_blueprint.py` with
 and 22. No `excerpt` field is present. No link-map/restructuring-result file is
 a deliverable here. Intake file checks and `git diff --check` pass.
 
-Fresh sequential `lean-check` runs in the prescribed shared build all returned
+The preceding reviewer’s sequential `lean-check` runs in the prescribed shared build all returned
 exit 0. Available memory exceeded 100 GB. No language server/build/cache/update
 command was started. The only warnings were admitted proofs:
 
@@ -253,6 +252,43 @@ command was started. The only warnings were admitted proofs:
 The two additional read-only packet validators also report zero errors/warnings
 (14 and 106 nodes). Their compilation validates signatures, not the admitted
 proofs or gap closure. Those checks do not authorize changing their reviews.
+
+## Fresh checks and read-only consumer observation
+
+This session retrieved the same public PDFs listed above and checked their
+SHA-256 values. Freshly re-read GZ §3, equations (13)–(21), pp. 4–6; GSWZ
+§2.5, equations (110)–(119), pp. 28–30; Zagier's quantum-modular definition
+and cocycle, p. 2, and Examples 4–5, pp. 11–13; and Dilogarithm I.4,
+equations (7)–(9), pp. 13–14. Other table locators retain their preceding-audit
+attribution. The AMS Milnor Appendix remained inaccessible (HTTP 403).
+
+Read the current relevant AlgebraicTopology, GeometricTopology and
+DifferentialGeometry targets/signatures at TauCetiRoadmap main
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`; current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Existing volume, forms/Stokes,
+corner boundaries and manifold homogeneity retain their upstream owners.
+Fresh pinned checks confirmed the three Tau Ceti files listed above match
+`f790474` byte for byte. The covariance/density hypotheses remain distinct.
+
+Fresh packet checks for the three authorized suppliers report zero errors and
+warnings (75/109/537 nodes). Fresh sequential `lean-check` runs all exit 0,
+with only `sorry` warnings: Polylogarithms 462, HabiroNahmSeries 441, QSeries
+1,469. Available memory exceeded 100 GB; no suggested file changed. The two
+extra packets and suggested files remain untouched; their checks in the prior
+section are earlier evidence, not new compilation claims.
+
+A new read-only observation affects finding /7's consumer, rather than the
+accepted supplier. `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`
+explicitly uses the tetrahedron identity but lists only Bloch–Wigner descent,
+not `Polylogarithms:P.2/hyperbolic-volume`. No QT prerequisite references the
+latter node, and the open P.2 request alone does not create that edge. Under
+PROTOCOL §3 an existing exact supplier must be named as a prerequisite.
+After authorization, add that exact node id to the volume theorem's
+prerequisites. Preserve the open geometric comparison request and G4/G5;
+this edge supplies a planned identity, not a proof of geometric gap closure.
+Check the ordered-vertex/sign translation between the QT shape interface and
+P.2 as part of that correction; their written normalizations differ. This
+report does not infer a sign error merely from different cross-ratio choices.
 
 ## Completion blocker and concrete continuation
 
@@ -274,7 +310,7 @@ passes, while the queue's eleven-output predicate fails. Do not modify queue
 or intake logic to hide that mismatch.
 
 This session requested explicit authorization for the four extra paths and
-prepared their read-only contract/validator/Lean checks. Authorization has not
+prepared their read-only contract checks and the exact missing dependency above. Authorization has not
 arrived. The submission therefore remains a checkpoint blocked on scope,
 not a run-time limit or an incomplete review of the authorized suppliers.
 The existing full blueprint reviews were not silently replaced.
@@ -283,8 +319,8 @@ Once authorization is explicit, independently review the current QT /1–/16
 corrected contracts and P.2's /7 Milnor-angle route, preserve their full
 acceptances in history, and record bounded fix-review verdicts naming this job.
 Their eight/nineteen and two/three gap/request counts must survive; no stage
-should become closed. The read-only checks above already establish that the
-current signatures elaborate. The AMS access limitation should be resolved
+should become closed. The earlier read-only checks establish that the unchanged
+signatures elaborate; rerun only if they change. The AMS access limitation should be resolved
 before claiming a fresh reading of Milnor's Appendix. Reader synchronization
 remains a separate authorized job and does not prevent a completed review
 verdict of `needs_changes`.

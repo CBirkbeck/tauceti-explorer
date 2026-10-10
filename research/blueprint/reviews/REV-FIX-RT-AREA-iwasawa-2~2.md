@@ -1,11 +1,11 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Latest continuation: Codex, session `codex-eh5SHn`, 10 October 2026,
-input `e9e4af08c`, branch `codex-eh5SHn-review-iwasawa`.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099006386).
-The bounded checks below retain the preceding review and its negative PMIA
-verdict. Dispatch still prevents the two missing review receipts; this is a
-checkpoint, not a finished review job.
+Latest continuation: Codex, session `codex-obfCnR`, 10 October 2026,
+input `8747873f6`, branch `codex-obfCnR-review-iwasawa`. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6099253387).
+The finding verdicts are complete. The live issue still omits two required
+review receipts, so this submission remains a checkpoint. See the final
+continuation for fresh validation and the exact scope correction needed.
 
 Codex, session `codex-x3M7Sz`, 10 October 2026. Refs #6219.
 [Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098734409).
@@ -344,3 +344,102 @@ changed, and no Lean run was repeated for this metadata-only continuation.
 The preceding compilation results above remain attributed to that session.
 The submission consists of this report and the handoff. Completion still
 requires dispatch correction or explicit authorization for the two receipts.
+
+
+## Continuation by codex-obfCnR
+
+This session did none of fixer `claude-6ZAIEy`'s work. No manager-priority
+issue was available; #6219 was selected from the available top reviews,
+claimed, and reread after bot confirmation. This report, the job's
+handoff and the two issue-named packets change. Each packet archives its
+preceding review whole and refreshes only review metadata. All mathematical
+content, suggested files and preceding review histories remain intact.
+
+### Independent checks and finding verdicts
+
+The six verdicts above remain supported by these fresh bounded readings:
+
+1. **/1, supported.** Inspected Morita's scanned §1, Lemma 1/Theorem 1,
+   pp.255–256, and Gross–Koblitz's scanned §1, (1.2), (1.5), (1.6) and
+   Theorem 1.7, pp.570–571. Checked the actual L3 Gamma nodes against the
+   signed finite product, buffered congruence, unit-valued continuous lift,
+   both recurrence branches, odd-prime source range, negative Gauss sign
+   and integral chosen-root congruence. The all-prime extension retains its
+   separate Robert 2001 route; that route's full proof was not rereviewed.
+2. **/2, supported within the existing gaps.** Read Zhao §1.2 p.461,
+   Theorem 4.1 and (4.3)–(4.6) pp.472–473, Appendices A–B pp.473–474.
+   Compared the L3-2 antidifference, differentiation, general derivative
+   and exceptional derivative nodes. The strict endpoint and correction
+   term agree; the exceptional simplification requires chi(p)=1. The
+   existing source issue E37 and arithmetic nonvanishing gap are retained.
+3. **/3, supported within the imported producer contracts.** Read
+   Ertl–Nizioł v2 §§2.1–2.2 pp.4–8, Colmez–Nizioł v4 Corollary 3.16
+   p.37/Theorem 5.4 p.54, and Nekovář–Nizioł v5 Remark 2.14 p.14 and
+   Proposition 4.13 pp.53–54. Checked the four D.2 consumer statements:
+   distinct complexes, directed maps, factorial twist, exact divided range,
+   bounded undivided comparison, and rational exponential normalization.
+   This verifies the consumers rather than constructing CS.0–CS.3.
+4. **/4, needs changes for native reuse.** Read Dasgupta–Kakde v3 §§2.2–2.3
+   pp.15–18, Lemma 3.9 pp.25–26 and §6.1/Lemma 6.1 p.40. The evaluation
+   image, square-presentation assumptions, inverse-character transport
+   and right-adjugate repair are supported. Directly read current
+   `TauCeti.fittingIdeal`, `fittingIdeal_eq_minorsIdeal_ker`,
+   `fittingIdeal_baseChange` and
+   `AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual` at the current
+   commit recorded above. Their generality supplies the generic targets;
+   the five-node migration and coherent consumer/reader changes remain
+   the exact negative verdict. Confirmed the new Fitting and StableTranspose
+   modules are absent from the old programme pin.
+5. **/5, restricted routing supported, full result unresolved.** Read
+   BCGP21 v3 §6.1.1 p.139, and BCGP25 v1 Definition 2.2.17 p.21 and
+   §§4.6.46–4.6.49 pp.93–95. Compared LAD's L4 coverage and its two named
+   gaps. The representative product and full solid analytic localization
+   remain distinct. This is a routing check; no LAD edit is authorized.
+6. **/6, rejection upheld.** Reread RS-16's accepted I.5 decision. It
+   explicitly keeps both historical Hecke/congruence routes, so a second
+   proof method is not the duplication alleged by the finding.
+
+Read the reviewed L3, D.2 and L6 library audits and the current
+ArithmeticDirichletSeries and QuiverRepresentations roadmap documents.
+At the exact programme pins, read the actual statements of
+`PadicInt.ofIntSeq`, `cast_toZModPow`, `isUnit_iff`,
+`ContinuousMap.unitsOfForallIsUnit`, `Matrix.mul_adjugate`,
+`Module.dualProdDualEquivDual`, `Module.dual_projective`,
+`Module.dual_finite`, `TauCeti.AuslanderReitenTranspose` and its
+`linearEquiv`. These selected checks do not replace the archived exhaustive
+node audits. All ten public PDFs were fetched again: every SHA-256 agrees
+with the source-version table above. No uncleared book was fetched.
+
+### Fresh validation
+
+All four `check_blueprint.py` runs exit 0: L3 has 26 inherited short-API
+warnings, L3-2/D.1/PMIA have none. Sequential `lean-check` runs give:
+
+| Suggested file | Result |
+| --- | --- |
+| DirichletPadicLFunctions--L3 | exit 1: unresolved imported `research` module prefix in the shared build |
+| DirichletPadicLFunctions--L3-2 | exit 0: 111 `sorry` warnings, no other warnings |
+| PadicHodgeRegulators--D.1 | exit 0: 307 `sorry` warnings, no other warnings |
+| PadicMeasuresIwasawaAlgebras | exit 0: 1,075 `sorry` warnings, no other warnings |
+
+These are whole-file runs against the pinned shared build. The L3 limitation
+is preserved explicitly; no statement of full compilation is made. Available
+memory exceeded 20 GB before every run. No build, update, cache download or
+language server was run, and every process finished.
+
+### Dispatch remains the only completion blocker
+
+The actual queue requires review verdicts in L3, L3-2, D.1 and PMIA. The live
+issue names only L3 and PMIA. Under WORKERS.md's issue-named-file rule, the
+prepared L3-2 and D.1 review-only patches were not installed. Explicit scope
+authorization was requested from this run's user and has not arrived.
+The two issue-named packets now carry this session's review receipts, retaining
+L3 accepted and PMIA needs_changes. Their preceding receipts are archived whole.
+The omitted packets remain unchanged. Each prepared patch for them archives
+the entire previous review, with respectively
+79 and 72 checked entries. Parsed-object assertions show that only `review`
+and `reviewHistory` differ; all mathematical content is identical.
+The actual `issues.deliverables_complete` function still returns **False**.
+A precise negative PMIA verdict does finish its part of a review; it is not
+the completion blocker. Correct the dispatch or explicitly authorize the two
+receipts before another worker is assigned this unchanged issue.

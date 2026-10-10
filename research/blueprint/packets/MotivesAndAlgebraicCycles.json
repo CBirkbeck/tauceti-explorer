@@ -15299,9 +15299,10 @@
  ],
  "review": {
   "status": "needs_changes",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
-  "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
+  "session": "codex-XnOZ0w",
+  "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire newer REV-FIX-RT-AREA-geomlanglands~2 review, preserved unchanged in reviewHistory. Findings /4 and /31: the geometric Hodge owner after C5 remains an explicitly unaccepted proposal. Fresh signature inspection confirms that PairDiagram.PeriodComparison carries pullback and connecting-map compatibility, unit and product laws, and the Tate rank-one condition; ProductCompatible and the arbitrary-pair C5 request remain explicit. The algebraic-geometry fixes are adequate, but retain the newer negative REV-FIX-RT-AREA-geomlanglands~2 verdict: its relative Beck preservation adapter and typed reconstruction carriers, fifteen API signatures and four theorem signatures remain unresolved. Preserve that entire audit and the earlier iwasawa qualifications in history. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Area-fix adequacy does not discharge the inherited Tannaka defects. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
  },
  "reviewHistory": [
   {
@@ -16279,6 +16280,12 @@
    "date": "2026-10-10",
    "session": "codex-X15WW9",
    "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /4 and /31: the proposed geometric Hodge owner remains explicitly unaccepted; abstract Hodge structures alone are not a geometric decomposition supplier. PairDiagram.PeriodComparison retains pullback, connecting-map, unit and product laws, ProductCompatible and the Tate rank-one condition. Freshly read Huber–Müller-Stach Definition 0.1 p.2 supports these relations; the arbitrary-pair comparison remains a C5 request. Preserve every qualification of the later accepted iwasawa-3~3 review in reviewHistory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+   "date": "2026-10-10",
+   "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
   }
  ],
  "fixes": {

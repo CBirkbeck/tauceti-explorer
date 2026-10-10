@@ -139,3 +139,30 @@ Fresh sequential `lean-check` runs all return **exit 0**: Faltings **197**, Perf
 Semantic comparison against the input confirms only review replacements/history appends in the packets. All node IDs, mathematical statements, source records/verdicts, baselines, prerequisites, APIs/tests, planets, coverage, gaps and requests are preserved. `research/blueprint/intake.py check-files` and `git diff --check` pass for the five changed files.
 
 The stock `issues.deliverables_complete` predicate succeeds when given the live issue's seven authorized outputs and fails for the actual generated queue entry's 31 outputs. The latter demands review objects for fifteen packets, twelve outside this issue's allowed files. The handoff lists them and the maintainer action. The blocker is administrative scope reconciliation; no further permitted mathematical edit can make the queue entry complete.
+
+## Continuation: completion-boundary verification
+
+Codex session **codex-hHkBnT**, 10 October 2026, independently checked the administrative boundary at input `fb0cd9eed77d7eb6fbd7226707e91d90fa7acdfe`. The bot confirmed this session's claim in [comment 6099408303](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099408303). This continuation does not replace the mathematical review above or its source-reading attribution.
+
+The live issue still authorizes seven outputs, whereas the generated queue names 31. All 31 exist. Using the unmodified `issues.deliverables_complete` function gives `True` for the live seven-output scope and `False` for the queue scope. The three authorized packets already carry this job's reviewer identifier. Each of the twelve extra packets carries an **accepted** verdict from its own independent review:
+
+| Extra packet | Existing independent review job |
+|---|---|
+| AInfCohomology--AI.0 | REV-AInfCohomology--AI.0~2 |
+| CrystallineCohomology--CR.0 | REV-CrystallineCohomology--CR.0~2 |
+| CohomologyComparisons | REV-CohomologyComparisons~2 |
+| IgusaVarietiesAndTorsionConcentration | REV-IgusaVarietiesAndTorsionConcentration~2 |
+| PrismaticCohomology--PR.0 | REV-PrismaticCohomology--PR.0~2 |
+| DerivedDeRhamCohomology | REV-DerivedDeRhamCohomology~2 |
+| AInfCohomology--AI.6 | REV-AInfCohomology--AI.6~2 |
+| CrystallineCohomology--CR.5 | REV-CrystallineCohomology--CR.5~3 |
+| RelativeFarguesFontaine--RF0 | REV-RelativeFarguesFontaine--RF0~2 |
+| AutomorphicGaloisRepresentations | REV-AutomorphicGaloisRepresentations~2 |
+| AutomorphicGaloisRepresentationsPartII--AG2.6 | REV-AutomorphicGaloisRepresentationsPartII--AG2.6~2 |
+| AutomorphicGaloisRepresentationsPartII--AG2.0 | REV-AutomorphicGaloisRepresentationsPartII--AG2.0~2 |
+
+This is a metadata inspection, not a new review of those packets. Their accepted statuses do not establish that this fix review has checked them. The completion predicate explicitly requires the exact reviewer identifier for every packet in the job's outputs; it cannot be satisfied by their existing, different identifiers.
+
+The generator location requiring maintainer attention is `research/blueprint/make_queue.py`, function `fix_rounds` (lines 1909–1969 at this input). It preserves the initial finished fix's outputs, derives each review from `current_outputs`, and may append newly routed `missing` blueprint paths when advancing rounds. Historical later-round scope is preserved only under the `made` branch's conditions. Compare the recorded round-four fix's historical outputs and actual submitted changes with the regenerated review's outputs before regenerating. Do not simply refresh the live issue with the enlarged scope: those twelve receiving packets were not part of the submitted reader-synchronization fix.
+
+Fresh validation in this continuation: all three authorized packet checks pass with **zero errors and zero warnings**, using the declaration index whose manifest matches the pinned commits. The mathematical packets, readers and suggested Lean files are unchanged. Lean was not rerun: this continuation changes documentation only, and the prior successful elaborations remain attributed to the prior session. No fresh primary-source reading or new mathematical verdict is claimed.
