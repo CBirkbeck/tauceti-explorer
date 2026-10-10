@@ -47184,8 +47184,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalGroupsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7534"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7534",
+   "finishedAt": "2026-10-10T14:39:07Z"
   },
   {
    "id": "REV-PKG-ClassicalGroupsPartII",
@@ -48269,8 +48270,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -49255,8 +49256,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -49802,7 +49803,8 @@
     "PKG-SemisimpleAlgebrasPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SemisimpleAlgebrasPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7609"
   },
   {
    "id": "PKG-SmallRamificationAndAbelianVarietyBaseCases",
@@ -80129,8 +80131,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81439,8 +81441,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -83359,7 +83361,8 @@
     "FIX-RT-AREA-ktheory-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5159"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -84527,8 +84530,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
