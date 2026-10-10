@@ -30,6 +30,7 @@ import Mathlib.RingTheory.Derivation.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Dynamics.PeriodicPts.Defs
 import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.LinearAlgebra.Projectivization.Basic
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.Topology.LocallyConstant.Basic
 import Mathlib.FieldTheory.IntermediateField.Basic
@@ -1985,8 +1986,8 @@ example : (2 : ℂ_[2]) ≠ 0 := by
 
 These declarations use only the p-adic D and its two-term identities. They do not define
 projective cross-ratios or assume the global five-term relation. The end-comparison
-section supplies the special-unit scalar argument; the projective/Bloch comparisons
-remain supplier obligations.
+section supplies the special-unit scalar argument; L2.Fb below supplies the
+separate integral Bloch and projective comparisons.
 -/
 
 /-- The scalar five-term expression, with the exact source signs. -/
@@ -2084,7 +2085,7 @@ example {a : ℂ_[5]} {L : ℂ_[5] → ℂ_[5]} (hL : IsLogBranch 5 a L) :
 
 
 /-- **Global five-term target**; its scalar proof plan is completed by the end comparisons below.
-The field-general projective/Bloch comparisons remain separate supplier obligations. -/
+The field-general projective/Bloch comparisons are specified separately in L2.Fb below. -/
 theorem dilogD_five_term (hL : IsLogBranch p a L) {x y : ℂ_[p]} (hx0 : x ≠ 0) (hx1 : x ≠ 1)
     (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
     dilogD hL x - dilogD hL y + dilogD hL (y / x) - dilogD hL ((1 - x⁻¹) / (1 - y⁻¹)) +
@@ -3699,3 +3700,326 @@ example (a : ℂ_[3]) :
 example (a : ℂ_[p]) (u : ℂ_[p]ˣ) : branchPair p a (tensorClass ℂ_[p] 1 u) = 0 := by sorry
 
 end TauCeti.ColemanIntegration.BlochAlgebra
+
+/-! ## L2.Fb: field-general projective comparison
+
+Native Projectivization with [x:1] and [1:0]. The convention is
+1 minus Faber–Pardue–Zelinsky, arXiv:2012.03073v1, Definition 6.2,
+pp. 19–20. Their Theorems 6.4–6.5 and Propositions 6.7, 6.9
+(pp. 20–22) supply normalization, permutations and field transport.
+The normalized cyclic-to-scalar calculation is a deduction from these
+algebraic facts and L2.18; L2.69 supplies the actual p-adic scalar identity.
+It asserts no extra integral pre-Bloch relation.
+-/
+
+namespace TauCeti.ColemanIntegration.ProjectiveAlgebra
+
+variable (K : Type*) [Field K]
+
+/-- Native projective line, with homogeneous coordinates [x:y]. -/
+abbrev Point := Projectivization K (Fin 2 → K)
+
+/-- The affine chart x ↦ [x:1]. -/
+def finitePoint (x : K) : Point K :=
+  Projectivization.mk K ![x, 1] (by
+    intro h
+    have := congrFun h 1
+    simp at this)
+
+/-- The complementary point [1:0]. -/
+def infinity : Point K :=
+  Projectivization.mk K ![1, 0] (by
+    intro h
+    have := congrFun h 0
+    simp at this)
+
+/-- Determinant of two coordinate vectors, with their order fixed. -/
+def detPair (v w : Fin 2 → K) : K := v 0 * w 1 - v 1 * w 0
+
+theorem detPair_swap (v w : Fin 2 → K) : detPair K w v = -detPair K v w := by sorry
+
+theorem detPair_smul (s t : K) (v w : Fin 2 → K) :
+    detPair K (s • v) (t • w) = s * t * detPair K v w := by sorry
+
+theorem detPair_eq_zero_iff {v w : Fin 2 → K} (hv : v ≠ 0) (hw : w ≠ 0) :
+    detPair K v w = 0 ↔ Projectivization.mk K v hv = Projectivization.mk K w hw := by sorry
+
+theorem finitePoint_injective : Function.Injective (finitePoint K) := by sorry
+
+theorem finitePoint_ne_infinity (x : K) : finitePoint K x ≠ infinity K := by sorry
+
+theorem exists_finitePoint_iff (z : Point K) :
+    (∃ x : K, finitePoint K x = z) ↔ z ≠ infinity K := by sorry
+
+/-- The roadmap's convention: Δ(a,b)Δ(c,d)/(Δ(a,d)Δ(c,b)).
+The quotient is total; every analytic use carries pairwise distinctness.
+Changing any representative by a nonzero scalar leaves this value unchanged. -/
+def crossRatio (a b c d : Point K) : K :=
+  detPair K a.rep b.rep * detPair K c.rep d.rep /
+    (detPair K a.rep d.rep * detPair K c.rep b.rep)
+
+theorem crossRatio_mk (v w u t : Fin 2 → K)
+    (hv : v ≠ 0) (hw : w ≠ 0) (hu : u ≠ 0) (ht : t ≠ 0) :
+    crossRatio K (Projectivization.mk K v hv) (Projectivization.mk K w hw)
+      (Projectivization.mk K u hu) (Projectivization.mk K t ht) =
+      detPair K v w * detPair K u t / (detPair K v t * detPair K u w) := by sorry
+
+theorem crossRatio_finite (a b c d : K) :
+    crossRatio K (finitePoint K a) (finitePoint K b) (finitePoint K c) (finitePoint K d) =
+      (a-b)*(c-d)/((a-d)*(c-b)) := by sorry
+
+theorem crossRatio_infinity_first (b c d : K) :
+    crossRatio K (infinity K) (finitePoint K b) (finitePoint K c) (finitePoint K d) =
+      (c-d)/(c-b) := by sorry
+
+theorem crossRatio_infinity_second (a c d : K) :
+    crossRatio K (finitePoint K a) (infinity K) (finitePoint K c) (finitePoint K d) =
+      (c-d)/(a-d) := by sorry
+
+theorem crossRatio_infinity_third (a b d : K) :
+    crossRatio K (finitePoint K a) (finitePoint K b) (infinity K) (finitePoint K d) =
+      (a-b)/(a-d) := by sorry
+
+theorem crossRatio_infinity_fourth (a b c : K) :
+    crossRatio K (finitePoint K a) (finitePoint K b) (finitePoint K c) (infinity K) =
+      (a-b)/(c-b) := by sorry
+
+theorem crossRatio_admissible (s : Fin 4 → Point K) (hs : Function.Injective s) :
+    detPair K (s 0).rep (s 3).rep ≠ 0 ∧ detPair K (s 2).rep (s 1).rep ≠ 0 ∧
+      crossRatio K (s 0) (s 1) (s 2) (s 3) ≠ 0 ∧
+      crossRatio K (s 0) (s 1) (s 2) (s 3) ≠ 1 := by sorry
+
+/-- The Plücker identity supplies 1-r, including the sign of Δ(c,b). -/
+theorem crossRatio_complement (s : Fin 4 → Point K) (hs : Function.Injective s) :
+    crossRatio K (s 0) (s 2) (s 1) (s 3) =
+      1 - crossRatio K (s 0) (s 1) (s 2) (s 3) := by sorry
+
+theorem crossRatio_inverse (s : Fin 4 → Point K) (hs : Function.Injective s) :
+    crossRatio K (s 0) (s 3) (s 2) (s 1) =
+      (crossRatio K (s 0) (s 1) (s 2) (s 3))⁻¹ := by sorry
+
+theorem crossRatio_pair_swap (a b c d : Point K) :
+    crossRatio K c d a b = crossRatio K a b c d := by sorry
+
+theorem crossRatio_linearEquiv (T : (Fin 2 → K) ≃ₗ[K] (Fin 2 → K))
+    (a b c d : Point K) :
+    crossRatio K (Projectivization.map T.toLinearMap T.injective a)
+      (Projectivization.map T.toLinearMap T.injective b)
+      (Projectivization.map T.toLinearMap T.injective c)
+      (Projectivization.map T.toLinearMap T.injective d) = crossRatio K a b c d := by sorry
+
+/-- Normalize three points; the linear representative is unique up to a scalar,
+so uniqueness is asserted for its induced map, not for T itself. -/
+theorem exists_normalizer (s : Fin 3 → Point K) (hs : Function.Injective s) :
+    ∃ T : (Fin 2 → K) ≃ₗ[K] (Fin 2 → K),
+      Projectivization.map T.toLinearMap T.injective (s 0) = infinity K ∧
+      Projectivization.map T.toLinearMap T.injective (s 1) = finitePoint K 0 ∧
+      Projectivization.map T.toLinearMap T.injective (s 2) = finitePoint K 1 := by sorry
+
+theorem normalizer_unique (T U : (Fin 2 → K) ≃ₗ[K] (Fin 2 → K))
+    (s : Fin 3 → Point K) (hs : Function.Injective s)
+    (h : ∀ i, Projectivization.map T.toLinearMap T.injective (s i) =
+      Projectivization.map U.toLinearMap U.injective (s i)) :
+    Projectivization.map T.toLinearMap T.injective =
+      Projectivization.map U.toLinearMap U.injective := by sorry
+
+/-- Coordinatewise field transport, as a native semilinear map. -/
+def coordinateMap {E : Type*} [Field E] (f : K →+* E) :
+    (Fin 2 → K) →ₛₗ[f] (Fin 2 → E) where
+  toFun v i := f (v i)
+  map_add' v w := by ext i; simp
+  map_smul' a v := by ext i; simp
+
+theorem coordinateMap_injective {E : Type*} [Field E] (f : K →+* E) :
+    Function.Injective (coordinateMap K f) := by
+  intro v w h
+  ext i
+  exact f.injective (congrFun h i)
+
+/-- Base change on the native projective line. -/
+def fieldMap {E : Type*} [Field E] (f : K →+* E) : Point K → Point E :=
+  Projectivization.map (coordinateMap K f) (coordinateMap_injective K f)
+
+theorem fieldMap_finite {E : Type*} [Field E] (f : K →+* E) (x : K) :
+    fieldMap K f (finitePoint K x) = finitePoint E (f x) := by sorry
+
+theorem fieldMap_infinity {E : Type*} [Field E] (f : K →+* E) :
+    fieldMap K f (infinity K) = infinity E := by sorry
+
+/-- Unlike a general semilinear injection, this coordinatewise map remains
+injective on projective lines even when the field embedding is not surjective. -/
+theorem fieldMap_injective {E : Type*} [Field E] (f : K →+* E) :
+    Function.Injective (fieldMap K f) := by sorry
+
+theorem fieldMap_id : fieldMap K (RingHom.id K) = id := by sorry
+
+theorem fieldMap_comp {E F : Type*} [Field E] [Field F] (f : K →+* E) (g : E →+* F) :
+    fieldMap K (g.comp f) = fieldMap E g ∘ fieldMap K f := by sorry
+
+theorem crossRatio_fieldMap {E : Type*} [Field E] (f : K →+* E) (a b c d : Point K) :
+    crossRatio E (fieldMap K f a) (fieldMap K f b) (fieldMap K f c) (fieldMap K f d) =
+      f (crossRatio K a b c d) := by sorry
+
+/-- The normalized five-point configuration; x,y avoid 0,1 and each other. -/
+def normalizedFive (x y : K) : Fin 5 → Point K :=
+  ![infinity K, finitePoint K 0, finitePoint K 1, finitePoint K x, finitePoint K y]
+
+theorem normalizedFive_injective_iff (x y : K) :
+    Function.Injective (normalizedFive K x y) ↔
+      x ≠ 0 ∧ x ≠ 1 ∧ y ≠ 0 ∧ y ≠ 1 ∧ x ≠ y := by sorry
+
+theorem normalize_five (s : Fin 5 → Point K) (hs : Function.Injective s) :
+    ∃ (T : (Fin 2 → K) ≃ₗ[K] (Fin 2 → K)) (x y : K),
+      (x ≠ 0 ∧ x ≠ 1 ∧ y ≠ 0 ∧ y ≠ 1 ∧ x ≠ y) ∧
+      (fun i => Projectivization.map T.toLinearMap T.injective (s i)) =
+        normalizedFive K x y := by sorry
+
+theorem normalizedFive_crossRatios (x y : K) :
+    (fun i : Fin 5 => crossRatio K (normalizedFive K x y i)
+      (normalizedFive K x y (i+1)) (normalizedFive K x y (i+2))
+      (normalizedFive K x y (i+3))) =
+      ![1-x, (x-y)/(y*(x-1)), (x-1)/(x-y), (x-y)/x, 1/(1-y)] := by sorry
+
+/-- Algebraic conversion, independent of any analytic continuation or embedding.
+The normalized cyclic sum has the opposite sign from the scalar defect. -/
+theorem normalized_cyclic_sum {A : Type*} [AddCommGroup A] (f : K → A)
+    (hc : ∀ z : K, z ≠ 0 → z ≠ 1 → f (1-z) = -f z)
+    (hi : ∀ z : K, z ≠ 0 → z ≠ 1 → f z⁻¹ = -f z)
+    (x y : K) (hx0 : x ≠ 0) (hx1 : x ≠ 1)
+    (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    (∑ i : Fin 5, f (crossRatio K (normalizedFive K x y i)
+      (normalizedFive K x y (i+1)) (normalizedFive K x y (i+2))
+      (normalizedFive K x y (i+3)))) =
+      -(f x - f y + f (y/x) - f ((1-x⁻¹)/(1-y⁻¹)) + f ((1-x)/(1-y))) := by sorry
+
+/-- Conversion of scalar functional relations to the cyclic projective relation.
+This is a theorem about an additive-valued function, not an assertion of a
+new relation in the integral pre-Bloch quotient. -/
+theorem cyclic_relation_of_scalar {A : Type*} [AddCommGroup A] (f : K → A)
+    (hc : ∀ z : K, z ≠ 0 → z ≠ 1 → f (1-z) = -f z)
+    (hi : ∀ z : K, z ≠ 0 → z ≠ 1 → f z⁻¹ = -f z)
+    (hf : ∀ x y : K, x ≠ 0 → x ≠ 1 → y ≠ 0 → y ≠ 1 → x ≠ y →
+      f x - f y + f (y/x) - f ((1-x⁻¹)/(1-y⁻¹)) + f ((1-x)/(1-y)) = 0)
+    (s : Fin 5 → Point K) (hs : Function.Injective s) :
+    ∑ i : Fin 5, f (crossRatio K (s i) (s (i+1)) (s (i+2)) (s (i+3))) = 0 := by sorry
+
+/-! Each new definition has three examples; comparisons test the convention,
+all four positions of infinity, rescaling and field transport. -/
+
+/-- Test finitePoint.zero. -/
+example : finitePoint K 0 = Projectivization.mk K ![0, 1] (by sorry) := by rfl
+/-- Test finitePoint.one_ne_zero. -/
+example : finitePoint K 1 ≠ finitePoint K 0 := by sorry
+/-- Test finitePoint.chart_collision. -/
+example (x y : K) : finitePoint K x = finitePoint K y ↔ x = y := by sorry
+
+/-- Test infinity.coordinates. -/
+example : infinity K = Projectivization.mk K ![1, 0] (by sorry) := by rfl
+/-- Test infinity.zero_chart. -/
+example : infinity K ≠ finitePoint K 0 := by sorry
+/-- Test infinity.rescaled. -/
+example : infinity ℚ = Projectivization.mk ℚ ![7, 0] (by sorry) := by sorry
+
+/-- Test detPair.orientation. -/
+example : detPair ℚ ![1, 0] ![0, 1] = 1 ∧ detPair ℚ ![0, 1] ![1, 0] = -1 := by norm_num [detPair]
+/-- Test detPair.dependent. -/
+example : detPair ℚ ![2, 4] ![3, 6] = 0 := by norm_num [detPair]
+/-- Test detPair.rescaled. -/
+example : detPair ℚ ![2, 0] ![0, 3] = 6 := by norm_num [detPair]
+
+/-- Test crossRatio.infinity_first: distinguishes r from 1-r and 1/r. -/
+example : crossRatio ℚ (infinity ℚ) (finitePoint ℚ 0) (finitePoint ℚ 1) (finitePoint ℚ 3) = -2 := by sorry
+/-- Test crossRatio.finite: four finite points with no zero denominator. -/
+example : crossRatio ℚ (finitePoint ℚ 0) (finitePoint ℚ 1) (finitePoint ℚ 2) (finitePoint ℚ 3) = -1/3 := by sorry
+/-- Test crossRatio.homogeneous: independent rescaling of all four points. -/
+example : crossRatio ℚ (Projectivization.mk ℚ ![2, 0] (by sorry))
+    (Projectivization.mk ℚ ![0, 3] (by sorry)) (Projectivization.mk ℚ ![5, 5] (by sorry))
+    (Projectivization.mk ℚ ![21, 7] (by sorry)) = -2 := by sorry
+/-- Test crossRatio.infinity_second. -/
+example : crossRatio ℚ (finitePoint ℚ 0) (infinity ℚ) (finitePoint ℚ 1) (finitePoint ℚ 3) = 2/3 := by sorry
+/-- Test crossRatio.infinity_third. -/
+example : crossRatio ℚ (finitePoint ℚ 0) (finitePoint ℚ 1) (infinity ℚ) (finitePoint ℚ 3) = 1/3 := by sorry
+/-- Test crossRatio.infinity_fourth. -/
+example : crossRatio ℚ (finitePoint ℚ 0) (finitePoint ℚ 1) (finitePoint ℚ 3) (infinity ℚ) = -1/2 := by sorry
+/-- Test crossRatio.zero_denominator: analytic theorems must exclude collisions. -/
+example : crossRatio ℚ (finitePoint ℚ 0) (finitePoint ℚ 1) (finitePoint ℚ 2) (finitePoint ℚ 0) = 0 := by sorry
+
+/-- Test coordinateMap.zero. -/
+example : coordinateMap ℚ (algebraMap ℚ ℂ) 0 = 0 := by simp
+/-- Test coordinateMap.coordinates. -/
+example : coordinateMap ℚ (algebraMap ℚ ℂ) ![2, 3] = ![2, 3] := by sorry
+/-- Test coordinateMap.identity. -/
+example (v : Fin 2 → K) : coordinateMap K (RingHom.id K) v = v := by rfl
+
+/-- Test fieldMap.affine. -/
+example : fieldMap ℚ (algebraMap ℚ ℂ) (finitePoint ℚ 2) = finitePoint ℂ 2 := by sorry
+/-- Test fieldMap.infinity. -/
+example : fieldMap ℚ (algebraMap ℚ ℂ) (infinity ℚ) = infinity ℂ := by sorry
+/-- Test fieldMap.noncollapse. -/
+example : fieldMap ℚ (algebraMap ℚ ℂ) (finitePoint ℚ 2) ≠
+    fieldMap ℚ (algebraMap ℚ ℂ) (finitePoint ℚ 3) := by sorry
+
+/-- Test normalizedFive.order. -/
+example : normalizedFive ℚ 2 3 0 = infinity ℚ ∧
+    normalizedFive ℚ 2 3 3 = finitePoint ℚ 2 := by sorry
+/-- Test normalizedFive.admissible. -/
+example : Function.Injective (normalizedFive ℚ 2 3) := by sorry
+/-- Test normalizedFive.collision. -/
+example : ¬ Function.Injective (normalizedFive ℚ 2 2) := by sorry
+/-- Test normalizedFive.cyclic_values: wraps through every infinity position. -/
+example : (fun i : Fin 5 => crossRatio ℚ (normalizedFive ℚ 2 3 i)
+    (normalizedFive ℚ 2 3 (i+1)) (normalizedFive ℚ 2 3 (i+2)) (normalizedFive ℚ 2 3 (i+3))) =
+    ![-1, -1/3, -1, -1/2, -1/2] := by sorry
+
+end TauCeti.ColemanIntegration.ProjectiveAlgebra
+
+namespace TauCeti.ColemanIntegration.ProjectiveAlgebra
+
+variable {p : ℕ} [Fact p.Prime] {a : ℂ_[p]} {L : ℂ_[p] → ℂ_[p]}
+
+/-- The actual p-adic cyclic identity follows from L2.18 and L2.69, with all
+four-point arguments admissible by injectivity. No complex identity is used. -/
+theorem dilogD_cyclic (hL : IsLogBranch p a L)
+    (s : Fin 5 → Point ℂ_[p]) (hs : Function.Injective s) :
+    ∑ i : Fin 5, dilogD hL
+      (crossRatio ℂ_[p] (s i) (s (i+1)) (s (i+2)) (s (i+3))) = 0 := by
+  apply cyclic_relation_of_scalar ℂ_[p] (dilogD hL)
+  · exact fun z hz0 hz1 => dilogD_one_sub hL hz0 hz1
+  · exact fun z hz0 hz1 => dilogD_inv hL hz0 hz1
+  · exact fun x y hx0 hx1 hy0 hy1 hxy => dilogD_five_term hL hx0 hx1 hy0 hy1 hxy
+  · exact hs
+
+/-- Field-general comparison evaluated through K→C_p; distinctness survives the
+embedding and cross-ratios commute with it. -/
+theorem dilogD_cyclic_field {K : Type*} [Field K] (f : K →+* ℂ_[p])
+    (hL : IsLogBranch p a L) (s : Fin 5 → Point K) (hs : Function.Injective s) :
+    ∑ i : Fin 5, dilogD hL
+      (f (crossRatio K (s i) (s (i+1)) (s (i+2)) (s (i+3)))) = 0 := by sorry
+
+/-- The projective comparison in the actual integral quotient is through
+evaluation. It does not impose extra integral inverse/complement relations. -/
+theorem dilogEvaluation_cyclic_field {K : Type*} [Field K] (f : K →+* ℂ_[p])
+    (a : ℂ_[p]) (s : Fin 5 → Point K) (hs : Function.Injective s) :
+    BlochAlgebra.dilogEvaluation p a (BlochAlgebra.preBlochMap K f
+      (∑ i : Fin 5, BlochAlgebra.preBlochSymbol K
+        (crossRatio K (s i) (s (i+1)) (s (i+2)) (s (i+3))))) = 0 := by sorry
+
+/-- Test cyclic.normalized_sign: the opposite sign is needed before vanishing. -/
+example (hL : IsLogBranch p a L) (x y : ℂ_[p])
+    (hx0 : x ≠ 0) (hx1 : x ≠ 1) (hy0 : y ≠ 0) (hy1 : y ≠ 1) (hxy : x ≠ y) :
+    (∑ i : Fin 5, dilogD hL (crossRatio ℂ_[p] (normalizedFive ℂ_[p] x y i)
+      (normalizedFive ℂ_[p] x y (i+1)) (normalizedFive ℂ_[p] x y (i+2))
+      (normalizedFive ℂ_[p] x y (i+3)))) = -fiveTermDefect hL x y := by sorry
+
+/-- Test cyclic.dyadic: no exclusion of p=2 in the projective conversion. -/
+example {a₂ : ℂ_[2]} {L₂ : ℂ_[2] → ℂ_[2]} (hL : IsLogBranch 2 a₂ L₂) :
+    dilogD hL (-1) + dilogD hL (-1/3) + dilogD hL (-1) +
+      dilogD hL (-1/2) + dilogD hL (-1/2) = 0 := by sorry
+
+/-- Test cyclic.field_embedding: rational five points, every prime and branch. -/
+example (hL : IsLogBranch p a L) :
+    ∑ i : Fin 5, dilogD hL (algebraMap ℚ ℂ_[p]
+      (crossRatio ℚ (normalizedFive ℚ 4 2 i) (normalizedFive ℚ 4 2 (i+1))
+        (normalizedFive ℚ 4 2 (i+2)) (normalizedFive ℚ 4 2 (i+3)))) = 0 := by sorry
+
+end TauCeti.ColemanIntegration.ProjectiveAlgebra
