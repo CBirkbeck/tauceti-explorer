@@ -2890,14 +2890,12 @@ The packet retains all seven source conditions, including their unitary/tempered
 and unramified hypotheses; this omission does not prove them from the scalar adapter.
 -/
 
-/-- Source family and the discrete inducing conditions are AS.1 supplier data. This slice
-retains common-denominator continuation, the functional equation and unitary-axis inverse. -/
-theorem eisenstein_continuation (E : ℂ → H →L[ℂ] ℂ) (J : ℂ → Operator H) :
-    ∃ Ec : ℂ → H →L[ℂ] ℂ, ∃ M : ℂ → Operator H,
-      CommonDenominator Set.univ Ec ∧ CommonDenominator Set.univ M ∧
-      (∀ s, 1 < s.re → Ec s = E s ∧ M s = J s) ∧
-      (∀ s v, Ec (-s) (M s v) = Ec s v) ∧
-      ∀ s, s.re = 0 → (M (-s)).comp (M s) = ContinuousLinearMap.id ℂ H := by sorry
+/- eisenstein_continuation: source-qualified signature omitted.
+Supply the actual discrete inducing spaces, rational-coset Eisenstein series
+and global intertwining integrals, compatible Weyl transports, finite K-type
+blocks and parameter denominators. Arbitrary E and J do not continue to a
+unitary-axis inverse family; a comment cannot supply the inducing hypotheses.
+Source: Arthur 2005, §7 Theorem 7.2(a), (7.3)–(7.4), p.35. -/
 
 /-- Finite non-spherical-place specialization. The restricted tensor product is omitted;
 its spherical factors outside S act as identity, not as an infinite norm-convergent product. -/
@@ -3428,11 +3426,11 @@ def a2Weights : Fin 2 → Height (Fin 2) →ₗ[ℝ] ℝ :=
 theorem rank_zero (roots : Fin 0 → Height ι →ₗ[ℝ] ℝ) (coroots : Fin 0 → Height ι)
     (H : Height ι) (nu : Parameter ι) : truncation_cones roots H = 1 ∧ theta coroots 1 nu = 1 := by sorry
 
-/-- The finite parabolic interval, compatible root/weight dualities and quotient heights
-are omitted until AA supplies its rational root datum. This is Arthur's incidence identity. -/
-theorem alternating_sum {P : Type*} [Fintype P] (rank : P → ℕ)
-    (tau dualTau : P → Height ι → ℂ) (H : Height ι) :
-    (∑ p, (-1 : ℂ) ^ rank p * tau p H * dualTau p H) = 0 := by sorry
+/- truncation_cones.alternating_sum: source-qualified signature omitted.
+Supply the compatible relative root datum, the parabolic incidence interval
+and quotient-height transports, including the rank-zero exception. A singleton
+of rank one with both arbitrary indicators equal to one has sum -1, not zero.
+Source: Arthur 2005, §6 Identity 6.2, (6.3), p.31. -/
 
 theorem theta_homogeneous {r : ℕ} (coroots : Fin r → Height ι) (vol : ℝ)
     (nu : Parameter ι) (t : ℂ) : theta coroots vol (t • nu) = t ^ r * theta coroots vol nu := by sorry
@@ -3546,37 +3544,34 @@ example [IsEmpty D.Proper] (T : Height ι) (f : X → ℂ) : arthur_truncation D
 
 end arthur_truncation
 
-/-- Regularity of T and reduction-theoretic carrier coherence are omitted; the non-strict
-boundary conclusion is in the reader and source-error ledger. -/
-theorem truncation_projection {X : Type u} {ι : Type v} [Fintype ι]
-    (D : TruncationData X ι) (T : Height ι) (f : X → ℂ) :
-    arthur_truncation D T (arthur_truncation D T f) = arthur_truncation D T f := by sorry
+/- truncation_projection: source-qualified signature omitted.
+Supply the genuine rational constant terms, parabolic/coset incidence,
+compatible root cones and sufficiently regular T. Finiteness of an arbitrary
+TruncationData does not imply idempotence: the finite scaled datum in
+signatureChecks gives Lambda(f)=-f.
+Source: Arthur 2005, §13 Proposition 13.1(a)–(c), pp.68–69. -/
 
-/-- The uniform-moderate-growth and finite derivative seminorm conditions are omitted
-until AF's smooth function and Siegel carriers are available. One height power for all
-input derivatives is required; independent powers do not suffice. -/
-theorem truncation_rapid_decay {X : Type u} {ι : Type v} [Fintype ι]
-    (D : TruncationData X ι) (height : X → ℝ) (siegel : Set X)
-    (T : Height ι) (f : X → ℂ) :
-    ∀ N : ℕ, ∃ C : ℝ, ∀ x ∈ siegel, height x ^ N * ‖arthur_truncation D T f x‖ ≤ C := by sorry
+/- truncation_rapid_decay: source-qualified signature omitted.
+Supply the smooth uniform-moderate-growth automorphic carrier, Siegel sets,
+reduction heights, sufficiently regular T and the finite derivative seminorm
+estimate. Independent heights and cutoffs do not imply decay, even for f=1.
+Source: Arthur 2005, §13 Proposition 13.2(a)–(b), (13.5)–(13.6), p.71. -/
 
 section Gram
 variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [CompleteSpace H]
-/-- One-variable slice of the exact cuspidal formula; the finite Q,w,w' index records the
-actual associate family. Its cuspidal and regular-T conditions are omitted as stated above. -/
-theorem cuspidal_maass_selberg {I : Type*} [Fintype I]
-    (M M' : I → ℂ → Operator H) (w w' : I → ℂ → ℂ)
-    (denominator : I → ℂ → ℂ) (T : ℝ) (s s' : ℂ)
-    (truncatedE truncatedE' : H) (v v' : H) :
-    inner ℂ truncatedE' truncatedE = ∑ i,
-      Complex.exp ((w i s + star (w' i s')) * T) *
-        inner ℂ (M' i s' v') (M i s v) / denominator i (w i s + star (w' i s')) := by sorry
+/- cuspidal_maass_selberg: source-qualified signature omitted.
+Supply the truncated Eisenstein vectors and intertwining operators built from
+one cuspidal inducing datum, actual associate Weyl indices, root denominators,
+regular T and generic parameters before continuation. Independent Hilbert
+vectors do not equal an arbitrary finite operator sum, already for empty indices.
+Source: Arthur 1982, Introduction (1), pp.35–36; §9, pp.68–69. -/
 
-/-- For general discrete inducing data only an exponentially small asymptotic error is
-claimed. The fixed support/K-type and deep regular cone hypotheses are omitted. -/
-theorem discrete_maass_selberg_asymptotic (gram omega : ℝ → ℂ) (v v' : H) :
-    ∃ eps C N : ℝ, 0 < eps ∧ ∀ T : ℝ, N < T →
-      ‖gram T - omega T‖ ≤ C * ‖v‖ * ‖v'‖ * Real.exp (-eps * |T|) := by sorry
+/- discrete_maass_selberg_asymptotic: source-qualified signature omitted.
+Supply the actual truncated Gram and omega families from the same discrete
+data, fixed cuspidal support and finite K-types, imaginary parameters and a deep
+regular T-cone. An unrelated constant error cannot be bounded by zero inducing
+vector norms.
+Source: Arthur 1982, §9 Theorem 9.1, p.69. -/
 
 end Gram
 
@@ -3648,11 +3643,11 @@ theorem wave_packet_gram (μ : Measure X) (E : X → V →L[ℂ] H) (F F' : X �
       ∫ x, ∫ y, inner ℂ (E x (F' x)) (E y (F y)) ∂μ ∂μ := by sorry
 end Packets
 
-/-- Only the complete regularized sum is continued to a denominator wall. The geometric
-Maass–Selberg identification that makes this sum regular is an omitted source condition. -/
-theorem singular_parameter_limits {I : Type*} [Fintype I] (f : I → ℂ → ℂ) (z : ℂ) :
-    ∃ g : ℂ → ℂ, AnalyticAt ℂ g z ∧
-      ∀ᶠ s in 𝓝[≠] z, g s = ∑ i, f i s := by sorry
+/- singular_parameter_limits: source-qualified signature omitted.
+Supply the full Maass–Selberg identity with coherent denominator data and
+locally uniform derivative/residue majorants. A singleton polar summand 1/s
+has no analytic extension at zero; finiteness alone gives no cancellation.
+Source: Arthur 1982, §§3–6; §9 regularity discussion, pp.68–69. -/
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -6124,3 +6119,85 @@ remain gaps. AS imports that owner; it does not create a second classification
 theory. The mu-function, Plancherel scalar and rank-one meromorphic-integral
 proof requirements remain separate local harmonic-analysis obligations.
 -/
+
+/- Native counterexamples to unrestricted source-theorem templates. These
+checks use finite incoherent data, not an automorphic supplier construction. -/
+namespace TauCeti.AutomorphicSpectral.signatureChecks
+universe u
+namespace arthur_truncation
+/-- Finite but incoherent data: a proper constant term scaled by two. -/
+def incoherentData (X : Type u) : TruncationData X Unit where
+  Proper := PUnit.{u + 1}
+  finite := inferInstance
+  Cosets := fun _ => PUnit.{u + 1}
+  countable := fun _ => inferInstance
+  rank := fun _ => 1
+  constantTerm := fun _ => (2 : ℂ) • LinearMap.id
+  translate := fun _ _ => id
+  height := fun _ _ => 0
+  cutoff := fun _ _ => 1
+
+theorem incoherentData_apply {X : Type u} (T : Height Unit) (f : X → ℂ) (x : X) :
+    arthur_truncation (incoherentData X) T f x = -f x := by
+  simp [arthur_truncation, incoherentData]
+  change f x + -(((Finset.univ : Finset PUnit.{u + 1}).card : ℂ) * (2 * f x)) = -f x
+  simp only [Finset.card_univ, Fintype.card_punit, Nat.cast_one, one_mul]
+  ring
+
+-- Finite coset support alone does not imply idempotence.
+example :
+    (∀ P : (incoherentData Unit).Proper, ∀ x : Unit,
+      Set.Finite {j : (incoherentData Unit).Cosets P |
+        (incoherentData Unit).cutoff P
+          ((incoherentData Unit).height P ((incoherentData Unit).translate P j x) - 0) ≠ 0}) ∧
+    arthur_truncation (incoherentData Unit) 0
+      (arthur_truncation (incoherentData Unit) 0 (fun _ => 1)) () ≠
+      arthur_truncation (incoherentData Unit) 0 (fun _ => 1) () := by
+  constructor
+  · intro P x
+    change Set.Finite {j : PUnit | (1 : ℂ) ≠ 0}
+    exact Set.toFinite _
+  · simp only [incoherentData_apply]
+    norm_num
+
+-- Even the exponent-one bound fails for an unrelated height and truncation.
+example : ¬ ∃ C : ℝ, ∀ x ∈ Set.Ici (1 : ℝ),
+    x ^ (1 : ℕ) * ‖arthur_truncation (incoherentData ℝ) 0 (fun _ => 1) x‖ ≤ C := by
+  rintro ⟨C, hC⟩
+  have h := hC (max C 1 + 1) (by simp only [Set.mem_Ici]; have := le_max_right C 1; linarith)
+  simp only [incoherentData_apply] at h
+  norm_num at h
+  have := le_max_left C 1
+  linarith
+end arthur_truncation
+
+-- An arbitrary singleton cone product has no incidence cancellation.
+example : (∑ _ : Unit, (-1 : ℂ) ^ (1 : ℕ) * (1 : ℂ) * (1 : ℂ)) ≠ 0 := by
+  norm_num
+
+-- An empty unrelated Weyl sum cannot equal the Gram pairing of two ones.
+example : inner ℂ (1 : ℂ) (1 : ℂ) ≠ ∑ _ : Fin 0, (0 : ℂ) := by
+  norm_num
+
+-- A positive constant error cannot be bounded by zero inducing-vector norms.
+example : ¬ ∃ eps C N : ℝ, 0 < eps ∧ ∀ T : ℝ, N < T →
+    ‖(1 : ℂ) - 0‖ ≤ C * ‖(0 : ℂ)‖ * ‖(0 : ℂ)‖ * Real.exp (-eps * |T|) := by
+  rintro ⟨eps, C, N, _, hBound⟩
+  have h := hBound (N + 1) (by linarith)
+  norm_num at h
+
+-- One polar summand prevents the asserted unrestricted regularized extension.
+example : ¬ ∃ g : ℂ → ℂ, AnalyticAt ℂ g 0 ∧
+    ∀ᶠ s in 𝓝[≠] (0 : ℂ), g s = ∑ _ : Unit, s⁻¹ := by
+  rintro ⟨g, hg, hEq⟩
+  have hlim : Tendsto (fun s : ℂ => g s * s) (𝓝[≠] 0) (𝓝 0) := by
+    have hh := hg.continuousAt.tendsto.mul (tendsto_id : Tendsto (fun s : ℂ => s) (𝓝 0) (𝓝 0))
+    simpa using hh.mono_left nhdsWithin_le_nhds
+  have hmul : (fun s : ℂ => g s * s) =ᶠ[𝓝[≠] 0] fun _ => 1 := by
+    filter_upwards [hEq, self_mem_nhdsWithin] with s hs hne
+    simpa [hs, hne] using inv_mul_cancel₀ hne
+  have hOne : Tendsto (fun s : ℂ => g s * s) (𝓝[≠] 0) (𝓝 1) :=
+    tendsto_const_nhds.congr' hmul.symm
+  have : (0 : ℂ) = 1 := tendsto_nhds_unique hlim hOne
+  norm_num at this
+end TauCeti.AutomorphicSpectral.signatureChecks

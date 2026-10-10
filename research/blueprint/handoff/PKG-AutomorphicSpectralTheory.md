@@ -1,11 +1,11 @@
 # PKG-AutomorphicSpectralTheory — blocked checkpoint
 
-Issue: #7893. Worker: Codex, session `codex-5l6kB7`, 10 October 2026.
-Branch: `codex-5l6kB7-pkg-automorphic-spectral-theory`.
-Claim: [6094297471](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094297471).
-Bot confirmation: [6094298590](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094298590).
-Continues the merged checkpoints through #8257. This pass changes only the
-package README, Suggested file and this handoff.
+Issue: #7893. Worker: Codex, session `codex-UXfFdh`, 10 October 2026.
+Branch: `codex-UXfFdh-pkg-automorphic-spectral-theory`.
+Claim: [6094533697](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094533697).
+Bot confirmation: [6094534761](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6094534761).
+Continues the merged checkpoints through #8266. This pass changes only the
+package README, Suggested file and this handoff. No second job was claimed.
 
 ## Completion is blocked by the authoritative contracts
 
@@ -43,6 +43,44 @@ an incomplete package to review. Add `topic = "math.NT"` when every requirement
 holds. Historical B1–B4 continuation/Fourier repairs remain resolved.
 
 ## Repairs in this checkpoint
+
+Removed six target signatures and one API signature that omitted essential
+source hypotheses while still asserting unrestricted conclusions. Replaced
+them with explicit omission comments naming the mathematical carriers needed.
+The full README targets remain. These omissions are evidence of outstanding
+work, not a finished package or a substitute theorem.
+
+| Omitted signature | Required interface and verified source |
+| --- | --- |
+| `eisenstein_continuation` | Actual global Eisenstein series and intertwining integrals from discrete inducing data, coherent Weyl transports, finite K-type blocks and local common denominators; arbitrary E/J are insufficient. Arthur 2005, §7 Theorem 7.2(a), (7.3)–(7.4), p.35. |
+| `truncation_cones.alternating_sum` | Compatible root datum, parabolic incidence interval, quotient heights and rank-zero exception; arbitrary singleton weights do not cancel. Arthur 2005, §6 Identity 6.2, (6.3), p.31. |
+| `truncation_projection` | Genuine rational constant terms, compatible cones and coset incidence, sufficiently regular T; finite arbitrary data is insufficient. Arthur 2005, §13 Proposition 13.1(a)–(c), pp.68–69. |
+| `truncation_rapid_decay` | Smooth uniform-moderate-growth carrier, coherent reduction height and Siegel sets, regular T and finite derivative seminorm bounds. Arthur 2005, §13 Proposition 13.2(a)–(b), (13.5)–(13.6), p.71. |
+| `cuspidal_maass_selberg` | Gram vectors and the full Weyl sum built from the same cuspidal Eisenstein/intertwining datum, regular T and generic parameters before continuation. Arthur 1982, Introduction (1), pp.35–36; §9, pp.68–69. |
+| `discrete_maass_selberg_asymptotic` | Actual Gram/omega families from fixed cuspidal support and finite K-types, imaginary parameters and a deep regular cone. Arthur 1982, §9 Theorem 9.1, p.69. |
+| `singular_parameter_limits` | The complete Maass–Selberg identity with compatible common denominators and derivative/residue majorants; an arbitrary finite sum can retain a pole. Arthur 1982, §§3–6; §9 regularity discussion, pp.68–69. |
+
+Six proved examples in `TauCeti.AutomorphicSpectral.signatureChecks` now reject
+these unrestricted templates without invoking any admitted declaration:
+
+1. One proper parabolic/coset, rank one, constant term twice identity and cutoff
+   one give Λf=−f. Coset support is finite, but Λ²1=1 differs from Λ1=−1.
+2. The same datum on ℝ and height x on [1,∞) has no exponent-one decay bound
+   for f=1; at x=max(C,1)+1 every proposed bound C fails.
+3. A rank-one singleton with both cone indicators one has alternating sum −1.
+4. The Gram pairing of two scalar ones is one, while an empty Weyl sum is zero.
+5. Constant Gram error one and zero inducing vectors violate every purported
+   exponential-error estimate, even arbitrarily deep in the one-dimensional cone.
+6. A singleton sum 1/s cannot have an analytic extension at zero: multiplying
+   by s forces both limit zero and limit one.
+
+The README records these acceptance constraints and more precise Arthur page
+locators. Existing ownership and parameter/measure conventions are retained.
+The continuation signature remains omitted rather than receiving a theorem
+hypothesis that merely assumes continuation. Reaudit other active inherited
+signatures: this pass does not certify all 151 active targets.
+
+## Inherited repairs through #8266
 
 Twenty target and three API prototypes asserted identities for unrelated data.
 For example, arbitrary modules were declared isomorphic, arbitrary kernels
@@ -128,7 +166,7 @@ in the README. These omissions require the carriers described above or in the
 ownership worklist; do not replace them with opaque `Prop` fields or hypotheses
 that merely restate the intended conclusion.
 
-33 target signatures:
+39 target signatures:
 
 ```text
 eisenstein_convergence
@@ -136,6 +174,12 @@ cuspidal_constant_term
 pseudo_eisenstein_l2
 pseudo_eisenstein_inner_product
 local_normalization
+eisenstein_continuation
+truncation_projection
+truncation_rapid_decay
+cuspidal_maass_selberg
+discrete_maass_selberg_asymptotic
+singular_parameter_limits
 weighted_regularization
 derived_finite_character
 franke_graded_isomorphism
@@ -166,13 +210,14 @@ yu_165
 yu_169
 ```
 
-15 API signatures:
+16 API signatures:
 
 ```text
 convergent_intertwiner.intertwines
 convergent_intertwiner.identity
 convergent_intertwiner.holomorphic_chamber
 local_intertwiner.meromorphic_coefficients
+truncation_cones.alternating_sum
 arthur_truncation.local_finite
 eisenstein_principal_value.graded_independent
 spectral_multiplier.support
@@ -321,7 +366,24 @@ supplier contracts before rescheduling completion of this package.
 
 ## Sources and library provenance
 
-Fresh primary-source readings:
+Fresh readings in this session:
+
+- Arthur, *An Introduction to the Trace Formula*,
+  [Clay PDF](https://www.claymath.org/library/cw/arthur/pdf/62.pdf): §6 Identity 6.2
+  and (6.3), p.31; §7 Theorem 7.2(a), (7.3)–(7.4), p.35; §13 Proposition
+  13.1 and its proof, pp.68–69, and Proposition 13.2, (13.5)–(13.6), p.71.
+  Identity 6.2 itself is subset cancellation, not a cone theorem for arbitrary
+  indicators; the cone application uses root/parabolic compatibility in §13. The projection
+  proof uses coherent rational constant terms and Bruhat/reduction arguments.
+  SHA-256 `2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510`.
+- Arthur, *On the Inner Product of Truncated Eisenstein Series*,
+  [Clay PDF](https://www.claymath.org/library/cw/arthur/pdf/12.pdf): Introduction
+  (1), pp.35–36; §9 formulas and regularity discussion, pp.68–69, and
+  Theorem 9.1, p.69. Exactness for cuspidal data and the controlled error for
+  general discrete data refer to the actual truncated Eisenstein pairing.
+  SHA-256 `f0693c409f3cbae9e8cedbc1c2eceec4657f79fdc361fcb0ffc89f40b044547c`.
+
+Inherited primary-source receipts from #8266:
 
 - Franke, *Harmonic Analysis in Weighted L²-Spaces*, Ann. ENS 31 (1998),
   [public PDF](https://www.numdam.org/item/10.1016/s0012-9593(98)80015-3.pdf):
@@ -364,8 +426,9 @@ pp.74–77; §16 (16.1) pp.88–89; §19 Corollary 19.3/(19.10) p.115;
 `2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510`.
 Keep the packet's a_M^L determinant correction and separate spectral convergence
 conditions. DIT §8 (8.2)–(8.4) pp.973–974 and Appendix A (A.2) p.977
-support the inherited modular-resolvent/Whittaker repairs. These readings are
-inherited; no fresh reading of Arthur, DIT, Fay or Hejhal is claimed here.
+support the inherited modular-resolvent/Whittaker repairs. These particular
+readings are inherited; this session freshly checked only
+the Arthur portions listed above, not DIT, Fay or Hejhal.
 
 Read the current upstream CompactGroups and OperatorIdeals READMEs in full,
 the AS.0–AS.6 library audit, the AF supplier and AS request, and the tier list.
@@ -373,42 +436,44 @@ The current upstream receipt is `0a56d1b5303c26887a4042db834f46d9079ac593`;
 current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 Its continuous intertwiners and classical holomorphic Eisenstein series do not
 provide general adelic or real general-Levi inducing families.
-Read pinned `HasDerivAt.tendsto_slope_zero` in
+Inherited pinned-source checks: `HasDerivAt.tendsto_slope_zero` in
 `Mathlib.Analysis.Calculus.Deriv.Slope`, `AnalyticAt.differentiableAt` in
 `Mathlib.Analysis.Calculus.FDeriv.Analytic`, and `integrable_count_iff` in
 `Mathlib.MeasureTheory.Function.L1Space.Integrable`, together with the
 constant-integrability and derivative-product statements used by the checks.
+This session checked pinned `AnalyticAt.continuousAt` in
+`Mathlib.Analysis.Analytic.Basic` and `tendsto_nhds_unique` in
+`Mathlib.Topology.Separation.Hausdorff`, used in the native pole counterexample.
+The current Tau Ceti tensor/wreath-product induction construction and scalar
+Nevanlinna API do not supply AF's real general-Levi analytic induction contract.
 No library or read-only upstream files were changed or built.
 
-## Validation
+## Validation in this session
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
   exit 0, zero errors/warnings; 190 targets, 223 API items, 219 tests,
   38 planets, 32 baseline declarations, 52 gaps, 22 requests, seven planned
   stages and zero closed stages. Structural validation does not close the gaps.
 - `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
-  **exit 0, zero errors, 765 warnings, all `declaration uses sorry`; no other
-  warnings.** This is the final joined file after the positive checks and
-  omissions. Elaborating admitted assertions does not establish their truth.
-- Isolated native adapter/counterexample check: **exit 0, zero errors and zero
-  warnings**. `#print axioms` for `gm_family.rank_one_limit`,
-  `gm_family.affineFamily_limit` and `franke_filtration.levi_compatible` reports
-  only `propext`, `Classical.choice` and `Quot.sound`. Existing principal-value
-  theorems still depend on `sorryAx` as described above.
-- Both checks ran sequentially through the shared wrapper at Mathlib
+  **exit 0, zero errors, 758 warnings, all `declaration uses sorry`; no other
+  warnings.** The six new examples and their helper contain no admissions.
+  Elaborating inherited admitted assertions does not establish their truth.
+- Isolated check of the finite truncation datum and all six counterexamples:
+  **exit 0, zero errors and zero warnings**; only native Mathlib and the explicit
+  truncation formula are used. The inherited adapter axiom receipts above were
+  preserved, not rerun or enlarged into a source-fidelity claim.
+- Checks ran sequentially through the shared wrapper at Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
   `f790474821cf4256814db967cb154e7af3d0c369`. Available memory before the final
-  joined check was 113 GB. No Lean server, build/update/cache operation or
+  joined check was 111 GB. No Lean server, build/update/cache operation or
   compilation in the read-only upstream ran.
 - Namespace-aware inventory, stripping nested comments and recognizing
-  attributes: **157/190 active target names**, **208/223 active API names**,
+  attributes: **151/190 active target names**, **207/223 active API names**,
   all **219 specification-test markers** in their inherited order and
-  **254 active examples** (245 inherited plus nine newly proved checks).
-  This pass removes 20 target and three API signatures, adds two limit adapters,
-  and proves the filtration constructor and conditional compatibility adapter.
-- README: **190 target blocks, 199,949 UTF-8 bytes**. Each input target, API
-  name and test name remains in its own block. The full source statements remain
-  required even where a Lean prototype is omitted.
+  **260 active examples** (254 inherited plus six newly proved checks).
+- README: **190 target blocks, 199,989 UTF-8 bytes**. Every input target, API
+  name and test name remains in its own block, matched by declaration name
+  rather than packet ordering. Complete theorem statements remain required.
 - Intake `check-files`: three deliverable paths, zero problems.
   `git diff --check` passes. Only the permitted README, Suggested file and
   handoff change; metadata is intentionally absent.
