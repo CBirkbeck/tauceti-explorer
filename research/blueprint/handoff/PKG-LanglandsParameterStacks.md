@@ -1,3 +1,95 @@
+# PKG-LanglandsParameterStacks — blocked checkpoint, codex-Uo2VNv
+
+Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+Worker: Codex (GPT-6), session `codex-Uo2VNv`, 10 October 2026.
+Branch: `codex-Uo2VNv-langlands-parameter-stacks`.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6096185670).
+No manager-priority issue was available in the available-swarm listing; this
+focus package followed the permitted WORKERS fallback order. Only this job
+was claimed. **Incomplete: blocked by supplier specifications.**
+
+## Current outcome and resumption gate
+
+The inherited blockers remain after checking the newer current upstream
+revision `35abcbde930414647dad7cc22ee03e6464c7ae26`, whose latest change concerns
+IntegralHeckeAndGaloisDeterminants. Its relevant invariant and continuity
+interfaces still do not provide the required LP contracts. The current native
+Tau Ceti revision is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The accepted LP and IHG plans and the E5 suggested input retain exactly the
+hashes recorded in the preceding checkpoint below.
+
+The stopping condition is a specification mismatch, not an implementation
+wait or the run's time limit. The issue explicitly says: **“Change no packet;
+if the plan has a mistake, describe it in the handoff note.”** Its permitted
+files are the three package artifacts and this note. PROTOCOL §§3, 13, 15
+and 20 require precise supplying statements, faithful suggested signatures
+and one owner for shared foundations. Repairing the owner contracts and
+reconciling their consumers requires edits outside those files. No ownership
+move is made, and no complete package is claimed.
+
+## Fresh contract checks
+
+| Consumer | Inspected supplier | Required repair before packaging |
+| --- | --- | --- |
+| LP2c.1 prescribed-projection pseudocharacters and their reconstruction | Current upstream IHG README §0.7; `InvariantCoordinateInput.ring`, Suggested.lean lines 795–804 | Export the invariant tuple algebras for conjugation by H=J⁰ on J=H⋊Q, their regular evaluation, reindexing and ordered multiplication, and reconstruction up to H-conjugacy. The current input quantifies over all conjugating J-points over every coefficient algebra and yields O[Jⁿ]^J. |
+| LP2c.3 characteristic-zero continuity | Accepted IHG.1 `reductive-valued-continuity`; current upstream `IsContinuous`, `continuous_ofRepresentation`, `continuous_dense_ext`, lines 948–965 | State the finite-Q reconstruction-to-continuity theorem for relatively discrete condensed coefficients, including the local finite-type Z_l-module bounds on compact inertia. The accepted IHG theorem is connected, profinite and rank-one-valued. The upstream constructor assumes representation continuity; dense extensionality does not reverse that constructor. |
+| LP1 derived parameter stack, LP2 categorical Hecke datum, LP3 mapping approximation, LP4 representation bundles | `suggested/EnhancedDerivedSheaves--E5.lean`, lines 76–115 and 141–147 | Supply genuine enhanced monoidal, stable, algebra-object and Ind interfaces from E0/E5, and the animated stack/Perf interfaces from SF.1/S.1. `True` structure conditions, `CAlg = Unit` and `IndInfty : True` cannot express the required coherence or category-valued universal property. |
+
+Read the LP consumer statements, hypotheses, proof routes and prerequisites,
+including the exact category-valued mapping approximation and the prescribed
+component-idempotent equations. The accepted LP review explicitly accepts
+eight planned, unclosed stages with G1–G4 and G6 retained. Its `complete`
+status describes a finished target-level planning pass, not closure.
+
+Independently re-fetched and read Quast, *Deformations of G-valued
+pseudocharacters*, Definition 3.1, printed p.11, Lemmas 3.4–3.5, pp.12–13,
+and Theorem 3.7 and proof, pp.13–15. The definition uses identity-component
+invariants and the reconstruction uniqueness is identity-component conjugacy.
+The [author PDF](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf)
+has SHA-256 `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`,
+matching the preceding receipt. No new source erratum or audit of its cited
+auxiliary papers is claimed.
+
+Read the existing `IdentityComponentCoordinateChecks` proofs, lines 2204–2342.
+For nonzero R, f=(x,0) in R[x,x⁻¹]×R[x,x⁻¹] is H-invariant but fails the
+component-switch invariant equation; e=(1,0) satisfies both. This proves why
+imposing component idempotents on whole-J coordinates does not restore the
+missing H-invariant function. The fixture and both package artifacts are
+unchanged; their preceding receipts and continuation worklist are retained
+below. Read the current AlgebraicVectorBundles and ReductiveGroups READMEs
+in full and the eight reviewed AUDIT-21 LP entries. Ordinary scheme bundles
+do not state the enhanced quotient-stack operations required here. This
+session makes no comprehensive absence claim about the newer library.
+
+## Validation in this session
+
+- `check_blueprint.py` on the LP and IHG plans: both exit 0, zero errors
+  and warnings. LP retains 79 nodes, 140 API items, 90 tests, five gaps,
+  sixteen requests and zero closed stages. No plan was edited.
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, no errors, 295 warnings, all `declaration uses sorry`, no other
+  warnings. Memory before compilation: 104 GB available. Compilation used
+  the managed atlas build advertised at Tau Ceti `f790474` and Mathlib
+  `082e2d3`; it does not validate the omitted enhanced signatures.
+- Only this handoff is changed. The README remains 189428 bytes and the
+  suggested file 116156 bytes. `metadata.toml` remains absent; this is a
+  checkpoint, not a package ready for review.
+- Scoped intake `check-files`: one authorized file, zero problems.
+  `git diff --check`: passed. No source passage or private path was added.
+
+Resume after owner-authorized repairs actually provide the contracts in the
+table and reconcile the LP/IHG supplier edges. Then follow the missing
+signature inventory and remaining worklist below, complete all target/API/test
+comparisons, add metadata and repeat the package checks. No scratch file is
+needed for resumption, and no Lean process remains running.
+
+---
+
+## Preserved preceding checkpoint
+
+The record below belongs to session `codex-VVFmI4`; its changes and source
+readings are retained as that session's work, not attributed to this one.
+
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
