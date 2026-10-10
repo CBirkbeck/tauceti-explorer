@@ -1201,6 +1201,93 @@ example (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 :=
 
 end FullLocalCharacterTests
 
+/- Reduction detects oddness once a genuine integral lift and its residual
+comparison have been constructed. This algebraic fragment does not construct
+that lift. README target: R17.5/odd-residual-lift. -/
+section OddReductionTests
+/-- Reduction at odd residue characteristic detects the sign of an involution. -/
+theorem involution_det_eq_neg_one_of_reduction
+    {R k : Type*} [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (A : GeneralLinearGroup (Fin 2) R) (hA : A ^ 2 = 1)
+    (hred : GeneralLinearGroup.det (GeneralLinearGroup.map f A) = (-1 : kˣ)) :
+    GeneralLinearGroup.det A = (-1 : Rˣ) := by
+  have hsq : (GeneralLinearGroup.det A : R) ^ 2 = 1 := by
+    have h := congrArg (fun B => (GeneralLinearGroup.det B : R)) hA
+    simpa using h
+  rcases sq_eq_one_iff.mp hsq with hpos | hneg
+  · have hmap : f (GeneralLinearGroup.det A : R) = (-1 : k) := by
+      have h := congrArg (fun u : kˣ => (u : k)) hred
+      simpa only [GeneralLinearGroup.map_det, Units.coe_map, MonoidHom.coe_coe,
+        Units.val_neg, Units.val_one] using h
+    rw [hpos, map_one] at hmap
+    have hzero : (2 : k) = 0 := by
+      calc
+        (2 : k) = 1 + 1 := by norm_num
+        _ = -1 + 1 := congrArg (fun x : k => x + 1) hmap
+        _ = 0 := by simp
+    exact False.elim (h2 hzero)
+  · exact Units.ext hneg
+
+/-- Apply the sign comparison to a representation at a chosen involution. -/
+theorem involution_odd_of_reduction
+    {G R k : Type*} [Group G] [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (ρ : G →* GeneralLinearGroup (Fin 2) R) (c : G) (hc : c ^ 2 = 1)
+    (hred : GeneralLinearGroup.det (GeneralLinearGroup.map f (ρ c)) = (-1 : kˣ)) :
+    GeneralLinearGroup.det (ρ c) = (-1 : Rˣ) :=
+  involution_det_eq_neg_one_of_reduction f h2 (ρ c)
+    (by rw [← map_pow, hc, map_one]) hred
+
+private def mixedSignInvolution : GeneralLinearGroup (Fin 2) ℤ where
+  val := !![1, 0; 0, -1]
+  inv := !![1, 0; 0, -1]
+  val_inv := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_succ]
+  inv_val := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_succ]
+
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+
+-- Mixed eigenvalues 1 and -1 give an odd involution at residue characteristic 3.
+example : GeneralLinearGroup.det mixedSignInvolution = (-1 : ℤˣ) := by
+  apply involution_det_eq_neg_one_of_reduction (Int.castRingHom (ZMod 3)) (by decide)
+  · apply Units.ext
+    rw [pow_two]
+    change mixedSignInvolution.val * mixedSignInvolution.val = (1 : Matrix (Fin 2) (Fin 2) ℤ)
+    exact mixedSignInvolution.val_inv
+  · rw [GeneralLinearGroup.map_det]
+    apply Units.ext
+    norm_num [mixedSignInvolution, GeneralLinearGroup.det, Matrix.det_fin_two]
+
+-- A scalar -I has determinant +1 in rank two, so it is not residual oddness.
+example : GeneralLinearGroup.det
+    (GeneralLinearGroup.map (Int.castRingHom (ZMod 3))
+      (GeneralLinearGroup.scalar (Fin 2) (-1 : ℤˣ))) = 1 := by
+  rw [GeneralLinearGroup.map_det, GeneralLinearGroup.det_scalar]
+  norm_num
+
+-- At characteristic 2 the identity reduces to determinant -1 but is not odd.
+example : (1 : GeneralLinearGroup (Fin 2) ℤ) ^ 2 = 1 ∧
+    GeneralLinearGroup.det
+      (GeneralLinearGroup.map (Int.castRingHom (ZMod 2))
+        (1 : GeneralLinearGroup (Fin 2) ℤ)) = (-1 : (ZMod 2)ˣ) ∧
+    GeneralLinearGroup.det (1 : GeneralLinearGroup (Fin 2) ℤ) ≠ (-1 : ℤˣ) := by
+  constructor
+  · simp
+  constructor
+  · simp only [map_one]
+    apply Units.ext
+    norm_num
+  · simp only [map_one]
+    intro h
+    have hval := congrArg (fun u : ℤˣ => (u : ℤ)) h
+    norm_num at hval
+
+end OddReductionTests
+
 section ArithmeticLifting
 variable {G I T : Type*} [Group G] [Group I] [Group T]
 

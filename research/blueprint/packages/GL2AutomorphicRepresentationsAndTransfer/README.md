@@ -1,8 +1,8 @@
 # Modular forms, Part II: GL₂ automorphic representations and transfer
 
-This extends [ModularForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularForms/README.md) to local and adelic GL₂: newvectors, Whittaker models, classical–adelic comparisons, quaternionic Jacquet–Langlands, cyclic/solvable base change, quadratic induction, and solvable Artin and residual modularity.
+Extends [ModularForms](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularForms/README.md) to local and adelic GL₂: newvectors, Whittaker models, classical comparisons, Jacquet–Langlands, cyclic/solvable base change, quadratic induction and Artin/residual modularity.
 
-Owners: ModularForms, classical forms, newspaces and Hecke algebras; SmoothRepresentationsOfLocalGroups (SR), smooth representations, induction, Jacquet and Whittaker functors; AdelicAlgebraicGroups (AA), adelic groups and measures; AutomorphicFormsOnReductiveGroups (AF), automorphic classes and archimedean globalizations; AutomorphicLFunctionsAndLocalFactors (AL), factors and converse theorems; AutomorphicSpectralTheory (AS), spectral decompositions; EndoscopicTransferAndUnitaryTraceComparison (ET), inner-form and twisted transfer; ArithmeticGaloisRepresentations (R01), Galois, Weil–Deligne, conductor and recognition interfaces. Their GL₂ specializations belong here; Shimura cohomology, p-adic Banach representations and general compatible systems retain their owners.
+Owners: ModularForms (classical forms and Hecke algebras), SmoothRepresentationsOfLocalGroups (SR: smooth functors), AdelicAlgebraicGroups (AA: groups and measures), AutomorphicFormsOnReductiveGroups (AF: automorphic classes), AutomorphicLFunctionsAndLocalFactors (AL: factors and converse theorems), AutomorphicSpectralTheory (AS: spectra), EndoscopicTransferAndUnitaryTraceComparison (ET: inner-form and twisted transfer), ArithmeticGaloisRepresentations (R01: Galois and Weil–Deligne parameters). Shimura cohomology, p-adic Banach representations and general compatible systems keep their owners.
 
 ## Conventions and existing objects
 
@@ -18,7 +18,7 @@ At a real place use the full O(2) module: D_k, k≥2, restricts to holomorphic a
 
 Quaternion algebras have chosen split-place identifications. Global norm characters are excluded from cuspidal Jacquet–Langlands; local division-algebra characters are allowed and match Steinberg twists. Automorphic equality means equality of canonical isomorphism classes. Residual comparisons specify the coefficient place, residue embedding, stable lattice and semisimplification. In characteristic two determinant oddness imposes no condition and involutions need not be semisimple. Compatible families are supplied data with a common coefficient field and common good-place polynomials.
 
-AlgebraicModularFormsAndSerreWeights (R15) supplies geometric forms, Hasse invariants and eigenvalue lifting. R16.1–R17.2 use `TauCeti.GL2Blueprint`; R17.3–R17.6 use `TauCeti.GL2Transfer`. Pages are printed; editions follow the bibliography.
+AlgebraicModularFormsAndSerreWeights (R15) supplies geometric forms, Hasse invariants and eigenvalue lifting. Namespaces: R16.1–R17.2 `TauCeti.GL2Blueprint`; R17.3–R17.6 `TauCeti.GL2Transfer`. Pages are printed; editions follow the bibliography.
 
 ## R16.1. Local and adelic groups
 
@@ -1420,11 +1420,15 @@ For F totally real and ρ as in solvable-artin with det ρ(c_v)=−1 at every re
 
 ### odd-residual-lift: Solvable residual lifting in odd characteristic
 
-Let F be totally real, p>2, and r̄:G_F→GL₂(F̄_p) be continuous, absolutely irreducible and totally odd with solvable image. There is a totally odd continuous finite-image characteristic-zero lift ρ over a number field, a place λ above p and a stable lattice whose semisimplified reduction is r̄ after a specified residue-field embedding. The proof uses the finite-subgroup classification (projective image dihedral, A₄ or S₄), a reduction-compatible lift of that finite projective image to characteristic zero, Tate's theorem (finite-projective-lift) and a Teichmüller twist; Tate alone only lifts a projective homomorphism and does not ensure the prescribed residual reduction. Coefficient enlargement is allowed. Construct the reduction-compatible finite projective lift and the final scalar twist separately; the arithmetic obstruction-vanishing theorem by itself does not control reduction.
+Let F be totally real, p>2, and r̄:G_F→GL₂(F̄_p) be continuous, absolutely irreducible and totally odd with solvable image. A totally odd continuous finite-image characteristic-zero lift ρ exists over a number field, with λ above p and a stable lattice whose semisimplified reduction is r̄ under a specified residue embedding. Coefficient enlargement is allowed. Use dihedral/A₄/S₄ classification, a reduction-compatible finite projective lift, finite-projective-lift and a Teichmüller twist; Tate alone does not control reduction.
+
+**Oddness API.** For a domain R, a field k with 2≠0, a ring map f:R→k and A∈GL₂(R), `involution_det_eq_neg_one_of_reduction` proves A²=1 and det(map f A)=−1 imply det A=−1. `involution_odd_of_reduction` applies this to ρ(c), c²=1. Apply after lattice comparison; determinant survives semisimplification.
+
+**Tests.** Over ℤ, diag(1,−1) is odd modulo 3; scalar −I has determinant +1 in rank two; the identity has determinant +1 but reduces to −1 modulo 2. The last test requires 2≠0.
 
 **Hypotheses.** p is prime. The residue-field embedding is into F̄_p and the comparison is semisimplified.
 
-**Prerequisites.** R17.5/finite-projective-lift; R01 `R01.1`; R01 `R01.4`; RepresentationTheory/InductionRestriction Layer 7.
+**Prerequisites.** R17.5/finite-projective-lift; R01 `R01.1`; R01 `R01.4`; RepresentationTheory/InductionRestriction Layer 7; Mathlib `Matrix.GeneralLinearGroup.map_det`.
 
 **Sources.** [bcgp21], Proposition 10.1.3, proof, solvable case, printed p. 474 (PDF p. 322).
 
