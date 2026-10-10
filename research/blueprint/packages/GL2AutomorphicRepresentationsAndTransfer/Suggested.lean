@@ -1189,11 +1189,55 @@ example : (Matrix.det (!![3, 0, 0; 0, 0, -3; 0, -3, 0] :
 example : ¬ ∃ x : ZMod 8, x^2 = 5 := by decide
 end PureCubicPhase
 
-/- Signature omissions: Non-normal cubic base change requires an actual separable cubic number-field extension, its places/residue degrees, the weak JPSS automorphic transfer and isobaric uniqueness. Its original construction and the stronger Carayol all-place upgrade remain separate source-proof gaps. No arbitrary function between carriers is a transfer.
+/- Signature omissions: Non-normal cubic base change uses actual cubic K/F,
+its S₃ closure L and quadratic resolvent E, Hecke-character and automorphic
+isobaric carriers, and the full WD restriction and local factors. The README
+constructs arbitrary cubic character induction from JPSS1979 Theorem14.2
+pp.253–255, with ET.6 pair compatibility, and applies the full n=2 converse.
+It checks dual entireness, strip bounds, centre, Euler convergence and the
+product of the local lambda factors. The exception is the norm-twist family
+of AI_{E/F}ξ; its output is the two-character isobaric class over K.
 README targets: R17.4/nonnormal-cubic-base-change.
-Omitted declaration names: TauCeti.GL2Transfer.cubicBaseChange, TauCeti.GL2Transfer.cubicBaseChange_unramified, TauCeti.GL2Transfer.cubicBaseChange_twist, TauCeti.GL2Transfer.cubicBaseChange_central, TauCeti.GL2Transfer.cubicBaseChange_unique.
-Full source-level tests awaiting the same carriers: TauCeti.GL2Transfer.cubic_split_test, TauCeti.GL2Transfer.cubic_one_two_test, TauCeti.GL2Transfer.cubic_inert_test, TauCeti.GL2Transfer.cubic_not_three_test.
+Omitted declaration names: TauCeti.GL2Transfer.cubicBaseChange,
+TauCeti.GL2Transfer.cubicBaseChange_local,
+TauCeti.GL2Transfer.cubicBaseChange_unramified,
+TauCeti.GL2Transfer.cubicBaseChange_twist,
+TauCeti.GL2Transfer.cubicBaseChange_central,
+TauCeti.GL2Transfer.cubicBaseChange_unique,
+TauCeti.GL2Transfer.cubicBaseChange_exception,
+TauCeti.GL2Transfer.nonnormalCubicInduction,
+TauCeti.GL2Transfer.nonnormalCubicInduction_local,
+TauCeti.GL2Transfer.nonnormalCubicInduction_standard,
+TauCeti.GL2Transfer.nonnormalCubicInduction_twist,
+TauCeti.GL2Transfer.nonnormalCubicInduction_norm.
+Full source-level tests awaiting these carriers:
+TauCeti.GL2Transfer.cubic_split_test, cubic_one_two_test, cubic_inert_test,
+cubic_not_three_test, cubic_exception_test, cubic_steinberg_test,
+nonnormal_induction_trivial_test, nonnormal_induction_norm_test,
+nonnormal_induction_non_norm_test, nonnormal_induction_inert_test,
+nonnormal_induction_transposition_test. Algebraic fixtures below test the
+standard S₃ matrices and their order-two restriction, not automorphy.
 -/
+section CubicExceptionFixtures
+-- Standard S₃ generators, with cycle C and reflection R. The generic
+-- representation and induction construction belongs to the upstream roadmap.
+example : (!![0, -1; 1, -1] : Matrix (Fin 2) (Fin 2) ℤ)^3 = 1 := by
+  decide
+example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)^2 = 1 := by
+  decide
+example :
+    (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) * !![0, -1; 1, -1] *
+      !![0, 1; 1, 0] = (!![0, -1; 1, -1])^2 := by
+  decide
+-- A reflection fixes (1,1) and negates (1,-1): restriction is 1 ⊕ sgn.
+example : Matrix.mulVec (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    ![1, 1] = ![1, 1] := by decide
+example : Matrix.mulVec (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)
+    ![1, -1] = ![-1, 1] := by decide
+example : Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) = -1 := by
+  decide
+end CubicExceptionFixtures
+
 /- Signature omissions: Quadratic automorphic induction needs the quadratic K/F, the continuous Hecke-character carrier of K, its Galois conjugation, actual Weil induction and the isobaric and cuspidal GL₂ carriers; a map between arbitrary types, an arbitrary σ or an arbitrary cuspidal subtype does not express the cuspidality criterion.
 README targets: R17.4/quadratic-induction (accepted R17.5 target moved before the cubic use).
 Omitted declaration names: TauCeti.GL2Transfer.quadraticInduction, TauCeti.GL2Transfer.quadraticInduction_local, TauCeti.GL2Transfer.quadraticInduction_central, TauCeti.GL2Transfer.quadraticInduction_baseChange, TauCeti.GL2Transfer.quadraticInduction_twist, TauCeti.GL2Transfer.quadraticInduction_cuspidal.

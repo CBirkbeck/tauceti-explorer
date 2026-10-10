@@ -1,20 +1,148 @@
-# PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
+# PKG-GL2AutomorphicRepresentationsAndTransfer — complete package
 
-Worker: Codex (GPT-6), session `codex-TbWFBR`; issue #7901; 2026-10-10.
-Branch: `codex-TbWFBR-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099768824).
+Worker: Codex, session `codex-tTVABS`; issue #7901; 2026-10-10.
+Branch: `codex-tTVABS-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6100220222).
 
-**Partial, source/proof blocked.** The cyclic joint spectral bounds now have a
-source-backed target-level route, and the circle zero-singleton step is proved
-in Lean. The original JPSS nonnormal cubic construction and its all-place
-upgrade remain unresolved. Official Gallica endpoints again returned HTTP403;
-the AMS Selected Works reprint is an uncleared book and was not obtained.
-The accessible Mao–Rallis replacement has the specific local/convergence
-obligations below and states weak transfer. Metadata remains absent: this is
-not a finished package. No second issue was claimed. No manager-priority issue
-was available/eligible; this was an eligible focus package under WORKERS.md.
+**Complete for independent package review.** All 112 accepted targets and 122
+reader sections are retained. The original cubic source blocker is replaced
+by an all-place construction from primary GL3 induction, local LLC pair
+compatibility and the full GL2 converse theorem. The package has its math.NT
+metadata. Suggested.lean elaborates with 153 sorry warnings, no errors or
+other warnings; six new S3 matrix fixtures are fully proved. It remains a
+roadmap specification, not an implementation of automorphic transfer.
 
-## This continuation: joint cyclic spectral bounds
+No manager-priority issue was available/eligible. This eligible focus package
+was taken under WORKERS.md; no second job was claimed. Only the four permitted
+deliverables changed. The accepted packets and assembled inputs are unchanged.
+
+## All-place non-normal cubic construction
+
+The reader’s R17.4/nonnormal-cubic-base-change now gives the following route,
+with a construction API, local and global tests and exact source locators.
+
+1. JPSS1979 Theorem 14.2 pp.253–254 constructs the cuspidal GL3 representation
+   of an irreducible unitary degree-three global Weil representation when all
+   character twists have entire, strip-bounded L-functions. Its monomial remark
+   p.255 explicitly allows **every separable cubic extension**, not only cyclic
+   extensions. For Ind_K/F θ irreducible, Tate gives all required twisted
+   analytic properties. Henniart1983 Theorem 2.10 pp.20–21 identifies its finite
+   local components with the actual rank-three LLC; §3.5 pp.33–34 records the
+   global application. Infinity is JPSS’s Langlands component.
+2. JPSS p.255 says reducible non-normal cubic induction has a character μ
+   plus a monomial two-dimensional summand. Frobenius reciprocity forces
+   θ=μ∘N_K/F. The S3 permutation module is1⊕Std; Std is the quadratic
+   induction of the order-three resolvent character ξ. Thus AI3 θ=μ⊞μσ0,
+   where σ0=AI_E/F ξ and E is the quadratic resolvent. In particular this
+   isobaric branch is available with all-place parameters, using the preceding
+   quadratic-induction target, without invoking a non-normal cubic lift.
+3. Form the actual restricted tensor Π_w=LLC(Res rec π_v). ET.6 supplies finite
+   local LLC and pair factors, AF.1 supplies infinity. Generic unitary GL2
+   components remain generic: temperedness, nonzero Steinberg monodromy and
+   complementary exponents strictly within ±1/2 survive restriction. Sphericity
+   almost everywhere, idele-class centre and a right half-plane of Euler
+   convergence hold before any converse theorem is applied.
+4. WD tensor-induction gives Λ_K(Π⊗θ)=Λ_F(π×AI3 θ), with the same dual
+   comparison. Henniart2002 Theorem 1.5 p.590 and §2 pp.593–596 supply the
+   all-rank local pair-factor contract imported from ET.6. Keep the local
+   induction constant: ε_F=λ_v²∏_w ε_K for the trace additive characters
+   and self-dual measures. Deligne1973 Proposition 3.8 pp.530–531,
+   Theorem 4.1 p.535,5.6.2 p.549 and5.11 p.551 imply ∏_vλ_v=1 by comparison
+   of the permutation representation and the two zeta functional equations.
+   Section8.12 p.572 supplies the invariant-kernel correction with N retained.
+   This is a specialized factor comparison, not a second generic LLC theory.
+5. AL.3’s unequal-rank pole theorem makes π×AI3 θ entire in the cuspidal
+   induction case. In the norm case the product is Λ(π⊗μ)Λ(π×μσ0).
+   Its only possible poles occur when π is a norm twist of σ0. The completed
+   strip bounds and both functional equations are AL.3’s existing contracts;
+   norm shifts give every quasicharacter twist. The full n=2 converse with
+   no excluded places therefore produces a cusp with every prescribed local
+   component when π is outside that family.
+6. For π=σ0⊗ν, Std|C2=1⊕sgn constructs BC π=(ν∘N)⊞(ν∘N)η_L/K directly.
+   These and only these inputs have non-cuspidal output. Isobaric strong
+   multiplicity one proves uniqueness; local restriction gives twist and
+   central character. A six-fixture integer-matrix check proves the S3
+   relations, reflection eigenvectors and determinant−1. It does not prove
+   the analytic or automorphic steps.
+
+This deduction is written in our own words and attributed to its inputs.
+Cogdell’s converse survey §3 applications(iv) p.10 identifies these converse
+methods as the source of non-normal cubic base change. No inaccessible
+passage or unsupported invocation of the 1981 note is needed. The all-place
+result supplies Carayol12.2’s local conductor comparison, including the
+extraordinary dyadic case, and the cubic input for octahedral Artin automorphy.
+Neither good-place uniqueness nor descent through the S3 closure chooses a
+bad local parameter in this proof.
+
+The original JPSS1981 note at Gallica still returns403; its uncleared AMS
+Selected Works reprint was not obtained. Mao–Rallis2000 Theorem1 p.172 and
+Theorem6 p.195 give a different weak relative-trace proof. Its discriminant
+and height-tail obligations are not silently assumed: that route is not the
+package’s existence proof. The previously proved pure-cubic norm-phase
+fragment is preserved as a subsidiary algebraic target. For Q2(cuberoot2),
+discriminant squareclass−3 is nonsquare; its quadratic critical terms have
+opposite signs. Do not resurrect the square-discriminant assertion.
+
+## Validation and dependency audit
+
+- `lean-check` of the full package Suggested.lean exited 0; 153 warnings, all
+  declaration-uses-sorry; zero errors or other warnings. Available memory
+  before compilation: 100 GB. The six new matrix examples have complete proofs.
+  No declarations changed after compilation. No Lean process remains running;
+  no language server, Lake build, update or cache command was used.
+- Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- Both accepted packets pass `scripts/check_blueprint.py`:0 errors, 0 warnings.
+  They contain 55+57 nodes and still record 16 inherited gap entries and 67
+  supplier requests. This package provides their target-level dispositions;
+  their JSON records could not be edited in this job.
+- Coverage check: 112/112 accepted target anchors, 122 section headings, all 19
+  accepted definition/construction sections with API and tests, no undefined
+  bibliography keys. API names, hypotheses, tests and source locators were
+  retained while removing duplicated slug prefixes from headings and code
+  formatting on dependency IDs. Reader size: 199946 bytes.
+- Metadata is exactly `topic = "math.NT"`. Scoped intake (`check-files`) passes
+  for all four deliverables: 4 files, 0 problems. `git diff --check` passes.
+- Read WORKERS, both protocols and UPSTREAM_GUIDE. Read current upstream
+  RepresentationTheory/ModularInduction and CharacterTheory completely.
+  Checked the reviewed GL2 audit and relevant AL.1/3/4 and ET.6 contracts.
+  The lower-tier ET.6 classical GL_m LLC supplies the pair comparison; no
+  GL2-owned global cubic theorem is used to manufacture that input.
+- Read-only roadmap main `3c18d9fbfceed0dc5c1edb1070a3927152d19e28` and current
+  Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were inspected, never
+  modified or built. The additional roadmaps do not contain this transfer.
+  Generic finite induction, ordinary character theory, nuclear operators and
+  arithmetic carriers retain their existing owners.
+
+## Disposition of the inherited obligations
+
+| Obligation | Package disposition |
+| --- | --- |
+| Archimedean classification/factors/quaternion comparison | Explicit chambers, full-O2 limit, epsilon and SU2 character/sign; AF.1 and AL.2 own the carriers. |
+| Smooth/automorphic/test-function signatures | Exact source conditions and named §13 omissions; absent native interfaces are not replaced by arbitrary types. |
+| Newvectors and ramified factors | Last-row fixed spaces, Whittaker evaluation and complete primitive U_p dictionary with three distinct fixtures. |
+| Primitive dyadic example | Level1/2 compact type, conductor3, Swan1, primitive parameter; normalized coefficient and matching-test trace/sign specified through ET.6. |
+| Galois convention and ramified geometry | Actual parabolic realization, dual Frobenius convention and Varshavsky curve-trace route; strong cubic comparison now available. |
+| Singular/continuous trace | Separate scalar/local derivative and B1 estimates, finite measure comparison; proved native circle fragment. |
+| Tensor/supplier conditions | Genuine symmetric powers and finite tensors; scalar, dimension, dual and coefficient maps, with named analytic omissions. |
+| Quaternion ramification realization | Global Hilbert prescription, reciprocity and Brauer uniqueness on existing quaternion algebras. |
+| Highly ramified GL3 converse | Fill-and-twist deduction from lower reduced-rank converse, with no unjustified cuspidality. |
+| Non-normal cubic/all-place lift | New all-place induction/converse route above and explicit reducible exception. |
+| Quaternionic globalization | Balanced EP sign, fixed-centre projection, trace norm integral and positive identity term. |
+| Solvable residual lifting | All-rank integral Fong–Swan/Brauer chain and faithful arithmetic signatures. |
+| Full local character prescription | Primary Chevalley S-unit route, actual modulus/idele-class interfaces, no order-preservation claim. |
+| All-place Artin matching | Stability and bad-place isolation with explicit infinity matching; cubic existence supplied above. |
+| GL3 recognition signature | Exact converse/pole conditions and honest omission until the concrete supplier objects exist. |
+| Source-specific transfer signatures | Native field/local/global/factor/model interfaces identified; algebraic fixtures are subsidiary tests. |
+
+## Preserved mathematical receipts
+
+The following receipts are inherited from prior workers. Their source readings
+and proofs are not represented as newly performed in this session. Their
+mathematical conclusions are preserved in the package. The former cubic gap
+is superseded by the construction above.
+
+### Joint cyclic spectral bounds
 
 R17.2/specialized-trace-comparison now controls each derivative separately,
 including the logarithmic orbital correction. A combined signed trace identity
@@ -81,26 +209,6 @@ cutoffs, integrable unbounded |t|^(−1/2) on(0,1), and a constant parameter map
 Native trace distributions/resolvents/Satake carriers remain explicit signature
 omissions. The new circle fragment does not formalize the trace formula.
 
-All112 accepted targets and122 starting headings are retained. Repeated owner
-aliases and introductory/bibliographic wording were compressed to keep the
-reader below200,000 bytes without dropping hypotheses or source locators.
-Mao–Rallis's weak theorem now cites Theorem1 p.172 as well as the relative
-trace identity Theorem6 p.195. Accepted packets were not edited; the stale
-assembled suggested file was not used.
-
-An independent cubic route through finite Artin induction was examined:
-compare GL2×GL3 factors against Ind_(E/F)chi for finite characters of E. It
-needs nonnormal cubic GL3 character induction with all-place factors, not only
-cyclic cubic induction. Quadratic descent and restriction to the normal closure
-do not themselves choose the bad local fibres. No lower supplier proof was
-established, so this is not an installed premise or resolution. The cyclic
-spectral bounds above also do not estimate the different theta–Whittaker kernel
-in Mao–Rallis: its quantitative height-tail requirement remains separate.
-
-## Preserved mathematical receipts
-
-The following records earlier work, not claims that this worker reread or proved
-all its sources. Resume from the package, not the stale assembled suggested file.
 
 **Ramified curve trace.** R17.6/classical-conductor-comparison now has a
 source-backed proof route for the gap left by Langlands1973 Proposition7.12
@@ -353,8 +461,7 @@ Tetrahedral descent matches infinity since its odd cyclic extension splits
 there. For octahedral descent, split real places use tetrahedral comparison;
 at real-to-complex places the projective involution is a transposition,
 rho(c) has eigenvalues±1, restriction to W_C is1+1 and determinant is sgn.
-That specifies the real parameter1+sgn needed by the upgrade. The weak cubic
-input to octahedral automorphy is still source-blocked.
+That specifies the real parameter1+sgn needed by the upgrade. The cubic input is now supplied by the all-place converse construction above.
 
 **Fixed-centre quaternionic globalization.** Clozel §3.2 Lemmas4–5
 pp.271–272, Lemma9 p.274 and §4.3 Theorem1B pp.279–280 were inspected this
@@ -409,8 +516,7 @@ does not by itself supply the joint estimate; use the separate bounds above.
 Four accepted prerequisite edges point upward from this tier-15 package to
 AutomorphicGaloisRepresentations: rt-technical-lemma's higher-weight,
 weight-one and conductor inputs, and weight-two-witness's higher-weight input.
-The package already had provisional local contracts; an earlier continuation supplied their
-construction outlines and separates the missing ramified bridge:
+The package supplies these local contracts and construction outlines:
 
 | Former higher input | Classical lower owner |
 | --- | --- |
@@ -426,7 +532,7 @@ space plus its conjugate; multiplicity one gives rank two. The reader lists
 coefficient extension, equivariant projectors, level maps and trace adjunction,
 and the weight-two Jacobian, weight-twelve and Eisenstein boundary tests.
 
-Read Deligne1969 §§1–4 in full. The precise locations are Theorem2.10 pp.141–148;
+Read Deligne1969 §§1–4 in full. The precise locations are Theorem 2.10 pp.141–148;
 Definition3.9 and3.10–12 pp.153–154;3.18–19 and pairing3.20 pp.158–159;4.1 and
 4.2–8 pp.160–166;4.9 p.167. Good-prime T=F+epsilon V and FV=p^(k−1) give
 cohomological geometric Frobenius; the arithmetic attachment is its dual.
@@ -456,7 +562,7 @@ higher ComplexComparisonPartII/C5 or import a higher-tier generic attachment.
 The parabolic coefficient specialization and primitive projector are local
 subsidiary constructions, not duplicates of the generic comparison.
 
-**Classical conductor: corrected construction, outstanding proof obligations.**
+**Classical conductor: construction and source route.**
 Carayol Theorems(A)–(B) pp.409–412 include F=Q; 0.11 p.412 specifies
 parabolic H¹. Sections2.2 pp.419–420 define its commuting Hecke/Galois tower
 and multiplicity;4.9 p.426 specifies the special-fibre parabolic substitution.
@@ -473,7 +579,7 @@ All pages of Langlands here use the author's retypeset pagination, not
 original LNM pagination. The needed sections were read in an earlier continuation.
 
 Langlands Proposition7.12 pp.89–90 was left unproved in that source.
-The Varshavsky route in this continuation supplies its unequal-order curve
+The Varshavsky route in the preceding continuation supplies its unequal-order curve
 specialization, with contraction on the reordered correspondence and duality
 for the reversed case. The proper compactification must retain extension by
 zero at cusps and its derived dual. The lower proposal#196 TraceFormula
@@ -484,8 +590,8 @@ proved, while the six-operations trace interface remains explicitly omitted.
 For ell=2 and odd primitive level, every relevant p is odd and every local
 supercuspidal is ordinary. Carayol(B) is consequently the appropriate source;
 no extraordinary dyadic/cubic step is needed for that RT conductor bound.
-For the full target, p=2≠ell still needs strong cubic comparison and the
-field-change identification of12.2 pp.457–458. Residual conductor inequality
+For the full target, p=2≠ell uses the strong cubic comparison now supplied
+above and Carayol’s field-change identification in12.2 pp.457–458. Residual conductor inequality
 uses the actual attachment, giving N|M; if M|N this forces equality.
 WD(rho_f)=rec(pi_p)^dual tensor nu_W^((k−1)/2), with dualN=−N^transpose,
 remains unchanged. No accepted packet or higher consumer was edited.
@@ -502,199 +608,47 @@ forward dependencies on R17.5. This is authorized by WORKERS.md, without
 additional approval. These are package ownership proposals; the file scope
 prevents applying their packet changes here.
 
-## Cubic blocker and research leads to preserve
 
-The missing primary item is Jacquet–Piatetski-Shapiro–Shalika,
-*Relèvement cubique non normal*, C.R.Acad.Sci.Paris292(12) (1981),567–571.
-Tunnell1981 Theorem[4] p.173 quotes only weak almost-everywhere transfer.
-Carayol12.2.1 p.457 additionally quotes the all-place lift, and12.2.2–3
-pp.457–458 needs its identification with restriction of extraordinary
-parameters. Neither announcement gives the original proof.
+## Independent review and ownership follow-up
 
-Authorized access was checked repeatedly. Gallica's relevant volume identifier
-is `bpt6k98224180`; the likely scan position for p.567 is f599. Public ark,
-texte, image/PDF, IIIF-manifest and pagination endpoints returned Cloudflare
-HTTP403. Author publication lists did not provide the original note. The AMS
-Selected Works reprint pp.497–502 belongs to an uncleared book; no alternate
-copy was obtained or read. Repeating source search did not make the original
-callable/readable. The five-page note or an independently complete replacement
-is the concrete next input needed.
+Review the all-place cubic deduction in particular: the non-normal monomial
+classification, the resolvent exception, the full local pair-factor input and
+the lambda product are the critical links. The inaccessible original source
+is not a premise. The package does not claim an implemented native automorphic
+or trace-formula carrier.
 
-A public later primary proof is [Mao–Rallis2000](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5049F4E78E15635E58E158F1CF1C93FC/S0008414X00008798a.pdf/cubic_base_change_for_textgl2.pdf),
-Theorem6 p.195. It proves weak cubic transfer, but its field germ contains
-mistakes and its convergence argument refers to Mao–Rallis1999,
-*On a cubic lifting*, DOI10.1007/BF02780174. The latter publisher copy was
-paywalled and the author route unavailable. A Fatou inequality in the displayed
-argument does not justify the limit-under-integral equality by itself.
-No quantitative dominating height bound was verified.
+Packaging forbids packet or consumer edits. Preserve the downward moves
+recorded above: full-local character prescription belongs in R16.1;
+classical rank-two attachments and conductor comparison belong in R17.6;
+quadratic induction precedes the cubic construction in R17.4 (old R17.5
+anchor retained). The three higher R19 attachment/conductor inputs and their
+four upward edges need repointing in their permitted plan jobs. ET.6 retains
+local LLC, and AL.3 retains generic converse and pole theorems.
 
-A new accessible lead, [Rajan2000](https://mathreports.ca/download/3553/),
-*On the image and the fibres of the non-normal cubic lift*, C.R.Math.Rep.Acad.
-Sci.Canada22(1),1–6, Theorem3 pp.3–5, was obtained and inspected. It assumes
-the JPSS lift exists and analyzes its image/fibres through cyclic towers and
-good-place comparisons. It gives no independent all-place existence proof.
-Do not treat it as a resolution of this blocker.
+Resume from the package for independent review; do not regenerate from the
+stale assembled Suggested file, which contains invalid arbitrary-carrier
+transfer statements removed in the accepted repairs. No mathematical source
+blocker is left as a prerequisite of the package’s chosen construction.
 
-[Henniart1983](https://www.numdam.org/item/10.24033/msmf.295.pdf), Appendix6
-pp.171–180, was obtained and read as another lead. Its analytic base change is
-**quadratic GL3**, not nonnormal cubic GL2. A6.6 pp.177–180 constructs the
-local GL3 datum, uses global GL2×GL3 integrals against induced characters,
-the converse theorem and bad-place isolation. Its reliance on JPSS analytic
-pair factors does not prove the missing cubic theorem. Ginzburg–Rallis–Soudry's
-G2 cubic correspondence and the triple cover of SL2 are likewise not ordinary
-GL2 nonnormal base change.
+## Source provenance
 
-The following preserves the local and global proof leads. The pure-cubic
-matrix, norm, quadratic and phase identities in item 2 are now proved in the
-suggested file; their general analytic extension and the other calculations
-remain unverified. They do not certify a repaired transfer proof:
+This session read JPSS1979 §14.2 and its monomial remark (printed pp.253–255), Henniart1983
+§§2.9–12 and3.4–5, Henniart2002 §§1.1–5 and2.1–8, Deligne1973 §§3.8–12,
+4.1,5.6,5.11,8.12, and Cogdell’s converse statements and applications.
+Public author/publisher PDFs stayed in disposable scratch. No cleared private
+book was copied, and no verbatim source passage is in the deliverables.
+The source URLs and detailed locators are in the reader. The first table
+records the new downloads; the following inherited hashes preserve earlier
+readings and their unchanged plan inputs.
 
-1. Use the ordinary rank-eight oscillator: over a splitting field the
-   symplectic space is the tensor product of three standard two-dimensional
-   spaces; Galois permutes factors. For Lambda=F⊕E,
-   theta(t)=N(t)/t (polynomially extended) and
-   Q_t(x0,x)=N(t)x0^2+x0 Tr(theta(t)x)+Tr(t theta(x)),
-   the identity x0 Q_t=N(x+x0 t)−N(x) gives the unipotent action. Candidate
-   coordinates on S(F^××Lambda) have n(t) action
-   psi(y^−1 Q_t) phi(y,x0,x+x0 t); scalar z acts by
-   [z,delta]|z|^3 phi(z^2 y,z x0,z x); Levi a by
-   |N(a)|^2 phi(N(a)y,N(a)x0,N(a)a^−1x). Fourier/Weil scalars and rational
-   splitting must be checked. This is not a D4 minimal representation;
-   MP5's restricted totally-real positive-definite setting is insufficient.
-2. Retain general discriminants. For E=Q_2(cuberoot(2)), discriminant−108 has
-   square class−3, a nonsquare (5 modulo8); MR's field assertion that delta
-   is square is false. Their p.186 use of −3 as a square is also unavailable
-   in general. For q(V)=Tr(theta(V)), use
-   q=((Tr V)^2−Tr(V^2))/2, det(q)=delta/4 and q=H⊕<−delta>.
-   If Tr w=0, q(w^−1)=N(w^−1)Tr(w)=0. In this example
-   q=3b^2−6cd. For phase uN(t)−Tr t, a critical point satisfies
-   u theta(t)=1, so t is scalar and u t^2=1. Nonsquare u should have no
-   small-parameter germ. Near C=±1 the quadratic part is Cq. The candidate
-   Gaussian ratio is gamma(−2C delta/v)/gamma(−2C/v)
-   =mu(delta)[2Cv,delta]. The changes z_old=vz and z=Cz contribute the
-   otherwise missing [v,delta] and [C,delta], leaving
-   mu(delta)[2,delta], independent of C. Measures, stationary phase,
-   vanishing bounds and matching in both directions still need proof.
-3. Candidate local identity, with self-dual measures:
-   I(a^−1,phi)=[2a,delta]|a|lambda(a)mu(delta)J(a,f),
-   I_s(phi)=|Delta_(E/F)|^(1/2)J_s(f).
-   The I(y) phase is y^−1N(t)−Tr t, not yN(t)−Tr t.
-   Its singular integral has [z,delta]|z|^3 phi(z^2,0,z)lambda(z).
-   For E=F⊕K, partial Fourier transform should reduce to rank-two Hermitian
-   Kloosterman matching. Jacquet–Ye1996§2 Theorem2.1 p.927,
-   Proposition2.3 pp.932–933 and§3 Proposition3.1 pp.934–935 supplies small
-   ideal germ arguments, including dyadic fields. For R⊕C use Schwartz
-   functions and Aizenbud–Gourevitch2011 TheoremA p.2, KeyLemma3.2.8 pp.10–11,
-   §5 pp.15–17,6.0.3/6.0.5 pp.17–19, AppendicesA–B pp.19–27. Its jet and
-   Fourier decomposition cannot be replaced by a bare density assertion.
-4. Global oscillator theta–Whittaker vs double-Whittaker trace unfolds into
-   F^× regular terms and a singular product. Good odd-place fundamental
-   lemma uses the three splitting cases and MR's Gauss multiplication (53).
-   Spectral terms include cusp, (4pi i)^−1 sum_chi integral I_(chi,s), and
-   in the nonnormal case an extra I'_mu satisfying
-   mu^2=(zeta lambda) composed with Norm on the norm-one ideles, coefficient
-   one-half at s=0. The cyclic half-residue vanishes. A candidate convergence
-   repair subtracts the s^−1 Eisenstein constant term, uses rapid vertical
-   decay and controls truncated theta height tails. The quantitative tail
-   estimate was **not established**. Good Hecke separation should isolate a
-   cusp atom or the quadratic-resolvent order-three induction exception,
-   but only after that convergence is proved.
-
-Even a complete weak relative-trace proof does not settle the all-place gap.
-For the S3 normal closure L with quadratic resolvent K and cubic E, cyclic
-base change and quadratic descent identify the class over E by good places.
-At a bad place they can leave the quadratic norm-kernel twist of its local
-parameter undetermined, with the same determinant. Strong multiplicity one
-of global classes does not select that local parameter. The finite-Artin
-all-place upgrade above does not resolve general ell-adic cohomology.
-Carayol12.2.3 first globalizes a finite primitive local parameter by Tunnell
-and then uses a **strong** cubic lift of its Artin automorphic class.
-Identifying it from good traces alone would assume the conclusion.
-
-## Remaining recorded obligations
-
-The unchanged accepted packets contain 112 nodes,16 gaps,67 requests,12 planned
-stages and0 closed stages. Their JSON status says complete, but that does not
-certify those recorded gaps. The following is the current disposition:
-
-| Obligation | Current resume point |
+| Public source read this session | SHA256 |
 | --- | --- |
-| Archimedean classification/factors/real quaternion comparison | Exact chambers, full-O(2) limit, complex epsilon and SU2 character/sign now supplied at target level; AF.1 and AL.2 retain concrete interfaces. Gamma normalizations are proved. |
-| Smooth/automorphic/test-function suggested carriers | Explicit omissions retain exact conditions. Use concrete supplier interfaces where possible; absent implementation alone is not a mathematical blocker. Never restore arbitrary-type equivalences. |
-| Newvectors and ramified factors | Existing actual-representation newvector signatures and last-row convention preserved; new complete U_p dictionary supplied. Concrete SR model and normalized Whittaker realization tests still need checking. |
-| Primitive dyadic fixture | New n=1,conductor3,Swan1 fixture and matching sign supplied at target level; exact operator and quaternion matching normalization still needs final audit. |
-| Arithmetic/geometric Galois convention | Direct parabolic realization preserved; Varshavsky supplies the ramified stalk/dual-stalk route and native contraction is proved. Six-operations trace signatures remain omitted; full dyadic comparison needs strong cubic transfer. |
-| Singular/continuous trace terms | Norm-fibre/A3 identities retained; this continuation supplies the joint bound from FLM2011, Müller–Wakatsuki2026 and the separate logarithmic-orbital estimate. Native analytic signatures remain omitted. |
-| Full tensor/supplier conditions | Existing genuine symmetric-power tensor, scalar, dimension, dual and coefficient-map APIs preserved; analytic conditions remain named omissions. |
-| Prescribed quaternion ramification | Supplier chain and actual existence/uniqueness signatures now supplied in R17.1; complete parity proof and six closed fixtures. Planned arithmetic proofs consume GQF4.4, QFI2/5–6D, CFT10 and SemisimpleAlgebras6. |
-| Highly ramified GL3 converse | New fill-and-twist target gives a route from the exact lower generic converse; native analytic signature remains omitted. |
-| Original cubic and all-place local lift | Actual source/proof blocker detailed above. |
-| Quaternionic globalization | Balanced (sl2,O(2)) EP sign and trace-norm central projection supplied at target level; native analytic carrier remains omitted. |
-| Solvable reduction-compatible lift | All-rank integral Fong–Swan/Brauer chain supplied; signatures elaborate with planned proofs. |
-| Full local character prescription | Correct primary Chevalley proof chain and actual arithmetic signatures supplied; no order preservation and no arbitrary simultaneous norm exponents. |
-| All-place Artin matching | New stability/isolation target supplied with infinity hypothesis; relies on weak octahedral existence, still blocked by cubic proof. |
-| GL3 recognition suggested signature | No fabricated global L-function or cusp carrier was added; exact omission remains. |
-| Source-specific transfer signatures | Actual field extensions, local/global classes, factors, central characters and rational models remain necessary; matrix/parity fragments are not the full transfer theorem. |
-
-## Resume order
-
-1. Obtain the original JPSS cubic note from an authorized readable source, or
-   prove the alternative local matching and quantitative convergence above.
-   Establish its all-place comparison, not just good Satake powers.
-2. Use the joint bounds and circle step recorded above for cyclic trace
-   comparison. Do not confuse this with the separate cubic relative-trace
-   convergence problem or return to a fixed-height-only justification.
-3. Finish the direct parabolic comparison using the ramified curve route above,
-   then audit the remaining table entries and concrete supplier signatures.
-   For RT at ell=2 use only odd-prime ordinary cases; no new compact-quaternionic
-   bridge is required.
-4. Reconcile the downward ownership moves in the permitted future plan job.
-   Packaging forbids editing the accepted packets in this issue.
-5. Complete faithful suggested signatures/tests where the conditions can be
-   stated; do not manufacture `Prop` fields or arbitrary carriers. Add the
-   one-line math.NT metadata only when the package is complete and rerun checks.
-
-Do not regenerate from the stale assembled Suggested file. It contains
-false unrestricted arbitrary-carrier transfers removed by earlier repairs.
-Continue from this package, the individual accepted packets and the reviewed
-library audit. Do not append this entire handoff to the next one; replace it
-with an updated current account preserving the mathematical receipts.
-
-## Current validation and library audit
-
-- Full package `lean-check` exited0:153 warnings, all declaration-uses-sorry,
-  no errors or other warnings. Available memory before compile101GB. No Lean
-  declarations changed afterwards. The circle fragment and three fixtures
-  have complete proofs, as do inherited norm-phase and ideal fragments.
-  No language server or Lake build/update/cache was started; no compile remains.
-  Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`.
-- Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
-  They still record55+57 nodes,16 gaps,67 requests,12 planned stages and0 closed
-  stages; JSON completion does not certify those gaps.
-- Current upstream readers RepresentationTheory/ModularInduction and
-  RepresentationTheory/CharacterTheory were read. The reviewed GL2 library
-  audit and relevant AS.0/6, AL.2/3 and ET.4/6 contracts were checked.
-  OperatorTheory/OperatorIdeals already plans generic nuclear/Schatten objects;
-  this specializes spectral estimates. New Mathlib uses were read at the pin:
-  countable-set zero measure, density singleton instances, quotient
-  measurability and map. Neither generic measure nor operator theory is replanned.
-- Read-only roadmap main: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
-  current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  Neither tree was modified or built. Upstream proposal#196's remote status
-  above is an inherited receipt, not rechecked in this continuation.
-- Public files stayed in scratch; cleared books were not copied. No source
-  passage appears in deliverables. Scoped `intake.py check-files`:3 files,0
-  problems. `git diff --check`:pass. Reader:199,990 bytes; all112 accepted
-  slugs and122 starting headings survive, with no unresolved reference keys.
-
-## Primary-source receipts
-
-Bibliographic URLs and locators are in the reader. This continuation obtained
-FLM2011, Müller–Wakatsuki2026v2, Müller–Speh2004, Langlands1980 and Mao–Rallis2000
-from primary publisher/author/arXiv sources and read the relevant statements.
-The hashes below are for public PDFs. Other receipts are inherited from previous
-continuations; this worker does not claim to have reread them.
+| jpss1979 | `0cf1baf41a6279cd1f78b44b0e6d3ff0ed71f7b9b54b55de28210b9f02a293f7` |
+| henniart1983 | `968076c8b63d4a94442c080040b684fe1f71b01a3c0933d111a49745369629f7` |
+| henniart2002 | `40c0ed7c7bfb05f1415fd66642d0b1984052f0af7cb5f3061b328216e2d24306` |
+| deligne1973 | `b03f483c4eeca79b75e34b88f41406fe4c9e16ba621480ce859697c93e8d5844` |
+| cogdell2012 | `0c922b6e6c26bc6d98ad7cf1162955d34e61491a1e73dc1f803b987cab2f2ffe` |
+| mr2000 | `8cfdd3cdd83c7cac795656ef407a8ee00a8ab1be75e70ec36838122b847484c0` |
 
 | Public source | SHA256 |
 | --- | --- |
