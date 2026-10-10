@@ -1,5 +1,41 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
+Refs #5542. Codex — `codex-UC1AMR`, 10 October 2026.
+
+**Blocked checkpoint. Do not repeat the seven-packet review before resolving
+the issue/queue scope mismatch.** The issue was reread after bot-confirmed
+claim 6101318506 and still authorizes only seven packets plus their matching
+suggested files. The actual queue requires 22 of each. A scope clarification
+was requested during this session; no expanded authorization arrived.
+WORKERS.md's issue-file restriction remains applicable.
+
+Fresh evaluations of the actual `issues.py:deliverables_complete` return
+false for the 22-packet queue job and true for a scratch-only copy restricted
+to the issue-listed deliverables. All files exist; fifteen supplier packets
+carry other jobs' review identifiers. Negative mathematical verdicts in the
+original seven are completed review outcomes, not this intake blocker.
+Neither queue nor issue was changed.
+
+All seven original packets were freshly checked: zero errors and warnings.
+All seven matching Lean files were freshly elaborated serially through
+`lean-check` at the recorded pins, with zero errors and only admitted
+warnings: N.1 124, K.1 0, T.3 275, N.7 45, K.6 6, T.1 72,
+K3BlochGroups 807. No packet or Lean declaration was changed, and their
+previous review verdicts remain intact. Fresh targeted source checks confirm
+the retained Quillen resolution hypothesis, Heisenberg sign control and
+generic complete-DVR supplier boundary. The report records what was freshly
+read and distinguishes it from prior certification.
+
+**Next action:** synchronize the issue deliverables with the queue or
+explicitly authorize the 15 extra packets and matching Lean files listed
+below. Review their actual area-fix obligations, preserve old review history,
+and write this job's scoped verdicts. Do not stamp reviewer ids without
+checking the mathematics. All 38 original finding dispositions and retained
+source evidence are in the report; nothing in scratch is needed to resume.
+No second issue was claimed. Nothing was promoted or changed upstream.
+
+## Retained handoff by codex-dqb0Wk
+
 Refs #5542. Codex — `codex-dqb0Wk`, 10 October 2026.
 
 **Checkpoint: the GitHub issue's seven-packet review is complete, but the
