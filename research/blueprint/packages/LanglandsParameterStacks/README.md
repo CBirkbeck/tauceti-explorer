@@ -1261,7 +1261,7 @@ Every categorical Hecke datum for Γ over Q induces a natural Z_l-algebra map Ex
 
 **Needs:** [LP2e.15](#lp2e15-excursion-matrix-coefficients); [LP2e.11](#lp2e11-the-universal-excursion-relations); [LP2e.13](#lp2e13-categorical-hecke-data); `CategoryTheory.CatCenter` (Mathlib).
 
-**Source:** [Fargues–Scholze][FS-geometrization], Proposition VIII.4.1, Definition VIII.4.2 and proofs, pp.290–293. [Lafforgue][Lafforgue-shtukas], Lemma 10.1 and Proposition 10.8, pp.133–135,138–139.
+**Source:** [Fargues–Scholze][FS-geometrization], Theorem VIII.4.1, Definition VIII.4.2 and proofs, pp.290–293. [Lafforgue][Lafforgue-shtukas], Lemma 10.1 and Proposition 10.8, pp.133–135,138–139.
 
 ## Layer LP2, semisimple characters: fixed projection and local continuity
 

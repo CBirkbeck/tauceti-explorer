@@ -3,110 +3,141 @@
 ## Current status, 10 October 2026
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-Gh5qWu`.
-Branch: `codex-Gh5qWu-langlands-parameter-stacks`.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097706963);
-[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097708333).
-The bot confirmed this session's claim before work began. None of the
-manager's priority issues appeared in the 740-issue available-swarm list.
-This focus package was selected in the fallback queue; no second job was
-claimed.
+Worker: Codex (GPT-6), session `codex-DLfuYt`.
+Branch: `codex-DLfuYt-langlands-parameter-stacks`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097830924);
+[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097832149).
+The bot confirmed the claim before work began. All 40 issues in the manager's
+priority list were queried directly: none was available. Among the permitted
+fallback kinds, no top issue was available, and this was the only focus
+package or plan issue. Only this job was claimed.
 
-**Incomplete and blocked by supplier specifications outside the four files
-this issue authorizes.** This checkpoint consolidates the resumption note
-and verifies the outstanding gates against the current supplier artifacts.
-The package README and Suggested.lean are unchanged. No metadata file is
-added, because the complete package cannot yet be delivered honestly.
+**Incomplete; blocked by supplier specifications outside this job's four
+authorized paths.** The job forbids changing the LP packet or any supplier.
+The accepted review describes a complete target-level planning pass with
+unclosed stages and omitted enhanced signatures; it does not certify the
+complete package specification asserted in the generated issue.
 
-### What was established independently in this run
+This checkpoint corrects the package README's citation of Fargues–Scholze
+VIII.4.1 from a proposition to a theorem. The mathematical targets and the
+Suggested.lean are unchanged. Metadata remains absent: adding it would make
+`issues.deliverables_complete` recognize the package by output existence,
+despite the missing signatures. No result or supplier is certified complete.
 
-1. The accepted LP review explicitly accepts a target-level planning pass,
-   rather than a closed package specification. The packet still has 79 nodes,
-   140 API items, 90 tests, five gaps, sixteen requests and eight planned,
-   unclosed stages. Its G3 records omitted enhanced signatures. The issue's
-   assertion that its plan is complete does not discharge those omissions.
-2. Current upstream IHG §0.7 and its `InvariantCoordinateInput.ring` use
-   one Hopf algebra for both tuple points and conjugating points. The
-   required LP pseudocharacter fibre uses tuple group J=H⋊Q and conjugating
-   group H. The atlas IHG README describes a more general construction;
-   its suggested input still only carries a ring diagram, without constructing
-   that diagram from separate Hopf data. These are distinct contracts.
-3. `EnhancedDerivedSheaves--E5.lean` still supplies `True` fields for the
-   monoidal fibration, Segal conditions and coherent action, `Unit` for
-   `CAlg` and `AnimatedAlg`, and a proof of `True` for `IndInfty`.
-   Read the full file and the exact LP definitions, APIs, tests and requests
-   for derived parameter stacks, categorical Hecke data and good-filtration
-   t-structures. Such signatures cannot express those consumers. A limited
-   declaration-text search in current native Tau Ceti for those enhanced
-   names found no replacement; this is not a comprehensive library audit.
-4. Read the current upstream AlgebraicVectorBundles and ReductiveGroups
-   READMEs in full, and all eight LP entries of the reviewed library audit.
-   Their ordinary scheme bundle and pinned-group targets do not supply the
-   missing derived quotient-stack interfaces.
-5. Reopened [Quast's author-hosted v1](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
-   Definition 3.1, p.11, and Theorem 3.7, pp.13–15: the invariant algebra
-   uses the identity component, and reconstruction retains identity-component
-   conjugacy. Reopened [Fargues–Scholze's author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
-   VIII.3.8, p.290, and VIII.4.1–VIII.4.2, pp.291–292: the component
-   projection and categorical functor data are substantive requirements.
-   The ordinary categorical formulation of VIII.4 is itself meaningful;
-   the further stable enhancement required by the accepted LP plan still
-   needs its specified supplier. No source passage is committed.
+## Findings checked in this run
 
-The predecessor also added two fully proved Laurent-coordinate checks:
-`IdentityComponentCoordinateChecks.coordinate_not_projected_switch_invariant`
-and `IdentityComponentCoordinateChecks.identity_restriction_not_surjective`.
-For every nonzero coefficient ring, projection of the switch-invariant
-subalgebra to the identity Laurent factor misses its coordinate x, including
-in characteristic two. Preserve these with the older rational-point checks;
-this run's full-file elaboration includes both proofs.
+- Read the current upstream AlgebraicVectorBundles and ReductiveGroups
+  READMEs in full and all eight LP entries of the reviewed library audit.
+  The scheme vector-bundle targets do not replace derived quotient-stack
+  Perf or its enhancement; pinned integral groups do not supply the needed
+  highest-weight representation theory.
+- Read the entire E5 suggested file and the exact LP specifications for the
+  derived parameter stack, categorical Hecke datum and projected
+  pseudocharacter. E5 still has `True` fields for monoidal fibration, Segal
+  conditions, stability and coherent actions, `Unit` for `CAlg` and
+  `AnimatedAlg`, and a proof of `True` for `IndInfty`. Twenty-five LP nodes
+  directly cite an E5 stage. These contracts cannot express their enhanced
+  objects, APIs and tests. A declaration-text search in the current native
+  Tau Ceti library found none of `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`,
+  `CategoricalHeckeDatum`, `DerivedParameterStack`, `InvariantCoordinateInput`
+  or `ReductivePseudocharacter`; this is a limited interface search, not a
+  comprehensive library audit.
+- Read current upstream IHG §0.7 and its actual `ring`, `tensorEvaluate`,
+  `reindex` and `multiply` signatures, then the atlas IHG input and evaluation
+  signatures. The upstream constructor uses a single Hopf algebra for both
+  tuple points and conjugating points. LP requires separate tuple group
+  J=H⋊Q and conjugating group H. The atlas prototype instead accepts an
+  arbitrary ring diagram; it does not construct that diagram from the two
+  represented groups. Neither contract supplies the missing LP input.
+- Reopened the exact public PDFs below and inspected Quast Definition 3.1,
+  p.11, Lemma 3.5, pp.12–13, Theorem 3.7 and the opening reconstruction argument,
+  pp.13–14; and FS VIII.3.8, p.290, and VIII.4 setup, Theorem VIII.4.1 and
+  Definition VIII.4.2, pp.290–292. The former uses identity-component
+  conjugation and the latter requires actual representation functors and
+  their equivariance. The ordinary categorical formulation in FS VIII.4 is
+  meaningful independently of the further stable enhancement in the LP plan.
+  No source passage is committed.
 
-### Validation
+**Boundary clarification for the maintainer:** current upstream IHG
+explicitly scopes its reductive applications to connected groups. This is
+an intentional narrower contract, not an error repaired by this job. Treat
+it as existing work. An authorized plan repair must assign the additional
+identity-component invariant construction and generalized reconstruction
+once, as an extension of the generic owner, and update LP's dependency to
+that extension. Do not silently cite the connected construction for
+O[Jⁿ]^H, rebuild the generic theory inside LP, or change the upstream
+roadmap through this atlas job. The inherited owner gates below specify the
+needed mathematical interface, not permission to edit upstream files.
 
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`
-  completed with exit 0, no errors, and 291 warnings, all
-  `declaration uses sorry`; no other diagnostics. Available memory before
-  compilation was 98 GB. Managed elaboration uses Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174` and advertised Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`. This verifies the retained
-  signatures, not the omitted ones.
+The existing semidirect-product and Laurent-coordinate fixtures demonstrate
+why imposing the Q-projection after whole-J invariants cannot recover the
+H-conjugacy distinction. They remain unchanged and were included in this
+run's full-file elaboration. In particular, retain
+`coordinate_not_projected_switch_invariant` and
+`identity_restriction_not_surjective`, which work over any nonzero
+coefficient ring, including characteristic two.
+
+## Validation and receipts
+
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
+  exit 0, no errors, 291 warnings, all `declaration uses sorry`; no other
+  diagnostics. Available memory before compilation: 96 GB. The managed
+  wrapper advertises Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`;
+  its Mathlib source revision is
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. The elaboration verifies
+  retained signatures and fixtures, not omitted enhanced signatures.
 - `check_blueprint.py` on LP and IHG: each exit 0, zero errors and warnings.
-  These structural checks allow the packets' recorded gaps.
-- Scoped intake `check-files`: one authorized handoff, zero problems;
-  `git diff --check` passes.
-- Current read-only roadmap source revision:
-  `f0e756642161655be0c351bf584f72bd35f8fe8a`; native Tau Ceti revision:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The roadmap source has
-  advanced since the predecessor's receipt; the inspected IHG contract
-  still has the limitation above. Neither source tree was edited or built.
-- Package README: 192338 bytes, within 200 KB; SHA-256
-  `f8d43a5ccbf756a2b08425be664061aea24b79887de1479992099352fb9dd1c6`.
-  Suggested.lean: 129172 bytes; SHA-256
+  LP has 79 nodes, 140 API items, 90 tests, five gaps, sixteen requests,
+  eight planned stages and no closed stage. IHG has 38 recorded gaps.
+  These structural checks permit recorded gaps and do not close them.
+- Scoped intake `check-files` and `git diff --check` pass for the two
+  changed authorized files. No supplier, packet, campaign or data file is
+  changed.
+- Current read-only upstream roadmap revision:
+  `670582c502e1d4497d9ccd492b36c67028ef6666`; native Tau Ceti revision:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Both were read, never edited
+  or built.
+- Package README: 192334 bytes, within 200 KB, SHA-256
+  `7e62353b9ec117bb8413c5c15fdbfdc92495c2e2f2d0657fa4cf95705c8a03a5`.
+- Suggested.lean remains 129172 bytes, SHA-256
   `1fa52ab0bd2df3ce469ddfb775dd85396aa5f18bf55fdce4d0a3ecfa8e35423a`.
-- LP packet hash:
+- LP packet SHA-256:
   `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`;
-  IHG packet hash:
+  atlas IHG packet:
   `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`;
-  E5 suggested input hash:
+  E5 suggested input:
   `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c`.
-  These match the predecessor's input receipts.
+  These unresolved inputs are unchanged from the prior checkpoint.
 
-### Required next action
+Public source receipts, fetched and hash-matched on 10 October 2026:
 
-An authorized owner repair must reconcile IHG's generalized invariant
-construction and E5's enhanced interfaces, then update LP's supplier references
-and omitted signatures. Implementation of every supplier is not required just
-to write a roadmap; an adequate, non-vacuous specification and usable prototype
-contract are required. The repairs cannot be performed through this package
-issue, which forbids editing packets or supplier files. Another run restricted
-to these same four files will encounter the same gates until that external
-repair occurs. No new owner, ownership move or additional claim was made.
+| Source | Version and inspected locators | SHA-256 |
+| --- | --- | --- |
+| [Quast, Deformations of G-valued pseudocharacters](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf) | Author-hosted arXiv v1, 23 October 2023; Definition 3.1, p.11; Lemma 3.5, pp.12–13; Theorem 3.7 and opening reconstruction argument, pp.13–14 | `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827` |
+| [Fargues–Scholze, Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf) | Author-hosted 356-page version; VIII.3.8, p.290; VIII.4 setup, Theorem VIII.4.1 and Definition VIII.4.2, pp.290–292 | `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905` |
 
-The inherited detailed gates, coverage worklists and proof-preservation notes
-below remain applicable. They are retained for resumption, not newly certified
-as complete signature coverage. The predecessor's full source receipts and
-historical checks are available in its
-[immutable handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/53a6f11eabf27d6f107490aae12478dfa1ccc9f5/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+## Where to resume
+
+First obtain authorized supplier and LP-plan repairs that supply genuine
+E5 enhanced interfaces and the generalized invariant input described above.
+The plan already records the further highest-weight, condensed-continuity
+and field-GIT boundary work. Implementation of every supplier is not a
+prerequisite to writing a roadmap; adequate non-vacuous specifications and
+usable prototype contracts are. These four package paths cannot repair the
+owner specifications.
+
+Then reconcile the signature inventory below, preserve the existing proved
+fixtures, finish the package and add `topic = "math.NT"` metadata only when
+all required signatures are covered. Rerun Lean and intake checks. No new
+owner, ownership move or additional claim was made in this run.
+
+The remaining detailed worklist is inherited from the prior checkpoint and
+retained for resumption; entries beyond the checks above are not newly
+certified. Its previous receipt is available in the
+[immutable predecessor handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/5cf3e3cc49802c9c4f3b0beee2e565dc34fc91b1/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
+No scratch artifact is needed to resume; all receipts and restart gates are
+in this note. No private book or source passage was copied. No language
+server or background compile remains.
 
 ## Supplier obstruction and exact restart gates
 
@@ -178,7 +209,7 @@ categories. A limited current native-library declaration search for
 `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `CAlg` and `IsStable` found no
 supplier; this is not a comprehensive current-library audit.
 
-Fresh source checks also included FS Proposition VIII.4.1 and Definition
+Fresh source checks also included FS Theorem VIII.4.1 and Definition
 VIII.4.2 with their coefficient relations (pp.291–292), and VIII.5.1–VIII.5.2
 (p.293). The categorical data and enhanced generation/module comparison
 need the actual enhanced categories. The existing ordinary point-group
@@ -364,4 +395,5 @@ by output existence and would mark an incomplete package complete.
 All resumption information is here or in the linked immutable predecessor.
 No scratch artifact is required. No private book or source passage was copied,
 no supplier file was edited, and no Lean language server or background compile
-remains. The submission changes only this handoff note.
+remains. The submission changes this handoff note and the README citation
+correction described above.
