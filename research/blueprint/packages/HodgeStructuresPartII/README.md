@@ -78,10 +78,13 @@ although D(1)=ω≠0. Since Ω¹_(Q/Q)=0, no quotient of that Kähler module is 
 supplied Ω¹. Thus a comparison restricted to Kähler-quotient calculi does not
 cover the stated generality. Check the zero scalar differential, the nonzero
 unit image, flatness and scalar Leibniz simultaneously. The affine signatures
-`NonUniversalDifferentialChecks` prove these four coordinate checks directly;
-the general-site comparison must additionally preserve restrictions and every
-exterior extension. This is an algebraic example of the supplied-calculus
-definition, with no crystalline or universal-differential hypothesis.
+`NonUniversalDifferentialChecks` prove these four coordinate checks directly
+and separately exclude every surjective Q-linear map Ω¹_(Q/Q)→Q. The latter
+uses Mathlib's `KaehlerDifferential.subsingleton_of_surjective` at the identity
+algebra map: each differential is zero, so any linear map has zero image and
+cannot reach 1. The general-site comparison must additionally preserve
+restrictions and every exterior extension. This is an algebraic example of the
+supplied-calculus definition, with no crystalline or universal-differential hypothesis.
 
 Take a commutative ringed Grothendieck site with a relative exterior differential calculus: Ω⁰=O, Ωⁿ=∧ⁿΩ¹, restriction-compatible alternating wedge, d²=0 and graded Leibniz. Let λ be a global central section with dλ=0. For finite locally free E, define `Preconnection` by the additive sheaf map and parameter Leibniz rule above. Its API must provide construction from that rule, the additive operator, evaluation, extensionality, restriction and compatibility with maps of the differential site. Prove D(be)=bD(e) when db=0. Integrability is a separate condition.
 
