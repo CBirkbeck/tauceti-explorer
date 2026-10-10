@@ -1,12 +1,14 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-tNXl0D`, issue #7889, 2026-10-10.
-Continues `codex-c2or2X` (PR #8235), following PRs #8222, #8210, #8192 and #8154.
+Worker: Codex (GPT-6), session `codex-URPtqo`, issue #7889, 2026-10-10.
+Continues `codex-tNXl0D` (PR #8245), following PRs #8235, #8222, #8210, #8192
+and #8154. Claim confirmed in issue comment 6094188646.
 
 This is **partial**, not a completed package. The README is assembled; the Lean
-file is a compiled subset, now also including the QT.6 filtered GSW and root-NZ
-polynomial vertices and their exact prefactor products. The QT.7 automorphy
-factor, color inverse limit, twists and finite formal-color interfaces remain.
+file is a compiled subset. This checkpoint proves the existing QT.7 pole-free
+action, denominator and automorphy composition obligations and the conditional
+matrix transport identity, with three proved transport tests. The QT.6 vertices,
+color inverse limit, twists and finite formal-color interfaces are retained.
 Missing supplier carriers prevent the full signatures
 required by PROTOCOL §20. No packet, review verdict or supplier file was changed.
 
@@ -14,12 +16,12 @@ required by PROTOCOL §20. No packet, review verdict or supplier file was change
 
 - `research/blueprint/packages/ArithmeticQuantumTopology/README.md`: all 106
   accepted targets, grouped by their actual parent QT.0–QT.7. It retains the
-  mathematical hypotheses, all original 221 API entries and 169 named tests,
-  plus two API entries and five tests for the explicit automorphy factor.
-  Every numbered/page source locator remains. The procedural application
+  mathematical hypotheses, all 225 current API entries and 174 named tests,
+  including the explicit automorphy factor. Source locators are retained,
+  with the §4.5 correction described below. The procedural application
   paragraph is replaced by its mathematical comparison boundary. It omits process
   narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,930 bytes, below the 200 KB ceiling. Four repeated source
+  document is 199,985 bytes, below the 200 KB ceiling. Four repeated source
   links now use Markdown references, with the same URLs and individual locators.
   The QT.6 additions give logarithmic/exponential coefficient, prefactor and
   parity APIs and discriminating tests. Comparison obligations
@@ -28,6 +30,8 @@ required by PROTOCOL §20. No packet, review verdict or supplier file was change
   commented inventory masquerading as signatures, plus genuine meromorphic
   Faddeev, extended Bloch, formal finite-color and completed color-algebra
   interfaces, plus six genuine polynomial-vertex/integrand definitions.
+  The QT.7 composition obligations now have proofs, with native identity,
+  noncommutative-order and singular-matrix tests for conditional transport.
   The README retains the omitted mathematical specifications;
   this handoff identifies where native signatures still have to be supplied.
 - `metadata.toml` is deliberately **not submitted**. The intake's
@@ -50,18 +54,21 @@ WORKERS forbids replanning another owner. This issue permits editing neither
 GeometricTopology nor the other supplier plans.
 
 The read-only current upstream was checked at TauCetiRoadmap
-`8c72a04753b11cab07fa593cc38ceaa7c0515380` and Tau Ceti
+`0a56d1b5303c26887a4042db834f46d9079ac593` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`:
 
 1. `TauCetiRoadmap/GeometricTopology/Suggested.lean` contains schematic comments,
    not a native framed-link/surgery interface. Current
    `TauCeti/KnotTheory/SmoothLink/Basic.lean` supplies `SmoothLinkEmbedding`
-   (smooth circle components with disjoint ranges), not Seifert framings,
-   linking numbers or a framed isotopy quotient. The pinned `FramedMarkovBraid`
+   (smooth circle components with disjoint ranges), and `SmoothLink/Isotopy.lean`
+   supplies `SmoothLinkEmbedding.SmoothAmbientIsotopic` and its native setoid.
+   These unframed interfaces do not supply Seifert framings, linking numbers or
+   a framed isotopy quotient. The pinned `FramedMarkovBraid`
    supplies component framing data, but `MarkovEquiv` is explicitly unframed.
 2. The current `TauCeti/LowDimTopology/DehnSurgery/` contains `Slope.lean`:
-   actual first-homology slope arithmetic and `FramedBoundaryTorus`. Its scope
-   explicitly leaves the complement and filled manifold for further work.
+   slope arithmetic on the actual first homology of `BoundaryTorus`, the
+   primitive-class quotient and `FramedBoundaryTorus`. Its scope explicitly
+   leaves the complement and filled manifold for further work.
    It does not supply integral surgery, the H₁ comparison, or Kirby moves.
 3. GeometricTopology layer 7's closed-manifold geometry does not provide the
    ordered cusped geometric triangulation, peripheral completeness, canonical
@@ -90,7 +97,90 @@ No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native QT.6 addition in this checkpoint
+## Native QT.7 proof addition in this checkpoint
+
+Five existing public obligations now have Lean proofs:
+`rationalPoleFree_mobius`, `rationalMobius_comp`, `denominatorCocycle_comp`,
+`tweakedAutomorphyEntry_comp` and `matrixTransport_comp`.
+Their definitions, hypotheses and result statements are unchanged. The existing
+diagonal and GL composition theorems therefore also have proved dependencies.
+These algebraic results do not construct a knot representation family or assert
+the conjectural invertibility/analyticity of its matrices.
+
+The denominator proof retains reduced fractions: Mathlib's
+`IsCoprime.mulVecSL` preserves the primitive integer pair, and
+`Rat.num_den_mk` reduces that pair only by a unit of ℤ. Squaring the denominator
+removes its sign. The determinant-one equation then proves the additive λ
+identity on the declared common pole-free domain. The automorphy proof uses
+the exact denominator product, `Complex.exp_add` and `Real.mul_rpow` at
+nonnegative absolute-value bases. Transport cancels the middle J value in
+order using group multiplication; it needs the stated factor identity.
+
+The three named tests in the README now have proved native examples for this
+conditional transport formula:
+
+- Constant J=I and j=I give identity transport.
+- With j=I, x=1, γ=S, η=T, J(−1/2)=I, J(2)=U=(1 1;0 1) and
+  J(1)=V=(1 0;1 1), the two factors are U and U⁻¹V. The correct product is V;
+  reversing it gives (0 −1;1 2), distinguished by entry (0,0). The test proves
+  the correct composition and rejects the reversed product. These are
+  invertible algebraic test matrices, not a selected knot matrix.
+- (1 1;0 0) has determinant zero and cannot be the coercion of any GL₂(ℂ)
+  element. A singular ordinary matrix cannot be passed as GL-valued J.
+
+GZ arXiv:2111.06645v3 was read directly at §3.1, (3.5) and Lemma 3.1, p. 16;
+§4.5, (4.14)–(4.15), p. 30; and §5 introduction, (5.1)–(5.3), pp. 30–31.
+The README and Suggested.lean correct the inherited §4.2 locator for
+(4.14)–(4.15) to **§4.5**. This corrects the inherited package's locator;
+the accepted packet has not been changed. The existing E11 subtraction
+correction is retained. PDF SHA-256:
+`2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de`.
+Habiro arXiv:math/0509039v2, §2.3, Lemma 2.2, p. 1290 and §2.4,
+pp. 1290–1291 were read for the geometry dependency boundary. PDF SHA-256:
+`d30d9c69b652aa58539d2398f1a8424c968188d94cc2098ee462dd4e53a13416`.
+Only own-word mathematics and locators appear here; no source passage is saved.
+
+## Validation of session codex-URPtqo
+
+- Read WORKERS, both protocols, UPSTREAM_GUIDE, the full issue after claim
+  confirmation and the inherited handoff. No manager-list issue was available;
+  this was an eligible focus package in the fallback order. Only #7889 was
+  claimed, and only its three existing deliverable/handoff paths are edited.
+- Read both complete current upstream examples
+  `OperatorTheory/SelfAdjointSpectralTheory` and `GrothendieckEulerForms`,
+  then the GeometricTopology suggested file and relevant layers. The current
+  native `SmoothLinkEmbedding`/`SmoothAmbientIsotopic`,
+  `BoundaryTorus`/`FramedBoundaryTorus` and pinned framed Markov statements were inspected at the commits recorded above.
+  Framed multi-link linking invariants, integral surgery and H₁/Kirby
+  comparisons still need the exact supplier extensions already requested.
+  The reviewed library catalogue has no ArithmeticQuantumTopology row.
+- Read the pinned Mathlib statements used for reduced fractions, primitive
+  integer pairs, special-linear multiplication/determinant, GL units,
+  exponential addition and real-power multiplication. The five proofs and
+  three transport examples first elaborated in isolation without `sorry`.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 249 warnings**, all `declaration uses sorry`.
+  Available memory was 111 GB before the final elaboration. Only `lean-check`
+  was used; no language server, build/update/cache command or Lake command in
+  the read-only upstream trees was run. The inherited 254 warnings decrease
+  by the five proved obligations; the other admitted signatures remain plans.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  **0 errors, 0 warnings**, unchanged accepted input with 106 nodes,
+  8 gaps, 19 open requests and no closed stage.
+- The README preserves all 106 target anchors, all eight layer anchors and
+  every existing API/test name. Its 199,985 bytes remain under the ceiling.
+  `git diff --check` and scoped intake `check-files` pass; intake's
+  completion predicate remains false with `metadata.toml` absent.
+
+Resume at the supplier boundaries above and the dependency table below.
+The QT.7 algebraic composition proofs now require no further checkpoint work;
+keep them and supply the actual knot matrices/representation data, their
+comparison hypotheses and analytic/asymptotic predicates next. Do not infer
+those inputs or conjectures from conditional GL transport or the matrix tests.
+This checkpoint is blocked on the full package's geometric supplier contracts,
+not on run time, and makes no new review verdict or closure claim.
+
+## Native QT.6 addition inherited from PR #8245
 
 `NZVertices` at the end of `Suggested.lean` adds `NZVertexLog`, `NZVertexSeries`,
 `NZFormalIntegrand`, `rootNZVertexLog`, `rootNZVertexSeries` and
@@ -129,7 +219,7 @@ No substitute Gaussian `Prop`, dummy carrier or unconstrained bracket was
 added. `formalNZStateIntegral` and `rootNZFormalSeries` remain unstated until
 this supplier and the geometric datum adapter exist.
 
-## Validation of session codex-tNXl0D
+## Validation inherited from session codex-tNXl0D
 
 - Read both complete current TauCetiRoadmap examples
   `OperatorTheory/SelfAdjointSpectralTheory` and `GrothendieckEulerForms`,
@@ -178,7 +268,8 @@ or infer source invariance/analytic asymptotics from their finite tests.
 ## Native QT.7 addition inherited from PR #8235
 
 Garoufalidis–Zagier arXiv:2111.06645v3 was read directly at §3.1, equation
-(3.5), Lemma 3.1 and (3.7), p. 16; §4.2, equations (4.14)–(4.15), p. 30.
+(3.5), Lemma 3.1 and (3.7), p. 16; §4.5, equations (4.14)–(4.15), p. 30 (the §4.2 locator in that handoff
+was corrected in this checkpoint).
 PDF SHA-256:
 `2a4826bd1c2f0823c99f8e3cccfd835c5044d70d30eb20b36fea38dcb8dd83de`.
 The accepted E11 correction is retained: the second fraction in the displayed
@@ -198,9 +289,10 @@ proof of Lemma 3.1 must be subtracted. Its stated additive cocycle is unchanged.
   the order used by `matrixTransport`; the source's reverse order agrees
   because these factors are diagonal.
 - Sign invariance of λ and the scalar/diagonal factor, scalar nonvanishing
-  and the determinant lift have proofs. The action and scalar composition
-  obligations still use `sorry`; diagonal and GL composition derive from
-  the scalar obligation. Fourteen concrete examples are proved: T has factor
+  and the determinant lift had proofs in PR #8235. Its action and scalar
+  composition obligations used `sorry`; those obligations are proved in the
+  current checkpoint. Diagonal and GL composition derive from the scalar
+  obligation. Fourteen concrete examples are proved: T has factor
   one, S at one has factor exp(v), S at zero is outside the domain, and
   λ_S(2/3)=1/6 gives exp(v/6) at weight zero. The sign and both matrix carriers
   have corresponding checks.
