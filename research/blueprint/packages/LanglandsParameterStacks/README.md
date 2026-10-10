@@ -1231,10 +1231,15 @@ H-invariant function on J and its evaluations on the two generators are 2 and
 J-invariant tuple function gives the same evaluations on them. In particular,
 the equality of x+x⁻¹ at the two generators does not identify their projected
 pseudocharacters. Taking whole-J invariants and then imposing η loses this
-distinction; it cannot replace O[Jⁿ]^H. The rational unit calculation
-`projected_identity_component_shadow` in Suggested.lean checks the conjugation,
-inversion and unequal coordinate values underlying this example; it does not
-construct the quotient stack or the geometric pseudocharacter carrier.
+distinction; it cannot replace O[Jⁿ]^H. The rational-point fixture
+`IdentityComponentChecks` in Suggested.lean uses Mathlib's semidirect product
+ℚˣ⋊C₂ and homomorphisms from the multiplicative form of ℤ. Its proofs check the
+common trivial projection, distinct H-conjugacy classes, equal evaluations of
+whole-J invariant functions in every tuple arity, and an H-invariant coordinate
+whose generator values differ. The elementary
+`projected_identity_component_shadow` calculation is also proved. These checks
+do not construct the quotient stack, geometric invariant algebra or
+pseudocharacter carrier, or establish the reconstruction theorem.
 
 **Needs:** [LP2e.11](#lp2e11-the-universal-excursion-relations); **ReductiveGroupsPartII, RG2.5**; `RingHom` (Mathlib); **IntegralHeckeAndGaloisDeterminants, IHG.0/reductive-pseudocharacter**.
 

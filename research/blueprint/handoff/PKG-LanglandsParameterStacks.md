@@ -1,29 +1,39 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-7brC83`, 10 October 2026.
-Branch: `codex-7brC83-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095132377).
-No manager-priority issue was available at selection; the available focus package
-was selected after the top review #5702 had been claimed by another session.
+Worker: Codex (GPT-6), session `codex-oKXRhB`, 10 October 2026.
+Branch: `codex-oKXRhB-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095733708).
+No manager-priority issue was available at selection. This available focus
+package was selected under the permitted WORKERS fallback order.
 Only this job was claimed. **This is an incomplete, blocked checkpoint.**
 
 ## This session's concrete progress
 
-Added an identity-component invariant check to README LP2c.1 and its rational
-unit calculation `projected_identity_component_shadow` to Suggested.lean.
-For H=G_m, Q=C₂ acting by inversion, Γ=ℤ and trivial η, the lifts with generator
-values (2,1) and (1/2,1) are semisimple and not H-conjugate, but are J-conjugate
-for J=H⋊Q. The Laurent coordinate on the identity component, extended by zero,
-is H-invariant and separates them. Whole-J invariant families cannot separate
-them, including after imposing the same η. This illustrates an existing target's
-H-conjugation convention; it introduces no new owner or geometric construction.
-The suggested example checks only the rational conjugation, inversion and
-coordinate calculation. A separate scratch proof of that exact statement
-elaborated with no `sorry`, errors or warnings.
+Replaced the admitted `projected_identity_component_shadow` calculation with a
+proof and added a fully proved rational-point fixture `IdentityComponentChecks`
+for LP2c.1. It uses Mathlib's actual `SemidirectProduct` with H=ℚˣ, Q=C₂ acting
+by inversion and honest homomorphisms Γ=Multiplicative ℤ→J. Its checks establish:
 
-Replaced the previous handoff's duplicated continuation notes and contradictory
-current-tree receipts with this worklist. The accepted LP packet is unchanged.
+- Both lifts have the same trivial component projection on every element of Γ.
+- No H-conjugation identifies the lifts with generator values 2 and 1/2.
+- The component switch conjugates one lift to the other on all of Γ; therefore
+  every whole-J invariant tuple function, in every arity and with any codomain,
+  gives equal values on the two parameter tuples.
+- The Laurent coordinate on the identity component, extended by zero, is
+  H-invariant on rational points and takes generator values 2 and 1/2.
+
+The README now describes these checks and their boundary. They illustrate the
+existing target's H-conjugation convention, without introducing a generic
+invariant-algebra owner. They do not construct a geometric invariant algebra,
+prove semisimple reconstruction or close the package's missing signatures.
+The fixture has no admitted proofs. A standalone diagnostic showed its action,
+nonconjugacy, tuple-invariance and coordinate-invariance proofs depend only on
+`propext`, `Classical.choice` and `Quot.sound`, with no `sorryAx`.
+
+Freshly rechecked the current supplier mismatch and continuity scope below.
+Retained the prior worker's continuation inventory, distinguishing inherited
+findings from this run's readings. The accepted LP packet is unchanged.
 The package remains incomplete; `metadata.toml` is intentionally absent because
 `issues.deliverables_complete` otherwise treats a package with every output path
 as complete without inspecting its mathematical coverage. Add the intended
@@ -31,8 +41,8 @@ as complete without inspecting its mathematical coverage. Add the intended
 
 ## Blocking supplier contracts, freshly inspected
 
-The primary stopping condition is a mathematical contract mismatch outside this
-issue's authorized files, not lack of proofs of specified roadmap theorems.
+The stopping condition is a mathematical contract mismatch outside this
+issue's authorized files.
 
 ### Identity-component coordinates and reconstruction
 
@@ -40,8 +50,8 @@ Current upstream IntegralHeckeAndGaloisDeterminants README §0.7 states that
 `InvariantCoordinateInput.ring` uses whole-group conjugation and that its
 reductive applications use connected groups. Its Suggested.lean definition
 quantifies over every point of the group represented by the supplied Hopf
-algebra as the conjugating element. For the Hopf algebra O[J] this gives
-O[Jⁿ]^J, whereas LP2c.1 requires O[Jⁿ]^H with H=J⁰. The README explicitly
+algebra as the conjugating element (`ring`, lines 795–804). For the Hopf
+algebra O[J] this gives O[Jⁿ]^J, whereas LP2c.1 requires O[Jⁿ]^H with H=J⁰. The README explicitly
 distinguishes the disconnected identity-component input from its own input.
 The example added here shows why neither restricting the coefficient field nor
 imposing the component idempotents fixes that mismatch.
@@ -56,9 +66,11 @@ reindexing and ordered multiplication maps, compatible evaluation, component
 idempotents and generalized reconstruction up to H-conjugacy. Then an
 authorized LP plan repair must reconcile its citations with that export.
 
-Freshly fetched and read Quast, Definition 3.1, printed p.11, and the surrounding
-reconstruction discussion, pp.12–15. The invariant action there is by the
-identity component. No error in that definition is asserted.
+Freshly fetched and read Quast, Definition 3.1, printed p.11; Lemmas 3.2 and
+3.4–3.5, pp.12–13; and Theorem 3.7 and the beginning of its proof, p.13.
+The invariant action is by the identity component, and the reconstruction
+statement uses identity-component conjugacy. This is a scoped reading, not a
+full reconstruction-proof audit; no error in the definition is asserted.
 
 ### G4: reconstruction-to-continuity, with the right coefficients
 
@@ -70,8 +82,8 @@ and relatively discrete condensed coefficients.
 
 Current upstream §0.7 and Suggested.lean give
 `ReductivePseudocharacter.IsContinuous`, `continuous_ofRepresentation` and
-`continuous_dense_ext`. The displayed representation constructor assumes
-continuity of the representation and invariant evaluation. It cannot provide
+`continuous_dense_ext` (Suggested.lean, lines 948–965). The displayed
+representation constructor assumes continuity of the representation and invariant evaluation. It cannot provide
 the converse reconstruction-to-continuity theorem or a finite-type coefficient
 bound. Its dense equality lemma cannot provide those conclusions either.
 
@@ -156,15 +168,15 @@ shadow do not express the enhanced target. Preserve the following contracts:
   denominator and embedded invariant dual centre.
 
 E0/E5 and SF.1/S.1 own the enhanced category, animation, descent and QCoh/Perf
-foundations. Read the checked-in E5 prefix: its monoidal coCartesian and Segal
-fields are `True`, and `CAlg` is `Unit`; those cannot be imported as the actual
-structures. A metadata check on PR #8009 still finds it OPEN at
-`b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`, the same head inspected by the previous
-worker. This session did not re-review that PR. Read pinned `SSet.Quasicategory`:
-it supplies inner horn filling, not those enhanced operations. Read the ordinary
-AlgebraicVectorBundles and ReductiveGroups READMEs in full for the required
-upstream style and boundaries. The current native sheaf tensor is ordinary
-sheafification, not quotient-stack enhanced Perf.
+foundations. The inherited E5 supplier warning reports monoidal coCartesian
+and Segal fields declared as `True` and `CAlg` declared as `Unit` in the prefix
+inspected by session `codex-7brC83`; it also reports that
+`SSet.Quasicategory` alone does not supply the needed enhanced operations.
+This run did not re-review E5 or PR #8009. Recheck their actual current
+signatures before importing them; those inherited shadows are insufficient.
+This run read the current ordinary AlgebraicVectorBundles and ReductiveGroups
+READMEs in full for upstream style and scope. AlgebraicVectorBundles' ordinary
+scheme/sheaf tensor contract does not supply quotient-stack enhanced Perf.
 
 Other inherited plan repairs to retain:
 
@@ -199,12 +211,12 @@ Other inherited plan repairs to retain:
 - `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
   zero errors, zero warnings. No packet was changed.
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, zero errors, 277 warnings, all `declaration uses sorry`; no other warnings.
-  Available memory before compilation was 113 GB. This checks the declarations
-  present, not the omitted geometric and enhanced signatures.
-- The new rational-unit statement was independently proved in scratch and checked
-  with lean-check: exit 0, zero warnings, no `sorry`. That proof is not a new
-  repository implementation.
+  exit 0, zero errors, 276 warnings, all `declaration uses sorry`; no other warnings.
+  Available memory before the final compilation was 111 GB. This checks the
+  declarations present; geometric and enhanced signatures remain omitted.
+- The standalone regression fixture was checked with lean-check: exit 0, zero
+  errors or warnings. Axiom diagnostics had no `sorryAx`. The final full-file
+  check includes the arbitrary-codomain tuple statement and every fixture proof.
 - Scoped intake `check-files`: three authorized files, zero problems.
   `git diff --check`: passed.
 - Managed compilation pins are Mathlib
@@ -212,7 +224,7 @@ Other inherited plan repairs to retain:
   `f790474821cf4256814db967cb154e7af3d0c369`. The latter is the wrapper's advertised
   prepared build, not a fresh git receipt: the prepared Tau Ceti directory has
   no `.git`. Current read-only upstream is
-  `cd03e06852a13216ad246d0623492c4beac39af2`; current read-only native Tau Ceti is
+  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; current read-only native Tau Ceti is
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 - Source receipts fetched on 2026-10-10: [FS](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
   SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`;
@@ -222,12 +234,14 @@ Other inherited plan repairs to retain:
   source audit, new source erratum or private-book use is claimed.
 - Unchanged LP input SHA-256:
   `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
-- README: 183182 bytes, SHA-256
-  `534f5ed76734d0e39511ae7c721deb203300a31a0d943290ac9cbdddc06ab22a`.
-- Suggested.lean: 97841 bytes, SHA-256
-  `d86fe069c04f7dbb31e895750deb4a6cef8d15dc8219d4d76172165c5de8a418`.
+- Unchanged atlas IHG input SHA-256:
+  `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`.
+- README.md: 183535 bytes, SHA-256
+  `fbdb8e4b56f93d34bd0c5fb1fdfc2c6c7238d0bd294626e8f0faef0b3cce961c`.
+- Suggested.lean: 101859 bytes, SHA-256
+  `421ca26396ddb3821f1e2b472fad98f74c779d5b3912e0143b45a9e9c46d277b`.
 
 Only the two package artifacts and this handoff changed. No owner file or
 read-only tree was edited; no Lake build/update/cache command or language server
-ran. Both lean-check processes finished. All continuation information is above;
+ran. All lean-check processes finished. All continuation information is above;
 no scratch file is needed by the next worker.
