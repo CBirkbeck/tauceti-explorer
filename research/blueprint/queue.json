@@ -47377,8 +47377,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ColemanIntegration.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7535"
+   "state": "pending",
+   "note": "released on GitHub issue #7535"
   },
   {
    "id": "REV-PKG-ColemanIntegration",
@@ -48276,8 +48276,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -49266,8 +49266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80142,8 +80142,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81452,8 +81452,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -82346,8 +82346,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6519"
+   "state": "pending",
+   "note": "released on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -83602,8 +83602,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5161"
+   "state": "external",
+   "note": "claimed on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
