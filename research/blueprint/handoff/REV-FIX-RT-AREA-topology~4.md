@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-topology~4: bounded review, scope blocked
 
-Issue #6521; Codex (GPT-6), session `codex-UdiiZt`; 10 October 2026.
-Claim comment 6101949467 confirmed by bot comment 6101950637.
-Branch `codex-UdiiZt-review-topology`. Continues merged checkpoint PR #8602.
+Issue #6521; Codex (GPT-6), session `codex-feEvuE`; 10 October 2026.
+Claim comment 6102211523 confirmed by bot comment 6102212696.
+Branch `codex-feEvuE-review-topology`. Continues merged checkpoint PR #8609.
 This worker did none of the fixes or original plans and took one job only.
 
 ## Done in this run
@@ -53,6 +53,13 @@ was made. This is a blocked checkpoint, not a completed job or time limit.
 Reconcile the live issue and queue, or authorize those two paths before
 assigning another continuation. The queue's referenced prompt is absent.
 
+The same mismatch has already survived multiple merged checkpoints. Another
+supplier-only continuation cannot resolve it. Repair the issue's file list
+and full instructions to include the two packet paths, or give explicit
+authorization for them, before the next worker repeats these checks. The
+supplier verdicts and the concrete two-packet update are ready; the consumer's
+negative verdict does not require its mathematics to be corrected first.
+
 After authorization, confirm the report still describes the packets and
 preserve their prior full reviews in reviewHistory. Record reviewer
 `independent-review-REV-FIX-RT-AREA-topology~4`, the actual date and these
@@ -93,7 +100,10 @@ All five fresh packet checks pass: 0 errors, 0 warnings. Node/gap/request counts
 are Polylogarithms 75/19/21, Habiro 109/22/9, QSeries 537/39/25, QT 106/8/19,
 P.2 14/2/3. Exact arithmetic checks and fresh public source versions/hashes
 are in the report. Pinned declaration statements and current upstream/library
-inputs were read without builds. Fresh serial lean-check runs in this session exit 0
+inputs were read without builds. The three inspected Tau Ceti modules match
+the public pinned bytes; their SHA-256 values are in the report. The unchanged
+completion checker was exercised with in-memory review objects only, without
+editing either unauthorized packet. Fresh serial lean-check runs in this session exit 0
 for all three issue-listed suggested files, with 462/441/1488 sorry warnings
 and no other warning. Suggested files did not change; these checks establish
 elaboration, not the admitted results. No source passages were committed.

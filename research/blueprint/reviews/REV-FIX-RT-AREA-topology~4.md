@@ -1,10 +1,10 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
-`codex-UdiiZt`, 10 October 2026. Claim comment 6101949467 was confirmed by
-bot comment 6101950637. This worker did none of the fixes or original plans
+`codex-feEvuE`, 10 October 2026. Claim comment 6102211523 was confirmed by
+bot comment 6102212696. This worker did none of the fixes or original plans
 under review and claimed one job only. Continues merged checkpoint
-[PR #8602](https://github.com/CBirkbeck/tauceti-explorer/pull/8602).
+[PR #8609](https://github.com/CBirkbeck/tauceti-explorer/pull/8609).
 
 **Blocked checkpoint: every issue-listed supplier has a bounded verdict;
 two queue-required packet review updates remain outside the live issue's
@@ -197,6 +197,17 @@ comparison requires PosDef and supplies no formal Gaussian operator or density
 law at singular covariance. These checks concern the assigned interfaces,
 not every unchanged declaration in the three blueprints.
 
+The three inspected Tau Ceti files in the shared build were compared byte for
+byte with the public files at that pinned commit. All three match:
+
+| Pinned module | SHA-256 |
+|---|---|
+| `TauCeti/KnotTheory/PDCode/Basic.lean` | `7edf13fc20675b037376d618868a34b45196004278a86128c510091bd7335293` |
+| `TauCeti/KnotTheory/TemperleyLieb.lean` | `4c382e028224bce7029878c70f66defb89e8fbb2cc3f483b41ad902a7b25f775` |
+| `TauCeti/Probability/Distributions/Gaussian/Density.lean` | `be6d918b1053cce31fcc66339c114323ee1bb71165232ef9fa3b3f6d26ab5c05` |
+
+The build's Mathlib checkout also reports the pinned Mathlib commit above.
+
 Read current TauCetiRoadmap GeometricTopology layers 7–8, its Suggested.lean,
 and DifferentialGeometry layers 3.3 and 5, with relevant target signatures,
 read-only at `81207c7f16d5abf770f13a7d2bdcdb465c030787`.
@@ -318,6 +329,12 @@ other output files already exist; the bounded QSeries verdict is now accepted.
 No queue, completion code or out-of-scope review object was changed in that
 experiment. The exact check and required fields are sufficient to reproduce
 it; no scratch file is needed.
+
+This session reproduced that experiment using a temporary in-memory override
+of `Path.read_text` only for the two packet review objects. The real files
+remain unchanged. The completion checker accepts `needs_changes`, so the
+consumer's missing mathematics does not block finishing this independent
+review once its metadata path is authorized.
 
 Authorization for these two paths remains unanswered. Reconcile the live issue
 and queue or authorize those two review updates before assigning another
