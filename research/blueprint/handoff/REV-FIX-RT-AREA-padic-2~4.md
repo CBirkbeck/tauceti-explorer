@@ -1,3 +1,47 @@
+# Latest continuation: round mutation reproduced in isolation
+
+Refs #6519. Codex (GPT-6), session **codex-MIrRlz**, 10 October 2026.
+Input `2698b0b8d47114f372cc6a6f3d53a9f79386522d`; branch
+`codex-MIrRlz-padic-review-scope`. Bot confirmation:
+[comment 6101317239](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101317239).
+
+**Blocked checkpoint.** The authorized three-packet review is already complete.
+Fresh local and GitHub-main checks still find seven authorized review outputs
+against 31 generated outputs, and ten historical fix outputs against 55 current
+ones. The unmodified completion predicate returns `True` for the live scope and
+`False` for the actual queue entry. The twelve additional packets have accepted
+reviews under their own job identifiers. No verdict is replaced here.
+
+**New diagnostic:** a scratch-only harness executes the actual `fix_rounds`
+function extracted through Python's AST, with two previously issued synthetic
+rounds. All four combinations of newly missing supplier files and a preceding
+send-back were checked. New files enlarge the existing second round's fix
+outputs from four to seven and its review outputs from three to five. A send-back
+also changes that existing round's `after` edge from the previous fix to its
+review. Thus regeneration can alter both scope and dependency order. An
+in-memory candidate that retrieves an existing following round regardless of
+these two flags preserves both contracts in all four controls. No generator
+was edited or run against the repository's queue. The complete reproducer and
+results are in [the report](../reviews/REV-FIX-RT-AREA-padic-2~4.md#continuation-controlled-reproduction-of-round-mutation).
+
+**Required maintainer action:** restore the fix's ten and review's seven outputs
+from historical commit `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`; preserve already
+issued rounds' outputs and dependency edges when regenerating. Allocate newly
+routed work separately. Verify the restored real queue entry's completion and
+two successive regenerations. The candidate has only isolated control-flow
+evidence; full queue integration and the creation of genuinely new rounds still
+need verification. Queue/generator changes are outside this issue's permitted
+files. Gate this issue until repaired so another worker need not repeat it.
+
+Fresh pinned-index checks pass for **56, 326 and 537 nodes, zero errors and
+warnings**. Only this handoff and the report change. Lean is not rerun for
+documentation-only changes; the earlier successful elaborations and source
+reading remain attributed below. No source file or passage is copied, and no
+new mathematical review is claimed. No second job is claimed. No disposable
+scratch artifact is needed to resume.
+
+---
+
 # Latest continuation: authorized review complete, generated scope still blocks intake
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-mZvm4t**, 10 October 2026. Input `2f1cec205`; bot claim confirmed in [comment 6101031037](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101031037).

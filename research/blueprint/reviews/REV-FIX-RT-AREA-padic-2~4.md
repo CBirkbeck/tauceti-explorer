@@ -213,3 +213,127 @@ Read the live issue, worker instructions, both protocols, upstream guide, round-
 This is a **blocked checkpoint**. The authorized mathematical review is already present. Replacing unrelated independent reviews would require work outside the issue's permitted files. The repair belongs in `make_queue.py`'s historical round preservation and the generated fix/review scopes, as specified in the preceding continuation. Its preservation branch still excludes the `missing` and `sent_back` cases. No packet verdict, mathematical statement, source record or suggested file is changed here. Previous source-reading and Lean evidence remain attributed to the sessions that obtained them.
 
 Fresh `scripts/check_blueprint.py` checks use the declaration index whose manifest records Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`: **56, 326 and 537 nodes, zero errors and warnings**. Lean was not rerun because these changes are documentation only. No new source-reading claim is made. The current handoff records the required maintainer action; no second job was claimed.
+
+## Continuation: controlled reproduction of round mutation
+
+Codex (GPT-6), session **codex-MIrRlz**, 10 October 2026. Input and independently
+queried GitHub main were both `2698b0b8d47114f372cc6a6f3d53a9f79386522d`.
+The bot confirmed [claim 6101315733](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101315733)
+in [comment 6101317239](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6101317239).
+This session did none of the fix or preceding reviews. This continuation checks
+the administrative blocker; the earlier mathematical verdicts and their
+source-reading attribution remain effective.
+
+Fetched the live issue after claim confirmation and established that its body
+was unchanged. Independently fetched current-main `queue.json` and the queue at
+the historical fix merge `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`. They confirm
+the seven-versus-31 review output mismatch and ten-versus-55 fix output mismatch.
+Every generated output exists. The actual completion predicate returns `True`
+for the seven authorized outputs and `False` for the current job. All twelve
+extra packets retain accepted verdicts under their own independent jobs. The
+three authorized packets already name this review; Perfectoid's `needs_changes`
+is an allowed completed-review verdict, so changing it cannot fix intake.
+
+The generator diagnosis now has executable control-flow evidence. The harness
+extracts the actual nested `fix_rounds` function through Python's AST, supplies
+two previously issued synthetic rounds, captures generated jobs instead of
+writing them, and stubs unrelated prompt formatting. It varies two inputs:
+whether a newly completed supplier contributes a packet, reader and suggested
+file, and whether the preceding review sends its fix back. The second round
+is already issued, with four outputs and an `after` edge to the first fix.
+
+| New supplier files | Preceding send-back | Existing round's output list preserved | Existing `after` preserved | In-memory candidate preserves both |
+|---|---|---|---|---|
+| No | No | Yes | Yes | Yes |
+| No | Yes | Yes | No | Yes |
+| Yes | No | No | Yes | Yes |
+| Yes | Yes | No | No | Yes |
+
+New supplier files enlarge the second fix from **four to seven outputs** and
+its review from **three to five**. A send-back changes its existing dependency
+from the preceding fix to the preceding review. This independently demonstrates
+that the preservation condition can mutate both an issued job's scope and its
+ordering. The in-memory candidate retrieves an existing following round
+regardless of the two flags, allowing the existing preservation branches to
+reuse its recorded outputs and dependency. It passes all four controls. This
+is an isolated diagnostic, not a full integration check or an applied repair.
+
+The reproducer below is self-contained when run at the repository root. It
+neither imports the queue generator nor invokes its top-level generation, and
+does not write repository files. All fixture paths name synthetic objects.
+The final two columns printed are output-list and dependency preservation;
+the middle column identifies the in-memory candidate.
+
+```python
+import ast
+import re
+from pathlib import Path
+
+tree = ast.parse(Path("research/blueprint/make_queue.py").read_text())
+original = next(n for n in ast.walk(tree)
+                if isinstance(n, ast.FunctionDef) and n.name == "fix_rounds")
+rt = "RT-SyntheticScope"
+first, second = "FIX-" + rt, "FIX-" + rt + "~2"
+old = ["research/blueprint/packets/SyntheticExisting.json",
+       "research/blueprint/readmes/SyntheticExisting.md",
+       "research/blueprint/suggested/SyntheticExisting.lean"]
+new = [p.replace("SyntheticExisting", "SyntheticNew") for p in old]
+previous = {
+    first: {"outputs": [f"research/blueprint/redteam/{rt}.fixes.md"] + old,
+            "after": []},
+    second: {"outputs": [f"research/blueprint/redteam/{rt}.fixes-2.md"] + old,
+             "after": [first]},
+}
+states = {first: "done", "REV-" + first: "done", second: "external"}
+for missing in (False, True):
+    for sent_back in (False, True):
+        for candidate in (False, True):
+            fn = ast.parse(ast.unparse(original)).body[0]
+            if candidate:
+                assignment = next(n for n in ast.walk(fn)
+                    if isinstance(n, ast.Assign) and any(
+                        isinstance(t, ast.Name) and t.id == "made"
+                        for t in n.targets))
+                assignment.value = ast.parse(
+                    "previous_jobs.get(following) if following in states else None",
+                    mode="eval").body
+            jobs = []
+            env = {
+                "states": states, "previous_jobs": previous,
+                "previous_outputs": {k: j["outputs"] for k, j in previous.items()},
+                "findings_text": lambda *args: "",
+                "PROMOTABLE": re.compile(r"^research/blueprint/packets/[^/]+\.json$"),
+                "add": lambda job, *args: jobs.append(job),
+                "fill": {}, "FIX_TEMPLATE": "", "FIX_REVIEW_TEMPLATE": "",
+                "review_of": lambda path: {
+                    "reviewer": "independent-review-REV-" + first,
+                    "status": "needs_changes" if sent_back else "accepted"},
+            }
+            module = ast.fix_missing_locations(ast.Module(body=[fn], type_ignores=[]))
+            exec(compile(module, "<isolated fix_rounds>", "exec"), env)
+            env["fix_rounds"](rt, "synthetic", "scope control", [], 0, {}, [],
+                previous[first]["outputs"], old + (new if missing else []), {}, [])
+            job = next(j for j in jobs if j["id"] == second)
+            same_outputs = job["outputs"] == previous[second]["outputs"]
+            same_after = job["after"] == previous[second]["after"]
+            assert same_outputs == (candidate or not missing)
+            assert same_after == (candidate or not sent_back)
+            print(missing, sent_back, candidate, same_outputs, same_after)
+```
+
+The maintainer must restore the historical scopes and verify preservation of
+both output lists and dependency edges through real queue regeneration,
+including creation of genuinely new rounds. The synthetic candidate does not
+establish that full behavior. A queue-only restoration does not protect the
+issued jobs during regeneration; changing the twelve unrelated verdicts does
+not repair their scope. These edits require files outside this issue's explicit
+deliverables, so this submission remains a **blocked checkpoint**.
+
+Fresh checks of the three authorized packets at the pinned declaration index
+report **zero errors and zero warnings**, for **56, 326 and 537 nodes**. Its
+manifest matches the specified Mathlib and Tau Ceti commits. No link map or
+restructuring result is an authorized input. Only this report and the handoff
+change; no packet, source record, mathematical statement, reader or suggested
+file changes. Lean was not rerun for documentation-only work. Prior successful
+elaborations and source reading remain attributed to the earlier sessions.
+No second job was claimed, and the reproducer survives scratch cleanup here.
