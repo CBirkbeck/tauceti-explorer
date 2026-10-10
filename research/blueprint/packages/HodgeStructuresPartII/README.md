@@ -238,7 +238,7 @@ For an ordinary integrable connection and a finite locally split Griffiths filtr
 
 The unbounded localized period filtration used by Liu–Zhu requires its own E1/DD.1 period lattice, residue, Tate and Galois comparisons. It is not the finite Rees module with an altered name. Determinant and Tate symbols must descend through the global exterior and line-coefficient interfaces, and pullback must commute with those identifications. These targets supply algebraic adapters to the p-adic consumers; the consumers supply their period sheaves and correspondence hypotheses.
 
-For the affine finite-projective input, Bhatt's *Prismatic F-gauges*, §2.2.1, Proposition 2.2.6 and Remark 2.2.8, pp.16–17, identify finite filtrations with finite-projective graded pieces through the Rees construction. The sheaf interface must additionally specify restriction, gluing and the transported connection operators.
+For the affine finite-projective input, [BF22], §2.2.1, Proposition 2.2.6 and Remark 2.2.8, pp.16–17, identify finite filtrations with finite-projective graded pieces through the Rees construction. For smooth varieties over a field of characteristic zero, Remark 2.3.7, pp.25–26, also identifies finite Griffiths-filtered flat bundles with vector bundles on the filtered de Rham stack. Restriction to the Hodge stack gives the associated graded Higgs field; its weight-i summand is gr⁻ⁱE, so its field raises that weight by one. This supplies a geometric specialization of the decreasing-filtration convention. The general differential-site interface must additionally specify restriction, gluing and the transported connection operators.
 
 As a worked chart take O=Q[x], E=Oe₁⊕Oe₂, ∇e₁=e₂ dx and ∇e₂=0. Put Fᵖ=E for p≤0, F¹=Oe₁ and Fᵖ=0 for p≥2. The Rees module is free over O[t] on u₁=t⁻¹e₁ and u₂=e₂. In this weighted basis the relative operator D=t∇ satisfies D(u₁)=u₂ dx, D(u₂)=0 and D(xu₁)=(x u₂+t u₁)dx. Its fibre at zero therefore has a nonzero square-zero Higgs matrix E21; at one it recovers the original connection, and localization identifies u₁ with t⁻¹e₁. The scalar correction retains one power of t. These chart computations give checks on the required fibre and descent comparisons.
 
@@ -246,7 +246,7 @@ As a worked chart take O=Q[x], E=Oe₁⊕Oe₂, ∇e₁=e₂ dx and ∇e₂=0. P
 - The worked two-step filtration has symbol [e₁]↦[e₂]dx and positive ordered bound 2. The zero-fibre matrix must remain nonzero; multiplying its weighted-basis matrix by t would lose that symbol.
 - Compare D(xu₁)=x u₂+t u₁ with the zero-fibre value x u₂ and the unit-fibre value x e₂+e₁. The unit-fibre operator is additive and satisfies the ordinary Leibniz rule.
 - Setting F²=F¹ in this example violates Griffiths transversality at degree two.
-- The constant filtration and rank-zero Rees object must recover the prescribed zero, unit and localized fibres, with their tensor and quotient comparisons.
+- For the one-step filtration Fᵖ=E when p≤0 and Fᵖ=0 when p>0, the graded Higgs field is zero, the unit fibre recovers the original connection, and the localized comparison recovers its scalar extension after rescaling by t⁻¹. The rank-zero Rees object has zero fibres. Check the tensor and quotient comparisons in both cases.
 - Relative differentiation sends t to zero. Absolute differentiation sends t to dt and fails the parameter-constancy hypothesis.
 - A Tate frame change must preserve the coefficient character and the descended graded-symbol comparison.
 
@@ -794,6 +794,7 @@ Locators in the layers refer to the editions below. Journal page numbers are use
 
 | Key | Source and edition |
 | --- | --- |
+| BF22 | Bhargav Bhatt — [Prismatic F-gauges](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf). MAT549 Fall 2022 lecture notes; §§2.2.1 and 2.3, Proposition 2.2.6, Remarks 2.2.8 and 2.3.7, pp.16–17,25–26. |
 | EGa | Hélène Esnault and Michael Groechenig — [Rigid connections and F-isocrystals (author-hosted preprint)](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf). Author-hosted 44-page manuscript; pagination differs from Acta 225. |
 | He25 | Ben Heuer — [A p-adic Simpson correspondence for smooth proper rigid varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf). Inventiones mathematicae 240 (2025), 261–312; published PDF |
 | LZ17 | Ruochuan Liu and Xinwen Zhu — [Rigidity and a Riemann–Hilbert correspondence for p-adic local systems](https://arxiv.org/pdf/1602.06282v3). arXiv:1602.06282v3; final author version, 35 PDF pages |
