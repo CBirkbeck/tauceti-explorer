@@ -4,7 +4,7 @@ Local Langlands parameters occur in three related forms: cocycles with a fixed W
 
 The basic output is the stack of parameters for a pinned reductive dual group over ℤ_ℓ. Each finite wild cutoff has an affine framed scheme; the stack retains its stabilizers, whereas the affine coarse quotient records semisimplification. The excursion algebra encodes compatible invariant evaluations on finite tuples without choosing a faithful representation. At the end, representations of the dual group give universal bundles, and the good-prime generation theorem identifies the corresponding Ind-category with modules over the cocycle algebra.
 
-The constructions are reusable outside the local Weil case. Crossed cocycles work for any automorphism action. The free-group excursion presentation and its algebraic relations work for any discrete group with a prescribed finite projection. Local topology enters the extension and continuity theorems, rather than the algebraic reconstruction theorem.
+The constructions are reusable outside the local Weil case. The crossed-cocycle object and the integral finite-wild scheme are imported from SmoothRepresentationsOfLocalGroups, SR.6.1. Its finite-wild excursion algebra is the specialization of the arbitrary-discrete-group presentation used here. This roadmap adds the relatively discrete condensed interfaces, enhanced parameter geometry and category comparisons. Local topology enters the extension and continuity theorems, rather than the algebraic reconstruction theorem.
 
 ## Conventions
 
@@ -37,7 +37,7 @@ The good-filtration t-structure is on IndPerf, with connective convention D^{≤
 
 ## Boundaries and prerequisites
 
-The Weil group, its topology and arithmetic degree come from **ClassFieldTheory, Layer 9**. Wild inertia, its cofinal normal cutoffs and the tame quotient come from **LocalFieldsRamification, Layer 4**. This roadmap builds the parameter-specific dense discrete models and extension comparisons from those carriers. ProfiniteArithmetic supplies general profinite powers and automorphism theory; LocalGaloisGroups supplies local Galois structure. Neither is replaced by a second Weil or ramification carrier here.
+The Weil group, its topology and arithmetic degree come from **ClassFieldTheory, Layer 9**. Wild inertia, its cofinal normal cutoffs and the tame quotient come from **LocalFieldsRamification, Layer 4**. **SmoothRepresentationsOfLocalGroups, SR.6.1** supplies ordinary crossed cocycles, their gauge action and semidirect-product sections, the finite-wild dense discrete model, the single integral cocycle scheme over ℤ[1/p], and its ℓ-adic extension and change-of-model comparisons. Use those constructions with their arithmetic Frobenius. LP0 adds the relatively discrete condensed parameter interface and the explicit geometric-degree conversion; LP1 adds all-depth gluing and derived geometry. ProfiniteArithmetic supplies general profinite powers and automorphism theory; LocalGaloisGroups supplies local Galois structure.
 
 The pinned integral dual and its action belong to **ReductiveGroupsPartII, RG2.5**, building on **ReductiveGroups, Layer 9**. The reductive structure used below needs fixed-point smoothness and reductivity, finite unipotent conjugacy classes, separable centralizer criteria, root invariant degrees, and integral group Chevalley restriction. These are inputs from the reductive-group direction. The general integral representation theory belongs to **ReductiveGroupsIntegralRepresentationsPartII**: induced and Weyl modules, Kempf vanishing, the good-filtration criterion, tensor stability and finite good-filtration dimension. Their local parameter applications belong here. The common prerequisite for this representation theory is ReductiveGroups Layer 9; that layer's pinned group schemes are the starting point for the representation theorems.
 
@@ -49,7 +49,20 @@ General reductive pseudocharacters and algebra-linear traces belong to **Integra
 
 The characteristic-zero local continuity interface must cover the disconnected group H⋊Q and preserve locally finite-type ℤ_ℓ coefficient modules on compact inertia. A connected, profinite, rank-one-valued result alone has less scope. The discrete-coefficient argument is given separately below. The compactness argument in Quast Theorem 3.8 is not used for this extension.
 
-**ExcursionOperatorsAndSpectralAction, ES2 and ES3** owns the abstract rational and integral universal action theorems, the categorical colimit universal properties and the compact-support application of Fargues–Scholze Chapter X. It consumes the parameter categories, Map^Σ approximation and generation constructed here. Its integral finite-wild formulation uses wild-gerbe elimination, beyond the tame case. This roadmap does not import the resulting spectral action back into its own prerequisites. **SmoothRepresentationsOfLocalGroups, SR.6** consumes the selected integral parameter model and keeps its Hecke and finiteness consequences. **GlobalShtukasAndFunctionFieldLanglands, GS.5** consumes IHG reconstruction and keeps global operators and continuity.
+**ExcursionOperatorsAndSpectralAction, ES2 and ES3** owns the abstract rational and integral universal action theorems, the categorical colimit universal properties and the compact-support application of Fargues–Scholze Chapter X. It consumes the parameter categories, Map^Σ approximation and generation constructed here. Its integral finite-wild formulation uses wild-gerbe elimination, beyond the tame case. This roadmap does not import the resulting spectral action back into its own prerequisites. **SmoothRepresentationsOfLocalGroups, SR.6.1–SR.6.3** supplies the common finite-wild algebraic parameter and excursion targets, together with its Hecke and finiteness consequences. The present roadmap consumes those targets and adds enhanced parameter categories; it exports no geometric Hecke action back into SR.6. **GlobalShtukasAndFunctionFieldLanglands, GS.5** consumes IHG reconstruction and keeps global operators and continuity.
+
+The imported parameter targets have the following boundaries. Each reference names a target within its upstream layer, rather than a second construction here.
+
+| Imported target | Supplier | Additional target here |
+| --- | --- | --- |
+| Ordinary crossed cocycles, gauge and coefficient transport, parameter sections | [SR.6.1, crossed-cocycles][SR61] | Restriction and relatively discrete condensed comparisons in LP0 |
+| Finite-wild discretization and ℓ-adic extension, with change-of-model comparisons | [SR.6.1, finite-wild-discretization and ell-adic-extension][SR61] | Geometric degree and scaling conversion in LP0.4; condensed section-valued interface |
+| The affine cocycle scheme over ℤ[1/p] and its base changes | [SR.6.1, finite-wild-representability][SR61] | All-depth gluing, flat lci geometry and animated deformation theory in LP1 |
+| Finite-wild strata after the stated integral-closure base change | [SR.6.2, wild-strata][SR62] | The union over wild cutoffs in LP1.2; no identification of all-depth and fixed-depth finiteness |
+| Finite-wild excursion algebra and its representation coefficient functions | [SR.6.3, excursion-algebra][SR63] | Arbitrary Γ over Q, finite-set Hecke compatibility and the categorical operator map in LP2e |
+| Universal homeomorphism, rational isomorphism and good-prime integral ring comparison | [SR.6.3, excursion-invariant-comparison][SR63] | The IndPerf colimit, higher rational cohomology, arbitrary coefficient base change and category generation in LP2i and LP4 |
+
+The ordinary sheaf tensor, dual, finite locally free bundle and relative-Spec interfaces come from **AlgebraicVectorBundles, L0–L2**. They underlie the scheme-level associated bundles. They do not identify an ordinary module category with the stable enhanced quotient-stack Perf category supplied by E5 and S.1.
 
 The complex wild enhancement construction has a separate scope: the Kurinczuk–Skodlerack–Stevens formulation concerns quasisplit classical groups of odd residual characteristic. It requires an admissible extending parameter with its SL₂(ℂ) factor. The expected wild correspondence is motivation for these definitions, rather than a theorem proved here.
 
@@ -75,21 +88,23 @@ Use [`MonoidHom`](https://github.com/leanprover-community/mathlib4/blob/082e2d37
 
 ## How the layers fit together
 
-LP0 fixes the cocycle and coefficient conventions. LP1 constructs the integral framed schemes and parameter stacks and computes deformation theory. The first two parts of LP2 then develop unconditional excursion geometry and specialize algebraic reconstruction to local parameters. LP3 proves the modular good-filtration and generation results. Only after LP3 does the integral-invariants part of LP2 upgrade the unconditional comparison to an integral algebra isomorphism. LP4 constructs universal representation bundles and proves the category-of-modules comparison. Prerequisite annotations use these layer names; section links identify finer prerequisites within this roadmap.
+LP0 fixes the coefficient conventions on the imported cocycle interface. LP1 takes the imported integral framed schemes, constructs their all-depth and derived parameter stacks, and computes deformation theory. The first two parts of LP2 then develop unconditional excursion geometry and specialize algebraic reconstruction to local parameters. LP3 proves the modular good-filtration and generation results. Only after LP3 does the integral-invariants part of LP2 upgrade the unconditional comparison to an integral algebra isomorphism. LP4 constructs universal representation bundles and proves the category-of-modules comparison. Prerequisite annotations use these layer names; section links identify finer prerequisites within this roadmap.
 
 ## Layer LP0: cocycles, topology and wild enhancements
 
-Construct crossed cocycles first, then apply the relatively discrete coefficient convention and the Weil topology. The wild enhancement branch uses the intrinsic twisted centralizer; a component group of an ordinary centralizer is a different object.
+Use the ordinary crossed cocycles of SR.6.1, then apply the relatively discrete coefficient convention and the Weil topology. The wild enhancement branch uses the intrinsic twisted centralizer; a component group of an ordinary centralizer is a different object.
 
 ### LP0.1 Crossed cocycles and gauge action
+
+**Imported target.** Use [SmoothRepresentationsOfLocalGroups, SR.6.1, crossed-cocycles][SR61] for the ordinary object, gauge action, equivariant coefficient maps and semidirect-product section. The displayed formulas pin the shared conventions. Restriction and the continuous/condensed refinements connect that object to the local parameter interface.
 
 For a group Γ acting on a group H by α:Γ→Aut(H), CrossedCocycle(α) consists of maps c:Γ→H with c(γδ)=c(γ)α(γ)(c(δ)). Gauge by h is c^h(γ)=h c(γ)α(γ)(h)^{-1}. Equivariant coefficient homomorphisms and restriction of Γ transport cocycles. Sections Γ→H⋊Γ are equivalent to cocycles; H¹(Γ,H) is the gauge-orbit set. In the continuous version require continuous c and a continuous action.
 
 **Hypotheses.** Γ,H are groups; the continuous version has topological groups and continuous action.
 
-**Build.** Multiply (c(γ),γ)(c(δ),δ) in the semidirect product to obtain the cocycle equation. Use associativity for the gauge action and equivariance for coefficient transport. Keep this crossed-group interface distinct from the existing Čech cocycle; compare after the SF.1 descent bridge.
+**Build.** Import the ordinary crossed-cocycle and section interface. Prove the local restriction and continuity comparisons on that carrier. The SF.1 torsor-descent bridge compares this crossed-group interface with the existing Čech cocycle.
 
-The API should provide:
+Use the imported API, with the following conventions and local comparison laws:
 
 - `CrossedCocycle`: Maps with the crossed multiplication law.
 
@@ -119,7 +134,7 @@ Unit tests:
 
 - `cocycle_not_hom`: Let Γ=C₂ act on H=ℤ additively by negation. The cocycle c(s)=1 satisfies c(s²)=1−1=0, but is not a homomorphism C₂→ℤ.
 
-**Needs:** `MonoidHom` (Mathlib); `Subgroup` (Mathlib); `CategoryTheory.PresheafOfGroups.OneCocycle` (Mathlib); **SchemeAndStackFoundations, SF.1**; `SemidirectProduct` (Mathlib).
+**Needs:** [SR.6.1][SR61]; `MonoidHom` (Mathlib); `Subgroup` (Mathlib); `CategoryTheory.PresheafOfGroups.OneCocycle` (Mathlib); **SchemeAndStackFoundations, SF.1**; `SemidirectProduct` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.1.1, p.278.
 
@@ -239,29 +254,39 @@ Unit tests:
 
 ### LP0.4 Discrete Weil groups and unique extension
 
+**Imported target.** Take the finite-wild model and ℓ-adic extension theorem from [SR.6.1, finite-wild-discretization and ell-adic-extension][SR61]. The additional comparison here converts its arithmetic degree to the geometric convention.
+
 For open normal P as above choose tame τ and geometric Frobenius σ. The dense group W⊂W_E/P generated by P_E/P, τ^{Z[1/p]} and σ is finitely presented, with σ⁻¹τσ=τ^q and the finite-wild conjugation relations. Restriction identifies condensed parameters trivial on P with crossed cocycles on W whose wild restriction is continuous (automatic for finite P_E/P).
 
 **Hypotheses.** Finite action factors through W_E/P; l≠p; use relatively discrete Z_l-algebras. Convert the ClassFieldTheory supplier’s arithmetic Frobenius F to geometric σ=F⁻¹. The LP degree is the negative of the supplier’s arithmetic weilDegree; do not identify these degree maps.
 
-**Build.** Import the exact tame quotient and its topology. Matrices conjugate to their qth powers have roots-of-unity eigenvalues of order prime to p; a suitable power is unipotent. Extend its powers by the finite binomial formula, then the tame torsion part, giving existence and uniqueness of the extension.
+**Build.** Apply the imported extension theorem with the same cutoff and pinned action. Identify σ with F⁻¹ and compose the arithmetic degree with integer negation. Transport the scaling character by the same equation; do not invert the Weil group itself, since inversion need not be a group homomorphism.
+
+For the imported arithmetic degree d:W_E→ℤ, define `WeilConvention.geometricDegree` by d_geo(w)=−d(w). The API is `WeilConvention.geometricDegree_apply` for this pointwise formula, `WeilConvention.geometricDegree_involutive` for reversing the conversion twice, `WeilConvention.geometricDegree_ker` for equality of degree-zero kernels, and `WeilConvention.geometricDegree_comp` for compatibility with precomposition. For d(F)=1, `WeilConvention.geometricDegree_frobenius` gives d_geo(F)=−1 and d_geo(F⁻¹)=1. This keeps the inertia subgroup unchanged and uses the same Weil topology.
+
+For a unit q_Λ representing the residue cardinality in the coefficient ring, `WeilConvention.tateCharacter` is the homomorphism w↦q_Λ^{d(w)}. The lemma `WeilConvention.tateCharacter_geometric` states q_Λ^{d(w)}=q_Λ^{−d_geo(w)}, and `WeilConvention.tateCharacter_comp` states compatibility with precomposition. Its value is q_Λ at F and q_Λ⁻¹ at σ=F⁻¹; degree-zero inertia has value one.
+
+Unit tests for these two transparent adapters are `degree_geometric_frobenius` (the two signs on the integer model), `degree_inertia` (the same actual kernel), `degree_zero` (the zero degree homomorphism), `tate_geometric_frobenius` (q=3 gives 1/3 at integer degree −1), `tate_arithmetic_frobenius` (the value 3 at arithmetic degree 1), `tate_inertia` (scaling one on the degree-zero subgroup), and `tate_zero_degree` (the trivial character for the zero degree map). These formulas are degree/scaling comparisons; the full semidirect-product parameter inversion is the imported SR.6.1 interface.
 
 **Checks.** For H=G_m the tame relation forces χ(τ)^{q−1}=1. Check geometric σ=Fr⁻¹ converts the DHKM relation Fr τ Fr⁻¹=τ^q into the displayed relation.
 
-**Needs:** [LP0.2](#lp02-condensed-l-parameters); [LP0.3](#lp03-finite-wild-ramification); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `FreeGroup` (Mathlib).
+**Needs:** [SR.6.1][SR61]; [LP0.2](#lp02-condensed-l-parameters); [LP0.3](#lp03-finite-wild-ramification); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `FreeGroup` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], Proof of VIII.1.3, pp.279–280.
 
 ### LP0.5 Change of discrete Weil model
 
+**Imported target.** Use [SR.6.1, ell-adic-extension][SR61] for this comparison. Apply its natural isomorphism to the relatively discrete coefficient functor of LP0.2; the integral base remains unchanged.
+
 Any two choices of dense discrete W₁,W₂ inside the same W_E/P yield canonically equivalent cocycle functors over Z_l: extend to W_E/P, then restrict. The comparisons obey identity and composition. Over Z[1/p] the framed models need not be canonically choice independent; only their Z_l base changes have this universal continuous extension comparison.
 
 **Hypotheses.** l≠p; same P and same action; coefficient convention fixed.
 
-**Build.** Use the unique extension twice; both compositions are identity because their restrictions extend to the same parameter. Compare DHKM Corollary4.2, which asserts the integral l-adic canonical identification, not choice independence of framed Z[1/p]-models.
+**Build.** Apply the imported ℓ-adic change-of-model comparison. Its uniqueness through continuous extension gives the identity and composition laws. It asserts no choice independence of the framed ℤ[1/p]-scheme.
 
 **Checks.** Changing τ scales the normalised monodromy coordinate; the parameter functor comparison is canonical, not equality of an unnormalised N.
 
-**Needs:** [LP0.4](#lp04-discrete-weil-groups-and-unique-extension).
+**Needs:** [SR.6.1][SR61]; [LP0.4](#lp04-discrete-weil-groups-and-unique-extension).
 
 **Source:** [Dat–Helm–Kurinczuk–Moss][DHKM-parameters], §4.1, Corollary4.2, pp.30–31.
 
@@ -447,15 +472,19 @@ Finite wild cutoffs reduce representability to finite equations. Flatness and th
 
 ### LP1.1 Integral finite-wild cocycle schemes
 
-For a split reductive model H over Z[1/p] with finite W-action and a finite-wild quotient W=W_F^0/P_F^e, construct Z¹(W,H) as the closed subscheme of H^r cut out by the cocycle equations of a finite presentation of W. It represents crossed cocycles on W for all Z[1/p]-algebras and carries twisted conjugation. Its base change to Z_l represents the finite-wild condensed parameter functor for l≠p.
+**Imported target.** Use the single scheme of [SR.6.1, finite-wild-representability][SR61]. Its ℤ_ℓ realization is its base change. The formulas below describe the imported representing property and the parameter-specific condensed comparison; they specify no second integral cocycle scheme.
+
+For a split reductive model H over Z[1/p] with finite W-action and a finite-wild quotient W=W_F^0/P_F^e, use the imported Z¹(W,H), the closed subscheme of H^r cut out by the cocycle equations of a finite presentation of W. It represents crossed cocycles on W for all Z[1/p]-algebras and carries twisted conjugation. Its base change to Z_l represents the finite-wild condensed parameter functor for l≠p.
 
 **Hypotheses.** The chosen discrete W has finite wild subgroup and tame relation. The model H and action over Z[1/p] are fixed; framed choice independence is asserted only after base change to Z_l.
 
-**Build.** Import the Hopf coordinate algebra C=O(H) and its convolution point group H(B)=WithConv(C→ₐ[R]B), with R=Z[1/p]. An algebraic W-action is a homomorphism to the opposite group of units of bialgebra endomorphisms of C; opposition accounts for reversal under coordinate pullback. For a finite presentation W=⟨I | rels⟩ let T be the coproduct of I copies of C in commutative R-algebras. Its coproduct inclusions give universal generator points. Extend them to the free crossed cocycle c, and define J to be the ideal generated by c(r)(a)−1(a), for every relator r and a∈C. Then Z¹(W,H)=Spec(T/J). Do not replace J by its radical: all coefficient algebras, including nonreduced ones, belong to this representing functor.
+**Build.** Use the imported affine relation locus and its natural functor-of-points equivalence. Base-change that object to ℤ_ℓ, then use SR.6.1 ell-adic-extension and LP0.2 to obtain the condensed point comparison. Presentation changes concern the same discrete group, whereas changes of dense Weil model are compared only after ℤ_ℓ base change.
+
+For the coordinate description of that imported locus, write C=O(H), let T be the coproduct of copies of C indexed by the presentation generators I, and write J for its relator ideal. The ideal is generated by c(r)(a)−1(a) for relators r and a∈C, using the universal free crossed cocycle. Use J itself, including its nonreduced structure; replacing it by its radical changes the representing functor.
 
 The quotient's universal cocycle and its evaluation identify algebra maps T/J→B with crossed cocycles, naturally in B. Finite presentation follows from finite I and rels and finite presentation of C; a finite algebra-generating set of C suffices for the relator equations. Twisted conjugation gives a coaction T/J→C⊗[R](T/J), with the counit and coassociativity laws. Scalar extension is Spec(S⊗[R](T/J)); the tensor adjunction gives its point comparison. An isomorphism between groups with two finite presentations transports the action and induces inverse coordinate-algebra isomorphisms. This is presentation independence for the same abstract W. To compare different chosen dense Weil subgroups, use arithmetic Fr=σ⁻¹ to match DHKM and FS conventions and invoke unique continuous extension after base change to Z_l.
 
-The API should provide:
+Use the imported API, with the following conventions and local comparison laws:
 
 - `IntegralCocycleScheme`: The representing affine finite-presentation scheme over Z[1/p].
 
@@ -479,11 +508,13 @@ Unit tests:
 
 - `scheme_l_adic`: Its Z_l-points functor on Z_l-algebras agrees with the corresponding finite-wild condensed parameter functor.
 
-**Needs:** [LP0.1](#lp01-crossed-cocycles-and-gauge-action); [LP0.4](#lp04-discrete-weil-groups-and-unique-extension); **ReductiveGroupsPartII, RG2.5**; **SchemeAndStackFoundations, SF.1**; `PresentedGroup`, `CommAlgCat`, `AlgebraicGeometry.Spec`, `Algebra.FinitePresentation`, `AlgHom.liftEquiv` (Mathlib); [`TauCeti.HopfAlgebra.pointsFunctor`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean) and [`TauCeti.AlgHom.mapValue`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean) (Tau Ceti).
+**Needs:** [SR.6.1][SR61]; [LP0.1](#lp01-crossed-cocycles-and-gauge-action); [LP0.4](#lp04-discrete-weil-groups-and-unique-extension); **ReductiveGroupsPartII, RG2.5**; **SchemeAndStackFoundations, SF.1**; `PresentedGroup`, `CommAlgCat`, `AlgebraicGeometry.Spec`, `Algebra.FinitePresentation`, `AlgHom.liftEquiv` (Mathlib); [`TauCeti.HopfAlgebra.pointsFunctor`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/PointsFunctor.lean) and [`TauCeti.AlgHom.mapValue`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean) (Tau Ceti).
 
 **Source:** [Dat–Helm–Kurinczuk–Moss][DHKM-parameters], §1, pp.4–7; §4.1, Theorem 4.1, pp.29–30. [Fargues–Scholze][FS-geometrization], Proof of Theorem VIII.1.3, p.280.
 
 ### LP1.2 Clopen finite-wild pieces
+
+**Imported input.** After the specified integral-closure base change, [SR.6.2, wild-strata][SR62] supplies the fixed-depth wild strata and their centralizers. The target here also varies the wild cutoff and glues the resulting clopen pieces; fixed-depth finiteness does not assert finiteness of that union.
 
 Z¹(W_E,H) is the filtered union of its finite-wild pieces Z¹(W_E/P,H). For P′⊂P these are open and closed subschemes inside the P′-piece; the union is a disjoint union of affine finite-type schemes after separating the clopen wild-kernel strata.
 
@@ -545,7 +576,7 @@ DHKM W_F^0 uses arithmetic Frobenius and the same dense tame subgroup as FS W af
 
 **Hypotheses.** Match the wild quotient, action and dual integral model.
 
-**Build.** Match generators and relations with the inverse Frobenius normalisation. Apply the representing-functor universal property and Corollary4.2 of DHKM. Record that SR.6 imports the model, retaining DHKM1.7/1.8 finiteness rather than a second construction.
+**Build.** Match generators and relations with the inverse Frobenius normalisation. Apply the representing-functor universal property and Corollary4.2 of DHKM to identify the matched model with the imported SR.6.1 scheme. SR.6 retains the DHKM1.7/1.8 finiteness consequences; the comparison here constructs no second integral scheme.
 
 **Checks.** The same tame relation is obtained after replacing geometric Frobenius by its inverse.
 
@@ -951,11 +982,13 @@ For finite-wild W the natural map colim_{F_n→W} O(Z¹(F_n,H))→O(Z¹(W,H)) is
 
 ### LP2e.9 Excursion algebras
 
+**Imported specialization.** For finite-wild W, use [SR.6.3, excursion-algebra][SR63]. Here the indexing construction is stated for arbitrary discrete Γ with a fixed Γ→Q, together with its transport maps and explicit comparison cocone. Its specialization to W must identify with the imported algebra through the universal structure maps.
+
 Define Exc(Γ,H)=colim_{(n,F_n→Γ)} O(Z¹(F_n,H))^H in Z_l-algebras. The action on each free cocycle space is the pulled-back Q-twisted conjugation. Restriction of the universal Γ-cocycle induces a canonical algebra map Exc(Γ,H)→O(Z¹(Γ,H))^H whenever the Γ-cocycle scheme is represented.
 
 **Hypotheses.** Γ is any discrete group with map to Q for the colimit construction; the finite-wild W case has a representing finite-type scheme.
 
-**Build.** Build the invariant diagram over FreeCocycleIndex and take its ring colimit. Use the universal cocycle evaluation to obtain its compatible cone into the invariant algebra. Keep the universal-homeomorphism assertion as a separate theorem.
+**Build.** Extend the imported free-group invariant diagram to arbitrary Γ over Q and use its ring colimit. Identify its W specialization by the colimit universal property, including every structure map. The universal-homeomorphism assertion is consumed separately in LP2e.10.
 
 Take the colimit of this actual coefficient-algebra diagram. Its structure maps are R-algebra maps; a compatible cocone into any R-algebra B gives the unique map from Exc(Γ,H) to B. For f:Γ→Γ′ preserving the prescribed action, postcompose each tuple u with f. The induced transport is the identity on universal generator coordinates and identifies the two gauge coactions. The structure maps at the transported tuples therefore form the cocone defining Exc(Γ,H)→Exc(Γ′,H). Require its formula on every free tuple, together with identity and composition laws.
 
@@ -983,21 +1016,23 @@ Unit tests:
 
 - `excursion_lift_eval`: For a compatible cone ξ, lift(ξ)∘ofFree(u)=ξ_u for every u.
 
-**Needs:** [LP2e.7](#lp2e7-finite-free-group-indexing); [LP2e.1](#lp2e1-coarse-parameter-quotients); **EnhancedDerivedSheaves, E5, presentability**; [`CommRingCat.Colimits.hasColimits_commRingCat`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Ring/Colimits.lean) (Mathlib).
+**Needs:** [SR.6.3][SR63]; [LP2e.7](#lp2e7-finite-free-group-indexing); [LP2e.1](#lp2e1-coarse-parameter-quotients); **EnhancedDerivedSheaves, E5, presentability**; [`CommRingCat.Colimits.hasColimits_commRingCat`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Category/Ring/Colimits.lean) (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.3.4, p.287.
 
 ### LP2e.10 Excursion comparison as a universal homeomorphism
 
+**Imported target.** Use [SR.6.3, excursion-invariant-comparison][SR63] for the finite-wild universal homeomorphism and rational ring isomorphism. This comparison is independent of the enhanced integral generation theorem.
+
 For a finite-wild W, Spec(O(Z¹(W,H))^H)→Spec Exc(W,H) is a universal homeomorphism, and the algebra comparison is an isomorphism after inverting l. Its proof is independent of l∤|π₁(H)_tors|.
 
 **Hypotheses.** H reductive, Z_l coefficients, finite-wild W; distinguish a universal homeomorphism from an integral ring isomorphism.
 
-**Build.** First reconstruct the full cocycle coordinate algebra as the sifted colimit of free cocycle algebras. Geometric reductivity supplies power lifting of invariant functions and nilpotent kernel after every base change, so apply the spectrum criterion base change by base change. Over Q_l algebraic representations are semisimple, and invariants commute with this colimit, giving a ring isomorphism.
+**Build.** Apply the imported comparison theorem to the W specialization of LP2e.9. Carry its canonical comparison map, rather than constructing a second map or adding a good-prime condition to the unconditional statement.
 
 **Checks.** Geometric L-points agree at all primes; this does not prove integral equality of rings.
 
-**Needs:** [LP2e.9](#lp2e9-excursion-algebras); [LP2e.7](#lp2e7-finite-free-group-indexing); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); **ReductiveGroupsPartII, RG2.5**; `PrimeSpectrum.isHomeomorph_comap` (Mathlib).
+**Needs:** [SR.6.3][SR63]; [LP2e.9](#lp2e9-excursion-algebras); [LP2e.7](#lp2e7-finite-free-group-indexing); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); **ReductiveGroupsPartII, RG2.5**; `PrimeSpectrum.isHomeomorph_comap` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], §VIII.3.2 and Proposition VIII.3.5, pp.287–288.
 
@@ -1063,6 +1098,8 @@ Unit tests:
 
 ### LP2e.14 Excursion data
 
+**Imported coefficient interface.** [SR.6.3, excursion-algebra][SR63] supplies the algebraic representation tuples and their invariant coefficient functions. The categorical Hecke operator and its independence of presentation are the additional targets here.
+
 An excursion datum is (I,V,α,β,(γ_i)), with I finite, V a finite-projective representation of (H⋊Q)^I, α:1→V and β:V→1 invariant under diagonal H, and γ_i∈Γ. For a categorical Hecke datum define S_D=T_β∘(γ_i)∘T_α as a natural endomorphism of id_C, giving a class in π₀End(id_C) in the stable infinity-category setting.
 
 **Hypotheses.** Integral finite-projective representations; the Γ^I action is part of the categorical datum.
@@ -1087,11 +1124,13 @@ Unit tests:
 
 - `datum_tensor_operator`: For external tensor products S_{D⊗D′}=S_D S_D′.
 
-**Needs:** [LP2e.13](#lp2e13-categorical-hecke-data); **ReductiveGroupsPartII, RG2.5**; `Representation` (Mathlib); `CategoryTheory.CatCenter` (Mathlib).
+**Needs:** [SR.6.3][SR63]; [LP2e.13](#lp2e13-categorical-hecke-data); **ReductiveGroupsPartII, RG2.5**; `Representation` (Mathlib); `CategoryTheory.CatCenter` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.4.2, p.291.
 
 ### LP2e.15 Excursion matrix coefficients
+
+**Imported coefficient interface.** [SR.6.3, excursion-algebra][SR63] supplies the algebraic representation tuples and their invariant coefficient functions. The categorical Hecke operator and its independence of presentation are the additional targets here.
 
 To (I,V,α,β) associate f_D((h_i,q_i))=β(((h_i,q_i))·α), a regular function on H\(H⋊Q)^I/H. Let V_f be the finite-projective subrepresentation generated by f in the regular functions on (H⋊Q)^I/H, with α_f=f and β_f evaluation at the unit. The induced canonical presentation gives the same excursion operator, independent of (V,α,β).
 
@@ -1121,7 +1160,7 @@ Unit tests:
 
 - `coefficient_biinvariant`: For diagonal a,b∈H, f_D(a g_i b)=f_D(g_i).
 
-**Needs:** [LP2e.14](#lp2e14-excursion-data); **ReductiveGroupsPartII, RG2.5**.
+**Needs:** [SR.6.3][SR63]; [LP2e.14](#lp2e14-excursion-data); **ReductiveGroupsPartII, RG2.5**.
 
 **Source:** [Fargues–Scholze][FS-geometrization], Proof VIII.4.1, pp.291–292.
 
@@ -1762,6 +1801,8 @@ Apply LP3 only to the conclusions that need it: integral invariants, higher-coho
 
 ### LP2i.1 Integral invariant comparison
 
+The ring isomorphism is the comparison imported from [SR.6.3, excursion-invariant-comparison][SR63]. This target proves the stronger enhanced IndPerf comparison and identifies its invariant-ring corollary with that imported map.
+
 Assume l∤|π₁(H)_tors|. Then colim_{F_n→W}O(Z¹(F_n,H))→O(Z¹(W,H)) is an isomorphism in IndPerf(BH) over Z_l. In particular Exc(W,H)≃O(Z¹(W,H))^H as Z_l-algebras.
 
 **Hypotheses.** l≠p; finite-wild W. These are stronger integral assertions than the unconditional universal homeomorphism or underlying D(Z_l) comparison.
@@ -1770,7 +1811,7 @@ Assume l∤|π₁(H)_tors|. Then colim_{F_n→W}O(Z¹(F_n,H))→O(Z¹(W,H)) is a
 
 **Checks.** For H a torus the π₁ torsion condition is automatic. At a bad π₁ prime retain the universal homeomorphism and geometric character bijection; this theorem is unavailable.
 
-**Needs:** [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); [LP2e.9](#lp2e9-excursion-algebras); **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
+**Needs:** [SR.6.3][SR63] for the ring comparison; [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); [LP2e.9](#lp2e9-excursion-algebras); **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315.
 
@@ -1899,3 +1940,7 @@ Page numbers above refer to the linked versions. For Fargues–Scholze, printed 
 [KSS-endo-parameters]: https://arxiv.org/pdf/1611.02667
 
 [Quast-pseudocharacters]: https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf
+
+[SR61]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#sr61-finite-wild-parameters
+[SR62]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#sr62-finiteness-of-the-invariant-quotient
+[SR63]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md#sr63-the-excursion-algebra-and-its-coefficient-functions
