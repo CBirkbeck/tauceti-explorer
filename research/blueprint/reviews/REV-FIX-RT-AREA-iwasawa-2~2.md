@@ -1,3 +1,88 @@
+# Checkpoint: independent fix review #6219
+
+Codex (GPT-6), session `codex-ldSpYt`, 10 October 2026.
+[Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6093875949).
+Input atlas commit `1a222db6cd0e0c961cc2978757874e37dfcef15f`.
+This session did none of the fixes under review and took one job.
+
+The authorized fix review retains **accepted** for L3 and **needs_changes**
+for PMIA. No new mathematical correction was found in the selected contracts.
+The preceding receipts are preserved whole in `reviewHistory`. This is a
+checkpoint because the live issue and queue require different review outputs.
+
+## Fresh review evidence
+
+Read all six verified findings and their dispositions, the fixes note, the
+authorized packets' selected Gamma/Gross–Koblitz and DK algebra contracts,
+and the omitted packets' 29 L3-2 and four integral/open-syntomic contracts
+read-only. The finding-by-finding verdicts below remain applicable:
+
+| Finding | This session's disposition |
+|---|---|
+| /1 | Accept the Gamma/Gross–Koblitz correction in L3. Signed interpolation, both recurrence branches, the modulus-4 exception and chosen-root compatibility are retained. Dwork coefficient/splitting inputs remain external. |
+| /2 | Retain L3-2 as Ferrero–Greenberg owner. Zhao Theorem 4.1 and Lemma 4.2, pp.472–473, support the odd primitive character, branch χ ω and conductor correction; χ(p)=1 removes that correction. Arithmetic nonvanishing remains external. No receipt installed outside authorized paths. |
+| /3 | Retain the general integral/open log-syntomic producer in CohomologyComparisons Part II and the D.2 smooth consumer. EN Proposition 2.1 and Theorems 2.2–2.3, pp.5,7–8, distinguish divided small-weight comparison from bounded undivided comparison. CN Corollary 3.16 p.37 and NN Proposition 4.13 pp.53–54 support the normalized rational exponential. CS.0–CS.3 stays external. |
+| /4 | Accept the source corrections while retaining PMIA needs_changes for coordinated current-library reuse. DK §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26 and §6.1 p.40 support the selected image-ring, presentation, compound-preimage and transpose contracts. |
+| /5 | Preserve the explicit derived finite-slope gap and shared Stein owner. No fresh full LAD audit is claimed. |
+| /6 | Preserve the verifier's rejection and RS-16's separate Hecke and Euler-system routes. |
+
+The public Morita, Robert and GK PDFs were freshly downloaded. Scanned
+Morita pp.255–256, GK pp.570–571 and Robert pp.162–168 were visually read;
+Robert's dyadic estimate keeps the binary digit sum. Public DK, Zhao, EN, CN
+and NN PDFs were downloaded and selected locations above read. Their hashes
+match the retained source tables below. The Gross historical account and the
+preceding full L6/test audit were not repeated; their evidence is inherited.
+No restricted book or verbatim source passage was added.
+
+Read `ContinuousMap.unitsOfForallIsUnit`,
+`PadicInt.norm_int_le_pow_iff_dvd`, `Module.projective_lifting_property`,
+`Matrix.mul_adjugate` and `Matrix.adjugate_mul` at pinned Mathlib. The
+current read-only roadmap revision is
+`8c72a04753b11cab07fa593cc38ceaa7c0515380`; current Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Native Fitting/transpose
+interfaces and their hypotheses were read against StableReduction and
+QuiverRepresentations. The migration boundaries below remain current:
+reuse the four generic Fitting nodes and elementary transpose APIs together
+with their consumers/requests/reader/signatures; retain specialized adapters
+and proof obligations. The packet's older pins were not changed.
+
+This session does not claim a new exhaustive audit of all 1,663 L3 or 487
+PMIA nodes or a fresh run of the preceding scratch-only L3 assembly.
+
+## Fresh validation
+
+| Check | Result |
+|---|---|
+| L3 packet checker | Exit 0; zero errors, 26 inherited short-API warnings. |
+| PMIA packet checker | Exit 0; zero errors/warnings. |
+| Full PMIA `lean-check` | Exit 0; 1,075 `sorry` warnings only. |
+| Standalone L3 `lean-check` | Exit 1 at unknown module prefix `research`; body not processed. |
+| `issues.deliverables_complete` | True for live issue's five outputs; False for queue's nine outputs. |
+
+Checks ran sequentially in the supplied pinned build, with sufficient memory.
+No new Lake project, library build, language server or current-main build was
+used. The mathematical data and suggested files remain unchanged.
+
+## Blocking dispatch mismatch
+
+The queue additionally requires the L3-2 and D.1 packets and their suggested
+files. L3-2 has no review receipt; D.1 has its newer independent full regulator
+review. The queue requires this exact fix-review id on every packet, and
+`needs_changes` counts as completed. PMIA's verdict is not the dispatch blocker.
+
+[WORKERS.md](../WORKERS.md) says: “Edit only the files the issue names, plus
+your own scratch space.” Authorization for the four additional paths was
+requested and has not arrived. They were not edited. Reconcile the live issue
+with the queue or authorize the extra scoped reviews before redispatching.
+The handoff names the paths and preservation requirements.
+
+## Retained preceding review — codex-nadu6T
+
+Everything below is retained prior-session evidence, with its original
+provenance and validation claims. “Fresh” and “this session” below refer to
+`codex-nadu6T`, not this continuation.
+
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
 Codex (GPT-6), session `codex-nadu6T`, 10 October 2026; issue
