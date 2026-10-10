@@ -1,10 +1,12 @@
 # Independent review of topology fix round 4
 
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex, session
-`codex-RtLe8Y`, 10 October 2026. Atlas base
-`5d4af89bf2de1fd967c5e9716b9e4721c399de97`.
+`codex-ERbW4d`, 10 October 2026. Atlas base
+`5cdfc20ff5997ed93a73fadb6310c5b00fab0451`.
 
-This continues Claude `claude-I6EWxn`'s checkpoint in
+This continues Codex `codex-RtLe8Y`'s checkpoint in
+[PR #8353](https://github.com/CBirkbeck/tauceti-explorer/pull/8353), which continued
+Claude `claude-I6EWxn`'s
 [PR #6944](https://github.com/CBirkbeck/tauceti-explorer/pull/6944).
 Reviewed work: `FIX-RT-AREA-topology~4`, Codex `codex-BLPWxk`,
 [PR #6873](https://github.com/CBirkbeck/tauceti-explorer/pull/6873),
@@ -20,8 +22,8 @@ a review of Tau Ceti's own roadmaps.
 | Packet | Verdict | Reason |
 |---|---|---|
 | Polylogarithms | **accepted** | /7's ownership and geometric prerequisites are correct; the early ideal-region gap remains explicit. |
-| HabiroNahmSeries | **accepted** | /11's formal/analytic split and qualified exports are correct; assembly resolved the earlier material reader objections. Small corrections made here are listed below. |
-| QSeriesPartitionsAndMockModularForms | **needs_changes** | /13's scalar owner split is correct, but reader synchronization and the generic matrix-cocycle request remain. Earlier broad blueprint rejections remain binding. |
+| HabiroNahmSeries | **accepted** | /11's formal/analytic split and qualified exports are correct; assembly resolved the earlier material reader objections. The preceding checkpoint's small corrections were confirmed. |
+| QSeriesPartitionsAndMockModularForms | **needs_changes** | /13's scalar owner split and Part II routing are correct after clarification below, but reader synchronization remains. Earlier broad blueprint rejections remain binding. |
 
 The replaced top-level reviews are preserved in `reviewHistory`, including
 QSeries' later `REV-FIX-RT-AREA-automorphic-1~5` rejection. The new objects name
@@ -84,7 +86,7 @@ opening distinguishes a complete planning pass from proofs or implementation.
 Its export target is governed by `HB.10/etale-nahm-cohomology-export`, requiring
 actual comparison maps.
 
-Corrections made here:
+Corrections from PR #8353, independently confirmed in this continuation:
 
 - Replace the knot-matrix source's TeX label by GSWZ Remark 4.2, equation
   (233), printed p. 48, with an accurate description of the integral recipe.
@@ -120,7 +122,7 @@ QT.3/QT.4 and HC.3/HC.4. Its §4 vector law, pp. 102–104 is not an unrestricte
 scalar law: the packet keeps the subgroup and multiplier/finite-image
 qualifications. Formal evaluation is not an automatic analytic limit.
 
-Corrections made here:
+Corrections from PR #8353, independently confirmed in this continuation:
 
 - Correct the Poincaré comparison's inconsistent locator to Zagier Example 4,
   equations (28)–(30), printed pp. 11–12; identify the additional formal
@@ -131,13 +133,29 @@ Corrections made here:
   request and QM.5 → QT.7 direction. No reverse QT.7 prerequisite occurs in
   QM.5.
 
-Remaining corrections are concrete. The reader's eight-row export table omits
-the scalar cocycle and retains older multiplier, trefoil and coefficient
-wording; its QT.7 bullet still describes a prospective consumer. Synchronize
-it with all nine packet contracts. Supply the generic matrix interface through
-its assigned owner, or explicitly scope it to QSeries Part II, retaining the
-consumer's domains, weights/branches and analytic-extension criteria. A
-knot-specific conditional composition identity does not answer that request.
+This continuation corrects the QM.5 coverage note's undecided owner wording.
+The consumer's open request already has the explicit route
+`QSeriesPartitionsAndMockModularForms, Part II where this general interface is absent`.
+The base packet now records that route consistently, retaining the common
+pole-free domains, branch-aware weights and analytic-extension requirements.
+This is an honest supplier gap with an assigned owner, not an unfixed scalar
+definition or a reason by itself to reject the bounded correction. No new
+generic matrix interface is claimed. A knot-specific conditional composition
+identity still does not supply that interface.
+
+Remaining reader corrections are concrete. Its eight-row export table omits
+the scalar cocycle and calls the Kontsevich multiplier the eta multiplier
+rather than its inverse. Its first QM.5 acceptance bullet calls
+`1, 23, 1681, 257543` the Taylor coefficients of `e^{-t/24}F(e^{-t})`;
+these are the scaled numbers `c_n`, with coefficients `c_n/(24^n n!)`.
+Direct expansion through degree three gives
+`1, 23/24, 1681/1152, 257543/82944`, agreeing with the packet's normalization.
+The reader's restructuring paragraph still says QT.7 has no nodes and describes
+a prospective consumer, although its current accepted packet has 106 nodes.
+Synchronize these locations with all nine packet contracts. The reader's
+trefoil row already requires the color, orientation and normalization
+comparison, so the inherited report's claim that this row still needed that
+qualification is withdrawn.
 Also retain the native-form, fifth-order coordinate and proof/supplier
 obligations of `REV-QSeriesPartitionsAndMockModularForms` and its pending
 revision. A narrow fix review cannot promote the whole packet past them.
@@ -163,9 +181,9 @@ full review of that blueprint.
 | /8 | **Handoff accepted.** Cusped ordered face-pairings, completeness and finite-volume geometry are requested explicitly. G4 retains the missing supplier/connectivity/rigidity conditions; closed Mostow material is insufficient. |
 | /9 | **Handoff accepted.** Extended pre-Bloch/kernel, flattening and Rogers nodes specify the extra comparison. G5 keeps cut-cover, transfer and torsion issues; no canonical lift follows from ordinary Bloch descent. |
 | /10 | **Handoff accepted.** QT.6 names NZ and root-refined data/series, invariance and integral-Nahm comparison. G6 retains unimodularity, parity, coefficients and normalization; the actual Habiro refinement is imported. |
-| /11 | **Supplier fix accepted after corrections.** Formal and analytic exports remain distinct and qualified. Material reader omissions are resolved; locator, numerical boundary and comments corrected here. |
+| /11 | **Supplier fix accepted.** Formal and analytic exports remain distinct and qualified. Material reader omissions are resolved; the prior checkpoint's locator, numerical boundary and comment corrections were confirmed. |
 | /12 | **Handoff accepted.** Current Kashaev evaluation/lift, volume conjecture and sourced proved cases keep G3 normalization and distinguish conjectures from theorems. |
-| /13 | **Needs changes.** Nine scalar supplier contracts are correct, but reader synchronization and the generic matrix request remain, together with broad independent blueprint objections. |
+| /13 | **Needs changes in the reader.** Nine scalar supplier contracts are correct. Clarified the base coverage note to agree with the consumer's existing Part II route for the generic matrix interface; the gap remains explicit. Reader synchronization and broad independent blueprint objections remain. |
 | /14 | **Handoff accepted.** Faddeev, functional/inversion and operator-pentagon, selected analytic and AK charged/leveled nodes name the missing interfaces. G7 retains contour, operator, microlocal and tail obligations. The formal pentagon remains a common-toolkit request. |
 | /15 | **Handoff accepted.** General resurgence/Borel summation is explicitly outside QT. The retained knot coefficient-asymptotic statement is a named conjecture with its phase discrepancy in G8. |
 | /16 | **Handoff accepted.** Current restructuring records QT Part II's Wheeler knot-specific lift and relative-Habiro supplier, with Habiro §7/MMR inputs. Bouis–Gazda is explicitly excluded. |
@@ -187,7 +205,7 @@ atlas extract, live data, link map or restructuring-result file was edited.
 ## Evidence and checks
 
 Read WORKERS, both protocols, UPSTREAM_GUIDE, the full fix report, all 27 claims
-and verification records, the checkpoint review, relevant accepted supplier
+and verification records, both checkpoint reviews, relevant accepted supplier
 parts/readers and current consumer. Reviewed library audits: AUDIT-30 for P.2,
 AUDIT-14 for HB.4/HB.8/HB.10 and AUDIT-15 for QM.5. Their historical duplicate
 attributions are checked against current contracts.
@@ -198,11 +216,13 @@ At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, read `AnalyticOnNhd`
 (`Analysis/Matrix/PosDef.lean`) and `TopPair`
 (`Topology/Category/TopPair.lean`). At Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`, checked `FramedOrientedPDCode`'s
-component framing and Gaussian covariance/standard-density statements. These
+component framing, `covMatrix_multivariateGaussian` and
+`multivariateGaussianPDFReal_def`. Their three shared-build source files match
+the raw files at that commit byte for byte. These
 give tools, not Nahm asymptotics, a formal Gaussian bracket or link realization.
 No new baseline declaration or definition was added.
 
-Read current upstream at `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`: relevant
+Read current upstream at `39200cfdcc19dbfeb09ffa3154f721eb56977e92`: relevant
 DifferentialGeometry README layers and the actual `integralTopForm_mextDeriv`
 signature, GeometricTopology layers and AlgebraicTopology inventory/relative
 homotopy. Read current Tau Ceti's Riemannian-measure definitions separately.
@@ -224,10 +244,10 @@ own words. No restricted book or source passage was copied.
 0 warnings**. Node counts: 75, 109 and 537. There are no link-map or
 restructuring-result deliverables; packet-internal restructuring notes are
 checked with their packets. No `excerpt` field is present in any of them.
-`python3 research/blueprint/intake.py check-files` passes on all six changed
+`python3 research/blueprint/intake.py check-files` passes on all five changed
 files with **0 problems**; `git diff --check` also passes.
 
-With 105 GB memory available before compilation, sequential `lean-check` runs
+With 97–100 GB memory available before compilation, fresh sequential `lean-check` runs
 at the prescribed pin returned exit 0 for all three:
 
 | Suggested file | Errors | Warnings |
@@ -236,8 +256,8 @@ at the prescribed pin returned exit 0 for all three:
 | HabiroNahmSeries.lean | 0 | 441, all `sorry` |
 | QSeriesPartitionsAndMockModularForms.lean | 0 | 1,469, all `sorry` |
 
-The Habiro count belongs to today's assembled file, not the checkpoint's older
-273-warning file. The later edit adds comments only. Elaboration verifies
+The Habiro count belongs to the current assembled file, not the earlier
+273-warning file. No suggested declaration changed in this continuation. Elaboration verifies
 signatures and tests, not the admitted proofs or analytic comparisons.
 
 ## Submission scope
@@ -249,6 +269,7 @@ plus your own scratch space." The local queue additionally names ArithmeticQuant
 Polylogarithms--P.2 packets/Lean files; its prompt file is absent. Those two
 packets currently have different independent top-level reviewers, so the
 `issues.py` completion predicate demands reviews outside the issue's writable
-scope. This discrepancy has been raised for clarification. The three specified
+scope. This discrepancy was raised for clarification before the independent
+checks; no authorization to expand the file list has arrived. The three specified
 reviews and all 27 dispositions above are complete; the two additional reviews
 were not silently overwritten contrary to WORKERS.md's file restriction.
