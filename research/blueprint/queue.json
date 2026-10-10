@@ -47891,7 +47891,8 @@
     "PKG-EllipticCurveModularityImaginaryQuadratic~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityImaginaryQuadratic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7926"
   },
   {
    "id": "PKG-EllipticCurveModularityPartII",
@@ -48007,8 +48008,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7899"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7899",
+   "finishedAt": "2026-10-10T00:36:26Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -48185,7 +48187,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7902"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles",
@@ -48271,8 +48274,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeometricSatakeAndFusion.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7473"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7473",
+   "finishedAt": "2026-10-10T00:36:30Z"
   },
   {
    "id": "REV-PKG-GeometricSatakeAndFusion",
@@ -48408,8 +48412,9 @@
    ],
    "revisionOf": "PKG-HabiroCohomologyFoundations",
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7903"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7903",
+   "finishedAt": "2026-10-10T00:36:36Z"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~2",
@@ -81270,8 +81275,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
