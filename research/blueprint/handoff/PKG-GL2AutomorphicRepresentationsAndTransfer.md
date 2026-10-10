@@ -1,143 +1,141 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Issue: #7901. Worker: Codex (GPT-6), session `codex-kBRc5k`. Date: 2026-10-10.
-Continues PRs #8068, #8149 and #8161.
+Issue: #7901. Worker: Codex, session `codex-kkVnMc`. Date: 2026-10-10.
+Continues PRs #8068, #8149, #8161 and #8174.
 Status: **partial; blocked on mathematical prerequisite closure**. Do not send
 this package upstream as a completed roadmap.
 
-The bot confirmed this claim in
-[comment 6092370908](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6092370908).
-No manager-priority issue was available at selection. This available focus
-package was selected under WORKERS.md; no second issue was claimed.
+The bot confirmed the claim following
+[comment 6092671676](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6092671676).
+No issue on the manager's priority list was available at selection. This focus
+package was selected under WORKERS.md. No second issue was claimed.
 
 ## What this run changed
 
-The newvector existence and dimension signatures no longer need to be omitted.
-Mathlib's pinned `IsNonarchimedeanLocalField` provides the valuation ring and
-maximal ideal, and its `Representation` and `Representation.invariants` supply
-the actual GL₂(F) representation and fixed-vector carriers.
+The R16.2 Iwahori oldforms target now has a faithful suggested declaration,
+`TauCeti.GL2Blueprint.iwahoriOldforms`, rather than a signature omission.
 
-- `localK1` abbreviates the existing last-row `k1` subgroup over the valuation
-  ring, mapped into GL₂(F) by `Matrix.GeneralLinearGroup.map`. It introduces
-  neither another local-field carrier nor another congruence construction.
-  Its level-zero, antitone and integral-containment lemmas are accompanied by
-  three matrix tests: upper versus lower unipotents, and a nonidentity diagonal
-  unit. The tests exclude the wrong-row and principal-congruence conventions.
-- `newvectorLevelExists` has actual irreducibility, open vector stabilizers,
-  finite-dimensional invariants for every compact open subgroup, and infinite
-  dimensionality. It concludes a nonzero fixed vector at some level; it does
-  not assume that conclusion or a conductor exponent.
-- `casselmanNewvector` states the full fixed-space dimension formula at every
-  natural level, using the earlier least-level conductor and natural truncated
-  subtraction. It does not assume that a one-dimensional fixed space exists.
-- `casselmanNewvector_k0_character` states the central-character action on the
-  minimal fixed space when the conductor is positive. The unit supplied to the
-  character is exactly the lower-right matrix entry, embedded in F, rather
-  than an arbitrary determinant. Level zero remains the spherical case.
-- `casselmanNewvector_whittaker_eval` uses an actual nonzero linear functional
-  equivariant for the specified upper unipotent matrices, and a continuous
-  additive character trivial on O but nontrivial on the inverse maximal ideal.
-  It concludes nonvanishing on the minimal fixed line without assuming that
-  restriction is nonzero. Existence of the functional is imported from SR.2.3.
-- The README specifies these baseline carriers and hypotheses, the subgroup
-  specialization API and tests, and the precise Casselman page locators.
+- `localK0` is an abbreviation for the coefficient-map image of the existing
+  lower-left `k0` over the valuation ring. It has level-zero, antitone and
+  containment API, and three tests distinguishing upper/lower unipotents and
+  integral scalars. It introduces no second congruence subgroup or local-field
+  carrier.
+- `iwahoriOldforms_dimensions` uses an actual representation of GL₂(F),
+  Mathlib irreducibility and invariant submodules, open vector stabilizers,
+  finite-dimensional compact-open invariants, infinite dimensionality and a
+  nonzero spherical vector. It concludes spherical dimension one and Iwahori
+  dimension two.
+- `iwahoriOldforms` states the full characteristic-zero cyclicity and
+  quadratic relation. The operator is the finite sum of π(g_a), where the
+  matrices g_a=(ϖ a;0 1) are specified and a runs through exactly one
+  representative of each residue class. No independent operator, arbitrary
+  Hecke algebra or conclusion about fixed-space dimensions is assumed.
+  The spherical eigenvalue is imposed on the actual double-coset sum, and
+  c is the actual central action of ϖ. On the basis (v,π(diag(1,ϖ))v), the
+  matrix has columns (λ,−1) and (qc,0); this gives cyclicity even when the
+  Satake roots coincide. The finite sum specializes the SR Hecke action;
+  it does not rebuild the generic Iwahori–Hecke algebra or its center.
+- Three companion-matrix tests check the repeated-root Jordan case, the
+  quadratic polynomial, and failure when its constant coefficient is halved.
+  These are tests of that explicit matrix comparison, not constructions of
+  an automorphic representation.
+- `iwahoriDeterminantCharacter` and its nontrivial-character example give
+  the actual excluded family: χ∘det on ℂ, with χ trivial on O×, has both
+  fixed spaces equal to the whole line. Even a nontrivial such representation
+  has Iwahori dimension one. This checks the necessity of the infinite-
+  dimensional hypothesis already recorded in packet source issue E13.
+- The README explains the coset normalization, operator comparison, tests
+  and prerequisites. Its CG20 bibliography now gives the exact title and a
+  public **published** copy, rather than silently treating the author's
+  advance-publication pagination as printed journal pagination.
 
-The local principal-series/Steinberg source models and ramified U_p comparison
-remain missing interfaces. These signatures repair part of the recorded
-newvector gap, **not that whole gap**. General
-smoothness, admissibility, contragredients and Whittaker-functionals remain
-owned by SmoothRepresentationsOfLocalGroups SR.3 and SR.2.3; this run does not
-re-plan that theory.
+All previous positive repairs remain: Casselman existence, dimension,
+K₀ central-character action and Whittaker evaluation, the Hilbert tensor
+representation, newform normalization, fixed-central-character supercuspidal
+projectivity and the integral GL₂(F₃) section. Other explicit signature
+omissions still mark missing interfaces; their names are not declarations.
+No packet or another job's deliverable was edited.
 
-Preserved earlier repairs include the actual finite tensor of symmetric powers
-and its product action, the actual newform q-expansion normalization test, the
-explicit mod-three integral matrix section, and the fixed-central-character
-supercuspidal projectivity signature on existing equivariant linear maps.
-Other honest omission blocks remain; their names are not full Lean signatures.
+## Blocking evidence and file restriction
 
-## Why the package cannot be completed in this job
+Both accepted input packets retain eight gaps, with no closed stages. In
+particular, `R17.5/tunnell-primitive-globalization` and
+`R17.5/prescribed-local-induction` need extension of prescribed characters
+on **full local multiplicative groups**, and the latter also needs compatible
+CM infinity components. The cited torsion-idele extension has a different
+domain. This run reread Patrikis Lemmas 2.3.1 and 2.3.6 and checked the current
+upstream and library contracts; the missing supplier has not appeared.
 
-The issue describes the input as complete, but the accepted packets retain
-eight gaps each. The packet checker accepts a complete planning pass with
-recorded gaps, whereas WORKERS.md and UPSTREAM_GUIDE.md require a gap-free
-roadmap. The issue's rule is explicit: “Change no packet; if the plan has a
-mistake, describe it in the handoff note.” The prescribed-local-character gap
-already says that neither required extension theorem has an Atlas owner.
-This run independently checked the relevant current upstream contracts and
-source domains; that owner is still absent. A package-only change cannot
-assign an accepted owner and proof chain to the missing theorem.
+Current GlobalNumberFields Layers 9–10 supply Hecke characters, local
+components, finite-order/ray-class factorization and infinity-type
+compatibility for an **existing** character. In the current Lean statements,
+`HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` and
+`HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` both take χ as
+an input. Neither produces a character satisfying given local components.
+ClassFieldTheory explicitly excludes prescribed local abelian extensions and
+Grunwald–Wang. Its general existence and Kummer targets do not state the needed
+Chevalley S-unit congruence/character-prescription theorem. The packet itself
+records that this extra theorem has no Atlas owner.
 
-`metadata.toml` remains absent. The intake completion predicate treats the
-package as finished when all deliverables exist, irrespective of a partial
-handoff status. Create its one line, `topic = "math.NT"`, when the substantive
-closure requirements have been met. Its absence keeps this a checkpoint.
-Only the package README, Suggested.lean and this handoff were changed.
+The issue's binding scope restriction is: **“Change no packet; if the plan
+has a mistake, describe it in the handoff note.”** Completing this package
+would require repairing the missing owner/proof chain in the plan, or falsely
+claiming a dependency supplies it. This checkpoint therefore stops on that
+specific blocker; it is not a time-limit checkpoint or a wait for supplier
+implementation. The additional Iwahori interface is fully stated independently
+of that blocker.
+
+`metadata.toml` remains absent, as in the earlier checkpoints. The intake's
+completion predicate treats this job as finished when all deliverables exist;
+creating the metadata now would incorrectly mark this mathematically open
+package complete. Once closure is supplied, write `topic = "math.NT"`.
 
 ## Validation
 
 `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
-exited **0**, with **122 warnings, all declaration uses `sorry`**, no errors
-and no other warnings. Available memory was 105 GB before the check. The build
-uses pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`; the newer read-only audit trees
-were not used for compilation. This validates elaboration, not proofs or the
-omitted interfaces.
+exited **0**, with **135 warnings, all declaration uses `sorry`**, no errors
+and no other warnings. Memory available before compilation was 104 GB.
+The managed build uses Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and the supplied Tau Ceti pin
+`f790474821cf4256814db967cb154e7af3d0c369`.
+This checks signatures, not proofs. Final changes after that successful
+compilation only clarified source citations in comments.
 
-Both `scripts/check_blueprint.py` input checks report zero errors and warnings,
-eight gaps each, 32 and 35 requests respectively, and zero closed stages.
-The README is **199,036 bytes**, below the 200 KB limit. All inherited target,
-API and test headings remain; name coverage does not certify omitted signatures.
+Both input `scripts/check_blueprint.py` checks report **zero errors and
+warnings**, eight gaps each, 32/35 requests, 55/57 nodes and zero closed stages.
+An independent exact-integer matrix calculation verified the three companion
+matrix tests and g_a diag(1,ϖ)=ϖI₂(1 a;0 1) in the sample ϖ=5.
 The scoped intake file check and `git diff --check` pass.
+The README stays below 200,000 bytes, with every inherited target heading
+retained. Successful elaboration and name coverage do not close other gaps.
 
-## Current upstream and source checks
+## Upstream and source receipts
 
-Read-only TauCetiRoadmap commit:
-`d6f707516e7ede3181dac4b2420ba25c0799d22d`.
-Read-only current Tau Ceti commit:
+The current read-only TauCetiRoadmap checkout is
+`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti is
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-These are audit references, **not the compilation pins**. This run read current
-GlobalNumberFields and ReductiveGroups READMEs in full, the ClassFieldTheory
-scope exclusion, and the relevant Hecke-character declaration statements.
-The reviewed `data/library-coverage.json` was consulted for the GL₂ stages.
+These are audit references, not the compilation baseline. This run read
+GlobalNumberFields and RepresentationTheory/InductionRestriction READMEs
+in full, the relevant ClassFieldTheory scope exclusion and current
+Hecke-character signatures, and consulted `data/library-coverage.json` for
+all GL₂ layers. The pinned `Representation`, `Representation.invariants`,
+`Representation.IsIrreducible`, `Matrix.GeneralLinearGroup`, its coefficient
+map and `IsNonarchimedeanLocalField` statements were read directly.
+Neither read-only checkout nor its Lake environment was changed.
 
-Current Hecke-character modules live under
-`TauCeti/NumberTheory/NumberField/Global/HeckeCharacter/`:
+Public sources read directly on 2026-10-10:
 
-| API | Exact scope inspected |
-| --- | --- |
-| `HeckeCharacter` in `Basic.lean` | Continuous characters of the actual number-field idele class group into ℂˣ. |
-| `HeckeCharacter.ofRayClassCharacter` | Pullback of an already supplied ray-class character. |
-| `HeckeCharacter.finiteComponent` | A character on the units of the actual finite completion, derived from an already supplied global character. |
-| `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter` | Factorization of an existing finite-order character; χ is an input. |
-| `HeckeCharacter.exists_modulus_embeddingCharacter_eq_one` and `isOfFinOrder_embeddingCharacter_units` | Necessary compatibility for an existing χ and its agreement with an infinity type; neither constructs a χ with simultaneous prescriptions. |
+| Source | Locations inspected | SHA-256 |
+| --- | --- | --- |
+| [Calegari–Geraghty, *Minimal modularity lifting for nonregular symplectic representations*, published Duke 169 (2020), NSF copy](https://par.nsf.gov/servlets/purl/10184292) | §1.3, printed pp. 805–806: dimensions and characteristic-zero doubling; the “not trivial” wording remains in the published text. | `900ff1b1c583366bc2a248dd09630f973a2108f5aae2204f17c7f536d9d9b1bd` |
+| [Calegari–Geraghty, advance-publication author copy](https://math.uchicago.edu/~fcale/papers/Siegel.pdf) | Title page and §1.3, printed author-copy pp. 5–6; these correspond to published pp. 805–806. | `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5` |
+| [Casselman, *On some results of Atkin and Lehner* (1973)](https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf) | Printed p. 306, principal/special calculations and Corollary to the Proof, viewed as a page image. Earlier newvector checks are preserved from the prior checkpoint. | `7f91ebae1a8f5e695800f4afb9fc06d0e2ea0b3a476751a31a7c8c3f38ad537d` |
+| [Patrikis, author revision of 31 July 2016](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf) | Lemma 2.3.1, p. 28, and Lemma 2.3.6 and its proof, pp. 30–31: infinity-type existence and torsion-domain extension. | `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81` |
 
-GlobalNumberFields Layers 9–10 therefore supply carriers, components and
-compatibility of given characters, not the needed full-local existence
-contract. ClassFieldTheory explicitly excludes Grunwald–Wang and prescribed
-local abelian extensions. Its Kummer/Chebotarev prerequisites are ingredients,
-not the missing theorem itself. Do not confuse this with a missing current
-Hecke-character carrier, or restore a replacement carrier on arbitrary groups.
-
-Sources read directly in this run, in our own words:
-
-- [Casselman, *On some results of Atkin and Lehner* (1973)](https://lesesvre.perso.math.cnrs.fr/newforms-references/casselman.pdf),
-  printed pp. 301–307, especially Theorem 1 on p. 302, its proof on pp. 303–306
-  and the Corollary to the Proof on p. 306. The printed top-left convention
-  requires the contragredient/central-character twist to obtain the lower-last-row
-  convention here. The source covers dyadic residue characteristic.
-  SHA-256: `7f91ebae1a8f5e695800f4afb9fc06d0e2ea0b3a476751a31a7c8c3f38ad537d`.
-- [Patrikis, author revision of 31 July 2016](https://people.math.osu.edu/patrikis.1/variationsrevision.pdf),
-  Lemma 2.3.1, printed p. 28, and Lemma 2.3.6, printed pp. 30–31.
-  The first specifies an infinity type; the second extends a torsion-idele
-  character. Neither states simultaneous full finite local prescriptions.
-  SHA-256: `e5e9527daf697d92043ddee823e7f1f2c6882ba84c4f67fffbb77e520e3a0a81`.
-
-The mathematical audit below preserves the earlier checkpoints' Carayol,
-Tunnell, Dospinescu–Le Bras and Gelbart–Jacquet findings. Their source editions
-and precise locators remain in the package bibliography and target citations;
-this run does not claim to have reread those articles. No private book was
-needed, no source file or source passage is committed, and no read-only
-upstream checkout or Lake environment was changed.
+The public CG20 source supports the existing corrected target; no new erratum
+was added. No private book was needed, no source file or passage is committed,
+and this run does not claim to have reread the sources of every inherited
+target. The detailed closure audit below is retained from earlier checkpoints.
 
 ## First blocking mismatch: prescribed local characters
 
