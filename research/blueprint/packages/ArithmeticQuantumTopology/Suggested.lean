@@ -16,6 +16,9 @@ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Data.Matrix.Basis
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Data.Rat.Lemmas
+import Mathlib.RingTheory.Coprime.Lemmas
+import Mathlib.Tactic.LinearCombination
 import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
@@ -1518,7 +1521,7 @@ example (m : ℤ) : figureEightDescendantAtRoot (m + 1) 1 1 -
 /-! QT.7: the rational denominator cocycle and its explicit diagonal factor.
 The volumes and weights are supplied representation data; these formulas do
 not construct the representation-indexed knot matrices. GZ (arXiv:2111.06645v3),
-§3.1, (3.5), Lemma 3.1, p. 16; §4.2, (4.14)–(4.15), p. 30. -/
+§3.1, (3.5), Lemma 3.1, p. 16; §4.5, (4.14)–(4.15), p. 30. -/
 abbrev SL₂ := Matrix.SpecialLinearGroup (Fin 2) ℤ
 
 def rationalPoleFree (γ : SL₂) (x : ℚ) : Prop := (γ 1 0 : ℚ) * x + γ 1 1 ≠ 0
@@ -1529,18 +1532,120 @@ def rationalMobius (γ : SL₂) (x : ℚ) : ℚ :=
 def denominatorCocycle (γ : SL₂) (x : ℚ) : ℚ :=
   (γ 1 0 : ℚ) / ((x.den : ℚ) * ((γ 1 0 : ℚ) * x.num + (γ 1 1 : ℚ) * x.den))
 
-theorem denominatorCocycle_comp (γ η : SL₂) (x : ℚ)
-    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
-    denominatorCocycle (γ * η) x =
-      denominatorCocycle γ (rationalMobius η x) + denominatorCocycle η x := sorry
+private theorem rationalDenominator_mul (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) :
+    ((γ 1 0 : ℚ) * rationalMobius η x + γ 1 1) *
+      ((η 1 0 : ℚ) * x + η 1 1) = ((γ * η) 1 0 : ℚ) * x + (γ * η) 1 1 := by
+  simp only [rationalMobius, Matrix.SpecialLinearGroup.coe_mul, Matrix.mul_apply,
+    Fin.sum_univ_two, Int.cast_add, Int.cast_mul]
+  unfold rationalPoleFree at hη
+  rw [add_mul, mul_assoc, div_mul_cancel₀ _ hη]
+  ring
 
 theorem rationalPoleFree_mobius (γ η : SL₂) (x : ℚ)
     (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
-    rationalPoleFree γ (rationalMobius η x) := sorry
+    rationalPoleFree γ (rationalMobius η x) := by
+  unfold rationalPoleFree at hγη ⊢
+  intro h
+  have := rationalDenominator_mul γ η x hη
+  rw [h, zero_mul] at this
+  exact hγη this.symm
 
 theorem rationalMobius_comp (γ η : SL₂) (x : ℚ)
     (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
-    rationalMobius (γ * η) x = rationalMobius γ (rationalMobius η x) := sorry
+    rationalMobius (γ * η) x = rationalMobius γ (rationalMobius η x) := by
+  have hg := rationalPoleFree_mobius γ η x hη hγη
+  unfold rationalPoleFree at hη hγη hg
+  simp only [rationalMobius, Matrix.SpecialLinearGroup.coe_mul, Matrix.mul_apply,
+    Fin.sum_univ_two, Int.cast_add, Int.cast_mul] at *
+  field_simp [hη]
+  ring
+
+/-- A primitive integer pair reduces only by a sign; squaring removes that sign. -/
+private theorem primitive_den_sq (p q : ℤ) (hq : q ≠ 0) (hpq : IsCoprime p q) :
+    (((p : ℚ) / q).den : ℚ) ^ 2 = (q : ℚ) ^ 2 := by
+  obtain ⟨c, hn, hd⟩ := Rat.num_den_mk hq
+    (show (p : ℚ) / q = Rat.divInt p q by rw [Rat.divInt_eq_div])
+  rcases hpq with ⟨u, v, h⟩
+  have hc : IsUnit c := isUnit_iff_dvd_one.mpr ⟨u * ((p : ℚ) / q).num +
+    v * ((p : ℚ) / q).den, by linear_combination -h + u * hn + v * hd⟩
+  rcases Int.isUnit_iff.mp hc with h | h
+  · rw [h, one_mul] at hd
+    exact_mod_cast congrArg (fun z : ℤ => z ^ (2 : ℕ)) hd.symm
+  · rw [h, neg_one_mul] at hd
+    have : (q : ℚ) = -(((p : ℚ) / q).den : ℚ) := by exact_mod_cast hd
+    have hpow := congrArg (fun z : ℚ => z ^ (2 : ℕ)) this
+    simpa only [neg_sq] using hpow.symm
+
+private theorem denominatorCocycle_eq (γ : SL₂) (x : ℚ) :
+    denominatorCocycle γ x =
+      (γ 1 0 : ℚ) / ((x.den : ℚ) ^ 2 * ((γ 1 0 : ℚ) * x + γ 1 1)) := by
+  have hs : (x.den : ℚ) ≠ 0 := by exact_mod_cast x.den_ne_zero
+  have hx : (x.num : ℚ) = x * (x.den : ℚ) := by
+    exact (div_eq_iff hs).mp x.num_div_den
+  unfold denominatorCocycle
+  rw [hx]
+  congr 1
+  ring
+
+private theorem rationalMobius_den_sq (γ : SL₂) (x : ℚ)
+    (hγ : rationalPoleFree γ x) :
+    ((rationalMobius γ x).den : ℚ) ^ 2 =
+      (x.den : ℚ) ^ 2 * ((γ 1 0 : ℚ) * x + γ 1 1) ^ 2 := by
+  have hs : (x.den : ℚ) ≠ 0 := by exact_mod_cast x.den_ne_zero
+  have hx : (x.num : ℚ) = x * (x.den : ℚ) := by
+    exact (div_eq_iff hs).mp x.num_div_den
+  have hden : ((γ 1 0 * x.num + γ 1 1 * x.den : ℤ) : ℚ) =
+      ((γ 1 0 : ℚ) * x + γ 1 1) * (x.den : ℚ) := by
+    push_cast
+    rw [hx]
+    ring
+  have hq : γ 1 0 * x.num + γ 1 1 * x.den ≠ 0 := by
+    intro hz
+    have hz' : ((γ 1 0 * x.num + γ 1 1 * x.den : ℤ) : ℚ) = 0 := by exact_mod_cast hz
+    rw [hden] at hz'
+    exact mul_ne_zero hγ hs hz'
+  have heq : rationalMobius γ x =
+      ((γ 0 0 * x.num + γ 0 1 * x.den : ℤ) : ℚ) /
+        ((γ 1 0 * x.num + γ 1 1 * x.den : ℤ) : ℚ) := by
+    unfold rationalMobius
+    calc
+      _ = (((γ 0 0 : ℚ) * x + γ 0 1) * x.den) /
+          (((γ 1 0 : ℚ) * x + γ 1 1) * x.den) :=
+        (mul_div_mul_right _ _ hs).symm
+      _ = _ := by
+        congr 1 <;> push_cast <;> rw [hx] <;> ring
+  have hc : IsCoprime (γ 0 0 * x.num + γ 0 1 * x.den)
+      (γ 1 0 * x.num + γ 1 1 * x.den) := by
+    simpa [Matrix.mulVec, dotProduct, Fin.sum_univ_two] using
+      (x.isCoprime_num_den).mulVecSL (v := ![x.num, (x.den : ℤ)]) γ
+  rw [heq, primitive_den_sq _ _ hq hc, hden, mul_pow]
+  ring
+
+theorem denominatorCocycle_comp (γ η : SL₂) (x : ℚ)
+    (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
+    denominatorCocycle (γ * η) x =
+      denominatorCocycle γ (rationalMobius η x) + denominatorCocycle η x := by
+  have hs : (x.den : ℚ) ≠ 0 := by exact_mod_cast x.den_ne_zero
+  have hd : (η 0 0 : ℚ) * η 1 1 - (η 0 1 : ℚ) * η 1 0 = 1 := by
+    exact_mod_cast (show η 0 0 * η 1 1 - η 0 1 * η 1 0 = 1 by
+      simpa only [Matrix.det_fin_two] using η.det_coe)
+  simp only [denominatorCocycle_eq, rationalMobius_den_sq η x hη]
+  have hh : (x.den : ℚ) ^ 2 * ((η 1 0 : ℚ) * x + η 1 1) ^ 2 *
+      ((γ 1 0 : ℚ) * rationalMobius η x + γ 1 1) =
+      (x.den : ℚ) ^ 2 * ((η 1 0 : ℚ) * x + η 1 1) *
+        (((γ * η) 1 0 : ℚ) * x + (γ * η) 1 1) := by
+    calc
+      _ = (x.den : ℚ) ^ 2 * ((η 1 0 : ℚ) * x + η 1 1) *
+          (((γ 1 0 : ℚ) * rationalMobius η x + γ 1 1) *
+            ((η 1 0 : ℚ) * x + η 1 1)) := by ring
+      _ = _ := by rw [rationalDenominator_mul γ η x hη]
+  rw [hh]
+  unfold rationalPoleFree at hη hγη
+  simp only [Matrix.SpecialLinearGroup.coe_mul, Matrix.mul_apply,
+    Fin.sum_univ_two, Int.cast_add, Int.cast_mul] at *
+  field_simp [hs, hη, hγη]
+  linear_combination (γ 1 0 : ℚ) * hd
 
 theorem denominatorCocycle_neg (γ : SL₂) (x : ℚ) :
     denominatorCocycle (-γ) x = denominatorCocycle γ x := by
@@ -1582,7 +1687,19 @@ theorem tweakedAutomorphyEntry_comp (v : ℂ) (κ : ℝ) (γ η : SL₂) (x : �
     (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x) :
     tweakedAutomorphyEntry v κ (γ * η) x =
       tweakedAutomorphyEntry v κ γ (rationalMobius η x) *
-        tweakedAutomorphyEntry v κ η x := sorry
+        tweakedAutomorphyEntry v κ η x := by
+  have hr : ((γ 1 0 : ℝ) * (rationalMobius η x : ℝ) + γ 1 1) *
+      ((η 1 0 : ℝ) * (x : ℝ) + η 1 1) =
+      ((γ * η) 1 0 : ℝ) * (x : ℝ) + (γ * η) 1 1 := by
+    exact_mod_cast rationalDenominator_mul γ η x hη
+  have hp := Real.mul_rpow
+    (abs_nonneg ((γ 1 0 : ℝ) * (rationalMobius η x : ℝ) + γ 1 1))
+    (abs_nonneg ((η 1 0 : ℝ) * (x : ℝ) + η 1 1)) (z := κ)
+  change Real.rpow (_ * _) κ = Real.rpow _ κ * Real.rpow _ κ at hp
+  unfold tweakedAutomorphyEntry
+  rw [denominatorCocycle_comp γ η x hη hγη, Rat.cast_add, mul_add, Complex.exp_add,
+    ← hr, abs_mul, hp, Complex.ofReal_mul]
+  ring
 
 theorem tweakedAutomorphyEntry_neg (v : ℂ) (κ : ℝ) (γ : SL₂) (x : ℚ) :
     tweakedAutomorphyEntry v κ (-γ) x = tweakedAutomorphyEntry v κ γ x := by
@@ -1684,7 +1801,73 @@ theorem matrixTransport_comp {n : ℕ} (J : ℚ → Matrix.GeneralLinearGroup (F
     (hη : rationalPoleFree η x) (hγη : rationalPoleFree (γ * η) x)
     (hj : j (γ * η) x = j γ (rationalMobius η x) * j η x) :
     matrixTransport J j (γ * η) x =
-      matrixTransport J j γ (rationalMobius η x) * matrixTransport J j η x := sorry
+      matrixTransport J j γ (rationalMobius η x) * matrixTransport J j η x := by
+  simp only [matrixTransport, rationalMobius_comp γ η x hη hγη, hj]
+  simp only [mul_assoc, mul_inv_cancel_left]
+
+-- matrixCocycle_constant: the formula preserves the identity factor.
+example {n : ℕ} (γ : SL₂) (x : ℚ) :
+    matrixTransport (fun _ => (1 : Matrix.GeneralLinearGroup (Fin n) ℂ))
+      (fun _ _ => 1) γ x = 1 := by
+  simp [matrixTransport]
+
+-- Invertible test matrices for the conditional transport formula, not knot data.
+private def orderUpper : Matrix.GeneralLinearGroup (Fin 2) ℂ where
+  val := !![1, 1; 0, 1]
+  inv := !![1, -1; 0, 1]
+  val_inv := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+  inv_val := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+
+private def orderLower : Matrix.GeneralLinearGroup (Fin 2) ℂ where
+  val := !![1, 0; 1, 1]
+  inv := !![1, 0; -1, 1]
+  val_inv := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+  inv_val := by
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+
+private def orderJ (x : ℚ) : Matrix.GeneralLinearGroup (Fin 2) ℂ :=
+  if x = 2 then orderUpper else if x = 1 then orderLower else 1
+
+-- matrixCocycle_noncommutative_order: even j=I can yield noncommuting W factors.
+example :
+    matrixTransport orderJ (fun _ _ => 1) (ModularGroup.S * ModularGroup.T) 1 =
+      matrixTransport orderJ (fun _ _ => 1) ModularGroup.S
+          (rationalMobius ModularGroup.T 1) *
+        matrixTransport orderJ (fun _ _ => 1) ModularGroup.T 1 ∧
+    matrixTransport orderJ (fun _ _ => 1) (ModularGroup.S * ModularGroup.T) 1 ≠
+      matrixTransport orderJ (fun _ _ => 1) ModularGroup.T 1 *
+        matrixTransport orderJ (fun _ _ => 1) ModularGroup.S
+          (rationalMobius ModularGroup.T 1) := by
+  constructor
+  · exact matrixTransport_comp _ _ _ _ _
+      (by norm_num [rationalPoleFree, ModularGroup.T])
+      (by
+        simp only [rationalPoleFree, Matrix.SpecialLinearGroup.coe_mul,
+          Matrix.mul_apply, Fin.sum_univ_two]
+        norm_num [ModularGroup.S, ModularGroup.T])
+      (by simp)
+  · intro h
+    have hh := congrArg
+      (fun g : Matrix.GeneralLinearGroup (Fin 2) ℂ => (g : Matrix (Fin 2) (Fin 2) ℂ) 0 0) h
+    simp only [matrixTransport, rationalMobius, Matrix.SpecialLinearGroup.coe_mul,
+      Matrix.mul_apply, Fin.sum_univ_two] at hh
+    norm_num [orderJ, ModularGroup.S, ModularGroup.T, Units.val_mul, orderUpper, orderLower,
+      Matrix.mul_apply, Fin.sum_univ_two] at hh
+
+-- matrixCocycle_singular_J: a zero determinant cannot enter a GL-valued J.
+example : ¬ ∃ g : Matrix.GeneralLinearGroup (Fin 2) ℂ,
+    (g : Matrix (Fin 2) (Fin 2) ℂ) = !![1, 1; 0, 0] := by
+  rintro ⟨g, hg⟩
+  have hdet := Matrix.GeneralLinearGroup.det_ne_zero g
+  rw [hg] at hdet
+  norm_num [Matrix.det_fin_two] at hdet
 
 inductive Provenance where
   | proved | imported | computed | numerical | conjectural
