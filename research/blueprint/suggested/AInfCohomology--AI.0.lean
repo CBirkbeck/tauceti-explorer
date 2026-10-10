@@ -38,6 +38,7 @@ import Mathlib.RingTheory.WittVector.Isocrystal
 # A_inf cohomology: suggested interfaces
 
 BP-AInfCohomology--AI.0~2; Codex, codex-lnF2Fv.
+Independent review REV-AInfCohomology--AI.0~2; Codex, codex-W596V9.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -1060,8 +1061,11 @@ theorem reconstruct_modification (p : ℕ) (phi : A ≃+* A) (xi : A)
 
 -- TauCeti.BKF.reconstruct_test_standard
 example (p : ℕ) (phi : A ≃+* A) (xi : A) :
-    Nonempty ((reconstruct p phi xi (standard (Bp := Bp) (B := B) (ModuleCat.of Z Z))).M ≅
-      (unit p phi xi).M) := by sorry
+    ∃ (f : Hom (reconstruct p phi xi (standard (Bp := Bp) (B := B) (ModuleCat.of Z Z)))
+        (unit p phi xi))
+      (g : Hom (unit p phi xi)
+        (reconstruct p phi xi (standard (Bp := Bp) (B := B) (ModuleCat.of Z Z)))),
+      f.map ≫ g.map = 𝟙 _ ∧ g.map ≫ f.map = 𝟙 _ := by sorry
 -- TauCeti.BKF.reconstruct_test_shift; omitted primitive-root and common-map hypotheses.
 example (p : ℕ) (phi : A ≃+* A) (xi : A) (xiDR : Bp)
     (P : LatticePair (Z := Z) (Bp := Bp) (B := B))
@@ -1907,17 +1911,6 @@ theorem proper_perfectness (p : ℕ) (K : CochainComplex (ModuleCat.{u} A) ℤ)
       (∃ a b : ℤ, ∀ i : ℤ, (i < a ∨ b < i) → Limits.IsZero (C.X i)) ∧
       ∀ i : ℤ, Module.Finite A (C.X i) ∧ Module.Projective A (C.X i) := by sorry
 
-/-- BMS1 Corollary4.17. Omitted: A=A_inf, C is perfect and W is the residue Witt
-ring. Every p-local cohomology is free; the source degree-i Witt reduction is
-p-torsion-free. This yields finite freeness in degree i without dropping the
-adjacent-degree hypotheses of the separate integral base-change statement. -/
-theorem adjacent_degree_freeness {W : Type u} [CommRing W] [Algebra A W]
-    (p : ℕ) (C : CochainComplex (ModuleCat.{u} A) ℤ) (i : ℤ)
-    (hfree : ∀ j : ℤ, Module.Free (Localization.Away (p : A))
-      (LocalizedModule (Submonoid.powers (p : A)) (C.homology j)))
-    (htf : Function.Injective (fun x : (baseChangeComplex (B := W) C).homology i => (p : W) • x)) :
-    Module.Free A (C.homology i) ∧ Module.Finite A (C.homology i) := by sorry
-
 /-- BMS1 Theorem14.3. Omitted: K is the smooth proper AΩ global-section model,
 phi/xi the common periods and the rational crystalline Frobenius input; the
 finite-presentation/p-local-free proofs are conclusions via the BKF data. -/
@@ -2069,7 +2062,8 @@ theorem restricted_sequence_completion [HasDerivedCategory
       ∀ r : ℕ, ∃ N : ℕ, ∀ n, N ≤ n →
         ∃ b : PowerSeries ℚ, s n = PowerSeries.X^r * b) := by sorry
 
-/-- BMS1 Example 6.5: the canonical map, not nonisomorphism of abstract objects.
+/-- Independent example motivated by the warning after BMS1 Lemma 6.19, p.55:
+the canonical map, not nonisomorphism of abstract objects.
 The omitted action/comparison construction is fixed above and in the packet. -/
 theorem unrelated_completion_counterexample : ¬ QuasiIso sequenceComparison ∧
     (∃ s : restrictedSequences, (∀ n, s.val n = PowerSeries.X^n) ∧
@@ -2332,10 +2326,21 @@ the displayed base-ring maps. -/
 theorem witt_etale_base_change {S T U : Type u} [CommRing S] [CommRing T] [CommRing U]
     [Algebra S T] [Algebra.Etale S T] [Algebra S U] (p r : ℕ) [Fact p.Prime] (hr : 1 ≤ r)
     [Algebra (TruncatedWittVector p r S) (TruncatedWittVector p r T)]
-    [Algebra (TruncatedWittVector p r S) (TruncatedWittVector p r U)] :
-    Nonempty ((TensorProduct (TruncatedWittVector p r S)
+    [Algebra (TruncatedWittVector p r S) (TruncatedWittVector p r U)]
+    (hT : algebraMap (TruncatedWittVector p r S) (TruncatedWittVector p r T) =
+      finiteWittMap p r (algebraMap S T))
+    (hU : algebraMap (TruncatedWittVector p r S) (TruncatedWittVector p r U) =
+      finiteWittMap p r (algebraMap S U)) :
+    Algebra.Etale (TruncatedWittVector p r S) (TruncatedWittVector p r T) ∧
+    ∃ e : (TensorProduct (TruncatedWittVector p r S)
       (TruncatedWittVector p r T) (TruncatedWittVector p r U)) ≃+*
-      TruncatedWittVector p r (TensorProduct S T U)) := by sorry
+        TruncatedWittVector p r (TensorProduct S T U),
+      ∀ (t : TruncatedWittVector p r T) (u : TruncatedWittVector p r U),
+        e (TensorProduct.tmul (TruncatedWittVector p r S) t u) =
+          finiteWittMap p r (Algebra.TensorProduct.includeLeft :
+            T →ₐ[S] TensorProduct S T U).toRingHom t *
+          finiteWittMap p r (Algebra.TensorProduct.includeRight :
+            U →ₐ[S] TensorProduct S T U).toRingHom u := by sorry
 
 private def completedCotangent {R : Type v} {S : Type u} [CommRing R] [CommRing S] [Algebra R S]
     (p : ℕ) : Complex S := by sorry
@@ -2354,14 +2359,28 @@ theorem completed_cotangent_twist {O S : Type u} [CommRing O] [CommRing S]
 
 /-- The CR.0 regular-principal PD envelope is imported data. Omitted: its
 universal PD structure and identification with A_inf[xi^j/j!] completed at p.
-This specializes that supplier; it does not plan another PD envelope. -/
-theorem integral_crystalline_ring_interface {C : Type u} [CommRing C] [Algebra A C]
+This specializes that supplier; it does not plan another PD envelope.
+O=O_C and W=W(k), with their canonical maps, are omitted geometric
+identifications. Their p-completeness and theta(xi)=0 are expressible
+hypotheses and are retained below. -/
+theorem integral_crystalline_ring_interface {C O W : Type u}
+    [CommRing C] [CommRing O] [CommRing W] [Algebra A C]
     (p : ℕ) [Fact p.Prime] (xi : A)
     (hxi : Function.Injective (fun x : A ⧸ Ideal.span {(p : A)} =>
-      Ideal.Quotient.mk _ xi * x)) :
+      Ideal.Quotient.mk _ xi * x))
+    (theta : A →+* O) (residue : A →+* W) (phi : A ≃+* A) (phiW : W →+* W)
+    [IsAdicComplete (Ideal.span {(p : O)}) O]
+    [IsAdicComplete (Ideal.span {(p : W)}) W]
+    (htheta : theta xi = 0)
+    (hresphi : residue.comp phi.toRingHom = phiW.comp residue) :
     Function.Injective (fun x : C => (p : C)*x) ∧
     IsAdicComplete (Ideal.span {(p : C)}) C ∧
-    derivedComplete (Ideal.span {(p : C)}) (singleModule (ModuleCat.of C C)) := by sorry
+    derivedComplete (Ideal.span {(p : C)}) (singleModule (ModuleCat.of C C)) ∧
+    ∃ (thetaC : C →+* O) (residueC : C →+* W) (phiC : C →+* C),
+      thetaC.comp (algebraMap A C) = theta ∧
+      residueC.comp (algebraMap A C) = residue ∧
+      phiC.comp (algebraMap A C) = (algebraMap A C).comp phi.toRingHom ∧
+      residueC.comp phiC = phiW.comp residueC := by sorry
 end TauCeti.AInfPlan
 
 namespace TauCeti.AInfPlan
@@ -3108,6 +3127,20 @@ theorem derived_witt_cohomology_injection {W : Type u} [CommRing W] [Algebra A W
     (Function.Injective (fun z : C.homology (i+1) => x • z) →
       Function.Bijective (cohomologyBaseChangeMap (W := W) C i)) := by sorry
 
+/-- BMS1 Corollary 4.17, p.39. Omitted: A=A_inf, W=W(k) and its
+common coefficient map. Perfectness is an explicit bounded finite-projective
+condition; it cannot be omitted. All p-local cohomology is free. The ordinary
+adjacent-degree hypothesis supplies the final integral base-change bijection. -/
+theorem adjacent_degree_freeness {W : Type u} [CommRing W] [Algebra A W]
+    (p : ℕ) (C : Complex A) (hperfect : boundedPerfect C) (i : ℤ)
+    (hfree : ∀ j : ℤ, Module.Free (Localization.Away (p : A))
+      (LocalizedModule (Submonoid.powers (p : A)) (C.homology j)))
+    (htf : Function.Injective (fun x : (derivedBaseChange (B := W) C).homology i => (p : W) • x)) :
+    (∀ j : ℤ, Module.FinitePresentation A (C.homology j)) ∧
+    Module.Free A (C.homology i) ∧ Module.Finite A (C.homology i) ∧
+    (Function.Injective (fun x : TensorProduct A W (C.homology (i+1)) => (p : W) • x) →
+      Function.Bijective (cohomologyBaseChangeMap (W := W) C i)) := by sorry
+
 /-- BMS1 Lemma 4.18, p. 39. Omitted: mixed-characteristic cyclotomic A_inf,
 W=W(k), O=O_C and theta; both actual derived specializations are retained. -/
 theorem de_rham_crystalline_torsion_equivalence {W O : Type u} [CommRing W] [CommRing O]
@@ -3226,10 +3259,13 @@ theorem integral_frobenius_descent {Z R : Type u} [CommRing Z] [CommRing R]
       (Module.Free R M → Module.Free Z (frobeniusFixed sigma M F hZ)) := by sorry
 
 /-- SW Theorem 12.3.4 and Proposition 12.3.5, p. 104.
-Omitted: R is the integral extended Robba coefficient ring on the shared Y,
+Omitted: R is the integral extended Robba stalk at radius zero on
+Y^an=D(p) union D([varpi^flat]), including its two endpoints;
+current Tau Ceti spaY is only the intersection, so the boundary carriers
+are requested from AdicSpaces Layer 6. Also omitted:
 sigma its Frobenius, Z=Z_p, and the sheafification/no-leg-shtuka equivalence.
 This is its affine invariant/scalar-extension comparison, for finite-free
-modules; it does not reconstruct the already planned adic space Y. -/
+modules; it reuses the interior and requires the requested endpoint extension. -/
 theorem integral_robba_frobenius_descent {Z R : Type u} [CommRing Z] [CommRing R]
     [Algebra Z R] (sigma : R ≃+* R) (M : ModuleCat.{u} R) [Module Z M] [IsScalarTower Z R M]
     [Module.Finite R M] [Module.Free R M] (F : M ≃ₛₗ[sigma.toRingHom] M)
@@ -3278,13 +3314,15 @@ theorem frobenius_extension_infinity {B D : Type u} [CommRing B] [CommRing D]
         FE (e (TensorProduct.tmul B d m)) =
           e (TensorProduct.tmul B (sigmaD d) (FM m)) := by sorry
 
-/-- Associated module sheaf on the already supplied analytic Y, with its
+/-- Associated module sheaf on the punctured analytic Y^an, with its
 structure sheaf suppressed by the affine coefficient prototype. -/
 private def associatedYSheaf {C : Type u} [Category C]
     (J : GrothendieckTopology C) (M : ModuleCat.{u} A) : Sheaf J (ModuleCat.{u} A) := by sorry
 
 /-- SW Theorem 14.2.1, pp. 116–117, essential-surjectivity slice.
-Omitted: J is the site of the shared analytic Y, the structure sheaf O_Y,
+Omitted: J is the site of Y^an=D(p) union D([varpi^flat]), including the
+zero and infinity endpoints requested from the owner of the existing interior
+spaY=D(p) intersection D([varpi^flat]); also the structure sheaf O_Y,
 and E is locally finite free over O_Y. Full faithfulness uses the two-open
 patching equalizer, as in the packet; algebraic punctured Spec is separate. -/
 theorem analytic_vector_bundle_extension {C : Type u} [Category C]
