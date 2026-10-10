@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-PRnweA`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094002543).
+Codex (GPT-6), session `codex-ASRhhj`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094184790).
 No manager-priority issue was available at selection. This available focus
 package followed WORKERS' fallback order. Only this job was claimed.
 
@@ -34,7 +34,9 @@ H.0 references. Rechecking the unchanged gaps or proving more affine chart
 identities cannot replace those repairs. This checkpoint changes only this
 handoff; it preserves the inherited package artifacts. Metadata remains absent
 so intake does not mistake the unfinished package for a complete submission.
-The final topic, when completion is justified, is `math.AG`.
+The final topic, when completion is justified, is `math.AG`. This run checked
+the newer upstream checkout below; the consumer and supplier specifications
+still have the predecessor's hashes. No implementation wait is requested.
 
 ## Exact blocking contracts
 
@@ -59,11 +61,56 @@ full statement, hypotheses, source support and API of the supplier nodes.
 No new roadmap, source route or supplier ownership is proposed here. These
 repairs implement existing consumer requests.
 
+## Minimum owner exports needed to resume
+
+These are precise requirements for the authorized owner repairs, not new
+targets added to this package. The absence of an elaborated supplier signature
+alone is not the blocker: the supplier's mathematical specification also lacks
+these exports.
+
+**CR.1:** for a supplied commutative ring sheaf O and relative exterior
+differential calculus, export ordinary connections on O-module sheaves. The
+operator is a morphism of underlying abelian sheaves
+D:E→E tensor_O Ω¹ satisfying D(fs)=fD(s)+s tensor df on local sections.
+Its extension to E tensor Ωⁱ satisfies
+D(s tensor ω)=D(s) wedge ω+s tensor dω. Curvature is the composite in
+degrees zero and one; integrability means it vanishes. Horizontal O-linear
+maps satisfy D_F∘f=(f tensor 1)∘D_E, with the resulting category and
+restriction comparisons. The finite locally free full subcategory must have
+the same operators and exterior extensions as the H.0 λ=1 carrier. Preserve
+the existing affine and crystalline versions as natural specializations;
+quasi-nilpotence belongs only to the crystal equivalence's hypotheses.
+An equivalence of abstract categories without these operator comparisons
+does not meet `ordinary-fiber`.
+
+**DD.1:** for a finite bounded decreasing subbundle filtration F on a finite
+locally free O-module sheaf E, with finite locally free graded quotients and
+local splittings, export the ordinary sheaf
+Rees_F(E)=Σ_p FᵖE·t⁻ᵖ inside E tensor_O O[t,t⁻¹], viewed as an O[t]-module.
+The polynomial and Laurent sheaf carriers and this embedding must be explicit.
+Local split charts identify it with ⊕_p G_p[t]·t⁻ᵖ; the constructed object
+and comparison maps are independent of a chosen splitting. Export natural
+isomorphisms Rees/(t)≃⊕_p grᵖ_F E, Rees/(t−1)≃E, and
+Rees[t⁻¹]≃E tensor_O O[t,t⁻¹]. Normalize the zero-fibre map by sending the
+class of e·t⁻ᵖ to the class of e in grᵖ, and the unit-fibre map by sending
+e·t⁻ᵖ to e. Require restriction and filtered-map naturality, local freeness,
+and compatibility with the convolution filtration on tensor products and
+the stated quotient tensor comparisons. This ordinary finite specialization
+must be connected to the existing derived Rees description, rather than
+replacing it.
+
+The DD.1 export carries no connection. H.0 constructs t∇ from Griffiths
+transversality and proves that the three imported comparison maps intertwine
+its operators, keeping dt=0. This separates the generic filtered algebra from
+the Hodge operation and gives an exact resume test: identify supplier nodes
+with the preceding contracts, then update the H.0 prerequisites and requests
+in an authorized consumer repair before resuming the package audit.
+
 ## Source and current upstream checks
 
 Read **AlgebraicVectorBundles** and **DifferentialGeometry** READMEs in full,
 with their relevant suggested signatures, in the read-only current upstream
-checkout at `8c72a04753b11cab07fa593cc38ceaa7c0515380`. Current Tau Ceti is
+checkout at `0a56d1b5303c26887a4042db834f46d9079ac593`. Current Tau Ceti is
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran in either tree.
 Read the reviewed HodgeStructures L0–L3 library audit before the supplier check.
 
@@ -81,8 +128,12 @@ Read the reviewed HodgeStructures L0–L3 library audit before the supplier chec
   `TauCeti/RingTheory/ReesAlgebra/Grading.lean`: degree n consists of monomials
   with coefficients in Iⁿ. This ideal-power Rees algebra does not supply the
   filtered module-sheaf contract.
-- A bounded name/statement screen of current Hodge, Rees and the two upstream
-  suggested files found no replacement for G1/G3. This is not an exhaustive
+- A name screen of the current upstream READMEs and suggested files for Rees,
+  filtered-sheaf and integrable/parameter-connection interfaces found only
+  Artin–Rees and ideal-blowup Rees references; neither supplies G1/G3. Read the
+  actual `CurvatureForm` signature and the native tensor/Rees statements above.
+  A current-library name screen for filtered-module and parameter/integrable
+  connection carriers found no replacement. These screens are not an exhaustive
   library audit.
 
 Read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5),
@@ -180,7 +231,7 @@ coverage entry. The historical parent and continuation counts overlap.
 | H.7 | 31 | 7 | 12 | planned |
 | H.8 | 31 | 5 | 11 | planned |
 
-Fresh validation in session `codex-PRnweA`:
+Fresh validation in session `codex-ASRhhj`:
 
 - All ten `python3 scripts/check_blueprint.py <packet>` runs exited 0,
   each with zero errors and zero warnings. This checks structural validity,
@@ -204,7 +255,9 @@ Input/package receipts (relative to `research/blueprint`):
 | packages/HodgeStructuresPartII/README.md | `c1ddb07bbfba996f3f2730e94efe744e1b2e6bf59cea44dfcb626589cff0337d` |
 | packages/HodgeStructuresPartII/Suggested.lean | `16585ed474c73db692203bb77137f4c9c403be0cc5e64b115ae3f95580ce4f5f` |
 
-The CR.0 packet has changed since the predecessor's receipt, but its current
-ordinary-connection statement still has the same general-site limitation.
-These fresh receipts supersede the predecessor's hashes. Everything needed
+The three consumer/supplier packet receipts and the two package receipts above
+match the predecessor's. The newer upstream checkout does not replace either
+missing contract. The inspected DD README has SHA-256
+`f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5`.
+These fresh receipts supersede the predecessor's validation date. Everything needed
 to resume is in the repository and this handoff; no scratch file is required.
