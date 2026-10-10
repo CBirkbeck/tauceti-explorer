@@ -1964,7 +1964,7 @@
         {
           "sourceId": "TATE",
           "locator": "§6 geometric table, printed p.46 (above its characteristic restriction)",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "Tate §6, printed p.46, distinguishes the component configurations and their multiplicities from the count m. Its positive-index rows give m=n for I_n and m=n+5 for I_n*, with I0 and I0* listed separately. These geometric rows precede the restriction to residue characteristic other than 2 or 3. The table identifies the target; G-Kodaira-resolution retains the resolution and actual-model comparison proof."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1985,7 +1985,7 @@
       ],
       "title": "Geometric component groups by Kodaira type",
       "kind": "theorem",
-      "statement": "For algebraically closed residue k, identify Phi_E with 0 for I0, Z/n for I_n, 0 for II and II*, Z/2 for III and III*, Z/3 for IV and IV*, (Z/2)^2 for I_n* with n even, and Z/4 for I_n* with n odd. These are geometric groups; rational Tamagawa factors require residue descent.",
+      "statement": "For algebraically closed residue k, identify Phi_E with 0 for I0, Z/n for I_n (n≥1), 0 for II and II*, Z/2 for III and III*, Z/3 for IV and IV*, (Z/2)^2 for I_n* with n even, and Z/4 for I_n* with n odd. These are geometric groups; rational Tamagawa factors require residue descent.",
       "hypotheses": [
         "R is strictly henselian with algebraically closed residue field; E/K is elliptic; X is its minimal proper regular model."
       ],
@@ -2004,7 +2004,7 @@
         {
           "sourceId": "TATE",
           "locator": "§6 geometric component-group row, printed p.46",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "The geometric group row of Tate §6, printed p.46, gives the cyclic groups for positive-index I_n and the parity-dependent groups for I_n*. The group order differs from the number of regular-fibre components, for example for I0*. This is not a rational Tamagawa formula over an arbitrary residue field; smooth-locus identification and completion/descent proofs remain in G-Kodaira-resolution."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2042,7 +2042,7 @@
         {
           "sourceId": "TATE",
           "locator": "§6 characteristic restriction and §7 algorithm, printed p.46; §7 not decomposed here",
-          "match": "This node paraphrases the specified passage with the hypotheses and conventions stated here; any unread proof input is separately recorded as a gap."
+          "match": "Tate §6, printed p.46, places the restriction on residue characteristics 2 and 3 below the geometric configuration, count and group rows, before the discriminant and conductor rows. This supports keeping the geometric target while withholding the tame numerical formulas in those characteristics. The full §7 algorithm and its geometric proof comparison have not been decomposed here and remain in G-Kodaira-resolution."
         }
       ],
       "implementationStatus": "unchecked",
@@ -6774,8 +6774,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-09",
-    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Tate section 6 p.46 geometric component counts and positive indices checked; characteristic-restricted discriminant/conductor rows and Kodaira-resolution gap retained. Excellent-DVR/residue-field and node-level curve-Jacobian criterion boundary checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
+    "date": "2026-10-10",
+    "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked Tate section 6 p.46. Corrected positive-index conventions in suggested component counts and packet/suggested cyclic-group formula; replaced three generic Tate source-match records with specific support and limits. Retained tame characteristic restrictions, Kodaira-resolution proof gap and excellent-DVR/residue-field criterion boundary. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
   },
   "reviewHistory": [
     {
@@ -7230,6 +7230,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-09",
       "notes": "Bounded independent area-fix review of findings /21 and /23. Read Tate §6 geometric table, printed p.46, verified component counts above the characteristic restriction, and made n≥1 explicit for I_n and I_n*. Checked the existing geometric/wild proof gap and upstream model suppliers. Checked the criterion note retains the excellent-DVR and residue-field hypotheses and requests only its Neron/Jacobian suppliers; broad research-stage cycles still require node-level refinement. Follows independent-review-REV-NeronModelsAndSemistableAbelianVarieties, preserved in reviewHistory. No missing Kodaira proof or upstream criterion is claimed implemented."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Tate section 6 p.46 geometric component counts and positive indices checked; characteristic-restricted discriminant/conductor rows and Kodaira-resolution gap retained. Excellent-DVR/residue-field and node-level curve-Jacobian criterion boundary checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
     }
   ]
 }

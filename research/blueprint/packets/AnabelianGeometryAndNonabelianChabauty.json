@@ -24368,8 +24368,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-09",
-    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. NC.5 requests the abelian NS quotient, symmetric-Hom injection, finite generation and Picard number from A2; SF.3 is not represented as that supplier. The requested group and Chabauty criterion remain pending. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
+    "date": "2026-10-10",
+    "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked NC.5 requests Pic/Pic0, symmetric-Hom injection, finite generation and Picard number from A2. The requested group and Chabauty criterion remain unimplemented. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
   },
   "independentReviewAudit": {
     "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty",
@@ -27783,6 +27783,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-09",
       "notes": "Bounded independent area-fix review of finding /8: checked that NC.5 requests NS(A)=Pic(A)/Pic0(A), its injection into symmetric Hom(A,A-dual), finite generation and Picard number from AbelianSchemes A2, and that SF.3 does not plan a competing owner. No NC.5 theorem or supplier existence is certified; that source decomposition remains a future part job. Follows independent-review-REV-AnabelianGeometryAndNonabelianChabauty, preserved in reviewHistory. No mathematical node changed and all inherited coverage gaps and requests remain."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. NC.5 requests the abelian NS quotient, symmetric-Hom injection, finite generation and Picard number from A2; SF.3 is not represented as that supplier. The requested group and Chabauty criterion remain pending. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
     }
   ]
 }

@@ -19973,8 +19973,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
-    "date": "2026-10-09",
-    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Generic stack/duality/alteration ownership and combined rescope edges checked on the assembled graph. Corrected the stale /17 sentence: SF.5 rescoping does not remove the longer promoted path to MC.4. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
+    "date": "2026-10-10",
+    "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked single stack/duality/alteration ownership and the proposed combined rescope/criterion edges. Reproduced the remaining promoted SF.4-to-MC.4 path after deleting all six SF.5 forwarding edges; the prior corrected /17 record is retained. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
   },
   "reviewHistory": [
     {
@@ -21505,6 +21505,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-09",
       "notes": "Bounded independent area-fix review of findings /1, /8, /11 and /15–/18, /31. Checked single spaces/stacks, coherent-duality and schematic-alteration owners and current upstream suppliers. Corrected the SF.5/MC.4 proposal and matching gap/coverage: current promoted blueprints retain a long SF.4→DD.5→p-adic geometry→PEL M6→MC.4 path, so removal of SF.4→SF.5 does not make MC.4→SF.4 safe. The cover remains a node-level request pending an independently checked supplier/consumer split; the rest of the proposed rescope is acyclic. Follows independent-review-REV-SchemeAndStackFoundations, preserved in reviewHistory. All incomplete source work and requests remain; no atlas edge is installed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Generic stack/duality/alteration ownership and combined rescope edges checked on the assembled graph. Corrected the stale /17 sentence: SF.5 rescoping does not remove the longer promoted path to MC.4. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
     }
   ]
 }
