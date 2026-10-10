@@ -143,6 +143,48 @@
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "Localization functor from integer cochain complexes at quasi-isomorphisms.",
         "checked": "Statement and surrounding hypotheses read at the pinned source on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.isIso_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+        "provides": "A derived morphism is an isomorphism exactly when all its cohomology maps are isomorphisms; apply to the zero-to-object morphism for zero detection.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.HomologySequence.exact₁",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+        "provides": "Exactness at the corresponding term of the native long exact cohomology sequence of a distinguished triangle.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.HomologySequence.exact₂",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+        "provides": "Exactness at the corresponding term of the native long exact cohomology sequence of a distinguished triangle.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.HomologySequence.exact₃",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/HomologySequence.lean",
+        "provides": "Exactness at the corresponding term of the native long exact cohomology sequence of a distinguished triangle.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_surj",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The constant coefficient homomorphism R[[X]]→R is surjective.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X_dvd_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "X divides a power series exactly when its constant coefficient is zero; together with surjectivity this identifies R[[X]]/(X) with R.",
+        "checked": "Independently read statement and surrounding hypotheses at Mathlib 082e2d3 on 2026-10-10."
       }
     ]
   },
@@ -192,6 +234,29 @@
       "read": "2026-10-10",
       "readSections": [
         "Module support, length and regular sequences; derived homology, linearity, projective dimension and idempotents; TauCeti abelian K0 Euler–Poincaré theorem"
+      ]
+    },
+    {
+      "id": "Stacks-truncation",
+      "title": "The Stacks project: canonical truncations",
+      "authors": "The Stacks project authors",
+      "edition": "Online Section 13.12, tag 014Z, read 10 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/014Z",
+      "read": "2026-10-10",
+      "readSections": [
+        "Lemma 13.12.5: iterated factorization of cohomologically trivial morphisms through canonical truncations."
+      ]
+    },
+    {
+      "id": "CG-published-author",
+      "title": "Modularity lifting beyond the Taylor–Wiles method",
+      "authors": "Frank Calegari and David Geraghty",
+      "edition": "Inventiones mathematicae 211 (2018), 297–433; published-layout author PDF",
+      "url": "https://math.uchicago.edu/~fcale/papers/CG.pdf",
+      "read": "2026-10-10",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+      "readSections": [
+        "Lemmas 6.1–6.2, PDF pp.89–90; independent check of the zero-complex omission."
       ]
     }
   ],
@@ -380,7 +445,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
         "mathlib:Module.support_eq_empty_iff",
-        "mathlib:DerivedCategory.Q"
+        "mathlib:DerivedCategory.isIso_iff"
       ],
       "proofSteps": [
         "Each cohomology module is zero iff its support is empty; the derived cohomology functors detect zero objects."
@@ -454,10 +519,11 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
         "mathlib:Module.support_of_exact",
-        "mathlib:DerivedCategory.homologyFunctor"
+        "mathlib:DerivedCategory.homologyFunctor",
+        "mathlib:DerivedCategory.HomologySequence.exact₂"
       ],
       "proofSteps": [
-        "Localize the long exact cohomology sequence; if two objects vanish locally, so does the third."
+        "Use native long exact cohomology. After localizing outside both outer supports, exactness forces the middle cohomology to vanish. Alternatively factor each exact pair through its image and apply short-exact support plus submodule support. Rotate the triangle and use shift invariance for the other containments."
       ],
       "acceptance": [
         "Equality with the union is asserted for a direct sum, not for an arbitrary triangle."
@@ -564,10 +630,12 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/framing-variables"
+        "mathlib:PowerSeries.constantCoeff_surj",
+        "mathlib:PowerSeries.X_dvd_iff"
       ],
       "proofSteps": [
-        "Apply the base-change formula to the augmentation S→A, using the existing framing quotient identification."
+        "Apply the base-change formula to the augmentation S→A, using the existing framing quotient identification.",
+        "For one variable, constantCoeff_surj and X_dvd_iff identify the quotient by (X) with the coefficient ring. Iterate this quotient identification along the finite list of framing variables; apply the perfect derived base-change support formula at each step."
       ],
       "acceptance": [
         "Ordinary H^i(C)/JH^i(C) alone need not compute the derived augmented cohomology."
@@ -637,12 +705,13 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
         "DeformationAndDerivedPatchingAlgebra:P9/complex-near-faithfulness",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting"
+        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat"
       ],
       "proofSteps": [
-        "Apply the module result to the finite direct sum of cohomology and use flatness of localization."
+        "Apply the module result to the finite direct sum of cohomology and use flatness of localization.",
+        "Apply the module theorem to the finite direct sum of the finitely many nonzero cohomology modules. Flat localization identifies its summands with cohomology after inverting f; no perfectness assumption enters."
       ],
       "acceptance": [
         "The regularity of f on R is required; torsion in cohomology is allowed."
@@ -1046,7 +1115,6 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat"
       ],
       "proofSteps": [
@@ -1122,12 +1190,32 @@
         {
           "name": "TauCeti.PatchingSupport.DerivedAction.transport",
           "role": "functoriality",
-          "statement": "An S-linear additive functor transports the action, compatibly with identity and composition."
+          "statement": "An S-linear additive functor F:D(S)→D(A) sends each action morphism to F(ρ(t)), retaining S-scalar compatibility. This is a ring action, not an A-compatible DerivedAction unless the additional A-algebra data exist."
         },
         {
           "name": "TauCeti.PatchingSupport.DerivedAction.single",
           "role": "constructor",
           "statement": "An S-compatible T-action on a module gives an action on its derived stalk."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.transport_apply",
+          "role": "compatibility",
+          "statement": "The transported action sends t to the functor image F(ρ(t))."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.transport_scalar",
+          "role": "compatibility",
+          "statement": "The transported action sends each s∈S to s times the identity."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.transport_id",
+          "role": "simp",
+          "statement": "Transport by the identity functor returns the original ring action."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.DerivedAction.transport_comp",
+          "role": "functoriality",
+          "statement": "Transport by a composite sends t to the successive functor images; the prototype records this for S-linear endofunctors."
         }
       ],
       "tests": [
@@ -1186,6 +1274,11 @@
           "sourceId": "ACC-2023",
           "locator": "Observation after Assumption 6.3.6, p.1051",
           "match": "The indicated statement or proof supplies this step; the specification fixes its finiteness, action and sign conventions explicitly."
+        },
+        {
+          "sourceId": "Stacks-truncation",
+          "locator": "Lemma 13.12.5, tag 014Z",
+          "match": "Iterated factorization through canonical truncations kills a product of b−a+1 ghosts on an object with cohomology in [a,b]."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1277,7 +1370,7 @@
       ],
       "title": "Euler length with finite cohomology lengths",
       "kind": "definition",
-      "statement": "For bounded C with DerivedAction of Noetherian T and each H^i(C) of finite T-length, define eulerLength_T(C)=Σ_{i∈s} (−1)^i length_T H^i(C) in Z, where s is any finite set containing every nonzero cohomology degree. Length is Mathlib Module.length converted to a natural number only under its finiteness hypothesis.",
+      "statement": "For bounded C with DerivedAction of T and each H^i(C) of finite T-length, define eulerLength_T(C)=Σ_{i∈s} (−1)^i length_T H^i(C) in Z, where s is any finite set containing every nonzero cohomology degree. Length is Mathlib Module.length converted to a natural number only under its finiteness hypothesis.",
       "hypotheses": [
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
@@ -1379,10 +1472,14 @@
         "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
         "mathlib:Module.length_eq_add_of_exact",
         "mathlib:DerivedCategory.homologyFunctor",
-        "tauceti:TauCeti.AbelianK0.AdditiveInvariant.sum_negOnePow_obj_X_eq_sum_negOnePow_obj_homology"
+        "tauceti:TauCeti.AbelianK0.AdditiveInvariant.sum_negOnePow_obj_X_eq_sum_negOnePow_obj_homology",
+        "mathlib:DerivedCategory.HomologySequence.exact₁",
+        "mathlib:DerivedCategory.HomologySequence.exact₂",
+        "mathlib:DerivedCategory.HomologySequence.exact₃"
       ],
       "proofSteps": [
-        "Use the finite long exact sequence of T-modules, decompose it into short exact sequences and telescope with alternating signs. This specializes the existing additive-invariant Euler formalism."
+        "Use the finite long exact sequence of T-modules, decompose it into short exact sequences and telescope with alternating signs. This specializes the existing additive-invariant Euler formalism.",
+        "Use the compatible derived actions to make the long exact cohomology sequence T-linear. Cut it to a finite exact complex of these T-modules and apply the existing additive-invariant Euler theorem there; do not apply it to a fictitious strict T-complex representing C."
       ],
       "acceptance": [
         "A noncompatible family of T-actions does not give a T-linear long exact sequence."
@@ -1559,7 +1656,6 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
         "DeformationAndDerivedPatchingAlgebra:R03.3"
       ],
       "proofSteps": [
@@ -1747,7 +1843,6 @@
         "Rings are commutative with identity; cochain degrees and Euler signs are integral. All stated finiteness and nonvanishing hypotheses are required."
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
         "DeformationAndDerivedPatchingAlgebra:R03.3"
       ],
       "proofSteps": [
@@ -1823,10 +1918,11 @@
         "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
         "mathlib:CategoryTheory.IsIdempotentComplete",
-        "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes"
+        "DeformationAndDerivedPatchingAlgebra:P7"
       ],
       "proofSteps": [
-        "Localize the base and action, then use idempotent splitting in the bounded derived module category. The generic algebra factor acts on the summand through the product factor."
+        "Localize the base and action, then use idempotent splitting in the bounded derived module category. The generic algebra factor acts on the summand through the product factor.",
+        "The general retract API below applies after base localization. Its H^i-range is e_p H^i(C_q); identify this range with H^i(C)_p using T_q≅T_p×B. Restrict the corner action to this product factor. Bounded finite cohomology is preserved because homology of a retract is a direct summand."
       ],
       "acceptance": [
         "Do not form a derived tensor over T without a genuine strict T-module model."
@@ -1856,17 +1952,52 @@
         {
           "name": "TauCeti.PatchingSupport.genericLocalization_homology",
           "role": "compatibility",
-          "statement": "H^i(C_p)≅H^i(C)_p as T_p-modules."
+          "statement": "After base localization, cohomology of the chosen retract is S_q-linearly the range of H^i(ρ_q(e_p)); its inclusion is T_q-equivariant. The algebra product decomposition identifies that range with H^i(C)_p and its factor action with the T_p-action."
         },
         {
           "name": "TauCeti.PatchingSupport.genericLocalization_iso",
           "role": "functoriality",
-          "statement": "T-equivariant maps induce maps on the generic summands, preserving identities and composition."
+          "statement": "For a T-equivariant map f, the canonical map between summands is inclusion_source followed by f followed by projection_target; its inclusion square commutes."
         },
         {
           "name": "TauCeti.PatchingSupport.genericLocalization_choice",
           "role": "extensionality",
-          "statement": "Two splittings of the same idempotent are canonically isomorphic with the inclusion/projection maps respected."
+          "statement": "Two splittings of the same idempotent have a unique isomorphism respecting both inclusion and projection."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_action",
+          "role": "data",
+          "statement": "The corner action on the retract is i followed by ρ(t) followed by p; it is S-compatible and e acts as the identity."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_action_apply",
+          "role": "compatibility",
+          "statement": "The corner ring homomorphism has the specified inclusion/action/projection formula."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_homology_equivariant",
+          "role": "compatibility",
+          "statement": "The homology inclusion intertwines the corner action and the original T-action."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_map",
+          "role": "functoriality",
+          "statement": "Construct the canonical morphism between chosen splittings by inclusion, the original morphism, and projection."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_map_id",
+          "role": "simp",
+          "statement": "The induced morphism of the identity is the identity."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_map_comp",
+          "role": "functoriality",
+          "statement": "For equivariant maps, the induced morphism of a composite is the composite of induced morphisms."
+        },
+        {
+          "name": "TauCeti.PatchingSupport.genericLocalization_action_idempotent",
+          "role": "simp",
+          "statement": "The selected idempotent e acts as the identity on the retract; the complementary algebra factor therefore acts by zero."
         }
       ],
       "tests": [
@@ -1878,7 +2009,7 @@
         {
           "name": "genericLocalization_scalar_domain",
           "kind": "compatibility",
-          "statement": "For a domain S, T=S, p=(0), the idempotent is 1 and C_p is C⊗_S Frac(S)."
+          "statement": "For a domain S and T=S at p=(0), first base-change to Frac(S). The generic idempotent there is 1 and its retract is the already localized object C⊗^L_S Frac(S); the Lean test checks this unit-retract step."
         },
         {
           "name": "genericLocalization_product",
@@ -1971,6 +2102,86 @@
       }
     },
     {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "The reduction action factors through the divisor quotient",
+      "kind": "lemma",
+      "statement": "For f∈S, the transported action of T on D=C⊗^L_S S/(f), viewed in D(S/(f)), kills fT and therefore factors through the S/(f)-algebra T/(fT). The induced quotient action gives the original transported action on every H^i(D). This assertion requires no regularity of f; regularity is needed separately for the two-term scalar-cone description.",
+      "hypotheses": [
+        "S is Noetherian and commutative; T is a finite commutative S-algebra; C has bounded finite S-cohomology and an S-compatible derived T-action. Additional hypotheses appear in the statement."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-derived-extension",
+        "DeformationAndDerivedPatchingAlgebra:P7"
+      ],
+      "proofSteps": [
+        "Derived scalar extension is S/(f)-linear; its transported S-scalar f is zero as a morphism. S-compatibility and multiplicativity imply fT is in the action kernel. Apply the quotient ring universal property and then the native cohomology functor."
+      ],
+      "acceptance": [
+        "Keep the action in D(S/(f)) when proving f is zero; a cone of an arbitrary scalar need not have this property."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, paragraph before Lemma 6.3.4 and its proof, pp.1049–1050",
+          "match": "This supplies the missing justification for localization of the reduced object at a residual, potentially nongeneric point."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.divisorQuotientAction",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P9"
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:P9"
+      ],
+      "title": "Residual divisor localization by an isolated quotient factor",
+      "kind": "lemma",
+      "statement": "Let f be a nonzerodivisor of S and q∈Spec S contain f and let m∈Spec T lie over q. Write T_q=T⊗_S S_q. Assume dim(T_m/fT_m)=0. The image mbar in A=T_q/(f) is maximal and minimal; hence A≅(T_m/fT_m)×B. Localize C at q, reduce derivedly by f, and split the mbar-factor idempotent in the bounded derived category of S_q/(f). Its cohomology is H^i(C⊗^L_S S/(f))_m, with the corresponding T_m/f-action. This defines the localized reduced object even when m is not minimal in T.",
+      "hypotheses": [
+        "S is Noetherian and commutative; T is a finite commutative S-algebra; C has bounded finite S-cohomology and an S-compatible derived T-action. Additional hypotheses appear in the statement."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-flat",
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle"
+      ],
+      "proofSteps": [
+        "Finite-algebra incomparability makes m maximal after localizing at q. The dimension-zero hypothesis leaves no prime strictly below mbar, making it minimal in A. Apply the isolated-prime product lemma to A.",
+        "Flat localization commutes with cohomology. The regular-divisor cone preserves bounded finite cohomology. Use the quotient action and the requested bounded idempotent splitting over S_q/(f). Its cohomology is the factor projection of H^i, identified with module localization at m."
+      ],
+      "acceptance": [
+        "Minimality is required in T_q/(f), not in T itself. Do not apply generic-action-idempotent directly to the nongeneric m in T."
+      ],
+      "sources": [
+        {
+          "sourceId": "ACC-2023",
+          "locator": "§6.3.1, paragraph before Lemma 6.3.4 and its proof, pp.1049–1050",
+          "match": "This supplies the missing justification for localization of the reduced object at a residual, potentially nongeneric point."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.PatchingSupport.residualDivisorLocalization",
+      "library": {
+        "module": "TauCeti/Algebra/Homology/PatchingSupport",
+        "namespace": "TauCeti.PatchingSupport"
+      },
+      "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--P9"
+    },
+    {
       "id": "DeformationAndDerivedPatchingAlgebra:P9/derived-divisor-length-finite",
       "parentStageId": "DeformationAndDerivedPatchingAlgebra:P9",
       "realises": [
@@ -1985,9 +2196,11 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle",
         "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
-        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle"
+        "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization"
       ],
       "proofSteps": [
+        "Use residual-divisor-localization to construct the reduced localized object and identify its cohomology with ordinary localized reduced cohomology. This is not a derived tensor over T.",
         "The cone long exact sequence expresses reduction cohomology as extensions of multiplication-by-f cokernels and kernels on adjacent finite cohomology modules. Localize and apply divisor finite length."
       ],
       "acceptance": [
@@ -2142,6 +2355,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3"
       ],
       "proofSteps": [
+        "First π avoids every dimension-d generic: containment in V(π) would give a component of R/(π) of dimension d. Then apply the principal-divisor dimension formula on each top component.",
         "Complete Noetherian local rings are excellent and catenary. Principal-divisor dimension gives d−1; the gap below d−1 excludes lower components through xbar, while uniqueness excludes another top component. Apply the same dimension gap on R′ to force generalization to x′."
       ],
       "acceptance": [
@@ -2332,7 +2546,6 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-sequence",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-actions",
         "DeformationAndDerivedPatchingAlgebra:P7/p7ii-coefficient-spectral-convergence",
         "DeformationAndDerivedPatchingAlgebra:P7",
         "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change"
@@ -2341,7 +2554,8 @@
         "Terms with positive Tor degree contribute only to lower total degrees. At degree r, incoming and outgoing differentials at Tor degree zero have zero localized other endpoint. Use convergence and Nakayama on the finite T_x-module with y inside its maximal ideal."
       ],
       "acceptance": [
-        "The right-edge map is an isomorphism after the stated localization; a Tor_1 contribution in degree r−1 can survive."
+        "The right-edge map is an isomorphism after the stated localization; a Tor_1 contribution in degree r−1 can survive.",
+        "A strict-chain T-action must not be inferred from a ring action in D(S); the native derived-action edge comparison is an open supplier contract."
       ],
       "sources": [
         {
@@ -2617,32 +2831,42 @@
   "requests": [
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-      "need": "Finite normalization of a one-dimensional excellent local domain; semilocal Dedekind normalization is a PID; excellence of complete Noetherian local rings and finite algebras/localizations; finite integral maps preserve dimensions of closed support images; catenary regular-local height/dimension formulas for the localization seed. These are ring-theoretic suppliers, not new P9 definitions.",
+      "need": "Finite normalization of a one-dimensional excellent local domain; semilocal Dedekind normalization is a PID; excellence of complete Noetherian local rings and finite algebras/localizations; finite integral maps preserve dimensions of closed support images; catenary regular-local height/dimension formulas for the localization seed. These are ring-theoretic suppliers, not new P9 definitions. Noetherian dimension-zero rings are Artinian; a maximal minimal prime defines a clopen factor and its idempotent lifts through the nilradical; finite integral extensions have incomparability and preserve dimensions of residue quotients. Principal-ideal height and catenary dimension formulas supply the divisor dichotomy, and normalization is generically an isomorphism with finite-length correction kernels and cokernels.",
       "consumers": [
-        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
-        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
         "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "DeformationAndDerivedPatchingAlgebra:P9/normalization-correction-finite-length",
+        "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+        "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
         "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
         "DeformationAndDerivedPatchingAlgebra:P9/characteristic-zero-concentration-seed"
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/DGAInfinity#layer-5-derived-modules-twisted-complexes-and-perfect-envelopes",
-      "need": "DGAInfinity, Part II interface: identify the ordinary bounded derived category of finite modules with its native derived-category embedding and supply splitting of its idempotents, preserving finite bounded cohomology. For perfect C also identify the split summand in the existing perfect envelope. No strict action lift is asserted.",
+      "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
+      "need": "Native splitting of idempotents on derived objects with bounded finite cohomology over a Noetherian ring, with inclusion/projection equations and preservation of bounded finite cohomology; compare the resulting native object to the bounded derived module category. A bounded t-structure gives the mathematical idempotent-completeness argument. The existing DGAInfinity perfect-envelope layer supplies only the perfect-subcategory comparison, not this general bounded statement. No global instance or strict T-chain lift is presumed.",
       "consumers": [
-        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization"
+        "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization"
       ]
     },
     {
       "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
-      "need": "T-equivariant canonical truncations for a commutative algebra action in the derived category; a bounded ghost ideal is nilpotent with exponent the number of cohomology degrees; finite generation of the derived endomorphism S-module of a perfect complex over Noetherian S; comparison of induced actions under exact derived base change and a T-linear right-edge comparison for derived actions (the existing spectral-actions node assumes strict chain actions). Existing generic tensor/Hom and truncation theory is imported; this request names the native action comparison bridge.",
+      "need": "T-equivariant canonical truncations for a commutative algebra action in the derived category; a bounded ghost ideal is nilpotent with exponent the number of cohomology degrees; finite generation of the derived endomorphism S-module of a perfect complex over Noetherian S; comparison of induced actions under exact derived base change and a T-linear right-edge comparison for derived actions (the existing spectral-actions node assumes strict chain actions). Existing generic tensor/Hom and truncation theory is imported; this request names the native action comparison bridge. For quotient extension S→S/(f), the transported scalar f is zero as a derived morphism, so the action factors through T/(f); preserve the resulting equivariant cohomology and localization comparisons.",
       "consumers": [
         "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
         "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
         "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle",
         "DeformationAndDerivedPatchingAlgebra:P9/residual-length-comparison",
-        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
+        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization",
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle"
       ]
     }
   ],
@@ -2658,11 +2882,14 @@
     },
     {
       "title": "Native derived action and idempotent comparison bridges",
-      "detail": "The generic localization is a derived retract, not a strict T-chain complex. Its native splitting and T-equivariant truncation/base-change comparisons need the two named supplier contracts. They are exposed as actual morphism/retract data and stated equalities in signatures; the full ACC setup theorem is documented mathematically rather than weakened silently in Lean.",
+      "detail": "P7 must supply bounded native idempotent splitting, quotient-action and T-equivariant truncation/base-change/right-edge comparisons. The existing DG perfect-envelope layer and strict-chain spectral-actions node do not establish these more general contracts. The suggested retract API is explicitly the step after base localization; its global idempotent-completeness assumption is a prototype environment, not a claimed instance. Full finite-algebra localization and full ACC signatures remain omitted until those interfaces are expressed.",
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
         "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
-        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara"
+        "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+        "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
+        "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization"
       ]
     }
   ],
@@ -2672,7 +2899,7 @@
       "status": "planned",
       "remaining": [
         "Discharge the R03.3 excellence/normalization/dimension supplier contract, replacing coarse prerequisites by fine nodes.",
-        "Connect bounded derived idempotent splitting and the native finite derived-action bridges through the requested existing owners.",
+        "Supply the two explicit P7 native contracts: bounded finite-cohomology idempotent splitting, and derived-action truncation/quotient/base-change/right-edge comparisons. Express full finite-algebra localization rather than just its split-idempotent prototype.",
         "Replace the explicitly marked omitted excellence/full-ACC Lean forms by full signatures once those interfaces are expressible; retain all source hypotheses."
       ],
       "notes": "All three target families and all four mandatory examples have nodes. This is a complete planning pass, not a closed or formalized stage. Tor-amplitude, module support/near-faithfulness, patching construction, generic tensor and Euler formalism remain with their existing owners."
@@ -2686,7 +2913,7 @@
         "tauceti:TauCetiRoadmap/DGAInfinity"
       ],
       "detail": "Native bounded-derived idempotent splitting needs a bridge beyond the existing DG perfect-envelope planning. Generic tensor and Euler theories already have owners.",
-      "proposal": "DGAInfinity, Part II supplies the native bounded-derived splitting comparison used by P9; P7 supplies action/truncation comparisons, R03.3 supplies excellent normalization, and P9 alone owns the specialized derived length and algebraic component-transfer arguments."
+      "proposal": "P7 owns the additional native bounded-derived splitting and action/truncation comparisons; the existing DGAInfinity perfect envelope is imported only for perfect objects. R03.3 supplies excellent normalization and dimension facts. P9 owns the specialized derived length and component-transfer arguments."
     }
   ],
   "sourceIssues": [
@@ -2703,7 +2930,13 @@
         "arXiv version history for 1207.4224",
         "Published CG author PDF at math.uchicago.edu/~fcale/papers/CG.pdf, Lemma 6.2",
         "Web search for a Lemma 6.2 zero-complex correction"
-      ]
+      ],
+      "source": "CG-published-author",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in both the v2 preprint and published-layout author copy at Lemma 6.2. The proof requires first nonzero cohomology; an acyclic finite free complex defeats the unqualified finite codimension conclusion. The packet already uses the corrected nonzero hypothesis.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P9"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-P9-regular-divisor",
@@ -2718,12 +2951,354 @@
         "ACC author copy, Lemma 6.3.4 and preceding paragraph, printed pp.1048–1050",
         "ACC arXiv version listing 1812.09999",
         "Web search for ACC Lemma 6.3.4 regular scalar cone erratum"
-      ]
+      ],
+      "source": "ACC-2023",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published-pagination author copy at p.1049. For the dual numbers, the scalar cone of ε has nonzero negative cohomology and is not the quotient stalk. The following Lemma 6.3.4 supplies regularity, so its stated theorem is unaffected.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--P9"
+      }
     }
   ],
   "upstreamNotes": [
     "Read current main DGAInfinity and GrothendieckEulerForms and their Suggested.lean files. P9 imports their existing scope and the current library Euler–Poincaré theorem; it does not replan DG perfect envelopes, derived tensor or generic Euler invariants.",
-    "Current Tau Ceti source searches did not find the regular-local complex codimension theorem, finite-algebra idempotent-localization length theorem or ACC component transfer. Baseline names were checked at the pinned sources, independently of the newer read-only library."
+    "Current Tau Ceti source searches did not find the regular-local complex codimension theorem, finite-algebra idempotent-localization length theorem or ACC component transfer. Baseline names were checked at the pinned sources, independently of the newer read-only library.",
+    "Independent review: current DGAInfinity Layer 5 supplies DG perfect envelopes, not idempotent completeness of every bounded finite-cohomology ordinary derived object. The additional native bridge is requested from P7. The P9 audit marks the specialized inequalities, derived finite-algebra length identity and component transfer absent; its existing module and Euler ingredients are retained as imports. PA.3, R22.4 and R31.5 consume the algebraic transport rather than duplicating its proof."
   ],
-  "review": null
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--P9",
+    "date": "2026-10-10",
+    "notes": "Independent review of every source-backed node, all pinned baseline declarations and supplier statements, the library audit and current upstream scope. Corrected dependency and Lean/API mismatches, added two residual-divisor lemmas and confirmed both source findings against identified editions. Accepted as a complete planning pass with explicit P7 and R03.3 supplier gaps, not as closed or formalized mathematics.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/cohomological-support",
+        "verdict": "verified",
+        "note": "Checked union of all cohomology supports against ACC §6.3.1; iso, shift, stalk API and three nontrivial tests use native cohomology."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/cohomology-annihilator",
+        "verdict": "verified",
+        "note": "Intersection of cohomology annihilators checked; it is not the kernel of the derived action. Quotient and biproduct tests discriminate this convention."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-empty",
+        "verdict": "corrected",
+        "note": "Replaced the localization definition by the native cohomology-conservativity theorem; no boundedness is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-closed",
+        "verdict": "verified",
+        "note": "Finite cohomology range and finite modules justify finite union V(ann) and intersection of annihilators; zero object gives V(⊤)=∅."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-triangle",
+        "verdict": "corrected",
+        "note": "Cited native triangle exactness and factored each exact pair through its image before applying short-exact module support; the module lemma alone has stronger hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-residue-detection",
+        "verdict": "verified",
+        "note": "Perfectness permits localized residual Nakayama via the checked P7 pseudo-coherent supplier; arbitrary unbounded objects are not asserted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-derived-base-change",
+        "verdict": "verified",
+        "note": "Checked by residue fibres and faithful residue-field extension for perfect objects; Stacks base-change of perfectness alone is not treated as the support theorem."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-framing-quotient",
+        "verdict": "corrected",
+        "note": "Removed the unrelated R03.6 power-series near-faithfulness theorem; pinned constant-coefficient surjectivity and divisibility identify the augmentation quotient, iterated for finitely many variables."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/complex-near-faithfulness",
+        "verdict": "verified",
+        "note": "Finite direct sum of cohomology reduces this exactly to the checked R03.6 support/annihilator characterization."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/complex-inverting-regular-element",
+        "verdict": "corrected",
+        "note": "Removed a perfect-only base-change prerequisite from a statement about arbitrary bounded finite cohomology; flat cohomology base change supplies the required localization."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-cokernel-resolution",
+        "verdict": "verified",
+        "note": "CG Lemma 6.2 proof, pp.65–66: vanishing before m gives a projective resolution of coker(d^{m−1}) of length m−a."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-injects",
+        "verdict": "verified",
+        "note": "Kernel of the induced differential out of coker(d^{m−1}) is H^m; injection is routine with the stated first-nonzero choice."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/first-cohomology-dimension-bound",
+        "verdict": "verified",
+        "note": "CG Lemma 6.1 uses the checked R03.3 Auslander–Buchsbaum/dimension bound, with the regular-base and finite-projective hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/codimension-amplitude-lemma",
+        "verdict": "verified",
+        "note": "CG Lemma 6.2, pp.65–66; nonzero derived object is explicit and the Tor interval is supplied by P7. Zero-complex source omission confirmed separately."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/balanced-dimension-concentration",
+        "verdict": "verified",
+        "note": "Earliest nonzero degree m must be b by the lower support dimension n−(m−a) and upper bound n−l; no integral cohomology vanishing is inferred merely from rational vanishing."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/balanced-projective-dimension",
+        "verdict": "verified",
+        "note": "Resolution gives pd≤l; AB and depth≤support dimension give pd≥l. Nonzero top cohomology excludes the bottom-valued zero dimension convention."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/balanced-depth",
+        "verdict": "corrected",
+        "note": "Strengthened the suggested regular-sequence conclusion to exact depth: a sequence of length n−l exists and every maximal-ideal regular sequence has length at most n−l. Existence alone was weaker than the packet."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/finite-algebra-support-dimension",
+        "verdict": "verified",
+        "note": "Finite integral support image preserves quotient dimensions; the exact additional commutative algebra facts are now in the R03.3 request."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/balanced-patched-complex",
+        "verdict": "corrected",
+        "note": "Strengthened the suggested regular-sequence conclusion to exact depth: a sequence of length n−l exists and every maximal-ideal regular sequence has length at most n−l. Existence alone was weaker than the packet."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/one-degree-specialization",
+        "verdict": "verified",
+        "note": "Width zero gives a finite projective stalk, hence free over the local ring; R03.6 support theorem is imported only with its full module hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/rational-concentration-only",
+        "verdict": "corrected",
+        "note": "Removed a perfect-only base-change prerequisite from a statement about arbitrary bounded finite cohomology; flat cohomology base change supplies the required localization."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/derived-algebra-action",
+        "verdict": "corrected",
+        "note": "Specified that functor transport is a ring action with S-scalar compatibility, and added explicit image, scalar, identity and composition laws. An A-scalar action cannot be inferred without an A-algebra structure on T."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/ghost-ideal-nilpotent",
+        "verdict": "corrected",
+        "note": "Checked the nilpotence exponent against canonical truncation factorization and added Stacks Lemma 13.12.5 as the precise mathematical supplier; P7 still owes its native action interface."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/action-subalgebra-support",
+        "verdict": "verified",
+        "note": "Finite perfect endomorphism module makes its commutative S-subalgebra finite; ghost nilpotence identifies full cohomological T-support. P7 supplies finite generation."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/nilpotent-quotient-support",
+        "verdict": "verified",
+        "note": "Correct spectral image under R→T/I and the nilpotent Spec comparison; no unsupported R-module structure on the original cohomology is assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/finite-euler-length",
+        "verdict": "corrected",
+        "note": "Noetherianity is unnecessary for the definition: finite cohomology lengths and a finite degree range suffice; all five API and three signed tests checked."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/euler-length-triangle",
+        "verdict": "corrected",
+        "note": "Added native long-exact sequence citations; generic Tau Ceti Euler–Poincaré is used on a finite exact sequence of genuine T-cohomology modules, without assuming a strict T-chain lift."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/euler-length-nonzero-support",
+        "verdict": "verified",
+        "note": "Nonzero finite signed sum forces some nonzero cohomology; the converse fails by cancellation, as tested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite",
+        "verdict": "verified",
+        "note": "ACC Lemma 6.3.2, pp.1048–1049: kernel and cokernel are supported on the zero-dimensional divisor, so finite modules have finite length."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-additive",
+        "verdict": "verified",
+        "note": "Six-term kernel/cokernel snake sequence and finite length give signed additivity; kernel sign is negative."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-finite-length-zero",
+        "verdict": "verified",
+        "note": "Finite-length endomorphism has kernel and cokernel of equal length by two short exact sequences; no generic correction is needed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/divisor-dimension-dichotomy",
+        "verdict": "corrected",
+        "note": "Removed the dimension≤1 finite-length lemma from the proof of dimension≤1 itself; excellence/catenarity and principal-ideal height supply this step."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/normalization-length-positive",
+        "verdict": "verified",
+        "note": "Excellent one-dimensional domain has finite semilocal Dedekind normalization; f is regular there and N/f has strictly positive finite length. Exact missing library facts remain requested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/normalization-correction-finite-length",
+        "verdict": "verified",
+        "note": "Generic normalization is an isomorphism, so finite kernel/cokernel corrections have zero-dimensional support; the Tor correction is over the domain quotient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-normalized-modules",
+        "verdict": "verified",
+        "note": "Semilocal Dedekind/PID decomposition into free and torsion pieces gives positive normalization constant times generic rank; finite-length torsion contributes zero."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/length-defect-module-identity",
+        "verdict": "verified",
+        "note": "ACC Lemma 6.3.2: prime filtration and normalized correction yield dimension-zero δ=0 and dimension-one δ=a·length(M_p). Excellence is retained mathematically and not replaced by opaque Lean assumptions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/isolated-prime-product",
+        "verdict": "corrected",
+        "note": "Removed an irrelevant irreducible-divisor prerequisite; Noetherian isolated-prime decomposition and lifting idempotents through a nilpotent ideal suffice."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/generic-action-idempotent",
+        "verdict": "verified",
+        "note": "ACC Lemma 6.3.3: finite-algebra incomparability makes the minimal p maximal after contraction localization; product factor gives the exact generic idempotent."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/generic-derived-localization",
+        "verdict": "corrected",
+        "note": "Moved bounded native splitting to P7 instead of claiming it is supplied by the existing DG perfect envelope. Added corner-action, cohomology equivariance and canonical map laws; precisely marked the post-localization prototype and omitted full finite-algebra signature."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/generic-localized-length-finite",
+        "verdict": "verified",
+        "note": "Noetherian minimal-prime localization is Artinian and cohomology modules are finite; dimension-zero finite-length supplier is explicitly requested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/regular-divisor-derived-triangle",
+        "verdict": "verified",
+        "note": "Two-term free resolution is valid only for f regular on S; central derived action compatibility uses the precise P7 bridge. The dual-number failure is recorded."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/divisor-quotient-action",
+        "verdict": "added",
+        "note": "Added and justified the missing the reduction action factors through the divisor quotient step from the explicit action, quotient and bounded splitting contracts."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/residual-divisor-localization",
+        "verdict": "added",
+        "note": "Added and justified the missing residual divisor localization by an isolated quotient factor step from the explicit action, quotient and bounded splitting contracts."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/derived-divisor-length-finite",
+        "verdict": "corrected",
+        "note": "Made localization of the reduced derived object at a potentially nongeneric residual prime explicit: quotient the action by f and split the isolated prime in T_q/(f); finite-length kernels/cokernels then apply."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/derived-length-zero-dimensional",
+        "verdict": "verified",
+        "note": "ACC Lemma 6.3.4: truncations and finite-length δ=0 prove vanishing; no concentration in a single degree is assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/derived-length-identity",
+        "verdict": "corrected",
+        "note": "Full mathematical source theorem checked. Renamed its weaker intermediate Lean prototype to derivedLengthIdentityFromModuleFormula and recorded that the full source signature is omitted until supplier interfaces exist."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/residual-length-comparison",
+        "verdict": "verified",
+        "note": "ACC §6.3.5 and Lemma 6.3.7: identify local simple factors via the common image algebra and nilpotent quotients. Do not replace modules by their quotients, which could change length."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/top-component-divisor-bridge",
+        "verdict": "corrected",
+        "note": "Made π avoidance explicit before using principal-divisor dimension: a top component inside V(π) would contradict dim R/(π)=d−1."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/generic-euler-divisor-transfer",
+        "verdict": "verified",
+        "note": "ACC Lemma 6.3.7, p.1051: positive generic coefficient and the zero-dimensional branch give the two directions of Euler nonvanishing; support alone is insufficient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/characteristic-zero-concentration-seed",
+        "verdict": "verified",
+        "note": "ACC Proposition 6.3.8, pp.1051–1052: localization at a characteristic-zero dimension-one fibre, P7 finite interval and CG concentration supply a nonzero top generic Euler seed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/support-transport-avoiding-ihara",
+        "verdict": "corrected",
+        "note": "Full mathematical source theorem checked. Renamed its weaker intermediate Lean prototype to supportTransportFromEulerComparison and recorded that the full source signature is omitted until supplier interfaces exist."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/equidimensional-full-support",
+        "verdict": "verified",
+        "note": "All components top-dimensional imply full spectral image, nil kernel and reduced quotient isomorphism; no integral R=T conclusion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/right-edge-specialization",
+        "verdict": "corrected",
+        "note": "Verified the stronger right-edge isomorphism from the displayed Tor differential convention. Removed the strict-chain action supplier from the general derived-action prerequisites; the native equivariant comparison remains an explicit P7 request/gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/local-condition-support",
+        "verdict": "verified",
+        "note": "ACC Corollary 6.3.9, p.1053: select the supported T-point, use the native right-edge comparison and, when π avoids its contraction, flat inversion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/comparison-one-degree",
+        "verdict": "verified",
+        "note": "CG Proposition 6.6, pp.68–70: upper reduction cohomology is the quotient and the preceding degree may be π-torsion; module descent keeps its π-regularity and generic-point hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/example-dvr-torsion",
+        "verdict": "verified",
+        "note": "Computed [O --π→ O] in degrees 0,1: torsion H¹, empty rational support, two residual degrees. It distinguishes derived quotient from an ordinary quotient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/example-koszul-power-series",
+        "verdict": "verified",
+        "note": "Computed [O[[x]] --x→ O[[x]]] in degrees 0,1: pd=1, depth=1, two augmentation fibre degrees; localization O[[x]][1/π] is not falsely identified with Frac(O)[[x]]."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/example-reducible-component",
+        "verdict": "verified",
+        "note": "Product factor support selects only one component; k[[x,y]]/(xy) with scalar x has both cohomology modules on V(x), not full support."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/example-taylor-wiles-stalk",
+        "verdict": "verified",
+        "note": "Nonzero finite free stalk has full support and width zero; all derived coefficient changes preserve the stalk with the expected rank."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:P9/example-non-cm-cohomology",
+        "verdict": "verified",
+        "note": "For k[[x,y]], S/(x)⊕k has pd=2, depth=0, support dimension=1 and fibre Betti numbers 2,3,1; strict codimension<amplitude is consistent with CG."
+      }
+    ]
+  },
+  "suggestedLeanNotes": [
+    "The suggested file is deliberately nonexhaustive. All definition/construction API and 15 tests have native prototypes; genericLocalization prototypes the split-idempotent step after base localization, not the omitted full T_q→T_p construction. Its homology prototype is the S-linear range equivalence plus T-equivariant inclusion. The homology range equivalence is constrained to be the homology inclusion, so the equivariance law applies to that specific equivalence.",
+    "derivedLengthIdentityFromModuleFormula and supportTransportFromEulerComparison are intermediate signatures with explicit inputs, not signatures of the full packet theorems derived-length-identity and support-transport-avoiding-ihara. Full ACC setup, excellence/module-length identity, divisor quotient-action/localization and right-edge signatures remain omitted pending the precise supplier interfaces in requests/gaps.",
+    "balancedDepth and balancedPatchedComplex express exact depth by existence plus a universal bound on maximal-ideal regular-sequence length."
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1207.4224v2",
+      "read": "2026-10-10",
+      "sha256": "67896c853258801967270f8927e5bb33c0315989d3a4188d53435a9305993ebb",
+      "citation": "arXiv:1207.4224v2, 16 July 2017; author pagination"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "read": "2026-10-10",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "citation": "Annals of Mathematics 197 (2023), author copy with printed pagination 897–1113"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.uchicago.edu/~fcale/papers/CG.pdf",
+      "read": "2026-10-10",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+      "citation": "Inventiones mathematicae 211 (2018), 297–433; published-layout author PDF"
+    }
+  ]
 }
