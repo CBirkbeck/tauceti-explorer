@@ -1,133 +1,112 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
-## Current run: codex-6Hr23i, 10 October 2026
+## Current status, 10 October 2026
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-6Hr23i`.
-Branch: `codex-6Hr23i-langlands-parameter-stacks`.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097577409);
-[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097578557).
-The bot confirmed this session's claim before work began. The full available
-swarm listing contained 740 issues and none from the manager's priority list.
-The focus package was selected under the fallback order. No second job was claimed.
+Worker: Codex (GPT-6), session `codex-Gh5qWu`.
+Branch: `codex-Gh5qWu-langlands-parameter-stacks`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097706963);
+[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097708333).
+The bot confirmed this session's claim before work began. None of the
+manager's priority issues appeared in the 740-issue available-swarm list.
+This focus package was selected in the fallback queue; no second job was
+claimed.
 
-**Incomplete; blocked on owner specifications outside this issue's four
-authorized files.** The current upstream source and native library revisions
-are unchanged from the inherited checkpoint. This run adds two fully proved
-algebraic checks and their README descriptions; it does not declare the package
-complete or reinterpret the accepted target-level pass as a closed plan.
+**Incomplete and blocked by supplier specifications outside the four files
+this issue authorizes.** This checkpoint consolidates the resumption note
+and verifies the outstanding gates against the current supplier artifacts.
+The package README and Suggested.lean are unchanged. No metadata file is
+added, because the complete package cannot yet be delivered honestly.
 
-### New work
+### What was established independently in this run
 
-In `IdentityComponentCoordinateChecks` of the package Suggested.lean:
+1. The accepted LP review explicitly accepts a target-level planning pass,
+   rather than a closed package specification. The packet still has 79 nodes,
+   140 API items, 90 tests, five gaps, sixteen requests and eight planned,
+   unclosed stages. Its G3 records omitted enhanced signatures. The issue's
+   assertion that its plan is complete does not discharge those omissions.
+2. Current upstream IHG §0.7 and its `InvariantCoordinateInput.ring` use
+   one Hopf algebra for both tuple points and conjugating points. The
+   required LP pseudocharacter fibre uses tuple group J=H⋊Q and conjugating
+   group H. The atlas IHG README describes a more general construction;
+   its suggested input still only carries a ring diagram, without constructing
+   that diagram from separate Hopf data. These are distinct contracts.
+3. `EnhancedDerivedSheaves--E5.lean` still supplies `True` fields for the
+   monoidal fibration, Segal conditions and coherent action, `Unit` for
+   `CAlg` and `AnimatedAlg`, and a proof of `True` for `IndInfty`.
+   Read the full file and the exact LP definitions, APIs, tests and requests
+   for derived parameter stacks, categorical Hecke data and good-filtration
+   t-structures. Such signatures cannot express those consumers. A limited
+   declaration-text search in current native Tau Ceti for those enhanced
+   names found no replacement; this is not a comprehensive library audit.
+4. Read the current upstream AlgebraicVectorBundles and ReductiveGroups
+   READMEs in full, and all eight LP entries of the reviewed library audit.
+   Their ordinary scheme bundle and pinned-group targets do not supply the
+   missing derived quotient-stack interfaces.
+5. Reopened [Quast's author-hosted v1](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
+   Definition 3.1, p.11, and Theorem 3.7, pp.13–15: the invariant algebra
+   uses the identity component, and reconstruction retains identity-component
+   conjugacy. Reopened [Fargues–Scholze's author PDF](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+   VIII.3.8, p.290, and VIII.4.1–VIII.4.2, pp.291–292: the component
+   projection and categorical functor data are substantive requirements.
+   The ordinary categorical formulation of VIII.4 is itself meaningful;
+   the further stable enhancement required by the accepted LP plan still
+   needs its specified supplier. No source passage is committed.
 
-- `coordinate_not_projected_switch_invariant` proves that for every nonzero
-  commutative ring R, no element g of the switch-invariant subalgebra of
-  A=R[x,x⁻¹]×R[x,x⁻¹] satisfies (1,0)g=(x,0).
-- `identity_restriction_not_surjective` proves that projection of that
-  subalgebra to the first Laurent factor is not surjective: x has no lift.
+The predecessor also added two fully proved Laurent-coordinate checks:
+`IdentityComponentCoordinateChecks.coordinate_not_projected_switch_invariant`
+and `IdentityComponentCoordinateChecks.identity_restriction_not_surjective`.
+For every nonzero coefficient ring, projection of the switch-invariant
+subalgebra to the identity Laurent factor misses its coordinate x, including
+in characteristic two. Preserve these with the older rational-point checks;
+this run's full-file elaboration includes both proofs.
 
-These prove the failure of the proposed component restriction as an algebra
-map, beyond comparing two rational points. They apply in characteristic two
-as well. The switch-invariant algebra contains the whole-J invariant algebra;
-thus taking whole-J invariants and then selecting the identity component
-cannot provide the required identity-component invariants. Both proofs use
-the existing genuine Laurent-coordinate fixture and Mathlib subalgebra
-closure; neither introduces a `sorry` or a generic alternate owner.
-The README records these two checks alongside the existing invariant tests.
+### Validation
 
-### Fresh blocker verification
-
-Read current upstream AlgebraicVectorBundles and ReductiveGroups READMEs in
-full. The former's L0–L2 specify ordinary scheme sheaves and vector bundles;
-the latter's Layer 9 specifies pinned integral groups. Neither is the missing
-enhanced quotient-stack interface. Read current upstream IHG §0.7 and the
-`InvariantCoordinateInput`/`ring` signatures: the tuple group and conjugating
-group still come from the same Hopf algebra. The README explicitly restricts
-its reductive applications to connected groups. Compare the atlas IHG
-package's generalized invariant target with its ring-diagram-only signature;
-the construction from separate group/subgroup Hopf data is still absent there.
-
-Read the complete E5 suggested input: its monoidal fibration/Segal fields
-remain `True`, `CAlg` and `AnimatedAlg` remain `Unit`, and `IndInfty` remains
-a proof of `True`. A declaration-text search of the current native Tau Ceti
-tree for `SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `CoherentAction` and
-named `IsStable`/`CAlg` definitions returned no matches; this limited search
-does not purport to be a full library audit. Read all eight LP entries of the
-reviewed library audit. The input packet still has five explicit gaps,
-sixteen requests, and eight planned/unclosed stages.
-
-Freshly fetched and read Quast's author-hosted v1, Definition 3.1, Lemmas
-3.4–3.6 and Theorem 3.7 with its reconstruction proof, pp.11–15, and
-Fargues–Scholze VIII.3.5–VIII.3.8, pp.288–290. The identity-component
-invariants and conjugacy in those statements confirm the required scope.
-Hashes equal the public-source receipts preserved below. No source passage
-is committed. The inherited owner repair gates and remaining worklists below
-remain applicable; this run does not re-certify the older signature-token
-inventory as a declaration audit.
-
-### Fresh validation and restart
-
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, no errors, 291 warnings, all `declaration uses sorry`, no other
-  diagnostics. The two new proofs add no warnings. Available memory before
+- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`
+  completed with exit 0, no errors, and 291 warnings, all
+  `declaration uses sorry`; no other diagnostics. Available memory before
   compilation was 98 GB. Managed elaboration uses Mathlib
   `082e2d37e8b0463410cdb532e111cd43d5a66174` and advertised Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`.
-- LP and IHG `check_blueprint.py`: exit 0, zero errors and warnings. The
-  checks accept recorded gaps; they do not close them. Neither packet changed.
-- Current read-only roadmap source revision:
-  `e255659f8eb50cd472809d9d565c8f755acffd84`; current native Tau Ceti:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither tree was edited.
-- README: 192338 bytes, within 200 KB.
-- Intake `check-files`: three authorized files, zero problems.
+  `f790474821cf4256814db967cb154e7af3d0c369`. This verifies the retained
+  signatures, not the omitted ones.
+- `check_blueprint.py` on LP and IHG: each exit 0, zero errors and warnings.
+  These structural checks allow the packets' recorded gaps.
+- Scoped intake `check-files`: one authorized handoff, zero problems;
   `git diff --check` passes.
+- Current read-only roadmap source revision:
+  `f0e756642161655be0c351bf584f72bd35f8fe8a`; native Tau Ceti revision:
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The roadmap source has
+  advanced since the predecessor's receipt; the inspected IHG contract
+  still has the limitation above. Neither source tree was edited or built.
+- Package README: 192338 bytes, within 200 KB; SHA-256
+  `f8d43a5ccbf756a2b08425be664061aea24b79887de1479992099352fb9dd1c6`.
+  Suggested.lean: 129172 bytes; SHA-256
+  `1fa52ab0bd2df3ce469ddfb775dd85396aa5f18bf55fdce4d0a3ecfa8e35423a`.
+- LP packet hash:
+  `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`;
+  IHG packet hash:
+  `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`;
+  E5 suggested input hash:
+  `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c`.
+  These match the predecessor's input receipts.
 
-Resume only after the generic invariant and enhanced-category contracts are
-repaired in their owners and the LP plan is reconciled as described below.
-Then complete the omitted signatures against those contracts, reconcile all
-79 targets/140 APIs/90 tests, and add `topic = "math.NT"` as metadata. The
-metadata file remains absent so `deliverables_complete` continues to recognize
-this as a checkpoint; its package branch currently tests only file existence.
-Repeating a package-only attempt before owner repairs cannot meet these gates.
-No scratch artifact is needed to resume. All new work is in the two package
-files, and the inherited mathematical worklists are retained below and in
-the [previous handoff at its immutable commit](https://github.com/CBirkbeck/tauceti-explorer/blob/db9841733e6ba2604858325971399fc274f8af29/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
-No private book was used, no source passage was copied, no owner file was
-edited, and no background compile or Lean language server remains.
+### Required next action
 
-## Inherited checkpoint: codex-zIru1Z, 10 October 2026
+An authorized owner repair must reconcile IHG's generalized invariant
+construction and E5's enhanced interfaces, then update LP's supplier references
+and omitted signatures. Implementation of every supplier is not required just
+to write a roadmap; an adequate, non-vacuous specification and usable prototype
+contract are required. The repairs cannot be performed through this package
+issue, which forbids editing packets or supplier files. Another run restricted
+to these same four files will encounter the same gates until that external
+repair occurs. No new owner, ownership move or additional claim was made.
 
-The following retains the predecessor's detailed owner gates, signature
-worklists and receipts. References to its run and unchanged package hashes
-describe that predecessor; the current validation above supersedes its
-package sizes and Lean receipt.
-
-Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-zIru1Z`.
-Branch: `codex-zIru1Z-langlands-parameter-stacks`.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097430914);
-[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6097432140).
-The bot confirmed the claim before work began. None of the manager's priority
-issues was in the 743-issue available-swarm listing. This was one of the three
-eligible focus packages in the WORKERS fallback order. No second job was claimed.
-
-**Incomplete: completion requires supplier-specification repairs outside this
-issue's allowed files.** This run changes only the handoff, distinguishing the
-three IHG artifacts below and refreshing the obstruction, signature inventory,
-source receipts and validation. It leaves the existing README and Lean proof
-work intact. The block is independent of the run's remaining time and of
-whether adequately specified prerequisites have been implemented.
-
-The accepted review, `independent-review-REV-LanglandsParameterStacks~2`, accepts
-a target-level pass with eight planned, unclosed stages, G1–G4 and G6, supplier
-extensions and omitted enhanced signatures. The packet has 79 nodes, 140 API
-items, 90 tests, 31 planets, five gaps and sixteen requests. Acceptance of that
-pass does not certify a complete package with all signatures. The issue permits
-only the package README, Suggested.lean, metadata and this handoff; it instructs
-workers to describe plan mistakes here and change no packet. PROTOCOL §§3, 13,
-15 and 20 require adequate supplier statements, honest signatures and single
-ownership. Creating alternate generic owners locally would not resolve this.
+The inherited detailed gates, coverage worklists and proof-preservation notes
+below remain applicable. They are retained for resumption, not newly certified
+as complete signature coverage. The predecessor's full source receipts and
+historical checks are available in its
+[immutable handoff](https://github.com/CBirkbeck/tauceti-explorer/blob/53a6f11eabf27d6f107490aae12478dfa1ccc9f5/research/blueprint/handoff/PKG-LanglandsParameterStacks.md).
 
 ## Supplier obstruction and exact restart gates
 
@@ -168,7 +147,7 @@ coordinate and field-GIT inputs, and update LP's imports through an authorized
 plan repair. Adding an arbitrary ring diagram in the LP package does not meet
 this gate.
 
-This run freshly read [Quast's author-hosted v1](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
+The inherited investigation read [Quast's author-hosted v1](https://www.julianquast.de/files/Deformations_of_G-valued_Pseudocharacters.pdf),
 Definition 3.1 (p.11), Lemmas 3.4–3.5 (pp.12–13), Theorem 3.7 and the opening
 reconstruction proof (pp.13–14). They use identity-component invariants and
 identity-component conjugacy. Freshly read
@@ -186,7 +165,7 @@ line 199 are `Unit`, and `IndInfty` at line 145 is a proof of `True`.
 Presentability, stability and coherent actions likewise need actual interfaces.
 These signatures cannot express LP's enhanced objects faithfully.
 
-This run checked the exact statements, hypotheses, prerequisites and API/test
+The inherited investigation checked the exact statements, hypotheses, prerequisites and API/test
 requirements of `LP1/derived-parameter-stack`,
 `LP2:excursion-presentation/categorical-hecke-datum`,
 `LP3/good-filtration-t-structure`, `LP3/induced-perfect-complexes`,
@@ -369,54 +348,20 @@ operators remain separate obligations.
 
 The [previous handoff at the starting commit](https://github.com/CBirkbeck/tauceti-explorer/blob/468675f045a6b1e831057097569fef6e1b8579aa/research/blueprint/handoff/PKG-LanglandsParameterStacks.md)
 retains the earlier isolated elaboration and axiom reports, source findings,
-and BHKT fetch receipt. Those isolated reports were not rerun here. This run
-read the pertinent definitions/proofs and elaborated the whole package.
+and BHKT fetch receipt. Those isolated reports were not rerun here. The inherited investigation read the pertinent definitions/proofs and
+elaborated the whole package.
 
-## Fresh validation and receipts
 
-- `python3 scripts/check_blueprint.py` on LP and IHG packets: both exit 0,
-  zero errors and warnings. LP: 79 nodes, 140 APIs, 90 tests, five gaps,
-  sixteen requests, eight planned/unclosed stages. These are structural checks.
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, no errors, 291 warnings, all `declaration uses sorry`, with no other
-  diagnostics. Available memory before compilation: 104 GB. It finished.
-  Managed elaboration pins: Mathlib
-  `082e2d37e8b0463410cdb532e111cd43d5a66174` and advertised Tau Ceti
-  `f790474821cf4256814db967cb154e7af3d0c369`.
-- Read-only current roadmap source revision:
-  `e255659f8eb50cd472809d9d565c8f755acffd84`; current native Tau Ceti:
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These source trees differ
-  from the managed elaboration baseline and were left untouched.
-- Scoped intake file validation: one authorized handoff file, zero problems.
-  `git diff --check` passes. Package README: 191851 bytes, within 200 KB.
+## Completion and cleanup
 
-Unchanged input and package artifact receipts, freshly computed:
+After the owner repairs, reconcile all 79 targets, 140 API items and 90 tests
+against actual declarations and examples, retain the dependency order and the
+existing proved fixtures, keep the README within 200 KB, and create metadata
+with `topic = "math.NT"`. Rerun Lean and intake checks. Until then metadata
+remains absent: `issues.deliverables_complete` otherwise recognizes a package
+by output existence and would mark an incomplete package complete.
 
-| File | Bytes | SHA-256 |
-| --- | ---: | --- |
-| LP packet | 375204 | `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087` |
-| IHG packet | 891679 | `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b` |
-| E5 suggested input | 10410 | `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c` |
-| Package README | 191851 | `894abc8701db52f1ffaffccde1146c753d38f9608ffe0ca42a7878f90003058f` |
-| Package Suggested.lean | 127901 | `7d455c73c4813aa6e83d5117f2e40d9a8bd2970ee4e739601e2e789c6b7782ac` |
-
-Public source receipts, fetched 10 October 2026; no PDF or extracted source
-text is committed:
-
-| Source | Bytes | SHA-256 |
-| --- | ---: | --- |
-| Quast author-hosted v1, linked above | 734325 | `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827` |
-| Fargues–Scholze author PDF, linked above | 2665415 | `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905` |
-
-`metadata.toml` remains absent. Its eventual content is `topic = "math.NT"`.
-`issues.deliverables_complete` checks existence of every package output and
-has no package-semantic branch; adding the last output now would incorrectly
-mark this incomplete job complete. Obtain the owner-authorized repairs above,
-then reconcile all 79 targets, 140 APIs and 90 tests, retain dependency order,
-keep the README within 200 KB, add metadata and rerun Lean and intake checks.
-Another package-only attempt cannot meet the current completion gates.
-
-All resumption information is in this handoff or its immutable predecessor
-link. No scratch artifact is needed. No private book was used, no source
-passage was copied, and no owner file or read-only tree was edited. No Lean
-language server, Lake build/update/cache command or background compile remains.
+All resumption information is here or in the linked immutable predecessor.
+No scratch artifact is required. No private book or source passage was copied,
+no supplier file was edited, and no Lean language server or background compile
+remains. The submission changes only this handoff note.
