@@ -43,6 +43,7 @@ import Mathlib.Topology.Algebra.OpenSubgroup
 import Mathlib.Topology.Category.Profinite.Basic
 import Mathlib.Topology.Category.Stonean.Basic
 import Mathlib.Topology.Category.TopCat.Basic
+import TauCeti.AlgebraicGeometry.AffineGroupScheme.Reductive
 
 set_option autoImplicit false
 
@@ -457,12 +458,9 @@ def LocalField.weilActionSpdC (F : LocalField p) : F.WeilGroup →* Aut F.spdC :
 
 /-! ### Reductive groups, cocharacters and `B(G)` -/
 
-/-- ReductiveGroups (stand-in): reductive groups over `E`; the corresponding pinned library
-carrier is `TauCeti.ReductiveAffineGroupSchemeCat E`. -/
-def RedGrp (F : LocalField p) : Type 1 := sorry
-
-/-- ReductiveGroups (stand-in): homomorphisms of group schemes over `E`. -/
-instance (F : LocalField p) : LargeCategory (RedGrp F) := sorry
+/-- Reductive groups over `E`, using Tau Ceti's native full subcategory of finite-type affine
+group schemes. Its inherited category has group-scheme homomorphisms over `E` as morphisms. -/
+abbrev RedGrp (F : LocalField p) : Type 1 := TauCeti.ReductiveAffineGroupSchemeCat F.E
 
 namespace RedGrp
 
@@ -4859,7 +4857,7 @@ theorem comp_assoc {I'' : Type} [Finite I''] (b''' : G.ptsBreve) (μ' : I' → G
         comp G b b'' b''' (Sum.elim μ μ') μ'' ≫
         (reindex G b b''' (Sum.elim (Sum.elim μ μ') μ'') (Equiv.sumAssoc I I' I'').symm
           (Sum.elim μ (Sum.elim μ' μ'')) (by rintro (i | i | i) <;> rfl)).hom =
-      (prod.associator _ _ _).hom ≫
+      (Limits.prod.associator _ _ _).hom ≫
         prod.map (𝟙 (FramedModification G b b' μ)) (comp G b' b'' b''' μ' μ'') ≫
         comp G b b' b''' μ (Sum.elim μ' μ'') := sorry
 

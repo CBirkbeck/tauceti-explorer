@@ -124,7 +124,12 @@ automorphism over the fraction field of Witt vectors; finite dimension,
 $G$-structure and ramified or equal-characteristic generalizations require
 the isocrystal suppliers. Tau Ceti's `AffineGroupSchemeCat` supplies an affine
 group scheme carrier; smoothness, connected fibres and a reductive generic
-fibre are additional hypotheses. Its `IsSmoothDiscrete` and
+fibre are additional hypotheses on an integral model. Over the field $E$,
+use `TauCeti.ReductiveAffineGroupSchemeCat E`, the full subcategory of
+finite-type affine group schemes selected by geometric reductivity. It already
+carries smoothness and geometric connectedness, and its morphisms are the
+native group-scheme homomorphisms over $E$. The suggested abbreviation
+`RedGrp` uses this carrier and its inherited category. Tau Ceti's `IsSmoothDiscrete` and
 `SmoothDiscreteTopRep` supply the ordinary smooth discrete carrier, including
 continuity of the scalar action for a topological coefficient ring.
 `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension` supplies the enhanced
