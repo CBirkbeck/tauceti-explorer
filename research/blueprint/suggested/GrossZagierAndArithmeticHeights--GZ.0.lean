@@ -283,13 +283,14 @@ inverse. -/
 theorem artinConvention {A G : Type*} [CommGroup A] [Group G] (art : A →* G) (χ : G →* ℂˣ)
     (a : A) : χ ((art a)⁻¹) = (χ (art a))⁻¹ := by sorry
 
-/-! The real periods themselves belong to EllipticCurves Layer 7.
-fullPeriod and identityPeriod are its actual integrals for the same differential.
-Their supplier carrier and component comparison are omitted here. No period
-placeholder is defined in this roadmap. -/
+/-! EllipticCurves Layer 7 supplies the finite full-period integral over ℚ
+on its reduced minimal equation. GZ.0 owns the identity-component period and
+the component comparison for that differential. Their geometric signatures
+remain omitted; the current upstream layer does not provide them. -/
 /- Omitted realPeriod_eq_card_components_mul: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 
-/-- GZ.0/height-convention-dictionary, collected. -/
+/-- Elliptic part of GZ.0/height-convention-dictionary. The number-field comparisons
+remain specifications in the packet, so this is a partial algebraic signature. -/
 theorem heightConventions {F : Type*} [Field F] {W : WeierstrassCurve.Affine F}
     [AdmissibleAbsValues F] [DecidableEq F] [W.toAffine.IsElliptic]
     [Module.Finite ℤ (WeierstrassCurve.Affine.PointModTorsion W)] :
@@ -862,9 +863,9 @@ theorem arakelovDualizingMetric_residue (residue : ∀ x, L x →ₗ[ℂ] ℂ) (
   arakelovDualizingMetric residue x v = ‖residue x v‖ := by sorry
 /- Omitted arakelovDualizingMetric_curvature: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 /- Omitted arakelovDualizingMetric_diagonal: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
--- Fragment example: arakelovDualizingMetric_genus_one
+-- Omitted mathematical test: arakelovDualizingMetric_genus_one
 /- Omitted test:arakelovDualizingMetric_genus_one: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
--- Fragment example: arakelovDualizingMetric_genus_two
+-- Omitted mathematical test: arakelovDualizingMetric_genus_two
 /- Omitted test:arakelovDualizingMetric_genus_two: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Fragment example: arakelovDualizingMetric_rescale
 example (residue : ∀ x, L x →ₗ[ℂ] ℂ) (x : X) (v : L x)
@@ -1016,7 +1017,7 @@ theorem normalizedWhittaker_nonzero_index (a : ℂ) (ha : a≠0) (γ : ℂˣ) (L
 theorem normalizedWhittaker_zero_index (γ : ℂˣ) (Lnext Lcurrent raw : ℂ → ℂ) (D d : ℝ) (s : ℂ) :
   normalizedWhittaker 0 γ Lnext Lcurrent D d raw s=
     (γ : ℂ)⁻¹*(Lnext s/Lcurrent s)*(Real.sqrt D*Real.sqrt d : ℂ)⁻¹*raw s := by sorry
--- Fragment example: normalizedWhittaker_standard_zero
+-- Omitted mathematical test: normalizedWhittaker_standard_zero
 /- Omitted test:normalizedWhittaker_standard_zero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Fragment example: normalizedWhittaker_zero_branch
 example (z : ℂ) (hz : z≠0) : 2*z≠z := by sorry
@@ -1233,10 +1234,13 @@ example (z : ℂ) : (1/2 : ℂ)*z*4=2*z := by sorry
 Algebraic fragment only: the following description is an intended
 specialization, not a hypothesis of the signatures in this block.
 This is the correspondence-height integrand, with the toric regularized
-cycle action already applied. The actual truncation/constant subtraction,
-Picard action and Faltings-Hriljac identification are omitted; they remain
-mandatory inputs in the packet. No integral is assigned a value by a
+cycle action already applied. Central probability averaging, quotient-measure
+integration, the Picard action and Faltings-Hriljac identification are omitted;
+they remain mandatory inputs in the packet. No integral is assigned a value by a
 proposition or a formal symbol.
+The fragment below has no central idele quotient or starred torus integration.
+The actual kernel first centrally averages and then integrates; its normalized
+average differs by vol([T])=2 L(1,eta). The corresponding volume API/test is omitted.
 -/
 def arithmeticHeightKernel {V : Type*} [AddCommGroup V] [Module ℂ V]
     (height : V →ₗ[ℂ] V →ₗ[ℂ] ℂ) (cycleAction : V →ₗ[ℂ] V) (x y : V) : ℂ := by sorry
@@ -1903,7 +1907,7 @@ def inertNormIdeals {K I : Type*} [Field K] [CommGroupWithZero I]
 /- Omitted inertNormIdeals_classes: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 /- Omitted inertNormIdeals_norm: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 /- Omitted inertNormIdeals_valuation: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
--- Fragment example: inertNormIdeals_nonzero
+-- Omitted mathematical test: inertNormIdeals_nonzero
 /- Omitted test:inertNormIdeals_nonzero: The statement lacks the geometric/analytic hypotheses tying its arbitrary inputs to the source objects. See the independent review. -/
 -- Fragment example: inertNormIdeals_sign
 example {K I : Type*} [Field K] [CommGroupWithZero I] (principal : K →*₀ I)
@@ -1988,7 +1992,7 @@ example (D N n d D1 D2 : ℤ) (ε1 ε2 : ℤ → ℤ) (χ : ℤ)
 -- Fragment example: rankinGenusSign_positive_cancellation
 example (divisors : Finset ℕ) (ε : ℕ → ℤ) (e : divisors ≃ divisors)
     (h : ∀ d,ε (e d)=-ε d) : (∑ d∈divisors,ε d)=0 := by sorry
--- Fragment example: rankinGenusSign_negative_index
+-- Omitted mathematical test: rankinGenusSign_negative_index
 /- Omitted rankinGenusSign_negative_index: the scalar identity did not test the genus-sign construction. Use the packet’s n=±3 character computation once the actual quadratic-character carrier is available. -/
 
 /-! GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums — Signed divisor sums
@@ -3944,8 +3948,16 @@ end TauCeti.GrossZagier.AlgebraicFragments
 /-!
 ## Target/signature correspondence at the pinned baseline
 
+243 mathematical targets: 6 typed signatures, 75 algebraic fragments, 162 omissions.
+274 API items: 23 typed signatures, 205 fragments, 46 omissions.
+202 mathematical tests: 20 typed examples, 166 fragment examples, 16 omissions.
+Every omitted entry records the missing carrier; no geometric implementation is asserted.
+Current Tau Ceti a91d3aa uses full x-height, unlike the pinned half-x-height convention.
+Import its existing implementation and translate the normalization when migrating.
+
 GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height
 Proposed target: WeierstrassCurve.Affine.Point.xCanonicalHeight.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
 Direct owners/inputs: tauceti:WeierstrassCurve.Affine.Point.canonicalHeight, tauceti:WeierstrassCurve.Affine.Point.naiveHeight, tauceti:WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow, tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nsmul, mathlib:Filter.Tendsto, tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nonneg, tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder.
 API WeierstrassCurve.Affine.Point.xCanonicalHeight: typed-signature; written WeierstrassCurve.Affine.Point.xCanonicalHeight.
@@ -3960,6 +3972,7 @@ Test WeierstrassCurve.Affine.Point.xCanonicalHeight_eq_neronTatePairing: typed-e
 
 GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing
 Proposed target: WeierstrassCurve.Affine.bsdHeightPairing.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height, tauceti:WeierstrassCurve.Affine.canonicalHeightQuadratic, tauceti:WeierstrassCurve.Affine.neronTatePairing, tauceti:WeierstrassCurve.Affine.neronTatePairing_apply, tauceti:WeierstrassCurve.Affine.neronTatePairing_self, mathlib:QuadraticMap.polar, mathlib:QuadraticMap.polarBilin, mathlib:QuadraticMap.associated.
 API WeierstrassCurve.Affine.bsdHeightPairing: typed-signature; written WeierstrassCurve.Affine.bsdHeightPairing.
@@ -3975,6 +3988,7 @@ Test WeierstrassCurve.Affine.bsdHeightPairing_self_eq_two_mul: typed-example; wr
 
 GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator
 Proposed target: WeierstrassCurve.Affine.bsdRegulator.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing, mathlib:Matrix.det_smul, tauceti:WeierstrassCurve.Affine.regulator, tauceti:WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix, tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero, tauceti:WeierstrassCurve.Affine.neronTateGramMatrix, tauceti:WeierstrassCurve.Affine.PointModTorsion, mathlib:Module.finrank.
 API WeierstrassCurve.Affine.bsdRegulator: typed-signature; written WeierstrassCurve.Affine.bsdRegulator.
@@ -3989,11 +4003,13 @@ Test WeierstrassCurve.Affine.bsdRegulator_eq_xCanonicalHeight: typed-example; wr
 
 GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary
 Proposed target: TauCeti.GrossZagier.heightConventions.
-Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
+Target status: algebraic-fragment.
+Carrier gate: The written heightConventions theorem supplies the three elliptic factor-of-two comparisons. The relative/absolute number-field dictionary and compatible finite-extension comparison stated by this target remain unwritten; RP.0 is the precise supplier for the latter.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height, GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing, GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator, tauceti:WeierstrassCurve.Affine.Point.naiveHeight, mathlib:NumberField.instAdmissibleAbsValues, mathlib:NumberField.totalWeight_eq_finrank, HeightsRationalPointsAndObstructions:RP.0.
 
 GrossZagierAndArithmeticHeights:GZ.0/canonical-height-rational
 Proposed target: WeierstrassCurve.Affine.canonicalHeightRat.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
 Direct owners/inputs: tauceti:WeierstrassCurve.Affine.canonicalHeightQuadratic, tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nsmul, mathlib:QuadraticMap, mathlib:TensorProduct, mathlib:QuadraticMap.map_smul, HeightsRationalPointsAndObstructions:RP.0.
 API WeierstrassCurve.Affine.canonicalHeightRat: typed-signature; written WeierstrassCurve.Affine.canonicalHeightRat.
@@ -4007,18 +4023,21 @@ Test WeierstrassCurve.Affine.canonicalHeightRat_not_linear: typed-example; writt
 
 GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average
 Proposed target: WeierstrassCurve.Affine.canonicalHeightRat_average.
+Target status: algebraic-fragment.
 Carrier gate: A finite Galois extension, its action on the elliptic point group, the trace landing in E(K), and compatible relative-height normalization. The retained rational-height average is only the quadratic scaling step.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/canonical-height-rational, mathlib:IsGalois.
 
 GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres
 Proposed target: TauCeti.GrossZagier.deriv_completed_at_one_of_eq_zero.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
 Direct owners/inputs: mathlib:Complex.Gammaℂ, mathlib:Complex.Gammaℂ_def, mathlib:Complex.Gamma_one, mathlib:deriv_mul, mathlib:HasDerivAt.mul.
 
 GrossZagierAndArithmeticHeights:GZ.0/heegner-unit-index
 Proposed target: TauCeti.GrossZagier.unitIndex.
+Target status: typed-signature.
 Carrier gate: All carriers of the written target and its listed API/tests are supplied by the pinned elliptic-height, number-field or analytic function interfaces. Proofs remain admitted.
-Direct owners/inputs: mathlib:NumberField.Units.torsionOrder.
+Direct owners/inputs: mathlib:NumberField.Units.torsionOrder, mathlib:NumberField.Units.sum_mult_mul_log, mathlib:NumberField.Units.mem_torsion, mathlib:NumberField.Units.even_torsionOrder, mathlib:IsPrimitiveRoot.lcm_totient_le_finrank, mathlib:Polynomial.cyclotomic.irreducible_rat.
 API TauCeti.GrossZagier.unitIndex: typed-signature; written TauCeti.GrossZagier.unitIndex.
 API TauCeti.GrossZagier.two_mul_unitIndex: typed-signature; written TauCeti.GrossZagier.two_mul_unitIndex.
 API TauCeti.GrossZagier.unitIndex_eq_one_iff: typed-signature; written TauCeti.GrossZagier.unitIndex_eq_one_iff.
@@ -4029,26 +4048,31 @@ Test TauCeti.GrossZagier.unitIndex_ne_torsionOrder: typed-example; written TauCe
 
 GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention
 Proposed target: TauCeti.GrossZagier.artinConvention.
+Target status: algebraic-fragment.
 Carrier gate: The arithmetic reciprocity map, CM class-group action and its Heegner-point realization. The retained group-character identity is only inversion compatibility.
 Direct owners/inputs: mathlib:IsGalois, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.0/real-period-components
 Proposed target: TauCeti.GrossZagier.realPeriod_eq_card_components_mul.
-Carrier gate: The actual invariant differential, its integrals on the real identity component and all components, and the real-component comparison from EllipticCurves Layer7.
-Direct owners/inputs: mathlib:WeierstrassCurve.Δ, mathlib:WeierstrassCurve.b₂, mathlib:Real.sqrt, mathlib:MeasureTheory.lintegral.
+Target status: omitted; actual source carrier not written.
+Carrier gate: EllipticCurves Layer7 supplies the full-period integral on the reduced minimal equation over ℚ, with finiteness and the differential from its Layer1. GZ.0 owns the comparison with the identity-component period and c∞. The current upstream layer does not yet supply the manifold comparison or an identity-component-period carrier.
+Direct owners/inputs: mathlib:WeierstrassCurve.Δ, mathlib:WeierstrassCurve.b₂, mathlib:Real.sqrt, mathlib:MeasureTheory.lintegral, tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4.
 
 GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections
 Proposed target: rootNumber_measure_comparison.
+Target status: algebraic-fragment.
 Carrier gate: The actual compatible-place height, CM reciprocity, toric measure or L-function interface named by this target; the retained algebraic identity omits those specialization hypotheses.
 Direct owners/inputs: AutomorphicLFunctionsAndLocalFactors:AL.3, MetaplecticAutomorphicForms:MP.6/theta-measure-normalizations.
 
 GrossZagierAndArithmeticHeights:GZ.0/identity-rescaling
 Proposed target: identity_rescaling.
+Target status: algebraic-fragment.
 Carrier gate: The actual compatible-place height, CM reciprocity, toric measure or L-function interface named by this target; the retained algebraic identity omits those specialization hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections, mathlib:Matrix.det_smul, GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing.
 
 GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing
 Proposed target: poincareHeight.
+Target status: algebraic-fragment.
 Carrier gate: A, its dual, the rigidified Poincaré biextension and canonical line-bundle height from RP.0 and A2, including the polarization pullback. An arbitrary quadratic map on two groups lacks those identifications.
 Direct owners/inputs: HeightsRationalPointsAndObstructions:RP.0, GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary, AbelianSchemesAndArithmeticModuli:A2/normalized-poincare-comparison, AbelianSchemesAndArithmeticModuli:A2/mumford-map-and-biextension, AbelianSchemesAndArithmeticModuli:A2/polarization-representatives-and-graph.
 API poincareHeight: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.poincareHeight.
@@ -4062,6 +4086,7 @@ Test poincareHeight_integer_adjunction: fragment-example; written poincareHeight
 
 GrossZagierAndArithmeticHeights:GZ.1/coefficient-valued-height
 Proposed target: coefficientHeight.
+Target status: algebraic-fragment.
 Carrier gate: The strict GL₂-type abelian variety, its coefficient field scalar extension, dual endomorphism action and the canonical Poincaré height. A trace-dual scalar algebra and bilinear map only encode the algebraic extraction step.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing, AbelianSchemesAndArithmeticModuli:A6/trace-and-degree-on-a-subfield, mathlib:TensorProduct.
 API coefficientHeight: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.coefficientHeight.
@@ -4075,6 +4100,7 @@ Test coefficientHeight_trace_not_coordinate: fragment-example; written coefficie
 
 GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing
 Proposed target: characterHeight.
+Target status: algebraic-fragment.
 Carrier gate: The actual Galois action on rationalized abelian points, opposite-character eigenspaces, fixed coefficient embedding and geometric height before scalar extension.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.1/coefficient-valued-height, GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average, HeightsRationalPointsAndObstructions:RP.1.
 API characterHeight: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.characterHeight.
@@ -4087,11 +4113,13 @@ Test characterHeight_average_square: fragment-example; written characterHeight_a
 
 GrossZagierAndArithmeticHeights:GZ.1/elliptic-poincare-comparison
 Proposed target: elliptic_poincare_comparison.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The algebraic Pic⁰/Abel–Jacobi and principal-polarization identifications for the actual elliptic curve, with the corrected translation sign, followed by the Poincaré canonical-height comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing, GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing, GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator, HeightsRationalPointsAndObstructions:RP.0.
 
 GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing
 Proposed target: arithmeticIntersection.
+Target status: algebraic-fragment.
 Carrier gate: Arithmetic divisor/Green-current carriers on regular proper models, the StableReduction local intersection and projection operations, compatible places and arithmetic degree.
 Direct owners/inputs: tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs, tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces, tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models, tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction, ArakelovGeometryAndAbelianHeights:R35.1.
 API arithmeticIntersection: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arithmeticIntersection.
@@ -4105,24 +4133,27 @@ Test arithmeticIntersection_complex_weight: fragment-example; written arithmetic
 
 GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension
 Proposed target: admissibleExtension.
+Target status: omitted; actual source carrier not written.
 Carrier gate: An actual degree-zero divisor, its Green current and vertical correction in the model intersection space, with admissibility at every place.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing, tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces, tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction, GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green, GrossZagierAndArithmeticHeights:GZ.2/graph-admissible-measure.
-API admissibleExtension: omitted.
-API admissibleExtension_characterization: omitted.
-API admissibleExtension_add: omitted.
-API admissibleExtension_pullback: omitted.
-API admissibleExtension_degreeZero: omitted.
-Test admissibleExtension_zero: omitted.
-Test admissibleExtension_xi: omitted.
-Test admissibleExtension_disconnected: omitted.
+API admissibleExtension: omitted; actual source carrier not written.
+API admissibleExtension_characterization: omitted; actual source carrier not written.
+API admissibleExtension_add: omitted; actual source carrier not written.
+API admissibleExtension_pullback: omitted; actual source carrier not written.
+API admissibleExtension_degreeZero: omitted; actual source carrier not written.
+Test admissibleExtension_zero: omitted; actual source carrier not written.
+Test admissibleExtension_xi: omitted; actual source carrier not written.
+Test admissibleExtension_disconnected: omitted; actual source carrier not written.
 
 GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions
 Proposed target: faltingsHriljac.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual Jacobian class, canonical height and admissible arithmetic intersection on a regular proper arithmetic surface.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension, GrossZagierAndArithmeticHeights:GZ.1/neron-tate-height-and-the-poincare-pairing, tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property, AbelianSchemesAndArithmeticModuli:A2.
 
 GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation
 Proposed target: normalizedHodgeClass.
+Target status: algebraic-fragment.
 Carrier gate: The stack/cusp Hodge line, its degree on each quaternionic Shimura curve, actual proper level pullback and push-forward, and arithmetic Hodge construction owned by GZ.3.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.2/arithmetic-hodge-line, ModularCurvesPartII:R12.5, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a.
 API normalizedHodgeClass: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normalizedHodgeClass.
@@ -4135,6 +4166,7 @@ Test normalizedHodgeClass_double_cover: fragment-example; written normalizedHodg
 
 GrossZagierAndArithmeticHeights:GZ.3/rational-xi-realization
 Proposed target: rationalXiRealization.
+Target status: algebraic-fragment.
 Carrier gate: The modular Jacobians, normalized ξ, actual Hom(J_U,A) systems, transition morphisms and dual coefficient-field action.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation, tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property, AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank.
 API rationalXiRealization: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.rationalXiRealization.
@@ -4148,11 +4180,13 @@ Test rationalXiRealization_finer_level: fragment-example; written rationalXiReal
 
 GrossZagierAndArithmeticHeights:GZ.3/strict-gl2-realization
 Proposed target: strictGL2_realization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The simple GL₂-type quotient abelian variety, End⁰/Hom geometry, the actual quaternionic action and the normalized Hom colimit.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/rational-xi-realization, GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models, AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties, GL2AutomorphicRepresentationsAndTransfer:R17.3.
 
 GrossZagierAndArithmeticHeights:GZ.3/composition-pairing
 Proposed target: compositionPairing.
+Target status: algebraic-fragment.
 Carrier gate: Actual Hom spaces of abelian varieties, the dual morphism, polarizations and normalized level volume; arbitrary linear maps only supply composition algebra.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/rational-xi-realization, GrossZagierAndArithmeticHeights:GZ.3/strict-gl2-realization, AbelianSchemesAndArithmeticModuli:A2, AbelianSchemesAndArithmeticModuli:A6/degree-formulas-for-polarized-isogenies.
 API compositionPairing: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.compositionPairing.
@@ -4166,11 +4200,13 @@ Test compositionPairing_isogeny: fragment-example; written compositionPairing_is
 
 GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison
 Proposed target: petersson_composition_comparison.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual differential/cup-product and classical/adelic Petersson forms, normalized quaternionic realization and level volumes.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/composition-pairing, GrossZagierAndArithmeticHeights:GZ.3/manin-constant, AutomorphicFormsOnReductiveGroups:AF.3, AutomorphicFormsOnReductiveGroups:AF.2, ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism, ModularCurvesPartII:R14.3/cup-product-petersson.
 
 GrossZagierAndArithmeticHeights:GZ.3/manin-constant
 Proposed target: maninConstant.
+Target status: algebraic-fragment.
 Carrier gate: The nonconstant modular parametrization, rational newform differential, Néron differential and their pullback, including integral models at bad primes.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/rational-xi-realization, NeronModelsAndSemistableAbelianVarieties:R11.1, ModularCurvesPartII:R12.5, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a.
 API maninConstant: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.maninConstant.
@@ -4183,21 +4219,25 @@ Test maninConstant_11a3: fragment-example; written maninConstant_11a3.
 
 GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit
 Proposed target: maninConstant_integral_p_unit.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The integral modular and Néron models, q-expansion/differential comparison and the exact Raynaud uniqueness range.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/manin-constant, ModularCurvesPartII:R14.6, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness.
 
 GrossZagierAndArithmeticHeights:GZ.3/manin-isogeny-twist-transfer
 Proposed target: maninConstant_isogeny_twist_transfer.
+Target status: algebraic-fragment.
 Carrier gate: Actual isogeny and twist morphisms, their minimal invariant differentials and local differential valuations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit, GrossZagierAndArithmeticHeights:GZ.3/manin-constant, NeronModelsAndSemistableAbelianVarieties:R11.1.
 
 GrossZagierAndArithmeticHeights:GZ.3/manin-degree-divisibility
 Proposed target: maninConstant_dvd_modularDegree.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The integral modular differential pullback and dualizing sheaf comparison entering the modular degree, including bad-prime patching.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/manin-constant, ModularCurvesPartII:R14.6, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.4/toric-hom-space
 Proposed target: toricHom.
+Target status: algebraic-fragment.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: SmoothRepresentationsOfLocalGroups:SR.2, GL2AutomorphicRepresentationsAndTransfer:R16.2/local-classification, GL2AutomorphicRepresentationsAndTransfer:R17.1/local-quaternionic-comparison, GL2AutomorphicRepresentationsAndTransfer:R17.1/real-quaternionic-comparison.
 API toricHom: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.toricHom.
@@ -4210,11 +4250,13 @@ Test toricHom_character_inverse: fragment-example; written toricHom_character_in
 
 GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional
 Proposed target: saitoTunnell.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/toric-hom-space, GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.4/normalized-toric-integral
 Proposed target: normalizedToricForm.
+Target status: algebraic-fragment.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional, AutomorphicLFunctionsAndLocalFactors:AL.3, GrossZagierAndArithmeticHeights:GZ.0/identity-rescaling.
 API normalizedToricForm: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normalizedToricForm.
@@ -4228,11 +4270,13 @@ Test normalizedToricForm_measure_two: fragment-example; written normalizedToricF
 
 GrossZagierAndArithmeticHeights:GZ.4/unramified-toric-value
 Proposed target: normalizedToricForm_unramified.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/normalized-toric-integral, GL2AutomorphicRepresentationsAndTransfer:R16.2/spherical-whittaker-values.
 
 GrossZagierAndArithmeticHeights:GZ.4/admissible-toric-order
 Proposed target: admissibleToricOrder.
+Target status: algebraic-fragment.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional, GL2AutomorphicRepresentationsAndTransfer:R16.2/casselman-newvector.
 API admissibleToricOrder: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.admissibleToricOrder.
@@ -4245,31 +4289,37 @@ Test admissibleToricOrder_split_orientation: fragment-example; written admissibl
 
 GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors
 Proposed target: toricTestVector_nonzero.
+Target status: algebraic-fragment.
 Carrier gate: The genuine local quadratic torus embedding, smooth GL₂/quaternionic representation and transfer, invariant pairing, local L/epsilon factors and chosen torus/order measures; arbitrary group actions or lattices omit these representation-theoretic hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/admissible-toric-order, GrossZagierAndArithmeticHeights:GZ.4/normalized-toric-integral, GL2AutomorphicRepresentationsAndTransfer:R16.2/normalized-newvector.
 
 GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization
 Proposed target: coherentQuaternionicTheta.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual coherent quaternionic automorphic representation and contragredient, probability toric periods, quaternionic Tamagawa form, restricted tensor product and normalized MP.6 Shimizu/see-saw interface.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances, MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface, MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection, GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections.
 
 GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof
 Proposed target: waldspurger.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual coherent quaternionic automorphic representation and contragredient, probability toric periods, quaternionic Tamagawa form, restricted tensor product and normalized MP.6 Shimizu/see-saw interface.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization, GrossZagierAndArithmeticHeights:GZ.4/unramified-toric-value, GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.5/toric-period-nonvanishing
 Proposed target: toricPeriod_nonzero_iff.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual coherent quaternionic automorphic representation and contragredient, probability toric periods, quaternionic Tamagawa form, restricted tensor product and normalized MP.6 Shimizu/see-saw interface.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof, GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors.
 
 GrossZagierAndArithmeticHeights:GZ.5/finite-vector-variation
 Proposed target: waldspurger_vector_variation.
+Target status: algebraic-fragment.
 Carrier gate: The actual coherent quaternionic automorphic representation and contragredient, probability toric periods, quaternionic Tamagawa form, restricted tensor product and normalized MP.6 Shimizu/see-saw interface.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof, GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors, GrossZagierAndArithmeticHeights:GZ.0/identity-rescaling.
 
 GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle
 Proposed target: specialCorrespondenceCycle.
+Target status: algebraic-fragment.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: ModularCurvesPartII:R14.1, ModularCurvesPartII:R14.2.
 API specialCorrespondenceCycle: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.specialCorrespondenceCycle.
@@ -4282,6 +4332,7 @@ Test specialCorrespondenceCycle_zero_action: fragment-example; written specialCo
 
 GrossZagierAndArithmeticHeights:GZ.6/cm-degree-zero-class
 Proposed target: cmDegreeZeroClass.
+Target status: algebraic-fragment.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation, HeegnerPointEulerSystems:HE.1, GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention, tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property.
 API cmDegreeZeroClass: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmDegreeZeroClass.
@@ -4294,6 +4345,7 @@ Test cmDegreeZeroClass_hodge_average: fragment-example; written cmDegreeZeroClas
 
 GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series
 Proposed target: picardGeneratingSeries.
+Target status: algebraic-fragment.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle, MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil, GrossZagierAndArithmeticHeights:GZ.3/normalised-hodge-class-and-xi-parametrised-realisation, ModularCurvesPartII:R14.2/jacobian-and-functoriality, ModularCurvesPartII:R14.2/hecke-operators-on-the-jacobian.
 API picardGeneratingSeries: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.picardGeneratingSeries.
@@ -4306,33 +4358,40 @@ Test picardGeneratingSeries_rational_factor: fragment-example; written picardGen
 
 GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel
 Proposed target: arithmeticHeightKernel.
-Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series, GrossZagierAndArithmeticHeights:GZ.6/cm-degree-zero-class, GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing, GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions.
+Target status: algebraic-fragment.
+Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations. Its toric integration must implement the compact central average of §1.6.7 and distinguish the starred integral from the normalized regularized average; no analytic truncation is part of that definition.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series, GrossZagierAndArithmeticHeights:GZ.6/cm-degree-zero-class, GrossZagierAndArithmeticHeights:GZ.1/character-height-pairing, GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions, GrossZagierAndArithmeticHeights:GZ.0/root-number-and-measure-normalisation-corrections.
 API arithmeticHeightKernel: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arithmeticHeightKernel.
 API arithmeticHeightKernel_bilinear: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arithmeticHeightKernel_bilinear.
 API arithmeticHeightKernel_level: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arithmeticHeightKernel_level.
 API arithmeticHeightKernel_local: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arithmeticHeightKernel_local.
+API arithmeticHeightKernel_average_conversion: omitted; Requires the actual central idele averaging and quotient-measure torus integral; the finite bilinear fragment has no such measure carrier..
 Test arithmeticHeightKernel_zero: fragment-example; written arithmeticHeightKernel_zero.
 Test arithmeticHeightKernel_average: fragment-example; written arithmeticHeightKernel_average.
 Test arithmeticHeightKernel_cycle_multiplicity: fragment-example; written arithmeticHeightKernel_cycle_multiplicity.
+Test arithmeticHeightKernel_volume: omitted; Requires the actual starred torus-integral and normalized-average carriers, absent from the finite bilinear fragment..
 
 GrossZagierAndArithmeticHeights:GZ.6/incoherent-central-derivative
 Proposed target: incoherentKernel_derivative.
+Target status: algebraic-fragment.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/mixed-theta-eisenstein, MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections, AutomorphicSpectralTheory:AS.3.
 
 GrossZagierAndArithmeticHeights:GZ.6/arithmetic-theta-lifting
 Proposed target: arithmeticThetaLift_comparison.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series, GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization, GrossZagierAndArithmeticHeights:GZ.3/composition-pairing, AutomorphicSpectralTheory:AS.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/generating-series-arithmetic-theta-lifting-and-the-kernel-identity
 Proposed target: arithmeticKernel_projected_identity.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/incoherent-central-derivative, GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel, GrossZagierAndArithmeticHeights:GZ.6/arithmetic-theta-lifting, GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation, GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors, AutomorphicSpectralTheory:AS.4.
 
 GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-classes
 Proposed target: degenerateSchwartz.
+Target status: algebraic-fragment.
 Carrier gate: The genuine extended Schwartz/Weil space, local CM-model and arithmetic Green/intersection carriers, nearby coherent representation and test data satisfying the target’s local level and nonzero-contraction hypotheses.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil, GrossZagierAndArithmeticHeights:GZ.4/toric-test-vectors.
 API degenerateSchwartzOne: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.degenerateSchwartzOne.
@@ -4345,26 +4404,31 @@ Test degenerateSchwartzTwo_identity_only: fragment-example; written degenerateSc
 
 GrossZagierAndArithmeticHeights:GZ.7/good-local-arithmetic-identity
 Proposed target: goodLocal_arithmetic_identity.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The genuine extended Schwartz/Weil space, local CM-model and arithmetic Green/intersection carriers, nearby coherent representation and test data satisfying the target’s local level and nonzero-contraction hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-classes, GrossZagierAndArithmeticHeights:GZ.2/hodge-index-theorem-and-admissible-arithmetic-extensions, GrossZagierAndArithmeticHeights:GZ.6/incoherent-central-derivative, HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation, AutomorphicSpectralTheory:AS.4, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/nearby-coherent-orthogonality
 Proposed target: nearbyCoherent_orthogonal.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The genuine extended Schwartz/Weil space, local CM-model and arithmetic Green/intersection carriers, nearby coherent representation and test data satisfying the target’s local level and nonzero-contraction hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.4/saito-tunnell-dichotomy-and-the-local-toric-functional, GrossZagierAndArithmeticHeights:GZ.5/coherent-quaternionic-specialization, MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection.
 
 GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-functions-local-decomposition-and-approximation
 Proposed target: nearbyQuaternionic_approximation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The genuine extended Schwartz/Weil space, local CM-model and arithmetic Green/intersection carriers, nearby coherent representation and test data satisfying the target’s local level and nonzero-contraction hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/degenerate-schwartz-classes, GrossZagierAndArithmeticHeights:GZ.7/good-local-arithmetic-identity, GrossZagierAndArithmeticHeights:GZ.7/nearby-coherent-orthogonality, GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel, GrossZagierAndArithmeticHeights:GZ.6/incoherent-central-derivative, tauceti:TauCeti.GlobalNumberFields.weakApproximation_denseRange.
 
 GrossZagierAndArithmeticHeights:GZ.7/boundary-cusp-correction
 Proposed target: modularBoundary_correction.
+Target status: algebraic-fragment.
 Carrier gate: The genuine extended Schwartz/Weil space, local CM-model and arithmetic Green/intersection carriers, nearby coherent representation and test data satisfying the target’s local level and nonzero-contraction hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion, GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol, GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a.
 
 GrossZagierAndArithmeticHeights:GZ.2/arakelov-probability-form
 Proposed target: arakelovMeasure.
+Target status: algebraic-fragment.
 Carrier gate: Holomorphic differentials on the compact Riemann surface, their L²-orthonormal basis, wedge/conjugation operations and integration normalization.
 Direct owners/inputs: ArakelovGeometryAndAbelianHeights:R35.1, AutomorphicSpectralTheory:AS.4.
 API arakelovMeasure: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arakelovMeasure.
@@ -4377,6 +4441,7 @@ Test arakelovMeasure_wrong_mass: fragment-example; written arakelovMeasure_wrong
 
 GrossZagierAndArithmeticHeights:GZ.2/archimedean-admissible-metric
 Proposed target: admissibleMetric.
+Target status: algebraic-fragment.
 Carrier gate: Hermitian line bundles on the curve, curvature, unsquared norms and the Green-current equation with degree factor.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/arakelov-probability-form, ArakelovGeometryAndAbelianHeights:R35.1.
 API admissibleMetric: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.admissibleMetric.
@@ -4389,6 +4454,7 @@ Test admissibleMetric_wrong_curvature: fragment-example; written admissibleMetri
 
 GrossZagierAndArithmeticHeights:GZ.2/admissible-green-function
 Proposed target: admissibleGreen.
+Target status: algebraic-fragment.
 Carrier gate: The curve/divisor and analytic current carriers, delta currents, probability measure, ddᶜ and the normalized integral of the Green solution.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/archimedean-admissible-metric, ArakelovGeometryAndAbelianHeights:R35.1.
 API admissibleGreen: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.admissibleGreen.
@@ -4401,41 +4467,45 @@ Test admissibleGreen_missing_degree: fragment-example; written admissibleGreen_m
 
 GrossZagierAndArithmeticHeights:GZ.2/admissible-metric-existence
 Proposed target: admissibleMetric_exists_unique.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The line-bundle and Green-current existence interface at real, complex and nonarchimedean places, including descent and the proper normalization.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/archimedean-admissible-metric, AutomorphicSpectralTheory:AS.4, ArakelovGeometryAndAbelianHeights:R35.1.
 
 GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green
 Proposed target: arakelovGreen.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The normalized Green solution on the actual compact curve with its diagonal singularity and zero mean, rather than an arbitrary two-variable function.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/admissible-green-function, GrossZagierAndArithmeticHeights:GZ.2/admissible-metric-existence, AutomorphicSpectralTheory:AS.4.
-API arakelovGreen: omitted.
-API arakelovGreen_symm: omitted.
-API arakelovGreen_mean: omitted.
-API arakelovGreen_diagonal_metric: omitted.
-Test arakelovGreen_constant_shift: omitted.
-Test arakelovGreen_degree_zero: omitted.
-Test arakelovGreen_local_singularity: omitted.
+API arakelovGreen: omitted; actual source carrier not written.
+API arakelovGreen_symm: omitted; actual source carrier not written.
+API arakelovGreen_mean: omitted; actual source carrier not written.
+API arakelovGreen_diagonal_metric: omitted; actual source carrier not written.
+Test arakelovGreen_constant_shift: omitted; actual source carrier not written.
+Test arakelovGreen_degree_zero: omitted; actual source carrier not written.
+Test arakelovGreen_local_singularity: omitted; actual source carrier not written.
 
 GrossZagierAndArithmeticHeights:GZ.2/arakelov-dualizing-metric
 Proposed target: arakelovDualizingMetric.
+Target status: algebraic-fragment.
 Carrier gate: The actual dualizing sheaf, diagonal/adjunction residue isometry and admissible norm on the corresponding tensor line.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green, ArakelovGeometryAndAbelianHeights:R35.1.
 API arakelovDualizingMetric: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arakelovDualizingMetric.
 API arakelovDualizingMetric_residue: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.arakelovDualizingMetric_residue.
-API arakelovDualizingMetric_curvature: omitted.
-API arakelovDualizingMetric_diagonal: omitted.
-Test arakelovDualizingMetric_genus_one: fragment-example; written arakelovDualizingMetric_genus_one.
-Test arakelovDualizingMetric_genus_two: fragment-example; written arakelovDualizingMetric_genus_two.
+API arakelovDualizingMetric_curvature: omitted; actual source carrier not written.
+API arakelovDualizingMetric_diagonal: omitted; actual source carrier not written.
+Test arakelovDualizingMetric_genus_one: omitted; The actual compact-curve dualizing metric and its genus-one curvature specialization are absent; the previous example was removed, leaving only an omission comment..
+Test arakelovDualizingMetric_genus_two: omitted; The actual compact-curve dualizing metric and its genus-two curvature specialization are absent; the previous example was removed, leaving only an omission comment..
 Test arakelovDualizingMetric_rescale: fragment-example; written arakelovDualizingMetric_rescale.
 
 GrossZagierAndArithmeticHeights:GZ.2/graph-admissible-measure
 Proposed target: graphAdmissibleMeasure.
+Target status: algebraic-fragment.
 Carrier gate: The semistable model’s metrized dual graph, vertex genera and TB.3 resistance/Laplacian operations, linked to the curve’s skeleton.
 Direct owners/inputs: tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs, tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction, TropicalAndBerkovichArithmetic:TB.3, TropicalAndBerkovichArithmetic:TB.2.
 API graphAdmissibleMeasure: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.graphAdmissibleMeasure.
 API graphAdmissibleMeasure_mass: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.graphAdmissibleMeasure_mass.
-API graphAdmissibleGreen_laplacian: omitted.
-API graphAdmissibleGreen_canonical: omitted.
+API graphAdmissibleGreen_laplacian: omitted; actual source carrier not written.
+API graphAdmissibleGreen_canonical: omitted; actual source carrier not written.
 API graphAdmissibleMeasure_pushforward: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.graphAdmissibleMeasure_pushforward.
 Test graphAdmissibleMeasure_good_reduction: fragment-example; written graphAdmissibleMeasure_good_reduction.
 Test graphAdmissibleMeasure_tate_cycle: fragment-example; written graphAdmissibleMeasure_tate_cycle.
@@ -4443,11 +4513,13 @@ Test graphAdmissibleMeasure_genus_weight: fragment-example; written graphAdmissi
 
 GrossZagierAndArithmeticHeights:GZ.2/explicit-skeleton-measure
 Proposed target: graphAdmissibleMeasure_resistance_formula.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual skeleton, resistance measure and normalized admissible metric; a separate genus-one argument is required.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/graph-admissible-measure, TropicalAndBerkovichArithmetic:TB.3, TropicalAndBerkovichArithmetic:TB.6.
 
 GrossZagierAndArithmeticHeights:GZ.2/real-admissible-descent
 Proposed target: realAdmissibleMetric.
+Target status: algebraic-fragment.
 Carrier gate: The hermitian line bundle over the real curve, its conjugation descent datum and the invariant Green/curvature construction.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/arakelov-probability-form, GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green, GrossZagierAndArithmeticHeights:GZ.2/arakelov-dualizing-metric, ArakelovGeometryAndAbelianHeights:R35.1.
 API realAdmissibleMetric: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.realAdmissibleMetric.
@@ -4460,6 +4532,7 @@ Test realAdmissibleMetric_wrong_involution: fragment-example; written realAdmiss
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-theta
 Proposed target: pseudoTheta.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.5.
 API pseudoTheta_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.pseudoTheta_constructor.
@@ -4472,21 +4545,25 @@ Test pseudoTheta_wrong_ambient_weight: fragment-example; written pseudoTheta_wro
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-comparison
 Proposed target: colmez_pseudo_comparison.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-theta, MetaplecticAutomorphicForms:MP.5, GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-automorphic
 Proposed target: colmez_pseudo_automorphic.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-comparison, mathlib:Matrix.det_vandermonde, tauceti:TauCeti.GlobalNumberFields.weakApproximation_denseRange.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-weight-cancel
 Proposed target: colmez_pseudo_weight_cancel.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-automorphic.
 
 GrossZagierAndArithmeticHeights:GZ.6/mixed-theta-eisenstein
 Proposed target: mixedThetaEisenstein.
+Target status: algebraic-fragment.
 Carrier gate: The actual Shimura-curve Picard/CM cycles and Hecke push-pull, mixed theta–Eisenstein family, arithmetic height pairing and cusp projection, with the exact trace/volume normalizations.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.5, AutomorphicSpectralTheory:AS.2, GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan.
 API mixedThetaEisenstein_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.mixedThetaEisenstein_constructor.
@@ -4499,18 +4576,20 @@ Test mixedThetaEisenstein_incoherent_central_value: fragment-example; written mi
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker
 Proposed target: normalizedWhittaker.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, AutomorphicLFunctionsAndLocalFactors:AL.1.
 API normalizedWhittaker_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normalizedWhittaker_constructor.
-API normalizedWhittaker_zero_value: omitted.
+API normalizedWhittaker_zero_value: omitted; actual source carrier not written.
 API normalizedWhittaker_nonzero_index: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normalizedWhittaker_nonzero_index.
 API normalizedWhittaker_zero_index: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normalizedWhittaker_zero_index.
-Test normalizedWhittaker_standard_zero: fragment-example; written normalizedWhittaker_standard_zero.
+Test normalizedWhittaker_standard_zero: omitted; The standard local Schwartz/Gaussian Whittaker coefficient and its normalization are not instantiated; the previous example is absent..
 Test normalizedWhittaker_zero_branch: fragment-example; written normalizedWhittaker_zero_branch.
 Test normalizedWhittaker_incoherent_product_sign: fragment-example; written normalizedWhittaker_incoherent_product_sign.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-torus-average
 Proposed target: cmOrbitAverage.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.5, GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average.
 API cmOrbitAverage_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmOrbitAverage_constructor.
@@ -4523,6 +4602,7 @@ Test cmOrbitAverage_unit_index_separate: fragment-example; written cmOrbitAverag
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c
 Proposed target: localDerivativeCorrection.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker, GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells.
 API localDerivativeCorrection_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.localDerivativeCorrection_constructor.
@@ -4535,16 +4615,18 @@ Test localDerivativeCorrection_different_index: fragment-example; written localD
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-projected-derivative
 Proposed target: colmez_projected_derivative.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/mixed-theta-eisenstein, GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c, AutomorphicSpectralTheory:AS.4, GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function
 Proposed target: colmezTestFunction.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption, HilbertModularVarietiesAndShimuraCurves:R18.5, MetaplecticAutomorphicForms:MP.5.
 API colmezTestFunction_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.colmezTestFunction_constructor.
-API colmezTestFunction_biinvariant: omitted.
-API colmezTestFunction_auxiliary_degenerate: omitted.
+API colmezTestFunction_biinvariant: omitted; actual source carrier not written.
+API colmezTestFunction_auxiliary_degenerate: omitted; actual source carrier not written.
 API colmezTestFunction_order_containment: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.colmezTestFunction_order_containment.
 Test colmezTestFunction_auxiliary_q_two: fragment-example; written colmezTestFunction_auxiliary_q_two.
 Test colmezTestFunction_division_units: fragment-example; written colmezTestFunction_division_units.
@@ -4552,11 +4634,13 @@ Test colmezTestFunction_primitive_generator: fragment-example; written colmezTes
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-order-sandwich
 Proposed target: colmez_order_sandwich.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells
 Proposed target: normShell.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: AutomorphicLFunctionsAndLocalFactors:AL.1, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 API normShell_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.normShell_constructor.
@@ -4569,41 +4653,49 @@ Test normShell_different_vs_discriminant: fragment-example; written normShell_di
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-inert
 Proposed target: colmez_shell_inert.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-ramified
 Proposed target: colmez_shell_ramified.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-k-inert
 Proposed target: colmez_k_inert.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-inert, GrossZagierAndArithmeticHeights:GZ.7/colmez-order-sandwich, GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-k-ramified
 Proposed target: colmez_k_ramified.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-shell-ramified, GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c, GrossZagierAndArithmeticHeights:GZ.7/colmez-order-sandwich, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-c-arch
 Proposed target: colmez_c_arch.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite
 Proposed target: colmez_c_finite.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker, GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-series-automorphy
 Proposed target: colmez_series_automorphy.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/picard-generating-series, GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-omega-self
 Proposed target: modifiedSelfIntersection.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/special-correspondence-cycle, GrossZagierAndArithmeticHeights:GZ.6/colmez-torus-average, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing, GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-green, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 API modifiedSelfIntersection_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.modifiedSelfIntersection_constructor.
@@ -4616,10 +4708,11 @@ Test modifiedSelfIntersection_self_not_extension: fragment-example; written modi
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-green
 Proposed target: regularizedCmGreen.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 API regularizedCmGreen_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.regularizedCmGreen_constructor.
-API regularizedCmGreen_distinct_points: omitted.
+API regularizedCmGreen_distinct_points: omitted; actual source carrier not written.
 API regularizedCmGreen_diagonal_exclusion: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.regularizedCmGreen_diagonal_exclusion.
 API regularizedCmGreen_constant_term: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.regularizedCmGreen_constant_term.
 Test regularizedCmGreen_Q_zero: fragment-example; written regularizedCmGreen_Q_zero.
@@ -4628,11 +4721,13 @@ Test regularizedCmGreen_pole_subtraction: fragment-example; written regularizedC
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-proper
 Proposed target: colmez_arch_proper.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-green, GrossZagierAndArithmeticHeights:GZ.7/colmez-omega-self, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity
 Proposed target: cmLocalMultiplicity.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing, HeegnerPointEulerSystems:HE.2, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 API cmLocalMultiplicity_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmLocalMultiplicity_constructor.
@@ -4645,118 +4740,140 @@ Test cmLocalMultiplicity_wrong_half_sum: fragment-example; written cmLocalMultip
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-nonsplit-proper
 Proposed target: colmez_nonsplit_proper.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-ordinary-pairing
 Proposed target: colmez_ordinary_pairing.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-split-proper
 Proposed target: colmez_split_proper.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-ordinary-pairing, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-height-decomposition-series
 Proposed target: colmez_height_decomposition_series.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-proper, GrossZagierAndArithmeticHeights:GZ.7/colmez-nonsplit-proper, GrossZagierAndArithmeticHeights:GZ.7/colmez-split-proper, GrossZagierAndArithmeticHeights:GZ.7/colmez-omega-self, GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption, GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-hodge-class-terms-vanish-and, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-inert
 Proposed target: colmez_local_m_inert.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function, ComplexMultiplicationAndExplicitReciprocity:CM.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-corrected-cm-multiplicity-at-split.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-ramified
 Proposed target: colmez_local_m_ramified.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function, ComplexMultiplicationAndExplicitReciprocity:CM.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-corrected-cm-multiplicity-at-split.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-division
 Proposed target: colmez_local_m_division.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-superspecial-m, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-n
 Proposed target: colmez_local_n.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-ordinary-pairing, GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function, GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-superspecial-m
 Proposed target: colmez_superspecial_m.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function, HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-pseudo
 Proposed target: colmez_vertical_pseudo.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-superspecial-m, GrossZagierAndArithmeticHeights:GZ.6/colmez-pseudo-theta, GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension, HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-split-zero
 Proposed target: colmez_vertical_split_zero.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-kernel-schwartz
 Proposed target: colmez_kernel_schwartz.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-k-inert, GrossZagierAndArithmeticHeights:GZ.7/colmez-k-ramified, GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite, GrossZagierAndArithmeticHeights:GZ.7/colmez-local-n, GrossZagierAndArithmeticHeights:GZ.7/colmez-vertical-pseudo, GrossZagierAndArithmeticHeights:GZ.6/colmez-projected-derivative, GrossZagierAndArithmeticHeights:GZ.7/colmez-height-decomposition-series, GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-proper, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-nonsplit
 Proposed target: colmez_local_cancel_nonsplit.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-kernel-schwartz, GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-ramified, GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-inert, GrossZagierAndArithmeticHeights:GZ.7/colmez-local-m-division, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-local-cancel-split
 Proposed target: colmez_local_cancel_split.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-local-n, GrossZagierAndArithmeticHeights:GZ.7/colmez-c-finite, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-nonzero-theta
 Proposed target: colmez_nonzero_theta.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function, MetaplecticAutomorphicForms:MP.5.
 
 GrossZagierAndArithmeticHeights:GZ.2/colmez-residue-line
 Proposed target: residueAdjunctionLine.
+Target status: algebraic-fragment.
 Carrier gate: The actual arithmetic Hodge line and CM section, ramification and the adjunction residue line with its metric.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension, HilbertModularVarietiesAndShimuraCurves:R18.2/arithmetic-hodge-line.
 API residueAdjunctionLine_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.residueAdjunctionLine_constructor.
 API residueAdjunctionLine_residue_coordinate: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.residueAdjunctionLine_residue_coordinate.
 API residueAdjunctionLine_finite_lattice: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.residueAdjunctionLine_finite_lattice.
-API residueAdjunctionLine_degree: omitted.
+API residueAdjunctionLine_degree: omitted; actual source carrier not written.
 Test residueAdjunctionLine_coordinate_unit: fragment-example; written residueAdjunctionLine_coordinate_unit.
 Test residueAdjunctionLine_ramification_one: fragment-example; written residueAdjunctionLine_ramification_one.
 Test residueAdjunctionLine_unscaled_divisor: fragment-example; written residueAdjunctionLine_unscaled_divisor.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-arch
 Proposed target: colmez_adjunction_arch.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-arch-green, GrossZagierAndArithmeticHeights:GZ.2/colmez-residue-line, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-small-level-diagonal
 Proposed target: colmez_small_level_diagonal.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-modified-projection
 Proposed target: colmez_modified_projection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-small-level-diagonal, GrossZagierAndArithmeticHeights:GZ.7/colmez-omega-self, HilbertModularVarietiesAndShimuraCurves:R18.5, tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-finite
 Proposed target: colmez_adjunction_finite.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-modified-projection, GrossZagierAndArithmeticHeights:GZ.2/colmez-residue-line, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-arithmetic-adjunction
 Proposed target: colmez_arithmetic_adjunction.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-arch, GrossZagierAndArithmeticHeights:GZ.7/colmez-adjunction-finite, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption
 Proposed target: twoSplitDegeneracy.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.5.
 API twoSplitDegeneracy_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.twoSplitDegeneracy_constructor.
@@ -4769,26 +4886,30 @@ Test twoSplitDegeneracy_zero_at_identity_only: fragment-example; written twoSpli
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-derivative-of-the-mixed-theta
 Proposed target: colmez_rev_derivative_of_the_mixed_theta.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/mixed-theta-eisenstein, GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker, GrossZagierAndArithmeticHeights:GZ.6/colmez-local-k-c, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-archimedean-holomorphic-projection-of-log
 Proposed target: colmez_rev_archimedean_holomorphic_projection_of_log.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.4, GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-derivative-of-the-mixed-theta.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-local-whittaker-series-for-incoherent
 Proposed target: colmez_rev_local_whittaker_series_for_incoherent.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/colmez-whittaker, GrossZagierAndArithmeticHeights:GZ.7/colmez-norm-shells, AutomorphicLFunctionsAndLocalFactors:AL.1.
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-archimedean-derivative-kernel
 Proposed target: archDerivativeKernel.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, GrossZagierAndArithmeticHeights:GZ.6/colmez-torus-average, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 API archDerivativeKernel_constructor: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.archDerivativeKernel_constructor.
 API archDerivativeKernel_lambda_domain: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.archDerivativeKernel_lambda_domain.
-API archDerivativeKernel_torus_average: omitted.
+API archDerivativeKernel_torus_average: omitted; actual source carrier not written.
 API archDerivativeKernel_zero_parameter: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.archDerivativeKernel_zero_parameter.
 Test archDerivativeKernel_lambda_minus_one: fragment-example; written archDerivativeKernel_lambda_minus_one.
 Test archDerivativeKernel_diagonal_limit: fragment-example; written archDerivativeKernel_diagonal_limit.
@@ -4796,16 +4917,19 @@ Test archDerivativeKernel_normalization_half: fragment-example; written archDeri
 
 GrossZagierAndArithmeticHeights:GZ.7/colmez-rev-corrected-cm-multiplicity-at-split
 Proposed target: colmez_rev_corrected_cm_multiplicity_at_split.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM points, nearby coherent quaternion algebra, arithmetic Hodge/Green divisors and local intersection/ramification operations, related to the target’s extended Schwartz and Weil data.
 Direct owners/inputs: ComplexMultiplicationAndExplicitReciprocity:CM.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-finite-multiplicity, GrossZagierAndArithmeticHeights:GZ.7/colmez-test-function.
 
 GrossZagierAndArithmeticHeights:GZ.6/colmez-rev-hodge-class-terms-vanish-and
 Proposed target: colmez_rev_hodge_class_terms_vanish_and.
+Target status: algebraic-fragment.
 Carrier gate: The actual extended Schwartz space and Weil action, adelic norm/character data, local Whittaker or theta family and holomorphic projection. Generic functions, germs or scalar correction terms lack those identifications.
 Direct owners/inputs: HilbertModularVarietiesAndShimuraCurves:R18.5, GrossZagierAndArithmeticHeights:GZ.7/colmez-s2-assumption, GrossZagierAndArithmeticHeights:GZ.6/arithmetic-height-kernel, GrossZagierAndArithmeticHeights:GZ.2/admissible-arithmetic-extension.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series
 Proposed target: partialRankin.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: AutomorphicLFunctionsAndLocalFactors:AL.3, AnalyticNumberTheory:AN.4, MetaplecticAutomorphicForms:MP.7.
 API partialRankin: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.partialRankin.
@@ -4818,50 +4942,59 @@ Test partialRankin_basis_indicator: fragment-example; written partialRankin_basi
 
 GrossZagierAndArithmeticHeights:GZ.0/classical-rankin-normalization
 Proposed target: gz86_rankin_normalization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series, AutomorphicLFunctionsAndLocalFactors:AL.3, GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-absolute-convergence
 Proposed target: gz86_absolute_convergence.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-entire-functional-equation
 Proposed target: gz86_entire_functional_equation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/classical-rankin-normalization, GrossZagierAndArithmeticHeights:GZ.6/classical-l-functional-equation.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-height-series-cuspidality
 Proposed target: gz86_height_series_cuspidality.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: HeightsRationalPointsAndObstructions:RP.0, ModularCurvesPartII:R14.2, ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.0/classical-relative-field-heights
 Proposed target: gz86_relative_field_heights.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary, HeightsRationalPointsAndObstructions:RP.0.
 
 GrossZagierAndArithmeticHeights:GZ.3/classical-eigendifferential-period
 Proposed target: gz86_eigendifferential_period.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/petersson-composition-comparison, GrossZagierAndArithmeticHeights:GZ.3/manin-constant.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness
 Proposed target: gz86_disjointness.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/cm-degree-zero-class, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.0/classical-cm-action-conventions
 Proposed target: gz86_cm_action_conventions.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: HeegnerPointEulerSystems:HE.0, GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol
 Proposed target: classicalComplexHeight.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green, HeightsRationalPointsAndObstructions:RP.0.
 API classicalComplexHeight: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalComplexHeight.
-API classicalComplexHeight_principal: omitted.
+API classicalComplexHeight_principal: omitted; actual source carrier not written.
 API classicalComplexHeight_add: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalComplexHeight_add.
 API classicalComplexHeight_unique: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalComplexHeight_unique.
 Test classicalComplexHeight_zero: fragment-example; written classicalComplexHeight_zero.
@@ -4870,82 +5003,94 @@ Test classicalComplexHeight_square_factor: fragment-example; written classicalCo
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-height-green-characterization
 Proposed target: gz86_height_green_characterization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel
 Proposed target: classicalResolvent.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.4.
 API classicalResolvent: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalResolvent.
-API classicalResolvent_invariant: omitted.
-API classicalResolvent_laplacian: omitted.
-API classicalResolvent_converges: omitted.
+API classicalResolvent_invariant: omitted; actual source carrier not written.
+API classicalResolvent_laplacian: omitted; actual source carrier not written.
+API classicalResolvent_converges: omitted; actual source carrier not written.
 Test classicalResolvent_orbit_diagonal: fragment-example; written classicalResolvent_orbit_diagonal.
 Test classicalResolvent_sl2_double_count: fragment-example; written classicalResolvent_sl2_double_count.
 Test classicalResolvent_residue_sign: fragment-example; written classicalResolvent_residue_sign.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue
 Proposed target: gz86_resolvent_residue.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion
 Proposed target: gz86_cusp_expansion.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-marked-green-kernel
 Proposed target: markedModularGreen.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-height-green-characterization, GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue, GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion.
 API markedModularGreen: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.markedModularGreen.
-API markedModularGreen_cusp_zero: omitted.
-API markedModularGreen_singularities: omitted.
-API markedModularGreen_fricke: omitted.
+API markedModularGreen_cusp_zero: omitted; actual source carrier not written.
+API markedModularGreen_singularities: omitted; actual source carrier not written.
+API markedModularGreen_fricke: omitted; actual source carrier not written.
 Test markedModularGreen_four_residues: fragment-example; written markedModularGreen_four_residues.
 Test markedModularGreen_plain_finite_part: fragment-example; written markedModularGreen_plain_finite_part.
 Test markedModularGreen_level_one: fragment-example; written markedModularGreen_level_one.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-green-constant
 Proposed target: gz86_green_constant.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-marked-green-kernel, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-archimedean-height
 Proposed target: gz86_archimedean_height.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol, GrossZagierAndArithmeticHeights:GZ.7/classical-marked-green-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-green-constant.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action
 Proposed target: gz86_hecke_kernel_action.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel
 Proposed target: heckeGreen.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-kernel-action.
 API heckeGreen: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.heckeGreen.
 API heckeGreen_one: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.heckeGreen_one.
-API heckeGreen_hecke: omitted.
-API heckeGreen_fricke: omitted.
+API heckeGreen_hecke: omitted; actual source carrier not written.
+API heckeGreen_fricke: omitted; actual source carrier not written.
 Test heckeGreen_m_one: fragment-example; written heckeGreen_m_one.
 Test heckeGreen_sign_quotient: fragment-example; written heckeGreen_sign_quotient.
 Test heckeGreen_cusp_degree: fragment-example; written heckeGreen_cusp_degree.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-archimedean-height
 Proposed target: gz86_hecke_archimedean_height.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-archimedean-height, GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel, GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-atkin-lehner-invariance
 Proposed target: gz86_atkin_lehner_invariance.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel, ModularCurvesPartII:R14.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-cm-kernel-invariants
 Proposed target: cmKernelInvariant.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel, GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 API cmKernelInvariant: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmKernelInvariant.
@@ -4958,51 +5103,61 @@ Test cmKernelInvariant_diagonal: fragment-example; written cmKernelInvariant_dia
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-cm-genus-orbits
 Proposed target: gz86_cm_genus_orbits.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-cm-kernel-invariants, AnalyticNumberTheory:AN.4, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hyperbolic-norm-parameter
 Proposed target: gz86_hyperbolic_norm_parameter.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-cm-kernel-invariants, MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-pair-count
 Proposed target: gz86_pair_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hyperbolic-norm-parameter, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-congruence-count
 Proposed target: gz86_ramified_congruence_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-pair-count, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-prime-discriminant-count
 Proposed target: gz86_prime_discriminant_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-congruence-count.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-genus-pair-count
 Proposed target: gz86_genus_pair_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-congruence-count, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation
 Proposed target: gz86_genus_kernel_evaluation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-cm-kernel-invariants, GrossZagierAndArithmeticHeights:GZ.7/classical-genus-pair-count.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation
 Proposed target: gz86_orbit_kernel_evaluation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-cm-genus-orbits, GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-genus-character-filter
 Proposed target: gz86_genus_character_filter.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.2/classical-archimedean-height-sum
 Proposed target: cmArchimedeanHeightSum.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol, GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 API cmArchimedeanHeightSum: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmArchimedeanHeightSum.
@@ -5015,33 +5170,38 @@ Test cmArchimedeanHeightSum_disjoint: fragment-example; written cmArchimedeanHei
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-cm-eisenstein-sum
 Proposed target: gz86_cm_eisenstein_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-disjoint-archimedean-sum
 Proposed target: gz86_disjoint_archimedean_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-archimedean-height, GrossZagierAndArithmeticHeights:GZ.7/classical-orbit-kernel-evaluation, GrossZagierAndArithmeticHeights:GZ.2/classical-archimedean-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-cm-eisenstein-sum.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol
 Proposed target: cmTangentHeight.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: HeightsRationalPointsAndObstructions:RP.0, GrossZagierAndArithmeticHeights:GZ.6/classical-disjointness.
 API cmTangentHeight: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmTangentHeight.
 API cmTangentHeight_disjoint: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmTangentHeight_disjoint.
 API cmTangentHeight_change: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmTangentHeight_change.
-API cmTangentHeight_global: omitted.
+API cmTangentHeight_global: omitted; actual source carrier not written.
 Test cmTangentHeight_multiplicity: fragment-example; written cmTangentHeight_multiplicity.
 Test cmTangentHeight_root_unity: fragment-example; written cmTangentHeight_root_unity.
 Test cmTangentHeight_scaling_product: fragment-example; written cmTangentHeight_scaling_product.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula
 Proposed target: gz86_tangent_product_formula.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol, HeightsRationalPointsAndObstructions:RP.0.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent
 Proposed target: etaCMTangent.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
 API etaCMTangent: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.etaCMTangent.
@@ -5054,16 +5214,19 @@ Test etaCMTangent_global_tensor: fragment-example; written etaCMTangent_global_t
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-complex-tangent-asymptotic
 Proposed target: gz86_complex_tangent_asymptotic.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol, GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent, GrossZagierAndArithmeticHeights:GZ.2/classical-complex-height-symbol.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-archimedean-height
 Proposed target: gz86_diagonal_archimedean_height.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-complex-tangent-asymptotic, GrossZagierAndArithmeticHeights:GZ.7/classical-archimedean-height, GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-green-kernel
 Proposed target: diagonalHeckeGreen.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hecke-green-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent.
 API diagonalHeckeGreen: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.diagonalHeckeGreen.
@@ -5076,41 +5239,48 @@ Test diagonalHeckeGreen_omit_self: fragment-example; written diagonalHeckeGreen_
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-renormalized-self-value
 Proposed target: gz86_renormalized_self_value.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-green-kernel, GrossZagierAndArithmeticHeights:GZ.7/classical-resolvent-residue, GrossZagierAndArithmeticHeights:GZ.7/classical-cusp-expansion, GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-self-value-orbit-sum
 Proposed target: gz86_self_value_orbit_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-renormalized-self-value, GrossZagierAndArithmeticHeights:GZ.7/classical-genus-kernel-evaluation, GrossZagierAndArithmeticHeights:GZ.7/classical-cm-eisenstein-sum.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula
 Proposed target: gz86_total_archimedean_formula.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-disjoint-archimedean-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-diagonal-archimedean-height, GrossZagierAndArithmeticHeights:GZ.7/classical-self-value-orbit-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula.
 
 GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height
 Proposed target: gz86_local_intersection_height.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: HeightsRationalPointsAndObstructions:RP.0, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-degree-one-intersection
 Proposed target: gz86_degree_one_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height, HeegnerPointEulerSystems:HE.2, GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-supersingular-eichler-order
 Proposed target: gz86_supersingular_eichler_order.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: HeegnerPointEulerSystems:HE.2, ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model
 Proposed target: inertOrderModel.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-supersingular-eichler-order, MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 API inertOrderModel: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.inertOrderModel.
-API inertOrderModel_norm: omitted.
-API inertOrderModel_discriminant: omitted.
+API inertOrderModel_norm: omitted; actual source carrier not written.
+API inertOrderModel_discriminant: omitted; actual source carrier not written.
 API inertOrderModel_hom_ideal: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.inertOrderModel_hom_ideal.
 Test inertOrderModel_correct_q: fragment-example; written inertOrderModel_correct_q.
 Test inertOrderModel_wrong_q: fragment-example; written inertOrderModel_wrong_q.
@@ -5118,31 +5288,37 @@ Test inertOrderModel_conjugate_ideal: fragment-example; written inertOrderModel_
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-norm-one-generators
 Proposed target: gz86_norm_one_generators.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component
 Proposed target: gz86_level_reduction_component.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: HeegnerPointEulerSystems:HE.2, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-component-orthogonality
 Proposed target: gz86_component_orthogonality.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component, GrossZagierAndArithmeticHeights:GZ.2/arithmetic-intersection-gluing.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-finite-intersection-height
 Proposed target: gz86_finite_intersection_height.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height, GrossZagierAndArithmeticHeights:GZ.7/classical-component-orthogonality, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count
 Proposed target: gz86_hom_intersection_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count, GrossZagierAndArithmeticHeights:GZ.7/classical-isomorphism-intersection-count, HeegnerPointEulerSystems:HE.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count
 Proposed target: halfHomCount.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: AbelianSchemesAndArithmeticModuli:A6, HeegnerPointEulerSystems:HE.2.
 API halfHomCount: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.halfHomCount.
@@ -5155,6 +5331,7 @@ Test halfHomCount_stabilizer: fragment-example; written halfHomCount_stabilizer.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set
 Proposed target: newCMHom.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: AbelianSchemesAndArithmeticModuli:A6, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 API newCMHom: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.newCMHom.
@@ -5167,41 +5344,49 @@ Test newCMHom_nonzero_negative_part: fragment-example; written newCMHom_nonzero_
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-prime-to-p-hom-count
 Proposed target: gz86_prime_to_p_hom_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, AbelianSchemesAndArithmeticModuli:A6.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-isomorphism-intersection-count
 Proposed target: gz86_isomorphism_intersection_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-half-hom-count, HeegnerPointEulerSystems:HE.2.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-split-vanishing
 Proposed target: gz86_split_vanishing.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-endomorphism-congruence-order
 Proposed target: gz86_endomorphism_congruence_order.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: ComplexMultiplicationAndExplicitReciprocity:CM.5, GrossZagierAndArithmeticHeights:GZ.7/classical-supersingular-eichler-order.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-hom-quaternion-realization
 Proposed target: gz86_hom_quaternion_realization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-endomorphism-congruence-order, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model, AbelianSchemesAndArithmeticModuli:A6.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-disjoint-intersection
 Proposed target: gz86_inert_disjoint_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count, GrossZagierAndArithmeticHeights:GZ.7/classical-hom-quaternion-realization, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-disjoint-intersection
 Proposed target: gz86_ramified_disjoint_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count, GrossZagierAndArithmeticHeights:GZ.7/classical-hom-quaternion-realization, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-self-intersection-tangent
 Proposed target: cmSelfIntersection.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol, GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent, GrossZagierAndArithmeticHeights:GZ.2/classical-local-intersection-height.
 API cmSelfIntersection: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmSelfIntersection.
@@ -5214,58 +5399,70 @@ Test cmSelfIntersection_reciprocal: fragment-example; written cmSelfIntersection
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-new-automorphism-length
 Proposed target: gz86_new_automorphism_length.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-self-intersection-tangent, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, ComplexMultiplicationAndExplicitReciprocity:CM.5, HeegnerPointEulerSystems:HE.2, GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values
 Proposed target: gz86_j_tangent_values.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent, GrossZagierAndArithmeticHeights:GZ.7/classical-self-intersection-tangent, ComplexMultiplicationAndExplicitReciprocity:CM.5.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection
 Proposed target: gz86_new_hom_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, GrossZagierAndArithmeticHeights:GZ.7/classical-new-automorphism-length, GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection
 Proposed target: gz86_inert_total_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-disjoint-intersection.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-disjoint-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection
 Proposed target: gz86_ramified_total_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-disjoint-intersection.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-disjoint-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection
 Proposed target: gz86_split_total_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-split-vanishing, GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-split-vanishing, GrossZagierAndArithmeticHeights:GZ.7/classical-j-tangent-values, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection
 Proposed target: gz86_level_intersection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition, GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component.
 
 GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum
 Proposed target: cmPrimeHeightSum.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-symbol, GrossZagierAndArithmeticHeights:GZ.7/classical-finite-intersection-height, GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula, GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition, GrossZagierAndArithmeticHeights:GZ.7/classical-finite-intersection-height, GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary.
 API cmPrimeHeightSum: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmPrimeHeightSum.
 API cmPrimeHeightSum_log_norm: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmPrimeHeightSum_log_norm.
 API cmPrimeHeightSum_galois: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmPrimeHeightSum_galois.
 API cmPrimeHeightSum_global: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.cmPrimeHeightSum_global.
+API cmPrimeHeightSum_disjoint: omitted; actual source carrier not written.
 Test cmPrimeHeightSum_inert: fragment-example; written cmPrimeHeightSum_inert.
 Test cmPrimeHeightSum_ramified: fragment-example; written cmPrimeHeightSum_ramified.
 Test cmPrimeHeightSum_wrong_cardinality: fragment-example; written cmPrimeHeightSum_wrong_cardinality.
+Test cmPrimeHeightSum_level_tensor: omitted; actual source carrier not written.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-split-height-sum
 Proposed target: gz86_split_height_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-split-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-hom-lattice
 Proposed target: inertCMHomLattice.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model, ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair.
 API inertCMHomLattice: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.inertCMHomLattice.
@@ -5278,28 +5475,32 @@ Test inertCMHomLattice_sign: fragment-example; written inertCMHomLattice_sign.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-norm-ideal-map
 Proposed target: inertNormIdeals.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-hom-lattice, MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances.
 API inertNormIdeals: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.inertNormIdeals.
-API inertNormIdeals_classes: omitted.
-API inertNormIdeals_norm: omitted.
-API inertNormIdeals_valuation: omitted.
-Test inertNormIdeals_nonzero: fragment-example; written inertNormIdeals_nonzero.
+API inertNormIdeals_classes: omitted; actual source carrier not written.
+API inertNormIdeals_norm: omitted; actual source carrier not written.
+API inertNormIdeals_valuation: omitted; actual source carrier not written.
+Test inertNormIdeals_nonzero: omitted; The actual connecting-Hom ideal map and its nonzero norm image are absent; the previous example is absent..
 Test inertNormIdeals_sign: fragment-example; written inertNormIdeals_sign.
 Test inertNormIdeals_bad_a: fragment-example; written inertNormIdeals_bad_a.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-height-sum
 Proposed target: gz86_inert_height_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-norm-ideal-map, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-unit-count, AnalyticNumberTheory:AN.4.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-norm-ideal-map, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-unit-count, AnalyticNumberTheory:AN.4, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-inert-unit-count
 Proposed target: gz86_inert_unit_count.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-norm-ideal-map, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-order-model
 Proposed target: ramifiedOrderModel.
+Target status: algebraic-fragment.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-inert-order-model, ComplexMultiplicationAndExplicitReciprocity:CM.5, MetaplecticAutomorphicForms:MP.6/quadratic-quaternionic-norm-instances.
 API ramifiedOrderModel: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.ramifiedOrderModel.
@@ -5312,36 +5513,42 @@ Test ramifiedOrderModel_residue_weight: fragment-example; written ramifiedOrderM
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-height-sum
 Proposed target: gz86_ramified_height_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-order-model, AnalyticNumberTheory:AN.4.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-total-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-level-intersection, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-order-model, AnalyticNumberTheory:AN.4, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.0/classical-genus-character-factorization
 Proposed target: gz86_genus_character_factorization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: AnalyticNumberTheory:AN.4, AutomorphicLFunctionsAndLocalFactors:AL.3.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding
 Proposed target: gz86_rankin_unfolding.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-partial-rankin-series, AutomorphicSpectralTheory:AS.2, MetaplecticAutomorphicForms:MP.7.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction
 Proposed target: gz86_trace_adjunction.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: ModularCurvesPartII:R14.2, ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition
 Proposed target: gz86_mobius_level_decomposition.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction, ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel
 Proposed target: classicalRankinKernel.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2, MetaplecticAutomorphicForms:MP.7, GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction, AutomorphicFormsOnReductiveGroups:AF.5/gl2-classical-to-adelic, AutomorphicFormsOnReductiveGroups:AF.2/adelic-classical-bijection.
 API classicalRankinKernel: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalRankinKernel.
-API classicalRankinKernel_trace: omitted.
-API classicalRankinKernel_fourier: omitted.
+API classicalRankinKernel_trace: omitted; actual source carrier not written.
+API classicalRankinKernel_fourier: omitted; actual source carrier not written.
 API classicalRankinKernel_class_dependence: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.classicalRankinKernel_class_dependence.
 Test classicalRankinKernel_level_one: fragment-example; written classicalRankinKernel_level_one.
 Test classicalRankinKernel_negative_D: fragment-example; written classicalRankinKernel_negative_D.
@@ -5349,31 +5556,37 @@ Test classicalRankinKernel_zero_theta: fragment-example; written classicalRankin
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing
 Proposed target: gz86_rankin_kernel_pairing.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-unfolding, GrossZagierAndArithmeticHeights:GZ.6/classical-mobius-level-decomposition, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-prime-to-level-detection
 Proposed target: gz86_prime_to_level_detection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-transformation
 Proposed target: gz86_eisenstein_transformation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-trace-coset-classification
 Proposed target: gz86_trace_coset_classification.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-trace-adjunction, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing
 Proposed target: gz86_ramified_theta_reindexing.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.7, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination
 Proposed target: genusEisensteinCombination.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/classical-genus-character-factorization, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-transformation, GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing, AutomorphicSpectralTheory:AS.2.
 API genusEisensteinCombination: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.genusEisensteinCombination.
@@ -5386,78 +5599,91 @@ Test genusEisensteinCombination_i_factor: fragment-example; written genusEisenst
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-u-formula
 Proposed target: gz86_kernel_u_formula.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel, GrossZagierAndArithmeticHeights:GZ.6/classical-trace-coset-classification, GrossZagierAndArithmeticHeights:GZ.6/classical-ramified-theta-reindexing, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-prime-eisenstein-combination
 Proposed target: gz86_prime_eisenstein_combination.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion
 Proposed target: gz86_kernel_fourier_expansion.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-u-formula, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function
 Proposed target: rankinGenusSign.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: AnalyticNumberTheory:AN.4, GrossZagierAndArithmeticHeights:GZ.0/classical-genus-character-factorization.
 API rankinGenusSign: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.rankinGenusSign.
 API rankinGenusSign_values: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.rankinGenusSign_values.
-API rankinGenusSign_complement: omitted.
-API rankinGenusSign_multiplicative: omitted.
+API rankinGenusSign_complement: omitted; actual source carrier not written.
+API rankinGenusSign_multiplicative: omitted; actual source carrier not written.
 Test rankinGenusSign_common_ramification: fragment-example; written rankinGenusSign_common_ramification.
 Test rankinGenusSign_positive_cancellation: fragment-example; written rankinGenusSign_positive_cancellation.
-Test rankinGenusSign_negative_index: fragment-example; written rankinGenusSign_negative_index.
+Test rankinGenusSign_negative_index: omitted; The quadratic-character genus-sign carrier and the n=±3 computation are absent; the scalar example was removed..
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient
 Proposed target: gz86_eisenstein_zero_coefficient.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-transformation, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient
 Proposed target: gz86_eisenstein_nonzero_coefficient.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-combination, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-meromorphic-continuation
 Proposed target: gz86_kernel_meromorphic_continuation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values
 Proposed target: gz86_integral_kernel_values.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient, GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-meromorphic-continuation, AutomorphicLFunctionsAndLocalFactors:AL.0.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-central-kernel-holomorphy
 Proposed target: gz86_central_kernel_holomorphy.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values, GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-coefficient-functional-equation
 Proposed target: gz86_coefficient_functional_equation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-zero-coefficient, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-nonzero-coefficient, GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-meromorphic-continuation.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-reversal
 Proposed target: gz86_genus_sign_reversal.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-l-functional-equation
 Proposed target: gz86_l_functional_equation.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing, GrossZagierAndArithmeticHeights:GZ.6/classical-coefficient-functional-equation.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums
 Proposed target: signedDivisorSums.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function, AnalyticNumberTheory:AN.4, AutomorphicLFunctionsAndLocalFactors:AL.0.
 API signedDivisorSums: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.signedDivisorSums.
 API signedDivisorSums_log: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.signedDivisorSums_log.
-API signedDivisorSums_prime_support: omitted.
+API signedDivisorSums_prime_support: omitted; actual source carrier not written.
 API signedDivisorSums_negative: algebraic-fragment; written TauCeti.GrossZagier.AlgebraicFragments.signedDivisorSums_negative.
 Test signedDivisorSums_one: fragment-example; written signedDivisorSums_one.
 Test signedDivisorSums_split: fragment-example; written signedDivisorSums_split.
@@ -5465,152 +5691,202 @@ Test signedDivisorSums_negative_tail: fragment-example; written signedDivisorSum
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-central-value-kernel
 Proposed target: gz86_central_value_kernel.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values, GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion, GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-different-reindexing
 Proposed target: gz86_different_reindexing.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.7, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel
 Proposed target: gz86_central_derivative_kernel.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-integral-kernel-values, GrossZagierAndArithmeticHeights:GZ.6/classical-kernel-fourier-expansion, GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums, GrossZagierAndArithmeticHeights:GZ.6/classical-different-reindexing.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-sign-multiplicativity
 Proposed target: gz86_sign_multiplicativity.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-function.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity
 Proposed target: gz86_genus_sigma_identity.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sign-reversal, GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition
 Proposed target: gz86_logarithmic_prime_decomposition.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums, GrossZagierAndArithmeticHeights:GZ.6/classical-sign-multiplicativity, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-prime-coefficient-parity
 Proposed target: gz86_prime_coefficient_parity.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-single-prime-logarithm
 Proposed target: gz86_single_prime_logarithm.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-logarithmic-prime-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value
 Proposed target: gz86_weight_two_central_value.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual normalized newform, theta or definite quaternionic vector, Petersson norm and period/L-function carriers, with the target’s eigencomponent and scalar comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-central-value-kernel, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-kernel-pairing, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity.
 
 GrossZagierAndArithmeticHeights:GZ.5/classical-central-value-endpoints
 Proposed target: gz86_central_value_endpoints.
+Target status: algebraic-fragment.
 Carrier gate: The actual normalized newform, theta or definite quaternionic vector, Petersson norm and period/L-function carriers, with the target’s eigencomponent and scalar comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity.
 
 GrossZagierAndArithmeticHeights:GZ.5/classical-genus-sum-filter
 Proposed target: gz86_genus_sum_filter.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual normalized newform, theta or definite quaternionic vector, Petersson norm and period/L-function carriers, with the target’s eigencomponent and scalar comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value, GrossZagierAndArithmeticHeights:GZ.6/classical-genus-sigma-identity, AnalyticNumberTheory:AN.4.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection
 Proposed target: gz86_holomorphic_projection.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: AutomorphicSpectralTheory:AS.4, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-mellin-asymptotics, GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps, GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse, GrossZagierAndArithmeticHeights:GZ.6/classical-projection-boundary-coefficients, GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-mellin-asymptotics
 Proposed target: gz86_eisenstein_mellin_asymptotics.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: QSeriesPartitionsAndMockModularForms:QM.3/nonholomorphic-eisenstein-series-e2-star, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps
 Proposed target: gz86_boundary_eisenstein_cusps.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: QSeriesPartitionsAndMockModularForms:QM.3/nonholomorphic-eisenstein-series-e2-star, GrossZagierAndArithmeticHeights:GZ.6/classical-eisenstein-mellin-asymptotics, ModularCurvesPartII:R14.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-orthogonality
 Proposed target: gz86_boundary_eisenstein_orthogonality.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps, ModularCurvesPartII:R14.5.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse
 Proposed target: gz86_cusp_matrix_inverse.
+Target status: algebraic-fragment.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: mathlib:Matrix.mul_apply.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-projection-boundary-coefficients
 Proposed target: gz86_projection_boundary_coefficients.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse, GrossZagierAndArithmeticHeights:GZ.6/classical-boundary-eisenstein-cusps.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-cusp-constants
 Proposed target: gz86_rankin_cusp_constants.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel, AutomorphicSpectralTheory:AS.2.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-boundary-coefficients
 Proposed target: gz86_rankin_boundary_coefficients.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-cusp-matrix-inverse, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-cusp-constants.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-mellin-regularization
 Proposed target: gz86_rankin_mellin_regularization.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel, AutomorphicSpectralTheory:AS.2, AutomorphicLFunctionsAndLocalFactors:AL.0.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform
 Proposed target: gz86_projected_derivative_cuspform.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-holomorphic-projection, GrossZagierAndArithmeticHeights:GZ.6/classical-central-derivative-kernel, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-cusp-constants, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-boundary-coefficients, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-mellin-regularization.
 
 GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-coefficients
 Proposed target: gz86_projected_derivative_coefficients.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual newform/Eisenstein/theta series, slash and trace operators, Fourier coefficient and regularized holomorphic projection carriers with the stated level, growth and cusp hypotheses.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.6/classical-projected-derivative-cuspform, GrossZagierAndArithmeticHeights:GZ.6/classical-rankin-mellin-regularization, GrossZagierAndArithmeticHeights:GZ.6/classical-signed-divisor-sums.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-global-local-archimedean-sum
 Proposed target: gz86_global_local_archimedean_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM curve/divisors, normalized hyperbolic or arithmetic Green family, marked-point domain, spectral continuation and tangent norms; the arbitrary sums/germs retained below omit these analytic/geometric identifications.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula, GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-total-archimedean-formula, GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.7/classical-finite-height-sum
 Proposed target: gz86_finite_height_sum.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual CM cyclic-isogeny diagrams and their integral models, quaternionic order/Hom lattices, class-group action and valuations/counting fibres occurring in this target; coarse Artinian points do not provide a canonical diagram-Hom carrier.
-Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-split-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-height-sum, GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-split-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-inert-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-ramified-height-sum, GrossZagierAndArithmeticHeights:GZ.2/classical-p-height-sum, GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition.
 
 GrossZagierAndArithmeticHeights:GZ.3/classical-modular-period-degree
 Proposed target: gz86_modular_period_degree.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.3/classical-eigendifferential-period, GrossZagierAndArithmeticHeights:GZ.3/manin-constant, ModularCurvesPartII:R14.2.
 
 GrossZagierAndArithmeticHeights:GZ.0/classical-twist-real-period
 Proposed target: gz86_twist_real_period.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual classical CM/modular objects, compatible number-field places, newform/Néron differentials or periods named in this target; its class-field/model and modular-form suppliers must connect those carriers.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.0/classical-relative-field-heights, GrossZagierAndArithmeticHeights:GZ.3/classical-modular-period-degree, GrossZagierAndArithmeticHeights:GZ.3/manin-constant, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.5/classical-definite-period-announcement
 Proposed target: gz86_definite_period_announcement.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual normalized newform, theta or definite quaternionic vector, Petersson norm and period/L-function carriers, with the target’s eigencomponent and scalar comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/waldspurger-period-formula-and-its-siegel-weil-proof, GrossZagierAndArithmeticHeights:GZ.5/classical-weight-two-central-value, HeegnerPointEulerSystems:HE.0, HeegnerPointEulerSystems:HE.1.
 
 GrossZagierAndArithmeticHeights:GZ.5/classical-definite-square-class
 Proposed target: gz86_definite_square_class.
+Target status: algebraic-fragment.
 Carrier gate: The actual normalized newform, theta or definite quaternionic vector, Petersson norm and period/L-function carriers, with the target’s eigencomponent and scalar comparison.
 Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.5/classical-definite-period-announcement, GrossZagierAndArithmeticHeights:GZ.3/strict-gl2-realization.
 
 GrossZagierAndArithmeticHeights:GZ.5/half-weight-waldspurger-value
 Proposed target: halfWeight_waldspurger.
+Target status: omitted; actual source carrier not written.
 Carrier gate: The actual coherent quaternionic automorphic representation and contragredient, probability toric periods, quaternionic Tamagawa form, restricted tensor product and normalized MP.6 Shimizu/see-saw interface.
 Direct owners/inputs: MetaplecticAutomorphicForms:MP.7, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicFormsOnReductiveGroups:AF.3/maass-cusp-forms.
 
 GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height
 Proposed target: cmTensor_stabilizer_height.
-Carrier gate: The actual coarse CM diagram, elliptic stabilizer norm coordinate, ramification, tangent/eta tensors and the modified self-pairing. The exceptional level/elliptic dictionary remains a gap.
+Target status: omitted; actual source carrier not written.
+Carrier gate: The actual coarse CM diagram, generic elliptic stabilizer, stabilizer-norm deformation coordinate and cotangent/differential tensors; the modified pairing and its global Δ comparison are separately planned.
 Direct owners/inputs: AbelianSchemesAndArithmeticModuli:A6, ComplexMultiplicationAndExplicitReciprocity:CM.5, GrossZagierAndArithmeticHeights:GZ.7/classical-self-intersection-tangent, GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
+
+GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection
+Proposed target: cmModifiedIntersection.
+Target status: omitted; actual source carrier not written.
+Carrier gate: Actual chosen integral CM diagrams, their universal deformation rings and finite automorphism groups, coarse intersection multiplicities and cotangent/differential tensors. These carriers are requested from the direct owners; no arbitrary scalar pairing stands for them.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-new-hom-set, GrossZagierAndArithmeticHeights:GZ.7/classical-hom-intersection-count, GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height.
+API cmModifiedIntersection: omitted; actual source carrier not written.
+API cmModifiedIntersection_disjoint: omitted; actual source carrier not written.
+API cmModifiedIntersection_diagonal: omitted; actual source carrier not written.
+API cmModifiedIntersection_add: omitted; actual source carrier not written.
+API cmModifiedIntersection_tensor: omitted; actual source carrier not written.
+Test cmModifiedIntersection_no_new_automorphisms: omitted; actual source carrier not written.
+Test cmModifiedIntersection_first_level: omitted; actual source carrier not written.
+Test cmModifiedIntersection_nonzero_correction: omitted; actual source carrier not written.
+
+GrossZagierAndArithmeticHeights:GZ.7/classical-tensor-global-decomposition
+Proposed target: cmTensor_global_height.
+Target status: omitted; actual source carrier not written.
+Carrier gate: Actual chosen integral CM diagrams, their universal deformation rings and finite automorphism groups, coarse intersection multiplicities and cotangent/differential tensors. These carriers are requested from the direct owners; no arbitrary scalar pairing stands for them. The global class-field places, product formula and normalized complex Green limits are also required.
+Direct owners/inputs: GrossZagierAndArithmeticHeights:GZ.7/classical-modified-intersection, GrossZagierAndArithmeticHeights:GZ.7/cm-tensor-stabilizer-height, GrossZagierAndArithmeticHeights:GZ.7/classical-tangent-product-formula, GrossZagierAndArithmeticHeights:GZ.7/classical-eta-tangent, GrossZagierAndArithmeticHeights:GZ.7/classical-level-reduction-component, ModularCurvesPartII:R12.3, ModularCurvesPartII:R13.3, ModularCurvesPartII:R13.4a, ModularCurvesPartII:R13.4b.
 
 -/
