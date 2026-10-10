@@ -1,118 +1,95 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
-Current reviewer: Codex (GPT-6), session `codex-QDWm58`, 10 October 2026.
+Current reviewer: Codex (GPT-6), session `codex-JNlugp`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6094686946).
-Input atlas commit: `316059a5ca0150d63a8b8d7edfa021f85dd12a94`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6094907151).
+Input atlas commit: `4cd0a7a7563d64181230c0cdfff5c3162abbb02a`.
 This session did none of the fixes under review.
 
-**The two issue-named fix reviews are complete: L3 accepted; PMIA needs
-changes.** Their preceding codex-KFM47z receipts are archived whole in
-`reviewHistory`. This submission is an administratively blocked checkpoint:
-the unaltered queue additionally requires receipts in L3-2 and D.1, which the
-live issue does not authorize. No second job was claimed.
+**The issue-named reviews are complete: L3 accepted for the selected fixes;
+PMIA needs changes to reuse current library APIs.** The preceding codex-QDWm58
+receipts are archived whole in `reviewHistory`. This is a blocked checkpoint:
+the live issue authorizes five outputs, while the queue requires nine.
+Authorization for the extra four was requested during the checks and remains
+pending. No second job was claimed.
 
-## This session's review and corrections
+## Findings and fresh evidence
 
-Read every original claim, verifier decision and round-two fix. Fresh bounded
-checks support the finding-by-finding table retained below. This session
-replaces the two authorized review receipts and updates this report and the
-handoff. No mathematical statement, source finding, source verdict, supplier
-request, baseline pin or suggested file is changed. The L3-2 source-locator
-typo is clearly fixable, but its path remains outside the live issue.
+Read all six original claims, their verifier decisions and the round-two fix
+report. Fresh source checks support these bounded conclusions. Source URLs,
+PDF hashes and the detailed historical ledgers are retained below. Downloaded
+public PDFs match those hashes. No restricted book or source passage is added.
 
-- **/1:** Morita §1, Lemma 1, Theorem 1 and its recurrence, pp.255–256;
-  Gross–Koblitz Introduction and §1, (1.2), (1.5), Theorem 1.7,
-  pp.569–571; Robert Theorems 2–4 and §4, pp.162–168 were read freshly.
-  Scanned formulas were inspected visually. The selected L3 contracts keep
-  signed natural values, unit-valued continuity, uniqueness, both recurrence
-  branches and the exceptional dyadic modulus 4. The normalized root
-  congruence stays in the integer ring. Robert's dyadic digit-sum estimate
-  and the separate RD.6 coefficient/splitting inputs are retained. Neither
-  continuity nor the telescoping identity discharges those inputs.
-- **/2:** Fresh Zhao §1.2 p.461, §4 pp.471–473 and Appendices A–B
-  pp.473–474 support the 29 read-only L3-2 root/derivative contracts,
-  including their selected definition APIs and tests. The general derivative
-  uses the correction `(1−χ(p))B₁,χ log_p N` and covers every prime,
-  including 2. Its exceptional-zero specialization does not supply
-  nonvanishing. `rjw2-fg-log-antidifference` has the correct strict natural
-  endpoint; its locator alone still needs `E34` replaced by
-  `DirichletPadicLFunctions/E37`. Its sourceIssue verdict is unchanged.
-- **/3:** Fresh EN §§2.1–2.2 pp.4–8, CN Corollary 3.16 p.37 and
-  Theorem 5.4 p.54, and NN Remark 2.14 p.14 and Proposition 4.13
-  pp.53–54 support the four read-only D.2 consumers. The divided and
-  undivided differentials remain distinct, the maps have composites p^r,
-  the factorial-modified lattice is explicit, and the exact divided range
-  is separated from the bounded undivided comparison. The rational
-  exponential keeps the period scaling and boundary sign. The verifier's
-  rejection of generic D.2 ownership and the CS.0–CS.3 producer obligations
-  remain in force. D.1's full 72-entry independent regulator receipt is
-  untouched.
-- **/4:** Fresh DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26,
-  §6.1 p.40 and Appendix B.2 pp.93–94 support the selected L6
-  contracts. Read their statements, proof boundaries and selected definition
-  APIs/tests against the source: evaluation image, inverse-character ring,
-  positive square size, finite-ideal quotient reduction, regularity in the
-  ambient ring, right-sided compound preimage and presentation-dependent
-  transpose. PMIA still fails current-library nonduplication: generic Fitting
-  and elementary transpose interfaces already exist. The precise coordinated
-  migration in the retained native-interface table remains required.
-- **/5–6:** Retain the verified finite-slope owner gap and the accepted
-  RS-16 independent-route decision. No fresh full LAD or cyclotomic proof
-  audit or producer closure is claimed.
+| Finding | Verdict and source checks in this session |
+|---|---|
+| /1, Morita Gamma and Gross–Koblitz | Accept the eight selected L3 contracts. Morita §1, Lemma 1 and Theorem 1, pp.255–256; Gross–Koblitz Introduction and §1, equations (1.2), (1.5) and Theorem 1.7, pp.569–571; Robert Theorems 2–4 and §4, pp.162–168 preserve signed natural interpolation, continuous unit values, uniqueness, both recurrence branches, exceptional dyadic modulus 4, compatible integral root and negative Gauss convention. Scanned formulas were inspected visually. The dyadic estimate needs its digit-sum argument; continuity and telescoping do not discharge RD.6 coefficient/splitting suppliers. The three L3-2 root contracts were checked read-only. |
+| /2, Ferrero–Greenberg derivative | The 26 L3-2 derivative contracts checked read-only keep Zhao §1.2 p.461 and §4 pp.471–473's all-prime formula, including p=2, for primitive odd χ with conductor N prime to p. The correction is `(1−χ(p))B₁,χ log_p N`, equivalently `−(1−χ(p))L(χ,0)log_p N`. Exceptional-zero specialization does not prove nonvanishing; arithmetic projection and Baker–Brumer remain external inputs. Appendix B.2, p.474's endpoint misprint is already corrected mathematically. The node locator still says E34 instead of `DirichletPadicLFunctions/E37`; its correction needs the omitted path. |
+| /3, integral/open log-syntomic comparison | EN §§2.1–2.2 pp.4–8, CN Corollary 3.16 p.37 and Theorem 5.4 p.54, and NN Remark 2.14 p.14 and Proposition 4.13 pp.53–54 support the four D.2 consumer contracts checked read-only. Divided/undivided differentials remain distinct; directed maps have composites p^r, only the forward map is multiplicative, and the factorial-modified lattice is explicit. The exact divided small-weight range remains distinct from the bounded undivided comparison. The rational exponential keeps the period scale and boundary sign. Generic producers belong to early CohomologyComparisons Part II after CR.5/CR.6; CS.0–CS.3 remain obligations. The full 72-entry regulator receipt is untouched. |
+| /4, DK ring-level algebra | Fresh DK v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1 p.40 and Appendix B.2 pp.93–94 checks support evaluation image rather than product, inverse-character coefficient ring, positive square size, finite-ideal reduction, regularity in the ambient ring, right-sided higher-adjugate preimage and transpose attached to a presentation. Selected definition APIs/tests retain examples distinguishing these conventions. PMIA needs changes for current-library nonduplication; the coordinated migration below remains required. The historical exhaustive 50-node ledger retains its original author. |
+| /5, derived finite slope | Retain the verifier's LAD owner gap. Cohomological support must be invariant under quasi-isomorphism; a degreewise Fredholm product does not supply that. The solid construction requires more than ordinary monoid inversion, and generic Stein geometry keeps its existing owner. No fresh full LAD audit or closure is asserted. |
+| /6, cyclotomic endpoint | Retain the verifier's rejection of the alleged duplicate and the accepted RS-16 decision to keep independent Hecke and Euler-system proof routes. No new certification of either route's proof closure is asserted. |
 
-Downloaded public PDF hashes agree with the source tables retained below.
-No restricted book was used and no source passage is added to the repository.
-This is a scoped fix review, not a fresh audit of all 1,663 L3 or 487 PMIA nodes.
-The earlier 50-node ledger and finite arithmetic diagnostics retain their
-original attribution; this session does not claim to have rerun them.
+This changes only the two authorized review/history objects, this report and
+the handoff. No clearly fixable mathematical error was found in the selected
+authorized contracts. No statement, baseline pin, sourceIssue/verdict, gap,
+request or suggested file is changed. This is a scoped fix review, not an
+exhaustive audit of 1,663 L3 or 487 PMIA nodes.
 
-Read the relevant Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
-continuous-unit, p-adic divisibility, adjugate and projective-lifting
-statements, and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`
-transpose construction and split-identity signature. Also read the actual
-current Fitting and transpose signatures at Tau Ceti
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` and the existing owners in
-roadmap main `cd03e06852a13216ad246d0623492c4beac39af2`. Current
-`TauCeti.fittingIdeal` needs finite generation, and its base-change theorem
-needs no flatness. Native quotient transport still requires the actual
-range equality; elementary direct-sum equivalences do not replace the general
-stable comparison. No current declaration is attributed to the older pin.
+Read pinned Mathlib continuous-unit, p-adic divisibility, adjugate and projective
+lifting statements and the pinned Tau Ceti transpose construction/split identity.
+The pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Also read current
+Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` Fitting and
+transpose statements and the StableReduction/QuiverRepresentations owners at
+roadmap main `cd03e06852a13216ad246d0623492c4beac39af2`.
 Neither current checkout was modified or built.
 
-## This session's validation and dispatch
+Current `TauCeti.fittingIdeal` works for finite modules, and
+`fittingIdeal_baseChange` imposes no flatness. Native `quotientEquiv` requires
+the actual dual-coordinate range equality; `prodMapEquiv` and `compFstEquiv`
+provide elementary direct-sum comparisons. They do not settle the general
+stable-comparison obligation. The Fitting source file does not exist at the
+older Tau Ceti pin. Retarget `L6/higher-fitting-ideal`,
+`relation-minors-add-generator`, `higher-fitting-independence` and
+`higher-fitting-base-change`, direct consumers, both StableReduction requests,
+the L4 comparison, reader and suggested signatures together. Retain concrete
+matrix/kernel adapters, specialized order computations and discriminating
+nonflat-base-change and deficient-relation tests. The reader is outside this
+issue; an inconsistent partial migration would not resolve the objection.
+
+## Validation and remaining dispatch
 
 | Fresh check | Result |
 |---|---|
-| L3 packet | 0 errors; 26 inherited short-API warnings. |
-| PMIA, L3-2 and D.1 packets | 0 errors; 0 warnings each; the last two checks were read-only. |
+| Four packet checkers | No errors. L3 has 26 inherited short-API warnings; the others have none. L3-2 and D.1 were checked read-only. |
 | Original PMIA `lean-check` | Exit 0; 1,075 `sorry` warnings only. |
 | Original L3-2 `lean-check`, read-only | Exit 0; 110 `sorry` warnings only. |
 | Original D.1 `lean-check`, read-only | Exit 0; 307 `sorry` warnings only. |
-| Original standalone L3 `lean-check` | Exit 1 before the body: unavailable repository-local `research` imports. |
+| Original standalone L3 `lean-check` | Exit 1 before the body, at unavailable repository-local `research` imports. |
+| Exact integer diagnostics | Signed Gamma values and the modulus-4 counterexample; 5,767 admissible congruence instances; 22 prime/conductor permutation cases with 5,520 filtration checks; 456 right-sided compound-preimage instances with singular and nonsingular selected blocks. All passed. |
 
-The earlier 7,177-warning conditional L3 body diagnostic remains historical
-and conditional on its listed supplier corrections. It was not rerun here
-and is not standalone compilation of the original module. All fresh Lean
-runs used the existing pinned build sequentially, after the memory check
-showed more than 20 GB available. No compiler remains running.
+The finite diagnostics are independent checks of conventions and tests, not
+formal proofs. No historical numerical diagnostic or conditional Lean body
+check is claimed as rerun. In particular the earlier 7,177-warning conditional
+L3 body result retains its supplier corrections and authorship and is not
+standalone compilation. All fresh Lean runs used the existing pinned build
+sequentially after more than 20 GB available memory was confirmed. Nothing
+remains compiling.
 
-Fresh `intake.py check-files` validation passes all four changed files with
-zero problems, and `git diff --check` passes. Parsed comparison against the
-input commit confirms that only review/history objects changed in the two
-packets and that each preceding receipt was archived whole.
+Post-edit packet, intake-file and whitespace checks pass. Parsed comparison
+with the input commit verifies that only review/history objects changed and
+each preceding receipt was archived whole. No source excerpt field was added.
 
-The unaltered nine-output queue completion predicate is **False**. It
-requires `independent-review-REV-FIX-RT-AREA-iwasawa-2~2` in every reviewed
-packet; L3-2 has none and D.1 retains its full regulator reviewer id.
-The PMIA `needs_changes` verdict itself counts as a completed review.
+The unaltered queue completion predicate is **False**: it additionally needs
+this fix-review id in L3-2 and D.1. PMIA's `needs_changes` verdict counts as a
+completed review; it does not cause this dispatch failure. The live issue was
+re-fetched and still omits the four paths.
 [WORKERS.md](../WORKERS.md), “Doing the work”, explicitly says:
 “Edit only the files the issue names, plus your own scratch space.”
-Authorization for the four omitted paths was requested while independent
-work continued; none has arrived. Reconcile the live issue with the queue
-or authorize those paths before redispatching. The exact remaining edit
-and receipts are described in the handoff; no extra mathematics job is
-needed to resolve dispatch.
+Its scope rule blocks the remaining edits until the live issue or explicit
+authorization includes them. The handoff gives the exact paths, locator edit
+and bounded receipts. Resolve that mismatch before another continuation;
+repeating the completed source/Lean checks cannot resolve dispatch.
 
 ## Retained evidence from preceding sessions
 

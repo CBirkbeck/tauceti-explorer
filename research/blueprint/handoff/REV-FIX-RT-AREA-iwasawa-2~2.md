@@ -1,14 +1,14 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-QDWm58`, 10 October 2026.
+Codex (GPT-6), session `codex-JNlugp`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6094686946).
-Input atlas commit `316059a5ca0150d63a8b8d7edfa021f85dd12a94`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6094907151).
+Input atlas commit `4cd0a7a7563d64181230c0cdfff5c3162abbb02a`.
 **Blocked checkpoint; one job only.**
 
 The two live-issue packet reviews are finished: L3 accepted for the specified
 fixes; PMIA needs changes for current-native reuse. Both top-level receipts
-now name this session and preserve the preceding codex-KFM47z receipts whole
+now name this session and preserve the preceding codex-QDWm58 receipts whole
 in `reviewHistory`. All mathematical data, source findings/verdicts, baseline
 pins, requests, gaps and suggested files remain unchanged. The new opening
 section of the report distinguishes this session's fresh checks from the
@@ -29,18 +29,23 @@ prior conditional 7,177-warning body diagnostic and its four scratch supplier
 corrections remain documented and attributed; this session did not rerun it
 or claim standalone L3 compilation. Intake file validation and whitespace checks pass for the four changed files.
 Parsed comparison confirms review/history-only packet changes and whole
-preceding receipts. No compiler remains running.
+preceding receipts. Fresh exact integer diagnostics passed 5,767 Morita
+congruence instances, 22 prime/conductor permutation cases with 5,520
+filtration checks, and 456 right-sided compound-preimage instances. These
+check conventions and selected tests, not formal proofs. No compiler remains
+running.
 
 ## Resolve dispatch before another continuation
 
 The live issue lists five outputs; the queue lists nine.
 [WORKERS.md](../WORKERS.md), “Doing the work”, says: “Edit only the
 files the issue names, plus your own scratch space.” Authorization for the
-four omitted paths was requested while independent checks continued; none
-arrived. The live issue was re-fetched and still omits them. The unaltered
+four omitted paths was requested while independent checks continued and
+remains pending. The live issue was re-fetched and still omits them. The unaltered
 `issues.deliverables_complete` predicate is False. PMIA's `needs_changes`
 verdict counts as a completed review and is not this administrative blocker.
 
+Do not repeat the completed source/Lean audits to resolve this mismatch.
 Correct the live issue or explicitly authorize these four queue-required
 paths, all under `research/blueprint/`, before redispatching:
 
