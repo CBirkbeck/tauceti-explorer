@@ -39,6 +39,7 @@ import TauCeti.Algebra.AlgebraicGroup.MultiplicativeGroup.Basic
 import Mathlib.Analysis.InnerProductSpace.PiL2
 import Mathlib.Topology.Connected.Clopen
 import TauCeti.Geometry.Lie.Tangent.LieEquiv
+import TauCeti.Geometry.Lie.Functor
 import TauCeti.Geometry.Lie.Subgroup.LieAlgebra
 import TauCeti.RepresentationTheory.Compact.Averaging
 import TauCeti.RepresentationTheory.Compact.PeterWeyl
@@ -4421,6 +4422,10 @@ theorem Datum.conj (D D' : Datum A) :
 theorem datum_compact [CompactSpace (realPoints A)] (D : Datum A) :
     D.K = ⊤ ∧ D.noncompactLie = ⊥ := sorry
 
+-- test: datum_compact
+example [CompactSpace (realPoints A)] (D : Datum A) :
+    D.K = ⊤ ∧ D.noncompactLie = ⊥ := sorry
+
 end ReductiveDatum
 end TauCeti.RealReductive
 
@@ -4468,11 +4473,22 @@ theorem datum_GLn (n : ℕ) (hn : 0 < n) (g : GLReal n) :
     Module.finrank ℝ (Datum.generalLinear n).noncompactLie = n*(n+1)/2 ∧
     Nat.card (Datum.componentGroupOf (G := (Datum.generalLinear n).K)) = 2 := sorry
 
+-- test: datum_GLn
+example (n : ℕ) (hn : 0 < n) (g : GLReal n) :
+    (g ∈ (Datum.generalLinear n).K ↔
+      (realPoints.GL n g).val.transpose * (realPoints.GL n g).val = 1) ∧
+    Module.finrank ℝ (Datum.generalLinear n).noncompactLie = n*(n+1)/2 ∧
+    Nat.card (Datum.componentGroupOf (G := (Datum.generalLinear n).K)) = 2 := sorry
+
 example : Subsingleton (GLReal 0) ∧
     Subsingleton (Datum.componentGroupOf (G := (Datum.generalLinear 0).K)) := sorry
 
 -- test: datum_not_any_compact. The determinant-one rotations miss a component.
 theorem datum_not_any_compact : ∃ g : (Datum.generalLinear 2).K,
+    Matrix.det (realPoints.GL 2 g.val).val = -1 := sorry
+
+-- test: datum_not_any_compact
+example : ∃ g : (Datum.generalLinear 2).K,
     Matrix.det (realPoints.GL 2 g.val).val = -1 := sorry
 
 -- test: datum_lie_compat. Cartan projections are the skew and symmetric parts.
@@ -4482,8 +4498,18 @@ theorem datum_lie_compat (n : ℕ) (X : algebraicRealLie (GLCoordinate n)) :
     realPoints.GLlie n (((Datum.generalLinear n).cartanDecomp X).2.val) =
       (1/2 : ℝ) • (realPoints.GLlie n X + (realPoints.GLlie n X).transpose) := sorry
 
+-- test: datum_lie_compat
+example (n : ℕ) (X : algebraicRealLie (GLCoordinate n)) :
+    realPoints.GLlie n (((Datum.generalLinear n).cartanDecomp X).1.val) =
+      (1/2 : ℝ) • (realPoints.GLlie n X - (realPoints.GLlie n X).transpose) ∧
+    realPoints.GLlie n (((Datum.generalLinear n).cartanDecomp X).2.val) =
+      (1/2 : ℝ) • (realPoints.GLlie n X + (realPoints.GLlie n X).transpose) := sorry
+
 -- test: realPoints_trivial. The native trivial Hopf algebra has zero tangent space.
 theorem realPoints_trivial : Subsingleton (realPoints ℝ) ∧ Module.finrank ℝ (algebraicRealLie ℝ) = 0 := sorry
+
+-- test: realPoints_trivial
+example : Subsingleton (realPoints ℝ) ∧ Module.finrank ℝ (algebraicRealLie ℝ) = 0 := sorry
 
 end GLAdapter
 end TauCeti.RealReductive
@@ -4560,6 +4586,16 @@ theorem realPoints_gl1 : Nat.card (Datum.componentGroupOf (G := GLReal 1)) = 2 �
       ((realPoints.GLlie 1).symm (Matrix.diagonal (fun _ => t)))) =
         {g : GLReal 1 | 0 < (realPoints.GLone g).val} := sorry
 
+-- test: realPoints_gl1
+example : Nat.card (Datum.componentGroupOf (G := GLReal 1)) = 2 ∧
+    Module.finrank ℝ (algebraicRealLie (GLCoordinate 1)) = 1 ∧
+    (∀ t : ℝ, (realPoints.GLone
+      (realPoints.exp (GLCoordinate 1) ((realPoints.GLlie 1).symm (Matrix.diagonal (fun _ => t))))).val =
+        Real.exp t) ∧
+    Set.range (fun t : ℝ => realPoints.exp (GLCoordinate 1)
+      ((realPoints.GLlie 1).symm (Matrix.diagonal (fun _ => t)))) =
+        {g : GLReal 1 | 0 < (realPoints.GLone g).val} := sorry
+
 abbrev SO2Coordinate := TauCeti.SpecialOrthogonal.coordinateHopfAlgebra ℝ 2
 local instance : Invertible (2 : ℝ) := invertibleOfNonzero (by norm_num)
 instance : Algebra.FiniteType ℝ SO2Coordinate := sorry
@@ -4574,6 +4610,11 @@ def realPoints.rationalRotations : Subgroup (realPoints SO2Coordinate) where
 
 -- test: realPoints_SO2_not_dense. Density does not turn this subgroup into closed real points.
 theorem realPoints_SO2_not_dense : Module.finrank ℝ (algebraicRealLie SO2Coordinate) = 1 ∧
+    Dense (realPoints.rationalRotations : Set (realPoints SO2Coordinate)) ∧
+    ¬ IsClosed (realPoints.rationalRotations : Set (realPoints SO2Coordinate)) := sorry
+
+-- test: realPoints_SO2_not_dense
+example : Module.finrank ℝ (algebraicRealLie SO2Coordinate) = 1 ∧
     Dense (realPoints.rationalRotations : Set (realPoints SO2Coordinate)) ∧
     ¬ IsClosed (realPoints.rationalRotations : Set (realPoints SO2Coordinate)) := sorry
 
@@ -4614,6 +4655,13 @@ theorem realPoints.deligneLie_matrix (X : algebraicRealLie DeligneCoordinate) :
 
 -- test: realPoints_deligne_torus. Native matrix evaluations and their tangent comparison.
 theorem realPoints_deligne_torus : ContMDiff 𝓘(ℝ, realPoints.Model DeligneCoordinate) 𝓘(ℝ, ℂ) ∞
+    (fun g : realPoints DeligneCoordinate => (realPoints.deligneEquiv g).val) ∧
+    ContMDiff 𝓘(ℝ, ℂ) 𝓘(ℝ, realPoints.Model DeligneCoordinate) ∞
+      realPoints.deligneEquiv.symm ∧
+    Module.finrank ℝ (algebraicRealLie DeligneCoordinate) = 2 := sorry
+
+-- test: realPoints_deligne_torus
+example : ContMDiff 𝓘(ℝ, realPoints.Model DeligneCoordinate) 𝓘(ℝ, ℂ) ∞
     (fun g : realPoints DeligneCoordinate => (realPoints.deligneEquiv g).val) ∧
     ContMDiff 𝓘(ℝ, ℂ) 𝓘(ℝ, realPoints.Model DeligneCoordinate) ∞
       realPoints.deligneEquiv.symm ∧
@@ -5083,7 +5131,14 @@ def chi (a b : ℂ) : InfChar Q := infCharOf cartan (parameter a b)
 
 theorem infChar_weyl_invariant (a b : ℂ) : chi a b=chi b a := sorry
 
+-- test: infChar_weyl_invariant
+example (a b : ℂ) : chi a b=chi b a := sorry
+
 theorem infChar_not_linear_action :
+    chi (3/2) (-1/2) ≠ chi (1/2) (1/2) := sorry
+
+-- test: infChar_not_linear_action
+example :
     chi (3/2) (-1/2) ≠ chi (1/2) (1/2) := sorry
 
 /-- Clockwise rotation and a reflection in the native fixed-point compact group. -/
@@ -5156,7 +5211,15 @@ example (k : ℕ) (hk : 2≤k) :
 theorem gl2DS_casimir_k2 (s : ℂ) (f : WeightModel 2) :
     envelopingAction (discreteSeries 2 (by omega) s).toGKModule casimir.val f=0 := sorry
 
+-- test: gl2DS_casimir_k2
+example (s : ℂ) (f : WeightModel 2) :
+    envelopingAction (discreteSeries 2 (by omega) s).toGKModule casimir.val f=0 := sorry
+
 theorem gl2DS_casimir_k12 (s : ℂ) (f : WeightModel 12) :
+    envelopingAction (discreteSeries 12 (by omega) s).toGKModule casimir.val f=30 • f := sorry
+
+-- test: gl2DS_casimir_k12
+example (s : ℂ) (f : WeightModel 12) :
     envelopingAction (discreteSeries 12 (by omega) s).toGKModule casimir.val f=30 • f := sorry
 
 theorem gl2DS_lowest (k : ℕ) (hk : 1≤k) (s : ℂ) (f : WeightModel k)
@@ -5164,7 +5227,17 @@ theorem gl2DS_lowest (k : ℕ) (hk : 1≤k) (s : ℂ) (f : WeightModel k)
     (discreteSeries k hk s).rho ((realPoints.GLcomplexLie 2).symm compactY) f=0 ∧
     ((discreteSeries k hk s).sigma reflection f).val=Finsupp.single (-(k : ℤ)) 1 := sorry
 
+-- test: gl2DS_lowest
+example (k : ℕ) (hk : 1≤k) (s : ℂ) (f : WeightModel k)
+    (hf : f.val=Finsupp.single (k : ℤ) 1) :
+    (discreteSeries k hk s).rho ((realPoints.GLcomplexLie 2).symm compactY) f=0 ∧
+    ((discreteSeries k hk s).sigma reflection f).val=Finsupp.single (-(k : ℤ)) 1 := sorry
+
 theorem gl2DS_not_k2_minus_1 (s : ℂ) (f : WeightModel 2) (hf : f≠0) :
+    envelopingAction (discreteSeries 2 (by omega) s).toGKModule casimir.val f≠(3/4 : ℂ) • f := sorry
+
+-- test: gl2DS_not_k2_minus_1
+example (s : ℂ) (f : WeightModel 2) (hf : f≠0) :
     envelopingAction (discreteSeries 2 (by omega) s).toGKModule casimir.val f≠(3/4 : ℂ) • f := sorry
 end TauCeti.RealReductive.GL2
 
@@ -5475,13 +5548,30 @@ theorem pair_gl2_O2 : Module.finrank ℂ (tangentQuotient (P := D.pair))=3 ∧
     ∃ e : tangentQuotient (P := D.pair) ≃ₗ[ℂ] (Fin 3 → ℂ), ∀ v,
       e (quotientAd D.pair reflection v)=![e v 0,e v 1,-e v 2] := sorry
 
+-- test: pair_gl2_O2
+example : Module.finrank ℂ (tangentQuotient (P := D.pair))=3 ∧
+    ∃ e : tangentQuotient (P := D.pair) ≃ₗ[ℂ] (Fin 3 → ℂ), ∀ v,
+      e (quotientAd D.pair reflection v)=![e v 0,e v 1,-e v 2] := sorry
+
 theorem relativeCochains_sl2_trivial :
     Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 0)=1 ∧
     Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 1)=0 ∧
     Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 2)=1 ∧
     ∀ n : ℕ, 2<n → Subsingleton (cohomology (GKModule.trivial sl2SO2Pair) n) := sorry
 
+-- test: relativeCochains_sl2_trivial
+example :
+    Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 0)=1 ∧
+    Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 1)=0 ∧
+    Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 2)=1 ∧
+    ∀ n : ℕ, 2<n → Subsingleton (cohomology (GKModule.trivial sl2SO2Pair) n) := sorry
+
 theorem relativeCochains_O2_component :
+    Subsingleton (cohomology (GKModule.trivial sl2O2Pair) 2) ∧
+    Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 2)=1 := sorry
+
+-- test: relativeCochains_O2_component
+example :
     Subsingleton (cohomology (GKModule.trivial sl2O2Pair) 2) ∧
     Module.finrank ℂ (cohomology (GKModule.trivial sl2SO2Pair) 2)=1 := sorry
 end TauCeti.RealReductive.GL2
@@ -5526,7 +5616,18 @@ theorem hcModule_discrete_series_SL2 (k : ℕ) (hk : 2≤k) (ell : ℤ) :
     Module.finrank ℂ (rotationWeightSpace k (by omega) ell)=
       if (k : ℤ)≤ell ∧ (ell-(k : ℤ))%2=0 then 1 else 0 := sorry
 
+-- test: hcModule_discrete_series_SL2
+example (k : ℕ) (hk : 2≤k) (ell : ℤ) :
+    Module.finrank ℂ (rotationWeightSpace k (by omega) ell)=
+      if (k : ℤ)≤ell ∧ (ell-(k : ℤ))%2=0 then 1 else 0 := sorry
+
 theorem gkModule_sl2_weight (k : ℕ) (hk : 2≤k) (t : ℝ)
+    (f : HolomorphicWeights k) (ell : ℤ) :
+    ((discreteSeries k (by omega)).sigma (rotationSO2 t) f).val ell=
+      Complex.exp (Complex.I*(ell : ℂ)*(t : ℂ))*f.val ell := sorry
+
+-- test: gkModule_sl2_weight
+example (k : ℕ) (hk : 2≤k) (t : ℝ)
     (f : HolomorphicWeights k) (ell : ℤ) :
     ((discreteSeries k (by omega)).sigma (rotationSO2 t) f).val ell=
       Complex.exp (Complex.I*(ell : ℂ)*(t : ℂ))*f.val ell := sorry
@@ -5537,6 +5638,15 @@ instance holomorphicTensorGroup (k l : ℕ) :
     inferInstance inferInstance inferInstance inferInstance
 
 theorem hcModule_tensor_not_fg (k l : ℕ) (hk : 2≤k) (hl : 2≤l) :
+    IsAdmissible (P := sl2SO2Pair) (V := HolomorphicWeights k ⊗[ℂ] HolomorphicWeights l)
+      (GKModule.tensor (P := sl2SO2Pair) (discreteSeries k (by omega)).toGKModule
+        (discreteSeries l (by omega)).toGKModule) ∧
+    ¬IsFinitelyGenerated (P := sl2SO2Pair) (V := HolomorphicWeights k ⊗[ℂ] HolomorphicWeights l)
+      (GKModule.tensor (P := sl2SO2Pair) (discreteSeries k (by omega)).toGKModule
+        (discreteSeries l (by omega)).toGKModule) := sorry
+
+-- test: hcModule_tensor_not_fg
+example (k l : ℕ) (hk : 2≤k) (hl : 2≤l) :
     IsAdmissible (P := sl2SO2Pair) (V := HolomorphicWeights k ⊗[ℂ] HolomorphicWeights l)
       (GKModule.tensor (P := sl2SO2Pair) (discreteSeries k (by omega)).toGKModule
         (discreteSeries l (by omega)).toGKModule) ∧
@@ -5720,6 +5830,11 @@ variable {A : Type} [CommRing A] [HopfAlgebra ℝ A]
 
 -- test: gContinuous_finiteDim. Completion is the integrated finite-dimensional module.
 theorem gContinuous_finiteDim [FiniteDimensional ℂ V]
+    (M : HCModule (P := D.pair) (V := V)) (p : Seminorm ℂ V) (hp : ∀ v, p v=0 → v=0) :
+    ∃ r : GContinuousNorm M D.K.subtype D.complexLieTangent, r.norm=p := sorry
+
+-- test: gContinuous_finiteDim
+example [FiniteDimensional ℂ V]
     (M : HCModule (P := D.pair) (V := V)) (p : Seminorm ℂ V) (hp : ∀ v, p v=0 → v=0) :
     ∃ r : GContinuousNorm M D.K.subtype D.complexLieTangent, r.norm=p := sorry
 
@@ -7167,6 +7282,11 @@ theorem L2Cusp.discrete :
     (∀ (dg : Measure G) [dg.IsHaarMeasure] (f : TestFunction (Ginf := realPoints A) (Gf := Arithmetic.FinitePoints F H) 𝓘(ℝ,realPoints.Model A)),
       IsCompactOperator (L2Cusp.convolution D χ dg f)) ∧
     (∀ π : CuspidalRepresentation D χ, FiniteDimensional ℂ π.multiplicitySpace) ∧
+    (∀ π τ : CuspidalRepresentation D χ,
+      (¬ ∃ e : π.space ≃L[ℂ] τ.space,
+        ∀ g v, e (π.action g v)=τ.action g (e v)) →
+      ∀ v ∈ L2Cusp.homogeneousSummand D χ π,
+        ∀ w ∈ L2Cusp.homogeneousSummand D χ τ, inner ℂ v w=0) ∧
     closure (Submodule.span ℂ (⋃ π : CuspidalRepresentation D χ,
       (L2Cusp.homogeneousSummand D χ π : Set (L2Cusp D χ))) : Set (L2Cusp D χ))=Set.univ := sorry
 end CuspidalHilbertSpace
@@ -7676,6 +7796,11 @@ def standardBorel : Arithmetic.RationalParabolic (F := ℚ) (H := QCoordinate) :
 
 /-- Transfer of the classical constant Fourier coefficient uses normalized Haar mass one. -/
 theorem constantTerm_cusp_compat (f : Classical N k χ) :
+    standardBorel.constantTerm_automorphicMap datumQ (arithmeticForms (adelize N k χ f))=0 ↔
+      f∈classicalCuspSpace N k χ := sorry
+
+-- test: constantTerm_cusp_compat
+example (f : Classical N k χ) :
     standardBorel.constantTerm_automorphicMap datumQ (arithmeticForms (adelize N k χ f))=0 ↔
       f∈classicalCuspSpace N k χ := sorry
 
@@ -10941,6 +11066,16 @@ theorem UniformModerateGrowth.arthur_compat (height : G → ℝ)
       ∃ N : ℕ, ∀ u : UniversalEnvelopingAlgebra ℂ (TauCeti.ComplexGroupLie I Ginf),
         ∃ C : ℝ, 0<C ∧ ∀ g,
           ‖(rightDerivative I u f).val g‖≤C*(quotientHeight height Γ g)^N := sorry
+
+-- test: uniformModerateGrowth_arthur_compat
+example (height : G → ℝ)
+    (hheight : ∀ g, 1≤height g) (Γ : Subgroup G)
+    (f : SmoothAdelicFunction (Ginf := Ginf) (Gf := Gf) I) :
+    f∈UniformModerateGrowth.all I height Γ ↔
+      (∀ (gamma : Γ) g, f.val (gamma.val*g)=f.val g) ∧
+      ∃ N : ℕ, ∀ u : UniversalEnvelopingAlgebra ℂ (TauCeti.ComplexGroupLie I Ginf),
+        ∃ C : ℝ, 0<C ∧ ∀ g,
+          ‖(rightDerivative I u f).val g‖≤C*(quotientHeight height Γ g)^N := sorry
 end QuotientHeightComparison
 
 section AlgebraicHarishChandraComparison
@@ -11003,6 +11138,17 @@ theorem toAdelic_level (eigenvalue : ℝ) (f : MaassCuspForm eigenvalue)
       (toAdelic eigenvalue f).val.val.val g := sorry
 
 theorem toAdelic_injective (eigenvalue : ℝ) : Function.Injective (toAdelic eigenvalue) := sorry
+
+/-- Classical weight-zero T_p is the inverse-square-root normalization of
+ the raw local double-coset integral with compact subgroup volume one. -/
+theorem toAdelic_hecke (eigenvalue : ℝ) (f : MaassCuspForm eigenvalue)
+    (p : ℕ) (hp : p.Prime)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers ℚ))
+    (hv : Ideal.absNorm v.asIdeal=p) (dg : MeasureTheory.Measure (GL2.primeLocalGroup v))
+    [dg.IsHaarMeasure] (hvol : dg (GL2.localCompact v : Set (GL2.primeLocalGroup v))=1) :
+    GL2.arithmeticForms.symm (toAdelic eigenvalue (heckeOperator p hp.pos f)).val=
+      (Real.sqrt p : ℂ)⁻¹ • GL2.Rp p hp v dg
+        (GL2.arithmeticForms.symm (toAdelic eigenvalue f).val) := sorry
 end MaassCuspForm
 end TauCeti.Automorphic
 
@@ -12843,3 +12989,366 @@ theorem dsRep_classified (lambda : ℝ × ℝ × ℝ) (i : Fin 4)
               Complex.I*((alpha.1 : ℂ)*(cartanCoordinates H).1+
                 (alpha.2.1 : ℂ)*(cartanCoordinates H).2.1) := sorry
 end TauCeti.Automorphic.GSp4
+
+-- BEGIN independent review correspondence checks
+#check TauCeti.Automorphic.AlgebraicModularForm
+#check TauCeti.Automorphic.AlgebraicModularForm.baseChange
+#check TauCeti.Automorphic.AlgebraicModularForm.hecke
+#check TauCeti.Automorphic.AlgebraicModularForm.rationalEquiv
+#check TauCeti.Automorphic.AlgebraicModularForm.res
+#check TauCeti.Automorphic.AlgebraicModularForm.trace
+#check TauCeti.Automorphic.AlgebraicModularForm.trivialEquiv
+#check TauCeti.Automorphic.AlgebraicModularForm.trivialEquiv_apply
+#check TauCeti.Automorphic.AlgebraicWeight
+#check TauCeti.Automorphic.AlgebraicWeight.IsDominant
+#check TauCeti.Automorphic.AlgebraicWeight.IsRegular
+#check TauCeti.Automorphic.AlgebraicWeight.rep
+#check TauCeti.Automorphic.AlgebraicWeight.rep_dual
+#check TauCeti.Automorphic.AlgebraicWeight.rep_highestWeight
+#check TauCeti.Automorphic.AutomorphicForm
+#check TauCeti.Automorphic.AutomorphicForm.exists_ideal
+#check TauCeti.Automorphic.AutomorphicForm.exists_level
+#check TauCeti.Automorphic.AutomorphicForm.finiteAction
+#check TauCeti.Automorphic.AutomorphicForm.fixedType
+#check TauCeti.Automorphic.AutomorphicForm.gkModule
+#check TauCeti.Automorphic.AutomorphicForm.heckeAction_compat
+#check TauCeti.Automorphic.AutomorphicForm.leftInvariant
+#check TauCeti.Automorphic.AutomorphicForm.toUniformModerateGrowth
+#check TauCeti.Automorphic.AutomorphicForm.withCentralChar
+#check TauCeti.Automorphic.AutomorphicRepresentation
+#check TauCeti.Automorphic.AutomorphicRepresentation.centralCharacter
+#check TauCeti.Automorphic.AutomorphicRepresentation.multiplicity
+#check TauCeti.Automorphic.AutomorphicRepresentation.multiplicity_finite
+#check TauCeti.Automorphic.AutomorphicRepresentation.smooth
+#check TauCeti.Automorphic.AutomorphicRepresentation.twist
+#check TauCeti.Automorphic.AutomorphicSubquotient
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm.baseChange
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm.equivSum
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm.hecke
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm.res
+#check TauCeti.Automorphic.CentralCharacterAlgebraicModularForm.trace
+#check TauCeti.Automorphic.CuspForm
+#check TauCeti.Automorphic.CuspForm.classical_compat
+#check TauCeti.Automorphic.CuspForm.constantTerm_eq_zero
+#check TauCeti.Automorphic.CuspForm.iff_maximal_standard
+#check TauCeti.Automorphic.CuspForm.submodule
+#check TauCeti.Automorphic.CuspidalRepresentation
+#check TauCeti.Automorphic.CuspidalRepresentation.kFinite
+#check TauCeti.Automorphic.CuspidalRepresentation.multiplicity
+#check TauCeti.Automorphic.CuspidalRepresentation.toAutomorphic
+#check TauCeti.Automorphic.GL2.adelize
+#check TauCeti.Automorphic.GL2.adelize_central
+#check TauCeti.Automorphic.GL2.adelize_injective
+#check TauCeti.Automorphic.GL2.adelize_left
+#check TauCeti.Automorphic.GL2.adelize_level
+#check TauCeti.Automorphic.GL2.adelize_slash_compat
+#check TauCeti.Automorphic.GL2.adelize_weight
+#check TauCeti.Automorphic.GSp4.IsLimitWeight
+#check TauCeti.Automorphic.GSp4.IsRegularWeight
+#check TauCeti.Automorphic.GSp4.chamber
+#check TauCeti.Automorphic.GSp4.coherentCoefficient
+#check TauCeti.Automorphic.GSp4.coherentCoefficient_parity
+#check TauCeti.Automorphic.GSp4.dsRep
+#check TauCeti.Automorphic.GSp4.dsRep_dual
+#check TauCeti.Automorphic.GSp4.hcParameter
+#check TauCeti.Automorphic.GSp4.holomorphicLimit
+#check TauCeti.Automorphic.GSp4.limitWeight_families
+#check TauCeti.Automorphic.GSp4.pilloniCohomological
+#check TauCeti.Automorphic.GlobalHeckeModule
+#check TauCeti.Automorphic.HasModerateGrowth
+#check TauCeti.Automorphic.HasModerateGrowth.add
+#check TauCeti.Automorphic.HasModerateGrowth.comp_mul_right
+#check TauCeti.Automorphic.HasModerateGrowth.of_bounded
+#check TauCeti.Automorphic.HasModerateGrowth.of_height
+#check TauCeti.Automorphic.Hermitian.IsHCPositive
+#check TauCeti.Automorphic.Hermitian.compactRoots
+#check TauCeti.Automorphic.Hermitian.gsp4_roots
+#check TauCeti.Automorphic.Hermitian.hodgeParabolic
+#check TauCeti.Automorphic.Hermitian.noncompactRoots
+#check TauCeti.Automorphic.IsAlgebraicCT_compat
+#check TauCeti.Automorphic.IsCAlgebraic
+#check TauCeti.Automorphic.IsCohomological
+#check TauCeti.Automorphic.IsCohomological.coefficient
+#check TauCeti.Automorphic.IsCohomological.infChar
+#check TauCeti.Automorphic.IsCohomological.twist
+#check TauCeti.Automorphic.IsCohomologicalWith
+#check TauCeti.Automorphic.IsCohomologicalWith.infChar
+#check TauCeti.Automorphic.IsCohomologicalWith.nonzeroDegree
+#check TauCeti.Automorphic.IsCohomologicalWith.nonzeroDegree_nonzero
+#check TauCeti.Automorphic.IsFieldOfDefinition
+#check TauCeti.Automorphic.IsLAlgebraic
+#check TauCeti.Automorphic.IsSufficientlySmall
+#check TauCeti.Automorphic.L2Cusp
+#check TauCeti.Automorphic.LevelAlgebraicModularForm
+#check TauCeti.Automorphic.LocalStableLattice
+#check TauCeti.Automorphic.LocalStableLattice.eq_localization
+#check TauCeti.Automorphic.LocalStableLattice.exists
+#check TauCeti.Automorphic.LocalStableLattice.map
+#check TauCeti.Automorphic.LocalStableLattice.standard
+#check TauCeti.Automorphic.LocalStableLattice.standard_mem
+#check TauCeti.Automorphic.MaassCuspForm
+#check TauCeti.Automorphic.MaassCuspForm.fourierCoeff_neg
+#check TauCeti.Automorphic.MaassCuspForm.heckeOperator
+#check TauCeti.Automorphic.MaassCuspForm.hecke_mul
+#check TauCeti.Automorphic.MaassCuspForm.hecke_selfAdjoint
+#check TauCeti.Automorphic.MaassCuspForm.toAdelic
+#check TauCeti.Automorphic.RestrictedTensor
+#check TauCeti.Automorphic.RestrictedTensor.IsRestrictedPureFamily
+#check TauCeti.Automorphic.RestrictedTensor.algebra
+#check TauCeti.Automorphic.RestrictedTensor.algebra_mul_of
+#check TauCeti.Automorphic.RestrictedTensor.algebra_mul_tprod
+#check TauCeti.Automorphic.RestrictedTensor.map
+#check TauCeti.Automorphic.RestrictedTensor.of
+#check TauCeti.Automorphic.RestrictedTensor.rescale
+#check TauCeti.Automorphic.RestrictedTensor.tprod
+#check TauCeti.Automorphic.SL2.HolomorphicForm
+#check TauCeti.Automorphic.SL2.HolomorphicForm.coefficient
+#check TauCeti.Automorphic.SL2.HolomorphicForm.flat
+#check TauCeti.Automorphic.SL2.HolomorphicForm.qExpansion
+#check TauCeti.Automorphic.SL2.HolomorphicForm.rationalStructure
+#check TauCeti.Automorphic.SchwartzFunction
+#check TauCeti.Automorphic.SchwartzFunction.convolution
+#check TauCeti.Automorphic.SchwartzFunction.ofTestFunction
+#check TauCeti.Automorphic.SchwartzFunction.seminorm
+#check TauCeti.Automorphic.SmoothAdelicFunction
+#check TauCeti.Automorphic.SmoothAdelicFunction.derivAction
+#check TauCeti.Automorphic.SmoothAdelicFunction.derivAction_conj
+#check TauCeti.Automorphic.SmoothAdelicFunction.exists_level
+#check TauCeti.Automorphic.SmoothAdelicFunction.iUnion_level
+#check TauCeti.Automorphic.SmoothAdelicFunction.rightTranslate
+#check TauCeti.Automorphic.SmoothAutomorphicForm
+#check TauCeti.Automorphic.SmoothAutomorphicForm.globalization
+#check TauCeti.Automorphic.SmoothAutomorphicForm.kFinite_eq
+#check TauCeti.Automorphic.SmoothAutomorphicForm.rightTranslate
+#check TauCeti.Automorphic.StableLattice
+#check TauCeti.Automorphic.StableLattice.eq_localization
+#check TauCeti.Automorphic.StableLattice.exists
+#check TauCeti.Automorphic.StableLattice.map
+#check TauCeti.Automorphic.StableLattice.reduction
+#check TauCeti.Automorphic.TestFunction
+#check TauCeti.Automorphic.TestFunction.convolution
+#check TauCeti.Automorphic.TestFunction.ofLocal
+#check TauCeti.Automorphic.TestFunction.restrictedTensor
+#check TauCeti.Automorphic.TestFunction.tmulEquiv
+#check TauCeti.Automorphic.TestFunction.unitIdempotent
+#check TauCeti.Automorphic.TorsionEigenSystem
+#check TauCeti.Automorphic.TorsionEigenSystem.lattice_indep
+#check TauCeti.Automorphic.TorsionEigenSystem.map
+#check TauCeti.Automorphic.TorsionEigenSystem.map_sys
+#check TauCeti.Automorphic.TorsionEigenSystem.maximalIdeal
+#check TauCeti.Automorphic.TorsionEigenSystem.of_char_zero
+#check TauCeti.Automorphic.UniformModerateGrowth
+#check TauCeti.Automorphic.UniformModerateGrowth.derivative
+#check TauCeti.Automorphic.UniformModerateGrowth.derivative_seminorm
+#check TauCeti.Automorphic.UniformModerateGrowth.derivative_val
+#check TauCeti.Automorphic.UniformModerateGrowth.hasModerateGrowth
+#check TauCeti.Automorphic.UniformModerateGrowth.mono
+#check TauCeti.Automorphic.UniformModerateGrowth.ofParabolic
+#check TauCeti.Automorphic.UniformModerateGrowth.rightTranslate
+#check TauCeti.Automorphic.UniformModerateGrowth.rightTranslate_seminorm
+#check TauCeti.Automorphic.UniformModerateGrowth.seminorm
+#check TauCeti.Automorphic.coherentCohomology
+#check TauCeti.Automorphic.coherentCohomology_L2
+#check TauCeti.Automorphic.coherentCohomology_cusp_to_L2
+#check TauCeti.Automorphic.coherentCohomology_eq
+#check TauCeti.Automorphic.constantTerm
+#check TauCeti.Automorphic.constantTerm_automorphic
+#check TauCeti.Automorphic.constantTerm_const
+#check TauCeti.Automorphic.constantTerm_leftInvariant
+#check TauCeti.Automorphic.constantTerm_rightTranslate
+#check TauCeti.Automorphic.constantTerm_top
+#check TauCeti.Automorphic.ell0
+#check TauCeti.Automorphic.ell0_PGL2
+#check TauCeti.Automorphic.ell0_resPGL
+#check TauCeti.Automorphic.galoisTwist
+#check TauCeti.Automorphic.isCAlgebraic_iff_isLAlgebraic_twist
+#check TauCeti.Automorphic.isLAlgebraic_iff_of_rho_integral
+#check TauCeti.Automorphic.q0
+#check TauCeti.Automorphic.rationalityField
+#check TauCeti.Automorphic.rationalityField_le
+#check TauCeti.Automorphic.two_q0_add_ell0
+#check TauCeti.RealReductive.Datum
+#check TauCeti.RealReductive.Datum.cartanDecomp
+#check TauCeti.RealReductive.Datum.componentGroup
+#check TauCeti.RealReductive.Datum.conj
+#check TauCeti.RealReductive.Datum.ofAlgebraic
+#check TauCeti.RealReductive.GContinuousNorm
+#check TauCeti.RealReductive.GL2.WeightModel
+#check TauCeti.RealReductive.GL2.classification
+#check TauCeti.RealReductive.GL2.compactCartan_bracket
+#check TauCeti.RealReductive.GL2.compactH
+#check TauCeti.RealReductive.GL2.compactX
+#check TauCeti.RealReductive.GL2.compactY
+#check TauCeti.RealReductive.GL2.discreteSeries
+#check TauCeti.RealReductive.GL2.discreteSeries_casimir
+#check TauCeti.RealReductive.GL2.discreteSeries_irreducible
+#check TauCeti.RealReductive.GL2.discreteSeries_ktypes
+#check TauCeti.RealReductive.GL2.weightCasimir
+#check TauCeti.RealReductive.GL2.weightCircle
+#check TauCeti.RealReductive.GL2.weightCircle_apply
+#check TauCeti.RealReductive.GL2.weightH
+#check TauCeti.RealReductive.GL2.weightModel_bracket
+#check TauCeti.RealReductive.GL2.weightModel_casimir
+#check TauCeti.RealReductive.GL2.weightModel_stable
+#check TauCeti.RealReductive.GL2.weightX
+#check TauCeti.RealReductive.GL2.weightY
+#check TauCeti.RealReductive.HCModule
+#check TauCeti.RealReductive.HCModule.abelian
+#check TauCeti.RealReductive.HCModule.dual
+#check TauCeti.RealReductive.HCModule.iff_zFinite
+#check TauCeti.RealReductive.HCModule.tensorFinite
+#check TauCeti.RealReductive.HasInfChar
+#check TauCeti.RealReductive.InfChar
+#check TauCeti.RealReductive.IrrAdmissible
+#check TauCeti.RealReductive.IrrAdmissible.dual
+#check TauCeti.RealReductive.IrrAdmissible.infChar
+#check TauCeti.RealReductive.IrrAdmissible.twist
+#check TauCeti.RealReductive.IsAdmissible
+#check TauCeti.RealReductive.IsEssentiallyTempered
+#check TauCeti.RealReductive.IsSquareIntegrable
+#check TauCeti.RealReductive.IsSquareIntegrable.isTempered
+#check TauCeti.RealReductive.IsTempered
+#check TauCeti.RealReductive.IsTempered.twist_unitary
+#check TauCeti.RealReductive.IsZFinite
+#check TauCeti.RealReductive.SFRep
+#check TauCeti.RealReductive.SFRep.SAF
+#check TauCeti.RealReductive.SFRep.derivAction
+#check TauCeti.RealReductive.SFRep.kFinite
+#check TauCeti.RealReductive.SFRep.smoothVectors
+#check TauCeti.RealReductive.SobolevLE
+#check TauCeti.RealReductive.WeilGroupReal
+#check TauCeti.RealReductive.WeilGroupReal.IsTempered
+#check TauCeti.RealReductive.WeilGroupReal.irreducible_classification
+#check TauCeti.RealReductive.WeilGroupReal.norm
+#check TauCeti.RealReductive.WeilGroupReal.restrict_complex
+#check TauCeti.RealReductive.archimedeanHeckeAlgebra
+#check TauCeti.RealReductive.archimedeanHeckeAlgebra.action_tmul
+#check TauCeti.RealReductive.archimedeanHeckeAlgebra.idempotent
+#check TauCeti.RealReductive.archimedeanHeckeAlgebra.moduleEquiv
+#check TauCeti.RealReductive.archimedeanHeckeAlgebra.tensorEquiv
+#check TauCeti.RealReductive.exists_gContinuousNorm
+#check TauCeti.RealReductive.genEigenspace
+#check TauCeti.RealReductive.infCharOf
+#check TauCeti.RealReductive.infCharOfHC
+#check TauCeti.RealReductive.infCharOfHC_eq_iff
+#check TauCeti.RealReductive.infCharOfHC_spec
+#check TauCeti.RealReductive.infCharOf_eq_iff
+#check TauCeti.RealReductive.infChar_casimir
+#check TauCeti.RealReductive.infChar_highestWeight
+#check TauCeti.RealReductive.isotypic
+#check TauCeti.RealReductive.isotypic_map
+#check TauCeti.RealReductive.kFinite
+#check TauCeti.RealReductive.kFinite_dense
+#check TauCeti.RealReductive.kFinite_eq_iSup_isotypic
+#check TauCeti.RealReductive.kFinite_iff_lie
+#check TauCeti.RealReductive.normalizedInduction
+#check TauCeti.RealReductive.normalizedInduction.globalization
+#check TauCeti.RealReductive.normalizedInduction.map
+#check TauCeti.RealReductive.normalizedInduction.minimal_compat
+#check TauCeti.RealReductive.normalizedInduction.restrictK
+#check TauCeti.RealReductive.normalizedInduction.rightTranslate
+#check TauCeti.RealReductive.normalizedInduction.transitivity
+#check TauCeti.RealReductive.principalSeries
+#check TauCeti.RealReductive.principalSeries_dual
+#check TauCeti.RealReductive.principalSeries_kFinite
+#check TauCeti.RealReductive.principalSeries_map
+#check TauCeti.RealReductive.principalSeries_restrictK
+#check TauCeti.RealReductive.realPoints
+#check TauCeti.RealReductive.realPoints_Ad
+#check TauCeti.RealReductive.realPoints_GL_compat
+#check TauCeti.RealReductive.realPoints_finite_components
+#check TauCeti.RealReductive.realPoints_lieAlgebra
+#check TauCeti.RealReductive.realPoints_map
+#check TauCeti.RealReductive.realPoints_orbitMap
+#check TauCeti.RealReductive.smoothCompletion_nuclear
+#check TauCeti.RealReductive.sobolevNorm
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.cochains
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.cohomology
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.complex
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.d_comp_d
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.differential
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.lowDegree_compat
+#check TauCeti.RelativeLieCohomology.AbsoluteLie.map
+#check TauCeti.RelativeLieCohomology.GKModule
+#check TauCeti.RelativeLieCohomology.GKModule.abelian
+#check TauCeti.RelativeLieCohomology.GKModule.deriv_eq
+#check TauCeti.RelativeLieCohomology.GKModule.ofContRepresentation
+#check TauCeti.RelativeLieCohomology.GKModule.restrict
+#check TauCeti.RelativeLieCohomology.GKModule.tensorFinite
+#check TauCeti.RelativeLieCohomology.GKModule.toLieModule
+#check TauCeti.RelativeLieCohomology.GKModule.toLieRingModule
+#check TauCeti.RelativeLieCohomology.H0_eq_invariants
+#check TauCeti.RelativeLieCohomology.Pair
+#check TauCeti.RelativeLieCohomology.Pair.Hom
+#check TauCeti.RelativeLieCohomology.Pair.compact
+#check TauCeti.RelativeLieCohomology.Pair.compact_iota
+#check TauCeti.RelativeLieCohomology.Pair.identityComponent
+#check TauCeti.RelativeLieCohomology.Pair.ofLieGroup
+#check TauCeti.RelativeLieCohomology.Pair.ofSubalgebra
+#check TauCeti.RelativeLieCohomology.cochains
+#check TauCeti.RelativeLieCohomology.cochains_eq_hom
+#check TauCeti.RelativeLieCohomology.cohomology
+#check TauCeti.RelativeLieCohomology.d_comp_d
+#check TauCeti.RelativeLieCohomology.d_lowDegree_compat
+#check TauCeti.RelativeLieCohomology.disconnected
+#check TauCeti.Automorphic.AlgebraicModularForm.equivSum
+#check TauCeti.Automorphic.AlgebraicWeight.infChar_rep
+#check TauCeti.Automorphic.AutomorphicForm.classicalEquiv
+#check TauCeti.Automorphic.AutomorphicForm.finiteDimensional_fixedType
+#check TauCeti.Automorphic.AutomorphicForm.mem_uniformModerateGrowth
+#check TauCeti.Automorphic.CuspForm.memL2
+#check TauCeti.Automorphic.CuspForm.rapidDecay
+#check TauCeti.Automorphic.GL1.automorphicRepresentationEquiv
+#check TauCeti.Automorphic.GL2.hecke_adelize
+#check TauCeti.Automorphic.GL2.modularFormEquiv
+#check TauCeti.Automorphic.GLn.temperedCohomological
+#check TauCeti.Automorphic.GSp2g.limitDiscreteSeries
+#check TauCeti.Automorphic.GSp4.coherent_classification_largeWeight
+#check TauCeti.Automorphic.L2Cusp.discrete
+#check TauCeti.Automorphic.SL2.closure_unipotent_eq_top
+#check TauCeti.Automorphic.SL2.eq_const_of_fourierCoeff_eq_zero
+#check TauCeti.Automorphic.UniformModerateGrowth.convolution_mem
+#check TauCeti.Automorphic.UniformModerateGrowth.rightTranslate_mem
+#check TauCeti.Automorphic.automorphicForm_resScalarsEquiv
+#check TauCeti.Automorphic.centralTranslationFinite
+#check TauCeti.Automorphic.clozelPurity
+#check TauCeti.Automorphic.clozelRationality
+#check TauCeti.Automorphic.coherentCohomology_discreteSeries
+#check TauCeti.Automorphic.constantTerm_constantTerm
+#check TauCeti.Automorphic.cuspForm_eq_top_of_anisotropic
+#check TauCeti.Automorphic.finiteCornerFactorization
+#check TauCeti.Automorphic.finrank_spherical_le_one
+#check TauCeti.Automorphic.flath
+#check TauCeti.Automorphic.heckeAction
+#check TauCeti.Automorphic.holomorphicDiscreteSeries_minimalKType
+#check TauCeti.Automorphic.infChar_eq_of_relativeCohomology_ne_zero
+#check TauCeti.Automorphic.isCompact_unipotentQuotient
+#check TauCeti.Automorphic.isDiscreteSeries_of_coherentCohomology_ne_zero
+#check TauCeti.Automorphic.relativeCohomology_tempered_range
+#check TauCeti.Automorphic.trivial_not_generic
+#check TauCeti.Automorphic.voganZuckerman
+#check TauCeti.RealReductive.admissible_of_irreducible
+#check TauCeti.RealReductive.casselmanWallach
+#check TauCeti.RealReductive.casselman_embedding
+#check TauCeti.RealReductive.discreteSeries
+#check TauCeti.RealReductive.dixmierMalliavin
+#check TauCeti.RealReductive.langlandsClassification
+#check TauCeti.RealReductive.recGL
+#check TauCeti.RealReductive.voganGenericUnitary
+#check TauCeti.RelativeLieCohomology.kostant
+#check TauCeti.RelativeLieCohomology.longExact
+#check TauCeti.VanEst.acceptance
+#check TauCeti.VanEst.invariantForms
+#check TauCeti.VanEst.quotient_maximalCompact_euclidean
+#check TauCeti.VanEst.smoothCochains
+#check TauCeti.VanEst.vanEstIso
+#check TauCeti.VanEst.cochains_map
+#check TauCeti.VanEst.continuousCochains
+#check TauCeti.VanEst.continuousCochainsEquivMathlib
+#check TauCeti.VanEst.invariantFormsEquivRelative
+#check TauCeti.VanEst.invariantForms_componentAction
+#check TauCeti.VanEst.invariantForms_d
+#check TauCeti.VanEst.smoothing_quasiIso
+-- END independent review correspondence checks
+#check TauCeti.Automorphic.MaassCuspForm.toAdelic_hecke
