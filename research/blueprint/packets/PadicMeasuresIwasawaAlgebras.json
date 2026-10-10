@@ -37969,265 +37969,271 @@
           "note": "Verified by independent-review-REV-FIX-RT-AREA-iwasawa-2~2 (2026-10-09) against Dasgupta–Kakde arXiv v3 and the pinned libraries; unchanged since except as noted; E17–E20 re-confirmed here at arXiv v3 PDF 16–17, 26 and 40."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-09",
+      "notes": "Continuation by Codex, session codex-7UQW2R, at b65dedeec52845a846eea49bc135c8609e047200. Accepted within the named fix-review scope: RT-AREA-iwasawa-2/4. The prior 50-node L6 source/library audit and inherited corrections remain applicable. Fresh reading of Dasgupta–Kakde arXiv v3 §§2.2–2.3, Lemma 3.9 and §6.1 confirms image character rings, non-zerodivisor/finite-quotient hypotheses, square presentations, the right-sided higher-adjugate preimage and presentation-dependent transpose across R_Psi and R_(Psi inverse). Three central Tau Ceti source modules were read and byte-compared to f790474. The newer accepted independent-review-REV-PadicMeasuresIwasawaAlgebras~2, preserved in reviewHistory, supplies the fourteen L4 interfaces and eight examples/twelve test records that caused the previous fix-review needs_changes verdict. Their current signatures/examples were inspected; the remaining eighteen proof/stage gaps and three requests are preserved. No fresh certification of all 487 nodes or 537 baseline entries is claimed. Native lean-check: exit 0, 1075 admitted-proof warnings; packet checker: zero errors/warnings. No mathematics, Lean, reader, source finding or coverage record changed. Queue completion remains blocked by two extra packets absent from the live issue. See the report and handoff.",
+      "checked": [
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/joint-evaluation-injective",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-scaled-idempotent",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-finite-index",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-idempotent-evaluation",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-group-ring-equiv",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/group-ring-component-decomposition",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-one-character",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-maximal-ideal-power",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-eval-local-hom",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-residue-field",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-adic-complete",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-ideal",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/relation-minors-add-generator",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-independence",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-base-change",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/extension-relation-matrix",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation-extension",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/pid-cokernel-cardinality",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-cokernel-descent",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/cokernel-modulo-finite-ideal",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-subring-nonzerodivisor",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/complement-shuffle-sign",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/generalised-laplace-expansion",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-image-determinant",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting-free",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting",
+          "verdict": "verified",
+          "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
+        }
+      ]
     }
   ],
   "review": {
-    "status": "accepted",
+    "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
-    "date": "2026-10-09",
-    "notes": "Continuation by Codex, session codex-7UQW2R, at b65dedeec52845a846eea49bc135c8609e047200. Accepted within the named fix-review scope: RT-AREA-iwasawa-2/4. The prior 50-node L6 source/library audit and inherited corrections remain applicable. Fresh reading of Dasgupta–Kakde arXiv v3 §§2.2–2.3, Lemma 3.9 and §6.1 confirms image character rings, non-zerodivisor/finite-quotient hypotheses, square presentations, the right-sided higher-adjugate preimage and presentation-dependent transpose across R_Psi and R_(Psi inverse). Three central Tau Ceti source modules were read and byte-compared to f790474. The newer accepted independent-review-REV-PadicMeasuresIwasawaAlgebras~2, preserved in reviewHistory, supplies the fourteen L4 interfaces and eight examples/twelve test records that caused the previous fix-review needs_changes verdict. Their current signatures/examples were inspected; the remaining eighteen proof/stage gaps and three requests are preserved. No fresh certification of all 487 nodes or 537 baseline entries is claimed. Native lean-check: exit 0, 1075 admitted-proof warnings; packet checker: zero errors/warnings. No mathematics, Lean, reader, source finding or coverage record changed. Queue completion remains blocked by two extra packets absent from the live issue. See the report and handoff.",
-    "checked": [
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/joint-evaluation-injective",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-scaled-idempotent",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-finite-index",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-idempotent-evaluation",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-group-ring-equiv",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/group-ring-component-decomposition",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-one-character",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-maximal-ideal-power",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-eval-local-hom",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-residue-field",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-adic-complete",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-ideal",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/relation-minors-add-generator",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-independence",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-base-change",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/extension-relation-matrix",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation-extension",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/pid-cokernel-cardinality",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-cokernel-descent",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/cokernel-modulo-finite-ideal",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-subring-nonzerodivisor",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/complement-shuffle-sign",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/generalised-laplace-expansion",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-image-determinant",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting-free",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      },
-      {
-        "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting",
-        "verdict": "verified",
-        "note": "Scoped fix contract retained. Earlier 50-node audit and the newer comprehensive revision review are preserved in reviewHistory; this continuation rechecks the central source contracts and the resolution of the previous L4 acceptance blockers, not a fresh complete baseline audit."
-      }
-    ]
+    "date": "2026-10-10",
+    "notes": "Codex, codex-Jk8aAy. Continues the scoped fix reviews preserved in reviewHistory; not a new audit of all 487 nodes. Fresh Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26, §6.1 p.40, Appendix A pp.85–86 and Appendix B.2 pp.93–94 confirms the corrected character-ring, square-presentation, right-sided adjugate and presentation-dependent transpose contracts. Pinned character-evaluation, orthogonality and transpose declarations read and matched to Git objects. However the mandatory current-library screen found implemented higher Fitting ideals and base change at Tau Ceti a91d3aa. Four generic L6 nodes and the two Fitting-carrier requests must now import that implementation; see upstreamNotes and the current review report for exact declaration mappings. Their concrete matrix adapters may remain targets, but a second general carrier/independence/base-change development must not be packaged. This is a new current-library reuse objection, not a rejection of the earlier pinned-source algebra review. Kept mathematical records and baseline pins intact rather than adding false f790474 declaration citations. Checker: zero errors or warnings. Native lean-check: exit 0, 1075 proof-placeholder warnings only, before the explanatory comment update. Additional L3-2/D.1 reviews remain outside the live issue scope and were not relabelled."
   },
   "fixHistory": [
     {
@@ -38278,6 +38284,14 @@
       "date": "2026-10-09",
       "changes": "No nodes added. Native L4 common fraction-space, DVR invariants, characteristic ideal, projector/component, quotient-limit, delta/saturation and exact-resolution interfaces; semantic module controls; full reader regenerated from all current nodes; coverage, sources and signature fronts made current. Prior corrections and independent review preserved.",
       "status": "budget pass complete; stage and proof gaps remain"
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/StableReduction"
+      ],
+      "note": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, read on 2026-10-10, already supplies higher Fitting ideals for finite modules over arbitrary commutative rings, hence in greater generality than the finite-presentation L6 contracts. Basic.lean:343,349,360,372,381,389,401,409,418 gives TauCeti.fittingIdeal, fittingIdeal_eq_minorsIdeal_ker, fittingIdeal_monotone, fittingIdeal_le_of_surjective, fittingIdeal_congr, fittingIdeal_prod_add_finrank, fittingIdeal_eq_bot_of_lt_finrank, fittingIdeal_eq_top_iff_finrank_le and fittingIdeal_quotient_zero. BaseChange.lean:134,159 gives TauCeti.fittingIdeal_baseChange without flatness and IsBaseChange.fittingIdeal_eq_map, including localization. Generators.lean:109 gives TauCeti.fittingIdeal_eq_minorsIdealOfSet from generators of a presentation kernel. These modules are absent at the recorded f790474 baseline. L6/higher-fitting-ideal, relation-minors-add-generator, higher-fitting-independence and higher-fitting-base-change must reuse these implementations; only a necessary concrete-matrix comparison adapter remains new work. Do not implement a second Fitting carrier, presentation-independence proof or base-change theorem. The two StableReduction requests for the Fitting carrier are already supplied on current main; keep their pinned-baseline boundary explicit until the baseline and reader/suggested interfaces are reconciled. The current library was read, not built. Source: https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/RingTheory/FittingIdeal/Basic.lean ; neighboring BaseChange.lean and Generators.lean at the same commit."
     }
   ]
 }

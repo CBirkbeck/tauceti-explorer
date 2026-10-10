@@ -1,45 +1,62 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex, session `codex-YzsJct`, 10 October 2026. Issue
+Codex, session `codex-Jk8aAy`, 10 October 2026; issue
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219).
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091370485).
-**Blocked checkpoint; one claim only.**
+One confirmed claim; no second job. **Blocked checkpoint.**
 
-The complete live issue names five outputs. The queue requires nine, including
-L3-2 and D.1 packets and suggested files that the issue does not authorize.
-Fresh `issues.deliverables_complete` checks give `True` for the live issue and
-`False` for the queue. L3/PMIA already have this job's accepted reviews; L3-2 has
-none; D.1 has a newer accepted independent round-two review. All paths exist.
-Do not overwrite review identities to satisfy the predicate.
+The scoped independent review is finished. L3 remains accepted for its correct
+handoff; PMIA now needs changes because current Tau Ceti implements the generic
+higher Fitting theory previously planned in four L6 nodes. The
+[review report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) preserves historical
+verdicts, states the new objection, maps exact native declarations and records
+fresh source/baseline/compile evidence. Earlier PMIA acceptance remains
+historical; it must not override this current-library reuse objection.
 
-A scope decision was requested from the user; no answer arrived before this
-submission. WORKERS.md's issue-named-file restriction remains binding. The
-report gives the exact five-output replacement for the maintainer if that is
-the intended scope. Otherwise extend the live issue explicitly and perform the
-two additional reviews. **Resolve this scope mismatch before dispatching another
-continuation of #6219.** Another two-packet review cannot finish this queue entry.
+## Required scope decision
 
-This continuation corrected the stale L3 header saying sibling source modules
-are absent. L0/L1/L2 exist; compilation lacks their research-module artifacts in
-the shared pinned build. No imports, declarations, packet mathematics or review
-verdicts changed. The report consolidates repetitive administrative receipts and
-preserves the earlier attributed finding verdicts, source/baseline receipts and
-50-node L6 ledger. No new all-node audit is claimed.
+The complete live issue names five outputs, the queue nine. Fresh
+`issues.deliverables_complete` gives True for the live scope and False for the
+queue. L3-2 and D.1 are the two extra packets; their suggested files also appear
+in the queue. A scope decision was requested from the user during this run;
+no answer arrived. WORKERS' issue-named-files rule still applies.
 
-Fresh checks:
-- L3 packet: 1,663 nodes, zero errors, 26 inherited short-API warnings.
-- PMIA packet: 487 nodes, zero errors and warnings.
-- L3 native `lean-check`: exit 1, unknown `research` module prefix, before
-  declaration elaboration; 98 GB available.
-- No source `excerpt` key in either named packet; no source passage added.
+**Do not dispatch another unchanged two-packet continuation.** Either authorize
+those two additional independent reviews explicitly, or reconcile the queue
+to the five live outputs already reviewed. No excluded review identity, source,
+node or queue entry was changed. The completion predicate permits a finished
+needs_changes verdict; changing PMIA back to accepted does not resolve scope.
 
-PMIA's prior native receipt remains inherited: exit 0, 1,075 `sorry` warnings
-only. No library build, language server or background compile was started.
-No scratch artifact is required to resume.
+## Native Fitting reuse
 
-Preserve /1–/2's normalized-root, dyadic, Ferrero–Greenberg correction-term,
-source-range, derivative-coordinate and independent nonvanishing obligations,
-and the RD.6 requests. /3 keeps the early integral/open log-syntomic supplier
-and D.1's newer review. /4 keeps the accepted L6 algebra, remaining order and
-exterior-bidual gaps and I.6/I.7 arithmetic consumers. /5 stays with the complex,
-solid and Stein owners; /6 remains rejected by the verifier.
+At current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, read
+`TauCeti/RingTheory/FittingIdeal/Basic.lean`, `BaseChange.lean` and
+`Generators.lean`. They supply the carrier in every degree under Module.Finite,
+presentation independence, arbitrary base change, localization, the free-module
+jump and quotient calculation. They are absent at recorded pin f790474.
+
+The PMIA owner must import that API for `L6/higher-fitting-ideal`,
+`relation-minors-add-generator`, `higher-fitting-independence` and
+`higher-fitting-base-change`; retain only needed concrete-matrix comparisons.
+Reconcile both StableReduction Fitting-carrier requests, the reader and the
+suggested signatures with a baseline that actually includes those modules.
+Do not implement a second generic Fitting carrier or add nonexistent f790474
+baseline citations. The report lists exact declaration names and lines.
+The current library and roadmap trees were read, never built or changed.
+
+The scoped reviewer added the reuse note and an explanatory Lean comment,
+preserved all mathematical records and archived previous review objects.
+Reader migration is outside this issue's authorized paths. The existing
+order/exterior-bidual gaps, I.6/I.7 consumer ownership, L3 normalized-root,
+dyadic, correction-term, coordinate and independent nonvanishing obligations,
+RD.6 requests and D.1's newer independent review remain intact.
+
+## Validation
+
+- L3 packet: zero errors; 26 inherited short-API warnings outside fix scope.
+- PMIA packet: zero errors and warnings.
+- Native PMIA Lean: exit 0, 1,075 warnings, all sorry, before the comment-only edit.
+- Native L3 Lean: exit 1 at research-module import resolution; nothing elaborated.
+- Fresh Morita pp.255–256, Robert p.166 and DK v3 specified pages: URLs/hashes in report.
+- No source excerpt added; no baseline source/build or excluded packet modified.
+
+No disposable scratch file is needed to resume. No Lean process remains.
