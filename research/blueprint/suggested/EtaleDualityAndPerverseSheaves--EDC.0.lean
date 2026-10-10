@@ -103,6 +103,10 @@ structure GeometricPoint (X : Scheme.{u}) where
 
 attribute [instance] GeometricPoint.field GeometricPoint.sepClosed
 
+/-- Composition sends a geometric point to a point with the same residue field. -/
+def GeometricPoint.map {X S : Scheme.{u}} (x : GeometricPoint X) (f : X ⟶ S) :
+    GeometricPoint S := { Ω := x.Ω, pt := x.pt ≫ f }
+
 variable {Λ}
 
 /-- `Λ_X`, the constant sheaf placed in degree 0. -/
@@ -146,8 +150,9 @@ example (X : Scheme.{u}) [IsEmpty X] (K : EtaleDerived Λ X) : IsZero K := sorry
 
 /-- Test `etaleDerived_spec_sepClosed`. -/
 example (Ω : Type u) [Field Ω] [IsSepClosed Ω] :
-    Nonempty (EtaleDerived Λ (Spec (CommRingCat.of Ω)) ≌ DerivedCategory (ModuleCat.{u} Λ)) :=
-  sorry
+    Nonempty (EtaleDerived Λ (Spec (CommRingCat.of Ω)) ≌ DerivedCategory (ModuleCat.{u} Λ)) ∧
+      ∀ (F : EtaleSheaf Λ (Spec (CommRingCat.of Ω))) (q : ℕ), 0 < q →
+        Subsingleton (EtaleDerived.cohomology (q : ℤ) ((DerivedCategory.singleFunctor _ 0).obj F)) := sorry
 
 /-- Test `etaleDerived_stalk_conservative`. -/
 example {X : Scheme.{u}} (K : EtaleDerived Λ X)
@@ -177,6 +182,15 @@ structure Compactification {X S : Scheme.{u}} (f : X ⟶ S) where
   [openImmersion : IsOpenImmersion j]
   [proper : IsProper p]
   factorization : j ≫ p = f
+
+/-- Proper cartesian-open refinements are the arrows of the imported compactification index.
+The cartesian condition excludes additional boundary points lying over the open X. -/
+structure CompactificationRefinement {X S : Scheme.{u}} {f : X ⟶ S}
+    (C' C : Compactification f) where
+  map : C'.ambient ⟶ C.ambient
+  [proper : IsProper map]
+  openSquare : IsPullback (𝟙 X) C'.j C.j map
+  base : map ≫ C.p = C'.p
 
 /-- Compactifiability and the qcqs finite-type scope of this packet. -/
 class Compactifiable {X S : Scheme.{u}} (f : X ⟶ S)
@@ -208,8 +222,17 @@ def pullbackPushforwardAdjunction {X S : Scheme.{u}} (f : X ⟶ S) :
     pullback (Λ := Λ) f ⊣ pushforward f := sorry
 
 /-- Stand-in for the compactly supported direct image `Rf_!` (CompactSupport). -/
-def lowerShriek {X S : Scheme.{u}} (f : X ⟶ S) [Compactifiable f] :
+def lowerShriek [TorsionCoefficients Λ] {X S : Scheme.{u}} (f : X ⟶ S) [Compactifiable f] :
     EtaleDerived Λ X ⥤ EtaleDerived Λ S := sorry
+
+/-- Canonical unit isomorphisms of the imported pullback and compact-support pseudofunctors. -/
+def pullbackIdIso (X : Scheme.{u}) : pullback (Λ := Λ) (𝟙 X) ≅ 𝟭 _ := sorry
+def lowerShriekIdIso (X : Scheme.{u}) [Compactifiable (𝟙 X)] :
+    lowerShriek (Λ := Λ) (𝟙 X) ≅ 𝟭 _ := sorry
+
+/-- Exact sheaf-level compact pushforward for quasi-finite maps (CompactSupport). -/
+def sheafLowerShriek {X S : Scheme.{u}} (f : X ⟶ S) [Compactifiable f]
+    [LocallyQuasiFinite f] : EtaleSheaf Λ X ⥤ EtaleSheaf Λ S := sorry
 
 /-- Stand-in for proper base change `g^* Rf_! ≅ Rf'_! g'^*` (CompactSupport). -/
 def lowerShriekBaseChange {X S X' S' : Scheme.{u}} {f : X ⟶ S} {g : S' ⟶ S} {f' : X' ⟶ S'}
@@ -301,7 +324,7 @@ lemma isConstructibleComplex_shift (K : EtaleDerived Λ X) (m : ℤ) :
     (IsConstructibleComplex K ↔ IsConstructibleComplex (K⟦m⟧)) ∧
       (IsCtf K ↔ IsCtf (K⟦m⟧)) := sorry
 
-lemma isConstructibleComplex_of_triangle (T : Pretriangulated.Triangle (EtaleDerived Λ X))
+lemma isConstructibleComplex_of_triangle [IsNoetherianRing Λ] (T : Pretriangulated.Triangle (EtaleDerived Λ X))
     (hT : T ∈ distTriang _) :
     (IsConstructibleComplex T.obj₁ → IsConstructibleComplex T.obj₂ →
       IsConstructibleComplex T.obj₃) ∧
@@ -319,7 +342,7 @@ lemma isConstructibleComplex_iff_stalk [IsNoetherian X] (K : EtaleDerived Λ X) 
         ∀ a q, IsLisseSheaf ((sheafPullback (i a)).obj
           ((DerivedCategory.homologyFunctor _ q).obj K)) := sorry
 
-lemma IsCtf.tensor {K L : EtaleDerived Λ X} (hK : IsCtf K) :
+lemma IsCtf.tensor [IsNoetherianRing Λ] {K L : EtaleDerived Λ X} (hK : IsCtf K) :
     (IsCtf L → IsCtf (((derivedTensor X).obj K).obj L)) ∧
       (IsConstructibleComplex L →
         IsConstructibleComplex (((derivedTensor X).obj K).obj L)) := sorry
@@ -438,6 +461,14 @@ def tateTwist_pullback {X S : Scheme.{u}} (f : X ⟶ S) (hX : IsUnit ((n : Γ(X,
     (hS : IsUnit ((n : Γ(S, ⊤)))) (i : ℤ) :
     tateTwist n S hS hΛ i ⋙ pullback f ≅ pullback f ⋙ tateTwist n X hX hΛ i := sorry
 
+def tateTwist_pushforward {X S : Scheme.{u}} (f : X ⟶ S) [QuasiCompact f]
+    [QuasiSeparated f] (hX : IsUnit (n : Γ(X, ⊤))) (hS : IsUnit (n : Γ(S, ⊤))) (i : ℤ) :
+    tateTwist n X hX hΛ i ⋙ pushforward f ≅ pushforward f ⋙ tateTwist n S hS hΛ i := sorry
+
+def tateTwist_lowerShriek {X S : Scheme.{u}} (f : X ⟶ S) [Compactifiable f]
+    (hX : IsUnit (n : Γ(X, ⊤))) (hS : IsUnit (n : Γ(S, ⊤))) (i : ℤ) :
+    tateTwist n X hX hΛ i ⋙ lowerShriek f ≅ lowerShriek f ⋙ tateTwist n S hS hΛ i := sorry
+
 def tateTwist_shift (X : Scheme.{u}) (hX : IsUnit ((n : Γ(X, ⊤)))) (i m : ℤ) :
     tateTwist n X hX hΛ i ⋙ shiftFunctor _ m ≅ shiftFunctor _ m ⋙ tateTwist n X hX hΛ i := sorry
 
@@ -468,12 +499,15 @@ lemma tateTwist_geomFrobenius {R : Type} [CommRing R] [TorsionCoefficients R]
     (v : stalkCohomology x 0 ((tateTwist N _ hX hR i).obj (EtaleDerived.constant _))) :
     geometricFrobeniusOnStalk hr x 0 _ v=((hq.unit ^ (-i) : Rˣ) : R) • v := sorry
 
-/-- Test `tateTwist_frobenius_eigenvalue`: F₂ geometric Frobenius is multiplication by 2 on Z/3(1). -/
-example (hX : IsUnit (3 : Γ(Spec (CommRingCat.of (GaloisField 2 1)), ⊤)))
-    (x : GeometricPoint (Spec (CommRingCat.of (GaloisField 2 1))))
-    (v : stalkCohomology x 0 ((tateTwist (Λ := ZMod 3) 3 _ hX (by decide) 1).obj
-      (EtaleDerived.constant _))) :
-    geometricFrobeniusOnStalk (by decide : (1 : ℕ)≠0) x 0 _ v=(2 : ZMod 3) • v := sorry
+/-- Test `tateTwist_frobenius_eigenvalue`. -/
+example (hX : IsUnit (5 : Γ(Spec (CommRingCat.of (GaloisField 2 1)), ⊤)))
+    (x : GeometricPoint (Spec (CommRingCat.of (GaloisField 2 1)))) :
+    (∀ v : stalkCohomology x 0 ((tateTwist (Λ := ZMod 5) 5 _ hX (by decide) 1).obj
+        (EtaleDerived.constant _)),
+      geometricFrobeniusOnStalk (by decide : (1 : ℕ)≠0) x 0 _ v=(3 : ZMod 5) • v) ∧
+    (∀ v : stalkCohomology x 0 ((tateTwist (Λ := ZMod 5) 5 _ hX (by decide) (-1)).obj
+        (EtaleDerived.constant _)),
+      geometricFrobeniusOnStalk (by decide : (1 : ℕ)≠0) x 0 _ v=(2 : ZMod 5) • v) := sorry
 
 end Tate
 
@@ -587,7 +621,7 @@ end Supports
 
 section Coefficients
 
-variable {Λ Λ' Λ'' : Type u} [CommRing Λ] [TorsionCoefficients Λ] [CommRing Λ'] [CommRing Λ''] {X S : Scheme.{u}}
+variable {Λ Λ' Λ'' : Type u} [CommRing Λ] [TorsionCoefficients Λ] [CommRing Λ'] [TorsionCoefficients Λ'] [CommRing Λ''] {X S : Scheme.{u}}
 
 def restrictScalars (φ : Λ →+* Λ') (X : Scheme.{u}) : EtaleDerived Λ' X ⥤ EtaleDerived Λ X :=
   sorry
@@ -614,12 +648,14 @@ def restrictScalars_comp (φ : Λ →+* Λ') (ψ : Λ' →+* Λ'') (X : Scheme.{
 /-- Test `extendScalars_id`. -/
 example (X : Scheme.{u}) : Nonempty (extendScalars (RingHom.id Λ) X ≅ 𝟭 _) := sorry
 
-/-- Test `extendScalars_reduction_unbounded` (`ℓ = 2`). -/
+/-- Test `extendScalars_reduction_unbounded`. -/
 example (X : Scheme.{0}) [Nonempty X] (q : ℕ) :
-    ¬ IsZero ((DerivedCategory.homologyFunctor _ (-(q : ℤ))).obj
+    Nonempty ((DerivedCategory.homologyFunctor _ (-(q : ℤ))).obj
       ((extendScalars (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)) X).obj
         ((restrictScalars (ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)) X).obj
-          (EtaleDerived.constant X)))) := sorry
+          (EtaleDerived.constant X))) ≅
+      (constantSheaf X.smallEtaleTopology (ModuleCat (ZMod 2))).obj
+        (ModuleCat.of (ZMod 2) (ZMod 2))) := sorry
 
 /-- Test `restrictScalars_constant`. -/
 example (φ : Λ →+* Λ') (X : Scheme.{u}) :
@@ -671,7 +707,7 @@ def enhancedColimitComparison (F : EnhancedFunctor (Λ := Λ) X S)
 def enhancedPullback (g : Y ⟶ X) : EnhancedFunctor (Λ := Λ) X Y := sorry
 
 /-- Coherent compactification descent, node `EDC.0/enhanced-compact-pushforward`. -/
-def enhancedLowerShriek (f : X ⟶ S) [Compactifiable f] :
+def enhancedLowerShriek [TorsionCoefficients Λ] (f : X ⟶ S) [Compactifiable f] :
     EnhancedFunctor (Λ := Λ) X S := sorry
 
 lemma enhancedLowerShriek_homotopy (f : X ⟶ S) [Compactifiable f] :
@@ -710,10 +746,20 @@ example (j : X ⟶ S) [IsOpenImmersion j] [QuasiCompact j] (s : GeometricPoint S
     (hs : ∀ y, s.pt.base y ∉ Set.range j.base) (K : EtaleDerived Λ X) :
     IsZero ((EtaleDerived.stalk s).obj ((lowerShriek j).obj K)) := sorry
 
+example (j : X ⟶ S) [IsOpenImmersion j] [QuasiCompact j] (x : GeometricPoint X)
+    (K : EtaleDerived Λ X) :
+    Nonempty ((EtaleDerived.stalk (x.map j)).obj ((lowerShriek j).obj K) ≅
+      (EtaleDerived.stalk x).obj K) := sorry
+
 /-- Test `lowerShriek_finiteEtale`. -/
 example (f : X ⟶ S) [IsFinite f] [Etale f] (F : EtaleSheaf Λ X) (q : ℤ) (hq : q ≠ 0) :
     IsZero ((DerivedCategory.homologyFunctor _ q).obj
       ((lowerShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj F))) := sorry
+
+example (f : X ⟶ S) [IsFinite f] [Etale f] (F : EtaleSheaf Λ X) :
+    Nonempty ((DerivedCategory.homologyFunctor _ 0).obj
+      ((lowerShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj F)) ≅
+      (sheafPushforward f).obj F) := sorry
 
 /-- Test `lowerShriek_affineLine`. -/
 example (Ω : Type u) [Field Ω] [IsAlgClosed Ω] (n : ℕ) [NeZero n] (hΛ : (n : Λ) = 0)
@@ -760,7 +806,7 @@ section UpperShriek
 variable {Λ : Type u} [CommRing Λ] [TorsionCoefficients Λ] {X Y S : Scheme.{u}} [CompactSpace X] [QuasiSeparatedSpace X] [CompactSpace Y] [QuasiSeparatedSpace Y] [CompactSpace S] [QuasiSeparatedSpace S]
 
 /-- `f^!`, the right adjoint of `Rf_!` (produced by EnhancedDerivedSheaves E3). -/
-def upperShriek (f : X ⟶ S) [Compactifiable f] :
+def upperShriek [TorsionCoefficients Λ] (f : X ⟶ S) [Compactifiable f] :
     EtaleDerived Λ S ⥤ EtaleDerived Λ X := sorry
 
 def lowerShriekUpperShriekAdjunction (f : X ⟶ S) [Compactifiable f] :
@@ -790,13 +836,17 @@ lemma upperShriek_amplitude (f : X ⟶ S) [Compactifiable f] (d : ℕ)
 
 /-- `upperShriek_quasiFinite`: for quasi-finite `f`, `f^!` is the derived functor of a sheaf-level
 right adjoint `f^!₀` of the exact `f_!`. -/
-lemma upperShriek_quasiFinite (f : X ⟶ S) [Compactifiable f]
-    [LocallyQuasiFinite f] :
-    ∃ G : EtaleSheaf Λ S ⥤ EtaleSheaf Λ X, ∀ F : EtaleSheaf Λ S,
-      ∀ q : ℤ, q < 0 → IsZero ((DerivedCategory.homologyFunctor _ q).obj
-        ((upperShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj F))) ∧
-      Nonempty ((DerivedCategory.homologyFunctor _ 0).obj
-        ((upperShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj F)) ≅ G.obj F) := sorry
+lemma upperShriek_quasiFinite (f : X ⟶ S) [Compactifiable f] [LocallyQuasiFinite f] :
+    ∃ G : EtaleSheaf Λ S ⥤ EtaleSheaf Λ X,
+      Nonempty (sheafLowerShriek f ⊣ G) ∧
+      Nonempty (DerivedCategory.singleFunctor _ 0 ⋙ upperShriek f ⋙
+        DerivedCategory.homologyFunctor _ 0 ≅ G) ∧
+      (∀ (F : EtaleSheaf Λ S) (q : ℤ), q < 0 →
+        IsZero ((DerivedCategory.homologyFunctor _ q).obj
+          ((upperShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj F)))) ∧
+      (∀ (I : EtaleSheaf Λ S) [Injective I] (q : ℤ), 0 < q →
+        IsZero ((DerivedCategory.homologyFunctor _ q).obj
+          ((upperShriek f).obj ((DerivedCategory.singleFunctor _ 0).obj I)))) := sorry
 
 /-- Test `upperShriek_id_eq`. -/
 example : Nonempty (upperShriek (Λ := Λ) (𝟙 X) ≅ 𝟭 (EtaleDerived Λ X)) := sorry
@@ -994,8 +1044,10 @@ lemma upperShriekBaseChange_paste (sq : IsPullback g' f' f g) {S'' X'' : Scheme.
           Functor.whiskerRight c₂.hom (upperShriek f'') := sorry
 
 /-- Test `upperShriekBaseChange_id`. -/
-example (sqId : IsPullback (𝟙 X) f f (𝟙 S)) :
-    IsIso (upperShriekBaseChange (Λ := Λ) f (𝟙 S) f (𝟙 X) sqId) := sorry
+example (sqId : IsPullback (𝟙 X) f f (𝟙 S)) (K : EtaleDerived Λ S) :
+    (upperShriekBaseChange (Λ := Λ) f (𝟙 S) f (𝟙 X) sqId).app K ≫
+      (upperShriek f).map ((pullbackIdIso S).hom.app K) =
+        (pullbackIdIso X).hom.app ((upperShriek f).obj K) := sorry
 
 /-- Test `upperShriekBaseChange_openImmersion`. -/
 example (sq : IsPullback g' f' f g) [IsOpenImmersion g] :
@@ -1120,9 +1172,11 @@ example {k L : Type u} [Field k] [Field L] [Algebra k L] [FiniteDimensional k L]
       (Module.finrank k L : ℤ) • 𝟙 K := sorry
 
 /-- Test `finiteFlatTrace_id`. -/
-example [Compactifiable (𝟙 S)] [Flat (𝟙 S)] [LocallyOfFinitePresentation (𝟙 S)] [LocallyQuasiFinite (𝟙 S)] :
-    ∃ e : pullback (𝟙 S) ⋙ lowerShriek (Λ := Λ) (𝟙 S) ≅ 𝟭 _, finiteFlatTrace (𝟙 S) = e.hom :=
-  sorry
+example [Compactifiable (𝟙 S)] [Flat (𝟙 S)] [LocallyOfFinitePresentation (𝟙 S)]
+    [LocallyQuasiFinite (𝟙 S)] (K : EtaleDerived Λ S) :
+    (finiteFlatTrace (𝟙 S)).app K =
+      (lowerShriek (𝟙 S)).map ((pullbackIdIso S).hom.app K) ≫
+        (lowerShriekIdIso S).hom.app K := sorry
 
 end Traces
 
@@ -1293,8 +1347,10 @@ lemma firstChernClass_tensor (L M : Picard X) :
 lemma firstChernClass_pullback (f : Y ⟶ X) (L : Picard X) :
     firstChernClass (Λ := Λ) (picardPullback f L) =
       cohPullback f 2 1 (firstChernClass L) := sorry
-lemma firstChernClass_pow (L : Picard X) (r : ℤ) :
-    firstChernClass (Λ := Λ) (r • L) = r • firstChernClass L := sorry
+lemma firstChernClass_pow (L : Picard X) (n : ℕ) (hn : (n : Λ)=0) :
+    firstChernClass (Λ := Λ) ((n : ℤ) • L)=0 := sorry
+lemma firstChernClass_zsmul (L : Picard X) (r : ℤ) :
+    firstChernClass (Λ := Λ) (r • L)=r • firstChernClass L := sorry
 lemma firstChernClass_divisor (D : CartierDivisor X) :
     firstChernClass (Λ := Λ) (lineClass (divisorLineBundle D)) = divisorClass D := sorry
 lemma firstChernClass_changeN {Λ' : Type u} [CommRing Λ'] [TorsionCoefficients Λ']
@@ -1508,12 +1564,21 @@ lemma trace_isIso_iff {X S : Scheme} [CompactSpace X] [QuasiSeparatedSpace X]
       ∀ s : GeometricPoint S, ∃ Z : Set (geometricFibre f s),
         topFibreComponents f s d={Z} ∧ Nat.Coprime (componentMultiplicity f s Z) n := sorry
 
+/-- Canonical identification for A⁰_S→S, using the scheme isomorphism, degree-zero
+cohomology and the zero-twist unit, independently of the choice of affine trace. -/
+def affineZeroTraceSourceIso (hX : IsUnit (n : Γ(𝔸(ULift.{u} (Fin 0); S), ⊤)))
+    (F : EtaleSheaf Λ S) :
+    traceSource n hΛ (𝔸(ULift.{u} (Fin 0); S) ↘ S) 0 hX F ≅ F := sorry
+
 /-- Test `affineSpaceTrace_zero`. -/
 example (hX : IsUnit (n : Γ(𝔸(ULift.{u} (Fin 0); S), ⊤))) (F : EtaleSheaf Λ S) :
-    IsIso (affineSpaceTrace n hΛ 0 hX F).hom := sorry
+    (affineSpaceTrace n hΛ 0 hX F).hom=(affineZeroTraceSourceIso n hΛ hX F).hom := sorry
 /-- Test `not_affineSpaceTrace_lower_degree`. -/
-example (Ω : Type u) [Field Ω] [IsAlgClosed Ω] (d : ℕ) (q : ℤ) (hq : q≠2*d) :
-    IsZero (higherLowerShriek (Λ := Λ) (𝔸(ULift.{u} (Fin d); Spec (CommRingCat.of Ω)) ↘ Spec (CommRingCat.of Ω))
+example (Ω : Type u) [Field Ω] [IsAlgClosed Ω] (d : ℕ)
+    (hX : IsUnit (n : Γ(𝔸(ULift.{u} (Fin d); Spec (CommRingCat.of Ω)), ⊤)))
+    (q : ℤ) (hq : q≠2*d) :
+    IsZero (higherLowerShriek (Λ := Λ)
+      (𝔸(ULift.{u} (Fin d); Spec (CommRingCat.of Ω)) ↘ Spec (CommRingCat.of Ω))
       q (EtaleDerived.constant _)) := sorry
 /-- Test `affineSpaceTrace_swap`. -/
 example (hX : IsUnit (n : Γ(𝔸(ULift.{u} (Fin 2); S), ⊤))) (F : EtaleSheaf Λ S) :
@@ -1676,6 +1741,13 @@ theorem one_dimensional_dualizing_base [IsNoetherianRing Λ] [Module.Injective �
     IsConstructibleComplex ((baseVerdierDual S).obj (Opposite.op K)) ∧
       IsIso (baseVerdierDualEval S K) := sorry
 
+/-- The finite-Tor base variant does not require self-injective coefficients. -/
+theorem one_dimensional_dualizing_base_ctf [IsNoetherianRing Λ]
+    [RegularCurveBase S] [CoefficientsOn Λ S] (K : EtaleDerived Λ S)
+    (hK : IsCtf K) :
+    IsCtf ((baseVerdierDual S).obj (Opposite.op K)) ∧
+      IsIso (baseVerdierDualEval S K) := sorry
+
 theorem regularBase_closedPoint_purity [RegularCurveBase S] [CoefficientsOn Λ S]
     (i : Spec (CommRingCat.of k) ⟶ S) [IsClosedImmersion i]
     (hc : ∀ x, Order.coheight (i.base x)=1) [CoefficientsOn Λ (Spec (CommRingCat.of k))] :
@@ -1708,6 +1780,12 @@ theorem verdierDual_preservesCtf [IsNoetherianRing Λ]
     (a : X ⟶ Spec (CommRingCat.of k)) [Compactifiable a] [CoefficientsOn Λ X]
     (K : EtaleDerived Λ X) (hK : IsCtf K) :
     IsCtf ((verdierDual a).obj (Opposite.op K)) ∧ IsIso (verdierDualEval a K) := sorry
+
+theorem relativeVerdierDual_preservesCtf [IsNoetherianRing Λ]
+    [RegularCurveBase S] [CoefficientsOn Λ S] [CoefficientsOn Λ X]
+    (a : X ⟶ S) [Compactifiable a] (K : EtaleDerived Λ X) (hK : IsCtf K) :
+    IsCtf ((relativeVerdierDual a).obj (Opposite.op K)) ∧
+      IsIso (relativeVerdierDualEval a K) := sorry
 
 def constructibleObjects (X : Scheme.{u}) : ObjectProperty (EtaleDerived Λ X) := IsConstructibleComplex
 abbrev ConstructibleDerived (Λ : Type u) [CommRing Λ] (X : Scheme.{u}) :=
@@ -1960,6 +2038,25 @@ def fundamentalClassOfCycle (A : SmoothModel k) [CoefficientsOn Λ A.X] {Z : Sch
     (i : Z ⟶ A.X) [IsClosedImmersion i] (c : ℕ) (a : CodimensionCycles A.X c)
     (ha : cycleSupport a.val ⊆ Set.range i.base) : supportedCohomology (Λ := Λ) i (2*c) c := sorry
 
+lemma fundamentalClassOfCycle_add (A : SmoothModel k) [CoefficientsOn Λ A.X]
+    {Z : Scheme.{u}} (i : Z ⟶ A.X) [IsClosedImmersion i] (c : ℕ)
+    (a b : CodimensionCycles A.X c) (ha : cycleSupport a.val ⊆ Set.range i.base)
+    (hb : cycleSupport b.val ⊆ Set.range i.base)
+    (hab : cycleSupport (a+b).val ⊆ Set.range i.base) :
+    fundamentalClassOfCycle (Λ := Λ) A i c (a+b) hab =
+      fundamentalClassOfCycle A i c a ha + fundamentalClassOfCycle A i c b hb := sorry
+
+/-- Semi-purity makes restriction injective when the omitted part of integral Z has
+strictly larger codimension. On a dense smooth open, purity then determines the class. -/
+lemma fundamentalClass_unique (A B W : SmoothModel k) [CoefficientsOn Λ A.X]
+    [CoefficientsOn Λ B.X] {Z : Scheme.{u}} (i : Z ⟶ A.X) (j : W.X ⟶ B.X)
+    [IsClosedImmersion i] [IsClosedImmersion j] [IsIntegral Z] [IsIntegral W.X]
+    (f : B.X ⟶ A.X) [IsOpenImmersion f] (g : W.X ⟶ Z)
+    (sq : IsPullback g j i f) (hdense : DenseRange g.base) (h : f ≫ A.a=B.a)
+    (hj : j ≫ B.a=W.a) (c : ℕ) (hc : Order.krullDim Z+c=A.dimension)
+    (hc' : B.dimension=W.dimension+c) :
+    Function.Injective (supportedPullback (Λ := Λ) i j f g sq (2*c) c) := sorry
+
 /-- Gysin for an actual smooth pair; c is its dimension difference. -/
 def gysin (A B : SmoothModel k) [CoefficientsOn Λ A.X] [CoefficientsOn Λ B.X]
     (i : B.X ⟶ A.X) [IsClosedImmersion i] (h : i ≫ A.a=B.a)
@@ -2014,6 +2111,13 @@ lemma properPushforward_finiteFlat (A B : SmoothModel k) [CoefficientsOn Λ A.X]
     (cohCast (by omega) (by omega)).hom (properPushforward A B f h q m x)=
       finiteFlatCohomologyTrace A B f h q m x := sorry
 
+lemma properPushforward_finiteFlat_degree (A B : SmoothModel k)
+    [CoefficientsOn Λ A.X] [CoefficientsOn Λ B.X] (f : B.X ⟶ A.X)
+    [IsFinite f] [IsProper f] [Flat f] (h : f ≫ A.a=B.a) (hd : B.dimension=A.dimension)
+    (δ : ℕ) (hrank : ∀ x, f.finrank x=δ) (q m : ℤ) (x : Coh (Λ := Λ) A.X q m) :
+    (cohCast (by omega) (by omega)).hom
+      (properPushforward A B f h q m (cohPullback f q m x))=(δ : ℤ) • x := sorry
+
 lemma gysin_baseChange (A B A' B' : SmoothModel k) [CoefficientsOn Λ A.X]
     [CoefficientsOn Λ B.X] [CoefficientsOn Λ A'.X] [CoefficientsOn Λ B'.X]
     (i : B.X ⟶ A.X) (i' : B'.X ⟶ A'.X) [IsClosedImmersion i] [IsClosedImmersion i']
@@ -2041,11 +2145,21 @@ def gysinBoundary (A B : SmoothModel k) [CoefficientsOn Λ A.X] [CoefficientsOn 
     (h : i ≫ A.a=B.a) (c : ℕ) (hc : A.dimension=B.dimension+c) (q m : ℤ) :
     Coh (Λ := Λ) U q m ⟶ Coh B.X (q+1-2*c) (m-c) := sorry
 
+/-- Gysin reindexed so that the ambient target has degree q and twist m. -/
+def gysinToDegree (A B : SmoothModel k) [CoefficientsOn Λ A.X] [CoefficientsOn Λ B.X]
+    (i : B.X ⟶ A.X) [IsClosedImmersion i] (h : i ≫ A.a=B.a)
+    (c : ℕ) (hc : A.dimension=B.dimension+c) (q m : ℤ) :
+    Coh (Λ := Λ) B.X (q-2*c) (m-c) ⟶ Coh A.X q m :=
+  gysin A B i h c hc (q-2*c) (m-c) ≫ (cohCast (by omega) (by omega)).hom
+
 theorem gysin_sequence (A B : SmoothModel k) [CoefficientsOn Λ A.X] [CoefficientsOn Λ B.X]
     {U : Scheme.{u}} [CoefficientsOn Λ U] (i : B.X ⟶ A.X) [IsClosedImmersion i]
     (j : U ⟶ A.X) [IsOpenImmersion j] (hcomp : Set.range j.base=(Set.range i.base)ᶜ)
     (h : i ≫ A.a=B.a) (c : ℕ) (hc : A.dimension=B.dimension+c) (q m : ℤ) :
-    Function.Exact (cohPullback (Λ := Λ) j q m) (gysinBoundary A B i j hcomp h c hc q m) := sorry
+    Function.Exact (gysinToDegree (Λ := Λ) A B i h c hc q m) (cohPullback j q m) ∧
+    Function.Exact (cohPullback (Λ := Λ) j q m) (gysinBoundary A B i j hcomp h c hc q m) ∧
+    Function.Exact (gysinBoundary (Λ := Λ) A B i j hcomp h c hc q m)
+      (gysinToDegree A B i h c hc (q+1) m) := sorry
 
 def cupPower {X : Scheme.{u}} [CoefficientsOn Λ X] (x : Coh (Λ := Λ) X 2 1) (r : ℕ) :
     Coh (Λ := Λ) X (2*r) r := sorry
@@ -2120,13 +2234,16 @@ example (m : ℕ) [CoefficientsOn Λ (projectiveModel k m).X] :
 example {X : Scheme.{u}} [CoefficientsOn Λ X] (r : ℕ) :
     totalChernClass (Λ := Λ) (trivialBundle X r)=1 := sorry
 /-- Test `chernClass_sum_lines`. -/
-example {X : Scheme.{u}} [CoefficientsOn Λ X] (r : ℕ)
-    (L : Fin r → TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    totalChernClass (Λ := Λ) (splitBundle L)=
-      ∏ j, (1+chernInclude 1 (firstChernClass (lineClass (L j)))) := sorry
+example [IsSepClosed k] [Nontrivial Λ] [CoefficientsOn Λ (projectiveModel k 2).X] :
+    let L := projectiveHyperplaneBundle k 2
+    let h := firstChernClass (Λ := Λ) (lineClass L)
+    chernClass (Λ := Λ) (splitBundle (fun _ : Fin 2 => L)) 2=cupPower h 2 ∧
+      cupPower h 2≠0 := sorry
 /-- Test `not_chernClass_two_of_line`. -/
-example {X : Scheme.{u}} [CoefficientsOn Λ X] (L : TauCeti.AlgebraicGeometry.InvertibleSheaf X) :
-    chernClass (Λ := Λ) (lineBundle L) 2=0 := sorry
+example [IsSepClosed k] [Nontrivial Λ] [CoefficientsOn Λ (projectiveModel k 2).X] :
+    let L := projectiveHyperplaneBundle k 2
+    chernClass (Λ := Λ) (lineBundle L) 2=0 ∧
+      cupPower (firstChernClass (Λ := Λ) (lineClass L)) 2≠0 := sorry
 
 /-- The cycle-class map is on the genuine codimension subgroup, not all AlgebraicCycle. -/
 def cycleClass (A : SmoothModel k) [CoefficientsOn Λ A.X] (r : ℕ) :
@@ -2134,6 +2251,25 @@ def cycleClass (A : SmoothModel k) [CoefficientsOn Λ A.X] (r : ℕ) :
 
 lemma cycleClass_rationalEquiv (A : SmoothModel k) [CoefficientsOn Λ A.X] (r : ℕ) :
     rationalEquivalence A.X r ≤ (cycleClass (Λ := Λ) A r).ker := sorry
+
+def chowCycleClass (A : SmoothModel k) [CoefficientsOn Λ A.X] (r : ℕ) :
+    CodimensionCycles A.X r ⧸ rationalEquivalence A.X r →+ Coh (Λ := Λ) A.X (2*r) r := sorry
+
+/-- SF.5's refined pullback acts on Chow groups, rather than a chosen cycle representative. -/
+def refinedChowPullback (A B : SmoothModel k) (f : B.X ⟶ A.X) (h : f ≫ A.a=B.a) (r : ℕ) :
+    CodimensionCycles A.X r ⧸ rationalEquivalence A.X r →+
+      CodimensionCycles B.X r ⧸ rationalEquivalence B.X r := sorry
+
+lemma chowCycleClass_refinedPullback (A B : SmoothModel k)
+    [CoefficientsOn Λ A.X] [CoefficientsOn Λ B.X] (f : B.X ⟶ A.X)
+    (h : f ≫ A.a=B.a) (r : ℕ) (a : CodimensionCycles A.X r ⧸ rationalEquivalence A.X r) :
+    chowCycleClass (Λ := Λ) B r (refinedChowPullback A B f h r a)=
+      cohPullback f (2*r) r (chowCycleClass A r a) := sorry
+
+/-- SF.5's codimension-zero cycle of a smooth integral scheme. -/
+def wholeCycle (A : SmoothModel k) [IsIntegral A.X] : CodimensionCycles A.X 0 := sorry
+lemma cycleClass_whole (A : SmoothModel k) [CoefficientsOn Λ A.X] [IsIntegral A.X] :
+    cycleClass (Λ := Λ) A 0 (wholeCycle A)=cohOne A.X := sorry
 
 def cartierCycle (A : SmoothModel k) (D : CartierDivisor A.X) : CodimensionCycles A.X 1 := sorry
 lemma cycleClass_divisor (A : SmoothModel k) [CoefficientsOn Λ A.X] (D : CartierDivisor A.X) :
@@ -2240,7 +2376,9 @@ theorem projective_degree_formula [IsSepClosed k] (A : SmoothModel k) [IsProper 
     cohomologyTrace A (cupPower (firstChernClass (Λ := Λ) L) A.dimension)=(intersectionDegree A L : Λ) := sorry
 
 /-- Test `cycleClass_zero`. -/
-example (A : SmoothModel k) [CoefficientsOn Λ A.X] (r : ℕ) : cycleClass (Λ := Λ) A r 0=0 := sorry
+example (A : SmoothModel k) [CoefficientsOn Λ A.X] [IsIntegral A.X] (r : ℕ) :
+    cycleClass (Λ := Λ) A r 0=0 ∧
+      cycleClass (Λ := Λ) A 0 (wholeCycle A)=cohOne A.X := sorry
 /-- Test `cycleClass_principal`. -/
 example (A : SmoothModel k) [CoefficientsOn Λ A.X] (f : rationalFunction A.X) :
     cycleClass (Λ := Λ) A 1 (principalCycle A f)=0 := sorry
@@ -2315,13 +2453,22 @@ example (A : SmoothModel k) [CoefficientsOn Λ A.X] [IsIntegral A.X]
 
 /-- SF.0 explicit crossing scheme Spec k[x,y]/(xy) and its rational origin. -/
 def crossingScheme (k : Type u) [Field k] : Scheme.{u} := sorry
-def crossingOrigin (k : Type u) [Field k] : Spec (CommRingCat.of k) ⟶ crossingScheme k := sorry
-instance crossingOrigin_closed : IsClosedImmersion (crossingOrigin k) := sorry
+def crossingEmbedding (k : Type u) [Field k] :
+    crossingScheme k ⟶ 𝔸(ULift.{u} (Fin 2); Spec (CommRingCat.of k)) := sorry
+instance crossingEmbedding_closed : IsClosedImmersion (crossingEmbedding k) := sorry
+/-- The geometric origin in the ambient affine plane. -/
+def planeOrigin (k : Type u) [Field k] [IsSepClosed k] :
+    GeometricPoint (𝔸(ULift.{u} (Fin 2); Spec (CommRingCat.of k))) := sorry
 
-/-- Test `not_fundamentalClass_purity_singular`: two local branches give two support classes. -/
-example [IsSepClosed k] [Nontrivial Λ] [CoefficientsOn Λ (crossingScheme k)] :
-    Nonempty (supportedCohomology (Λ := Λ) (crossingOrigin k) 2 1 ≅ ModuleCat.of Λ (Λ × Λ)) ∧
-      ¬ Nonempty (supportedCohomology (Λ := Λ) (crossingOrigin k) 2 1 ≅ ModuleCat.of Λ Λ) := sorry
+/-- Test `not_fundamentalClass_purity_singular`. -/
+example {k : Type} [Field k] [IsSepClosed k] [CharZero k]
+    (hX : IsUnit (3 : Γ(𝔸(ULift (Fin 2); Spec (CommRingCat.of k)), ⊤))) :
+    let K := (pushforward (crossingEmbedding k)).obj
+      ((derivedSupport (crossingEmbedding k)).obj
+        ((tateTwist (Λ := ZMod 3) 3 _ hX (by decide) 1).obj (EtaleDerived.constant _)))
+    Nonempty (stalkCohomology (planeOrigin k) 2 K ≅
+      ModuleCat.of (ZMod 3) (ZMod 3 × ZMod 3)) ∧
+    ¬ Nonempty (stalkCohomology (planeOrigin k) 2 K ≅ ModuleCat.of (ZMod 3) (ZMod 3)) := sorry
 
 /-- Test `gysin_point_curve`: its canonical supported class has normalized trace one. -/
 example [IsSepClosed k] (A : SmoothModel k) [IsProper A.a] [CoefficientsOn Λ A.X]
@@ -2552,6 +2699,12 @@ theorem pairing_eigenvalues {E V W : Type u} [Field E] [AddCommGroup V] [Module 
     [AddCommGroup W] [Module E W] (B : V →ₗ[E] W →ₗ[E] E) (g : V ≃ₗ[E] V) (h : W ≃ₗ[E] W)
     (c α β : E) (hc : ∀ x y, B (g x) (h y)=c*B x y) (x : V) (y : W)
     (hx : g x=α • x) (hy : h y=β • y) (hb : B x y≠0) : α*β=c := sorry
+/-- The dual-operator comparison gives reciprocal eigenvalues with algebraic multiplicities. -/
+theorem pairing_dual_operator {E V W : Type u} [Field E] [AddCommGroup V] [Module E V]
+    [AddCommGroup W] [Module E W] (B : V →ₗ[E] W →ₗ[E] E) (hB : B.IsPerfPair)
+    (g : V ≃ₗ[E] V) (h : W ≃ₗ[E] W) (c : E)
+    (hc : ∀ x y, B (g x) (h y)=c*B x y) :
+    ∀ y x, B x (h y)=c*B (g.symm x) y := sorry
 end GaloisPairings
 
 /-! Adic imports are typed data from the compatible-system realization supplier. -/
@@ -2559,6 +2712,8 @@ section AdicPairings
 variable {O E Ω : Type u} [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
   [Field E] [Field Ω] [IsSepClosed Ω]
 
+/-- SF.2's finite free lisse O-systems, with compatible finite free O/π^m reductions.
+The complete compatible-system carrier remains an import per PROTOCOL §13. -/
 def IntegralLisseSheaf (O : Type u) [CommRing O] (X : Scheme.{u}) : Type (u+1) := sorry
 def integralDual {X : Scheme.{u}} : IntegralLisseSheaf O X → IntegralLisseSheaf O X := sorry
 def integralTwist {X : Scheme.{u}} : IntegralLisseSheaf O X → ℤ → IntegralLisseSheaf O X := sorry
