@@ -1251,8 +1251,9 @@ theorem puncturedLine_frobenius_logDeriv (z : ℂ_[p]) (hz : z ^ p ≠ 1) (hz1 :
   sorry
 
 /-- `L1.27`, on the tube prototype: every element of
-`A+(U_N)` (as a coefficient of `dz`) is `dh + c_0/z + ∑ c_ζ/(z - ζ)` with unique constants. -/
-theorem puncturedLine_h1 (f : puncturedDagger p N) :
+`A+(U_N)` (as a coefficient of `dz`) is `dh + c_0/z + ∑ c_ζ/(z - ζ)` with unique constants,
+provided the punctures have distinct reductions (`p ∤ N`). -/
+theorem puncturedLine_h1 (hN : ¬ p ∣ N) (f : puncturedDagger p N) :
     ∃! c : Letter p N → ℂ_[p], ∃ h ∈ puncturedDagger p N,
       (f : puncturedTube p N → ℂ_[p]) = tubeDeriv p N h + ∑ i, c i • letterForm p N i := by
   sorry
@@ -2848,13 +2849,18 @@ theorem padicRegulatorPolylog_inv
     padicRegulatorPolylog Li plog n z + (-1) ^ n * padicRegulatorPolylog Li plog n z⁻¹ = 0 :=
   sorry
 
-theorem padicRegulatorPolylog_distribution (hdist : SatisfiesDistributionRelation (p := p) Li)
-    (hμp : (Polynomial.nthRootsFinset p (1 : K)).card = p)
-    (hlogμ : ∀ ξ ∈ Polynomial.nthRootsFinset p (1 : K), ∀ z : K, z ≠ 0 → plog (ξ * z) = plog z)
-    (hlogpow : ∀ z : K, z ≠ 0 → plog (z ^ p) = p * plog z)
-    (n : ℕ) (hn : 2 ≤ n) (z : K) (hz0 : z ≠ 0) (hzp : z ^ p ≠ 1) :
-    padicRegulatorPolylog Li plog n (z ^ p) =
-      (p : K) ^ (n - 1) * ∑ ξ ∈ Polynomial.nthRootsFinset p (1 : K), padicRegulatorPolylog Li plog n (ξ * z) :=
+/-- L3.14's distribution identity for every positive integer `m`, not just the residue prime.
+The hypotheses state the corresponding polylogarithm distribution and logarithm laws. -/
+theorem padicRegulatorPolylog_distribution (m : ℕ) (hm : 1 ≤ m)
+    (hdist : ∀ k : ℕ, ∀ z : K, z ^ m ≠ 1 →
+      ∑ ξ ∈ Polynomial.nthRootsFinset m (1 : K), Li k (ξ * z) =
+        (m : K) ^ ((1 : ℤ) - k) * Li k (z ^ m))
+    (hμm : (Polynomial.nthRootsFinset m (1 : K)).card = m)
+    (hlogμ : ∀ ξ ∈ Polynomial.nthRootsFinset m (1 : K), ∀ z : K, z ≠ 0 → plog (ξ * z) = plog z)
+    (hlogpow : ∀ z : K, z ≠ 0 → plog (z ^ m) = m * plog z)
+    (n : ℕ) (hn : 2 ≤ n) (z : K) (hz0 : z ≠ 0) (hzm : z ^ m ≠ 1) :
+    padicRegulatorPolylog Li plog n (z ^ m) =
+      (m : K) ^ (n - 1) * ∑ ξ ∈ Polynomial.nthRootsFinset m (1 : K), padicRegulatorPolylog Li plog n (ξ * z) :=
   sorry
 
 theorem padicRegulatorPolylog_rootOfUnity (n : ℕ) (hn : 1 ≤ n) (ζ : K) (hlog : plog ζ = 0) :

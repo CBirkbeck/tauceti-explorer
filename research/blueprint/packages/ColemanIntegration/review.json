@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ColemanIntegration",
+    "date": "2026-10-10",
+    "notes": "Completed independent package review. Corrected puncturedLine_h1 to require p not dividing N, generalized regulator distribution to every positive integer m, repaired the nonzero-idempotent dimension criterion/test, six malformed API references, headings, empty prerequisite and source pages. All 177 targets, 257 README API names and 152 namespace-aware Lean test names retained; README 199607 bytes. Initial and final independent lean-check both exited 0: 511 warnings, all declaration uses sorry, no errors or other warnings. Packet checker: 0 errors, 0 warnings. Needs changes for the locally owned L3.Fa-Fd motivic/regulator/coefficient constructions lacking complete prerequisite/API/test specifications (R1), and their missing actual Lean construction/API/test forms plus the complex boundary-value construction and statable algebraic APIs (R2). Comments listing names are not signatures. See research/blueprint/reviews/REV-PKG-ColemanIntegration.md. This is a finished review, not a checkpoint."
+  }
+}
