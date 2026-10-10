@@ -1,107 +1,107 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-DS6Pib`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094464727).
-Branch: `codex-DS6Pib-hodge-package`. No manager-priority issue was available;
+Codex (GPT-6), session `codex-0SLFn0`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6094649088).
+Branch: `codex-0SLFn0-hodge-package`. No manager-priority issue was available;
 this available focus package followed WORKERS' fallback order. Only this job
-was claimed.
+was claimed. This is an incomplete, blocked checkpoint, not a finished package.
 
-## Current status and resumption gate
+## Result and effective next action
 
-**Incomplete; blocked by missing supplier specifications outside this job's
-editable files.** This session independently checked the H.0 consumers,
-continuation G1/G3, the CR.1 and DD.1 supplier statements, current upstream
-roadmaps, native library declarations and primary sources. The contracts
-identified in the retained predecessor handoff remain missing:
+The two owner-contract blockers remain. Independently read the parent H.0
+consumers, all seven continuation gaps and all four requests, the complete
+CR.1 connection definition/API, and DD.1's filtered-module and Rees targets.
+Also screened the other crystalline/derived-de-Rham/enhanced-sheaf packets
+for an alternative supplier. The present specifications do not export:
 
-- `H.0/ordinary-fiber` requires connections on the supplied commutative ringed
-  differential site, preserving the additive operator, its exterior extension,
-  curvature, horizontal maps and restriction/gluing. The present
-  `CrystallineCohomology:CR.1/integrable-connection` specifies affine quotient
-  differential modules and the small crystalline site with PD-base hypotheses.
-  It does not export this general-site interface.
-- `H.0/rees-parameter` and `H.0/rees-specialization` require an ordinary finite
-  locally split Rees module sheaf with finite locally free graded pieces and
-  natural zero, unit and localized fibres, including descent, tensor and
-  quotient coherence. `DerivedDeRhamCohomology:DD.1/filtered-modules` and
-  `DD.1/rees-description` specify enhanced derived filtrations and their graded
-  derived Rees equivalence. They do not export the requested ordinary sheaf
-  specialization and fibre comparisons.
+1. **CR.1:** ordinary integrable connections on the arbitrary supplied
+   commutative ringed differential site, with the same additive sheaf operator,
+   all exterior extensions, curvature, horizontal maps and restriction/gluing
+   as H.0's lambda=1 object. `CR.1/integrable-connection` covers affine quotient
+   differential modules and the small crystalline site under PD-base
+   hypotheses. Its affine equations and crystalline sheaf version do not
+   supply the requested general-site comparison.
+2. **DD.1:** the ordinary finite locally split Rees module sheaf, finite local
+   freeness and the natural zero/unit/localized fibre maps with restriction,
+   descent and tensor/quotient coherence. `DD.1/filtered-modules` and
+   `DD.1/rees-description` specify enhanced derived filtrations and their
+   graded derived Rees equivalence. They do not export this finite ordinary
+   sheaf specialization.
 
-The repair is to supply these contracts in their existing owners and then
-reconcile H.0's references. The exact minimum statements and remaining G2/G4–G7
-work are retained below. Issue #7491 expressly prohibits packet edits and
-requires plan mistakes to be recorded here; PROTOCOL §§3, 15 and 20 require
-exact prerequisites, shared ownership and fidelity to the accepted plan.
-Defining the missing owners inside this package would duplicate shared work.
-No missing Lean implementation alone is being treated as a blocker.
+The H.0 continuation explicitly records both as gaps and requests the
+extensions from their existing owners. Its accepted review says this is a
+completed target-level planning pass, with H.0 **planned, not closed**; it
+retains seven gaps and four requests. No missing Lean implementation alone
+is being treated as a blocker.
 
-The input reviews are accepted, but H.0 still records seven gaps and four
-requests; all nine continuation layers are `planned`, none `closed`. The
-parent records 13 gaps and five requests. Passing their structural checks does
-not establish mathematical closure. The full target audit remains unfinished.
-This checkpoint changes only this handoff. The README and Suggested.lean are
-preserved, and metadata remains absent so intake records an incomplete job.
-The intended topic on eventual completion is `math.AG`.
+**Resume after owner repairs and H.0 reconciliation.** Route the two contracts
+below to jobs authorized to edit CR.1 and DD.1, then reconcile H.0's references
+with the resulting exact exports. Issue #7491 permits only the package's
+three artifacts and this handoff, expressly forbids packet edits, and directs
+plan mistakes here. PROTOCOL sections 3, 15 and 20 require exact suppliers,
+single ownership and fidelity to the accepted plan. Building duplicate
+supplier objects or silently widening the owners inside this package does
+not discharge these requirements. This checkpoint makes no ownership moves.
+The remaining G2/G4–G7 and all-layer audit are retained below.
 
-## Additional current-library evidence
+## Current upstream, native-library and source checks
 
-The upstream roadmap checkout remains at
-`0a56d1b5303c26887a4042db834f46d9079ac593`; the current native Tau Ceti checkout
-remains at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Both match the preceding
-checkpoint. Read AlgebraicVectorBundles and DifferentialGeometry READMEs in
-full and the relevant Suggested.lean declarations. Inspected these further
-candidate statements rather than relying on name matches:
+Atlas input commit: `316059a5ca0150d63a8b8d7edfa021f85dd12a94`.
+Current upstream roadmaps: `0a56d1b5303c26887a4042db834f46d9079ac593`.
+Current native Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read AlgebraicVectorBundles and DifferentialGeometry READMEs in full and their
+relevant suggested declarations; read the HodgeStructures L0–L3 library
+audit. Current upstream's Rees references concern ideal blowups or
+Artin–Rees; DifferentialGeometry's actual `CurvatureForm` signature is for
+real manifold vector bundles. Neither is either missing general-site export.
 
-- `Module.Free.of_filtration`, in Tau Ceti's
-  `LinearAlgebra/FreeModule/Filtration.lean`, proves freeness from an exhaustive
-  increasing natural-number filtration starting at zero and free successive
-  quotients. Its chosen splitting/direct-sum proof does not construct an
-  ordinary Rees sheaf, finite locally free graded fibres or their natural maps.
-- `Module.iInter_freeLocus_subquotient_subset_freeLocus`, in
-  `RingTheory/Spectrum/Prime/FreeLocus.lean`, bounds the free locus of a filtered
-  module using its successive quotients. It supplies neither the missing
-  finiteness/descent contract nor Rees specialization maps.
-- `TauCeti.SheafOfModules.tensorProduct` and `tensorProductIso`, in
-  `Algebra/Category/ModuleCat/Sheaf/TensorProduct/Basic.lean`, supply a genuine
-  sheaf tensor construction under their sheafification assumptions. This is
-  usable infrastructure, but does not supply either missing owner export.
-- `reesAlgebra.grade` and `mem_grade_iff`, in
-  `RingTheory/ReesAlgebra/Grading.lean`, concern ideal powers in a polynomial
-  Rees algebra. The ideal Rees construction in StableReduction and the
-  filtered-module error-ideal result in IntegralHeckeAndGaloisDeterminants
-  likewise do not specify the decreasing-filtered module sheaf needed here.
-- DifferentialGeometry's `CurvatureForm` concerns smooth real manifold/vector
-  bundle curvature, not the supplied ringed differential site's connection.
+Read native `TauCeti.SheafOfModules.tensorProduct`, `tensorProduct_val` and
+`tensorProductIso`, including their sheafification assumptions, and
+`reesAlgebra.grade`/`mem_grade_iff`. The former is useful genuine site-level
+sheaf tensor infrastructure; the latter grades ideal powers in a polynomial
+Rees algebra. Neither supplies the missing connection or filtered-module
+sheaf/fibre comparison. The packet and library screens are not an exhaustive
+all-target audit. No Lake command ran in the read-only current trees.
 
-Re-read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
-with [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF), and Bhargav
-Bhatt's [*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-§2.2.1, Proposition 2.2.6 and Remarks 2.2.7–2.2.8, printed pp.16–17.
-These support the crystalline connection equations and derived/affine Rees
-specializations; they do not change the scope of the present owner exports.
-No source passage is recorded here.
+Re-read [Stacks section 60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
+and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF): the connection
+and its functoriality use the crystalline site and the PD-scheme setting.
+Read Bhargav Bhatt's [*Prismatic F-gauges*](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
+section 2.2.1, Proposition 2.2.6 and its inverse, printed p.16, and Remarks
+2.2.7–2.2.8, printed pp.16–17. The derived equivalence and finite-projective
+affine specialization support an owner repair; they do not add the requested
+ordinary general-site sheaf contract to the present owner specifications.
+No source passage is reproduced.
 
-## Fresh validation in session codex-DS6Pib
+The preceding `codex-DS6Pib` probe also checked
+`Module.Free.of_filtration` in `LinearAlgebra/FreeModule/Filtration.lean`
+and `Module.iInter_freeLocus_subquotient_subset_freeLocus` in
+`RingTheory/Spectrum/Prime/FreeLocus.lean`. Its recorded conclusions were
+that these give module freeness/free-locus control, not the ordinary Rees
+sheaf, descent or natural fibre maps. Those checks were not repeated here.
 
-- All ten `python3 scripts/check_blueprint.py <packet>` checks exited 0,
-  each with zero errors and zero warnings. The inventory below is unchanged.
+## Fresh validation and preserved artifacts
+
+- All ten `python3 scripts/check_blueprint.py` runs exited 0, each with zero
+  errors and zero warnings. The retained inventory is unchanged; no
+  continuation layer is closed.
 - `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
-  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, and no
-  other warnings. The managed build uses Tau Ceti f790474 / Mathlib 082e2d3;
-  available memory before compilation was 113 GB. No Lean process from this
-  session remains running. Elaboration does not prove the admitted results.
-- Scoped intake `check-files` passed: one handoff file, zero problems.
-  `git diff --check` passed. Only the issue-authorized handoff changed.
-- The three packet hashes and two package hashes recorded below were freshly
-  recomputed and match. README size remains 193329 bytes; Suggested.lean
-  remains 812114 bytes. No packet or package artifact was edited.
+  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, and
+  zero other warnings. The shared managed build uses Tau Ceti f790474 /
+  Mathlib 082e2d3. Available memory before compilation was 108 GB. No Lean
+  process from this session remains running. Elaboration does not establish
+  the admitted results or mathematical closure.
+- Fresh SHA-256 checks of H.0, CR.0, DD and both package artifacts match every
+  receipt in the retained record. README: 193329 bytes; Suggested.lean:
+  812114 bytes. This submission changes only this handoff. Metadata remains
+  absent; the intended topic after completion is `math.AG`.
+- Scoped intake `check-files` and `git diff --check` passed.
 
-Everything needed to resume is in this handoff and the repository. No scratch
+Everything needed to resume is in this handoff and the repository; no scratch
 file is needed. The following predecessor record is retained for its exact
-contracts, chart work and remaining audit checklist. Its session-specific
-validation and authorship claims refer to that earlier session.
+minimum contracts, acceptance witnesses and unfinished audit. Its authorship
+and validation receipts refer to that historical session.
 
 ---
 
