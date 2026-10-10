@@ -1,79 +1,77 @@
 # REV-FIX-RT-AREA-topology~4 handoff
 
-Issue #6521; Codex (GPT-6), session `codex-DfXYPy`; 10 October 2026.
-Bot confirmed claim comment 6099600179. Branch
-`codex-DfXYPy-review-topology`; atlas base `334197e7d`.
-Continues PR #8487. This session did none of the reviewed fix, original
-blueprints, red team or finding verification. Only this job was claimed.
+Issue #6521; Codex (GPT-6), session `codex-In9gJI`; 10 October 2026.
+Claim comment 6099886919 confirmed by bot comment 6099888178.
+Branch `codex-In9gJI-review-topology`; base `0d2178b78`. Continues PR #8494.
+This worker did none of the reviewed fix, original blueprints, red team or
+verification. Only this job was claimed.
 
-## Completed listed work
+## Completed work
 
-The three issue-named bounded supplier reviews are complete: Polylogarithms
+The three issue-listed bounded supplier reviews are complete: Polylogarithms
 accepted, HabiroNahmSeries accepted, QSeriesPartitionsAndMockModularForms
-needs_changes. All 27 findings have explicit dispositions, with earlier-audit
-evidence distinguished from this session's fresh source checks. Previous
-reviews are archived. Statements, hypotheses, APIs, tests, planets, all gaps,
-requests and coverage remain unchanged. No suggested Lean file changed.
+needs_changes. All 27 findings have dispositions in the report. Prior full
+reviews remain in history; this run does not discharge unrelated blueprint
+objections. No statements, proof outlines, hypotheses, APIs, tests, planets,
+coverage, gaps, requests or Lean declarations changed.
 
-Fresh correction in Habiro: replace HB.8/fgi-collection proof-outline internal
-TeX labels by GSWZ (114), p. 29, and (126)-(127), p. 31; add their numbered
-source support in our own words. Remove the inaccurate page-crossing note from
-HB.4's (110)-(111) locator, printed p. 28. Mathematical contracts are unchanged.
+Added one Zagier author-hosted source and one support entry to
+Polylogarithms:P.2/hyperbolic-volume: I.3 (5), p. 11, I.4 (7)–(9), pp. 13–14,
+for the ordered cross-ratio, tetrahedron sign and manifold sum. Source URLs,
+PDF hashes and fresh bounded reads are in the report. Prior Milnor/Goncharov
+readings remain prior evidence, not fresh reads in this run.
 
-Freshly read the bounded GZ/GSWZ, quantum-modular, Lawrence–Zagier and
-Zagier/Goncharov volume interfaces. Exact PDF hashes and URLs are in the report.
-Fresh pinned Gaussian and PDCode raw files match the shared source bytes;
-covariance needs PosSemidef, the density law PosDef. Current upstream main is
-`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`. Existing volume, forms/Stokes,
-corner and homogeneity interfaces retain their upstream owners. Nothing was
-edited or built in the read-only upstream environment. This session did not
-retrieve Milnor's Appendix; its earlier reading remains attributed evidence.
+Fresh packet checks pass with zero errors/warnings for all five inspected
+packets; three issue-listed packets have 75/109/537 nodes. Fresh sequential
+lean-check runs of their suggested files completed with only sorry warnings
+(462/441/1469). Those files remain unchanged. Exact supplier/API/test contracts
+were inspected; no claim of formalised proofs is made.
 
-Fresh packet validators: zero errors/warnings for all three listed suppliers
-(75/109/537 nodes). Suggested files unchanged; prior #8487 sequential
-lean-check successes (sorry warnings only: 462/441/1469) are retained evidence,
-not new runs. Intake/diff and semantic checks are recorded in the PR/report.
+Read pinned Mathlib/Tau Ceti declarations and current upstream main
+3c18d9fbfceed0dc5c1edb1070a3927152d19e28. Existing manifold forms/Stokes,
+abstract corner boundaries and homogeneity stay with DifferentialGeometry.
+No upstream files were edited and no Lake command ran there.
 
-## Resolve scope before another audit
+## Blocking scope mismatch
 
-The GitHub issue/full instructions list only this report, three base supplier
-packets and their suggested files. WORKERS.md says:
-“Edit only the files the issue names, plus your own scratch space.”
-The queue additionally requires:
+WORKERS.md says: “Edit only the files the issue names, plus your own scratch
+space.” The issue names only the report, three base supplier packets and
+three suggested files. Queue outputs additionally require:
 
 - research/blueprint/packets/ArithmeticQuantumTopology.json
 - research/blueprint/suggested/ArithmeticQuantumTopology.lean
 - research/blueprint/packets/Polylogarithms--P.2.json
 - research/blueprint/suggested/Polylogarithms--P.2.lean
 
-The prompt is absent. issues.py:deliverables_complete requires this reviewer's
-identity on all five packet outputs. The issue predicate passes, the queue
-predicate fails. Explicit authorization was requested in this run and has not
-arrived. This submission is a checkpoint **blocked on scope**, not a time
-limit or an unfinished listed-supplier review. Do not change queue/intake
-logic to make an incomplete queue job appear complete. Align queue/issue scope
-or authorize the four extra paths before continuing.
+The queue prompt is absent. issues.py:deliverables_complete requires this
+reviewer's identity on all five packet outputs. The issue predicate passes;
+the queue predicate fails. Scope authorization was requested during this run
+and has not arrived. This is a checkpoint blocked on scope, not the time limit
+or incomplete listed-supplier checks. Do not alter queue/completion logic to
+make the job appear complete. Align the issue with the queue or authorize
+those four paths before another audit.
 
-## Concrete authorized continuation
+## Concrete continuation after authorization
 
-After scope resolution, finish bounded QT /1–/16 and P.2 /7 reviews, preserve
-full independent acceptances in history, and record this job's bounded
-verdicts. Keep QT's 8 gaps/19 requests and P.2's 2 gaps/3 requests.
+Finish bounded QT /1–/16 and P.2 /7 reviews, preserving prior full reviews in
+history. Keep QT's eight gaps/nineteen requests and P.2's two gaps/three requests.
 
-Add Polylogarithms:P.2/hyperbolic-volume to QT.5/volume-and-chern-simons's
-prerequisites: its statement imports that identity but its graph omits it.
-Keep G4/G5 and the geometric comparison request open.
+Add Polylogarithms:P.2/hyperbolic-volume to the prerequisites of
+ArithmeticQuantumTopology:QT.5/volume-and-chern-simons. Its statement imports
+that identity but its graph omits it. Keep G4/G5 and the geometric request.
 
-Document the ordered-sign conversion: P.2 normalizes (infinity,0,1,z) to z,
-QT (0,infinity,1,z) to z. For the same ordered quadruple their cross-ratios
-are reciprocal; D(1/z)=-D(z), and swapping the first two vertices reverses
-ordered volume. Translate the import's vertex order/orientation explicitly.
-This is not by itself evidence that either convention is wrong.
+Document vertex-order/orientation conversion: P.2 normalizes
+(infinity,0,1,z) to z; QT normalizes (0,infinity,1,z) to z. For the same ordered
+quadruple the raw cross-ratios are reciprocal; D(1/z)=-D(z), and swapping the
+first two vertices reverses ordered volume. Neither convention is thereby
+proved wrong; the import must translate them.
 
-The QSeries reader needs the ninth scalar additive-cocycle export near 2964,
-inverse eta multiplier near 2972, Taylor scaling near 2818/2987, and removal
-of the obsolete no-nodes QT.7 account near 4166–4168. Those reader edits are
-outside both the listed issue and queue outputs. Preserve broader blueprint
-objections. The trefoil comparison is already qualified.
+The QSeries reader separately needs the ninth additive-cocycle export near
+2964, inverse eta multiplier near 2972, Taylor scaling c_n/(24^n n!) near
+2818/2987, and replacement of the obsolete no-nodes QT.7 account near
+4166–4168. Its first four Taylor coefficients are 1, 23/24, 1681/1152,
+257543/82944. Reader edits are outside both issue and queue deliverables.
+The trefoil qualification is already present. Preserve broader objections.
 
-No continuation needs scratch files. Stop after this run's one PR.
+The report records all fresh evidence and inherited dispositions. No next
+worker needs scratch files. This run stops after one pull request.
