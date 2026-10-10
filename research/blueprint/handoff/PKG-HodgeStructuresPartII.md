@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-RfkvHm`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6092807228).
+Codex (GPT-6), session `codex-CRlLDa`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6093099197).
 None of the manager-priority issues was available at selection. This was an
 available focus package under WORKERS' fallback order. Only this job was claimed.
 
@@ -13,7 +13,48 @@ allows only the package files and this handoff, and expressly forbids changing
 packets. The required supplier extensions cannot be made within those edits.
 A further package-only pass cannot resolve these two dependencies.
 
-## Current pass: codex-RfkvHm
+## Current pass: codex-CRlLDa
+
+- Confirmed the bot awarded this session the claim and re-read the issue.
+  None of the manager-priority issues was available. This was an eligible
+  focus package under WORKERS' fallback order; no second job was claimed.
+- Independently read all H.0 continuation statements, gaps and requests and
+  the connection and filtered/Rees supplier statements. The two scope
+  mismatches below persist. Neither the accepted review of DD.1 nor the
+  accepted H.0 planning pass exports the missing ordinary sheaf interfaces.
+- Read the current AlgebraicVectorBundles and Completed/HodgeStructures
+  upstream READMEs in full, the relevant DifferentialGeometry signatures,
+  and the native sheaf tensor, coordinate change and ideal-power Rees
+  declarations. A bounded replacement search in the current Tau Ceti
+  Geometry, AlgebraicGeometry and RingTheory trees and those three upstream
+  roadmap directories found no exact replacement. This is a search receipt,
+  not a whole-library absence proof. Current commits remain those below.
+- Read Stacks §60.15, Lemma 60.15.1, and Bhatt §2.2.1, Proposition 2.2.6
+  and Remark 2.2.8, printed pp.16–17, anew. Read Esnault–Groechenig §4.2,
+  printed pp.23–24, for the parameter Leibniz convention. The frame example
+  below is our calculation from that rule, not a theorem attributed to
+  their rigid-moduli result, Lemma 4.9.
+- Added a filtered change-of-frame calculation and an adversarial
+  specialization check to the README's existing Rees subsection. Added
+  five proved examples in `SplitReesChecks`: polynomial inverse matrices,
+  the derivative-corrected transition, zero and unit specializations, and
+  failure of pure conjugation at the unit fibre. These new examples use
+  actual polynomial matrices, `MvPolynomial.pderiv` and evaluation; their
+  proofs do not invoke the admitted operator or frame-comparison lemmas.
+  They provide a chart witness, not the missing global sheaf construction.
+- Preserved every inherited declaration and all 688 inherited examples,
+  all ten packets, and the reader document. The suggested file now has
+  693 examples. No new `sorry` was added.
+
+**Resumption decision.** This pass confirms the same scope blocker as the
+preceding checkpoints. A package-only issue cannot extend either owner
+packet, and PROTOCOL §15 forbids duplicating those general notions here.
+The maintainer needs to authorize owner extensions and the H.0 reference
+update before another package-only pass can finish. The acceptance witnesses
+below identify concrete required behaviour. The remaining layer audits are
+still required after those interfaces exist; this checkpoint is not closure.
+
+## Previous pass: codex-RfkvHm
 
 - Confirmed the bot awarded this session the claim, re-read the issue, and
   continued its existing files. No manager-priority issue was available;
@@ -106,7 +147,7 @@ of finite-projective modules having finite-projective graded pieces.
 The ordinary finite affine case is therefore a source-backed specialization
 for the owner to export. A source theorem is not a substitute for the
 missing sheaf contract, natural fibre maps and H.0 operator comparisons.
-This pass also read the characteristic-zero setting of §2.3, p.21, and
+The preceding pass also read the characteristic-zero setting of §2.3, p.21, and
 Remark 2.3.7, pp.25–26. The latter gives the filtered-flat-bundle and
 associated-graded Higgs interpretation used in the README. It does not
 extend the construction to the arbitrary supplied differential sites of G1.
@@ -136,6 +177,16 @@ not new package targets or permission to edit their owners here.
    Merely replacing the zero fibre by a zero operator fails this example.
    The zero module and the one-step filtration must also recover their
    ordinary fibres, and the maps must respect restriction and tensor products.
+3. **Changing the Rees splitting.** In the same chart take e₁′=e₁ and
+   e₂′=e₂+xe₁. Then u₂′=u₂+xtu₁ and the new-basis column matrix is
+   B=((1,xt),(0,1)). With A=E21 the component matrix is
+   B⁻¹AB+tB⁻¹δ(B)=((−xt,t²(1−x²)),(1,xt)). At t=0 this is still E21;
+   at t=1 it becomes ((−x,1−x²),(1,x)). At x=0,t=1 the upper-right
+   entry is 1; pure conjugation gives 0. An owner specialization that
+   only agrees on graded objects or ranks misses this discrepancy.
+   The maps and operator comparison must respect this transition after
+   restriction, so the local constructions agree on overlaps. The five
+   new Lean examples prove these matrix identities without admissions.
 
 After the owner statements provide these interfaces, update the consumer
 references in an authorized planning/review job. Only then resume packaging.
@@ -194,6 +245,29 @@ strictness and period-domain points; it has no HodgeStructuresPartII entry.
   subalgebra of polynomials whose degree-n coefficients lie in I^n. This
   ideal-power construction is not the filtered module-sheaf/operator contract.
 
+## Checks from codex-CRlLDa
+
+- All ten unchanged Hodge packets: `python3 scripts/check_blueprint.py`,
+  exit 0, zero errors and zero warnings for each. These structural checks
+  permit the recorded gaps and do not certify mathematical closure.
+- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`:
+  final exit 0, zero errors, 1623 warnings, all `declaration uses sorry`,
+  and no other warnings. Available memory was 101 GB before compilation
+  and 108 GB during the final check. The shared build uses Mathlib
+  `082e2d3` and Tau Ceti `f790474`; the process has finished.
+  The file is 811,447 bytes, SHA-256
+  `937170081712707fdbe7df648d32daaa68927f546b05bb565cbec78dc21e02ea`.
+- The README is 192,812 bytes, below the 200 KB limit, SHA-256
+  `2deef8c2723cf78701b300f1117c3b587ad6a23542e46ff9cc1818b12f4feb7b`.
+  All 688 inherited Lean examples remain; five proved examples were added.
+  All input packets and the reader document are unchanged.
+- `python3 research/blueprint/intake.py check-files` for all three changed
+  deliverables: exit 0, zero problems. `git diff --check`: passed.
+  The diff touches only the README, Suggested.lean and this handoff.
+- No source passage, restricted file or private filesystem path was added.
+  The downloaded public source and temporary check files are removed from
+  scratch at submission; everything needed to resume is recorded here.
+
 ## Checks from codex-RfkvHm
 
 - All ten unchanged Hodge packets: `python3 scripts/check_blueprint.py`,
@@ -230,7 +304,8 @@ strictness and period-domain points; it has no HodgeStructuresPartII entry.
 ## Preserve and resume
 
 Keep the roadmap namespace, actual native imports and opening of the native
-Hodge namespace. Preserve the 688 examples (681 inherited and seven added),
+Hodge namespace. Preserve the 693 examples (681 original, seven split-chart
+examples and five change-of-frame examples),
 the native H.5 scheme-theoretic fibre and finite-projective lattice signatures,
 Betti scalar-automorphism
 checks, and H.7 proved negative controls. Do not restore the twenty removed
@@ -251,9 +326,9 @@ and the current-library duplication and bottom-up dependency checks for all
 targets. This session does not claim those obligations completed.
 
 `metadata.toml` remains absent because this is a checkpoint. Its final content
-is `topic = "math.AG"` when the package is complete. The preceding checkpoint
-elaborated the whole file including the chart examples. This pass preserves
-every Lean statement.
+is `topic = "math.AG"` when the package is complete. This pass preserves
+every inherited Lean statement and adds only the five proved chart examples
+and their private polynomial matrices.
 
 Everything needed to resume is in the repository inputs and this note. No
 scratch file is needed by the next worker.
