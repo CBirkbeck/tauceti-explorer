@@ -670,7 +670,7 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 **Target `discrete_action`.** For P=S_c×_{G^ab}L define α*(h,m)=(h^α W_α(m),m^α). This defines a group action on the underlying set P, and hence on U through the marked comparison. Its projection to G is the ordinary power permutation and its degree projection is the class-degree permutation.
 
-Construction and proof route: Check the fiber-product equality using δ compatibility; centrality permits raising h times a correction to a power. The correction cocycle proves identity and composition.
+Construction and proof route: Check the fiber-product equality using δ compatibility; centrality permits raising h times a correction to a power. The correction cocycle proves identity and composition. If the lifts change by central factors a_d, the comparison sends (h,m) to (h∏_d a_d^{m(d)},m); it intertwines the two actions. An isomorphism of marked covers gives the analogous comparison by applying its isomorphism to the first coordinate.
 
 Needs: RS.3, composition law for central corrections; RS.2, the marked fiber product; RS.2, presentation and fiber-product comparison.
 
@@ -705,7 +705,7 @@ Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups 
 
 **Target `finite_level_action`.** For a finite G, α≡β modulo |G|² implies α* and β* agree on every element of U(G,c). The same holds for K and its degree lattice.
 
-Construction and proof route: The exponent of M(G) divides |G|, so the exponent of S_c divides |G|². Power residues and class permutations are determined at that level; apply the coordinate formula.
+Construction and proof route: The exponent of M(G) divides |G|, so the exponent of S_c divides |G|². Power residues and class permutations are determined at that level; apply the coordinate formula. For a general marked central model, assume explicitly that every element of its kernel is killed by |G|. This gives the same exponent bound for its cover. The reduced-multiplier case requires the integral transfer annihilation input.
 
 Needs: RS.3, discrete cyclotomic action.
 
@@ -739,7 +739,7 @@ Source: Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Weste
 
 **Target `bounded_degree_slice`.** For finite D, n∈ℕ and M∈ℕ define L_{n,≥M}={m∈ℤ^D: every m(d)≥M and Σ m(d)=n}. Define K_{n,≥M} as its degree preimage and the twisted slice as equivariant functions valued in this invariant subset. For the notation of LWZB M is positive; M=0 is also allowed for component tuples.
 
-Construction and proof route: Use a subset of the integer lattice, not a subgroup; degree permutation preserves its inequalities and sum.
+Construction and proof route: Use a subset of the integer lattice, not a subgroup; degree permutation preserves its inequalities and sum. Restrict the action to the actual projection kernel and bundle its degree projection as an equivariant map. The twisted slice is the inverse image of the lattice slice under the induced map of equivariant functions. Evaluation at one torsor point detects membership because the lattice slice is invariant.
 
 Needs: RS.3, power permutation of class degrees; RS.2, kernel of the universal marked extension; RS.3, cyclotomic twist of a set.
 
@@ -768,7 +768,7 @@ Needs: RS.3, power permutation of class degrees; RS.3, bounded total-degree slic
 Required API:
 
 - `power_fixed_degree_fixed` (characterisation): L_{≡q} consists precisely of q-fixed degree vectors.
-- `power_fixed_degree_orbits` (equivalence): Choose one coordinate per q-power orbit; this identifies L_{≡q} with ℤ^{D/⟨q⟩}.
+- `power_fixed_degree_orbits` (equivalence): Identify fixed vectors with integer-valued functions on the native orbit quotient D/⟨q⟩; evaluation at an orbit represented by d gives m(d).
 - `power_fixed_degree_weighted_sum` (compatibility): Under this identification, total degree is Σ_O |O|m_O, not the unweighted sum.
 
 Unit tests:
@@ -783,7 +783,7 @@ Source: Liu–Wood–Zureick-Brown (2022 preprint), §12, paragraph before Propo
 
 **Target `degree_orbit_set`.** Define 𝔖^{c,G} as the orbit quotient of the integer lattice L under the unit-power coordinate permutation. Its n,≥M subset is the image of L_{n,≥M}. Choice of a roots-of-unity generator changes a degree vector within this orbit.
 
-Construction and proof route: Take the existing action-orbit equivalence relation, then its quotient.
+Construction and proof route: Take the existing action-orbit equivalence relation, then its quotient. Bundle the unit-power permutations as a homomorphism into the class permutation group and act on the integer lattice by `Finsupp.domCongr`. Evaluation of an equivariant twist at any two torsor points gives the same orbit class.
 
 Needs: RS.3, power permutation of class degrees; RS.3, bounded total-degree slice; RS.3, cyclotomic twist of a set.
 
@@ -844,7 +844,7 @@ Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.
 
 **Target `fixed_fiber_equation`.** For the hypotheses of square-obstruction and odd q coprime to |G|, let r=(q−1)/2. Writing a fiber point as (Yh,m), the q-fixed equation is h^{q−1}=b(g,m)^{−r}. Since the power subgroup is closed under inversion, solvability is equivalent to b(g,m)^r∈A^{2r}.
 
-Construction and proof route: Insert the coordinate action and c_i involutions in Wood equation (6); all correction factors are powers of central X_i².
+Construction and proof route: Insert the coordinate action and c_i involutions in Wood equation (6); all correction factors are powers of central X_i². The Lean fiber consists of elements of the actual pullback with projection g and degree m, rather than formal solutions to the displayed power equation. Require that each chosen class representative represents its indexed inertia class. A q-unit is obtained from coprimality with the chosen common exponent of the cover and base.
 
 Needs: RS.4, square-class obstruction of a fiber; RS.3, discrete cyclotomic action; `powMonoidHom` (Mathlib).
 
@@ -856,7 +856,7 @@ Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.
 
 **Target `all_fixed_fibers`.** For odd q>1 prime to |G|, the fiber over (g,m) has |A[q−1]| fixed points if δ(m)=[g] and b(g,m)^r∈A^{2r}, and zero otherwise. The q and q⁻¹ actions have the same fixed points. No nonnegativity of m is needed for this group-theoretic statement.
 
-Construction and proof route: Apply the existing nonempty power-fiber equivalence to its kernel; a permutation and its inverse have the same fixed set.
+Construction and proof route: Apply the existing nonempty power-fiber equivalence to its kernel; a permutation and its inverse have the same fixed set. For an arbitrary finite central marked model, retain the finite-kernel hypothesis and count the fixed subset of the actual (g,m) fiber. Its cardinality is zero when degree compatibility or power-image membership fails.
 
 Needs: RS.4, the fixed-fiber power equation; `MonoidHom.fiberEquivKer` (Mathlib).
 
