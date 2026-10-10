@@ -1,0 +1,17 @@
+# REV-DiamondSixOperations~2 handoff
+
+Issue #7042; Codex — codex-uZwf29; 10 October 2026. This is a completed independent review, not a checkpoint. Neither original nor revision blueprint was written by this session.
+
+Accepted the target-level planning pass after correcting five nodes: ℓ-adic complex dévissage uses graded complexes killed by ℓ; Tate-twist annihilator comparison uses power maps (with the F₂ μ₄/μ₂ diagnostic); analytic smoothness derives compactifiability from ball/quotient results before chart composition; the cyclotomic quotient uses actual tower/torsor inputs instead of the unrelated no-nonsplit-covers tower; smooth Verdier-pullback uses exceptional composition and explicit ℓ-power-torsion coefficients. Corrected Huber's Lemma 7.4.4 and setup (7.5.1) labels. Reader and Lean ledger agree with all changes.
+
+The review report and packet contain the complete evidence and individual verdicts: 90 nodes, 85 verified and five corrected; no nodes added/removed, zero unverifiable. Counts remain 9 definitions, 10 constructions, 66 theorems, five lemmas, 141 APIs, 73 mathematical tests, 31 planets and 24 confirmed pinned baseline citations. Packet `complete` means a finished planning pass; all seven stages remain `planned`, none `closed`.
+
+Four explicit proof gaps remain with their owners: H3 higher-rank/all-G duality/support comparison, H5 nondiscrete local curve compactification, D4 nonfree image-relation quotient geometry, and C8 diamond fibre-dimension/compactification comparison. Four precise requests remain: E2 geometric hypercovers/common refinement, E3 Neeman coproduct criterion, D4 quotient geometry, C8 dimension comparison. The two former S6 detection gaps have sound target-level component-openness and valuation-refinement arguments. Canonical compactification stays with C4, v-descent with D3, and §§11–13 geometry with D5, resolving RT-AREA-padic-1/11 without an ownership move.
+
+Every source locator and direct supplier contract was checked. ECD v4 §§22–25 (pp. 127–161) were read in full with the relevant dependency statements. Huber's needed statements/setup and duality proof were read in the maintainer-cleared copy, without reproducing passages or files. Current TauCetiRoadmap and Tau Ceti were checked read-only as well as the pins; existing order/index/Lagrange results are imports. Source findings E1/E4 are confirmed, E2/E3 rejected, freshly attributed to this review.
+
+The final packet checker reports zero errors/warnings. Final `lean-check` exits 0 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, with 57 admitted-proof warnings only. Agreement checks and `git diff --check` pass. All implementation statuses remain unchecked.
+
+Acceptance does not turn omitted signatures into declarations: 91 target, 116 API and 58 test occurrences remain explicit omissions on unavailable geometric/enhanced carriers. The 47 distinct named Lean declarations and concrete examples are actual typed relative statements or labeled specializations. Supply the full geometric signatures/tests on the named supplier carriers as these become available; keep all mathematical contracts and diagnostic tests. Do not replace missing conditions by arbitrary predicates. No scratch file is needed to resume.
+
+Submit this review's scoped files together. No upstream edit, promotion, merge, manual label change or second job is part of this run.
