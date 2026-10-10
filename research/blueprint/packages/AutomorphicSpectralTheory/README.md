@@ -1549,23 +1549,23 @@ Uses: AS.1.15; AS.2.4.
 
 `dit_91`
 
-Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on modular L², initially off spectrum, with its cusp realization and continued spatial kernel. Native bounded-inverse analyticity applies to genuine spectral gaps. At s₀=1/2+ir, r>0, a cuspidal eigenvalue is embedded in continuous spectrum: the finite-rank subtraction in (8.4) requires meromorphic continuation in weighted/test spaces, not operator-norm holomorphy on full L².
+Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on modular L² off spectrum, with its cusp realization and continuation. Native bounded-inverse analyticity applies to genuine spectral gaps. At s₀=1/2+ir, r>0, a cuspidal eigenvalue is embedded in continuous spectrum: the finite-rank subtraction in (8.4) requires meromorphic continuation in weighted/test spaces, not operator-norm holomorphy on full L².
 
 API:
 
 - `inverseEquation`: (Δ−s(1−s))R_s=1 on its domain, assuming membership in the native bounded-inverse resolvent set; algebraic bijectivity alone is insufficient.
 - `kernelSymmetry`: The actual self-adjoint resolvent kernel obeys R_s(z,z′)=conj(R_conj(s)(z′,z)), with conjugation of the parameter as well as exchange of the spatial variables.
-- `restrictedResolvent`: Supply the actual closed reducing complement C and its partial Laplacian Δ_C, with s₀(1−s₀) in its resolvent set. Its inverse extends holomorphically near s₀ and equals the projected full inverse where defined. `operatorAdjoint` gives R_s*=R_conj(s) before constructing the spatial kernel.
+- `restrictedResolvent`: For the closed reducing complement C and its partial Laplacian Δ_C, require s₀(1−s₀) in its bounded-inverse resolvent set; the complement inverse is then holomorphic near s₀. `operatorAdjoint` adapts SA-D20 to R_s*=R_conj(s), requiring both shifts off spectrum; a spatial kernel requires its own realization.
 
 Tests:
 
-- `test1`: On the constant eigenline, the actual resolvent of the scalar Laplacian has value −1/[s(1−s)] away from its poles.
+- `test1`: On the constant eigenline, the scalar Laplacian resolvent is −1/[s(1−s)] off its poles.
 - `test2`: At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there.
 - `test3`: The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold.
 
 Source: S21, §8 (8.2)–(8.4), pp.973–974, citing Fay [20, Theorem 3.1, p.173] and Hejhal [27].
 
-Uses: AS.0.7; AS.0.16; AS.4.8; Tau Ceti `LinearPMap.resolvent`, `IsResolventAt`, `analyticAt_resolvent`.
+Uses: AS.0.7; AS.0.16; AS.4.8; SelfAdjointSpectralTheory SA-D20; native `LinearPMap.resolvent`, `IsResolventAt`, `analyticAt_resolvent`.
 
 ### AS.2.19 — Finite-rank resolvent polar part
 

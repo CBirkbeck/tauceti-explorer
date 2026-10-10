@@ -3071,13 +3071,36 @@ representative of an integral kernel. An arbitrary function of z,z′,s has no s
 a Prop field containing this conclusion would not construct that kernel.
 -/
 
-/-- Operator adjoint identity, before passing to a spatial kernel representative. -/
+/-- The `s ↦ s * (1 - s)` and negative-resolvent convention adapter to
+SelfAdjointSpectralTheory SA-D20. Both shifts must have native bounded inverses;
+this identity precedes construction of a spatial kernel representative. -/
 theorem operatorAdjoint (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
     (hSelf : IsSelfAdjoint (⟨D, lap⟩ : H →ₗ.[ℂ] H)) (s : ℂ)
     (hOff : s * (1 - s) ∈ TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H))
     (hOffStar : (star s) * (1 - star s) ∈
       TauCeti.LinearPMap.resolventSet (⟨D, lap⟩ : H →ₗ.[ℂ] H)) :
-    (dit_91 D lap s).adjoint = dit_91 D lap (star s) := by sorry
+    (dit_91 D lap s).adjoint = dit_91 D lap (star s) := by
+  ext x
+  apply ext_inner_left ℂ
+  intro y
+  rw [ContinuousLinearMap.adjoint_inner_right]
+  obtain ⟨hu, hy⟩ := inverseEquation D lap s hOff y
+  obtain ⟨hv, hx⟩ := inverseEquation D lap (star s) hOffStar x
+  have hSym := hSelf.isFormalAdjoint
+    ⟨dit_91 D lap s y, hu⟩ ⟨dit_91 D lap (star s) x, hv⟩
+  change inner ℂ (lap ⟨dit_91 D lap s y, hu⟩) (dit_91 D lap (star s) x) =
+    inner ℂ (dit_91 D lap s y) (lap ⟨dit_91 D lap (star s) x, hv⟩) at hSym
+  calc
+    inner ℂ (dit_91 D lap s y) x =
+        inner ℂ (dit_91 D lap s y)
+          (lap ⟨dit_91 D lap (star s) x, hv⟩ -
+            ((star s) * (1 - star s)) • dit_91 D lap (star s) x) := by rw [hx]
+    _ = inner ℂ (lap ⟨dit_91 D lap s y, hu⟩ -
+          (s * (1 - s)) • dit_91 D lap s y) (dit_91 D lap (star s) x) := by
+      simp only [inner_sub_right, inner_sub_left, inner_smul_right,
+        inner_smul_left, starRingEnd_apply, star_mul, star_sub, star_one, hSym]
+      ring
+    _ = inner ℂ y (dit_91 D lap (star s) x) := by rw [hy]
 
 omit [CompleteSpace H] in
 /-- A specified closed reducing complement C has its own partial Laplacian lapC.

@@ -1,4 +1,192 @@
-# PKG-AutomorphicSpectralTheory — checkpoint
+# PKG-AutomorphicSpectralTheory — blocked checkpoint
+
+Issue: #7893. Worker: Codex (GPT-6), session `codex-SBSm5m`, 10 October 2026.
+Branch: `codex-SBSm5m-automorphic-spectral-package`.
+Claim: [6093454341](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6093454341).
+Bot confirmation: [6093455247](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6093455247).
+This continues the four merged checkpoints #8173, #8191, #8202 and #8211.
+
+## Current status and scope boundary
+
+**Blocked checkpoint, not a completed package.** The authoritative inputs are
+unchanged from #8211: their SHA-256 receipts below still match. The latest
+independent acceptance is a target-level inventory pass, with all seven stages
+`planned`, 52 gaps, 22 supplier requests and no closed stage. Acceptance does not
+supply the seven target signatures and eight API signatures the input explicitly
+omits. Their absence was freshly checked in executable declarations after stripping
+nested Lean comments, rather than inferred from the previous handoff.
+
+The blocker is a specification and ownership boundary, not an inability to prove
+the proposed theorems during this run. The issue permits editing only its README,
+Suggested file, metadata and handoff, and explicitly forbids changing a packet.
+WORKERS requires higher-tier inputs to move down into their proper owner; the
+packet and supplier contracts must change to record those moves. The local-real
+induction request also specifies an extension beyond its existing supplier's
+minimal-parabolic principal series. Completing the package's full interfaces
+without those changes would either duplicate other owners or reinstate the
+arbitrary-operator/transform assertions that the accepted review removed.
+
+The current `AutomorphicFormsOnReductiveGroups.json` has `review.status =
+needs_changes`. Its `AF.1/principal-series` treats a minimal parabolic and a
+finite-dimensional inducing representation. Its `AF.1/sf-representation` defines
+the representation category; it does not construct the requested holomorphic
+compact-picture induction from every Levi. The precise general-Levi request in
+AS still exists. Neither the current upstream operator roadmaps nor the current
+Tau Ceti source search supplies the missing automorphic induction/intertwiner or
+modular spatial-kernel interfaces.
+
+The latest AS review says historical B1–B4 continuation/Fourier/test blockers
+were repaired. Do not reopen them merely because older gap text or older handoff
+paragraphs use their former wording. The current blocking evidence is the named
+omissions and the unresolved ownership/supplier contracts listed here.
+
+Metadata remains absent, as in the preceding checkpoints; the eventual topic is
+`math.NT`. Do not infer completion from successful Lean elaboration.
+
+## Improvement in this checkpoint
+
+`dit_91.operatorAdjoint` now has a proof using the pinned native APIs, replacing
+its admitted proof without changing its signature. For the domain-aware partial
+Laplacian A and both bounded-inverse resolvent points, write
+u = R_s y and v = R_conj(s) x. The native inverse equations give
+Au − s(1−s)u = y and Av − conj(s)(1−conj(s))v = x. Formal self-adjointness
+identifies the two resulting inner products, and bounded-adjoint extensionality
+gives R_s* = R_conj(s).
+
+This is the sign/parameter adapter to upstream **SelfAdjointSpectralTheory
+SA-D20**: the native resolvent is (zI−A)⁻¹, while DIT uses (A−s(1−s))⁻¹.
+Generic resolvent theory remains owned upstream. The proof invokes the existing
+`dit_91.inverseEquation`, native `IsSelfAdjoint.isFormalAdjoint`,
+`ContinuousLinearMap.adjoint_inner_right`, and Hilbert-space extensionality.
+No opaque proposition or new generic carrier was introduced.
+
+The README now gives this owner explicitly and distinguishes complement-inverse
+analyticity from the geometric identification with a projected ambient inverse.
+The latter needs a genuine reducing restriction. Operator adjointness still does
+not construct a spatial kernel representative or point evaluations on L²;
+`dit_91.kernelSymmetry` remains an explicit omission. DIT's continuation at an
+embedded cusp eigenvalue still requires the separate weighted/test-space kernel
+realization described in the preceding handoff.
+
+A standalone Lean check of the adapter, its definition and its inverse equation
+has **no errors or warnings**. `#print axioms` reports only `propext`,
+`Classical.choice` and `Quot.sound`; it reports no `sorryAx`.
+
+## Fresh validation
+
+- Full `lean-check research/blueprint/packages/AutomorphicSpectralTheory/Suggested.lean`:
+  **exit 0; 804 warnings, all `declaration uses sorry`; zero errors and zero
+  other warnings.** Available memory before checking was 112 GB. The full
+  check and subsequent isolated check were sequential. No Lean server, library
+  build, cache fetch or Lake update was started.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  **exit 0; zero errors and warnings**, 190 nodes, 223 API items, 219 tests,
+  38 planets, 32 baseline declarations, seven planned stages, 52 gaps and
+  22 requests. The packet was not edited.
+- Active package inventory: **183/190 target names**, **215/223 API names**,
+  **219/219 packet test markers**, **232 active examples**. The new proof
+  preserves every inherited declaration and specification-test comment in its
+  previous package order. These counts establish inventory, not full source
+  fidelity of every inherited specialization.
+- The original suggested input has no `Specification test:` marker comments.
+  Accordingly, marker coverage was compared to the packet's 219 test names;
+  preservation in order was compared to the inherited package, not to a
+  nonexistent input marker list.
+- README: **199,986 UTF-8 bytes**, below 200,000; all target, API and test names
+  remain represented. Intake `check-files` passes for the three changed
+  deliverables; `git diff --check` is clean.
+- Only the package README, package Suggested file and this handoff change.
+  All reviewed inputs and other roadmaps remain untouched. No independent
+  review of this worker's own work is claimed.
+
+## Exact active-signature omissions
+
+All names are relative to `TauCeti.AutomorphicSpectral`.
+
+| Target signatures | Interface that must precede the full signature |
+| --- | --- |
+| `eisenstein_convergence`, `cuspidal_constant_term` | Rational parabolic cosets, normalized induction, coherent Haar/quotient measures, finite smooth vectors and chamber data; rational Bruhat and Weyl transport for the constant term. |
+| `pseudo_eisenstein_l2`, `pseudo_eisenstein_inner_product` | Genuine pseudo-Eisenstein summation and intertwiners, contour/Fourier measures and distinct fixed-centre versus full-height quotient conventions. |
+| `local_normalization` | Genuine local induced spaces, their meromorphic intertwiners and rank-one factors, with the unitary, tempered and hyperspecial clauses kept separate. |
+| `real_invariant_paley_wiener`, `real_operator_paley_wiener` | General-Levi local real induction, actual Hecke/Paley–Wiener topological carriers, Clozel–Delorme's image conditions and Arthur's differentiated coefficient relations. |
+
+The eight missing API signatures are:
+
+```text
+convergent_intertwiner.intertwines
+convergent_intertwiner.identity
+convergent_intertwiner.holomorphic_chamber
+local_intertwiner.meromorphic_coefficients
+arthur_truncation.local_finite
+spectral_multiplier.support
+weighted_orbital_integral.splitting
+dit_91.kernelSymmetry
+```
+
+Keep the original omission comments until these are stated on genuine supplied
+carriers. An arbitrary zero intertwiner contradicts normalized unitary inversion;
+an arbitrary transform need not have Paley–Wiener image; an arbitrary kernel need
+not satisfy the parameter-conjugated symmetry. Adding similarly named signatures
+for those arbitrary inputs would not finish the package.
+
+## Required continuation before another packaging pass
+
+1. Reconcile the AS plan with the scope of the finished package: provide the
+   actual omitted carrier/signature contracts, and record the lower-tier
+   ownership of the ordinary orbital-integral/pseudo-coefficient prefix. AS is
+   tier 13, while ET is tier 14; stabilization stays with ET. The detailed
+   ownership list preserved below remains the starting worklist.
+2. Supply the precise AF general-Levi local-induction interface named by the
+   current AS request, with its source hypotheses. A minimal-parabolic finite-W
+   model or the SF category alone does not supply it.
+3. Supply the rational Weyl-associate cuspidal carrier and its true orthogonality
+   and density theorems for AS.1.10, rather than declaring the conditional
+   Hilbert-sum assembly to be the full automorphic theorem.
+4. Reconcile the actual modular continued-kernel and Whittaker continuation
+   carriers with the source targets, retaining the valid initial-integral
+   hypotheses and the complement spectral-gap restriction.
+5. With those plan/supplier changes integrated, wire the genuine carriers into
+   the package, verify every target/API/test signature, finish remaining page
+   locators, check the joined Lean file, and add metadata.
+
+Repeated package-only claims cannot resolve changes to these forbidden files.
+The manager should route the specification/ownership work to a job whose
+allowed deliverables include the affected contracts before rescheduling the
+completion of this package. No labels or issue states were changed by hand.
+
+## Sources and read-only upstream checks
+
+Read the current upstream **SelfAdjointSpectralTheory** and **OperatorIdeals**
+READMEs in full, and inspected their relevant Suggested declarations. The
+former owns SA-D20 and the PVM/Borel/unbounded operator theory; the latter owns
+the generic Schatten and Hilbert–Schmidt carriers. Read the AS reviewed library
+audit, the AF minimal principal-series and SF-category statements, the exact
+AS general-Levi supplier request and the tier ordering. Current Tau Ceti was
+searched for the missing specialized interfaces; unrelated holomorphic
+character Eisenstein series do not supply automorphic induction families.
+
+The native proof used statements read from the shared pinned source files:
+`TauCeti.Analysis.InnerProductSpace.LinearPMap.SelfAdjoint`,
+`TauCeti.Analysis.Normed.Operator.Resolvent.Unbounded`, and
+`Mathlib.Analysis.InnerProductSpace.Adjoint`. The wrapper's Mathlib receipt is
+`082e2d37e8`; the job baseline remains Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`.
+
+Duke–Imamoğlu–Tóth, *Geometric invariants for real quadratic fields*, §8,
+equations (8.2)–(8.4), printed pp.973–974, was freshly read in the
+[publisher PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf).
+Its operator convention and separate spatial continuation were checked;
+no fresh reading of Fay or Hejhal is claimed. No book files, source passages or
+private paths were copied into the repository.
+
+## Preserved preceding checkpoint
+
+The following record retains the earlier native repairs, exact omissions,
+ownership worklist and immutable input receipts. Its validation numbers and
+worker attribution belong to #8211; use the fresh results above for this pass.
+
+### Checkpoint #8211
 
 Issue: #7893. Worker: Codex (GPT-6), session `codex-1xGjiX`, 10 October 2026.
 Branch: `codex-1xGjiX-automorphic-spectral-package`.
