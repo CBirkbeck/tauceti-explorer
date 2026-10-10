@@ -30,6 +30,10 @@ Use `GroupExtension` and `GroupExtension.Splitting` for extensions and homomorph
 
 For integral homology use `groupHomology.cycles₂`, `groupHomology.H2π`, `groupHomology.H2`, `groupHomology.map` and `groupHomology.map_comp`. For group quotients and presentations use `Abelianization`, `Abelianization.of`, `Abelianization.lift`, `PresentedGroup` and `PresentedGroup.toGroup`. These interfaces fix the carriers and universal properties; there is no second private theory of H₂ or abelianization.
 
+The integral homology map uses the identity on the trivial integral coefficient representation together with the specified group homomorphism. A chosen cover is retained through its projection and oriented kernel isomorphism. Its relation subgroup is the image of Q_c under that isomorphism and the kernel inclusion; centrality supplies the normality needed by `QuotientGroup`. Quotient and comparison maps preserve these specified maps, rather than merely asserting that suitable abstract groups are isomorphic.
+
+Coordinate permutations use `Finsupp.domCongr` on L. A twist is a bundled equivariant map `T →[B] X`, with `Torsor B T` providing the simply transitive source action. Evaluation at a chosen torsor point identifies the twist with X; changing the point acts on X. The finite-level power action takes values in `Equiv.Perm P`; its kernel restriction takes values in `MulAut` of the actual projection kernel.
+
 For square classes use `TauCeti.ElementaryTwoQuotient`, `TauCeti.elementaryTwoQuotientMk_eq_zero_iff`, `TauCeti.elementaryTwoQuotientMk_mul`, and `TauCeti.elementaryTwoQuotientMap`. Finite primary decomposition comes from `AddCommGroup.equiv_directSum_zmod_of_finite`; freeness of the integer-lattice subgroup comes from `Submodule.basisOfPid`. `powMonoidHom` and `MonoidHom.fiberEquivKer` supply the power kernel and the count of a nonempty power fiber. `LinearMap.finrank_range_add_finrank_ker` and `Module.card_eq_pow_finrank` supply the finite binary counts. Schur–Zassenhaus complement existence is `Subgroup.exists_right_complement'_of_coprime`; conjugacy of complements is a separate input.
 
 ## Homological input contracts
@@ -960,6 +964,8 @@ Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.
 
 Construction and proof route: Every abelianized generator has order dividing 2; extend on the free F₂-vector space and use generation.
 
+Use `AddCommGroup.zmodModule` with the proved identity 2·u=0 to give the existing carrier Additive(G^ab) its F₂-module structure. The class map on binary coordinates retains the basis values of δ; this construction preserves the existing group operations.
+
 Needs: RS.2, the class degree homomorphism; `Abelianization` (Mathlib).
 
 Checks: Distinct conjugacy classes need not give linearly independent abelianized images.
@@ -983,6 +989,8 @@ Source: Wood, *Nonabelian Cohen–Lenstra moments* (2019), §4.1, Proposition 4.
 **Target `parity_square_map`.** With V=F₂^N, the already constructed a:V→Additive(G^ab), and B=TauCeti.ElementaryTwoQuotient A, define s:V→B by the lift-square columns s(e_i)=s_i. Extend only on the free vector space, not on G or S_c.
 
 Construction and proof route: Specify basis values and use the free-vector-space universal property.
+
+Extract X_i² in the injected kernel using `GroupExtension` exactness before taking its image in `TauCeti.ElementaryTwoQuotient A`. On the finite coordinate space, s(v)=Σ_i v_i·class(X_i²). This formula supplies the adapter from the extension's chosen marked lifts to the binary linear map.
 
 Needs: RS.4, involution classes span the abelianization; RS.4, lift-square class columns.
 
@@ -1406,7 +1414,7 @@ Each certificate must recover the displayed multiplier and transport it under ma
 ## References
 
 - Melanie Matchett Wood. [Nonabelian Cohen–Lenstra moments](https://par.nsf.gov/servlets/purl/10152050). Duke Math. J. 168(3) (2019), 377–427. Relevant locations: §2.3 p.387; Definition 3.1 p.388; Lemmas 3.3–3.4 p.390; §4.1 pp.399–401, Proposition 4.1, equations (5)–(6), Remark 4.2; §8.2, Table 2 p.419.
-- Melanie Matchett Wood. [An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1). 13-page author copy of Research in the Mathematical Sciences 8 (2021), Article 21. Relevant locations: §2, Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4; §4, author pp.6–8, equation (4) and Remark 4.1.
+- Melanie Matchett Wood. [An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland](https://par.nsf.gov/servlets/purl/10253245). 13-page author copy of Research in the Mathematical Sciences 8 (2021), Article 21. Relevant locations: §2, Lemmas 2.1–2.4 and Theorem 2.5, author pp.2–4; §4, author pp.6–8, equation (4) and Remark 4.1.
 - Jordan S. Ellenberg; Akshay Venkatesh; Craig Westerland. [Homological stability for Hurwitz spaces and the Cohen–Lenstra conjecture over function fields, II](https://arxiv.org/pdf/1212.0923v1). arXiv:1212.0923v1, 5 December 2012; withdrawn preprint. Relevant locations: §§7.2–7.5 pp.32–37; Example 9.3.2 p.57; used only for the stated group-homology reduction.
 - Yuan Liu; Melanie Matchett Wood; David Zureick-Brown. [A predicted distribution for Galois groups of maximal unramified extensions](https://arxiv.org/pdf/1907.05002v2). arXiv:1907.05002v2, 21 July 2022. Relevant locations: Notation 10.1 p.39; §12 definitions pp.46–48; invariant degrees p.50; Lemma 12.10 p.53 and compatible reduced-cover maps p.54.
 - Yuan Liu; Melanie Matchett Wood; David Zureick-Brown. [A predicted distribution for Galois groups of maximal unramified extensions](https://par.nsf.gov/servlets/purl/10509628). Invent. Math. 237 (2024), 49–116; NSF published PDF, 68 pages. Relevant locations: §12 definitions, PDF pp.56–57; Lemma 12.10 and proof, PDF pp.62–63; reduced-cover comparison PDF p.64.
