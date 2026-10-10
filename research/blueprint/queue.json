@@ -48150,8 +48150,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48194,8 +48194,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeneralizedHeegnerCycles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7902"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7902",
+   "finishedAt": "2026-10-10T01:02:30Z"
   },
   {
    "id": "REV-PKG-GeneralizedHeegnerCycles",
@@ -49094,7 +49095,8 @@
     "PKG-KatoEulerSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-KatoEulerSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7936"
   },
   {
    "id": "PKG-LanglandsParameterStacks",
