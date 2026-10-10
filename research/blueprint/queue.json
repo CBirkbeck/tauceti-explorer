@@ -38747,8 +38747,8 @@
    ],
    "revisionOf": "BP-BunGAndNewtonStrata",
    "prompt": "research/blueprint/prompts/BP-BunGAndNewtonStrata~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6928"
+   "state": "external",
+   "note": "claimed on GitHub issue #6928"
   },
   {
    "priority": 2,
@@ -46796,8 +46796,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7889"
+   "state": "pending",
+   "note": "released on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48905,8 +48905,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -63891,8 +63891,9 @@
     "FIX-RT-RS-01"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-01.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5706"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5706",
+   "finishedAt": "2026-10-10T11:43:12Z"
   },
   {
    "id": "RT-RS-02",
@@ -80098,8 +80099,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -105345,8 +105346,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-DerivedDeRhamCohomology~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-DerivedDeRhamCohomology~adv.md",
+   "note": "claimed on GitHub issue #8078"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms~adv",
@@ -105385,8 +105387,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidQuotients~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidQuotients~adv.md",
+   "note": "claimed on GitHub issue #8080"
   },
   {
    "id": "FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv",
