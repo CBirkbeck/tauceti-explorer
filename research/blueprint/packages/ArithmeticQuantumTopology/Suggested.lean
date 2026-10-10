@@ -6,6 +6,7 @@ interfaces below include rank-one completed quantum algebras; geometric supplier
 carriers remain missing.
 The handoff records the signatures still requiring those supplier interfaces.
 -/
+import Mathlib.RingTheory.AdjoinRoot
 import Mathlib.CategoryTheory.Monoidal.Braided.Basic
 import Mathlib.CategoryTheory.Monoidal.Rigid.Basic
 import Mathlib.Algebra.Polynomial.Laurent
@@ -727,6 +728,216 @@ example : quotientMap G2Cartan G2Lengths (binomial 3 2 1) =
 
 /-- Using d=1 on both G₂ roots destroys the symmetric Gram input. -/
 example : gram G2Cartan (fun _ => 1) 0 1 ≠ gram G2Cartan (fun _ => 1) 1 0 := by decide
+
+/-! Scalar balancing in QT.4, Habiro–Lê §6.2.1, p. 70.
+The quadratic scalar ring has its own two components over ℂ(q); v is
+not a homogeneous scalar of degree one. Tensor products are over ℂ(v). -/
+def scalarPolynomial : Polynomial QuantumRationalFunctions := X ^ 2 - Polynomial.C quantumQ
+abbrev Scalars := AdjoinRoot scalarPolynomial
+
+def scalarV : Scalars := AdjoinRoot.root scalarPolynomial
+
+theorem scalarPolynomial_monic : scalarPolynomial.Monic := by
+  exact Polynomial.monic_X_pow_sub_C quantumQ (by decide : 2 ≠ 0)
+
+theorem scalarPolynomial_irreducible : Irreducible scalarPolynomial := sorry
+
+instance : Fact (Irreducible scalarPolynomial) := ⟨scalarPolynomial_irreducible⟩
+
+/-- Its field structure comes from the irreducible quadratic, not an arbitrary carrier. -/
+example : Field Scalars := inferInstance
+
+theorem scalarV_square : scalarV ^ 2 = algebraMap QuantumRationalFunctions Scalars quantumQ := by
+  have h := AdjoinRoot.eval₂_root (X ^ 2 - Polynomial.C quantumQ)
+  simp only [Polynomial.eval₂_sub, Polynomial.eval₂_pow,
+    Polynomial.eval₂_X, Polynomial.eval₂_C] at h
+  exact sub_eq_zero.mp h
+
+theorem scalarPolynomial_natDegree : scalarPolynomial.natDegree = 2 :=
+  Polynomial.natDegree_X_pow_sub_C
+
+/-- The {1,v} decomposition of the actual scalar extension. -/
+def scalarBasis : Module.Basis (Fin 2) QuantumRationalFunctions Scalars :=
+  (AdjoinRoot.powerBasis' scalarPolynomial_monic).basis.reindex (finCongr scalarPolynomial_natDegree)
+
+theorem scalarBasis_zero : scalarBasis 0 = 1 := by
+  rw [scalarBasis, Module.Basis.reindex_apply,
+    (AdjoinRoot.powerBasis' scalarPolynomial_monic).basis_eq_pow]
+  rfl
+
+theorem scalarBasis_one : scalarBasis 1 = scalarV := by
+  rw [scalarBasis, Module.Basis.reindex_apply,
+    (AdjoinRoot.powerBasis' scalarPolynomial_monic).basis_eq_pow]
+  exact pow_one scalarV
+
+def scalarComponent (g : Multiplicative (ZMod 2)) : Submodule QuantumRationalFunctions Scalars :=
+  Submodule.span QuantumRationalFunctions {if g = 1 then 1 else scalarV}
+
+theorem scalarComponents_internal : DirectSum.IsInternal scalarComponent := sorry
+
+theorem scalarV_not_even : scalarV ∉ scalarComponent 1 := by
+  intro hx
+  change scalarV ∈ Submodule.span QuantumRationalFunctions {(1 : Scalars)} at hx
+  obtain ⟨a, ha⟩ := Submodule.mem_span_singleton.mp hx
+  have h0 : scalarBasis.repr (1 : Scalars) 1 = 0 := by rw [← scalarBasis_zero]; simp
+  have hv : scalarBasis.repr scalarV 1 = 1 := by rw [← scalarBasis_one]; simp
+  have h : (0 : QuantumRationalFunctions) = 1 := by
+    simpa only [map_smul, Finsupp.smul_apply, h0, hv, smul_zero] using
+      congrArg (fun x => scalarBasis.repr x 1) ha
+  exact zero_ne_one h
+
+theorem scalarComponents_mul (g h : Multiplicative (ZMod 2))
+    (x : Scalars) (hx : x ∈ scalarComponent g) (y : Scalars) (hy : y ∈ scalarComponent h) :
+    x * y ∈ scalarComponent (g * h) := sorry
+
+/-- Centrality follows by free-algebra induction and surjectivity of the quotient. -/
+theorem v_central_all (A : ι → ι → ℤ) (d : ι → ℕ) (x : Algebra A d) :
+    generator A d .v * x = x * generator A d .v := by
+  obtain ⟨p, rfl⟩ := RingQuot.mkAlgHom_surjective QuantumRationalFunctions (Relation A d) x
+  change generator A d .v * quotientMap A d p = quotientMap A d p * generator A d .v
+  induction p using FreeAlgebra.induction with
+  | grade0 r =>
+      simp only [AlgHom.commutes]
+      exact (_root_.Algebra.commutes r (generator A d .v)).symm
+  | grade1 g =>
+      simpa [generator, quotientMap, gen] using
+        RingQuot.mkAlgHom_rel QuantumRationalFunctions (Relation.v_central (A := A) (d := d) g)
+  | mul a b ha hb =>
+      simp only [map_mul]
+      calc
+        generator A d .v * (quotientMap A d a * quotientMap A d b) =
+            (generator A d .v * quotientMap A d a) * quotientMap A d b := (mul_assoc _ _ _).symm
+        _ = quotientMap A d a * (quotientMap A d b * generator A d .v) := by rw [ha, mul_assoc, hb]
+        _ = (quotientMap A d a * quotientMap A d b) * generator A d .v := (mul_assoc _ _ _).symm
+  | add a b ha hb => simp only [map_add, mul_add, add_mul, ha, hb]
+
+def centralV (A : ι → ι → ℤ) (d : ι → ℕ) :
+    Subalgebra.center QuantumRationalFunctions (Algebra A d) :=
+  ⟨generator A d .v, Subalgebra.mem_center_iff.mpr (fun x => (v_central_all A d x).symm)⟩
+
+def scalarToCenter (A : ι → ι → ℤ) (d : ι → ℕ) :
+    Scalars →ₐ[QuantumRationalFunctions] Subalgebra.center QuantumRationalFunctions (Algebra A d) :=
+  AdjoinRoot.liftAlgHom scalarPolynomial (Algebra.ofId _ _) (centralV A d) (by
+    simp only [scalarPolynomial, Polynomial.eval₂_sub, Polynomial.eval₂_pow,
+      Polynomial.eval₂_X, Polynomial.eval₂_C]
+    apply Subtype.ext
+    change generator A d .v ^ 2 - algebraMap _ _ quantumQ = 0
+    exact sub_eq_zero.mpr (v_square A d))
+
+def scalarMap (A : ι → ι → ℤ) (d : ι → ℕ) : Scalars →ₐ[QuantumRationalFunctions] Algebra A d :=
+  (Subalgebra.center QuantumRationalFunctions (Algebra A d)).val.comp (scalarToCenter A d)
+
+@[simp] theorem scalarMap_v (A : ι → ι → ℤ) (d : ι → ℕ) :
+    scalarMap A d scalarV = generator A d .v := by
+  simp [scalarMap, scalarToCenter, scalarV, centralV]
+
+instance scalarAlgebra (A : ι → ι → ℤ) (d : ι → ℕ) : _root_.Algebra Scalars (Algebra A d) :=
+  (scalarMap A d).toRingHom.toAlgebra' (fun c x =>
+    (Subalgebra.mem_center_iff.mp (scalarToCenter A d c).property x).symm)
+
+instance scalarTower (A : ι → ι → ℤ) (d : ι → ℕ) :
+    IsScalarTower QuantumRationalFunctions Scalars (Algebra A d) :=
+  IsScalarTower.of_algebraMap_eq (fun c => ((scalarMap A d).commutes c).symm)
+
+/-- The C(v)-even algebra is generated by E_i, F_i K_i and K_i^{±2}. -/
+def evenAlgebra (A : ι → ι → ℤ) (d : ι → ℕ) : Subalgebra Scalars (Algebra A d) :=
+  _root_.Algebra.adjoin Scalars
+    (Set.range (fun i => generator A d (.E i)) ∪
+      Set.range (fun i => generator A d (.F i) * generator A d (.K i)) ∪
+      Set.range (fun i => generator A d (.K i) ^ 2) ∪
+      Set.range (fun i => generator A d (.KInv i) ^ 2))
+
+theorem evenAlgebra_components (A : ι → ι → ℤ) (d : ι → ℕ)
+    (hdiag : ∀ i, A i i = 2) (hoff : ∀ i j, i ≠ j → A i j ≤ 0)
+    (hd : ∀ i, 0 < d i) (hsymm : ∀ i j, gram A d i j = gram A d j i) :
+    (evenAlgebra A d).toSubmodule.restrictScalars QuantumRationalFunctions =
+      ⨆ g : QuantumParityGroup.evenSubgroup (gram A d), component A d g.val := sorry
+
+/-- Including n=0, the tensor carrier is Mathlib's tensor product over the
+quadratic scalar field; the empty product is that field, not ℂ(q). -/
+abbrev TensorPower (A : ι → ι → ℤ) (d : ι → ℕ) (n : ℕ) :=
+  PiTensorProduct Scalars (fun _ : Fin n => Algebra A d)
+
+def tensorEmptyEquiv (A : ι → ι → ℤ) (d : ι → ℕ) : TensorPower A d 0 ≃ₗ[Scalars] Scalars :=
+  PiTensorProduct.isEmptyEquiv (Fin 0)
+
+def tensorDegree (A : ι → ι → ℤ) (d : ι → ℕ) {n : ℕ}
+    (g : Fin (n + 1) → QuantumParityGroup (gram A d)) : tensorParityGroup (gram A d) (n + 1) :=
+  (List.ofFn fun i => tensorParityInclusion (gram A d) i (g i)).prod
+
+/-- Components are ℂ(q)-spans; closing each one under ℂ(v) would identify
+neutral and odd scalar degrees. -/
+def tensorComponent (A : ι → ι → ℤ) (d : ι → ℕ) : (n : ℕ) →
+    tensorParityGroup (gram A d) n → Submodule QuantumRationalFunctions (TensorPower A d n)
+  | 0, g => (scalarComponent g).map ((tensorEmptyEquiv A d).symm.restrictScalars QuantumRationalFunctions).toLinearMap
+  | n + 1, g => Submodule.span QuantumRationalFunctions
+      {x | ∃ gs : Fin (n + 1) → QuantumParityGroup (gram A d), tensorDegree A d gs = g ∧
+        ∃ u : Fin (n + 1) → Algebra A d, (∀ i, u i ∈ component A d (gs i)) ∧
+          PiTensorProduct.tprod Scalars u = x}
+
+/-- Two-factor scalar balancing is a tensor identity, not a grading axiom. -/
+theorem tensor_shared_v (A : ι → ι → ℤ) (d : ι → ℕ) {n : ℕ}
+    (i j : Fin (n + 1)) :
+    (PiTensorProduct.singleAlgHom (R := Scalars) (A := fun _ : Fin (n + 1) => Algebra A d) i) (generator A d .v) =
+      (PiTensorProduct.singleAlgHom (R := Scalars) (A := fun _ : Fin (n + 1) => Algebra A d) j) (generator A d .v) := by
+  have hv : generator A d .v = algebraMap Scalars (Algebra A d) scalarV := (scalarMap_v A d).symm
+  rw [hv, AlgHom.commutes, AlgHom.commutes]
+
+theorem tensor_components_internal (A : ι → ι → ℤ) (d : ι → ℕ) (n : ℕ)
+    (hdiag : ∀ i, A i i = 2) (hoff : ∀ i j, i ≠ j → A i j ≤ 0)
+    (hd : ∀ i, 0 < d i) (hsymm : ∀ i j, gram A d i j = gram A d j i) :
+    DirectSum.IsInternal (tensorComponent A d n) := sorry
+
+theorem tensor_components_mul (A : ι → ι → ℤ) (d : ι → ℕ) (n : ℕ)
+    (g h : tensorParityGroup (gram A d) n) (x : TensorPower A d n)
+    (hx : x ∈ tensorComponent A d n g) (y : TensorPower A d n)
+    (hy : y ∈ tensorComponent A d n h)
+    (hdiag : ∀ i, A i i = 2) (hoff : ∀ i j, i ≠ j → A i j ≤ 0)
+    (hd : ∀ i, 0 < d i) (hsymm : ∀ i j, gram A d i j = gram A d j i) :
+    x * y ∈ tensorComponent A d n (g * h) := sorry
+
+-- Scalar components: neutral field coefficients, odd v, and q=v².
+example : (1 : Scalars) ∈ scalarComponent 1 := by
+  apply Submodule.subset_span
+  simp
+
+theorem scalarV_odd : scalarV ∈ scalarComponent (Multiplicative.ofAdd (1 : ZMod 2)) := by
+  apply Submodule.subset_span
+  simp
+
+example : scalarV ∉ scalarComponent 1 ∧ scalarV ^ 2 ∈ scalarComponent 1 := by
+  refine ⟨scalarV_not_even, ?_⟩
+  rw [scalarV_square, Algebra.algebraMap_eq_smul_one]
+  exact (scalarComponent 1).smul_mem _ (by apply Submodule.subset_span; simp)
+
+-- Tensor zero is a rank-two ℂ(q) carrier; v survives in its odd component.
+example (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (tensorEmptyEquiv A d).symm scalarV ∉ tensorComponent A d 0 1 := by
+  rintro ⟨x, hx, he⟩
+  have hxe : x = scalarV := (tensorEmptyEquiv A d).symm.injective he
+  exact scalarV_not_even (hxe ▸ hx)
+
+example (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (tensorEmptyEquiv A d).symm scalarV ∈
+      tensorComponent A d 0 (Multiplicative.ofAdd (1 : ZMod 2)) := by
+  exact ⟨scalarV, scalarV_odd, rfl⟩
+
+example (A : ι → ι → ℤ) (d : ι → ℕ) :
+    (PiTensorProduct.singleAlgHom (R := Scalars) (A := fun _ : Fin 2 => Algebra A d) (0 : Fin 2)) (generator A d .v) =
+      (PiTensorProduct.singleAlgHom (R := Scalars) (A := fun _ : Fin 2 => Algebra A d) (1 : Fin 2)) (generator A d .v) := tensor_shared_v A d 0 1
+
+-- Even-algebra generators test E, the corrected F K, and the Cartan square.
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.E i) ∈ evenAlgebra A d :=
+  _root_.Algebra.subset_adjoin (Or.inl (Or.inl (Or.inl ⟨i, rfl⟩)))
+
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.F i) * generator A d (.K i) ∈ evenAlgebra A d :=
+  _root_.Algebra.subset_adjoin (Or.inl (Or.inl (Or.inr ⟨i, rfl⟩)))
+
+example (A : ι → ι → ℤ) (d : ι → ℕ) (i : ι) :
+    generator A d (.K i) ^ 2 ∈ evenAlgebra A d :=
+  _root_.Algebra.subset_adjoin (Or.inl (Or.inr ⟨i, rfl⟩))
 
 end GenericQuantum
 end GenericDrinfeldJimbo

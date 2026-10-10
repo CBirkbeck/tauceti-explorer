@@ -1,20 +1,20 @@
 # Arithmetic quantum topology, Habiro invariants and regulators
 
-This roadmap builds integral quantum invariants of links and integral homology spheres, then compares selected hyperbolic knot invariants with Bloch classes, perturbative series and quantum modular transformations. Analytic integrals and conjectures retain their hypotheses and normalizations.
+Build integral quantum invariants and hyperbolic Bloch, perturbative and quantum modular comparisons, with explicit hypotheses.
 
 ## Conventions and boundaries
 
-Rank one uses q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!. Its integral ground ring is ℤ[q±1], ambient color field ℚ(v), q=v². Positive framing uses r⁻¹. Vₙ has dimension n+1; the reduced dimension index N uses Vₙ₋₁. The unreduced unknot is [n+1]; reduce before root evaluation. General Lie type retains its root lattice, symmetrizers, root lift and parity grading.
+Rank one uses q=exp(h), v=exp(h/2), K=exp(hH/2), e=(v−v⁻¹)E and F̃⁽ⁿ⁾=FⁿKⁿ/[n]q!, over ℤ[q±1] with color field ℚ(v). Positive framing uses r⁻¹. Vₙ has dimension n+1; dimension index N uses Vₙ₋₁. Reduce the unreduced unknot [n+1] before evaluating at roots. General Lie type retains root lattices, symmetrizers, lifts and parity.
 
-HabiroCyclotomicCompletions supplies the scalar inverse limit of ℤ[q] modulo cyclotomic factorial ideals. Distinguish the quantum-group image completion in the h-adic algebra from the color-lattice completion. QT.1 builds completed tensors and PBW forms from native quotient/tensor algebras; inverse-limit maps need not be injective.
+HabiroCyclotomicCompletions supplies the scalar ℤ[q] cyclotomic inverse limit. Distinguish quantum-group image and color-lattice completions. QT.1 uses native quotients/tensors and PBW forms; inverse-limit maps may fail injectivity.
 
-GeometricTopology owns framed links, presentation equivalence, linking matrices, surgery, Kirby calculus and hyperbolic manifolds. QT.0 imports these for refined admissible calculus. Single-knot Gauss codes/writhe and unframed Markov equivalence do not suffice. LieHighestWeight/RootSystems supply classical Lie/weight/PBW theory; QT.1 builds quantum presentations and integral ribbon forms/cores.
+GeometricTopology supplies framed links/equivalence, linking matrices, surgery, Kirby calculus and hyperbolic manifolds; QT.0 adds admissible refinements. Single-knot Gauss codes/writhe and unframed Markov equivalence are insufficient. Import classical Lie/weight/PBW theory from LieHighestWeight/RootSystems; QT.1 adds quantum presentations, integral ribbon forms and cores.
 
-K3BlochGroups supplies pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms supplies dilogarithm branches, Bloch–Wigner and regulators. QT.5 builds geometric flattenings and the full extended group. Compare Neumann’s iVol−CS modulo π²ℤ with GZ’s iVol+CS by negative conjugation, retaining periods and lifts. Trace-field descent requires algebraicity and boundary cancellation.
+K3BlochGroups owns pre-Bloch/Bloch groups, boundaries and Suslin/K₃ fibres; Polylogarithms owns dilogarithm branches and regulators. QT.5 adds geometric flattenings and the full extended group. Compare Neumann’s iVol−CS with GZ’s iVol+CS by negative conjugation, retaining π²ℤ periods and lifts. Trace-field descent needs algebraicity and boundary cancellation.
 
-Import Gaussian contraction and the integral Nahm/module theorem from HabiroNahmSeries, Frobenius coefficients and twisted K₃ modules from HabiroNumberFields. QT owns HB.9 coefficient-transfer, signed Kummer, integral-gluing and quadratic finite étale descent, including split components. The NZ bridge requires a symmetric **integral** Nahm matrix, parity, nondegenerate shapes and the exact arithmetic ring; invertible B yields only rational entries. QT.6 compares classical, one-loop and phase factors. Schrödinger, Schwartz-core and microlocal constructions import unbounded self-adjoint operators and functional calculus from OperatorTheory/SelfAdjointSpectralTheory. Import the formal pentagon from cyclotomic completions; build the analytic Faddeev comparison here.
+HabiroNahmSeries owns Gaussian contraction and integral Nahm/module theory; HabiroNumberFields owns Frobenius coefficients and twisted K₃ modules. QT owns HB.9 coefficient-transfer, signed Kummer, integral-gluing and quadratic finite étale descent, including split components. NZ needs an integral symmetric Nahm matrix, parity, nondegenerate shapes and the exact ring; invertible B gives only rational entries. QT.6 compares classical, one-loop and phase factors. OperatorTheory/SelfAdjointSpectralTheory supplies unbounded self-adjoint operators and functional calculus for Schrödinger/Schwartz-core/microlocal constructions. Cyclotomic completions supplies the formal pentagon; QT adds the analytic Faddeev comparison.
 
-QSeriesPartitionsAndMockModularForms owns scalar quantum modular/cocycle theory and its matrix, branch-aware Part II. QT.7 builds knot rows and comparisons; cocycles need invertibility and automorphy, and real analyticity is conjectural. General resurgence/Borel summation is outside QT. Wheeler’s two-variable MMR/Alexander and relative-Habiro comparison belongs to ArithmeticQuantumTopology, Part II, importing HabiroRings HR.1/HR.5.
+QSeriesPartitionsAndMockModularForms owns scalar quantum modular/cocycle theory and matrix branch-aware Part II; QT.7 adds knot comparisons; cocycles need invertibility and automorphy, while real analyticity is conjectural. Exclude general resurgence/Borel summation. Wheeler’s two-variable MMR/Alexander and relative-Habiro comparison belongs to ArithmeticQuantumTopology, Part II, importing HabiroRings HR.1/HR.5.
 
 ## Library interfaces
 
@@ -504,7 +504,7 @@ Specialize the Lusztig divided-power quantum group at the source root: q=s^L, s 
 
 ### Drinfeld–Jimbo algebra
 
-For a finite-dimensional simple complex Lie algebra with normalized short-root length²=2, put d_i=(α_i,α_i)/2∈{1,2,3}, v_i=v^d_i, q=v², and use root lattice Y⊂weight lattice X with D=|X/Y|. U_h(g) has Cartan-root commutators, [E_i,F_j]=δ_ij(K_i−K_i⁻¹)/(v_i−v_i⁻¹), and quantum Serre relations of degree 1−a_ij, with K_i=exp(hH_i/2) in the source convention. The generic U_q(g) over ℂ(v) embeds in U_h(g); its PBW root-vector and Lusztig divided-power integral forms are distinguished. Classical root data and ordinary PBW are imported from LieHighestWeight. Present U_q over ℂ(q) by adjoining central v,v⁻¹ with vv⁻¹=1 and v²=q. Set a_ij=⟨α_j,α_i∨⟩, the transpose of Mathlib’s `Base.cartanMatrix`, so B_ij=d_i a_ij is symmetric. Impose K_iE_jK_i⁻¹=v^B_ij E_j and K_iF_jK_i⁻¹=v^(−B_ij)F_j, and both Serre sums Σ_s(−1)^s[r choose s]_i X_i^(r−s)X_jX_i^s=0, r=1−a_ij, X=E,F. Here [n choose k]_i=v^(−d_i k(n−k)) Gaussian(q^d_i;n,k). `GenericQuantum.Algebra` is a `FreeAlgebra`/`RingQuot` presentation with a lift respecting all relators. `cartanOfBase` imports `RootPairing.Base`; `algebraOfBase` retains d. Compare separately with the h-adic algebra, PBW basis and integral forms.
+For simple complex g, normalize short-root length²=2; set d_i=(α_i,α_i)/2∈{1,2,3}, v_i=v^d_i, q=v², and use root lattice Y⊂weight lattice X with D=|X/Y|. U_h(g) has Cartan-root commutators, [E_i,F_j]=δ_ij(K_i−K_i⁻¹)/(v_i−v_i⁻¹), and quantum Serre relations of degree 1−a_ij, with K_i=exp(hH_i/2) in the source convention. U_q(g) over ℂ(v) embeds in U_h(g); distinguish PBW root-vector and Lusztig divided-power forms. Import classical root data/PBW from LieHighestWeight. Over ℂ(q), adjoin central v^±1 with v²=q. Set a_ij=⟨α_j,α_i∨⟩, the transpose of Mathlib’s `Base.cartanMatrix`, so B_ij=d_i a_ij is symmetric. Impose K_iE_jK_i⁻¹=v^B_ij E_j and K_iF_jK_i⁻¹=v^(−B_ij)F_j, and both Serre sums Σ_s(−1)^s[r choose s]_i X_i^(r−s)X_jX_i^s=0, r=1−a_ij, X=E,F. Here [n choose k]_i=v^(−d_i k(n−k)) Gaussian(q^d_i;n,k). `GenericQuantum.Algebra` uses `FreeAlgebra`/`RingQuot` and its lift; `cartanOfBase` imports `RootPairing.Base` and `algebraOfBase` retains d. Compare h-adic/PBW/integral forms.
 
 **Depends on.** `HopfAlgebra`; [RepresentationTheory/LieHighestWeight — layer-3-enveloping-algebra-verma-modules-and-lλ][LHW3]; [Topological ribbon Hopf algebras][AQT14]; [RepresentationTheory/LieHighestWeight — layer-1-cartan-subalgebras-and-the-root-space-decomposition](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/LieHighestWeight/README.md#layer-1-cartan-subalgebras-and-the-root-space-decomposition).
 
@@ -1208,7 +1208,9 @@ Let G be the Habiro–Le central parity extension of Y×Y/2Y, retaining its cent
 
 ### Quantum parity grading
 
-For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is generated by a central v̇ of order two, commuting K̇_α of order two and invertible ė_α, with K̇_α ė_β=v̇^((α,β))ė_βK̇_α and ė_αė_β=v̇^((α,β))ė_βė_α. Its quotient by ⟨v̇⟩ is Y×Y/2Y. The tensor grading amalgamates the central v̇ in all factors; G^⊗0=⟨v̇⟩. The generator degrees are deg(v)=v̇, deg(K_±α)=K̇_α, deg(E_α)=v̇^(d_α)ė_α and deg(F_α)=ė_α⁻¹K̇_α. The degree-g component spans quotient words of product degree g over ℂ(q). `GenericQuantum.general_parity_grading` states `DirectSum.IsInternal` of these components, their multiplicative closure and generator membership; `parity_grading_unique` characterizes them by the generator degrees. Its hypotheses are a_ii=2, a_ij≤0 for i≠j, d_i>0 and symmetry of d_i a_ij. The even subalgebra is the sum over G^ev. Tensor powers additionally require the central-v scalar-balancing comparison. It records integral square-root cancellation beyond Y-grading.
+G has central v̇²=1, commuting K̇_i²=1, invertible ė_i, and K̇_i ė_j=v̇^B_ij ė_j K̇_i, ė_i ė_j=v̇^B_ij ė_j ė_i; G/⟨v̇⟩=Y×Y/2Y. Assign v↦v̇, K_i^±1↦K̇_i, E_i↦v̇^d_i ė_i, F_i↦ė_i⁻¹K̇_i. `GenericQuantum.component` spans quotient words of degree g over ℂ(q). `general_parity_grading` gives internality, unit/product closure and generator membership; `parity_grading_unique` gives uniqueness, assuming a_ii=2, a_ij≤0 off diagonal, d_i>0 and symmetric B_ij=d_i a_ij.
+
+`Scalars`=ℂ(q)[v]/(v²−q) has basis (1,v), with components ℂ(q), vℂ(q). Quotient centrality gives `scalarMap` and the ℂ(v)-algebra structure. `evenAlgebra` is generated over ℂ(v) by E_i, F_i K_i, K_i^±2; its ℂ(q)-module is the sum over G^ev. `TensorPower n` uses Mathlib tensors over `Scalars`; `tensorComponent` spans homogeneous pure tensors over ℂ(q). Quotient Gⁿ by v̇_i v̇_j⁻¹: tensor balancing identifies the factor copies of v. At n=0 use ℂ(v) with the two scalar components and two-element grading group. Multiplication by v interchanges components, so each is not an ℂ(v)-submodule. This detects integral square-root cancellation beyond Y-grading.
 
 **Depends on.** [Drinfeld–Jimbo algebra][AQT08]; Mathlib `PresentedGroup`, `QuotientGroup` and `ZMod`.
 
@@ -1217,14 +1219,18 @@ For the simple-root Gram matrix B_ij=(α_i,α_j), symmetric with B_ii=2d_i, G is
 - `QuantumParityGroup`: The displayed presentation, its even subgroup and central quotient; symmetry and even diagonal retain v̇≠1.
 - `quantumParityDegree`: The displayed generator degrees; prove the Drinfeld–Jimbo relations homogeneous over ℂ(q) to obtain the unique grading.
 - `tensorParityGroup`: For n>0, quotient Gⁿ by v̇_i v̇_j⁻¹; for n=0 use `Multiplicative (ZMod 2)`. The one-factor group is G.
+- `scalarBasis`, `scalarComponent`, `scalarMap`: Basis, ℂ(q)-components and central scalar map.
+- `evenAlgebra_components`: Identify the generated even algebra with the sum of G^ev components.
+- `tensorComponent`, `tensor_components_internal`, `tensor_components_mul`: Internal decomposition/product closure under these Cartan hypotheses.
 
 **Tests.**
 
 - `parity_v_square`: The degree of v²=q is 1.
 - `parity_K_square`: The degree of K_α² is 1.
 - `parity_tensor_zero`: G^⊗0 has cardinality two and nonidentity sign. In two factors v̇₁=v̇₂. Type A₂ is noncommutative; an odd diagonal collapses v̇.
+- Scalar and empty-tensor tests include 1 and v² in degree 1, v in its odd degree, and exclude v from degree 1. Two factor inclusions identify v. Test even generators E_i, F_i K_i and K_i².
 
-**Sources.** [Habiro–Lê][AQT55], §§6.1–6.3, pp. 68–70; Proposition 6.2.
+**Sources.** [Habiro–Lê][AQT55], §3.3.2, p. 39, Proposition 3.3; §§6.1–6.3, pp. 68–70, Proposition 6.2 and §6.2.1.
 
 <a id="qt-4-strong-kirby-colors"></a>
 
