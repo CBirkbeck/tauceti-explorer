@@ -41380,8 +41380,9 @@
     "BP-PerfectoidShimuraVarieties~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PerfectoidShimuraVarieties~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7079"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7079",
+   "finishedAt": "2026-10-10T09:43:49Z"
   },
   {
    "kind": "blueprint",
@@ -48885,8 +48886,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80077,8 +80078,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81386,8 +81387,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
