@@ -1,3 +1,60 @@
+# Independent fix review: codex-kEnFR2, 10 October 2026
+
+Issue #6217; reviewer Codex — `codex-kEnFR2`. This session did none of the
+fixes, red team or verification. The bot confirmed the claim before work began.
+
+**HE.0 fixes: accepted. Whole queue job: blocked checkpoint.**
+
+The four findings applicable to the issue-named packet were checked against
+the verified red-team result, round-two fix report, current packet and supplier
+statements. No further mathematical or Lean signature correction was necessary.
+Earlier reviews are preserved in `reviewHistory` and below; this session's
+source locators, hashes and check results are in
+`verification.independentFixReviewSession`.
+
+| Finding | Verdict and independently checked correction |
+|---|---|
+| /2 | Accepted with explicit supplier obligations. Zhang Theorem 2.1, pp.203–204, requires the exact raised level and trivial character. HE.0 distinguishes this export from Diamond's weaker q-new criterion, rational Jacquet–Langlands, and the separately requested integral multiplicity-one and transport statements. |
+| /8 | Accepted with explicit supplier obligations. Zhang §6.3 and Theorems 6.4–6.5, pp.228–231, use geometric component groups. Theorem 7.1, pp.231–232, requires the recorded discriminant correction when deduced from Skinner A/B, pp.1–2; Skinner §2.5, pp.15–16, supplies the weaker integral argument under its separate residual and coinvariant conditions. The period and nonsquarefree variants remain requests. |
+| /9 | Accepted as an ownership correction. The accepted PAPER-CALEGARI-GERAGHTY-20 route assigns the general large-image theorems to the Faltings Part II. HE.7 keeps applications and records missing all-prime, adelic and GL₂-type exports. This checks ownership, rather than independently proving the general image theorem. |
+| /10 | Accepted with explicit supplier obligations. Howard Definition 1.2.3 and H.0–H.5, pp.7–9, and Theorems 1.6.1/1.6.5, pp.16–19, support ES.5's self-dual descent contract. Proposition 1.7.4 and Theorem 1.7.5, p.21, support the corrected cyclic-tensor system. Zanarella Definition 2.3.2, Proposition 2.3.3 and Theorem 2.3.6, pp.19–20, retain p≥5, both dual hypothesis lists, the prime-set condition and a nonzero bottom class. The exact equality is requested from ES.5, without the unrelated over-Q divisibility prerequisite. |
+
+Primary versions read: [Zhang, version of record](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf),
+[Howard v1](https://arxiv.org/pdf/1202.6340v1),
+[Skinner v1](https://arxiv.org/pdf/1407.1093v1), and
+[Zanarella v1](https://arxiv.org/pdf/1908.09197v1).
+Zhang was read in the maintainer-cleared library; neither its file nor passages
+were copied. This continuation does not claim a fresh rereading of every HE.0
+source or all ten source issues.
+
+All thirteen Mathlib baseline statements were read at the exact pin. The two
+p-adic ideal/valuation lemmas keep their nonzero restrictions. The current
+Tau Ceti `levelRaise` is a degeneracy operator, not the exact-level supplier.
+Current upstream boundaries and the reviewed library audit were inspected;
+the generic arithmetic carriers remain imports rather than new HE definitions.
+
+Validation: packet checker zero errors/warnings; source-issue schema and version
+checks zero problems (ten issues, 24 receipts); `lean-check` exit 0 with 114
+warnings, all `sorry`. The suggested file is unchanged. Across 30,589 indexed
+nodes, there are no duplicate ids or cycles reachable from HE.0. HE.6 has six
+clean and thirteen Zhang nodes; none of the 62 HE.8-family nodes depends on
+HE.6. The period export has no Heegner input. All 78 node names and every API/test name
+are present in Lean. These checks do not establish implementation or remove
+the packet's 21 gaps and 63 requests.
+
+The live issue authorizes only HE.0, its suggested file and this report. The
+queue instead requires eleven packets: `deliverables_complete` is false for
+that job and true for an in-memory copy restricted to the live issue's three
+outputs. [WORKERS.md](../WORKERS.md) says “Edit only the files the issue names,
+plus your own scratch space.” Scope clarification was requested and remains
+unanswered. Completing the ten extra independent reviews requires authorization,
+or the queue must be aligned with the live issue. The handoff lists those
+packets. No extra packet or queue entry was edited.
+
+---
+
+Preserved earlier reports follow, with their original verification scope.
+
 # Continuation: codex-mVQR9r, 10 October 2026
 
 Issue #6217; independent reviewer Codex — `codex-mVQR9r`.
