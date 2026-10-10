@@ -15,62 +15,74 @@
       {
         "ref": "mathlib:CategoryTheory.Aut",
         "module": "Mathlib/CategoryTheory/Endomorphism",
-        "provides": "Automorphisms as native isomorphisms; multiplication is opposite arrow order, so (a*b) acts as a after b."
+        "provides": "Automorphisms as native isomorphisms; multiplication is opposite arrow order, so (a*b) acts as a after b.",
+        "checked": "Independent review 2026-10-10, pinned commit: Endomorphism.lean:119–140: Aut X is X≅X; multiplication trans y x is functional composition."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
         "module": "Mathlib/CategoryTheory/Whiskering",
-        "provides": "Restriction of a natural isomorphism along a functor, with its actual components."
+        "provides": "Restriction of a natural isomorphism along a functor, with its actual components.",
+        "checked": "Independent review 2026-10-10, pinned commit: Whiskering.lean:218–229: restriction is the whiskering functor applied to a natural isomorphism, with the expected hom/inv components."
       },
       {
         "ref": "mathlib:CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding",
         "module": "Mathlib/CategoryTheory/Galois/Topology",
-        "provides": "The native evaluation embedding of Aut F is closed; its induced topology has continuous group operations and gives the profinite Galois-category automorphism group."
+        "provides": "The native evaluation embedding of Aut F is closed; its induced topology has continuous group operations and gives the profinite Galois-category automorphism group.",
+        "checked": "Independent review 2026-10-10, pinned commit: Galois/Topology.lean:107–127: closed embedding and compact, T2, totally disconnected topological group instances for Aut F; no scheme Galois-category instance is asserted."
       },
       {
         "ref": "mathlib:ContinuousMonoidHom",
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom",
-        "provides": "A continuous multiplicative homomorphism extending MonoidHom, with composition and the identity."
+        "provides": "A continuous multiplicative homomorphism extending MonoidHom, with composition and the identity.",
+        "checked": "Independent review 2026-10-10, pinned commit: ContinuousMonoidHom.lean:57: extends the native monoid homomorphism and continuous map; the suggested continuous sections use that carrier."
       },
       {
         "ref": "mathlib:MulAction.orbitRel.Quotient",
         "module": "Mathlib/GroupTheory/GroupAction/Defs",
-        "provides": "The native quotient of the orbit equivalence relation of an actual group action."
+        "provides": "The native quotient of the orbit equivalence relation of an actual group action.",
+        "checked": "Independent review 2026-10-10, pinned commit: GroupAction/Defs.lean:349–350: quotient of the actual orbit setoid, not a substitute branch-label quotient."
       },
       {
         "ref": "mathlib:Subgroup.topologicalClosure",
         "module": "Mathlib/Topology/Algebra/Group/Subgroup",
-        "provides": "Closure of the carrier of a subgroup, again a subgroup of a topological group."
+        "provides": "Closure of the carrier of a subgroup, again a subgroup of a topological group.",
+        "checked": "Independent review 2026-10-10, pinned commit: Group/Subgroup.lean:40–43: closure as a subgroup under the enclosing topological-group hypotheses."
       },
       {
         "ref": "mathlib:ZMod",
         "module": "Mathlib/Data/ZMod/Defs",
-        "provides": "The ring of integers modulo n; for positive n its native finite carrier is Fin n."
+        "provides": "The ring of integers modulo n; for positive n its native finite carrier is Fin n.",
+        "checked": "Independent review 2026-10-10, pinned commit: ZMod/Defs.lean:142–144: zero gives integers; successor modulus gives Fin (n+1). Positive indices are essential."
       },
       {
         "ref": "mathlib:ZMod.card",
         "module": "Mathlib/Data/ZMod/Defs",
-        "provides": "When ZMod n has a Fintype instance its cardinality is n; positive ramification indices supply that instance."
+        "provides": "When ZMod n has a Fintype instance its cardinality is n; positive ramification indices supply that instance.",
+        "checked": "Independent review 2026-10-10, pinned commit: ZMod/Defs.lean:166–169: cardinality equals modulus under a Fintype instance; branchNeZero supplies the positive case."
       },
       {
         "ref": "tauceti:TauCeti.AbsoluteGaloisGroup",
         "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup",
-        "provides": "Gal(SeparableClosure k/k), with the inherited Krull topology, compared to the native absolute Galois group."
+        "provides": "Gal(SeparableClosure k/k), with the inherited Krull topology, compared to the native absolute Galois group.",
+        "checked": "Independent review 2026-10-10, pinned commit: AbsoluteGaloisGroup.lean:230: abbreviation for Gal(SeparableClosure K/K), using the existing Krull topology."
       },
       {
         "ref": "tauceti:TauCeti.kummerMap",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
-        "provides": "For n invertible in a field k, the multiplicative connecting map k-units to the existing first continuous cohomology with roots-of-unity coefficients."
+        "provides": "For n invertible in a field k, the multiplicative connecting map k-units to the existing first continuous cohomology with roots-of-unity coefficients.",
+        "checked": "Independent review 2026-10-10, pinned commit: Kummer.lean:187–189: units to multiplicative H1 of AbsoluteGaloisGroup with KummerCoeff; n must be a unit in K."
       },
       {
         "ref": "tauceti:TauCeti.kummerMap_eq_kummerCocycleClass",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
-        "provides": "The Kummer class of a is represented by sigma(alpha)/alpha for an n-th root alpha of a in the separable closure."
+        "provides": "The Kummer class of a is represented by sigma(alpha)/alpha for an n-th root alpha of a in the separable closure.",
+        "checked": "Independent review 2026-10-10, pinned commit: Kummer.lean:215–217: additive conversion of the multiplicative Kummer map equals the existing root cocycle class for alpha^n equal to the embedded unit."
       },
       {
         "ref": "tauceti:TauCeti.kummerMap_eq_one_iff",
         "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
-        "provides": "The Kummer class of a unit is neutral exactly when it is an n-th power in the base field."
+        "provides": "The Kummer class of a unit is neutral exactly when it is an n-th power in the base field.",
+        "checked": "Independent review 2026-10-10, pinned commit: Kummer.lean:268–269: neutral class iff the base-field unit is an n-th power."
       }
     ]
   },
@@ -103,13 +115,13 @@
       "id": "kim2008",
       "title": "Fundamental groups and Diophantine geometry",
       "authors": "Minhyong Kim",
-      "edition": "arXiv:0804.1008v1 (2008), expository preprint; published Cent. Eur. J. Math. 8 (2010), 633–645, not collated here",
-      "url": "https://arxiv.org/pdf/0804.1008",
+      "edition": "Central European Journal of Mathematics 8 (2010), 633–645, DOI 10.2478/s11533-010-0047-y; published version collated with arXiv:0804.1008v1",
+      "url": "https://d-nb.info/1372511016/34",
       "readSections": [
-        "PDF pp.4–9: finite-etale path torsors, rational Galois action, and the nonabelian cocycle/classification discussion."
+        "Published pp. 637–642 (PDF pp. 5–10): finite-cover paths, rational descent and right-torsor cocycles; compared with arXiv:0804.1008v1 PDF pp. 4–9. The gauge display on published p. 642 retains the preprint reversal."
       ],
       "read": "2026-10-10",
-      "sha256": "4bb78299619fad44ebeb8aeb8525b0817e7fe6e5004491880d7fd314a1a6ae68"
+      "sha256": "2a3cb8cf170ddeb841a750bcfdff4478a5696e8bb5a3872bc340947af7497e53"
     },
     {
       "id": "stacks",
@@ -164,7 +176,7 @@
         },
         {
           "sourceId": "kim2008",
-          "locator": "arXiv:0804.1008v1, PDF pp.4–9",
+          "locator": "Published article, pp. 637–642 (PDF pp. 5–10); collated with arXiv:0804.1008v1, PDF pp. 4–9",
           "match": "Rational path torsors carry a Galois action before the unipotent quotient."
         }
       ],
@@ -180,6 +192,11 @@
         "name": "ArithmeticPath"
       },
       "api": [
+        {
+          "name": "ArithmeticPath.ext",
+          "role": "extensionality",
+          "statement": "Two arithmetic paths with equal underlying natural isomorphisms are equal; the restriction proof carries no extra data."
+        },
         {
           "name": "ArithmeticPath.restrict_id",
           "statement": "Restriction to constants, transported by r_b and r_x, is the identity.",
@@ -249,7 +266,7 @@
           "how": "Supply the finite-étale arithmetic path torsor before applying the unipotent realization and Albanese map."
         },
         {
-          "where": "Kim 2008, PDF pp. 4–8; NC.3/torsor-classification",
+          "where": "Kim 2010, printed pp. 637–641; arXiv:0804.1008v1, PDF pp. 4–8; NC.3/torsor-classification",
           "how": "Use the existing classification for the actual path carrier and its Galois action."
         }
       ],
@@ -290,7 +307,7 @@
         {
           "sourceId": "kim2005",
           "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
-          "match": "Gauge change is conjugation of a fixed endpoint section after path identification."
+          "match": "The right-torsor change-of-point calculation motivates the convention. Conjugation of endpoint sections is the elementary calculation in the imported arithmetic extension, rather than a statement about sections in this unipotent source."
         }
       ],
       "acceptance": [
@@ -382,7 +399,7 @@
         },
         {
           "sourceId": "kim2008",
-          "locator": "arXiv:0804.1008v1, PDF pp.4–9",
+          "locator": "Published article, pp. 637–642 (PDF pp. 5–10); collated with arXiv:0804.1008v1, PDF pp. 4–9",
           "match": "The path torsor determines the nonabelian Kummer/Albanese class after realization."
         }
       ],
@@ -427,7 +444,7 @@
         {
           "name": "pathCocycle_distinct_sections",
           "statement": "If s1(sigma)≠s0(sigma), c_1(sigma)≠1.",
-          "kind": "value"
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -688,7 +705,7 @@
         {
           "name": "inertiaOrbit_degree_three",
           "statement": "One branch of degree 3 has a singleton orbit quotient.",
-          "kind": "value"
+          "kind": "computation"
         },
         {
           "name": "inertiaOrbit_distinct_branches",
@@ -831,7 +848,7 @@
         {
           "name": "goodPath_ordered_relation",
           "statement": "If a,b topologically generate, identity paths with gamma0=a, gammaInfinity=b and gamma1=b inverse a inverse are good.",
-          "kind": "value"
+          "kind": "compatibility"
         },
         {
           "name": "goodPath_reversed_order",
@@ -1114,12 +1131,14 @@
   "gaps": [
     {
       "title": "Native geometric arithmetic-path signatures",
-      "detail": "The pinned library has abstract Galois categories and affine finite-etale algebra fibres, but no instance for the full finite-cover category of a nonaffine scheme and no arithmetic/tame tangent endpoint API on it. ArithmeticPath is a native natural-isomorphism subtype and the continuous section/kernel formulas compile. Their actual scheme instantiation, topological torsor instance and identification with NC.3 are missing signatures, not opaque Prop parameters. Once IG.0/IG.1 export these carriers, instantiate the displayed statement and type the same class/section/functoriality theorems.",
+      "detail": "The pinned library has abstract Galois categories and affine finite-etale algebra fibres, but no instance for the full finite-cover category of a nonaffine scheme and no arithmetic/tame tangent endpoint API on it. ArithmeticPath is a native natural-isomorphism subtype and the continuous section/kernel formulas compile. Their actual scheme instantiation, topological torsor instance and identification with NC.3 are missing signatures, not opaque Prop parameters. Once IG.0/IG.1 export these carriers, instantiate the displayed statement and type the same class/section/functoriality theorems. The native fixed-path and reference-action equations do not yet identify the geometric torsor class with the imported NC.3 H1, including its neutral-class and twisting comparisons.",
       "neededBy": [
         "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
         "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
-        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality"
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change"
       ]
     },
     {
@@ -1185,8 +1204,14 @@
       "searched": [
         "Author publication page https://www.williamyunchen.com/ and author-hosted Annals copy, accessed 2026-10-10: no correction located.",
         "Annals article page https://annals.math.princeton.edu/2024/199-1/p05, accessed 2026-10-10: no correction linked.",
-        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain."
-      ]
+        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain.",
+        "Independent review 2026-10-10 rechecked the author and Annals pages and latest listed arXiv v2; no correction located. Retrieved v2 SHA-256 is recorded in sourceVersions."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read published Definition 4.2.1, p. 364, and the orbit proof on pp. 364–365. For a connected degree-d finite étale cover of A1_C, compactification can ramify only at infinity; Riemann–Hurwitz gives 2g−2=−d−r with r≥1, forcing d=1. Thus the global group is trivial while the punctured-tangent group is nontrivial. Use the inertia image; the orbit theorem survives.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E-NC0-punctured-tangent",
@@ -1201,25 +1226,37 @@
       "searched": [
         "Author publication page https://www.williamyunchen.com/ and author-hosted Annals copy, accessed 2026-10-10: no correction located.",
         "Annals article page https://annals.math.princeton.edu/2024/199-1/p05, accessed 2026-10-10: no correction linked.",
-        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain."
-      ]
+        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain.",
+        "Independent review 2026-10-10 rechecked the author and Annals pages and latest listed arXiv v2; no correction located. Retrieved v2 SHA-256 is recorded in sourceVersions."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the published display and the normalized tangent in Definition 4.2.1, p. 364: zero is the deleted vector and the specified nonzero vector becomes 1. The displayed deletion of 1 is a misprint; the power-map and orbit proof use the intended deletion of zero.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0"
+      }
     },
     {
       "id": "AnabelianGeometryAndNonabelianChabauty/E-NC0-preprint-gauge-order",
       "source": "kim2008",
       "kind": "error",
-      "locator": "arXiv:0804.1008v1, PDF p.9, displayed action on cocycles following the right-torsor cocycle law; published version not collated",
+      "locator": "Published Central European Journal of Mathematics 8 (2010), p. 642 (PDF p. 10), cocycle action display; also arXiv:0804.1008v1, PDF p. 9",
       "printed": "For cocycles with c(sigma*tau)=c(sigma) sigma(c(tau)), the displayed proposed gauge value is sigma(l inverse)c(sigma)l.",
       "correction": "For a right torsor with sigma(p)=p c(sigma), changing p to p·l gives l inverse c(sigma) sigma(l). Its inverse-witness form is l c(sigma) sigma(l inverse).",
       "reason": "The displayed reversed formula need not preserve the stated cocycle law. In S4 with functional composition, let a=(123), l=(234), let C3 act by conjugation by a, and use c(g^j)=a^(-j). The proposed d has d(g^2)=(243), whereas d(g) g(d(g))=(123). The right-torsor formula follows directly by applying sigma to p·l.",
       "affects": "a stated result",
-      "known": "new in the preprint checked; published-version status unknown",
+      "known": "No existing correction located in the author page, listed arXiv history or title/DOI correction searches; reversal confirmed in both preprint and published version.",
       "searched": [
         "arXiv:0804.1008 has one listed version, v1; checked its PDF p.9 on 2026-10-10.",
         "Author research page https://www.minhyongkim.net/research/academic-publications lists the 2010 publication and links Warwick leeds.pdf; no correction listed; the linked PDF could not be fetched.",
         "De Gruyter Open Mathematics volume 8 issue 4 publisher page: fetching returned 403; no published full text or correction could be inspected.",
-        "Oxford author-original archive https://ora.ox.ac.uk/objects/uuid:29378b9e-3cdd-4367-b2d3-eb2a50138d43 identifies the 2008 original, not a correction."
-      ]
+        "Oxford author-original archive https://ora.ox.ac.uk/objects/uuid:29378b9e-3cdd-4367-b2d3-eb2a50138d43 identifies the 2008 original, not a correction.",
+        "Independent review 2026-10-10 found the public published PDF at https://d-nb.info/1372511016/34, read pp. 637–642, and confirmed the p. 642 display. Exact-title and DOI 10.2478/s11533-010-0047-y erratum/correction searches found no correction. The stable finding id is retained from the preprint-only first pass."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read arXiv v1 p. 9 and the published p. 642, including the rendered page. The same reversed gauge formula occurs in both. Direct evaluation of the C3/S4 example gives d(g)=(143), d(g^2)=(243), and d(g)g(d(g))=(123). The corrected right-torsor gauge obeys all nine C3 products in that model and follows from applying sigma to p·l.",
+        "by": "REV-AnabelianGeometryAndNonabelianChabauty--NC.0"
+      }
     }
   ],
   "sourceVersions": [
@@ -1232,11 +1269,27 @@
     },
     {
       "kind": "preprint",
-      "url": "https://arxiv.org/pdf/0804.1008",
-      "citation": "arXiv:0804.1008v1 (2008), expository preprint; published Cent. Eur. J. Math. 8 (2010), 633–645, not collated here",
+      "url": "https://arxiv.org/pdf/0804.1008v1",
+      "citation": "arXiv:0804.1008v1 (2008), expository preprint; collated with the 2010 published article during independent review",
       "read": "2026-10-10",
       "sha256": "4bb78299619fad44ebeb8aeb8525b0817e7fe6e5004491880d7fd314a1a6ae68",
-      "note": "Published full text not retrieved: the De Gruyter issue page returned 403 and the author-linked Warwick leeds.pdf could not be fetched. The gauge finding is scoped to arXiv v1, not asserted against the published version."
+      "note": "The gauge-order finding was first recorded against this preprint; independent review located the published PDF in the German National Library archive and confirmed the same display on p. 642."
+    },
+    {
+      "kind": "published",
+      "url": "https://d-nb.info/1372511016/34",
+      "citation": "Minhyong Kim, Central European Journal of Mathematics 8 (2010), 633–645, DOI 10.2478/s11533-010-0047-y",
+      "read": "2026-10-10",
+      "sha256": "2a3cb8cf170ddeb841a750bcfdff4478a5696e8bb5a3872bc340947af7497e53",
+      "note": "Publisher pagination and DOI checked; pp. 637–642 collated with arXiv v1. The gauge display on p. 642 was also checked in the rendered page."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2011.12940v2",
+      "citation": "William Chen, arXiv:2011.12940v2 (2021), latest listed arXiv version",
+      "read": "2026-10-10",
+      "sha256": "f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc",
+      "note": "Definition 4.2.1 retains both local-inertia injectivity and the puncture misprint. Its extra Proposition 4.2.3(a) inertia/cotangent clause is absent from the published version, which remains authoritative."
     }
   ],
   "inheritedTargets": [
@@ -1610,7 +1663,7 @@
   "sourceNotes": [
     "Published Proposition 4.2.3(a), pp.364–365, correctly identifies the cotangent of the graded tangent line at its zero point with the original cotangent. The preprint version additionally asserted an inertia action on the original cotangent; that assertion is absent from the published statement. Use the published version, not the superseded clause.",
     "All statements and findings here are in the worker’s own words. No source passages, PDFs or source-by-source summaries are deposited in the repository.",
-    "Kim 2008 is the expository Fundamental groups and Diophantine geometry, not the different 2009 unipotent Albanese paper. Its p.9 gauge formula is corrected using the fixed right-torsor convention; the printed-version correction status is unknown. No uncollated published error is claimed."
+    "Kim 2008 denotes the expository Fundamental groups and Diophantine geometry, not the different 2009 unipotent Albanese paper. Independent review collated its published 2010 version and confirmed the same gauge-order reversal on p. 642; sourceVersions records both receipts. Kim 2005 Proposition 1 concerns unipotent torsors: the present general topological classification is imported from NC.3, and the section identities are elementary extension calculations."
   ],
   "currentLibraryAudit": {
     "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
@@ -1638,5 +1691,73 @@
     "verdict": "not built",
     "read": "2026-10-10",
     "disposition": "Confirmed the distinction between native abstract Galois/topological or affine algebra machinery and the missing scheme arithmetic/tangential instantiation. Import IG.0/IG.1; resolve the IG.6/PS.9 ownership notes using accepted RS-29. Current Tau Ceti additions are separately audited in currentLibraryAudit and are not new nodes."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AnabelianGeometryAndNonabelianChabauty--NC.0",
+    "date": "2026-10-10",
+    "notes": "Independent review by Codex (GPT-6) — codex-S6JnVF of codex-Vohif4’s BP-NC.0. Read all 12 nodes, native signatures, six definition/construction APIs and 19 tests, three Kummer examples, all 12 pinned declarations, the 26 inherited contracts, named suppliers, current-library/upstream ownership, and the cited public source proofs. Added arithmetic-path extensionality, corrected three test kinds, made two missing geometric class comparisons explicit in the existing gap, clarified source scope, and collated Kim’s published version. All three source findings are independently confirmed. NC.0 remains planned with six gaps and eight precise requests; no implementation or closure claim. See the review report for evidence and validation.",
+    "checked": [
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "verdict": "corrected",
+        "note": "Checked identity-on-constants, nonempty profinite kernel torsor and semilinear action against Stacks 58.6.2/58.14.3 and Kim published pp. 637–642. Added extensionality; geometric instances remain the exact IG.1 request/gap."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+        "verdict": "corrected",
+        "note": "Checked backward transport and its inverse conjugation order using native Aut multiplication. Clarified that Kim 2005 motivates gauge conventions; the endpoint-section identity is derived from the arithmetic extension."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "verdict": "corrected",
+        "note": "Checked continuity and both cocycle/gauge identities, matching NC.3. Updated the published Kim locator and changed the distinct-sections test to a permitted non-example category."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+        "verdict": "verified",
+        "note": "The identity t=c·s_b and fixed-path/conjugacy equivalence follow by cancellation. Neutrality c=k alpha(k)^−1 fixes h·k. The missing geometric H1 instantiation is now explicitly listed in its existing gap."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change",
+        "verdict": "verified",
+        "note": "Conjugation by s1 is Int(c) followed by conjugation by s0. NC.3/twisting supplies the equivalence with the changed action, repointed at [c]; no raw pointed equality is claimed. Its geometric instantiation is explicitly in the gap."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+        "verdict": "verified",
+        "note": "Whiskering and maps preserving both sections commute with the displayed cocycles. Finite-separable base change uses compatible separable-closure embeddings and restriction, rather than an unqualified arithmetic product formula."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/rational-tangential-kummer",
+        "verdict": "verified",
+        "note": "Chen power-cover tangent normalization and the three pinned Kummer declarations give a/lambda and 1−a. At lambda=1,a=2 both square classes obstruct neutrality. Typed finite projections are tests; geometric comparison is omitted in its named gap."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/local-inertia-orbit-model",
+        "verdict": "corrected",
+        "note": "The actual zpowers permutation action translates each positive ZMod fibre transitively and preserves branch labels. Projection is bijective after the native orbit quotient. Corrected the degree-three test category to computation."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization",
+        "verdict": "verified",
+        "note": "Read Chen 4.2 and Proposition 4.2.3(b), pp. 362–365, including the graded power-map proof. Finite normalized regular branches need the exact SF.0/SF.3 inputs requested; specialization is to points and uses the inertia image without injectivity."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-good-path",
+        "verdict": "corrected",
+        "note": "Read Definition 4.3.1, p. 366: both topological generation and the infinity–one–zero relation are retained. Native categorical composition is consistent. Corrected the ordered-relation test category to compatibility."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-symmetric-path",
+        "verdict": "verified",
+        "note": "Read Definition 4.3.1 and following paragraph, p. 366. Actual inversion pullback and endpoint identifications give the reversed path with integer peripheral witnesses; the zero-inertia involution discriminator is valid."
+      },
+      {
+        "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence",
+        "verdict": "verified",
+        "note": "Read the analytic existence argument on p. 366. Transfer requires the explicitly requested normalized tangent-germ comparison. Descending tangent coefficients and transporting the entire compatible root system gives the characteristic-zero reduction; no canonical or Galois-fixed path is asserted."
+      }
+    ]
   }
 }
