@@ -16,385 +16,420 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The actual inverse-limit adic completion carrier for a ring or module.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.flat_of_isNoetherian",
         "kind": "instance",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "The adic completion of a Noetherian ring is flat over that ring.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
         "provides": "For a finite module over a Noetherian ring, tensoring with the completed ring identifies with its adic completion.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:AdicCompletion.residueField_map_bijective",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/AdicCompletion/LocalRing.lean",
         "provides": "The local completion map induces a bijection of residue fields.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₁'",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/ExactSequences.lean",
         "provides": "Exactness at the first covariant Ext term in the long exact sequence of a short exact sequence.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₂'",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/ExactSequences.lean",
         "provides": "Exactness at the middle covariant Ext term in the long exact sequence.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₃'",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/ExactSequences.lean",
         "provides": "Exactness at the connecting covariant Ext term in the long exact sequence.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.mk₀_smul",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Linear.lean",
         "provides": "The degree-zero Ext class of a scalar multiple is the corresponding scalar multiple of the class.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.postcompOfLinear",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Linear.lean",
         "provides": "Postcomposition on Ext, expressed as a linear map for a linear category.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.smul_comp",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Linear.lean",
         "provides": "Scalar multiplication commutes with the Yoneda composition of Ext classes.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.Abelian.Ext.smul_eq_comp_mk₀",
         "kind": "lemma",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Linear.lean",
         "provides": "Scalar multiplication of an Ext class is composition with a scalar identity class.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.ProjectiveResolution",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean",
         "provides": "A native chain complex of projective objects with an augmentation that is a quasi-isomorphism to the object in degree zero.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.ShortComplex.ShortExact.projectiveDimension_X₃_eq_succ_of_not_projective",
         "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
         "provides": "In a short exact sequence with projective middle term and nonprojective last term, the last projective dimension is the first plus one.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.hasProjectiveDimensionLT_iff",
         "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
-        "provides": "A natural projective-dimension bound is equivalent to vanishing Ext in the stated degree against every target.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "provides": "HasProjectiveDimensionLT X n is equivalent to vanishing of every Ext class from X against every target in every degree i≥n, in an abelian category with HasExt.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.projectiveDimension",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
         "provides": "The native extended-natural projective dimension, with bottom for the zero object.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.projectiveDimension_eq_zero_iff",
         "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
         "provides": "Projective dimension zero characterizes nonzero projective objects.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:CategoryTheory.projectiveDimension_le_iff",
         "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
         "provides": "A finite upper bound on the native dimension is equivalent to the corresponding projective-dimension bound predicate.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.Cotangent",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Cotangent.lean",
         "provides": "The native ideal conormal module, the ideal modulo its square, carrying its quotient-ring action.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.IsIntegral.comap_lt_comap",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/GoingUp.lean",
         "provides": "Strict inclusions between prime ideals contract strictly along an integral ring map.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.exists_ideal_over_prime_of_isIntegral",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/GoingUp.lean",
         "provides": "An integral ring map lifts a base prime over the specified ideal when its contraction is contained in that prime.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.exists_ltSeries_of_hasGoingUp",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/HasGoingUp.lean",
         "provides": "Going up lifts a finite strict prime chain and preserves its length.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.exists_minimalPrimes_comap_eq",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Localization.lean",
         "provides": "A minimal prime over the contraction of an ideal lifts to a minimal prime over that ideal with precisely that contraction.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
         "provides": "Under flatness and the stated prime/localization hypotheses, prime height splits into contracted height and fibre height.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.ofList",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "The ideal generated by the elements of a finite list.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.subset_union_prime_finite",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/Operations.lean",
         "provides": "Finite prime avoidance, allowing the stated two nonprime exceptions.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Ideal.toCotangent_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Cotangent.lean",
         "provides": "Every element of the ideal conormal has an ideal representative.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:IsHausdorff.of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
         "provides": "For a finite module over a Noetherian local ring, an ideal inside the maximal ideal has separated adic filtration.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:IsLocalRing.maximalIdeal_height_eq_ringKrullDim",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Height.lean",
         "provides": "In a local ring, maximal-ideal height equals the ring Krull dimension.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:IsProjective.iff_projective",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Category/ModuleCat/Projective.lean",
         "provides": "Module-theoretic and categorical projectivity agree for a module object, with the required universe smallness.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:IsRegularLocalRing",
         "kind": "class",
         "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
         "provides": "The native Noetherian local regularity class equates the minimal maximal-ideal generator number with ring dimension.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Localization.AtPrime",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Localization/AtPrime/Basic.lean",
         "provides": "The actual localization at the complement of a prime ideal.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Algebra.lean",
         "provides": "A flat local algebra map between local rings is faithfully flat.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Finite.exists_fin'",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Finiteness/Cardinality.lean",
         "provides": "A finite module admits a surjection from a finite standard free module.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Flat",
         "kind": "class",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Native flatness, with tensor preservation of injective linear maps.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.Flat.of_projective",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Flat/Basic.lean",
         "provides": "Projective modules are flat.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.annihilator",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Maps.lean",
         "provides": "The kernel of the scalar action on a module.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean",
         "provides": "Minimal primes of a finite module annihilator are associated over a Noetherian ring.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.associatedPrimes.preimage_comap_associatedPrimes_eq_associatedPrimes_of_isLocalizedModule",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean",
         "provides": "Associated primes of a localized module are exactly the primes whose contractions are associated in the original module over a Noetherian ring.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.free_of_flat_of_isLocalRing",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/LocalRing/Module.lean",
         "provides": "A finite flat module over a local ring is free.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.supportDim",
         "kind": "def",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "The Krull dimension of module support, with bottom for the zero module.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.supportDim_eq_ringKrullDim_quotient_annihilator",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/KrullDimension/Module.lean",
         "provides": "For a finite module, support dimension equals the dimension of the ring modulo its annihilator.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.supportDim_le_supportDim_quotSMulTop_succ",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/KrullDimension/Regular.lean",
         "provides": "A maximal-ideal element reduces finite-module support dimension by at most one over a Noetherian local ring.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.supportDim_quotSMulTop_succ_eq_supportDim",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/KrullDimension/Regular.lean",
         "provides": "A module-regular maximal-ideal element reduces finite-module support dimension by exactly one.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Module.support_quotSMulTop",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Support.lean",
         "provides": "The support of a finite module modulo an element is its original support intersected with the vanishing set of that element.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:ModuleCat.projectiveDimension_quotient_eq_length",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Regular/ProjectiveDimension.lean",
         "provides": "The quotient of a Noetherian local ring by a native regular list has projective dimension equal to the list length.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:Order.krullDim_le_of_strictMono",
         "kind": "lemma",
         "module": "Mathlib/Order/KrullDimension.lean",
         "provides": "A strictly increasing map of ordered sets gives an upper bound for their Krull dimensions.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "Native weak regularity plus a nonzero final quotient.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular.of_faithfullyFlat",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Regular/Flat.lean",
         "provides": "A ring-regular list stays regular after a faithfully flat algebra extension.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsRegular.of_faithfullyFlat_of_isBaseChange",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Regular/Flat.lean",
         "provides": "A module-regular list stays regular on its faithfully flat base change.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsWeaklyRegular",
         "kind": "structure",
         "module": "Mathlib/RingTheory/Regular/RegularSequence.lean",
         "provides": "Successive multiplication maps on the preceding quotients are injective.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:RingTheory.Sequence.IsWeaklyRegular.isRegular_of_isLocalization_of_mem",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Regular/Flat.lean",
         "provides": "A weakly regular ring list becomes regular on a prime localization if all its entries lie in that prime.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:associatedPrimes.finite",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean",
         "provides": "Finite modules over Noetherian rings have finitely many associated primes.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:associatedPrimes.subset_of_injective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
         "provides": "An injective module map includes the source associated primes in those of the target.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:biUnion_associatedPrimes_eq_zero_divisors",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
         "provides": "Over a Noetherian ring, the union of module associated primes is exactly its scalar zero divisors.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       },
       {
         "ref": "mathlib:isNoetherian_linearMap",
         "kind": "instance",
         "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
         "provides": "Linear maps from a finite module into a Noetherian module form a Noetherian module.",
-        "checked": "Statement and its surrounding hypotheses read at Mathlib082e2d3; index used only to normalize the full name."
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.lTensor_injective_iff_injective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "Tensoring a linear map with a faithfully flat module reflects and preserves injectivity, without finiteness hypotheses.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Module.FaithfullyFlat.nontrivial_tensorProduct_iff_right",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
+        "provides": "For a faithfully flat left tensor factor, the tensor product is nontrivial exactly when its right factor is nontrivial.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "A finitely generated submodule N with N≤I•N is zero when I is contained in the Jacobson radical of zero.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "For finitely generated N′ and I inside the Jacobson radical of zero, N′≤N+I•N′ implies N′≤N.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.ProjectiveResolution.extAddEquivCohomologyClass",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Abelian/Projective/Ext.lean",
+        "provides": "Ext from the resolved object identifies additively with the cohomology classes of the Hom complex from its actual projective resolution, in an abelian category with HasExt.",
+        "checked": "Statement, namespace and surrounding hypotheses independently read at Mathlib 082e2d3 by REV-DeformationAndDerivedPatchingAlgebra--R03.3 on 2026-10-10."
       }
     ]
   },
@@ -442,7 +477,7 @@
       "id": "cg",
       "title": "Modularity lifting beyond the Taylor–Wiles method",
       "authors": "Frank Calegari and David Geraghty",
-      "edition": "Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "edition": "Public author-hosted publisher-formatted copy, DOI10.1007/s00222-017-0749-x; inspected 2026-10-10. Locators below use one-based PDF pages.",
       "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
       "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
       "accessed": "2026-10-10",
@@ -454,7 +489,7 @@
       "id": "kisin",
       "title": "Moduli of finite flat group schemes, and modularity",
       "authors": "Mark Kisin",
-      "edition": "Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "edition": "Annals of Mathematics 170 (2009), pp.1085–1180; publisher PDF inspected 2026-10-10.",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf",
       "sha256": "076f8bb6ec683633f7742d27504b97f5feaef2ddbae2bc5dc4325eb8386f4ee7",
       "accessed": "2026-10-10",
@@ -466,7 +501,7 @@
       "id": "kw2",
       "title": "On Serre’s conjecture for 2-dimensional mod p representations of Gal(Qbar/Q), II",
       "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
-      "edition": "Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "edition": "Public author copy titled Serre’s modularity conjecture (II); inspected 2026-10-10. Locators below use its printed page numbers.",
       "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
       "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
       "accessed": "2026-10-10",
@@ -531,6 +566,11 @@
         }
       ],
       "api": [
+        {
+          "name": "TauCeti.PatchingAlgebra.IsRegularSequenceIdeal.exists_list",
+          "role": "characterisation",
+          "statement": "A regular-sequence ideal supplies a native regular list generating that exact ideal."
+        },
         {
           "name": "TauCeti.PatchingAlgebra.IsRegularSequenceIdeal.of_list",
           "role": "constructor",
@@ -601,7 +641,7 @@
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.103, Proposition10.103.4, tag00N6, pp.247–248; §10.104, Lemma10.104.2, tag02JN, p.249",
+          "locator": "§10.103, Proposition10.103.4, tag00N6, pp.247–248; §10.104, Lemma10.104.2, tag02JN, p.250",
           "match": "Full codimension in a CM module forces regularity; the ring specialization gives the criterion."
         }
       ],
@@ -679,7 +719,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal",
         "AdicEtaleGeometry:A3/koszul-regular-sequence-fpd",
         "mathlib:RingTheory.Sequence.IsRegular",
-        "AdicEtaleGeometry:A3"
+        "AdicEtaleGeometry:A3",
+        "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot"
       ],
       "sources": [
         {
@@ -724,8 +765,13 @@
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.68, Lemma10.68.5, tag00LM; DPA§23.7, Lemma23.7.6, tag09PX, pp.18–19",
-          "match": "A flat local map is faithful and regularity can be tested after its scalar change."
+          "locator": "§10.68, Lemma10.68.5, tag00LM, p.161",
+          "match": "Regularity of a fixed list is reflected and preserved by a flat local map."
+        },
+        {
+          "sourceId": "stacks-dpa",
+          "locator": "§23.7, Lemma23.7.6, tag09PX, pp.18–19, final descent step",
+          "match": "A minimal generating list stays minimal under a flat local map, reducing descent of the ideal property to descent of list regularity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -757,7 +803,9 @@
       ],
       "prerequisites": [
         "mathlib:RingTheory.Sequence.IsRegular.of_faithfullyFlat_of_isBaseChange",
-        "mathlib:RingTheory.Sequence.IsRegular"
+        "mathlib:RingTheory.Sequence.IsRegular",
+        "mathlib:Module.FaithfullyFlat.lTensor_injective_iff_injective",
+        "mathlib:Module.FaithfullyFlat.nontrivial_tensorProduct_iff_right"
       ],
       "sources": [
         {
@@ -887,7 +935,7 @@
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.109, Lemmas10.109.7–10.109.8, tags0CXE and0CXF, pp.262–263",
+          "locator": "§10.109, Lemmas10.109.6–10.109.7, tags0CXE and0CXF, pp.262–263",
           "match": "Finite syzygies and local freeness replace arbitrary projective terms."
         }
       ],
@@ -952,7 +1000,7 @@
         "Finiteness, localness, nonzero conditions and map hypotheses are exactly those in the statement."
       ],
       "proofSteps": [
-        "Apply Hom_R(−,κ) to the resolution. All differentials vanish, so Ext^n_R(M,κ) is the dual of the nonzero residual nth term.",
+        "Use the native projective-resolution Ext/cohomology-class comparison to apply Hom_R(−,κ) to the actual resolution. All differentials vanish by minimality, so Ext^n_R(M,κ) is the dual of its nonzero residual nth term.",
         "Nakayama makes this group nonzero. The resolution bound gives pd≤n and the Ext obstruction gives pd≥n."
       ],
       "acceptance": [
@@ -961,12 +1009,14 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-finite-resolution",
         "mathlib:CategoryTheory.projectiveDimension_le_iff",
-        "mathlib:CategoryTheory.hasProjectiveDimensionLT_iff"
+        "mathlib:CategoryTheory.hasProjectiveDimensionLT_iff",
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "mathlib:CategoryTheory.ProjectiveResolution.extAddEquivCohomologyClass"
       ],
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.109, Lemma10.109.9, tag065R, p.263; §10.111, Proposition10.111.1, tag090V, pp.267–268",
+          "locator": "§10.109, Lemma10.109.8, tag065R, p.263; §10.111, Proposition10.111.1, tag090V, pp.267–268",
           "match": "Ext detects the last term of a minimal finite resolution."
         }
       ],
@@ -1158,7 +1208,8 @@
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0/depth",
         "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₁'",
-        "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₃'"
+        "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₃'",
+        "mathlib:CategoryTheory.Abelian.Ext.covariant_sequence_exact₂'"
       ],
       "sources": [
         {
@@ -1250,7 +1301,7 @@
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.102, Lemma10.102.6, tag00MZ, pp.244–245; §10.111, tag090V, p.268",
+          "locator": "§10.102, Lemma10.102.2, tag00MT, pp.243–244; §10.111, Proposition10.111.1, tag090V, regular-element reduction in the proof, p.268",
           "match": "Reduction by a common regular element keeps the exact minimal resolution length."
         }
       ],
@@ -1269,12 +1320,13 @@
       ],
       "title": "Syzygy depth bounds",
       "kind": "lemma",
-      "statement": "For a finite M over Noetherian local R, in a finite-free resolution the jth syzygy K_j has depth at least min(depth R, depth M+j), allowing K_j=0 with depth infinity.",
+      "statement": "For a finite module M over a Noetherian local R, let K₀=M and let 0→Kⱼ₊₁→Fⱼ→Kⱼ→0 be any sequence of finite-module exact sequences with Fⱼ finite free. Then depth Kⱼ≥min(depth R, depth M+j), allowing Kⱼ=0 with depth infinity. No finite projective dimension or bounded resolution is assumed; any finite segment suffices for its endpoint bound.",
       "hypotheses": [
         "All rings are commutative with identity; module actions and scalar towers are compatible.",
         "Finiteness, localness, nonzero conditions and map hypotheses are exactly those in the statement."
       ],
       "proofSteps": [
+        "Finite free covers exist for every finite module, and Noetherianity keeps their kernels finite. Iterate only as far as the bound being proved; do not assume termination.",
         "Apply the depth-lemma inequality to each finite syzygy exact sequence.",
         "Keep zero syzygies separate; their infinite depth satisfies the bound."
       ],
@@ -1283,8 +1335,8 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0/depth",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-free-resolution",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-free"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-free",
+        "mathlib:Module.Finite.exists_fin'"
       ],
       "sources": [
         {
@@ -1324,7 +1376,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/syzygy-depth-bound",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-cohen-macaulay",
         "SchemeAndStackFoundations:SF.0/free-maximal-depth-regular-local",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-free-resolution"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/finite-free-resolution",
+        "mathlib:Module.Finite.exists_fin'"
       ],
       "sources": [
         {
@@ -1612,8 +1665,13 @@
       "sources": [
         {
           "sourceId": "kisin",
-          "locator": "§3.3, Lemma3.3.4, printed p.1159; Stacks10.72.11",
-          "match": "The actual finite action, rather than an assumed finite map S→R, supplies the depth comparison."
+          "locator": "§3.3, Lemma3.3.4, printed p.1159",
+          "match": "The finite action image supplies the finite algebra needed to compare depths."
+        },
+        {
+          "sourceId": "stacks-algebra",
+          "locator": "§10.72, Lemma10.72.11, tag0AUK, p.174",
+          "match": "Apply the finite local specialization to the action quotient, then compare depths through the surjection."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1654,8 +1712,13 @@
       "sources": [
         {
           "sourceId": "kisin",
-          "locator": "§3.3, Lemma3.3.4, printed p.1159; Stacks10.112, integral dimension comparison",
-          "match": "The dimension of the action image supplies the support comparison."
+          "locator": "§3.3, Lemma3.3.4, printed p.1159",
+          "match": "The proof compares dimension through the finite faithful action image."
+        },
+        {
+          "sourceId": "stacks-algebra",
+          "locator": "§10.112, Lemma10.112.4, tag00OK, p.269",
+          "match": "An injective integral extension preserves Krull dimension; apply this to the base modulo the module annihilator and its action image."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2047,8 +2110,13 @@
       "sources": [
         {
           "sourceId": "stacks-more",
-          "locator": "§15.44, Lemma15.44.3, tag07NW, p.111; Algebra§10.97, Lemmas10.97.1–10.97.3",
-          "match": "The comparison uses the actual completion map and finite-module scalar change."
+          "locator": "§15.44, Lemma15.44.2, tag07NW, p.111",
+          "match": "The ring depth comparison is the special case M=R."
+        },
+        {
+          "sourceId": "stacks-algebra",
+          "locator": "§10.163, Lemma10.163.1, tag0338, pp.452–453; §10.97, Lemmas10.97.1–10.97.3, tags00MA–00MC, pp.226–227",
+          "match": "Finite-module completion is tensor base change along a flat local completion map with residue-field closed fibre; the tensor depth formula gives the module statement."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2105,6 +2173,21 @@
         }
       ],
       "api": [
+        {
+          "name": "TauCeti.PatchingAlgebra.HasRegularSequencePresentation.of_surjective",
+          "role": "constructor",
+          "statement": "A surjection from an actual regular local source whose kernel is a regular-sequence ideal supplies the presentation predicate."
+        },
+        {
+          "name": "TauCeti.PatchingAlgebra.HasRegularSequencePresentation.isNoetherian",
+          "role": "structure",
+          "statement": "A regular-sequence presentation gives Noetherianity of its target by the surjective image of the Noetherian source."
+        },
+        {
+          "name": "TauCeti.PatchingAlgebra.HasRegularSequencePresentation.isLocalRing",
+          "role": "structure",
+          "statement": "A regular-sequence presentation gives a local target because its kernel is proper and its source is local."
+        },
         {
           "name": "TauCeti.PatchingAlgebra.HasRegularSequencePresentation.of_regular",
           "role": "constructor",
@@ -2411,7 +2494,9 @@
       ],
       "prerequisites": [
         "mathlib:Ideal.Cotangent",
-        "mathlib:Ideal.toCotangent_surjective"
+        "mathlib:Ideal.toCotangent_surjective",
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot"
       ],
       "sources": [
         {
@@ -2531,7 +2616,8 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/finite-tor-conormal-injection",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal-minimal-generators",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal",
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot"
       ],
       "sources": [
         {
@@ -2616,7 +2702,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-intersection-local",
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.2",
-        "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown"
+        "mathlib:Ideal.height_eq_height_add_of_liesOver_of_hasGoingDown",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-conormal-criterion"
       ],
       "sources": [
         {
@@ -2647,7 +2734,7 @@
       ],
       "proofSteps": [
         "Choose a prime of R̂ lying over p by faithful flatness. The flat local CI criterion descends along R_p→(R̂)_q.",
-        "For the complete case use a regular presentation; regular local rings localize to regular local rings and the list localizes inside the chosen prime."
+        "For the complete case use a regular presentation and localize its regular list inside the prime. Regularity of the localized source is the explicit regular-local prime-localization gap; the current upstream4D text does not itself supply that general ring theorem."
       ],
       "acceptance": [
         "Do not infer a corresponding localization statement for arbitrary completed lci morphisms."
@@ -2656,8 +2743,7 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ci",
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-regular-quotient",
         "mathlib:RingTheory.Sequence.IsWeaklyRegular.isRegular_of_isLocalization_of_mem",
-        "DeformationAndDerivedPatchingAlgebra:R03.2",
-        "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
       ],
       "sources": [
         {
@@ -2741,8 +2827,13 @@
       "sources": [
         {
           "sourceId": "stacks-dpa",
-          "locator": "§23.8, tags09PY–09Q3, pp.19–22; Algebra§10.104, Lemma10.104.2, tag02JN, p.249",
-          "match": "A regular-sequence quotient is CM, and completion descends that property."
+          "locator": "§23.8, Definition23.8.5, tag09Q3, pp.21–22",
+          "match": "Use a regular-sequence presentation of the completion in the absolute CI definition."
+        },
+        {
+          "sourceId": "stacks-algebra",
+          "locator": "§10.104, Lemma10.104.2, tag02JN, p.250; §10.163, Lemma10.163.3, tag045J, p.453",
+          "match": "A regular-sequence quotient of a regular local ring is CM, and flat-local CM descent applies to the completion map."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2782,7 +2873,7 @@
       "sources": [
         {
           "sourceId": "stacks-algebra",
-          "locator": "§10.106, Lemma10.106.1, tag00NO, p.253; §10.58, Lemma10.58.10",
+          "locator": "§10.106, Lemma10.106.1, tag00NO, p.253; §10.58, Lemma10.58.10, tag00K3, pp.137–138",
           "match": "The proof compares Hilbert growth to rule out any homogeneous relation."
         }
       ],
@@ -2854,7 +2945,9 @@
       ],
       "prerequisites": [
         "mathlib:Module.Finite.exists_fin'",
-        "mathlib:Module.Flat"
+        "mathlib:Module.Flat",
+        "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+        "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot"
       ],
       "sources": [
         {
@@ -2895,7 +2988,8 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/relative-flat-module-free",
         "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-finite-pd",
         "DeformationAndDerivedPatchingAlgebra:R03.3/finite-free-resolution",
-        "mathlib:Module.Flat"
+        "mathlib:Module.Flat",
+        "mathlib:Module.Finite.exists_fin'"
       ],
       "sources": [
         {
@@ -2919,7 +3013,7 @@
       ],
       "title": "Associated primes under scalar restriction",
       "kind": "lemma",
-      "statement": "Let R→S be a ring map with S Noetherian and N an S-module, with the induced compatible R action. The R-associated primes of N are exactly the contractions of its S-associated primes. Neither a finite map nor a finite module is required.",
+      "statement": "Let R→S be a ring map with S Noetherian and N an S-module, with the induced compatible R action. The R-associated primes of N are exactly the contractions of its S-associated primes. Neither a finite map nor a finite module is required. Here associated primes means the native Mathlib radical-annihilator predicate; for Noetherian rings it agrees with the usual annihilator definition.",
       "hypotheses": [
         "All rings are commutative with identity; module actions and scalar towers are compatible.",
         "Finiteness, localness, nonzero conditions and map hypotheses are exactly those in the statement."
@@ -2930,7 +3024,8 @@
         "The Noetherian cyclic module S/I has that minimal prime associated; its injection into N and native associated-prime inclusion give the reverse inclusion."
       ],
       "acceptance": [
-        "Do not drop Noetherianity of S: an infinitely generated square-zero-variable algebra over a field can have no associated primes."
+        "Noetherianity of S supplies association of minimal primes in the cyclic S-module used in the reverse inclusion. The statement makes no claim for an arbitrary non-Noetherian S.",
+        "When R is non-Noetherian, use the literal native radical-annihilator convention; the source’s example with infinitely many square-zero variables is not a counterexample for that convention."
       ],
       "prerequisites": [
         "mathlib:Ideal.exists_minimalPrimes_comap_eq",
@@ -2941,7 +3036,7 @@
         {
           "sourceId": "stacks-algebra",
           "locator": "§10.63, Lemmas10.63.11–10.63.13, tags05BW–05DZ, pp.149–150",
-          "match": "A cyclic submodule and a minimal prime over its annihilator give exact contraction of associated primes."
+          "match": "The cyclic-submodule and minimal-prime argument proves the stated comparison. With non-Noetherian R the packet uses the native radical-annihilator variant; the same argument starts from a minimal prime over the contracted annihilator."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3022,12 +3117,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
-      "need": "Use the existing completion regularity and dimension invariance, regular localizations and regularity descent contracts in upstream4D. These are imports of that roadmap, not new targets here.",
+      "need": "Import the completion regularity and dimension invariance explicitly owned by current upstream ModularCurves4D. Its finite faithfully flat regularity descent stays within the stated cover hypotheses. The general regular-local prime-localization theorem needed for ci-localization is a separate recorded gap, not a verified upstream4D contract.",
       "neededBy": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/kisin-projective-module",
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-regular-quotient",
-        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-localization"
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-regular-quotient"
       ]
     }
   ],
@@ -3036,7 +3130,7 @@
       "stageId": "DeformationAndDerivedPatchingAlgebra:R03.3",
       "status": "planned",
       "remaining": [
-        "Close the seven recorded proof/supplier gaps, including the inherited P7 Hilbert–Samuel and curve leaves.",
+        "Close the eight recorded proof/supplier gaps, including the inherited P7 Hilbert–Samuel and curve leaves and generic regular-local prime localization.",
         "Resolve the three mathematical supplier requests and reconcile the upstream4D import in assembly.",
         "Use the new AB and SF induction contracts to replace the old bundled depth/global-dimension prerequisite in P7 and R03.6; do not edit those packets during this job."
       ]
@@ -3111,6 +3205,13 @@
         "DeformationAndDerivedPatchingAlgebra:R03.3/curve-tangent-cone-homogeneous"
       ],
       "detail": "P7 already supplies actual finite equation jets, quotient length signatures, sharp cutoffs, explicit polynomials and the multiplicative formal-curve tangent-cone plan. Their proof bodies remain unchecked; retain their distinct formal-series coefficient and ideal-power proof leaves. This packet adds no duplicate curve maps and makes no new proof claim for them."
+    },
+    {
+      "title": "Regularity under prime localization",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3/ci-localization"
+      ],
+      "detail": "For a Noetherian regular local R and prime p, prove that the native Localization.AtPrime p is regular local (Stacks10.110.6, tag0AFS, p.267). The current ModularCurves4D README explicitly owns completion regularity and dimension invariance, but does not explicitly state this general ring localization theorem; its scheme-level regularity definition alone is not its proof. A route is localization of finite projective resolutions and the finite-residue-pd characterization of regularity (Stacks10.110.3–10.110.5); the converse characterization and its comparison with the native regular-local class still need a contract. Do not treat them as consequences of AB alone or as already supplied by upstream4D."
     }
   ],
   "sourceIssues": [
@@ -3131,7 +3232,12 @@
       ],
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/ci-conormal-criterion"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The inspected DPA PDF at p.20 and online tag09Q1 both retain the editorial fourth numbered item. Conditions(1)–(3) contain the intended criterion, and the packet uses those alone.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.3"
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E-R033-02",
@@ -3149,14 +3255,20 @@
       ],
       "nodes": [
         "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The inspected DPA PDF at p.19 and online tag09PZ use r for the selected kernel generators but n in the intermediate quotient. Exact completion applies to the r-generator kernel ideal, so the proposed index correction is forced.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.3"
+      }
     }
   ],
   "restructure": [],
   "upstreamNotes": [
     "Current TauCetiRoadmap main and current Tau Ceti were screened, including the nine post-snapshot roadmaps. Current TauCeti/RingTheory/KrullDimension/Presentation provides finite-type-field dimension bounds, not these general local depth/CI contracts. No target already owned by the current roadmaps is re-planned.",
     "The complete regular-source factorization has no assumption of a separable residue extension; the existing R03.1 separable relative coefficient embedding is insufficient for it.",
-    "Kisin’s finite-map module result concerns regular rings after inversion in Khare–Wintenberger. Integral domain and integral CM conclusions require their own hypotheses."
+    "Kisin’s finite-map module result concerns regular rings after inversion in Khare–Wintenberger. Integral domain and integral CM conclusions require their own hypotheses.",
+    "Independent review read current ModularCurves4D: completion regularity and dimension invariance are explicit, whereas regularity of every prime localization of an arbitrary regular local ring is not an explicit general ring contract there. The latter remains an R03.3 closure gap; assembly must establish a supplier before using it."
   ],
   "imports": [
     {
@@ -3191,5 +3303,342 @@
       "owner": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-depth-associated-primes-minimal",
       "provides": "Associated-prime and component-support consequences at maximal depth; nearly-faithfulness still needs the R03.6 hypotheses."
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/algebra.pdf",
+      "citation": "The Stacks Project: Commutative Algebra; Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "read": "2026-10-10",
+      "sha256": "b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/more-algebra.pdf",
+      "citation": "The Stacks Project: More on Algebra; Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "read": "2026-10-10",
+      "sha256": "ab69179738e642603ddbde651f2838e1cb5d8711e8bcd7c447cbf02a8bb6a5d2"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/dpa.pdf",
+      "citation": "The Stacks Project: Divided Power Algebra; Public PDF inspected 2026-10-10; Stacks locators use chapter-prefixed numbering.",
+      "read": "2026-10-10",
+      "sha256": "a75fd45ac4e1c02714ab577ba0f7d4d89cc8c4bb35999ee51ee57612d689cf28"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+      "citation": "Modularity lifting beyond the Taylor–Wiles method; Public author-hosted publisher-formatted copy, DOI10.1007/s00222-017-0749-x; inspected 2026-10-10. Locators below use one-based PDF pages.",
+      "read": "2026-10-10",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5"
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v170-n3-p03-p.pdf",
+      "citation": "Moduli of finite flat group schemes, and modularity; Annals of Mathematics 170 (2009), pp.1085–1180; publisher PDF inspected 2026-10-10.",
+      "read": "2026-10-10",
+      "sha256": "076f8bb6ec683633f7742d27504b97f5feaef2ddbae2bc5dc4325eb8386f4ee7"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "citation": "On Serre’s conjecture for 2-dimensional mod p representations of Gal(Qbar/Q), II; Public author copy titled Serre’s modularity conjecture (II); inspected 2026-10-10. Locators below use its printed page numbers.",
+      "read": "2026-10-10",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.3",
+    "date": "2026-10-10",
+    "notes": "Independent source, pinned-baseline, supplier, closure, API, test, suggested-signature and planet review of all 57 nodes. Corrected source numbering and chapter attribution, removed the syzygy finite-pd cycle, made the native associated-prime convention explicit, added five verified native prerequisites and four API lemmas, and confirmed both source misprints. Current upstream completion contracts are distinguished from an unprovided general regular-local localization theorem. Accepted as a complete planning pass with coverage planned, not closed: eight precise gaps and four requests remain. Suggested Lean elaborates through lean-check at the pinned build, with only warnings for admitted proofs; no implementation or executed mathematical test is claimed.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal",
+        "verdict": "corrected",
+        "note": "Verified the native list regularity and generated ideal conventions, including the nonzero final quotient. Added a witness-elimination API; empty, unit and polynomial tests distinguish the predicate."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-generators-iff-dimension-drop",
+        "verdict": "corrected",
+        "note": "Verified the CM and maximal-ideal hypotheses and the induction through intermediate dimension drops. Corrected the page of Stacks10.104.2 to p.250; CM supplier inputs remain recorded."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/cm-parameter-element",
+        "verdict": "verified",
+        "note": "Verified the nonzero finite CM hypothesis and the associated-prime/support argument of Stacks10.103.2. The CM support contract is imported, not redefined."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal-minimal-generators",
+        "verdict": "corrected",
+        "note": "Verified local minimal-generator invariance in Stacks15.31.7 and15.31.15. Added native Nakayama as a direct input; the reverse Koszul comparison and generator-change isomorphism remain an exact supplier request."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-ideal-faithfully-flat",
+        "verdict": "corrected",
+        "note": "Verified properness and flat local Noetherian hypotheses. Split the algebra and DPA source locators so each resolves in its own chapter; minimal generators and faithful reflection supply descent."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-sequence-reflects-faithfully-flat",
+        "verdict": "corrected",
+        "note": "Verified successive tensor-quotient comparisons and reflection of both injectivity and final nontriviality. Added the two precise native faithful-flat criteria as direct prerequisites."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-surjection-kernel",
+        "verdict": "verified",
+        "note": "Verified the lifted cotangent basis and regular parameter prefix argument, with the planned regular-local domain input. This does not assume an arbitrary quotient of a regular local ring is regular."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-presentation-change",
+        "verdict": "verified",
+        "note": "Verified the common regular-source quotient, concatenation and dimension-drop argument; localness and the nonzero target are explicit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-free-resolution",
+        "verdict": "corrected",
+        "note": "Verified that the claim is about an actual native projective resolution with finite free terms and a support bound. Corrected Stacks10.109.6–7 numbering; the native categorical/local-module bridges have the required hypotheses."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-finite-resolution",
+        "verdict": "verified",
+        "note": "Verified the accepted P7 minimal representative contract, actual homotopy equivalence and preservation of bounded support. The augmentation and reindexing are retained rather than replaced by an unstructured complex."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-resolution-pd",
+        "verdict": "corrected",
+        "note": "Verified the nonzero endpoint and residue-field Ext obstruction. Corrected the locator to Stacks10.109.8, added the native Ext/cohomology comparison and Nakayama, and made that computation explicit."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-free",
+        "verdict": "verified",
+        "note": "Verified the finite nonempty basis argument on successive quotients, with the imported depth convention. Zero free modules are excluded from the equality."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ext-residue-annihilated",
+        "verdict": "verified",
+        "note": "Verified scalar action by Ext bilinearity and precomposition on the residue field. The cited native composition/scalar API supports this without assuming the second argument is killed by the maximal ideal."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ext-minimal-map-zero",
+        "verdict": "verified",
+        "note": "Verified the finite matrix expansion and vanishing of every maximal-ideal scalar on residue-field Ext. Both free modules and the minimal image hypothesis are essential."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/minimal-free-injection-depth",
+        "verdict": "verified",
+        "note": "Verified the depth-zero contradiction and first nonzero Ext connecting map. Both end modules of the injection are nonzero finite free, and the SF.0 Ext/depth comparison remains an explicit supplier gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-syzygy-strict",
+        "verdict": "corrected",
+        "note": "Verified the unequal-depth case of the Ext exact sequence, including exclusion of depth K=0. Added the middle native exactness declaration alongside the other two required positions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/auslander-buchsbaum",
+        "verdict": "verified",
+        "note": "Verified induction on finite native projective dimension through a minimal first syzygy, with a separate pd=1 argument. It does not use regular-local finite projective dimension to prove the formula."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-quotient-pd-change",
+        "verdict": "corrected",
+        "note": "Verified regularity on both the ring and the nonzero module, Tor vanishing and preservation of the minimal endpoint. Replaced an unrelated rank-lemma locator by Stacks10.102.2 and the regular-element reduction in the proof of10.111.1."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/syzygy-depth-bound",
+        "verdict": "corrected",
+        "note": "Clarified that arbitrary finite segments of free covers suffice, with no finite-pd assumption. Removed the bounded-resolution prerequisite and added native finite covers, preventing a finite-pd/regularity cycle; zero syzygies retain infinite depth."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-finite-pd",
+        "verdict": "corrected",
+        "note": "Verified termination after dim R covers using the SF.0 parameter-induction freeness contract. Added finite covers directly; the older P7 freeness proof through bundled AB is not used circularly."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-residue-pd",
+        "verdict": "verified",
+        "note": "Verified use of the existing regular parameter list and the native regular-quotient projective-dimension theorem, identifying the final quotient with the residue field."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-submodule-bound",
+        "verdict": "verified",
+        "note": "Verified the finite ambient module hypothesis of Calegari–Geraghty Lemma6.1, the associated-prime inclusion and the imported support-dimension bound."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-surjective-local",
+        "verdict": "verified",
+        "note": "Verified lifts of maximal-ideal lists and equality of successive quotients under scalar restriction. The zero module has infinity on both sides."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-local",
+        "verdict": "verified",
+        "note": "Verified reduction to the one maximal ideal in the finite semilocal formula. Localness and finiteness of the algebra are both retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-semilocal",
+        "verdict": "verified",
+        "note": "Verified associated-prime contraction, finite prime avoidance and regular-element induction for a finite algebra. Zero localizations contribute infinity; the zero-module case is separate."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-action-image",
+        "verdict": "verified",
+        "note": "Verified finiteness of the endomorphism module over the Noetherian base and of its action-image submodule, and the exact annihilator kernel. No finite-algebra hypothesis on the original action ring is assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/depth-finite-action",
+        "verdict": "corrected",
+        "note": "Verified passage to the faithful finite quotient action, then finite-map and quotient depth comparisons. Separated Kisin and Stacks source references into their actual documents."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/support-dimension-finite-action",
+        "verdict": "corrected",
+        "note": "Verified reduction to support of the faithful action image and injective integral dimension comparison. Separated the Kisin reference from Stacks10.112.4."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/module-miracle-flatness",
+        "verdict": "verified",
+        "note": "Verified full support dimension, the finite compatible action and nonzero CM module hypotheses. Depth transfer, regular-local finite pd and AB yield projectivity, then native local finite freeness."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/equal-dimension-action-faithful",
+        "verdict": "verified",
+        "note": "Verified the two domain assumptions, finite equal global dimensions and faithful base action. A nonzero kernel would force a strictly shorter quotient prime-chain dimension."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/kisin-projective-module",
+        "verdict": "verified",
+        "note": "Verified Kisin Lemma3.3.4, printed p.1159, and its completion-factor argument. Completed local dimensions follow from the nonzero isolated base-free summand and integral comparison; completion/product contracts remain requests. Khare–Wintenberger uses regularity after inversion, not an integral regularity conclusion."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-fibre-regular-lift",
+        "verdict": "verified",
+        "note": "Verified Stacks10.99.2: finite module, local Noetherian map and base flatness. The fibre injection criterion plus native separatedness gives both injectivity and flatness of the actual quotient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-depth-zero-fibre",
+        "verdict": "verified",
+        "note": "Verified induction on the base-module depth and the socle argument when depth is zero, using flatness to preserve the residue-field injection."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-tensor-depth",
+        "verdict": "verified",
+        "note": "Verified the nonzero finite module hypotheses, finite fibre-depth induction and regular-element quotient comparison. The statement uses base flatness of N, not an unjustified flatness assumption on M."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ring-depth",
+        "verdict": "verified",
+        "note": "Verified the specialization M=R and N=S and the tensor-unit identification. The local flat map gives a nonzero closed fibre."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-cm",
+        "verdict": "verified",
+        "note": "Verified depth addition and the native flat/going-down height formula at maximal ideals. CM localization is imported with its actual Noetherian finite-module conventions."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/completion-depth",
+        "verdict": "corrected",
+        "note": "Corrected the More on Algebra locator to15.44.2 for the ring case and added the module depth formula10.163.1 and exact completion10.97.1–3. The proof uses actual native tensor/completion comparison, flatness and the residue-field fibre."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/has-regular-sequence-presentation",
+        "verdict": "corrected",
+        "note": "Verified actual bundled regular local sources, actual surjective ring maps and the precise kernel. Added a constructor and Noetherian/local structure projections; identity, composite quotient and zero-ring tests remain concrete."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/complete-intersection-local",
+        "verdict": "verified",
+        "note": "Verified the absolute completion-based Noetherian local predicate, distinct from a specified relative presentation. Field, nonregular hypersurface and non-CI Artin tests reject plausible alternatives."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/locally-complete-intersection",
+        "verdict": "verified",
+        "note": "Verified the native-prime-localization predicate with explicit Noetherianity. Vacuity for the zero ring, the polynomial example and a bad product factor test the global definition."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/complete-presentation-independence",
+        "verdict": "verified",
+        "note": "Verified Stacks23.8.1 and the common regular-source argument. General Cohen lifting is required without residue separability; that stronger contract is explicitly requested rather than supplied by the separable coefficient-map node."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ci-regular-quotient",
+        "verdict": "verified",
+        "note": "Verified Stacks23.8.3 using the actual quotient-completion identification, completion regularity and faithful regular-sequence descent. No completeness hypothesis is silently imposed on the original regular local source."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/conormal-generators-lift",
+        "verdict": "corrected",
+        "note": "Verified I=(f)+I² and I² contained in the maximal ideal times I. Added native Nakayama directly; Noetherianity supplies the required finite quotient module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ci-conormal-criterion",
+        "verdict": "verified",
+        "note": "Verified the codimension and at-most-c conormal generator formulation of Stacks23.8.3. Lifting and dimension bounds force a minimal list of exactly c, including c=0."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/finite-tor-conormal-injection",
+        "verdict": "verified",
+        "note": "Verified the statement of Stacks23.7.1 with I contained in J contained in the maximal ideal and finite pd of the actual quotient action. The essential Tate/divided-power obstruction remains a precise gap; native DividedPowers does not close it."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/nested-regular-ideals",
+        "verdict": "corrected",
+        "note": "Verified Stacks23.7.6: extend the injected residual generator basis, lift it and apply regular-prefix/tail recursion. Added native Nakayama for generation of the prefix."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-regular-fibre-ideals",
+        "verdict": "verified",
+        "note": "Verified Stacks23.8.2 and flatness of the actual induced quotient map. Relative finite pd and nested ideals supply the forward direction; regular-list concatenation supplies the reverse."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-local-ci",
+        "verdict": "corrected",
+        "note": "Verified Avramov’s Stacks23.8.5 criterion and the required regular-source square. Added the conormal criterion as a direct input; the formal-lifting and Tate leaves remain explicit requests/gaps."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ci-localization",
+        "verdict": "corrected",
+        "note": "Verified the mathematical localization statement and faithful-flat descent route. Removed an unjustified upstream4D input and recorded general regular-local prime localization as a separate exact gap."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ci-maximal-detection",
+        "verdict": "verified",
+        "note": "Verified containment of a prime in a maximal ideal, repeated localization and the preceding local CI localization statement. No finite-type restriction is introduced."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/ci-cohen-macaulay",
+        "verdict": "corrected",
+        "note": "Verified regular-sequence quotient CM and completion descent. Split the DPA criterion and algebra CM/depth references, correcting the CM page to250."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-graded-polynomial",
+        "verdict": "corrected",
+        "note": "Verified the actual inherited Rees quotient and generator map, d=0 branch and homogeneous relation-growth route. Added Stacks10.58.10 as a precise source; both growth and Hilbert–Samuel comparison remain recorded gaps."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/regular-local-domain",
+        "verdict": "verified",
+        "note": "Verified the finite adic-order argument using native separatedness and the actual tangent cone. This depends on the preceding polynomial comparison and does not assume the domain conclusion to prove it."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/relative-flat-module-free",
+        "verdict": "corrected",
+        "note": "Verified finite fibre-basis lifting, flat tensor preservation and the two Nakayama applications. Added native Nakayama directly; zero fibre rank is included."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/relative-flat-module-pd",
+        "verdict": "corrected",
+        "note": "Verified finite free covers with base-flat kernels, exact reduction to the regular closed fibre and lifting the final free syzygy. Added native finite covers directly."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/associated-primes-scalar-restriction",
+        "verdict": "corrected",
+        "note": "Made the native radical-annihilator convention explicit, including a possibly non-Noetherian base. Removed an invalid empty-associated-set counterexample in that convention; minimal-prime lifting and the Noetherian cyclic target module justify the contraction equality."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.3/flat-fibre-injection-cokernel",
+        "verdict": "verified",
+        "note": "Verified the graded base-flat target argument, separatedness of the finite source and reduction modulo every base ideal. The target need not be finite or carry an S-module structure; the actual reduced map is retained."
+      }
+    ]
+  }
 }
