@@ -1,8 +1,8 @@
 {
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-PKG-HabiroCohomologyFoundations",
-    "date": "2026-10-09",
-    "notes": "Completed independent review of all six package requirements against the four issue inputs: 151 targets, 266 API items and 153 tests. Reader form, fidelity, own words, process separation and math.AG metadata pass. Corrected the §3.3 page locator, removed an obsolete fix-job heading, and restored cyclotomic quotients in the crystalline-Frobenius signature. Final lean-check exits 0 with 472 sorry warnings and no errors or other warnings. Item 5 still fails: the no-go signature replaces reductions of one derived complex by arbitrary module families; perfectoid examples quantify over arbitrary generators; static quasi-regular/free-delta/cotangent supplier records omit the defining relationships used by their assertions. Report REV-PKG-HabiroCohomologyFoundations gives witnesses and exact required repairs. Verdict needs_changes; complete review, not checkpoint."
+    "reviewer": "independent-review-REV-PKG-HabiroCohomologyFoundations~2",
+    "date": "2026-10-10",
+    "notes": "Completed all six checks against the four accepted inputs: 151 targets, 266 API items and 153 tests. Reader form/size, fidelity, own words/source locators, process separation and exact math.AG metadata pass. Replaced two reader process sentences and cleaned source wording/prior-review references in Lean comments. Earlier R1/R2/R3 signature repairs are verified. Final lean-check exits 0 with 452 sorry warnings, no errors or other warnings. Item 5 still fails mathematical fidelity: underspecified envelope and free-delta witness inputs (R4), arbitrary ambient categories and concrete/nonconservative assertions (R5), ordinary cokernels/kernels replacing derived cofibres/fibres (R6), arbitrary degree-zero q-Witt and ghost rings (R7), and an unconstrained map in framed_equiv (R8). Four standalone countermodel files elaborate with no sorry or warnings; reproduction code, exact source locators and required repairs are in REV-PKG-HabiroCohomologyFoundations~2.md. Verdict needs_changes; complete independent review, not checkpoint."
   }
 }

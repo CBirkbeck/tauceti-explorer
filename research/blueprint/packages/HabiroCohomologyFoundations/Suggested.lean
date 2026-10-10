@@ -1973,7 +1973,7 @@ theorem padicPowerSeries_invP_not_complete (p : ℕ) [Fact p.Prime] (k : ℕ)
 /-- **Theorem (HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom).** The rational
 and the p-completed rational comparisons form a commutative square with the maps from the
 rationalisation to the rationalised p-completion. Whether clause (c_p) of a q-Hodge filtration
-follows from (a) to (c) is an open question recorded in the source (it "does not seem to"); it is
+follows from (a) to (c) remains an open question in the source; it is
 not stated, and (c_p) is carried as a separate datum in `QHodgeFiltration`. -/
 theorem qdR.rationalComparisons_square (K : QDeRhamContext A Λ Ani 𝒟 ℰ Mod) (p : Nat.Primes)
     (R : Ani) :
@@ -3847,7 +3847,7 @@ derived q-de Rham complex of an animated `A`-algebra `R` (Definition 3.2): a fil
 * (c_p) `pAdicRationalEquiv`, for every prime, the p-completed version, agreeing in degree `0`,
   with its squares against (c) and (b).
 
-Clause (c_p) is a separate datum (it does not seem to follow from the others). The compatibility
+Clause (c_p) is a separate datum; its derivation from the remaining clauses is not established. The compatibility
 between the two squares of (c_p) is a higher datum with no shadow in the 1-categorical model and is
 left to the owner of the ∞-categorical enhancement (DerivedDeRhamCohomology DD.1). -/
 structure QHodgeFiltration (H : HodgeContext K 𝒞) (R : Ani) where
@@ -5825,7 +5825,7 @@ structure FreeDeltaRing (p : ℕ) where
 
 attribute [instance] FreeDeltaRing.ring
 
-/-- Regression: freeness excludes the review's zero generator. Evaluation
+/-- Freeness excludes a zero generator. Evaluation
 at 1 in the same nonzero complete δ-ring would otherwise send 0 to 1. -/
 theorem FreeDeltaRing.generator_ne_zero {p : ℕ} (Fr : FreeDeltaRing.{u} p)
     [Nontrivial Fr.Ap] : Fr.x ≠ 0 := by
@@ -6166,7 +6166,7 @@ example {B : Type u} [CommRing B] (F : ℕ → Ideal B) (hF : Antitone F) (b : B
     · simp
     · simpa using h
 
-/-- Regression: the review's q=2 rational record cannot satisfy the
+/-- A rational model with q=2 cannot satisfy the
 coefficient compatibility q↦1+h of an actual comparison. -/
 example (f : ℚ →+* PowerSeries ℚ) : f 2 ≠ 1 + PowerSeries.X := by
   intro h
@@ -6178,8 +6178,7 @@ example (f : ℚ →+* PowerSeries ℚ) : f 2 ≠ 1 + PowerSeries.X := by
   rw [htwo, map_add, map_add] at hc
   norm_num at hc
 
-/-- Regression: a nonzero static Hodge model cannot have Hodge degree zero
-vanishing, as in the review's arbitrary record. -/
+/-- A nonzero static Hodge model has nonvanishing Hodge degree zero. -/
 example (D : StaticQuasiRegular A R p) [Nontrivial D.dR] : D.hodge 0 ≠ ⊥ := by
   rw [D.hodge_zero]
   exact top_ne_bot
@@ -6480,9 +6479,8 @@ example (Hs : HabiroSheafData.{w, w'} 𝒞) (T : QWittContext K H) (An : Analyti
       ¬ IsIso ((p : ℤ[X]) • 𝟙 (An.RΓan Y)) := by
   sorry
 
-/-- Unit test `TauCeti.QHodge.analyticComparisonProblem.consumers`: within the roadmap only the other
-two HQ.6 nodes and the acceptance suite list the problem among their prerequisites, each to record a
-boundary, and no declaration takes it as a hypothesis (bookkeeping). -/
+/-- Unit test `TauCeti.QHodge.analyticComparisonProblem.consumers`: the three recorded comparison
+boundaries supply no hypothesis to the algebraic constructions. -/
 example : analyticComparisonProblem.consumers.length = 3 ∧ analyticComparisonProblem.unused = [] :=
   ⟨rfl, rfl⟩
 
