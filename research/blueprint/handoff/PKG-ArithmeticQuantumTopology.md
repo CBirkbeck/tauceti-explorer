@@ -1,3 +1,133 @@
+# PKG-ArithmeticQuantumTopology — framing regression checkpoint
+
+Worker: Codex (GPT-6), session `codex-3FQfz0`, issue #7889, 2026-10-10.
+Branch: `codex-3FQfz0-arithmetic-quantum-topology`.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096872026)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/7889#issuecomment-6096873184)
+for this session. None of the manager's priority issues appeared in the full
+748-issue available-swarm listing. Selected this focus package among the equal
+fallback candidates under WORKERS. This run claims only #7889.
+
+## Disposition and completed work
+
+**Blocked checkpoint: the package is incomplete.** The accepted plan's G1
+geometric contracts are still unprovided. This submission adds a proved native
+framing regression and documents its consequence; it does not close G1 or
+certify the historical package's other targets.
+
+`Suggested.lean` now imports the pinned `TauCeti.KnotTheory.Markov` and adds
+`TauCeti.QuantumTopology.FramingChecks`:
+
+- `oneStrand f` constructs the native `FramedMarkovBraid` on the one-strand
+  identity braid with constant component framing f.
+- `coefficientMatrix f` reads that native framing field on its actual orbit
+  quotient. This is a one-component coefficient fixture, not an invented
+  geometric linking-number operation or a replacement presentation type.
+- `forgotten_eq` and `markovEquiv_forget` hold for every pair of framings.
+- `isAdmissible_coefficientMatrix_iff` characterizes admissibility exactly by
+  f=1 or f=−1, using the package's existing predicate.
+- `framing_change_admissibility` proves the forgotten Markov relation relates
+  the framing-0 and framing-1 fixtures while the former fails admissibility
+  and the latter satisfies it.
+- `admissibility_not_descends` proves that no predicate on `MarkovBraid`
+  recovers the admissibility of all these framing decorations.
+
+All new definitions and proofs contain no admissions. The isolated axiom
+checks of the final two theorems report only `propext`, `Classical.choice`
+and `Quot.sound`, with no `sorryAx`. The README states the witness and follows
+upstream's presentation-based conventions. Its shortened Kirby paragraph
+preserves the band dependence, supplier, symmetry hypothesis and congruence
+formula. No mathematical target was removed or reassigned.
+
+## Fresh verification of the obstruction
+
+Current read-only TauCetiRoadmap remains
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; current read-only Tau Ceti remains
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read GeometricTopology and
+RepresentationTheory/SemisimpleAlgebras READMEs in full, and the complete
+GeometricTopology suggested file. The latter has no active filling or Kirby
+declarations. Its layer-4 conventions require first-class presentations and
+framing data; no canonical hub `Knot` type is required here.
+
+Inspected these supplying statements directly:
+
+| Interface inspected | What it actually supplies | What the consumer still needs |
+| --- | --- | --- |
+| `SmoothLinkEmbedding`, `SmoothAmbientIsotopic` and its setoid | Disjoint labeled oriented circle embeddings; one ambient diffeotopy transporting all components | Separate framing transport, invariant linking numbers, and presentation comparisons |
+| `FramedMarkovBraid`, `MarkovEquiv`, `MarkovEquiv.refl` | Component framing coefficients and ordinary equivalence on the forgotten braid | A framing-preserving presentation relation; the new regression rules out pulling back ordinary Markov equivalence |
+| `FramedBoundaryTorus`, `coord_symm_apply`, `meridian`, `longitude`, `slopeEquiv` | A basis in actual boundary-torus singular H₁ and primitive-class slope arithmetic | Link complement and oriented filling, H₁/cokernel comparison, ordinary Kirby/Fenn–Rourke calculus and stable form realization |
+
+Read `FramedMarkovBraid` at the pinned Tau Ceti commit
+`f790474821cf4256814db967cb154e7af3d0c369`, as well as the current version.
+Searched the current library and upstream Lean files for linking-number/matrix,
+Kirby-equivalence, Dehn-filling and framed-smooth-link declarations; the search
+found no replacing active declaration. This targeted search is not a fresh
+comprehensive library audit. The reviewed library-coverage file has 1,316 layer
+keys and no direct ArithmeticQuantumTopology entry.
+
+The authoritative packet still has eight gaps, nineteen open requests, eight
+planned stages and zero closed stages. Its accepted review explicitly retains
+these facts. The two QT.0 contracts request framed link transport/linking
+numbers from GeometricTopology layer 4, and filling/homology/Kirby/stable-form
+realization from layer 5, routing missing material to GeometricTopology,
+Part II. No such supplying atlas packet, reader or definition was found.
+
+The stopping condition is a specification obstruction. This issue permits
+only the three package artifacts and this handoff, and says “Change no packet;
+if the plan has a mistake, describe it in the handoff note.” PROTOCOL §§13, 15
+and 20 require faithful signatures and retain shared foundations at their
+owner. Making foreign geometric types or weakening the consumer would not
+complete the authorized package. No restricted book was used, no source
+passage was copied, and no new paper result or source erratum is claimed.
+
+## Resume here
+
+First provide and reconcile the existing exact layer-4 and layer-5 supplier
+contracts. Instantiate the matrix-level admissibility, slides and cokernels
+on those presentations and actual filled manifolds, then complete the
+inherited eight-layer signature/API/test worklist retained below. Preserve
+`FramingChecks` when adapting to the supplier: the forgetful relation must
+continue to fail the framing-sensitive check. G2–G8 and the other supplier
+requests are separate obligations, not reviewed afresh in this session.
+
+Metadata remains absent while incomplete: `issues.deliverables_complete`
+would otherwise classify the existing three package paths as completion.
+The intended final line is `topic = "math.GT"`.
+
+## Validation in codex-3FQfz0
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  exit 0, zero errors and warnings; 106 nodes, 206 API items, 159 tests,
+  36 planets and 24 baseline references. The packet was not edited.
+- `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  final exit 0, zero errors, 631 warnings, all `declaration uses sorry`;
+  no other warnings. Available memory before the final run: 108 GB.
+  This validates the signatures present, not completion of the geometric
+  consumers or the whole roadmap. All checks have finished.
+- Isolated framing regression: exit 0, both final axiom diagnostics have no
+  `sorryAx`. The isolated file included existing admitted matrix targets;
+  their warnings do not enter the axiom closures of the regression proofs.
+- The managed helper advertises Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. No lake build/update/cache
+  operation or language server was started, and neither read-only tree was
+  edited or built.
+- Unchanged authoritative packet SHA-256:
+  `161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951`.
+- README: 199994 bytes; SHA-256
+  `5bd56e1ce32e48ff22dcd7bdf47c2d37cd58d1fb1ae4bf3343877375ca5bdf6d`.
+- Suggested file: 228706 bytes; SHA-256
+  `3ebecbe368cb1de5cefec70e818f22eeeed0cd9064e1bad5cf6e37c6b514111f`.
+
+Scoped intake and whitespace checks are recorded in the pull request. Only
+README, Suggested.lean and this handoff changed. The continuation needs no
+scratch file; all prior worklists and source receipts are preserved below
+as historical records, not represented as new checks by this session.
+
+---
+
+## Preceding checkpoint — codex-xYZsDl
+
 # PKG-ArithmeticQuantumTopology — blocked supplier checkpoint
 
 Worker: Codex (GPT-6), session `codex-xYZsDl`, issue #7889, 2026-10-10.
