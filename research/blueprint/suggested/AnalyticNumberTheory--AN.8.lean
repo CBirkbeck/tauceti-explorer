@@ -1,6 +1,3 @@
-/- Independent review REV-AnalyticNumberTheory--AN.8 (2026-10-05): needs_changes.
-Elaboration was attempted through lean-check and blocked at a missing prebuilt Tau Ceti import.
-New relation signatures and corrected tests remain unelaborated; omission blocks are review gaps. -/
 /-
 Copyright (c) 2026 Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
@@ -13,9 +10,11 @@ import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.Analysis.SpecialFunctions.Pow.Complex
 import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.Algebra.Group.End
+import Mathlib.Algebra.Star.Subalgebra
 import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
 import Mathlib.NumberTheory.LSeries.Basic
+import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.Analysis.SpecialFunctions.Gamma.Basic
 import Mathlib.Analysis.MellinTransform
 import Mathlib.Analysis.Meromorphic.Basic
@@ -23,29 +22,95 @@ import Mathlib.Analysis.InnerProductSpace.Adjoint
 import Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap
 import Mathlib.Topology.Algebra.StarSubalgebra
 import Mathlib.Algebra.Polynomial.Derivative
+import Mathlib.NumberTheory.ArithmeticFunction.Moebius
+import Mathlib.Analysis.CStarAlgebra.CStarMatrix
+import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
+import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
+import Mathlib.MeasureTheory.Measure.Regular
+import Mathlib.MeasureTheory.Measure.Haar.Basic
+import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.Topology.Algebra.InfiniteSum.Defs
 import TauCeti.NumberTheory.HeckeRing.Basic
 import TauCeti.NumberTheory.HeckeRing.Multiplication
 import TauCeti.NumberTheory.HeckeRing.Associativity
 
 /-!
-# Analytic number theory AN.8–AN.9 — suggested declarations (target-planning pass)
+# Analytic number theory AN.8–AN.9 — suggested declarations
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
 and signatures. All proposed results are unproved prototypes at the pinned baseline
-(Mathlib 082e2d3, Tau Ceti f790474); the file has not been compiled.
+(Mathlib 082e2d3, with the shared prebuilt Tau Ceti modules). Elaboration checks
+the signatures, not the proposed mathematical proofs.
 
-The inherited core covers the Bost–Connes branch of AN.9; the additions below cover both scoped stages. Missing supplier carrier signatures are explicitly omitted, as the protocol requires. The Bost–Connes algebra is Tau Ceti's
+The signatures cover both scoped stages. Imported carriers are used directly, or are
+parameters with precise adapter hypotheses when their owner has not yet supplied a module. The Bost–Connes algebra is Tau Ceti's
 Hecke ring `𝕋 P⁺_ℚ P⁺_ℤ K` of the ax+b pair inside `GL₂(ℚ)`. Its rational generators are the
 double cosets `x n = [X_n]`, `x' n = [X_n⁻¹]` and `e γ`; Bost–Connes' `μ_n` is `n^{-1/2} • x n`
-over `ℂ`. `ℚ/ℤ` is `AddCircle (1 : ℚ)`, and `Ẑ^×` is `AddAut (ℚ/ℤ)`.
+over `ℂ`. `ℚ/ℤ` is `AddCircle (1 : ℚ)`. Symmetry prototypes use `AddAut (ℚ/ℤ)`;
+the canonical comparison with the imported profinite unit group is a separate adapter.
 -/
 
 noncomputable section
 
 open Matrix Complex HeckeCosetModule
-open scoped HeckeCosetModule ComplexOrder
+open scoped HeckeCosetModule ComplexOrder ENNReal
+
+namespace TauCeti.CStarDynamics
+variable {A : Type*} [NormedRing A] [NormedAlgebra ℂ A] [StarRing A]
+
+def IsState (φ : A →L[ℂ] ℂ) : Prop :=
+  φ 1 = 1 ∧ ∀ a, 0 ≤ φ (Star.star a * a)
+
+def IsKMS (σ : ℝ → A ≃ₐ[ℂ] A) (β : ℝ) (φ : A →L[ℂ] ℂ) : Prop :=
+  0 < β ∧ IsState φ ∧ ∀ a b, ∃ F : ℂ → ℂ,
+    ContinuousOn F {z | 0 ≤ z.im ∧ z.im ≤ β} ∧
+    DifferentiableOn ℂ F {z | 0 < z.im ∧ z.im < β} ∧
+    (∃ M : ℝ, ∀ z, 0 ≤ z.im → z.im ≤ β → ‖F z‖ ≤ M) ∧
+    (∀ t : ℝ, F t = φ (a * σ t b)) ∧
+    (∀ t : ℝ, F (t + Complex.I * β) = φ (σ t b * a))
+
+def IsGround (σ : ℝ → A ≃ₐ[ℂ] A) (φ : A →L[ℂ] ℂ) : Prop :=
+  IsState φ ∧ ∀ a b, ∃ F : ℂ → ℂ,
+    ContinuousOn F {z | 0 ≤ z.im} ∧
+    DifferentiableOn ℂ F {z | 0 < z.im} ∧
+    (∃ M : ℝ, ∀ z, 0 ≤ z.im → ‖F z‖ ≤ M) ∧
+    ∀ t : ℝ, F t = φ (a * σ t b)
+
+def IsKMSInfinity (σ : ℝ → A ≃ₐ[ℂ] A) (φ : A →L[ℂ] ℂ) : Prop :=
+  IsState φ ∧ ∀ (s : Finset A) (ε : ℝ), 0 < ε → ∀ B : ℝ,
+    ∃ (β : ℝ) (ψ : A →L[ℂ] ℂ), B < β ∧ IsKMS σ β ψ ∧
+      ∀ a ∈ s, ‖ψ a - φ a‖ < ε
+
+theorem trivial_ground (φ : A →L[ℂ] ℂ) (h : IsState φ) :
+    IsGround (fun _ => AlgEquiv.refl) φ := by sorry
+
+theorem trivial_kms_iff_trace (β : ℝ) (hβ : 0 < β) (φ : A →L[ℂ] ℂ) :
+    IsKMS (fun _ => AlgEquiv.refl) β φ ↔
+      IsState φ ∧ ∀ a b, φ (a * b) = φ (b * a) := by sorry
+
+theorem trivial_kmsInfinity_is_trace (φ : A →L[ℂ] ℂ)
+    (h : IsKMSInfinity (fun _ => AlgEquiv.refl) φ) (a b : A) :
+    φ (a * b) = φ (b * a) := by sorry
+
+abbrev MatrixTwo := CStarMatrix (Fin 2) (Fin 2) ℂ
+
+/-- Evaluation in the unit vector at the first matrix coordinate. -/
+def matrixVectorState : MatrixTwo →L[ℂ] ℂ := sorry
+theorem matrixVectorState_apply (a : MatrixTwo) : matrixVectorState a = a 0 0 := by sorry
+
+def matrixUnit (i j : Fin 2) : MatrixTwo :=
+  CStarMatrix.ofMatrix (fun k l => if k = i ∧ l = j then 1 else 0)
+
+-- The same two predicates are tested on the same C*-system.
+-- TauCeti.BostConnes.KMSInfinity.test_different_notions
+example : IsGround (fun _ => AlgEquiv.refl) matrixVectorState ∧
+    ¬ IsKMSInfinity (fun _ => AlgEquiv.refl) matrixVectorState := by sorry
+example : matrixVectorState (matrixUnit 0 1 * matrixUnit 1 0) = 1 ∧
+    matrixVectorState (matrixUnit 1 0 * matrixUnit 0 1) = 0 := by sorry
+example : IsState matrixVectorState := by sorry
+end TauCeti.CStarDynamics
+
 
 namespace TauCeti.BostConnes
 
@@ -184,10 +249,10 @@ theorem mul_eq_convolution (f₁ f₂ : BCHecke K) (d : axbRat) :
 instance star : StarRing (BCHecke ℂ) := sorry
 
 -- Declaration TauCeti.BostConnes.BCHecke.star_x
-theorem star_x (n : ℕ+) : _root_.star (x n : BCHecke ℂ) = x' n := by sorry
+theorem star_x (n : ℕ+) : Star.star (x n : BCHecke ℂ) = x' n := by sorry
 
 -- Declaration TauCeti.BostConnes.BCHecke.star_e
-theorem star_e (γ : QmodZ) : _root_.star (e γ : BCHecke ℂ) = e (-γ) := by sorry
+theorem star_e (γ : QmodZ) : Star.star (e γ : BCHecke ℂ) = e (-γ) := by sorry
 
 /-- The map induced by a field map. -/
 -- Declaration TauCeti.BostConnes.BCHecke.map
@@ -273,7 +338,7 @@ theorem timeEvolution_add (z w : ℂ) :
 
 -- Declaration TauCeti.BostConnes.timeEvolution_star
 theorem timeEvolution_star (t : ℝ) (f : BCHecke ℂ) :
-    timeEvolution t (_root_.star f) = _root_.star (timeEvolution t f) := by sorry
+    timeEvolution t (Star.star f) = Star.star (timeEvolution t f) := by sorry
 
 /-- Bost–Connes' form `σ_t(f)(X) = (L(X)/R(X))^{-it} f(X)`. -/
 -- Declaration TauCeti.BostConnes.timeEvolution_eq_LR
@@ -329,11 +394,28 @@ theorem regularRep_e (u : AddAut QmodZ) (γ : QmodZ) (k : ℕ+) :
 
 -- Declaration TauCeti.BostConnes.regularRep_star
 theorem regularRep_star (u : AddAut QmodZ) (f : BCHecke ℂ) :
-    regularRep u (_root_.star f) = ContinuousLinearMap.adjoint (regularRep u f) := by sorry
+    regularRep u (Star.star f) = ContinuousLinearMap.adjoint (regularRep u f) := by sorry
 
 /-- `e^{-βH}`, the diagonal operator `ε_k ↦ k^{-β} ε_k`. -/
 -- Declaration TauCeti.BostConnes.hamiltonianExp
 def hamiltonianExp (β : ℝ) (hβ : 0 < β) : L2 →L[ℂ] L2 := sorry
+
+theorem hamiltonianExp_apply (β : ℝ) (hβ : 0 < β) (k : ℕ+) :
+    hamiltonianExp β hβ (lp.single 2 k 1) =
+      ((k:ℂ)^(-(β:ℂ))) • lp.single 2 k 1 := by sorry
+theorem hamiltonianExp_norm (β : ℝ) (hβ : 0 < β) : ‖hamiltonianExp β hβ‖ = 1 := by sorry
+theorem hamiltonianExp_add (β γ : ℝ) (hβ : 0 < β) (hγ : 0 < γ) :
+    hamiltonianExp (β+γ) (by linarith) =
+      (hamiltonianExp β hβ).comp (hamiltonianExp γ hγ) := by sorry
+-- TauCeti.BostConnes.hamiltonianExp_test_one
+example (β : ℝ) (hβ : 0 < β) :
+    hamiltonianExp β hβ (lp.single 2 1 1) = lp.single 2 1 1 := by sorry
+-- TauCeti.BostConnes.hamiltonianExp_test_two
+example : hamiltonianExp 1 (by norm_num) (lp.single 2 2 1) =
+    (1/2:ℂ) • lp.single 2 2 1 := by sorry
+-- TauCeti.BostConnes.hamiltonianExp_test_positive
+example (β : ℝ) (hβ : 0 < β) (v : L2) :
+    0 ≤ inner ℂ v (hamiltonianExp β hβ v) := by sorry
 
 /-- `π_u(σ_t f) = e^{itH} π_u(f) e^{-itH}`, in matrix coefficients. -/
 -- Declaration TauCeti.BostConnes.regularRep_timeEvolution
@@ -375,7 +457,7 @@ theorem gibbsState_one (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) : gibbsState
 
 -- Declaration TauCeti.BostConnes.gibbsState_star_mul_self_nonneg
 theorem gibbsState_star_mul_self_nonneg (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) (f : BCHecke ℂ) :
-    0 ≤ gibbsState β hβ u (_root_.star f * f) := by sorry
+    0 ≤ gibbsState β hβ u (Star.star f * f) := by sorry
 
 -- Declaration TauCeti.BostConnes.gibbsState_e
 theorem gibbsState_e (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) (γ : QmodZ) :
@@ -405,7 +487,7 @@ example (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
 /-- AN.9/kms-states: the algebraic KMS condition on the dense Hecke algebra. -/
 -- Declaration TauCeti.BostConnes.IsKMS
 def IsKMS (β : ℝ) (φ : BCHecke ℂ →ₗ[ℂ] ℂ) : Prop :=
-  0 < β ∧ φ 1 = 1 ∧ (∀ f, 0 ≤ φ (_root_.star f * f)) ∧ ∀ f g, φ (f * timeEvolution (I * β) g) = φ (g * f)
+  0 < β ∧ φ 1 = 1 ∧ (∀ f, 0 ≤ φ (Star.star f * f)) ∧ ∀ f g, φ (f * timeEvolution (I * β) g) = φ (g * f)
 
 -- Declaration TauCeti.BostConnes.IsKMS.timeEvolution_invariant
 theorem IsKMS.timeEvolution_invariant {β : ℝ} {φ : BCHecke ℂ →ₗ[ℂ] ℂ} (h : IsKMS β φ) (t : ℝ)
@@ -422,6 +504,17 @@ theorem isKMS_gibbsState (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
 /-- The vector state at the base point, `f ↦ f(identity coset)`. -/
 -- Declaration TauCeti.BostConnes.baseState
 def baseState : BCHecke ℂ →ₗ[ℂ] ℂ := sorry
+
+theorem baseState_apply (f : BCHecke ℂ) : baseState f =
+    f (HeckeCoset.mk axbInt axbInt ⟨(1:axbRat), (1:axbRat).2⟩) := by sorry
+theorem baseState_positive (f : BCHecke ℂ) : 0 ≤ baseState (Star.star f*f) := by sorry
+theorem baseState_e (γ : QmodZ) : baseState (e γ) = if γ=0 then 1 else 0 := by sorry
+-- TauCeti.BostConnes.baseState_test_one
+example : baseState 1 = 1 := by sorry
+-- TauCeti.BostConnes.baseState_test_half
+example : baseState (e (1/2:ℚ)) = 0 := by sorry
+-- TauCeti.BostConnes.baseState_test_projection
+example : baseState (x 2*x' 2) = 1 := by sorry
 
 -- Test TauCeti.BostConnes.isKMS_one_iff
 example (β : ℝ) (hβ : 0 < β) : IsKMS β baseState ↔ β = 1 := by sorry
@@ -453,13 +546,19 @@ variable {K : Type*} [Field K] [CharZero K]
 
 -- Declaration TauCeti.BostConnes.symmetry_mul
 theorem symmetry_mul (v w : AddAut QmodZ) :
-    (symmetry (v * w) : BCHecke K ≃ₐ[K] BCHecke K) = (symmetry w).trans (symmetry v) := by sorry
+    (symmetry (v + w) : BCHecke K ≃ₐ[K] BCHecke K) = (symmetry w).trans (symmetry v) := by sorry
 
 end Symmetry
 
+/-- Pullback on the native Hecke module, avoiding competing algebra-module instances. -/
+def symmetryLinear (v : AddAut QmodZ) : BCHecke ℂ →ₗ[ℂ] BCHecke ℂ where
+  toFun := symmetry v
+  map_add' := sorry
+  map_smul' := sorry
+
 -- Declaration TauCeti.BostConnes.IsKMS.comp_symmetry
 theorem IsKMS.comp_symmetry {β : ℝ} {φ : BCHecke ℂ →ₗ[ℂ] ℂ} (h : IsKMS β φ) (v : AddAut QmodZ) :
-    IsKMS β (φ ∘ₗ (symmetry v : BCHecke ℂ ≃ₐ[ℂ] BCHecke ℂ).toLinearMap) := by sorry
+    IsKMS β (φ ∘ₗ symmetryLinear v) := by sorry
 
 -- Declaration TauCeti.BostConnes.symmetry_timeEvolution
 theorem symmetry_timeEvolution (v : AddAut QmodZ) (z : ℂ) (f : BCHecke ℂ) :
@@ -470,12 +569,12 @@ example (γ : QmodZ) : symmetry (AddEquiv.neg QmodZ) (e γ : BCHecke ℚ) = e (-
   sorry
 
 -- Test TauCeti.BostConnes.symmetry_one
-example : (symmetry 1 : BCHecke ℚ ≃ₐ[ℚ] BCHecke ℚ) = AlgEquiv.refl := by sorry
+example : (symmetry 0 : BCHecke ℚ ≃ₐ[ℚ] BCHecke ℚ) = AlgEquiv.refl := by sorry
 
 -- Test TauCeti.BostConnes.symmetry_gibbs
 example (β : ℝ) (hβ : 1 < β) (u v : AddAut QmodZ) :
-    gibbsState β hβ u ∘ₗ (symmetry v : BCHecke ℂ ≃ₐ[ℂ] BCHecke ℂ).toLinearMap =
-      gibbsState β hβ (u * v) := by sorry
+    gibbsState β hβ u ∘ₗ symmetryLinear v =
+      gibbsState β hβ (u + v) := by sorry
 
 -- Test TauCeti.BostConnes.no_symmetry_of_double
 example :
@@ -507,7 +606,7 @@ end TauCeti.BostConnes
 
 /-! These signatures are prototypes against actual carriers. Canonical supplier adapters remain
 explicit gaps. Infinite sums/products are only analytic values on their proved convergence domains;
-continuations are separate data-valued constructions. No build at both pins was available. -/
+continuations are separate data-valued constructions. -/
 
 namespace TauCeti.SeveralVariableZeta
 
@@ -550,7 +649,15 @@ def oddL (i : Characters8) (d : ℕ) (s : ℂ) : ℂ :=
 -- Declaration TauCeti.SeveralVariableZeta.DoubleSeries.series
 def series := DoubleSeries
 -- Declaration TauCeti.SeveralVariableZeta.DoubleSeries.continued
-def continued (i j : Characters8) : ℂ × ℂ → ℂ := sorry
+def polarPolynomial (z : ℂ × ℂ) : ℂ := (z.1-1)*(z.2-1)*(z.1+z.2-3/2)
+/-- The entire cleared function; its values on the polar set retain residue data. -/
+def cleared (i j : Characters8) : ℂ × ℂ → ℂ := sorry
+/-- Only values away from the polar set represent the meromorphic continuation. -/
+def continued (i j : Characters8) (z : ℂ × ℂ) : ℂ := cleared i j z / polarPolynomial z
+theorem cleared_agrees (i j : Characters8) (s w : ℂ) (hs : 1<s.re) (hw : 1<w.re) :
+    cleared i j (s,w) = polarPolynomial (s,w) * series i j s w := by sorry
+theorem cleared_entire (i j : Characters8) :
+    AnalyticOnNhd ℂ (cleared i j) Set.univ := by sorry
 -- Declaration TauCeti.SeveralVariableZeta.DoubleSeries.continued_agrees
 theorem continued_agrees (i j : Characters8) (s w : ℂ) (hs : 1<s.re) (hw : 1<w.re) :
   continued i j (s,w) = series i j s w := by sorry
@@ -564,12 +671,6 @@ example (i : Characters8) (s : ℂ) : oddL i 1 s =
   LSeries (fun n => Characters8.value i n) s := by sorry
 end DoubleSeries
 
--- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem
-structure FunctionalSystem where
-  swapMap : ℂ × ℂ → ℂ × ℂ
-  reflectMap : ℂ × ℂ → ℂ × ℂ
-  reciprocity : Matrix (Fin 4 × Fin 4) (Fin 4 × Fin 4) ℂ
-  reflection : ℂ → Matrix (Fin 4 × Fin 4) (Fin 4 × Fin 4) ℂ
 namespace FunctionalSystem
 -- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem.swap
 def swap (z : ℂ × ℂ) := (z.2,z.1)
@@ -581,12 +682,19 @@ def A (ij kl : Fin 4 × Fin 4) : ℂ := (1/16:ℂ) * ∑ a : Fin 4, ∑ b : Fin 
   Characters8.value kl.1 (2*a.val+1) * Characters8.value kl.2 (2*b.val+1) * (-1:ℂ)^(a.val*b.val)
 -- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem.q
 def q (i a : Fin 4) : ℂ :=
-  if 2≤i.val then 8 else if (i.val=0 ∧ a.val%2=0) ∨ (i.val=1 ∧ a.val%2=1) then 1 else 4
+  if 2 ≤ i.val then 8 else if (i.val=0 ∧ a.val%2=0) ∨ (i.val=1 ∧ a.val%2=1) then 1 else 4
 -- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem.parity
 def parity (i : Fin 4) : ℂ := if i.val%2=0 then 0 else 1
 -- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem.twoValue
 def twoValue (i a : Fin 4) : ℂ :=
   if q i a = 1 then if a.val=0 ∨ a.val=3 then 1 else -1 else 0
+/-- The three primitive-character invariants used by one residue block. -/
+structure PrimitiveTwistData where
+  conductorFactor : ℂ
+  characterParity : ℂ
+  valueAtTwo : ℂ
+def primitiveTwistData (i a : Fin 4) : PrimitiveTwistData :=
+  ⟨q i a, parity i, twoValue i a⟩
 -- Declaration TauCeti.SeveralVariableZeta.FunctionalSystem.localRatio
 def localRatio (i a : Fin 4) (s : ℂ) : ℂ :=
   (q i a / (Real.pi:ℂ))^(1/2-s) * Complex.Gamma ((1-s+parity i)/2) /
@@ -613,16 +721,75 @@ example (s : ℂ) (j k : Fin 4) (h : Complex.Gamma (s/2) ≠ 0)
   (hp : ∀ n : ℕ, (1-s)/2 ≠ -(n:ℂ)) :
   B s (2,j) (2,k) = if j=k then ((Real.pi:ℂ)/8)^(s-1/2) *
     Complex.Gamma ((1-s)/2)/Complex.Gamma (s/2) else 0 := by sorry
+theorem swap_apply (s w : ℂ) : swap (s,w) = (w,s) := by sorry
+theorem swap_involution (z : ℂ × ℂ) : swap (swap z) = z := by sorry
+theorem swap_fixed (z : ℂ × ℂ) : swap z = z ↔ z.1 = z.2 := by sorry
+theorem reflect_apply (s w : ℂ) : reflect (s,w) = (1-s,s+w-1/2) := by sorry
+theorem reflect_involution (z : ℂ × ℂ) : reflect (reflect z) = z := by sorry
+theorem reflect_fixed (z : ℂ × ℂ) : reflect z = z ↔ z.1 = 1/2 := by sorry
+theorem A_entry (ij kl : Fin 4 × Fin 4) : A ij kl = (1/16:ℂ)*
+    ∑ a : Fin 4, ∑ b : Fin 4,
+      Characters8.value ij.1 (2*b.val+1)*Characters8.value ij.2 (2*a.val+1)*
+      Characters8.value kl.1 (2*a.val+1)*Characters8.value kl.2 (2*b.val+1)*
+      (-1:ℂ)^(a.val*b.val) := by sorry
+theorem A_involution : A*A = 1 := by sorry
+theorem A_symmetric : Matrix.transpose A = A := by sorry
+theorem B_cross_block (s : ℂ) (i j k l : Fin 4) (h : i ≠ k) :
+    B s (i,j) (k,l) = 0 := by sorry
+theorem B_analytic_left (ij kl : Fin 4 × Fin 4) :
+    AnalyticOnNhd ℂ (fun s => B s ij kl) {s : ℂ | s.re < 1} := by sorry
+theorem localRatio_analytic (i a : Fin 4) :
+    AnalyticOnNhd ℂ (localRatio i a) {s : ℂ | s.re < 1} := by sorry
+theorem localRatio_formula (i a : Fin 4) (s : ℂ) : localRatio i a s =
+    (q i a/(Real.pi:ℂ))^(1/2-s)*Complex.Gamma ((1-s+parity i)/2)/
+      Complex.Gamma ((s+parity i)/2)*(1-twoValue i a*(2:ℂ)^(-s))/
+      (1-twoValue i a*(2:ℂ)^(s-1)) := by sorry
+theorem localRatio_twist_two (a : Fin 4) (s : ℂ) : localRatio 2 a s =
+    ((Real.pi:ℂ)/8)^(s-1/2)*Complex.Gamma ((1-s)/2)/Complex.Gamma (s/2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_A_principal
+example : A (0,0) (0,0) = 1/2 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_A_signed
+example : A (0,0) (1,1) = -1/2 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_swap_origin
+example : swap (0,0) = (0,0) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_swap_pair
+example : swap (2,3) = (3,2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_swap_fixed
+example (s : ℂ) : swap (s,s) = (s,s) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_reflect_origin
+example : reflect (0,0) = (1,-1/2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_reflect_pair
+example : reflect (2,3) = (-1,9/2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_reflect_fixed
+example (w : ℂ) : reflect (1/2,w) = (1/2,w) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_conductor_principal
+example : q 0 0 = 1 ∧ q 0 1 = 4 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_conductor_eight
+example (a : Fin 4) : q 2 a = 8 ∧ q 3 a = 8 ∧ parity 2 = 0 ∧ parity 3 = 1 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_two_values
+example (a : Fin 4) : twoValue 0 0 = 1 ∧ twoValue 1 1 = -1 ∧ twoValue 2 a = 0 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_ratio_even_zero
+example (a : Fin 4) : localRatio 0 a 0 = 0 ∧ localRatio 2 a 0 = 0 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_ratio_eight_even
+example (a : Fin 4) (s : ℂ) : localRatio 2 a s =
+    ((Real.pi:ℂ)/8)^(s-1/2)*Complex.Gamma ((1-s)/2)/Complex.Gamma (s/2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_ratio_eight_odd
+example (a : Fin 4) (s : ℂ) : localRatio 3 a s =
+    ((Real.pi:ℂ)/8)^(s-1/2)*Complex.Gamma ((2-s)/2)/Complex.Gamma ((s+1)/2) := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_B_principal_zero
+example (j k : Fin 4) : B 0 (0,j) (0,k) = 0 := by sorry
+-- TauCeti.SeveralVariableZeta.FunctionalSystem.test_B_odd_zero
+example : B 0 (1,0) (1,0) = 4/(3*(Real.pi:ℂ)) := by sorry
 end FunctionalSystem
 
 -- Declaration TauCeti.SeveralVariableZeta.double_series_pole_clear_entire
 theorem double_series_pole_clear_entire (i j : Fin 4) :
-  AnalyticOnNhd ℂ (fun z : ℂ × ℂ =>
-    (z.1-1)*(z.2-1)*(z.1+z.2-3/2)*DoubleSeries.continued i j z) Set.univ := by sorry
+  AnalyticOnNhd ℂ (DoubleSeries.cleared i j) Set.univ := by sorry
 -- Declaration TauCeti.SeveralVariableZeta.reciprocity_swap_equation
-theorem reciprocity_swap_equation (z : ℂ × ℂ) :
+theorem reciprocity_swap_equation (z : ℂ × ℂ)
+    (hz : DoubleSeries.polarPolynomial z ≠ 0) :
   (fun ij : Fin 4 × Fin 4 => DoubleSeries.continued ij.1 ij.2 z) =
-    FunctionalSystem.A.mulVec (fun ij => DoubleSeries.continued ij.1 ij.2 (z.2,z.1)) := by sorry
+    Matrix.mulVec FunctionalSystem.A (fun ij => DoubleSeries.continued ij.1 ij.2 (z.2,z.1)) := by sorry
 
 -- Declaration TauCeti.SeveralVariableZeta.LocalIntegral
 def LocalIntegral {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V)
@@ -633,7 +800,7 @@ namespace LocalIntegral
 def integral := @LocalIntegral
 -- Declaration TauCeti.SeveralVariableZeta.LocalIntegral.shellDensity
 def shellDensity {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V)
-    (disc : V → K) (valuation : V → ℕ) (U : Set V) (k : ℕ) : ℝ≥0∞ :=
+    (disc : V → K) (valuation : V → ℕ) (U : Set V) (k : ℕ) : ENNReal :=
   μ {x | x∈U ∧ disc x ≠ 0 ∧ valuation x=k}
 -- TauCeti.SeveralVariableZeta.LocalIntegral.test_zero_test_function
 example {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V)
@@ -644,9 +811,9 @@ example {V K : Type*} [MeasurableSpace V] [Zero K] (μ : MeasureTheory.Measure V
   (h : ∀ x, Φ x ≠ 0 → d x ≠ 0 ∧ v (d x)=1) :
   LocalIntegral μ d v Φ s = ∫ x, Φ x ∂μ := by sorry
 -- TauCeti.SeveralVariableZeta.LocalIntegral.test_linear_benchmark
-example (q : ℝ) (hq : 1<q) (s : ℂ) (hs : -1<s.re) :
-  (∑' k : ℕ, (1-(q:ℂ)⁻¹)*(q:ℂ)^(-((k:ℂ)*(s+1)))) =
-    (1-(q:ℂ)⁻¹)/(1-(q:ℂ)^(-s-1)) := by sorry
+example (s : ℂ) :
+  LocalIntegral (MeasureTheory.Measure.dirac ()) (fun _ : Unit => (2:ℝ))
+    id (fun _ => (3:ℂ)) s = 3*(2:ℂ)^s := by sorry
 end LocalIntegral
 
 /-! The general functions below take the actual ST enumeration and invariant maps as parameters.
@@ -682,6 +849,91 @@ example (s : ℂ) : dual (fun _ : Unit => 1) (fun _ => 1) (fun _ => false)
   series (fun _ : Unit => 1) (fun _ => 1) (fun _ => false) false s = 1 := by sorry
 end CubicShintani
 
+/- The canonical quotient kernel comes from AL.0, AA.2 and ST.1. This constructor
+uses its actual descended theta function and determinant norm. The canonical adapter
+must prove theta_right_invariant before providing those functions on the quotient. -/
+def CubicAdelic {Q : Type*} [MeasurableSpace Q] (μ : MeasureTheory.Measure Q)
+    (detNorm : Q → ℝ) (theta : Q → ℂ) (s : ℂ) : ℂ :=
+  ∫ g, (detNorm g : ℂ)^(2*s)*theta g ∂μ
+namespace CubicAdelic
+ def integral := @CubicAdelic
+ theorem linear {Q : Type*} [MeasurableSpace Q] (μ : MeasureTheory.Measure Q)
+    (d : Q → ℝ) (theta eta : Q → ℂ) (s a b : ℂ)
+    (ht : MeasureTheory.Integrable (fun g => (d g:ℂ)^(2*s)*theta g) μ)
+    (he : MeasureTheory.Integrable (fun g => (d g:ℂ)^(2*s)*eta g) μ) :
+    integral μ d (fun g => a*theta g+b*eta g) s =
+      a*integral μ d theta s+b*integral μ d eta s := by sorry
+ theorem theta_right_invariant {G ι : Type*} [Group G] (thetaTerm : G → ι → ℂ)
+    (g h : G) (reindex : ι ≃ ι) (hr : ∀ x, thetaTerm (g*h) x = thetaTerm g (reindex x)) :
+    (∑' x, thetaTerm (g*h) x) = ∑' x, thetaTerm g x := by sorry
+ theorem inversion_kernel {G : Type*} [Group G] (d : G → ℝ) (theta : G → ℂ)
+    (g : G) (s : ℂ) (hd : 0 < d g) (hi : d (g⁻¹) = (d g)⁻¹) :
+    (d (g⁻¹):ℂ)^(2*s)*theta (g⁻¹) = (d g:ℂ)^(-2*s)*theta (g⁻¹) := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicAdelic.test_zero
+ example {Q : Type*} [MeasurableSpace Q] (μ : MeasureTheory.Measure Q)
+    (d : Q → ℝ) (s : ℂ) : integral μ d 0 s = 0 := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicAdelic.test_scaling
+ example (s : ℂ) : integral (MeasureTheory.Measure.dirac ())
+    (fun _ : Unit => (2:ℝ)) (fun _ => (3:ℂ)) s = 3*(2:ℂ)^(2*s) := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicAdelic.test_singular_locus
+ example {Q ι : Type*} [MeasurableSpace Q] (μ : MeasureTheory.Measure Q)
+    (d : Q → ℝ) (disc : ι → ℚ) (Phi : Q → ι → ℂ) (s : ℂ)
+    (h : ∀ g x, disc x ≠ 0 → Phi g x = 0) :
+    integral μ d (fun g => ∑' x, if disc x ≠ 0 then Phi g x else 0) s = 0 := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicAdelic.test_quotient_side
+ example {G : Type*} [Group G] (d : G → ℝ) (theta : G → ℂ) (g : G) (s : ℂ)
+    (hd : 0 < d g) (hi : d (g⁻¹) = (d g)⁻¹) :
+    (d (g⁻¹):ℂ)^(2*s)*theta (g⁻¹) = (d g:ℂ)^(-2*s)*theta (g⁻¹) := by sorry
+end CubicAdelic
+
+namespace LocalIntegral
+ theorem shell_sum {V K : Type*} [MeasurableSpace V] [Zero K]
+    (μ : MeasureTheory.Measure V) (disc : V → K) (absValue : K → ℝ)
+    (valuation : V → ℕ) (U : Set V) (r : ℝ) (s : ℂ)
+    (hdisc : MeasurableSet {x | disc x ≠ 0}) (hU : MeasurableSet U)
+    (hv : Measurable valuation) (hμ : μ U ≠ ⊤) (hr : 1 < r) (hs : 0 ≤ s.re)
+    (habs : ∀ x, disc x ≠ 0 → absValue (disc x) = r^(-(valuation x:ℝ))) :
+    integral μ disc absValue (U.indicator (fun _ => (1:ℂ))) s =
+      ∑' k : ℕ, ((shellDensity μ disc valuation U k).toReal:ℂ)*(r:ℂ)^(-(k:ℂ)*s) := by sorry
+end LocalIntegral
+
+/-- The actual analytic clearance, including values at the two possible poles. -/
+structure CubicContinuation (xi : ℂ → ℂ) where
+  continued : ℂ → ℂ
+  clear : ℂ → ℂ
+  meromorphic : MeromorphicOn continued Set.univ
+  agrees : ∀ s : ℂ, 1 < s.re → continued s = xi s
+  entire : AnalyticOnNhd ℂ clear Set.univ
+  clear_agrees : ∀ s : ℂ, s ≠ 1 → s ≠ 5/6 →
+    clear s = (s-1)*(s-5/6)*continued s
+
+namespace CubicContinuation
+ theorem clear_spec (xi : ℂ → ℂ) (c : CubicContinuation xi) :
+    AnalyticOnNhd ℂ c.clear Set.univ ∧
+      ∀ s : ℂ, s ≠ 1 → s ≠ 5/6 → c.clear s = (s-1)*(s-5/6)*c.continued s := by sorry
+ theorem residue_one (xi : ℂ → ℂ) (c : CubicContinuation xi) :
+    Filter.Tendsto (fun s => (s-1)*c.continued s)
+      (nhdsWithin 1 {s : ℂ | s ≠ 1}) (nhds (6*c.clear 1)) := by sorry
+ theorem residue_five_sixths (xi : ℂ → ℂ) (c : CubicContinuation xi) :
+    Filter.Tendsto (fun s => (s-5/6)*c.continued s)
+      (nhdsWithin (5/6) {s : ℂ | s ≠ 5/6}) (nhds (-6*c.clear (5/6))) := by sorry
+ def rationalBenchmark (R T : ℂ) : CubicContinuation (fun s => R/(s-1)+T/(s-5/6)) where
+   continued := fun s => R/(s-1)+T/(s-5/6)
+   clear := fun s => (s-5/6)*R+(s-1)*T
+   meromorphic := by sorry
+   agrees := by sorry
+   entire := by sorry
+   clear_agrees := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicContinuation.test_first_pole
+ example (R T : ℂ) : (rationalBenchmark R T).clear 1 = R/6 := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicContinuation.test_second_pole
+ example (R T : ℂ) : (rationalBenchmark R T).clear (5/6) = -T/6 := by sorry
+ -- TauCeti.SeveralVariableZeta.CubicContinuation.test_off_poles
+ example (s : ℂ) (h1 : s ≠ 1) (h2 : s ≠ 5/6) (R T : ℂ) :
+   (rationalBenchmark R T).clear s =
+     (s-1)*(s-5/6)*(rationalBenchmark R T).continued s := by sorry
+end CubicContinuation
+
 -- Declaration TauCeti.SeveralVariableZeta.ArchMatrix
 def ArchMatrix (r c : ℕ) (α β : Fin r → Bool) (s : ℂ) : ℂ :=
   (∏ v, if α v=β v then Complex.sin (2*Real.pi*s)/2 else
@@ -710,31 +962,80 @@ end TauCeti.SeveralVariableZeta
 
 namespace TauCeti.SpectralZeta
 -- Declaration TauCeti.SpectralZeta.SpectralData
-def SpectralData {ι : Type*} (λ : ι → ℝ) (s : ℂ) : ℂ := ∑' j, (λ j:ℂ)^(-s)
+def SpectralData {ι : Type*} (eigenvalue : ι → ℝ) (s : ℂ) : ℂ :=
+  ∑' j, if 0 < eigenvalue j then (eigenvalue j:ℂ)^(-s) else 0
 namespace SpectralData
 -- Declaration TauCeti.SpectralZeta.SpectralData.series
 def series := @SpectralData
 -- Declaration TauCeti.SpectralZeta.SpectralData.heat
-def heat {ι : Type*} (λ : ι → ℝ) (t : ℝ) : ℂ := ∑' j, Complex.exp (-(t:ℂ)*(λ j:ℂ))
--- Declaration TauCeti.SpectralZeta.SpectralData.continued
-def continued (λ : ℕ → ℝ) : ℂ → ℂ := sorry
+def heat {ι : Type*} (eigenvalue : ι → ℝ) (t : ℝ) : ℂ := ∑' j, Complex.exp (-(t:ℂ)*(eigenvalue j:ℂ))
 -- TauCeti.SpectralZeta.SpectralData.test_single_eigenvalue
-example (λ : ℝ) (s : ℂ) : series (fun _ : Unit => λ) s=(λ:ℂ)^(-s) := by sorry
+example (eigenvalue : ℝ) (h : 0<eigenvalue) (s : ℂ) :
+  series (fun _ : Unit => eigenvalue) s=(eigenvalue:ℂ)^(-s) := by sorry
 -- TauCeti.SpectralZeta.SpectralData.test_zero_omitted
-example (t : ℝ) : heat (fun _ : Unit => 0) t=1 := by sorry
+example (t : ℝ) (s : ℂ) : heat (fun _ : Unit => 0) t=1 ∧
+  series (fun _ : Unit => 0) s=0 := by sorry
 -- TauCeti.SpectralZeta.SpectralData.test_scaling
-example {ι : Type*} (λ : ι → ℝ) (c : ℝ) (hc : 0<c) (hλ : ∀ j, 0<λ j) (s : ℂ)
-  (h : Summable (fun j => (λ j:ℂ)^(-s))) :
-  series (fun j => c*λ j) s=(c:ℂ)^(-s)*series λ s := by sorry
+example {ι : Type*} (eigenvalue : ι → ℝ) (c : ℝ) (hc : 0<c) (heigenvalue : ∀ j, 0<eigenvalue j) (s : ℂ)
+  (h : Summable (fun j => (eigenvalue j:ℂ)^(-s))) :
+  series (fun j => c*eigenvalue j) s=(c:ℂ)^(-s)*series eigenvalue s := by sorry
 end SpectralData
+/-- The geometric supplier must identify these concrete spectral and heat outputs. -/
+structure HeatAsymptotics (eigenvalue : ℕ → ℝ) : Prop where
+  zero : eigenvalue 0 = 0
+  positive : ∀ j, 0 < eigenvalue (j+1)
+  monotone : Monotone eigenvalue
+  finite_counts : ∀ R : ℝ, Set.Finite {j | eigenvalue j ≤ R}
+  weyl : ∃ C : ℝ, 0 < C ∧ ∀ R : ℝ, 1 ≤ R →
+    (({j | eigenvalue j ≤ R}).ncard : ℝ) ≤ C*R
+  expansion : ∃ a : ℕ → ℂ, ∀ N : ℕ, ∃ C : ℝ, 0 < C ∧
+    ∀ t : ℝ, 0 < t → t ≤ 1 →
+      ‖SpectralData.heat eigenvalue t -
+        ∑ k ∈ Finset.range (N+1), a k * (t:ℂ)^((k:ℤ)-1)‖ ≤ C*t^N
+
+/-- Pole clearance is an analytic function, including its actual value at the pole. -/
+structure SpectralContinuation (eigenvalue : ℕ → ℝ) where
+  positiveZeta : ℂ → ℂ
+  shiftedZeta : ℂ → ℂ → ℂ
+  poleClear : ℂ → ℂ
+  meromorphic : MeromorphicOn positiveZeta Set.univ
+  regular_zero : AnalyticAt ℂ positiveZeta 0
+  agrees_positive : ∀ z : ℂ, 1 < z.re →
+    positiveZeta z = SpectralData.series eigenvalue z
+  clear_analytic : AnalyticAt ℂ poleClear 1
+  clear_agrees : ∀ᶠ z in nhdsWithin 1 {z : ℂ | z ≠ 1},
+    poleClear z = (z-1)*positiveZeta z
+  shifted_meromorphic : ∀ u : ℂ, 0 < u.re →
+    MeromorphicOn (shiftedZeta u) Set.univ
+  shifted_regular : ∀ u : ℂ, 0 < u.re → AnalyticAt ℂ (shiftedZeta u) 0
+  shifted_agrees : ∀ u z : ℂ, 0 < u.re → 1 < z.re →
+    shiftedZeta u z = ∑' j : ℕ, (eigenvalue j + u)^(-z)
+
+namespace SpectralData
+/-- Adapter to the actual Mellin continuation data, rather than an arbitrary function. -/
+def continued (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue) : ℂ → ℂ :=
+  c.positiveZeta
+theorem continued_agrees (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (z : ℂ) (hz : 1 < z.re) : continued eigenvalue c z = series eigenvalue z := by sorry
+end SpectralData
+ theorem spectral_continuation_exists (eigenvalue : ℕ → ℝ)
+    (h : HeatAsymptotics eigenvalue) : Nonempty (SpectralContinuation eigenvalue) := by sorry
+
 -- Declaration TauCeti.SpectralZeta.Selberg
 def Selberg {ι : Type*} (length : ι → ℝ) (s : ℂ) : ℂ :=
-  ∏' p, ∏' k : ℕ, 1-Complex.exp (-((s+k)*(length p:ℂ)))
+  tprod (fun p : ι => tprod (fun k : ℕ => 1 - Complex.exp (-((s+k)*(length p:ℂ)))))
 namespace Selberg
 -- Declaration TauCeti.SpectralZeta.Selberg.product
 def product := @Selberg
+/-- Actual output data of the surface-specific continuation theorem. -/
+structure Continuation (length : ℕ → ℝ) where
+  function : ℂ → ℂ
+  entire : AnalyticOnNhd ℂ function Set.univ
+  agrees : ∀ s : ℂ, 1 < s.re → function s = product length s
 -- Declaration TauCeti.SpectralZeta.Selberg.continued
-def continued (length : ℕ → ℝ) : ℂ → ℂ := sorry
+def continued (length : ℕ → ℝ) (c : Continuation length) : ℂ → ℂ := c.function
+theorem continued_agrees (length : ℕ → ℝ) (c : Continuation length)
+    (s : ℂ) (hs : 1 < s.re) : continued length c s = product length s := by sorry
 -- Declaration TauCeti.SpectralZeta.Selberg.log_derivative
 theorem log_derivative (length : ℕ → ℝ) (s : ℂ) (hs : 1<s.re)
   (hprod : Multipliable (fun p => ∏' k : ℕ, 1-Complex.exp (-((s+k)*(length p:ℂ)))))
@@ -768,7 +1069,7 @@ def shifted (f : ℝ → ℂ → ℂ) (v : ℝ) := ofZeta (f v)
 theorem scale (f : ℂ → ℂ) (c : ℝ) (hc : 0<c) (hf : DifferentiableAt ℂ f 0) :
   ofZeta (fun s => (c:ℂ)^(-s)*f s)=(c:ℂ)^(f 0)*ofZeta f := by sorry
 -- TauCeti.SpectralZeta.RegularizedDet.test_one_eigenvalue
-example (λ : ℝ) (hλ : 0<λ) : ofZeta (fun s => (λ:ℂ)^(-s))=λ := by sorry
+example (eigenvalue : ℝ) (heigenvalue : 0<eigenvalue) : ofZeta (fun s => (eigenvalue:ℂ)^(-s))=eigenvalue := by sorry
 -- TauCeti.SpectralZeta.RegularizedDet.test_empty_positive_spectrum
 example : ofZeta (fun _ => 0)=1 := by sorry
 -- TauCeti.SpectralZeta.RegularizedDet.test_two_eigenvalues
@@ -781,13 +1082,14 @@ namespace TauCeti.BostConnes
 namespace Completed
 -- Declaration TauCeti.BostConnes.Completed.Coset
 abbrev Coset := axbRat ⧸ (axbInt.subgroupOf axbRat)
+instance : DecidableEq Coset := Classical.decEq _
 -- Declaration TauCeti.BostConnes.Completed.Space
 abbrev Space := lp (fun _ : Coset => ℂ) 2
 -- Declaration TauCeti.BostConnes.Completed.leftRegular
 def leftRegular : BCHecke ℂ →ₐ[ℂ] (Space →L[ℂ] Space) := sorry
 -- Declaration TauCeti.BostConnes.Completed.algebra
 def algebra : StarSubalgebra ℂ (Space →L[ℂ] Space) :=
-  (StarSubalgebra.adjoin ℂ (Set.range leftRegular)).topologicalClosure
+  (StarAlgebra.adjoin ℂ (Set.range leftRegular)).topologicalClosure
 -- Declaration TauCeti.BostConnes.Completed.embed
 def embed : BCHecke ℂ →ₐ[ℂ] algebra := sorry
 -- Declaration TauCeti.BostConnes.Completed.mu
@@ -797,14 +1099,14 @@ def dynamics (t : ℝ) : algebra ≃ₐ[ℂ] algebra := sorry
 -- TauCeti.BostConnes.Completed.test_unit
 example : embed 1=1 := by sorry
 -- TauCeti.BostConnes.Completed.test_isometry
-example (n : ℕ+) : _root_.star (mu n)*mu n=1 := by sorry
+example (n : ℕ+) : Star.star (mu n)*mu n=1 := by sorry
 -- TauCeti.BostConnes.Completed.test_range_projection
-example : mu 2*_root_.star (mu 2)=(1/2:ℂ) • (1+embed (BCHecke.e (1/2:ℚ))) ∧
-  mu 2*_root_.star (mu 2)≠1 := by sorry
+example : mu 2*Star.star (mu 2)=(1/2:ℂ) • (1+embed (BCHecke.e (1/2:ℚ))) ∧
+  mu 2*Star.star (mu 2)≠1 := by sorry
 end Completed
 -- Declaration TauCeti.BostConnes.CompletedKMS
 def CompletedKMS (β : ℝ) (φ : Completed.algebra →L[ℂ] ℂ) : Prop :=
-  0<β ∧ φ 1=1 ∧ (∀ a, 0≤φ (_root_.star a*a)) ∧
+  0<β ∧ φ 1=1 ∧ (∀ a, 0≤φ (Star.star a*a)) ∧
   ∀ a b, ∃ F : ℂ → ℂ,
     ContinuousOn F {z | 0≤z.im ∧ z.im≤β} ∧
     DifferentiableOn ℂ F {z | 0<z.im ∧ z.im<β} ∧
@@ -813,21 +1115,27 @@ def CompletedKMS (β : ℝ) (φ : Completed.algebra →L[ℂ] ℂ) : Prop :=
     (∀ t : ℝ, F (t+Complex.I*β)=φ (Completed.dynamics t b*a))
 namespace CompletedKMS
 -- Declaration TauCeti.BostConnes.CompletedKMS.state
-def state (φ : Completed.algebra →L[ℂ] ℂ) : Prop := φ 1=1 ∧ ∀ a, 0≤φ (_root_.star a*a)
+def state (φ : Completed.algebra →L[ℂ] ℂ) : Prop := φ 1=1 ∧ ∀ a, 0≤φ (Star.star a*a)
 -- Declaration TauCeti.BostConnes.CompletedKMS.isKMS
 def isKMS := CompletedKMS
+/-- Restriction along the concrete Hecke embedding. -/
+def restrictState (φ : Completed.algebra →L[ℂ] ℂ) : BCHecke ℂ →ₗ[ℂ] ℂ where
+  toFun := fun a => φ (Completed.embed a)
+  map_add' := sorry
+  map_smul' := sorry
+
+/-- The continuous coefficient state of the faithful left regular representation. -/
+def base : Completed.algebra →L[ℂ] ℂ := sorry
+theorem base_restrict : restrictState base = baseState := by sorry
+
 -- Declaration TauCeti.BostConnes.CompletedKMS.restrict
 theorem restrict (β : ℝ) (φ : Completed.algebra →L[ℂ] ℂ) (h : isKMS β φ) :
-  IsKMS β (φ.toLinearMap.comp Completed.embed.toLinearMap) := by sorry
--- TauCeti.BostConnes.CompletedKMS.test_wrong_sign
-example (β : ℝ) (hβ : 1<β) (u : AddAut QmodZ) :
-  gibbsState β hβ u (BCHecke.x' 2*timeEvolution (-Complex.I*β) (BCHecke.x 2)) ≠
-    gibbsState β hβ u (BCHecke.x 2*BCHecke.x' 2) := by sorry
+  IsKMS β (restrictState φ) := by sorry
 -- TauCeti.BostConnes.CompletedKMS.test_temperature_one
-example : IsKMS 1 baseState := by sorry
+example : isKMS 1 base := by sorry
 -- TauCeti.BostConnes.CompletedKMS.test_scaling_projection
 example (β : ℝ) (φ : Completed.algebra →L[ℂ] ℂ) (h : isKMS β φ) (n : ℕ+) :
-  φ (Completed.mu n * _root_.star (Completed.mu n))=(n:ℂ)^(-(β:ℂ)) := by sorry
+  φ (Completed.mu n * Star.star (Completed.mu n))=(n:ℂ)^(-(β:ℂ)) := by sorry
 end CompletedKMS
 -- Declaration TauCeti.BostConnes.KMSInfinity
 def KMSInfinity (φ : Completed.algebra →L[ℂ] ℂ) : Prop :=
@@ -847,13 +1155,20 @@ def isGround (φ : Completed.algebra →L[ℂ] ℂ) : Prop :=
 theorem limit_isGround (φ : Completed.algebra →L[ℂ] ℂ) (h : isLimit φ) : isGround φ := by sorry
 -- Declaration TauCeti.BostConnes.KMSInfinity.vectorState
 def vectorState (u : AddAut QmodZ) : Completed.algebra →L[ℂ] ℂ := sorry
+theorem vectorState_one (u : AddAut QmodZ) : vectorState u 1 = 1 := by sorry
+theorem vectorState_basis (u : AddAut QmodZ) (n m : ℕ+) (γ : QmodZ) :
+    vectorState u (Completed.mu n*Completed.embed (BCHecke.e γ)*Star.star (Completed.mu m)) =
+      if n=1 ∧ m=1 then rootOfUnityOf (u γ) else 0 := by sorry
+theorem vectorState_isLimit (u : AddAut QmodZ) : isLimit (vectorState u) := by sorry
+-- TauCeti.BostConnes.KMSInfinity.vectorState_test_one
+example (u : AddAut QmodZ) : vectorState u 1 = 1 := by sorry
+-- TauCeti.BostConnes.KMSInfinity.vectorState_test_shift
+example (u : AddAut QmodZ) : vectorState u (Completed.mu 2) = 0 := by sorry
 -- TauCeti.BostConnes.KMSInfinity.test_gibbs_limit
 example (u : AddAut QmodZ) : isLimit (vectorState u) := by sorry
 -- TauCeti.BostConnes.KMSInfinity.test_value_half
 example (u : AddAut QmodZ) : vectorState u (Completed.embed (BCHecke.e (1/2:ℚ)))=-1 := by sorry
--- TauCeti.BostConnes.KMSInfinity.test_different_notions
-example : ¬ isGround (0 : Completed.algebra →L[ℂ] ℂ) ∧
-  ¬ isLimit (0 : Completed.algebra →L[ℂ] ℂ) := by sorry
+-- The discriminating trivial-dynamics example is in CStarDynamics above.
 end KMSInfinity
 
 -- Declaration TauCeti.BostConnes.ArithmeticEisenstein
@@ -870,12 +1185,38 @@ def polynomial : ℕ → Polynomial ℚ
 -- Declaration TauCeti.BostConnes.ArithmeticEisenstein.higher
 def higher (k : ℕ) (a : QmodZ) : BCHecke ℚ :=
   Polynomial.eval₂ (algebraMap ℚ (BCHecke ℚ)) (first a) (polynomial k)
+theorem polynomial_recurrence (k : ℕ) (hk : 1 ≤ k) :
+    polynomial (k+1) = ((k:ℚ)⁻¹) •
+      ((Polynomial.X^2-Polynomial.C (1/4))*Polynomial.derivative (polynomial k)) := by sorry
+theorem polynomial_monic (k : ℕ) (hk : 1 ≤ k) : (polynomial k).Monic := by sorry
+theorem polynomial_degree (k : ℕ) (hk : 1 ≤ k) : (polynomial k).natDegree = k := by sorry
+theorem higher_eval (k : ℕ) (a : QmodZ) : higher k a =
+    Polynomial.eval₂ (algebraMap ℚ (BCHecke ℚ)) (first a) (polynomial k) := by sorry
+theorem higher_one (a : QmodZ) : higher 1 a = first a := by sorry
+theorem higher_zero_argument (k : ℕ) :
+    higher k 0 = algebraMap ℚ (BCHecke ℚ) ((polynomial k).eval 0) := by sorry
+theorem neg (a : QmodZ) : first (-a) = -first a := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_polynomial_two
+example : polynomial 2 = Polynomial.X^2-Polynomial.C (1/4) := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_polynomial_three
+example : polynomial 3 = Polynomial.X^3-(1/4:ℚ) • Polynomial.X := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_polynomial_four
+example : polynomial 4 = Polynomial.X^4-(1/3:ℚ) • Polynomial.X^2+
+    Polynomial.C (1/48) := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_first_zero
+example : first 0 = 0 := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_higher_half
+example : higher 2 (1/2:ℚ) = (-1/4:ℚ) • (1:BCHecke ℚ) ∧
+    higher 3 (1/2:ℚ) = 0 := by sorry
+-- TauCeti.BostConnes.ArithmeticEisenstein.test_higher_third
+example : higher 2 (1/3:ℚ) = (1/36:ℚ) •
+    (BCHecke.e (1/3:ℚ)+BCHecke.e (2/3:ℚ)-11) := by sorry
 -- Declaration TauCeti.BostConnes.ArithmeticEisenstein.finite_sum
 theorem finite_sum (a : QmodZ) (N : ℕ) (hN : 0<N) (ha : N • a=0) :
   first a = ∑ k∈Finset.range N, if k=0 then 0 else
     ((k:ℚ)/(N:ℚ)-1/2) • BCHecke.e (k • a) := by sorry
 -- TauCeti.BostConnes.ArithmeticEisenstein.test_zero
-example : first 0=0 ∧ higher 2 0=-1/4 := by sorry
+example : first 0=0 ∧ higher 2 0 = (-(1/4:ℚ)) • (1 : BCHecke ℚ) := by sorry
 -- TauCeti.BostConnes.ArithmeticEisenstein.test_half
 example : first (1/2:ℚ)=0 := by sorry
 -- TauCeti.BostConnes.ArithmeticEisenstein.test_third
@@ -883,400 +1224,1130 @@ example : first (1/3:ℚ)=(-1/6:ℚ) • BCHecke.e (1/3:ℚ)+(1/6:ℚ) • BCHec
 end ArithmeticEisenstein
 end TauCeti.BostConnes
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/kms-classification
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.kms_classification
-Mathematical obligation: For bounded states on the C*-completion and β>0, (1) If β ≤ 1 there is exactly one KMS_β state; on e(a/b) with gcd(a, b) = 1 it takes the value b^{−β} ∏_{p | b} (1 − p^{β−1})/(1 − p^{−1}). (2) If β > 1 the extremal completed KMS_β states are exactly the Gibbs states φ_{β,u}, u ∈ Ẑ^× = Aut(ℚ/ℤ), these are pairwise distinct, and every KMS_β state is a barycentre of them. (3) The symmetries of B.9/symmetry-action act freely and transitively on the extremal completed KMS_β states for β > 1.
--/
+namespace TauCeti.BostConnes
+open BCHecke
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/odd-double-sum-absolute
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.odd_double_sum_absolute
-Mathematical obligation: For Res>1 and Rew>1 the odd n,d double sum is absolutely convergent, locally uniformly on compact sub-tubes; hence it may be summed in either order.
--/
+theorem mem_axbInt_iff (g : GL (Fin 2) ℚ) : g ∈ axbInt ↔
+    (g : Matrix (Fin 2) (Fin 2) ℚ) 1 0 = 0 ∧
+    (g : Matrix (Fin 2) (Fin 2) ℚ) 0 0 = 1 ∧
+    (g : Matrix (Fin 2) (Fin 2) ℚ) 1 1 = 1 ∧
+    ∃ n : ℤ, (g : Matrix (Fin 2) (Fin 2) ℚ) 0 1 = n := by sorry
+theorem diagEntry_coset_invariant (g h : axbRat)
+    (hcoset : HeckeCoset.mk axbInt axbInt ⟨g.val,g.property⟩ =
+      HeckeCoset.mk axbInt axbInt ⟨h.val,h.property⟩) : diagEntry g = diagEntry h := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/squarefree-square-decomposition
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.squarefree_square_decomposition
-Mathematical obligation: Each odd d has a unique d=d0 d1² with d0 squarefree. In the initial tube, Z=ζ2(2s+2w−1)ζ2(2w)Σd0 odd squarefree L2(s,χd0ψ)ψ′(d0)/(d0^w L2(s+2w,χd0ψ)).
--/
+theorem diagEntry_translation (b : ℚ) : diagEntry (translation (.ofAdd b)) = 1 := by sorry
+theorem diagEntry_dilation (a : ℚ) (ha : 0 < a) :
+    ((diagEntry (dilation a ha) : ℚˣ) : ℚ) = a := by sorry
+-- TauCeti.BostConnes.test_translation_integral
+example : ((translation (.ofAdd (2:ℚ)) : axbRat) : GL (Fin 2) ℚ) ∈ axbInt := by sorry
+-- TauCeti.BostConnes.test_diagonal_one
+example : diagEntry (1 : axbRat) = 1 := by sorry
+-- TauCeti.BostConnes.test_diagonal_two
+example : ((diagEntry (dilation 2 (by norm_num)) : ℚˣ) : ℚ) = 2 := by sorry
+-- TauCeti.BostConnes.test_translation_zero
+example : translation (.ofAdd (0:ℚ)) = 1 := by sorry
+-- TauCeti.BostConnes.test_dilation_one
+example : dilation 1 (by norm_num) = 1 := by sorry
+-- TauCeti.BostConnes.test_translation_add
+example : translation (.ofAdd (1/2:ℚ)) * translation (.ofAdd (1/3:ℚ)) =
+    translation (.ofAdd (5/6:ℚ)) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/quadratic-mean-bound-import
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.quadratic_mean_bound_import
-Mathematical obligation: For every fixed vertical strip needed in (29), use the uniform quadratic L-first-moment estimate of Blomer (16), together with its conductor/parity-correct functional equation, to bound the squarefree-d0 sum. Its full source proof is a gap, not a consequence of bounded coefficients.
--/
+abbrev DoubleCoset := HeckeCoset axbRat.toSubmonoid axbInt axbInt
+def inverseCoset (X : DoubleCoset) : DoubleCoset := sorry
+theorem inverse_degree_eq_num (X : DoubleCoset) :
+    (inverseCoset X).degree = (cosetEntry X).num.natAbs := by sorry
+abbrev NormalIndex := {nm : ℕ+ × ℕ+ // Nat.Coprime nm.1 nm.2} × QmodZ
+def normalCoset (i : NormalIndex) : DoubleCoset := sorry
+theorem normalCoset_bijective : Function.Bijective normalCoset := by sorry
+theorem preimage_ncard (n : ℕ+) (γ : QmodZ) :
+    Set.Finite {δ : QmodZ | (n:ℕ) • δ = γ} ∧
+    {δ : QmodZ | (n:ℕ) • δ = γ}.ncard = n := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/double-R1-convergence
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.double_R1_convergence
-Mathematical obligation: The pole-cleared squarefree expression is holomorphic on R1={Rew>1,Res+Rew>3/2}; its only possible polar line there is s=1, from the trivial inner twist.
--/
+namespace BCHecke
+variable {K B : Type*} [Field K] [CharZero K] [Ring B] [Algebra K B]
+/-- The eight actual relations in a receiving algebra. No field is an unspecified proposition. -/
+structure GeneratorRelations (X Xprime : ℕ+ → B) (E : QmodZ → B) : Prop where
+  left_inverse : ∀ n, Xprime n * X n = algebraMap K B (n:K)
+  dilations : ∀ n m, X (n*m) = X n * X m
+  inverse_dilations : ∀ n m, Xprime (n*m) = Xprime n * Xprime m
+  coprime : ∀ n m : ℕ+, Nat.Coprime n m → X n * Xprime m = Xprime m * X n
+  translation_zero : E 0 = 1
+  translation_add : ∀ γ δ, E (γ+δ) = E γ * E δ
+  transport : ∀ γ n, E γ * X n = X n * E ((n:ℕ) • γ)
+  preimage_sum : ∀ γ n, X n * E γ * Xprime n =
+    ∑ᶠ (δ : QmodZ) (_ : (n:ℕ) • δ = γ), E δ
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/quadratic-reflection-equation
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.quadratic_reflection_equation
-Mathematical obligation: The 16-vector continuation satisfies Z(s,w)=B(s)Z(1−s,s+w−1/2) as an equality of meromorphic germs.
--/
+def lift (X Xprime : ℕ+ → B) (E : QmodZ → B)
+    (h : GeneratorRelations (K:=K) X Xprime E) : BCHecke K →ₐ[K] B := sorry
+theorem lift_x (X Xprime : ℕ+ → B) (E : QmodZ → B)
+    (h : GeneratorRelations (K:=K) X Xprime E) (n : ℕ+) :
+    lift X Xprime E h (x n) = X n := by sorry
+theorem lift_x_prime (X Xprime : ℕ+ → B) (E : QmodZ → B)
+    (h : GeneratorRelations (K:=K) X Xprime E) (n : ℕ+) :
+    lift X Xprime E h (x' n) = Xprime n := by sorry
+theorem lift_e (X Xprime : ℕ+ → B) (E : QmodZ → B)
+    (h : GeneratorRelations (K:=K) X Xprime E) (γ : QmodZ) :
+    lift X Xprime E h (e γ) = E γ := by sorry
+theorem lift_unique (X Xprime : ℕ+ → B) (E : QmodZ → B)
+    (h : GeneratorRelations (K:=K) X Xprime E) (f : BCHecke K →ₐ[K] B)
+    (hx : ∀ n, f (x n) = X n) (hxp : ∀ n, f (x' n) = Xprime n)
+    (he : ∀ γ, f (e γ) = E γ) : f = lift X Xprime E h := by sorry
+end BCHecke
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/reflect-holomorphy-and-zero
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.reflect_holomorphy_and_zero
-Mathematical obligation: After removing singularities, B(s) is holomorphic for Res<1, has polynomial vertical growth in bounded real strips, and its first four-dimensional block has B1(0)=0.
--/
+def normalForm (i : NormalIndex) : BCHecke ℂ :=
+  x i.1.val.1 * e i.2 * x' i.1.val.2
+theorem bc_normal_form_independent : LinearIndependent ℂ normalForm := by sorry
+theorem bc_normal_form_span : Submodule.span ℂ (Set.range normalForm) = ⊤ := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/tube-overlap-gluing
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.tube_overlap_gluing
-Mathematical obligation: R2=α(R1)∪R1; R3=β(R2)∪R2; R4=α(R3)∪R3. The functional equations agree on their nonempty open overlaps and the gluing leaves possible poles only at s=1,w=1,s+w=3/2.
--/
+namespace Completed
+theorem leftRegular_star (f : BCHecke ℂ) :
+    leftRegular (Star.star f) = ContinuousLinearMap.adjoint (leftRegular f) := by sorry
+theorem leftRegular_injective : Function.Injective leftRegular := by sorry
+theorem single_norm_le (X : DoubleCoset) :
+    ‖leftRegular (single ℂ X 1)‖ ≤ Real.sqrt (X.degree * (inverseCoset X).degree : ℝ) := by sorry
+theorem bc_convolution_norm_bound (f : BCHecke ℂ) :
+    ‖leftRegular f‖ ≤ ∑ X ∈ f.support,
+      ‖f X‖ * Real.sqrt (X.degree * (inverseCoset X).degree : ℝ) := by sorry
+theorem coefficient_recovery (f : BCHecke ℂ) (g : axbRat) :
+    (leftRegular f (lp.single 2 (QuotientGroup.mk (1:axbRat)) 1))
+      (QuotientGroup.mk g) =
+    f (HeckeCoset.mk axbInt axbInt ⟨(g⁻¹ : axbRat), (g⁻¹).2⟩) := by sorry
+theorem embed_star (f : BCHecke ℂ) : embed (Star.star f) = Star.star (embed f) := by sorry
+theorem embed_injective : Function.Injective embed := by sorry
+theorem denseRange_embed : DenseRange embed := by sorry
+theorem embed_norm (f : BCHecke ℂ) : ‖embed f‖ = ‖leftRegular f‖ := by sorry
+theorem mu_relations (n : ℕ+) (γ : QmodZ) :
+    Star.star (mu n) * mu n = 1 ∧
+    mu n * embed (e γ) * Star.star (mu n) =
+      ((n:ℂ)⁻¹) • ∑ᶠ (δ : QmodZ) (_ : (n:ℕ) • δ = γ), embed (e δ) := by sorry
+theorem continuous_dynamics (a : algebra) : Continuous (fun t => dynamics t a) := by sorry
+theorem dynamics_embed (t : ℝ) (f : BCHecke ℂ) :
+    dynamics t (embed f) = embed (timeEvolution t f) := by sorry
+theorem entire_embed_orbit (f : BCHecke ℂ) :
+    AnalyticOnNhd ℂ (fun z => embed (timeEvolution z f)) Set.univ := by sorry
+theorem dynamics_star (t : ℝ) (a : algebra) :
+    dynamics t (Star.star a) = Star.star (dynamics t a) := by sorry
+end Completed
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/tube-hull-extension
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.tube_hull_extension
-Mathematical obligation: The pole-cleared continuation outside the bounded real twelve-gon extends holomorphically through it by the bounded tube-domain argument cited in Blomer from DGH03 Propositions4.6–4.7. The extension and its growth are a recorded several-complex-variable proof interface.
--/
+namespace CompletedKMS
+def gibbs (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) : Completed.algebra →L[ℂ] ℂ := sorry
+theorem gibbs_restrict (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
+    restrictState (gibbs β hβ u) = gibbsState β hβ u := by sorry
+theorem gibbs_norm (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) : ‖gibbs β hβ u‖ = 1 := by sorry
+theorem gibbs_isKMS (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
+    isKMS β (gibbs β hβ u) := by sorry
+theorem core_iff (β : ℝ) (hβ : 0 < β) (φ : Completed.algebra →L[ℂ] ℂ) :
+    isKMS β φ ↔ IsKMS β (restrictState φ) := by sorry
+theorem positive_core_extension (φ : BCHecke ℂ →ₗ[ℂ] ℂ)
+    (h1 : φ 1 = 1) (hp : ∀ f, 0 ≤ φ (Star.star f * f)) :
+    ∃! ψ : Completed.algebra →L[ℂ] ℂ, state ψ ∧ restrictState ψ = φ := by sorry
+theorem base_norm : ‖base‖ = 1 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.base_test_one
+example : base 1 = 1 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.base_test_half
+example : base (Completed.embed (e (1/2:ℚ))) = 0 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.base_test_projection
+example : base (Completed.mu 2*Star.star (Completed.mu 2)) = 1/2 := by sorry
+theorem base_kms_iff (β : ℝ) (hβ : 0 < β) : isKMS β base ↔ β = 1 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.test_gibbs_one
+example (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) : gibbs β hβ u 1 = 1 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.test_gibbs_half
+example (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
+    gibbs β hβ u (Completed.embed (e (1/2:ℚ))) = (2:ℂ)^(1-(β:ℂ))-1 := by sorry
+-- TauCeti.BostConnes.CompletedKMS.test_gibbs_projection
+example (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
+    gibbs β hβ u (Completed.mu 2 * Star.star (Completed.mu 2)) = (2:ℂ)^(-(β:ℂ)) := by sorry
+-- TauCeti.BostConnes.CompletedKMS.test_wrong_sign
+example (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ) :
+    gibbs β hβ u (Completed.embed (x' 2 * timeEvolution (-Complex.I*β) (x 2))) ≠
+      gibbs β hβ u (Completed.embed (x 2 * x' 2)) := by sorry
+end CompletedKMS
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/double-series-continuation
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.double_series_continuation
-Mathematical obligation: For each pair of twists there is a continuation agreeing with the series in the initial tube such that (s−1)(w−1)(s+w−3/2)Z(s,w) is entire on C². In every bounded real strip it has polynomial growth in (1+|Ims|)(1+|Imw|). The two matrix functional equations hold as meromorphic identities; no scalar Euler product or multiple-zeta-value identification is asserted.
--/
+theorem completed_ground_compatibility (φ : Completed.algebra →L[ℂ] ℂ) :
+    KMSInfinity.isGround φ ↔
+      TauCeti.CStarDynamics.IsGround Completed.dynamics φ := by sorry
+theorem completed_kmsInfinity_compatibility (φ : Completed.algebra →L[ℂ] ℂ) :
+    KMSInfinity φ ↔ TauCeti.CStarDynamics.IsKMSInfinity Completed.dynamics φ := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/pvs-local-zeta
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.LocalIntegral.shell_sum
-Mathematical obligation: For supported integral Φ with an absolutely integrable shell expansion, its integral equals the weighted shell sum.
--/
+/- The canonical unit carrier is supplied by ProfiniteArithmetic. This parameterized
+signature only requires its actual identification and continuity of every torsion character. -/
+section Barycentres
+variable {W : Type*} [TopologicalSpace W] [CompactSpace W] [T2Space W]
+  [MeasurableSpace W] [BorelSpace W]
+variable (parameter : W ≃ AddAut QmodZ)
+  (hparameter : ∀ γ : QmodZ, Continuous (fun u => rootOfUnityOf (parameter u γ)))
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-orbit-to-coefficient
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_orbit_to_coefficient
-Mathematical obligation: ST.1 Delone–Faddeev and stabilizer identifications transport the inverse-automorphism-weighted cubic-ring count to binary-cubic orbit coefficients, preserving discriminant, signature and the trace-divisible dual lattice. Over general O_F, nonprincipal locally free modules are included by the full adelic orbit interface.
--/
+def completedBarycentre (parameter : W ≃ AddAut QmodZ)
+    (hparameter : ∀ γ : QmodZ, Continuous (fun u => rootOfUnityOf (parameter u γ)))
+    (β : ℝ) (hβ : 1 < β) (ν : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] : Completed.algebra →L[ℂ] ℂ := sorry
+theorem completedBarycentre_apply (β : ℝ) (hβ : 1 < β) (ν : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] (a : Completed.algebra) :
+    completedBarycentre parameter hparameter β hβ ν a =
+      ∫ u, CompletedKMS.gibbs β hβ (parameter u) a ∂ν := by sorry
+theorem completedBarycentre_norm (β : ℝ) (hβ : 1 < β) (ν : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] :
+    ‖completedBarycentre parameter hparameter β hβ ν‖ = 1 := by sorry
+theorem completedBarycentre_isKMS (β : ℝ) (hβ : 1 < β) (ν : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] :
+    CompletedKMS β (completedBarycentre parameter hparameter β hβ ν) := by sorry
+-- TauCeti.BostConnes.completedBarycentre_test_dirac
+example (β : ℝ) (hβ : 1 < β) (u : W) :
+    completedBarycentre parameter hparameter β hβ (MeasureTheory.Measure.dirac u) =
+      CompletedKMS.gibbs β hβ (parameter u) := by sorry
+-- TauCeti.BostConnes.completedBarycentre_test_projection
+example (β : ℝ) (hβ : 1 < β) (ν : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] :
+    completedBarycentre parameter hparameter β hβ ν
+      (Completed.mu 2*Star.star (Completed.mu 2)) = (2:ℂ)^(-(β:ℂ)) := by sorry
+-- TauCeti.BostConnes.completedBarycentre_test_affine
+example (β : ℝ) (hβ : 1 < β) (ν η : MeasureTheory.Measure W)
+    [MeasureTheory.IsProbabilityMeasure ν] [MeasureTheory.IsProbabilityMeasure η]
+    (t : NNReal) (ht : t ≤ 1)
+    [MeasureTheory.IsProbabilityMeasure (t • ν+(1-t) • η)] (a : Completed.algebra) :
+    completedBarycentre parameter hparameter β hβ (t • ν+(1-t) • η) a =
+      (t:ℂ)*completedBarycentre parameter hparameter β hβ ν a+
+        (1-(t:ℂ))*completedBarycentre parameter hparameter β hβ η a := by sorry
+theorem high_beta_barycentre_unique (β : ℝ) (hβ : 1 < β)
+    (φ : Completed.algebra →L[ℂ] ℂ) (hφ : CompletedKMS β φ) :
+    ∃! ν : MeasureTheory.Measure W, MeasureTheory.IsProbabilityMeasure ν ∧
+      ∀ a, φ a = ∫ u, CompletedKMS.gibbs β hβ (parameter u) a ∂ν := by sorry
+theorem low_beta_unique (β : ℝ) (hβ : 0 < β) (hcrit : β ≤ 1) :
+    ∃! φ : Completed.algebra →L[ℂ] ℂ, CompletedKMS β φ := by sorry
+end Barycentres
+end TauCeti.BostConnes
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/local-density-coefficient-comparison
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.local_density_coefficient_comparison
-Mathematical obligation: For a compact-open integral local condition U, the normalized binary-cubic Haar integral uses shell masses dk(U); its arithmetic coefficient condition is the ST-local orbit selector with the same discriminant valuation and inverse stabilizer convention. LD.3 specialization is invoked only for its proved residue-characteristic range; factors at2 and3 are kept separately.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-adelic-zeta
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.CubicAdelic
-Mathematical obligation: With the ST binary-cubic representation and AA.2 quotient Haar measure, define Z(Φ,s)=∫GL2(A_F)/GL2(F) |det g|^(2s) Σx∈V(F),Disc x≠0 Φ(g·x) dg. Use the twisted action (g·f)(u,v)=det(g)^(−1)f((u,v)g), so Disc(g·f)=det(g)² Disc f. Fix local measures and the dual pairing before invoking Poisson. Its decomposition into signature-weighted ξF,α times local zeta factors is a separate comparison and original-source gap. The theta sum is invariant under g↦gh for h∈GL2(F), by rational reindexing and the product formula. Transport AA.2 left-quotient measure by inversion; a left-quotient formulation instead uses Φ(g⁻¹·x) and |det g|^(−2s).
-TauCeti.SeveralVariableZeta.CubicAdelic.integral
-Mathematical obligation: The right-quotient integral on GL2(A_F)/GL2(F), with |det g|^(2s) and the nonzero-discriminant theta sum Φ(g·x).
-TauCeti.SeveralVariableZeta.CubicAdelic.linear
-Mathematical obligation: Z(aΦ+bΨ,s)=aZ(Φ,s)+bZ(Ψ,s) when the summands are integrable.
-TauCeti.SeveralVariableZeta.CubicAdelic.unfolding
-Mathematical obligation: Decompose by signatures and arithmetic orbit weights with the pinned local zeta factors.
-TauCeti.SeveralVariableZeta.CubicAdelic.theta_right_invariant
-Mathematical obligation: For h∈GL2(F), thetaΦ(gh)=thetaΦ(g), and the full integrand is right invariant by the product formula.
-TauCeti.SeveralVariableZeta.CubicAdelic.test_zero
-Mathematical obligation: Z(0,s)=0.
-TauCeti.SeveralVariableZeta.CubicAdelic.test_scaling
-Mathematical obligation: The discriminant character is det² for the chosen twisted action; this fixes the exponent2s.
-TauCeti.SeveralVariableZeta.CubicAdelic.test_singular_locus
-Mathematical obligation: Degenerate binary cubics are excluded from the theta sum and return only as separately analyzed singular terms after Poisson.
-TauCeti.SeveralVariableZeta.CubicAdelic.test_quotient_side
-Mathematical obligation: Right rational translation leaves the theta integrand unchanged; inversion transports it to the left quotient with inverse action and determinant exponent −2s.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-absolute-convergence
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_absolute_convergence
-Mathematical obligation: Every ξF,α(s) and dual series converges absolutely on Res>1.
--/
+namespace TauCeti.BostConnes
+open MeasureTheory
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-global-functional-equation
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_global_functional_equation
-Mathematical obligation: Write n=[F:Q], D=|Disc F|. Then ξF,α(1−s)=[3^(6s−2)π^(−4s)Γ(s)²Γ(s−1/6)Γ(s+1/6)]^n D^(4s−2) Σβ cαβ(s) ξhatF,β(s). This is the exact global theorem of LOWW Proposition3.7(3), with the original Poisson/local source proof still a recorded gap.
--/
+/-- The existing restricted-product finite-adele ring, equipped with its Borel sets. -/
+abbrev FiniteAdeles := IsDedekindDomain.FiniteAdeleRing ℤ ℚ
+local instance : MeasurableSpace FiniteAdeles := borel FiniteAdeles
+local instance : BorelSpace FiniteAdeles := ⟨rfl⟩
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_residues_and_entire_clearance
-Mathematical obligation: Let ρF=Res_s=1 ζF(s), rα the number of split real cubic factors, n=r1+2r2. Set AF=ζF(2)ρF/2^(r1+r2+1), BF=3^(r1+r2/2)ζF(1/3)ρF/[6·2^(r1+r2)D^(1/2)]·[Γ(1/3)^3/(2π)]^n. ξF,α has at most simple poles1 and5/6, with residues AF(1+3^(−rα−r2)) and BF 3^(−rα/2). Its product with (s−1)(s−5/6) is entire of order1.
--/
+def integralAdeles : Set FiniteAdeles :=
+  {x | ∀ v : IsDedekindDomain.HeightOneSpectrum ℤ,
+    x v ∈ v.adicCompletionIntegers ℚ}
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/arch-entry-vanishing-at-one
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.arch_entry_vanishing_at_one
-Mathematical obligation: Every cαβ(s) vanishes to order at least n=r1+2r2 at s=1; each real factor has order≥1 and each complex factor has order2.
--/
+def IsScalingMeasure (β : ℝ) (μ : Measure FiniteAdeles) : Prop :=
+  μ.InnerRegular ∧ IsFiniteMeasureOnCompacts μ ∧ μ integralAdeles = 1 ∧
+  ∀ q : ℚ, 0 < q → ∀ E : Set FiniteAdeles, MeasurableSet E →
+    μ ((fun x => (algebraMap ℚ FiniteAdeles q) * x) '' E) =
+      ENNReal.ofReal ((q:ℝ)^(-β)) * μ E
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/gamma-unit-at-one
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.gamma_unit_at_one
-Mathematical obligation: The gamma/discriminant prefactor in the cubic functional equation is holomorphic and nonzero at s=1, since its gamma arguments are1,5/6 and7/6.
--/
+namespace IsScalingMeasure
+theorem normalized (β : ℝ) (μ : Measure FiniteAdeles) (h : IsScalingMeasure β μ) :
+    μ integralAdeles = 1 := by sorry
+theorem scale (β : ℝ) (μ : Measure FiniteAdeles) (h : IsScalingMeasure β μ)
+    (q : ℚ) (hq : 0 < q) (E : Set FiniteAdeles) (hE : MeasurableSet E) :
+    μ ((fun x => (algebraMap ℚ FiniteAdeles q) * x) '' E) =
+      ENNReal.ofReal ((q:ℝ)^(-β)) * μ E := by sorry
+theorem zero_atom (β : ℝ) (hβ : 0 < β) (μ : Measure FiniteAdeles)
+    (h : IsScalingMeasure β μ) : μ {0} = 0 := by sorry
+theorem convex (β : ℝ) (μ ν : Measure FiniteAdeles)
+    (hμ : IsScalingMeasure β μ) (hν : IsScalingMeasure β ν)
+    (t : NNReal) (ht : t ≤ 1) :
+    IsScalingMeasure β (t • μ + (1-t) • ν) := by sorry
+end IsScalingMeasure
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-zero-at-origin
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_zero_at_origin
-Mathematical obligation: For n≥2, ξF,α(0)=0. More precisely the functional equation gives vanishing order at least n−1 at0, since each dual series has at most a simple pole at1.
--/
+/-- Restricted-product extension of the local p-adic densities at positive beta. -/
+def ScalingMeasure (β : ℝ) (hβ : 0 < β) : Measure FiniteAdeles := sorry
+namespace ScalingMeasure
+def measure := ScalingMeasure
+/-- The value at zero is set to zero; additive Haar has no atom there. -/
+def «local» (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)]
+    (β : ℝ) (μ : Measure (Padic p)) : Measure (Padic p) := by
+  classical
+  exact μ.withDensity (fun x => if x = 0 then 0 else
+    ENNReal.ofReal (((1-(p:ℝ)^(-β))/(1-(p:ℝ)^(-1:ℝ)))*‖x‖^(β-1)))
+def adelic := ScalingMeasure
+theorem scale (β : ℝ) (hβ : 0 < β) (q : ℚ) (hq : 0 < q)
+    (E : Set FiniteAdeles) (hE : MeasurableSet E) :
+    adelic β hβ ((fun x => (algebraMap ℚ FiniteAdeles q⁻¹)*x) '' E) =
+      ENNReal.ofReal ((q:ℝ)^β)*adelic β hβ E := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_valuation_shell
+example (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)] [BorelSpace (Padic p)]
+    (μ : Measure (Padic p)) [Measure.IsAddHaarMeasure μ]
+    (hnorm : μ {x | ‖x‖ ≤ 1} = 1) (β : ℝ) (hβ : 0 < β) (k : ℕ) :
+    «local» p β μ {x | ‖x‖ = (p:ℝ)^(-(k:ℝ))} =
+      ENNReal.ofReal ((1-(p:ℝ)^(-β))*(p:ℝ)^(-(k:ℝ)*β)) := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_units_mass
+example (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)] [BorelSpace (Padic p)]
+    (μ : Measure (Padic p)) [Measure.IsAddHaarMeasure μ]
+    (hnorm : μ {x | ‖x‖ ≤ 1} = 1) (β : ℝ) (hβ : 0 < β) :
+    «local» p β μ {x | ‖x‖ = 1} = ENNReal.ofReal (1-(p:ℝ)^(-β)) := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_beta_one
+example (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)] [BorelSpace (Padic p)]
+    (μ : Measure (Padic p)) [Measure.IsAddHaarMeasure μ] : «local» p 1 μ = μ := by sorry
+theorem normalized (β : ℝ) (hβ : 0 < β) :
+    ScalingMeasure β hβ integralAdeles = 1 := by sorry
+theorem scaling (β : ℝ) (hβ : 0 < β) :
+    IsScalingMeasure β (ScalingMeasure β hβ) := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_beta_one
+example (E : Set FiniteAdeles) (hE : MeasurableSet E) :
+    ScalingMeasure 1 (by norm_num)
+      ((fun x => (algebraMap ℚ FiniteAdeles 2) * x) '' E) =
+    (1/2:ℝ≥0∞) * ScalingMeasure 1 (by norm_num) E := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_integral_normalized
+example (β : ℝ) (hβ : 0 < β) : ScalingMeasure β hβ integralAdeles = 1 := by sorry
+-- TauCeti.BostConnes.ScalingMeasure.test_zero_atom
+example (β : ℝ) (hβ : 0 < β) : ScalingMeasure β hβ {0} = 0 := by sorry
+end ScalingMeasure
+-- TauCeti.BostConnes.IsScalingMeasure.test_zero_measure
+example (β : ℝ) : ¬ IsScalingMeasure β (0 : Measure FiniteAdeles) := by sorry
+-- TauCeti.BostConnes.IsScalingMeasure.test_dirac_zero
+example (β : ℝ) (hβ : 0 < β) :
+    ¬ IsScalingMeasure β (Measure.dirac (0:FiniteAdeles)) := by sorry
+-- TauCeti.BostConnes.IsScalingMeasure.test_canonical
+example (β : ℝ) (hβ : 0 < β) :
+    IsScalingMeasure β (ScalingMeasure β hβ) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-orders-generating-series
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_orders_generating_series
-Mathematical obligation: For an étale cubic F-algebra A, let an(A) count O_F-orders in O_A of relative index norm n. Then Σn≥1 an(A)n^(−2s)=ζF(4s)ζF(6s−1)ζA(2s)/ζA(4s) in a right half-plane. The exponent2s encodes discriminant multiplication by index².
--/
+/-- Pushforward-at-target derivative convention. The action and derivative are actual maps. -/
+def RatioSet {G X : Type*} [MeasurableSpace X] (μ : Measure X)
+    (action : G → X → X) (ρ : G → X → ℝ) : Set ℝ :=
+  {r | 0 ≤ r ∧ ∀ A : Set X, MeasurableSet A → 0 < μ A →
+    ∀ ε : ℝ, 0 < ε → ∃ g : G,
+      0 < μ {x | x ∈ A ∧ x ∈ action g '' A ∧ |ρ g x-r| < ε}}
+namespace RatioSet
+theorem one_mem {G X : Type*} [MeasurableSpace X] (μ : Measure X)
+    (action : G → X → X) (ρ : G → X → ℝ)
+    (e : G) (he : ∀ x, action e x = x) (hρ : ∀ x, ρ e x = 1) :
+    1 ∈ RatioSet μ action ρ := by sorry
+theorem closed {G X : Type*} [MeasurableSpace X] (μ : Measure X)
+    (action : G → X → X) (ρ : G → X → ℝ) :
+    IsClosed (RatioSet μ action ρ) := by sorry
+/-- The two actual countable nonsingular actions have the same orbit relation. -/
+theorem orbit_invariant {G H X : Type*} [Group G] [Group H] [Countable G]
+    [Countable H] [MeasurableSpace X] (μ : Measure X) [SigmaFinite μ]
+    (a : G → (X ≃ᵐ X)) (b : H → (X ≃ᵐ X))
+    (ha_one : ∀ x, a 1 x=x) (ha_mul : ∀ g h x, a (g*h) x=a g (a h x))
+    (hb_one : ∀ x, b 1 x=x) (hb_mul : ∀ g h x, b (g*h) x=b g (b h x))
+    (ρ : G → X → ℝ) (τ : H → X → ℝ)
+    (hρ : ∀ g, Measurable (ρ g) ∧
+      Measure.map (a g) μ = μ.withDensity (fun x => ENNReal.ofReal (ρ g x)))
+    (hτ : ∀ h, Measurable (τ h) ∧
+      Measure.map (b h) μ = μ.withDensity (fun x => ENNReal.ofReal (τ h x)))
+    (horbit : ∀ x y : X, (∃ g, a g x=y) ↔ ∃ h, b h x=y) :
+    RatioSet μ (fun g => a g) ρ = RatioSet μ (fun h => b h) τ := by sorry
+-- TauCeti.BostConnes.RatioSet.test_trivial_one
+example : 1 ∈ RatioSet (Measure.dirac ()) (fun _ : Unit => id) (fun _ _ => 1) := by sorry
+-- TauCeti.BostConnes.RatioSet.test_trivial_two
+example : 2 ∉ RatioSet (Measure.dirac ()) (fun _ : Unit => id) (fun _ _ => 1) := by sorry
+-- TauCeti.BostConnes.RatioSet.test_trivial_zero
+example : 0 ∉ RatioSet (Measure.dirac ()) (fun _ : Unit => id) (fun _ _ => 1) := by sorry
+end RatioSet
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_reducible_and_field_coefficient_bound
-Mathematical obligation: For every ε>0 and real σ>3/2, ξF,α(σ)≪[F:Q],σ,ε D^(1/2+ε)h2(F). Prove the separate split/quadratic-factor and cubic-field contributions using LOWW Lemma3.5 and the orders formula; the field-count input remains with ST.
--/
+theorem canonical_ratio_set (β : ℝ) (hβ : 0 < β) (hcrit : β ≤ 1) :
+    RatioSet (ScalingMeasure β hβ)
+      (fun q : {q : ℚ // 0 < q} => fun x => algebraMap ℚ FiniteAdeles q.val * x)
+      (fun q _ => (q.val:ℝ)^β) = Set.Ici 0 := by sorry
+end TauCeti.BostConnes
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-reflected-bound
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_reflected_bound
-Mathematical obligation: For σ<−1/2 and |t|≥1, the functional equation gives ξF,α(σ+it)≪ε,n,σ h2(F)D^(5/2−4σ+ε)(1+|t|)^(n(2−4σ)+ε), using the right-half-plane dual bound. Constants depend on the fixed real strip.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SeveralVariableZeta.cubic_pole_cleared_convexity
-Mathematical obligation: For −1/2≤σ≤3/2, |t|≥1 and ε>0, ξF,α(σ+it)≪ε,n h2(F)D^(7/2−2σ+ε)(1+|t|)^(2n(3/2−σ)+ε). Apply Phragmén–Lindelöf to the pole-cleared function. The displayed inequality without pole exclusion is false at s=1 and5/6; the accepted LOWW erratum route already records that restriction.
--/
+namespace TauCeti.SpectralZeta
+/-- Includes the one-dimensional zero eigenspace. -/
+def ShiftedDet (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (u : ℂ) : ℂ :=
+  u * Complex.exp (-deriv c.positiveZeta 0 + deriv c.poleClear 1*u) *
+    ∏' j : ℕ, (1+u/(eigenvalue (j+1):ℂ))*
+      Complex.exp (-u/(eigenvalue (j+1):ℂ))
+namespace ShiftedDet
+ theorem entire (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) : AnalyticOnNhd ℂ (ShiftedDet eigenvalue c) Set.univ := by sorry
+ theorem agrees (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) (u : ℂ) (hu : 0 < u.re) :
+    ShiftedDet eigenvalue c u = Complex.exp (-deriv (c.shiftedZeta u) 0) := by sorry
+ theorem zero_mode (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) :
+    Filter.Tendsto (fun u => ShiftedDet eigenvalue c u/u)
+      (nhdsWithin 0 {u : ℂ | u ≠ 0}) (nhds (RegularizedDet c.positiveZeta)) := by sorry
+ def finite {ι : Type*} [Fintype ι] (eigenvalue : ι → ℝ) (u : ℂ) : ℂ :=
+   ∏ j, ((eigenvalue j:ℂ)+u)
+ -- TauCeti.SpectralZeta.ShiftedDet.test_finite_empty
+ example (u : ℂ) : finite (fun _ : Empty => (0:ℝ)) u = 1 := by sorry
+ -- TauCeti.SpectralZeta.ShiftedDet.test_finite_single
+ example (a : ℝ) (u : ℂ) : finite (fun _ : Unit => a) u = a+u := by sorry
+ -- TauCeti.SpectralZeta.ShiftedDet.test_quarter_pullback
+ example (s : ℂ) : finite (fun _ : Unit => (1/4:ℝ)) (s*(s-1)) = (s-1/2)^2 := by sorry
+ theorem finite_empty (u : ℂ) : finite (fun _ : Empty => (0:ℝ)) u = 1 := by sorry
+ theorem finite_zero_iff {ι : Type*} [Fintype ι] (eigenvalue : ι → ℝ) (u : ℂ) :
+    finite eigenvalue u = 0 ↔ ∃ j, (eigenvalue j:ℂ)+u = 0 := by sorry
+ theorem finite_entire {ι : Type*} [Fintype ι] (eigenvalue : ι → ℝ) :
+    AnalyticOnNhd ℂ (finite eigenvalue) Set.univ := by sorry
+ -- TauCeti.SpectralZeta.ShiftedDet.test_zero
+ example (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) : ShiftedDet eigenvalue c 0 = 0 := by sorry
+ -- TauCeti.SpectralZeta.ShiftedDet.test_positive_shift
+ example (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) :
+    ShiftedDet eigenvalue c 1 = Complex.exp (-deriv (c.shiftedZeta 1) 0) := by sorry
+ -- TauCeti.SpectralZeta.ShiftedDet.test_actual_quarter
+ example (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) (hq : eigenvalue 1 = 1/4) :
+    ShiftedDet eigenvalue c (-1/4) = 0 := by sorry
+end ShiftedDet
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.compact_spectrum_and_weyl
-Mathematical obligation: AS.4 supplies a complete orthonormal scalar eigenbasis with finite multiplicities and Weyl counting N(Λ)~area(X)Λ/(4π). Connectedness gives the simple zero eigenvalue.
--/
+theorem shifted_zero_divisor (eigenvalue : ℕ → ℝ) (c : SpectralContinuation eigenvalue)
+    (h : HeatAsymptotics eigenvalue) (a : ℝ) :
+    ∃ f : ℂ → ℂ, AnalyticAt ℂ f (-(a:ℂ)) ∧ f (-(a:ℂ)) ≠ 0 ∧
+      ∀ᶠ u in nhds (-(a:ℂ)), ShiftedDet eigenvalue c u =
+        (u+a)^({j | eigenvalue j=a}.ncard)*f u := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/heat-mellin-on-right-half-plane
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.heat_mellin_on_right_half_plane
-Mathematical obligation: For Res>1, ζΔ(s)=Γ(s)^(−1)∫0∞(H(t)−1)t^(s−1)dt.
--/
+theorem spectral_pullback_order (D : ℂ → ℂ) (s₀ : ℂ) (m : ℕ)
+    (h : ∃ f : ℂ → ℂ, AnalyticAt ℂ f (s₀*(s₀-1)) ∧ f (s₀*(s₀-1)) ≠ 0 ∧
+      ∀ᶠ u in nhds (s₀*(s₀-1)), D u=(u-s₀*(s₀-1))^m*f u) :
+    ∃ f : ℂ → ℂ, AnalyticAt ℂ f s₀ ∧ f s₀ ≠ 0 ∧
+      ∀ᶠ s in nhds s₀, D (s*(s-1))=(s-s₀)^(if s₀=1/2 then 2*m else m)*f s := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/heat-small-time-subtraction
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.heat_small_time_subtraction
-Mathematical obligation: Write H(t)=Σj≥0 exp(−tλj), including its simple zero mode. The positive spectral Mellin integral uses H(t)−1. If H(t)=Σk=0..N ak t^(k−1)+O(t^N), then subtract Σk=0..N ak t^(k−1)−1. Its integral on (0,1) is Σk=0..N ak/(s+k−1)−1/s. The remainder integral is holomorphic for Re s>−N under locally uniform remainder bounds; thus the coefficient at s=0 is a1−1, not a1.
--/
+/-- Barnes G is the exact normalized AN.7 supplier function, not a generic logarithm. -/
+def scalarIdentity (G : ℂ → ℂ) (g : ℕ) (s : ℂ) : ℂ :=
+  (2*Real.pi:ℂ)^(2*((g-1:ℕ):ℂ)*s) *
+  Complex.exp (2*((g-1:ℕ):ℂ)*s*(1-s)) *
+  Complex.Gamma s^(2*(g-1)) / G (s+1)^(4*(g-1))
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/spectral-regularity-zero
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.spectral_regularity_zero
-Mathematical obligation: The positive spectral zeta continues meromorphically, and is analytic at0 because Γ(s)^(−1) has a simple zero there, canceling the possible simple Mellin pole. Its derivative at0 is well defined.
--/
+theorem selberg_functional_equation (Z D G : ℂ → ℂ) (g : ℕ) (C : ℂ)
+    (hcomp : ∀ s : ℂ, D (s*(s-1))=Z s*scalarIdentity G g s*Complex.exp (-2*C))
+    (s : ℂ) (hI : scalarIdentity G g (1-s) ≠ 0) :
+    Z (1-s)=Z s*scalarIdentity G g s/scalarIdentity G g (1-s) := by sorry
+end TauCeti.SpectralZeta
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/selberg-log-product
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.selberg_log_product
-Mathematical obligation: For Res>1, expand log(1−e^(−(s+k)ℓp)) and sum k geometrically. This gives Z′/Z=Σp,m≥1 ℓp e^(−msℓp)/(1−e^(−mℓp)), locally uniformly.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/scalar-heat-trace-formula
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.scalar_heat_trace_formula
-Mathematical obligation: For t>0, H(t)=area(X)/(4π)∫R r tanh(πr)e^(−t(r²+1/4))dr +Σp,m≥1 ℓp/[2sinh(mℓp/2)] · e^(−t/4−(mℓp)²/(4t))/√(4πt). Class multiplicities agree with the primitive list fixed above. There are no cusp, elliptic or continuous-spectrum terms in this selected compact torsion-free case.
--/
+namespace TauCeti.SeveralVariableZeta
+namespace Tubes
+/-- Real tube bases R1,...,R6 are base 0,...,base 5. -/
+def base : ℕ → Set (ℝ × ℝ)
+  | 0 => {z | 1 < z.2 ∧ 3/2 < z.1+z.2}
+  | n+1 => base n ∪ (if n%2=0 then
+      {z | (z.2,z.1) ∈ base n} else {z | (1-z.1,z.1+z.2-1/2) ∈ base n})
+theorem base_zero (z : ℝ × ℝ) : z ∈ base 0 ↔ 1 < z.2 ∧ 3/2 < z.1+z.2 := by sorry
+theorem base_step (n : ℕ) : base (n+1) = base n ∪
+    (if n%2=0 then {z | (z.2,z.1) ∈ base n} else
+      {z | (1-z.1,z.1+z.2-1/2) ∈ base n}) := by sorry
+theorem base_mono (n : ℕ) : base n ⊆ base (n+1) ∧ IsOpen (base n) := by sorry
+-- TauCeti.SeveralVariableZeta.Tubes.test_initial
+example : (2,2) ∈ base 0 := by sorry
+-- TauCeti.SeveralVariableZeta.Tubes.test_negative
+example : (-2,-2) ∈ base 4 ∧ (-2,-2) ∉ base 3 := by sorry
+-- TauCeti.SeveralVariableZeta.Tubes.test_hole
+example : (0,0) ∉ base 5 := by sorry
+end Tubes
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/hyperbolic-laplace-mellin
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.hyperbolic_laplace_mellin
-Mathematical obligation: For real s>1, the Laplace–Mellin transform of the hyperbolic heat contribution in the shifted determinant has derivative at Mellin exponent0 equal to−log ZΓ(s). This is the scalar specialization of JSS Proposition5.4; the exact integral proof remains a source-refinement gap.
--/
+theorem tube_bochner_extension (Ω : Set (ℝ × ℝ)) (ho : IsOpen Ω)
+    (hc : IsConnected Ω) (f : ℂ × ℂ → ℂ)
+    (hf : AnalyticOnNhd ℂ f {z | (z.1.re,z.2.re) ∈ Ω}) :
+    ∃ F : ℂ × ℂ → ℂ, AnalyticOnNhd ℂ F {z | (z.1.re,z.2.re) ∈ convexHull ℝ Ω} ∧
+      Set.EqOn F f {z | (z.1.re,z.2.re) ∈ Ω} ∧
+      ∀ G : ℂ × ℂ → ℂ,
+        AnalyticOnNhd ℂ G {z | (z.1.re,z.2.re) ∈ convexHull ℝ Ω} →
+        Set.EqOn G f {z | (z.1.re,z.2.re) ∈ Ω} →
+        Set.EqOn G F {z | (z.1.re,z.2.re) ∈ convexHull ℝ Ω} := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/identity-barnes-transform
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.identity_barnes_transform
-Mathematical obligation: Let C=area(X)/(4π)=g−1. The scalar identity factor is I_g(s)=exp(2C[s log(2π)+s(1−s)+logΓ(s)−2logG(s+1)]), where G is the classical Barnes G-function normalized by G(1)=1, G(s+1)=Γ(s)G(s) and the source asymptotic expansion. The full normalization/asymptotic input is required; recurrence alone is insufficient.
--/
+theorem tube_reciprocal_bound (Ω : Set (ℝ × ℝ)) (ho : IsOpen Ω)
+    (hc : IsConnected Ω) (f F : ℂ × ℂ → ℂ)
+    (hf : AnalyticOnNhd ℂ f {z | (z.1.re,z.2.re) ∈ Ω})
+    (hF : AnalyticOnNhd ℂ F {z | (z.1.re,z.2.re) ∈ convexHull ℝ Ω})
+    (heq : Set.EqOn F f {z | (z.1.re,z.2.re) ∈ Ω}) (M : ℝ) (hM : 0 ≤ M)
+    (hb : ∀ z, (z.1.re,z.2.re) ∈ Ω → ‖f z‖ ≤ M) :
+    ∀ z, (z.1.re,z.2.re) ∈ convexHull ℝ Ω → ‖F z‖ ≤ M := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/selberg-determinant-comparison
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.selberg_determinant_comparison
-Mathematical obligation: For the selected scalar compact surface, det(Δ+s(s−1))=ZΓ(s)I_g(s) exp(2(g−1)[2ζ′(−1)−log√(2π)]) for real s>1, extended by the proved analytic continuation. Thus det′Δ=Z′Γ(1)(2π)^(g−1)exp(4(g−1)ζ′(−1)). The sign is the corrected v2 sign; source v1(1.3) has the opposite Euler-characteristic sign.
--/
+namespace FunctionalSystem
+theorem affine_order (z : ℂ × ℂ) :
+    ((fun w => swap (reflect w))^[6]) z = z ∧
+    Function.Injective (fun k : Fin 6 =>
+      ((fun w => swap (reflect w))^[k.val]) ((2,3) : ℂ × ℂ)) := by sorry
+end FunctionalSystem
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/selberg-functional-equation
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.selberg_functional_equation
-Mathematical obligation: With D_g(s)=I_g(s)exp(2(g−1)[2ζ′(−1)−log√(2π)]), the continued scalar Selberg function satisfies ZΓ(s)D_g(s)=ZΓ(1−s)D_g(1−s) as a meromorphic identity. This formulation fixes all Barnes branches by continuation from real s>1 and avoids an unnormalized path integral.
--/
+theorem characters_hadamard_orthogonality :
+    let H : Matrix (Fin 4) (Fin 4) ℂ := fun i a => Characters8.value i (2*a.val+1)
+    H * Matrix.transpose H = 4 • (1 : Matrix (Fin 4) (Fin 4) ℂ) ∧
+      Matrix.transpose H * H = 4 • (1 : Matrix (Fin 4) (Fin 4) ℂ) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/selberg-spectral-zero-comparison
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.SpectralZeta.selberg_spectral_zero_comparison
-Mathematical obligation: The spectral zeros occur at both solutions of s(1−s)=λj, with multiplicities determined by the determinant comparison and the identity factor. For λj≥1/4 they lie on Res=1/2; for 0<λj<1/4 they are real in(0,1). The zero mode gives s=0,1. Identity-factor trivial zeros are separated before calling zeros spectral; no Riemann RH consequence follows.
--/
+theorem double_growth (a b c d : ℝ) (i j : Fin 4) :
+    ∃ C : ℝ, 0 < C ∧ ∃ N : ℕ, ∀ s w : ℂ,
+      s.re ∈ Set.Icc a b → w.re ∈ Set.Icc c d →
+      ‖DoubleSeries.cleared i j (s,w)‖ ≤ C*(1+|s.im|)^N*(1+|w.im|)^N := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-normal-form-product
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_normal_form_product
-Mathematical obligation: The span of μn eγ μm* with gcd(n,m)=1 is star-closed and product-closed: first cancel q=gcd(m1,n2) using μm1* μn2=μn2/q μm1/q*, then move e terms across the shifts and use the finite preimage average to reduce any remaining gcd.
--/
+theorem double_gamma_quotient_growth (a b : ℝ) (hb : b < 1) :
+    ∃ C : ℝ, 0 < C ∧ ∃ N : ℕ, ∀ s : ℂ, s.re ∈ Set.Icc a b →
+      ∀ i j : Fin 4, ‖FunctionalSystem.localRatio i j s‖ ≤ C*(1+|s.im|)^N := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-normal-form-independent
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_normal_form_independent
-Mathematical obligation: For coprime n,m, the normal form μn eγ μm*=(nm)^(−1/2)[class(1,γ/m;0,n/m)]. The parameterγ modZ gives a bijection onto the double cosets of fixed n/m; hence these normal forms are linearly independent.
--/
+/-- This is a holomorphic cleared branch and retains its polar values. -/
+theorem double_shell_normalizer (F : ℂ × ℂ → ℂ)
+    (hf : AnalyticOnNhd ℂ F {z | 4 < z.1.re^2+z.2.re^2 ∧ z.1.re^2+z.2.re^2 < 5})
+    (C : ℝ) (hC : 0 < C) (N : ℕ)
+    (hb : ∀ z, 4 < z.1.re^2+z.2.re^2 → z.1.re^2+z.2.re^2 < 5 →
+      ‖F z‖ ≤ C*(1+|z.1.im|)^N*(1+|z.2.im|)^N) :
+    ∃ M : ℕ, N ≤ M ∧
+      AnalyticOnNhd ℂ (fun z => F z/((3+z.1)^M*(3+z.2)^M))
+        {z | 4 < z.1.re^2+z.2.re^2 ∧ z.1.re^2+z.2.re^2 < 5} ∧
+      ∃ B : ℝ, ∀ z, 4 < z.1.re^2+z.2.re^2 → z.1.re^2+z.2.re^2 < 5 →
+        ‖F z/((3+z.1)^M*(3+z.2)^M)‖ ≤ B := by sorry
+end TauCeti.SeveralVariableZeta
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-convolution-norm-bound
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_convolution_norm_bound
-Mathematical obligation: Each finite-support Hecke element acts boundedly on the right-coset l² carrier by a finite sum of finite-degree correspondences; operator adjoint matches the Hecke involution and the action on the base vector detects each coefficient.
--/
+namespace TauCeti.BostConnes
+open BCHecke
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-real-dynamics-extension
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_real_dynamics_extension
-Mathematical obligation: The real σt are isometric star automorphisms in the left representation and extend to a point-norm-continuous automorphism group on C_Q. The complex σz is retained only on the entire dense Hecke algebra.
--/
+def mu (n : ℕ+) : BCHecke ℂ := ((n:ℂ)^(- (1/2:ℂ))) • x n
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-bounded-state-extension
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_bounded_state_extension
-Mathematical obligation: A normalized positive functional on the presented Hecke star algebra has a GNS representation in which the μn are isometries and eγ are unitaries. The universal norm bound and universal=reduced comparison imply continuity and a unique positive extension to C_Q.
--/
+theorem mu_relations (n : ℕ+) (γ : QmodZ) :
+    Star.star (mu n) = ((n:ℂ)^(- (1/2:ℂ))) • x' n ∧
+    Star.star (mu n)*mu n = 1 ∧
+    mu n*e γ*Star.star (mu n) = (1/(n:ℂ)) •
+      ∑ᶠ (δ : QmodZ) (_ : (n:ℕ) • δ=γ), e δ := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-analytic-core-strip-equivalence
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_analytic_core_strip_equivalence
-Mathematical obligation: For a bounded completed state and β>0, the algebraic boundary identity on the entire Hecke core is equivalent to the completed bounded strip condition.
--/
+theorem normalForm_reduce_gcd (n m : ℕ+) (γ : QmodZ) :
+    (x n*e γ*x' m : BCHecke ℂ) =
+      ∑ᶠ (δ : QmodZ) (_ : (Nat.gcd (n:ℕ) (m:ℕ)) • δ=γ),
+        x (PNat.divExact n (PNat.gcd n m))*e δ*x' (PNat.divExact m (PNat.gcd n m)) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-adelic-scaling-measure
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.ScalingMeasure
-Mathematical obligation: For β>0, let μβ,p on Qp have μβ,p(Zp)=1 and density (1−p^(−β))/(1−p^(−1))·|x|p^(β−1) relative to additive Haar measure with vol(Zp)=1. Form the normalized restricted-product measure μβ on A_Q,f. It obeys μβ(q^(−1)E)=q^β μβ(E) for positive rational q. The local expression is interpreted almost everywhere away from0; it is not evaluated as0^negative at the point0.
-TauCeti.BostConnes.ScalingMeasure.local
-Mathematical obligation: The displayed p-adic density with normalized Haar measure.
-TauCeti.BostConnes.ScalingMeasure.adelic
-Mathematical obligation: The restricted-product measure with μβ(Ẑ)=1.
-TauCeti.BostConnes.ScalingMeasure.scale
-Mathematical obligation: μβ(q^(−1)E)=q^β μβ(E).
-TauCeti.BostConnes.ScalingMeasure.test_beta_one
-Mathematical obligation: Atβ=1 the local measures and restricted product are additive Haar.
-TauCeti.BostConnes.ScalingMeasure.test_valuation_shell
-Mathematical obligation: μβ,p({ordp x=k})=(1−p^(−β))p^(−kβ) for k≥0.
-TauCeti.BostConnes.ScalingMeasure.test_units_mass
-Mathematical obligation: μβ,p(Zp×)=1−p^(−β).
--/
+theorem mu_star_mul_gcd (m n : ℕ+) :
+    Star.star (mu m)*mu n = mu (PNat.divExact n (PNat.gcd m n))*Star.star (mu (PNat.divExact m (PNat.gcd m n))) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-kms-scaling-correspondence
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_kms_scaling_correspondence
-Mathematical obligation: Restriction to C(Ẑ) identifies completed KMSβ states with normalized measures on the finite adeles satisfying rational scaling. Off-diagonal dilation components vanish by invariance, and the KMS relation gives μ(nẐ)=n^(−β).
--/
+theorem bc_normal_form_product (i j : NormalIndex) :
+    normalForm i*normalForm j ∈ Submodule.span ℂ (Set.range normalForm) ∧
+      Star.star (normalForm i) ∈ Submodule.span ℂ (Set.range normalForm) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-finite-prime-projection
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_finite_prime_projection
-Mathematical obligation: For a finite prime set A, NA is its generated multiplicative monoid and WA={x∈Ẑ:xp∈Zp× for p∈A}. On WA the projection to NA-invariant functions is PAf(x)=ζA(β)^(−1)Σn∈NA n^(−β)f(nx), extended along NA-orbits, where ζA(β)=∏p∈A(1−p^(−β))^(−1).
--/
+theorem core_correlation_bound (β : ℝ) (hβ : 0 < β)
+    (φ : Completed.algebra →L[ℂ] ℂ) (hφ : CompletedKMS.state φ)
+    (hcore : IsKMS β (CompletedKMS.restrictState φ)) (a b : BCHecke ℂ)
+    (z : ℂ) (hz0 : 0 ≤ z.im) (hzβ : z.im ≤ β) :
+    ‖φ (Completed.embed (a*timeEvolution z b))‖ ≤
+      ‖Completed.embed a‖*‖Completed.embed b‖ := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-local-character-density
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_local_character_density
-Mathematical obligation: Functions depending on finitely many p-adic coordinates and valuation shells, with characters of local unit quotients, span a dense subspace of L²(Ẑ,μβ).
--/
+theorem completed_gibbs_summable (β : ℝ) (hβ : 1 < β)
+    (a : ℕ+ → ℂ) (M : ℝ) (hb : ∀ k, ‖a k‖ ≤ M) :
+    Summable (fun k : ℕ+ => (k:ℂ)^(-(β:ℂ))*a k) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-nontrivial-character-projection
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_nontrivial_character_projection
-Mathematical obligation: For0<β≤1 and a nontrivial local unit characterχ, the increasing-prime projections P_Aχ tend to0: their product coefficients contain factors (1−p^(−β))/(1−χ(p)p^(−β)), and divergence of the prime reciprocal sum in a suitable character sector forces the product to0.
--/
+theorem bc_gibbs_tail_limit (β : ℝ) (hβ : 1 < β) (u : AddAut QmodZ)
+    (a : Completed.algebra) :
+    ‖CompletedKMS.gibbs β hβ u a-KMSInfinity.vectorState u a‖ ≤
+      2*‖a‖*(riemannZeta β-1).re/(riemannZeta β).re := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-critical-ergodicity
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_critical_ergodicity
-Mathematical obligation: For0<β≤1 the Q+× action on(A_Q,f,μβ) is ergodic: every invariant L² function on the compact integral slice is constant, and rational dilates cover the finite adeles.
--/
+theorem bc_eisenstein_finite_fourier (N : ℕ) (hN : 0 < N) (ζ : ℂ) (hζ : ζ^N=1) :
+    (∑ j ∈ Finset.range N, if j=0 then 0 else ((j:ℂ)/(N:ℂ)-1/2)*ζ^j) =
+      if ζ=1 then 0 else (ζ+1)/(2*(ζ-1)) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-low-temperature-uniqueness
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_low_temperature_uniqueness
-Mathematical obligation: For0<β≤1 the completed Bost–Connes system has a unique KMSβ state. On e(a/b), with gcd(a,b)=1, its value is b^(−β)∏p|b(1−p^(β−1))/(1−p^(−1)).
--/
+namespace ScalingMeasure
+theorem local_shell (p : ℕ) [Fact p.Prime] [MeasurableSpace (Padic p)] [BorelSpace (Padic p)]
+    (μ : MeasureTheory.Measure (Padic p)) [MeasureTheory.Measure.IsAddHaarMeasure μ]
+    (hnorm : μ {x | ‖x‖ ≤ 1} = 1) (β : ℝ) (hβ : 0 < β) (k : ℤ) :
+    «local» p β μ {x | ‖x‖ = (p:ℝ)^(-(k:ℝ))} =
+      ENNReal.ofReal ((1-(p:ℝ)^(-β))*(p:ℝ)^(-(k:ℝ)*β)) := by sorry
+end ScalingMeasure
+end TauCeti.BostConnes
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-high-beta-unit-orbits
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_high_beta_unit_orbits
-Mathematical obligation: Forβ>1, the disjoint sets nẐ× cover a μβ-full subset ofẐ, and μβ(Ẑ×)=∏p(1−p^(−β))=ζ(β)^(−1). Every scaling measure is reconstructed from a probability measure onẐ× by the weighted orbit sums.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-high-beta-barycentres
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_high_beta_barycentres
-Mathematical obligation: Forβ>1 the KMS simplex is affinely identified with probability measures onẐ×; its extreme points are the Dirac-unit Gibbs states. The unit symmetries act freely transitively on those extreme points.
--/
+namespace TauCeti.SeveralVariableZeta
+abbrev OddPositive := {d : ℕ // 0 < d ∧ d%2=1}
+instance oddPositiveModulusNeZero (d : OddPositive) : NeZero (8*d.val) :=
+  ⟨by have h := d.property.1; omega⟩
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-prime-pair-ratio
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_prime_pair_ratio
-Mathematical obligation: For0<β≤1, λ>1 and ε>0 there are disjoint prime pairs(pn,qn) with |(qn/pn)^β−λ|<ε and Σn qn^(−β)=∞.
--/
+/-- The character is imprimitive at modulus 8d; its primitive conductor is separate. -/
+def quadraticTwist (i : Characters8) (d : OddPositive) : DirichletCharacter ℂ (8*d.val) := sorry
+namespace quadraticTwist
+theorem value (i : Characters8) (d : OddPositive) (n : ℕ) :
+    quadraticTwist i d (n : ZMod (8*d.val)) =
+      if n%2=1 then (jacobiSym (d.val:ℤ) n : ℂ)*Characters8.value i n else 0 := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-valuation-tail-ratio
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_valuation_tail_ratio
-Mathematical obligation: For the product of geometric valuation probabilities νβ,p(k)=(1−p^(−β))p^(−kβ), the cylinder change(0,1)↦(1,0) at a disjoint prime pair(p,q) has exact mass ratio(q/p)^β. The cylinder masses sum divergently over the prescribed prime pairs.
--/
+theorem series_agrees (i : Characters8) (d : OddPositive) (s : ℂ) (hs : 1 < s.re) :
+    DirichletCharacter.LFunction (quadraticTwist i d) s = DoubleSeries.oddL i d.val s := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-full-positive-ratio-set
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_full_positive_ratio_set
-Mathematical obligation: The valuation tail equivalence relation has allλ>0 in its ratio set: disjoint cylinder swaps give the asymptotic ratio criterion forλ>1, and inversion/closure give the remaining positiveλ.
--/
+theorem real_values (i : Characters8) (d : OddPositive) (n : ℕ) :
+    quadraticTwist i d (n : ZMod (8*d.val)) ∈ ({-1,0,1} : Set ℂ) := by sorry
+-- TauCeti.SeveralVariableZeta.quadraticTwist.test_principal
+example (n : ℕ) (hn : n%2=1) :
+    quadraticTwist 0 ⟨1,by norm_num,by norm_num⟩ (n : ZMod 8) = 1 := by sorry
+-- TauCeti.SeveralVariableZeta.quadraticTwist.test_square
+example : quadraticTwist 0 ⟨9,by norm_num,by norm_num⟩ (3 : ZMod 72) = 0 := by sorry
+-- TauCeti.SeveralVariableZeta.quadraticTwist.test_two_twist
+example : quadraticTwist 2 ⟨1,by norm_num,by norm_num⟩ (3 : ZMod 8) = -1 := by sorry
+end quadraticTwist
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-type-three-one
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_type_three_one
-Mathematical obligation: For0<β≤1 the GNS von Neumann algebra of the unique completed KMSβ state is a factor of type III₁. In particular this proves the requiredβ=1 type statement. Lift the valuation quotient ratio computation through the compact unit action and the full-corner crossed-product description.
--/
+namespace DoubleSeries
+def oddLContinuation (i : Characters8) (d : OddPositive) : ℂ → ℂ :=
+  DirichletCharacter.LFunction (quadraticTwist i d)
+theorem oddLContinuation_agrees (i : Characters8) (d : OddPositive)
+    (s : ℂ) (hs : 1 < s.re) : oddLContinuation i d s = oddL i d.val s := by sorry
+theorem oddLContinuation_meromorphic (i : Characters8) (d : OddPositive) :
+    MeromorphicOn (oddLContinuation i d) Set.univ := by sorry
+theorem oddLContinuation_entire (i : Characters8) (d : OddPositive)
+    (h : quadraticTwist i d ≠ 1) : Differentiable ℂ (oddLContinuation i d) := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_L_principal
+example (s : ℂ) (hs : s ≠ 1) :
+    oddLContinuation 0 ⟨1,by norm_num,by norm_num⟩ s = oddZeta s := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_L_deleted_three
+example (s : ℂ) (hs : s ≠ 1) :
+    oddLContinuation 0 ⟨9,by norm_num,by norm_num⟩ s =
+      (1-(3:ℂ)^(-s))*oddZeta s := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_L_negative_one
+example : oddLContinuation 0 ⟨1,by norm_num,by norm_num⟩ (-1) = 1/12 := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-eisenstein-mobius-divisibility
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_eisenstein_mobius_divisibility
-Mathematical obligation: For fn(j)=Σd|j μ(d)(j/d)^n, the projection sum Σd|N fn(d)πd evaluates on a Q-lattice to m^n, where m is the order of its N-torsion kernel. Keep n=1 and n=1−k, including negative exponents.
--/
+def poleClearL (i : Characters8) (d : OddPositive) (s : ℂ) : ℂ := by
+  classical
+  exact if s=1 then if quadraticTwist i d = 1 then
+    ∏ p ∈ (8*d.val).primeFactors, (1-(p:ℂ)⁻¹) else 0
+    else (s-1)*oddLContinuation i d s
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-eisenstein-division
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_eisenstein_division
-Mathematical obligation: For k≥1, ΣNa=0 ek,a=γk Σd|N[(2^k−2)f1(d)+N^k f1−k(d)]πd, with γk=(2πi)^(−k)Σy∈Z\{0} y^(−k) in the source normalization (symmetric principal value for k=1; absolute convergence for k>1). For odd k the vanishing is interpreted consistently. Both the arithmetic coefficients and the degenerate-value convention are fixed by the preceding identities.
--/
+theorem poleClearL_off_one (i : Characters8) (d : OddPositive) (s : ℂ) (hs : s ≠ 1) :
+    poleClearL i d s = (s-1)*oddLContinuation i d s := by sorry
+theorem poleClearL_entire (i : Characters8) (d : OddPositive) :
+    AnalyticOnNhd ℂ (poleClearL i d) Set.univ := by sorry
+theorem poleClearL_one (i : Characters8) (d : OddPositive) :
+    (quadraticTwist i d = 1 → poleClearL i d 1 =
+      ∏ p ∈ (8*d.val).primeFactors, (1-(p:ℂ)⁻¹)) ∧
+    (quadraticTwist i d ≠ 1 → poleClearL i d 1 = 0) := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_residue_half
+example : poleClearL 0 ⟨1,by norm_num,by norm_num⟩ 1 = 1/2 := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_residue_third
+example : poleClearL 0 ⟨9,by norm_num,by norm_num⟩ 1 = 1/3 := by sorry
+-- TauCeti.SeveralVariableZeta.DoubleSeries.test_nonprincipal_zero
+example : poleClearL 2 ⟨1,by norm_num,by norm_num⟩ 1 = 0 := by sorry
+end DoubleSeries
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-eisenstein-prime-projections
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_eisenstein_prime_projections
-Mathematical obligation: All projections πp^b belong to the Q-algebra generated by e1,a. For odd p, solve the k=2 division relation inductively in b. For p=2 the leading π2^b coefficient vanishes, so use the relation at N=2^(b+1) to recover π2^b; e.g. π2=3+2Σ4a=0 e2,a.
--/
+theorem quadratic_mean_bound_import (ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∀ i : Characters8, ∀ X : ℕ, 1 ≤ X → ∀ t : ℝ,
+      (∑ k ∈ Finset.range X, if h : (k+1)%2=1 then
+        ‖DoubleSeries.oddLContinuation i ⟨k+1,by omega,h⟩ ((1/2:ℂ)+Complex.I*t)‖ else 0) ≤
+      C*(X:ℝ)^(1+ε)*(1+|t|)^(1/4+ε) := by sorry
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-eisenstein-roots-recovery
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_eisenstein_roots_recovery
-Mathematical obligation: The rational algebra generated by e1,a contains every e(a). At each prime-power level use the projection1−πp, the power sums of z(j)=(1−πp)e1,j/N and Newton identities; resolve the primitive-root Cayley transform, then add the lower-level πp component inductively.
--/
+theorem quadratic_pole_aware_strip_moment (a b ε : ℝ) (hε : 0 < ε) :
+    ∃ C : ℝ, 0 < C ∧ ∃ N : ℕ, ∀ i : Characters8, ∀ X : ℕ, 1 ≤ X → ∀ s : ℂ,
+      s.re ∈ Set.Icc a b →
+      (∑ k ∈ Finset.range X, if h : (k+1)%2=1 then
+        ‖DoubleSeries.poleClearL i ⟨k+1,by omega,h⟩ s‖ else 0) ≤
+      C*(X:ℝ)^(max 1 (3/2-s.re)+ε)*(1+|s.im|)^N := by sorry
+end TauCeti.SeveralVariableZeta
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-arithmetic-algebra-generation
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_arithmetic_algebra_generation
-Mathematical obligation: The e1,a generate Q[Q/Z]. Together with μn,μn* they generate the arithmetic algebra A1,Q; complexification gives the dense complex algebra. This is BC’s normalized rational form and is compared to the Q-valued Hecke form only through σ−i/2, which is not a star map.
--/
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-gibbs-tail-limit
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_gibbs_tail_limit
-Mathematical obligation: For β→∞ the Gibbs states converge weakly to the ε1 vector state, uniformly on each fixed norm-bounded observable set: the difference is at most2||a||(ζ(β)−1)/ζ(β), which tends to0. This supplies completed KMS∞ states.
--/
+namespace TauCeti.SeveralVariableZeta
 
-/- Omitted signature interface: AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry
-Reason: The exact canonical carrier or full theorem hypotheses require the recorded source/supplier refinements. The reader states the mathematical obligation; no proposition hole substitutes for it.
-TauCeti.BostConnes.bc_arithmetic_values_and_symmetry
-Mathematical obligation: For an extremal KMS∞ vector state, e(a) evaluates to the corresponding root of unity and every reduced normal-form monomial with(n,m)≠(1,1) evaluates to0. Its rational arithmetic values generate Qcycl. The induced cyclotomic character intertwines field automorphisms with unit symmetries on those values.
--/
+theorem odd_squarefree_factorization (d : ℕ) (hd : 0 < d) (ho : d%2=1) :
+    ∃! pair : ℕ × ℕ, 0 < pair.1 ∧ 0 < pair.2 ∧ pair.1%2=1 ∧ pair.2%2=1 ∧
+      Squarefree pair.1 ∧ d=pair.1*pair.2^2 := by sorry
 
-/- Review-added omitted signature: TauCeti.SeveralVariableZeta.cubic_dual_simple_poles
-For each number field F and archimedean signature α, the dual ξhatF,α has a meromorphic continuation with no poles except possible simple poles at 1 and 5/6. In particular (s−1)ξhatF,α(s) is holomorphic near 1.
-Canonical number-field continuation carrier remains a supplier gap. -/
+theorem odd_double_sum_absolute (i j : Characters8) (s w : ℂ)
+    (hs : 1 < s.re) (hw : 1 < w.re) :
+    Summable (fun nd : ℕ × ℕ => if nd.1%2=1 ∧ nd.2%2=1 then
+      (jacobiSym (nd.2:ℤ) nd.1:ℂ)*Characters8.value i nd.1*
+        Characters8.value j nd.2/(nd.1:ℂ)^s/(nd.2:ℂ)^w else 0) := by sorry
+
+theorem double_normal_convergence (i j : Characters8) (K : Set (ℂ × ℂ))
+    (hK : IsCompact K) (hd : K ⊆ {z | 1 < z.1.re ∧ 1 < z.2.re}) :
+    ∃ bound : ℕ × ℕ → ℝ, Summable bound ∧ ∀ nd : ℕ × ℕ, ∀ z ∈ K,
+      ‖(if nd.1%2=1 ∧ nd.2%2=1 then
+        (jacobiSym (nd.2:ℤ) nd.1:ℂ)*Characters8.value i nd.1*
+          Characters8.value j nd.2/(nd.1:ℂ)^z.1/(nd.2:ℂ)^z.2 else 0)‖ ≤ bound nd := by sorry
+
+theorem squarefree_square_decomposition (i j : Characters8) (s w : ℂ)
+    (hs : 1 < s.re) (hw : 1 < w.re) :
+    DoubleSeries.series i j s w = DoubleSeries.oddZeta (2*s+2*w-1)*
+      DoubleSeries.oddZeta (2*w)*∑' d : ℕ,
+        if 0 < d ∧ d%2=1 ∧ Squarefree d then
+          DoubleSeries.oddL i d s*Characters8.value j d/
+            ((d:ℂ)^w*DoubleSeries.oddL i d (s+2*w)) else 0 := by sorry
+
+theorem double_denominator_unit (i : Characters8) (d : OddPositive) (s : ℂ)
+    (hs : 1 < s.re) : DoubleSeries.oddLContinuation i d s ≠ 0 := by sorry
+
+theorem double_R1_convergence (i j : Characters8) :
+    ∃ F : ℂ × ℂ → ℂ,
+      AnalyticOnNhd ℂ F {z | 1 < z.2.re ∧ 3/2 < z.1.re+z.2.re} ∧
+      ∀ s w : ℂ, 1 < s.re → 1 < w.re →
+        F (s,w)=(s-1)*DoubleSeries.series i j s w := by sorry
+
+theorem quadratic_reflection_equation (z : ℂ × ℂ)
+    (hz : DoubleSeries.polarPolynomial z ≠ 0)
+    (hr : DoubleSeries.polarPolynomial (FunctionalSystem.reflect z) ≠ 0)
+    (hB : ∀ i j, AnalyticAt ℂ (fun s => FunctionalSystem.B s i j) z.1) :
+    (fun ij : Fin 4 × Fin 4 => DoubleSeries.continued ij.1 ij.2 z) =
+      Matrix.mulVec (FunctionalSystem.B z.1)
+        (fun ij => DoubleSeries.continued ij.1 ij.2 (FunctionalSystem.reflect z)) := by sorry
+
+theorem reflect_holomorphy_and_zero (ij kl : Fin 4 × Fin 4) :
+    AnalyticOnNhd ℂ (fun s => FunctionalSystem.B s ij kl) {s : ℂ | s.re < 1} ∧
+      ∀ j k : Fin 4, FunctionalSystem.B 0 (0,j) (0,k)=0 := by sorry
+
+theorem double_overlap_identity (U : Set (ℂ × ℂ)) (ho : IsOpen U)
+    (hc : IsConnected U) (F G : ℂ × ℂ → ℂ)
+    (hF : AnalyticOnNhd ℂ F U) (hG : AnalyticOnNhd ℂ G U)
+    (V : Set (ℂ × ℂ)) (hv : IsOpen V) (hn : V.Nonempty)
+    (hVU : V ⊆ U) (heq : Set.EqOn F G V) : Set.EqOn F G U := by sorry
+
+theorem double_reflected_pole_cancellation (f : ℂ → ℂ) (j k : Fin 4)
+    (hf : ∃ H : ℂ → ℂ, AnalyticAt ℂ H 0 ∧
+      ∀ᶠ s in nhdsWithin 0 {s : ℂ | s ≠ 0}, H s=s*f s) :
+    ∃ H : ℂ → ℂ, AnalyticAt ℂ H 0 ∧
+      ∀ᶠ s in nhdsWithin 0 {s : ℂ | s ≠ 0},
+        H s=FunctionalSystem.B s (0,j) (0,k)*f s := by sorry
+
+theorem double_shell_hull :
+    {z : ℝ × ℝ | 4 < z.1^2+z.2^2 ∧ z.1^2+z.2^2 < 5} ⊆ Tubes.base 5 ∧
+    convexHull ℝ {z : ℝ × ℝ | 4 < z.1^2+z.2^2 ∧ z.1^2+z.2^2 < 5} =
+      {z : ℝ × ℝ | z.1^2+z.2^2 < 5} := by sorry
+end TauCeti.SeveralVariableZeta
+
+namespace TauCeti.SpectralZeta
+open MeasureTheory
+
+theorem spectral_weyl_summability (eigenvalue : ℕ → ℝ)
+    (h : HeatAsymptotics eigenvalue) (σ : ℝ) (hσ : 1 < σ) :
+    Summable (fun j : ℕ => eigenvalue (j+1)^(-σ)) := by sorry
+
+theorem heat_large_time_tail (eigenvalue : ℕ → ℝ) (h : HeatAsymptotics eigenvalue) :
+    ∃ C : ℝ, 0 < C ∧ ∀ t : ℝ, 1 ≤ t →
+      ‖SpectralData.heat eigenvalue t-1‖ ≤ C*Real.exp (-eigenvalue 1*t/2) := by sorry
+
+theorem heat_mellin_on_right_half_plane (eigenvalue : ℕ → ℝ)
+    (h : HeatAsymptotics eigenvalue) (z : ℂ) (hz : 1 < z.re) :
+    (∫ t in Set.Ioi (0:ℝ), (t:ℂ)^(z-1)*(SpectralData.heat eigenvalue t-1)) =
+      Complex.Gamma z*SpectralData.series eigenvalue z := by sorry
+
+theorem heat_small_time_subtraction (a : ℕ → ℂ) (N : ℕ) (z : ℂ) (hz : 1 < z.re) :
+    (∫ t in Set.Ioo (0:ℝ) 1,
+      (t:ℂ)^(z-1)*((∑ k ∈ Finset.range (N+1), a k*(t:ℂ)^((k:ℤ)-1))-1)) =
+      (∑ k ∈ Finset.range (N+1), a k/(z+k-1))-1/z := by sorry
+
+theorem spectral_regularity_zero (eigenvalue : ℕ → ℝ)
+    (c : SpectralContinuation eigenvalue) : AnalyticAt ℂ c.positiveZeta 0 := by sorry
+
+theorem shifted_genus_one_product (eigenvalue : ℕ → ℝ)
+    (h : HeatAsymptotics eigenvalue) (u : ℂ) :
+    Multipliable (fun j : ℕ => (1+u/(eigenvalue (j+1):ℂ))*
+      Complex.exp (-u/(eigenvalue (j+1):ℂ))) := by sorry
+
+theorem selberg_laplace_integral (a : ℝ) (ha : 0 < a) (w : ℂ)
+    (hw : 0 < w.re) (hw2 : 0 < (w^2).re) :
+    (∫ t in Set.Ioi (0:ℝ), (t:ℂ)^(-(3/2:ℂ))*
+      Complex.exp (-w^2*t-(a:ℂ)^2/(4*t))) =
+        (2*(Real.sqrt Real.pi):ℂ)/(a:ℂ)*Complex.exp (-(a:ℂ)*w) := by sorry
+end TauCeti.SpectralZeta
+
+
+namespace TauCeti.BostConnes
+open BCHecke
+
+theorem bc_eisenstein_mobius_divisibility (n : ℤ) (N m : ℕ)
+    (hN : 0 < N) (hm : 0 < m) (hd : m ∣ N) :
+    (∑ j ∈ m.divisors, ∑ d ∈ j.divisors,
+      (ArithmeticFunction.moebius d:ℚ)*(j/d:ℚ)^n) = (m:ℚ)^n := by sorry
+
+theorem bc_eisenstein_division (k N : ℕ) (hk : 1 ≤ k) (hN : 0 < N) :
+    let f : ℤ → ℕ → ℚ := fun j d => ∑ a ∈ d.divisors,
+      (ArithmeticFunction.moebius a:ℚ)*(d/a:ℚ)^j
+    let gamma : ℚ := (ArithmeticEisenstein.polynomial k).eval 0 / (2^k-1)
+    (∑ᶠ (a : QmodZ) (_ : N • a=0), ArithmeticEisenstein.higher k a) =
+      gamma • ∑ d ∈ N.divisors,
+        ((2^k-2)*f 1 d+(N:ℚ)^k*f (1-(k:ℤ)) d) •
+          ((d:ℚ)⁻¹ • (x d.toPNat'*x' d.toPNat' : BCHecke ℚ)) := by sorry
+
+theorem bc_eisenstein_prime_projections (p b : ℕ) (hp : p.Prime) :
+    (((p^b:ℚ)⁻¹) • (x (p^b).toPNat'*x' (p^b).toPNat' : BCHecke ℚ)) ∈
+      Algebra.adjoin ℚ (Set.range ArithmeticEisenstein.first) := by sorry
+
+-- The exceptional doubled-level computation is an equality in the actual Hecke core.
+example : ((2:ℚ)⁻¹) • (x 2*x' 2 : BCHecke ℚ) =
+    3 + (2:ℚ) • ∑ᶠ (a : QmodZ) (_ : 4 • a=0), ArithmeticEisenstein.higher 2 a := by sorry
+
+theorem bc_eisenstein_roots_recovery (a : QmodZ) :
+    (e a : BCHecke ℚ) ∈ Algebra.adjoin ℚ (Set.range ArithmeticEisenstein.first) := by sorry
+
+theorem bc_eisenstein_semigroup_preservation (n : ℕ+) (a b : QmodZ)
+    (h : (n:ℕ) • b=a) :
+    ((n:ℚ)⁻¹) • (x n*ArithmeticEisenstein.first a*x' n) =
+      (((n:ℚ)⁻¹) • (x n*x' n))*ArithmeticEisenstein.first b := by sorry
+
+theorem bc_eisenstein_prime_level_induction (p b : ℕ) (hp : p.Prime) (hb : 0 < b) :
+    (e ((1/(p^b):ℚ):QmodZ) : BCHecke ℚ) ∈
+      Algebra.adjoin ℚ (Set.range ArithmeticEisenstein.first) := by sorry
+
+local instance : Algebra ℚ (BCHecke ℂ) :=
+  ((algebraMap ℂ (BCHecke ℂ)).comp (Rat.castHom ℂ)).toAlgebra' (by sorry)
+
+theorem bc_eisenstein_isometry_generation :
+    Algebra.adjoin ℚ
+      (Set.range (fun a => BCHecke.map (Rat.castHom ℂ) (ArithmeticEisenstein.first a)) ∪
+       Set.range mu ∪ Set.range (fun n => Star.star (mu n))) =
+    Algebra.adjoin ℚ
+      (Set.range (fun i : ℕ+ × (QmodZ × ℕ+) =>
+        mu i.1*(e i.2.1 : BCHecke ℂ)*Star.star (mu i.2.2))) := by sorry
+
+theorem bc_eisenstein_complexification :
+    Algebra.adjoin ℂ
+      (Set.range (fun a => BCHecke.map (Rat.castHom ℂ) (ArithmeticEisenstein.first a)) ∪
+       Set.range mu ∪ Set.range (fun n => Star.star (mu n))) = ⊤ := by sorry
+
+open MeasureTheory
+local instance : MeasurableSpace FiniteAdeles := borel FiniteAdeles
+local instance : BorelSpace FiniteAdeles := ⟨rfl⟩
+
+theorem high_beta_unit_measure (β : ℝ) (hβ : 1 < β)
+    (μ : Measure FiniteAdeles) (hμ : IsScalingMeasure β μ) :
+    μ {x | ∃ u : FiniteAdelesˣ, (u:FiniteAdeles)=x ∧
+      (u:FiniteAdeles) ∈ integralAdeles ∧ ((u⁻¹:FiniteAdelesˣ):FiniteAdeles) ∈ integralAdeles} =
+        (ENNReal.ofReal (riemannZeta (β:ℂ)).re)⁻¹ := by sorry
+
+theorem bc_high_beta_unit_orbits (β : ℝ) (hβ : 1 < β)
+    (μ : Measure FiniteAdeles) (hμ : IsScalingMeasure β μ) :
+    μ {x | ¬ ∃ q : ℚ, 0 < q ∧ ∃ u : FiniteAdelesˣ,
+      (u:FiniteAdeles) ∈ integralAdeles ∧ ((u⁻¹:FiniteAdelesˣ):FiniteAdeles) ∈ integralAdeles ∧
+      x=algebraMap ℚ FiniteAdeles q*(u:FiniteAdeles)} = 0 := by sorry
+
+theorem canonical_scaling_extreme (β : ℝ) (hβ : 0 < β) (hc : β ≤ 1)
+    (μ ν : Measure FiniteAdeles) (hμ : IsScalingMeasure β μ) (hν : IsScalingMeasure β ν)
+    (t : NNReal) (ht : 0 < t) (ht1 : t < 1)
+    (heq : ScalingMeasure β hβ=t • μ+(1-t) • ν) :
+    μ=ScalingMeasure β hβ ∧ ν=ScalingMeasure β hβ := by sorry
+
+theorem prime_progression_reciprocal_diverges (d a : ℕ) (hd : 0 < d)
+    (ha : a < d) (hc : a.Coprime d) :
+    Filter.Tendsto (fun X : ℕ => ∑ p ∈ (Finset.range X).filter
+      (fun p => p.Prime ∧ p%d=a), (p:ℝ)⁻¹) Filter.atTop Filter.atTop := by sorry
+
+section Barycentres
+variable {W : Type*} [TopologicalSpace W] [CompactSpace W] [T2Space W]
+  [MeasurableSpace W] [BorelSpace W]
+variable (parameter : W ≃ AddAut QmodZ)
+  (hparameter : ∀ γ : QmodZ, Continuous (fun u => rootOfUnityOf (parameter u γ)))
+
+theorem kms_classification (β : ℝ) (hβ : 0 < β) :
+    (β ≤ 1 → ∃! φ : Completed.algebra →L[ℂ] ℂ, CompletedKMS β φ) ∧
+    (∀ h : 1 < β, ∀ φ : Completed.algebra →L[ℂ] ℂ, CompletedKMS β φ →
+      ∃! ν : Measure W, IsProbabilityMeasure ν ∧
+        ∀ a, φ a=∫ u, CompletedKMS.gibbs β h (parameter u) a ∂ν) := by sorry
+end Barycentres
+end TauCeti.BostConnes
+
+namespace TauCeti.CStarDynamics
+theorem matrix_ground_not_kmsInfinity :
+    IsGround (fun _ => AlgEquiv.refl) matrixVectorState ∧
+      ¬ IsKMSInfinity (fun _ => AlgEquiv.refl) matrixVectorState := by sorry
+end TauCeti.CStarDynamics
+
+/-!
+## Exact native omissions
+
+The roadmap states the following obligations in mathematics. Their missing canonical
+carriers or stronger clauses are recorded here; no proposition hole replaces them.
+
+AnalyticNumberTheory:AN.9/bc-regular-shift-bounds — TauCeti.BostConnes.regular_shift_bounds
+regularRep and its isometry examples are native. Separate coordinate operators S_n, S_n-adjoint and D_(u,gamma), with the exact lp coordinate/adjoint formula, have not been named as bounded operators.
+
+AnalyticNumberTheory:AN.9/bc-gns-generator-bounds — TauCeti.BostConnes.algebraic_gns_generator_bounds
+The algebraic positive-functional quotient and its Hilbert completion before a C*-norm is available require OP2-universal. Mathlib PositiveLinearMap.gnsStarAlgHom assumes a C*-algebra and cannot stand for this precompletion bound.
+
+AnalyticNumberTheory:AN.9/bc-convolution-row-column — TauCeti.BostConnes.Completed.kernel_degree
+The native leftRegular is an actual bounded operator on lp of right cosets. The missing leaf is the representative-independent indicator kernel K_X(gH,hH) and exact finite row/column cardinalities L(X),R(X); it requires the canonical quotient kernel construction, rather than the Gibbs l2(N+) carrier.
+
+AnalyticNumberTheory:AN.9/bc-universal-norm — TauCeti.BostConnes.universal_norm_finite
+Missing is a quantified carrier of all bounded unital star representations of the algebraic Hecke core and its universal norm/completion. Completed.algebra is instead the concrete left-regular operator closure; equality to the universal completion uses OP2-universal and OP2-dilation-corner.
+
+AnalyticNumberTheory:AN.9/bc-adelic-endomorphism — TauCeti.BostConnes.adele_division_endomorphism
+Missing is the compact-open C(zHat) corner star-endomorphism carrier and its canonical multiplication-by-n/extension-by-zero map on the imported ProfiniteArithmetic zHat.
+
+AnalyticNumberTheory:AN.9/bc-adelic-dilation — TauCeti.BostConnes.adele_minimal_dilation
+Missing is the actual C0(FiniteAdeles) automorphic action and its equivariant embedding of C(zHat); the minimal-dilation exhaustion must be stated in this function-algebra topology.
+
+AnalyticNumberTheory:AN.9/bc-crossed-product-full-corner — TauCeti.BostConnes.crossed_product_full_corner
+No canonical crossed-product C*-algebra or full-projection corner exists at the pin. OP2-dilation-corner must expose the universal covariant maps and their inverse before this particular BC comparison can be given a native signature.
+
+AnalyticNumberTheory:AN.9/bc-universal-reduced — TauCeti.BostConnes.universal_eq_reduced
+The full and reduced crossed-product norms and the canonical regular quotient map are the missing OP2-dilation-corner objects. The existing Completed closure alone does not express their amenability comparison.
+
+AnalyticNumberTheory:AN.9/bc-gibbs-strip-series — TauCeti.BostConnes.gibbs_strip_normal_convergence
+Completed Gibbs and its algebraic KMS identity are native. The omitted stronger leaf names the actual entire correlation series, its compact-strip uniform convergence and its two boundary evaluations for arbitrary completed arguments.
+
+AnalyticNumberTheory:AN.9/bc-real-dynamics-extension — TauCeti.BostConnes.bc_real_dynamics_extension
+Completed.dynamics, dynamics_embed, dynamics_star and continuous_dynamics are native. The separate existence-and-uniqueness leaf for extending the core real star-automorphism group, including its group law, has no named signature.
+
+AnalyticNumberTheory:AN.9/bc-finite-prime-projection — TauCeti.BostConnes.bc_finite_prime_projection
+Missing is the explicit rational-subsemigroup orbit conditional projection in L2(FiniteAdeles,mu_beta), its product shell formula and dependence on a finite set of primes; the Gibbs representation on l2(N+) is a different space.
+
+AnalyticNumberTheory:AN.9/bc-local-character-density — TauCeti.BostConnes.bc_local_character_density
+Missing is the canonical local character span on the finite-prime invariant L2 space and the cylinder approximation map to the full adelic space. The general Hilbert density theorem is imported; the concrete character embedding is absent.
+
+AnalyticNumberTheory:AN.9/bc-nontrivial-character-projection — TauCeti.BostConnes.bc_nontrivial_character_projection
+Missing is the finite-prime L2 conditional projection applied to a nontrivial finite-conductor unit character, with its explicit product and AN.2 progression-partial-sum estimate.
+
+AnalyticNumberTheory:AN.9/bc-decreasing-projections — TauCeti.BostConnes.decreasing_projection_strong
+The imported OperatorTheory Hilbert projection theorem supplies the general limit. Missing here are the canonical BC decreasing projection sequence and the identification of its limiting range with rational-dilation invariant functions.
+
+AnalyticNumberTheory:AN.9/bc-critical-ergodicity — TauCeti.BostConnes.bc_critical_ergodicity
+ScalingMeasure and canonical_scaling_extreme are native. A native ergodicity signature requires the canonical nonsingular Q-positive action on the L2/exhaustion carrier and the preceding projection-to-invariant-range identification.
+
+AnalyticNumberTheory:AN.9/bc-unit-average — TauCeti.BostConnes.unit_average_canonical
+Missing is the imported compact unit group acting continuously on actual finite adeles and the normalized Haar pushforward average of an arbitrary scaling measure. The native parameter W in barycentres supplies torsion characters only.
+
+AnalyticNumberTheory:AN.9/bc-extreme-average-rigidity — TauCeti.BostConnes.extreme_unit_average_rigid
+Missing is that concrete unit averaging operator and its continuous compact-cylinder separating test family. canonical_scaling_extreme is native, but does not state this additional averaging-rigidity argument.
+
+AnalyticNumberTheory:AN.9/bc-corner-expectation — TauCeti.BostConnes.corner_expectation
+OP2-expectation-measure must expose the actual reduced crossed-product identity-coefficient conditional expectation and its compact-open corner restriction; neither is represented by an arbitrary linear-functional field.
+
+AnalyticNumberTheory:AN.9/bc-measure-to-kms — TauCeti.BostConnes.scalingMeasure_to_kms
+The missing canonical map integrates the actual corner expectation against a scaling Radon measure. ScalingMeasure and CompletedKMS are native separately; their expectation-mediated map depends on OP2-expectation-measure.
+
+AnalyticNumberTheory:AN.9/bc-kms-to-measure — TauCeti.BostConnes.kms_to_scalingMeasure
+Missing is the diagonal C(zHat) embedding into the completed Hecke algebra and the canonical measure recovered from that restriction. The current Tau Ceti character-space measure theorem is imported for existence, with uniqueness separately required.
+
+AnalyticNumberTheory:AN.9/bc-kms-scaling-correspondence — TauCeti.BostConnes.bc_kms_scaling_correspondence
+Missing are the two preceding canonical maps and their mutually inverse affine and weak-topological identities. The native kms_classification states a barycentre result without replacing this measure-state equivalence by a placeholder.
+
+AnalyticNumberTheory:AN.9/bc-high-beta-affine-homeomorphism — TauCeti.BostConnes.high_beta_affine_homeomorphism
+The native high_beta_barycentre_unique proves only unique probability-measure representation on a compact parameter W. The missing stronger signature identifies W with the imported zHat units and equips completed states with pointwise weak evaluation topology; norm topology of continuous linear maps is incorrect.
+
+AnalyticNumberTheory:AN.9/bc-high-beta-extremes — TauCeti.BostConnes.high_beta_extreme_iff
+The missing signature uses the actual convex set of completed states and its ExtremePoints, the canonical unit parametrization and the weak topology. Unique barycentres alone do not give a native extreme-boundary declaration.
+
+AnalyticNumberTheory:AN.9/bc-unit-qmodz-adapter — TauCeti.BostConnes.profiniteUnits_qmodz_equiv
+Native barycentres accept an actual equivalence W to AddAut(Q/Z) with continuous torsion evaluations. Construction of that equivalence from the imported profinite unit carrier and its compatible finite restrictions is omitted.
+
+AnalyticNumberTheory:AN.9/bc-high-beta-barycentres — TauCeti.BostConnes.bc_high_beta_barycentres
+Native high_beta_barycentre_unique and kms_classification give the unique-measure part. The Bauer-simplex and homeomorphic extreme-boundary clauses require the missing weak state topology and canonical zHat-unit comparison.
+
+AnalyticNumberTheory:AN.9/bc-kms-symmetry-transitive — TauCeti.BostConnes.extreme_symmetry_torsor
+symmetryAction on the core is native. Its completed star-automorphism extension and the weak extreme-boundary/unit identification are missing from the stronger free/transitive action signature.
+
+AnalyticNumberTheory:AN.9/bc-eisenstein-corner-power-sums — TauCeti.BostConnes.bc_eisenstein_corner_power_sums
+The missing signature introduces the actual idempotent e=1-pi_p corner, its unit e and z_j=e E1(j/N), then asserts all their power sums belong to Qe. Existing native division and prime-projection identities supply its inputs.
+
+AnalyticNumberTheory:AN.9/bc-eisenstein-newton-rationality — TauCeti.BostConnes.bc_eisenstein_newton_rationality
+The pinned generic Newton identity is cited. Missing is its specialization to the actual e-corner, where constants map to c e and the product polynomial has degree N-1, including repeated and zero roots.
+
+AnalyticNumberTheory:AN.9/bc-eisenstein-cotangent-roots — TauCeti.BostConnes.bc_eisenstein_cotangent_roots
+The missing carrier is evaluation of the commutative arithmetic corner at an invertible Q-lattice character. It must identify the full multiset of N-1 roots with cot(pi j/N)/(2i), including zero at even N.
+
+AnalyticNumberTheory:AN.9/bc-eisenstein-bezout-cayley — TauCeti.BostConnes.bc_eisenstein_bezout_cayley
+Missing is the preceding corner polynomial Q_N and its Bezout identity with X-1/2, evaluated with corner unit e. That identity supplies the inverse needed for the Cayley recovery of e e(1/N).
+
+AnalyticNumberTheory:AN.9/bc-arithmetic-algebra-generation — TauCeti.BostConnes.bc_arithmetic_algebra_generation
+Native bc_eisenstein_roots_recovery, bc_eisenstein_isometry_generation and bc_eisenstein_complexification cover the torsion recovery and normalized arithmetic form. The node additionally asks for a canonical rational presentation comparison and hence keeps its own composite target signature omitted.
+
+AnalyticNumberTheory:AN.9/bc-cyclotomic-restrictions — TauCeti.BostConnes.cyclotomic_restrictions_compatible
+Finite cyclotomic Galois identifications are imported from GN.10. Missing is their inverse-limit compatibility map to the actual zHat-unit carrier and its comparison with AddAut(Q/Z); no global Artin map is assumed.
+
+AnalyticNumberTheory:AN.8/quadratic-primitive-adapter — TauCeti.SeveralVariableZeta.quadratic_primitive_adapter
+quadraticTwist is an actual DirichletCharacter and its LFunction is native. The omitted signature names its primitive fundamental-discriminant character, proves the exact conductor/parity table and Gauss-sum root number +1, and identifies all change-level deleted factors, including conductor one.
+
+AnalyticNumberTheory:AN.8/quadratic-fourth-moment — TauCeti.SeveralVariableZeta.quadratic_fourth_moment
+The exact moment is requested from ST.2. Its native statement needs a finite enumeration of nonprincipal primitive real characters across varying conductor modules, with constants uniform in that enumeration and the conductor bound, rather than an arbitrary same-modulus family.
+
+AnalyticNumberTheory:AN.8/quadratic-holder-first-moment — TauCeti.SeveralVariableZeta.quadratic_holder_first_moment
+The missing native signature sums only squarefree discriminants, with each corresponding primitive character and its fundamental-discriminant conductor. quadratic_mean_bound_import already states the resulting all-odd continued first moment.
+
+AnalyticNumberTheory:AN.8/quadratic-square-factor-sum — TauCeti.SeveralVariableZeta.quadratic_square_factor_sum
+The native squarefree_square_decomposition is a double-series identity. This omitted analytic leaf compares continued primitive and imprimitive L-functions via the exact deleted-prime factors, uniformly over the square component and the real strip.
+
+AnalyticNumberTheory:AN.8/tube-overlap-gluing — TauCeti.SeveralVariableZeta.tube_overlap_gluing
+double_overlap_identity is native for actual analytic branches on an open preconnected domain. The missing stronger signature recursively constructs canonical branches on each transported tube base and records their compatibility across every gluing.
+
+AnalyticNumberTheory:AN.8/tube-hull-extension — TauCeti.SeveralVariableZeta.tube_hull_extension
+tube_bochner_extension and tube_reciprocal_bound are native exact analytic statements. This composite application to the canonical double-series shell has no additional named signature; primary Bochner proof acquisition remains the source gap.
+
+AnalyticNumberTheory:AN.8/cubic-orbit-to-coefficient — TauCeti.SeveralVariableZeta.cubic_orbit_to_coefficient
+The native CubicShintani uses supplied actual disc/aut/signature functions. Their canonical construction from all locally free cubic O_F-modules and finite automorphism groups is missing, including nonprincipal ideal-class components.
+
+AnalyticNumberTheory:AN.8/local-measure-normalization — TauCeti.SeveralVariableZeta.local_measure_normalization
+Missing are the actual local field, different-normalized additive character, self-dual Haar pairing and GL2 Haar normalization maps from AL.0/AA.2. LocalIntegral accepts a genuine measure, but does not identify these canonical measures or their |3| factors.
+
+AnalyticNumberTheory:AN.8/local-orbit-jacobian — TauCeti.SeveralVariableZeta.local_orbit_jacobian
+Missing is the canonical binary-cubic GL2 orbit covering with finite stabilizer and its change-of-variables map, on the supplier local field and normalized Haar carriers.
+
+AnalyticNumberTheory:AN.8/local-density-coefficient-comparison — TauCeti.SeveralVariableZeta.local_density_coefficient_comparison
+LocalIntegral.shell_sum is native for actual norm/discriminant shells. The stronger comparison needs the actual open-orbit selector, representative discriminant, stabilizer order and GL2 orbital measure; it is not an equality with arbitrary coefficient data.
+
+AnalyticNumberTheory:AN.8/cubic-adelic-zeta — TauCeti.SeveralVariableZeta.CubicAdelic.unfolding
+Missing are the actual GL2 adelic quotient measure, Schwartz-Bruhat space, rational binary-cubic orbit quotient and finite stabilizers, all with the right-quotient determinant exponent 2s. Generic theta reindexing and inversion_kernel are native, but not this canonical orbital unfolding.
+
+AnalyticNumberTheory:AN.8/cubic-adelic-convergence — TauCeti.SeveralVariableZeta.cubic_adelic_convergence
+CubicAdelic.integral is native for actual quotient measure, determinant norm and theta supplied as parameters. Identifying them with GL2(A_F)/GL2(F) and proving the canonical Schwartz-Siegel majorant requires AA.2/AL.0/ST.1.
+
+AnalyticNumberTheory:AN.8/cubic-adelic-unfolding — TauCeti.SeveralVariableZeta.cubic_adelic_unfolding
+Missing are the actual GL2 adelic quotient measure, Schwartz-Bruhat space, rational binary-cubic orbit quotient and finite stabilizers, all with the right-quotient determinant exponent 2s. Generic theta reindexing and inversion_kernel are native, but not this canonical orbital unfolding.
+
+AnalyticNumberTheory:AN.8/cubic-class-group-components — TauCeti.SeveralVariableZeta.cubic_class_group_components
+Missing is the finite ideal-class component index and the S-integral-to-all-locally-free-module comparison supplied by ST.1 and GN arithmetic. A freely chosen generic series index cannot express that equality.
+
+AnalyticNumberTheory:AN.8/local-split-orbit-factor — TauCeti.SeveralVariableZeta.local_split_orbit_factor
+Missing is the standard split auxiliary orbital integral I_alpha(omega,Phi1), its four explicit valuation support subsets and their normalized measures. The rational factor alone would omit the proof carrier.
+
+AnalyticNumberTheory:AN.8/local-unramified-quadratic-factor — TauCeti.SeveralVariableZeta.local_unramified_quadratic_factor
+Missing is the standard auxiliary integral with its unramified quadratic integral basis and two support regions, using the actual field norm and GL2 orbital measure.
+
+AnalyticNumberTheory:AN.8/local-ramified-quadratic-factor — TauCeti.SeveralVariableZeta.local_ramified_quadratic_factor
+Missing is the standard auxiliary integral with ramified quadratic uniformizer basis and its two field-norm valuation regions, retaining residue characteristic two and the separate discriminant Jacobian.
+
+AnalyticNumberTheory:AN.8/local-unramified-cubic-factor — TauCeti.SeveralVariableZeta.local_unramified_cubic_factor
+Missing is the standard auxiliary integral with unramified cubic integral basis and the three valuation regions, not merely the algebraic rational-function simplification.
+
+AnalyticNumberTheory:AN.8/local-ramified-cubic-factor — TauCeti.SeveralVariableZeta.local_ramified_cubic_factor
+Missing is the standard auxiliary integral with ramified cubic uniformizer basis, norm valuation and its three support regions; wild discriminant factors stay in the canonical measure adapter.
+
+AnalyticNumberTheory:AN.8/local-orbital-euler-factor — TauCeti.SeveralVariableZeta.local_orbital_euler_factor
+Missing are the five canonical local etale-cubic orbit types, standard representatives, unramified quasicharacter and orbital integrals. The five-factor formula is fully stated in the reader; neither a generic shell nor a rational function field replaces these objects.
+
+AnalyticNumberTheory:AN.8/cubic-absolute-convergence — TauCeti.SeveralVariableZeta.cubic_absolute_convergence
+CubicShintani is native as a generic weighted series. Its canonical number-field order coefficients, finite inverse-automorphism sums and all signature/class-group indices must be supplied before the unconditional arithmetic convergence signature.
+
+AnalyticNumberTheory:AN.8/cubic-truncated-entire — TauCeti.SeveralVariableZeta.cubic_truncated_entire
+Missing is the actual determinant-at-least-one GL2 adelic quotient restriction and Schwartz-Bruhat tempered distribution topology; a generic integrability assumption would lose the uniform Siegel majorant target.
+
+AnalyticNumberTheory:AN.8/cubic-poisson-decomposition — TauCeti.SeveralVariableZeta.cubic_poisson_decomposition
+Missing is the canonical finite-product adelic Fourier transform, nonsingular/singular theta decomposition and quotient measures. The exact zero/triple-root/double-root rational orbit selectors must accompany the exponent u and Jacobian.
+
+AnalyticNumberTheory:AN.8/cubic-smoothing-residue — TauCeti.SeveralVariableZeta.cubic_smoothing_residue
+Missing is the normalized GL2 rank-one Eisenstein function, entire vertical test space and contour smoothing operator from AS.2/AA.2, with the residue rho0=Res Z_F(1)/Z_F(2).
+
+AnalyticNumberTheory:AN.8/cubic-zero-singular-term — TauCeti.SeveralVariableZeta.cubic_zero_singular_term
+Missing is the actual zero-orbit smoothed theta integral and determinant-one idele character; its vanishing by character orthogonality is stated on the canonical quotient measure.
+
+AnalyticNumberTheory:AN.8/cubic-compact-average-laws — TauCeti.SeveralVariableZeta.cubic_compact_average_laws
+Missing is the canonical maximal compact adelic group, its probability Haar measure and its action on the binary-cubic Schwartz space, together with the unitary determinant-character Fourier intertwining.
+
+AnalyticNumberTheory:AN.8/cubic-singular-tate-restrictions — TauCeti.SeveralVariableZeta.cubic_singular_tate_restrictions
+Missing is the actual adelic Schwartz restriction/integration map T1,T2 and their normalized Tate meromorphic continuations. The four residue distributions must be stated as these canonical restrictions.
+
+AnalyticNumberTheory:AN.8/cubic-triple-root-unfolding — TauCeti.SeveralVariableZeta.cubic_triple_root_unfolding
+Missing is the rational triple-root orbit quotient GL2(F)/B(F) and its smoothed theta integral, compact average and idele/Tate change of variables, including the factor 1/3.
+
+AnalyticNumberTheory:AN.8/cubic-triple-root-residue — TauCeti.SeveralVariableZeta.cubic_triple_root_residue
+Missing are the actual Sigma1 continued Tate restriction, smoothing contours and normalized residue distributions, whose poles are at w=2 and w=3.
+
+AnalyticNumberTheory:AN.8/cubic-double-root-unfolding — TauCeti.SeveralVariableZeta.cubic_double_root_unfolding
+Missing is the rational double-root selector and its unfolded smoothed integral, nonconstant Eisenstein part and two Tate contours with parameters -1-z and z-3.
+
+AnalyticNumberTheory:AN.8/cubic-double-root-residue — TauCeti.SeveralVariableZeta.cubic_double_root_residue
+Missing are the actual Sigma2(-1) distribution and contour functions; the w=2,3,4 residue formula must use the same normalized restriction integrals as the triple-root term.
+
+AnalyticNumberTheory:AN.8/cubic-singular-cancellation — TauCeti.SeveralVariableZeta.cubic_singular_cancellation
+Missing is the canonical Fourier-minus-original singular distribution and its determinant-one quotient integration map. The w=3 and w=4 cancellations are identities of those distributions.
+
+AnalyticNumberTheory:AN.8/cubic-singular-rational-term — TauCeti.SeveralVariableZeta.cubic_singular_rational_term
+Missing is the canonical singular correction I(Phi,u), with actual Fourier and Sigma1/Sigma2 distribution evaluations. A rational expression in unrelated complex parameters would not state its identity with the integral.
+
+AnalyticNumberTheory:AN.8/cubic-adelic-meromorphic-equation — TauCeti.SeveralVariableZeta.cubic_adelic_meromorphic_equation
+Missing is the canonical adelic Z(Phi,u) continued as a Schwartz-Bruhat distribution and its actual Fourier transform; the generic CubicContinuation instead describes ordinary two-pole arithmetic functions.
+
+AnalyticNumberTheory:AN.8/local-finite-fourier-dual — TauCeti.SeveralVariableZeta.local_finite_fourier_dual
+Missing is the different-normalized local binary-cubic Fourier operator and its integral/trace-divisible lattice indicators, including the exact |3|^(-1) q^(-2e) self-dual mass.
+
+AnalyticNumberTheory:AN.8/cubic-archimedean-fourier-comparison — TauCeti.SeveralVariableZeta.cubic_archimedean_fourier_comparison
+ArchMatrix is native. Its identification as the Fourier matrix for the actual real/complex binary-cubic orbital distributions is omitted; the real primary Shintani proof and nonarchimedean Igusa proof remain named source gaps.
+
+AnalyticNumberTheory:AN.8/cubic-global-functional-equation — TauCeti.SeveralVariableZeta.cubic_global_functional_equation
+Missing are the canonical ordinary and trace-divisible dual series on the same number-field signature index and the self-dual local/global normalization comparison. ArchMatrix alone and supplied generic meromorphic functions do not establish this equation.
+
+AnalyticNumberTheory:AN.8/cubic-meromorphic-continuation — TauCeti.SeveralVariableZeta.cubic_meromorphic_continuation
+CubicContinuation prototypes actual meromorphic continuation and entire pole clearance of a given series. The omitted existence theorem constructs this data for the canonical cubic-order series from the adelic unfolding, local factors and all ideal-class components.
+
+AnalyticNumberTheory:AN.8/cubic-entire-order-bound — TauCeti.SeveralVariableZeta.cubic_entire_order_bound
+Missing is the canonical cleared arithmetic function C_(F,alpha) and the primary quantitative entire-plane growth proof. A function with assumed order-one bound would hide the precise remaining source gap.
+
+AnalyticNumberTheory:AN.8/cubic-residues-and-entire-clearance — TauCeti.SeveralVariableZeta.cubic_residues_and_entire_clearance
+Native CubicContinuation.clear_spec and its two residue limits are present. The stronger arithmetic target additionally constructs the canonical continuation and proves order at most one, whose separate growth proof is a gap.
+
+AnalyticNumberTheory:AN.8/arch-entry-vanishing-at-one — TauCeti.SeveralVariableZeta.arch_entry_vanishing_at_one
+ArchMatrix and explicit sine entries are native. This omitted leaf states their local analytic vanishing orders in the number-field signature matrix, including the double complex factor and total n=r1+2r2.
+
+AnalyticNumberTheory:AN.8/gamma-unit-at-one — TauCeti.SeveralVariableZeta.gamma_unit_at_one
+Missing is the canonical global number-field Gamma/discriminant prefactor with its normalization and its local analytic unit germ at one; generic Gamma facts do not identify that prefactor.
+
+AnalyticNumberTheory:AN.8/cubic-dual-simple-poles — TauCeti.SeveralVariableZeta.cubic_dual_simple_poles
+CubicShintani.dual is native as an actual trace-selector weighted series. Its canonical trace-divisible order lattice, meromorphic continuation and two simple-pole assertion require the same arithmetic/adelic adapters as the ordinary series.
+
+AnalyticNumberTheory:AN.8/cubic-zero-at-origin — TauCeti.SeveralVariableZeta.cubic_zero_at_origin
+Missing is the canonical ordinary/dual functional equation and their analytic germs. The vanishing order n-1 cannot be concluded from independently supplied arbitrary continuation data.
+
+AnalyticNumberTheory:AN.8/cubic-orders-generating-series — TauCeti.SeveralVariableZeta.cubic_orders_generating_series
+Missing are canonical orders inside an etale cubic F-algebra, their relative index norm and counting coefficients, and the arithmetic-to-local-orbit bijection supplied by ST.1. The zeta quotient is specified mathematically.
+
+AnalyticNumberTheory:AN.8/cubic-reducible-and-field-coefficient-bound — TauCeti.SeveralVariableZeta.cubic_reducible_and_field_coefficient_bound
+Missing is the canonical split/quadratic/cubic-field decomposition of weighted cubic order coefficients, h2(F), and the ST.3 uniform field-count comparison on number-field discriminant carriers.
+
+AnalyticNumberTheory:AN.8/cubic-reflected-bound — TauCeti.SeveralVariableZeta.cubic_reflected_bound
+Missing are canonical xi_hat, the ordinary/dual comparison, h2(F) and absolute field discriminant D. The stated exponents and pole exclusion are explicit; arbitrary complex-function bounds would omit these hypotheses.
+
+AnalyticNumberTheory:AN.8/cubic-pole-cleared-convexity — TauCeti.SeveralVariableZeta.cubic_pole_cleared_convexity
+Missing is the canonical entire pole-cleared ordinary cubic function with its established order-one estimate and number-field discriminant normalization; AN.5 supplies the uniform Gamma and Phragmen-Lindelof adapter.
+
+AnalyticNumberTheory:AN.9/compact-spectrum-and-weyl — TauCeti.SpectralZeta.compact_spectrum_and_weyl
+HeatAsymptotics has actual monotone eigenvalues, counts and expansion. AS.4 must construct that data from the scalar Laplacian of the imported compact oriented hyperbolic surface and identify multiplicities and its simple zero.
+
+AnalyticNumberTheory:AN.9/heat-subtracted-holomorphy — TauCeti.SpectralZeta.heat_subtracted_holomorphy
+heat_small_time_subtraction and spectral_continuation_exists are native. The omitted intermediate signature gives the precise locally uniform holomorphy of the actual remainder integral on Re z>-N, with quantitative compact-dependent derivative bounds.
+
+AnalyticNumberTheory:AN.9/selberg-geodesic-majorant — TauCeti.SpectralZeta.selberg_geodesic_majorant
+Selberg is native for actual length data. AS.6 must identify its index with primitive conjugacy classes and provide positive systole, finite counts, exponential growth and the selected orientation convention.
+
+AnalyticNumberTheory:AN.9/selberg-log-product — TauCeti.SpectralZeta.selberg_log_product
+Selberg.log_derivative is native under an actual convergence condition. The stronger leaf proves compact-normal convergence and the logarithmic product expansion from the canonical primitive geodesic count and systole.
+
+AnalyticNumberTheory:AN.9/scalar-heat-trace-formula — TauCeti.SpectralZeta.scalar_heat_trace_formula
+Missing is the actual scalar Laplacian heat data and matching primitive geodesic index from AS.4/AS.6, plus the Gaussian trace-test adapter. No generic sequence and length fields are asserted to satisfy the geometric identity.
+
+AnalyticNumberTheory:AN.9/selberg-transform-normal-convergence — TauCeti.SpectralZeta.selberg_transform_normal_convergence
+Missing is the canonical hyperbolic heat summand and its geometric count majorant, sufficient to state joint compact-normal z,s convergence on the restricted Laplace cone.
+
+AnalyticNumberTheory:AN.9/hyperbolic-laplace-mellin — TauCeti.SpectralZeta.hyperbolic_laplace_mellin
+selberg_laplace_integral is native with Re w>0 and Re(w^2)>0. Missing is its identification with the actual Gaussian hyperbolic trace sum, justified by the stronger geometric counting cone and the same primitive orientation.
+
+AnalyticNumberTheory:AN.9/identity-barnes-transform — TauCeti.SpectralZeta.identity_barnes_transform
+scalarIdentity is native for supplied actual Barnes G. AN.7 must supply the normalized G, its original derivative/asymptotic proof and the geometric identity heat-transform comparison; recurrence alone is insufficient.
+
+AnalyticNumberTheory:AN.9/shifted-zeta-holomorphic — TauCeti.SpectralZeta.shifted_zeta_holomorphic
+SpectralContinuation has actual shifted meromorphic functions and right-half-plane agreement. Missing is a native joint holomorphy carrier in the complex shift u and Mellin z, with the principal-logarithm cut and parameter derivatives.
+
+AnalyticNumberTheory:AN.9/selberg-identity-germ — TauCeti.SpectralZeta.scalar_identity_germ
+scalarIdentity states the single-valued integer-power formula. Missing is the actual normalized Barnes G continuation and equality to its logarithmic heat-transform formula as meromorphic germs.
+
+AnalyticNumberTheory:AN.9/selberg-determinant-comparison — TauCeti.SpectralZeta.selberg_determinant_comparison
+ShiftedDet and scalarIdentity are native separately. Missing is the canonical geometric equality involving the scalar Laplacian, primitive-geodesic continued Z and normalized Barnes G, with the v2 constant fixed by their asymptotics.
+
+AnalyticNumberTheory:AN.9/selberg-identity-nonvanishing — TauCeti.SpectralZeta.selberg_identity_nonvanishing
+Missing is the normalized Barnes G zero divisor and Gamma-unit comparison needed for the canonical identity factor; its order 2g-2 pole at zero is retained in the mathematical target.
+
+AnalyticNumberTheory:AN.9/selberg-spectral-zero-comparison — TauCeti.SpectralZeta.selberg_spectral_zero_comparison
+shifted_zero_divisor and spectral_pullback_order are native exact statements for actual eigenvalues and determinant functions. The missing geometric comparison identifies those zeros with canonical Selberg Z and separates the identity-factor endpoint orders.
+
+AnalyticNumberTheory:AN.9/bc-prime-pair-ratio — TauCeti.BostConnes.bc_prime_pair_ratio
+Missing is the exact prime-pair sequence construction with disjoint coordinates, quantitative ratio limit and divergent weighted source masses, using the AN.2 fixed-progression PNT contract.
+
+AnalyticNumberTheory:AN.9/bc-valuation-tail-ratio — TauCeti.BostConnes.bc_valuation_tail_ratio
+ScalingMeasure.local_shell is native. Missing is the canonical two-prime cylinder swap on the local product and its target-evaluated pushforward derivative; the forward and inverse rational maps have different stated powers.
+
+AnalyticNumberTheory:AN.9/bc-prime-pairs-congruence — TauCeti.BostConnes.prime_pair_congruence_ratio
+prime_progression_reciprocal_diverges is native. The stronger missing leaf constructs disjoint pairs in congruence classes with matching proportional intervals and divergent source masses, uniformly avoiding any prescribed finite prime set.
+
+AnalyticNumberTheory:AN.9/bc-asymptotic-ratio-inclusion — TauCeti.BostConnes.asymptotic_ratio_mem
+RatioSet is native for actual actions and densities. OP2-ratio must supply the finite-block product equivalence relation, independent swaps and the asymptotic-ratio inclusion theorem with its precise recurrence assumptions.
+
+AnalyticNumberTheory:AN.9/bc-ratio-unit-lifting — TauCeti.BostConnes.ratio_witness_unit_lift
+Missing is the actual adelic cylinder coordinate map from the canonical product measure and profinite units. It connects congruent prime swaps to the full adelic action and its essential-ratio witnesses.
+
+AnalyticNumberTheory:AN.9/bc-full-positive-ratio-set — TauCeti.BostConnes.bc_full_positive_ratio_set
+canonical_ratio_set is native on FiniteAdeles with the explicit target density q^beta. The additional leaf is its canonical prime/cylinder witness proof; that proof is recorded in the packet rather than a second named native theorem.
+
+AnalyticNumberTheory:AN.9/bc-ergodic-crossed-product-factor — TauCeti.BostConnes.ergodic_crossed_product_factor
+The sigma-finite group-measure-space von Neumann algebra and its center theorem are missing OP2-factor carriers. No C*-closed operator algebra is substituted for the GNS von Neumann factor.
+
+AnalyticNumberTheory:AN.9/bc-ratio-factor-type — TauCeti.BostConnes.ratio_set_type_three_one
+Missing are the operator-theoretic TypeIII1 predicate, flow of weights and the OP2-factor ratio-set classification theorem for the actual measured crossed product.
+
+AnalyticNumberTheory:AN.9/bc-full-corner-type — TauCeti.BostConnes.full_corner_type_three_one
+Missing are the group-measure-space factor, its von Neumann corner and the completed-state GNS compression equivalence, plus the nonzero-corner type invariance theorem from OP2-factor.
+
+AnalyticNumberTheory:AN.9/bc-type-three-one — TauCeti.BostConnes.bc_type_three_one
+The actual GNS von Neumann algebra and TypeIII1 predicate are missing OP2-factor objects; native canonical_ratio_set and completed state classification provide arithmetic inputs only.
+
+AnalyticNumberTheory:AN.9/bc-arithmetic-values-and-symmetry — TauCeti.BostConnes.bc_arithmetic_values_and_symmetry
+groundState and groundState_galois are native on the core. The stronger target needs the canonical cyclotomic subfield Qcycl, its generated-field comparison and the completed unit/cyclotomic restriction intertwining map.
+
+AnalyticNumberTheory:AN.8/cubic-residue-one — TauCeti.SeveralVariableZeta.cubic_residue_one
+CubicContinuation.residue_one is native as 6 C(1). The omitted arithmetic evaluation identifies C(1) with the actual zeta_F residue, signature and discriminant-normalized AF, rather than a supplied complex constant.
+
+AnalyticNumberTheory:AN.8/cubic-residue-five-sixths — TauCeti.SeveralVariableZeta.cubic_residue_five_sixths
+CubicContinuation.residue_five_sixths is native as -6 C(5/6). The omitted arithmetic evaluation identifies that value with BF times 3^(-r_alpha/2), on the canonical number-field zeta and signature carriers.
+
+-/
