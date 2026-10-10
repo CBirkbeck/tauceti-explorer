@@ -1,35 +1,40 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-URPtqo`, issue #7889, 2026-10-10.
-Continues `codex-tNXl0D` (PR #8245), following PRs #8235, #8222, #8210, #8192
-and #8154. Claim confirmed in issue comment 6094188646.
+Worker: Codex (GPT-6), session `codex-jiwjSa`, issue #7889, 2026-10-10.
+Continues `codex-URPtqo` (PR #8259), following PRs #8245, #8235, #8222,
+#8210, #8192 and #8154. Claim confirmed in issue comment 6094334480.
 
-This is **partial**, not a completed package. The README is assembled; the Lean
-file is a compiled subset. This checkpoint proves the existing QT.7 pole-free
-action, denominator and automorphy composition obligations and the conditional
-matrix transport identity, with three proved transport tests. The QT.6 vertices,
-color inverse limit, twists and finite formal-color interfaces are retained.
-Missing supplier carriers prevent the full signatures
-required by PROTOCOL §20. No packet, review verdict or supplier file was changed.
+This is **partial**, not a completed package. This run adds the QT.5 Rogers
+regulator on the existing logarithmic cover and relation quotient, with an
+explicit Polylogarithms function/branch-law boundary, exact cut-period proofs,
+and signatures/tests for the complex-period and imaginary comparisons. The
+inherited native additions remain intact. Missing supplier carriers prevent the
+full signatures required by PROTOCOL §20. No packet, review verdict or supplier
+file was changed. This is a dependency checkpoint, not a time-limit checkpoint.
 
 ## What is saved
 
 - `research/blueprint/packages/ArithmeticQuantumTopology/README.md`: all 106
   accepted targets, grouped by their actual parent QT.0–QT.7. It retains the
-  mathematical hypotheses, all 225 current API entries and 174 named tests,
-  including the explicit automorphy factor. Source locators are retained,
+  mathematical hypotheses, every inherited API entry and named test, plus the
+  Rogers cut, period, chart and imaginary-comparison APIs and six additional
+  named tests. Source locators are retained,
   with the §4.5 correction described below. The procedural application
   paragraph is replaced by its mathematical comparison boundary. It omits process
   narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,985 bytes, below the 200 KB ceiling. Four repeated source
-  links now use Markdown references, with the same URLs and individual locators.
+  document is 199,380 bytes, below the 200 KB ceiling. Repeated source links
+  use Markdown references with the same URLs and
+  individual locators; this run converts six more repeated destinations to
+  references to make room for the explicit regulator boundary and tests.
   The QT.6 additions give logarithmic/exponential coefficient, prefactor and
   parity APIs and discriminating tests. Comparison obligations
   and conjectures remain visibly distinct from established source results.
 - `Suggested.lean`: the input's concrete native interfaces, without the long
   commented inventory masquerading as signatures, plus genuine meromorphic
   Faddeev, extended Bloch, formal finite-color and completed color-algebra
-  interfaces, plus six genuine polynomial-vertex/integrand definitions.
+  interfaces, plus six genuine polynomial-vertex/integrand definitions and the
+  Rogers
+  period quotient, cut descent and additive regulator/restriction definitions.
   The QT.7 composition obligations now have proofs, with native identity,
   noncommutative-order and singular-matrix tests for conditional transport.
   The README retains the omitted mathematical specifications;
@@ -97,7 +102,83 @@ No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native QT.7 proof addition in this checkpoint
+## Native QT.5 regulator addition in this checkpoint
+
+Neumann arXiv:math/0307092v2 was read at Definition 2.2, Lemma 2.3,
+Definition 2.4 and Proposition 2.5 with its proof, §2, pp. 417–420
+(PDF pp. 5–8). PDF SHA-256:
+`de2f7ddec49b2ce6ccafd5a9a0be350972ffcf2014a6a3601a6d650df0018650`.
+Polylogarithms' current `polylog`, disk-series and slit-derivative signatures
+and its principal/lower-bank convention were read. That owner has no native
+package or Tau Ceti implementation in the inspected checkouts.
+
+`ExtendedBloch`’s `RogersRegulator` section builds on the existing `CutCover`,
+`flatteningEquiv`, `LiftedFiveTerm`, `extendedPreBloch` and `extendedDehn`.
+It introduces no ordinary Bloch group or second dilogarithm:
+
+- `rogersPeriods` is `AddSubgroup.zmultiples π²` in ℂ. `RogersTarget`
+  is the actual additive quotient; `rogersImaginary` descends imaginary part.
+  The equality criterion retains an integer multiplier, not a real span.
+- `cutDilog` corrects the supplier's lower-bank value by +2πi log x above
+  x>1. `rawRogers` uses the existing negative-log w₁ convention.
+  `rawRogers_negative` and `rawRogers_positive` have Lean proofs of the
+  exact raw differences −qπ² and +pπ² for arbitrary supplied functions.
+  The quotient-identification and chart comparison remain proof plans.
+- `extendedRogers_transfer` and `extendedRogers_liftedFiveTerm` specify
+  descent through both existing relation families. The five-term theorem
+  takes disk-series, slit-derivative and lower-bank limit hypotheses; it
+  does not assume its conclusion or permit unrelated independent lifts.
+  `extendedRogers` is the native quotient lift with the existing universal
+  API; `extendedRogersBloch` is its kernel restriction. Instantiate those
+  branch-law parameters with Polylogarithms when its native import exists.
+- `rogersOnFlattening_im` retains the single-symbol alternating log-area
+  correction. `extendedRogers_im` requires a zero extended Dehn class before
+  comparing to the signed sum of the supplied Bloch–Wigner values.
+  The README and tests distinguish this from a symbolwise volume claim.
+- Native tests retain −π²/6 normalization, the positive p-sheet sign,
+  nonzero real classes, π² versus π²/2 periods, both cut multipliers,
+  transfer, the permitted five-term class, and the odd-sheet imaginary
+  correction at z=1/2. The p-sheet algebra and quotient five-term test have
+  Lean proofs (the latter uses an inherited admitted relation theorem).
+
+The remaining analytic, cover and quotient obligations use `sorry`, as a
+roadmap permits. This is a conditional supplier-facing mathematical plan,
+not an instantiated polylogarithm or a formalized regulator theorem.
+Pinned Mathlib statements read: `AddSubgroup.zmultiples`,
+`QuotientAddGroup.mk'/lift`, complex logarithm/imaginary part, and the existing
+free-abelian and exterior-power APIs. The read-only upstream mathematical
+examples for this run were GrothendieckEulerForms and SemisimpleAlgebras.
+
+Validation in this run:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  **0 errors, 0 warnings**; the accepted input is unchanged.
+- Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 266 warnings**, all `declaration uses sorry`.
+  Available memory was 108 GB before checking. The existing shared build
+  uses pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+- **2,066** finite numerical checks passed with mpmath 1.4.1 at 65 decimal
+  digits and absolute tolerance 10⁻⁵⁵ (maximum discrepancy <4×10⁻⁶⁵).
+  Cut tests use z=−3,−1,−1/5 and z=6/5,2,5, with p,q=−2,…,2 (150 cases).
+  On z=1/2,−1,2,1/5±3i/10,exp(πi/3), 450 checks test p/q sheet shifts
+  and the single-symbol imaginary formula; 486 test transfer with four sheet
+  parameters in {−1,0,2}. Four FT⁺ configurations from rational-grid shape
+  pairs test the exact lattice V for all 243 five-tuples in {−1,0,1}⁵
+  (972 cases). Eight controls distinguish the half normalization, odd-sheet
+  volume, half period, nonzero real class and four forbidden independent
+  third-sheet changes. These checks validate formulas and conventions;
+  they are not proofs of the remaining Lean obligations.
+- README audit: identical ordered 106 target anchors and 8 layer anchors;
+  every inherited API/test name retained. Size **199,380 bytes**, below
+  the 200 KB ceiling. Six additional Markdown-reference destinations retain
+  the exact original URLs and their individual source locators.
+- `python3 research/blueprint/intake.py check-files` on the three deliverables:
+  **3 files, 0 problems**. `git diff --check` and exact issue-output scope pass.
+  No restricted source was needed; source PDFs/texts and numerical scratch
+  are discarded after submission.
+
+## Native QT.7 proof addition inherited from PR #8259
 
 Five existing public obligations now have Lean proofs:
 `rationalPoleFree_mobius`, `rationalMobius_comp`, `denominatorCocycle_comp`,
@@ -168,7 +249,7 @@ Only own-word mathematics and locators appear here; no source passage is saved.
   **0 errors, 0 warnings**, unchanged accepted input with 106 nodes,
   8 gaps, 19 open requests and no closed stage.
 - The README preserves all 106 target anchors, all eight layer anchors and
-  every existing API/test name. Its 199,985 bytes remain under the ceiling.
+  every existing API/test name. Its 199,380 bytes remain under the ceiling.
   `git diff --check` and scoped intake `check-files` pass; intake's
   completion predicate remains false with `metadata.toml` absent.
 
@@ -427,9 +508,9 @@ quotient without waiting for a manifold or triangulation carrier.
 
 This implements definition/signature plans with `sorry` proof obligations;
 none of the mathematical results is claimed formalized. It does not supply
-strong flattenings, Pachner geometry, Rogers regulators, geometric Bloch
-classes, or the ordinary K₃ comparison. Those remain in the README and the
-remaining-work table below. No supplier plan was copied or redefined.
+strong flattenings, Pachner geometry, geometric Bloch classes, or the ordinary
+K₃ comparison. These remain in the README and the remaining-work table below.
+The conditional Rogers interface is added in this run, above. No supplier plan was copied or redefined.
 
 Pinned declarations read before use: `FreeAbelianGroup.of/lift`,
 `Relation.EqvGen.setoid`, quotient topology, `Joined/JoinedIn`,
@@ -476,7 +557,7 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | QT.2 | Formal finite free colors/basis and explicit actions; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; scalar Kashaev kernel | Continuous quantum-module and ribbon comparisons, link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
 | QT.3 | Actual completed twist elements, prime/tilde coefficient comparison, nonfinite support, inverse relation and even-color characters | Geometric Hopf pairing comparison and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
-| QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square | Instantiate ordinary pre-Bloch supplier and its convention comparisons; actual strong/geometric flattening and Pachner interface; regulator branch/period comparison; number-field Bloch and K₃ torsion comparison |
+| QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square; conditional complex-period Rogers regulator and cut/sign/imaginary comparisons | Instantiate ordinary pre-Bloch and Polylogarithms suppliers and their convention/branch laws; actual strong/geometric flattening and Pachner interface; number-field Bloch and K₃ torsion comparison |
 | QT.6 | Linear NZ/Hessian formulas, full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum, formal Gaussian vertex series and move invariance; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
 | QT.7 | Finite figure-eight root sums/descendants, denominator cocycle and pole-free action API, explicit scalar/diagonal/GL automorphy factors with composition and sign APIs, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
 
@@ -496,9 +577,11 @@ The QT.2 color inverse limit and QT.3 algebraic twist elements now have native
 interfaces: retain their quotient multiplication and instantiate the geometric
 pairing comparison rather than substituting pointwise coefficient products.
 The QT.5 cover and relation algebra stand independently: retain this
-namespace and instantiate its universal maps rather than recreating it. A next
-independent QT.5 step is the extended Rogers regulator once the ordinary
-dilogarithm supplier has a usable native interface.
+namespace and instantiate its universal maps rather than recreating it.
+The QT.5 Rogers regulator now has a native conditional interface; instantiate
+its three concrete branch laws from Polylogarithms rather than substituting an
+assumed five-term equation. The next QT.5 geometric step needs the ordered cusped
+triangulation/peripheral/strong-flattening supplier, as the table records.
 Do not restore a comment-only inventory as evidence of elaboration. Use the
 accepted input for exhaustive target/name tracing; this checkpoint has changed
 no mathematical verdict there. Only after all layers meet §20 should metadata

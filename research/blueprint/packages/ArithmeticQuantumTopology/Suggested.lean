@@ -21,6 +21,8 @@ import Mathlib.RingTheory.Coprime.Lemmas
 import Mathlib.Tactic.LinearCombination
 import Mathlib.GroupTheory.FreeAbelianGroup
 import Mathlib.GroupTheory.QuotientGroup.Defs
+import Mathlib.Algebra.Group.Subgroup.ZPowers.Basic
+import Mathlib.Analysis.SpecialFunctions.Complex.LogDeriv
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.Topology.Connected.PathConnected
 import Mathlib.Topology.Constructions
@@ -1126,6 +1128,205 @@ example {P : Type*} [AddCommGroup P] (g : Shape → P)
     (h₅ : ∀ z, FiveTerm z → ∑ i, (-1 : ℤ) ^ i.val • g (z i) = 0)
     (δ : P →+ UnitsWedge) (hδ : ∀ z, δ (g z) = ordinaryBoundaryGenerator z)
     (x : extendedBloch) : (extendedBloch_forget g h₅ δ hδ x).val = forget g h₅ x.val := sorry
+
+/-! QT.5: the complex-period Rogers regulator on the actual logarithmic cover.
+Neumann, Proposition 2.5 and proof, pp. 419–420. `li₂` is the function supplied
+by Polylogarithms:P.1/classical-polylogarithm at index 2, with its lower-bank
+value on (1,∞). It is an explicit parameter until that supplier has a native
+import; QT does not introduce another dilogarithm. Series, derivative and cut
+limit hypotheses below specify that branch rather than assuming the regulator
+or its five-term equation. The cover descent retains both cut banks.
+-/
+section RogersRegulator
+
+/-- The period group is discrete integer multiples, not a real or complex span. -/
+def rogersPeriods : AddSubgroup ℂ := AddSubgroup.zmultiples ((Real.pi : ℂ) ^ 2)
+
+abbrev RogersTarget := ℂ ⧸ rogersPeriods
+
+def rogersClass : ℂ →+ RogersTarget := QuotientAddGroup.mk' rogersPeriods
+
+theorem rogersClass_eq_iff (a b : ℂ) :
+    rogersClass a = rogersClass b ↔ ∃ n : ℤ, a - b = n * (Real.pi : ℂ) ^ 2 := sorry
+
+/-- Imaginary part survives the real period quotient; real part remains modulo π². -/
+def rogersImaginary : RogersTarget →+ ℝ :=
+  QuotientAddGroup.lift rogersPeriods
+    { toFun := Complex.im, map_zero' := by simp, map_add' := fun _ _ => by simp }
+    (by sorry)
+
+theorem rogersImaginary_class (a : ℂ) : rogersImaginary (rogersClass a) = a.im := rfl
+
+/-- Correct the supplier's lower-bank value to the upper bank at x>1. -/
+def cutDilog (li₂ : ℂ → ℂ) (c : CutPoint) : ℂ :=
+  li₂ c.shape.1 +
+    if c.side = .upper ∧ c.shape.1.im = 0 ∧ 1 < c.shape.1.re
+    then 2 * Real.pi * Complex.I * Complex.log c.shape.1 else 0
+
+/-- Formula on a specified bank, with w₁'s minus-log convention retained. -/
+def rawRogers (li₂ : ℂ → ℂ) (c : CutRaw) : ℂ :=
+  cutDilog li₂ c.1 - cutLog₀ c.1 * cutLog₁ c.1 / 2 +
+    (Real.pi * Complex.I / 2) *
+      (-(c.2.1 : ℂ) * cutLog₁ c.1 + (c.2.2 : ℂ) * cutLog₀ c.1) -
+    (Real.pi : ℂ) ^ 2 / 6
+
+/-- The two gluing identifications change the raw formula by -qπ² and +pπ². -/
+theorem rawRogers_negative (li₂ : ℂ → ℂ) (z : Shape)
+    (him : z.1.im = 0) (hre : z.1.re < 0) (p q : ℤ) :
+    rawRogers li₂ (cutUpper z, p, q) -
+      rawRogers li₂ (cutLower z ⟨him, Or.inl hre⟩, p + 2, q) =
+        -(q : ℂ) * (Real.pi : ℂ) ^ 2 := by
+  have hn : ¬ 1 < z.1.re := by linarith
+  simp only [rawRogers, cutDilog, cutLog₀, cutLog₁, cutUpper, cutLower]
+  simp [hn, hre]
+  ring_nf
+  simp [Complex.I_sq]
+
+theorem rawRogers_positive (li₂ : ℂ → ℂ) (z : Shape)
+    (him : z.1.im = 0) (hre : 1 < z.1.re) (p q : ℤ) :
+    rawRogers li₂ (cutUpper z, p, q) -
+      rawRogers li₂ (cutLower z ⟨him, Or.inr hre⟩, p, q + 2) =
+        (p : ℂ) * (Real.pi : ℂ) ^ 2 := by
+  have hn : ¬ z.1.re < 0 := by linarith
+  simp only [rawRogers, cutDilog, cutLog₀, cutLog₁, cutUpper, cutLower]
+  simp [hn, hre, him]
+  ring_nf
+  simp [Complex.I_sq]
+
+theorem rawRogers_identification (li₂ : ℂ → ℂ) {a b : CutRaw}
+    (h : Relation.EqvGen CutIdentification a b) :
+    rogersClass (rawRogers li₂ a) = rogersClass (rawRogers li₂ b) := sorry
+
+/-- A genuine quotient lift, not a choice of five independent principal logs. -/
+def cutRogers (li₂ : ℂ → ℂ) : CutCover → RogersTarget :=
+  Quotient.lift (fun c => rogersClass (rawRogers li₂ c))
+    (fun _ _ h => rawRogers_identification li₂ h)
+
+def rogersOnFlattening (li₂ : ℂ → ℂ) (f : Flattening) : RogersTarget :=
+  cutRogers li₂ (flatteningEquiv.symm f)
+
+/-- The chart formula uses precisely the supplier's lower-bank principal branch. -/
+def rogersChartRaw (li₂ : ℂ → ℂ) (z : Shape) (p q : ℤ) : ℂ :=
+  li₂ z.1 + Complex.log z.1 * Complex.log (1 - z.1) / 2 +
+    (Real.pi * Complex.I / 2) *
+      ((p : ℂ) * Complex.log (1 - z.1) + (q : ℂ) * Complex.log z.1) -
+    (Real.pi : ℂ) ^ 2 / 6
+
+theorem rogersOnFlattening_chart (li₂ : ℂ → ℂ) (z : Shape) (p q : ℤ) :
+    rogersOnFlattening li₂ (chart z p q) = rogersClass (rogersChartRaw li₂ z p q) := sorry
+
+theorem extendedRogers_transfer (li₂ : ℂ → ℂ) (f : Flattening) (p q p' q' : ℤ) :
+    rogersOnFlattening li₂ (deck f p q) + rogersOnFlattening li₂ (deck f p' q') -
+      rogersOnFlattening li₂ (deck f p q') - rogersOnFlattening li₂ (deck f p' q) = 0 := sorry
+
+/- Named branch inputs from the supplier: disk series, slit derivative and lower cut limit.
+Neumann's proof first derives the real five-term identity, continues it to FT⁺,
+then along the distinguished lifted component and the prescribed sheet lattice. -/
+variable (li₂ : ℂ → ℂ)
+  (hseries : ∀ z : ℂ, ‖z‖ < 1 →
+    HasSum (fun k : ℕ => z ^ (k + 1) / ((k + 1 : ℕ) : ℂ) ^ 2) (li₂ z))
+  (hderiv : ∀ z : ℂ, z ≠ 0 → 1 - z ∈ Complex.slitPlane →
+    HasDerivAt li₂ (-Complex.log (1 - z) / z) z)
+  (hlower : ∀ x : ℝ, 1 < x →
+    Filter.Tendsto (fun ε : ℝ => li₂ ((x : ℂ) - ε * Complex.I))
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds (li₂ x)))
+
+include hseries hderiv hlower in
+theorem extendedRogers_liftedFiveTerm (f : Fin 5 → Flattening) (hf : LiftedFiveTerm f) :
+    ∑ i, (-1 : ℤ) ^ i.val • rogersOnFlattening li₂ (f i) = 0 := sorry
+
+/-- Both relation families descend to an additive map on the existing quotient. -/
+def extendedRogers : extendedPreBloch →+ RogersTarget :=
+  lift (rogersOnFlattening li₂)
+    (extendedRogers_liftedFiveTerm li₂ hseries hderiv hlower)
+    (extendedRogers_transfer li₂)
+
+theorem extendedRogers_gen (f : Flattening) :
+    extendedRogers li₂ hseries hderiv hlower (gen f) = rogersOnFlattening li₂ f :=
+  lift_gen _ _ _ f
+
+def extendedRogersBloch : extendedBloch →+ RogersTarget :=
+  (extendedRogers li₂ hseries hderiv hlower).comp extendedBloch.subtype
+
+/-- A single flattening includes the alternating log-area correction. It need not
+have imaginary value D(z); zero extended Dehn class cancels the correction in a sum. -/
+theorem rogersOnFlattening_im (D : Shape → ℝ)
+    (hD : ∀ z, D z = (li₂ z.1).im + Complex.arg (1 - z.1) * Real.log ‖z.1‖)
+    (f : Flattening) :
+    rogersImaginary (rogersOnFlattening li₂ f) = D f.shape +
+      (f.w₀.re * f.w₁.im - f.w₀.im * f.w₁.re) / 2 := sorry
+
+/-- On a kernel class, the imaginary regulator is the sum of the supplied Bloch–Wigner
+values. This comparison is for classes with zero Dehn map, not individual symbols. -/
+theorem extendedRogers_im (D : Shape → ℝ)
+    (hD : ∀ z, D z = (li₂ z.1).im + Complex.arg (1 - z.1) * Real.log ‖z.1‖)
+    (a : FreeFlattening) (ha : extendedDehn (classMap a) = 0) :
+    rogersImaginary (extendedRogers li₂ hseries hderiv hlower (classMap a)) =
+      FreeAbelianGroup.lift (fun f => D f.shape) a := by
+  have _ := hD
+  have _ := ha
+  sorry
+
+/-- Constructor tests use actual shapes, never a degenerate z=0 or z=1. -/
+def halfShape : Shape := ⟨1 / 2, by norm_num, by norm_num⟩
+
+-- rogers_normalizing_constant: the -π²/6 term leaves -π²/12 at z=1/2.
+example (hhalf : li₂ (1 / 2) = (Real.pi : ℂ) ^ 2 / 12 -
+    Complex.log (1 / 2) ^ 2 / 2) :
+    rogersOnFlattening li₂ (chart halfShape 0 0) =
+      rogersClass (-((Real.pi : ℂ) ^ 2 / 12)) := sorry
+
+-- rogers_sheet_p: p ↦ p+2 adds +πi log(1-z), not its negative.
+example (z : Shape) (p q : ℤ) :
+    rogersChartRaw li₂ z (p + 2) q - rogersChartRaw li₂ z p q =
+      Real.pi * Complex.I * Complex.log (1 - z.1) := by
+  simp only [rogersChartRaw, Int.cast_add, Int.cast_ofNat]
+  ring
+
+example (z : Shape) (p q : ℤ) :
+    rogersOnFlattening li₂ (chart z (p + 2) q) - rogersOnFlattening li₂ (chart z p q) =
+      rogersClass (Real.pi * Complex.I * Complex.log (1 - z.1)) := sorry
+
+-- rogers_not_plain_BlochWigner: nonzero real classes have imaginary part zero.
+example : rogersClass (-((Real.pi : ℂ) ^ 2 / 12)) ≠ 0 ∧
+    rogersImaginary (rogersClass (-((Real.pi : ℂ) ^ 2 / 12))) = 0 := sorry
+
+-- rogers_period_control: π² dies but π²/2 survives.
+example : rogersClass ((Real.pi : ℂ) ^ 2) = 0 := sorry
+example : rogersClass ((Real.pi : ℂ) ^ 2 / 2) ≠ 0 := sorry
+
+-- rogers_cut_negative: omitting q gives the wrong -qπ² period.
+example (p q : ℤ) :
+    rawRogers li₂ (cutUpper ⟨-1, by norm_num, by norm_num⟩, p, q) -
+      rawRogers li₂ (cutLower ⟨-1, by norm_num, by norm_num⟩
+        ⟨by norm_num, Or.inl (by norm_num)⟩, p + 2, q) =
+      -(q : ℂ) * (Real.pi : ℂ) ^ 2 := sorry
+
+-- rogers_cut_positive: retain the upper Li₂ correction and the +pπ² period.
+example (p q : ℤ) :
+    rawRogers li₂ (cutUpper ⟨2, by norm_num, by norm_num⟩, p, q) -
+      rawRogers li₂ (cutLower ⟨2, by norm_num, by norm_num⟩
+        ⟨by norm_num, Or.inr (by norm_num)⟩, p, q + 2) =
+      (p : ℂ) * (Real.pi : ℂ) ^ 2 := sorry
+
+-- rogers_transfer_chart
+example (z : Shape) (p q p' q' : ℤ) :
+    rogersOnFlattening li₂ (chart z p q) + rogersOnFlattening li₂ (chart z p' q') -
+      rogersOnFlattening li₂ (chart z p q') - rogersOnFlattening li₂ (chart z p' q) = 0 := sorry
+
+-- rogers_fiveTerm_class
+example (f : Fin 5 → Flattening) (hf : LiftedFiveTerm f) :
+    extendedRogers li₂ hseries hderiv hlower (classMap (fiveTermRelation f)) = 0 := by
+  rw [lifted_five_term f hf, map_zero]
+
+-- rogers_symbol_im_correction: D(1/2)=0 does not remove an odd-sheet correction.
+example (hhalf : li₂ (1 / 2) = (Real.pi : ℂ) ^ 2 / 12 -
+    Complex.log (1 / 2) ^ 2 / 2) :
+    rogersImaginary (rogersOnFlattening li₂ (chart halfShape 1 0)) =
+      Real.pi * Real.log (1 / 2) / 2 ∧
+    rogersImaginary (rogersOnFlattening li₂ (chart halfShape 1 0)) ≠ 0 := sorry
+
+end RogersRegulator
 
 end ExtendedBloch
 
