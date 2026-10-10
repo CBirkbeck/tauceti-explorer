@@ -940,7 +940,7 @@
         "For each fixed s, compatible nonempty closed sets {a∈A : a and s have the same action on the first n reductions} give one common lift by compactness.",
         "Any S-generating family then generates over A by image containment.",
         "The quotient A/Ann M is complete local; the images of z_i lie in its maximal ideal. Lift them to m_A, evaluate power series, and compare actions on the separated limit.",
-        "To lift the augmentation kernel containment use the compact closed relation {(a,b): action(a)=action(z), φ_n(b)=0} at all cutoffs; quotient by Ann M gives the stated containment."
+        "For a fixed augmentation generator z, use the nested nonempty compact closed fibres {b∈A : b acts as z on the nth reduction and φ_n(b)=0}. The same b satisfies both conditions. Their intersection gives b∈ker φ_∞ with action(b)=action(z); therefore iota(z)−b∈Ann_A M. Extend this inclusion from the generators to the augmentation ideal."
       ],
       "acceptance": [
         "Do not infer a canonical S→A or faithfulness from this construction.",
@@ -1269,7 +1269,7 @@
       "proofSteps": [
         "For h+j>0 apply simultaneous ring-module patching. S and C are Noetherian domains of the same dimension h+j+1, M_∞≠0 is S-free and has the C-action.",
         "Lift the images of the S-variables from R_∞ to m_C through C↠R_∞. R03.1 local series evaluation gives a local O-algebra map S→C whose composite is the existing S→R_∞, so the C-action on M_∞ restricts to its S-free action.",
-        "Import the same-dimensional-domain finiteness lemma (Kisin Lemma 3.3.4) already contained in the integrated R03.3 depth/dimension target: C is finite over S. Faithfulness of the S-free module makes S→C injective. After inverting p the finite injective map still gives equal dimensions; the requested regularity of S[1/p] and C[1/p] makes M_∞[1/p] finite projective faithful over C[1/p].",
+        "Import the same-dimensional-domain finiteness lemma (Kisin Lemma 3.3.4) already contained in integrated R03.3: C is finite over S. Faithfulness of the S-free module makes S→C injective. After inverting p, apply the requested regularity prime by prime: for a prime of C[1/p], its contraction in the regular, hence normal, S[1/p] has the same height under this finite integral extension; a parameter sequence downstairs stays regular on the localized S-free module and is a parameter sequence upstairs. The imported depth and Auslander–Buchsbaum statements then give local freeness, hence finite projectivity, of M_∞[1/p] over C[1/p]. Its action is faithful because a nonzero element of the finite domain C becomes invertible over Frac(S), and M_∞ embeds into its nonzero generic fibre.",
         "Faithfulness kills ker(C[1/p]→R_∞[1/p]); C is O-flat, so ker(C→R_∞)=0. Therefore C≃R_∞.",
         "A nonzero finite projective faithful module has positive rank at every prime; this property survives the quotient by a. Descend projectivity and faithfulness only after inverting p. Ring finiteness over S survives quotienting to S₀.",
         "For h+j=0, d=0 and h=j=0. The hypotheses give b_n=0, M_n=M free over O and R_n=R a quotient of B. Apply the same-dimensional-domain finiteness lemma directly with O→B and M≠0 to obtain B finite over O. The domain B[1/p] is then a field and the nonzero O-free M gives a faithful B[1/p]-action. Flatness of B kills ker(B→R), so R=B. The generic-fibre module is a nonzero finite-dimensional vector space, giving the stated rational projectivity/faithfulness without the zero-exponent patch cutoff."
@@ -1424,7 +1424,7 @@
       "status": "planned",
       "remaining": [
         "Resolve the three recorded R03.3/R03.1 proof interfaces and replace their omitted Lean signatures with concrete supplier declarations.",
-        "Check the mixed-characteristic element-power cutoff estimate in the Kisin construction when implementing it; the finite bound and zero-variable boundary are explicit."
+        "Implement the reviewed mixed-characteristic element-power cutoff estimate and the remaining admitted native signatures; the positive-variable bound and the separate zero-variable proof are explicit."
       ]
     }
   ],
@@ -1466,9 +1466,14 @@
       "known": "new",
       "searched": [
         "Annals published article page and publisher PDF, accessed 2026-10-10: no correction linked; the zero-variable case is not separated in the proof.",
-        "Kisin Harvard papers listing, accessed 2026-10-10: no erratum listed for this paper; its author-copy DVI link could not be read by the web tool.",
+        "Kisin Harvard preprints listing https://people.math.harvard.edu/~kisin/preprints.html, independently accessed 2026-10-10: no erratum linked for this paper. Review used the published PDF, not the linked author DVI.",
         "Web searches for the paper title with erratum, correction, Proposition 3.3.1 and zero-variable patching, 2026-10-10: no correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read Proposition 3.3.1 and its full proof at printed pp. 1157–1159. The allowed h=j=d=0 case makes the printed r_m zero, so the individual zeroth powers generate the unit ideal and the patch ring is zero. This confirms only a proof boundary: Lemma 3.3.4 and O-flatness give the recorded direct proof of the unchanged criterion. The Annals article page and the author’s Harvard preprints listing link no correction for this article as checked on 2026-10-10.",
+        "by": "REV-DeformationAndDerivedPatchingAlgebra--R03.5"
+      }
     }
   ],
   "sourceVersions": [
@@ -1478,5 +1483,118 @@
       "read": "2026-10-10",
       "sha256": "076f8bb6ec683633f7742d27504b97f5feaef2ddbae2bc5dc4325eb8386f4ee7"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.5",
+    "date": "2026-10-10",
+    "notes": "Independent review of all 21 target-level nodes, all 14 baseline declarations at the pins, supplier contracts, public primary-source locators and hashes, 24 API entries, 19 definition/construction tests, six planets, the library audit and current upstream ownership. Corrected the augmentation compactness step and strengthened concrete Lean statements/tests. Accepted as a complete planned pass with the three explicit R03.3/R03.1 supplier gaps, not as proof closure or implementation. Source issue E15 confirmed as a limited proof boundary. See the review report for validation and packaging reconciliation.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-module",
+        "verdict": "verified",
+        "note": "Canonical defect uses integer subtraction. Square-presentation predicate and its quotient/invariance APIs are valid; native residue Tor and minimal-resolution identification remain explicitly requested from R03.3."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-square-presentation",
+        "verdict": "verified",
+        "note": "Padding a minimal presentation and cancelling unit entries prove the equivalence; a square presentation is not assumed injective and does not itself imply projective dimension at most one."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/cyclic-group-ring-quotients",
+        "verdict": "verified",
+        "note": "Checked the native finite-variable quotient, augmentation and group-generator convention; coefficient completeness and residual-fibre finiteness give the stated group-ring comparison, including zero variables."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/cofinal-artinian-cutoffs",
+        "verdict": "corrected",
+        "note": "Added native signatures for both the group-relation cutoffs and the annihilator cutoffs, with descending, open, cofinal, finite-quotient and intersection-zero conclusions. Nonzero H and faithful-image finiteness are retained."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/finite-patch-datum",
+        "verdict": "corrected",
+        "note": "Reduction now characterizes the generator, action and specialization as well as matrix and ring quotient. Tests use the actual zero/Jordan actions and dual-number projection rather than arbitrary maps."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/finite-decorated-data",
+        "verdict": "verified",
+        "note": "Finite coefficient ring, bounded coordinates, local endomorphism image and finite quotient maps give finitely many full decorated classes; the nilpotence bound is for the action image, not all of A."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/compatible-patch-tower",
+        "verdict": "corrected",
+        "note": "The native tower carries actual compatible maps. Strengthened the twisted-action and cofinal-restriction tests to check the specified actions and every retained projection."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patching-extraction",
+        "verdict": "corrected",
+        "note": "Added the recurrent-class extraction signature with reduction identities and composition, finite quotient classes, and strictly increasing unbounded arithmetic indices; no transitions between original H_N are assumed."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patched-module",
+        "verdict": "corrected",
+        "note": "The reduction equivalence now reaches the chosen finite tower module and respects its generators; the older bare cokernel base-change is kept as a helper. Zero and one-by-one tests identify their quotient projections."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patched-presentation-completion",
+        "verdict": "verified",
+        "note": "Native completion exactness is applied to kernel → finite free → cokernel, not to an unproved injectivity of the relation matrix. The finite Noetherian middle module hypotheses match the pin."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patched-ring-action",
+        "verdict": "corrected",
+        "note": "Added uniqueness for the limiting ring map. The nonfaithful test uses the actual constant-coefficient action of S[[v]] on S and detects its zero action at every quotient."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/augmentation-specialization",
+        "verdict": "corrected",
+        "note": "Specialization now specifies all finite quotient maps and A-linearity through the lifted φ, alongside the actual augmentation quotient equivalence."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/power-series-action-and-finiteness",
+        "verdict": "corrected",
+        "note": "Corrected the augmentation-kernel compactness fibre to use one element for the scalar action and φ_n=0 simultaneously. Added native scalar compactness, finite generation and local series-lift signatures."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/free-module-patching",
+        "verdict": "corrected",
+        "note": "Added the free patched tower signature with its actual limit and all basis-reduction identities, rather than only a zero-matrix quotient assertion; action and specialization use their separate targets."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patching-depth-numerical",
+        "verdict": "verified",
+        "note": "Free and proper-support square-presentation cases have the claimed depths by the recorded R03.3 comparison and AB interfaces. Regularity of A is essential for A-freeness. Component support stays with R03.6."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/balanced-modules-and-module-patching",
+        "verdict": "corrected",
+        "note": "Added a native statement of CG Proposition 2.3 retaining p≥3, q≥1, both scalar-image conditions, unreduced group-ring coefficient quotients, and the actual augmentation map. Missing depth is a proof dependency, not an omitted theorem hypothesis."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patch-datum",
+        "verdict": "corrected",
+        "note": "The actual ring is distinct from its endomorphism image. Tests now use native dual numbers and identify framing/module quotient projections; the element-power ideal remains distinct from the ordinary ideal power."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-ring-module-patching",
+        "verdict": "corrected",
+        "note": "Added native simultaneous ring-module patching input/output signatures and the exact positive-variable element-power estimate. Preserved both augmentation kernels, bases, coefficient compatibility, and the actual framing quotient ring."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/kisin-patching-criterion",
+        "verdict": "corrected",
+        "note": "Expanded the generic-fibre projectivity argument to the local parameter/height/AB argument. Independently confirmed E15 only as the h+j=0 construction boundary, covered by the direct proof; formal-smoothness comparison remains requested."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/patching-choice-comparison",
+        "verdict": "corrected",
+        "note": "Comparison now gives the unique limit isomorphism with finite projection, action and specialization identities; φ has its separate uniqueness statement. No comparison of unrelated extractions is asserted."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.5/generic-fibre-versus-integral-faithfulness",
+        "verdict": "corrected",
+        "note": "Added the native polynomial-quotient example with a nonzero integral kernel and a generic-fibre algebra equivalence, and the native regular-sequence/component example. Numerical depth remains in the existing request."
+      }
+    ]
+  }
 }
