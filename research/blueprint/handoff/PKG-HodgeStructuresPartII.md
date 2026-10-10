@@ -1,8 +1,8 @@
 # PKG-HodgeStructuresPartII — blocked checkpoint
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-8h7RgV`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6093499985).
+Codex (GPT-6), session `codex-FMXYxa`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6093790551).
 No manager-priority issue was available at selection. This was an available
 focus package under WORKERS' fallback order. Only this job was claimed.
 
@@ -22,11 +22,18 @@ and reconciling the consumer references therefore requires jobs authorized to
 edit those packets. Reconstructing the owners' general objects inside this
 package would violate the ownership rule.
 
-This submission consolidates the repeated handoff notes into one current
-resumption account. No mathematical deliverable or input packet changed.
-The README and Suggested.lean remain byte for byte unchanged. Metadata remains
-absent because intake would otherwise classify this unfinished package as
-complete. Its final topic is `math.AG`.
+This checkpoint implements the affine base-linear connection operator and
+proves its evaluation, scalar Leibniz and zero-matrix laws. The two split-chart
+specializations now use a directly defined one-direction polynomial frame.
+Thus all twelve existing split Rees chart checks avoid admitted axioms. The
+README explains the native linear-map construction. No input packet changed;
+these improvements do not construct either missing global supplier object.
+Metadata remains absent because intake would otherwise classify this
+unfinished package as complete. Its final topic is `math.AG`.
+
+This note updates the inherited checkpoint from session `codex-8h7RgV` rather
+than leaving its unchanged-file receipts and admitted-chart status in force.
+The remaining audit below is still required after the owner-contract repair.
 
 ## Independently checked supplier mismatches
 
@@ -47,12 +54,15 @@ implementation before its consumer can be planned.
 ### Current library and upstream evidence
 
 The read-only upstream roadmap checkout is
-`dea8191cc6047d6142a65872ebce6eeeb841a29b`; the current Tau Ceti library is
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran there.
-Read AlgebraicVectorBundles and Completed/HodgeStructures READMEs in full,
-and the relevant DifferentialGeometry signatures. Read the reviewed library
-coverage entries: HodgeStructures covers pure/mixed structures, polarization,
-strictness and period-domain points; there is no HodgeStructuresPartII layer.
+`8c72a04753b11cab07fa593cc38ceaa7c0515380`; the current Tau Ceti library is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. This is newer roadmap main than
+the inherited checkpoint's `dea8191cc6047d6142a65872ebce6eeeb841a29b`.
+No Lake command ran in either read-only tree. Read AlgebraicVectorBundles
+and DifferentialGeometry READMEs in full and their relevant suggested
+signatures, including the real smooth-bundle `CurvatureForm` carrier.
+The prior checkpoint read Completed/HodgeStructures; this pass reread its
+reviewed coverage entries: pure/mixed structures, polarization, strictness
+and period-domain points, with no HodgeStructuresPartII layer.
 
 - AlgebraicVectorBundles L0A–L0C owns scheme module tensor, dual, exterior,
   determinant and pullback operations. It does not state either missing
@@ -64,14 +74,15 @@ strictness and period-domain points; there is no HodgeStructuresPartII layer.
   `TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Basic.lean`.
   They use sheafification of presheaf tensor and must be reused. Tensoring
   global sections does not calculate sheaf tensor sections.
-- Mathlib `reesAlgebra`, in `Mathlib/RingTheory/ReesAlgebra.lean`, uses
-  polynomials with degree-n coefficients in I^n. That ideal-power algebra
-  does not supply the filtered module-sheaf or its operator comparisons.
+- Current Tau Ceti's `TauCeti/RingTheory/ReesAlgebra/Grading.lean` describes
+  the ideal-power Rees algebra, with degree-n coefficients in I^n. That
+  algebra does not supply the filtered module-sheaf or its operator
+  comparisons.
 
 A bounded replacement search of current Tau Ceti Geometry,
-AlgebraicGeometry, RingTheory and Algebra, and the three roadmap directories
-above, found no exact alternate supplier. This is a search receipt, not a
-claim to have audited every library declaration.
+AlgebraicGeometry and RingTheory, and AlgebraicVectorBundles and
+DifferentialGeometry suggested files, found no exact alternate supplier. This
+is a search receipt, not a claim to have audited every library declaration.
 
 ### Source evidence and its limits
 
@@ -80,15 +91,17 @@ the connection/crystal construction uses the crystalline-site assumptions
 of Situation 60.7.5. It does not remove the general-site owner gap.
 
 Read Bhargav Bhatt, [*Prismatic F-gauges*, MAT549 Fall 2022](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-§2.2.1, Proposition 2.2.6 and Remark 2.2.8, pp.16–17; and Remark 2.3.7,
-pp.25–26 in the characteristic-zero setting of §2.3. The first gives the
-derived Rees equivalence; Remark 2.2.8 gives the finite-projective affine
-specialization. Remark 2.3.7 identifies filtered flat bundles satisfying
-Griffiths transversality and their associated graded Higgs bundles for a
-smooth variety. Thus relevant source mathematics exists. It still needs to
-be exported by the owners with the precise sheaf comparisons required here.
-The source is not titled *Absolute prismatic cohomology*. No source passage
-or restricted file is reproduced in this submission.
+§2.2.1, Proposition 2.2.6 and its inverse construction, p.16, and
+Remarks 2.2.7–2.2.8, pp.16–17 (printed page numbers). Proposition 2.2.6
+gives the derived Rees equivalence; Remark 2.2.8 gives the finite-projective
+affine specialization with a genuine finite filtration and finite-projective
+graded pieces. Relevant source mathematics exists. It still needs the owners'
+exports with the precise sheaf comparisons required here. The source is not
+titled *Absolute prismatic cohomology*. The public PDF retrieved on
+2026-10-10 has SHA-256
+`a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`;
+this receipt identifies the version just read, without conflating older
+receipts for the same URL. No source passage or restricted file is reproduced.
 
 ## Exact intervention and acceptance witnesses
 
@@ -162,12 +175,25 @@ restore the twenty removed H.7 results on arbitrary receiving sets, matrices,
 maps or languages: geometric hypotheses must occur in signatures.
 
 The Lean file retains 693 examples: 681 original, seven split-chart examples
-and five change-of-frame examples. The seven chart examples use admitted
-`Connection.operator_apply`, and the unit-fibre check also uses admitted
-`Frame.polynomial_delta`; they do not construct a global Rees sheaf. The five
-matrix examples prove polynomial inverse, derivative-corrected transition,
-zero/unit specialization and failure of pure conjugation without admissions.
-Those checks and the README's worked charts were inherited, not added here.
+and five change-of-frame examples. Those twelve chart statements and the
+README's worked charts were inherited. This pass supplies the operator they
+use and removes the unit-fibre check's dependency on admitted
+`Frame.polynomial_delta`. Its private `SplitReesChecks.lineFrame` uses native
+`MvPolynomial.pderiv 0`; commutation has just one direction, and coefficient
+constancy follows from differentiation of `MvPolynomial.C`.
+
+The operator is the sum of λ times the coordinatewise derivation map
+(`LinearMap.pi`, `LinearMap.proj`, `Derivation.toLinearMap`, composition) and
+`Matrix.mulVecLin.restrictScalars k`. Evaluation is definitional; the scalar
+law uses `Derivation.leibniz` and `Matrix.mulVec_smul`; zero matrices simplify
+to the derivative term. Four admitted declaration bodies were removed. The
+three proven operator lemmas no longer carry the unused `DecidableEq V`
+instance. No geometric hypothesis was replaced by a placeholder.
+
+The chart checks prove the relative t∇ equations, a nonzero nilpotent zero
+fibre, unit/zero specialization, relative versus absolute differentiation,
+polynomial frame inverse, derivative-corrected transition and failure of pure
+conjugation. They do not construct a global Rees sheaf or its descent data.
 
 The full target-fidelity and adversarial mathematics audit remains,
 especially the 569 parent H.0 nodes and seven H.0 continuation nodes and their
@@ -198,21 +224,35 @@ the parent's historical coverage is not a fresh audit of those layers.
 
 The counts overlap and must not be summed as distinct defects.
 
-Fresh checks in session `codex-8h7RgV`:
+Fresh checks in session `codex-FMXYxa`:
 
 - All ten `scripts/check_blueprint.py` validations exited 0 with zero errors
   and zero warnings. Structural success permits the recorded gaps and does
   not certify mathematical closure.
 - `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
-  exited 0: zero errors, 1623 warnings, all `declaration uses sorry`, and zero
+  exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, and zero
   other warnings. Available memory was 107 GB before compilation. The managed
   shared build is prescribed for Tau Ceti f790474 / Mathlib 082e2d3; Mathlib's
-  full revision was confirmed from its manifest and checkout. No Lean process
-  remains running. Elaboration does not establish the admitted theorems.
-- Scoped intake `check-files` reports one file and zero problems;
-  `git diff --check` passes. Only this handoff is changed.
+  full revision is `082e2d37e8b0463410cdb532e111cd43d5a66174`; the
+  shared Tau Ceti revision is `f790474821cf4256814db967cb154e7af3d0c369`.
+  The read native files `LinearAlgebra/Pi.lean`,
+  `LinearAlgebra/Matrix/ToLin.lean`, `RingTheory/Derivation/Basic.lean`,
+  `Algebra/MvPolynomial/PDeriv.lean` and `Data/Matrix/Mul.lean` match that
+  Mathlib revision byte for byte. No Lean process remains running.
+  Elaboration does not establish the remaining admitted theorems.
+- A scratch copy of the affine prefix, with the twelve anonymous chart
+  examples temporarily named for diagnostics, also passed `lean-check`.
+  `#print axioms` for the operator, its three laws and all twelve chart checks
+  reports only `propext`, `Classical.choice` and `Quot.sound`, with no
+  `sorryAx`. Other inherited admissions in that prefix are unused by these
+  sixteen expressions. To reproduce, extract the prefix through the end of
+  `SplitReesChecks`, close its enclosing sections, name those examples in
+  scratch and print their axioms; no diagnostic names enter the package.
+- Scoped intake `check-files` reports three files and zero problems;
+  `git diff --check` passes. Only the package README, Suggested.lean and this
+  handoff changed.
 
-Exact unchanged-file receipts, relative to `research/blueprint`:
+Exact file receipts, relative to `research/blueprint` (input rows unchanged):
 
 | File | Bytes | SHA-256 |
 | --- | ---: | --- |
@@ -220,8 +260,8 @@ Exact unchanged-file receipts, relative to `research/blueprint`:
 | packets/CrystallineCohomology--CR.0.json | 1400996 | `aa6c94d292f866210a5450fbee909a0c400b5b973638298b5e3a705fe6329f58` |
 | packets/DerivedDeRhamCohomology.json | 866381 | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
 | packages/DerivedDeRhamCohomology/README.md | 184952 | `f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5` |
-| packages/HodgeStructuresPartII/README.md | 192812 | `2deef8c2723cf78701b300f1117c3b587ad6a23542e46ff9cc1818b12f4feb7b` |
-| packages/HodgeStructuresPartII/Suggested.lean | 811447 | `937170081712707fdbe7df648d32daaa68927f546b05bb565cbec78dc21e02ea` |
+| packages/HodgeStructuresPartII/README.md | 193329 | `c1ddb07bbfba996f3f2730e94efe744e1b2e6bf59cea44dfcb626589cff0337d` |
+| packages/HodgeStructuresPartII/Suggested.lean | 812114 | `16585ed474c73db692203bb77137f4c9c403be0cc5e64b115ae3f95580ce4f5f` |
 
 The README is below the 200 KB limit. Everything needed to resume is in these
 repository inputs and this handoff. No scratch file is needed by the next

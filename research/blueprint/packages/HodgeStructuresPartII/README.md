@@ -97,7 +97,9 @@ Sources: [EGa], §2.1, pp.5–6 and §4.2, pp.23–24; [EG20], §2.1, pp.108–1
 
 ### Matrix charts, gauge and determinant
 
-For a k-algebra R, take commuting k-derivations δᵢ indexed by Fin d and λ∈R with δᵢλ=0. `Frame` records those equations. Construct its zero frame, its polynomial partial-derivative frame and its coefficient-one specialization; extensionality depends only on the derivations. For a finite decidable index V, a coordinate preconnection is the matrix family Aᵢ∈Mat_V(R), acting by Dᵢs=λδᵢs+Aᵢs. Provide zero matrices, projection, operator additivity and its scalar rule. Its curvature is
+For a k-algebra R, take commuting k-derivations δᵢ indexed by Fin d and λ∈R with δᵢλ=0. `Frame` records those equations. Construct its zero frame, its polynomial partial-derivative frame and its coefficient-one specialization; extensionality depends only on the derivations. For a finite decidable index V, a coordinate preconnection is the matrix family Aᵢ∈Mat_V(R), acting by Dᵢs=λδᵢs+Aᵢs. Provide zero matrices, projection, operator additivity and its scalar rule.
+
+Construct Dᵢ as a k-linear map: compose the native derivation with each coordinate projection, assemble these maps with `LinearMap.pi`, multiply by λ, and add the matrix action `Matrix.mulVecLin` restricted from R to k. Evaluation then gives the displayed operator formula. For a∈R its scalar rule is Dᵢ(as)=aDᵢs+(λδᵢa)s; zero matrices leave the derivative term λδᵢs. These equations also hold before imposing commuting directions or relative constancy of λ. The curvature formula below uses both frame hypotheses:
 
 Cᵢⱼ=λ(δᵢAⱼ−δⱼAᵢ)+AᵢAⱼ−AⱼAᵢ.
 

@@ -123,13 +123,23 @@ example (A : Fin 1 → Matrix (Fin 1) (Fin 1) ℚ) :
     (Connection.mk A : Connection (Frame.zero (k := ℚ) (R := ℚ) 1 0) (Fin 1)).matrix 0 = A 0 := sorry
 
 /-- D_i(s)=lam δ_i(s)+A_i s; base-linear, not generally R-linear. -/
-def Connection.operator (c : Connection F V) (i : Fin d) : (V → R) →ₗ[k] (V → R) := sorry
+def Connection.operator (c : Connection F V) (i : Fin d) : (V → R) →ₗ[k] (V → R) :=
+  lam • LinearMap.pi (fun v => (F.delta i).toLinearMap.comp (LinearMap.proj v)) +
+    (c.matrix i).mulVecLin.restrictScalars k
+omit [DecidableEq V] in
 theorem Connection.operator_apply (c : Connection F V) (i : Fin d) (s : V → R) :
-    c.operator i s = (fun v => lam * F.delta i (s v)) + c.matrix i *ᵥ s := sorry
+    c.operator i s = (fun v => lam * F.delta i (s v)) + c.matrix i *ᵥ s := rfl
+omit [DecidableEq V] in
 theorem Connection.operator_leibniz (c : Connection F V) (i : Fin d) (a : R) (s : V → R) :
-    c.operator i (a • s) = a • c.operator i s + (lam * F.delta i a) • s := sorry
+    c.operator i (a • s) = a • c.operator i s + (lam * F.delta i a) • s := by
+  rw [Connection.operator_apply, Connection.operator_apply, Matrix.mulVec_smul]
+  funext v
+  simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul, Derivation.leibniz]
+  ring
+omit [DecidableEq V] in
 theorem Connection.operator_zero (i : Fin d) (s : V → R) :
-    (Connection.zero (F := F) (V := V)).operator i s = fun v => lam * F.delta i (s v) := sorry
+    (Connection.zero (F := F) (V := V)).operator i s = fun v => lam * F.delta i (s v) := by
+  simp [Connection.operator_apply, Connection.zero]
 /- A split two-step Rees chart
 
 For `F¹ = O e₁` in `O e₁ ⊕ O e₂` and `∇e₁ = e₂ dx`, the Rees basis is
@@ -194,27 +204,34 @@ example : (chart.matrix 0) ^ 2 = 0 ∧ chart.matrix 0 ≠ 0 := by
     have hentry := congrArg (fun A : Matrix (Fin 2) (Fin 2) Coeff => A 1 0) h
     simp [chart, Matrix.single] at hentry
 
+/-- A one-direction polynomial frame whose differentiation is fixed by construction. -/
+private def lineFrame (c : ℚ) :
+    Frame ℚ (MvPolynomial (Fin 1) ℚ) 1 (MvPolynomial.C c) where
+  delta := fun _ => MvPolynomial.pderiv 0
+  commute := by intro i j a; rfl
+  constant := by intro i; simp
+
 /-- At parameter one the differential correction is u₁, with coefficient matrix E₂₁. -/
 example :
-    let F := Frame.polynomial (k := ℚ) 1 1
+    let F := lineFrame 1
     let c : Connection F (Fin 2) := ⟨fun _ => Matrix.single 1 0 1⟩
     c.operator 0 ((MvPolynomial.X 0 : MvPolynomial (Fin 1) ℚ) • ![1, 0]) =
       ![1, MvPolynomial.X 0] := by
   dsimp only
-  rw [Connection.operator_apply, Frame.polynomial_delta]
+  rw [Connection.operator_apply]
   funext i
-  fin_cases i <;> simp [Matrix.single, Matrix.vecHead]
+  fin_cases i <;> simp [lineFrame, Matrix.single, Matrix.vecHead]
 
 /-- At parameter zero the derivative term disappears but the graded field remains. -/
 example :
-    let F := Frame.polynomial (k := ℚ) 1 0
+    let F := lineFrame 0
     let c : Connection F (Fin 2) := ⟨fun _ => Matrix.single 1 0 1⟩
     c.operator 0 ((MvPolynomial.X 0 : MvPolynomial (Fin 1) ℚ) • ![1, 0]) =
       ![0, MvPolynomial.X 0] := by
   dsimp only
   rw [Connection.operator_apply]
   funext i
-  fin_cases i <;> simp [Matrix.single, Matrix.vecHead]
+  fin_cases i <;> simp [lineFrame, Matrix.single, Matrix.vecHead]
 
 /- A filtration-preserving frame change e₂' = e₂ + x e₁ becomes
 u₂' = u₂ + xt u₁ on the Rees chart. Columns of B are the new basis in the
