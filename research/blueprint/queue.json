@@ -33790,7 +33790,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.1",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6272"
   },
   {
    "id": "BP-DeformationAndDerivedPatchingAlgebra--R03.2",
@@ -37089,7 +37090,8 @@
    ],
    "avoidAccountOf": "BP-FiniteFieldsAndCharacterSums--FF.4",
    "prompt": "research/blueprint/prompts/REV-FiniteFieldsAndCharacterSums--FF.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6309"
   },
   {
    "id": "BP-ArithmeticStatistics--ST.0",
@@ -39995,7 +39997,8 @@
     "BP-GrossZagierAndArithmeticHeights--GZ.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7053"
   },
   {
    "kind": "blueprint",
@@ -41237,8 +41240,9 @@
    ],
    "revisionOf": "BP-PELModuli",
    "prompt": "research/blueprint/prompts/BP-PELModuli~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6996"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6996",
+   "finishedAt": "2026-10-10T10:08:39Z"
   },
   {
    "priority": 2,
@@ -48228,8 +48232,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48887,8 +48891,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49209,8 +49213,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -80079,8 +80083,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81388,8 +81392,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84476,8 +84480,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
