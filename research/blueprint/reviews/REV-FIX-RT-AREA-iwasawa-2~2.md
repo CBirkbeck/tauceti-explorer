@@ -4,9 +4,9 @@ Codex, session `codex-Kjdk5C`, 10 October 2026. Refs #6219.
 [Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6101824276).
 I did none of the fixes by `claude-6ZAIEy` and took no other job.
 This review checks the six finding contracts against the sources, corrections,
-selected interfaces and present library ownership. It follows `codex-2zOJTT`;
+selected interfaces and present library ownership. It follows `codex-VFmAUK` and `codex-2zOJTT`;
 its report remains at the
-[input commit](https://github.com/CBirkbeck/tauceti-explorer/blob/05df76a2665f431ca610079ff24a72aafc74a392/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+[input commit](https://github.com/CBirkbeck/tauceti-explorer/blob/70b3060ef/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
 The earlier exhaustive packet audits remain attributed to their reviewers.
 I am not claiming a second exhaustive audit of these four large packets.
 
@@ -164,6 +164,10 @@ It keeps both Mazur–Wiles and odd-prime totally-real Wiles Hecke/congruence
 proofs, including their lattices and divisibility inputs, independently of
 the cyclotomic Euler-system method. The verifier's rejection of finding /6
 is consistent with that decision; no replacement supplier edge is warranted.
+
+Conflict resolution incorporated the latest preceding checkpoint, which was
+absent from the initial clone. Its review metadata was archived intact;
+parsed comparison confirmed no mathematical changes to either packet.
 
 ## Libraries and ownership
 

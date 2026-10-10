@@ -34,15 +34,81 @@ The integral homology map uses the identity on the trivial integral coefficient 
 
 Coordinate permutations use `Finsupp.domCongr` on L. A twist is a bundled equivariant map `T →[B] X`, with `Torsor B T` providing the simply transitive source action. Evaluation at a chosen torsor point identifies the twist with X; changing the point acts on X. The finite-level power action takes values in `Equiv.Perm P`; its kernel restriction takes values in `MulAut` of the actual projection kernel.
 
-For square classes use `TauCeti.ElementaryTwoQuotient`, `TauCeti.elementaryTwoQuotientMk_eq_zero_iff`, `TauCeti.elementaryTwoQuotientMk_mul`, and `TauCeti.elementaryTwoQuotientMap`. Finite primary decomposition comes from `AddCommGroup.equiv_directSum_zmod_of_finite`; freeness of the integer-lattice subgroup comes from `Submodule.basisOfPid`. `powMonoidHom` and `MonoidHom.fiberEquivKer` supply the power kernel and the count of a nonempty power fiber. `LinearMap.finrank_range_add_finrank_ker` and `Module.card_eq_pow_finrank` supply the finite binary counts. Schur–Zassenhaus complement existence is `Subgroup.exists_right_complement'_of_coprime`; conjugacy of complements is a separate input.
+For square classes use `TauCeti.ElementaryTwoQuotient`, `TauCeti.elementaryTwoQuotientMk_eq_zero_iff`, `TauCeti.elementaryTwoQuotientMk_mul`, and `TauCeti.elementaryTwoQuotientMap`. Finite primary decomposition comes from `AddCommGroup.equiv_directSum_zmod_of_finite`; freeness of the integer-lattice subgroup comes from `Submodule.basisOfPid`. `powMonoidHom` and `MonoidHom.fiberEquivKer` supply the power kernel and the count of a nonempty power fiber. `LinearMap.finrank_range_add_finrank_ker` and `Module.card_eq_pow_finrank` supply the finite binary counts. Schur–Zassenhaus complement existence is `Subgroup.exists_right_complement'_of_coprime`; conjugacy of complements is the distinct cyclic-complement contract below.
 
 ## Homological input contracts
 
-The reduced-cover comparison requires the natural integral degree-two universal coefficient sequence for every abelian kernel A with trivial G-action, including infinite A. Its class map τ_E:M(G)→A evaluates [x|y]−[y|x] as the commutator of lifts in E. Its kernel is the image of Ext¹(G^ab,A); when G^ab is free abelian, this Ext term vanishes. The class map must be natural for maps of central extensions with specified kernel maps. The finite-kernel specialization alone does not suffice for the universal marked extension.
+The reduced-cover comparison requires the natural integral degree-two universal coefficient sequence for every abelian kernel A with trivial G-action, including infinite A. Its class map τ_E:M(G)→A evaluates [x|y]−[y|x] as the commutator of lifts in E. The evaluation map H²(G,A)→Hom(M(G),A) has kernel the image of Ext¹(G^ab,A); when G^ab is free abelian, this Ext term vanishes. The class map must be natural for maps of central extensions with specified kernel maps. The finite-kernel specialization alone does not suffice for the universal marked extension.
 
 The homological five-term sequence for a central extension supplies exactness at M(G) between H₂(E,ℤ)→M(G) and its transgression into A. For an ordinary stem cover, the transgression is the oriented kernel isomorphism. This exactness is what gives equality of the reduced-cover homology image with Q_c; the vanishing composite is strictly less information.
 
 Finite positive-degree integral homology must be finite and killed by the group order through transfer. The coprime degree-two Lyndon–Hochschild–Serre reduction must include the incoming d₃ differential, not merely its E² terms. The cyclic-complement application additionally requires that any complement to H in H⋊C, for finite coprime H,C with C cyclic, is H-conjugate to the standard complement.
+
+### Native UCT evaluation
+
+Write A additively in this interface; no finiteness assumption is imposed on G or A. The evaluation map `integral_uct_evaluation` has domain `groupCohomology.H2 (Rep.trivial ℤ G A)` and codomain Hom(M(G),A). For an integral bar cycle z=∑n_(g,h)[g|h] and an A-valued cocycle φ, its value is ∑n_(g,h)φ(g,h). Pairing a cocycle with a boundary is zero, and pairing a coboundary with a cycle is zero. Thus this formula descends through both existing homology quotients, rather than choosing a new H₂ carrier.
+
+Required API:
+
+- `integral_uct_evaluation_cycle`: evaluation of H2π(φ) on H2π(z) is the displayed finite sum.
+- `integral_uct_evaluation_group_map`: for f:G→H, evaluation of f*α on z equals evaluation of α on f_*z. Cohomology is contravariant and homology is covariant in the group.
+- `integral_uct_evaluation_coefficient_map`: for μ:A→B, evaluation of μ_*α on z is μ applied to evaluation of α on z.
+- `integral_uct_evaluation_exact`: evaluation is onto and has kernel the canonical image of Ext¹_ℤ(Additive(G^ab),A). The Ext carrier is Mathlib's derived `Ext ℤ (ModuleCat ℤ) 1`, evaluated at the indicated modules; the injection is natural. No natural splitting of the short exact sequence is asserted.
+- `integral_uct_evaluation_free`: if Additive(G^ab) is a free ℤ-module, evaluation is bijective for every A. Use `ModuleCat.projective_of_free` and `isZero_Ext_succ_of_projective` for the vanishing Ext term.
+
+Unit tests:
+
+- `integral_uct_evaluation_test_1`: for G=C₂ and A=ℤ, H²(G,A)=C₂ has a nonzero class whose evaluation is zero, since M(C₂)=0. Evaluation cannot be an isomorphism without the hypothesis on G^ab.
+- `integral_uct_evaluation_test_2`: for G=ℤ² and A=ℤ, take φ((a,b),(c,d))=ad. It evaluates to 1 on the commuting cycle of the ordered basis and to −1 on its negative. This tests orientation with an infinite coefficient group.
+- `integral_uct_evaluation_test_3`: for G=C₂² and A=C₂, the same coordinate cocycle evaluates to 1 on the two basis elements' commuting cycle. Evaluation must retain torsion coefficients.
+
+Needs: Mathlib's native `groupHomology.cycles₂`, `groupHomology.H2π`, `groupCohomology.cocycles₂`, `groupCohomology.H2π` and their functorial maps; the arbitrary-coefficient integral UCT contract. The bar groups are free ℤ-modules. Their ℤ-linear dual into a trivial coefficient representation is precisely the inhomogeneous cochain complex, so the UCT applies without a classifying-space construction. The singular UCT and topological transfer remain in AlgebraicTopology, Stages 6 and 5; these native group interfaces specify the required adapter.
+
+Source: Hatcher, *Algebraic Topology*, [author copy](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §3.1, Theorem 3.2 and the naturality discussion, printed pp.195–196, applied to the free integral bar complex; Löh, *Group Cohomology* (30 July 2019), [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf), Corollary 1.6.9 p.47 for the resolution comparison. The cycle formula and its variance are the explicit bar-complex adapter.
+
+### Extension classes and the five-term map
+
+For a central extension S with arbitrary abelian kernel A, choose a normalized section σ and read its factor set through `TauCeti.GroupExtension.factorSet`. Centrality identifies the induced action with the trivial action. In additive notation the resulting cocycle satisfies
+inl(φ(g,h))=σ(g)σ(h)σ(gh)⁻¹. Define τ_S=`extension_class_map` by applying the preceding evaluation map to this cocycle's cohomology class. The class is independent of the section by `TauCeti.GroupExtension.cohomologyClass_factorSet_eq`.
+
+Required API:
+
+- `extension_class_map_section`: the class map agrees with evaluation of every section cocycle satisfying this formula, through the native H2π.
+- `homological_commutator_central_extension`: τ_S(⟨x,y⟩) is Additive.ofMul(κ_S(x,y)). Indeed φ(x,y)−φ(y,x) is the kernel commutator when xy=yx. This fixes the transgression sign.
+- `extension_class_map_natural`: for a map of extensions with kernel map a, total-group map e and quotient map f, satisfying e∘inl=inl′∘a and π′∘e=f∘π, one has τ_S′∘f_*=a∘τ_S. The specified maps are retained.
+- `extension_class_map_five_term`: im(H₂(E,ℤ)→M(G))=kerτ_S. More fully, the sequence H₂(E,ℤ)→M(G)→A→Additive(E^ab)→Additive(G^ab)→0 is exact, with the third arrow induced by inl. It applies to infinite kernels and infinite total groups as well.
+- `extension_class_map_split`: a homomorphic section forces τ_S=0. The converse additionally requires the vanishing of the UCT Ext term, for example free abelian G^ab.
+
+Unit tests:
+
+- `extension_class_map_test_1`: every split extension, including one with infinite kernel, has zero class map.
+- `extension_class_map_test_2`: C₄→C₂ with kernel C₂ has zero class map but has no homomorphic section. Its nonzero extension class lies in the Ext term.
+- `extension_class_map_test_3`: the specified D₈→C₂² extension sends the oriented commuting class of the two basis elements to the nonidentity central element.
+
+Needs: the preceding native UCT evaluation, Mathlib's `GroupExtension`, and Tau Ceti's factor-set and splitting interfaces; the central-extension five-term contract. Its construction uses the low-degree filtration of the homological extension spectral sequence. Identify H₁(A,ℤ) with Additive A, and its quotient-group action as trivial by centrality. Compare the low-degree connecting map with the displayed section formula. Exactness gives the full kernel, rather than only a vanishing composite. For the chosen reduced cover this map is the quotient M(G)→M(G,c), giving `homology_image`.
+
+Source: Wood (2021), §2.1 p.2 and Lemma 2.2 p.3, for the oriented class-map comparison and vanishing composite; Löh (2019), Theorem 3.2.12 pp.123–124 and Remark 3.2.14 p.125, for the natural homological extension spectral sequence. The five-term sequence is its low-degree edge sequence; the section computation identifies its connecting map up to the pinned sign.
+
+### Finite homology and the coprime edge
+
+For finite G and n>0, H_n(G,ℤ) is finite and |G| annihilates it. For annihilation, reuse `TauCeti.groupHomology.transfer_comp_map_subtype_id` from `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`, applied to the trivial subgroup, and Mathlib's `groupHomology.isZero_groupHomology_succ_of_subsingleton`. For finiteness, the integral bar groups are finitely generated in each degree, so their homology is finitely generated over ℤ; combine this with the annihilator. A separate construction of homological transfer is unnecessary.
+
+For finite coprime H,Γ and φ:Γ→Aut(H), let ρ be the Γ-action on M(H) with ρ(γ)=M(φ(γ)). The required `coprime_degree_two_edge` identifies the actual kernel of M(H⋊Γ)→M(Γ) with Mathlib's `Representation.Coinvariants ρ`. The induced inclusion from M(H) sends z to its coinvariant class under this identification. The standard Γ-section splits the quotient edge, hence
+M(H⋊Γ)≅M(H)_Γ⊕M(Γ), with these specified inclusions and projection.
+
+Proof route: use E²_(p,q)=H_p(Γ,H_q(H,ℤ)). For p,q>0 these groups vanish: |H| annihilates the coefficient group and is coprime to |Γ|, so averaging is invertible. In total degree two the remaining terms are H₂(H,ℤ)_Γ and H₂(Γ,ℤ). The possible incoming d₃ to E³_(0,2) originates in H₃(Γ,ℤ). The source is killed by |Γ| and the target by |H|, so every such homomorphism is zero by Bézout. The outgoing d₂ from E²_(2,0) likewise has target killed by |H|. Other incoming or outgoing differentials meet zero terms or leave the first quadrant. The section splits the surviving edge filtration. This supplies the primary-kernel and odd-index-two reductions without assuming a collapse solely from the E² terms.
+
+Needs: the native degree-two extension-spectral-sequence contract; the existing transfer formula; native coinvariants; Mathlib's finite abelian primary decomposition. Source: Löh (2019), Theorem 1.7.15 p.64, Theorem 3.2.12 pp.123–124, Proposition 3.2.13 pp.124–125 and Remark 3.2.14 p.125. The finite-generation and coprime-differential conclusions are the displayed deductions from these interfaces.
+
+### Cyclic complement conjugacy
+
+The required `cyclic_coprime_complement_conjugacy` assumes finite H,C, coprime orders, C cyclic, an action φ:C→Aut(H), and a subgroup K≤H⋊C on which the native projection is bijective. It concludes that one h∈H conjugates every element of the standard C-complement to its corresponding element of K. Projection bijectivity expresses the actual complement condition, rather than an abstract isomorphism K≅C.
+
+An elementary proof uses induction on |H⋊C|. If C is trivial the assertion follows from projection injectivity. Otherwise choose a prime p dividing |C|. The unique Sylow p-subgroups of the two cyclic complements are Sylow subgroups of the whole group, since |H| is coprime to |C|. Sylow conjugacy aligns them by an H-conjugator: remove the standard C-part of a conjugator, which normalizes its own Sylow subgroup. Both complements then lie in the normalizer of the aligned subgroup P. If this normalizer is proper, it has the form (H∩N(P))C, and induction applies to its smaller normal Hall kernel. If P is normal in the whole group, normality of H and P and their trivial intersection imply that H centralizes P; cyclicity makes C centralize P too. Thus P is central. Quotient by P and apply induction, then lift the H-conjugator. Both complements contain P, so equality of their quotient images implies equality of the complements themselves. No solvability hypothesis on H is used.
+
+Apply the theorem with C=⟨ρ(g)⟩. If g has the same order as ρ(g), then ⟨g⟩ maps bijectively onto C and is a complement in H⋊C. Equality of the quotient images of corresponding generators gives g=h(1,ρ(g))h⁻¹. This is the exact input of `admissible_inertia_cyclic_conjugacy` and the class bijection; finite admissibility is used subsequently for generation.
+
+Needs: Mathlib's Sylow conjugacy, subgroup normalizers, native quotients and semidirect products; the cyclic-complement conjugacy contract. Source: Conrad, [*The Schur–Zassenhaus theorem*](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf), Remark 5 p.4 for the conjugacy conclusion. The Sylow induction above is the proof route for the cyclic-quotient specialization. Conrad's Example 2 p.1 proves existence in the cyclic case; existence alone does not give this conjugacy statement.
 
 ## Layers and dependencies
 
@@ -1208,7 +1274,7 @@ Source: Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups 
 
 **Target `admissible_inertia_classes`.** Let H and Γ be finite groups of coprime orders, with an action of Γ on H. Assume H is generated by h⁻¹γ(h) for h∈H,γ∈Γ (finite admissibility). In G=H⋊Γ let c consist of nonidentity elements having the same order as their image in Γ. Then c generates G, is conjugacy- and invertible-power-stable, and c/G→(Γ∖{1})/Γ is a bijection.
 
-Construction and proof route: The coprime cyclic-subgroup splitting gives conjugacy to elements (1,γ); its uniqueness up to H-conjugation supplies the class bijection. The admissible generators and embedded Γ generate G.
+Construction and proof route: Apply the cyclic-complement conjugacy contract above to ⟨γ⟩ and the equal-order lift. Its H-conjugacy conclusion supplies the class bijection. The admissible generators and embedded Γ generate G.
 
 Retain the action Γ→Aut(H) and the native semidirect-product projection. The generating subset of H is exactly the set of h⁻¹γ(h), and c excludes the identity before imposing equality of orders. The conjugacy input asserts that an equal-order g is h(1,ρ(g))h⁻¹ for some h∈H. The class-lattice map sends e_[g] to e_[ρ(g)] and intertwines δ with the induced map on abelianizations. The abelianization comparison itself only needs the admissible generating condition; its proof does not use complement conjugacy.
 

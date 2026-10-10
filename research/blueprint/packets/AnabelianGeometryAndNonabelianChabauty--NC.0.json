@@ -1,0 +1,1642 @@
+{
+  "protocol": "blueprint-v1",
+  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+  "part": "NC.0",
+  "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.0"
+  ],
+  "status": "complete",
+  "summary": "Arithmetic paths over the identity on constant covers, their continuous Galois cocycles and section comparison; tangential inertia specialization and good/symmetric paths. The accepted parent K(pi,1) targets are imported by id and their exact supplier closure is audited. No scheme-level implementation is claimed.",
+  "granularity": "target",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:CategoryTheory.Aut",
+        "module": "Mathlib/CategoryTheory/Endomorphism",
+        "provides": "Automorphisms as native isomorphisms; multiplication is opposite arrow order, so (a*b) acts as a after b."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "module": "Mathlib/CategoryTheory/Whiskering",
+        "provides": "Restriction of a natural isomorphism along a functor, with its actual components."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding",
+        "module": "Mathlib/CategoryTheory/Galois/Topology",
+        "provides": "The native evaluation embedding of Aut F is closed; its induced topology has continuous group operations and gives the profinite Galois-category automorphism group."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom",
+        "provides": "A continuous multiplicative homomorphism extending MonoidHom, with composition and the identity."
+      },
+      {
+        "ref": "mathlib:MulAction.orbitRel.Quotient",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs",
+        "provides": "The native quotient of the orbit equivalence relation of an actual group action."
+      },
+      {
+        "ref": "mathlib:Subgroup.topologicalClosure",
+        "module": "Mathlib/Topology/Algebra/Group/Subgroup",
+        "provides": "Closure of the carrier of a subgroup, again a subgroup of a topological group."
+      },
+      {
+        "ref": "mathlib:ZMod",
+        "module": "Mathlib/Data/ZMod/Defs",
+        "provides": "The ring of integers modulo n; for positive n its native finite carrier is Fin n."
+      },
+      {
+        "ref": "mathlib:ZMod.card",
+        "module": "Mathlib/Data/ZMod/Defs",
+        "provides": "When ZMod n has a Fintype instance its cardinality is n; positive ramification indices supply that instance."
+      },
+      {
+        "ref": "tauceti:TauCeti.AbsoluteGaloisGroup",
+        "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup",
+        "provides": "Gal(SeparableClosure k/k), with the inherited Krull topology, compared to the native absolute Galois group."
+      },
+      {
+        "ref": "tauceti:TauCeti.kummerMap",
+        "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
+        "provides": "For n invertible in a field k, the multiplicative connecting map k-units to the existing first continuous cohomology with roots-of-unity coefficients."
+      },
+      {
+        "ref": "tauceti:TauCeti.kummerMap_eq_kummerCocycleClass",
+        "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
+        "provides": "The Kummer class of a is represented by sigma(alpha)/alpha for an n-th root alpha of a in the separable closure."
+      },
+      {
+        "ref": "tauceti:TauCeti.kummerMap_eq_one_iff",
+        "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer",
+        "provides": "The Kummer class of a unit is neutral exactly when it is an n-th power in the base field."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "chen2024",
+      "title": "Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+      "authors": "William Y. Chen",
+      "edition": "Annals of Mathematics 199 (2024), 301–443; author-hosted published copy",
+      "url": "https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf",
+      "readSections": [
+        "Sections 4.2–4.3, printed pp. 362–366 (PDF pp. 62–66): complete tangential normalization/specialization proof and good/symmetric path argument."
+      ],
+      "read": "2026-10-10",
+      "sha256": "9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac"
+    },
+    {
+      "id": "kim2005",
+      "title": "The motivic fundamental group of P1 minus three points and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "Inventiones Mathematicae 161 (2005), 629–656; arXiv math/0409456 v1",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "readSections": [
+        "Section 1, Proposition 1 and its proof, PDF pp. 5–7: nonabelian cocycles, gauge equivalence and torsors."
+      ],
+      "read": "2026-10-10",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
+    },
+    {
+      "id": "kim2008",
+      "title": "Fundamental groups and Diophantine geometry",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:0804.1008v1 (2008), expository preprint; published Cent. Eur. J. Math. 8 (2010), 633–645, not collated here",
+      "url": "https://arxiv.org/pdf/0804.1008",
+      "readSections": [
+        "PDF pp.4–9: finite-etale path torsors, rational Galois action, and the nonabelian cocycle/classification discussion."
+      ],
+      "read": "2026-10-10",
+      "sha256": "4bb78299619fad44ebeb8aeb8525b0817e7fe6e5004491880d7fd314a1a6ae68"
+    },
+    {
+      "id": "stacks",
+      "title": "The Stacks Project: fundamental groups of schemes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online chapter 58, accessed 2026-10-10",
+      "url": "https://stacks.math.columbia.edu/chapter/58",
+      "readSections": [
+        "Theorem 58.6.2, tag 0BQ8: finite-cover fibre equivalence and basepoint paths; Lemma 58.14.1, tag 0BTV: finite-étale limit descent; Lemma 58.14.3, tag 0BTX: arithmetic exact sequence, complete proofs read."
+      ],
+      "read": "2026-10-10"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "construction",
+      "title": "Arithmetic path torsor",
+      "statement": "Let X/k be geometrically connected, qcqs and finite type, with rational endpoints b,x (or tame rational tangential endpoints on a smooth curve, in characteristic zero). Import F_b,F_x on finite étale covers and their identifications r_b,r_x on constant covers K:FEt(k)→FEt(X). Define P(b,x) to be natural isomorphisms p:F_b≅F_x with K*p=r_b followed by r_x inverse. Equivalently these are geometric paths on X over a separable closure, not all arithmetic paths. Its profinite topology is the closed identity fibre of restriction to constants. It is a nonempty right N_b-torsor, N_b=ker(q_b), by p·h=p after h. For endpoint sections s_b,s_x, sigma(p)=s_x(sigma) p s_b(sigma)^(-1). With alpha_b(sigma)(h)=s_b(sigma) h s_b(sigma)^(-1), this is a jointly continuous semilinear Gamma_k action and hence exactly an NC.3 equivariant topological torsor.",
+      "hypotheses": [
+        "Geometrically connected qcqs finite-type X/k; chosen separable closure and geometric realizations of the endpoints.",
+        "Endpoint sections and restriction-to-constants identifications imported from IG.1.",
+        "Tangential endpoints are k-rational nonzero vectors; full finite covers only in characteristic zero."
+      ],
+      "proofSteps": [
+        "Use IG.0 natural-isomorphism paths and IG.1 exactness to identify the identity fibre with paths on X over the separable closure. Nonemptiness also follows by correcting an ordinary path with the endpoint section on constants.",
+        "For any p, h↦p·h identifies the identity fibre with the kernel: freeness and transitivity are cancellation of natural isomorphisms. The identification is a homeomorphism with the imported profinite topology.",
+        "Sections are compatible on constants, so s_x sigma p s_b sigma inverse stays in the fibre. Multiply the formulas to verify the group action and semilinearity; continuity is inherited from evaluation and composition. Apply NC.3, without redefining torsors or H1."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/geometric-fiber",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/equivariant-topological-torsors",
+        "mathlib:CategoryTheory.Aut",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "mathlib:CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding",
+        "tauceti:TauCeti.AbsoluteGaloisGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks",
+          "locator": "Theorem 58.6.2 (0BQ8); Lemma 58.14.3 (0BTX)",
+          "match": "Supplies ordinary paths and the arithmetic kernel; the identity-on-constants subspace and semilinear formula are the arithmetic refinement."
+        },
+        {
+          "sourceId": "kim2008",
+          "locator": "arXiv:0804.1008v1, PDF pp.4–9",
+          "match": "Rational path torsors carry a Galois action before the unipotent quotient."
+        }
+      ],
+      "acceptance": [
+        "For X=Spec k and its unique endpoint, the geometric path torsor is a singleton although the ordinary arithmetic automorphism group is Gamma_k.",
+        "A path over a nonidentity constant automorphism is excluded.",
+        "No assertion that sections at distinct rational points are conjugate."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "ArithmeticPath"
+      },
+      "api": [
+        {
+          "name": "ArithmeticPath.restrict_id",
+          "statement": "Restriction to constants, transported by r_b and r_x, is the identity.",
+          "role": "characterisation"
+        },
+        {
+          "name": "ArithmeticPath.identity",
+          "statement": "The identity natural isomorphism is the path from an endpoint to itself.",
+          "role": "constructor"
+        },
+        {
+          "name": "ArithmeticPath.rightMul",
+          "statement": "Translate a path by a source automorphism restricting to identity.",
+          "role": "constructor"
+        },
+        {
+          "name": "ArithmeticPath.galoisAction",
+          "statement": "Compatible source/target lifts induce the action a inverse, then p, then b.",
+          "role": "constructor"
+        },
+        {
+          "name": "ArithmeticPath.rightMul_val",
+          "statement": "Underlying natural isomorphism of p·h is h followed by p.",
+          "role": "simp"
+        },
+        {
+          "name": "ArithmeticPath.galoisAction_val",
+          "statement": "Underlying natural isomorphism is a inverse followed by p followed by b.",
+          "role": "simp"
+        },
+        {
+          "name": "pathAction_mul",
+          "statement": "In kernel coordinates, pathAction(s0,s1,sigma*tau,h)=pathAction(s0,s1,sigma,pathAction(s0,s1,tau,h)).",
+          "role": "relation"
+        },
+        {
+          "name": "pathAction_continuous",
+          "statement": "The action on Gamma times ker(q) is jointly continuous.",
+          "role": "compatibility"
+        },
+        {
+          "name": "pathAction_rightMul",
+          "statement": "sigma(h*k)=sigma(h)*alpha_b(sigma)(k) in kernel coordinates.",
+          "role": "relation"
+        }
+      ],
+      "tests": [
+        {
+          "name": "arithmeticPath_identity",
+          "statement": "The constructed identity path has underlying Iso.refl.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "arithmeticPath_translation_ne",
+          "statement": "For h≠1 in the geometric kernel, p·h≠p.",
+          "kind": "non-example"
+        },
+        {
+          "name": "arithmeticPath_constants_excluded",
+          "statement": "An ordinary natural isomorphism with nonidentity restriction to constants is not represented by ArithmeticPath.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.2 and NC.4",
+          "how": "Supply the finite-étale arithmetic path torsor before applying the unipotent realization and Albanese map."
+        },
+        {
+          "where": "Kim 2008, PDF pp. 4–8; NC.3/torsor-classification",
+          "how": "Use the existing classification for the actual path carrier and its Galois action."
+        }
+      ],
+      "planet": {
+        "name": "Arithmetic path torsor"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "construction",
+      "title": "Path transport of an endpoint section",
+      "statement": "For p in P(b,x), define t_x,p(sigma)=p^(-1) s_x(sigma) p, a continuous section of q_b. For p replaced by p·h, t_x,p·h=h^(-1)t_x,p h, with h in N_b. Transport along p followed by q equals iterated transport. Thus the geometric-conjugacy class attached to one rational or tangential point is independent of the geometric path. Endpoint sections themselves, and ordinary basepoint change, stay owned by IG.1 and IG.0.",
+      "hypotheses": [
+        "Same arithmetic endpoints and constants as arithmetic-geometric-paths.",
+        "p lies over identity on constants; unrestricted arithmetic paths need not transport to a section of the same q_b."
+      ],
+      "proofSteps": [
+        "Conjugation by a natural isomorphism is a continuous homomorphism on native Aut groups. Use the restriction condition to check q_b t_x,p=id.",
+        "Substitute p·h and cancel adjacent inverses.",
+        "Associativity of natural-isomorphism composition gives the iterated-transport identity."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "mathlib:CategoryTheory.Aut",
+        "mathlib:CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding",
+        "mathlib:ContinuousMonoidHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks",
+          "locator": "Theorem 58.6.2 (0BQ8); Lemma 58.14.3 (0BTX)",
+          "match": "The supplier gives forward basepoint transport; this statement fixes the backward convention for endpoint sections."
+        },
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Gauge change is conjugation of a fixed endpoint section after path identification."
+        }
+      ],
+      "acceptance": [
+        "Path changes conjugate by geometric kernel elements.",
+        "Changing the rational point is not a path-choice change and has no automatic conjugacy conclusion."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "transportedSection"
+      },
+      "api": [
+        {
+          "name": "transportedSection_apply",
+          "statement": "t_x,p(sigma)=p inverse s_x(sigma) p.",
+          "role": "simp"
+        },
+        {
+          "name": "transportedSection_changePath",
+          "statement": "t_x,p·h(sigma)=h inverse t_x,p(sigma) h.",
+          "role": "compatibility"
+        },
+        {
+          "name": "transportedSection_comp",
+          "statement": "Transport along a composite is iterated transport.",
+          "role": "functoriality"
+        }
+      ],
+      "tests": [
+        {
+          "name": "transportedSection_identity",
+          "statement": "Identity transport leaves the continuous section unchanged.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "transportedSection_translation",
+          "statement": "Conjugating the changed-path section by h recovers the original.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "transportedSection_inverse_order",
+          "statement": "When h inverse g h differs from h g h inverse, backward transport uses the former.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.0/path-section-comparison",
+          "how": "Relate path torsor neutrality to geometric conjugacy of endpoint sections."
+        },
+        {
+          "where": "NC.6 rational-point handoff",
+          "how": "Export a section class with its path-choice independence, without the section conjecture."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "construction",
+      "title": "Cocycle of a geometric arithmetic path",
+      "statement": "For p in P(b,x) set c_p(sigma)=p^(-1)sigma(p) in N_b. Then c_p(sigma*tau)=c_p(sigma) alpha_b(sigma)(c_p(tau)) and c_p·h(sigma)=h^(-1)c_p(sigma) alpha_b(sigma)(h). It is continuous. Hence its class in the existing NC.3 H1(Gamma_k,N_b) depends only on the equivariant path torsor. In native coordinates for any continuous q:E→Gamma and two continuous sections s0,s1, pathAction(sigma,h)=s1(sigma) h s0(sigma)^(-1), and pathCocycle_h=h^(-1)pathAction(sigma,h). For actual geometry s1 is the transferred endpoint section at a chosen reference path; the kernel model is not a substitute geometric path type.",
+      "hypotheses": [
+        "Arithmetic-path carrier and jointly continuous action as above.",
+        "NC.3 H1 is the pointed orbit set with its established topology and gauge convention."
+      ],
+      "proofSteps": [
+        "Restriction to constants of p inverse sigma(p) is identity, so the value lies in the actual kernel.",
+        "Write sigma(p)=p c_p(sigma) and use semilinearity to obtain the cocycle law. Substitute p·h for the gauge formula.",
+        "Apply NC.3 classification; prove continuity using the orbit-map homeomorphism. The coordinate formula follows after choosing one path."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:ContinuousMonoidHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Apply the existing continuous cocycle/torsor correspondence to finite-étale arithmetic paths."
+        },
+        {
+          "sourceId": "kim2008",
+          "locator": "arXiv:0804.1008v1, PDF pp.4–9",
+          "match": "The path torsor determines the nonabelian Kummer/Albanese class after realization."
+        }
+      ],
+      "acceptance": [
+        "Cocycle valued in N_b, not E_b or a set of paths.",
+        "Different path representatives are gauge-equivalent and can have different values."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "pathCocycle"
+      },
+      "api": [
+        {
+          "name": "pathCocycle_apply",
+          "statement": "Coordinate value equals h inverse s1(sigma) h s0(sigma) inverse.",
+          "role": "simp"
+        },
+        {
+          "name": "pathCocycle_mul",
+          "statement": "c(sigma*tau)=c(sigma) alpha_b(sigma)(c(tau)).",
+          "role": "relation"
+        },
+        {
+          "name": "pathCocycle_changePoint",
+          "statement": "At h*k the cocycle is k inverse c_h(sigma) alpha_b(sigma)(k).",
+          "role": "compatibility"
+        }
+      ],
+      "tests": [
+        {
+          "name": "pathCocycle_same_sections",
+          "statement": "At h=1 and s0=s1 the cocycle is 1 at every sigma.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "pathCocycle_changed_representative",
+          "statement": "For equal sections, alpha_b(sigma)(h)≠h forces c_h(sigma)≠1.",
+          "kind": "non-example"
+        },
+        {
+          "name": "pathCocycle_distinct_sections",
+          "statement": "If s1(sigma)≠s0(sigma), c_1(sigma)≠1.",
+          "kind": "value"
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.2, NC.3 and NC.4",
+          "how": "Apply unipotent quotients and the existing nonabelian H1 to the concrete arithmetic torsor."
+        },
+        {
+          "where": "NC.0/rational-tangential-kummer",
+          "how": "Compute finite abelian projections of the class."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "theorem",
+      "title": "Neutral path classes and conjugate sections",
+      "statement": "For p in P(b,x), t_x,p(sigma)=c_p(sigma)s_b(sigma). The path class is neutral iff there exists a Gamma_k-fixed geometric path b→x, iff t_x,p is conjugate to s_b by an element of N_b. In coordinate form a fixed h satisfies s1(sigma)=h s0(sigma) h inverse for every sigma. Neutrality means c_h(sigma)=k alpha_b(sigma)(k) inverse for some k; the fixed path is h·k. These are existence statements, not uniqueness of the fixed path or surjectivity of rational points onto section classes.",
+      "hypotheses": [
+        "Same endpoints; all conjugating elements lie in N_b."
+      ],
+      "proofSteps": [
+        "Use sigma(p)=p c_p(sigma) to factor the transported section.",
+        "NC.3 neutrality says some gauge translate of the chosen cocycle is identically 1; its path translate is fixed.",
+        "Rearrange the fixed-path equation to the displayed section conjugacy."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Specialize the neutral torsor criterion to section conjugacy, using the fixed right-action convention."
+        }
+      ],
+      "acceptance": [
+        "The tests with equal sections give a neutral class even when a chosen representative has nontrivial values.",
+        "A nonneutral finite quotient, such as a nontrivial Kummer projection, obstructs section conjugacy."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "pathCocycle_neutral_iff_fixedPath"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "theorem",
+      "title": "Reference section change twists the action",
+      "statement": "After transferring both endpoint sections to E_b, let c(sigma)=s1(sigma)s0(sigma)^(-1). Their actions on N_b satisfy alpha_1(sigma)=Int(c(sigma)) composed with alpha_0(sigma). Thus changing the reference rational or tangential basepoint changes the coefficient action by the NC.3 cocycle twist. The corresponding path/H1 comparisons use NC.3 twisting, rather than equating elements of differently acted-on H1 sets.",
+      "hypotheses": [
+        "s0,s1 continuous sections of the same restriction map."
+      ],
+      "proofSteps": [
+        "Factor s1(sigma)=c(sigma)s0(sigma) and compute both conjugation actions.",
+        "Use the path cocycle law and the existing twisting equivalence to identify the pointed torsor categories under the two actions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Gauge and twisting conventions; the extension calculation is their geometric specialization."
+        }
+      ],
+      "acceptance": [
+        "For equal sections c=1 and the actions agree.",
+        "In a nonabelian kernel a noncentral c changes the action; no equality of raw cohomology classes under different actions is asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "kernelAction_changeReference"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "theorem",
+      "title": "Functoriality of arithmetic path classes",
+      "statement": "A k-morphism X→Y carrying rational endpoints, or a morphism of pointed tame curves with specified compatible tangential fibre-functor identifications, sends P_X(b,x) to P_Y(fb,fx), compatibly with the kernel homomorphism, Gamma_k actions, transported sections and cocycles. In extension coordinates, if q prime composed with f equals q and f composed with s_i equals t_i, then f(c_h(sigma))=c_f(h)(sigma). Finite separable base extension restricts the Galois action and the class to the corresponding open subgroup, with specified comparison of geometric fibre functors. No functor on arbitrary boundary tangent vectors is claimed without that compatibility data.",
+      "hypotheses": [
+        "Geometrically connected finite-type schemes; compatible endpoint fibre functors and sections.",
+        "The field-extension comparison uses a chosen embedding of separable closures."
+      ],
+      "proofSteps": [
+        "Whisker natural isomorphisms by pullback on finite covers; compatibility on constants preserves the identity fibre.",
+        "Apply the induced continuous kernel homomorphism to the defining cocycle formula and use section compatibility.",
+        "Base extension uses the cartesian arithmetic exact sequences and restriction of sections; apply the same formula."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks",
+          "locator": "Theorem 58.6.2 (0BQ8); Lemma 58.14.3 (0BTX)",
+          "match": "Pullback and field comparison of finite covers provide the geometric maps."
+        },
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Restriction and coefficient maps preserve the torsor class."
+        }
+      ],
+      "acceptance": [
+        "Identity and composite k-morphisms preserve the corresponding cocycle formulas.",
+        "The constant Spec k test remains a singleton after finite field extension."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "pathCocycle_map"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/rational-tangential-kummer",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "comparison",
+      "title": "Finite Kummer projections from a tangential basepoint",
+      "statement": "Let k have characteristic zero, U=P1_k minus {0,1,infinity}, b0 the rational tangent vector lambda d/dz at 0 with lambda in k-units, and a in U(k). For n≥1, the maps z and 1-z to G_m send the arithmetic path class P(b0,a) to the existing Kummer classes kappa_n(a/lambda) and kappa_n(1-a), respectively. Identify the first endpoint torsor by the normalized tangent root and the second by the root of the constant value 1. The classes are independent of root/path choices. With lambda=1 and a=2 over Q the n=2 projections include the nontrivial classes of 2 and -1, so this rational endpoint cannot be identified with the tangential endpoint by a Galois-fixed geometric path.",
+      "hypotheses": [
+        "Characteristic-zero field, n≥1; thus n is invertible.",
+        "a≠0,1 and lambda≠0; the first Kummer comparison explicitly includes the tangent normalization."
+      ],
+      "proofSteps": [
+        "Use IG.1 normalized tame tangent fibre on the finite Kummer covers y^n=z and y^n=1-z. At b0 their leading terms are lambda and 1, respectively.",
+        "After choosing roots alpha of a and beta of lambda, the first path torsor quotient has representative sigma(alpha/beta)/(alpha/beta); the second is represented by an n-th root of 1-a relative to 1.",
+        "Apply the pinned Kummer representative theorem. Changing roots is the imported gauge equivalence, and the neutral criterion is the pinned n-th-power theorem."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/field-and-torus-comparisons",
+        "tauceti:TauCeti.kummerMap",
+        "tauceti:TauCeti.kummerMap_eq_kummerCocycleClass",
+        "tauceti:TauCeti.kummerMap_eq_one_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Section 4.2, pp. 362–365",
+          "match": "Tangent normalization on power covers gives the endpoint root; combine this with the pinned Kummer representative theorem."
+        },
+        {
+          "sourceId": "kim2005",
+          "locator": "Section 1, Proposition 1 and proof, PDF pp. 5–7",
+          "match": "Torsor classes are independent of choices."
+        }
+      ],
+      "acceptance": [
+        "The suggested examples use kappa_2(2)≠1, kappa_2(4)=1 and kappa_1(2)=1 over Q.",
+        "Rescaling lambda changes the first argument to a/lambda, not a*lambda.",
+        "The two projections are tests of the path class, not an injectivity theorem for the full nonabelian Albanese map."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/local-inertia-orbit-model",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "construction",
+      "title": "Local inertia orbits on branches",
+      "statement": "For a branch set Y with positive integers e_y, use the native finite Kummer model BranchFiber=disjoint union over y of Z/e_y. Let branchRotation shift each coordinate by 1; quotient its actual cyclic subgroup action by the native orbit equivalence relation. The branch projection induces specializeLocal on this quotient. Two fibre elements have the same orbit exactly when they have the same branch label. Thus specializeLocal is bijective and each branch orbit has cardinality e_y. This is the local calculation for geometric tangential specialization, not a definition of the global scheme fibre functor.",
+      "hypotheses": [
+        "Every ramification index is positive; the global finite-cover application has finitely many branches.",
+        "A compatible primitive-root choice identifies local inertia with positive rotation; opposite generator gives the same orbit quotient."
+      ],
+      "proofSteps": [
+        "Native ZMod addition by 1 is a permutation with inverse subtraction by 1. It preserves the branch label.",
+        "Every residue on a given branch differs by an integer translate, so exactly one orbit occurs per branch.",
+        "Factor the branch projection through the native orbit quotient, then prove bijectivity and use native ZMod.card."
+      ],
+      "prerequisites": [
+        "mathlib:MulAction.orbitRel.Quotient",
+        "mathlib:ZMod",
+        "mathlib:ZMod.card"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Proposition 4.2.3(b), pp. 364–365",
+          "match": "The graded cover of one branch is a power map of degree e_y; the orbit calculation is its finite algebraic form."
+        }
+      ],
+      "acceptance": [
+        "Disconnected covers retain every branch separately.",
+        "The quotient is by an actual permutation action, not a manually imposed same-branch relation."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "specializeLocal"
+      },
+      "api": [
+        {
+          "name": "branchRotation_apply",
+          "statement": "The permutation sends (y,i) to (y,i+1).",
+          "role": "simp"
+        },
+        {
+          "name": "specializeLocal_mk",
+          "statement": "The class of (y,i) maps to y.",
+          "role": "simp"
+        },
+        {
+          "name": "inertiaOrbit_iff",
+          "statement": "Orbit equivalence is equivalent to equality of branch labels.",
+          "role": "characterisation"
+        },
+        {
+          "name": "specializeLocal_bijective",
+          "statement": "The induced branch map is bijective.",
+          "role": "equivalence"
+        },
+        {
+          "name": "branch_card",
+          "statement": "The y-branch fibre has cardinality e_y.",
+          "role": "compatibility"
+        }
+      ],
+      "tests": [
+        {
+          "name": "inertiaOrbit_degree_three",
+          "statement": "One branch of degree 3 has a singleton orbit quotient.",
+          "kind": "value"
+        },
+        {
+          "name": "inertiaOrbit_distinct_branches",
+          "statement": "Two degree-2 branches give distinct quotient points despite equal indices.",
+          "kind": "non-example"
+        },
+        {
+          "name": "inertiaOrbit_unramified",
+          "statement": "For e_y=1 the branch rotation fixes every point.",
+          "kind": "degenerate"
+        }
+      ],
+      "uses": [
+        {
+          "where": "NC.0/tangential-inertia-specialization",
+          "how": "Identify the quotient of the tangential fibre with the reduced branch fibre."
+        },
+        {
+          "where": "Chen Sections 4.4–4.5, gluing consumers",
+          "how": "Supply the finite branch labels used by boundary identifications, without planning the subsequent nodal-cover construction."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "theorem",
+      "title": "Tangential specialization by inertia orbits",
+      "statement": "Over an algebraically closed field k of characteristic zero, let C be a smooth connected separated finite-type curve, x a closed point, U=C minus {x}, and t a nonzero tangent vector at x. Normalize C in each finite étale cover V→U, obtaining a finite map Y→C with regular (hence smooth) source. There is a canonical specialization F_t(V)→the underlying point set Y_x, natural in V. After a compatible choice of primitive roots defines gamma_t in Aut(F_t), specialization induces a canonical bijection of finite sets <gamma_t>\\F_t(V)≅Y_x. Equivalently use the closed image of local tame inertia, since its action on a finite set factors through a finite quotient. The orbit over a branch y has size e_y. Neither injectivity of local inertia into pi1(U,t), connectedness of V, nor equality with the nonreduced scheme-theoretic fibre is asserted.",
+      "hypotheses": [
+        "k algebraically closed of characteristic zero; C smooth connected separated of finite type and dimension one.",
+        "Only covers of U, followed by their normalizations over C; not arbitrary finite morphisms with nondominating components.",
+        "t≠0 and compatible primitive roots fixed for gamma_t."
+      ],
+      "proofSteps": [
+        "Import normalization finiteness and regular-curve/DVR geometry from SF.0/SF.3. Grade each branch by the valuation ord_y/e_y.",
+        "For a local parameter z at x choose a branch parameter s with initial z=s^e_y. The graded tangent map is the e_y-th power map, and the IG.1 tangent fibre is its nonzero tangent fibre.",
+        "Projection to the branch gives the canonical specialization, independent of the selected parameters. Apply the local orbit model and glue over branches.",
+        "A map of covers induces compatible graded branch maps, proving naturality. Passing from the cyclic generator to closed inertia does not change a finite orbit."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/local-inertia-orbit-model",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia",
+        "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Section 4.2 construction; Definition 4.2.1 and Proposition 4.2.3(b), pp. 362–365",
+          "match": "Specialization and its orbit bijection; remove the unnecessary injectivity claim in Definition 4.2.1."
+        }
+      ],
+      "acceptance": [
+        "For local z=s^3 the three tangent lifts specialize to one branch.",
+        "Two ramified branches of equal degree specialize to two distinct points.",
+        "For C=P1 and U=A1 the local inertia map may be trivial; orbit specialization still holds for every finite étale cover.",
+        "Natural squares commute for morphisms of finite étale covers."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-good-path",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "definition",
+      "title": "Good path between tangential basepoints",
+      "statement": "Let k be algebraically closed of characteristic zero and U=P1_k minus {0,1,infinity}. Fix nonzero tangent vectors t0,t1,tInfinity, compatible roots of unity and their inertia automorphisms gamma0,gamma1,gammaInfinity. A path delta:F_t0≅F_tInfinity is good if gamma0 and delta inverse gammaInfinity delta topologically generate Aut(F_t0), and there is a path epsilon:F_t0≅F_t1 for which (delta inverse gammaInfinity delta)(epsilon inverse gamma1 epsilon)gamma0=1. Multiplication is functional composition. The predicate can be stated natively for any three finite-set fibre functors, but geometric generation comes from the specified three-punctured curve.",
+      "hypotheses": [
+        "Geometric tangential fibre functors; gamma generators come from compatible roots.",
+        "Use topological generation, not abstract subgroup generation."
+      ],
+      "proofSteps": [
+        "Import the IG.1 tangent fibre functors and IG.0 natural-isomorphism paths. Backward path transport is the native pullAut helper.",
+        "Define generation by topological closure of the subgroup generated by the two named automorphisms.",
+        "Keep the ordered infinity, one, zero relation as a separate conjunct; existence of epsilon is part of the predicate."
+      ],
+      "prerequisites": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
+        "mathlib:CategoryTheory.Aut",
+        "mathlib:CategoryTheory.PreGaloisCategory.autEmbedding_isClosedEmbedding",
+        "mathlib:Subgroup.topologicalClosure"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Definition 4.3.1, p. 366",
+          "match": "Both the generation condition and the ordered relation are part of a good path."
+        }
+      ],
+      "acceptance": [
+        "The relation cannot be replaced by an equality with reversed factor order.",
+        "No generic geometric existence is inferred from arbitrary automorphisms satisfying only one conjunct."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "IsGoodPath"
+      },
+      "api": [
+        {
+          "name": "IsGoodPath.generates",
+          "statement": "A good path exports topological generation by gamma0 and transported gammaInfinity.",
+          "role": "projection"
+        },
+        {
+          "name": "IsGoodPath.relation",
+          "statement": "A good path exports a path epsilon and the infinity, one, zero relation.",
+          "role": "projection"
+        },
+        {
+          "name": "isGoodPath_iff",
+          "statement": "The predicate is equivalent to exactly these two conditions.",
+          "role": "characterisation"
+        }
+      ],
+      "tests": [
+        {
+          "name": "goodPath_trivial_group",
+          "statement": "All identity inertia and the identity path are good when Aut F is trivial.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "goodPath_identity_nonexample",
+          "statement": "All identity inertia are not good when Aut F is nontrivial.",
+          "kind": "non-example"
+        },
+        {
+          "name": "goodPath_ordered_relation",
+          "statement": "If a,b topologically generate, identity paths with gamma0=a, gammaInfinity=b and gamma1=b inverse a inverse are good.",
+          "kind": "value"
+        },
+        {
+          "name": "goodPath_reversed_order",
+          "statement": "For noncommuting a,b the reverse product a*(b inverse a inverse)*b is not 1.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Chen Section 4.3, p. 366",
+          "how": "Pin the geometric generating system and peripheral product relation."
+        },
+        {
+          "where": "Chen Sections 4.4–4.5 boundary gluing",
+          "how": "Use this choice in comparing the two ends of the normalization, importing subsequent gluing targets from their owner."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-symmetric-path",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "definition",
+      "title": "Symmetric tangential path",
+      "statement": "On U as above, let iota(z)=1/z, take tInfinity=iota(t0), and use the actual cover-pullback functor J=iota star and endpoint identifications e0:J followed by F_t0≅F_tInfinity and eInfinity:J followed by F_tInfinity≅F_t0. Define invertPath(delta)=e0 inverse followed by J*delta followed by eInfinity. A path delta from t0 to tInfinity is symmetric if there exist ordinary integers r,s with iota_*(delta)=gamma0^r delta inverse gammaInfinity^s, in functional order. In native arrow order this is gammaInfinity^s followed by delta inverse followed by gamma0^r. No independent abstract involution on the set of paths is introduced.",
+      "hypotheses": [
+        "Endpoint identifications for the pullback by the actual geometric inversion.",
+        "Ordinary integer witnesses, not profinite exponents; compatible inertia generators at the swapped endpoints."
+      ],
+      "proofSteps": [
+        "Whisker the natural isomorphism by J and conjugate with the two endpoint identifications to obtain a reversed path.",
+        "Define the predicate by the displayed integer-power equation and derive witness/constructor/characterisation APIs.",
+        "Native examples use the identity functor with its actual unitor, so they test the equation independently of a nonexistent scheme instance."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-good-path",
+        "mathlib:CategoryTheory.Functor.isoWhiskerLeft",
+        "mathlib:CategoryTheory.Aut"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Definition 4.3.1 and following existence argument, p. 366",
+          "match": "Inversion symmetry permits integer peripheral adjustments of the reversed path."
+        }
+      ],
+      "acceptance": [
+        "Symmetry and goodness are distinct predicates.",
+        "The pullback functor and endpoint identifications appear in the type of the native signature."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0",
+        "name": "IsSymmetricPath"
+      },
+      "api": [
+        {
+          "name": "IsSymmetricPath.witnesses",
+          "statement": "Export integers r,s witnessing the inversion equation.",
+          "role": "projection"
+        },
+        {
+          "name": "isSymmetricPath_of_eq",
+          "statement": "An integer-power equality constructs the predicate.",
+          "role": "constructor"
+        },
+        {
+          "name": "isSymmetricPath_iff",
+          "statement": "The predicate is equivalent to existence of exactly those integer witnesses.",
+          "role": "characterisation"
+        }
+      ],
+      "tests": [
+        {
+          "name": "symmetricPath_identity",
+          "statement": "For identity pullback/unitor, identity inertia and identity path are symmetric.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "symmetricPath_zero_inertia",
+          "statement": "For identity pullback/unitor and identity inertia, a loop delta is symmetric iff delta squared is 1.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "symmetricPath_square_nonexample",
+          "statement": "In that model a loop with delta squared≠1 is not symmetric.",
+          "kind": "non-example"
+        }
+      ],
+      "uses": [
+        {
+          "where": "Chen Section 4.3, p. 366",
+          "how": "Choose a path compatible with inversion up to integral peripheral powers."
+        },
+        {
+          "where": "NC.0/symmetric-good-path-existence",
+          "how": "Form the simultaneous predicate with goodness for the geometric existence theorem."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ],
+      "kind": "theorem",
+      "title": "Existence of symmetric good paths",
+      "statement": "For an algebraically closed characteristic-zero field k, U=P1_k minus {0,1,infinity}, any nonzero t0, tInfinity=iota(t0), any nonzero t1, and one compatible root-of-unity system defining the inertia generators, there exists a geometric path delta:t0→tInfinity which is both good and symmetric in the above senses. Over C it is represented by a path along the positive real direction with a small positively oriented detour around 1, adjusted at tangent germs; its peripheral system has product infinity, one, zero equal to 1 and the required integral inversion adjustments. The argument uses finite-cover Riemann existence with tangent-germ compatibility and invariance under algebraically closed characteristic-zero extension. This is existence of a geometric path, not a canonical or Galois-fixed choice.",
+      "hypotheses": [
+        "Algebraically closed characteristic-zero k; tInfinity is exactly the inversion image of t0.",
+        "All three tame inertia generators use the same compatible roots; source conventions for the analytic positive generator must be respected."
+      ],
+      "proofSteps": [
+        "Over C choose tangent-germ connectors and the detoured path. The elementary punctured-sphere presentation proves topological generation and the ordered relation; inversion reverses the detour with integer turns at the two endpoints.",
+        "Use BelyiMaps Layer 12 profinite Riemann existence for finite covers, together with the requested extension identifying IG.1 tangential fibres with analytic germs, to transport the path and all equalities to the finite-étale fibre functors.",
+        "For general k take the algebraic closure in k of a finitely generated field containing the tangent coefficients, together with the algebraic cyclotomic data. Choose its embedding into C carrying the entire compatible primitive-root system to the standard analytic system: the corresponding embedding of the cyclotomic extension extends to an algebraic closure and then across a transcendence basis. Compare through algebraically closed characteristic-zero extensions using IG.1. This preserves the fibres, paths, inertia and both predicates; tangent connectors are chosen compatibly at the inversion-paired endpoints."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-good-path",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-symmetric-path",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension",
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "chen2024",
+          "locator": "Section 4.3, paragraph following Definition 4.3.1, p. 366",
+          "match": "Analytic detour constructs a simultaneous good symmetric path; finite-cover comparison transfers it to characteristic zero."
+        }
+      ],
+      "acceptance": [
+        "The witness satisfies both conjuncts of goodness and the integer symmetry equation.",
+        "No assertion of a Gamma_k-fixed witness over a nonclosed field; the Kummer obstruction test precludes such an inference."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ArithmeticPaths",
+        "namespace": "TauCetiRoadmap.AnabelianGeometryAndNonabelianChabauty.NC0"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "For connected qcqs X, supply the canonical finite-etale topos equivalence X_fet ≃ B(pi), rho:X_et→X_fet and finite continuous pi-module/finite locally constant abelian sheaf equivalence. Match derived continuous cohomology to the pinned canonical homogeneous continuousCohomology; identify the unit/Leray edge as the same canonical epsilon in every degree, naturally in coefficients, pointed maps and paths. Export the degree-zero invariants and H1_et(X,F_p)=Hom_cont(pi,F_p) identities without any K(pi,1) assumption. Existing generic site Leray, slice cohomology and torsor nodes are inputs, not this completed specialization.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "For finite etale f:Y→X and finite locally constant abelian F, export finite local constancy and prime support of f_*F, and the explicit all-degree mu_f:H^q(X,f_*F)≅H^q(Y,F) defined by pullback followed by counit. For every cartesian base-change square prove g prime star mu_f(alpha)=mu_f prime(bc_* g star alpha), using the same adjunction and stalk sheet permutations. Exact finite pushforward and integral base change are already named; the formula and coefficient conditions are the remaining specialization. No Galois, normal, invertible-degree or trace division hypothesis.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Export finite locally constant coefficient trivialization and finite abelian filtration by prime-field layers, natural long exact/pullback maps, finite-sum compatibility and diagonal killing of degree-one finite torsors, with connected pointed components. Integrate the existing torsor H1 and generic site pullback nodes. The NC.0 two-cover extension-effacement assembly is imported, not re-planned in SF.2.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+      "need": "Export pi1(P1_k)=1 for algebraically closed k, and pi1(A1_k)=1 in characteristic zero, from the finite-cover dictionary (the affine assertion must retain characteristic zero). Also export pointed connected common refinements and a projection-compatible pi1(X×Y)≅pi1(X)×pi1(Y) for geometrically connected geometrically unibranch finite-type varieties over algebraically closed characteristic-zero k, with cofinality of product finite covers as in SGA1 XIII Proposition 4.6. Arithmetic groups over nonclosed fields form fibre products, not ordinary products.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Export the canonical pullback-natural ordinary etale external-product isomorphism direct sum over i+j=q of H^i(W,F_p) tensor H^j(T,F_p) ≅ H^q(W×T,F_p), for finite-type W,T over algebraically closed characteristic-zero k and prime p, without properness. Audit Stacks 59.97.9 and SGA4 1/2 finitude 1.11, and import the generic field-complex/Kunneth bridge from its owner, verifying that its map induces these external products. Keep the derived finite-torsion contract and its Tor concerns.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Export smooth ⇒ geometrically unibranch and preservation of connected smooth affine/proper curves by connected finite etale covers, actual Pic0[n] cardinality n^(2g) for n invertible, and deg(f star L)=deg(f)deg(L). Reuse the existing proper-model, affine/proper, genus, Riemann–Hurwitz, Picard/Jacobian and line-bundle-norm nodes and JacobianChallenge interfaces; no numerical substitute for the actual Pic0 object. For Chen specialization also export the branch DVR/graded-algebra calculation: normalization of a smooth curve in a finite etale cover of its puncture is a finite regular curve, with local power initial form z=s^e and grading by ord_y/e. Normalization finiteness is SF.0/nagata-normalization-finite. For normalization finiteness explicitly import that finite-type curves over a field are excellent/Nagata from SF.0; regularity at normalized curve points and perfect-field smoothness must be identified with the actual local rings.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "need": "Instantiate rational and tame tangential endpoint fibre functors on the same finite-cover category, with natural restriction-to-constant identifications and the comparison of identity-on-constants paths with paths on X over a separable closure. Export all continuity and functorial/base-extension comparisons needed by the named NC.0 targets. Extend the analytic comparison to the normalized tame tangent functor: its nonzero tangent fibre agrees with analytic punctured germs, respecting chosen positive inertia, inversion of the three-punctured line and algebraically closed characteristic-zero extension. This extension belongs with the IG.1 fibre functor; ordinary analytic finite covers alone do not state it.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/rational-tangential-kummer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/BelyiMaps#layer-12-profinite-powers-the-fundamental-group-and-the-branch-cycle-theorem",
+      "need": "Import Layer 12 profinite Riemann existence and geometric punctured-line/free-group comparisons, with their finite-fibre and peripheral orientation compatibility. Combine these exact finite-cover comparisons with IG.1 analytic tangent-germ comparison for the symmetric-good-path existence theorem. Do not import a canonical arithmetic lift or re-plan the profinite free group in NC.0.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "status": "planned",
+      "remaining": [
+        "Instantiate the geometric arithmetic and tame tangent carriers and NC.3 torsor/H1 APIs; type the omitted geometric signatures using their recorded contracts.",
+        "Supply the exact SF.2 coefficient/rho/epsilon and finite direct-image compatibility exports. Instantiate the current Tau Ceti all-degree killing imports after reconciling the inherited ProfiniteCohomology interface with the compilation pin; do not re-plan the existing results.",
+        "Finish the requested curve and geometric product inputs and instantiate the accepted parent assemblies without duplicating nodes.",
+        "Provide a registered native raw-etale-homotopy and elementary-fibration supplier; current pi1 inputs do not close these targets."
+      ],
+      "targets": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/path-section-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/rational-tangential-kummer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/local-inertia-orbit-model",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-good-path",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/chen-symmetric-path",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence"
+      ],
+      "note": "Complete target-level pass: each target is new here or imported by exact parent id. Planned means all prerequisite chains terminate in baseline, named suppliers, exact requests or the listed gaps; it does not mean closed or formalized."
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Native geometric arithmetic-path signatures",
+      "detail": "The pinned library has abstract Galois categories and affine finite-etale algebra fibres, but no instance for the full finite-cover category of a nonaffine scheme and no arithmetic/tame tangent endpoint API on it. ArithmeticPath is a native natural-isomorphism subtype and the continuous section/kernel formulas compile. Their actual scheme instantiation, topological torsor instance and identification with NC.3 are missing signatures, not opaque Prop parameters. Once IG.0/IG.1 export these carriers, instantiate the displayed statement and type the same class/section/functoriality theorems.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-geometric-paths",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-cocycle",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/transferred-endpoint-section",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/arithmetic-path-functoriality"
+      ]
+    },
+    {
+      "title": "Native tangent specialization and Kummer geometry",
+      "detail": "The local orbit quotient, cyclic permutation and branch projection are typed. The global natural specialization on normalized scheme covers and its canonical orbit bijection, plus the rational/tangential finite Kummer comparison, require the IG.1 and SF.3 normalized branch functors. Those geometric theorem signatures are omitted from Suggested rather than replaced by proposition-valued fields. The exact statements, hypotheses, proof steps and acceptance cases are recorded in their nodes.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/rational-tangential-kummer"
+      ]
+    },
+    {
+      "title": "Analytic tangent-germ comparison for symmetric good paths",
+      "detail": "Native IsGoodPath and IsSymmetricPath, with actual cover-pullback whiskering, are typed. The geometric existence signature requires the IG.1 tangent-germ extension of BelyiMaps Layer 12 and charzero-base-extension. Read Chen p.366 gives the analytic witness; the finite-cover-only upstream comparison does not by itself identify normalized tangent fibres. The precise missing supplier contract is requested, so existence is planned but not closed.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/symmetric-good-path-existence"
+      ]
+    },
+    {
+      "title": "Inherited canonical coefficient comparison at the pinned interfaces",
+      "detail": "The parent already defines the finite-coefficient K(pi,1) target and effacement assemblies. Named field/curve/limit and generic Leray/pushforward inputs exist, but the actual coefficient dictionary, canonical epsilon/rho and specialized mu_f identities remain the SF.2 requests. The current Tau Ceti library already supplies positive-degree class killing and trivial-group vanishing (currentLibraryAudit); they are imported, not new targets. The pin predates these results, so a pin/interface reconciliation is still required before the parent native signatures elaborate.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement"
+      ]
+    },
+    {
+      "title": "Inherited geometric product and curve assembly contracts",
+      "detail": "The accepted parent already owns the smooth-curve and product proof assemblies. Retain its exact hypotheses and named nodes; SF.3 supplies the curve geometry listed in supplierAudit, with remaining preservation/Pic0/degree exports requested. IG.0 product pi1 and SF.2 prime-field external products with the field-complex bridge lack exact nodes. Common pointed refinements and all-degree continuity must be instantiated before the parent geometric Lean signatures can be given.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
+      ]
+    },
+    {
+      "title": "Inherited raw homotopy and elementary fibrations",
+      "detail": "Raw etale homotopy carriers, the canonical comparison map and higher-homotopy fibration theorem for the parent elementary-fibration/Artin-neighbourhood targets have no registered exact supplier or pinned native interface. The parent source-qualified target statements remain imported with their boundary (in particular geometrically unibranch for the raw comparison). No phantom EtaleHomotopyTypes stage is used and no higher-homotopy statement is inferred from the arithmetic pi1 sequence.",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC0-inertia-injectivity",
+      "source": "chen2024",
+      "kind": "error",
+      "locator": "Published Definition 4.2.1, p.364 (author-hosted Annals copy)",
+      "printed": "The local punctured-tangent fundamental group is asserted to embed in pi1 of the curve with the point removed, for every smooth curve in the stated scope.",
+      "correction": "Use the induced continuous homomorphism and its image. Local inertia injectivity requires additional hypotheses and is not used for Proposition 4.2.3(b).",
+      "reason": "Over C, take C=P1 and remove only x=infinity. The resulting A1 has no nontrivial connected finite etale covers, so global pi1 is trivial, whereas the punctured tangent has procyclic nontrivial pi1. The local-to-global homomorphism cannot be injective.",
+      "affects": "a stated result",
+      "known": "new; no existing correction located in the sources searched",
+      "searched": [
+        "Author publication page https://www.williamyunchen.com/ and author-hosted Annals copy, accessed 2026-10-10: no correction located.",
+        "Annals article page https://annals.math.princeton.edu/2024/199-1/p05, accessed 2026-10-10: no correction linked.",
+        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain."
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC0-punctured-tangent",
+      "source": "chen2024",
+      "kind": "misprint",
+      "locator": "Published Definition 4.2.1, p.364, identification of the punctured tangent with G_m",
+      "printed": "The displayed affine-line presentation of G_m removes the point 1.",
+      "correction": "Remove 0. The tangent zero section is the puncture; the chosen nonzero tangent is normalized to 1.",
+      "reason": "Removing 1 would exclude the chosen normalized basepoint and retain zero, contradicting both the tangent definition and the subsequent power-map fibre calculation.",
+      "affects": "nothing",
+      "known": "new; no existing correction located in the sources searched",
+      "searched": [
+        "Author publication page https://www.williamyunchen.com/ and author-hosted Annals copy, accessed 2026-10-10: no correction located.",
+        "Annals article page https://annals.math.princeton.edu/2024/199-1/p05, accessed 2026-10-10: no correction linked.",
+        "Latest public arXiv PDF https://arxiv.org/pdf/2011.12940 and v2, checked 2026-10-10: the same injectivity/removal statements remain."
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty/E-NC0-preprint-gauge-order",
+      "source": "kim2008",
+      "kind": "error",
+      "locator": "arXiv:0804.1008v1, PDF p.9, displayed action on cocycles following the right-torsor cocycle law; published version not collated",
+      "printed": "For cocycles with c(sigma*tau)=c(sigma) sigma(c(tau)), the displayed proposed gauge value is sigma(l inverse)c(sigma)l.",
+      "correction": "For a right torsor with sigma(p)=p c(sigma), changing p to p·l gives l inverse c(sigma) sigma(l). Its inverse-witness form is l c(sigma) sigma(l inverse).",
+      "reason": "The displayed reversed formula need not preserve the stated cocycle law. In S4 with functional composition, let a=(123), l=(234), let C3 act by conjugation by a, and use c(g^j)=a^(-j). The proposed d has d(g^2)=(243), whereas d(g) g(d(g))=(123). The right-torsor formula follows directly by applying sigma to p·l.",
+      "affects": "a stated result",
+      "known": "new in the preprint checked; published-version status unknown",
+      "searched": [
+        "arXiv:0804.1008 has one listed version, v1; checked its PDF p.9 on 2026-10-10.",
+        "Author research page https://www.minhyongkim.net/research/academic-publications lists the 2010 publication and links Warwick leeds.pdf; no correction listed; the linked PDF could not be fetched.",
+        "De Gruyter Open Mathematics volume 8 issue 4 publisher page: fetching returned 403; no published full text or correction could be inspected.",
+        "Oxford author-original archive https://ora.ox.ac.uk/objects/uuid:29378b9e-3cdd-4367-b2d3-eb2a50138d43 identifies the 2008 original, not a correction."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf",
+      "citation": "Annals of Mathematics 199 (2024), 301–443; author-hosted published copy",
+      "read": "2026-10-10",
+      "sha256": "9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0804.1008",
+      "citation": "arXiv:0804.1008v1 (2008), expository preprint; published Cent. Eur. J. Math. 8 (2010), 633–645, not collated here",
+      "read": "2026-10-10",
+      "sha256": "4bb78299619fad44ebeb8aeb8525b0817e7fe6e5004491880d7fd314a1a6ae68",
+      "note": "Published full text not retrieved: the De Gruyter issue page returned 403 and the author-linked Warwick leeds.pdf could not be fetched. The gauge finding is scoped to arXiv v1, not asserted against the published version."
+    }
+  ],
+  "inheritedTargets": [
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+      "title": "Étale K(π,1) for a specified finite coefficient class",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/coefficient-restriction",
+      "title": "Restriction of the allowed finite coefficients",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+      "title": "Invariance under pointed scheme isomorphism",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+      "title": "Change of geometric base point",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+      "title": "Finite-cover effacement criterion",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+      "title": "Comparison with raw étale K(π,1)",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+      "title": "Fields are étale K(π,1)",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction",
+      "title": "The degree-two obstruction on the projective line",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+      "title": "Smooth curves of affine or positive-genus type",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+      "title": "Characteristic-zero products of étale K(π,1) varieties",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+      "title": "Elementary curve fibrations preserve étale K(π,1)",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood",
+      "title": "Artin towers give étale K(π,1) examples",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer",
+      "title": "Transport of class effacement to finite covers",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+      "title": "All-coefficient finite-cover criterion",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance",
+      "title": "Finite étale invariance of étale K(π,1)",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension",
+      "title": "Two-cover dévissage of coefficients",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+      "title": "Constant prime-field tests on all finite covers",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover",
+      "title": "A connected prime-degree étale cover",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing",
+      "title": "Prime-degree covers kill degree-two prime torsion",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
+      "title": "Prime-power towers kill higher prime-power torsion",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve",
+      "title": "Geometric smooth-curve finite-cover effacement",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
+      "title": "A geometric killing cover descends to a finite extension",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change",
+      "title": "Separable-closure invariance of finite-coefficient K(π,1)",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+      "title": "One cover kills a finite family of positive-degree classes",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+      "title": "Prime-field effacement on every cover of a product",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    },
+    {
+      "nodeId": "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product",
+      "title": "Binary geometric products preserve the full property",
+      "ownerPacket": "AnabelianGeometryAndNonabelianChabauty.json",
+      "disposition": "Imported unchanged; supplier audit below refines closure evidence, not the theorem."
+    }
+  ],
+  "ownership": {
+    "resolution": "Accepted RS-29 assigns concrete arithmetic path torsors and this finite-étale tangential path theory to NC.0. IG.0 still owns ordinary natural-isomorphism paths and their topology; IG.1 owns rational sections, tame tangential fibre functors and the arithmetic exact sequence. NC.3 owns generic topological torsors, continuous cocycles, H1 and twisting. IG.6 keeps its realization/export targets. PS.9 owns motivic path regularization, not the finite-étale tangent functor used here.",
+    "evidence": [
+      "research/blueprint/restructure/RS-29.result.json",
+      "InverseGaloisAndArithmeticFundamentalGroups:IG.6",
+      "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification"
+    ],
+    "currentUpstreamRead": [
+      "ProfiniteArithmetic README and Suggested.lean: Layers 0–2 provide profinite powers and continuous automorphism/outer-action interfaces; import, never re-plan.",
+      "PeripheralActions README and Suggested.lean: free pro-p peripheral automorphisms; no scheme path torsor or tangent normalization to duplicate.",
+      "BelyiMaps README Layer 12: finite-cover/profinite Riemann existence and geometric free fundamental groups. Its outer action does not supply tangent-germ comparison or canonical arithmetic lifts."
+    ]
+  },
+  "supplierAudit": [
+    {
+      "contract": "Finite covers and ordinary paths",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover"
+      ],
+      "supplierNodes": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/geometric-fiber",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components"
+      ],
+      "provided": "IG.0 now names the actual finite-cover category, geometric fibre, native profinite Aut, finite continuous sets and natural-isomorphism paths. Nonzero characters give transitive prime-degree translation sets by elementary finite group algebra.",
+      "remaining": "The corresponding coefficient sheaf and H1 character dictionary, not just finite sets, remains SF.2 input."
+    },
+    {
+      "contract": "Coefficient dictionary and canonical epsilon",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:key/etale-k-pi-1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/pointed-isomorphism",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/basepoint-transport",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/site-derived-pushforward",
+        "SchemeAndStackFoundations:SF.2/site-leray-spectral-sequence",
+        "SchemeAndStackFoundations:SF.2/abelian-torsor-h1"
+      ],
+      "provided": "Generic site derived pushforward gives slice-cohomology sheafification; generic Leray identifies its pullback/counit edge; abelian torsor H1 is already planned.",
+      "remaining": "Missing exact X_fet ≃ B(pi), rho:X_et→X_fet, finite continuous module/sheaf equivalence, derived comparison with the pinned continuousCohomology and proof that the induced edge is the same canonical epsilon in all degrees. No typed epsilon interface exists at the pin."
+    },
+    {
+      "contract": "Fields",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/etale-galois-comparison"
+      ],
+      "provided": "The actual equivalence of discrete Galois modules and field étale sheaves plus derived global-sections/invariants comparison is present.",
+      "remaining": "Its identification with the same epsilon awaits the coefficient dictionary; positive-degree trivial-group calculation remains the ProfiniteCohomology contract."
+    },
+    {
+      "contract": "Projective-line obstruction",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/curve-roots-of-unity-cohomology"
+      ],
+      "provided": "Canonical H2(P1,mu_n)=Z/n via degree, for invertible n, is an exact supplier statement.",
+      "remaining": "IG.0 has no named geometric pi1(P1)=1 node. Constant coefficients use a chosen root-of-unity identification, not a canonical untwisted Z/n identification."
+    },
+    {
+      "contract": "Finite direct image and finite étale invariance",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-finite-cover-transfer",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/finite-etale-invariance"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/finite-pushforward-exact",
+        "SchemeAndStackFoundations:SF.2/site-cohomology-pullback"
+      ],
+      "provided": "Exact finite pushforward, its stalk products and integral base change, plus natural cohomological pullback, have named suppliers.",
+      "remaining": "Need preservation of finite local constancy and prime support, the precise all-degree pullback/counit mu_f isomorphism, and its cartesian-square base-change identity from the adjunction triangles. Keep sheet permutations; do not divide by cover degree."
+    },
+    {
+      "contract": "Coefficient dévissage",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/effacement-extension",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-field-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/site-cohomology-pullback",
+        "SchemeAndStackFoundations:SF.2/abelian-torsor-h1"
+      ],
+      "provided": "Naturality of the cohomological long exact sequence and classification/pullback of abelian torsors are supplied.",
+      "remaining": "Need actual finite-coefficient filtrations, finite-sum compatibility, monodromy trivialization, diagonal killing in H1 and finite common pointed refinements. The parent already owns the two-cover killing argument; no duplicate criterion is added."
+    },
+    {
+      "contract": "Smooth-curve geometry",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/smooth-curve",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.3/nonsingular-projective-model",
+        "SchemeAndStackFoundations:SF.3/curve-affine-or-projective",
+        "SchemeAndStackFoundations:SF.3/genus-base-change",
+        "SchemeAndStackFoundations:SF.3/scheme-riemann-hurwitz",
+        "SchemeAndStackFoundations:SF.3/line-bundle-norm",
+        "SchemeAndStackFoundations:SF.3/degree-zero-class-comparison",
+        "SchemeAndStackFoundations:SF.3/tate-module-etale-h1"
+      ],
+      "provided": "Proper smooth models, the affine/proper dichotomy, genus base extension and unramified Riemann–Hurwitz have exact nodes. The Picard/Jacobian and norm objects are already owned here and by JacobianChallenge.",
+      "remaining": "Require connected finite-étale preservation of smoothness, affine/proper conditions and geometric unibranchness; actual Pic0[n] cardinality n^(2g), and pullback degree multiplication. A norm-of-line-bundles theorem alone does not state the pullback degree formula, nor does the Tate module replace finite Pic0[n]."
+    },
+    {
+      "contract": "Curve cohomology and degree-two killing",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/connected-prime-degree-cover",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-cover-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/prime-power-degree-two-killing",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-smooth-curve"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/fppf-kummer-sequence",
+        "SchemeAndStackFoundations:SF.2/curve-roots-of-unity-cohomology"
+      ],
+      "provided": "Kummer H1=Pic0[n], canonical H2 degree identification, finite-map pullback multiplying degree, projective vanishing above degree two and affine vanishing from degree two are all explicitly supplied for invertible n.",
+      "remaining": "Only the canonical H1_et(C,F_p)=Hom_cont(pi,F_p) bridge to the finite-set cover dictionary still needs the coefficient/torsor comparison. Do not assume K(pi,1) to prove this H1 fact."
+    },
+    {
+      "contract": "Separable cover and class descent",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-killing-descent",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/separable-base-change"
+      ],
+      "supplierNodes": [
+        "SchemeAndStackFoundations:SF.2/etale-cohomology-limits"
+      ],
+      "provided": "The exact qcqs affine-transition cohomology colimit and finite-presentation descent contract occurs in the supplier statement. The descended killing cover uses the same continuity formula.",
+      "remaining": "Supplier proof leaves for finite-presentation/property descent and inverse-site cohomology remain its responsibility; no claim to have independently read those leaves to closure. Existence of a representative and eventual vanishing are separate colimit consequences."
+    },
+    {
+      "contract": "Products",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/products",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/positive-family-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/product-cover-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/geometric-product"
+      ],
+      "supplierNodes": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+        "SchemeAndStackFoundations:SF.2/etale-cohomology-limits"
+      ],
+      "provided": "Arithmetic exact sequence and separable continuity are now named nodes. The six inherited product/finite-family targets remain unchanged.",
+      "remaining": "Projection-compatible geometric product pi1 with cofinal product covers; pullback-natural prime-field external products, including nonproper ordinary étale cohomology and the generic field-complex bridge; no supplier node currently supplies these exact contracts."
+    },
+    {
+      "contract": "Raw homotopy and elementary fibrations",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/raw-homotopy-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/elementary-fibration",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/artin-neighbourhood"
+      ],
+      "supplierNodes": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/geometric-fiber",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components"
+      ],
+      "provided": "The parent target statements preserve the geometrically unibranch/raw-homotopy boundary and elementary-fibration hypotheses.",
+      "remaining": "Native raw étale homotopy, its comparison map and higher-homotopy fibration inputs lack a registered exact supplier. The effacement route does not require or construct these objects."
+    },
+    {
+      "contract": "All-degree class killing",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/field",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/projective-line-obstruction"
+      ],
+      "supplierNodes": [],
+      "provided": "Already proved in current Tau Ceti by the two declarations in currentLibraryAudit, exported through ProfiniteCohomology Layer 10. Take an open-normal core when needed.",
+      "remaining": "No missing theorem or new target; compile-pin instantiation awaits an upstream pin advance or the inherited Layer 10 interface."
+    }
+  ],
+  "upstreamImports": [
+    {
+      "roadmap": "ProfiniteCohomology",
+      "layer": "Layer 10, continuous cohomology in all degrees",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/all-coefficient-effacement"
+      ],
+      "contract": "Current Tau Ceti already supplies TauCeti.ContinuousCohomology.exists_openSubgroup_res_eq_zero for a smooth discrete representation of a profinite group and every positive degree, in TauCeti/RepresentationTheory/Homological/ContCohomology/ClosedSubgroup.lean. Its res is the native continuous-cohomology restriction. Finite continuous modules are smooth discrete; take the finite-index normal core of the supplied open subgroup and restrict again to get open-normal killing. The current TrivialGroup.lean instance subsingleton_continuousCohomology_succ_of_subsingleton supplies the trivial-group vanishing. These are imports via ProfiniteCohomology Layer 10, not new NC.0 targets.",
+      "status": "Existing in current Tau Ceti at a91d3 (full commit recorded in currentLibraryAudit); absent from pinned f790474. No new request for this already available theorem."
+    },
+    {
+      "roadmap": "ProfiniteArithmetic",
+      "layer": "Layers 1–2",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/reference-section-change",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0/tangential-inertia-specialization"
+      ],
+      "contract": "Existing profinite powers and continuous automorphism/outer action exports remain owned upstream. Ordinary integer powers in Chen symmetry are native and do not use new profinite-power nodes.",
+      "status": "Read current upstream README and Suggested.lean; no duplicate targets."
+    }
+  ],
+  "sourceNotes": [
+    "Published Proposition 4.2.3(a), pp.364–365, correctly identifies the cotangent of the graded tangent line at its zero point with the original cotangent. The preprint version additionally asserted an inertia action on the original cotangent; that assertion is absent from the published statement. Use the published version, not the superseded clause.",
+    "All statements and findings here are in the worker’s own words. No source passages, PDFs or source-by-source summaries are deposited in the repository.",
+    "Kim 2008 is the expository Fundamental groups and Diophantine geometry, not the different 2009 unipotent Albanese paper. Its p.9 gauge formula is corrected using the fixed right-torsor convention; the printed-version correction status is unknown. No uncollated published error is claimed."
+  ],
+  "currentLibraryAudit": {
+    "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "entries": [
+      {
+        "declaration": "TauCeti.ContinuousCohomology.exists_openSubgroup_res_eq_zero",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/ClosedSubgroup.lean",
+        "lines": "268–279",
+        "statementRead": "For a smooth discrete representation X of a profinite G and x in native continuousCohomology (n+1) X, some open subgroup has zero restriction.",
+        "disposition": "Import; not in the pin, not a new node. Open-normal refinement uses the finite-index normal core."
+      },
+      {
+        "declaration": "TauCeti.ContinuousCohomology.subsingleton_continuousCohomology_succ_of_subsingleton",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/TrivialGroup.lean",
+        "lines": "36–41",
+        "statementRead": "For a subsingleton topological group and any topological representation, positive-degree native continuous cohomology is subsingleton.",
+        "disposition": "Import; not a new node."
+      }
+    ]
+  },
+  "libraryAudit": {
+    "source": "data/library-coverage.json",
+    "job": "AUDIT-08",
+    "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+    "verdict": "not built",
+    "read": "2026-10-10",
+    "disposition": "Confirmed the distinction between native abstract Galois/topological or affine algebra machinery and the missing scheme arithmetic/tangential instantiation. Import IG.0/IG.1; resolve the IG.6/PS.9 ownership notes using accepted RS-29. Current Tau Ceti additions are separately audited in currentLibraryAudit and are not new nodes."
+  }
+}

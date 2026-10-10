@@ -1,172 +1,169 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
-Issue #7592. Worker: Codex (GPT-6), session `codex-UvrQhG`, 2026-10-10.
-Claim comment [6101344803](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101344803)
-was confirmed by bot comment
-[6101346366](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101346366).
-This continues the merged checkpoint [#8562](https://github.com/CBirkbeck/tauceti-explorer/pull/8562).
-The package remains incomplete because two prerequisite suppliers in the
-accepted plan are unassigned. This is not an implementation blocker caused
-by admitted proofs, and this run did not exhaust its eight-hour allowance.
+Issue #7592. Worker: Codex (GPT-6), session `codex-pCwOIS`, 2026-10-10.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101646310)
+was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/7592#issuecomment-6101647425).
+This continues the merged checkpoint
+[#8585](https://github.com/CBirkbeck/tauceti-explorer/pull/8585).
+One job was claimed. This is a blocked submission, not a completed package or
+an eight-hour timeout. No permission question is pending.
 
-## Changes in this run
+## What changed
 
-The README now states the generating hypothesis directly in both
-`fiber_product_commutator` and `fiber_product_abelianization`. The latter also
-states the required isomorphism on abelianizations and identifies its source
-as the parent's stem-cover interface. The existing Lean signatures already
-carried these hypotheses; no theorem hypothesis was changed there.
+The unnamed input contracts now have explicit native interfaces, sources,
+proof routes and tests in the package. These specify the mathematical inputs
+already required by the accepted plan; they do not assign their suppliers.
+No packet, reader, original suggested file, library or other roadmap changed.
+`metadata.toml` remains absent so intake treats this as a checkpoint.
 
-The commutator calculation needs surjectivity of the class-degree map, so it
-also applies to an arbitrary projection S→G when that degree map is onto.
-Surjectivity of S→G itself is not needed for this calculation. This is the
-generality already expressed by the inherited `fiber_product_commutator`
-signature, whose generating hypothesis supplies degree-map surjectivity.
+A mathematical error in the inherited README is corrected: the Ext term is
+in the kernel of the UCT **evaluation map**
+H²(G,A)→Hom(H₂(G,ℤ),A), not the kernel of the single extension's class map
+H₂(G,ℤ)→A. These kernels belong to different carriers. The C₂/ℤ and C₄→C₂
+examples distinguish them.
 
-Two additional native admitted examples record the counterexample with G=S₃,
-π=id and c=∅. Its pullback is [S₃,S₃]=A₃, of order three; the pullback's
-commutator subgroup is trivial and its abelianization has order three, whereas
-the class-degree lattice is zero. Thus both displayed formulas fail without
-the generating hypothesis. This instantiates the accepted plan's existing
-EVW auxiliary-fiber-product source correction; it introduces no new source
-issue or target.
+The added interfaces are:
 
-No packet, source reader, ownership assignment, library or other roadmap was
-changed. `metadata.toml` remains absent so this submission is a checkpoint.
+- `integral_uct_evaluation`: pairing on the existing native homology and
+  cohomology carriers, with the finite-sum cycle formula, naturality in the
+  group and coefficients, the actual Mathlib Ext carrier in its exactness
+  statement, and bijectivity when the abelianization is free over ℤ.
+  Its three tests cover the cyclic Ext kernel, positive/negative orientation
+  with infinite coefficients, and a nonzero torsion-coefficient evaluation.
+- `extension_class_map_section`, `extension_class_map_natural`,
+  `extension_class_map_five_term` and `extension_class_map_split`: section
+  formulas, specified maps of extensions, full image/kernel equality, and
+  the consequence of a homomorphic section. Three tests cover arbitrary
+  split kernels, the nonsplit C₄ extension with zero evaluation, and the
+  specified D₈ extension with nonzero evaluation.
+- `coprime_degree_two_edge`: the coinvariants of the specified Γ-action on
+  H₂(H,ℤ) identify the actual kernel of the semidirect-product projection's
+  homology map. The formula retains the native H-inclusion. Its README proof
+  checks the incoming d₃ as well as d₂: the relevant source and target are
+  killed by coprime group orders, so Bézout forces the differentials to zero.
+- `cyclic_coprime_complement_conjugacy`: a subgroup whose projection to the
+  cyclic complement is bijective is conjugate to the standard complement
+  by one element of H. The README gives a Sylow induction that does not
+  assume H solvable, and shows how it applies to an equal-order lift.
+
+The generic transfer construction is explicitly reused from current Tau Ceti,
+not proposed again. AlgebraicTopology's singular UCT and topological transfer
+remain in its existing stages. The native group/bar adapters are still the
+unassigned part of the homological contract.
+
+## Why completion is blocked
+
+The source-of-truth packet explicitly records:
+
+1. **Natural integral homological bridge — supplier unassigned.** This
+   includes arbitrary-abelian-kernel UCT, oriented evaluation, central-extension
+   homological five-term transgression, finite homology consequences and the
+   coprime degree-two reduction. The parent Layer 7 is expressly excluded as
+   a supplier of the general bridge.
+2. **Conjugacy of complements over a cyclic coprime quotient.** Its entry
+   requires a general finite-group owner to be assigned. Pinned Mathlib's
+   Schur–Zassenhaus statements supply existence, not conjugacy.
+
+The package issue makes that accepted plan the source of truth, limits edits
+to the package and handoff, and directs plan mistakes to the handoff rather
+than permitting packet changes. PROTOCOL §20 requires named prerequisite
+chains; UPSTREAM_GUIDE requires a missing key theorem to be an actual target
+here or in an identified supplier. Native admitted signatures and mathematical
+proof routes settle the required statements, but do not amend target ownership
+in the accepted graph. These two decisions cannot be completed in the allowed
+files without silently replacing the source-of-truth plan.
+
+## Concrete planning amendment to consider
+
+The following is a proposal for a planning worker, not an ownership assignment
+made by this submission. It keeps the existing six layers and all 109 targets.
+
+| Contract | Proposed location and exact output |
+| --- | --- |
+| Native integral UCT evaluation | RS.1, before reduced covers: H²(G,A)→Hom(M(G),A), natural in arbitrary G and A, with kernel Ext¹(G^ab,A), surjectivity and the displayed oriented cycle formula. Add a definition node with the API and three tests now in the package. |
+| Central extension class map and five-term exactness | RS.1, before `homology_image`: the section-independent class-map construction and exact image/kernel theorem, for arbitrary abelian kernels. Keep the full extension diagram and sign convention. Add the construction and key-theorem nodes, reusing Tau Ceti's factor-set interfaces. |
+| Finite integral homology consequences | RS.1, before `commutator_order`: finiteness and order annihilation in positive degrees. Reuse current native transfer and trivial-group vanishing; use finite generation of the bar complex for finiteness. Do not create a second transfer theory. |
+| Coprime degree-two edge | RS.5, before primary-kernel/compatible-cover results: the coinvariant-kernel isomorphism in `coprime_degree_two_edge`, including its specified inclusion and the d₃ argument. Establish its native filtered-resolution input rather than citing an unnamed LHS supplier. RS.6 then imports this output. |
+| Cyclic complement conjugacy | RS.5, before admissible inertia classes: `cyclic_coprime_complement_conjugacy` with finite coprime H,C and C cyclic, without solvability of H. Add the key-theorem node and its Sylow induction. If another finite-group owner is selected, record its exact layer instead. |
+
+A planning amendment must confirm these owners or name actual alternative
+supplier layers, add the necessary key-definition/theorem nodes and source
+locators, and replace the two unassigned gap entries. The source documents
+must be reconciled as that amendment requires. The Suggested exactness
+prototype currently states existence of an Ext injection with the correct
+range; README also requires its canonical natural identification. A supplier's
+full API must retain that naturality, not treat the existential prototype as
+an exhaustive specification.
 
 ## Verification
 
-- `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
-  exited 0: 652 warnings, all declarations using `sorry`; no errors or other
-  warnings. The preflight had 100 GiB available. No library build, cache
-  download or language server was started.
+- Final `lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean`
+  exited 0 with 670 warnings, all `declaration uses sorry`; no errors or other
+  warnings. The preflight had 99 GiB available. No language server, library
+  build, update or cache download was started.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/InductionRestrictionPartII.json`
-  exited 0 with zero errors and zero warnings. The unchanged packet reports
-  109 nodes, five gaps, one request, six planned stages and zero closed stages.
-- Static inventory checks found all 109 target names, 124 API names and 96
-  test labels in both README and Suggested. API/test names were compared by
-  their last namespace component. Suggested contains 544 distinct named
-  declarations and 204 anonymous examples, with no duplicate named
-  declaration. The README is 140,525 bytes.
-- An independent finite permutation calculation enumerated S₃ and all 36
-  ordered product pairs, generated its commutator subgroup, then generated
-  that subgroup's commutators. The respective orders are 6, 3 and 1; hence
-  the empty-marking pullback and its abelianization have order three. This
-  validates the mathematical counterexample, rather than treating admitted
-  Lean examples as proved tests.
-- `git diff --check` passes. Only this job's allowed files are changed.
+  exited 0 with zero errors and warnings. The unchanged packet has 109 nodes,
+  124 API items, 96 tests, five gaps, one request, six planned stages and zero
+  closed stages. Successful syntax checking is not prerequisite closure.
+- All 109 target names, 124 API names and 96 test labels occur in README and
+  Suggested, compared by last namespace component. Suggested has 556 distinct
+  named declarations including 12 named instances, and 210 anonymous examples.
+  This run adds 12 named declarations and six examples. README is 151,274 bytes,
+  below the 200 KB limit. Inventory is name coverage, not semantic certification.
+- Independent arithmetic checked the coordinate cocycle identity on all 64
+  triples in C₂² and 15,625 lattice triples in the box [-2,2]²; the ordered
+  evaluations are 1 and −1. The normalized C₂ bar matrices are d₂=[2], d₃=[0],
+  giving H₂(C₂,ℤ)=0 and H²(C₂,ℤ)=ℤ/2.
+- Exhaustive multiplication, inverse and associativity checks on the affine
+  semidirect groups C₃⋊C₂ and C₅⋊C₄ verified H-conjugacy of all equal-order
+  lifts (4 and 16 including identity). A nonabelian check used Heisenberg₂₇
+  with (a,b,z)↦(−a,−b,z): all nine outside involutions are H-conjugate to the
+  standard C₂ lift. Distinct complements in C₂×C₂ fail conjugacy, confirming
+  the coprimality hypothesis. These finite checks supplement the proof route;
+  they do not prove the general theorem or the admitted Lean examples.
+- `git diff --check` and the local swarm file checks pass. Only three allowed
+  deliverable/handoff paths change; metadata is intentionally absent.
 
-The inventory proves name coverage, not semantic correctness. The scoped
-audit checked the principal RS.1–RS.5 interfaces for orientation, generation,
-arbitrary kernels, power corrections, actual fixed fibers, primary support
-and complement conjugacy. It was not a new declaration-by-declaration source
-certification of all 109 nodes. The inherited RS.6 finite-model calculations
-in #8562 were not rerun; their coordinate formulas and hypotheses are retained
-in the README and Suggested file.
+## Upstream and sources
 
-## Blocking prerequisite contracts
+Current roadmaps were read at `81207c7f16d5abf770f13a7d2bdcdb465c030787`,
+current Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+InductionRestriction and SemisimpleAlgebras READMEs were read in full, with
+AlgebraicTopology's relevant interfaces inspected. The reviewed library audit
+has no direct Part II entry. The parent's Layer 7 retains ordinary covers;
+AlgebraicTopology Stage 6 owns singular UCT, Stage 5 topological transfer.
+Current `TauCeti.groupHomology.transfer_comp_map_subtype_id` gives transfer
+followed by inclusion as index times identity. Its exact statement was read;
+it is absent from the pinned build and is therefore not imported into Suggested.
+The Lean check uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
 
-The accepted review is a complete target-level planning pass, not a closed
-prerequisite graph. The packet itself records these two exact ownership gaps:
+The cleared-source index was consulted. The added citations use authors'
+public copies, accessed 2026-10-10; no source text is copied into the repository.
 
-1. **Natural integral homological bridge.** On the existing native
-   `groupHomology`/`groupCohomology` carriers, supply arbitrary-abelian-kernel
-   integral degree-two UCT, including infinite trivial-action kernels;
-   natural evaluation on [x|y]−[y|x] as XYX⁻¹Y⁻¹; homological five-term
-   transgression for central extensions; finiteness and order annihilation
-   of finite-group positive-degree homology; coprime degree-two LHS reduction
-   including the incoming d₃; and the free-abelian Ext¹-vanishing adapter.
-   Consumers include RS.1 `homology-image` and `reduced-cover`, RS.2
-   `marked-pullback-split`, RS.3 `finite-level-action`, RS.5
-   `multiplier-primary-support` and `compatible-covers`, and RS.6
-   `odd-index-two-reduction`. The parent is not the assigned supplier of
-   this general package.
-2. **Cyclic coprime complement conjugacy.** For finite coprime H,C with C
-   cyclic, every complement to H in H⋊C is H-conjugate to the standard
-   complement. Applying this to C=⟨γ⟩ identifies equal-order lifts of γ.
-   It is needed by RS.5 `admissible-inertia-classes`; Suggested exposes the
-   consuming statement as `admissible_inertia_cyclic_conjugacy`.
-
-Section 20 and the upstream checklist require specified prerequisite chains;
-an unnamed homological input contract does not supply an owner. The issue
-expressly prohibits packet edits and directs plan mistakes into this handoff.
-Assigning these inputs or silently adding a new prerequisite layer would
-alter the source-of-truth plan. A planning amendment outside this package's
-allowed files must assign their owners and exact contracts. No permission
-question is pending, and no second job was claimed.
-
-## Current upstream boundaries
-
-The read-only current roadmaps were inspected at
-`81207c7f16d5abf770f13a7d2bdcdb465c030787`, current Tau Ceti at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The InductionRestriction and
-SemisimpleAlgebras READMEs were read in full, with relevant Suggested and
-AlgebraicTopology interfaces inspected. The reviewed library audit has no
-direct Part II entry; its R17.5 and MP.1 entries consume the parent's
-projective/factor-set interfaces.
-
-- **InductionRestriction Layer 7** owns ordinary Schur covers, factor sets
-  and projective representations. Preserve that request. Its H²(G,kˣ)
-  multiplier is not the integral H₂ carrier or a generic UCT supplier.
-- **AlgebraicTopology Stage 6, item 1** already owns the natural singular
-  UCT with arbitrary coefficients over a PID/hereditary ring. Stage 5 owns
-  topological transfer and Cartan–Leray. Do not replan them. The native
-  group/bar/extension-class adapters remain to be assigned.
-- **Current Tau Ceti transfer** has
-  `TauCeti.groupHomology.transfer_comp_map_subtype_id`, in
-  `RepresentationTheory/Homological/GroupHomology/Transfer/Basic.lean`.
-  Its statement gives transfer followed by inclusion as subgroup index
-  times the identity. Combined with Mathlib's
-  `groupHomology.isZero_groupHomology_succ_of_subsingleton`, it provides
-  an order-annihilation route via the trivial subgroup. It does not provide
-  the entire bridge and is absent from the pinned build.
-- **Pinned Mathlib Schur–Zassenhaus**:
-  `Subgroup.exists_right_complement'_of_coprime` and its left variant
-  conclude existence of a complement. Their statements were read in
-  `GroupTheory/SchurZassenhaus.lean`; neither asserts conjugacy. Current
-  Frobenius-complement interfaces have additional hypotheses.
-
-The Lean check uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`
-and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, not current main.
-Nothing was built or edited in the current upstream checkouts.
-
-## Sources inspected
-
-Fresh public downloads matched the accepted plan's hashes; access date
-2026-10-10. The cleared-source index was consulted; no restricted source was
-used, and no source passage was copied into the repository.
-
-| Source | Relevant reading | SHA-256 |
+| Source | Reading and locator | SHA-256 |
 | --- | --- | --- |
-| Wood, *An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland* (2021), [author PDF](https://people.math.harvard.edu/~mmwood/Publications/lifting.pdf?download=1) | §2, pp.2–4, especially Lemma 2.4 and Theorem 2.5; §4 action formulas, pp.6–7 | `9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673` |
-| Liu–Wood–Zureick-Brown, *A predicted distribution for Galois groups of maximal unramified extensions*, Invent. Math. 237 (2024), [published PDF](https://par.nsf.gov/servlets/purl/10509628) | Lemma 12.10 and proof, PDF pp.62–63 (journal pp.110–111); proof of Theorem 10.4, PDF p.64 (journal p.112) | `64295273b34676cb6fd0f1de5fc643d1744e3359f94382ea77303903cdb6dc91` |
+| Hatcher, *Algebraic Topology*, [author PDF](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf) | §3.1 Theorem 3.2 and naturality, printed pp.195–196; free-chain UCT with arbitrary coefficients and nonnatural splitting | `bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618` |
+| Löh, *Group Cohomology*, 30 July 2019, [author notes](https://loeh.app.ur.de/teaching/grouphom_ss19/lecture_notes.pdf) | Corollary 1.6.9 p.47; Theorem 1.7.15 p.64; Theorem 3.2.12 pp.123–124, Proposition 3.2.13 pp.124–125 and Remark 3.2.14 p.125 | `d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76` |
+| Conrad, *The Schur–Zassenhaus theorem*, [author PDF](https://kconrad.math.uconn.edu/blurbs/grouptheory/schurzass.pdf) | Example 2 p.1 states cyclic existence; Remark 5 p.4 states conjugacy. The note omits its proof, so the cyclic Sylow induction is supplied explicitly in the package. | `7294dabc64a607186d96ee39bed942d78873c4408327c971c617fdc397ec0805` |
 
-Wood's Lemma 2.4 uses generation to lift cover elements to the pullback;
-Theorem 2.5 needs UCT with the potentially infinite universal kernel.
-LWZB's proof of Theorem 10.4 uses conjugacy of the equal-order inertia lifts,
-in addition to complement existence. The accepted plan's ten source issues
-are unchanged.
+Wood (2021), §2 pp.2–4 and §4 pp.6–7 were also read. Its arbitrary-kernel
+application and the inherited generating hypotheses are retained. The ten
+accepted source issues remain unchanged. Public notes proving conjugacy only
+for abelian Hall kernels or for solvable total groups were not used to justify
+the required theorem for a possibly nonabelian, nonsolvable H.
 
-## Resume after the planning amendment
+## Where to resume
 
-1. Assign the two suppliers above, respecting tiers and reusing existing
-   upstream inputs. Then replace the package's unnamed input contracts by
-   citations of the assigned layers and reconcile their native adapters.
-2. Continue semantic reconciliation against the accepted statements. All
-   31 row-certificate signatures and all 38 RS.6 targets already exist.
-   Do not repeat the earlier row-signature inventory work. In particular,
-   rows 13/24 use the specified affine sum kernels, 16/17 the native SL₂(𝔽₃)
-   graph/sum models, 22/23 the specified Heisenberg graph/sum models, and
-   30/31 inverse transpose on SL₃(𝔽₂) and its full wreath model.
-3. Preserve oriented class maps, specified projections and embeddings,
-   centralizer enumerations, actual relation subgroups and group-valued
-   quotient outputs in every certificate. GAP values are source evidence,
-   not certificates. Proving the admitted cover/table targets is future
-   library implementation, not a prerequisite for a signature package.
-4. Recheck Suggested after changes. Add `metadata.toml` with
-   `topic = "math.GR"` when the ownership boundary is resolved and the
-   package meets section 20.
+First make the ownership amendment above. Do not spend another package-only
+run repeating the signature inventory while the same suppliers remain unnamed.
+Then reconcile the package against the amended graph and add
+`topic = "math.GR"` in `metadata.toml` when §20 is met.
 
-No scratch artifact is required to resume. The useful next step is the
-planning amendment, rather than another package-only assignment with the
-same supplier gaps.
+All 31 row-certificate signatures and 38 RS.6 targets remain. Preserve their
+oriented class maps, chosen projections and embeddings, centralizer enumerations,
+actual relation subgroups and group-valued outputs. Rows 13/24 use affine sum
+kernels; 16/17 native SL₂(𝔽₃) graph/sum models; 22/23 Heisenberg graph/sum
+models; 30/31 inverse transpose on SL₃(𝔽₂) and its full wreath model.
+The earlier finite certificate calculations were not rerun in this scoped
+contract audit. No scratch artifact is needed to resume.

@@ -5,6 +5,10 @@ names and signatures. The mathematical definitions and hypotheses in README.md g
 An admitted proof does not assert that a target has been implemented.
 -/
 
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
+import Mathlib.Algebra.Category.ModuleCat.Projective
+import Mathlib.CategoryTheory.Abelian.Ext
+import Mathlib.GroupTheory.SpecificGroups.Cyclic.Basic
 import Mathlib.GroupTheory.GroupExtension.Defs
 import TauCeti.GroupTheory.GroupExtension.Cohomology
 import TauCeti.Algebra.Group.ElementaryTwoQuotient.Basic
@@ -824,6 +828,67 @@ lemma universal_kernel_torsion :
     Nonempty (CommGroup.torsion (universal_kernel c hclosed) ≃* Multiplicative (reduced_multiplier c)) := by sorry
 end ComparisonCoordinates
 
+section IntegralUCTContract
+variable {G H A B : Type} [Group G] [Group H] [AddCommGroup A] [AddCommGroup B]
+-- Native carrier and evaluation required by the integral homological input contract.
+def integral_uct_evaluation :
+    groupCohomology.H2 (Rep.trivial ℤ G A) →+ (IntegralMultiplier G →+ A) := by sorry
+lemma integral_uct_evaluation_cycle
+    (φ : groupCohomology.cocycles₂ (Rep.trivial ℤ G A))
+    (z : groupHomology.cycles₂ (Rep.trivial ℤ G ℤ)) :
+    integral_uct_evaluation (groupCohomology.H2π (Rep.trivial ℤ G A) φ)
+      (groupHomology.H2π (Rep.trivial ℤ G ℤ) z) =
+        z.val.sum (fun p n => n • φ p) := by sorry
+lemma integral_uct_evaluation_group_map (f : G →* H)
+    (α : groupCohomology.H2 (Rep.trivial ℤ H A)) (z : IntegralMultiplier G) :
+    integral_uct_evaluation
+      (groupCohomology.map (A := Rep.trivial ℤ H A) (B := Rep.trivial ℤ G A) f
+        (Rep.ofHom { toLinearMap := LinearMap.id, isIntertwining' := by intro g; rfl }) 2 α) z =
+      integral_uct_evaluation α (integral_multiplier_map f z) := by sorry
+lemma integral_uct_evaluation_coefficient_map (μ : A →+ B)
+    (α : groupCohomology.H2 (Rep.trivial ℤ G A)) (z : IntegralMultiplier G) :
+    integral_uct_evaluation
+      (groupCohomology.map (A := Rep.trivial ℤ G A) (B := Rep.trivial ℤ G B)
+        (MonoidHom.id G) (Rep.ofHom { toLinearMap := μ.toIntLinearMap, isIntertwining' := by intro g; rfl }) 2 α) z =
+      μ (integral_uct_evaluation α z) := by sorry
+lemma integral_uct_evaluation_exact :
+    Function.Surjective (integral_uct_evaluation (G := G) (A := A)) ∧
+    ∃ i : (((Ext ℤ (ModuleCat ℤ) 1).obj
+        (Opposite.op (ModuleCat.of ℤ (Additive (Abelianization G))))).obj
+        (ModuleCat.of ℤ A)) →+ groupCohomology.H2 (Rep.trivial ℤ G A),
+      Function.Injective i ∧
+        i.range = (integral_uct_evaluation (G := G) (A := A)).ker := by sorry
+lemma integral_uct_evaluation_free [Module.Free ℤ (Additive (Abelianization G))] :
+    Function.Bijective (integral_uct_evaluation (G := G) (A := A)) := by sorry
+-- integral_uct_evaluation_test_1: cyclic Ext classes have zero evaluation.
+example : ∃ α : groupCohomology.H2 (Rep.trivial ℤ (Multiplicative (ZMod 2)) ℤ),
+    α ≠ 0 ∧ integral_uct_evaluation α = 0 := by sorry
+-- integral_uct_evaluation_test_2: an infinite coefficient group retains orientation.
+example :
+    let G := Multiplicative (ℤ × ℤ)
+    let φ : groupCohomology.cocycles₂ (Rep.trivial ℤ G ℤ) :=
+      ⟨fun p => p.1.toAdd.1 * p.2.toAdd.2, by sorry⟩
+    let x : G := Multiplicative.ofAdd (1, 0)
+    let y : G := Multiplicative.ofAdd (0, 1)
+    let z : groupHomology.cycles₂ (Rep.trivial ℤ G ℤ) :=
+      ⟨Finsupp.single (x,y) 1 - Finsupp.single (y,x) 1, by sorry⟩
+    integral_uct_evaluation (groupCohomology.H2π (Rep.trivial ℤ G ℤ) φ)
+      (groupHomology.H2π (Rep.trivial ℤ G ℤ) z) = 1 ∧
+    integral_uct_evaluation (groupCohomology.H2π (Rep.trivial ℤ G ℤ) φ)
+      (groupHomology.H2π (Rep.trivial ℤ G ℤ) (-z)) = -1 := by sorry
+-- integral_uct_evaluation_test_3: the alternating class also survives with 2-torsion coefficients.
+example :
+    let G := Multiplicative (ZMod 2 × ZMod 2)
+    let φ : groupCohomology.cocycles₂ (Rep.trivial ℤ G (ZMod 2)) :=
+      ⟨fun p => p.1.toAdd.1 * p.2.toAdd.2, by sorry⟩
+    let x : G := Multiplicative.ofAdd (1, 0)
+    let y : G := Multiplicative.ofAdd (0, 1)
+    let z : groupHomology.cycles₂ (Rep.trivial ℤ G ℤ) :=
+      ⟨Finsupp.single (x,y) 1 - Finsupp.single (y,x) 1, by sorry⟩
+    integral_uct_evaluation (groupCohomology.H2π (Rep.trivial ℤ G (ZMod 2)) φ)
+      (groupHomology.H2π (Rep.trivial ℤ G ℤ) z) = 1 := by sorry
+end IntegralUCTContract
+
 section CoefficientEvaluation
 variable {A E G : Type} [CommGroup A] [Group E] [Group G]
 -- The value on H₂ is obtained from the extension cocycle; arbitrary kernels are permitted.
@@ -836,6 +901,39 @@ lemma homological_commutator_central_extension (S : GroupExtension A E G)
     (x y : G) (hxy : Commute x y) :
     extension_class_map S hc (homological_commutator x y hxy) =
       Additive.ofMul (lift_commutator S hc x y hxy) := by sorry
+lemma extension_class_map_section (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) (σ : S.Section)
+    (φ : groupCohomology.cocycles₂ (Rep.trivial ℤ G (Additive A)))
+    (hφ : ∀ g h, S.inl (Additive.toMul (φ (g,h))) =
+      σ g * σ h * (σ (g*h))⁻¹) :
+    extension_class_map S hc =
+      integral_uct_evaluation (groupCohomology.H2π (Rep.trivial ℤ G (Additive A)) φ) := by sorry
+lemma extension_class_map_natural {A' E' G' : Type}
+    [CommGroup A'] [Group E'] [Group G'] (S : GroupExtension A E G)
+    (S' : GroupExtension A' E' G')
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a)
+    (hc' : ∀ a : A', ∀ e : E', S'.inl a * e = e * S'.inl a)
+    (fA : A →* A') (fE : E →* E') (fG : G →* G')
+    (hkernel : ∀ a, fE (S.inl a) = S'.inl (fA a))
+    (hprojection : S'.rightHom.comp fE = fG.comp S.rightHom)
+    (z : IntegralMultiplier G) :
+    extension_class_map S' hc' (integral_multiplier_map fG z) =
+      Additive.ofMul (fA (Additive.toMul (extension_class_map S hc z))) := by sorry
+lemma extension_class_map_five_term (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) :
+    (integral_multiplier_map S.rightHom).range = (extension_class_map S hc).ker := by sorry
+lemma extension_class_map_split (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) (σ : S.Splitting) :
+    extension_class_map S hc = 0 := by sorry
+-- extension_class_map_test_1: split extensions with arbitrary, possibly infinite kernels.
+example (S : GroupExtension A E G)
+    (hc : ∀ a : A, ∀ e : E, S.inl a * e = e * S.inl a) (σ : S.Splitting) :
+    ∀ z, extension_class_map S hc z = 0 := by sorry
+-- extension_class_map_test_2: zero evaluation does not imply splitting with cyclic abelianization.
+example (S : GroupExtension (Multiplicative (ZMod 2)) (Multiplicative (ZMod 4))
+    (Multiplicative (ZMod 2)))
+    (hc : ∀ a e, S.inl a * e = e * S.inl a) :
+    extension_class_map S hc = 0 ∧ IsEmpty S.Splitting := by sorry
 end CoefficientEvaluation
 
 section DegreePermutation
@@ -1000,6 +1098,11 @@ example : lift_commutator dihedral_v4_extension dihedral_v4_central
     (Multiplicative.ofAdd 1, 1) (1, Multiplicative.ofAdd 1) (Commute.all _ _) =
       Multiplicative.ofAdd 1 := by sorry
 
+-- extension_class_map_test_3: the chosen D₈ lifts detect the nonzero V₄ multiplier.
+example : extension_class_map dihedral_v4_extension dihedral_v4_central
+    (homological_commutator (Multiplicative.ofAdd 1, 1)
+      (1, Multiplicative.ofAdd 1) (by sorry)) =
+    Additive.ofMul (Multiplicative.ofAdd (1 : ZMod 2)) := by sorry
 def dihedral_v4_class_map : IntegralMultiplier Four ≃+ Additive dihedral_v4_extension.rightHom.ker := by sorry
 lemma dihedral_v4_kernel_central : ∀ k : dihedral_v4_extension.rightHom.ker,
     ∀ e : DihedralGroup 4, k.val * e = e * k.val := by sorry
@@ -1737,6 +1840,25 @@ example :
 end DistinctInvolutionClassesExample
 
 /-! ## RS.5: native semidirect-product interfaces -/
+
+section CoprimeEdgeContract
+variable {H Γ : Type} [Group H] [Group Γ] [Finite H] [Finite Γ]
+lemma coprime_degree_two_edge (φ : Γ →* MulAut H)
+    (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ))
+    (ρ : Representation ℤ Γ (IntegralMultiplier H))
+    (hρ : ∀ γ z, ρ γ z = integral_multiplier_map (φ γ).toMonoidHom z) :
+    ∃ e : Representation.Coinvariants ρ ≃+
+      (integral_multiplier_map (SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ)).ker,
+      ∀ z, (e (Representation.Coinvariants.mk ρ z)).val =
+        integral_multiplier_map (SemidirectProduct.inl : H →* H ⋊[φ] Γ) z := by sorry
+lemma cyclic_coprime_complement_conjugacy [IsCyclic Γ]
+    (φ : Γ →* MulAut H) (hcop : Nat.Coprime (Nat.card H) (Nat.card Γ))
+    (K : Subgroup (H ⋊[φ] Γ))
+    (hK : Function.Bijective
+      ((SemidirectProduct.rightHom : H ⋊[φ] Γ →* Γ).comp K.subtype)) :
+    ∃ h : H, ∀ g : K, g.val = SemidirectProduct.inl h *
+      SemidirectProduct.inr g.val.right * (SemidirectProduct.inl h)⁻¹ := by sorry
+end CoprimeEdgeContract
 
 section CoprimePrimarySupport
 variable {H Γ : Type} [Group H] [Group Γ]
