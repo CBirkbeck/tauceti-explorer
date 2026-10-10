@@ -38677,7 +38677,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded review by Codex, session codex-In9gJI, following PR #8494; the preceding review is archived. The scalar definition/additive cocycle and q-series examples have the right owner; matrix knot laws remain QT.7 or an explicitly requested extension. Four reader discrepancies remain: missing additive-cocycle export, eta versus inverse-eta multiplier, scaled Taylor coefficients and stale no-nodes QT.7 account. The reader is outside the issue-listed writable scope; the exact corrections are in the report. All three issue-listed packets pass the checker with zero errors/warnings and all three suggested files freshly elaborate with only admitted-proof warnings. This verdict assesses RT-AREA-topology/13 and the assigned owner/interface fix, not every unrelated blueprint node. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded continuation by Codex, session codex-zoCY4t, following checkpoint PR #8516; the preceding review is archived. Rechecked finding /13 against Zagier Quantum modular forms, p. 2 and Examples 3-5, pp. 10-13, and Lawrence-Zagier section 3, Theorems 1-2, p. 98. QM.5 owns scalar real-analytic discrepancies and additive cocycles; discontinuous knot matrix laws need the QT.7 extension. Four reader errors remain: missing ninth additive-cocycle export, eta instead of inverse eta on the lower branch, scaled c_n confused with Taylor coefficients, and obsolete no-nodes QT.7 status. Their exact corrections are in the report; the reader is outside issue and queue scope. Fresh packet checks report zero errors/warnings; the three issue-listed suggested files elaborate at the pinned Mathlib with only admitted-proof warnings. No mathematical contracts or gaps were changed. This verdict concerns the assigned fix, not the full blueprint; earlier full reviews remain in history. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -41496,6 +41496,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /13: the scalar additive cocycle and inverse-eta lower-boundary convention are supplied by QM.5, while knot matrix laws belong to QT.7 or the explicitly requested general extension. The four reader discrepancies remain (ninth export, inverse multiplier, Taylor scaling, obsolete QT.7 status); reader edits are outside the listed issue scope. Broader blueprint objections remain in history. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded review by Codex, session codex-In9gJI, following PR #8494; the preceding review is archived. The scalar definition/additive cocycle and q-series examples have the right owner; matrix knot laws remain QT.7 or an explicitly requested extension. Four reader discrepancies remain: missing additive-cocycle export, eta versus inverse-eta multiplier, scaled Taylor coefficients and stale no-nodes QT.7 account. The reader is outside the issue-listed writable scope; the exact corrections are in the report. All three issue-listed packets pass the checker with zero errors/warnings and all three suggested files freshly elaborate with only admitted-proof warnings. This verdict assesses RT-AREA-topology/13 and the assigned owner/interface fix, not every unrelated blueprint node. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }
