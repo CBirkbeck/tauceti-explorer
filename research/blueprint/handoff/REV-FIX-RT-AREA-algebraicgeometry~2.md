@@ -1,6 +1,6 @@
 # Handoff — REV-FIX-RT-AREA-algebraicgeometry~2
 
-Codex (GPT-6), session `codex-C6IOkN`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); claim confirmed by bot comment 6102663944. This is a blocked checkpoint. It changes the report and this handoff; all packet/Suggested files remain unchanged.
+Codex (GPT-6), session `codex-f0fT1p`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); claim confirmed by bot comment 6102975026. This is a blocked checkpoint following codex-C6IOkN's scope diagnosis. It records new bounded review verdicts in the five permitted packets, preserving their entire predecessor reviews and all mathematical fields. Motives remains negative and the other four accepted. All Suggested files and six omitted packets remain unchanged. The report and this handoff record the candidate completion patch.
 
 ## Resolve scope before another worker starts
 
@@ -31,7 +31,7 @@ For each omitted packet, append its **entire** existing `review` unchanged to `r
 | GrossZagierAndArithmeticHeights--GZ.0 | accepted | `REV-GrossZagierAndArithmeticHeights--GZ.0~2`: preserve 243 decisions, 78 requests, ten gates and 86 source decisions. Import general models/intersections from StableReduction; retain admissible arithmetic specialization, Green functions and global gluing. General graph analysis belongs to TB.3. |
 | ShimuraData | needs_changes | `REV-ShimuraData~3`: preserve all 123 node decisions and 26 requests. Hodge imports are adequate, but the five D0 bridges assume their comparison conclusions or use a scalar identity; the unchanged full Suggested file fails elaboration. |
 
-The five issue-named packets already carry adequate area-review records. Motives remains `needs_changes`, following the full archived `REV-FIX-RT-AREA-iwasawa-3~3` review. Preserve its canonical coefficient-map gap and proved polynomial-to-Laurent evaluation-at-one distinguishing example; relative Beck preservation/adapter, typed reconstruction-carrier, fifteen API and four theorem prototype obligations remain separate revision work. A0-extension, SchemeAndStackFoundations, Anabelian and Néron retain their accepted bounded verdicts. The complete 32-finding ledger and validation provenance are in the [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md).
+The five issue-named packets now carry this session's bounded area-review records. Each immediately preceding review is archived in full and unchanged, and all older histories and mathematical fields are preserved. Motives remains `needs_changes`, following the full archived `REV-FIX-RT-AREA-iwasawa-3~3` review. Preserve its canonical coefficient-map gap and proved polynomial-to-Laurent evaluation-at-one distinguishing example; relative Beck preservation/adapter, typed reconstruction-carrier, fifteen API and four theorem prototype obligations remain separate revision work. A0-extension, SchemeAndStackFoundations, Anabelian and Néron retain their accepted bounded verdicts. The complete 32-finding ledger and validation provenance are in the [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md).
 
 ## Adic's two prose replacements
 

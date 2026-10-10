@@ -6775,7 +6775,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-10",
-    "notes": "Codex (GPT-6), session codex-uc4o8L: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full in reviewHistory. Findings /21 and /23: geometric component counts were independently checked against Tate section 6, printed p.46, and remain separate from component-group orders and rational Tamagawa factors. The criterion supplier request retains excellent-DVR/residue-field restrictions and the node-level cycle qualification. The resolution gap remains open. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers. Mathematical fields, prior histories and supplier requests are preserved; this review claims no formalisation or proof closure."
+    "notes": "Codex (GPT-6), session codex-f0fT1p: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (Codex (GPT-6), session codex-uc4o8L), archived in full and unchanged in reviewHistory. Findings /21 and /23: geometric component counts remain separate from component-group orders and rational Tamagawa factors. The Tate section 6, p.46 source reading remains attributed to the predecessor. The curve-Jacobian criterion retains excellent-DVR and residue-field restrictions and its node-level cycle qualification. The resolution gap remains open. No mathematical correction was necessary. Fresh exact-pin packet validation passes. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers; their hashes were freshly compared. Mathematical fields, previous histories and supplier requests are preserved. No formalisation or proof closure is claimed."
   },
   "reviewHistory": [
     {
@@ -7305,6 +7305,12 @@
       "date": "2026-10-10",
       "session": "codex-XnOZ0w",
       "notes": "Codex (GPT-6), session codex-XnOZ0w: independent bounded area-fix review following the entire preceding codex-X15WW9 review, preserved unchanged in reviewHistory. Findings /21 and /23: fresh inspection of Tate Section 6 p.46 confirms the geometric component counts: I0/I1/II give 1; positive I_n gives n; III/IV give 2/3; I0* gives 5; positive I_n* gives n+5; IV*/III*/II* give 7/8/9. This row is distinct from component groups and rational Tamagawa factors. G-Kodaira-resolution remains open. The curve/Jacobian criterion preserves excellent-DVR/residue-field hypotheses and its node-level cycle caution. Current StableReduction J-E already includes the prime-to-characteristic finite-etale torsion contract. Pinned-index packet validation has zero errors and warnings. Every mathematical field and supplier request is unchanged. The current Suggested hash matches its inherited full-file Lean receipt; no new run of this unchanged file is claimed. Acceptance concerns the area fixes and exact requests. Full blueprint/source audits and proof closure are not recertified. See the report for fresh versus inherited evidence and the remaining dispatch scope."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "notes": "Codex (GPT-6), session codex-uc4o8L: bounded independent round-2 area-fix review following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2, archived in full in reviewHistory. Findings /21 and /23: geometric component counts were independently checked against Tate section 6, printed p.46, and remain separate from component-group orders and rational Tamagawa factors. The criterion supplier request retains excellent-DVR/residue-field restrictions and the node-level cycle qualification. The resolution gap remains open. Complete earlier node/source/library audits and unchanged Lean receipts remain attributed to their preceding reviewers. Mathematical fields, prior histories and supplier requests are preserved; this review claims no formalisation or proof closure."
     }
   ]
 }
