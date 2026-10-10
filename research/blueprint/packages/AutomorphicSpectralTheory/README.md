@@ -1,35 +1,35 @@
 # Automorphic spectral theory and trace distributions
 
-Construct automorphic L² decomposition, Eisenstein packets, weighted cohomology and trace distributions, tested by modular kernels and unramified function-field GLₙ formulas.
+Construct automorphic L² decompositions, Eisenstein packets, weighted cohomology and trace distributions, with modular-kernel and function-field GLₙ tests.
 
 ## Scope and prerequisites
 
-Use **SelfAdjointSpectralTheory** for projection measures, Borel calculus and self-adjoint partial operators, **OperatorIdeals** for Schatten/Hilbert–Schmidt theory, and **CompactGroups** for Peter–Weyl and compact kernels. Add measurable multiplicities, direct integrals, L² kernels and complex trace with native `LinearPMap` adjoints/resolvents; noncompact groups need smoothing estimates.
+Use **SelfAdjointSpectralTheory** for projection measures, Borel calculus and partial operators, **OperatorIdeals** for Schatten/Hilbert–Schmidt theory, and **CompactGroups** for Peter–Weyl. Add multiplicities, direct integrals, L² kernels and trace, using native `LinearPMap` adjoints/resolvents and noncompact smoothing.
 
-Use **AdelicAlgebraicGroups** AA.0–AA.3 for adelic topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** for local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 for Hecke algebras, normalized induction, admissibility and spherical data. Add rational global Bruhat indexing and analytic intertwiner estimates.
+Use **AdelicAlgebraicGroups** AA.0–AA.3 for topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** for local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 for Hecke algebras, induction, admissibility and spherical data. Add rational Bruhat indexing and analytic intertwiner estimates.
 
-Use **AutomorphicFormsOnReductiveGroups** AF.0–AF.3 for adelic functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 for cohomology comparison; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 for Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. Extend this for GL×classical, exterior/symmetric and Asai factors.
+Use **AutomorphicFormsOnReductiveGroups** AF.0–AF.3 for functions, real representations, restricted tensors, constant terms and cusp data; **ArithmeticLocallySymmetricSpaces** ALS.5 for cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 for Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. Add GL×classical, exterior/symmetric and Asai factors.
 
-Stabilization, endoscopy and Galois applications consume this theory. Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications.
+Stabilization, endoscopy and Galois applications use this theory. Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications.
 
 ## Conventions and order
 
-Hilbert spaces are complete and complex, with conjugate-first inner products. Direct-integral sections have a countable fundamental sequence and agree almost everywhere. Projection measures are strongly countably additive. Trace requires trace class; diagonal kernels require a specified representative or factorization.
+Complex Hilbert spaces are complete; inner products conjugate the first variable. Direct-integral sections use countable fundamental sequences and almost-everywhere equality. Projection measures are strongly countably additive. Trace requires trace class; kernel diagonals require a representative or factorization.
 
-Induction uses δ_P^(1/2), or a^(ν+ρ_P), and AA.0/AA.2 quotient measures. Weyl denominators, covolumes and stabilizer cardinalities are explicit. The spectral resolvent (A−zI)⁻¹ is minus the native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
+Induction uses δ_P^(1/2)=a^ρ_P and AA.0/AA.2 quotient measures. Record Weyl denominators, covolumes and stabilizer orders. The spectral resolvent (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
 Yu, DIT and Gross–Zagier targets/tests use Y, D and G respectively:
 
 - **Y:** F=𝔽_q(X), X smooth, projective and geometrically connected; n>0; everywhere-unramified GLₙ data, except general compact-group assertions. Probability Haar is normalized on the entire character group: with r components each has mass 1/r. The degree sign and half-modulus convention are fixed; gcd(e,n)=1 is imposed only where stated.
-- **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix). Displayed index, sign, parameter and boundary restrictions are hypotheses.
-- **G:** Gross–Zagier uses Δ_GZ=+y²(∂x²+∂y²). Positive-base powers use the real logarithm; displayed frequency, parameter and off-orbit restrictions and measure normalizations are hypotheses.
+- **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix); retain displayed index, sign, parameter and boundary restrictions.
+- **G:** Gross–Zagier uses Δ_GZ=+y²(∂x²+∂y²). Positive-base powers use real logarithms; retain displayed frequency, parameter, off-orbit and measure restrictions.
 
 For F=y^(k/2)f, the coefficient and unitary-weight operators satisfy
 Δ_classical f=y^(−k/2)(Δ_unitary F+(k²/4−k/2)F); at k=1/2 the shift is −3/16. Green sums use Γ₀(N)/{±I}, whereas Eisenstein sums use Γ_∞\Γ.
 
-Build AS.0, AS.1–AS.2, AS.3, AS.4 in order; AS.5 adds AF/ALS cochains. AS.6's local Paley–Wiener/multiplier prefix uses AS.0 and AF.1: general Levi SF compact pictures, K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent quotient-centralizer orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores need oriented quadratic cycles with genus-character signs.
+Build AS.0–AS.4 in order; AS.5 adds AF/ALS cochains. AS.6's local Paley–Wiener/multiplier prefix uses AS.0 and AF.1: general Levi SF compact pictures, K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent orbital integrals on centralizer quotients, pseudo-coefficients and finite-place Bernstein trace images. Modular cores need oriented quadratic cycles with genus signs.
 
-Names extend `TauCeti.AutomorphicSpectral`; API/test leaves extend their target. AS.k.j labels targets; AA/SR/AF/AL/ALS suppliers; B library; S bibliography.
+Names extend `TauCeti.AutomorphicSpectral`; API/tests extend targets. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
 
 `SpecialFunctions` is a consumer comparison interface. I/J agree with QM.2's principal-power regularized ₀F̃₁ formulas, with arguments +y²/4 and −y²/4 respectively; K agrees with AL.0's Mellin integral; Λ agrees with Mathlib `completedRiemannZeta`. Require these equations for the supplied functions. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10); the named suppliers own these functions.
 
@@ -799,15 +799,15 @@ Uses: `AA.2/log-height`; `AA.2/modulus-character`; `AA.2/automorphic-quotient-me
 
 `eisenstein_series`
 
-For φ∈H_P⁰ and Re λ−ρ_P in the open positive chamber, define E_P(g,φ,λ)=Σ_{δ∈P(F)\G(F)}φ(δg)exp((λ+ρ_P)H_P(δg)). The sum uses the full rational coset space, is independent of representatives, and is linear in φ. It defines an automorphic smooth function, with right equivariance E(g,I_P(λ,h)φ,λ)=E(gh,φ,λ). Parameter continuation is a separate AS.2 result.
+For φ∈H_P⁰, define E_P(g,φ,λ)=Σ_{δ∈P(F)\G(F)}φ(δg)exp((λ+ρ_P)H_P(δg)). It is smooth and automorphic in the positive chamber, independent of representatives; AS.2 gives continuation.
 
-Assume: Re(λ−ρ_P)(α∨)>0 for every simple root of P; φ is smooth K-finite finite-level discrete inducing data.
+Assume: Re(λ−ρ_P)(α∨)>0 for every simple root; φ is smooth K-finite finite-level discrete inducing data; the sum ranges over all rational cosets.
 
 API:
 
-- `linear`: E_P is complex linear in the inducing vector.
-- `automorphic`: E_P(γg,φ,λ)=E_P(g,φ,λ) for γ∈G(F).
-- `right_equivariant`: E(g,I_P(λ,h)φ,λ)=E(gh,φ,λ).
+- `linear`: E_P(aφ+bψ)=aE_P(φ)+bE_P(ψ). Require summable φ and ψ summands, supplied by chamber convergence.
+- `automorphic`: E_P(γg,φ,λ)=E_P(g,φ,λ), γ∈G(F). The adapter requires a coset permutation preserving translated height and inducing value.
+- `right_equivariant`: E(g,I_P(λ,h)φ,λ)=E(gh,φ,λ), using normalized induction’s pointwise weighted-translation identity.
 
 Tests:
 
@@ -815,7 +815,9 @@ Tests:
 - `zero`: E(g,0,λ)=0.
 - `sl2_positive`: For Γ=SL₂(ℤ), the spherical section gives Σ_{Γ∞\Γ}Im(γz)^s for Re s>1, with λ=s−1/2.
 
-Source: S3, §7 equation (7.1) and Lemma 7.1, pp.32–35.
+Additional checks: height zero and φ(n)=n give a one-term integer slice changing from 0 to 1 under translation. The two-element orbit sums to v on both translates; swapping representatives supplies covariance.
+
+Source: S3, §7 (7.1), p.33; Lemma 7.1, p.34.
 
 Uses: AS.1.1; `AA.3/siegel-covering-adelic`.
 

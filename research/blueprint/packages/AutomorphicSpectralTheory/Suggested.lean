@@ -1665,23 +1665,53 @@ example (f : Lp ℂ 2 (volume : Measure ℝ)) (hf : f ≠ 0) :
 end induced_family
 
 variable {J : Type w} [Countable J]
-/-- `representative` is the imported rational-coset section. -/
+/-- Numerical weighted sum; the automorphic application supplies the full rational-coset section. -/
 def eisenstein_series (representative : J → G) (lam : Parameter ι)
     (v : D.space.Carrier) (g : G) : ℂ :=
   ∑' j, D.evaluate v (representative j * g) *
     Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height (representative j * g)))
 namespace eisenstein_series
-/-- All sum identities require the chamber and finite-vector hypotheses of the reader.
-The abstract chamber predicate is omitted until the root interface is available. -/
-theorem linear (r : J → G) (lam : Parameter ι) (u v : D.space.Carrier) (a b : ℂ) (g : G) :
+omit [Countable J] in
+/-- Chamber convergence supplies these two native summability hypotheses. -/
+theorem linear (r : J → G) (lam : Parameter ι) (u v : D.space.Carrier) (a b : ℂ) (g : G)
+    (hu : Summable (fun j => D.evaluate u (r j * g) *
+      Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height (r j * g)))))
+    (hv : Summable (fun j => D.evaluate v (r j * g) *
+      Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height (r j * g))))) :
     eisenstein_series D r lam (a • u + b • v) g =
-      a * eisenstein_series D r lam u g + b * eisenstein_series D r lam v g := by sorry
+      a * eisenstein_series D r lam u g + b * eisenstein_series D r lam v g := by
+  unfold eisenstein_series
+  simp_rw [map_add, map_smul, Pi.add_apply, Pi.smul_apply, smul_eq_mul,
+    add_mul, mul_assoc]
+  rw [(hu.mul_left a).tsum_add (hv.mul_left b), tsum_mul_left, tsum_mul_left]
 
-theorem automorphic (r : J → G) (lam : Parameter ι) (v : D.space.Carrier) (γ g : G) :
-    eisenstein_series D r lam v (γ * g) = eisenstein_series D r lam v g := by sorry
+omit [Countable J] in
+/-- Rational-coset reindexing and representative covariance supply these equalities. -/
+theorem automorphic (r : J → G) (lam : Parameter ι) (v : D.space.Carrier)
+    (γ g : G) (e : J ≃ J)
+    (hheight : ∀ j, D.height (r j * γ * g) = D.height (r (e j) * g))
+    (heval : ∀ j, D.evaluate v (r j * γ * g) = D.evaluate v (r (e j) * g)) :
+    eisenstein_series D r lam v (γ * g) = eisenstein_series D r lam v g := by
+  unfold eisenstein_series
+  simp_rw [← mul_assoc, hheight, heval]
+  exact e.tsum_eq (fun j => D.evaluate v (r j * g) *
+    Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height (r j * g))))
 
-theorem right_equivariant (r : J → G) (lam : Parameter ι) (v : D.space.Carrier) (g h : G) :
-    eisenstein_series D r lam (induced_family D lam h v) g = eisenstein_series D r lam v (g * h) := by sorry
+omit [Countable J] in
+/-- The normalized inducing action must supply weighted pointwise translation. -/
+theorem right_equivariant (r : J → G) (lam : Parameter ι)
+    (v : D.space.Carrier) (g h : G)
+    (htranslate : ∀ x,
+      D.evaluate (induced_family D lam h v) x *
+        Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height x)) =
+      D.evaluate v (x * h) *
+        Complex.exp (Pairing (lam + fun i => (D.rho i : ℂ)) (D.height (x * h)))) :
+    eisenstein_series D r lam (induced_family D lam h v) g =
+      eisenstein_series D r lam v (g * h) := by
+  unfold eisenstein_series
+  apply tsum_congr
+  intro j
+  simpa only [mul_assoc] using htranslate (r j * g)
 
 theorem whole_group (v : D.space.Carrier) (g : G) (hρ : D.rho = 0)
     (hH : D.height = 0) :
@@ -1699,6 +1729,63 @@ theorem zero (r : J → G) (lam : Parameter ι) (g : G) : eisenstein_series D r 
 -- Specification test: TauCeti.AutomorphicSpectral.eisenstein_series.zero
 -- E(g,0,λ)=0.
 example (r : J → G) (lam : Parameter ι) (g : G) : eisenstein_series D r lam 0 g = 0 := by sorry
+
+/-- The list containing only the identity of the integer group is incomplete.
+Its weighted sum need not be invariant under translation. -/
+private def integerSlice : InductionData (Multiplicative ℤ) Unit where
+  space := ⟨ℂ, inferInstance, inferInstance, inferInstance⟩
+  evaluate :=
+    { toFun := fun v g => ((Multiplicative.toAdd g : ℤ) : ℂ) * v
+      map_add' := by intros; ext; simp [mul_add]
+      map_smul' := by intros; ext; simp [mul_left_comm] }
+  height := fun _ _ => 0
+  rho := fun _ => 0
+
+@[simp] private theorem integerSlice_evaluate (v : ℂ) (g : Multiplicative ℤ) :
+    integerSlice.evaluate v g = ((Multiplicative.toAdd g : ℤ) : ℂ) * v := rfl
+
+/-- An incomplete one-element representative list changes value under translation. -/
+example :
+    eisenstein_series integerSlice (fun _ : Unit => 1) 0 (1 : ℂ)
+      (Multiplicative.ofAdd (1 : ℤ) * 1) = 1 ∧
+    eisenstein_series integerSlice (fun _ : Unit => 1) 0 (1 : ℂ) 1 = 0 := by
+  simp [eisenstein_series, Pairing, show integerSlice.height = 0 from rfl,
+    show integerSlice.rho = 0 from rfl]
+
+private def paritySlice : InductionData (Multiplicative (ZMod 2)) Unit where
+  space := ⟨ℂ, inferInstance, inferInstance, inferInstance⟩
+  evaluate :=
+    { toFun := fun v g => if Multiplicative.toAdd g = 0 then v else 0
+      map_add' := by intros; ext g; split_ifs <;> simp_all
+      map_smul' := by intros; ext g; split_ifs <;> simp_all }
+  height := fun _ _ => 0
+  rho := fun _ => 0
+
+@[simp] private theorem paritySlice_evaluate (v : ℂ) (g : Multiplicative (ZMod 2)) :
+    paritySlice.evaluate v g = (if Multiplicative.toAdd g = 0 then v else 0) := rfl
+
+/-- The full two-element orbit has value v both before and after translation. -/
+example (v : ℂ) :
+    eisenstein_series paritySlice (fun j : Fin 2 => Multiplicative.ofAdd (j.val : ZMod 2))
+      0 v (Multiplicative.ofAdd (1 : ZMod 2)) = v ∧
+    eisenstein_series paritySlice (fun j : Fin 2 => Multiplicative.ofAdd (j.val : ZMod 2))
+      0 v 1 = v := by
+  norm_num [eisenstein_series, Pairing, show paritySlice.height = 0 from rfl,
+    show paritySlice.rho = 0 from rfl, tsum_fintype, Fin.sum_univ_two, show (2 : ZMod 2) = 0 from rfl]
+  all_goals simp only [show (2 : ZMod 2) = 0 from rfl, not_true_eq_false, false_implies]
+
+/-- The swap of the two representatives supplies automorphy through the adapter. -/
+example (v : ℂ) :
+    eisenstein_series paritySlice (fun j : Fin 2 => Multiplicative.ofAdd (j.val : ZMod 2))
+      0 v (Multiplicative.ofAdd (1 : ZMod 2) * 1) =
+    eisenstein_series paritySlice (fun j : Fin 2 => Multiplicative.ofAdd (j.val : ZMod 2))
+      0 v 1 := by
+  apply automorphic paritySlice _ 0 v _ 1 (Equiv.swap 0 1)
+  · intro j
+    rfl
+  · intro j
+    fin_cases j <;> norm_num [Equiv.swap_apply_def, show (2 : ZMod 2) = 0 from rfl]
+    all_goals simp only [show (2 : ZMod 2) = 0 from rfl, not_true_eq_false, false_implies]
 
 end eisenstein_series
 
