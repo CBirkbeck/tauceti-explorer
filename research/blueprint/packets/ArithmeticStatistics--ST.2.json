@@ -6,7 +6,7 @@
     "ArithmeticStatistics:ST.2"
   ],
   "status": "complete",
-  "summary": "Additive target-level planning of arithmetic orbit counts, discriminant tail estimates, Selmer-model sieves and coefficient-space local solubility. Accepted parent counts and ST.1 parametrizations remain imports. Uniformity, source corrections and absent native interfaces are explicit obligations; no implementation is claimed.",
+  "summary": "Additive target-level planning of arithmetic orbit counts, discriminant tail estimates, Selmer-model sieves and coefficient-space local solubility. Accepted parent counts and ST.1 parametrizations remain imports. Uniformity, source corrections and absent native interfaces are explicit obligations; no implementation is claimed. Independent review corrected finite CRT densities, global stabilizer-weight/norm-shell/quadratic conventions, native genus-one groups and the degree-five factor 1/5, smoothed real-component support and general binary tail truncation. All51 nodes and 10 pinned declarations were checked; source findings are version-scoped and conditional repair targets remain open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -15,61 +15,61 @@
         "ref": "mathlib:Set.ncard",
         "module": "Mathlib/Data/Set/Card.lean",
         "provides": "Natural cardinal, used only after finiteness; infinite sets have ncard zero and cannot represent a count without that obligation.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Set.ncard_eq_toFinset_card",
         "module": "Mathlib/Data/Set/Card.lean",
         "provides": "Equality of finite-set ncard and its converted Finset cardinal.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:MulAction.orbitRel",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The native orbit equivalence relation for a group action, used to form the counted quotient.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Asymptotics.IsBigOWith",
         "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
         "provides": "Eventually bounded norms at a filter with a specified constant; does not automatically give uniformity in an extra parameter.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Asymptotics.IsLittleO",
         "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
         "provides": "Arbitrarily small positive norm multiplier, used at the height-at-infinity filter.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Polynomial.discr",
         "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
         "provides": "Signed Sylvester discriminant at the actual polynomial degree; fixed-degree binary-form discriminants remain the ST.1 import.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "tauceti:Polynomial.Monic.discr_ne_zero_iff",
         "module": "TauCeti/RingTheory/Polynomial/Resultant/Discriminant.lean",
         "provides": "For a monic polynomial over a field, nonzero discriminant is equivalent to separability. Over Z the nonzero assertion alone is insufficient.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit f790474821cf4256814db967cb154e7af3d0c369 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:hensels_lemma",
         "module": "Mathlib/NumberTheory/Padics/Hensel.lean",
         "provides": "For F over an algebra mapping to p-adic integers and ||F(a)||<||F′(a)||², produces a unique close root with unchanged derivative norm.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Nat.divisors",
         "module": "Mathlib/NumberTheory/Divisors.lean",
-        "provides": "Finite positive divisors, explicitly defined within [1,n+1); divisors of0 is empty, matching the deliberate removed-zero convention.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "provides": "Finite positive divisors, explicitly defined within [1,n+1); divisors of 0 is empty, matching the deliberate removed-zero convention.",
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       },
       {
         "ref": "mathlib:Squarefree",
         "module": "Mathlib/Algebra/Squarefree/Basic.lean",
-        "provides": "Every square divisor has a unit root; used on positive natural moduli, including the squarefree unit1.",
-        "checked": "Declaration and hypotheses read in the shared pinned Lean build sources on 2026-10-10; checked against elaboration where used. Current read-only Tau Ceti additions are recorded separately."
+        "provides": "Every square divisor has a unit root; used on positive natural moduli, including the squarefree unit 1.",
+        "checked": "Independent review REV-ArithmeticStatistics--ST.2: declaration and full hypotheses read with git show at commit 082e2d37e8b0463410cdb532e111cd43d5a66174 in the cited module on 2026-10-10; original suggested file elaborated at the pinned shared build. Current-library additions are kept separate."
       }
     ]
   },
@@ -94,7 +94,7 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n3-p02-p.pdf",
       "sha256": "3164388a71dbeb727a63ed065efb00902f85c59824ab93f04cc661158d4f8ee3",
       "readSections": [
-        "§2.7 Theorems 17–18 pp.1585–1587; Lemma 14 and its finite splitting-type sieve; §3.1 Proposition 19 pp.1587–1589"
+        "Lemma 14 pp.1584–1585; Theorems 17–18 pp.1585–1586; Proposition 19 and proof pp.1586–1588"
       ],
       "accessed": "2026-10-10"
     },
@@ -106,7 +106,7 @@
       "url": "https://arxiv.org/pdf/1005.0672v3",
       "sha256": "d45b16cdb6b34655634f4305416ad68083d6e6e5674907aefc85a30ac8937f74",
       "readSections": [
-        "Theorems 5–8 pp.2–3; §5 main-term and lattice estimates; §6 Theorem 27 pp.19–20; §8 switching identities pp.25–27. Full second-term smoothing and optimization are input obligations."
+        "Theorem 7 p.3; Theorem 27, smoothing and Remark 3 pp.19–20; §9.1 switching identities pp.27–28; §9.2 three-range setup p.29; §9.7 proof pp.35–36. The complete optimization and translated-lattice coefficient derivation remain G-secondary."
       ],
       "accessed": "2026-10-10"
     },
@@ -118,7 +118,7 @@
       "url": "https://arxiv.org/pdf/1512.03035v2",
       "sha256": "f913019717d4605d7b8550e484e5edb0e9dafcbe79c083e0b941fb7cb54591ac",
       "readSections": [
-        "§§4.4–4.7 generic/main-body estimates, Theorems 4.6–4.7; §5 Theorems 5.1–5.3 and strong/weak tail argument"
+        "Count conventions §4.1; generic/main-body arguments §§4.4–4.6; Theorem 4.7 p.18; Theorems 5.1–5.3 and full tail proof pp.18–21; affine quadratic representation and counting §§9.1–9.4 pp.25–28"
       ],
       "accessed": "2026-10-10"
     },
@@ -130,7 +130,7 @@
       "url": "https://arxiv.org/pdf/1402.0031",
       "sha256": "f7bbd98a2382e170df8f0d4279332a25541f47ba56df1b59879a36c004078c66",
       "readSections": [
-        "§2 conditions1–6 and Theorem 2.1 pp.8–9; full proof §3.4 pp.14–17; selected representation list pp.4–5. Application-specific verification remains an obligation."
+        "Genus-one representation list p.6; conditions (1)–(6) p.8 and Theorem 2.1 p.9; full criterion proof §3.4 pp.14–18. Each application must independently verify the six hypotheses."
       ],
       "accessed": "2026-10-10"
     },
@@ -142,7 +142,7 @@
       "url": "https://arxiv.org/pdf/1310.7692v2",
       "sha256": "8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2",
       "readSections": [
-        "§§10–12 Theorem 36, Definition 37, Theorem 38, Definition 39 and Proposition 42 pp.29–33"
+        "Real components §§10–11 pp.28–29; Theorem 36 pp.29–30; Definition 37 and Theorem 38 pp.30–31; Definition 39 pp.31–32 and Proposition 42 pp.32–33"
       ],
       "accessed": "2026-10-10"
     },
@@ -154,7 +154,7 @@
       "url": "https://arxiv.org/pdf/1611.09806v3",
       "sha256": "6a7252706b283de3f1ee254fe6b56fd76e215f789550346aba12861dfd02af83",
       "readSections": [
-        "Theorem 1.5; §§2.3–2.4 and 3.3–3.4 torus weights, cusp and distinguished counts; §4 including Lemma 4.2, Proposition 4.3, Theorems 4.1 and 4.4"
+        "Theorem 1.5 pp.3–4; orthogonal torus weights and cusp counts §§2.3–2.4 pp.12–14 and §§3.3–3.4 pp.17–20; kappa-acceptability and Theorem 4.1 pp.20–21; Lemma 4.2 p.21, Proposition 4.3 pp.21–22, Theorem 4.4 pp.22–23 and (41) p.23"
       ],
       "accessed": "2026-10-10"
     },
@@ -166,7 +166,7 @@
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FD680BEF350C0140B682AB604D45F415/S2050508625000095a.pdf/squarefree-values-of-polynomial-discriminants-ii.pdf",
       "sha256": "b6e5d1701f487b813e9d6a0b26f9b8671c02c414996298cbba71fe5060e90740",
       "readSections": [
-        "Theorem 5; §4 odd-degree main/shallow/deep estimates; §5 symmetric-rank estimate; §6 even-degree reductions, Theorems 6.6,6.11,6.24, Lemma 6.25 and Proposition 6.26; §6.4 Corollary 6.27; §7 Theorem 7.1"
+        "Theorems 5–6 pp.3–4; odd estimates Theorem 4.2 and Propositions 4.4–4.8 pp.17–20; symmetric-rank theorem/row-lattice definitions pp.21–25; Lemmas 6.1–6.2 pp.25–26; main/shallow Theorems 6.6/6.11 pp.29–38; Theorem 6.24, Lemma 6.25 and Proposition 6.26 pp.44–49; Corollary 6.27 p.51 and full Theorem 7.1 proof pp.51–52. Even repair targets remain conditional."
       ],
       "accessed": "2026-10-10"
     },
@@ -178,7 +178,7 @@
       "url": "https://math.mit.edu/~poonen/papers/random.pdf",
       "sha256": "e4ec66ff04e6b6bf86f08bd66756e415c6e6be884cf1d49fa36d9428c4199045",
       "readSections": [
-        "§1 coefficient-box conventions and primitive restriction; Theorem 3.6 and its proof pp.3–4"
+        "Coefficient conventions §1 pp.1–2; primitive restriction Remark 2.1 p.2; Theorem 3.6 and full proof p.3; number-field variant §4 p.4. The Euclidean-ball adaptation is a separate obligation."
       ],
       "accessed": "2026-10-10"
     },
@@ -202,7 +202,7 @@
       "url": "https://arxiv.org/pdf/1007.0052v2",
       "sha256": "317479d621b376ef3ca769a8cf1e7bb3d1b8babefcc726f7e2a9e761b8617108",
       "readSections": [
-        "Theorem 8 pp.2–3 and invariant conventions; §2.7 Proposition 25 and Lemma 26, weighted acceptable sieve Theorem 24"
+        "Theorem 8 pp.2–3; finite congruence Theorems 17–18 p.11; invariant normalization p.12; acceptable weighted count Theorem 24 and Proposition 25/Lemma 26 pp.13–14"
       ],
       "accessed": "2026-10-10"
     },
@@ -214,7 +214,7 @@
       "url": "https://arxiv.org/pdf/1312.7333v1",
       "sha256": "1fe01e72dc60658ed51ffecef6ffb6a83818449a0d813fb24c480de678562c35",
       "readSections": [
-        "§3.3 (17) pp.13–14; §3.4 Theorems 19–20; §3.5 Theorems 22–23 and weak-to-strong map"
+        "Native group (3) p.4; (17) and finite weights Theorems 19–20 pp.13–14; Lemma 16 main-body exclusions p.15; prime tail Theorem 23 and fibre Lemma 24 pp.16–17"
       ],
       "accessed": "2026-10-10"
     },
@@ -226,7 +226,7 @@
       "url": "https://arxiv.org/pdf/1312.7859v1",
       "sha256": "0fad7f4eab6ade59ca50ddc1f12fb6f50126b5eca204a9fef650649b3203fd6d",
       "readSections": [
-        "Theorem 12; §3 cusp and nongeneric estimates Propositions 18,22; finite weights Theorems 25–26; Theorem 27, Lemma 28 and Theorem 29"
+        "Native group (2) p.5; Theorem 12 p.7; real stabilizer §3.1; Propositions 18/22 cusp and nongeneric exclusions; Proposition 24/(18) and finite weights Theorems 25–26 pp.17–18; tail Theorem 27, Lemma 28 and acceptable Theorem 29 pp.18–20"
       ],
       "accessed": "2026-10-10"
     },
@@ -238,7 +238,7 @@
       "url": "https://arxiv.org/pdf/2110.09063v1",
       "sha256": "8f568036291bd251d8598770fa956ec7893675b348259eca1bc5326618ff6be0",
       "readSections": [
-        "§5 Theorem 5.1 smoothing; §6.3 Theorem 6.3; §7 Theorem 7.1 unfolding and Theorem 7.7. Global moment conclusion belongs to ST.5."
+        "Coregular setup and transporter smoothing §5 pp.23–24; full unfolding Theorem 5.1 pp.24–25; acceptability and Theorem 6.3 p.30, proof pp.38–39. The global moment conclusion is outside ST.2."
       ],
       "accessed": "2026-10-10"
     },
@@ -264,7 +264,7 @@
       ],
       "title": "Quartic pair counts with finite local conditions",
       "kind": "theorem",
-      "statement": "For integral pairs of ternary quadratic forms in a G_Z-invariant union S of finitely many residue classes, count absolutely irreducible orbits with 0<|Disc|<X in real signature i=0,1,2. Then N_i(S;X)=C_i X product_p mu_p(S)+o_S(X), with normalized coefficient Haar measures, C_i=zeta(2)^2 zeta(3)/(2 n_i) and (n_0,n_1,n_2)=(24,4,8). Absolutely irreducible means the quartic field has S4 closure. This is not an all-etale-orbit count.",
+      "statement": "For integral pairs of ternary quadratic forms in a G_Z-invariant union S of finitely many residue classes, count absolutely irreducible orbits with 0<|Disc|<X in real signature i=0,1,2. Then N_i(S;X)=C_i X nu(S)+o_S(X), with normalized coefficient Haar measures, C_i=zeta(2)^2 zeta(3)/(2 n_i) and (n_0,n_1,n_2)=(24,4,8). Absolutely irreducible means the quartic field has S4 closure. This is not an all-etale-orbit count. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S).",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -274,7 +274,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/pairs-of-ternary-quadratic-forms",
@@ -285,7 +286,7 @@
         {
           "sourceId": "quartic",
           "locator": "Theorem 22 and (32), pp.1054–1055",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Quartic Theorem 22/(32) gives the stated signature constants and S4 locus; corrected the finite coefficient to actual CRT density."
         }
       ],
       "implementationStatus": "unchecked",
@@ -325,7 +326,7 @@
         {
           "sourceId": "quartic",
           "locator": "Lemma 12 and proof, pp.1044–1046",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Lemma 12 supplies the fixed-resolvent route; the epsilon loss and unread Nakagawa/Baily/genus inputs remain explicit G-quartic obligations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -365,7 +366,7 @@
         {
           "sourceId": "quartic",
           "locator": "Proposition 23, pp.1056–1058",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Proposition 23 bounds nonmaximal/overramified S4 orbits uniformly by X/p^2. The non-S4 transport and acyclic class-mass inputs remain G-quartic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -384,7 +385,7 @@
       ],
       "title": "Quintic counts with finite local conditions",
       "kind": "theorem",
-      "statement": "For G_Z-invariant finite congruence conditions S on integral quadruples of quinary alternating forms, count irreducible quintic-field orbits of signature i=0,1,2 and 0<|Disc|<X. Then N_i(S;X)=C_i X product_p mu_p(S)+o_S(X), where C_i=zeta(2)^2 zeta(3)^2 zeta(4)^2 zeta(5)/(2 n_i), (n_i)=(120,12,8). The same main term holds for S5 orbits.",
+      "statement": "For G_Z-invariant finite congruence conditions S on integral quadruples of quinary alternating forms, count irreducible quintic-field orbits of signature i=0,1,2 and 0<|Disc|<X. Then N_i(S;X)=C_i X nu(S)+o_S(X), where C_i=zeta(2)^2 zeta(3)^2 zeta(4)^2 zeta(5)/(2 n_i), (n_i)=(120,12,8). The same main term holds for S5 orbits. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S).",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -394,7 +395,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/quadruples-of-quinary-alternating-forms",
@@ -404,8 +406,8 @@
       "sources": [
         {
           "sourceId": "quintic",
-          "locator": "Theorems 17–18, §2.7, pp.1585–1587",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorems 17–18, §2.7, pp.1585–1586; Lemma 14, pp.1584–1585",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Quintic Theorems 17–18 give the 40-dimensional constants and irreducible/S5 distinction; corrected pages and finite CRT coefficient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -443,8 +445,8 @@
       "sources": [
         {
           "sourceId": "quintic",
-          "locator": "Proposition 19, §3.1, pp.1587–1589",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Proposition 19, §3.1, pp.1586–1588",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Proposition 19 is pp.1586–1588. The uniform Brakenhoff and content/resolvent inputs are honestly recorded in G-quintic."
         }
       ],
       "implementationStatus": "unchecked",
@@ -463,13 +465,14 @@
       ],
       "title": "Global-field finite-condition orbit count",
       "kind": "theorem",
-      "statement": "Fix a global field F, nonempty finite S containing all archimedean places, n in {2,3,4,5}, the representation G_n,V_n of Global Fields I, and local type sigma at S. For an arithmetic Gamma and invariant lattice L commensurable with G_n(O_S),V_n(O_S), respectively, generic lattice orbits in the discriminant region F(X)v_sigma have count vol_L(F(X)v_sigma)/|Aut(sigma)|+o(X). Finite lattice congruence conditions insert their normalized local measures.",
+      "statement": "Fix a global field F, a nonempty finite S containing the archimedean places, and n in {2,3,4,5}. For n=3,4,5 use the representation G_n,V_n in Global Fields I Table 1. For n=2 use §9's affine representation V={x^2+a xy+b y^2}, with G={[[1,t],[0,lambda]]:lambda invertible} acting by change of variables; this model works also in characteristic two and at places above 2. Fix an S-local type sigma. Let Gamma be commensurable with G(O_S), let L be commensurable with V(O_S), and require Gamma to preserve L. Let F_G be a fundamental domain for Gamma in G(F_S). The generic Gamma-orbit count, weighted by 1/|Stab_Gamma(v)|, is vol_L(F_G(X)v_sigma)/|Aut(sigma)|+o(X). Number-field height regions have 0<|Delta|_S<X; function-field regions have |Delta|_S=X, with X tending to infinity through admissible norm values. Additive volume is normalized by the coefficient lattice. An invariant finite congruence subset of L multiplies this main term by its actual finite residue density; independently imposed prime-power conditions factor that density. Generic means the S_n-field condition, not just nonzero Delta.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
         "Choose the S-arithmetic Siegel set and invariant bounded-height slice. Generic means the field/Galois-group condition in this representation, not merely nonzero discriminant.",
-        "Use the lattice estimate on a compact truncation, the coordinate cusp estimate and finite splitting-type sieve to discard nongeneric points. S-adic measure and reduction-theory interfaces are gap G-global."
+        "Use the lattice estimate on a compact truncation, the coordinate cusp estimate and finite splitting-type sieve to discard nongeneric points. S-adic measure and reduction-theory interfaces are gap G-global.",
+        "Keep weighted counts and the source function-field norm shells. For n=2 the bounded fundamental region and nonreductive Haar/Jacobian computation are §9.2 and §9.4 inputs; Table 1's G_m model cannot parametrize characteristic-two quadratic extensions."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -483,8 +486,8 @@
       "sources": [
         {
           "sourceId": "global",
-          "locator": "Theorems 4.6–4.7, §§4.4–4.7",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 4.7, §4.6, p.18; count convention §4.1; quadratic replacement §§9.1–9.4, pp.25–28",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Read global count conventions, Theorem 4.7 and §9. Corrected Gamma-stability, stabilizer weights, function-field norm shells, actual CRT density and the native all-characteristic quadratic model."
         }
       ],
       "implementationStatus": "unchecked",
@@ -503,13 +506,14 @@
       ],
       "title": "Global-field uniform tail estimate",
       "kind": "theorem",
-      "statement": "In the preceding fixed F,S,n,Gamma,L setting let W_p encode nonmaximal or more-than-minimally ramified rings at p outside S. Then sum_{N(p)>M} N(W_p;X)=O(X/(M log M))+o(X), for M>=2. The O constant is independent of M, and the negligible term can be chosen uniformly in M for the sieve conclusion.",
+      "statement": "For the fixed global field, S and native representation of the preceding count, first take the standard arithmetic lattice V(O_S) and group G(O_S). At each prime p outside S let W_p be the union of rings nonmaximal at p and rings with extra ramification there, in the intrinsic ring-theoretic sense of Global Fields I §5. Then sum_{N(p)>M} N(W_p;X)=O(X/(M log M))+o(X), for M>=2, using stabilizer-weighted generic orbit counts and the same number-field regions or function-field norm shells. The O constant is independent of M and the negligible term is uniform for the sieve limit. Extension to a fixed Gamma-stable commensurable lattice requires a finite-index/denominator comparison; it is recorded in G-global. For quadratic rings use the §9 model; there is no extra-ramification locus in that case. In characteristic two this is a maximality sieve, not an ordinary-discriminant squarefree sieve.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
-        "Use the S-adic codimension-two geometric sieve for the strong locus.",
-        "For the weak locus pass by a prime-dependent rational group element to finitely many ideal-class lattices, lower discriminant by a constant times N(p)^2, and bound orbit fibres by 10. Sum prime ideal norm reciprocals squared. Ideal-class and character-positive local charts are input obligations."
+        "The extra-ramification locus W_p^(2) reduces into a fixed codimension-two scheme; apply the S-arithmetic geometric sieve outside finitely many exceptional primes.",
+        "The nonmaximal but not extra-ramified locus W_p^(1) admits local maximalization, a discriminant decrease by N(p)^2, and at most 10 orbit preimages. Use the finite ideal-class lattices and sum prime-ideal reciprocal squares. These intrinsic loci are not the polynomial strong/weak partition in characteristic two.",
+        "For n=2 use the change-of-generator argument of §9.3: nonmaximality yields a in p and b in p^2 after a local group move. Record the separate group and fixed-lattice comparison adapters in G-global."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -523,8 +527,8 @@
       "sources": [
         {
           "sourceId": "global",
-          "locator": "Theorem 5.2 and its proof, §5",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorems 5.2–5.3 and proof, pp.19–21; quadratic maximal sieve §9.3, p.27",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Read the full Theorems 5.2–5.3 proof and §9.3. Corrected the intrinsic nonmaximal/extra-ramification partition, standard-lattice scope and separate commensurable comparison; polynomial squarefreeness is not used in characteristic two."
         }
       ],
       "implementationStatus": "unchecked",
@@ -543,7 +547,7 @@
       ],
       "title": "Global-field infinitely many local conditions",
       "kind": "theorem",
-      "statement": "For a Gamma-invariant large subset Z of L, with local compact factors Z_p of null boundary and containing every maximal minimally ramified ring at all sufficiently large p outside S, N(Z;X)=vol_L(F(X)v_sigma)/|Aut(sigma)| times product_{p notin S} vol(Z_p)+o(X). Use normalized local coefficient measures and the same generic orbits as the finite count.",
+      "statement": "In the Gamma-stable commensurable lattice setting above, write L_p for each local coefficient-lattice closure and normalize vol(L_p)=1. Let Z=L intersection intersection_{p outside S} Z_p, where the local compact Z_p are invariant under the local closure of Gamma, have null boundary, and contain every maximal minimally ramified ring for all sufficiently large p. With stabilizer-weighted generic orbits and the same function-field norm-shell convention, N(Z;X)=vol_L(F_G(X)v_sigma)/|Aut(sigma)| times product_{p outside S} vol(Z_p)+o(X). The factors are imposed independently; an arbitrary subset with these marginal closures is insufficient. The commensurable-lattice tail comparison and §9 quadratic model are explicit G-global obligations.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -563,8 +567,8 @@
       "sources": [
         {
           "sourceId": "global",
-          "locator": "Theorem 5.1 and proof, §5",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 5.1, pp.18–19; tail proof pp.19–21; quadratic specialization §§9.2–9.4, pp.27–28",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Read Theorem 5.1 and its finite truncation argument. Made independent local factorization, Gamma-local invariance, vol(L_p)=1, norm shells and the quadratic model explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -603,8 +607,8 @@
       "sources": [
         {
           "sourceId": "bst",
-          "locator": "Theorem 27 and Remark3, pp.19–20",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 27 and Remark 3, p.20; smoothing derivation pp.19–20",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 27/Remark 3 are p.20. Retained m^4<=X, T1^(-1/3)T2^(-1) secondary scaling and the separate translated coefficient; G-secondary keeps the full derivation open."
         }
       ],
       "implementationStatus": "unchecked",
@@ -644,8 +648,8 @@
       "sources": [
         {
           "sourceId": "bst",
-          "locator": "Theorem 7 pp.2–3; §8 switching identities (63)–(69), pp.25–27",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 7, p.3; §9.1 switching identities (63)–(71), pp.27–28; §9.7 proof, pp.35–36",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 7 is p.3; switching (63)–(71) is §9.1 pp.27–28 and its final local-product proof is §9.7 pp.35–36. Corrected section locators; the optimization is an explicit G-secondary obligation."
         }
       ],
       "implementationStatus": "unchecked",
@@ -669,7 +673,7 @@
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
-        "Use the finite positive divisor set of the nonzero invariant. Restrict its squarefree members by m>M and m^2 divisibility. The zero convention agrees with removal of the singular locus, not with the infinitely many actual square divisors of0."
+        "Use the finite positive divisor set of the nonzero invariant. Restrict its squarefree members by m>M and m^2 divisibility. The zero convention agrees with removal of the singular locus, not with the infinitely many actual square divisors of 0."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -685,7 +689,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Theorem 4.4 and (39), p.22; corrected nonzero domain",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The finite divisor-filter construction deliberately removes Delta=0, agrees with Nat.divisors and distinguishes union size from summed multiplicity. Three tests catch zero/unit/modulus mistakes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -764,8 +768,8 @@
       "sources": [
         {
           "sourceId": "bsw1",
-          "locator": "Definition preceding Theorem 4.1, p.20",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Definition of kappa-acceptability preceding Theorem 4.1, pp.20–21",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Kappa-acceptability is residue dependence plus the uniform eventual good-prime condition; parent product convergence remains separate. Corrected the definition pages to 20–21; all three tests and both API consequences are meaningful."
         }
       ],
       "implementationStatus": "unchecked",
@@ -841,7 +845,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Lemma 4.2, p.21",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Lemma 4.2 has the claimed weighted rational-root exponent. Its false pointwise divisor step is repaired by the requested average divisor sum and separately recorded as E-ST2-8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -866,7 +870,8 @@
       ],
       "proofSteps": [
         "Separate the rational-root case and other proper Galois-group subgroups.",
-        "Use a correctly normalized quantitative non-full-Galois-group estimate. For conjugate quadratic factors at n=4 the subgroup index can be3, giving22/3, which still suffices for the tail. The general weighted-box sieve input is requested, not supplied by qualitative Hilbert irreducibility."
+        "Use a correctly normalized quantitative non-full-Galois-group estimate. For conjugate quadratic factors at n=4 the subgroup index can be3, giving22/3, which still suffices for the tail. The general weighted-box sieve input is requested, not supplied by qualitative Hilbert irreducibility.",
+        "For even degree the conjugate-factor splitting group is contained in a wreath product of order 2((n/2)!)^2. Its index is 3 in degree 4 and 10 in degree 6; the latter already exceeds n and supplies the claimed non-quartic saving. Retain the subgroup index in the quantitative weighted-box estimate."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -881,7 +886,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Proposition 4.3, pp.21–22, with routed correction E7",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Corrected the wreath-product order to 2((n/2)!)^2 and retained the degree-four D4 index 3 exponent 22/3; degree 6 index 10 still supplies the other bound. The quantitative Galois sieve is a precise supplier request."
         }
       ],
       "implementationStatus": "unchecked",
@@ -920,8 +925,8 @@
       "sources": [
         {
           "sourceId": "bsw1",
-          "locator": "Propositions 2.5–2.6 and 3.4–3.5, §§2.3 and 3.3",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Propositions 2.5–2.6, p.13; Propositions 3.4–3.5, p.19",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The odd/even half/quarter-integral lattices and off-block power saving match Propositions 2.5–2.6/3.4–3.5. The quantitative Selberg remainder remains a requested adapter; corrected exact page locators."
         }
       ],
       "implementationStatus": "unchecked",
@@ -946,7 +951,8 @@
       ],
       "proofSteps": [
         "A nonzero determinant forces a lattice point only when each necessary coordinate interval has length at least its lattice spacing.",
-        "Insert a largest-index coordinate factor and the correct Q torus weight; integrate the restricted torus ranges. The even torus density has final exponent −g(g+1)/2 and two possible logarithmic ranges."
+        "Insert a largest-index coordinate factor and the correct Q torus weight; integrate the restricted torus ranges. The even torus density has final exponent −g(g+1)/2 and two possible logarithmic ranges.",
+        "Use s_i=t_i/t_(i+1) for 1<=i<=g and s_(g+1)=t_g t_(g+1) in the even case. The identity (t_1...t_g)^(-1)t_(g+1)^g=product_{i=1}^g s_i^(-i) fixes (36), and the following integral uses this negative exponent."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -960,8 +966,8 @@
       "sources": [
         {
           "sourceId": "bsw1",
-          "locator": "Propositions 2.7 and 3.6, §§2.4 and 3.4; (36) corrected by routed E3",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Proposition 2.7, p.14; Proposition 3.6 and (36)–(37), pp.19–20; even torus coordinates p.18, corrected routed E2,E3",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The cusp bounds and negative Q-weight match the corrected telescoping character and integral. Added the distinct last even torus coordinate and exact locators; recorded both internal misprints."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1000,7 +1006,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Theorem 1.5(a), pp.3–4; §4 weighted geometric sieve",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 1.5(a) is a strong-every-prime union estimate; the anisotropic weighted-box geometric-sieve adapter is explicit G-weighted, not supplied by the isotropic parent theorem alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1042,7 +1048,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Theorem 1.5(b); §§2–4",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 1.5(b) uses the marked distinguished lifts and odd squarefree weak moduli. The source lattice denominators and even flag/ruling obligations are retained, including the quartic exception."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1083,7 +1089,7 @@
         {
           "sourceId": "bsw1",
           "locator": "Theorem 4.4, (39), p.22, with routed E13",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The corrected Theorem 4.4 removes zero discriminants before divisor sums; the separate n=2 weak argument is G-quadratic and is not smuggled through n>=3 slices."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1123,8 +1129,8 @@
       "sources": [
         {
           "sourceId": "bsw1",
-          "locator": "Theorem 4.1, (41), pp.20–23, corrected routed E6 andE13",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 4.1, p.21; proof (41), p.23, corrected routed E6,E13",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 4.1 retains kappa>=1, real root types and the minimum saving. Corrected pages and used boundary exponentD−1; nonzero-domain and anisotropic errors remain G-weighted."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1143,7 +1149,7 @@
       ],
       "title": "Invariant-polynomial geometric sieve criterion",
       "kind": "theorem",
-      "statement": "Let an integral representation G,V of dimension r have a primitive relative invariant polynomial f of degree d, geometrically squarefree, a density-one generic coefficient locus with uniformly bounded geometric stabilizers, and a continuous homogeneous degree-d G^1-invariant height. Assume finite-volume fundamental domains F_X=X^(1/d)F_1 and finite-congruence main terms at scale X^(r/d). For each weakly p^2-divisible generic v assume a rational group move lowering height by p^a, landing modulo p in Y_k of codimension k with boundedly many orbit preimages, where k is bounded, a>=0, and (r/d)a+k−1>=eta>0. Then coefficient boxes have squarefree density product_p(1−c_p/p^(2r)), with c_p counting p^2-zero residues. The original six hypotheses, including bounded k and generic-locus density, are all required.",
+      "statement": "Let G act integrally on V of positive rank r and let f be a primitive geometrically squarefree relative invariant of positive degree d. Put G^1=ker(det(rho)), for the representation rho:G→GL(V). Require a G(Z)-invariant density-one generic coefficient locus with uniformly bounded finite geometric stabilizers, a continuous homogeneous degree-d G^1-invariant height, finite-volume fundamental domains F_X=X^(1/d)F_1, and finite-congruence main terms at scale X^(r/d), with actual CRT residue densities. For every weakly p^2-divisible generic v require a rational group element g such that g v is again integral and generic, H(g v)=H(v)/p^a, and g v modulo p lies in a closed G-invariant subscheme Y_k of codimension at least k. Here Y_k depends only on k, k is uniformly bounded, a>=0, (r/d)a+k−1>=eta>0, and for fixed k each resulting G(Z)-orbit has uniformly boundedly many original G(Z)-orbits. Then coefficient boxes have squarefree density product_p(1−c_p/p^(2r)), where c_p counts the f-zero residues modulo p^2. The compact-domain approximation and boundary regularity used to pass from fundamental regions to boxes are included in G-criterion; all six representation-specific conditions are required.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -1164,8 +1170,8 @@
       "sources": [
         {
           "sourceId": "geometric",
-          "locator": "Theorem 2.1 pp.8–9; complete proof §3.4 pp.14–17",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Conditions (1)–(6), p.8; Theorem 2.1, p.9; proof §3.4, pp.14–18; corrected (40)–(44), pp.17–18",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Read all six conditions and full §3.4 proof. Added G^1=ker(det rho), invariant generic locus, closed invariant Y_k depending only on k, integral generic moves and bounded original orbit fibres; retained the boundary/approximation obligation and p^(2r) normalization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1205,7 +1211,7 @@
         {
           "sourceId": "bsw2",
           "locator": "Theorem 5(a), pp.3–4",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BSW II Theorem 5(a) gives the binary strong-every-prime union estimate; it uses fixed-degree form discriminants and the parent codimension-two input."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1245,7 +1251,7 @@
         {
           "sourceId": "bsw2",
           "locator": "§4 (14)–(17), Propositions 4.4,4.5,4.8, pp.16–23",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BSW II Theorem 4.2 and Propositions 4.4–4.8 give the odd main/shallow/deep savings. The selected torus domain and large-sieve supplier are required."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1285,7 +1291,7 @@
         {
           "sourceId": "bsw2",
           "locator": "Theorem 5(b), pp.3–4; Proposition 4.2 and §4",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BSW II odd weak lifts preserve the marked Q invariant and yield the 1/(2n) saving. Prime2 restrictions and the irreducible-lift dictionary are retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1325,7 +1331,7 @@
         {
           "sourceId": "bsw2",
           "locator": "Lemma 6.1, p.25; correction to Lemma 6.25, p.44",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Lemma 6.1 p.25 gives the small-discriminant loss kappa/(2n−2); its leading-coefficient split and root-neighbourhood estimate justify the target."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1365,7 +1371,7 @@
         {
           "sourceId": "bsw2",
           "locator": "Lemma 6.2, pp.25–26",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Lemma 6.2 p.26 gives the small constant-term-divisibility tail; the independent small absolute constant-term exclusion is retained for the corrected Gram domain."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1384,7 +1390,7 @@
       ],
       "title": "Even-degree main and shallow pencil counts",
       "kind": "theorem",
-      "statement": "For even n>=4 in the (n+1)-dimensional symmetric-pencil lift, the main-body estimate is O_epsilon(X^(n+1−theta_n+epsilon)), theta_n=min(1/(4n),(n−2)/(2n^2+2n+2)). In the shallow cusp the selected L(M) with M>X^eta has contribution O(X^(n+1−min(eta,1)/(22 n^6))) for eta>0. The formulas give theta_4=1/21 and theta_n=1/(4n) for even n>=6.",
+      "statement": "Conditional repair target under G-even's actual-row-lattice counting adapter: For even n>=4 in the (n+1)-dimensional symmetric-pencil lift, the main-body estimate is O_epsilon(X^(n+1−theta_n+epsilon)), theta_n=min(1/(4n),(n−2)/(2n^2+2n+2)). In the shallow cusp the selected L(M) with M>X^eta has contribution O(X^(n+1−min(eta,1)/(22 n^6))) for eta>0. The formulas give theta_4=1/21 and theta_n=1/(4n) for even n>=6.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -1394,7 +1400,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Do not certify these source-derived main/shallow bounds until the row-contained spanning lattice count is justified under its existence and vanishing hypotheses. This conditional clause is separate from the restricted deep Gram estimate."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-even-weak-lift",
@@ -1403,8 +1410,8 @@
       "sources": [
         {
           "sourceId": "bsw2",
-          "locator": "Theorems 6.6 and 6.11, pp.29–35, with routed main-body exponent correction",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 6.6, p.29, proof pp.29–33; Theorem 6.11, p.33, proof pp.33–38; corrected minimum of the main-body savings",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Corrected main/shallow statements to explicit conditional repair targets; the numerical minimum gives theta4=1/21. Added G-even coverage for the row-lattice counting hypotheses and precise source pages."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1443,8 +1450,8 @@
       "sources": [
         {
           "sourceId": "bsw2",
-          "locator": "Lemma 6.25, p.44; routed E2,E3,E18",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Lemma 6.25, p.44; normalization and determinantal-ideal repair, routed E2,E3",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: This is an explicitly open repair target, not a verified published lemma. The corrected degree/scaling and factor-two Gram exponent follow from Delta(xf)=Delta(f)f(0,1)^2; determinantal ideal membership remains G-even."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1483,8 +1490,8 @@
       "sources": [
         {
           "sourceId": "bsw2",
-          "locator": "Theorem 6.24 and Proposition 6.26, pp.44–48; routed E3,E18",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 6.24, p.44; Proposition 6.26, pp.45–47; (74)–(78), pp.47–49; conditional restricted repair",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The q-height inequality and insertion of the restricted Gram exponent are correctly conditional. Corrected Proposition 6.26/deep-proof pages and kept actual fibres and logarithmic slack."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1503,13 +1510,13 @@
       ],
       "title": "Binary-form summed discriminant tail",
       "kind": "theorem",
-      "statement": "For odd n>=3 and epsilon>0, the sum over squarefree m>M of the coefficient-box counts with nonzero Delta and m^2 dividing Delta is O_{n,epsilon}(X^(n+1+epsilon)/sqrt(M)+X^(n+1−1/(2n)+epsilon)). For even n>=4 the target is existence of positive delta,eta and xi>=0 with 3(eta+xi)<1 and (6n+3)(eta+xi)<n+1, and a bound O_{n,epsilon}(X^(n+1+xi+epsilon)/M^delta+X^(n+1−eta+epsilon)). The even clause is conditional on the restricted deep-cusp repair and a quantitative non-Sn coefficient-box exclusion; no published numerical endpoint is certified.",
+      "statement": "For odd n>=3 and epsilon>0, the sum over squarefree m>M of the coefficient-box counts with nonzero Delta and m^2 dividing Delta is O_{n,epsilon}(X^(n+1+epsilon)/sqrt(M)+X^(n+1−1/(2n)+epsilon)). For even n>=4 the target is existence of positive delta,eta and xi>=0 with tau=max(eta,(eta+xi)/delta)<1 and (2n+1)tau<n+1, and a bound O_{n,epsilon}(X^(n+1+xi+epsilon)/M^delta+X^(n+1−eta+epsilon)). The even clause is conditional on the restricted deep-cusp repair and a quantitative non-Sn coefficient-box exclusion; no published numerical endpoint is certified.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
-        "Split a squarefree modulus into its strong and weak factors; control the total divisor multiplicity on the nonzero locus.",
-        "Use the odd tail directly. In the even case balance repaired deep, shallow, small-discriminant, small-constant-term and non-Sn terms with slack. The selected parameter inequalities make the three terms in Theorem 7.1 subleading."
+        "Split a squarefree modulus into its strong and weak factors; control the total divisor multiplicity on the nonzero locus. Use a union bound by the sum of the strong-large and weak-large counts; neither count separately bounds the original union.",
+        "Use the odd tail directly. In the even case balance repaired deep, shallow, small-discriminant, small-constant-term and non-Sn terms with slack. The inequalities in tau make the general finite-modulus sieve errors subleading. Recover the source truncation 3(eta+xi) only with a tail exponent delta>=1/3."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -1522,13 +1529,14 @@
         "ArithmeticStatistics:ST.2/refinement-even-binary-constant-term-tail",
         "ArithmeticStatistics:ST.2/refinement-even-binary-main-shallow",
         "ArithmeticStatistics:ST.2/refinement-even-binary-restricted-deep-tail",
-        "SieveMethodsAndPrimePatterns:SV.2"
+        "SieveMethodsAndPrimePatterns:SV.2",
+        "ArithmeticStatistics:ST.2/refinement-even-binary-small-discriminant"
       ],
       "sources": [
         {
           "sourceId": "bsw2",
-          "locator": "Corollary 6.27, pp.48–49, with routed E3,E7,E18",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Corollary 6.27, p.51; corrected nonzero domain and union bound; even clause conditional on the restricted repair",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Corrected Corollary6.27 page, strong/weak union bound and general tail-parameter inequalities via tau=max(eta,(eta+xi)/delta). The odd clause is source-qualified; the even clause remains conditional G-even."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1567,7 +1575,7 @@
         {
           "sourceId": "bsw2",
           "locator": "Degree2 boundary of Theorem 7.1; routed E8",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The degree-two nonzero summed-tail and zero-locus counts are genuine native coefficient targets; their congruence-density conclusion is a distinct G-quadratic obligation, not inferred from a tail alone."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1586,13 +1594,14 @@
       ],
       "title": "Binary coefficient-box squarefree sieve",
       "kind": "theorem",
-      "statement": "Let n>=2, impose a fixed finite initial modulus N^2 and require p^2 not dividing Delta at every prime, including p|N. If the normalized finite residue count is nu_N and the other prime good densities are alpha_n(p), the nonzero-discriminant count has main coefficient nu_N product_{p not dividing N} alpha_n(p) times the real-box volume X^(n+1). For n>=3 a tail with parameters eta,xi yields error O_epsilon(X^(n+1−eta+epsilon)+N^2 X^(n+3(eta+xi)+epsilon)+N^(2n+2) X^((6n+3)(eta+xi)+epsilon)). Odd n uses eta=1/(2n),xi=0. The even conclusion remains conditional on the repaired tail; n=2 requires the separate finite-modulus truncation.",
+      "statement": "Let n>=2, impose a fixed finite initial modulus N^2 and require p^2 not dividing Delta at every prime, including p|N. If the normalized finite residue count is nu_N and the other prime good densities are alpha_n(p), the nonzero-discriminant count has main coefficient nu_N product_{p not dividing N} alpha_n(p) times the real-box volume X^(n+1). For n>=3 a tail with parameters delta>0,eta>0,xi>=0 yields, for tau=max(eta,(eta+xi)/delta), error O_epsilon(X^(n+1−eta+epsilon)+N^2 X^(n+tau+epsilon)+N^(2n+2) X^((2n+1)tau+epsilon)). Require tau<1 and (2n+1)tau<n+1 for a subleading error at fixed N. If delta>=1/3, the larger source truncation tau_source=3(eta+xi) gives the displayed source exponents n+3(eta+xi) and (6n+3)(eta+xi). Odd n uses delta=1/2,eta=1/(2n),xi=0, so the sharper tau is 1/n. The even conclusion remains conditional on the repaired tail; n=2 requires the separate finite-modulus truncation.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
         "Build the initial residue set so it already contains the squarefree restrictions at p|N, then use Mobius sums only for m coprime to N.",
-        "Compare finite-modulus lattice errors and nonzero summed tails. Products and main coefficients are ST.0 local-data inputs; Appendix local-density formulas are not reproved here."
+        "Compare finite-modulus lattice errors and nonzero summed tails. Products and main coefficients are ST.0 local-data inputs; Appendix local-density formulas are not reproved here.",
+        "For truncation M=X^tau retain the Euler-product remainder X^(n+1)/M and the tail X^(n+1+xi)/M^delta. The chosen tau makes both O(X^(n+1−eta)); an arbitrary positive delta does not justify the source exponent 3(eta+xi)."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -1606,8 +1615,8 @@
       "sources": [
         {
           "sourceId": "bsw2",
-          "locator": "Theorem 7.1, pp.49–51; routed endpoint and degree 2 corrections",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 7.1 and its proof, pp.51–52; generalized truncation from the proved tail exponent; degree 2 remains separate",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Generalized the sieve truncation using the actual delta exponent and retained the Euler remainder. Source exponents3(eta+xi) require delta>=1/3. The corrected pages are51–52; n=2 remains separate."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1626,7 +1635,7 @@
       ],
       "title": "Even-pencil finite congruence count",
       "kind": "theorem",
-      "statement": "Let even n>=4, G=SL_n/mu_2 and V pairs of symmetric bilinear forms, with BGW invariant height H(f)=max absolute coefficient. For a real component V^(m,r) and a G_Z-invariant set S defined by finitely many congruence conditions, N(S∩V^(m,r);X)=c_(m,r) X^(n+1) product_p nu_p(S)+o_S(X^(n+1)). N counts G_Z-orbits with Delta nonzero; BGW calls that irreducible, without requiring f Q-irreducible. c_(m,r)=vol(F_(m,r)∩{H<1}) uses coefficient Euclidean measure.",
+      "statement": "Let even n>=4, G=SL_n/mu_2 and V pairs of symmetric bilinear forms, with BGW invariant height H(f)=max absolute coefficient. For a real component V^(m,r) and a G_Z-invariant set S defined by finitely many congruence conditions, N(S∩V^(m,r);X)=c_(m,r) X^(n+1) nu(S)+o_S(X^(n+1)). N counts G_Z-orbits with Delta nonzero; BGW calls that irreducible, without requiring f Q-irreducible. c_(m,r)=vol(F_(m,r)∩{H<1}) uses coefficient Euclidean measure. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S).",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -1636,7 +1645,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-symmetric-pencil",
@@ -1646,8 +1656,8 @@
       "sources": [
         {
           "sourceId": "bgw",
-          "locator": "Theorem 36, §§10–11, pp.29–31",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 36, §§10–11, pp.29–30; real components pp.28–29",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BGW Theorem 36 counts the source nonzero-discriminant locus, not polynomial irreducibility, in a native SL_n/mu2 component. Corrected actual finite CRT density and source pages."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1666,13 +1676,14 @@
       ],
       "title": "Pencil upper bound for infinite weights",
       "kind": "theorem",
-      "statement": "Let phi be a G_Z-invariant BGW congruence-defined weight with factors in [0,1], locally constant off closed null sets, convergent product, and each local integral nonzero. For a finite-congruence S in V^(m,r), limsup_{X→infinity} N_phi(S;X)/X^(n+1)<=c_(m,r) product_p integral_{closure(S)_p} phi_p. Equivalently use an upper estimate by that main term plus o(X^(n+1)). This is an upper bound, and contains no equality assertion.",
+      "statement": "Let phi be a G_Z-invariant BGW congruence-defined weight with factors in [0,1], locally constant off closed null sets, convergent product, and each local integral nonzero. For a G_Z-invariant finite-congruence S in V^(m,r) imposed independently by local sets S_p, limsup_{X→infinity} N_phi(S;X)/X^(n+1)<=c_(m,r) product_p integral_{S_p} phi_p. Equivalently use an upper estimate by that main term plus o(X^(n+1)). This is an upper bound, and contains no equality assertion.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
         "For a fixed finite prime set the full weight is at most its truncated product. Apply the finite weighted count.",
-        "Take the height limsup first and then the decreasing finite-prime integrals. No tail equality is used; every local integral is nonzero but the infinite product can still vanish."
+        "Take the height limsup first and then the decreasing finite-prime integrals. No tail equality is used; every local integral is nonzero but the infinite product can still vanish.",
+        "Absorb the local indicators 1_(S_p) into the corresponding truncated factors. For a coupled finite CRT condition first split into disjoint product residue conditions and sum their upper bounds, rather than multiplying its marginal closures."
       ],
       "acceptance": [
         "No equality is inferred from acceptability or positivity of individual factors.",
@@ -1685,8 +1696,8 @@
       "sources": [
         {
           "sourceId": "bgw",
-          "locator": "Definition 37 and Theorem 38, pp.31–32",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Definition 37 and Theorem 38, pp.30–31",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BGW Theorem 38 is an upper bound only; made local independence and invariant S explicit, with indicators in each local factor. Coupled finite conditions require disjoint decomposition before the limsup."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1724,8 +1735,8 @@
       "sources": [
         {
           "sourceId": "bgw",
-          "locator": "Definition 39 and Proposition 42, pp.32–33",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Definition 39, pp.31–32; Proposition 42, pp.32–33",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BGW Definition39/Proposition 42 give the coefficient-family tail for large conditions. Its supnorm scaling is not an orbit average; corrected exact pages."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1744,7 +1755,7 @@
       ],
       "title": "Ternary-cubic finite-condition count",
       "kind": "theorem",
-      "statement": "For SL3(Z)-orbits of strongly irreducible integral ternary cubics, H=max(|I|^3,J^2/4), Delta=(4I^3−J^2)/27 and S finite congruence conditions, N_+(S;X)=(32/45)zeta(2)zeta(3) X^(5/6) product_p mu_p(S)+o(X^(5/6)), and N_− has coefficient128/45. Strong irreducibility excludes a rational flex; it is stronger than polynomial irreducibility. I,J can have denominators 16,32 in these coordinates.",
+      "statement": "For SL3(Z)-orbits of strongly irreducible integral ternary cubics, H=max(|I|^3,J^2/4), Delta=(4I^3−J^2)/27 and S an SL3(Z)-invariant finite congruence subset, N_+(S;X)=(32/45)zeta(2)zeta(3) X^(5/6) nu(S)+o(X^(5/6)), and N_− has coefficient128/45. Strong irreducibility excludes a rational flex; it is stronger than polynomial irreducibility. Normalize I=c4/16 and J=c6/32; these rational invariants can have denominators 16 and 32 in integral coefficient coordinates. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S).",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -1754,7 +1765,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/ternary-cubic-forms-and-their-invariants",
@@ -1764,8 +1776,8 @@
       "sources": [
         {
           "sourceId": "bs3",
-          "locator": "Theorem 8 pp.2–3; finite congruence Theorems 18–19 in §2",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 8, pp.2–3; finite congruence Theorems 17–18, p.11; c4,c6 normalization, p.12",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS3 Theorems 8/17–18 give the constants and finite weighted count. Specified I=c4/16,J=c6/32, invariant S and actual CRT density; corrected theorem numbering."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1805,7 +1817,7 @@
         {
           "sourceId": "bs3",
           "locator": "Proposition 25 and Lemma 26, §2.7, pp.13–14",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS3 Proposition 25/Lemma 26 bound the large-prime discriminant tail using the ternary-to-quartic-pair map of multiplicity3. The imported parent non-S4 transport gap is not erased."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1830,7 +1842,7 @@
       ],
       "proofSteps": [
         "Prove the finite-weight identity, approximating locally constant-off-null-set factors by residue steps.",
-        "The uniform prime tail bounds the full-versus-finite weights; take X first, then M, then the compact truncation epsilon to0."
+        "The uniform prime tail bounds the full-versus-finite weights; take X first, then M, then the compact truncation epsilon to 0."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
@@ -1845,7 +1857,7 @@
         {
           "sourceId": "bs3",
           "locator": "Theorem 24, §2.7, p.13",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS3 Theorem 24 passes acceptable factors to equality with a genuine tail and normalized local integrals; no arbitrary congruence-defined weight is asserted acceptable."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1864,7 +1876,7 @@
       ],
       "title": "Quaternary-pair finite-condition count",
       "kind": "theorem",
-      "statement": "For the determinant-kernel central-quotient group G of BS4 on pairs of integral quaternary quadratic forms and a real type i in {0#,1,2}, strongly irreducible finite-congruence counts satisfy N_i(S;X)=|J| vol(G_Z\\G_R) N_inv^(sign i)(X) product_p mu_p(S)/n_i+o(X^(5/6)), with n_1=4,n_0#=n_2=8, N_inv^+(X)=(8/5)X^(5/6)+O(X^(1/2)), N_inv^−(X)=(32/5)X^(5/6)+O(X^(1/2)). Strong irreducibility means the binary-quartic resolvent has no rational root.",
+      "statement": "For the BS4 group G={(g2,g4) in GL2×GL4:det(g2)det(g4)=1}/{(lambda^(-2)I2,lambda I4)} on pairs of integral quaternary quadratic forms and a real type i in {0#,1,2}, strongly irreducible finite-congruence counts satisfy N_i(S;X)=|J| vol(G_Z\\G_R) N_inv^(sign i)(X) nu(S)/n_i+o(X^(5/6)), with n_1=4,n_0#=n_2=8, N_inv^+(X)=(8/5)X^(5/6)+O(X^(1/2)), N_inv^−(X)=(32/5)X^(5/6)+O(X^(1/2)). Strong irreducibility means the binary-quartic resolvent has no rational root. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S). Use the quotient group scheme, the half-integral Gram matrices of integral quadratic forms, the binary-quartic resolvent 16 det(Ax+By), and a G_Z-invariant S.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -1874,7 +1886,8 @@
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
@@ -1884,8 +1897,8 @@
       "sources": [
         {
           "sourceId": "bs4",
-          "locator": "Theorem 10; §3.3 (17), pp.13–14; Theorems 19–20",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Group (3), p.4; Theorem 10, pp.5–6; §3.3 (17), pp.13–14; Theorems 19–20, p.14",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Specified the determinant-kernel central quotient, half-Gram convention and resolvent16det(Ax+By). The real factors4/8 and invariant counts8/5,32/5 match BS4; actual CRT density replaces marginal products."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1909,7 +1922,7 @@
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
-        "Compact truncation of the 20-dimensional height slice gives the strong term and projection exponent19/24.",
+        "Compact truncation of the 20-dimensional height slice gives the strong term and projection exponent 19/24.",
         "For p>2 move weakly divisible pairs to strongly divisible pairs without changing discriminant, with at most2 orbit preimages. Include p=2 in the finite initial conditions."
       ],
       "acceptance": [
@@ -1925,7 +1938,7 @@
         {
           "sourceId": "bs4",
           "locator": "Theorem 23, §3.5, pp.16–17",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS4 Theorem 23 and Lemma 24 yield the source tail and at-most-two weak-to-strong fibres, distinct from BGW pencil groups and from the degree-five fibres."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1965,7 +1978,7 @@
         {
           "sourceId": "bs4",
           "locator": "Theorem 22, §3.5, p.16",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS4 Theorem 22 acceptable weighted equality uses the preceding tail. Corrected finite main-term conventions are inherited; integral local-mass adapters remain G-selmer."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1984,17 +1997,20 @@
       ],
       "title": "Degree-five genus-one finite-condition count",
       "kind": "theorem",
-      "statement": "For the BS5 representation 5 tensor exterior^2(5), of dimension 50, and its determinant-constrained central-quotient group, strongly irreducible orbit counts of sign ± with finite congruence S equal |J| vol(G_Z\\G_R) N_inv^±(X) product_p mu_p(S)+o(X^(5/6)); N_inv^+=(8/5)X^(5/6)+O(X^(1/2)), N_inv^−=(32/5)X^(5/6)+O(X^(1/2)). Strong irreducibility excludes the trivial degree-five covering. This is not the 40-dimensional quintic-ring representation.",
+      "statement": "For the BS5 representation 5 tensor exterior^2(5), of dimension 50, and G={(g1,g2) in GL5×GL5:(det(g1))^2 det(g2)=1}/{(lambda I5,lambda^(-2)I5)}, strongly irreducible orbit counts of sign ± with finite congruence S equal (|J|/5) vol(G_Z\\G_R) N_inv^±(X) nu(S)+o(X^(5/6)); N_inv^+=(8/5)X^(5/6)+O(X^(1/2)), N_inv^−=(32/5)X^(5/6)+O(X^(1/2)). Strong irreducibility excludes the trivial degree-five covering. This is not the 40-dimensional quintic-ring representation. Here nu(S) is the actual proportion of allowed coefficient residues modulo a defining modulus m, with denominator m^dim(V). It equals the product of normalized prime-power densities only when the conditions are imposed independently at those primes; coupled CRT conditions use nu(S). The first GL5 changes the alternating matrices and the second mixes the quintuple. S is G_Z-invariant; J is the pullback Jacobian of Proposition 24. The factor 1/5 is the order of the real stabilizer in (18), not an additional local density.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
         "Use the 50-dimensional height slice, Jacobian J and real stabilizers. Proposition 18 controls the a12=0 strongly irreducible cusp by O(X^(499/600)).",
-        "Proposition 22 discards non-strongly-irreducible main-body points using prime local exclusions; these have size proportional to1/p, so prime harmonic divergence rather than a constant-density sieve is needed."
+        "Proposition 22 discards non-strongly-irreducible main-body points using prime local exclusions; these have size proportional to 1/p, so prime harmonic divergence rather than a constant-density sieve is needed.",
+        "Use Proposition 24 and (18), p.17, rather than the normalization of introductory Theorem 12, p.7, which omits 1/5 in this preprint. The real stabilizer size is 5 on both signs."
       ],
       "acceptance": [
         "Check the stated exponent and constant dependence; establish finiteness before using a natural cardinal.",
-        "Do not replace a uniform estimate by separate fixed-prime asymptotics."
+        "Do not replace a uniform estimate by separate fixed-prime asymptotics.",
+        "Test coupled CRT conditions: the two residues (0 mod 3,0 mod 5) and (1 mod 3,1 mod 5) have density 2/15, whereas the product of their marginal densities is 4/15. Finite disjoint residue sums must retain this coupling.",
+        "The leading coefficient must agree with dividing the finite-cover volume by a real stabilizer of size 5. Changing Haar normalization rescales J inversely and does not erase this divisor."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/refinement-genus-one-stabilizer-schemes",
@@ -2003,8 +2019,8 @@
       "sources": [
         {
           "sourceId": "bs5",
-          "locator": "Theorem 12 and Theorems 25–26, §§3.1–3.5",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Group (2), p.5; real stabilizer §3.1; Proposition 24 and (18), p.17; Theorems 25–26, pp.17–18; introductory Theorem 12, p.7, corrected by (18)",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Corrected BS5 leading coefficient by1/5 from the real stabilizer and body (18), and specified the exact50-dimensional native group/action. Added actual CRT density; recorded the introductory normalization discrepancy."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2028,7 +2044,7 @@
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
       "proofSteps": [
-        "Apply the strong geometric sieve on the compact 50-dimensional slice, giving projection exponent49/60.",
+        "Apply the strong geometric sieve on the compact 50-dimensional slice, giving projection exponent 49/60.",
         "Use the discriminant-preserving weak-to-strong transformation with at most2 orbit preimages. Retain the strongly irreducible restriction in both counts."
       ],
       "acceptance": [
@@ -2043,8 +2059,8 @@
       "sources": [
         {
           "sourceId": "bs5",
-          "locator": "Theorem 27 and Lemma 28, pp.20–22",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 27 and Lemma 28, pp.18–20",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS5 Theorem 27/Lemma 28 give the prime tail and at-most-two weak-to-strong fibres; the cusp/nongeneric source exclusions remain the proof inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2083,8 +2099,8 @@
       "sources": [
         {
           "sourceId": "bs5",
-          "locator": "Theorem 29, §3.5, p.22",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 29, p.20; finite main term corrected by (18), p.17",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BS5 Theorem 29 uses the acceptable Euler product and source tail; corrected the locator and the inherited finite coefficient to include1/5."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2103,7 +2119,7 @@
       ],
       "title": "Invariant-section smoothing kernel",
       "kind": "construction",
-      "statement": "For an action G on U, invariant map inv:U→I, section kappa:I→U, compactly supported real function Theta on G and real function phi on I, define K(u) as the sum over g with g acting on kappa(inv(u)) equal to u of Theta(g)phi(inv(u)). Use the native real summation, with summability or finite-support obligations when applying identities. In the regular finite-stabilizer Lie representation, each fibre is finite and gives the source smoothing function.",
+      "statement": "For a group action G on U, maps inv:U→I and kappa:I→U, and real functions Theta on G and phi on I, define K(u) by the native real sum over all g, with summand Theta(g)phi(inv(u)) when g kappa(inv(u))=u and 0 otherwise. Any formula replacing this totalized sum by an ordinary transporter sum requires a finite fibre or a summability hypothesis. In the source application inv is invariant, kappa is a smooth section over a regular invariant region, the real stabilizers are finite, and Theta,phi are smooth compactly supported; on the represented real component each transporter fibre has the full stabilizer multiplicity.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -2121,8 +2137,8 @@
       "sources": [
         {
           "sourceId": "bss",
-          "locator": "§5 definition of S and Theorem 5.1, pp.20–21",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "§5 transporter-sum definition (38) and Theorem 5.1, p.24; proof pp.24–25",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Aligned the generic prototype with arbitrary maps/functions, while restricting the source application to a smooth regular section. Added finite-fibre summation API and a two-element stabilizer test with value12; corrected kernel source pages."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2147,6 +2163,11 @@
           "name": "ArithmeticCountingRefinement.sectionKernel_unique",
           "role": "compatibility",
           "statement": "If exactly one g carries kappa(inv(u)) to u, then K(u)=Theta(g)phi(inv(u)); this agrees with a one-term finite sum."
+        },
+        {
+          "name": "ArithmeticCountingRefinement.sectionKernel_finite_fibre",
+          "role": "compatibility",
+          "statement": "If the transporter set {g:g kappa(inv(u))=u} is finite, K(u) is its finite sum of Theta(g)phi(inv(u)), with every stabilizer element counted once."
         }
       ],
       "tests": [
@@ -2161,6 +2182,10 @@
         {
           "name": "ArithmeticCountingRefinement.kernel_zero_weight",
           "statement": "For any action, identically zero phi gives identically zero kernel."
+        },
+        {
+          "name": "ArithmeticCountingRefinement.kernel_nontrivial_stabilizer",
+          "statement": "Let the two-element permutation group of Fin 2 act trivially on a singleton, with its unique inv and section, Theta=2 and phi=3. The kernel value is 12. Dropping or averaging the stabilizer would give 6."
         }
       ],
       "uses": [
@@ -2178,7 +2203,7 @@
       ],
       "title": "Smoothed stabilizer-weighted unfolding",
       "kind": "theorem",
-      "statement": "In BSS Theorem 5.1 let G be the real Lie group of the polynomial representation U, F its arithmetic fundamental domain, I a regular invariant region admitting a smooth section kappa, constant finite real stabilizer size sigma, phi smooth compactly supported on I, Theta smooth compactly supported on G with vol(Theta) nonzero, and T a nonnegative invariant weight on the integral lattice. Then the sum over arithmetic orbits of T(u)phi(inv(u))/|Stab_Z(u)| equals (sigma vol(Theta))^-1 times integral_F sum_{u in lattice} T(u)(g acting on K)(u) dg. Require integrability of the nonnegative sums; phi,Theta are nonnegative in this application. The action on functions is pullback: (g acting on K)(u)=K(g^-1 acting on u).",
+      "statement": "In BSS Theorem 5.1 let G be the semisimple real Lie group of the integral coregular representation U, Gamma=G(Z), F its arithmetic fundamental domain, I a regular open invariant region admitting a smooth section kappa, and sigma the constant finite real stabilizer size on kappa(I). Let L be a discrete Gamma-invariant subset of G(R) kappa(I), phi smooth compactly supported on I and extended by zero, Theta smooth compactly supported on G with vol(Theta)>0, and T a nonnegative Gamma-invariant weight on L. For nonnegative phi,Theta and integrable sums, sum_{u in L/Gamma} T(u)phi(inv(u))/|Stab_Gamma(u)| = (sigma vol(Theta))^(-1) integral_F sum_{u in L} T(u)(g K)(u) dg, with (g K)(u)=K(g^(-1)u). The lattice subset must belong to the real component represented by kappa; nonzero discriminant and matching invariant alone do not ensure that. Use the unimodular Haar measure of this semisimple group and retain arithmetic stabilizer weights.",
       "hypotheses": [
         "Conventions and all parameter restrictions in the statement are part of the target."
       ],
@@ -2197,8 +2222,8 @@
       "sources": [
         {
           "sourceId": "bss",
-          "locator": "Theorem 5.1, pp.20–21",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 5.1 and full unfolding proof, pp.24–25; hypotheses §5, pp.23–24",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 5.1 requires a discrete Gamma-invariant subset of the real component represented by kappa. Added that missing hypothesis, semisimple unimodular measure and preserved both real and arithmetic stabilizer factors."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2217,7 +2242,7 @@
       ],
       "title": "Smoothed special quaternary count",
       "kind": "theorem",
-      "statement": "In the fixed split antidiagonal quaternary slice W_A of BSS, with its PSO_A arithmetic group and smooth invariant-region test psi, an acceptable weight uniformly bounded by a fixed C0, of modulus b<=X^theta, squarefree q<=X^(1/2), gcd(b,q)=1, and rank<=1 reductions for p|q, has N_gen(psi,T;X,Y)=|J_A| vol(F_A) nu(T) vol(psi restricted at Y^2/X) X^4 Y^2/sigma_A(i) + O_epsilon(X^(5+10theta+60delta−lambda+epsilon)/q^6), for c X^(1/2−delta)<=Y<=C X^(1/2), theta,delta>0, with an absolute lambda>0 independent of theta,delta. For a subleading error choose 10theta+62delta<lambda and sufficiently small epsilon. Keep all source weight support and smoothness hypotheses, and the dependence of constants on A,psi.",
+      "statement": "In the fixed split antidiagonal quaternary slice W_A of BSS, with its PSO_A arithmetic group and smooth invariant-region test psi, a PSO_A(Z)-invariant acceptable weight uniformly bounded by a fixed C0, of modulus b<=X^theta, squarefree q<=X^(1/2), gcd(b,q)=1, and local factors exactly the characteristic functions of rank<=1 reductions for p|q, has N_gen(psi,T;X,Y)=|J_A| vol(F_A) nu(T) vol(psi restricted at Y^2/X) X^4 Y^2/sigma_A(i) + O_epsilon(X^(5+10theta+60delta−lambda+epsilon)/q^6), for c X^(1/2−delta)<=Y<=C X^(1/2), theta,delta>0, with an absolute lambda>0 independent of theta,delta. For a subleading error choose 10theta+62delta<lambda and sufficiently small epsilon. Keep all source weight support and smoothness hypotheses, and the dependence of constants on A,psi.",
       "hypotheses": [
         "Fixed split A and source smooth invariant-region support for psi.",
         "Uniformly bounded T, rank-one characteristic local factors at every p dividing squarefree q, coprimality of b,q.",
@@ -2239,8 +2264,8 @@
       "sources": [
         {
           "sourceId": "bss",
-          "locator": "Theorem 6.3, §6, pp.29–30; proof §§6.2–6.3",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "Theorem 6.3 and acceptability definition, p.30; proof pp.38–39; fixed section and support §§5–6",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Theorem 6.3 p.30 and proof38–39 require exact rank<=1 indicator factors and arithmetic invariance. Made those explicit; uniform C0 and joint10theta+62delta<lambda keep the error subleading."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2280,7 +2305,7 @@
         {
           "sourceId": "bklos",
           "locator": "Theorems 7.1–7.2, pp.10–11; Theorem 8.1 proof and six axioms, pp.12–13; §3 p.5",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: BKLOS Theorems 7.1–7.2 and §8 distinguish irreducible nonidentity orbits, normalized Disc=−ordinaryDelta/27 and uniform integral scale. The unavailable coregular theorem/six axioms and finite representative measure remain explicit G-twist."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2321,8 +2346,8 @@
       "sources": [
         {
           "sourceId": "pv",
-          "locator": "Theorem 3.6 and proof, pp.3–4; ball adaptation for Fano height",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "PV Theorem 3.6, p.3, with proof; coefficient conventions §1 pp.1–2; Fano §1 pp.1–3",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: PV Theorem 3.6 proof controls the local obstruction tail via geometric reducibility and Hensel lifting, excluding plane conics. Corrected exact pages; coefficient geometry and boundary adapters remain G-local."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2361,8 +2386,8 @@
       "sources": [
         {
           "sourceId": "pv",
-          "locator": "§1 primitive restriction, p.1; Theorem 3.6 proof pp.3–4; BLS §1 pp.1–2",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "PV Theorem 3.6 and proof, p.3; primitive restriction Remark 2.1, p.2; Euclidean-ball adaptation not in PV",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: Finite local counts retain primitive projective coefficients modulo sign, local boundary-nullity and the Euclidean-ball real factor. PV proves a cube version, so the ball adaptation stays explicit G-local; corrected locators."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2400,8 +2425,8 @@
       "sources": [
         {
           "sourceId": "pv",
-          "locator": "Theorem 3.6, pp.3–4; BLS (1.3), p.2",
-          "match": "Own-word target and proof route on the indicated hypotheses; any unresolved input is recorded in the gap register."
+          "locator": "PV Theorem 3.6 and proof, p.3; Fano §1 (1.2)–(1.3), pp.1–3; real ball factor recomputed",
+          "match": "Independent review REV-ArithmeticStatistics--ST.2: The infinite local density uses finite counts before prime truncation and recomputes the real ball factor. Fano §1 supports its height convention/positive local constant, not a new global Hasse-principle target; corrected locators."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2421,14 +2446,14 @@
         "Native arithmetic orbit interfaces: Express the integral arithmetic groups, central quotient schemes, invariant polynomials and real component fundamental domains for each representation. ST.1 imports give their mathematical dictionaries; they are not pinned Lean constants. Omitted theorem signatures are listed by name in the suggested file. Provide finiteness of bounded-height arithmetic orbit sets and convert stabilizer-weighted to unweighted counts only with an exceptional-stabilizer bound. Do not manufacture arbitrary count functions as a replacement.",
         "Quartic suborders, quadratic extension masses and transport: Read/source-qualify Nakagawa’s quartic suborder bound, Baily’s square-conductor criterion and the quadratic genus bound. Supply the uniformly O(X) summed 2-class mass used in Proposition 23, with its dependency on the quartic count made acyclic. The parent binary-quartic embedding has bounded fibres but can land outside the S4 locus of Proposition 23. Establish that exact non-S4 transport boundary or a wider uniform pair-count theorem before closing its O(X/p^2) input. The fixed-resolvent epsilon loss is retained.",
         "Uniform quintic suborder input: Read Brakenhoff’s actual local suborder theorem and prove its constant uniform in p. Check the content-n resolvent O(n^6) bound rather than asserting a unique resolvent for every nonprimitive ring. The published proof uses these estimates; neither is a native baseline theorem.",
-        "Cubic second-term proof and local coefficients: The source target Theorem 27 and the switching identities were read, but a full independent derivation of §6 smoothing and the §8 three-range optimization was not completed in this target pass. Obtain it, compute the translated-lattice secondary coefficients, and source-qualify each local primitive-index integral. An O(X/p^2) first-term tail alone gives no X^(5/6−1/48) remainder.",
-        "S-arithmetic orbit and geometric-sieve adapters: Implement the number/global field, S-adic Haar measure and coefficient-lattice interfaces supplied by GlobalNumberFields and RestrictedProducts, then connect the specific G_n,V_n models. Generic arithmetic reduction theory and Tamagawa measures are assigned current upstream successor roadmaps, not supplied by field-level orthogonal groups. The current catalogue has not acquired all successor ids; record exact owners rather than creating them here. Characteristic-positive projection/spreading and finite ideal-class weak-map lattices need their native adapters.",
+        "Cubic second-term proof and local coefficients: The source target Theorem 27 and the switching identities were read, but a full independent derivation of §6 smoothing and the §9 three-range optimization was not completed in this target pass. Obtain it, compute the translated-lattice secondary coefficients, and source-qualify each local primitive-index integral. An O(X/p^2) first-term tail alone gives no X^(5/6−1/48) remainder.",
+        "S-arithmetic orbit and geometric-sieve adapters: Implement the number/global field, S-adic Haar measure and coefficient-lattice interfaces supplied by GlobalNumberFields and RestrictedProducts, then connect the specific G_n,V_n models. Generic arithmetic reduction theory and Tamagawa measures are assigned current upstream successor roadmaps, not supplied by field-level orthogonal groups. The current catalogue has not acquired all successor ids; record exact owners rather than creating them here. Characteristic-positive projection/spreading and finite ideal-class weak-map lattices need their native adapters. Require Gamma-stability of L, prove the fixed-denominator and finite-index comparison for the tail, and use exact norm shells for function fields. Supply the affine nonreductive quadratic representation and its bounded-domain Haar/Jacobian/maximality adapters from Global Fields I §9, including characteristic two. Extra ramification and nonmaximality are intrinsic ring properties there; ordinary squarefree Delta is not the characteristic-two condition.",
         "Weighted geometric sieve and nonzero monic error: Prove the anisotropic X^i-box adaptation of the geometric sieve and the O(X^(D−1)) singular coefficient-locus bound at fixed degree. The parent isotropic geometric sieve has affine projection/spreading obligations. Complete the orthogonal torus count using the ST.1 even flag and q definition; the accepted ST.1 reader does not erase that construction gap.",
-        "Even-degree binary-form repaired tail: Certify the actual paired-fibre count, determinantal-ideal/Cauchy–Binet Gram estimate, restricted L_good(M) rather than unrestricted L(M), small constant-term exclusion and quantitative non-Sn bound. Preserve the gcd(2,f(0,1)) flag correction imported from ST.1. Optimize parameters with slack for log^(2n)X; the published even numerical exponents are not declared established. Without this, the even summed tail and equal-coefficient squarefree sieve remain conditional.",
+        "Even-degree binary-form repaired tail: Certify the actual paired-fibre count, determinantal-ideal/Cauchy–Binet Gram estimate, restricted L_good(M) rather than unrestricted L(M), small constant-term exclusion and quantitative non-Sn bound. Preserve the gcd(2,f(0,1)) flag correction imported from ST.1. Optimize parameters with slack for log^(2n)X; the published even numerical exponents are not declared established. Without this, the even summed tail and equal-coefficient squarefree sieve remain conditional. Also justify the main/shallow row-contained lattice counts under the existence of an actual full-rank matrix and the skew-domain vanishing hypotheses. The overlap in (74) requires an upper bound or genuine disjoint full-rank fibres; the deep box itself forces its small coordinate block to vanish, so row-space membership alone is not the reason for that vanishing. For a general repaired exponent delta use tau=max(eta,(eta+xi)/delta), with tau<1 and (2n+1)tau<n+1; the source exponent 3(eta+xi) requires delta>=1/3.",
         "Degree-two tails and finite-modulus sieve: Supply the separate monic quadratic weak-tail proof (the higher orthogonal slice is inapplicable) and the full degree-two finite residue/truncation argument for the equal-coefficient sieve. The binary-quadratic nonzero summed-tail count is planned with its elementary proof, but does not by itself prove a congruence-density asymptotic.",
-        "Representation-specific geometric-sieve hypotheses: Check all six axioms for every application of the invariant criterion. Density-one generic loci, finite geometric stabilizers, the height decrease and bounded orbit-fibre count are independent inputs. The binary-quartic embedding application needs the exact parent transport correction; the primitive relative invariant and strong codimension-two assumption cannot be omitted.",
+        "Representation-specific geometric-sieve hypotheses: Check all six axioms for every application of the invariant criterion. Density-one generic loci, finite geometric stabilizers, the height decrease and bounded orbit-fibre count are independent inputs. The binary-quartic embedding application needs the exact parent transport correction; the primitive relative invariant and strong codimension-two assumption cannot be omitted. Keep G^1=ker(det(rho)), G(Z)-invariance of the density-one generic set, closed G-invariant Y_k depending only on k, and integrality/genericity after each move. Source-compatible compact truncations and null/frontier regularity are needed to apply lattice estimates and approximate a coefficient box; upstream analytic preparation for CAD does not supply this measure adapter by itself.",
         "Integral genus-one models and local measures: The ST.1 genus-one stabilizer comparison supplies field geometry, not integral minimization or local Selmer-orbit dictionaries for degrees3–5. Read those primary minimization sources, type their normalized integral groups and rational invariant lattices, and justify weighted/unweighted stabilizer conversion. Prove smooth local null boundaries and identify coefficient Haar normalization with the Selmer local mass. Keep the50-dimensional degree-five model distinct from the40-dimensional quintic-ring one.",
-        "Smooth unfolding and special quaternary masses: Supply the native smooth section, Lie-action Haar/differential-form integration and arithmetic stabilizer measures. Validate the fixed A split slice, nonzero vol(Theta), integrability and the special rank-one local mass with the uniform modulus restrictions of Theorem 6.3. The theorem signatures are omitted until these carriers exist; the concrete transporter kernel and its API/tests are prototyped.",
+        "Smooth unfolding and special quaternary masses: Supply the native smooth section, Lie-action Haar/differential-form integration and arithmetic stabilizer measures. Validate the fixed A split slice, nonzero vol(Theta), integrability and the special rank-one local mass with the uniform modulus restrictions of Theorem 6.3. The theorem signatures are omitted until these carriers exist; the concrete transporter kernel and its API/tests are prototyped. Restrict the discrete Gamma-invariant set to the real component G(R) kappa(I); validate finite-fibre transporter sums with their full real stabilizer multiplicity. The weight in Theorem 6.3 is PSO_A(Z)-invariant and has the exact rank<=1 indicator factors at p|q.",
         "Unavailable coregular number-field count: BKLOS bibliography[7] cites Global Fields II as in preparation, and its Theorem 13 was not available among the sources read. Obtain its primary theorem and full proof or supply a source-qualified SL2 coregular invariant-height counting theorem with all six axioms. Global Fields I’s prehomogeneous theorem does not supply it. No replacement arbitrary count function is prototyped. BKLOS normalized Disc equals minus ordinary discriminant/27, so its displayed spreading section is correct. Supply the ST.1 SL2 locally phi-soluble orbit dictionary and its uniform integral-representative adapter from BKLOS §§3–7. Establish the squareclass representative domain, unit normalization and finite archimedean measure window before using Theorem 8.1 local-integral ratios; an unrestricted sign cone can have infinite measure. The local cokernel/kernel quotient is specified inline in the counting target, without importing the higher ST.5 Selmer-average conclusion.",
         "Hypersurface coefficient geometry and ball density: Provide the universal degree-d projective hypersurface/local solubility native carrier, the geometric reducibility codimension calculation excluding plane conics, the degree-bounded smooth finite-field-point guarantee, the transverse Hensel chart and real/p-adic boundary nullity. Justify the primitive Mobius sum, positive local smooth examples and 1−c_p=O(p^-2). PV proves the cube version; the real factor must be recomputed for the Euclidean ball. The plane-conic zero-density statement invokes Serre and is not a new certified target here."
       ]
@@ -2468,7 +2493,7 @@
     {
       "id": "G-secondary",
       "title": "Cubic second-term proof and local coefficients",
-      "detail": "The source target Theorem 27 and the switching identities were read, but a full independent derivation of §6 smoothing and the §8 three-range optimization was not completed in this target pass. Obtain it, compute the translated-lattice secondary coefficients, and source-qualify each local primitive-index integral. An O(X/p^2) first-term tail alone gives no X^(5/6−1/48) remainder.",
+      "detail": "The source target Theorem 27 and the switching identities were read, but a full independent derivation of §6 smoothing and the §9 three-range optimization was not completed in this target pass. Obtain it, compute the translated-lattice secondary coefficients, and source-qualify each local primitive-index integral. An O(X/p^2) first-term tail alone gives no X^(5/6−1/48) remainder.",
       "neededBy": [
         "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count",
         "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error"
@@ -2477,7 +2502,7 @@
     {
       "id": "G-global",
       "title": "S-arithmetic orbit and geometric-sieve adapters",
-      "detail": "Implement the number/global field, S-adic Haar measure and coefficient-lattice interfaces supplied by GlobalNumberFields and RestrictedProducts, then connect the specific G_n,V_n models. Generic arithmetic reduction theory and Tamagawa measures are assigned current upstream successor roadmaps, not supplied by field-level orthogonal groups. The current catalogue has not acquired all successor ids; record exact owners rather than creating them here. Characteristic-positive projection/spreading and finite ideal-class weak-map lattices need their native adapters.",
+      "detail": "Implement the number/global field, S-adic Haar measure and coefficient-lattice interfaces supplied by GlobalNumberFields and RestrictedProducts, then connect the specific G_n,V_n models. Generic arithmetic reduction theory and Tamagawa measures are assigned current upstream successor roadmaps, not supplied by field-level orthogonal groups. The current catalogue has not acquired all successor ids; record exact owners rather than creating them here. Characteristic-positive projection/spreading and finite ideal-class weak-map lattices need their native adapters. Require Gamma-stability of L, prove the fixed-denominator and finite-index comparison for the tail, and use exact norm shells for function fields. Supply the affine nonreductive quadratic representation and its bounded-domain Haar/Jacobian/maximality adapters from Global Fields I §9, including characteristic two. Extra ramification and nonmaximality are intrinsic ring properties there; ordinary squarefree Delta is not the characteristic-two condition.",
       "neededBy": [
         "ArithmeticStatistics:ST.2/refinement-global-field-generic-finite-count",
         "ArithmeticStatistics:ST.2/refinement-global-field-large-prime-tail",
@@ -2497,8 +2522,9 @@
     {
       "id": "G-even",
       "title": "Even-degree binary-form repaired tail",
-      "detail": "Certify the actual paired-fibre count, determinantal-ideal/Cauchy–Binet Gram estimate, restricted L_good(M) rather than unrestricted L(M), small constant-term exclusion and quantitative non-Sn bound. Preserve the gcd(2,f(0,1)) flag correction imported from ST.1. Optimize parameters with slack for log^(2n)X; the published even numerical exponents are not declared established. Without this, the even summed tail and equal-coefficient squarefree sieve remain conditional.",
+      "detail": "Certify the actual paired-fibre count, determinantal-ideal/Cauchy–Binet Gram estimate, restricted L_good(M) rather than unrestricted L(M), small constant-term exclusion and quantitative non-Sn bound. Preserve the gcd(2,f(0,1)) flag correction imported from ST.1. Optimize parameters with slack for log^(2n)X; the published even numerical exponents are not declared established. Without this, the even summed tail and equal-coefficient squarefree sieve remain conditional. Also justify the main/shallow row-contained lattice counts under the existence of an actual full-rank matrix and the skew-domain vanishing hypotheses. The overlap in (74) requires an upper bound or genuine disjoint full-rank fibres; the deep box itself forces its small coordinate block to vanish, so row-space membership alone is not the reason for that vanishing. For a general repaired exponent delta use tau=max(eta,(eta+xi)/delta), with tau<1 and (2n+1)tau<n+1; the source exponent 3(eta+xi) requires delta>=1/3.",
       "neededBy": [
+        "ArithmeticStatistics:ST.2/refinement-even-binary-main-shallow",
         "ArithmeticStatistics:ST.2/refinement-even-binary-restricted-gram",
         "ArithmeticStatistics:ST.2/refinement-even-binary-restricted-deep-tail",
         "ArithmeticStatistics:ST.2/refinement-binary-summed-tail",
@@ -2518,7 +2544,7 @@
     {
       "id": "G-criterion",
       "title": "Representation-specific geometric-sieve hypotheses",
-      "detail": "Check all six axioms for every application of the invariant criterion. Density-one generic loci, finite geometric stabilizers, the height decrease and bounded orbit-fibre count are independent inputs. The binary-quartic embedding application needs the exact parent transport correction; the primitive relative invariant and strong codimension-two assumption cannot be omitted.",
+      "detail": "Check all six axioms for every application of the invariant criterion. Density-one generic loci, finite geometric stabilizers, the height decrease and bounded orbit-fibre count are independent inputs. The binary-quartic embedding application needs the exact parent transport correction; the primitive relative invariant and strong codimension-two assumption cannot be omitted. Keep G^1=ker(det(rho)), G(Z)-invariance of the density-one generic set, closed G-invariant Y_k depending only on k, and integrality/genericity after each move. Source-compatible compact truncations and null/frontier regularity are needed to apply lattice estimates and approximate a coefficient box; upstream analytic preparation for CAD does not supply this measure adapter by itself.",
       "neededBy": [
         "ArithmeticStatistics:ST.2/refinement-invariant-geometric-sieve-criterion"
       ]
@@ -2537,7 +2563,7 @@
     {
       "id": "G-smoothed",
       "title": "Smooth unfolding and special quaternary masses",
-      "detail": "Supply the native smooth section, Lie-action Haar/differential-form integration and arithmetic stabilizer measures. Validate the fixed A split slice, nonzero vol(Theta), integrability and the special rank-one local mass with the uniform modulus restrictions of Theorem 6.3. The theorem signatures are omitted until these carriers exist; the concrete transporter kernel and its API/tests are prototyped.",
+      "detail": "Supply the native smooth section, Lie-action Haar/differential-form integration and arithmetic stabilizer measures. Validate the fixed A split slice, nonzero vol(Theta), integrability and the special rank-one local mass with the uniform modulus restrictions of Theorem 6.3. The theorem signatures are omitted until these carriers exist; the concrete transporter kernel and its API/tests are prototyped. Restrict the discrete Gamma-invariant set to the real component G(R) kappa(I); validate finite-fibre transporter sums with their full real stabilizer multiplicity. The weight in Theorem 6.3 is PSO_A(Z)-invariant and has the exact rank<=1 indicator factors at p|q.",
       "neededBy": [
         "ArithmeticStatistics:ST.2/refinement-smoothed-orbit-unfolding",
         "ArithmeticStatistics:ST.2/refinement-smoothed-quaternary-count"
@@ -2565,7 +2591,7 @@
   "requests": [
     {
       "supplier": "SieveMethodsAndPrimePatterns:SV.2",
-      "need": "Supply a quantitative multidimensional coefficient-box Selberg/large sieve: uniformly positive good-prime excluded densities and remainder r_d=O_epsilon(X^(D−1)d^(1+epsilon)) imply the balanced distinguished-matrix saving 1/5. Also give a correctly normalized non-Sn bound for nonmonic coefficient boxes with a saving exceeding the small even-tail exponent. Existing additive/Gram inequalities are inputs, not either final counting theorem. For monic weighted boxes also supply the quantitative specialization/Galois-fibre estimate with the subgroup index retained, including the degree 4 D4 index3 exception; qualitative irreducibility is insufficient.",
+      "need": "Supply a quantitative multidimensional coefficient-box Selberg/large sieve: uniformly positive good-prime excluded densities and remainder r_d=O_epsilon(X^(D−1)d^(1+epsilon)) imply the balanced distinguished-matrix saving 1/5. Also give a correctly normalized non-Sn bound for nonmonic coefficient boxes with a saving exceeding the small even-tail exponent. Existing additive/Gram inequalities are inputs, not either final counting theorem. For monic weighted boxes also supply the quantitative specialization/Galois-fibre estimate with the subgroup index retained, including the degree 4 D4 index 3 exception; qualitative irreducibility is insufficient.",
       "neededBy": [
         "ArithmeticStatistics:ST.2/refinement-monic-distinguished-off-block",
         "ArithmeticStatistics:ST.2/refinement-monic-extra-reducible-bound",
@@ -2619,7 +2645,12 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A repeated-root polynomial has Delta=0 and is counted at every squarefree m, making the unqualified nonnegative sum infinite. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-2",
@@ -2636,7 +2667,12 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The shortest weighted side has length X, so a boundary congruence error loses one exponent, not n. The corrected sum is absorbed by the announced larger sieve error. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-3",
@@ -2645,7 +2681,7 @@
       "locator": "Proposition 4.3 proof, p.22, arXiv v3",
       "printed": "The subgroup-index lower bound used for conjugate-factor forms includes degree 4.",
       "correction": "For quartics use O_epsilon(X^(22/3+epsilon)); retain the other degree bounds with their separate subgroup cases.",
-      "reason": "The dihedral subgroup in S4 has index3; the claimed larger index is false. The corrected exponent is still subleading for the discriminant sieve.",
+      "reason": "The dihedral subgroup in S4 has index 3; the claimed larger index is false. The corrected exponent is still subleading for the discriminant sieve. The general splitting-group order is 2((n/2)!)^2, not 2(n/2)!; degree 6 has index 10 and still yields the needed non-quartic saving.",
       "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-22/E7.",
       "affects": "a stated result",
       "searched": [
@@ -2653,7 +2689,12 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The dihedral subgroup in S4 has index 3; the claimed larger index is false. The corrected exponent is still subleading for the discriminant sieve. The general splitting-group order is 2((n/2)!)^2, not 2(n/2)!; degree 6 has index 10 and still yields the needed non-quartic saving. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-4",
@@ -2670,30 +2711,40 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Delta(xf)=Delta(f)f(0,1)^2. Without a constant-term lower bound, the source discriminant hypothesis gives only normalized size X^(−2−kappa). Product divisibility of minors is not a substitute for ideal membership. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-5",
       "source": "bsw2",
-      "kind": "error",
-      "locator": "S(Lambda) p.26; (74)–(76), pp.47–48, published 2025",
-      "printed": "The spanning symmetric lattice is treated as if every member had the rank and block conditions of the selected matrices.",
-      "correction": "Enumerate actual nondegenerate B by its unique saturated row lattice, and retain block conditions on actual B paired with A.",
-      "reason": "A full-rank subset and its additive span are different objects: the span includes lower-rank and zero matrices. Conditions depending on the paired A do not hold throughout the span.",
-      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-25/E18.",
-      "affects": "a stated result",
+      "kind": "gap",
+      "locator": "§5 full-rank S(Lambda) and span, p.22; row-contained lattice §6.1 p.26; (74)–(76), pp.47–48, published 2025",
+      "printed": "Equation (74) identifies a union over row-contained symmetric lattices with the sum of their counts. The argument then uses bounds from full-rank symmetric row-space fibres.",
+      "correction": "Use an upper bound for overlapping lattices, or fibre actual full-rank B by its unique saturated row lattice. Justify each spanning-lattice count under the existence and skew-domain hypotheses; retain all forced zero coordinates.",
+      "reason": "Zero belongs to every row-contained lattice, so a union is not generally a disjoint sum. The source itself distinguishes the full-rank set from its span on p.22. In the deep cusp, however, the skew box forces the small top-left block to be zero; the broad allegation that p.48 infers this from row-space membership alone is not retained.",
+      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-25/E18, narrowed by this review; no source theorem is declared false solely because of the overlapping union.",
+      "affects": "the proof",
       "searched": [
         "The exact source version whose SHA-256 is registered here.",
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Zero belongs to every row-contained lattice, so a union is not generally a disjoint sum. The source itself distinguishes the full-rank set from its span on p.22. In the deep cusp, however, the skew box forces the small top-left block to be zero; the broad allegation that p.48 infers this from row-space membership alone is not retained. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-6",
       "source": "geometric",
       "kind": "misprint",
-      "locator": "§3.4 (40)–(44), pp.16–17 of the accessed arXiv PDF",
+      "locator": "§3.4 (40)–(44), pp.17–18 of the accessed arXiv PDF",
       "printed": "The coefficient-box sieve factors divide c_p by p^2.",
       "correction": "Use c_p/p^(2r), where r is the coefficient rank.",
       "reason": "c_p was defined as the number of zeros in (Z/p^2 Z)^r, which has p^(2r) elements. Theorem 1.5 and Theorem 1.6 already use that normalization.",
@@ -2704,13 +2755,18 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "c_p was defined as the number of zeros in (Z/p^2 Z)^r, which has p^(2r) elements. Theorem 1.5 and Theorem 1.6 already use that normalization. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     },
     {
       "id": "ArithmeticStatistics/E-ST2-7",
       "source": "geometric",
       "kind": "misprint",
-      "locator": "Genus-one representation list (iv), p.5 of the accessed arXiv PDF",
+      "locator": "Genus-one representation list (iv), p.6 of the accessed arXiv PDF",
       "printed": "The degree-five genus-one item describes quintuples but places its first tensor factor in dimension 4.",
       "correction": "Use a dimension 5 first tensor factor, giving5 tensor exterior^2(5) and dimension 50.",
       "reason": "The same passage states dimension 50 and quintuples; dimension 4 would give40 and the different quintic-ring representation. BS5 explicitly uses the dimension 50 model.",
@@ -2721,7 +2777,188 @@
         "Existing routed extraction result and independent review, where identified.",
         "Public arXiv/publisher correction searches on 2026-10-10; no additional erratum located."
       ],
-      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement."
+      "presentation": "Own-word report; the worker standing no-quotation rule overrides the old excerpt field requirement.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The same passage states dimension 50 and quintuples; dimension 4 would give40 and the different quintic-ring representation. BS5 explicitly uses the dimension 50 model. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-8",
+      "source": "bsw1",
+      "kind": "error",
+      "locator": "Lemma 4.2 proof, p.21, arXiv:1611.09806v3",
+      "printed": "The proof bounds the number of possible divisors of each fixed nonzero constant term by O(log X).",
+      "correction": "Sum the divisor counts over the whole constant-term interval, using sum_{k<=X^n} d(k)=O(X^n log X).",
+      "reason": "A pointwise logarithmic divisor bound is false. The average bound gives the same rational-root theorem after solving the penultimate coefficient.",
+      "affects": "the proof",
+      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-22/E8; the repair is used in node refinement-monic-rational-root-bound.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A pointwise logarithmic divisor bound is false. The average bound gives the same rational-root theorem after solving the penultimate coefficient. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-9",
+      "source": "bs5",
+      "kind": "misprint",
+      "locator": "Introductory Theorem 12, p.7, compared with §3.1 and (18), p.17, arXiv:1312.7859v1",
+      "printed": "The introductory leading coefficient lacks division by the order-five real stabilizer.",
+      "correction": "Use (|J|/5) vol(G_Z\\G_R) N_inv^±(X), as in the body equation (18), with J from Proposition 24.",
+      "reason": "The real stabilizer has order 5 on both signs. The body volume computation (18) retains this divisor; its omission in Theorem 12 is an internal normalization discrepancy.",
+      "affects": "a stated result",
+      "known": "The body equation (18) already gives the corrected normalization in this exact preprint; no later correction located.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The real stabilizer has order 5 on both signs. The body volume computation (18) retains this divisor; its omission in Theorem 12 is an internal normalization discrepancy. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-10",
+      "source": "bsw2",
+      "kind": "error",
+      "locator": "Corollary 6.27, p.51, published Forum of Mathematics Pi 13 (2025), e17",
+      "printed": "The sum over squarefree square divisors includes forms with zero discriminant.",
+      "correction": "Remove Delta=0 before summing multiplicities and Mobius interchanges, then count the singular coefficient locus separately.",
+      "reason": "For a repeated-root form every squarefree m divides Delta by its square, so the unqualified nonnegative sum is infinite. The later finite-divisor estimate requires nonzero Delta.",
+      "affects": "a stated result",
+      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-25/E7; independently checked on the published nonzero-domain failure.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a repeated-root form every squarefree m divides Delta by its square, so the unqualified nonnegative sum is infinite. The later finite-divisor estimate requires nonzero Delta. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-11",
+      "source": "bsw2",
+      "kind": "misprint",
+      "locator": "Corollary 6.27 proof, two union inequalities on p.51, published 2025",
+      "printed": "The strong/weak split is displayed as two separate upper bounds for the whole original union.",
+      "correction": "Bound the original union by the sum of the strong-large and weak-large union counts.",
+      "reason": "From m=m1 m2>M one gets m1>M1 or m2>M2 for M1 M2=M. An alternative implies a union bound by a sum, not either bound separately; the announced optimization uses that sum.",
+      "affects": "the proof",
+      "known": "The intended union-bound argument is clear from the same paragraph; no applicable corrigendum located.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "From m=m1 m2>M one gets m1>M1 or m2>M2 for M1 M2=M. An alternative implies a union bound by a sum, not either bound separately; the announced optimization uses that sum. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-12",
+      "source": "bs4",
+      "kind": "misprint",
+      "locator": "Lemma 16 proof after (20), p.15, arXiv:1312.7333v1",
+      "printed": "The displayed local no-root family is described as forcing failure of strong irreducibility.",
+      "correction": "That local family excludes rational-root resolvents and hence excludes the non-strongly-irreducible locus.",
+      "reason": "The preceding rational-root reduction implication and the chosen quartic x^4+y^4 show that no local root forbids a rational root. The following sieve correctly treats this family as an exclusion.",
+      "affects": "nothing",
+      "known": "The preceding implication and following sieve identify the intended direction in this preprint.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding rational-root reduction implication and the chosen quartic x^4+y^4 show that no local root forbids a rational root. The following sieve correctly treats this family as an exclusion. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-13",
+      "source": "bs5",
+      "kind": "error",
+      "locator": "Finite-congruence Theorem 25, p.17, arXiv:1312.7859v1; analogous finite-count convention in BS3/BS4/BGW",
+      "printed": "The finite-congruence coefficient for an arbitrary union of residue classes is written as a product of its individual p-adic closure densities.",
+      "correction": "Use the actual finite CRT residue density. A product of local closure densities is valid for independently imposed prime-power conditions.",
+      "reason": "Coupled CRT restrictions do not factor. For example, two paired residues modulo 3 and 5 have density 2/15, but their two marginal closure densities have product 4/15. Invariant residue conditions must also retain their cross-prime coupling; finite translate counts add the actual classes.",
+      "affects": "a stated result",
+      "known": "Standard CRT independence qualification; the source finite weighted product theorem treats independently imposed factors. No explicit correction located in the versions checked.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Coupled CRT restrictions do not factor. For example, two paired residues modulo 3 and 5 have density 2/15, but their two marginal closure densities have product 4/15. Invariant residue conditions must also retain their cross-prime coupling; finite translate counts add the actual classes. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-14",
+      "source": "bsw1",
+      "kind": "misprint",
+      "locator": "Even torus coordinates p.18 and Q-weight (36) p.19, arXiv:1611.09806v3",
+      "printed": "The last torus coordinate is assigned index g twice, and the s-coordinate expression for Q has positive rather than negative exponents.",
+      "correction": "Set s_(g+1)=t_g t_(g+1); use w(Q)=product_{i=1}^g s_i^(-i).",
+      "reason": "With s_i=t_i/t_(i+1), telescoping gives (t_1...t_g)^(-1)t_(g+1)^g=product s_i^(-i). The density and cusp integral use g+1 coordinates and the negative exponents.",
+      "affects": "nothing",
+      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-22/E2,E3; source cusp integration already uses the corrected weight.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "With s_i=t_i/t_(i+1), telescoping gives (t_1...t_g)^(-1)t_(g+1)^g=product s_i^(-i). The density and cusp integral use g+1 coordinates and the negative exponents. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E-ST2-15",
+      "source": "bsw2",
+      "kind": "misprint",
+      "locator": "Theorem 6.6, p.29, and final balancing computation p.33, published 2025",
+      "printed": "The main-body saving is announced as 1/(4n) for every even n>=4, despite a second bound in the proof.",
+      "correction": "Retain theta_n=min(1/(4n),(n−2)/(2n^2+2n+2)); theta_4=1/21 and theta_n=1/(4n) for even n>=6.",
+      "reason": "For n=4 the second proof saving is 2/42=1/21, smaller than 1/16. Both alternatives must be controlled.",
+      "affects": "a stated result",
+      "known": "Routed PAPER-BHARGAVA-SHANKAR-WANG-25 main-body endpoint correction; the packet already uses the minimum. Row-lattice certification remains a separate gap.",
+      "searched": [
+        "The exact source PDF and version whose hash is registered here.",
+        "Relevant routed extraction findings and their independent reviews.",
+        "Public arXiv/author/publisher title and correction searches on 2026-10-10; no applicable later correction located. This is not a claim that no correction exists."
+      ],
+      "presentation": "Own-word report; no source passage is reproduced.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For n=4 the second proof saving is 2/42=1/21, smaller than 1/16. Both alternatives must be controlled. Verdict is scoped to the registered source version and, for a gap, confirms the missing justification rather than its proposed repair.",
+        "by": "REV-ArithmeticStatistics--ST.2"
+      }
     }
   ],
   "restructure": [
@@ -2855,11 +3092,11 @@
     },
     {
       "topic": "Current roadmap ownership",
-      "detail": "RealAlgebraicGeometry owns native semialgebraic sets, CAD and analytic boundary preparation; IntegralLattices owns lattice carriers, duality, Smith-normal-form completion and successive minima. OrthogonalSpinGroups field groups do not export generic reduction theory or Tamagawa measures; current IntegralLattices points these to ArithmeticReductionTheory, TamagawaMeasures and OrthogonalTamagawaAndLatticeMass. No target here recreates them. Packaging needs catalogue ids/native adapters where these successors postdate the atlas. Current PolynomialGaloisGroups explicitly leaves quantitative thin-set/Hilbert-irreducibility counts outside its scope, so the requested coefficient-box Galois exception bounds are not duplicate targets."
+      "detail": "RealAlgebraicGeometry owns native semialgebraic sets, CAD and the analytic preparation for CAD; it does not by itself give the counting boundary-nullity/Lipschitz adapters. IntegralLattices owns lattice carriers, duality, Smith-normal-form completion and successive minima. OrthogonalSpinGroups field groups do not export generic reduction theory or Tamagawa measures; current IntegralLattices points these to ArithmeticReductionTheory, TamagawaMeasures and OrthogonalTamagawaAndLatticeMass. No target here recreates them. Packaging needs catalogue ids/native adapters where these successors postdate the atlas. Current PolynomialGaloisGroups explicitly leaves quantitative thin-set/Hilbert-irreducibility counts outside its scope, so the requested coefficient-box Galois exception bounds are not duplicate targets."
     },
     {
       "topic": "Baseline and roadmap audit",
-      "detail": "Read the ST.2 library-coverage record before construction, accepted parent and ST.1 follow-up, applicable ownership/links and current roadmaps. No link extraction named ST.2 exactly; related ArithmeticStatistics links were checked. Complete nearby reader-style checks used GlobalNumberFields and ArithmeticDirichletSeries. Current read-only sources were never compiled or changed. Mathlib pinned checkout HEAD was independently verified; the shared TauCeti build has no git metadata, so its f790474 provenance is the worker baseline configuration, not an independently verified repository object."
+      "detail": "Independent review read the ST.2 library-coverage record, accepted parent/ST.1 nodes and the exact supplier statements or stage contracts. Every one of the ten baseline citations was independently checked at its pinned git object: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Read current Tau Ceti lattice/boundary count sources and the current IntegralLattices, OrthogonalSpinGroups, RealAlgebraicGeometry and PolynomialGaloisGroups scope/API passages; none was changed or compiled. The generic owners and actual theorem restrictions remain separate from representation-specific gaps. Nearby reader-style checks used GlobalNumberFields and ArithmeticDirichletSeries."
     }
   ],
   "importedTargets": [
@@ -3355,5 +3592,268 @@
       "ArithmeticStatistics:ST.2/refinement-hypersurface-local-density"
     ],
     "reason": "43 native arithmetic quotient/invariant/scheme/measure interfaces are absent; each name and missing carrier is in the suggested-file omission register and reader gaps. All definition/construction APIs and examples are prototyped."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticStatistics--ST.2",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 51 nodes,15 registered source PDFs and 10 baseline declarations at both pinned commits. Corrected CRT independence, global weights/shells/quadratic model, geometric-sieve hypotheses, binary truncation, native genus-one conventions, BS5 stabilizer constant and unfolding component scope. All15 source findings have version-scoped verdicts; the inherited row-lattice allegation was narrowed. Complete planned pass accepted under PROTOCOL §0, with 13 precise gaps,4 open requests and 43 omitted native theorem interfaces; no closed or formalized stage is claimed.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quartic-finite-congruence-count",
+        "verdict": "corrected",
+        "note": "Quartic Theorem 22/(32) gives the stated signature constants and S4 locus; corrected the finite coefficient to actual CRT density."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quartic-fixed-reducible-resolvent",
+        "verdict": "verified",
+        "note": "Lemma 12 supplies the fixed-resolvent route; the epsilon loss and unread Nakagawa/Baily/genus inputs remain explicit G-quartic obligations."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quartic-nonmaximal-overramified-tail",
+        "verdict": "verified",
+        "note": "Proposition 23 bounds nonmaximal/overramified S4 orbits uniformly by X/p^2. The non-S4 transport and acyclic class-mass inputs remain G-quartic."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quintic-finite-congruence-count",
+        "verdict": "corrected",
+        "note": "Quintic Theorems 17–18 give the 40-dimensional constants and irreducible/S5 distinction; corrected pages and finite CRT coefficient."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quintic-nonmaximal-tail",
+        "verdict": "corrected",
+        "note": "Proposition 19 is pp.1586–1588. The uniform Brakenhoff and content/resolvent inputs are honestly recorded in G-quintic."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-global-field-generic-finite-count",
+        "verdict": "corrected",
+        "note": "Read global count conventions, Theorem 4.7 and §9. Corrected Gamma-stability, stabilizer weights, function-field norm shells, actual CRT density and the native all-characteristic quadratic model."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-global-field-large-prime-tail",
+        "verdict": "corrected",
+        "note": "Read the full Theorems 5.2–5.3 proof and §9.3. Corrected the intrinsic nonmaximal/extra-ramification partition, standard-lattice scope and separate commensurable comparison; polynomial squarefreeness is not used in characteristic two."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-global-field-large-local-count",
+        "verdict": "corrected",
+        "note": "Read Theorem 5.1 and its finite truncation argument. Made independent local factorization, Gamma-local invariance, vol(L_p)=1, norm shells and the quadratic model explicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-cubic-secondary-congruence-count",
+        "verdict": "corrected",
+        "note": "Theorem 27/Remark 3 are p.20. Retained m^4<=X, T1^(-1/3)T2^(-1) secondary scaling and the separate translated coefficient; G-secondary keeps the full derivation open."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-cubic-secondary-sieve-error",
+        "verdict": "corrected",
+        "note": "Theorem 7 is p.3; switching (63)–(71) is §9.1 pp.27–28 and its final local-product proof is §9.7 pp.35–36. Corrected section locators; the optimization is an explicit G-secondary obligation."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-square-divisor-tail",
+        "verdict": "verified",
+        "note": "The finite divisor-filter construction deliberately removes Delta=0, agrees with Nat.divisors and distinguishes union size from summed multiplicity. Three tests catch zero/unit/modulus mistakes."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-kappa-acceptable",
+        "verdict": "corrected",
+        "note": "Kappa-acceptability is residue dependence plus the uniform eventual good-prime condition; parent product convergence remains separate. Corrected the definition pages to 20–21; all three tests and both API consequences are meaningful."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-rational-root-bound",
+        "verdict": "verified",
+        "note": "Lemma 4.2 has the claimed weighted rational-root exponent. Its false pointwise divisor step is repaired by the requested average divisor sum and separately recorded as E-ST2-8."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-extra-reducible-bound",
+        "verdict": "corrected",
+        "note": "Corrected the wreath-product order to 2((n/2)!)^2 and retained the degree-four D4 index 3 exponent 22/3; degree 6 index 10 still supplies the other bound. The quantitative Galois sieve is a precise supplier request."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-distinguished-off-block",
+        "verdict": "corrected",
+        "note": "The odd/even half/quarter-integral lattices and off-block power saving match Propositions 2.5–2.6/3.4–3.5. The quantitative Selberg remainder remains a requested adapter; corrected exact page locators."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-q-cusp-tail",
+        "verdict": "corrected",
+        "note": "The cusp bounds and negative Q-weight match the corrected telescoping character and integral. Added the distinct last even torus coordinate and exact locators; recorded both internal misprints."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-strong-tail",
+        "verdict": "verified",
+        "note": "Theorem 1.5(a) is a strong-every-prime union estimate; the anisotropic weighted-box geometric-sieve adapter is explicit G-weighted, not supplied by the isotropic parent theorem alone."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-weak-tail",
+        "verdict": "verified",
+        "note": "Theorem 1.5(b) uses the marked distinguished lifts and odd squarefree weak moduli. The source lattice denominators and even flag/ruling obligations are retained, including the quartic exception."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-summed-tail",
+        "verdict": "verified",
+        "note": "The corrected Theorem 4.4 removes zero discriminants before divisor sums; the separate n=2 weak argument is G-quadratic and is not smuggled through n>=3 slices."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-monic-fixed-modulus-sieve",
+        "verdict": "corrected",
+        "note": "Theorem 4.1 retains kappa>=1, real root types and the minimum saving. Corrected pages and used boundary exponentD−1; nonzero-domain and anisotropic errors remain G-weighted."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-invariant-geometric-sieve-criterion",
+        "verdict": "corrected",
+        "note": "Read all six conditions and full §3.4 proof. Added G^1=ker(det rho), invariant generic locus, closed invariant Y_k depending only on k, integral generic moves and bounded original orbit fibres; retained the boundary/approximation obligation and p^(2r) normalization."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-binary-strong-tail",
+        "verdict": "verified",
+        "note": "BSW II Theorem 5(a) gives the binary strong-every-prime union estimate; it uses fixed-degree form discriminants and the parent codimension-two input."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-odd-binary-cusp-count",
+        "verdict": "verified",
+        "note": "BSW II Theorem 4.2 and Propositions 4.4–4.8 give the odd main/shallow/deep savings. The selected torus domain and large-sieve supplier are required."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-odd-binary-weak-tail",
+        "verdict": "verified",
+        "note": "BSW II odd weak lifts preserve the marked Q invariant and yield the 1/(2n) saving. Prime2 restrictions and the irreducible-lift dictionary are retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-even-binary-small-discriminant",
+        "verdict": "verified",
+        "note": "Lemma 6.1 p.25 gives the small-discriminant loss kappa/(2n−2); its leading-coefficient split and root-neighbourhood estimate justify the target."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-even-binary-constant-term-tail",
+        "verdict": "verified",
+        "note": "Lemma 6.2 p.26 gives the small constant-term-divisibility tail; the independent small absolute constant-term exclusion is retained for the corrected Gram domain."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-even-binary-main-shallow",
+        "verdict": "corrected",
+        "note": "Corrected main/shallow statements to explicit conditional repair targets; the numerical minimum gives theta4=1/21. Added G-even coverage for the row-lattice counting hypotheses and precise source pages."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-even-binary-restricted-gram",
+        "verdict": "corrected",
+        "note": "This is an explicitly open repair target, not a verified published lemma. The corrected degree/scaling and factor-two Gram exponent follow from Delta(xf)=Delta(f)f(0,1)^2; determinantal ideal membership remains G-even."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-even-binary-restricted-deep-tail",
+        "verdict": "corrected",
+        "note": "The q-height inequality and insertion of the restricted Gram exponent are correctly conditional. Corrected Proposition 6.26/deep-proof pages and kept actual fibres and logarithmic slack."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-binary-summed-tail",
+        "verdict": "corrected",
+        "note": "Corrected Corollary6.27 page, strong/weak union bound and general tail-parameter inequalities via tau=max(eta,(eta+xi)/delta). The odd clause is source-qualified; the even clause remains conditional G-even."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quadratic-binary-summed-tail",
+        "verdict": "verified",
+        "note": "The degree-two nonzero summed-tail and zero-locus counts are genuine native coefficient targets; their congruence-density conclusion is a distinct G-quadratic obligation, not inferred from a tail alone."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-binary-fixed-modulus-sieve",
+        "verdict": "corrected",
+        "note": "Generalized the sieve truncation using the actual delta exponent and retained the Euler remainder. Source exponents3(eta+xi) require delta>=1/3. The corrected pages are51–52; n=2 remains separate."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-pencil-finite-congruence-count",
+        "verdict": "corrected",
+        "note": "BGW Theorem 36 counts the source nonzero-discriminant locus, not polynomial irreducibility, in a native SL_n/mu2 component. Corrected actual finite CRT density and source pages."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-pencil-infinite-weight-upper-bound",
+        "verdict": "corrected",
+        "note": "BGW Theorem 38 is an upper bound only; made local independence and invariant S explicit, with indicators in each local factor. Coupled finite conditions require disjoint decomposition before the limsup."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-large-coefficient-family-tail",
+        "verdict": "corrected",
+        "note": "BGW Definition39/Proposition 42 give the coefficient-family tail for large conditions. Its supnorm scaling is not an orbit average; corrected exact pages."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-ternary-cubic-finite-count",
+        "verdict": "corrected",
+        "note": "BS3 Theorems 8/17–18 give the constants and finite weighted count. Specified I=c4/16,J=c6/32, invariant S and actual CRT density; corrected theorem numbering."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-ternary-cubic-prime-tail",
+        "verdict": "verified",
+        "note": "BS3 Proposition 25/Lemma 26 bound the large-prime discriminant tail using the ternary-to-quartic-pair map of multiplicity3. The imported parent non-S4 transport gap is not erased."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-ternary-cubic-acceptable-count",
+        "verdict": "verified",
+        "note": "BS3 Theorem 24 passes acceptable factors to equality with a genuine tail and normalized local integrals; no arbitrary congruence-defined weight is asserted acceptable."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quaternary-finite-count",
+        "verdict": "corrected",
+        "note": "Specified the determinant-kernel central quotient, half-Gram convention and resolvent16det(Ax+By). The real factors4/8 and invariant counts8/5,32/5 match BS4; actual CRT density replaces marginal products."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quaternary-prime-tail",
+        "verdict": "verified",
+        "note": "BS4 Theorem 23 and Lemma 24 yield the source tail and at-most-two weak-to-strong fibres, distinct from BGW pencil groups and from the degree-five fibres."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quaternary-acceptable-count",
+        "verdict": "verified",
+        "note": "BS4 Theorem 22 acceptable weighted equality uses the preceding tail. Corrected finite main-term conventions are inherited; integral local-mass adapters remain G-selmer."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quinary-finite-count",
+        "verdict": "corrected",
+        "note": "Corrected BS5 leading coefficient by1/5 from the real stabilizer and body (18), and specified the exact50-dimensional native group/action. Added actual CRT density; recorded the introductory normalization discrepancy."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quinary-prime-tail",
+        "verdict": "corrected",
+        "note": "BS5 Theorem 27/Lemma 28 give the prime tail and at-most-two weak-to-strong fibres; the cusp/nongeneric source exclusions remain the proof inputs."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-quinary-acceptable-count",
+        "verdict": "corrected",
+        "note": "BS5 Theorem 29 uses the acceptable Euler product and source tail; corrected the locator and the inherited finite coefficient to include1/5."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-section-kernel",
+        "verdict": "corrected",
+        "note": "Aligned the generic prototype with arbitrary maps/functions, while restricting the source application to a smooth regular section. Added finite-fibre summation API and a two-element stabilizer test with value12; corrected kernel source pages."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-smoothed-orbit-unfolding",
+        "verdict": "corrected",
+        "note": "Theorem 5.1 requires a discrete Gamma-invariant subset of the real component represented by kappa. Added that missing hypothesis, semisimple unimodular measure and preserved both real and arithmetic stabilizer factors."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-smoothed-quaternary-count",
+        "verdict": "corrected",
+        "note": "Theorem 6.3 p.30 and proof38–39 require exact rank<=1 indicator factors and arithmetic invariance. Made those explicit; uniform C0 and joint10theta+62delta<lambda keep the error subleading."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-number-field-twist-orbit-count",
+        "verdict": "verified",
+        "note": "BKLOS Theorems 7.1–7.2 and §8 distinguish irreducible nonidentity orbits, normalized Disc=−ordinaryDelta/27 and uniform integral scale. The unavailable coregular theorem/six axioms and finite representative measure remain explicit G-twist."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-hypersurface-local-tail",
+        "verdict": "corrected",
+        "note": "PV Theorem 3.6 proof controls the local obstruction tail via geometric reducibility and Hensel lifting, excluding plane conics. Corrected exact pages; coefficient geometry and boundary adapters remain G-local."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-hypersurface-finite-local-count",
+        "verdict": "corrected",
+        "note": "Finite local counts retain primitive projective coefficients modulo sign, local boundary-nullity and the Euclidean-ball real factor. PV proves a cube version, so the ball adaptation stays explicit G-local; corrected locators."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.2/refinement-hypersurface-local-density",
+        "verdict": "corrected",
+        "note": "The infinite local density uses finite counts before prime truncation and recomputes the real ball factor. Fano §1 supports its height convention/positive local constant, not a new global Hasse-principle target; corrected locators."
+      }
+    ]
   }
 }
