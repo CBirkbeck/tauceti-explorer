@@ -1,112 +1,114 @@
-# REV-FIX-RT-AREA-topology~4: bounded review, scope blocked
+# REV-FIX-RT-AREA-topology~4: scope-blocked checkpoint
 
-Issue #6521; Codex (GPT-6), session `codex-feEvuE`; 10 October 2026.
-Claim comment 6102211523 confirmed by bot comment 6102212696.
-Branch `codex-feEvuE-review-topology`. Continues merged checkpoint PR #8609.
-This worker did none of the fixes or original plans and took one job only.
+Issue #6521; Codex (GPT-6), session `codex-a0vqCi`; 10 October 2026.
+Claim comment 6102817195 confirmed by bot comment 6102818284.
+Branch `codex-a0vqCi-review-topology`. Continues merged checkpoint PR #8621.
+This worker did none of the fixes or original plans and claimed one job only.
 
-## Done in this run
+The authorized review is written, but the job cannot pass its completion test
+until two omitted packet paths are authorized. A scope request was made and
+remains unanswered. No dependent edit was made. This is a blocked checkpoint,
+not a time limit or a completed job.
 
-Read the 27 assigned findings, verifier reasons and round-four fix dispositions.
-Freshly checked the volume owner/conventions, six Habiro export contracts and
-scalar quantum-modular ownership against the public sources cited in the
-report. Replaced the three authorized supplier review objects, preserving their
-predecessors in reviewHistory: Polylogarithms accepted, Habiro accepted,
-QSeries accepted: the regenerated reader resolves all four predecessor
-discrepancies. These are bounded fix verdicts; all blueprint gaps and previous full-review qualifications remain.
-Updated the predecessor report’s account of all
-27 dispositions and confirmed its source and current-library contracts. Rechecked
-the non-real sign test for the volume comparison and fresh Lean elaboration.
-No mathematical or suggested-file content changed.
+## Done
 
-Current Tau Ceti adds two important inputs to the inherited consumer handoff:
+Read all 27 assigned claims, verifier verdicts and round-four fix dispositions.
+The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) records every disposition,
+source locators, current ownership, exact arithmetic and validation receipts.
+Updated the three issue-listed packet review objects, preserving their entire
+predecessors in `reviewHistory`:
 
-- For /5, import `TauCeti.TemperleyLieb.markovTrace`,
-  `TauCeti.MarkovBraid.jonesTrace` and
-  `TauCeti.MarkovEquiv.jonesTrace_eq`. Conjugation and both stabilization laws,
-  the one-strand normalization and a trefoil calculation already exist in
-  `TauCeti/KnotTheory/TemperleyLieb.lean`. Do not plan them again. The knot
-  variable, mirror, framing, color and root normalization dictionary remains.
-- For /7, import `TauCeti.UpperHalfSpace` and its analytic Riemannian metric
-  and transitive isometry action, and `TauCeti.riemannianVolume` with the
-  hypotheses given in the report. Completeness/curvature and the canonical
-  ideal-boundary/tetrahedral region with its signed integral still need their
-  own contracts. Do not characterize today's library as lacking these
-  already-built metric/measure foundations.
+- Polylogarithms: accepted for /7's single tetrahedron-volume owner and imports.
+- HabiroNahmSeries: accepted for /11's six separate formal, analytic and arithmetic exports.
+- QSeries: needs_changes. /13's scalar ownership fix is correct, but the newer
+  completed full review by codex-jnfi6H, issue #6469, remains negative. Its
+  complete object and per-node ledger are preserved in history. Existing
+  no-ghost, alternation, invariant-form, general Serre/radical, Stirling and
+  exact supplier contracts remain; this bounded review does not accept them.
 
-Current read-only upstream owner checks also retain DifferentialGeometry 3.3
-for finite-dimensional homogeneity and 5.5 for corner boundaries/face
-orientation, with forms, exterior derivative, pullback and Stokes in its
-existing layers. No upstream or generated-data edit.
+Fresh reader inspection found the new Kontsevich multiplier correction missing
+at lines 9069–9071. In the packet, epsilon is inverse eta for c≠0 or d>0, and
+negative inverse eta for c=0,d<0. At -I its value is -i and the pinned boundary
+factor is i, giving product 1; naive inverse eta gives product -1. The reader
+requires an authorized synchronization. Its older scalar-cocycle, scaled
+Taylor-coefficient and QT.7 ownership repairs are still present. Do not repeat
+the predecessor report's claim that the current reader is fully synchronized.
+The reader is outside both this issue's permitted paths and its queue outputs.
 
-## Exact blocker and minimum next action
+No mathematical node, API, test, prerequisite, gap, request or suggested file
+changed. Current TauCetiRoadmap was read at
+`070dc2becd74419e76303ede84b465ed4a69461f`, Tau Ceti at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Import the existing current
+Markov trace, writhe-normalized Jones trace and Markov invariance for /5;
+upper-half-space metric/isometries and Riemannian volume for /7. Their precise
+hypotheses and remaining normalization/ideal-region obligations are in the
+report. DifferentialGeometry already owns homogeneity (3.3), forms/d/pullback,
+orientations and Stokes (0–2, 5), and abstract corner boundary (5.5). No upstream
+roadmap or generated atlas data was edited or built.
 
-The live issue lists three packets; the queue requires five. WORKERS.md says
-“Edit only the files the issue names, plus your own scratch space.” The missing
-authorization is just these two paths:
+## Blocker and exact next action
 
-- `research/blueprint/packets/ArithmeticQuantumTopology.json`;
-- `research/blueprint/packets/Polylogarithms--P.2.json`.
+The live issue and its full instructions list three packets; its queue entry
+requires five. [WORKERS.md](../WORKERS.md) says “Edit only the files the issue
+names, plus your own scratch space.” Authorization is missing for exactly:
 
-A required scope request was made and remains unanswered. No dependent edit
-was made. This is a blocked checkpoint, not a completed job or time limit.
-Reconcile the live issue and queue, or authorize those two paths before
-assigning another continuation. The queue's referenced prompt is absent.
+- `research/blueprint/packets/Polylogarithms--P.2.json`;
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`.
 
-The same mismatch has already survived multiple merged checkpoints. Another
-supplier-only continuation cannot resolve it. Repair the issue's file list
-and full instructions to include the two packet paths, or give explicit
-authorization for them, before the next worker repeats these checks. The
-supplier verdicts and the concrete two-packet update are ready; the consumer's
-negative verdict does not require its mathematics to be corrected first.
+Repair the live issue's file list/full instructions, or explicitly authorize
+these two metadata updates, before assigning another continuation. Repeating
+a supplier-only review cannot finish the job. The queue's referenced prompt
+file is absent. No queue or completion-code change is needed.
 
-After authorization, confirm the report still describes the packets and
-preserve their prior full reviews in reviewHistory. Record reviewer
-`independent-review-REV-FIX-RT-AREA-topology~4`, the actual date and these
-bounded verdicts:
+After authorization, archive each packet's full existing review in
+`reviewHistory` and write a new top-level review with reviewer
+`independent-review-REV-FIX-RT-AREA-topology~4`, the actual date and:
 
-- P.2 accepted for /7's single owner and explicit GeometricTopology 7/8
-  imports. Keep its two gaps, three requests and all full-review qualifications.
-- QT needs_changes for /7's missing exact
-  `Polylogarithms:P.2/hyperbolic-volume` prerequisite and geometric
-  carrier/order/orientation comparison. Keep all eight gaps and nineteen
-  requests, especially G4/G5. A negative verdict completes this review;
-  correcting QT mathematics or its suggested file is not required to finish.
+- P.2: `accepted`. Notes: bounded /7 single-owner disposition and explicit
+  GeometricTopology 7/8 imports checked; the `milnor-angle-volume` canonical
+  ideal-region carrier and signed integral comparison remain obligations.
+  Follows `independent-review-REV-Polylogarithms--P.2`; preserve both gaps,
+  all three requests and prior full-review qualifications. Reference this
+  report. No full proof audit or closure is asserted by this limited verdict.
+- QT: `needs_changes`. Notes: /7 remains incomplete because
+  `QT.5/volume-and-chern-simons` omits the exact existing
+  `Polylogarithms:P.2/hyperbolic-volume` prerequisite. Also require the geometric
+  carrier, vertex-order, orientation and manifold-incidence comparison.
+  Follows `independent-review-REV-ArithmeticQuantumTopology~2`; preserve all
+  eight gaps and nineteen requests, especially G4/G5. Reference this report's
+  current-library input contracts and non-real sign test. Negative verdict
+  completes the review without correcting QT's mathematics.
 
-The unmodified `issues.py:deliverables_complete` returns False for the actual
-queue entry and True with only those two review updates supplied in memory.
-Every other output already exists. No queue or completion-code edit is needed.
-No additional Lean or reader path is needed for queue completion. Repeating
-only the three completed supplier reviews cannot finish the job.
+The cross-ratios on a fixed ordered quadruple are reciprocal. For (0,1,-i,2),
+the exact values are (1+i)/4 and 2-2i, with opposite nonzero Bloch–Wigner signs.
+The old real example has D=0 and cannot detect a sign error. A transposition
+already reverses signed volume; do not introduce a second unsupported minus.
+Keep the geometric carrier comparison open.
 
-If later authorized to fix the consumer, the source cross-ratios are reciprocal
-on the same ordered quadruple. The old real example has D=0 and cannot
-detect a sign error. Use (0,1,-i,2): (1+i)/4 versus 2-2i, with opposite
-nonzero D signs by Zagier I.3 equations (3),(5), p. 11. Since D(1/z)=-D(z),
-transport order, orientation and manifold incidence signs together; swapping
-two vertices already reverses signed volume. Do not add a second unsupported
-minus. Retain the carrier and normalization comparison gaps.
+Fresh execution of unmodified `issues.py:deliverables_complete` returns False
+on the actual queue entry, and True when only the two proposed review objects
+are supplied through an in-memory override of `Path.read_text`. Every other
+output exists. The three supplier reviews, including QSeries' negative verdict,
+already bear this job's reviewer marker. A negative verdict is sufficient for
+completion; no additional Lean or reader edit is required for that test.
 
-The QSeries reader is outside this job's file list and queue, and was not
-edited. Its regenerated content already includes the scalar cocycle,
-inverse eta multiplier on the lower branch, scaled Taylor coefficients and
-current QT.7 nodes. The report gives the current line locators. The bounded
-verdict is accepted; earlier full-blueprint objections, its 39 current gaps,
-trefoil normalization qualification and broader analytic gaps remain.
+## Checks
 
-## Validation and provenance
+Five fresh packet checks: zero errors and warnings. Nodes/gaps/requests:
+Polylogarithms 75/19/21; Habiro 109/22/9; QSeries 537/24/27; QT 106/8/19;
+P.2 14/2/3. The q-series counts supersede the older 39/25 inventory.
+Three fresh serial `lean-check` runs: exit 0, with 462/441/1491 sorry warnings
+and no other diagnostics. Suggested file hashes are in the report. Elaborating
+these signatures does not prove the admitted results. Exact cross-ratio,
+scaled Taylor-coefficient, central-action and singular-matrix checks passed.
+Relevant pinned statements were read; three Tau Ceti build modules match the
+Git objects at f790474 byte for byte. Public source versions and SHA-256
+receipts are in the report. No source passages were committed.
+After metadata updates, all five packet checks still pass. Intake file checks
+report five files and zero problems; `git diff --check` passes. Parsed
+comparisons confirm unchanged mathematical payloads and exact preservation of
+the full predecessor reviews. Both queue-only packets remain unchanged.
 
-All five fresh packet checks pass: 0 errors, 0 warnings. Node/gap/request counts
-are Polylogarithms 75/19/21, Habiro 109/22/9, QSeries 537/39/25, QT 106/8/19,
-P.2 14/2/3. Exact arithmetic checks and fresh public source versions/hashes
-are in the report. Pinned declaration statements and current upstream/library
-inputs were read without builds. The three inspected Tau Ceti modules match
-the public pinned bytes; their SHA-256 values are in the report. The unchanged
-completion checker was exercised with in-memory review objects only, without
-editing either unauthorized packet. Fresh serial lean-check runs in this session exit 0
-for all three issue-listed suggested files, with 462/441/1488 sorry warnings
-and no other warning. Suggested files did not change; these checks establish
-elaboration, not the admitted results. No source passages were committed.
-
-All evidence needed to resume is in the report and this note. Scratch is removed
-after submission; no retained local artifact is needed.
+All durable continuation evidence is in the report and this note. Scratch is
+removed after submission. First repair scope; reuse the unchanged supplier
+verification instead of repeating another administrative checkpoint.
