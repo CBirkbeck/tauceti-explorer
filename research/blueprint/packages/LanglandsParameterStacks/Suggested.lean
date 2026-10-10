@@ -2742,25 +2742,55 @@ namespace GroupTraceAdapter
 /-- The A-linear extension used in the full IHG adapter. -/
 noncomputable def extendFunction (τ : Γ → R) : MonoidAlgebra R Γ →ₗ[R] R where
   toFun := fun x => x.coeff.sum (fun γ a => a * τ γ)
-  map_add' := by sorry
-  map_smul' := by sorry
+  map_add' x y := by
+    simp only [MonoidAlgebra.coeff_add]
+    exact Finsupp.sum_add_index' (fun _ => zero_mul _) (fun _ _ _ => add_mul _ _ _)
+  map_smul' a x := by
+    change (a • x.coeff).sum (fun γ b => b * τ γ) =
+      a * x.coeff.sum (fun γ b => b * τ γ)
+    rw [Finsupp.sum_smul_index' (fun _ => zero_mul _), Finsupp.mul_sum]
+    simp only [smul_eq_mul, mul_assoc]
 
 noncomputable def restrictFunction (T : MonoidAlgebra R Γ →ₗ[R] R) : Γ → R :=
   fun γ => T (MonoidAlgebra.of R Γ γ)
 
 theorem extend_basis (τ : Γ → R) (γ : Γ) :
-    extendFunction τ (MonoidAlgebra.of R Γ γ) = τ γ := by sorry
+    extendFunction τ (MonoidAlgebra.of R Γ γ) = τ γ := by
+  simp [extendFunction, MonoidAlgebra.of_apply]
+
+theorem restrict_extend (τ : Γ → R) : restrictFunction (extendFunction τ) = τ := by
+  funext γ
+  exact extend_basis τ γ
 
 theorem extend_restrict (T : MonoidAlgebra R Γ →ₗ[R] R) :
-    extendFunction (restrictFunction T) = T := by sorry
+    extendFunction (restrictFunction T) = T := by
+  apply LinearMap.ext
+  intro x
+  induction x using MonoidAlgebra.induction_on with
+  | of γ => exact extend_basis (restrictFunction T) γ
+  | add x y hx hy => simp only [map_add, hx, hy]
+  | smul a x hx => simp only [map_smul, hx]
 
 -- trace_linear_extension: this is the linear adapter, not a multiplicative map.
 example (τ : Γ → R) (γ δ : Γ) :
     extendFunction τ (2 • MonoidAlgebra.of R Γ γ - MonoidAlgebra.of R Γ δ) =
-      2 * τ γ - τ δ := by sorry
+      2 * τ γ - τ δ := by
+  simp only [map_sub, two_nsmul, map_add, extend_basis, two_mul]
 
 -- Normalization on the actual group-algebra unit.
-example {r : ℕ} (τ : GroupTraceShadow Γ R r) : extendFunction τ 1 = r := by sorry
+example {r : ℕ} (τ : GroupTraceShadow Γ R r) : extendFunction τ 1 = r := by
+  simpa only [map_one] using (extend_basis (τ : Γ → R) 1).trans τ.normalized
+
+-- A linear extension of a general function need not preserve the algebra product.
+-- The constant function two already detects this on the algebra unit: 2 ≠ 2².
+-- trace_extension_not_multiplicative
+example : extendFunction (fun _ : Unit => (2 : ℚ)) (1 * 1) ≠
+    extendFunction (fun _ : Unit => (2 : ℚ)) 1 *
+      extendFunction (fun _ : Unit => (2 : ℚ)) 1 := by
+  have hu : extendFunction (fun _ : Unit => (2 : ℚ)) 1 = 2 := by
+    simpa only [map_one] using extend_basis (fun _ : Unit => (2 : ℚ)) 1
+  rw [one_mul, hu]
+  norm_num
 end GroupTraceAdapter
 end Trace
 
