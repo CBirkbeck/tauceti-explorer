@@ -1,9 +1,9 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent scoped review
 
-Codex, session `codex-O0a12m`, 10 October 2026; issue
+Codex, session `codex-hfOgRV`, 10 October 2026; issue
 [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
-[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6092243112).
-Input atlas commit `bb373205d6d93b2facfa5f0fa34850b1dc7b7331`.
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6092502663).
+Input atlas commit `6f33e182fbf86247180598b3ce8cc0fda8e2b0cd`.
 This session did none of the author fix. It took one job.
 
 **The issue-named review work is finished. L3 remains accepted within the fix
@@ -43,7 +43,7 @@ The DK published version was not freshly read.
 | Source | Locators checked | SHA-256 |
 |---|---|---|
 | [Morita, A p-adic analogue of the Gamma function (1975)](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | §1, Lemma 1, Theorem 1 and following recurrence, printed pp.255–256 | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
-| [Robert, The Gross-Koblitz formula revisited (2001)](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | §4, Theorem 3 and subsequent decay lemma, printed pp.165–166 | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| [Robert, The Gross-Koblitz formula revisited (2001)](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | §4, Theorem 3 and subsequent decay lemma, printed pp.165–168 | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
 | [Dasgupta–Kakde, On the Brumer-Stark Conjecture, arXiv v3](https://arxiv.org/pdf/2010.00657v3) | §§2.2–2.3 pp.15–18; Lemma 3.9 pp.25–26; §6.1 p.40; Appendix B.2 pp.93–94 | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 
 For the Morita tests, the empty product is 1, the first signed value is −1,
@@ -66,7 +66,7 @@ to a presentation rather than assigned uniquely to its cokernel.
 Read current upstream StableReduction Layer 1 and QuiverRepresentations
 conventions/Layer 6, and their relevant suggested interfaces. Read current
 Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` and roadmap
-`d6f707516e7ede3181dac4b2420ba25c0799d22d`; neither tree was modified or built.
+`dea8191cc6047d6142a65872ebce6eeeb841a29b`; neither tree was modified or built.
 The exact current implementation map is:
 
 | Existing Tau Ceti declaration | What PMIA must reuse |
@@ -94,6 +94,44 @@ Coordinated baseline/interface/reader reconciliation is the remaining change;
 `needs_changes` is the completed review verdict for it. The existing
 `upstreamNotes` and supplier notes already specify this boundary correctly.
 
+### Additional current transpose API boundary
+
+This continuation found a further migration requirement in
+`L6/presentation-transpose`. At current Tau Ceti a91d3aa,
+`TauCeti.AuslanderReitenTranspose.compFstEquiv` (Transpose.lean:315)
+already identifies the transpose of an arrow enlarged by a zero relation
+summand with its transpose times that summand's dual. Therefore
+`PresentationTranspose.equivAddZero` should be a specialization through the
+contragredient scalar structure. `prodMapEquiv` (line 272), together with
+`subsingleton_of_comp_eq_id` (line 360) applied to an identity arrow, supplies
+the generic core of `equivAddId`. Their public representative equations
+(lines 297, 305, 338 and 345) cover the associated compatibility controls.
+No finite projectivity or minimality is needed for these generic cores.
+
+`quotientEquiv` and its two representative equations (lines 192, 199 and 211)
+also supply semilinear quotient transport once a dual-coordinate equivalence
+maps the precomposition range to the chosen relation submodule. This removes
+the need to rebuild generic quotient transport; the matrix/range equality and
+contragredient scalar comparison still need to be established. These results
+do not supply the projective base-change or arbitrary-presentation stable
+comparison by themselves.
+
+Read the complete statements in current main and compared with the pinned
+Git object: `quotientEquiv`, `prodMapEquiv` and `compFstEquiv` are absent at
+f790474, while `subsingleton_of_comp_eq_id` is already present there. The
+packet now records this additional migration boundary in `upstreamNotes`,
+without pretending the newer declarations are part of its baseline. This
+extends the required migration beyond the four Fitting nodes. The earlier
+50-node ledger remains historical planning evidence at its stated baseline;
+it does not override this current-main duplication check.
+
+Robert's decay proof was also freshly checked through printed pp.167–168:
+the odd-prime denominator estimate cannot be reused unchanged for p=2. The
+binary digit-sum bound controls the dyadic loss and forces the translated
+remainder to vanish uniformly. Thus the RD.6 supplier boundary is still a
+substantive analytic obligation, not a consequence of finite telescoping
+alone. No statement from the source is transcribed into the packet.
+
 Freshly read the pinned character-evaluation, tagged orthogonality and
 Auslander–Reiten transpose interfaces. Compared the shared-build source bytes
 for all three modules with Git objects at f790474: all match. Character
@@ -112,17 +150,19 @@ receipts remain inherited evidence, not newly attributed to this session.
 | L6 definition/test inventory | 50 nodes, 172 API items, 57 tests; every test name appears in the suggested file |
 | Source-text inventory | Neither authorized packet contains an `excerpt` key |
 
-Lean checks ran sequentially with 105 GB available. L3 imports the PMIA and
+Both full Lean checks finished with more than 100 GB available at launch.
+L3 imports the PMIA and
 L0/L1/L2 research prototypes; their compiled artifacts are not on the shared
 build's import path. This is not a successful full L3 signature check. No
 language server, dependency build or private project was started. No Lean
-process remains running.
+process from this session remains running.
 
 Updated the two top-level review receipts and archived their preceding
-receipts in `reviewHistory`. Replaced the repetitive review narrative with
-this current scoped report while retaining the prior L6 ledger and its
-attribution. Updated the handoff. No mathematical node, source finding,
-supplier request, baseline pin, signature or excluded review is changed.
+receipts in `reviewHistory`. Continued the scoped report while retaining
+the prior L6 ledger and its attribution. Updated the handoff and added a
+current-main transpose API migration note to `upstreamNotes`. No
+mathematical node, source finding, supplier request, baseline pin, signature
+or excluded review is changed.
 
 ## Administrative blocker and next action
 
