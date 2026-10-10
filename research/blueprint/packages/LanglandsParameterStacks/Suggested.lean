@@ -44,6 +44,7 @@ import Mathlib.Algebra.Polynomial.Laurent
 import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
+import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.Algebra.MvPolynomial.Eval
 import Mathlib.RingTheory.Nilpotent.Defs
 import Mathlib.RepresentationTheory.Basic
@@ -2073,6 +2074,166 @@ example (H : Subgroup G) :
     IsGCompletelyReducible {⊤} (fun _ => {⊤}) H := by sorry
 end Reducibility
 
+/-! Concrete SL₂ tests of the supplied-family predicates. Over an algebraically
+closed field the proper parabolics stabilize lines, and a Levi additionally
+stabilizes a complementary line. These are explicit matrix/subspace fixtures,
+not a replacement for the general scheme parabolic interface. -/
+namespace ReducibilitySL2Checks
+noncomputable section
+variable (K : Type u) [Field K]
+
+abbrev G := Matrix.SpecialLinearGroup (Fin 2) K
+abbrev V := Fin 2 → K
+
+def lineStabilizer (L : Submodule K (V K)) : Subgroup (G K) where
+  carrier := {g | ∀ v, v ∈ L ↔ Matrix.SpecialLinearGroup.toLin' g v ∈ L}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+def firstLine : Submodule K (V K) :=
+  Submodule.span K {Pi.single (0 : Fin 2) (1 : K)}
+
+def secondLine : Submodule K (V K) :=
+  Submodule.span K {Pi.single (1 : Fin 2) (1 : K)}
+
+def borel : Subgroup (G K) := lineStabilizer K (firstLine K)
+def torus : Subgroup (G K) :=
+  lineStabilizer K (firstLine K) ⊓ lineStabilizer K (secondLine K)
+
+def upperUnipotent : Subgroup (G K) where
+  carrier := {g | ∃ x : K, (g : Matrix (Fin 2) (Fin 2) K) = !![1, x; 0, 1]}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+
+def parabolics : Set (Subgroup (G K)) :=
+  {P | P = ⊤ ∨ ∃ L : Submodule K (V K),
+    Module.finrank K L = 1 ∧ P = lineStabilizer K L}
+
+def levis (P : Subgroup (G K)) : Set (Subgroup (G K)) :=
+  {M | (P = ⊤ ∧ M = ⊤) ∨ ∃ L N : Submodule K (V K),
+    Module.finrank K L = 1 ∧ IsCompl L N ∧ P = lineStabilizer K L ∧
+      M = lineStabilizer K L ⊓ lineStabilizer K N}
+
+-- Characteristic equations tie the fixtures to the intended matrix groups.
+example (g : G K) : g ∈ borel K ↔ g 1 0 = 0 := by sorry
+example (g : G K) : g ∈ torus K ↔ g 0 1 = 0 ∧ g 1 0 = 0 := by sorry
+example : IsCompl (firstLine K) (secondLine K) := by sorry
+
+-- cr_torus: quantify over every line stabilizer, not just the standard Borel.
+example [IsAlgClosed K] :
+    IsGCompletelyReducible (parabolics K) (levis K) (torus K) ∧
+      ¬ IsGIrreducible (parabolics K) (torus K) := by sorry
+
+-- cr_unipotent: the standard Borel witnesses failure, including every Levi.
+example [IsAlgClosed K] :
+    upperUnipotent K ≤ borel K ∧ borel K ∈ parabolics K ∧
+      (∀ M ∈ levis K (borel K), ¬ upperUnipotent K ≤ M) ∧
+      ¬ IsGCompletelyReducible (parabolics K) (levis K) (upperUnipotent K) := by
+  sorry
+
+-- This also tests the cyclic parameter image, without replacing it by U(K).
+example [IsAlgClosed K] [Algebra ℚ K] :
+    ¬ IsGCompletelyReducible (parabolics K) (levis K)
+      (zpowersHom (G K) (CoarseSL2Checks.unipotent (K := K))).range := by sorry
+
+end
+end ReducibilitySL2Checks
+
+/-! Simultaneous SL₂ conjugation in every tuple arity. This uses the
+regular coordinate ring of SL₂^n, rather than arbitrary point functions;
+the same one-parameter subgroup contracts every entry of a unipotent tuple. -/
+namespace CoarseSL2TupleChecks
+noncomputable section
+abbrev Variables (n : ℕ) := Fin n × (Fin 2 × Fin 2)
+abbrev Polynomials (n : ℕ) := MvPolynomial (Variables n) ℚ
+
+def determinantRelation (n : ℕ) (k : Fin n) : Polynomials n :=
+  MvPolynomial.X (k, 0, 0) * MvPolynomial.X (k, 1, 1) -
+    MvPolynomial.X (k, 0, 1) * MvPolynomial.X (k, 1, 0) - 1
+
+def relations (n : ℕ) : Ideal (Polynomials n) :=
+  Ideal.span (Set.range (determinantRelation n))
+abbrev Coordinates (n : ℕ) := Polynomials n ⧸ relations n
+
+def coordinate (n : ℕ) (k : Fin n) (i j : Fin 2) : Coordinates n :=
+  Ideal.Quotient.mkₐ ℚ (relations n) (MvPolynomial.X (k, i, j))
+
+def conjugator (n : ℕ) :
+    Matrix (Fin 2) (Fin 2) (CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n) :=
+  fun i j => (Algebra.TensorProduct.includeLeft : CoarseSL2Checks.Coordinates →ₐ[ℚ]
+    CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n) (CoarseSL2Checks.coordinate i j)
+
+def parameter (n : ℕ) (k : Fin n) :
+    Matrix (Fin 2) (Fin 2) (CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n) :=
+  fun i j => (Algebra.TensorProduct.includeRight : Coordinates n →ₐ[ℚ]
+    CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n) (coordinate n k i j)
+
+def conjugation (n : ℕ) :
+    Coordinates n →ₐ[ℚ] CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n :=
+  Ideal.Quotient.liftₐ (relations n)
+    (MvPolynomial.aeval (fun v : Variables n =>
+      (conjugator n * parameter n v.1 * (conjugator n).adjugate) v.2.1 v.2.2))
+    (by sorry)
+
+def projection (n : ℕ) :
+    Coordinates n →ₐ[ℚ] CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n :=
+  Algebra.TensorProduct.includeRight
+
+abbrev Invariants (n : ℕ) := ParameterInvariantAlgebra (R := ℚ) (A := Coordinates n)
+  (B := CoarseSL2Checks.Coordinates ⊗[ℚ] Coordinates n) (conjugation n) (projection n)
+
+variable {K : Type u} [Field K] [Algebra ℚ K]
+def evaluate {n : ℕ} (g : Fin n → Matrix.SpecialLinearGroup (Fin 2) K) :
+    Coordinates n →ₐ[ℚ] K :=
+  Ideal.Quotient.liftₐ (relations n)
+    (MvPolynomial.aeval (fun v : Variables n => g v.1 v.2.1 v.2.2)) (by sorry)
+
+theorem evaluate_coordinate {n : ℕ}
+    (g : Fin n → Matrix.SpecialLinearGroup (Fin 2) K) (k : Fin n) (i j : Fin 2) :
+    evaluate g (coordinate n k i j) = g k i j := by sorry
+
+theorem conjugation_evaluate {n : ℕ} (h : Matrix.SpecialLinearGroup (Fin 2) K)
+    (g : Fin n → Matrix.SpecialLinearGroup (Fin 2) K) (f : Coordinates n) :
+    Algebra.TensorProduct.lift (CoarseSL2Checks.evaluate h) (evaluate g)
+      (fun _ _ => Commute.all _ _) (conjugation n f) =
+      evaluate (fun i => h * g i * h⁻¹) f := by sorry
+
+def rhoU : Multiplicative ℤ →* Matrix.SpecialLinearGroup (Fin 2) K :=
+  zpowersHom _ CoarseSL2Checks.unipotent
+
+def degeneration {n : ℕ} (γ : Fin n → Multiplicative ℤ) :
+    Coordinates n →ₐ[ℚ] Polynomial K :=
+  Ideal.Quotient.liftₐ (relations n)
+    (MvPolynomial.aeval (fun v : Variables n =>
+      (!![1, Polynomial.C ((γ v.1).toAdd : K) * Polynomial.X ^ 2; 0, 1] :
+        Matrix (Fin 2) (Fin 2) (Polynomial K)) v.2.1 v.2.2)) (by sorry)
+
+-- projected_unipotent: every arity and every tuple-invariant evaluation agree.
+example (n : ℕ) (γ : Fin n → Multiplicative ℤ) (f : Invariants n) :
+    evaluate (fun i => rhoU (K := K) (γ i)) f.val =
+      evaluate (fun _ => (1 : Matrix.SpecialLinearGroup (Fin 2) K)) f.val := by sorry
+
+-- The simultaneous degeneration proves the equality on regular invariants.
+example (n : ℕ) (γ : Fin n → Multiplicative ℤ) (f : Invariants n) :
+    degeneration (K := K) γ f.val =
+      Polynomial.C (evaluate (fun _ => (1 : Matrix.SpecialLinearGroup (Fin 2) K))
+        f.val) := by sorry
+
+-- semisimple_unipotent: equal invariant values do not make the original lift CR.
+example [IsAlgClosed K] :
+    ¬ IsGCompletelyReducible (ReducibilitySL2Checks.parabolics K)
+      (ReducibilitySL2Checks.levis K) (rhoU (K := K)).range ∧
+    (∀ (n : ℕ) (γ : Fin n → Multiplicative ℤ) (f : Invariants n),
+      evaluate (fun i => rhoU (K := K) (γ i)) f.val =
+        evaluate (fun _ => (1 : Matrix.SpecialLinearGroup (Fin 2) K)) f.val) ∧
+    ¬ ∃ h : Matrix.SpecialLinearGroup (Fin 2) K,
+      ∀ γ, h * rhoU γ * h⁻¹ = 1 := by sorry
+
+end
+end CoarseSL2TupleChecks
+
 section FreeIndex
 variable (Γ : Type u) [Group Γ]
 
@@ -2650,6 +2811,105 @@ example (c : ProjectedPseudocharacter (A := A) D reindex multiply components η)
     c.map D reindex multiply components η (AlgHom.id R A) = c := by sorry
 end ProjectedPseudocharacter
 end Pseudocharacters
+
+/-! Rank-one specialization with its actual Laurent coordinate algebra.
+The character lattice of G_m^n is Z^n; conjugation is trivial. Reindexing
+sums exponents over fibres, whereas ordered multiplication pulls exponents
+back. This fixture does not define the general IHG pseudocharacter carrier. -/
+namespace RankOneTupleChecks
+noncomputable section
+variable (R : Type u) [CommRing R]
+
+abbrev Coordinates (n : ℕ) := AddMonoidAlgebra R (Fin n → ℤ)
+
+def pushWeights {m n : ℕ} (u : Fin m → Fin n) :
+    (Fin m → ℤ) →+ (Fin n → ℤ) where
+  toFun a i := ∑ j : Fin m, if u j = i then a j else 0
+  map_zero' := by sorry
+  map_add' := by sorry
+
+def pullWeights {m n : ℕ} (u : Fin m → Fin n) :
+    (Fin n → ℤ) →+ (Fin m → ℤ) where
+  toFun a j := a (u j)
+  map_zero' := rfl
+  map_add' _ _ := rfl
+
+def reindex {m n : ℕ} (u : Fin m → Fin n) :
+    Coordinates R m →ₐ[R] Coordinates R n :=
+  AddMonoidAlgebra.mapDomainAlgHom R R (pushWeights u)
+
+def multiply {m n : ℕ} (u : Fin m → Fin n) :
+    Coordinates R n →ₐ[R] Coordinates R m :=
+  AddMonoidAlgebra.mapDomainAlgHom R R (pullWeights u)
+
+variable {Γ : Type v} [Group Γ] {A : Type w} [CommRing A] [Algebra R A]
+
+def monomialEvaluation (χ : Γ →* Aˣ) (n : ℕ) :
+    Multiplicative (Fin n → ℤ) →* ((Fin n → Γ) → A) where
+  toFun a γ := ∏ i : Fin n, ((χ (γ i) ^ a.toAdd i : Aˣ) : A)
+  map_one' := by sorry
+  map_mul' := by sorry
+
+def tupleEvaluation (χ : Γ →* Aˣ) (n : ℕ) :
+    Coordinates R n →ₐ[R] ((Fin n → Γ) → A) :=
+  AddMonoidAlgebra.lift R _ _ (monomialEvaluation χ n)
+
+def shadow (χ : Γ →* Aˣ) :
+    InvariantTupleShadow (Γ := Γ) (A := A) (Coordinates R)
+      (reindex R) (multiply R) where
+  Θ n _ := tupleEvaluation R χ n
+  reindex_law := by sorry
+  multiply_law := by sorry
+
+def projected (χ : Γ →* Aˣ) :
+    ProjectedPseudocharacter (A := A) (Coordinates R) (reindex R) (multiply R)
+      (fun _ (_ : Fin _ → Unit) => 1) (1 : Γ →* Unit) where
+  underlying := shadow R χ
+  component_eval := by sorry
+
+-- projected_rank_one: every Laurent monomial retains the character values.
+example (χ : Γ →* Aˣ) (n : ℕ) (hn : 0 < n)
+    (a : Fin n → ℤ) (r : R) (γ : Fin n → Γ) :
+    (projected R χ).underlying.Θ n hn (AddMonoidAlgebra.single a r) γ =
+      algebraMap R A r * ∏ i : Fin n, ((χ (γ i) ^ a i : Aˣ) : A) := by sorry
+
+-- Positive and negative weights detect the unit and its inverse separately.
+example (χ : Γ →* Aˣ) (γ : Γ) :
+    (projected R χ).underlying.Θ 1 (by decide)
+      (AddMonoidAlgebra.single (fun _ => 1) 1) (fun _ => γ) = (χ γ : A) ∧
+    (projected R χ).underlying.Θ 1 (by decide)
+      (AddMonoidAlgebra.single (fun _ => -1) 1) (fun _ => γ) = ((χ γ)⁻¹ : Aˣ) := by
+  sorry
+
+-- No two different rank-one characters produce the same tuple family.
+example (χ ψ : Γ →* Aˣ) : projected R χ = projected R ψ ↔ χ = ψ := by sorry
+
+def recoverCharacter
+    (c : ProjectedPseudocharacter (Γ := Γ) (A := A) (Coordinates R)
+      (reindex R) (multiply R) (fun _ (_ : Fin _ → Unit) => 1) (1 : Γ →* Unit)) :
+    Γ →* Aˣ where
+  toFun γ :=
+    { val := c.underlying.Θ 1 (by decide)
+        (AddMonoidAlgebra.single (fun _ => 1) 1) (fun _ => γ)
+      inv := c.underlying.Θ 1 (by decide)
+        (AddMonoidAlgebra.single (fun _ => -1) 1) (fun _ => γ)
+      val_inv := by sorry
+      inv_val := by sorry }
+  map_one' := by sorry
+  map_mul' := by sorry
+
+def characterEquiv : (Γ →* Aˣ) ≃
+    ProjectedPseudocharacter (Γ := Γ) (A := A) (Coordinates R)
+      (reindex R) (multiply R) (fun _ (_ : Fin _ → Unit) => 1) (1 : Γ →* Unit) where
+  toFun := projected R
+  invFun := recoverCharacter R
+  left_inv := by sorry
+  right_inv := by sorry
+
+example (χ : Γ →* Aˣ) : (characterEquiv R).symm (projected R χ) = χ := by sorry
+
+end
+end RankOneTupleChecks
 
 /- Rational-point regression for LP2c.1. This fixture uses Mathlib's actual
 semidirect product, with C₂ acting on ℚˣ by inversion. It checks the fixed

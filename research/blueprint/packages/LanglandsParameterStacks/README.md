@@ -1,10 +1,18 @@
 # Roadmap: parameter stacks, invariant theory and spectral coefficients
 
-Local Langlands parameters occur in three related forms: cocycles with a fixed Weil action, geometric points of an integral parameter scheme, and characters of an algebra of invariant functions. This roadmap builds the bridges between these forms, then constructs the perfect complexes and representation bundles needed by spectral actions. It includes deformation theory and singularities because they distinguish the parameter stack from its coarse quotient. It includes modular good filtrations because rational semisimplicity alone does not prove the integral generation statements.
+This roadmap relates Weil cocycles, integral parameter geometry and invariant
+evaluations, then constructs the perfect complexes and representation bundles
+for spectral actions. The parameter stack for a pinned dual group over ℤ_ℓ
+retains stabilizers and deformation theory; its coarse quotient records
+semisimplification. The excursion algebra uses finite tuples without choosing
+a faithful representation. Modular good filtrations give the good-prime
+comparison of IndPerf with modules over the cocycle algebra.
 
-The basic output is the stack of parameters for a pinned reductive dual group over ℤ_ℓ. Each finite wild cutoff has an affine framed scheme; the stack retains its stabilizers, whereas the affine coarse quotient records semisimplification. The excursion algebra encodes compatible invariant evaluations on finite tuples without choosing a faithful representation. At the end, representations of the dual group give universal bundles, and the good-prime generation theorem identifies the corresponding Ind-category with modules over the cocycle algebra.
-
-The constructions are reusable outside the local Weil case. The crossed-cocycle object and the integral finite-wild scheme are imported from SmoothRepresentationsOfLocalGroups, SR.6.1. Its finite-wild excursion algebra is the specialization of the arbitrary-discrete-group presentation used here. This roadmap adds the relatively discrete condensed interfaces, enhanced parameter geometry and category comparisons. Local topology enters the extension and continuity theorems, rather than the algebraic reconstruction theorem.
+SmoothRepresentationsOfLocalGroups, SR.6.1 supplies crossed cocycles and the
+integral finite-wild framed scheme. Here they acquire relatively discrete
+condensed coefficients, derived geometry and category comparisons. The
+excursion presentation specializes to finite wild level; Weil topology enters
+extension and continuity.
 
 ## Conventions
 
@@ -1034,6 +1042,16 @@ Unit tests:
 
 - `cr_trivial`: The trivial subgroup is completely reducible.
 
+For SL₂ over algebraically closed K, `ReducibilitySL2Checks` takes every
+line stabilizer and SL₂ as the parabolic family. The Levis
+of a line stabilizer preserve a complementary line as well. The standard
+diagonal torus preserves both coordinate lines and supplies a containing Levi
+in every containing Borel; it is contained in a proper Borel, so is not
+irreducible. The upper unipotent subgroup preserves the first line and has
+no invariant complement. Its containment in the standard Borel therefore
+fails the Levi criterion. Matrix-entry equations identify these subgroups;
+the tests include every line and complement.
+
 **Needs:** **ReductiveGroupsPartII, RG2.5**; `Subgroup` (Mathlib); `Representation` (Mathlib).
 
 **Source:** [Böckle–Harris–Khare–Thorne][BHKT-local-systems], §3.1 Definitions3.3,3.5 pp.11–12.
@@ -1077,6 +1095,15 @@ Unit tests:
 - `semisimple_split_GL`: A direct sum of characters into GL_n is semisimple.
 
 - `semisimple_unipotent`: A nontrivial unipotent generator representation of Z in SL₂ is not semisimple although all its invariant values agree with the trivial representation.
+
+In characteristic zero, `CoarseSL2TupleChecks` uses the determinant-one
+coordinate quotient for SL₂ⁿ and simultaneous conjugation by one universal
+matrix. For a tuple of integers kᵢ, the polynomial matrices with upper-right
+entries kᵢt² specialize to the unipotent powers at t=1 and to identity at t=0.
+Away from zero they are conjugate by diag(t,t⁻¹). Every regular invariant is
+constant on this curve, giving equality in every arity. The cyclic image still
+has no invariant complement in the standard Borel. This also gives the
+`projected_unipotent` test of LP2c.1 without identifying the two lifts.
 
 **Needs:** [LP2e.3](#lp2e3-complete-reducibility-and-strong-reductivity); [LP0.2](#lp02-condensed-l-parameters); **ReductiveGroupsPartII, RG2.5**.
 
@@ -1393,6 +1420,16 @@ Unit tests:
 - `projected_wrong_component`: Over a nonzero coefficient ring, a lift with a different Γ→Q cannot belong to the η-fibre: a component idempotent has conflicting evaluations 0 and 1.
 
 - `projected_unipotent`: For Q=1, H=SL₂ and Γ=Z, a nontrivial unipotent generator and the trivial representation have equal pseudocharacters, although the lifts are not conjugate.
+
+For `projected_rank_one`, `RankOneTupleChecks` uses R[ℤⁿ], the Laurent
+coordinate algebra of G_mⁿ, over every commutative R and R-algebra A.
+Reindexing sums weights over fibres; ordered multiplication pulls weights
+back. The algebra homomorphism evaluates a monomial of weight a with
+coefficient r as r∏χ(γᵢ)^aᵢ. These evaluations satisfy both tuple relations
+and the component equation. Conversely the weights +1 and −1 recover
+a unit at each γ; the multiplication relation makes these units a character.
+`characterEquiv` records this inverse, testing Laurent
+monomials, inverse weights and injectivity of the whole tuple family.
 
 **Identity-component check.** Take H=G_m over an algebraically closed field
 of characteristic zero and Q=C₂ acting by inversion. Let Γ=ℤ and let η be
