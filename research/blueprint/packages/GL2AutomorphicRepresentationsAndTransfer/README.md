@@ -1420,11 +1420,11 @@ For F totally real and ρ as in solvable-artin with det ρ(c_v)=−1 at every re
 
 ### odd-residual-lift: Solvable residual lifting in odd characteristic
 
-Let F be totally real, p>2, and r̄:G_F→GL₂(F̄_p) be continuous, absolutely irreducible and totally odd with solvable image. A totally odd continuous finite-image characteristic-zero lift ρ exists over a number field, with λ above p and a stable lattice whose semisimplified reduction is r̄ under a specified residue embedding. Coefficient enlargement is allowed. Use dihedral/A₄/S₄ classification, a reduction-compatible finite projective lift, finite-projective-lift and a Teichmüller twist; Tate alone does not control reduction.
+For totally real F, prime p>2 and continuous absolutely irreducible totally odd r̄:G_F→GL₂(F̄_p) with solvable image, a totally odd continuous finite-image lift over a number field exists with λ|p and a stable lattice reducing semisimply to r̄ under a residue embedding. Enlarge coefficients. Use dihedral/A₄/S₄ classification, a reduction-compatible finite projective lift, finite-projective-lift and a Teichmüller twist; Tate alone does not prescribe reduction.
 
-**Oddness API.** For a domain R, a field k with 2≠0, a ring map f:R→k and A∈GL₂(R), `involution_det_eq_neg_one_of_reduction` proves A²=1 and det(map f A)=−1 imply det A=−1. `involution_odd_of_reduction` applies this to ρ(c), c²=1. Apply after lattice comparison; determinant survives semisimplification.
+**Oddness API.** For a domain R, a field k with 2≠0, a ring map f:R→k and A∈GL₂(R), `involution_det_eq_neg_one_of_reduction` proves A²=1 and det(map f A)=−1 imply det A=−1. `involution_odd_of_reduction` applies to ρ(c), c²=1. `involution_det_eq_neg_one_of_residual_conjugacy` allows B=P(map f A)P⁻¹ and det B=−1; `involution_odd_of_residual_conjugacy` uses a common P. Determinant survives semisimplification.
 
-**Tests.** Over ℤ, diag(1,−1) is odd modulo 3; scalar −I has determinant +1 in rank two; the identity has determinant +1 but reduces to −1 modulo 2. The last test requires 2≠0.
+**Tests.** Over ℤ, in any basis: diag(1,−1) is odd at 3; scalar −I is even; at 2 the identity has integral determinant +1 and residual determinant −1.
 
 **Hypotheses.** p is prime. The residue-field embedding is into F̄_p and the comparison is semisimplified.
 
