@@ -1,19 +1,56 @@
 # PKG-InductionRestrictionPartII — blocked checkpoint
 
-Issue #7592. Worker: Codex (GPT-6), session `codex-9fCLs4`, 2026-10-10.
-Claim confirmed in issue comment 6100050974, responding to comment 6100049783.
-This continues checkpoints #8434, #8480, #8500 and #8513. The saved statements
-are admitted prototypes. The package remains incomplete.
+Issue #7592. Worker: Codex (GPT-6), session `codex-8IrsKc`, 2026-10-10.
+Claim confirmed in issue comment 6100409886, responding to comment 6100408699.
+This continues checkpoint #8530 and earlier checkpoints #8434, #8480, #8500
+and #8513. The package remains incomplete. Its statements are admitted
+prototypes, not completed formalizations.
 
 ## Progress in this run
 
-Added 89 named declarations and 12 anonymous examples, giving 391 distinct
-named declarations and 97 anonymous examples. The README retains all 109
-planned targets, 124 API names and 96 test labels in six layers, and explains
-the added native interfaces. Only the README, Suggested.lean and this handoff
-changed. The packet, legacy suggested file and reader document are unchanged.
+Added 44 distinct named declarations and 22 anonymous examples, giving 435
+distinct named declarations and 119 anonymous examples. The README retains
+all 109 planned targets, 124 API names and 96 test labels in six layers. Only
+the package README, Suggested.lean and this handoff changed.
 
-RS.5 now has signatures for all 11 targets, its four required APIs and three
+RS.6 now has native signatures for the nineteen odd abelian rows of Wood's
+Table 2: rows 01–06, 09–12, 14–15, 18–21 and 25–27. Their outputs are the
+published reduced multiplier groups, with group structure retained:
+
+- For an abelian A, `TableWreath A` is the native factor-swap semidirect
+  product (A×A)⋊C₂. `table_antidiagonal A` fixes the actual embedded subgroup
+  of elements ((a,a⁻¹),t). `table_embedding` is its subtype homomorphism;
+  `table_projection` is the native right projection restricted to it.
+- `table_coordinates` fixes the first-factor coordinate and C₂ coordinate,
+  with the inversion multiplication formula. `table_kernel_first` is the
+  first-coordinate homomorphism on the actual projection kernel, not an
+  arbitrary isomorphism. Surjectivity, cardinality, generation and one-class
+  marking retain their stated hypotheses, including oddness where needed.
+- `table_outside` requires both nontrivial C₂ projection and order two.
+  The tests distinguish anti-diagonal from diagonal, factor swap from
+  ambient inversion, kernel from outside points, and the even-order
+  generation failure. Each added map has concrete discrimination checks.
+- `abelian_table_dihedral` fixes the cyclic carrier using Mathlib's actual
+  `DihedralGroup n`, including its pointwise rotation and reflection API.
+  Mathlib's reflection convention sends the left coordinate i outside the
+  kernel to sr(−i). Tests at residues 0, 1 and 2 check that sign.
+- `table_row_certificate` asks for a finite cover on Fin m, its group law,
+  projection and oriented reduction certificate, and the computed kernel
+  quotient and reduced multiplier isomorphisms. The quotient isomorphisms
+  agree on every integral homology class. No input assumes the table value.
+  Three tests use the trivial group, unmarked C₂², and the outside marking
+  of the embedded inversion model of C₃.
+
+The actual finite covers and their proofs remain targets. The construction
+fixes the ambient abelian embeddings; ST.3 still owns their identification as
+arithmetic types. No upstream target or ownership boundary was replanned.
+
+## Inherited interfaces from checkpoint #8530
+
+Checkpoint #8530 added 89 named declarations and 12 anonymous examples. Its
+RS.5–RS.6 interfaces are retained:
+
+RS.5 has signatures for all 11 targets, its four required APIs and three
 unit tests. The additions retain the native semidirect product and action:
 
 - Primary components use `AddCommGroup.primaryComponent` with the possibly
@@ -43,8 +80,8 @@ unit tests. The additions retain the native semidirect product and action:
   The induced marked-fiber-product homomorphism intertwines the discrete
   actions. It does not infer coprimality with an arbitrary q−1.
 
-RS.6 now has signatures for all seven non-table targets, its 12 APIs and nine
-unit tests. The 31 row-specific signatures are still absent:
+RS.6 has signatures for all seven non-table targets, its 12 APIs and nine
+unit tests. Before this run, all 31 row-specific signatures were absent:
 
 - `reduction_certificate` has native finite group enumerations, central and
   stem proofs, an oriented integral kernel isomorphism, actual class
@@ -155,7 +192,7 @@ whole package meets section 20.
 | RS.3 | 11/11 | 28/28 | 24/24 |
 | RS.4 | 19/19 | 22/22 | 18/18 |
 | RS.5 | 11/11 | 4/4 | 3/3 |
-| RS.6 | 7/38 | 12/12 | 9/9 |
+| RS.6 | 26/38 | 12/12 | 9/9 |
 
 This is a static name/signature inventory, not semantic certification or
 stage closure. All 109 target names, 124 API names and 96 test labels remain
@@ -166,10 +203,14 @@ then the row-specific native interfaces and a semantic audit:
    targets. Supply the native integral adapter contracts and the cyclic
    complement-conjugacy theorem with tier-compatible owners. This package
    issue does not authorize editing its source-of-truth packet.
-2. Add `table_row_01` through `table_row_31` with actual finite marked groups,
+2. Add the twelve remaining row signatures: `table_row_07`, `table_row_08`,
+   `table_row_13`, `table_row_16`, `table_row_17`, `table_row_22`,
+   `table_row_23`, `table_row_24`, `table_row_28`, `table_row_29`,
+   `table_row_30` and `table_row_31`. Use actual finite marked groups,
    ambient embeddings, covers, centralizer generators, relation subgroups
-   and quotient identifications. Do not replace a row by a group of the
-   asserted order or by an unnamed proposition. ST.3 owns the embedded
+   and quotient identifications. Row 08 can reuse the inherited order-96
+   sum-kernel A₄ model, but its certificate signature is still absent. Do not
+   replace a row by a group of the asserted order or by an unnamed proposition. ST.3 owns the embedded
    arithmetic-type inputs; ST.5 owns the limits.
 3. The order-96 C₂ result needs a cover witness. Certify the reported C₂³
    kernel and order-four relation subgroup, their orientation and the
@@ -179,8 +220,8 @@ then the row-specific native interfaces and a semantic audit:
    embedding. The transport API currently specifies base/cover isomorphisms,
    projection and c; it does not itself encode ST.3's ambient wreath embedding.
 5. Audit every inherited RS.1–RS.4 clause against the source statements and
-   every new clause against its intended contract. The new signatures were
-   checked for their stated hypotheses and carriers; this run is not a fresh
+   every new clause against its intended contract. The added table signatures
+   were checked for their stated hypotheses and carriers; this run is not a fresh
    independent semantic audit of the entire inherited package. The early
    arbitrary-kernel UCT adapter remains an explicitly missing supplier.
 6. Elaborate the final complete package and add metadata only after all
@@ -200,8 +241,8 @@ The final command
 lean-check research/blueprint/packages/InductionRestrictionPartII/Suggested.lean
 ```
 
-Exited **0**, with **425 warnings, all `declaration uses sorry`**, no errors
-and no other warnings. Available memory was 100 GB before the final checks.
+Exited **0**, with **483 warnings, all `declaration uses sorry`**, no errors
+and no other warnings. Available memory was 98 GB before the final check.
 
 Checks ran sequentially through the shared wrapper; no language server,
 build, update, cache fetch or compilation in the current read-only
@@ -232,21 +273,27 @@ metadata, library, other job file or upstream checkout changed.
 
 ## Source reading and identities
 
-Fresh reading covered Wood, *Nonabelian Cohen–Lenstra moments*, Duke 168(3)
-(2019), §4.1, Proposition 4.1, equations (5)–(6) and Remark 4.2, printed
-pp.400–401; §8.2, Table 2, p.419; and the Appendix opening p.420. LWZB,
-*A predicted distribution for Galois groups of maximal unramified extensions*,
-Inventiones 237 (2024), Lemma 12.10 and its proof were read on published PDF
-pp.62–63, followed by the proof of Theorem 10.4 on PDF p.64. EVW withdrawn
-v1 Example 9.3.2 was read on PDF p.57 for the odd-index-two edge map.
-The other inherited source citations were not re-audited in full.
+Fresh reading in this run covered Wood, *Nonabelian Cohen–Lenstra moments*,
+Duke 168(3) (2019), the introduction on printed pp.378–379, §8.2, Table 2,
+p.419, and the Appendix opening p.420. The published table was also inspected
+visually to resolve PDF text extraction. LWZB, *A predicted distribution for
+Galois groups of maximal unramified extensions*, Inventiones 237 (2024),
+the proof of Theorem 10.4 on published PDF p.64 was read afresh: it uses
+conjugacy of splittings over the cyclic subgroup generated by an inertia
+element, not just existence of a complement.
+
+Inherited source reading from #8530 covered Wood §4.1, Proposition 4.1,
+equations (5)–(6) and Remark 4.2, printed pp.400–401; LWZB Lemma 12.10 on
+published PDF pp.62–63; and EVW withdrawn v1 Example 9.3.2 on PDF p.57.
+Those passages and the other inherited citations were not re-audited in full
+in this run. The following identities preserve the version ledger:
 
 | Source | Public URL | SHA-256 |
 | --- | --- | --- |
 | Wood, Duke (2019), read this run | https://par.nsf.gov/servlets/purl/10152050 | `154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d` |
 | LWZB published (2024), read this run | https://par.nsf.gov/servlets/purl/10509628 | `64295273b34676cb6fd0f1de5fc643d1744e3359f94382ea77303903cdb6dc91` |
 | Wood lifting (2021), inherited 13-page author copy | https://par.nsf.gov/servlets/purl/10253245 | `b91c78e56701615e9ccb30ed71e3ede9888b49ee984ceb0d59ae959a2d32d4ea` |
-| EVW, withdrawn v1 (2012), read this run | https://arxiv.org/pdf/1212.0923v1 | `3cd5624f85450b06f4be8b37d08fb480dde8dc7c68f9a5bd7ffc57c15c04a4e4` |
+| EVW, withdrawn v1 (2012), inherited identity | https://arxiv.org/pdf/1212.0923v1 | `3cd5624f85450b06f4be8b37d08fb480dde8dc7c68f9a5bd7ffc57c15c04a4e4` |
 | LWZB v2 (2022), inherited source identity | https://arxiv.org/pdf/1907.05002v2 | `7f1e85da49b23f80fc7abe9a68dbc5384ab216dfa5d55cd5e3223ba3268abed9` |
 
 No restricted source was used. No source passage or source file was added to
