@@ -2,6 +2,7 @@ import Mathlib.Data.Set.Card
 import Mathlib.NumberTheory.Divisors
 import Mathlib.Algebra.Squarefree.Basic
 import Mathlib.GroupTheory.GroupAction.Defs
+import Mathlib.GroupTheory.Perm.Basic
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
@@ -124,11 +125,22 @@ lemma sectionKernel_unique {G U I : Type*} [Group G] [MulAction G U]
     sectionKernel inv kappa Theta phi u = Theta g * phi (inv u) := by
   sorry
 
+lemma sectionKernel_finite_fibre {G U I : Type*} [Group G] [MulAction G U]
+    (inv : U → I) (kappa : I → U) (Theta : G → ℝ) (phi : I → ℝ) (u : U)
+    (hf : {g : G | g • kappa (inv u) = u}.Finite) :
+    sectionKernel inv kappa Theta phi u =
+      ∑ g ∈ hf.toFinset, Theta g * phi (inv u) := by
+  sorry
+
 private instance unitBoolAction : MulAction Unit Bool where
   smul _ b := b
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
 private instance unitUnitAction : MulAction Unit Unit where
+  smul _ u := u
+  one_smul _ := rfl
+  mul_smul _ _ _ := rfl
+private instance permUnitAction : MulAction (Equiv.Perm (Fin 2)) Unit where
   smul _ u := u
   one_smul _ := rfl
   mul_smul _ _ _ := rfl
@@ -144,6 +156,11 @@ example : sectionKernel (fun _ : Bool => ()) (fun _ : Unit => false)
 example {G U I : Type*} [Group G] [MulAction G U]
     (inv : U → I) (kappa : I → U) (Theta : G → ℝ) :
     sectionKernel inv kappa Theta (fun _ => 0) = fun _ => 0 := by
+  sorry
+-- ArithmeticCountingRefinement.kernel_nontrivial_stabilizer
+-- The transporter has two elements, so the stabilizer multiplicity is retained.
+example : sectionKernel (fun _ : Unit => ()) (fun _ : Unit => ())
+    (fun _ : Equiv.Perm (Fin 2) => (2 : ℝ)) (fun _ => 3) () = 12 := by
   sorry
 
 -- Private native adapters for imported ST.0 heights and ST.1 monic coefficients.
