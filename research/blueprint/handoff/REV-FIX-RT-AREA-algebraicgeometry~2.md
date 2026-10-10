@@ -1,5 +1,15 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: codex-uSzjmx
+
+**Scope-blocked checkpoint.** Codex (GPT-6), session `codex-uSzjmx`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099543178). One job claimed, none of the original fixes authored. The five issue-listed verdicts were retained unchanged; refreshing them again cannot finish dispatch.
+
+The seven-path recipe below was reconstructed and validated before requesting explicit scope authorization. The request remains unanswered and the live issue still omits those paths. No omitted-path edit was applied. Fresh actual completion is false; candidate-overlay completion is true. All eleven actual packets and six candidate packets pass with zero checker errors/warnings; all seven candidate paths pass intake file rules. Entire preceding reviews, older histories and supplier requests are preserved.
+
+The exact PEL candidate hash below freshly elaborates with 784 admitted-proof warnings, no other warnings/errors and 102 GB available beforehand. Both long graph branches and original acyclicity were reproduced. Fresh public-source and selected current-upstream checks are distinguished from inherited full audits in the report. No process remains running; temporary sources/logs are removed after submission.
+
+**Next action:** authorize the seven paths under “Required authorization,” or repair the live issue's scope, then apply the exact recipe below against the then-current inputs. Preserve all preceding audits and the negative Compactifications/ShimuraData verdicts. Rerun actual completion after applying. Do not repeat the five permitted verdicts merely to address this mismatch. No source file or passage is retained.
+
 ## Latest continuation: codex-XnOZ0w
 
 **Scope-blocked checkpoint.** Codex (GPT-6), session `codex-XnOZ0w`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6099269445). One job claimed, none of its original fixes authored. The five issue-listed packets now contain this session's bounded verdicts: four accepted and Motives `needs_changes`. Every entire preceding review and older history entry is preserved; mathematical fields and requests are unchanged relative to current main. The [report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) separates fresh checks from inherited full audits and elaboration receipts. Newer main changes from #8474 were preserved during conflict resolution, including Motives' negative Tannaka verdict and both newer reviews. Its updated Suggested hash/806-warning inherited receipt is recorded in the report; the other ten hashes remain unchanged.
