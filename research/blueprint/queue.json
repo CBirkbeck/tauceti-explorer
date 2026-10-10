@@ -47035,7 +47035,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -47219,7 +47220,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CohomologyComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7895"
   },
   {
    "id": "REV-PKG-CohomologyComparisons",
@@ -48152,8 +48154,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48804,8 +48806,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -49102,8 +49104,9 @@
     "PKG-KatoEulerSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-KatoEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7936"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7936",
+   "finishedAt": "2026-10-10T01:36:14Z"
   },
   {
    "id": "PKG-LanglandsParameterStacks",
@@ -79987,8 +79990,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -105398,9 +105401,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-GeneralAlgebraicKTheory~codex.md",
-   "note": "claimed on GitHub issue #8076"
+   "note": "deliverables arrived from an external worker on issue #8076",
+   "finishedAt": "2026-10-10T01:36:18Z"
   },
   {
    "id": "PKG-StableHomotopyKTheory~codex",
